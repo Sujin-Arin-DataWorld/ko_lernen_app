@@ -6,6 +6,8 @@
       "id": "rel_a1_0001",
       "sourceKo": "안녕하세요",
       "sourceVocabId": "vocab_a1_0001",
+      "sourceDe": "Hallo (höflich)",
+      "sourceEn": "Hello (formal)",
       "level": "A1",
       "synonyms": [
         {
@@ -51,6 +53,8 @@
       "id": "rel_a1_0002",
       "sourceKo": "감사합니다",
       "sourceVocabId": "vocab_a1_0003",
+      "sourceDe": "Vielen Dank (sehr formell)",
+      "sourceEn": "Thank you (very formal)",
       "level": "A1",
       "synonyms": [
         {
@@ -88,6 +92,8 @@
       "id": "rel_a1_0003",
       "sourceKo": "죄송합니다",
       "sourceVocabId": "vocab_a1_0005",
+      "sourceDe": "Entschuldigung (formell)",
+      "sourceEn": "I'm sorry (formal)",
       "level": "A1",
       "synonyms": [
         {
@@ -125,6 +131,8 @@
       "id": "rel_a1_0004",
       "sourceKo": "괜찮아요",
       "sourceVocabId": "vocab_a1_0007",
+      "sourceDe": "Kein Problem / Es ist okay",
+      "sourceEn": "It's okay / No problem",
       "level": "A1",
       "synonyms": [
         {
@@ -162,8 +170,19 @@
       "id": "rel_a1_0005",
       "sourceKo": "네",
       "sourceVocabId": "vocab_a1_0008",
+      "sourceDe": "Ja",
+      "sourceEn": "Yes",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "예",
+          "de": "ja (förmlich)",
+          "en": "yes (formal)",
+          "nuanceDe": "In der Schule und vor Älteren. 네 ist der Alltagsstandard.",
+          "nuanceEn": "At school and with older people. 네 is the everyday standard.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "아니요",
@@ -199,6 +218,8 @@
       "id": "rel_a1_0006",
       "sourceKo": "아버지",
       "sourceVocabId": "vocab_a1_0032",
+      "sourceDe": "Vater (formell)",
+      "sourceEn": "father (formal)",
       "level": "A1",
       "synonyms": [
         {
@@ -244,6 +265,8 @@
       "id": "rel_a1_0007",
       "sourceKo": "어머니",
       "sourceVocabId": "vocab_a1_0033",
+      "sourceDe": "Mutter (formell)",
+      "sourceEn": "mother (formal)",
       "level": "A1",
       "synonyms": [
         {
@@ -281,8 +304,19 @@
       "id": "rel_a1_0008",
       "sourceKo": "형",
       "sourceVocabId": "vocab_a1_0036",
+      "sourceDe": "älterer Bruder (Sicht des Mannes)",
+      "sourceEn": "older brother (for a male)",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "형님",
+          "de": "älterer Bruder (ehrerbietig)",
+          "en": "older brother (honorific)",
+          "nuanceDe": "Dieselbe Person, aber mit mehr Abstand und Respekt.",
+          "nuanceEn": "The same person, but with more distance and respect.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [],
       "related": [
         {
@@ -325,8 +359,19 @@
       "id": "rel_a1_0009",
       "sourceKo": "친구",
       "sourceVocabId": "vocab_a1_0015",
+      "sourceDe": "Freund/Freundin",
+      "sourceEn": "friend",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "벗",
+          "de": "Freund (schriftsprachlich)",
+          "en": "friend (literary)",
+          "nuanceDe": "In Texten und Reden. Im Café bleibt 친구 natürlicher.",
+          "nuanceEn": "In writing and speeches. In a café, 친구 stays more natural.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [],
       "related": [
         {
@@ -361,6 +406,8 @@
       "id": "rel_a1_0010",
       "sourceKo": "크다",
       "sourceVocabId": "vocab_a1_0116",
+      "sourceDe": "groß",
+      "sourceEn": "big",
       "level": "A1",
       "synonyms": [
         {
@@ -407,6 +454,8 @@
       "id": "rel_a1_0011",
       "sourceKo": "작다",
       "sourceVocabId": "vocab_a1_0117",
+      "sourceDe": "klein",
+      "sourceEn": "small",
       "level": "A1",
       "synonyms": [
         {
@@ -453,6 +502,8 @@
       "id": "rel_a1_0012",
       "sourceKo": "좋다",
       "sourceVocabId": "vocab_a1_0115",
+      "sourceDe": "gut / schön",
+      "sourceEn": "good / nice",
       "level": "A1",
       "synonyms": [
         {
@@ -499,8 +550,19 @@
       "id": "rel_a1_0013",
       "sourceKo": "비싸다",
       "sourceVocabId": "vocab_a1_0119",
+      "sourceDe": "teuer",
+      "sourceEn": "expensive",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "값이 나가다",
+          "de": "teuer zu stehen kommen",
+          "en": "to cost a lot",
+          "nuanceDe": "Mehr gesprochen. 비싸다 ist das klare Lehrwort.",
+          "nuanceEn": "More spoken. 비싸다 is the clear classroom word.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "싸다",
@@ -536,6 +598,8 @@
       "id": "rel_a1_0014",
       "sourceKo": "싸다",
       "sourceVocabId": "vocab_a1_0120",
+      "sourceDe": "billig / günstig",
+      "sourceEn": "cheap",
       "level": "A1",
       "synonyms": [
         {
@@ -582,8 +646,19 @@
       "id": "rel_a1_0015",
       "sourceKo": "맛있다",
       "sourceVocabId": "vocab_a1_0121",
+      "sourceDe": "lecker",
+      "sourceEn": "delicious",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "맛나다",
+          "de": "lecker sein",
+          "en": "to taste good",
+          "nuanceDe": "Etwas lockerer. 맛있다 bleibt die neutrale Form.",
+          "nuanceEn": "A bit looser. 맛있다 stays the neutral form.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "맛없다",
@@ -619,8 +694,19 @@
       "id": "rel_a1_0016",
       "sourceKo": "조용하다",
       "sourceVocabId": "vocab_a1_0123",
+      "sourceDe": "leise / ruhig",
+      "sourceEn": "quiet",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "고요하다",
+          "de": "still / ruhig sein",
+          "en": "to be still / calm",
+          "nuanceDe": "Mehr Atmosphäre als Regel. 조용하다 kann auch eine Bitte sein.",
+          "nuanceEn": "More atmosphere than a rule. 조용하다 can also be a request.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "시끄럽다",
@@ -656,8 +742,19 @@
       "id": "rel_a1_0017",
       "sourceKo": "시끄럽다",
       "sourceVocabId": "vocab_a1_0124",
+      "sourceDe": "laut",
+      "sourceEn": "loud / noisy",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "떠들썩하다",
+          "de": "laut und unruhig sein",
+          "en": "to be noisy and bustling",
+          "nuanceDe": "Viele Stimmen auf einmal. 시끄럽다 kann schon ein Lautsprecher sein.",
+          "nuanceEn": "Many voices at once. 시끄럽다 can already be one speaker.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "조용하다",
@@ -693,8 +790,19 @@
       "id": "rel_a1_0018",
       "sourceKo": "어렵다",
       "sourceVocabId": "vocab_a1_0125",
+      "sourceDe": "schwierig / schwer",
+      "sourceEn": "difficult / hard",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "힘들다",
+          "de": "anstrengend sein",
+          "en": "to be hard / tiring",
+          "nuanceDe": "Körper oder Tag. 어렵다 sitzt näher am Verstehen.",
+          "nuanceEn": "Body or day. 어렵다 sits closer to understanding.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "쉽다",
@@ -730,6 +838,8 @@
       "id": "rel_a1_0019",
       "sourceKo": "쉽다",
       "sourceVocabId": "vocab_a1_0126",
+      "sourceDe": "einfach / leicht",
+      "sourceEn": "easy",
       "level": "A1",
       "synonyms": [
         {
@@ -776,8 +886,19 @@
       "id": "rel_a1_0020",
       "sourceKo": "길다",
       "sourceVocabId": "vocab_a1_0128",
+      "sourceDe": "lang",
+      "sourceEn": "long",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "길쭉하다",
+          "de": "länglich sein",
+          "en": "to be elongated",
+          "nuanceDe": "Die Form ist gestreckt. 길다 misst einfach die Länge.",
+          "nuanceEn": "The shape is stretched. 길다 just measures length.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "짧다",
@@ -813,8 +934,19 @@
       "id": "rel_a1_0021",
       "sourceKo": "짧다",
       "sourceVocabId": "vocab_a1_0129",
+      "sourceDe": "kurz",
+      "sourceEn": "short",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "짧막하다",
+          "de": "ein wenig kurz sein",
+          "en": "to be on the short side",
+          "nuanceDe": "Leicht umgangssprachlich. 짧다 ist die klare Grundform.",
+          "nuanceEn": "Slightly colloquial. 짧다 is the clear base form.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "길다",
@@ -850,8 +982,19 @@
       "id": "rel_a1_0022",
       "sourceKo": "가다",
       "sourceVocabId": "vocab_a1_0087",
+      "sourceDe": "gehen",
+      "sourceEn": "to go",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "이동하다",
+          "de": "sich bewegen / wechseln",
+          "en": "to move / to transfer",
+          "nuanceDe": "Förmlicher und weiter: Ort, Job, Datei. 가다 bleibt der Schritt.",
+          "nuanceEn": "More formal and wider: place, job, file. 가다 stays the step.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "오다",
@@ -887,8 +1030,19 @@
       "id": "rel_a1_0023",
       "sourceKo": "오다",
       "sourceVocabId": "vocab_a1_0088",
+      "sourceDe": "kommen",
+      "sourceEn": "to come",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "찾아오다",
+          "de": "vorbeikommen",
+          "en": "to come by / to visit",
+          "nuanceDe": "Jemand kommt absichtlich zu dir. 오다 ist nur die Richtung.",
+          "nuanceEn": "Someone comes to you on purpose. 오다 is only the direction.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "가다",
@@ -924,8 +1078,19 @@
       "id": "rel_a1_0024",
       "sourceKo": "먹다",
       "sourceVocabId": "vocab_a1_0089",
+      "sourceDe": "essen",
+      "sourceEn": "to eat",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "드시다",
+          "de": "essen (ehrerbietig)",
+          "en": "to eat (honorific)",
+          "nuanceDe": "Für Ältere und Gäste. Über dich selbst bleibt 먹다.",
+          "nuanceEn": "For elders and guests. About yourself, keep 먹다.",
+          "vocabId": "vocab_b2_0202"
+        }
+      ],
       "antonyms": [],
       "related": [
         {
@@ -960,8 +1125,19 @@
       "id": "rel_a1_0025",
       "sourceKo": "있다",
       "sourceVocabId": "vocab_a1_0091",
+      "sourceDe": "sein / haben (existieren)",
+      "sourceEn": "to be / to have (to exist)",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "존재하다",
+          "de": "existieren",
+          "en": "to exist",
+          "nuanceDe": "Geschriebener, größerer Rahmen. 있다 ist Ort, Besitz und Dasein.",
+          "nuanceEn": "More written, larger frame. 있다 is place, having, and being there.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "없다",
@@ -997,8 +1173,19 @@
       "id": "rel_a1_0026",
       "sourceKo": "없다",
       "sourceVocabId": "vocab_a1_0092",
+      "sourceDe": "nicht haben / nicht sein",
+      "sourceEn": "to not have / to not exist",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "결여되다",
+          "de": "fehlen / mangeln",
+          "en": "to be lacking",
+          "nuanceDe": "Etwas Nötiges ist nicht da. 없다 ist der Alltagssatz.",
+          "nuanceEn": "Something needed is not there. 없다 is the everyday sentence.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "있다",
@@ -1034,8 +1221,19 @@
       "id": "rel_a1_0027",
       "sourceKo": "좋아하다",
       "sourceVocabId": "vocab_a1_0099",
+      "sourceDe": "mögen / gerne haben",
+      "sourceEn": "to like",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "아끼다",
+          "de": "gernhaben / schonen",
+          "en": "to cherish / to spare",
+          "nuanceDe": "Näher und vorsichtiger. 좋아하다 kann auch Eis oder Sport sein.",
+          "nuanceEn": "Closer and more careful. 좋아하다 can also be ice cream or sport.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "싫어하다",
@@ -1071,8 +1269,19 @@
       "id": "rel_a1_0028",
       "sourceKo": "싫어하다",
       "sourceVocabId": "vocab_a1_0100",
+      "sourceDe": "nicht mögen / ablehnen",
+      "sourceEn": "to dislike",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "미워하다",
+          "de": "nicht leiden können",
+          "en": "to dislike / to resent",
+          "nuanceDe": "Stärker und persönlicher als 싫어하다.",
+          "nuanceEn": "Stronger and more personal than 싫어하다.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "좋아하다",
@@ -1108,8 +1317,19 @@
       "id": "rel_a1_0029",
       "sourceKo": "알다",
       "sourceVocabId": "vocab_a1_0105",
+      "sourceDe": "wissen / kennen",
+      "sourceEn": "to know",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "이해하다",
+          "de": "verstehen",
+          "en": "to understand",
+          "nuanceDe": "Sinn und Zusammenhang. 알다 kann auch nur eine Tatsache kennen.",
+          "nuanceEn": "Sense and connection. 알다 can also just know a fact.",
+          "vocabId": "vocab_a2_0047"
+        }
+      ],
       "antonyms": [
         {
           "ko": "모르다",
@@ -1145,8 +1365,19 @@
       "id": "rel_a1_0030",
       "sourceKo": "모르다",
       "sourceVocabId": "vocab_a1_0106",
+      "sourceDe": "nicht wissen",
+      "sourceEn": "to not know",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "알지 못하다",
+          "de": "nicht wissen",
+          "en": "to not know",
+          "nuanceDe": "Dieselbe Lücke, nur als verneintes 알다.",
+          "nuanceEn": "The same gap, just as negated 알다.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "알다",
@@ -1182,8 +1413,19 @@
       "id": "rel_a1_0031",
       "sourceKo": "주다",
       "sourceVocabId": "vocab_a1_0107",
+      "sourceDe": "geben",
+      "sourceEn": "to give",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "드리다",
+          "de": "geben (demütig)",
+          "en": "to give (humble)",
+          "nuanceDe": "Nach oben. Über dich zu einem Freund bleibt 주다.",
+          "nuanceEn": "Toward someone above you. To a friend, keep 주다.",
+          "vocabId": "vocab_b2_0198"
+        }
+      ],
       "antonyms": [
         {
           "ko": "받다",
@@ -1219,8 +1461,19 @@
       "id": "rel_a1_0032",
       "sourceKo": "받다",
       "sourceVocabId": "vocab_a1_0108",
+      "sourceDe": "bekommen / empfangen",
+      "sourceEn": "to receive / to get",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "얻다",
+          "de": "bekommen / erlangen",
+          "en": "to obtain / to get",
+          "nuanceDe": "Man kommt zu etwas. 받다 betont, dass es gereicht wird.",
+          "nuanceEn": "You come to have it. 받다 stresses that it is handed over.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "주다",
@@ -1256,6 +1509,8 @@
       "id": "rel_a1_0033",
       "sourceKo": "말하다",
       "sourceVocabId": "vocab_a1_0103",
+      "sourceDe": "sprechen / sagen",
+      "sourceEn": "to speak / to say",
       "level": "A1",
       "synonyms": [
         {
@@ -1293,8 +1548,19 @@
       "id": "rel_a1_0034",
       "sourceKo": "오늘",
       "sourceVocabId": "vocab_a1_0029",
+      "sourceDe": "heute",
+      "sourceEn": "today",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "금일",
+          "de": "heute (schriftlich)",
+          "en": "today (written)",
+          "nuanceDe": "Aushang und Behörde. Im Gespräch bleibt 오늘.",
+          "nuanceEn": "Notices and offices. In speech, keep 오늘.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [],
       "related": [
         {
@@ -1329,8 +1595,19 @@
       "id": "rel_a1_0035",
       "sourceKo": "내일",
       "sourceVocabId": "vocab_a1_0030",
+      "sourceDe": "morgen",
+      "sourceEn": "tomorrow",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "명일",
+          "de": "morgen (schriftlich)",
+          "en": "tomorrow (written)",
+          "nuanceDe": "Formeller Kalender. Im Chat bleibt 내일.",
+          "nuanceEn": "A more formal calendar. In chat, keep 내일.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [],
       "related": [
         {
@@ -1365,8 +1642,19 @@
       "id": "rel_a1_0036",
       "sourceKo": "어제",
       "sourceVocabId": "vocab_a1_0031",
+      "sourceDe": "gestern",
+      "sourceEn": "yesterday",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "작일",
+          "de": "gestern (schriftlich)",
+          "en": "yesterday (written)",
+          "nuanceDe": "Selten und förmlich. Im Gespräch bleibt 어제.",
+          "nuanceEn": "Rare and formal. In speech, keep 어제.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [],
       "related": [
         {
@@ -1401,8 +1689,19 @@
       "id": "rel_a1_0037",
       "sourceKo": "빨리",
       "sourceVocabId": "vocab_a1_0086",
+      "sourceDe": "schnell / beeile dich",
+      "sourceEn": "quickly / hurry up",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "빠르게",
+          "de": "schnell",
+          "en": "quickly",
+          "nuanceDe": "Die Adverbform zu 빠르다. 빨리 ist kürzer und gesprochener.",
+          "nuanceEn": "The adverb form of 빠르다. 빨리 is shorter and more spoken.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "천천히",
@@ -1438,8 +1737,19 @@
       "id": "rel_a1_0038",
       "sourceKo": "천천히",
       "sourceVocabId": "vocab_a1_0203",
+      "sourceDe": "langsam",
+      "sourceEn": "slowly",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "느리게",
+          "de": "langsam",
+          "en": "slowly",
+          "nuanceDe": "Tempo. 천천히 bittet oft um Vorsicht, nicht nur um Zeit.",
+          "nuanceEn": "Pace. 천천히 often asks for care, not only time.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "빨리",
@@ -1475,8 +1785,19 @@
       "id": "rel_a1_0039",
       "sourceKo": "항상",
       "sourceVocabId": "vocab_a1_0084",
+      "sourceDe": "immer",
+      "sourceEn": "always",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "언제나",
+          "de": "immer / jederzeit",
+          "en": "always / at any time",
+          "nuanceDe": "Sehr nah. 항상 klingt ein wenig fester und regelmäßiger.",
+          "nuanceEn": "Very close. 항상 sounds a bit more fixed and regular.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "가끔",
@@ -1512,8 +1833,19 @@
       "id": "rel_a1_0040",
       "sourceKo": "집",
       "sourceVocabId": "vocab_a1_0019",
+      "sourceDe": "Haus / Zuhause",
+      "sourceEn": "house / home",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "댁",
+          "de": "Haus (ehrerbietig)",
+          "en": "house (honorific)",
+          "nuanceDe": "Das Haus einer älteren Person. Über dein Zimmer bleibt 집.",
+          "nuanceEn": "An elder's house. About your own room, keep 집.",
+          "vocabId": "vocab_b2_0197"
+        }
+      ],
       "antonyms": [],
       "related": [
         {
@@ -1548,6 +1880,8 @@
       "id": "rel_a1_0041",
       "sourceKo": "밥",
       "sourceVocabId": "vocab_a1_0022",
+      "sourceDe": "Reis / Mahlzeit",
+      "sourceEn": "rice / meal",
       "level": "A1",
       "synonyms": [
         {
@@ -1585,8 +1919,19 @@
       "id": "rel_a1_0042",
       "sourceKo": "학생",
       "sourceVocabId": "vocab_a1_0013",
+      "sourceDe": "Student/Schüler",
+      "sourceEn": "student / pupil",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "학습자",
+          "de": "Lernende / Lernender",
+          "en": "learner",
+          "nuanceDe": "Kurs und Text. 학생 bleibt Schule und Alltag.",
+          "nuanceEn": "Courses and texts. 학생 stays school and daily life.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [],
       "related": [
         {
@@ -1621,8 +1966,19 @@
       "id": "rel_a2_0001",
       "sourceKo": "행복하다",
       "sourceVocabId": "vocab_a2_0063",
+      "sourceDe": "glücklich (sein)",
+      "sourceEn": "to be happy",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "즐겁다",
+          "de": "fröhlich / angenehm sein",
+          "en": "to be glad / enjoyable",
+          "nuanceDe": "Ein Moment oder ein Fest. 행복하다 sitzt tiefer und länger.",
+          "nuanceEn": "A moment or a gathering. 행복하다 sits deeper and longer.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "슬프다",
@@ -1658,8 +2014,19 @@
       "id": "rel_a2_0002",
       "sourceKo": "슬프다",
       "sourceVocabId": "vocab_a2_0064",
+      "sourceDe": "traurig (sein)",
+      "sourceEn": "to be sad",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "우울하다",
+          "de": "niedergeschlagen sein",
+          "en": "to be down / gloomy",
+          "nuanceDe": "Länger und flacher. 슬프다 kann ein klarer Anlass sein.",
+          "nuanceEn": "Longer and flatter. 슬프다 can have a clear cause.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "행복하다",
@@ -1695,8 +2062,19 @@
       "id": "rel_a2_0003",
       "sourceKo": "바쁘다",
       "sourceVocabId": "vocab_a2_0061",
+      "sourceDe": "beschäftigt (sein)",
+      "sourceEn": "to be busy",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "정신없다",
+          "de": "den Kopf nicht frei haben",
+          "en": "to be swamped",
+          "nuanceDe": "Alles auf einmal. 바쁘다 kann auch nur ein voller Kalender sein.",
+          "nuanceEn": "Everything at once. 바쁘다 can also just be a full calendar.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "한가하다",
@@ -1732,8 +2110,19 @@
       "id": "rel_a2_0004",
       "sourceKo": "배우다",
       "sourceVocabId": "vocab_a2_0048",
+      "sourceDe": "lernen / etwas Neues erlernen",
+      "sourceEn": "to learn (something new)",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "공부하다",
+          "de": "lernen / studieren",
+          "en": "to study",
+          "nuanceDe": "Schreibtisch und Wiederholen. 배우다 betont, dass etwas neu hereinkommt.",
+          "nuanceEn": "Desk and review. 배우다 stresses that something new comes in.",
+          "vocabId": "vocab_a2_0039"
+        }
+      ],
       "antonyms": [
         {
           "ko": "가르치다",
@@ -1769,8 +2158,19 @@
       "id": "rel_a2_0005",
       "sourceKo": "혼자",
       "sourceVocabId": "vocab_a2_0084",
+      "sourceDe": "alleine",
+      "sourceEn": "alone",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "홀로",
+          "de": "allein / für sich",
+          "en": "alone / by oneself",
+          "nuanceDe": "Etwas schriftlicher. 혼자 ist der Alltagsatz.",
+          "nuanceEn": "A bit more written. 혼자 is the everyday sentence.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "같이",
@@ -1806,8 +2206,19 @@
       "id": "rel_a2_0006",
       "sourceKo": "같이",
       "sourceVocabId": "vocab_a2_0085",
+      "sourceDe": "zusammen / gemeinsam",
+      "sourceEn": "together",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "함께",
+          "de": "gemeinsam",
+          "en": "together",
+          "nuanceDe": "Etwas förmlicher als 같이, aber dieselbe Richtung.",
+          "nuanceEn": "A bit more formal than 같이, but the same direction.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "혼자",
@@ -1843,6 +2254,8 @@
       "id": "rel_a2_0007",
       "sourceKo": "피곤하다",
       "sourceVocabId": "vocab_a2_0062",
+      "sourceDe": "müde (sein)",
+      "sourceEn": "to be tired",
       "level": "A2",
       "synonyms": [
         {
@@ -1854,7 +2267,16 @@
           "vocabId": ""
         }
       ],
-      "antonyms": [],
+      "antonyms": [
+        {
+          "ko": "개운하다",
+          "de": "ausgeschlafen / frisch sein",
+          "en": "to feel refreshed",
+          "nuanceDe": "Der Körper ist wieder klar. Das Gegenstück zu 피곤하다.",
+          "nuanceEn": "The body is clear again. The counterpart to 피곤하다.",
+          "vocabId": ""
+        }
+      ],
       "related": [
         {
           "ko": "쉬다",
@@ -1880,8 +2302,19 @@
       "id": "rel_a2_0008",
       "sourceKo": "아프다",
       "sourceVocabId": "vocab_a2_0069",
+      "sourceDe": "krank sein / schmerzen",
+      "sourceEn": "to be sick / to hurt",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "고통스럽다",
+          "de": "schmerzhaft sein",
+          "en": "to be painful",
+          "nuanceDe": "Stärker und weiter. 아프다 bleibt der einfache Körpersatz.",
+          "nuanceEn": "Stronger and wider. 아프다 stays the simple body sentence.",
+          "vocabId": ""
+        }
+      ],
       "antonyms": [
         {
           "ko": "건강하다",
@@ -1910,6 +2343,774 @@
           "exampleKo": "잠을 못 자서 머리가 아파요.",
           "exampleDe": "Ich habe schlecht geschlafen, deshalb tut der Kopf weh.",
           "exampleEn": "I didn't sleep well, so I have a headache."
+        }
+      ]
+    },
+    {
+      "id": "rel_b1_0001",
+      "sourceKo": "성공하다",
+      "sourceVocabId": "vocab_b1_0039",
+      "sourceDe": "erfolgreich sein / Erfolg haben",
+      "sourceEn": "to succeed",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "이루다",
+          "de": "erreichen / verwirklichen",
+          "en": "to achieve / to realize",
+          "nuanceDe": "성공하다 betont das Gelingen. 이루다 betont, dass ein Ziel wirklich wird.",
+          "nuanceEn": "성공하다 stresses succeeding. 이루다 stresses making a goal real.",
+          "vocabId": "vocab_b2_0182"
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "실패하다",
+          "de": "scheitern",
+          "en": "to fail",
+          "nuanceDe": "Das klare Gegenstück: der Versuch geht nicht auf.",
+          "nuanceEn": "The clear opposite: the attempt does not work out.",
+          "vocabId": "vocab_b1_0038"
+        }
+      ],
+      "related": [
+        {
+          "ko": "노력하다",
+          "de": "sich anstrengen",
+          "en": "to make an effort",
+          "nuanceDe": "Was man vor dem Erfolg oft tun muss.",
+          "nuanceEn": "What you often have to do before success.",
+          "vocabId": "vocab_b1_0035"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "성공을 거두다",
+          "de": "Erfolg haben",
+          "en": "to achieve success",
+          "exampleKo": "이번 프로젝트에서 성공을 거뒀어요.",
+          "exampleDe": "Bei diesem Projekt hatte ich Erfolg.",
+          "exampleEn": "I achieved success with this project."
+        }
+      ]
+    },
+    {
+      "id": "rel_b1_0002",
+      "sourceKo": "복잡하다",
+      "sourceVocabId": "vocab_b1_0046",
+      "sourceDe": "kompliziert sein",
+      "sourceEn": "to be complicated",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "난해하다",
+          "de": "schwer verständlich sein",
+          "en": "to be hard to follow",
+          "nuanceDe": "Mehr Kopf als Alltag. 복잡하다 kann auch ein voller Terminkalender sein.",
+          "nuanceEn": "More about the mind than daily mess. 복잡하다 can also be a packed schedule.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "단순하다",
+          "de": "einfach / schlicht sein",
+          "en": "to be simple",
+          "nuanceDe": "Wenig Teile, wenig Umwege.",
+          "nuanceEn": "Few parts, few detours.",
+          "vocabId": "vocab_b1_0047"
+        }
+      ],
+      "related": [
+        {
+          "ko": "문제",
+          "de": "Problem / Aufgabe",
+          "en": "problem / question",
+          "nuanceDe": "Was oft kompliziert wirkt, wenn zu viele Teile zusammenkommen.",
+          "nuanceEn": "What often feels complicated when too many parts meet.",
+          "vocabId": "vocab_b1_0008"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "너무 복잡해요",
+          "de": "Das ist zu kompliziert",
+          "en": "That's too complicated",
+          "exampleKo": "이 설명은 너무 복잡해요. 다시 말해 주세요.",
+          "exampleDe": "Diese Erklärung ist zu kompliziert. Sag es bitte noch einmal.",
+          "exampleEn": "This explanation is too complicated. Please say it again."
+        }
+      ]
+    },
+    {
+      "id": "rel_b1_0003",
+      "sourceKo": "적극적이다",
+      "sourceVocabId": "vocab_b1_0096",
+      "sourceDe": "aktiv / engagiert sein",
+      "sourceEn": "to be active / proactive",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "능동적이다",
+          "de": "aktiv / initiativ sein",
+          "en": "to be proactive",
+          "nuanceDe": "Man wartet nicht. 적극적이다 klingt im Alltag etwas wärmer.",
+          "nuanceEn": "You do not wait. 적극적이다 sounds a bit warmer in daily talk.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "소극적이다",
+          "de": "zurückhaltend sein",
+          "en": "to be reserved / passive",
+          "nuanceDe": "Man hält sich zurück, statt den ersten Schritt zu tun.",
+          "nuanceEn": "You hold back instead of taking the first step.",
+          "vocabId": "vocab_b1_0097"
+        }
+      ],
+      "related": [
+        {
+          "ko": "참여하다",
+          "de": "teilnehmen",
+          "en": "to participate",
+          "nuanceDe": "Wohin aktive Haltung oft führt: man macht mit.",
+          "nuanceEn": "Where an active stance often leads: you take part.",
+          "vocabId": "vocab_b1_0036"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "적극적으로 나서다",
+          "de": "aktiv vorangehen",
+          "en": "to step forward actively",
+          "exampleKo": "회의에서 적극적으로 나섰어요.",
+          "exampleDe": "In der Besprechung bin ich aktiv vorangegangen.",
+          "exampleEn": "I stepped forward actively in the meeting."
+        }
+      ]
+    },
+    {
+      "id": "rel_b1_0004",
+      "sourceKo": "밝다",
+      "sourceVocabId": "vocab_b1_0234",
+      "sourceDe": "hell",
+      "sourceEn": "bright",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "환하다",
+          "de": "hell / leuchtend sein",
+          "en": "to be bright / well-lit",
+          "nuanceDe": "Oft Licht und offene Räume. 밝다 kann auch eine Stimmung sein.",
+          "nuanceEn": "Often light and open rooms. 밝다 can also be a mood.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "어둡다",
+          "de": "dunkel sein",
+          "en": "to be dark",
+          "nuanceDe": "Wenig Licht. Auch eine schwere Stimmung.",
+          "nuanceEn": "Little light. Also a heavy mood.",
+          "vocabId": "vocab_b1_0235"
+        }
+      ],
+      "related": [
+        {
+          "ko": "형광등",
+          "de": "Leuchtstofflampe",
+          "en": "fluorescent light",
+          "nuanceDe": "Eine alltägliche Lichtquelle, die einen Raum hell macht.",
+          "nuanceEn": "An everyday light that makes a room bright.",
+          "vocabId": "vocab_b2_0138"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "방이 밝아요",
+          "de": "Das Zimmer ist hell",
+          "en": "The room is bright",
+          "exampleKo": "커튼을 여니 방이 밝아요.",
+          "exampleDe": "Als ich den Vorhang öffnete, war das Zimmer hell.",
+          "exampleEn": "When I opened the curtain, the room was bright."
+        }
+      ]
+    },
+    {
+      "id": "rel_b1_0005",
+      "sourceKo": "중요하다",
+      "sourceVocabId": "vocab_b1_0044",
+      "sourceDe": "wichtig (sein)",
+      "sourceEn": "to be important",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "소중하다",
+          "de": "wertvoll / wichtig sein",
+          "en": "to be precious / valued",
+          "nuanceDe": "Mehr Herz. 중요하다 kann auch nur sachlich nötig sein.",
+          "nuanceEn": "More heart. 중요하다 can also just be factually needed.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "사소하다",
+          "de": "unwichtig / geringfügig sein",
+          "en": "to be minor / trivial",
+          "nuanceDe": "Klein genug, dass man es oft weglässt.",
+          "nuanceEn": "Small enough that people often skip it.",
+          "vocabId": ""
+        }
+      ],
+      "related": [
+        {
+          "ko": "의미",
+          "de": "Bedeutung / Sinn",
+          "en": "meaning",
+          "nuanceDe": "Warum etwas wichtig wirkt.",
+          "nuanceEn": "Why something feels important.",
+          "vocabId": "vocab_b1_0083"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "중요한 일",
+          "de": "eine wichtige Sache",
+          "en": "an important matter",
+          "exampleKo": "오늘은 중요한 일이 있어요.",
+          "exampleDe": "Heute habe ich eine wichtige Sache.",
+          "exampleEn": "I have something important today."
+        }
+      ]
+    },
+    {
+      "id": "rel_b1_0006",
+      "sourceKo": "동의하다",
+      "sourceVocabId": "vocab_b1_0076",
+      "sourceDe": "zustimmen",
+      "sourceEn": "to agree",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "찬성하다",
+          "de": "dafür sein",
+          "en": "to be in favor",
+          "nuanceDe": "Oft bei einer Abstimmung. 동의하다 kann auch nur zustimmen.",
+          "nuanceEn": "Often in a vote. 동의하다 can also just mean agreeing.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "반대하다",
+          "de": "dagegen sein",
+          "en": "to oppose",
+          "nuanceDe": "Man stellt sich gegen den Vorschlag.",
+          "nuanceEn": "You stand against the proposal.",
+          "vocabId": ""
+        }
+      ],
+      "related": [
+        {
+          "ko": "의견",
+          "de": "Meinung",
+          "en": "opinion",
+          "nuanceDe": "Das, dem man zustimmt oder widerspricht.",
+          "nuanceEn": "What you agree with or push against.",
+          "vocabId": "vocab_b1_0023"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "의견에 동의하다",
+          "de": "einer Meinung zustimmen",
+          "en": "to agree with an opinion",
+          "exampleKo": "그 의견에 동의해요.",
+          "exampleDe": "Dieser Meinung stimme ich zu.",
+          "exampleEn": "I agree with that opinion."
+        }
+      ]
+    },
+    {
+      "id": "rel_b1_0007",
+      "sourceKo": "합격하다",
+      "sourceVocabId": "vocab_b1_0173",
+      "sourceDe": "bestehen",
+      "sourceEn": "to pass",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "통과하다",
+          "de": "durchkommen / bestehen",
+          "en": "to pass / to get through",
+          "nuanceDe": "Ein Filter, eine Prüfung, eine Kontrolle. 합격하다 ist oft die Prüfung selbst.",
+          "nuanceEn": "A filter, a test, a check. 합격하다 is often the exam itself.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "떨어지다",
+          "de": "durchfallen",
+          "en": "to fail (an exam)",
+          "nuanceDe": "Die Prüfung ist nicht geschafft.",
+          "nuanceEn": "The exam is not passed.",
+          "vocabId": ""
+        }
+      ],
+      "related": [
+        {
+          "ko": "시험",
+          "de": "Prüfung / Test",
+          "en": "exam / test",
+          "nuanceDe": "Der Ort, an dem 합격하다 zählt.",
+          "nuanceEn": "The place where 합격하다 counts.",
+          "vocabId": "vocab_a2_0020"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "시험에 합격하다",
+          "de": "eine Prüfung bestehen",
+          "en": "to pass an exam",
+          "exampleKo": "한국어 시험에 합격했어요.",
+          "exampleDe": "Ich habe die Koreanischprüfung bestanden.",
+          "exampleEn": "I passed the Korean exam."
+        }
+      ]
+    },
+    {
+      "id": "rel_b1_0008",
+      "sourceKo": "부지런하다",
+      "sourceVocabId": "vocab_b1_0095",
+      "sourceDe": "fleißig sein",
+      "sourceEn": "to be diligent",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "성실하다",
+          "de": "gewissenhaft sein",
+          "en": "to be conscientious",
+          "nuanceDe": "Man macht die Arbeit sauber. 부지런하다 betont das stete Dranbleiben.",
+          "nuanceEn": "You do the work cleanly. 부지런하다 stresses staying on it.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "게으르다",
+          "de": "faul sein",
+          "en": "to be lazy",
+          "nuanceDe": "Man schiebt auf oder bleibt liegen.",
+          "nuanceEn": "You put things off or stay put.",
+          "vocabId": "vocab_b1_0094"
+        }
+      ],
+      "related": [
+        {
+          "ko": "습관",
+          "de": "Gewohnheit",
+          "en": "habit",
+          "nuanceDe": "Fleiß wird oft zur täglichen Spur.",
+          "nuanceEn": "Diligence often becomes a daily track.",
+          "vocabId": "vocab_b1_0016"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "부지런히 살다",
+          "de": "fleißig leben",
+          "en": "to live diligently",
+          "exampleKo": "할머니는 평생 부지런히 사셨어요.",
+          "exampleDe": "Oma hat ihr Leben lang fleißig gelebt.",
+          "exampleEn": "Grandma lived diligently her whole life."
+        }
+      ]
+    },
+    {
+      "id": "rel_b2_0001",
+      "sourceKo": "추상적이다",
+      "sourceVocabId": "vocab_b2_0029",
+      "sourceDe": "abstrakt sein",
+      "sourceEn": "to be abstract",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "관념적이다",
+          "de": "begrifflich / ideell sein",
+          "en": "to be conceptual",
+          "nuanceDe": "Noch näher an Ideen als an Dingen. 추상적이다 ist der Schulwortschatz.",
+          "nuanceEn": "Even closer to ideas than things. 추상적이다 is the classroom word.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "구체적이다",
+          "de": "konkret sein",
+          "en": "to be concrete",
+          "nuanceDe": "Man kann es zeigen, zählen oder anfassen.",
+          "nuanceEn": "You can point to it, count it, or touch it.",
+          "vocabId": "vocab_b2_0030"
+        }
+      ],
+      "related": [
+        {
+          "ko": "의미",
+          "de": "Bedeutung",
+          "en": "meaning",
+          "nuanceDe": "Was bei abstrakten Wörtern oft erst erklärt werden muss.",
+          "nuanceEn": "What abstract words often still need explained.",
+          "vocabId": "vocab_b1_0083"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "구체적으로 말하다",
+          "de": "konkret sprechen",
+          "en": "to speak concretely",
+          "exampleKo": "추상적으로 말고 구체적으로 말해 주세요.",
+          "exampleDe": "Nicht abstrakt — sprich bitte konkret.",
+          "exampleEn": "Don't stay abstract — please speak concretely."
+        }
+      ]
+    },
+    {
+      "id": "rel_b2_0002",
+      "sourceKo": "명확하다",
+      "sourceVocabId": "vocab_b2_0070",
+      "sourceDe": "eindeutig / klar sein",
+      "sourceEn": "to be clear / unambiguous",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "분명하다",
+          "de": "klar / offensichtlich sein",
+          "en": "to be plain / obvious",
+          "nuanceDe": "Man sieht es sofort. 명확하다 klingt etwas förmlicher.",
+          "nuanceEn": "You see it at once. 명확하다 sounds a bit more formal.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "모호하다",
+          "de": "vage / unklar sein",
+          "en": "to be vague / unclear",
+          "nuanceDe": "Die Grenze bleibt weich. Man weiß nicht genau, was gemeint ist.",
+          "nuanceEn": "The edge stays soft. You are not sure what is meant.",
+          "vocabId": "vocab_b2_0071"
+        }
+      ],
+      "related": [
+        {
+          "ko": "의미",
+          "de": "Bedeutung",
+          "en": "meaning",
+          "nuanceDe": "Was klar oder vage bleiben kann.",
+          "nuanceEn": "What can stay clear or vague.",
+          "vocabId": "vocab_b1_0083"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "명확하게 설명하다",
+          "de": "klar erklären",
+          "en": "to explain clearly",
+          "exampleKo": "조건을 명확하게 설명해 주세요.",
+          "exampleDe": "Erklär die Bedingung bitte klar.",
+          "exampleEn": "Please explain the condition clearly."
+        }
+      ]
+    },
+    {
+      "id": "rel_b2_0003",
+      "sourceKo": "안전하다",
+      "sourceVocabId": "vocab_b2_0158",
+      "sourceDe": "sicher",
+      "sourceEn": "safe",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "무사하다",
+          "de": "unversehrt / in Sicherheit sein",
+          "en": "to be unharmed / safe",
+          "nuanceDe": "Nichts ist passiert. 안전하다 beschreibt oft den Zustand eines Orts.",
+          "nuanceEn": "Nothing happened. 안전하다 often describes the state of a place.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "위험",
+          "de": "Gefahr",
+          "en": "danger",
+          "nuanceDe": "Das, wovor 안전하다 schützt.",
+          "nuanceEn": "What 안전하다 protects you from.",
+          "vocabId": "vocab_b2_0157"
+        }
+      ],
+      "related": [
+        {
+          "ko": "사고",
+          "de": "Unfall",
+          "en": "accident",
+          "nuanceDe": "Was passiert, wenn Sicherheit fehlt.",
+          "nuanceEn": "What happens when safety is missing.",
+          "vocabId": "vocab_b2_0164"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "안전하게 지내다",
+          "de": "sicher bleiben",
+          "en": "to stay safe",
+          "exampleKo": "길에서 안전하게 지내세요.",
+          "exampleDe": "Bleib unterwegs sicher.",
+          "exampleEn": "Stay safe on the way."
+        }
+      ]
+    },
+    {
+      "id": "rel_b2_0004",
+      "sourceKo": "금지하다",
+      "sourceVocabId": "vocab_b2_0102",
+      "sourceDe": "verbieten",
+      "sourceEn": "to prohibit",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "막다",
+          "de": "untersagen / blockieren",
+          "en": "to block / to stop",
+          "nuanceDe": "Alltagssprache. 금지하다 steht oft auf Schildern.",
+          "nuanceEn": "Everyday speech. 금지하다 often sits on signs.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "허용하다",
+          "de": "erlauben",
+          "en": "to allow",
+          "nuanceDe": "Man gibt die Erlaubnis, die 금지하다 nimmt.",
+          "nuanceEn": "You give the permission that 금지하다 takes away.",
+          "vocabId": ""
+        }
+      ],
+      "related": [
+        {
+          "ko": "출입",
+          "de": "Zutritt",
+          "en": "entry",
+          "nuanceDe": "Was Schilder oft verbieten oder erlauben.",
+          "nuanceEn": "What signs often forbid or allow.",
+          "vocabId": "vocab_b2_0103"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "출입을 금지하다",
+          "de": "den Zutritt verbieten",
+          "en": "to prohibit entry",
+          "exampleKo": "공사 중이라 출입을 금지해요.",
+          "exampleDe": "Wegen der Baustelle ist der Zutritt verboten.",
+          "exampleEn": "Entry is prohibited because of construction."
+        }
+      ]
+    },
+    {
+      "id": "rel_b2_0005",
+      "sourceKo": "적절하다",
+      "sourceVocabId": "vocab_b2_0069",
+      "sourceDe": "angemessen / passend sein",
+      "sourceEn": "to be appropriate / suitable",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "알맞다",
+          "de": "passend sein",
+          "en": "to be fitting",
+          "nuanceDe": "Etwas wärmer und alltäglicher als 적절하다.",
+          "nuanceEn": "A bit warmer and more everyday than 적절하다.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "부적절하다",
+          "de": "unangemessen sein",
+          "en": "to be inappropriate",
+          "nuanceDe": "Falscher Ton, falscher Ort, falscher Moment.",
+          "nuanceEn": "Wrong tone, wrong place, wrong moment.",
+          "vocabId": ""
+        }
+      ],
+      "related": [
+        {
+          "ko": "상황",
+          "de": "Situation",
+          "en": "situation",
+          "nuanceDe": "Ob etwas passt, hängt oft hiervon ab.",
+          "nuanceEn": "Whether something fits often depends on this.",
+          "vocabId": "vocab_b1_0019"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "적절하게 말하다",
+          "de": "angemessen sprechen",
+          "en": "to speak appropriately",
+          "exampleKo": "그 자리에서는 적절하게 말해야 해요.",
+          "exampleDe": "An dem Ort muss man angemessen sprechen.",
+          "exampleEn": "In that setting you have to speak appropriately."
+        }
+      ]
+    },
+    {
+      "id": "rel_b2_0006",
+      "sourceKo": "건조하다",
+      "sourceVocabId": "vocab_b2_0136",
+      "sourceDe": "trocken",
+      "sourceEn": "dry",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "메마르다",
+          "de": "ausgetrocknet sein",
+          "en": "to be parched",
+          "nuanceDe": "Stärker und bildlicher. 건조하다 ist der Alltags- und Wetterwortschatz.",
+          "nuanceEn": "Stronger and more pictorial. 건조하다 is the everyday and weather word.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "습하다",
+          "de": "feucht sein",
+          "en": "to be humid / damp",
+          "nuanceDe": "Luft oder Stoff hält Wasser.",
+          "nuanceEn": "Air or cloth holds water.",
+          "vocabId": ""
+        }
+      ],
+      "related": [
+        {
+          "ko": "습도",
+          "de": "Luftfeuchtigkeit",
+          "en": "humidity",
+          "nuanceDe": "Die Zahl hinter trocken oder feucht.",
+          "nuanceEn": "The number behind dry or damp.",
+          "vocabId": "vocab_b2_0134"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "공기가 건조해요",
+          "de": "Die Luft ist trocken",
+          "en": "The air is dry",
+          "exampleKo": "겨울에는 공기가 건조해요.",
+          "exampleDe": "Im Winter ist die Luft trocken.",
+          "exampleEn": "In winter the air is dry."
+        }
+      ]
+    },
+    {
+      "id": "rel_b2_0007",
+      "sourceKo": "해지하다",
+      "sourceVocabId": "vocab_b2_0206",
+      "sourceDe": "kündigen",
+      "sourceEn": "to terminate",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "끊다",
+          "de": "kündigen / abbrechen",
+          "en": "to cut off / to cancel",
+          "nuanceDe": "Alltag: Handy, Abo, Gespräch. 해지하다 ist der Vertragston.",
+          "nuanceEn": "Everyday: phone, subscription, a talk. 해지하다 is contract tone.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "갱신하다",
+          "de": "erneuern",
+          "en": "to renew",
+          "nuanceDe": "Man verlängert, statt zu beenden.",
+          "nuanceEn": "You extend instead of ending.",
+          "vocabId": "vocab_b2_0207"
+        }
+      ],
+      "related": [
+        {
+          "ko": "계약",
+          "de": "Vertrag",
+          "en": "contract",
+          "nuanceDe": "Das Papier, das man kündigt oder erneuert.",
+          "nuanceEn": "The paper you cancel or renew.",
+          "vocabId": "vocab_b2_0034"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "계약을 해지하다",
+          "de": "einen Vertrag kündigen",
+          "en": "to terminate a contract",
+          "exampleKo": "이번 달에 계약을 해지할 거예요.",
+          "exampleDe": "Diesen Monat kündige ich den Vertrag.",
+          "exampleEn": "I will terminate the contract this month."
+        }
+      ]
+    },
+    {
+      "id": "rel_b2_0008",
+      "sourceKo": "태연하다",
+      "sourceVocabId": "vocab_b2_0413",
+      "sourceDe": "gelassen / ungerührt",
+      "sourceEn": "composed",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "침착하다",
+          "de": "ruhig / gefasst sein",
+          "en": "to be composed",
+          "nuanceDe": "Man bleibt klar. 태연하다 kann auch heißen: man zeigt nichts.",
+          "nuanceEn": "You stay clear. 태연하다 can also mean you show nothing.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "심란하다",
+          "de": "aufgewühlt sein",
+          "en": "to be unsettled",
+          "nuanceDe": "Innen ist Unruhe, auch wenn man still sitzt.",
+          "nuanceEn": "There is unrest inside, even if you sit still.",
+          "vocabId": "vocab_b2_0412"
+        }
+      ],
+      "related": [
+        {
+          "ko": "신념",
+          "de": "Überzeugung",
+          "en": "conviction",
+          "nuanceDe": "Was man manchmal ruhig hält, obwohl es wackelt.",
+          "nuanceEn": "What you sometimes hold still even when it shakes.",
+          "vocabId": "vocab_b2_0233"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "태연한 척하다",
+          "de": "so tun, als sei nichts",
+          "en": "to pretend to be unfazed",
+          "exampleKo": "걱정돼도 태연한 척했어요.",
+          "exampleDe": "Obwohl ich unsicher war, tat ich, als sei nichts.",
+          "exampleEn": "Even though I was worried, I pretended to be unfazed."
         }
       ]
     }

@@ -1763,6 +1763,9 @@ class Storage {
   /// Anzahl aller Karten die jemals reviewed wurden.
   static int srsTotalReviewed() => _loadSrs().length;
 
+  /// Korean keys of every card that has at least one SRS review.
+  static Set<String> get srsReviewedIds => _loadSrs().keys.toSet();
+
   /// A2: "어려운 단어"(leech) — 반복해도 안 굳는 단어 IDs.
   /// 기준: 3회 이상 복습 + (ease ≤ 1.8 [여러 번 틀림] 또는 간격 ≤ 1일 [계속 리셋]).
   /// [allIds] 순서를 유지. 최대 [max]개.

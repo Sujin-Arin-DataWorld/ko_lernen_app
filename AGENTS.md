@@ -272,9 +272,11 @@ flutter run -d <android-id>   # 안드로이드
 > 완료 이력·커밋별 검증은 `docs/SESSION_LOG.md`에만 남긴다. 이 섹션은 다음 세션이
 > 바로 행동할 수 있는 **현재 게이트**만 적는다.
 
-- [x] **단어망 V1**: 학습한 단어의 비슷한 말·반대말·연관어·표현 50클러스터를
- `assets/data/word_relations.json`에 두고, 연습 허브·둘러보기·Learn 카탈로그에서
- `/word_web`으로 공부·4지선다 연습을 연다. 코스 증거·한옥 보상은 쓰지 않는다.
+- [x] **단어망 V1 + 검수 후속**: 학습한 단어의 비슷한 말·반대말·연관어·표현
+ 66클러스터(A1 42·A2 8·B1 8·B2 8)를 `assets/data/word_relations.json`에 두고,
+ 연습 허브·둘러보기·Learn 카탈로그에서 `/word_web`으로 공부·4지선다 연습을 연다.
+ 질문은 배운 단어, 보기는 전체 시드. 학습 범위는 `vokSeenIds`+SRS 한국어.
+ 코스 증거·한옥 보상은 쓰지 않는다. 단어장 뉘앙스(Hanja)와 입구를 나눈다.
 - [x] **Google/Apple 연동·계정 삭제 클라 복구**: 모든 Google 경로가 web
   `serverClientId`와 비어 있지 않은 ID 토큰을 요구하고, 연동 전 익명 세션을
   다시 만들며, Apple 취소는 실패가 아니라 취소로 남는다. iOS Info.plist에

@@ -79,6 +79,8 @@ class WordRelationCluster {
   final String id;
   final String sourceKo;
   final String sourceVocabId;
+  final String sourceDe;
+  final String sourceEn;
   final String level;
   final List<WordNeighbor> synonyms;
   final List<WordNeighbor> antonyms;
@@ -89,6 +91,8 @@ class WordRelationCluster {
     required this.id,
     required this.sourceKo,
     required this.sourceVocabId,
+    this.sourceDe = '',
+    this.sourceEn = '',
     required this.level,
     this.synonyms = const [],
     this.antonyms = const [],
@@ -128,6 +132,8 @@ class WordRelationCluster {
       id: read('id'),
       sourceKo: read('sourceKo'),
       sourceVocabId: read('sourceVocabId'),
+      sourceDe: read('sourceDe'),
+      sourceEn: read('sourceEn'),
       level: read('level'),
       synonyms: neighbors('synonyms'),
       antonyms: neighbors('antonyms'),
@@ -141,6 +147,9 @@ class WordRelationCluster {
       antonyms.isNotEmpty ||
       related.isNotEmpty ||
       expressions.isNotEmpty;
+
+  String sourceGloss(String lang) =>
+      (lang == 'en' && sourceEn.isNotEmpty) ? sourceEn : sourceDe;
 }
 
 enum WordWebScope { learned, level }

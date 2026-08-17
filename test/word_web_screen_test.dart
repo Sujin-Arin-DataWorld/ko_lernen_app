@@ -10,10 +10,13 @@ import 'package:ko_lernen_app/screens/word_web_screen.dart';
 import 'package:ko_lernen_app/screens/word_web_study_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
 
 WordRelationCluster _cluster({
   required String id,
   required String source,
+  String sourceDe = '',
+  String sourceEn = '',
   String level = 'A1',
   List<WordNeighbor> synonyms = const [],
   List<WordNeighbor> antonyms = const [],
@@ -24,6 +27,8 @@ WordRelationCluster _cluster({
     id: id,
     sourceKo: source,
     sourceVocabId: 'vocab_$id',
+    sourceDe: sourceDe,
+    sourceEn: sourceEn,
     level: level,
     synonyms: synonyms,
     antonyms: antonyms,
@@ -47,6 +52,8 @@ final _deck = [
   _cluster(
     id: 'big',
     source: '크다',
+    sourceDe: 'groß',
+    sourceEn: 'big',
     synonyms: [_n('커다랗다')],
     antonyms: [_n('작다')],
     related: [_n('사이즈')],
@@ -67,6 +74,7 @@ Future<void> _pumpHub(
   required Set<String> seen,
   LearnerLevel level = LearnerLevel.a1,
   List<WordRelationCluster>? deck,
+  Future<List<WordRelationCluster>> Function()? clusterLoader,
 }) async {
   await tester.binding.setSurfaceSize(const Size(390, 844));
   addTearDown(() => tester.binding.setSurfaceSize(null));
@@ -79,7 +87,7 @@ Future<void> _pumpHub(
       localizationsDelegates: AppL10n.localizationsDelegates,
       routes: {'/vocab': (_) => const Scaffold(body: Text('vocab-route'))},
       home: WordWebScreen(
-        clusterLoader: () async => deck ?? _deck,
+        clusterLoader: clusterLoader ?? () async => deck ?? _deck,
         seenLoader: () => seen,
         levelLoader: () => level,
       ),
@@ -134,6 +142,7 @@ void main() {
     expect(find.text(t.wordWebAntonymSection), findsOneWidget);
     expect(find.text(t.wordWebRelatedSection), findsOneWidget);
     expect(find.text(t.wordWebExpressionSection), findsOneWidget);
+    expect(find.text('groß'), findsWidgets);
     expect(find.text('커다랗다'), findsOneWidget);
     await tester.scrollUntilVisible(
       find.text('큰일 나다'),
@@ -218,6 +227,8 @@ void main() {
     await tester.pump();
 
     expect(find.text(t.wordWebQuizHintAntonym), findsOneWidget);
+    expect(find.text('1 / 1'), findsOneWidget);
+    expect(find.byType(SoriChip), findsNothing);
     expect(find.text('크다'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('word-web-option-작다')));
     await tester.pump();
@@ -226,5 +237,35 @@ void main() {
     await tester.pump(const Duration(milliseconds: 900));
     expect(find.text(t.wordWebQuizDoneTitle), findsOneWidget);
     expect(find.text(t.wordWebQuizScore(1, 1)), findsOneWidget);
+  });
+
+  testWidgets('broken cluster loader shows a distinct retry state', (
+    tester,
+  ) async {
+    var attempts = 0;
+    await _pumpHub(
+      tester,
+      seen: {'크다'},
+      clusterLoader: () async {
+        attempts++;
+        if (attempts == 1) {
+          throw StateError('broken word-web asset');
+        }
+        return _deck;
+      },
+    );
+    final t = await AppL10n.delegate.load(const Locale('de'));
+
+    expect(find.text(t.wordWebLoadErrorTitle), findsOneWidget);
+    expect(find.text(t.wordWebEmptyTitle), findsNothing);
+    expect(find.text('크다'), findsNothing);
+
+    await tester.tap(find.text(t.btnRetry));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(find.text(t.wordWebLoadErrorTitle), findsNothing);
+    expect(find.text('크다'), findsOneWidget);
+    expect(find.text('groß'), findsOneWidget);
   });
 }

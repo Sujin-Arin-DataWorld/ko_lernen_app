@@ -3365,7 +3365,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wordWebHubDesc =>
-      'Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst';
+      'Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast';
 
   @override
   String wordWebSubtitle(int count) {
@@ -3383,7 +3383,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wordWebEmptyBody =>
-      'Lerne zuerst ein Wortpaket. Dann erscheinen hier ähnliche Wörter, Gegenteile und Wendungen zu genau diesen Wörtern.';
+      'Lerne Wörter in einem Paket, im Kurs oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.';
+
+  @override
+  String get wordWebLoadErrorTitle => 'Netz nicht geladen';
+
+  @override
+  String get wordWebLoadErrorBody =>
+      'Die Wortnetz-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand — versuch es noch einmal.';
 
   @override
   String get wordWebBrowseLevelCta => 'Wörter auf meinem Niveau ansehen';
@@ -3460,7 +3467,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get wordWebCoachBody =>
-      'Tippe ein Wort, das du schon gelernt hast. Du siehst ähnliche Wörter, Gegenteile, verwandte Wörter und eine Wendung dazu.';
+      'Tippe ein Wort aus deinem Lernstand. Das Netz zeigt Nachbarn, Gegenteile und eine Wendung — unabhängig von Hanja und Nuance im Vokabelheft.';
 
   @override
   String get wbMatching => 'Paare finden';
@@ -7258,7 +7265,7 @@ class AppL10nDe extends AppL10n {
       'srs': 'Fällige Wörter im richtigen Moment stärken.',
       'hard_words': 'Gezielt an deinen Stolperwörtern arbeiten.',
       'word_web':
-          'Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst.',
+          'Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast.',
       'grammar': 'Muster verstehen und direkt anwenden.',
       'listening': 'Kurze natürliche Sätze sicher erkennen.',
       'scenarios': 'Café, Verkehr und Gespräche üben.',
@@ -7457,7 +7464,7 @@ class AppL10nDe extends AppL10n {
   String get vocabNotebookKeepWord => 'Wort behalten';
 
   @override
-  String get vocabNotebookNuanceCta => 'Hanja, Synonyme, Nuancen';
+  String get vocabNotebookNuanceCta => 'Hanja und Nuancen';
 
   @override
   String get vocabNotebookNuanceTitle => 'Ähnlich, aber nicht gleich';

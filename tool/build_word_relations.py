@@ -75,6 +75,8 @@ def cluster(
         "id": cid,
         "sourceKo": row["korean"],
         "sourceVocabId": source_id,
+        "sourceDe": (row.get("german") or "").strip(),
+        "sourceEn": (row.get("english") or "").strip(),
         "level": row["level"],
         "synonyms": synonyms or [],
         "antonyms": antonyms or [],
@@ -1864,12 +1866,1142 @@ def build(vocab: dict[str, dict[str, str]]) -> list[dict[str, object]]:
                 )
             ],
         ),
+        cluster(
+            "rel_b1_0001",
+            "vocab_b1_0039",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "이루다",
+                    "erreichen / verwirklichen",
+                    "to achieve / to realize",
+                    "성공하다 betont das Gelingen. 이루다 betont, dass ein Ziel wirklich wird.",
+                    "성공하다 stresses succeeding. 이루다 stresses making a goal real.",
+                    "vocab_b2_0182",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "실패하다",
+                    "scheitern",
+                    "to fail",
+                    "Das klare Gegenstück: der Versuch geht nicht auf.",
+                    "The clear opposite: the attempt does not work out.",
+                    "vocab_b1_0038",
+                )
+            ],
+            related=[
+                neighbor(
+                    "노력하다",
+                    "sich anstrengen",
+                    "to make an effort",
+                    "Was man vor dem Erfolg oft tun muss.",
+                    "What you often have to do before success.",
+                    "vocab_b1_0035",
+                )
+            ],
+            expressions=[
+                expression(
+                    "성공을 거두다",
+                    "Erfolg haben",
+                    "to achieve success",
+                    "이번 프로젝트에서 성공을 거뒀어요.",
+                    "Bei diesem Projekt hatte ich Erfolg.",
+                    "I achieved success with this project.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b1_0002",
+            "vocab_b1_0046",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "난해하다",
+                    "schwer verständlich sein",
+                    "to be hard to follow",
+                    "Mehr Kopf als Alltag. 복잡하다 kann auch ein voller Terminkalender sein.",
+                    "More about the mind than daily mess. 복잡하다 can also be a packed schedule.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "단순하다",
+                    "einfach / schlicht sein",
+                    "to be simple",
+                    "Wenig Teile, wenig Umwege.",
+                    "Few parts, few detours.",
+                    "vocab_b1_0047",
+                )
+            ],
+            related=[
+                neighbor(
+                    "문제",
+                    "Problem / Aufgabe",
+                    "problem / question",
+                    "Was oft kompliziert wirkt, wenn zu viele Teile zusammenkommen.",
+                    "What often feels complicated when too many parts meet.",
+                    "vocab_b1_0008",
+                )
+            ],
+            expressions=[
+                expression(
+                    "너무 복잡해요",
+                    "Das ist zu kompliziert",
+                    "That's too complicated",
+                    "이 설명은 너무 복잡해요. 다시 말해 주세요.",
+                    "Diese Erklärung ist zu kompliziert. Sag es bitte noch einmal.",
+                    "This explanation is too complicated. Please say it again.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b1_0003",
+            "vocab_b1_0096",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "능동적이다",
+                    "aktiv / initiativ sein",
+                    "to be proactive",
+                    "Man wartet nicht. 적극적이다 klingt im Alltag etwas wärmer.",
+                    "You do not wait. 적극적이다 sounds a bit warmer in daily talk.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "소극적이다",
+                    "zurückhaltend sein",
+                    "to be reserved / passive",
+                    "Man hält sich zurück, statt den ersten Schritt zu tun.",
+                    "You hold back instead of taking the first step.",
+                    "vocab_b1_0097",
+                )
+            ],
+            related=[
+                neighbor(
+                    "참여하다",
+                    "teilnehmen",
+                    "to participate",
+                    "Wohin aktive Haltung oft führt: man macht mit.",
+                    "Where an active stance often leads: you take part.",
+                    "vocab_b1_0036",
+                )
+            ],
+            expressions=[
+                expression(
+                    "적극적으로 나서다",
+                    "aktiv vorangehen",
+                    "to step forward actively",
+                    "회의에서 적극적으로 나섰어요.",
+                    "In der Besprechung bin ich aktiv vorangegangen.",
+                    "I stepped forward actively in the meeting.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b1_0004",
+            "vocab_b1_0234",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "환하다",
+                    "hell / leuchtend sein",
+                    "to be bright / well-lit",
+                    "Oft Licht und offene Räume. 밝다 kann auch eine Stimmung sein.",
+                    "Often light and open rooms. 밝다 can also be a mood.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "어둡다",
+                    "dunkel sein",
+                    "to be dark",
+                    "Wenig Licht. Auch eine schwere Stimmung.",
+                    "Little light. Also a heavy mood.",
+                    "vocab_b1_0235",
+                )
+            ],
+            related=[
+                neighbor(
+                    "형광등",
+                    "Leuchtstofflampe",
+                    "fluorescent light",
+                    "Eine alltägliche Lichtquelle, die einen Raum hell macht.",
+                    "An everyday light that makes a room bright.",
+                    "vocab_b2_0138",
+                )
+            ],
+            expressions=[
+                expression(
+                    "방이 밝아요",
+                    "Das Zimmer ist hell",
+                    "The room is bright",
+                    "커튼을 여니 방이 밝아요.",
+                    "Als ich den Vorhang öffnete, war das Zimmer hell.",
+                    "When I opened the curtain, the room was bright.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b1_0005",
+            "vocab_b1_0044",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "소중하다",
+                    "wertvoll / wichtig sein",
+                    "to be precious / valued",
+                    "Mehr Herz. 중요하다 kann auch nur sachlich nötig sein.",
+                    "More heart. 중요하다 can also just be factually needed.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "사소하다",
+                    "unwichtig / geringfügig sein",
+                    "to be minor / trivial",
+                    "Klein genug, dass man es oft weglässt.",
+                    "Small enough that people often skip it.",
+                )
+            ],
+            related=[
+                neighbor(
+                    "의미",
+                    "Bedeutung / Sinn",
+                    "meaning",
+                    "Warum etwas wichtig wirkt.",
+                    "Why something feels important.",
+                    "vocab_b1_0083",
+                )
+            ],
+            expressions=[
+                expression(
+                    "중요한 일",
+                    "eine wichtige Sache",
+                    "an important matter",
+                    "오늘은 중요한 일이 있어요.",
+                    "Heute habe ich eine wichtige Sache.",
+                    "I have something important today.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b1_0006",
+            "vocab_b1_0076",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "찬성하다",
+                    "dafür sein",
+                    "to be in favor",
+                    "Oft bei einer Abstimmung. 동의하다 kann auch nur zustimmen.",
+                    "Often in a vote. 동의하다 can also just mean agreeing.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "반대하다",
+                    "dagegen sein",
+                    "to oppose",
+                    "Man stellt sich gegen den Vorschlag.",
+                    "You stand against the proposal.",
+                )
+            ],
+            related=[
+                neighbor(
+                    "의견",
+                    "Meinung",
+                    "opinion",
+                    "Das, dem man zustimmt oder widerspricht.",
+                    "What you agree with or push against.",
+                    "vocab_b1_0023",
+                )
+            ],
+            expressions=[
+                expression(
+                    "의견에 동의하다",
+                    "einer Meinung zustimmen",
+                    "to agree with an opinion",
+                    "그 의견에 동의해요.",
+                    "Dieser Meinung stimme ich zu.",
+                    "I agree with that opinion.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b1_0007",
+            "vocab_b1_0173",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "통과하다",
+                    "durchkommen / bestehen",
+                    "to pass / to get through",
+                    "Ein Filter, eine Prüfung, eine Kontrolle. 합격하다 ist oft die Prüfung selbst.",
+                    "A filter, a test, a check. 합격하다 is often the exam itself.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "떨어지다",
+                    "durchfallen",
+                    "to fail (an exam)",
+                    "Die Prüfung ist nicht geschafft.",
+                    "The exam is not passed.",
+                )
+            ],
+            related=[
+                neighbor(
+                    "시험",
+                    "Prüfung / Test",
+                    "exam / test",
+                    "Der Ort, an dem 합격하다 zählt.",
+                    "The place where 합격하다 counts.",
+                    "vocab_a2_0020",
+                )
+            ],
+            expressions=[
+                expression(
+                    "시험에 합격하다",
+                    "eine Prüfung bestehen",
+                    "to pass an exam",
+                    "한국어 시험에 합격했어요.",
+                    "Ich habe die Koreanischprüfung bestanden.",
+                    "I passed the Korean exam.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b1_0008",
+            "vocab_b1_0095",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "성실하다",
+                    "gewissenhaft sein",
+                    "to be conscientious",
+                    "Man macht die Arbeit sauber. 부지런하다 betont das stete Dranbleiben.",
+                    "You do the work cleanly. 부지런하다 stresses staying on it.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "게으르다",
+                    "faul sein",
+                    "to be lazy",
+                    "Man schiebt auf oder bleibt liegen.",
+                    "You put things off or stay put.",
+                    "vocab_b1_0094",
+                )
+            ],
+            related=[
+                neighbor(
+                    "습관",
+                    "Gewohnheit",
+                    "habit",
+                    "Fleiß wird oft zur täglichen Spur.",
+                    "Diligence often becomes a daily track.",
+                    "vocab_b1_0016",
+                )
+            ],
+            expressions=[
+                expression(
+                    "부지런히 살다",
+                    "fleißig leben",
+                    "to live diligently",
+                    "할머니는 평생 부지런히 사셨어요.",
+                    "Oma hat ihr Leben lang fleißig gelebt.",
+                    "Grandma lived diligently her whole life.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b2_0001",
+            "vocab_b2_0029",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "관념적이다",
+                    "begrifflich / ideell sein",
+                    "to be conceptual",
+                    "Noch näher an Ideen als an Dingen. 추상적이다 ist der Schulwortschatz.",
+                    "Even closer to ideas than things. 추상적이다 is the classroom word.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "구체적이다",
+                    "konkret sein",
+                    "to be concrete",
+                    "Man kann es zeigen, zählen oder anfassen.",
+                    "You can point to it, count it, or touch it.",
+                    "vocab_b2_0030",
+                )
+            ],
+            related=[
+                neighbor(
+                    "의미",
+                    "Bedeutung",
+                    "meaning",
+                    "Was bei abstrakten Wörtern oft erst erklärt werden muss.",
+                    "What abstract words often still need explained.",
+                    "vocab_b1_0083",
+                )
+            ],
+            expressions=[
+                expression(
+                    "구체적으로 말하다",
+                    "konkret sprechen",
+                    "to speak concretely",
+                    "추상적으로 말고 구체적으로 말해 주세요.",
+                    "Nicht abstrakt — sprich bitte konkret.",
+                    "Don't stay abstract — please speak concretely.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b2_0002",
+            "vocab_b2_0070",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "분명하다",
+                    "klar / offensichtlich sein",
+                    "to be plain / obvious",
+                    "Man sieht es sofort. 명확하다 klingt etwas förmlicher.",
+                    "You see it at once. 명확하다 sounds a bit more formal.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "모호하다",
+                    "vage / unklar sein",
+                    "to be vague / unclear",
+                    "Die Grenze bleibt weich. Man weiß nicht genau, was gemeint ist.",
+                    "The edge stays soft. You are not sure what is meant.",
+                    "vocab_b2_0071",
+                )
+            ],
+            related=[
+                neighbor(
+                    "의미",
+                    "Bedeutung",
+                    "meaning",
+                    "Was klar oder vage bleiben kann.",
+                    "What can stay clear or vague.",
+                    "vocab_b1_0083",
+                )
+            ],
+            expressions=[
+                expression(
+                    "명확하게 설명하다",
+                    "klar erklären",
+                    "to explain clearly",
+                    "조건을 명확하게 설명해 주세요.",
+                    "Erklär die Bedingung bitte klar.",
+                    "Please explain the condition clearly.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b2_0003",
+            "vocab_b2_0158",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "무사하다",
+                    "unversehrt / in Sicherheit sein",
+                    "to be unharmed / safe",
+                    "Nichts ist passiert. 안전하다 beschreibt oft den Zustand eines Orts.",
+                    "Nothing happened. 안전하다 often describes the state of a place.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "위험",
+                    "Gefahr",
+                    "danger",
+                    "Das, wovor 안전하다 schützt.",
+                    "What 안전하다 protects you from.",
+                    "vocab_b2_0157",
+                )
+            ],
+            related=[
+                neighbor(
+                    "사고",
+                    "Unfall",
+                    "accident",
+                    "Was passiert, wenn Sicherheit fehlt.",
+                    "What happens when safety is missing.",
+                    "vocab_b2_0164",
+                )
+            ],
+            expressions=[
+                expression(
+                    "안전하게 지내다",
+                    "sicher bleiben",
+                    "to stay safe",
+                    "길에서 안전하게 지내세요.",
+                    "Bleib unterwegs sicher.",
+                    "Stay safe on the way.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b2_0004",
+            "vocab_b2_0102",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "막다",
+                    "untersagen / blockieren",
+                    "to block / to stop",
+                    "Alltagssprache. 금지하다 steht oft auf Schildern.",
+                    "Everyday speech. 금지하다 often sits on signs.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "허용하다",
+                    "erlauben",
+                    "to allow",
+                    "Man gibt die Erlaubnis, die 금지하다 nimmt.",
+                    "You give the permission that 금지하다 takes away.",
+                )
+            ],
+            related=[
+                neighbor(
+                    "출입",
+                    "Zutritt",
+                    "entry",
+                    "Was Schilder oft verbieten oder erlauben.",
+                    "What signs often forbid or allow.",
+                    "vocab_b2_0103",
+                )
+            ],
+            expressions=[
+                expression(
+                    "출입을 금지하다",
+                    "den Zutritt verbieten",
+                    "to prohibit entry",
+                    "공사 중이라 출입을 금지해요.",
+                    "Wegen der Baustelle ist der Zutritt verboten.",
+                    "Entry is prohibited because of construction.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b2_0005",
+            "vocab_b2_0069",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "알맞다",
+                    "passend sein",
+                    "to be fitting",
+                    "Etwas wärmer und alltäglicher als 적절하다.",
+                    "A bit warmer and more everyday than 적절하다.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "부적절하다",
+                    "unangemessen sein",
+                    "to be inappropriate",
+                    "Falscher Ton, falscher Ort, falscher Moment.",
+                    "Wrong tone, wrong place, wrong moment.",
+                )
+            ],
+            related=[
+                neighbor(
+                    "상황",
+                    "Situation",
+                    "situation",
+                    "Ob etwas passt, hängt oft hiervon ab.",
+                    "Whether something fits often depends on this.",
+                    "vocab_b1_0019",
+                )
+            ],
+            expressions=[
+                expression(
+                    "적절하게 말하다",
+                    "angemessen sprechen",
+                    "to speak appropriately",
+                    "그 자리에서는 적절하게 말해야 해요.",
+                    "An dem Ort muss man angemessen sprechen.",
+                    "In that setting you have to speak appropriately.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b2_0006",
+            "vocab_b2_0136",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "메마르다",
+                    "ausgetrocknet sein",
+                    "to be parched",
+                    "Stärker und bildlicher. 건조하다 ist der Alltags- und Wetterwortschatz.",
+                    "Stronger and more pictorial. 건조하다 is the everyday and weather word.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "습하다",
+                    "feucht sein",
+                    "to be humid / damp",
+                    "Luft oder Stoff hält Wasser.",
+                    "Air or cloth holds water.",
+                )
+            ],
+            related=[
+                neighbor(
+                    "습도",
+                    "Luftfeuchtigkeit",
+                    "humidity",
+                    "Die Zahl hinter trocken oder feucht.",
+                    "The number behind dry or damp.",
+                    "vocab_b2_0134",
+                )
+            ],
+            expressions=[
+                expression(
+                    "공기가 건조해요",
+                    "Die Luft ist trocken",
+                    "The air is dry",
+                    "겨울에는 공기가 건조해요.",
+                    "Im Winter ist die Luft trocken.",
+                    "In winter the air is dry.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b2_0007",
+            "vocab_b2_0206",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "끊다",
+                    "kündigen / abbrechen",
+                    "to cut off / to cancel",
+                    "Alltag: Handy, Abo, Gespräch. 해지하다 ist der Vertragston.",
+                    "Everyday: phone, subscription, a talk. 해지하다 is contract tone.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "갱신하다",
+                    "erneuern",
+                    "to renew",
+                    "Man verlängert, statt zu beenden.",
+                    "You extend instead of ending.",
+                    "vocab_b2_0207",
+                )
+            ],
+            related=[
+                neighbor(
+                    "계약",
+                    "Vertrag",
+                    "contract",
+                    "Das Papier, das man kündigt oder erneuert.",
+                    "The paper you cancel or renew.",
+                    "vocab_b2_0034",
+                )
+            ],
+            expressions=[
+                expression(
+                    "계약을 해지하다",
+                    "einen Vertrag kündigen",
+                    "to terminate a contract",
+                    "이번 달에 계약을 해지할 거예요.",
+                    "Diesen Monat kündige ich den Vertrag.",
+                    "I will terminate the contract this month.",
+                )
+            ],
+        ),
+        cluster(
+            "rel_b2_0008",
+            "vocab_b2_0413",
+            vocab,
+            synonyms=[
+                neighbor(
+                    "침착하다",
+                    "ruhig / gefasst sein",
+                    "to be composed",
+                    "Man bleibt klar. 태연하다 kann auch heißen: man zeigt nichts.",
+                    "You stay clear. 태연하다 can also mean you show nothing.",
+                )
+            ],
+            antonyms=[
+                neighbor(
+                    "심란하다",
+                    "aufgewühlt sein",
+                    "to be unsettled",
+                    "Innen ist Unruhe, auch wenn man still sitzt.",
+                    "There is unrest inside, even if you sit still.",
+                    "vocab_b2_0412",
+                )
+            ],
+            related=[
+                neighbor(
+                    "신념",
+                    "Überzeugung",
+                    "conviction",
+                    "Was man manchmal ruhig hält, obwohl es wackelt.",
+                    "What you sometimes hold still even when it shakes.",
+                    "vocab_b2_0233",
+                )
+            ],
+            expressions=[
+                expression(
+                    "태연한 척하다",
+                    "so tun, als sei nichts",
+                    "to pretend to be unfazed",
+                    "걱정돼도 태연한 척했어요.",
+                    "Obwohl ich unsicher war, tat ich, als sei nichts.",
+                    "Even though I was worried, I pretended to be unfazed.",
+                )
+            ],
+        ),
     ]
+
+
+def enrich(clusters: list[dict[str, object]]) -> list[dict[str, object]]:
+    """Fill empty synonym lists with honest near-synonyms.
+
+    Antonyms stay empty for greetings, kinship, meals, and time nouns.
+    """
+    extra: dict[str, dict[str, list[dict[str, str]]]] = {
+        "rel_a1_0005": {
+            "synonyms": [
+                neighbor(
+                    "예",
+                    "ja (förmlich)",
+                    "yes (formal)",
+                    "In der Schule und vor Älteren. 네 ist der Alltagsstandard.",
+                    "At school and with older people. 네 is the everyday standard.",
+                )
+            ]
+        },
+        "rel_a1_0008": {
+            "synonyms": [
+                neighbor(
+                    "형님",
+                    "älterer Bruder (ehrerbietig)",
+                    "older brother (honorific)",
+                    "Dieselbe Person, aber mit mehr Abstand und Respekt.",
+                    "The same person, but with more distance and respect.",
+                )
+            ]
+        },
+        "rel_a1_0009": {
+            "synonyms": [
+                neighbor(
+                    "벗",
+                    "Freund (schriftsprachlich)",
+                    "friend (literary)",
+                    "In Texten und Reden. Im Café bleibt 친구 natürlicher.",
+                    "In writing and speeches. In a café, 친구 stays more natural.",
+                )
+            ]
+        },
+        "rel_a1_0013": {
+            "synonyms": [
+                neighbor(
+                    "값이 나가다",
+                    "teuer zu stehen kommen",
+                    "to cost a lot",
+                    "Mehr gesprochen. 비싸다 ist das klare Lehrwort.",
+                    "More spoken. 비싸다 is the clear classroom word.",
+                )
+            ]
+        },
+        "rel_a1_0015": {
+            "synonyms": [
+                neighbor(
+                    "맛나다",
+                    "lecker sein",
+                    "to taste good",
+                    "Etwas lockerer. 맛있다 bleibt die neutrale Form.",
+                    "A bit looser. 맛있다 stays the neutral form.",
+                )
+            ]
+        },
+        "rel_a1_0016": {
+            "synonyms": [
+                neighbor(
+                    "고요하다",
+                    "still / ruhig sein",
+                    "to be still / calm",
+                    "Mehr Atmosphäre als Regel. 조용하다 kann auch eine Bitte sein.",
+                    "More atmosphere than a rule. 조용하다 can also be a request.",
+                )
+            ]
+        },
+        "rel_a1_0017": {
+            "synonyms": [
+                neighbor(
+                    "떠들썩하다",
+                    "laut und unruhig sein",
+                    "to be noisy and bustling",
+                    "Viele Stimmen auf einmal. 시끄럽다 kann schon ein Lautsprecher sein.",
+                    "Many voices at once. 시끄럽다 can already be one speaker.",
+                )
+            ]
+        },
+        "rel_a1_0018": {
+            "synonyms": [
+                neighbor(
+                    "힘들다",
+                    "anstrengend sein",
+                    "to be hard / tiring",
+                    "Körper oder Tag. 어렵다 sitzt näher am Verstehen.",
+                    "Body or day. 어렵다 sits closer to understanding.",
+                )
+            ]
+        },
+        "rel_a1_0020": {
+            "synonyms": [
+                neighbor(
+                    "길쭉하다",
+                    "länglich sein",
+                    "to be elongated",
+                    "Die Form ist gestreckt. 길다 misst einfach die Länge.",
+                    "The shape is stretched. 길다 just measures length.",
+                )
+            ]
+        },
+        "rel_a1_0021": {
+            "synonyms": [
+                neighbor(
+                    "짧막하다",
+                    "ein wenig kurz sein",
+                    "to be on the short side",
+                    "Leicht umgangssprachlich. 짧다 ist die klare Grundform.",
+                    "Slightly colloquial. 짧다 is the clear base form.",
+                )
+            ]
+        },
+        "rel_a1_0022": {
+            "synonyms": [
+                neighbor(
+                    "이동하다",
+                    "sich bewegen / wechseln",
+                    "to move / to transfer",
+                    "Förmlicher und weiter: Ort, Job, Datei. 가다 bleibt der Schritt.",
+                    "More formal and wider: place, job, file. 가다 stays the step.",
+                )
+            ]
+        },
+        "rel_a1_0023": {
+            "synonyms": [
+                neighbor(
+                    "찾아오다",
+                    "vorbeikommen",
+                    "to come by / to visit",
+                    "Jemand kommt absichtlich zu dir. 오다 ist nur die Richtung.",
+                    "Someone comes to you on purpose. 오다 is only the direction.",
+                )
+            ]
+        },
+        "rel_a1_0024": {
+            "synonyms": [
+                neighbor(
+                    "드시다",
+                    "essen (ehrerbietig)",
+                    "to eat (honorific)",
+                    "Für Ältere und Gäste. Über dich selbst bleibt 먹다.",
+                    "For elders and guests. About yourself, keep 먹다.",
+                    "vocab_b2_0202",
+                )
+            ]
+        },
+        "rel_a1_0025": {
+            "synonyms": [
+                neighbor(
+                    "존재하다",
+                    "existieren",
+                    "to exist",
+                    "Geschriebener, größerer Rahmen. 있다 ist Ort, Besitz und Dasein.",
+                    "More written, larger frame. 있다 is place, having, and being there.",
+                )
+            ]
+        },
+        "rel_a1_0026": {
+            "synonyms": [
+                neighbor(
+                    "결여되다",
+                    "fehlen / mangeln",
+                    "to be lacking",
+                    "Etwas Nötiges ist nicht da. 없다 ist der Alltagssatz.",
+                    "Something needed is not there. 없다 is the everyday sentence.",
+                )
+            ]
+        },
+        "rel_a1_0027": {
+            "synonyms": [
+                neighbor(
+                    "아끼다",
+                    "gernhaben / schonen",
+                    "to cherish / to spare",
+                    "Näher und vorsichtiger. 좋아하다 kann auch Eis oder Sport sein.",
+                    "Closer and more careful. 좋아하다 can also be ice cream or sport.",
+                )
+            ]
+        },
+        "rel_a1_0028": {
+            "synonyms": [
+                neighbor(
+                    "미워하다",
+                    "nicht leiden können",
+                    "to dislike / to resent",
+                    "Stärker und persönlicher als 싫어하다.",
+                    "Stronger and more personal than 싫어하다.",
+                )
+            ]
+        },
+        "rel_a1_0029": {
+            "synonyms": [
+                neighbor(
+                    "이해하다",
+                    "verstehen",
+                    "to understand",
+                    "Sinn und Zusammenhang. 알다 kann auch nur eine Tatsache kennen.",
+                    "Sense and connection. 알다 can also just know a fact.",
+                    "vocab_a2_0047",
+                )
+            ]
+        },
+        "rel_a1_0030": {
+            "synonyms": [
+                neighbor(
+                    "알지 못하다",
+                    "nicht wissen",
+                    "to not know",
+                    "Dieselbe Lücke, nur als verneintes 알다.",
+                    "The same gap, just as negated 알다.",
+                )
+            ]
+        },
+        "rel_a1_0031": {
+            "synonyms": [
+                neighbor(
+                    "드리다",
+                    "geben (demütig)",
+                    "to give (humble)",
+                    "Nach oben. Über dich zu einem Freund bleibt 주다.",
+                    "Toward someone above you. To a friend, keep 주다.",
+                    "vocab_b2_0198",
+                )
+            ]
+        },
+        "rel_a1_0032": {
+            "synonyms": [
+                neighbor(
+                    "얻다",
+                    "bekommen / erlangen",
+                    "to obtain / to get",
+                    "Man kommt zu etwas. 받다 betont, dass es gereicht wird.",
+                    "You come to have it. 받다 stresses that it is handed over.",
+                )
+            ]
+        },
+        "rel_a1_0034": {
+            "synonyms": [
+                neighbor(
+                    "금일",
+                    "heute (schriftlich)",
+                    "today (written)",
+                    "Aushang und Behörde. Im Gespräch bleibt 오늘.",
+                    "Notices and offices. In speech, keep 오늘.",
+                )
+            ]
+        },
+        "rel_a1_0035": {
+            "synonyms": [
+                neighbor(
+                    "명일",
+                    "morgen (schriftlich)",
+                    "tomorrow (written)",
+                    "Formeller Kalender. Im Chat bleibt 내일.",
+                    "A more formal calendar. In chat, keep 내일.",
+                )
+            ]
+        },
+        "rel_a1_0036": {
+            "synonyms": [
+                neighbor(
+                    "작일",
+                    "gestern (schriftlich)",
+                    "yesterday (written)",
+                    "Selten und förmlich. Im Gespräch bleibt 어제.",
+                    "Rare and formal. In speech, keep 어제.",
+                )
+            ]
+        },
+        "rel_a1_0037": {
+            "synonyms": [
+                neighbor(
+                    "빠르게",
+                    "schnell",
+                    "quickly",
+                    "Die Adverbform zu 빠르다. 빨리 ist kürzer und gesprochener.",
+                    "The adverb form of 빠르다. 빨리 is shorter and more spoken.",
+                )
+            ]
+        },
+        "rel_a1_0038": {
+            "synonyms": [
+                neighbor(
+                    "느리게",
+                    "langsam",
+                    "slowly",
+                    "Tempo. 천천히 bittet oft um Vorsicht, nicht nur um Zeit.",
+                    "Pace. 천천히 often asks for care, not only time.",
+                )
+            ]
+        },
+        "rel_a1_0039": {
+            "synonyms": [
+                neighbor(
+                    "언제나",
+                    "immer / jederzeit",
+                    "always / at any time",
+                    "Sehr nah. 항상 klingt ein wenig fester und regelmäßiger.",
+                    "Very close. 항상 sounds a bit more fixed and regular.",
+                )
+            ]
+        },
+        "rel_a1_0040": {
+            "synonyms": [
+                neighbor(
+                    "댁",
+                    "Haus (ehrerbietig)",
+                    "house (honorific)",
+                    "Das Haus einer älteren Person. Über dein Zimmer bleibt 집.",
+                    "An elder's house. About your own room, keep 집.",
+                    "vocab_b2_0197",
+                )
+            ]
+        },
+        "rel_a1_0042": {
+            "synonyms": [
+                neighbor(
+                    "학습자",
+                    "Lernende / Lernender",
+                    "learner",
+                    "Kurs und Text. 학생 bleibt Schule und Alltag.",
+                    "Courses and texts. 학생 stays school and daily life.",
+                )
+            ]
+        },
+        "rel_a2_0001": {
+            "synonyms": [
+                neighbor(
+                    "즐겁다",
+                    "fröhlich / angenehm sein",
+                    "to be glad / enjoyable",
+                    "Ein Moment oder ein Fest. 행복하다 sitzt tiefer und länger.",
+                    "A moment or a gathering. 행복하다 sits deeper and longer.",
+                )
+            ]
+        },
+        "rel_a2_0002": {
+            "synonyms": [
+                neighbor(
+                    "우울하다",
+                    "niedergeschlagen sein",
+                    "to be down / gloomy",
+                    "Länger und flacher. 슬프다 kann ein klarer Anlass sein.",
+                    "Longer and flatter. 슬프다 can have a clear cause.",
+                )
+            ]
+        },
+        "rel_a2_0003": {
+            "synonyms": [
+                neighbor(
+                    "정신없다",
+                    "den Kopf nicht frei haben",
+                    "to be swamped",
+                    "Alles auf einmal. 바쁘다 kann auch nur ein voller Kalender sein.",
+                    "Everything at once. 바쁘다 can also just be a full calendar.",
+                )
+            ]
+        },
+        "rel_a2_0004": {
+            "synonyms": [
+                neighbor(
+                    "공부하다",
+                    "lernen / studieren",
+                    "to study",
+                    "Schreibtisch und Wiederholen. 배우다 betont, dass etwas neu hereinkommt.",
+                    "Desk and review. 배우다 stresses that something new comes in.",
+                    "vocab_a2_0039",
+                )
+            ]
+        },
+        "rel_a2_0005": {
+            "synonyms": [
+                neighbor(
+                    "홀로",
+                    "allein / für sich",
+                    "alone / by oneself",
+                    "Etwas schriftlicher. 혼자 ist der Alltagsatz.",
+                    "A bit more written. 혼자 is the everyday sentence.",
+                )
+            ]
+        },
+        "rel_a2_0006": {
+            "synonyms": [
+                neighbor(
+                    "함께",
+                    "gemeinsam",
+                    "together",
+                    "Etwas förmlicher als 같이, aber dieselbe Richtung.",
+                    "A bit more formal than 같이, but the same direction.",
+                )
+            ]
+        },
+        "rel_a2_0007": {
+            "antonyms": [
+                neighbor(
+                    "개운하다",
+                    "ausgeschlafen / frisch sein",
+                    "to feel refreshed",
+                    "Der Körper ist wieder klar. Das Gegenstück zu 피곤하다.",
+                    "The body is clear again. The counterpart to 피곤하다.",
+                )
+            ]
+        },
+        "rel_a2_0008": {
+            "synonyms": [
+                neighbor(
+                    "고통스럽다",
+                    "schmerzhaft sein",
+                    "to be painful",
+                    "Stärker und weiter. 아프다 bleibt der einfache Körpersatz.",
+                    "Stronger and wider. 아프다 stays the simple body sentence.",
+                )
+            ]
+        },
+    }
+    for cluster in clusters:
+        patch = extra.get(str(cluster["id"]))
+        if patch is None:
+            continue
+        for key, items in patch.items():
+            current = cluster.get(key)
+            if isinstance(current, list) and current:
+                continue
+            cluster[key] = items
+    return clusters
 
 
 def main() -> None:
     vocab = load_vocab()
-    clusters = build(vocab)
+    clusters = enrich(build(vocab))
     ids = [c["id"] for c in clusters]
     if len(ids) != len(set(ids)):
         raise SystemExit("duplicate cluster ids")

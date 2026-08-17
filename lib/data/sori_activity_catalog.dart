@@ -211,9 +211,9 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     de: 'Wortnetz',
     en: 'Word web',
     descriptionDe:
-        'Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst.',
+        'Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast.',
     descriptionEn:
-        'Study synonyms, opposites, and expressions for words you already know.',
+        'Neighbors, opposites, and expressions for words you have already studied.',
     route: '/word_web',
     minutes: 6,
     color: SoriActivityColorRole.review,
