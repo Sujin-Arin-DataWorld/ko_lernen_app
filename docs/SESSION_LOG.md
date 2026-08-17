@@ -16,7 +16,7 @@ BT.709/tv로 재인코딩한다. 흰 가슴처럼 검은 깃에 둘러싸인 밝
 둘 다 `#FBF5EB` 100% / 113·240프레임 / BT.709 tv, cool-floor max **0.000**.
 Flutter `home_hero_matte_test` + `sori_stage_today_matte_test` **14/14**.
 중간 프레임 하단 leftover는 6.84% → 2.26%(남은 건 배 깃 음영), B−R은 −16.8 →
-−24.6으로 더 따뜻해졌다. 실기기 홈 재생은 Jin 게이트.
+−24.6으로 더 따뜻해졌다. 실기기 홈 재생은 Jin 게이트. 구현 커밋 `9e50d2e9`.
 
 ### 2026-08-17 (Cursor) — TTS 선점·클라 MPEG 가드, 배포는 Jin 승인
 
