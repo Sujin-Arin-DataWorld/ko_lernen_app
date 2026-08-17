@@ -13,7 +13,7 @@ deadline이 닿는다는 점을 확인했다. 배포 전에 같은 Storage 경�
 Jin 운영 게이트로 남긴다.
 
 **검증.** TTS Node **17/17**, `tts_cache_key_test` **4/4**. 이 환경에서
-Firebase deploy는 하지 않았다.
+Firebase deploy는 하지 않았다. 구현 커밋 `44657b34`.
 
 ### 2026-08-17 (Cursor) — 유료 경로 4결함 선점·공유 deadline으로 닫음
 
