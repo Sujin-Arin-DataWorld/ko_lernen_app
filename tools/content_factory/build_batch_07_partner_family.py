@@ -79,7 +79,7 @@ GRAMMAR_ROWS = [
         "pattern": "N께",
         "level": "A1",
         "type_de": "Hoeftliche Empfaengerpartikel",
-        "explanation_de": "Markiert eine aeltere oder geachtete Person als Empfaenger einer Handlung oder Gabe.",
+        "explanation_de": "Markiert eine ältere oder geachtete Person als Empfaenger einer Handlung oder Gabe.",
         "example_korean": "장인어른께 과일을 드렸어요.",
         "example_german": "Ich habe an die geehrte Person Obst gegeben.",
         "note": "Nach 께 folgt oft ein Hoeftlichkeitsverb wie 드리다.",
@@ -94,17 +94,17 @@ GRAMMAR_ROWS = [
     {
         "pattern": "V-아/어 드리다",
         "level": "A2",
-        "type_de": "Demuetige Gabe oder Hilfe",
-        "explanation_de": "Drueckt aus, dass die sprechende Person einer geehrten Person etwas gibt oder fuer sie handelt.",
+        "type_de": "Demütige Gabe oder Hilfe",
+        "explanation_de": "Drückt aus, dass die sprechende Person einer geehrten Person etwas gibt oder für sie handelt.",
         "example_korean": "할머니께 물을 따라 드렸어요.",
-        "example_german": "Ich habe fuer die geehrte Person Wasser eingeschenkt.",
-        "note": "Nicht mit 주다 an Aeltere mischen.",
+        "example_german": "Ich habe für die geehrte Person Wasser eingeschenkt.",
+        "note": "Nicht mit 주다 an Ältere mischen.",
         "type_en": "Humble giving or helping",
         "explanation_en": "Shows that the speaker gives something or acts for a respected person.",
         "example_en": "I poured water for the respected person.",
         "note_en": "Do not mix this with 주다 toward elders.",
         "id": "grammar_a2_humble_give",
-        "quiz_focus_de": "fuer die geehrte Person",
+        "quiz_focus_de": "für die geehrte Person",
         "quiz_focus_en": "for the respected person",
     },
     {
@@ -127,9 +127,9 @@ GRAMMAR_ROWS = [
         "pattern": "V-기보다",
         "level": "B2",
         "type_de": "Sanftere Alternative zur direkten Aussage",
-        "explanation_de": "Stellt eine weniger direkte Handlung als bessere Wahl gegenueber einer scharfen Antwort dar.",
+        "explanation_de": "Stellt eine weniger direkte Handlung als bessere Wahl gegenüber einer scharfen Antwort dar.",
         "example_korean": "바로 거절하기보다 다음에 말씀드릴게요라고 했어요.",
-        "example_german": "Statt direkt abzulehnen, sagte ich, ich erklaere es spaeter.",
+        "example_german": "Statt direkt abzulehnen, sagte ich, ich erklaere es später.",
         "note": "Beide Seiten sollten echte Alternativen sein.",
         "type_en": "Softer alternative to a direct move",
         "explanation_en": "Presents a less direct action as the better choice against a blunt reply.",
@@ -241,7 +241,7 @@ def satz_distractors(index: int) -> list[str]:
     left = [
         "다음에 다시",
         "그냥 웃고",
-        "민수에게만",
+        "현우에게만",
         "사진부터",
         "밥부터 먹고",
         "문을 닫고",
@@ -301,9 +301,9 @@ def smalltalk_for(pack: dict[str, Any], index: int, ident: str) -> dict[str, Any
         ko = f"{last['korean']} 때문에 어색하면 뭐라고 해요?"
         de = f"Was sage ich, wenn {last['german']} unbeholfen wirkt?"
         en = f"What do I say if {last['english']} feels awkward?"
-        reply_ko = "웃고 민수에게 한 번만 확인하면 돼요."
-        reply_de = "Laecheln und einmal bei Minsu nachfragen reicht."
-        reply_en = "Smile and check once with Minsu."
+        reply_ko = "웃고 현우에게 한 번만 확인하면 돼요."
+        reply_de = "Lächeln und einmal bei Hyunwoo nachfragen reicht."
+        reply_en = "Smile and check once with Hyunwoo."
         kind = "opener"
     return {
         "id": ident,
@@ -318,9 +318,9 @@ def smalltalk_for(pack: dict[str, Any], index: int, ident: str) -> dict[str, Any
         "safeAlternativeQuestions": [
             {
                 "turnKind": "question",
-                "ko": "민수한테 먼저 물어봐도 돼요?",
-                "de": "Darf ich zuerst Minsu fragen?",
-                "en": "May I ask Minsu first?",
+                "ko": "현우한테 먼저 물어봐도 돼요?",
+                "de": "Darf ich zuerst Hyunwoo fragen?",
+                "en": "May I ask Hyunwoo first?",
             }
         ],
         "followUp": {

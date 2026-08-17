@@ -19,13 +19,13 @@
       "xpReward": 160,
       "title": {
         "ko": "첫 현관 인사",
-        "de": "Erster Gruss an der Tuer",
+        "de": "Erster Gruss an der Tür",
         "en": "First greeting at the door"
       },
       "intro": {
-        "ko": "민수 집에 처음 갑니다. 신발을 벗고 짧게 인사하세요.",
-        "de": "Du kommst zum ersten Mal zu Minsu. Zieh die Schuhe aus und begruesse kurz.",
-        "en": "You visit Minsu's home for the first time. Take off your shoes and greet briefly."
+        "ko": "현우 집에 처음 갑니다. 신발을 벗고 짧게 인사하세요.",
+        "de": "Du kommst zum ersten Mal zu Hyunwoo. Zieh die Schuhe aus und begrüße kurz.",
+        "en": "You visit Hyunwoo's home for the first time. Take off your shoes and greet briefly."
       },
       "vocab": [
         {
@@ -53,21 +53,21 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주세요",
-          "de": "V-아/어 주세요: hoeflich bitten",
+          "de": "V-아/어 주세요: höflich bitten",
           "en": "V-아/어 주세요: asking politely"
         },
         "explanation": {
           "ko": "가족에게 도움을 강하게 요구하지 않고 정중히 부탁할 때 쓴다.",
-          "de": "Eine hoefliche Bitte ohne Druck, besonders vor der Familie.",
+          "de": "Eine höfliche Bitte ohne Druck, besonders vor der Familie.",
           "en": "A polite request without pressure, especially in front of family."
         }
       },
       "dialog": [
         {
           "speaker": "user",
-          "ko": "안녕하세요. 처음 뵙겠습니다. 민수의 친구입니다.",
-          "de": "Guten Tag. Sehr erfreut. Ich bin Minsus Freundin.",
-          "en": "Hello. Nice to meet you. I am Minsu's friend."
+          "ko": "안녕하세요. 처음 뵙겠습니다. 현우의 친구입니다.",
+          "de": "Guten Tag. Sehr erfreut. Ich bin Hyunwoos Freundin.",
+          "en": "Hello. Nice to meet you. I am Hyunwoo's friend."
         },
         {
           "speaker": "jieun",
@@ -144,16 +144,16 @@
         },
         {
           "id": "quest_a1_partner_first_door_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a1_titles_relationships"
           ],
           "data": {
-            "promptDe": "Guten Tag. Sehr erfreut. Ich bin Minsus Freundin.",
-            "promptEn": "Hello. Nice to meet you. I am Minsu's friend.",
+            "promptDe": "Guten Tag. Sehr erfreut. Ich bin Hyunwoos Freundin.",
+            "promptEn": "Hello. Nice to meet you. I am Hyunwoo's friend.",
             "options": [
               {
-                "ko": "안녕하세요. 처음 뵙겠습니다. 민수의 친구입니다."
+                "ko": "안녕하세요. 처음 뵙겠습니다. 현우의 친구입니다."
               },
               {
                 "ko": "지금 바로 갈게요."
@@ -239,12 +239,12 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주세요",
-          "de": "V-아/어 주세요: hoeflich bitten",
+          "de": "V-아/어 주세요: höflich bitten",
           "en": "V-아/어 주세요: asking politely"
         },
         "explanation": {
           "ko": "가족에게 도움을 강하게 요구하지 않고 정중히 부탁할 때 쓴다.",
-          "de": "Eine hoefliche Bitte ohne Druck, besonders vor der Familie.",
+          "de": "Eine höfliche Bitte ohne Druck, besonders vor der Familie.",
           "en": "A polite request without pressure, especially in front of family."
         }
       },
@@ -258,13 +258,13 @@
         {
           "speaker": "jieun",
           "ko": "허리를 더 숙이세요. 그다음 일어나요.",
-          "de": "Beugen Sie die Huefte tiefer. Dann stehen Sie auf.",
+          "de": "Beugen Sie die Hüfte tiefer. Dann stehen Sie auf.",
           "en": "Bend lower. Then stand up."
         },
         {
           "speaker": "user",
           "ko": "제가 한 박자 늦었어요.",
-          "de": "Ich war einen Schlag zu spaet.",
+          "de": "Ich war einen Schlag zu spät.",
           "en": "I was one beat late."
         },
         {
@@ -282,7 +282,7 @@
         {
           "speaker": "jieun",
           "ko": "세뱃돈은 두 손으로 받으세요.",
-          "de": "Nehmen Sie das Geld mit beiden Haenden.",
+          "de": "Nehmen Sie das Geld mit beiden Händen.",
           "en": "Take the money with both hands."
         },
         {
@@ -294,7 +294,7 @@
         {
           "speaker": "jieun",
           "ko": "오늘은 받으세요. 다음에 나눠 줘요.",
-          "de": "Heute nehmen Sie es. Spaeter teilen Sie.",
+          "de": "Heute nehmen Sie es. Später teilen Sie.",
           "en": "Accept it today. Share later."
         }
       ],
@@ -309,7 +309,7 @@
             "audioKo": "허리를 더 숙이세요. 그다음 일어나요.",
             "options": [
               {
-                "de": "Die Huefte soll tiefer gebeugt werden.",
+                "de": "Die Hüfte soll tiefer gebeugt werden.",
                 "en": "The waist should bend lower."
               },
               {
@@ -330,7 +330,7 @@
         },
         {
           "id": "quest_a1_partner_seollal_bow_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a1_titles_relationships"
           ],
@@ -396,7 +396,7 @@
       },
       "intro": {
         "ko": "송편을 빚다가 너무 커졌습니다. 웃고 다시 작게 만들어 보세요.",
-        "de": "Die Songpyeon wurden zu gross. Lache und forme sie kleiner.",
+        "de": "Die Songpyeon wurden zu groß. Lache und forme sie kleiner.",
         "en": "The songpyeon grew too big. Laugh and shape them smaller."
       },
       "vocab": [
@@ -425,12 +425,12 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주세요",
-          "de": "V-아/어 주세요: hoeflich bitten",
+          "de": "V-아/어 주세요: höflich bitten",
           "en": "V-아/어 주세요: asking politely"
         },
         "explanation": {
           "ko": "가족에게 도움을 강하게 요구하지 않고 정중히 부탁할 때 쓴다.",
-          "de": "Eine hoefliche Bitte ohne Druck, besonders vor der Familie.",
+          "de": "Eine höfliche Bitte ohne Druck, besonders vor der Familie.",
           "en": "A polite request without pressure, especially in front of family."
         }
       },
@@ -444,13 +444,13 @@
         {
           "speaker": "jieun",
           "ko": "작게 다시 접으면 예뻐요.",
-          "de": "Kleinere Faltung sieht schoener aus.",
+          "de": "Kleinere Faltung sieht schöner aus.",
           "en": "A smaller fold looks nicer."
         },
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -461,9 +461,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -474,7 +474,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -495,7 +495,7 @@
             "audioKo": "작게 다시 접으면 예뻐요.",
             "options": [
               {
-                "de": "Kleinere Faltung sieht schoener aus.",
+                "de": "Kleinere Faltung sieht schöner aus.",
                 "en": "A smaller fold looks nicer."
               },
               {
@@ -516,7 +516,7 @@
         },
         {
           "id": "quest_a1_partner_songpyeon_too_big_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a1_titles_relationships"
           ],
@@ -611,12 +611,12 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주세요",
-          "de": "V-아/어 주세요: hoeflich bitten",
+          "de": "V-아/어 주세요: höflich bitten",
           "en": "V-아/어 주세요: asking politely"
         },
         "explanation": {
           "ko": "가족에게 도움을 강하게 요구하지 않고 정중히 부탁할 때 쓴다.",
-          "de": "Eine hoefliche Bitte ohne Druck, besonders vor der Familie.",
+          "de": "Eine höfliche Bitte ohne Druck, besonders vor der Familie.",
           "en": "A polite request without pressure, especially in front of family."
         }
       },
@@ -636,7 +636,7 @@
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -647,9 +647,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -660,7 +660,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -702,7 +702,7 @@
         },
         {
           "id": "quest_a1_partner_more_side_dishes_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a1_titles_relationships"
           ],
@@ -802,7 +802,7 @@
         },
         "explanation": {
           "ko": "상대가 나를 위해 해 준 행동이나 내가 해 줄 도움을 나타낸다.",
-          "de": "Markiert eine Hilfe oder einen Gefallen fuer die andere Person.",
+          "de": "Markiert eine Hilfe oder einen Gefallen für die andere Person.",
           "en": "Marks help or a favor done for the other person."
         }
       },
@@ -816,13 +816,13 @@
         {
           "speaker": "jieun",
           "ko": "국물이 안 새게 두 겹으로 했어요.",
-          "de": "Zwei Lagen, damit nichts auslaeuft.",
+          "de": "Zwei Lagen, damit nichts ausläuft.",
           "en": "Two layers so nothing leaks."
         },
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -833,9 +833,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -846,7 +846,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -888,7 +888,7 @@
         },
         {
           "id": "quest_a2_partner_leftover_bags_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a2_relationships"
           ],
@@ -988,7 +988,7 @@
         },
         "explanation": {
           "ko": "상대가 나를 위해 해 준 행동이나 내가 해 줄 도움을 나타낸다.",
-          "de": "Markiert eine Hilfe oder einen Gefallen fuer die andere Person.",
+          "de": "Markiert eine Hilfe oder einen Gefallen für die andere Person.",
           "en": "Marks help or a favor done for the other person."
         }
       },
@@ -1002,13 +1002,13 @@
         {
           "speaker": "jieun",
           "ko": "휴게소에서 만나요.",
-          "de": "Wir sehen uns an der Raststaette.",
+          "de": "Wir sehen uns an der Raststätte.",
           "en": "See you at the rest stop."
         },
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -1019,9 +1019,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -1032,7 +1032,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -1053,7 +1053,7 @@
             "audioKo": "휴게소에서 만나요.",
             "options": [
               {
-                "de": "Trefft euch an der Raststaette.",
+                "de": "Trefft euch an der Raststätte.",
                 "en": "Meet at the rest stop."
               },
               {
@@ -1074,7 +1074,7 @@
         },
         {
           "id": "quest_a2_partner_holiday_train_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a2_relationships"
           ],
@@ -1140,7 +1140,7 @@
       },
       "intro": {
         "ko": "동생과 게임하다 반말이 나왔습니다. 부모님 앞에서 다시 존댓말로 돌리세요.",
-        "de": "Beim Spiel rutscht Banmal raus. Vor den Eltern kehre zur Hoeflichkeit zurueck.",
+        "de": "Beim Spiel rutscht Banmal raus. Vor den Eltern kehre zur Höflichkeit zurück.",
         "en": "Casual speech slips out during a game. Switch back to honorifics in front of the parents."
       },
       "vocab": [
@@ -1174,7 +1174,7 @@
         },
         "explanation": {
           "ko": "상대가 나를 위해 해 준 행동이나 내가 해 줄 도움을 나타낸다.",
-          "de": "Markiert eine Hilfe oder einen Gefallen fuer die andere Person.",
+          "de": "Markiert eine Hilfe oder einen Gefallen für die andere Person.",
           "en": "Marks help or a favor done for the other person."
         }
       },
@@ -1182,7 +1182,7 @@
         {
           "speaker": "user",
           "ko": "말실수했어요. 다시 존댓말로 할게요.",
-          "de": "Ich habe mich versprochen. Ich spreche wieder hoeflich.",
+          "de": "Ich habe mich versprochen. Ich spreche wieder höflich.",
           "en": "I slipped. I will use honorifics again."
         },
         {
@@ -1194,7 +1194,7 @@
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -1205,9 +1205,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -1218,7 +1218,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -1260,12 +1260,12 @@
         },
         {
           "id": "quest_a2_partner_banmal_slip_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a2_relationships"
           ],
           "data": {
-            "promptDe": "Ich habe mich versprochen. Ich spreche wieder hoeflich.",
+            "promptDe": "Ich habe mich versprochen. Ich spreche wieder höflich.",
             "promptEn": "I slipped. I will use honorifics again.",
             "options": [
               {
@@ -1326,7 +1326,7 @@
       },
       "intro": {
         "ko": "할머니가 결혼 계획을 묻습니다. 솔직하되 선을 지키세요.",
-        "de": "Die Grossmutter fragt nach Heiratsplaenen. Sei ehrlich und halte die Grenze.",
+        "de": "Die Großmutter fragt nach Heiratsplänen. Sei ehrlich und halte die Grenze.",
         "en": "Grandmother asks about marriage plans. Be honest and keep a boundary."
       },
       "vocab": [
@@ -1380,7 +1380,7 @@
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -1391,9 +1391,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -1404,7 +1404,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -1446,7 +1446,7 @@
         },
         {
           "id": "quest_b1_partner_marriage_question_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b1_relationships"
           ],
@@ -1512,7 +1512,7 @@
       },
       "intro": {
         "ko": "삼촌이 잔을 권합니다. 두 손으로 받고 물을 요청하세요.",
-        "de": "Der Onkel bietet ein Glas an. Nimm es mit beiden Haenden und bitte um Wasser.",
+        "de": "Der Onkel bietet ein Glas an. Nimm es mit beiden Händen und bitte um Wasser.",
         "en": "Uncle offers a glass. Take it with both hands and ask for water."
       },
       "vocab": [
@@ -1554,7 +1554,7 @@
         {
           "speaker": "user",
           "ko": "두 손으로 받을게요. 물은 있어도 될까요?",
-          "de": "Ich nehme es mit beiden Haenden. Darf ich Wasser haben?",
+          "de": "Ich nehme es mit beiden Händen. Darf ich Wasser haben?",
           "en": "I will take it with both hands. May I have water?"
         },
         {
@@ -1566,7 +1566,7 @@
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -1577,9 +1577,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -1590,7 +1590,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -1632,12 +1632,12 @@
         },
         {
           "id": "quest_b1_partner_drink_table_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b1_relationships"
           ],
           "data": {
-            "promptDe": "Ich nehme es mit beiden Haenden. Darf ich Wasser haben?",
+            "promptDe": "Ich nehme es mit beiden Händen. Darf ich Wasser haben?",
             "promptEn": "I will take it with both hands. May I have water?",
             "options": [
               {
@@ -1693,12 +1693,12 @@
       "xpReward": 180,
       "title": {
         "ko": "문 열어 두기",
-        "de": "Die Tuer offen lassen",
+        "de": "Die Tür offen lassen",
         "en": "Leaving the door open"
       },
       "intro": {
         "ko": "하룻밤을 묵는데 문을 열어 두라고 합니다. 경계를 정중히 말하세요.",
-        "de": "Ueber Nacht soll die Tuer offen bleiben. Setze die Grenze hoeflich.",
+        "de": "Über Nacht soll die Tür offen bleiben. Setze die Grenze höflich.",
         "en": "You stay overnight and are told to leave the door open. Set the boundary politely."
       },
       "vocab": [
@@ -1740,7 +1740,7 @@
         {
           "speaker": "user",
           "ko": "문은 조금 열어 둘게요. 잠은 따로 잘게요.",
-          "de": "Ich lasse die Tuer einen Spalt offen. Schlafen tun wir getrennt.",
+          "de": "Ich lasse die Tür einen Spalt offen. Schlafen tun wir getrennt.",
           "en": "I will leave the door a little open. We will sleep separately."
         },
         {
@@ -1752,7 +1752,7 @@
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -1763,9 +1763,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -1776,7 +1776,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -1818,12 +1818,12 @@
         },
         {
           "id": "quest_b1_partner_overnight_door_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b1_relationships"
           ],
           "data": {
-            "promptDe": "Ich lasse die Tuer einen Spalt offen. Schlafen tun wir getrennt.",
+            "promptDe": "Ich lasse die Tür einen Spalt offen. Schlafen tun wir getrennt.",
             "promptEn": "I will leave the door a little open. We will sleep separately.",
             "options": [
               {
@@ -1879,12 +1879,12 @@
       "xpReward": 180,
       "title": {
         "ko": "양쪽 집 명절",
-        "de": "Beide Elternhaeuser",
+        "de": "Beide Elternhäuser",
         "en": "Both family homes"
       },
       "intro": {
         "ko": "설날과 추석을 양쪽 집으로 나눠야 합니다. 순환안을 제안하세요.",
-        "de": "Seollal und Chuseok muessen auf beide Haeuser verteilt werden. Schlage eine Rotation vor.",
+        "de": "Seollal und Chuseok müssen auf beide Häuser verteilt werden. Schlage eine Rotation vor.",
         "en": "Seollal and Chuseok must be split across both homes. Propose a rotation."
       },
       "vocab": [
@@ -1925,9 +1925,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "올해는 민수 쪽, 다음 명절은 저희 쪽으로 하면 어때요?",
-          "de": "Dieses Jahr zu Minsu, das naechste Fest zu uns, ja?",
-          "en": "How about Minsu's side this year and ours next holiday?"
+          "ko": "올해는 현우 쪽, 다음 명절은 저희 쪽으로 하면 어때요?",
+          "de": "Dieses Jahr zu Hyunwoo, das nächste Fest zu uns, ja?",
+          "en": "How about Hyunwoo's side this year and ours next holiday?"
         },
         {
           "speaker": "jieun",
@@ -1938,7 +1938,7 @@
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -1949,9 +1949,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -1962,7 +1962,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -1983,7 +1983,7 @@
             "audioKo": "올해는 이쪽, 다음엔 저쪽으로 하죠.",
             "options": [
               {
-                "de": "Dieses Jahr hier, das naechste Mal dort.",
+                "de": "Dieses Jahr hier, das nächste Mal dort.",
                 "en": "This year here, next time there."
               },
               {
@@ -2004,16 +2004,16 @@
         },
         {
           "id": "quest_b2_partner_inlaw_rotation_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b2_advanced"
           ],
           "data": {
-            "promptDe": "Dieses Jahr zu Minsu, das naechste Fest zu uns, ja?",
-            "promptEn": "How about Minsu's side this year and ours next holiday?",
+            "promptDe": "Dieses Jahr zu Hyunwoo, das nächste Fest zu uns, ja?",
+            "promptEn": "How about Hyunwoo's side this year and ours next holiday?",
             "options": [
               {
-                "ko": "올해는 민수 쪽, 다음 명절은 저희 쪽으로 하면 어때요?"
+                "ko": "올해는 현우 쪽, 다음 명절은 저희 쪽으로 하면 어때요?"
               },
               {
                 "ko": "지금 바로 갈게요."
@@ -2065,7 +2065,7 @@
       "xpReward": 180,
       "title": {
         "ko": "밖에서 호칭",
-        "de": "Anrede in der Oeffentlichkeit",
+        "de": "Anrede in der Öffentlichkeit",
         "en": "Address terms in public"
       },
       "intro": {
@@ -2111,9 +2111,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이쪽은 민수 어머니세요.",
-          "de": "Das ist Minsus Mutter.",
-          "en": "This is Minsu's mother."
+          "ko": "이쪽은 현우 어머니세요.",
+          "de": "Das ist Hyunwoos Mutter.",
+          "en": "This is Hyunwoo's mother."
         },
         {
           "speaker": "jieun",
@@ -2124,7 +2124,7 @@
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -2135,9 +2135,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -2148,7 +2148,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -2190,16 +2190,16 @@
         },
         {
           "id": "quest_b2_partner_public_intro_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b2_advanced"
           ],
           "data": {
-            "promptDe": "Das ist Minsus Mutter.",
-            "promptEn": "This is Minsu's mother.",
+            "promptDe": "Das ist Hyunwoos Mutter.",
+            "promptEn": "This is Hyunwoo's mother.",
             "options": [
               {
-                "ko": "이쪽은 민수 어머니세요."
+                "ko": "이쪽은 현우 어머니세요."
               },
               {
                 "ko": "지금 바로 갈게요."
@@ -2285,7 +2285,7 @@
       "grammarBlock": {
         "title": {
           "ko": "N을/를 고려하여",
-          "de": "N을/를 고려하여: unter Beruecksichtigung",
+          "de": "N을/를 고려하여: unter Berücksichtigung",
           "en": "N을/를 고려하여: taking into account"
         },
         "explanation": {
@@ -2298,7 +2298,7 @@
         {
           "speaker": "user",
           "ko": "노동을 보이게 하고 교대로 쉬면 좋겠어요.",
-          "de": "Wenn die Arbeit sichtbar wird und Pausen wechseln, waere es besser.",
+          "de": "Wenn die Arbeit sichtbar wird und Pausen wechseln, wäre es besser.",
           "en": "If the work is visible and rest rotates, it would be better."
         },
         {
@@ -2310,7 +2310,7 @@
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -2321,9 +2321,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -2334,7 +2334,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -2355,7 +2355,7 @@
             "audioKo": "표로 나누면 감정도 편해져요.",
             "options": [
               {
-                "de": "Eine Tabelle entlastet auch die Gefuehle.",
+                "de": "Eine Tabelle entlastet auch die Gefühle.",
                 "en": "A chart eases feelings too."
               },
               {
@@ -2376,12 +2376,12 @@
         },
         {
           "id": "quest_c1_partner_invisible_labor_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_c1_inclusive_systems"
           ],
           "data": {
-            "promptDe": "Wenn die Arbeit sichtbar wird und Pausen wechseln, waere es besser.",
+            "promptDe": "Wenn die Arbeit sichtbar wird und Pausen wechseln, wäre es besser.",
             "promptEn": "If the work is visible and rest rotates, it would be better.",
             "options": [
               {
@@ -2442,7 +2442,7 @@
       },
       "intro": {
         "ko": "가족 서사에서 별명만 남습니다. 이름을 되찾고 기록을 나누자고 하세요.",
-        "de": "In der Familienerzaehlung bleibt nur der Spitzname. Fordere den Namen und geteilte Erinnerung.",
+        "de": "In der Familienerzählung bleibt nur der Spitzname. Fordere den Namen und geteilte Erinnerung.",
         "en": "In the family story only a nickname remains. Ask to reclaim the name and share memory."
       },
       "vocab": [
@@ -2471,12 +2471,12 @@
       "grammarBlock": {
         "title": {
           "ko": "N와/과 상관없이",
-          "de": "N와/과 상관없이: unabhaengig von",
+          "de": "N와/과 상관없이: unabhängig von",
           "en": "N와/과 상관없이: regardless of"
         },
         "explanation": {
           "ko": "혈연이나 체면과 무관하게 절차나 권리를 말할 때 쓴다.",
-          "de": "Ein Recht oder Verfahren unabhaengig von Verwandtschaft oder Gesicht nennen.",
+          "de": "Ein Recht oder Verfahren unabhängig von Verwandtschaft oder Gesicht nennen.",
           "en": "Name a right or procedure regardless of kinship or face."
         }
       },
@@ -2484,7 +2484,7 @@
         {
           "speaker": "user",
           "ko": "별명 대신 이름을 쓰고 서사를 공유했으면 합니다.",
-          "de": "Statt des Spitznamens den Namen und eine geteilte Erzaehlung.",
+          "de": "Statt des Spitznamens den Namen und eine geteilte Erzählung.",
           "en": "I want the name instead of the nickname, and a shared story."
         },
         {
@@ -2496,7 +2496,7 @@
         {
           "speaker": "user",
           "ko": "제가 다시 확인해도 될까요?",
-          "de": "Darf ich das noch einmal pruefen?",
+          "de": "Darf ich das noch einmal prüfen?",
           "en": "May I check that again?"
         },
         {
@@ -2507,9 +2507,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -2520,7 +2520,7 @@
         {
           "speaker": "user",
           "ko": "도와주셔서 감사합니다.",
-          "de": "Danke fuer die Hilfe.",
+          "de": "Danke für die Hilfe.",
           "en": "Thank you for the help."
         },
         {
@@ -2562,12 +2562,12 @@
         },
         {
           "id": "quest_c2_partner_name_and_memory_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_c2_discourse_institutions"
           ],
           "data": {
-            "promptDe": "Statt des Spitznamens den Namen und eine geteilte Erzaehlung.",
+            "promptDe": "Statt des Spitznamens den Namen und eine geteilte Erzählung.",
             "promptEn": "I want the name instead of the nickname, and a shared story.",
             "options": [
               {
@@ -2623,12 +2623,12 @@
       "xpReward": 160,
       "title": {
         "ko": "과한 선물",
-        "de": "Zu grosses Geschenk",
+        "de": "Zu großes Geschenk",
         "en": "An overly big gift"
       },
       "intro": {
-        "ko": "선물이 커서 민수가 긴장합니다. 작은 정성이라고 말하세요.",
-        "de": "Das Geschenk ist zu gross. Sag, es ist nur eine kleine Aufmerksamkeit.",
+        "ko": "선물이 커서 현우가 긴장합니다. 작은 정성이라고 말하세요.",
+        "de": "Das Geschenk ist zu groß. Sag, es ist nur eine kleine Aufmerksamkeit.",
         "en": "The gift is too big. Say it is only a small token."
       },
       "vocab": [
@@ -2657,12 +2657,12 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주세요",
-          "de": "V-아/어 주세요: hoeflich bitten",
+          "de": "V-아/어 주세요: höflich bitten",
           "en": "V-아/어 주세요: asking politely"
         },
         "explanation": {
           "ko": "가족에게 도움을 강하게 요구하지 않고 정중히 부탁할 때 쓴다.",
-          "de": "Eine hoefliche Bitte ohne Druck, besonders vor der Familie.",
+          "de": "Eine höfliche Bitte ohne Druck, besonders vor der Familie.",
           "en": "A polite request without pressure, especially in front of family."
         }
       },
@@ -2681,9 +2681,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -2700,19 +2700,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -2748,7 +2748,7 @@
         },
         {
           "id": "quest_a1_partner_gift_too_big_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a1_titles_relationships"
           ],
@@ -2813,8 +2813,8 @@
         "en": "The inner seat mistake"
       },
       "intro": {
-        "ko": "윗목에 앉으려다 민수가 눈을 깜빡입니다. 아랫목으로 옮기세요.",
-        "de": "Du willst innen sitzen, Minsu blinzelt. Wechsle nach vorne zur Tuer.",
+        "ko": "윗목에 앉으려다 현우가 눈을 깜빡입니다. 아랫목으로 옮기세요.",
+        "de": "Du willst innen sitzen, Hyunwoo blinzelt. Wechsle nach vorne zur Tür.",
         "en": "You almost sit in the inner seat. Move nearer the door."
       },
       "vocab": [
@@ -2843,12 +2843,12 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주세요",
-          "de": "V-아/어 주세요: hoeflich bitten",
+          "de": "V-아/어 주세요: höflich bitten",
           "en": "V-아/어 주세요: asking politely"
         },
         "explanation": {
           "ko": "가족에게 도움을 강하게 요구하지 않고 정중히 부탁할 때 쓴다.",
-          "de": "Eine hoefliche Bitte ohne Druck, besonders vor der Familie.",
+          "de": "Eine höfliche Bitte ohne Druck, besonders vor der Familie.",
           "en": "A polite request without pressure, especially in front of family."
         }
       },
@@ -2862,14 +2862,14 @@
         {
           "speaker": "jieun",
           "ko": "아랫목이 더 편해요.",
-          "de": "Der Platz an der Tuer ist besser.",
+          "de": "Der Platz an der Tür ist besser.",
           "en": "The seat by the door is better."
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -2886,19 +2886,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -2913,7 +2913,7 @@
             "audioKo": "아랫목이 더 편해요.",
             "options": [
               {
-                "de": "Der Platz an der Tuer ist besser.",
+                "de": "Der Platz an der Tür ist besser.",
                 "en": "The seat by the door is better."
               },
               {
@@ -2934,7 +2934,7 @@
         },
         {
           "id": "quest_a1_partner_wrong_seat_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a1_titles_relationships"
           ],
@@ -3029,12 +3029,12 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주세요",
-          "de": "V-아/어 주세요: hoeflich bitten",
+          "de": "V-아/어 주세요: höflich bitten",
           "en": "V-아/어 주세요: asking politely"
         },
         "explanation": {
           "ko": "가족에게 도움을 강하게 요구하지 않고 정중히 부탁할 때 쓴다.",
-          "de": "Eine hoefliche Bitte ohne Druck, besonders vor der Familie.",
+          "de": "Eine höfliche Bitte ohne Druck, besonders vor der Familie.",
           "en": "A polite request without pressure, especially in front of family."
         }
       },
@@ -3048,14 +3048,14 @@
         {
           "speaker": "jieun",
           "ko": "두 손으로 받으세요.",
-          "de": "Nehmen Sie es mit beiden Haenden.",
+          "de": "Nehmen Sie es mit beiden Händen.",
           "en": "Take it with both hands."
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -3072,19 +3072,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -3099,7 +3099,7 @@
             "audioKo": "두 손으로 받으세요.",
             "options": [
               {
-                "de": "Nehmen Sie es mit beiden Haenden.",
+                "de": "Nehmen Sie es mit beiden Händen.",
                 "en": "Take it with both hands."
               },
               {
@@ -3120,7 +3120,7 @@
         },
         {
           "id": "quest_a1_partner_new_year_money_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a1_titles_relationships"
           ],
@@ -3220,7 +3220,7 @@
         },
         "explanation": {
           "ko": "상대가 나를 위해 해 준 행동이나 내가 해 줄 도움을 나타낸다.",
-          "de": "Markiert eine Hilfe oder einen Gefallen fuer die andere Person.",
+          "de": "Markiert eine Hilfe oder einen Gefallen für die andere Person.",
           "en": "Marks help or a favor done for the other person."
         }
       },
@@ -3239,9 +3239,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -3258,19 +3258,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -3306,7 +3306,7 @@
         },
         {
           "id": "quest_a2_partner_morning_greeting_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a2_relationships"
           ],
@@ -3372,7 +3372,7 @@
       },
       "intro": {
         "ko": "가족 단톡에 들어갑니다. 짧은 존댓말과 스티커 하나로 인사하세요.",
-        "de": "Du trittst in den Familienchat ein. Gruesse kurz hoeflich mit einem Sticker.",
+        "de": "Du trittst in den Familienchat ein. Grüße kurz höflich mit einem Sticker.",
         "en": "You join the family group chat. Greet briefly in honorifics with one sticker."
       },
       "vocab": [
@@ -3406,7 +3406,7 @@
         },
         "explanation": {
           "ko": "상대가 나를 위해 해 준 행동이나 내가 해 줄 도움을 나타낸다.",
-          "de": "Markiert eine Hilfe oder einen Gefallen fuer die andere Person.",
+          "de": "Markiert eine Hilfe oder einen Gefallen für die andere Person.",
           "en": "Marks help or a favor done for the other person."
         }
       },
@@ -3425,9 +3425,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -3444,19 +3444,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -3492,7 +3492,7 @@
         },
         {
           "id": "quest_a2_partner_group_chat_join_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a2_relationships"
           ],
@@ -3553,12 +3553,12 @@
       "xpReward": 160,
       "title": {
         "ko": "한복 대여 마감",
-        "de": "Hanbok-Verleih zu frueh zu",
+        "de": "Hanbok-Verleih zu früh zu",
         "en": "Hanbok rental closed early"
       },
       "intro": {
         "ko": "명절 전날 한복 가게가 일찍 닫습니다. 단정한 옷으로 바꾸세요.",
-        "de": "Am Vortag schliesst der Verleih frueh. Wechsle zu schlichter Kleidung.",
+        "de": "Am Vortag schließt der Verleih früh. Wechsle zu schlichter Kleidung.",
         "en": "The rental closes early the day before. Switch to neat clothes."
       },
       "vocab": [
@@ -3592,7 +3592,7 @@
         },
         "explanation": {
           "ko": "상대가 나를 위해 해 준 행동이나 내가 해 줄 도움을 나타낸다.",
-          "de": "Markiert eine Hilfe oder einen Gefallen fuer die andere Person.",
+          "de": "Markiert eine Hilfe oder einen Gefallen für die andere Person.",
           "en": "Marks help or a favor done for the other person."
         }
       },
@@ -3611,9 +3611,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -3630,19 +3630,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -3678,7 +3678,7 @@
         },
         {
           "id": "quest_a2_partner_hanbok_rental_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_a2_relationships"
           ],
@@ -3744,7 +3744,7 @@
       },
       "intro": {
         "ko": "월급을 묻습니다. 웃으며 아직 배우는 중이라고 넘기세요.",
-        "de": "Man fragt nach dem Gehalt. Laechle und sag, du lernst noch.",
+        "de": "Man fragt nach dem Gehalt. Lächle und sag, du lernst noch.",
         "en": "They ask about salary. Smile and say you are still learning."
       },
       "vocab": [
@@ -3797,9 +3797,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -3816,19 +3816,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -3864,7 +3864,7 @@
         },
         {
           "id": "quest_b1_partner_salary_deflect_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b1_relationships"
           ],
@@ -3983,9 +3983,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -4002,19 +4002,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -4050,7 +4050,7 @@
         },
         {
           "id": "quest_b1_partner_interpret_skip_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b1_relationships"
           ],
@@ -4169,9 +4169,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -4188,19 +4188,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -4236,7 +4236,7 @@
         },
         {
           "id": "quest_b1_partner_heavy_bags_home_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b1_relationships"
           ],
@@ -4355,9 +4355,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -4374,19 +4374,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -4422,7 +4422,7 @@
         },
         {
           "id": "quest_b2_partner_dowry_joke_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b2_advanced"
           ],
@@ -4488,7 +4488,7 @@
       },
       "intro": {
         "ko": "설거지가 한쪽에 몰립니다. 교대를 웃으며 제안하세요.",
-        "de": "Der Abwasch lastet auf einer Seite. Schlage laechelnd einen Wechsel vor.",
+        "de": "Der Abwasch lastet auf einer Seite. Schlage lächelnd einen Wechsel vor.",
         "en": "Dishwashing sits on one side. Smile and propose a rotation."
       },
       "vocab": [
@@ -4541,9 +4541,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -4560,19 +4560,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -4608,7 +4608,7 @@
         },
         {
           "id": "quest_b2_partner_holiday_labor_chart_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b2_advanced"
           ],
@@ -4669,12 +4669,12 @@
       "xpReward": 180,
       "title": {
         "ko": "사진 공개 확인",
-        "de": "Fotoeroeffentlichung pruefen",
+        "de": "Fotoeröffentlichung prüfen",
         "en": "Checking before posting a photo"
       },
       "intro": {
         "ko": "단체 사진을 올리기 전에 얼굴을 확인해야 합니다. 동의를 받으세요.",
-        "de": "Vor dem Hochladen musst du die Gesichter pruefen. Hol das Einverstaendnis.",
+        "de": "Vor dem Hochladen musst du die Gesichter prüfen. Hol das Einverständnis.",
         "en": "Before posting the group photo you must check faces. Get consent."
       },
       "vocab": [
@@ -4727,9 +4727,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -4746,19 +4746,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -4794,7 +4794,7 @@
         },
         {
           "id": "quest_b2_partner_photo_permission_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_b2_advanced"
           ],
@@ -4889,7 +4889,7 @@
       "grammarBlock": {
         "title": {
           "ko": "N을/를 고려하여",
-          "de": "N을/를 고려하여: unter Beruecksichtigung",
+          "de": "N을/를 고려하여: unter Berücksichtigung",
           "en": "N을/를 고려하여: taking into account"
         },
         "explanation": {
@@ -4913,9 +4913,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -4932,19 +4932,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -4980,7 +4980,7 @@
         },
         {
           "id": "quest_c1_partner_guest_or_family_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_c1_inclusive_systems"
           ],
@@ -5075,12 +5075,12 @@
       "grammarBlock": {
         "title": {
           "ko": "N와/과 상관없이",
-          "de": "N와/과 상관없이: unabhaengig von",
+          "de": "N와/과 상관없이: unabhängig von",
           "en": "N와/과 상관없이: regardless of"
         },
         "explanation": {
           "ko": "혈연이나 체면과 무관하게 절차나 권리를 말할 때 쓴다.",
-          "de": "Ein Recht oder Verfahren unabhaengig von Verwandtschaft oder Gesicht nennen.",
+          "de": "Ein Recht oder Verfahren unabhängig von Verwandtschaft oder Gesicht nennen.",
           "en": "Name a right or procedure regardless of kinship or face."
         }
       },
@@ -5099,9 +5099,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich prüfe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -5118,19 +5118,19 @@
         {
           "speaker": "jieun",
           "ko": "그러면 다음이 편해져요.",
-          "de": "Dann wird das Naechste leichter.",
+          "de": "Dann wird das Nächste leichter.",
           "en": "Then the next time gets easier."
         },
         {
           "speaker": "user",
           "ko": "오늘 배려해 주셔서 감사합니다.",
-          "de": "Danke fuer die Ruecksicht heute.",
+          "de": "Danke für die Rücksicht heute.",
           "en": "Thank you for the consideration today."
         },
         {
           "speaker": "jieun",
           "ko": "다음에 또 이야기해요.",
-          "de": "Sprechen wir das naechste Mal weiter.",
+          "de": "Sprechen wir das nächste Mal weiter.",
           "en": "Let us talk again next time."
         }
       ],
@@ -5166,7 +5166,7 @@
         },
         {
           "id": "quest_c2_partner_document_the_place_translate",
-          "type": "uebersetzen",
+          "type": "übersetzen",
           "conceptIds": [
             "concept_c2_discourse_institutions"
           ],

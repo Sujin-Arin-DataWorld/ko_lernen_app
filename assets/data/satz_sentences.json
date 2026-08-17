@@ -402,7 +402,7 @@
       "level": "b1",
       "targetKo": "한국 문화를 배워요.",
       "promptDe": "Ich lerne die koreanische Kultur.",
-      "promptEn": "I learn about Korean culture.",
+      "promptEn": "I'm studying Korean culture.",
       "distractors": [
         "행사에",
         "자신의"
@@ -412,9 +412,9 @@
     {
       "id": "satz_b1_0003",
       "level": "b1",
-      "targetKo": "다양한 사회에 살아요.",
-      "promptDe": "Wir leben in einer vielfältigen Gesellschaft.",
-      "promptEn": "We live in a diverse society.",
+      "targetKo": "요즘 사회가 많이 달라졌어요.",
+      "promptDe": "Die Gesellschaft hat sich ziemlich verändert.",
+      "promptEn": "Society's changed a lot lately.",
       "distractors": [
         "노력해요",
         "비가"
@@ -5457,7 +5457,7 @@
       "id": "satz_a1_0064",
       "level": "a1",
       "targetKo": "문 앞에서 인사드리겠습니다 하고 숨을 골랐어요.",
-      "promptDe": "Vor der Tuer sagte ich ich werde mich hoeflich vorstellen und holte Luft.",
+      "promptDe": "Vor der Tür sagte ich ich werde mich höflich vorstellen und holte Luft.",
       "promptEn": "At the door I said I will greet you respectfully and took a breath.",
       "distractors": [
         "그냥 웃고",
@@ -5541,7 +5541,7 @@
       "id": "satz_a1_0071",
       "level": "a1",
       "targetKo": "부모님 앞에서는 높임말을 써요.",
-      "promptDe": "Vor den Eltern benutze ich die Hoeflichkeitsform.",
+      "promptDe": "Vor den Eltern benutze ich die Höflichkeitsform.",
       "promptEn": "I use raised speech in front of the parents.",
       "distractors": [
         "현우에게만",
@@ -5757,7 +5757,7 @@
       "id": "satz_a1_0089",
       "level": "a1",
       "targetKo": "손님 슬리퍼가 왼쪽 짝만 남았어요.",
-      "promptDe": "Von den Gaesteslippern war nur der linke uebrig.",
+      "promptDe": "Von den Gästeslippern war nur der linke übrig.",
       "promptEn": "Only the left guest slipper was left.",
       "distractors": [
         "현우에게만",
@@ -5853,7 +5853,7 @@
       "id": "satz_a1_0097",
       "level": "a1",
       "targetKo": "화장실 문을 열고 손님 슬리퍼를 또 찾았어요.",
-      "promptDe": "Ich oeffnete die Toilettentuer und suchte wieder nach Gaesteslippern.",
+      "promptDe": "Ich öffnete die Toilettentür und suchte wieder nach Gästeslippern.",
       "promptEn": "I opened the bathroom door and looked for guest slippers again.",
       "distractors": [
         "밥부터 먹고",
@@ -5913,7 +5913,7 @@
       "id": "satz_a1_0102",
       "level": "a1",
       "targetKo": "밑반찬이 열 가지라서 눈이 커졌어요.",
-      "promptDe": "Es gab zehn Grundbeilagen, da wurden meine Augen gross.",
+      "promptDe": "Es gab zehn Grundbeilagen, da wurden meine Augen groß.",
       "promptEn": "There were ten basic side dishes, so my eyes got wide.",
       "distractors": [
         "사진부터",
@@ -5949,8 +5949,8 @@
       "id": "satz_a1_0105",
       "level": "a1",
       "targetKo": "맛있어요를 매 접시마다 말하니 현우가 웃었어요.",
-      "promptDe": "Ich sagte bei jedem Teller es schmeckt, und Hyunwoo lachte.",
-      "promptEn": "I said it is delicious at every plate, and Hyunwoo laughed.",
+      "promptDe": "Bei jedem Teller sagte ich, dass es schmeckt, und Hyunwoo hat gelacht.",
+      "promptEn": "I kept saying it was tasty, and Hyunwoo laughed.",
       "distractors": [
         "다음에 다시",
         "나중에 말할게요"
@@ -6046,7 +6046,7 @@
       "level": "a1",
       "targetKo": "세배 각도를 현우가 거실에서 연습시켜 줬어요.",
       "promptDe": "Hyunwoo hat den Winkel der Neujahrsverbeugung im Wohnzimmer geübt.",
-      "promptEn": "Hyunwoo drilled the New Year bow angle in the living room.",
+      "promptEn": "Hyunwoo had me practice the New Year bow in the living room.",
       "distractors": [
         "현우에게만",
         "제가 할게요"
@@ -6621,7 +6621,7 @@
       "id": "satz_a2_0040",
       "level": "a2",
       "targetKo": "한국어 잘하시네요는 칭찬인데 더 긴장됐어요.",
-      "promptDe": "Das Lob machte mich noch nervoeser.",
+      "promptDe": "Das Lob machte mich noch nervöser.",
       "promptEn": "Your Korean is good is praise, but I got more nervous.",
       "distractors": [
         "현우에게만",
@@ -6669,7 +6669,7 @@
       "id": "satz_a2_0044",
       "level": "a2",
       "targetKo": "소개팅이 아니라 동아리에서 만났다고 했어요.",
-      "promptDe": "Wir haben uns nicht ueber ein Date, sondern im Verein kennengelernt.",
+      "promptDe": "Wir haben uns nicht über ein Date, sondern im Verein kennengelernt.",
       "promptEn": "I said we met in a club, not on a set-up date.",
       "distractors": [
         "다음에 다시",
@@ -6681,7 +6681,7 @@
       "id": "satz_a2_0045",
       "level": "a2",
       "targetKo": "유창하지 않아도 천천히 말하면 통해요.",
-      "promptDe": "Auch ohne fliessendes Koreanisch versteht man langsames Sprechen.",
+      "promptDe": "Auch ohne fließendes Koreanisch versteht man langsames Sprechen.",
       "promptEn": "Even if it is not fluent, slow speech still works.",
       "distractors": [
         "그냥 웃고",
@@ -6693,7 +6693,7 @@
       "id": "satz_a2_0046",
       "level": "a2",
       "targetKo": "어려운 말은 현우에게 통역 부탁을 했어요.",
-      "promptDe": "Schwierige Saetze liess ich mir von Hyunwoo dolmetschen.",
+      "promptDe": "Schwierige Sätze ließ ich mir von Hyunwoo dolmetschen.",
       "promptEn": "I asked Hyunwoo for interpreting on the hard parts.",
       "distractors": [
         "현우에게만",
@@ -6705,7 +6705,7 @@
       "id": "satz_a2_0047",
       "level": "a2",
       "targetKo": "자기소개를 세 문장으로 준비해 갔어요.",
-      "promptDe": "Ich hatte die Selbstvorstellung in drei Saetzen vorbereitet.",
+      "promptDe": "Ich hatte die Selbstvorstellung in drei Sätzen vorbereitet.",
       "promptEn": "I prepared the self-introduction in three sentences.",
       "distractors": [
         "사진부터",
@@ -6717,7 +6717,7 @@
       "id": "satz_a2_0048",
       "level": "a2",
       "targetKo": "고향 이야기를 하니 할머니가 지도를 찾아오셨어요.",
-      "promptDe": "Als ich von der Heimat erzaehlte, holte die Grossmutter eine Karte.",
+      "promptDe": "Als ich von der Heimat erzählte, holte die Großmutter eine Karte.",
       "promptEn": "When I told a hometown story, grandmother brought a map.",
       "distractors": [
         "밥부터 먹고",
@@ -6753,7 +6753,7 @@
       "id": "satz_a2_0051",
       "level": "a2",
       "targetKo": "오전에 세배하러 가는 집이 세 곳이었어요.",
-      "promptDe": "Vormittags gab es drei Haeuser fuer die Verbeugung.",
+      "promptDe": "Vormittags gab es drei Häuser für die Verbeugung.",
       "promptEn": "In the morning there were three houses for New Year bows.",
       "distractors": [
         "그냥 웃고",
@@ -6765,7 +6765,7 @@
       "id": "satz_a2_0052",
       "level": "a2",
       "targetKo": "떡국 먹다 보면 한 살이 는다는 농담을 들었어요.",
-      "promptDe": "Beim Essen hoerte ich den Witz, man werde ein Jahr aelter.",
+      "promptDe": "Beim Essen hörte ich den Witz, man werde ein Jahr älter.",
       "promptEn": "While eating the soup I heard the joke that you gain a year.",
       "distractors": [
         "현우에게만",
@@ -6789,7 +6789,7 @@
       "id": "satz_a2_0054",
       "level": "a2",
       "targetKo": "한복 대여 가게가 명절 전날 문을 일찍 닫았어요.",
-      "promptDe": "Der Hanbok-Verleih schloss am Vortag frueh.",
+      "promptDe": "Der Hanbok-Verleih schloss am Vortag früh.",
       "promptEn": "The hanbok rental closed early the day before.",
       "distractors": [
         "밥부터 먹고",
@@ -6801,7 +6801,7 @@
       "id": "satz_a2_0055",
       "level": "a2",
       "targetKo": "세배 순서는 나이 많은 분부터예요.",
-      "promptDe": "Die Reihenfolge beginnt bei den Aeltesten.",
+      "promptDe": "Die Reihenfolge beginnt bei den Ältesten.",
       "promptEn": "The bowing order starts with the oldest people.",
       "distractors": [
         "문을 닫고",
@@ -6813,7 +6813,7 @@
       "id": "satz_a2_0056",
       "level": "a2",
       "targetKo": "아이 복주머니에 세뱃돈을 넣어 주셨어요.",
-      "promptDe": "In den Gluecksbeutel des Kindes steckten sie das Geld.",
+      "promptDe": "In den Glücksbeutel des Kindes steckten sie das Geld.",
       "promptEn": "They put the New Year money into the child's lucky pouch.",
       "distractors": [
         "다음에 다시",
@@ -6861,7 +6861,7 @@
       "id": "satz_a2_0060",
       "level": "a2",
       "targetKo": "전 부치는 기름이 팔에 튀었어요.",
-      "promptDe": "Beim Braten spritzte Oel auf den Arm.",
+      "promptDe": "Beim Braten spritzte Öl auf den Arm.",
       "promptEn": "Oil from frying jeon splashed on my arm.",
       "distractors": [
         "밥부터 먹고",
@@ -6873,7 +6873,7 @@
       "id": "satz_a2_0061",
       "level": "a2",
       "targetKo": "세배 연습을 거울 앞에서 열 번 했어요.",
-      "promptDe": "Die Verbeugung uebte ich zehnmal vor dem Spiegel.",
+      "promptDe": "Die Verbeugung übte ich zehnmal vor dem Spiegel.",
       "promptEn": "I practiced the bow ten times in front of the mirror.",
       "distractors": [
         "문을 닫고",
@@ -6897,7 +6897,7 @@
       "id": "satz_a2_0063",
       "level": "a2",
       "targetKo": "귀성길에서 휴게소 호두과자를 샀어요.",
-      "promptDe": "Im Heimreiseverkehr kaufte ich Walnusskuchen an der Raststaette.",
+      "promptDe": "Im Heimreiseverkehr kaufte ich Walnusskuchen an der Raststätte.",
       "promptEn": "In holiday traffic I bought walnut cakes at the rest stop.",
       "distractors": [
         "그냥 웃고",
@@ -6909,7 +6909,7 @@
       "id": "satz_a2_0064",
       "level": "a2",
       "targetKo": "송편 맛이 콩이면 제가 이기고 깨면 현우가 이겨요.",
-      "promptDe": "Bei Bohnenfuellung gewinne ich, bei Sesam Hyunwoo.",
+      "promptDe": "Bei Bohnenfüllung gewinne ich, bei Sesam Hyunwoo.",
       "promptEn": "If the filling is bean I win; if sesame, Hyunwoo wins.",
       "distractors": [
         "현우에게만",
@@ -6933,7 +6933,7 @@
       "id": "satz_a2_0066",
       "level": "a2",
       "targetKo": "성묘 옷은 흰색보다 어두운 색이 편해요.",
-      "promptDe": "Fuer den Grabbesuch sind dunkle Farben bequemer als Weiss.",
+      "promptDe": "Für den Grabbesuch sind dunkle Farben bequemer als Weiß.",
       "promptEn": "For the grave visit dark colors are easier than white.",
       "distractors": [
         "밥부터 먹고",
@@ -6945,7 +6945,7 @@
       "id": "satz_a2_0067",
       "level": "a2",
       "targetKo": "벌초 장갑을 끼고 사진만 찍었어요.",
-      "promptDe": "Mit Jaetehandschuhen machte ich nur Fotos.",
+      "promptDe": "Mit Jätehandschuhen machte ich nur Fotos.",
       "promptEn": "I put on weeding gloves and only took photos.",
       "distractors": [
         "문을 닫고",
@@ -6981,7 +6981,7 @@
       "id": "satz_a2_0070",
       "level": "a2",
       "targetKo": "카톡 명절 인사는 짧게, 하지만 존댓말로 보냈어요.",
-      "promptDe": "Den Festtagsgruss schickte ich kurz, aber hoeflich.",
+      "promptDe": "Den Festtagsgruss schickte ich kurz, aber höflich.",
       "promptEn": "I sent the holiday greeting short, but in honorifics.",
       "distractors": [
         "현우에게만",
@@ -7005,7 +7005,7 @@
       "id": "satz_a2_0072",
       "level": "a2",
       "targetKo": "친척 방문이 다섯 집이라 미소를 아껴 썼어요.",
-      "promptDe": "Bei fuenf Besuchen sparte ich das Laecheln ein.",
+      "promptDe": "Bei fünf Besuchen sparte ich das Lächeln ein.",
       "promptEn": "With five relative visits I rationed my smile.",
       "distractors": [
         "밥부터 먹고",
@@ -7053,7 +7053,7 @@
       "id": "satz_a2_0076",
       "level": "a2",
       "targetKo": "현우가 제 편을 들어 줘서 어깨가 내려갔어요.",
-      "promptDe": "Hyunwoo ergriff fuer mich Partei, da sank die Schulter.",
+      "promptDe": "Hyunwoo ergriff für mich Partei, da sank die Schulter.",
       "promptEn": "Hyunwoo took my side, and my shoulders dropped.",
       "distractors": [
         "현우에게만",
@@ -7065,7 +7065,7 @@
       "id": "satz_a2_0077",
       "level": "a2",
       "targetKo": "별명이 생기기 전에 제가 먼저 하나를 정했어요.",
-      "promptDe": "Bevor ein Spitzname entstand, waehlte ich selbst einen.",
+      "promptDe": "Bevor ein Spitzname entstand, wählte ich selbst einen.",
       "promptEn": "Before a nickname appeared, I chose one first.",
       "distractors": [
         "사진부터",
@@ -7077,7 +7077,7 @@
       "id": "satz_a2_0078",
       "level": "a2",
       "targetKo": "게임 한 판 하니 존댓말이 반말로 넘어갔어요.",
-      "promptDe": "Nach einer Runde rutschte die Hoeflichkeit ins Vertraute.",
+      "promptDe": "Nach einer Runde rutschte die Höflichkeit ins Vertraute.",
       "promptEn": "After one game, honorifics slipped into casual speech.",
       "distractors": [
         "밥부터 먹고",
@@ -7125,7 +7125,7 @@
       "id": "satz_a2_0082",
       "level": "a2",
       "targetKo": "같이 웃다 보면 존댓말 실수는 잊혀요.",
-      "promptDe": "Wenn man zusammen lacht, vergisst man Hoeflichkeitsfehler.",
+      "promptDe": "Wenn man zusammen lacht, vergisst man Höflichkeitsfehler.",
       "promptEn": "If you laugh together, honorific mistakes are forgotten.",
       "distractors": [
         "현우에게만",
@@ -7137,7 +7137,7 @@
       "id": "satz_a2_0083",
       "level": "a2",
       "targetKo": "동생 편을 들면 현우가 눈을 흘겨요.",
-      "promptDe": "Halte ich zum juengeren Geschwister, schielt Hyunwoo.",
+      "promptDe": "Halte ich zum jüngeren Geschwister, schielt Hyunwoo.",
       "promptEn": "If I take the younger sibling side, Hyunwoo side-eyes me.",
       "distractors": [
         "사진부터",
@@ -7161,7 +7161,7 @@
       "id": "satz_a2_0085",
       "level": "a2",
       "targetKo": "남은 반찬 봉투가 두 개라서 양손에 들었어요.",
-      "promptDe": "Ich trug zwei Tueten Reste in beiden Haenden.",
+      "promptDe": "Ich trug zwei Tüten Reste in beiden Händen.",
       "promptEn": "I carried two leftover bags, one in each hand.",
       "distractors": [
         "문을 닫고",
@@ -7173,7 +7173,7 @@
       "id": "satz_a2_0086",
       "level": "a2",
       "targetKo": "반말 실수를 하자 동생이 더 좋아했어요.",
-      "promptDe": "Nach einem vertraulichen Sprachfehler freute sich das juengere Geschwister noch mehr.",
+      "promptDe": "Nach einem vertraulichen Sprachfehler freute sich das jüngere Geschwister noch mehr.",
       "promptEn": "After a casual-speech slip the younger sibling liked me even more.",
       "distractors": [
         "다음에 다시",
@@ -7185,7 +7185,7 @@
       "id": "satz_a2_0087",
       "level": "a2",
       "targetKo": "손님방에 이불이 세 겹이라 더웠어요.",
-      "promptDe": "Im Gaestezimmer lagen drei Decken, es war zu warm.",
+      "promptDe": "Im Gästezimmer lagen drei Decken, es war zu warm.",
       "promptEn": "The guest room had three blankets, so it was too warm.",
       "distractors": [
         "그냥 웃고",
@@ -7209,7 +7209,7 @@
       "id": "satz_a2_0089",
       "level": "a2",
       "targetKo": "세면 도구를 깜빡해서 새 칫솔을 받았어요.",
-      "promptDe": "Ich hatte das Waschzeug vergessen und bekam eine neue Buerste.",
+      "promptDe": "Ich hatte das Waschzeug vergessen und bekam eine neue Bürste.",
       "promptEn": "I forgot my toiletries and was given a new toothbrush.",
       "distractors": [
         "사진부터",
@@ -7233,7 +7233,7 @@
       "id": "satz_a2_0091",
       "level": "a2",
       "targetKo": "일찍 일어나려고 알람을 네 개 맞췄어요.",
-      "promptDe": "Um frueh aufzustehen, stellte ich vier Wecker.",
+      "promptDe": "Um früh aufzustehen, stellte ich vier Wecker.",
       "promptEn": "I set four alarms to get up early.",
       "distractors": [
         "문을 닫고",
@@ -7281,7 +7281,7 @@
       "id": "satz_a2_0095",
       "level": "a2",
       "targetKo": "아침밥이 저녁만큼 많아서 천천히 먹었어요.",
-      "promptDe": "Das Fruehstueck war so reich wie das Abendessen.",
+      "promptDe": "Das Frühstück war so reich wie das Abendessen.",
       "promptEn": "Breakfast was as big as dinner, so I ate slowly.",
       "distractors": [
         "사진부터",
@@ -7293,7 +7293,7 @@
       "id": "satz_a2_0096",
       "level": "a2",
       "targetKo": "손님 수건이 분홍색이라 현우 거라고 착각했어요.",
-      "promptDe": "Das Gaestehandtuch war rosa, ich dachte es sei Hyunwoos.",
+      "promptDe": "Das Gästehandtuch war rosa, ich dachte es sei Hyunwoos.",
       "promptEn": "The guest towel was pink, so I thought it was Hyunwoo's.",
       "distractors": [
         "밥부터 먹고",
@@ -7305,7 +7305,7 @@
       "id": "satz_a2_0097",
       "level": "a2",
       "targetKo": "문 닫기를 너무 세게 해서 깜짝 놀랐어요.",
-      "promptDe": "Ich schloss die Tuer zu fest und erschrak selbst.",
+      "promptDe": "Ich schloss die Tür zu fest und erschrak selbst.",
       "promptEn": "I closed the door too hard and startled myself.",
       "distractors": [
         "문을 닫고",
@@ -7353,7 +7353,7 @@
       "id": "satz_a2_0101",
       "level": "a2",
       "targetKo": "김치 국물이 샐까 봐 봉지를 두 겹으로 했어요.",
-      "promptDe": "Aus Angst vor Kimchi-Saft nahm ich zwei Tueten.",
+      "promptDe": "Aus Angst vor Kimchi-Saft nahm ich zwei Tüten.",
       "promptEn": "I used two bags in case the kimchi juice leaked.",
       "distractors": [
         "사진부터",
@@ -7377,7 +7377,7 @@
       "id": "satz_a2_0103",
       "level": "a2",
       "targetKo": "보자기로 싼 그릇이 미끄러워서 양손으로 들었어요.",
-      "promptDe": "Die in ein Tuch gewickelte Schuessel rutschte, also nahm ich beide Haende.",
+      "promptDe": "Die in ein Tuch gewickelte Schüssel rutschte, also nahm ich beide Hände.",
       "promptEn": "The bowl wrapped in cloth slipped, so I used both hands.",
       "distractors": [
         "문을 닫고",
@@ -7389,7 +7389,7 @@
       "id": "satz_a2_0104",
       "level": "a2",
       "targetKo": "비닐봉지가 얇아서 밑에 책을 받쳤어요.",
-      "promptDe": "Die Tute war duenn, also hielt ich ein Buch darunter.",
+      "promptDe": "Die Tute war dünn, also hielt ich ein Buch darunter.",
       "promptEn": "The plastic bag was thin, so I put a book under it.",
       "distractors": [
         "다음에 다시",
@@ -7401,7 +7401,7 @@
       "id": "satz_a2_0105",
       "level": "a2",
       "targetKo": "양손에 통이 있어서 엘리베이터 버튼을 팔꿈치로 눌렀어요.",
-      "promptDe": "Mit beiden Haenden voll drueckte ich den Knopf mit dem Ellbogen.",
+      "promptDe": "Mit beiden Händen voll drückte ich den Knopf mit dem Ellbogen.",
       "promptEn": "With both hands full I pressed the elevator button with my elbow.",
       "distractors": [
         "그냥 웃고",
@@ -7413,7 +7413,7 @@
       "id": "satz_a2_0106",
       "level": "a2",
       "targetKo": "냉동 보관이라고 쓴 메모를 뚜껑에 붙였어요.",
-      "promptDe": "Ich klebte den Zettel Tiefkuehllagerung auf den Deckel.",
+      "promptDe": "Ich klebte den Zettel Tiefkühllagerung auf den Deckel.",
       "promptEn": "I stuck a freezer-storage note on the lid.",
       "distractors": [
         "현우에게만",
@@ -7425,7 +7425,7 @@
       "id": "satz_a2_0107",
       "level": "a2",
       "targetKo": "집까지 국물 냄새를 들고 가서 현우가 창문을 열었어요.",
-      "promptDe": "Bis nach Hause trug ich den Suppengeruch, und Hyunwoo oeffnete das Fenster.",
+      "promptDe": "Bis nach Hause trug ich den Suppengeruch, und Hyunwoo öffnete das Fenster.",
       "promptEn": "I carried the broth smell all the way home, and Hyunwoo opened the window.",
       "distractors": [
         "사진부터",
@@ -7449,7 +7449,7 @@
       "id": "satz_a2_0109",
       "level": "a2",
       "targetKo": "국물 샐까 봐 뚜껑을 두 번 확인했어요.",
-      "promptDe": "Aus Angst vor auslaufender Bruehe pruefte ich den Deckel zweimal.",
+      "promptDe": "Aus Angst vor auslaufender Brühe prüfte ich den Deckel zweimal.",
       "promptEn": "I checked the lid twice in case the broth leaked.",
       "distractors": [
         "문을 닫고",
@@ -7473,7 +7473,7 @@
       "id": "satz_a2_0111",
       "level": "a2",
       "targetKo": "고속버스 좌석이 창가라서 할머니께 사진을 보냈어요.",
-      "promptDe": "Der Fernbusplatz war am Fenster, also schickte ich der Grossmutter ein Foto.",
+      "promptDe": "Der Fernbusplatz war am Fenster, also schickte ich der Großmutter ein Foto.",
       "promptEn": "The express-bus seat was by the window, so I sent grandmother a photo.",
       "distractors": [
         "그냥 웃고",
@@ -7485,7 +7485,7 @@
       "id": "satz_a2_0112",
       "level": "a2",
       "targetKo": "휴게소에서 호두과자를 사니 현우 아빠가 웃으셨어요.",
-      "promptDe": "An der Raststaette kaufte ich Walnusskuchen, und Hyunwoos Vater lachte.",
+      "promptDe": "An der Raststätte kaufte ich Walnusskuchen, und Hyunwoos Vater lachte.",
       "promptEn": "At the rest stop I bought walnut cakes, and Hyunwoo's dad smiled.",
       "distractors": [
         "현우에게만",
@@ -7557,7 +7557,7 @@
       "id": "satz_a2_0118",
       "level": "a2",
       "targetKo": "마을 버스가 한 대라 시간을 두 번 확인했어요.",
-      "promptDe": "Es gab nur einen Dorfbus, also pruefte ich die Zeit zweimal.",
+      "promptDe": "Es gab nur einen Dorfbus, also prüfte ich die Zeit zweimal.",
       "promptEn": "There was only one village bus, so I checked the time twice.",
       "distractors": [
         "현우에게만",
@@ -7581,7 +7581,7 @@
       "id": "satz_a2_0120",
       "level": "a2",
       "targetKo": "밤참으로 과일만 달라고 했는데 라면이 나왔어요.",
-      "promptDe": "Als Spaetimbiss wollte ich nur Obst, aber es kam Ramyeon.",
+      "promptDe": "Als Spätimbiss wollte ich nur Obst, aber es kam Ramyeon.",
       "promptEn": "I asked only for fruit as a late snack, but ramyeon appeared.",
       "distractors": [
         "밥부터 먹고",
@@ -7593,7 +7593,7 @@
       "id": "satz_a2_0121",
       "level": "a2",
       "targetKo": "돌아가는 길에 남은 전을 또 받았어요.",
-      "promptDe": "Auf dem Rueckweg bekam ich noch einmal Pfannengerichte.",
+      "promptDe": "Auf dem Rückweg bekam ich noch einmal Pfannengerichte.",
       "promptEn": "On the way back I was given more jeon again.",
       "distractors": [
         "문을 닫고",
@@ -7617,7 +7617,7 @@
       "id": "satz_a2_0123",
       "level": "a2",
       "targetKo": "반말 전환은 동생이 먼저 하자고 했어요.",
-      "promptDe": "Den Wechsel ins Vertraute schlug das juengere Geschwister zuerst vor.",
+      "promptDe": "Den Wechsel ins Vertraute schlug das jüngere Geschwister zuerst vor.",
       "promptEn": "The younger sibling suggested the switch to casual speech first.",
       "distractors": [
         "그냥 웃고",
@@ -7629,7 +7629,7 @@
       "id": "satz_a2_0124",
       "level": "a2",
       "targetKo": "부모님 앞에서는 존댓말 유지를 약속했어요.",
-      "promptDe": "Vor den Eltern versprach ich, die Hoeflichkeit beizubehalten.",
+      "promptDe": "Vor den Eltern versprach ich, die Höflichkeit beizubehalten.",
       "promptEn": "In front of the parents I promised to keep honorifics.",
       "distractors": [
         "현우에게만",
@@ -7641,7 +7641,7 @@
       "id": "satz_a2_0125",
       "level": "a2",
       "targetKo": "말실수로 형이라고 해서 현우가 눈을 커졌어요.",
-      "promptDe": "Durch einen Versprecher sagte ich hyeong, und Hyunwoos Augen wurden gross.",
+      "promptDe": "Durch einen Versprecher sagte ich hyeong, und Hyunwoos Augen wurden groß.",
       "promptEn": "I slipped and said hyeong, and Hyunwoo's eyes went wide.",
       "distractors": [
         "사진부터",
@@ -7653,7 +7653,7 @@
       "id": "satz_a2_0126",
       "level": "a2",
       "targetKo": "호칭 연습을 차에 타기 전에 세 번 했어요.",
-      "promptDe": "Die Anrede uebte ich dreimal vor der Autofahrt.",
+      "promptDe": "Die Anrede übte ich dreimal vor der Autofahrt.",
       "promptEn": "I practiced the address terms three times before the car ride.",
       "distractors": [
         "밥부터 먹고",
@@ -7665,7 +7665,7 @@
       "id": "satz_a2_0127",
       "level": "a2",
       "targetKo": "편하게 말해요 하셔도 처음엔 존댓말이 나왔어요.",
-      "promptDe": "Auch nach sprechen Sie locker kam zuerst Hoeflichkeit.",
+      "promptDe": "Auch nach sprechen Sie locker kam zuerst Höflichkeit.",
       "promptEn": "Even after please speak comfortably, honorifics came out first.",
       "distractors": [
         "문을 닫고",
@@ -7689,7 +7689,7 @@
       "id": "satz_a2_0129",
       "level": "a2",
       "targetKo": "존댓말 버릇이 남아서 게임에서도 요를 붙였어요.",
-      "promptDe": "Die Hoeflichkeitsgewohnheit blieb, sogar im Spiel sagte ich yo.",
+      "promptDe": "Die Höflichkeitsgewohnheit blieb, sogar im Spiel sagte ich yo.",
       "promptEn": "The honorific habit stayed, so I even added yo in the game.",
       "distractors": [
         "그냥 웃고",
@@ -7713,7 +7713,7 @@
       "id": "satz_a2_0131",
       "level": "a2",
       "targetKo": "처음엔 서로 존댓말로 시작해 마음이 놓였어요.",
-      "promptDe": "Am Anfang half gegenseitige Hoeflichkeit, ich war erleichtert.",
+      "promptDe": "Am Anfang half gegenseitige Höflichkeit, ich war erleichtert.",
       "promptEn": "Starting with mutual honorifics made me feel safer.",
       "distractors": [
         "사진부터",
@@ -7737,7 +7737,7 @@
       "id": "satz_a2_0133",
       "level": "a2",
       "targetKo": "존댓말 실수를 사과하니 아버지가 괜찮다고 하셨어요.",
-      "promptDe": "Nach der Entschuldigung fuer den Hoeflichkeitsfehler sagte der Vater, es sei in Ordnung.",
+      "promptDe": "Nach der Entschuldigung für den Höflichkeitsfehler sagte der Vater, es sei in Ordnung.",
       "promptEn": "When I apologized for the honorific mistake, father said it was fine.",
       "distractors": [
         "문을 닫고",
@@ -7749,7 +7749,7 @@
       "id": "satz_a2_0134",
       "level": "a2",
       "targetKo": "반말 연습은 주차장에서만 하기로 했어요.",
-      "promptDe": "Banmal uebten wir nur auf dem Parkplatz.",
+      "promptDe": "Banmal übten wir nur auf dem Parkplatz.",
       "promptEn": "We agreed to practice casual speech only in the parking lot.",
       "distractors": [
         "다음에 다시",
@@ -7761,7 +7761,7 @@
       "id": "satz_b1_0080",
       "level": "b1",
       "targetKo": "결혼 계획을 묻길래 아직 천천히 알아가는 중이라고 했어요.",
-      "promptDe": "Nach Heiratsplaenen gefragt sagte ich, wir lernen uns noch in Ruhe kennen.",
+      "promptDe": "Nach Heiratsplänen gefragt sagte ich, wir lernen uns noch in Ruhe kennen.",
       "promptEn": "Asked about marriage plans, I said we are still getting to know each other slowly.",
       "distractors": [
         "그냥 웃고",
@@ -7773,8 +7773,8 @@
       "id": "satz_b1_0081",
       "level": "b1",
       "targetKo": "아이 가지냐는 질문에 현우가 물을 마시며 시간을 벌었어요.",
-      "promptDe": "Auf die Kinderfrage trank Hyunwoo Wasser und gewann Zeit.",
-      "promptEn": "At the children question Hyunwoo drank water and bought time.",
+      "promptDe": "Als sie nach Kindern fragten, trank Hyunwoo Wasser und gewann Zeit.",
+      "promptEn": "When they asked about kids, Hyunwoo drank some water to buy time.",
       "distractors": [
         "현우에게만",
         "제가 할게요"
@@ -7785,7 +7785,7 @@
       "id": "satz_b1_0082",
       "level": "b1",
       "targetKo": "월급 이야기는 웃으면서 아직 배우는 중이라고 넘겼어요.",
-      "promptDe": "Das Gehaltsgespraech lenkte ich laechelnd mit ich lerne noch ab.",
+      "promptDe": "Das Gehaltsgespräch lenkte ich lächelnd mit ich lerne noch ab.",
       "promptEn": "I smiled through the salary talk and said I am still learning.",
       "distractors": [
         "사진부터",
@@ -7821,7 +7821,7 @@
       "id": "satz_b1_0085",
       "level": "b1",
       "targetKo": "국적 문제는 서류보다 마음이 먼저라고 했어요.",
-      "promptDe": "Bei der Staatsangehoerigkeit sei das Herz wichtiger als das Papier, sagte ich.",
+      "promptDe": "Bei der Staatsangehörigkeit sei das Herz wichtiger als das Papier, sagte ich.",
       "promptEn": "On the nationality issue I said the heart comes before the paperwork.",
       "distractors": [
         "다음에 다시",
@@ -7857,7 +7857,7 @@
       "id": "satz_b1_0088",
       "level": "b1",
       "targetKo": "화제 돌리기는 날씨보다 음식 칭찬이 안전했어요.",
-      "promptDe": "Zum Themenwechsel war ein Lob fuer das Essen sicherer als das Wetter.",
+      "promptDe": "Zum Themenwechsel war ein Lob für das Essen sicherer als das Wetter.",
       "promptEn": "For changing the subject, praising the food was safer than the weather.",
       "distractors": [
         "사진부터",
@@ -7869,7 +7869,7 @@
       "id": "satz_b1_0089",
       "level": "b1",
       "targetKo": "나이 농담은 웃고 넘기니 할머니가 만족하셨어요.",
-      "promptDe": "Den Altersscherz wegzulaecheln reichte der Grossmutter.",
+      "promptDe": "Den Altersscherz wegzulächeln reichte der Großmutter.",
       "promptEn": "Laughing off the age joke satisfied grandmother.",
       "distractors": [
         "밥부터 먹고",
@@ -7893,7 +7893,7 @@
       "id": "satz_b1_0091",
       "level": "b1",
       "targetKo": "다음에 말씀드릴게요로 시간을 사니 분위기가 남았어요.",
-      "promptDe": "Mit ich sage spaeter mehr kaufte ich Zeit, ohne die Stimmung zu verlieren.",
+      "promptDe": "Mit ich sage später mehr kaufte ich Zeit, ohne die Stimmung zu verlieren.",
       "promptEn": "Saying I will tell you later bought time without losing the mood.",
       "distractors": [
         "다음에 다시",
@@ -7905,7 +7905,7 @@
       "id": "satz_b1_0092",
       "level": "b1",
       "targetKo": "취업 비자 만료일을 먼저 말해 오해가 줄었어요.",
-      "promptDe": "Das Ablaufdatum des Arbeitsvisums zuerst zu nennen verringerte Missverstaendnisse.",
+      "promptDe": "Das Ablaufdatum des Arbeitsvisums zuerst zu nennen verringerte Missverständnisse.",
       "promptEn": "Saying the work-visa expiry first reduced misunderstanding.",
       "distractors": [
         "그냥 웃고",
@@ -7917,7 +7917,7 @@
       "id": "satz_b1_0093",
       "level": "b1",
       "targetKo": "계약직이라고 하니 안정적이냐는 질문이 바로 나왔어요.",
-      "promptDe": "Als ich befristete Stelle sagte, kam sofort die Frage nach Stabilitaet.",
+      "promptDe": "Als ich befristete Stelle sagte, kam sofort die Frage nach Stabilität.",
       "promptEn": "When I said fixed-term, the stability question came at once.",
       "distractors": [
         "현우에게만",
@@ -7953,7 +7953,7 @@
       "id": "satz_b1_0096",
       "level": "b1",
       "targetKo": "체류 기간을 묻길래 내년까지 연장할 계획이라고 했어요.",
-      "promptDe": "Nach der Aufenthaltsdauer gefragt sagte ich, ich plane eine Verlaengerung bis nächstes Jahr.",
+      "promptDe": "Nach der Aufenthaltsdauer gefragt sagte ich, ich plane eine Verlängerung bis nächstes Jahr.",
       "promptEn": "Asked about the length of stay, I said I plan to extend through next year.",
       "distractors": [
         "문을 닫고",
@@ -7977,7 +7977,7 @@
       "id": "satz_b1_0098",
       "level": "b1",
       "targetKo": "야근이 많다고 하니 건강부터 챙기라고 하셨어요.",
-      "promptDe": "Als ich von viel Spaetarbeit erzaehlte, sollte ich zuerst auf die Gesundheit achten.",
+      "promptDe": "Als ich von viel Spätarbeit erzählte, sollte ich zuerst auf die Gesundheit achten.",
       "promptEn": "When I mentioned a lot of overtime, they told me to take care of my health first.",
       "distractors": [
         "그냥 웃고",
@@ -7989,7 +7989,7 @@
       "id": "satz_b1_0099",
       "level": "b1",
       "targetKo": "퇴사 계획은 없다고 하니 표정이 풀렸어요.",
-      "promptDe": "Als ich keine Kuendigung plante, entspannte sich das Gesicht.",
+      "promptDe": "Als ich keine Kündigung plante, entspannte sich das Gesicht.",
       "promptEn": "When I said I had no plan to leave the job, their faces eased.",
       "distractors": [
         "현우에게만",
@@ -8025,7 +8025,7 @@
       "id": "satz_b1_0102",
       "level": "b1",
       "targetKo": "통역 없이 세 문장만 준비해 갔어요.",
-      "promptDe": "Ohne Dolmetschen hatte ich nur drei Saetze vorbereitet.",
+      "promptDe": "Ohne Dolmetschen hatte ich nur drei Sätze vorbereitet.",
       "promptEn": "Without interpreting I prepared only three sentences.",
       "distractors": [
         "문을 닫고",
@@ -8049,7 +8049,7 @@
       "id": "satz_b1_0104",
       "level": "b1",
       "targetKo": "통역을 맡기 전에 현우가 제 눈을 봤어요.",
-      "promptDe": "Bevor Hyunwoo das Dolmetschen uebernahm, sah er mir in die Augen.",
+      "promptDe": "Bevor Hyunwoo das Dolmetschen übernahm, sah er mir in die Augen.",
       "promptEn": "Before taking on interpreting, Hyunwoo looked at my eyes.",
       "distractors": [
         "그냥 웃고",
@@ -8061,7 +8061,7 @@
       "id": "satz_b1_0105",
       "level": "b1",
       "targetKo": "긴 이야기는 요약해서 전하니 핵심만 남았어요.",
-      "promptDe": "Die lange Rede knapp weiterzugeben liess nur den Kern.",
+      "promptDe": "Die lange Rede knapp weiterzugeben ließ nur den Kern.",
       "promptEn": "Passing on a summary left only the core.",
       "distractors": [
         "현우에게만",
@@ -8073,7 +8073,7 @@
       "id": "satz_b1_0106",
       "level": "b1",
       "targetKo": "농담은 그대로 옮기면 분위기가 깨질 뻔했어요.",
-      "promptDe": "Den Witz woertlich zu uebertragen haette die Stimmung fast zerstoert.",
+      "promptDe": "Den Witz wörtlich zu übertragen hätte die Stimmung fast zerstört.",
       "promptEn": "Rendering the joke word for word almost broke the mood.",
       "distractors": [
         "사진부터",
@@ -8097,7 +8097,7 @@
       "id": "satz_b1_0108",
       "level": "b1",
       "targetKo": "현우가 민감한 질문은 빠뜨리고 음식 이야기로 갔어요.",
-      "promptDe": "Hyunwoo liess die heikle Frage aus und sprach ueber das Essen.",
+      "promptDe": "Hyunwoo ließ die heikle Frage aus und sprach über das Essen.",
       "promptEn": "Hyunwoo left out the sensitive question and went to food talk.",
       "distractors": [
         "문을 닫고",
@@ -8133,7 +8133,7 @@
       "id": "satz_b1_0111",
       "level": "b1",
       "targetKo": "숫자와 날짜는 다시 확인해서 전했어요.",
-      "promptDe": "Zahlen und Daten pruefte ich noch einmal, bevor ich sie weitergab.",
+      "promptDe": "Zahlen und Daten prüfte ich noch einmal, bevor ich sie weitergab.",
       "promptEn": "I double-checked numbers and dates before passing them on.",
       "distractors": [
         "현우에게만",
@@ -8145,7 +8145,7 @@
       "id": "satz_b1_0112",
       "level": "b1",
       "targetKo": "오역을 바로잡으니 아버지가 오히려 고마워하셨어요.",
-      "promptDe": "Die Falschuebersetzung zu korrigieren dankte der Vater sogar.",
+      "promptDe": "Die Falschübersetzung zu korrigieren dankte der Vater sogar.",
       "promptEn": "Correcting the mistranslation made father grateful instead.",
       "distractors": [
         "사진부터",
@@ -8157,7 +8157,7 @@
       "id": "satz_b1_0113",
       "level": "b1",
       "targetKo": "통역 중에도 눈치 보며 웃을 타이밍을 골랐어요.",
-      "promptDe": "Beim Dolmetschen las ich die Lage und waehlte den Moment zum Lachen.",
+      "promptDe": "Beim Dolmetschen las ich die Lage und wählte den Moment zum Lachen.",
       "promptEn": "While interpreting I read the room and chose when to laugh.",
       "distractors": [
         "밥부터 먹고",
@@ -8169,7 +8169,7 @@
       "id": "satz_b1_0114",
       "level": "b1",
       "targetKo": "대충 하지 말라고 현우가 귓속말로 했어요.",
-      "promptDe": "Nicht ungenau, fluesterte Hyunwoo.",
+      "promptDe": "Nicht ungenau, flüsterte Hyunwoo.",
       "promptEn": "Hyunwoo whispered not to do the interpreting roughly.",
       "distractors": [
         "문을 닫고",
@@ -8193,7 +8193,7 @@
       "id": "satz_b1_0116",
       "level": "b1",
       "targetKo": "잔을 받을 때 두 손으로 하니 삼촌이 고개를 끄덕이셨어요.",
-      "promptDe": "Das Glas mit beiden Haenden entgegenzunehmen liess den Onkel nicken.",
+      "promptDe": "Das Glas mit beiden Händen entgegenzunehmen ließ den Onkel nicken.",
       "promptEn": "Receiving the glass with both hands made uncle nod.",
       "distractors": [
         "그냥 웃고",
@@ -8217,7 +8217,7 @@
       "id": "satz_b1_0118",
       "level": "b1",
       "targetKo": "건배 전에 어른 눈을 피하라고 해서 잔만 봤어요.",
-      "promptDe": "Vor dem Anstossen sollte ich den Blick der Aelteren meiden, also sah ich nur das Glas.",
+      "promptDe": "Vor dem Anstossen sollte ich den Blick der Älteren meiden, also sah ich nur das Glas.",
       "promptEn": "Before the toast I was told to avoid elders' eyes, so I looked at the glass.",
       "distractors": [
         "사진부터",
@@ -8253,7 +8253,7 @@
       "id": "satz_b1_0121",
       "level": "b1",
       "targetKo": "술잔 돌리기는 위생 때문에 웃으며 거절했어요.",
-      "promptDe": "Das Weiterreichen der Glaeser lehnte ich laechelnd aus Hygienegruenden ab.",
+      "promptDe": "Das Weiterreichen der Gläser lehnte ich lächelnd aus Hygienegründen ab.",
       "promptEn": "I smiled and declined passing glasses around for hygiene.",
       "distractors": [
         "다음에 다시",
@@ -8289,7 +8289,7 @@
       "id": "satz_b1_0124",
       "level": "b1",
       "targetKo": "먼저 따르고 제 잔은 나중에 채웠어요.",
-      "promptDe": "Zuerst schenkte ich anderen ein und fuellte mein Glas spaeter.",
+      "promptDe": "Zuerst schenkte ich anderen ein und füllte mein Glas später.",
       "promptEn": "I poured for others first and filled my glass later.",
       "distractors": [
         "사진부터",
@@ -8337,7 +8337,7 @@
       "id": "satz_b1_0128",
       "level": "b1",
       "targetKo": "방 배정이 따로라서 안도하면서도 서운했어요.",
-      "promptDe": "Getrennte Zimmerzuteilung erleichterte und enttaeuschte zugleich.",
+      "promptDe": "Getrennte Zimmerzuteilung erleichterte und enttäuschte zugleich.",
       "promptEn": "Separate room assignment brought relief and a little disappointment.",
       "distractors": [
         "그냥 웃고",
@@ -8349,7 +8349,7 @@
       "id": "satz_b1_0129",
       "level": "b1",
       "targetKo": "이성 친구와 한 방은 아직 이르다고 하셨어요.",
-      "promptDe": "Ein Zimmer mit einem Freund des anderen Geschlechts sei noch zu frueh, hiess es.",
+      "promptDe": "Ein Zimmer mit einem Freund des anderen Geschlechts sei noch zu früh, hieß es.",
       "promptEn": "They said sharing a room with a partner of the other sex is still too early.",
       "distractors": [
         "현우에게만",
@@ -8361,7 +8361,7 @@
       "id": "satz_b1_0130",
       "level": "b1",
       "targetKo": "문 열어 두라는 말을 듣고 현우가 한숨을 쉬었어요.",
-      "promptDe": "Die Tuer offen zu lassen liess Hyunwoo seufzen.",
+      "promptDe": "Die Tür offen zu lassen ließ Hyunwoo seufzen.",
       "promptEn": "Hearing leave the door open made Hyunwoo sigh.",
       "distractors": [
         "사진부터",
@@ -8373,7 +8373,7 @@
       "id": "satz_b1_0131",
       "level": "b1",
       "targetKo": "잠자리 예절은 큰 소리와 늦은 샤워를 피하는 거였어요.",
-      "promptDe": "Schlafmanieren hiess, Laerm und spaetes Duschen zu vermeiden.",
+      "promptDe": "Schlafmanieren hieß, Lärm und spätes Duschen zu vermeiden.",
       "promptEn": "Sleeping manners meant avoiding noise and a late shower.",
       "distractors": [
         "밥부터 먹고",
@@ -8397,7 +8397,7 @@
       "id": "satz_b1_0133",
       "level": "b1",
       "targetKo": "코골이 사과는 현우가 대신 했어요.",
-      "promptDe": "Die Schnarchentschuldigung uebernahm Hyunwoo.",
+      "promptDe": "Die Schnarchentschuldigung übernahm Hyunwoo.",
       "promptEn": "Hyunwoo made the snoring apology for me.",
       "distractors": [
         "다음에 다시",
@@ -8421,7 +8421,7 @@
       "id": "satz_b1_0135",
       "level": "b1",
       "targetKo": "불 끄기는 어른이 먼저 하라고 눈짓하셨어요.",
-      "promptDe": "Das Licht zu loeschen sollte zuerst die aeltere Person, zeigte ein Blick.",
+      "promptDe": "Das Licht zu löschen sollte zuerst die ältere Person, zeigte ein Blick.",
       "promptEn": "A look said the elder should turn off the lights first.",
       "distractors": [
         "현우에게만",
@@ -8457,7 +8457,7 @@
       "id": "satz_b1_0138",
       "level": "b1",
       "targetKo": "방문 두드리고 들어가니 현우 동생이 고마워했어요.",
-      "promptDe": "An die Zimmertuer zu klopfen dankte Hyunwoos juengerem Geschwister.",
+      "promptDe": "An die Zimmertür zu klopfen dankte Hyunwoos jüngerem Geschwister.",
       "promptEn": "Knocking on the room door made Hyunwoo's younger sibling grateful.",
       "distractors": [
         "문을 닫고",
@@ -8469,7 +8469,7 @@
       "id": "satz_b1_0139",
       "level": "b1",
       "targetKo": "같이 자면 얘기가 난다는 말에 방을 나눴어요.",
-      "promptDe": "Wenn wir zusammen schlafen, gebe es Gespraech, also trennten wir die Zimmer.",
+      "promptDe": "Wenn wir zusammen schlafen, gebe es Gespräch, also trennten wir die Zimmer.",
       "promptEn": "They said if we sleep in the same room there will be talk, so we split rooms.",
       "distractors": [
         "다음에 다시",
@@ -8493,7 +8493,7 @@
       "id": "satz_b1_0141",
       "level": "b1",
       "targetKo": "실수 목록을 적으니 생각보다 짧아서 안도했어요.",
-      "promptDe": "Die Fehlerliste war kuerzer als gedacht, da atmete ich auf.",
+      "promptDe": "Die Fehlerliste war kürzer als gedacht, da atmete ich auf.",
       "promptEn": "The list of slips was shorter than I thought, so I exhaled.",
       "distractors": [
         "현우에게만",
@@ -8517,7 +8517,7 @@
       "id": "satz_b1_0143",
       "level": "b1",
       "targetKo": "호칭 오해 풀기는 다음 날 전화로 했어요.",
-      "promptDe": "Das Missverstaendnis um die Anrede klaerten wir am naechsten Tag am Telefon.",
+      "promptDe": "Das Missverständnis um die Anrede klärten wir am nächsten Tag am Telefon.",
       "promptEn": "We cleared the address-term misunderstanding by phone the next day.",
       "distractors": [
         "밥부터 먹고",
@@ -8529,7 +8529,7 @@
       "id": "satz_b1_0144",
       "level": "b1",
       "targetKo": "다음 방문은 더 짧게 하자고 현우가 먼저 말했어요.",
-      "promptDe": "Den naechsten Besuch kuerzer zu machen schlug Hyunwoo zuerst vor.",
+      "promptDe": "Den nächsten Besuch kürzer zu machen schlug Hyunwoo zuerst vor.",
       "promptEn": "Hyunwoo suggested first that the next visit be shorter.",
       "distractors": [
         "문을 닫고",
@@ -8541,7 +8541,7 @@
       "id": "satz_b1_0145",
       "level": "b1",
       "targetKo": "감정 정리를 하니 긴장보다 따뜻함이 남았어요.",
-      "promptDe": "Die Gefuehle zu ordnen liess Waerme statt Anspannung zurueck.",
+      "promptDe": "Die Gefühle zu ordnen ließ Wärme statt Anspannung zurück.",
       "promptEn": "Sorting feelings left warmth more than tension.",
       "distractors": [
         "다음에 다시",
@@ -8565,7 +8565,7 @@
       "id": "satz_b1_0147",
       "level": "b1",
       "targetKo": "잔소리 해석을 현우가 해 주니 상처가 줄었어요.",
-      "promptDe": "Hyunwoos Deutung der Noergelei verringerte die Verletzung.",
+      "promptDe": "Hyunwoos Deutung der Nörgelei verringerte die Verletzung.",
       "promptEn": "Hyunwoo's reading of the nagging reduced the sting.",
       "distractors": [
         "현우에게만",
@@ -8577,7 +8577,7 @@
       "id": "satz_b1_0148",
       "level": "b1",
       "targetKo": "칭찬 기억을 적어 두니 다음이 덜 무서웠어요.",
-      "promptDe": "Erinnerte Lobe aufzuschreiben machte den naechsten Besuch weniger unheimlich.",
+      "promptDe": "Erinnerte Lobe aufzuschreiben machte den nächsten Besuch weniger unheimlich.",
       "promptEn": "Writing down remembered praise made the next time less scary.",
       "distractors": [
         "사진부터",
@@ -8601,7 +8601,7 @@
       "id": "satz_b1_0150",
       "level": "b1",
       "targetKo": "선물 감사를 빠뜨릴 뻔해서 급히 보냈어요.",
-      "promptDe": "Den Geschenkdank haette ich fast vergessen und schickte ihn eilig.",
+      "promptDe": "Den Geschenkdank hätte ich fast vergessen und schickte ihn eilig.",
       "promptEn": "I almost forgot thanks for the gift and sent it in a hurry.",
       "distractors": [
         "문을 닫고",
@@ -8613,7 +8613,7 @@
       "id": "satz_b1_0151",
       "level": "b1",
       "targetKo": "다음엔 내가 통역 없이 인사하겠다고 했어요.",
-      "promptDe": "Naechstes Mal ich begruesse ohne Dolmetschen, sagte ich.",
+      "promptDe": "Nächstes Mal ich begrüße ohne Dolmetschen, sagte ich.",
       "promptEn": "I said next time I will greet without interpreting.",
       "distractors": [
         "다음에 다시",
@@ -8625,7 +8625,7 @@
       "id": "satz_b1_0152",
       "level": "b1",
       "targetKo": "단톡 입장 인사에 이모티콘을 너무 많이 넣었어요.",
-      "promptDe": "In die Beitrittsgruessung setzte ich zu viele Sticker.",
+      "promptDe": "In die Beitrittsgrüßung setzte ich zu viele Sticker.",
       "promptEn": "I put too many stickers in the joining-the-chat greeting.",
       "distractors": [
         "그냥 웃고",
@@ -8649,7 +8649,7 @@
       "id": "satz_b1_0154",
       "level": "b1",
       "targetKo": "공지 확인을 안 해서 모임 시간을 헷갈렸어요.",
-      "promptDe": "Den Hinweis nicht zu lesen liess mich die Treffenzeit verwechseln.",
+      "promptDe": "Den Hinweis nicht zu lesen ließ mich die Treffenzeit verwechseln.",
       "promptEn": "Not checking the notice made me mix up the meeting time.",
       "distractors": [
         "사진부터",
@@ -8661,7 +8661,7 @@
       "id": "satz_b1_0155",
       "level": "b1",
       "targetKo": "사진 올리기 전에 얼굴이 잘린 컷은 뺐어요.",
-      "promptDe": "Vor dem Hochladen liess ich angeschnittene Gesichter weg.",
+      "promptDe": "Vor dem Hochladen ließ ich angeschnittene Gesichter weg.",
       "promptEn": "Before posting photos I dropped the shots with cropped faces.",
       "distractors": [
         "밥부터 먹고",
@@ -8685,7 +8685,7 @@
       "id": "satz_b1_0157",
       "level": "b1",
       "targetKo": "단체 호출은 급한 공지만 쓰라고 현우가 말렸어요.",
-      "promptDe": "Hyunwoo hielt mich zurueck, die Gruppenerwaehnung nur fuer Eiliges zu nutzen.",
+      "promptDe": "Hyunwoo hielt mich zurück, die Gruppenerwähnung nur für Eiliges zu nutzen.",
       "promptEn": "Hyunwoo stopped me from using a group mention except for urgent notices.",
       "distractors": [
         "다음에 다시",
@@ -8709,7 +8709,7 @@
       "id": "satz_b1_0159",
       "level": "b1",
       "targetKo": "존댓말 채팅을 유지하니 이모가 좋아하셨어요.",
-      "promptDe": "Hoeflichen Chat beizubehalten gefiel der Tante.",
+      "promptDe": "Höflichen Chat beizubehalten gefiel der Tante.",
       "promptEn": "Keeping honorific chat pleased aunt.",
       "distractors": [
         "현우에게만",
@@ -8745,7 +8745,7 @@
       "id": "satz_b1_0162",
       "level": "b1",
       "targetKo": "나가기 금지는 서운해 보일 수 있다고 했어요.",
-      "promptDe": "Nicht verlassen, hiess es, weil Gehen gekraenkt wirken koenne.",
+      "promptDe": "Nicht verlassen, hieß es, weil Gehen gekränkt wirken könne.",
       "promptEn": "They said do not leave, because leaving can look hurt.",
       "distractors": [
         "문을 닫고",
@@ -8757,7 +8757,7 @@
       "id": "satz_b1_0163",
       "level": "b1",
       "targetKo": "읽은 척하지 말고 나중에 확인한다고 썼어요.",
-      "promptDe": "Nicht so tun als gelesen, schrieb ich, ich pruefe spaeter.",
+      "promptDe": "Nicht so tun als gelesen, schrieb ich, ich prüfe später.",
       "promptEn": "I wrote I would check later instead of pretending to have read.",
       "distractors": [
         "다음에 다시",
@@ -8769,7 +8769,7 @@
       "id": "satz_b1_0164",
       "level": "b1",
       "targetKo": "양쪽 집을 하루씩 나누는 표가 필요했어요.",
-      "promptDe": "Fuer beide Elternhaeuser brauchten wir einen Tagesplan.",
+      "promptDe": "Für beide Elternhäuser brauchten wir einen Tagesplan.",
       "promptEn": "We needed a chart to split both family homes by day.",
       "distractors": [
         "그냥 웃고",
@@ -8805,7 +8805,7 @@
       "id": "satz_b1_0167",
       "level": "b1",
       "targetKo": "방문 순서는 나이 많은 집부터라고 적혀 있었어요.",
-      "promptDe": "Die Besuchsreihenfolge begann beim aeltesten Haus.",
+      "promptDe": "Die Besuchsreihenfolge begann beim ältesten Haus.",
       "promptEn": "The visit order started with the oldest household.",
       "distractors": [
         "밥부터 먹고",
@@ -8829,7 +8829,7 @@
       "id": "satz_b1_0169",
       "level": "b1",
       "targetKo": "하루만 가도 되냐고 묻자 아쉽다는 답이 왔어요.",
-      "promptDe": "Ob nur ein Tag reicht, fragte ich, und hoerte Bedauern.",
+      "promptDe": "Ob nur ein Tag reicht, fragte ich, und hörte Bedauern.",
       "promptEn": "I asked if going for only one day was all right and heard regret.",
       "distractors": [
         "다음에 다시",
@@ -8853,7 +8853,7 @@
       "id": "satz_b1_0171",
       "level": "b1",
       "targetKo": "선물 분배를 표로 짜니 빈손이 사라졌어요.",
-      "promptDe": "Die Geschenkverteilung als Tabelle liess keine leeren Haende.",
+      "promptDe": "Die Geschenkverteilung als Tabelle ließ keine leeren Hände.",
       "promptEn": "Planning the gift split as a table removed empty hands.",
       "distractors": [
         "현우에게만",
@@ -8865,7 +8865,7 @@
       "id": "satz_b1_0172",
       "level": "b1",
       "targetKo": "명절 예산을 넘기지 않으려고 과일만 골랐어요.",
-      "promptDe": "Um das Feiertagsbudget nicht zu sprengen, waehlte ich nur Obst.",
+      "promptDe": "Um das Feiertagsbudget nicht zu sprengen, wählte ich nur Obst.",
       "promptEn": "To stay in the holiday budget I chose only fruit.",
       "distractors": [
         "사진부터",
@@ -8877,7 +8877,7 @@
       "id": "satz_b1_0173",
       "level": "b1",
       "targetKo": "교통 대란을 피해 새벽 차를 탔어요.",
-      "promptDe": "Dem Verkehrschaos wichen wir mit einer Fahrt in der Fruehe aus.",
+      "promptDe": "Dem Verkehrschaos wichen wir mit einer Fahrt in der Frühe aus.",
       "promptEn": "We avoided travel chaos by taking a dawn car.",
       "distractors": [
         "밥부터 먹고",
@@ -8889,7 +8889,7 @@
       "id": "satz_b1_0174",
       "level": "b1",
       "targetKo": "일정표 공유를 하니 양쪽 잔소리가 줄었어요.",
-      "promptDe": "Den Plan zu teilen verringerte das Noergeln auf beiden Seiten.",
+      "promptDe": "Den Plan zu teilen verringerte das Nörgeln auf beiden Seiten.",
       "promptEn": "Sharing the schedule reduced nagging on both sides.",
       "distractors": [
         "문을 닫고",
@@ -8901,7 +8901,7 @@
       "id": "satz_b1_0175",
       "level": "b1",
       "targetKo": "올해는 못 가요를 미리 말하니 실망이 덜했어요.",
-      "promptDe": "Dieses Jahr schaffen wir es nicht frueh zu sagen milderte die Enttaeuschung.",
+      "promptDe": "Dieses Jahr schaffen wir es nicht früh zu sagen milderte die Enttäuschung.",
       "promptEn": "Saying we cannot go this year early softened the disappointment.",
       "distractors": [
         "다음에 다시",
@@ -8949,7 +8949,7 @@
       "id": "satz_b2_0159",
       "level": "b2",
       "targetKo": "사위 대접이 과해서 자리가 오히려 불편했어요.",
-      "promptDe": "Die Schwiegersohnbehandlung war so fuersorglich, dass der Platz unbequem wurde.",
+      "promptDe": "Die Schwiegersohnbehandlung war so fürsorglich, dass der Platz unbequem wurde.",
       "promptEn": "The son-in-law treatment was so extra that the seat felt awkward.",
       "distractors": [
         "밥부터 먹고",
@@ -8961,7 +8961,7 @@
       "id": "satz_b2_0160",
       "level": "b2",
       "targetKo": "양가 눈치를 보느라 선물을 두 세트로 샀어요.",
-      "promptDe": "Um beide Familien zu lesen, kaufte ich Geschenke in zwei Saetzen.",
+      "promptDe": "Um beide Familien zu lesen, kaufte ich Geschenke in zwei Sätzen.",
       "promptEn": "Reading both families, I bought gifts in two sets.",
       "distractors": [
         "문을 닫고",
@@ -9009,7 +9009,7 @@
       "id": "satz_b2_0164",
       "level": "b2",
       "targetKo": "시어머니 말씀을 평가하지 않고 현우에게만 확인했어요.",
-      "promptDe": "Die Worte der Schwiegermutter bewertete ich nicht, ich pruefte nur bei Hyunwoo.",
+      "promptDe": "Die Worte der Schwiegermutter bewertete ich nicht, ich prüfte nur bei Hyunwoo.",
       "promptEn": "I did not judge the mother-in-law's remarks; I only checked with Hyunwoo.",
       "distractors": [
         "사진부터",
@@ -9033,7 +9033,7 @@
       "id": "satz_b2_0166",
       "level": "b2",
       "targetKo": "양가 공평은 시간보다 성의로 보여 주려 했어요.",
-      "promptDe": "Fairness zwischen den Haeusern wollte ich eher durch Sorgfalt als durch Stunden zeigen.",
+      "promptDe": "Fairness zwischen den Häusern wollte ich eher durch Sorgfalt als durch Stunden zeigen.",
       "promptEn": "I tried to show fairness between houses through care more than hours.",
       "distractors": [
         "문을 닫고",
@@ -9045,7 +9045,7 @@
       "id": "satz_b2_0167",
       "level": "b2",
       "targetKo": "한쪽에만 가면 다음 명절이 더 무거워져요.",
-      "promptDe": "Nur zu einer Seite zu gehen macht das naechste Fest schwerer.",
+      "promptDe": "Nur zu einer Seite zu gehen macht das nächste Fest schwerer.",
       "promptEn": "Going to only one side makes the next holiday heavier.",
       "distractors": [
         "다음에 다시",
@@ -9093,7 +9093,7 @@
       "id": "satz_b2_0171",
       "level": "b2",
       "targetKo": "혼수 이야기를 앞에서 하지 말라고 미리 약속했어요.",
-      "promptDe": "Ueber die Aussteuer nicht vor den Eltern zu sprechen hatten wir vorher vereinbart.",
+      "promptDe": "Über die Aussteuer nicht vor den Eltern zu sprechen hatten wir vorher vereinbart.",
       "promptEn": "We had agreed not to talk about wedding goods in front of them.",
       "distractors": [
         "밥부터 먹고",
@@ -9105,7 +9105,7 @@
       "id": "satz_b2_0172",
       "level": "b2",
       "targetKo": "양가 회의 안건을 세 줄로 줄여 갔어요.",
-      "promptDe": "Die Sitzung beider Familien kuerzte ich auf drei Punkte.",
+      "promptDe": "Die Sitzung beider Familien kürzte ich auf drei Punkte.",
       "promptEn": "I cut the both-families meeting agenda to three lines.",
       "distractors": [
         "문을 닫고",
@@ -9129,7 +9129,7 @@
       "id": "satz_b2_0174",
       "level": "b2",
       "targetKo": "하객 명단이 길어지자 우선순위를 다시 매겼어요.",
-      "promptDe": "Als die Gaesteliste wuchs, setzten wir die Reihenfolge neu.",
+      "promptDe": "Als die Gästeliste wuchs, setzten wir die Reihenfolge neu.",
       "promptEn": "When the guest list grew, we ranked priorities again.",
       "distractors": [
         "그냥 웃고",
@@ -9141,7 +9141,7 @@
       "id": "satz_b2_0175",
       "level": "b2",
       "targetKo": "예단은 형식이 아니라 성의라고 설명했어요.",
-      "promptDe": "Das Brautgeschenk sei Sorgfalt, nicht Form, erklaerte ich.",
+      "promptDe": "Das Brautgeschenk sei Sorgfalt, nicht Form, erklärte ich.",
       "promptEn": "I explained that the bridal gift is care, not form.",
       "distractors": [
         "현우에게만",
@@ -9189,7 +9189,7 @@
       "id": "satz_b2_0179",
       "level": "b2",
       "targetKo": "우리가 정할게요라고 하니 아버지가 한 박자 쉬셨어요.",
-      "promptDe": "Wir entscheiden das liess den Vater einen Schlag innehalten.",
+      "promptDe": "Wir entscheiden das ließ den Vater einen Schlag innehalten.",
       "promptEn": "Saying we will decide that made father pause a beat.",
       "distractors": [
         "다음에 다시",
@@ -9213,7 +9213,7 @@
       "id": "satz_b2_0181",
       "level": "b2",
       "targetKo": "어른 앞에서 현우를 이름으로 부르지 않기로 했어요.",
-      "promptDe": "Vor den Aelteren Hyunwoo nicht beim Namen zu nennen vereinbarten wir.",
+      "promptDe": "Vor den Älteren Hyunwoo nicht beim Namen zu nennen vereinbarten wir.",
       "promptEn": "We agreed not to call Hyunwoo by name in front of elders.",
       "distractors": [
         "현우에게만",
@@ -9225,7 +9225,7 @@
       "id": "satz_b2_0182",
       "level": "b2",
       "targetKo": "동생을 낮춰 부르다가 현우가 기침으로 막아 줬어요.",
-      "promptDe": "Als ich das juengere Geschwister zu vertraulich anredete, hustete Hyunwoo.",
+      "promptDe": "Als ich das jüngere Geschwister zu vertraulich anredete, hustete Hyunwoo.",
       "promptEn": "When I addressed the younger sibling too casually, Hyunwoo coughed to stop me.",
       "distractors": [
         "사진부터",
@@ -9237,7 +9237,7 @@
       "id": "satz_b2_0183",
       "level": "b2",
       "targetKo": "같은 나이인데 높여 부르니 오히려 거리가 생겼어요.",
-      "promptDe": "Gleichaltrig zu hoeflich anreden schuf Distanz.",
+      "promptDe": "Gleichaltrig zu höflich anreden schuf Distanz.",
       "promptEn": "Addressing a same-age sibling too highly created distance.",
       "distractors": [
         "밥부터 먹고",
@@ -9261,7 +9261,7 @@
       "id": "satz_b2_0185",
       "level": "b2",
       "targetKo": "관계 말을 빼면 문장이 갑자기 차갑게 들렸어요.",
-      "promptDe": "Ohne Beziehungswort klang der Satz ploetzlich kalt.",
+      "promptDe": "Ohne Beziehungswort klang der Satz plötzlich kalt.",
       "promptEn": "Without the relationship word the sentence suddenly sounded cold.",
       "distractors": [
         "다음에 다시",
@@ -9273,7 +9273,7 @@
       "id": "satz_b2_0186",
       "level": "b2",
       "targetKo": "사적 호칭은 집 밖에서만 쓰기로 했어요.",
-      "promptDe": "Die private Anrede behielten wir fuer draussen.",
+      "promptDe": "Die private Anrede behielten wir für draussen.",
       "promptEn": "We kept the private nickname for outside the house.",
       "distractors": [
         "그냥 웃고",
@@ -9285,7 +9285,7 @@
       "id": "satz_b2_0187",
       "level": "b2",
       "targetKo": "호칭 질문을 먼저 하니 긴장이 풀렸어요.",
-      "promptDe": "Die Anredefrage zuerst zu stellen loeste die Anspannung.",
+      "promptDe": "Die Anredefrage zuerst zu stellen löste die Anspannung.",
       "promptEn": "Asking the address-term question first eased the tension.",
       "distractors": [
         "현우에게만",
@@ -9321,7 +9321,7 @@
       "id": "satz_b2_0190",
       "level": "b2",
       "targetKo": "헷갈리면 다시 여쭤보는 게 침묵보다 나았어요.",
-      "promptDe": "Bei Zweifel noch einmal hoeflich zu fragen war besser als Schweigen.",
+      "promptDe": "Bei Zweifel noch einmal höflich zu fragen war besser als Schweigen.",
       "promptEn": "When unsure, asking again politely was better than silence.",
       "distractors": [
         "문을 닫고",
@@ -9345,7 +9345,7 @@
       "id": "satz_b2_0192",
       "level": "b2",
       "targetKo": "제사상 앞에서는 발을 모으고 서 있었어요.",
-      "promptDe": "Vor dem Ahnentisch stand ich mit geschlossenen Fuessen.",
+      "promptDe": "Vor dem Ahnentisch stand ich mit geschlossenen Füßen.",
       "promptEn": "In front of the offering table I stood with my feet together.",
       "distractors": [
         "그냥 웃고",
@@ -9382,7 +9382,7 @@
       "level": "b2",
       "targetKo": "재배 각도를 현우가 거실에서 다시 보여 줬어요.",
       "promptDe": "Den Winkel der doppelten Verbeugung zeigte Hyunwoo noch einmal im Wohnzimmer.",
-      "promptEn": "Hyunwoo showed the double-bow angle again in the living room.",
+      "promptEn": "Hyunwoo showed me the double bow again in the living room.",
       "distractors": [
         "밥부터 먹고",
         "천천히 할게요"
@@ -9417,7 +9417,7 @@
       "id": "satz_b2_0198",
       "level": "b2",
       "targetKo": "사진 예절은 상 옆이 아니라 끝난 뒤에만이었어요.",
-      "promptDe": "Fotomanieren hiess: nicht neben dem Tisch, erst danach.",
+      "promptDe": "Fotomanieren hieß: nicht neben dem Tisch, erst danach.",
       "promptEn": "Photo manners meant not beside the table, only after.",
       "distractors": [
         "그냥 웃고",
@@ -9453,7 +9453,7 @@
       "id": "satz_b2_0201",
       "level": "b2",
       "targetKo": "조상님께 인사한다는 설명을 듣고 마음이 차분해졌어요.",
-      "promptDe": "Die Erklaerung, den Vorfahren zu gruessen, beruhigte mich.",
+      "promptDe": "Die Erklärung, den Vorfahren zu grüßen, beruhigte mich.",
       "promptEn": "Hearing that we greet the ancestors calmed me.",
       "distractors": [
         "밥부터 먹고",
@@ -9465,7 +9465,7 @@
       "id": "satz_b2_0202",
       "level": "b2",
       "targetKo": "제사 음식 배치를 건드리지 말라고 눈짓하셨어요.",
-      "promptDe": "Die Anordnung der Ritualspeisen nicht zu beruehren zeigte ein Blick.",
+      "promptDe": "Die Anordnung der Ritualspeisen nicht zu berühren zeigte ein Blick.",
       "promptEn": "A look said not to touch the arrangement of rite food.",
       "distractors": [
         "문을 닫고",
@@ -9489,7 +9489,7 @@
       "id": "satz_b2_0204",
       "level": "b2",
       "targetKo": "명절에 용돈 드리는 봉투를 현우가 미리 준비했어요.",
-      "promptDe": "Den Umschlag fuer Taschengeld an die Aelteren bereitete Hyunwoo vorher vor.",
+      "promptDe": "Den Umschlag für Taschengeld an die Älteren bereitete Hyunwoo vorher vor.",
       "promptEn": "Hyunwoo prepared the pocket-money envelope for the elders in advance.",
       "distractors": [
         "그냥 웃고",
@@ -9501,7 +9501,7 @@
       "id": "satz_b2_0205",
       "level": "b2",
       "targetKo": "더치페이 오해가 나와서 제가 밥값을 먼저 냈어요.",
-      "promptDe": "Ein Missverstaendnis um Getrenntzahlen entstand, also zahlte ich zuerst.",
+      "promptDe": "Ein Missverständnis um Getrenntzahlen entstand, also zahlte ich zuerst.",
       "promptEn": "A split-bill misunderstanding appeared, so I paid for the meal first.",
       "distractors": [
         "현우에게만",
@@ -9513,7 +9513,7 @@
       "id": "satz_b2_0206",
       "level": "b2",
       "targetKo": "축의금 액수를 공개 자리에서 묻지 않기로 했어요.",
-      "promptDe": "Die Hoehe des Gluecksgeldes nicht oeffentlich zu fragen vereinbarten wir.",
+      "promptDe": "Die Höhe des Glücksgeldes nicht öffentlich zu fragen vereinbarten wir.",
       "promptEn": "We agreed not to ask the wedding-money amount in public.",
       "distractors": [
         "사진부터",
@@ -9537,7 +9537,7 @@
       "id": "satz_b2_0208",
       "level": "b2",
       "targetKo": "생활비 분담은 가족 앞에서 자세히 말하지 않았어요.",
-      "promptDe": "Die Teilung der Lebenshaltungskosten erklaerte ich vor der Familie nicht im Detail.",
+      "promptDe": "Die Teilung der Lebenshaltungskosten erklärte ich vor der Familie nicht im Detail.",
       "promptEn": "I did not explain sharing living costs in detail in front of the family.",
       "distractors": [
         "문을 닫고",
@@ -9549,7 +9549,7 @@
       "id": "satz_b2_0209",
       "level": "b2",
       "targetKo": "빚 이야기는 식탁이 아니라 나중에 둘이 하기로 했어요.",
-      "promptDe": "Schuldenrede gehoerte nicht an den Tisch, sondern spaeter zu uns beiden.",
+      "promptDe": "Schuldenrede gehörte nicht an den Tisch, sondern später zu uns beiden.",
       "promptEn": "Talk about debt was for later between us, not at the table.",
       "distractors": [
         "다음에 다시",
@@ -9573,7 +9573,7 @@
       "id": "satz_b2_0211",
       "level": "b2",
       "targetKo": "부모님 지원 여부는 감사만 하고 액수는 숨겼어요.",
-      "promptDe": "Ob die Eltern unterstuetzen, dankte ich, die Summe blieb privat.",
+      "promptDe": "Ob die Eltern unterstützen, dankte ich, die Summe blieb privat.",
       "promptEn": "On parental support I only gave thanks and hid the amount.",
       "distractors": [
         "현우에게만",
@@ -9597,7 +9597,7 @@
       "id": "satz_b2_0213",
       "level": "b2",
       "targetKo": "각자 계산은 가족 식사에서 서운해 보일 수 있어요.",
-      "promptDe": "Getrennt zahlen kann bei einem Familienessen gekraenkt wirken.",
+      "promptDe": "Getrennt zahlen kann bei einem Familienessen gekränkt wirken.",
       "promptEn": "Each paying their share can look cold at a family meal.",
       "distractors": [
         "밥부터 먹고",
@@ -9609,7 +9609,7 @@
       "id": "satz_b2_0214",
       "level": "b2",
       "targetKo": "봉투 준비를 빠뜨릴 뻔해서 편의점에서 샀어요.",
-      "promptDe": "Die Umschlagvorbereitung haette ich fast vergessen und kaufte einen im Laden.",
+      "promptDe": "Die Umschlagvorbereitung hätte ich fast vergessen und kaufte einen im Laden.",
       "promptEn": "I almost forgot preparing an envelope and bought one at a convenience store.",
       "distractors": [
         "문을 닫고",
@@ -9633,7 +9633,7 @@
       "id": "satz_b2_0216",
       "level": "b2",
       "targetKo": "전 부침을 도우려다 기름이 손목에 튀었어요.",
-      "promptDe": "Beim Braten der Pfannengerichte spritzte Oel aufs Handgelenk.",
+      "promptDe": "Beim Braten der Pfannengerichte spritzte Öl aufs Handgelenk.",
       "promptEn": "While helping fry pancakes, oil splashed on my wrist.",
       "distractors": [
         "그냥 웃고",
@@ -9645,7 +9645,7 @@
       "id": "satz_b2_0217",
       "level": "b2",
       "targetKo": "설거지 교대를 제안하니 이모가 놀라셨어요.",
-      "promptDe": "Einen Abwaschwechsel vorzuschlagen ueberraschte die Tante.",
+      "promptDe": "Einen Abwaschwechsel vorzuschlagen überraschte die Tante.",
       "promptEn": "Suggesting a dish-washing rotation surprised aunt.",
       "distractors": [
         "현우에게만",
@@ -9657,7 +9657,7 @@
       "id": "satz_b2_0218",
       "level": "b2",
       "targetKo": "남자는 안 한다는 말을 듣고 현우가 일부러 일어났어요.",
-      "promptDe": "Maenner machen das nicht hoerte Hyunwoo und stand absichtlich auf.",
+      "promptDe": "Männer machen das nicht hörte Hyunwoo und stand absichtlich auf.",
       "promptEn": "Hearing men do not do that, Hyunwoo stood up on purpose.",
       "distractors": [
         "사진부터",
@@ -9681,7 +9681,7 @@
       "id": "satz_b2_0220",
       "level": "b2",
       "targetKo": "손님 대접은 웃는 일만이 아니라 물컵을 채우는 일이었어요.",
-      "promptDe": "Gaestebewirtung war nicht nur Laecheln, sondern Glaeser nachzufuellen.",
+      "promptDe": "Gästebewirtung war nicht nur Lächeln, sondern Gläser nachzufüllen.",
       "promptEn": "Hosting guests was not only smiling but refilling water.",
       "distractors": [
         "문을 닫고",
@@ -9705,7 +9705,7 @@
       "id": "satz_b2_0222",
       "level": "b2",
       "targetKo": "음식 나르기를 제가 맡으니 허리가 먼저 아팠어요.",
-      "promptDe": "Speisen zu tragen uebernahm ich, und zuerst tat der Ruecken weh.",
+      "promptDe": "Speisen zu tragen übernahm ich, und zuerst tat der Rücken weh.",
       "promptEn": "I took on carrying dishes, and my back hurt first.",
       "distractors": [
         "그냥 웃고",
@@ -9717,7 +9717,7 @@
       "id": "satz_b2_0223",
       "level": "b2",
       "targetKo": "아이 돌보기를 자처하니 형제들이 고마워했어요.",
-      "promptDe": "Kinderhueten anzubieten dankten die Geschwister.",
+      "promptDe": "Kinderhüten anzubieten dankten die Geschwister.",
       "promptEn": "Offering to watch the children made the siblings grateful.",
       "distractors": [
         "현우에게만",
@@ -9729,7 +9729,7 @@
       "id": "satz_b2_0224",
       "level": "b2",
       "targetKo": "불공평을 바로 지적하지 않고 다음 할 일을 나눴어요.",
-      "promptDe": "Die Ungerechtigkeit nannte ich nicht sofort, wir teilten die naechste Aufgabe.",
+      "promptDe": "Die Ungerechtigkeit nannte ich nicht sofort, wir teilten die nächste Aufgabe.",
       "promptEn": "I did not name the unfairness at once; we split the next task.",
       "distractors": [
         "사진부터",
@@ -9741,7 +9741,7 @@
       "id": "satz_b2_0225",
       "level": "b2",
       "targetKo": "도와드리겠습니다를 큰 소리로 하니 자리가 열렸어요.",
-      "promptDe": "Ich werde helfen laut zu sagen oeffnete einen Platz.",
+      "promptDe": "Ich werde helfen laut zu sagen öffnete einen Platz.",
       "promptEn": "Saying I will help out loud opened a place.",
       "distractors": [
         "밥부터 먹고",
@@ -9753,7 +9753,7 @@
       "id": "satz_b2_0226",
       "level": "b2",
       "targetKo": "앉아서 기다리기만 하니 현우 얼굴이 굳었어요.",
-      "promptDe": "Nur sitzend zu warten liess Hyunwoos Gesicht fest werden.",
+      "promptDe": "Nur sitzend zu warten ließ Hyunwoos Gesicht fest werden.",
       "promptEn": "Only sitting and waiting made Hyunwoo's face tighten.",
       "distractors": [
         "문을 닫고",
@@ -9765,7 +9765,7 @@
       "id": "satz_b2_0227",
       "level": "b2",
       "targetKo": "노동을 나누자고 하니 처음엔 웃음이 나왔어요.",
-      "promptDe": "Die Arbeit zu teilen vorschlagen loeste zuerst Lachen aus.",
+      "promptDe": "Die Arbeit zu teilen vorschlagen löste zuerst Lachen aus.",
       "promptEn": "Suggesting we share the labor first brought a laugh.",
       "distractors": [
         "다음에 다시",
@@ -9777,7 +9777,7 @@
       "id": "satz_b2_0228",
       "level": "b2",
       "targetKo": "선을 긋되 감사는 남기려고 문장을 두 개로 나눴어요.",
-      "promptDe": "Eine Grenze zu ziehen und trotzdem zu danken hiess, zwei Saetze zu machen.",
+      "promptDe": "Eine Grenze zu ziehen und trotzdem zu danken hieß, zwei Sätze zu machen.",
       "promptEn": "To draw a line and still keep thanks, I split it into two sentences.",
       "distractors": [
         "그냥 웃고",
@@ -9789,7 +9789,7 @@
       "id": "satz_b2_0229",
       "level": "b2",
       "targetKo": "사생활 질문은 웃으며 다음에 말하겠다고 했어요.",
-      "promptDe": "Fragen zur Privatsphaere beantwortete ich laechelnd mit spaeter.",
+      "promptDe": "Fragen zur Privatsphäre beantwortete ich lächelnd mit später.",
       "promptEn": "I smiled at privacy questions and said I would tell later.",
       "distractors": [
         "현우에게만",
@@ -9801,7 +9801,7 @@
       "id": "satz_b2_0230",
       "level": "b2",
       "targetKo": "연락 빈도를 주 일 회로 정하니 부담이 줄었어요.",
-      "promptDe": "Die Kontakthaeufigkeit auf einmal pro Woche zu setzen senkte den Druck.",
+      "promptDe": "Die Kontakthäufigkeit auf einmal pro Woche zu setzen senkte den Druck.",
       "promptEn": "Setting contact to once a week reduced the pressure.",
       "distractors": [
         "사진부터",
@@ -9813,7 +9813,7 @@
       "id": "satz_b2_0231",
       "level": "b2",
       "targetKo": "거절 문장을 미리 외워 두니 목소리가 흔들리지 않았어요.",
-      "promptDe": "Einen Absagesatz auswendig zu koennen hielt die Stimme ruhig.",
+      "promptDe": "Einen Absagesatz auswendig zu können hielt die Stimme ruhig.",
       "promptEn": "Memorizing a refusal sentence kept my voice steady.",
       "distractors": [
         "밥부터 먹고",
@@ -9837,7 +9837,7 @@
       "id": "satz_b2_0233",
       "level": "b2",
       "targetKo": "감정 노동이 몰릴 때는 현우와 교대하기로 했어요.",
-      "promptDe": "Wenn die Gefuehlsarbeit sich staute, wechselten Hyunwoo und ich uns ab.",
+      "promptDe": "Wenn die Gefühlsarbeit sich staute, wechselten Hyunwoo und ich uns ab.",
       "promptEn": "When emotional labor piled up, Hyunwoo and I took turns.",
       "distractors": [
         "다음에 다시",
@@ -9849,7 +9849,7 @@
       "id": "satz_b2_0234",
       "level": "b2",
       "targetKo": "가족 기대를 전부 맞출 수는 없다고 둘이 먼저 합의했어요.",
-      "promptDe": "Nicht jede Familienerwartung erfuellen zu koennen vereinbarten wir zuerst.",
+      "promptDe": "Nicht jede Familienerwartung erfüllen zu können vereinbarten wir zuerst.",
       "promptEn": "We first agreed we cannot meet every family expectation.",
       "distractors": [
         "그냥 웃고",
@@ -9861,7 +9861,7 @@
       "id": "satz_b2_0235",
       "level": "b2",
       "targetKo": "정중한 거리를 유지하니 관계가 오히려 오래 갔어요.",
-      "promptDe": "Hoefliche Distanz zu halten machte die Beziehung laenger tragfaehig.",
+      "promptDe": "Höfliche Distanz zu halten machte die Beziehung länger tragfähig.",
       "promptEn": "Keeping polite distance made the relationship last better.",
       "distractors": [
         "현우에게만",
@@ -9897,7 +9897,7 @@
       "id": "satz_b2_0238",
       "level": "b2",
       "targetKo": "오늘은 여기까지라고 하니 현우가 바로 일어났어요.",
-      "promptDe": "Fuer heute reicht es sagte ich, und Hyunwoo stand sofort auf.",
+      "promptDe": "Für heute reicht es sagte ich, und Hyunwoo stand sofort auf.",
       "promptEn": "When I said that is enough for today, Hyunwoo stood up at once.",
       "distractors": [
         "문을 닫고",
@@ -9909,7 +9909,7 @@
       "id": "satz_b2_0239",
       "level": "b2",
       "targetKo": "선을 그어도 관계를 지키려고 감사 인사를 남겼어요.",
-      "promptDe": "Trotz Grenze liess ich den Dank, um die Beziehung zu wahren.",
+      "promptDe": "Trotz Grenze ließ ich den Dank, um die Beziehung zu wahren.",
       "promptEn": "Even after the line I left thanks to keep the relationship.",
       "distractors": [
         "다음에 다시",
@@ -9933,7 +9933,7 @@
       "id": "satz_b2_0241",
       "level": "b2",
       "targetKo": "자리 배치는 나이 순이라 제가 문을 가까운 쪽에 앉았어요.",
-      "promptDe": "Die oeffentliche Sitzordnung folgte dem Alter, ich sass nah an der Tuer.",
+      "promptDe": "Die öffentliche Sitzordnung folgte dem Alter, ich saß nah an der Tür.",
       "promptEn": "Public seating followed age, so I sat nearer the door.",
       "distractors": [
         "현우에게만",
@@ -9945,7 +9945,7 @@
       "id": "satz_b2_0242",
       "level": "b2",
       "targetKo": "사진 공개 전에 얼굴이 나온 분들께 확인했어요.",
-      "promptDe": "Vor der Fotoeroeffentlichung fragte ich alle sichtbaren Gesichter.",
+      "promptDe": "Vor der Fotoeröffentlichung fragte ich alle sichtbaren Gesichter.",
       "promptEn": "Before posting a photo publicly I checked with every visible face.",
       "distractors": [
         "사진부터",
@@ -9957,7 +9957,7 @@
       "id": "satz_b2_0243",
       "level": "b2",
       "targetKo": "호칭 공개는 집 안 말과 다르게 더 높였어요.",
-      "promptDe": "Die oeffentliche Anrede war hoeher als zu Hause.",
+      "promptDe": "Die öffentliche Anrede war höher als zu Hause.",
       "promptEn": "The public form of address was higher than at home.",
       "distractors": [
         "밥부터 먹고",
@@ -9969,7 +9969,7 @@
       "id": "satz_b2_0244",
       "level": "b2",
       "targetKo": "모임 지각을 사과할 때 변명보다 감사를 먼저 했어요.",
-      "promptDe": "Beim Zuspaetkommen dankte ich zuerst statt zu erklaeren.",
+      "promptDe": "Beim Zuspätkommen dankte ich zuerst statt zu erklären.",
       "promptEn": "When late to the gathering I thanked first instead of explaining.",
       "distractors": [
         "문을 닫고",
@@ -9981,7 +9981,7 @@
       "id": "satz_b2_0245",
       "level": "b2",
       "targetKo": "단체 인사는 큰 소리보다 고개가 중요했어요.",
-      "promptDe": "Beim Gruppengruss zaehlte die Verbeugung mehr als die Lautstaerke.",
+      "promptDe": "Beim Gruppengruss zählte die Verbeugung mehr als die Lautstärke.",
       "promptEn": "In the group greeting the bow mattered more than volume.",
       "distractors": [
         "다음에 다시",
@@ -9993,7 +9993,7 @@
       "id": "satz_b2_0246",
       "level": "b2",
       "targetKo": "자리 양보를 하자 삼촌이 괜찮다고 손짓하셨어요.",
-      "promptDe": "Den Platz abzutreten winkte der Onkel als unnoetig ab.",
+      "promptDe": "Den Platz abzutreten winkte der Onkel als unnötig ab.",
       "promptEn": "When I gave up a seat, uncle gestured that it was fine.",
       "distractors": [
         "그냥 웃고",
@@ -10005,7 +10005,7 @@
       "id": "satz_b2_0247",
       "level": "b2",
       "targetKo": "공개 질문에는 짧은 답만 하고 자세한 건 나중에 했어요.",
-      "promptDe": "Auf oeffentliche Fragen gab ich kurze Antworten, Details spaeter.",
+      "promptDe": "Auf öffentliche Fragen gab ich kurze Antworten, Details später.",
       "promptEn": "To a question in public I gave a short answer and left details for later.",
       "distractors": [
         "현우에게만",
@@ -10017,7 +10017,7 @@
       "id": "satz_b2_0248",
       "level": "b2",
       "targetKo": "커플 호칭을 밖에서 낮추지 않기로 했어요.",
-      "promptDe": "Die Paaranrede in der Oeffentlichkeit nicht zu senken vereinbarten wir.",
+      "promptDe": "Die Paaranrede in der Öffentlichkeit nicht zu senken vereinbarten wir.",
       "promptEn": "We agreed not to drop couple address terms in public.",
       "distractors": [
         "사진부터",
@@ -10053,7 +10053,7 @@
       "id": "satz_b2_0251",
       "level": "b2",
       "targetKo": "밖에서 예의를 지키니 집 안 실수는 잊히는 편이었어요.",
-      "promptDe": "In der Oeffentlichkeit die Form zu wahren liess Fehler zu Hause eher vergessen.",
+      "promptDe": "In der Öffentlichkeit die Form zu wahren ließ Fehler zu Hause eher vergessen.",
       "promptEn": "Keeping form in public made indoor slips easier to forget.",
       "distractors": [
         "다음에 다시",
@@ -10089,7 +10089,7 @@
       "id": "satz_c1_0057",
       "level": "c1",
       "targetKo": "소속 프레임을 누가 말하느냐에 따라 자리가 달라졌어요.",
-      "promptDe": "Wer den Zugehoerigkeitsrahmen setzte, verschob meinen Platz.",
+      "promptDe": "Wer den Zugehörigkeitsrahmen setzte, verschob meinen Platz.",
       "promptEn": "Who set the belonging frame changed my seat.",
       "distractors": [
         "사진부터",
@@ -10101,7 +10101,7 @@
       "id": "satz_c1_0058",
       "level": "c1",
       "targetKo": "역할 언어를 들을 때마다 현우와 나중에 번역하기로 했어요.",
-      "promptDe": "Rollensprache spaeter mit Hyunwoo zu uebersetzen vereinbarten wir.",
+      "promptDe": "Rollensprache später mit Hyunwoo zu übersetzen vereinbarten wir.",
       "promptEn": "We agreed to translate role language with Hyunwoo later.",
       "distractors": [
         "밥부터 먹고",
@@ -10113,7 +10113,7 @@
       "id": "satz_c1_0059",
       "level": "c1",
       "targetKo": "포용적 호칭을 제안하니 처음엔 어색했지만 공기가 바뀌었어요.",
-      "promptDe": "Eine inklusive Anrede vorzuschlagen war erst ungewohnt und aenderte dann die Luft.",
+      "promptDe": "Eine inklusive Anrede vorzuschlagen war erst ungewohnt und änderte dann die Luft.",
       "promptEn": "Proposing an inclusive address felt awkward at first and then changed the air.",
       "distractors": [
         "문을 닫고",
@@ -10137,7 +10137,7 @@
       "id": "satz_c1_0061",
       "level": "c1",
       "targetKo": "가족 서사에 제가 갑자기 주인공이 되어 부담됐어요.",
-      "promptDe": "In der Familienerzaehlung ploetzlich Hauptfigur zu sein druckte.",
+      "promptDe": "In der Familienerzählung plötzlich Hauptfigur zu sein druckte.",
       "promptEn": "Suddenly becoming the lead in the family narrative felt heavy.",
       "distractors": [
         "그냥 웃고",
@@ -10185,7 +10185,7 @@
       "id": "satz_c1_0065",
       "level": "c1",
       "targetKo": "프레임을 드러내니 비난이 아니라 설명이 됐어요.",
-      "promptDe": "Den Rahmen sichtbar zu machen wurde Erklaerung, nicht Anklage.",
+      "promptDe": "Den Rahmen sichtbar zu machen wurde Erklärung, nicht Anklage.",
       "promptEn": "Making the frame visible became explanation, not blame.",
       "distractors": [
         "문을 닫고",
@@ -10197,7 +10197,7 @@
       "id": "satz_c1_0066",
       "level": "c1",
       "targetKo": "자리를 재협상하자 다음 명절 표가 달라졌어요.",
-      "promptDe": "Den Platz neu zu verhandeln aenderte den Plan fuer das naechste Fest.",
+      "promptDe": "Den Platz neu zu verhandeln änderte den Plan für das nächste Fest.",
       "promptEn": "Renegotiating my place changed the chart for the next holiday.",
       "distractors": [
         "다음에 다시",
@@ -10209,7 +10209,7 @@
       "id": "satz_c1_0067",
       "level": "c1",
       "targetKo": "보이지 않는 일이 상을 완성한다는 걸 설거지통에서 봤어요.",
-      "promptDe": "Dass unsichtbare Arbeit den Tisch vollendet, sah ich an der Spuele.",
+      "promptDe": "Dass unsichtbare Arbeit den Tisch vollendet, sah ich an der Spüle.",
       "promptEn": "I saw at the sink that invisible work finishes the table.",
       "distractors": [
         "그냥 웃고",
@@ -10221,7 +10221,7 @@
       "id": "satz_c1_0068",
       "level": "c1",
       "targetKo": "성별 분업을 전통으로만 설명하면 대화가 멈췄어요.",
-      "promptDe": "Die geschlechtliche Arbeitsteilung nur als Tradition zu erklaeren stoppte das Gespraech.",
+      "promptDe": "Die geschlechtliche Arbeitsteilung nur als Tradition zu erklären stoppte das Gespräch.",
       "promptEn": "Explaining the gendered division of labor as only tradition stopped talk.",
       "distractors": [
         "현우에게만",
@@ -10233,7 +10233,7 @@
       "id": "satz_c1_0069",
       "level": "c1",
       "targetKo": "돌봄 부담이 한 사람에게 몰리면 웃음의 질이 달라졌어요.",
-      "promptDe": "Konzentrierte sich die Fuersorgelast auf eine Person, aenderte sich das Lachen.",
+      "promptDe": "Konzentrierte sich die Fürsorgelast auf eine Person, änderte sich das Lachen.",
       "promptEn": "When the care burden sat on one person, the quality of laughter changed.",
       "distractors": [
         "사진부터",
@@ -10269,7 +10269,7 @@
       "id": "satz_c1_0072",
       "level": "c1",
       "targetKo": "노동 인정은 칭찬 한 마디보다 다음 할 일을 나누는 것이었어요.",
-      "promptDe": "Anerkennung der Arbeit war weniger ein Lob als das Teilen der naechsten Aufgabe.",
+      "promptDe": "Anerkennung der Arbeit war weniger ein Lob als das Teilen der nächsten Aufgabe.",
       "promptEn": "Recognition of labor was sharing the next task more than one compliment.",
       "distractors": [
         "다음에 다시",
@@ -10281,7 +10281,7 @@
       "id": "satz_c1_0073",
       "level": "c1",
       "targetKo": "휴식권을 말하니 처음엔 예의가 아니라는 눈이 왔어요.",
-      "promptDe": "Das Recht auf Pause anzusprechen brachte zuerst Blicke, das sei ungehoerig.",
+      "promptDe": "Das Recht auf Pause anzusprechen brachte zuerst Blicke, das sei ungehörig.",
       "promptEn": "Naming a right to rest first brought looks that it was improper.",
       "distractors": [
         "그냥 웃고",
@@ -10293,7 +10293,7 @@
       "id": "satz_c1_0074",
       "level": "c1",
       "targetKo": "분배 기준을 나이에서 체력으로 바꾸자 반발이 줄었어요.",
-      "promptDe": "Den Verteilungsmassstab vom Alter auf Kraft zu aendern senkte den Widerstand.",
+      "promptDe": "Den Verteilungsmaßstab vom Alter auf Kraft zu ändern senkte den Widerstand.",
       "promptEn": "Changing the sharing standard from age to stamina reduced pushback.",
       "distractors": [
         "현우에게만",
@@ -10317,7 +10317,7 @@
       "id": "satz_c1_0076",
       "level": "c1",
       "targetKo": "한 사람의 성품이 아니라 구조를 바꾸자고 했어요.",
-      "promptDe": "Nicht den Charakter einer Person, die Struktur aendern, schlug ich vor.",
+      "promptDe": "Nicht den Charakter einer Person, die Struktur ändern, schlug ich vor.",
       "promptEn": "I proposed changing the structure, not one person's character.",
       "distractors": [
         "밥부터 먹고",
@@ -10341,7 +10341,7 @@
       "id": "satz_c1_0078",
       "level": "c1",
       "targetKo": "공평을 설계하니 감정이 아니라 표가 남았어요.",
-      "promptDe": "Fairness zu entwerfen liess eine Tabelle statt nur Gefuehle.",
+      "promptDe": "Fairness zu entwerfen ließ eine Tabelle statt nur Gefühle.",
       "promptEn": "Designing fairness left a chart, not only feelings.",
       "distractors": [
         "다음에 다시",
@@ -10353,7 +10353,7 @@
       "id": "satz_c2_0055",
       "level": "c2",
       "targetKo": "의사결정권이 어디에 있는지 묻자 웃음이 먼저 나왔어요.",
-      "promptDe": "Wo das Entscheidungsrecht liege, zu fragen loeste zuerst Lachen aus.",
+      "promptDe": "Wo das Entscheidungsrecht liege, zu fragen löste zuerst Lachen aus.",
       "promptEn": "Asking where decision rights sit first produced a laugh.",
       "distractors": [
         "그냥 웃고",
@@ -10365,7 +10365,7 @@
       "id": "satz_c2_0056",
       "level": "c2",
       "targetKo": "침묵 압력은 거절보다 오래 남아서 기록을 남겼어요.",
-      "promptDe": "Druck durch Schweigen blieb laenger als ein Nein, also schrieb ich ihn auf.",
+      "promptDe": "Druck durch Schweigen blieb länger als ein Nein, also schrieb ich ihn auf.",
       "promptEn": "Pressure through silence lasted longer than a no, so I recorded it.",
       "distractors": [
         "현우에게만",
@@ -10377,7 +10377,7 @@
       "id": "satz_c2_0057",
       "level": "c2",
       "targetKo": "대리 발화가 제 뜻을 바꾸길래 한 문장을 다시 말했어요.",
-      "promptDe": "Das Sprechen an meiner Stelle aenderte meinen Sinn, also wiederholte ich einen Satz.",
+      "promptDe": "Das Sprechen an meiner Stelle änderte meinen Sinn, also wiederholte ich einen Satz.",
       "promptEn": "Speaking on my behalf changed my meaning, so I said one sentence again.",
       "distractors": [
         "사진부터",
@@ -10401,7 +10401,7 @@
       "id": "satz_c2_0059",
       "level": "c2",
       "targetKo": "순응 연출을 기대하는 자리에선 침묵이 칭찬이 됐어요.",
-      "promptDe": "Wo man Inszenierung von Fuegsamkeit erwartete, wurde Schweigen Lob.",
+      "promptDe": "Wo man Inszenierung von Fügsamkeit erwartete, wurde Schweigen Lob.",
       "promptEn": "Where a performance of compliance was expected, silence became praise.",
       "distractors": [
         "문을 닫고",
@@ -10413,7 +10413,7 @@
       "id": "satz_c2_0060",
       "level": "c2",
       "targetKo": "권한의 출처를 혈연으로만 두면 외부인은 영원히 손님이에요.",
-      "promptDe": "Liegt die Quelle der Befugnis nur in der Blutsbindung, bleibt die Aussenstehende Gast.",
+      "promptDe": "Liegt die Quelle der Befugnis nur in der Blutsbindung, bleibt die Außenstehende Gast.",
       "promptEn": "If the source of authority is only blood, an outsider stays a guest forever.",
       "distractors": [
         "다음에 다시",
@@ -10425,7 +10425,7 @@
       "id": "satz_c2_0061",
       "level": "c2",
       "targetKo": "말의 위계를 깨지 않고도 질문을 하나 넣을 자리는 있었어요.",
-      "promptDe": "Ohne die Hierarchie der Rede zu zerbrechen gab es Raum fuer eine Frage.",
+      "promptDe": "Ohne die Hierarchie der Rede zu zerbrechen gab es Raum für eine Frage.",
       "promptEn": "Without breaking the hierarchy of speech there was still room for one question.",
       "distractors": [
         "그냥 웃고",
@@ -10437,7 +10437,7 @@
       "id": "satz_c2_0062",
       "level": "c2",
       "targetKo": "동의의 형식이 고개인지 서명인지 먼저 정해야 했어요.",
-      "promptDe": "Ob die Form der Zustimmung ein Nicken oder eine Unterschrift ist, mussten wir klaeren.",
+      "promptDe": "Ob die Form der Zustimmung ein Nicken oder eine Unterschrift ist, mussten wir klären.",
       "promptEn": "We had to decide whether the form of consent is a nod or a signature.",
       "distractors": [
         "현우에게만",
@@ -10449,7 +10449,7 @@
       "id": "satz_c2_0063",
       "level": "c2",
       "targetKo": "불복의 비용을 계산하니 그날은 기록만 남기기로 했어요.",
-      "promptDe": "Den Preis des Widerspruchs zu rechnen hiess, an dem Tag nur aufzuschreiben.",
+      "promptDe": "Den Preis des Widerspruchs zu rechnen hieß, an dem Tag nur aufzuschreiben.",
       "promptEn": "Calculating the cost of dissent meant only recording that day.",
       "distractors": [
         "사진부터",
@@ -10461,7 +10461,7 @@
       "id": "satz_c2_0064",
       "level": "c2",
       "targetKo": "권력을 호명하니 방이 잠시 조용해졌다가 다시 숨이 돌아왔어요.",
-      "promptDe": "Macht beim Namen zu nennen machte die Raumstille kurz, dann kam der Atem zurueck.",
+      "promptDe": "Macht beim Namen zu nennen machte die Raumstille kurz, dann kam der Atem zurück.",
       "promptEn": "Naming the power quieted the room, then breath returned.",
       "distractors": [
         "밥부터 먹고",
@@ -10473,7 +10473,7 @@
       "id": "satz_c2_0065",
       "level": "c2",
       "targetKo": "기분이 아니라 절차를 요구하니 다음 결정이 투명해졌어요.",
-      "promptDe": "Nicht Stimmung, ein Verfahren zu verlangen machte die naechste Entscheidung klarer.",
+      "promptDe": "Nicht Stimmung, ein Verfahren zu verlangen machte die nächste Entscheidung klarer.",
       "promptEn": "Demanding a procedure, not a mood, made the next decision clearer.",
       "distractors": [
         "문을 닫고",
@@ -10497,7 +10497,7 @@
       "id": "satz_c2_0067",
       "level": "c2",
       "targetKo": "이름 호명이 누구에게는 친밀이고 누구에게는 무례였어요.",
-      "promptDe": "Beim Namen rufen war fuer die einen Naehe, fuer die anderen Unhoeflichkeit.",
+      "promptDe": "Beim Namen rufen war für die einen Nähe, für die anderen Unhöflichkeit.",
       "promptEn": "Calling by name was intimacy for some and rudeness for others.",
       "distractors": [
         "그냥 웃고",
@@ -10521,7 +10521,7 @@
       "id": "satz_c2_0069",
       "level": "c2",
       "targetKo": "서사의 주인이 바뀌자 같은 방문이 다른 이야기가 됐어요.",
-      "promptDe": "Als der Herr der Erzaehlung wechselte, wurde derselbe Besuch eine andere Geschichte.",
+      "promptDe": "Als der Herr der Erzählung wechselte, wurde derselbe Besuch eine andere Geschichte.",
       "promptEn": "When the owner of the story changed, the same visit became another tale.",
       "distractors": [
         "사진부터",
@@ -10533,7 +10533,7 @@
       "id": "satz_c2_0070",
       "level": "c2",
       "targetKo": "호칭의 정치는 친근함의 가면을 쓰고 경계를 정했어요.",
-      "promptDe": "Die Politik der Anrede setzte Grenzen hinter der Maske der Naehe.",
+      "promptDe": "Die Politik der Anrede setzte Grenzen hinter der Maske der Nähe.",
       "promptEn": "The politics of address set borders behind a mask of closeness.",
       "distractors": [
         "밥부터 먹고",
@@ -10545,7 +10545,7 @@
       "id": "satz_c2_0071",
       "level": "c2",
       "targetKo": "망각의 예절은 아픈 질문을 다시 하지 않는 일이었어요.",
-      "promptDe": "Manieren des Vergessens hiessen, die schmerzende Frage nicht zu wiederholen.",
+      "promptDe": "Manieren des Vergessens hießen, die schmerzende Frage nicht zu wiederholen.",
       "promptEn": "Manners of forgetting meant not asking the painful question again.",
       "distractors": [
         "문을 닫고",
@@ -10557,7 +10557,7 @@
       "id": "satz_c2_0072",
       "level": "c2",
       "targetKo": "기록 주체가 누구인지에 따라 실수의 주인이 달라졌어요.",
-      "promptDe": "Wer aufschreibt, verschob, wem der Fehler gehoerte.",
+      "promptDe": "Wer aufschreibt, verschob, wem der Fehler gehörte.",
       "promptEn": "Who writes the record changed who owned the mistake.",
       "distractors": [
         "다음에 다시",
@@ -10569,7 +10569,7 @@
       "id": "satz_c2_0073",
       "level": "c2",
       "targetKo": "호명의 거부를 무례가 아니라 자기 보호로 설명해 달라고 했어요.",
-      "promptDe": "Die Verweigerung der Benennung als Schutz, nicht als Unhoeflichkeit zu lesen bat ich.",
+      "promptDe": "Die Verweigerung der Benennung als Schutz, nicht als Unhöflichkeit zu lesen bat ich.",
       "promptEn": "I asked them to read refusal of a name as protection, not rudeness.",
       "distractors": [
         "그냥 웃고",
@@ -10593,7 +10593,7 @@
       "id": "satz_c2_0075",
       "level": "c2",
       "targetKo": "말의 유산이 다음 명절의 대본이 되지 않게 메모를 고쳤어요.",
-      "promptDe": "Damit das Erbe der Worte nicht das naechste Festskript wird, aenderte ich die Notiz.",
+      "promptDe": "Damit das Erbe der Worte nicht das nächste Festskript wird, änderte ich die Notiz.",
       "promptEn": "I changed the note so the inheritance of words would not script the next holiday.",
       "distractors": [
         "사진부터",
@@ -10605,7 +10605,7 @@
       "id": "satz_c2_0076",
       "level": "c2",
       "targetKo": "별명 대신 이름을 되찾자고 하니 방이 잠시 멈췄어요.",
-      "promptDe": "Den Namen statt des Spitznamens zurueckzuholen liess den Raum kurz stehen.",
+      "promptDe": "Den Namen statt des Spitznamens zurückzuholen ließ den Raum kurz stehen.",
       "promptEn": "Asking to reclaim a name instead of the nickname paused the room.",
       "distractors": [
         "밥부터 먹고",
@@ -10629,7 +10629,7 @@
       "id": "satz_c2_0078",
       "level": "c2",
       "targetKo": "서사를 공유하자 한 사람의 농담이 모두의 역사가 되지 않았어요.",
-      "promptDe": "Die Erzaehlung zu teilen hinderte den Witz einer Person, aller Geschichte zu werden.",
+      "promptDe": "Die Erzählung zu teilen hinderte den Witz einer Person, aller Geschichte zu werden.",
       "promptEn": "Sharing authorship stopped one person's joke from becoming everyone's history.",
       "distractors": [
         "다음에 다시",
