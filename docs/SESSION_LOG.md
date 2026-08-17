@@ -1,5 +1,38 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Hören 책가도 레벨별 12칸 서재 설계 (스펙만, 코드 0)
+
+**무엇.** `docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md` 를 새로 썼다.
+Hören 시나리오 선택을 레벨별 책가도 서재로 바꾸는 설계다. 코드·데이터 변경은 0이다.
+브랜치 `claude/hoeren-shelf-20260817`, 기준 `3d73d1ac`.
+
+**왜.** 원 계획서(칸 10개 고정 축)가 stale이었다. 실측하니 live 시나리오가 90개가 아니라
+**264개**(intent 237종)여서 Hören 칩 줄이 262번 스와이프 상태였고, 고정 축을 6레벨에
+공유하면 `Formell×A1`·`Café×C2` 처럼 **채울 수 없는 칸**이 생긴다. 레벨별로 칸을 세우면
+그 문제와 서랍 크기·에셋 로딩이 함께 풀린다.
+
+**확정(Jin, 2026-08-17).** 레벨당 **12칸**(기능 9 + 관심 3) · 칸당 50 → 72칸 **3,600개**
+(재고 300, 신규 3,300). 레벨 전환은 **서재 층**(지난 레벨 서재와 도장 보존). 배치 단위는
+**한 칸 = 한 배치**. 파일럿은 `a1_eat` 47개. TTS는 **Jin이 직접 합성**(설계 범위 밖).
+
+**실측 근거.** ① `scenarios.json` 1.60 MB / 264개 = 6.2 KB/시나리오 → 3,600개면 **22.3 MB
+단일 에셋**이고 `scenario_loader.dart:15` 가 `loadString` 1회로 전량 상주시킨다. UI 필터링은
+로딩을 줄이지 못하므로 **레벨 샤딩**이 유일한 해결. `pubspec.yaml:130` 은 디렉터리 등록이라
+샤드 추가에 수정이 필요 없다. ② `scenario.dart:388` `_categoryById` 는 죽은 표가 아니라
+**264개 전수 커버**(고아 0·유령 0)였다. ③ backdrop 을 칸에서 파생시키면 **102/264 배경이
+바뀐다** — 두 축은 독립이므로 `_categoryById` 를 삭제가 아니라 JSON `backdrop` 필드로
+**이관**한다(회귀 0, 신규 3,300개의 Dart 수정 0회).
+
+**검증.** 기능 54칸 id 배정 264개 전수에서 `DUPES 0 / ORPHANS 0 / GHOSTS 0 / WRONG LEVEL 0`.
+이 4지표를 마이그레이션 fail-closed 조건으로 옮긴다. 전체 배정은 스펙 부록 A.
+
+**다른 세션과의 관계.** `.claude/worktrees/scenario-batch11-20260817`(locked)에 Jin 승인이
+난 Batch 11(취미축 6카테고리 36개, draft 18/36)이 미커밋으로 있었다. 폐기하지 않고 **관심
+3칸**(`friends`/`dating`/`fandom`)의 첫 씨앗으로 편입한다. 다만 그 draft 18개에 `shelf`
+필드가 0개이고 카테고리가 ID 슬러그에만 있어, 완주 시 `shelf` 필드를 포함해야 한다.
+
+**커밋.** 없음 — AGENTS.md 규칙대로 Jin의 명시적 요청 전까지 커밋하지 않는다.
+
 ### 2026-08-17 (Claude, Windows) — Grammatik 목업 반영: 카드 안 Hören + 마지막 카드 완료 CTA
 
 **무엇.** Jin 목업(제안 1 + 완료 트랜지션)의 두 항목을 반영했다.
