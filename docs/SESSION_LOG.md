@@ -12,6 +12,9 @@ Maven 프로젝트가 아예 없는데도 들어와 있었다 (루트에 `pom.xm
 **`.claude/launch.json` 은 건드리지 않았다.** 이력이 `dcef0ba3`·`849b4057` 까지 올라가는
 의도된 공유 설정이라 위 두 건과 성격이 다르다.
 
+하네스가 만드는 세션 워크트리 .claude/worktrees/ 도 같은 성격이라 함께 무시한다 — 추적된 적은
+없지만 매 세션 git status 에 untracked 노이즈로 떴다.
+
 **검증.** `git ls-files` 에서 두 디렉터리 매치 0건, `.claude/launch.json` 은 그대로 추적 중.
 워킹 디렉터리의 실제 파일은 유지된다.
 ### 2026-08-17 (Claude, Windows) — Batch 07/08 파트너 가족 humanizer 검수 (이 세션 단독 결과)
