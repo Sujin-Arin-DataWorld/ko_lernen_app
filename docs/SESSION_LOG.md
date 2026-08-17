@@ -1,5 +1,16 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — PR4 fail-closed 계측 제거
+
+**무엇을.** compose/promote/checker와 A1 map의 NDJSON·`A1_CACHE_HOLE`
+debugPrint·`/opt/cursor/logs/debug.log` 쓰기·probe-only
+`test/a1_hanok_imagecache_hole_observe_test.dart`를 제거했다. chroma helper,
+ledger SHA-lock, `a1HanokEvictionTargets`, exclusive-bottom anchor와 catalog
+eviction·compose/promote/chroma 회귀는 유지한다.
+
+**검증.** Python compose/promote/contract, Flutter catalog/map, checker,
+`flutter analyze --no-pub --fatal-infos`, `git diff --check`.
+
 ### 2026-08-17 (Cursor) — PR4 남은 fail-closed 4구멍 수정
 
 **무엇을.** 재현된 A1 파이프라인 구멍 4개를 최소 수정했다. 에셋 생성·runtime
@@ -17,11 +28,12 @@
 - local anchor Y: skip 제거. `anchor_y >= socket_height`이면
   `bbox.bottom == socket_height`와 exclusive X를 요구한다. y=170–300은 거절.
 
-**검증.** Python compose/promote/contract 21/21, Flutter catalog/map/observe
-12/12, `check_personal_hanok_assets.py` exit 0, `flutter analyze --no-pub
+**검증.** Python compose/promote/contract 21/21, Flutter catalog/map,
+`check_personal_hanok_assets.py` exit 0, `flutter analyze --no-pub
 --fatal-infos` No issues, `git diff --check` 통과. 수정 후 재현: 손실 q82
 `#00ff00` chroma count 65536, 단청 `#1F7A6B` 0, 빈 ledger promote
-`PromotionError`, y=170–300 `CompositionError`. 커밋해시는 이 기록과 같은 커밋.
+`PromotionError`, y=170–300 `CompositionError`. 수정 커밋 `c106d1a8`.
+계측은 이후 커밋에서 제거했다.
 
 ### 2026-08-17 (Cursor) — PR4 남은 fail-closed 4구멍 런타임 재현 (수정 없음)
 

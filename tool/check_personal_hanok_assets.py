@@ -52,12 +52,7 @@ RUNTIME_LAYER_ORDER = (
 
 
 def _chroma_key_count(image: Image.Image) -> int:
-    count = chroma_key_count(image)
-    # #region agent log
-    import json as _json, time as _time
-    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "check_personal_hanok_assets.py:_chroma_key_count", "message": "shared chroma_key_count", "data": {"count": count, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
-    # #endregion
-    return count
+    return chroma_key_count(image)
 
 
 def _coverage(image: Image.Image) -> float:

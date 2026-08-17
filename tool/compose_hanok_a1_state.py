@@ -49,12 +49,7 @@ def _alpha_bbox(image: Image.Image) -> tuple[int, int, int, int] | None:
 
 
 def _chroma_count(image: Image.Image) -> int:
-    count = chroma_key_count(image)
-    # #region agent log
-    import json as _json, time as _time
-    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "compose_hanok_a1_state.py:_chroma_count", "message": "shared chroma_key_count", "data": {"count": count, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
-    # #endregion
-    return count
+    return chroma_key_count(image)
 
 
 def _corners_opaque(image: Image.Image) -> bool:
@@ -133,14 +128,8 @@ def _covers_local_anchor(
     # is one pixel outside the painted footprint.
     covers_x = left <= anchor_x < right
     if anchor_y >= socket_height:
-        accepted = covers_x and bottom == socket_height
-    else:
-        accepted = covers_x and top <= anchor_y < bottom
-    # #region agent log
-    import json as _json, time as _time
-    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "D", "location": "compose_hanok_a1_state.py:_covers_local_anchor", "message": "anchor cover decision", "data": {"bbox": [left, top, right, bottom], "anchor": [anchor_x, anchor_y], "socketHeight": socket_height, "coversX": covers_x, "requiresExclusiveBottom": anchor_y >= socket_height, "accepted": accepted}, "timestamp": int(_time.time() * 1000)}) + "\n")
-    # #endregion
-    return accepted
+        return covers_x and bottom == socket_height
+    return covers_x and top <= anchor_y < bottom
 
 
 def normalize_layer(
