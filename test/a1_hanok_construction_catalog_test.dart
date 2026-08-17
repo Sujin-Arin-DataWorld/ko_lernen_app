@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/painting.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/a1_hanok_construction_catalog.dart';
 
@@ -79,6 +80,49 @@ void main() {
       () => a1HanokResidentSteps(17),
       throwsRangeError,
     );
+  });
+
+  test('eviction targets cover non-resident catalog and stale resident widths', () {
+    final targets = a1HanokEvictionTargets(
+      currentStep: 8,
+      seenCacheWidths: {600, 780},
+      currentCacheWidth: 780,
+    );
+    final residents = {
+      for (final step in a1HanokResidentSteps(8))
+        a1HanokConstructionState(step).assetPath,
+    };
+    final catalog = [
+      for (final state in kA1HanokConstructionStates) state.assetPath,
+    ];
+    final nonResidents = catalog.where((path) => !residents.contains(path)).toList();
+    expect(residents, hasLength(3));
+    expect(nonResidents, hasLength(14));
+    expect(targets, hasLength(14 * 3 + 3));
+
+    final raw = targets.whereType<AssetImage>().map((p) => p.assetName).toSet();
+    expect(raw, unorderedEquals(nonResidents));
+    expect(raw.intersection(residents), isEmpty);
+
+    for (final path in nonResidents) {
+      expect(
+        targets.whereType<ResizeImage>().where((provider) {
+          final inner = provider.imageProvider;
+          return inner is AssetImage &&
+              inner.assetName == path &&
+              (provider.width == 600 || provider.width == 780);
+        }),
+        hasLength(2),
+      );
+    }
+    for (final path in residents) {
+      final stale = targets.whereType<ResizeImage>().where((provider) {
+        final inner = provider.imageProvider;
+        return inner is AssetImage && inner.assetName == path;
+      }).toList();
+      expect(stale, hasLength(1));
+      expect(stale.single.width, 600);
+    }
   });
 
   test('catalog and renderer stay free of pack, XP, Gye, and legacy authority', () {

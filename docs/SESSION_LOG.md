@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — PR4 남은 fail-closed 4구멍 수정
+
+**무엇을.** 재현된 A1 파이프라인 구멍 4개를 최소 수정했다. 에셋 생성·runtime
+등록·production route 연결은 하지 않았다. repo provenance
+`generationLedger.records`는 빈 배열로 유지한다.
+
+- chroma: `is_chroma_key_rgb` / `chroma_key_count`를
+  `tool/hanok_v1_asset_contract.py`에 두고 compose·promote·checker가 공유한다.
+  `max(|r-0|,|g-255|,|b-0|) <= 8` 이면 chroma. RGBA는 alpha > 8만 센다.
+- 승격 SHA-lock: `a1_approved_state_digests`로 basename+sha256을 묶고,
+  dry-run/apply 모두 16개 approved ledger output이 없으면 `PromotionError`.
+- ImageCache: `a1HanokEvictionTargets`가 비거주 catalog 경로(본 폭+raw
+  AssetImage)와 거주의 stale width를 돌려주고, map이 step/width/dispose에서
+  그 키만 evict한다. `ImageCache.clear()`는 쓰지 않는다.
+- local anchor Y: skip 제거. `anchor_y >= socket_height`이면
+  `bbox.bottom == socket_height`와 exclusive X를 요구한다. y=170–300은 거절.
+
+**검증.** Python compose/promote/contract와 Flutter catalog/map 집중 회귀.
+수정 후 재현: 손실 q82 `#00ff00` chroma count > 0, 빈 ledger promote 거절,
+catalog-wide evict, y=170–300 `CompositionError`.
+
 ### 2026-08-17 (Cursor) — PR4 남은 fail-closed 4구멍 런타임 재현 (수정 없음)
 
 **무엇을.** Living Hanok V1 PR4 A1 파이프라인의 남은 fail-closed 구멍 4개를

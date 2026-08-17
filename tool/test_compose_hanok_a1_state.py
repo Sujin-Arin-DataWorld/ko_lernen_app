@@ -53,6 +53,15 @@ class ComposeHanokA1StateTest(unittest.TestCase):
                 socket_height=309,
                 local_anchor=(427, 309),
             )
+        near = Image.new("RGBA", (854, 309), (0, 0, 0, 0))
+        near.paste(Image.new("RGBA", (40, 40), (0, 255, 1, 255)), (20, 20))
+        with self.assertRaises(CompositionError):
+            normalize_layer(
+                near,
+                socket_width=854,
+                socket_height=309,
+                local_anchor=(427, 309),
+            )
 
     def test_continuity_keeps_growing_footprint_and_rejects_shrink(self) -> None:
         previous = _layer(854, 309, (80, 180, 760, 300))
@@ -82,7 +91,7 @@ class ComposeHanokA1StateTest(unittest.TestCase):
             raw = Path(temp_dir) / "raw.png"
             out = Path(temp_dir) / "state.webp"
             normalized = Path(temp_dir) / "layer.png"
-            _layer(854, 309, (90, 170, 750, 300)).save(raw)
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
             report = compose_state(
                 raw,
                 out,
@@ -102,7 +111,7 @@ class ComposeHanokA1StateTest(unittest.TestCase):
         provenance = load_provenance()
         with tempfile.TemporaryDirectory() as temp_dir:
             raw = Path(temp_dir) / "outside_repo.png"
-            _layer(854, 309, (90, 170, 750, 300)).save(raw)
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
             with self.assertRaises(CompositionError):
                 compose_state(
                     raw,
@@ -139,7 +148,7 @@ class ComposeHanokA1StateTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp_dir:
             raw = Path(temp_dir) / "raw.png"
             out = Path(temp_dir) / "state.webp"
-            _layer(854, 309, (90, 170, 750, 300)).save(raw)
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
             compose_state(raw, out, provenance=provenance)
             composed = Image.open(out).convert("RGB").getpixel((10, 10))
             site = Image.open(
@@ -172,7 +181,15 @@ class ComposeHanokA1StateTest(unittest.TestCase):
                 socket_height=309,
                 local_anchor=(427, 309),
             )
-        covers = _layer(854, 309, (0, 170, 428, 300))
+        stops_short_y = _layer(854, 309, (0, 170, 428, 300))
+        with self.assertRaises(CompositionError):
+            normalize_layer(
+                stops_short_y,
+                socket_width=854,
+                socket_height=309,
+                local_anchor=(427, 309),
+            )
+        covers = _layer(854, 309, (0, 170, 428, 309))
         normalized = normalize_layer(
             covers,
             socket_width=854,
@@ -195,7 +212,7 @@ class ComposeHanokA1StateTest(unittest.TestCase):
         provenance = json.loads(json.dumps(load_provenance()))
         with tempfile.TemporaryDirectory() as temp_dir:
             raw = Path(temp_dir) / "copied_approved.png"
-            _layer(854, 309, (90, 170, 750, 300)).save(raw)
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
             digest = sha256_file(raw)
             provenance.setdefault("generationLedger", {})["records"] = [
                 {
@@ -220,7 +237,7 @@ class ComposeHanokA1StateTest(unittest.TestCase):
         provenance = load_provenance()
         with tempfile.TemporaryDirectory() as temp_dir:
             raw = Path(temp_dir) / "unknown.png"
-            _layer(854, 309, (90, 170, 750, 300)).save(raw)
+            _layer(854, 309, (90, 170, 750, 309)).save(raw)
             with self.assertRaises(CompositionError):
                 compose_state(
                     raw,

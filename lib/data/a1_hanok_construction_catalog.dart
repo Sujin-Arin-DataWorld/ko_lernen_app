@@ -4,6 +4,8 @@
 /// CourseMastery, or import pack/XP/Gye/legacy stage authority.
 library;
 
+import 'package:flutter/painting.dart';
+
 const int kA1HanokMinStep = 0;
 const int kA1HanokMaxStep = 16;
 const int kA1HanokCanvasWidth = 1536;
@@ -219,3 +221,36 @@ int a1HanokWorstCaseResidentBytes() =>
     kA1HanokCanvasWidth *
     kA1HanokCanvasHeight *
     4;
+
+/// Catalog-wide ImageCache eviction set. Never clears the global cache.
+///
+/// Non-resident catalog paths are evicted at every seen [ResizeImage] width
+/// and as the raw [AssetImage]. Resident paths are evicted only at stale
+/// widths other than [currentCacheWidth].
+List<ImageProvider> a1HanokEvictionTargets({
+  required int currentStep,
+  required Set<int> seenCacheWidths,
+  required int currentCacheWidth,
+}) {
+  final residents = {
+    for (final step in a1HanokResidentSteps(currentStep))
+      a1HanokConstructionState(step).assetPath,
+  };
+  final targets = <ImageProvider>[];
+  for (final state in kA1HanokConstructionStates) {
+    final path = state.assetPath;
+    if (!residents.contains(path)) {
+      targets.add(AssetImage(path));
+      for (final width in seenCacheWidths) {
+        targets.add(ResizeImage(AssetImage(path), width: width));
+      }
+    } else {
+      for (final width in seenCacheWidths) {
+        if (width != currentCacheWidth) {
+          targets.add(ResizeImage(AssetImage(path), width: width));
+        }
+      }
+    }
+  }
+  return targets;
+}

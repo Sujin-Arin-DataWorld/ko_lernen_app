@@ -16,6 +16,7 @@ from hanok_v1_asset_contract import (
     a1_expected_files,
     a1_hard_max_bytes,
     camera_geometry,
+    chroma_key_count,
     load_provenance,
     qa_composite_path,
 )
@@ -51,23 +52,12 @@ RUNTIME_LAYER_ORDER = (
 
 
 def _chroma_key_count(image: Image.Image) -> int:
-    exact = 0
-    near = 0
-    sample = None
-    for red, green, blue, alpha in image.convert("RGBA").getdata():
-        if alpha <= 8:
-            continue
-        if (red, green, blue) == (0, 255, 0):
-            exact += 1
-        elif green >= 200 and red <= 40 and blue <= 40:
-            near += 1
-            if sample is None:
-                sample = [red, green, blue, alpha]
+    count = chroma_key_count(image)
     # #region agent log
     import json as _json, time as _time
-    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "check_personal_hanok_assets.py:_chroma_key_count", "message": "exact #00ff00 vs near-green", "data": {"exact": exact, "near": near, "sampleRgba": sample, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "check_personal_hanok_assets.py:_chroma_key_count", "message": "shared chroma_key_count", "data": {"count": count, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
     # #endregion
-    return exact
+    return count
 
 
 def _coverage(image: Image.Image) -> float:
@@ -105,7 +95,13 @@ def _check(path: Path, opaque: bool) -> list[str]:
         coverage = _coverage(image)
         if not 0.002 <= coverage <= 0.90:
             errors.append(f"alpha coverage={coverage:.2%}, expected 0.2%-90%")
-    chroma = _chroma_key_count(image)
+    # Shipping map layers keep exact #00ff00. A1 states use the shared
+    # near-green helper so lossy WebP drift cannot pass.
+    chroma = sum(
+        1
+        for red, green, blue, alpha in image.convert("RGBA").getdata()
+        if (red, green, blue) == (0, 255, 0) and alpha > 8
+    )
     if chroma:
         errors.append(f"contains {chroma} opaque #00ff00 chroma-key pixels")
     detail = f"{image.width}x{image.height} alpha={_coverage(image):.2%} key={chroma}"

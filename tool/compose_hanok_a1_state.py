@@ -16,6 +16,7 @@ from hanok_v1_asset_contract import (
     ROOT,
     allowed_input_digests,
     camera_geometry,
+    chroma_key_count,
     layer_contract,
     load_provenance,
     sha256_file,
@@ -24,7 +25,6 @@ from hanok_v1_asset_contract import (
 
 
 ALPHA_THRESHOLD = 8
-CHROMA = (0, 255, 0)
 
 
 class CompositionError(ValueError):
@@ -49,23 +49,12 @@ def _alpha_bbox(image: Image.Image) -> tuple[int, int, int, int] | None:
 
 
 def _chroma_count(image: Image.Image) -> int:
-    exact = 0
-    near = 0
-    sample = None
-    for red, green, blue, alpha in image.getdata():
-        if alpha <= ALPHA_THRESHOLD:
-            continue
-        if (red, green, blue) == CHROMA:
-            exact += 1
-        elif green >= 200 and red <= 40 and blue <= 40:
-            near += 1
-            if sample is None:
-                sample = [red, green, blue, alpha]
+    count = chroma_key_count(image)
     # #region agent log
     import json as _json, time as _time
-    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "compose_hanok_a1_state.py:_chroma_count", "message": "exact #00ff00 vs near-green", "data": {"exact": exact, "near": near, "sampleRgba": sample, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "A", "location": "compose_hanok_a1_state.py:_chroma_count", "message": "shared chroma_key_count", "data": {"count": count, "size": list(image.size), "mode": image.mode}, "timestamp": int(_time.time() * 1000)}) + "\n")
     # #endregion
-    return exact
+    return count
 
 
 def _corners_opaque(image: Image.Image) -> bool:
@@ -143,16 +132,15 @@ def _covers_local_anchor(
     # PIL getbbox right/lower are exclusive, so equality on the right edge
     # is one pixel outside the painted footprint.
     covers_x = left <= anchor_x < right
-    covers_y = top <= anchor_y < bottom
-    skipped_y = anchor_y >= socket_height
-    accepted = covers_x if skipped_y else covers_x and covers_y
+    if anchor_y >= socket_height:
+        accepted = covers_x and bottom == socket_height
+    else:
+        accepted = covers_x and top <= anchor_y < bottom
     # #region agent log
     import json as _json, time as _time
-    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "D", "location": "compose_hanok_a1_state.py:_covers_local_anchor", "message": "anchor cover decision", "data": {"bbox": [left, top, right, bottom], "anchor": [anchor_x, anchor_y], "socketHeight": socket_height, "coversX": covers_x, "coversY": covers_y, "skippedY": skipped_y, "accepted": accepted}, "timestamp": int(_time.time() * 1000)}) + "\n")
+    open("/opt/cursor/logs/debug.log", "a").write(_json.dumps({"hypothesisId": "D", "location": "compose_hanok_a1_state.py:_covers_local_anchor", "message": "anchor cover decision", "data": {"bbox": [left, top, right, bottom], "anchor": [anchor_x, anchor_y], "socketHeight": socket_height, "coversX": covers_x, "requiresExclusiveBottom": anchor_y >= socket_height, "accepted": accepted}, "timestamp": int(_time.time() * 1000)}) + "\n")
     # #endregion
-    if skipped_y:
-        return covers_x
-    return covers_x and covers_y
+    return accepted
 
 
 def normalize_layer(

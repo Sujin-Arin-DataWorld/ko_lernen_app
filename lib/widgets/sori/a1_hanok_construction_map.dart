@@ -24,6 +24,7 @@ class A1HanokConstructionMap extends StatefulWidget {
 
 class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
   final Map<String, ResizeImage> _providers = <String, ResizeImage>{};
+  final Set<int> _seenCacheWidths = <int>{};
   int? _cacheWidth;
 
   // #region agent log
@@ -35,6 +36,9 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
 
   @visibleForTesting
   int get debugTrackedProviderCount => _providers.length;
+
+  @visibleForTesting
+  Set<int> get debugSeenCacheWidths => Set<int>.from(_seenCacheWidths);
   // #endregion
 
   @visibleForTesting
@@ -60,18 +64,20 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
 
   @override
   void dispose() {
+    final step = widget.projection.a1ConstructionStep;
+    final cacheWidth = _cacheWidth;
+    if (cacheWidth != null) {
+      _evictCatalogTargets(step: step, cacheWidth: cacheWidth);
+    }
     // #region agent log
-    debugEvictedPaths
-      ..clear()
-      ..addAll(_providers.keys);
-    if (_cacheWidth != null) {
-      debugEvictedCacheWidths.add(_cacheWidth!);
+    if (cacheWidth != null) {
+      debugEvictedCacheWidths.add(cacheWidth);
     }
     debugPrint(
       'A1_CACHE_HOLE dispose tracked=${_providers.length} '
       'catalog=${kA1HanokConstructionStates.length} '
-      'evicted=${List<String>.from(_providers.keys)} '
-      'cacheWidth=$_cacheWidth',
+      'evicted=${List<String>.from(debugEvictedPaths)} '
+      'cacheWidth=$cacheWidth',
     );
     // #endregion
     for (final provider in _providers.values) {
@@ -79,6 +85,44 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
     }
     _providers.clear();
     super.dispose();
+  }
+
+  void _evictCatalogTargets({
+    required int step,
+    required int cacheWidth,
+  }) {
+    if (step < kA1HanokMinStep || step > kA1HanokMaxStep) {
+      return;
+    }
+    _seenCacheWidths.add(cacheWidth);
+    final targets = a1HanokEvictionTargets(
+      currentStep: step,
+      seenCacheWidths: Set<int>.from(_seenCacheWidths),
+      currentCacheWidth: cacheWidth,
+    );
+    // #region agent log
+    debugEvictedPaths
+      ..clear()
+      ..addAll(_evictionAssetPaths(targets));
+    // #endregion
+    for (final provider in targets) {
+      provider.evict();
+    }
+  }
+
+  List<String> _evictionAssetPaths(List<ImageProvider> targets) {
+    final paths = <String>[];
+    for (final provider in targets) {
+      if (provider is AssetImage) {
+        paths.add(provider.assetName);
+      } else if (provider is ResizeImage) {
+        final inner = provider.imageProvider;
+        if (inner is AssetImage) {
+          paths.add(inner.assetName);
+        }
+      }
+    }
+    return paths;
   }
 
   ResizeImage _resize(String path, int cacheWidth) {
@@ -107,22 +151,27 @@ class A1HanokConstructionMapState extends State<A1HanokConstructionMap> {
       if (stale.isEmpty && !sizeChanged && _providers.length == next.length) {
         return;
       }
+      if (_cacheWidth != null) {
+        _seenCacheWidths.add(_cacheWidth!);
+      }
+      _seenCacheWidths.add(cacheWidth);
+      _evictCatalogTargets(
+        step: widget.projection.a1ConstructionStep,
+        cacheWidth: cacheWidth,
+      );
       for (final path in stale) {
-        // #region agent log
-        debugEvictedPaths.add(path);
-        // #endregion
         _providers.remove(path)?.evict();
       }
       if (sizeChanged) {
         // #region agent log
-        debugEvictedPaths.addAll(_providers.keys);
         if (_cacheWidth != null) {
           debugEvictedCacheWidths.add(_cacheWidth!);
         }
         debugPrint(
           'A1_CACHE_HOLE sync stale=$stale sizeChanged=$sizeChanged '
           'tracked=${_providers.length} catalog=${kA1HanokConstructionStates.length} '
-          'oldCacheWidth=$_cacheWidth newCacheWidth=$cacheWidth',
+          'oldCacheWidth=$_cacheWidth newCacheWidth=$cacheWidth '
+          'catalogEvicted=${debugEvictedPaths.length}',
         );
         // #endregion
         for (final provider in _providers.values) {
