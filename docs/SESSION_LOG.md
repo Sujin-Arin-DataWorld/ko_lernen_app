@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 학습자 텍스트 민수 → 현우
+
+**왜.** Jin 요청: 교과서 기본 남자 이름 `민수`/`Minsu`를 학습자가 보는
+텍스트에서 빼 달라는 것.
+
+**무엇을.** 앱 데이터·배치 진단·관련 테스트의 보이는 이름을 `현우`/`Hyunwoo`로
+바꿨다. 조사는 `민수`와 같이 모음 끝이라 `가/는/를/에게`가 그대로 맞는다.
+시나리오 speaker 코드 `minsu`와 마스코트 레거시 주석은 내부 ID라 유지했다.
+vocab 상속 지문 124건·smalltalk phrase 지문 66건을 재고정했다.
+
+**검증.** loader·asset·data_integrity·placement·scenario flow·onboarding·
+productive assessment **34/34**. vocab 1620×15.
+
+**커밋.** `1a8ae36d` + 이 로그 커밋.
+
 ### 2026-08-17 (Cursor) — 4× 잔량을 Batch 09/10 review-only로 재번호
 
 **왜.** partner-family Batch 07/08이 live로 올라간 뒤, 기존 4× 초안
