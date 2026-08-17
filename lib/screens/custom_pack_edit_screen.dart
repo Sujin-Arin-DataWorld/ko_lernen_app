@@ -361,7 +361,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                           Expanded(
                             child: SoriButton(
                               label: t.wbStudyCards,
-                              icon: Icons.style_outlined,
                               variant: SoriButtonVariant.filled,
                               accent: SoriColors.primary,
                               onTap: words.isEmpty
@@ -376,7 +375,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                           Expanded(
                             child: SoriButton(
                               label: t.wbMatching,
-                              icon: Icons.grid_view_rounded,
                               variant: SoriButtonVariant.outlined,
                               accent: SoriColors.primary,
                               onTap: words.length < 2
@@ -395,7 +393,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                           Expanded(
                             child: SoriButton(
                               label: t.wbTyping,
-                              icon: Icons.keyboard_alt_outlined,
                               variant: SoriButtonVariant.outlined,
                               accent: SoriColors.accent,
                               onTap: words.isEmpty
@@ -410,7 +407,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                           Expanded(
                             child: SoriButton(
                               label: t.wbQuiz,
-                              icon: Icons.quiz_outlined,
                               variant: SoriButtonVariant.outlined,
                               accent: SoriColors.accent,
                               onTap: words.length < 4
@@ -426,7 +422,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                       const SizedBox(height: Spacing.sm),
                       SoriButton(
                         label: t.vocabNotebookNuanceCta,
-                        icon: Icons.compare_arrows_rounded,
                         variant: SoriButtonVariant.outlined,
                         accent: SoriColors.goldOnLight,
                         fullWidth: true,
@@ -453,7 +448,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                       const SizedBox(height: Spacing.sm),
                       SoriButton(
                         label: t.vocabNotebookAddPhoto,
-                        icon: Icons.add_a_photo_outlined,
                         variant: SoriButtonVariant.ghost,
                         fullWidth: true,
                         onTap: () => Navigator.of(context).pushNamed(

@@ -45,7 +45,8 @@ void main() {
     // 08-01 임시 상향(193)을 **189 로 복원**. §4.3 "카드 제목 w800 금지"에 따라
     // 카드·행 제목 2곳은 h3(w700) 로 강등했다.
     // 2026-08-14 Phase 3(§D~§F) 재실측: 180→168 (stats·profile 카드 제목 강등).
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 168, 'FontWeight.w800');
+    // 2026-08-17: 단어장 앱바 제목 w800 3곳 → SoriAppBar.h2, 168→166.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 166, 'FontWeight.w800');
   });
 
   test("하드코딩 'Pretendard' 리터럴은 더 늘지 않는다 (SoriFonts.sans 사용)", () {
@@ -105,10 +106,11 @@ void main() {
     // 새 화면·새 AppBar 는 SoriAppBar 를 쓴다.
     // 2026-08-14: 105→100 (§E stats 2곳 SoriAppBar 전환 + Phase 3 잔여 정리
     // 재실측). 100→99 (§F profile SoriAppBar 전환).
+    // 2026-08-17: 단어장 practice/result/nuance 8곳 SoriAppBar, 99→98.
     _expectAtMost(
       sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
       RegExp(r'(^|[^A-Za-z_$.])AppBar\('),
-      99,
+      98,
       'lib/screens/ 원시 AppBar(',
     );
   });
@@ -121,6 +123,7 @@ void main() {
     // 다시듣기 버튼을 추가했다(placement_diagnostic_screen.dart, volume_up).
     // 이건 위 "목표"가 명시적으로 남기기로 한 **미디어 컨트롤**이라 아이콘을
     // 떼는 대신 래칫을 한 칸 올린다. 그 외 사유로는 올리지 말 것.
+    // 2026-08-17: 단어장/커스텀팩 라벨 CTA 장식 아이콘 17곳 제거, 75→71.
     var total = 0;
     final perFile = <String, int>{};
     for (final s in sources) {
@@ -134,8 +137,8 @@ void main() {
     }
     expect(
       total,
-      lessThanOrEqualTo(75),
-      reason: '아이콘 달린 SoriButton 이 75개를 넘었다 (실제 $total).\n${_report(perFile)}',
+      lessThanOrEqualTo(71),
+      reason: '아이콘 달린 SoriButton 이 71개를 넘었다 (실제 $total).\n${_report(perFile)}',
     );
   });
 }

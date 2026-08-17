@@ -6,6 +6,7 @@ import '../models/custom_pack.dart';
 import '../services/book_ocr_document.dart';
 import '../services/custom_pack_service.dart';
 import '../services/vocab_notebook_parser.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
@@ -131,7 +132,7 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
     final s = SoriSurfaces.of(context);
     if (_pairs.isEmpty) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.vocabNotebookTitle)),
+        appBar: SoriAppBar(title: t.vocabNotebookTitle),
         body: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/book/book_error.png',
@@ -146,12 +147,7 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.vocabNotebookTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
+      appBar: SoriAppBar(title: t.vocabNotebookTitle),
       body: SafeArea(
         child: SoriCenterClamp(
           child: Padding(
@@ -274,7 +270,6 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
                 const SizedBox(height: Spacing.md),
                 SoriButton.filled(
                   label: t.vocabNotebookPracticeCta,
-                  icon: Icons.sports_esports_outlined,
                   fullWidth: true,
                   onTap: _selected.isEmpty || _saving
                       ? null
@@ -283,7 +278,6 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
                 const SizedBox(height: Spacing.sm),
                 SoriButton.outlined(
                   label: t.vocabNotebookAddPhoto,
-                  icon: Icons.add_a_photo_outlined,
                   fullWidth: true,
                   onTap: _selected.isEmpty || _saving
                       ? null

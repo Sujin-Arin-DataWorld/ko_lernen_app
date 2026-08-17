@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 
 void main() {
-  test('all 90 scenarios and 345 quests satisfy the renderer contract', () {
+  test('all 90 scenarios and 359 quests satisfy the renderer contract', () {
     final root =
         jsonDecode(File('assets/data/scenarios.json').readAsStringSync())
             as Map<String, dynamic>;
@@ -76,7 +76,7 @@ void main() {
       }
     }
 
-    expect(questCount, 345);
+    expect(questCount, 359);
     final countsById = {
       for (final raw in decoded.cast<Map<String, dynamic>>())
         raw['id'] as String: (raw['quests'] as List).length,
