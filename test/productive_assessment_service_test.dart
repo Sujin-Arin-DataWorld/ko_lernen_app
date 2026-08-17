@@ -165,7 +165,7 @@ void main() {
         engine
             .evaluate(
               definition: definition,
-              input: '저는 수진입니다. 저는 민수예요. 나는 수진이야.',
+              input: '저는 수진입니다. 저는 현우예요. 나는 수진이야.',
               occurredAt: occurredAt,
             )
             .passed,

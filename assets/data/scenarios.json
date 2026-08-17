@@ -555,8 +555,8 @@
       },
       "intro": {
         "ko": "",
-        "de": "Erster Arbeitstag in Seoul. Du triffst einen neuen Kollegen, Minsu. Eine kurze Vorstellung steht an, auf Koreanisch.",
-        "en": "First day at work in Seoul. You meet a new coworker, Minsu. A short intro coming up, in Korean."
+        "de": "Erster Arbeitstag in Seoul. Du triffst einen neuen Kollegen, Hyunwoo. Eine kurze Vorstellung steht an, auf Koreanisch.",
+        "en": "First day at work in Seoul. You meet a new coworker, Hyunwoo. A short intro coming up, in Korean."
       },
       "vocab": [
         {
@@ -633,9 +633,9 @@
         },
         {
           "speaker": "user",
-          "ko": "안녕하세요. 저는 민수예요.",
-          "de": "Hallo. Ich bin Minsu.",
-          "en": "Hello. I'm Minsu."
+          "ko": "안녕하세요. 저는 현우예요.",
+          "de": "Hallo. Ich bin Hyunwoo.",
+          "en": "Hello. I'm Hyunwoo."
         },
         {
           "speaker": "minsu",
@@ -671,7 +671,7 @@
           "type": "particlePop",
           "data": {
             "prefix": "저",
-            "suffix": " 민수예요.",
+            "suffix": " 현우예요.",
             "options": [
               "은",
               "는",
@@ -2456,9 +2456,9 @@
         },
         {
           "speaker": "user",
-          "ko": "예약했는데요, 이름이 민수예요.",
-          "de": "Ich habe reserviert. Mein Name ist Minsu.",
-          "en": "I have a reservation. My name is Minsu."
+          "ko": "예약했는데요, 이름이 현우예요.",
+          "de": "Ich habe reserviert. Mein Name ist Hyunwoo.",
+          "en": "I have a reservation. My name is Hyunwoo."
         },
         {
           "speaker": "jieun",
@@ -9268,15 +9268,15 @@
       "dialog": [
         {
           "speaker": "minsu",
-          "ko": "안녕하세요, 안나 씨. 저는 민수예요. 한국어 수업 같이 들어요.",
-          "de": "Hallo, Anna. Ich bin Minsu. Wir sind zusammen im Koreanischkurs.",
-          "en": "Hi, Anna. I'm Minsu. We're in the same Korean class."
+          "ko": "안녕하세요, 안나 씨. 저는 현우예요. 한국어 수업 같이 들어요.",
+          "de": "Hallo, Anna. Ich bin Hyunwoo. Wir sind zusammen im Koreanischkurs.",
+          "en": "Hi, Anna. I'm Hyunwoo. We're in the same Korean class."
         },
         {
           "speaker": "user",
-          "ko": "안녕하세요, 민수 씨. 반가워요. 제 전화번호는 010-1234-5678이에요.",
-          "de": "Hallo, Minsu. Freut mich. Meine Telefonnummer ist 010-1234-5678.",
-          "en": "Hi, Minsu. Nice to meet you. My number is 010-1234-5678."
+          "ko": "안녕하세요, 현우 씨. 반가워요. 제 전화번호는 010-1234-5678이에요.",
+          "de": "Hallo, Hyunwoo. Freut mich. Meine Telefonnummer ist 010-1234-5678.",
+          "en": "Hi, Hyunwoo. Nice to meet you. My number is 010-1234-5678."
         },
         {
           "speaker": "minsu",
@@ -9371,7 +9371,7 @@
                 "ko": "수업 자료가 아니에요."
               },
               {
-                "ko": "민수 씨가 맞아요."
+                "ko": "현우 씨가 맞아요."
               }
             ],
             "correctIndex": 0
@@ -9444,8 +9444,8 @@
         },
         "body": {
           "ko": "",
-          "de": "Bei neuen Kontakten ist 안녕하세요, Minsu 씨 eine sichere Eröffnung. Teile nur die Kontaktdaten, die die Situation wirklich braucht; du musst nicht sofort privat werden.",
-          "en": "With a new contact, 안녕하세요, Minsu 씨 is a safe opening. Share only the contact details the situation needs; you do not need to become personal right away."
+          "de": "Bei neuen Kontakten ist 안녕하세요, Hyunwoo 씨 eine sichere Eröffnung. Teile nur die Kontaktdaten, die die Situation wirklich braucht; du musst nicht sofort privat werden.",
+          "en": "With a new contact, 안녕하세요, Hyunwoo 씨 is a safe opening. Share only the contact details the situation needs; you do not need to become personal right away."
         }
       }
     },
@@ -10056,16 +10056,16 @@
           "korean": "부르다",
           "note": {
             "ko": "",
-            "de": "rufen / nennen. 민수 씨라고 불러도 될까요? = Darf ich Sie Minsu-ssi nennen?",
-            "en": "to call. 민수 씨라고 불러도 될까요? = May I call you Minsu-ssi?"
+            "de": "rufen / nennen. 현우 씨라고 불러도 될까요? = Darf ich Sie Hyunwoo-ssi nennen?",
+            "en": "to call. 현우 씨라고 불러도 될까요? = May I call you Hyunwoo-ssi?"
           }
         },
         {
           "korean": "씨",
           "note": {
             "ko": "",
-            "de": "höfliche Anrede nach dem Vornamen, z. B. 민수 씨.",
-            "en": "a polite suffix after a given name, e.g. 민수 씨."
+            "de": "höfliche Anrede nach dem Vornamen, z. B. 현우 씨.",
+            "en": "a polite suffix after a given name, e.g. 현우 씨."
           }
         },
         {
@@ -10099,9 +10099,9 @@
       ],
       "grammarBlock": {
         "title": {
-          "ko": "민수 씨라고 불러도 될까요?",
-          "de": "Darf ich Sie Minsu-ssi nennen?",
-          "en": "May I call you Minsu-ssi?"
+          "ko": "현우 씨라고 불러도 될까요?",
+          "de": "Darf ich Sie Hyunwoo-ssi nennen?",
+          "en": "May I call you Hyunwoo-ssi?"
         },
         "explanation": {
           "ko": "",
@@ -10118,15 +10118,15 @@
         },
         {
           "speaker": "minsu",
-          "ko": "안녕하세요. 저는 민수예요.",
-          "de": "Hallo. Ich bin Minsu.",
-          "en": "Hi. I'm Minsu."
+          "ko": "안녕하세요. 저는 현우예요.",
+          "de": "Hallo. Ich bin Hyunwoo.",
+          "en": "Hi. I'm Hyunwoo."
         },
         {
           "speaker": "user",
-          "ko": "처음 뵙겠습니다. 민수 씨라고 불러도 될까요?",
-          "de": "Freut mich. Darf ich Sie Minsu-ssi nennen?",
-          "en": "Nice to meet you. May I call you Minsu-ssi?"
+          "ko": "처음 뵙겠습니다. 현우 씨라고 불러도 될까요?",
+          "de": "Freut mich. Darf ich Sie Hyunwoo-ssi nennen?",
+          "en": "Nice to meet you. May I call you Hyunwoo-ssi?"
         },
         {
           "speaker": "minsu",
@@ -10155,23 +10155,23 @@
           ],
           "type": "hoerverstehen",
           "data": {
-            "audioKo": "민수 씨라고 불러도 될까요?",
+            "audioKo": "현우 씨라고 불러도 될까요?",
             "options": [
               {
-                "de": "Darf ich Sie Minsu-ssi nennen?",
-                "en": "May I call you Minsu-ssi?"
+                "de": "Darf ich Sie Hyunwoo-ssi nennen?",
+                "en": "May I call you Hyunwoo-ssi?"
               },
               {
-                "de": "Wo wohnt Minsu?",
-                "en": "Where does Minsu live?"
+                "de": "Wo wohnt Hyunwoo?",
+                "en": "Where does Hyunwoo live?"
               },
               {
-                "de": "Ist Minsu heute im Kurs?",
-                "en": "Is Minsu in class today?"
+                "de": "Ist Hyunwoo heute im Kurs?",
+                "en": "Is Hyunwoo in class today?"
               },
               {
-                "de": "Minsu, ruf mich bitte an.",
-                "en": "Minsu, please call me."
+                "de": "Hyunwoo, ruf mich bitte an.",
+                "en": "Hyunwoo, please call me."
               }
             ],
             "correctIndex": 0
@@ -10184,7 +10184,7 @@
           ],
           "type": "luecken",
           "data": {
-            "sentence": "저는 민수___ .",
+            "sentence": "저는 현우___ .",
             "options": [
               "예요",
               "이에요",
@@ -10227,15 +10227,15 @@
           ],
           "type": "satzBauen",
           "data": {
-            "targetKo": "민수 씨라고 불러도 될까요?",
-            "promptDe": "Darf ich Sie Minsu-ssi nennen?",
-            "promptEn": "May I call you Minsu-ssi?",
+            "targetKo": "현우 씨라고 불러도 될까요?",
+            "promptDe": "Darf ich Sie Hyunwoo-ssi nennen?",
+            "promptEn": "May I call you Hyunwoo-ssi?",
             "distractors": [
               "김밥",
               "비싸요",
               "병원"
             ],
-            "audioKo": "민수 씨라고 불러도 될까요?"
+            "audioKo": "현우 씨라고 불러도 될까요?"
           }
         },
         {
@@ -13927,9 +13927,9 @@
         "en": "First greeting at the door"
       },
       "intro": {
-        "ko": "민수 집에 처음 갑니다. 신발을 벗고 짧게 인사하세요.",
-        "de": "Du kommst zum ersten Mal zu Minsu. Zieh die Schuhe aus und begruesse kurz.",
-        "en": "You visit Minsu's home for the first time. Take off your shoes and greet briefly."
+        "ko": "현우 집에 처음 갑니다. 신발을 벗고 짧게 인사하세요.",
+        "de": "Du kommst zum ersten Mal zu Hyunwoo. Zieh die Schuhe aus und begruesse kurz.",
+        "en": "You visit Hyunwoo's home for the first time. Take off your shoes and greet briefly."
       },
       "vocab": [
         {
@@ -13969,9 +13969,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "안녕하세요. 처음 뵙겠습니다. 민수의 친구입니다.",
-          "de": "Guten Tag. Sehr erfreut. Ich bin Minsus Freundin.",
-          "en": "Hello. Nice to meet you. I am Minsu's friend."
+          "ko": "안녕하세요. 처음 뵙겠습니다. 현우의 친구입니다.",
+          "de": "Guten Tag. Sehr erfreut. Ich bin Hyunwoos Freundin.",
+          "en": "Hello. Nice to meet you. I am Hyunwoo's friend."
         },
         {
           "speaker": "jieun",
@@ -14053,11 +14053,11 @@
             "concept_a1_titles_relationships"
           ],
           "data": {
-            "promptDe": "Guten Tag. Sehr erfreut. Ich bin Minsus Freundin.",
-            "promptEn": "Hello. Nice to meet you. I am Minsu's friend.",
+            "promptDe": "Guten Tag. Sehr erfreut. Ich bin Hyunwoos Freundin.",
+            "promptEn": "Hello. Nice to meet you. I am Hyunwoo's friend.",
             "options": [
               {
-                "ko": "안녕하세요. 처음 뵙겠습니다. 민수의 친구입니다."
+                "ko": "안녕하세요. 처음 뵙겠습니다. 현우의 친구입니다."
               },
               {
                 "ko": "지금 바로 갈게요."
@@ -14365,9 +14365,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -14551,9 +14551,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -14737,9 +14737,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -14923,9 +14923,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -15109,9 +15109,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -15295,9 +15295,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -15481,9 +15481,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -15667,9 +15667,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -15829,9 +15829,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "올해는 민수 쪽, 다음 명절은 저희 쪽으로 하면 어때요?",
-          "de": "Dieses Jahr zu Minsu, das naechste Fest zu uns, ja?",
-          "en": "How about Minsu's side this year and ours next holiday?"
+          "ko": "올해는 현우 쪽, 다음 명절은 저희 쪽으로 하면 어때요?",
+          "de": "Dieses Jahr zu Hyunwoo, das naechste Fest zu uns, ja?",
+          "en": "How about Hyunwoo's side this year and ours next holiday?"
         },
         {
           "speaker": "jieun",
@@ -15853,9 +15853,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -15913,11 +15913,11 @@
             "concept_b2_advanced"
           ],
           "data": {
-            "promptDe": "Dieses Jahr zu Minsu, das naechste Fest zu uns, ja?",
-            "promptEn": "How about Minsu's side this year and ours next holiday?",
+            "promptDe": "Dieses Jahr zu Hyunwoo, das naechste Fest zu uns, ja?",
+            "promptEn": "How about Hyunwoo's side this year and ours next holiday?",
             "options": [
               {
-                "ko": "올해는 민수 쪽, 다음 명절은 저희 쪽으로 하면 어때요?"
+                "ko": "올해는 현우 쪽, 다음 명절은 저희 쪽으로 하면 어때요?"
               },
               {
                 "ko": "지금 바로 갈게요."
@@ -16015,9 +16015,9 @@
       "dialog": [
         {
           "speaker": "user",
-          "ko": "이쪽은 민수 어머니세요.",
-          "de": "Das ist Minsus Mutter.",
-          "en": "This is Minsu's mother."
+          "ko": "이쪽은 현우 어머니세요.",
+          "de": "Das ist Hyunwoos Mutter.",
+          "en": "This is Hyunwoo's mother."
         },
         {
           "speaker": "jieun",
@@ -16039,9 +16039,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -16099,11 +16099,11 @@
             "concept_b2_advanced"
           ],
           "data": {
-            "promptDe": "Das ist Minsus Mutter.",
-            "promptEn": "This is Minsu's mother.",
+            "promptDe": "Das ist Hyunwoos Mutter.",
+            "promptEn": "This is Hyunwoo's mother.",
             "options": [
               {
-                "ko": "이쪽은 민수 어머니세요."
+                "ko": "이쪽은 현우 어머니세요."
               },
               {
                 "ko": "지금 바로 갈게요."
@@ -16225,9 +16225,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -16411,9 +16411,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번만 물어볼게요.",
-          "de": "Ich frage Minsu nur einmal.",
-          "en": "I will ask Minsu just once."
+          "ko": "현우에게 한 번만 물어볼게요.",
+          "de": "Ich frage Hyunwoo nur einmal.",
+          "en": "I will ask Hyunwoo just once."
         },
         {
           "speaker": "jieun",
@@ -16531,7 +16531,7 @@
         "en": "An overly big gift"
       },
       "intro": {
-        "ko": "선물이 커서 민수가 긴장합니다. 작은 정성이라고 말하세요.",
+        "ko": "선물이 커서 현우가 긴장합니다. 작은 정성이라고 말하세요.",
         "de": "Das Geschenk ist zu gross. Sag, es ist nur eine kleine Aufmerksamkeit.",
         "en": "The gift is too big. Say it is only a small token."
       },
@@ -16585,9 +16585,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -16717,8 +16717,8 @@
         "en": "The inner seat mistake"
       },
       "intro": {
-        "ko": "윗목에 앉으려다 민수가 눈을 깜빡입니다. 아랫목으로 옮기세요.",
-        "de": "Du willst innen sitzen, Minsu blinzelt. Wechsle nach vorne zur Tuer.",
+        "ko": "윗목에 앉으려다 현우가 눈을 깜빡입니다. 아랫목으로 옮기세요.",
+        "de": "Du willst innen sitzen, Hyunwoo blinzelt. Wechsle nach vorne zur Tuer.",
         "en": "You almost sit in the inner seat. Move nearer the door."
       },
       "vocab": [
@@ -16771,9 +16771,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -16957,9 +16957,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -17143,9 +17143,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -17329,9 +17329,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -17515,9 +17515,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -17701,9 +17701,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -17887,9 +17887,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -18073,9 +18073,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -18259,9 +18259,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -18445,9 +18445,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -18631,9 +18631,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -18817,9 +18817,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
@@ -19003,9 +19003,9 @@
         },
         {
           "speaker": "user",
-          "ko": "민수에게 한 번 확인하고 이어갈게요.",
-          "de": "Ich pruefe einmal bei Minsu und mache dann weiter.",
-          "en": "I will check once with Minsu and then continue."
+          "ko": "현우에게 한 번 확인하고 이어갈게요.",
+          "de": "Ich pruefe einmal bei Hyunwoo und mache dann weiter.",
+          "en": "I will check once with Hyunwoo and then continue."
         },
         {
           "speaker": "jieun",
