@@ -1,5 +1,19 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — main 무손실 정리: 단어망 예문 em dash + 가드
+
+**왜.** 열린 PR 병합 뒤 코드 리뷰에서 학습자 예문 한 줄이 em dash 가드를
+빠져나갔다. `exampleDe`/`exampleEn`은 화면에 보이는데 키 목록에 없었다.
+
+**무엇.** `rel_b2_0001` 예문을 쉼표로 다시 썼다. 가드에 source/example/nuance
+DE/EN 키를 넣어 같은 구멍이 다시 열리지 않게 했다. 클러스터·한국어·뜻은
+유지한다. 역사 SESSION_LOG 항목은 지우지 않고, #50–55 스냅샷 문구만
+오해가 없게 고친다.
+
+**검증.** `arb_l10n_guard` 8 + `word_web_screen` 12 통과. 클러스터 수 유지.
+
+**커밋해시.** `56fef261`
+
 ### 2026-08-17 (Cursor) — 열린 PR 50–56을 main에 무손실 병합
 
 **왜.** Jin이 열린 리퀘스트를 코드 손실 없이 main에 100% 넣으라고 했다.
@@ -43,7 +57,7 @@ icon SoriButton 88>75)을 넘긴 콘텐츠/계약 부채다. #51 플레크가 �
 매트를 넣었다. 스튜디오 힌트(대화·단어망)는 유지했다. live 카탈로그
 수량은 vocab 1620 · cloze 962 · satz 875 · smalltalk 365 · scenario 90을
 유지했다. 스튜디오 병렬 팁 `5c3e0af7`은 #51에 이미 들어 있어 합치지
-않았다(이후 한옥/단어망/TTS를 지운다).
+않았다. 그 팁을 그대로 합치면 이후 한옥/단어망/TTS가 지워진다.
 
 **검증.** 집중 Flutter 테스트 61 + 한옥 catalog/provenance/Learn 카탈로그 20
 통과. live 수량 유지: vocab 1620 · cloze 962 · satz 875 · smalltalk 365 ·
@@ -52,6 +66,9 @@ scenario 90 · quest 345. 열린 PR 팁 5개(#50 `7c6bbc13`, #52 `cce4e20a`,
 조상이다. 스튜디오 병렬 팁 `5c3e0af7`은 합치지 않았다.
 
 **커밋해시.** `71b557be`
+
+> 이 항목은 #56 병합 직전 스냅샷이다. 현재 live quest 수는 359이며
+> 정본은 위 “PR 50–56” 항목과 `AGENTS.md`다.
 
 ### 2026-08-17 (Cursor) — PR4 잔여 4구멍 완전 폐쇄
 

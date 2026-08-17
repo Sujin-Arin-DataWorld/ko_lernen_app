@@ -109,6 +109,12 @@ void main() {
     'explanationEn',
     'explanation_de',
     'explanation_en',
+    'sourceDe',
+    'sourceEn',
+    'exampleDe',
+    'exampleEn',
+    'nuanceDe',
+    'nuanceEn',
   };
 
   void collectDashes(
