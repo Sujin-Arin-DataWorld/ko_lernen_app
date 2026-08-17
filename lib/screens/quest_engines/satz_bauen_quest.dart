@@ -498,7 +498,9 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         SizedBox(height: sectionGap),
         LayoutBuilder(
           builder: (context, constraints) {
-            final columns = constraints.maxWidth < 360 ? 3 : 4;
+            final columns = constraints.maxWidth < SoriBreakpoints.narrowPhone
+                ? 3
+                : 4;
             if (_bank.isEmpty) {
               return const SizedBox.shrink();
             }
