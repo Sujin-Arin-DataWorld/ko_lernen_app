@@ -24,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent / "data"))
 from batch_10_scene_scripts import SEEDS, render_scene
 from rr_romanize import romanize_korean
+import scenario_store
 
 PACK_DIR = ROOT / "tools" / "content_factory" / "data" / "packs"
 DRAFTS = ROOT / "tools" / "content_factory" / "drafts"
@@ -156,7 +157,7 @@ def load_live() -> tuple[list[dict[str, str]], set[str], dict[str, list[str]], s
         by_level[row["level"].lower()].append(row["korean"])
     satz = json.loads((DATA / "satz_sentences.json").read_text(encoding="utf-8"))
     used_satz = {item["vocabKo"] for item in satz["items"]}
-    scenarios = json.loads((DATA / "scenarios.json").read_text(encoding="utf-8"))
+    scenarios = scenario_store.load_root(DATA)
     live_scenario_ids = {item["id"] for item in scenarios["scenarios"]}
     return vocab, live_korean, by_level, used_satz, live_scenario_ids
 
@@ -999,12 +1000,11 @@ def rewrite_batch_10_live_copy() -> None:
     draft = json.loads(draft_path.read_text(encoding="utf-8"))
     draft["scenarios"] = [by_id[row["id"]] for row in draft["scenarios"]]
     _write_json(draft_path, draft)
-    live_path = DATA / "scenarios.json"
-    live = json.loads(live_path.read_text(encoding="utf-8"))
+    live = scenario_store.load_root(DATA)
     live_index = {row["id"]: index for index, row in enumerate(live["scenarios"])}
     for row in scenarios:
         live["scenarios"][live_index[row["id"]]] = row
-    _write_json(live_path, live)
+    scenario_store.write_shards(live["scenarios"], DATA)
     quest_count = sum(len(row["quests"]) for row in scenarios)
     manifest_path = DRAFTS / "batch_10_4x_manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))

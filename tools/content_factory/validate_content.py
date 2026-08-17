@@ -22,6 +22,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Iterable
 
+import scenario_store
+
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "assets" / "data"
@@ -153,6 +155,15 @@ class ContentValidator:
                 return json.load(handle)
         except (OSError, json.JSONDecodeError) as error:
             self.issue(name, f"cannot load JSON: {error}")
+            return None
+
+    def load_scenario_root(self) -> Any:
+        """샤딩된 코퍼스의 병합 뷰.  실패는 issue 로 낮춰 게이트를 죽이지 않는다."""
+
+        try:
+            return scenario_store.load_root(self.data)
+        except (OSError, json.JSONDecodeError, ValueError) as error:
+            self.issue("scenarios", f"cannot load scenario corpus: {error}")
             return None
 
     def load_csv(self, name: str) -> tuple[list[str], list[dict[str, str]]]:
@@ -295,8 +306,8 @@ class ContentValidator:
         self,
         grammar: dict[str, dict[str, str]],
     ) -> list[dict[str, Any]]:
-        name = "scenarios.json"
-        root = self.load_json(name)
+        name = "scenarios"
+        root = self.load_scenario_root()
         if not isinstance(root, dict) or not isinstance(root.get("scenarios"), list):
             self.issue(name, "root must contain a scenarios array")
             return []
@@ -998,14 +1009,14 @@ class ContentValidator:
         for key in sorted(cloze_keys - cloze_map):
             self.issue(name, f"missing clozeTopicUnitMap entry for {key!r}")
 
-        scenarios_root = self.load_json("scenarios.json")
+        scenarios_root = self.load_scenario_root()
         scenarios = (
             scenarios_root.get("scenarios", [])
             if isinstance(scenarios_root, dict)
             else []
         )
         scenario_ids = self._validate_scenario_graph_metadata(
-            "scenarios.json",
+            "scenarios",
             scenarios,
             unit_concepts,
             concept_ids,
@@ -1414,7 +1425,7 @@ class ContentValidator:
         else:
             grammar_count = len(grammar)
         if scenarios is None:
-            root = self.load_json("scenarios.json")
+            root = self.load_scenario_root()
             scenarios = root.get("scenarios", []) if isinstance(root, dict) else []
         cloze = self.load_json("cloze.json")
         satz = self.load_json("satz_sentences.json")

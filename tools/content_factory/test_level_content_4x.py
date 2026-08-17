@@ -24,6 +24,7 @@ import build_level_content_4x as builder
 from integrate_scenario_batch import integrate
 from rr_romanize import romanize_korean
 from validate_promoted_batch import validate as validate_promoted_batch
+import scenario_store
 
 
 BATCH_06_CLOZE = SCRIPT_DIR / "drafts" / "c2_batch06_cloze_b1_c2.json"
@@ -32,7 +33,6 @@ BATCH_06_SMALLTALK = SCRIPT_DIR / "drafts" / "c2_batch06_smalltalk_b1_c2.json"
 BATCH_06_SCENARIOS = SCRIPT_DIR / "drafts" / "c1_batch06_scenarios_b1_c2.json"
 BATCH_09_MANIFEST = SCRIPT_DIR / "drafts" / "batch_09_4x_manifest.json"
 BATCH_10_MANIFEST = SCRIPT_DIR / "drafts" / "batch_10_4x_manifest.json"
-LIVE_SCENARIOS = SCRIPT_DIR.parents[1] / "assets" / "data" / "scenarios.json"
 LIVE_SATZ = SCRIPT_DIR.parents[1] / "assets" / "data" / "satz_sentences.json"
 
 
@@ -164,10 +164,7 @@ class Batch10KoreanQualityTest(unittest.TestCase):
                 encoding="utf-8"
             )
         )["scenarios"]
-        live = {
-            row["id"]: row
-            for row in json.loads(LIVE_SCENARIOS.read_text(encoding="utf-8"))["scenarios"]
-        }
+        live = {row["id"]: row for row in scenario_store.load_scenarios()}
         self.assertEqual(len(scenarios), 174)
         for row in scenarios:
             ident = row["id"]
@@ -258,7 +255,7 @@ class Batch10ScenarioDraftTest(unittest.TestCase):
         for row in scenarios:
             per_level[row["level"]] += 1
         self.assertEqual(per_level, {"a1": 45, "a2": 45, "b1": 32, "b2": 36, "c1": 8, "c2": 8})
-        live_scenario_ids = _live_ids(LIVE_SCENARIOS, "scenarios")
+        live_scenario_ids = {row["id"] for row in scenario_store.load_scenarios()}
         reserved = set(builder.RESERVED_SCENARIOS) | _json_ids(BATCH_06_SCENARIOS, "scenarios")
         draft_ids = {row["id"] for row in scenarios}
         self.assertFalse(draft_ids & reserved)
