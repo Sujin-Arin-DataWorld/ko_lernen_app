@@ -3361,6 +3361,101 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String get wordWebTitle => 'Wortnetz';
+
+  @override
+  String get wordWebHubDesc =>
+      'Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst';
+
+  @override
+  String wordWebSubtitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Wörter mit Nachbarn',
+      one: '1 Wort mit Nachbarn',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get wordWebEmptyTitle => 'Noch kein Netz';
+
+  @override
+  String get wordWebEmptyBody =>
+      'Lerne zuerst ein Wortpaket. Dann erscheinen hier ähnliche Wörter, Gegenteile und Wendungen zu genau diesen Wörtern.';
+
+  @override
+  String get wordWebBrowseLevelCta => 'Wörter auf meinem Niveau ansehen';
+
+  @override
+  String get wordWebOpenVocabCta => 'Wortpakete öffnen';
+
+  @override
+  String get wordWebQuizCta => 'Diese Wörter üben';
+
+  @override
+  String get wordWebLearnedFilter => 'Gelernt';
+
+  @override
+  String get wordWebLevelFilter => 'Mein Niveau';
+
+  @override
+  String get wordWebSynonymSection => 'Ähnliche Wörter';
+
+  @override
+  String get wordWebAntonymSection => 'Gegenteile';
+
+  @override
+  String get wordWebRelatedSection => 'Verwandte Wörter';
+
+  @override
+  String get wordWebExpressionSection => 'Wendungen';
+
+  @override
+  String get wordWebQuizTitle => 'Wortnetz-Übung';
+
+  @override
+  String get wordWebQuizHintSynonym => 'Welches Wort liegt nah dabei?';
+
+  @override
+  String get wordWebQuizHintAntonym => 'Was ist das Gegenteil?';
+
+  @override
+  String get wordWebQuizHintRelated => 'Was gehört dazu?';
+
+  @override
+  String get wordWebQuizHintExpression => 'Welche Wendung passt zur Bedeutung?';
+
+  @override
+  String get wordWebQuizDoneTitle => 'Runde geschafft!';
+
+  @override
+  String wordWebQuizScore(int correct, int total) {
+    return '$correct/$total richtig';
+  }
+
+  @override
+  String wordWebClusterCount(
+    int synonyms,
+    int antonyms,
+    int related,
+    int expressions,
+  ) {
+    return '$synonyms ähnlich · $antonyms Gegenteil · $related verwandt · $expressions Wendung';
+  }
+
+  @override
+  String get wordWebExampleLabel => 'Im Satz';
+
+  @override
+  String get wordWebCoachTitle => 'Dein Wortnetz';
+
+  @override
+  String get wordWebCoachBody =>
+      'Tippe ein Wort, das du schon gelernt hast. Du siehst ähnliche Wörter, Gegenteile, verwandte Wörter und eine Wendung dazu.';
+
+  @override
   String get wbMatching => 'Paare finden';
 
   @override
@@ -7121,6 +7216,7 @@ class AppL10nDe extends AppL10n {
       'vocab_packs': 'Wortpakete',
       'srs': 'SRS-Wiederholung',
       'hard_words': 'Schwierige Wörter',
+      'word_web': 'Wortnetz',
       'grammar': 'Grammatik',
       'listening': 'Hören',
       'scenarios': 'Alltagsszenen',
@@ -7153,6 +7249,8 @@ class AppL10nDe extends AppL10n {
       'vocab_packs': 'Wörter nach Alltagsthema lernen.',
       'srs': 'Fällige Wörter im richtigen Moment stärken.',
       'hard_words': 'Gezielt an deinen Stolperwörtern arbeiten.',
+      'word_web':
+          'Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst.',
       'grammar': 'Muster verstehen und direkt anwenden.',
       'listening': 'Kurze natürliche Sätze sicher erkennen.',
       'scenarios': 'Café, Verkehr und Gespräche üben.',

@@ -62,6 +62,7 @@ import 'screens/custom_pack_matching_screen.dart';
 import 'screens/custom_pack_typing_screen.dart';
 import 'screens/wordbook_search_screen.dart';
 import 'screens/hard_words_screen.dart';
+import 'screens/word_web_screen.dart';
 import 'screens/bojagi_screen.dart';
 import 'screens/dojangcheop_screen.dart';
 import 'screens/gye_create_screen.dart';
@@ -841,6 +842,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/hard_words':
               return SoriTransitions.fadeScale(
                 (_) => const HardWordsScreen(),
+                settings: settings,
+              );
+            case '/word_web':
+              return SoriTransitions.fadeScale(
+                (_) => const WordWebScreen(),
                 settings: settings,
               );
             case '/dojangcheop':

@@ -396,6 +396,13 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
       accent: SoriColors.accent,
       route: '/hard_words',
     ),
+    _HubItem(
+      icon: Icons.hub_outlined,
+      title: t.wordWebTitle,
+      subtitle: t.wordWebHubDesc,
+      accent: SoriColors.accent,
+      route: '/word_web',
+    ),
   ];
 
   List<_HubItem> _spaceItems(AppL10n t) => [

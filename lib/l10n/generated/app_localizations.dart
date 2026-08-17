@@ -5911,6 +5911,161 @@ abstract class AppL10n {
   /// **'{correct}/{total} richtig'**
   String hardQuizScore(int correct, int total);
 
+  /// No description provided for @wordWebTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortnetz'**
+  String get wordWebTitle;
+
+  /// No description provided for @wordWebHubDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst'**
+  String get wordWebHubDesc;
+
+  /// No description provided for @wordWebSubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 Wort mit Nachbarn} other{{count} Wörter mit Nachbarn}}'**
+  String wordWebSubtitle(int count);
+
+  /// No description provided for @wordWebEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch kein Netz'**
+  String get wordWebEmptyTitle;
+
+  /// No description provided for @wordWebEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Lerne zuerst ein Wortpaket. Dann erscheinen hier ähnliche Wörter, Gegenteile und Wendungen zu genau diesen Wörtern.'**
+  String get wordWebEmptyBody;
+
+  /// No description provided for @wordWebBrowseLevelCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Wörter auf meinem Niveau ansehen'**
+  String get wordWebBrowseLevelCta;
+
+  /// No description provided for @wordWebOpenVocabCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortpakete öffnen'**
+  String get wordWebOpenVocabCta;
+
+  /// No description provided for @wordWebQuizCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Wörter üben'**
+  String get wordWebQuizCta;
+
+  /// No description provided for @wordWebLearnedFilter.
+  ///
+  /// In de, this message translates to:
+  /// **'Gelernt'**
+  String get wordWebLearnedFilter;
+
+  /// No description provided for @wordWebLevelFilter.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Niveau'**
+  String get wordWebLevelFilter;
+
+  /// No description provided for @wordWebSynonymSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Ähnliche Wörter'**
+  String get wordWebSynonymSection;
+
+  /// No description provided for @wordWebAntonymSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Gegenteile'**
+  String get wordWebAntonymSection;
+
+  /// No description provided for @wordWebRelatedSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Verwandte Wörter'**
+  String get wordWebRelatedSection;
+
+  /// No description provided for @wordWebExpressionSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Wendungen'**
+  String get wordWebExpressionSection;
+
+  /// No description provided for @wordWebQuizTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wortnetz-Übung'**
+  String get wordWebQuizTitle;
+
+  /// No description provided for @wordWebQuizHintSynonym.
+  ///
+  /// In de, this message translates to:
+  /// **'Welches Wort liegt nah dabei?'**
+  String get wordWebQuizHintSynonym;
+
+  /// No description provided for @wordWebQuizHintAntonym.
+  ///
+  /// In de, this message translates to:
+  /// **'Was ist das Gegenteil?'**
+  String get wordWebQuizHintAntonym;
+
+  /// No description provided for @wordWebQuizHintRelated.
+  ///
+  /// In de, this message translates to:
+  /// **'Was gehört dazu?'**
+  String get wordWebQuizHintRelated;
+
+  /// No description provided for @wordWebQuizHintExpression.
+  ///
+  /// In de, this message translates to:
+  /// **'Welche Wendung passt zur Bedeutung?'**
+  String get wordWebQuizHintExpression;
+
+  /// No description provided for @wordWebQuizDoneTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Runde geschafft!'**
+  String get wordWebQuizDoneTitle;
+
+  /// No description provided for @wordWebQuizScore.
+  ///
+  /// In de, this message translates to:
+  /// **'{correct}/{total} richtig'**
+  String wordWebQuizScore(int correct, int total);
+
+  /// No description provided for @wordWebClusterCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{synonyms} ähnlich · {antonyms} Gegenteil · {related} verwandt · {expressions} Wendung'**
+  String wordWebClusterCount(
+    int synonyms,
+    int antonyms,
+    int related,
+    int expressions,
+  );
+
+  /// No description provided for @wordWebExampleLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Satz'**
+  String get wordWebExampleLabel;
+
+  /// No description provided for @wordWebCoachTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Wortnetz'**
+  String get wordWebCoachTitle;
+
+  /// No description provided for @wordWebCoachBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe ein Wort, das du schon gelernt hast. Du siehst ähnliche Wörter, Gegenteile, verwandte Wörter und eine Wendung dazu.'**
+  String get wordWebCoachBody;
+
   /// No description provided for @wbMatching.
   ///
   /// In de, this message translates to:
@@ -12358,13 +12513,13 @@ abstract class AppL10n {
   /// No description provided for @soriStageActivityTitle.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
+  /// **'{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} word_web{Wortnetz} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
   String soriStageActivityTitle(String activityId);
 
   /// No description provided for @soriStageActivityDescription.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
+  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
   String soriStageActivityDescription(String activityId);
 
   /// No description provided for @soriStageCatalogCopy.

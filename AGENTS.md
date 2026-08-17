@@ -115,6 +115,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | `/custom_pack/play` (args: packId) | CustomPackPlayScreen (플립카드 학습) |
 | `/custom_pack/edit·quiz·matching·typing` (args: packId) | 커스텀팩 편집 / 4지선다 / 짝맞추기 / 받아쓰기 |
 | `/wordbook/search` | WordbookSearchScreen (내 저장 단어 통합 검색 + 품사 필터 — 2026-06-03) |
+| `/word_web` | WordWebScreen (학습한 단어의 비슷한 말·반대말·연관어·표현. 기본은 `vokSeenIds`, 비면 레벨 누적 둘러보기) |
 | `/dojangcheop` | DojangcheopScreen (도장첩 — 팩 클리어로 획득한 단청 도장 8 motif 갤러리. 진입: VocabPacksScreen AppBar) |
 | `/gye/create` | GyeCreateScreen (계 만들기 — 이름·닉네임→6자리 코드 생성·공유) |
 | `/gye/join` | GyeJoinScreen (계 입장 — 코드+닉네임 가입). 진입: 홈 둘러보기 "Lern-Gye" 카드→chooser 바텀시트 |
@@ -171,6 +172,7 @@ Firebase 프로젝트: `ko-lernen-app`
 - `assets/data/grammar.csv` — 문법
 - `assets/data/scenarios.json` — 회화 시나리오
 - `assets/data/kkeunmari_pool.json` — 끝말잇기 단어 풀
+- `assets/data/word_relations.json` — 학습 단어 단어망(비슷한 말·반대말·연관어·표현). 코스/한옥 권한 없음.
 - `assets/data/grammar_patterns.json` — 문법 패턴 정규식 (책 한 컷 오프라인 stub용). **Cloud Function 쪽 `functions/analyze_korean_text/grammar_patterns.json`과 schema 동기 필요.**
 - 단어팩(117)은 별도 파일이 아니라 `korean_vocab.csv`의 `pack_id`/`pack_order`/`is_review_boss` 컬럼에서 파생.
 - ✅ **콘텐츠 언어 (2026-08-15 갱신)**: `korean_vocab.csv` `english`/`pos_en`/`example_english`(1,188/1,188)·`grammar.csv` `_en` 컬럼(176/176) 채움 — `meaning(lang)` 헬퍼로 EN UI 사용자도 영어 학습 콘텐츠 표시. (구 "독일어 전용" 메모는 stale.)
@@ -264,6 +266,10 @@ flutter run -d <android-id>   # 안드로이드
 
 > 완료 이력·커밋별 검증은 `docs/SESSION_LOG.md`에만 남긴다. 이 섹션은 다음 세션이
 > 바로 행동할 수 있는 **현재 게이트**만 적는다.
+
+- [x] **단어망 V1**: 학습한 단어의 비슷한 말·반대말·연관어·표현 50클러스터를
+ `assets/data/word_relations.json`에 두고, 연습 허브·둘러보기·Learn 카탈로그에서
+ `/word_web`으로 공부·4지선다 연습을 연다. 코스 증거·한옥 보상은 쓰지 않는다.
 
 - [x] **문화어 미니 이야기 V1**: 한옥·계·사랑방·마당·종가·단청·보자기·장독대·
   문방사우·매화·사군자·갓·책가도·소반·자개문갑 15개를 DE/EN/KO 공통 JSON으로

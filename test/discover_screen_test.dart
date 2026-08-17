@@ -97,8 +97,8 @@ void main() {
       final t = AppL10n.of(tester.element(find.byType(DiscoverScreen)));
       final entries = discoverCatalog(t);
 
-      expect(entries, hasLength(24));
-      expect(entries.map((entry) => entry.id).toSet(), hasLength(24));
+      expect(entries, hasLength(25));
+      expect(entries.map((entry) => entry.id).toSet(), hasLength(25));
       for (final entry in entries) {
         expect(entry.purpose, isNotNull, reason: entry.id);
         expect(entry.route, startsWith('/'), reason: entry.id);
@@ -131,6 +131,7 @@ void main() {
           '/bookshelf',
           '/wordbook/search',
           '/hard_words',
+          '/word_web',
           '/path',
           '/stats',
           '/quests',

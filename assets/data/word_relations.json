@@ -1,0 +1,1917 @@
+{
+  "_comment": "Word-web seed: synonyms, antonyms, related words, and expressions for learned Hangul Sori vocab. rights: original. Language facts plus independently written DE/EN/KO examples. Not a can-do or Hanok authority.",
+  "version": 1,
+  "clusters": [
+    {
+      "id": "rel_a1_0001",
+      "sourceKo": "안녕하세요",
+      "sourceVocabId": "vocab_a1_0001",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "안녕",
+          "de": "Hallo / Tschüss (informell)",
+          "en": "Hi / Bye (informal)",
+          "nuanceDe": "Nur mit Freundinnen und Freunden. Zu Lehrerinnen oder Älteren wirkt es zu locker.",
+          "nuanceEn": "Only with friends. With teachers or older people it sounds too casual.",
+          "vocabId": "vocab_a1_0002"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "안녕히 가세요",
+          "de": "Auf Wiedersehen (zum Gehenden)",
+          "en": "Goodbye (to the person leaving)",
+          "nuanceDe": "Du sagst es, wenn die andere Person geht.",
+          "nuanceEn": "You say this when the other person is leaving.",
+          "vocabId": "vocab_a1_0165"
+        },
+        {
+          "ko": "처음 뵙겠습니다",
+          "de": "Freut mich, Sie kennenzulernen",
+          "en": "Nice to meet you (formal)",
+          "nuanceDe": "Passt zur ersten Begegnung, oft direkt nach der Begrüßung.",
+          "nuanceEn": "Fits a first meeting, often right after the greeting.",
+          "vocabId": "vocab_a1_0169"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "안녕하세요, 처음 뵙겠습니다",
+          "de": "Guten Tag, schön Sie kennenzulernen",
+          "en": "Hello, nice to meet you",
+          "exampleKo": "안녕하세요, 처음 뵙겠습니다. 저는 수진이에요.",
+          "exampleDe": "Guten Tag, schön Sie kennenzulernen. Ich bin Sujin.",
+          "exampleEn": "Hello, nice to meet you. I'm Sujin."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0002",
+      "sourceKo": "감사합니다",
+      "sourceVocabId": "vocab_a1_0003",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "고마워요",
+          "de": "Danke (höflich-informell)",
+          "en": "Thank you (polite informal)",
+          "nuanceDe": "Alltag mit Bekannten. In einem Geschäft oder vor Älteren bleibt 감사합니다 sicherer.",
+          "nuanceEn": "Everyday thanks with people you know. In a shop or with older people, 감사합니다 is safer.",
+          "vocabId": "vocab_a1_0004"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "천만에요",
+          "de": "Gern geschehen",
+          "en": "You're welcome",
+          "nuanceDe": "Antwort auf Dank. Etwas förmlicher als ein kurzes 아니에요.",
+          "nuanceEn": "A reply to thanks. A bit more formal than a short 아니에요.",
+          "vocabId": "vocab_a1_0172"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "도와주셔서 감사합니다",
+          "de": "Vielen Dank für Ihre Hilfe",
+          "en": "Thank you for your help",
+          "exampleKo": "길을 알려 주셔서 감사합니다.",
+          "exampleDe": "Danke, dass Sie mir den Weg erklärt haben.",
+          "exampleEn": "Thank you for showing me the way."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0003",
+      "sourceKo": "죄송합니다",
+      "sourceVocabId": "vocab_a1_0005",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "미안해요",
+          "de": "Es tut mir leid",
+          "en": "I'm sorry",
+          "nuanceDe": "Für Freunde und Alltag. Vor Unbekannten oder in einem Laden bleibt 죄송합니다 höflicher.",
+          "nuanceEn": "For friends and everyday talk. With strangers or in a shop, 죄송합니다 stays more polite.",
+          "vocabId": "vocab_a1_0006"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "실례합니다",
+          "de": "Entschuldigen Sie",
+          "en": "Excuse me",
+          "nuanceDe": "Bevor du fragst oder vorbeigehst, nicht nach einem Fehler.",
+          "nuanceEn": "Before you ask or pass by, not after a mistake.",
+          "vocabId": "vocab_a1_0174"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "늦어서 죄송합니다",
+          "de": "Entschuldigung, dass ich zu spät bin",
+          "en": "Sorry I'm late",
+          "exampleKo": "버스가 막혀서 늦었습니다. 죄송합니다.",
+          "exampleDe": "Der Bus steckte fest, deshalb komme ich zu spät. Entschuldigung.",
+          "exampleEn": "The bus was stuck, so I'm late. I'm sorry."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0004",
+      "sourceKo": "괜찮아요",
+      "sourceVocabId": "vocab_a1_0007",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "괜찮다",
+          "de": "in Ordnung sein",
+          "en": "to be okay",
+          "nuanceDe": "Die Grundform. 괜찮아요 ist die höfliche Alltagform.",
+          "nuanceEn": "The dictionary form. 괜찮아요 is the polite everyday form.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "걱정하다",
+          "de": "sich Sorgen machen",
+          "en": "to worry",
+          "nuanceDe": "Oft in der Beruhigung: 걱정 마세요.",
+          "nuanceEn": "Often in reassurance: 걱정 마세요.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "괜찮아요, 걱정 마세요",
+          "de": "Schon gut, mach dir keine Sorgen",
+          "en": "It's okay, don't worry",
+          "exampleKo": "가방을 떨어뜨렸지만 괜찮아요. 걱정 마세요.",
+          "exampleDe": "Die Tasche ist gefallen, aber es ist okay. Mach dir keine Sorgen.",
+          "exampleEn": "The bag fell, but it's okay. Don't worry."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0005",
+      "sourceKo": "네",
+      "sourceVocabId": "vocab_a1_0008",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "아니요",
+          "de": "Nein",
+          "en": "No",
+          "nuanceDe": "Klare Absage. 네 bestätigt, 아니요 lehnt ab.",
+          "nuanceEn": "A clear no. 네 agrees, 아니요 refuses.",
+          "vocabId": "vocab_a1_0009"
+        }
+      ],
+      "related": [
+        {
+          "ko": "알겠어요",
+          "de": "Verstanden",
+          "en": "I see / Got it",
+          "nuanceDe": "Nach einer Erklärung, nicht als Ja/Nein-Antwort.",
+          "nuanceEn": "After an explanation, not as a yes/no answer.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "네, 맞아요",
+          "de": "Ja, genau",
+          "en": "Yes, that's right",
+          "exampleKo": "이게 네 가방이에요? 네, 맞아요.",
+          "exampleDe": "Ist das deine Tasche? Ja, genau.",
+          "exampleEn": "Is this your bag? Yes, that's right."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0006",
+      "sourceKo": "아버지",
+      "sourceVocabId": "vocab_a1_0032",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "아빠",
+          "de": "Papa",
+          "en": "dad",
+          "nuanceDe": "Zuhause und mit der Familie. In der Schule oder auf Formularen bleibt 아버지.",
+          "nuanceEn": "At home and with family. At school or on forms, keep 아버지.",
+          "vocabId": "vocab_a1_0034"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "어머니",
+          "de": "Mutter (formell)",
+          "en": "mother (formal)",
+          "nuanceDe": "Das formelle Paar zu 아버지.",
+          "nuanceEn": "The formal pair with 아버지.",
+          "vocabId": "vocab_a1_0033"
+        },
+        {
+          "ko": "가족",
+          "de": "Familie",
+          "en": "family",
+          "nuanceDe": "Der größere Kreis um Vater und Mutter.",
+          "nuanceEn": "The wider circle around father and mother.",
+          "vocabId": "vocab_a1_0018"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "우리 아버지",
+          "de": "mein Vater / unser Vater",
+          "en": "my father / our father",
+          "exampleKo": "우리 아버지는 주말에 요리해요.",
+          "exampleDe": "Mein Vater kocht am Wochenende.",
+          "exampleEn": "My father cooks on the weekend."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0007",
+      "sourceKo": "어머니",
+      "sourceVocabId": "vocab_a1_0033",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "엄마",
+          "de": "Mama",
+          "en": "mom",
+          "nuanceDe": "Warm und nah. Vor Lehrerinnen oder in einer Vorstellung bleibt 어머니 höflicher.",
+          "nuanceEn": "Warm and close. With teachers or in an introduction, 어머니 is more polite.",
+          "vocabId": "vocab_a1_0035"
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "아버지",
+          "de": "Vater (formell)",
+          "en": "father (formal)",
+          "nuanceDe": "Das formelle Paar zu 어머니.",
+          "nuanceEn": "The formal pair with 어머니.",
+          "vocabId": "vocab_a1_0032"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "어머니께 전화하다",
+          "de": "die Mutter anrufen",
+          "en": "to call one's mother",
+          "exampleKo": "저녁에 어머니께 전화할게요.",
+          "exampleDe": "Am Abend rufe ich meine Mutter an.",
+          "exampleEn": "I'll call my mother in the evening."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0008",
+      "sourceKo": "형",
+      "sourceVocabId": "vocab_a1_0036",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "오빠",
+          "de": "älterer Bruder (Sicht der Frau)",
+          "en": "older brother (said by a woman)",
+          "nuanceDe": "Dieselbe Person, aber aus der Sicht einer jüngeren Frau.",
+          "nuanceEn": "The same person, but from a younger woman's point of view.",
+          "vocabId": "vocab_a1_0037"
+        },
+        {
+          "ko": "누나",
+          "de": "ältere Schwester (Sicht des Mannes)",
+          "en": "older sister (said by a man)",
+          "nuanceDe": "Das Schwesterwort aus männlicher Sicht.",
+          "nuanceEn": "The sister word from a man's point of view.",
+          "vocabId": "vocab_a1_0038"
+        },
+        {
+          "ko": "언니",
+          "de": "ältere Schwester (Sicht der Frau)",
+          "en": "older sister (said by a woman)",
+          "nuanceDe": "Das Schwesterwort aus weiblicher Sicht.",
+          "nuanceEn": "The sister word from a woman's point of view.",
+          "vocabId": "vocab_a1_0039"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "형한테 묻다",
+          "de": "den älteren Bruder fragen",
+          "en": "to ask one's older brother",
+          "exampleKo": "이 길을 몰라서 형한테 물어볼게요.",
+          "exampleDe": "Ich kenne den Weg nicht, deshalb frage ich meinen älteren Bruder.",
+          "exampleEn": "I don't know this road, so I'll ask my older brother."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0009",
+      "sourceKo": "친구",
+      "sourceVocabId": "vocab_a1_0015",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "남자친구",
+          "de": "Freund (Beziehung)",
+          "en": "boyfriend",
+          "nuanceDe": "Nur die romantische Beziehung, nicht jeder männliche Freund.",
+          "nuanceEn": "Only a romantic partner, not every male friend.",
+          "vocabId": "vocab_a1_0016"
+        },
+        {
+          "ko": "여자친구",
+          "de": "Freundin (Beziehung)",
+          "en": "girlfriend",
+          "nuanceDe": "Nur die romantische Beziehung, nicht jede Freundin.",
+          "nuanceEn": "Only a romantic partner, not every female friend.",
+          "vocabId": "vocab_a1_0017"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "친구랑 만나다",
+          "de": "sich mit einem Freund treffen",
+          "en": "to meet a friend",
+          "exampleKo": "오늘 저녁에 친구랑 만나요.",
+          "exampleDe": "Heute Abend treffe ich mich mit einem Freund.",
+          "exampleEn": "I'm meeting a friend this evening."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0010",
+      "sourceKo": "크다",
+      "sourceVocabId": "vocab_a1_0116",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "커다랗다",
+          "de": "sehr groß / riesig",
+          "en": "very large / huge",
+          "nuanceDe": "Stärker als 크다. Für etwas, das deutlich größer wirkt.",
+          "nuanceEn": "Stronger than 크다. For something that looks clearly huge.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "작다",
+          "de": "klein",
+          "en": "small",
+          "nuanceDe": "Das direkte Gegenteil bei Größe.",
+          "nuanceEn": "The direct opposite for size.",
+          "vocabId": "vocab_a1_0117"
+        }
+      ],
+      "related": [
+        {
+          "ko": "사이즈",
+          "de": "Größe",
+          "en": "size",
+          "nuanceDe": "Beim Kleidung- oder Schuhkauf.",
+          "nuanceEn": "When buying clothes or shoes.",
+          "vocabId": "vocab_a2_0097"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "큰일 나다",
+          "de": "in große Schwierigkeiten geraten",
+          "en": "to get into big trouble",
+          "exampleKo": "열쇠를 집에 두고 와서 큰일 났어요.",
+          "exampleDe": "Ich habe den Schlüssel zu Hause gelassen. Jetzt sitze ich in der Patsche.",
+          "exampleEn": "I left my keys at home. Now I'm in big trouble."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0011",
+      "sourceKo": "작다",
+      "sourceVocabId": "vocab_a1_0117",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "조그맣다",
+          "de": "winzig / sehr klein",
+          "en": "tiny / very small",
+          "nuanceDe": "Kleiner und niedlicher als 작다.",
+          "nuanceEn": "Smaller and cuter than 작다.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "크다",
+          "de": "groß",
+          "en": "big",
+          "nuanceDe": "Das direkte Gegenteil bei Größe.",
+          "nuanceEn": "The direct opposite for size.",
+          "vocabId": "vocab_a1_0116"
+        }
+      ],
+      "related": [
+        {
+          "ko": "조금",
+          "de": "ein bisschen",
+          "en": "a little",
+          "nuanceDe": "Menge, nicht Körpergröße.",
+          "nuanceEn": "Amount, not physical size.",
+          "vocabId": "vocab_a2_0082"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "작은 가게",
+          "de": "ein kleiner Laden",
+          "en": "a small shop",
+          "exampleKo": "집 앞에 작은 가게가 있어요.",
+          "exampleDe": "Vor dem Haus gibt es einen kleinen Laden.",
+          "exampleEn": "There is a small shop in front of the house."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0012",
+      "sourceKo": "좋다",
+      "sourceVocabId": "vocab_a1_0115",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "괜찮다",
+          "de": "in Ordnung / ganz gut",
+          "en": "okay / quite good",
+          "nuanceDe": "Schwächer als 좋다. Etwas ist akzeptabel, nicht begeistert.",
+          "nuanceEn": "Weaker than 좋다. Something is acceptable, not exciting.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "싫다",
+          "de": "nicht mögen / unangenehm finden",
+          "en": "to dislike / to find unpleasant",
+          "nuanceDe": "Gefühl gegen etwas. 좋다 mag, 싫다 lehnt ab.",
+          "nuanceEn": "A feeling against something. 좋다 likes, 싫다 rejects.",
+          "vocabId": ""
+        }
+      ],
+      "related": [
+        {
+          "ko": "좋아하다",
+          "de": "mögen",
+          "en": "to like",
+          "nuanceDe": "Die aktive Form: jemand mag etwas.",
+          "nuanceEn": "The active form: someone likes something.",
+          "vocabId": "vocab_a1_0099"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "좋은 생각이에요",
+          "de": "Das ist eine gute Idee",
+          "en": "That's a good idea",
+          "exampleKo": "같이 걸어서 가요. 좋은 생각이에요.",
+          "exampleDe": "Lass uns zu Fuß gehen. Das ist eine gute Idee.",
+          "exampleEn": "Let's walk there. That's a good idea."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0013",
+      "sourceKo": "비싸다",
+      "sourceVocabId": "vocab_a1_0119",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "싸다",
+          "de": "günstig / billig",
+          "en": "cheap / inexpensive",
+          "nuanceDe": "Der Preisgegensatz zu 비싸다.",
+          "nuanceEn": "The price opposite of 비싸다.",
+          "vocabId": "vocab_a1_0120"
+        }
+      ],
+      "related": [
+        {
+          "ko": "돈",
+          "de": "Geld",
+          "en": "money",
+          "nuanceDe": "Der Grund, warum der Preis zählt.",
+          "nuanceEn": "The reason the price matters.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "너무 비싸요",
+          "de": "Das ist zu teuer",
+          "en": "That's too expensive",
+          "exampleKo": "이 코트는 예쁜데 너무 비싸요.",
+          "exampleDe": "Dieser Mantel ist schön, aber zu teuer.",
+          "exampleEn": "This coat is pretty, but it's too expensive."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0014",
+      "sourceKo": "싸다",
+      "sourceVocabId": "vocab_a1_0120",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "저렴하다",
+          "de": "preiswert",
+          "en": "inexpensive / reasonably priced",
+          "nuanceDe": "Höflicher als 싸다. In Läden klingt es weniger nach billig.",
+          "nuanceEn": "More polite than 싸다. In shops it sounds less like cheap.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "비싸다",
+          "de": "teuer",
+          "en": "expensive",
+          "nuanceDe": "Der Preisgegensatz zu 싸다.",
+          "nuanceEn": "The price opposite of 싸다.",
+          "vocabId": "vocab_a1_0119"
+        }
+      ],
+      "related": [
+        {
+          "ko": "할인",
+          "de": "Rabatt",
+          "en": "discount",
+          "nuanceDe": "Wenn etwas günstiger wird.",
+          "nuanceEn": "When something becomes cheaper.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "싸게 사다",
+          "de": "günstig kaufen",
+          "en": "to buy something cheaply",
+          "exampleKo": "시장에서 과일을 싸게 샀어요.",
+          "exampleDe": "Auf dem Markt habe ich Obst günstig gekauft.",
+          "exampleEn": "I bought fruit cheaply at the market."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0015",
+      "sourceKo": "맛있다",
+      "sourceVocabId": "vocab_a1_0121",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "맛없다",
+          "de": "nicht lecker sein",
+          "en": "to taste bad",
+          "nuanceDe": "Das direkte Gegenteil beim Essen.",
+          "nuanceEn": "The direct opposite for food.",
+          "vocabId": "vocab_a1_0209"
+        }
+      ],
+      "related": [
+        {
+          "ko": "먹다",
+          "de": "essen",
+          "en": "to eat",
+          "nuanceDe": "Die Handlung zum Geschmack.",
+          "nuanceEn": "The action that goes with taste.",
+          "vocabId": "vocab_a1_0089"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "정말 맛있어요",
+          "de": "Das schmeckt wirklich gut",
+          "en": "This is really delicious",
+          "exampleKo": "이 김치찌개 정말 맛있어요.",
+          "exampleDe": "Dieses Kimchi-Jjigae schmeckt wirklich gut.",
+          "exampleEn": "This kimchi stew is really delicious."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0016",
+      "sourceKo": "조용하다",
+      "sourceVocabId": "vocab_a1_0123",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "시끄럽다",
+          "de": "laut / lärmend",
+          "en": "loud / noisy",
+          "nuanceDe": "Das Gegenteil von ruhig.",
+          "nuanceEn": "The opposite of quiet.",
+          "vocabId": "vocab_a1_0124"
+        }
+      ],
+      "related": [
+        {
+          "ko": "도서관",
+          "de": "Bibliothek",
+          "en": "library",
+          "nuanceDe": "Ein Ort, an dem 조용하다 erwartet wird.",
+          "nuanceEn": "A place where 조용하다 is expected.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "좀 조용히 해 주세요",
+          "de": "Bitte sei etwas leiser",
+          "en": "Please keep it down a bit",
+          "exampleKo": "도서관이니까 좀 조용히 해 주세요.",
+          "exampleDe": "Wir sind in der Bibliothek, bitte sei etwas leiser.",
+          "exampleEn": "We're in the library, so please keep it down a bit."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0017",
+      "sourceKo": "시끄럽다",
+      "sourceVocabId": "vocab_a1_0124",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "조용하다",
+          "de": "leise / ruhig",
+          "en": "quiet",
+          "nuanceDe": "Das Gegenteil von laut.",
+          "nuanceEn": "The opposite of loud.",
+          "vocabId": "vocab_a1_0123"
+        }
+      ],
+      "related": [
+        {
+          "ko": "소리",
+          "de": "Geräusch / Stimme",
+          "en": "sound / voice",
+          "nuanceDe": "Was laut oder leise sein kann.",
+          "nuanceEn": "What can be loud or quiet.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "밖이 너무 시끄러워요",
+          "de": "Draußen ist es zu laut",
+          "en": "It's too noisy outside",
+          "exampleKo": "창문을 열면 밖이 너무 시끄러워요.",
+          "exampleDe": "Wenn ich das Fenster öffne, ist es draußen zu laut.",
+          "exampleEn": "If I open the window, it's too noisy outside."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0018",
+      "sourceKo": "어렵다",
+      "sourceVocabId": "vocab_a1_0125",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "쉽다",
+          "de": "einfach / leicht",
+          "en": "easy",
+          "nuanceDe": "Das Gegenteil von schwierig.",
+          "nuanceEn": "The opposite of difficult.",
+          "vocabId": "vocab_a1_0126"
+        }
+      ],
+      "related": [
+        {
+          "ko": "공부하다",
+          "de": "lernen / studieren",
+          "en": "to study",
+          "nuanceDe": "Was oft schwierig oder leicht wirkt.",
+          "nuanceEn": "What often feels hard or easy.",
+          "vocabId": "vocab_a2_0039"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "한국어가 어려워요",
+          "de": "Koreanisch ist schwierig",
+          "en": "Korean is difficult",
+          "exampleKo": "처음에는 한국어가 어려워요. 그래도 매일 조금 해요.",
+          "exampleDe": "Am Anfang ist Koreanisch schwierig. Trotzdem mache ich jeden Tag ein bisschen.",
+          "exampleEn": "At first Korean is difficult. Still, I do a little every day."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0019",
+      "sourceKo": "쉽다",
+      "sourceVocabId": "vocab_a1_0126",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "간단하다",
+          "de": "einfach / unkompliziert",
+          "en": "simple / straightforward",
+          "nuanceDe": "Betont Klarheit, nicht nur fehlende Schwierigkeit.",
+          "nuanceEn": "Stresses clarity, not just a lack of difficulty.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [
+        {
+          "ko": "어렵다",
+          "de": "schwierig",
+          "en": "difficult",
+          "nuanceDe": "Das Gegenteil von leicht.",
+          "nuanceEn": "The opposite of easy.",
+          "vocabId": "vocab_a1_0125"
+        }
+      ],
+      "related": [
+        {
+          "ko": "이해하다",
+          "de": "verstehen",
+          "en": "to understand",
+          "nuanceDe": "Wenn etwas leicht ist, versteht man es schneller.",
+          "nuanceEn": "When something is easy, you understand it faster.",
+          "vocabId": "vocab_a2_0047"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "이 문제는 쉬워요",
+          "de": "Diese Aufgabe ist leicht",
+          "en": "This question is easy",
+          "exampleKo": "첫 문제는 쉬워요. 천천히 읽어 보세요.",
+          "exampleDe": "Die erste Aufgabe ist leicht. Lies sie langsam.",
+          "exampleEn": "The first question is easy. Read it slowly."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0020",
+      "sourceKo": "길다",
+      "sourceVocabId": "vocab_a1_0128",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "짧다",
+          "de": "kurz",
+          "en": "short",
+          "nuanceDe": "Gegenteil bei Zeit, Haar oder Weg.",
+          "nuanceEn": "Opposite for time, hair, or a path.",
+          "vocabId": "vocab_a1_0129"
+        }
+      ],
+      "related": [
+        {
+          "ko": "시간",
+          "de": "Zeit",
+          "en": "time",
+          "nuanceDe": "Ein langes Video oder eine lange Wartezeit.",
+          "nuanceEn": "A long video or a long wait.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "머리가 길어요",
+          "de": "Die Haare sind lang",
+          "en": "The hair is long",
+          "exampleKo": "요즘 머리를 안 잘라서 머리가 길어요.",
+          "exampleDe": "Ich habe mir die Haare lange nicht schneiden lassen, deshalb sind sie lang.",
+          "exampleEn": "I haven't cut my hair lately, so it's long."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0021",
+      "sourceKo": "짧다",
+      "sourceVocabId": "vocab_a1_0129",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "길다",
+          "de": "lang",
+          "en": "long",
+          "nuanceDe": "Gegenteil bei Zeit, Haar oder Weg.",
+          "nuanceEn": "Opposite for time, hair, or a path.",
+          "vocabId": "vocab_a1_0128"
+        }
+      ],
+      "related": [
+        {
+          "ko": "잠깐",
+          "de": "kurz / einen Moment",
+          "en": "a moment / briefly",
+          "nuanceDe": "Kurze Zeit, nicht kurze Haare.",
+          "nuanceEn": "A short time, not short hair.",
+          "vocabId": "vocab_a1_0202"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "짧게 말하다",
+          "de": "sich kurz fassen",
+          "en": "to keep it short",
+          "exampleKo": "시간이 없어서 짧게 말할게요.",
+          "exampleDe": "Wir haben wenig Zeit, deshalb fasse ich mich kurz.",
+          "exampleEn": "We don't have much time, so I'll keep it short."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0022",
+      "sourceKo": "가다",
+      "sourceVocabId": "vocab_a1_0087",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "오다",
+          "de": "kommen",
+          "en": "to come",
+          "nuanceDe": "Richtung zum Sprecher. 가다 geht weg, 오다 kommt her.",
+          "nuanceEn": "Direction toward the speaker. 가다 goes away, 오다 comes here.",
+          "vocabId": "vocab_a1_0088"
+        }
+      ],
+      "related": [
+        {
+          "ko": "도착하다",
+          "de": "ankommen",
+          "en": "to arrive",
+          "nuanceDe": "Das Ende des Weggehens.",
+          "nuanceEn": "The end of going somewhere.",
+          "vocabId": "vocab_a2_0044"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "집에 가다",
+          "de": "nach Hause gehen",
+          "en": "to go home",
+          "exampleKo": "이제 집에 갈게요. 내일 봐요.",
+          "exampleDe": "Ich gehe jetzt nach Hause. Bis morgen.",
+          "exampleEn": "I'm going home now. See you tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0023",
+      "sourceKo": "오다",
+      "sourceVocabId": "vocab_a1_0088",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "가다",
+          "de": "gehen",
+          "en": "to go",
+          "nuanceDe": "Richtung weg vom Sprecher.",
+          "nuanceEn": "Direction away from the speaker.",
+          "vocabId": "vocab_a1_0087"
+        }
+      ],
+      "related": [
+        {
+          "ko": "들어오다",
+          "de": "hereinkommen",
+          "en": "to come in",
+          "nuanceDe": "Kommen plus Bewegung nach innen.",
+          "nuanceEn": "Coming plus movement inward.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "이리 오세요",
+          "de": "Kommen Sie bitte her",
+          "en": "Please come this way",
+          "exampleKo": "이쪽으로 오세요. 자리가 있어요.",
+          "exampleDe": "Kommen Sie bitte hierher. Es ist noch Platz.",
+          "exampleEn": "Please come this way. There's a seat."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0024",
+      "sourceKo": "먹다",
+      "sourceVocabId": "vocab_a1_0089",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "마시다",
+          "de": "trinken",
+          "en": "to drink",
+          "nuanceDe": "Die Schwesterhandlung zu essen.",
+          "nuanceEn": "The sister action of eating.",
+          "vocabId": "vocab_a1_0090"
+        },
+        {
+          "ko": "밥",
+          "de": "Reis / Mahlzeit",
+          "en": "rice / meal",
+          "nuanceDe": "Das häufigste Objekt von 먹다.",
+          "nuanceEn": "The most common object of 먹다.",
+          "vocabId": "vocab_a1_0022"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "밥 먹었어요?",
+          "de": "Hast du schon gegessen?",
+          "en": "Have you eaten?",
+          "exampleKo": "밥 먹었어요? 아직이면 같이 가요.",
+          "exampleDe": "Hast du schon gegessen? Wenn nicht, gehen wir zusammen.",
+          "exampleEn": "Have you eaten? If not, let's go together."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0025",
+      "sourceKo": "있다",
+      "sourceVocabId": "vocab_a1_0091",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "없다",
+          "de": "nicht haben / nicht da sein",
+          "en": "to not have / to not be there",
+          "nuanceDe": "Existenz oder Besitz verneinen.",
+          "nuanceEn": "Denies existence or possession.",
+          "vocabId": "vocab_a1_0092"
+        }
+      ],
+      "related": [
+        {
+          "ko": "집",
+          "de": "Haus / Zuhause",
+          "en": "house / home",
+          "nuanceDe": "Oft in 집에 있어요.",
+          "nuanceEn": "Often in 집에 있어요.",
+          "vocabId": "vocab_a1_0019"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "시간 있어요?",
+          "de": "Hast du Zeit?",
+          "en": "Do you have time?",
+          "exampleKo": "잠깐 이야기할 시간 있어요?",
+          "exampleDe": "Hast du kurz Zeit zum Reden?",
+          "exampleEn": "Do you have a moment to talk?"
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0026",
+      "sourceKo": "없다",
+      "sourceVocabId": "vocab_a1_0092",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "있다",
+          "de": "sein / haben",
+          "en": "to be / to have",
+          "nuanceDe": "Existenz oder Besitz bejahen.",
+          "nuanceEn": "Affirms existence or possession.",
+          "vocabId": "vocab_a1_0091"
+        }
+      ],
+      "related": [
+        {
+          "ko": "모르다",
+          "de": "nicht wissen",
+          "en": "to not know",
+          "nuanceDe": "Wissen fehlt. 없다 heißt, etwas ist nicht da.",
+          "nuanceEn": "Knowledge is missing. 없다 means something is not there.",
+          "vocabId": "vocab_a1_0106"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "문제 없어요",
+          "de": "Kein Problem",
+          "en": "No problem",
+          "exampleKo": "천천히 해도 돼요. 문제 없어요.",
+          "exampleDe": "Du kannst dir Zeit lassen. Kein Problem.",
+          "exampleEn": "You can take your time. No problem."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0027",
+      "sourceKo": "좋아하다",
+      "sourceVocabId": "vocab_a1_0099",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "싫어하다",
+          "de": "nicht mögen",
+          "en": "to dislike",
+          "nuanceDe": "Das aktive Gegenteil von mögen.",
+          "nuanceEn": "The active opposite of liking.",
+          "vocabId": "vocab_a1_0100"
+        }
+      ],
+      "related": [
+        {
+          "ko": "사랑하다",
+          "de": "lieben",
+          "en": "to love",
+          "nuanceDe": "Deutlich stärker als 좋아하다.",
+          "nuanceEn": "Much stronger than 좋아하다.",
+          "vocabId": "vocab_a1_0101"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "이거 좋아해요",
+          "de": "Ich mag das",
+          "en": "I like this",
+          "exampleKo": "매운 음식 좋아해요. 김치찌개요.",
+          "exampleDe": "Ich mag scharfes Essen. Kimchi-Jjigae.",
+          "exampleEn": "I like spicy food. Kimchi stew."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0028",
+      "sourceKo": "싫어하다",
+      "sourceVocabId": "vocab_a1_0100",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "좋아하다",
+          "de": "mögen",
+          "en": "to like",
+          "nuanceDe": "Das aktive Gegenteil von ablehnen.",
+          "nuanceEn": "The active opposite of disliking.",
+          "vocabId": "vocab_a1_0099"
+        }
+      ],
+      "related": [
+        {
+          "ko": "피하다",
+          "de": "meiden",
+          "en": "to avoid",
+          "nuanceDe": "Nicht nur nicht mögen, sondern aus dem Weg gehen.",
+          "nuanceEn": "Not just disliking, but staying away.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "커피는 싫어해요",
+          "de": "Kaffee mag ich nicht",
+          "en": "I don't like coffee",
+          "exampleKo": "커피는 싫어해요. 차 주세요.",
+          "exampleDe": "Kaffee mag ich nicht. Bitte Tee.",
+          "exampleEn": "I don't like coffee. Tea, please."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0029",
+      "sourceKo": "알다",
+      "sourceVocabId": "vocab_a1_0105",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "모르다",
+          "de": "nicht wissen",
+          "en": "to not know",
+          "nuanceDe": "Das direkte Gegenteil von wissen.",
+          "nuanceEn": "The direct opposite of knowing.",
+          "vocabId": "vocab_a1_0106"
+        }
+      ],
+      "related": [
+        {
+          "ko": "기억하다",
+          "de": "sich erinnern",
+          "en": "to remember",
+          "nuanceDe": "Wissen, das wiederkommt.",
+          "nuanceEn": "Knowledge that comes back.",
+          "vocabId": "vocab_a2_0046"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "잘 알아요",
+          "de": "Ich kenne das gut",
+          "en": "I know that well",
+          "exampleKo": "이 길은 잘 알아요. 제가 안내할게요.",
+          "exampleDe": "Diesen Weg kenne ich gut. Ich führe.",
+          "exampleEn": "I know this road well. I'll show the way."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0030",
+      "sourceKo": "모르다",
+      "sourceVocabId": "vocab_a1_0106",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "알다",
+          "de": "wissen / kennen",
+          "en": "to know",
+          "nuanceDe": "Das direkte Gegenteil von nicht wissen.",
+          "nuanceEn": "The direct opposite of not knowing.",
+          "vocabId": "vocab_a1_0105"
+        }
+      ],
+      "related": [
+        {
+          "ko": "묻다",
+          "de": "fragen",
+          "en": "to ask",
+          "nuanceDe": "Was man tut, wenn man etwas nicht weiß.",
+          "nuanceEn": "What you do when you don't know something.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "잘 모르겠어요",
+          "de": "Ich bin mir nicht sicher",
+          "en": "I'm not sure",
+          "exampleKo": "이 단어 뜻은 잘 모르겠어요.",
+          "exampleDe": "Die Bedeutung dieses Wortes kenne ich nicht genau.",
+          "exampleEn": "I'm not sure what this word means."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0031",
+      "sourceKo": "주다",
+      "sourceVocabId": "vocab_a1_0107",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "받다",
+          "de": "bekommen / empfangen",
+          "en": "to receive / to get",
+          "nuanceDe": "Die Gegenrichtung von geben.",
+          "nuanceEn": "The opposite direction of giving.",
+          "vocabId": "vocab_a1_0108"
+        }
+      ],
+      "related": [
+        {
+          "ko": "선물",
+          "de": "Geschenk",
+          "en": "gift",
+          "nuanceDe": "Was man oft gibt oder bekommt.",
+          "nuanceEn": "What people often give or receive.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "이거 드릴게요",
+          "de": "Das gebe ich Ihnen",
+          "en": "I'll give this to you",
+          "exampleKo": "남은 빵이 있어요. 이거 드릴게요.",
+          "exampleDe": "Es ist noch Brot übrig. Das gebe ich Ihnen.",
+          "exampleEn": "There's bread left. I'll give this to you."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0032",
+      "sourceKo": "받다",
+      "sourceVocabId": "vocab_a1_0108",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "주다",
+          "de": "geben",
+          "en": "to give",
+          "nuanceDe": "Die Gegenrichtung von bekommen.",
+          "nuanceEn": "The opposite direction of receiving.",
+          "vocabId": "vocab_a1_0107"
+        }
+      ],
+      "related": [
+        {
+          "ko": "문자",
+          "de": "Nachricht",
+          "en": "text message",
+          "nuanceDe": "Etwas, das man oft bekommt.",
+          "nuanceEn": "Something people often receive.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "메시지를 받다",
+          "de": "eine Nachricht bekommen",
+          "en": "to get a message",
+          "exampleKo": "방금 친구에게 메시지를 받았어요.",
+          "exampleDe": "Gerade habe ich eine Nachricht von einem Freund bekommen.",
+          "exampleEn": "I just got a message from a friend."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0033",
+      "sourceKo": "말하다",
+      "sourceVocabId": "vocab_a1_0103",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "이야기하다",
+          "de": "sich unterhalten / erzählen",
+          "en": "to talk / to tell",
+          "nuanceDe": "Länger und weicher als 말하다. Ein Gespräch, kein einzelner Satz.",
+          "nuanceEn": "Longer and softer than 말하다. A conversation, not a single line.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "듣다",
+          "de": "hören / zuhören",
+          "en": "to listen / to hear",
+          "nuanceDe": "Die andere Seite des Sprechens.",
+          "nuanceEn": "The other side of speaking.",
+          "vocabId": "vocab_a1_0095"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "천천히 말해 주세요",
+          "de": "Bitte sprich langsam",
+          "en": "Please speak slowly",
+          "exampleKo": "한국어를 배우고 있어요. 천천히 말해 주세요.",
+          "exampleDe": "Ich lerne Koreanisch. Bitte sprich langsam.",
+          "exampleEn": "I'm learning Korean. Please speak slowly."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0034",
+      "sourceKo": "오늘",
+      "sourceVocabId": "vocab_a1_0029",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "내일",
+          "de": "morgen",
+          "en": "tomorrow",
+          "nuanceDe": "Der Tag nach heute.",
+          "nuanceEn": "The day after today.",
+          "vocabId": "vocab_a1_0030"
+        },
+        {
+          "ko": "어제",
+          "de": "gestern",
+          "en": "yesterday",
+          "nuanceDe": "Der Tag vor heute.",
+          "nuanceEn": "The day before today.",
+          "vocabId": "vocab_a1_0031"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "오늘 어때요?",
+          "de": "Wie ist dein Tag heute?",
+          "en": "How's today going?",
+          "exampleKo": "오늘 어때요? 바빠요?",
+          "exampleDe": "Wie ist dein Tag heute? Bist du beschäftigt?",
+          "exampleEn": "How's today going? Are you busy?"
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0035",
+      "sourceKo": "내일",
+      "sourceVocabId": "vocab_a1_0030",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "오늘",
+          "de": "heute",
+          "en": "today",
+          "nuanceDe": "Der Tag vor morgen.",
+          "nuanceEn": "The day before tomorrow.",
+          "vocabId": "vocab_a1_0029"
+        },
+        {
+          "ko": "모레",
+          "de": "übermorgen",
+          "en": "the day after tomorrow",
+          "nuanceDe": "Noch ein Tag weiter als 내일.",
+          "nuanceEn": "One more day after 내일.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "내일 봐요",
+          "de": "Bis morgen",
+          "en": "See you tomorrow",
+          "exampleKo": "오늘은 여기까지 해요. 내일 봐요.",
+          "exampleDe": "Für heute reicht es. Bis morgen.",
+          "exampleEn": "That's enough for today. See you tomorrow."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0036",
+      "sourceKo": "어제",
+      "sourceVocabId": "vocab_a1_0031",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "오늘",
+          "de": "heute",
+          "en": "today",
+          "nuanceDe": "Der Tag nach gestern.",
+          "nuanceEn": "The day after yesterday.",
+          "vocabId": "vocab_a1_0029"
+        },
+        {
+          "ko": "그제",
+          "de": "vorgestern",
+          "en": "the day before yesterday",
+          "nuanceDe": "Noch ein Tag vor 어제.",
+          "nuanceEn": "One more day before 어제.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "어제 뭐 했어요?",
+          "de": "Was hast du gestern gemacht?",
+          "en": "What did you do yesterday?",
+          "exampleKo": "어제 뭐 했어요? 집에서 쉬었어요?",
+          "exampleDe": "Was hast du gestern gemacht? Hast du zu Hause ausgeruht?",
+          "exampleEn": "What did you do yesterday? Did you rest at home?"
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0037",
+      "sourceKo": "빨리",
+      "sourceVocabId": "vocab_a1_0086",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "천천히",
+          "de": "langsam",
+          "en": "slowly",
+          "nuanceDe": "Das Gegenteil von schnell.",
+          "nuanceEn": "The opposite of quickly.",
+          "vocabId": "vocab_a1_0203"
+        }
+      ],
+      "related": [
+        {
+          "ko": "빠르다",
+          "de": "schnell sein",
+          "en": "to be fast",
+          "nuanceDe": "Die Eigenschaft hinter 빨리.",
+          "nuanceEn": "The quality behind 빨리.",
+          "vocabId": "vocab_a2_0070"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "빨리 오세요",
+          "de": "Komm schnell",
+          "en": "Come quickly",
+          "exampleKo": "버스가 와요. 빨리 오세요!",
+          "exampleDe": "Der Bus kommt. Komm schnell!",
+          "exampleEn": "The bus is coming. Come quickly!"
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0038",
+      "sourceKo": "천천히",
+      "sourceVocabId": "vocab_a1_0203",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "빨리",
+          "de": "schnell",
+          "en": "quickly",
+          "nuanceDe": "Das Gegenteil von langsam.",
+          "nuanceEn": "The opposite of slowly.",
+          "vocabId": "vocab_a1_0086"
+        }
+      ],
+      "related": [
+        {
+          "ko": "느리다",
+          "de": "langsam sein",
+          "en": "to be slow",
+          "nuanceDe": "Die Eigenschaft hinter 천천히.",
+          "nuanceEn": "The quality behind 천천히.",
+          "vocabId": "vocab_a2_0071"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "천천히 걸어요",
+          "de": "Ich gehe langsam",
+          "en": "I walk slowly",
+          "exampleKo": "비가 와서 천천히 걸어요.",
+          "exampleDe": "Es regnet, deshalb gehe ich langsam.",
+          "exampleEn": "It's raining, so I walk slowly."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0039",
+      "sourceKo": "항상",
+      "sourceVocabId": "vocab_a1_0084",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "가끔",
+          "de": "manchmal",
+          "en": "sometimes",
+          "nuanceDe": "Selten statt immer.",
+          "nuanceEn": "Sometimes instead of always.",
+          "vocabId": "vocab_a1_0085"
+        }
+      ],
+      "related": [
+        {
+          "ko": "자주",
+          "de": "oft",
+          "en": "often",
+          "nuanceDe": "Zwischen immer und manchmal.",
+          "nuanceEn": "Between always and sometimes.",
+          "vocabId": "vocab_a1_0206"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "항상 고마워요",
+          "de": "Danke, immer",
+          "en": "Thank you, always",
+          "exampleKo": "항상 도와줘서 고마워요.",
+          "exampleDe": "Danke, dass du immer hilfst.",
+          "exampleEn": "Thank you for always helping."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0040",
+      "sourceKo": "집",
+      "sourceVocabId": "vocab_a1_0019",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "학교",
+          "de": "Schule",
+          "en": "school",
+          "nuanceDe": "Der andere Alltagsort neben dem Zuhause.",
+          "nuanceEn": "The other everyday place besides home.",
+          "vocabId": "vocab_a1_0020"
+        },
+        {
+          "ko": "가족",
+          "de": "Familie",
+          "en": "family",
+          "nuanceDe": "Die Menschen im Haus.",
+          "nuanceEn": "The people in the house.",
+          "vocabId": "vocab_a1_0018"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "집에 있다",
+          "de": "zu Hause sein",
+          "en": "to be at home",
+          "exampleKo": "오늘은 약속이 없어서 집에 있어요.",
+          "exampleDe": "Heute habe ich keinen Termin, deshalb bin ich zu Hause.",
+          "exampleEn": "I have no plans today, so I'm at home."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0041",
+      "sourceKo": "밥",
+      "sourceVocabId": "vocab_a1_0022",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "식사",
+          "de": "Mahlzeit",
+          "en": "a meal",
+          "nuanceDe": "Höflicher und weiter als 밥. Frühstück, Mittag, Abend.",
+          "nuanceEn": "More polite and broader than 밥. Breakfast, lunch, dinner.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "먹다",
+          "de": "essen",
+          "en": "to eat",
+          "nuanceDe": "Die Handlung zu 밥.",
+          "nuanceEn": "The action for 밥.",
+          "vocabId": "vocab_a1_0089"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "밥 먹으러 가요",
+          "de": "Lass uns essen gehen",
+          "en": "Let's go eat",
+          "exampleKo": "배고프면 밥 먹으러 가요.",
+          "exampleDe": "Wenn du Hunger hast, gehen wir essen.",
+          "exampleEn": "If you're hungry, let's go eat."
+        }
+      ]
+    },
+    {
+      "id": "rel_a1_0042",
+      "sourceKo": "학생",
+      "sourceVocabId": "vocab_a1_0013",
+      "level": "A1",
+      "synonyms": [],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "선생님",
+          "de": "Lehrer/in",
+          "en": "teacher",
+          "nuanceDe": "Die Person, die den Schüler unterrichtet.",
+          "nuanceEn": "The person who teaches the student.",
+          "vocabId": "vocab_a1_0014"
+        },
+        {
+          "ko": "학교",
+          "de": "Schule",
+          "en": "school",
+          "nuanceDe": "Der Ort des Schülers.",
+          "nuanceEn": "The student's place.",
+          "vocabId": "vocab_a1_0020"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "한국어 학생이에요",
+          "de": "Ich bin Koreanischlernende/r",
+          "en": "I'm a Korean student",
+          "exampleKo": "안녕하세요. 저는 한국어 학생이에요.",
+          "exampleDe": "Guten Tag. Ich lerne Koreanisch.",
+          "exampleEn": "Hello. I'm a Korean-language student."
+        }
+      ]
+    },
+    {
+      "id": "rel_a2_0001",
+      "sourceKo": "행복하다",
+      "sourceVocabId": "vocab_a2_0063",
+      "level": "A2",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "슬프다",
+          "de": "traurig sein",
+          "en": "to be sad",
+          "nuanceDe": "Das Gefühlgegenteil von glücklich.",
+          "nuanceEn": "The feeling opposite of happy.",
+          "vocabId": "vocab_a2_0064"
+        }
+      ],
+      "related": [
+        {
+          "ko": "웃다",
+          "de": "lachen / lächeln",
+          "en": "to laugh / to smile",
+          "nuanceDe": "Was oft mit Glück zusammenkommt.",
+          "nuanceEn": "What often comes with happiness.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "오늘 정말 행복해요",
+          "de": "Heute bin ich wirklich glücklich",
+          "en": "I'm really happy today",
+          "exampleKo": "친구를 오래만에 만나서 오늘 정말 행복해요.",
+          "exampleDe": "Ich habe eine Freundin nach langer Zeit getroffen. Heute bin ich wirklich glücklich.",
+          "exampleEn": "I met a friend after a long time. I'm really happy today."
+        }
+      ]
+    },
+    {
+      "id": "rel_a2_0002",
+      "sourceKo": "슬프다",
+      "sourceVocabId": "vocab_a2_0064",
+      "level": "A2",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "행복하다",
+          "de": "glücklich sein",
+          "en": "to be happy",
+          "nuanceDe": "Das Gefühlgegenteil von traurig.",
+          "nuanceEn": "The feeling opposite of sad.",
+          "vocabId": "vocab_a2_0063"
+        }
+      ],
+      "related": [
+        {
+          "ko": "울다",
+          "de": "weinen",
+          "en": "to cry",
+          "nuanceDe": "Was Trauer oft sichtbar macht.",
+          "nuanceEn": "What sadness often makes visible.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "슬픈 이야기",
+          "de": "eine traurige Geschichte",
+          "en": "a sad story",
+          "exampleKo": "그 영화는 슬픈 이야기라서 중간에 울었어요.",
+          "exampleDe": "Der Film ist eine traurige Geschichte, deshalb habe ich zwischendurch geweint.",
+          "exampleEn": "The film is a sad story, so I cried in the middle."
+        }
+      ]
+    },
+    {
+      "id": "rel_a2_0003",
+      "sourceKo": "바쁘다",
+      "sourceVocabId": "vocab_a2_0061",
+      "level": "A2",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "한가하다",
+          "de": "frei / nicht beschäftigt sein",
+          "en": "to be free / not busy",
+          "nuanceDe": "Zeit haben. Das Gegenteil von voller Termine.",
+          "nuanceEn": "Having time. The opposite of a full calendar.",
+          "vocabId": ""
+        }
+      ],
+      "related": [
+        {
+          "ko": "일하다",
+          "de": "arbeiten",
+          "en": "to work",
+          "nuanceDe": "Ein häufiger Grund, beschäftigt zu sein.",
+          "nuanceEn": "A common reason to be busy.",
+          "vocabId": "vocab_a1_0114"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "요즘 너무 바빠요",
+          "de": "Ich bin zurzeit sehr beschäftigt",
+          "en": "I'm very busy these days",
+          "exampleKo": "시험이 있어서 요즘 너무 바빠요.",
+          "exampleDe": "Ich habe Prüfungen, deshalb bin ich zurzeit sehr beschäftigt.",
+          "exampleEn": "I have exams, so I'm very busy these days."
+        }
+      ]
+    },
+    {
+      "id": "rel_a2_0004",
+      "sourceKo": "배우다",
+      "sourceVocabId": "vocab_a2_0048",
+      "level": "A2",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "가르치다",
+          "de": "lehren / unterrichten",
+          "en": "to teach",
+          "nuanceDe": "Die Gegenrichtung: jemand gibt Wissen, jemand nimmt es auf.",
+          "nuanceEn": "The opposite direction: someone gives knowledge, someone takes it in.",
+          "vocabId": "vocab_a2_0049"
+        }
+      ],
+      "related": [
+        {
+          "ko": "공부하다",
+          "de": "lernen / studieren",
+          "en": "to study",
+          "nuanceDe": "Lernen als Arbeit. 배우다 betont das Neue.",
+          "nuanceEn": "Learning as work. 배우다 stresses something new.",
+          "vocabId": "vocab_a2_0039"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "한국어를 배우고 있어요",
+          "de": "Ich lerne gerade Koreanisch",
+          "en": "I'm learning Korean",
+          "exampleKo": "작년부터 한국어를 배우고 있어요.",
+          "exampleDe": "Seit letztem Jahr lerne ich Koreanisch.",
+          "exampleEn": "I've been learning Korean since last year."
+        }
+      ]
+    },
+    {
+      "id": "rel_a2_0005",
+      "sourceKo": "혼자",
+      "sourceVocabId": "vocab_a2_0084",
+      "level": "A2",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "같이",
+          "de": "zusammen",
+          "en": "together",
+          "nuanceDe": "Nicht allein, sondern mit jemandem.",
+          "nuanceEn": "Not alone, but with someone.",
+          "vocabId": "vocab_a2_0085"
+        }
+      ],
+      "related": [
+        {
+          "ko": "외롭다",
+          "de": "einsam sein",
+          "en": "to be lonely",
+          "nuanceDe": "Alleinsein als Gefühl, nicht nur als Tatsache.",
+          "nuanceEn": "Being alone as a feeling, not just a fact.",
+          "vocabId": "vocab_a2_0079"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "혼자 살아요",
+          "de": "Ich wohne allein",
+          "en": "I live alone",
+          "exampleKo": "지금은 서울에서 혼자 살아요.",
+          "exampleDe": "Im Moment wohne ich allein in Seoul.",
+          "exampleEn": "I live alone in Seoul right now."
+        }
+      ]
+    },
+    {
+      "id": "rel_a2_0006",
+      "sourceKo": "같이",
+      "sourceVocabId": "vocab_a2_0085",
+      "level": "A2",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "혼자",
+          "de": "allein",
+          "en": "alone",
+          "nuanceDe": "Ohne die andere Person.",
+          "nuanceEn": "Without the other person.",
+          "vocabId": "vocab_a2_0084"
+        }
+      ],
+      "related": [
+        {
+          "ko": "함께",
+          "de": "gemeinsam",
+          "en": "together / along with",
+          "nuanceDe": "Etwas förmlicher als 같이.",
+          "nuanceEn": "A bit more formal than 같이.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "같이 갈래요?",
+          "de": "Willst du mitkommen?",
+          "en": "Want to go together?",
+          "exampleKo": "커피 마시러 같이 갈래요?",
+          "exampleDe": "Willst du mitkommen, einen Kaffee trinken?",
+          "exampleEn": "Want to go get coffee together?"
+        }
+      ]
+    },
+    {
+      "id": "rel_a2_0007",
+      "sourceKo": "피곤하다",
+      "sourceVocabId": "vocab_a2_0062",
+      "level": "A2",
+      "synonyms": [
+        {
+          "ko": "졸리다",
+          "de": "schläfrig sein",
+          "en": "to be sleepy",
+          "nuanceDe": "Augen fallen zu. 피곤하다 ist der Körper nach Arbeit.",
+          "nuanceEn": "The eyes want to close. 피곤하다 is the body after work.",
+          "vocabId": ""
+        }
+      ],
+      "antonyms": [],
+      "related": [
+        {
+          "ko": "쉬다",
+          "de": "sich ausruhen",
+          "en": "to rest",
+          "nuanceDe": "Was man bei Müdigkeit braucht.",
+          "nuanceEn": "What you need when you're tired.",
+          "vocabId": "vocab_a2_0045"
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "오늘 너무 피곤해요",
+          "de": "Ich bin heute sehr müde",
+          "en": "I'm very tired today",
+          "exampleKo": "일을 많이 해서 오늘 너무 피곤해요.",
+          "exampleDe": "Ich habe viel gearbeitet, deshalb bin ich heute sehr müde.",
+          "exampleEn": "I worked a lot, so I'm very tired today."
+        }
+      ]
+    },
+    {
+      "id": "rel_a2_0008",
+      "sourceKo": "아프다",
+      "sourceVocabId": "vocab_a2_0069",
+      "level": "A2",
+      "synonyms": [],
+      "antonyms": [
+        {
+          "ko": "건강하다",
+          "de": "gesund sein",
+          "en": "to be healthy",
+          "nuanceDe": "Der Körperzustand gegenüber Krankheit oder Schmerz.",
+          "nuanceEn": "The body state opposite illness or pain.",
+          "vocabId": "vocab_a2_0068"
+        }
+      ],
+      "related": [
+        {
+          "ko": "병원",
+          "de": "Krankenhaus / Arztpraxis",
+          "en": "hospital / clinic",
+          "nuanceDe": "Wohin man bei 아프다 oft geht.",
+          "nuanceEn": "Where people often go when they 아프다.",
+          "vocabId": ""
+        }
+      ],
+      "expressions": [
+        {
+          "ko": "머리가 아파요",
+          "de": "Ich habe Kopfschmerzen",
+          "en": "I have a headache",
+          "exampleKo": "잠을 못 자서 머리가 아파요.",
+          "exampleDe": "Ich habe schlecht geschlafen, deshalb tut der Kopf weh.",
+          "exampleEn": "I didn't sleep well, so I have a headache."
+        }
+      ]
+    }
+  ]
+}

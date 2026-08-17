@@ -55,6 +55,26 @@ test/can_do_segment_asset_test.dart` **14/14**.
 
 **커밋해시.** 이 기록과 같은 커밋.
 
+### 2026-08-17 (Cursor) — 단어망 V1: 학습 단어의 비슷한 말·반대말·연관어·표현
+
+**무엇을.** 이미 본 단어(`Storage.vokSeenIds`)를 씨앗으로 비슷한 말·반대말·연관
+단어·표현을 공부하는 자유 연습 **Wortnetz / Word web**을 추가했다. 시드
+`assets/data/word_relations.json`은 A1/A2 50클러스터이며, 모든 `sourceVocabId`는
+`korean_vocab.csv`에 존재하고 `sourceKo`와 일치한다. 학습 단어가 없으면 레벨
+누적 둘러보기와 단어팩 CTA로 들어간다. 진입은 `/word_web`, 연습 허브 단어 섹션,
+둘러보기 카탈로그, Sori Learn 카탈로그다.
+
+**왜.** Jin이 공부한 단어의 유의어·반의어·연관어+표현을 이어서 공부할 수 있는
+컨텐츠를 요청했다. 코스 can-do·한옥·SRS·XP 권한은 없다(`_noDirectReward`).
+`content_audit_manifest`에 새 kind를 넣지 않았다.
+
+**검증.** `flutter test --no-pub` word-web·relation service·discover·sori
+catalog·practice hub·l10n parity/guard **전부 통과**. `dart format` 변경 없음,
+`flutter analyze --no-pub --fatal-infos` 대상 파일 **No issues found**. 퀴즈
+기본 경로가 named `clusters`를 위치 인자로 호출하던 크래시를 고쳤고, 허브
+`bottomNavigationBar`는 `Column(mainAxisSize: min)`으로 본문이 접히지 않게 했다.
+커밋 `e07f067`.
+
 ### 2026-08-17 (Codex) — Batch 06 승인 완료: 리뷰 컨텐츠 배치 승인 경로 정합성 해제
 
 `Batch 06` 요청자 승인 상태를 토대로, `tools/content_factory/build_can_do_segments.py`의
