@@ -1671,6 +1671,8 @@
   "wordWebQuizHintRelated": "Was gehört dazu?",
   "wordWebQuizHintExpression": "Welche Wendung passt zur Bedeutung?",
   "wordWebQuizDoneTitle": "Runde geschafft!",
+  "wordWebQuizEmptyTitle": "Noch keine Runde",
+  "wordWebQuizEmptyBody": "Für diese Wörter reichen die Vergleichswörter noch nicht. Schau dir zuerst die Karten an oder lerne ein paar Wörter dazu.",
   "wordWebQuizScore": "{correct}/{total} richtig",
   "@wordWebQuizScore": {
     "placeholders": {

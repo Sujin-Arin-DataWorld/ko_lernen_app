@@ -1603,6 +1603,8 @@
   "wordWebQuizHintRelated": "What belongs with it?",
   "wordWebQuizHintExpression": "Which expression matches the meaning?",
   "wordWebQuizDoneTitle": "Round complete!",
+  "wordWebQuizEmptyTitle": "No round yet",
+  "wordWebQuizEmptyBody": "There are not enough comparison words for this set yet. Study the cards first, or learn a few more words.",
   "wordWebQuizScore": "{correct}/{total} correct",
   "@wordWebQuizScore": {
     "placeholders": {

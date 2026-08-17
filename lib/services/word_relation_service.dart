@@ -94,6 +94,7 @@ class WordRelationService {
 
   static List<WordRelationQuizItem> buildQuiz({
     required List<WordRelationCluster> clusters,
+    List<WordRelationCluster>? distractorClusters,
     Random? random,
     int cap = quizCap,
   }) {
@@ -158,7 +159,7 @@ class WordRelationService {
     }
 
     final poolByKind = <WordRelationKind, List<String>>{};
-    for (final cluster in clusters) {
+    for (final cluster in distractorClusters ?? clusters) {
       _addPool(poolByKind, WordRelationKind.synonym, [
         for (final item in cluster.synonyms) item.ko,
       ]);

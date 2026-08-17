@@ -1,5 +1,16 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 단어망 검수: 학습 1단어 퀴즈 0/0 수정
+
+**무엇을.** 검수에서 학습 범위가 얇은 클러스터 하나일 때 `buildQuiz`가
+보기를 못 만들어 퀴즈가 축하+0/0으로 끝나는 경로를 확인했다. 질문은 학습
+단어에 두고 보기만 전체 시드(`distractorClusters`)에서 가져오게 했다. 빈
+퀴즈는 새 DE/EN 빈 상태로 막고, 단어팩에서 돌아오면 학습 목록을 다시 그린다.
+
+**검증.** `flutter test --no-pub test/word_relation_service_test.dart
+test/word_web_screen_test.dart test/l10n_parity_test.dart` 통과.
+`flutter analyze --no-pub --fatal-infos` 대상 파일 No issues found.
+
 ### 2026-08-17 (Cursor) — 4× 잔량을 Batch 09/10 review-only로 재번호
 
 **왜.** partner-family Batch 07/08이 live로 올라간 뒤, 기존 4× 초안

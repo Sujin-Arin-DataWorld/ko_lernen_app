@@ -6031,6 +6031,18 @@ abstract class AppL10n {
   /// **'Runde geschafft!'**
   String get wordWebQuizDoneTitle;
 
+  /// No description provided for @wordWebQuizEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Runde'**
+  String get wordWebQuizEmptyTitle;
+
+  /// No description provided for @wordWebQuizEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für diese Wörter reichen die Vergleichswörter noch nicht. Schau dir zuerst die Karten an oder lerne ein paar Wörter dazu.'**
+  String get wordWebQuizEmptyBody;
+
   /// No description provided for @wordWebQuizScore.
   ///
   /// In de, this message translates to:
