@@ -1,5 +1,47 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Grammatik 판정을 스와이프 전용으로, 하단 CTA 제거
+
+**무엇.** Jin 확정대로 하단 판정 버튼 2개를 없애고 네 방향에 의미를 실었다.
+
+- 우=이해함(`markGrammarEasy`) · 좌=어렵다(`markGrammarHard` **+ 단어장 자동
+  저장**) · 위=단어장 저장 · 아래=평가 없이 넘기기.
+- 하단 CTA 삭제. 코스 체크포인트만 채점 CTA 를 남긴다 — "카드 전체 탭과 하단
+  CTA 가 같은 채점 시트를 연다"는 기존 계약이 있다.
+- 일러스트는 **카드 밖 유지**(A안). 카드 안으로 넣으면 배너가 매 스와이프마다
+  날아가고, 레벨 칩은 필터 컨트롤이라 카드와 함께 날아가면 조작 대상이 흔들린다.
+- 저장 매핑: 패턴=표제어, 뜻풀이=번역, 예문은 예문 슬롯(`addToWordbook`).
+
+**발견성 — CTA 없이.** ① 공용 `maybeShowSoriDeckCoach` 를 연결했다(단어장·
+복습·커스텀팩과 같은 4방향 스포트라이트, `tutSeen('soriDeck')` 로 사용자당 1회,
+화면 코치 `'grammar'` 뒤에). ② 첫 진입 1회 카드를 ±10dp 로 살짝 흔드는
+`_SwipeNudge` 를 넣었다 — 진폭이 커밋 임계(카드 폭 35%)보다 한참 작아 실수
+판정이 나지 않고, reduce-motion 이면 흔들지 않는다.
+
+**접근성.** 버튼을 없애면 제스처가 유일한 수단이 돼 WCAG 2.2 §2.5.1 에 걸린다.
+화면을 차지하지 않는 대체 수단으로 카드에 `Semantics` 커스텀 액션 4개를
+붙였다 — TalkBack/VoiceOver 에는 이해함·어렵다·저장·넘기기가 메뉴로 뜬다.
+
+**막혔던 것.** `_SwipeNudge` 의 컨트롤러를 `late final ... = AnimationController(...)`
+로 뒀더니, 흔들림이 꺼진 경우 build 가 한 번도 읽지 않아 초기화가 미뤄지고
+`dispose()` 의 `_controller.dispose()` 가 그제서야 생성자를 돌려 **이미
+비활성화된 element** 에서 `createTicker` → 조상 조회로 터졌다. 이 예외가 트리
+정리 중에 나 같은 파일의 무관한 Hangul 테스트까지 오염시켰다. `initState` 에서
+즉시 생성해 해결. (베이스라인을 먼저 돌려 실패가 내 변경 탓임을 확인한 뒤
+스택을 읽어 잡았다.)
+
+**테스트 계약 갱신.** 판정 CTA 가 사라져 ① 1장 덱 회귀 2건은 버튼 대신
+`SoriSwipeCard` 의 `onSwipeRight/Left/Up/Down` 을 검사하고, ②
+`circular_feedback` 의 'Got it' 버튼 탭은 우측 스와이프 콜백 호출로 바꿨다.
+③ 두 테스트 파일의 setUp 에 `soriDeck` 코치 억제를 넣었다(전체 화면
+스포트라이트가 탭을 삼킨다).
+
+**검증.** `flutter analyze lib/` 이슈 1건(기존 info
+`word_relation_service.dart:292`). `course_practice`·`circular_feedback`·
+`typography_guard`·`responsive_short_height` 315/315.
+
+**커밋해시.** 이 로그와 같은 커밋. worktree `claude/grammar-swipe-only-20260817`.
+
 ### 2026-08-17 (Claude, Windows) — Grammatik 목업 반영: 카드 안 Hören + 마지막 카드 완료 CTA
 
 **무엇.** Jin 목업(제안 1 + 완료 트랜지션)의 두 항목을 반영했다.
