@@ -1,5 +1,60 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Codex 병렬 코드/ledger 처분 확정 + main 계약 구멍 5건 닫음 + 결정 메커니즘 투어
+
+**왜.** Cursor와 Codex가 PR4 A1 자산 파이프라인을 각각 구현했고, 병합 `9958a458`은 코드 7경로를
+전부 `main`(Cursor)판으로 유지했다(Codex 코드는 "빠진" 게 아니라 "덮인" 것). `/code-review` 두 축
+(Standards·Spec, 고정점 `aaf6d969`)이 Codex ledger 19건은 엄격 필터 통과 0건이면서 `promote`가
+ledger 없이는 절대 열리지 않는 교착을, 그리고 `main` 쪽 계약 구멍 5건 + Dart 하드 위반 2건을
+찾았다. Jin 결정: ledger 19건 **이관 안 함**·계약 무완화, 이미지 05~10 재생성은 다음 차례.
+
+**W1 — 결정문 확정.** `docs/HANOK_V1_SOURCE_REGISTRY.md` 생성 기록 절의 "Jin이 정한다"를 결정으로
+닫고 근거 2개를 메커니즘으로 못 박았다: ① `a1_approved_state_digests()`의 basename 필터(16개
+기대 `NN_*.webp` + `approved`)에서 19건 전부 탈락 → 옮겨도 `--apply` 거부, ② Codex 06 앞줄 기둥
+7개 결함으로 05~10 계보 자체 교체. `AGENTS.md` PR4 항목도 "결정 대기" → "이관하지 않기로 확정".
+
+**W2 — main 계약 구멍 5건 + 이식 가드 5건 + 접근성 2건 (코드).**
+`tool/compose_hanok_a1_state.py`: (1) `require_lineage` 기본값 **on**, 끄려면 `--no-require-lineage`
+명시(`--require-lineage`는 호환용 no-op); (5) `--stage` 신설, `--stack-on-previous`는
+`STACK_MIN_STAGE 5`~`STACK_MAX_STAGE 11`에서만 허용(12~16 거부). Codex에서 이식: 원자적 쓰기
+(임시 파일 → 전 검사 통과 후 `replace()`, 거부된 WebP가 QA 경로에 남지 않음), `MIN_VISIBLE_SOURCE_PIXELS
+512` 소켓 내부 변화 가드, `base_path` knob 삭제(호출자 0·fail-open)로 site base SHA 무조건 검증,
+`raw == output`·확장자 검사, 재디코드 단언(`WEBP`·`RGB`·캔버스 크기). report 키 `anchorPixels`
+→ `visibleLayerPixels`(실제 의미), `socketChangedPixels` 추가.
+`tool/promote_hanok_a1_states.py`: (2) `a1TransparentLayerContract.promotion.requireApprovedLedgerSha256`을
+실제로 읽어 `true` 아니면 fail-closed 거부; (4) `runtime_path_is_forbidden()`에 호출자 부착(저장소
+내부 목적지만 검사); (3) `--apply` 성공 시 `[next] pubspec.yaml is NOT touched…` 출력으로 pubspec
+등록은 사람 승인 스텝으로 유지.
+`tool/hanok_v1_asset_contract.py`: `approved_output_digests` 삭제(`allowed_input_digests`와 중복 데드코드).
+`lib/widgets/sori/a1_hanok_construction_map.dart`: semantics `label: widget.semanticsLabel ?? state.id`가
+TalkBack에 raw ID(`08_purlins_sangnyang`)를 읽던 l10n 위반 → ARB `hanokA1MapLabel`, 오류 폴백
+아이콘에 `Semantics(hanokA1MapUnavailable)`. `app_de.arb`/`app_en.arb` 2키 + gen-l10n 재생성.
+문서: `docs/HANDOFF_LIVING_HANOK_V1_PR4_2026-08-17.md`·`docs/assets/prompts/HANOK_V1_A1_TRANSPARENT_LAYER_CONTRACT.md`
+실행 명령을 새 CLI에 맞춤.
+
+**W3 — 투어.** `.tours/architect-hanok-a1-ledger-gate.tour`(`ref: main`, 11스텝): pending_review 6장 →
+레지스트리 결정 → `records: []` → `_require_approved_ledger` → basename 필터 → 승격기 구멍 2·3·4 →
+0.97 recall 게이트 → stack 모드가 게이트를 항등식으로 만드는 지점(구멍 5) → stack 승인 문단 →
+AGENTS PR4 문장 → 다음 할 일. 기존 pr-reviewer 투어("무엇이 들어왔나")와 범위 분리("왜 안 열리나").
+앵커 11개 파일·줄·pattern 유일성 스크립트로 검증.
+
+**검증(로컬만 — GitHub Actions는 billing 차단이라 원격 run 없음).**
+`python -m unittest discover -s tool -t tool` **71/71 OK**(compose 18·promote 9·contract 4 포함; 신규
+잠금: `test_lineage_is_checked_by_default`·`test_stack_mode_is_refused_outside_the_upward_stages`·
+`test_rejects_output_that_would_overwrite_its_own_input`·`test_rejects_a_layer_that_builds_nothing_visible`·
+`test_a_rejected_composite_leaves_no_file_at_the_qa_path`·`test_promotion_refuses_when_the_contract_disables_the_ledger_gate`·
+`test_promotion_refuses_a_forbidden_in_repo_runtime_root`). `python tool/check_personal_hanok_assets.py`
+pass. `flutter test` 5파일(provenance·a1 map·catalog·arb guard·l10n parity) **32/32**.
+`flutter analyze --no-pub --fatal-infos` No issues. CLI 스모크: `--stack-on-previous --stage 13` →
+`[fail] only defined for stages 05-11`, `promote --apply`(records `[]`) → `[fail] still missing 01…16`,
+거부 후 `out.webp` 잔존 없음. `pytest`는 미설치라 계획의 검증 명령을 `unittest`로 정정.
+
+**커밋 안 함.** Jin 요청 시에만. 계획대로 W1(문서)·W2(코드)·W3(투어)를 **별도 커밋으로 분리**해
+스테이징할 것: W1 = `AGENTS.md`·`docs/HANOK_V1_SOURCE_REGISTRY.md`; W2 = `tool/*.py` 5개·`lib/widgets/sori/
+a1_hanok_construction_map.dart`·`lib/l10n/**`·`test/a1_hanok_construction_map_test.dart`·인수인계 문서 2개;
+W3 = `.tours/architect-hanok-a1-ledger-gate.tour`. 이 로그는 첫 커밋에 포함. 워킹트리의 `marketing/`·
+`.claude/data/`·`.mvn/`·릴스 로그 항목은 다른 세션 것이라 건드리지 않았다.
+
 ### 2026-08-17 (Claude, Windows) — A1 07 뒷줄 재생성 시도 4·5 + 기계 합성 07m (누적 20.6 credit)
 
 **호출.** ④ Nano Banana Pro 2K 4:3, 베이스=allowlist 완성 사랑채 `mcp-f523e93f…`,

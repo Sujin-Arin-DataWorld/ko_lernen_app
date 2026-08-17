@@ -109,8 +109,20 @@ ledger에 남겼다. 그 브랜치의 렌더러·합성기·checker·테스트·
 그 19건 중 11건은 credit 0(ImageGen 등 BBANANA 밖 호출), 9건은 rejected 출력을
 입력으로 쓴 수정 호출, 3건은 출력이 외부 Supabase URL이라 트리에서 SHA 검증 불가,
 1건은 출력이 비어 있어 "credit > 0·approved lineage·트리 검증"을 모두 만족하는 기록은
-0건이다(2026-08-17 재집계; 앞선 "4건"은 오기). 규칙을 완화해 그대로 옮길지,
-approved 체인만 다시 기록할지는 Jin이 정한다. pending_review의 6개 상태는 승격이
+0건이다(2026-08-17 재집계; 앞선 "4건"은 오기).
+
+**결정 (2026-08-17, Jin): 19건을 이관하지 않는다. 계약도 완화하지 않는다.** 근거는 둘이다.
+① **이관해도 승격이 열리지 않는다.** `tool/promote_hanok_a1_states.py`가 부르는
+`tool/hanok_v1_asset_contract.py`의 `a1_approved_state_digests()`는 ledger 출력 중
+**basename이 16개 기대 `NN_*.webp` 중 하나이고 `decision == "approved"`인 것만** 집계한다.
+19건의 출력은 전부 raw/rejected PNG이거나 외부 URL이라 이 필터에서 탈락하므로, 옮겨도
+`--apply`는 여전히 거부되고 approved 집합만 오염된다.
+② **05~10 계보 자체가 교체된다.** Codex 06이 앞줄 기둥 7개만 그려 07~10에 뒷줄·옆보가 없고,
+완성 사랑채는 앞기둥 8개(7칸)라 칸수도 어긋난다. 옛 승인 6건은 어차피 효력이 없다.
+13.5 credit 지출의 감사 증적은 `aaf6d969` 커밋과 이 절로 충분하다. 새 계보에서 게이트를
+통과한 QA WebP의 SHA만 그때 `approved`로 새로 적는다.
+
+pending_review의 6개 상태는 승격이
 아니며, 승격 전에 `tool/compose_hanok_a1_state.py`로 raw를 다시 합성해 recall 0.97·
 drift 2px 게이트를 통과한 SHA만 ledger에 `approved`로 적는다.
 
