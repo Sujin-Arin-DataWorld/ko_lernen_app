@@ -1,5 +1,41 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — A1 뒷기둥 결함 확인 + BBANANA 07′ 파일럿 2회 (계약 밖, 8.3 credit)
+
+**왜.** Jin이 stack 결과(10 개판)에서 "지붕은 있는데 받치는 기둥이 앞 두 개만 보인다"고
+지적했다. 확인 결과 stack 모드 탓이 아니라 **Codex 06 원본이 앞줄 기둥 7개만** 그렸고
+(프롬프트가 "seven upright columns"), 07 앞보·08~10 지붕틀이 그 위에 올라가 뒷줄 기둥과
+뒷·옆 보가 아예 없는 구조 결함이다. 09/10 후보가 그린 뒤 모서리 기둥은 stack 컷 아래라
+토막만 남았다. 06(기둥 전체)과 07(뒷·옆 보)은 다시 만들어야 하는 "바꿔야 하는" 경우다.
+
+**제약.** BBANANA MCP는 로컬 파일을 base64로 응답에 실어야만 올릴 수 있어(06 raw 962KB
+→ 1.3M자) 이 세션에서는 업로드가 불가능하다. 대신 Codex가 올려둔 07 의미 수정본
+`mcp-62e869ee…png`(승인 07 raw의 배경제거 전 이미지, Codex ledger상 rejected 출력)를
+편집 베이스로 썼다. 이 입력은 main 계약(allowlist·approved 출력만)에도, Codex 계약
+(rejected는 거절 원인 1회 수정만)에도 맞지 않는 **계약 밖 파일럿**이라 provenance ledger에
+넣지 않고 여기에만 기록한다.
+
+**호출.** ① Nano Banana Pro 2K, task `5s4yz9dxxsrmt0d01vk9r5a5mr`, 4 credit — 프롬프트의
+"isometric" 때문에 카메라가 진짜 등각으로 회전, 정사각 캔버스 → 거절(구조 자체는 앞·뒤 7개씩
++네 모서리 정확). ② 카메라 고정을 강조하고 21:9, task `37b9a8db8e464886b135e89cc2802adc`,
+4 credit → 정면 시점 유지, 앞줄 7+뒷줄 7+뒷보+양끝 옆보. RGB
+`bbanana/1786956611650.jpg`(sha256 `1942bfb3…8019e`). ③ Recraft Remove Background,
+task `a32dbb690bb77da47fcce53d9390e531`, 0.3 credit → 3168×1344 RGBA true alpha
+`bbanana/1786956765279.png`(sha256 `7436ea46…0cf2`). 잔액 921.3→913.0. 산출물은
+스크래치와 BBANANA 저장소에만 있고 repo에는 넣지 않았다.
+
+**결과.** main 합성기 단독 합성은 통과(chroma 0·socket 밖 0·decode 2.93·282KB). 그러나
+정규화 후 골조 상단이 y=40(Codex 07은 108)으로 **비율이 1.6배 높은 개방형 골조**가 됐고,
+Codex 08~10 후보는 상단이 그보다 낮아 stack이 "추가 픽셀 0"으로 실패한다. 즉 뒷기둥을
+넣으면 06′·07′만이 아니라 08~10도 새 계보로 다시 만들어야 하고, 01~04·11~16은 원래 없다.
+
+**남긴 결정(Jin).** (1) 골조 비율: 07′처럼 높게 갈지, Codex 06 비율(낮은 기둥)로 프롬프트를
+조정할지. (2) 계보 시작점: 계약에 맞추려면 Jin이 bbanana.ai에 승인 06/07 raw를 직접 올리거나
+allowlist(`sarangchae.png`)에서 05부터 새로 시작해야 한다. (3) 규모: 05~10 재생성 ≈ 6장 ×
+4.3 ≈ 26 credit + 거절분, 01~04·11~16 추가 10장. 승인은 장마다 Jin 육안이다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — A1 합성기 누적 stack 모드 + Codex 코드 검토 + 이미지 판정
 
 **왜.** Jin이 (1) Codex가 만든 A1 파이프라인 코드가 정상인지, (2) A1 이미지를 다시 만들어야
