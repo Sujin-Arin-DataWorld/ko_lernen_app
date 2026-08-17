@@ -28,7 +28,9 @@ void main() {
       kA1HanokEmptySiteAsset,
       '${kA1HanokRuntimeStateRoot}01_site_setout.webp',
     ]);
-    expect(find.byType(Image), findsOneWidget);
+    expect(find.byType(Image, skipOffstage: false), findsNWidgets(2));
+    await tester.pump();
+    expect(key.currentState!.residentProviders, hasLength(2));
   });
 
   testWidgets('keeps a three-frame window and evicts stale neighbors', (
@@ -47,6 +49,9 @@ void main() {
       '${kA1HanokRuntimeStateRoot}08_purlins_sangnyang.webp',
       '${kA1HanokRuntimeStateRoot}09_rafters_roof_frame.webp',
     ]);
+    expect(find.byType(Image, skipOffstage: false), findsNWidgets(3));
+    await tester.pump();
+    expect(key.currentState!.residentProviders, hasLength(3));
 
     await tester.pumpWidget(
       _host(
@@ -54,11 +59,13 @@ void main() {
         width: 600,
       ),
     );
-    await tester.pump();
+    await tester.pumpAndSettle();
     expect(key.currentState!.residentAssetPaths, [
       '${kA1HanokRuntimeStateRoot}15_changho_finish.webp',
       '${kA1HanokRuntimeStateRoot}16_landscape_move_in.webp',
     ]);
+    expect(find.byType(Image, skipOffstage: false), findsNWidgets(2));
+    expect(key.currentState!.residentProviders, hasLength(2));
   });
 
   testWidgets('rebuilds the decode hint when width or DPR changes', (
@@ -72,6 +79,7 @@ void main() {
         devicePixelRatio: 2,
       ),
     );
+    await tester.pump();
     await tester.pump();
     expect(key.currentState!.decodeCacheWidth, 780);
 
@@ -87,6 +95,7 @@ void main() {
       ),
     );
     await tester.pump();
+    await tester.pump();
     expect(key.currentState!.decodeCacheWidth, kA1HanokCanvasWidth);
   });
 
@@ -100,6 +109,7 @@ void main() {
       ),
     );
     await tester.pump();
+    expect(find.byType(Image, skipOffstage: false), findsNWidgets(3));
     expect(find.byIcon(Icons.landscape_outlined), findsOneWidget);
 
     await tester.pumpWidget(

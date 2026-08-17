@@ -17,8 +17,8 @@ footprint 연속성 gate, 승인 ledger lineage, 16개 원자 승격과 sourceSh
 **검증.** Python pipeline 13/13, `check_personal_hanok_assets.py` exit 0,
 Flutter 집중 회귀 42/42, `flutter analyze --no-pub --fatal-infos` No issues,
 `git diff --check` 통과. A1 runtime/pubspec는 비어 있고 QA composite는
-`assets_unused/pending_review`만 읽는다. PR3는 Play Internal 자동 업로드
-결정 없이 병합하지 않는다.
+`assets_unused/pending_review`만 읽는다. 구현 커밋 `0398bc5`. PR3는 Play
+Internal 자동 업로드 결정 없이 병합하지 않는다.
 
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR3 상태·projection 기반
 

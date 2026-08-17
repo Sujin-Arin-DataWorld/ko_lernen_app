@@ -15,10 +15,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from hanok_v1_asset_contract import (
     ROOT,
     allowed_input_digests,
+    approved_output_digests,
     camera_geometry,
     layer_contract,
     load_provenance,
     sha256_file,
+    site_base_input,
 )
 
 
@@ -133,6 +135,10 @@ def normalize_layer(
     if raw.size == (socket_width, socket_height):
         bbox = _alpha_bbox(raw)
         _require(bbox is not None, "socket layer is fully transparent")
+        _require(
+            bbox[0] <= local_anchor[0] <= bbox[2],
+            "normalized layer does not cover the local anchor",
+        )
         return raw
 
     bbox = _alpha_bbox(raw)
@@ -229,13 +235,10 @@ def _outside_mask(size: tuple[int, int], socket: dict[str, int]) -> Image.Image:
 
 def _changed_pixels(left: Image.Image, right: Image.Image, mask: Image.Image) -> int:
     difference = ImageChops.difference(left.convert("RGB"), right.convert("RGB"))
-    extrema = ImageChops.multiply(difference.convert("L"), mask).getextrema()
-    if extrema is None or extrema[1] == 0:
-        return 0
     return sum(
         1
-        for pixel, keep in zip(difference.convert("L").getdata(), mask.getdata(), strict=True)
-        if keep and pixel > 0
+        for rgb, keep in zip(difference.getdata(), mask.getdata(), strict=True)
+        if keep and rgb != (0, 0, 0)
     )
 
 
@@ -275,20 +278,29 @@ def compose_state(
     payload = provenance or load_provenance()
     geometry = camera_geometry(payload)
     contract = layer_contract(payload)
-    site_base = Path(base_path or ROOT / payload["allowedModelInputs"][0]["path"])
-    expected_base_sha = payload["allowedModelInputs"][0]["sha256"]
+    base_record = site_base_input(payload)
+    site_base = Path(base_path or ROOT / base_record["path"])
+    expected_base_sha = str(base_record["sha256"])
     if base_path is None:
         _require(
             sha256_file(site_base) == expected_base_sha,
             "site base SHA-256 no longer matches the provenance allowlist",
         )
     if require_lineage:
+        digest = sha256_file(raw_path)
         allowed = allowed_input_digests(payload)
-        ledger_path = input_ledger_path or str(raw_path.relative_to(ROOT))
+        if input_ledger_path:
+            path_ok = allowed.get(input_ledger_path) == digest
+        else:
+            try:
+                ledger_path = str(raw_path.resolve().relative_to(ROOT))
+            except ValueError:
+                path_ok = False
+            else:
+                path_ok = allowed.get(ledger_path) == digest
         _require(
-            allowed.get(ledger_path) == sha256_file(raw_path)
-            or sha256_file(raw_path) in allowed.values(),
-            "raw layer SHA is not an allowlisted or previously approved output",
+            path_ok or digest in approved_output_digests(payload),
+            "raw layer SHA is not an allowlisted path or previously approved output",
         )
 
     raw = _load_rgba(raw_path)

@@ -179,10 +179,8 @@ def _check_a1_runtime_states(*, required: bool) -> list[str]:
         errors: list[str] = []
         if source_format(path) != "WEBP":
             errors.append(f"format={source_format(path)}, expected=WEBP")
-        if image.mode not in {"RGB", "RGBA"}:
+        if image.mode != "RGB":
             errors.append(f"mode={image.mode}, expected RGB")
-        if image.mode == "RGBA" and any(alpha != 255 for alpha in _corners(image)):
-            errors.append("A1 runtime states must be opaque RGB")
         if image.size != (
             geometry["canvas_width"],
             geometry["canvas_height"],

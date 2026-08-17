@@ -26,6 +26,14 @@ class PromotionError(ValueError):
     """Fail-closed A1 runtime promotion."""
 
 
+def _chroma_count(image: Image.Image) -> int:
+    return sum(
+        1
+        for red, green, blue in image.convert("RGB").getdata()
+        if (red, green, blue) == (0, 255, 0)
+    )
+
+
 def _validate_state(path: Path, geometry: dict[str, int], hard_max: int) -> None:
     if not path.is_file():
         raise PromotionError(f"missing approved QA state {path}")
@@ -36,8 +44,10 @@ def _validate_state(path: Path, geometry: dict[str, int], hard_max: int) -> None
         raise PromotionError(f"{path} must be WebP, got {fmt}")
     if image.size != (geometry["canvas_width"], geometry["canvas_height"]):
         raise PromotionError(f"{path} has the wrong canvas")
-    if image.mode not in {"RGB", "RGBA"}:
-        raise PromotionError(f"{path} must be RGB")
+    if image.mode != "RGB":
+        raise PromotionError(f"{path} must be opaque RGB, got {image.mode}")
+    if _chroma_count(image):
+        raise PromotionError(f"{path} contains #00ff00 chroma-key pixels")
     if path.stat().st_size > hard_max:
         raise PromotionError(f"{path} exceeds the hard byte cap")
 
@@ -77,6 +87,17 @@ def promote_states(
     approved = collect_approved_states(qa_root=qa_root)
     destination = runtime_root or A1_RUNTIME_STATES_ROOT
     copied = []
+    expected_names = {path.name for path in approved}
+    if destination.is_dir():
+        leftovers = [
+            child.name
+            for child in destination.iterdir()
+            if child.is_file() and child.name not in expected_names
+        ]
+        if leftovers:
+            raise PromotionError(
+                "runtime A1 directory has leftover files: " + ", ".join(sorted(leftovers))
+            )
     if dry_run:
         return [path.name for path in approved]
     destination.mkdir(parents=True, exist_ok=True)

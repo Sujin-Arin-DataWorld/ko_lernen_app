@@ -396,6 +396,23 @@ void main() {
       );
     });
 
+    test('resolves the site base by role, not allowlist index', () {
+      final inputs = _objects(
+        manifest['allowedModelInputs'],
+        'allowedModelInputs',
+      );
+      final siteBases = [
+        for (final input in inputs)
+          if (_string(input['role'], 'allowedModelInputs.role') == 'site_base')
+            input,
+      ];
+      expect(siteBases, hasLength(1));
+      expect(
+        _string(siteBases.single['path'], 'site_base.path'),
+        'assets/illustrations/personal_hanok_v2/map/site_base_light.png',
+      );
+    });
+
     test('does not register unapproved A1 states or the QA composite in pubspec', () {
       final pubspec = File('pubspec.yaml').readAsStringSync();
       expect(pubspec.contains('personal_hanok_v2/a1/'), isFalse);

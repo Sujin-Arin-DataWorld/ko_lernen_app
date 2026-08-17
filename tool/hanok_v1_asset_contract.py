@@ -97,6 +97,18 @@ def layer_contract(provenance: dict[str, Any] | None = None) -> dict[str, Any]:
     return contract
 
 
+def site_base_input(provenance: dict[str, Any] | None = None) -> dict[str, Any]:
+    payload = provenance or load_provenance()
+    matches = [
+        item
+        for item in payload["allowedModelInputs"]
+        if item.get("role") == "site_base"
+    ]
+    if len(matches) != 1:
+        raise ValueError("provenance must declare exactly one role=site_base input")
+    return matches[0]
+
+
 def allowed_input_digests(provenance: dict[str, Any] | None = None) -> dict[str, str]:
     payload = provenance or load_provenance()
     allowed = {
@@ -108,6 +120,16 @@ def allowed_input_digests(provenance: dict[str, Any] | None = None) -> dict[str,
             if output.get("decision") == "approved":
                 allowed[output["path"]] = output["sha256"]
     return allowed
+
+
+def approved_output_digests(provenance: dict[str, Any] | None = None) -> set[str]:
+    payload = provenance or load_provenance()
+    return {
+        output["sha256"]
+        for record in payload.get("generationLedger", {}).get("records", [])
+        for output in record.get("outputAssets", [])
+        if output.get("decision") == "approved" and isinstance(output.get("sha256"), str)
+    }
 
 
 def runtime_path_is_forbidden(path: str) -> bool:
