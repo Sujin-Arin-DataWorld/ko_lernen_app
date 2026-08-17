@@ -79,6 +79,8 @@ jobs:
       book: ${{ steps.scope.outputs.book }}
       gye: ${{ steps.scope.outputs.gye }}
       pronunciation: ${{ steps.scope.outputs.pronunciation }}
+      flutter_test_mode: ${{ steps.flutter_tests.outputs.flutter_test_mode }}
+      flutter_tests: ${{ steps.flutter_tests.outputs.flutter_tests }}
     steps:
       - name: Checkout with comparison history
         uses: actions/checkout@v4
@@ -110,6 +112,23 @@ jobs:
           CI_MANUAL_TASK: ${{ inputs.task || 'ci' }}
         run: python3 .github/scripts/ci_scope.py
 
+      # Pull requests run only the tests whose Dart import closure touches the
+      # change (plus the always-on guards); main pushes and manual runs keep the
+      # full suite. Content, l10n, pubspec, goldens and platform changes fall
+      # back to the full suite because no import edge protects them.
+      - name: Select Flutter tests for this event
+        id: flutter_tests
+        env:
+          CI_EVENT_NAME: ${{ github.event_name }}
+          CI_BEFORE_SHA: ${{ github.event.before }}
+          CI_SHA: ${{ github.sha }}
+          CI_PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CI_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          CI_REF_NAME: ${{ github.ref_name }}
+          CI_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          CI_MANUAL_TASK: ${{ inputs.task || 'ci' }}
+        run: python3 .github/scripts/select_flutter_tests.py
+
   website:
     name: Website source and Worker release gate
     needs: changes
@@ -139,7 +158,11 @@ jobs:
   build:
     name: Analyze & Build
     needs: changes
-    if: needs.changes.outputs.app == 'true'
+    # Draft pull requests do not spend Actions minutes; mark ready for review
+    # (or push to main) to run the gate.
+    if: >-
+      needs.changes.outputs.app == 'true' &&
+      (github.event_name != 'pull_request' || github.event.pull_request.draft == false)
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -171,9 +194,21 @@ jobs:
       - name: Analyze (error 0 강제 · warning·info 허용)
         run: flutter analyze --no-fatal-warnings --no-fatal-infos
 
-      # responsive/source guards까지 포함한 전체 회귀 그물이다.
+      # main과 수동 실행은 responsive/source guards까지 포함한 전체 회귀 그물이다.
+      # pull_request는 changes 잡이 고른 import-closure 테스트 + 상시 가드만 돈다.
       - name: Test
-        run: flutter test
+        env:
+          FLUTTER_TEST_MODE: ${{ needs.changes.outputs.flutter_test_mode }}
+          FLUTTER_TESTS: ${{ needs.changes.outputs.flutter_tests }}
+        run: |
+          set -euo pipefail
+          if [[ "$FLUTTER_TEST_MODE" == "scoped" && -n "$FLUTTER_TESTS" ]]; then
+            echo "Scoped pull_request run: $FLUTTER_TESTS"
+            # shellcheck disable=SC2086
+            flutter test $FLUTTER_TESTS
+          else
+            flutter test
+          fi
 
       - name: Upload golden failure diffs
         if: failure()
@@ -184,7 +219,10 @@ jobs:
           if-no-files-found: ignore
           retention-days: 3
 
+      # Web release build proves the tree compiles for the web target; main and
+      # manual runs pay for it, pull requests rely on analyze + scoped tests.
       - name: Build web (release)
+        if: github.event_name != 'pull_request'
         run: flutter build web --release
 
   release-internal:

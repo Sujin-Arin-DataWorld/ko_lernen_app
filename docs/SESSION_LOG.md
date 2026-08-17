@@ -1,5 +1,27 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — PR CI를 범위 테스트로 줄이고 draft는 건너뜀
+
+**왜.** 잡별 실행 시간을 합산하니 8월 Actions 사용량이 약 3,051분(Pro 3,000분 초과)이고
+그중 Analyze & Build가 2,280분이다. 전체 `flutter test` 3,840개 + web 빌드(약 16분)가
+PR 브랜치 push마다·main merge마다 돌았고, 08-15~17 사흘에 1,086분을 썼다. Jin이 "PR은
+변경 범위 테스트만/draft는 안 돌리기, main만 전체"로 고치라고 했다.
+
+**무엇.** `.github/scripts/select_flutter_tests.py`(신규): `pull_request`에서만 변경 파일의
+Dart import 폐포(`package:ko_lernen_app/`·상대 import·export·part·조건부 import)에 걸리는
+`test/**/*_test.dart` + 상시 가드 4개를 고른다. `assets/**`·`lib/l10n/**`·`pubspec*`·
+`analysis_options.yaml`·`l10n.yaml`·`dart_test.yaml`·`test/goldens/**`·플랫폼 폴더가 바뀌면
+전체로 되돌리고, 오류는 fail-open(전체)이다. `changes` 잡이 `flutter_test_mode`/`flutter_tests`
+outputs로 넘기고, `build` 잡은 draft PR을 건너뛰며(`github.event.pull_request.draft == false`)
+scoped면 그 목록만 `flutter test`, PR에서는 `flutter build web`을 생략한다. push/dispatch는
+불변. `test_select_flutter_tests.py`가 분류·import 해석·폐포 선택·워크플로 배선을 잠근다.
+
+**검증.** `.github/scripts` 32/32(신규 14 포함), YAML 파싱, `git diff --check`. 최근 diff로
+드라이런: Dart만 바뀐 이번 push는 5개 테스트(11초), 콘텐츠를 만진 #50·#54 유형은 전체 유지.
+Actions는 billing 차단이라 원격 검증은 Jin이 한도를 푼 뒤 첫 PR에서 확인한다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — 잔여 브랜치 전수 감사 + Codex A1 파일럿 무손실 병합
 
 **왜.** Jin이 Cursor의 #50–#57 병합 결과와 남은 브랜치 전부를 검증하고, CI를

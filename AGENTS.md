@@ -477,6 +477,15 @@ Cloudflare 앱은 같은 PR 이벤트로 자기 체크를 붙였기 때문에 "�
 관련 게이트를 보수적으로 함께 연다. 일반 Markdown/세션 로그만 바뀐 push/PR은 run 자체를
 만들지 않는다.
 
+**PR은 범위 테스트, main은 전체 (2026-08-17, Actions 3,000분 소진 뒤 도입).**
+`pull_request`의 Analyze & Build는 (1) draft PR이면 아예 돌지 않고, (2) `changes` 잡의
+`.github/scripts/select_flutter_tests.py`가 변경 파일의 Dart import 폐포로 고른 테스트 +
+상시 가드 4개(`typography_guard`·`l10n_parity`·`arb_l10n_guard`·`sori_activity_catalog`)만
+돌리며, (3) `flutter build web`을 생략한다. `assets/**`·`lib/l10n/**`·`pubspec*`·
+`analysis_options.yaml`·`test/goldens/**`·플랫폼 폴더가 바뀐 PR은 import 간선이 못 지키므로
+전체 suite로 되돌아간다. `main` push와 `workflow_dispatch`는 예전처럼 전체 suite + web 빌드다.
+즉 PR에서 초록이어도 merge 뒤 main run이 최종 그물이며, 선택기 오류는 fail-open(전체)이다.
+
 - 의존 범위를 확신할 수 없는 교차 계층 변경이나 명시적 최종 전체 점검만 `task=full`.
 - 골든 기준선을 실제로 교체할 때만 `task=regenerate-goldens`; 일반 CI와 중복 실행되지 않는다.
 - 같은 SHA의 자동 run과 수동 run을 둘 다 만들지 않는다. 새 코드 변경 없이 재시도할 때는
