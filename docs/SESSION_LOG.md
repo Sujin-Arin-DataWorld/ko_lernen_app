@@ -53,6 +53,152 @@ live 래칫용 particlePop+satzBauen을 넣었다. 카운트 테스트·can-do
 
 **커밋해시.** 이 로그와 같은 커밋.
 
+### 2026-08-17 (Claude, Windows) — 한옥 V1 학습경로↔외관·사랑방 매핑 + 부품 키트 파이프라인 재검토 (설계 승인, 구현 시작)
+
+**왜.** Jin: "한옥 짓기 콘텐츠를 대충 만들 생각 없다 — 비바샘·서울한옥포털·hanokdb 세 사이트를 이잡듯이 뒤져서
+한옥 외관과 사랑방 내부 꾸미기를 레벨별 학습경로에 잇는 계획, 만들 이미지 목록, 제작법, 같은 기초 위에 스타일
+변화 없이 쌓아 올리는 방법을 다시 검토하라."
+
+**조사.** hanokdb `sub_04`(6탭 전문: 12공정·목구조 조립·지붕·온돌·마루·창호·천장), `sub_02`·`sub_03`·용어사전
+PDF(한자·영문), 서울포털 tab1·2, 비바샘 themeTour_5 4탭 전문을 확보(sub_04_01~05·sub_02_01 등은 404, 탭에 포함).
+현재 A1 16단계 ID가 hanokdb 12공정과 정확히 정합함을 확인. 코드베이스는 86 segment·86 grant 초안·A1 파이프라인·
+room-v3·에셋을 실측(리뷰 에이전트 포함). `sarangchae.png` 소켓 기하 실측: 앞기둥 8구간
+[53–68][161–181][273–291][356–374][478–498][562–580][672–691][784–799](칸 폭 110.5/111/83/123/83/110.5/110),
+기와 ≤y132·창방 y145~156·벽 y157~228·하방 y229~238·기단 윗면 y252~263·면 y264~292·계단 y293~306,
+카메라는 중앙 원근(기단 옆모서리 36행에 ±34px 수렴, d=16). base+sarangchae WebP q82 = 280,610B.
+
+**설계(승인됨).** `docs/superpowers/specs/2026-08-17-living-hanok-v1-mapping-kit-pipeline-design.md`.
+핵심: ① 6시대=6공간층(A1 사랑채 외관 16 / A2 사랑방 가구 12+살림 흔적 4 / B1 대문·행랑·안채 3~4단계
+prerequisite 체인 / B2 대청·사당·후원·마당 구조물+택일 옵션 4 / C1 계절 designOption·증표 / C2 벽감 서가 문집);
+② 생성 모델은 부품만, 승인 완성 사랑채에서 기하 역분해 + Python 컴포지터 결정론 합성(kit anchor·구조 recall 1.0·
+포함·계보 규칙 신설); ③ 결정 D1~D7 기본값(A1-11 기와 rename, 사랑방 처음부터 열림 + projector openedVenues 기본
+포함, furnishing kind 신설, allowlist 확장 전 생성 금지 등). 리뷰 2축(실현성/계약)의 블로커 2·major 다수를 반영.
+§4.7 확장 규칙: 콘텐츠 추가 → 매핑 무영향, 새 can-do → 소품 1장짜리 grant 1행 authoring.
+
+**구현(이 세션, PR4b-1).** 아래 항목이 이어서 기록된다.
+
+**커밋 안 함.** Jin 요청 시에만. BBANANA 미사용(잔액 900.7).
+
+### 2026-08-17 (Claude, Windows) — A1 자기소개 캐스트·음성 수리 + TTS 결손 1,190개 합성·배포
+
+**왜.** Jin이 실기기에서 A1 «Sich vorstellen»(`introduce_yourself`, 7문항)을 돌며 세 가지를
+지적했다 — 1번 `저는 현우예요.`가 기계음, 6번은 화면이 `안녕`인데 음성은 `안녕하세요`이고
+아주 늦게 나옴, 1·6·7번의 빨간 표시가 "틀렸다는거야 뭐야". 원인이 셋 다 달랐고, 그중 하나는
+8/14~8/17 병합분 전반의 구조적 결손이었다.
+
+**무엇을.**
+
+1. **캐스트 오류** — 인트로는 "새 동료 현우를 만난다"인데 학습자(`speaker: "user"`) 대사가
+   `저는 현우예요`였다. `[이름]` 자리를 `현우예요`로 굳힌 뒤(`fix_quest_audio_text.py:54`)
+   NPC가 민수→현우(`1a8ae36d`)로 개명되며 동명이인이 됐다. Jin 확정 규칙 **남자=현우(NPC) /
+   여자=레나(학습자)** 로 3곳을 고쳤다: `introduce_yourself` dialog[1]·quest_01 suffix,
+   `hotel_checkin` dialog[1]. NPC가 말하는 `저는 현우예요` 2곳(`phone_messenger_reply`,
+   `titles_relationship_distance`)은 정상이라 유지했다. `레나`도 모음 끝이라 1번의 문법
+   포인트(`저`+`는`, `예요`)와 해설은 그대로다.
+2. **음성/표시 불일치** — `quest_introduce_yourself_04`의 `audioKo`를 `안녕하세요`→`안녕`으로
+   고쳤다. `batchimDrop`은 앱 전체에 이 1개뿐이고 359개 퀘스트 전수 검사에서도 이것만 걸렸다.
+3. **정답 공개 색 분리** — `quest_flow.dart:345`가 `resolved ? success : danger` 2분기라,
+   2회 오답·"모르겠어요"로 **정답이 자동 공개**될 때 공개된 정답 글자·트레이·해설이 전부 오답
+   빨강으로 칠해졌다. `danger`→`warning`(단청 황 #D4A22E)으로 바꿔 7개 엔진에 일괄 적용하고,
+   `batchim_drop_quest.dart`에 `_resolvedAccent` getter를 두어 음절·슬롯·트레이도 맞췄다.
+   오답 순간의 200ms 빨간 플래시와 `SoundService.wrong()`, 채점 결과(`passed`·XP·SRS)는 유지.
+4. **TTS 결손 배포** — TTS 주소가 `sha1("{voice}|{text}")`라 `1a8ae36d`(개명 1,244줄)·
+   `6a2c3811`(카피 재작성 4,075줄)·`83b38658`(partner-family 라이브 승격 +43,776줄)이 기존
+   mp3를 전부 고아로 만들었는데, TTS는 Batch 05(`847eee9a`) 이후 재생성된 적이 없었다.
+   원격 실측 결과 expected 7,491 / remote 6,376 / **missing 1,190** — 앱이 말해야 할 문장의
+   약 16%가 유료 CF 동적합성이거나 OS 기계음이었다. 텍스트를 먼저 고친 뒤 합성했다.
+5. **재발 방지 가드 3건** — `learner_copy_scan_test`: user 화자가 NPC 이름으로 자칭 금지
+   (3인칭 `현우 씨가…`는 허용). `scenario_quest_catalog_integrity_test`: `batchimDrop`은
+   `audioKo == targetWord`. `quest_explicit_flow_test`: 정답 공개 해설은 `SoriColors.warning`.
+
+**검증.** `flutter test` 관련 스위트 **148개** + `quest_explicit_flow` **16개** 통과.
+`flutter analyze --no-pub --fatal-infos` 변경 6파일 No issues found.
+`tools/content_factory/validate_content.py` OK. 새 가드 3건은 **수정 전 데이터(`git show HEAD:`)
+로 돌려 정확히 4건(자칭 3 + 음성 불일치 1)을 잡는 것**까지 확인해 비공허성을 증명했다.
+TTS는 429 한도 때문에 3라운드로 나눠 합성했다(168 → 977 → 45 = **1,190개**, `--workers 4`
+1회 뒤 `--workers 1` 2회). `polish_tts.py`가 신규 1,224개만 다듬었고(평균 0.296s 절단, 기존
+5,809개는 무변경 = 멱등) 재업로드했다. 최종 `--verify-storage`는
+**expected 7,491, remote 7,566, missing 0, stale 75**. stale 75(구 민수 음성 등)는 immutable
+정책상 삭제하지 않았다. rsync에 `--delete` 플래그가 없어 추가·덮어쓰기만 했다.
+
+**남은 게이트.** ① 실기기 확인 전 **앱 캐시를 비워야 한다** — 파일명이 콘텐츠 해시라 기기에
+받아둔 옛 mp3가 자동 무효화되지 않는다. release 빌드라 `run-as`는 못 쓰고 설정 → 앱 →
+Hangul Sori → 저장공간 → 캐시 삭제로 한다. ② 6번의 "늦게 나온다"는 `안녕하세요`가 원격에
+정상 존재하고 로컬과 바이트가 같아 파일 문제가 아니다. `resolveFile`은 `_serialize` 밖에서
+돌고 새 `speak()`가 이전 것을 취소하므로 1번의 12초 CF 대기가 6번을 막는 구조도 아니다.
+프리페치·워밍업이 어디에도 없어(`prefetch|precache|warmUp` 0건) 첫 재생이 Storage 다운로드를
+끝까지 기다린다 — 캐시를 비운 뒤 재측정해 남으면 시나리오 진입 시 프리페치를 넣는다.
+③ `--verify-storage`를 릴리스 체크리스트 차단 항목으로 승격해야 한다. 콘텐츠만 병합되고
+음성이 빠지는 이번 사고를 잡는 유일한 자동 검사인데 CI에 없다. ④ 앱 데이터·UI 변경의
+사용자 반영은 Actions billing 차단 해제 뒤 AAB 릴리스가 필요하다(TTS 업로드는 CI와 무관하게
+이미 완료).
+
+**커밋해시.** 코드·데이터·가드 `9e531ea6`, 문서 `caa67444`. TTS mp3 1,190개는 저장소가
+아니라 `gs://ko-lernen-app.firebasestorage.app/tts/v3` 에 올라가 있다(`.tts_pregen/` 은 gitignore).
+
+### 2026-08-17 (Claude, Windows) — 병합 파도 전수 감사(3a586963→fe2c589c) + 아키텍트 투어: 새 테마 콘텐츠 품질 결함 발견
+
+**왜.** Jin이 "여러 브랜치를 main에 병합한 것에 문제가 없는지, 새 레벨별 데이터·새 테마가 잘
+트리거되는지, 각 브랜치가 무슨 작업이었고 지금 어떻게 동작하는지" 전부 파악하고 `/ecc:code-tour`를
+요청했다. PR #27(`3a586963`) 이후 병합 ~50개(Cursor ~22 브랜치·Codex 브랜치·PR #28~#31·#43·
+#50~#59)를 7그룹(콘텐츠 배치/새 테마·DE/EN 카피·단어망·Vokabelheft·백엔드 TTS/계정·한옥 V1·
+UI/릴리스/CI)으로 나눠 분석하고, 레벨 트리거 추적·병합 위생 점검을 교차로 돌린 뒤 high/medium
+리스크 8건을 각 2명의 반박 검증에 붙였다(16/16 "반박 실패"). 감사 중 main이 계속 움직였다:
+`5fd243d5`(A1 계약 5구멍)·PR #59(`6b95be91`)·`b63a5753`/`fe2c589c`.
+
+**병합 자체는 깨끗하다.** 충돌 마커 0, Cursor/Codex 병렬 구현 중복 0(한옥 A1 catalog·compositor·
+provenance JSON·단어망 로더·레벨 helper 각 1개), ARB DE/EN 2,125/2,125 대칭·중복 0·placeholder
+불일치 0·신규 292키 generated 동기, 새 하드코딩 UI 문자열 0, pubspec↔assets 고아 0, `git diff
+--check` 코드 0. 로컬 전체 게이트(원격 CI는 billing 차단): `flutter analyze --no-pub
+--fatal-infos` No issues, `flutter test --no-pub` **3,839 통과 / 14 skip / 1 실패**
+(`productive_catalog_contract_test` 30s timeout — 병렬 감사 부하 중; 단독 재실행 1초 통과),
+`tool/` unittest 71/71, `.github/scripts` 32/32, `build_hanok_grants.py --check` OK.
+
+**레벨 트리거는 정상.** 정본 파서 `LearnerLevel.fromCode`; 저장 3키(`kl_user_level`·placement·
+browse); exact 계약 helper `ReviewDeckService.todaySelectionForLevel`(review_deck_service.dart:93),
+`PersonalizedLessonService.buildVocabDeck/pickSmalltalk`(exact가 비면만 누적 폴백); exact 시작:
+단어팩·Cloze/Satz·Smalltalk·문법·오늘 단어, 누적: 시나리오·발음·단어망·끝말잇기·데일리. Python
+재계산 = AGENTS 수치(vocab 1620·cloze 962·satz 875·smalltalk 365·scenario 90·quest 359·pron 20·
+word-web 66·can-do 86), curriculum_manifest dangling 0, 90 시나리오 전부 level=unit level. 새 테마
+(partner_family)는 6레벨 모두에 실제 행이 있고 vocabPackUnitMap 36·contentLinks 28·
+smalltalkCategoryUnitMap 6키로 코스 그래프에 연결돼 A1~C2 어디서든 도달한다.
+
+**결함(검증 완료).** ① **high — 새 테마 smalltalk 72문구 전부 템플릿 비문**(KO/DE/EN):
+`smalltalk_a1_0065` "첫 인사와 호칭에서 인사드리겠습니다 어떻게 말해요?" / "Wie sage ich ich werde
+mich höflich vorstellen bei Erste Begrüßung und Anrede?"; 36개 `<팩라벨>에서 <표제어> 어떻게
+말해요?` + 36개 `<표제어> 때문에 어색하면 뭐라고 해요?`, reply/followUp 동일 반복. 출처
+`build_batch_07_partner_family.py:293`, 승격 `integrate_review_batches.py --apply --approve-all`
+(:742-743이 상태=approved·`jin_memo` 날짜 2026-08-15 하드코딩). ② **high — 파트너 시나리오 28편 중
+26편 필러 대사 공유**(224줄 중 distinct 67, 7문장이 각 14편; 나머지 62편은 386줄 중 378 distinct);
+퀘스트가 필러에서 파생; C2 `c2_partner_document_the_place`는 NPC 1줄 빼고 전부 필러. ③ medium —
+파트너 Cloze/Satz distractor 고정 풀 순환(cloze 10종·satz 6쌍), 명사 정답에 부사 보기, 어간 조각
+정답(`인사드`). ④ medium — 파트너 시나리오 단어 스테이지 168/168 note 없음(한국어만 표시).
+⑤ medium — 새 한국어 ~1,170개 TTS 사전생성 corpus 밖(6,321→collect 7,491). ⑥ medium — Vokabelheft
+8,000단어 상한 vs 계정 조정 512KB·클라우드 1MiB(`custom_pack_import_service.dart:7` vs
+`custom_pack_service.dart:31`). ⑦ medium — 설정 레벨 변경이 `kl_user_level`만 갱신
+(`settings_screen.dart:1424`), browse/placement 미갱신. ⑧ medium — AGENTS.md:358 PR3 '미병합'이나
+`64b7e24a`는 HEAD 조상. ⑨ low~medium — 파트너 팩 DE 라벨 9개 ASCII 움라우트(`Gespraech`·`Ueber`·
+`Hoeflichkeit`…)+`Zimmgrenze` 오타(`vocab_pack_service.dart:265-288`), scenarios.json `Danke fuer`
+2건, grammar.csv 3행; `tool/build_word_relations.py:2258` em dash 잔존(재생성 시 가드 실패); CI
+선택기 사각지대(소스 스캔 가드 8개·비-Dart 입력); `b63a5753`이 `.claude/data/**/*.sqlite`와
+`.mvn/`을 커밋. 미검증(상한 밖) medium 15건은 투어 18스텝과 워크플로 결과에 남겼다.
+
+**미병합 브랜치 경고.** `origin/cursor/apply-4x-batch-09-10-3cd5`(`56a0fbd7`)는 Batch 09/10을 live
+자산에 넣어 시나리오 90→264인데 새 174편 전부 첫 대사에 영문 슬러그(`… post queue 상황을 짧게 말해
+주세요.`)·`우체국 줄가` 조사 오류 — **사람이 읽기 전 병합 금지**. `origin/cursor/hanok-codex-ports-
+tts-kurs-e988`는 현재 main과 10파일 충돌(TTS/단어망은 #59가 상위 호환, 한옥은 `5fd243d5`의 TalkBack
+l10n 수정을 되돌림) — 닫는 쪽 권고.
+
+**투어.** `.tours/architect-merged-main-20260817.tour`(ref 없음=디스크, 18스텝): 병합 기록 → 레벨
+파서·3키·exact helper·폴백 → 새 테마 팩/코스 그래프/smalltalk 노출·비문 → 생성기·`--approve-all`
+→ 시나리오 필러 → 문제 프레임/모르겠어요 → 카탈로그 계약이 안 보는 것 → 단어망 → 스튜디오 →
+TTS fail-closed와 live 간극 → 한옥 V1 dark-launch → PR 범위 CI → 다음 할 일. 앵커 17개 파일·줄·
+pattern을 스크립트로 검증(HEAD 이동 뒤 재검증). 기존 투어 2개와 범위 분리.
+
+**커밋 안 함.** Jin 요청 시에만. 이 세션이 만진 파일은 `.tours/architect-merged-main-20260817.tour`
+와 이 로그뿐. 워킹트리의 `assets/data/scenarios.json`·`quest_engines/*`·테스트 6개 수정은 다른
+세션 것이라 건드리지 않았다.
+
 ### 2026-08-17 (Cursor) — #59를 main에 머지 (CF 미배포)
 
 **무엇.** `cursor/tts-wait-quota-kurs-e988`을 `18428284` 위로 리베이스했다.
@@ -172,6 +318,45 @@ a1_hanok_construction_map.dart`·`lib/l10n/**`·`test/a1_hanok_construction_map_
 W3 = `.tours/architect-hanok-a1-ledger-gate.tour`. 이 로그는 첫 커밋에 포함. 워킹트리의 `marketing/`·
 `.claude/data/`·`.mvn/`·릴스 로그 항목은 다른 세션 것이라 건드리지 않았다.
 
+### 2026-08-17 (Claude, Windows) — 릴스 v3: clean visual master + AE 텍스트 분리
+
+**왜.** Jin이 v2 4편을 프레임 단위로 검수하고 "문제는 그림이 아니라 거의 전적으로 텍스트 처리"
+라고 지적했다. 흰 글자 + 검은 굵은 외곽선을 화면 중앙에 크게 넣으니 릴스 밈 자막처럼 보였고,
+호랑이 얼굴·까치·한옥 지붕 같은 핵심 비주얼을 계속 덮었다. **원칙 확정: 자막을 영상에 굽지
+않는다. 영상은 글자 0의 clean visual master 로 만들고 모든 카피는 After Effects 의 별도 텍스트
+레이어로 올린다.** 그래야 문구 수정이나 DE/EN/KO 버전에 영상 재생성이 필요 없다.
+
+**에셋 오염 확인.** Jin이 4번 영상에서 본 `Stage 3` / `Beams + Rafters` / `A1 Progress 75%` /
+`16 / 21 packs cleared` / `Next Stage` 는 내가 넣은 자막이 아니라
+**`assets/illustrations/hanok_stages/stage_beams_light.png` 그림 안에 박힌 앱 화면 목업**이었다.
+영어 대사 카드와 브랜드와 다른 초록 한복 호랑이까지 들어 있다. 12장 중 그 한 장만 오염됐고
+나머지 11장은 깨끗하다. 해당 파일을 시퀀스에서 제외했고 README 0번 규칙으로 못 박았다.
+
+**파이프라인.** `render.mjs` 에 clean master 모드(텍스트 큐가 없으면 ASS 자체를 적용하지 않고
+`<id>-master-1080x1920.mp4` 로 출력)와 cover 크롭의 `anchor` 를 넣었다. `build/ae-text.mjs` 를
+신설해 릴스 JSON 의 `ae_text[]` 에서 **After Effects ExtendScript(`<id>-ae.jsx`)와 텍스트
+스펙(`<id>-text-spec.md`)** 을 생성한다. jsx 는 컴프에 텍스트 레이어를 위치·타이밍·이징까지
+만들어 넣는다. 타이포는 Inter SemiBold/Medium, 왼쪽 정렬, 먹색, 외곽선·그림자 금지,
+애니메이션은 opacity 0→100 + Y +16px→0 (0.25~0.35초)만. 문자열은 `\uXXXX` 로 이스케이프해
+ExtendScript 가 시스템 코드페이지로 읽어도 `Tür`·`wächst` 가 깨지지 않게 했다.
+
+**릴스 4편 재작업 (전부 글자 0).** `hanok-waechst-02` 15초(11장 클린 스테이지 크로스페이드 +
+호랑이 우하단 540px), `tiger-elster-01` 12초, `wortpakete-01` 15초, `willkommen-01` 12초.
+시리즈 역할을 캐릭터·콘텐츠·감성·게임화 4축으로 나눴다.
+
+**중간에 잡은 결함 2건.** ① `welcome-hero` 를 `anchor: [0.34, 0.5]` 로 오른쪽에 밀었더니
+**호랑이 어깨 위 까치가 통째로 잘렸다**. 주제가 "호랑이와 까치"인 영상이라 치명적이라
+하단 박스(`box: [0,640,1080,1280]`, `anchor: [0.5,0]`) 방식으로 바꿔 두 캐릭터를 살리고 상단을
+비웠다. ② `tiger-elster-01` 의 `background.sequence` 합이 5.9초뿐이라 3·4번 씬 배경이 통째로
+비었다. 시퀀스를 버리고 레이어 시간순 스택으로 재구성했다. 둘 다 README 규칙으로 남겼다.
+
+**검증.** 렌더 4/4, 각 편 3~4시점 프레임 육안 검수로 글자 0·UI 오염 0·좌상단 여백 확보·
+캐릭터 미절단 확인. AE 산출물은 움라우트 이스케이프를 실제 파일에서 확인했다.
+
+**커밋 안 함.** Jin 요청 시에만.
+
+---
+
 ### 2026-08-17 (Claude, Windows) — A1 07 뒷줄 재생성 시도 4·5 + 기계 합성 07m (누적 20.6 credit)
 
 **호출.** ④ Nano Banana Pro 2K 4:3, 베이스=allowlist 완성 사랑채 `mcp-f523e93f…`,
@@ -237,6 +422,46 @@ SHA만 새로 approved로 기록 — 뒷기둥 결함으로 05~10 계보 자체�
 효력이 없다).
 
 **커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Claude, Windows) — 릴스 v2 풀블리드 재작업 4편 + 렌더러 확장
+
+**왜.** Jin이 v1 3편을 반려했다. 지적 5건을 실제 에셋으로 검증한 결과 전부 사실이었고 원인은
+콘텐츠가 아니라 레이아웃·에셋 선택 판단이었다. ① `hanok_stages/*.png`는 841×1870 세로
+풀스크린용인데 780×560 가로 카드로 넣어 화면의 24%만 썼다. ② 960×960 캐릭터 클립을
+190~540px로 배치했다. ③ `magpie_bob.mp4`는 6.5초에 까치가 프레임 밖으로 날아가는데 파일명만
+보고 골랐다. ④ 물결 배경은 496×864를 2.2배 업스케일한 것이었고 저장소엔 이미 완성된 브랜드
+아트가 여럿 있었다.
+
+**렌더러 확장.** `background.sequence[]`(알파 페이드 크로스페이드 — `xfade` 체인보다 짧고
+안전하다), `background.fill`/`kenburns`, `scrim`(2×64 그라데이션을 확대해 상·하단에 깔아
+화려한 아트 위 가독성 확보), 레이어 `opacity`/`fadeIn`/`fadeOut`, `fit:"cover"`, 그리고
+**`--sheet` 대조 시트 모드**를 넣었다. `--sheet`는 릴스가 참조하는 모든 미디어의 시작·중간·끝
+프레임을 한 장으로 뽑는다. 까치 사고의 직접적 재발 방지책이며 렌더 전 필수 통과 단계다.
+`ass.mjs`는 풀블리드 대응으로 Hook 62→76·Body 46→52·Display 176→200, Shadow 추가,
+`Title`(96) 신설.
+
+**릴스 4편 (v1 3편은 폐기, 큐 초기화).**
+`hanok-waechst-02` 15초 — 한옥 12단계 풀블리드 크로스페이드 + 호랑이 700px 페이오프.
+`wortpakete-01` 15초 — 팩 아트 14종 폭 1080 리듬컷 + 도장 6종 격자 + 까치 600px.
+`willkommen-01` 12초 — 솟을대문·종가·welcome-hero 풀블리드 3연속, 텍스트 최소.
+`tiger-elster-01` 12초 — welcome-hero·hanok_jongga 풀블리드 3연속. 지붕 위 까치가 문구를 그대로 보여준다.
+
+**중간에 폐기한 것.** `fill:"blur"`(흐린 확대본으로 화면 채우기)는 `tiger-elster-01`에서 실제
+렌더해보니 큰 얼룩처럼 보여 폐기하고 중앙 구도 소스 cover 방식으로 바꿨다. 코드 경로는 남겨뒀지만
+README에 쓰지 말라고 명시했다.
+
+**검증.** `--sheet` 4/4 통과(클립이 프레임을 벗어나지 않음을 육안 확인), 렌더 4/4 성공,
+각 편 3시점 프레임 육안 검수(풀블리드·캐릭터 크기·텍스트 가독성·안전영역), `ffprobe` 4편 전부
+1080×1920 / 30fps / yuv420p / aac / 길이 정확. 큐 등록 4건이 승인 전 dry-run에서 아무것도
+내보내지 않음을 확인했다.
+
+**함정 1건 추가 기록.** Windows PowerShell 5.1의 `Set-Content -Encoding utf8`은 BOM을 붙여
+`JSON.parse`를 깨뜨린다(`wortpakete-01.json` 렌더 실패로 실측). JSON은 Edit 도구나
+`UTF8Encoding($false)`로만 쓴다. README에 규칙으로 남겼다.
+
+**커밋 안 함.** Jin 요청 시에만. `marketing/out/`은 gitignore.
+
+---
 
 ### 2026-08-17 (Claude, Windows) — A1 뒷기둥 결함 확인 + BBANANA 07′ 파일럿 2회 (계약 밖, 8.3 credit)
 
@@ -330,6 +555,45 @@ scoped면 그 목록만 `flutter test`, PR에서는 `flutter build web`을 생�
 Actions는 billing 차단이라 원격 검증은 Jin이 한도를 푼 뒤 첫 PR에서 확인한다.
 
 **커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-17 (Claude, Windows) — Instagram 릴스 파이프라인 `marketing/` 신설 + 릴스 3편 제작
+
+**왜.** Jin이 인스타 릴스 콘텐츠 제작과 클로드 기반 마케팅 자동화를 요청했다. 결정 사항은
+계정 언어 **독일어 우선**, 출연 형태는 마스코트·화면녹화·보이스오버·얼굴 **혼합**, 작업 순서는
+자동화 → 릴스 3편 완제품 → 30편 뱅크 → 수동 체크리스트다.
+
+**기존 자산 확인.** 저장소에 이미 릴스 1편(`docs/social/bbanana/sori-check-01-*`)과 계정 핸들
+`@hangulsori_learnkorean`, 소셜 팔레트(cream `#fff9ee`·teal `#0d5b5d`·red `#bd4f35`),
+Pretendard/Gowun Dodum 관례가 있었다. 새로 발명하지 않고 그 관례를 계승했다. 다만 그 기존 릴스는
+두 가지 결함이 있어 그대로 재사용하지 않는다 — ① 브랜드 폰트가 시스템에 없어 libass가 Arial로
+폴백했고 ② 캐릭터 클립의 흰 배경이 제거되지 않아 흰 사각형이 박혔다.
+
+**무엇.** `marketing/`을 신설했다. `brand/tokens.json`(소셜 정본 토큰), `build/lib/ass.mjs`
+(ASS 스타일표, 전 스타일 Alignment=8 + MarginV=상단 y로 배치 결정화), `build/render.mjs`
+(릴스 JSON → 1080×1920 mp4 + 커버 + 캡션), `publish/instagram.mjs`(승인 큐 + Graph API 발행),
+`content/reels/*.json` 3편, `content/reel-bank-30.md`(30편 기획), `README.md`(운영 매뉴얼 +
+Jin 수동 체크리스트 5단계).
+
+**렌더 함정 2건 실측.** ① **`blend=all_mode=multiply` 금지** — 체인 끝이 `format=yuv420p`면
+ffmpeg 8이 blend를 YUV 평면에서 실행해 U/V(128 오프셋)까지 곱하고 화면 전체가 형광 초록이 된다.
+양쪽 입력에 `format=rgba`를 못 박아도 재현됐다. 흰 배경 클립은 `matte:"white"`(colorkey +
+overlay)로 교체했고, 부수적으로 "multiply 레이어는 전체 구간이어야 한다"는 제약도 사라졌다.
+② **폰트는 작업폴더로 복사 후 `ass=...:fontsdir=fonts`** 로 넘겨야 한다. Gowun Dodum은
+node_modules에 woff2만 있어 libass가 못 읽으므로 현재 display는 Noto Sans KR 대체다.
+색공간 태그(`-colorspace/-color_primaries/-color_trc`)는 초록 원인이 아니었으나 불필요해 제거했다.
+
+**검증.** `node build/render.mjs --all` 3/3 성공. 커버 프레임을 육안 검수해 크림 배경·Pretendard
+타이포·마스코트 누끼·안전영역 준수를 확인했다. 발행 스크립트는 draft 상태에서 dry-run이 아무것도
+내보내지 않고, approve 후에만 dry-run 대상에 오르는 것을 실행으로 확인했다. `--live` 없이는
+절대 발행되지 않는다.
+
+**커밋 안 함.** Jin 요청 시에만 커밋한다. `marketing/out/`은 `.gitignore` 처리했다.
+
+**남은 게이트(Jin).** 인스타 비즈니스 계정 전환(크리에이터는 API 발행 불가), Meta 앱 심사
+(`instagram_business_basic` + `instagram_business_content_publish`, 2~4주), R2 공개 호스팅,
+앱 실기기 화면녹화, 독일어 원어민 검수, 핸들 밑줄 표기 확인. 상세는 `marketing/README.md`.
+
+---
 
 ### 2026-08-17 (Claude, Windows) — 잔여 브랜치 전수 감사 + Codex A1 파일럿 무손실 병합
 

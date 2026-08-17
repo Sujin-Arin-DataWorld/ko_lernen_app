@@ -114,6 +114,14 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     'ㅎ': 27,
   };
 
+  /// 채점 뒤 강조색. 미통과(`_passed == false`)는 학습자가 틀린 답을 보고 있는
+  /// 상태가 아니라 **공개된 정답**을 보고 있는 상태다 — 2회 오답이나 "모르겠어요"
+  /// 뒤 `_selected` 가 `_correctIndex` 로 덮이기 때문이다. 그 정답 음절을 오답
+  /// 빨강으로 칠하면 학습자가 정답을 틀린 답으로 읽는다. `quest_flow.dart` 의
+  /// 결과 배너와 같은 규칙을 쓴다.
+  Color get _resolvedAccent =>
+      _passed ? SoriColors.success : SoriColors.warning;
+
   /// 음절에서 받침을 제거한 base 글자 반환 (예: 녕 → 녀)
   String _stripBatchim(String syllable) {
     if (syllable.isEmpty) return syllable;
@@ -274,9 +282,9 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
     }
     if (_completed && _selected != null) {
       slotText = _options[_selected!];
-      slotBorder = _passed ? SoriColors.success : SoriColors.danger;
-      slotTextColor = _passed ? SoriColors.success : SoriColors.danger;
-      slotBg = (_passed ? SoriColors.success : SoriColors.danger).withAlpha(30);
+      slotBorder = _resolvedAccent;
+      slotTextColor = _resolvedAccent;
+      slotBg = _resolvedAccent.withAlpha(30);
     }
 
     return Padding(
@@ -288,9 +296,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
           Text(
             _completed ? displayChar : base,
             style: TextStyle(
-              color: _completed
-                  ? (_passed ? SoriColors.success : SoriColors.danger)
-                  : s.text,
+              color: _completed ? _resolvedAccent : s.text,
               fontSize: 56,
               fontWeight: FontWeight.w900,
               height: 1.1,
@@ -432,9 +438,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
               // 음절 표시
               SoriAnswerTray(
                 minHeight: 104,
-                accent: _completed
-                    ? (_passed ? SoriColors.success : SoriColors.danger)
-                    : SoriColors.primary,
+                accent: _completed ? _resolvedAccent : SoriColors.primary,
                 child: _buildSyllableRow(s),
               ),
               const SizedBox(height: 28),

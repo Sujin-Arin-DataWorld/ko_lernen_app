@@ -1,0 +1,62 @@
+{
+  "id": "wortpakete-01",
+  "series": "SORI PAKETE",
+  "pillar": "2 - 학습 콘텐츠의 다양성",
+  "lang": "de",
+  "duration": 15,
+  "fps": 30,
+  "size": [1080, 1920],
+  "cover_at": 3.6,
+
+  "_clean_master": "글자 0. 모든 카피는 ae_text[] -> After Effects 텍스트 레이어로 올린다.",
+  "_composition": "크림 바탕. 상단 35%는 항상 비운다. 팩 아트 3종은 전부 같은 박스·같은 크기라 컷이 바뀌어도 레이아웃이 흔들리지 않는다.",
+
+  "layers": [
+    { "type": "clip", "path": "assets/video/loops/taego-joy-duo.mp4",
+      "box": [0, 760, 1080, 760], "fit": "cover", "loop": true,
+      "start": 0, "end": 2.75, "fadeOut": 0.3 },
+
+    { "type": "image", "path": "assets/illustrations/packs/wave.webp",          "box": [0, 700, 1080, 810], "start": 2.6, "end": 4.75, "fadeIn": 0.25, "fadeOut": 0.25 },
+    { "type": "image", "path": "assets/illustrations/packs/chrysanthemum.webp", "box": [0, 700, 1080, 810], "start": 4.6, "end": 6.75, "fadeIn": 0.25, "fadeOut": 0.25 },
+    { "type": "image", "path": "assets/illustrations/packs/chilbo.webp",        "box": [0, 700, 1080, 810], "start": 6.6, "end": 8.75, "fadeIn": 0.25, "fadeOut": 0.25 },
+
+    { "type": "image", "path": "assets/illustrations/stamps/stamp_taegeuk.png",  "box": [90,  720, 300, 300], "start": 8.7,  "end": 11.7, "fadeIn": 0.25, "fadeOut": 0.25 },
+    { "type": "image", "path": "assets/illustrations/stamps/stamp_peony.png",    "box": [390, 720, 300, 300], "start": 8.95, "end": 11.7, "fadeIn": 0.25, "fadeOut": 0.25 },
+    { "type": "image", "path": "assets/illustrations/stamps/stamp_mountain.png", "box": [690, 720, 300, 300], "start": 9.2,  "end": 11.7, "fadeIn": 0.25, "fadeOut": 0.25 },
+    { "type": "image", "path": "assets/illustrations/stamps/stamp_lotus.png",    "box": [90,  1030, 300, 300], "start": 9.45, "end": 11.7, "fadeIn": 0.25, "fadeOut": 0.25 },
+    { "type": "image", "path": "assets/illustrations/stamps/stamp_wave.png",     "box": [390, 1030, 300, 300], "start": 9.7,  "end": 11.7, "fadeIn": 0.25, "fadeOut": 0.25 },
+    { "type": "image", "path": "assets/illustrations/stamps/stamp_plum.png",     "box": [690, 1030, 300, 300], "start": 9.95, "end": 11.7, "fadeIn": 0.25, "fadeOut": 0.25 },
+
+    { "type": "clip", "path": "assets/video/character/magpie_bob2.mp4",
+      "box": [380, 800, 620, 620], "matte": "white", "loop": true,
+      "start": 11.6, "end": 15, "fadeIn": 0.35 }
+  ],
+
+  "ae_text": [
+    { "id": "series-tag", "role": "tag",      "start": 0.3, "end": 2.4,  "x": 96, "y": 180, "content": "SORI PAKETE" },
+    { "id": "headline-1", "role": "headline", "start": 0.5, "end": 2.6,  "x": 96, "y": 300, "content": "117 Themenpakete." },
+    { "id": "sub-1",      "role": "sub",      "start": 0.9, "end": 2.6,  "x": 96, "y": 400, "content": "Kein Vokabelheft." },
+
+    { "id": "cat-label",  "role": "chapter",  "start": 2.8, "end": 8.7,  "x": 96, "y": 180, "content": "EIN PAKET = EIN THEMA" },
+    { "id": "pack-1",     "role": "headline", "start": 2.9, "end": 4.6,  "x": 96, "y": 320, "content": "Welle" },
+    { "id": "pack-2",     "role": "headline", "start": 4.9, "end": 6.6,  "x": 96, "y": 320, "content": "Chrysantheme" },
+    { "id": "pack-3",     "role": "headline", "start": 6.9, "end": 8.6,  "x": 96, "y": 320, "content": "Chilbo" },
+
+    { "id": "headline-2", "role": "headline", "start": 8.9,  "end": 11.5, "x": 96, "y": 300, "content": "Jedes Paket bringt dir\neinen Stempel." },
+    { "id": "sub-2",      "role": "sub",      "start": 9.4,  "end": 11.5, "x": 96, "y": 480, "content": "14 Motive zum Sammeln." },
+
+    { "id": "headline-3", "role": "headline", "start": 11.9, "end": 14.4, "x": 96, "y": 300, "content": "Womit fängst du an?" },
+    { "id": "cta",        "role": "cta",      "start": 12.6, "end": 15,   "x": 96, "y": 1470, "content": "Jetzt ausprobieren" }
+  ],
+
+  "post": {
+    "caption_de": "117 Themenpakete. Jedes mit eigenem Motiv, eigenen Wörtern, eigenem Stempel.\n\nKein endloser Wortschatz-Feed, sondern kleine abgeschlossene Einheiten: du machst ein Paket fertig, bekommst den Dancheong-Stempel dafür und siehst sofort, dass etwas passiert ist. Vierzehn Motive gibt es zu sammeln — Welle, Chrysantheme, Chilbo, Taegeuk und mehr.\n\nA1 bis C2, alles auf Deutsch erklärt.",
+    "cta": "Womit fängst du an? Schreib dein Motiv in die Kommentare 👇",
+    "hashtags": ["#koreanischlernen", "#koreanisch", "#vokabeln", "#sprachenlernen", "#hangul", "#koreanischekultur", "#한국어공부"]
+  },
+
+  "manual_todo": [
+    "AE: wortpakete-01-ae.jsx 실행",
+    "팩 이름 3개는 전부 x96 y320 같은 자리에 온다. 위치를 옮기지 마라 — 컷마다 글자가 돌아다니면 안 된다"
+  ]
+}
