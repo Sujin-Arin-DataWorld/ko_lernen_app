@@ -246,18 +246,18 @@ void main() {
     await tester.pumpWidget(_wrap(const GrammarScreen()));
     await _pumpUntil(tester, find.byType(FlipCard));
 
-    var finish = tester.widget<SoriButton>(
+    var finish = tester.widget<IconButton>(
       find.byKey(const Key('grammar-finish-session')),
     );
-    expect(finish.onTap, isNull);
+    expect(finish.onPressed, isNull);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
     await tester.tap(find.byType(FlipCard));
     await tester.pump();
-    finish = tester.widget<SoriButton>(
+    finish = tester.widget<IconButton>(
       find.byKey(const Key('grammar-finish-session')),
     );
-    expect(finish.onTap, isNotNull);
+    expect(finish.onPressed, isNotNull);
 
     await tester.tap(find.byKey(const Key('grammar-finish-session')));
     await tester.pump(const Duration(milliseconds: 500));
@@ -269,10 +269,10 @@ void main() {
 
     final firstCompletionId = card.feedbackContext.completionId;
     await _closeFeedbackResult(tester);
-    finish = tester.widget<SoriButton>(
+    finish = tester.widget<IconButton>(
       find.byKey(const Key('grammar-finish-session')),
     );
-    expect(finish.onTap, isNull);
+    expect(finish.onPressed, isNull);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
     tester
@@ -283,10 +283,10 @@ void main() {
         )
         .onTap!();
     await tester.pump();
-    finish = tester.widget<SoriButton>(
+    finish = tester.widget<IconButton>(
       find.byKey(const Key('grammar-finish-session')),
     );
-    expect(finish.onTap, isNotNull);
+    expect(finish.onPressed, isNotNull);
     await tester.tap(find.byKey(const Key('grammar-finish-session')));
     await tester.pump(const Duration(milliseconds: 500));
     final secondCard = tester.widget<ContentFeedbackCard>(
@@ -306,8 +306,8 @@ void main() {
     await tester.pump();
     expect(
       tester
-          .widget<SoriButton>(find.byKey(const Key('grammar-finish-session')))
-          .onTap,
+          .widget<IconButton>(find.byKey(const Key('grammar-finish-session')))
+          .onPressed,
       isNotNull,
     );
 
@@ -318,8 +318,8 @@ void main() {
 
     expect(
       tester
-          .widget<SoriButton>(find.byKey(const Key('grammar-finish-session')))
-          .onTap,
+          .widget<IconButton>(find.byKey(const Key('grammar-finish-session')))
+          .onPressed,
       isNull,
     );
 
@@ -359,8 +359,8 @@ void main() {
       expect(a1Filter.selected, isTrue);
       expect(
         tester
-            .widget<SoriButton>(find.byKey(const Key('grammar-finish-session')))
-            .onTap,
+            .widget<IconButton>(find.byKey(const Key('grammar-finish-session')))
+            .onPressed,
         isNotNull,
       );
 
