@@ -220,6 +220,52 @@ def continuity_metrics(
     }
 
 
+def stack_layers(
+    previous: Image.Image,
+    candidate: Image.Image,
+    *,
+    margin_px: int,
+) -> tuple[Image.Image, dict[str, float]]:
+    """Cumulative construction: keep every previous pixel, add the candidate above.
+
+    Generators re-draw the whole structure and drift (columns thin out, posts
+    move). Instead of asking the model for pixel-exact geometry, keep the
+    approved previous layer as-is and take the candidate only where the previous
+    layer is transparent AND above its top edge (plus `margin_px` so joints can
+    overlap the previous top). Anything the candidate re-drew lower down — the
+    duplicate columns of 2026-08-17 — is discarded. Continuity is then true by
+    construction (previous_recall == 1.0, edge drift 0).
+    """
+    _require(previous.size == candidate.size, "stack layers must share a size")
+    _require(margin_px >= 0, "stack margin must be zero or positive")
+    previous_bbox = _alpha_bbox(previous)
+    _require(previous_bbox is not None, "previous layer has no visible footprint")
+    cut_row = min(previous.height, previous_bbox[1] + margin_px)
+    band = Image.new("L", previous.size, 0)
+    if cut_row > 0:
+        band.paste(255, (0, 0, previous.width, cut_row))
+    banded = Image.new("RGBA", previous.size, (0, 0, 0, 0))
+    banded.paste(candidate, (0, 0), band)
+    keep_previous = _mask(previous)
+    merged = Image.composite(previous, banded, keep_previous)
+    added = sum(
+        1
+        for before, after in zip(
+            previous.getchannel("A").getdata(),
+            merged.getchannel("A").getdata(),
+            strict=True,
+        )
+        if before <= ALPHA_THRESHOLD < after
+    )
+    _require(added > 0, "stacked candidate added nothing above the previous layer")
+    return merged, {
+        "mode": "stack",
+        "cutRow": float(cut_row),
+        "marginPx": float(margin_px),
+        "addedPixels": float(added),
+    }
+
+
 def assert_continuity(
     previous: Image.Image,
     current: Image.Image,
@@ -293,8 +339,14 @@ def compose_state(
     base_path: Path | None = None,
     require_lineage: bool = False,
     input_ledger_path: str | None = None,
+    stack_on_previous: bool = False,
+    stack_margin_px: int = 8,
 ) -> dict[str, Any]:
     payload = provenance or load_provenance()
+    _require(
+        not stack_on_previous or previous_layer_path is not None,
+        "--stack-on-previous needs --previous-layer",
+    )
     geometry = camera_geometry(payload)
     contract = layer_contract(payload)
     base_record = site_base_input(payload)
@@ -330,6 +382,7 @@ def compose_state(
         local_anchor=(geometry["local_anchor_x"], geometry["local_anchor_y"]),
     )
     continuity = None
+    stack = None
     if previous_layer_path is not None:
         previous = _load_rgba(previous_layer_path)
         if previous.size != layer.size:
@@ -339,6 +392,8 @@ def compose_state(
                 socket_height=geometry["socket_height"],
                 local_anchor=(geometry["local_anchor_x"], geometry["local_anchor_y"]),
             )
+        if stack_on_previous:
+            layer, stack = stack_layers(previous, layer, margin_px=stack_margin_px)
         continuity = assert_continuity(
             previous,
             layer,
@@ -396,6 +451,8 @@ def compose_state(
     }
     if continuity is not None:
         report["continuity"] = continuity
+    if stack is not None:
+        report["stack"] = stack
     return report
 
 
@@ -407,6 +464,16 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--previous-layer")
     parser.add_argument("--require-lineage", action="store_true")
     parser.add_argument("--input-ledger-path")
+    parser.add_argument(
+        "--stack-on-previous",
+        action="store_true",
+        help=(
+            "keep every pixel of --previous-layer and take the candidate only "
+            "above the previous top edge (+ --stack-margin-px); continuity "
+            "becomes true by construction"
+        ),
+    )
+    parser.add_argument("--stack-margin-px", type=int, default=8)
     args = parser.parse_args(argv)
     report = compose_state(
         Path(args.raw_png),
@@ -415,6 +482,8 @@ def main(argv: list[str] | None = None) -> int:
         previous_layer_path=Path(args.previous_layer) if args.previous_layer else None,
         require_lineage=args.require_lineage,
         input_ledger_path=args.input_ledger_path,
+        stack_on_previous=args.stack_on_previous,
+        stack_margin_px=args.stack_margin_px,
     )
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0

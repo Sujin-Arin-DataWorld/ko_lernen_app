@@ -16,6 +16,7 @@ from compose_hanok_a1_state import (
     assert_continuity,
     compose_state,
     normalize_layer,
+    stack_layers,
 )
 from hanok_v1_asset_contract import ROOT, load_provenance, sha256_file
 
@@ -83,6 +84,66 @@ class ComposeHanokA1StateTest(unittest.TestCase):
                 min_previous_recall=0.97,
                 max_edge_drift_px=2,
             )
+
+    def test_stack_keeps_previous_pixels_and_takes_candidate_only_above(self) -> None:
+        # previous: two thick columns on a plinth (y 180..300)
+        previous = _layer(854, 309, (100, 200, 140, 300))
+        previous.paste(_layer(854, 309, (700, 200, 740, 300)), (0, 0), _layer(854, 309, (700, 200, 740, 300)))
+        # candidate: a beam above (y 170..200) plus re-drawn thin, shifted columns
+        candidate = _layer(854, 309, (90, 170, 760, 200), color=(200, 120, 60, 255))
+        thin = _layer(854, 309, (150, 200, 160, 300), color=(1, 2, 3, 255))
+        candidate.paste(thin, (0, 0), thin)
+
+        merged, report = stack_layers(previous, candidate, margin_px=8)
+
+        self.assertEqual(report["mode"], "stack")
+        self.assertEqual(report["cutRow"], 208.0)
+        # every previous pixel survives untouched
+        self.assertEqual(merged.getpixel((120, 250)), (160, 96, 48, 255))
+        self.assertEqual(merged.getpixel((720, 250)), (160, 96, 48, 255))
+        # beam above the previous top is added
+        self.assertEqual(merged.getpixel((400, 185)), (200, 120, 60, 255))
+        # the re-drawn thin column below the cut is discarded (no duplicate posts)
+        self.assertEqual(merged.getpixel((155, 250))[3], 0)
+        # continuity is true by construction
+        metrics = assert_continuity(previous, merged, min_previous_recall=0.97, max_edge_drift_px=2)
+        self.assertEqual(metrics["previous_recall"], 1.0)
+        self.assertEqual(metrics["edge_drift_px"], 0.0)
+        self.assertGreater(report["addedPixels"], 0)
+
+        with self.assertRaises(CompositionError):
+            stack_layers(previous, previous, margin_px=8)  # adds nothing
+
+    def test_compose_stack_on_previous_requires_previous_layer_and_reports(self) -> None:
+        provenance = load_provenance()
+        provenance = json.loads(json.dumps(provenance))
+        with tempfile.TemporaryDirectory() as temp_dir:
+            previous_path = Path(temp_dir) / "previous.png"
+            raw = Path(temp_dir) / "raw.png"
+            out = Path(temp_dir) / "state.webp"
+            normalized = Path(temp_dir) / "layer.png"
+            _layer(854, 309, (90, 200, 750, 309)).save(previous_path)
+            # candidate drifted: narrower footprint that would fail recall 0.97 alone
+            drifted = _layer(854, 309, (140, 150, 700, 309), color=(200, 120, 60, 255))
+            drifted.save(raw)
+            with self.assertRaises(CompositionError):
+                compose_state(raw, out, provenance=provenance, stack_on_previous=True)
+            with self.assertRaises(CompositionError):
+                compose_state(raw, out, provenance=provenance, previous_layer_path=previous_path)
+            report = compose_state(
+                raw,
+                out,
+                normalized_layer_path=normalized,
+                previous_layer_path=previous_path,
+                provenance=provenance,
+                stack_on_previous=True,
+            )
+            self.assertEqual(report["continuity"]["previous_recall"], 1.0)
+            self.assertEqual(report["stack"]["mode"], "stack")
+            self.assertEqual(report["sourceOutsideChangedPixels"], 0)
+            with Image.open(normalized) as layer:
+                self.assertEqual(layer.getpixel((100, 250)), (160, 96, 48, 255))
+                self.assertEqual(layer.getpixel((400, 160)), (200, 120, 60, 255))
 
     def test_composes_true_alpha_layer_without_touching_outside_socket(self) -> None:
         provenance = load_provenance()

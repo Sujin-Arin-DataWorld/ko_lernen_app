@@ -1,5 +1,40 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — A1 합성기 누적 stack 모드 + Codex 코드 검토 + 이미지 판정
+
+**왜.** Jin이 (1) Codex가 만든 A1 파이프라인 코드가 정상인지, (2) A1 이미지를 다시 만들어야
+하는지 물었다. Codex 06→07·07→08·08→09 레이어는 main 연속성 게이트(recall 0.97)를 0.858/
+0.966/0.926으로 못 넘는데, Codex 정규화 레이어끼리 비교해도 같은 수치라 정규화 탓이
+아니라 생성 모델이 기둥을 얇게 다시 그린 실제 드리프트다. 눈으로도 06 굵은 기둥→07 가는
+기둥으로 바뀐다.
+
+**Codex 코드 검토(서브에이전트, `aaf6d969` worktree에서 실행).** 버그 없음. 자체 게이트
+Python 40/40·Flutter 26/26·`flutter analyze --fatal-infos` 0. 다만 main(Cursor)판 대비
+lineage/`--require-lineage`·승격 도구·WebP chroma 검사·`a1/states` 검사가 없고, 문서(거절본
+1회 수정만 허용)와 테스트(임의 이전 출력 허용)가 어긋나며 05·06은 `--previous-layer` 없이
+승인됐다. Codex판이 나은 것: 임시파일+replace 원자 쓰기와 인코딩 후 재디코드 검증, Pillow
+`RGBa` 리사이즈, 위젯의 provider 주입·`missingAssetLabel`. main 유지 결정은 그대로 두고
+이 셋은 소규모 포팅 후보로 남긴다. 인수인계 `HANOK_V1_HANDOFF_2026-08-17_CONTINUATION.md`
+의 SHA·"a1_states는 .gitkeep뿐"·"compose→promote→check" 절은 이제 낡았다.
+
+**무엇.** 단순 union은 06 굵은 기둥과 07 가는 기둥이 둘 다 남아 기둥이 이중으로 보였다.
+그래서 `tool/compose_hanok_a1_state.py`에 `stack_layers()`와 `--stack-on-previous`/
+`--stack-margin-px`(기본 8)를 추가했다: 직전 레이어 픽셀은 전부 유지하고, 후보는 직전
+레이어가 투명하면서 직전 상단(+margin)보다 위인 곳에서만 받는다. 아래쪽에 다시 그린 중복
+기둥은 버려지고 recall 1.0·drift 0이 구성상 보장된다. `--previous-layer` 없이 쓰면 실패한다.
+기본값은 불변이라 기존 호출·계약 테스트는 그대로다. 문서는 `HANOK_V1_SOURCE_REGISTRY.md`.
+
+**검증.** `tool/` 64/64(신규 2 포함). Codex raw 07~10을 06 위에 CLI로 체인 합성:
+recall 1.0·drift 0·outside 0·decode 오차 2.9·≤293KB, 눈으로 기둥 7개 위에 보→도리→
+서까래→개판이 일관되게 쌓인다(출력은 스크래치, `a1_states/`는 안 바꿈). `git diff --check`.
+
+**결론(이미지).** 06~10은 stack 모드로 **재생성 없이** 쓸 수 있다. 여전히 없는 것은
+01~04와 11~16(10장)이며 BBANANA 잔액 921.3 credit(Nano Banana Pro 4/장, 배경제거 0.3)으로
+만들 수 있지만 매 장 Jin 육안 승인이 필요해 이번엔 생성하지 않았다. 12~16(벽·바닥·창호)은
+구조 안쪽을 채우므로 stack 규칙이 아닌 별도 규칙이 필요하다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — PR CI를 범위 테스트로 줄이고 draft는 건너뜀
 
 **왜.** 잡별 실행 시간을 합산하니 8월 Actions 사용량이 약 3,051분(Pro 3,000분 초과)이고

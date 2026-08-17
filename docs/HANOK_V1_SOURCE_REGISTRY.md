@@ -91,6 +91,13 @@ A1 합성은 전체 대지를 모델로 편집하지 않는다. 모델 출력은
 다음 단계를 승격하지 않는다. 16개 QA WebP가 모두 통과하기 전에는
 `tool/promote_hanok_a1_states.py`가 runtime/pubspec을 열지 않는다.
 
+**누적 stack 모드 (2026-08-17).** 생성 모델은 전 단계 구조를 다시 그리며 흔들린다
+(Codex A1-06→07은 기둥이 얇아져 recall 0.858). `--stack-on-previous`는 승인된 직전
+레이어의 픽셀을 전부 그대로 두고, 후보는 "직전 레이어가 투명하고 직전 상단보다 위
+(+`--stack-margin-px`, 기본 8px)"인 곳에서만 받는다. 아래쪽에 다시 그린 중복 기둥은
+버려지고, recall 1.0·drift 0은 구성상 보장된다. 위로 쌓이는 공정(05–11)에 쓰고, 벽·바닥·
+창호처럼 구조 안쪽을 채우는 12–16은 별도 규칙이 정해질 때까지 기본 검사만 쓴다.
+
 **Codex A1 파일럿 기록 (2026-08-17, 병합 `9958a458`).** 병렬 로컬 브랜치
 `codex/hanok-v1-a1-assets-20260817`(`aaf6d969`)이 A1-05~10의 raw·정규화 레이어·
 QA WebP를 `assets_unused/pending_review/a1_layers/`·`a1_states/`에 만들었고,
