@@ -26,8 +26,9 @@ ROOT = Path(__file__).resolve().parents[2]
 BASELINE_RELATIVE = Path("test") / "fixtures" / "backdrop_baseline.json"
 BACKDROP_KEYS = frozenset(
     (
-        "airport", "cafe", "convenience", "directions", "home", "hotel",
-        "market", "office", "pharmacy", "restaurant", "station", "taxi",
+        "airport", "bank", "cafe", "convenience", "directions", "home",
+        "hotel", "market", "office", "pharmacy", "restaurant", "salon",
+        "station", "taxi",
     )
 )
 

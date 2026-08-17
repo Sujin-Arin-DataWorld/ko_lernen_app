@@ -36,8 +36,9 @@ SCENARIO_STYLES = frozenset(("polite", "casual", "business", "intimate"))
 # `assets/illustrations/scenes/{key}.png` 가 번들에 실제로 있는 12 종.
 SCENARIO_BACKDROP_KEYS = frozenset(
     (
-        "airport", "cafe", "convenience", "directions", "home", "hotel",
-        "market", "office", "pharmacy", "restaurant", "station", "taxi",
+        "airport", "bank", "cafe", "convenience", "directions", "home",
+        "hotel", "market", "office", "pharmacy", "restaurant", "salon",
+        "station", "taxi",
     )
 )
 CONTENT_KINDS = frozenset(

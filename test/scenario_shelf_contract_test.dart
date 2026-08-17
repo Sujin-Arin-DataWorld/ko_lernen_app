@@ -45,6 +45,7 @@ void main() {
   group('샤드 무결성과 shelf/backdrop 계약', () {
     const backdropKeys = <String>{
       'airport',
+      'bank',
       'cafe',
       'convenience',
       'directions',
@@ -54,6 +55,7 @@ void main() {
       'office',
       'pharmacy',
       'restaurant',
+      'salon',
       'station',
       'taxi',
     };

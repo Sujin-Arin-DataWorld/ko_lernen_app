@@ -2712,7 +2712,7 @@
         }
       },
       "shelf": "a2_money",
-      "backdrop": "office"
+      "backdrop": "bank"
     },
     {
       "id": "gym_signup",
@@ -5244,7 +5244,7 @@
         }
       ],
       "shelf": "a2_money",
-      "backdrop": "office"
+      "backdrop": "bank"
     },
     {
       "id": "a2_transfer_limit",
@@ -5992,7 +5992,7 @@
         }
       ],
       "shelf": "a2_body",
-      "backdrop": "cafe"
+      "backdrop": "salon"
     },
     {
       "id": "a2_dye_dark",
@@ -6179,7 +6179,7 @@
         }
       ],
       "shelf": "a2_body",
-      "backdrop": "cafe"
+      "backdrop": "salon"
     },
     {
       "id": "a2_apt_sticker",
@@ -8236,7 +8236,7 @@
         }
       ],
       "shelf": "a2_body",
-      "backdrop": "cafe"
+      "backdrop": "salon"
     },
     {
       "id": "a2_quiet_ten",
