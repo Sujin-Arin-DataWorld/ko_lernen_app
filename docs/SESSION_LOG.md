@@ -1,5 +1,28 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Codex 한옥 이식 3건 + TTS 대기/쿼터 + 단어망 Kurs
+
+**무엇.** `main` 계약(lineage·stack 기본 off·WebP chroma·promote)은 유지한 채
+Codex 한옥 개선 3개를 이식했다. (1) `resize_premultiplied`를 Pillow `RGBa`
+리사이즈로 교체. (2) 합성 WebP는 같은 디렉터리 temp에 쓰고 크기·재디코드
+검증 뒤에만 `Path.replace` — 실패 시 dest 불변. (3) `A1HanokConstructionMap`에
+선택 `imageProviderBuilder`/`missingAssetLabel` — 기본 경로는 기존
+`ResizeImage`+아이콘 폴백. 이어서 TTS 패자는 쿼터 없이 합성하지 않고
+`completed`+무오디오도 wait로 두며, inflight poll을 14×500ms로 늘렸다. 클라는
+`already in progress`만 재시도하고 `resource-exhausted`는 OS TTS로 떨어지지
+않는다. 단어망 `learnedKorean()`은 sync 유지, `learnedKoreanWithCourse()`가
+정답 vocab evidence와 완료 단원 vocab 링크를 합친다. 단어망은 코스/한옥을
+쓰지 않는다.
+
+**왜.** Jin이 한옥 이식 1번을 먼저 끝내고 TTS/Kurs를 이어서 하라고 했다.
+
+**검증.** `python3 -m unittest discover -s tool` 66 ok. Node
+`functions/tts/tts_request_guard.test.js` 21 ok. Flutter
+`a1_hanok_construction_map_test`·`tts_request_rate_test`·`tts_cache_key_test`·
+`word_relation_service_test`·`word_web_screen_test` 통과.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Claude, Windows) — 07′ 크기 검증: 소켓 대비 너무 큼, 3차 시도(4.3 credit) 포함
 
 **왜.** Jin이 새 07′가 대지에서 커 보인다고 물었다. 측정하니 완성 사랑채

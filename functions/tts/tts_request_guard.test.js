@@ -270,8 +270,14 @@ test("a live pending claim is a lock: the loser does not reserve quota or synthe
   const afterComplete = await claimTtsReplay(db, storagePath);
   assert.deepEqual(afterComplete, { consume: false, state: "completed" });
   assert.deepEqual(ttsSynthesisPlan(afterComplete, false), {
-    action: "synthesize",
+    action: "wait",
   });
+});
+
+test("loser poll covers the Cloud TTS deadline", () => {
+  const indexSource = fs.readFileSync(path.join(__dirname, "index.js"), "utf8");
+  assert.match(indexSource, /const INFLIGHT_POLL_ATTEMPTS = 14/);
+  assert.match(indexSource, /const INFLIGHT_POLL_MS = 500/);
 });
 
 test("abandoning a pending claim lets the next retry reserve quota once", async () => {

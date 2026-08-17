@@ -53,6 +53,9 @@ void main() {
       contains('static const Duration _netTimeout = Duration(seconds: 12)'),
     );
     expect(source, contains('TtsCacheKey.isUsableAudio(localBytes)'));
+    expect(source, contains('TtsSynthesisBlocked'));
+    expect(source, contains('already in progress'));
+    expect(source, contains('resource-exhausted'));
     expect(source, isNot(contains('http.post(')));
   });
 }

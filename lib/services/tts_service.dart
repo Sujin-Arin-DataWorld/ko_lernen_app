@@ -19,6 +19,17 @@ import 'tts_installation_id.dart';
 typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
 typedef TtsErrorReporter = void Function(String message);
 
+/// Cloud TTS refused this request. The playback engine must not fall through
+/// to OS speech — quota and in-flight waits are not "use the robot voice".
+class TtsSynthesisBlocked implements Exception {
+  const TtsSynthesisBlocked(this.message);
+
+  final String message;
+
+  @override
+  String toString() => message;
+}
+
 /// Immutable, revisioned address for one synthesized TTS request.
 ///
 /// The same `{voice}|{text}` SHA-1 input is deliberately shared with the
@@ -190,7 +201,13 @@ class TtsPlaybackEngine {
           () => resolveFile(trimmed, normalizedVoice),
         ).then<_TtsResolution>(
           (file) => _TtsResolution(file: file),
-          onError: (_, __) => const _TtsResolution(file: null),
+          onError: (Object error, _) {
+            if (error is TtsSynthesisBlocked) {
+              errorReporter?.call(error.message);
+              return const _TtsResolution.blocked();
+            }
+            return const _TtsResolution(file: null);
+          },
         );
     final resolved = await Future.any<_TtsResolution>([
       resolution,
@@ -219,6 +236,9 @@ class TtsPlaybackEngine {
             return null;
           }
           if (_disposed || generation != _generation) return null;
+        }
+        if (resolved.blockSpeechFallback) {
+          return null;
         }
         return platform.startSpeech(trimmed, rates.speechRate);
       });
@@ -290,11 +310,21 @@ class TtsPlaybackEngine {
 }
 
 class _TtsResolution {
-  const _TtsResolution({required this.file}) : wasCancelled = false;
-  const _TtsResolution.cancelled() : file = null, wasCancelled = true;
+  const _TtsResolution({required this.file})
+    : wasCancelled = false,
+      blockSpeechFallback = false;
+  const _TtsResolution.cancelled()
+    : file = null,
+      wasCancelled = true,
+      blockSpeechFallback = false;
+  const _TtsResolution.blocked()
+    : file = null,
+      wasCancelled = false,
+      blockSpeechFallback = true;
 
   final File? file;
   final bool wasCancelled;
+  final bool blockSpeechFallback;
 }
 
 class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
@@ -512,33 +542,67 @@ class TtsService {
     // 3. Authenticated Firebase callable (dynamic synthesis).
     try {
       final installationId = await _installationIdProvider.getOrCreate();
-      final result = await _functions
-          .httpsCallable(
-            _functionName,
-            options: HttpsCallableOptions(
-              timeout: _netTimeout,
-              limitedUseAppCheckToken: true,
-            ),
-          )
-          .call<Map<String, dynamic>>(
-            buildTtsCallableData(
-              text: text,
-              voice: key.voice,
-              installationId: installationId,
-            ),
-          );
-      final b64 = result.data['audioBase64'] as String?;
-      if (b64 != null && b64.isNotEmpty) {
-        final bytes = base64Decode(b64);
-        if (TtsCacheKey.isUsableAudio(bytes)) {
-          await file.writeAsBytes(bytes, flush: true);
-          return file;
+      const maxAttempts = 3;
+      for (var attempt = 0; attempt < maxAttempts; attempt++) {
+        try {
+          final result = await _functions
+              .httpsCallable(
+                _functionName,
+                options: HttpsCallableOptions(
+                  timeout: _netTimeout,
+                  limitedUseAppCheckToken: true,
+                ),
+              )
+              .call<Map<String, dynamic>>(
+                buildTtsCallableData(
+                  text: text,
+                  voice: key.voice,
+                  installationId: installationId,
+                ),
+              );
+          final b64 = result.data['audioBase64'] as String?;
+          if (b64 != null && b64.isNotEmpty) {
+            final bytes = base64Decode(b64);
+            if (TtsCacheKey.isUsableAudio(bytes)) {
+              await file.writeAsBytes(bytes, flush: true);
+              return file;
+            }
+          }
+          return null;
+        } on FirebaseFunctionsException catch (error) {
+          if (_isTtsAlreadyInProgress(error) && attempt < maxAttempts - 1) {
+            continue;
+          }
+          if (_isTtsResourceExhausted(error)) {
+            lastError = 'Daily synthesis limit reached.';
+            throw const TtsSynthesisBlocked('Daily synthesis limit reached.');
+          }
+          break;
         }
       }
+    } on TtsSynthesisBlocked {
+      rethrow;
     } catch (_) {
       // Firebase/Auth/App Check unavailable → OS TTS fallback.
     }
     return null;
+  }
+
+  static bool _isFunctionsCode(FirebaseFunctionsException error, String code) {
+    final raw = error.code;
+    return raw == code || raw == 'functions/$code' || raw.endsWith('/$code');
+  }
+
+  static bool _isTtsAlreadyInProgress(FirebaseFunctionsException error) {
+    if (!_isFunctionsCode(error, 'unavailable')) {
+      return false;
+    }
+    final message = error.message ?? '';
+    return message.contains('already in progress');
+  }
+
+  static bool _isTtsResourceExhausted(FirebaseFunctionsException error) {
+    return _isFunctionsCode(error, 'resource-exhausted');
   }
 
   static Future<TtsPlaybackSession?> _startFile(

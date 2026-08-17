@@ -235,10 +235,9 @@ function ttsSynthesisPlan(claim, hasAudio) {
   if (claim && claim.consume) {
     return { action: "synthesize" };
   }
-  if (claim && claim.state === "pending") {
-    return { action: "wait" };
-  }
-  return { action: "synthesize" };
+  // Losers and completed-without-audio receipts wait. Synthesize only
+  // belongs to a claim that reserved quota (consume: true).
+  return { action: "wait" };
 }
 
 function ttsLogErrorCode(error) {
