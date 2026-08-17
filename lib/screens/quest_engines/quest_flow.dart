@@ -76,7 +76,7 @@ class SoriDottedAnswerSlot extends StatelessWidget {
   Widget build(BuildContext context) {
     final surfaces = SoriSurfaces.of(context);
     return Semantics(
-      label: '…',
+      label: AppL10n.of(context).questEmptyAnswerSlot,
       child: CustomPaint(
         painter: SoriDottedSlotPainter(color: surfaces.textDim),
         child: SizedBox(width: width, height: height),

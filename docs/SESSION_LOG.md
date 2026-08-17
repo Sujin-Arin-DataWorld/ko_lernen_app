@@ -1,5 +1,19 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 시나리오 UI 패리티 PR을 ready로 올림
+
+**무엇.** `#61`을 draft에서 ready로 바꿨다. 직전 push의 CI는 draft라
+Analyze & Build를 건너뛰었다. `pull_request` 기본 타입에
+`ready_for_review`가 없고, 세션 로그만으로는 path filter가 run을
+안 만든다. 빈 슬롯 Semantics를 ARB `questEmptyAnswerSlot`로 옮겨
+앱 변경 synchronize를 연다.
+
+**왜.** Jin이 CI 출처를 물었고, selector 초록을 Flutter CI로 쓰면 안 된다.
+
+**검증.** 이 push 뒤 Analyze & Build가 head SHA에서 도는지 확인.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-17 (Cursor) — 시나리오 UI 패리티를 최신 main에 병합
 
 **무엇.** `origin/main`을 `cursor/scenario-ui-parity-132b`에 병합했다.

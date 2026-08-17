@@ -70,6 +70,7 @@ void main() {
     expect(find.text('Ja, hier bitte.'), findsOneWidget);
     expect(find.text('Listen again'), findsOneWidget);
     expect(find.byType(SoriDottedAnswerSlot), findsNWidgets(3));
+    expect(find.bySemanticsLabel('Empty answer slot'), findsNWidgets(3));
   });
 }
 

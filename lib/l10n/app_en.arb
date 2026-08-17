@@ -2337,6 +2337,7 @@
   "questCheckAnswer": "Check answer",
   "questReplayAudio": "Listen again",
   "questBuildAnswerLabel": "Build your answer",
+  "questEmptyAnswerSlot": "Empty answer slot",
   "diktatInstruction": "Listen and type what you hear",
   "diktatSpacingHint": "Almost! Check the word spacing",
   "diktatShowMeaning": "Show meaning",

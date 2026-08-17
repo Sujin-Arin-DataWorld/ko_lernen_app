@@ -8784,6 +8784,12 @@ abstract class AppL10n {
   /// **'Deine Antwort bauen'**
   String get questBuildAnswerLabel;
 
+  /// No description provided for @questEmptyAnswerSlot.
+  ///
+  /// In de, this message translates to:
+  /// **'Leerer Antwortplatz'**
+  String get questEmptyAnswerSlot;
+
   /// No description provided for @diktatInstruction.
   ///
   /// In de, this message translates to:

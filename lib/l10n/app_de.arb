@@ -2405,6 +2405,7 @@
   "questCheckAnswer": "Antwort prüfen",
   "questReplayAudio": "Erneut anhören",
   "questBuildAnswerLabel": "Deine Antwort bauen",
+  "questEmptyAnswerSlot": "Leerer Antwortplatz",
   "diktatInstruction": "Hör zu und tippe, was du hörst",
   "diktatSpacingHint": "Fast! Achte auf die Wortabstände",
   "diktatShowMeaning": "Bedeutung zeigen",

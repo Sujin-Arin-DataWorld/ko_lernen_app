@@ -5053,6 +5053,9 @@ class AppL10nEn extends AppL10n {
   String get questBuildAnswerLabel => 'Build your answer';
 
   @override
+  String get questEmptyAnswerSlot => 'Empty answer slot';
+
+  @override
   String get diktatInstruction => 'Listen and type what you hear';
 
   @override
