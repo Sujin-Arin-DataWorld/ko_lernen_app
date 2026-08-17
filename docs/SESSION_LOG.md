@@ -18,9 +18,9 @@ integrator inventory vocab 1620, grammar 182, scenario 90, scenarioQuest 345,
 smalltalk 365, cloze 962, satz 875. `validate_content.py` 통과.
 `build_can_do_segments.py --check` 통과.
 `python3 -m unittest tools.content_factory.test_build_can_do_segments` **12/12**.
-Flutter 수량 계약은 같은 인벤토리로 갱신했다.
+Flutter 콘텐츠 계약 **41/41** 통과. 수량 계약은 같은 인벤토리로 갱신했다.
 
-**커밋해시.** 이 기록과 같은 커밋.
+**커밋해시.** `83b3865` (테스트 수량 보정은 직후 커밋).
 
 ### 2026-08-16 (Cursor) — 한국 파트너 가족·명절 트랙 Batch 07/08 초안
 
