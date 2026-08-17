@@ -1,5 +1,28 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — Vokabelheft 코드리뷰/디버그 후 실사용 파손 수정
+
+**무엇을.** 사진 단어장 경로를 다시 리뷰하고, 실제 공책 OCR에서 깨지던 짝짓기와
+저장/탐색 구멍을 고쳤다. 파서는 왼쪽 한국어·오른쪽 뜻 두 칸, 괄호 뜻,
+한자 잔여 `()`, 한 줄에 붙은 두 쌍, 제목 줄을 처리한다. 잘못된 OCR hint는
+적힌 뜻을 덮지 않는다. 추가 사진 전에 현재 쌍을 저장하고, 연습 화면은 복귀 후
+팩을 다시 읽으며, 교재 DeepL 할당량은 단어장 사진을 막지 않는다. 저장은
+한국어 기준 중복을 건너뛰고 8,000개에서 멈춘다. 한자 비교 문항은 선택지에
+답을 노출하지 않는다.
+
+**왜.** “이 부분 진짜 완벽하게 작동해야 된다”는 재검수 요청. 기존 구현은
+한 줄 쌍과 교차 줄만 처리해서, 흔한 두 칸 공책 사진은 단어를 잃거나 잘못
+짝지었다. 추가 사진 CTA는 저장 없이 떠나 첫 페이지를 버렸다.
+
+**검증.** `flutter gen-l10n`. `flutter analyze --no-pub --fatal-infos` on the
+changed Dart files: No issues found. Focused tests 39/39:
+`vocab_notebook_parser_test`, `vocab_notebook_result_screen_test`,
+`vocab_nuance_service_test`, `vocab_nuance_screen_test`,
+`custom_pack_import_language_test`, `book_preview_localization_test`,
+`hanja_lexicon_test`.
+
+**커밋해시.** (이 커밋)
+
 ### 2026-08-17 (Cursor) — Batch 06 승격 게이트를 cross-game 종류에 맞춤
 
 **원인.** 라이브 데이터 무결성(`validate_content.py`, loader unrouted, grammar/

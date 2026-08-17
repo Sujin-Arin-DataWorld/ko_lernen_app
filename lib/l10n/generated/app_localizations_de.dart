@@ -7461,4 +7461,11 @@ class AppL10nDe extends AppL10n {
   @override
   String get vocabNotebookNuanceEmptyBody =>
       'Fotografiere oder importiere Wörter, die nah beieinanderliegen. Hanja zeigt dann die andere Nuance oder die förmlichere Stufe.';
+
+  @override
+  String get vocabNotebookSaveFailed =>
+      'Die Wörter konnten nicht gespeichert werden. Versuch es noch einmal.';
+
+  @override
+  String get vocabNotebookNoHanja => 'kein Hanja';
 }

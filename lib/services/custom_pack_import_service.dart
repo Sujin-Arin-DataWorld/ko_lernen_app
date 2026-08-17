@@ -4,6 +4,35 @@ import '../models/book_page.dart';
 import 'book_analysis_text.dart';
 
 const int maxCustomPackCsvRows = 8000;
+const int maxCustomPackWords = maxCustomPackCsvRows;
+
+/// Keeps the first occurrence of each Korean headword and stops at the
+/// notebook / import ceiling so a 7000-word list can grow by photos
+/// without duplicating or overflowing local storage.
+List<ExtractedWord> mergeUniqueCustomPackWords(
+  Iterable<ExtractedWord> existing,
+  Iterable<ExtractedWord> incoming, {
+  int maxWords = maxCustomPackWords,
+}) {
+  final merged = <ExtractedWord>[];
+  final seen = <String>{};
+
+  void add(ExtractedWord word) {
+    final korean = word.korean.trim();
+    if (korean.isEmpty || !seen.add(korean) || merged.length >= maxWords) {
+      return;
+    }
+    merged.add(word);
+  }
+
+  for (final word in existing) {
+    add(word);
+  }
+  for (final word in incoming) {
+    add(word);
+  }
+  return merged;
+}
 
 String sanitizeCustomPackKoreanWord(String value) =>
     BookAnalysisTextPreprocessor.prepare(

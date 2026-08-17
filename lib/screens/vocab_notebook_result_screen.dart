@@ -58,9 +58,9 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
   List<VocabNotebookPair> get _selected =>
       _kept.map((index) => _pairs[index]).toList(growable: false);
 
-  Future<void> _saveAndPractice(AppL10n t) async {
+  Future<CustomPack?> _persist(AppL10n t) async {
     if (_selected.isEmpty || _saving) {
-      return;
+      return null;
     }
     setState(() => _saving = true);
     final language = Localizations.localeOf(context).languageCode == 'en'
@@ -82,15 +82,46 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
       pack = await CustomPackService.createFromWords(name: name, words: words);
     }
     if (!mounted) {
-      return;
+      return pack;
     }
     setState(() => _saving = false);
     if (pack == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(t.vocabNotebookSaveFailed)),
+      );
+    }
+    return pack;
+  }
+
+  bool _isNotebookFlowRoute(Route<dynamic> route) {
+    final name = route.settings.name;
+    return name == '/vocab_notebook' ||
+        name == '/book/preview' ||
+        name == '/vocab_notebook/result' ||
+        name == '/vocab_notebook/practice';
+  }
+
+  Future<void> _saveAndPractice(AppL10n t) async {
+    final pack = await _persist(t);
+    if (pack == null || !mounted) {
       return;
     }
-    await Navigator.of(context).pushReplacementNamed(
+    await Navigator.of(context).pushNamedAndRemoveUntil(
       '/vocab_notebook/practice',
+      (route) => !_isNotebookFlowRoute(route),
       arguments: pack.id,
+    );
+  }
+
+  Future<void> _saveAndAddPhoto(AppL10n t) async {
+    final pack = await _persist(t);
+    if (pack == null || !mounted) {
+      return;
+    }
+    await Navigator.of(context).pushNamedAndRemoveUntil(
+      '/vocab_notebook',
+      (route) => !_isNotebookFlowRoute(route),
+      arguments: <String, dynamic>{'existingPackId': pack.id},
     );
   }
 
@@ -254,13 +285,9 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
                   label: t.vocabNotebookAddPhoto,
                   icon: Icons.add_a_photo_outlined,
                   fullWidth: true,
-                  onTap: () => Navigator.of(context).pushNamed(
-                    '/vocab_notebook',
-                    arguments: <String, dynamic>{
-                      if (_existingPackId != null)
-                        'existingPackId': _existingPackId,
-                    },
-                  ),
+                  onTap: _selected.isEmpty || _saving
+                      ? null
+                      : () => _saveAndAddPhoto(t),
                 ),
               ],
             ),

@@ -9,15 +9,32 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Playful practice hub for the exact words taken from a notebook photo.
-class VocabNotebookPracticeScreen extends StatelessWidget {
+class VocabNotebookPracticeScreen extends StatefulWidget {
   const VocabNotebookPracticeScreen({super.key, required this.packId});
 
   final String packId;
 
   @override
+  State<VocabNotebookPracticeScreen> createState() =>
+      _VocabNotebookPracticeScreenState();
+}
+
+class _VocabNotebookPracticeScreenState
+    extends State<VocabNotebookPracticeScreen> {
+  Future<void> _open(String route, {Object? arguments}) async {
+    await Navigator.of(context).pushNamed(
+      route,
+      arguments: arguments ?? widget.packId,
+    );
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final pack = CustomPackService.getById(packId);
+    final pack = CustomPackService.getById(widget.packId);
     if (pack == null) {
       return Scaffold(
         appBar: AppBar(title: Text(t.vocabNotebookTitle)),
@@ -63,10 +80,7 @@ class VocabNotebookPracticeScreen extends StatelessWidget {
                 fullWidth: true,
                 onTap: pack.words.isEmpty
                     ? null
-                    : () => Navigator.of(context).pushNamed(
-                        '/custom_pack/play',
-                        arguments: pack.id,
-                      ),
+                    : () => _open('/custom_pack/play'),
               ),
               const SizedBox(height: Spacing.sm),
               SoriButton.outlined(
@@ -75,10 +89,7 @@ class VocabNotebookPracticeScreen extends StatelessWidget {
                 fullWidth: true,
                 onTap: pack.words.length < 2
                     ? null
-                    : () => Navigator.of(context).pushNamed(
-                        '/custom_pack/matching',
-                        arguments: pack.id,
-                      ),
+                    : () => _open('/custom_pack/matching'),
               ),
               const SizedBox(height: Spacing.sm),
               SoriButton.outlined(
@@ -88,10 +99,7 @@ class VocabNotebookPracticeScreen extends StatelessWidget {
                 accent: SoriColors.accent,
                 onTap: pack.words.isEmpty
                     ? null
-                    : () => Navigator.of(context).pushNamed(
-                        '/custom_pack/typing',
-                        arguments: pack.id,
-                      ),
+                    : () => _open('/custom_pack/typing'),
               ),
               const SizedBox(height: Spacing.sm),
               SoriButton.outlined(
@@ -101,10 +109,7 @@ class VocabNotebookPracticeScreen extends StatelessWidget {
                 accent: SoriColors.accent,
                 onTap: pack.words.length < 4
                     ? null
-                    : () => Navigator.of(context).pushNamed(
-                        '/custom_pack/quiz',
-                        arguments: pack.id,
-                      ),
+                    : () => _open('/custom_pack/quiz'),
               ),
               const SizedBox(height: Spacing.sm),
               SoriButton.outlined(
@@ -114,17 +119,14 @@ class VocabNotebookPracticeScreen extends StatelessWidget {
                 accent: SoriColors.goldOnLight,
                 onTap: nuanceCount == 0
                     ? null
-                    : () => Navigator.of(context).pushNamed(
-                        '/vocab_notebook/nuance',
-                        arguments: pack.id,
-                      ),
+                    : () => _open('/vocab_notebook/nuance'),
               ),
               const SizedBox(height: Spacing.lg),
               SoriButton.ghost(
                 label: t.vocabNotebookAddPhoto,
                 icon: Icons.add_a_photo_outlined,
                 fullWidth: true,
-                onTap: () => Navigator.of(context).pushNamed(
+                onTap: () => _open(
                   '/vocab_notebook',
                   arguments: <String, dynamic>{'existingPackId': pack.id},
                 ),
@@ -134,10 +136,7 @@ class VocabNotebookPracticeScreen extends StatelessWidget {
                 label: t.wbEditTitle,
                 icon: Icons.edit_outlined,
                 fullWidth: true,
-                onTap: () => Navigator.of(context).pushNamed(
-                  '/custom_pack/edit',
-                  arguments: pack.id,
-                ),
+                onTap: () => _open('/custom_pack/edit'),
               ),
             ],
           ),

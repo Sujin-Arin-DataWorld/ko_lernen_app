@@ -188,8 +188,8 @@ class VocabNuanceService {
       promptDe: 'Welches Wort ist förmlicher?',
       promptEn: 'Which word is more formal?',
       options: <VocabNuanceOption>[
-        _optionFor(everydayWord, everyday),
-        _optionFor(formalWord, formal),
+        _optionFor(everydayWord, everyday, language),
+        _optionFor(formalWord, formal, language),
       ],
       correctKorean: formal.korean,
       explanationDe:
@@ -278,8 +278,12 @@ class VocabNuanceService {
       promptDe: 'Welches Wort trägt die Silbe ${root.character} ($rootMeaning)?',
       promptEn: 'Which word carries the root ${root.character} ($rootMeaning)?',
       options: <VocabNuanceOption>[
-        _optionFor(word, entry),
-        _optionFor(distractor, HanjaLexicon.lookup(distractor.korean)),
+        _optionFor(word, entry, language),
+        _optionFor(
+          distractor,
+          HanjaLexicon.lookup(distractor.korean),
+          language,
+        ),
       ],
       correctKorean: word.korean,
       explanationDe:
@@ -292,9 +296,10 @@ class VocabNuanceService {
   static VocabNuanceOption _optionFor(
     ExtractedWord word,
     HanjaWordEntry? entry,
+    String language,
   ) => VocabNuanceOption(
     korean: word.korean,
-    meaning: word.translationDe,
+    meaning: _displayMeaning(word, language),
     hanja: entry?.hanja ?? '',
   );
 

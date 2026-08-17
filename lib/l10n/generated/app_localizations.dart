@@ -12695,6 +12695,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Fotografiere oder importiere Wörter, die nah beieinanderliegen. Hanja zeigt dann die andere Nuance oder die förmlichere Stufe.'**
   String get vocabNotebookNuanceEmptyBody;
+
+  /// No description provided for @vocabNotebookSaveFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Wörter konnten nicht gespeichert werden. Versuch es noch einmal.'**
+  String get vocabNotebookSaveFailed;
+
+  /// No description provided for @vocabNotebookNoHanja.
+  ///
+  /// In de, this message translates to:
+  /// **'kein Hanja'**
+  String get vocabNotebookNoHanja;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

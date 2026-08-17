@@ -7425,4 +7425,11 @@ class AppL10nEn extends AppL10n {
   @override
   String get vocabNotebookNuanceEmptyBody =>
       'Photograph or import words that sit close together. Hanja then shows the other nuance or the more formal level.';
+
+  @override
+  String get vocabNotebookSaveFailed =>
+      'The words could not be saved. Try again.';
+
+  @override
+  String get vocabNotebookNoHanja => 'no Hanja';
 }

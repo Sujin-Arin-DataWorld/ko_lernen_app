@@ -14,6 +14,30 @@ void main() {
     expect(bookCaptureJpegQuality, 100);
   });
 
+  test('notebook photos stay open after the textbook analysis quota', () {
+    expect(
+      bookCaptureQuotaBlocksPick(
+        captureMode: 'notebook',
+        quotaReached: true,
+      ),
+      isFalse,
+    );
+    expect(
+      bookCaptureQuotaBlocksPick(
+        captureMode: null,
+        quotaReached: true,
+      ),
+      isTrue,
+    );
+    expect(
+      bookCaptureQuotaBlocksPick(
+        captureMode: 'textbook',
+        quotaReached: false,
+      ),
+      isFalse,
+    );
+  });
+
   test('capture arguments combine image and OCR quality contracts', () {
     const ocrQuality = OcrQualityAssessment(
       unsupportedScriptRatio: 0,

@@ -22,6 +22,18 @@ import '../widgets/sori/tokens.dart';
 
 const int bookCaptureJpegQuality = 100;
 
+/// Textbook analysis has a daily DeepL ceiling. Notebook photos never call
+/// that analyzer, so they must stay available after the quota is spent.
+bool bookCaptureQuotaBlocksPick({
+  required String? captureMode,
+  required bool quotaReached,
+}) {
+  if (captureMode == 'notebook') {
+    return false;
+  }
+  return quotaReached;
+}
+
 Map<String, dynamic> buildBookPreviewArguments({
   required OcrResult ocr,
   required BookCaptureImageQuality imageQuality,
@@ -350,7 +362,12 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
 
     // Tageslimit check (DeepL Free 보호) — analyze 호출 전이라도 OCR 자체는
     // permitted, 그러나 의미 없음 (분석 미실행). 명확한 UX 위해 차단.
-    if (Storage.bookSnapQuotaReached) {
+    // Vokabelheft never calls the textbook analyzer, so the quota must not
+    // block photographing the learner's own list.
+    if (bookCaptureQuotaBlocksPick(
+      captureMode: widget.captureMode,
+      quotaReached: Storage.bookSnapQuotaReached,
+    )) {
       setState(() => _errorKey = 'quota');
       return;
     }
@@ -560,9 +577,12 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
 
+    final isNotebook = widget.captureMode == 'notebook';
+    final title = isNotebook ? t.vocabNotebookTitle : t.bookCaptureTitle;
+
     if (_busy) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.bookCaptureTitle)),
+        appBar: AppBar(title: Text(title)),
         body: AppLoading(message: t.bookCaptureLoading),
       );
     }
@@ -570,7 +590,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          t.bookCaptureTitle,
+          title,
           style: const TextStyle(fontWeight: FontWeight.w800),
         ),
       ),
@@ -596,7 +616,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
                 ),
                 const SizedBox(height: Spacing.md),
                 Text(
-                  t.bookCaptureHero,
+                  isNotebook ? t.vocabNotebookTitle : t.bookCaptureHero,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 18,
@@ -605,7 +625,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
                 ),
                 const SizedBox(height: Spacing.sm),
                 Text(
-                  t.bookCaptureSubtitle,
+                  isNotebook ? t.vocabNotebookDesc : t.bookCaptureSubtitle,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 13,
