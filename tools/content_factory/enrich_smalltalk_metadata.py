@@ -64,7 +64,7 @@ DEFAULT_TURNS = {
             "question",
             "요즘 일은 어때요?",
             "Wie läuft die Arbeit gerade?",
-            "How is work going lately?",
+            "How's work been?",
         ),
         "follow_up": turn("reaction", "그렇군요.", "Ach so.", "I see."),
     },

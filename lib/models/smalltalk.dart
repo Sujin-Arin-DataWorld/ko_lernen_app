@@ -299,7 +299,7 @@ SmalltalkTurn _defaultAlternative(
         turnKind: SmalltalkTurnKind.question,
         ko: '요즘 일은 어때요?',
         de: 'Wie läuft die Arbeit gerade?',
-        en: 'How is work going lately?',
+        en: "How's work been?",
       );
     case SmalltalkRelationshipContext.closeFriend:
       return const SmalltalkTurn(
