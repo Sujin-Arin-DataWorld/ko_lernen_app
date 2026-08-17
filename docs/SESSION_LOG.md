@@ -19,7 +19,9 @@ review-only 도구에 넣으면 promoted 명령을 가리킨다. 이미 승격�
 **검증.** `validate_content.py --json` ok, `validate_promoted_batch.py --manifest
 tools/content_factory/drafts/batch_06_manifest.json` 68 records, loader live/
 overlay 수량 일치, `python3 -m unittest discover -s tools/content_factory -p
-'test_*.py'` **98/98**. 커밋 해시는 이 기록 직후 커밋에 둔다.
+'test_*.py'` **98/98**. Flutter 수량 계약도 Batch 06 라이브 값(시나리오 62·퀘스트
+261·smalltalk 293·cloze 530·satz 443·발음 20·A1–B2 smalltalk 결정 257)으로
+맞췄다. 커밋 `d9d3482`와 후속 커밋.
 
 ### 2026-08-17 (Codex) — Batch 06 승인 완료: 리뷰 컨텐츠 배치 승인 경로 정합성 해제
 

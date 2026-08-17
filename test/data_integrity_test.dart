@@ -37,7 +37,7 @@ void main() {
         expect(ids.add(id), isTrue, reason: 'Duplicate scenario id: $id');
 
         final level = scenario['level'] as String? ?? '';
-        expect(['a1', 'a2', 'b1', 'b2'], contains(level));
+        expect(['a1', 'a2', 'b1', 'b2', 'c1', 'c2'], contains(level));
         levels[level] = (levels[level] ?? 0) + 1;
       }
 
