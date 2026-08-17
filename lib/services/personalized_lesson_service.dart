@@ -126,7 +126,7 @@ class PersonalizedLessonService {
     'food_shopping': ['food'],
     'work_study': ['work_study', 'interview'],
     'travel': ['travel'],
-    'feelings_people': ['dating', 'family', 'mood'],
+    'feelings_people': ['dating', 'family', 'partner_family', 'mood'],
     'health_body': ['health'],
   };
 

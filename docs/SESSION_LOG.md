@@ -1,5 +1,22 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — main 검증 복구 후 cursor 브랜치 전부 무손실 병합
+
+**왜.** 로컬 `main`과 `origin/main`은 `3b48e18a`에서 같았지만, Batch 06 live
+승격 뒤 CI `31980061603`이 카탈로그 계약 4건으로 실패했다. 열린 cursor
+브랜치는 코드만 있고 main에 들어가 있지 않았다.
+
+**무엇.** 먼저 `cursor/workflow-run-triage-c5be`로 계약을 맞춘 뒤, 나머지
+cursor 브랜치를 `--no-ff`로 하나씩 병합했다. 충돌은 양쪽 고유 코드를 모두
+남겼다. Batch 07/08 초안은 partner-family와 4× 트랙을 별도 manifest로
+보존했고, partner-family만 live로 올렸다.
+
+**현재 live 카탈로그.** vocab 1620, cloze 962, satz 875, smalltalk 365,
+scenario 90, quest 345, pronunciation 20, A1–B2 smalltalk decision 321.
+
+**검증.** 깨졌던 4개 카탈로그 테스트는 계약 수정 후 **14/14**. 병합 후 같은
+파일을 새 inventory로 다시 돌린다.
+
 ### 2026-08-17 (Cursor) — Batch 06 승격 게이트를 cross-game 종류에 맞춤
 
 **원인.** 라이브 데이터 무결성(`validate_content.py`, loader unrouted, grammar/
@@ -74,6 +91,48 @@ catalog·practice hub·l10n parity/guard **전부 통과**. `dart format` 변경
 기본 경로가 named `clusters`를 위치 인자로 호출하던 크래시를 고쳤고, 허브
 `bottomNavigationBar`는 `Column(mainAxisSize: min)`으로 본문이 접히지 않게 했다.
 커밋 `e07f067`.
+
+### 2026-08-17 (Cursor) — Batch 07/08 파트너 가족 트랙 live 승격
+
+**무엇을.** `integrate_review_batches.py --apply --approve-all`로 Batch 07
+five-kind(432 vocab·432 cloze·432 satz·72 smalltalk·6 grammar·36팩)를
+`assets/data/`와 pack 라벨/순서/도장 맵에 넣었다.
+`integrate_scenario_batch.py --apply`로 Batch 08 시나리오 28개·퀘스트 84개를
+시나리오 자산·curriculum link·backdrop 맵에 넣었다. can-do 카탈로그는 기존
+86 세그먼트를 유지한 채 새 연습 행을 공개 세그먼트에 붙였고, A1–B2
+`partner_family` smalltalk 64개는 명시 승인으로 고정했다.
+
+**왜.** 초안 브랜치는 review-only였다. Jin이 승격 스크립트 실행과 새 PR을
+요청했다. 최신 `main`의 Batch 06 live 자산 위에 겹치지 않는 ID로 붙였다.
+
+**검증.** `validate_review_batch.py` 1374 records.
+integrator inventory vocab 1620, grammar 182, scenario 90, scenarioQuest 345,
+smalltalk 365, cloze 962, satz 875. `validate_content.py` 통과.
+`build_can_do_segments.py --check` 통과.
+`python3 -m unittest tools.content_factory.test_build_can_do_segments` **12/12**.
+Flutter 콘텐츠 계약 **41/41** 통과. 수량 계약은 같은 인벤토리로 갱신했다.
+
+**커밋해시.** `83b3865` (테스트 수량 보정은 직후 커밋).
+
+### 2026-08-16 (Cursor) — 한국 파트너 가족·명절 트랙 Batch 07/08 초안
+
+**무엇을.** 연인이 한국 가족을 만나는 전용 카테고리 `partner_family`를 추가하고,
+설날·추석·시댁·처가·호칭·반찬 싸주기·명절 노동까지 36팩 432개 단어 카드와
+1:1 Cloze·Satzbau, 72개 smalltalk, 6개 문법, 28개 시나리오를 review-only 초안으로
+썼다. 학습 행은 `assets/data/`에 승격하지 않았다. 카테고리 정의만
+`smalltalk.json`에 넣었다.
+
+**왜.** 기존 `dating`/`family`만으로는 한국 파트너 가족·명절 경우가 부족하고,
+교과서 복사가 아니라 오리지널 KO/DE/EN이 필요했다. 전체 live 4배 확장은 이
+검수 묶음 뒤에 이어서 팩토리 배치로 늘린다.
+
+**검증.** `python3 tools/content_factory/build_batch_07_partner_family.py` 후
+`validate_review_batch.py --manifest tools/content_factory/drafts/batch_07_manifest.json`
+통과(1374 records, 36 pack plans). `build_batch_08_partner_family_scenarios.py` 후
+`integrate_scenario_batch.py` preview 28 records. `validate_content.py` 통과.
+`--apply` 없음.
+
+**커밋해시.** `208e8d47` (로그 해시 표기는 직후 커밋).
 
 ### 2026-08-17 (Codex) — Batch 06 승인 완료: 리뷰 컨텐츠 배치 승인 경로 정합성 해제
 

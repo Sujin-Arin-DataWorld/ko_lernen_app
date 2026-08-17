@@ -99,7 +99,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
         appBar: AppBar(title: Text(t.vocabNotebookNuanceTitle)),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_idle.png',
+            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.compare_arrows_rounded,
             title: t.vocabNotebookNuanceEmptyTitle,
             body: t.vocabNotebookNuanceEmptyBody,

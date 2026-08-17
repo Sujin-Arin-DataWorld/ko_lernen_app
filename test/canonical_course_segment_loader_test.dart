@@ -24,7 +24,7 @@ void main() {
       expect(result.segments.denominatorForReleaseTrack('core_2026_v1'), 86);
       expect(result.segments.publishedSegments, hasLength(86));
       expect(result.productiveAssessments.definitions, hasLength(118));
-      expect(result.inheritedContentRoutesByKey, hasLength(527));
+      expect(result.inheritedContentRoutesByKey, hasLength(1295));
       final route = result.inheritedRouteFor(
         const ContentReference(
           kind: ContentReferenceKind.cloze,

@@ -249,7 +249,7 @@ class _WordWebScreenState extends State<WordWebScreen>
   Widget _empty(AppL10n t) {
     return Center(
       child: SoriEmptyState(
-        asset: 'assets/illustrations/mascot/tiger_idle.png',
+        asset: 'assets/illustrations/mascot/tiger_sitting2.png',
         icon: Icons.hub_outlined,
         title: t.wordWebEmptyTitle,
         body: t.wordWebEmptyBody,

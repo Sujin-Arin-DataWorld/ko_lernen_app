@@ -367,23 +367,18 @@ flutter run -d <android-id>   # 안드로이드
 - [x] **Batch 06 앱 데이터 승격 + 카탈로그 계약**: `fa86b7af`가 Batch 06
   68개 standalone + embedded quest 20개를 production asset과
   `curriculum_manifest.json` contentLinks에 올렸다. review ledger는 전부
-  `approved`이고 manifest 상태는 `merged`다. 이후 검사는
-  `validate_promoted_batch.py`다. 고정 카탈로그 계약은 scenario 62·quest 261,
-  Smalltalk 293, Cloze 530, Satz 443, pronunciation 20, A1–B2 smalltalk
-  semantic decision 257, 시나리오 레벨 A1–C2다. TTS/Firebase 누락분은 별도 게이트다.
-- [ ] **한국 파트너 가족·명절 트랙 (Jin 검수)**: Batch 07 five-kind
-  `review_only_draft`(36팩·432 vocab·1:1 cloze/satz·72 smalltalk·6 grammar)와
-  Batch 08 시나리오 28개가 초안이다. live 승격은 `integrate_review_batches.py` /
-  `integrate_scenario_batch.py`와 Jin 승인 뒤에만.
+  `approved`이고 manifest 상태는 `merged`다.
+- [x] **한국 파트너 가족·명절 트랙 live 승격**: Batch 07/08 partner-family가
+  live 자산에 들어갔다. 현재 카탈로그는 vocab 1620, cloze 962, satz 875,
+  smalltalk 365, scenario 90, quest 345, pronunciation 20, A1–B2 smalltalk
+  semantic decision 321이다.
 - [ ] **레벨 콘텐츠 4× 초안 (Batch 07/08, review-only)**: 단어 48팩/576개, 문법 24,
   스몰토크 12, Cloze/Satz 각 576(Batch 07)과 시나리오 174 + 미사용 live Satz 641
   (Batch 08)을 draft에만 두었다. `--apply`/TTS/Firebase는 Jin 승인 전 금지.
-- [ ] **다음 콘텐츠**: Batch 07/08 두 초안 트랙은 별도 manifest로 보존한다.
-  loader 재계산 작업량은
-  `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다. PDF, OCR,
-  표 판독은 `reference_intake/` 격리 DB를 거쳐 source가 제거된 brief만 독립 집필에
-  쓴다. review 승인, reference/content validator, preview를 모두 통과하기 전에는
-  앱 데이터, TTS, Firebase에 쓰지 않는다.
+- [ ] **다음 콘텐츠**: 4× 초안 트랙은 별도 manifest로 보존한다. loader 재계산
+  작업량은 `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다.
+  PDF, OCR, 표 판독은 `reference_intake/` 격리 DB를 거쳐 source가 제거된 brief만
+  독립 집필에 쓴다. review 승인 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다.
 - [x] **Batch 05 TTS/Storage**: 신규 504개를 합성·업로드했고 전체 corpus 6,321개를
   Storage에서 검증했다. 결과는 expected 6,321, remote 6,376, missing 0, stale 55이며
   과거 immutable stale 객체는 삭제하지 않는다.

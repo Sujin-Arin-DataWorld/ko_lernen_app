@@ -1,7 +1,7 @@
 {
   "version": 1,
   "batch": "07",
-  "status": "review_only_draft",
+  "status": "merged",
   "provenance": {
     "scope": "Original Korean-partner, in-law, Seollal, and Chuseok track. Hand-authored word cards, cloze, Satzbau, smalltalk, and grammar. No textbook wording or unit sequence is reproduced.",
     "rights": "original",
@@ -11,7 +11,13 @@
       "familyPacks": 36,
       "familyVocab": 432,
       "purpose": "dedicated dating/Korean-family category plus 4x volume drafts"
-    }
+    },
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-15",
+      "scope": "all records promoted to bundled app content"
+    },
+    "mergedAt": "2026-08-15"
   },
   "predecessorManifests": [],
   "artifacts": [

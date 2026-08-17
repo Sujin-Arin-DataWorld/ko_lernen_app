@@ -3,7 +3,7 @@
   "batch": "07",
   "status": "review_only_draft",
   "provenance": {
-    "scope": "Combined review-only Batch 07 index. Partner-family and A1-C2 4x expansion stay in separate manifests so neither draft track is dropped.",
+    "scope": "Combined Batch 07 index. Partner-family is merged into live assets; A1-C2 4x expansion stays review-only so neither track is dropped.",
     "rights": "original",
     "createdAt": "2026-08-16",
     "requiresJinReview": true,
