@@ -10,7 +10,7 @@ catalog eviction은 Flutter `ImageProvider` 없이 path+width spec만 돌리고,
 
 **검증.** Python 29/29, checker exit 0, Flutter catalog/map/provenance/projector/state
 통과, analyzer No issues. 재현: 손실 q82 chroma 65536·단청 0, 빈 ledger
-`PromotionError`, y=170–300 `CompositionError`.
+`PromotionError`, y=170–300 `CompositionError`. 커밋 `2735dbeb`.
 
 ### 2026-08-17 (Cursor) — PR4 fail-closed 계측 제거
 
