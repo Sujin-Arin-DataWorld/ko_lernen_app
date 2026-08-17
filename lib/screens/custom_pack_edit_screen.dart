@@ -423,6 +423,33 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                           ),
                         ],
                       ),
+                      const SizedBox(height: Spacing.sm),
+                      SoriButton(
+                        label: t.vocabNotebookNuanceCta,
+                        icon: Icons.compare_arrows_rounded,
+                        variant: SoriButtonVariant.outlined,
+                        accent: SoriColors.goldOnLight,
+                        fullWidth: true,
+                        onTap: words.length < 2
+                            ? null
+                            : () => Navigator.of(context).pushNamed(
+                                '/vocab_notebook/nuance',
+                                arguments: pack.id,
+                              ),
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                      SoriButton(
+                        label: t.vocabNotebookAddPhoto,
+                        icon: Icons.add_a_photo_outlined,
+                        variant: SoriButtonVariant.ghost,
+                        fullWidth: true,
+                        onTap: () => Navigator.of(context).pushNamed(
+                          '/vocab_notebook',
+                          arguments: <String, dynamic>{
+                            'existingPackId': pack.id,
+                          },
+                        ),
+                      ),
                     ],
                   ),
                 ),

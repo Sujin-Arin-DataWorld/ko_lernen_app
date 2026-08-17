@@ -3219,9 +3219,9 @@
   "soriStageBrandLabel": "SORI STAGE",
   "soriStageActivityInProgress": "In progress",
   "soriStageActivityCompleted": "Completed",
-  "soriStageActivityTitle": "{activityId, select, course{Course} hangul{Hangul} calligraphy{Calligraphy} pronunciation{Pronunciation} vocab_packs{Vocabulary packs} srs{SRS review} hard_words{Hard words} word_web{Word web} grammar{Grammar} listening{Listening} scenarios{Real-life scenarios} smalltalk{Small Talk} book_capture{Scan a book} bookshelf{Bookshelf} word_search{Word search} daily_game{Daily challenge} chosung{Chosung quiz} syllable_cross{Syllable cross} cloze{Cloze} speed_match{Speed Match} sentence_arcade{Sentence arcade} kkeunmari{Kkeunmari} custom_quiz{Custom quiz} custom_matching{Custom matching} custom_typing{Custom typing} other{Learning activity}}}",
+  "soriStageActivityTitle": "{activityId, select, course{Course} hangul{Hangul} calligraphy{Calligraphy} pronunciation{Pronunciation} vocab_packs{Vocabulary packs} srs{SRS review} hard_words{Hard words} word_web{Word web} grammar{Grammar} listening{Listening} scenarios{Real-life scenarios} smalltalk{Small Talk} book_capture{Scan a book} vocab_notebook{Vocab notebook} bookshelf{Bookshelf} word_search{Word search} daily_game{Daily challenge} chosung{Chosung quiz} syllable_cross{Syllable cross} cloze{Cloze} speed_match{Speed Match} sentence_arcade{Sentence arcade} kkeunmari{Kkeunmari} custom_quiz{Custom quiz} custom_matching{Custom matching} custom_typing{Custom typing} other{Learning activity}}}",
   "@soriStageActivityTitle": {"placeholders": {"activityId": {"type": "String"}}},
-  "soriStageActivityDescription": "{activityId, select, course{Your guided path through real situations.} hangul{Build syllables and read with confidence.} calligraphy{Write one character with intention.} pronunciation{Listen, repeat, and optionally assess.} vocab_packs{Learn words by everyday topic.} srs{Strengthen due words at the right moment.} hard_words{Focus on the words that trip you up.} word_web{Study synonyms, opposites, and expressions for words you already know.} grammar{Understand patterns and use them right away.} listening{Recognize short natural phrases.} scenarios{Practice cafés, transport, and conversations.} smalltalk{Connect short conversations naturally.} book_capture{Bring words in from your own material.} bookshelf{Manage your pages and word lists.} word_search{Find a word and its learning paths.} daily_game{A short mix for today.} chosung{Recognize words from their first sounds.} syllable_cross{Combine syllables and find words.} cloze{Recall the right word in a sentence.} speed_match{Match meanings quickly and accurately.} sentence_arcade{Build sentences under time pressure.} kkeunmari{Play a word chain against the tiger.} custom_quiz{Choose a word pack from your bookshelf.} custom_matching{Strengthen your words as pairs.} custom_typing{Actively recall your own words.} other{Continue learning.}}}",
+  "soriStageActivityDescription": "{activityId, select, course{Your guided path through real situations.} hangul{Build syllables and read with confidence.} calligraphy{Write one character with intention.} pronunciation{Listen, repeat, and optionally assess.} vocab_packs{Learn words by everyday topic.} srs{Strengthen due words at the right moment.} hard_words{Focus on the words that trip you up.} word_web{Study synonyms, opposites, and expressions for words you already know.} grammar{Understand patterns and use them right away.} listening{Recognize short natural phrases.} scenarios{Practice cafés, transport, and conversations.} smalltalk{Connect short conversations naturally.} book_capture{Bring words in from your own material.} vocab_notebook{Photograph your notebook and practice those exact words.} bookshelf{Manage your pages and word lists.} word_search{Find a word and its learning paths.} daily_game{A short mix for today.} chosung{Recognize words from their first sounds.} syllable_cross{Combine syllables and find words.} cloze{Recall the right word in a sentence.} speed_match{Match meanings quickly and accurately.} sentence_arcade{Build sentences under time pressure.} kkeunmari{Play a word chain against the tiger.} custom_quiz{Choose a word pack from your bookshelf.} custom_matching{Strengthen your words as pairs.} custom_typing{Actively recall your own words.} other{Continue learning.}}}",
   "@soriStageActivityDescription": {"placeholders": {"activityId": {"type": "String"}}},
   "soriStageCatalogCopy": "{copyKey, select, firstCompletion{On first completion} finishSession{When you finish the session} verifiedLearning{After verified learning} rewardXp{Learning XP} rewardQuest{Related quest} rewardHanok{Verified Hanok construction progress} rewardStamp{Dojang stamp} rewardBest{Personal best} rewardNone{No direct reward} rewardQuestProgress{Quest progress} rewardHanokPiece{New Hanok building piece} rewardBojagi{Bojagi} rewardGyeLantern{Gye lantern} other{Reward}}}",
   "@soriStageCatalogCopy": {"placeholders": {"copyKey": {"type": "String"}}},
@@ -3243,5 +3243,35 @@
   "culturalStoryLabel": "Why did it matter?",
   "culturalClose": "Close cultural story",
   "culturalObjectHint": "Curious? Tap an object to learn more.",
-  "culturalObjectHintDismiss": "Dismiss hint"
+  "culturalObjectHintDismiss": "Dismiss hint",
+  "vocabNotebookTitle": "Vocab notebook",
+  "vocabNotebookDesc": "Photograph your notebook and practice those exact words.",
+  "vocabNotebookPreviewCta": "Keep these words",
+  "vocabNotebookResultHint": "{count, plural, one{1 word from your notebook. You will practice exactly this word next.} other{{count} words from your notebook. You will practice exactly these words next.}}",
+  "@vocabNotebookResultHint": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "vocabNotebookDefaultName": "My vocab notebook",
+  "vocabNotebookEmptyTitle": "No word pairs found",
+  "vocabNotebookEmptyBody": "Write Korean and the meaning on one line, for example: 학교 - Schule. Then keep exactly those words.",
+  "vocabNotebookPracticeCta": "Practice these exact words",
+  "vocabNotebookPracticeHint": "{count, plural, one{1 word from your notebook. Play with it instead of getting new vocabulary.} other{{count} words from your notebook. Play with them instead of getting new vocabulary.}}",
+  "@vocabNotebookPracticeHint": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "vocabNotebookAddPhoto": "Photograph another page",
+  "vocabNotebookDropWord": "Leave this word out",
+  "vocabNotebookKeepWord": "Keep this word",
+  "vocabNotebookNuanceCta": "Hanja, synonyms, nuance",
+  "vocabNotebookNuanceTitle": "Close, but not the same",
+  "vocabNotebookNuanceEmptyTitle": "No comparison yet",
+  "vocabNotebookNuanceEmptyBody": "Photograph or import words that sit close together. Hanja then shows the other nuance or the more formal level."
 }

@@ -21,6 +21,7 @@ void main() {
       'scenarios',
       'smalltalk',
       'book_capture',
+      'vocab_notebook',
       'bookshelf',
       'word_search',
     });

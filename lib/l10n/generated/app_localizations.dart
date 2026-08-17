@@ -12513,13 +12513,13 @@ abstract class AppL10n {
   /// No description provided for @soriStageActivityTitle.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} word_web{Wortnetz} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
+  /// **'{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} word_web{Wortnetz} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
   String soriStageActivityTitle(String activityId);
 
   /// No description provided for @soriStageActivityDescription.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
+  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu Wörtern, die du schon kannst.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
   String soriStageActivityDescription(String activityId);
 
   /// No description provided for @soriStageCatalogCopy.
@@ -12599,6 +12599,102 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Hinweis schließen'**
   String get culturalObjectHintDismiss;
+
+  /// No description provided for @vocabNotebookTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Vokabelheft'**
+  String get vocabNotebookTitle;
+
+  /// No description provided for @vocabNotebookDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Heft fotografieren und genau diese Wörter üben.'**
+  String get vocabNotebookDesc;
+
+  /// No description provided for @vocabNotebookPreviewCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Wörter übernehmen'**
+  String get vocabNotebookPreviewCta;
+
+  /// No description provided for @vocabNotebookResultHint.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 Wort aus deinem Heft. Genau diese Wörter übst du danach.} other{{count} Wörter aus deinem Heft. Genau diese Wörter übst du danach.}}'**
+  String vocabNotebookResultHint(int count);
+
+  /// No description provided for @vocabNotebookDefaultName.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Vokabelheft'**
+  String get vocabNotebookDefaultName;
+
+  /// No description provided for @vocabNotebookEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine Wortpaare gefunden'**
+  String get vocabNotebookEmptyTitle;
+
+  /// No description provided for @vocabNotebookEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreib Koreanisch und die Bedeutung in eine Zeile, zum Beispiel: 학교 - Schule. Dann übernimm genau diese Wörter.'**
+  String get vocabNotebookEmptyBody;
+
+  /// No description provided for @vocabNotebookPracticeCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Genau diese Wörter üben'**
+  String get vocabNotebookPracticeCta;
+
+  /// No description provided for @vocabNotebookPracticeHint.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 Wort aus deinem Heft. Spiele damit, statt neue Vokabeln zu bekommen.} other{{count} Wörter aus deinem Heft. Spiele damit, statt neue Vokabeln zu bekommen.}}'**
+  String vocabNotebookPracticeHint(int count);
+
+  /// No description provided for @vocabNotebookAddPhoto.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Seite fotografieren'**
+  String get vocabNotebookAddPhoto;
+
+  /// No description provided for @vocabNotebookDropWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort weglassen'**
+  String get vocabNotebookDropWord;
+
+  /// No description provided for @vocabNotebookKeepWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort behalten'**
+  String get vocabNotebookKeepWord;
+
+  /// No description provided for @vocabNotebookNuanceCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Hanja, Synonyme, Nuancen'**
+  String get vocabNotebookNuanceCta;
+
+  /// No description provided for @vocabNotebookNuanceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ähnlich, aber nicht gleich'**
+  String get vocabNotebookNuanceTitle;
+
+  /// No description provided for @vocabNotebookNuanceEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch kein Vergleich'**
+  String get vocabNotebookNuanceEmptyTitle;
+
+  /// No description provided for @vocabNotebookNuanceEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Fotografiere oder importiere Wörter, die nah beieinanderliegen. Hanja zeigt dann die andere Nuance oder die förmlichere Stufe.'**
+  String get vocabNotebookNuanceEmptyBody;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

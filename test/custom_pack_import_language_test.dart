@@ -17,6 +17,22 @@ void main() {
     expect(words.first.exampleKorean, '저는 학생이에요.');
   });
 
+  test('TSV and semicolon exports keep the learner meaning column', () {
+    final tsv = parseCustomPackCsvWords(
+      '학교\tSchule\n학생\tSchüler',
+      translationLanguage: 'de',
+    );
+    final semicolon = parseCustomPackCsvWords(
+      '학교;Schule\n학생;Schüler',
+      translationLanguage: 'de',
+    );
+
+    expect(tsv.map((word) => word.korean), <String>['학교', '학생']);
+    expect(tsv.first.translationDe, 'Schule');
+    expect(semicolon.map((word) => word.korean), <String>['학교', '학생']);
+    expect(semicolon.last.translationDe, 'Schüler');
+  });
+
   test('German CSV keeps German provenance and an empty English slot', () {
     final word = parseCustomPackCsvWords(
       '학생,Schüler',

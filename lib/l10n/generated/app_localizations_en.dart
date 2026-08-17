@@ -7184,6 +7184,7 @@ class AppL10nEn extends AppL10n {
       'scenarios': 'Real-life scenarios',
       'smalltalk': 'Small Talk',
       'book_capture': 'Scan a book',
+      'vocab_notebook': 'Vocab notebook',
       'bookshelf': 'Bookshelf',
       'word_search': 'Word search',
       'daily_game': 'Daily challenge',
@@ -7218,6 +7219,8 @@ class AppL10nEn extends AppL10n {
       'scenarios': 'Practice cafés, transport, and conversations.',
       'smalltalk': 'Connect short conversations naturally.',
       'book_capture': 'Bring words in from your own material.',
+      'vocab_notebook':
+          'Photograph your notebook and practice those exact words.',
       'bookshelf': 'Manage your pages and word lists.',
       'word_search': 'Find a word and its learning paths.',
       'daily_game': 'A short mix for today.',
@@ -7351,4 +7354,75 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get culturalObjectHintDismiss => 'Dismiss hint';
+
+  @override
+  String get vocabNotebookTitle => 'Vocab notebook';
+
+  @override
+  String get vocabNotebookDesc =>
+      'Photograph your notebook and practice those exact words.';
+
+  @override
+  String get vocabNotebookPreviewCta => 'Keep these words';
+
+  @override
+  String vocabNotebookResultHint(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count words from your notebook. You will practice exactly these words next.',
+      one:
+          '1 word from your notebook. You will practice exactly this word next.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get vocabNotebookDefaultName => 'My vocab notebook';
+
+  @override
+  String get vocabNotebookEmptyTitle => 'No word pairs found';
+
+  @override
+  String get vocabNotebookEmptyBody =>
+      'Write Korean and the meaning on one line, for example: 학교 - Schule. Then keep exactly those words.';
+
+  @override
+  String get vocabNotebookPracticeCta => 'Practice these exact words';
+
+  @override
+  String vocabNotebookPracticeHint(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count words from your notebook. Play with them instead of getting new vocabulary.',
+      one:
+          '1 word from your notebook. Play with it instead of getting new vocabulary.',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get vocabNotebookAddPhoto => 'Photograph another page';
+
+  @override
+  String get vocabNotebookDropWord => 'Leave this word out';
+
+  @override
+  String get vocabNotebookKeepWord => 'Keep this word';
+
+  @override
+  String get vocabNotebookNuanceCta => 'Hanja, synonyms, nuance';
+
+  @override
+  String get vocabNotebookNuanceTitle => 'Close, but not the same';
+
+  @override
+  String get vocabNotebookNuanceEmptyTitle => 'No comparison yet';
+
+  @override
+  String get vocabNotebookNuanceEmptyBody =>
+      'Photograph or import words that sit close together. Hanja then shows the other nuance or the more formal level.';
 }

@@ -3,7 +3,7 @@ import 'package:csv/csv.dart';
 import '../models/book_page.dart';
 import 'book_analysis_text.dart';
 
-const int maxCustomPackCsvRows = 200;
+const int maxCustomPackCsvRows = 8000;
 
 String sanitizeCustomPackKoreanWord(String value) =>
     BookAnalysisTextPreprocessor.prepare(
@@ -49,10 +49,12 @@ List<ExtractedWord> parseCustomPackCsvWords(
   required String translationLanguage,
 }) {
   final language = translationLanguage == 'en' ? 'en' : 'de';
-  final rows = const CsvToListConverter(
+  final normalized = raw.replaceAll('\r\n', '\n').replaceAll('\r', '\n');
+  final rows = CsvToListConverter(
     shouldParseNumbers: false,
     eol: '\n',
-  ).convert(raw.replaceAll('\r\n', '\n').replaceAll('\r', '\n'));
+    fieldDelimiter: _detectCustomPackDelimiter(normalized),
+  ).convert(normalized);
 
   final words = <ExtractedWord>[];
   for (final row in rows.take(maxCustomPackCsvRows)) {
@@ -76,4 +78,17 @@ List<ExtractedWord> parseCustomPackCsvWords(
     );
   }
   return words;
+}
+
+String _detectCustomPackDelimiter(String raw) {
+  final first = raw
+      .split('\n')
+      .firstWhere((line) => line.trim().isNotEmpty, orElse: () => '');
+  if (first.contains('\t')) {
+    return '\t';
+  }
+  if (first.contains(';') && !first.contains(',')) {
+    return ';';
+  }
+  return ',';
 }

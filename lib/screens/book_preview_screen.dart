@@ -6,6 +6,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../services/book_analysis_text.dart';
 import '../services/book_image_service.dart';
 import '../services/book_ocr_document.dart';
+import '../services/vocab_notebook_parser.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
@@ -112,32 +113,57 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
     setState(() => _canAnalyze = canAnalyze);
   }
 
+  BookOcrDocument? get _currentDocument =>
+      _ctrl.text == _initialText && widget.args['ocrDocument'] is BookOcrDocument
+      ? widget.args['ocrDocument'] as BookOcrDocument
+      : null;
+
+  bool get _useNotebookPath {
+    final mode = widget.args['captureMode'] as String?;
+    if (mode == 'notebook') {
+      return true;
+    }
+    if (mode == 'textbook') {
+      return false;
+    }
+    return VocabNotebookParser.parse(
+      _ctrl.text,
+      document: _currentDocument,
+    ).looksLikeNotebook;
+  }
+
   void _continue() {
     if (!_canAnalyze) {
       return;
     }
+    final useNotebook = _useNotebookPath;
     final prepared = BookAnalysisTextPreprocessor.prepare(_ctrl.text);
-    if (!prepared.hasKoreanText || !_mediaOwner.transfer()) {
+    final notebookText = VocabNotebookParser.prepareText(_ctrl.text);
+    final hasKorean = useNotebook
+        ? BookAnalysisTextPreprocessor.containsHangulSyllable(notebookText)
+        : prepared.hasKoreanText;
+    if (!hasKorean || !_mediaOwner.transfer()) {
       return;
     }
     try {
       Navigator.of(context).pushReplacementNamed(
-        '/book/result',
+        useNotebook ? '/vocab_notebook/result' : '/book/result',
         arguments: <String, dynamic>{
-          'text': prepared.text,
+          'text': useNotebook ? notebookText : prepared.text,
           'imageLease': widget.args['imageLease'],
           'qualityWarnings': widget.args['qualityWarnings'],
           'severeQualityWarnings': widget.args['severeQualityWarnings'],
           'discardedBlockCount': widget.args['discardedBlockCount'],
           'ocrQuality': widget.args['ocrQuality'],
           'imageQuality': widget.args['imageQuality'],
-          'textQualityWarnings': prepared.warnings,
+          'textQualityWarnings': useNotebook
+              ? const <String>[]
+              : prepared.warnings,
           'qualityOverrideByTextEdit': _hasSevereCaptureWarning,
-          'ocrDocument':
-              _ctrl.text == _initialText &&
-                  widget.args['ocrDocument'] is BookOcrDocument
-              ? widget.args['ocrDocument']
-              : null,
+          'ocrDocument': _currentDocument,
+          if (widget.args['existingPackId'] is String)
+            'existingPackId': widget.args['existingPackId'],
+          if (useNotebook) 'captureMode': 'notebook',
         },
       );
     } on Object {
@@ -239,8 +265,12 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
                 ),
                 const SizedBox(height: Spacing.lg),
                 SoriButton(
-                  label: t.bookPreviewAnalyze,
-                  icon: Icons.auto_awesome,
+                  label: _useNotebookPath
+                      ? t.vocabNotebookPreviewCta
+                      : t.bookPreviewAnalyze,
+                  icon: _useNotebookPath
+                      ? Icons.menu_book_outlined
+                      : Icons.auto_awesome,
                   variant: SoriButtonVariant.filled,
                   accent: SoriColors.primary,
                   fullWidth: true,

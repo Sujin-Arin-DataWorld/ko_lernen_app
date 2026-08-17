@@ -376,6 +376,14 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
   // Review has its own first decision above and is never duplicated here.
   List<_HubItem> _wordItems(AppL10n t) => [
     _HubItem(
+      icon: Icons.photo_album_outlined,
+      title: t.vocabNotebookTitle,
+      subtitle: t.vocabNotebookDesc,
+      accent: SoriColors.accent,
+      route: '/vocab_notebook',
+      ribbonType: 'new',
+    ),
+    _HubItem(
       icon: Icons.collections_bookmark_outlined,
       title: t.homeBookshelfCardTitle,
       subtitle: t.homeBookshelfCardDesc,
