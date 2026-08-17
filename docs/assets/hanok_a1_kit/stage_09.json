@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "stage": 9,
   "id": "09_rafters_roof_frame",
-  "note": "Derived kit parts + aligned generated rafter frame (BBANANA gvi_1786972511933_46an1e, pending Jin review).",
+  "note": "Derived kit parts + aligned generated rafter frame (BBANANA gvi_1786972511933_46an1e, pending Jin review). Frame layers are cumulative: every earlier timber part stays under the new one, so the continuity gate sees no dropped member.",
   "layers": [
     {
       "part": "platform",
@@ -153,8 +153,24 @@
       "z": 307
     },
     {
-      "part": "generated:frame_rafters",
+      "part": "generated:frame_beams",
+      "z": 890,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "part": "generated:frame_purlins",
       "z": 900,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "part": "generated:frame_rafters",
+      "z": 910,
       "at": [
         0,
         0

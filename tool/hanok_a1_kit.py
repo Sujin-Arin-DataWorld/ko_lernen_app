@@ -76,7 +76,7 @@ def load_manifest(path: Path) -> dict[str, Any]:
         _require(isinstance(z, int), f"{path}: layers[{index}].z must be an integer")
         _require(z not in seen_z, f"{path}: duplicate z {z}")
         seen_z.add(z)
-        for key in ("transient", "rear"):
+        for key in ("transient", "rear", "prop"):
             _require(
                 isinstance(layer.get(key, False), bool),
                 f"{path}: layers[{index}].{key} must be a bool",
@@ -203,6 +203,7 @@ def render_manifest(
     provenance: dict[str, Any] | None,
     include_transient: bool = True,
     only_transient: bool = False,
+    include_props: bool = True,
     allow_unapproved_parts: bool = False,
 ) -> Image.Image:
     width = int(geometry["socket"]["width"])
@@ -213,6 +214,11 @@ def render_manifest(
         if only_transient and not transient:
             continue
         if not include_transient and transient:
+            continue
+        # `prop` marks the movable furnishings (chimney, shoes, lantern, blind,
+        # pots) that stay for good but are NOT part of the finished sarangchae
+        # asset: rendering without them must reproduce sarangchae.png exactly.
+        if not include_props and bool(layer.get("prop", False)):
             continue
         name = layer["part"]
         if name.startswith(GENERATED_PREFIX):
@@ -315,7 +321,12 @@ def assert_structural_continuity(
     transient = dilate(alpha_mask(previous_transient), 1)
     structural = previous & ~transient
     current = alpha_mask(current_layer)
-    _require(bool(structural.any()), "previous stage has no structural footprint")
+    _require(bool(previous.any()), "previous stage layer is empty")
+    if not structural.any():
+        # Stages 01-02 are setout marks and ink lines only: every pixel of them is
+        # transient, so the next stage inherits nothing and there is no footprint
+        # to keep. An empty *layer* is still rejected above.
+        return {"structuralRecall": 1.0, "structuralPixels": 0.0, "edgeDriftPx": 0.0}
     missing = int((structural & ~current).sum())
     _require(
         missing == 0,

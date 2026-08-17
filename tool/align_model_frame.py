@@ -300,6 +300,15 @@ def main(argv: list[str] | None = None) -> int:
         "--fit-from",
         help="measure the affine fit on this image instead of the target (same camera)",
     )
+    parser.add_argument(
+        "--clip-dilate-px",
+        type=int,
+        default=0,
+        help=(
+            "grow the finished silhouette by this many px before clipping; 0 keeps the "
+            "frame strictly inside it so the finished roof crop can cover it at stage 11"
+        ),
+    )
     args = parser.parse_args(argv)
     report = align(
         Path(args.model_image),
@@ -308,6 +317,7 @@ def main(argv: list[str] | None = None) -> int:
         ridge_row=args.ridge_row,
         top_row=args.top_row,
         fit_from=Path(args.fit_from) if args.fit_from else None,
+        clip_dilate_px=args.clip_dilate_px,
     )
     print(json.dumps(report, indent=2, sort_keys=True))
     return 0

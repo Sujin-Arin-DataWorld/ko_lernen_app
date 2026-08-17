@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "stage": 10,
   "id": "10_roof_base",
-  "note": "Derived kit parts + aligned generated roof-base layer (BBANANA 35cc41266087587f901b7a0e141aab82, pending Jin review).",
+  "note": "Derived kit parts + aligned generated roof-base layer (BBANANA 35cc41266087587f901b7a0e141aab82, pending Jin review). Frame layers are cumulative: every earlier timber part stays under the new one, so the continuity gate sees no dropped member.",
   "layers": [
     {
       "part": "platform",
@@ -153,8 +153,32 @@
       "z": 307
     },
     {
-      "part": "generated:frame_roofbase",
+      "part": "generated:frame_beams",
+      "z": 890,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "part": "generated:frame_purlins",
       "z": 900,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "part": "generated:frame_rafters",
+      "z": 910,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "part": "generated:frame_roofbase",
+      "z": 920,
       "at": [
         0,
         0

@@ -1,5 +1,50 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — A1 16단계 전부 완성 (게이트 통과, Jin 승인 대기)
+
+**왜.** Jin: "커밋해주고, 일단 컴팩했으니까 너가 이 세션에서 이미지 전부 마무리하자."
+직전 커밋 `abd18416`(키트 파이프라인 + 9단계)에 이어 남은 7장(01·02·05·12·13·14·16)을 끝냈다.
+
+**생성(4 credit, 잔액 876.7).** 초벽 텍스처 1장(BBANANA `bce56a89247c1aa410dfd7d7602e8795`,
+Nano Banana Pro 2K 4:3, 프롬프트 원문은 플레이북 §3.5). 나머지 6장은 **크레딧 0** — 이미 만든
+소품 시트(`5baedfcabb9a487981741880369c800e`)를 자르고 완성본 픽셀로 도색해 조립했다.
+
+**신규 도구.**
+- `tool/cut_prop_sheet.py`: 소품 시트를 chroma→alpha(소프트 에지 + 그린 디스필) 후 연결요소
+  15개로 라벨링해 시트 읽기 순서대로 자르고, **소켓 최종 크기까지 여기서 리사이즈**한다
+  (컴포지터는 리사이즈하지 않음). 그룹으로만 그려진 말뚝은 손측정 sub-cut `prop_stake` 1개 추가 → 16장.
+- `tool/make_kit_parts.py`: 모델을 부르지 않는 7개 부품을 조립한다. 01 말뚝 4개 + 발자국 실선,
+  02 기둥 위치 먹줄 격자(측정 발자국에서 계산) + 도행판, 05 목재 더미·모탕, 12 수장 부재
+  (상인방 157–161 / 중방 196–200 / 머름 222–228 / 벽선·문선 4px)를 **완성본의 하방 밴드·기둥
+  스트립을 늘려 도색**, 13 초벽 텍스처 타일링(EARTH_TONE 0.84/0.76/0.66 · scale 10을 부품에 구움),
+  14 아궁이·굴뚝, 16 신발·등롱·발·화분. 모든 산출물은 저장 직전 `dilate(완성 alpha,1) ∪ propsZone`
+  으로 클립하고, 12·13은 추가로 **완성 벽 패널의 alpha==255 픽셀**로 클립한다.
+
+**계약 확장.** manifest 레이어에 `prop: true`(영구 소품 = `sarangchae_props` 대상) 추가 +
+`render_manifest(include_props=False)`. 전 단계 레이어가 전부 transient일 때(01→02) 연속성
+게이트가 "구조 픽셀 0"으로 통과하도록 명시(빈 레이어는 여전히 거절). provenance `a1KitContract`에
+`frameClipDilatePx: 0`·`programParts`·`propLayerFlag`·`cumulativeFrameLayers`·
+`postProcessingBakedIntoParts` 기록.
+
+**전체 체인을 처음으로 01→16 순서대로 돌려 잡은 실측 결함 2건.**
+1. 09가 08의 구조 픽셀 **387개**를 잃었다 — 모델이 단계마다 프레임을 조금씩 다시 그리기 때문.
+   → 생성 골조 레이어를 누적(08 = beams+purlins, 09 = +rafters, 10 = +roofbase)으로 바꿔 해결.
+2. 11(완성 기와)이 10의 픽셀 **26개**를 덮지 못했다 — 정렬 클립이 완성 실루엣 +1px이어서 처마
+   끝이 삐져나왔다. → `align_model_frame.py --clip-dilate-px` 신설, 기본 0으로 재정렬.
+
+**결과.** 16장 전부 통과: kit anchor OK(01·02 bottom 293, 03~16 307) · containment 위반 0 ·
+구조 recall 1.0 · edge drift 0 · 최대 285,696 B(상한 350,000). **15·16은 props를 제외하면
+`base ⊕ sarangchae.png`와 픽셀 동일**(완성 실루엣 밖 추가 픽셀 0). 대조 시트
+`assets_unused/pending_review/a1_kit/qa/contact_sheet_a1_16.png`.
+
+**테스트.** `tool/test_make_kit_parts.py` 신설(6개: chroma 디스필, 시트 읽기 순서, 수장 필드가
+칸을 넘지 않음, ground_x 보간, 흙벽이 부재를 덮지 않음, 7개 부품 모두 허용 영역 안).
+`test_hanok_a1_kit.py`는 15·16 props 제외 픽셀 동일 + 16개 manifest 전수 로드 + 전부-transient
+연속성 + 12·13 벽 내부 클립 검사를 추가해 8→11개.
+
+**남은 일.** Jin 장별 승인 → `generationLedger`에 `kind=part`(11) `kind=state`(16) 기록 →
+`promote_hanok_a1_states.py --apply` → pubspec 등록. D1 rename은 PR5a.
+
 ### 2026-08-17 (Claude, Windows) — 한옥 V1 학습경로↔외관·사랑방 매핑 + 부품 키트 파이프라인 재검토 (설계 승인, 구현 시작)
 
 **왜.** Jin: "한옥 짓기 콘텐츠를 대충 만들 생각 없다 — 비바샘·서울한옥포털·hanokdb 세 사이트를 이잡듯이 뒤져서

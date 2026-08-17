@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "stage": 8,
   "id": "08_purlins_sangnyang",
-  "note": "Derived kit parts + one aligned generated frame part (BBANANA task p9hh9hpgk9rmy0d01zb80bs7v0, pending Jin review).",
+  "note": "Derived kit parts + one aligned generated frame part (BBANANA task p9hh9hpgk9rmy0d01zb80bs7v0, pending Jin review). Frame layers are cumulative: every earlier timber part stays under the new one, so the continuity gate sees no dropped member.",
   "layers": [
     {
       "part": "platform",
@@ -151,6 +151,14 @@
     {
       "part": "pillar_8",
       "z": 307
+    },
+    {
+      "part": "generated:frame_beams",
+      "z": 890,
+      "at": [
+        0,
+        0
+      ]
     },
     {
       "part": "generated:frame_purlins",

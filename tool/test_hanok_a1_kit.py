@@ -18,6 +18,7 @@ from hanok_a1_kit import (  # noqa: E402
     assert_containment,
     assert_kit_anchor,
     assert_structural_continuity,
+    load_generated_part,
     load_manifest,
     load_parts_registry,
     rear_row_transform,
@@ -112,12 +113,59 @@ class HanokA1KitTest(unittest.TestCase):
         self.assertGreater(int(dx.min()), int(sx.min()))  # left pillar moves toward the centre
         self.assertLess(dst[dy, dx][:, :3].mean(), src[sy, sx][:, :3].mean())
 
-    def test_stage_15_layer_equals_finished_house(self) -> None:
-        layer = self._render(15)
+    def test_stage_15_and_16_without_props_equal_finished_house(self) -> None:
+        # The props (chimney, firebox, shoes, lantern, blind, pots) belong to
+        # sarangchae_props, not to sarangchae.png: drop them and the last two
+        # stages must reproduce the approved asset exactly, with nothing added
+        # outside its silhouette.
         a = np.array(self.socket).astype(int)
-        b = np.array(layer).astype(int)
         visible = a[:, :, 3] > 0
-        self.assertEqual(int(((np.abs(a - b).max(axis=2) > 0) & visible).sum()), 0)
+        for stage in (15, 16):
+            layer = self._render(stage, include_props=False, allow_unapproved_parts=True)
+            b = np.array(layer).astype(int)
+            self.assertEqual(
+                int(((np.abs(a - b).max(axis=2) > 0) & visible).sum()),
+                0,
+                f"stage {stage} differs from the finished house",
+            )
+            self.assertEqual(
+                int(((b[:, :, 3] > 8) & ~visible).sum()),
+                0,
+                f"stage {stage} paints outside the finished silhouette",
+            )
+
+    def test_every_stage_manifest_loads_and_names_known_parts(self) -> None:
+        for stage in range(1, 17):
+            manifest = load_manifest(KIT_DOC_ROOT / f"stage_{stage:02d}.json")
+            self.assertEqual(manifest["stage"], stage)
+            for layer in manifest["layers"]:
+                name = layer["part"]
+                if name.startswith("generated:"):
+                    self.assertIn(name[len("generated:") :], self.registry["generated"])
+                else:
+                    self.assertIn(name, self.parts)
+
+    def test_all_transient_previous_stage_keeps_nothing_but_rejects_empty(self) -> None:
+        stakes = self._render(1, allow_unapproved_parts=True)
+        metrics = assert_structural_continuity(
+            stakes, stakes, self._render(3), max_edge_drift_px=2
+        )
+        self.assertEqual(metrics["structuralPixels"], 0.0)
+        empty = Image.new("RGBA", (854, 309), (0, 0, 0, 0))
+        with self.assertRaises(KitError):
+            assert_structural_continuity(empty, empty, stakes, max_edge_drift_px=2)
+
+    def test_program_parts_stay_inside_the_finished_wall(self) -> None:
+        wall = np.zeros_like(self.finished)
+        for index in range(1, 8):
+            wall |= np.array(self.parts[f"panel_{index}"].getchannel("A")) == 255
+        for name in ("parts_12_sujang", "parts_13_earthwall"):
+            part = load_generated_part(
+                name, self.registry, self.provenance, allow_unapproved=True
+            )
+            mask = np.array(part.getchannel("A")) > 8
+            self.assertTrue(mask.any(), f"{name} is empty")
+            self.assertEqual(int((mask & ~wall).sum()), 0, f"{name} leaves the wall")
 
     def test_compose_kit_state_end_to_end_and_previous_mismatch(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

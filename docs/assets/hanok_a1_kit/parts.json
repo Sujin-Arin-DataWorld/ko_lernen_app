@@ -122,25 +122,67 @@
     "frame_beams": {
       "file": "assets_unused/pending_review/a1_kit/generated/07_frame_beams.png",
       "sha256": "4ab47b3d76c8c0c6eb22076d6e2ecbdb309b9747cebc70696381f63db4a9ef14",
-      "source": "bbanana nano-banana-pro task p9hh9hpgk9rmy0d01zb80bs7v0 -> tool/align_model_frame.py",
+      "source": "bbanana nano-banana-pro task p9hh9hpgk9rmy0d01zb80bs7v0 -> tool/align_model_frame.py (clip-dilate 0)",
       "decision": "pending_jin_review"
     },
     "frame_purlins": {
       "file": "assets_unused/pending_review/a1_kit/generated/08_frame_purlins.png",
       "sha256": "8968ce9f8b59edade6e213257a57b1fece23dc4f6314f3448194057b2dcc8c7b",
-      "source": "bbanana nano-banana-pro task p9hh9hpgk9rmy0d01zb80bs7v0 -> tool/align_model_frame.py",
+      "source": "bbanana nano-banana-pro task p9hh9hpgk9rmy0d01zb80bs7v0 -> tool/align_model_frame.py (clip-dilate 0)",
       "decision": "pending_jin_review"
     },
     "frame_rafters": {
       "file": "assets_unused/pending_review/a1_kit/generated/09_frame_rafters.png",
-      "sha256": "9566050c1e94d00856763d3a92bd453efdcb9bf7a10d23d19f763d80782aa48f",
-      "source": "bbanana nano-banana-pro task gvi_1786972511933_46an1e -> tool/align_model_frame.py",
+      "sha256": "8b28886111831013fb04679f2360fe00e36716a29febbe0ea9e5f0eb6f495c19",
+      "source": "bbanana nano-banana-pro task gvi_1786972511933_46an1e -> tool/align_model_frame.py (clip-dilate 0)",
       "decision": "pending_jin_review"
     },
     "frame_roofbase": {
       "file": "assets_unused/pending_review/a1_kit/generated/10_frame_roofbase.png",
-      "sha256": "3c5f3aec37c8614d58798efce385a3bc1700259859c2aeb641ed379345298a45",
-      "source": "bbanana nano-banana-pro task 35cc41266087587f901b7a0e141aab82 -> tool/align_model_frame.py",
+      "sha256": "4408f118d1de3ffb5bb6cc496b680532dcadf95f406b7f5e3e046d90c9ee6a32",
+      "source": "bbanana nano-banana-pro task 35cc41266087587f901b7a0e141aab82 -> tool/align_model_frame.py (clip-dilate 0)",
+      "decision": "pending_jin_review"
+    },
+    "parts_12_sujang": {
+      "file": "assets_unused/pending_review/a1_kit/generated/parts_12_sujang.png",
+      "sha256": "45287b89df3d848cb4ca7fd7d2f65d1a1e9ebd3d5696122e68e5e6e06a950033",
+      "source": "derived from sarangchae.png strips -> tool/make_kit_parts.py sujang (0 credit)",
+      "decision": "pending_jin_review"
+    },
+    "parts_13_earthwall": {
+      "file": "assets_unused/pending_review/a1_kit/generated/parts_13_earthwall.png",
+      "sha256": "89a9e2c74d1d4a116a195a606462c4b0b80c67a2770e7bf68edde1dfc36929e5",
+      "source": "bbanana nano-banana-pro task bce56a89247c1aa410dfd7d7602e8795 (초벽 texture) -> tool/make_kit_parts.py earthwall",
+      "decision": "pending_jin_review"
+    },
+    "props_01_setout": {
+      "file": "assets_unused/pending_review/a1_kit/generated/props_01_setout.png",
+      "sha256": "c1f3e73bc88418b1081cc64d0924ad06048d3c6ce1561a16a1c3dc9e1edce09e",
+      "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py setout",
+      "decision": "pending_jin_review"
+    },
+    "props_02_layout": {
+      "file": "assets_unused/pending_review/a1_kit/generated/props_02_layout.png",
+      "sha256": "cc0a3089567dc4804b48631fcdc40cbfcd0fd00858c7007f315b85c20750fca4",
+      "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py layout",
+      "decision": "pending_jin_review"
+    },
+    "props_05_timber": {
+      "file": "assets_unused/pending_review/a1_kit/generated/props_05_timber.png",
+      "sha256": "fa9ee8fed64cb6d2add905b7d908c92e108d1019985ebe89c0ebf4ce0168b77b",
+      "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py timber",
+      "decision": "pending_jin_review"
+    },
+    "props_14_ondol": {
+      "file": "assets_unused/pending_review/a1_kit/generated/props_14_ondol.png",
+      "sha256": "e1ec699d1ca8aa5c7d1920b296f3239d3c1c849399208e7c658ca8fda057c1b0",
+      "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py ondol",
+      "decision": "pending_jin_review"
+    },
+    "props_16_movein": {
+      "file": "assets_unused/pending_review/a1_kit/generated/props_16_movein.png",
+      "sha256": "c685820f3ffb04fbcb3b2237487028c17a4bce3a387850f5ae13496c831c043a",
+      "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py movein",
       "decision": "pending_jin_review"
     }
   }

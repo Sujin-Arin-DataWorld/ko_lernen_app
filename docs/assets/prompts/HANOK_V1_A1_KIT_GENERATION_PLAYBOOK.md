@@ -184,7 +184,35 @@ walnut #8E6646, #7E5A3D, #5C4028, #3E3024, stone #8B8478, cream #FAF6EC, dancheo
 
 산출 URL `.../bbanana/1786971320877.jpg` (다운로드해 `raw/`에 두고 오브젝트별로 잘라 쓴다).
 
-### 3.5 폐기 사례 (반복하지 말 것)
+### 3.5 13 흙벽 초벽 텍스처 — task `bce56a89247c1aa410dfd7d7602e8795` (채택)
+
+`generate_image(model="Nano Banana Pro", image_urls=[<완성 사랑채>], aspect_ratio="4:3", resolution="2K")`
+
+```
+A flat, seamless wall TEXTURE — no objects, no building, no scene, no border, no
+frame, no text — filling the whole image edge to edge.
+
+Subject: the rough first coat of a traditional Korean earth wall (초벽), the layer
+applied before any white finishing plaster. Wet ochre clay mixed with chopped rice
+straw, pressed by hand between timber members: warm yellow-brown earth with straw
+fibres and small pebbles showing through, shallow trowel dents and hand marks, a few
+darker damp patches and a few paler dried patches, faintly visible woven twig lath
+texture under the surface in a couple of places.
+
+Style: exactly the same faceted, painterly illustration style, restricted palette,
+subtle hanji paper grain and soft top-left lighting as the attached reference building
+— the same hand painted this. Keep the palette close to earth #8E6646, #7E5A3D,
+#5C4028, straw cream #FAF6EC and a little slate #2A3340 in the deepest dents. No
+strong highlights, no gloss, no vignette, no drop shadow, even flat lighting overall
+so the texture can be tiled. Straight-on view, perfectly frontal, no perspective.
+```
+
+산출 `raw/13_earthwall_texture_bce56a89.png`. **주의:** 원본은 밝은 마른 황토여서 소켓
+크기에서 뒷배경 땅색과 구분이 안 된다. `make_kit_parts.py`가 `EARTH_TONE=(0.84,0.76,0.66)`
+로 눌러 젖은 초벽 톤을 만들고 `EARTH_TEXTURE_SCALE=10`으로 짚 결을 잘게 줄인다(부품에
+구워 넣음, 합성 후 후처리 아님).
+
+### 3.6 폐기 사례 (반복하지 말 것)
 
 - task `260fb03750d14f34a4c5674d293cc78d` — 4:3 + 수치 블록 없음 → 건물 전체 축소, 자기 기단·마루를
   새로 그림. 골조 디자인 자체는 좋았으나 정렬 시 a/c=2.39 비등방 → 폐기
@@ -198,42 +226,73 @@ R=assets_unused/pending_review/a1_kit/raw
 G=assets_unused/pending_review/a1_kit/generated
 Q=assets_unused/pending_review/a1_kit/qa
 
-# 07 = 골조의 아래쪽(창방·보) / 08 = 전체(도리·종도리)
+# (1) 골조 4장: 07 = 아래쪽(창방·보) / 08 = 전체(도리·종도리)
 python tool/align_model_frame.py $R/07_frame_v2_p9hh9hpg.png $G/07_frame_beams.png \
   --ridge-row 45 --top-row 112
 python tool/align_model_frame.py $R/07_frame_v2_p9hh9hpg.png $G/08_frame_purlins.png \
   --ridge-row 45
-
 # 09·10 은 07 이미지에서 잰 변환을 재사용한다 (직접 재면 서까래를 기둥으로 오인)
 python tool/align_model_frame.py $R/09_rafters_gvi46an1e.png $G/09_frame_rafters.png \
   --ridge-row 45 --fit-from $R/07_frame_v2_p9hh9hpg.png
 python tool/align_model_frame.py $R/10_roofbase_35cc4126.png $G/10_frame_roofbase.png \
   --ridge-row 45 --fit-from $R/07_frame_v2_p9hh9hpg.png
 
-# parts.json 에 sha256 등록(decision: pending_jin_review) 뒤 합성 (승인 전에는 QA 플래그)
+# (2) 소품 시트 → 16개 스프라이트(최종 크기까지 여기서 리사이즈)
+python tool/cut_prop_sheet.py $R/props_sheet_5baedfca.jpg $G/props \
+  --report $Q/props_cut_report.json
+
+# (3) 프로그램 조립 부품 7개 (01·02·05·12·13·14·16)
+python tool/make_kit_parts.py all --texture $R/13_earthwall_texture_bce56a89.png
+
+# (4) parts.json 에 sha256 등록(decision: pending_jin_review) 뒤 01→16 순서로 합성
 python tool/compose_hanok_a1_state.py --kit-manifest docs/assets/hanok_a1_kit/stage_09.json \
-  $Q/09.webp --normalized-layer $Q/09_layer.png --allow-unapproved-parts
+  $Q/09.webp --normalized-layer $Q/09_layer.png \
+  --previous-manifest docs/assets/hanok_a1_kit/stage_08.json \
+  --previous-layer $Q/08_layer.png --allow-unapproved-parts
 ```
 
 - `--ridge-row 45`: 프레임 밴드(기둥머리 157 ~ 모델 용마루)를 우리 지붕 볼륨 157→45에 맞춘다.
 - `--top-row 112`: 한 골조 이미지를 07(112행 아래)과 08(전체)로 나눈다.
-- 정렬 도구는 항상 결과를 **완성 실루엣(+1px)으로 클립**한다 → 처마·추녀 overhang이 소켓을 넘지 않는다.
-- 소품(01·02·05·14·16)은 `propsZone`(소켓 여백 + 기단 양끝 쐐기) 안에만 놓는다.
+- **`--clip-dilate-px` 기본값 0**: 정렬 결과를 완성 실루엣 **안쪽으로만** 클립한다. 1px이라도
+  넘치면 11(완성 기와)이 그 픽셀을 덮지 못해 연속성 게이트가 26px 손실로 떨어진다(실측).
+- **골조 레이어는 누적**이다: 08 = beams+purlins, 09 = +rafters, 10 = +roofbase. 모델이 매장
+  프레임을 조금씩 다시 그리므로, 앞 부품을 아래에 깔지 않으면 09에서 387px이 사라진다(실측).
+- 소품(01·02·05·14·16)은 `propsZone`(소켓 여백 + 기단 양끝 쐐기 + 바닥 띠) 안 또는 완성
+  실루엣 위에만 놓인다. `make_kit_parts.py`가 저장 직전에 그 마스크로 클립한다.
+- 12·13은 추가로 **완성 벽 패널의 완전 불투명 픽셀**로 클립된다 → 15에서 패널이 완전히 덮어
+  `sarangchae.png`와 픽셀 동일이 유지된다.
 - `parts.json` 필드: `generated.<id> = {file, sha256, source, decision}`.
-  `stage_NN.json` 필드: `{schemaVersion, stage, id, note, layers[{part, z, rear?, transient?, at?}]}`.
+  `stage_NN.json` 필드: `{schemaVersion, stage, id, note, layers[{part, z, rear?, transient?, prop?, at?}]}`.
+  `prop: true` = 영구 소품(굴뚝·아궁이·신발·등롱·발·화분) → `sarangchae_props` 대상이며
+  `render_manifest(include_props=False)`로 빼면 15·16이 완성본과 픽셀 동일해야 한다(테스트).
 
-## 5. 다음에 할 일 (남은 A1 7장)
+## 5. 16단계 완성 상태 (2026-08-17)
 
-| 단계 | 방법 | 크레딧 |
-|---|---|---|
-| 01 site_setout | 소품 시트 #4(말뚝+실)를 기단 발자국에 배치, `transient: true` | 0 |
-| 02 plan_layout | 먹줄 격자는 프로그램 선 + 소품 #5(도행판), `transient: true` | 0 |
-| 05 timber_preparation | 소품 #1·#2·#3을 기단 윗면에, `transient: true` | 0 |
-| 12 wall_frame_sujang | 신규 생성 1장: 3.2 형식으로 "칸마다 상인방·중방·하방·벽선·머름 틀만 추가" | 4 |
-| 13 earth_walls | 신규 생성 1장: 12 결과 베이스로 "칸 벽에 황토+짚 초벽만 추가" | 4 |
-| 14 ondol_maru | 소품 #10(굴뚝)·#11(아궁이) + 마루/장판은 완성본 crop 또는 소품 | 0~4 |
-| 16 landscape_move_in | 소품 #6(섬돌+신발)·#7(등롱)·#8(발)·#9(화분) → `sarangchae_props` 영구 레이어 | 0 |
+16장 모두 합성되어 게이트를 통과했다: kit anchor OK · containment 위반 0 · 구조 recall 1.0 ·
+edge drift 0 · 최대 285,696 B(상한 350,000). 대조 시트 `qa/contact_sheet_a1_16.png`.
 
-그 뒤: 16장 대조 시트 → Jin 장별 승인 → provenance `generationLedger`에 `kind=part`(부품)·
-`kind=state`(합성) 기록 → `promote_hanok_a1_states.py --apply` → pubspec 등록.
+| 단계 | 부품 | 출처 | 크레딧 |
+|---|---|---|---|
+| 01 site_setout | `props_01_setout` (transient) | 소품 #16 말뚝 1개 ×4 + 발자국 실선 | 0 |
+| 02 plan_layout | `props_02_layout` (transient) | 먹줄 격자(프로그램) + 소품 #5 도행판 | 0 |
+| 03 foundation_gidan | `platform` | crop + 결정론 보정 | 0 |
+| 04 cornerstones_choseok | `choseok_1..8` 앞·뒤 | crop + 원근 벡터 | 0 |
+| 05 timber_preparation | `props_05_timber` (transient) | 소품 #1·#2·#3 | 0 |
+| 06 columns | `pillar_1..8` 앞·뒤 | crop + 원근 벡터 | 0 |
+| 07 beams_changbang | `frame_beams` | 3.1 골조 (top-row 112) | 4 |
+| 08 purlins_sangnyang | `+frame_purlins` | 3.1 골조 전체 | 4 |
+| 09 rafters_roof_frame | `+frame_rafters` | 3.2 | 4 |
+| 10 roof_base | `+frame_roofbase` | 3.3 | 4 |
+| 11 giwa_roof | `band_changbang`·`band_rafter_ends`·`roof` | crop | 0 |
+| 12 wall_frame_sujang | `parts_12_sujang` | 완성본 목재 스트립으로 프로그램 도색 | 0 |
+| 13 earth_walls | `parts_13_earthwall` | 3.5 초벽 텍스처 타일링 | 4 |
+| 14 ondol_maru | `props_14_ondol` (prop) | 소품 #10 굴뚝·#11 아궁이 | 0 |
+| 15 changho_finish | `panel_1..7`·`band_habang`·`wall_shadow` | crop — props 제외 시 완성본과 픽셀 동일 | 0 |
+| 16 landscape_move_in | `props_16_movein` (prop) | 소품 #6 섬돌+신발·#7 등롱·#8 발·#9 화분 | 0 |
+
+총 생성 24 credit(골조 16 + 소품 시트 4 + 초벽 4), 잔액 876.7.
+
+**남은 일:** Jin 장별 승인 → provenance `generationLedger`에 `kind=part`(부품 11개)·
+`kind=state`(합성 16장) 기록 → `promote_hanok_a1_states.py --apply` → pubspec 등록.
 D1 rename(`11_choga_roof` → `11_giwa_roof`)은 PR5a에서 카탈로그·테스트와 함께.
+`props_14_ondol`·`props_16_movein`은 PR5b에서 `sarangchae_props`로도 분리 승격한다.

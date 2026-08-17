@@ -62,9 +62,17 @@
     "input": {
       "colorMode": "RGBA",
       "trueAlpha": true,
-      "forbiddenMattes": ["white", "checkerboard", "chroma_00ff00"],
+      "forbiddenMattes": [
+        "white",
+        "checkerboard",
+        "chroma_00ff00"
+      ],
       "chromaKey": {
-        "rgb": [0, 255, 0],
+        "rgb": [
+          0,
+          255,
+          0
+        ],
         "maxChannelDelta": 8,
         "alphaMin": 8
       }
@@ -120,7 +128,12 @@
     "lineage": {
       "derived": "re-derived from allowedModelInputs[role=completed_house_source] at compose time; rgbaSha256 must equal parts.json",
       "generated": "file sha256 must be an approved generationLedger outputAsset (kind=part) and equal parts.json"
-    }
+    },
+    "frameClipDilatePx": 0,
+    "programParts": "stages 01/02/05/12/13/14/16 are assembled by tool/make_kit_parts.py from the cut prop sheet, the measured footprint and strips of the completed-house source; no model call composes a stage image",
+    "propLayerFlag": "stage manifest layers may set prop:true for permanent furnishings that belong to sarangchae_props, not to the completed-house asset; rendering a stage without them must reproduce the source pixel for pixel (enforced for stages 15 and 16)",
+    "cumulativeFrameLayers": "generated frame parts stack (07 beams -> 08 purlins -> 09 rafters -> 10 roof base) so the structural-continuity gate never sees a member the model redrew slightly differently",
+    "postProcessingBakedIntoParts": "tone/grain adjustments are baked into a part when it is written and recorded in its sha256; nothing is applied after composition"
   },
   "allowedModelInputs": [
     {

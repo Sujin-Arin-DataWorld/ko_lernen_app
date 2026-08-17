@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "stage": 15,
   "id": "15_changho_finish",
-  "note": "Derived parts only (0 credit). Rear copies use the measured perspective vector; generated parts (07-10, 12-14, props) are added in PR4b-2.",
+  "note": "Finished walls and changho crops cover the sujang frame and the earth walls; rendering without the props reproduces sarangchae.png pixel for pixel.",
   "layers": [
     {
       "part": "platform",
@@ -178,6 +178,22 @@
       "z": 510
     },
     {
+      "part": "generated:parts_12_sujang",
+      "z": 550,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "part": "generated:parts_13_earthwall",
+      "z": 560,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
       "part": "panel_1",
       "z": 600
     },
@@ -204,6 +220,15 @@
     {
       "part": "panel_7",
       "z": 606
+    },
+    {
+      "part": "generated:props_14_ondol",
+      "z": 700,
+      "at": [
+        0,
+        0
+      ],
+      "prop": true
     }
   ]
 }
