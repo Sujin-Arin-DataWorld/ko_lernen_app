@@ -2,9 +2,10 @@
 """레벨별 12칸 서재(책가도)의 칸 정의와 live 264개 배정.
 
 정본은 docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md 의
-§4(축 설계)와 부록 A(전수 배정)다.  이 모듈은 그 표를 실행 가능한 형태로
-옮긴 것이며, I/O 를 하지 않는다 — 읽기는 scenario_store, 주입은
-migrate_shelf_backdrop 이 한다.
+§4(축 설계)와 부록 A(전수 배정)다.  단 §4.2 관심 3칸은 2026-08-17 Jin 결정으로
+레벨별 기능 확장 3칸으로 교체됐다(docs/HANDOFF_HOEREN_GRID_2026-08-17.md §3.2).
+이 모듈은 그 표를 실행 가능한 형태로 옮긴 것이며, I/O 를 하지 않는다 —
+읽기는 scenario_store, 주입은 migrate_shelf_backdrop 이 한다.
 """
 
 from __future__ import annotations
@@ -39,11 +40,20 @@ FUNCTIONAL_SLUGS: dict[str, tuple[str, ...]] = {
     ),
 }
 
-# 관심 3칸 — 모든 레벨 공통 slug (스펙 §4.2).
-INTEREST_SLUGS: tuple[str, ...] = ("friends", "dating", "fandom")
+# 기능 확장 3칸 — 레벨별 slug. 스펙 §4.2 의 관심 3칸(friends·dating·fandom)을
+# 2026-08-17 Jin 결정으로 교체했다(핸드오프 §3.2 (나)). 아트 명세 72장·DE 표시명이
+# 이 축 위에 있다. 관심축은 서재 밖 별도 진입으로 살리고 Batch 11 36편은 그때 편입한다.
+EXPANSION_SLUGS: dict[str, tuple[str, ...]] = {
+    "a1": ("numbers", "phone", "wayfinding"),
+    "a2": ("delivery", "enrolment", "booking"),
+    "b1": ("insurance", "incident", "cancellation"),
+    "b2": ("hiring", "authorities", "privacy"),
+    "c1": ("methodology", "facework", "attribution"),
+    "c2": ("limitation", "jurisdiction", "representation"),
+}
 
 SHELF_SLUGS: dict[str, tuple[str, ...]] = {
-    level: FUNCTIONAL_SLUGS[level] + INTEREST_SLUGS for level in LEVELS
+    level: FUNCTIONAL_SLUGS[level] + EXPANSION_SLUGS[level] for level in LEVELS
 }
 
 ALL_SHELVES: frozenset[str] = frozenset(

@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Hören 18칸 결정 반영: 관심축 → 기능 확장 3칸
+
+**무엇.** 핸드오프 §3.2 의 열린 결정을 Jin 이 **(나) 기능 확장 채택**으로 확정
+("굳이 다르게 할 이유는 없을 것 같은데"). `shelf_assignment.py` 의 `INTEREST_SLUGS`
+(friends·dating·fandom 공통)를 레벨별 `EXPANSION_SLUGS` 로 교체 — A1 numbers·phone·
+wayfinding / A2 delivery·enrolment·booking / B1 insurance·incident·cancellation /
+B2 hiring·authorities·privacy / C1 methodology·facework·attribution / C2 limitation·
+jurisdiction·representation. 스펙 §4.2 에 개정 주석, 핸드오프 §3.2·§7 에 결정 기록.
+Batch 11 36편은 폐기 아님 — 서재 밖 별도 진입(추천 줄) 때 편입한다.
+
+**왜.** 목업(카드 그리드 UI)은 두 안이 동일하고 갈리는 건 18칸의 내용뿐 — 아트 72장·
+DE 표시명·파일럿 검수가 이미 기능 확장 축 위에 있어 되돌리는 비용이 가장 크다.
+
+**검증.** 교체된 18칸은 전부 재고 0 이라 live JSON `shelf` 값 변경 0.
+`test_shelf_assignment.py` 4/4 OK(구 관심축 부재 가드 추가) · `migrate_shelf_backdrop.py`
+dry-run "OK: 264 scenarios ready"(샤드 무변경, --apply 불필요) · `validate_content.py` OK ·
+`flutter test test/scenario_shelf_contract_test.dart test/scenario_loader_shard_test.dart` 15/15.
+
 ### 2026-08-17 (Claude, Windows) — TTS 수집기를 6샤드 코퍼스에 맞춤
 
 **무엇.** `tool/generate_tts.py`가 아직 `assets/data/scenarios.json`을 읽고 있었다.

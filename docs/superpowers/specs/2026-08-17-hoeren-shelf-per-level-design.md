@@ -148,7 +148,15 @@
 | `history` | 🕊️ 역사 서술과 화해 | **0** | 50 | 서술 주체·복수 서사 |
 | `aesthetic` | 💠 미학과 번역 불가능성 | **0** | 50 | 번역 손실 논증 |
 
-### 4.2 관심 3칸 (모든 레벨 공통 slug)
+### 4.2 관심 3칸 (모든 레벨 공통 slug) — ⛔ 개정(2026-08-17, Jin): 기능 확장 3칸으로 교체
+
+> 이 절의 관심 3칸(friends·dating·fandom)은 서재에서 빠졌다. 12칸 = 기능 9 + **기능 확장 3**:
+> A1 `numbers`·`phone`·`wayfinding` / A2 `delivery`·`enrolment`·`booking` /
+> B1 `insurance`·`incident`·`cancellation` / B2 `hiring`·`authorities`·`privacy` /
+> C1 `methodology`·`facework`·`attribution` / C2 `limitation`·`jurisdiction`·`representation`.
+> 경위는 `docs/HANDOFF_HOEREN_GRID_2026-08-17.md` §3.2 (나), 실행 정본은
+> `tools/content_factory/shelf_assignment.py`의 `EXPANSION_SLUGS`다. 관심축은 서재 밖
+> 별도 진입(추천 줄)으로 살리고 Batch 11 36편은 그때 편입한다. 아래 원문은 기록용이다.
 
 기능축은 *생활 절차*, 관심축은 *관심사*다. 하나의 taxonomy로 합치면 둘 다 망가지므로
 칸을 분리한다. live 264개에는 이 축이 사실상 없다(`plans_with_friend`·`friend_birthday` 둘뿐)

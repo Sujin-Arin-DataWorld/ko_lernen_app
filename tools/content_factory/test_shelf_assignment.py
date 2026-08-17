@@ -20,6 +20,7 @@ import scenario_store
 from shelf_assignment import (
     ALL_SHELVES,
     ASSIGNMENT,
+    EXPANSION_SLUGS,
     LEVELS,
     SHELF_BY_ID,
     SHELF_SLUGS,
@@ -57,14 +58,17 @@ class ShelfAssignmentTest(unittest.TestCase):
         self.assertTrue(set(ASSIGNMENT).issubset(ALL_SHELVES))
         self.assertEqual(len(SHELF_BY_ID), 264)
 
-    def test_interest_shelves_are_declared_but_unseeded(self) -> None:
-        # 관심 3칸은 Batch 11 이 들어오기 전까지 재고가 없다. 칸 자체는 존재해야
-        # 계획 3 이 그 칸으로 draft 를 넣을 수 있다.
+    def test_expansion_shelves_are_declared_but_unseeded(self) -> None:
+        # 기능 확장 3칸(2026-08-17 Jin 결정, 핸드오프 §3.2 (나))은 신규 집필 전까지
+        # 재고가 없다. 칸 자체는 존재해야 이후 배치가 그 칸으로 draft 를 넣을 수 있다.
+        # 구 관심축(friends·dating·fandom)은 서재 열거에서 빠져야 한다.
         for level in LEVELS:
-            for slug in ("friends", "dating", "fandom"):
+            for slug in EXPANSION_SLUGS[level]:
                 shelf = f"{level}_{slug}"
                 self.assertIn(shelf, ALL_SHELVES)
                 self.assertEqual(ASSIGNMENT.get(shelf, ()), ())
+            for slug in ("friends", "dating", "fandom"):
+                self.assertNotIn(f"{level}_{slug}", ALL_SHELVES)
 
 
 if __name__ == "__main__":
