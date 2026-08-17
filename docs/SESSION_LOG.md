@@ -97,6 +97,32 @@ pending을 지워 다음 재시도만 다시 과금한다. 같은 `assessmentId`
 **검증.** 책 분석 Python `test_*.py` **91/91**, TTS+발음 Node **23/23**.
 live 배포는 하지 않았다. 구현 커밋 `7ceb4ccf`.
 
+### 2026-08-17 (Cursor) — P1/P2 학습 문장·캐스트·스캔 테스트
+
+**왜.** 코드리뷰: 학습자가 따라 말할 영어/독일어에 교재 말투·직역·깨진
+움라우트가 남아 있고, 여자/학습자 캐스트(안나, 010-1234-5678)와
+`I am`/`I will` 대본이 이미 고친 톤과 어긋났다. 이름만 바꾸면 생성기가
+민수를 다시 넣을 수 있었다.
+
+**무엇을.** `grammar_b1_about`를 `I'm studying Korean culture.`로 고쳤다.
+시나리오 대본의 `I am`/`I will`·`that is correct`·C1 계약 영어·전화
+`May I speak with Hyunwoo?`를 구어로 바꿨다. 파트너 가족 팩 영어 직역과
+ASCII 움라우트(Laecheln/Saetze/oeffnete 및 잔여 ae/oe/ue)를 고쳤다.
+학습자 기본 이름을 `레나`/`Lena`, 전화 `010-3764-8291`로 바꿨다.
+시민 교과서 문장 `다양한 사회에 살아요`는 `요즘 사회가 많이 달라졌어요`로,
+수업 첫만남 `처음 뵙겠습니다. 현우 씨라고…`는 `안녕하세요`로 열었다.
+생성기 렉시콘·Batch 07/08·phrasebook·productive assessment 소스에서도
+민수/안나를 빼서 재생성해도 돌아오지 않게 했다. vocab 상속 지문 228+164건,
+smalltalk phrase 지문 40+6건을 재고정했다.
+`test/learner_copy_scan_test.dart`가 교재 이름·직역 구·대화 `I am`/`I will`을
+막는다. kkeunmari `철수`/`지은`과 문법 계사 `I am a student`는 제외.
+
+**검증.** `learner_copy_scan` 3, `data_integrity` 5, can-do loader/asset 10,
+`course_graph`·placement·scenario flow·onboarding·productive assessment
+합쳐 포커스 **55/55**. vocab 1620×15, grammar 182×16.
+
+**커밋.** `6a2c3811` + 이 로그/문법 포커스 수정 커밋.
+
 ### 2026-08-17 (Cursor) — 학습자 텍스트 민수 → 현우
 
 **왜.** Jin 요청: 교과서 기본 남자 이름 `민수`/`Minsu`를 학습자가 보는

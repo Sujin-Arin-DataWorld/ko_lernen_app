@@ -1066,7 +1066,7 @@ void main() {
       const criticalAnswers = <String, String>{
         'quest_cafe_starbucks_basic_05': '주문 도와드리겠습니다. / 주문 도와드릴게요.',
         'quest_introduce_yourself_06': '연락처를 보내겠습니다. / 연락처를 보낼게요. / 연락처 보낼게.',
-        'quest_introduce_yourself_07': '저는 안나입니다. / 저는 안나예요. / 나는 안나야.',
+        'quest_introduce_yourself_07': '저는 레나입니다. / 저는 레나예요. / 나는 레나야.',
         'quest_food_delivery_02': '콜라가 빠졌어요. 가능하면 지금 다시 보내 주시겠어요?',
         'quest_job_interview_04':
             '해외 프로젝트를 3년 동안 관리한 경험이 있으며, 세부 사항을 꼼꼼하게 조율하는 것이 제 강점입니다.',
@@ -1074,7 +1074,7 @@ void main() {
             '검토 시간을 연장해 주시기 바랍니다. / 가능하시다면 검토 시간을 조금 더 주실 수 있을까요?',
         'quest_home_morning_routine_05': '집에서 7시에 일어나서 씻고 아침을 먹어요.',
         'quest_survival_day_capstone_05':
-            '안녕하세요. 저는 안나입니다. / 떡볶이 한 인분 주세요. / 지하철역에 어떻게 가요? / 잘 못 알아들었어요. 천천히 다시 말씀해 주세요.',
+            '안녕하세요. 저는 레나입니다. / 떡볶이 한 인분 주세요. / 지하철역에 어떻게 가요? / 잘 못 알아들었어요. 천천히 다시 말씀해 주세요.',
         'quest_rent_bank_transfer_05':
             '월세는 70만 원이고 관리비는 별도예요. 자동이체는 25일로 해 주세요. 수수료가 있어요?',
       };

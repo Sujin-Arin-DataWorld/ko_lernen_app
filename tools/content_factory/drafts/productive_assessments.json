@@ -180,7 +180,7 @@
             "kind": "tokenSequence",
             "acceptedVariants": [
               "수진은",
-              "민수는",
+              "현우는",
               "저는"
             ],
             "weight": 1,
@@ -1021,7 +1021,7 @@
             "kind": "tokenSequence",
             "acceptedVariants": [
               "저는 수진입니다",
-              "저는 민수입니다"
+              "저는 현우입니다"
             ],
             "weight": 1,
             "requiredForPass": true
@@ -3751,7 +3751,7 @@
             "kind": "tokenSequence",
             "acceptedVariants": [
               "기획을 맡은 수진입니다",
-              "개발을 담당하는 민수입니다"
+              "개발을 담당하는 현우입니다"
             ],
             "weight": 1,
             "requiredForPass": true

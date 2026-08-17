@@ -10,7 +10,7 @@
 수정 (scenarios.json 원문 문자열 수술 — 포맷 보존):
 1. particlePop suffix 선행 공백 주입 (아래 목록의 정확한 값만)
 2. '안' 부사 퀘스트의 prefix 뒤 공백 ("왜 어제 답장" → "왜 어제 답장 ")
-3. [이름]이에요 → 민수예요 · [Name] → Minsu (전화 표현의 '민수'와 통일)
+3. [이름]이에요 → 현우예요 · [Name] → Hyunwoo (전화 표현의 '현우'와 통일)
 
 실행 후 tool/generate_tts.py 재실행 → 바뀐 문장만 자동 재합성.
 Nutzung: python tools/content_factory/fix_quest_audio_text.py --write
@@ -51,9 +51,9 @@ SUFFIX_FIXES = {
 # (찾기, 바꾸기, 기대 횟수) — 플레이스홀더·'안' prefix
 LITERAL_FIXES = [
     ('"prefix": "왜 어제 답장"', '"prefix": "왜 어제 답장 "', 1),
-    ('"suffix": "[이름]이에요."', '"suffix": " 민수예요."', 1),
-    ("[이름]이에요", "민수예요", 2),  # dialog ko 2곳 (suffix 는 위에서 처리됨)
-    ("[Name]", "Minsu", 6),  # de/en 3쌍
+    ('"suffix": "[이름]이에요."', '"suffix": " 현우예요."', 1),
+    ("[이름]이에요", "현우예요", 2),  # dialog ko 2곳 (suffix 는 위에서 처리됨)
+    ("[Name]", "Hyunwoo", 6),  # de/en 3쌍
 ]
 
 
