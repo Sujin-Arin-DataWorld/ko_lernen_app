@@ -1,5 +1,49 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude) — Batch 11 시나리오 36편 review-only 초안 (레벨 6 × 카테고리 6)
+
+**무엇.** 일상·친구수다·데이트·유튜브·게임·덕질 여섯 카테고리를 A1–C2 각
+레벨에 하나씩, 총 36편을 새로 썼다. 장면 원문은
+`tools/content_factory/data/batch_11_scene_scripts.py`, 스키마 조립은
+`build_batch_11_scenarios.py`, 계약 회귀는
+`test_build_batch_11_scenarios.py`다. 산출물은
+`drafts/c1_batch11_scenarios_a1_c2.json`, `drafts/batch_11_manifest.json`,
+`review/c1_batch11_scenarios.csv`, `review/batch_11_review_packet.md`이며
+상태는 전부 `review_only_draft` / `draft`다. 편당 대화 8턴 삼언어,
+퀘스트 5종(hoerverstehen·uebersetzen·luecken·satzBauen·diktat), 단어 6개,
+문법블록·intro·title 삼언어다. 신조어(최애·쇼츠·구독·판·굿즈·포토카드·
+패치·튕기다)는 `vocab.note`로 뜻을 달았고, 아이돌 이름 하린은 가상 인물이다.
+
+**왜.** live 264편은 파트너·시댁 28편과 생활 서비스에 몰려 있고 취미·관계
+소재는 `plans_with_friend`·`friend_birthday` 둘뿐이었다. 젠지~3040이 실제로
+말하는 유튜브·게임·덕질·데이트 진행이 공백이었다. C1/C2는 유닛이 2개뿐이라
+소재를 그 유닛의 담론(근거의 한계, 제도·기술 책임)으로 올려 3+3으로 붙였다.
+
+**계획 대비 바꾼 것.** `a1_gaming_one_more_round`는 `-(으)세요`와 반말이
+충돌해 casual → polite(`classmates`)로, `a2_youtube_send_the_link`는 친구
+반말을 살리려고 `V-네요`/`V-아 보세요` 대신 `V-(으)니까`/`V-거나`로 갔다.
+두 건 다 `field_notes`에 남겼다.
+
+**검증.** 계약 테스트 15개 통과(레벨별 6칸·ID 패턴·live 264편 및 quest ID
+충돌 0·대화 8턴 삼언어·퀘스트 5종·문법 ID 존재와 레벨 일치·유닛/개념 실존·
+enum·셸 문구·intent 36개 고유·review projection 바이트 일치).
+`integrate_scenario_batch.py` preview 36 records(scenario 264→300,
+scenarioQuest 1151), `validate_content.py` OK. 대화 288줄에 시나리오 간
+중복 0. humanizer 기준으로 em/en dash 7건을 걷어 0으로 만들었고
+곱슬따옴표도 0이다. `nicht nur … sondern` 2건은 한국어 원문의 실제 대조라
+유지했다.
+
+**하지 않은 것.** `--apply`, `assets/data/`·`lib/` 수정, TTS 합성, Firebase
+쓰기. git status는 신규 파일만이고 추적 파일 변경은 이 로그뿐이다. 승인 뒤
+`integrate_scenario_batch.py --apply`가 `scenarios.json`·
+`curriculum_manifest.json`·`ScenarioBackdrop._categoryById`를 원자적으로
+갱신한다. 설계는
+`docs/superpowers/specs/2026-08-17-scenario-level-category-batch11-design.md`,
+계획은 `docs/superpowers/plans/2026-08-17-scenario-batch11-level-category.md`.
+
+**브랜치.** `claude/scenario-batch11-20260817` (워크트리). 커밋해시는 Jin이
+커밋을 요청한 뒤 채운다.
+
 ### 2026-08-17 (Cursor) — Batch 10 시드 humanizer 2차 (검수 대체)
 
 **무엇.** Jin이 174편을 직접 읽지 않겠다고 해서, 접수 프레임에 이은 2차로
