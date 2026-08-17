@@ -127,7 +127,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     setState(() {
       _all = scoped;
       _vocabByKo = {for (final v in vocab) v.korean: v};
-      _level = catalog == null ? start : null;
+      _level = catalog == null && widget.items == null ? start : null;
       _missionContext = missionContext;
       _loading = false;
     });
@@ -248,10 +248,11 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
           child: SafeArea(
             child: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-                  child: _levelBar(t),
-                ),
+                if (widget.items == null)
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+                    child: _levelBar(t),
+                  ),
                 Expanded(
                   child: Center(
                     child: SoriEmptyState(
@@ -299,7 +300,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  _levelBar(t),
+                  if (widget.items == null) _levelBar(t),
                   Row(
                     children: [
                       SoriChip(

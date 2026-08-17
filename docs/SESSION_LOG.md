@@ -20,6 +20,25 @@ inventory scenario 264 / satz 1515. `validate_content.py` ok.
 
 **커밋해시.** `75639ecf`.
 
+### 2026-08-17 (Cursor) — Vokabelheft 단어로 기존 게임 직접 만들기
+
+**무엇을.** 공책에서 뽑은 단어를 학습자가 고른 뒤, 이미 있는 게임으로
+연습 세트를 만들 수 있게 했다. `/vocab_notebook/studio`에서 카드·짝맞추기·
+받아쓰기·퀴즈·한자 비교는 고른 뜻만 쓰고, Cloze·문장 만들기·초성·스피드매치는
+`cloze.json` / `satz_sentences.json` / `korean_vocab.csv`에 그 표제어가 있을
+때만 연다. 없는 문장은 만들지 않는다. `하다` 표제어는 어간에 맞춰 기존
+문항을 찾는다. 초성 수는 한글 음절(+공백)만 센다.
+
+**왜.** “추출된 단어를 우리 학습 콘텐츠로 유저가 선택해서 스스로 게임을
+만들고 익히고 싶다”는 요청. 앱 단어로 덮어쓰지 않으면서 검증된 문장 게임을
+그 단어에만 연결해야 한다.
+
+**검증.** `flutter gen-l10n`. `flutter analyze --no-pub --fatal-infos` on the
+changed Dart files: No issues found. Focused tests: corpus resolver 6/6,
+studio widget, parser, shared game injection — all passed.
+
+**커밋해시.** `e03adfff`
+
 ### 2026-08-17 (Cursor) — main 검증 복구 후 cursor 브랜치 전부 무손실 병합
 
 **왜.** 로컬 `main`과 `origin/main`은 `3b48e18a`에서 같았지만, Batch 06 live
@@ -33,7 +52,8 @@ cursor 브랜치를 `--no-ff`로 하나씩 병합했다. 충돌은 양쪽 고유
 `cursor/word-web-relations-89f9` 후속, `cursor/word-web-guard-fix-89f9`,
 `cursor/content-integrity-audit-2d55` C1/C2 존재 계약,
 `cursor/vocab-notebook-harden-3ab5`, `cursor/batch-09-4x-7469`,
-`cursor/backend-reliability-upgrade-feaa` 2단계도 같은 방식으로 넣었다.
+`cursor/backend-reliability-upgrade-feaa` 2단계,
+`cursor/vocab-notebook-studio-3ab5`도 같은 방식으로 넣었다.
 후속 수량 커밋의 Batch 06 숫자는 이미 승격된 partner-family live 카탈로그보다
 작아서 테스트 계약은 현재 inventory를 유지했다.
 

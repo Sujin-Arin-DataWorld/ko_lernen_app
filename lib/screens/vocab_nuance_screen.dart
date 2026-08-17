@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/book_page.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/vocab_nuance_service.dart';
@@ -15,9 +16,14 @@ import '../widgets/sori/tokens.dart';
 /// Playful comparison of synonyms, register, and Hanja roots using only
 /// the words already in the learner's notebook pack.
 class VocabNuanceScreen extends StatefulWidget {
-  const VocabNuanceScreen({super.key, required this.packId});
+  const VocabNuanceScreen({
+    super.key,
+    required this.packId,
+    this.words,
+  });
 
   final String packId;
+  final List<ExtractedWord>? words;
 
   @override
   State<VocabNuanceScreen> createState() => _VocabNuanceScreenState();
@@ -39,9 +45,10 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
     final language = Localizations.localeOf(context).languageCode == 'en'
         ? 'en'
         : 'de';
-    _questions = pack == null
+    final source = widget.words ?? pack?.words ?? const <ExtractedWord>[];
+    _questions = source.isEmpty
         ? const <VocabNuanceQuestion>[]
-        : VocabNuanceService.questionsFor(pack.words, language: language);
+        : VocabNuanceService.questionsFor(source, language: language);
     _questionsReady = true;
   }
 

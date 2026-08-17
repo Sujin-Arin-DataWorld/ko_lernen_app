@@ -121,7 +121,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
         : null;
     setState(() {
       _all = usable;
-      _level = start;
+      _level = widget.items == null ? start : null;
       _loading = false;
     });
     _startRound();
@@ -299,7 +299,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  _levelBar(t),
+                  if (widget.items == null) _levelBar(t),
                   Row(
                     children: [
                       Icon(

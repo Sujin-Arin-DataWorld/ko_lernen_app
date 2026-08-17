@@ -12707,6 +12707,84 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'kein Hanja'**
   String get vocabNotebookNoHanja;
+
+  /// No description provided for @vocabNotebookStudioCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiel aus diesen Wörtern bauen'**
+  String get vocabNotebookStudioCta;
+
+  /// No description provided for @vocabNotebookStudioTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Wortspiel'**
+  String get vocabNotebookStudioTitle;
+
+  /// No description provided for @vocabNotebookStudioHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen — und mit Sätzen, die wir dafür schon haben.'**
+  String get vocabNotebookStudioHint;
+
+  /// No description provided for @vocabNotebookStudioSelectAll.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle nehmen'**
+  String get vocabNotebookStudioSelectAll;
+
+  /// No description provided for @vocabNotebookStudioSelectNone.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine'**
+  String get vocabNotebookStudioSelectNone;
+
+  /// No description provided for @vocabNotebookStudioOwnGames.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit deinen Bedeutungen'**
+  String get vocabNotebookStudioOwnGames;
+
+  /// No description provided for @vocabNotebookStudioCorpusGames.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit unseren Sätzen'**
+  String get vocabNotebookStudioCorpusGames;
+
+  /// No description provided for @vocabNotebookStudioCorpusHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur vorhandene Lücken- und Beispielsätze. Es kommen keine neuen Wörter dazu.'**
+  String get vocabNotebookStudioCorpusHint;
+
+  /// No description provided for @vocabNotebookStudioCloze.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{Lückensatz · 1 Satz} other{Lückensatz · {count} Sätze}}'**
+  String vocabNotebookStudioCloze(int count);
+
+  /// No description provided for @vocabNotebookStudioSatz.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{Satz bauen · 1 Satz} other{Satz bauen · {count} Sätze}}'**
+  String vocabNotebookStudioSatz(int count);
+
+  /// No description provided for @vocabNotebookStudioSpeed.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{Speed Match · 1 Wort} other{Speed Match · {count} Wörter}}'**
+  String vocabNotebookStudioSpeed(int count);
+
+  /// No description provided for @vocabNotebookStudioChosung.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{Chosung · 1 Wort} other{Chosung · {count} Wörter}}'**
+  String vocabNotebookStudioChosung(int count);
+
+  /// No description provided for @vocabNotebookStudioNoCorpus.
+  ///
+  /// In de, this message translates to:
+  /// **'Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen.'**
+  String get vocabNotebookStudioNoCorpus;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

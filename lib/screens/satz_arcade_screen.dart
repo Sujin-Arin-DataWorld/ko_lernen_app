@@ -106,7 +106,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
         : requestedContext;
     setState(() {
       _all = scoped;
-      _level = catalog == null ? start : null;
+      _level = catalog == null && widget.items == null ? start : null;
       _missionContext = missionContext;
       _loading = false;
     });
@@ -201,10 +201,11 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
         body: SafeArea(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-                child: _levelBar(t),
-              ),
+              if (widget.items == null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+                  child: _levelBar(t),
+                ),
               Expanded(
                 child: Center(
                   child: SoriEmptyState(
@@ -246,7 +247,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  _levelBar(t),
+                  if (widget.items == null) _levelBar(t),
                   Align(
                     alignment: Alignment.centerLeft,
                     child: SoriChip(

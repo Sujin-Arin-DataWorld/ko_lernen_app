@@ -302,6 +302,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
       '/vocab_notebook/result',
       '/vocab_notebook/practice',
       '/vocab_notebook/nuance',
+      '/vocab_notebook/studio',
     ],
   ),
   _entry(

@@ -7432,4 +7432,78 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get vocabNotebookNoHanja => 'no Hanja';
+
+  @override
+  String get vocabNotebookStudioCta => 'Build a game from these words';
+
+  @override
+  String get vocabNotebookStudioTitle => 'My word game';
+
+  @override
+  String get vocabNotebookStudioHint =>
+      'Pick the words from your notebook. You then play only those — plus sentences we already have for them.';
+
+  @override
+  String get vocabNotebookStudioSelectAll => 'Take all';
+
+  @override
+  String get vocabNotebookStudioSelectNone => 'None';
+
+  @override
+  String get vocabNotebookStudioOwnGames => 'With your meanings';
+
+  @override
+  String get vocabNotebookStudioCorpusGames => 'With our sentences';
+
+  @override
+  String get vocabNotebookStudioCorpusHint =>
+      'Only sentences we already have. No new vocabulary is added.';
+
+  @override
+  String vocabNotebookStudioCloze(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Cloze · $count sentences',
+      one: 'Cloze · 1 sentence',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioSatz(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Build a sentence · $count sentences',
+      one: 'Build a sentence · 1 sentence',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioSpeed(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Speed Match · $count words',
+      one: 'Speed Match · 1 word',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String vocabNotebookStudioChosung(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Chosung · $count words',
+      one: 'Chosung · 1 word',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get vocabNotebookStudioNoCorpus =>
+      'We do not have a ready sentence for these words yet. Use your own meanings above.';
 }
