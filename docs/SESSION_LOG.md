@@ -1,5 +1,35 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Claude, Windows) — Hören 카드 그리드 전환 인수인계 (문서만, 코드 0)
+
+**무엇.** `docs/HANDOFF_HOEREN_GRID_2026-08-17.md` 를 썼다. 계획 1(데이터 기반, PR #68 로
+main 반영)과 별도 세션이 만드는 카드 그리드 UI + 아트 72 장을 어떻게 붙이는지 못 박는
+문서다. 코드·데이터 변경은 0 이다.
+
+**왜.** Jin 이 책가도 선반 렌더를 기각하고 카드 그리드(Spiele 탭과 같은 문법)로 방향을
+바꿨다. 에셋 제작이 다른 세션에서 진행 중이라 접점을 문서로 고정해야 두 세션이 서로를
+덮어쓰지 않는다.
+
+**쓰다가 발견한 충돌(이 문서의 핵심).** 두 세션이 **서로 다른 72 칸 이름표**를 각자 만들었다.
+내 것은 `tools/content_factory/shelf_assignment.py` + JSON `shelf` 필드(264 개 전수 태깅,
+validator 강제), 그쪽은 `lib/data/scenario_shelf.dart` 의 `kScenarioShelfByScenarioId`
+(id→칸 Dart const map, 미커밋). 기능 9 칸 54 개는 설계 §4 를 그대로 따라 **순서까지 1:1** 이라
+기계적 개명이면 끝나고 live 264 개의 100% 가 여기 들어 있다. 다투는 건 나머지 18 칸이다 —
+내 관심축(friends/dating/fandom) vs 그쪽 기능 확장(Numbers/Phone/Wayfinding 등). Batch 11
+36 편이 관심축 위에 집필돼 있어 Jin 결정이 필요하다. 권고는 **기능 확장 채택**이다(아트 72 장·
+DE 표시명·파일럿 검수가 이미 그 축 위에 있고, 관심축은 능력이 아니라 소재라 층위가 다르다).
+
+**두 번째 발견.** 그쪽 `kScenarioShelfByScenarioId` 는 내가 이번에 지운 `_categoryById` 와
+**같은 구조**다. 설계 §5.2 가 그것을 없앤 이유(신규 3,300 개에서 시나리오마다 Dart 수정)가
+그대로 적용된다. `scenario.shelf` 를 읽도록 바꾸는 절차를 문서 §4.1 에 넣었다.
+
+**함께 남긴 것.** 이 세션에서 실제로 밟은 함정 5 개 — 원격이 데이터 본문을 다시 쓴 뒤의 병합
+(#63 이 202 편 재작성, #65 가 배경 6 건 재배정), content_factory 파이썬 스위트가 작업 이전부터
+약 20 건 빨갛다는 사실과 기준선 diff 방법, 파이썬 테스트를 루트에서 돌려야 하는 이유,
+draft↔live 동등성, `rootBundle` 전역 캐시.
+
+**커밋.** `400b44be` (인수인계서), 이 로그 항목은 직후 커밋. 코드·데이터 변경 0.
+
 ### 2026-08-17 (Claude, Windows) — Hören 책가도 계획 1(기반) 집행: shelf/backdrop + 6샤드 + 레벨 로더
 
 **무엇.** 계획 1의 8개 태스크를 전부 집행했다. live 264개에 `shelf`/`backdrop` 두
