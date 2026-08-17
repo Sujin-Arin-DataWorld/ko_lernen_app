@@ -12,9 +12,11 @@ icon SoriButton 88>75)을 넘긴 콘텐츠/계약 부채다. #51 플레크가 �
 `SoriAppBar`로 옮기고 라벨이 이미 있는 CTA 아이콘을 뗐다. 커스텀팩 편집의
 같은 장식 아이콘도 제거했다. 래칫은 실측 166/98/71로 내렸다.
 
-**검증.** 대상 Flutter 테스트와 카탈로그 카운트는 이 커밋 직후 실행.
+**검증.** 실패하던 A1 real-life 2개와 typography_guard 7개 포함 대상
+`flutter test --no-pub` 전부 통과. 카탈로그 90 scenario / 359 quest.
+대상 `dart analyze --fatal-infos` No issues found.
 
-**커밋해시.** `0a965c9e`
+**커밋해시.** `0a965c9e` + 로그 해시 `f13c3d59`.
 
 ### 2026-08-17 (Cursor) — 열린 PR 50·52·53·54·55를 main에 무손실 병합
 
