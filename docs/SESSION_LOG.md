@@ -9,7 +9,8 @@ ledger SHA-lock, `a1HanokEvictionTargets`, exclusive-bottom anchor와 catalog
 eviction·compose/promote/chroma 회귀는 유지한다.
 
 **검증.** Python compose/promote/contract, Flutter catalog/map, checker,
-`flutter analyze --no-pub --fatal-infos`, `git diff --check`.
+`flutter analyze --no-pub --fatal-infos`, `git diff --check`. 커밋
+`c002bef6`.
 
 ### 2026-08-17 (Cursor) — PR4 남은 fail-closed 4구멍 수정
 
