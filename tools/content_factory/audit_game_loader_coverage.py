@@ -119,7 +119,20 @@ class LoaderCoverageAudit:
             draft_path = self.root / str(artifact["draft"])
             draft = _read_json(draft_path)
             collection = str(artifact["collection"])
-            result[kind].extend(draft[collection])
+            live_by_id = {
+                str(record.get("id") or ""): record for record in result[kind]
+            }
+            for record in draft[collection]:
+                ident = str(record.get("id") or "")
+                existing = live_by_id.get(ident)
+                if existing is None:
+                    result[kind].append(record)
+                    live_by_id[ident] = record
+                    continue
+                if existing != record:
+                    raise ValueError(
+                        f"overlay {kind} ID {ident!r} disagrees with the live record"
+                    )
 
         for kind, records in result.items():
             ids = [str(record.get("id") or "") for record in records]

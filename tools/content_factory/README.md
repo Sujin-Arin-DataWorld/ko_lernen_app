@@ -49,6 +49,11 @@ python3 tools/content_factory/audit_game_loader_coverage.py \
 python3 tools/content_factory/validate_review_batch.py \
   --manifest tools/content_factory/drafts/batch_XX_manifest.json
 
+# 이미 merged 된 batch는 반대쪽 게이트를 쓴다. scenario/발음 포함
+# cross-game bundle도 여기로 검사한다. 라이브 자산과 승인 원장을 대조한다.
+python3 tools/content_factory/validate_promoted_batch.py \
+  --manifest tools/content_factory/drafts/batch_06_manifest.json
+
 # 기본값: preview만. 파일을 쓰지 않는다.
 python3 tools/content_factory/apply_review.py \
   tools/content_factory/review/<phase>_<type>.csv \

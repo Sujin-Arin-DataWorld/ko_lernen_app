@@ -26,6 +26,8 @@ TARGETS = {
     "smalltalk": ("smalltalk.json", "phrases"),
     "cloze": ("cloze.json", "items"),
     "satz": ("satz_sentences.json", "items"),
+    "scenario": ("scenarios.json", "scenarios"),
+    "pronunciation": ("pronunciation_phrases.json", "phrases"),
 }
 
 
@@ -45,10 +47,10 @@ def _csv(path: Path) -> tuple[list[str], list[dict[str, str]]]:
         return list(reader.fieldnames), list(reader)
 
 
-def _resolve(relative: str) -> Path:
-    path = (ROOT / relative).resolve()
+def _resolve(relative: str, root: Path = ROOT) -> Path:
+    path = (root / relative).resolve()
     try:
-        path.relative_to(ROOT)
+        path.relative_to(root)
     except ValueError as error:
         raise PromotedBatchError(f"path escapes repository: {relative}") from error
     return path
@@ -64,7 +66,7 @@ def _require_equal(actual: Any, expected: Any, label: str) -> None:
         raise PromotedBatchError(f"{label}: promoted value differs from reviewed draft")
 
 
-def validate(manifest_path: Path) -> tuple[int, dict[str, int]]:
+def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, int]]:
     manifest_path = manifest_path.resolve()
     manifest = _json(manifest_path)
     if not isinstance(manifest, dict) or manifest.get("status") != "merged":
@@ -74,8 +76,20 @@ def validate(manifest_path: Path) -> tuple[int, dict[str, int]]:
         raise PromotedBatchError(f"{manifest_path}: Jin approval is missing")
 
     artifacts = manifest.get("artifacts")
-    if not isinstance(artifacts, list) or {item.get("kind") for item in artifacts if isinstance(item, dict)} != set(TARGETS):
-        raise PromotedBatchError(f"{manifest_path}: five promoted artifacts are required")
+    if not isinstance(artifacts, list) or not artifacts:
+        raise PromotedBatchError(f"{manifest_path}: artifacts must be a nonempty array")
+    seen_kinds: set[str] = set()
+    for index, artifact in enumerate(artifacts):
+        if not isinstance(artifact, dict):
+            raise PromotedBatchError(f"{manifest_path}: artifacts[{index}] must be an object")
+        kind = str(artifact.get("kind") or "")
+        if kind not in TARGETS:
+            raise PromotedBatchError(
+                f"{manifest_path}: unsupported promoted artifact kind {kind!r}"
+            )
+        if kind in seen_kinds:
+            raise PromotedBatchError(f"{manifest_path}: duplicate artifact kind {kind!r}")
+        seen_kinds.add(kind)
 
     promoted_count = 0
     for artifact in artifacts:
@@ -83,9 +97,14 @@ def validate(manifest_path: Path) -> tuple[int, dict[str, int]]:
             raise PromotedBatchError(f"{manifest_path}: artifact must be an object")
         kind = str(artifact.get("kind") or "")
         target_name, collection = TARGETS[kind]
-        draft_path = _resolve(str(artifact.get("draft") or ""))
-        review_path = _resolve(str(artifact.get("review") or ""))
-        target_path = ROOT / "assets" / "data" / target_name
+        declared_collection = artifact.get("collection")
+        if declared_collection not in (None, collection):
+            raise PromotedBatchError(
+                f"{kind}: collection must be {collection!r}"
+            )
+        draft_path = _resolve(str(artifact.get("draft") or ""), root)
+        review_path = _resolve(str(artifact.get("review") or ""), root)
+        target_path = root / "assets" / "data" / target_name
 
         if draft_path.suffix == ".csv":
             draft_header, draft_rows = _csv(draft_path)
@@ -128,7 +147,7 @@ def validate(manifest_path: Path) -> tuple[int, dict[str, int]]:
     if promoted_count != manifest.get("recordCount"):
         raise PromotedBatchError("recordCount differs from promoted artifact total")
 
-    curriculum = _json(ROOT / "assets" / "data" / "curriculum_manifest.json")
+    curriculum = _json(root / "assets" / "data" / "curriculum_manifest.json")
     for field in (
         "vocabPackUnitMap",
         "grammarRuleMap",
@@ -148,6 +167,40 @@ def validate(manifest_path: Path) -> tuple[int, dict[str, int]]:
         for item in extensions.get(field, []):
             ident = str(item.get("id") or "")
             _require_equal(live_by_id.get(ident), item, f"curriculum {field}:{ident}")
+
+    live_links = [
+        item
+        for item in curriculum.get("contentLinks") or []
+        if isinstance(item, dict)
+    ]
+    for index, link in enumerate(manifest.get("contentLinks") or []):
+        if not isinstance(link, dict):
+            raise PromotedBatchError(f"contentLinks[{index}] must be an object")
+        expected = {
+            "contentKind": link.get("contentKind"),
+            "contentId": link.get("contentId"),
+            "courseUnitId": link.get("courseUnitId"),
+            "conceptIds": link.get("conceptIds"),
+            "role": link.get("role"),
+        }
+        found = next(
+            (
+                {
+                    "contentKind": item.get("contentKind"),
+                    "contentId": item.get("contentId"),
+                    "courseUnitId": item.get("courseUnitId"),
+                    "conceptIds": item.get("conceptIds"),
+                    "role": item.get("role"),
+                }
+                for item in live_links
+                if item.get("contentKind") == expected["contentKind"]
+                and item.get("contentId") == expected["contentId"]
+                and item.get("courseUnitId") == expected["courseUnitId"]
+                and item.get("role") == expected["role"]
+            ),
+            None,
+        )
+        _require_equal(found, expected, f"contentLinks[{index}]")
 
     for pack in manifest.get("vocabPacks", []):
         base = _base_pack(str(pack.get("packId") or ""))
@@ -175,11 +228,11 @@ def validate(manifest_path: Path) -> tuple[int, dict[str, int]]:
             f"cloze map:{key}",
         )
 
-    issues = ContentValidator(ROOT).validate()
+    issues = ContentValidator(root).validate()
     if issues:
         rendered = "\n".join(f"{issue.source}: {issue.message}" for issue in issues)
         raise PromotedBatchError(f"live content validation failed:\n{rendered}")
-    counts = ContentValidator(ROOT).inventory_counts()
+    counts = ContentValidator(root).inventory_counts()
     return promoted_count, counts
 
 
