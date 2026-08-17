@@ -6,7 +6,7 @@
 3/4 시점 세계만 사용한다. `hanok_compound/`는 과거 프로토타입이고,
 `gye/`는 공동 마당 전용이다. 두 폴더의 PNG를 개인 지도에 섞지 않는다.
 
-## 9장 패키지
+## 8장 런타임 패키지 + QA 합성물 1장
 
 | 역할 | 경로 | 런타임 |
 |---|---|---|
@@ -18,7 +18,7 @@
 | 대청마루 | `map/structures/daecheongmaru.png` | B2 50% |
 | 사당 | `map/structures/sadang.png` | B2 75% |
 | 후원 | `map/landscape/rear_garden.png` | B2 100% |
-| 완성 검수 전경 | `map/reference_full_estate.png` | 검수 전용 |
+| 완성 검수 전경 | `assets_unused/pending_review/reference_full_estate.png` | QA 전용·번들 제외 |
 
 후원은 연못·다리·정자·장독대·등·식재가 이미 한 장에 맺힌 레이어다.
 따라서 다리는 반드시 물 위를 가로지르고, 별도의 계 연못이나 다리 파일을
@@ -38,9 +38,9 @@
 
 ## 합성·교체 절차
 
-`reference_full_estate.png`는 독립 아트가 아니라, 현재 런타임 paint 순서로
-합성한 완성 상태다. 구조·후원 중 한 장이라도 바꾸면 아래 순서를 같은 변경에
-포함한다.
+`assets_unused/pending_review/reference_full_estate.png`는 독립 아트가 아니라,
+현재 런타임 paint 순서로 합성한 완성 상태다. Flutter asset leaf인 `map/`에
+복사하지 않는다. 구조·후원 중 한 장이라도 바꾸면 아래 순서를 같은 변경에 포함한다.
 
 ```powershell
 python tool/check_personal_hanok_assets.py --write-reference

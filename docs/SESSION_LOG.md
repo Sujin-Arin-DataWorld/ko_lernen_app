@@ -648,6 +648,191 @@ Flutter 집중 회귀 42/42, `flutter analyze --no-pub --fatal-infos` No issues,
 `assets_unused/pending_review`만 읽는다. 구현 커밋 `0398bc5`. PR3는 Play
 Internal 자동 업로드 결정 없이 병합하지 않는다.
 
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-10 개판·지붕 바탕
+
+**누적 공정과 실패 폐쇄.** 승인된 A1-09 raw만 입력해 기존 기단·계단·목재·초석·
+정확히 7개 주기둥과 전체 보·창방·도리·종도리·서까래·추녀 골조를 유지하고 얇은
+목재 개판/지붕 바탕과 좁은 밑층만 추가했다. ImageGen 결과는 공정 의미를 통과했지만
+checkerboard를 실제 RGB로 구워 거절했다. 그 exact rejected SHA만 Recraft에 입력해
+0.3 BBANANA credit으로 true alpha를 복구했다. 사용자 첨부 화면·Vivasam·PDF·legacy·
+Gye 자산은 모델 입력에 사용하지 않았다.
+
+**최종 승인.** raw는 2172×724 RGBA·2,009,588 bytes, normalized layer는
+854×309 RGBA·330,893 bytes, alpha 51.48%·anchor 1,011·chroma 0이다. A1-09 대비
+foundation alpha IoU는 0.988246, edge drift는 2px다. QA composite는 1536×1152
+RGB WebP·289,664 bytes, source socket 밖 변경 0, decoded 밖 평균 오차 3.3376이다.
+육안으로 서까래 끝이 계속 보이고 새 얇은 지붕 바탕만 존재함을 확인했다. 흙·초가·
+기와·용마루·벽·수장·창호는 없다. 정적 BBANANA ledger 합계는 13.5 credits,
+마지막 확인 잔액은 921.3 credits다. 아직 runtime/pubspec에는 승격하지 않았다.
+
+**검증.** checker+compositor Python 회귀 **10/10**, provenance+bundle Flutter 회귀
+**16/16**, JSON parse·Python compile·Dart format을 통과했다. 전체
+`flutter analyze --no-pub --fatal-infos` **No issues found**와
+`git diff --check`도 통과했다.
+
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-09 서까래·추녀
+
+**누적 공정과 실패 폐쇄.** 승인된 A1-08 raw만 입력해 기존 기단·계단·목재·초석·
+정확히 7개 주기둥·보·창방·도리·종도리를 유지하고 열린 평서까래와 양 끝 추녀만
+추가했다. ImageGen 결과는 공정 의미를 통과했지만 checkerboard를 실제 RGB로 구워
+거절했다. 그 exact rejected SHA만 Recraft에 입력해 0.3 BBANANA credit으로 true alpha를
+복구했다. 사용자 첨부 화면·Vivasam·PDF·legacy·Gye 자산은 모델 입력에 사용하지 않았다.
+
+**최종 승인.** raw는 2172×724 RGBA·1,948,122 bytes, normalized layer는
+854×309 RGBA·334,169 bytes, alpha 48.17%·anchor 1,011·chroma 0이다. A1-08 대비
+foundation alpha IoU는 0.972377, edge drift는 계약 상한과 같은 12px다. QA composite는
+1536×1152 RGB WebP·294,896 bytes, source socket 밖 변경 0, decoded 밖 평균 오차
+3.3212다. 육안으로 기존 7개 기둥과 상부 결구가 유지되며 새 평서까래·추녀 사이가
+열려 있음을 확인했다. 지붕 바탕·방수·초가·기와·벽·수장은 없다. 정적 BBANANA
+ledger 합계는 13.2 credits, 마지막 확인 잔액은 921.6 credits다. 아직 runtime/pubspec에는
+승격하지 않았다.
+
+**검증.** checker+compositor Python 회귀 **10/10**, provenance+bundle Flutter 회귀
+**15/15**, JSON parse·Python compile·Dart format을 통과했다. 전체
+`flutter analyze --no-pub --fatal-infos` **No issues found**와
+`git diff --check`도 통과했다.
+
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-08 도리·종도리
+
+**공정 의미와 실패 폐쇄.** 승인된 A1-07 raw만 입력해 기존 기단·계단·일곱 초석·
+정확히 7개 주기둥·보·창방을 유지하고, 도리·종도리와 필요한 짧은 상부 지지만
+추가했다. 첫 ImageGen 출력은 공정 의미와 geometry는 통과했지만 회색 checkerboard를
+실제 RGB 픽셀로 구워 거절했다. 그 exact rejected SHA만 Recraft에 입력해 0.3
+BBANANA credit으로 true alpha를 복구했으며, 사용자 첨부 화면·Vivasam·PDF·legacy·
+Gye 자산은 모델 입력에 사용하지 않았다.
+
+**최종 승인.** raw는 2172×724 RGBA·1,704,489 bytes, normalized layer는
+854×309 RGBA·264,817 bytes, alpha 41.87%·anchor 1,005·chroma 0이다. A1-07 대비
+foundation alpha IoU는 0.997108, edge drift는 0px다. QA composite는 1536×1152
+RGB WebP·280,338 bytes, source socket 밖 변경 0, decoded 밖 평균 오차 3.3900이다.
+육안으로 기존 7개 기둥·보·창방과 새 도리·중앙 종도리만 확인했고, 중간 벽선·
+서까래·지붕·벽·문자·UI는 없다. 정적 BBANANA ledger 합계는 12.9 credit이며 아직
+runtime/pubspec에는 승격하지 않았다.
+
+**검증.** checker+compositor Python 회귀 **10/10**, provenance+bundle Flutter 회귀
+**14/14**, JSON parse·Python compile·Dart format을 통과했다. 전체
+`flutter analyze --no-pub --fatal-infos` **No issues found**와
+`git diff --check`도 통과했다.
+
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-07 보·창방
+
+**실패 폐쇄.** 첫 후보는 보·창방 의미는 보였지만 체크무늬를 구운 RGB였고 입력보다
+좁고 높은 종횡비로 기단·기둥을 재배치해 거절했다. wide geometry를 복구한 후보와
+alpha-only 수정도 checkerboard RGB여서 거절했다. Recraft로 true alpha를 얻은 중간
+후보는 자동 geometry를 통과했지만 A1-12에 해당하는 중간 벽선과 보조 기둥이 있어
+의미상 거절했다. 모든 출력·prompt·비용·판정은 순방향 SHA lineage로 ledger에 남겼다.
+
+**연속성 계약.** compositor의 `--previous-layer` gate가 직전 승인 normalized layer와
+후보의 아래 80px foundation alpha mask를 비교한다. IoU 0.94 이상, 좌우 footprint edge
+drift 12px 이하만 허용한다. 실제 A1-05→06은 IoU 0.9846, A1-06→07은 0.9698이고 두
+전환 모두 edge drift 0이다. alpha·socket 형식을 지켜도 기단 위치와 scale을 움직이면
+normalized output 작성 전에 fail-closed한다.
+
+**최종 승인.** 의미 수정 뒤 checkerboard만 제거한 최종 raw는 2172×724 RGBA,
+1,558,117 bytes이며 기둥 정확히 7개와 상부 보·창방만 보인다. normalized layer는
+854×309 RGBA·228,583 bytes, alpha 35.83%·anchor 991·chroma 0이다. 합성 WebP는
+1536×1152 RGB·278,848 bytes, source socket 밖 변경 0, decoded 밖 평균 오차 3.392다.
+두 Recraft 호출 비용은 합계 0.6 BBANANA credit이며 전체 정적 ledger는 12.6 credit이다.
+아직 runtime/pubspec에는 승격하지 않았다.
+
+**검증.** checker+compositor Python 회귀 **10/10**, provenance+bundle Flutter 회귀
+**13/13**, JSON parse·Python compile·Dart format, 전체
+`flutter analyze --no-pub --fatal-infos` **No issues found**, `git diff --check`를 통과했다.
+
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1-05 치목 자산
+
+**누적 공정.** 승인된 A1-06 true-alpha raw에서 세운 기둥만 제거해 바로 이전
+`05_timber_preparation`을 제작했다. 기단·계단·일곱 초석·운반대·치목한 목재의
+perspective와 배치를 유지하고 기둥과 이후 공정은 넣지 않았다. 최초 조상은 프로젝트
+소유 `sarangchae.png`이며 사용자 화면·Vivasam·PDF·legacy/Gye 자산은 입력하지 않았다.
+
+**실패 폐쇄와 lineage.** 첫 출력은 형태는 맞았지만 회색 체크무늬를 실제 픽셀로 구운
+RGB여서 compositor가 즉시 거절했다. 이 exact rejected SHA를 입력으로 배경만 실제 alpha로
+바꾸는 한 번의 수정 결과를 새 generation record로 남겼다. ledger test는 이제 프로젝트
+allowlist 또는 더 앞선 ledger output의 exact SHA만 파생 입력으로 허용하며, 경로 재정의와
+순서가 뒤집힌 lineage를 차단한다. rejected 출력은 QA rejected 폴더에만 남는다.
+
+**승인 결과.** raw는 2160×728 RGBA, normalized layer는 854×309 RGBA·178,584 bytes,
+alpha 27.54%·anchor 909·chroma 0이다. QA composite는 1536×1152 RGB WebP·276,882
+bytes, source socket 밖 변경 0, decoded 밖 평균 오차 3.3902다. 육안으로 기단·초석·
+준비 목재만 보이고 세운 기둥과 이후 구조가 없어 승인했다. 아직 runtime/pubspec에는
+승격하지 않았다.
+
+**검증.** checker+compositor Python 회귀 **8/8**, provenance+bundle Flutter 회귀
+**12/12**, JSON parse와 Dart format을 통과했다. prompt/output SHA, 두 호출의 승인·거절,
+정규화·합성 metric은 provenance와 별도 prompt 기록에 고정했다.
+
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 투명 socket 합성 계약
+
+**생성 경계.** whole-estate 이미지 편집 파일럿은 socket 밖을 다시 그려 전부 거절됐으므로,
+후속 생성은 `854×309` RGBA 투명 레이어만 받는다. 도구가 SHA로 고정된 정본 base의
+`x=160, y=614`에만 합성하며 local anchor `(427,309)`, 투명 모서리, 실제 alpha,
+chroma-key 부재를 fail-closed 검증한다. 생성 모델 출력이 대지·카메라·UI를 직접
+결정할 수 없도록 최종 `1536×1152` RGB WebP는 로컬 결정론적 합성으로만 만든다.
+
+**인코딩 경계.** lossy WebP는 동일한 바깥 픽셀도 전역 양자화로 바꾸므로 source
+composite에서 socket 밖 pixel-exact를 먼저 증명한다. 최종 decode는 정본 base와의
+socket 밖 평균 오차를 제한하고 350,000-byte hard limit·RGB·WebP를 다시 검증한다.
+인코더 quality/method와 레이어 규격은 provenance JSON에 두어 도구와 Flutter 회귀가
+같은 정본을 읽는다.
+
+**검증.** 잘못된 크기·mode·불투명 matte·chroma·anchor 누락·변조 base와 정상
+합성/atomic WebP 출력을 포함한 Python 회귀 및 기존 map checker를 **8/8** 통과했고,
+provenance Flutter 회귀 **9/9**, JSON parse, Python compile, `git diff --check`를
+통과했다. 생성 호출이나 runtime 자산 추가는 이 슬라이스에서 수행하지 않았다.
+
+**파일럿 승인.** 이후 true-alpha 한 장을 생성해 raw/normalized/QA composite를
+`assets_unused/pending_review/`에 보존했다. A1-06에 필요한 기단·초석·준비 목재·
+세운 기둥만 보이고 후속 공정은 없어 시각 검수를 통과했다. normalized layer는
+854×309 RGBA, alpha 32.01%, anchor 905 pixels, chroma 0이고 합성 WebP는 276,120
+bytes, source socket 밖 변경 0, decoded 밖 평균 오차 3.392다. 생성·오류·환불·SHA는
+ledger에 기록했으며 runtime과 pubspec에는 아직 승격하지 않았다.
+
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 A1 renderer 계약
+
+**단일 projection.** 기존 `PersonalHanokProjection`·`LevelRatios`·단어팩·XP·Gye와
+분리된 A1 0–16 construction catalog/renderer를 추가한다. 입력 권한은 오직 PR3의
+`HanokExperienceProjection.a1ConstructionStep`이며, 17개 상태와 grant ID를 불변
+1:1 표로 고정한다. 실제 production route 전환은 PR6/PR7까지 하지 않는다.
+
+**메모리와 접근성.** renderer는 current 기준 previous/current/next 최대 세 자산만
+precache하고 더 오래된 provider를 evict한다. full-size RGBA worst case도 32MiB 아래로
+유지하며 표시 폭에 맞는 decode hint를 사용한다. 4:3 viewport, visible missing-asset
+fallback, 의미론 label, `disableAnimations` 시 0ms 전환을 테스트한다.
+
+**검증.** 신규 catalog/widget 테스트와 PR3 experience projector/state 회귀를 묶어
+**30/30** 통과했고, viewport/DPR 변경 시 decode hint 재생성도 고정했다.
+`flutter analyze --no-pub --fatal-infos`와 `git diff --check`도 통과했다. A1 01–16
+자산 leaf는 승인 자산이 생기기 전까지 `pubspec.yaml`에 등록하지 않았고 이 renderer도
+production route에는 연결하지 않았다.
+
+### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR4 자산 경계·생성 preflight
+
+**격리와 QA 경계.** PR3 exact head `64b7e24a`에서 독립 worktree/branch
+`codex/hanok-v1-a1-assets-20260817`을 만들었다. 개인 한옥 checker가 3.25MB 완성
+합성물을 Flutter runtime leaf인 `personal_hanok_v2/map/`에서 찾던 모순을 고쳐,
+정본 `assets_unused/pending_review/reference_full_estate.png`만 읽고 갱신한다. 같은
+파일이 runtime root에 나타나면 checker와 bundle 회귀가 실패하며, 현재 8개 runtime
+layer 합성과 QA 정답이 pixel-exact임을 유지한다.
+
+**생성 준비.** 권리 원장의 SHA와 실제 `site_base_light`·`sarangchae`·QA composite를
+확인하고 BBANANA 연결/모델/잔액을 읽기 전용 재검증했다. 잔액은 934.8 credits,
+Nano Banana Pro 4:3 2K는 4 credits/call이다. A1-06 columns 3안의 edit target,
+reference 역할, exact socket/anchor, 금지 입력·구조·UI 요소와 수락 조건을 호출 전에
+`docs/assets/prompts/HANOK_V1_A1_06_COLUMNS_PILOT_2026-08-17.md`에 고정했다.
+사용자 화면·Vivasam·PDF·legacy/Gye asset은 모델에 보내지 않았다.
+
+**파일럿 결과.** 허용된 base와 Sarangchae만 업로드해 Nano Banana Pro 2K 세 안을
+생성했고 12 credits를 사용했다. 세 안 모두 기둥은 표현했지만 socket 바깥 픽셀의
+77.8–80.5%를 재합성했으므로 전부 거절했다. 런타임 자산이나 나머지 15단계 생성으로
+확대하지 않았고 task·prompt/output SHA·비용·판단은 provenance ledger에 기록했다.
+다음 시도는 투명 socket 전용 레이어를 생성한 뒤 원본 base와 결정론적으로 합성한다.
+
+**검증.** `python -m unittest tool.test_check_personal_hanok_assets` **3/3**,
+personal Hanok bundle + V1 provenance Flutter 회귀 **10/10**, 실제 checker의 8개
+runtime layer/QA metadata·pixel 합성, `git diff --check`를 통과했다. push와 PR은 이
+기록 시점에 아직 없다.
+
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR3 상태·projection 기반
 
 **권한과 완전 교체.** `HanokState v1`은 reveal 확인, 외관 loadout과 slot별 clock,
