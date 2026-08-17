@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-17 (Cursor) — 살아 있는 한옥 V1 PR4 코드 파이프라인
+
+**무엇을.** PR3 `64b7e24a` 위에 A1 0–16 불변 catalog, projection-only 4:3
+renderer, QA composite runtime 격리, 투명 socket compositor, 이전 단계
+footprint 연속성 gate, 승인 ledger lineage, 16개 원자 승격과 sourceSha256
+썸네일 게이트를 구현했다. 이미지 생성·runtime 승격·production route 연결은
+하지 않았다. Jin이 레이어를 만들면
+`docs/assets/prompts/HANOK_V1_A1_TRANSPARENT_LAYER_CONTRACT.md`와
+`tool/compose_hanok_a1_state.py`만 쓰면 된다.
+
+**왜.** 이전 로컬 PR4 세션은 투명 레이어 방식을 확정했지만 브랜치를 push하지
+않았고, 전체 대지 편집과 체크무늬 RGB 출력은 거절됐다. 이번 작업은 그 계약을
+이 저장소에 코드로 고정해 에셋 제작과 구현을 분리한다.
+
+**검증.** Python pipeline 13/13, `check_personal_hanok_assets.py` exit 0,
+Flutter 집중 회귀 42/42, `flutter analyze --no-pub --fatal-infos` No issues,
+`git diff --check` 통과. A1 runtime/pubspec는 비어 있고 QA composite는
+`assets_unused/pending_review`만 읽는다. PR3는 Play Internal 자동 업로드
+결정 없이 병합하지 않는다.
+
 ### 2026-08-17 (Codex) — 살아 있는 한옥 V1 PR3 상태·projection 기반
 
 **권한과 완전 교체.** `HanokState v1`은 reveal 확인, 외관 loadout과 slot별 clock,

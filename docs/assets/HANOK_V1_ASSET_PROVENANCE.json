@@ -58,6 +58,42 @@
     },
     "decodedMemoryMaxBytes": 33554432
   },
+  "a1TransparentLayerContract": {
+    "input": {
+      "colorMode": "RGBA",
+      "trueAlpha": true,
+      "forbiddenMattes": ["white", "checkerboard", "chroma_00ff00"]
+    },
+    "socketLayer": {
+      "width": 854,
+      "height": 309,
+      "localAnchor": {
+        "x": 427,
+        "y": 309
+      }
+    },
+    "output": {
+      "format": "WebP",
+      "colorMode": "RGB",
+      "quality": 82,
+      "method": 6,
+      "hardMaxBytes": 350000
+    },
+    "qa": {
+      "sourceOutsideChangedPixels": 0,
+      "decodedOutsideMeanErrorMax": 5.0
+    },
+    "continuity": {
+      "minPreviousRecall": 0.97,
+      "maxEdgeDriftPx": 2
+    },
+    "promotion": {
+      "qaRoot": "assets_unused/pending_review/a1_states/",
+      "runtimeRoot": "assets/illustrations/personal_hanok_v2/a1/states/",
+      "atomic": true,
+      "pubspecUntilComplete": false
+    }
+  },
   "allowedModelInputs": [
     {
       "path": "assets/illustrations/personal_hanok_v2/map/site_base_light.png",
