@@ -110,7 +110,7 @@ void main() {
           '08_purlins_sangnyang.webp',
           '09_rafters_roof_frame.webp',
           '10_roof_base.webp',
-          '11_choga_roof.webp',
+          '11_giwa_roof.webp',
           '12_wall_frame_sujang.webp',
           '13_earth_walls.webp',
           '14_ondol_maru.webp',

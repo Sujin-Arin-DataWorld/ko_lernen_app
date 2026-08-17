@@ -58,9 +58,16 @@ Nano Banana Pro 2K 4:3, 프롬프트 원문은 플레이북 §3.5). 나머지 6�
   "a1/states/ 는 16장 전부 승인·승격된 경우에만 등록 가능(그 외 a1/ 하위 등록 금지)" 으로,
   ③ 원장 fail-closed 테스트는 provider=local의 0 credit을 허용하도록(유료 호출은 여전히 >0).
 
-**남은 일.** D1 rename(`11_choga_roof.webp` → `11_giwa_roof.webp`, 그림은 이미 기와)은 카탈로그·
-테스트·grant 초안 7개 접점과 함께 PR5a. `props_14_ondol`·`props_16_movein`의 `sarangchae_props`
-분리 승격은 PR5b.
+**D1 rename (같은 날, Jin "지금 처리하고 푸쉬해줘").** `11_choga_roof` → `11_giwa_roof`를
+접점 전부에서 동시에 바꿨다: 카탈로그(`id`/`fileName`/`assetPath`/`grantId`/`revealAssetId`),
+`build_hanok_grants.py` 단계 이름, `drafts/hanok_grants.json`(id·revealAssetIds·
+userDescriptionKey·후속 grant의 prerequisite), provenance `expectedFiles`와 원장 승인 출력 경로,
+런타임·스테이징 WebP 파일명(`git mv`), 테스트 3개. `04_cornerstones_choseok`은 다른 낱말이므로
+건드리지 않았다. grant 초안은 아직 draft이고 릴리스 원장 `publishedGrants`는 비어 있어 rewrite
+금지 규칙에 걸리지 않는다.
+
+**남은 일.** `props_14_ondol`·`props_16_movein`의 `sarangchae_props` 분리 승격은 PR5b.
+grant 재생성(D2/D3/D5/D7)·l10n·glossary는 PR5a 그대로.
 
 ### 2026-08-17 (Claude, Windows) — 한옥 V1 학습경로↔외관·사랑방 매핑 + 부품 키트 파이프라인 재검토 (설계 승인, 구현 시작)
 

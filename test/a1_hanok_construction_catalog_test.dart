@@ -25,7 +25,7 @@ void main() {
       'hanok_a1_08_purlins_sangnyang',
       'hanok_a1_09_rafters_roof_frame',
       'hanok_a1_10_roof_base',
-      'hanok_a1_11_choga_roof',
+      'hanok_a1_11_giwa_roof',
       'hanok_a1_12_wall_frame_sujang',
       'hanok_a1_13_earth_walls',
       'hanok_a1_14_ondol_maru',

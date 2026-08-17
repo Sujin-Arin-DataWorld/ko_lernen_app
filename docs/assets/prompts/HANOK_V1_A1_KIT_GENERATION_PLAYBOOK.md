@@ -305,6 +305,7 @@ Jin이 16장 전부 승인 → 다음이 끝났다:
 - `pubspec.yaml`에 `personal_hanok_v2/a1/states/` 등록,
   `check_personal_hanok_assets.py --require-a1-states` 16/16 PASS.
 
-**주의 — 11번 파일명.** 런타임 파일명은 계약이 요구하는 `11_choga_roof.webp`이지만 그림은
-기와다(D1 결정). 이름 변경은 카탈로그·테스트·grant 초안 7개 접점과 함께 PR5a에서 한다.
-`props_14_ondol`·`props_16_movein`은 PR5b에서 `sarangchae_props`로도 분리 승격한다.
+**D1 rename 완료.** 11번은 `11_giwa_roof`다(그림이 기와이므로). 같은 커밋에서 카탈로그
+(`id`/`fileName`/`assetPath`/`grantId`/`revealAssetId`)·grant 초안·`build_hanok_grants.py`
+단계 이름·provenance `expectedFiles`와 원장 출력 경로·런타임/스테이징 파일명·테스트 3개를 함께
+바꿨다. `props_14_ondol`·`props_16_movein`은 PR5b에서 `sarangchae_props`로도 분리 승격한다.

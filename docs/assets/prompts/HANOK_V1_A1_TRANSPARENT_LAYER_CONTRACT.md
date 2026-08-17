@@ -91,7 +91,8 @@ chroma·소켓 밖 0·350KB·재디코드 게이트는 그대로. 보고서에 P
 16장을 복사, pubspec에 그 디렉터리를 등록했다. 원장 입력 체인은 계약대로 **allowlist 또는 앞선
 승인 출력만** 참조한다(모델이 반환한 raw 이미지도 출력으로 기록해 다음 단계의 입력 자격을 갖춘다).
 프롬프트 원문 정본은 `docs/assets/prompts/a1_kit_prompts.json`이고 `promptSha256`은 그 문자열의
-해시다. 11번 런타임 파일명은 아직 `11_choga_roof.webp`(그림은 기와) — D1 rename은 PR5a.
+해시다. D1 rename도 같은 날 끝내 11번은 `11_giwa_roof.webp`다(카탈로그·grant 초안·
+`expectedFiles`·원장 경로·테스트 동시 변경).
 
 16개 QA WebP가 모두 통과하기 전에는 runtime/pubspec에 넣지 않는다.
 dry-run과 `--apply` 모두 `generationLedger`에 파일 basename+sha256이
