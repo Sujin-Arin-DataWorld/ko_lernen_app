@@ -371,6 +371,11 @@ flutter run -d <android-id>   # 안드로이드
   `validate_promoted_batch.py`다. 고정 카탈로그 계약은 scenario 62·quest 261,
   Smalltalk 293, Cloze 530, Satz 443, pronunciation 20, A1–B2 smalltalk
   semantic decision 257, 시나리오 레벨 A1–C2다. TTS/Firebase 누락분은 별도 게이트다.
+- [ ] **한국 파트너 가족·명절 트랙 (Jin 검수)**: Batch 07 five-kind
+  `review_only_draft`(36팩·432 vocab·1:1 cloze/satz·72 smalltalk·6 grammar)와
+  Batch 08 시나리오 28개가 초안이다. live 승격은 `integrate_review_batches.py` /
+  `integrate_scenario_batch.py`와 Jin 승인 뒤에만. 전체 live 4배 확장은 이 검수
+  뒤에 이어서 배치한다.
 - [ ] **다음 콘텐츠**: Batch 07은 loader 재계산 작업량
   `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다. PDF, OCR,
   표 판독은 `reference_intake/` 격리 DB를 거쳐 source가 제거된 brief만 독립 집필에
