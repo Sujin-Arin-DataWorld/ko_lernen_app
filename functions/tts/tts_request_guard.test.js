@@ -10,12 +10,17 @@ const {
   DAILY_LIMIT_GLOBAL,
   DAILY_LIMIT_INSTALLATION,
   TtsRequestError,
+  abandonTtsReplay,
+  claimTtsReplay,
+  completeTtsReplay,
   isCurrentTtsReceipt,
   isUsableAudioBuffer,
   pendingTtsReceipt,
   quotaExpiresAt,
   refundDailyTtsQuotas,
+  ttsLogErrorCode,
   ttsReplayId,
+  ttsSynthesisPlan,
   underDailyTtsQuotas,
   validateTtsRequest,
   withDeadline,
@@ -32,12 +37,18 @@ test("synthesis treats empty Storage objects as a miss and bounds Cloud TTS", ()
   assert.match(source, /empty TTS audio/);
   assert.match(source, /claimTtsReplay/);
   assert.match(source, /abandonTtsReplay/);
+  assert.match(source, /ttsSynthesisPlan/);
+  assert.match(source, /already in progress/);
+  assert.match(source, /ttsLogErrorCode/);
+  assert.doesNotMatch(source, /consume = true;/);
+  assert.match(source, /console\.error\("synthesize_tts error", ttsLogErrorCode\(e\)\)/);
+  assert.doesNotMatch(source, /console\.error\(\s*e\s*[,)]/);
 });
 
-test("expensive TTS callable enforces App Check and consumes replay tokens", () => {
+test("expensive TTS callable enforces App Check and matches the 12s client", () => {
   assert.equal(CALLABLE_OPTIONS.enforceAppCheck, true);
   assert.equal(CALLABLE_OPTIONS.consumeAppCheckToken, true);
-  assert.equal(CALLABLE_OPTIONS.timeoutSeconds, 15);
+  assert.equal(CALLABLE_OPTIONS.timeoutSeconds, 12);
 });
 
 test("rejects anonymous callers before any synthesis work", () => {
@@ -238,6 +249,55 @@ test("tts receipts hash the storage path and skip a second charge while pending"
   );
 });
 
+test("a live pending claim is a lock: the loser does not reserve quota or synthesize", async () => {
+  const db = new FakeFirestore();
+  const storagePath = "tts/v3/female/abc.mp3";
+  const first = await claimTtsReplay(db, storagePath);
+  const second = await claimTtsReplay(db, storagePath);
+  assert.deepEqual(first, { consume: true, state: "pending" });
+  assert.deepEqual(second, { consume: false, state: "pending" });
+  assert.deepEqual(ttsSynthesisPlan(first, false), { action: "synthesize" });
+  assert.deepEqual(ttsSynthesisPlan(second, false), { action: "wait" });
+  assert.deepEqual(ttsSynthesisPlan(first, true), {
+    action: "return",
+    refund: true,
+  });
+  assert.deepEqual(ttsSynthesisPlan(second, true), {
+    action: "return",
+    refund: false,
+  });
+  await completeTtsReplay(db, storagePath);
+  const afterComplete = await claimTtsReplay(db, storagePath);
+  assert.deepEqual(afterComplete, { consume: false, state: "completed" });
+  assert.deepEqual(ttsSynthesisPlan(afterComplete, false), {
+    action: "synthesize",
+  });
+});
+
+test("abandoning a pending claim lets the next retry reserve quota once", async () => {
+  const db = new FakeFirestore();
+  const storagePath = "tts/v3/female/abc.mp3";
+  assert.equal((await claimTtsReplay(db, storagePath)).consume, true);
+  await abandonTtsReplay(db, storagePath);
+  assert.deepEqual(await claimTtsReplay(db, storagePath), {
+    consume: true,
+    state: "pending",
+  });
+});
+
+test("error logs keep only a safe provider code, never request text", () => {
+  assert.equal(ttsLogErrorCode(undefined), "internal");
+  assert.equal(
+    ttsLogErrorCode(new Error("Chirp3-HD-Zephyr 안녕하세요")),
+    "internal",
+  );
+  assert.equal(
+    ttsLogErrorCode({ code: "unavailable", message: "provider prompt" }),
+    "unavailable",
+  );
+  assert.equal(ttsLogErrorCode({ code: "안녕하세요" }), "internal");
+});
+
 test("provider circuit opens after consecutive failures", () => {
   let now = 1_000;
   const breaker = new CircuitBreaker({
@@ -287,21 +347,35 @@ class FakeFirestore {
 
   collection(name) {
     return {
-      doc: (id) => ({ path: `${name}/${id}` }),
+      doc: (id) => ({
+        path: `${name}/${id}`,
+        set: async (data) => {
+          this.documents.set(`${name}/${id}`, { ...data });
+        },
+      }),
     };
   }
 
   async runTransaction(callback) {
     const writes = [];
     const tx = {
-      get: async (ref) => ({
-        data: () => this.documents.get(ref.path),
-      }),
-      set: (ref, data) => writes.push({ ref, data }),
+      get: async (ref) => {
+        const data = this.documents.get(ref.path);
+        return {
+          exists: data !== undefined,
+          data: () => data,
+        };
+      },
+      set: (ref, data) => writes.push({ type: "set", ref, data }),
+      delete: (ref) => writes.push({ type: "delete", ref }),
     };
     const result = await callback(tx);
     for (const write of writes) {
-      this.documents.set(write.ref.path, { ...write.data });
+      if (write.type === "delete") {
+        this.documents.delete(write.ref.path);
+      } else {
+        this.documents.set(write.ref.path, { ...write.data });
+      }
     }
     return result;
   }

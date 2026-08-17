@@ -491,7 +491,9 @@ class TtsService {
       }
       try {
         await file.delete();
-      } catch (_) {}
+      } catch (_) {
+        // Never return this file. The next lookup still rejects junk bytes.
+      }
     }
 
     // 2. Firebase Storage (사전생성된 고정 콘텐츠)
