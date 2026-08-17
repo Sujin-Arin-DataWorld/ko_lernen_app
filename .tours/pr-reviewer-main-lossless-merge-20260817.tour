@@ -1,0 +1,65 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "PR Tour — 잔여 브랜치 무손실 병합 + 릴리스 잡 디스크 상한 (5920c9cf → bfc9b86f)",
+  "description": "2026-08-17 main push 리뷰 투어. Codex A1 파일럿 브랜치를 어디까지 가져오고 어디서 main 계약을 지켰는지, 그리고 Play 릴리스 잡이 왜 빨갛게 끝났고 어떻게 고쳤는지를 변경 파일 순서로 따라간다.",
+  "ref": "main",
+  "steps": [
+    {
+      "file": "docs/SESSION_LOG.md",
+      "line": 3,
+      "title": "1. 무엇이 들어왔나 (로그 정본)",
+      "description": "**상황** 이 push의 단일 요약. 원격 미병합 4개 브랜치의 판정(고유 줄 0 → `-s ours`, 로그 문구만 → 일반 병합), 로컬 `recovery/ui-overhaul2`는 main이 상위 집합이라 병합 안 함, 로컬 `codex/hanok-v1-a1-assets`는 `--no-ff` 병합.\n\n**메커니즘** 판정 근거는 `merge-tree`, `git cherry`, 파일별 역diff(`git diff <branch> HEAD | grep '^-'`).\n\n**함의** 리뷰어는 이 항목의 검증 줄과 아래 각 스텝의 실제 파일이 일치하는지만 보면 된다.\n\n**주의** 원격 CI는 billing 차단으로 아직 돌지 않았다. 여기 적힌 통과 수치는 전부 로컬 게이트다."
+    },
+    {
+      "directory": "assets_unused/pending_review/a1_layers",
+      "title": "2. Codex 파일럿 레이어 — 런타임 밖",
+      "description": "**상황** A1-05~10의 정규화 레이어(854×309 RGBA PNG), `raw/`(생성 원본), `rejected/`(거절본)가 들어왔다. 29개 바이너리 전부 `assets_unused/` 아래.\n\n**메커니즘** main의 PR4 계약(`a1TransparentLayerContract.promotion.qaRoot`)이 QA 경로로 지정한 바로 그 디렉터리라 별도 이관 없이 파이프라인 입력이 된다.\n\n**함의** `assets/`·`pubspec.yaml`은 한 줄도 안 바뀌었다(AGENTS.md PR4 규칙: 미승인 이미지는 runtime/pubspec 금지).\n\n**주의** `a1_states/*.webp`는 Codex 합성기가 만든 QA 결과라 main 합성기 SHA와 다르다. 승격 전 반드시 main `compose_hanok_a1_state.py`로 다시 만든다."
+    },
+    {
+      "file": "docs/HANOK_V1_SOURCE_REGISTRY.md",
+      "line": 94,
+      "title": "3. 남긴 결정 — Codex ledger 19건",
+      "description": "**상황** 병합에서 유일하게 '가져오지 않은' 데이터가 무엇인지 적은 단락.\n\n**메커니즘** Codex 브랜치의 provenance JSON은 `generationLedger.records` 19건(13.5 credit)과 `a1TransparentPilot`/`a1ApprovedQaStates`를 갖는데, main의 계약 테스트는 `records`가 비어 있어야 하고(다음 스텝) credit>0·approved lineage만 허용한다. 4건이 credit 0, 9건이 rejected 파생.\n\n**함의** 규칙 완화냐 approved 체인 재기록이냐는 Jin 결정. 복구 경로는 `aaf6d969:docs/assets/HANOK_V1_ASSET_PROVENANCE.json`(병합 커밋 `9958a458`의 2번째 부모).\n\n**주의** 그래서 83행 '`records`는 빈 배열이다'는 여전히 참이다 — 거짓이 되지 않게 이 단락을 바로 아래에 붙였다."
+    },
+    {
+      "file": "test/hanok_v1_asset_provenance_test.dart",
+      "line": 359,
+      "title": "4. 왜 ledger를 그대로 못 옮겼나",
+      "description": "**상황** main 계약 테스트의 `isEmpty` 잠금.\n\n**메커니즘** 바로 아래 'future generation records fail closed' 테스트가 `credits > 0`, 입력은 allowlist 또는 이전 approved 출력만, 출력 decision approved/rejected를 강제한다.\n\n**함의** Codex 19건을 그대로 붙이면 이 파일이 두 군데서 실패한다. 계약을 바꾸는 건 제품 결정이라 이번 병합에서는 main 버전을 유지했다.\n\n**주의** 이 파일은 병합 충돌(add/add·content)이 있었고 `--ours`로 풀었다 — Codex 버전(1,245줄)은 `aaf6d969`에 남아 있다."
+    },
+    {
+      "file": "test/personal_hanok_asset_bundle_test.dart",
+      "line": 23,
+      "title": "5. 이번 push의 유일한 Dart 변경",
+      "description": "**상황** Codex 브랜치에서 자동 병합된 18줄. QA 완성 전경 `reference_full_estate.png`가 `assets_unused/pending_review/`에 있고 `map/`에는 없으며 `rootBundle.load`가 실패해야 한다.\n\n**메커니즘** main은 이미 그 파일을 pending_review로 옮겨 놓았기 때문에 그대로 통과한다(로컬 27/27).\n\n**함의** 이 한 파일 때문에 CI scope가 Flutter 게이트를 연다. 나머지는 docs·assets_unused·.github뿐.\n\n**주의** `dart:io`를 쓰는 testWidgets라 CI 러너의 cwd가 리포 루트여야 한다 — 기존 provenance 테스트와 같은 전제."
+    },
+    {
+      "file": "docs/PERSONAL_HANOK_CANONICAL_ASSET_CONTRACT.md",
+      "line": 21,
+      "title": "6. 문서가 코드를 따라잡음",
+      "description": "**상황** 같은 QA 전경의 위치를 `map/`→`assets_unused/pending_review/`로 정정한 Codex 문서 변경.\n\n**메커니즘** main 트리는 이미 그 위치였는데 문서만 낡아 있었다. 충돌 없이 자동 병합.\n\n**함의** 문서와 5단계 테스트가 같은 사실을 말한다.\n\n**주의** 이 파일은 코드가 읽지 않는다 — 계약의 실제 강제는 `tool/hanok_v1_asset_contract.py`의 `qa_composite_path`."
+    },
+    {
+      "file": "AGENTS.md",
+      "line": 369,
+      "title": "7. 다음 세션의 게이트 문장",
+      "description": "**상황** PR4 게이트 항목에 붙인 세 문장: 파일럿이 pending_review에 있음(승격 아님), main 합성기 기준 연속성 통과 쌍(05→06, 09→10)과 미달 쌍(06→07 0.86, 07→08 0.97, 08→09 0.93), ledger 이관은 Jin 결정 대기.\n\n**메커니즘** 수치는 main `compose_hanok_a1_state.py`를 Codex raw에 `--previous-layer`로 체인 실행해 얻었다(출력은 스크래치, 리포 밖).\n\n**함의** 다음 세션이 '왜 승격이 안 됐지'를 다시 조사하지 않게 한다.\n\n**주의** 07→08의 0.9667은 0.97에 아슬아슬하게 못 미친다 — 레이어 재생성보다 정규화 threshold 확인이 먼저일 수 있다."
+    },
+    {
+      "file": ".github/workflows/ci.yml",
+      "line": 220,
+      "title": "8. 릴리스 잡이 빨갛게 끝난 진짜 이유",
+      "description": "**상황** 5920c9cf 런(32001006286): 빌드·업로드(step 12)는 성공, `Post Set up Java 17`의 Gradle 캐시 저장이 `No space left on device`.\n\n**메커니즘** 난독화 appbundle + Flutter/Android SDK + Gradle 트리로 14GB 러너 디스크가 꽉 찬다. 새 스텝이 dotnet·boost·ghc·CodeQL·docker 이미지를 지우고, 231행 `setup-java`에서 `cache: gradle`을 뺐다(exact key hit이면 저장을 건너뛰므로 저장을 시도했다는 것 자체가 restore 이득이 없던 상태).\n\n**함의** 성공한 릴리스가 매 push마다 failure로 보이는 노이즈를 없앤다.\n\n**주의** `.github/` 변경은 `ci_scope.py`가 전 게이트를 연다 — 그래서 이 수정을 별도 push로 나누지 않고 여기 묶었다."
+    },
+    {
+      "file": ".github/scripts/test_play_internal_workflow.py",
+      "line": 53,
+      "title": "9. 계약 잠금",
+      "description": "**상황** 위 스텝을 문자열로 잠그는 테스트. `release-internal:`부터 `release-website:` 전까지만 잘라 검사한다.\n\n**메커니즘** 다른 잡(Gye 등)의 setup-java에는 영향을 주지 않으려고 범위를 좁혔다.\n\n**함의** 누가 `cache: gradle`을 다시 넣거나 정리 스텝을 지우면 'Verify CI and release contracts' 스텝에서 바로 실패한다.\n\n**주의** 로컬 `python -m unittest discover -s .github/scripts` 18/18 통과. 원격은 billing 차단이 풀린 뒤 run 32004180579 재실행으로 같은 SHA를 검증한다."
+    },
+    {
+      "title": "다음 할 일",
+      "description": "리뷰어가 지금 할 수 있는 것: (1) GitHub Billing 해제 뒤 `gh run rerun 32004180579`로 bfc9b86f 전 게이트 결과 확인, (2) `docs/HANOK_V1_SOURCE_REGISTRY.md` 94행의 ledger 이관 방식 결정, (3) Codex raw 06~09를 main 합성기 recall 0.97 기준으로 재작업할지 결정. 로컬 `recovery/ui-overhaul2-20260814`는 삭제해도 잃는 게 없다."
+    }
+  ]
+}
