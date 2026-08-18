@@ -1,3 +1,8 @@
+> **SUPERSEDED (2026-08-18 밤).** 정본은
+> [2026-08-18-234800-living-hanok-verified-audit.md](./2026-08-18-234800-living-hanok-verified-audit.md).
+> 이 문서는 대화 맥락용으로만 남긴다. git 위상(`chore/hanok-pr-e-prep`가 빈 브랜치라는 주장),
+> 테스트 수 4018/4018, chaekgado 화병 미실측이 이 파일 기준으로는 틀리거나 빠졌다.
+
 # Handoff: 살아 있는 한옥 — 원장/PR-B~D/Phase 2 자동화 완료 + 사랑방 소품 감사(진행 중)
 
 ## Session Metadata

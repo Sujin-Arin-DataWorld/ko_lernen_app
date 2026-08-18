@@ -1,5 +1,27 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Cursor Grok 4.6, Cloud) — 한옥 세션 인수인계를 실측으로 다시 고정
+
+**무엇을 왜.** Jin이 긴 Mac 세션을 "가장 정확하게" 넘기라고 했다. 이미 있는
+`.claude/handoffs/2026-08-18-231606-living-hanok-and-decoration-audit.md`는
+`validate_handoff.py` 100/100을 받았지만, 그 점수는 섹션·TODO·시크릿만 본다.
+이 세션은 커밋·파일·원장·F-A 게이트를 저장소에서 다시 대조했다.
+
+**정정.** `chore/hanok-pr-e-prep`는 빈 브랜치가 아니다(`86c497a6` = `fe7f04dd` 위
+핸드오프 2개). 같은 핸드오프는 `2ab4c8d9`로 **이미 `origin/main`(`6b600eea`)에
+있다.** 다음 작업은 prep을 잇지 말고 main에서 분기한다. `AGENTS.md`의 "아직 main
+미병합"도 stale이라 고쳤다.
+
+**신규 실측 (1차 핸드오프에 없던 것).**
+`chaekgado_prop_vase.png` F-A 실패(satMean 0.1968 / valMean 0.5202).
+출시 `decoration_jagae_mungap.png` F-A 통과(0.3456 / 0.3588) — 함/궤를 다시
+그릴 때 스타일 앵커. 참고 3장 숫자는 Mac 세션과 동일하게 재현됨.
+
+**검증하지 않은 것.** flutter test 전체 스위트, BBANANA 잔액 596.2.
+테스트 수 4018/4018 주장은 채택하지 않음(SESSION_LOG 실측은 4014 / 4010/4011).
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-18 (Claude Sonnet 5, 웹사이트) — 직전 concurrency 수정으로도 안 됨: 진단 정정 + workflow_dispatch 자체 격리
 
 **직전 커밋(`c4271f7`)이 부족했다.** `release-website` 잡에만 전용 concurrency 그룹을 줬는데,
