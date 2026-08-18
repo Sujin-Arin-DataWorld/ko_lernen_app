@@ -392,6 +392,13 @@ jobs:
        (github.event_name == 'workflow_dispatch' && inputs.task == 'release-website'))
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # 워크플로 전체 concurrency 그룹(CI-ci-main)을 그대로 쓰면 이 저장소처럼
+    # 여러 세션이 잦은 간격으로 main에 push할 때마다 아직 안 끝난 배포가
+    # 매번 취소된다(실측: 2026-08-18 세 번 연속). Play 배포와 같은 방식으로
+    # 전용 그룹을 둬 다른 push에 취소되지 않고 큐에서 순서대로 돈다.
+    concurrency:
+      group: cloudflare-production-deploy
+      cancel-in-progress: false
     environment:
       name: cloudflare-production
     defaults:
