@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "note": "정본(SSoT) 스타일 계약. 우선순위: STYLE_LOCK.json > docs/HANOK_ASSET_INVENTORY_2026-08-17.md > docs/ASSET_GENERATION_BIBLE.md. BIBLE §1.3 팔레트는 이 파일보다 밝은 명목값이라 실측과 어긋나고(§1.3 배너 참고), §3.5는 마당 규약이라 실내(F-A)엔 안 맞는다 — 그 문서들을 재작성하지 않고 이 파일이 대신 정본이 됐다. 리더: tool/style_lock.py. 배너 존재 검사: tool/check_style_lock_docs.py.",
+  "measuredBy": "2026-08-18, /usr/local/bin/python3.12 + Pillow/numpy, neonFraction 공식은 tool/check_decoration_cutouts.py:neon_fraction과 동일(포화도=(max-min)/max, 채도>0.65 AND 밝기>0.75 = neon). 표는 그 스크립트 대조군(사랑방 6종)과 이 파일의 F-A/F-B/F-C 값이 서로 다른 측정임에 주의 — F-A satMean/valMean은 check_decoration_cutouts.py가 계산하지 않는다(그쪽은 neonFraction만 씀).",
+
+  "chroma": {
+    "note": "생성 측(디코드용)과 검증 측(잔여 검사용) 상수는 서로 다른 파일에 있다 — 섞어 쓰지 말 것.",
+    "decode": {
+      "source": "tool/cut_prop_sheet.py:33-35 (soft chroma edge)",
+      "greennessOpaque": 15,
+      "greennessClear": 55,
+      "despillHeadroom": 12,
+      "meaning": "greenness(G-max(R,B)) <= greennessOpaque -> alpha 255. >= greennessClear -> alpha 0. 그 사이는 선형 보간. despillHeadroom은 despill 후 잔여 녹조를 추가로 깎는 폭."
+    },
+    "validate": {
+      "source": "docs/assets/HANOK_V1_ASSET_PROVENANCE.json a1TransparentLayerContract.input.chromaKey",
+      "maxChannelDelta": 8,
+      "alphaMin": 8,
+      "meaning": "R/G/B가 순수 #00FF00에서 채널당 maxChannelDelta 이내이고 alpha<alphaMin이면 청록 잔여로 간주해 승격을 막는다."
+    },
+    "generationBackground": "flat pure #00FF00, no gradient, no vignette, no shadow on the green — 모든 family의 프롬프트가 공유하는 배경 규약."
+  },
+
+  "generationFacts": {
+    "note": "이번 세션(2026-08-17~18)에 비싸게 배운 것들 — 다음 세션이 같은 크레딧을 또 태우지 않게 실행 가능한 형태로 고정.",
+    "modelRouting": [
+      {
+        "situation": "faceted(각진 면분할) 오브젝트 — 목재·석재·기와 등 원래 각진 재질",
+        "model": "Seedream V4.5 또는 GPT Image 2 둘 다 가능하지만 GPT Image 2가 더 안정적",
+        "evidence": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §2 대조군 시험 — Seedream V4.5는 바닥 그림자·매끈한 3D 렌더로 탈락, GPT Image 2 채택"
+      },
+      {
+        "situation": "faceted 오브젝트지만 유기적 대상(연기·새·항아리 몸통·등롱) 포함",
+        "model": "GPT Image 2 — 프롬프트에 'LOW-POLY FACETED planes' 명시가 필수, 없으면 회화풍으로 돌아간다",
+        "evidence": "docs/assets/prompts/A2_EXTERIOR_TRACES_2026-08-18.md §0-1 — 동일 프롬프트 골격을 Nano Banana Pro로 돌리면 부드러운 수채가 나오고(시도1, 탈락), GPT Image 2 + 명시적 faceted 문구로 시도2가 통과했다. 유기적 대상마다 개별 면분할 문구가 필요하다(재사용 불가)."
+      },
+      {
+        "situation": "기존 완성 건물의 KEEP/REMOVE/ADD 편집(골조 단계 등)",
+        "model": "Nano Banana Pro, edit_image, 참조 정확히 1장",
+        "evidence": "docs/assets/prompts/B1B2_BUILDING_STAGES_2026-08-18.md §2 — A1 프레임 편집 계보(260fb037...)를 그대로 재사용, 건물별 구조 명사만 교체"
+      }
+    ],
+    "referenceCount": "참조는 항상 정확히 1장. Nano Banana Pro에 참조 2장 이상을 준 적이 있었는데 24cr이 그냥 빠진 실측이 있다 — 다시 하지 말 것.",
+    "aspectRatioBehavior": "edit_image에 aspect_ratio:\"4:3\"을 주면 입력 크롭의 실제 종횡비와 무관하게 출력이 2400x1792로 고정 반환된다. 정렬 단계가 출력 자신의 알파 바운딩박스를 측정해 목표 bbox로 리스케일+배치해야 한다 — 입력 종횡비를 믿으면 안 된다.",
+    "lanczosDespill": "LANCZOS 리스케일이 저알파(<24/255) 가장자리 픽셀에 청록 기미를 되살린다(리스케일 전 0px -> 후 17-28px, 전부 alpha<24 림 노이즈로 확인됨). 리스케일 후 despill 재적용 + 저알파 림 alpha=0 클램프가 필수다.",
+    "uploadImageLimit": "MCP upload_image는 base64 인라인이라 입력을 15-22K 문자로 줄여야 전사 실패가 안 난다 — 참조 이미지를 400px 급 WebP로 축소해서 업로드할 것(docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §1의 9,638B 앵커 시트가 그 예).",
+    "resolutionDefault": "generate_image/edit_image의 resolution 기본값은 1K다. 2K가 필요하면 매번 명시할 것 — 안 하면 조용히 1K로 나온다.",
+    "creditsPerCall": "2K 호출은 대체로 4cr(GPT Image 2, Nano Banana Pro 공통 관측치). check_credits로 매 호출 전후 remainingCredit을 실측해 원장에 남길 것 — 추정치를 쓰지 말 것."
+  },
+
+  "families": {
+    "F-A": {
+      "label": "실내 사랑방/A2 가구 — Faceted Minhwa 로우폴리 컷아웃 (matte, no outline)",
+      "dirs": ["assets/illustrations/decorations/"],
+      "membersNote": "F-A/F-B가 같은 디렉터리를 공유하므로 접두어로 가족을 못 가른다 — members를 명시로 나열한다.",
+      "members": [
+        "decoration_seoan", "decoration_soban", "decoration_munbangsau",
+        "decoration_jagae_mungap", "decoration_chaekgado", "decoration_gat_buchae",
+        "decoration_sabangtakja", "decoration_boryo_set", "decoration_bangseok_pair",
+        "decoration_bandaji", "decoration_hwaro", "decoration_deungjan",
+        "decoration_geomungo", "decoration_baduk", "decoration_mokchim",
+        "decoration_byeongpung_small", "decoration_gobi", "decoration_hyangno"
+      ],
+      "anchors": [
+        "assets/illustrations/decorations/decoration_seoan.png",
+        "assets/illustrations/decorations/decoration_soban.png",
+        "assets/illustrations/decorations/decoration_munbangsau.png",
+        "assets/illustrations/decorations/decoration_jagae_mungap.png"
+      ],
+      "palette": {
+        "note": "실측(A2 가구 세트) — BIBLE §1.3 명목값(청 #3D9A7F·적 #C24A45)보다 어둡고 탁하다. 이 hex만 쓴다.",
+        "walnut": ["#A2663A", "#8F5130", "#844A2D", "#633720", "#5A3623", "#3B271B"],
+        "darkLacquer": ["#2C221D", "#211914"],
+        "agedHanjiIvory": ["#DBBC8D", "#C6AE8B"],
+        "dancheongGold": "#BD924C",
+        "deepMutedTeal": "#274A3F",
+        "darkBrickRed": "#6A2316",
+        "stoneGrey": "#8B8478"
+      },
+      "camera": {
+        "view": "single object, front + slightly-from-the-left, slightly above eye level (three-quarter view) — top surface AND front face both visible",
+        "light": "soft light from the upper left, gentle self-shading on facets only",
+        "shadow": "NO cast shadow, NO shadow on the ground, NO floor, NO wall, NO room, NO horizon line — free-placement room editor rotates items around their box center, a ground shadow breaks on rotation"
+      },
+      "promptSkeleton": "Create a NEW illustration in exactly the same illustrated-set style as the reference image (a Korean scholar's-room furniture set: LOW-POLY FACETED planes — every surface is broken into flat angular colour facets like folded paper, NO drawn outlines, matte finish, subtle hanji paper grain visible inside the facets, warm walnut wood with dark lacquer and small muted dancheong accents), but with this subject instead: {SUBJECT}. Do not redraw any object that appears in the reference image; the reference is for style, palette, camera and lighting only. [카메라/조명/합성/배경/팔레트/금지 문구 — 전문은 docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §3]",
+      "modelRouting": [
+        {"model": "GPT Image 2", "when": "정식 채택 경로 — 전 품목", "evidence": "A2_SARANGBANG_FURNISHING_2026-08-17.md §2"},
+        {"model": "Seedream V4.5", "when": "쓰지 말 것 — 대조군에서 탈락(그림자·매끈한 렌더·밝은 청록)", "evidence": "A2_SARANGBANG_FURNISHING_2026-08-17.md §2"}
+      ],
+      "postProcess": [
+        "tool/cut_single_object.py --expect-parts 1 (chroma_to_alpha 재사용)",
+        "tool/decoration_normalize.py (trim + 긴 변 1254 + 3% 패딩 = 1330)",
+        "tool/check_decoration_cutouts.py"
+      ],
+      "gates": {
+        "satMean": [0.30, 0.80],
+        "valMean": [0.25, 0.65],
+        "neonMax": 0.040,
+        "measured": {"satMean": [0.330, 0.760], "valMean": [0.292, 0.611], "neonMax": 0.0233},
+        "measuredAt": "18 files (원본 6 + A2 12), 2026-08-18",
+        "note": "neon = 채도>0.65 AND 밝기>0.75 (tool/check_decoration_cutouts.py:neon_fraction). 단순 채도로는 안 잡는다 — 이 세트의 호두목 자체가 채도 33-76%다.",
+        "otherCutoutGates": "true alpha · 긴 변 <=1330 · alpha 커버리지 3-90% · 가시 픽셀 >=512 · #00FF00 잔여 0 · green rim <=0.5% · 외곽 투명 — 전부 tool/check_decoration_cutouts.py가 강제, 여기 중복 안 함"
+      },
+      "registration": [
+        "lib/widgets/sori/placed_decoration.dart: kDecorCategory, kDecorScale, decorName(), kAvailableDecorations",
+        "lib/l10n/app_de.arb + app_en.arb: decorName{Slug} 키",
+        "test/decoration_transparency_test.dart (kAvailableDecorations 순회 — Phase 2-4에서 하드코딩 목록을 걷어낸다)"
+      ]
+    },
+
+    "F-B": {
+      "label": "마당·절기 장식 — legacy 계보, F-A보다 넓은 채도/명도 허용",
+      "dirs": ["assets/illustrations/decorations/"],
+      "membersNote": "F-A와 같은 디렉터리, members로 구분.",
+      "members": [
+        "decoration_chuseok_moon", "decoration_dokkaebi_fire", "decoration_doldam",
+        "decoration_hangeulday_plaque", "decoration_jangdokdae", "decoration_kite",
+        "decoration_kkachi_nest", "decoration_maehwa", "decoration_pond",
+        "decoration_punggyeong", "decoration_pyeonaek", "decoration_sagunja_guk",
+        "decoration_sagunja_juk", "decoration_sagunja_maehwa", "decoration_sagunja_nan",
+        "decoration_seokdeung", "decoration_seollal_flag", "decoration_sonamu"
+      ],
+      "anchors": [
+        "assets/illustrations/decorations/decoration_sagunja_maehwa.png",
+        "assets/illustrations/decorations/decoration_seokdeung.png"
+      ],
+      "palette": {
+        "note": "F-A보다 넓은 팔레트 — 절기 장식은 주제 자체가 원색(태극 홍청 등)이라 F-A 팔레트에 맞추면 안 된다."
+      },
+      "camera": {"view": "F-A와 동일 원칙(단일 오브젝트, 그림자 없음)이나 프롬프트를 재작성하지 않은 legacy 파일이 섞여 있어 개별 편차가 크다."},
+      "promptSkeleton": "이 family는 정본 프롬프트 문서가 없다(legacy, 2026-08-04 이전 다수) — 새로 만들 때는 F-A 골격을 재사용하되 palette 제약을 풀 것.",
+      "modelRouting": [],
+      "postProcess": ["tool/cut_single_object.py 또는 tool/cut_prop_sheet.py", "tool/decoration_normalize.py", "tool/check_decoration_cutouts.py"],
+      "gates": {
+        "satMean": [0.20, 0.80],
+        "valMean": [0.25, 1.00],
+        "neonMax": 0.35,
+        "measured": {"satMean": [0.231, 0.663], "valMean": [0.377, 0.977], "neonMax": 0.3208},
+        "measuredAt": "18 files, 2026-08-18",
+        "note": "neonMax가 F-A의 거의 9배로 넓다 — decoration_seollal_flag 32.1%는 태극 홍청이 그림의 주제라서 그렇다(승인된 아트, 드리프트 아님). paletteDistance 게이트는 이 family에 적용하지 않는다(면제, Phase 2-2 §2-2 규약)."
+      },
+      "registration": [
+        "lib/widgets/sori/placed_decoration.dart: kDecorCategory, decorName(), kAvailableDecorations",
+        "마당 퀘스트 QuestLayout (madang_background.dart 계열, 이 파일 조사 범위 밖)"
+      ]
+    },
+
+    "F-C-estate": {
+      "label": "개인 한옥 지도 — 건물/조경 (1536x1152 고정 캔버스)",
+      "dirs": [
+        "assets/illustrations/personal_hanok_v2/map/structures/",
+        "assets/illustrations/personal_hanok_v2/map/landscape/",
+        "assets/illustrations/personal_hanok_v2/map/stages/"
+      ],
+      "members": [
+        "sotdaeulmun", "haengrangchae", "sarangchae", "anchae", "daecheongmaru", "sadang",
+        "rear_garden",
+        "sotdaeulmun_s1_platform", "sotdaeulmun_s2_frame_roof",
+        "haengrangchae_s1_foundation", "haengrangchae_s2_frame", "haengrangchae_s3_roof",
+        "anchae_s1_platform", "anchae_s2_frame", "anchae_s3_roof",
+        "daecheongmaru_s1_platform", "daecheongmaru_s2_frame",
+        "sadang_s1_platform", "sadang_s2_frame_roof",
+        "rear_garden_s1_hardscape", "rear_garden_s2_bridge"
+      ],
+      "anchors": [
+        "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+        "assets/illustrations/personal_hanok_v2/map/site_base_light.png"
+      ],
+      "camera": {
+        "canvas": {"width": 1536, "height": 1152},
+        "cameraStyle": "north-up, isometric-ish elevated view — 전체 마당을 한 화면에 담는다",
+        "socketOffset": {"x": 160, "y": 614, "source": "docs/assets/HANOK_V1_ASSET_PROVENANCE.json camera.socket"}
+      },
+      "palette": {
+        "note": "실측(2026-08-18) — 건물 골조 편집은 KEEP된 완성 건물의 목재/석재 톤을 그대로 물려받으므로 별도 hex 표를 두지 않는다. 신규 건물(별당·서고)은 기존 6채 실측 톤을 참조로 삼을 것."
+      },
+      "promptSkeleton": "Edit this illustration of a finished traditional Korean {BUILDING_TYPE_KOREAN_DESC}, seen straight from the front in a slightly elevated view. Show the SAME building at the timber-frame stage of construction, BEFORE the roof was covered... KEEP UNCHANGED, pixel for pixel: {UNCHANGED_ELEMENTS}. REMOVE completely: {REMOVED_ELEMENTS}. ADD the exposed timber frame... Background: replace everything outside the object with flat, pure #00FF00 chroma-key green, no gradient. [전문은 tool/derive_estate_building_stages.py의 FRAME_PROMPTS 딕셔너리 — 건물 4종 전문이 코드에 얼어붙어 있다, Phase 2-3에서 레시피로 옮길 예정]",
+      "modelRouting": [
+        {"model": "Nano Banana Pro", "when": "KEEP/REMOVE/ADD 골조 편집 — 전 건물", "evidence": "B1B2_BUILDING_STAGES_2026-08-18.md §2"}
+      ],
+      "postProcess": [
+        "tool/derive_estate_building_stages.py --align --target-bbox (출력 자체 알파 bbox 측정 -> 완성건물 bbox로 LANCZOS 리스케일 -> despill 재적용)",
+        "tool/derive_estate_building_stages.py --build (reveal/regionUnion 합성, containment+구조연속성(recall 1.0)+chroma+바이트예산 게이트)"
+      ],
+      "gates": {
+        "satMean": [0.24, 0.65],
+        "valMean": [0.34, 0.70],
+        "neonMax": 0.030,
+        "measured": {"satMean": [0.261, 0.610], "valMean": [0.362, 0.663], "neonMax": 0.0258},
+        "measuredAt": "21 files (건물6+후원1+단계14), 2026-08-18"
+      },
+      "registration": [
+        "pubspec.yaml: assets/illustrations/personal_hanok_v2/map/*",
+        "docs/assets/HANOK_V1_ASSET_PROVENANCE.json: allowedModelInputs(estate_building_source/estate_landscape_source) + generationLedger records(kind: estateStage)",
+        "lib/data/personal_hanok_estate_stage_catalog.dart: revealAssetId -> path (PR-C, 아직 어떤 렌더러도 안 부름)"
+      ]
+    },
+
+    "F-C-a1states": {
+      "label": "A1 16단계 — 결정론 합성, 사람이 그리지 않음",
+      "dirs": ["assets/illustrations/personal_hanok_v2/a1/states/"],
+      "members": [
+        "01_site_setout", "02_plan_layout", "03_foundation_gidan", "04_cornerstones_choseok",
+        "05_timber_preparation", "06_columns", "07_beams_changbang", "08_purlins_sangnyang",
+        "09_rafters_roof_frame", "10_roof_base", "11_giwa_roof", "12_wall_frame_sujang",
+        "13_earth_walls", "14_ondol_maru", "15_changho_finish", "16_landscape_move_in"
+      ],
+      "anchors": ["assets/illustrations/personal_hanok_v2/a1/states/16_landscape_move_in.webp"],
+      "camera": {
+        "canvas": {"width": 1536, "height": 1152},
+        "socketLayer": {
+          "width": 854, "height": 309,
+          "localAnchor": {"x": 427, "y": 309},
+          "requireExclusiveBottom": true,
+          "source": "docs/assets/HANOK_V1_ASSET_PROVENANCE.json a1TransparentLayerContract.socketLayer"
+        },
+        "chromaKey": {"maxChannelDelta": 8, "alphaMin": 8},
+        "output": {"format": "WebP", "quality": 82, "method": 6, "hardMaxBytes": 350000},
+        "continuity": {"minPreviousRecall": 0.97, "maxEdgeDriftPx": 2}
+      },
+      "palette": {"note": "F-A 팔레트 원칙과 같은 계열(목재/석재/기와)이나 이 family는 별도로 재측정하지 않는다 — 결정론 합성이라 팔레트 드리프트 리스크가 원천적으로 없다."},
+      "promptSkeleton": "이 family는 새 생성이 없다 — 16단계 전부 이미 완성/승격됐고, docs/assets/hanok_a1_kit/*.json 매니페스트로 결정론 합성만 한다. 프롬프트 이력은 docs/assets/prompts/a1_kit_prompts.json 참고(재사용 금지, A1 16은 promotion-immutable).",
+      "modelRouting": [],
+      "postProcess": ["tool/compose_hanok_a1_state.py --kit-manifest docs/assets/hanok_a1_kit/stage_NN.json"],
+      "gates": {
+        "satMean": [0.34, 0.40],
+        "valMean": [0.55, 0.63],
+        "neonMax": 0.005,
+        "measured": {"satMean": [0.359, 0.374], "valMean": [0.575, 0.602], "neonMax": 0.0001},
+        "measuredAt": "16 files, 2026-08-18",
+        "note": "표준편차가 4개 family 중 가장 좁다(결정론 합성이라 파일마다 편차가 거의 없다) — 이 family에서 게이트 실패는 거의 항상 원본 리소스 손상을 뜻한다."
+      },
+      "registration": [
+        "pubspec.yaml: assets/illustrations/personal_hanok_v2/a1/states/ (all-or-nothing, tool/promote_hanok_a1_states.py)",
+        "docs/assets/HANOK_V1_ASSET_PROVENANCE.json: generationLedger records(kind: state) + runtimeLimits.a1ConstructionStates.expectedFiles"
+      ]
+    }
+  }
+}

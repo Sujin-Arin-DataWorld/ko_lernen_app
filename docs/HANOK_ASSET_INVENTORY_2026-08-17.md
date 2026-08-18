@@ -133,6 +133,10 @@
 
 ## 4. 실측 스타일 값 (F-A 사랑방 실내 6종)
 
+> **⛔ 정정(2026-08-18): 이 절은 F-A 6종만 실측한 스냅샷이다.** F-A(18종 전체)·F-B·F-C-estate·
+> F-C-a1states 4개 family 전부의 실측값·게이트는 `docs/assets/STYLE_LOCK.json`이 정본이고
+> 이 절보다 우선한다. 리더: `tool/style_lock.py`.
+
 프롬프트에는 BIBLE §1.3의 명목값이 아니라 **아래 실측값**을 쓴다.
 
 - 목재 `#A2663A #8F5130 #844A2D #A76D39 #B8804C` · 면 그림자 `#633720 #5A3623 #3B271B`
@@ -159,6 +163,9 @@
 ---
 
 ## 6. 생성 규약 요약 (실측)
+
+> **⛔ 정정(2026-08-18): `docs/assets/STYLE_LOCK.json`의 `generationFacts`가 이 절보다 우선한다**
+> (모델 라우팅 근거·aspect_ratio 동작·LANCZOS despill 등 이후 세션에서 갱신된 사실 포함).
 
 - 모델·요금: Seedream V4.5 **1cr**(2K/4K, 참조 ≤13) · GPT Image 2 3cr(1K)/4cr(2K) · Nano Banana Pro **4cr**(1K·2K) — **참조 3장이면 24cr**(실측) → 참조 0~1장 · Recraft Remove BG 0.3cr
 - `generate_image(model, prompt, image_urls[], aspect_ratio, resolution)` — **resolution 기본값 1K**, 2K는 명시해야 한다
