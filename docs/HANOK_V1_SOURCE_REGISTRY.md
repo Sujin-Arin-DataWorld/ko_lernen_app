@@ -70,6 +70,12 @@ PR1에서 존재한다고 기록하지 않고, 기대 파일명과 형식만 pro
 | 빈 대지 | `assets/illustrations/personal_hanok_v2/map/site_base_light.png` | 표준 입력 |
 | 완성 사랑채 | `assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png` | 완성 집 geometry 입력 |
 | 완성 전경 QA 합성물 | `assets_unused/pending_review/reference_full_estate.png` | 꼭 필요한 QA 문맥에만 선택적 입력, 런타임 금지 |
+| 완성 솟을대문 | `assets/illustrations/personal_hanok_v2/map/structures/sotdaeulmun.png` | 완성 건물 geometry 입력(B1/B2 단계 역분해) |
+| 완성 행랑채 | `assets/illustrations/personal_hanok_v2/map/structures/haengrangchae.png` | 완성 건물 geometry 입력(B1/B2 단계 역분해) |
+| 완성 안채 | `assets/illustrations/personal_hanok_v2/map/structures/anchae.png` | 완성 건물 geometry 입력(B1/B2 단계 역분해) |
+| 완성 대청마루 | `assets/illustrations/personal_hanok_v2/map/structures/daecheongmaru.png` | 완성 건물 geometry 입력(B1/B2 단계 역분해) |
+| 완성 사당 | `assets/illustrations/personal_hanok_v2/map/structures/sadang.png` | 완성 건물 geometry 입력(B1/B2 단계 역분해) |
+| 완성 후원 | `assets/illustrations/personal_hanok_v2/map/landscape/rear_garden.png` | 완성 조경 geometry 입력(B1/B2 단계 역분해) |
 
 경로가 같아도 SHA-256이 달라지면 다시 권리를 확인하고 정본을 갱신하기 전에는
 업로드하지 않는다. allowlist에 없는 프로젝트 파일, 사용자 화면, 비바샘,

@@ -137,6 +137,12 @@ void main() {
           'assets/illustrations/personal_hanok_v2/map/site_base_light.png',
           'assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png',
           'assets_unused/pending_review/reference_full_estate.png',
+          'assets/illustrations/personal_hanok_v2/map/structures/sotdaeulmun.png',
+          'assets/illustrations/personal_hanok_v2/map/structures/haengrangchae.png',
+          'assets/illustrations/personal_hanok_v2/map/structures/anchae.png',
+          'assets/illustrations/personal_hanok_v2/map/structures/daecheongmaru.png',
+          'assets/illustrations/personal_hanok_v2/map/structures/sadang.png',
+          'assets/illustrations/personal_hanok_v2/map/landscape/rear_garden.png',
         });
 
         final expectedRoles = {
@@ -152,6 +158,18 @@ void main() {
             'optional_qa_context_only',
             false,
           ),
+          'assets/illustrations/personal_hanok_v2/map/structures/sotdaeulmun.png':
+              ('estate_building_source', 'standard', true),
+          'assets/illustrations/personal_hanok_v2/map/structures/haengrangchae.png':
+              ('estate_building_source', 'standard', true),
+          'assets/illustrations/personal_hanok_v2/map/structures/anchae.png':
+              ('estate_building_source', 'standard', true),
+          'assets/illustrations/personal_hanok_v2/map/structures/daecheongmaru.png':
+              ('estate_building_source', 'standard', true),
+          'assets/illustrations/personal_hanok_v2/map/structures/sadang.png':
+              ('estate_building_source', 'standard', true),
+          'assets/illustrations/personal_hanok_v2/map/landscape/rear_garden.png':
+              ('estate_landscape_source', 'standard', true),
         };
 
         for (final entry in byPath.entries) {

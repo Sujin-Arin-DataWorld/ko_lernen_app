@@ -1,5 +1,32 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude, macOS) — B1/B2 건물 단계 선행: 모델 입력 allowlist 확장 (PR5a′, 0크레딧)
+
+**무엇.** `docs/assets/HANOK_V1_ASSET_PROVENANCE.json`의 `allowedModelInputs`를 3건(대지·사랑채·QA
+전경)에서 **9건**으로 넓혔다. 새 6건은 이미 완성돼 런타임에 있는 건물/조경 PNG — 솟을대문·행랑채·
+안채·대청마루·사당(`role: estate_building_source`) + 후원(`role: estate_landscape_source`) — 전부
+`assets/illustrations/personal_hanok_v2/map/` 아래 1536×1152 RGBA, `rightsAttestation` 동일 양식.
+
+**왜.** B1/B2 건물 단계(공사 과정 역분해) 작업의 선행조건이다. 이 프로젝트는 "allowlist에 없는 파일은
+생성 모델 입력으로 쓸 수 없다"를 `test/hanok_v1_asset_provenance_test.dart`가 강제하므로, 이미 승인된
+완성 건물 PNG를 단계 역분해의 geometry 기준으로 쓰려면 먼저 allowlist에 올려야 한다. 기존 3건은
+순서를 바꾸지 않고 **뒤에 append**했다(`tool/test_compose_hanok_a1_state.py:222-225`가 앞쪽 3건의
+순서에 의존).
+
+**어떻게.** 6개 파일의 SHA-256을 재계산해 캐시값과 일치 확인(전부 1536×1152 RGBA) →
+`allowedModelInputs` 배열에 6개 엔트리 추가(fileMetadata·rightsAttestation 포함) →
+`hanok_v1_asset_provenance_test.dart`의 `byPath.keys` 기대 집합(3→9)과 `expectedRoles` 맵에 6개
+추가 → `docs/HANOK_V1_SOURCE_REGISTRY.md`의 allowlist 표에 6행 추가.
+
+**검증.** `flutter test --no-pub test/hanok_v1_asset_provenance_test.dart` — 13개 테스트 전부 통과
+(allowlist 9건 정확 매치·sha256/메타데이터/rights 자동 검증 포함). `personal_hanok_asset_bundle_test`도
+회귀 확인.
+
+**다음.** `tool/derive_estate_building_stages.py` 신규(픽셀 기하 역분해 도구) — 3개 병렬 조사 에이전트가
+6개 대상 건물의 행 단위 분류(플랫폼/기둥/처마/용마루 경계)를 진행 중.
+
+---
+
 ### 2026-08-18 (Claude, macOS) — A2 외관 흔적 4종 생성 + 사랑방 픽커 실배치 배선 (8크레딧)
 
 **픽커 배선.** A2 가구 12종을 실제로 놓아 보니(`flutter run -d web-server`로 `/sarangbang/furnish`

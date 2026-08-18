@@ -192,6 +192,120 @@
         "owner": "Hangul Sori / Sujin Park",
         "thirdPartyVisualReferences": "none_uploaded"
       }
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v2/map/structures/sotdaeulmun.png",
+      "role": "estate_building_source",
+      "usage": "standard",
+      "runtime": true,
+      "sha256": "33a9400b699c100e8d5c51bdef2dfbca8420458972726de38f7264909d01f47d",
+      "fileMetadata": {
+        "format": "PNG",
+        "width": 1536,
+        "height": 1152,
+        "colorMode": "RGBA",
+        "bytes": 114980
+      },
+      "rightsAttestation": {
+        "basis": "original_or_authorized_project_asset",
+        "owner": "Hangul Sori / Sujin Park",
+        "thirdPartyVisualReferences": "none_uploaded"
+      }
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v2/map/structures/haengrangchae.png",
+      "role": "estate_building_source",
+      "usage": "standard",
+      "runtime": true,
+      "sha256": "3ff376e182d482b743c07ef07c77bc16999e9b3cac4b87555fc5ea8436ff41dc",
+      "fileMetadata": {
+        "format": "PNG",
+        "width": 1536,
+        "height": 1152,
+        "colorMode": "RGBA",
+        "bytes": 146177
+      },
+      "rightsAttestation": {
+        "basis": "original_or_authorized_project_asset",
+        "owner": "Hangul Sori / Sujin Park",
+        "thirdPartyVisualReferences": "none_uploaded"
+      }
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v2/map/structures/anchae.png",
+      "role": "estate_building_source",
+      "usage": "standard",
+      "runtime": true,
+      "sha256": "93cc25cbe79731f81c04adeaea16a3a8e8a3178142af5d5f1ad68ee126607c73",
+      "fileMetadata": {
+        "format": "PNG",
+        "width": 1536,
+        "height": 1152,
+        "colorMode": "RGBA",
+        "bytes": 348664
+      },
+      "rightsAttestation": {
+        "basis": "original_or_authorized_project_asset",
+        "owner": "Hangul Sori / Sujin Park",
+        "thirdPartyVisualReferences": "none_uploaded"
+      }
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v2/map/structures/daecheongmaru.png",
+      "role": "estate_building_source",
+      "usage": "standard",
+      "runtime": true,
+      "sha256": "6d42d042cfe4415546c22e8fb6eda3ca38b940af81690e1ead110418474263a0",
+      "fileMetadata": {
+        "format": "PNG",
+        "width": 1536,
+        "height": 1152,
+        "colorMode": "RGBA",
+        "bytes": 56214
+      },
+      "rightsAttestation": {
+        "basis": "original_or_authorized_project_asset",
+        "owner": "Hangul Sori / Sujin Park",
+        "thirdPartyVisualReferences": "none_uploaded"
+      }
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v2/map/structures/sadang.png",
+      "role": "estate_building_source",
+      "usage": "standard",
+      "runtime": true,
+      "sha256": "3f5cf5246a763fb8a6d4b639af3e4801b42ff23c62a9ef033f1f3c04ff16eb81",
+      "fileMetadata": {
+        "format": "PNG",
+        "width": 1536,
+        "height": 1152,
+        "colorMode": "RGBA",
+        "bytes": 95238
+      },
+      "rightsAttestation": {
+        "basis": "original_or_authorized_project_asset",
+        "owner": "Hangul Sori / Sujin Park",
+        "thirdPartyVisualReferences": "none_uploaded"
+      }
+    },
+    {
+      "path": "assets/illustrations/personal_hanok_v2/map/landscape/rear_garden.png",
+      "role": "estate_landscape_source",
+      "usage": "standard",
+      "runtime": true,
+      "sha256": "fd95dbebcc6f3879c2e594e2a8b20eba72f8efaf172ff4ee2a0259f742dc9d84",
+      "fileMetadata": {
+        "format": "PNG",
+        "width": 1536,
+        "height": 1152,
+        "colorMode": "RGBA",
+        "bytes": 1257933
+      },
+      "rightsAttestation": {
+        "basis": "original_or_authorized_project_asset",
+        "owner": "Hangul Sori / Sujin Park",
+        "thirdPartyVisualReferences": "none_uploaded"
+      }
     }
   ],
   "restrictedSources": [
