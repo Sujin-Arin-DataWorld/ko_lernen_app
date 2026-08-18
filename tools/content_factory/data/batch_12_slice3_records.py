@@ -27,7 +27,7 @@ UNITS: list[dict[str, Any]] = [
             "en": "I can design the amount and sharing of unpaid participatory work so that it stays sustainable.",
         },
         "requiredConceptIds": ["concept_c1_fan_labor"],
-        "checkpointContentIds": ["c1_kpop_fan_labor"],
+        "checkpointContentIds": ["grammar:grammar_c1_insufficient_for"],
     },
     {
         "id": "c2_05_relationship_narratives",
@@ -44,7 +44,7 @@ UNITS: list[dict[str, Any]] = [
             "en": "I can separate the perspective bias a narrative shape creates from the relationship itself and analyse it.",
         },
         "requiredConceptIds": ["concept_c2_relationship_narratives"],
-        "checkpointContentIds": ["c2_dating_romance_frames"],
+        "checkpointContentIds": ["grammar:grammar_c2_as_if_framing"],
     },
 ]
 
@@ -52,19 +52,31 @@ CONCEPTS: list[dict[str, Any]] = [
     {
         "id": "concept_c1_fan_labor",
         "level": "c1",
+        "kind": "situation",
         "title": {
             "ko": "참여 노동의 지속 가능 범위",
             "de": "Nachhaltiger Rahmen für Mitarbeit",
             "en": "A sustainable frame for participatory work",
         },
+        "explanation": {
+            "ko": "좋아서 하는 일도 양과 몫을 정해 두어야 오래 가고, 무상이라는 이름이 가리는 것을 봐요.",
+            "de": "Auch freiwillige Arbeit hält nur mit festgelegtem Umfang und Anteil. Dann sieht man auch, was das Etikett »unbezahlt« verdeckt.",
+            "en": "Even work done out of love lasts only with an agreed scope and share, and you look at what the label 'unpaid' hides.",
+        },
     },
     {
         "id": "concept_c2_relationship_narratives",
         "level": "c2",
+        "kind": "speechStyle",
         "title": {
             "ko": "서사와 관계의 분리",
             "de": "Erzählung und Beziehung trennen",
             "en": "Separating narrative from relationship",
+        },
+        "explanation": {
+            "ko": "연애 이야기는 누구 입장에서 정리됐는지에 따라 기준이 달라지니, 서사의 시점을 드러내며 말해요.",
+            "de": "Beziehungsgeschichten setzen je nach Perspektive andere Maßstäbe. Deshalb macht man den Blickwinkel der Erzählung explizit.",
+            "en": "Relationship stories set different standards depending on whose view shaped them, so you make the narrative's vantage point explicit.",
         },
     },
 ]
@@ -432,7 +444,7 @@ SMALLTALK: list[dict[str, Any]] = [
             "de": "Nur meine Version wurde mehrfach geglättet.",
             "en": "Only my version got smoothed over several times.",
         },
-        "relationshipContext": "friend",
+        "relationshipContext": "close_friend",
         "safeAlternativeQuestions": [
             {
                 "turnKind": "question",
@@ -456,7 +468,7 @@ SMALLTALK: list[dict[str, Any]] = [
         "ko": "지나고 나면 좋았던 장면만 남아서 판단이 흐려져요.",
         "de": "Im Rückblick bleiben nur die schönen Szenen, und das trübt das Urteil.",
         "en": "Looking back, only the good scenes remain and that clouds the judgement.",
-        "relationshipContext": "friend",
+        "relationshipContext": "close_friend",
         "safeAlternativeQuestions": [
             {
                 "turnKind": "question",

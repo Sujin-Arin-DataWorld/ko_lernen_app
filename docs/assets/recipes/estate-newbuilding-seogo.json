@@ -1,0 +1,28 @@
+{
+  "recipeId": "estate-newbuilding-seogo",
+  "kind": "newBuilding",
+  "family": "F-C-estate",
+  "targetBuilding": "seogo",
+  "model": "Nano Banana Pro",
+  "resolution": "2K",
+  "aspectRatio": "4:3",
+  "referenceImages": [
+    "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png"
+  ],
+  "promptTemplate": "Create a NEW illustration of a small traditional Korean archive/library hall (서고, seogo) in exactly the same illustrated-map style as the attached reference building (a hanok estate map: LOW-POLY FACETED planes -- every surface is broken into flat angular colour facets like folded paper, NO drawn outlines, matte finish, subtle hanji paper grain, warm wood/stone colours, top-left lighting, seen straight from the front in a slightly elevated view -- same camera as the reference).\n\nThe building: a single small raised one-story hanok with its own stone platform (raised higher than a normal room floor, the way a real seogo keeps books off damp ground), a solid plank-panelled front wall with small high ventilation windows (not the large lattice doors a living room would have), wooden post-and-beam frame, and a modest hipped tile roof -- visibly smaller and simpler than the reference building, with narrow closed eaves (no open veranda -- this building keeps its contents dry, not social).\n\nDo not redraw the reference building; it is for style, palette, camera and lighting only. Show ONLY the seogo, fully finished, centred in the frame.\n\nFlat pure #00FF00 chroma-key green background, no gradient, no ground, no cast shadow, no text, no people.\n\nIMPORTANT COLOR: match the reference building's warm wood/stone/tile palette exactly -- do not brighten or desaturate.\n\nABSOLUTELY AVOID: smooth painterly rendering, soft gradients, watercolour blending, photorealism, glossy 3D render, black outlines, text, labels, a second building, people, large open doors (this building stays closed).\n\nIMPORTANT: match the geometric faceted style, palette and mood of the attached reference exactly -- this must look like part of the same illustrated set.",
+  "promptVars": {},
+  "subjectGuards": [
+    "small high ventilation windows, not large lattice doors -- distinguishes it from a living room (sarangbang/anbang) at a glance",
+    "raised platform higher than the estate's other buildings -- reads as book storage, not a place to sit",
+    "exactly one building in frame -- reject if the model adds a second structure",
+    "no open veranda/toenmaru -- unlike byeoldang, this is a closed storage building"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/estate_stages/seogo/raw/seogo_finished_raw.png",
+  "placement": {
+    "canvasBbox": [1020, 860, 1270, 1050],
+    "note": "1536x1152 master canvas. Measured 2026-08-18: this region is 0.0% occupied. Sits just south of byeoldang's bbox -- if both ship, confirm they don't visually crowd each other before generating either."
+  },
+  "status": "DRAFT — Phase 3 P2, NOT executed. Needs Jin's visual approval before any generation call per the plan's explicit rule. Written 2026-08-18 while Jin was away so the recipe is ready to review on return, not to run unattended.",
+  "followUp": "Once approved and generated, allowlist the finished PNG, author seogo_stages.json (s1_platform/s2_frame/s3_roof/s4_final -- draft grant catalog already reserves exactly these 4 revealAssetIds under hanok_estate_seogo_*), and a matching estate-frame-seogo.json frameEdit recipe. Also unblocks the deferred venue upgrade noted in the PR-A authoring script: PersonalRoomSurface.seogo + its PersonalRoomDefinition + interior background art (Phase 3 P8) should land together in one PR, not before this building exists."
+}

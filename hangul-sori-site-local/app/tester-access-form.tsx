@@ -1,6 +1,6 @@
 "use client";
 
-import { Apple, ArrowRight, CheckCircle2, LoaderCircle, Play } from "lucide-react";
+import { ArrowRight, CheckCircle2, LoaderCircle, Play } from "lucide-react";
 import { useState, type FormEvent } from "react";
 import type { Locale } from "./site";
 import { STORE_LINKS } from "./store-links";
@@ -19,7 +19,7 @@ const copy = {
     android: "Android",
     androidNote: "Testing now",
     ios: "iPhone / iOS",
-    iosNote: "Waiting list",
+    iosNote: "Invitation by email",
     device: "Device model",
     devicePlaceholder: "e.g. Pixel 8, Galaxy S23, iPhone 15",
     os: "OS version",
@@ -48,7 +48,8 @@ const copy = {
     successTitle: "Your application has arrived.",
     successText: "Thank you. We will review your device and learning profile and contact you by email.",
     installLead: "Your install link is ready:",
-    installIos: "Install via TestFlight",
+    installIosLead: "Your TestFlight invitation arrives by email:",
+    installIosNote: "Apple only opens TestFlight for email addresses on our tester list. We add the address you entered in App Store Connect and send your invitation from there — the public link stays closed until then.",
     installAndroid: "Install on Google Play",
     installAndroidNote: "If you don't see the app yet, we'll email your invitation shortly after adding you as a tester.",
     successClose: "Back to the website",
@@ -66,7 +67,7 @@ const copy = {
     android: "Android",
     androidNote: "Test läuft",
     ios: "iPhone / iOS",
-    iosNote: "Warteliste",
+    iosNote: "Einladung per E-Mail",
     device: "Gerätemodell",
     devicePlaceholder: "z. B. Pixel 8, Galaxy S23, iPhone 15",
     os: "Betriebssystem",
@@ -95,7 +96,8 @@ const copy = {
     successTitle: "Deine Bewerbung ist angekommen.",
     successText: "Danke. Wir prüfen dein Gerät und Lernprofil und melden uns per E-Mail.",
     installLead: "Dein Installationslink ist bereit:",
-    installIos: "Über TestFlight installieren",
+    installIosLead: "Deine TestFlight-Einladung kommt per E-Mail:",
+    installIosNote: "Apple öffnet TestFlight nur für E-Mail-Adressen auf unserer Testliste. Wir tragen deine Adresse in App Store Connect ein und senden die Einladung von dort — bis dahin bleibt der öffentliche Link geschlossen.",
     installAndroid: "Bei Google Play installieren",
     installAndroidNote: "Falls die App noch nicht erscheint, senden wir dir die Einladung per E-Mail, sobald wir dich als Tester hinzugefügt haben.",
     successClose: "Zurück zur Website",
@@ -113,7 +115,7 @@ const copy = {
     android: "Android",
     androidNote: "테스트 진행 중",
     ios: "iPhone / iOS",
-    iosNote: "대기 명단",
+    iosNote: "초대 메일 발송",
     device: "기기 모델",
     devicePlaceholder: "예: Pixel 8, Galaxy S23, iPhone 15",
     os: "운영체제 버전",
@@ -142,7 +144,8 @@ const copy = {
     successTitle: "신청이 도착했습니다.",
     successText: "감사합니다. 기기와 학습 정보를 확인한 뒤 이메일로 연락드리겠습니다.",
     installLead: "설치 링크가 준비되어 있어요:",
-    installIos: "TestFlight로 설치하기",
+    installIosLead: "TestFlight 초대는 이메일로 보내드려요:",
+    installIosNote: "Apple은 테스터 목록에 등록된 이메일에만 TestFlight를 열어 줍니다. 입력하신 주소를 App Store Connect에 등록한 뒤 초대 메일을 보내드릴게요 — 그전까지는 공개 링크가 열리지 않습니다.",
     installAndroid: "Google Play에서 설치하기",
     installAndroidNote: "앱이 아직 보이지 않으면, 테스터로 등록한 뒤 초대 메일을 보내드릴게요.",
     successClose: "사이트로 돌아가기",
@@ -221,13 +224,14 @@ export function TesterAccessForm({ locale }: { locale: Locale }) {
             <h2 id="tester-title">{t.successTitle}</h2>
             <p>{t.successText}</p>
             <div className="tester-install">
-              <p className="tester-install-lead">{t.installLead}</p>
               {platform === "ios" ? (
-                <a className="button button-primary tester-install-cta" href={STORE_LINKS.ios} target="_blank" rel="noopener noreferrer">
-                  <Apple aria-hidden="true" size={18} />{t.installIos}
-                </a>
+                <>
+                  <p className="tester-install-lead">{t.installIosLead}</p>
+                  <small className="tester-install-note">{t.installIosNote}</small>
+                </>
               ) : (
                 <>
+                  <p className="tester-install-lead">{t.installLead}</p>
                   <a className="button button-primary tester-install-cta" href={STORE_LINKS.android} target="_blank" rel="noopener noreferrer">
                     <Play aria-hidden="true" size={16} fill="currentColor" />{t.installAndroid}
                   </a>

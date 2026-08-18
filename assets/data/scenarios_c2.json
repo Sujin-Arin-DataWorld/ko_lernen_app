@@ -2089,6 +2089,1296 @@
       ],
       "shelf": "c2_impact",
       "backdrop": "office"
+    },
+    {
+      "id": "c2_daily_automation_redress",
+      "level": "c2",
+      "emoji": "🧾",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "citizen_advocate_and_system_owner",
+      "intent": "demand_a_redress_route",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 200,
+      "title": {
+        "ko": "자동 검침이 틀렸을 때",
+        "de": "Wenn der Zähler falsch abliest",
+        "en": "When the automated meter is wrong"
+      },
+      "intro": {
+        "ko": "자동 검침 오류로 요금이 세 배 나온 사례가 쌓였습니다. 구제 절차가 형식에 그치지 않게 만듭니다.",
+        "de": "Fehler bei der automatischen Ablesung haben sich zu dreifachen Rechnungen summiert. Ihr macht aus dem Beschwerdeweg mehr als eine Formalie.",
+        "en": "Automated meter errors piled up into triple bills. You keep the redress path from being a formality."
+      },
+      "vocab": [
+        {
+          "korean": "자동 검침"
+        },
+        {
+          "korean": "이의 신청"
+        },
+        {
+          "korean": "재검침"
+        },
+        {
+          "korean": "외부 검증"
+        },
+        {
+          "korean": "비율"
+        },
+        {
+          "korean": "유예"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c2_nothing_more_than"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N에 불과하다",
+          "de": "N에 불과하다: nicht mehr als",
+          "en": "N에 불과하다: nothing more than"
+        },
+        "explanation": {
+          "ko": "겉으로 갖춰진 것의 실질을 깎아 말한다. 접수 확인에 불과하다, 형식에 불과하다처럼 쓴다.",
+          "de": "Reduziert etwas formal Vorhandenes auf seinen geringen Gehalt: 접수 확인에 불과하다, 형식에 불과하다.",
+          "en": "Cuts something that exists on paper down to its real weight: 접수 확인에 불과하다, 형식에 불과하다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "자동 검침 오류로 요금이 세 배 나온 사례가 40건입니다.",
+          "de": "Durch Fehler der automatischen Ablesung gab es 40 Fälle mit dreifacher Rechnung.",
+          "en": "Automated meter errors produced 40 cases of triple billing."
+        },
+        {
+          "speaker": "user",
+          "ko": "이의 신청 창구는 있습니다. 다만 그 창구는 접수 확인에 불과합니다.",
+          "de": "Ein Beschwerdeweg existiert, ist aber nicht mehr als eine Eingangsbestätigung.",
+          "en": "There is an appeals desk, but it's nothing more than an acknowledgement of receipt."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "접수 뒤에 재검침을 하도록 되어 있습니다.",
+          "de": "Nach Eingang ist eine Neuablesung vorgesehen.",
+          "en": "After intake, a re-reading is scheduled."
+        },
+        {
+          "speaker": "user",
+          "ko": "재검침 주체가 같은 시스템이면 그 절차는 형식에 불과합니다.",
+          "de": "Führt dasselbe System die Neuablesung durch, bleibt das Verfahren eine Formalie.",
+          "en": "If the same system does the re-reading, that process is nothing more than form."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "외부 검증을 넣으면 비용과 기간이 늘어납니다.",
+          "de": "Eine externe Prüfung erhöht Kosten und Dauer.",
+          "en": "Adding external verification raises cost and turnaround."
+        },
+        {
+          "speaker": "user",
+          "ko": "늘어납니다. 그래도 이의가 받아들여진 비율을 공개하면 어디가 형식인지 드러납니다.",
+          "de": "Ja. Veröffentlicht man aber die Erfolgsquote der Einsprüche, zeigt sich, wo nur Form ist.",
+          "en": "It does. Still, publishing how often appeals succeed shows where it's only form."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "비율이 낮으면 신뢰가 더 떨어질 수 있습니다.",
+          "de": "Eine niedrige Quote kann das Vertrauen weiter senken.",
+          "en": "A low rate could push trust down further."
+        },
+        {
+          "speaker": "user",
+          "ko": "낮은 비율을 숨겨서 지키는 신뢰는 유예에 불과합니다. 공개하고 기준을 고치는 편이 낫습니다.",
+          "de": "Vertrauen, das eine verschwiegene Quote schützt, ist nur ein Aufschub. Besser offenlegen und die Kriterien ändern.",
+          "en": "Trust kept by hiding a low rate is nothing more than a delay. Better to publish and fix the criteria."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_daily_automation_redress_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "audioKo": "재검침 주체가 같은 시스템이면 그 절차는 형식에 불과합니다.",
+            "options": [
+              {
+                "de": "Prüft dasselbe System nach, ist das Verfahren nur Formalie.",
+                "en": "If the same system re-checks, the process is only a formality."
+              },
+              {
+                "de": "Die Neuablesung übernimmt immer eine externe Stelle.",
+                "en": "An external body always handles the re-reading."
+              },
+              {
+                "de": "Das Verfahren funktioniert bereits einwandfrei.",
+                "en": "The process already works flawlessly."
+              },
+              {
+                "de": "Eine Neuablesung ist technisch unmöglich.",
+                "en": "A re-reading is technically impossible."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_daily_automation_redress_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "promptDe": "Veröffentlicht man die Erfolgsquote der Einsprüche, zeigt sich, wo nur Form ist.",
+            "promptEn": "Publishing how often appeals succeed shows where it's only form.",
+            "options": [
+              {
+                "ko": "이의가 받아들여진 비율을 공개하면 어디가 형식인지 드러납니다."
+              },
+              {
+                "ko": "이의 비율을 숨기면 형식이 사라집니다."
+              },
+              {
+                "ko": "이의가 많아지면 절차가 짧아집니다."
+              },
+              {
+                "ko": "비율은 절차와 아무 관계가 없습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_daily_automation_redress_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "sentence": "그 창구는 접수 확인에 ___.",
+            "options": [
+              "불과합니다",
+              "무관합니다",
+              "전제합니다",
+              "십상입니다"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_daily_automation_redress_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "targetKo": "외부 검증을 넣으면 비용이 늘어납니다.",
+            "promptDe": "Externe Prüfung treibt die Kosten hoch.",
+            "promptEn": "Adding external verification raises the cost.",
+            "distractors": [
+              "비율을",
+              "유예가"
+            ]
+          }
+        },
+        {
+          "id": "quest_c2_daily_automation_redress_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "targetKo": "이의 신청 창구는 있습니다.",
+            "promptDe": "Einen Beschwerdeweg gibt es.",
+            "promptEn": "An appeals desk does exist."
+          }
+        }
+      ],
+      "shelf": "c2_automation",
+      "backdrop": "office"
+    },
+    {
+      "id": "c2_friends_quoted_privately",
+      "level": "c2",
+      "emoji": "📰",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "community_organizers",
+      "intent": "bound_a_private_quote",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 200,
+      "title": {
+        "ko": "대화방이 기사에 실렸다",
+        "de": "Der Gruppenchat stand in der Zeitung",
+        "en": "The group chat made the news"
+      },
+      "intro": {
+        "ko": "단체 대화방 내용이 기사에 인용됐습니다. 사적 발언과 공적 발언의 경계를 정의합니다.",
+        "de": "Inhalte aus dem Gruppenchat wurden zitiert. Ihr definiert die Grenze zwischen privater und öffentlicher Äußerung.",
+        "en": "Group chat content got quoted. You define where private speech ends and public speech begins."
+      },
+      "vocab": [
+        {
+          "korean": "대화방"
+        },
+        {
+          "korean": "인용"
+        },
+        {
+          "korean": "전제"
+        },
+        {
+          "korean": "유출"
+        },
+        {
+          "korean": "공익"
+        },
+        {
+          "korean": "익명"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c2_defined_as"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N이라 함은",
+          "de": "N이라 함은: definiert als",
+          "en": "N이라 함은: defined as"
+        },
+        "explanation": {
+          "ko": "논의 앞에서 용어의 뜻을 못 박아 상대가 다른 뜻으로 쓰지 못하게 한다. 공적 발언이라 함은처럼 쓴다.",
+          "de": "Legt zu Beginn fest, was ein Begriff heißt, damit er nicht anders verwendet wird: 공적 발언이라 함은.",
+          "en": "Pins a term's meaning before the argument so it can't drift: 공적 발언이라 함은."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "단체 대화방 내용이 기사에 인용됐습니다. 회원들이 불안해합니다.",
+          "de": "Inhalte aus dem Gruppenchat wurden in einem Artikel zitiert. Die Mitglieder sind verunsichert.",
+          "en": "Group chat content was quoted in an article. Members are uneasy."
+        },
+        {
+          "speaker": "user",
+          "ko": "공적 발언이라 함은 공개를 전제로 한 말입니다. 대화방에는 그 전제가 없습니다.",
+          "de": "Eine öffentliche Äußerung heißt: gesagt in Erwartung von Öffentlichkeit. Im Gruppenchat fehlt diese Voraussetzung.",
+          "en": "Public speech means words said on the expectation of publicity. The chat has no such premise."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그런데 200명이 있는 방입니다. 사적이라고 보기 어렵습니다.",
+          "de": "Es sind aber 200 Personen im Chat. Als privat lässt sich das kaum sehen.",
+          "en": "But 200 people are in that room. Hard to view it as private."
+        },
+        {
+          "speaker": "user",
+          "ko": "규모라 함은 공개의 근거가 아니라 유출 위험의 크기입니다.",
+          "de": "Größe heißt nicht Rechtfertigung für Veröffentlichung, sondern Maß des Leak-Risikos.",
+          "en": "Scale means the size of the leak risk, not a licence to publish."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그럼 인용 자체가 잘못입니까?",
+          "de": "Ist das Zitat dann grundsätzlich falsch?",
+          "en": "So is the quoting itself wrong?"
+        },
+        {
+          "speaker": "user",
+          "ko": "공익이 있으면 인용할 수 있습니다. 다만 발언자 동의 없이 이름을 붙이면 안 됩니다.",
+          "de": "Bei öffentlichem Interesse ja. Aber ohne Zustimmung darf kein Name daneben stehen.",
+          "en": "With public interest, yes. But no name attached without the speaker's consent."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "익명으로 처리하면 맥락이 사라집니다.",
+          "de": "Anonymisiert verschwindet der Kontext.",
+          "en": "Anonymised, the context disappears."
+        },
+        {
+          "speaker": "user",
+          "ko": "맥락이라 함은 이름이 아니라 상황입니다. 시점과 자리를 밝히면 맥락은 남습니다.",
+          "de": "Kontext heißt nicht Name, sondern Situation. Mit Zeitpunkt und Anlass bleibt er erhalten.",
+          "en": "Context means the situation, not the name. Give the time and setting and the context survives."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_friends_quoted_privately_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "audioKo": "발언자 동의 없이 이름을 붙이면 안 됩니다.",
+            "options": [
+              {
+                "de": "Ohne Zustimmung darf kein Name genannt werden.",
+                "en": "No name may be attached without consent."
+              },
+              {
+                "de": "Namen dürfen immer genannt werden.",
+                "en": "Names may always be published."
+              },
+              {
+                "de": "Zitate sind grundsätzlich verboten.",
+                "en": "Quoting is banned in principle."
+              },
+              {
+                "de": "Nur der Zeitpunkt darf fehlen.",
+                "en": "Only the timing may be left out."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_friends_quoted_privately_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "promptDe": "Kontext heißt nicht Name, sondern Situation.",
+            "promptEn": "Context means the situation, not the name.",
+            "options": [
+              {
+                "ko": "맥락이라 함은 이름이 아니라 상황입니다."
+              },
+              {
+                "ko": "맥락이라 함은 상황이 아니라 이름입니다."
+              },
+              {
+                "ko": "맥락은 익명 처리로 완성됩니다."
+              },
+              {
+                "ko": "맥락은 인용에서 중요하지 않습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_friends_quoted_privately_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "sentence": "공적 발언이라 ___ 공개를 전제로 한 말입니다.",
+            "options": [
+              "함은",
+              "해도",
+              "하기에",
+              "한다면"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_friends_quoted_privately_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "targetKo": "시점과 자리를 밝히면 맥락은 남습니다.",
+            "promptDe": "Mit Zeitpunkt und Anlass bleibt der Kontext erhalten.",
+            "promptEn": "State the time and setting and the context survives.",
+            "distractors": [
+              "익명을",
+              "공익이"
+            ]
+          }
+        },
+        {
+          "id": "quest_c2_friends_quoted_privately_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "targetKo": "회원들이 불안해합니다.",
+            "promptDe": "Die Mitglieder sind verunsichert.",
+            "promptEn": "The members are uneasy."
+          }
+        }
+      ],
+      "shelf": "c2_friends",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "c2_dating_romance_frames",
+      "level": "c2",
+      "emoji": "🎭",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "panel_discussants",
+      "intent": "expose_a_narrative_frame",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 200,
+      "title": {
+        "ko": "연애 서사가 만드는 기준",
+        "de": "Welche Maßstäbe Liebesgeschichten setzen",
+        "en": "The standard romance stories set"
+      },
+      "intro": {
+        "ko": "연애 콘텐츠가 집착을 애정으로 그린다는 지적을 두고 토론합니다. 금지 대신 지표를 바꾸는 쪽으로 갑니다.",
+        "de": "Ihr diskutiert den Vorwurf, Dating-Formate zeigten Besitzdenken als Zuneigung, und entscheidet euch für neue Kennzahlen statt Verbote.",
+        "en": "You debate the charge that romance content frames possessiveness as affection, and land on new metrics over bans."
+      },
+      "vocab": [
+        {
+          "korean": "집착"
+        },
+        {
+          "korean": "애정"
+        },
+        {
+          "korean": "서사"
+        },
+        {
+          "korean": "결말"
+        },
+        {
+          "korean": "지침"
+        },
+        {
+          "korean": "지표"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c2_regardless_of_kin"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N와/과 무관하게",
+          "de": "N와/과 무관하게: unabhängig von",
+          "en": "N와/과 무관하게: regardless of"
+        },
+        "explanation": {
+          "ko": "어떤 요인을 계산에서 떼어 내고 결론을 세운다. 의도와 무관하게, 취향과 무관하게처럼 쓴다.",
+          "de": "Trennt einen Faktor ab und begründet trotzdem: 의도와 무관하게, 취향과 무관하게.",
+          "en": "Detaches a factor and still holds the conclusion: 의도와 무관하게, 취향과 무관하게."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "요즘 연애 콘텐츠가 집착을 애정으로 그린다는 지적이 있습니다.",
+          "de": "Es heißt, aktuelle Dating-Formate stellten Besitzdenken als Zuneigung dar.",
+          "en": "There's a criticism that today's romance content frames possessiveness as affection."
+        },
+        {
+          "speaker": "user",
+          "ko": "개별 작품의 의도와 무관하게 반복되면 기준이 됩니다.",
+          "de": "Unabhängig von der Absicht des einzelnen Werks wird Wiederholung zum Maßstab.",
+          "en": "Regardless of any single work's intent, repetition becomes the standard."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "시청자가 구별하지 못한다고 보는 것은 지나치지 않습니까?",
+          "de": "Ist die Annahme, Zuschauende könnten nicht unterscheiden, nicht überzogen?",
+          "en": "Isn't it excessive to assume viewers can't tell the difference?"
+        },
+        {
+          "speaker": "user",
+          "ko": "구별은 합니다. 다만 무엇이 흔한지는 취향과 무관하게 학습됩니다.",
+          "de": "Unterscheiden können sie schon. Was aber häufig ist, lernt man unabhängig vom Geschmack.",
+          "en": "They can tell. But what counts as common gets learned regardless of taste."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그러면 제작 지침을 만들어야 합니까?",
+          "de": "Braucht es dann Produktionsrichtlinien?",
+          "en": "Does that call for production guidelines?"
+        },
+        {
+          "speaker": "user",
+          "ko": "지침보다 결말의 다양성이 낫습니다. 금지는 서사를 얇게 만듭니다.",
+          "de": "Statt Richtlinien sind vielfältige Enden besser. Verbote machen Erzählungen flach.",
+          "en": "Variety of endings beats guidelines. Bans flatten storytelling."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "다양성은 시장이 정합니다. 조회수와 무관하게 만들 제작자는 적습니다.",
+          "de": "Über Vielfalt entscheidet der Markt. Wenige produzieren unabhängig von Klickzahlen.",
+          "en": "The market decides variety. Few will make work regardless of view counts."
+        },
+        {
+          "speaker": "user",
+          "ko": "그래서 평가 지표를 바꾸는 편이 낫습니다. 시청 시간과 무관하게 다양성을 세는 지표가 필요합니다.",
+          "de": "Deshalb ist es besser, die Kennzahlen zu ändern: ein Indikator, der Vielfalt unabhängig von Sehdauer zählt.",
+          "en": "So changing the metric is better: one that counts variety regardless of watch time."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_dating_romance_frames_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "audioKo": "개별 작품의 의도와 무관하게 반복되면 기준이 됩니다.",
+            "options": [
+              {
+                "de": "Unabhängig von der Absicht wird Wiederholung zum Maßstab.",
+                "en": "Regardless of intent, repetition becomes the standard."
+              },
+              {
+                "de": "Die Absicht des Werks entscheidet alles.",
+                "en": "The work's intent decides everything."
+              },
+              {
+                "de": "Wiederholung hat keine Wirkung.",
+                "en": "Repetition has no effect."
+              },
+              {
+                "de": "Maßstäbe setzen nur Kritiker.",
+                "en": "Only critics set standards."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_dating_romance_frames_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "promptDe": "Verbote machen Erzählungen flach.",
+            "promptEn": "Bans flatten storytelling.",
+            "options": [
+              {
+                "ko": "금지는 서사를 얇게 만듭니다."
+              },
+              {
+                "ko": "금지는 서사를 풍부하게 만듭니다."
+              },
+              {
+                "ko": "서사는 금지와 관계가 없습니다."
+              },
+              {
+                "ko": "금지가 없으면 서사가 얇아집니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_dating_romance_frames_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "sentence": "무엇이 흔한지는 취향과 ___ 학습됩니다.",
+            "options": [
+              "무관하게",
+              "불문하여",
+              "전제로",
+              "비롯해"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_dating_romance_frames_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "targetKo": "결말의 다양성이 지침보다 낫습니다.",
+            "promptDe": "Vielfalt der Enden ist besser als Richtlinien.",
+            "promptEn": "Variety of endings beats guidelines.",
+            "distractors": [
+              "집착을",
+              "지표가"
+            ]
+          }
+        },
+        {
+          "id": "quest_c2_dating_romance_frames_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "targetKo": "평가 지표를 바꾸는 편이 낫습니다.",
+            "promptDe": "Besser die Kennzahlen ändern.",
+            "promptEn": "Better to change the metric."
+          }
+        }
+      ],
+      "shelf": "c2_dating",
+      "backdrop": "office"
+    },
+    {
+      "id": "c2_youtube_algorithm_duty",
+      "level": "c2",
+      "emoji": "🧭",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "citizen_advocate_and_system_owner",
+      "intent": "locate_algorithmic_duty",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 205,
+      "title": {
+        "ko": "추천의 책임은 어디에",
+        "de": "Wo liegt die Verantwortung der Empfehlung",
+        "en": "Where the recommendation's duty sits"
+      },
+      "intro": {
+        "ko": "추천 결과의 책임 소재를 따집니다. 상대의 전제를 인정하면서도 권한이 있는 곳을 짚습니다.",
+        "de": "Ihr klärt, wer für Empfehlungsergebnisse haftet. Du nimmst die Gegenposition an und benennst doch die Stelle mit der Befugnis.",
+        "en": "You press on who answers for recommendation results, granting the other premise while naming where the power sits."
+      },
+      "vocab": [
+        {
+          "korean": "추천"
+        },
+        {
+          "korean": "신호"
+        },
+        {
+          "korean": "권한"
+        },
+        {
+          "korean": "검열"
+        },
+        {
+          "korean": "노출 기준"
+        },
+        {
+          "korean": "우회"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c2_even_assuming"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는다고 치더라도",
+          "de": "Selbst wenn man das annimmt",
+          "en": "Even granting that"
+        },
+        "explanation": {
+          "ko": "상대의 주장을 잠시 사실로 받아들이고도 결론이 유지됨을 보인다. 결과라고 치더라도처럼 쓴다.",
+          "de": "Nimmt die Behauptung des Gegenübers vorübergehend als wahr an und hält den Schluss dennoch: 결과라고 치더라도.",
+          "en": "Grants the other side's claim for the sake of argument and keeps the conclusion: 결과라고 치더라도."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "추천은 이용자 선택의 결과입니다. 저희가 만든 결론이 아닙니다.",
+          "de": "Empfehlungen sind das Resultat der Nutzerwahl, nicht unser Urteil.",
+          "en": "Recommendations are the result of user choice, not a verdict we made."
+        },
+        {
+          "speaker": "user",
+          "ko": "선택의 결과라고 치더라도 순서를 정한 것은 시스템입니다.",
+          "de": "Selbst wenn es das Resultat der Wahl ist: die Reihenfolge hat das System gesetzt.",
+          "en": "Even granting it's the result of choice, the system set the order."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "순서는 수십 개 신호의 합입니다. 특정 책임을 지정하기 어렵습니다.",
+          "de": "Die Reihenfolge ist die Summe dutzender Signale. Eine konkrete Verantwortung ist schwer zu benennen.",
+          "en": "The order is a sum of dozens of signals. Pinpointing one responsibility is hard."
+        },
+        {
+          "speaker": "user",
+          "ko": "신호가 복잡하다고 치더라도 결과를 바꿀 권한은 한곳에 있습니다.",
+          "de": "Selbst wenn die Signale komplex sind: die Befugnis, das Ergebnis zu ändern, liegt an einer Stelle.",
+          "en": "Even granting the signals are complex, the power to change the outcome sits in one place."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 권한을 쓰면 검열 논란이 생깁니다.",
+          "de": "Nutzt man diese Befugnis, entsteht der Zensurvorwurf.",
+          "en": "Using that power invites accusations of censorship."
+        },
+        {
+          "speaker": "user",
+          "ko": "생깁니다. 그래서 개별 삭제보다 노출 기준을 문서로 공개하는 편이 낫습니다.",
+          "de": "Ja. Deshalb ist ein schriftlich veröffentlichtes Reichweitenkriterium besser als Einzellöschungen.",
+          "en": "It does. So publishing written exposure criteria beats deleting case by case."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "공개하면 우회하는 계정이 늘어납니다.",
+          "de": "Bei Offenlegung nehmen Konten zu, die das umgehen.",
+          "en": "Publish it and more accounts will work around it."
+        },
+        {
+          "speaker": "user",
+          "ko": "늘어난다고 치더라도 우회는 관측할 수 있습니다. 관측되지 않는 책임이 더 위험합니다.",
+          "de": "Selbst dann ist die Umgehung messbar. Unbeobachtete Verantwortung ist gefährlicher.",
+          "en": "Even granting that, working around it is observable. Unobserved responsibility is the greater risk."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_youtube_algorithm_duty_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "audioKo": "순서를 정한 것은 시스템입니다.",
+            "options": [
+              {
+                "de": "Die Reihenfolge hat das System festgelegt.",
+                "en": "The system set the order."
+              },
+              {
+                "de": "Die Reihenfolge wählen die Nutzenden selbst.",
+                "en": "Users choose the order themselves."
+              },
+              {
+                "de": "Es gibt gar keine Reihenfolge.",
+                "en": "There is no order at all."
+              },
+              {
+                "de": "Die Reihenfolge legt eine Behörde fest.",
+                "en": "A regulator sets the order."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_youtube_algorithm_duty_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "promptDe": "Veröffentlichte Reichweitenkriterien sind besser als Einzellöschungen.",
+            "promptEn": "Published exposure criteria beat deleting case by case.",
+            "options": [
+              {
+                "ko": "개별 삭제보다 노출 기준을 공개하는 편이 낫습니다."
+              },
+              {
+                "ko": "노출 기준보다 개별 삭제가 낫습니다."
+              },
+              {
+                "ko": "노출 기준은 공개하면 안 됩니다."
+              },
+              {
+                "ko": "삭제와 공개는 같은 조치입니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_youtube_algorithm_duty_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "sentence": "선택의 결과라고 ___ 순서를 정한 것은 시스템입니다.",
+            "options": [
+              "치더라도",
+              "치면서",
+              "치기에",
+              "치는데"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_youtube_algorithm_duty_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "targetKo": "관측되지 않는 책임이 더 위험합니다.",
+            "promptDe": "Unbeobachtete Verantwortung ist gefährlicher.",
+            "promptEn": "Unobserved responsibility is more dangerous.",
+            "distractors": [
+              "검열을",
+              "권한이"
+            ]
+          }
+        },
+        {
+          "id": "quest_c2_youtube_algorithm_duty_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "targetKo": "노출 기준을 문서로 공개합시다.",
+            "promptDe": "Veröffentlichen wir die Reichweitenkriterien schriftlich.",
+            "promptEn": "Let's publish the exposure criteria in writing."
+          }
+        }
+      ],
+      "shelf": "c2_fandom",
+      "backdrop": "office"
+    },
+    {
+      "id": "c2_gaming_auto_sanction",
+      "level": "c2",
+      "emoji": "⚖️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "citizen_advocate_and_system_owner",
+      "intent": "test_an_automated_sanction",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 205,
+      "title": {
+        "ko": "자동 제재의 전제",
+        "de": "Die Prämisse automatischer Sanktionen",
+        "en": "The premise behind automated bans"
+      },
+      "intro": {
+        "ko": "신고 세 건이면 즉시 정지되는 규칙을 검토합니다. 전제를 드러내고 이의 절차의 조건을 요구합니다.",
+        "de": "Ihr prüft die Regel, dass drei Meldungen sofort sperren. Du legst die Prämisse offen und fordert Bedingungen für den Einspruch.",
+        "en": "You examine the rule that three reports mean instant suspension, expose its premise and demand conditions for appeal."
+      },
+      "vocab": [
+        {
+          "korean": "자동 제재"
+        },
+        {
+          "korean": "오탐"
+        },
+        {
+          "korean": "파티"
+        },
+        {
+          "korean": "차단"
+        },
+        {
+          "korean": "정지"
+        },
+        {
+          "korean": "이의 절차"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c2_on_the_premise"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 전제로",
+          "de": "N을/를 전제로: unter der Voraussetzung",
+          "en": "N을/를 전제로: on the premise of"
+        },
+        "explanation": {
+          "ko": "판단이나 조치가 어떤 가정 위에 서 있음을 드러낸다. 신고 세 건을 전제로, 최소 범위를 전제로처럼 쓴다.",
+          "de": "Macht sichtbar, auf welcher Annahme eine Maßnahme steht: 신고 세 건을 전제로, 최소 범위를 전제로.",
+          "en": "Surfaces the assumption a measure rests on: 신고 세 건을 전제로, 최소 범위를 전제로."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "자동 제재는 신고 세 건을 전제로 즉시 정지합니다. 이 전제가 문제입니다.",
+          "de": "Die automatische Sanktion sperrt sofort, unter der Voraussetzung von drei Meldungen. Diese Prämisse ist das Problem.",
+          "en": "Automated sanctions suspend instantly on the premise of three reports. That premise is the problem."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "다수 신고를 전제로 하면 오탐이 줄어듭니다.",
+          "de": "Mehrere Meldungen als Voraussetzung senken Falschtreffer.",
+          "en": "Taking multiple reports as the premise reduces false positives."
+        },
+        {
+          "speaker": "user",
+          "ko": "신고자들이 같은 팀이면 세 건은 한 명과 다르지 않습니다.",
+          "de": "Sind die Meldenden im selben Team, entsprechen drei Meldungen einer Person.",
+          "en": "If the reporters are on one team, three reports are no different from one person."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "관계를 확인하려면 계정 연결 정보를 봐야 합니다.",
+          "de": "Um die Beziehung zu prüfen, müssten wir Kontoverknüpfungen einsehen.",
+          "en": "Checking that relationship means looking at account links."
+        },
+        {
+          "speaker": "user",
+          "ko": "그건 최소 범위를 전제로 가능합니다. 같은 파티 여부만 보면 됩니다.",
+          "de": "Das geht unter der Voraussetzung eines Mindestumfangs: nur, ob dieselbe Gruppe.",
+          "en": "That's workable on the premise of a minimal scope: just whether it's the same party."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그러면 제재까지 시간이 걸립니다. 실시간 욕설은 즉시 막아야 합니다.",
+          "de": "Dann dauert die Sanktion länger. Beleidigungen in Echtzeit müssen sofort gestoppt werden.",
+          "en": "Then sanctions take longer. Real-time abuse has to be stopped at once."
+        },
+        {
+          "speaker": "user",
+          "ko": "즉시 차단과 계정 정지를 나누면 됩니다. 차단은 대화를, 정지는 계정을 전제로 합니다.",
+          "de": "Man trennt Sofortsperre und Kontosperre: die eine setzt den Chat voraus, die andere das Konto.",
+          "en": "Split instant muting from account suspension: muting presumes the chat, suspension the account."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 구분을 문서에 넣고 이의 절차를 붙이겠습니다.",
+          "de": "Wir nehmen diese Unterscheidung ins Dokument und ergänzen ein Einspruchsverfahren.",
+          "en": "We'll put that split in the document and attach an appeals path."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_gaming_auto_sanction_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "audioKo": "신고자들이 같은 팀이면 세 건은 한 명과 다르지 않습니다.",
+            "options": [
+              {
+                "de": "Aus demselben Team entsprechen drei Meldungen einer Person.",
+                "en": "From one team, three reports amount to one person."
+              },
+              {
+                "de": "Drei Meldungen sind immer verlässlich.",
+                "en": "Three reports are always reliable."
+              },
+              {
+                "de": "Ein Team darf nicht melden.",
+                "en": "A team is not allowed to report."
+              },
+              {
+                "de": "Meldungen werden nach Team gezählt.",
+                "en": "Reports are counted per team."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_gaming_auto_sanction_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "promptDe": "Man trennt Sofortsperre und Kontosperre.",
+            "promptEn": "Split instant muting from account suspension.",
+            "options": [
+              {
+                "ko": "즉시 차단과 계정 정지를 나누면 됩니다."
+              },
+              {
+                "ko": "즉시 차단과 계정 정지를 합치면 됩니다."
+              },
+              {
+                "ko": "계정 정지만 남기면 됩니다."
+              },
+              {
+                "ko": "차단은 없애야 합니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_gaming_auto_sanction_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "sentence": "그건 최소 범위를 ___ 가능합니다.",
+            "options": [
+              "전제로",
+              "불문하고",
+              "무관하게",
+              "비롯해"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_gaming_auto_sanction_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "targetKo": "이의 절차를 문서에 붙이겠습니다.",
+            "promptDe": "Wir ergänzen das Dokument um ein Einspruchsverfahren.",
+            "promptEn": "We'll attach an appeals path to the document.",
+            "distractors": [
+              "오탐을",
+              "차단이"
+            ]
+          }
+        },
+        {
+          "id": "quest_c2_gaming_auto_sanction_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "targetKo": "이 전제가 문제입니다.",
+            "promptDe": "Diese Prämisse ist das Problem.",
+            "promptEn": "That premise is the problem."
+          }
+        }
+      ],
+      "shelf": "c2_friends",
+      "backdrop": "office"
+    },
+    {
+      "id": "c2_kpop_fandom_language",
+      "level": "c2",
+      "emoji": "🔠",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "fan_representative_and_agency",
+      "intent": "contest_discursive_power",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 205,
+      "title": {
+        "ko": "팬덤 용어의 힘",
+        "de": "Die Macht der Fandom-Begriffe",
+        "en": "The power in fandom words"
+      },
+      "intro": {
+        "ko": "팬덤 용어가 안에서는 애정, 밖에서는 공격으로 읽힙니다. 금지 대신 공식 채널의 사용을 다룹니다.",
+        "de": "Fandom-Begriffe wirken intern als Zuneigung, extern als Angriff. Statt Verboten geht es um den Sprachgebrauch offizieller Kanäle.",
+        "en": "Fandom terms read as affection inside and as attack outside. Instead of bans, you address what official channels say."
+      },
+      "vocab": [
+        {
+          "korean": "팬덤 용어"
+        },
+        {
+          "korean": "애정"
+        },
+        {
+          "korean": "반박"
+        },
+        {
+          "korean": "검색 결과"
+        },
+        {
+          "korean": "인용"
+        },
+        {
+          "korean": "금지"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c2_even_if_concession"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ지언정",
+          "de": "V-(으)ㄹ지언정: selbst wenn",
+          "en": "V-(으)ㄹ지언정: even if"
+        },
+        "explanation": {
+          "ko": "앞의 사실을 크게 양보하고도 뒤의 결론을 지킨다. 나왔을지언정, 쓸지언정처럼 문어에서 강한 반박에 쓴다.",
+          "de": "Räumt viel ein und hält den Schluss dennoch: 나왔을지언정, 쓸지언정. Schriftlich, für starken Widerspruch.",
+          "en": "Concedes a lot and still holds the conclusion: 나왔을지언정, 쓸지언정. Written register, for firm rebuttal."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "팬덤 용어가 내부에서는 애정 표현이지만 밖에서는 공격으로 읽힙니다.",
+          "de": "Fandom-Begriffe sind intern Zuneigung, außen werden sie als Angriff gelesen.",
+          "en": "Fandom terms are affection inside but read as attacks outside."
+        },
+        {
+          "speaker": "user",
+          "ko": "애정에서 나왔을지언정 힘의 차이를 지우지는 못합니다.",
+          "de": "Selbst wenn sie aus Zuneigung stammen, heben sie das Machtgefälle nicht auf.",
+          "en": "Even if they came from affection, they don't erase the power gap."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "어떤 힘을 말씀하십니까?",
+          "de": "Von welcher Macht sprechen Sie?",
+          "en": "Which power do you mean?"
+        },
+        {
+          "speaker": "user",
+          "ko": "다수의 이름 붙이기입니다. 한 사람이 반박할지언정 검색 결과는 바뀌지 않습니다.",
+          "de": "Das Benennen durch die Mehrheit. Selbst wenn eine Person widerspricht, ändern sich die Suchergebnisse nicht.",
+          "en": "Naming by the many. Even if one person objects, the search results don't change."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그럼 용어를 금지해야 합니까?",
+          "de": "Sollten wir die Begriffe also verbieten?",
+          "en": "Should we ban the terms, then?"
+        },
+        {
+          "speaker": "user",
+          "ko": "금지는 실패합니다. 대신 공식 채널이 그 용어를 쓰지 않으면 됩니다.",
+          "de": "Verbote scheitern. Es genügt, wenn offizielle Kanäle diese Begriffe nicht verwenden.",
+          "en": "Bans fail. It's enough for official channels not to use those terms."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "공식이 안 쓴다고 팬이 안 쓰지는 않습니다.",
+          "de": "Nur weil Offizielles sie meidet, meiden Fans sie nicht.",
+          "en": "Fans won't drop them just because official accounts do."
+        },
+        {
+          "speaker": "user",
+          "ko": "팬이 계속 쓸지언정 공식이 쓰지 않는 말은 기사에 인용될 근거를 잃습니다.",
+          "de": "Selbst wenn Fans sie weiter nutzen: Was offiziell nicht vorkommt, verliert die Grundlage für Zitate in der Presse.",
+          "en": "Even if fans keep using them, a term official channels avoid loses its footing for press quotation."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c2_kpop_fandom_language_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "audioKo": "애정에서 나왔을지언정 힘의 차이를 지우지는 못합니다.",
+            "options": [
+              {
+                "de": "Auch aus Zuneigung entstanden, bleibt das Machtgefälle.",
+                "en": "Even born of affection, the power gap remains."
+              },
+              {
+                "de": "Aus Zuneigung entstandene Worte sind harmlos.",
+                "en": "Words born of affection are harmless."
+              },
+              {
+                "de": "Das Machtgefälle entsteht erst durch Kritik.",
+                "en": "The power gap only appears through criticism."
+              },
+              {
+                "de": "Zuneigung und Macht sind dasselbe.",
+                "en": "Affection and power are the same thing."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_kpop_fandom_language_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "promptDe": "Es genügt, wenn offizielle Kanäle diese Begriffe nicht verwenden.",
+            "promptEn": "It's enough for official channels not to use those terms.",
+            "options": [
+              {
+                "ko": "공식 채널이 그 용어를 쓰지 않으면 됩니다."
+              },
+              {
+                "ko": "공식 채널이 그 용어를 더 써야 합니다."
+              },
+              {
+                "ko": "팬이 그 용어를 금지해야 합니다."
+              },
+              {
+                "ko": "용어를 바꾸면 아무도 못 알아봅니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_kpop_fandom_language_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "sentence": "한 사람이 반박___ 검색 결과는 바뀌지 않습니다.",
+            "options": [
+              "할지언정",
+              "하고서",
+              "하도록",
+              "하려고"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_kpop_fandom_language_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "targetKo": "공식 채널이 그 용어를 쓰지 않으면 됩니다.",
+            "promptDe": "Es reicht, wenn offizielle Kanäle den Begriff meiden.",
+            "promptEn": "It's enough if official channels avoid the term.",
+            "distractors": [
+              "금지를",
+              "검색 결과가"
+            ]
+          }
+        },
+        {
+          "id": "quest_c2_kpop_fandom_language_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "targetKo": "금지는 실패합니다.",
+            "promptDe": "Verbote scheitern.",
+            "promptEn": "Bans fail."
+          }
+        }
+      ],
+      "shelf": "c2_fandom",
+      "backdrop": "office"
     }
   ]
 }

@@ -33,13 +33,31 @@ class MigrationPlanTest(unittest.TestCase):
         self.assertEqual(report["wrong_level"], [])
         self.assertEqual(report["missing_backdrop"], [])
         self.assertEqual(report["unknown_backdrop"], [])
-        self.assertEqual(len(migrated), 264)
+        # 264(마이그레이션 당시) + 36(2026-08-18 Batch 11 승격).
+        self.assertEqual(len(migrated), 368)
 
     def test_every_scenario_gets_both_fields(self) -> None:
         migrated, _ = migrate.plan_migration(self.scenarios, self.baseline)
+        carried = {
+            str(item["id"]): item.get("backdrop") for item in self.scenarios
+        }
         for item in migrated:
             self.assertEqual(item["shelf"], SHELF_BY_ID[item["id"]])
-            self.assertEqual(item["backdrop"], self.baseline[item["id"]])
+            # 기준선은 264 에서 동결이다.  거기 있는 id 는 기준선이 이기고,
+            # 이후 승격분은 레코드가 달고 온 값을 그대로 쓴다.
+            expected = self.baseline.get(item["id"]) or carried[item["id"]]
+            self.assertEqual(item["backdrop"], expected)
+
+    def test_baseline_still_wins_over_a_drifted_record(self) -> None:
+        # 승격분 폴백이 기준선을 덮어쓰면 backdrop 무회귀 보증이 깨진다.
+        first = dict(self.scenarios[0])
+        self.assertIn(first["id"], self.baseline)
+        first["backdrop"] = "taxi" if self.baseline[first["id"]] != "taxi" else "cafe"
+        migrated, report = migrate.plan_migration(
+            [first] + [dict(s) for s in self.scenarios[1:]], self.baseline
+        )
+        self.assertEqual(report["missing_backdrop"], [])
+        self.assertEqual(migrated[0]["backdrop"], self.baseline[first["id"]])
 
     def test_sentences_and_ids_are_untouched(self) -> None:
         migrated, _ = migrate.plan_migration(self.scenarios, self.baseline)

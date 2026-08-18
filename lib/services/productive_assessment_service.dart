@@ -2454,6 +2454,114 @@ Set<String> verifiedCanDoSegmentIds({
   return Set.unmodifiable(result);
 }
 
+/// Evidence completion toward one `allOf`-policy segment: [satisfied] of
+/// [total] required (assessment requirement × concept) matches.
+class SegmentEvidenceProgress {
+  const SegmentEvidenceProgress({required this.satisfied, required this.total});
+
+  static const SegmentEvidenceProgress none = SegmentEvidenceProgress(
+    satisfied: 0,
+    total: 0,
+  );
+
+  final int satisfied;
+  final int total;
+
+  /// 1.0 only when this segment would also appear in
+  /// [verifiedCanDoSegmentIds]'s result. A project-bundle prerequisite has no
+  /// partial-credit shape of its own, so an unmet one pins this at 0.0
+  /// regardless of how many requirement×concept matches already exist.
+  double get fraction => total == 0 ? 0.0 : satisfied / total;
+}
+
+/// Fractional evidence progress toward one segment, for sub-beat rendering
+/// (e.g. partial-alpha reveal of the next construction stage).
+///
+/// Mirrors [verifiedCanDoSegmentIds]'s per-segment logic exactly — same
+/// project-bundle prerequisite gate, same `assessmentRequirements ×
+/// requiredConceptIds` matching against the same [trustedProductiveMasteryEvidence]
+/// records — except the requirement×concept loop is *aggregated* instead of
+/// short-circuited on first miss. Reading the same trusted evidence means
+/// this cannot become a second, forgeable source of progress: a segment can
+/// only ever show progress toward evidence the learner actually produced.
+SegmentEvidenceProgress canDoSegmentEvidenceProgress({
+  required String segmentId,
+  required Iterable<ProductiveMasteryEvidence> evidence,
+  required Iterable<ProductiveProjectStepEvidence> projectStepEvidence,
+  required CourseSegmentCatalog segmentCatalog,
+  required ProductiveAssessmentCatalog assessmentCatalog,
+}) {
+  assessmentCatalog.bind(segmentCatalog);
+  final segment = segmentCatalog.findSegment(segmentId);
+  if (segment == null || segment.evidencePolicy != SegmentEvidencePolicy.allOf) {
+    return SegmentEvidenceProgress.none;
+  }
+  final records = trustedProductiveMasteryEvidence(
+    evidence: evidence,
+    assessmentCatalog: assessmentCatalog,
+  );
+  final bundle = assessmentCatalog.bundleForSegment(segment.id);
+  if (bundle != null) {
+    final trustedSteps = trustedProductiveProjectStepEvidence(
+      evidence: projectStepEvidence,
+      assessmentCatalog: assessmentCatalog,
+    );
+    final project = assessmentCatalog.projectsById[bundle.projectId]!;
+    final assessedStep = project.steps.singleWhere(
+      (step) => step.id == bundle.stepId,
+    );
+    final reviewStep = project.steps.singleWhere(
+      (step) => step.order == assessedStep.order - 1,
+    );
+    final reviewSatisfied = trustedSteps.any(
+      (entry) =>
+          entry.projectId == project.id && entry.stepId == reviewStep.id,
+    );
+    if (!reviewSatisfied) {
+      return SegmentEvidenceProgress.none;
+    }
+    if (assessedStep.order == 4) {
+      final stepTwo = project.steps.singleWhere((step) => step.order == 2);
+      final earlierBundle = assessmentCatalog.bundles.singleWhere(
+        (candidate) =>
+            candidate.projectId == project.id &&
+            candidate.stepId == stepTwo.id,
+      );
+      final verified = verifiedCanDoSegmentIds(
+        evidence: evidence,
+        projectStepEvidence: projectStepEvidence,
+        segmentCatalog: segmentCatalog,
+        assessmentCatalog: assessmentCatalog,
+      );
+      if (!verified.contains(earlierBundle.canDoSegmentId)) {
+        return SegmentEvidenceProgress.none;
+      }
+    }
+  }
+  var satisfied = 0;
+  var total = 0;
+  for (final requirement in segment.assessmentRequirements) {
+    for (final conceptId in segment.requiredConceptIds) {
+      total += 1;
+      final matching = records.any(
+        (entry) =>
+            entry.canDoSegmentId == segment.id &&
+            entry.assessmentItemId == requirement.assessmentItemId &&
+            entry.missionContentLinkId == requirement.missionContentLinkId &&
+            entry.courseUnitId == segment.parentCourseUnitId &&
+            entry.conceptId == conceptId &&
+            entry.evidenceMode == requirement.evidenceMode &&
+            entry.rubricVersion == requirement.rubricVersion &&
+            entry.score >= requirement.minimumScore,
+      );
+      if (matching) {
+        satisfied += 1;
+      }
+    }
+  }
+  return SegmentEvidenceProgress(satisfied: satisfied, total: total);
+}
+
 /// Keeps only odd-step receipts that still match the exact first-party
 /// project topology and source provenance in the current catalog.
 List<ProductiveProjectStepEvidence> trustedProductiveProjectStepEvidence({

@@ -1,0 +1,21 @@
+{
+  "recipeId": "estate-frame-haengrangchae",
+  "kind": "frameEdit",
+  "family": "F-C-estate",
+  "targetBuilding": "haengrangchae",
+  "model": "Nano Banana Pro",
+  "aspectRatio": "4:3",
+  "referenceImages": [
+    "assets/illustrations/personal_hanok_v2/map/structures/haengrangchae.png"
+  ],
+  "promptTemplate": "Edit this illustration of a finished traditional Korean servants'-quarters row house (행랑채, a long low single-story wing), seen straight from the front in a slightly elevated view. Show the SAME building at the timber-frame stage of construction, BEFORE the roof was covered and BEFORE any wall panels, lattice doors or windows were installed. Keep the camera, framing, scale, position and lighting exactly as in the input: do not rotate the view, do not zoom, do not move the building.\n\nKEEP UNCHANGED, pixel for pixel: the ground line at the base and every wooden post/column along the front exactly where it is (same thickness, same height, same spacing).\n\nREMOVE completely: all roof tiles, the ridge beam and its two small end ornaments, the roof boards, and the entire closed wall (including its lattice-window band) -- so the frame is open and you can see through it.\n\nADD the exposed timber frame the row house needs under its roof, in the same painterly wood-grain style and warm wood colors as the visible posts in the input: a continuous head beam along the top of the front posts, a matching rear head beam, cross beams running from each front post back to its rear counterpart, purlins resting above the beams, and one ridge beam running the full length at the very top. No infill wall panels anywhere -- the whole post-and-beam structure must read as open framing.\n\nNO rafters, NO roof boards, NO tiles, NO wall panels, NO lattice, NO ground, NO cast shadows on the ground, NO people, NO text. The whole frame must stay inside the silhouette the finished building occupies in the input.\n\nBackground: replace everything outside the object with flat, pure #00FF00 chroma-key green, no gradient.",
+  "promptVars": {},
+  "expectedCreditsPerCall": 4,
+  "targetBbox": [
+    253,
+    857,
+    675,
+    1032
+  ],
+  "note": "Migrated 2026-08-18 from tool/derive_estate_building_stages.py FRAME_PROMPTS[\"haengrangchae\"] -- the fifth building only needs a new dict entry there AND this JSON twin from now on; this recipe documents the same prompt as a reviewable artifact instead of prose frozen in code."
+}

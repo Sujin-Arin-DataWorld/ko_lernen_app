@@ -10310,6 +10310,3043 @@
       ],
       "shelf": "b2_health",
       "backdrop": "convenience"
+    },
+    {
+      "id": "b2_daily_upstairs_noise",
+      "level": "b2",
+      "emoji": "🔊",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "tenant_and_building_manager",
+      "intent": "demand_a_concrete_fix",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 180,
+      "title": {
+        "ko": "층간 소음이 또",
+        "de": "Wieder Lärm von oben",
+        "en": "The noise upstairs again"
+      },
+      "intro": {
+        "ko": "안내문을 붙였는데도 소음이 반복됩니다. 기록을 근거로 구체적인 조치와 기한을 받아냅니다.",
+        "de": "Trotz Hinweiszettel wiederholt sich der Lärm. Mit Protokoll holst du konkrete Schritte und eine Frist.",
+        "en": "The notice didn't stop it. With a log in hand you get concrete steps and a deadline."
+      },
+      "vocab": [
+        {
+          "korean": "층간 소음"
+        },
+        {
+          "korean": "안내문"
+        },
+        {
+          "korean": "기록"
+        },
+        {
+          "korean": "관리소"
+        },
+        {
+          "korean": "재발"
+        },
+        {
+          "korean": "절차"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_arrangement",
+        "grammar_b2_explicit_formal_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-도록 하다 / V-아/어 주시기를 요청하다",
+          "de": "Verbindliche Zusage und formelle Bitte",
+          "en": "A binding arrangement and a formal request"
+        },
+        "explanation": {
+          "ko": "도록 하다는 상대가 실제로 하겠다고 약속하게 만들고, 주시기를 요청하다는 요구를 문서에 남길 수 있는 형태로 바꾼다.",
+          "de": "도록 하다 macht aus einer Absicht eine Zusage, 주시기를 요청하다 formuliert die Forderung aktenfest.",
+          "en": "도록 하다 turns intent into a commitment; 주시기를 요청하다 puts the demand on the record."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "지난주에 말씀드린 층간 소음이 어제 또 있었습니다.",
+          "de": "Der Lärm, den ich letzte Woche gemeldet habe, war gestern wieder da.",
+          "en": "The noise I reported last week happened again yesterday."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "위층에 안내문을 붙였습니다. 시간대가 언제였나요?",
+          "de": "Wir haben oben einen Hinweis aufgehängt. Um welche Zeit war es?",
+          "en": "We posted a notice upstairs. What time was it?"
+        },
+        {
+          "speaker": "user",
+          "ko": "밤 열한 시부터 한 시까지 세 번 있었습니다. 기록도 남겼습니다.",
+          "de": "Zwischen 23 und 1 Uhr dreimal. Ich habe es protokolliert.",
+          "en": "Three times between 11 pm and 1 am. I logged it as well."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "기록이 있으면 관리소에서 직접 방문할 수 있습니다.",
+          "de": "Mit einem Protokoll kann die Verwaltung persönlich vorbeigehen.",
+          "en": "With a log, management can visit in person."
+        },
+        {
+          "speaker": "user",
+          "ko": "안내문 말고 직접 만나서 이야기해 주시기를 요청합니다.",
+          "de": "Ich bitte darum, nicht nur einen Zettel aufzuhängen, sondern persönlich zu sprechen.",
+          "en": "I'm requesting a face-to-face conversation, not another notice."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이번 주 안에 방문하도록 하겠습니다. 결과는 문서로 드립니다.",
+          "de": "Wir gehen diese Woche vorbei. Das Ergebnis erhalten Sie schriftlich.",
+          "en": "We'll visit within this week. You'll get the outcome in writing."
+        },
+        {
+          "speaker": "user",
+          "ko": "그리고 재발 시 절차를 알려 주시기를 요청합니다.",
+          "de": "Und ich bitte darum, mir das Verfahren für den Wiederholungsfall zu nennen.",
+          "en": "And I'm requesting the procedure in case it recurs."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "2차 조치 절차를 같이 안내하도록 하겠습니다.",
+          "de": "Wir erläutern Ihnen dazu die zweite Stufe.",
+          "en": "We'll walk you through the second-stage steps too."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_daily_upstairs_noise_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "기록이 있으면 관리소에서 직접 방문할 수 있습니다.",
+            "options": [
+              {
+                "de": "Mit Protokoll kann die Verwaltung persönlich vorbeigehen.",
+                "en": "With a log, management can visit in person."
+              },
+              {
+                "de": "Ohne Protokoll dürfen wir gar nichts tun.",
+                "en": "Without a log we may do nothing at all."
+              },
+              {
+                "de": "Die Verwaltung schickt nur einen weiteren Zettel.",
+                "en": "Management will only post another notice."
+              },
+              {
+                "de": "Sie müssen selbst mit den Nachbarn sprechen.",
+                "en": "You have to speak to the neighbours yourself."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_daily_upstairs_noise_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Wir gehen diese Woche vorbei.",
+            "promptEn": "We'll visit within this week.",
+            "options": [
+              {
+                "ko": "이번 주 안에 방문하도록 하겠습니다."
+              },
+              {
+                "ko": "다음 달에 방문하도록 하겠습니다."
+              },
+              {
+                "ko": "방문은 어렵습니다."
+              },
+              {
+                "ko": "안내문을 다시 붙이겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_daily_upstairs_noise_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "sentence": "재발 시 절차를 알려 ___ 요청합니다.",
+            "options": [
+              "주시기를",
+              "주시니까",
+              "주시면서",
+              "주시려고"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_daily_upstairs_noise_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "결과는 문서로 드립니다.",
+            "promptDe": "Das Ergebnis erhalten Sie schriftlich.",
+            "promptEn": "You'll get the outcome in writing.",
+            "distractors": [
+              "절차를",
+              "관리소가"
+            ]
+          }
+        },
+        {
+          "id": "quest_b2_daily_upstairs_noise_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "위층에 안내문을 붙였습니다.",
+            "promptDe": "Wir haben oben einen Hinweis aufgehängt.",
+            "promptEn": "We posted a notice upstairs."
+          }
+        }
+      ],
+      "shelf": "b2_authorities",
+      "backdrop": "home"
+    },
+    {
+      "id": "b2_friends_split_the_bill",
+      "level": "b2",
+      "emoji": "🧾",
+      "register": "casual",
+      "speechStyle": "casual",
+      "relationshipContext": "close_friends",
+      "intent": "argue_a_fair_split",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 180,
+      "title": {
+        "ko": "회비를 어떻게 나눌까",
+        "de": "Wie teilen wir die Rechnung",
+        "en": "How do we split this"
+      },
+      "intro": {
+        "ko": "회비 분담 방식이 갈립니다. 근거를 대며 논쟁하고 한 방식으로 합의합니다.",
+        "de": "Ihr seid uneins über die Aufteilung. Mit Argumenten kommt ihr auf eine Regel.",
+        "en": "You disagree on how to split. You argue it out and land on one rule."
+      },
+      "vocab": [
+        {
+          "korean": "회비"
+        },
+        {
+          "korean": "인원수"
+        },
+        {
+          "korean": "공평하다"
+        },
+        {
+          "korean": "술값"
+        },
+        {
+          "korean": "계산"
+        },
+        {
+          "korean": "모임"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_not_automatic_conclusion"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-다고 해서 A/V-는 것은 아니다",
+          "de": "Nicht automatisch daraus folgend",
+          "en": "It doesn't automatically follow"
+        },
+        "explanation": {
+          "ko": "상대의 전제를 인정하면서 결론만 부정한다. 간단하다고 해서 공평한 건 아니야처럼 쓴다.",
+          "de": "Nimmt die Prämisse an und verneint nur den Schluss: 간단하다고 해서 공평한 건 아니야.",
+          "en": "Grants the premise and denies only the conclusion: 간단하다고 해서 공평한 건 아니야."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "회비를 그냥 인원수로 나누자. 그게 제일 간단해.",
+          "de": "Teilen wir einfach nach Köpfen. Das ist am einfachsten.",
+          "en": "Let's just split by head count. That's simplest."
+        },
+        {
+          "speaker": "user",
+          "ko": "간단하다고 해서 공평한 건 아니야.",
+          "de": "Einfach heißt nicht fair.",
+          "en": "Simple doesn't mean fair."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "다들 같이 먹었잖아. 뭐가 문제야?",
+          "de": "Wir haben doch alle zusammen gegessen. Wo ist das Problem?",
+          "en": "We all ate together. What's the problem?"
+        },
+        {
+          "speaker": "user",
+          "ko": "술을 안 마신 사람이 세 명이야. 술값이 절반이 넘어.",
+          "de": "Drei haben nichts getrunken. Der Alkohol ist über die Hälfte.",
+          "en": "Three people didn't drink. Alcohol is over half the bill."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그건 몰랐어. 그럼 술값만 따로 나눌까?",
+          "de": "Das wusste ich nicht. Trennen wir dann nur den Alkohol?",
+          "en": "I didn't know that. Should we split just the drinks separately?"
+        },
+        {
+          "speaker": "user",
+          "ko": "그게 낫지. 음식은 인원수로, 술은 마신 사람끼리.",
+          "de": "Besser so. Essen nach Köpfen, Alkohol unter den Trinkenden.",
+          "en": "That's better. Food by head, drinks among the drinkers."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "계산이 복잡해진다고 해서 안 할 이유는 없지. 내가 정리할게.",
+          "de": "Nur weil es komplizierter wird, lassen wir es nicht. Ich rechne es aus.",
+          "en": "Just because it gets fiddlier doesn't mean we skip it. I'll work it out."
+        },
+        {
+          "speaker": "user",
+          "ko": "고마워. 다음 모임부터는 미리 이렇게 정하자.",
+          "de": "Danke. Ab dem nächsten Treffen klären wir das vorher.",
+          "en": "Thanks. From the next meetup let's set this upfront."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_friends_split_the_bill_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "audioKo": "술을 안 마신 사람이 세 명이야. 술값이 절반이 넘어.",
+            "options": [
+              {
+                "de": "Drei haben nicht getrunken, der Alkohol ist über die Hälfte.",
+                "en": "Three didn't drink, and alcohol is over half the bill."
+              },
+              {
+                "de": "Drei haben alles getrunken, der Rest nichts.",
+                "en": "Three drank everything and the rest had none."
+              },
+              {
+                "de": "Der Alkohol war heute gratis.",
+                "en": "The drinks were free today."
+              },
+              {
+                "de": "Wir waren nur drei Personen.",
+                "en": "There were only three of us."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_friends_split_the_bill_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "promptDe": "Einfach heißt nicht fair.",
+            "promptEn": "Simple doesn't mean fair.",
+            "options": [
+              {
+                "ko": "간단하다고 해서 공평한 건 아니야."
+              },
+              {
+                "ko": "간단하니까 공평한 거야."
+              },
+              {
+                "ko": "공평하면 간단해지는 거야."
+              },
+              {
+                "ko": "간단한 게 제일 공평해."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_friends_split_the_bill_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "sentence": "간단하다고 ___ 공평한 건 아니야.",
+            "options": [
+              "해서",
+              "하고",
+              "하면",
+              "하니까"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_friends_split_the_bill_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "다음 모임부터는 미리 이렇게 정하자.",
+            "promptDe": "Ab dem nächsten Treffen klären wir das vorher.",
+            "promptEn": "From the next meetup let's set this upfront.",
+            "distractors": [
+              "술값을",
+              "회비가"
+            ]
+          }
+        },
+        {
+          "id": "quest_b2_friends_split_the_bill_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_opinion"
+          ],
+          "data": {
+            "targetKo": "내가 정리할게.",
+            "promptDe": "Ich rechne es aus.",
+            "promptEn": "I'll work it out."
+          }
+        }
+      ],
+      "shelf": "b2_friends",
+      "backdrop": "restaurant"
+    },
+    {
+      "id": "b2_dating_moving_in_terms",
+      "level": "b2",
+      "emoji": "🔑",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "negotiate_living_terms",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 185,
+      "title": {
+        "ko": "같이 살기 전에",
+        "de": "Bevor wir zusammenziehen",
+        "en": "Before we move in"
+      },
+      "intro": {
+        "ko": "동거를 이야기합니다. 조건을 조건절로 정리해 서로 지킬 것을 정합니다.",
+        "de": "Ihr sprecht über das Zusammenziehen und legt Bedingungen fest, die beide einhalten.",
+        "en": "You talk about moving in and set terms you'll both keep."
+      },
+      "vocab": [
+        {
+          "korean": "조건"
+        },
+        {
+          "korean": "방세"
+        },
+        {
+          "korean": "집안일"
+        },
+        {
+          "korean": "항목"
+        },
+        {
+          "korean": "찬성"
+        },
+        {
+          "korean": "지키다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_as_long_as",
+        "grammar_b2_instead_tradeoff"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 한 / V-는 대신(에)",
+          "de": "Bedingung und Gegenleistung",
+          "en": "Condition and trade-off"
+        },
+        "explanation": {
+          "ko": "는 한은 그 조건이 지켜지는 동안만 성립한다고 못 박고, 는 대신에는 하나를 주고 하나를 받는 교환을 만든다.",
+          "de": "는 한 bindet die Zustimmung an eine Bedingung, 는 대신에 stellt eine Gegenleistung daneben.",
+          "en": "는 한 ties agreement to a condition; 는 대신에 sets up an exchange."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "같이 살자는 얘기, 진지하게 해 보고 싶어.",
+          "de": "Ich will ernsthaft über das Zusammenziehen reden.",
+          "en": "I want to talk seriously about living together."
+        },
+        {
+          "speaker": "user",
+          "ko": "나도. 그런데 조건을 먼저 정하고 싶어.",
+          "de": "Ich auch. Aber ich will vorher die Bedingungen klären.",
+          "en": "Me too. But I'd like to set the terms first."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "좋아. 방 하나는 각자 쓰는 한 나는 찬성이야.",
+          "de": "Gut. Solange jeder ein eigenes Zimmer hat, bin ich dafür.",
+          "en": "Good. As long as we each keep one room, I'm in."
+        },
+        {
+          "speaker": "user",
+          "ko": "그건 나도 필요해. 방세는 반씩 내는 대신에 집안일을 나누자.",
+          "de": "Das brauche ich auch. Miete halbe halbe, dafür teilen wir den Haushalt.",
+          "en": "I need that too. We split rent evenly, and in exchange we divide chores."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "집안일은 시간이 아니라 항목으로 나누는 게 좋아.",
+          "de": "Den Haushalt teilt man besser nach Aufgaben als nach Stunden.",
+          "en": "Chores work better split by task than by hours."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 요리는 내가, 청소는 네가. 대신 주말엔 같이 하자.",
+          "de": "Dann koche ich, du putzt. Am Wochenende dafür zusammen.",
+          "en": "Then I cook and you clean. In exchange, weekends we do it together."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "좋아. 서로 혼자 있는 시간을 지키는 한 잘 될 거야.",
+          "de": "Gut. Solange wir die Zeit für uns respektieren, klappt das.",
+          "en": "Good. As long as we protect each other's alone time, this works."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 말이 제일 중요해. 다음 주에 집을 같이 보자.",
+          "de": "Das ist der wichtigste Punkt. Nächste Woche schauen wir Wohnungen an.",
+          "en": "That's the most important part. Let's look at places next week."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_dating_moving_in_terms_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_advanced"
+          ],
+          "data": {
+            "audioKo": "방 하나는 각자 쓰는 한 나는 찬성이야.",
+            "options": [
+              {
+                "de": "Solange jeder ein eigenes Zimmer hat, bin ich dafür.",
+                "en": "As long as we each keep one room, I'm in favour."
+              },
+              {
+                "de": "Ich bin dagegen, weil es nur ein Zimmer gibt.",
+                "en": "I'm against it because there's only one room."
+              },
+              {
+                "de": "Wir brauchen kein eigenes Zimmer.",
+                "en": "We don't need separate rooms."
+              },
+              {
+                "de": "Ein Zimmer teilen wir uns abwechselnd.",
+                "en": "We'll take turns sharing one room."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_dating_moving_in_terms_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_advanced"
+          ],
+          "data": {
+            "promptDe": "Miete halbe halbe, dafür teilen wir den Haushalt.",
+            "promptEn": "We split rent evenly, and in exchange we divide chores.",
+            "options": [
+              {
+                "ko": "방세는 반씩 내는 대신에 집안일을 나누자."
+              },
+              {
+                "ko": "방세를 내는 사람이 집안일도 하자."
+              },
+              {
+                "ko": "집안일을 하는 대신에 방세를 내지 말자."
+              },
+              {
+                "ko": "방세와 집안일을 둘 다 내가 할게."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_dating_moving_in_terms_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_advanced"
+          ],
+          "data": {
+            "sentence": "방 하나는 각자 쓰는 ___ 나는 찬성이야.",
+            "options": [
+              "한",
+              "김",
+              "채",
+              "척"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_dating_moving_in_terms_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_advanced"
+          ],
+          "data": {
+            "targetKo": "다음 주에 집을 같이 보자.",
+            "promptDe": "Nächste Woche schauen wir Wohnungen zusammen an.",
+            "promptEn": "Let's look at places together next week.",
+            "distractors": [
+              "집안일을",
+              "방세가"
+            ]
+          }
+        },
+        {
+          "id": "quest_b2_dating_moving_in_terms_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_advanced"
+          ],
+          "data": {
+            "targetKo": "조건을 먼저 정하고 싶어.",
+            "promptDe": "Ich will die Bedingungen zuerst klären.",
+            "promptEn": "I want to set the terms first."
+          }
+        }
+      ],
+      "shelf": "b2_dating",
+      "backdrop": "home"
+    },
+    {
+      "id": "b2_youtube_collab_pitch",
+      "level": "b2",
+      "emoji": "🎬",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "professional_colleagues",
+      "intent": "open_a_collab_pitch",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 180,
+      "title": {
+        "ko": "협업을 제안합니다",
+        "de": "Ich schlage eine Kooperation vor",
+        "en": "Proposing a collaboration"
+      },
+      "intro": {
+        "ko": "다른 채널에 첫 협업 제안을 보냅니다. 목적·분량·일정을 한 번에 정리합니다.",
+        "de": "Du schickst einem anderen Kanal den ersten Kooperationsvorschlag mit Ziel, Länge und Termin.",
+        "en": "You send a first collab pitch to another channel, covering aim, length and timing."
+      },
+      "vocab": [
+        {
+          "korean": "협업"
+        },
+        {
+          "korean": "형태"
+        },
+        {
+          "korean": "분량"
+        },
+        {
+          "korean": "일정"
+        },
+        {
+          "korean": "광고 문의"
+        },
+        {
+          "korean": "계약서"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_intention"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-고자",
+          "de": "V-고자: formelle Absicht",
+          "en": "V-고자: stating a formal aim"
+        },
+        "explanation": {
+          "ko": "공식 문서나 첫 연락에서 목적을 밝힌다. 제안하고자, 올리고자처럼 쓰고 구어보다 문어에 가깝다.",
+          "de": "Nennt den Zweck in offiziellen Texten oder Erstkontakten: 제안하고자, 올리고자. Eher schriftlich als mündlich.",
+          "en": "States purpose in formal writing or a first approach: 제안하고자, 올리고자. More written than spoken."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "안녕하세요. 채널 협업을 제안하고자 연락드렸습니다.",
+          "de": "Guten Tag. Ich schreibe, um eine Kanal-Kooperation vorzuschlagen.",
+          "en": "Hello. I'm reaching out to propose a channel collaboration."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "반갑습니다. 어떤 형태를 생각하고 계신가요?",
+          "de": "Freut mich. An welche Form denken Sie?",
+          "en": "Good to hear from you. What format do you have in mind?"
+        },
+        {
+          "speaker": "user",
+          "ko": "두 채널이 같은 주제를 각자 다루고자 합니다. 편집은 따로 합니다.",
+          "de": "Beide Kanäle sollen dasselbe Thema getrennt behandeln. Der Schnitt bleibt getrennt.",
+          "en": "Both channels would cover one topic separately. Editing stays separate."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "분량과 일정은 어떻게 보십니까?",
+          "de": "Wie sehen Sie Länge und Zeitplan?",
+          "en": "How do you see length and scheduling?"
+        },
+        {
+          "speaker": "user",
+          "ko": "각 12분, 같은 날 오후 여섯 시에 올리고자 합니다.",
+          "de": "Je zwölf Minuten, Upload am selben Tag um 18 Uhr.",
+          "en": "Twelve minutes each, both going up at 6 pm the same day."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "좋습니다. 다만 광고 문의가 겹치면 미리 알려 주셔야 합니다.",
+          "de": "Gut. Wenn sich Werbeanfragen überschneiden, müssen Sie es vorab sagen.",
+          "en": "Good. But if ad enquiries overlap, you'll need to tell me in advance."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 부분은 계약서에 넣고자 합니다. 초안을 오늘 보내겠습니다.",
+          "de": "Das möchte ich in den Vertrag aufnehmen. Den Entwurf schicke ich heute.",
+          "en": "I'd like that written into the contract. I'll send a draft today."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "확인하고 이번 주 안에 답을 드리겠습니다.",
+          "de": "Ich prüfe es und antworte diese Woche.",
+          "en": "I'll review it and reply within the week."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_youtube_collab_pitch_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "audioKo": "각 12분, 같은 날 오후 여섯 시에 올리고자 합니다.",
+            "options": [
+              {
+                "de": "Je zwölf Minuten, Upload am selben Tag um 18 Uhr.",
+                "en": "Twelve minutes each, uploaded the same day at 6 pm."
+              },
+              {
+                "de": "Zwölf Videos an einem Tag um 18 Uhr.",
+                "en": "Twelve videos in one day at 6 pm."
+              },
+              {
+                "de": "Je zwölf Minuten, Upload an zwei Tagen.",
+                "en": "Twelve minutes each, uploaded on two different days."
+              },
+              {
+                "de": "Der Termin steht noch nicht fest.",
+                "en": "The timing isn't decided yet."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_youtube_collab_pitch_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "promptDe": "Ich schreibe, um eine Kanal-Kooperation vorzuschlagen.",
+            "promptEn": "I'm reaching out to propose a channel collaboration.",
+            "options": [
+              {
+                "ko": "채널 협업을 제안하고자 연락드렸습니다."
+              },
+              {
+                "ko": "채널 협업을 거절하고자 연락드렸습니다."
+              },
+              {
+                "ko": "채널 광고를 사고자 연락드렸습니다."
+              },
+              {
+                "ko": "채널 구독자 수를 묻고자 연락드렸습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_youtube_collab_pitch_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "sentence": "광고 문의가 겹치면 미리 알려 ___ 합니다.",
+            "options": [
+              "주셔야",
+              "주려고",
+              "주도록",
+              "주고자"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_youtube_collab_pitch_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "targetKo": "초안을 오늘 보내겠습니다.",
+            "promptDe": "Den Entwurf schicke ich heute.",
+            "promptEn": "I'll send the draft today.",
+            "distractors": [
+              "계약서를",
+              "분량이"
+            ]
+          }
+        },
+        {
+          "id": "quest_b2_youtube_collab_pitch_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "targetKo": "이번 주 안에 답을 드리겠습니다.",
+            "promptDe": "Ich antworte diese Woche.",
+            "promptEn": "I'll reply within the week."
+          }
+        }
+      ],
+      "shelf": "b2_fandom",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_gaming_ban_appeal",
+      "level": "b2",
+      "emoji": "⛔",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "customer_and_service_staff",
+      "intent": "contest_an_account_ban",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 185,
+      "title": {
+        "ko": "계정 정지에 이의가 있습니다",
+        "de": "Einspruch gegen die Kontosperre",
+        "en": "Contesting an account ban"
+      },
+      "intro": {
+        "ko": "자동 탐지로 계정이 정지됐습니다. 사유를 확인하고 서면 재심을 요청합니다.",
+        "de": "Eine automatische Erkennung hat dein Konto gesperrt. Du klärst den Grund und beantragst eine schriftliche Neuprüfung.",
+        "en": "Automated detection suspended your account. You get the reason and request a written review."
+      },
+      "vocab": [
+        {
+          "korean": "정지"
+        },
+        {
+          "korean": "사유"
+        },
+        {
+          "korean": "자동 탐지"
+        },
+        {
+          "korean": "증빙"
+        },
+        {
+          "korean": "재심"
+        },
+        {
+          "korean": "통보"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_reason",
+        "grammar_b2_explicit_formal_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)므로",
+          "de": "V-(으)므로: formeller Grund",
+          "en": "V-(으)므로: a formal reason"
+        },
+        "explanation": {
+          "ko": "문서와 공식 대화에서 근거를 밝힌다. 출장 중이었으므로처럼 쓰며 구어의 아서/어서보다 딱딱하다.",
+          "de": "Nennt den Grund in Schriftstücken und offiziellen Gesprächen: 출장 중이었으므로. Förmlicher als 아서/어서.",
+          "en": "Gives the reason in documents and formal talk: 출장 중이었으므로. Stiffer than the spoken 아서/어서."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "어제 계정이 정지됐습니다. 사유를 확인하고 싶습니다.",
+          "de": "Mein Konto wurde gestern gesperrt. Ich möchte den Grund erfahren.",
+          "en": "My account was suspended yesterday. I'd like to know the reason."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "자동 탐지에서 비정상 접속으로 분류됐습니다.",
+          "de": "Die automatische Erkennung hat es als auffälligen Zugriff eingestuft.",
+          "en": "Automated detection classified it as abnormal access."
+        },
+        {
+          "speaker": "user",
+          "ko": "저는 어제 출장 중이었으므로 접속 지역이 달랐습니다.",
+          "de": "Ich war gestern auf Dienstreise, daher der andere Standort.",
+          "en": "I was travelling for work yesterday, hence the different location."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "기록에 두 지역이 같은 시간에 나타납니다.",
+          "de": "Im Protokoll erscheinen zwei Regionen zur selben Zeit.",
+          "en": "The log shows two regions at the same time."
+        },
+        {
+          "speaker": "user",
+          "ko": "집 컴퓨터가 자동 업데이트로 켜져 있었으므로 그렇게 보일 수 있습니다.",
+          "de": "Mein Rechner zu Hause lief wegen eines Updates, das kann so aussehen.",
+          "en": "My home computer was on for an update, which can look like that."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "가능한 설명입니다. 증빙을 보내 주시겠습니까?",
+          "de": "Das ist eine plausible Erklärung. Können Sie Belege senden?",
+          "en": "That's a plausible account. Could you send supporting records?"
+        },
+        {
+          "speaker": "user",
+          "ko": "항공권과 숙소 기록을 보내겠습니다. 서면으로 재심을 요청합니다.",
+          "de": "Ich sende Flug- und Hotelbelege. Ich beantrage schriftlich eine Neuprüfung.",
+          "en": "I'll send flight and hotel records. I'm requesting a written review."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "재심 결과는 3영업일 안에 통보합니다.",
+          "de": "Das Ergebnis der Neuprüfung kommt in drei Werktagen.",
+          "en": "You'll be notified of the review outcome within three business days."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_gaming_ban_appeal_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_complaint"
+          ],
+          "data": {
+            "audioKo": "자동 탐지에서 비정상 접속으로 분류됐습니다.",
+            "options": [
+              {
+                "de": "Die automatische Erkennung stufte es als auffälligen Zugriff ein.",
+                "en": "Automated detection classified it as abnormal access."
+              },
+              {
+                "de": "Ein Mitarbeiter hat das Konto manuell gesperrt.",
+                "en": "A staff member suspended the account manually."
+              },
+              {
+                "de": "Ihr Konto wurde noch nicht geprüft.",
+                "en": "Your account hasn't been reviewed yet."
+              },
+              {
+                "de": "Der Zugriff war völlig normal.",
+                "en": "The access was completely normal."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_gaming_ban_appeal_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_complaint"
+          ],
+          "data": {
+            "promptDe": "Ich beantrage schriftlich eine Neuprüfung.",
+            "promptEn": "I'm requesting a written review.",
+            "options": [
+              {
+                "ko": "서면으로 재심을 요청합니다."
+              },
+              {
+                "ko": "전화로 사유를 묻겠습니다."
+              },
+              {
+                "ko": "계정을 새로 만들겠습니다."
+              },
+              {
+                "ko": "재심은 필요하지 않습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_gaming_ban_appeal_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_complaint"
+          ],
+          "data": {
+            "sentence": "어제 출장 중이었___ 접속 지역이 달랐습니다.",
+            "options": [
+              "으므로",
+              "지만",
+              "는데도",
+              "다가"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_gaming_ban_appeal_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_complaint"
+          ],
+          "data": {
+            "targetKo": "항공권과 숙소 기록을 보내겠습니다.",
+            "promptDe": "Ich sende Flug- und Hotelbelege.",
+            "promptEn": "I'll send flight and hotel records.",
+            "distractors": [
+              "재심을",
+              "사유가"
+            ]
+          }
+        },
+        {
+          "id": "quest_b2_gaming_ban_appeal_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_complaint"
+          ],
+          "data": {
+            "targetKo": "사유를 확인하고 싶습니다.",
+            "promptDe": "Ich möchte den Grund erfahren.",
+            "promptEn": "I'd like to know the reason."
+          }
+        }
+      ],
+      "shelf": "b2_friends",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_kpop_staff_interview",
+      "level": "b2",
+      "emoji": "📝",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "professional_colleagues",
+      "intent": "present_myself_as_staff",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 180,
+      "title": {
+        "ko": "팬 커뮤니티 운영진 면접",
+        "de": "Bewerbung als Community-Team",
+        "en": "Interviewing for the fan community team"
+      },
+      "intro": {
+        "ko": "팬 커뮤니티 운영진에 지원했습니다. 경험을 근거로 지속 가능한 운영을 설명합니다.",
+        "de": "Du bewirbst dich für das Community-Team und begründest, wie Moderation dauerhaft funktioniert.",
+        "en": "You're applying to the fan community team and argue how it can run sustainably."
+      },
+      "vocab": [
+        {
+          "korean": "운영"
+        },
+        {
+          "korean": "갈등"
+        },
+        {
+          "korean": "규칙"
+        },
+        {
+          "korean": "검수"
+        },
+        {
+          "korean": "무보수"
+        },
+        {
+          "korean": "교대"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_shared_merit"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-다는 점에서",
+          "de": "A/V-다는 점에서: in dieser Hinsicht",
+          "en": "A/V-다는 점에서: on the grounds that"
+        },
+        "explanation": {
+          "ko": "어떤 사실을 근거로 판단을 내린다. 맡았다는 점에서, 공개한다는 점에서처럼 쓴다.",
+          "de": "Leitet ein Urteil aus einer Tatsache ab: 맡았다는 점에서, 공개한다는 점에서.",
+          "en": "Bases a judgement on a fact: 맡았다는 점에서, 공개한다는 점에서."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "팬 커뮤니티 운영에 지원하신 이유를 말씀해 주세요.",
+          "de": "Sagen Sie mir, warum Sie sich für die Community-Moderation bewerben.",
+          "en": "Tell me why you applied to help run the fan community."
+        },
+        {
+          "speaker": "user",
+          "ko": "3년 동안 번역 팀을 맡았다는 점에서 준비가 됐다고 생각합니다.",
+          "de": "Da ich drei Jahre ein Übersetzungsteam geleitet habe, halte ich mich für vorbereitet.",
+          "en": "Having led a translation team for three years, I consider myself ready."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "규모가 커지면 갈등도 생깁니다. 어떻게 다루시겠습니까?",
+          "de": "Mit der Größe kommen Konflikte. Wie würden Sie damit umgehen?",
+          "en": "Conflicts grow with size. How would you handle them?"
+        },
+        {
+          "speaker": "user",
+          "ko": "규칙을 미리 공개한다는 점에서 다툼을 줄일 수 있습니다.",
+          "de": "Vorab veröffentlichte Regeln sind es, die Streit verringern.",
+          "en": "Publishing the rules in advance is what reduces disputes."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "실제로 그렇게 해 보신 적이 있습니까?",
+          "de": "Haben Sie das in der Praxis schon gemacht?",
+          "en": "Have you actually done that in practice?"
+        },
+        {
+          "speaker": "user",
+          "ko": "번역 팀에서 마감과 검수 기준을 문서로 두었습니다. 이후 재작업이 줄었습니다.",
+          "de": "Im Übersetzungsteam standen Fristen und Prüfkriterien schriftlich fest. Danach gab es weniger Nacharbeit.",
+          "en": "In the translation team we put deadlines and review criteria in writing. Rework dropped afterwards."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "무보수 활동이라는 점에서 오래 하기 어렵습니다. 어떻게 보십니까?",
+          "de": "Da es unbezahlt ist, hält man das schwer lange durch. Wie sehen Sie das?",
+          "en": "Since it's unpaid, it's hard to sustain. What's your view?"
+        },
+        {
+          "speaker": "user",
+          "ko": "역할을 나누고 교대한다는 점에서 지속할 수 있다고 봅니다.",
+          "de": "Geteilte Rollen und regelmäßiger Wechsel machen es tragfähig.",
+          "en": "Splitting roles and rotating them is what makes it sustainable."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_kpop_staff_interview_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "audioKo": "번역 팀에서 마감과 검수 기준을 문서로 두었습니다.",
+            "options": [
+              {
+                "de": "Im Übersetzungsteam standen Fristen und Prüfkriterien schriftlich fest.",
+                "en": "In the translation team deadlines and review criteria were in writing."
+              },
+              {
+                "de": "Das Übersetzungsteam hatte keine festen Fristen.",
+                "en": "The translation team had no fixed deadlines."
+              },
+              {
+                "de": "Die Prüfung übernahm eine andere Abteilung.",
+                "en": "Another department handled the review."
+              },
+              {
+                "de": "Wir haben die Dokumente später gelöscht.",
+                "en": "We deleted the documents later."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_kpop_staff_interview_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "promptDe": "Vorab veröffentlichte Regeln sind es, die Streit verringern.",
+            "promptEn": "Publishing the rules in advance is what reduces disputes.",
+            "options": [
+              {
+                "ko": "규칙을 미리 공개한다는 점에서 다툼을 줄일 수 있습니다."
+              },
+              {
+                "ko": "규칙이 없다는 점에서 다툼이 줄어듭니다."
+              },
+              {
+                "ko": "규칙을 나중에 알리는 편이 낫습니다."
+              },
+              {
+                "ko": "다툼은 규칙과 관계가 없습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_kpop_staff_interview_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "sentence": "규칙을 미리 공개한다는 ___ 다툼을 줄일 수 있습니다.",
+            "options": [
+              "점에서",
+              "김에",
+              "대신에",
+              "바람에"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_kpop_staff_interview_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "targetKo": "역할을 나누고 교대한다는 점에서 지속할 수 있습니다.",
+            "promptDe": "Geteilte und wechselnde Rollen machen es tragfähig.",
+            "promptEn": "Splitting and rotating roles makes it sustainable.",
+            "distractors": [
+              "갈등을",
+              "검수가"
+            ]
+          }
+        },
+        {
+          "id": "quest_b2_kpop_staff_interview_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "targetKo": "이후 재작업이 줄었습니다.",
+            "promptDe": "Danach gab es weniger Nacharbeit.",
+            "promptEn": "Rework dropped afterwards."
+          }
+        }
+      ],
+      "shelf": "b2_fandom",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_hiring_role_scope",
+      "level": "b2",
+      "emoji": "🧭",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "candidate_and_interviewer",
+      "intent": "bound_the_role_before_accepting",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 150,
+      "title": {
+        "ko": "직무 범위를 확인하고자 합니다",
+        "de": "Ich möchte den Aufgabenbereich klären",
+        "en": "I would like to clarify the role's scope"
+      },
+      "intro": {
+        "ko": "공고와 면접 설명이 조금 다릅니다. 어디까지가 내 일인지 지금 정리합니다.",
+        "de": "Anzeige und Gespräch weichen leicht ab. Du klärst jetzt, was zur Rolle gehört.",
+        "en": "The posting and the interview differ slightly. You settle now what the role includes."
+      },
+      "vocab": [
+        {
+          "korean": "직무"
+        },
+        {
+          "korean": "범위"
+        },
+        {
+          "korean": "겸임"
+        },
+        {
+          "korean": "공고"
+        },
+        {
+          "korean": "권한"
+        },
+        {
+          "korean": "보고선"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_intention"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-고자",
+          "de": "V-고자: Absicht (formell)",
+          "en": "V-고자: formal intent"
+        },
+        "explanation": {
+          "ko": "격식 있게 의도를 밝힌다. 확인하고자 합니다처럼 쓴다.",
+          "de": "Nennt die Absicht förmlich: 확인하고자 합니다.",
+          "en": "States intent formally: 확인하고자 합니다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "공고와 조금 달라서 직무 범위를 확인하고자 합니다.",
+          "de": "Da es von der Anzeige abweicht, möchte ich den Aufgabenbereich klären.",
+          "en": "Since it differs from the posting, I would like to clarify the scope."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "어떤 부분이 다르게 느껴지셨습니까?",
+          "de": "Welcher Teil kam Ihnen anders vor?",
+          "en": "Which part seemed different to you?"
+        },
+        {
+          "speaker": "user",
+          "ko": "공고에는 분석만 있었는데 운영도 말씀하셨습니다.",
+          "de": "In der Anzeige stand nur Analyse, Sie erwähnten aber auch Betrieb.",
+          "en": "The posting listed analysis only, but you mentioned operations too."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "초기 육 개월은 운영을 겸합니다. 그 뒤에는 분리됩니다.",
+          "de": "Die ersten sechs Monate laufen beide parallel, danach getrennt.",
+          "en": "For the first six months both run together, then they separate."
+        },
+        {
+          "speaker": "user",
+          "ko": "분리 시점이 문서에 남습니까?",
+          "de": "Wird der Zeitpunkt schriftlich festgehalten?",
+          "en": "Is that separation point recorded in writing?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "계약서 부속 합의로 넣을 수 있습니다.",
+          "de": "Wir können es als Zusatzvereinbarung aufnehmen.",
+          "en": "We can add it as an annex to the contract."
+        },
+        {
+          "speaker": "user",
+          "ko": "그렇다면 보고선도 함께 적어 주시면 좋겠습니다.",
+          "de": "Dann bitte auch die Berichtslinie mit aufnehmen.",
+          "en": "In that case please record the reporting line as well."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 두 항목 다 초안에 반영하겠습니다.",
+          "de": "Ja, beides kommt in den Entwurf.",
+          "en": "Yes, both go into the draft."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_hiring_role_scope_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "audioKo": "초기 육 개월은 운영을 겸합니다. 그 뒤에는 분리됩니다.",
+            "options": [
+              {
+                "de": "Sechs Monate beides, danach getrennt.",
+                "en": "Six months of both, separated afterwards."
+              },
+              {
+                "de": "Betrieb bleibt dauerhaft dabei.",
+                "en": "Operations stays part of it permanently."
+              },
+              {
+                "de": "Betrieb gehört gar nicht dazu.",
+                "en": "Operations is not included at all."
+              },
+              {
+                "de": "Die Trennung erfolgt nach zwei Jahren.",
+                "en": "The split happens after two years."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_role_scope_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "promptDe": "Wird der Zeitpunkt schriftlich festgehalten?",
+            "promptEn": "Is that separation point recorded in writing?",
+            "options": [
+              {
+                "ko": "분리 시점이 문서에 남습니까?"
+              },
+              {
+                "ko": "분리 시점을 앞당길 수 있습니까?"
+              },
+              {
+                "ko": "분리 후에도 급여가 같습니까?"
+              },
+              {
+                "ko": "분리 전에 평가가 있습니까?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_role_scope_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "sentence": "직무 범위를 확인___ 합니다.",
+            "options": [
+              "하고자",
+              "하는 한",
+              "하므로",
+              "하도록"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_role_scope_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "targetKo": "보고선도 함께 적어 주시면 좋겠습니다.",
+            "promptDe": "Bitte darum, auch die Berichtslinie aufzunehmen.",
+            "promptEn": "Ask that the reporting line be recorded too.",
+            "distractors": [
+              "두 항목 다 초안에 반영하겠습니다",
+              "어떤 부분이 다르게 느껴지셨습니까",
+              "계약서 부속 합의로 넣을 수 있습니다"
+            ],
+            "audioKo": "보고선도 함께 적어 주시면 좋겠습니다."
+          }
+        },
+        {
+          "id": "quest_b2_hiring_role_scope_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "targetKo": "계약서 부속 합의로 넣을 수 있습니다.",
+            "audioKo": "계약서 부속 합의로 넣을 수 있습니다.",
+            "promptDe": "Wir können es als Zusatzvereinbarung aufnehmen.",
+            "promptEn": "We can add it as an annex to the contract."
+          }
+        }
+      ],
+      "shelf": "b2_hiring",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_hiring_salary_band",
+      "level": "b2",
+      "emoji": "⚖️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "candidate_and_interviewer",
+      "intent": "trade_one_term_against_another",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 150,
+      "title": {
+        "ko": "구간의 어디쯤입니까",
+        "de": "Wo in der Spanne liegt es",
+        "en": "Where in the band does it sit"
+      },
+      "intro": {
+        "ko": "숫자 하나만 묻지 않습니다. 무엇을 내주면 무엇이 오는지로 이야기합니다.",
+        "de": "Du fragst nicht nur nach einer Zahl, sondern danach, was gegen was steht.",
+        "en": "You do not just ask for a number. You ask what trades against what."
+      },
+      "vocab": [
+        {
+          "korean": "구간"
+        },
+        {
+          "korean": "연봉"
+        },
+        {
+          "korean": "성과급"
+        },
+        {
+          "korean": "재량"
+        },
+        {
+          "korean": "조정"
+        },
+        {
+          "korean": "시점"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_instead_tradeoff"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 대신(에)",
+          "de": "V-는 대신에: statt / dafür",
+          "en": "V-는 대신에: instead / in return"
+        },
+        "explanation": {
+          "ko": "하나를 주고 하나를 받을 때 쓴다. 낮추는 대신에처럼 쓴다.",
+          "de": "Setzt Gegenleistungen gegeneinander: 낮추는 대신에.",
+          "en": "Sets one thing against another: 낮추는 대신에."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "제시하신 금액이 구간의 어디쯤입니까?",
+          "de": "Wo liegt Ihr Angebot innerhalb der Spanne?",
+          "en": "Where does your offer sit within the band?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "중간보다 조금 아래입니다.",
+          "de": "Etwas unter der Mitte.",
+          "en": "A little below the midpoint."
+        },
+        {
+          "speaker": "user",
+          "ko": "중간까지 올리는 건 어렵습니까?",
+          "de": "Wäre die Mitte möglich?",
+          "en": "Would the midpoint be possible?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "기본급을 올리는 대신에 성과급 비중이 줄어듭니다.",
+          "de": "Höheres Grundgehalt bedeutet dafür weniger Bonusanteil.",
+          "en": "Raising base pay means a smaller bonus share in return."
+        },
+        {
+          "speaker": "user",
+          "ko": "성과급은 어떤 기준으로 정해집니까?",
+          "de": "Wonach richtet sich der Bonus?",
+          "en": "What determines the bonus?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "팀 지표 절반, 개인 평가 절반입니다.",
+          "de": "Zur Hälfte Teamkennzahlen, zur Hälfte Einzelbewertung.",
+          "en": "Half team metrics, half individual review."
+        },
+        {
+          "speaker": "user",
+          "ko": "그렇다면 기본급을 택하겠습니다.",
+          "de": "Dann nehme ich das höhere Grundgehalt.",
+          "en": "In that case I'll take the higher base."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "확인해서 수정안을 보내겠습니다.",
+          "de": "Ich prüfe das und schicke einen angepassten Entwurf.",
+          "en": "I'll check and send a revised offer."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_hiring_salary_band_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "audioKo": "기본급을 올리는 대신에 성과급 비중이 줄어듭니다.",
+            "options": [
+              {
+                "de": "Mehr Grundgehalt, dafür weniger Bonus.",
+                "en": "More base pay, less bonus in return."
+              },
+              {
+                "de": "Mehr Grundgehalt und mehr Bonus.",
+                "en": "More base pay and more bonus."
+              },
+              {
+                "de": "Grundgehalt ist nicht verhandelbar.",
+                "en": "Base pay is not negotiable."
+              },
+              {
+                "de": "Es gibt gar keinen Bonus.",
+                "en": "There is no bonus at all."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_salary_band_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "promptDe": "Wonach richtet sich der Bonus?",
+            "promptEn": "What determines the bonus?",
+            "options": [
+              {
+                "ko": "성과급은 어떤 기준으로 정해집니까?"
+              },
+              {
+                "ko": "성과급은 언제 나옵니까?"
+              },
+              {
+                "ko": "성과급은 세금이 붙습니까?"
+              },
+              {
+                "ko": "성과급을 포기해도 됩니까?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_salary_band_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "sentence": "기본급을 올리는 ___ 성과급이 줄어듭니다.",
+            "options": [
+              "대신에",
+              "덕분에",
+              "때문에",
+              "김에"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_salary_band_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "targetKo": "제시하신 금액이 구간의 어디쯤입니까?",
+            "promptDe": "Frag, wo das Angebot in der Gehaltsspanne liegt.",
+            "promptEn": "Ask where the offer sits within the salary band.",
+            "distractors": [
+              "확인해서 수정안을 보내겠습니다",
+              "중간보다 조금 아래입니다",
+              "팀 지표 절반, 개인 평가 절반입니다"
+            ],
+            "audioKo": "제시하신 금액이 구간의 어디쯤입니까?"
+          }
+        },
+        {
+          "id": "quest_b2_hiring_salary_band_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "targetKo": "팀 지표 절반, 개인 평가 절반입니다.",
+            "audioKo": "팀 지표 절반, 개인 평가 절반입니다.",
+            "promptDe": "Zur Hälfte Teamkennzahlen, zur Hälfte Einzelbewertung.",
+            "promptEn": "Half team metrics, half individual review."
+          }
+        }
+      ],
+      "shelf": "b2_hiring",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_hiring_reference_consent",
+      "level": "b2",
+      "emoji": "📇",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "candidate_and_interviewer",
+      "intent": "limit_who_may_be_contacted",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 150,
+      "title": {
+        "ko": "평판 조회 범위를 정하고 싶습니다",
+        "de": "Ich möchte den Rahmen der Referenzen festlegen",
+        "en": "I want to set the scope of reference checks"
+      },
+      "intro": {
+        "ko": "현 직장에 알려지면 곤란합니다. 누구에게까지 연락할지 미리 못박습니다.",
+        "de": "Es wäre heikel, wenn der aktuelle Arbeitgeber davon erfährt. Du legst vorab fest, wen man kontaktieren darf.",
+        "en": "It would be awkward if your current employer heard. You fix in advance who may be contacted."
+      },
+      "vocab": [
+        {
+          "korean": "평판"
+        },
+        {
+          "korean": "조회"
+        },
+        {
+          "korean": "동의"
+        },
+        {
+          "korean": "재직"
+        },
+        {
+          "korean": "전 직장"
+        },
+        {
+          "korean": "시점"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_shared_merit"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-다는 점에서",
+          "de": "A/V-다는 점에서: insofern als",
+          "en": "A/V-다는 점에서: in that it"
+        },
+        "explanation": {
+          "ko": "어떤 점에서 그런지 근거를 댈 때 쓴다. 재직 중이라는 점에서처럼 쓴다.",
+          "de": "Nennt den Punkt, auf den es ankommt: 재직 중이라는 점에서.",
+          "en": "Names the respect in which something holds: 재직 중이라는 점에서."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "평판 조회에 동의해 주실 수 있습니까?",
+          "de": "Sind Sie mit einer Referenzeinholung einverstanden?",
+          "en": "Would you consent to a reference check?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아직 재직 중이라는 점에서 범위를 제한하고 싶습니다.",
+          "de": "Da ich noch angestellt bin, möchte ich den Rahmen begrenzen.",
+          "en": "Given that I'm still employed, I would like to limit the scope."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "어느 선까지 허용하시겠습니까?",
+          "de": "Bis wohin wäre es für Sie in Ordnung?",
+          "en": "How far would you allow it to go?"
+        },
+        {
+          "speaker": "user",
+          "ko": "전 직장 두 곳까지만 부탁드립니다.",
+          "de": "Bitte nur bei zwei früheren Arbeitgebern.",
+          "en": "Two previous employers only, please."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "현 직장은 최종 합격 이후로 미루겠습니다.",
+          "de": "Den aktuellen Arbeitgeber verschieben wir auf die Zeit nach der Zusage.",
+          "en": "We will hold the current employer until after the final offer."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 시점도 서면에 남겨 주시겠습니까?",
+          "de": "Können Sie diesen Zeitpunkt schriftlich festhalten?",
+          "en": "Could you put that timing in writing as well?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "동의서에 조건으로 넣겠습니다.",
+          "de": "Ich nehme es als Bedingung in die Einwilligung auf.",
+          "en": "I'll add it as a condition in the consent form."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러면 동의하겠습니다.",
+          "de": "Dann stimme ich zu.",
+          "en": "Then I consent."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_hiring_reference_consent_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "audioKo": "현 직장은 최종 합격 이후로 미루겠습니다.",
+            "options": [
+              {
+                "de": "Der aktuelle Arbeitgeber wird erst nach der Zusage kontaktiert.",
+                "en": "The current employer is contacted only after the final offer."
+              },
+              {
+                "de": "Der aktuelle Arbeitgeber wird sofort kontaktiert.",
+                "en": "The current employer is contacted immediately."
+              },
+              {
+                "de": "Der aktuelle Arbeitgeber wird nie kontaktiert.",
+                "en": "The current employer is never contacted."
+              },
+              {
+                "de": "Referenzen entfallen ganz.",
+                "en": "References are dropped entirely."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_reference_consent_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "promptDe": "Bitte nur bei zwei früheren Arbeitgebern.",
+            "promptEn": "Two previous employers only, please.",
+            "options": [
+              {
+                "ko": "전 직장 두 곳까지만 부탁드립니다."
+              },
+              {
+                "ko": "전 직장은 빼 주시기 바랍니다."
+              },
+              {
+                "ko": "전 직장 모두 확인해 주십시오."
+              },
+              {
+                "ko": "전 직장 연락처를 지워 주십시오."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_reference_consent_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "sentence": "재직 중이___ 점에서 범위를 제한하고 싶습니다.",
+            "options": [
+              "라는",
+              "라고",
+              "라서",
+              "라도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_reference_consent_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "targetKo": "그 시점도 서면에 남겨 주시겠습니까?",
+            "promptDe": "Bitte darum, den Zeitpunkt schriftlich festzuhalten.",
+            "promptEn": "Ask that the timing be recorded in writing.",
+            "distractors": [
+              "동의서에 조건으로 넣겠습니다",
+              "어느 선까지 허용하시겠습니까",
+              "그러면 동의하겠습니다"
+            ],
+            "audioKo": "그 시점도 서면에 남겨 주시겠습니까?"
+          }
+        },
+        {
+          "id": "quest_b2_hiring_reference_consent_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "targetKo": "동의서에 조건으로 넣겠습니다.",
+            "audioKo": "동의서에 조건으로 넣겠습니다.",
+            "promptDe": "Ich nehme es als Bedingung in die Einwilligung auf.",
+            "promptEn": "I'll add it as a condition in the consent form."
+          }
+        }
+      ],
+      "shelf": "b2_hiring",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_hiring_start_date",
+      "level": "b2",
+      "emoji": "🗓️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "candidate_and_interviewer",
+      "intent": "fix_a_workable_start_date",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 150,
+      "title": {
+        "ko": "입사일을 조정하고 싶습니다",
+        "de": "Ich möchte den Starttermin anpassen",
+        "en": "I would like to adjust the start date"
+      },
+      "intro": {
+        "ko": "인수인계가 남아 있습니다. 늦추되 이유와 대안을 같이 냅니다.",
+        "de": "Die Übergabe läuft noch. Du bittest um später, nennst aber Grund und Alternative.",
+        "en": "A handover is still running. You ask for later, with a reason and an alternative."
+      },
+      "vocab": [
+        {
+          "korean": "입사일"
+        },
+        {
+          "korean": "인수인계"
+        },
+        {
+          "korean": "잔여"
+        },
+        {
+          "korean": "연차"
+        },
+        {
+          "korean": "조정"
+        },
+        {
+          "korean": "합의"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_arrangement"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-도록 하다",
+          "de": "V-도록 하다: veranlassen",
+          "en": "V-도록 하다: arrange for"
+        },
+        "explanation": {
+          "ko": "그렇게 되게 하겠다는 뜻이다. 마치도록 하겠습니다처럼 쓴다.",
+          "de": "Sagt zu, dass man es so einrichtet: 마치도록 하겠습니다.",
+          "en": "Commits to making it so: 마치도록 하겠습니다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "다음 달 일 일 입사로 진행하겠습니다.",
+          "de": "Wir setzen den Start auf den Ersten des nächsten Monats.",
+          "en": "We will set the start for the first of next month."
+        },
+        {
+          "speaker": "user",
+          "ko": "인수인계가 남아 이 주만 늦추고 싶습니다.",
+          "de": "Wegen der Übergabe möchte ich um zwei Wochen verschieben.",
+          "en": "Because of the handover I would like two more weeks."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "교육 일정이 그 주에 잡혀 있어서 곤란합니다.",
+          "de": "In der Woche liegt die Einarbeitung, das ist schwierig.",
+          "en": "The onboarding sits in that week, which makes it hard."
+        },
+        {
+          "speaker": "user",
+          "ko": "교육만 먼저 듣고 업무는 이 주 뒤에 시작해도 되겠습니까?",
+          "de": "Könnte ich die Einarbeitung vorziehen und die Arbeit zwei Wochen später beginnen?",
+          "en": "Could I attend onboarding first and start the work two weeks later?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그건 가능합니다. 계약 시작일은 그대로 둡니다.",
+          "de": "Das geht. Das Vertragsdatum bleibt gleich.",
+          "en": "That works. The contract date stays the same."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 이 주는 연차로 처리됩니까?",
+          "de": "Werden die zwei Wochen als Urlaub gebucht?",
+          "en": "Are those two weeks booked as leave?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "무급으로 하고 연차는 남기도록 하겠습니다.",
+          "de": "Wir machen es unbezahlt und lassen den Urlaub stehen.",
+          "en": "We will make it unpaid and leave your holiday untouched."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 조건으로 합의하겠습니다.",
+          "de": "Unter diesen Bedingungen bin ich einverstanden.",
+          "en": "I agree on those terms."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_hiring_start_date_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "audioKo": "무급으로 하고 연차는 남기도록 하겠습니다.",
+            "options": [
+              {
+                "de": "Unbezahlt, der Urlaub bleibt erhalten.",
+                "en": "Unpaid, and the holiday is preserved."
+              },
+              {
+                "de": "Bezahlt, aber der Urlaub wird verbraucht.",
+                "en": "Paid, but the holiday is used up."
+              },
+              {
+                "de": "Beides entfällt.",
+                "en": "Both are dropped."
+              },
+              {
+                "de": "Der Start wird ganz abgesagt.",
+                "en": "The start is cancelled entirely."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_start_date_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "promptDe": "Wegen der Übergabe möchte ich um zwei Wochen verschieben.",
+            "promptEn": "Because of the handover I would like two more weeks.",
+            "options": [
+              {
+                "ko": "인수인계가 남아 이 주만 늦추고 싶습니다."
+              },
+              {
+                "ko": "이사가 남아 한 달을 늦추고 싶습니다."
+              },
+              {
+                "ko": "교육이 있어 하루만 늦추고 싶습니다."
+              },
+              {
+                "ko": "면접이 남아 다시 잡고 싶습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_start_date_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "sentence": "연차는 남기___ 하겠습니다.",
+            "options": [
+              "도록",
+              "으므로",
+              "는 한",
+              "고자"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_hiring_start_date_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "targetKo": "교육만 먼저 듣고 업무는 이 주 뒤에 시작해도 되겠습니까?",
+            "promptDe": "Schlage vor, die Einarbeitung vorzuziehen und später zu starten.",
+            "promptEn": "Propose attending onboarding first and starting work later.",
+            "distractors": [
+              "계약 시작일은 그대로 둡니다",
+              "그 조건으로 합의하겠습니다",
+              "교육 일정이 그 주에 잡혀 있어서 곤란합니다"
+            ],
+            "audioKo": "교육만 먼저 듣고 업무는 이 주 뒤에 시작해도 되겠습니까?"
+          }
+        },
+        {
+          "id": "quest_b2_hiring_start_date_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_interview"
+          ],
+          "data": {
+            "targetKo": "계약 시작일은 그대로 둡니다.",
+            "audioKo": "계약 시작일은 그대로 둡니다.",
+            "promptDe": "Das Vertragsdatum bleibt gleich.",
+            "promptEn": "The contract date stays the same."
+          }
+        }
+      ],
+      "shelf": "b2_hiring",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_privacy_data_scope",
+      "level": "b2",
+      "emoji": "🔐",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "customer_and_service_department",
+      "intent": "narrow_what_is_collected",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 150,
+      "title": {
+        "ko": "필수 항목만 남겨 주시기 바랍니다",
+        "de": "Bitte nur die Pflichtangaben behalten",
+        "en": "Please keep only the required fields"
+      },
+      "intro": {
+        "ko": "가입 양식이 필요 이상을 묻습니다. 무엇이 필수인지 근거와 함께 요구합니다.",
+        "de": "Das Formular fragt mehr ab als nötig. Du forderst mit Begründung, was Pflicht ist.",
+        "en": "The form asks more than it needs. You ask, with grounds, what is actually required."
+      },
+      "vocab": [
+        {
+          "korean": "필수"
+        },
+        {
+          "korean": "선택"
+        },
+        {
+          "korean": "수집"
+        },
+        {
+          "korean": "근거"
+        },
+        {
+          "korean": "동의"
+        },
+        {
+          "korean": "항목"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_explicit_formal_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 주시기를 요청하다",
+          "de": "V-주시기를 요청하다: förmliche Bitte",
+          "en": "V-주시기를 요청하다: formal request"
+        },
+        "explanation": {
+          "ko": "문서에 남길 만큼 분명하게 요청한다. 삭제해 주시기를 요청합니다처럼 쓴다.",
+          "de": "Bittet so klar, dass es aktenkundig ist: 삭제해 주시기를 요청합니다.",
+          "en": "Requests clearly enough for the record: 삭제해 주시기를 요청합니다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "가입에 생년월일과 주소가 왜 필수입니까?",
+          "de": "Warum sind Geburtsdatum und Adresse Pflichtfelder?",
+          "en": "Why are date of birth and address required to sign up?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "연령 확인과 배송 때문입니다.",
+          "de": "Wegen Altersprüfung und Versand.",
+          "en": "For age verification and delivery."
+        },
+        {
+          "speaker": "user",
+          "ko": "배송을 쓰지 않는데도 주소가 필요합니까?",
+          "de": "Brauchen Sie die Adresse auch ohne Versand?",
+          "en": "Do you need the address even if I never use delivery?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 경우에는 선택 항목으로 바꿀 수 있습니다.",
+          "de": "In dem Fall lässt es sich auf freiwillig umstellen.",
+          "en": "In that case it can be switched to optional."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러면 주소는 선택으로 바꿔 주시기를 요청합니다.",
+          "de": "Dann bitte ich darum, die Adresse auf freiwillig zu stellen.",
+          "en": "Then I request that the address be made optional."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "처리했습니다. 이미 입력된 값은 어떻게 할까요?",
+          "de": "Erledigt. Was soll mit den bereits erfassten Daten geschehen?",
+          "en": "Done. What should happen to the data already entered?"
+        },
+        {
+          "speaker": "user",
+          "ko": "그것도 삭제해 주시기 바랍니다.",
+          "de": "Bitte löschen Sie diese ebenfalls.",
+          "en": "Please delete those as well."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "삭제 결과를 메일로 보내 드리겠습니다.",
+          "de": "Ich sende Ihnen die Löschbestätigung per Mail.",
+          "en": "I'll email you confirmation of the deletion."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_privacy_data_scope_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "그 경우에는 선택 항목으로 바꿀 수 있습니다.",
+            "options": [
+              {
+                "de": "Ohne Versand kann das Feld freiwillig werden.",
+                "en": "Without delivery the field can become optional."
+              },
+              {
+                "de": "Das Feld bleibt in jedem Fall Pflicht.",
+                "en": "The field stays mandatory in any case."
+              },
+              {
+                "de": "Das Feld wird ganz entfernt.",
+                "en": "The field is removed entirely."
+              },
+              {
+                "de": "Nur mit Ausweis kann man es ändern.",
+                "en": "It can only be changed with an ID."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_data_scope_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Bitte löschen Sie diese ebenfalls.",
+            "promptEn": "Please delete those as well.",
+            "options": [
+              {
+                "ko": "그것도 삭제해 주시기 바랍니다."
+              },
+              {
+                "ko": "그것도 보관해 주시기 바랍니다."
+              },
+              {
+                "ko": "그것도 다시 보내 주시기 바랍니다."
+              },
+              {
+                "ko": "그것도 확인해 주시기 바랍니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_data_scope_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "sentence": "선택으로 바꿔 주시기___ 요청합니다.",
+            "options": [
+              "를",
+              "가",
+              "에",
+              "로"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_data_scope_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "배송을 쓰지 않는데도 주소가 필요합니까?",
+            "promptDe": "Frag, ob die Adresse auch ohne Versand nötig ist.",
+            "promptEn": "Ask whether the address is needed even without delivery.",
+            "distractors": [
+              "연령 확인과 배송 때문입니다",
+              "삭제 결과를 메일로 보내 드리겠습니다",
+              "이미 입력된 값은 어떻게 할까요"
+            ],
+            "audioKo": "배송을 쓰지 않는데도 주소가 필요합니까?"
+          }
+        },
+        {
+          "id": "quest_b2_privacy_data_scope_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "삭제 결과를 메일로 보내 드리겠습니다.",
+            "audioKo": "삭제 결과를 메일로 보내 드리겠습니다.",
+            "promptDe": "Ich sende die Löschbestätigung per Mail.",
+            "promptEn": "I'll email confirmation of the deletion."
+          }
+        }
+      ],
+      "shelf": "b2_privacy",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_privacy_retention_period",
+      "level": "b2",
+      "emoji": "⏱️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "customer_and_service_department",
+      "intent": "pin_down_how_long_data_is_kept",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 150,
+      "title": {
+        "ko": "언제까지 보관하십니까",
+        "de": "Wie lange speichern Sie das",
+        "en": "How long do you keep it"
+      },
+      "intro": {
+        "ko": "탈퇴해도 남는 기록이 있습니다. 무엇이 왜 얼마나 남는지 확인합니다.",
+        "de": "Auch nach der Kündigung bleiben Daten. Du klärst was, warum und wie lange.",
+        "en": "Some records survive account closure. You check what, why, and for how long."
+      },
+      "vocab": [
+        {
+          "korean": "보관"
+        },
+        {
+          "korean": "기간"
+        },
+        {
+          "korean": "탈퇴"
+        },
+        {
+          "korean": "법정"
+        },
+        {
+          "korean": "거래"
+        },
+        {
+          "korean": "파기"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_formal_reason"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)므로",
+          "de": "V-(으)므로: da (formell)",
+          "en": "V-(으)므로: since (formal)"
+        },
+        "explanation": {
+          "ko": "격식 있게 근거를 댄다. 법에 정해져 있으므로처럼 쓴다.",
+          "de": "Nennt förmlich den Grund: 법에 정해져 있으므로.",
+          "en": "Gives the reason formally: 법에 정해져 있으므로."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "탈퇴하면 기록은 바로 지워집니까?",
+          "de": "Werden die Daten nach der Kündigung sofort gelöscht?",
+          "en": "Is the record deleted immediately when I close the account?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "대부분은 즉시 파기됩니다.",
+          "de": "Das meiste wird sofort vernichtet.",
+          "en": "Most of it is destroyed at once."
+        },
+        {
+          "speaker": "user",
+          "ko": "남는 항목은 무엇입니까?",
+          "de": "Was bleibt übrig?",
+          "en": "What remains?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "거래 내역은 법에 정해져 있으므로 오 년 보관합니다.",
+          "de": "Transaktionsdaten bleiben fünf Jahre, da es gesetzlich vorgeschrieben ist.",
+          "en": "Transaction records are kept five years since the law requires it."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 안에 이름과 연락처도 포함됩니까?",
+          "de": "Sind Name und Kontaktdaten darin enthalten?",
+          "en": "Does that include name and contact details?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이름은 남고 연락처는 지웁니다.",
+          "de": "Der Name bleibt, die Kontaktdaten werden gelöscht.",
+          "en": "The name stays, contact details are removed."
+        },
+        {
+          "speaker": "user",
+          "ko": "오 년 뒤 파기도 자동으로 이뤄집니까?",
+          "de": "Erfolgt die Löschung nach fünf Jahren automatisch?",
+          "en": "Is the deletion after five years automatic?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "월 단위로 일괄 파기합니다.",
+          "de": "Wir löschen monatlich gesammelt.",
+          "en": "We purge in monthly batches."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_privacy_retention_period_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "거래 내역은 법에 정해져 있으므로 오 년 보관합니다.",
+            "options": [
+              {
+                "de": "Transaktionsdaten bleiben gesetzlich fünf Jahre.",
+                "en": "Transaction records stay five years by law."
+              },
+              {
+                "de": "Transaktionsdaten werden sofort gelöscht.",
+                "en": "Transaction records are deleted at once."
+              },
+              {
+                "de": "Transaktionsdaten bleiben unbegrenzt.",
+                "en": "Transaction records are kept forever."
+              },
+              {
+                "de": "Transaktionsdaten bleiben fünf Monate.",
+                "en": "Transaction records stay five months."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_retention_period_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Erfolgt die Löschung nach fünf Jahren automatisch?",
+            "promptEn": "Is the deletion after five years automatic?",
+            "options": [
+              {
+                "ko": "오 년 뒤 파기도 자동으로 이뤄집니까?"
+              },
+              {
+                "ko": "오 년 뒤에 다시 가입해야 합니까?"
+              },
+              {
+                "ko": "오 년 동안 요금이 나갑니까?"
+              },
+              {
+                "ko": "오 년 전 기록도 볼 수 있습니까?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_retention_period_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "sentence": "법에 정해져 있___ 오 년 보관합니다.",
+            "options": [
+              "으므로",
+              "는 한",
+              "도록",
+              "고자"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_retention_period_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "그 안에 이름과 연락처도 포함됩니까?",
+            "promptDe": "Frag, ob Name und Kontaktdaten dazugehören.",
+            "promptEn": "Ask whether name and contact details are included.",
+            "distractors": [
+              "월 단위로 일괄 파기합니다",
+              "대부분은 즉시 파기됩니다",
+              "이름은 남고 연락처는 지웁니다"
+            ],
+            "audioKo": "그 안에 이름과 연락처도 포함됩니까?"
+          }
+        },
+        {
+          "id": "quest_b2_privacy_retention_period_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "이름은 남고 연락처는 지웁니다.",
+            "audioKo": "이름은 남고 연락처는 지웁니다.",
+            "promptDe": "Der Name bleibt, die Kontaktdaten werden gelöscht.",
+            "promptEn": "The name stays, contact details are removed."
+          }
+        }
+      ],
+      "shelf": "b2_privacy",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_privacy_third_party",
+      "level": "b2",
+      "emoji": "🔁",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "customer_and_service_department",
+      "intent": "separate_consent_from_necessity",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 150,
+      "title": {
+        "ko": "동의했다고 다 되는 건 아니지요",
+        "de": "Zustimmung heißt nicht alles",
+        "en": "Consent does not cover everything"
+      },
+      "intro": {
+        "ko": "제3자 제공에 한 번 동의했더니 범위가 넓어졌습니다. 어디까지인지 되짚습니다.",
+        "de": "Eine einmalige Zustimmung zur Weitergabe wurde weit ausgelegt. Du ziehst die Grenze nach.",
+        "en": "One consent to sharing got read broadly. You draw the line again."
+      },
+      "vocab": [
+        {
+          "korean": "제3자"
+        },
+        {
+          "korean": "제공"
+        },
+        {
+          "korean": "위탁"
+        },
+        {
+          "korean": "철회"
+        },
+        {
+          "korean": "목적"
+        },
+        {
+          "korean": "고지"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_not_automatic_conclusion"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-다고 해서 A/V-는 것은 아니다",
+          "de": "-다고 해서 ~는 것은 아니다: daraus folgt nicht",
+          "en": "-다고 해서 ~는 것은 아니다: it does not follow"
+        },
+        "explanation": {
+          "ko": "앞말이 뒷말을 자동으로 만들지 않는다고 못박는다.",
+          "de": "Stellt klar, dass das eine nicht automatisch das andere ergibt.",
+          "en": "States that one thing does not automatically yield the other."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "제휴사 세 곳에 제공된다고 안내가 왔습니다.",
+          "de": "Ich habe eine Mitteilung über die Weitergabe an drei Partner erhalten.",
+          "en": "I got a notice about sharing with three partner companies."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "가입 시 동의하신 항목입니다.",
+          "de": "Dem haben Sie bei der Anmeldung zugestimmt.",
+          "en": "You consented to that at sign-up."
+        },
+        {
+          "speaker": "user",
+          "ko": "동의했다고 해서 목적이 늘어나는 것은 아니지요.",
+          "de": "Aus der Zustimmung folgt aber nicht, dass sich der Zweck erweitert.",
+          "en": "Consenting does not mean the purpose can expand."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "맞습니다. 목적이 바뀌면 다시 고지해야 합니다.",
+          "de": "Richtig. Bei geändertem Zweck muss neu informiert werden.",
+          "en": "Correct. A changed purpose requires a fresh notice."
+        },
+        {
+          "speaker": "user",
+          "ko": "이번 건은 목적이 같습니까?",
+          "de": "Ist der Zweck in diesem Fall derselbe?",
+          "en": "Is the purpose the same in this case?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "두 곳은 같고 한 곳은 광고 목적입니다.",
+          "de": "Bei zweien ja, bei einer geht es um Werbung.",
+          "en": "For two yes, for one it is advertising."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 한 곳만 철회하겠습니다.",
+          "de": "Dann widerrufe ich nur diese eine.",
+          "en": "Then I withdraw consent for that one only."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "부분 철회로 처리하고 결과를 보내겠습니다.",
+          "de": "Ich bearbeite das als Teilwiderruf und melde das Ergebnis.",
+          "en": "I'll process it as a partial withdrawal and send the outcome."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_privacy_third_party_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "두 곳은 같고 한 곳은 광고 목적입니다.",
+            "options": [
+              {
+                "de": "Zwei mit gleichem Zweck, eine für Werbung.",
+                "en": "Two share the same purpose, one is for advertising."
+              },
+              {
+                "de": "Alle drei dienen der Werbung.",
+                "en": "All three are for advertising."
+              },
+              {
+                "de": "Keine der drei betrifft Werbung.",
+                "en": "None of the three involves advertising."
+              },
+              {
+                "de": "Der Zweck ist nicht bekannt.",
+                "en": "The purpose is unknown."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_third_party_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Dann widerrufe ich nur diese eine.",
+            "promptEn": "Then I withdraw consent for that one only.",
+            "options": [
+              {
+                "ko": "그 한 곳만 철회하겠습니다."
+              },
+              {
+                "ko": "세 곳 다 철회하겠습니다."
+              },
+              {
+                "ko": "철회는 하지 않겠습니다."
+              },
+              {
+                "ko": "가입을 취소하겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_third_party_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "sentence": "동의했다고 해서 목적이 늘어나는 것은 ___.",
+            "options": [
+              "아니지요",
+              "맞지요",
+              "그렇지요",
+              "되지요"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_third_party_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "목적이 바뀌면 다시 고지해야 합니다.",
+            "promptDe": "Sag, dass ein geänderter Zweck eine neue Mitteilung verlangt.",
+            "promptEn": "Say that a changed purpose requires a new notice.",
+            "distractors": [
+              "가입 시 동의하신 항목입니다",
+              "부분 철회로 처리하겠습니다",
+              "이번 건은 목적이 같습니까"
+            ],
+            "audioKo": "목적이 바뀌면 다시 고지해야 합니다."
+          }
+        },
+        {
+          "id": "quest_b2_privacy_third_party_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "부분 철회로 처리하겠습니다.",
+            "audioKo": "부분 철회로 처리하겠습니다.",
+            "promptDe": "Ich bearbeite das als Teilwiderruf.",
+            "promptEn": "I'll process it as a partial withdrawal."
+          }
+        }
+      ],
+      "shelf": "b2_privacy",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_privacy_delete_request",
+      "level": "b2",
+      "emoji": "🗑️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "customer_and_service_department",
+      "intent": "bound_a_deletion_request_in_time",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 150,
+      "title": {
+        "ko": "삭제 요청을 접수해 주십시오",
+        "de": "Bitte nehmen Sie meinen Löschantrag auf",
+        "en": "Please log my deletion request"
+      },
+      "intro": {
+        "ko": "삭제하겠다는 말만으로는 남는 게 없습니다. 접수번호와 기한을 받습니다.",
+        "de": "Eine mündliche Zusage reicht nicht. Du lässt dir Vorgangsnummer und Frist geben.",
+        "en": "A verbal promise leaves no trace. You get a case number and a deadline."
+      },
+      "vocab": [
+        {
+          "korean": "삭제"
+        },
+        {
+          "korean": "접수번호"
+        },
+        {
+          "korean": "처리"
+        },
+        {
+          "korean": "기한"
+        },
+        {
+          "korean": "백업"
+        },
+        {
+          "korean": "회신"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b2_as_long_as"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 한",
+          "de": "V-는 한: solange",
+          "en": "V-는 한: as long as"
+        },
+        "explanation": {
+          "ko": "조건이 유지되는 동안만 그렇다는 뜻이다. 남아 있는 한처럼 쓴다.",
+          "de": "Gilt nur, solange die Bedingung besteht: 남아 있는 한.",
+          "en": "Holds only while the condition lasts: 남아 있는 한."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "계정 데이터 삭제를 정식으로 요청합니다.",
+          "de": "Ich beantrage förmlich die Löschung meiner Kontodaten.",
+          "en": "I'm formally requesting deletion of my account data."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "접수하겠습니다. 십오 일 안에 처리됩니다.",
+          "de": "Ich nehme das auf. Bearbeitung binnen fünfzehn Tagen.",
+          "en": "I'll log it. It is processed within fifteen days."
+        },
+        {
+          "speaker": "user",
+          "ko": "접수번호를 지금 받을 수 있습니까?",
+          "de": "Kann ich jetzt eine Vorgangsnummer bekommen?",
+          "en": "Can I get a case number now?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 문자로 바로 보내 드립니다.",
+          "de": "Ja, per SMS sofort.",
+          "en": "Yes, by text right away."
+        },
+        {
+          "speaker": "user",
+          "ko": "백업 서버에도 남습니까?",
+          "de": "Bleiben Daten auf Backup-Servern?",
+          "en": "Does anything remain on backup servers?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "백업은 주기가 있어 최대 삼십 일까지 남습니다.",
+          "de": "Backups laufen im Zyklus, dort bleibt es bis zu dreißig Tage.",
+          "en": "Backups run on a cycle, so up to thirty days there."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 기간에도 조회가 됩니까?",
+          "de": "Ist in dieser Zeit noch ein Zugriff möglich?",
+          "en": "Is it still searchable during that period?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "백업에 남아 있는 한 조회는 차단됩니다.",
+          "de": "Solange es im Backup liegt, ist der Zugriff gesperrt.",
+          "en": "As long as it sits in backup, access is blocked."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b2_privacy_delete_request_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "audioKo": "백업은 주기가 있어 최대 삼십 일까지 남습니다.",
+            "options": [
+              {
+                "de": "Im Backup bleibt es bis zu dreißig Tage.",
+                "en": "In backup it remains for up to thirty days."
+              },
+              {
+                "de": "Backups werden sofort mitgelöscht.",
+                "en": "Backups are deleted at the same time."
+              },
+              {
+                "de": "Backups bleiben unbegrenzt.",
+                "en": "Backups are kept indefinitely."
+              },
+              {
+                "de": "Es gibt keine Backups.",
+                "en": "There are no backups."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_delete_request_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "promptDe": "Kann ich jetzt eine Vorgangsnummer bekommen?",
+            "promptEn": "Can I get a case number now?",
+            "options": [
+              {
+                "ko": "접수번호를 지금 받을 수 있습니까?"
+              },
+              {
+                "ko": "처리 기한을 늘릴 수 있습니까?"
+              },
+              {
+                "ko": "삭제를 취소할 수 있습니까?"
+              },
+              {
+                "ko": "계정을 다시 만들 수 있습니까?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_delete_request_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "sentence": "백업에 남아 있는 ___ 조회는 차단됩니다.",
+            "options": [
+              "한",
+              "대신",
+              "김에",
+              "덕분에"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b2_privacy_delete_request_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "계정 데이터 삭제를 정식으로 요청합니다.",
+            "promptDe": "Beantrage förmlich die Löschung der Kontodaten.",
+            "promptEn": "Formally request deletion of the account data.",
+            "distractors": [
+              "십오 일 안에 처리됩니다",
+              "문자로 바로 보내 드립니다",
+              "백업 서버에도 남습니까"
+            ],
+            "audioKo": "계정 데이터 삭제를 정식으로 요청합니다."
+          }
+        },
+        {
+          "id": "quest_b2_privacy_delete_request_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_precise_requests"
+          ],
+          "data": {
+            "targetKo": "십오 일 안에 처리됩니다.",
+            "audioKo": "십오 일 안에 처리됩니다.",
+            "promptDe": "Bearbeitung binnen fünfzehn Tagen.",
+            "promptEn": "It is processed within fifteen days."
+          }
+        }
+      ],
+      "shelf": "b2_privacy",
+      "backdrop": "office"
     }
   ]
 }

@@ -24,6 +24,10 @@ MANIFEST_PATH = Path("tools/content_factory/drafts/batch_11_manifest.json")
 REVIEW_PATH = Path("tools/content_factory/review/c1_batch11_scenarios.csv")
 REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_memo"]
 QUEST_SUFFIXES = ("hear", "tr", "gap", "build", "dict")
+# A1 만 6번째 퀘스트를 갖는다.  test/a1_real_life_scenarios_test.dart 가 모든 A1
+# 시나리오에 조사·받침·활용 교정 퀘스트를 요구하는데(입문자는 판정만으로는 조사를
+# 못 고친다), 위 5종에는 교정형이 없다.  상위 레벨에는 그 계약이 없어 5종 그대로다.
+A1_CORRECTION_SUFFIX = "particle"
 LEVEL_ORDER = ("a1", "a2", "b1", "b2", "c1", "c2")
 CATEGORY_ORDER = ("daily", "friends", "dating", "youtube", "gaming", "kpop")
 
@@ -101,6 +105,7 @@ def build(root: Path = ROOT) -> dict[str, int]:
             "scope": "Original everyday, friendship, dating, video, gaming and fandom episodes for A1-C2.",
             "rights": "original",
             "requiresJinReview": True,
+            "promotedAt": "2026-08-18 — Jin 승인 하에 live 로 승격됐다(커밋 6f03da16). 이 매니페스트는 생성물이라 status 는 항상 review_only_draft 로 다시 쓰인다 — 승격 여부의 정본은 shelf_assignment.ASSIGNMENT 와 SESSION_LOG 다.",
             "originalPlan": "docs/superpowers/specs/2026-08-17-scenario-level-category-batch11-design.md",
         },
         "artifacts": [

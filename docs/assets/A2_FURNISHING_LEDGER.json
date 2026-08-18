@@ -1,0 +1,578 @@
+{
+  "schemaVersion": 1,
+  "scope": "a2_decoration_furnishing_only",
+  "note": "Retroactive credit backfill for the A2 사랑방 furnishing batch, per Jin's 2026-08-18 decision ('600으로 상향 + 미기록 68 소급 기록'). Kept separate from HANOK_V1_ASSET_PROVENANCE.json because that file's own `scope` field ('hanok_v1_assets_only') explicitly excludes decoration/furnishing spend -- see its generationLedger comments. No automated Dart/Python validator enforces this file yet; that lands with Phase 2-3's tool/ledger_append.py (see ~/.claude/plans/swift-yawning-squirrel.md). Primary human-readable record for this batch remains docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md -- this JSON is its machine-readable mirror, same taskIds/costs/decisions.",
+  "priorDiscardedCredits": {
+    "credits": 28.0,
+    "note": "Two lost-prompt attempts from 2026-08-17 (taskIds 663d7694... and 4db5dd10..., 4cr each generation call across a larger discarded run totalling 28cr per the source doc) whose prompts are unrecoverable -- list_my_generations' 50-item window had already rolled past them by the time this was investigated, and the handoff doc's copy of the ids was truncated. No output from this batch is shipped, approved, or used as a model input anywhere.",
+    "reference": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#0"
+  },
+  "generationLedger": {
+    "hashAlgorithm": "sha256",
+    "records": [
+      {
+        "id": "a2-furnishing-ref-sheet-2026-08-17",
+        "provider": "local",
+        "model": "python3 tool/build_a2_style_ref_sheet.py",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:00:00Z",
+        "costCredits": 0.0,
+        "promptSha256": "fba61313fcb024e307319c27d5ed9e3bf48b69a81df0550e44a8b8db7d6ada91",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp). Composites the 4 already-shipped sarangbang cutouts (seoan/soban/munbangsau/jagae_mungap) 2x2 on flat #00FF00 as the single reference image used for every generation call below. See doc section 1.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/decorations/decoration_seoan.png",
+            "sha256": "59e488f8cf212911439f7d73818d809a0667ad9c06361ddc08571a331b96f4e7"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_soban.png",
+            "sha256": "b58b85ae4eecad72509834e7d9db6b634e28d75b9d4b2f914f3ca539f7ed2c91"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_munbangsau.png",
+            "sha256": "c426659dd57457a3318703a6a45b4abba777abaddde1f7e199581712b3481ce2"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_jagae_mungap.png",
+            "sha256": "f5139452552903c68b093b5b7a78c1f378f51a1a530f2d94b5cce840beeb5356"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1_400.webp",
+            "sha256": "49737df0a06df9ffa42f350d249db1b1228d3d4084b8621cb6dd6fbc44f4b80d",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-control-seedream-2026-08-17",
+        "provider": "bbanana",
+        "model": "Seedream V4.5",
+        "providerTaskId": "0bd5d0b776438b8a41646ecd4b2dd192",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:05:00Z",
+        "costCredits": 1.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18. Model A/B test on soban (already shipped, answer known). Rejected: cast shadow (breaks on rotation in the free-placement room editor), smooth 3D render instead of facets, bright teal.",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/control_soban_seedream_1787006282440.png",
+            "sha256": "42fc8365db3d5a6d6496bf29c9be018bba0e4517fb117d69636ddf455757babd",
+            "decision": "rejected",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-control-gpt2-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787006341-wzpe397p",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:08:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18. GPT Image 2 selected as the production model: facets, matte, hanji grain, no cast shadow, matches the shipped set. Cut+normalized for comparison only -- decoration_soban.png (already shipped) was NOT replaced; this output was never promoted to assets/illustrations/decorations/.",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/control_soban_gpt2_1787006389177.png",
+            "sha256": "d1295a37f51ff7d530dd27b8cdd8a84e42a1df8bb4e0bcc78f4739732a32c16c",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/normalized/decoration_soban_v2.png",
+            "sha256": "e1e751a7d5ae06e4dbda0217c1146437240639426d45000d3088c742fbeae149",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-sabangtakja-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787006765-9a80w4eo",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:15:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp).",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_sabangtakja_1787006822075.png",
+            "sha256": "7ece0e32165970fa099e62d3cdd97a52a7839635927b66fe04364dc283d9e1d7",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_sabangtakja.png",
+            "sha256": "5adb2a80aa57634e56ae1a3e49e92bf3db3be09f729fae873388df86447e9693",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-boryo_set-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "f9ae98a7-7f18-4069-8cf8-4729c2d59527",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:40:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp).",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_boryo_set_1787007183448.png",
+            "sha256": "cd2d4856cbe911d4202f315edc85e002e42c267dd68a522bb63894f445d39a05",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_boryo_set.png",
+            "sha256": "07f7e0a90f2a133f09d4656e4e606a4af3b9d453c582b4717fb5890f2b25114c",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-bangseok_pair-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787007169-o962lq7f",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:39:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp).",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_bangseok_pair_1787007242411.png",
+            "sha256": "15f9d70d16f38342452de5d406da656016c67a9b1235c11add6d13162e00bd21",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_bangseok_pair.png",
+            "sha256": "3f434c326f9f03e518b9c6a60ee3b0ea22fb78430ee84d74b71be8ac73e1e7e9",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-bandaji-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787006798-b6w7gprr",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:16:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp).",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_bandaji_1787006883175.png",
+            "sha256": "36d09648051c301c7da9ef5f4470a185e6de792e03f58d114fde677d2fc0ded9",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_bandaji.png",
+            "sha256": "62c355834fa166cb5b9c80dd38e6cb55c5d9955329c032d8006f427c8067ebab",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-hwaro-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "4f365097-352a-4a76-a1d6-69a7d8a1bd66",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:17:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp).",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_hwaro_1787006888321.png",
+            "sha256": "f68d87a10212f3db2767b44818f767bd18782b94a822b1a4986e3cec19438ba3",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_hwaro.png",
+            "sha256": "f4043d38fbb42e3f52d63743784cbef700d8595af51ff7bec9778455f5115a2f",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-deungjan-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787007201-fbn7juqh",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:41:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp).",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_deungjan_1787007245891.png",
+            "sha256": "e2da80b240c80bc56d052311230ddcdc34f4e33073590a90265fd92adba90d2f",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_deungjan.png",
+            "sha256": "1393b9490fb94fc954e0464eeee3036b54ae320275e088e280863870ba412f8f",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-geomungo-v1-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "9d45017f-…",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:20:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp). v1 came back as a gayageum (movable bridges, 12 strings) instead of a geomungo -- wrong instrument, caught on visual review not the gate. providerTaskId is truncated exactly as recorded in the source doc's table cell ('9d45017f-…') -- not fabricated further, the trailing characters were never saved.",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_geomungo_1787006948070.png",
+            "sha256": "3aca7f933f88cccddf519ff5d0c5bace4ef2cd2c5982c10a1ac03fce44b94344",
+            "decision": "rejected",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-geomungo-v2-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "cb88feb1-fece-413e-a63f-517e1690e9b1",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T00:15:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp). v2 fixed with an explicit 'SIX strings, SIXTEEN fixed frets, NOT a gayageum, no movable bridges' clause.",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_geomungo_v2_1787008082011.png",
+            "sha256": "c48462eb3f92b15541c219345eca2844f42526ac93867bb66bf9f550d9f0e162",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_geomungo.png",
+            "sha256": "d6f0f197957ae8c329739a875dad5d42654ecfa0bc939a6d23a6b3d080a036f8",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-baduk-v1-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787007232-au4flm9a",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:42:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp). v1 failed the neon gate at 5.1% (threshold 4%) -- the board wood was brighter/more saturated than the shipped set.",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_baduk_1787007305986.png",
+            "sha256": "e939df251148c17a5c4c1cbd877025c65f0b06a4473daa231940b3260d6f1720",
+            "decision": "rejected",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-baduk-v2-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787008065-ilbrzfzv",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T00:05:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp). v2 fixed with 'DARK aged wood / no bright orange' added to the subject text.",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_baduk_v2_1787008142260.png",
+            "sha256": "69214ac203de0bef77b4002c055372437e3002e88fd059e302d17920c07e5d1a",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_baduk.png",
+            "sha256": "aded659612006ed2bf62021fc92fedb73b9bf4df9d8f0470e01b22f98083659d",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-mokchim-v1-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787007378-zti8m76j",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:43:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp). v1 failed the neon gate at 4.3% (threshold 4%), same cause as baduk v1.",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_mokchim_1787007481886.png",
+            "sha256": "5c6ea55ac09455c68d714ce3bc6fdc4e8b2e99e017f611753d125ab738a7dbb4",
+            "decision": "rejected",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-mokchim-v2-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787008032-hdiyzyqz",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T00:00:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp). v2 fixed the same way as baduk v2.",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_mokchim_v2_1787008085449.png",
+            "sha256": "e3594bc979992f91e82b5174987411b463b49001d2764cb61edd6790e4620507",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_mokchim.png",
+            "sha256": "37788c9417fd5e6fb29c9e1b8fd56d9d7e0fd5e852177b0dee59bb86b4beff6b",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-byeongpung_small-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787007410-nr771xkq",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:44:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp).",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_byeongpung_small_1787007485757.png",
+            "sha256": "16bd3e1cb0fc12511fa1e0607e8214d7d1c01b32e842d0d5180704ff0062c719",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_byeongpung_small.png",
+            "sha256": "207b472da2bcb3fb06e8eb97446ebea4d594208cca011911e2b2331ed4c3210e",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-gobi-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "ffc5a832-e09b-48e9-9eca-dfa2065929e4",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:45:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp).",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_gobi_1787007490131.png",
+            "sha256": "8bebddae19e5f51c4a51d6e5d2321742a2db494e74bcfadbb571784144453704",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_gobi.png",
+            "sha256": "7791aa3d0eac76e4c4691ac8f89a6beaf8c6b05cd01ee26b27489cc655a06d8c",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-furnishing-hyangno-2026-08-17",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787007483-j5ebx7rx",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-17T20:46:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec39f4e80e884f91c670660241b2ce4891382108e12f6429eb97740ad1865c45",
+        "promptSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md#3",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp).",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/model_inputs/a2_style_ref_sheet_v1.png",
+            "sha256": "23443df0bdc7e949806fba380fa7ee4dd01741960a971032f03b78ab82f6b89b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a2_furnishing/raw/decoration_hyangno_1787007542358.png",
+            "sha256": "e6a213183ff5ba5769389176a567576d006c71acedd71a95f0a37a552520e75f",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets/illustrations/decorations/decoration_hyangno.png",
+            "sha256": "8fe8c9b9af135eae25aa0d2b964928efa51743e736aef23bdbebab5ea2cad722",
+            "decision": "approved",
+            "kind": "state"
+          }
+        ]
+      }
+    ]
+  }
+}

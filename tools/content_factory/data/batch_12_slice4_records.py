@@ -27,7 +27,7 @@ UNITS: list[dict[str, Any]] = [
             "en": "I can set how far reporting and blocking steps should go between safety and freedom of expression.",
         },
         "requiredConceptIds": ["concept_c1_intimacy_safety"],
-        "checkpointContentIds": ["c1_dating_app_safety"],
+        "checkpointContentIds": ["grammar:grammar_c1_but_not"],
     },
     {
         "id": "c2_06_fandom_discourse_power",
@@ -44,7 +44,7 @@ UNITS: list[dict[str, Any]] = [
             "en": "I can name the discursive power of a group's language and rebut its premises with concessive constructions.",
         },
         "requiredConceptIds": ["concept_c2_fandom_discourse"],
-        "checkpointContentIds": ["c2_kpop_fandom_language"],
+        "checkpointContentIds": ["grammar:grammar_c2_no_matter_how"],
     },
 ]
 
@@ -52,19 +52,31 @@ CONCEPTS: list[dict[str, Any]] = [
     {
         "id": "concept_c1_intimacy_safety",
         "level": "c1",
+        "kind": "situation",
         "title": {
             "ko": "안전과 표현 사이의 절차",
             "de": "Verfahren zwischen Sicherheit und Ausdruck",
             "en": "Procedure between safety and expression",
         },
+        "explanation": {
+            "ko": "만남의 안전은 개인의 조심이 아니라 신고·확인 절차가 실제로 도는지로 설계해요.",
+            "de": "Sicherheit beim Kennenlernen gestaltet man nicht über individuelle Vorsicht, sondern darüber, ob Melde- und Rückmeldewege tatsächlich funktionieren.",
+            "en": "Safety in meeting people is designed not through individual caution but through whether reporting and follow-up actually work.",
+        },
     },
     {
         "id": "concept_c2_fandom_discourse",
         "level": "c2",
+        "kind": "speechStyle",
         "title": {
             "ko": "집단 언어의 담론 권력",
             "de": "Diskursmacht kollektiver Sprache",
             "en": "Discursive power of collective language",
+        },
+        "explanation": {
+            "ko": "집단이 크다고 그 표현이 기준이 되지는 않으니, 팬덤 용어가 누구를 밀어내는지 짚어 말해요.",
+            "de": "Größe macht eine Ausdrucksweise nicht zum Maßstab. Man benennt, wen die Fandom-Begriffe ausschließen.",
+            "en": "A group being large does not make its wording the standard, so you name whom the fandom's terms push out.",
         },
     },
 ]
@@ -379,7 +391,7 @@ SMALLTALK: list[dict[str, Any]] = [
             "de": "Es kam nur die Eingangsbestätigung, danach nichts.",
             "en": "Only an acknowledgement came, nothing after that.",
         },
-        "relationshipContext": "friend",
+        "relationshipContext": "close_friend",
         "safeAlternativeQuestions": [
             {
                 "turnKind": "question",
@@ -403,7 +415,7 @@ SMALLTALK: list[dict[str, Any]] = [
         "ko": "처음 만날 때는 장소를 제가 정하는 편이 마음이 편해요.",
         "de": "Beim ersten Treffen ist es mir lieber, den Ort selbst zu wählen.",
         "en": "For a first meeting I'd rather pick the place myself.",
-        "relationshipContext": "friend",
+        "relationshipContext": "close_friend",
         "safeAlternativeQuestions": [
             {
                 "turnKind": "question",

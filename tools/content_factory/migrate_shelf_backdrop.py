@@ -49,13 +49,23 @@ def plan_migration(
         str(item.get("id")): str(item.get("level", "")).strip().lower()
         for item in scenarios
     }
+    # 기준선은 마이그레이션 당시 264개의 동결 사본이라 자라지 않는다.  이후
+    # 승격된 배치(2026-08-18 Batch 11)는 레코드가 자기 backdrop 을 이미 달고
+    # 들어오므로, 기준선에 없으면 레코드 자신을 본다.  둘 다 없을 때만 결손이다.
+    carried = {
+        str(item["id"]): str(item["backdrop"])
+        for item in scenarios
+        if isinstance(item.get("backdrop"), str) and item["backdrop"].strip()
+    }
+    resolved = {**carried, **baseline}
+
     report = check_assignment(levels)
     report["missing_backdrop"] = sorted(
-        scenario_id for scenario_id in levels if scenario_id not in baseline
+        scenario_id for scenario_id in levels if scenario_id not in resolved
     )
     report["unknown_backdrop"] = sorted(
         scenario_id
-        for scenario_id, key in baseline.items()
+        for scenario_id, key in resolved.items()
         if scenario_id in levels and key not in BACKDROP_KEYS
     )
     if any(report[key] for key in report):
@@ -66,7 +76,7 @@ def plan_migration(
         scenario_id = str(item["id"])
         copied = dict(item)
         copied["shelf"] = SHELF_BY_ID[scenario_id]
-        copied["backdrop"] = baseline[scenario_id]
+        copied["backdrop"] = resolved[scenario_id]
         migrated.append(copied)
     return migrated, report
 

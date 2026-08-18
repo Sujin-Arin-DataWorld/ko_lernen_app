@@ -249,6 +249,15 @@ DancheongMotif motifForPackId(String packId) {
     'c2_audit_trail' => DancheongMotif.wave,
     'c2_withdrawal_right' => DancheongMotif.plum,
     'c2_automated_harm' => DancheongMotif.mountain,
+    // Reviewed A1-C2 content packs using the existing motif pipeline.
+    'c1_media_evidence' => DancheongMotif.gwigap,
+    'c1_play_time_policy' => DancheongMotif.gwigap,
+    'c1_fan_labor' => DancheongMotif.gwigap,
+    'c1_intimacy_safety' => DancheongMotif.gwigap,
+    'c2_automation_redress' => DancheongMotif.gwigap,
+    'c2_sanction_accountability' => DancheongMotif.gwigap,
+    'c2_relationship_narratives' => DancheongMotif.gwigap,
+    'c2_fandom_discourse' => DancheongMotif.gwigap,
     _ => DancheongMotif.lotus,
   };
 }

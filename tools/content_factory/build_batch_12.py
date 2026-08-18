@@ -75,6 +75,7 @@ class Slice:
         return categories.pop()
 
 
+
 def _vocab_rows(pack: dict[str, Any], records: list[dict[str, Any]]) -> list[dict[str, str]]:
     if len(records) != ROWS_PER_PACK:
         raise SliceError(f"{pack['packId']}: needs exactly {ROWS_PER_PACK} words")
@@ -332,7 +333,11 @@ def build(root: Path = ROOT) -> dict[str, int]:
             "blockedBy": "PR #62 must merge first: the new units use Batch 11 scenarios as checkpointContentIds.",
         },
         "predecessorManifests": [],
-        "curriculumAdditions": {"courseUnits": units, "concepts": concepts},
+        # 키는 "curriculumExtensions" 다 — integrate_review_batches §346 이 그렇게
+        # 읽는다. 형태({concepts, courseUnits})는 같고 이름만 달랐다. 이 이름으로
+        # 적지 않으면 8개 유닛이 커리큘럼에 안 들어가고, 그 유닛을 가리키는
+        # clozeTopicUnitMap 이 "unknown course unit" 으로 죽는다.
+        "curriculumExtensions": {"courseUnits": units, "concepts": concepts},
         "artifacts": [
             {
                 "kind": "vocab",
@@ -376,7 +381,11 @@ def build(root: Path = ROOT) -> dict[str, int]:
         ),
         "grammarIntents": [
             {
-                "grammarId": entry["id"],
+                # 키는 "id" 다 — integrate_review_batches._add_mapping 이 그렇게 읽는다
+                # (§411-420). "grammarId" 로 적으면 "malformed grammar intent" 로
+                # 죽고, 그게 Batch 12 가 승격되지 못한 두 이유 중 하나였다
+                # (다른 하나는 Batch 11 미승격, 2026-08-18 해소).
+                "id": entry["id"],
                 "level": entry["level"].lower(),
                 "courseUnitId": next(
                     pack["courseUnitId"] for pack in slice_.packs

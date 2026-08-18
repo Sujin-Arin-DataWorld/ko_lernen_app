@@ -20,6 +20,11 @@ history rather than copied into the working tree.
    - Hanok/decoration asset inventory (what exists, where it is used, what is
      still missing): [HANOK_ASSET_INVENTORY_2026-08-17.md](HANOK_ASSET_INVENTORY_2026-08-17.md)
      — regenerate its tables with `python3.12 tool/asset_inventory.py`
+   - **⛔ 정정(2026-08-18)**: for hanok/decoration style facts specifically
+     (palette, camera, gates, prompt skeletons, model routing), read
+     [assets/STYLE_LOCK.json](assets/STYLE_LOCK.json) first — it outranks
+     both the inventory above and the Bible (`tool/style_lock.py` is the
+     reader; `tool/check_style_lock_docs.py` enforces this banner exists).
    - Release: [RELEASE_RUNBOOK_2026-08-02.md](RELEASE_RUNBOOK_2026-08-02.md)
 
 ## Maintenance rule

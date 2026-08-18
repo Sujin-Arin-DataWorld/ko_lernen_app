@@ -40,7 +40,7 @@ npm run deploy:check
 ```
 
 이 한 명령이 lint, TypeScript, 예전 `dist/` 제거, 새 빌드, 공개 경로,
-개인정보 동의, 보안 헤더, 테스터 신청, TestFlight 링크, Worker 바인딩,
+개인정보 동의, 보안 헤더, 테스터 신청, 스토어 CTA 게이트, Worker 바인딩,
 Cloudflare strict dry-run과 전체 의존성 보안 감사를 포함한 17개 자동 테스트를 모두
 검사합니다. Sites 실행 파일, 필수 원본, 배포 식별자가 빠진 상태도 실패합니다.
 

@@ -48,7 +48,7 @@ Production deployment accepts only a clean, committed `main` checkout that
 matches `origin/main`. It records the exact Git SHA in every Worker response,
 updates the existing `hangul-sori-redesign` Worker, and verifies both domains,
 all public routes, the exact 404 contract, security headers, every owned asset,
-the tester bindings, and the TestFlight CTA. If verification fails while that
+the tester bindings, and the gated store CTAs. If verification fails while that
 new version still owns production, the command restores the previously active
 version automatically. Both `hangul-sori.com` and `www.hangul-sori.com` are
 declared as Custom Domains in `wrangler.jsonc`.
@@ -58,7 +58,8 @@ The normal no-CLI release path is to commit the website changes and push
 deployment command. It also treats `docs/data/cultural_glossary.json` as a
 website release input. Direct local deployment remains available for recovery.
 
-To include a live request to Apple's TestFlight page in the verification:
+To also check that the TestFlight invitation link we email to accepted iOS
+testers is still live:
 
 ```bash
 npm run verify:live:external

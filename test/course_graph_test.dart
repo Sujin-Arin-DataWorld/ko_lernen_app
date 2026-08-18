@@ -988,7 +988,8 @@ void main() {
           .toList(growable: false);
 
       expect(catalog.validationIssues, isEmpty);
-      expect(advancedUnits, hasLength(4));
+      // Batch 12 로 C1·C2 각 6개 (2026-08-18).
+      expect(advancedUnits, hasLength(12));
       const requiredKinds = {
         CurriculumContentKind.vocab,
         CurriculumContentKind.grammar,

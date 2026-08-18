@@ -1,7 +1,7 @@
 import '../l10n/generated/app_localizations.dart';
 import '../models/learner_level.dart';
 
-/// 책가도 서재 — 레벨당 12칸의 정본.
+/// 책가도 서재 — 레벨당 15칸의 정본 (기능 9 + 기능확장 3 + 관심 3).
 ///
 /// **`tools/content_factory/shelf_assignment.py` 의 `SHELF_SLUGS` 을 그대로
 /// 옮긴 것이다** — slug 철자·순서 전부 동일. 그 파일이 `Scenario.shelf` 필드
@@ -18,8 +18,8 @@ class ChaekgadoSlot {
   final String imageKey;
 }
 
-const Map<String, List<ChaekgadoSlot>> kChaekgadoSlots = {
-  'a1': [
+const Map<LearnerLevel, List<ChaekgadoSlot>> kChaekgadoSlots = {
+  LearnerLevel.a1: [
     ChaekgadoSlot('transit', 'A1Transit'),
     ChaekgadoSlot('taxi_stay', 'A1Arrival'),
     ChaekgadoSlot('counter', 'A1Counter'),
@@ -32,8 +32,13 @@ const Map<String, List<ChaekgadoSlot>> kChaekgadoSlots = {
     ChaekgadoSlot('numbers', 'A1Numbers'),
     ChaekgadoSlot('phone', 'A1Phone'),
     ChaekgadoSlot('wayfinding', 'A1Wayfinding'),
+    // 관심 3칸 — 레벨 공용 아트 3장(Social*)을 6레벨이 나눠 쓴다.
+    // shelf_assignment.INTEREST_SLUGS 와 순서·철자 동일.
+    ChaekgadoSlot('friends', 'SocialFriends'),
+    ChaekgadoSlot('dating', 'SocialDating'),
+    ChaekgadoSlot('fandom', 'SocialFandom'),
   ],
-  'a2': [
+  LearnerLevel.a2: [
     ChaekgadoSlot('move', 'A2Travel'),
     ChaekgadoSlot('money', 'A2Bank'),
     ChaekgadoSlot('buy', 'A2Shopping'),
@@ -46,8 +51,13 @@ const Map<String, List<ChaekgadoSlot>> kChaekgadoSlots = {
     ChaekgadoSlot('delivery', 'A2Delivery'),
     ChaekgadoSlot('enrolment', 'A2Enrolment'),
     ChaekgadoSlot('booking', 'A2Booking'),
+    // 관심 3칸 — 레벨 공용 아트 3장(Social*)을 6레벨이 나눠 쓴다.
+    // shelf_assignment.INTEREST_SLUGS 와 순서·철자 동일.
+    ChaekgadoSlot('friends', 'SocialFriends'),
+    ChaekgadoSlot('dating', 'SocialDating'),
+    ChaekgadoSlot('fandom', 'SocialFandom'),
   ],
-  'b1': [
+  LearnerLevel.b1: [
     ChaekgadoSlot('repair', 'B1Repairs'),
     ChaekgadoSlot('refund', 'B1Refund'),
     ChaekgadoSlot('bill', 'B1Receipts'),
@@ -60,8 +70,13 @@ const Map<String, List<ChaekgadoSlot>> kChaekgadoSlots = {
     ChaekgadoSlot('insurance', 'B1Insurance'),
     ChaekgadoSlot('incident', 'B1Incident'),
     ChaekgadoSlot('cancellation', 'B1Cancellation'),
+    // 관심 3칸 — 레벨 공용 아트 3장(Social*)을 6레벨이 나눠 쓴다.
+    // shelf_assignment.INTEREST_SLUGS 와 순서·철자 동일.
+    ChaekgadoSlot('friends', 'SocialFriends'),
+    ChaekgadoSlot('dating', 'SocialDating'),
+    ChaekgadoSlot('fandom', 'SocialFandom'),
   ],
-  'b2': [
+  LearnerLevel.b2: [
     ChaekgadoSlot('meeting', 'B2Meetings'),
     ChaekgadoSlot('evidence', 'B2Evidence'),
     ChaekgadoSlot('negotiate', 'B2Negotiation'),
@@ -74,12 +89,17 @@ const Map<String, List<ChaekgadoSlot>> kChaekgadoSlots = {
     ChaekgadoSlot('hiring', 'B2Hiring'),
     ChaekgadoSlot('authorities', 'B2Authorities'),
     ChaekgadoSlot('privacy', 'B2Privacy'),
+    // 관심 3칸 — 레벨 공용 아트 3장(Social*)을 6레벨이 나눠 쓴다.
+    // shelf_assignment.INTEREST_SLUGS 와 순서·철자 동일.
+    ChaekgadoSlot('friends', 'SocialFriends'),
+    ChaekgadoSlot('dating', 'SocialDating'),
+    ChaekgadoSlot('fandom', 'SocialFandom'),
   ],
   // C1/C2 — 재고는 12칸 중 4~6칸뿐이다(2026-08-18 기준). 나머지는 카드 아트
   // 없이 소품만 놓고 출시한다(ChaekgadoShelfCase 의 count==0 처리) — 24칸을
   // 전부 채워야 했던 옛 카드 그리드안과 달리, 이 결정 덕에 신규 아트 0장으로
   // 간다. 콘텐츠가 늘면 그때 해당 칸만 카드를 뽑는다.
-  'c1': [
+  LearnerLevel.c1: [
     ChaekgadoSlot('briefing', 'C1Briefing'),
     ChaekgadoSlot('uncertainty', 'C1Uncertainty'),
     ChaekgadoSlot('access', 'C1Access'),
@@ -92,8 +112,13 @@ const Map<String, List<ChaekgadoSlot>> kChaekgadoSlots = {
     ChaekgadoSlot('methodology', 'C1Methodology'),
     ChaekgadoSlot('facework', 'C1Facework'),
     ChaekgadoSlot('attribution', 'C1Attribution'),
+    // 관심 3칸 — 레벨 공용 아트 3장(Social*)을 6레벨이 나눠 쓴다.
+    // shelf_assignment.INTEREST_SLUGS 와 순서·철자 동일.
+    ChaekgadoSlot('friends', 'SocialFriends'),
+    ChaekgadoSlot('dating', 'SocialDating'),
+    ChaekgadoSlot('fandom', 'SocialFandom'),
   ],
-  'c2': [
+  LearnerLevel.c2: [
     ChaekgadoSlot('automation', 'C2Automation'),
     ChaekgadoSlot('record', 'C2Records'),
     ChaekgadoSlot('discourse', 'C2Discourse'),
@@ -106,6 +131,11 @@ const Map<String, List<ChaekgadoSlot>> kChaekgadoSlots = {
     ChaekgadoSlot('limitation', 'C2Limitation'),
     ChaekgadoSlot('jurisdiction', 'C2Jurisdiction'),
     ChaekgadoSlot('representation', 'C2Representation'),
+    // 관심 3칸 — 레벨 공용 아트 3장(Social*)을 6레벨이 나눠 쓴다.
+    // shelf_assignment.INTEREST_SLUGS 와 순서·철자 동일.
+    ChaekgadoSlot('friends', 'SocialFriends'),
+    ChaekgadoSlot('dating', 'SocialDating'),
+    ChaekgadoSlot('fandom', 'SocialFandom'),
   ],
 };
 
@@ -119,7 +149,7 @@ String chaekgadoShelfId(LearnerLevel level, String slug) =>
 String chaekgadoCardAsset(String imageKey) =>
     'assets/illustrations/listening/$imageKey.webp';
 
-/// 서재 목재·소품 — 108칸 공용. 칸별 자산이 아니라 이 4종을 순환한다.
+/// 서재 목재·소품 — 90칸 공용. 칸별 자산이 아니라 이 4종을 순환한다.
 const List<String> kChaekgadoProps = [
   'assets/illustrations/chaekgado/chaekgado_prop_vase.png',
   'assets/illustrations/chaekgado/chaekgado_prop_brushpot.png',
@@ -211,5 +241,8 @@ String chaekgadoSlotLabel(AppL10n t, String imageKey) => switch (imageKey) {
   'C2Limitation' => t.listeningShelfC2Limitation,
   'C2Jurisdiction' => t.listeningShelfC2Jurisdiction,
   'C2Representation' => t.listeningShelfC2Representation,
+  'SocialFriends' => t.listeningShelfSocialFriends,
+  'SocialDating' => t.listeningShelfSocialDating,
+  'SocialFandom' => t.listeningShelfSocialFandom,
   _ => imageKey,
 };

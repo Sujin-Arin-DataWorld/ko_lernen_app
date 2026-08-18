@@ -22,6 +22,8 @@ ROOT = SCRIPT_DIR.parents[1]
 CATEGORIES = ("daily", "friends", "dating", "youtube", "gaming", "kpop")
 LEVELS = ("a1", "a2", "b1", "b2", "c1", "c2")
 QUEST_TYPES = ("hoerverstehen", "uebersetzen", "luecken", "satzBauen", "diktat")
+# A1 은 교정 퀘스트가 하나 더 붙는다 — 근거는 builder.A1_CORRECTION_SUFFIX 주석.
+A1_QUEST_TYPES = QUEST_TYPES + ("particlePop",)
 REGISTERS = ("polite", "casual", "business", "intimate")
 SCENE_KEYS = ("airport", "cafe", "convenience", "directions", "home", "hotel",
               "market", "office", "pharmacy", "restaurant", "station", "taxi")
@@ -59,10 +61,14 @@ class SceneContractTest(unittest.TestCase):
             for q in item.get("quests", [])
             if isinstance(q, dict) and isinstance(q.get("id"), str)
         }
+        # 2026-08-18 이 배치는 승격됐다.  그래서 계약이 뒤집힌다: 예전에는
+        # "초안 id 가 live 에 없어야 한다"(중복 승격 방지)였고, 지금은 "초안 id 가
+        # 전부 live 에 있어야 한다"(초안↔live 이탈 방지)다.  후자가 더 강한 센서다 —
+        # 씬 스크립트만 고치고 재승격을 잊으면 여기서 red 가 난다.
         for scene in SCENES:
-            self.assertNotIn(scene["id"], live_ids, f"{scene['id']} already live")
+            self.assertIn(scene["id"], live_ids, f"{scene['id']} not promoted")
             for quest in scene["quests"]:
-                self.assertNotIn(quest["id"], live_quests, f"{quest['id']} already live")
+                self.assertIn(quest["id"], live_quests, f"{quest['id']} not promoted")
 
     def test_dialog_is_eight_trilingual_turns(self):
         for scene in SCENES:
@@ -72,13 +78,38 @@ class SceneContractTest(unittest.TestCase):
                 for key in ("ko", "de", "en"):
                     self.assertTrue(turn[key].strip(), f"{scene['id']} empty {key}")
 
-    def test_five_quests_one_of_each_type(self):
+    def test_quest_types_match_the_level_contract(self):
         for scene in SCENES:
+            expected_types = A1_QUEST_TYPES if scene["level"] == "a1" else QUEST_TYPES
+            suffixes = builder.QUEST_SUFFIXES
+            if scene["level"] == "a1":
+                suffixes = suffixes + (builder.A1_CORRECTION_SUFFIX,)
             types = [quest["type"] for quest in scene["quests"]]
-            self.assertEqual(sorted(types), sorted(QUEST_TYPES), f"{scene['id']} quest types")
-            for quest, suffix in zip(scene["quests"], builder.QUEST_SUFFIXES):
+            self.assertEqual(
+                sorted(types), sorted(expected_types), f"{scene['id']} quest types"
+            )
+            self.assertEqual(len(scene["quests"]), len(suffixes), scene["id"])
+            for quest, suffix in zip(scene["quests"], suffixes):
                 self.assertEqual(quest["id"], f"quest_{scene['id']}_{suffix}")
                 self.assertEqual(quest["conceptIds"], scene["conceptIds"])
+
+    def test_a1_scenes_carry_a_correction_quest(self):
+        # live A1 계약(test/a1_real_life_scenarios_test.dart)의 초안 쪽 짝.
+        # 여기서 막지 않으면 승격 시점에 Flutter 센서가 red 로 잡는다.
+        for scene in SCENES:
+            if scene["level"] != "a1":
+                continue
+            corrections = [
+                quest for quest in scene["quests"]
+                if quest["type"] in ("particlePop", "batchimDrop")
+            ]
+            self.assertEqual(len(corrections), 1, scene["id"])
+            data = corrections[0]["data"]
+            self.assertTrue(data["prefix"].strip(), scene["id"])
+            self.assertGreaterEqual(len(data["options"]), 4, scene["id"])
+            self.assertIn(data["correctIndex"], range(len(data["options"])), scene["id"])
+            for key in ("explanationDe", "explanationEn"):
+                self.assertTrue(data[key].strip(), f"{scene['id']} {key}")
 
     def test_vocab_has_at_least_six_entries(self):
         for scene in SCENES:

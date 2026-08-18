@@ -10700,6 +10700,430 @@
         "de": "Dann sprechen wir später weiter.",
         "en": "Then we can continue later."
       }
+    },
+    {
+      "id": "smalltalk_c1_0025",
+      "category": "screen",
+      "level": "c1",
+      "kind": "question",
+      "ko": "그 영상 주장은 표본이 몇 명이었는지 나와 있었어요?",
+      "de": "Stand in dem Video, wie groß die Stichprobe war?",
+      "en": "Did the video say how large the sample was?",
+      "reply": {
+        "ko": "숫자는 안 나오고 결론만 크게 나왔어요.",
+        "de": "Zahlen kamen nicht vor, nur die Schlussfolgerung war groß.",
+        "en": "No numbers came up, just a bold conclusion."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "출처 링크는 설명란에 있었어요?",
+          "de": "War der Quellenlink in der Beschreibung?",
+          "en": "Was the source link in the description?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 저도 한 번 더 확인해 볼게요.",
+        "de": "Dann schaue ich selbst noch einmal nach.",
+        "en": "Then I'll check it once more myself."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0026",
+      "category": "screen",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "제목만 보면 확실해 보이는데 근거는 그만큼은 아니네요.",
+      "de": "Der Titel klingt sicher, die Belege sind es aber nicht.",
+      "en": "The headline sounds certain, the evidence less so.",
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "이 주제로 다른 자료도 보셨어요?",
+          "de": "Haben Sie zu dem Thema noch andere Quellen gesehen?",
+          "en": "Have you seen other material on this topic?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "같이 비교해 보면 판단이 쉬워지겠어요.",
+        "de": "Ein Vergleich würde die Einschätzung erleichtern.",
+        "en": "Comparing them would make the call easier."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0025",
+      "category": "phone",
+      "level": "c2",
+      "kind": "question",
+      "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
+      "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Rechnung Einspruch einlegt?",
+      "en": "If you appeal an automatically calculated bill, does a person review it again?",
+      "reply": {
+        "ko": "같은 시스템이 다시 돌린다고만 안내받았어요.",
+        "de": "Mir wurde nur gesagt, dasselbe System rechne erneut.",
+        "en": "I was only told the same system runs it again."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "결과는 며칠 안에 통보되나요?",
+          "de": "In wie vielen Tagen kommt die Mitteilung?",
+          "en": "Within how many days does the notification come?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그러면 서면으로 남겨 두는 편이 낫겠네요.",
+        "de": "Dann ist es besser, das schriftlich festzuhalten.",
+        "en": "Then it's better to put it in writing."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0026",
+      "category": "phone",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "창구가 있다고 해서 구제가 되는 건 아니더라고요.",
+      "de": "Dass es eine Stelle gibt, heißt noch nicht, dass Abhilfe kommt.",
+      "en": "Having a desk to complain to doesn't mean redress follows.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "이의가 받아들여진 비율은 공개돼 있나요?",
+          "de": "Ist veröffentlicht, wie oft Einsprüche Erfolg haben?",
+          "en": "Is it published how often appeals succeed?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 숫자가 없으면 절차만 남는 셈이죠.",
+        "de": "Ohne diese Zahl bleibt nur das Verfahren übrig.",
+        "en": "Without that number only the procedure is left."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0027",
+      "category": "hobby",
+      "level": "c1",
+      "kind": "question",
+      "ko": "게임 시간 제한이 실제로 효과가 있었다는 자료 보신 적 있어요?",
+      "de": "Haben Sie Daten gesehen, dass die Zeitbegrenzung beim Spielen wirklich gewirkt hat?",
+      "en": "Have you seen data showing the play-time limit actually worked?",
+      "reply": {
+        "ko": "시간이 줄었다는 표는 봤는데 잠은 그대로였어요.",
+        "de": "Ich sah eine Tabelle mit weniger Zeit, der Schlaf blieb aber gleich.",
+        "en": "I saw a table with less time, but sleep stayed the same."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 자료는 어느 연령대였어요?",
+          "de": "Welche Altersgruppe war das?",
+          "en": "Which age group was that?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "연령대가 다르면 결론도 달라지겠네요.",
+        "de": "Bei einer anderen Altersgruppe fällt der Schluss anders aus.",
+        "en": "With a different age group the conclusion changes."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0028",
+      "category": "hobby",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "제한을 걸어도 부모 계정으로 넘어가면 소용이 없더라고요.",
+      "de": "Selbst mit Begrenzung bringt es nichts, wenn man aufs Elternkonto ausweicht.",
+      "en": "Even with a limit it's pointless if people move to a parent's account.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그건 어떻게 막을 수 있을까요?",
+          "de": "Wie ließe sich das verhindern?",
+          "en": "How could that be prevented?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "계정 확인 방식부터 다시 봐야겠어요.",
+        "de": "Man müsste bei der Kontoprüfung ansetzen.",
+        "en": "You'd have to start with how accounts are checked."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0027",
+      "category": "hobby",
+      "level": "c2",
+      "kind": "question",
+      "ko": "자동으로 계정이 정지되면 사유를 어디까지 알려 주나요?",
+      "de": "Wie viel vom Grund erfährt man, wenn ein Konto automatisch gesperrt wird?",
+      "en": "How much of the reason are you told when an account is suspended automatically?",
+      "reply": {
+        "ko": "규정 위반이라는 문장 하나가 전부였어요.",
+        "de": "Ein Satz über einen Regelverstoß war alles.",
+        "en": "One line about a rule breach was all of it."
+      },
+      "relationshipContext": "service",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "이의를 넣을 기한은 안내받으셨어요?",
+          "de": "Wurde Ihnen eine Frist für den Einspruch genannt?",
+          "en": "Were you told a deadline for appealing?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "기한이 없으면 다투기가 훨씬 어렵죠.",
+        "de": "Ohne Frist wird das Anfechten deutlich schwerer.",
+        "en": "With no deadline it's far harder to contest."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0028",
+      "category": "hobby",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "신고가 여러 건이라는 것만으로 정지하면 오탐을 걸러낼 수가 없어요.",
+      "de": "Sperrt man allein wegen mehrerer Meldungen, lassen sich Fehlalarme nicht aussortieren.",
+      "en": "Suspending on report count alone leaves no way to filter out false positives.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "사람이 다시 보는 단계는 있나요?",
+          "de": "Gibt es eine Stufe, in der ein Mensch nachprüft?",
+          "en": "Is there a step where a person re-checks?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 단계가 있어야 기준이 쌓이겠죠.",
+        "de": "Erst mit dieser Stufe entstehen Maßstäbe.",
+        "en": "Only with that step do standards build up."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0029",
+      "category": "kpop",
+      "level": "c1",
+      "kind": "question",
+      "ko": "그 계정 번역은 몇 분이서 돌아가면서 하세요?",
+      "de": "Zu wie vielt wechseln Sie sich bei den Übersetzungen für das Konto ab?",
+      "en": "How many of you take turns on the translations for that account?",
+      "reply": {
+        "ko": "요즘은 사실상 두 명이 다 하고 있어요.",
+        "de": "Im Moment machen es faktisch zwei Personen allein.",
+        "en": "Right now two people effectively do all of it."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "컴백 기간에는 인원을 더 늘리세요?",
+          "de": "Stocken Sie in der Comeback-Zeit auf?",
+          "en": "Do you add more people during a comeback?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그때가 제일 몰릴 텐데 걱정이네요.",
+        "de": "Gerade dann ballt es sich am meisten.",
+        "en": "That's exactly when it piles up most."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0030",
+      "category": "kpop",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "좋아서 하는 일이라도 양이 정해져 있어야 오래 가더라고요.",
+      "de": "Auch was man gern macht, hält nur mit festgelegtem Umfang lange.",
+      "en": "Even work you enjoy only lasts if the amount is fixed.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "주당 몇 시간으로 정해 두셨어요?",
+          "de": "Auf wie viele Stunden pro Woche haben Sie sich festgelegt?",
+          "en": "How many hours a week did you settle on?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그 정도면 시험 기간에도 버티겠네요.",
+        "de": "So ist auch die Prüfungszeit zu schaffen.",
+        "en": "That should hold up even during exams."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0029",
+      "category": "dating",
+      "level": "c2",
+      "kind": "question",
+      "ko": "그 이야기 지금은 누구 입장에서 정리돼 있는 것 같으세요?",
+      "de": "Aus wessen Sicht ist die Geschichte inzwischen erzählt, würden Sie sagen?",
+      "en": "Whose side do you think the story is told from by now?",
+      "reply": {
+        "ko": "제 쪽 이야기만 여러 번 다듬어졌더라고요.",
+        "de": "Nur meine Version wurde mehrfach geglättet.",
+        "en": "Only my version got smoothed over several times."
+      },
+      "relationshipContext": "close_friend",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "상대 쪽 설명도 들어 보셨어요?",
+          "de": "Haben Sie auch die Darstellung der anderen Seite gehört?",
+          "en": "Have you heard the other side's account too?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "양쪽을 붙여 보면 다르게 보일 수도 있겠어요.",
+        "de": "Nebeneinandergelegt sieht es vielleicht anders aus.",
+        "en": "Placed side by side it might look different."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0030",
+      "category": "dating",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "지나고 나면 좋았던 장면만 남아서 판단이 흐려져요.",
+      "de": "Im Rückblick bleiben nur die schönen Szenen, und das trübt das Urteil.",
+      "en": "Looking back, only the good scenes remain and that clouds the judgement.",
+      "relationshipContext": "close_friend",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그때 적어 둔 기록이 남아 있나요?",
+          "de": "Gibt es Notizen aus der Zeit?",
+          "en": "Do you still have notes from back then?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "기록을 보면 기억이 조금 교정되겠네요.",
+        "de": "Notizen würden die Erinnerung etwas korrigieren.",
+        "en": "Notes would correct the memory a little."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0031",
+      "category": "dating",
+      "level": "c1",
+      "kind": "question",
+      "ko": "그 앱은 신고하면 결과를 다시 알려 주나요?",
+      "de": "Meldet die App zurück, was aus einer Meldung geworden ist?",
+      "en": "Does that app tell you what came of a report?",
+      "reply": {
+        "ko": "접수됐다는 문장만 오고 그 뒤로는 없었어요.",
+        "de": "Es kam nur die Eingangsbestätigung, danach nichts.",
+        "en": "Only an acknowledgement came, nothing after that."
+      },
+      "relationshipContext": "close_friend",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "차단은 바로 적용되던가요?",
+          "de": "Wurde die Sperrung sofort wirksam?",
+          "en": "Did the block take effect right away?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "그건 그래도 빨리 되니 다행이네요.",
+        "de": "Immerhin geht das schnell.",
+        "en": "At least that part is quick."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0032",
+      "category": "dating",
+      "level": "c1",
+      "kind": "reaction",
+      "ko": "처음 만날 때는 장소를 제가 정하는 편이 마음이 편해요.",
+      "de": "Beim ersten Treffen ist es mir lieber, den Ort selbst zu wählen.",
+      "en": "For a first meeting I'd rather pick the place myself.",
+      "relationshipContext": "close_friend",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그때 누구한테 알려 두세요?",
+          "de": "Wem sagen Sie vorher Bescheid?",
+          "en": "Who do you tell beforehand?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "한 명한테라도 알려 두면 확실히 낫죠.",
+        "de": "Auch nur eine Person zu informieren hilft spürbar.",
+        "en": "Telling even one person clearly helps."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0031",
+      "category": "kpop",
+      "level": "c2",
+      "kind": "question",
+      "ko": "그 표현이 왜 문제인지 안에서 설명된 적 있어요?",
+      "de": "Wurde intern je erklärt, warum dieser Ausdruck ein Problem ist?",
+      "en": "Has it ever been explained inside the group why that expression is a problem?",
+      "reply": {
+        "ko": "다들 쓰니까 괜찮다는 말만 돌았어요.",
+        "de": "Es hieß nur, alle benutzen ihn, also sei er in Ordnung.",
+        "en": "The only line going around was that everyone uses it, so it's fine."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "밖에서는 같은 표현을 어떻게 보나요?",
+          "de": "Wie wird derselbe Ausdruck außerhalb gesehen?",
+          "en": "How is the same expression seen outside?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "안팎이 다르면 한 번은 짚고 가야죠.",
+        "de": "Weichen innen und außen ab, muss man es ansprechen.",
+        "en": "If inside and outside differ, it's worth raising once."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0032",
+      "category": "kpop",
+      "level": "c2",
+      "kind": "reaction",
+      "ko": "사람이 많다고 그 말이 기준이 되는 건 아니잖아요.",
+      "de": "Dass viele es sagen, macht es noch nicht zum Maßstab.",
+      "en": "Many people saying it doesn't make it the standard.",
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그럼 기준은 어디서 정해지는 걸까요?",
+          "de": "Wo wird der Maßstab dann festgelegt?",
+          "en": "So where does the standard get set?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "적어 둔 규칙이 있어야 다툴 수 있겠네요.",
+        "de": "Erst mit schriftlichen Regeln lässt sich streiten.",
+        "en": "Only written rules give you something to argue with."
+      }
     }
   ]
 }

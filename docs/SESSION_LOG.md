@@ -1,5 +1,319 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude Opus 5, macOS) — C1 확장 7칸 28편 (Batch 15) + PR #72 머지
+
+**PR #72 머지 (`a06bb5bb`).** 올리기 직전에 내 브랜치가 다른 세션의 **미머지 커밋
+`e50fd520` 위에** 얹혀 있는 걸 발견했다 — 그대로 밀면 그쪽 작업까지 올라간다.
+`origin/main` 위로 리베이스해 내 6개만 떼어 올렸다(해시가 바뀌어 로그도 맞췄다).
+
+**Batch 15 — C1 기능 확장 7칸 28편.** `conflict_interest`(지분 고지·회피 신청·협찬 강연·
+겸직) · `policy`(시범 후 확대·부담 주체·일몰 조항·예외의 경계) · `clinical`(설명 동의·재판독·
+시험 중단·자료 2차 이용) · `critique`(작품과 사람 분리·익명 심사의 한계·지표 왜곡·공개 수위) ·
+`mediation`(기본 규칙·상대 말 되말하기·부분 합의·결렬선) · `facework`(거절·따로 정정·지적
+받기·공개 칭찬의 무게) · `attribution`(저자 순서·무상 번역의 이름·출처 없는 재사용·단체 명의).
+
+C1 은 **판단의 조건을 드러내는 층위**로 잡았다 — 무엇을 아는가가 아니라 그 앎이 어디까지
+유효하고 누가 이득을 보는지를 말로 표시한다. 그래서 장면이 결론이 아니라 유보와 조건으로
+끝난다("그렇습니다" 가 아니라 "그 부분은 여지가 있습니다"). 문법 6종(감안하면·여지가 있다·
+지 않는 한·한편·한이 있어도·마당에)이 그 층위를 그대로 나른다.
+
+**live 340 → 368, 퀘스트 1369 → 1509. 남은 빈 칸은 6개, 전부 C2.**
+
+**도구 쪽 한 가지.** `build_can_do_segments.resolve()` 의 **scenario 분기에도 "라우팅되면
+부모 검사 우회" 를 줬다.** Batch 12 가 만든 신규 유닛(c1_03~c1_06)에는 세그먼트가 없고
+모듈 교리대로 세그먼트를 새로 만들지도 않으므로, 이 우회가 없으면 그 유닛의 시나리오는
+어디에도 붙지 못한다. cloze·satz·grammar·vocabPack 에는 이미 있던 우회다.
+
+**내가 낸 결함 둘.** ① 영어 대사 4곳에 uncontracted "I am"/"I will" (Batch 14 와 같은 실수다).
+② `conflict_interest` 4편의 id 를 `c1_conflict_*` 로 줄여 써 `{level}_{category}_` 규약을
+어겼다 — 센서를 약화시키는 대신 id 를 `c1_conflict_interest_*` 로 맞추고 재승격했다.
+
+**검증.** `flutter test` 4011건 중 **4010 green**. 남은 1건 `asset_orphan_guard_test` 는
+**main 자체의 red** 다(한옥 자산 14개를 배선하는 커밋이 아직 main 에 없다). 파이썬 201건은
+main 기준선 대비 새로 깬 것 0건. `validate_content` OK.
+
+**남은 것.** C2 확장 6칸(`ethics`·`history`·`aesthetic`·`limitation`·`jurisdiction`·
+`representation`) × 4편 = 24편.
+
+### 2026-08-18 (Claude Code, 웹사이트) — App Store CTA 도 테스터 신청서 뒤로 (TestFlight 오픈링크 착각 차단)
+
+**무엇을 고쳤나.** 홈페이지 App Store 버튼이 TestFlight 공개 링크로 바로 넘어갔다. 그런데
+TestFlight 는 App Store Connect 테스터 목록에 **이메일이 등록된 Apple ID 에만** 열린다 — Jin 이
+직접 눌러 보고 확인했다. 신청서를 건너뛴 방문자는 아무 안내 없이 막힌 Apple 페이지를 본다.
+이제 스토어 CTA 두 개(App Store · Google Play)가 **모두** `#tester-access` 신청서를 연다
+(`app/site.tsx` `StoreButtons`).
+
+**왜 성공 화면의 TestFlight 버튼까지 뺐나.** 신청서를 통과시켜도 성공 화면이 곧장 TestFlight
+링크를 쥐여 주면 같은 벽에 부딪힌다 — 우리가 App Store Connect 에 그 이메일을 등록하기 전이니까.
+iOS 신청자에게는 링크 대신 "초대는 이메일로 간다 · 그전까지 공개 링크는 열리지 않는다"를
+DE/EN/KO 로 설명한다. Android 는 기존대로 Play 링크 + 안내 문구를 유지한다(Play 도 등록된
+테스터에게만 보이지만 그 안내는 이미 있었다). `STORE_LINKS.ios` 는 초대 메일에 붙일 정본으로
+`app/store-links.ts` 에 그대로 남겼다.
+
+**같이 따라간 것.** `IOS_TESTFLIGHT.isAvailable` 킬스위치는 의미가 사라져 삭제했다(이제 iOS CTA
+는 언제나 신청서다). iOS 라디오 보조문구 "대기 명단"→"초대 메일 발송"(Warteliste→Einladung per
+E-Mail / Waiting list→Invitation by email), 스토어 버튼 라벨 "iOS 베타 이용 가능"→"iOS 베타 진행
+중". **릴리스 게이트 2곳이 옛 계약(홈 HTML 에 TestFlight href 가 있을 것)을 강제하고 있어 반대
+계약으로 뒤집었다**: `tests/rendered-html.test.mjs` 와 `scripts/verify-live.mjs` 는 이제 모든
+`a.store-button` 이 `#tester-access` 를 가리키는지, 스토어 href 가 노출되지 않는지 본다. 안 바꿨으면
+다음 배포가 그 자리에서 실패한다. README·WORKER_RELEASE·LOCAL_EDITING_GUIDE_KO 의 수동 점검
+절차도 같이 갱신했다.
+
+**검증.** node 24.18.0 으로 `npm run lint`(경고 3 = 기존 `<img>` 경고만, 에러 0)·`typecheck`·
+`build`·`test:unit` **20/20** 통과. Playwright 실물 확인: /ko 에서 App Store 클릭 → 신청서
+다이얼로그 열림(href `#tester-access`, `target` 없음), iOS 제출 성공 화면에 외부 링크 0개,
+Android 제출 성공 화면은 Play 링크 유지. **미검증(Jin)**: 실제 배포(`npm run deploy`)와 라이브
+도메인 `verify:live` — Cloudflare 로그인이 필요하다. 커밋: 브랜치
+`claude/app-store-open-link-form-sdt7s8`.
+
+### 2026-08-18 (Claude Opus 5, macOS) — 책가도 15칸 재결정 + Batch 11 승격(264→300) + 승격 파이프라인 복구
+
+**왜 이 작업이 필요했나 — 4시간 시차 충돌.** Jin 이 "batch 만든 게 왜 콘텐츠로 안 들어가나"를
+물어 전수 추적한 결과다. 2026-08-17 **17:31** 에 Batch 11(36편)과 Batch 12(8유닛·312레코드)가
+`friends`/`dating`/`fandom` 관심축 위에서 review-only 로 머지됐고(#62·#64), **21:28** 에 PR #71
+(`0bc92dec`)이 그 관심축을 레벨별 기능 확장 3칸으로 **교체**하면서 두 배치의 착지점이 사라졌다.
+Batch 12 는 매니페스트에 `blockedBy: "PR #62 must merge first — the new units use Batch 11
+scenarios as checkpointContentIds"` 라고 적힌 그대로 연쇄로 묶였다. **그리드↔책가도 왕복은
+원인이 아니다** — 재결정(`f109d0e5`)은 오히려 기능확장 축을 그대로 물려받았다(아트 72장 명세가
+그 위에 서 있었으므로).
+
+**① 승격 도구가 08-17 이후 통째로 고장나 있었다 (실측).** `integrate_scenario_batch.py` 는
+`backdrop` 만 주입하고 `shelf` 를 안 넣는데, 같은 날 마이그레이션이 `validate_content.py:356` 에
+"live 전수는 72칸 중 하나의 shelf 를 가져야 한다"를 넣었다. 그래서 **어떤 시나리오 배치도
+승격이 불가능**했고 — dry-run 이 36편 전부에 `shelf must be one of the 72 shelves, got None` 을
+뱉는다 — 아무도 못 본 이유는 그 뒤로 승격을 시도한 적이 없어서다. `SHELF_BY_ID` 주입을 추가했다.
+가드는 **승격(`require_approved=True`)에만** 건다: 초안 미리보기·검수 패킷은 아직 칸이 안 정해진
+배치에도 돌아야 한다(칸 배정은 Jin 이 초안을 읽고 하는 결정이다).
+
+**② Jin 재결정 — 서재 12칸 → 15칸.** "책가도를 밑으로 슬라이스 내려서 다른 카테고리도
+보게." 08-17 에 관심축을 버린 판단의 전제가 "서재는 12칸"이었는데 그 전제가 틀렸다:
+`ChaekgadoShelfCase` 는 칸 수를 고정하지 않고 `compartments` 길이만큼 행을 늘리며 듣기 화면이
+그걸 세로 스크롤에 담는다. 12칸을 놓고 다툴 이유가 없다. 기능 9 + 기능확장 3 + **관심 3**
+= 15칸, 72 → **90칸**. 번들에 있으나 아무 데서도 참조되지 않던 `SocialFriends`/`SocialDating`/
+`SocialFandom` 3장이 6레벨 공용으로 이 축을 덮는다 — **신규 아트 0장**.
+
+**③ Batch 11 36편 승격 — live 264 → 300.** 6개 집필축을 3칸으로 접었다: `gaming`→`friends`
+(둘 다 또래 상호작용), `youtube`→`fandom`(미디어 소비), `daily` 6편→기능칸 분산
+(`a2_delivery`·`b2_authorities`·`c1_methodology` 빈칸 3개를 채우고 나머지는 `a1_home`·`b1_bill`·
+`c2_automation`). C1/C2 에서는 소재가 담화 기능과 겹쳐 보여 `c1_kpop_fan_labor`→`c1_labor` 같은
+분산이 더 "정확"해 보이지만 **그렇게 흩으면 관심 3칸이 상급 레벨에서만 비고 학습자가 스크롤해
+내려간 자리가 레벨마다 다른 뜻이 된다.** 축은 전 레벨에서 같은 것을 뜻해야 한다 — 기능칸 구멍은
+신규 집필로 메운다. 4지표(dupes/orphans/ghosts/wrong_level) 전부 0.
+
+**④ 승격 전에 기존 센서 4건이 red 를 냈고, 전부 초안 소스에서 고쳤다** (live 만 고치면 재생성
+때 되살아난다). ⓐ NPC 이름 `민수`→`현우` 2편 — `learner_copy_scan_test` 의 금지어. speaker 키
+`minsu` 는 33곳에서 쓰이는 코드 식별자라 그대로 뒀다. ⓑ `a2_dating_slow_replies` 의 uncontracted
+"I will" → "I promise"(단독 긍정 대답이라 "I'll." 은 어색하다). ⓒ **A1 6편에 교정 퀘스트가
+없었다** — `a1_real_life_scenarios_test` 가 모든 A1 에 조사·받침·활용 교정을 요구하는데 Batch 11
+템플릿 5종에는 교정형이 없다. `particlePop` 6개를 각 씬 실제 대사에서 뽑아 집필했고(받침 유무 ×
+주제/주어/목적어/도구를 고루 덮는다: 는·이·으로·를·을·가), A1 만 6퀘스트가 되도록 빌더 계약을
+넓혔다(`A1_CORRECTION_SUFFIX`). 퀘스트 971 → 1157. ⓓ C1/C2 12편의 can-do 세그먼트 라우트 —
+A1~B2 는 `courseUnitId` 폴백을 타지만 C1/C2 분기에는 그 폴백이 없어 조용히 건너뛴다.
+`BATCH_11_SEGMENT_ROUTES` 를 만들었다. **제약: 세그먼트의 `parentCourseUnitId` 가 시나리오의
+`courseUnitId` 와 같아야 한다** — 그래서 "의미가 제일 가까운 세그먼트"가 아니라 "그 유닛 안에서
+제일 가까운 세그먼트"다.
+
+**⑤ can-do 빌더는 내 변경 이전부터 main 에서 못 돌고 있었다.** `SMALLTALK_REVIEW_APPROVALS`
+76건 중 **64건**의 phrase 지문이 `smalltalk.json` 과 어긋나 `build_assets()` 가 통째로 예외를
+던졌다 — partner_family 문구를 humanize 한 `32f311f8` 이후 재서명이 안 된 것이다. 즉
+`test_generated_files_are_byte_exact_and_check_mode_passes` 가 그때부터 red 였다. 라우팅·승인상태는
+그대로고 **문구 지문만** 움직였으므로 지문만 재서명했다. 진단이 오래 걸린 이유는 오류가
+"does not match the generated decision" 한 줄이라 문구 편집인지 라우팅 변경인지 구분이 안 돼서다 —
+그 한 가지 원인만 짚는 테스트를 따로 넣었다.
+
+**⑥ `learner_level_contract_test` 도 main 에서 red 였다.** `f109d0e5` 가 추가한
+`lib/data/chaekgado_shelf.dart` 가 `'a1'`~`'c2'` 리터럴을 전부 갖는데 감사 목록에 없다(HEAD 파일
+grep 으로 확정, 테스트 파일은 안 건드림). 감사 목록에 끼워 넣어 덮는 대신 테스트가 요구하는 대로
+`kChaekgadoSlots` 를 `Map<LearnerLevel, …>` 로 바꿨다 — 리터럴이 사라져 계약이 실제로 지켜진다.
+
+**⑦ 화면 단위 센서 신설** `test/listening_shelf_route_test.dart` 3건. 위젯 2종(16건)과 데이터
+계약은 각각 green 인데 **화면이 그 둘을 잇고 있는가**를 보는 센서가 없었다 — 배선이 끊겨도 양쪽
+다 green 이라 회귀가 조용히 지나간다. 칸 탭 → 두루마리 → 재생까지 잇는다. 파괴-복원: 칸 필터
+문자열을 깨면 3건 전부 red, 복원하면 green. `pumpAndSettle` 은 못 쓴다(TTS 덕킹·마스코트 타이머가
+상시로 돌아 정지 상태에 도달하지 않는다) — 유한 펌프로 짰다.
+
+**⑧ `B1Family` 카드 아트 1장** — 콘텐츠 6편이 찬 칸인데 그림이 없어 fallback 으로 뜨던 유일한
+미문서화 결손(C1/C2 무아트는 소스 주석에 "의도된 단계적 출시"로 명시돼 있다). Jin 승인 하에
+1장만 생성(`LISTENING_CARD_RECIPE.md` 레시피 그대로).
+
+**커밋 · 브랜치.** `b25a81b2` — 브랜치 `feat/hoeren-shelf-15slots-20260818`.
+작업 중 **다른 세션이 같은 저장소에서 브랜치를 바꿔치웠다**. 내 작업이 남의 브랜치에
+스테이징된 채 놓였고 검수 CSV 편집 1건이 유실됐다. 파일을 스냅샷해 `git worktree` 로
+격리한 체크아웃에 옮겨 거기서 재검증·커밋했고(개발 베이스였던 `e50fd520` 은 그쪽 세션의
+미머지 커밋이라 PR 직전 `origin/main` 위로 리베이스해 떼어냈다), 메인
+체크아웃은 그쪽 브랜치 상태로 원상복구했다. **교훈: 다른 세션이 도는 중에는 공유
+체크아웃에서 브랜치를 만들지 말고 처음부터 worktree 로 격리한다.**
+
+**검증.** `flutter test` **4011건 전원 green**(작업 전 6건 red). 파이썬 스위트는 main 기준선과
+실패 목록을 diff 해 **내가 새로 깬 것 0건**, 기존 실패 1건(`setUpClass`) 해소를 확인했다 — 남은
+21건은 전부 main 에도 있는 것이고 이 작업 범위 밖이다. `validate_content.py` OK.
+
+**⑭ Batch 13 — A1 기능 확장 3칸을 처음으로 채웠다 (12편).** PR #71 이 만든 기능 확장 18칸은
+콘텐츠가 한 번도 집필된 적이 없다. 그중 A1 3칸을 칸당 4편으로 채우는 파일럿이다
+(Jin: "레벨 c2까지 4편씩, 자연스럽고 진짜 사람이 말하는 것처럼").
+`a1_numbers` 영업시간·남은 개수·층과 호수·총액과 잔돈 / `a1_phone` 잘못 걸린 전화·통화 가능
+시간·문자로 대체·주소 복창 / `a1_wayfinding` 몇 번 출구·방향 확인·표지판 읽기·도보 소요시간.
+대사 원칙은 **상대가 늘 매끄럽게 답하지 않는다** 로 잡았다 — "세 개요. 아, 네 개네요",
+"사백오 호가 아니라 사백육 호예요" 처럼 자기수정과 되묻기가 들어가야 듣기 연습이 된다.
+A1 계약대로 편당 6퀘스트(교정 `particlePop` 포함), 문법은 allowlist 8종을 고루 쓴다.
+**live 300 → 312, 퀘스트 1157 → 1229. A1 서재 15칸이 전부 찼다.** 남은 빈 칸은 20개(A2~C2,
+칸당 4편이면 80편).
+
+**⑯ Batch 14 — A2·B1·B2 확장 7칸 28편.** `a2_enrolment`(수강신청 마감·서류 결손·배치
+시험·반 변경) · `a2_booking`(시간 확정·날짜 변경·노쇼 규정·인원 추가) ·
+`b1_insurance`(보장 범위·청구 서류·자기부담 이견·청구 거절) · `b1_incident`(주차 흠집·
+분실물·위층 누수·목격 진술) · `b1_cancellation`(헬스장 해지·자동결제·계약 미연장·위약금) ·
+`b2_hiring`(직무 범위·연봉 구간·평판 조회 범위·입사일) · `b2_privacy`(수집 범위·보관 기간·
+제3자 제공·삭제 요청).
+
+레벨이 오를수록 *소재*가 아니라 **처리하는 절차**가 무거워지게 썼다 — A2 는 창구에서 한 건
+끝내기, B1 은 경위를 옮기고 조정하기, B2 는 범위·근거·기한을 못박기. 그래서 B2 8편은
+"알겠습니다" 가 아니라 "언제까지, 어디까지, 무엇을 근거로" 로 끝난다. 상위 레벨이라고 문장을
+길게 늘이지 않았다.
+
+씬 스크립트는 축별 모듈(`batch_14_b1.py`·`batch_14_b2.py`)로 나누고 퀘스트 id·conceptIds
+규약은 `batch_14_common.quest()` 한 곳에서 지킨다 — Batch 11 의 272KB 단일 파일이 손대기
+어려웠던 걸 고친 것이다.
+
+**live 312 → 340, 퀘스트 1229 → 1369. 남은 빈 칸은 13개, 전부 C1/C2.**
+(A2 `delivery` 는 Batch 11 의 daily 편이 이미 채웠으므로 이 배치는 6칸만 새로 집필했다.)
+
+**내가 낸 결함 하나**: 영어 대사 7곳에 uncontracted "I am"/"I will" 을 썼다가
+`learner_copy_scan` 에 걸렸다. 소스에서 고치고 승격을 되돌린 뒤 다시 올렸다 —
+live 만 고치면 재생성 때 되살아난다.
+
+**⑮ 매니페스트는 생성물이라 승인 기록을 담을 수 없다.** 빌더 테스트가 setUp 에서 초안을
+재생성하므로 `status: approved` 와 검수 CSV 의 approved 가 테스트 한 번에 되돌아간다 —
+내가 ⑬까지 커밋한 batch 11 매니페스트의 "approved" 도 그렇게 이미 드리프트해 있었다.
+남아야 할 것은 **생성기 소스**에 있어야 하므로 승격 사실을 `provenance.promotedAt` 으로
+옮겼다. 승격 여부의 정본은 `shelf_assignment.ASSIGNMENT` 와 이 로그다.
+
+**⑩ Batch 12 승격 완료 — 312레코드, 관문 6개를 차례로 뚫었다.** 매니페스트가 통합기와 다른
+스키마로 쓰여 있던 게 근본이다: ⓐ `grammarIntents` 키가 `id` 가 아니라 `grammarId`,
+ⓑ 커리큘럼 확장 키가 `curriculumExtensions` 가 아니라 `curriculumAdditions`,
+ⓒ `checkpointContentIds` 가 `kind:id` 가 아니라 맨 id, ⓓ 그 kind 는 grammar/smalltalk 만
+허용되는데 scenario 를 가리켰다(이 도구는 시나리오 아티팩트를 다루지 않아 검증할 수단이
+없다 — live 의 C1/C2 유닛도 전부 grammar:/smalltalk: 다). 각 유닛이 자기 문법을 정확히 하나
+갖고 있어 그것으로 바꿨다. ⓔ `relationshipContext` 4건이 열거에 없는 `friend`
+(→ `close_friend`, live dating 8건의 관행). ⓕ **오버레이 감사 그래프 갱신기가 스키마에 없는
+`a1CourseUnits` 류 스칼라 키를 쓰고 정작 검사 대상 `courseUnitsByLevel` 은 stale 로 남겼다** —
+유닛을 새로 만드는 배치에서만 터지므로 C1/C2(첫 그런 트랙)까지 드러나지 않았다.
+결과: 코스 유닛 40 → **48** (C1·C2 각 2 → 6), vocab 2196 → 2292, smalltalk 377 → 393,
+cloze 1538 → 1634, satz 2091 → 2187, grammar 206 → 214.
+
+**⑪ `c2:daily` 소유권 — live 를 지키고 새 유닛엔 제 카테고리를 줬다.** 카테고리당 유닛은
+하나인데 Batch 12 가 `c2:daily` 를 `c2_02_technology_public_ethics` 에서 뺏으려 했다. live 의
+그 버킷 8건을 읽어 보니 자동 심사 이의(0014·0017·0018)와 더 넓은 기술윤리(0002·0007·0009·
+0016·0024)가 섞여 있어, 통째로 옮기면 뒤 5건이 좁은 유닛으로 잘못 간다. 그래서 소유는
+그대로 두고 — 다만 그러면 `c2_03` 이 스몰토크 없이 남아 "모든 C1/C2 유닛은 모든 고급 활동을
+갖는다"(`course_graph_test`)를 어긴다 — 그 2건을 **`c2:phone`** 으로 옮겼다. B2 의 phone 이
+이미 "상위 부서 공식 문의·서면 답변" 계열이라 자동 처리 불복이 그 계보에 정확히 얹힌다.
+
+**⑫ Batch 12 의 concept 8개에 `kind`·`explanation` 이 없었다.** 나머지 49개는 전부 갖고 있어
+`conceptKinds` 를 만드는 A1 센서가 널 캐스트로 죽었다. 형제 concept 관행대로 speechStyle/
+situation 을 주고 설명을 집필했다(초안 슬라이스가 정본, live 는 거기서 옮김). 처음 쓴 독일어
+설명에 em dash 를 넣었다가 `arb_l10n_guard` 에 걸려 마침표로 다시 썼다 — 학습자 대상 DE/EN
+에서 금지된 부호다.
+
+**⑬ 진행 테스트를 순서 하드코딩에서 순회로 바꿨다.** `advanced_checkpoint_mastery_test` 가
+C1/C2 4단계를 이름으로 박아 두어 유닛이 늘 때마다 의미 없이 깨졌다. 카탈로그를 (레벨, order)
+로 정렬해 걸어가며 "선언된 체크포인트가 다음 미션을 연다"만 지키게 했다 — 제목이 말하는
+every 에 실제로 맞고 다음 확장에도 안 깨진다. (적재 순서 ≠ 진행 순서라는 것도 여기서 드러났다.)
+
+**⑨ Batch 12 는 관문이 하나 더 있었다** (`c42d085c`). Batch 11 이 풀리자 드라이런이 다음
+결함을 드러냈다: 매니페스트의 `grammarIntents` 가 `id` 대신 `grammarId` 키를 써서
+`integrate_review_batches`(§411-420)가 "malformed grammar intent" 로 즉사한다. 생성기
+`build_batch_12.py` 에서 고치고 매니페스트를 재생성했다. **그 다음 관문은 설계 결정이라
+손대지 않았다**: `conflicting smalltalkCategoryUnitMap mapping for 'c2:daily'` — 카테고리당
+유닛이 하나인데 live 가 `c2:daily` 를 `c2_02_technology_public_ethics` 에 이미 묶었고 Batch 12
+가 `c2_03_automation_redress` 로 가져가려 한다. 어느 유닛이 그 문구를 소유하느냐는 학습자가
+보는 자리를 바꾼다 — Jin 확인 필요.
+
+**남은 것 (다음 세션).** ⓐ ~~Batch 12 승격~~ **완료**(⑩⑪, 커밋 f9f3a949). ⓑ **남은 빈 20칸 신규 집필 (칸당 4편 = 80편)** —
+`a2_enrolment/booking`, `b1_insurance/incident/cancellation`, `b2_hiring/privacy`, C1 7칸,
+C2 6칸. A1 3칸은 Batch 13 으로 끝났다. ⓒ 죽은 자산 3장은 이제 죽지 않았다(관심 3칸이 쓴다).
+ⓓ 파이썬 기존 실패 21건.
+
+### 2026-08-18 (Claude Sonnet 5, macOS) — 살아 있는 한옥: Phase 2-3 완성(asset_recipe.py) 후속
+
+바로 아래 항목("Phase 2 자동화 착수")에서 "asset_recipe.py는 범위 밖으로 남긴다"고 적었으나, 이어서
+실제로 구현했다 — `tool/asset_recipe.py`(--check·--plan·--emit-work-order·--ingest) + 레시피 5종
+(cutout·sheet·frameEdit·overlay·**newBuilding**, 마지막은 계획 원안엔 없던 신규 추가 — 별당·서고는
+편집할 기존 완성 건물이 없어 frameEdit 계약이 안 맞는다는 걸 실제로 레시피를 써보며 발견했다).
+
+기존 4개 건물의 `FRAME_PROMPTS`(코드에 산문으로 얼어붙어 있던 프롬프트)를 레시피 JSON으로 이관 —
+신규 테스트가 그 4개 레시피의 프롬프트 해시를 이번 세션 원장 소급 기록 때 독립적으로 계산한 실제
+역사적 해시와 대조해 정확히 일치함을 증명한다. Phase 3 P1/P2(별당·서고) 레시피도 DRAFT 상태로 작성
+(프롬프트·배치 bbox·subjectGuards 전부 채움, status 필드에 "Jin 승인 전 미실행" 명시) — Jin이 돌아오면
+검토만 하면 되는 상태로 만들어 뒀다.
+
+`--ingest`는 cutout 커스텀만 실제 자동화, 나머지 4종은 검증할 실제 생성 결과물이 없어 손으로 돌릴
+기존 도구 커맨드 안내로 남겼다(정직한 TODO, 검증 안 된 자동화를 배지 않았다). cutout 경로는 합성
+(비-AI) 청록 이미지 2장(호두목 톤=통과, 네온 빨강=거부)으로 end-to-end 검증.
+
+검증: `tool/test_asset_recipe.py` 13케이스 + 전체 `tool/` discover 스위트 전량 통과. 커밋 `770bd48b`,
+`chore/hanok-asset-ledger-backfill` 브랜치.
+
+### 2026-08-18 (Claude Sonnet 5, macOS) — 살아 있는 한옥: 원장 소급 기록 + PR-C/D + Phase 2 자동화 착수
+
+계획 정본: `~/.claude/plans/swift-yawning-squirrel.md`("살아 있는 한옥 — 배선·자동화·세분화"). Jin이 4시간
+자리를 비우며 "계획 전부 끝낼 때까지 진행" 지시 + "전부 너의 브랜치에서만 작업" 제약. 전부
+`chore/hanok-asset-ledger-backfill` 브랜치(main `abf9e3ff` 위)에서 작업, main엔 아무것도 안 건드림.
+
+**PR-B(마무리) — 원장 소급 기록.** `HANOK_V1_ASSET_PROVENANCE.json`에 이번 세션 실제 지출 24cr(A2 외관
+흔적 8 + B1/B2 골조 16)을 생성 레코드 18건으로 복원, `budgetCredits.staticMax` 200→600(대응하는
+`test/hanok_v1_asset_provenance_test.dart` 리터럴도 동시 수정). **계획서의 "장식 44cr" 추정은 틀렸다** —
+실제 원장 문서(`A2_SARANGBANG_FURNISHING_2026-08-17.md` §6)엔 65cr(기록) + 28cr(프롬프트 유실 폐기분)로
+명시돼 있어, 별도 파일 `docs/assets/A2_FURNISHING_LEDGER.json`을 신설해 실측치 93cr을 그대로 기록했다
+(스코프가 `HANOK_V1_ASSET_PROVENANCE.json`의 `hanok_v1_assets_only`와 달라 분리). 소급 기록 총량은
+계획의 68cr이 아니라 117cr(24+65+28) — Phase 3 예산 감각을 이 숫자로 다시 잡아야 한다. `lib/data/
+personal_hanok_estate_stage_catalog.dart` 신설(revealAssetId→경로 20종)로 PR-B가 승격한 14개 단계
+PNG를 `asset_orphan_guard_test.dart`가 고아로 잡던 문제 해소 — PR-C가 그대로 쓸 리졸버로 설계.
+
+**PR-C(데이터 절반만) — 서브비트 알파 램프.** `canDoSegmentEvidenceProgress()`(`productive_assessment_
+service.dart`)가 `verifiedCanDoSegmentIds()`의 세그먼트별 이중 루프를 단락 대신 집계해 진행도
+fraction을 낸다 — 같은 `trustedProductiveMasteryEvidence()`를 읽으므로 날조 불가. `HanokExperience
+Projection.nextGrantProgress` 필드 + `PersonalHanokMapLayer`에 `buildingId`·`stageIndex`·`grantId`
+nullable 필드 3개(기존 8개 엔트리 전부 null 유지, 라이브 렌더러 동작 변화 0). **의도적으로 미룬 것**:
+`personal_hanok_map.dart`의 실제 렌더 필터 변경(가산식→최고 단계 승리+부분 알파)은 PR-E로 미뤘다 —
+골든 테스트가 있는 라이브 렌더러이고 지금 시각 검수할 방법이 없다(Jin 부재).
+
+**PR-D — 방별 가구 풀, 실버그 수정.** `kA2FurnishingTemporaryUnlock`(평평한 12종, 전 방 노출)을
+`kRoomFurnishingPool`(방별 맵)로 교체, `furnishedDecorSlugs(owned, openedVenues:)`로 시그니처 변경.
+**고친 버그**: A2 사랑방 가구 12종이 안방·대청마루 등 **모든** 방 피커에 노출되고 있었다 — 신규 회귀
+테스트가 정확히 이 시나리오를 검증(잠긴 방 아님, 안방 피커=owned 11개만, 23개 아님).
+
+**Phase 2-1~2-4(부분) — 에셋 자동화.** `docs/assets/STYLE_LOCK.json` 신설(family 4개 satMean·valMean·
+neonFraction 전량 실측 + 팔레트·카메라·프롬프트 골격·모델 라우팅·generationFacts) + `tool/style_lock.py`
+리더 + 기존 4개 문서(AGENTS.md·BIBLE §1.3/§3.5·INVENTORY §4/§6·docs/README.md) 배너로 우선순위 정정
+(재작성 없이). `tool/check_style_conformance.py` — family별 게이트, ShippedBaselineTest 73/73 + 합성
+드리프트 테스트로 규약 강제. 보정 중 발견: greenness 기반 청록 잔여 휴리스틱이 연못·소나무 등 진짜
+초록 콘텐츠를 오판(F-B 최대 69.8%!) — F-B/F-C-estate(이끼·그림자) 면제. `tool/ledger_append.py` —
+`--validate`가 원장 테스트 규칙을 Python으로 재현, 기존 27레코드 전량 통과(인수 기준). `decoration_
+transparency_test.dart`의 하드코딩 17개 목록을 `kAvailableDecorations`(36개) 순회로 교체(구멍 폐쇄).
+`asset_recipe.py`(레시피 러너)·등록 자동화 러너는 범위 밖으로 남김 — Phase 3(신규 아트) 종속이고
+Phase 3는 Jin 육안 승인 대기로 일시 정지.
+
+**의도적으로 안 한 것.** PR-E(cutover, grant 발행+`hanok_world_screen.dart` 실배선)와 PR-F(레벨별 발행)는
+시작하지 않았다 — 계획서 자체가 "release_ledgers/hanok_grants_v1.json에 행이 들어가면 영구 고정"이라고
+명시한 되돌릴 수 없는 지점이고, 실제 라이브 렌더러 교체라 실기기 검수 없인 검증할 수 없다(PR-E 인수
+기준 자체가 "실기기 카메라 점프 없음"). Jin 부재 중 라이브 사용자에게 보이는 것을 바꾸거나 grant를
+영구 고정하는 건 계획서의 "Jin 승인 전 승격/배선 금지" 규칙과 정면 충돌해 보류했다. Phase 3(별당·서고
+신규 생성)도 같은 이유로 착수 안 함 — "생성 전 Jin 육안 승인 필수" 규칙, 그리고 1장 승인 없이 여러 장
+생성해 28cr 태운 전례가 있다.
+
+**환경 위험 발견.** 이 세션 도중 작업 디렉터리를 다른 두 세션(Sori Deck 스와이프 물리, 책가도/시나리오
+배치)과 물리적으로 공유하고 있다는 게 드러났다 — 한 세션이 브랜치를 바꾸면 다른 세션의 체크아웃도
+말없이 따라 바뀐다(실제로 두 번 발생: main으로, 그다음 `feat/hoeren-shelf-interest-refill-20260818`로).
+커밋 손실은 없었다(매번 `chore/hanok-asset-ledger-backfill`을 올바른 커밋으로 fast-forward해 복구)지만
+구조적 위험이다.
+
+검증: 매 PR마다 `flutter analyze`(기존 info 1건 외 무결) + 관련 `flutter test` + 전체 스위트 1회 이상
+(4014케이스, 사전 존재 `learner_level_contract_test.dart` 1건 외 신규 실패 0) + `python3.12 -m unittest
+discover -s tool`(전량, 신규 27케이스 포함) 전부 통과. 커밋 4개: PR-B(`e50fd520`)·PR-C(`e2b06af1`)·
+PR-D(`7b7e5d36`)·Phase 2(`3a2d8a6f`), 전부 `chore/hanok-asset-ledger-backfill`.
+
+
 ### 2026-08-18 (Claude Opus 5, macOS) — 인계 지적 2건 수정 + TTS 상태 확인
 
 **① `Storage.hangulHard` 가 write-only 였다 (인계 지적 — 맞다).**

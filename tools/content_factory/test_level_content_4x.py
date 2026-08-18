@@ -103,10 +103,16 @@ class Batch09ReviewDraftTest(unittest.TestCase):
         builder.refresh_live_id_starts()
         for level, values in orders.items():
             self.assertEqual(values, list(range(values[0], values[0] + 8)))
-            self.assertEqual(builder.PACK_ORDER_START[level], values[-1] + 1)
+            # Batch 09 는 더 이상 live 의 맨 끝이 아니다 (2026-08-18 Batch 12 승격).
+            # 이 센서의 값은 "초안이 live 와 팩 순서를 다투지 않는다" 이므로
+            # 등호가 아니라 하한으로 지킨다.
+            self.assertGreaterEqual(
+                builder.PACK_ORDER_START[level], values[-1] + 1
+            )
         promoted_count, inventory = validate_promoted_batch(BATCH_09_MANIFEST)
         self.assertEqual(promoted_count, 1764)
-        self.assertEqual(inventory["vocab"], 2196)
+        # Batch 12 가 C1/C2 어휘 96개를 더했다 (2196 → 2292).
+        self.assertEqual(inventory["vocab"], 2292)
         self.assertEqual(len(manifest["vocabPacks"]), 48)
 
     def test_review_ledgers_are_original_drafts(self) -> None:
