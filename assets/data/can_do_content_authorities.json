@@ -8094,6 +8094,22 @@
       "level": "c2"
     },
     {
+      "id": "seed_scenario_c2_aesthetic_dialect_subtitle_flatten_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_aesthetic_poem_rhythm_meaning_loss_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_aesthetic_translator_editor_dispute_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_aesthetic_word_without_equivalent_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_scenario_c2_appeal_bot_v1",
       "level": "c2"
     },
@@ -8118,6 +8134,22 @@
       "level": "c2"
     },
     {
+      "id": "seed_scenario_c2_ethics_consent_form_scope_gap_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_ethics_embargo_disclosure_window_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_ethics_misconduct_review_procedure_defined_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_ethics_reviewer_dual_appointment_disclosure_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_scenario_c2_friends_quoted_privately_v1",
       "level": "c2"
     },
@@ -8126,7 +8158,55 @@
       "level": "c2"
     },
     {
+      "id": "seed_scenario_c2_history_compile_committee_wording_dispute_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_history_merging_conflicting_testimonies_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_history_monument_inscription_agreement_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_history_sealed_records_disclosure_timing_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_jurisdiction_cross_border_premise_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_jurisdiction_even_if_authorized_escalate_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_jurisdiction_neither_claims_authority_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_jurisdiction_provisional_ruling_no_authority_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_scenario_c2_kpop_fandom_language_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_limitation_define_accrual_date_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_limitation_ex_officio_review_path_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_limitation_extension_premise_error_proof_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_limitation_notice_delay_appeal_window_v1",
       "level": "c2"
     },
     {
@@ -8143,6 +8223,22 @@
     },
     {
       "id": "seed_scenario_c2_passive_hide_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_representation_fan_rep_mandate_defined_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_representation_minority_view_regardless_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_representation_press_quote_not_official_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_representation_spokesperson_handover_concession_v1",
       "level": "c2"
     },
     {
@@ -23986,6 +24082,34 @@
     },
     {
       "kind": "scenario",
+      "id": "c2_aesthetic_dialect_subtitle_flatten",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_aesthetic_dialect_subtitle_flatten_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_aesthetic_poem_rhythm_meaning_loss",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_aesthetic_poem_rhythm_meaning_loss_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_aesthetic_translator_editor_dispute",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_aesthetic_translator_editor_dispute_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_aesthetic_word_without_equivalent",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_aesthetic_word_without_equivalent_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
       "id": "c2_appeal_bot",
       "level": "c2",
       "sourceSeedId": "seed_scenario_c2_appeal_bot_v1",
@@ -24028,6 +24152,34 @@
     },
     {
       "kind": "scenario",
+      "id": "c2_ethics_consent_form_scope_gap",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_ethics_consent_form_scope_gap_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_ethics_embargo_disclosure_window",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_ethics_embargo_disclosure_window_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_ethics_misconduct_review_procedure_defined",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_ethics_misconduct_review_procedure_defined_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_ethics_reviewer_dual_appointment_disclosure",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_ethics_reviewer_dual_appointment_disclosure_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
       "id": "c2_friends_quoted_privately",
       "level": "c2",
       "sourceSeedId": "seed_scenario_c2_friends_quoted_privately_v1",
@@ -24042,10 +24194,94 @@
     },
     {
       "kind": "scenario",
+      "id": "c2_history_compile_committee_wording_dispute",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_history_compile_committee_wording_dispute_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_history_merging_conflicting_testimonies",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_history_merging_conflicting_testimonies_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_history_monument_inscription_agreement",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_history_monument_inscription_agreement_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_history_sealed_records_disclosure_timing",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_history_sealed_records_disclosure_timing_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_jurisdiction_cross_border_premise",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_jurisdiction_cross_border_premise_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_jurisdiction_even_if_authorized_escalate",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_jurisdiction_even_if_authorized_escalate_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_jurisdiction_neither_claims_authority",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_jurisdiction_neither_claims_authority_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_jurisdiction_provisional_ruling_no_authority",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_jurisdiction_provisional_ruling_no_authority_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
       "id": "c2_kpop_fandom_language",
       "level": "c2",
       "sourceSeedId": "seed_scenario_c2_kpop_fandom_language_v1",
       "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_limitation_define_accrual_date",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_limitation_define_accrual_date_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_limitation_ex_officio_review_path",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_limitation_ex_officio_review_path_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_limitation_extension_premise_error_proof",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_limitation_extension_premise_error_proof_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_limitation_notice_delay_appeal_window",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_limitation_notice_delay_appeal_window_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
       "kind": "scenario",
@@ -24074,6 +24310,34 @@
       "level": "c2",
       "sourceSeedId": "seed_scenario_c2_passive_hide_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_representation_fan_rep_mandate_defined",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_representation_fan_rep_mandate_defined_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_representation_minority_view_regardless",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_representation_minority_view_regardless_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_representation_press_quote_not_official",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_representation_press_quote_not_official_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_representation_spokesperson_handover_concession",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_representation_spokesperson_handover_concession_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
       "kind": "scenario",
@@ -24459,7 +24723,7 @@
       "vocabPack": 209,
       "grammar": 214,
       "smalltalk": 393,
-      "scenario": 368,
+      "scenario": 392,
       "cloze": 662,
       "satz": 456,
       "project": 8

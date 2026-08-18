@@ -944,6 +944,41 @@ BATCH_15_SEGMENT_ROUTES: dict[tuple[str, str], str] = {
     ("scenario", "c1_attribution_collective_byline"): "c1_sustainable_lifecycle",
 }
 
+# Batch 16 (2026-08-18) — C2 확장 6칸 24편, 서재 마지막 빈 칸. Batch 15 와 같은
+# 원칙으로 기존 published 세그먼트에 붙인다 (세그먼트 86 슬롯 불변).
+BATCH_16_SEGMENT_ROUTES: dict[tuple[str, str], str] = {
+    # ethics → c2_institutional_deliberation
+    ("scenario", "c2_ethics_embargo_disclosure_window"): "c2_institutional_deliberation",
+    ("scenario", "c2_ethics_consent_form_scope_gap"): "c2_institutional_deliberation",
+    ("scenario", "c2_ethics_reviewer_dual_appointment_disclosure"): "c2_institutional_deliberation",
+    ("scenario", "c2_ethics_misconduct_review_procedure_defined"): "c2_institutional_deliberation",
+    # history → c2_interpretation_justification
+    ("scenario", "c2_history_compile_committee_wording_dispute"): "c2_interpretation_justification",
+    ("scenario", "c2_history_monument_inscription_agreement"): "c2_interpretation_justification",
+    ("scenario", "c2_history_sealed_records_disclosure_timing"): "c2_interpretation_justification",
+    ("scenario", "c2_history_merging_conflicting_testimonies"): "c2_interpretation_justification",
+    # aesthetic → c2_narrative_perspective
+    ("scenario", "c2_aesthetic_poem_rhythm_meaning_loss"): "c2_narrative_perspective",
+    ("scenario", "c2_aesthetic_dialect_subtitle_flatten"): "c2_narrative_perspective",
+    ("scenario", "c2_aesthetic_word_without_equivalent"): "c2_narrative_perspective",
+    ("scenario", "c2_aesthetic_translator_editor_dispute"): "c2_narrative_perspective",
+    # limitation → c2_technology_traceability_appeal
+    ("scenario", "c2_limitation_notice_delay_appeal_window"): "c2_technology_traceability_appeal",
+    ("scenario", "c2_limitation_extension_premise_error_proof"): "c2_technology_traceability_appeal",
+    ("scenario", "c2_limitation_define_accrual_date"): "c2_technology_traceability_appeal",
+    ("scenario", "c2_limitation_ex_officio_review_path"): "c2_technology_traceability_appeal",
+    # jurisdiction → c2_procedural_legitimacy
+    ("scenario", "c2_jurisdiction_neither_claims_authority"): "c2_procedural_legitimacy",
+    ("scenario", "c2_jurisdiction_provisional_ruling_no_authority"): "c2_procedural_legitimacy",
+    ("scenario", "c2_jurisdiction_cross_border_premise"): "c2_procedural_legitimacy",
+    ("scenario", "c2_jurisdiction_even_if_authorized_escalate"): "c2_procedural_legitimacy",
+    # representation → c2_discourse_boundary_power
+    ("scenario", "c2_representation_fan_rep_mandate_defined"): "c2_discourse_boundary_power",
+    ("scenario", "c2_representation_minority_view_regardless"): "c2_discourse_boundary_power",
+    ("scenario", "c2_representation_press_quote_not_official"): "c2_discourse_boundary_power",
+    ("scenario", "c2_representation_spokesperson_handover_concession"): "c2_discourse_boundary_power",
+}
+
 MODE_SUFFIX = {
     "guidedProduction": "guided_production",
     "dictation": "dictation",
@@ -2729,6 +2764,9 @@ def _promotion_segment_key(kind: str, content_id: str) -> str | None:
     batch_15 = BATCH_15_SEGMENT_ROUTES.get((kind, content_id))
     if batch_15 is not None:
         return batch_15
+    batch_16 = BATCH_16_SEGMENT_ROUTES.get((kind, content_id))
+    if batch_16 is not None:
+        return batch_16
     return FOUR_X_SEGMENT_ROUTES.get((kind, content_id))
 
 

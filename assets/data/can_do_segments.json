@@ -9526,10 +9526,14 @@
     {
       "id": "cluster_c2_procedural_legitimacy_v1",
       "level": "c2",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_batch05_c2_institutional_mediation_1_v1",
-        "seed_project_c2_institution_v1"
+        "seed_project_c2_institution_v1",
+        "seed_scenario_c2_jurisdiction_cross_border_premise_v1",
+        "seed_scenario_c2_jurisdiction_even_if_authorized_escalate_v1",
+        "seed_scenario_c2_jurisdiction_neither_claims_authority_v1",
+        "seed_scenario_c2_jurisdiction_provisional_ruling_no_authority_v1"
       ],
       "contentReferences": [
         {
@@ -9603,13 +9607,29 @@
         {
           "kind": "project",
           "id": "project_c2_institution_v1"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_jurisdiction_cross_border_premise"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_jurisdiction_even_if_authorized_escalate"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_jurisdiction_neither_claims_authority"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_jurisdiction_provisional_ruling_no_authority"
         }
       ]
     },
     {
       "id": "cluster_c2_institutional_deliberation_v1",
       "level": "c2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c2_institutional_mediation_1_v1",
         "seed_project_c2_institution_v1",
@@ -9772,7 +9792,11 @@
         "seed_satz_satz_c2_0123_v1",
         "seed_satz_satz_c2_0124_v1",
         "seed_satz_satz_c2_0125_v1",
-        "seed_satz_satz_c2_0126_v1"
+        "seed_satz_satz_c2_0126_v1",
+        "seed_scenario_c2_ethics_consent_form_scope_gap_v1",
+        "seed_scenario_c2_ethics_embargo_disclosure_window_v1",
+        "seed_scenario_c2_ethics_misconduct_review_procedure_defined_v1",
+        "seed_scenario_c2_ethics_reviewer_dual_appointment_disclosure_v1"
       ],
       "contentReferences": [
         {
@@ -10482,13 +10506,29 @@
         {
           "kind": "satz",
           "id": "satz_c2_0126"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_ethics_consent_form_scope_gap"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_ethics_embargo_disclosure_window"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_ethics_misconduct_review_procedure_defined"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_ethics_reviewer_dual_appointment_disclosure"
         }
       ]
     },
     {
       "id": "cluster_c2_narrative_perspective_v1",
       "level": "c2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c2_narrative_perspective_1_v1",
         "seed_project_c2_narrative_v1",
@@ -10520,7 +10560,11 @@
         "seed_satz_satz_c2_0207_v1",
         "seed_satz_satz_c2_0208_v1",
         "seed_satz_satz_c2_0209_v1",
-        "seed_satz_satz_c2_0210_v1"
+        "seed_satz_satz_c2_0210_v1",
+        "seed_scenario_c2_aesthetic_dialect_subtitle_flatten_v1",
+        "seed_scenario_c2_aesthetic_poem_rhythm_meaning_loss_v1",
+        "seed_scenario_c2_aesthetic_translator_editor_dispute_v1",
+        "seed_scenario_c2_aesthetic_word_without_equivalent_v1"
       ],
       "contentReferences": [
         {
@@ -10706,17 +10750,37 @@
         {
           "kind": "satz",
           "id": "satz_c2_0210"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_aesthetic_dialect_subtitle_flatten"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_aesthetic_poem_rhythm_meaning_loss"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_aesthetic_translator_editor_dispute"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_aesthetic_word_without_equivalent"
         }
       ]
     },
     {
       "id": "cluster_c2_interpretation_justification_v1",
       "level": "c2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c2_narrative_perspective_1_v1",
         "seed_project_c2_narrative_v1",
-        "seed_scenario_c2_friends_quoted_privately_v1"
+        "seed_scenario_c2_friends_quoted_privately_v1",
+        "seed_scenario_c2_history_compile_committee_wording_dispute_v1",
+        "seed_scenario_c2_history_merging_conflicting_testimonies_v1",
+        "seed_scenario_c2_history_monument_inscription_agreement_v1",
+        "seed_scenario_c2_history_sealed_records_disclosure_timing_v1"
       ],
       "contentReferences": [
         {
@@ -10786,6 +10850,22 @@
         {
           "kind": "scenario",
           "id": "c2_friends_quoted_privately"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_history_compile_committee_wording_dispute"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_history_merging_conflicting_testimonies"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_history_monument_inscription_agreement"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_history_sealed_records_disclosure_timing"
         }
       ]
     },
@@ -10877,7 +10957,7 @@
     {
       "id": "cluster_c2_discourse_boundary_power_v1",
       "level": "c2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
@@ -10909,7 +10989,11 @@
         "seed_satz_satz_c2_0219_v1",
         "seed_satz_satz_c2_0220_v1",
         "seed_satz_satz_c2_0221_v1",
-        "seed_satz_satz_c2_0222_v1"
+        "seed_satz_satz_c2_0222_v1",
+        "seed_scenario_c2_representation_fan_rep_mandate_defined_v1",
+        "seed_scenario_c2_representation_minority_view_regardless_v1",
+        "seed_scenario_c2_representation_press_quote_not_official_v1",
+        "seed_scenario_c2_representation_spokesperson_handover_concession_v1"
       ],
       "contentReferences": [
         {
@@ -11091,13 +11175,29 @@
         {
           "kind": "satz",
           "id": "satz_c2_0222"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_representation_fan_rep_mandate_defined"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_representation_minority_view_regardless"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_representation_press_quote_not_official"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_representation_spokesperson_handover_concession"
         }
       ]
     },
     {
       "id": "cluster_c2_technology_traceability_appeal_v1",
       "level": "c2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
@@ -11252,7 +11352,11 @@
         "seed_satz_satz_c2_0183_v1",
         "seed_satz_satz_c2_0184_v1",
         "seed_satz_satz_c2_0185_v1",
-        "seed_satz_satz_c2_0186_v1"
+        "seed_satz_satz_c2_0186_v1",
+        "seed_scenario_c2_limitation_define_accrual_date_v1",
+        "seed_scenario_c2_limitation_ex_officio_review_path_v1",
+        "seed_scenario_c2_limitation_extension_premise_error_proof_v1",
+        "seed_scenario_c2_limitation_notice_delay_appeal_window_v1"
       ],
       "contentReferences": [
         {
@@ -11934,6 +12038,22 @@
         {
           "kind": "satz",
           "id": "satz_c2_0186"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_limitation_define_accrual_date"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_limitation_ex_officio_review_path"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_limitation_extension_premise_error_proof"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_limitation_notice_delay_appeal_window"
         }
       ]
     },

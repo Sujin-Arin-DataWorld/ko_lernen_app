@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""레벨별 15칸 서재(책가도)의 칸 정의와 live 368개 배정.
+"""레벨별 15칸 서재(책가도)의 칸 정의와 live 392개 배정.
 
 정본은 docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md 의
 §4(축 설계)와 부록 A(전수 배정)다.  단 §4.2 관심 3칸은 2026-08-17 Jin 결정으로
@@ -79,8 +79,8 @@ ALL_SHELVES: frozenset[str] = frozenset(
     f"{level}_{slug}" for level in LEVELS for slug in SHELF_SLUGS[level]
 )
 
-# 부록 A — live 368 전수 배정 (264 + Batch 11 36 + 13 12 + 14 28 + 15 28).
-# 재고 0 인 6칸(전부 C2)은 키가 없다: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
+# 부록 A — live 392 전수 배정 (264 + 11:36 + 13:12 + 14:28 + 15:28 + 16:24).
+# 90칸 전부 재고가 있다 — 서재가 처음으로 완전히 찼다.: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
 ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_transit": (
         "a1_bus_late", "a1_last_train", "a1_platform_line",
@@ -454,6 +454,42 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c2_fandom": (
         "c2_kpop_fandom_language", "c2_youtube_algorithm_duty",
+    ),
+    "c2_ethics": (
+        "c2_ethics_consent_form_scope_gap",
+        "c2_ethics_embargo_disclosure_window",
+        "c2_ethics_misconduct_review_procedure_defined",
+        "c2_ethics_reviewer_dual_appointment_disclosure",
+    ),
+    "c2_history": (
+        "c2_history_compile_committee_wording_dispute",
+        "c2_history_merging_conflicting_testimonies",
+        "c2_history_monument_inscription_agreement",
+        "c2_history_sealed_records_disclosure_timing",
+    ),
+    "c2_aesthetic": (
+        "c2_aesthetic_dialect_subtitle_flatten",
+        "c2_aesthetic_poem_rhythm_meaning_loss",
+        "c2_aesthetic_translator_editor_dispute",
+        "c2_aesthetic_word_without_equivalent",
+    ),
+    "c2_limitation": (
+        "c2_limitation_define_accrual_date",
+        "c2_limitation_ex_officio_review_path",
+        "c2_limitation_extension_premise_error_proof",
+        "c2_limitation_notice_delay_appeal_window",
+    ),
+    "c2_jurisdiction": (
+        "c2_jurisdiction_cross_border_premise",
+        "c2_jurisdiction_even_if_authorized_escalate",
+        "c2_jurisdiction_neither_claims_authority",
+        "c2_jurisdiction_provisional_ruling_no_authority",
+    ),
+    "c2_representation": (
+        "c2_representation_fan_rep_mandate_defined",
+        "c2_representation_minority_view_regardless",
+        "c2_representation_press_quote_not_official",
+        "c2_representation_spokesperson_handover_concession",
     ),
 }
 

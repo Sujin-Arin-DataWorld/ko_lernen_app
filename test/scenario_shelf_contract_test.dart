@@ -80,7 +80,7 @@ void main() {
       'b1': 73,
       'b2': 68,
       'c1': 45,
-      'c2': 17,
+      'c2': 41,
     };
 
     test('레거시 단일 파일은 사라졌다', () {
@@ -92,7 +92,7 @@ void main() {
         final items = scenarioShardRoot(level)['scenarios'] as List;
         expect(items.length, expectedCounts[level], reason: level);
       }
-      expect(allScenarioJson().length, 368);
+      expect(allScenarioJson().length, 392);
     });
 
     test('샤드에는 자기 레벨만 들어 있다', () {
