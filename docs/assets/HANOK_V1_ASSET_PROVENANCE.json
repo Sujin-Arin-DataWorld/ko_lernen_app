@@ -372,10 +372,10 @@
     "schemaVersion": 1,
     "hashAlgorithm": "sha256",
     "budgetCredits": {
-      "staticMax": 200.0,
+      "staticMax": 600.0,
       "videoMax": 10.4,
-      "totalMax": 210.4,
-      "estateStaticMax": 200.0
+      "totalMax": 610.4,
+      "estateStaticMax": 600.0
     },
     "recordSchema": {
       "requiredFields": [
@@ -404,7 +404,8 @@
       "outputAssetKinds": [
         "part",
         "state",
-        "estateLayer"
+        "estateLayer",
+        "estateStage"
       ]
     },
     "records": [
@@ -842,6 +843,586 @@
             "sha256": "2e460f1e32437de11f848ef6c69b42d149ad74316c8cb8f32aee9cc98f1901ac",
             "decision": "approved",
             "kind": "state"
+          }
+        ]
+      },
+      {
+        "id": "a2-exterior-traces-v1-rejected-2026-08-18",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "25664c7a3794d475cbb181c982cee633",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T09:40:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "9ebb917970020f55b6884f8274b9f30235b62a408004b7a6d04006db74f6a098",
+        "promptSource": "docs/assets/prompts/A2_EXTERIOR_TRACES_2026-08-18.md#0",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp, not an observed one). Result came back smooth/painterly (wrong facet style for organic objects) and was rejected outright. promptSha256 is a placeholder digest, not a hash of the real wire text — see promptSource for why.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_overlays/raw/exterior_props_sheet_v1.png",
+            "sha256": "0d73659397e38b1e3cb74713fbb27f1bc804b772a0ad06ec7e3a2d3afa8a5a6a",
+            "decision": "rejected",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a2-exterior-traces-v2-2026-08-18",
+        "provider": "bbanana",
+        "model": "GPT Image 2",
+        "providerTaskId": "task-unified-1787045881-08w10ryc",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T09:58:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "504c0f0f3a1dbc1100f00fce7ef99c2b46380dd60b2caf4708f07f4052719f86",
+        "promptSource": "docs/assets/prompts/A2_EXTERIOR_TRACES_2026-08-18.md#1",
+        "note": "Backfilled 2026-08-18 (retroactive; occurredAtUtc is an estimated order-of-events timestamp). Accepted: matches the faceted-paper style of the A2 furniture set and the reference building.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+            "sha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_overlays/raw/exterior_props_sheet_v2.png",
+            "sha256": "f6ecd635c907ffc57faac91af9d392681b2338c9336bb23b10a03d78f5493ab0",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a2-exterior-cut-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/cut_a2_exterior_sheet.py assets_unused/pending_review/estate_overlays/raw/exterior_props_sheet_v2.png assets_unused/pending_review/estate_overlays/cut --report assets_unused/pending_review/estate_overlays/qa/cut_report.json",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T10:05:00Z",
+        "costCredits": 0.0,
+        "promptSha256": "9ea996b516d44ff5209f0c046d615c37fa0f95d5bf9a2ed4ab784d2bac1f56a6",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. Sheet split into 5 blocks (not 4) because the two jangdok jars weren't touching in the generation and became separate components — see doc section 2. Placement (which sprites get composited where) is decided separately; cutting succeeded for all 5 regardless of eventual placement.",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_overlays/raw/exterior_props_sheet_v2.png",
+            "sha256": "f6ecd635c907ffc57faac91af9d392681b2338c9336bb23b10a03d78f5493ab0"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_overlays/cut/a2_chimney_smoke.png",
+            "sha256": "676081fdcb2d1bd551efeb8fd6e0882960271e313bdf3c338e5f34f15dee5666",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_overlays/cut/a2_jangdok_big.png",
+            "sha256": "49d5379807bd6d26322dfc497618c859deee4e99e17ab7f9ee7ca941896a3660",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_overlays/cut/a2_ridge_magpie.png",
+            "sha256": "c995b0a75ae13ac9f9e879c1e21f4288c42dfecdfc13b02b4dd97cfbf2459831",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_overlays/cut/a2_jangdok_small.png",
+            "sha256": "00a230c337027aa8b35bae7076e270ec014f69e4b69e16eb67458eeba8518d01",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_overlays/cut/a2_lantern_lit.png",
+            "sha256": "f1de8614cc95cac3ddcc35c4d095e6506f3e21182f9418e3a1c684012d62d87c",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "a2-exterior-overlays-compose-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/compose_a2_exterior_overlays.py --manifest docs/assets/hanok_a2_overlays/overlays.json",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T10:12:00Z",
+        "costCredits": 0.0,
+        "promptSha256": "efb03393023c098ff02ea0ccbc8d637357fabe4a6ec4d4a72a5e4735c812ac36",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. Composited against socket offset (160,614) per camera.socket; all 3 overlays pass the zone-violation gate (0 alpha outside declared zone). jangdok (2 sprites cut above) is NOT composited here — final position is still an open Jin decision between two candidates (see doc section 3) — and these 3 are not yet pubspec-declared or wired into personal_hanok_catalog.dart (PR5b, future work); this record only accounts for the already-spent generation credit and keeps the deterministic output honest.",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_overlays/cut/a2_chimney_smoke.png",
+            "sha256": "676081fdcb2d1bd551efeb8fd6e0882960271e313bdf3c338e5f34f15dee5666"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_overlays/cut/a2_ridge_magpie.png",
+            "sha256": "c995b0a75ae13ac9f9e879c1e21f4288c42dfecdfc13b02b4dd97cfbf2459831"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_overlays/cut/a2_lantern_lit.png",
+            "sha256": "f1de8614cc95cac3ddcc35c4d095e6506f3e21182f9418e3a1c684012d62d87c"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_overlays/qa/a2_chimney_smoke.png",
+            "sha256": "330df90036b8a61803d31fecb09d103c32d93b236c981218641712d87e2a4f1f",
+            "decision": "approved",
+            "kind": "estateLayer"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_overlays/qa/a2_lantern_lit.png",
+            "sha256": "ac5fb26abee151bb8ef91288fb47336e9b4f7df466660943ad7db3ccae4e03ca",
+            "decision": "approved",
+            "kind": "estateLayer"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_overlays/qa/a2_ridge_magpie.png",
+            "sha256": "268ac82dc63baa62c70416edd38ea1856ef8b3efb3fb07afa7bc937adcc0221c",
+            "decision": "approved",
+            "kind": "estateLayer"
+          }
+        ]
+      },
+      {
+        "id": "estate-frame-sotdaeulmun-2026-08-18",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "2874eb11d05d5acbe6eb89c1bdc267c2",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T11:21:19Z",
+        "costCredits": 4.0,
+        "promptSha256": "ce600e3494a3edc5aebf7e9122d8e44d8c05844a729d8b1c65cc247d9f4ebf1d",
+        "promptSource": "tool/derive_estate_building_stages.py#FRAME_PROMPTS",
+        "note": "Backfilled 2026-08-18. KEEP/REMOVE/ADD timber-frame edit, same lineage as the A1 frame edits (260fb037...). See docs/assets/prompts/B1B2_BUILDING_STAGES_2026-08-18.md section 2.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sotdaeulmun.png",
+            "sha256": "33a9400b699c100e8d5c51bdef2dfbca8420458972726de38f7264909d01f47d"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_stages/sotdaeulmun/raw/sotdaeulmun_frame_raw.png",
+            "sha256": "b089cefb9a554f0562552c89d3b8e625902eab1cea10368fd0fb86098ccb49fd",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "estate-frame-align-sotdaeulmun-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/derive_estate_building_stages.py sotdaeulmun --align assets_unused/pending_review/estate_stages/sotdaeulmun/raw/sotdaeulmun_frame_raw.png --frame-key frame --target-bbox 600,875,939,1080",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T11:21:19Z",
+        "costCredits": 0.0,
+        "promptSha256": "b3cade2bca0d0da18b7053a55876977322cb96fb8c22136c89df6f77a4e178c5",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. chroma-decode -> measure own alpha bbox -> LANCZOS rescale to the finished building's measured bbox -> redespill + low-alpha rim clamp -> intersect with finished-building alpha. See doc section 3.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sotdaeulmun.png",
+            "sha256": "33a9400b699c100e8d5c51bdef2dfbca8420458972726de38f7264909d01f47d"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_stages/sotdaeulmun/raw/sotdaeulmun_frame_raw.png",
+            "sha256": "b089cefb9a554f0562552c89d3b8e625902eab1cea10368fd0fb86098ccb49fd"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_stages/sotdaeulmun/sotdaeulmun_frame_aligned.png",
+            "sha256": "b6e3b39fc63474efb81c023d849b07a2a1e4aa3ad61562d39d771f54ae6a42a2",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "estate-build-sotdaeulmun-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/derive_estate_building_stages.py sotdaeulmun --build",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T11:21:19Z",
+        "costCredits": 0.0,
+        "promptSha256": "3bb08f536bb65908ffd1ea7febd49520244e42cd86b1c26c1b2fb6d8af51eb52",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. Deterministic reveal/regionUnion composition per docs/assets/hanok_estate_kit/sotdaeulmun_stages.json, gated on containment, structural continuity (recall 1.0), chroma cleanliness and byte budget. The final stage is always the untouched original bytes (alias, not re-encoded) and is therefore NOT a new output here — only the non-final stages are. Full ledger: docs/assets/hanok_estate_kit/sotdaeulmun_stages_ledger.json.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sotdaeulmun.png",
+            "sha256": "33a9400b699c100e8d5c51bdef2dfbca8420458972726de38f7264909d01f47d"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_stages/sotdaeulmun/sotdaeulmun_frame_aligned.png",
+            "sha256": "b6e3b39fc63474efb81c023d849b07a2a1e4aa3ad61562d39d771f54ae6a42a2"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/sotdaeulmun_s1_platform.png",
+            "sha256": "9f2a4d4dbef0265a80a8cc721fe1c82ea77f9b6331880439e1023e5d2d10f6e0",
+            "decision": "approved",
+            "kind": "estateStage"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/sotdaeulmun_s2_frame_roof.png",
+            "sha256": "2ecbf047b9d8ab591d2554770ade14c641ba9306a756abe060d78d6ab3e28570",
+            "decision": "approved",
+            "kind": "estateStage"
+          }
+        ]
+      },
+      {
+        "id": "estate-frame-haengrangchae-2026-08-18",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "1d688cc823ec880e4e7ff396f1e79993",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T11:38:42Z",
+        "costCredits": 4.0,
+        "promptSha256": "ec9562e94fa1d6a8ff88ef2114543023bb7c9165832a09b3c926b4eb1aaa60f8",
+        "promptSource": "tool/derive_estate_building_stages.py#FRAME_PROMPTS",
+        "note": "Backfilled 2026-08-18. KEEP/REMOVE/ADD timber-frame edit, same lineage as the A1 frame edits (260fb037...). See docs/assets/prompts/B1B2_BUILDING_STAGES_2026-08-18.md section 2.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/haengrangchae.png",
+            "sha256": "3ff376e182d482b743c07ef07c77bc16999e9b3cac4b87555fc5ea8436ff41dc"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_stages/haengrangchae/raw/haengrangchae_frame_raw.png",
+            "sha256": "90c7c927dc6884dafd6047306a61bd0bb54b832276ec9de7e1a0919bc6362e22",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "estate-frame-align-haengrangchae-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/derive_estate_building_stages.py haengrangchae --align assets_unused/pending_review/estate_stages/haengrangchae/raw/haengrangchae_frame_raw.png --frame-key frame --target-bbox 253,857,675,1032",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T11:38:42Z",
+        "costCredits": 0.0,
+        "promptSha256": "4f5b6b7f93d9c06a99ea84628c3194d1c1adc8ffa0d269b1312ef629b905552b",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. chroma-decode -> measure own alpha bbox -> LANCZOS rescale to the finished building's measured bbox -> redespill + low-alpha rim clamp -> intersect with finished-building alpha. See doc section 3.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/haengrangchae.png",
+            "sha256": "3ff376e182d482b743c07ef07c77bc16999e9b3cac4b87555fc5ea8436ff41dc"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_stages/haengrangchae/raw/haengrangchae_frame_raw.png",
+            "sha256": "90c7c927dc6884dafd6047306a61bd0bb54b832276ec9de7e1a0919bc6362e22"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_stages/haengrangchae/haengrangchae_frame_aligned.png",
+            "sha256": "323573ff5484a14398f97dfd06336195dae48d27cb14d20da6d1208f0fecade5",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "estate-build-haengrangchae-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/derive_estate_building_stages.py haengrangchae --build",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T11:38:42Z",
+        "costCredits": 0.0,
+        "promptSha256": "f9f44cd8d5fc0330a0731b853fc18bcea84c63bf26f054cef76ae251c622cefc",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. Deterministic reveal/regionUnion composition per docs/assets/hanok_estate_kit/haengrangchae_stages.json, gated on containment, structural continuity (recall 1.0), chroma cleanliness and byte budget. The final stage is always the untouched original bytes (alias, not re-encoded) and is therefore NOT a new output here — only the non-final stages are. Full ledger: docs/assets/hanok_estate_kit/haengrangchae_stages_ledger.json.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/haengrangchae.png",
+            "sha256": "3ff376e182d482b743c07ef07c77bc16999e9b3cac4b87555fc5ea8436ff41dc"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_stages/haengrangchae/haengrangchae_frame_aligned.png",
+            "sha256": "323573ff5484a14398f97dfd06336195dae48d27cb14d20da6d1208f0fecade5"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/haengrangchae_s1_foundation.png",
+            "sha256": "75cbadbff5e3e5b175d99e471b6881d3da2a6adb77e11ff845c4873b2be84ba0",
+            "decision": "approved",
+            "kind": "estateStage"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/haengrangchae_s2_frame.png",
+            "sha256": "0cc6b1e6c2b28195b8c69a7f8a8cef55957650b4529422c28568a7e48202ab13",
+            "decision": "approved",
+            "kind": "estateStage"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/haengrangchae_s3_roof.png",
+            "sha256": "c3f7d23df4d87ca1ccdbee9280aaa38c15902120b706b32d8989e9cf542a5047",
+            "decision": "approved",
+            "kind": "estateStage"
+          }
+        ]
+      },
+      {
+        "id": "estate-frame-anchae-2026-08-18",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "9a30daf2d3d8495eb565418f1259d91a",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T12:15:41Z",
+        "costCredits": 4.0,
+        "promptSha256": "2d56aee0843ca4a9544471e602a0cee6682084715e3904e9fd8fd4105520b8b9",
+        "promptSource": "tool/derive_estate_building_stages.py#FRAME_PROMPTS",
+        "note": "Backfilled 2026-08-18. KEEP/REMOVE/ADD timber-frame edit, same lineage as the A1 frame edits (260fb037...). See docs/assets/prompts/B1B2_BUILDING_STAGES_2026-08-18.md section 2.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/anchae.png",
+            "sha256": "93cc25cbe79731f81c04adeaea16a3a8e8a3178142af5d5f1ad68ee126607c73"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_stages/anchae/raw/anchae_frame_raw.png",
+            "sha256": "f67a7a52b5441377b4d0cb0fd910ba8dc2c7b8729030836fc111ad29e3c83e9a",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "estate-frame-align-anchae-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/derive_estate_building_stages.py anchae --align assets_unused/pending_review/estate_stages/anchae/raw/anchae_frame_raw.png --frame-key frame --target-bbox 403,299,1099,633",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T12:15:41Z",
+        "costCredits": 0.0,
+        "promptSha256": "64efab51760c235ca61c341ac1a6977837cbe26b12024c85e78e58b7c5b8da6d",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. chroma-decode -> measure own alpha bbox -> LANCZOS rescale to the finished building's measured bbox -> redespill + low-alpha rim clamp -> intersect with finished-building alpha. See doc section 3.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/anchae.png",
+            "sha256": "93cc25cbe79731f81c04adeaea16a3a8e8a3178142af5d5f1ad68ee126607c73"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_stages/anchae/raw/anchae_frame_raw.png",
+            "sha256": "f67a7a52b5441377b4d0cb0fd910ba8dc2c7b8729030836fc111ad29e3c83e9a"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_stages/anchae/anchae_frame_aligned.png",
+            "sha256": "7f561d30ca462b95b668aac59317b7da691a5fa0d73a573f303744cbdbb7ab16",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "estate-build-anchae-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/derive_estate_building_stages.py anchae --build",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T12:15:41Z",
+        "costCredits": 0.0,
+        "promptSha256": "46a958003d4484b2ff0728119703daccff08fef7e96d9bbbcfa624e5f4c138b8",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. Deterministic reveal/regionUnion composition per docs/assets/hanok_estate_kit/anchae_stages.json, gated on containment, structural continuity (recall 1.0), chroma cleanliness and byte budget. The final stage is always the untouched original bytes (alias, not re-encoded) and is therefore NOT a new output here — only the non-final stages are. Full ledger: docs/assets/hanok_estate_kit/anchae_stages_ledger.json.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/anchae.png",
+            "sha256": "93cc25cbe79731f81c04adeaea16a3a8e8a3178142af5d5f1ad68ee126607c73"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_stages/anchae/anchae_frame_aligned.png",
+            "sha256": "7f561d30ca462b95b668aac59317b7da691a5fa0d73a573f303744cbdbb7ab16"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/anchae_s1_platform.png",
+            "sha256": "6c31e5e1326e572cdd8fc74dfaf79c49e0aa1f0c51b97ab2f108bc336ce11456",
+            "decision": "approved",
+            "kind": "estateStage"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/anchae_s2_frame.png",
+            "sha256": "6531a6858812a2d1e1d9383604793bc93c595bf288b7632bbd3e81c31a6e2b2f",
+            "decision": "approved",
+            "kind": "estateStage"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/anchae_s3_roof.png",
+            "sha256": "ef1e7263b9ff5f00b05f2ea0b574566298de2b5ea0da927559ba8f75fa6910ec",
+            "decision": "approved",
+            "kind": "estateStage"
+          }
+        ]
+      },
+      {
+        "id": "estate-frame-sadang-2026-08-18",
+        "provider": "bbanana",
+        "model": "Nano Banana Pro",
+        "providerTaskId": "45fc9df887eb018a316eb750ed8aed35",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T12:23:00Z",
+        "costCredits": 4.0,
+        "promptSha256": "93f08c7199a85db6efd689602a6d90bdb33bc29bdb406be7bd6f5bfda901122e",
+        "promptSource": "tool/derive_estate_building_stages.py#FRAME_PROMPTS",
+        "note": "Backfilled 2026-08-18. KEEP/REMOVE/ADD timber-frame edit, same lineage as the A1 frame edits (260fb037...). See docs/assets/prompts/B1B2_BUILDING_STAGES_2026-08-18.md section 2.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sadang.png",
+            "sha256": "3f5cf5246a763fb8a6d4b639af3e4801b42ff23c62a9ef033f1f3c04ff16eb81"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_stages/sadang/raw/sadang_frame_raw.png",
+            "sha256": "f9b691e33e58af8741472db542c4c1f4ab21039f6e25d93ec9d77c7dd4ac906c",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "estate-frame-align-sadang-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/derive_estate_building_stages.py sadang --align assets_unused/pending_review/estate_stages/sadang/raw/sadang_frame_raw.png --frame-key frame --target-bbox 1198,346,1395,575",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T12:23:00Z",
+        "costCredits": 0.0,
+        "promptSha256": "6d64b8f558b2ab1313989bde81c9effe4e59aca387172aa650e6b54e20e5385c",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. chroma-decode -> measure own alpha bbox -> LANCZOS rescale to the finished building's measured bbox -> redespill + low-alpha rim clamp -> intersect with finished-building alpha. See doc section 3.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sadang.png",
+            "sha256": "3f5cf5246a763fb8a6d4b639af3e4801b42ff23c62a9ef033f1f3c04ff16eb81"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_stages/sadang/raw/sadang_frame_raw.png",
+            "sha256": "f9b691e33e58af8741472db542c4c1f4ab21039f6e25d93ec9d77c7dd4ac906c"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/estate_stages/sadang/sadang_frame_aligned.png",
+            "sha256": "c9de13dce7a9739332ada796ad233194b8f3c85f64cb8e1d6ccb0accdb7497eb",
+            "decision": "approved",
+            "kind": "part"
+          }
+        ]
+      },
+      {
+        "id": "estate-build-sadang-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/derive_estate_building_stages.py sadang --build",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T12:23:00Z",
+        "costCredits": 0.0,
+        "promptSha256": "54aae40e40daab4009206d92f8043374b2c6cba1956062acfb95ec090c157b11",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. Deterministic reveal/regionUnion composition per docs/assets/hanok_estate_kit/sadang_stages.json, gated on containment, structural continuity (recall 1.0), chroma cleanliness and byte budget. The final stage is always the untouched original bytes (alias, not re-encoded) and is therefore NOT a new output here — only the non-final stages are. Full ledger: docs/assets/hanok_estate_kit/sadang_stages_ledger.json.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/sadang.png",
+            "sha256": "3f5cf5246a763fb8a6d4b639af3e4801b42ff23c62a9ef033f1f3c04ff16eb81"
+          },
+          {
+            "path": "assets_unused/pending_review/estate_stages/sadang/sadang_frame_aligned.png",
+            "sha256": "c9de13dce7a9739332ada796ad233194b8f3c85f64cb8e1d6ccb0accdb7497eb"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/sadang_s1_platform.png",
+            "sha256": "ed132a4f6ea0a7cc745e52f690c016fb1bb9738bdd85ffff1e7273153bc9e7bf",
+            "decision": "approved",
+            "kind": "estateStage"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/sadang_s2_frame_roof.png",
+            "sha256": "3978646ea67ac274d7c0e24517c41531cd2db70dded4802b47b5300e9677322e",
+            "decision": "approved",
+            "kind": "estateStage"
+          }
+        ]
+      },
+      {
+        "id": "estate-build-daecheongmaru-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/derive_estate_building_stages.py daecheongmaru --build",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T12:35:00Z",
+        "costCredits": 0.0,
+        "promptSha256": "a58bfee9ff18e927ba2adf6fb9d2e2f05e86105225b8e5097c1237fae09b2212",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. No generation needed — columns already fully exposed, all 3 stages are crops of the finished building. Full ledger: docs/assets/hanok_estate_kit/daecheongmaru_stages_ledger.json.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/structures/daecheongmaru.png",
+            "sha256": "6d42d042cfe4415546c22e8fb6eda3ca38b940af81690e1ead110418474263a0"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/daecheongmaru_s1_platform.png",
+            "sha256": "5678d04589e303695a7a5208f7ccfd54530b7f14dcb36656fc16b44b84d9e10d",
+            "decision": "approved",
+            "kind": "estateStage"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/daecheongmaru_s2_frame.png",
+            "sha256": "99fa560dbaa41547994ed028c87ffbfd72ceaf0fa384a5ec1e304ba4c56c2b25",
+            "decision": "approved",
+            "kind": "estateStage"
+          }
+        ]
+      },
+      {
+        "id": "estate-build-rear_garden-2026-08-18",
+        "provider": "local",
+        "model": "python3 tool/derive_estate_building_stages.py rear_garden --build",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-18T12:40:00Z",
+        "costCredits": 0.0,
+        "promptSha256": "f6cf5653bef0279d21693950202f9db6e5b37268c07f3de5aed655c14c76dbd3",
+        "promptSource": "command line, not a model prompt",
+        "note": "Backfilled 2026-08-18. No generation needed — connected-component split (pavilion/pond cluster vs jangdok/rock cluster), hand-verified rectangular regions, no classify() reliance (see doc section 0). Full ledger: docs/assets/hanok_estate_kit/rear_garden_stages_ledger.json.",
+        "inputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/landscape/rear_garden.png",
+            "sha256": "fd95dbebcc6f3879c2e594e2a8b20eba72f8efaf172ff4ee2a0259f742dc9d84"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/rear_garden_s1_hardscape.png",
+            "sha256": "a1c83379ca1422647a494ecd6c6ab5d5ac1581b58dc4268114e0fd7aefc9443d",
+            "decision": "approved",
+            "kind": "estateStage"
+          },
+          {
+            "path": "assets/illustrations/personal_hanok_v2/map/stages/rear_garden_s2_bridge.png",
+            "sha256": "63b20199b9d3f6cae82fa837d7b38e6621e3826473533f1febd050a1436440ae",
+            "decision": "approved",
+            "kind": "estateStage"
           }
         ]
       }
