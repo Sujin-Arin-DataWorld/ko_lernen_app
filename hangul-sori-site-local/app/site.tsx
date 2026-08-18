@@ -165,27 +165,17 @@ const content = {
   },
 } as const;
 
-const IOS_TESTFLIGHT = {
-  // Set isAvailable to false before deploying an update that closes iOS testing.
-  // All iOS CTAs will then return visitors to the existing tester application form.
-  isAvailable: true,
-  url: "https://testflight.apple.com/join/sbvJNQSt",
-} as const;
-
 const testerCopy = {
   en: {
-    iosAvailable: "iOS beta available",
-    iosUnavailable: "iOS in preparation",
+    ios: "iOS beta testing",
     android: "Android testing",
   },
   de: {
-    iosAvailable: "iOS-Beta verfügbar",
-    iosUnavailable: "iOS in Vorbereitung",
+    ios: "iOS-Beta läuft",
     android: "Android-Test läuft",
   },
   ko: {
-    iosAvailable: "iOS 베타 이용 가능",
-    iosUnavailable: "iOS 준비 중",
+    ios: "iOS 베타 진행 중",
     android: "Android 테스트 중",
   },
 } as const;
@@ -200,9 +190,11 @@ function ButtonLink({ href, children, variant = "primary", compact = false }: { 
 
 function StoreButtons({ locale, light = false }: { locale: Locale; light?: boolean }) {
   const t = testerCopy[locale];
-  const iosTestingOpen = IOS_TESTFLIGHT.isAvailable;
+  // Both test tracks are invite-only: Apple and Google only open the download
+  // once that email sits on our tester list, so neither CTA may jump straight
+  // to a store link. Both open the tester application form instead.
   return <div className={`store-buttons${light ? " store-buttons-light" : ""}`} aria-label="App testing access">
-    <a className="store-button" href={iosTestingOpen ? IOS_TESTFLIGHT.url : "#tester-access"} target={iosTestingOpen ? "_blank" : undefined} rel={iosTestingOpen ? "noopener noreferrer" : undefined} aria-haspopup={iosTestingOpen ? undefined : "dialog"}><span className="store-icon" aria-hidden="true"><Apple size={20} strokeWidth={2}/></span><span><small>{iosTestingOpen ? t.iosAvailable : t.iosUnavailable}</small><b>App Store</b></span></a>
+    <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="store-icon" aria-hidden="true"><Apple size={20} strokeWidth={2}/></span><span><small>{t.ios}</small><b>App Store</b></span></a>
     <a className="store-button" href="#tester-access" aria-haspopup="dialog"><span className="store-icon play-icon" aria-hidden="true"><Play size={18} fill="currentColor" strokeWidth={1.8}/></span><span><small>{t.android}</small><b>Google Play</b></span></a>
   </div>;
 }

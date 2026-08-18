@@ -234,10 +234,19 @@ for (const origin of origins) {
       `${url} must contain the visible text ${JSON.stringify(marker)}`,
     );
     if (path === "/") {
-      assert.match(
+      const storeCtas = html.match(/<a[^>]*class=["']store-button["'][^>]*>/gi) ?? [];
+      assert.ok(storeCtas.length >= 2, `${url} must retain the store CTAs`);
+      for (const cta of storeCtas) {
+        assert.match(
+          cta,
+          /href=["']#tester-access["']/i,
+          `${url} must keep every store CTA gated behind the tester form`,
+        );
+      }
+      assert.doesNotMatch(
         html,
-        /href=["']https:\/\/testflight\.apple\.com\/join\/sbvJNQSt["']/i,
-        `${url} must retain the TestFlight CTA`,
+        /href=["']https:\/\/testflight\.apple\.com/i,
+        `${url} must not expose the TestFlight link before an application`,
       );
     }
   }
@@ -313,7 +322,7 @@ if (external) {
     signal: AbortSignal.timeout(20_000),
     headers: { "user-agent": "hangul-sori-release-verifier/1.0" },
   });
-  assert.equal(response.status, 200, "The TestFlight destination must be reachable");
+  assert.equal(response.status, 200, "The TestFlight invitation destination must be reachable");
   assert.match(
     await response.text(),
     /Join the Hangul Sori beta/i,
@@ -322,5 +331,5 @@ if (external) {
 }
 
 console.log(
-  `Verified release ${observedRelease ?? "legacy-without-release-header"}, ${routeMarkers.size} routes, ${referencedBuildAssets.size} referenced build assets, exact 404 behavior, tester API GET rejection and binding presence, security headers, ${publicFiles.length} byte-exact assets, and the TestFlight CTA on ${origins.join(" and ")}${external ? ", including Apple" : ""}.`,
+  `Verified release ${observedRelease ?? "legacy-without-release-header"}, ${routeMarkers.size} routes, ${referencedBuildAssets.size} referenced build assets, exact 404 behavior, tester API GET rejection and binding presence, security headers, ${publicFiles.length} byte-exact assets, and the gated store CTAs on ${origins.join(" and ")}${external ? ", including Apple" : ""}.`,
 );
