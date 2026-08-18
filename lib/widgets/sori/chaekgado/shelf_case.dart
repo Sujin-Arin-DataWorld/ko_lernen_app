@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../data/chaekgado_shelf.dart';
 import '../tokens.dart';
 
 /// 책가도 서재의 한 칸 — 듣기 카테고리 하나.
@@ -86,6 +87,26 @@ class ChaekgadoShelfCase extends StatelessWidget {
       );
     }
 
+    final body = Padding(
+      padding: padding,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          for (var r = 0; r < rows.length; r++)
+            _ShelfRow(
+              cells: rows[r],
+              columns: columns,
+              cellHeight: cellHeight,
+              emptyLabel: emptyLabel,
+              onOpen: onOpen,
+              // 소품은 108칸 공용 4종을 순환 — 칸별 자산이 아니다.
+              propOffset: r * columns,
+            ),
+        ],
+      ),
+    );
+
     return ColoredBox(
       color: _ShelfPalette.caseBack,
       // Column, not ListView — a level has at most ~6 rows (12 compartments
@@ -94,22 +115,39 @@ class ChaekgadoShelfCase extends StatelessWidget {
       // preview, or the unbounded SingleChildScrollView of the real Hören
       // screen. ListView.builder needs a bounded-height parent and breaks
       // inside SingleChildScrollView without shrinkWrap/physics juggling.
-      child: Padding(
-        padding: padding,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
+      //
+      // The pillar Row wants `stretch` — pillars as tall as the shelf body —
+      // but `stretch` demands a bounded cross axis, and inside
+      // SingleChildScrollView the vertical axis is unbounded, so a plain
+      // Row+stretch here throws "BoxConstraints forces an infinite height".
+      // IntrinsicHeight measures the body's own (finite) height first and
+      // hands that down as a tight constraint instead.
+      child: IntrinsicHeight(
+        child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            for (final row in rows)
-              _ShelfRow(
-                cells: row,
-                columns: columns,
-                cellHeight: cellHeight,
-                emptyLabel: emptyLabel,
-                onOpen: onOpen,
-              ),
+            const _Pillar(),
+            Expanded(child: body),
+            const _Pillar(),
           ],
         ),
+      ),
+    );
+  }
+}
+
+/// 서재 좌우 기둥 — 칸 내용과 무관, 폭 고정.
+class _Pillar extends StatelessWidget {
+  const _Pillar();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 11,
+      child: Image.asset(
+        kChaekgadoPillarAsset,
+        fit: BoxFit.fill,
+        errorBuilder: (_, _, _) => const ColoredBox(color: _ShelfPalette.plank),
       ),
     );
   }
@@ -122,6 +160,7 @@ class _ShelfRow extends StatelessWidget {
     required this.cellHeight,
     required this.emptyLabel,
     required this.onOpen,
+    required this.propOffset,
   });
 
   final List<ChaekgadoCompartment> cells;
@@ -129,6 +168,7 @@ class _ShelfRow extends StatelessWidget {
   final double cellHeight;
   final String? emptyLabel;
   final ValueChanged<ChaekgadoCompartment> onOpen;
+  final int propOffset;
 
   @override
   Widget build(BuildContext context) {
@@ -144,6 +184,7 @@ class _ShelfRow extends StatelessWidget {
                   data: cells[i],
                   height: cellHeight,
                   emptyLabel: emptyLabel,
+                  propIndex: propOffset + i,
                   onTap: () => onOpen(cells[i]),
                 )
               : SizedBox(height: cellHeight),
@@ -156,13 +197,20 @@ class _ShelfRow extends StatelessWidget {
       child: Column(
         children: [
           Row(crossAxisAlignment: CrossAxisAlignment.end, children: children),
-          // 널판 — 앞면 하이라이트 1px 로 두께를 만든다.
-          Container(
-            height: 6,
-            decoration: const BoxDecoration(
-              color: _ShelfPalette.plank,
-              border: Border(
-                top: BorderSide(color: _ShelfPalette.plankLip, width: 1),
+          // 널판 — 실제 목재 텍스처. 앞면 하이라이트 1px 는 자산이 없을 때
+          // 폴백에서만 필요하므로 errorBuilder 쪽에 남긴다.
+          SizedBox(
+            height: 14,
+            child: Image.asset(
+              kChaekgadoPlankAsset,
+              fit: BoxFit.fill,
+              errorBuilder: (_, _, _) => const DecoratedBox(
+                decoration: BoxDecoration(
+                  color: _ShelfPalette.plank,
+                  border: Border(
+                    top: BorderSide(color: _ShelfPalette.plankLip, width: 1),
+                  ),
+                ),
               ),
             ),
           ),
@@ -177,12 +225,14 @@ class _Compartment extends StatelessWidget {
     required this.data,
     required this.height,
     required this.emptyLabel,
+    required this.propIndex,
     required this.onTap,
   });
 
   final ChaekgadoCompartment data;
   final double height;
   final String? emptyLabel;
+  final int propIndex;
   final VoidCallback onTap;
 
   @override
@@ -218,7 +268,9 @@ class _Compartment extends StatelessWidget {
                   progress: stocked ? data.progress : null,
                   emptyLabel: stocked ? null : emptyLabel,
                 ),
-                Expanded(child: _CellInterior(count: data.count)),
+                Expanded(
+                  child: _CellInterior(count: data.count, propIndex: propIndex),
+                ),
               ],
             ),
           ),
@@ -304,9 +356,10 @@ class _NamePlate extends StatelessWidget {
 /// 책등 개수는 **실제 시나리오 개수**다. 4개 고정이 아니다. 3권과 화병 하나는
 /// 책가도의 정상 구도라 듬성듬성해도 비어 보이지 않는다.
 class _CellInterior extends StatelessWidget {
-  const _CellInterior({required this.count});
+  const _CellInterior({required this.count, required this.propIndex});
 
   final int count;
+  final int propIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -348,9 +401,30 @@ class _CellInterior extends StatelessWidget {
         children: [
           ...spines,
           const Spacer(),
-          // 소품 — 자산이 오면 이 자리를 청자·붓통·사발 PNG 로 바꾼다.
-          const _PlaceholderProp(),
+          // 소품 — 108칸 공용 4종(청자·붓통·사발·두루마리)을 칸 위치로 순환.
+          _Prop(index: propIndex),
         ],
+      ),
+    );
+  }
+}
+
+class _Prop extends StatelessWidget {
+  const _Prop({required this.index});
+
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    final asset = kChaekgadoProps[index % kChaekgadoProps.length];
+    return SizedBox(
+      width: 26,
+      height: 40,
+      child: Image.asset(
+        asset,
+        fit: BoxFit.contain,
+        alignment: Alignment.bottomCenter,
+        errorBuilder: (_, _, _) => const _PlaceholderProp(),
       ),
     );
   }

@@ -165,6 +165,11 @@ flutter:
     - assets/illustrations/activities/
     # Sori Deck 2.0 액션 아이콘 (§R-3 커스텀 드롭 전에는 Material 폴백)
     - assets/illustrations/deck/
+    # 듣기 카드 일러스트 — 규약: listening/{Key}.webp (Key = docs/LISTENING_CARD_ART_SPEC.md).
+    # 없으면 SoriIllustratedCard 의 errorBuilder 가 폴백을 그린다.
+    - assets/illustrations/listening/
+    # 책가도 서재 목재·소품 — 108칸(6레벨×12칸+ 확장 여유) 공용, 칸별 아트 아님.
+    - assets/illustrations/chaekgado/
     - assets/stickers/
     - assets/sfx/
     - assets/rive/

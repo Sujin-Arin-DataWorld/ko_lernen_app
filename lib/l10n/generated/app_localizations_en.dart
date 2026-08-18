@@ -2904,6 +2904,236 @@ class AppL10nEn extends AppL10n {
       'Once scenarios are available, you can listen to them here.';
 
   @override
+  String get listeningShelfEmpty => 'not stocked yet';
+
+  @override
+  String listeningShelfScenarioCount(int n) {
+    return '$n scenarios';
+  }
+
+  @override
+  String listeningLineCount(int n) {
+    return '$n lines';
+  }
+
+  @override
+  String get listeningShelfA1Transit => 'Getting on & off';
+
+  @override
+  String get listeningShelfA1Arrival => 'Taxi, airport & lodging';
+
+  @override
+  String get listeningShelfA1Counter => 'Shops & counters';
+
+  @override
+  String get listeningShelfA1Cafe => 'Café & snacks';
+
+  @override
+  String get listeningShelfA1Home => 'Home & front door';
+
+  @override
+  String get listeningShelfA1Greeting => 'Greetings & how to address people';
+
+  @override
+  String get listeningShelfA1Repair => 'I didn\'t catch that';
+
+  @override
+  String get listeningShelfA1Health => 'Pharmacy, weather & safety';
+
+  @override
+  String get listeningShelfA1Family => 'First visit to the partner\'s family';
+
+  @override
+  String get listeningShelfA1Numbers => 'Numbers & time';
+
+  @override
+  String get listeningShelfA1Phone => 'Calls & messages';
+
+  @override
+  String get listeningShelfA1Wayfinding => 'Directions & signs';
+
+  @override
+  String get listeningShelfA2Travel => 'Travel, lodging & lost items';
+
+  @override
+  String get listeningShelfA2Bank => 'Bank, mobile plans & fees';
+
+  @override
+  String get listeningShelfA2Shopping => 'Buying & paying';
+
+  @override
+  String get listeningShelfA2Cafe => 'Café & restaurant';
+
+  @override
+  String get listeningShelfA2Body => 'Body, doctor & sport';
+
+  @override
+  String get listeningShelfA2Neighbourhood => 'Building & neighbours';
+
+  @override
+  String get listeningShelfA2Work => 'First days at work';
+
+  @override
+  String get listeningShelfA2Plans => 'Plans & staying in touch';
+
+  @override
+  String get listeningShelfA2Family => 'Partner\'s family & holidays';
+
+  @override
+  String get listeningShelfA2Delivery => 'Deliveries & receiving';
+
+  @override
+  String get listeningShelfA2Enrolment => 'Enrolment & classes';
+
+  @override
+  String get listeningShelfA2Booking => 'Booking & rebooking';
+
+  @override
+  String get listeningShelfB1Repairs => 'Repairs & defects';
+
+  @override
+  String get listeningShelfB1Refund => 'Refunds & warranty';
+
+  @override
+  String get listeningShelfB1Receipts => 'Receipts & billing';
+
+  @override
+  String get listeningShelfB1Delay => 'Rescheduling & delays';
+
+  @override
+  String get listeningShelfB1Paperwork => 'Paperwork & authorisation';
+
+  @override
+  String get listeningShelfB1Team => 'Team & handover';
+
+  @override
+  String get listeningShelfB1Neighbours => 'Neighbours & shared spaces';
+
+  @override
+  String get listeningShelfB1Feelings => 'Feelings & relationships';
+
+  @override
+  String get listeningShelfB1Family =>
+      'Closeness & distance with the partner\'s family';
+
+  @override
+  String get listeningShelfB1Insurance => 'Treatment & insurance';
+
+  @override
+  String get listeningShelfB1Incident => 'Accidents & reports';
+
+  @override
+  String get listeningShelfB1Cancellation => 'Cancelling & moving out';
+
+  @override
+  String get listeningShelfB2Meetings => 'Leading meetings';
+
+  @override
+  String get listeningShelfB2Evidence => 'Evidence & figures';
+
+  @override
+  String get listeningShelfB2Negotiation => 'Negotiating terms';
+
+  @override
+  String get listeningShelfB2Contracts => 'Contracts & signatures';
+
+  @override
+  String get listeningShelfB2Notices => 'Formal letters & objections';
+
+  @override
+  String get listeningShelfB2Escalation => 'Escalating while travelling';
+
+  @override
+  String get listeningShelfB2Medical => 'Medicine & billing';
+
+  @override
+  String get listeningShelfB2Public => 'Speaking & writing in public';
+
+  @override
+  String get listeningShelfB2Family => 'Boundaries with the partner\'s family';
+
+  @override
+  String get listeningShelfB2Hiring => 'Hiring & appraisal';
+
+  @override
+  String get listeningShelfB2Authorities => 'Authorities & permits';
+
+  @override
+  String get listeningShelfB2Privacy => 'Data & consent';
+
+  @override
+  String get listeningShelfC1Briefing => 'Briefing & the right to speak';
+
+  @override
+  String get listeningShelfC1Uncertainty => 'Uncertainty & sampling';
+
+  @override
+  String get listeningShelfC1Access => 'Access rights & deadlines';
+
+  @override
+  String get listeningShelfC1InvisibleLabor => 'Invisible labour in the family';
+
+  @override
+  String get listeningShelfC1Conflict => 'Conflicts of interest & bias';
+
+  @override
+  String get listeningShelfC1Policy => 'Interpretation & discretion';
+
+  @override
+  String get listeningShelfC1Consent => 'Informed consent';
+
+  @override
+  String get listeningShelfC1Critique => 'Cultural & art criticism';
+
+  @override
+  String get listeningShelfC1Mediation => 'Intercultural mediation';
+
+  @override
+  String get listeningShelfC1Methodology => 'Methodology & reproducibility';
+
+  @override
+  String get listeningShelfC1Facework => 'Objecting without loss of face';
+
+  @override
+  String get listeningShelfC1Attribution => 'Citation & source responsibility';
+
+  @override
+  String get listeningShelfC2Automation => 'Automated decisions';
+
+  @override
+  String get listeningShelfC2Records => 'Gaps in the record';
+
+  @override
+  String get listeningShelfC2Discourse => 'Assumptions in discourse';
+
+  @override
+  String get listeningShelfC2Authority => 'Limits & revocation of mandates';
+
+  @override
+  String get listeningShelfC2Impact => 'Unequal impact';
+
+  @override
+  String get listeningShelfC2Memory => 'Remembering places & names';
+
+  @override
+  String get listeningShelfC2Ethics => 'Research ethics & consent';
+
+  @override
+  String get listeningShelfC2History => 'Historiography & reconciliation';
+
+  @override
+  String get listeningShelfC2Translation => 'Aesthetics & untranslatability';
+
+  @override
+  String get listeningShelfC2Limitation => 'Time limits & prescription';
+
+  @override
+  String get listeningShelfC2Jurisdiction => 'Jurisdiction & boundaries';
+
+  @override
+  String get listeningShelfC2Representation => 'Who speaks for whom';
+
+  @override
   String get kkeunmariTitle => 'Word Chain';
 
   @override

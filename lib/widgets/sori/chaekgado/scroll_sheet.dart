@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../data/chaekgado_shelf.dart';
 import '../tokens.dart';
 
 /// 두루마리 — 서재의 칸을 눌렀을 때 세로로 풀리는 시나리오 목록.
@@ -133,6 +134,25 @@ class ChaekgadoScroll extends StatelessWidget {
 /// 축(軸) — 양끝에 금색 마구리.
 class _Rod extends StatelessWidget {
   const _Rod();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 13,
+      child: ClipRRect(
+        borderRadius: const BorderRadius.all(Radius.circular(7)),
+        child: Image.asset(
+          kChaekgadoRodAsset,
+          fit: BoxFit.fill,
+          errorBuilder: (_, _, _) => const _RodFallback(),
+        ),
+      ),
+    );
+  }
+}
+
+class _RodFallback extends StatelessWidget {
+  const _RodFallback();
 
   @override
   Widget build(BuildContext context) {
