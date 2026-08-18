@@ -5,6 +5,26 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-18 (Cursor Grok 4.6, Cloud) — 콘텐츠 UI 피드·바이블 계획 (구현 없음)
+
+**무엇을 왜.** Jin이 8월 18일 콘텐츠 UI(271+ 커밋)를 전역 스킬 36개로
+다시 감사하고, CTA·저장 토스트·타이포·틴더 덱·한 화면 잘림·Schreiben 크롬·
+네모 카드·디자인 바이블 위치까지 개선 계획서를 요청했다.
+
+**남긴 것.** `docs/superpowers/plans/2026-08-18-content-feed-ui-bible.md`.
+4패스 실측: Hören은 `SoriColors.info` CTA + 플레이어·책가도 동시 스크롤,
+저장은 3초 SnackBar 큐 + 위스와이프 스프링백, 학습은 아직 4방향
+`SoriSwipeCard`/`SoriDeckActionBar`, Schreiben은 규칙 카드+칩이 상단 ~30%,
+raw `TextStyle` 11–13px. `ui-ux-pro-max` 기본 인디고/Claymorphism/Comic Neue는
+폐기. 사람 정본은 이후 `docs/SORI_UI_BIBLE.md` (아직 없음).
+
+**하지 않은 것.** `lib/` 재설계, 하트/피드 위젯, CTA hex 변경, 카드 제거,
+`--persist` design-system.
+
+**검증.** 코드 읽기 + 스킬 검색. Flutter 스위트 없음 (문서만).
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-18 (Claude Sonnet 5, 웹사이트) — 직전 concurrency 수정으로도 안 됨: 진단 정정 + workflow_dispatch 자체 격리
 
 **직전 커밋(`c4271f7`)이 부족했다.** `release-website` 잡에만 전용 concurrency 그룹을 줬는데,

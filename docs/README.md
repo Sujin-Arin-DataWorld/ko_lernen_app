@@ -12,6 +12,10 @@ history rather than copied into the working tree.
    history; newest entry is first.
 3. The SSoT for the task at hand:
    - UI/UX: [HANDOFF_UI_OVERHAUL_2_2026-08-14.md](HANDOFF_UI_OVERHAUL_2_2026-08-14.md)
+     (리소그래프·카드 rect). 학습 제스처/CTA/타이포 다음 계약은
+     [superpowers/plans/2026-08-18-content-feed-ui-bible.md](superpowers/plans/2026-08-18-content-feed-ui-bible.md)
+     — 4방향 덱은 Jin이 2026-08-18에 철회. 사람용 `docs/SORI_UI_BIBLE.md`는
+     그 계획 Task 3이 만든다.
    - Content: [CONTENT_AUTHORING_GUIDE.md](CONTENT_AUTHORING_GUIDE.md),
      [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md), and
      [CONTENT_SOURCE_POLICY.md](CONTENT_SOURCE_POLICY.md)
