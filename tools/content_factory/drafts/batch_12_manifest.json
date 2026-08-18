@@ -313,7 +313,7 @@
  "recordCount": 312,
  "grammarIntents": [
   {
-   "grammarId": "grammar_c1_limited_to",
+   "id": "grammar_c1_limited_to",
    "level": "c1",
    "courseUnitId": "c1_03_media_evidence_literacy",
    "conceptIds": [
@@ -321,7 +321,7 @@
    ]
   },
   {
-   "grammarId": "grammar_c2_no_more_than_doing",
+   "id": "grammar_c2_no_more_than_doing",
    "level": "c2",
    "courseUnitId": "c2_03_automation_redress",
    "conceptIds": [
@@ -329,7 +329,7 @@
    ]
   },
   {
-   "grammarId": "grammar_c1_not_necessarily",
+   "id": "grammar_c1_not_necessarily",
    "level": "c1",
    "courseUnitId": "c1_04_play_time_policy",
    "conceptIds": [
@@ -337,7 +337,7 @@
    ]
   },
   {
-   "grammarId": "grammar_c2_merely_on_grounds",
+   "id": "grammar_c2_merely_on_grounds",
    "level": "c2",
    "courseUnitId": "c2_04_sanction_accountability",
    "conceptIds": [
@@ -345,7 +345,7 @@
    ]
   },
   {
-   "grammarId": "grammar_c1_insufficient_for",
+   "id": "grammar_c1_insufficient_for",
    "level": "c1",
    "courseUnitId": "c1_05_fan_labor_sustainability",
    "conceptIds": [
@@ -353,7 +353,7 @@
    ]
   },
   {
-   "grammarId": "grammar_c2_as_if_framing",
+   "id": "grammar_c2_as_if_framing",
    "level": "c2",
    "courseUnitId": "c2_05_relationship_narratives",
    "conceptIds": [
@@ -361,7 +361,7 @@
    ]
   },
   {
-   "grammarId": "grammar_c1_but_not",
+   "id": "grammar_c1_but_not",
    "level": "c1",
    "courseUnitId": "c1_06_intimacy_safety_design",
    "conceptIds": [
@@ -369,7 +369,7 @@
    ]
   },
   {
-   "grammarId": "grammar_c2_no_matter_how",
+   "id": "grammar_c2_no_matter_how",
    "level": "c2",
    "courseUnitId": "c2_06_fandom_discourse_power",
    "conceptIds": [

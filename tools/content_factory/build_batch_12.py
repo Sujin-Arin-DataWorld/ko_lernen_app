@@ -376,7 +376,11 @@ def build(root: Path = ROOT) -> dict[str, int]:
         ),
         "grammarIntents": [
             {
-                "grammarId": entry["id"],
+                # 키는 "id" 다 — integrate_review_batches._add_mapping 이 그렇게 읽는다
+                # (§411-420). "grammarId" 로 적으면 "malformed grammar intent" 로
+                # 죽고, 그게 Batch 12 가 승격되지 못한 두 이유 중 하나였다
+                # (다른 하나는 Batch 11 미승격, 2026-08-18 해소).
+                "id": entry["id"],
                 "level": entry["level"].lower(),
                 "courseUnitId": next(
                     pack["courseUnitId"] for pack in slice_.packs
