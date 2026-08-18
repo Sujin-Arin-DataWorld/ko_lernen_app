@@ -1,5 +1,28 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude Sonnet 5, macOS) — main CI red 진단 + golden 기준선 갱신
+
+**무엇을 왜.** Jin이 GitHub 저장소 페이지의 커밋 X 표시(`ko_lernen_app | Default` Xcode
+Cloud 실패)를 보고 문의해, main의 GitHub Actions `CI`도 최근 커밋 대부분에서 계속
+빨간불인 걸 같이 확인했다. 원인 2건을 갈랐다.
+
+① `asset_orphan_guard_test` — 이미 `e50fd520`(PR-B)가 `personal_hanok_estate_stage_catalog.dart`로
+배선해 해소돼 있었다. 내가 본 실패 로그는 그 이전 커밋(`a06bb5bb`)의 오래된 CI run이었다.
+로컬 재실행으로 현재 main 기준 통과를 확인했다(코드 변경 없음).
+
+② `screen_vocab_packs_{medium,expanded}` golden — `abf9e3ff`(Sori Deck 3.0)가 카드 하단
+라벨 텍스트 폭을 바꿨는데(픽셀 diff 0.21%, 2178px — 카드 진행도 라벨 두 번째 줄이 살짝
+길어짐), 8/15에 마지막으로 만들어진 Linux 기준선을 그 뒤로 아무도 갱신하지 않았다.
+AGENTS.md에 문서화된 절차대로 `workflow_dispatch task=regenerate-goldens`(run
+`32186098424`, ubuntu-latest, 2m46s)를 돌려 Linux 산출물을 아티팩트로 받았다. 나머지
+14개 기존 골든(홈·설정·오늘·개인 한옥 맵 등)은 전부 바이트 동일 — 이번 변경은 vocab_packs
+2장으로 정확히 국한된다.
+
+**검증.** `flutter test test/asset_orphan_guard_test.dart` 로컬 4/4 green. golden 2장은
+CI `regenerate-goldens` 산출물을 그대로 기준선에 반영(맥 로컬은 Linux 전용이라 skip).
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-18 (Claude Sonnet 5, macOS) — C2 확장 6칸 24편 (Batch 16) — 책가도 90칸 전부 완성
 
 **PR #74 머지 (`bc4d8d13`), 이어서 C2.** 머지 직전 다른 세션(웹사이트, TestFlight CTA 수정)의
