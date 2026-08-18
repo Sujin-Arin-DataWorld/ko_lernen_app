@@ -35,6 +35,37 @@ main 기준선 대비 새로 깬 것 0건. `validate_content` OK.
 **남은 것.** C2 확장 6칸(`ethics`·`history`·`aesthetic`·`limitation`·`jurisdiction`·
 `representation`) × 4편 = 24편.
 
+### 2026-08-18 (Claude Code, 웹사이트) — App Store CTA 도 테스터 신청서 뒤로 (TestFlight 오픈링크 착각 차단)
+
+**무엇을 고쳤나.** 홈페이지 App Store 버튼이 TestFlight 공개 링크로 바로 넘어갔다. 그런데
+TestFlight 는 App Store Connect 테스터 목록에 **이메일이 등록된 Apple ID 에만** 열린다 — Jin 이
+직접 눌러 보고 확인했다. 신청서를 건너뛴 방문자는 아무 안내 없이 막힌 Apple 페이지를 본다.
+이제 스토어 CTA 두 개(App Store · Google Play)가 **모두** `#tester-access` 신청서를 연다
+(`app/site.tsx` `StoreButtons`).
+
+**왜 성공 화면의 TestFlight 버튼까지 뺐나.** 신청서를 통과시켜도 성공 화면이 곧장 TestFlight
+링크를 쥐여 주면 같은 벽에 부딪힌다 — 우리가 App Store Connect 에 그 이메일을 등록하기 전이니까.
+iOS 신청자에게는 링크 대신 "초대는 이메일로 간다 · 그전까지 공개 링크는 열리지 않는다"를
+DE/EN/KO 로 설명한다. Android 는 기존대로 Play 링크 + 안내 문구를 유지한다(Play 도 등록된
+테스터에게만 보이지만 그 안내는 이미 있었다). `STORE_LINKS.ios` 는 초대 메일에 붙일 정본으로
+`app/store-links.ts` 에 그대로 남겼다.
+
+**같이 따라간 것.** `IOS_TESTFLIGHT.isAvailable` 킬스위치는 의미가 사라져 삭제했다(이제 iOS CTA
+는 언제나 신청서다). iOS 라디오 보조문구 "대기 명단"→"초대 메일 발송"(Warteliste→Einladung per
+E-Mail / Waiting list→Invitation by email), 스토어 버튼 라벨 "iOS 베타 이용 가능"→"iOS 베타 진행
+중". **릴리스 게이트 2곳이 옛 계약(홈 HTML 에 TestFlight href 가 있을 것)을 강제하고 있어 반대
+계약으로 뒤집었다**: `tests/rendered-html.test.mjs` 와 `scripts/verify-live.mjs` 는 이제 모든
+`a.store-button` 이 `#tester-access` 를 가리키는지, 스토어 href 가 노출되지 않는지 본다. 안 바꿨으면
+다음 배포가 그 자리에서 실패한다. README·WORKER_RELEASE·LOCAL_EDITING_GUIDE_KO 의 수동 점검
+절차도 같이 갱신했다.
+
+**검증.** node 24.18.0 으로 `npm run lint`(경고 3 = 기존 `<img>` 경고만, 에러 0)·`typecheck`·
+`build`·`test:unit` **20/20** 통과. Playwright 실물 확인: /ko 에서 App Store 클릭 → 신청서
+다이얼로그 열림(href `#tester-access`, `target` 없음), iOS 제출 성공 화면에 외부 링크 0개,
+Android 제출 성공 화면은 Play 링크 유지. **미검증(Jin)**: 실제 배포(`npm run deploy`)와 라이브
+도메인 `verify:live` — Cloudflare 로그인이 필요하다. 커밋: 브랜치
+`claude/app-store-open-link-form-sdt7s8`.
+
 ### 2026-08-18 (Claude Opus 5, macOS) — 책가도 15칸 재결정 + Batch 11 승격(264→300) + 승격 파이프라인 복구
 
 **왜 이 작업이 필요했나 — 4시간 시차 충돌.** Jin 이 "batch 만든 게 왜 콘텐츠로 안 들어가나"를
