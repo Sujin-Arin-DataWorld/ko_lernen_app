@@ -820,6 +820,40 @@ immutable 방침대로 지우지 않았다.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
+### 2026-08-17 (Claude, Windows) — cursor·codex·claude 브랜치 정리 2단계 완료 + main 동기화
+
+**무엇.** squash 머지 저장소라 merge-base 대신 `git merge-tree` + 브랜치가 만진 파일의
+main 최종본 대조로 병합 여부를 판정하고, 두 차례에 걸쳐 정리했다.
+
+- **1차(오후, #68 이전).** main에 100% 반영된 로컬 브랜치 6개 삭제:
+  `claude/a2-sarangbang-furnishing-20260817` · `claude/hanok-a1-kit-20260817` ·
+  `codex/hanok-v1-state-20260816` · `codex/hanok-v1-a1-assets-20260817` ·
+  `codex/today-content-fix-20260817` · `cursor/fix-account-link-delete-8c65`
+  (전부 tip이 main ancestor). 이들이 점유한 깨끗한(더티 0) worktree 4개도 제거.
+  origin 3개(`claude/hanok-a1-kit` · `cursor/tts-wait-quota` · `cursor/scenario-ui-parity`)와
+  ci 미러 6개는 반영 확인 후 목록만 넘겼고, #68 세션/Jin이 실제 삭제를 실행했다.
+- **2차(저녁, #69 이후).** 로컬 main을 `fa06f38b`(#69)로 fast-forward.
+  `worktree-claude+content-humanize-20260817` 브랜치+worktree 제거 — 내용은
+  `32f311f8`(merged from both sessions)로 main 반영 확인, 미커밋 잔여 21건 중 main과
+  다른 건 문서 175줄뿐이라 patch로 백업 후 폐기(백업: 세션 scratchpad
+  `content-humanize-wip-a95a7f42.patch`, tip `a95a7f42`는 reflog에 생존).
+  #68 세션이 쓰고 남긴 detached `claude+hoeren-shelf-20260817` worktree(더티 0)도 제거.
+
+**남은 것(의도적).** ① `claude/chaekgado-listening` + worktree — 미커밋 서재 UI 19건.
+카드 그리드 전환의 부품(플레이어 분리·진행도 키·서랍·ARB 72키)이라 보존, 처분은
+`HANDOFF_HOEREN_GRID` §3 (18칸 이름표 충돌, Jin 결정) 이후. ② `recovery/ui-overhaul2-20260814` ·
+origin `rescue/*` 2개 — 백업. ③ origin·ci의 `cursor/hanok-codex-ports-tts-kurs-e988` —
+"이관 안 함" 확정(`bde8e8f7`)이라 삭제 가능하나 원격 삭제는 Jin 몫.
+④ `.claude/worktrees/scenario-batch11-20260817` 빈 폴더 — 프로세스가 점유 중(활성 세션
+추정)이라 방치. Batch 11 자체는 `aef566e7`로 main에 온전히 커밋돼 있고, Temp의
+originmain worktree(batch11 draft 더티 3건)는 그 커밋 후 소유 세션이 정리한 것으로 보인다.
+⑤ 메인 트리 미추적 `tools/content_factory/tts_stale_20260817_batch10.json` — TTS 합성
+대기 목록으로 보여 보존.
+
+**검증.** `git worktree list` = main(`fa06f38b`) + chaekgado 둘뿐,
+`git branch` = main · chaekgado · recovery 셋뿐, origin 잔여 = main · hanok-codex-ports ·
+rescue 2개. 코드 변경 0, 이 로그가 유일한 파일 변경.
+
 ### 2026-08-17 (Claude, Windows) — Hören 카드 그리드 전환 인수인계 (문서만, 코드 0)
 
 **무엇.** `docs/HANDOFF_HOEREN_GRID_2026-08-17.md` 를 썼다. 계획 1(데이터 기반, PR #68 로
