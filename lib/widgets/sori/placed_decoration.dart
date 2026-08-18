@@ -49,6 +49,21 @@ const Map<String, DecorCategory> kDecorCategory = {
   'decoration_sagunja_guk': DecorCategory.wall,
   'decoration_sagunja_juk': DecorCategory.wall,
   'decoration_pyeonaek': DecorCategory.wall,
+  // ── A2 살다: 사랑방 가구 12 (2026-08-18) ──
+  // 원안에 있던 찻상 소반·경상·연상·머릿장·서가는 이미 있는 soban·seoan·
+  // munbangsau·jagae_mungap·chaekgado 와 겹쳐 폐기했다.
+  'decoration_sabangtakja': DecorCategory.floor,
+  'decoration_boryo_set': DecorCategory.floor,
+  'decoration_bangseok_pair': DecorCategory.floor,
+  'decoration_bandaji': DecorCategory.floor,
+  'decoration_hwaro': DecorCategory.floor,
+  'decoration_deungjan': DecorCategory.floor,
+  'decoration_geomungo': DecorCategory.floor,
+  'decoration_baduk': DecorCategory.floor,
+  'decoration_mokchim': DecorCategory.floor,
+  'decoration_byeongpung_small': DecorCategory.wall,
+  'decoration_gobi': DecorCategory.wall,
+  'decoration_hyangno': DecorCategory.shelf,
 };
 
 /// [slug] 의 카테고리 — 미등록은 실외로 간주.
@@ -76,6 +91,22 @@ const Map<String, double> kDecorScale = {
   // shelf / peg
   'decoration_munbangsau': 1.00,
   'decoration_gat_buchae': 1.00,
+  // ── A2 사랑방 가구 12 (2026-08-18) — 실물 크기 비례로 잡았다.
+  // 주의: `RoomLayoutService.defaultWidth` 는 floor 를 `.34 * scale` 로 쓰고
+  // `.14` 아래를 자르므로, 0.412 미만 값들(화로·등잔대·목침)은 처음 놓일 때
+  // 같은 폭으로 나타난다. 학습자가 바로 크기를 바꿀 수 있어 그대로 둔다.
+  'decoration_sabangtakja': 1.00,
+  'decoration_geomungo': 0.98,
+  'decoration_boryo_set': 0.95,
+  'decoration_bandaji': 0.88,
+  'decoration_baduk': 0.58,
+  'decoration_bangseok_pair': 0.50,
+  'decoration_hwaro': 0.38,
+  'decoration_deungjan': 0.30,
+  'decoration_mokchim': 0.22,
+  'decoration_byeongpung_small': 0.55,
+  'decoration_gobi': 0.26,
+  'decoration_hyangno': 0.52,
 };
 
 /// [slug] 의 상대 크기 — 미등록은 1.0.
@@ -107,6 +138,19 @@ String decorName(AppL10n t, String slug) => switch (slug) {
   'decoration_chuseok_moon' => t.decorNameChuseokMoon,
   'decoration_hangeulday_plaque' => t.decorNameHangeuldayPlaque,
   'decoration_kite' => t.decorNameKite,
+  // A2 사랑방 가구 12 (2026-08-18)
+  'decoration_sabangtakja' => t.decorNameSabangtakja,
+  'decoration_boryo_set' => t.decorNameBoryoSet,
+  'decoration_bangseok_pair' => t.decorNameBangseokPair,
+  'decoration_bandaji' => t.decorNameBandaji,
+  'decoration_hwaro' => t.decorNameHwaro,
+  'decoration_deungjan' => t.decorNameDeungjan,
+  'decoration_geomungo' => t.decorNameGeomungo,
+  'decoration_baduk' => t.decorNameBaduk,
+  'decoration_mokchim' => t.decorNameMokchim,
+  'decoration_byeongpung_small' => t.decorNameByeongpungSmall,
+  'decoration_gobi' => t.decorNameGobi,
+  'decoration_hyangno' => t.decorNameHyangno,
   _ => t.decorNameFallback,
 };
 
@@ -156,6 +200,59 @@ const Set<String> kAvailableDecorations = {
   // 전환(`1a7dd39`/`2514a84`)으로 참조가 사라져 고아로 남아 있었다.
   // `q_dokkaebi_fire` 상시 퀘스트의 마당 장식으로 다시 배선했다.
   'decoration_dokkaebi_fire',
+  // A2 살다 — 사랑방 가구 12 (2026-08-18).
+  // 기존 실내 6종을 앵커 참조로 삼아 같은 세트로 생성했다. 생성 원장은
+  // `docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md`.
+  'decoration_sabangtakja',
+  'decoration_boryo_set',
+  'decoration_bangseok_pair',
+  'decoration_bandaji',
+  'decoration_hwaro',
+  'decoration_deungjan',
+  'decoration_geomungo',
+  'decoration_baduk',
+  'decoration_mokchim',
+  'decoration_byeongpung_small',
+  'decoration_gobi',
+  'decoration_hyangno',
+};
+
+/// ⚠️ **임시 언락 (2026-08-18), 정식 설계 아님.**
+///
+/// A2 살다의 정식 소유 경로는 `HanokGrantKind.furnishing` grant → 방
+/// 인벤토리 읽기 합집합이다(PR5a: 86-grant 카탈로그에 furnishing 신설·
+/// prerequisite 체인 재배선 / PR5b: `hanok_experience_projector` 의
+/// earned grant → `revealAssetIds` 를 여기로 흘려보내기). 둘 다 아직
+/// 구현 전이라, 그 배선이 들어오기 전까지 12종을 전원에게 보이게 해
+/// 새로 만든 자산을 앱에서 실제로 놓고·돌리고·크기 조절해 검수할 수 있게
+/// 한다. **학습 진행과 무관하게 항상 보인다** — 커리큘럼 게이트가 아니다.
+///
+/// PR5a/5b 가 들어오면 [furnishedDecorSlugs] 안의 이 집합을 grant 기반
+/// 집합으로 바꾸기만 하면 된다. 호출부(`personal_room_furnish_screen.dart`)
+/// 는 손댈 필요 없다.
+const Set<String> kA2FurnishingTemporaryUnlock = {
+  'decoration_sabangtakja',
+  'decoration_boryo_set',
+  'decoration_bangseok_pair',
+  'decoration_bandaji',
+  'decoration_hwaro',
+  'decoration_deungjan',
+  'decoration_geomungo',
+  'decoration_baduk',
+  'decoration_mokchim',
+  'decoration_byeongpung_small',
+  'decoration_gobi',
+  'decoration_hyangno',
+};
+
+/// 방 인벤토리 피커가 실제로 보여줄 장식 slug 집합 — 순수 함수, 저장소에
+/// 쓰지 않는다. [owned] 는 언제나 `Storage.ownedDecor`(보자기로 얻은 것).
+/// [kA2FurnishingTemporaryUnlock] 은 `Storage.ownedDecor`·
+/// `kDecorationRewardPool`(계 봉헌과 집합이 같아야 하는 퀘스트 보상 풀)을
+/// 건드리지 않는 별도 계층이라 두 시스템의 계약을 깨지 않는다.
+Set<String> furnishedDecorSlugs(Iterable<String> owned) => {
+  ...owned.where(kAvailableDecorations.contains),
+  ...kA2FurnishingTemporaryUnlock,
 };
 
 /// 표면 위의 명명된 자리. 좌표는 부모 크기에 대한 분수 —

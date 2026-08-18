@@ -416,7 +416,10 @@ void main() {
       scrollable: find.byType(Scrollable).first,
     );
 
-    expect(find.byType(SoriDecorationImage), findsNWidgets(11));
+    // 11 = kDecorationRewardPool(퀘스트 보상으로 획득) + 12 = A2 사랑방
+    // 가구(furnishedDecorSlugs 의 임시 언락 — Storage.ownedDecor 와 무관하게
+    // 항상 보인다. `kA2FurnishingTemporaryUnlock` 문서 참고).
+    expect(find.byType(SoriDecorationImage), findsNWidgets(23));
     expect(
       find.byType(CulturalDecorationHelpButton),
       findsNWidgets(6),

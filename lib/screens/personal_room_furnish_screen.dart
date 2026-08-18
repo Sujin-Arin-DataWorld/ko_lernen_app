@@ -368,7 +368,9 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
                                 color: s.textMuted,
                               ),
                             ),
-                            if (Storage.ownedDecor.isEmpty) ...[
+                            if (furnishedDecorSlugs(
+                              Storage.ownedDecor,
+                            ).isEmpty) ...[
                               const SizedBox(height: Spacing.md),
                               Text(
                                 t.personalRoomEmptyHint,
@@ -721,12 +723,8 @@ class _RoomInventory extends StatelessWidget {
           '${item.kind.name}:${item.assetId}',
     };
     if (kind == RoomAssetKind.decoration) {
-      final slugs =
-          Storage.ownedDecor
-              .where(kAvailableDecorations.contains)
-              .toSet()
-              .toList()
-            ..sort((a, b) => decorName(t, a).compareTo(decorName(t, b)));
+      final slugs = furnishedDecorSlugs(Storage.ownedDecor).toList()
+        ..sort((a, b) => decorName(t, a).compareTo(decorName(t, b)));
       return [
         for (final slug in slugs)
           _RoomInventoryEntry(

@@ -11670,6 +11670,78 @@ abstract class AppL10n {
   /// **'Kinder-Tag Drachen (연)'**
   String get decorNameKite;
 
+  /// No description provided for @decorNameSabangtakja.
+  ///
+  /// In de, this message translates to:
+  /// **'Regal (사방탁자)'**
+  String get decorNameSabangtakja;
+
+  /// No description provided for @decorNameBoryoSet.
+  ///
+  /// In de, this message translates to:
+  /// **'Sitzpolster-Set (보료)'**
+  String get decorNameBoryoSet;
+
+  /// No description provided for @decorNameBangseokPair.
+  ///
+  /// In de, this message translates to:
+  /// **'Sitzkissen (방석)'**
+  String get decorNameBangseokPair;
+
+  /// No description provided for @decorNameBandaji.
+  ///
+  /// In de, this message translates to:
+  /// **'Klapptruhe (반닫이)'**
+  String get decorNameBandaji;
+
+  /// No description provided for @decorNameHwaro.
+  ///
+  /// In de, this message translates to:
+  /// **'Kohlebecken (화로)'**
+  String get decorNameHwaro;
+
+  /// No description provided for @decorNameDeungjan.
+  ///
+  /// In de, this message translates to:
+  /// **'Öllampe (등잔대)'**
+  String get decorNameDeungjan;
+
+  /// No description provided for @decorNameGeomungo.
+  ///
+  /// In de, this message translates to:
+  /// **'Geomungo-Zither (거문고)'**
+  String get decorNameGeomungo;
+
+  /// No description provided for @decorNameBaduk.
+  ///
+  /// In de, this message translates to:
+  /// **'Baduk-Brett (바둑판)'**
+  String get decorNameBaduk;
+
+  /// No description provided for @decorNameMokchim.
+  ///
+  /// In de, this message translates to:
+  /// **'Holzkissen (목침)'**
+  String get decorNameMokchim;
+
+  /// No description provided for @decorNameByeongpungSmall.
+  ///
+  /// In de, this message translates to:
+  /// **'Kleiner Wandschirm (소병풍)'**
+  String get decorNameByeongpungSmall;
+
+  /// No description provided for @decorNameGobi.
+  ///
+  /// In de, this message translates to:
+  /// **'Briefhalter (고비)'**
+  String get decorNameGobi;
+
+  /// No description provided for @decorNameHyangno.
+  ///
+  /// In de, this message translates to:
+  /// **'Räuchergefäß (향로)'**
+  String get decorNameHyangno;
+
   /// No description provided for @decorNameFallback.
   ///
   /// In de, this message translates to:

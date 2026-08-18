@@ -1,5 +1,95 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude, macOS) — A2 사랑방 가구 12종 생성·등록 (65크레딧)
+
+**무엇.** 사랑방 가구 12종(`decoration_sabangtakja`·`boryo_set`·`bangseok_pair`·`bandaji`·`hwaro`·
+`deungjan`·`geomungo`·`baduk`·`mokchim`·`byeongpung_small`·`gobi`·`hyangno`)을 생성해
+`assets/illustrations/decorations/` 에 넣고 화이트리스트·카테고리·스케일·DE/EN 이름까지 배선했다.
+생성 원장은 `docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md`.
+
+**모델 선정 — 정답이 있는 대조군으로 골랐다(5cr).** 이미 있는 **소반**을 같은 프롬프트·같은 참조로
+두 모델에 돌려 번들 파일과 비교했다. Seedream V4.5(1cr)는 **바닥 그림자**가 생기고 면분할 대신
+매끈한 3D 렌더가 나와 탈락(회전하면 그림자가 같이 돌아 깨진다). **GPT Image 2**(4cr)가 면분할·매트·
+한지 결·그림자 없음까지 세트와 같은 계열이라 채택했다. 이후 12장 전부 GPT Image 2 · 2K · 참조 1장.
+
+**참조는 우리 자산으로 만들었다.** `tool/build_a2_style_ref_sheet.py`(신규)가 출시된 `seoan`·`soban`·
+`munbangsau`·`jagae_mungap` 4장을 flat `#00FF00` 위 2×2로 합쳐 앵커 시트를 만들고, 400px WebP(9.6KB)로
+업로드해 매 호출 `image_urls` 에 고정했다(업로드 무료).
+
+**방 편집기 제약을 그림 요구사항으로 바꿨다.** 사랑방은 자유 배치라 아이템이 **정사각 박스 중심을 축으로
+회전**하고 폭이 캔버스의 .08~.72 사이에서 변한다(`free_room_layer.dart:107-120`, `room_layout_service.dart:534-547`).
+그래서 ① 바닥 그림자 금지 ② 프레임 중앙·여백 균등 ③ 가로세로비 3:1 이내(거문고는 대각선)를 프롬프트에 못 박고,
+`tool/render_a2_contact_sheet.py`(신규)가 회전 0/−20/25/90/180° × 110/200/320px 시트로 검증한다.
+
+**게이트가 실제로 세 장을 잡았다.** `tool/check_decoration_cutouts.py`(신규)의 네온 비율(채도>0.65 **그리고**
+밝기>0.75, 상한 4%)이 바둑판 5.1%·목침 4.3%를 걸렀다 — 나무가 세트보다 밝았다. 프롬프트에 "DARK aged wood"를
+넣어 재생성해 통과. 거문고 v1은 게이트가 아니라 육안에서 **가야금**(가동 안족·12현)으로 드러나 6현·고정 괘 16개를
+명시해 재생성했다.
+
+**용량.** 정규화 직후 12장 11.7MB → `pngquant --quality=80-98` 로 **4.5MB**(−62%, ΔRGB 평균 1.0~2.5).
+마당 장식 10장이 이미 팔레트 PNG라 같은 규약이다. 이에 맞춰 게이트의 mode 규칙을 "RGBA만"에서
+**"진짜 알파(RGBA 또는 P+tRNS)"**로 정정했다(알파 없는 RGB는 여전히 실패).
+
+**검증.** `check_decoration_cutouts` 12/12 PASS(chroma 잔여 0·긴 변 ≤1330·모서리 투명·네온 ≤4%).
+`flutter test --no-pub test/decoration_slot_test.dart test/decoration_transparency_test.dart
+test/arb_l10n_guard_test.dart test/l10n_parity_test.dart test/asset_orphan_guard_test.dart
+test/decoration_reward_service_test.dart test/free_room_layer_test.dart
+test/personal_room_furnish_screen_test.dart` → **74 통과**. `flutter analyze --no-pub --fatal-infos`는
+기존 `word_relation_service` info 1건 외 무결. 크레딧 65 소모.
+
+⚠️ **아직 방에 놓을 수는 없다.** 피커는 `Storage.ownedDecor ∩ kAvailableDecorations` 만 보여준다
+(`personal_room_furnish_screen.dart:726`). A2 grant→인벤토리 읽기 합집합(PR5b)이 붙어야 실제 배치가 된다.
+그 전까지 검수는 `assets_unused/pending_review/a2_furnishing/qa/` 의 대조 시트 3종으로 한다.
+`kDecorationRewardPool`·`Storage.ownedDecor` 쓰기·grant 카탈로그·hanok provenance 는 손대지 않았다.
+
+
+### 2026-08-17 (Claude, macOS) — 한옥·장식 에셋 443개 전수 인벤토리 + 스타일 계보 정정
+
+**무엇.** `tool/asset_inventory.py`(신규)로 `assets/**`·`assets_unused/**`·`docs/assets/**`의
+이미지 **443개(174.6MB, 41개 디렉터리)**를 실측해 `docs/HANOK_ASSET_INVENTORY_2026-08-17.md`로
+고정했다. 파일마다 크기·mode·alpha 커버리지·바이트·sha256·pubspec 번들 여부·`lib/` 참조 여부를
+도구가 계산한다(문서 재생성 = 커맨드 한 줄).
+
+**왜.** A2 사랑방 가구 생성이 28크레딧을 태우고 중단된 원인이 "무엇이 이미 있는지"를 모른 채
+착수한 것이었다. 실제로 원안 12종 중 5종(찻상소반·경상·연상·머릿장·서가)은 이미
+`soban`·`seoan`·`munbangsau`·`jagae_mungap`·`chaekgado`로 존재했고, B1·B2 건물 3~6채와 후원은
+`personal_hanok_v2/map/`에 **완성형이 이미 있으며**, B1 ambience 6 중 4개(석등·소나무·매화·장독대)와
+C1 계절 3개(매화·연못·국화)도 기존 장식으로 충당된다.
+
+**핵심 정정 (실측).** 인수인계 §6.3이 "기존 사랑방 6종의 원본 프롬프트를 복구해 기준으로 삼으라"고
+지시하지만, `get_status`로 복구한 세 프롬프트(`gvi_1785839371699_kh2ia`·`gvi_1785839433358_iy9mit`·
+`gvi_1785839407073_1b2ygb`)는 전부 *watercolour·museum plate·pure white background* 규약이다.
+반면 **실제 번들 파일은 Faceted Minhwa 로우폴리 컷아웃**이며, `f63b5174`(2026-08-04)가 그 수채본을
+"watercolour outlines, white canvases … violate the visual contract"로 명시 기각하고 다시 만든 것이
+지금 파일이다. ⇒ **A2 기준선은 복구 프롬프트가 아니라 번들 PNG 자체 + 2026-08-04 chroma-key
+Faceted 계약**이다. 실측 팔레트(목재 `#A2663A`·청 `#274A3F`·적 `#6A2316`)는 BIBLE §1.3 명목값보다
+어둡고 탁하다.
+
+**부수 확인.** ① 크로마 안전성: 실내 6종의 최대 greenness는 23, 55 초과 0개 → `#00FF00` 키잉이
+팔레트를 갉지 않는다. ② 다크 배경 12+1장은 디스크에 **0개**(다크모드는 항상 그라데이션 폴백).
+③ `hanok_compound/` 7장은 lib 참조 0·번들 제외로 사망 상태. ④ 실패한 A2 2건의 프롬프트는
+`list_my_generations` 50건 창을 오늘 듣기카드 배치가 채워 **복구 불가**.
+
+**0크레딧 파이프라인 도구 2종 신설.** `tool/cut_single_object.py`(단일 오브젝트 chroma→alpha 컷아웃;
+`cut_prop_sheet.chroma_to_alpha`·`label_objects` 재사용, 네 모서리가 `#00FF00`±12가 아니면 즉시 기각,
+`--expect-parts` 초과/0이면 기각)와 `tool/check_decoration_cutouts.py`(RGBA8·긴 변·alpha 커버리지·
+chroma 잔여·green rim·외곽 투명·네온 비율 게이트).
+
+**게이트 보정에서 드러난 것.** 첫 버전은 **승인된 6종을 전부 탈락**시켰다. 원인은 "채도>0.65"를
+드리프트 신호로 쓴 것 — 이 세트의 호두목 자체가 채도 3~46%다. 채도 **와 밝기**를 함께 본
+"네온" 비율로 바꾸니 승인본 최대 2.21%, 게이트 4%로 정합했다. green rim도 승인본 최대 0.297%라
+0.1%→0.5%로 올렸고, `seoan`·`gat_buchae`(1330px)는 normalize의 1254 상한보다 먼저 만들어진
+레거시로 명시 면제했다. 테스트가 이 보정을 박제한다(승인 6종 통과 + 합성 실패 케이스 6종).
+
+**검증.** `python3.12 tool/asset_inventory.py` 443행 생성, 디렉터리 41개 합계와 `find|wc` 일치.
+`python3.12 -m unittest discover -s tool -p "test_*.py"` → **107 tests OK**(신규 13 포함).
+크레딧 소모 **0**(무료 조회 `check_credits`·`get_status`·`list_models`만 사용, 잔액 788.7).
+생성 호출은 아직 하지 않았다.
+
+**다음.** A2 가구 12종만 신규 생성 대상이다(파일럿 1장 → Jin 승인 → 배치). 계획 정본은
+`~/.claude/plans/swift-yawning-squirrel.md`이며 신규 생성 총량은 45장 → **20~25장**으로 줄었다.
+
+
 ### 2026-08-17 (Claude, Windows) — Hören 18칸 결정 반영: 관심축 → 기능 확장 3칸
 
 **무엇.** 핸드오프 §3.2 의 열린 결정을 Jin 이 **(나) 기능 확장 채택**으로 확정

@@ -1,5 +1,9 @@
 # 에셋 전수 목록 — 2026-08-06
 
+> ⛔ **한옥·장식 계열은 이 문서가 아니라 [`HANOK_ASSET_INVENTORY_2026-08-17.md`](HANOK_ASSET_INVENTORY_2026-08-17.md)가 정본이다**
+> (2026-08-17 실측 443개). 이 문서는 A1 16단계 승격·`gye_showcase_courtyard`·`dokkaebi_fire` 이전 기준이라
+> 한옥 관련 수치가 어긋나고, `hanok_compound/`를 "사용 중"으로 잘못 적고 있다. 나머지 계열은 아직 유효하다.
+
 > `docs/ASSET_FILE_TRIGGER_MAP.md`(2026-07-30)와 `ASSET_TRIGGER_AUDIT_2026-07-30.md`는
 > tiger_anim 44장 폐지·magpie 영상 교체·사랑방 실내 장식 신설 이전 기준이라 현재
 > 상태와 맞지 않는다. 이 문서가 최신 전수 목록이다.

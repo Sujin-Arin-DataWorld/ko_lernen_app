@@ -6751,6 +6751,42 @@ class AppL10nDe extends AppL10n {
   String get decorNameKite => 'Kinder-Tag Drachen (연)';
 
   @override
+  String get decorNameSabangtakja => 'Regal (사방탁자)';
+
+  @override
+  String get decorNameBoryoSet => 'Sitzpolster-Set (보료)';
+
+  @override
+  String get decorNameBangseokPair => 'Sitzkissen (방석)';
+
+  @override
+  String get decorNameBandaji => 'Klapptruhe (반닫이)';
+
+  @override
+  String get decorNameHwaro => 'Kohlebecken (화로)';
+
+  @override
+  String get decorNameDeungjan => 'Öllampe (등잔대)';
+
+  @override
+  String get decorNameGeomungo => 'Geomungo-Zither (거문고)';
+
+  @override
+  String get decorNameBaduk => 'Baduk-Brett (바둑판)';
+
+  @override
+  String get decorNameMokchim => 'Holzkissen (목침)';
+
+  @override
+  String get decorNameByeongpungSmall => 'Kleiner Wandschirm (소병풍)';
+
+  @override
+  String get decorNameGobi => 'Briefhalter (고비)';
+
+  @override
+  String get decorNameHyangno => 'Räuchergefäß (향로)';
+
+  @override
   String get decorNameFallback => 'Dekoration';
 
   @override

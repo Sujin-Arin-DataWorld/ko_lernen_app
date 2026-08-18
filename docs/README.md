@@ -17,6 +17,9 @@ history rather than copied into the working tree.
      [CONTENT_SOURCE_POLICY.md](CONTENT_SOURCE_POLICY.md)
    - PDF, OCR, table intake: [CONTENT_REFERENCE_INTAKE_GUIDE.md](CONTENT_REFERENCE_INTAKE_GUIDE.md)
    - Visual assets: [ASSET_GENERATION_BIBLE.md](ASSET_GENERATION_BIBLE.md)
+   - Hanok/decoration asset inventory (what exists, where it is used, what is
+     still missing): [HANOK_ASSET_INVENTORY_2026-08-17.md](HANOK_ASSET_INVENTORY_2026-08-17.md)
+     — regenerate its tables with `python3.12 tool/asset_inventory.py`
    - Release: [RELEASE_RUNBOOK_2026-08-02.md](RELEASE_RUNBOOK_2026-08-02.md)
 
 ## Maintenance rule
