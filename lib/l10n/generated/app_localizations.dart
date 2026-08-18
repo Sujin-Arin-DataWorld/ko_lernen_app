@@ -5845,6 +5845,24 @@ abstract class AppL10n {
   /// **'Wer spricht für wen'**
   String get listeningShelfC2Representation;
 
+  /// No description provided for @listeningShelfSocialFriends.
+  ///
+  /// In de, this message translates to:
+  /// **'Freunde & Zocken'**
+  String get listeningShelfSocialFriends;
+
+  /// No description provided for @listeningShelfSocialDating.
+  ///
+  /// In de, this message translates to:
+  /// **'Dating & Beziehung'**
+  String get listeningShelfSocialDating;
+
+  /// No description provided for @listeningShelfSocialFandom.
+  ///
+  /// In de, this message translates to:
+  /// **'Fandom & Videos'**
+  String get listeningShelfSocialFandom;
+
   /// No description provided for @kkeunmariTitle.
   ///
   /// In de, this message translates to:

@@ -3266,6 +3266,15 @@ class AppL10nEn extends AppL10n {
   String get listeningShelfC2Representation => 'Who speaks for whom';
 
   @override
+  String get listeningShelfSocialFriends => 'Friends & gaming';
+
+  @override
+  String get listeningShelfSocialDating => 'Dating & relationships';
+
+  @override
+  String get listeningShelfSocialFandom => 'Fandom & videos';
+
+  @override
   String get kkeunmariTitle => 'Word Chain';
 
   @override

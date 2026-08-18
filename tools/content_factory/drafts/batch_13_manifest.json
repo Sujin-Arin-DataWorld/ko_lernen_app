@@ -1,0 +1,155 @@
+{
+ "version": 1,
+ "batch": "13",
+ "status": "review_only_draft",
+ "provenance": {
+  "scope": "Original A1 episodes for the numbers, phone and wayfinding expansion shelves.",
+  "rights": "original",
+  "requiresJinReview": true,
+  "promotedAt": "2026-08-18 — Jin 승인 하에 live 로 승격됐다(A1 확장 3칸 파일럿). 이 매니페스트는 생성물이라 status 는 항상 review_only_draft 로 다시 쓰인다 — 승격 여부의 정본은 shelf_assignment.ASSIGNMENT 와 SESSION_LOG 다.",
+  "originalPlan": "docs/HANDOFF_HOEREN_GRID_2026-08-17.md §3.2 (기능 확장 3칸)"
+ },
+ "artifacts": [
+  {
+   "kind": "scenario",
+   "draft": "tools/content_factory/drafts/c1_batch13_scenarios_a1.json",
+   "review": "tools/content_factory/review/c1_batch13_scenarios.csv",
+   "collection": "scenarios",
+   "count": 12,
+   "levels": {
+    "a1": 12
+   }
+  }
+ ],
+ "recordCount": 12,
+ "questCount": 72,
+ "contentLinks": [
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_numbers_open_hours",
+   "courseUnitId": "a1_05_numbers_time",
+   "conceptIds": [
+    "concept_a1_time_numbers"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_numbers_how_many_left",
+   "courseUnitId": "a1_05_numbers_time",
+   "conceptIds": [
+    "concept_a1_time_numbers"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_numbers_floor_and_room",
+   "courseUnitId": "a1_05_numbers_time",
+   "conceptIds": [
+    "concept_a1_time_numbers"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_numbers_total_price",
+   "courseUnitId": "a1_05_numbers_time",
+   "conceptIds": [
+    "concept_a1_time_numbers"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_phone_wrong_number",
+   "courseUnitId": "a1_07_contact_address",
+   "conceptIds": [
+    "concept_a1_contact_address"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_phone_call_later",
+   "courseUnitId": "a1_07_contact_address",
+   "conceptIds": [
+    "concept_a1_contact_address"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_phone_text_instead",
+   "courseUnitId": "a1_07_contact_address",
+   "conceptIds": [
+    "concept_a1_contact_address"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_phone_read_back_address",
+   "courseUnitId": "a1_07_contact_address",
+   "conceptIds": [
+    "concept_a1_contact_address"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_wayfinding_exit_number",
+   "courseUnitId": "a1_06_transport_directions",
+   "conceptIds": [
+    "concept_a1_directions"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_wayfinding_this_way_right",
+   "courseUnitId": "a1_06_transport_directions",
+   "conceptIds": [
+    "concept_a1_directions"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_wayfinding_sign_says",
+   "courseUnitId": "a1_06_transport_directions",
+   "conceptIds": [
+    "concept_a1_directions"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a1_wayfinding_how_long_walk",
+   "courseUnitId": "a1_06_transport_directions",
+   "conceptIds": [
+    "concept_a1_directions"
+   ],
+   "role": "practice"
+  }
+ ],
+ "backdrops": {
+  "a1_numbers_open_hours": "cafe",
+  "a1_numbers_how_many_left": "convenience",
+  "a1_numbers_floor_and_room": "hotel",
+  "a1_numbers_total_price": "market",
+  "a1_phone_wrong_number": "home",
+  "a1_phone_call_later": "office",
+  "a1_phone_text_instead": "home",
+  "a1_phone_read_back_address": "home",
+  "a1_wayfinding_exit_number": "station",
+  "a1_wayfinding_this_way_right": "directions",
+  "a1_wayfinding_sign_says": "directions",
+  "a1_wayfinding_how_long_walk": "station"
+ },
+ "nonMergeGuards": [
+  "Jin approval required before --apply",
+  "no TTS synthesis or Firebase writes",
+  "no assets/data or lib edits from this batch"
+ ]
+}

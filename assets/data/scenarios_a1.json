@@ -15868,6 +15868,4323 @@
       ],
       "shelf": "a1_body",
       "backdrop": "pharmacy"
+    },
+    {
+      "id": "a1_daily_recycling_day",
+      "level": "a1",
+      "emoji": "🗑️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "neighbors",
+      "intent": "check_recycling_day",
+      "courseUnitId": "a1_09_home_daily_life",
+      "conceptIds": [
+        "concept_a1_home_daily"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "분리수거는 무슨 요일에",
+        "de": "An welchem Tag kommt der Müll raus",
+        "en": "Which day is recycling day"
+      },
+      "intro": {
+        "ko": "박스를 들고 나갔는데 수거장이 비어 있습니다. 옆집 사람에게 요일을 물어봅니다.",
+        "de": "Du stehst mit deinem Karton vor einer leeren Sammelstelle und fragst die Nachbarin.",
+        "en": "You carry a box down to an empty collection point and ask your neighbor."
+      },
+      "vocab": [
+        {
+          "korean": "분리수거"
+        },
+        {
+          "korean": "요일"
+        },
+        {
+          "korean": "박스"
+        },
+        {
+          "korean": "수요일"
+        },
+        {
+          "korean": "저녁"
+        },
+        {
+          "korean": "버리다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_direction_time_particle"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N에",
+          "de": "N에: Zeitangabe",
+          "en": "N에: time marker"
+        },
+        "explanation": {
+          "ko": "요일이나 시간 뒤에 에를 붙여 언제 하는 일인지 말한다. 수요일에, 저녁에처럼 쓴다.",
+          "de": "에 hängt an Wochentage und Uhrzeiten und sagt, wann etwas passiert: 수요일에, 저녁에.",
+          "en": "Attach 에 to a weekday or time to say when something happens: 수요일에, 저녁에."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "안녕하세요. 여기 박스 버려요?",
+          "de": "Hallo. Kommen die Kartons hier hin?",
+          "en": "Hi. Do the boxes go here?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 맞아요. 그런데 오늘은 아니에요.",
+          "de": "Ja, genau. Heute aber nicht.",
+          "en": "Yes, right here. Just not today."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 무슨 요일에 버려요?",
+          "de": "An welchem Tag denn?",
+          "en": "So which day do they go out?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "박스는 수요일에 나가요.",
+          "de": "Kartons kommen mittwochs raus.",
+          "en": "Boxes go out on Wednesdays."
+        },
+        {
+          "speaker": "user",
+          "ko": "몇 시에 놓으면 돼요?",
+          "de": "Um welche Zeit soll ich sie rausstellen?",
+          "en": "What time should I put them out?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "저녁에 놓으면 돼요.",
+          "de": "Abends hinstellen reicht.",
+          "en": "Putting them out in the evening is fine."
+        },
+        {
+          "speaker": "user",
+          "ko": "알았어요. 수요일 저녁에 올게요.",
+          "de": "Gut, dann komme ich Mittwochabend.",
+          "en": "Got it, I'll come Wednesday evening."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 그때 봐요.",
+          "de": "Bis dann.",
+          "en": "See you then."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_daily_recycling_day_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "audioKo": "박스는 수요일에 나가요.",
+            "options": [
+              {
+                "de": "Kartons kommen mittwochs raus.",
+                "en": "Boxes go out on Wednesdays."
+              },
+              {
+                "de": "Kartons kommen samstags raus.",
+                "en": "Boxes go out on Saturdays."
+              },
+              {
+                "de": "Kartons darf man nicht wegwerfen.",
+                "en": "Boxes may not be thrown away."
+              },
+              {
+                "de": "Die Sammelstelle ist geschlossen.",
+                "en": "The collection point is closed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_daily_recycling_day_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "promptDe": "An welchem Tag denn?",
+            "promptEn": "So which day do they go out?",
+            "options": [
+              {
+                "ko": "그럼 무슨 요일에 버려요?"
+              },
+              {
+                "ko": "그럼 얼마예요?"
+              },
+              {
+                "ko": "여기가 어디예요?"
+              },
+              {
+                "ko": "이거 제 박스예요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_daily_recycling_day_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "sentence": "박스는 수요일___ 나가요.",
+            "options": [
+              "에",
+              "에서",
+              "도",
+              "만"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_daily_recycling_day_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "targetKo": "저녁에 놓으면 돼요.",
+            "promptDe": "Abends hinstellen reicht.",
+            "promptEn": "Putting them out in the evening is fine.",
+            "distractors": [
+              "아침에",
+              "박스를"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_daily_recycling_day_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "targetKo": "수요일 저녁에 올게요.",
+            "promptDe": "Ich komme Mittwochabend.",
+            "promptEn": "I'll come Wednesday evening."
+          }
+        },
+        {
+          "id": "quest_a1_daily_recycling_day_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "prefix": "박스",
+            "suffix": " 수요일에 나가요.",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가"
+            ],
+            "correctIndex": 1,
+            "explanationDe": "박스 endet auf Vokal (ㅡ) → Topic-Partikel 는. Das Thema ist »die Kartons«, nicht der Tag.",
+            "explanationEn": "박스 ends in a vowel (ㅡ) → topic particle 는. The topic is the boxes, not the day."
+          }
+        }
+      ],
+      "shelf": "a1_home",
+      "backdrop": "home"
+    },
+    {
+      "id": "a1_friends_major_and_number",
+      "level": "a1",
+      "emoji": "📚",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "new_acquaintances",
+      "intent": "swap_contact_after_class",
+      "courseUnitId": "a1_15_first_class_work",
+      "conceptIds": [
+        "concept_a1_first_meeting"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "무슨 전공이에요",
+        "de": "Was studierst du",
+        "en": "What's your major"
+      },
+      "intro": {
+        "ko": "첫 수업이 끝났습니다. 옆자리에 앉았던 사람과 이야기를 시작합니다.",
+        "de": "Die erste Vorlesung ist vorbei. Du sprichst die Person an, die neben dir saß.",
+        "en": "The first class just ended. You start talking to the person who sat beside you."
+      },
+      "vocab": [
+        {
+          "korean": "이름"
+        },
+        {
+          "korean": "전공"
+        },
+        {
+          "korean": "수업"
+        },
+        {
+          "korean": "번호"
+        },
+        {
+          "korean": "컴퓨터"
+        },
+        {
+          "korean": "다음 주"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_which_question"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "무슨/어떤 N",
+          "de": "무슨/어떤 N: welche Art, welches davon",
+          "en": "무슨/어떤 N: what kind, which one"
+        },
+        "explanation": {
+          "ko": "무슨은 종류를 묻고 어떤은 여러 개 중에서 하나를 고르게 한다. 무슨 전공, 어떤 수업처럼 쓴다.",
+          "de": "무슨 fragt nach der Art, 어떤 lässt aus mehreren auswählen: 무슨 전공, 어떤 수업.",
+          "en": "무슨 asks what kind, 어떤 asks which one of several: 무슨 전공, 어떤 수업."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "저 옆에 앉았어요. 이름이 뭐예요?",
+          "de": "Ich saß neben dir. Wie heißt du?",
+          "en": "I was sitting next to you. What's your name?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "현우예요. 반가워요.",
+          "de": "Ich heiße Hyunwoo. Freut mich.",
+          "en": "I'm Hyunwoo. Nice to meet you."
+        },
+        {
+          "speaker": "user",
+          "ko": "저도 반가워요. 무슨 전공이에요?",
+          "de": "Freut mich auch. Was studierst du?",
+          "en": "Nice to meet you too. What's your major?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "저는 컴퓨터 전공이에요.",
+          "de": "Ich mache Informatik.",
+          "en": "I'm in computer science."
+        },
+        {
+          "speaker": "user",
+          "ko": "어떤 수업이 제일 좋아요?",
+          "de": "Welcher Kurs gefällt dir am besten?",
+          "en": "Which class do you like best?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "이 수업이 좋아요. 그런데 좀 어려워요.",
+          "de": "Dieser hier. Er ist aber etwas schwer.",
+          "en": "This one. It's a bit hard though."
+        },
+        {
+          "speaker": "user",
+          "ko": "저도 어려워요. 번호 좀 알려 주세요.",
+          "de": "Für mich auch. Sag mir mal deine Nummer.",
+          "en": "Same for me. Let me get your number."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 여기요. 다음 주에 봐요.",
+          "de": "Ja, hier. Bis nächste Woche.",
+          "en": "Sure, here. See you next week."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_friends_major_and_number_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "audioKo": "저는 컴퓨터 전공이에요.",
+            "options": [
+              {
+                "de": "Ich mache Informatik.",
+                "en": "I'm in computer science."
+              },
+              {
+                "de": "Ich arbeite am Computer.",
+                "en": "I work on a computer."
+              },
+              {
+                "de": "Mein Computer ist kaputt.",
+                "en": "My computer is broken."
+              },
+              {
+                "de": "Der Kurs fällt heute aus.",
+                "en": "The class is cancelled today."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_friends_major_and_number_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "promptDe": "Welcher Kurs gefällt dir am besten?",
+            "promptEn": "Which class do you like best?",
+            "options": [
+              {
+                "ko": "어떤 수업이 제일 좋아요?"
+              },
+              {
+                "ko": "이 수업은 몇 시예요?"
+              },
+              {
+                "ko": "수업이 어디에 있어요?"
+              },
+              {
+                "ko": "전공이 뭐예요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_friends_major_and_number_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "sentence": "___ 전공이에요?",
+            "options": [
+              "무슨",
+              "어디",
+              "얼마나",
+              "언제"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_friends_major_and_number_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "targetKo": "번호 좀 알려 주세요.",
+            "promptDe": "Sag mir mal deine Nummer.",
+            "promptEn": "Let me get your number.",
+            "distractors": [
+              "이름을",
+              "다음 주에"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_friends_major_and_number_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "targetKo": "다음 주에 봐요.",
+            "promptDe": "Bis nächste Woche.",
+            "promptEn": "See you next week."
+          }
+        },
+        {
+          "id": "quest_a1_friends_major_and_number_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "prefix": "이름",
+            "suffix": " 뭐예요?",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가"
+            ],
+            "correctIndex": 2,
+            "explanationDe": "이름 endet auf Konsonant ㅁ → Subjektpartikel 이 (nicht 가). 이름이 뭐예요? ist die Standardfrage.",
+            "explanationEn": "이름 ends in the consonant ㅁ → subject particle 이 (not 가). 이름이 뭐예요? is the standard question."
+          }
+        }
+      ],
+      "shelf": "a1_friends",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "a1_dating_what_to_call_you",
+      "level": "a1",
+      "emoji": "☕",
+      "register": "casual",
+      "speechStyle": "casual",
+      "relationshipContext": "close_friends",
+      "intent": "settle_on_a_name",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 125,
+      "title": {
+        "ko": "뭐라고 부를까",
+        "de": "Wie nennen wir uns",
+        "en": "What should we call each other"
+      },
+      "intro": {
+        "ko": "두 번째로 만난 날입니다. 서로를 뭐라고 부를지 정합니다.",
+        "de": "Ihr trefft euch zum zweiten Mal und klärt, wie ihr einander nennt.",
+        "en": "It's your second time meeting, and you settle on what to call each other."
+      },
+      "vocab": [
+        {
+          "korean": "이름"
+        },
+        {
+          "korean": "누나",
+          "note": {
+            "ko": "남자가 나이 많은 여자를 부르는 말.",
+            "de": "Anrede eines Mannes für eine ältere Frau.",
+            "en": "What a man calls an older woman."
+          }
+        },
+        {
+          "korean": "친구"
+        },
+        {
+          "korean": "커피"
+        },
+        {
+          "korean": "부르다"
+        },
+        {
+          "korean": "편하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_want"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-고 싶다",
+          "de": "V-고 싶다: etwas wollen",
+          "en": "V-고 싶다: want to do"
+        },
+        "explanation": {
+          "ko": "동사에 고 싶다를 붙여 내가 하고 싶은 일을 말한다. 부르고 싶어, 마시고 싶어처럼 쓴다.",
+          "de": "고 싶다 am Verb sagt, was ich möchte: 부르고 싶어, 마시고 싶어.",
+          "en": "Add 고 싶다 to a verb to say what you want: 부르고 싶어, 마시고 싶어."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "나 물어보고 싶은 게 있어.",
+          "de": "Ich will dich was fragen.",
+          "en": "There's something I want to ask you."
+        },
+        {
+          "speaker": "user",
+          "ko": "뭔데?",
+          "de": "Was denn?",
+          "en": "What is it?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "나를 뭐라고 부르고 싶어?",
+          "de": "Wie willst du mich nennen?",
+          "en": "What do you want to call me?"
+        },
+        {
+          "speaker": "user",
+          "ko": "음, 이름으로 부르고 싶어.",
+          "de": "Hm, ich will deinen Namen sagen.",
+          "en": "Hmm, I want to use your name."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "좋아. 나도 이름이 편해.",
+          "de": "Gut. Mir ist der Name auch lieber.",
+          "en": "Good. I prefer my name too."
+        },
+        {
+          "speaker": "user",
+          "ko": "근데 친구들은 너를 누나라고 해.",
+          "de": "Deine Freunde sagen aber Nuna.",
+          "en": "But your friends call you nuna."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "응, 친구들만 그래. 너는 이름으로 해.",
+          "de": "Ja, nur die Freunde. Du sagst meinen Namen.",
+          "en": "Yeah, only they do. You use my name."
+        },
+        {
+          "speaker": "user",
+          "ko": "알았어. 지은아, 커피 마시고 싶어.",
+          "de": "Okay. Jieun, ich will einen Kaffee.",
+          "en": "Got it. Jieun, I want a coffee."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_dating_what_to_call_you_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "audioKo": "나를 뭐라고 부르고 싶어?",
+            "options": [
+              {
+                "de": "Wie willst du mich nennen?",
+                "en": "What do you want to call me?"
+              },
+              {
+                "de": "Wen hast du gerade angerufen?",
+                "en": "Who did you just call?"
+              },
+              {
+                "de": "Wie heißt dieser Ort?",
+                "en": "What is this place called?"
+              },
+              {
+                "de": "Willst du mich morgen treffen?",
+                "en": "Do you want to meet me tomorrow?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_dating_what_to_call_you_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "promptDe": "Hm, ich will deinen Namen sagen.",
+            "promptEn": "Hmm, I want to use your name.",
+            "options": [
+              {
+                "ko": "음, 이름으로 부르고 싶어."
+              },
+              {
+                "ko": "음, 이름이 안 좋아."
+              },
+              {
+                "ko": "음, 누나라고 해."
+              },
+              {
+                "ko": "음, 이름을 몰라."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_dating_what_to_call_you_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "sentence": "커피 마시___ 싶어.",
+            "options": [
+              "고",
+              "서",
+              "지만",
+              "면"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_dating_what_to_call_you_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "targetKo": "나도 이름이 편해.",
+            "promptDe": "Mir ist der Name auch lieber.",
+            "promptEn": "I prefer my name too.",
+            "distractors": [
+              "누나가",
+              "친구는"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_dating_what_to_call_you_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "targetKo": "친구들은 너를 누나라고 해.",
+            "promptDe": "Deine Freunde sagen Nuna zu dir.",
+            "promptEn": "Your friends call you nuna."
+          }
+        },
+        {
+          "id": "quest_a1_dating_what_to_call_you_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "prefix": "이름",
+            "suffix": " 부르고 싶어.",
+            "options": [
+              "으로",
+              "로",
+              "에",
+              "에서"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "이름 endet auf Konsonant ㅁ → 으로 (nach Vokal wäre es 로). 으로 nennt das Mittel: »beim Namen«.",
+            "explanationEn": "이름 ends in the consonant ㅁ → 으로 (after a vowel it would be 로). 으로 marks the means: 'by name'."
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "이름과 호칭 사이",
+          "de": "Name oder Anrede",
+          "en": "Name or title"
+        },
+        "body": {
+          "ko": "한국에서는 나이와 관계에 따라 이름 대신 누나, 오빠, 씨를 쓴다. 사귀는 사이에서는 서로 부를 말을 직접 정하는 일이 흔하다.",
+          "de": "In Korea entscheiden Alter und Beziehung, ob man den Namen oder 누나, 오빠, 씨 benutzt. Paare klären das oft ausdrücklich miteinander.",
+          "en": "In Korea age and closeness decide whether you use a name or 누나, 오빠, 씨. Couples often settle it out loud."
+        }
+      },
+      "shelf": "a1_dating",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "a1_youtube_shorts_last_night",
+      "level": "a1",
+      "emoji": "📱",
+      "register": "casual",
+      "speechStyle": "casual",
+      "relationshipContext": "close_friends",
+      "intent": "compare_what_we_watched",
+      "courseUnitId": "a1_12_daily_negation",
+      "conceptIds": [
+        "concept_a1_negation"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "어제 그 쇼츠",
+        "de": "Der Clip von gestern",
+        "en": "That clip from last night"
+      },
+      "intro": {
+        "ko": "어제 많이 퍼진 짧은 영상을 서로 봤는지 확인합니다.",
+        "de": "Ihr vergleicht, wer den kurzen Clip von gestern schon gesehen hat.",
+        "en": "You compare notes on the short clip that went around last night."
+      },
+      "vocab": [
+        {
+          "korean": "쇼츠",
+          "note": {
+            "ko": "1분 안쪽의 짧은 영상.",
+            "de": "Sehr kurzes Video unter einer Minute.",
+            "en": "A very short video under a minute."
+          }
+        },
+        {
+          "korean": "고양이"
+        },
+        {
+          "korean": "냉장고"
+        },
+        {
+          "korean": "채널"
+        },
+        {
+          "korean": "구독",
+          "note": {
+            "ko": "채널을 계속 보겠다고 등록하는 일.",
+            "de": "Einen Kanal abonnieren, um ihn weiter zu sehen.",
+            "en": "Signing up to keep seeing a channel."
+          }
+        },
+        {
+          "korean": "어제"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_short_negation",
+        "grammar_a1_polite_past"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "안 + V / V-았/었어",
+          "de": "안 + V und Vergangenheit",
+          "en": "안 + V and the past form"
+        },
+        "explanation": {
+          "ko": "동사 앞에 안을 붙여 하지 않았다고 말하고, 았/었을 붙여 지난 일을 말한다. 안 봤어처럼 두 가지를 함께 쓴다.",
+          "de": "안 vor dem Verb heißt nicht tun, 았/었 macht die Vergangenheit: 안 봤어 verbindet beides.",
+          "en": "안 before a verb means not doing it, 았/었 makes it past: 안 봤어 combines both."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "어제 그 쇼츠 봤어?",
+          "de": "Hast du den Clip von gestern gesehen?",
+          "en": "Did you see that clip last night?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아니, 안 봤어. 무슨 쇼츠?",
+          "de": "Nein, hab ich nicht. Welcher Clip?",
+          "en": "No, I didn't. Which clip?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "고양이가 냉장고를 열었어.",
+          "de": "Eine Katze hat den Kühlschrank aufgemacht.",
+          "en": "A cat opened the fridge."
+        },
+        {
+          "speaker": "user",
+          "ko": "진짜? 그건 정말 안 봤어.",
+          "de": "Echt? Den habe ich wirklich nicht gesehen.",
+          "en": "Really? I definitely haven't seen that one."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "여기 봐. 이거야.",
+          "de": "Schau mal, das ist er.",
+          "en": "Look. This is it."
+        },
+        {
+          "speaker": "user",
+          "ko": "아, 어제 이거 봤어. 이름을 몰랐어.",
+          "de": "Ach, den habe ich gestern doch gesehen. Ich kannte den Namen nicht.",
+          "en": "Oh, I did watch this yesterday. I just didn't know its name."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 채널 구독 안 했어?",
+          "de": "Hast du den Kanal nicht abonniert?",
+          "en": "You haven't subscribed to that channel?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아직 안 했어. 지금 구독해.",
+          "de": "Noch nicht. Ich mache es jetzt.",
+          "en": "Not yet. I'm doing it now."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_youtube_shorts_last_night_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "audioKo": "고양이가 냉장고를 열었어.",
+            "options": [
+              {
+                "de": "Eine Katze hat den Kühlschrank aufgemacht.",
+                "en": "A cat opened the fridge."
+              },
+              {
+                "de": "Eine Katze sitzt im Kühlschrank.",
+                "en": "A cat is sitting in the fridge."
+              },
+              {
+                "de": "Der Kühlschrank ist kaputt.",
+                "en": "The fridge is broken."
+              },
+              {
+                "de": "Die Katze hat nichts gefressen.",
+                "en": "The cat didn't eat anything."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_youtube_shorts_last_night_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "promptDe": "Noch nicht. Ich mache es jetzt.",
+            "promptEn": "Not yet. I'm doing it now.",
+            "options": [
+              {
+                "ko": "아직 안 했어. 지금 구독해."
+              },
+              {
+                "ko": "벌써 했어. 어제 구독했어."
+              },
+              {
+                "ko": "지금 못 봐. 나중에 봐."
+              },
+              {
+                "ko": "그 채널을 몰라."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_youtube_shorts_last_night_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "sentence": "그 채널 구독 ___ 했어?",
+            "options": [
+              "안",
+              "도",
+              "만",
+              "잘"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_youtube_shorts_last_night_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "targetKo": "어제 이거 봤어.",
+            "promptDe": "Das habe ich gestern gesehen.",
+            "promptEn": "I watched this yesterday.",
+            "distractors": [
+              "채널을",
+              "고양이가"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_youtube_shorts_last_night_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "targetKo": "아직 안 했어.",
+            "promptDe": "Noch nicht.",
+            "promptEn": "Not yet."
+          }
+        },
+        {
+          "id": "quest_a1_youtube_shorts_last_night_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "prefix": "고양이가 냉장고",
+            "suffix": " 열었어.",
+            "options": [
+              "을",
+              "를",
+              "이",
+              "가"
+            ],
+            "correctIndex": 1,
+            "explanationDe": "냉장고 endet auf Vokal ㅗ → Objektpartikel 를. 고양이가 ist schon das Subjekt.",
+            "explanationEn": "냉장고 ends in the vowel ㅗ → object particle 를. 고양이가 is already the subject."
+          }
+        }
+      ],
+      "shelf": "a1_fandom",
+      "backdrop": "home"
+    },
+    {
+      "id": "a1_gaming_one_more_round",
+      "level": "a1",
+      "emoji": "🎮",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "classmates",
+      "intent": "invite_to_play",
+      "courseUnitId": "a1_04_order_request_object",
+      "conceptIds": [
+        "concept_request_polite"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "한 판만 같이 해요",
+        "de": "Spielen wir eine Runde",
+        "en": "Let's play one round"
+      },
+      "intro": {
+        "ko": "같은 동아리 사람에게 한 판만 같이 하자고 합니다. 처음이라 안내를 받습니다.",
+        "de": "Du fragst jemanden aus deinem Club nach einer Runde und lässt dich anleiten.",
+        "en": "You ask someone from your club for one round and let them guide you."
+      },
+      "vocab": [
+        {
+          "korean": "판",
+          "note": {
+            "ko": "게임 한 번을 세는 말.",
+            "de": "Zähleinheit für eine Spielrunde.",
+            "en": "The counter for one game round."
+          }
+        },
+        {
+          "korean": "캐릭터"
+        },
+        {
+          "korean": "문"
+        },
+        {
+          "korean": "열쇠"
+        },
+        {
+          "korean": "고르다"
+        },
+        {
+          "korean": "찾다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_object_particle",
+        "grammar_a1_polite_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 + V-(으)세요",
+          "de": "N을/를 mit höflicher Aufforderung",
+          "en": "N을/를 with a polite instruction"
+        },
+        "explanation": {
+          "ko": "을/를은 행동의 대상을 표시하고, (으)세요는 상대에게 정중히 시키거나 권한다. 문을 여세요처럼 함께 쓴다.",
+          "de": "을/를 markiert das Objekt, (으)세요 fordert höflich auf: 문을 여세요.",
+          "en": "을/를 marks the object and (으)세요 tells someone politely: 문을 여세요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "현우 씨, 한 판만 같이 해요.",
+          "de": "Hyunwoo, spielen wir eine Runde.",
+          "en": "Hyunwoo, let's play one round."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "좋아요. 캐릭터를 먼저 고르세요.",
+          "de": "Gerne. Wähl zuerst einen Charakter.",
+          "en": "Sure. Pick a character first."
+        },
+        {
+          "speaker": "user",
+          "ko": "이 캐릭터가 좋아요?",
+          "de": "Ist dieser Charakter gut?",
+          "en": "Is this character any good?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 그거 하세요. 쉬워요.",
+          "de": "Ja, nimm den. Der ist einfach.",
+          "en": "Yes, take that one. It's easy."
+        },
+        {
+          "speaker": "user",
+          "ko": "알았어요. 이제 뭐 해요?",
+          "de": "Okay. Was mache ich jetzt?",
+          "en": "Got it. What do I do now?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 문을 여세요. 안에 열쇠가 있어요.",
+          "de": "Öffne die Tür. Drinnen ist ein Schlüssel.",
+          "en": "Open that door. There's a key inside."
+        },
+        {
+          "speaker": "user",
+          "ko": "열쇠를 찾았어요!",
+          "de": "Ich habe den Schlüssel!",
+          "en": "I found the key!"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "잘했어요. 한 판 더 해요.",
+          "de": "Gut gemacht. Noch eine Runde.",
+          "en": "Nice work. One more round."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_gaming_one_more_round_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "audioKo": "그 문을 여세요. 안에 열쇠가 있어요.",
+            "options": [
+              {
+                "de": "Öffne die Tür, drinnen ist ein Schlüssel.",
+                "en": "Open the door, there's a key inside."
+              },
+              {
+                "de": "Schließ die Tür, der Schlüssel ist weg.",
+                "en": "Close the door, the key is gone."
+              },
+              {
+                "de": "Der Schlüssel passt nicht zur Tür.",
+                "en": "The key doesn't fit the door."
+              },
+              {
+                "de": "Warte vor der Tür auf mich.",
+                "en": "Wait for me in front of the door."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_gaming_one_more_round_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "promptDe": "Wähl zuerst einen Charakter.",
+            "promptEn": "Pick a character first.",
+            "options": [
+              {
+                "ko": "캐릭터를 먼저 고르세요."
+              },
+              {
+                "ko": "캐릭터가 먼저 나와요."
+              },
+              {
+                "ko": "캐릭터를 지금 사세요."
+              },
+              {
+                "ko": "캐릭터 이름이 뭐예요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_gaming_one_more_round_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "sentence": "그 문___ 여세요.",
+            "options": [
+              "을",
+              "이",
+              "에",
+              "도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_gaming_one_more_round_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "targetKo": "열쇠를 찾았어요.",
+            "promptDe": "Ich habe den Schlüssel gefunden.",
+            "promptEn": "I found the key.",
+            "distractors": [
+              "캐릭터가",
+              "문에서"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_gaming_one_more_round_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "targetKo": "한 판 더 해요.",
+            "promptDe": "Noch eine Runde.",
+            "promptEn": "One more round."
+          }
+        },
+        {
+          "id": "quest_a1_gaming_one_more_round_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "prefix": "그 문",
+            "suffix": " 여세요.",
+            "options": [
+              "을",
+              "를",
+              "이",
+              "가"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "문 endet auf Konsonant ㄴ → Objektpartikel 을 (nach Vokal wäre es 를).",
+            "explanationEn": "문 ends in the consonant ㄴ → object particle 을 (after a vowel it would be 를)."
+          }
+        }
+      ],
+      "shelf": "a1_friends",
+      "backdrop": "home"
+    },
+    {
+      "id": "a1_kpop_my_bias",
+      "level": "a1",
+      "emoji": "💜",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "new_acquaintances",
+      "intent": "introduce_my_bias",
+      "courseUnitId": "a1_02_self_intro_identity",
+      "conceptIds": [
+        "concept_identity_polite"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "제 최애는요",
+        "de": "Mein Bias ist",
+        "en": "My bias is"
+      },
+      "intro": {
+        "ko": "팬 모임에 처음 갔습니다. 옆 사람과 최애를 소개합니다.",
+        "de": "Du bist zum ersten Mal bei einem Fantreffen und stellst deinen Bias vor.",
+        "en": "It's your first fan meetup, and you introduce your bias."
+      },
+      "vocab": [
+        {
+          "korean": "최애",
+          "note": {
+            "ko": "가장 좋아하는 멤버.",
+            "de": "Das Lieblingsmitglied einer Gruppe.",
+            "en": "Your favorite member of a group."
+          }
+        },
+        {
+          "korean": "팬"
+        },
+        {
+          "korean": "목소리"
+        },
+        {
+          "korean": "춤"
+        },
+        {
+          "korean": "사진"
+        },
+        {
+          "korean": "리더"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_copula_polite"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N이에요/예요",
+          "de": "N이에요/예요: das ist",
+          "en": "N이에요/예요: it is"
+        },
+        "explanation": {
+          "ko": "받침이 있는 말에는 이에요, 없는 말에는 예요를 붙인다. 하린이에요, 팬이에요처럼 쓴다.",
+          "de": "Nach Konsonant steht 이에요, nach Vokal 예요: 하린이에요, 팬이에요.",
+          "en": "Use 이에요 after a consonant and 예요 after a vowel: 하린이에요, 팬이에요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "여기 처음이에요?",
+          "de": "Bist du zum ersten Mal hier?",
+          "en": "Is this your first time here?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 처음이에요. 저는 독일에서 왔어요.",
+          "de": "Ja, zum ersten Mal. Ich komme aus Deutschland.",
+          "en": "Yes, first time. I'm from Germany."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "반가워요. 최애가 누구예요?",
+          "de": "Freut mich. Wer ist dein Bias?",
+          "en": "Nice to meet you. Who's your bias?"
+        },
+        {
+          "speaker": "user",
+          "ko": "제 최애는 하린이에요.",
+          "de": "Mein Bias ist Harin.",
+          "en": "My bias is Harin."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "저도 하린 팬이에요! 왜 좋아요?",
+          "de": "Ich bin auch Harin-Fan! Warum magst du sie?",
+          "en": "I'm a Harin fan too! Why do you like her?"
+        },
+        {
+          "speaker": "user",
+          "ko": "목소리가 좋아요. 춤도 잘해요.",
+          "de": "Ihre Stimme mag ich. Und sie tanzt gut.",
+          "en": "I love her voice. And she dances well."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "저는 리더가 최애예요. 이 사진이 제일 좋아요.",
+          "de": "Mein Bias ist die Leaderin. Dieses Foto mag ich am liebsten.",
+          "en": "My bias is the leader. This photo is my favorite."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 사진도 좋아요. 우리 둘 다 팬이에요.",
+          "de": "Das Foto ist auch schön. Wir sind beide Fans.",
+          "en": "That photo's great too. We're both fans."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_kpop_my_bias_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "audioKo": "저는 리더가 최애예요.",
+            "options": [
+              {
+                "de": "Mein Bias ist die Leaderin.",
+                "en": "My bias is the leader."
+              },
+              {
+                "de": "Ich bin die Leaderin der Gruppe.",
+                "en": "I'm the leader of the group."
+              },
+              {
+                "de": "Die Leaderin singt heute nicht.",
+                "en": "The leader isn't singing today."
+              },
+              {
+                "de": "Ich mag keine Leaderin.",
+                "en": "I don't like leaders."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_kpop_my_bias_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "promptDe": "Wer ist dein Bias?",
+            "promptEn": "Who's your bias?",
+            "options": [
+              {
+                "ko": "최애가 누구예요?"
+              },
+              {
+                "ko": "최애가 몇 명이에요?"
+              },
+              {
+                "ko": "이 사람 이름이 뭐예요?"
+              },
+              {
+                "ko": "여기 처음이에요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_kpop_my_bias_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "sentence": "제 최애는 하린___.",
+            "options": [
+              "이에요",
+              "예요",
+              "이가",
+              "이에서"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_kpop_my_bias_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "targetKo": "목소리가 좋아요.",
+            "promptDe": "Ihre Stimme mag ich.",
+            "promptEn": "I love her voice.",
+            "distractors": [
+              "춤이",
+              "사진을"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_kpop_my_bias_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "targetKo": "저도 하린 팬이에요.",
+            "promptDe": "Ich bin auch Harin-Fan.",
+            "promptEn": "I'm a Harin fan too."
+          }
+        },
+        {
+          "id": "quest_a1_kpop_my_bias_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "prefix": "목소리",
+            "suffix": " 좋아요.",
+            "options": [
+              "이",
+              "가",
+              "은",
+              "는"
+            ],
+            "correctIndex": 1,
+            "explanationDe": "목소리 endet auf Vokal ㅣ → Subjektpartikel 가 (nicht 이).",
+            "explanationEn": "목소리 ends in the vowel ㅣ → subject particle 가 (not 이)."
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "최애와 입덕",
+          "de": "최애 und 입덕",
+          "en": "최애 and 입덕"
+        },
+        "body": {
+          "ko": "최애는 가장 좋아하는 멤버, 입덕은 어떤 그룹을 좋아하게 되는 순간을 뜻한다. 팬 모임에서는 이 두 말로 대화가 시작되는 일이 많다.",
+          "de": "최애 ist das Lieblingsmitglied, 입덕 der Moment, in dem man Fan einer Gruppe wird. Bei Fantreffen beginnen Gespräche oft mit diesen zwei Wörtern.",
+          "en": "최애 is your favorite member and 입덕 is the moment you fall for a group. At fan meetups these two words often start the conversation."
+        }
+      },
+      "shelf": "a1_fandom",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "a1_numbers_open_hours",
+      "level": "a1",
+      "emoji": "🕗",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "customer_and_store_staff",
+      "intent": "confirm_opening_hour",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "몇 시에 열어요",
+        "de": "Wann macht ihr auf",
+        "en": "What time do you open"
+      },
+      "intro": {
+        "ko": "문 앞에 서 있는데 아직 닫혀 있습니다. 안에 있는 직원에게 시간을 물어봅니다.",
+        "de": "Du stehst vor der Tür, aber es ist noch zu. Du fragst die Person drinnen nach der Zeit.",
+        "en": "You are at the door but the place is still shut. You ask the staff inside about the time."
+      },
+      "vocab": [
+        {
+          "korean": "문"
+        },
+        {
+          "korean": "평일"
+        },
+        {
+          "korean": "주말"
+        },
+        {
+          "korean": "여덟"
+        },
+        {
+          "korean": "열다"
+        },
+        {
+          "korean": "기다리다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_direction_time_particle"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N에",
+          "de": "N에: Uhrzeit",
+          "en": "N에: clock time"
+        },
+        "explanation": {
+          "ko": "시간 뒤에 에를 붙여 언제인지 말한다. 여덟 시에, 주말에처럼 쓴다.",
+          "de": "에 hängt an Uhrzeiten und Tage und sagt, wann etwas passiert: 여덟 시에, 주말에.",
+          "en": "Attach 에 to a time or a day to say when something happens: 여덟 시에, 주말에."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "안녕하세요. 지금 문 열었어요?",
+          "de": "Hallo. Habt ihr schon offen?",
+          "en": "Hi. Are you open yet?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "아직요. 십 분만 기다려 주세요.",
+          "de": "Noch nicht. Zehn Minuten bitte.",
+          "en": "Not yet. Ten more minutes, please."
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 보통 몇 시에 열어요?",
+          "de": "Alles klar. Wann macht ihr normalerweise auf?",
+          "en": "Okay. What time do you usually open?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "평일에는 여덟 시에 열어요.",
+          "de": "Wochentags um acht.",
+          "en": "On weekdays at eight."
+        },
+        {
+          "speaker": "user",
+          "ko": "주말에도 여덟 시예요?",
+          "de": "Am Wochenende auch um acht?",
+          "en": "Eight on weekends too?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "아, 주말에는 열 시에 열어요.",
+          "de": "Ach, am Wochenende erst um zehn.",
+          "en": "Oh, on weekends we open at ten."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠어요. 이따 다시 올게요.",
+          "de": "Gut, dann komme ich später wieder.",
+          "en": "Got it. I'll come back later."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 이따 봬요.",
+          "de": "Bis später.",
+          "en": "See you later."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_numbers_open_hours_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "audioKo": "아, 주말에는 열 시에 열어요.",
+            "options": [
+              {
+                "de": "Am Wochenende öffnen sie um zehn.",
+                "en": "On weekends they open at ten."
+              },
+              {
+                "de": "Am Wochenende öffnen sie um acht.",
+                "en": "On weekends they open at eight."
+              },
+              {
+                "de": "Am Wochenende bleibt geschlossen.",
+                "en": "They stay closed on weekends."
+              },
+              {
+                "de": "Am Wochenende schließen sie um zehn.",
+                "en": "On weekends they close at ten."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_open_hours_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "promptDe": "Wann macht ihr normalerweise auf?",
+            "promptEn": "What time do you usually open?",
+            "options": [
+              {
+                "ko": "보통 몇 시에 열어요?"
+              },
+              {
+                "ko": "보통 얼마예요?"
+              },
+              {
+                "ko": "여기 어디예요?"
+              },
+              {
+                "ko": "몇 명이에요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_open_hours_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "sentence": "주말___ 열 시에 열어요.",
+            "options": [
+              "에는",
+              "에서",
+              "이는",
+              "까지"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_open_hours_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "targetKo": "평일에는 여덟 시에 열어요.",
+            "promptDe": "Sag, dass wochentags um acht geöffnet wird.",
+            "promptEn": "Say that they open at eight on weekdays.",
+            "distractors": [
+              "십 분만 기다려 주세요",
+              "이따 다시 올게요",
+              "지금 문 열었어요"
+            ],
+            "audioKo": "평일에는 여덟 시에 열어요."
+          }
+        },
+        {
+          "id": "quest_a1_numbers_open_hours_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "targetKo": "이따 다시 올게요.",
+            "audioKo": "이따 다시 올게요.",
+            "promptDe": "Ich komme später wieder.",
+            "promptEn": "I'll come back later."
+          }
+        },
+        {
+          "id": "quest_a1_numbers_open_hours_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "prefix": "여덟 시",
+            "suffix": " 열어요.",
+            "options": [
+              "에",
+              "에서",
+              "을",
+              "를"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "Uhrzeiten bekommen 에. 에서 markiert einen Ort, nicht eine Zeit.",
+            "explanationEn": "Clock times take 에. 에서 marks a place, not a time."
+          }
+        }
+      ],
+      "shelf": "a1_numbers",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "a1_numbers_how_many_left",
+      "level": "a1",
+      "emoji": "🧾",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "customer_and_store_staff",
+      "intent": "ask_remaining_count",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "몇 개 남았어요",
+        "de": "Wie viele sind noch da",
+        "en": "How many are left"
+      },
+      "intro": {
+        "ko": "진열대가 거의 비었습니다. 몇 개 남았는지 묻고 필요한 만큼만 가져갑니다.",
+        "de": "Das Regal ist fast leer. Du fragst, wie viele noch da sind, und nimmst nur so viele wie nötig.",
+        "en": "The shelf is nearly empty. You ask how many are left and take only what you need."
+      },
+      "vocab": [
+        {
+          "korean": "개"
+        },
+        {
+          "korean": "남다"
+        },
+        {
+          "korean": "우유"
+        },
+        {
+          "korean": "진열대"
+        },
+        {
+          "korean": "가져가다"
+        },
+        {
+          "korean": "충분하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_object_particle"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를",
+          "de": "N을/를: Objekt",
+          "en": "N을/를: object"
+        },
+        "explanation": {
+          "ko": "무엇을 하는지 그 대상 뒤에 을/를을 붙인다. 받침이 있으면 을, 없으면 를이다.",
+          "de": "을/를 markiert das Objekt. Nach Konsonant 을, nach Vokal 를.",
+          "en": "을/를 marks the object. Use 을 after a consonant, 를 after a vowel."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "저기요, 우유 다 나갔어요?",
+          "de": "Entschuldigung, ist die Milch alle?",
+          "en": "Excuse me, is the milk all gone?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "잠깐만요. 뒤에 더 있어요.",
+          "de": "Einen Moment. Hinten ist noch welche.",
+          "en": "One moment. There is more in the back."
+        },
+        {
+          "speaker": "user",
+          "ko": "몇 개 남았어요?",
+          "de": "Wie viele sind noch da?",
+          "en": "How many are left?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "세 개요. 아, 네 개네요.",
+          "de": "Drei. Ach nein, vier.",
+          "en": "Three. Oh, four actually."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 두 개를 주세요.",
+          "de": "Dann nehme ich zwei.",
+          "en": "Then two, please."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "두 개 맞으시죠?",
+          "de": "Zwei, richtig?",
+          "en": "Two, correct?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 두 개면 충분해요.",
+          "de": "Ja, zwei reichen.",
+          "en": "Yes, two is enough."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "여기 있어요.",
+          "de": "Bitte sehr.",
+          "en": "Here you go."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_numbers_how_many_left_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "audioKo": "세 개요. 아, 네 개네요.",
+            "options": [
+              {
+                "de": "Doch vier Stück.",
+                "en": "Four, after all."
+              },
+              {
+                "de": "Genau drei Stück.",
+                "en": "Exactly three."
+              },
+              {
+                "de": "Gar keins mehr.",
+                "en": "None left at all."
+              },
+              {
+                "de": "Vierzig Stück.",
+                "en": "Forty of them."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_how_many_left_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "promptDe": "Wie viele sind noch da?",
+            "promptEn": "How many are left?",
+            "options": [
+              {
+                "ko": "몇 개 남았어요?"
+              },
+              {
+                "ko": "몇 시에 닫아요?"
+              },
+              {
+                "ko": "얼마 드릴까요?"
+              },
+              {
+                "ko": "어디에 있어요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_how_many_left_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "sentence": "두 개___ 충분해요.",
+            "options": [
+              "면",
+              "에서",
+              "를",
+              "도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_how_many_left_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "targetKo": "그럼 두 개를 주세요.",
+            "promptDe": "Bitte um zwei Stück.",
+            "promptEn": "Ask for two of them.",
+            "distractors": [
+              "뒤에 더 있어요",
+              "여기 있어요",
+              "우유 다 나갔어요"
+            ],
+            "audioKo": "그럼 두 개를 주세요."
+          }
+        },
+        {
+          "id": "quest_a1_numbers_how_many_left_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "targetKo": "몇 개 남았어요?",
+            "audioKo": "몇 개 남았어요?",
+            "promptDe": "Wie viele sind noch da?",
+            "promptEn": "How many are left?"
+          }
+        },
+        {
+          "id": "quest_a1_numbers_how_many_left_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "prefix": "두 개",
+            "suffix": " 주세요.",
+            "options": [
+              "를",
+              "을",
+              "에",
+              "가"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "개 endet auf Vokal ㅐ, deshalb 를. Nach Konsonant wäre es 을.",
+            "explanationEn": "개 ends in the vowel ㅐ, so 를. After a consonant it would be 을."
+          }
+        }
+      ],
+      "shelf": "a1_numbers",
+      "backdrop": "convenience"
+    },
+    {
+      "id": "a1_numbers_floor_and_room",
+      "level": "a1",
+      "emoji": "🏢",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "guest_and_hotel_staff",
+      "intent": "confirm_floor_and_room",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "몇 층 몇 호예요",
+        "de": "Welche Etage, welches Zimmer",
+        "en": "Which floor, which room"
+      },
+      "intro": {
+        "ko": "열쇠를 받았는데 번호가 잘 안 들렸습니다. 층과 호수를 다시 확인합니다.",
+        "de": "Du hast den Schlüssel bekommen, aber die Nummer nicht verstanden. Du fragst Etage und Zimmer noch einmal nach.",
+        "en": "You got the key but did not catch the number. You check the floor and room again."
+      },
+      "vocab": [
+        {
+          "korean": "층"
+        },
+        {
+          "korean": "호"
+        },
+        {
+          "korean": "열쇠"
+        },
+        {
+          "korean": "엘리베이터"
+        },
+        {
+          "korean": "복도"
+        },
+        {
+          "korean": "끝"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_copula_polite"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N이에요/예요",
+          "de": "N이에요/예요: sein",
+          "en": "N이에요/예요: to be"
+        },
+        "explanation": {
+          "ko": "무엇이라고 말할 때 쓴다. 받침이 있으면 이에요, 없으면 예요다.",
+          "de": "So sagt man, was etwas ist. Nach Konsonant 이에요, nach Vokal 예요.",
+          "en": "Use it to say what something is. 이에요 after a consonant, 예요 after a vowel."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "죄송한데 몇 층이에요?",
+          "de": "Entschuldigung, welche Etage?",
+          "en": "Sorry, which floor is it?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "육 층이에요. 엘리베이터 오른쪽이요.",
+          "de": "Sechste Etage. Rechts neben dem Aufzug.",
+          "en": "Sixth floor. To the right of the lift."
+        },
+        {
+          "speaker": "user",
+          "ko": "육 층이요. 방은 몇 호예요?",
+          "de": "Sechste, okay. Und welches Zimmer?",
+          "en": "Sixth, okay. And which room?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "육백이 호요. 복도 끝이에요.",
+          "de": "Zimmer sechshundertzwei, am Ende des Flurs.",
+          "en": "Room six oh two, at the end of the hall."
+        },
+        {
+          "speaker": "user",
+          "ko": "육백이요? 육백일이 아니고요?",
+          "de": "Sechshundertzwei? Nicht sechshunderteins?",
+          "en": "Six oh two? Not six oh one?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 육백이예요. 열쇠에도 써 있어요.",
+          "de": "Genau, sechshundertzwei. Es steht auch auf dem Schlüssel.",
+          "en": "Right, six oh two. It says so on the key too."
+        },
+        {
+          "speaker": "user",
+          "ko": "아, 여기 있네요. 고맙습니다.",
+          "de": "Ah, da steht es. Vielen Dank.",
+          "en": "Ah, there it is. Thank you."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "편히 쉬세요.",
+          "de": "Erholen Sie sich gut.",
+          "en": "Have a good rest."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_numbers_floor_and_room_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "audioKo": "육백이 호요. 복도 끝이에요.",
+            "options": [
+              {
+                "de": "Zimmer 602, am Ende des Flurs.",
+                "en": "Room 602, at the end of the hall."
+              },
+              {
+                "de": "Zimmer 601, gleich am Aufzug.",
+                "en": "Room 601, right by the lift."
+              },
+              {
+                "de": "Etage 6, Zimmer noch offen.",
+                "en": "Floor 6, room not decided yet."
+              },
+              {
+                "de": "Zimmer 620, neben der Treppe.",
+                "en": "Room 620, next to the stairs."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_floor_and_room_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "promptDe": "Sechshundertzwei? Nicht sechshunderteins?",
+            "promptEn": "Six oh two? Not six oh one?",
+            "options": [
+              {
+                "ko": "육백이요? 육백일이 아니고요?"
+              },
+              {
+                "ko": "육 층이요? 오 층이 아니고요?"
+              },
+              {
+                "ko": "열쇠요? 카드가 아니고요?"
+              },
+              {
+                "ko": "오늘이요? 내일이 아니고요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_floor_and_room_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "sentence": "복도 끝___.",
+            "options": [
+              "이에요",
+              "예요",
+              "이요",
+              "에요"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_floor_and_room_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "targetKo": "죄송한데 몇 층이에요?",
+            "promptDe": "Frag höflich nach der Etage.",
+            "promptEn": "Politely ask which floor it is.",
+            "distractors": [
+              "복도 끝이에요",
+              "편히 쉬세요",
+              "열쇠에도 써 있어요"
+            ],
+            "audioKo": "죄송한데 몇 층이에요?"
+          }
+        },
+        {
+          "id": "quest_a1_numbers_floor_and_room_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "targetKo": "방은 몇 호예요?",
+            "audioKo": "방은 몇 호예요?",
+            "promptDe": "Welches Zimmer ist es?",
+            "promptEn": "Which room is it?"
+          }
+        },
+        {
+          "id": "quest_a1_numbers_floor_and_room_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "prefix": "방",
+            "suffix": " 몇 호예요?",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "방 endet auf Konsonant ㅇ, deshalb 은. Das Zimmer ist hier das Thema.",
+            "explanationEn": "방 ends in the consonant ㅇ, so 은. The room is the topic here."
+          }
+        }
+      ],
+      "shelf": "a1_numbers",
+      "backdrop": "hotel"
+    },
+    {
+      "id": "a1_numbers_total_price",
+      "level": "a1",
+      "emoji": "💵",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "customer_and_store_staff",
+      "intent": "confirm_market_total",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "다 해서 얼마예요",
+        "de": "Was macht das zusammen",
+        "en": "How much is it all together"
+      },
+      "intro": {
+        "ko": "여러 가지를 담았습니다. 총액을 확인하고 잔돈을 맞춰 봅니다.",
+        "de": "Du hast mehrere Sachen genommen. Du prüfst die Summe und das Wechselgeld.",
+        "en": "You picked up several things. You check the total and the change."
+      },
+      "vocab": [
+        {
+          "korean": "다"
+        },
+        {
+          "korean": "잔돈"
+        },
+        {
+          "korean": "받다"
+        },
+        {
+          "korean": "천"
+        },
+        {
+          "korean": "원"
+        },
+        {
+          "korean": "봉지"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_polite_past"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-았/었어요",
+          "de": "V-았/었어요: Vergangenheit",
+          "en": "V-았/었어요: past"
+        },
+        "explanation": {
+          "ko": "이미 끝난 일을 말할 때 쓴다. 받았어요, 줬어요처럼 쓴다.",
+          "de": "Für abgeschlossene Handlungen: 받았어요, 줬어요.",
+          "en": "For finished actions: 받았어요, 줬어요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "이거 다 해서 얼마예요?",
+          "de": "Was macht das alles zusammen?",
+          "en": "How much is all of this?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "칠천 원이요. 봉지도 드릴까요?",
+          "de": "Siebentausend Won. Möchten Sie eine Tüte?",
+          "en": "Seven thousand won. Would you like a bag?"
+        },
+        {
+          "speaker": "user",
+          "ko": "봉지는 괜찮아요. 만 원 드릴게요.",
+          "de": "Keine Tüte, danke. Ich gebe zehntausend.",
+          "en": "No bag, thanks. Here is ten thousand."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "만 원 받았어요. 잠시만요.",
+          "de": "Zehntausend bekommen. Einen Moment.",
+          "en": "Got ten thousand. One moment."
+        },
+        {
+          "speaker": "user",
+          "ko": "잔돈은 얼마예요?",
+          "de": "Wie viel bekomme ich zurück?",
+          "en": "How much is the change?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "삼천 원이요. 여기 있습니다.",
+          "de": "Dreitausend Won. Bitte sehr.",
+          "en": "Three thousand won. Here you are."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 삼천 원 받았어요. 감사합니다.",
+          "de": "Ja, dreitausend erhalten. Danke.",
+          "en": "Yes, got three thousand. Thank you."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "안녕히 가세요.",
+          "de": "Auf Wiedersehen.",
+          "en": "Goodbye."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_numbers_total_price_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "audioKo": "삼천 원이요. 여기 있습니다.",
+            "options": [
+              {
+                "de": "Dreitausend Won zurück.",
+                "en": "Three thousand won back."
+              },
+              {
+                "de": "Siebentausend Won zurück.",
+                "en": "Seven thousand won back."
+              },
+              {
+                "de": "Kein Wechselgeld.",
+                "en": "No change at all."
+              },
+              {
+                "de": "Dreißigtausend Won zurück.",
+                "en": "Thirty thousand won back."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_total_price_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "promptDe": "Was macht das alles zusammen?",
+            "promptEn": "How much is all of this?",
+            "options": [
+              {
+                "ko": "이거 다 해서 얼마예요?"
+              },
+              {
+                "ko": "이거 몇 개 있어요?"
+              },
+              {
+                "ko": "이거 언제 와요?"
+              },
+              {
+                "ko": "이거 어디 있어요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_total_price_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "sentence": "만 원 ___.",
+            "options": [
+              "받았어요",
+              "받어요",
+              "받았아요",
+              "받겠어요"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_numbers_total_price_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "targetKo": "잔돈은 얼마예요?",
+            "promptDe": "Frag nach dem Wechselgeld.",
+            "promptEn": "Ask how much the change is.",
+            "distractors": [
+              "봉지도 드릴까요",
+              "안녕히 가세요",
+              "잠시만요"
+            ],
+            "audioKo": "잔돈은 얼마예요?"
+          }
+        },
+        {
+          "id": "quest_a1_numbers_total_price_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "targetKo": "봉지는 괜찮아요.",
+            "audioKo": "봉지는 괜찮아요.",
+            "promptDe": "Keine Tüte, danke.",
+            "promptEn": "No bag, thanks."
+          }
+        },
+        {
+          "id": "quest_a1_numbers_total_price_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_time_numbers"
+          ],
+          "data": {
+            "prefix": "잔돈",
+            "suffix": " 얼마예요?",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "잔돈 endet auf Konsonant ㄴ, deshalb 은.",
+            "explanationEn": "잔돈 ends in the consonant ㄴ, so 은."
+          }
+        }
+      ],
+      "shelf": "a1_numbers",
+      "backdrop": "market"
+    },
+    {
+      "id": "a1_phone_wrong_number",
+      "level": "a1",
+      "emoji": "☎️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "stranger",
+      "intent": "handle_wrong_number_call",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "전화 잘못 거셨어요",
+        "de": "Sie haben sich verwählt",
+        "en": "You have the wrong number"
+      },
+      "intro": {
+        "ko": "모르는 번호로 전화가 왔습니다. 짧고 정확하게 아니라고 말합니다.",
+        "de": "Eine unbekannte Nummer ruft an. Du sagst kurz und klar, dass es nicht stimmt.",
+        "en": "An unknown number calls. You say briefly and clearly that it is not right."
+      },
+      "vocab": [
+        {
+          "korean": "전화"
+        },
+        {
+          "korean": "번호"
+        },
+        {
+          "korean": "잘못"
+        },
+        {
+          "korean": "누구"
+        },
+        {
+          "korean": "끊다"
+        },
+        {
+          "korean": "살다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_short_negation"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "안 + V",
+          "de": "안 + V: Verneinung",
+          "en": "안 + V: negation"
+        },
+        "explanation": {
+          "ko": "동사 앞에 안을 붙이면 그 행동을 하지 않는다는 뜻이다. 안 살아요, 안 받아요처럼 쓴다.",
+          "de": "안 vor dem Verb verneint die Handlung: 안 살아요, 안 받아요.",
+          "en": "안 before a verb negates the action: 안 살아요, 안 받아요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "여보세요? 김지영 씨 계세요?",
+          "de": "Hallo? Ist Frau Kim Jiyoung da?",
+          "en": "Hello? Is Ms. Kim Jiyoung there?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아니요, 그런 사람 안 살아요.",
+          "de": "Nein, so jemand wohnt hier nicht.",
+          "en": "No, nobody by that name lives here."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "어, 여기 공일공에 이삼사오 아니에요?",
+          "de": "Oh, ist das nicht 010 2345?",
+          "en": "Oh, is this not 010 2345?"
+        },
+        {
+          "speaker": "user",
+          "ko": "저는 이삼사육이에요.",
+          "de": "Bei mir ist es 2346.",
+          "en": "Mine is 2346."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "아, 제가 잘못 걸었네요. 죄송합니다.",
+          "de": "Ach, ich habe mich verwählt. Entschuldigung.",
+          "en": "Ah, I dialed wrong. Sorry about that."
+        },
+        {
+          "speaker": "user",
+          "ko": "괜찮아요. 마지막 번호만 달라요.",
+          "de": "Kein Problem. Nur die letzte Ziffer ist anders.",
+          "en": "No problem. Only the last digit is different."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "다시 걸어 볼게요. 감사합니다.",
+          "de": "Ich versuche es noch einmal. Danke.",
+          "en": "I'll try again. Thanks."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 끊을게요.",
+          "de": "Gut, ich lege auf.",
+          "en": "Okay, hanging up."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_phone_wrong_number_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "audioKo": "아, 제가 잘못 걸었네요. 죄송합니다.",
+            "options": [
+              {
+                "de": "Er hat sich verwählt.",
+                "en": "He dialed the wrong number."
+              },
+              {
+                "de": "Er ruft später wieder an.",
+                "en": "He will call back later."
+              },
+              {
+                "de": "Er sucht eine Adresse.",
+                "en": "He is looking for an address."
+              },
+              {
+                "de": "Er hat die Nummer notiert.",
+                "en": "He wrote the number down."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_wrong_number_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "promptDe": "Nein, so jemand wohnt hier nicht.",
+            "promptEn": "No, nobody by that name lives here.",
+            "options": [
+              {
+                "ko": "아니요, 그런 사람 안 살아요."
+              },
+              {
+                "ko": "네, 지금 바꿔 드릴게요."
+              },
+              {
+                "ko": "잠깐만 기다려 주세요."
+              },
+              {
+                "ko": "제가 나중에 걸게요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_wrong_number_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "sentence": "그런 사람 ___ 살아요.",
+            "options": [
+              "안",
+              "못",
+              "잘",
+              "다"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_wrong_number_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "targetKo": "마지막 번호만 달라요.",
+            "promptDe": "Sag, dass nur die letzte Ziffer anders ist.",
+            "promptEn": "Say that only the last digit is different.",
+            "distractors": [
+              "다시 걸어 볼게요",
+              "네, 끊을게요",
+              "저는 이삼사육이에요"
+            ],
+            "audioKo": "마지막 번호만 달라요."
+          }
+        },
+        {
+          "id": "quest_a1_phone_wrong_number_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "targetKo": "제가 잘못 걸었네요.",
+            "audioKo": "제가 잘못 걸었네요.",
+            "promptDe": "Ich habe mich verwählt.",
+            "promptEn": "I dialed the wrong number."
+          }
+        },
+        {
+          "id": "quest_a1_phone_wrong_number_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "prefix": "마지막 번호",
+            "suffix": " 달라요.",
+            "options": [
+              "만",
+              "에서",
+              "를",
+              "에"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "만 heißt nur. Es grenzt genau eine Ziffer ab.",
+            "explanationEn": "만 means only. It singles out exactly one digit."
+          }
+        }
+      ],
+      "shelf": "a1_phone",
+      "backdrop": "home"
+    },
+    {
+      "id": "a1_phone_call_later",
+      "level": "a1",
+      "emoji": "📞",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "classmates",
+      "intent": "ask_to_call_back_later",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "지금 통화 괜찮아요",
+        "de": "Passt es gerade zum Telefonieren",
+        "en": "Is now a good time to talk"
+      },
+      "intro": {
+        "ko": "물어볼 게 있는데 상대가 바쁠 수 있습니다. 먼저 통화가 되는지 확인합니다.",
+        "de": "Du hast eine Frage, aber die andere Person könnte beschäftigt sein. Du fragst erst, ob es passt.",
+        "en": "You have a question but the other person may be busy. You check first whether it is a good time."
+      },
+      "vocab": [
+        {
+          "korean": "통화"
+        },
+        {
+          "korean": "지금"
+        },
+        {
+          "korean": "바쁘다"
+        },
+        {
+          "korean": "묻다"
+        },
+        {
+          "korean": "이따"
+        },
+        {
+          "korean": "다시"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_want"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-고 싶다",
+          "de": "V-고 싶다: wollen",
+          "en": "V-고 싶다: want to"
+        },
+        "explanation": {
+          "ko": "하고 싶은 일을 말할 때 동사 뒤에 고 싶다를 붙인다. 묻고 싶어요처럼 쓴다.",
+          "de": "고 싶다 hinter dem Verb sagt, was man möchte: 묻고 싶어요.",
+          "en": "Add 고 싶다 to a verb to say what you want to do: 묻고 싶어요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "여보세요, 지은 씨. 지금 통화 괜찮아요?",
+          "de": "Hallo Jieun. Passt es gerade zum Telefonieren?",
+          "en": "Hi Jieun. Is now a good time to talk?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "지금은 좀 바빠요. 무슨 일이에요?",
+          "de": "Gerade ist es knapp. Worum geht es?",
+          "en": "Right now is a bit tight. What is it about?"
+        },
+        {
+          "speaker": "user",
+          "ko": "내일 시간을 묻고 싶어요.",
+          "de": "Ich möchte nach der Uhrzeit für morgen fragen.",
+          "en": "I want to ask about tomorrow's time."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "아, 그거요. 이따 다시 걸어 줄래요?",
+          "de": "Ach, das. Rufst du später noch mal an?",
+          "en": "Oh, that. Could you call again later?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 몇 시가 좋아요?",
+          "de": "Klar. Wann passt es dir?",
+          "en": "Sure. What time works for you?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "여섯 시 이후면 괜찮아요.",
+          "de": "Ab sechs geht es.",
+          "en": "After six is fine."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 여섯 시 반에 걸게요.",
+          "de": "Dann rufe ich um halb sieben an.",
+          "en": "Then I'll call at half past six."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 그때 얘기해요.",
+          "de": "Gut, dann reden wir.",
+          "en": "Okay, let's talk then."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_phone_call_later_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "audioKo": "여섯 시 이후면 괜찮아요.",
+            "options": [
+              {
+                "de": "Ab sechs geht es.",
+                "en": "After six is fine."
+              },
+              {
+                "de": "Vor sechs geht es.",
+                "en": "Before six is fine."
+              },
+              {
+                "de": "Heute geht gar nichts.",
+                "en": "Nothing works today."
+              },
+              {
+                "de": "Um sechs ist sie schon weg.",
+                "en": "She is gone by six."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_call_later_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "promptDe": "Passt es gerade zum Telefonieren?",
+            "promptEn": "Is now a good time to talk?",
+            "options": [
+              {
+                "ko": "지금 통화 괜찮아요?"
+              },
+              {
+                "ko": "지금 어디예요?"
+              },
+              {
+                "ko": "지금 몇 시예요?"
+              },
+              {
+                "ko": "지금 뭐 해요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_call_later_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "sentence": "내일 시간을 ___ 싶어요.",
+            "options": [
+              "묻고",
+              "물어",
+              "묻는",
+              "묻지"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_call_later_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "targetKo": "그럼 여섯 시 반에 걸게요.",
+            "promptDe": "Sag, dass du um halb sieben anrufst.",
+            "promptEn": "Say that you will call at half past six.",
+            "distractors": [
+              "지금은 좀 바빠요",
+              "네, 그때 얘기해요",
+              "무슨 일이에요"
+            ],
+            "audioKo": "그럼 여섯 시 반에 걸게요."
+          }
+        },
+        {
+          "id": "quest_a1_phone_call_later_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "targetKo": "몇 시가 좋아요?",
+            "audioKo": "몇 시가 좋아요?",
+            "promptDe": "Wann passt es dir?",
+            "promptEn": "What time works for you?"
+          }
+        },
+        {
+          "id": "quest_a1_phone_call_later_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "prefix": "내일 시간",
+            "suffix": " 묻고 싶어요.",
+            "options": [
+              "을",
+              "를",
+              "이",
+              "에"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "시간 endet auf Konsonant ㄴ, deshalb das Objektpartikel 을.",
+            "explanationEn": "시간 ends in the consonant ㄴ, so the object particle is 을."
+          }
+        }
+      ],
+      "shelf": "a1_phone",
+      "backdrop": "office"
+    },
+    {
+      "id": "a1_phone_text_instead",
+      "level": "a1",
+      "emoji": "💬",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "neighbor",
+      "intent": "switch_call_to_message",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "안 받으셔서 문자 남겼어요",
+        "de": "Ich habe eine Nachricht hinterlassen",
+        "en": "You did not pick up so I texted"
+      },
+      "intro": {
+        "ko": "전화를 두 번 걸었는데 못 받았습니다. 문자를 남겼다고 알리고 내용을 다시 말합니다.",
+        "de": "Du hast zweimal angerufen, aber niemand ging ran. Du sagst, dass du geschrieben hast, und wiederholst den Inhalt.",
+        "en": "You called twice with no answer. You say you sent a message and repeat what it said."
+      },
+      "vocab": [
+        {
+          "korean": "문자"
+        },
+        {
+          "korean": "남기다"
+        },
+        {
+          "korean": "두 번"
+        },
+        {
+          "korean": "확인"
+        },
+        {
+          "korean": "택배"
+        },
+        {
+          "korean": "앞"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_polite_past"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-았/었어요",
+          "de": "V-았/었어요: Vergangenheit",
+          "en": "V-았/었어요: past"
+        },
+        "explanation": {
+          "ko": "이미 한 일을 말할 때 쓴다. 걸었어요, 남겼어요처럼 쓴다.",
+          "de": "Für schon Getanes: 걸었어요, 남겼어요.",
+          "en": "For what you already did: 걸었어요, 남겼어요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "아까 두 번 걸었어요. 못 받으셨죠?",
+          "de": "Ich habe vorhin zweimal angerufen. Sie haben es nicht gehört, oder?",
+          "en": "I called twice earlier. You missed it, right?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 밖에 있었어요. 무슨 일이었어요?",
+          "de": "Ja, ich war draußen. Worum ging es?",
+          "en": "Yes, I was out. What was it about?"
+        },
+        {
+          "speaker": "user",
+          "ko": "그래서 문자 남겼어요. 택배 때문에요.",
+          "de": "Deshalb habe ich geschrieben. Es geht um ein Paket.",
+          "en": "So I sent a message. It is about a parcel."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "아직 문자 확인 못 했어요.",
+          "de": "Die Nachricht habe ich noch nicht gelesen.",
+          "en": "I have not checked the message yet."
+        },
+        {
+          "speaker": "user",
+          "ko": "택배를 문 앞에 놓고 갔어요.",
+          "de": "Das Paket steht vor der Tür.",
+          "en": "They left the parcel at your door."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "아, 감사합니다. 지금 들어가요.",
+          "de": "Ah, danke. Ich gehe gerade rein.",
+          "en": "Ah, thank you. I'm heading in now."
+        },
+        {
+          "speaker": "user",
+          "ko": "비 와서 안쪽으로 옮겼어요.",
+          "de": "Weil es regnet, habe ich es nach innen gestellt.",
+          "en": "It was raining so I moved it inside."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "정말 고맙습니다.",
+          "de": "Vielen herzlichen Dank.",
+          "en": "Thank you so much."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_phone_text_instead_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "audioKo": "아직 문자 확인 못 했어요.",
+            "options": [
+              {
+                "de": "Er hat die Nachricht noch nicht gelesen.",
+                "en": "He has not read the message yet."
+              },
+              {
+                "de": "Er hat sofort geantwortet.",
+                "en": "He answered right away."
+              },
+              {
+                "de": "Er hat keine Nachricht bekommen.",
+                "en": "He never got a message."
+              },
+              {
+                "de": "Er schreibt lieber, als zu telefonieren.",
+                "en": "He prefers texting to calling."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_text_instead_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "promptDe": "Deshalb habe ich geschrieben.",
+            "promptEn": "So I sent a message.",
+            "options": [
+              {
+                "ko": "그래서 문자 남겼어요."
+              },
+              {
+                "ko": "그래서 다시 걸었어요."
+              },
+              {
+                "ko": "그래서 집에 갔어요."
+              },
+              {
+                "ko": "그래서 안 받았어요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_text_instead_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "sentence": "아까 두 번 ___.",
+            "options": [
+              "걸었어요",
+              "걸어요",
+              "걸겠어요",
+              "걸었아요"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_text_instead_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "targetKo": "택배를 문 앞에 놓고 갔어요.",
+            "promptDe": "Sag, dass das Paket vor der Tür abgestellt wurde.",
+            "promptEn": "Say that the parcel was left at the door.",
+            "distractors": [
+              "지금 들어가요",
+              "밖에 있었어요",
+              "정말 고맙습니다"
+            ],
+            "audioKo": "택배를 문 앞에 놓고 갔어요."
+          }
+        },
+        {
+          "id": "quest_a1_phone_text_instead_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "targetKo": "비 와서 안쪽으로 옮겼어요.",
+            "audioKo": "비 와서 안쪽으로 옮겼어요.",
+            "promptDe": "Wegen des Regens habe ich es nach innen gestellt.",
+            "promptEn": "It was raining so I moved it inside."
+          }
+        },
+        {
+          "id": "quest_a1_phone_text_instead_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "prefix": "택배",
+            "suffix": " 문 앞에 놓고 갔어요.",
+            "options": [
+              "를",
+              "을",
+              "가",
+              "에"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "택배 endet auf Vokal ㅐ, deshalb 를.",
+            "explanationEn": "택배 ends in the vowel ㅐ, so 를."
+          }
+        }
+      ],
+      "shelf": "a1_phone",
+      "backdrop": "home"
+    },
+    {
+      "id": "a1_phone_read_back_address",
+      "level": "a1",
+      "emoji": "📮",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "customer_and_delivery_staff",
+      "intent": "read_back_address_on_call",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "주소 다시 불러 주세요",
+        "de": "Lesen Sie die Adresse noch einmal vor",
+        "en": "Please read the address back"
+      },
+      "intro": {
+        "ko": "배송 기사가 주소를 확인하려고 전화했습니다. 한 번에 다 못 들으면 끊지 말고 다시 부탁합니다.",
+        "de": "Der Lieferdienst ruft an, um die Adresse zu prüfen. Wenn du nicht alles verstehst, bitte um Wiederholung.",
+        "en": "The courier calls to check the address. If you miss part of it, ask them to say it again."
+      },
+      "vocab": [
+        {
+          "korean": "주소"
+        },
+        {
+          "korean": "동"
+        },
+        {
+          "korean": "호"
+        },
+        {
+          "korean": "천천히"
+        },
+        {
+          "korean": "불러 주다"
+        },
+        {
+          "korean": "맞다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_polite_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)세요",
+          "de": "V-(으)세요: höfliche Bitte",
+          "en": "V-(으)세요: polite request"
+        },
+        "explanation": {
+          "ko": "정중하게 부탁할 때 쓴다. 받침이 있으면 으세요, 없으면 세요다.",
+          "de": "Für höfliche Bitten. Nach Konsonant 으세요, nach Vokal 세요.",
+          "en": "For polite requests. 으세요 after a consonant, 세요 after a vowel."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "주소 확인 좀 할게요. 삼동 사백오 호 맞으세요?",
+          "de": "Kurze Adressprüfung. Gebäude drei, Wohnung 405, richtig?",
+          "en": "Quick address check. Building three, unit 405, correct?"
+        },
+        {
+          "speaker": "user",
+          "ko": "죄송한데 천천히 다시 불러 주세요.",
+          "de": "Entschuldigung, bitte noch einmal langsam.",
+          "en": "Sorry, please say it again slowly."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "삼 동, 사백오 호요.",
+          "de": "Gebäude drei, Wohnung 405.",
+          "en": "Building three, unit 405."
+        },
+        {
+          "speaker": "user",
+          "ko": "삼 동은 맞아요. 사백오 호가 아니라 사백육 호예요.",
+          "de": "Gebäude drei stimmt. Aber es ist 406, nicht 405.",
+          "en": "Building three is right. But it is 406, not 405."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "아, 육이요? 다시 적을게요.",
+          "de": "Ach, sechs? Ich schreibe es neu auf.",
+          "en": "Oh, six? Let me write it again."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 사백육 호예요. 문 앞에 놓아 주세요.",
+          "de": "Ja, 406. Stellen Sie es bitte vor die Tür.",
+          "en": "Yes, 406. Please leave it at the door."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "알겠습니다. 십 분 안에 도착해요.",
+          "de": "Verstanden. In zehn Minuten bin ich da.",
+          "en": "Understood. I'll be there within ten minutes."
+        },
+        {
+          "speaker": "user",
+          "ko": "감사합니다. 기다릴게요.",
+          "de": "Danke, ich warte.",
+          "en": "Thank you, I'll wait."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_phone_read_back_address_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "audioKo": "삼 동은 맞아요. 사백오 호가 아니라 사백육 호예요.",
+            "options": [
+              {
+                "de": "Gebäude drei stimmt, aber es ist 406.",
+                "en": "Building three is right, but it is 406."
+              },
+              {
+                "de": "Gebäude drei ist falsch, 405 stimmt.",
+                "en": "Building three is wrong, 405 is right."
+              },
+              {
+                "de": "Beide Angaben sind falsch.",
+                "en": "Both details are wrong."
+              },
+              {
+                "de": "Es ist Gebäude vier, Wohnung 305.",
+                "en": "It is building four, unit 305."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_read_back_address_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "promptDe": "Entschuldigung, bitte noch einmal langsam.",
+            "promptEn": "Sorry, please say it again slowly.",
+            "options": [
+              {
+                "ko": "죄송한데 천천히 다시 불러 주세요."
+              },
+              {
+                "ko": "죄송한데 지금 나가요."
+              },
+              {
+                "ko": "죄송한데 문 앞에 있어요."
+              },
+              {
+                "ko": "죄송한데 번호가 달라요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_read_back_address_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "sentence": "문 앞에 ___ 주세요.",
+            "options": [
+              "놓아",
+              "놓고",
+              "놓는",
+              "놓지"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_phone_read_back_address_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "targetKo": "천천히 다시 불러 주세요.",
+            "promptDe": "Bitte höflich um langsame Wiederholung.",
+            "promptEn": "Politely ask them to repeat it slowly.",
+            "distractors": [
+              "십 분 안에 도착해요",
+              "감사합니다. 기다릴게요",
+              "다시 적을게요"
+            ],
+            "audioKo": "천천히 다시 불러 주세요."
+          }
+        },
+        {
+          "id": "quest_a1_phone_read_back_address_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "targetKo": "사백육 호예요.",
+            "audioKo": "사백육 호예요.",
+            "promptDe": "Es ist Wohnung 406.",
+            "promptEn": "It is unit 406."
+          }
+        },
+        {
+          "id": "quest_a1_phone_read_back_address_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_contact_address"
+          ],
+          "data": {
+            "prefix": "삼 동",
+            "suffix": " 맞아요.",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "동 endet auf Konsonant ㅇ, deshalb 은. Es stellt das Gebäude dem Zimmer gegenüber.",
+            "explanationEn": "동 ends in the consonant ㅇ, so 은. It contrasts the building with the unit."
+          }
+        }
+      ],
+      "shelf": "a1_phone",
+      "backdrop": "home"
+    },
+    {
+      "id": "a1_wayfinding_exit_number",
+      "level": "a1",
+      "emoji": "🚪",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "traveler_and_information_staff",
+      "intent": "find_correct_station_exit",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "몇 번 출구로 나가요",
+        "de": "Welcher Ausgang ist der richtige",
+        "en": "Which exit do I take"
+      },
+      "intro": {
+        "ko": "출구가 여러 개입니다. 어디로 나가야 하는지 번호로 확인합니다.",
+        "de": "Es gibt mehrere Ausgänge. Du klärst über die Nummer, wo du raus musst.",
+        "en": "There are several exits. You use the number to work out which one you need."
+      },
+      "vocab": [
+        {
+          "korean": "출구"
+        },
+        {
+          "korean": "번"
+        },
+        {
+          "korean": "나가다"
+        },
+        {
+          "korean": "은행"
+        },
+        {
+          "korean": "쪽"
+        },
+        {
+          "korean": "표지판"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_which_question"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "무슨/어떤 N",
+          "de": "무슨/어떤 N: welche",
+          "en": "무슨/어떤 N: which"
+        },
+        "explanation": {
+          "ko": "무슨은 종류를, 어떤은 여럿 중 하나를 물을 때 쓴다. 어떤 출구, 무슨 색처럼 쓴다.",
+          "de": "무슨 fragt nach der Art, 어떤 nach einem aus mehreren: 어떤 출구, 무슨 색.",
+          "en": "무슨 asks about kind, 어떤 asks which one of several: 어떤 출구, 무슨 색."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "저기요, 은행에 가려면 어떤 출구로 나가요?",
+          "de": "Entschuldigung, welcher Ausgang führt zur Bank?",
+          "en": "Excuse me, which exit goes to the bank?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "은행이요? 사 번 출구요.",
+          "de": "Zur Bank? Ausgang vier.",
+          "en": "The bank? Exit four."
+        },
+        {
+          "speaker": "user",
+          "ko": "사 번이요? 여기 표지판에는 삼 번만 있어요.",
+          "de": "Ausgang vier? Auf dem Schild steht nur drei.",
+          "en": "Exit four? The sign here only shows three."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "아, 이쪽은 삼 번까지예요. 저쪽으로 가세요.",
+          "de": "Ach, hier geht es nur bis drei. Gehen Sie dort entlang.",
+          "en": "Ah, this side only goes up to three. Go that way."
+        },
+        {
+          "speaker": "user",
+          "ko": "저쪽 계단으로요?",
+          "de": "Über die Treppe dort?",
+          "en": "Up those stairs over there?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 계단 올라가면 사 번이 보여요.",
+          "de": "Ja, oben an der Treppe sehen Sie Ausgang vier.",
+          "en": "Yes, at the top of the stairs you will see exit four."
+        },
+        {
+          "speaker": "user",
+          "ko": "알겠어요. 은행은 출구 바로 앞이에요?",
+          "de": "Alles klar. Ist die Bank direkt vor dem Ausgang?",
+          "en": "Got it. Is the bank right in front of the exit?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 나가면 바로 있어요.",
+          "de": "Ja, direkt gegenüber.",
+          "en": "Yes, right as you come out."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_wayfinding_exit_number_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "audioKo": "아, 이쪽은 삼 번까지예요. 저쪽으로 가세요.",
+            "options": [
+              {
+                "de": "Auf dieser Seite gibt es nur bis Ausgang drei.",
+                "en": "This side only has exits up to three."
+              },
+              {
+                "de": "Auf dieser Seite sind alle Ausgänge.",
+                "en": "All the exits are on this side."
+              },
+              {
+                "de": "Ausgang drei ist gesperrt.",
+                "en": "Exit three is closed."
+              },
+              {
+                "de": "Man muss die Station wechseln.",
+                "en": "You have to change stations."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_exit_number_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "promptDe": "Welcher Ausgang führt zur Bank?",
+            "promptEn": "Which exit goes to the bank?",
+            "options": [
+              {
+                "ko": "은행에 가려면 어떤 출구로 나가요?"
+              },
+              {
+                "ko": "은행이 몇 시에 열어요?"
+              },
+              {
+                "ko": "은행까지 얼마나 걸려요?"
+              },
+              {
+                "ko": "은행에서 뭐 해요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_exit_number_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "sentence": "___ 출구로 나가요?",
+            "options": [
+              "어떤",
+              "무슨",
+              "어느새",
+              "어떻게"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_exit_number_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "targetKo": "계단 올라가면 사 번이 보여요.",
+            "promptDe": "Sag, dass Ausgang vier oben an der Treppe zu sehen ist.",
+            "promptEn": "Say that exit four is visible at the top of the stairs.",
+            "distractors": [
+              "나가면 바로 있어요",
+              "저쪽으로 가세요",
+              "여기 표지판에는 삼 번만 있어요"
+            ],
+            "audioKo": "계단 올라가면 사 번이 보여요."
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_exit_number_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "targetKo": "사 번 출구요.",
+            "audioKo": "사 번 출구요.",
+            "promptDe": "Ausgang vier.",
+            "promptEn": "Exit four."
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_exit_number_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "prefix": "은행",
+            "suffix": " 출구 바로 앞이에요?",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "은행 endet auf Konsonant ㅇ, deshalb 은.",
+            "explanationEn": "은행 ends in the consonant ㅇ, so 은."
+          }
+        }
+      ],
+      "shelf": "a1_wayfinding",
+      "backdrop": "station"
+    },
+    {
+      "id": "a1_wayfinding_this_way_right",
+      "level": "a1",
+      "emoji": "↔️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "stranger",
+      "intent": "verify_direction_midway",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "이쪽이 맞아요",
+        "de": "Ist das hier richtig",
+        "en": "Is this the right way"
+      },
+      "intro": {
+        "ko": "한참 걸었는데 맞는지 모르겠습니다. 지나가는 사람에게 방향만 짧게 확인합니다.",
+        "de": "Du bist lange gelaufen und bist unsicher. Du fragst jemanden kurz nach der Richtung.",
+        "en": "You have walked a while and are unsure. You quickly check the direction with a passerby."
+      },
+      "vocab": [
+        {
+          "korean": "이쪽"
+        },
+        {
+          "korean": "반대"
+        },
+        {
+          "korean": "왼쪽"
+        },
+        {
+          "korean": "돌다"
+        },
+        {
+          "korean": "우체국"
+        },
+        {
+          "korean": "지나다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_copula_polite"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N이에요/예요",
+          "de": "N이에요/예요: sein",
+          "en": "N이에요/예요: to be"
+        },
+        "explanation": {
+          "ko": "방향이나 장소를 말할 때도 그대로 쓴다. 이쪽이에요, 왼쪽이에요처럼 쓴다.",
+          "de": "Auch für Richtungen und Orte: 이쪽이에요, 왼쪽이에요.",
+          "en": "It works for directions and places too: 이쪽이에요, 왼쪽이에요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "실례합니다. 우체국이 이쪽이 맞아요?",
+          "de": "Entschuldigung, ist die Post in dieser Richtung?",
+          "en": "Excuse me, is the post office this way?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "우체국이요? 아니요, 반대예요.",
+          "de": "Die Post? Nein, andersherum.",
+          "en": "The post office? No, the other way."
+        },
+        {
+          "speaker": "user",
+          "ko": "아, 제가 지나쳤어요?",
+          "de": "Oh, bin ich daran vorbeigelaufen?",
+          "en": "Oh, did I walk past it?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 조금요. 저 편의점에서 왼쪽이에요.",
+          "de": "Ja, ein Stück. Am Kiosk dort links.",
+          "en": "Yes, a bit. At that convenience store, turn left."
+        },
+        {
+          "speaker": "user",
+          "ko": "편의점에서 왼쪽이요. 그다음은요?",
+          "de": "Am Kiosk links. Und dann?",
+          "en": "Left at the store. And after that?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그다음은 쭉 가면 돼요.",
+          "de": "Dann einfach geradeaus.",
+          "en": "After that just keep going straight."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 편의점까지 돌아갈게요.",
+          "de": "Gut, ich gehe zum Kiosk zurück.",
+          "en": "Okay, I'll walk back to the store."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "금방 보일 거예요.",
+          "de": "Sie sehen es gleich.",
+          "en": "You will spot it soon."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_wayfinding_this_way_right_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "audioKo": "네, 조금요. 저 편의점에서 왼쪽이에요.",
+            "options": [
+              {
+                "de": "Beim Kiosk links abbiegen.",
+                "en": "Turn left at the convenience store."
+              },
+              {
+                "de": "Beim Kiosk rechts abbiegen.",
+                "en": "Turn right at the convenience store."
+              },
+              {
+                "de": "Am Kiosk vorbeigehen.",
+                "en": "Walk past the convenience store."
+              },
+              {
+                "de": "Im Kiosk nach dem Weg fragen.",
+                "en": "Ask inside the convenience store."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_this_way_right_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "promptDe": "Ist die Post in dieser Richtung?",
+            "promptEn": "Is the post office this way?",
+            "options": [
+              {
+                "ko": "우체국이 이쪽이 맞아요?"
+              },
+              {
+                "ko": "우체국이 몇 시에 닫아요?"
+              },
+              {
+                "ko": "우체국에서 뭐 보내요?"
+              },
+              {
+                "ko": "우체국이 여기서 멀어요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_this_way_right_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "sentence": "저 편의점에서 왼쪽___.",
+            "options": [
+              "이에요",
+              "예요",
+              "이요",
+              "에요"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_this_way_right_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "targetKo": "네, 편의점까지 돌아갈게요.",
+            "promptDe": "Sag, dass du bis zum Kiosk zurückgehst.",
+            "promptEn": "Say that you will walk back to the convenience store.",
+            "distractors": [
+              "금방 보일 거예요",
+              "그다음은 쭉 가면 돼요",
+              "아니요, 반대예요"
+            ],
+            "audioKo": "네, 편의점까지 돌아갈게요."
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_this_way_right_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "targetKo": "그다음은 쭉 가면 돼요.",
+            "audioKo": "그다음은 쭉 가면 돼요.",
+            "promptDe": "Dann einfach geradeaus.",
+            "promptEn": "After that just keep going straight."
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_this_way_right_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "prefix": "우체국",
+            "suffix": " 이쪽이 맞아요?",
+            "options": [
+              "이",
+              "가",
+              "은",
+              "를"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "우체국 endet auf Konsonant ㄱ, deshalb das Subjektpartikel 이.",
+            "explanationEn": "우체국 ends in the consonant ㄱ, so the subject particle is 이."
+          }
+        }
+      ],
+      "shelf": "a1_wayfinding",
+      "backdrop": "directions"
+    },
+    {
+      "id": "a1_wayfinding_sign_says",
+      "level": "a1",
+      "emoji": "🪧",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "stranger",
+      "intent": "read_a_street_sign_together",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "저 표지판 뭐라고 써 있어요",
+        "de": "Was steht auf dem Schild",
+        "en": "What does that sign say"
+      },
+      "intro": {
+        "ko": "글씨가 작아서 안 보입니다. 옆 사람에게 읽어 달라고 부탁합니다.",
+        "de": "Die Schrift ist zu klein. Du bittest jemanden, sie vorzulesen.",
+        "en": "The lettering is too small to read. You ask someone to read it out."
+      },
+      "vocab": [
+        {
+          "korean": "표지판"
+        },
+        {
+          "korean": "글씨"
+        },
+        {
+          "korean": "읽다"
+        },
+        {
+          "korean": "공사"
+        },
+        {
+          "korean": "돌아가다"
+        },
+        {
+          "korean": "길"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_polite_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)세요",
+          "de": "V-(으)세요: höfliche Bitte",
+          "en": "V-(으)세요: polite request"
+        },
+        "explanation": {
+          "ko": "부탁하거나 안내할 때 쓴다. 읽어 주세요, 가세요처럼 쓴다.",
+          "de": "Zum Bitten und Anleiten: 읽어 주세요, 가세요.",
+          "en": "For requests and directions: 읽어 주세요, 가세요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "저기요, 저 표지판 좀 읽어 주세요.",
+          "de": "Entschuldigung, können Sie mir das Schild vorlesen?",
+          "en": "Excuse me, could you read that sign for me?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "글씨가 작죠? 잠깐만요.",
+          "de": "Die Schrift ist klein, oder? Moment.",
+          "en": "The letters are small, right? One second."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 저는 잘 안 보여요.",
+          "de": "Ja, ich kann es nicht gut lesen.",
+          "en": "Yes, I cannot see it well."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "공사 중이라고 써 있어요. 이 길은 막혔어요.",
+          "de": "Da steht Baustelle. Dieser Weg ist gesperrt.",
+          "en": "It says construction. This road is blocked."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 어디로 돌아가요?",
+          "de": "Wo geht es dann herum?",
+          "en": "So where do I go around?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "저 골목으로 돌아가세요. 조금만 더 걸어요.",
+          "de": "Gehen Sie durch die Gasse dort. Nur ein kurzes Stück mehr.",
+          "en": "Go around through that alley. Just a little farther."
+        },
+        {
+          "speaker": "user",
+          "ko": "고맙습니다. 표지판을 못 봤어요.",
+          "de": "Danke. Ich hatte das Schild nicht gesehen.",
+          "en": "Thank you. I had not seen the sign."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "저도 어제 그냥 지나갔어요.",
+          "de": "Mir ist es gestern auch entgangen.",
+          "en": "I walked right past it yesterday too."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_wayfinding_sign_says_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "audioKo": "공사 중이라고 써 있어요. 이 길은 막혔어요.",
+            "options": [
+              {
+                "de": "Es wird gebaut, der Weg ist gesperrt.",
+                "en": "There is construction and the road is blocked."
+              },
+              {
+                "de": "Der Weg ist ab morgen frei.",
+                "en": "The road opens tomorrow."
+              },
+              {
+                "de": "Auf dem Schild steht ein Name.",
+                "en": "The sign shows a name."
+              },
+              {
+                "de": "Der Weg führt zum Bahnhof.",
+                "en": "The road leads to the station."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_sign_says_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "promptDe": "Können Sie mir das Schild vorlesen?",
+            "promptEn": "Could you read that sign for me?",
+            "options": [
+              {
+                "ko": "저 표지판 좀 읽어 주세요."
+              },
+              {
+                "ko": "저 표지판 어디 있어요?"
+              },
+              {
+                "ko": "저 표지판 언제 세웠어요?"
+              },
+              {
+                "ko": "저 표지판 누가 만들었어요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_sign_says_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "sentence": "저 골목으로 ___.",
+            "options": [
+              "돌아가세요",
+              "돌아가요세요",
+              "돌아가으세요",
+              "돌아갔으세요"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_sign_says_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "targetKo": "그럼 어디로 돌아가요?",
+            "promptDe": "Frag, wo man herumgehen soll.",
+            "promptEn": "Ask where to go around.",
+            "distractors": [
+              "조금만 더 걸어요",
+              "글씨가 작죠",
+              "저는 잘 안 보여요"
+            ],
+            "audioKo": "그럼 어디로 돌아가요?"
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_sign_says_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "targetKo": "이 길은 막혔어요.",
+            "audioKo": "이 길은 막혔어요.",
+            "promptDe": "Dieser Weg ist gesperrt.",
+            "promptEn": "This road is blocked."
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_sign_says_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "prefix": "표지판",
+            "suffix": " 못 봤어요.",
+            "options": [
+              "을",
+              "를",
+              "이",
+              "에"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "표지판 endet auf Konsonant ㄴ, deshalb das Objektpartikel 을.",
+            "explanationEn": "표지판 ends in the consonant ㄴ, so the object particle is 을."
+          }
+        }
+      ],
+      "shelf": "a1_wayfinding",
+      "backdrop": "directions"
+    },
+    {
+      "id": "a1_wayfinding_how_long_walk",
+      "level": "a1",
+      "emoji": "🚶",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "traveler_and_service_staff",
+      "intent": "estimate_walking_time",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "걸어서 얼마나 걸려요",
+        "de": "Wie lange läuft man",
+        "en": "How long is it on foot"
+      },
+      "intro": {
+        "ko": "택시를 탈지 걸어갈지 정해야 합니다. 시간을 물어보고 결정합니다.",
+        "de": "Du musst entscheiden, ob du ein Taxi nimmst oder läufst. Du fragst nach der Zeit.",
+        "en": "You need to decide between a taxi and walking. You ask how long it takes."
+      },
+      "vocab": [
+        {
+          "korean": "걸어서"
+        },
+        {
+          "korean": "걸리다"
+        },
+        {
+          "korean": "분"
+        },
+        {
+          "korean": "택시"
+        },
+        {
+          "korean": "빠르다"
+        },
+        {
+          "korean": "짐"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_direction_time_particle"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N에",
+          "de": "N에: Zeitpunkt",
+          "en": "N에: point in time"
+        },
+        "explanation": {
+          "ko": "몇 시에, 몇 분에처럼 시간 뒤에 붙는다. 걸리는 시간에는 붙지 않는다.",
+          "de": "에 steht bei Zeitpunkten wie 몇 시에, nicht bei Zeitdauern.",
+          "en": "에 marks a point in time like 몇 시에, not a duration."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "여기서 시청까지 걸어서 얼마나 걸려요?",
+          "de": "Wie lange läuft man von hier bis zum Rathaus?",
+          "en": "How long is it on foot from here to city hall?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "한 이십 분이요. 짐 있으세요?",
+          "de": "Etwa zwanzig Minuten. Haben Sie Gepäck?",
+          "en": "About twenty minutes. Do you have luggage?"
+        },
+        {
+          "speaker": "user",
+          "ko": "가방 하나요. 택시가 더 빨라요?",
+          "de": "Nur eine Tasche. Ist das Taxi schneller?",
+          "en": "Just one bag. Is a taxi faster?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "지금은 길이 막혀서 비슷해요.",
+          "de": "Gerade ist Stau, das kommt aufs Gleiche raus.",
+          "en": "There is traffic now, so it is about the same."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 걸어갈게요. 세 시에 도착하면 돼요.",
+          "de": "Dann laufe ich. Ich muss um drei da sein.",
+          "en": "Then I'll walk. I just need to be there at three."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "충분해요. 지금 두 시 십 분이에요.",
+          "de": "Das reicht. Es ist jetzt zehn nach zwei.",
+          "en": "That is plenty. It is ten past two now."
+        },
+        {
+          "speaker": "user",
+          "ko": "길은 하나예요?",
+          "de": "Gibt es nur einen Weg?",
+          "en": "Is there only one route?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "큰길로만 가면 안 헤매요.",
+          "de": "Bleiben Sie auf der Hauptstraße, dann verlaufen Sie sich nicht.",
+          "en": "Stay on the main road and you will not get lost."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_wayfinding_how_long_walk_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "audioKo": "지금은 길이 막혀서 비슷해요.",
+            "options": [
+              {
+                "de": "Wegen Stau dauert beides gleich lang.",
+                "en": "With the traffic both take about the same."
+              },
+              {
+                "de": "Das Taxi ist deutlich schneller.",
+                "en": "The taxi is clearly faster."
+              },
+              {
+                "de": "Zu Fuß ist es deutlich schneller.",
+                "en": "Walking is clearly faster."
+              },
+              {
+                "de": "Die Straße ist gesperrt.",
+                "en": "The road is closed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_how_long_walk_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "promptDe": "Wie lange läuft man von hier bis zum Rathaus?",
+            "promptEn": "How long is it on foot from here to city hall?",
+            "options": [
+              {
+                "ko": "여기서 시청까지 걸어서 얼마나 걸려요?"
+              },
+              {
+                "ko": "여기서 시청까지 얼마예요?"
+              },
+              {
+                "ko": "여기서 시청이 잘 보여요?"
+              },
+              {
+                "ko": "여기서 시청에 언제 가요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_how_long_walk_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "sentence": "세 시___ 도착하면 돼요.",
+            "options": [
+              "에",
+              "에서",
+              "부터",
+              "까지"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_how_long_walk_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "targetKo": "그럼 걸어갈게요.",
+            "promptDe": "Sag, dass du zu Fuß gehst.",
+            "promptEn": "Say that you will walk.",
+            "distractors": [
+              "짐 있으세요",
+              "큰길로만 가면 안 헤매요",
+              "가방 하나요"
+            ],
+            "audioKo": "그럼 걸어갈게요."
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_how_long_walk_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "targetKo": "지금 두 시 십 분이에요.",
+            "audioKo": "지금 두 시 십 분이에요.",
+            "promptDe": "Es ist jetzt zehn nach zwei.",
+            "promptEn": "It is ten past two now."
+          }
+        },
+        {
+          "id": "quest_a1_wayfinding_how_long_walk_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_directions"
+          ],
+          "data": {
+            "prefix": "길",
+            "suffix": " 하나예요?",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "를"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "길 endet auf Konsonant ㄹ, deshalb 은. Der Weg ist hier das Thema.",
+            "explanationEn": "길 ends in the consonant ㄹ, so 은. The route is the topic here."
+          }
+        }
+      ],
+      "shelf": "a1_wayfinding",
+      "backdrop": "station"
     }
   ]
 }

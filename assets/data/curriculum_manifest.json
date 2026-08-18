@@ -972,6 +972,174 @@
       "checkpointContentIds": [
         "grammar:grammar_c2_even_assuming"
       ]
+    },
+    {
+      "id": "c1_03_media_evidence_literacy",
+      "level": "c1",
+      "order": 3,
+      "title": {
+        "ko": "대중 매체의 근거 읽기",
+        "de": "Evidenz in populären Medien lesen",
+        "en": "Reading evidence in popular media"
+      },
+      "canDo": {
+        "ko": "널리 퍼진 주장의 표본과 방법을 확인해 그 근거가 어디까지 말할 수 있는지 한정할 수 있어요.",
+        "de": "Ich kann Stichprobe und Methode einer verbreiteten Behauptung prüfen und eingrenzen, was die Evidenz trägt.",
+        "en": "I can check the sample and method behind a widespread claim and bound what its evidence supports."
+      },
+      "requiredConceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "checkpointContentIds": [
+        "grammar:grammar_c1_limited_to"
+      ]
+    },
+    {
+      "id": "c2_03_automation_redress",
+      "level": "c2",
+      "order": 3,
+      "title": {
+        "ko": "자동 처리와 구제 절차",
+        "de": "Automatische Bearbeitung und Rechtsweg",
+        "en": "Automated processing and redress"
+      },
+      "canDo": {
+        "ko": "자동 처리로 생긴 손해의 구제 경로가 형식에 그치지 않도록 조건과 기한을 요구할 수 있어요.",
+        "de": "Ich kann Bedingungen und Fristen fordern, damit der Rechtsweg bei Schäden aus automatischer Bearbeitung nicht formal bleibt.",
+        "en": "I can demand conditions and deadlines so that redress for automated errors is more than a formality."
+      },
+      "requiredConceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "checkpointContentIds": [
+        "grammar:grammar_c2_no_more_than_doing"
+      ]
+    },
+    {
+      "id": "c1_04_play_time_policy",
+      "level": "c1",
+      "order": 4,
+      "title": {
+        "ko": "이용시간 규제안 검토",
+        "de": "Regulierungsvorschläge zur Spielzeit prüfen",
+        "en": "Reviewing play-time regulation"
+      },
+      "canDo": {
+        "ko": "이용시간 자료를 근거로 규제안의 효과와 부작용을 함께 놓고 검토할 수 있어요.",
+        "de": "Ich kann anhand von Spielzeitdaten Wirkung und Nebenwirkungen eines Regulierungsvorschlags nebeneinander prüfen.",
+        "en": "I can weigh a play-time rule's effect and its side effects together, using the usage data as grounds."
+      },
+      "requiredConceptIds": [
+        "concept_c1_play_time_policy"
+      ],
+      "checkpointContentIds": [
+        "grammar:grammar_c1_not_necessarily"
+      ]
+    },
+    {
+      "id": "c2_04_sanction_accountability",
+      "level": "c2",
+      "order": 4,
+      "title": {
+        "ko": "자동 제재와 책임",
+        "de": "Automatische Sanktionen und Rechenschaft",
+        "en": "Automated sanctions and accountability"
+      },
+      "canDo": {
+        "ko": "자동 제재가 딛고 선 전제를 드러내고 이의 절차가 갖춰야 할 조건을 규정할 수 있어요.",
+        "de": "Ich kann die Prämissen automatischer Sanktionen offenlegen und festlegen, welche Bedingungen ein Einspruchsverfahren erfüllen muss.",
+        "en": "I can surface the premises an automated sanction rests on and set the conditions an appeal process has to meet."
+      },
+      "requiredConceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "checkpointContentIds": [
+        "grammar:grammar_c2_merely_on_grounds"
+      ]
+    },
+    {
+      "id": "c1_05_fan_labor_sustainability",
+      "level": "c1",
+      "order": 5,
+      "title": {
+        "ko": "팬 활동의 지속 가능한 범위",
+        "de": "Nachhaltiger Umfang von Fanarbeit",
+        "en": "A sustainable scope for fan work"
+      },
+      "canDo": {
+        "ko": "무보수로 이뤄지는 참여 노동의 양과 분담을 지속 가능한 범위로 설계할 수 있어요.",
+        "de": "Ich kann Umfang und Aufteilung unbezahlter Mitarbeit so gestalten, dass sie nachhaltig bleiben.",
+        "en": "I can design the amount and sharing of unpaid participatory work so that it stays sustainable."
+      },
+      "requiredConceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "checkpointContentIds": [
+        "grammar:grammar_c1_insufficient_for"
+      ]
+    },
+    {
+      "id": "c2_05_relationship_narratives",
+      "level": "c2",
+      "order": 5,
+      "title": {
+        "ko": "관계 서사와 관점",
+        "de": "Beziehungsnarrative und Perspektive",
+        "en": "Relationship narratives and perspective"
+      },
+      "canDo": {
+        "ko": "이야기의 짜임이 만들어 내는 관점 편향을 관계 자체와 분리해 분석할 수 있어요.",
+        "de": "Ich kann die Perspektivverzerrung, die eine Erzählweise erzeugt, von der Beziehung selbst trennen und analysieren.",
+        "en": "I can separate the perspective bias a narrative shape creates from the relationship itself and analyse it."
+      },
+      "requiredConceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "checkpointContentIds": [
+        "grammar:grammar_c2_as_if_framing"
+      ]
+    },
+    {
+      "id": "c1_06_intimacy_safety_design",
+      "level": "c1",
+      "order": 6,
+      "title": {
+        "ko": "만남의 안전 절차 설계",
+        "de": "Sicherheitsverfahren beim Kennenlernen gestalten",
+        "en": "Designing safety steps for meeting people"
+      },
+      "canDo": {
+        "ko": "안전과 표현의 자유 사이에서 신고와 차단 절차가 어디까지 가야 하는지 설계할 수 있어요.",
+        "de": "Ich kann zwischen Sicherheit und Meinungsfreiheit festlegen, wie weit Melde- und Sperrverfahren gehen sollen.",
+        "en": "I can set how far reporting and blocking steps should go between safety and freedom of expression."
+      },
+      "requiredConceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "checkpointContentIds": [
+        "grammar:grammar_c1_but_not"
+      ]
+    },
+    {
+      "id": "c2_06_fandom_discourse_power",
+      "level": "c2",
+      "order": 6,
+      "title": {
+        "ko": "팬덤 언어와 담론 권력",
+        "de": "Fandom-Sprache und Diskursmacht",
+        "en": "Fandom language and discursive power"
+      },
+      "canDo": {
+        "ko": "집단이 쓰는 말이 가진 담론 권력을 짚고 양보 구문으로 그 전제를 반박할 수 있어요.",
+        "de": "Ich kann die Diskursmacht kollektiver Sprache benennen und ihre Prämissen mit Konzessivkonstruktionen widerlegen.",
+        "en": "I can name the discursive power of a group's language and rebut its premises with concessive constructions."
+      },
+      "requiredConceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "checkpointContentIds": [
+        "grammar:grammar_c2_no_matter_how"
+      ]
     }
   ],
   "concepts": [
@@ -1709,6 +1877,126 @@
         "de": "Nachvollziehbarkeit, Einspruch, Widerruf und Verantwortlichkeit automatisierter Entscheidungen gestalten.",
         "en": "Design traceability, appeals, withdrawal rights, and accountability for automated decisions."
       }
+    },
+    {
+      "id": "concept_c1_media_evidence",
+      "level": "c1",
+      "kind": "speechStyle",
+      "title": {
+        "ko": "근거의 범위 한정",
+        "de": "Reichweite der Evidenz eingrenzen",
+        "en": "Bounding the reach of evidence"
+      },
+      "explanation": {
+        "ko": "널리 퍼진 주장일수록 표본과 방법을 먼저 확인하고, 근거가 감당하는 범위까지만 말해요.",
+        "de": "Je verbreiteter eine Behauptung, desto wichtiger sind Stichprobe und Methode. Aussagen reichen nur so weit, wie die Evidenz trägt.",
+        "en": "The more widespread a claim, the more you check sample and method first, and say only as much as the evidence carries."
+      }
+    },
+    {
+      "id": "concept_c2_automation_redress",
+      "level": "c2",
+      "kind": "situation",
+      "title": {
+        "ko": "자동 처리의 구제 조건",
+        "de": "Bedingungen des Rechtswegs bei Automatisierung",
+        "en": "Conditions for redress under automation"
+      },
+      "explanation": {
+        "ko": "자동 처리로 생긴 손해는 구제 창구가 있다는 말만으로 끝나지 않고, 조건과 기한을 물어야 실제로 열려요.",
+        "de": "Bei Schäden aus automatischer Bearbeitung reicht der Hinweis auf eine Stelle nicht. Erst Bedingungen und Fristen öffnen den Weg wirklich.",
+        "en": "For harm from automated processing, being told a desk exists is not enough. Conditions and deadlines are what actually open the way."
+      }
+    },
+    {
+      "id": "concept_c1_play_time_policy",
+      "level": "c1",
+      "kind": "situation",
+      "title": {
+        "ko": "효과와 부작용의 동시 검토",
+        "de": "Wirkung und Nebenwirkung zusammen prüfen",
+        "en": "Weighing effect and side effect together"
+      },
+      "explanation": {
+        "ko": "이용시간 규제안은 효과와 부작용을 함께 놓고, 누가 부담을 지는지까지 봐야 검토가 돼요.",
+        "de": "Vorschläge zur Spielzeitregulierung prüft man mit Wirkung und Nebenwirkung zugleich, und mit der Frage, wer die Last trägt.",
+        "en": "Reviewing play-time regulation means weighing effect and side effect together, and asking who carries the burden."
+      }
+    },
+    {
+      "id": "concept_c2_sanction_accountability",
+      "level": "c2",
+      "kind": "situation",
+      "title": {
+        "ko": "제재의 전제와 이의 조건",
+        "de": "Prämissen der Sanktion und Bedingungen des Einspruchs",
+        "en": "Premises of a sanction and conditions for appeal"
+      },
+      "explanation": {
+        "ko": "자동 제재는 전제와 오탐 가능성을 밝히고 사유를 어디까지 알려 주는지가 책임의 크기를 정해요.",
+        "de": "Bei automatischen Sanktionen bestimmen offengelegte Annahmen, mögliche Fehlalarme und die Begründungstiefe das Maß der Verantwortung.",
+        "en": "With automated sanctions, stated premises, the chance of false positives, and how far reasons are disclosed set the scale of accountability."
+      }
+    },
+    {
+      "id": "concept_c1_fan_labor",
+      "level": "c1",
+      "kind": "situation",
+      "title": {
+        "ko": "참여 노동의 지속 가능 범위",
+        "de": "Nachhaltiger Rahmen für Mitarbeit",
+        "en": "A sustainable frame for participatory work"
+      },
+      "explanation": {
+        "ko": "좋아서 하는 일도 양과 몫을 정해 두어야 오래 가고, 무상이라는 이름이 가리는 것을 봐요.",
+        "de": "Auch freiwillige Arbeit hält nur mit festgelegtem Umfang und Anteil. Dann sieht man auch, was das Etikett »unbezahlt« verdeckt.",
+        "en": "Even work done out of love lasts only with an agreed scope and share, and you look at what the label 'unpaid' hides."
+      }
+    },
+    {
+      "id": "concept_c2_relationship_narratives",
+      "level": "c2",
+      "kind": "speechStyle",
+      "title": {
+        "ko": "서사와 관계의 분리",
+        "de": "Erzählung und Beziehung trennen",
+        "en": "Separating narrative from relationship"
+      },
+      "explanation": {
+        "ko": "연애 이야기는 누구 입장에서 정리됐는지에 따라 기준이 달라지니, 서사의 시점을 드러내며 말해요.",
+        "de": "Beziehungsgeschichten setzen je nach Perspektive andere Maßstäbe. Deshalb macht man den Blickwinkel der Erzählung explizit.",
+        "en": "Relationship stories set different standards depending on whose view shaped them, so you make the narrative's vantage point explicit."
+      }
+    },
+    {
+      "id": "concept_c1_intimacy_safety",
+      "level": "c1",
+      "kind": "situation",
+      "title": {
+        "ko": "안전과 표현 사이의 절차",
+        "de": "Verfahren zwischen Sicherheit und Ausdruck",
+        "en": "Procedure between safety and expression"
+      },
+      "explanation": {
+        "ko": "만남의 안전은 개인의 조심이 아니라 신고·확인 절차가 실제로 도는지로 설계해요.",
+        "de": "Sicherheit beim Kennenlernen gestaltet man nicht über individuelle Vorsicht, sondern darüber, ob Melde- und Rückmeldewege tatsächlich funktionieren.",
+        "en": "Safety in meeting people is designed not through individual caution but through whether reporting and follow-up actually work."
+      }
+    },
+    {
+      "id": "concept_c2_fandom_discourse",
+      "level": "c2",
+      "kind": "speechStyle",
+      "title": {
+        "ko": "집단 언어의 담론 권력",
+        "de": "Diskursmacht kollektiver Sprache",
+        "en": "Discursive power of collective language"
+      },
+      "explanation": {
+        "ko": "집단이 크다고 그 표현이 기준이 되지는 않으니, 팬덤 용어가 누구를 밀어내는지 짚어 말해요.",
+        "de": "Größe macht eine Ausdrucksweise nicht zum Maßstab. Man benennt, wen die Fandom-Begriffe ausschließen.",
+        "en": "A group being large does not make its wording the standard, so you name whom the fandom's terms push out."
+      }
     }
   ],
   "surfaceForms": [
@@ -2240,7 +2528,15 @@
     "c2_appeal_path": "c2_02_technology_public_ethics",
     "c2_audit_trail": "c2_02_technology_public_ethics",
     "c2_withdrawal_right": "c2_02_technology_public_ethics",
-    "c2_automated_harm": "c2_02_technology_public_ethics"
+    "c2_automated_harm": "c2_02_technology_public_ethics",
+    "c1_media_evidence": "c1_03_media_evidence_literacy",
+    "c1_play_time_policy": "c1_04_play_time_policy",
+    "c1_fan_labor": "c1_05_fan_labor_sustainability",
+    "c1_intimacy_safety": "c1_06_intimacy_safety_design",
+    "c2_automation_redress": "c2_03_automation_redress",
+    "c2_sanction_accountability": "c2_04_sanction_accountability",
+    "c2_relationship_narratives": "c2_05_relationship_narratives",
+    "c2_fandom_discourse": "c2_06_fandom_discourse_power"
   },
   "contentLinks": [
     {
@@ -4348,6 +4644,690 @@
         "concept_c2_accountable_systems"
       ],
       "role": "assess"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_daily_recycling_day",
+      "courseUnitId": "a1_09_home_daily_life",
+      "conceptIds": [
+        "concept_a1_home_daily"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_friends_major_and_number",
+      "courseUnitId": "a1_15_first_class_work",
+      "conceptIds": [
+        "concept_a1_first_meeting"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_dating_what_to_call_you",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_youtube_shorts_last_night",
+      "courseUnitId": "a1_12_daily_negation",
+      "conceptIds": [
+        "concept_a1_negation"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_gaming_one_more_round",
+      "courseUnitId": "a1_04_order_request_object",
+      "conceptIds": [
+        "concept_request_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_kpop_my_bias",
+      "courseUnitId": "a1_02_self_intro_identity",
+      "conceptIds": [
+        "concept_identity_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_daily_late_delivery",
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_friends_weekend_slot",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_dating_slow_replies",
+      "courseUnitId": "a2_04_feelings_health",
+      "conceptIds": [
+        "concept_a2_feelings"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_youtube_send_the_link",
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_gaming_cant_connect",
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_kpop_concert_queue",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "conceptIds": [
+        "concept_action_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_daily_cut_the_bills",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_friends_he_said_that",
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_dating_anniversary_gap",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_youtube_up_all_night",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_gaming_team_voice",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_kpop_missing_goods",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_daily_upstairs_noise",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_friends_split_the_bill",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_dating_moving_in_terms",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_youtube_collab_pitch",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_gaming_ban_appeal",
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_kpop_staff_interview",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_daily_prices_vs_data",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_friends_venue_access",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_dating_app_safety",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_youtube_health_claims",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_gaming_playtime_policy",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_kpop_fan_labor",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_daily_automation_redress",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_friends_quoted_privately",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_dating_romance_frames",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_youtube_algorithm_duty",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_gaming_auto_sanction",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_kpop_fandom_language",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_numbers_open_hours",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_numbers_how_many_left",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_numbers_floor_and_room",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_numbers_total_price",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_phone_wrong_number",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_phone_call_later",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_phone_text_instead",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_phone_read_back_address",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_wayfinding_exit_number",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_wayfinding_this_way_right",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_wayfinding_sign_says",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_wayfinding_how_long_walk",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_enrolment_class_signup",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_enrolment_missing_document",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_enrolment_level_test",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_enrolment_change_class",
+      "courseUnitId": "a2_06_study_work",
+      "conceptIds": [
+        "concept_a2_work_study"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_booking_table_time",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_booking_change_date",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_booking_no_show_fee",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_booking_extra_person",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_insurance_what_is_covered",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_insurance_claim_documents",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_insurance_deductible_share",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_insurance_claim_rejected",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_incident_parking_scratch",
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_incident_lost_item_desk",
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_incident_leak_from_upstairs",
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_incident_witness_note",
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_cancellation_gym_membership",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_cancellation_auto_payment",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_cancellation_move_out_notice",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_cancellation_early_penalty",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hiring_role_scope",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hiring_salary_band",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hiring_reference_consent",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_hiring_start_date",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_privacy_data_scope",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_privacy_retention_period",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_privacy_third_party",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_privacy_delete_request",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
     }
   ],
   "grammarRuleMap": {
@@ -5586,57 +6566,57 @@
       "conceptIds": [
         "concept_c2_discourse_institutions"
       ]
+    },
+    "grammar_c1_limited_to": {
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    "grammar_c2_no_more_than_doing": {
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
+    },
+    "grammar_c1_not_necessarily": {
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ]
+    },
+    "grammar_c2_merely_on_grounds": {
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ]
+    },
+    "grammar_c1_insufficient_for": {
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ]
+    },
+    "grammar_c2_as_if_framing": {
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ]
+    },
+    "grammar_c1_but_not": {
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ]
+    },
+    "grammar_c2_no_matter_how": {
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ]
     }
   },
   "smalltalkCategoryUnitMap": {
-    "a1:transport": {
-      "courseUnitId": "a1_06_transport_directions",
-      "conceptIds": [
-        "concept_a1_directions"
-      ]
-    },
-    "a2:transport": {
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ]
-    },
-    "a1:shopping": {
-      "courseUnitId": "a1_04_order_request_object",
-      "conceptIds": [
-        "concept_request_polite"
-      ]
-    },
-    "a2:shopping": {
-      "courseUnitId": "a2_05_delivery_services",
-      "conceptIds": [
-        "concept_a2_services"
-      ]
-    },
-    "a1:phone": {
-      "courseUnitId": "a1_04_order_request_object",
-      "conceptIds": [
-        "concept_request_polite"
-      ]
-    },
-    "a2:phone": {
-      "courseUnitId": "a2_03_chat_relationships",
-      "conceptIds": [
-        "concept_a2_relationships"
-      ]
-    },
-    "a1:emergency": {
-      "courseUnitId": "a1_10_health_safety",
-      "conceptIds": [
-        "concept_a1_health_safety"
-      ]
-    },
-    "a2:emergency": {
-      "courseUnitId": "a2_07_travel_repair",
-      "conceptIds": [
-        "concept_a2_travel_repair"
-      ]
-    },
     "a1:daily": {
       "courseUnitId": "a1_12_daily_negation",
       "conceptIds": [
@@ -5647,6 +6627,12 @@
       "courseUnitId": "a1_11_titles_relationships",
       "conceptIds": [
         "concept_a1_titles_relationships"
+      ]
+    },
+    "a1:emergency": {
+      "courseUnitId": "a1_10_health_safety",
+      "conceptIds": [
+        "concept_a1_health_safety"
       ]
     },
     "a1:family": {
@@ -5715,10 +6701,34 @@
         "concept_a1_home_daily"
       ]
     },
+    "a1:partner_family": {
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ]
+    },
+    "a1:phone": {
+      "courseUnitId": "a1_04_order_request_object",
+      "conceptIds": [
+        "concept_request_polite"
+      ]
+    },
     "a1:screen": {
       "courseUnitId": "a1_08_clarify_repair",
       "conceptIds": [
         "concept_a1_clarification"
+      ]
+    },
+    "a1:shopping": {
+      "courseUnitId": "a1_04_order_request_object",
+      "conceptIds": [
+        "concept_request_polite"
+      ]
+    },
+    "a1:transport": {
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
       ]
     },
     "a1:travel": {
@@ -5755,6 +6765,12 @@
       "courseUnitId": "a2_03_chat_relationships",
       "conceptIds": [
         "concept_a2_relationships"
+      ]
+    },
+    "a2:emergency": {
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
       ]
     },
     "a2:family": {
@@ -5823,10 +6839,34 @@
         "concept_a2_relationships"
       ]
     },
+    "a2:partner_family": {
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
+    "a2:phone": {
+      "courseUnitId": "a2_03_chat_relationships",
+      "conceptIds": [
+        "concept_a2_relationships"
+      ]
+    },
     "a2:screen": {
       "courseUnitId": "a2_03_chat_relationships",
       "conceptIds": [
         "concept_a2_relationships"
+      ]
+    },
+    "a2:shopping": {
+      "courseUnitId": "a2_05_delivery_services",
+      "conceptIds": [
+        "concept_a2_services"
+      ]
+    },
+    "a2:transport": {
+      "courseUnitId": "a2_07_travel_repair",
+      "conceptIds": [
+        "concept_a2_travel_repair"
       ]
     },
     "a2:travel": {
@@ -5863,6 +6903,12 @@
       "courseUnitId": "b1_04_relationships",
       "conceptIds": [
         "concept_b1_relationships"
+      ]
+    },
+    "b1:emergency": {
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
       ]
     },
     "b1:family": {
@@ -5931,10 +6977,34 @@
         "concept_b1_reasons_experience"
       ]
     },
+    "b1:partner_family": {
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ]
+    },
+    "b1:phone": {
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
     "b1:screen": {
       "courseUnitId": "b1_02_indirect_speech",
       "conceptIds": [
         "concept_b1_indirect_speech"
+      ]
+    },
+    "b1:shopping": {
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ]
+    },
+    "b1:transport": {
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
       ]
     },
     "b1:travel": {
@@ -5971,6 +7041,12 @@
       "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
         "concept_b2_precise_requests"
+      ]
+    },
+    "b2:emergency": {
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
       ]
     },
     "b2:family": {
@@ -6039,10 +7115,34 @@
         "concept_b2_opinion"
       ]
     },
+    "b2:partner_family": {
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    "b2:phone": {
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ]
+    },
     "b2:screen": {
       "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
         "concept_b2_opinion"
+      ]
+    },
+    "b2:shopping": {
+      "courseUnitId": "b2_04_complaint_resolution",
+      "conceptIds": [
+        "concept_b2_complaint"
+      ]
+    },
+    "b2:transport": {
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
       ]
     },
     "b2:travel": {
@@ -6069,55 +7169,49 @@
         "concept_b2_formal_opening"
       ]
     },
-    "b1:transport": {
-      "courseUnitId": "b1_06_life_capstone",
-      "conceptIds": [
-        "concept_b1_life"
-      ]
-    },
-    "b1:shopping": {
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ]
-    },
-    "b1:phone": {
-      "courseUnitId": "b1_03_work_softening",
-      "conceptIds": [
-        "concept_b1_softening"
-      ]
-    },
-    "b1:emergency": {
-      "courseUnitId": "b1_05_complaint_resolution",
-      "conceptIds": [
-        "concept_b1_complaint_resolution"
-      ]
-    },
-    "b2:transport": {
-      "courseUnitId": "b2_03_precise_requests",
-      "conceptIds": [
-        "concept_b2_precise_requests"
-      ]
-    },
-    "b2:shopping": {
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ]
-    },
-    "b2:phone": {
-      "courseUnitId": "b2_01_formal_opening",
-      "conceptIds": [
-        "concept_b2_formal_opening"
-      ]
-    },
-    "b2:emergency": {
-      "courseUnitId": "b2_04_complaint_resolution",
-      "conceptIds": [
-        "concept_b2_complaint"
-      ]
-    },
     "c1:daily": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c1:dating": {
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ]
+    },
+    "c1:health": {
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    "c1:hobby": {
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ]
+    },
+    "c1:kpop": {
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ]
+    },
+    "c1:partner_family": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c1:screen": {
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    "c1:transport": {
       "courseUnitId": "c1_02_inclusive_sustainable_systems",
       "conceptIds": [
         "concept_c1_inclusive_systems"
@@ -6129,34 +7223,28 @@
         "concept_c1_evidence_reasoning"
       ]
     },
-    "c1:transport": {
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ]
-    },
-    "c1:health": {
-      "courseUnitId": "c1_01_evidence_public_reasoning",
-      "conceptIds": [
-        "concept_c1_evidence_reasoning"
-      ]
-    },
-    "c2:work_study": {
-      "courseUnitId": "c2_01_interpretation_institutions",
-      "conceptIds": [
-        "concept_c2_discourse_institutions"
-      ]
-    },
     "c2:daily": {
       "courseUnitId": "c2_02_technology_public_ethics",
       "conceptIds": [
         "concept_c2_accountable_systems"
       ]
     },
-    "c2:screen": {
-      "courseUnitId": "c2_01_interpretation_institutions",
+    "c2:dating": {
+      "courseUnitId": "c2_05_relationship_narratives",
       "conceptIds": [
-        "concept_c2_discourse_institutions"
+        "concept_c2_relationship_narratives"
+      ]
+    },
+    "c2:hobby": {
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ]
+    },
+    "c2:kpop": {
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
       ]
     },
     "c2:mood": {
@@ -6165,37 +7253,25 @@
         "concept_c2_discourse_institutions"
       ]
     },
-    "a1:partner_family": {
-      "courseUnitId": "a1_11_titles_relationships",
-      "conceptIds": [
-        "concept_a1_titles_relationships"
-      ]
-    },
-    "a2:partner_family": {
-      "courseUnitId": "a2_03_chat_relationships",
-      "conceptIds": [
-        "concept_a2_relationships"
-      ]
-    },
-    "b1:partner_family": {
-      "courseUnitId": "b1_04_relationships",
-      "conceptIds": [
-        "concept_b1_relationships"
-      ]
-    },
-    "b2:partner_family": {
-      "courseUnitId": "b2_06_advanced_capstone",
-      "conceptIds": [
-        "concept_b2_advanced"
-      ]
-    },
-    "c1:partner_family": {
-      "courseUnitId": "c1_02_inclusive_sustainable_systems",
-      "conceptIds": [
-        "concept_c1_inclusive_systems"
-      ]
-    },
     "c2:partner_family": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "c2:phone": {
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
+    },
+    "c2:screen": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "c2:work_study": {
       "courseUnitId": "c2_01_interpretation_institutions",
       "conceptIds": [
         "concept_c2_discourse_institutions"
@@ -6345,6 +7421,14 @@
     "c2:einspruchsweg": "c2_02_technology_public_ethics",
     "c2:prüfspur": "c2_02_technology_public_ethics",
     "c2:widerrufsrecht": "c2_02_technology_public_ethics",
-    "c2:automatenfolgen": "c2_02_technology_public_ethics"
+    "c2:automatenfolgen": "c2_02_technology_public_ethics",
+    "c1:medien & evidenz": "c1_03_media_evidence_literacy",
+    "c1:regulierung & nebenwirkung": "c1_04_play_time_policy",
+    "c1:fanarbeit & belastung": "c1_05_fan_labor_sustainability",
+    "c1:sicherheit & grenzen": "c1_06_intimacy_safety_design",
+    "c2:automatisierung & rechtsweg": "c2_03_automation_redress",
+    "c2:sanktion & rechenschaft": "c2_04_sanction_accountability",
+    "c2:narrativ & perspektive": "c2_05_relationship_narratives",
+    "c2:diskurs & macht": "c2_06_fandom_discourse_power"
   }
 }

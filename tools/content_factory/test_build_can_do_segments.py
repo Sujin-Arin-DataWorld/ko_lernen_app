@@ -60,6 +60,29 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
                         (reference["kind"], reference["id"]), set()
                     ).add(segment["id"])
 
+    def test_review_approvals_are_signed_against_the_live_phrases(self) -> None:
+        # 2026-08-18 진단: partner_family 문구를 humanize 한 32f311f8 이후
+        # SMALLTALK_REVIEW_APPROVALS 76건 중 64건의 phrase 지문이 smalltalk.json 과
+        # 어긋나 build_assets() 가 통째로 예외를 던졌다 — 즉 위 byte-exact 테스트가
+        # 그때부터 red 였는데, 오류 메시지가 "does not match the generated decision"
+        # 한 줄이라 원인이 문구 편집인지 라우팅 변경인지 구분되지 않았다.
+        # 이 테스트는 그 한 가지 원인만 따로 짚어 다음 사람의 진단을 짧게 만든다.
+        raw = json.loads((DATA / "smalltalk.json").read_text(encoding="utf-8"))
+        rows = {row["id"]: row for row in raw["phrases"]}
+        stale: list[str] = []
+        for phrase_id, approval in builder.SMALLTALK_REVIEW_APPROVALS.items():
+            row = rows.get(phrase_id)
+            self.assertIsNotNone(row, f"{phrase_id} has an approval but no phrase")
+            if builder._json_fingerprint(row) != approval["phraseFingerprintSha256"]:
+                stale.append(phrase_id)
+        self.assertEqual(
+            stale,
+            [],
+            "문구가 바뀌었는데 승인이 재서명되지 않았다. 라우팅·승인상태가 그대로면 "
+            "phraseFingerprintSha256 만 갱신하면 되고, 세그먼트가 바뀌었다면 사람 검수가 "
+            "다시 필요하다.",
+        )
+
     def test_generated_files_are_byte_exact_and_check_mode_passes(self) -> None:
         expected_catalog = builder._json_bytes(self.catalog)
         expected_authorities = builder._json_bytes(self.authorities)

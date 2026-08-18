@@ -294,6 +294,14 @@
       "level": "a1"
     },
     {
+      "id": "seed_scenario_a1_daily_recycling_day_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_dating_what_to_call_you_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_scenario_a1_direction_left_v1",
       "level": "a1"
     },
@@ -314,6 +322,14 @@
       "level": "a1"
     },
     {
+      "id": "seed_scenario_a1_friends_major_and_number_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_gaming_one_more_round_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_scenario_a1_gate_code_v1",
       "level": "a1"
     },
@@ -327,6 +343,10 @@
     },
     {
       "id": "seed_scenario_a1_hotel_key_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_kpop_my_bias_v1",
       "level": "a1"
     },
     {
@@ -355,6 +375,22 @@
     },
     {
       "id": "seed_scenario_a1_neighbor_box_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_numbers_floor_and_room_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_numbers_how_many_left_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_numbers_open_hours_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_numbers_total_price_v1",
       "level": "a1"
     },
     {
@@ -399,6 +435,22 @@
     },
     {
       "id": "seed_scenario_a1_pharmacy_ointment_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_phone_call_later_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_phone_read_back_address_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_phone_text_instead_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_phone_wrong_number_v1",
       "level": "a1"
     },
     {
@@ -462,6 +514,22 @@
       "level": "a1"
     },
     {
+      "id": "seed_scenario_a1_wayfinding_exit_number_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_wayfinding_how_long_walk_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_wayfinding_sign_says_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_wayfinding_this_way_right_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_scenario_a1_weather_layer_v1",
       "level": "a1"
     },
@@ -471,6 +539,10 @@
     },
     {
       "id": "seed_scenario_a1_whiteboard_word_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_youtube_shorts_last_night_v1",
       "level": "a1"
     },
     {
@@ -1518,6 +1590,22 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_booking_change_date_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_booking_extra_person_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_booking_no_show_fee_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_booking_table_time_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_booth_line_v1",
       "level": "a2"
     },
@@ -1538,7 +1626,15 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_daily_late_delivery_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_data_roam_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_dating_slow_replies_v1",
       "level": "a2"
     },
     {
@@ -1547,6 +1643,22 @@
     },
     {
       "id": "seed_scenario_a2_dye_dark_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_enrolment_change_class_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_enrolment_class_signup_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_enrolment_level_test_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_enrolment_missing_document_v1",
       "level": "a2"
     },
     {
@@ -1562,7 +1674,15 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_friends_weekend_slot_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_front_desk_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_gaming_cant_connect_v1",
       "level": "a2"
     },
     {
@@ -1591,6 +1711,10 @@
     },
     {
       "id": "seed_scenario_a2_id_pickup_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_kpop_concert_queue_v1",
       "level": "a2"
     },
     {
@@ -1699,6 +1823,10 @@
     },
     {
       "id": "seed_scenario_a2_water_set_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_youtube_send_the_link_v1",
       "level": "a2"
     },
     {
@@ -2694,6 +2822,22 @@
       "level": "b1"
     },
     {
+      "id": "seed_scenario_b1_cancellation_auto_payment_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_cancellation_early_penalty_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_cancellation_gym_membership_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_cancellation_move_out_notice_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_scenario_b1_case_status_v1",
       "level": "b1"
     },
@@ -2718,6 +2862,14 @@
       "level": "b1"
     },
     {
+      "id": "seed_scenario_b1_daily_cut_the_bills_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_dating_anniversary_gap_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_scenario_b1_deductible_v1",
       "level": "b1"
     },
@@ -2727,6 +2879,14 @@
     },
     {
       "id": "seed_scenario_b1_followup_mail_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_friends_he_said_that_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_gaming_team_voice_v1",
       "level": "b1"
     },
     {
@@ -2742,7 +2902,43 @@
       "level": "b1"
     },
     {
+      "id": "seed_scenario_b1_incident_leak_from_upstairs_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_incident_lost_item_desk_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_incident_parking_scratch_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_incident_witness_note_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_insurance_claim_documents_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_insurance_claim_rejected_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_insurance_deductible_share_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_insurance_what_is_covered_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_scenario_b1_intranet_form_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_kpop_missing_goods_v1",
       "level": "b1"
     },
     {
@@ -2867,6 +3063,10 @@
     },
     {
       "id": "seed_scenario_b1_warranty_week_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_youtube_up_all_night_v1",
       "level": "b1"
     },
     {
@@ -3874,6 +4074,14 @@
       "level": "b2"
     },
     {
+      "id": "seed_scenario_b2_daily_upstairs_noise_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_dating_moving_in_terms_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_scenario_b2_deadline_deferral_request_v1",
       "level": "b2"
     },
@@ -3894,11 +4102,39 @@
       "level": "b2"
     },
     {
+      "id": "seed_scenario_b2_friends_split_the_bill_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_gaming_ban_appeal_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_hiring_reference_consent_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_hiring_role_scope_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_hiring_salary_band_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_hiring_start_date_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_scenario_b2_hold_share_v1",
       "level": "b2"
     },
     {
       "id": "seed_scenario_b2_hotel_clause_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_kpop_staff_interview_v1",
       "level": "b2"
     },
     {
@@ -3959,6 +4195,22 @@
     },
     {
       "id": "seed_scenario_b2_pharmacy_claim_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_privacy_data_scope_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_privacy_delete_request_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_privacy_retention_period_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_privacy_third_party_v1",
       "level": "b2"
     },
     {
@@ -4027,6 +4279,10 @@
     },
     {
       "id": "seed_scenario_b2_vacate_short_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_youtube_collab_pitch_v1",
       "level": "b2"
     },
     {
@@ -5146,6 +5402,202 @@
       "level": "c1"
     },
     {
+      "id": "seed_cloze_cloze_c1_0173_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0174_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0175_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0176_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0177_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0178_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0179_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0180_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0181_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0182_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0183_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0184_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0185_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0186_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0187_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0188_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0189_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0190_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0191_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0192_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0193_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0194_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0195_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0196_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0197_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0198_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0199_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0200_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0201_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0202_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0203_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0204_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0205_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0206_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0207_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0208_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0209_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0210_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0211_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0212_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0213_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0214_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0215_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0216_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0217_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0218_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0219_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0220_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_grammar_grammar_c1_but_not_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_grammar_grammar_c1_even_if_doing_v1",
       "level": "c1"
     },
@@ -5158,7 +5610,19 @@
       "level": "c1"
     },
     {
+      "id": "seed_grammar_grammar_c1_insufficient_for_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_grammar_grammar_c1_leaning_on_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_grammar_grammar_c1_limited_to_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_grammar_grammar_c1_not_necessarily_v1",
       "level": "c1"
     },
     {
@@ -5686,11 +6150,223 @@
       "level": "c1"
     },
     {
+      "id": "seed_satz_satz_c1_0175_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0176_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0177_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0178_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0179_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0180_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0181_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0182_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0183_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0184_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0185_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0186_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0187_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0188_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0189_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0190_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0191_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0192_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0193_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0194_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0195_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0196_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0197_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0198_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0199_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0200_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0201_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0202_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0203_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0204_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0205_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0206_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0207_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0208_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0209_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0210_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0211_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0212_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0213_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0214_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0215_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0216_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0217_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0218_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0219_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0220_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0221_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0222_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_scenario_c1_access_time_v1",
       "level": "c1"
     },
     {
       "id": "seed_scenario_c1_briefing_number_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_daily_prices_vs_data_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_dating_app_safety_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_friends_venue_access_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_gaming_playtime_policy_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_kpop_fan_labor_v1",
       "level": "c1"
     },
     {
@@ -5730,6 +6406,10 @@
       "level": "c1"
     },
     {
+      "id": "seed_scenario_c1_youtube_health_claims_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_smalltalk_smalltalk_c1_0017_v1",
       "level": "c1"
     },
@@ -5762,6 +6442,38 @@
       "level": "c1"
     },
     {
+      "id": "seed_smalltalk_smalltalk_c1_0025_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0026_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0027_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0028_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0029_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0030_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0031_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0032_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_vocab_pack_c1_access_cost_1_v1",
       "level": "c1"
     },
@@ -5770,11 +6482,23 @@
       "level": "c1"
     },
     {
+      "id": "seed_vocab_pack_c1_fan_labor_1_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_vocab_pack_c1_intimacy_safety_1_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_vocab_pack_c1_local_tradeoff_1_v1",
       "level": "c1"
     },
     {
       "id": "seed_vocab_pack_c1_maintenance_burden_1_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_vocab_pack_c1_media_evidence_1_v1",
       "level": "c1"
     },
     {
@@ -5787,6 +6511,10 @@
     },
     {
       "id": "seed_vocab_pack_c1_partner_holiday_labor_1_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_vocab_pack_c1_play_time_policy_1_v1",
       "level": "c1"
     },
     {
@@ -6314,11 +7042,219 @@
       "level": "c2"
     },
     {
+      "id": "seed_cloze_cloze_c2_0173_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0174_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0175_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0176_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0177_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0178_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0179_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0180_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0181_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0182_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0183_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0184_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0185_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0186_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0187_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0188_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0189_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0190_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0191_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0192_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0193_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0194_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0195_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0196_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0197_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0198_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0199_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0200_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0201_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0202_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0203_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0204_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0205_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0206_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0207_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0208_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0209_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0210_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0211_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0212_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0213_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0214_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0215_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0216_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0217_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0218_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0219_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0220_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_grammar_grammar_c2_as_already_set_v1",
       "level": "c2"
     },
     {
+      "id": "seed_grammar_grammar_c2_as_if_framing_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_grammar_grammar_c2_defined_as_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_grammar_grammar_c2_merely_on_grounds_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_grammar_grammar_c2_no_matter_how_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_grammar_grammar_c2_no_more_than_doing_v1",
       "level": "c2"
     },
     {
@@ -6854,6 +7790,198 @@
       "level": "c2"
     },
     {
+      "id": "seed_satz_satz_c2_0175_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0176_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0177_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0178_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0179_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0180_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0181_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0182_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0183_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0184_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0185_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0186_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0187_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0188_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0189_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0190_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0191_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0192_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0193_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0194_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0195_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0196_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0197_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0198_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0199_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0200_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0201_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0202_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0203_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0204_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0205_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0206_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0207_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0208_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0209_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0210_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0211_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0212_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0213_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0214_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0215_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0216_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0217_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0218_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0219_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0220_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0221_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0222_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_scenario_c2_appeal_bot_v1",
       "level": "c2"
     },
@@ -6866,7 +7994,27 @@
       "level": "c2"
     },
     {
+      "id": "seed_scenario_c2_daily_automation_redress_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_dating_romance_frames_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_scenario_c2_discourse_premise_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_friends_quoted_privately_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_gaming_auto_sanction_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_kpop_fandom_language_v1",
       "level": "c2"
     },
     {
@@ -6895,6 +8043,10 @@
     },
     {
       "id": "seed_scenario_c2_withdraw_deep_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_youtube_algorithm_duty_v1",
       "level": "c2"
     },
     {
@@ -6930,6 +8082,38 @@
       "level": "c2"
     },
     {
+      "id": "seed_smalltalk_smalltalk_c2_0025_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0026_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0027_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0028_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0029_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0030_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0031_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0032_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_vocab_pack_c2_appeal_path_1_v1",
       "level": "c2"
     },
@@ -6943,6 +8127,14 @@
     },
     {
       "id": "seed_vocab_pack_c2_automated_harm_1_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_vocab_pack_c2_automation_redress_1_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_vocab_pack_c2_fandom_discourse_1_v1",
       "level": "c2"
     },
     {
@@ -6963,6 +8155,14 @@
     },
     {
       "id": "seed_vocab_pack_c2_partner_name_memory_1_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_vocab_pack_c2_relationship_narratives_1_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_vocab_pack_c2_sanction_accountability_1_v1",
       "level": "c2"
     },
     {
@@ -7484,6 +8684,20 @@
     },
     {
       "kind": "scenario",
+      "id": "a1_daily_recycling_day",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_daily_recycling_day_v1",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_dating_what_to_call_you",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_dating_what_to_call_you_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "scenario",
       "id": "a1_direction_left",
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_direction_left_v1",
@@ -7519,6 +8733,20 @@
     },
     {
       "kind": "scenario",
+      "id": "a1_friends_major_and_number",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_friends_major_and_number_v1",
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_gaming_one_more_round",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_gaming_one_more_round_v1",
+      "courseUnitId": "a1_04_order_request_object"
+    },
+    {
+      "kind": "scenario",
       "id": "a1_gate_code",
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_gate_code_v1",
@@ -7544,6 +8772,13 @@
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_hotel_key_v1",
       "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_kpop_my_bias",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_kpop_my_bias_v1",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "kind": "scenario",
@@ -7593,6 +8828,34 @@
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_neighbor_box_v1",
       "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_numbers_floor_and_room",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_numbers_floor_and_room_v1",
+      "courseUnitId": "a1_05_numbers_time"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_numbers_how_many_left",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_numbers_how_many_left_v1",
+      "courseUnitId": "a1_05_numbers_time"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_numbers_open_hours",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_numbers_open_hours_v1",
+      "courseUnitId": "a1_05_numbers_time"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_numbers_total_price",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_numbers_total_price_v1",
+      "courseUnitId": "a1_05_numbers_time"
     },
     {
       "kind": "scenario",
@@ -7670,6 +8933,34 @@
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_pharmacy_ointment_v1",
       "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_phone_call_later",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_phone_call_later_v1",
+      "courseUnitId": "a1_07_contact_address"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_phone_read_back_address",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_phone_read_back_address_v1",
+      "courseUnitId": "a1_07_contact_address"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_phone_text_instead",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_phone_text_instead_v1",
+      "courseUnitId": "a1_07_contact_address"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_phone_wrong_number",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_phone_wrong_number_v1",
+      "courseUnitId": "a1_07_contact_address"
     },
     {
       "kind": "scenario",
@@ -7778,6 +9069,34 @@
     },
     {
       "kind": "scenario",
+      "id": "a1_wayfinding_exit_number",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_wayfinding_exit_number_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_wayfinding_how_long_walk",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_wayfinding_how_long_walk_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_wayfinding_sign_says",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_wayfinding_sign_says_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_wayfinding_this_way_right",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_wayfinding_this_way_right_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "scenario",
       "id": "a1_weather_layer",
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_weather_layer_v1",
@@ -7796,6 +9115,13 @@
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_whiteboard_word_v1",
       "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_youtube_shorts_last_night",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_youtube_shorts_last_night_v1",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "kind": "scenario",
@@ -9626,6 +10952,34 @@
     },
     {
       "kind": "scenario",
+      "id": "a2_booking_change_date",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_booking_change_date_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_booking_extra_person",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_booking_extra_person_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_booking_no_show_fee",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_booking_no_show_fee_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_booking_table_time",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_booking_table_time_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
       "id": "a2_booth_line",
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_booth_line_v1",
@@ -9661,10 +11015,24 @@
     },
     {
       "kind": "scenario",
+      "id": "a2_daily_late_delivery",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_daily_late_delivery_v1",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "kind": "scenario",
       "id": "a2_data_roam",
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_data_roam_v1",
       "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_dating_slow_replies",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_dating_slow_replies_v1",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "kind": "scenario",
@@ -9679,6 +11047,34 @@
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_dye_dark_v1",
       "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_enrolment_change_class",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_enrolment_change_class_v1",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_enrolment_class_signup",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_enrolment_class_signup_v1",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_enrolment_level_test",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_enrolment_level_test_v1",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_enrolment_missing_document",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_enrolment_missing_document_v1",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "kind": "scenario",
@@ -9703,9 +11099,23 @@
     },
     {
       "kind": "scenario",
+      "id": "a2_friends_weekend_slot",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_friends_weekend_slot_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
       "id": "a2_front_desk",
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_front_desk_v1",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_gaming_cant_connect",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_gaming_cant_connect_v1",
       "courseUnitId": "a2_07_travel_repair"
     },
     {
@@ -9756,6 +11166,13 @@
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_id_pickup_v1",
       "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_kpop_concert_queue",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_kpop_concert_queue_v1",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "kind": "scenario",
@@ -9945,6 +11362,13 @@
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_water_set_v1",
       "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_youtube_send_the_link",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_youtube_send_the_link_v1",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "kind": "scenario",
@@ -11684,6 +13108,34 @@
     },
     {
       "kind": "scenario",
+      "id": "b1_cancellation_auto_payment",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_cancellation_auto_payment_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_cancellation_early_penalty",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_cancellation_early_penalty_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_cancellation_gym_membership",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_cancellation_gym_membership_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_cancellation_move_out_notice",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_cancellation_move_out_notice_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "scenario",
       "id": "b1_case_status",
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_case_status_v1",
@@ -11726,6 +13178,20 @@
     },
     {
       "kind": "scenario",
+      "id": "b1_daily_cut_the_bills",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_daily_cut_the_bills_v1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_dating_anniversary_gap",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_dating_anniversary_gap_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "scenario",
       "id": "b1_deductible",
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_deductible_v1",
@@ -11744,6 +13210,20 @@
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_followup_mail_v1",
       "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_friends_he_said_that",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_friends_he_said_that_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_gaming_team_voice",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_gaming_team_voice_v1",
+      "courseUnitId": "b1_03_work_softening"
     },
     {
       "kind": "scenario",
@@ -11768,9 +13248,72 @@
     },
     {
       "kind": "scenario",
+      "id": "b1_incident_leak_from_upstairs",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_incident_leak_from_upstairs_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_incident_lost_item_desk",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_incident_lost_item_desk_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_incident_parking_scratch",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_incident_parking_scratch_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_incident_witness_note",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_incident_witness_note_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_insurance_claim_documents",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_insurance_claim_documents_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_insurance_claim_rejected",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_insurance_claim_rejected_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_insurance_deductible_share",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_insurance_deductible_share_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_insurance_what_is_covered",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_insurance_what_is_covered_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
       "id": "b1_intranet_form",
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_intranet_form_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_kpop_missing_goods",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_kpop_missing_goods_v1",
       "courseUnitId": "b1_05_complaint_resolution"
     },
     {
@@ -11989,6 +13532,13 @@
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_warranty_week_v1",
       "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_youtube_up_all_night",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_youtube_up_all_night_v1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "kind": "scenario",
@@ -13749,6 +15299,20 @@
     },
     {
       "kind": "scenario",
+      "id": "b2_daily_upstairs_noise",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_daily_upstairs_noise_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_dating_moving_in_terms",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_dating_moving_in_terms_v1",
+      "courseUnitId": "b2_06_advanced_capstone"
+    },
+    {
+      "kind": "scenario",
       "id": "b2_deadline_deferral_request",
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_deadline_deferral_request_v1",
@@ -13784,6 +15348,48 @@
     },
     {
       "kind": "scenario",
+      "id": "b2_friends_split_the_bill",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_friends_split_the_bill_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_gaming_ban_appeal",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_gaming_ban_appeal_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_hiring_reference_consent",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_hiring_reference_consent_v1",
+      "courseUnitId": "b2_05_interview"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_hiring_role_scope",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_hiring_role_scope_v1",
+      "courseUnitId": "b2_05_interview"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_hiring_salary_band",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_hiring_salary_band_v1",
+      "courseUnitId": "b2_05_interview"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_hiring_start_date",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_hiring_start_date_v1",
+      "courseUnitId": "b2_05_interview"
+    },
+    {
+      "kind": "scenario",
       "id": "b2_hold_share",
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_hold_share_v1",
@@ -13795,6 +15401,13 @@
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_hotel_clause_v1",
       "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_kpop_staff_interview",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_kpop_staff_interview_v1",
+      "courseUnitId": "b2_05_interview"
     },
     {
       "kind": "scenario",
@@ -13900,6 +15513,34 @@
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_pharmacy_claim_v1",
       "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_privacy_data_scope",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_privacy_data_scope_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_privacy_delete_request",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_privacy_delete_request_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_privacy_retention_period",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_privacy_retention_period_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_privacy_third_party",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_privacy_third_party_v1",
+      "courseUnitId": "b2_03_precise_requests"
     },
     {
       "kind": "scenario",
@@ -14019,6 +15660,13 @@
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_vacate_short_v1",
       "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_youtube_collab_pitch",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_youtube_collab_pitch_v1",
+      "courseUnitId": "b2_01_formal_opening"
     },
     {
       "kind": "scenario",
@@ -16282,6 +17930,349 @@
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
+      "kind": "cloze",
+      "id": "cloze_c1_0173",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0173_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0174",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0174_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0175",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0175_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0176",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0176_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0177",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0177_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0178",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0178_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0179",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0179_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0180",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0180_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0181",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0181_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0182",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0182_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0183",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0183_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0184",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0184_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0185",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0185_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0186",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0186_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0187",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0187_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0188",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0188_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0189",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0189_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0190",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0190_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0191",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0191_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0192",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0192_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0193",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0193_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0194",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0194_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0195",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0195_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0196",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0196_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0197",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0197_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0198",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0198_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0199",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0199_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0200",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0200_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0201",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0201_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0202",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0202_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0203",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0203_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0204",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0204_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0205",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0205_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0206",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0206_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0207",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0207_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0208",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0208_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0209",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0209_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0210",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0210_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0211",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0211_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0212",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0212_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0213",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0213_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0214",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0214_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0215",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0215_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0216",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0216_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0217",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0217_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0218",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0218_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0219",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0219_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0220",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0220_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c1_but_not",
+      "level": "c1",
+      "sourceSeedId": "seed_grammar_grammar_c1_but_not_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
       "kind": "grammar",
       "id": "grammar_c1_even_at_cost",
       "level": "c1",
@@ -16318,9 +18309,23 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_c1_insufficient_for",
+      "level": "c1",
+      "sourceSeedId": "seed_grammar_grammar_c1_insufficient_for_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_c1_leaning_on",
       "level": "c1",
       "sourceSeedId": "seed_grammar_grammar_c1_leaning_on_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c1_limited_to",
+      "level": "c1",
+      "sourceSeedId": "seed_grammar_grammar_c1_limited_to_v1",
       "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
@@ -16329,6 +18334,13 @@
       "level": "c1",
       "sourceSeedId": "seed_batch05_c1_risk_communication_1_v1",
       "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c1_not_necessarily",
+      "level": "c1",
+      "sourceSeedId": "seed_grammar_grammar_c1_not_necessarily_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "kind": "grammar",
@@ -17619,6 +19631,342 @@
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
+      "kind": "satz",
+      "id": "satz_c1_0175",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0175_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0176",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0176_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0177",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0177_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0178",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0178_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0179",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0179_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0180",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0180_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0181",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0181_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0182",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0182_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0183",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0183_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0184",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0184_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0185",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0185_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0186",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0186_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0187",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0187_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0188",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0188_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0189",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0189_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0190",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0190_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0191",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0191_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0192",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0192_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0193",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0193_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0194",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0194_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0195",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0195_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0196",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0196_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0197",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0197_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0198",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0198_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0199",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0199_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0200",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0200_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0201",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0201_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0202",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0202_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0203",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0203_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0204",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0204_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0205",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0205_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0206",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0206_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0207",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0207_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0208",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0208_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0209",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0209_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0210",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0210_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0211",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0211_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0212",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0212_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0213",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0213_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0214",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0214_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0215",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0215_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0216",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0216_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0217",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0217_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0218",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0218_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0219",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0219_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0220",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0220_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0221",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0221_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0222",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0222_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
       "kind": "scenario",
       "id": "c1_access_time",
       "level": "c1",
@@ -17631,6 +19979,41 @@
       "level": "c1",
       "sourceSeedId": "seed_scenario_c1_briefing_number_v1",
       "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_daily_prices_vs_data",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_daily_prices_vs_data_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_dating_app_safety",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_dating_app_safety_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_friends_venue_access",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_friends_venue_access_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_gaming_playtime_policy",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_gaming_playtime_policy_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_kpop_fan_labor",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_kpop_fan_labor_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
       "kind": "scenario",
@@ -17693,6 +20076,13 @@
       "id": "c1_uncertainty",
       "level": "c1",
       "sourceSeedId": "seed_scenario_c1_uncertainty_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_youtube_health_claims",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_youtube_health_claims_v1",
       "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
@@ -17864,6 +20254,62 @@
       "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0025",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0025_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0026",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0026_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0027",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0027_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0028",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0028_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0029",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0029_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0030",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0030_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0031",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0031_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0032",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0032_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
       "kind": "vocabPack",
       "id": "c1_access_cost_1",
       "level": "c1",
@@ -17893,6 +20339,20 @@
     },
     {
       "kind": "vocabPack",
+      "id": "c1_fan_labor_1",
+      "level": "c1",
+      "sourceSeedId": "seed_vocab_pack_c1_fan_labor_1_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c1_intimacy_safety_1",
+      "level": "c1",
+      "sourceSeedId": "seed_vocab_pack_c1_intimacy_safety_1_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "vocabPack",
       "id": "c1_local_tradeoff_1",
       "level": "c1",
       "sourceSeedId": "seed_vocab_pack_c1_local_tradeoff_1_v1",
@@ -17904,6 +20364,13 @@
       "level": "c1",
       "sourceSeedId": "seed_vocab_pack_c1_maintenance_burden_1_v1",
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c1_media_evidence_1",
+      "level": "c1",
+      "sourceSeedId": "seed_vocab_pack_c1_media_evidence_1_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "kind": "vocabPack",
@@ -17924,6 +20391,13 @@
       "id": "c1_partner_holiday_labor_1",
       "level": "c1",
       "sourceSeedId": "seed_vocab_pack_c1_partner_holiday_labor_1_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c1_play_time_policy_1",
+      "level": "c1",
+      "sourceSeedId": "seed_vocab_pack_c1_play_time_policy_1_v1",
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
@@ -19166,10 +21640,353 @@
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
+      "kind": "cloze",
+      "id": "cloze_c2_0173",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0173_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0174",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0174_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0175",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0175_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0176",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0176_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0177",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0177_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0178",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0178_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0179",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0179_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0180",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0180_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0181",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0181_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0182",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0182_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0183",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0183_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0184",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0184_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0185",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0185_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0186",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0186_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0187",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0187_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0188",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0188_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0189",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0189_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0190",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0190_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0191",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0191_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0192",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0192_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0193",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0193_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0194",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0194_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0195",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0195_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0196",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0196_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0197",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0197_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0198",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0198_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0199",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0199_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0200",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0200_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0201",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0201_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0202",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0202_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0203",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0203_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0204",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0204_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0205",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0205_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0206",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0206_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0207",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0207_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0208",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0208_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0209",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0209_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0210",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0210_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0211",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0211_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0212",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0212_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0213",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0213_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0214",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0214_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0215",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0215_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0216",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0216_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0217",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0217_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0218",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0218_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0219",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0219_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0220",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0220_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
       "kind": "grammar",
       "id": "grammar_c2_as_already_set",
       "level": "c2",
       "sourceSeedId": "seed_grammar_grammar_c2_as_already_set_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c2_as_if_framing",
+      "level": "c2",
+      "sourceSeedId": "seed_grammar_grammar_c2_as_if_framing_v1",
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
@@ -19219,6 +22036,27 @@
       "id": "grammar_c2_likely_negative",
       "level": "c2",
       "sourceSeedId": "seed_batch05_c2_technology_ethics_1_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c2_merely_on_grounds",
+      "level": "c2",
+      "sourceSeedId": "seed_grammar_grammar_c2_merely_on_grounds_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c2_no_matter_how",
+      "level": "c2",
+      "sourceSeedId": "seed_grammar_grammar_c2_no_matter_how_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c2_no_more_than_doing",
+      "level": "c2",
+      "sourceSeedId": "seed_grammar_grammar_c2_no_more_than_doing_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
@@ -20503,6 +23341,342 @@
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
+      "kind": "satz",
+      "id": "satz_c2_0175",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0175_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0176",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0176_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0177",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0177_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0178",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0178_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0179",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0179_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0180",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0180_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0181",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0181_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0182",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0182_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0183",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0183_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0184",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0184_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0185",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0185_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0186",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0186_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0187",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0187_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0188",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0188_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0189",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0189_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0190",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0190_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0191",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0191_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0192",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0192_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0193",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0193_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0194",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0194_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0195",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0195_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0196",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0196_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0197",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0197_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0198",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0198_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0199",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0199_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0200",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0200_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0201",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0201_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0202",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0202_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0203",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0203_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0204",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0204_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0205",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0205_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0206",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0206_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0207",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0207_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0208",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0208_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0209",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0209_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0210",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0210_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0211",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0211_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0212",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0212_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0213",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0213_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0214",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0214_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0215",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0215_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0216",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0216_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0217",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0217_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0218",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0218_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0219",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0219_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0220",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0220_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0221",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0221_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0222",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0222_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
       "kind": "scenario",
       "id": "c2_appeal_bot",
       "level": "c2",
@@ -20525,10 +23699,45 @@
     },
     {
       "kind": "scenario",
+      "id": "c2_daily_automation_redress",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_daily_automation_redress_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_dating_romance_frames",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_dating_romance_frames_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
       "id": "c2_discourse_premise",
       "level": "c2",
       "sourceSeedId": "seed_scenario_c2_discourse_premise_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_friends_quoted_privately",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_friends_quoted_privately_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_gaming_auto_sanction",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_gaming_auto_sanction_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_kpop_fandom_language",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_kpop_fandom_language_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
       "kind": "scenario",
@@ -20577,6 +23786,13 @@
       "id": "c2_withdraw_deep",
       "level": "c2",
       "sourceSeedId": "seed_scenario_c2_withdraw_deep_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_youtube_algorithm_duty",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_youtube_algorithm_duty_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
@@ -20748,6 +23964,62 @@
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0025",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0025_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0026",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0026_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0027",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0027_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0028",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0028_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0029",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0029_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0030",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0030_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0031",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0031_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0032",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0032_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
       "kind": "vocabPack",
       "id": "c2_appeal_path_1",
       "level": "c2",
@@ -20774,6 +24046,20 @@
       "level": "c2",
       "sourceSeedId": "seed_vocab_pack_c2_automated_harm_1_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c2_automation_redress_1",
+      "level": "c2",
+      "sourceSeedId": "seed_vocab_pack_c2_automation_redress_1_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c2_fandom_discourse_1",
+      "level": "c2",
+      "sourceSeedId": "seed_vocab_pack_c2_fandom_discourse_1_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
       "kind": "vocabPack",
@@ -20833,6 +24119,20 @@
     },
     {
       "kind": "vocabPack",
+      "id": "c2_relationship_narratives_1",
+      "level": "c2",
+      "sourceSeedId": "seed_vocab_pack_c2_relationship_narratives_1_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c2_sanction_accountability_1",
+      "level": "c2",
+      "sourceSeedId": "seed_vocab_pack_c2_sanction_accountability_1_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "vocabPack",
       "id": "c2_technology_ethics_1",
       "level": "c2",
       "sourceSeedId": "seed_batch05_c2_technology_ethics_1_v1",
@@ -20848,12 +24148,12 @@
   ],
   "coverage": {
     "directReferenceCounts": {
-      "vocabPack": 201,
-      "grammar": 206,
-      "smalltalk": 377,
-      "scenario": 264,
-      "cloze": 566,
-      "satz": 360,
+      "vocabPack": 209,
+      "grammar": 214,
+      "smalltalk": 393,
+      "scenario": 340,
+      "cloze": 662,
+      "satz": 456,
       "project": 8
     },
     "inheritedReferenceCounts": {

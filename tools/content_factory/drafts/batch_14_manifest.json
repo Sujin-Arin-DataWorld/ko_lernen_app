@@ -1,0 +1,317 @@
+{
+ "version": 1,
+ "batch": "14",
+ "status": "review_only_draft",
+ "provenance": {
+  "scope": "Original A1 episodes for the A2-B2 expansion shelves.",
+  "rights": "original",
+  "requiresJinReview": true,
+  "promotedAt": "2026-08-18 — Jin 승인 하에 live 로 승격됐다(A1 확장 3칸 파일럿). 이 매니페스트는 생성물이라 status 는 항상 review_only_draft 로 다시 쓰인다 — 승격 여부의 정본은 shelf_assignment.ASSIGNMENT 와 SESSION_LOG 다.",
+  "originalPlan": "docs/HANDOFF_HOEREN_GRID_2026-08-17.md §3.2 (기능 확장 3칸)"
+ },
+ "artifacts": [
+  {
+   "kind": "scenario",
+   "draft": "tools/content_factory/drafts/c1_batch14_scenarios_a2_b2.json",
+   "review": "tools/content_factory/review/c1_batch14_scenarios.csv",
+   "collection": "scenarios",
+   "count": 28,
+   "levels": {
+    "a2": 8,
+    "b1": 12,
+    "b2": 8
+   }
+  }
+ ],
+ "recordCount": 28,
+ "questCount": 140,
+ "contentLinks": [
+  {
+   "contentKind": "scenario",
+   "contentId": "a2_enrolment_class_signup",
+   "courseUnitId": "a2_06_study_work",
+   "conceptIds": [
+    "concept_a2_work_study"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a2_enrolment_missing_document",
+   "courseUnitId": "a2_06_study_work",
+   "conceptIds": [
+    "concept_a2_work_study"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a2_enrolment_level_test",
+   "courseUnitId": "a2_06_study_work",
+   "conceptIds": [
+    "concept_a2_work_study"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a2_enrolment_change_class",
+   "courseUnitId": "a2_06_study_work",
+   "conceptIds": [
+    "concept_a2_work_study"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a2_booking_table_time",
+   "courseUnitId": "a2_02_plans_proposals",
+   "conceptIds": [
+    "concept_proposal_polite"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a2_booking_change_date",
+   "courseUnitId": "a2_02_plans_proposals",
+   "conceptIds": [
+    "concept_proposal_polite"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a2_booking_no_show_fee",
+   "courseUnitId": "a2_02_plans_proposals",
+   "conceptIds": [
+    "concept_proposal_polite"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "a2_booking_extra_person",
+   "courseUnitId": "a2_02_plans_proposals",
+   "conceptIds": [
+    "concept_proposal_polite"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_insurance_what_is_covered",
+   "courseUnitId": "b1_05_complaint_resolution",
+   "conceptIds": [
+    "concept_b1_complaint_resolution"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_insurance_claim_documents",
+   "courseUnitId": "b1_05_complaint_resolution",
+   "conceptIds": [
+    "concept_b1_complaint_resolution"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_insurance_deductible_share",
+   "courseUnitId": "b1_05_complaint_resolution",
+   "conceptIds": [
+    "concept_b1_complaint_resolution"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_insurance_claim_rejected",
+   "courseUnitId": "b1_05_complaint_resolution",
+   "conceptIds": [
+    "concept_b1_complaint_resolution"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_incident_parking_scratch",
+   "courseUnitId": "b1_02_indirect_speech",
+   "conceptIds": [
+    "concept_b1_indirect_speech"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_incident_lost_item_desk",
+   "courseUnitId": "b1_02_indirect_speech",
+   "conceptIds": [
+    "concept_b1_indirect_speech"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_incident_leak_from_upstairs",
+   "courseUnitId": "b1_02_indirect_speech",
+   "conceptIds": [
+    "concept_b1_indirect_speech"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_incident_witness_note",
+   "courseUnitId": "b1_02_indirect_speech",
+   "conceptIds": [
+    "concept_b1_indirect_speech"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_cancellation_gym_membership",
+   "courseUnitId": "b1_03_work_softening",
+   "conceptIds": [
+    "concept_b1_softening"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_cancellation_auto_payment",
+   "courseUnitId": "b1_03_work_softening",
+   "conceptIds": [
+    "concept_b1_softening"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_cancellation_move_out_notice",
+   "courseUnitId": "b1_03_work_softening",
+   "conceptIds": [
+    "concept_b1_softening"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b1_cancellation_early_penalty",
+   "courseUnitId": "b1_03_work_softening",
+   "conceptIds": [
+    "concept_b1_softening"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b2_hiring_role_scope",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b2_hiring_salary_band",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b2_hiring_reference_consent",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b2_hiring_start_date",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b2_privacy_data_scope",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b2_privacy_retention_period",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b2_privacy_third_party",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "role": "practice"
+  },
+  {
+   "contentKind": "scenario",
+   "contentId": "b2_privacy_delete_request",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "role": "practice"
+  }
+ ],
+ "backdrops": {
+  "a2_enrolment_class_signup": "office",
+  "a2_enrolment_missing_document": "office",
+  "a2_enrolment_level_test": "office",
+  "a2_enrolment_change_class": "office",
+  "a2_booking_table_time": "restaurant",
+  "a2_booking_change_date": "hotel",
+  "a2_booking_no_show_fee": "office",
+  "a2_booking_extra_person": "restaurant",
+  "b1_insurance_what_is_covered": "office",
+  "b1_insurance_claim_documents": "office",
+  "b1_insurance_deductible_share": "pharmacy",
+  "b1_insurance_claim_rejected": "office",
+  "b1_incident_parking_scratch": "home",
+  "b1_incident_lost_item_desk": "station",
+  "b1_incident_leak_from_upstairs": "home",
+  "b1_incident_witness_note": "convenience",
+  "b1_cancellation_gym_membership": "office",
+  "b1_cancellation_auto_payment": "home",
+  "b1_cancellation_move_out_notice": "home",
+  "b1_cancellation_early_penalty": "office",
+  "b2_hiring_role_scope": "office",
+  "b2_hiring_salary_band": "office",
+  "b2_hiring_reference_consent": "office",
+  "b2_hiring_start_date": "office",
+  "b2_privacy_data_scope": "office",
+  "b2_privacy_retention_period": "office",
+  "b2_privacy_third_party": "office",
+  "b2_privacy_delete_request": "office"
+ },
+ "nonMergeGuards": [
+  "Jin approval required before --apply",
+  "no TTS synthesis or Firebase writes",
+  "no assets/data or lib edits from this batch"
+ ]
+}

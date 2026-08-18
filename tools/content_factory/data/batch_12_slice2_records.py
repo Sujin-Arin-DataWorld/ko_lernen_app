@@ -27,7 +27,7 @@ UNITS: list[dict[str, Any]] = [
             "en": "I can weigh a play-time rule's effect and its side effects together, using the usage data as grounds.",
         },
         "requiredConceptIds": ["concept_c1_play_time_policy"],
-        "checkpointContentIds": ["c1_gaming_playtime_policy"],
+        "checkpointContentIds": ["grammar:grammar_c1_not_necessarily"],
     },
     {
         "id": "c2_04_sanction_accountability",
@@ -44,7 +44,7 @@ UNITS: list[dict[str, Any]] = [
             "en": "I can surface the premises an automated sanction rests on and set the conditions an appeal process has to meet.",
         },
         "requiredConceptIds": ["concept_c2_sanction_accountability"],
-        "checkpointContentIds": ["c2_gaming_auto_sanction"],
+        "checkpointContentIds": ["grammar:grammar_c2_merely_on_grounds"],
     },
 ]
 
@@ -52,19 +52,31 @@ CONCEPTS: list[dict[str, Any]] = [
     {
         "id": "concept_c1_play_time_policy",
         "level": "c1",
+        "kind": "situation",
         "title": {
             "ko": "효과와 부작용의 동시 검토",
             "de": "Wirkung und Nebenwirkung zusammen prüfen",
             "en": "Weighing effect and side effect together",
         },
+        "explanation": {
+            "ko": "이용시간 규제안은 효과와 부작용을 함께 놓고, 누가 부담을 지는지까지 봐야 검토가 돼요.",
+            "de": "Vorschläge zur Spielzeitregulierung prüft man mit Wirkung und Nebenwirkung zugleich, und mit der Frage, wer die Last trägt.",
+            "en": "Reviewing play-time regulation means weighing effect and side effect together, and asking who carries the burden.",
+        },
     },
     {
         "id": "concept_c2_sanction_accountability",
         "level": "c2",
+        "kind": "situation",
         "title": {
             "ko": "제재의 전제와 이의 조건",
             "de": "Prämissen der Sanktion und Bedingungen des Einspruchs",
             "en": "Premises of a sanction and conditions for appeal",
+        },
+        "explanation": {
+            "ko": "자동 제재는 전제와 오탐 가능성을 밝히고 사유를 어디까지 알려 주는지가 책임의 크기를 정해요.",
+            "de": "Bei automatischen Sanktionen bestimmen offengelegte Annahmen, mögliche Fehlalarme und die Begründungstiefe das Maß der Verantwortung.",
+            "en": "With automated sanctions, stated premises, the chance of false positives, and how far reasons are disclosed set the scale of accountability.",
         },
     },
 ]

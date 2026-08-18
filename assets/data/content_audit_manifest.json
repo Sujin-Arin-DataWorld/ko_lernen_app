@@ -4,43 +4,43 @@
   "sources": [
     {
       "kind": "vocab",
-      "count": 2196,
+      "count": 2292,
       "source": "korean_vocab.csv",
       "requiresExplicitId": true
     },
     {
       "kind": "grammar",
-      "count": 206,
+      "count": 214,
       "source": "grammar.csv",
       "requiresExplicitId": true
     },
     {
       "kind": "scenario",
-      "count": 264,
+      "count": 340,
       "source": "scenarios",
       "requiresExplicitId": true
     },
     {
       "kind": "scenarioQuest",
-      "count": 971,
+      "count": 1369,
       "source": "scenarios",
       "requiresExplicitId": false
     },
     {
       "kind": "smalltalk",
-      "count": 377,
+      "count": 393,
       "source": "smalltalk.json",
       "requiresExplicitId": true
     },
     {
       "kind": "cloze",
-      "count": 1538,
+      "count": 1634,
       "source": "cloze.json",
       "requiresExplicitId": true
     },
     {
       "kind": "satz",
-      "count": 2091,
+      "count": 2187,
       "source": "satz_sentences.json",
       "requiresExplicitId": true
     },
@@ -70,14 +70,14 @@
     }
   ],
   "graph": {
-    "courseUnits": 40,
+    "courseUnits": 48,
     "courseUnitsByLevel": {
       "a1": 16,
       "a2": 8,
       "b1": 6,
       "b2": 6,
-      "c1": 2,
-      "c2": 2
+      "c1": 6,
+      "c2": 6
     },
     "formFamilies": 4,
     "checkpointThreshold": 0.7,

@@ -3278,6 +3278,15 @@ class AppL10nDe extends AppL10n {
   String get listeningShelfC2Representation => 'Wer spricht für wen';
 
   @override
+  String get listeningShelfSocialFriends => 'Freunde & Zocken';
+
+  @override
+  String get listeningShelfSocialDating => 'Dating & Beziehung';
+
+  @override
+  String get listeningShelfSocialFandom => 'Fandom & Videos';
+
+  @override
   String get kkeunmariTitle => 'Wortkette';
 
   @override
