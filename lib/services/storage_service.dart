@@ -1067,6 +1067,34 @@ class Storage {
     await _sl('kl_owned_decor', [...list, slug]);
   }
 
+  /// 장식 slug → 획득 시각(ISO 8601). `reward_unused` 계측(며칠째 미배치인지)
+  /// 전용 — 소유권 자체의 정본은 여전히 [ownedDecor]다. 클레임 시점에 기록만
+  /// 하고 이후 절대 덮어쓰지 않는다(첫 획득 시각이 정답).
+  static Map<String, String> get decorEarnedAt {
+    final raw = _s('kl_decor_earned_at');
+    if (raw.isEmpty) return const <String, String>{};
+    try {
+      final decoded = jsonDecode(raw);
+      if (decoded is! Map) return const <String, String>{};
+      return decoded.map(
+        (key, value) => MapEntry(key.toString(), value.toString()),
+      );
+    } on Object {
+      return const <String, String>{};
+    }
+  }
+
+  static Future<void> recordDecorEarnedAt(String slug, String isoDate) async {
+    final current = decorEarnedAt;
+    if (current.containsKey(slug)) return;
+    await _ss('kl_decor_earned_at', jsonEncode({...current, slug: isoDate}));
+  }
+
+  /// `reward_unused`를 하루 한 번만 보내기 위한 dedup 플래그(로컬 날짜, YYYY-MM-DD).
+  static String get rewardUnusedLoggedDate => _s('kl_reward_unused_logged_date');
+  static Future<void> setRewardUnusedLoggedDate(String isoDate) =>
+      _ss('kl_reward_unused_logged_date', isoDate);
+
   static const String _roomPlacementKey = 'kl_room_placement';
   static const String _roomPlacementsV2Key = 'kl_room_placements_v2';
   static const String _roomLayoutsV3Key = 'kl_room_layouts_v3';

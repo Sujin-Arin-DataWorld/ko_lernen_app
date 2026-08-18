@@ -24,6 +24,7 @@
 | 동의 UX | ✅ | 첫 실행 `consent_screen`은 환영+ToS/개인정보 링크만(추적 요청 없음). Analytics·Crash 동의는 **첫 성공(첫 팩 결과) 직후 `ConsentInviteSheet`**: 동등한 두 버튼(Ja/Nicht jetzt)+개별설정 링크, 1회만(nagging 금지), <16 자동 제외. 설정에서 철회 |
 | Analytics 서비스 | ✅ | `lib/services/analytics_service.dart` — 동의+미성년 게이트 no-op 래퍼(주입식·테스트가능), `screen_view` 옵저버, 타입드 이벤트, `setUserProperty`·`syncUserProperties()` |
 | 배선된 이벤트 | ✅ | **타입드 16종 전량 배선 완료 (2026-08-13, 레거시 셸)**: 기존 `screen_view`·`pack_completed`·`onboarding_level_selected`·`book_capture_analyzed`·`custom_pack_created`·`gye_created/joined` + `quiz_completed`·`game_started/completed`·`lesson_started/completed`·`onboarding_start/completed`·`placement_completed`·`tts_played`·`wordbook_add`·`streak_extended/milestone`·`daily_goal_met`·`feature_used`·`paywall_viewed`·`subscribe_started` |
+| 드롭오프 퍼널 이벤트 6종 | ✅ | **2026-08-18 추가 배선** — 온보딩 스텝, 중도포기, 실패사유, 한옥 꾸미기 루프. §2 "드롭오프 퍼널" 절 참조 |
 | user property (startup 동기화) | ✅ | `learner_level`, `ui_language`, `notif_opt_in`, `streak_bucket` — `main.dart`에서 `Analytics.syncUserProperties()` |
 | Consent Mode v2 | ⬜ 불필요 | 광고 없는 분석-전용 앱엔 hard gate가 더 깔끔. **광고(AdMob) 도입 시** 추가 |
 
@@ -55,6 +56,28 @@
 
 ### GA4 하드 리밋 (지킬 것)
 이벤트명 ≤40자·문자시작 · param ≤25/event · param값 ≤100자 · 이벤트명 ≤500종 · user property ≤25 · 커스텀 디멘전 50 event/25 user. 예약접두사 `firebase_`·`google_`·`ga_` 금지. 고카디널리티 param(원시 id·타임스탬프 체인)은 "(other)"로 뭉개짐 → BigQuery로 우회.
+
+### 드롭오프 퍼널 6종 (2026-08-18 추가)
+
+기존 16종(`onboarding_start/completed`, `lesson/game/quiz_*`)과 겹치는 이름은 새로
+만들지 않았다 — 대신 그 위에 세분화 레이어만 얹었다. 전부 `Analytics.xxx()`로
+존재하며 이미 실제 화면에 배선 완료.
+
+| 이벤트 | 파라미터 | 배선 위치 |
+|---|---|---|
+| `tutorial_step` | `step_number`, `step_name` | 온보딩 실사용 경로 5곳의 `initState`: `onboarding_start_screen`(1·동기선택) → `scenario_player_screen`(2·mode=onboardingFirstScene일 때만) 또는 `onboarding_level_screen`(2·배치 분기) → `onboarding_start_screen`의 첫 성공 콜백(3) → `character_selection_screen`(4). `onboarding_preview_screen`/`quick_onboarding_screen`은 splash 라우팅상 도달 불가라 제외 |
+| `quest_abandon` | `quest_type`, `quest_id?`, `last_step_reached` | 신규 `lib/services/quest_abandon_tracker.dart` — 완료 이벤트 없이 화면이 dispose되면 발화. hangul·grammar·listening·scenario_player·chosung_quiz·kkeunmari·custom_pack_matching/typing·vocab_pack 9개 화면에 배선 |
+| `quest_fail` | `quest_type`, `fail_reason` | `fail_reason`을 구분 가능한 두 곳만: `vocab_pack_screen`(`accuracy_below_threshold`), `kkeunmari_screen`(`timeout`). 나머지 게임은 억지 사유를 만들지 않음 |
+| `hanok_build_start` | `room_type` | `personal_room_furnish_screen`(sarangbang/anbang/daecheongmaru), `hanok_world_screen`(madang) |
+| `item_placed` | `item_type`, `item_id` | `RoomLayoutService.addItem()` — 신규 배치(`RoomLayoutWriteResult.added`)에서만, 재선택/이동은 제외 |
+| `reward_unused` | `reward_type`, `days_since_earned`(0-2/3-6/7-13/14-29/30plus) | `DecorationRewardService.maybeLogRewardUnused()` — 소유했지만 어느 방에도 미배치된 장식을 획득일 기준 버킷팅. 하루 1회만(`kl_reward_unused_logged_date`), 아이템당이 아니라 버킷당 1회 발화. 획득 시각은 신규 `Storage.decorEarnedAt`(claim 시점 1회 기록, 이후 덮어쓰지 않음)에서 옴 |
+
+**알려진 한계**: 분석 동의는 온보딩 완료 후(`ConsentInviteSheet`)에야 물으므로,
+`tutorial_step`을 포함한 온보딩 전체 이벤트는 대부분의 신규 유저에게 실제로는
+전송되지 않는다(동의가 아직 없어서). 이건 새로 생긴 문제가 아니라 기존
+`onboarding_start`/`onboarding_completed`도 마찬가지였던 기존 트레이드오프다 —
+동의를 앞당기면 §7의 전환율 진단이 다시 깨진다. GA4에서 온보딩 퍼널 이탈은
+"재설치 후 이미 동의한 유저"·"동의 후 재차 온보딩을 보는 유저" 표본으로만 관측된다.
 
 ## 3. 콘솔/스토어 설정 (Jin — 코드 아님)
 

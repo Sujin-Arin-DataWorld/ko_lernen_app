@@ -9,6 +9,7 @@ import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
 import '../services/analytics_service.dart';
+import '../services/quest_abandon_tracker.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -59,6 +60,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   // ── 코치마크 타겟 ──
   final GlobalKey _boardKey = GlobalKey();
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  late final QuestAbandonTracker _abandonTracker;
 
   @override
   String get coachId => 'cpMatching';
@@ -83,6 +85,11 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   void initState() {
     super.initState();
     Analytics.gameStarted(gameType: 'matching');
+    _abandonTracker = QuestAbandonTracker(
+      questType: 'matching',
+      questId: widget.packId,
+      lastStepReached: () => 'matched_${_matched.length}',
+    );
     final loaded = CustomPackService.getById(widget.packId);
     final pack = loaded == null || widget.words == null
         ? loaded
@@ -186,6 +193,13 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       result: 'win',
       score: _round.length,
     );
+    _abandonTracker.markCompleted();
+  }
+
+  @override
+  void dispose() {
+    _abandonTracker.dispose();
+    super.dispose();
   }
 
   bool get _roundDone => _round.isNotEmpty && _matched.length >= _round.length;

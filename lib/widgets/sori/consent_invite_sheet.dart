@@ -5,6 +5,7 @@ import '../../services/age_gate_service.dart';
 import '../../services/privacy_consent_service.dart';
 import '../../services/storage_service.dart';
 import 'button.dart';
+import 'mascot.dart';
 import 'tokens.dart';
 
 /// **Nachgelagerte Analytics/Crash-Einwilligung** — kontextbezogen nach dem
@@ -130,15 +131,27 @@ class _ConsentInviteBodyState extends State<_ConsentInviteBody> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              t.consentInviteTitle,
-              style: TextStyle(
-                fontFamily: 'Pretendard',
-                fontSize: 20,
-                fontWeight: FontWeight.w900,
-                color: s.text,
-                height: 1.25,
-              ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Mascot.tiger(size: 40),
+                const SizedBox(width: Spacing.sm),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 4),
+                    child: Text(
+                      t.consentInviteTitle,
+                      style: TextStyle(
+                        fontFamily: 'Pretendard',
+                        fontSize: 20,
+                        fontWeight: FontWeight.w900,
+                        color: s.text,
+                        height: 1.25,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
             const SizedBox(height: Spacing.sm),
             Text(

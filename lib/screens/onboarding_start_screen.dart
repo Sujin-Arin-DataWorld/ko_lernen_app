@@ -82,6 +82,7 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
     Analytics.onboardingStarted(
       entryPoint: Storage.sessionCount == 0 ? 'fresh_install' : 'reinstall',
     );
+    Analytics.tutorialStep(stepNumber: 1, stepName: 'motivation_choice');
   }
 
   Future<void> _continue() async {
@@ -147,6 +148,7 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
               }
               final t = AppL10n.of(navigator.context);
               final success = summary.firstSuccess;
+              Analytics.tutorialStep(stepNumber: 3, stepName: 'first_success');
               unawaited(
                 navigator.pushReplacement<void, void>(
                   SoriTransitions.fadeScale<void>(

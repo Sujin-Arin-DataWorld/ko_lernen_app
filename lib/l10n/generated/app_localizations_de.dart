@@ -4272,11 +4272,11 @@ class AppL10nDe extends AppL10n {
       'Beides ist freiwillig und jederzeit in den Einstellungen änderbar.';
 
   @override
-  String get consentInviteTitle => 'Hilf mit, Hangul Sori besser zu machen';
+  String get consentInviteTitle => 'Zeig mir, wo\'s hakt';
 
   @override
   String get consentInviteBody =>
-      'Wir sehen nie, was du lernst. Anonyme Statistik zeigt uns nur, wo Lernende hängen bleiben, damit wir genau da nachbessern. Kein Name, keine E-Mail, keine Lerninhalte.';
+      'Ich sehe nie, was du lernst. Anonyme Zahlen zeigen mir nur, wo viele Lernende an derselben Stelle hängen bleiben, und genau dort bessere ich nach. Dein Name, deine E-Mail und deine Lerninhalte bleiben auf deinem Handy.';
 
   @override
   String get consentInviteYes => 'Alles erlauben';

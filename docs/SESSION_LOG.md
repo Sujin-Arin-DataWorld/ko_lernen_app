@@ -1,5 +1,55 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude, macOS) — GA4 드롭오프 퍼널 계측 6종 + 동의 초대 문구 재작성
+
+**무엇.** Jin이 GA4 이벤트 설계(온보딩·퀘스트·한옥 꾸미기 3단 퍼널)를 요청했고, 조사 결과
+상당수가 이미 배선돼 있어(`onboarding_start/completed`, `lesson/game/quiz_*`) 겹치는 이름은
+새로 만들지 않고 그 위에 진짜 빈 부분 6개만 얹었다: `tutorial_step`(온보딩 화면별 세분화),
+`quest_abandon`(중도 포기 — Jin이 가장 중요하다고 짚은 신호), `quest_fail`(사유가 구분 가능한
+곳만), `hanok_build_start`·`item_placed`·`reward_unused`(한옥 꾸미기 루프, 전무했음). 추가로
+동의 초대 시트(`ConsentInviteSheet`) 문구를 humanizer로 재작성 — 태고(호랑이 마스코트) 목소리로
+"우리가 받는 것"이 아니라 "학습자가 얻는 것"을 말하도록.
+
+**왜.** `docs/ANALYTICS_PRIVACY_PLAN.md` §6/§7의 미완료 항목("문구 humanizer 최종 통과",
+"바꿀 것 3: 마스코트 보이스 미반영")과 정확히 겹치는 작업이라 그 문서의 남은 구현으로 흡수했다.
+Jin의 원 질문("데이터 획득을 어떻게 자연스럽게, 부정적 감정 없이 받아낼지")은 이미 §7에서
+법적·UX 진단이 끝난 상태였고, 남은 건 문구 톤과 마스코트 보이스뿐이었다.
+
+**어떻게.**
+- `lib/services/analytics_service.dart`: 6개 타입드 메서드 추가.
+- `lib/services/quest_abandon_tracker.dart`(신규): 완료 이벤트 없이 화면이 dispose되면
+  `quest_abandon` 발화. 9개 화면(hangul·grammar·listening·scenario_player·chosung_quiz·
+  kkeunmari·custom_pack_matching/typing·vocab_pack)에 배선.
+- 온보딩 실사용 경로 5곳(`onboarding_start_screen`·`scenario_player_screen`·
+  `onboarding_level_screen`·`character_selection_screen`)에 `tutorial_step` 배선 — splash
+  라우팅상 도달 불가인 `onboarding_preview_screen`/`quick_onboarding_screen`은 제외.
+- `quest_fail`: `vocab_pack_screen`(accuracy_below_threshold)·`kkeunmari_screen`(timeout) 둘만.
+- `hanok_build_start`: `personal_room_furnish_screen`·`hanok_world_screen`.
+- `item_placed`: `RoomLayoutService.addItem()`의 신규 배치(`added`) 결과에서만.
+- `reward_unused`: `Storage`에 `decorEarnedAt`(claim 시점 1회 기록, 덮어쓰지 않음) 신규 추가,
+  `DecorationRewardService.maybeLogRewardUnused()`가 소유·미배치 장식을 획득일 버킷으로
+  묶어 하루 1회만 발화(버킷당 1회, 아이템당 아님).
+- 동의 문구: `consentInviteTitle`/`Body`(DE/EN)를 humanizer 스킬로 재작성, 태고 아이콘을
+  시트에 추가.
+- `docs/ANALYTICS_PRIVACY_PLAN.md` §2에 "드롭오프 퍼널 6종" 절 추가(파라미터·배선 위치·
+  알려진 한계 표).
+
+**검증.** `flutter analyze` 클린(기존 무관 info 1건 제외). 신규 `test/quest_abandon_tracker_test.dart`
+(4)·`test/reward_unused_buckets_test.dart`(6) 전부 통과. 회귀: `vocab_pack_test.dart`·
+`onboarding_start_screen_test.dart`·`character_selection_screen_test.dart`·
+`personal_room_furnish_screen_test.dart`·`hanok_world_screen_test.dart`·`room_layout_service_test.dart`·
+`analytics_service_test.dart`·`decoration_reward_service_test.dart`·`grammar_choice_quiz_screen_test.dart`·
+`hangul_interaction_regression_test.dart`·`hangul_write_gate_test.dart` 전부 통과. 커밋 전(Jin 요청 대기).
+
+**알려진 한계.** 분석 동의가 온보딩 완료 후에야 뜨므로(`ConsentInviteSheet`), `tutorial_step`을
+포함한 온보딩 이벤트는 대부분의 신규 유저에게 실제로는 전송되지 않는다 — 기존
+`onboarding_start`도 마찬가지였던 트레이드오프이며, 동의를 앞당기면 §7의 전환율 진단이 깨진다.
+
+**다음.** GA4 콘솔에서 커스텀 디멘전 등록(§2 "GA4 하드 리밋" 목록에 `quest_type`·`item_type`·
+`reward_type` 추가), DebugView로 6종 실기기 확인은 Jin 게이트.
+
+---
+
 ### 2026-08-18 (Claude, macOS) — B1/B2 건물 단계 선행: 모델 입력 allowlist 확장 (PR5a′, 0크레딧)
 
 **무엇.** `docs/assets/HANOK_V1_ASSET_PROVENANCE.json`의 `allowedModelInputs`를 3건(대지·사랑채·QA

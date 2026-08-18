@@ -11,6 +11,7 @@ import '../models/curriculum.dart';
 import '../models/vocab.dart';
 import '../models/vocab_pack.dart';
 import '../services/analytics_service.dart';
+import '../services/quest_abandon_tracker.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
@@ -203,9 +204,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   // §P2-5 플립 게이트 힌트 칩 트리거 — 저항 드래그/판정 버튼 탭당 1펄스.
   final ValueNotifier<int> _flipHintTrigger = ValueNotifier<int>(0);
   late bool _featureCoachComplete;
+  late final QuestAbandonTracker _abandonTracker;
 
   @override
   void dispose() {
+    _abandonTracker.dispose();
     _flipHintTrigger.dispose();
     super.dispose();
   }
@@ -214,6 +217,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   void initState() {
     super.initState();
     _featureCoachComplete = Storage.tutVocabPackSeen;
+    _abandonTracker = QuestAbandonTracker(
+      questType: 'vocab_pack',
+      questId: widget.packId,
+      lastStepReached: () => '${_stage.name}_$_qIdx',
+    );
     _load();
     // 첫 진입 시 3단계 코치마크 1회 표시.
     WidgetsBinding.instance.addPostFrameCallback((_) async {
@@ -724,12 +732,20 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       accuracyPct: bossPct,
       firstClear: result.justCleared,
     );
+    final bossPassed = bossAccuracy >= PackProgressService.bossClearThreshold;
     await Analytics.quizCompleted(
       quizType: 'vocab_boss',
       accuracyPct: bossPct,
       level: pack.level,
-      pass: bossAccuracy >= PackProgressService.bossClearThreshold,
+      pass: bossPassed,
     );
+    _abandonTracker.markCompleted();
+    if (!bossPassed) {
+      Analytics.questFailed(
+        questType: 'vocab_boss',
+        failReason: 'accuracy_below_threshold',
+      );
+    }
     final missionContext = _missionStep == null ? null : widget.courseContext;
     if (missionContext != null) {
       final totalAnswers = _quizQuestions.length + bossTotal;

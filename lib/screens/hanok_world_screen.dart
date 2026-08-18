@@ -7,6 +7,7 @@ import '../data/personal_hanok_venue_catalog.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/hanok_build_narrative.dart';
 import '../models/personal_hanok.dart';
+import '../services/analytics_service.dart';
 import '../services/hanok_build_narrative_service.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/hanok_structure_projection_service.dart';
@@ -106,6 +107,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
     super.initState();
     final preview = widget.preview;
     if (preview == null) {
+      Analytics.hanokBuildStarted(roomType: 'madang');
       _load();
       return;
     }

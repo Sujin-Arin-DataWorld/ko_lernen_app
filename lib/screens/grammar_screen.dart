@@ -13,6 +13,7 @@ import '../services/course_activity_reporter.dart';
 import '../services/course_checkpoint_questions.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/analytics_service.dart';
+import '../services/quest_abandon_tracker.dart';
 import '../services/data_loader.dart';
 import '../services/tts_service.dart';
 import '../services/storage_service.dart';
@@ -78,6 +79,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   final Map<String, String> _submittedAnswers = <String, String>{};
   final Set<String> _sessionSeen = <String>{};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  late final QuestAbandonTracker _abandonTracker;
 
   bool get _isCoursePractice => widget.courseContext != null;
 
@@ -122,6 +124,16 @@ class _GrammarScreenState extends State<GrammarScreen>
     _load();
     scheduleCoach();
     Analytics.lessonStarted(lessonType: 'grammar');
+    _abandonTracker = QuestAbandonTracker(
+      questType: 'grammar',
+      lastStepReached: () => 'card_$_idx',
+    );
+  }
+
+  @override
+  void dispose() {
+    _abandonTracker.dispose();
+    super.dispose();
   }
 
   Future<void> _load() async {

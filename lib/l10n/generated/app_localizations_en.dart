@@ -4255,11 +4255,11 @@ class AppL10nEn extends AppL10n {
       'Both are optional and can be changed anytime in Settings.';
 
   @override
-  String get consentInviteTitle => 'Help make Hangul Sori better';
+  String get consentInviteTitle => 'Show me where you get stuck';
 
   @override
   String get consentInviteBody =>
-      'We never see what you learn. Anonymous stats only show us where learners get stuck, so we can fix exactly that. No name, no email, no learning content.';
+      'I never see what you\'re learning. Anonymous numbers just show me where a lot of learners get stuck at the same spot, and that\'s exactly where I fix things. Your name, email, and learning content stay on your phone.';
 
   @override
   String get consentInviteYes => 'Allow all';

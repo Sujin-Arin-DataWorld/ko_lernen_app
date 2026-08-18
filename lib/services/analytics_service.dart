@@ -454,6 +454,92 @@ class Analytics {
       },
     );
   }
+
+  // ── Drop-off funnel (onboarding step / abandon / hanok loop) ────────────
+  /// A single onboarding screen was reached. Complements `onboarding_start`/
+  /// `onboarding_completed` with per-screen granularity so drop-off between
+  /// specific steps is visible, not just top-of-funnel vs completion.
+  static Future<void> tutorialStep({
+    required int stepNumber,
+    required String stepName,
+  }) {
+    return logEvent(
+      'tutorial_step',
+      parameters: {'step_number': stepNumber, 'step_name': stepName},
+    );
+  }
+
+  /// A lesson/quiz/game screen was left before it produced a completion
+  /// event. [lastStepReached] is a bounded in-screen marker (question index,
+  /// stage name, …), never free text. See [QuestAbandonTracker] — this is
+  /// the more actionable drop-off signal vs [questFailed]: a user just
+  /// closing the screen mid-way (no error, no wrong answer) usually means
+  /// the screen itself lost them, not the content's difficulty.
+  static Future<void> questAbandoned({
+    required String questType,
+    String? questId,
+    required String lastStepReached,
+  }) {
+    return logEvent(
+      'quest_abandon',
+      parameters: {
+        'quest_type': questType,
+        if (questId != null) 'quest_id': questId,
+        'last_step_reached': lastStepReached,
+      },
+    );
+  }
+
+  /// A lesson/quiz/game ended in failure with a distinguishable cause.
+  /// [failReason] is a low-cardinality enum (`accuracy_below_threshold`,
+  /// `timeout`, …) — this is content-difficulty signal, complementary to
+  /// [questAbandoned].
+  static Future<void> questFailed({
+    required String questType,
+    required String failReason,
+  }) {
+    return logEvent(
+      'quest_fail',
+      parameters: {'quest_type': questType, 'fail_reason': failReason},
+    );
+  }
+
+  /// The learner opened a decorating/building surface (사랑방/마당).
+  /// [roomType]: sarangbang/madang.
+  static Future<void> hanokBuildStarted({required String roomType}) {
+    return logEvent('hanok_build_start', parameters: {'room_type': roomType});
+  }
+
+  /// A decoration/sticker/stamp was newly placed into a room layout (not a
+  /// move or re-selection of an existing placement). [itemType]: the
+  /// [RoomAssetKind] name (decoration/sticker/stamp). [itemId] is a bounded
+  /// catalog slug, never user text.
+  static Future<void> itemPlaced({
+    required String itemType,
+    required String itemId,
+  }) {
+    return logEvent(
+      'item_placed',
+      parameters: {'item_type': itemType, 'item_id': itemId},
+    );
+  }
+
+  /// Owned decorations that are still unplaced after a while. Logged at most
+  /// once per calendar day, one call per non-empty age bucket present (never
+  /// per item, to keep volume low). [daysSinceEarnedBucket]: 0-2/3-6/7-13/
+  /// 14-29/30plus.
+  static Future<void> rewardUnused({
+    required String rewardType,
+    required String daysSinceEarnedBucket,
+  }) {
+    return logEvent(
+      'reward_unused',
+      parameters: {
+        'reward_type': rewardType,
+        'days_since_earned': daysSinceEarnedBucket,
+      },
+    );
+  }
 }
 
 /// Registers named routes as `screen_view` events. Deliberately routes through

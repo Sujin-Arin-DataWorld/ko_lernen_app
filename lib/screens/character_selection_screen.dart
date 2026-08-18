@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
+import '../services/analytics_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/character_clip.dart';
@@ -83,6 +84,14 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   // 시그니처 클립**(디코더 1개·일회성·핸드오프 0)으로만 남긴다 — 구
   // choose→greet 2단 체인은 이 기기에서 텍스처 교대 시 흰 프레임 번쩍 +
   // 완료 미보고 시 멈춤을 유발해 하나로 축약했다(2026-08-05 Jin 실기기).
+
+  @override
+  void initState() {
+    super.initState();
+    if (!widget.previewMode) {
+      Analytics.tutorialStep(stepNumber: 4, stepName: 'character_select');
+    }
+  }
 
   @override
   void dispose() {

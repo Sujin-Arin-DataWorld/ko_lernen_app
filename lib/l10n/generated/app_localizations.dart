@@ -7497,13 +7497,13 @@ abstract class AppL10n {
   /// No description provided for @consentInviteTitle.
   ///
   /// In de, this message translates to:
-  /// **'Hilf mit, Hangul Sori besser zu machen'**
+  /// **'Zeig mir, wo\'s hakt'**
   String get consentInviteTitle;
 
   /// No description provided for @consentInviteBody.
   ///
   /// In de, this message translates to:
-  /// **'Wir sehen nie, was du lernst. Anonyme Statistik zeigt uns nur, wo Lernende hängen bleiben, damit wir genau da nachbessern. Kein Name, keine E-Mail, keine Lerninhalte.'**
+  /// **'Ich sehe nie, was du lernst. Anonyme Zahlen zeigen mir nur, wo viele Lernende an derselben Stelle hängen bleiben, und genau dort bessere ich nach. Dein Name, deine E-Mail und deine Lerninhalte bleiben auf deinem Handy.'**
   String get consentInviteBody;
 
   /// No description provided for @consentInviteYes.

@@ -23,6 +23,7 @@ import '../services/stroke_matcher.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/stroke_canvas.dart';
 import '../services/analytics_service.dart';
+import '../services/quest_abandon_tracker.dart';
 import '../services/tts_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -41,6 +42,7 @@ class _HangulScreenState extends State<HangulScreen>
   int _tabIndex = 0;
   final FeedbackCompletionSlot _cardsCompletion = FeedbackCompletionSlot();
   final FeedbackCompletionSlot _writingCompletion = FeedbackCompletionSlot();
+  late final QuestAbandonTracker _abandonTracker;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _tabBarKey = GlobalKey();
@@ -70,10 +72,20 @@ class _HangulScreenState extends State<HangulScreen>
     });
     scheduleCoach();
     Analytics.lessonStarted(lessonType: 'hangul');
+    _abandonTracker = QuestAbandonTracker(
+      questType: 'hangul',
+      lastStepReached: () => switch (_tabIndex) {
+        0 => 'overview',
+        1 => 'cards',
+        2 => 'write',
+        _ => 'unknown',
+      },
+    );
   }
 
   @override
   void dispose() {
+    _abandonTracker.dispose();
     _tabs.dispose();
     super.dispose();
   }
@@ -81,6 +93,7 @@ class _HangulScreenState extends State<HangulScreen>
   Future<void> _finishCards(int interactionCount) async {
     final t = AppL10n.of(context);
     Analytics.lessonCompleted(lessonType: 'hangul', lessonId: 'cards');
+    _abandonTracker.markCompleted();
     final completion = _cardsCompletion.complete(
       () => FeedbackCompletion.hangulCards(
         contentLabel: t.hangulTabCards,
@@ -94,6 +107,7 @@ class _HangulScreenState extends State<HangulScreen>
   Future<void> _finishWriting(int strokeCount) async {
     final t = AppL10n.of(context);
     Analytics.lessonCompleted(lessonType: 'hangul', lessonId: 'writing');
+    _abandonTracker.markCompleted();
     final completion = _writingCompletion.complete(
       () => FeedbackCompletion.hangulWriting(
         contentLabel: t.hangulTabWrite,

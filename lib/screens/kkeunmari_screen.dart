@@ -11,6 +11,7 @@ import '../services/kkeunmari_dictionary_service.dart';
 import '../services/kkeunmari_engine.dart';
 import '../services/learner_level_selection.dart';
 import '../services/analytics_service.dart';
+import '../services/quest_abandon_tracker.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -68,6 +69,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   String _errorMsg = '';
   LearnerLevel _maxLevel = LearnerLevel.a1;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  late final QuestAbandonTracker _abandonTracker;
   KkeunmariWord? _last; // 마지막으로 낸 단어 (chain 마지막)
 
   Timer? _timer;
@@ -118,6 +120,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     _start();
     scheduleCoach();
     Analytics.gameStarted(gameType: 'kkeunmari');
+    _abandonTracker = QuestAbandonTracker(
+      questType: 'kkeunmari',
+      lastStepReached: () => 'chain_${_chain.length}',
+    );
   }
 
   Future<void> _start() async {
@@ -343,6 +349,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       result: didWin ? 'win' : 'lose',
       score: _chain.length,
     );
+    _abandonTracker.markCompleted();
+    if (reason == _End.timeUp) {
+      Analytics.questFailed(questType: 'kkeunmari', failReason: 'timeout');
+    }
     if (didWin) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) SoriCelebration.burst(context);

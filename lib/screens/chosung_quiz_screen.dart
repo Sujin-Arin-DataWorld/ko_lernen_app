@@ -6,6 +6,7 @@ import '../models/feedback_completion.dart';
 import '../models/learner_level.dart';
 import '../services/data_loader.dart';
 import '../services/analytics_service.dart';
+import '../services/quest_abandon_tracker.dart';
 import '../services/learner_level_selection.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -147,6 +148,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   int _roundXp = 0;
   bool _roundNewBest = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  late final QuestAbandonTracker _abandonTracker;
 
   final _ctrl = TextEditingController();
   final _focusNode = FocusNode();
@@ -158,6 +160,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     _load();
     scheduleCoach();
     Analytics.gameStarted(gameType: 'chosung', level: _level);
+    _abandonTracker = QuestAbandonTracker(
+      questType: 'chosung',
+      lastStepReached: () => 'question_$_idx',
+    );
   }
 
   Future<void> _load() async {
@@ -289,6 +295,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
         result: accuracy >= 0.8 ? 'win' : 'lose',
         score: (accuracy * 100).round(),
       );
+      _abandonTracker.markCompleted();
       recordGameResult(
         gameId: 'chosung',
         xp: xp,
@@ -381,6 +388,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   @override
   void dispose() {
+    _abandonTracker.dispose();
     _ctrl.dispose();
     _focusNode.dispose();
     super.dispose();

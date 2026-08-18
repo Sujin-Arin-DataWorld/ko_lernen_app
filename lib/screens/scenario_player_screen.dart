@@ -19,6 +19,7 @@ import '../services/curriculum_catalog.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/premium_service.dart';
 import '../services/analytics_service.dart';
+import '../services/quest_abandon_tracker.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
 import '../services/scenario_writing_check_service.dart';
@@ -385,6 +386,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   String? _missionTitle;
   List<ScenarioStage> _plan = const [];
   int _stage = 0;
+  QuestAbandonTracker? _abandonTracker;
   int _firstTryPassedCount = 0;
   int _passedCount = 0;
   bool _questReady = true; // false → Quest läuft noch, Next-Button deaktiviert
@@ -442,6 +444,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   @override
   void initState() {
     super.initState();
+    if (widget.mode == ScenarioPlayerMode.onboardingFirstScene) {
+      Analytics.tutorialStep(stepNumber: 2, stepName: 'first_scene');
+    }
     final preview = widget.previewFixture;
     if (preview != null) {
       final scenario = preview.scenario;
@@ -477,6 +482,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
 
   @override
   void dispose() {
+    _abandonTracker?.dispose();
     _pageCtrl.dispose();
     super.dispose();
   }
@@ -491,6 +497,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         lessonType: 'scenario',
         lessonId: s.id,
         level: s.level.display,
+      );
+      _abandonTracker = QuestAbandonTracker(
+        questType: 'scenario',
+        questId: s.id,
+        lastStepReached: () => 'stage_$_stage',
       );
     }
     if (s == null) {
@@ -824,6 +835,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         lessonId: done.id,
         level: done.level.display,
       );
+      _abandonTracker?.markCompleted();
     }
     setState(() => _resultSaving = true);
     try {

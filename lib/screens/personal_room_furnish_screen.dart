@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -9,6 +10,8 @@ import '../l10n/sticker_localizations.dart';
 import '../models/personal_hanok.dart';
 import '../models/personal_room.dart';
 import '../models/room_layout.dart';
+import '../services/analytics_service.dart';
+import '../services/decoration_reward_service.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/hanok_structure_projection_service.dart';
 import '../services/room_layout_service.dart';
@@ -78,6 +81,7 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
   @override
   void initState() {
     super.initState();
+    Analytics.hanokBuildStarted(roomType: widget.surface.name);
     _load();
   }
 
@@ -105,6 +109,7 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
       // placement state before its Hanok milestone is reached.
       if (!widget.enforceUnlock || projection.isUnlocked(_room.requires)) {
         _reloadLayouts();
+        unawaited(DecorationRewardService.maybeLogRewardUnused());
       } else {
         _layouts = const {};
       }

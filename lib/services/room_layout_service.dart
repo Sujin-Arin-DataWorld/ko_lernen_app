@@ -8,6 +8,7 @@ import '../models/personal_room.dart';
 import '../models/room_layout.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/placed_decoration.dart';
+import 'analytics_service.dart';
 import 'room_placement_service.dart';
 import 'storage_service.dart';
 
@@ -81,6 +82,18 @@ class RoomLayoutService {
   /// Reads v3 without writing. If it is absent, valid v2 slots are projected
   /// into normalized free-layout coordinates in memory and only become v3 on
   /// the user's first edit.
+  /// Decoration slugs currently placed anywhere across every personal-room
+  /// surface. Used by `reward_unused` analytics to find owned-but-idle décor
+  /// — deliberately ignores stickers/stamps, which aren't reward-pool items.
+  static Set<String> placedDecorSlugs() {
+    final layouts = load().layouts;
+    return {
+      for (final items in layouts.values)
+        for (final item in items)
+          if (item.kind == RoomAssetKind.decoration) item.assetId,
+    };
+  }
+
   static RoomLayoutSnapshot load() {
     final raw = Storage.roomLayoutsV3Raw;
     if (raw == null) {
@@ -263,6 +276,7 @@ class RoomLayoutService {
       final item = _newItem(kind, assetId, instanceId, target.length);
       target.add(item);
       await _persist(layouts);
+      Analytics.itemPlaced(itemType: kind.name, itemId: assetId);
       return RoomLayoutMutation(
         layouts: layouts,
         result: RoomLayoutWriteResult.added,
@@ -290,6 +304,7 @@ class RoomLayoutService {
     );
     target.add(item);
     await _persist(layouts);
+    Analytics.itemPlaced(itemType: kind.name, itemId: assetId);
     return RoomLayoutMutation(
       layouts: layouts,
       result: RoomLayoutWriteResult.added,

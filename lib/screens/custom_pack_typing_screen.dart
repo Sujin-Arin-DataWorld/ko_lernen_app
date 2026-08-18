@@ -7,6 +7,7 @@ import '../models/book_page.dart';
 import '../models/custom_pack.dart';
 import '../models/feedback_completion.dart';
 import '../services/analytics_service.dart';
+import '../services/quest_abandon_tracker.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -49,6 +50,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   bool? _correct; // null = 미제출
   GameOutcome? _outcome;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  late final QuestAbandonTracker _abandonTracker;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _inputKey = GlobalKey();
@@ -76,6 +78,11 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   void initState() {
     super.initState();
     Analytics.gameStarted(gameType: 'typing');
+    _abandonTracker = QuestAbandonTracker(
+      questType: 'typing',
+      questId: widget.packId,
+      lastStepReached: () => 'word_$_idx',
+    );
     final loaded = CustomPackService.getById(widget.packId);
     final pack = loaded == null || widget.words == null
         ? loaded
@@ -96,6 +103,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
 
   @override
   void dispose() {
+    _abandonTracker.dispose();
     _input.dispose();
     super.dispose();
   }
@@ -153,6 +161,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
       result: pct >= 60 ? 'win' : 'lose',
       score: pct,
     );
+    _abandonTracker.markCompleted();
     if (mounted) setState(() => _outcome = outcome);
   }
 

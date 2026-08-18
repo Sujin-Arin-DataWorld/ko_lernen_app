@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart'
 
 import '../data/quest_catalog.dart';
 import '../widgets/sori/placed_decoration.dart';
+import 'analytics_service.dart';
+import 'room_layout_service.dart';
 import 'storage_service.dart';
 
 /// 사랑방 보자기에서 나올 수 있는 실내 장식의 v1 순서.
@@ -348,6 +350,10 @@ class DecorationRewardService {
       final suffix = current.sublist(journal.pendingBefore.length);
       if (journal.kind == _RewardClaimKind.decoration) {
         await Storage.addOwnedDecor(journal.decorationSlug!);
+        await Storage.recordDecorEarnedAt(
+          journal.decorationSlug!,
+          DateTime.now().toIso8601String(),
+        );
       }
       if (journal.stage == _RewardClaimStage.prepared) {
         await Storage.setDecorationRewardClaimJournalRawJson(
@@ -362,6 +368,10 @@ class DecorationRewardService {
         _startsWith(current, journal.pendingAfter)) {
       if (journal.kind == _RewardClaimKind.decoration) {
         await Storage.addOwnedDecor(journal.decorationSlug!);
+        await Storage.recordDecorEarnedAt(
+          journal.decorationSlug!,
+          DateTime.now().toIso8601String(),
+        );
       }
       await Storage.clearDecorationRewardClaimJournal();
       return DecorationRewardRecoveryResult.resumed;
@@ -386,6 +396,70 @@ class DecorationRewardService {
   static bool _hasCompleteRewardCollection(Iterable<String> owned) {
     final ownedSet = owned.toSet();
     return kDecorationRewardPool.every(ownedSet.contains);
+  }
+
+  /// Logs `reward_unused` at most once per calendar day: one call per
+  /// distinct age bucket present among owned-but-unplaced décor (never one
+  /// call per item, to keep event volume low). Safe to call on every room
+  /// screen open — the day-dedup makes repeated calls a no-op.
+  static Future<void> maybeLogRewardUnused() async {
+    final today = DateTime.now().toIso8601String().substring(0, 10);
+    if (Storage.rewardUnusedLoggedDate == today) {
+      return;
+    }
+    await Storage.setRewardUnusedLoggedDate(today);
+    final buckets = unusedRewardBuckets(
+      owned: Storage.ownedDecor,
+      placed: RoomLayoutService.placedDecorSlugs(),
+      earnedAt: Storage.decorEarnedAt,
+      now: DateTime.now(),
+    );
+    for (final bucket in buckets) {
+      await Analytics.rewardUnused(
+        rewardType: 'decoration',
+        daysSinceEarnedBucket: bucket,
+      );
+    }
+  }
+
+  /// Pure — the distinct days-since-earned buckets among decorations that
+  /// are owned but not placed on any surface. Exposed for testing; use
+  /// [maybeLogRewardUnused] in app code.
+  @visibleForTesting
+  static Set<String> unusedRewardBuckets({
+    required Iterable<String> owned,
+    required Set<String> placed,
+    required Map<String, String> earnedAt,
+    required DateTime now,
+  }) {
+    final buckets = <String>{};
+    for (final slug in owned) {
+      if (placed.contains(slug)) {
+        continue;
+      }
+      final earnedIso = earnedAt[slug];
+      if (earnedIso == null) {
+        continue;
+      }
+      final earned = DateTime.tryParse(earnedIso);
+      if (earned == null) {
+        continue;
+      }
+      final days = now.difference(earned).inDays;
+      if (days < 0) {
+        continue;
+      }
+      buckets.add(_daysSinceEarnedBucket(days));
+    }
+    return buckets;
+  }
+
+  static String _daysSinceEarnedBucket(int days) {
+    if (days < 3) return '0-2';
+    if (days < 7) return '3-6';
+    if (days < 14) return '7-13';
+    if (days < 30) return '14-29';
+    return '30plus';
   }
 
   static bool _startsWith(List<String> values, List<String> prefix) {

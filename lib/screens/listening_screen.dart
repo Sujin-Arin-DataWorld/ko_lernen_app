@@ -8,6 +8,7 @@ import '../models/content_feedback.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
 import '../services/analytics_service.dart';
+import '../services/quest_abandon_tracker.dart';
 import '../services/learner_level_selection.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
@@ -87,6 +88,7 @@ class _ListeningScreenState extends State<ListeningScreen>
   bool _completed = false;
   final ListeningFeedbackCompletionState _feedbackCompletion =
       ListeningFeedbackCompletionState();
+  QuestAbandonTracker? _abandonTracker;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _scenarioChipKey = GlobalKey();
@@ -154,6 +156,11 @@ class _ListeningScreenState extends State<ListeningScreen>
         lessonId: started.id,
         level: started.level.display,
       );
+      _abandonTracker = QuestAbandonTracker(
+        questType: 'listening',
+        questId: started.id,
+        lastStepReached: () => 'line_$_step',
+      );
     }
     // 첫 대사를 바로 들려준다.
     //
@@ -167,6 +174,7 @@ class _ListeningScreenState extends State<ListeningScreen>
 
   @override
   void dispose() {
+    _abandonTracker?.dispose();
     TtsService.stop();
     super.dispose();
   }
@@ -316,6 +324,7 @@ class _ListeningScreenState extends State<ListeningScreen>
       lessonId: sc.id,
       level: sc.level.display,
     );
+    _abandonTracker?.markCompleted();
     final lang = Localizations.localeOf(context).languageCode;
     HapticFeedback.heavyImpact();
     final earned = (sc.dialog.length * 8).clamp(40, 120);

@@ -59,6 +59,12 @@ class OnboardingLevelScreen extends StatefulWidget {
 }
 
 class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Analytics.tutorialStep(stepNumber: 2, stepName: 'level_select');
+  }
+
   /// 히어로 루프 영상 — 현재 `welcome-hero.mp4`의 내용은 **구 `welcome_hero2`
   /// (1280×720, 24fps 121f)**다. `eda4c37`(Jin)에서 hero2를 하이픈명으로
   /// rename하고 960×960 `welcome_hero.mp4`는 삭제했다(복원 필요 시 `eda4c37^`).
