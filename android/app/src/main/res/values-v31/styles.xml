@@ -3,17 +3,25 @@
     <!-- Theme applied to the Android Window while the process is starting when the OS's Dark Mode setting is off -->
     <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <!-- Native splash screen disabled (Android 12+) — Flutter splash_screen.dart takes full control.
-             This avoids duplicate/cut-off logo splash screens.
-             If you want to re-enable Android 12+ native splash: add back
-               <item name="android:windowSplashScreenBackground">#FAF6EC</item>
-               <item name="android:windowSplashScreenAnimatedIcon">@drawable/android12splash</item>
-             and ensure the android12splash drawable matches HanLogo.png sizing. -->
+             2026-06-05(6eec190a) disabled this for exactly one reason: the OS
+             enforces a small icon-safe-zone for windowSplashScreenAnimatedIcon,
+             and android12splash.png is full splash artwork, not an icon-safe-zone
+             asset — so the OS crops it (only the top sliver of the logo shows)
+             before Flutter's own full-size HanLogo.png replaces it. That is a
+             visible regression, not a variant to pick from.
+             2026-08-10(7fdd07a8) re-added the two items below while regenerating
+             icon PNGs, WITHOUT re-padding android12splash.png for the icon
+             safe zone — the crop came straight back (confirmed on-device
+             2026-08-18, Jin). Removed again the same day.
+             Do NOT re-add android:windowSplashScreenBackground /
+             android:windowSplashScreenAnimatedIcon here unless android12splash.png
+             has first been regenerated as a proper icon-safe-zone asset (content
+             confined well inside the enforced circular/square mask) AND verified
+             uncropped on a real Android 12+ device. -->
         <item name="android:forceDarkAllowed">false</item>
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
-        <item name="android:windowSplashScreenBackground">#FAF6EC</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/android12splash</item>
     </style>
     <!-- Theme applied to the Android Window as soon as the process has started.
          This theme determines the color of the Android Window while your
