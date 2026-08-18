@@ -1,5 +1,28 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude Sonnet 5, 웹사이트) — 직전 concurrency 수정으로도 안 됨: 진단 정정 + workflow_dispatch 자체 격리
+
+**직전 커밋(`c4271f7`)이 부족했다.** `release-website` 잡에만 전용 concurrency 그룹을 줬는데,
+merge 뒤 재트리거해 보니 여전히 실행이 **`pending` 상태로 잡이 하나도 안 뜬 채** 멈췄다. 30분
+넘게 기다려도 그대로라 "고아 실행"으로 오판해 취소하고 재트리거했는데 새 실행도 똑같이 0 jobs로
+멈췄다 — 그제서야 진짜 원인을 봤다: 워크플로 **최상단** concurrency 그룹(`CI-ci-main`)이 push·
+PR·모든 workflow_dispatch task를 다 같이 묶는다. `release-website` 잡 전용 그룹은 그 잡이
+**시작된 뒤** 취소되는 것만 막지, 애초에 최상단 그룹 대기열에서 다음 push가 들어올 때마다
+갈아치워지는 것 자체는 못 막는다. 즉 잡이 하나도 안 뜬 채 멈춰 있던 건 오작동이 아니라 "다음
+실행이 올 때까지 조용히 대기 → 그 다음 실행이 오면 소리 없이 교체"가 정확히 설계대로 동작한
+것이었다.
+
+**고침.** 최상단 `concurrency.group` 삼항식에 분기를 하나 더 넣었다: `regenerate-goldens`는
+기존대로 `goldens` 그룹, **그 외 모든 workflow_dispatch**(`release-website` 포함)는
+`format('dispatch-{0}', github.run_id)`로 실행마다 자기 자신만의 그룹을 받는다(다른 어떤
+실행과도 안 겹치므로 대기·교체 자체가 없다), 나머지(push·PR)는 기존대로 `ci` 공유 그룹.
+`release-website` 잡 자체의 `cloudflare-production-deploy` 전용 그룹(직전 커밋)은 그대로
+둬서 dispatch끼리 겹칠 때의 직렬화는 유지한다.
+
+**검증.** `python3 -m unittest discover -s .github/scripts -p "test_*.py"` 33/33,
+`yaml.safe_load` 구문 확인. 브랜치 재사용(`claude/app-store-open-link-form-sdt7s8`, 직전 PR #77
+머지 완료라 최신 main에서 재시작) → 새 PR → 병합 → `release-website` 재트리거로 최종 확인 예정.
+
 ### 2026-08-18 (Claude Sonnet 5, 웹사이트) — release-website 배포가 계속 취소돼 전용 concurrency 그룹 분리
 
 **증상.** PR #73(App Store CTA → 신청서) 병합 뒤 Cloudflare 프로덕션 배포가 **네 번 연속** 못
