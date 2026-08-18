@@ -81,8 +81,17 @@ grep 으로 확정, 테스트 파일은 안 건드림). 감사 목록에 끼워 
 실패 목록을 diff 해 **내가 새로 깬 것 0건**, 기존 실패 1건(`setUpClass`) 해소를 확인했다 — 남은
 21건은 전부 main 에도 있는 것이고 이 작업 범위 밖이다. `validate_content.py` OK.
 
-**남은 것 (다음 세션).** ⓐ Batch 12 승격 — Batch 11 이 live 로 갔으니 `checkpointContentIds`
-막힘이 풀렸다(8유닛 + vocab 96·cloze 96·satz 96·smalltalk 16·grammar 8). ⓑ **빈 23칸 신규 집필
+**⑨ Batch 12 는 관문이 하나 더 있었다** (`4681ad1e`). Batch 11 이 풀리자 드라이런이 다음
+결함을 드러냈다: 매니페스트의 `grammarIntents` 가 `id` 대신 `grammarId` 키를 써서
+`integrate_review_batches`(§411-420)가 "malformed grammar intent" 로 즉사한다. 생성기
+`build_batch_12.py` 에서 고치고 매니페스트를 재생성했다. **그 다음 관문은 설계 결정이라
+손대지 않았다**: `conflicting smalltalkCategoryUnitMap mapping for 'c2:daily'` — 카테고리당
+유닛이 하나인데 live 가 `c2:daily` 를 `c2_02_technology_public_ethics` 에 이미 묶었고 Batch 12
+가 `c2_03_automation_redress` 로 가져가려 한다. 어느 유닛이 그 문구를 소유하느냐는 학습자가
+보는 자리를 바꾼다 — Jin 확인 필요.
+
+**남은 것 (다음 세션).** ⓐ Batch 12 승격 — 위 `c2:daily` 소유권 결정만 나면 나머지는 뚫린다
+(8유닛 + vocab 96·cloze 96·satz 96·smalltalk 16·grammar 8). ⓑ **빈 23칸 신규 집필
 (칸당 4편 = 92편, Jin 지시: "레벨 c2까지 4편씩, 자연스럽고 진짜 사람이 말하는 것처럼")** —
 `a1_numbers/phone/wayfinding`, `a2_enrolment/booking`, `b1_insurance/incident/cancellation`,
 `b2_hiring/privacy`, C1 7칸, C2 6칸. ⓒ 죽은 자산 3장은 이제 죽지 않았다(관심 3칸이 쓴다).
