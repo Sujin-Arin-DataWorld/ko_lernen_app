@@ -5,6 +5,27 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-18 (Cursor Grok 4.6) — 콘텐츠 UI 바이블·개편 계획 (구현 없음)
+
+**무엇을.** Jin이 8월 18일 콘텐츠 작업(듣기 책가도·Deck 3.0·쓰기 세로·배치 11–16)을
+보고 CTA 통일, 듣기 이중 UI, 저장 토스트 잔류, 타이포 혼선, 틴더→인스타 세로 피드,
+한 화면 맞춤, 쓰기 크롬 낭비를 집어 전역 개선 계획서를 요청했다. 다운받은
+`frontend-design`·`web-design-guidelines`·`ui-ux-pro-max`·`ui-styling`·
+`design-system`·`brand`로 콘텐츠 화면을 4번 훑고 `docs/CONTENT_UI_BIBLE.md`를
+새 SSoT로 썼다. `docs/README.md` UI 항목과 `AGENTS.md` 게이트에 연결했다.
+코드·에셋 변경 없음.
+
+**왜.** 그림 바이블(`STYLE_LOCK`·BIBLE)과 Overhaul 2(틴더 4방향)는 플레이어 크롬을
+못 다룬다. 듣기 블루(`info` `#57799E`)와 주황 CTA가 섞이고, 플레이어+책장이 한
+스크롤에 남아 있으며, `wordbook_add`가 `hideCurrentSnackBar` 없이 3초 토스트를
+줄 세운다. 제네릭 스킬의 Claymorphism/키즈 폰트는 버렸다.
+
+**검증.** `origin/main` `a00fc1d1` 기준 파일 실측(듣기 426–580, 쓰기 1453–1551,
+`wordbook_add` 57–69, `deck_action_bar`, `SoriTextTheme`, typography_guard 상한).
+구현·테스트 실행 없음 — 문서만.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-18 (Claude Sonnet 5, 웹사이트) — 직전 concurrency 수정으로도 안 됨: 진단 정정 + workflow_dispatch 자체 격리
 
 **직전 커밋(`c4271f7`)이 부족했다.** `release-website` 잡에만 전용 concurrency 그룹을 줬는데,
