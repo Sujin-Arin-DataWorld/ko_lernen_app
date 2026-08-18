@@ -79,7 +79,7 @@ void main() {
       'a2': 80,
       'b1': 73,
       'b2': 68,
-      'c1': 17,
+      'c1': 45,
       'c2': 17,
     };
 
@@ -92,7 +92,7 @@ void main() {
         final items = scenarioShardRoot(level)['scenarios'] as List;
         expect(items.length, expectedCounts[level], reason: level);
       }
-      expect(allScenarioJson().length, 340);
+      expect(allScenarioJson().length, 368);
     });
 
     test('샤드에는 자기 레벨만 들어 있다', () {

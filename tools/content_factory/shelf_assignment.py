@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""레벨별 15칸 서재(책가도)의 칸 정의와 live 340개 배정.
+"""레벨별 15칸 서재(책가도)의 칸 정의와 live 368개 배정.
 
 정본은 docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md 의
 §4(축 설계)와 부록 A(전수 배정)다.  단 §4.2 관심 3칸은 2026-08-17 Jin 결정으로
@@ -79,8 +79,8 @@ ALL_SHELVES: frozenset[str] = frozenset(
     f"{level}_{slug}" for level in LEVELS for slug in SHELF_SLUGS[level]
 )
 
-# 부록 A — live 340 전수 배정 (264 + Batch 11 36 + Batch 13 12 + Batch 14 28).
-# 재고 0 인 13칸(전부 C1/C2)은 키가 없다: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
+# 부록 A — live 368 전수 배정 (264 + Batch 11 36 + 13 12 + 14 28 + 15 28).
+# 재고 0 인 6칸(전부 C2)은 키가 없다: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
 ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_transit": (
         "a1_bus_late", "a1_last_train", "a1_platform_line",
@@ -375,6 +375,48 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     # 메우고, 관심 소재는 소재 축에 둔다.
     "c1_methodology": (
         "c1_daily_prices_vs_data",
+    ),
+    "c1_conflict_interest": (
+        "c1_conflict_interest_disclose_stake",
+        "c1_conflict_interest_dual_role",
+        "c1_conflict_interest_recuse_request",
+        "c1_conflict_interest_sponsored_talk",
+    ),
+    "c1_policy": (
+        "c1_policy_exemption_edge",
+        "c1_policy_pilot_before_rollout",
+        "c1_policy_sunset_clause",
+        "c1_policy_who_bears_cost",
+    ),
+    "c1_clinical": (
+        "c1_clinical_data_reuse",
+        "c1_clinical_informed_consent",
+        "c1_clinical_second_opinion",
+        "c1_clinical_trial_withdrawal",
+    ),
+    "c1_critique": (
+        "c1_critique_anonymous_limits",
+        "c1_critique_metric_gaming",
+        "c1_critique_public_wording",
+        "c1_critique_work_not_person",
+    ),
+    "c1_mediation": (
+        "c1_mediation_ground_rules",
+        "c1_mediation_partial_agreement",
+        "c1_mediation_restate_position",
+        "c1_mediation_walk_away_line",
+    ),
+    "c1_facework": (
+        "c1_facework_accept_correction",
+        "c1_facework_correct_in_private",
+        "c1_facework_decline_without_wound",
+        "c1_facework_praise_before_others",
+    ),
+    "c1_attribution": (
+        "c1_attribution_author_order",
+        "c1_attribution_collective_byline",
+        "c1_attribution_reuse_without_credit",
+        "c1_attribution_unpaid_translation",
     ),
     "c1_friends": (
         "c1_friends_venue_access", "c1_gaming_playtime_policy",

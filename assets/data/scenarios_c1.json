@@ -3379,6 +3379,6110 @@
       ],
       "shelf": "c1_fandom",
       "backdrop": "office"
+    },
+    {
+      "id": "c1_conflict_interest_disclose_stake",
+      "level": "c1",
+      "emoji": "📌",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "analyst_and_public_program_manager",
+      "intent": "declare_a_stake_before_reviewing",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "먼저 밝힐 것이 있습니다",
+        "de": "Ich muss zuerst etwas offenlegen",
+        "en": "There is something I should disclose first"
+      },
+      "intro": {
+        "ko": "심사 대상 중 하나가 예전 협업 상대입니다. 침묵하면 나중에 결과 전체가 흔들립니다.",
+        "de": "Einer der Anträge kommt von einem früheren Partner. Schweigen würde später das ganze Ergebnis erschüttern.",
+        "en": "One applicant is a former collaborator. Staying silent would undermine the whole result later."
+      },
+      "vocab": [
+        {
+          "korean": "이해충돌"
+        },
+        {
+          "korean": "고지"
+        },
+        {
+          "korean": "심사"
+        },
+        {
+          "korean": "공정성"
+        },
+        {
+          "korean": "기록"
+        },
+        {
+          "korean": "배제"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 감안하면",
+          "de": "N을/를 감안하면: in Anbetracht",
+          "en": "N을/를 감안하면: taking into account"
+        },
+        "explanation": {
+          "ko": "판단의 조건을 앞에 놓는다. 규모를 감안하면처럼 쓴다.",
+          "de": "Stellt die Bedingung des Urteils voran: 규모를 감안하면.",
+          "en": "Puts the condition of the judgement first: 규모를 감안하면."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "심사 시작 전에 먼저 밝힐 것이 있습니다.",
+          "de": "Vor Beginn der Bewertung muss ich etwas offenlegen.",
+          "en": "Before we start the review, there is something I should disclose."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "말씀하십시오. 기록에 남기겠습니다.",
+          "de": "Bitte. Ich nehme es zu Protokoll.",
+          "en": "Go ahead. I'll put it on the record."
+        },
+        {
+          "speaker": "user",
+          "ko": "삼 번 신청 기관과 재작년에 공동 연구를 했습니다.",
+          "de": "Mit Antragsteller drei hatte ich vorletztes Jahr ein gemeinsames Projekt.",
+          "en": "I ran a joint project with applicant three two years ago."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "지금도 금전적 관계가 있습니까?",
+          "de": "Besteht aktuell eine finanzielle Verbindung?",
+          "en": "Is there a current financial relationship?"
+        },
+        {
+          "speaker": "user",
+          "ko": "없습니다. 다만 기간이 짧은 점을 감안하면 오해의 소지가 있습니다.",
+          "de": "Nein. Angesichts des kurzen Abstands könnte es aber missverstanden werden.",
+          "en": "No. But taking the short gap into account, it could be misread."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그럼 삼 번만 빼고 나머지를 보시겠습니까?",
+          "de": "Dann bewerten Sie alle außer Nummer drei?",
+          "en": "Then would you review all but number three?"
+        },
+        {
+          "speaker": "user",
+          "ko": "그렇게 하겠습니다. 사유도 함께 적어 주십시오.",
+          "de": "Ja. Bitte notieren Sie auch den Grund.",
+          "en": "Yes. Please record the reason as well."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "사유까지 적어야 나중에 설명이 됩니다.",
+          "de": "Nur mit Grund lässt es sich später erklären.",
+          "en": "Only with the reason can it be explained later."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_conflict_interest_disclose_stake_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "없습니다. 다만 기간이 짧은 점을 감안하면 오해의 소지가 있습니다.",
+            "options": [
+              {
+                "de": "Keine Verbindung mehr, aber der kurze Abstand wirkt heikel.",
+                "en": "No current tie, but the short gap looks questionable."
+              },
+              {
+                "de": "Es besteht weiterhin eine Zahlung.",
+                "en": "A payment is still ongoing."
+              },
+              {
+                "de": "Die Zusammenarbeit läuft gerade.",
+                "en": "The collaboration is running now."
+              },
+              {
+                "de": "Es gab nie eine Zusammenarbeit.",
+                "en": "There was never any collaboration."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_disclose_stake_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Bitte notieren Sie auch den Grund.",
+            "promptEn": "Please record the reason as well.",
+            "options": [
+              {
+                "ko": "사유도 함께 적어 주십시오."
+              },
+              {
+                "ko": "결과도 함께 보내 주십시오."
+              },
+              {
+                "ko": "일정도 함께 정해 주십시오."
+              },
+              {
+                "ko": "명단도 함께 지워 주십시오."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_disclose_stake_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "기간이 짧은 점을 ___ 오해의 소지가 있습니다.",
+            "options": [
+              "감안하면",
+              "감안해도",
+              "감안하는 한",
+              "감안하는 마당에"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_disclose_stake_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "삼 번 신청 기관과 재작년에 공동 연구를 했습니다.",
+            "promptDe": "Lege die frühere Zusammenarbeit offen.",
+            "promptEn": "Disclose the earlier collaboration.",
+            "distractors": [
+              "기록에 남기겠습니다",
+              "지금도 금전적 관계가 있습니까",
+              "사유까지 적어야 나중에 설명이 됩니다"
+            ],
+            "audioKo": "삼 번 신청 기관과 재작년에 공동 연구를 했습니다."
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_disclose_stake_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "심사 시작 전에 먼저 밝힐 것이 있습니다.",
+            "audioKo": "심사 시작 전에 먼저 밝힐 것이 있습니다.",
+            "promptDe": "Vor Beginn der Bewertung muss ich etwas offenlegen.",
+            "promptEn": "Before we start the review, there is something to disclose."
+          }
+        }
+      ],
+      "shelf": "c1_conflict_interest",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_conflict_interest_recuse_request",
+      "level": "c1",
+      "emoji": "🚪",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "coworker",
+      "intent": "ask_to_be_removed_from_one_case",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "이 건에서는 빠지겠습니다",
+        "de": "Bei diesem Fall trete ich zurück",
+        "en": "I'll step back from this one"
+      },
+      "intro": {
+        "ko": "빠지면 일정이 밀립니다. 그래도 남으면 결정 자체가 무효가 될 수 있습니다.",
+        "de": "Ein Rückzug verzögert den Plan. Bleiben würde die Entscheidung angreifbar machen.",
+        "en": "Stepping back delays the schedule. Staying would leave the decision open to challenge."
+      },
+      "vocab": [
+        {
+          "korean": "회피"
+        },
+        {
+          "korean": "결정"
+        },
+        {
+          "korean": "무효"
+        },
+        {
+          "korean": "대체"
+        },
+        {
+          "korean": "위원"
+        },
+        {
+          "korean": "절차"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_unless_condition"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-지 않는 한",
+          "de": "V-지 않는 한: solange nicht",
+          "en": "V-지 않는 한: unless"
+        },
+        "explanation": {
+          "ko": "그 조건이 없으면 성립하지 않는다고 못박는다. 공개하지 않는 한처럼 쓴다.",
+          "de": "Macht die Bedingung zwingend: 공개하지 않는 한.",
+          "en": "Makes the condition binding: 공개하지 않는 한."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "이 건은 제가 빠지는 게 맞겠습니다.",
+          "de": "Bei diesem Fall sollte ich mich zurückziehen.",
+          "en": "I should recuse myself from this one."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "지금 빠지시면 다음 주로 밀립니다.",
+          "de": "Wenn Sie jetzt aussteigen, rutscht es auf nächste Woche.",
+          "en": "If you step back now, it slips to next week."
+        },
+        {
+          "speaker": "user",
+          "ko": "회피를 기록하지 않는 한 결정이 흔들립니다.",
+          "de": "Ohne dokumentierten Rückzug bleibt die Entscheidung angreifbar.",
+          "en": "Unless the recusal is recorded, the decision stays vulnerable."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "대체 위원을 찾으면 되겠군요.",
+          "de": "Dann suchen wir eine Ersatzperson.",
+          "en": "Then we find a replacement member."
+        },
+        {
+          "speaker": "user",
+          "ko": "같은 분야에서 한 분만 있으면 됩니다.",
+          "de": "Eine Person aus demselben Feld genügt.",
+          "en": "One person from the same field is enough."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "오늘 안에 확인해서 알려 드리겠습니다.",
+          "de": "Ich kläre das heute und melde mich.",
+          "en": "I'll check today and get back to you."
+        },
+        {
+          "speaker": "user",
+          "ko": "제 의견은 문서로도 남기지 않겠습니다.",
+          "de": "Ich halte auch schriftlich keine Meinung fest.",
+          "en": "I won't leave a written opinion either."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그게 깔끔합니다. 회의록에 그대로 적겠습니다.",
+          "de": "Das ist sauber. Ich schreibe es so ins Protokoll.",
+          "en": "That is cleanest. I'll put it in the minutes as is."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_conflict_interest_recuse_request_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "회피를 기록하지 않는 한 결정이 흔들립니다.",
+            "options": [
+              {
+                "de": "Ohne dokumentierten Rückzug bleibt die Entscheidung angreifbar.",
+                "en": "Without a recorded recusal the decision stays vulnerable."
+              },
+              {
+                "de": "Der Rückzug ist ohnehin unnötig.",
+                "en": "The recusal is unnecessary anyway."
+              },
+              {
+                "de": "Die Entscheidung steht bereits fest.",
+                "en": "The decision is already final."
+              },
+              {
+                "de": "Ein Protokoll ist nicht vorgesehen.",
+                "en": "No minutes are foreseen."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_recuse_request_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Eine Person aus demselben Feld genügt.",
+            "promptEn": "One person from the same field is enough.",
+            "options": [
+              {
+                "ko": "같은 분야에서 한 분만 있으면 됩니다."
+              },
+              {
+                "ko": "같은 부서에서 두 분이 필요합니다."
+              },
+              {
+                "ko": "다른 분야 사람이어야 합니다."
+              },
+              {
+                "ko": "위원이 더 필요하지는 않습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_recuse_request_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "회피를 기록하지 ___ 결정이 흔들립니다.",
+            "options": [
+              "않는 한",
+              "않는 마당에",
+              "않을 여지가",
+              "않은 한편"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_recuse_request_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "제 의견은 문서로도 남기지 않겠습니다.",
+            "promptDe": "Sag, dass du auch schriftlich keine Meinung hinterlässt.",
+            "promptEn": "Say that you will not leave a written opinion either.",
+            "distractors": [
+              "대체 위원을 찾으면 되겠군요",
+              "오늘 안에 확인해서 알려 드리겠습니다",
+              "지금 빠지시면 다음 주로 밀립니다"
+            ],
+            "audioKo": "제 의견은 문서로도 남기지 않겠습니다."
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_recuse_request_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "이 건은 제가 빠지는 게 맞겠습니다.",
+            "audioKo": "이 건은 제가 빠지는 게 맞겠습니다.",
+            "promptDe": "Bei diesem Fall sollte ich mich zurückziehen.",
+            "promptEn": "I should recuse myself from this one."
+          }
+        }
+      ],
+      "shelf": "c1_conflict_interest",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_conflict_interest_sponsored_talk",
+      "level": "c1",
+      "emoji": "🎤",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "coworker",
+      "intent": "set_the_line_on_sponsored_speaking",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "협찬 강연은 어디까지 괜찮을까요",
+        "de": "Wie weit sind gesponserte Vorträge in Ordnung",
+        "en": "How far are sponsored talks acceptable"
+      },
+      "intro": {
+        "ko": "사례비를 받는 강연 제안이 왔습니다. 규정에 없는 회색지대를 함께 짚습니다.",
+        "de": "Ein bezahlter Vortrag wurde angeboten. Ihr geht die Grauzone durch, die keine Regel abdeckt.",
+        "en": "A paid speaking offer came in. You work through the grey zone no rule covers."
+      },
+      "vocab": [
+        {
+          "korean": "협찬"
+        },
+        {
+          "korean": "사례비"
+        },
+        {
+          "korean": "규정"
+        },
+        {
+          "korean": "회색지대"
+        },
+        {
+          "korean": "공표"
+        },
+        {
+          "korean": "선례"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_room_for"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 여지가 있다",
+          "de": "V-(으)ㄹ 여지가 있다: Spielraum",
+          "en": "V-(으)ㄹ 여지가 있다: there is room for"
+        },
+        "explanation": {
+          "ko": "단정하지 않고 가능성을 남긴다. 오해할 여지가 있다처럼 쓴다.",
+          "de": "Lässt Raum statt zu behaupten: 오해할 여지가 있다.",
+          "en": "Leaves room instead of asserting: 오해할 여지가 있다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "사례비가 있는 강연인데 규정에는 없습니다.",
+          "de": "Der Vortrag ist honoriert, in der Richtlinie steht dazu nichts.",
+          "en": "The talk is paid, and the policy says nothing about it."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "주최가 우리 심사 대상입니까?",
+          "de": "Ist der Veranstalter Gegenstand unserer Bewertung?",
+          "en": "Is the host one of our review subjects?"
+        },
+        {
+          "speaker": "user",
+          "ko": "직접은 아니지만 계열사입니다.",
+          "de": "Nicht direkt, aber es ist ein Tochterunternehmen.",
+          "en": "Not directly, but it is an affiliate."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그러면 영향으로 읽힐 여지가 있습니다.",
+          "de": "Dann bleibt Raum, es als Einflussnahme zu lesen.",
+          "en": "Then there is room to read it as influence."
+        },
+        {
+          "speaker": "user",
+          "ko": "금액을 공표하고 하면 어떻겠습니까?",
+          "de": "Wäre es mit veröffentlichtem Honorar in Ordnung?",
+          "en": "What if the fee is published?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "공표하면 낫습니다. 다만 선례가 됩니다.",
+          "de": "Veröffentlichen ist besser, schafft aber einen Präzedenzfall.",
+          "en": "Publishing helps, but it sets a precedent."
+        },
+        {
+          "speaker": "user",
+          "ko": "이번에는 사례비를 받지 않겠습니다.",
+          "de": "Diesmal verzichte ich auf das Honorar.",
+          "en": "This time I'll decline the fee."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 결정도 규정 개정 때 근거가 됩니다.",
+          "de": "Diese Entscheidung dient später als Grundlage für die Regel.",
+          "en": "That decision will serve as grounds when the policy is revised."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_conflict_interest_sponsored_talk_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "공표하면 낫습니다. 다만 선례가 됩니다.",
+            "options": [
+              {
+                "de": "Offenlegung hilft, schafft aber einen Präzedenzfall.",
+                "en": "Disclosure helps but creates a precedent."
+              },
+              {
+                "de": "Offenlegung löst das Problem vollständig.",
+                "en": "Disclosure solves the problem completely."
+              },
+              {
+                "de": "Offenlegung ist verboten.",
+                "en": "Disclosure is not allowed."
+              },
+              {
+                "de": "Ein Präzedenzfall existiert bereits.",
+                "en": "A precedent already exists."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_sponsored_talk_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Nicht direkt, aber es ist ein Tochterunternehmen.",
+            "promptEn": "Not directly, but it is an affiliate.",
+            "options": [
+              {
+                "ko": "직접은 아니지만 계열사입니다."
+              },
+              {
+                "ko": "직접 심사 대상이 맞습니다."
+              },
+              {
+                "ko": "전혀 관계가 없는 곳입니다."
+              },
+              {
+                "ko": "예전 심사 대상이었습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_sponsored_talk_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "영향으로 읽힐 ___ 있습니다.",
+            "options": [
+              "여지가",
+              "마당이",
+              "한편이",
+              "한이"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_sponsored_talk_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "이번에는 사례비를 받지 않겠습니다.",
+            "promptDe": "Sag, dass du diesmal auf das Honorar verzichtest.",
+            "promptEn": "Say that you will decline the fee this time.",
+            "distractors": [
+              "주최가 우리 심사 대상입니까",
+              "그 결정도 규정 개정 때 근거가 됩니다",
+              "금액을 공표하고 하면 어떻겠습니까"
+            ],
+            "audioKo": "이번에는 사례비를 받지 않겠습니다."
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_sponsored_talk_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "사례비가 있는 강연인데 규정에는 없습니다.",
+            "audioKo": "사례비가 있는 강연인데 규정에는 없습니다.",
+            "promptDe": "Der Vortrag ist honoriert, die Richtlinie schweigt dazu.",
+            "promptEn": "The talk is paid, and the policy says nothing about it."
+          }
+        }
+      ],
+      "shelf": "c1_conflict_interest",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "c1_conflict_interest_dual_role",
+      "level": "c1",
+      "emoji": "🎭",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "analyst_and_public_program_manager",
+      "intent": "hold_two_roles_without_blurring_them",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "두 역할이 겹칩니다",
+        "de": "Zwei Rollen überschneiden sich",
+        "en": "Two roles overlap here"
+      },
+      "intro": {
+        "ko": "자문과 평가를 동시에 맡고 있습니다. 겹치는 지점을 미리 갈라 둡니다.",
+        "de": "Du berätst und bewertest zugleich. Ihr trennt die Überschneidung vorab.",
+        "en": "You advise and assess at the same time. You separate the overlap in advance."
+      },
+      "vocab": [
+        {
+          "korean": "자문"
+        },
+        {
+          "korean": "평가"
+        },
+        {
+          "korean": "겸직"
+        },
+        {
+          "korean": "분리"
+        },
+        {
+          "korean": "권한"
+        },
+        {
+          "korean": "명시"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_two_sides"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 한편",
+          "de": "A/V-는 한편: einerseits/andererseits",
+          "en": "A/V-는 한편: while on the other hand"
+        },
+        "explanation": {
+          "ko": "두 면을 나란히 놓는다. 돕는 한편 평가한다처럼 쓴다.",
+          "de": "Stellt zwei Seiten nebeneinander: 돕는 한편 평가한다.",
+          "en": "Sets two sides side by side: 돕는 한편 평가한다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "제가 자문을 하는 한편 최종 평가에도 들어갑니다.",
+          "de": "Ich berate einerseits und sitze andererseits in der Endbewertung.",
+          "en": "I advise on the one hand and sit on the final assessment on the other."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "같은 사업 안에서입니까?",
+          "de": "Innerhalb desselben Programms?",
+          "en": "Within the same programme?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 그래서 조언한 대로 점수를 주게 됩니다.",
+          "de": "Ja, dadurch bewerte ich meinen eigenen Rat.",
+          "en": "Yes, so I end up scoring my own advice."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "자문 기록을 평가자에게 안 보이게 할까요?",
+          "de": "Sollen wir die Beratungsnotizen vor den Bewertenden verbergen?",
+          "en": "Should we hide the advisory notes from the assessors?"
+        },
+        {
+          "speaker": "user",
+          "ko": "가리는 것보다 역할을 나누는 게 낫습니다.",
+          "de": "Statt zu verbergen sollten wir die Rollen trennen.",
+          "en": "Rather than hiding it, we should split the roles."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그러면 평가에서 빠지시는 쪽입니까?",
+          "de": "Heißt das, Sie treten aus der Bewertung aus?",
+          "en": "So you would leave the assessment side?"
+        },
+        {
+          "speaker": "user",
+          "ko": "자문을 남기고 평가에서 빠지겠습니다.",
+          "de": "Ich behalte die Beratung und gebe die Bewertung ab.",
+          "en": "I'll keep the advisory role and drop the assessment."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "역할 분리를 공고에 명시하겠습니다.",
+          "de": "Ich schreibe die Rollentrennung in die Ausschreibung.",
+          "en": "I'll state the role split in the call for applications."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_conflict_interest_dual_role_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "가리는 것보다 역할을 나누는 게 낫습니다.",
+            "options": [
+              {
+                "de": "Rollentrennung ist besser als Verbergen.",
+                "en": "Splitting the roles beats hiding the notes."
+              },
+              {
+                "de": "Verbergen ist die sicherste Lösung.",
+                "en": "Hiding is the safest solution."
+              },
+              {
+                "de": "Beide Rollen sollten bleiben.",
+                "en": "Both roles should stay."
+              },
+              {
+                "de": "Das Programm sollte abgesagt werden.",
+                "en": "The programme should be cancelled."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_dual_role_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Ich behalte die Beratung und gebe die Bewertung ab.",
+            "promptEn": "I'll keep the advisory role and drop the assessment.",
+            "options": [
+              {
+                "ko": "자문을 남기고 평가에서 빠지겠습니다."
+              },
+              {
+                "ko": "평가를 남기고 자문에서 빠지겠습니다."
+              },
+              {
+                "ko": "둘 다 그대로 맡겠습니다."
+              },
+              {
+                "ko": "둘 다 그만두겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_dual_role_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "자문을 하는 ___ 최종 평가에도 들어갑니다.",
+            "options": [
+              "한편",
+              "여지에",
+              "마당에",
+              "한이 있어도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_dual_role_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "조언한 대로 점수를 주게 됩니다.",
+            "promptDe": "Sag, dass du deinen eigenen Rat bewertest.",
+            "promptEn": "Say that you end up scoring your own advice.",
+            "distractors": [
+              "역할 분리를 공고에 명시하겠습니다",
+              "같은 사업 안에서입니까",
+              "자문 기록을 안 보이게 할까요"
+            ],
+            "audioKo": "조언한 대로 점수를 주게 됩니다."
+          }
+        },
+        {
+          "id": "quest_c1_conflict_interest_dual_role_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "역할 분리를 공고에 명시하겠습니다.",
+            "audioKo": "역할 분리를 공고에 명시하겠습니다.",
+            "promptDe": "Ich schreibe die Rollentrennung in die Ausschreibung.",
+            "promptEn": "I'll state the role split in the call."
+          }
+        }
+      ],
+      "shelf": "c1_conflict_interest",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_policy_pilot_before_rollout",
+      "level": "c1",
+      "emoji": "🧪",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "analyst_and_public_program_manager",
+      "intent": "argue_for_a_pilot_before_scaling",
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "먼저 좁게 해 보는 건 어떻습니까",
+        "de": "Sollten wir es nicht erst klein testen",
+        "en": "Should we not try it narrowly first"
+      },
+      "intro": {
+        "ko": "전면 시행 일정이 이미 잡혔습니다. 되돌리기 어려운 설계를 먼저 짚습니다.",
+        "de": "Der Termin für die volle Einführung steht. Du weist auf das hin, was sich später kaum zurücknehmen lässt.",
+        "en": "The full rollout date is set. You flag what will be hard to undo later."
+      },
+      "vocab": [
+        {
+          "korean": "시범"
+        },
+        {
+          "korean": "전면"
+        },
+        {
+          "korean": "시행"
+        },
+        {
+          "korean": "가역"
+        },
+        {
+          "korean": "지표"
+        },
+        {
+          "korean": "확대"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_given_situation"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 마당에",
+          "de": "V-는 마당에: angesichts dessen",
+          "en": "V-는 마당에: given that"
+        },
+        "explanation": {
+          "ko": "이미 그렇게 된 상황을 근거로 삼는다. 일정이 잡힌 마당에처럼 쓴다.",
+          "de": "Nimmt die bereits eingetretene Lage als Grund: 일정이 잡힌 마당에.",
+          "en": "Takes the situation as already given: 일정이 잡힌 마당에."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "다음 분기부터 전면 시행으로 잡혀 있습니다.",
+          "de": "Ab dem nächsten Quartal ist die volle Einführung geplant.",
+          "en": "Full rollout is scheduled from next quarter."
+        },
+        {
+          "speaker": "user",
+          "ko": "일정이 잡힌 마당에 늦추자는 말씀은 아닙니다.",
+          "de": "Da der Termin steht, will ich nicht verschieben.",
+          "en": "Given that the date is set, I'm not asking to delay."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그럼 어떤 부분이 걱정이십니까?",
+          "de": "Was bereitet Ihnen dann Sorge?",
+          "en": "Then what worries you?"
+        },
+        {
+          "speaker": "user",
+          "ko": "한번 켜면 끄기 어려운 설계입니다.",
+          "de": "Einmal eingeschaltet, lässt es sich kaum abschalten.",
+          "en": "Once switched on, it is hard to switch off."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "두 지역만 먼저 하자는 뜻입니까?",
+          "de": "Meinen Sie, zuerst nur zwei Regionen?",
+          "en": "Do you mean starting with two regions only?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 같은 날 시작하되 범위만 좁히면 됩니다.",
+          "de": "Ja, gleicher Start, nur engerer Umfang.",
+          "en": "Yes, same start date, just a narrower scope."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "확대 조건은 무엇으로 두겠습니까?",
+          "de": "Woran knüpfen wir die Ausweitung?",
+          "en": "What do we tie the expansion to?"
+        },
+        {
+          "speaker": "user",
+          "ko": "석 달 지표가 나빠지지 않으면 넓힙니다.",
+          "de": "Wenn die Kennzahlen nach drei Monaten nicht schlechter sind, weiten wir aus.",
+          "en": "If the three-month numbers do not worsen, we widen it."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_policy_pilot_before_rollout_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "audioKo": "네, 같은 날 시작하되 범위만 좁히면 됩니다.",
+            "options": [
+              {
+                "de": "Gleicher Starttermin, aber engerer Umfang.",
+                "en": "Same start date, narrower scope."
+              },
+              {
+                "de": "Späterer Start, gleicher Umfang.",
+                "en": "Later start, same scope."
+              },
+              {
+                "de": "Der Start soll ganz entfallen.",
+                "en": "The start should be dropped entirely."
+              },
+              {
+                "de": "Der Umfang soll erweitert werden.",
+                "en": "The scope should be widened."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_pilot_before_rollout_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "promptDe": "Einmal eingeschaltet, lässt es sich kaum abschalten.",
+            "promptEn": "Once switched on, it is hard to switch off.",
+            "options": [
+              {
+                "ko": "한번 켜면 끄기 어려운 설계입니다."
+              },
+              {
+                "ko": "언제든 끌 수 있는 설계입니다."
+              },
+              {
+                "ko": "아직 켜지 않은 설계입니다."
+              },
+              {
+                "ko": "켜는 데 시간이 걸리는 설계입니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_pilot_before_rollout_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "sentence": "일정이 잡힌 ___ 늦추자는 말씀은 아닙니다.",
+            "options": [
+              "마당에",
+              "여지에",
+              "한편에",
+              "한이 있어도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_pilot_before_rollout_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "targetKo": "석 달 지표가 나빠지지 않으면 넓힙니다.",
+            "promptDe": "Nenne die Bedingung für die Ausweitung.",
+            "promptEn": "State the condition for expanding.",
+            "distractors": [
+              "다음 분기부터 전면 시행으로 잡혀 있습니다",
+              "두 지역만 먼저 하자는 뜻입니까",
+              "그럼 어떤 부분이 걱정이십니까"
+            ],
+            "audioKo": "석 달 지표가 나빠지지 않으면 넓힙니다."
+          }
+        },
+        {
+          "id": "quest_c1_policy_pilot_before_rollout_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "targetKo": "확대 조건은 무엇으로 두겠습니까?",
+            "audioKo": "확대 조건은 무엇으로 두겠습니까?",
+            "promptDe": "Woran knüpfen wir die Ausweitung?",
+            "promptEn": "What do we tie the expansion to?"
+          }
+        }
+      ],
+      "shelf": "c1_policy",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_policy_who_bears_cost",
+      "level": "c1",
+      "emoji": "⚖️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "community_organizers",
+      "intent": "surface_who_actually_pays",
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "부담은 누가 지게 됩니까",
+        "de": "Wer trägt am Ende die Last",
+        "en": "Who ends up carrying the burden"
+      },
+      "intro": {
+        "ko": "총액만 보면 무리가 없습니다. 그 부담이 어디로 쏠리는지는 다른 문제입니다.",
+        "de": "Die Gesamtsumme wirkt tragbar. Wohin die Last fällt, ist eine andere Frage.",
+        "en": "The total looks manageable. Where the burden lands is another question."
+      },
+      "vocab": [
+        {
+          "korean": "부담"
+        },
+        {
+          "korean": "총액"
+        },
+        {
+          "korean": "역진"
+        },
+        {
+          "korean": "면제"
+        },
+        {
+          "korean": "가구"
+        },
+        {
+          "korean": "분포"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 감안하면",
+          "de": "N을/를 감안하면: in Anbetracht",
+          "en": "N을/를 감안하면: taking into account"
+        },
+        "explanation": {
+          "ko": "총액이 아니라 조건을 앞에 세운다. 소득 수준을 감안하면처럼 쓴다.",
+          "de": "Stellt die Bedingung statt der Summe voran: 소득 수준을 감안하면.",
+          "en": "Puts the condition, not the total, first: 소득 수준을 감안하면."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "총액은 작년과 비슷합니다.",
+          "de": "Die Gesamtsumme liegt auf Vorjahresniveau.",
+          "en": "The total is close to last year's."
+        },
+        {
+          "speaker": "user",
+          "ko": "총액보다 분포를 보고 싶습니다.",
+          "de": "Mich interessiert die Verteilung mehr als die Summe.",
+          "en": "I would rather look at the distribution than the total."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "가구별로 나눈 표가 있습니다.",
+          "de": "Es gibt eine Tabelle nach Haushalten.",
+          "en": "There is a table broken down by household."
+        },
+        {
+          "speaker": "user",
+          "ko": "소득 수준을 감안하면 아래쪽이 더 냅니다.",
+          "de": "Gemessen am Einkommen zahlen die unteren mehr.",
+          "en": "Taking income levels into account, the lower end pays more."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "역진적이라는 말씀이군요.",
+          "de": "Sie meinen, es wirkt regressiv.",
+          "en": "You are saying it is regressive."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 그 부분만 면제 구간을 두면 됩니다.",
+          "de": "Ja, dafür genügt eine Freigrenze.",
+          "en": "Yes, an exemption band for that part would fix it."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "면제를 두면 총액이 줄어듭니다.",
+          "de": "Mit Freigrenze sinkt die Gesamtsumme.",
+          "en": "With an exemption the total drops."
+        },
+        {
+          "speaker": "user",
+          "ko": "줄어든 만큼 상단에서 채우면 됩니다.",
+          "de": "Was fehlt, holen wir am oberen Ende.",
+          "en": "We make up the shortfall at the top end."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_policy_who_bears_cost_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "audioKo": "소득 수준을 감안하면 아래쪽이 더 냅니다.",
+            "options": [
+              {
+                "de": "Gemessen am Einkommen zahlen die unteren mehr.",
+                "en": "Relative to income the lower end pays more."
+              },
+              {
+                "de": "Alle zahlen gleich viel.",
+                "en": "Everyone pays the same."
+              },
+              {
+                "de": "Die oberen zahlen deutlich mehr.",
+                "en": "The top end pays much more."
+              },
+              {
+                "de": "Das Einkommen spielt keine Rolle.",
+                "en": "Income plays no role."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_who_bears_cost_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "promptDe": "Mich interessiert die Verteilung mehr als die Summe.",
+            "promptEn": "I would rather look at the distribution than the total.",
+            "options": [
+              {
+                "ko": "총액보다 분포를 보고 싶습니다."
+              },
+              {
+                "ko": "분포보다 총액이 중요합니다."
+              },
+              {
+                "ko": "둘 다 볼 필요는 없습니다."
+              },
+              {
+                "ko": "작년 자료면 충분합니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_who_bears_cost_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "sentence": "소득 수준을 ___ 아래쪽이 더 냅니다.",
+            "options": [
+              "감안하면",
+              "감안해도",
+              "감안하는 한",
+              "감안한 한편"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_who_bears_cost_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "targetKo": "줄어든 만큼 상단에서 채우면 됩니다.",
+            "promptDe": "Schlage vor, den Ausfall am oberen Ende auszugleichen.",
+            "promptEn": "Propose making up the shortfall at the top end.",
+            "distractors": [
+              "가구별로 나눈 표가 있습니다",
+              "역진적이라는 말씀이군요",
+              "총액은 작년과 비슷합니다"
+            ],
+            "audioKo": "줄어든 만큼 상단에서 채우면 됩니다."
+          }
+        },
+        {
+          "id": "quest_c1_policy_who_bears_cost_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "targetKo": "그 부분만 면제 구간을 두면 됩니다.",
+            "audioKo": "그 부분만 면제 구간을 두면 됩니다.",
+            "promptDe": "Dafür genügt eine Freigrenze.",
+            "promptEn": "An exemption band for that part would fix it."
+          }
+        }
+      ],
+      "shelf": "c1_policy",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_policy_sunset_clause",
+      "level": "c1",
+      "emoji": "🌇",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "analyst_and_public_program_manager",
+      "intent": "attach_an_expiry_to_a_measure",
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "끝나는 날짜를 넣읍시다",
+        "de": "Setzen wir ein Enddatum hinein",
+        "en": "Let us put an end date in"
+      },
+      "intro": {
+        "ko": "임시 조치가 관행이 되는 걸 자주 봤습니다. 끝을 먼저 적어 둡니다.",
+        "de": "Übergangsregeln werden oft dauerhaft. Ihr schreibt das Ende gleich mit hinein.",
+        "en": "Temporary measures often become permanent. You write the ending in from the start."
+      },
+      "vocab": [
+        {
+          "korean": "일몰"
+        },
+        {
+          "korean": "임시"
+        },
+        {
+          "korean": "연장"
+        },
+        {
+          "korean": "의결"
+        },
+        {
+          "korean": "관행"
+        },
+        {
+          "korean": "재검토"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_unless_condition"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-지 않는 한",
+          "de": "V-지 않는 한: solange nicht",
+          "en": "V-지 않는 한: unless"
+        },
+        "explanation": {
+          "ko": "연장을 예외로 만든다. 다시 의결하지 않는 한처럼 쓴다.",
+          "de": "Macht die Verlängerung zur Ausnahme: 다시 의결하지 않는 한.",
+          "en": "Makes renewal the exception: 다시 의결하지 않는 한."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "이 조치에 일몰 조항을 넣었으면 합니다.",
+          "de": "Ich hätte gern eine Verfallsklausel in dieser Maßnahme.",
+          "en": "I would like a sunset clause in this measure."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "이 년 뒤로 두면 되겠습니까?",
+          "de": "Wäre in zwei Jahren passend?",
+          "en": "Would two years from now work?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 다시 의결하지 않는 한 자동으로 끝나게요.",
+          "de": "Ja, es endet automatisch, solange nicht neu beschlossen wird.",
+          "en": "Yes, ending automatically unless it is voted through again."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그러면 매번 재심의 부담이 생깁니다.",
+          "de": "Dann entsteht jedes Mal Aufwand für die Neuprüfung.",
+          "en": "That creates review work every time."
+        },
+        {
+          "speaker": "user",
+          "ko": "부담이 있어야 관행이 안 됩니다.",
+          "de": "Genau der Aufwand verhindert, dass es Gewohnheit wird.",
+          "en": "That work is what stops it becoming habit."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "재검토 기준도 함께 적어야겠군요.",
+          "de": "Dann müssen wir auch die Prüfkriterien festschreiben.",
+          "en": "Then we should write the review criteria too."
+        },
+        {
+          "speaker": "user",
+          "ko": "기준이 없으면 연장이 형식이 됩니다.",
+          "de": "Ohne Kriterien wird die Verlängerung zur Formsache.",
+          "en": "Without criteria, renewal becomes a formality."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "두 조항을 같이 올리겠습니다.",
+          "de": "Ich bringe beide Klauseln zusammen ein.",
+          "en": "I'll submit both clauses together."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_policy_sunset_clause_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "audioKo": "네, 다시 의결하지 않는 한 자동으로 끝나게요.",
+            "options": [
+              {
+                "de": "Ohne neuen Beschluss endet die Maßnahme von selbst.",
+                "en": "Without a new vote the measure ends by itself."
+              },
+              {
+                "de": "Die Maßnahme läuft in jedem Fall weiter.",
+                "en": "The measure continues in any case."
+              },
+              {
+                "de": "Die Maßnahme endet sofort.",
+                "en": "The measure ends immediately."
+              },
+              {
+                "de": "Ein Beschluss ist gar nicht nötig.",
+                "en": "No vote is needed at all."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_sunset_clause_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "promptDe": "Ohne Kriterien wird die Verlängerung zur Formsache.",
+            "promptEn": "Without criteria, renewal becomes a formality.",
+            "options": [
+              {
+                "ko": "기준이 없으면 연장이 형식이 됩니다."
+              },
+              {
+                "ko": "기준이 있으면 연장이 쉬워집니다."
+              },
+              {
+                "ko": "연장은 원래 형식적인 절차입니다."
+              },
+              {
+                "ko": "연장을 아예 막아야 합니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_sunset_clause_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "sentence": "다시 의결하지 ___ 자동으로 끝납니다.",
+            "options": [
+              "않는 한",
+              "않는 마당에",
+              "않을 여지가",
+              "않은 한편"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_sunset_clause_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "targetKo": "부담이 있어야 관행이 안 됩니다.",
+            "promptDe": "Sag, dass gerade der Aufwand Gewohnheit verhindert.",
+            "promptEn": "Say that the workload is what prevents habit.",
+            "distractors": [
+              "두 조항을 같이 올리겠습니다",
+              "이 년 뒤로 두면 되겠습니까",
+              "재검토 기준도 함께 적어야겠군요"
+            ],
+            "audioKo": "부담이 있어야 관행이 안 됩니다."
+          }
+        },
+        {
+          "id": "quest_c1_policy_sunset_clause_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "targetKo": "이 조치에 일몰 조항을 넣었으면 합니다.",
+            "audioKo": "이 조치에 일몰 조항을 넣었으면 합니다.",
+            "promptDe": "Ich hätte gern eine Verfallsklausel.",
+            "promptEn": "I would like a sunset clause."
+          }
+        }
+      ],
+      "shelf": "c1_policy",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_policy_exemption_edge",
+      "level": "c1",
+      "emoji": "📐",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "community_organizers",
+      "intent": "test_an_exemption_at_its_edge",
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "예외가 넓게 읽힐 수 있습니다",
+        "de": "Die Ausnahme lässt sich weit auslegen",
+        "en": "The exemption can be read broadly"
+      },
+      "intro": {
+        "ko": "예외 조항 한 줄이 규칙 전체를 비울 수 있습니다. 경계 사례로 시험해 봅니다.",
+        "de": "Eine Ausnahmezeile kann die ganze Regel aushöhlen. Ihr testet sie an Grenzfällen.",
+        "en": "One exemption line can hollow out the whole rule. You test it against edge cases."
+      },
+      "vocab": [
+        {
+          "korean": "예외"
+        },
+        {
+          "korean": "조항"
+        },
+        {
+          "korean": "해석"
+        },
+        {
+          "korean": "경계"
+        },
+        {
+          "korean": "사례"
+        },
+        {
+          "korean": "한정"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_room_for"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 여지가 있다",
+          "de": "V-(으)ㄹ 여지가 있다: Spielraum",
+          "en": "V-(으)ㄹ 여지가 있다: room for"
+        },
+        "explanation": {
+          "ko": "해석의 폭을 지적한다. 넓게 읽힐 여지가 있다처럼 쓴다.",
+          "de": "Weist auf Auslegungsspielraum hin: 넓게 읽힐 여지가 있다.",
+          "en": "Points at interpretive room: 넓게 읽힐 여지가 있다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "예외 조항이 넓게 읽힐 여지가 있습니다.",
+          "de": "Die Ausnahmeklausel lässt Raum für weite Auslegung.",
+          "en": "The exemption clause leaves room for a broad reading."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "구체적으로 어느 경우입니까?",
+          "de": "Welchen Fall meinen Sie konkret?",
+          "en": "Which case do you mean specifically?"
+        },
+        {
+          "speaker": "user",
+          "ko": "소규모라는 말에 기준이 없습니다.",
+          "de": "Für den Begriff klein fehlt ein Maßstab.",
+          "en": "The word small has no threshold attached."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "인원으로 자를까요, 매출로 자를까요?",
+          "de": "Grenzen wir nach Personen oder nach Umsatz ab?",
+          "en": "Do we cut it by headcount or by revenue?"
+        },
+        {
+          "speaker": "user",
+          "ko": "둘 다 쓰면 한쪽만 맞춰서 빠져나갑니다.",
+          "de": "Mit beidem erfüllt man nur eines und schlüpft durch.",
+          "en": "With both, people meet one and slip through."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그럼 둘을 모두 충족하는 경우로 좁히겠습니다.",
+          "de": "Dann verengen wir es auf beide Bedingungen zugleich.",
+          "en": "Then we narrow it to cases meeting both."
+        },
+        {
+          "speaker": "user",
+          "ko": "예외 목록도 공개하는 게 좋겠습니다.",
+          "de": "Die Ausnahmeliste sollte veröffentlicht werden.",
+          "en": "The list of exemptions should be published too."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "공개하면 해석이 저절로 좁아집니다.",
+          "de": "Veröffentlichung engt die Auslegung von selbst ein.",
+          "en": "Publishing narrows the reading on its own."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_policy_exemption_edge_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "audioKo": "둘 다 쓰면 한쪽만 맞춰서 빠져나갑니다.",
+            "options": [
+              {
+                "de": "Zwei Kriterien nebeneinander laden zum Ausweichen ein.",
+                "en": "Two parallel criteria invite slipping through on one."
+              },
+              {
+                "de": "Zwei Kriterien machen die Regel strenger.",
+                "en": "Two criteria make the rule stricter."
+              },
+              {
+                "de": "Ein Kriterium reicht völlig aus.",
+                "en": "One criterion is entirely enough."
+              },
+              {
+                "de": "Kriterien sind hier unnötig.",
+                "en": "Criteria are unnecessary here."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_exemption_edge_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "promptDe": "Für den Begriff klein fehlt ein Maßstab.",
+            "promptEn": "The word small has no threshold attached.",
+            "options": [
+              {
+                "ko": "소규모라는 말에 기준이 없습니다."
+              },
+              {
+                "ko": "소규모 기준이 너무 낮습니다."
+              },
+              {
+                "ko": "소규모는 예외가 아닙니다."
+              },
+              {
+                "ko": "소규모 목록이 공개돼 있습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_exemption_edge_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "sentence": "예외 조항이 넓게 읽힐 ___ 있습니다.",
+            "options": [
+              "여지가",
+              "마당이",
+              "한편이",
+              "한이"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_policy_exemption_edge_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "targetKo": "둘을 모두 충족하는 경우로 좁히겠습니다.",
+            "promptDe": "Schlage vor, auf beide Bedingungen zugleich zu verengen.",
+            "promptEn": "Propose narrowing it to cases meeting both.",
+            "distractors": [
+              "공개하면 해석이 저절로 좁아집니다",
+              "구체적으로 어느 경우입니까",
+              "예외 목록도 공개하는 게 좋겠습니다"
+            ],
+            "audioKo": "둘을 모두 충족하는 경우로 좁히겠습니다."
+          }
+        },
+        {
+          "id": "quest_c1_policy_exemption_edge_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_play_time_policy"
+          ],
+          "data": {
+            "targetKo": "예외 목록도 공개하는 게 좋겠습니다.",
+            "audioKo": "예외 목록도 공개하는 게 좋겠습니다.",
+            "promptDe": "Die Ausnahmeliste sollte veröffentlicht werden.",
+            "promptEn": "The list of exemptions should be published too."
+          }
+        }
+      ],
+      "shelf": "c1_policy",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_clinical_informed_consent",
+      "level": "c1",
+      "emoji": "📋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "make_consent_more_than_a_signature",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "서명 전에 확인하고 싶습니다",
+        "de": "Vor der Unterschrift möchte ich etwas klären",
+        "en": "I want to check before I sign"
+      },
+      "intro": {
+        "ko": "설명은 길었는데 남는 건 서명 한 줄입니다. 모르는 채로 넘어가는 부분을 짚습니다.",
+        "de": "Die Aufklärung war lang, geblieben ist eine Unterschrift. Du benennst, was unklar bleibt.",
+        "en": "The briefing was long but all that remains is a signature. You name what stays unclear."
+      },
+      "vocab": [
+        {
+          "korean": "동의서"
+        },
+        {
+          "korean": "설명"
+        },
+        {
+          "korean": "부작용"
+        },
+        {
+          "korean": "대안"
+        },
+        {
+          "korean": "확률"
+        },
+        {
+          "korean": "철회"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_even_at_cost"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 한이 있어도",
+          "de": "V-는 한이 있어도: selbst wenn es kostet",
+          "en": "V-는 한이 있어도: even at the cost of"
+        },
+        "explanation": {
+          "ko": "손해를 감수하고도 지킬 것을 말한다. 늦어지는 한이 있어도처럼 쓴다.",
+          "de": "Nennt, woran man trotz Nachteil festhält: 늦어지는 한이 있어도.",
+          "en": "States what you hold to despite cost: 늦어지는 한이 있어도."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "서명 전에 두 가지만 확인하고 싶습니다.",
+          "de": "Vor der Unterschrift möchte ich zwei Dinge klären.",
+          "en": "Before I sign I want to check two things."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 말씀하세요.",
+          "de": "Ja, bitte.",
+          "en": "Yes, go ahead."
+        },
+        {
+          "speaker": "user",
+          "ko": "부작용 확률이 문서에 숫자로 없습니다.",
+          "de": "Die Wahrscheinlichkeit der Nebenwirkungen steht nicht als Zahl im Dokument.",
+          "en": "The document gives no figure for the side effect risk."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "드문 편이라 범위로만 적혀 있어요.",
+          "de": "Da es selten ist, steht nur eine Spanne.",
+          "en": "Since it is rare, only a range is given."
+        },
+        {
+          "speaker": "user",
+          "ko": "늦어지는 한이 있어도 그 숫자를 보고 정하겠습니다.",
+          "de": "Auch wenn es sich verzögert, entscheide ich erst mit der Zahl.",
+          "en": "Even at the cost of a delay, I'll decide once I see the figure."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "담당 선생님께 확인해 오겠습니다.",
+          "de": "Ich frage bei der behandelnden Person nach.",
+          "en": "I'll check with the doctor in charge."
+        },
+        {
+          "speaker": "user",
+          "ko": "그리고 동의는 나중에 철회할 수 있습니까?",
+          "de": "Und lässt sich die Einwilligung später widerrufen?",
+          "en": "And can consent be withdrawn later?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "언제든 됩니다. 그 문장도 같이 보여 드릴게요.",
+          "de": "Jederzeit. Ich zeige Ihnen den Satz dazu.",
+          "en": "At any time. I'll show you that sentence too."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_clinical_informed_consent_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "드문 편이라 범위로만 적혀 있어요.",
+            "options": [
+              {
+                "de": "Wegen der Seltenheit steht nur eine Spanne.",
+                "en": "Because it is rare, only a range is given."
+              },
+              {
+                "de": "Die genaue Zahl steht im Dokument.",
+                "en": "The exact figure is in the document."
+              },
+              {
+                "de": "Nebenwirkungen sind häufig.",
+                "en": "Side effects are common."
+              },
+              {
+                "de": "Es gibt keine Nebenwirkungen.",
+                "en": "There are no side effects."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_informed_consent_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Und lässt sich die Einwilligung später widerrufen?",
+            "promptEn": "And can consent be withdrawn later?",
+            "options": [
+              {
+                "ko": "동의는 나중에 철회할 수 있습니까?"
+              },
+              {
+                "ko": "동의서를 다시 써야 합니까?"
+              },
+              {
+                "ko": "동의 없이 진행됩니까?"
+              },
+              {
+                "ko": "동의서를 복사해 주시겠습니까?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_informed_consent_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "늦어지는 ___ 그 숫자를 보고 정하겠습니다.",
+            "options": [
+              "한이 있어도",
+              "마당에도",
+              "여지가 있어도",
+              "한편에도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_informed_consent_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "부작용 확률이 문서에 숫자로 없습니다.",
+            "promptDe": "Sag, dass die Risikozahl im Dokument fehlt.",
+            "promptEn": "Say that the risk figure is missing from the document.",
+            "distractors": [
+              "담당 선생님께 확인해 오겠습니다",
+              "언제든 됩니다",
+              "드문 편이라 범위로만 적혀 있어요"
+            ],
+            "audioKo": "부작용 확률이 문서에 숫자로 없습니다."
+          }
+        },
+        {
+          "id": "quest_c1_clinical_informed_consent_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "서명 전에 두 가지만 확인하고 싶습니다.",
+            "audioKo": "서명 전에 두 가지만 확인하고 싶습니다.",
+            "promptDe": "Vor der Unterschrift möchte ich zwei Dinge klären.",
+            "promptEn": "Before I sign I want to check two things."
+          }
+        }
+      ],
+      "shelf": "c1_clinical",
+      "backdrop": "pharmacy"
+    },
+    {
+      "id": "c1_clinical_second_opinion",
+      "level": "c1",
+      "emoji": "🔍",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "ask_for_a_second_reading_without_offence",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "다른 의견도 들어 보고 싶습니다",
+        "de": "Ich möchte eine zweite Meinung",
+        "en": "I would like a second opinion"
+      },
+      "intro": {
+        "ko": "불신으로 들리기 쉬운 요청입니다. 판단을 부정하지 않으면서 말합니다.",
+        "de": "Die Bitte klingt schnell nach Misstrauen. Du formulierst sie, ohne das Urteil infrage zu stellen.",
+        "en": "The request sounds like distrust. You phrase it without denying the judgement."
+      },
+      "vocab": [
+        {
+          "korean": "소견"
+        },
+        {
+          "korean": "판독"
+        },
+        {
+          "korean": "영상"
+        },
+        {
+          "korean": "의뢰"
+        },
+        {
+          "korean": "복사"
+        },
+        {
+          "korean": "지연"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_room_for"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 여지가 있다",
+          "de": "V-(으)ㄹ 여지가 있다: Spielraum",
+          "en": "V-(으)ㄹ 여지가 있다: room for"
+        },
+        "explanation": {
+          "ko": "다르게 볼 수 있음을 열어 둔다. 달리 볼 여지가 있다처럼 쓴다.",
+          "de": "Lässt eine andere Lesart offen: 달리 볼 여지가 있다.",
+          "en": "Leaves another reading open: 달리 볼 여지가 있다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "판단을 의심하는 건 아닙니다.",
+          "de": "Ich zweifle Ihre Einschätzung nicht an.",
+          "en": "I'm not doubting your judgement."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "괜찮습니다. 편하게 말씀하세요.",
+          "de": "Kein Problem. Sagen Sie ruhig.",
+          "en": "That is fine. Please say it."
+        },
+        {
+          "speaker": "user",
+          "ko": "경계에 있는 수치라 달리 볼 여지가 있어 보입니다.",
+          "de": "Der Wert liegt an der Grenze, da bleibt Raum für eine andere Lesart.",
+          "en": "The value sits at the border, so there is room for another reading."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "맞습니다. 판독은 사람마다 조금씩 다릅니다.",
+          "de": "Stimmt. Befunde werden unterschiedlich gelesen.",
+          "en": "True. Readings differ a little between people."
+        },
+        {
+          "speaker": "user",
+          "ko": "영상을 복사해 주실 수 있습니까?",
+          "de": "Könnten Sie mir die Aufnahmen kopieren?",
+          "en": "Could you give me a copy of the images?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 소견서도 같이 드리겠습니다.",
+          "de": "Ja, den Befund lege ich dazu.",
+          "en": "Yes, I'll include the report as well."
+        },
+        {
+          "speaker": "user",
+          "ko": "결과가 같으면 그대로 진행하겠습니다.",
+          "de": "Wenn beide übereinstimmen, mache ich weiter.",
+          "en": "If both agree, I'll proceed as planned."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그게 서로 편합니다. 일정만 알려 주세요.",
+          "de": "Das ist für beide angenehmer. Sagen Sie mir nur den Termin.",
+          "en": "That is easier for both of us. Just tell me the timing."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_clinical_second_opinion_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "맞습니다. 판독은 사람마다 조금씩 다릅니다.",
+            "options": [
+              {
+                "de": "Befunde werden von Person zu Person etwas anders gelesen.",
+                "en": "Readings differ slightly from person to person."
+              },
+              {
+                "de": "Befunde sind immer eindeutig.",
+                "en": "Readings are always unambiguous."
+              },
+              {
+                "de": "Eine zweite Meinung ist nicht erlaubt.",
+                "en": "A second opinion is not permitted."
+              },
+              {
+                "de": "Der Wert liegt weit außerhalb der Grenze.",
+                "en": "The value is far outside the range."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_second_opinion_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Wenn beide übereinstimmen, mache ich weiter.",
+            "promptEn": "If both agree, I'll proceed as planned.",
+            "options": [
+              {
+                "ko": "결과가 같으면 그대로 진행하겠습니다."
+              },
+              {
+                "ko": "결과가 다르면 바로 그만두겠습니다."
+              },
+              {
+                "ko": "결과와 상관없이 진행하겠습니다."
+              },
+              {
+                "ko": "결과를 기다리지 않겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_second_opinion_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "달리 볼 ___ 있어 보입니다.",
+            "options": [
+              "여지가",
+              "마당이",
+              "한편이",
+              "한이"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_second_opinion_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "영상을 복사해 주실 수 있습니까?",
+            "promptDe": "Bitte um eine Kopie der Aufnahmen.",
+            "promptEn": "Ask for a copy of the images.",
+            "distractors": [
+              "소견서도 같이 드리겠습니다",
+              "일정만 알려 주세요",
+              "판단을 의심하는 건 아닙니다"
+            ],
+            "audioKo": "영상을 복사해 주실 수 있습니까?"
+          }
+        },
+        {
+          "id": "quest_c1_clinical_second_opinion_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "판단을 의심하는 건 아닙니다.",
+            "audioKo": "판단을 의심하는 건 아닙니다.",
+            "promptDe": "Ich zweifle Ihre Einschätzung nicht an.",
+            "promptEn": "I'm not doubting your judgement."
+          }
+        }
+      ],
+      "shelf": "c1_clinical",
+      "backdrop": "pharmacy"
+    },
+    {
+      "id": "c1_clinical_trial_withdrawal",
+      "level": "c1",
+      "emoji": "↩️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "leave_a_study_without_losing_care",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "중간에 그만두면 어떻게 됩니까",
+        "de": "Was passiert bei einem Abbruch",
+        "en": "What happens if I stop partway"
+      },
+      "intro": {
+        "ko": "그만두면 손해를 볼까 걱정됩니다. 무엇이 유지되는지부터 확인합니다.",
+        "de": "Du fürchtest Nachteile beim Abbruch. Du klärst zuerst, was bestehen bleibt.",
+        "en": "You worry that quitting costs you. You first check what stays in place."
+      },
+      "vocab": [
+        {
+          "korean": "중단"
+        },
+        {
+          "korean": "불이익"
+        },
+        {
+          "korean": "진료"
+        },
+        {
+          "korean": "자료"
+        },
+        {
+          "korean": "폐기"
+        },
+        {
+          "korean": "지속"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_unless_condition"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-지 않는 한",
+          "de": "V-지 않는 한: solange nicht",
+          "en": "V-지 않는 한: unless"
+        },
+        "explanation": {
+          "ko": "예외를 좁혀 안전을 확보한다. 위험하지 않는 한처럼 쓴다.",
+          "de": "Grenzt Ausnahmen ein und sichert ab: 위험하지 않는 한.",
+          "en": "Narrows the exception to secure the norm: 위험하지 않는 한."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "중간에 그만두면 진료도 끊깁니까?",
+          "de": "Wird bei einem Abbruch auch die Behandlung beendet?",
+          "en": "If I stop partway, does my treatment stop too?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "아닙니다. 기존 진료는 그대로 이어집니다.",
+          "de": "Nein. Die reguläre Behandlung läuft weiter.",
+          "en": "No. Your regular care continues as before."
+        },
+        {
+          "speaker": "user",
+          "ko": "이미 낸 자료는 어떻게 됩니까?",
+          "de": "Was geschieht mit den bereits erhobenen Daten?",
+          "en": "What happens to the data already collected?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "요청하지 않는 한 그대로 분석에 남습니다.",
+          "de": "Solange Sie nichts anderes verlangen, bleiben sie in der Auswertung.",
+          "en": "Unless you ask otherwise, they stay in the analysis."
+        },
+        {
+          "speaker": "user",
+          "ko": "폐기를 요청하면 다 지워집니까?",
+          "de": "Werden sie bei einem Löschwunsch vollständig entfernt?",
+          "en": "If I request deletion, is everything removed?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "익명 처리된 부분은 되돌리기 어렵습니다.",
+          "de": "Anonymisierte Teile lassen sich kaum zurückholen.",
+          "en": "Anonymised parts are hard to pull back."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 점을 미리 알려 주셔서 다행입니다.",
+          "de": "Gut, dass Sie das vorher sagen.",
+          "en": "I'm glad you told me that up front."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "동의서에도 그 문장이 들어 있습니다.",
+          "de": "Der Satz steht auch in der Einwilligung.",
+          "en": "That sentence is in the consent form as well."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_clinical_trial_withdrawal_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "요청하지 않는 한 그대로 분석에 남습니다.",
+            "options": [
+              {
+                "de": "Ohne ausdrücklichen Wunsch bleiben die Daten in der Auswertung.",
+                "en": "Without an explicit request the data stay in the analysis."
+              },
+              {
+                "de": "Die Daten werden automatisch gelöscht.",
+                "en": "The data are deleted automatically."
+              },
+              {
+                "de": "Die Daten werden nie ausgewertet.",
+                "en": "The data are never analysed."
+              },
+              {
+                "de": "Eine Löschung ist ausgeschlossen.",
+                "en": "Deletion is impossible."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_trial_withdrawal_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Anonymisierte Teile lassen sich kaum zurückholen.",
+            "promptEn": "Anonymised parts are hard to pull back.",
+            "options": [
+              {
+                "ko": "익명 처리된 부분은 되돌리기 어렵습니다."
+              },
+              {
+                "ko": "익명 처리된 부분만 지울 수 있습니다."
+              },
+              {
+                "ko": "익명 처리는 하지 않습니다."
+              },
+              {
+                "ko": "익명 처리는 나중에 합니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_trial_withdrawal_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "요청하지 ___ 그대로 분석에 남습니다.",
+            "options": [
+              "않는 한",
+              "않는 마당에",
+              "않을 여지가",
+              "않은 한편"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_trial_withdrawal_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "중간에 그만두면 진료도 끊깁니까?",
+            "promptDe": "Frag, ob die Behandlung beim Abbruch endet.",
+            "promptEn": "Ask whether care stops if you withdraw.",
+            "distractors": [
+              "동의서에도 그 문장이 들어 있습니다",
+              "기존 진료는 그대로 이어집니다",
+              "폐기를 요청하면 다 지워집니까"
+            ],
+            "audioKo": "중간에 그만두면 진료도 끊깁니까?"
+          }
+        },
+        {
+          "id": "quest_c1_clinical_trial_withdrawal_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "기존 진료는 그대로 이어집니다.",
+            "audioKo": "기존 진료는 그대로 이어집니다.",
+            "promptDe": "Die reguläre Behandlung läuft weiter.",
+            "promptEn": "Your regular care continues as before."
+          }
+        }
+      ],
+      "shelf": "c1_clinical",
+      "backdrop": "pharmacy"
+    },
+    {
+      "id": "c1_clinical_data_reuse",
+      "level": "c1",
+      "emoji": "🗂️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "separate_this_use_from_later_uses",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "다음 연구에도 쓰입니까",
+        "de": "Wird es auch für weitere Studien genutzt",
+        "en": "Will it be used for later studies too"
+      },
+      "intro": {
+        "ko": "이번 연구에는 동의합니다. 다음이 어디까지인지가 문제입니다.",
+        "de": "Der aktuellen Studie stimmst du zu. Offen ist, wie weit spätere reichen.",
+        "en": "You agree to this study. The question is how far later ones reach."
+      },
+      "vocab": [
+        {
+          "korean": "이차"
+        },
+        {
+          "korean": "활용"
+        },
+        {
+          "korean": "범위"
+        },
+        {
+          "korean": "별도"
+        },
+        {
+          "korean": "승인"
+        },
+        {
+          "korean": "통보"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_two_sides"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 한편",
+          "de": "A/V-는 한편: einerseits/andererseits",
+          "en": "A/V-는 한편: while on the other hand"
+        },
+        "explanation": {
+          "ko": "동의와 유보를 한 문장에 담는다. 동의하는 한편처럼 쓴다.",
+          "de": "Verbindet Zustimmung und Vorbehalt: 동의하는 한편.",
+          "en": "Holds consent and reservation together: 동의하는 한편."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "이번 연구에는 동의하는 한편 이차 활용은 따로 보고 싶습니다.",
+          "de": "Der aktuellen Studie stimme ich zu, die Zweitnutzung möchte ich getrennt betrachten.",
+          "en": "I consent to this study while wanting secondary use looked at separately."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "이차 활용은 위원회 승인을 다시 받습니다.",
+          "de": "Für die Zweitnutzung braucht es erneut eine Genehmigung.",
+          "en": "Secondary use requires fresh committee approval."
+        },
+        {
+          "speaker": "user",
+          "ko": "그때 저에게도 알려 주십니까?",
+          "de": "Werde ich dann benachrichtigt?",
+          "en": "Will I be notified at that point?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "익명 자료는 개별 통보가 어렵습니다.",
+          "de": "Bei anonymen Daten ist eine Einzelbenachrichtigung schwierig.",
+          "en": "With anonymised data, individual notice is hard."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 목록만 공개해도 충분합니다.",
+          "de": "Dann genügt eine öffentliche Liste.",
+          "en": "Then a published list would be enough."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "연구 목록은 홈페이지에 올립니다.",
+          "de": "Die Studienliste steht auf der Website.",
+          "en": "The list of studies goes on the website."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 주소를 동의서에 적어 주십시오.",
+          "de": "Bitte schreiben Sie die Adresse in die Einwilligung.",
+          "en": "Please put that address in the consent form."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "좋은 제안입니다. 반영하겠습니다.",
+          "de": "Guter Vorschlag. Wir nehmen ihn auf.",
+          "en": "Good suggestion. We will include it."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_clinical_data_reuse_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "익명 자료는 개별 통보가 어렵습니다.",
+            "options": [
+              {
+                "de": "Bei anonymen Daten geht keine Einzelbenachrichtigung.",
+                "en": "With anonymised data individual notice is not feasible."
+              },
+              {
+                "de": "Jede Person wird einzeln benachrichtigt.",
+                "en": "Everyone is notified individually."
+              },
+              {
+                "de": "Anonyme Daten werden nicht weiterverwendet.",
+                "en": "Anonymised data are never reused."
+              },
+              {
+                "de": "Eine Genehmigung ist nicht nötig.",
+                "en": "No approval is needed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_data_reuse_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Dann genügt eine öffentliche Liste.",
+            "promptEn": "Then a published list would be enough.",
+            "options": [
+              {
+                "ko": "그럼 목록만 공개해도 충분합니다."
+              },
+              {
+                "ko": "그럼 통보를 꼭 해 주십시오."
+              },
+              {
+                "ko": "그럼 이차 활용을 막아 주십시오."
+              },
+              {
+                "ko": "그럼 동의를 철회하겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_data_reuse_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "이번 연구에는 동의하는 ___ 이차 활용은 따로 보겠습니다.",
+            "options": [
+              "한편",
+              "마당에",
+              "여지에",
+              "한이 있어도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_clinical_data_reuse_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "그 주소를 동의서에 적어 주십시오.",
+            "promptDe": "Bitte darum, die Adresse in die Einwilligung zu schreiben.",
+            "promptEn": "Ask that the address be written into the consent form.",
+            "distractors": [
+              "연구 목록은 홈페이지에 올립니다",
+              "좋은 제안입니다",
+              "그때 저에게도 알려 주십니까"
+            ],
+            "audioKo": "그 주소를 동의서에 적어 주십시오."
+          }
+        },
+        {
+          "id": "quest_c1_clinical_data_reuse_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "이차 활용은 위원회 승인을 다시 받습니다.",
+            "audioKo": "이차 활용은 위원회 승인을 다시 받습니다.",
+            "promptDe": "Für die Zweitnutzung braucht es erneut eine Genehmigung.",
+            "promptEn": "Secondary use requires fresh committee approval."
+          }
+        }
+      ],
+      "shelf": "c1_clinical",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_critique_work_not_person",
+      "level": "c1",
+      "emoji": "✍️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "coworker",
+      "intent": "criticise_the_work_not_the_author",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "작업과 사람을 나눠서 말하겠습니다",
+        "de": "Ich trenne Arbeit und Person",
+        "en": "I'll separate the work from the person"
+      },
+      "intro": {
+        "ko": "지적이 인신공격으로 읽히면 내용이 안 남습니다. 문장을 나눠 말합니다.",
+        "de": "Wird Kritik persönlich gelesen, bleibt vom Inhalt nichts. Du trennst die Sätze.",
+        "en": "If criticism reads as personal, the content is lost. You split the sentences."
+      },
+      "vocab": [
+        {
+          "korean": "구성"
+        },
+        {
+          "korean": "논지"
+        },
+        {
+          "korean": "근거"
+        },
+        {
+          "korean": "지적"
+        },
+        {
+          "korean": "보완"
+        },
+        {
+          "korean": "초점"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_two_sides"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 한편",
+          "de": "A/V-는 한편: einerseits/andererseits",
+          "en": "A/V-는 한편: while on the other hand"
+        },
+        "explanation": {
+          "ko": "인정과 지적을 한 문장에 나란히 둔다. 탄탄한 한편처럼 쓴다.",
+          "de": "Setzt Lob und Kritik nebeneinander: 탄탄한 한편.",
+          "en": "Puts praise and critique side by side: 탄탄한 한편."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "구성은 탄탄한 한편 근거가 한쪽으로 몰려 있습니다.",
+          "de": "Der Aufbau ist solide, die Belege liegen aber einseitig.",
+          "en": "The structure is solid while the evidence leans one way."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "어느 부분이 그렇게 보이셨습니까?",
+          "de": "Welcher Teil wirkt so auf Sie?",
+          "en": "Which part looked that way to you?"
+        },
+        {
+          "speaker": "user",
+          "ko": "삼 장 전체가 같은 기관 자료입니다.",
+          "de": "Kapitel drei stützt sich komplett auf eine Institution.",
+          "en": "Chapter three relies entirely on one institution."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "접근이 가능한 자료가 그것뿐이었습니다.",
+          "de": "Nur diese Daten waren zugänglich.",
+          "en": "That was the only data we could access."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 사정을 각주로 밝히면 약점이 아니게 됩니다.",
+          "de": "Als Fußnote erklärt, ist das keine Schwäche mehr.",
+          "en": "Stated in a footnote, that stops being a weakness."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "제 능력 문제로 읽힐까 걱정했습니다.",
+          "de": "Ich hatte Sorge, es wirke wie ein persönliches Defizit.",
+          "en": "I worried it would read as a shortcoming of mine."
+        },
+        {
+          "speaker": "user",
+          "ko": "자료 접근의 문제지 판단의 문제가 아닙니다.",
+          "de": "Es geht um Datenzugang, nicht um Ihr Urteil.",
+          "en": "It is a data access issue, not a judgement issue."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그렇게 적어 두겠습니다.",
+          "de": "So schreibe ich es hinein.",
+          "en": "I'll write it that way."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_critique_work_not_person_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "audioKo": "그 사정을 각주로 밝히면 약점이 아니게 됩니다.",
+            "options": [
+              {
+                "de": "Offengelegt in einer Fußnote ist es keine Schwäche mehr.",
+                "en": "Disclosed in a footnote it stops being a weakness."
+              },
+              {
+                "de": "Das Kapitel muss gestrichen werden.",
+                "en": "The chapter has to be cut."
+              },
+              {
+                "de": "Fußnoten sind hier nicht erlaubt.",
+                "en": "Footnotes are not allowed here."
+              },
+              {
+                "de": "Die Belege sind ausgewogen.",
+                "en": "The evidence is balanced."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_work_not_person_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "promptDe": "Es geht um Datenzugang, nicht um Ihr Urteil.",
+            "promptEn": "It is a data access issue, not a judgement issue.",
+            "options": [
+              {
+                "ko": "자료 접근의 문제지 판단의 문제가 아닙니다."
+              },
+              {
+                "ko": "판단의 문제지 자료의 문제가 아닙니다."
+              },
+              {
+                "ko": "둘 다 문제가 아닙니다."
+              },
+              {
+                "ko": "둘 다 심각한 문제입니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_work_not_person_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "sentence": "구성은 탄탄한 ___ 근거가 한쪽으로 몰려 있습니다.",
+            "options": [
+              "한편",
+              "마당에",
+              "여지에",
+              "한이 있어도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_work_not_person_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "삼 장 전체가 같은 기관 자료입니다.",
+            "promptDe": "Benenne, dass Kapitel drei nur eine Quelle nutzt.",
+            "promptEn": "Point out that chapter three uses a single source.",
+            "distractors": [
+              "그렇게 적어 두겠습니다",
+              "접근이 가능한 자료가 그것뿐이었습니다",
+              "어느 부분이 그렇게 보이셨습니까"
+            ],
+            "audioKo": "삼 장 전체가 같은 기관 자료입니다."
+          }
+        },
+        {
+          "id": "quest_c1_critique_work_not_person_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "자료 접근의 문제지 판단의 문제가 아닙니다.",
+            "audioKo": "자료 접근의 문제지 판단의 문제가 아닙니다.",
+            "promptDe": "Es geht um Datenzugang, nicht um das Urteil.",
+            "promptEn": "It is a data access issue, not a judgement issue."
+          }
+        }
+      ],
+      "shelf": "c1_critique",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_critique_anonymous_limits",
+      "level": "c1",
+      "emoji": "🕶️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "coworker",
+      "intent": "name_what_blind_review_cannot_see",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "익명 심사도 다 가리지는 못합니다",
+        "de": "Auch anonyme Begutachtung verdeckt nicht alles",
+        "en": "Blind review does not hide everything"
+      },
+      "intro": {
+        "ko": "익명이라 공정하다고 합니다. 무엇이 여전히 드러나는지 짚습니다.",
+        "de": "Anonym gilt als fair. Du benennst, was trotzdem sichtbar bleibt.",
+        "en": "Blind is called fair. You name what still shows through."
+      },
+      "vocab": [
+        {
+          "korean": "익명"
+        },
+        {
+          "korean": "심사"
+        },
+        {
+          "korean": "인용"
+        },
+        {
+          "korean": "문체"
+        },
+        {
+          "korean": "편향"
+        },
+        {
+          "korean": "보완"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_room_for"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 여지가 있다",
+          "de": "V-(으)ㄹ 여지가 있다: Spielraum",
+          "en": "V-(으)ㄹ 여지가 있다: room for"
+        },
+        "explanation": {
+          "ko": "제도의 빈틈을 조심스럽게 지적한다. 알아볼 여지가 있다처럼 쓴다.",
+          "de": "Weist vorsichtig auf Lücken hin: 알아볼 여지가 있다.",
+          "en": "Points at gaps cautiously: 알아볼 여지가 있다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "이름을 지웠으니 편향은 없을 겁니다.",
+          "de": "Da die Namen entfernt sind, gibt es wohl keine Verzerrung.",
+          "en": "With names removed there should be no bias."
+        },
+        {
+          "speaker": "user",
+          "ko": "자기 인용만으로도 알아볼 여지가 있습니다.",
+          "de": "Schon Selbstzitate lassen Rückschlüsse zu.",
+          "en": "Self-citations alone leave room to identify someone."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그건 지우기 어렵습니다.",
+          "de": "Das lässt sich schwer entfernen.",
+          "en": "That is hard to strip out."
+        },
+        {
+          "speaker": "user",
+          "ko": "지우기보다 심사자에게 알리는 편이 낫습니다.",
+          "de": "Statt zu entfernen sollte man die Begutachtenden darauf hinweisen.",
+          "en": "Rather than stripping it, tell the reviewers about it."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "안다고 편향이 사라집니까?",
+          "de": "Verschwindet die Verzerrung durch Wissen?",
+          "en": "Does knowing make the bias go away?"
+        },
+        {
+          "speaker": "user",
+          "ko": "사라지지는 않아도 근거를 더 적게 됩니다.",
+          "de": "Sie verschwindet nicht, aber man begründet ausführlicher.",
+          "en": "It does not vanish, but people write fuller reasons."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "근거를 적으면 나중에 확인이 됩니다.",
+          "de": "Mit Begründung lässt es sich später prüfen.",
+          "en": "With reasons written down it can be checked later."
+        },
+        {
+          "speaker": "user",
+          "ko": "그게 익명보다 실질적입니다.",
+          "de": "Das wirkt mehr als Anonymität.",
+          "en": "That does more real work than anonymity."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_critique_anonymous_limits_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "audioKo": "사라지지는 않아도 근거를 더 적게 됩니다.",
+            "options": [
+              {
+                "de": "Die Verzerrung bleibt, aber die Begründungen werden ausführlicher.",
+                "en": "The bias remains, but reasons get written more fully."
+              },
+              {
+                "de": "Die Verzerrung verschwindet vollständig.",
+                "en": "The bias disappears completely."
+              },
+              {
+                "de": "Begründungen werden dadurch kürzer.",
+                "en": "Reasons become shorter as a result."
+              },
+              {
+                "de": "Anonymität löst das Problem.",
+                "en": "Anonymity solves the problem."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_anonymous_limits_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "promptDe": "Statt zu entfernen sollte man die Begutachtenden hinweisen.",
+            "promptEn": "Rather than stripping it, tell the reviewers about it.",
+            "options": [
+              {
+                "ko": "지우기보다 심사자에게 알리는 편이 낫습니다."
+              },
+              {
+                "ko": "알리기보다 지우는 편이 낫습니다."
+              },
+              {
+                "ko": "심사자를 바꾸는 편이 낫습니다."
+              },
+              {
+                "ko": "익명을 없애는 편이 낫습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_anonymous_limits_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "sentence": "자기 인용만으로도 알아볼 ___ 있습니다.",
+            "options": [
+              "여지가",
+              "마당이",
+              "한편이",
+              "한이"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_anonymous_limits_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "근거를 적으면 나중에 확인이 됩니다.",
+            "promptDe": "Sag, dass schriftliche Begründungen später prüfbar sind.",
+            "promptEn": "Say that written reasons can be checked later.",
+            "distractors": [
+              "이름을 지웠으니 편향은 없을 겁니다",
+              "그건 지우기 어렵습니다",
+              "그게 익명보다 실질적입니다"
+            ],
+            "audioKo": "근거를 적으면 나중에 확인이 됩니다."
+          }
+        },
+        {
+          "id": "quest_c1_critique_anonymous_limits_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "그게 익명보다 실질적입니다.",
+            "audioKo": "그게 익명보다 실질적입니다.",
+            "promptDe": "Das wirkt mehr als Anonymität.",
+            "promptEn": "That does more real work than anonymity."
+          }
+        }
+      ],
+      "shelf": "c1_critique",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_critique_metric_gaming",
+      "level": "c1",
+      "emoji": "📈",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "coworker",
+      "intent": "show_how_a_metric_is_being_played",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "숫자가 좋아진 이유가 다릅니다",
+        "de": "Die Zahl steigt aus einem anderen Grund",
+        "en": "The number improved for a different reason"
+      },
+      "intro": {
+        "ko": "지표는 올랐는데 현장은 그대로입니다. 무엇이 올랐는지 되짚습니다.",
+        "de": "Die Kennzahl steigt, vor Ort ändert sich nichts. Du prüfst, was da eigentlich steigt.",
+        "en": "The metric is up while the ground is unchanged. You trace what actually rose."
+      },
+      "vocab": [
+        {
+          "korean": "지표"
+        },
+        {
+          "korean": "집계"
+        },
+        {
+          "korean": "분모"
+        },
+        {
+          "korean": "왜곡"
+        },
+        {
+          "korean": "현장"
+        },
+        {
+          "korean": "보정"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 감안하면",
+          "de": "N을/를 감안하면: in Anbetracht",
+          "en": "N을/를 감안하면: taking into account"
+        },
+        "explanation": {
+          "ko": "숫자 앞에 조건을 세운다. 집계 방식을 감안하면처럼 쓴다.",
+          "de": "Stellt die Bedingung vor die Zahl: 집계 방식을 감안하면.",
+          "en": "Puts the condition before the number: 집계 방식을 감안하면."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "처리율이 십오 퍼센트 올랐습니다.",
+          "de": "Die Bearbeitungsquote ist um fünfzehn Prozent gestiegen.",
+          "en": "The completion rate rose by fifteen percent."
+        },
+        {
+          "speaker": "user",
+          "ko": "집계 방식을 감안하면 분모가 줄어든 것 같습니다.",
+          "de": "Angesichts der Zählweise dürfte der Nenner geschrumpft sein.",
+          "en": "Taking the counting method into account, the denominator likely shrank."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "어려운 건은 다른 창구로 넘겼습니다.",
+          "de": "Schwierige Fälle wurden an eine andere Stelle abgegeben.",
+          "en": "Hard cases were moved to another desk."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러면 같은 지표가 아닙니다.",
+          "de": "Dann ist es nicht dieselbe Kennzahl.",
+          "en": "Then it is not the same metric."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "규정대로 처리한 것은 맞습니다.",
+          "de": "Regelkonform war es allerdings.",
+          "en": "It was done by the rules, though."
+        },
+        {
+          "speaker": "user",
+          "ko": "규정 문제가 아니라 비교 문제입니다.",
+          "de": "Es geht nicht um die Regel, sondern um die Vergleichbarkeit.",
+          "en": "It is not a rules issue, it is a comparison issue."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "넘긴 건까지 합쳐서 다시 낼까요?",
+          "de": "Sollen wir mit den abgegebenen Fällen neu rechnen?",
+          "en": "Shall we recount including the transferred cases?"
+        },
+        {
+          "speaker": "user",
+          "ko": "두 숫자를 나란히 두는 편이 낫습니다.",
+          "de": "Besser beide Zahlen nebeneinander zeigen.",
+          "en": "Better to show both numbers side by side."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_critique_metric_gaming_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "audioKo": "어려운 건은 다른 창구로 넘겼습니다.",
+            "options": [
+              {
+                "de": "Schwierige Fälle wurden abgegeben, deshalb steigt die Quote.",
+                "en": "Hard cases were handed off, which is why the rate rose."
+              },
+              {
+                "de": "Schwierige Fälle wurden zuerst bearbeitet.",
+                "en": "Hard cases were handled first."
+              },
+              {
+                "de": "Es gab keine schwierigen Fälle.",
+                "en": "There were no hard cases."
+              },
+              {
+                "de": "Alle Fälle blieben am selben Schalter.",
+                "en": "All cases stayed at the same desk."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_metric_gaming_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "promptDe": "Es geht nicht um die Regel, sondern um die Vergleichbarkeit.",
+            "promptEn": "It is not a rules issue, it is a comparison issue.",
+            "options": [
+              {
+                "ko": "규정 문제가 아니라 비교 문제입니다."
+              },
+              {
+                "ko": "비교 문제가 아니라 규정 문제입니다."
+              },
+              {
+                "ko": "둘 다 문제가 되지 않습니다."
+              },
+              {
+                "ko": "숫자 자체가 틀렸습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_metric_gaming_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "sentence": "집계 방식을 ___ 분모가 줄어든 것 같습니다.",
+            "options": [
+              "감안하면",
+              "감안해도",
+              "감안하는 한",
+              "감안한 한편"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_metric_gaming_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "두 숫자를 나란히 두는 편이 낫습니다.",
+            "promptDe": "Schlage vor, beide Zahlen nebeneinander zu zeigen.",
+            "promptEn": "Propose showing both numbers side by side.",
+            "distractors": [
+              "처리율이 십오 퍼센트 올랐습니다",
+              "규정대로 처리한 것은 맞습니다",
+              "넘긴 건까지 합쳐서 다시 낼까요"
+            ],
+            "audioKo": "두 숫자를 나란히 두는 편이 낫습니다."
+          }
+        },
+        {
+          "id": "quest_c1_critique_metric_gaming_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "그러면 같은 지표가 아닙니다.",
+            "audioKo": "그러면 같은 지표가 아닙니다.",
+            "promptDe": "Dann ist es nicht dieselbe Kennzahl.",
+            "promptEn": "Then it is not the same metric."
+          }
+        }
+      ],
+      "shelf": "c1_critique",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_critique_public_wording",
+      "level": "c1",
+      "emoji": "🗣️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "coworker",
+      "intent": "choose_where_to_say_the_hard_part",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "공개 자리에서 어디까지 말할까요",
+        "de": "Wie weit gehen wir öffentlich",
+        "en": "How far do we go in public"
+      },
+      "intro": {
+        "ko": "지적 자체는 맞습니다. 어디서 말하느냐가 결과를 바꿉니다.",
+        "de": "Die Kritik stimmt. Wo sie fällt, verändert das Ergebnis.",
+        "en": "The criticism is right. Where it is said changes the outcome."
+      },
+      "vocab": [
+        {
+          "korean": "공개"
+        },
+        {
+          "korean": "수위"
+        },
+        {
+          "korean": "질의"
+        },
+        {
+          "korean": "회의록"
+        },
+        {
+          "korean": "체면"
+        },
+        {
+          "korean": "사후"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_even_at_cost"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 한이 있어도",
+          "de": "V-는 한이 있어도: selbst wenn es kostet",
+          "en": "V-는 한이 있어도: even at the cost of"
+        },
+        "explanation": {
+          "ko": "손해를 감수하고 지킬 선을 말한다. 미움받는 한이 있어도처럼 쓴다.",
+          "de": "Nennt die Linie trotz Nachteil: 미움받는 한이 있어도.",
+          "en": "States the line despite cost: 미움받는 한이 있어도."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "이 지적을 공개 질의에서 하실 겁니까?",
+          "de": "Bringen Sie den Punkt in der öffentlichen Fragerunde?",
+          "en": "Will you raise this in the public session?"
+        },
+        {
+          "speaker": "user",
+          "ko": "숫자 문제는 공개에서 말해야 기록이 남습니다.",
+          "de": "Das Zahlenproblem muss öffentlich fallen, sonst steht es nirgends.",
+          "en": "The numbers issue has to be said publicly or it goes unrecorded."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "담당자가 그 자리에서 답을 못 할 수도 있습니다.",
+          "de": "Die zuständige Person kann dort vielleicht nicht antworten.",
+          "en": "The person in charge may not be able to answer there."
+        },
+        {
+          "speaker": "user",
+          "ko": "그래서 답을 요구하지는 않겠습니다.",
+          "de": "Deshalb verlange ich keine sofortige Antwort.",
+          "en": "That is why I won't demand an answer on the spot."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그럼 어떻게 말씀하시겠습니까?",
+          "de": "Wie formulieren Sie es dann?",
+          "en": "Then how will you word it?"
+        },
+        {
+          "speaker": "user",
+          "ko": "확인해 달라는 요청으로만 남기겠습니다.",
+          "de": "Nur als Bitte um Prüfung.",
+          "en": "Only as a request to look into it."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "나머지 지적은 따로 전하시고요?",
+          "de": "Und die übrige Kritik separat?",
+          "en": "And the rest of the critique separately?"
+        },
+        {
+          "speaker": "user",
+          "ko": "분위기가 나빠지는 한이 있어도 숫자만은 공개로 갑니다.",
+          "de": "Auch wenn die Stimmung leidet, die Zahlen kommen öffentlich zur Sprache.",
+          "en": "Even at the cost of the mood, the numbers go on the public record."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_critique_public_wording_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "audioKo": "확인해 달라는 요청으로만 남기겠습니다.",
+            "options": [
+              {
+                "de": "Nur als Prüfbitte, ohne sofortige Antwort zu fordern.",
+                "en": "Only as a request to check, without demanding an answer."
+              },
+              {
+                "de": "Als scharfe Anklage vor Publikum.",
+                "en": "As a sharp accusation in front of the audience."
+              },
+              {
+                "de": "Gar nicht öffentlich, nur privat.",
+                "en": "Not publicly at all, only in private."
+              },
+              {
+                "de": "Als schriftliche Beschwerde.",
+                "en": "As a written complaint."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_public_wording_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "promptDe": "Das Zahlenproblem muss öffentlich fallen, sonst steht es nirgends.",
+            "promptEn": "The numbers issue has to be said publicly or it goes unrecorded.",
+            "options": [
+              {
+                "ko": "숫자 문제는 공개에서 말해야 기록이 남습니다."
+              },
+              {
+                "ko": "숫자 문제는 따로 말하는 게 낫습니다."
+              },
+              {
+                "ko": "숫자 문제는 말하지 않겠습니다."
+              },
+              {
+                "ko": "숫자 문제는 이미 기록돼 있습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_public_wording_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "sentence": "분위기가 나빠지는 ___ 숫자만은 공개로 갑니다.",
+            "options": [
+              "한이 있어도",
+              "마당에도",
+              "여지가 있어도",
+              "한편에도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_critique_public_wording_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "그래서 답을 요구하지는 않겠습니다.",
+            "promptDe": "Sag, dass du keine sofortige Antwort verlangst.",
+            "promptEn": "Say that you will not demand an answer on the spot.",
+            "distractors": [
+              "나머지 지적은 따로 전하시고요",
+              "이 지적을 공개 질의에서 하실 겁니까",
+              "그럼 어떻게 말씀하시겠습니까"
+            ],
+            "audioKo": "그래서 답을 요구하지는 않겠습니다."
+          }
+        },
+        {
+          "id": "quest_c1_critique_public_wording_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "확인해 달라는 요청으로만 남기겠습니다.",
+            "audioKo": "확인해 달라는 요청으로만 남기겠습니다.",
+            "promptDe": "Nur als Bitte um Prüfung.",
+            "promptEn": "Only as a request to look into it."
+          }
+        }
+      ],
+      "shelf": "c1_critique",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_mediation_ground_rules",
+      "level": "c1",
+      "emoji": "🤝",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "community_organizers",
+      "intent": "set_rules_before_the_dispute_talk",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "시작 전에 규칙만 정합시다",
+        "de": "Legen wir vorher die Regeln fest",
+        "en": "Let us set the rules first"
+      },
+      "intro": {
+        "ko": "양쪽이 이미 감정이 상해 있습니다. 내용보다 순서를 먼저 정합니다.",
+        "de": "Beide Seiten sind bereits verletzt. Ihr klärt die Reihenfolge vor dem Inhalt.",
+        "en": "Both sides are already hurt. You settle the order before the content."
+      },
+      "vocab": [
+        {
+          "korean": "조정"
+        },
+        {
+          "korean": "발언"
+        },
+        {
+          "korean": "순서"
+        },
+        {
+          "korean": "중단"
+        },
+        {
+          "korean": "합의"
+        },
+        {
+          "korean": "기록"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_given_situation"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 마당에",
+          "de": "V-는 마당에: angesichts dessen",
+          "en": "V-는 마당에: given that"
+        },
+        "explanation": {
+          "ko": "이미 그런 상황임을 근거로 삼는다. 감정이 상한 마당에처럼 쓴다.",
+          "de": "Nimmt die vorhandene Lage als Grund: 감정이 상한 마당에.",
+          "en": "Takes the existing situation as grounds: 감정이 상한 마당에."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "감정이 상한 마당에 바로 본론은 어렵습니다.",
+          "de": "Da die Gemüter erhitzt sind, geht es nicht sofort zur Sache.",
+          "en": "Given how raw things are, we cannot start with the substance."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그럼 무엇부터 정할까요?",
+          "de": "Was legen wir dann zuerst fest?",
+          "en": "So what do we settle first?"
+        },
+        {
+          "speaker": "user",
+          "ko": "발언 순서와 시간만 먼저 정하겠습니다.",
+          "de": "Zuerst nur Reihenfolge und Redezeit.",
+          "en": "Just speaking order and time to start with."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "말이 끊기면 어떻게 합니까?",
+          "de": "Und wenn jemand unterbrochen wird?",
+          "en": "What if someone gets cut off?"
+        },
+        {
+          "speaker": "user",
+          "ko": "제가 한 번만 정리하고 다시 넘기겠습니다.",
+          "de": "Ich fasse einmal zusammen und gebe dann zurück.",
+          "en": "I'll summarise once and hand it back."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "오늘 합의가 안 되면요?",
+          "de": "Und wenn wir heute nicht einig werden?",
+          "en": "And if we do not agree today?"
+        },
+        {
+          "speaker": "user",
+          "ko": "합의 대신 다음 자리 날짜만 정하면 됩니다.",
+          "de": "Statt einer Einigung genügt der nächste Termin.",
+          "en": "Instead of agreement, the next date is enough."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그 정도면 양쪽 다 받아들일 겁니다.",
+          "de": "Das dürften beide Seiten akzeptieren.",
+          "en": "Both sides can probably accept that."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_mediation_ground_rules_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "합의 대신 다음 자리 날짜만 정하면 됩니다.",
+            "options": [
+              {
+                "de": "Statt Einigung reicht der nächste Termin.",
+                "en": "Instead of agreement, the next date suffices."
+              },
+              {
+                "de": "Ohne Einigung ist alles gescheitert.",
+                "en": "Without agreement everything fails."
+              },
+              {
+                "de": "Es darf nur einen Termin geben.",
+                "en": "There may be only one session."
+              },
+              {
+                "de": "Die Einigung muss heute fallen.",
+                "en": "Agreement has to happen today."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_ground_rules_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Zuerst nur Reihenfolge und Redezeit.",
+            "promptEn": "Just speaking order and time to start with.",
+            "options": [
+              {
+                "ko": "발언 순서와 시간만 먼저 정하겠습니다."
+              },
+              {
+                "ko": "본론부터 바로 시작하겠습니다."
+              },
+              {
+                "ko": "오늘은 아무것도 정하지 않겠습니다."
+              },
+              {
+                "ko": "기록은 남기지 않겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_ground_rules_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "감정이 상한 ___ 바로 본론은 어렵습니다.",
+            "options": [
+              "마당에",
+              "여지에",
+              "한편에",
+              "한이 있어도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_ground_rules_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "제가 한 번만 정리하고 다시 넘기겠습니다.",
+            "promptDe": "Sag, dass du einmal zusammenfasst und dann zurückgibst.",
+            "promptEn": "Say that you will summarise once and hand it back.",
+            "distractors": [
+              "그 정도면 양쪽 다 받아들일 겁니다",
+              "그럼 무엇부터 정할까요",
+              "오늘 합의가 안 되면요"
+            ],
+            "audioKo": "제가 한 번만 정리하고 다시 넘기겠습니다."
+          }
+        },
+        {
+          "id": "quest_c1_mediation_ground_rules_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "발언 순서와 시간만 먼저 정하겠습니다.",
+            "audioKo": "발언 순서와 시간만 먼저 정하겠습니다.",
+            "promptDe": "Zuerst nur Reihenfolge und Redezeit.",
+            "promptEn": "Just speaking order and time first."
+          }
+        }
+      ],
+      "shelf": "c1_mediation",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_mediation_restate_position",
+      "level": "c1",
+      "emoji": "🔄",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "community_organizers",
+      "intent": "make_each_side_restate_the_other",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "상대 말을 대신 정리해 보시겠습니까",
+        "de": "Fassen Sie bitte die Gegenseite zusammen",
+        "en": "Could you restate the other side"
+      },
+      "intro": {
+        "ko": "서로 다른 말을 하고 있다고 믿습니다. 사실은 같은 말인지 확인시킵니다.",
+        "de": "Beide glauben, aneinander vorbeizureden. Du lässt prüfen, ob es dasselbe ist.",
+        "en": "Each believes they are talking past the other. You have them check whether it is the same point."
+      },
+      "vocab": [
+        {
+          "korean": "요지"
+        },
+        {
+          "korean": "재진술"
+        },
+        {
+          "korean": "오해"
+        },
+        {
+          "korean": "쟁점"
+        },
+        {
+          "korean": "간격"
+        },
+        {
+          "korean": "확인"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_two_sides"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 한편",
+          "de": "A/V-는 한편: einerseits/andererseits",
+          "en": "A/V-는 한편: while on the other hand"
+        },
+        "explanation": {
+          "ko": "두 주장을 한 문장에 담아 비교한다. 인정하는 한편처럼 쓴다.",
+          "de": "Vergleicht zwei Positionen in einem Satz: 인정하는 한편.",
+          "en": "Compares two positions in one sentence: 인정하는 한편."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "상대 말을 한 문장으로 대신 정리해 보시겠습니까?",
+          "de": "Fassen Sie die Gegenseite bitte in einem Satz zusammen.",
+          "en": "Could you restate the other side in one sentence?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "돈을 더 달라는 이야기 아닙니까?",
+          "de": "Es geht doch um mehr Geld, oder?",
+          "en": "It is about wanting more money, is it not?"
+        },
+        {
+          "speaker": "user",
+          "ko": "그쪽 말은 금액을 인정하는 한편 시점을 문제 삼았습니다.",
+          "de": "Die andere Seite akzeptiert den Betrag, kritisiert aber den Zeitpunkt.",
+          "en": "They accept the amount while objecting to the timing."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "시점이요? 그건 몰랐습니다.",
+          "de": "Der Zeitpunkt? Das war mir neu.",
+          "en": "The timing? I did not know that."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 쟁점이 하나로 줄어듭니다.",
+          "de": "Dann bleibt nur ein Streitpunkt.",
+          "en": "Then the dispute narrows to one point."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "시점만이라면 조정할 수 있습니다.",
+          "de": "Wenn es nur der Zeitpunkt ist, lässt sich das regeln.",
+          "en": "If it is only timing, that can be arranged."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 말을 그쪽에도 그대로 전하겠습니다.",
+          "de": "Das gebe ich der anderen Seite so weiter.",
+          "en": "I'll pass that on to them just as you said it."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 제가 직접 말해도 됩니다.",
+          "de": "Ja, ich kann es auch selbst sagen.",
+          "en": "Yes, I can say it myself as well."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_mediation_restate_position_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "그쪽 말은 금액을 인정하는 한편 시점을 문제 삼았습니다.",
+            "options": [
+              {
+                "de": "Der Betrag ist akzeptiert, strittig ist der Zeitpunkt.",
+                "en": "The amount is accepted, the timing is the dispute."
+              },
+              {
+                "de": "Sowohl Betrag als auch Zeitpunkt sind strittig.",
+                "en": "Both amount and timing are disputed."
+              },
+              {
+                "de": "Nur der Betrag ist strittig.",
+                "en": "Only the amount is disputed."
+              },
+              {
+                "de": "Es gibt gar keinen Streitpunkt.",
+                "en": "There is no dispute at all."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_restate_position_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Dann bleibt nur ein Streitpunkt.",
+            "promptEn": "Then the dispute narrows to one point.",
+            "options": [
+              {
+                "ko": "그럼 쟁점이 하나로 줄어듭니다."
+              },
+              {
+                "ko": "그럼 쟁점이 둘로 늘어납니다."
+              },
+              {
+                "ko": "그럼 조정이 끝났습니다."
+              },
+              {
+                "ko": "그럼 다시 처음부터 하겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_restate_position_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "금액을 인정하는 ___ 시점을 문제 삼았습니다.",
+            "options": [
+              "한편",
+              "마당에",
+              "여지에",
+              "한이 있어도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_restate_position_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "상대 말을 한 문장으로 대신 정리해 보시겠습니까?",
+            "promptDe": "Bitte die Person, die Gegenseite zusammenzufassen.",
+            "promptEn": "Ask them to restate the other side.",
+            "distractors": [
+              "시점만이라면 조정할 수 있습니다",
+              "제가 직접 말해도 됩니다",
+              "돈을 더 달라는 이야기 아닙니까"
+            ],
+            "audioKo": "상대 말을 한 문장으로 대신 정리해 보시겠습니까?"
+          }
+        },
+        {
+          "id": "quest_c1_mediation_restate_position_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "시점만이라면 조정할 수 있습니다.",
+            "audioKo": "시점만이라면 조정할 수 있습니다.",
+            "promptDe": "Wenn es nur der Zeitpunkt ist, lässt sich das regeln.",
+            "promptEn": "If it is only timing, that can be arranged."
+          }
+        }
+      ],
+      "shelf": "c1_mediation",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_mediation_partial_agreement",
+      "level": "c1",
+      "emoji": "🧩",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "community_organizers",
+      "intent": "bank_the_part_that_is_already_agreed",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "합의된 부분만 먼저 적읍시다",
+        "de": "Halten wir zuerst das Einige fest",
+        "en": "Let us record what is already agreed"
+      },
+      "intro": {
+        "ko": "전부 아니면 아무것도 아니라는 분위기입니다. 이미 같은 부분을 먼저 떼어 냅니다.",
+        "de": "Es herrscht Alles-oder-nichts-Stimmung. Du trennst zuerst ab, worin man sich einig ist.",
+        "en": "The mood is all or nothing. You peel off what both already share."
+      },
+      "vocab": [
+        {
+          "korean": "부분"
+        },
+        {
+          "korean": "확정"
+        },
+        {
+          "korean": "잔여"
+        },
+        {
+          "korean": "문안"
+        },
+        {
+          "korean": "서명"
+        },
+        {
+          "korean": "차기"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_room_for"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 여지가 있다",
+          "de": "V-(으)ㄹ 여지가 있다: Spielraum",
+          "en": "V-(으)ㄹ 여지가 있다: room for"
+        },
+        "explanation": {
+          "ko": "남은 부분에 여지를 남긴다. 더 좁힐 여지가 있다처럼 쓴다.",
+          "de": "Lässt für den Rest Spielraum: 더 좁힐 여지가 있다.",
+          "en": "Leaves room on what remains: 더 좁힐 여지가 있다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "세 항목 중 둘은 이미 같습니다.",
+          "de": "Bei zwei von drei Punkten sind Sie sich einig.",
+          "en": "Two of the three points already match."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "하나가 안 되면 의미가 없지 않습니까?",
+          "de": "Bringt es etwas, wenn der dritte offen bleibt?",
+          "en": "Is it worth anything if the third stays open?"
+        },
+        {
+          "speaker": "user",
+          "ko": "둘을 적어 두면 남은 하나가 작아 보입니다.",
+          "de": "Sind zwei festgehalten, wirkt der letzte kleiner.",
+          "en": "With two on paper, the last one looks smaller."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "적어 두면 나중에 못 바꿉니까?",
+          "de": "Ist das dann unveränderlich?",
+          "en": "Does writing it down make it unchangeable?"
+        },
+        {
+          "speaker": "user",
+          "ko": "문안은 다시 다듬을 여지가 있습니다.",
+          "de": "Am Wortlaut lässt sich noch feilen.",
+          "en": "There is room to refine the wording later."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그럼 오늘은 둘만 서명하겠습니다.",
+          "de": "Dann unterschreiben wir heute nur die zwei.",
+          "en": "Then we will sign just the two today."
+        },
+        {
+          "speaker": "user",
+          "ko": "남은 하나는 다음 자리 첫 안건으로 두겠습니다.",
+          "de": "Der letzte Punkt kommt beim nächsten Mal zuerst.",
+          "en": "The remaining point goes first on the next agenda."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그렇게 하면 오늘이 헛되지는 않겠습니다.",
+          "de": "So war der Tag wenigstens nicht umsonst.",
+          "en": "That way today does not go to waste."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_mediation_partial_agreement_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "둘을 적어 두면 남은 하나가 작아 보입니다.",
+            "options": [
+              {
+                "de": "Zwei festzuhalten lässt den letzten Punkt kleiner wirken.",
+                "en": "Recording two makes the remaining point look smaller."
+              },
+              {
+                "de": "Ohne alle drei ist nichts gültig.",
+                "en": "Nothing counts without all three."
+              },
+              {
+                "de": "Der letzte Punkt wird dadurch größer.",
+                "en": "The last point grows because of it."
+              },
+              {
+                "de": "Schriftliches ist unverbindlich.",
+                "en": "Written points are non-binding."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_partial_agreement_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Der letzte Punkt kommt beim nächsten Mal zuerst.",
+            "promptEn": "The remaining point goes first on the next agenda.",
+            "options": [
+              {
+                "ko": "남은 하나는 다음 자리 첫 안건으로 두겠습니다."
+              },
+              {
+                "ko": "남은 하나는 없던 일로 하겠습니다."
+              },
+              {
+                "ko": "남은 하나는 오늘 끝내겠습니다."
+              },
+              {
+                "ko": "남은 하나는 다른 사람이 맡습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_partial_agreement_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "문안은 다시 다듬을 ___ 있습니다.",
+            "options": [
+              "여지가",
+              "마당이",
+              "한편이",
+              "한이"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_partial_agreement_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "세 항목 중 둘은 이미 같습니다.",
+            "promptDe": "Sag, dass zwei von drei Punkten schon übereinstimmen.",
+            "promptEn": "Say that two of the three points already match.",
+            "distractors": [
+              "그럼 오늘은 둘만 서명하겠습니다",
+              "적어 두면 나중에 못 바꿉니까",
+              "그렇게 하면 오늘이 헛되지는 않겠습니다"
+            ],
+            "audioKo": "세 항목 중 둘은 이미 같습니다."
+          }
+        },
+        {
+          "id": "quest_c1_mediation_partial_agreement_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "그럼 오늘은 둘만 서명하겠습니다.",
+            "audioKo": "그럼 오늘은 둘만 서명하겠습니다.",
+            "promptDe": "Dann unterschreiben wir heute nur die zwei.",
+            "promptEn": "Then we will sign just the two today."
+          }
+        }
+      ],
+      "shelf": "c1_mediation",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_mediation_walk_away_line",
+      "level": "c1",
+      "emoji": "🛑",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "community_organizers",
+      "intent": "name_the_point_where_talks_stop",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "여기까지는 못 갑니다",
+        "de": "Weiter gehe ich nicht",
+        "en": "I cannot go past this"
+      },
+      "intro": {
+        "ko": "양보를 계속 요구받습니다. 어디서 멈추는지 미리 말해 두면 협상이 깨끗해집니다.",
+        "de": "Es wird immer mehr Nachgeben verlangt. Die Grenze vorab zu nennen macht die Verhandlung sauber.",
+        "en": "The asks keep coming. Naming your stopping point up front keeps the talks clean."
+      },
+      "vocab": [
+        {
+          "korean": "양보"
+        },
+        {
+          "korean": "결렬"
+        },
+        {
+          "korean": "선"
+        },
+        {
+          "korean": "최소"
+        },
+        {
+          "korean": "책임"
+        },
+        {
+          "korean": "명시"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_even_at_cost"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 한이 있어도",
+          "de": "V-는 한이 있어도: selbst wenn es kostet",
+          "en": "V-는 한이 있어도: even at the cost of"
+        },
+        "explanation": {
+          "ko": "결렬을 감수하고도 지킬 선을 밝힌다. 결렬되는 한이 있어도처럼 쓴다.",
+          "de": "Nennt die Grenze trotz drohenden Scheiterns: 결렬되는 한이 있어도.",
+          "en": "States the line even if talks collapse: 결렬되는 한이 있어도."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "한 번만 더 양보해 주시면 끝납니다.",
+          "de": "Ein letztes Entgegenkommen und wir sind fertig.",
+          "en": "One more concession and we are done."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 부분은 결렬되는 한이 있어도 못 넘깁니다.",
+          "de": "Diesen Punkt gebe ich nicht auf, selbst wenn es scheitert.",
+          "en": "I cannot give that up, even at the cost of collapse."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "이유를 말씀해 주시겠습니까?",
+          "de": "Können Sie den Grund nennen?",
+          "en": "Could you give the reason?"
+        },
+        {
+          "speaker": "user",
+          "ko": "안전 책임을 우리가 떠안는 조항입니다.",
+          "de": "Es ist die Klausel, die uns die Sicherheitshaftung aufbürdet.",
+          "en": "It is the clause that puts safety liability on us."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "책임 범위를 줄이면 되겠습니까?",
+          "de": "Reicht es, den Haftungsumfang zu verkleinern?",
+          "en": "Would narrowing the liability be enough?"
+        },
+        {
+          "speaker": "user",
+          "ko": "우리 관리 구역으로만 한정하면 됩니다.",
+          "de": "Wenn es auf unseren Bereich begrenzt wird, ja.",
+          "en": "Limiting it to our own area would work."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그건 제가 오늘 결정할 수 있습니다.",
+          "de": "Das kann ich heute entscheiden.",
+          "en": "That I can decide today."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 그 문장으로 바꿔 주십시오.",
+          "de": "Dann ändern Sie bitte den Satz entsprechend.",
+          "en": "Then please change the sentence accordingly."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_mediation_walk_away_line_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "우리 관리 구역으로만 한정하면 됩니다.",
+            "options": [
+              {
+                "de": "Eine Begrenzung auf den eigenen Bereich genügt.",
+                "en": "Limiting it to their own area is enough."
+              },
+              {
+                "de": "Die Haftung muss ganz entfallen.",
+                "en": "The liability must be removed entirely."
+              },
+              {
+                "de": "Die Haftung soll erweitert werden.",
+                "en": "The liability should be widened."
+              },
+              {
+                "de": "Über Haftung wird nicht gesprochen.",
+                "en": "Liability is not being discussed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_walk_away_line_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Es ist die Klausel, die uns die Sicherheitshaftung aufbürdet.",
+            "promptEn": "It is the clause that puts safety liability on us.",
+            "options": [
+              {
+                "ko": "안전 책임을 우리가 떠안는 조항입니다."
+              },
+              {
+                "ko": "안전 점검을 우리가 맡는 조항입니다."
+              },
+              {
+                "ko": "안전 교육을 함께 하는 조항입니다."
+              },
+              {
+                "ko": "안전 비용을 나누는 조항입니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_walk_away_line_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "결렬되는 ___ 그 부분은 못 넘깁니다.",
+            "options": [
+              "한이 있어도",
+              "마당에도",
+              "여지가 있어도",
+              "한편에도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_mediation_walk_away_line_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "그럼 그 문장으로 바꿔 주십시오.",
+            "promptDe": "Bitte darum, den Satz entsprechend zu ändern.",
+            "promptEn": "Ask them to change the sentence accordingly.",
+            "distractors": [
+              "그건 제가 오늘 결정할 수 있습니다",
+              "이유를 말씀해 주시겠습니까",
+              "한 번만 더 양보해 주시면 끝납니다"
+            ],
+            "audioKo": "그럼 그 문장으로 바꿔 주십시오."
+          }
+        },
+        {
+          "id": "quest_c1_mediation_walk_away_line_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "책임 범위를 줄이면 되겠습니까?",
+            "audioKo": "책임 범위를 줄이면 되겠습니까?",
+            "promptDe": "Reicht es, den Haftungsumfang zu verkleinern?",
+            "promptEn": "Would narrowing the liability be enough?"
+          }
+        }
+      ],
+      "shelf": "c1_mediation",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_facework_decline_without_wound",
+      "level": "c1",
+      "emoji": "🙇",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "refuse_while_keeping_the_relationship",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "이번에는 어렵습니다",
+        "de": "Diesmal geht es nicht",
+        "en": "This time I cannot"
+      },
+      "intro": {
+        "ko": "거절이 관계 거절로 읽히기 쉽습니다. 무엇이 어려운지만 좁혀 말합니다.",
+        "de": "Eine Absage wird leicht persönlich genommen. Du grenzt genau ein, was nicht geht.",
+        "en": "A refusal is easily heard as rejecting the person. You narrow it to what exactly is hard."
+      },
+      "vocab": [
+        {
+          "korean": "부탁"
+        },
+        {
+          "korean": "일정"
+        },
+        {
+          "korean": "여력"
+        },
+        {
+          "korean": "대안"
+        },
+        {
+          "korean": "다음"
+        },
+        {
+          "korean": "미안"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_unless_condition"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-지 않는 한",
+          "de": "V-지 않는 한: solange nicht",
+          "en": "V-지 않는 한: unless"
+        },
+        "explanation": {
+          "ko": "조건을 걸어 문을 열어 둔다. 일정이 바뀌지 않는 한처럼 쓴다.",
+          "de": "Hält mit einer Bedingung die Tür offen: 일정이 바뀌지 않는 한.",
+          "en": "Keeps the door open with a condition: 일정이 바뀌지 않는 한."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "다음 주 발표를 대신 맡아 주실 수 있을까요?",
+          "de": "Könnten Sie nächste Woche die Präsentation übernehmen?",
+          "en": "Could you take over next week's presentation?"
+        },
+        {
+          "speaker": "user",
+          "ko": "맡고 싶은데 이번 주 마감이 겹칩니다.",
+          "de": "Gern, aber diese Woche fällt eine Abgabe zusammen.",
+          "en": "I would like to, but a deadline falls in the same week."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "다른 분을 찾아야 하겠군요.",
+          "de": "Dann muss ich jemand anderen suchen.",
+          "en": "Then I'll have to find someone else."
+        },
+        {
+          "speaker": "user",
+          "ko": "마감이 밀리지 않는 한 제가 못 합니다.",
+          "de": "Solange die Abgabe nicht verschoben wird, geht es bei mir nicht.",
+          "en": "Unless the deadline moves, I cannot do it."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "혹시 자료만이라도 봐 주실 수 있습니까?",
+          "de": "Könnten Sie wenigstens die Unterlagen durchsehen?",
+          "en": "Could you at least look over the materials?"
+        },
+        {
+          "speaker": "user",
+          "ko": "자료 검토는 오늘 저녁에 할 수 있습니다.",
+          "de": "Die Unterlagen kann ich heute Abend ansehen.",
+          "en": "I can review the materials this evening."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그것만으로도 큰 도움입니다.",
+          "de": "Das hilft schon sehr.",
+          "en": "That alone helps a lot."
+        },
+        {
+          "speaker": "user",
+          "ko": "다음 차례는 제가 맡겠습니다.",
+          "de": "Beim nächsten Mal übernehme ich.",
+          "en": "I'll take the next one."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_facework_decline_without_wound_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "audioKo": "자료 검토는 오늘 저녁에 할 수 있습니다.",
+            "options": [
+              {
+                "de": "Die Unterlagen kann sie heute Abend durchsehen.",
+                "en": "She can review the materials this evening."
+              },
+              {
+                "de": "Sie übernimmt die ganze Präsentation.",
+                "en": "She takes over the whole presentation."
+              },
+              {
+                "de": "Sie kann gar nichts übernehmen.",
+                "en": "She cannot take on anything at all."
+              },
+              {
+                "de": "Sie verschiebt ihre eigene Abgabe.",
+                "en": "She postpones her own deadline."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_decline_without_wound_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "promptDe": "Gern, aber diese Woche fällt eine Abgabe zusammen.",
+            "promptEn": "I would like to, but a deadline falls in the same week.",
+            "options": [
+              {
+                "ko": "맡고 싶은데 이번 주 마감이 겹칩니다."
+              },
+              {
+                "ko": "맡고 싶지 않아서 거절하겠습니다."
+              },
+              {
+                "ko": "맡겠습니다. 일정은 비어 있습니다."
+              },
+              {
+                "ko": "발표는 제 일이 아닙니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_decline_without_wound_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "sentence": "마감이 밀리지 ___ 제가 못 합니다.",
+            "options": [
+              "않는 한",
+              "않는 마당에",
+              "않을 여지가",
+              "않은 한편"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_decline_without_wound_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "다음 차례는 제가 맡겠습니다.",
+            "promptDe": "Sag zu, das nächste Mal zu übernehmen.",
+            "promptEn": "Offer to take the next one.",
+            "distractors": [
+              "그것만으로도 큰 도움입니다",
+              "다른 분을 찾아야 하겠군요",
+              "자료만이라도 봐 주실 수 있습니까"
+            ],
+            "audioKo": "다음 차례는 제가 맡겠습니다."
+          }
+        },
+        {
+          "id": "quest_c1_facework_decline_without_wound_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "자료 검토는 오늘 저녁에 할 수 있습니다.",
+            "audioKo": "자료 검토는 오늘 저녁에 할 수 있습니다.",
+            "promptDe": "Die Unterlagen kann ich heute Abend ansehen.",
+            "promptEn": "I can review the materials this evening."
+          }
+        }
+      ],
+      "shelf": "c1_facework",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "c1_facework_correct_in_private",
+      "level": "c1",
+      "emoji": "🚻",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "move_a_correction_out_of_the_room",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "그 자리에서 말하지 않았습니다",
+        "de": "Ich habe es dort nicht gesagt",
+        "en": "I did not say it in the room"
+      },
+      "intro": {
+        "ko": "회의 중 틀린 숫자를 봤습니다. 바로 잡되 사람이 무너지지 않게 순서를 고릅니다.",
+        "de": "In der Sitzung fiel dir eine falsche Zahl auf. Du korrigierst, ohne die Person bloßzustellen.",
+        "en": "You spotted a wrong figure in the meeting. You fix it without exposing the person."
+      },
+      "vocab": [
+        {
+          "korean": "정정"
+        },
+        {
+          "korean": "자리"
+        },
+        {
+          "korean": "회의록"
+        },
+        {
+          "korean": "체면"
+        },
+        {
+          "korean": "즉시"
+        },
+        {
+          "korean": "사후"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_even_at_cost"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 한이 있어도",
+          "de": "V-는 한이 있어도: selbst wenn es kostet",
+          "en": "V-는 한이 있어도: even at the cost of"
+        },
+        "explanation": {
+          "ko": "손해를 감수하고 지키는 원칙을 말한다. 늦어지는 한이 있어도처럼 쓴다.",
+          "de": "Nennt das Prinzip trotz Nachteil: 늦어지는 한이 있어도.",
+          "en": "States the principle despite cost: 늦어지는 한이 있어도."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "아까 표의 삼 행 숫자가 틀렸습니다.",
+          "de": "Die Zahl in Zeile drei der Tabelle war falsch.",
+          "en": "The figure in row three of the table was wrong."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "회의에서 바로 말씀하시지 그러셨어요.",
+          "de": "Warum haben Sie es nicht gleich gesagt?",
+          "en": "Why did you not say so right away?"
+        },
+        {
+          "speaker": "user",
+          "ko": "정정이 늦어지는 한이 있어도 그 자리에서는 안 했습니다.",
+          "de": "Auch wenn die Korrektur später kommt, wollte ich es dort nicht tun.",
+          "en": "Even at the cost of a late correction, I did not do it there."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "회의록에는 이미 들어갔습니다.",
+          "de": "Ins Protokoll ist es schon eingeflossen.",
+          "en": "It has already gone into the minutes."
+        },
+        {
+          "speaker": "user",
+          "ko": "회의록 수정은 제가 요청하겠습니다.",
+          "de": "Die Protokollkorrektur beantrage ich.",
+          "en": "I'll request the correction to the minutes."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "제 이름으로 정정하는 게 낫겠습니다.",
+          "de": "Besser, ich korrigiere es unter meinem Namen.",
+          "en": "Better that I correct it under my own name."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러면 더 깔끔합니다.",
+          "de": "Das ist sauberer.",
+          "en": "That is cleaner."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "다음부터는 그냥 바로 말씀해 주세요.",
+          "de": "Sagen Sie es beim nächsten Mal ruhig gleich.",
+          "en": "Next time just say it on the spot."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_facework_correct_in_private_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "audioKo": "제 이름으로 정정하는 게 낫겠습니다.",
+            "options": [
+              {
+                "de": "Er möchte die Korrektur selbst einbringen.",
+                "en": "He would rather file the correction himself."
+              },
+              {
+                "de": "Er will die Korrektur verhindern.",
+                "en": "He wants to block the correction."
+              },
+              {
+                "de": "Er hält die Zahl für richtig.",
+                "en": "He thinks the figure is correct."
+              },
+              {
+                "de": "Er will das Protokoll löschen.",
+                "en": "He wants the minutes deleted."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_correct_in_private_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "promptDe": "Die Protokollkorrektur beantrage ich.",
+            "promptEn": "I'll request the correction to the minutes.",
+            "options": [
+              {
+                "ko": "회의록 수정은 제가 요청하겠습니다."
+              },
+              {
+                "ko": "회의록은 그대로 두겠습니다."
+              },
+              {
+                "ko": "회의록을 다시 쓰겠습니다."
+              },
+              {
+                "ko": "회의록을 공개하겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_correct_in_private_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "sentence": "정정이 늦어지는 ___ 그 자리에서는 안 했습니다.",
+            "options": [
+              "한이 있어도",
+              "마당에도",
+              "여지가 있어도",
+              "한편에도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_correct_in_private_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "아까 표의 삼 행 숫자가 틀렸습니다.",
+            "promptDe": "Weise auf die falsche Zahl in Zeile drei hin.",
+            "promptEn": "Point out the wrong figure in row three.",
+            "distractors": [
+              "다음부터는 그냥 바로 말씀해 주세요",
+              "회의록에는 이미 들어갔습니다",
+              "그러면 더 깔끔합니다"
+            ],
+            "audioKo": "아까 표의 삼 행 숫자가 틀렸습니다."
+          }
+        },
+        {
+          "id": "quest_c1_facework_correct_in_private_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "회의록 수정은 제가 요청하겠습니다.",
+            "audioKo": "회의록 수정은 제가 요청하겠습니다.",
+            "promptDe": "Die Protokollkorrektur beantrage ich.",
+            "promptEn": "I'll request the correction to the minutes."
+          }
+        }
+      ],
+      "shelf": "c1_facework",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_facework_accept_correction",
+      "level": "c1",
+      "emoji": "🪞",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "receive_a_correction_without_collapsing",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "지적을 받는 쪽이 되었습니다",
+        "de": "Diesmal wurde ich korrigiert",
+        "en": "This time I am the one corrected"
+      },
+      "intro": {
+        "ko": "사과가 길면 상대가 더 불편해집니다. 인정과 조치만 짧게 말합니다.",
+        "de": "Eine lange Entschuldigung macht es der anderen Seite unangenehm. Du sagst kurz, was stimmt und was folgt.",
+        "en": "A long apology makes the other person uncomfortable. You keep it to what is true and what follows."
+      },
+      "vocab": [
+        {
+          "korean": "실수"
+        },
+        {
+          "korean": "인정"
+        },
+        {
+          "korean": "조치"
+        },
+        {
+          "korean": "재발"
+        },
+        {
+          "korean": "점검"
+        },
+        {
+          "korean": "공유"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_two_sides"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 한편",
+          "de": "A/V-는 한편: einerseits/andererseits",
+          "en": "A/V-는 한편: while on the other hand"
+        },
+        "explanation": {
+          "ko": "인정과 설명을 한 문장에 둔다. 제 실수인 한편처럼 쓴다.",
+          "de": "Verbindet Eingeständnis und Erklärung: 제 실수인 한편.",
+          "en": "Holds admission and explanation together: 제 실수인 한편."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "보내신 파일에 지난달 수치가 들어 있었습니다.",
+          "de": "In Ihrer Datei standen die Zahlen des Vormonats.",
+          "en": "The file you sent had last month's figures in it."
+        },
+        {
+          "speaker": "user",
+          "ko": "제 실수입니다. 지금 바로 다시 보내겠습니다.",
+          "de": "Mein Fehler. Ich schicke es sofort neu.",
+          "en": "My mistake. I'll resend it right now."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "회의 전에만 오면 됩니다.",
+          "de": "Es reicht, wenn es vor der Sitzung da ist.",
+          "en": "As long as it arrives before the meeting."
+        },
+        {
+          "speaker": "user",
+          "ko": "확인을 건너뛴 한편 파일 이름도 같아서 헷갈렸습니다.",
+          "de": "Ich habe die Prüfung übersprungen, und der Dateiname war zudem gleich.",
+          "en": "I skipped the check, and the file name was identical as well."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이름 규칙을 바꾸는 게 좋겠네요.",
+          "de": "Dann sollten wir die Namensregel ändern.",
+          "en": "Then we should change the naming rule."
+        },
+        {
+          "speaker": "user",
+          "ko": "월을 앞에 붙이도록 하겠습니다.",
+          "de": "Ich stelle den Monat voran.",
+          "en": "I'll put the month at the front."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그러면 다음부터는 눈에 바로 보입니다.",
+          "de": "Dann fällt es künftig sofort auf.",
+          "en": "Then it will be obvious from now on."
+        },
+        {
+          "speaker": "user",
+          "ko": "팀에도 그렇게 공유하겠습니다.",
+          "de": "Ich gebe das so im Team weiter.",
+          "en": "I'll share that with the team as well."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_facework_accept_correction_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "audioKo": "확인을 건너뛴 한편 파일 이름도 같아서 헷갈렸습니다.",
+            "options": [
+              {
+                "de": "Übersprungene Prüfung und gleicher Dateiname zusammen.",
+                "en": "A skipped check plus an identical file name together."
+              },
+              {
+                "de": "Nur der Dateiname war das Problem.",
+                "en": "Only the file name was the problem."
+              },
+              {
+                "de": "Die Prüfung wurde sorgfältig gemacht.",
+                "en": "The check was done carefully."
+              },
+              {
+                "de": "Die Datei war gar nicht falsch.",
+                "en": "The file was not wrong at all."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_accept_correction_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "promptDe": "Mein Fehler. Ich schicke es sofort neu.",
+            "promptEn": "My mistake. I'll resend it right now.",
+            "options": [
+              {
+                "ko": "제 실수입니다. 지금 바로 다시 보내겠습니다."
+              },
+              {
+                "ko": "제 실수가 아닙니다. 확인해 보십시오."
+              },
+              {
+                "ko": "파일은 나중에 보내겠습니다."
+              },
+              {
+                "ko": "회의 후에 정리하겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_accept_correction_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "sentence": "확인을 건너뛴 ___ 파일 이름도 같았습니다.",
+            "options": [
+              "한편",
+              "마당에",
+              "여지에",
+              "한이 있어도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_accept_correction_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "월을 앞에 붙이도록 하겠습니다.",
+            "promptDe": "Sag zu, den Monat künftig voranzustellen.",
+            "promptEn": "Commit to putting the month at the front.",
+            "distractors": [
+              "회의 전에만 오면 됩니다",
+              "팀에도 그렇게 공유하겠습니다",
+              "이름 규칙을 바꾸는 게 좋겠네요"
+            ],
+            "audioKo": "월을 앞에 붙이도록 하겠습니다."
+          }
+        },
+        {
+          "id": "quest_c1_facework_accept_correction_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "제 실수입니다. 지금 바로 다시 보내겠습니다.",
+            "audioKo": "제 실수입니다. 지금 바로 다시 보내겠습니다.",
+            "promptDe": "Mein Fehler. Ich schicke es sofort neu.",
+            "promptEn": "My mistake. I'll resend it right now."
+          }
+        }
+      ],
+      "shelf": "c1_facework",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_facework_praise_before_others",
+      "level": "c1",
+      "emoji": "👏",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "coworker",
+      "intent": "weigh_praise_given_in_front_of_others",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "여러 사람 앞에서 칭찬해도 될까요",
+        "de": "Darf ich vor allen loben",
+        "en": "Is praising in front of everyone all right"
+      },
+      "intro": {
+        "ko": "칭찬도 무게가 다릅니다. 누가 그 자리에 있느냐를 먼저 봅니다.",
+        "de": "Auch Lob wiegt unterschiedlich. Entscheidend ist, wer dabei ist.",
+        "en": "Praise lands differently too. Who is in the room matters first."
+      },
+      "vocab": [
+        {
+          "korean": "칭찬"
+        },
+        {
+          "korean": "공개"
+        },
+        {
+          "korean": "부담"
+        },
+        {
+          "korean": "형평"
+        },
+        {
+          "korean": "기여"
+        },
+        {
+          "korean": "언급"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 감안하면",
+          "de": "N을/를 감안하면: in Anbetracht",
+          "en": "N을/를 감안하면: taking into account"
+        },
+        "explanation": {
+          "ko": "상황을 조건으로 앞세운다. 팀 분위기를 감안하면처럼 쓴다.",
+          "de": "Stellt die Lage als Bedingung voran: 팀 분위기를 감안하면.",
+          "en": "Puts the situation up front as a condition: 팀 분위기를 감안하면."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "내일 회의에서 이번 성과를 언급하려고 합니다.",
+          "de": "Ich möchte die Leistung morgen in der Sitzung erwähnen.",
+          "en": "I want to mention this result at tomorrow's meeting."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "누구 이름까지 넣으실 생각입니까?",
+          "de": "Welche Namen wollen Sie nennen?",
+          "en": "Whose names are you planning to include?"
+        },
+        {
+          "speaker": "user",
+          "ko": "혼자 한 일이 아니라 팀 전체로 말하려고요.",
+          "de": "Es war keine Einzelleistung, deshalb spreche ich vom Team.",
+          "en": "It was not one person's work, so I'll say the team."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "실제로는 한 사람이 대부분 했습니다.",
+          "de": "Tatsächlich hat eine Person das meiste gemacht.",
+          "en": "In fact one person did most of it."
+        },
+        {
+          "speaker": "user",
+          "ko": "형평을 감안하면 그 이름을 빼기 어렵습니다.",
+          "de": "Angesichts der Fairness lässt sich der Name kaum weglassen.",
+          "en": "Taking fairness into account, that name is hard to leave out."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "본인이 부담스러워할 수도 있습니다.",
+          "de": "Der Person könnte das unangenehm sein.",
+          "en": "The person might find it uncomfortable."
+        },
+        {
+          "speaker": "user",
+          "ko": "먼저 물어보고 정하겠습니다.",
+          "de": "Ich frage vorher und entscheide dann.",
+          "en": "I'll ask first and then decide."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그게 가장 안전합니다.",
+          "de": "Das ist am sichersten.",
+          "en": "That is the safest way."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_facework_praise_before_others_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "audioKo": "본인이 부담스러워할 수도 있습니다.",
+            "options": [
+              {
+                "de": "Das öffentliche Lob könnte der Person unangenehm sein.",
+                "en": "Public praise might be uncomfortable for that person."
+              },
+              {
+                "de": "Die Person erwartet öffentliches Lob.",
+                "en": "The person expects public praise."
+              },
+              {
+                "de": "Namen dürfen nie genannt werden.",
+                "en": "Names may never be mentioned."
+              },
+              {
+                "de": "Das Team hat nichts beigetragen.",
+                "en": "The team contributed nothing."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_praise_before_others_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "promptDe": "Ich frage vorher und entscheide dann.",
+            "promptEn": "I'll ask first and then decide.",
+            "options": [
+              {
+                "ko": "먼저 물어보고 정하겠습니다."
+              },
+              {
+                "ko": "그냥 이름을 넣겠습니다."
+              },
+              {
+                "ko": "언급을 아예 하지 않겠습니다."
+              },
+              {
+                "ko": "회의를 미루겠습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_praise_before_others_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "sentence": "형평을 ___ 그 이름을 빼기 어렵습니다.",
+            "options": [
+              "감안하면",
+              "감안해도",
+              "감안하는 한",
+              "감안한 한편"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_facework_praise_before_others_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "혼자 한 일이 아니라 팀 전체로 말하려고요.",
+            "promptDe": "Sag, dass du vom Team statt von einer Person sprichst.",
+            "promptEn": "Say that you will credit the team rather than one person.",
+            "distractors": [
+              "그게 가장 안전합니다",
+              "누구 이름까지 넣으실 생각입니까",
+              "실제로는 한 사람이 대부분 했습니다"
+            ],
+            "audioKo": "혼자 한 일이 아니라 팀 전체로 말하려고요."
+          }
+        },
+        {
+          "id": "quest_c1_facework_praise_before_others_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_intimacy_safety"
+          ],
+          "data": {
+            "targetKo": "먼저 물어보고 정하겠습니다.",
+            "audioKo": "먼저 물어보고 정하겠습니다.",
+            "promptDe": "Ich frage vorher und entscheide dann.",
+            "promptEn": "I'll ask first and then decide."
+          }
+        }
+      ],
+      "shelf": "c1_facework",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_attribution_author_order",
+      "level": "c1",
+      "emoji": "🔢",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "coworker",
+      "intent": "settle_the_order_of_contributors",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "이름 순서를 어떻게 할까요",
+        "de": "Wie ordnen wir die Namen",
+        "en": "How do we order the names"
+      },
+      "intro": {
+        "ko": "순서가 기여를 말합니다. 나중에 다투지 않도록 지금 기준을 정합니다.",
+        "de": "Die Reihenfolge steht für den Beitrag. Ihr legt jetzt das Kriterium fest.",
+        "en": "Order stands for contribution. You fix the criterion now to avoid a later fight."
+      },
+      "vocab": [
+        {
+          "korean": "저자"
+        },
+        {
+          "korean": "순서"
+        },
+        {
+          "korean": "기여"
+        },
+        {
+          "korean": "분량"
+        },
+        {
+          "korean": "설계"
+        },
+        {
+          "korean": "명시"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 감안하면",
+          "de": "N을/를 감안하면: in Anbetracht",
+          "en": "N을/를 감안하면: taking into account"
+        },
+        "explanation": {
+          "ko": "기준을 앞에 세워 순서를 정한다. 분량을 감안하면처럼 쓴다.",
+          "de": "Setzt das Kriterium vor die Reihenfolge: 분량을 감안하면.",
+          "en": "Puts the criterion before the order: 분량을 감안하면."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "이름 순서를 지금 정해 두는 게 좋겠습니다.",
+          "de": "Wir sollten die Reihenfolge jetzt festlegen.",
+          "en": "We had better fix the name order now."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "보통 가나다순으로 하지 않습니까?",
+          "de": "Ist es nicht üblich, alphabetisch zu ordnen?",
+          "en": "Is it not usual to go alphabetically?"
+        },
+        {
+          "speaker": "user",
+          "ko": "분량을 감안하면 설계한 쪽이 앞이 맞습니다.",
+          "de": "Gemessen am Umfang gehört die Konzeption nach vorn.",
+          "en": "Taking the workload into account, the design side belongs first."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "저는 자료 수집만 했습니다.",
+          "de": "Ich habe nur Daten erhoben.",
+          "en": "I only did data collection."
+        },
+        {
+          "speaker": "user",
+          "ko": "수집이 없었으면 분석도 없었습니다.",
+          "de": "Ohne Erhebung gäbe es keine Analyse.",
+          "en": "Without collection there would be no analysis."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그래도 순서는 그쪽이 앞이 맞습니다.",
+          "de": "Trotzdem gehören Sie nach vorn.",
+          "en": "Still, you belong first."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 기여 내용을 각주로 밝히겠습니다.",
+          "de": "Dann führen wir die Beiträge in einer Fußnote auf.",
+          "en": "Then we will spell out the contributions in a footnote."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그게 순서보다 정확합니다.",
+          "de": "Das ist genauer als die Reihenfolge.",
+          "en": "That says more than the order does."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_attribution_author_order_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "audioKo": "그럼 기여 내용을 각주로 밝히겠습니다.",
+            "options": [
+              {
+                "de": "Die Beiträge werden in einer Fußnote aufgeführt.",
+                "en": "The contributions get spelled out in a footnote."
+              },
+              {
+                "de": "Die Reihenfolge bleibt ohne Erklärung.",
+                "en": "The order stays without explanation."
+              },
+              {
+                "de": "Nur ein Name wird genannt.",
+                "en": "Only one name is listed."
+              },
+              {
+                "de": "Die Reihenfolge wird alphabetisch.",
+                "en": "The order becomes alphabetical."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_author_order_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "promptDe": "Ohne Erhebung gäbe es keine Analyse.",
+            "promptEn": "Without collection there would be no analysis.",
+            "options": [
+              {
+                "ko": "수집이 없었으면 분석도 없었습니다."
+              },
+              {
+                "ko": "분석이 없었으면 수집도 없었습니다."
+              },
+              {
+                "ko": "수집과 분석은 관계가 없습니다."
+              },
+              {
+                "ko": "분석만으로 충분했습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_author_order_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "sentence": "분량을 ___ 설계한 쪽이 앞이 맞습니다.",
+            "options": [
+              "감안하면",
+              "감안해도",
+              "감안하는 한",
+              "감안한 한편"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_author_order_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "targetKo": "이름 순서를 지금 정해 두는 게 좋겠습니다.",
+            "promptDe": "Schlage vor, die Reihenfolge jetzt festzulegen.",
+            "promptEn": "Propose fixing the order now.",
+            "distractors": [
+              "그게 순서보다 정확합니다",
+              "저는 자료 수집만 했습니다",
+              "보통 가나다순으로 하지 않습니까"
+            ],
+            "audioKo": "이름 순서를 지금 정해 두는 게 좋겠습니다."
+          }
+        },
+        {
+          "id": "quest_c1_attribution_author_order_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "targetKo": "수집이 없었으면 분석도 없었습니다.",
+            "audioKo": "수집이 없었으면 분석도 없었습니다.",
+            "promptDe": "Ohne Erhebung gäbe es keine Analyse.",
+            "promptEn": "Without collection there would be no analysis."
+          }
+        }
+      ],
+      "shelf": "c1_attribution",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_attribution_unpaid_translation",
+      "level": "c1",
+      "emoji": "🈯",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "fan_representative_and_agency",
+      "intent": "put_a_name_on_unpaid_work",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "번역자 이름은 어디에 들어갑니까",
+        "de": "Wo steht der Name der Übersetzung",
+        "en": "Where does the translator's name go"
+      },
+      "intro": {
+        "ko": "무상 번역이 공식 자막이 되었습니다. 돈이 아니라 이름을 먼저 말합니다.",
+        "de": "Aus einer freiwilligen Übersetzung wurden offizielle Untertitel. Es geht dir zuerst um den Namen, nicht ums Geld.",
+        "en": "Volunteer translation became the official subtitles. You raise the name before the money."
+      },
+      "vocab": [
+        {
+          "korean": "번역"
+        },
+        {
+          "korean": "자막"
+        },
+        {
+          "korean": "무상"
+        },
+        {
+          "korean": "표기"
+        },
+        {
+          "korean": "권리"
+        },
+        {
+          "korean": "관행"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_given_situation"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 마당에",
+          "de": "V-는 마당에: angesichts dessen",
+          "en": "V-는 마당에: given that"
+        },
+        "explanation": {
+          "ko": "이미 공식이 된 상황을 근거로 삼는다. 공식이 된 마당에처럼 쓴다.",
+          "de": "Nimmt den offiziellen Status als Grund: 공식이 된 마당에.",
+          "en": "Takes the official status as grounds: 공식이 된 마당에."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "공식 자막이 된 마당에 표기는 있어야 합니다.",
+          "de": "Da es offizielle Untertitel sind, gehört ein Nennung dazu.",
+          "en": "Given that it is now official, a credit should appear."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "무상으로 해 주신 거라 관행이 없습니다.",
+          "de": "Da es unentgeltlich war, gibt es keine übliche Regel.",
+          "en": "Since it was unpaid, there is no standing practice."
+        },
+        {
+          "speaker": "user",
+          "ko": "무상인 것과 이름을 빼는 것은 다릅니다.",
+          "de": "Unentgeltlich heißt nicht namenlos.",
+          "en": "Unpaid is not the same as uncredited."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "끝 화면에 넣는 방법이 있겠습니다.",
+          "de": "Wir könnten es im Abspann führen.",
+          "en": "We could put it in the end screen."
+        },
+        {
+          "speaker": "user",
+          "ko": "여러 명이면 목록으로 넣어 주십시오.",
+          "de": "Bei mehreren bitte als Liste.",
+          "en": "If there are several, please list them."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "이름 순서는 어떻게 할까요?",
+          "de": "In welcher Reihenfolge?",
+          "en": "In what order?"
+        },
+        {
+          "speaker": "user",
+          "ko": "가나다순이면 다툼이 없습니다.",
+          "de": "Alphabetisch gibt es keinen Streit.",
+          "en": "Alphabetical avoids any argument."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "다음 회차부터 반영하겠습니다.",
+          "de": "Ab der nächsten Folge setzen wir das um.",
+          "en": "We will apply it from the next episode."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_attribution_unpaid_translation_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "audioKo": "무상인 것과 이름을 빼는 것은 다릅니다.",
+            "options": [
+              {
+                "de": "Unentgeltlich zu arbeiten rechtfertigt keine fehlende Nennung.",
+                "en": "Working unpaid does not justify leaving the name off."
+              },
+              {
+                "de": "Unentgeltliche Arbeit braucht keine Nennung.",
+                "en": "Unpaid work needs no credit."
+              },
+              {
+                "de": "Nur bezahlte Arbeit zählt.",
+                "en": "Only paid work counts."
+              },
+              {
+                "de": "Die Nennung ersetzt die Bezahlung.",
+                "en": "The credit replaces payment."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_unpaid_translation_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "promptDe": "Bei mehreren bitte als Liste.",
+            "promptEn": "If there are several, please list them.",
+            "options": [
+              {
+                "ko": "여러 명이면 목록으로 넣어 주십시오."
+              },
+              {
+                "ko": "여러 명이면 한 명만 넣어 주십시오."
+              },
+              {
+                "ko": "여러 명이면 넣지 말아 주십시오."
+              },
+              {
+                "ko": "여러 명이면 다시 논의합시다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_unpaid_translation_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "sentence": "공식 자막이 된 ___ 표기는 있어야 합니다.",
+            "options": [
+              "마당에",
+              "여지에",
+              "한편에",
+              "한이 있어도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_unpaid_translation_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "targetKo": "가나다순이면 다툼이 없습니다.",
+            "promptDe": "Schlage die alphabetische Reihenfolge vor.",
+            "promptEn": "Propose alphabetical order.",
+            "distractors": [
+              "다음 회차부터 반영하겠습니다",
+              "끝 화면에 넣는 방법이 있겠습니다",
+              "이름 순서는 어떻게 할까요"
+            ],
+            "audioKo": "가나다순이면 다툼이 없습니다."
+          }
+        },
+        {
+          "id": "quest_c1_attribution_unpaid_translation_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "targetKo": "무상인 것과 이름을 빼는 것은 다릅니다.",
+            "audioKo": "무상인 것과 이름을 빼는 것은 다릅니다.",
+            "promptDe": "Unentgeltlich heißt nicht namenlos.",
+            "promptEn": "Unpaid is not the same as uncredited."
+          }
+        }
+      ],
+      "shelf": "c1_attribution",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "c1_attribution_reuse_without_credit",
+      "level": "c1",
+      "emoji": "📎",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "fan_representative_and_agency",
+      "intent": "ask_for_a_source_line_on_reused_work",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "출처가 빠졌습니다",
+        "de": "Die Quelle fehlt",
+        "en": "The source line is missing"
+      },
+      "intro": {
+        "ko": "쓰는 것 자체는 반갑습니다. 다만 어디서 왔는지가 지워졌습니다.",
+        "de": "Die Nutzung selbst freut dich. Nur die Herkunft wurde getilgt.",
+        "en": "You are glad it is being used. It is the origin that got erased."
+      },
+      "vocab": [
+        {
+          "korean": "출처"
+        },
+        {
+          "korean": "재사용"
+        },
+        {
+          "korean": "허락"
+        },
+        {
+          "korean": "표기"
+        },
+        {
+          "korean": "삭제"
+        },
+        {
+          "korean": "합의"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_unless_condition"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-지 않는 한",
+          "de": "V-지 않는 한: solange nicht",
+          "en": "V-지 않는 한: unless"
+        },
+        "explanation": {
+          "ko": "조건을 걸어 요구를 분명히 한다. 표기하지 않는 한처럼 쓴다.",
+          "de": "Macht die Forderung mit einer Bedingung klar: 표기하지 않는 한.",
+          "en": "Sharpens the ask with a condition: 표기하지 않는 한."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "저희 자료가 출처 없이 실렸습니다.",
+          "de": "Unser Material wurde ohne Quellenangabe verwendet.",
+          "en": "Our material was published without a source line."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "공개 자료라 문제없다고 들었습니다.",
+          "de": "Mir wurde gesagt, es sei frei verfügbar.",
+          "en": "I was told it was openly available."
+        },
+        {
+          "speaker": "user",
+          "ko": "공개와 무출처는 다릅니다.",
+          "de": "Frei verfügbar heißt nicht quellenlos.",
+          "en": "Open access is not the same as no attribution."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "지금 고치면 되겠습니까?",
+          "de": "Reicht es, wenn wir es jetzt korrigieren?",
+          "en": "Would fixing it now be enough?"
+        },
+        {
+          "speaker": "user",
+          "ko": "표기가 들어가지 않는 한 내려 주시기 바랍니다.",
+          "de": "Solange die Nennung fehlt, bitte ich um Entfernung.",
+          "en": "Unless the credit goes in, I ask that it be taken down."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "한 줄이면 되겠습니까?",
+          "de": "Genügt eine Zeile?",
+          "en": "Would one line do?"
+        },
+        {
+          "speaker": "user",
+          "ko": "이름과 연도만 있으면 됩니다.",
+          "de": "Name und Jahr reichen.",
+          "en": "Name and year are enough."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "오늘 안에 넣고 알려 드리겠습니다.",
+          "de": "Wir setzen es heute ein und melden uns.",
+          "en": "We will add it today and let you know."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_attribution_reuse_without_credit_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "audioKo": "표기가 들어가지 않는 한 내려 주시기 바랍니다.",
+            "options": [
+              {
+                "de": "Ohne Quellenangabe soll der Beitrag entfernt werden.",
+                "en": "Without the credit, the item should be taken down."
+              },
+              {
+                "de": "Der Beitrag darf ohne Nennung bleiben.",
+                "en": "The item may stay without a credit."
+              },
+              {
+                "de": "Eine Entfernung ist nicht möglich.",
+                "en": "Removal is not possible."
+              },
+              {
+                "de": "Die Quelle wurde bereits genannt.",
+                "en": "The source was already named."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_reuse_without_credit_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "promptDe": "Frei verfügbar heißt nicht quellenlos.",
+            "promptEn": "Open access is not the same as no attribution.",
+            "options": [
+              {
+                "ko": "공개와 무출처는 다릅니다."
+              },
+              {
+                "ko": "공개 자료는 출처가 필요 없습니다."
+              },
+              {
+                "ko": "공개 자료는 쓸 수 없습니다."
+              },
+              {
+                "ko": "출처는 나중에 넣어도 됩니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_reuse_without_credit_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "sentence": "표기가 들어가지 ___ 내려 주시기 바랍니다.",
+            "options": [
+              "않는 한",
+              "않는 마당에",
+              "않을 여지가",
+              "않은 한편"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_reuse_without_credit_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "targetKo": "이름과 연도만 있으면 됩니다.",
+            "promptDe": "Sag, dass Name und Jahr genügen.",
+            "promptEn": "Say that name and year are enough.",
+            "distractors": [
+              "오늘 안에 넣고 알려 드리겠습니다",
+              "공개 자료라 문제없다고 들었습니다",
+              "지금 고치면 되겠습니까"
+            ],
+            "audioKo": "이름과 연도만 있으면 됩니다."
+          }
+        },
+        {
+          "id": "quest_c1_attribution_reuse_without_credit_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "targetKo": "저희 자료가 출처 없이 실렸습니다.",
+            "audioKo": "저희 자료가 출처 없이 실렸습니다.",
+            "promptDe": "Unser Material wurde ohne Quellenangabe verwendet.",
+            "promptEn": "Our material was published without a source line."
+          }
+        }
+      ],
+      "shelf": "c1_attribution",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_attribution_collective_byline",
+      "level": "c1",
+      "emoji": "👥",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "community_organizers",
+      "intent": "decide_between_a_group_name_and_names",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "단체 이름으로 낼까요",
+        "de": "Unter dem Gruppennamen veröffentlichen",
+        "en": "Publish under the group name"
+      },
+      "intro": {
+        "ko": "단체 명의는 편하지만 개인의 몫이 사라집니다. 무엇을 잃는지 짚습니다.",
+        "de": "Ein Gruppenname ist bequem, lässt aber Einzelbeiträge verschwinden. Ihr benennt den Verlust.",
+        "en": "A group byline is easy but hides individual work. You name what gets lost."
+      },
+      "vocab": [
+        {
+          "korean": "단체"
+        },
+        {
+          "korean": "명의"
+        },
+        {
+          "korean": "개인"
+        },
+        {
+          "korean": "이력"
+        },
+        {
+          "korean": "묻히다"
+        },
+        {
+          "korean": "병기"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_room_for"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 여지가 있다",
+          "de": "V-(으)ㄹ 여지가 있다: Spielraum",
+          "en": "V-(으)ㄹ 여지가 있다: room for"
+        },
+        "explanation": {
+          "ko": "부작용의 가능성을 남긴다. 묻힐 여지가 있다처럼 쓴다.",
+          "de": "Lässt eine mögliche Nebenwirkung offen: 묻힐 여지가 있다.",
+          "en": "Leaves a possible downside open: 묻힐 여지가 있다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "단체 이름으로 내면 간단합니다.",
+          "de": "Unter dem Gruppennamen wäre es einfach.",
+          "en": "Publishing under the group name is simple."
+        },
+        {
+          "speaker": "user",
+          "ko": "간단한 대신 개인 이력이 묻힐 여지가 있습니다.",
+          "de": "Einfach schon, aber Einzelleistungen können untergehen.",
+          "en": "Simple, yes, but individual records can get buried."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "신입에게는 그게 손해겠군요.",
+          "de": "Für Neue wäre das ein Nachteil.",
+          "en": "That would hurt the newer people."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 첫 이력이 필요한 사람일수록 그렇습니다.",
+          "de": "Ja, besonders für alle, die einen ersten Nachweis brauchen.",
+          "en": "Yes, especially for anyone who needs a first credit."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "둘 다 적는 방법은 없습니까?",
+          "de": "Geht nicht beides zusammen?",
+          "en": "Is there no way to have both?"
+        },
+        {
+          "speaker": "user",
+          "ko": "단체명 아래 이름을 병기하면 됩니다.",
+          "de": "Der Gruppenname oben, die Namen darunter.",
+          "en": "Group name on top, individual names underneath."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "원하지 않는 사람은 빼도 됩니까?",
+          "de": "Kann man weggelassen werden, wenn man nicht möchte?",
+          "en": "Can someone be left out if they prefer?"
+        },
+        {
+          "speaker": "user",
+          "ko": "본인이 원할 때만 넣습니다.",
+          "de": "Nur auf eigenen Wunsch.",
+          "en": "Only if the person wants it."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_attribution_collective_byline_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "audioKo": "단체명 아래 이름을 병기하면 됩니다.",
+            "options": [
+              {
+                "de": "Gruppenname oben, Einzelnamen darunter.",
+                "en": "Group name on top with individual names below."
+              },
+              {
+                "de": "Nur der Gruppenname wird genannt.",
+                "en": "Only the group name is used."
+              },
+              {
+                "de": "Nur Einzelnamen werden genannt.",
+                "en": "Only individual names are used."
+              },
+              {
+                "de": "Es wird gar kein Name genannt.",
+                "en": "No name is used at all."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_collective_byline_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "promptDe": "Nur auf eigenen Wunsch.",
+            "promptEn": "Only if the person wants it.",
+            "options": [
+              {
+                "ko": "본인이 원할 때만 넣습니다."
+              },
+              {
+                "ko": "모두 반드시 넣습니다."
+              },
+              {
+                "ko": "아무도 넣지 않습니다."
+              },
+              {
+                "ko": "대표만 넣습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_collective_byline_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "sentence": "개인 이력이 묻힐 ___ 있습니다.",
+            "options": [
+              "여지가",
+              "마당이",
+              "한편이",
+              "한이"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_attribution_collective_byline_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "targetKo": "첫 이력이 필요한 사람일수록 그렇습니다.",
+            "promptDe": "Sag, dass es besonders die trifft, die einen ersten Nachweis brauchen.",
+            "promptEn": "Say that it hits hardest those who need a first credit.",
+            "distractors": [
+              "단체 이름으로 내면 간단합니다",
+              "본인이 원할 때만 넣습니다",
+              "둘 다 적는 방법은 없습니까"
+            ],
+            "audioKo": "첫 이력이 필요한 사람일수록 그렇습니다."
+          }
+        },
+        {
+          "id": "quest_c1_attribution_collective_byline_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "targetKo": "단체명 아래 이름을 병기하면 됩니다.",
+            "audioKo": "단체명 아래 이름을 병기하면 됩니다.",
+            "promptDe": "Der Gruppenname oben, die Namen darunter.",
+            "promptEn": "Group name on top, individual names underneath."
+          }
+        }
+      ],
+      "shelf": "c1_attribution",
+      "backdrop": "office"
     }
   ]
 }
