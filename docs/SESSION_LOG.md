@@ -1,5 +1,65 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude Sonnet 5, macOS) — 살아 있는 한옥: 원장 소급 기록 + PR-C/D + Phase 2 자동화 착수
+
+계획 정본: `~/.claude/plans/swift-yawning-squirrel.md`("살아 있는 한옥 — 배선·자동화·세분화"). Jin이 4시간
+자리를 비우며 "계획 전부 끝낼 때까지 진행" 지시 + "전부 너의 브랜치에서만 작업" 제약. 전부
+`chore/hanok-asset-ledger-backfill` 브랜치(main `abf9e3ff` 위)에서 작업, main엔 아무것도 안 건드림.
+
+**PR-B(마무리) — 원장 소급 기록.** `HANOK_V1_ASSET_PROVENANCE.json`에 이번 세션 실제 지출 24cr(A2 외관
+흔적 8 + B1/B2 골조 16)을 생성 레코드 18건으로 복원, `budgetCredits.staticMax` 200→600(대응하는
+`test/hanok_v1_asset_provenance_test.dart` 리터럴도 동시 수정). **계획서의 "장식 44cr" 추정은 틀렸다** —
+실제 원장 문서(`A2_SARANGBANG_FURNISHING_2026-08-17.md` §6)엔 65cr(기록) + 28cr(프롬프트 유실 폐기분)로
+명시돼 있어, 별도 파일 `docs/assets/A2_FURNISHING_LEDGER.json`을 신설해 실측치 93cr을 그대로 기록했다
+(스코프가 `HANOK_V1_ASSET_PROVENANCE.json`의 `hanok_v1_assets_only`와 달라 분리). 소급 기록 총량은
+계획의 68cr이 아니라 117cr(24+65+28) — Phase 3 예산 감각을 이 숫자로 다시 잡아야 한다. `lib/data/
+personal_hanok_estate_stage_catalog.dart` 신설(revealAssetId→경로 20종)로 PR-B가 승격한 14개 단계
+PNG를 `asset_orphan_guard_test.dart`가 고아로 잡던 문제 해소 — PR-C가 그대로 쓸 리졸버로 설계.
+
+**PR-C(데이터 절반만) — 서브비트 알파 램프.** `canDoSegmentEvidenceProgress()`(`productive_assessment_
+service.dart`)가 `verifiedCanDoSegmentIds()`의 세그먼트별 이중 루프를 단락 대신 집계해 진행도
+fraction을 낸다 — 같은 `trustedProductiveMasteryEvidence()`를 읽으므로 날조 불가. `HanokExperience
+Projection.nextGrantProgress` 필드 + `PersonalHanokMapLayer`에 `buildingId`·`stageIndex`·`grantId`
+nullable 필드 3개(기존 8개 엔트리 전부 null 유지, 라이브 렌더러 동작 변화 0). **의도적으로 미룬 것**:
+`personal_hanok_map.dart`의 실제 렌더 필터 변경(가산식→최고 단계 승리+부분 알파)은 PR-E로 미뤘다 —
+골든 테스트가 있는 라이브 렌더러이고 지금 시각 검수할 방법이 없다(Jin 부재).
+
+**PR-D — 방별 가구 풀, 실버그 수정.** `kA2FurnishingTemporaryUnlock`(평평한 12종, 전 방 노출)을
+`kRoomFurnishingPool`(방별 맵)로 교체, `furnishedDecorSlugs(owned, openedVenues:)`로 시그니처 변경.
+**고친 버그**: A2 사랑방 가구 12종이 안방·대청마루 등 **모든** 방 피커에 노출되고 있었다 — 신규 회귀
+테스트가 정확히 이 시나리오를 검증(잠긴 방 아님, 안방 피커=owned 11개만, 23개 아님).
+
+**Phase 2-1~2-4(부분) — 에셋 자동화.** `docs/assets/STYLE_LOCK.json` 신설(family 4개 satMean·valMean·
+neonFraction 전량 실측 + 팔레트·카메라·프롬프트 골격·모델 라우팅·generationFacts) + `tool/style_lock.py`
+리더 + 기존 4개 문서(AGENTS.md·BIBLE §1.3/§3.5·INVENTORY §4/§6·docs/README.md) 배너로 우선순위 정정
+(재작성 없이). `tool/check_style_conformance.py` — family별 게이트, ShippedBaselineTest 73/73 + 합성
+드리프트 테스트로 규약 강제. 보정 중 발견: greenness 기반 청록 잔여 휴리스틱이 연못·소나무 등 진짜
+초록 콘텐츠를 오판(F-B 최대 69.8%!) — F-B/F-C-estate(이끼·그림자) 면제. `tool/ledger_append.py` —
+`--validate`가 원장 테스트 규칙을 Python으로 재현, 기존 27레코드 전량 통과(인수 기준). `decoration_
+transparency_test.dart`의 하드코딩 17개 목록을 `kAvailableDecorations`(36개) 순회로 교체(구멍 폐쇄).
+`asset_recipe.py`(레시피 러너)·등록 자동화 러너는 범위 밖으로 남김 — Phase 3(신규 아트) 종속이고
+Phase 3는 Jin 육안 승인 대기로 일시 정지.
+
+**의도적으로 안 한 것.** PR-E(cutover, grant 발행+`hanok_world_screen.dart` 실배선)와 PR-F(레벨별 발행)는
+시작하지 않았다 — 계획서 자체가 "release_ledgers/hanok_grants_v1.json에 행이 들어가면 영구 고정"이라고
+명시한 되돌릴 수 없는 지점이고, 실제 라이브 렌더러 교체라 실기기 검수 없인 검증할 수 없다(PR-E 인수
+기준 자체가 "실기기 카메라 점프 없음"). Jin 부재 중 라이브 사용자에게 보이는 것을 바꾸거나 grant를
+영구 고정하는 건 계획서의 "Jin 승인 전 승격/배선 금지" 규칙과 정면 충돌해 보류했다. Phase 3(별당·서고
+신규 생성)도 같은 이유로 착수 안 함 — "생성 전 Jin 육안 승인 필수" 규칙, 그리고 1장 승인 없이 여러 장
+생성해 28cr 태운 전례가 있다.
+
+**환경 위험 발견.** 이 세션 도중 작업 디렉터리를 다른 두 세션(Sori Deck 스와이프 물리, 책가도/시나리오
+배치)과 물리적으로 공유하고 있다는 게 드러났다 — 한 세션이 브랜치를 바꾸면 다른 세션의 체크아웃도
+말없이 따라 바뀐다(실제로 두 번 발생: main으로, 그다음 `feat/hoeren-shelf-interest-refill-20260818`로).
+커밋 손실은 없었다(매번 `chore/hanok-asset-ledger-backfill`을 올바른 커밋으로 fast-forward해 복구)지만
+구조적 위험이다.
+
+검증: 매 PR마다 `flutter analyze`(기존 info 1건 외 무결) + 관련 `flutter test` + 전체 스위트 1회 이상
+(4014케이스, 사전 존재 `learner_level_contract_test.dart` 1건 외 신규 실패 0) + `python3.12 -m unittest
+discover -s tool`(전량, 신규 27케이스 포함) 전부 통과. 커밋 4개: PR-B(`e50fd520`)·PR-C(`e2b06af1`)·
+PR-D(`7b7e5d36`)·Phase 2(`3a2d8a6f`), 전부 `chore/hanok-asset-ledger-backfill`.
+
+
 ### 2026-08-18 (Claude Opus 5, macOS) — 인계 지적 2건 수정 + TTS 상태 확인
 
 **① `Storage.hangulHard` 가 write-only 였다 (인계 지적 — 맞다).**
