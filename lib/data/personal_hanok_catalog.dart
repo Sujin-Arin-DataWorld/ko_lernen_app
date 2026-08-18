@@ -19,6 +19,24 @@ class PersonalHanokMapLayer {
   final PersonalHanokRect? visualBounds;
   final bool opaque;
 
+  /// Groups multi-stage construction layers that belong to the same
+  /// building (e.g. `haengrangchae`), null for every layer that has only
+  /// ever had one finished state. Unset (the case for every layer below
+  /// today) means this layer is not part of a sub-beat construction chain
+  /// and renders exactly as before — see [stageIndex].
+  final String? buildingId;
+
+  /// This layer's position within its [buildingId]'s stage sequence
+  /// (0-based, later stages are strict supersets of earlier ones — same
+  /// contract as `docs/assets/hanok_estate_kit/*_stages.json`'s `recall
+  /// 1.0`). Null when [buildingId] is null.
+  final int? stageIndex;
+
+  /// The `HanokGrantKind.constructionPiece` grant id that reveals this
+  /// stage, matching `tools/content_factory/drafts/hanok_grants.json`'s
+  /// `revealAssetIds` -> grant mapping. Null when [buildingId] is null.
+  final String? grantId;
+
   const PersonalHanokMapLayer({
     required this.id,
     required this.assetPath,
@@ -26,6 +44,9 @@ class PersonalHanokMapLayer {
     this.milestone,
     this.visualBounds,
     this.opaque = false,
+    this.buildingId,
+    this.stageIndex,
+    this.grantId,
   });
 }
 
