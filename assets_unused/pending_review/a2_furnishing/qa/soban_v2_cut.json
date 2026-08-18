@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/control_soban_gpt2_1787006389177.png",
+ "sourceSha256": "d1295a37f51ff7d530dd27b8cdd8a84e42a1df8bb4e0bcc78f4739732a32c16c",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_soban_v2.png",
+ "outSha256": "2227ba23f11c33e220285d64eaf3e6800fe5a089a7787c323d4e7e03bb1d5454",
+ "sourceSize": [
+  2512,
+  1680
+ ],
+ "outSize": [
+  1747,
+  1267
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   383,
+   202,
+   2130,
+   1469
+  ]
+ ],
+ "visiblePixels": 1289694,
+ "coveragePct": 58.27,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    10.1,
+    234.3,
+    8.1
+   ],
+   "greenness": 224.2
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    10.2,
+    235.7,
+    11.6
+   ],
+   "greenness": 224.1
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    11.4,
+    234.4,
+    12.8
+   ],
+   "greenness": 221.6
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    9.3,
+    239.9,
+    9.5
+   ],
+   "greenness": 230.4
+  }
+ ],
+ "pillow": "10.4.0"
+}

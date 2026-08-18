@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "note": "A2 살다 — 외관 흔적 오버레이. 캔버스 1536x1152, 소켓 offset (160,614) — docs/assets/HANOK_V1_ASSET_PROVENANCE.json camera.socket. 각 오버레이는 alpha가 zone 밖으로 나가면 compose_a2_exterior_overlays.py 가 즉시 fail한다. 장독(jangdok) 위치는 아직 Jin 확정 전이라 이 매니페스트에 없다 — qa/jangdok_candidate_*.png 두 후보로 별도 검수.",
+  "sourceSheet": {
+    "taskId": "task-unified-1787045881-08w10ryc",
+    "model": "GPT Image 2",
+    "resolution": "2K",
+    "aspectRatio": "4:3",
+    "referenceAsset": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png",
+    "referenceSha256": "f523e93ff70040cef5066ee93caeb1e2ce54a3b19625bc615ac02c4c336dbff1",
+    "credits": 4
+  },
+  "overlays": [
+    {
+      "id": "a2_chimney_smoke",
+      "sprite": "a2_chimney_smoke.png",
+      "anchor": [1002, 882],
+      "mode": "bottom-center",
+      "zone": [970, 700, 1035, 890],
+      "note": "굴뚝(prop_chimney, socket 842,306 bottom-center = canvas 1002,920, height 38) 위에서 솟는다. 연기 하단 앵커 = 굴뚝 상단(1002,882)."
+    },
+    {
+      "id": "a2_lantern_lit",
+      "sprite": "a2_lantern_lit.png",
+      "anchor": [860, 802],
+      "mode": "bottom-center",
+      "zone": [840, 750, 880, 815],
+      "note": "기존 prop_lantern(socket 700,188 = canvas 860,802, 꺼진 상태)과 같은 자리. 이 레이어를 그 위에 얹으면 켜진 등롱이 된다."
+    },
+    {
+      "id": "a2_ridge_magpie",
+      "sprite": "a2_ridge_magpie.png",
+      "anchor": [550, 632],
+      "mode": "bottom-center",
+      "zone": [500, 595, 600, 640],
+      "note": "용마루 실측 socket y17-20 → canvas y631-634, x 범위 socket150-700 → canvas 310-860. 정중앙을 피해 x=550 지점에 배치(발이 용마루선 y=632에 닿게 bottom-center)."
+    }
+  ]
+}

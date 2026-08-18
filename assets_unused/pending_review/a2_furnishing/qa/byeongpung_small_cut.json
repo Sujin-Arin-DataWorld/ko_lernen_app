@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/decoration_byeongpung_small_1787007485757.png",
+ "sourceSha256": "16bd3e1cb0fc12511fa1e0607e8214d7d1c01b32e842d0d5180704ff0062c719",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_byeongpung_small.png",
+ "outSha256": "99c5aa74fc887a9abc7e9259d19c35e7faef2a684cd5abcb20cf4a9308aa236e",
+ "sourceSize": [
+  2048,
+  2048
+ ],
+ "outSize": [
+  1256,
+  1470
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   396,
+   284,
+   1652,
+   1754
+  ]
+ ],
+ "visiblePixels": 1677175,
+ "coveragePct": 90.84,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    9.6,
+    245.2,
+    1.8
+   ],
+   "greenness": 235.6
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    9.9,
+    245.8,
+    5.7
+   ],
+   "greenness": 235.8
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    9.5,
+    244.0,
+    3.8
+   ],
+   "greenness": 234.4
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    7.6,
+    247.6,
+    3.5
+   ],
+   "greenness": 240.1
+  }
+ ],
+ "pillow": "10.4.0"
+}

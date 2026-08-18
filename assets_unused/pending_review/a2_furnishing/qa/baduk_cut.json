@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/decoration_baduk_v2_1787008142260.png",
+ "sourceSha256": "69214ac203de0bef77b4002c055372437e3002e88fd059e302d17920c07e5d1a",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_baduk.png",
+ "outSha256": "b1d772479568c990f7e24476ed6e8af48ad93aef8f3b882c738b4bb003fa19b3",
+ "sourceSize": [
+  2048,
+  2048
+ ],
+ "outSize": [
+  1725,
+  1115
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   161,
+   518,
+   1886,
+   1633
+  ]
+ ],
+ "visiblePixels": 1171035,
+ "coveragePct": 60.88,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    9.1,
+    246.1,
+    1.5
+   ],
+   "greenness": 237.0
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    9.8,
+    245.7,
+    5.4
+   ],
+   "greenness": 235.9
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    11.1,
+    242.8,
+    4.8
+   ],
+   "greenness": 231.7
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    9.9,
+    246.4,
+    4.5
+   ],
+   "greenness": 236.5
+  }
+ ],
+ "pillow": "10.4.0"
+}

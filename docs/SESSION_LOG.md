@@ -1,5 +1,30 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude, macOS) — A2 외관 흔적 4종 생성 + 사랑방 픽커 실배치 배선 (8크레딧)
+
+**픽커 배선.** A2 가구 12종을 실제로 놓아 보니(`flutter run -d web-server`로 `/sarangbang/furnish`
+직접 확인) "The arrangement could not be saved"로 저장이 막혔다. 원인은 `RoomLayoutService.addItem`
+의 소유권 검사가 `Storage.ownedDecor`를 픽커와 별도로 다시 봐서였다. `furnishedDecorSlugs()` 순수
+함수로 두 지점을 통일했다(저장소 쓰기·`kDecorationRewardPool` 불변). 브라우저에서 등잔대를 추가 →
+이동(드래그) → 회전(툴바)까지 전부 실동작 확인.
+
+**외관 흔적 4종.** 굴뚝 연기·켜진 등롱·용마루 까치·장독 2개를 한 장의 소품 시트(4:3, 참조 = allowlist
+`sarangchae.png` 1장)로 생성했다. 1차 시도(Nano Banana Pro, A1 소품과 동일 프롬프트 골격)는 부드러운
+수채로 나와 탈락 — A1 소품이 각진 것은 각목·석재라는 재질 때문이지 프롬프트 문구 때문이 아니었다.
+A2 가구에서 검증된 "LOW-POLY FACETED planes" 명시 문구로 GPT Image 2 재시도해 A1과 같은 면분할
+화풍을 얻었다(원장 `docs/assets/prompts/A2_EXTERIOR_TRACES_2026-08-18.md`).
+
+시트가 예상 4개가 아니라 5개 블록으로 갈려(장독 2개가 서로 안 붙음) 신규 `tool/cut_a2_exterior_sheet.py`
+로 좌표 기반 분리했다. 소켓 offset(160,614)로 캔버스 좌표를 계산해 굴뚝 위 연기·기존 등롱 자리·
+용마루(x=550)에 신규 `tool/compose_a2_exterior_overlays.py`로 합성 — **zone 밖 alpha 위반 0**,
+`16_landscape_move_in.webp`의 sha256은 합성 전후 **불변**(읽기만 함, 오버레이는 별도 파일).
+
+장독 최종 위치는 미확정 — 안채 안뜰/사랑채 옆마당 두 후보를 QA 렌더로 남기고 Jin 선택을 기다린다.
+
+**검증.** `flutter analyze` 무결, 관련 테스트 재통과. 크레딧: 픽커 배선 0 · 외관 흔적 8(4 탈락 +
+4 채택). **런타임 배선(pubspec·카탈로그·원장 기록)은 아직 하지 않았다** — PR5b 몫.
+
+
 ### 2026-08-18 (Claude, macOS) — A2 사랑방 가구 12종 생성·등록 (65크레딧)
 
 **무엇.** 사랑방 가구 12종(`decoration_sabangtakja`·`boryo_set`·`bangseok_pair`·`bandaji`·`hwaro`·

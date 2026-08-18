@@ -1,0 +1,211 @@
+{
+ "pillow": "10.4.0",
+ "results": [
+  {
+   "path": "assets/illustrations/decorations/decoration_sabangtakja.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 239271,
+   "mode": "P",
+   "size": [
+    601,
+    1330
+   ],
+   "visiblePixels": 410351,
+   "coveragePct": 51.34,
+   "chromaResidue": 0,
+   "greenRimPixels": 1932,
+   "neonFraction": 0.0016,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_boryo_set.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 520654,
+   "mode": "P",
+   "size": [
+    1330,
+    849
+   ],
+   "visiblePixels": 684938,
+   "coveragePct": 60.66,
+   "chromaResidue": 0,
+   "greenRimPixels": 363,
+   "neonFraction": 0.0129,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_bangseok_pair.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 305502,
+   "mode": "P",
+   "size": [
+    1330,
+    613
+   ],
+   "visiblePixels": 463261,
+   "coveragePct": 56.82,
+   "chromaResidue": 0,
+   "greenRimPixels": 334,
+   "neonFraction": 0.0233,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_bandaji.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 480844,
+   "mode": "P",
+   "size": [
+    1330,
+    906
+   ],
+   "visiblePixels": 858072,
+   "coveragePct": 71.21,
+   "chromaResidue": 0,
+   "greenRimPixels": 264,
+   "neonFraction": 0.0,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_hwaro.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 454180,
+   "mode": "P",
+   "size": [
+    1330,
+    841
+   ],
+   "visiblePixels": 709005,
+   "coveragePct": 63.39,
+   "chromaResidue": 0,
+   "greenRimPixels": 172,
+   "neonFraction": 0.0,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_deungjan.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 107922,
+   "mode": "P",
+   "size": [
+    409,
+    1330
+   ],
+   "visiblePixels": 176153,
+   "coveragePct": 32.38,
+   "chromaResidue": 0,
+   "greenRimPixels": 346,
+   "neonFraction": 0.0118,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_geomungo.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 207149,
+   "mode": "P",
+   "size": [
+    1330,
+    598
+   ],
+   "visiblePixels": 261593,
+   "coveragePct": 32.89,
+   "chromaResidue": 0,
+   "greenRimPixels": 432,
+   "neonFraction": 0.0007,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_baduk.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 455073,
+   "mode": "P",
+   "size": [
+    1330,
+    887
+   ],
+   "visiblePixels": 620831,
+   "coveragePct": 52.63,
+   "chromaResidue": 0,
+   "greenRimPixels": 195,
+   "neonFraction": 0.0012,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_mokchim.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 344138,
+   "mode": "P",
+   "size": [
+    1330,
+    693
+   ],
+   "visiblePixels": 525985,
+   "coveragePct": 57.07,
+   "chromaResidue": 0,
+   "greenRimPixels": 444,
+   "neonFraction": 0.0,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_byeongpung_small.png",
+   "failures": [],
+   "warnings": [
+    "868114 bytes > 800000"
+   ],
+   "bytes": 868114,
+   "mode": "P",
+   "size": [
+    1147,
+    1330
+   ],
+   "visiblePixels": 1223164,
+   "coveragePct": 80.18,
+   "chromaResidue": 0,
+   "greenRimPixels": 608,
+   "neonFraction": 0.0013,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_gobi.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 342015,
+   "mode": "P",
+   "size": [
+    489,
+    1330
+   ],
+   "visiblePixels": 453012,
+   "coveragePct": 69.65,
+   "chromaResidue": 0,
+   "greenRimPixels": 214,
+   "neonFraction": 0.0193,
+   "ok": true
+  },
+  {
+   "path": "assets/illustrations/decorations/decoration_hyangno.png",
+   "failures": [],
+   "warnings": [],
+   "bytes": 403299,
+   "mode": "P",
+   "size": [
+    1330,
+    977
+   ],
+   "visiblePixels": 703695,
+   "coveragePct": 54.15,
+   "chromaResidue": 0,
+   "greenRimPixels": 2280,
+   "neonFraction": 0.0063,
+   "ok": true
+  }
+ ]
+}

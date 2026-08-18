@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/decoration_mokchim_v2_1787008085449.png",
+ "sourceSha256": "e3594bc979992f91e82b5174987411b463b49001d2764cb61edd6790e4620507",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_mokchim.png",
+ "outSha256": "6d3f1eb5d42e056324d925a97a0d53e7ec4b00869b3b2bc2102bcc0703640f4f",
+ "sourceSize": [
+  2512,
+  1680
+ ],
+ "outSize": [
+  1773,
+  873
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   398,
+   435,
+   2171,
+   1308
+  ]
+ ],
+ "visiblePixels": 1049281,
+ "coveragePct": 67.79,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    10.4,
+    244.7,
+    2.6
+   ],
+   "greenness": 234.3
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    10.9,
+    244.8,
+    8.0
+   ],
+   "greenness": 234.0
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    11.7,
+    243.1,
+    5.8
+   ],
+   "greenness": 231.4
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    9.4,
+    247.3,
+    4.8
+   ],
+   "greenness": 238.0
+  }
+ ],
+ "pillow": "10.4.0"
+}

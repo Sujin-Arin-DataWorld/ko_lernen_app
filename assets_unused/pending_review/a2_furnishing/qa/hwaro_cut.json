@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/decoration_hwaro_1787006888321.png",
+ "sourceSha256": "f68d87a10212f3db2767b44818f767bd18782b94a822b1a4986e3cec19438ba3",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_hwaro.png",
+ "outSha256": "ab03abd325c8ba36d8c3507b71084462290994220834b854e636a94dcb1a60e4",
+ "sourceSize": [
+  1536,
+  1536
+ ],
+ "outSize": [
+  1346,
+  821
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   108,
+   352,
+   1454,
+   1173
+  ]
+ ],
+ "visiblePixels": 814798,
+ "coveragePct": 73.73,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    3.9,
+    248.8,
+    13.1
+   ],
+   "greenness": 235.7
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    3.6,
+    248.6,
+    13.8
+   ],
+   "greenness": 234.8
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    3.3,
+    248.7,
+    12.3
+   ],
+   "greenness": 236.4
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    3.8,
+    248.7,
+    12.9
+   ],
+   "greenness": 235.8
+  }
+ ],
+ "pillow": "10.4.0"
+}

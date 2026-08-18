@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/decoration_bangseok_pair_1787007242411.png",
+ "sourceSha256": "15f9d70d16f38342452de5d406da656016c67a9b1235c11add6d13162e00bd21",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_bangseok_pair.png",
+ "outSha256": "37b80f35205f198e4d370a7f3bb45d2bdb31dbbd36351e67a7182e4b15b524d7",
+ "sourceSize": [
+  2512,
+  1680
+ ],
+ "outSize": [
+  2182,
+  934
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   203,
+   397,
+   2385,
+   1331
+  ]
+ ],
+ "visiblePixels": 1397088,
+ "coveragePct": 68.55,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    11.7,
+    243.9,
+    2.0
+   ],
+   "greenness": 232.2
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    11.0,
+    245.1,
+    5.5
+   ],
+   "greenness": 234.2
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    11.6,
+    243.7,
+    3.2
+   ],
+   "greenness": 232.1
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    7.0,
+    248.7,
+    3.1
+   ],
+   "greenness": 241.7
+  }
+ ],
+ "pillow": "10.4.0"
+}

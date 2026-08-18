@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/decoration_hyangno_1787007542358.png",
+ "sourceSha256": "e6a213183ff5ba5769389176a567576d006c71acedd71a95f0a37a552520e75f",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_hyangno.png",
+ "outSha256": "c907d6e35c09769de2b8889a7fcb9b7e8a13b6bf09237de1e444592518769b4b",
+ "sourceSize": [
+  2512,
+  1680
+ ],
+ "outSize": [
+  1431,
+  1028
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   541,
+   312,
+   1972,
+   1340
+  ]
+ ],
+ "visiblePixels": 913509,
+ "coveragePct": 62.1,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    11.6,
+    243.4,
+    4.2
+   ],
+   "greenness": 231.8
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    10.5,
+    245.6,
+    6.9
+   ],
+   "greenness": 235.1
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    12.7,
+    241.9,
+    8.4
+   ],
+   "greenness": 229.3
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    10.5,
+    246.4,
+    6.4
+   ],
+   "greenness": 235.9
+  }
+ ],
+ "pillow": "10.4.0"
+}

@@ -1,0 +1,95 @@
+{
+  "sheet": "assets_unused/pending_review/estate_overlays/raw/exterior_props_sheet_v2.png",
+  "sprites": [
+    {
+      "file": "assets_unused/pending_review/estate_overlays/cut/a2_chimney_smoke.png",
+      "name": "a2_chimney_smoke",
+      "nativeSize": [
+        323,
+        1293
+      ],
+      "sheetBBox": [
+        244,
+        188,
+        567,
+        1481
+      ],
+      "size": [
+        40,
+        160
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/estate_overlays/cut/a2_jangdok_big.png",
+      "name": "a2_jangdok_big",
+      "nativeSize": [
+        431,
+        521
+      ],
+      "sheetBBox": [
+        1393,
+        310,
+        1824,
+        831
+      ],
+      "size": [
+        44,
+        53
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/estate_overlays/cut/a2_ridge_magpie.png",
+      "name": "a2_ridge_magpie",
+      "nativeSize": [
+        743,
+        458
+      ],
+      "sheetBBox": [
+        657,
+        363,
+        1400,
+        821
+      ],
+      "size": [
+        42,
+        26
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/estate_overlays/cut/a2_jangdok_small.png",
+      "name": "a2_jangdok_small",
+      "nativeSize": [
+        362,
+        440
+      ],
+      "sheetBBox": [
+        1883,
+        399,
+        2245,
+        839
+      ],
+      "size": [
+        36,
+        44
+      ]
+    },
+    {
+      "file": "assets_unused/pending_review/estate_overlays/cut/a2_lantern_lit.png",
+      "name": "a2_lantern_lit",
+      "nativeSize": [
+        323,
+        612
+      ],
+      "sheetBBox": [
+        959,
+        933,
+        1282,
+        1545
+      ],
+      "size": [
+        20,
+        38
+      ]
+    }
+  ]
+}

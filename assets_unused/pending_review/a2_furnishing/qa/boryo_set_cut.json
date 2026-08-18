@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/decoration_boryo_set_1787007183448.png",
+ "sourceSha256": "cd2d4856cbe911d4202f315edc85e002e42c267dd68a522bb63894f445d39a05",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_boryo_set.png",
+ "outSha256": "4000cc9f330221bdcf73da110c579f1aaf26c5d6e5d2e98bb5ca37545bbf0aab",
+ "sourceSize": [
+  2304,
+  1536
+ ],
+ "outSize": [
+  1899,
+  1171
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   197,
+   204,
+   2096,
+   1375
+  ]
+ ],
+ "visiblePixels": 1567445,
+ "coveragePct": 70.49,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    5.5,
+    248.4,
+    18.4
+   ],
+   "greenness": 230.0
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    5.3,
+    248.5,
+    19.3
+   ],
+   "greenness": 229.3
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    5.1,
+    248.2,
+    17.2
+   ],
+   "greenness": 231.0
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    5.2,
+    248.2,
+    18.4
+   ],
+   "greenness": 229.8
+  }
+ ],
+ "pillow": "10.4.0"
+}

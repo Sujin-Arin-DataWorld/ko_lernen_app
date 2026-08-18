@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/decoration_gobi_1787007490131.png",
+ "sourceSha256": "8bebddae19e5f51c4a51d6e5d2321742a2db494e74bcfadbb571784144453704",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_gobi.png",
+ "outSha256": "b870669c0a5d0df64378102ac898fec679f0292fbd71947e005956708303ba71",
+ "sourceSize": [
+  1536,
+  2304
+ ],
+ "outSize": [
+  652,
+  1978
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   432,
+   138,
+   1084,
+   2116
+  ]
+ ],
+ "visiblePixels": 1125608,
+ "coveragePct": 87.28,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    6.6,
+    248.7,
+    21.9
+   ],
+   "greenness": 226.8
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    6.0,
+    248.3,
+    22.9
+   ],
+   "greenness": 225.4
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    6.0,
+    248.7,
+    19.7
+   ],
+   "greenness": 229.0
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    6.4,
+    248.8,
+    22.3
+   ],
+   "greenness": 226.5
+  }
+ ],
+ "pillow": "10.4.0"
+}

@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/decoration_deungjan_1787007245891.png",
+ "sourceSha256": "e2da80b240c80bc56d052311230ddcdc34f4e33073590a90265fd92adba90d2f",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_deungjan.png",
+ "outSha256": "be1fcd674a837ba2401e3e67ad36704cd4533421b93f8feccabad81b18dad070",
+ "sourceSize": [
+  1680,
+  2512
+ ],
+ "outSize": [
+  564,
+  2125
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   562,
+   166,
+   1126,
+   2291
+  ]
+ ],
+ "visiblePixels": 501034,
+ "coveragePct": 41.81,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    12.2,
+    243.8,
+    3.6
+   ],
+   "greenness": 231.6
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    11.1,
+    244.9,
+    7.1
+   ],
+   "greenness": 233.8
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    10.5,
+    243.0,
+    5.5
+   ],
+   "greenness": 232.5
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    7.3,
+    247.6,
+    4.0
+   ],
+   "greenness": 240.3
+  }
+ ],
+ "pillow": "10.4.0"
+}

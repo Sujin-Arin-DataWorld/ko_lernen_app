@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused/pending_review/a2_furnishing/raw/decoration_sabangtakja_1787006822075.png",
+ "sourceSha256": "7ece0e32165970fa099e62d3cdd97a52a7839635927b66fe04364dc283d9e1d7",
+ "out": "assets_unused/pending_review/a2_furnishing/cut/decoration_sabangtakja.png",
+ "outSha256": "e15a8bd3cd3fc2e097a108be011d3d705b3cd23d5732ccad8b740892a808ca0d",
+ "sourceSize": [
+  1680,
+  2512
+ ],
+ "outSize": [
+  909,
+  2171
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   382,
+   157,
+   1291,
+   2328
+  ]
+ ],
+ "visiblePixels": 1215423,
+ "coveragePct": 61.59,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    13.7,
+    241.7,
+    6.4
+   ],
+   "greenness": 227.9
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    11.8,
+    243.5,
+    9.2
+   ],
+   "greenness": 231.6
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    11.8,
+    241.4,
+    8.8
+   ],
+   "greenness": 229.5
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    7.8,
+    246.4,
+    4.8
+   ],
+   "greenness": 238.6
+  }
+ ],
+ "pillow": "10.4.0"
+}
