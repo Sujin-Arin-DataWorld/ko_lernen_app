@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude Sonnet 5, macOS) — 살아 있는 한옥: Phase 2-3 완성(asset_recipe.py) 후속
+
+바로 아래 항목("Phase 2 자동화 착수")에서 "asset_recipe.py는 범위 밖으로 남긴다"고 적었으나, 이어서
+실제로 구현했다 — `tool/asset_recipe.py`(--check·--plan·--emit-work-order·--ingest) + 레시피 5종
+(cutout·sheet·frameEdit·overlay·**newBuilding**, 마지막은 계획 원안엔 없던 신규 추가 — 별당·서고는
+편집할 기존 완성 건물이 없어 frameEdit 계약이 안 맞는다는 걸 실제로 레시피를 써보며 발견했다).
+
+기존 4개 건물의 `FRAME_PROMPTS`(코드에 산문으로 얼어붙어 있던 프롬프트)를 레시피 JSON으로 이관 —
+신규 테스트가 그 4개 레시피의 프롬프트 해시를 이번 세션 원장 소급 기록 때 독립적으로 계산한 실제
+역사적 해시와 대조해 정확히 일치함을 증명한다. Phase 3 P1/P2(별당·서고) 레시피도 DRAFT 상태로 작성
+(프롬프트·배치 bbox·subjectGuards 전부 채움, status 필드에 "Jin 승인 전 미실행" 명시) — Jin이 돌아오면
+검토만 하면 되는 상태로 만들어 뒀다.
+
+`--ingest`는 cutout 커스텀만 실제 자동화, 나머지 4종은 검증할 실제 생성 결과물이 없어 손으로 돌릴
+기존 도구 커맨드 안내로 남겼다(정직한 TODO, 검증 안 된 자동화를 배지 않았다). cutout 경로는 합성
+(비-AI) 청록 이미지 2장(호두목 톤=통과, 네온 빨강=거부)으로 end-to-end 검증.
+
+검증: `tool/test_asset_recipe.py` 13케이스 + 전체 `tool/` discover 스위트 전량 통과. 커밋 `770bd48b`,
+`chore/hanok-asset-ledger-backfill` 브랜치.
+
 ### 2026-08-18 (Claude Sonnet 5, macOS) — 살아 있는 한옥: 원장 소급 기록 + PR-C/D + Phase 2 자동화 착수
 
 계획 정본: `~/.claude/plans/swift-yawning-squirrel.md`("살아 있는 한옥 — 배선·자동화·세분화"). Jin이 4시간
