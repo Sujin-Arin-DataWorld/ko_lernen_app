@@ -18,6 +18,21 @@ class HangulChar {
     this.exampleDe = '',
     this.exampleEn = '',
   ]);
+
+  /// 연상 설명을 UI 언어로. `lib/models/grammar.dart`·`lib/models/vocab.dart`
+  /// 의 `…For(lang)` 패턴과 같은 모양이다.
+  ///
+  /// 2026-08-17 테스터(Amor): "EN 인터페이스인데 연상 힌트가 독일어로 나온다."
+  /// [descriptionEn] 은 50개 항목 전부 채워져 있었는데 화면이 [descriptionDe]
+  /// 만 읽고 있었다 — 데이터가 아니라 배선 문제였다.
+  String descriptionFor(String lang) =>
+      (lang == 'en' && descriptionEn.trim().isNotEmpty)
+      ? descriptionEn
+      : descriptionDe;
+
+  /// 예시어의 뜻을 UI 언어로.
+  String exampleFor(String lang) =>
+      (lang == 'en' && exampleEn.trim().isNotEmpty) ? exampleEn : exampleDe;
 }
 
 const List<HangulChar> consonants = [
@@ -339,6 +354,26 @@ class Syllable {
     this.exampleDe = '',
     this.exampleEn = '',
   ]);
+
+  /// 예시어의 뜻을 UI 언어로.
+  String exampleFor(String lang) =>
+      (lang == 'en' && exampleEn.trim().isNotEmpty) ? exampleEn : exampleDe;
+
+  /// 카드 탭에서는 음절도 [HangulChar] 와 같은 모양으로 다룬다.
+  ///
+  /// 어댑터를 데이터 옆에 둔다 — 화면에서 `exampleDe`/`exampleEn` 필드를 직접
+  /// 만지면 "언어 분기를 빼먹은 직접 참조" 와 구분이 안 되고, 그 구분이
+  /// `test/hangul_content_locale_test.dart` 의 소스 스캔이 지키는 선이다.
+  /// 설명 자리에 들어가는 구성(ㄱ + ㅏ)은 언어와 무관해 양쪽에 같이 넣는다.
+  HangulChar toHangulChar() => HangulChar(
+    letter,
+    romanization,
+    composition,
+    composition,
+    exampleWord,
+    exampleDe,
+    exampleEn,
+  );
 }
 
 /// Wandelt einen einzelnen Jamo-Buchstaben in eine *aussprechbare* Silbe um,
@@ -374,16 +409,24 @@ String speakableJamo(String letter) {
   return letter; // schon eine Silbe / kein einzelner Jamo
 }
 
-/// Chirp3-HD의 1음절 출력은 같은 요청도 길이/음가가 흔들린다. 실기기에서
-/// 무음·종성 오인·된소리 오인이 확인된 글자는 화면에 이미 제시하는 예시어를
-/// 발음 표본으로 쓴다. 텍스트가 달라져 잘못된 단음절 로컬 캐시도 재사용하지
-/// 않는다.
+/// QA 에서 **실기기 오인이 확인된 글자만** 다른 1음절로 갈아끼우는 예외 표.
+///
+/// 2026-08-12에는 Chirp3-HD 의 1음절 불안정을 예시어 전체(ㄷ→'다리',
+/// ㅏ→'아빠')로 우회했다. 2026-08-17 테스터(Amor)가 "카드를 누르면 순수
+/// 음가가 아니라 예시어가 나온다"고 정확히 짚었다 — 낱자 카드는 **음가**를
+/// 들려주는 화면이라 여러 음절을 읽으면 안 된다.
+///
+/// 불안정의 원인은 런타임 동적 합성이었다. `tool/generate_tts.py` 로 낱자
+/// 전체를 미리 합성해 Storage 에 고정하면 재생이 결정적이 되므로, 예외 없이
+/// 일반 규칙(자음+ㅡ · ㅇ+모음)으로 되돌린다. 자음을 전부 +ㅡ 로 통일하는
+/// 편이 낫다 — 일부만 +ㅏ 로 바꾸면 "그·느·다·르" 처럼 들려 오히려 헷갈린다.
+///
+/// ⛔ 여기 값은 **반드시 1음절**이어야 하고, `tool/generate_tts.py` 의
+/// `stable_carriers` 와 **항상 같아야** 한다 — `test/jamo_speech_test.dart` 가
+/// 둘 다 강제한다. 예시어(2음절 이상)를 다시 넣지 말 것.
 String? stableJamoCarrier(String letter) => switch (letter) {
-  'ㅃ' => '빵',
-  'ㄷ' => '다리',
-  'ㅏ' => '아빠',
-  'ㅠ' => '유리',
-  'ㅢ' => '의자',
+  // 현재 비어 있다. Jin 의 청취 검수에서 특정 글자가 무음/오인으로 확인되면
+  // 그 글자만 여기에 **1음절**로 등록한다. 예: 'ㄷ' => '다',
   _ => null,
 };
 

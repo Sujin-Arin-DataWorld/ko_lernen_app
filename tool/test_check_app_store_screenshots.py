@@ -1,10 +1,14 @@
 import struct
+import sys
 import tempfile
 import unittest
 import zlib
 from pathlib import Path
 from unittest.mock import patch
-from check_app_store_screenshots import validate_directory
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from check_app_store_screenshots import validate_directory  # noqa: E402
 
 
 PNG_SIGNATURE = b'\x89PNG\r\n\x1a\n'

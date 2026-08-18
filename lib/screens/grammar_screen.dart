@@ -490,6 +490,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   Future<void> _finishSession() async {
     if (_sessionSeen.isEmpty) return;
     Analytics.lessonCompleted(lessonType: 'grammar');
+    _abandonTracker.markCompleted();
     final t = AppL10n.of(context);
     final completion = _feedbackCompletion.complete(
       () => FeedbackCompletion.grammarSession(
@@ -574,7 +575,7 @@ class _GrammarScreenState extends State<GrammarScreen>
       return Scaffold(
         appBar: AppBar(title: Text(t.screenGrammarTitle)),
         body: AppError(
-          message: _loadError ?? DataLoader.lastError ?? 'Unbekannter Fehler',
+          message: _loadError ?? DataLoader.lastError ?? t.errorUnknown,
           onRetry: () {
             DataLoader.reset();
             _load();
@@ -764,65 +765,58 @@ class _GrammarScreenState extends State<GrammarScreen>
                                               label: t.btnSkip,
                                             ): _skipCurrent,
                                         },
-                                    child: _SwipeNudge(
+                                    child: SoriSwipeCard(
                                       // 첫 사용자에게만, 코치와 같은 게이트.
-                                      enabled: !Storage.tutSeen('soriDeck'),
-                                      child: SoriSwipeCard(
-                                        enabled: allowJudging && _flipped,
-                                        onSwipeRight: allowJudging
-                                            ? () => _judge(understood: true)
-                                            : null,
-                                        onSwipeLeft: allowJudging
-                                            ? () => _judge(understood: false)
-                                            : null,
-                                        onSwipeUp: _saveCurrent,
-                                        onSwipeDown: _canNavigateDeck
-                                            ? _skipCurrent
-                                            : null,
-                                        upBadge: SoriSwipeBadge(
-                                          label: t.deckActionSave,
-                                          icon: Icons.redeem_rounded,
-                                          color: SoriColors.goldOnLight,
-                                        ),
-                                        rightBadge: SoriSwipeBadge(
-                                          label: t.grammarEasy,
-                                          icon: Icons.thumb_up_alt_outlined,
-                                          color: SoriColors.success,
-                                        ),
-                                        leftBadge: SoriSwipeBadge(
-                                          label: t.grammarHard,
-                                          icon: Icons.psychology_outlined,
-                                          color: SoriColors.danger,
-                                        ),
-                                        downBadge: SoriSwipeBadge(
-                                          label: t.btnSkip,
-                                          icon: Icons.arrow_downward_rounded,
-                                          color: SoriColors.info,
-                                        ),
-                                        child: SoriStudyScale(
-                                          child: FlipCard(
-                                            key: _cardKey,
-                                            flipped: _flipped,
-                                            onTap: canRecordCheckpoint
-                                                ? () => _showCheckpoint(
-                                                    g,
-                                                    assessmentLink!,
-                                                  )
-                                                : _onFlip,
-                                            front: canRecordCheckpoint
-                                                ? _CourseCheckpointFront(
-                                                    g: g,
-                                                    cardHeight: cardH,
-                                                  )
-                                                : _Front(
-                                                    g: g,
-                                                    cardHeight: cardH,
-                                                  ),
-                                            back: _Back(
-                                              g: g,
-                                              cardHeight: cardH,
-                                            ),
-                                          ),
+                                      nudge: soriDeckNudgeDue(),
+                                      onNudgePlayed: markSoriDeckNudgeShown,
+                                      enabled: allowJudging && _flipped,
+                                      onSwipeRight: allowJudging
+                                          ? () => _judge(understood: true)
+                                          : null,
+                                      onSwipeLeft: allowJudging
+                                          ? () => _judge(understood: false)
+                                          : null,
+                                      onSwipeUp: _saveCurrent,
+                                      onSwipeDown: _canNavigateDeck
+                                          ? _skipCurrent
+                                          : null,
+                                      upBadge: SoriSwipeBadge(
+                                        label: t.deckActionSave,
+                                        icon: Icons.redeem_rounded,
+                                        color: SoriColors.goldOnLight,
+                                      ),
+                                      rightBadge: SoriSwipeBadge(
+                                        label: t.grammarEasy,
+                                        icon: Icons.thumb_up_alt_outlined,
+                                        color: SoriColors.success,
+                                      ),
+                                      leftBadge: SoriSwipeBadge(
+                                        label: t.grammarHard,
+                                        icon: Icons.psychology_outlined,
+                                        color: SoriColors.danger,
+                                      ),
+                                      downBadge: SoriSwipeBadge(
+                                        label: t.btnSkip,
+                                        icon: Icons.arrow_downward_rounded,
+                                        color: SoriColors.info,
+                                      ),
+                                      child: SoriStudyScale(
+                                        child: FlipCard(
+                                          key: _cardKey,
+                                          flipped: _flipped,
+                                          onTap: canRecordCheckpoint
+                                              ? () => _showCheckpoint(
+                                                  g,
+                                                  assessmentLink!,
+                                                )
+                                              : _onFlip,
+                                          front: canRecordCheckpoint
+                                              ? _CourseCheckpointFront(
+                                                  g: g,
+                                                  cardHeight: cardH,
+                                                )
+                                              : _Front(g: g, cardHeight: cardH),
+                                          back: _Back(g: g, cardHeight: cardH),
                                         ),
                                       ),
                                     ),
@@ -1279,76 +1273,6 @@ class _ListenButton extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-/// 첫 진입 1회, 카드를 아주 살짝 좌우로 흔들어 "끌 수 있는 카드"임을 알린다.
-///
-/// 코치마크가 네 방향의 **의미**를 문자로 가르친다면 이 흔들림은 손이 먼저
-/// 알아채는 신호다 — 하단 CTA 를 없앤 대신 발견성을 여기서 되찾는다.
-/// reduce-motion 에서는 흔들지 않는다(전정기관 자극 회피).
-class _SwipeNudge extends StatefulWidget {
-  const _SwipeNudge({required this.enabled, required this.child});
-
-  final bool enabled;
-  final Widget child;
-
-  @override
-  State<_SwipeNudge> createState() => _SwipeNudgeState();
-}
-
-class _SwipeNudgeState extends State<_SwipeNudge>
-    with SingleTickerProviderStateMixin {
-  // ⚠️ `late final _controller = AnimationController(...)` 로 두면 안 된다.
-  // 흔들림이 꺼진 경우(enabled=false) build 가 컨트롤러를 한 번도 읽지 않아
-  // 초기화가 미뤄지고, dispose() 의 `_controller.dispose()` 가 그제서야
-  // 생성자를 돌려 **이미 비활성화된 element** 에서 `createTicker` →
-  // 조상 조회로 터진다. initState 에서 즉시 만든다.
-  late final AnimationController _controller;
-  late final Animation<double> _dx;
-
-  bool _played = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1100),
-    );
-    // 진폭을 10dp 로 묶었다. 커밋 임계(카드 폭의 35%)보다 한참 작아 판정이
-    // 실수로 일어나지 않으면서, 카드가 고정돼 있지 않다는 건 충분히 보인다.
-    _dx = TweenSequence<double>(<TweenSequenceItem<double>>[
-      TweenSequenceItem(tween: Tween<double>(begin: 0, end: -10), weight: 1),
-      TweenSequenceItem(tween: Tween<double>(begin: -10, end: 10), weight: 2),
-      TweenSequenceItem(tween: Tween<double>(begin: 10, end: -6), weight: 1.5),
-      TweenSequenceItem(tween: Tween<double>(begin: -6, end: 0), weight: 1),
-    ]).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
-    WidgetsBinding.instance.addPostFrameCallback((_) => _maybePlay());
-  }
-
-  void _maybePlay() {
-    if (!mounted || _played || !widget.enabled) return;
-    if (SoriMotion.reduceMotion(context)) return;
-    _played = true;
-    _controller.forward();
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (!widget.enabled) return widget.child;
-    return AnimatedBuilder(
-      animation: _dx,
-      builder: (context, child) =>
-          Transform.translate(offset: Offset(_dx.value, 0), child: child),
-      child: widget.child,
     );
   }
 }

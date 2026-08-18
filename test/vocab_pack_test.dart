@@ -96,7 +96,7 @@ void main() {
   group('VocabPackService.displayLabel', () {
     test('known pack → DE label', () {
       expect(
-        VocabPackService.displayLabel('a1_greetings'),
+        VocabPackService.displayLabel('a1_greetings', lang: 'de'),
         'Begrüßung & Höflichkeit',
       );
     });
@@ -110,14 +110,14 @@ void main() {
 
     test('split pack appends (N)', () {
       expect(
-        VocabPackService.displayLabel('a1_greetings_2'),
+        VocabPackService.displayLabel('a1_greetings_2', lang: 'de'),
         'Begrüßung & Höflichkeit (2)',
       );
     });
 
     test('unknown pack falls back to id', () {
       expect(
-        VocabPackService.displayLabel('zz_unknown_99'),
+        VocabPackService.displayLabel('zz_unknown_99', lang: 'de'),
         'zz_unknown_99',
       );
     });

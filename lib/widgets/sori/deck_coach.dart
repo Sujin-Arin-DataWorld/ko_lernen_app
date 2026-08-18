@@ -126,6 +126,46 @@ class _SoriDeckFlipHintState extends State<SoriDeckFlipHint> {
   }
 }
 
+/// 첫 카드 넛지를 쏠 차례인지 — **순수 질의**다 (Sori Deck 3.0 §2-2).
+///
+/// ```dart
+/// SoriSwipeCard(
+///   nudge: soriDeckNudgeDue(),
+///   onNudgePlayed: markSoriDeckNudgeShown,
+/// )
+/// ```
+///
+/// ⚠️ 초판은 이 함수가 **호출 즉시 소비**했는데, 호출부가 전부 `build()` 안이라
+/// 두 가지가 망가졌다: ① 빌드가 부수효과를 갖고, ② 카드가 마운트되지 않는
+/// 빌드(로딩·조기 반환)에서도 플래그가 타 버려 넛지가 **영원히 안 뜬다**.
+/// 이제 질의는 부수효과가 없고, 소비는 [markSoriDeckNudgeShown] 이 —
+/// 즉 넛지가 **실제로 재생될 때** — 한다.
+///
+/// 4방향 코치를 아직 못 본 사용자에게만, **프로세스 세션 1회**. 예전 grammar
+/// 로컬 게이트는 `!Storage.tutSeen('soriDeck')` 뿐이라 코치를 한 번도 안 띄운
+/// 사용자에게는 화면에 들어올 때마다 카드가 흔들렸다.
+bool soriDeckNudgeDue() {
+  _syncSoriDeckNudgeReset();
+  return !_soriDeckNudgeFiredThisSession && !Storage.tutSeen('soriDeck');
+}
+
+/// 넛지가 실제로 재생됐다 — 이 세션에서는 더 쏘지 않는다.
+void markSoriDeckNudgeShown() {
+  _syncSoriDeckNudgeReset();
+  _soriDeckNudgeFiredThisSession = true;
+}
+
+bool _soriDeckNudgeFiredThisSession = false;
+int _soriDeckNudgeResetRevision = Storage.tutorialResetRevision;
+
+void _syncSoriDeckNudgeReset() {
+  final revision = Storage.tutorialResetRevision;
+  if (_soriDeckNudgeResetRevision != revision) {
+    _soriDeckNudgeResetRevision = revision;
+    _soriDeckNudgeFiredThisSession = false;
+  }
+}
+
 // 같은 세션에 화면을 오가도 재발화 안 함 — 프로세스 전역.
 bool _soriDeckCoachFiredThisSession = false;
 int _soriDeckCoachResetRevision = Storage.tutorialResetRevision;
@@ -143,6 +183,8 @@ void _syncSoriDeckCoachReset() {
 void resetSoriDeckCoachForTesting() {
   _soriDeckCoachFiredThisSession = false;
   _soriDeckCoachResetRevision = Storage.tutorialResetRevision;
+  _soriDeckNudgeFiredThisSession = false;
+  _soriDeckNudgeResetRevision = Storage.tutorialResetRevision;
 }
 
 /// 4방향 덱 스와이프 1스텝 코치. [targetKey] = 카드 슬롯.

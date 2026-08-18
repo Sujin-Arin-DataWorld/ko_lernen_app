@@ -55,6 +55,17 @@ class CiScopeTest(unittest.TestCase):
         self.assert_enabled(["docs/privacy.html"], "app")
         self.assert_enabled(["docs/screenshots/sori-stage-today-390.png"], "app")
 
+    def test_hanok_provenance_docs_are_not_skipped(self):
+        # docs/assets/ carries the provenance JSON and estate/A1 kit stage
+        # specs test/hanok_v1_asset_provenance_test.dart asserts against — a
+        # provenance-only change must still run the app gate.
+        self.assert_enabled(
+            ["docs/assets/HANOK_V1_ASSET_PROVENANCE.json"], "app"
+        )
+        self.assert_enabled(
+            ["docs/assets/hanok_estate_kit/anchae_stages.json"], "app"
+        )
+
     def test_website_root_contracts_select_website(self):
         self.assert_enabled(["docs/CNAME"], "website")
         self.assert_enabled(["wrangler.legacy-docs.jsonc"], "website")

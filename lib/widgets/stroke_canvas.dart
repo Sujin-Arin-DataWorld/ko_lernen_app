@@ -18,6 +18,12 @@ class StrokeCanvas extends StatefulWidget {
   final Duration perStroke;
   final VoidCallback? onCompleted;
 
+  /// 지금 그려야 할 획을 강조한다. null 이면 강조 없음(기존 동작).
+  ///
+  /// 애니메이션 재생과 무관하게 **항상 완성된 상태**로 덧그린다 — 학습자가
+  /// "다음은 이 획" 을 한눈에 보게 하는 것이 목적이다.
+  final int? highlightIndex;
+
   const StrokeCanvas({
     super.key,
     required this.letter,
@@ -28,6 +34,7 @@ class StrokeCanvas extends StatefulWidget {
     this.showNumbers = true,
     this.perStroke = const Duration(milliseconds: 700),
     this.onCompleted,
+    this.highlightIndex,
   });
 
   @override
@@ -101,6 +108,7 @@ class _StrokeCanvasState extends State<StrokeCanvas>
               showNumbers: widget.showNumbers,
               letter: widget.letter,
               source: strokeCanvas,
+              highlightIndex: widget.highlightIndex,
             ),
           );
         },
@@ -117,6 +125,7 @@ class _Painter extends CustomPainter {
   final bool showNumbers;
   final String letter;
   final Size source; // 220×220 reference
+  final int? highlightIndex;
 
   _Painter({
     required this.strokes,
@@ -126,6 +135,7 @@ class _Painter extends CustomPainter {
     required this.showNumbers,
     required this.letter,
     required this.source,
+    this.highlightIndex,
   });
 
   @override
@@ -167,6 +177,21 @@ class _Painter extends CustomPainter {
 
       if (showNumbers && prog > 0.05) {
         _drawNumber(canvas, strokes[i], i + 1, s, scale);
+      }
+    }
+
+    // 지금 그려야 할 획을 애니메이션 위에 덧그린다.
+    final hi = highlightIndex;
+    if (hi != null && hi >= 0 && hi < n) {
+      final highlight = Paint()
+        ..color = SoriColors.warning
+        ..strokeWidth = 13 * scale
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round
+        ..style = PaintingStyle.stroke;
+      _drawStroke(canvas, strokes[hi], highlight, s, 1.0);
+      if (showNumbers) {
+        _drawNumber(canvas, strokes[hi], hi + 1, s, scale);
       }
     }
   }
@@ -259,5 +284,8 @@ class _Painter extends CustomPainter {
 
   @override
   bool shouldRepaint(covariant _Painter old) =>
-      old.progress != progress || old.letter != letter || old.color != color;
+      old.progress != progress ||
+      old.letter != letter ||
+      old.color != color ||
+      old.highlightIndex != highlightIndex;
 }

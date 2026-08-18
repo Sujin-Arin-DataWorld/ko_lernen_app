@@ -8,6 +8,7 @@ wrong thing — that is exactly how the first version of this file was caught
 
 from __future__ import annotations
 
+import sys
 import tempfile
 import unittest
 from pathlib import Path
@@ -15,7 +16,9 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
-import check_decoration_cutouts as gate
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+import check_decoration_cutouts as gate  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 SHIPPED_INTERIOR = (

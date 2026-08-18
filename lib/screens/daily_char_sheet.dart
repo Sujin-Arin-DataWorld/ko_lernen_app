@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
@@ -109,64 +110,6 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
     setState(() => _guideCompleted = true);
   }
 
-  /// 자모 글자 → 자모 이름 변환 (예: "ㅊ" → "치읓")
-  String _getJamoName(String char) {
-    const jamoNames = {
-      // 초성 (자음)
-      'ㄱ': '기역',
-      'ㄲ': '쌍기역',
-      'ㄴ': '니은',
-      'ㄷ': '디귿',
-      'ㄸ': '쌍디귿',
-      'ㄹ': '리을',
-      'ㅁ': '미음',
-      'ㅂ': '비읍',
-      'ㅃ': '쌍비읍',
-      'ㅄ': '비읍시옷',
-      'ㅅ': '시옷',
-      'ㅆ': '쌍시옷',
-      'ㅇ': '이응',
-      'ㅈ': '지읒',
-      'ㅉ': '쌍지읒',
-      'ㅊ': '치읓',
-      'ㅋ': '키읔',
-      'ㅌ': '티읕',
-      'ㅍ': '피읖',
-      'ㅎ': '히읗',
-      // 중성 (모음)
-      'ㅏ': '아',
-      'ㅑ': '야',
-      'ㅓ': '어',
-      'ㅕ': '여',
-      'ㅗ': '오',
-      'ㅛ': '요',
-      'ㅜ': '우',
-      'ㅠ': '유',
-      'ㅡ': '은',
-      'ㅢ': '응',
-      'ㅘ': '와',
-      'ㅝ': '워',
-      'ㅞ': '웨',
-      'ㅟ': '위',
-      'ㅚ': '오',
-      'ㅐ': '애',
-      'ㅔ': '에',
-      'ㅖ': '외',
-      'ㅙ': '왜',
-    };
-    return jamoNames[char] ?? char;
-  }
-
-  /// 자모 여부 판단 (초성 + 중성 범위)
-  bool _isJamo(String char) {
-    if (char.isEmpty) {
-      return false;
-    }
-    final code = char.codeUnitAt(0);
-    // 초성/중성: U+3130 ~ U+318F
-    return code >= 0x3130 && code <= 0x318F;
-  }
-
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -265,12 +208,11 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                 child: SoriButton.outlined(
                   label: t.btnHoeren,
                   icon: Icons.volume_up_rounded,
-                  onTap: () {
-                    final textToSpeak = _isJamo(_char)
-                        ? _getJamoName(_char)
-                        : _char;
-                    TtsService.speak(textToSpeak);
-                  },
+                  // 낱자면 음가(ㅊ→'츠'), 이미 음절이면 그대로.
+                  // 한글 탭과 **같은** speakableJamo 를 쓴다 — 예전엔 낱자
+                  // 이름(치읓)을 읽어 같은 글자가 화면마다 다르게 들렸고,
+                  // 그 표에는 ㅡ→'은' 같은 오류까지 있었다.
+                  onTap: () => TtsService.speak(speakableJamo(_char)),
                 ),
               ),
               const SizedBox(width: Spacing.sm),

@@ -176,8 +176,11 @@ class ChosungHint extends StatelessWidget {
     required this.word,
     required this.mode,
     required this.accent,
-    this.vowelLabel = '모음',
-    this.jongsungLabel = '받침',
+    // 기본값을 두면 아무도 안 넘겨서 한국어가 그대로 화면에 남는다
+    // (docs/SESSION_LOG.md:6665 에 미해결로 기록돼 있던 건). required 로
+    // 바꿔 컴파일러가 호출부를 전부 잡게 한다.
+    required this.vowelLabel,
+    required this.jongsungLabel,
   });
 
   @override

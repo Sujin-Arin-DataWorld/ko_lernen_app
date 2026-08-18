@@ -30,6 +30,11 @@ TASK_SCOPE = {
 APP_DOC_PREFIXES = (
     "docs/store/",
     "docs/screenshots/",
+    # docs/assets/ carries the hanok provenance JSON, the estate/A1 kit stage
+    # specs, and the recipe/style-lock files the Python asset gates read —
+    # these are test/tool inputs, not prose, even though the path looks like
+    # a doc. See test/hanok_v1_asset_provenance_test.dart.
+    "docs/assets/",
 )
 APP_DOC_FILES = {
     "docs/privacy.html",

@@ -820,7 +820,8 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     }
 
     final pack = _pack!;
-    final title = VocabPackService.displayLabel(pack.id);
+    final lang = Localizations.localeOf(context).languageCode;
+    final title = VocabPackService.displayLabel(pack.id, lang: lang);
     // 현재 보고 있는 단어(학습/퀴즈/보스)를 바로 내 단어장에 담기.
     final Vocab? addable = _stage == _Stage.learn
         ? _currentLearn
@@ -934,6 +935,13 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 fit: StackFit.passthrough,
                 children: [
                   SoriSwipeCard(
+                    // ⛔ 이 화면만 넛지를 **안 붙인다**. 진입 시
+                    // `FeatureCoach.vocabPack` 모달이 네 방향을 문장으로 이미
+                    // 가르치므로(그래서 `maybeShowSoriDeckCoach` 도 일부러 안
+                    // 부른다) 흔들림을 겹치면 중복이고, 넛지의 회전·이동이
+                    // `vocab_pack_uniform_card_test` 의 글자 높이 측정을 깬다
+                    // — 그 센서는 FittedBox 가 긴 단어를 몰래 줄이는 걸 잡는
+                    // 진짜 계약이라 테스트가 옳다.
                     enabled: _learnCardRevealed,
                     onSwipeRight: _learnGotIt,
                     onSwipeLeft: _learnDontKnow,

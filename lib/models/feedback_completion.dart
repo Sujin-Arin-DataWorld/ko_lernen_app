@@ -211,17 +211,26 @@ class FeedbackCompletion {
     ),
   );
 
+  /// [letterCount] 는 **획순까지 맞게 완성한 글자 수**다. 예전엔 획 수만 셌고,
+  /// 아무 낙서 1획으로도 완료가 됐다 (2026-08-17 테스터 지적). `letters:` 를
+  /// 새로 넣은 이유는 `strokes:` 의 뜻을 몰래 바꾸면 이미 수집된 피드백과
+  /// 비교가 깨지기 때문이다. [strict] 는 어떤 판정 모드였는지 — 이게 없으면
+  /// "그냥 통과됐다" 는 제보를 해석할 수 없다.
   factory FeedbackCompletion.hangulWriting({
     FeedbackCompletionIdFactory? createId,
     required String contentLabel,
+    required int letterCount,
     required int strokeCount,
+    required bool strict,
   }) => FeedbackCompletion._(
     _context(
       createId: createId,
       contentType: 'hangul_writing',
       contentId: 'hangul:writing',
       contentLabel: contentLabel,
-      scoreSummary: 'strokes:$strokeCount',
+      scoreSummary:
+          'letters:$letterCount; strokes:$strokeCount; '
+          'mode:${strict ? 'strict' : 'practice'}',
     ),
   );
 

@@ -16,7 +16,10 @@ void main() {
     await Storage.init();
   });
 
-  testWidgets('overview jamo tap immediately speaks its stable sample', (
+  // 2026-08-18: 예전엔 ㅃ 이 예시어 '빵' 을 읽었다. 테스터(Amor)가 "낱자를
+  // 누르면 순수 음가가 아니라 예시어가 나온다"고 지적해 1음절 음가로 되돌렸다.
+  // 1음절 계약 자체는 test/jamo_speech_test.dart 가 전수로 지킨다.
+  testWidgets('overview jamo tap immediately speaks its single-syllable sound', (
     tester,
   ) async {
     final spoken = <String>[];
@@ -38,7 +41,7 @@ void main() {
     await tester.tap(target);
     await tester.pump();
 
-    expect(spoken, ['빵']);
+    expect(spoken, ['쁘']);
     expect(find.text('ㅃ'), findsWidgets);
   });
 
@@ -54,7 +57,8 @@ void main() {
     await tester.tap(find.text('Writing'));
     await tester.pumpAndSettle();
 
-    await tester.tap(find.text('Next'));
+    // 2026-08-18: 전폭 Weiter 버튼이 컴팩트 아이콘(‹ ›)으로 줄었다.
+    await tester.tap(find.byKey(const Key('hangul-write-next')));
     await tester.pump();
 
     // 이전 구현은 세션 누적 획 수 때문에 ㄴ의 1획 판정을 절대 통과시키지

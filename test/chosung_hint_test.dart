@@ -72,12 +72,21 @@ void main() {
   });
 
   group('ChosungHint 위젯 — 화면이 계획을 실제로 따르는가', () {
+    // 2026-08-18: 점선 슬롯 라벨은 더 이상 한국어 하드코딩 기본값이 아니다
+    // (docs/SESSION_LOG.md:6665). 호출부가 반드시 넘겨야 하므로 여기서도
+    // 넘기고, 단언은 그 라벨로 한다.
     Future<void> pump(WidgetTester tester, String word, HintMode mode) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
             body: Center(
-              child: ChosungHint(word: word, mode: mode, accent: Colors.teal),
+              child: ChosungHint(
+                word: word,
+                mode: mode,
+                accent: Colors.teal,
+                vowelLabel: 'Vowel',
+                jongsungLabel: 'Batchim',
+              ),
             ),
           ),
         ),
@@ -90,8 +99,8 @@ void main() {
       await pump(tester, '더', HintMode.chosungVowel);
       expect(find.text('ㄷ'), findsOneWidget);
       expect(find.text('ㅓ'), findsNothing);
-      expect(find.text('모음'), findsOneWidget);
-      expect(find.text('받침'), findsNothing);
+      expect(find.text('Vowel'), findsOneWidget);
+      expect(find.text('Batchim'), findsNothing);
     });
 
     testWidgets('무받침 다음절도 전부 모음이 가려진다', (tester) async {
@@ -99,7 +108,7 @@ void main() {
       for (final vowel in ['ㅗ', 'ㅡ', 'ㅏ']) {
         expect(find.text(vowel), findsNothing, reason: vowel);
       }
-      expect(find.text('모음'), findsNWidgets(3));
+      expect(find.text('Vowel'), findsNWidgets(3));
     });
 
     testWidgets('받침 있는 단어는 쉬움 모드에서 모음을 보여준다', (tester) async {
@@ -107,16 +116,16 @@ void main() {
       expect(find.text('ㅎ'), findsOneWidget);
       expect(find.text('ㅏ'), findsOneWidget);
       expect(find.text('ㅜ'), findsOneWidget);
-      expect(find.text('받침'), findsNWidgets(2));
-      expect(find.text('모음'), findsNothing);
+      expect(find.text('Batchim'), findsNWidgets(2));
+      expect(find.text('Vowel'), findsNothing);
       // 받침 자모(ㄴ/ㄱ)는 화면에 절대 없다.
       expect(find.text('ㄴ'), findsNothing);
     });
 
     testWidgets('어려움 모드는 모음을 절대 그리지 않는다', (tester) async {
       await pump(tester, '한국', HintMode.chosung);
-      expect(find.text('모음'), findsNWidgets(2));
-      expect(find.text('받침'), findsNWidgets(2));
+      expect(find.text('Vowel'), findsNWidgets(2));
+      expect(find.text('Batchim'), findsNWidgets(2));
       expect(find.text('ㅏ'), findsNothing);
       expect(find.text('ㅜ'), findsNothing);
     });

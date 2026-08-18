@@ -907,6 +907,137 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String get hangulChipConsonants => 'Konsonanten';
+
+  @override
+  String get hangulChipVowels => 'Vokale';
+
+  @override
+  String get hangulChipSyllables => 'Silben';
+
+  @override
+  String get hangulCheckModeLabel => 'Strichprüfung';
+
+  @override
+  String get hangulCheckModePractice => 'Frei üben';
+
+  @override
+  String get hangulCheckModeExam => 'Streng';
+
+  @override
+  String get hangulCheckModePracticeHint =>
+      'Du bekommst Hinweise, aber nichts wird gelöscht.';
+
+  @override
+  String get hangulCheckModeExamHint =>
+      'Reihenfolge und Richtung müssen stimmen.';
+
+  @override
+  String hangulStrokeProgress(int current, int total) {
+    return 'Strich $current / $total';
+  }
+
+  @override
+  String hangulStrokeNextHint(int index) {
+    return 'Jetzt Strich $index zeichnen.';
+  }
+
+  @override
+  String hangulStrokeWrongOrder(int drawn, int expected) {
+    return 'Das ist Strich $drawn. Zeichne zuerst Strich $expected.';
+  }
+
+  @override
+  String hangulStrokeWrongDirection(int index) {
+    return 'Richtige Linie, falsche Richtung. Strich $index läuft andersherum.';
+  }
+
+  @override
+  String hangulStrokeWrongShape(int index) {
+    return 'Das passt zu keinem Strich. Sieh dir Strich $index links an.';
+  }
+
+  @override
+  String get hangulStrokeTooShort => 'Zu kurz. Zieh den Strich in einem Zug.';
+
+  @override
+  String hangulStrokeLetterDone(Object letter) {
+    return '$letter sitzt! Weiter zum nächsten.';
+  }
+
+  @override
+  String hangulLettersDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Buchstaben fertig',
+      one: '1 Buchstabe fertig',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get hangulHardOnly => 'Nur schwierige';
+
+  @override
+  String get chosungModeWithVowels => 'Anlaut + Vokal';
+
+  @override
+  String get chosungModeInitialsOnly => 'Nur Anlaute';
+
+  @override
+  String get chosungSlotVowel => 'Vokal';
+
+  @override
+  String get chosungSlotBatchim => 'Batchim';
+
+  @override
+  String get errorUnknown => 'Unbekannter Fehler';
+
+  @override
+  String questTypeUnsupported(Object type) {
+    return 'Quest-Typ \"$type\" ist noch nicht verfügbar.';
+  }
+
+  @override
+  String get customPackCsvHint => '안녕하세요, Hallo\\n사과, Apfel';
+
+  @override
+  String get packStateLocked => 'gesperrt';
+
+  @override
+  String get packStatePremium => 'Premium';
+
+  @override
+  String get packStateCleared => 'geschafft';
+
+  @override
+  String get packStateAvailable => 'verfügbar';
+
+  @override
+  String packSemantics(Object title, Object state, int learned, int total) {
+    return 'Paket $title, $state, $learned von $total gelernt';
+  }
+
+  @override
+  String get packLockedHintShort => 'Vorher freischalten';
+
+  @override
+  String smalltalkUseWith(Object context) {
+    return 'Passend für: $context';
+  }
+
+  @override
+  String get smalltalkSaferAlternativeAndNext =>
+      'Sichere Alternative und nächster Schritt';
+
+  @override
+  String get smalltalkSaferAlternative => 'Sichere Alternative';
+
+  @override
+  String get smalltalkNextTurn => 'Nächster Gesprächsschritt';
+
+  @override
   String wordleSyllableCount(int n) {
     return '$n-Silben-Wort · 6 Versuche';
   }

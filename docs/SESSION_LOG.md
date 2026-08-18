@@ -1,5 +1,163 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude Opus 5, macOS) — 인계 지적 2건 수정 + TTS 상태 확인
+
+**① `Storage.hangulHard` 가 write-only 였다 (인계 지적 — 맞다).**
+한글 카드 탭의 `_dontKnow`/`_known` 이 기록만 하고 **읽는 화면이 하나도 없었다**.
+좌/우 판정이 있는 척만 하고 실제 효과가 0 이었다는 뜻이다(문법은
+`grammar_screen.dart:215` 에서 Schwer 필터로 읽는다). 문법과 같은 모양으로 읽는
+경로를 만들었다 — 카드 탭 칩 줄에 **"다시 볼 글자만"**(`hangulHardOnly`, DE
+"Nur schwierige" / EN "Difficult only") 토글을 넣고 `_pool` 이 그 집합으로 거른다.
+모은 글자가 없으면 칩 자체를 안 띄우고, 마지막 한 글자를 "앎"으로 지워 필터 결과가
+비면 `_pool[_idx % 0]` 으로 터지므로 **전체 덱으로 되돌린다**.
+센서 `test/hangul_hard_filter_test.dart` 3건. 파괴-복원: 필터가 집합을 안 읽게
+바꾸면 "1 / 1" 이 "1 / 19" 로 남아 red.
+
+**② vocab_pack 에 넛지를 붙인 게 틀렸다 — 기존 센서가 잡았다.**
+`nudge` 를 6개 덱 전부에 배선했는데 `vocab_pack_uniform_card_test` 의 "짧은 단어와 긴
+단어의 글자 높이가 같다"가 red 가 됐다(40.0 → 38.38). 넛지가 카드를 회전·이동시켜
+`getRect` 가 잡는 축정렬 바운딩 박스를 바꾼 것이다. **테스트가 옳다** — 그 센서는
+FittedBox 가 긴 단어를 몰래 줄이는 걸 잡는 진짜 계약이다.
+게다가 이 화면은 진입 시 `FeatureCoach.vocabPack` 모달이 네 방향을 **문장으로** 이미
+가르친다(그래서 `maybeShowSoriDeckCoach` 도 일부러 안 부른다). 흔들림을 겹칠 이유가
+없다. **vocab_pack 만 넛지 제외** — 커버리지는 5/6 이고 그게 옳은 설계다.
+진단 기록: 레일을 통째로 빼도 red 가 유지돼 레일은 무죄였고, `nudge: false` 로 바꾼
+순간 green — 원인 특정 완료.
+
+**③ TTS — 재생성할 게 없다.** `--dry-run` 수집 9978개, `--verify-storage` 결과
+`expected 9978, remote 10269, **missing 0**, stale 291`. 캐리어 표가 비워지며 발화가
+바뀐 5글자(ㅃ→쁘·ㄷ→드·ㅏ→아·ㅠ→유·ㅢ→의)도 1음절 키로 이미 Storage 에 있다(carrier
+우회 **도입 이전** 키가 남아 있어 공짜로 맞았다). stale 291 은 문안이 바뀐 고아 객체로,
+TTS 객체는 immutable·가산이라 재생에 영향이 없고 방침상 삭제하지 않는다.
+**합성 0 · 업로드 0 · 프로덕션 쓰기 0.** 2026-08-17 사고 기록(따옴표 없는 heredoc 으로
+`generate_tts.py` 무인자 실행 → 178개 무단 업로드)에 따라 heredoc 은 전부 `<<'PY'` 로
+열었다. 남은 TTS 작업은 합성이 아니라 **Jin 의 낱자 40개 청취 검수**다.
+
+**사고 미수 기록.** hanok 테스트 실패가 내 변경 탓인지 보려고
+`git stash push <paths>` 를 썼는데 미추적 파일(`swipe_rails.dart`) 때문에 **stash 가
+생성되지 않았고**, 그걸 확인하지 않고 이어 붙인 `git stash pop` 이 무관한 2026-08-10
+스태시("pre-pull iOS Firebase")를 팝하려다 `SESSION_LOG.md` 충돌로 abort 했다.
+잃은 것은 없고 그 스태시도 그대로다. **교훈: stash 는 생성 성공을 확인하기 전에 pop 을
+같은 줄에 잇지 않는다.** 통제 실험은 stash 대신 `git worktree add <tmp> HEAD` 를 쓴다.
+
+**전체 스위트는 비결정적이다 (기존 문제).** 두 번 돌려 실패 집합이 서로 겹치지 않았다:
+1차 `hanok_cutover`·`hanok_grant_catalog` 등 6건, 2차 `asset_orphan_guard`·
+`learner_level_contract`·`vocab_pack_uniform_card` 3건. hanok 은 단독·2개 동시 실행에서
+모두 green — 병렬 실행 간섭이다. 그중 실제 결함이던 `vocab_pack_uniform_card` 만 위 ②로
+수정했고, 나머지는 내 변경 밖이라 남긴다.
+
+**검증.** `flutter analyze --no-pub --fatal-infos` 저장소 전체 1 issue(기존
+`word_relation_service.dart:292`). 관련 배터리 73/73 green
+(hangul_hard_filter 3 · hangul_swipe_and_prefetch · deck_swipe_physics 28 ·
+deck_direction_contract · circular_feedback · l10n_parity · arb_l10n_guard ·
+ui_string_locale_guard). ARB 는 DE/EN 쌍으로 넣고 `flutter gen-l10n` 실행.
+
+
+### 2026-08-18 (Claude Opus 5, macOS) — Sori Deck 3.0 코드리뷰 후속: Critical 2건 + 실버그 1건 + 무효 테스트 교체
+
+**무엇.** `requesting-code-review`(superpowers) 규격으로 리뷰어 2명을 붙였다. 하나는
+엔진 정확성, 하나는 테스트 품질. 둘 다 실제 재현/실측으로 결함을 가져왔고 전부 고쳤다.
+
+**Critical 1 — 스프링 정착 중 unmount 하면 죽은 컨트롤러를 건드린다 (크래시).**
+`_AxisDriver.hold()` 는 세대 토큰을 올리는데 `dispose()` 는 안 올렸다.
+`AnimationController.dispose()` → `Ticker.dispose()` → `TickerFuture._cancel()` 은
+`whenCompleteOrCancel` 을 **`_ticker` 를 null 로 만든 뒤 마이크로태스크로** 부른다 —
+토큰이 그대로라 스냅 콜백이 `ctrl.value =` 를 실행한다. 실제 경로가 있다: **↑ 저장 →
+`_commitSaveInPlace` 가 `_cy` 를 스프링 복귀시키는 동안 저장 콜백이 화면을 닫는다**
+(`grammar_screen` 의 `onSwipeUp: _saveCurrent`). 릴리스에선 assert 가 빠져
+`_ticker!` null-check throw 가 된다. `dispose()` 에서도 토큰을 올린다.
+기존 "스와이프 도중 이탈" 가드는 이걸 못 잡는다 — 그건 임계를 **넘겨서** `glideTo`
+경로만 타고, 그쪽 완료 콜백은 `mounted` 가드가 있다. 스프링 경로가 무방비였다.
+
+**Critical 2 — 퇴장 중 내려온 손가락이 다음 카드를 몬다 (회귀).**
+3.0 에서 `_onPanStart` 에 `if (_committing) return;` 을 넣으면서 **드래그 상태 리셋
+전체가 그 뒤로 숨었다**. `_onPanUpdate`/`_onPanEnd` 는 호출 시점의 `_committing` 만
+보므로, 퇴장이 끝나는 120~220ms 뒤부터 **아직 안 뗀 그 손가락**이 이전 드래그의
+`_axis` 를 쥔 채 다음 카드를 몬다. 실측: 우측 커밋 → 40ms 뒤 손가락 착지 → 아래로
+240px → **카드 이동 0px, onSwipeDown 0회**(위/아래가 통째로 죽는다). 더 나쁘게는
+이전 카드용으로 시작된 제스처가 다음 카드에 좌/우 SRS 판정을 남길 수 있었다.
+HEAD 에는 없던 회귀다. `_gestureDead` 래치를 도입해 **퇴장 중 시작된 제스처는
+통째로 무효**로 만들고, 상태 리셋은 조기 반환 밖으로 되돌렸다.
+
+**실버그 — 넛지가 가짜 "Gewusst" 도장을 띄웠다.**
+소스 주석은 "진폭 18dp 는 스탬프 램프(4%) 아래라 가짜 도장이 안 뜬다"고 했는데
+**틀렸다**: 400dp 카드 실측 피크 18.53px = **4.6%**, 320dp 면 5.8%. 폭에 따라
+달라지는 값을 상수로 막을 수 없어 `_nudging` 동안 스탬프를 **아예 끈다**. 넛지는
+"밀 수 있다"는 시연이지 판정 예고가 아니다.
+
+**무효 테스트 교체 — §1 은 어떤 변이로도 안 죽었다.**
+직전 로그에 "§1 은 파괴해도 green 인 불변 가드"라고 적었는데 너무 관대했다.
+리뷰어가 **40개 변이**로 실측: 빌더 안 인라인·매 프레임 새 Padding·매 프레임 새
+Builder·**프레임당 setState 부활(2.0 회귀 그 자체)** 전부 green. 구조적이다 —
+카운터가 세는 `Builder` 는 하네스가 한 번 만들어 넘긴 인스턴스라 `SoriSwipeCard` 가
+그 엘리먼트를 다시 빌드할 방법이 없다(`expect(1, 1)`). 못 죽는 테스트는 없는
+테스트보다 나쁘다(있지도 않은 확신을 CI 시간으로 산다). 저장소 관례대로 **소스
+래칫 3건**으로 바꿨다: `child: cardContent` 슬롯 존재 · `_onPanUpdate`/`_sync`/
+`_onNudgeTick` 에 `setState` 없음 · **`nudge:` 를 쓰는 호출부는 `onNudgePlayed:` 도
+넘긴다**(빠뜨리면 세션 게이트 미소비 → 화면 들어올 때마다 흔들리는 그 버그 재발).
+소스를 스캔하게 됐으므로 `ALWAYS_ON_TESTS` 에 등록했다.
+
+**메운 커버리지 공백 (전부 파괴-복원 red 확인).**
+| 센서 | 잡는 회귀 |
+|---|---|
+| §9 `onNudgePlayed` 1회 | 호출 삭제 → 매 진입 흔들림 |
+| §9 reduce-motion 미소비 | 가드 위로 이동 → 재생 없이 소비 |
+| §9 미배선 카드 미소비 | 〃 |
+| §9 가짜 도장 없음 | `_nudging` 억제 제거 |
+| §10 축 잠금 진 축 스프링 | `jumpTo(0)` → 한 프레임 점프 (실측 2.65→1.62 로 8프레임 감쇠) |
+| §10 ↑ 는 underlay 안 올림 | `math.max(dy,0)` → `dy.abs()` (HANDOFF §P2-1 거짓 어포던스 금지) |
+| §11 레일 실제 페인트 | rest alpha 0 → 존재 이유 자체가 사라짐 |
+| §11 방향별·임계 햅틱 | 평탄화 |
+| §2 축 잠금 **행동** | 4→12. 초판 `expect(deckAxisLock, 4)` 는 제스처 코드에 12 를 하드코딩해도 green 인 공허한 단언이었다 |
+
+**주장 완화 (실측 결과).** 도크의 "0px 부터 손가락을 따라온다"는 과장이다 — 실제 덱은
+카드 안에 탭(플립) recognizer 가 있어 팬이 제스처 아레나에서 `kTouchSlop` 까지 못
+이긴다(실측 ~21px). `deckAxisLock` 으로는 못 줄인다. 다만 `DragStartBehavior.start`
+기본값이라 그 구간이 **점프로 재생되지 않아** "갑자기 붙는" 증상 자체는 사라진다.
+소스 dartdoc 에 그렇게 적었다.
+
+**검증.** `test/deck_swipe_physics_test.dart` **28/28**, `flutter analyze
+--no-pub --fatal-infos` 저장소 전체 1 issue(기존 `word_relation_service.dart:292`).
+파괴-복원 **8건 전부** red → 복원 green.
+
+**남은 것(리뷰어 지적 중 미처리).** `_blockedResistance` ×0.15 미검증 · 속도만으로
+커밋(`|v|>700` + 거리 미달) 미검증 · §3 이 두 단계에서 같은 State 를 재사용
+(오늘은 `pumpAndSettle` 덕에 안전) · `TestGesture.moveBy` 가 항상 velocity 0 이라
+§3 slow 분기가 `_exitDuration` 의 early-return 만 탄다. 전부 기존/저위험이라 남긴다.
+**실기기 확인은 여전히 0** — 앱을 한 번도 띄우지 않았다.
+
+**커밋해시.** 미커밋 — Jin 의 명시 요청 시에만.
+
+
+### 2026-08-18 (Claude, macOS) — 완료 직전 코드리뷰에서 프리페치 결함 3건 수정
+
+`/code-review` 를 내 변경분에만 걸어 돌린 결과 **프리페치가 새로 만든 결함 3건**이
+나왔다. 셋 다 "화면 진입 시 34개를 받는다" 는 설계 때문에 **새로 도달 가능해진**
+경로다.
+
+1. **캐시 파일 경합.** 프리페치(쓰기)와 재생(읽기)이 같은 mp3 를 동시에 만지는데
+   `writeAsBytes` 로 곧장 썼다. `isUsableAudio` 는 길이와 앞 몇 바이트만 보므로
+   **쓰다 만 파일도 통과**해 잘린 소리가 나거나, 읽는 쪽이 "망가졌다" 고 판단해
+   프리페치가 쓰던 파일을 지운다. → `_writeAtomically`(임시 파일 + rename).
+   rename 은 같은 파일시스템에서 원자적이라 읽는 쪽은 완성본 아니면 없음만 본다.
+2. **음성 채널 off 무시.** `speak()` 는 speech 채널이 꺼져 있으면 재생을 막는데
+   프리페치는 그 게이트를 안 봤다 — 절대 못 들을 파일 34개를 내려받았다.
+3. **재시도 억제 없음.** Storage 에 없는 텍스트를 카드 넘길 때마다 다시 요청했다
+   (±1 이웃이 겹쳐 자음 세트에서만 ~114회/40텍스트). → 세션 내 1회로 묶었다.
+
+리뷰가 짚은 4번째(`Storage.hangulHard` 가 write-only — `_known`/`_dontKnow` 가
+기록만 하고 아무 화면도 안 읽는다)는 **다른 세션 작업분**이라 손대지 않고 인계한다.
+`grammarHard` 는 `grammar_screen.dart:215` 에서 읽히는 것과 대비된다.
+
+**검증(신선).** `analyze` error 0 · 내 작업분 18개 파일 **142개 통과** ·
+가드 red-green 2건(UI 한국어 하드코딩 · 덱 방향 계약) 현재 파일 상태로 재확인 후 원복.
+
+**미완(정직하게).** 실기기/웹 시각 확인 실패. `flutter run -d web-server` + Playwright
+로 시도했으나 디버그 웹 빌드가 스플래시를 못 넘겼다(Overview 1장만 캡처 성공 —
+렌더 정상·오버플로 없음). Cards 레일 시인성·Write 세로 2단 실물 확인은 **여전히
+아무도 안 했다**. 다른 세션도 앱을 안 띄웠다고 인계했다 — 이게 남은 최대 리스크다.
+
+
 ### 2026-08-18 (Claude, macOS) — B1/B2 건물 단계 6종 생성 완료 (16크레딧)
 
 **무엇.** 살아 있는 한옥 V1의 B1/B2 건물 단계(공사 과정 역분해)를 6개 대상(솟을대문·행랑채·안채·
@@ -34,6 +192,313 @@ meanRGB 전부 목재/석재 톤, 청록 잔여 없음)만 거쳤다 — **Jin �
 Jin 확인 필요.
 
 ---
+
+### 2026-08-18 (Claude, macOS) — 덱 방향 계약 준수 + 회귀 방어 가드 3종
+
+**계기.** 한글 카드 탭을 `SoriSwipeCard` 로 옮기면서 `onSwipeLeft: _next` /
+`onSwipeRight: _prev` 로 붙였다 — **좌/우를 판정이 아니라 이전/다음에 쓴 것**이다.
+다른 세션이 레일 색 작업 중 오신호로 잡아냈다(배지를 안 넘겨 "다음"이 danger 빨강,
+"이전"이 success 초록으로 떴다). Jin 확정: **좌 = 모름 · 우 = 앎 · 위 = 저장 ·
+아래 = 넘어가기**, 앱 전체가 하나의 모델.
+
+**맞춘 내용.** 한글 카드는 다른 세션이 실제 판정(`_dontKnow`/`_known` +
+`Storage.markHangulHard/Easy`, `enabled: _flipped` 플립게이트)까지 넣어 계약을
+완전히 따르게 했다 — 내 down-only 안보다 낫다. Write 탭에서는 좌우 스와이프를
+**뺐다**: 여기서만 좌/우를 이전/다음으로 쓰면 두 번째 멘탈 모델이 생기고, 어차피
+커진 연습 캔버스가 자기 위 드래그를 독점해 여백에서만 먹혔다. 이동은 `‹ ›`
+아이콘이 정본이고 `Semantics.customSemanticsActions` 로 스크린리더 경로도 유지.
+
+**신규 가드 — `test/deck_direction_contract_test.dart`** (`ALWAYS_ON_TESTS` 등록):
+`lib/` 의 모든 `SoriSwipeCard` 사용처를 스캔해 ⓐ 좌/우에 `_next`/`_prev` 류
+이동 핸들러를 붙이면 실패, ⓑ 의미를 쓰는 방향에 배지가 없으면 실패(배지가 없으면
+레일이 중립색으로 빠져 무슨 일이 일어날지 안 보인다). 역검증 2건 모두 red 확인.
+사람 리뷰로 잡을 종류가 아니라서 CI 로 옮겼다.
+
+**가드가 즉시 잡은 실제 결함 2건** (`/find-skills` 로 설치한
+`flutter-fix-layout-issues`·`flutter-add-widget-test` 관점 적용):
+- **가로 오버플로 158px** — 360dp + 글자배율 1.3 + 독일어에서 Write 탭의 모드 칩
+  행·판정강도 행·아이콘 행이 전부 넘쳤다. `Row` → `Wrap` 으로 바꿔 줄바꿈시켰다.
+  `FittedBox` 로 줄이는 대신 줄을 바꾼 이유는 44pt 터치 타깃을 깨지 않기 위해서다.
+- **프리페치 예외 누수** — 주입된 prefetcher 가 던지면 `unawaited` 된 Future 가
+  미처리 예외로 샜다. 구현이 삼키는 것과 별개로 **호출 지점에서도** 막았다.
+
+추가 방어 테스트: 프리페치 비합성 계약(소스 스캔으로 `allowSynthesis: false` 강제) ·
+스와이프 정착 전 dispose 안전성 · Write 탭 오버플로.
+
+**검증.** 내 작업분 18개 파일 **147개 전부 통과**, `analyze` error 0,
+`.github/scripts` 계약 32개 OK.
+
+> ⚠️ 이 세션 중 다른 세션이 `hangul_screen.dart` 를 동시 편집해 **문법이 깨진
+> 순간이 있었다**(내 Write 탭 편집 + 그쪽 카드 탭 이식이 겹쳐 닫는 괄호 1개 초과).
+> 최소 수정으로 복구했고 그쪽 작업분은 보존했다. 같은 파일을 두 세션이 동시에
+> 만지는 건 피하는 게 낫다.
+
+
+### 2026-08-18 (Claude Opus 5, macOS) — Sori Deck 3.0: 덱 손맛 물리 재작성 + 방향 어포던스 레일
+
+**무엇.** `SoriSwipeCard` 의 제스처/애니메이션을 물리 기반으로 갈아엎고, 카드 네 변에
+방향 어포던스 레일을 넣었다. 호출부 6개(vocab_pack · review · legacy · custom_play ·
+grammar · hangul)는 **한 줄도 안 고치고** 전부 새 손맛을 받는다.
+
+**왜.** Jin 이 실기기에서 "좌우 위아래로 옮기려고 할 때마다 뭔가 붕붕댄다"고 지적했고,
+`AGENTS.md` 의 **"UI 실기기 게이트 (Jin): 덱 4방향 손맛"** 이 그 때문에 열려 있었다.
+동시에 "어떤 방향으로 밀면 어떤 결과인지 말 안 해도 알게" 라는 요구가 붙었다 —
+기존 스탬프는 드래그를 **시작해야** 뜨므로 정지 상태에서는 정보가 0이었다.
+
+**원인 3개와 체감 기여도 (전부 파괴-복원으로 증명).**
+
+1. **[주범] 스프링백 커브가 `Curves.elasticOut`** (`SoriMotion.release`). 임계 미달
+   드래그를 놓으면 카드가 원점을 한참 지나쳐 좌우로 여러 번 흔들렸다 — 그게 "붕붕"이다.
+   → 신규 `SoriMotion.deckSpring`(mass 1 / stiffness 380 / damping 32, damping ratio
+   ≈ 0.82) `SpringSimulation` 으로 교체. 오버슛 1.1% 미만·왕복 1회 이하.
+   **증명**: damping 32 → 8 로 낮추면 70px 복귀가 원점을 **38.3px** 지나쳐 §6 이 빨개진다.
+2. **12px 데드존 + 속도 단절.** 축 잠금 전 12px 동안 표시 오프셋을 버려서 카드가
+   손가락을 안 따라오다 갑자기 붙었고, 퇴장은 플링 속도와 무관한 고정 150ms 였다.
+   → 잠금 임계 **4px**(`SoriMotion.deckAxisLock`), **잠금 전에도 양축 추종**, 잠금 순간
+   진 축은 버리지 않고 스프링으로 0 복귀(점프 없음). 퇴장은 손을 뗀 속도를 승계해
+   120~220ms clamp(`deckExitMin/Max`). **증명**: 각각 12px 복원 / 상수 duration 복원 시
+   §2·§3 이 빨개진다.
+3. **프레임당 `setState`.** 위치를 `ValueNotifier<Offset>` + `ValueListenableBuilder`
+   (`child:` 슬롯)로 옮겼다. ⚠️ **정직하게 정정**: 2.0 의 setState 도 자식 서브트리까지
+   재빌드하지는 **않았다** — `Element.updateChild` 가 위젯 인스턴스 동일 시 서브트리를
+   건너뛴다. 실제로 없앤 비용은 프레임마다 `build()` + LayoutBuilder 빌더 재실행 +
+   Transform/Stack/스탬프 재할당 + 엘리먼트 더티이고, 손맛보다 배터리/저사양 쪽 이득이다.
+   §1 센서는 회귀 증명이 아니라 **불변 가드**로 명시해 뒀다(파괴해도 green — 기록함).
+
+**어포던스 (신규 `lib/widgets/sori/swipe_rails.dart`).** 카드 네 변에 레일을 그린다.
+정지 상태에서도 alpha 0.14 로 늘 보여서 ① 어느 방향이 살아 있는지(꺼진 방향은 레일
+자체가 없다 — 커스텀 팩의 ↑, 자모 카드의 ↑), ② 무슨 뜻인지(색이 그 방향 스탬프와 동일),
+③ 얼마나 더 밀어야 확정인지(커밋 진행도에 비례해 길이 40%→100% · alpha → 0.90 ·
+두께 3→5px)를 한 번에 읽힌다. **플립 전(`enabled:false`) 판정 레일은 0.35 에서 막는다** —
+확정이 안 되는데 꽉 차면 거짓 어포던스다. 새 pill/chip 이 아니라 순수 기하 요소라
+`jin-no-ios-style-badges` 에 저촉되지 않는다. 스탬프 램프 시작점도 8% → **4%** 로 당겼다.
+
+**넛지.** `grammar_screen` 로컬 `_SwipeNudge`(70줄)를 지우고 `SoriSwipeCard(nudge:)` 로
+내장했다. 밖에서 카드를 흔들던 예전 방식은 내부 오프셋을 안 건드려 **레일·스탬프가
+반응하지 않았다** — 움직임만 보이고 결과는 안 보였다. 이제 내부 오프셋을 직접 몰아
+넛지 도중 우측 레일이 실제로 차오르고 **같은 스프링으로** 돌아온다(곧 손으로 느낄 물리를
+미리 본다). 게이트는 `soriDeckNudgeDue()`(deck_coach.dart) — 예전 grammar 게이트는
+`!tutSeen('soriDeck')` 뿐이라 코치를 한 번도 안 본 사용자에게는 **화면에 들어올 때마다**
+흔들렸다. 프로세스 세션 1회로 조인다. reduce-motion 에서는 재생하지 않는다.
+
+**햅틱.** 4방향 전부 `selectionClick` 이던 걸 의미별로 갈랐다 — 우(앎)/↑(저장)
+`mediumImpact`, 좌(모름) `lightImpact`, ↓(스킵) `selectionClick`. 추가로 **커밋 임계를
+넘는 순간**(손을 떼기 전) 방향당 1회 `selectionClick` — "여기서 놓으면 확정"을 손끝으로
+알린다. 햅틱은 모션이 아니라 정보라 reduce-motion 에서도 유지한다.
+
+**계약 불변 확인.** `enabled` 의 뜻("좌/우 판정 허용")·`enabled:false` 좌우 콜백 0회·
+저항 드래그 ×0.15·원시 24px 힌트 1회·↑ 는 전진 없음·↓ 재서빙 리셋·underlay 앞면 전용·
+커밋 임계(폭 35% / 700px/s / min(120, 높이 25%))를 전부 그대로 뒀다. **공개 API 는
+`nudge` 파라미터 추가 하나뿐** — 기존 호출부 무수정 컴파일.
+
+**한 가지 함정 기록.** `AnimationController.animateTo` 는 `target == value` 일 때
+duration 을 `Duration.zero` 로 접는다. 수평 퇴장에서 y축 future 에 완료 콜백을 물면
+**즉시** 터져 카드가 날아가기도 전에 다음 카드가 서빙된다(빠른 연속 스와이프에서 판정
+2회). 실제로 이동하는 축을 드라이버로 고른다. 또 스프링은 tolerance 안에서 멈추므로
+완료 시 목표값으로 스냅해야 "정확히 원점 복귀" 계약이 지켜지는데, 사용자가 정착 도중
+카드를 다시 잡으면 그 스냅이 점프가 된다 — `_AxisDriver` 의 세대 토큰으로 막았다.
+
+**검증.** `flutter analyze --no-pub --fatal-infos` 저장소 전체 **1 issue** — 기존
+`word_relation_service.dart:292` info 뿐(내 변경 밖). 신규
+`test/deck_swipe_physics_test.dart` **14/14**, 기존 `swipe_card_test.dart` **15/15**,
+덱 배터리 + 상시 가드(action_bar · card_geometry · vertical_gesture · flipgate 4종 ·
+circular_feedback · ui_string_locale_guard · l10n_parity · arb_l10n_guard ·
+typography_guard) **91/91 green**. `hangul_swipe_and_prefetch_test` 방향 계약 7건도 green.
+
+⚠️ **남은 red 2건은 내 변경 밖이다** — 둘 다 `hangul_swipe_and_prefetch_test.dart` 의
+"회귀 방어" 그룹(동시 세션이 이 세션 도중 추가):
+① "프리페치가 실패해도 화면은 정상 동작한다" — **단독 실행하면 green**. 배치 실행 중
+   그 세션이 파일을 쓰고 있어 생긴 레이스다.
+② "Write 탭이 작은 폰 + 큰 글자에서 오버플로하지 않는다" — 실제 오버플로 158px 이지만
+   원인은 `_WriteTab` 의 "판정 강도" `Row`(`hangul_screen.dart:1469`)로 **그 세션 코드**다
+   (내 변경은 `_CardsTabState`, 대략 :990–1050). 그쪽 진행 중 작업이라 손대지 않았다.
+
+**파괴-복원.** §2(축 잠금 4→12) red / §3(퇴장 duration 상수화) red / §6(damping 32→8)
+red, 복원 후 전부 green.
+
+⚠️ **정정(같은 날, 코드리뷰 후):** §1 을 "파괴해도 green 인 불변 가드"라고 적었던 건
+너무 관대한 표현이었다. 리뷰어가 40개 변이로 실측한 결과 §1 은 **어떤 변이로도
+빨개지지 않았다** — 프레임당 setState 를 되살린 2.0 회귀조차 green. 원인은 구조적이다:
+카운터가 세는 `Builder` 는 테스트 하네스가 한 번 만들어 넘긴 인스턴스라 `SoriSwipeCard`
+가 그 엘리먼트를 다시 빌드할 방법이 없다(`expect(1, 1)`). 못 죽는 테스트는 없는
+테스트보다 나쁘므로 **소스 래칫으로 교체**했다(아래 후속 항목).
+
+**동시 세션 경고.** 이 세션 중 `lib/widgets/sori/swipe_card.dart` 가 한 번 **원본으로
+되돌아갔다**(다른 세션 또는 에디터 버퍼). 같은 저장소에 여러 AI 세션이 돌 때는 저장 직후
+`grep` 으로 자기 변경이 살아 있는지 확인할 것.
+
+**레일 색 — 판정 덱 vs 네비게이션 덱 (롤아웃 중 발견·수정).** 레일 색은 그 방향
+스탬프 색을 따르는데, **배지를 안 주는 화면**이 있다. 같은 날 다른 세션이 이식한
+`hangul_screen` 카드 탭이 그렇다 — `onSwipeLeft: _next, onSwipeRight: _prev` 로 좌/우가
+판정이 아니라 **다음/이전**이고 배지가 없다. 처음 구현한 기본색(좌 danger / 우 primary)을
+그대로 두면 거기서 **"다음"이 빨강, "이전"이 초록**으로 읽혀 정확히 반대 신호가 된다.
+→ **의미를 선언하지 않은(배지 없는) 방향은 중립색**(`SoriSurfaces.textMuted`)으로 바꿨다.
+판정 덱은 배지 색을 그대로 쓰므로 영향 없고, 네비게이션 덱은 자동으로 중립이 된다.
+센서: §4 "배지를 안 준 방향(네비게이션 덱)은 중립색이다".
+
+**좌/우 갈래는 없다 — Jin 즉시 정정(2026-08-18).** 나는 "판정 덱 vs 네비게이션 덱"
+두 멘탈 모델이 공존한다고 보고했는데 틀렸다. Jin: *"좌 모름, 우 앎, 위 저장,
+아래 넘어가기"* — 계약은 하나고 예외가 없다. 따라서 같은 날 1차 이식에서
+`hangul_screen` 카드 탭에 들어간 **좌=다음 / 우=이전은 계약 위반**이었고 고쳤다:
+
+- `Storage.hangulHard` / `markHangulHard` / `markHangulEasy` 신설 — 문법의
+  `grammarHard` 를 그대로 미러링한 **SRS 밖** 집합이다. 자모는 어휘가 아니라
+  `srsReview`/`incrementWrongCount` 를 쓰면 단어 복습 큐가 오염된다.
+- 좌 = `_dontKnow`(다시 볼 낱자로 표시 후 전진) · 우 = `_known`(표시 해제 후 전진) ·
+  아래 = `_next`(무기록 전진) · **위 = null**(자모는 단어장 저장 대상이 아니다 →
+  레일·배지도 안 뜬다).
+- **flipgate 적용**: `enabled: _flipped`. 못 본 낱자에 앎/모름이 기록되면 안 된다.
+  플립 전 판정 시도는 `SoriDeckFlipHint` 칩으로 받는다 — 다른 덱과 같은 경로.
+- 전폭 버튼 5단(Zurück/Weiter · Hören · Zufällig · 완료)을 **`SoriDeckActionBar`
+  (showSave: false) + 44dp 보조 아이콘 행(이전·듣기·무작위)** 으로 바꿨다. 이게
+  Jin 이 스크린샷 2로 지목한 바로 그 스택이다. 완료 버튼은 키(`hangul-cards-finish`)와
+  "상호작용 0이면 비활성" 계약을 그대로 뒀다.
+
+레일 중립색 폴백(아래)은 계약이 하나가 된 뒤에도 **방어선으로 남긴다** — 의미를
+선언하지 않은(배지 없는) 방향에 판정색이 붙는 사고를 막는다.
+
+**Phase 3 범위 재조정 (제안했던 4화면 중 3개는 이식하지 않는 게 맞다).** 실제 코드를 읽고
+판단을 바꿨다 — 억지로 덱으로 만들면 오히려 나빠진다:
+- `hard_words_screen` — **이미** `ReviewSessionScreen`(완전한 Sori Deck)으로 넘기는 목록·
+  허브다. 덱으로 바꾸면 그 화면을 복제하는 꼴.
+- `word_web_study_screen` — 유의어/반의어/관련어/표현을 **묶어서 한눈에 보는 참조 페이지**.
+  덱으로 펴면 그 그룹 구조가 사라진다. 판정 모드는 이미 `word_web_quiz_screen` 이 따로 있다.
+- `daily_char_sheet` — 라벨 달린 2버튼 행(Hören/Fertig)이라 스크린샷의 "전폭 5단 스택"
+  안티패턴이 아니다. 원형으로 바꾸면 라벨만 잃는다.
+- `smalltalk_screen` — 18개 카테고리·레벨 필터를 훑는 **브라우즈** 표면이고 `_PhraseCard` 가
+  펼침형(대화 가이드·답변)이라 덱과 잘 안 맞는다. 덱 모드는 통일이 아니라 신규 기능.
+
+대신 스크린샷 2 패턴(전폭 버튼 스택 + Zurück/Weiter)을 **실제로** 가진 세션 화면은
+`hangul_screen` 카드 탭(이번에 처리) · `listening_screen`(`:478-496`) ·
+`vocab_pack_recall_screen`(`:436-476`) 이다.
+
+**남은 것.** ① 실기기 게이트(Jin): 4방향 손맛 · 좌우 레일 vs iOS 시스템 back 제스처 ·
+↑ vs 알림 셰이드 · ↓ vs 홈 인디케이터. ② 카드 높이 통일(§J-7: vocab_pack 만 1.0, 나머지
+0.82) — 레일이 변에 붙으므로 실기기 확인 후 결정. ③ grammar 는 여전히
+`SoriDeckActionBar` 가 없다(접근성 패리티 구멍, `CustomSemanticsAction` 으로만 커버).
+④ `listening_screen` · `vocab_pack_recall_screen` 이식 — 둘 다 판정이 없는 화면이라
+계약상 **좌/우를 끄고 ↓만 전진**으로 가야 한다(억지 판정 금지). 이전으로 가는 길은
+보조 아이콘 행에 남긴다.
+
+---
+
+### 2026-08-18 (Claude Opus 5, macOS) — Sori Deck 3.0 자체 리뷰 후속: 내 결함 3건 수정
+
+**왜.** 다른 세션이 만든 `deck_direction_contract_test`(CI 상시 가드)를 검증하다가,
+같은 버그에 대한 **내 대응이 잘못된 모양**이었다는 걸 인정하게 됐다. "배지 없는
+방향"에 나는 *중립색을 칠했고*(완화), 그쪽은 *CI를 깨뜨렸다*(예방). 잘못 배선된
+화면이 조용히 살아남는 것보다 머지가 막히는 게 낫다. 내 폴백은 1선이 아니라
+**최후 방어선**으로 강등한다. 이어서 내가 자체 리뷰에서 찾은 결함 3건을 고쳤다.
+
+**① 넛지 커버리지 2/6 → 6/6, 그리고 상호 배타 문제 해소.**
+`nudge:` 호출부가 grammar·hangul **둘뿐**이었는데 게이트가 프로세스 전역 1회라
+**먼저 연 하나만** 발화했다. 즉 단어팩(주력 덱)으로 들어온 사용자는 넛지를 영영
+못 봤다. `vocab_pack` · `review_session` · `legacy_vocab` · `custom_pack_play` 에도
+배선해 "먼저 연 덱이 제스처를 가르친다"가 실제로 성립하게 했다.
+
+**② `build()` 안의 전역 변이 제거 — 그리고 그게 감춘 진짜 버그.**
+`soriDeckNudgeDue()` 가 **호출 즉시 소비**했는데 호출부는 전부 `build()`(그중
+하나는 `LayoutBuilder` 빌더) 안이었다. 코드 냄새로만 봤다가, 결과를 따져 보니
+**카드가 마운트되지 않는 빌드**(로딩·조기 반환·모드 전환)에서도 플래그가 타 버려
+넛지가 **영원히 안 뜰 수 있는** 실제 버그였다. 질의는 부수효과 없는 순수 함수로
+바꾸고, 소비는 신규 `markSoriDeckNudgeShown()` 이 — `SoriSwipeCard` 가 넛지를
+**실제로 재생하는 시점**에 `onNudgePlayed` 로 — 하도록 뒤집었다.
+
+**③ 왼쪽 레일이 `SoriCard` accent 막대와 세로 막대 2개를 이뤘다.**
+`SoriCard(accent:)` 는 `card.dart:196-203` 에서 `left: 0 · width: 4` 로 **전체 높이**
+세로 막대를 그린다. 내 레일 inset 은 6 이라 x 6~9 에 앉아, 왼쪽 변에 막대가 둘
+서는 꼴이었다 — 어포던스를 만들려다 시각 노이즈를 넣었다. inset **10**(accent 와
+6px 이격) + 정지 길이를 **변의 40% → 고정 44dp** 로 바꿨다. 짧은 고정 길이는
+"여기를 밀어라"는 표시로 읽히고, 드래그하면 변을 채우며 자란다 — 정지/진행의
+차이가 길이로 드러난다. (기기 확인은 여전히 미완 — 아래 "남은 것".)
+
+**신규 센서 §7 2건 + 파괴-복원.**
+① `inset >= 8` (accent 막대 회피) — 6 으로 되돌리면 red. ② 넛지 게이트 순수성
+(질의 2회 모두 true → `markSoriDeckNudgeShown()` 후 false) — 옛 "질의 시 소비"로
+되돌리면 red. 둘 다 복원 후 green.
+
+**검증.** `flutter analyze --no-pub --fatal-infos` 저장소 전체 **1 issue**(기존
+`word_relation_service.dart:292` info). 덱·가드·화면 배터리 **121/121 green**
+(`deck_swipe_physics` 16 · `swipe_card` 15 · `deck_direction_contract` 3 ·
+flipgate 4종 · `deck_vertical_gesture` · `deck_card_geometry` · `deck_action_bar` ·
+`circular_feedback` · `hangul_swipe_and_prefetch` · `course_practice` ·
+typography/l10n_parity/arb/ui_string_locale 가드).
+
+**소유권.** `hangul_screen.dart` 는 다른 세션 소유로 둔다. 이번엔 ② 때문에
+`onNudgePlayed: markSoriDeckNudgeShown,` **한 줄만** 넣었다 — 안 넣으면 그 화면의
+넛지가 매 진입마다 재생된다.
+
+**남은 것.** ① 실기기 확인 — 레일 시인성(특히 accent 막대와의 대비)·4방향 손맛·
+좌우 레일 vs iOS back 제스처·↑ vs 알림 셰이드. **아직 앱을 한 번도 띄우지 않았다;
+"붕붕 제거"는 위젯 테스트 pump 로만 증명됐다.** ② `flutter run --profile` +
+DevTools 프레임 측정. ③ `listening_screen` · `vocab_pack_recall_screen` 이식 —
+둘 다 판정이 없어 계약상 좌/우는 끄고 ↓만 전진.
+
+**커밋해시.** 미커밋 — Jin 의 명시 요청 시에만.
+
+
+### 2026-08-18 (Claude, macOS) — 한글 화면 2차: 스와이프 UX · 캔버스 2배 · 오디오 즉시 재생
+
+테스터(Amor) 후속 3건. **공용 컴포넌트만 쓰고 새 카드/스와이프 구현은 만들지 않는다**(Jin).
+
+**① 획순 캔버스 — 좌우 반반을 세로 2단으로.** 재보니 좌우 배치는 세로가 아니라
+**가로가 병목**이었다: iPhone 16(393pt)에서 `(393-28여백-10간격-24카드패딩)/2 = 165pt`.
+세로 공간을 아무리 비워도 172pt 가 한계라 배치를 바꿔야 했다. 세로로 쌓아 둘 다
+`min(maxWidth-12, 240)` 로 통일 — 면적 165² → 240², 약 2배. 좌우 제목 높이를 맞추던
+`IntrinsicHeight` 2단 Row 는 나란한 짝이 사라져 함께 제거했다.
+
+**세로 공간은 버튼 스택을 없애 마련했다.** 전폭 버튼 4줄(Löschen · Zurück/Weiter ·
+aussprechen · abschließen ≈ 230pt)을 좌우 스와이프 + 아이콘 한 줄(≈48pt)로 줄였다.
+`abschließen` 은 글자를 하나라도 정확히 완성하기 전엔 **아예 렌더하지 않는다**(예전엔
+비활성으로 늘 자리만 차지). `‹ ›` 는 없애지 않았다 — 커진 연습 캔버스 위 드래그는
+전부 획으로 먹히므로 스와이프만 남기면 넘길 방법이 사라지고, 경로 제스처가 유일한
+수단이면 WCAG 2.2 §2.5.1 위반이다. `Semantics.customSemanticsActions` 로 스크린리더
+대체 경로도 함께 열었다(grammar_screen 패턴 재사용).
+
+**② 카드 스와이프 — 공용 `SoriSwipeCard` 로 교체.** `_CardsTab` 은 생
+`GestureDetector(onHorizontalDragEnd)` + `primaryVelocity ±250` 이었고 **손가락을
+따라오는 이동도, 퇴장 애니메이션도 아예 없었다**(`_next()` 는 그냥 setState). 느린 게
+아니라 피드백이 0 이라 죽은 느낌이 났던 것. 앱이 이미 5개 화면에서 쓰는
+`SoriSwipeCard` + `underlay`(다음 카드 **앞면만**) + `FlipCard` 조합을 그대로 썼다.
+임계값은 공용 기본값을 건드리지 않았다.
+
+> **실측으로 잡은 진짜 버그:** 카드 탭은 `TabBarView` 안이라 **탭 넘김 가로 드래그가
+> 제스처 아레나에서 카드의 Pan 인식기를 이긴다.** 그대로 뒀으면 "카드를 밀면 탭이
+> 넘어간다"로 출시될 뻔했다(테스트로 재현·고정). 쓰기 탭이 이미 쓰던
+> `NeverScrollableScrollPhysics` 를 카드 탭까지 넓혔다 — 탭 전환은 상단 TabBar 로.
+
+**③ 오디오 즉시 재생 — 프리페치.** 원인은 4단 체인의 **첫 재생**이었다: 캐시가 비면
+낱자마다 Storage 다운로드 + `writeAsBytes(flush:true)` fsync 를 기다린 뒤에야
+`play()` 가 시작된다. 저장소 전체에 프리페치가 **한 줄도 없었다**.
+`TtsService.prefetch` / `prefetchAll(concurrency:3)` 을 추가하고 한글 화면 진입 시
+낱자 34개를 웜업, 카드 이동 시 좌우 이웃 + 예시어를 미리 받는다.
+
+`_resolveFile` 에 `allowSynthesis` 를 넣어 **프리페치는 3단(Cloud Function 동적 합성)을
+건너뛴다**(Jin 지시). 누르지도 않은 낱자를 투기적으로 합성하면 할당량을 태우고 12초
+타임아웃까지 잡아먹는다 — 로컬 캐시 + Storage 까지만 보고, 없으면 조용히 포기한다.
+실제 탭은 평소대로 4단 전부 간다.
+
+**TTS 재생성은 불필요했다.** `--verify-storage` 결과 `expected 9978, remote 10269,
+missing 0` — 1차에서 바꾼 1음절 음가(쁘·드·아·유·의)까지 전부 이미 Storage 에 있다
+(carrier 우회 도입 **이전** 키가 남아 있었다). 합성 비용 0, 업로드 0.
+덤으로 `generate_tts.py` 의 `jamoNames` 수집을 제거했다 — 1차에서 낱자 이름 발화
+경로를 없앴으므로 죽은 코드였다(수집 개수 9978 로 불변 확인).
+
+**검증.** `flutter analyze` error 0. 신규 `hangul_swipe_and_prefetch_test.dart` 9개 +
+갱신된 `hangul_write_gate_test.dart` 7개 통과. `swipe_card_test.dart` 15개는 **무수정
+통과**(공용 위젯을 안 건드린 증거). 가드 역검증 2건 — UI 에 `Text('테스트')` 삽입 →
+래칫이 파일·행까지 짚어 실패, `stableJamoCarrier` 에 `'ㄷ' => '다리'` 복원 → 낱자
+계약이 4건 실패. 둘 다 원복 확인.
+
+> ⚠️ **동시 세션 주의.** 작업 중 다른 세션이 같은 워크트리에서 5개 커밋을 올렸고
+> (`swipe_card.dart` 스프링 리라이트 `08a77fd6` 포함) `hangul_screen.dart`·
+> `analytics_service.dart` 를 동시에 편집했다. 그래서 **`swipe_card.dart` 는 손대지
+> 않기로 하고** 공용 기본값을 쓰는 쪽으로 방향을 바꿨다. 전체 스위트에 남은 실패 2건은
+> 전부 그쪽 작업분이다 — `learner_level_contract_test`(커밋 `e4ac3464` 의
+> `chaekgado_shelf.dart` 가 여섯 레벨 권위를 새로 도입) 과 그 세션이 편집 중이던
+> 순간의 `Analytics.questAbandoned` 컴파일 오류(현재는 해소). 내 변경분과 무관함을
+> 파일 단위로 대조해 확인했다.
+
 
 ### 2026-08-18 (Claude, macOS) — GA4 드롭오프 퍼널 계측 6종 + 동의 초대 문구 재작성
 
@@ -111,6 +576,88 @@ Jin의 원 질문("데이터 획득을 어떻게 자연스럽게, 부정적 감�
 6개 대상 건물의 행 단위 분류(플랫폼/기둥/처마/용마루 경계)를 진행 중.
 
 ---
+
+### 2026-08-18 (Claude, macOS) — 테스터 피드백(Amor) 3건 근본 수정 + 재발 방지 CI 가드
+
+**출처.** 베타 테스터 Amor(iPhone 16 / iOS 26.5.2 / v2.0.5(21), 2026-08-17)의 음성·알파벳 1차 리뷰.
+지적 3건 모두 원인을 코드에서 특정했고, 그중 둘은 과거의 **의도적 설계 결정**이 지금은 결함으로
+읽히는 경우였다. Jin이 세 항목 다 근본 수정으로 결정.
+
+**① 획순 검증 — 판정 로직이 아니라 판정 시점·피드백이 문제였다.**
+`matchStrokes`는 멀쩡했다. 문제는 ⓐ 그은 획 수가 정답 획 수와 같아지는 순간 **한 번만** 보고,
+ⓑ 틀리면 `if (!result.matched) return;` 으로 **아무 말도 하지 않고**, ⓒ Finish는 `_strokeCount != 0`
+(아무 낙서 1획)만 보고 열렸다는 것. 획 하나를 뗄 때마다 그 획만 보는 `evaluateStroke`를 새로 깔고
+`matchStrokes`는 그 위의 얇은 래퍼로 남겼다(기존 13개 테스트 무수정 통과 = 리팩터 안전망).
+판정은 `ok / wrongOrder / wrongDirection / offShape / tooShort` 5종이며, `wrongOrder`는 **몇 번 획을
+그었는지**까지 짚어 "그건 4번 획이에요, 1번 획부터" 라고 말해준다.
+
+*측정해서 고쳤다.* 34자 × 모든 획 쌍을 전수 대조하니 서로 구별 못 하는 순서쌍이 **10건**이었다
+(ㅃ 1↔4 = 20px, ㅉ 1↔2 = 33px, ㅝ 등). 평균 거리만 보면 교차하거나 나란한 짧은 획이 뭉개진다.
+**끝점 게이트**(양 끝점 오차 ≤ 55)를 추가해 10건 → **4건**으로 줄였고, 같은 대조에서 정상 입력은
+**25px 삐뚤어져도 34자 전부 통과**한다(오탐 0). 남은 4건(ㅃ 1↔4 · ㅝ 0↔2)은 손가락 입력을 받는 한
+원리상 구별 불가라 라이브러리 주석과 테스트에 **수치와 함께** 못박았다 — tolerance를 낮춰 "고치려"
+드는 다음 사람을 막기 위해서다. 오판 방향은 언제나 관대한 쪽이다(맞게 그은 걸 틀렸다고 하지 않는다).
+
+**② 성공음이 "가끔만" 났던 이유 — Löschen 버튼.** `Löschen`이 캔버스만 지우고 `_currentLetterStrokeCount`
+는 남겨서, 한 번 지우면 카운터가 정답 획 수를 넘어가 **그 글자는 두 번 다시 판정되지 않았다.** 되돌리기를
+`_resetLetter()` 한 곳으로 모아 해결. `test/hangul_write_gate_test.dart`에 이 시나리오 그대로 회귀 테스트.
+`Future.delayed`(취소 불가) → `Timer`로 바꿔 dispose 후 발화와 완성 직후 Weiter 연타로 글자를 건너뛰는
+문제도 함께 없앴다.
+
+**③ 낱자 음가 — 예시어 우회를 걷어냈다.** ㅃ→'빵'·ㄷ→'다리'·ㅏ→'아빠'·ㅠ→'유리'·ㅢ→'의자' 5글자가
+예시어 전체를 읽고 있었다(2026-08-12에 Chirp3-HD 1음절 불안정을 우회한 것). 낱자 카드는 **음가**를
+들려주는 화면이라 예외 없이 일반 규칙(자음+ㅡ · ㅇ+모음)으로 되돌렸다. 일부만 +ㅏ로 바꾸면 "그·느·다·르"
+처럼 들려 오히려 헷갈리므로 전부 +ㅡ 로 통일. 불안정의 원인은 런타임 동적 합성이었으므로 사전 생성으로
+해결한다 — **⚠️ Jin 청취 검수 필요**: `python3 tool/generate_tts.py` 후 40개 클립을 듣고, 무음/오인이
+남은 글자만 `stableJamoCarrier`에 **다른 1음절**로 등록(예시어 복귀 금지, 테스트가 막는다).
+
+예시어가 나오던 경로 2개도 함께 막았다: ⓐ 카드 뒷면 예시어 칩 **전체**를 감싼 중첩 `GestureDetector`가
+카드 탭을 가로챘다 → 스피커 `IconButton`으로 축소(카드 아무 데나 누르면 언제나 낱자 음가). ⓑ
+`hangul_screen.dart`의 `FlipCard`는 앱 5곳 중 **유일하게 `key`가 없어** 카드 전환 ~190ms 동안 이전
+뒷면이 히트테스트에 남아 있었다(`flip_card.dart` 계약 위반). 덤으로 `daily_char_sheet`가 낱자 **이름**
+(기역·치읓)을 읽던 자체 매핑을 `speakableJamo`로 통일 — 그 표에는 ㅡ→'은', ㅢ→'응', ㅖ→'외', ㅚ→'오'
+같은 **오류 4건**이 있었다.
+
+**④ 언어 일관성 — 데이터가 아니라 배선 문제였다.** `descriptionEn`/`exampleEn`은 50개 항목 전부 채워져
+있었는데 화면이 `descriptionDe`/`exampleDe`만 읽어, EN 필드는 **저장소 전체에서 한 번도 읽히지 않는
+데드 필드**였다. `descriptionFor(lang)`/`exampleFor(lang)`를 기존 `grammar.dart`·`vocab.dart` 패턴과
+같은 모양으로 추가하고 소비 지점 3곳을 배선. 앱 전체 스윕으로 함께 처리: 한국어 칩 5곳(자음/모음/음절,
+초성 퀴즈 2곳) · `chosung_hint`의 한국어 기본 인자(`SESSION_LOG:6665`에 미해결로 남아 있던 건) ·
+`pack_card`의 **스크린리더 라벨 전체가 독일어**였던 것 · `Unbekannter Fehler` 2곳 · scenario_player
+폴백 · smalltalk 인라인 삼항 4곳. `VocabPackService.displayLabel`의 `{String lang = 'de'}` 기본값을
+**required**로 바꾸니 컴파일러가 누락 호출부 5곳을 전부 잡아냈다.
+
+*안 고친 것*: `learning_path_screen:699`·`hanok_world_screen:633`의 `lang == 'de' ? 'Ich kann ' : 'I can '`
+는 UI 문구가 아니라 **콘텐츠 데이터에서 접두사를 떼어내는 매칭 토큰**이다. ARB로 옮기면 번역자가 값을
+바꾸는 순간 매칭이 조용히 깨진다 — 그대로 둔다.
+
+**보호장치 (핵심).** 같은 부류를 `SESSION_LOG`에서만 최소 8번 수동으로 쓸어냈고 매번 재발했다. 사람이
+기억으로 막을 종류가 아니라 CI로 옮겼다. 신규 가드 4종을 `select_flutter_tests.py`의 `ALWAYS_ON_TESTS`에
+등록해 **모든 PR에서 항상** 돈다(소스/데이터 스캔이라 import 그래프로는 선택되지 않는다 — 정작 문제를
+만든 PR에서 안 돌면 의미가 없다).
+
+- `ui_string_locale_guard_test` — `lib/screens`·`lib/widgets`의 UI 텍스트 자리에 한국어·독일어 리터럴
+  0건 강제. `// l10n: exempt — <사유>` 만 허용, exempt 개수 상한 4. 독일어 판별은 움라우트·ß 에만
+  의존한다(오탐 0 우선 — 오탐이 나면 exempt가 남발되고 가드가 죽는다).
+- `hangul_content_locale_test` — 50개 항목 EN 필드 비어있지 않음 + `hangul_screen`의 `.descriptionDe`
+  직접 참조 0건 + EN/DE 로케일 위젯 테스트.
+- `jamo_speech_test` — `speakableJamo`가 40자 전부 **정확히 1음절** + Dart 예외표와
+  `generate_tts.py` 예외표 동일성(주석으로만 있던 계약을 테스트로 승격) + 화면별 음성 경로 분기 금지
+  + `FlipCard` key 전수.
+- `hangul_stroke_order_test` — 34자 전수 획순 판정, 알려진 한계 4쌍 고정.
+
+**가드 역검증.** 통과할 때가 아니라 **막을 때** 확인해야 의미가 있으므로, 고친 것을 하나씩 되돌려
+실제로 실패하는지 확인했다(아래 검증 절 참조).
+
+**검증.** `flutter analyze` error 0. 신규 테스트 4종 + 갱신 5종 전부 통과. 갱신한 기존 테스트:
+`circular_feedback_widget_test`(한 획으로 Finish가 열리는 것을 **정답으로 단언**하고 있었다 →
+정확히 완성한 글자 요구로 교체) · `hangul_interaction_regression_test`(ㅃ→'빵' → '쁘') ·
+`circular_feedback_completion_test`·`literal_completion_feedback_coverage_test`(payload 확장) ·
+`chosung_hint_test`(한국어 라벨 → 주입 라벨). `stroke_matcher_test`는 **무수정 통과**.
+
+**남은 일 (Jin).** ⓐ `python3 tool/generate_tts.py` 실행 + 40개 낱자 클립 청취 검수. ⓑ 실기기에서
+EN 로케일 한글 탭 · 획순 오답 연출 · Löschen 후 재시도 확인.
+
 
 ### 2026-08-18 (Claude, macOS) — A2 외관 흔적 4종 생성 + 사랑방 픽커 실배치 배선 (8크레딧)
 

@@ -107,7 +107,8 @@ class VocabPackResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    final title = VocabPackService.displayLabel(packId);
+    final lang = Localizations.localeOf(context).languageCode;
+    final title = VocabPackService.displayLabel(packId, lang: lang);
     final motif = motifForPackId(packId);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
 
@@ -258,6 +259,7 @@ class VocabPackResultScreen extends StatelessWidget {
                             label: t.vocabPackResultNextPack(
                               VocabPackService.displayLabel(
                                 nextUnlockedPackId!,
+                                lang: lang,
                               ),
                             ),
                             icon: Icons.arrow_forward_rounded,

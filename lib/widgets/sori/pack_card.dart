@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../models/pack_progress.dart';
 import 'dancheong_stamp.dart';
 import 'illustrated_card.dart';
@@ -68,21 +69,27 @@ class PackCard extends StatelessWidget {
           : null,
       footer: _BottomRow(progress: progress, locked: _locked),
       onTap: _locked ? onLockedTap : onTap,
-      semanticsLabel: _semanticsLabel(),
+      semanticsLabel: _semanticsLabel(context),
     );
   }
 
-  String _semanticsLabel() {
+  /// 스크린리더에 그대로 읽히는 문구다 — 하드코딩 독일어를 두면 EN 사용자가
+  /// 화면 전체를 독일어로 듣게 된다 (2026-08-18 l10n 스윕에서 발견).
+  String _semanticsLabel(BuildContext context) {
+    final t = AppL10n.of(context);
     final state = _locked
-        ? 'gesperrt'
+        ? t.packStateLocked
         : premium
-        ? 'Premium'
+        ? t.packStatePremium
         : _cleared
-        ? 'geklärt'
-        : 'verfügbar';
-    final progressStr =
-        '${progress.wordsLearned} von ${progress.wordsTotal} gelernt';
-    return 'Pack $title, $state, $progressStr';
+        ? t.packStateCleared
+        : t.packStateAvailable;
+    return t.packSemantics(
+      title,
+      state,
+      progress.wordsLearned,
+      progress.wordsTotal,
+    );
   }
 }
 
@@ -103,7 +110,7 @@ class _BottomRow extends StatelessWidget {
           const SizedBox(width: 3),
           Flexible(
             child: Text(
-              'Vorher klären',
+              AppL10n.of(context).packLockedHintShort,
               style: TextStyle(fontSize: 11, color: accent),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,

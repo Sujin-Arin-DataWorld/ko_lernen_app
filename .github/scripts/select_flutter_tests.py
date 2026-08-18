@@ -47,6 +47,19 @@ ALWAYS_ON_TESTS = (
     "test/l10n_parity_test.dart",
     "test/arb_l10n_guard_test.dart",
     "test/sori_activity_catalog_test.dart",
+    # 2026-08-18 테스터 피드백(Amor) 재발 방지. 셋 다 소스/데이터를 직접
+    # 스캔하는 가드라 import 그래프로는 선택되지 않는다 — 여기 없으면
+    # 정작 문제를 만든 PR 에서 돌지 않는다.
+    "test/ui_string_locale_guard_test.dart",
+    "test/hangul_content_locale_test.dart",
+    "test/jamo_speech_test.dart",
+    # 덱 제스처 방향 계약(좌=모름·우=앎·위=저장·아래=넘어가기). 소스 스캔이라
+    # import 그래프로는 선택되지 않는다.
+    "test/deck_direction_contract_test.dart",
+    # 덱 물리/어포던스 센서. §1 이 위젯 카운터(무효 판정)에서 **소스 래칫**으로
+    # 바뀌었고 nudge⇒onNudgePlayed 호출부 스캔도 들어 있어, import 그래프만으론
+    # 정작 그 규약을 깨는 PR 에서 안 돈다.
+    "test/deck_swipe_physics_test.dart",
 )
 
 _IMPORT_LINE = re.compile(r"^\s*(?:import|export|part)\s")

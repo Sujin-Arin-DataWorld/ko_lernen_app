@@ -358,6 +358,115 @@
       "letter": {}
     }
   },
+  "hangulChipConsonants": "Consonants",
+  "hangulChipVowels": "Vowels",
+  "hangulChipSyllables": "Syllables",
+  "hangulCheckModeLabel": "Stroke check",
+  "hangulCheckModePractice": "Free practice",
+  "hangulCheckModeExam": "Strict",
+  "hangulCheckModePracticeHint": "You get hints, but nothing is erased.",
+  "hangulCheckModeExamHint": "Order and direction both have to be right.",
+  "hangulStrokeProgress": "Stroke {current} / {total}",
+  "@hangulStrokeProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "hangulStrokeNextHint": "Now draw stroke {index}.",
+  "@hangulStrokeNextHint": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "hangulStrokeWrongOrder": "That is stroke {drawn}. Draw stroke {expected} first.",
+  "@hangulStrokeWrongOrder": {
+    "placeholders": {
+      "drawn": {
+        "type": "int"
+      },
+      "expected": {
+        "type": "int"
+      }
+    }
+  },
+  "hangulStrokeWrongDirection": "Right line, wrong direction. Stroke {index} goes the other way.",
+  "@hangulStrokeWrongDirection": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "hangulStrokeWrongShape": "That does not match any stroke. Look at stroke {index} on the left.",
+  "@hangulStrokeWrongShape": {
+    "placeholders": {
+      "index": {
+        "type": "int"
+      }
+    }
+  },
+  "hangulStrokeTooShort": "Too short. Draw the stroke in one motion.",
+  "hangulStrokeLetterDone": "{letter} is done! On to the next one.",
+  "@hangulStrokeLetterDone": {
+    "placeholders": {
+      "letter": {}
+    }
+  },
+  "hangulLettersDone": "{count, plural, one{1 letter done} other{{count} letters done}}",
+  "hangulHardOnly": "Difficult only",
+  "@hangulLettersDone": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chosungModeWithVowels": "Initial + vowel",
+  "chosungModeInitialsOnly": "Initials only",
+  "chosungSlotVowel": "Vowel",
+  "chosungSlotBatchim": "Batchim",
+  "errorUnknown": "Unknown error",
+  "questTypeUnsupported": "Quest type \"{type}\" is not available yet.",
+  "@questTypeUnsupported": {
+    "placeholders": {
+      "type": {}
+    }
+  },
+  "customPackCsvHint": "안녕하세요, hello\\n사과, apple",
+  "packStateLocked": "locked",
+  "packStatePremium": "Premium",
+  "packStateCleared": "cleared",
+  "packStateAvailable": "available",
+  "packSemantics": "Pack {title}, {state}, {learned} of {total} learned",
+  "@packSemantics": {
+    "placeholders": {
+      "title": {},
+      "state": {},
+      "learned": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "packLockedHintShort": "Unlock first",
+  "smalltalkUseWith": "Use with: {context}",
+  "@smalltalkUseWith": {
+    "placeholders": {
+      "context": {}
+    }
+  },
+  "smalltalkSaferAlternativeAndNext": "Safer alternative and next turn",
+  "smalltalkSaferAlternative": "Safer alternative",
+  "smalltalkNextTurn": "Next turn",
   "wordleSyllableCount": "{n}-syllable word · 6 tries",
   "@wordleSyllableCount": {
     "placeholders": {
@@ -746,7 +855,11 @@
   "bookResultSectionSentences": "Sentences",
   "bookStudyAskTitle": "Ask {name} about this item",
   "@bookStudyAskTitle": {
-    "placeholders": {"name": {"type": "String"}}
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
   },
   "bookStudyAskGenericTitle": "Questions about this item",
   "bookStudyAskButton": "Ask your companion",
@@ -988,8 +1101,12 @@
   "firstVoiceSceneSummary": "{completed} of {total} tasks completed",
   "@firstVoiceSceneSummary": {
     "placeholders": {
-      "completed": {"type": "int"},
-      "total": {"type": "int"}
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "firstVoiceCanDo": "I can greet someone kindly.",
@@ -1105,8 +1222,12 @@
   "scenarioQuestProgress": "{current} of {total}",
   "@scenarioQuestProgress": {
     "placeholders": {
-      "current": {"type": "int"},
-      "total": {"type": "int"}
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "scenarioCulturalNote": "Culture note",
@@ -2678,15 +2799,23 @@
   "courseReassessmentStep": "Evidence {current} of {total}",
   "@courseReassessmentStep": {
     "placeholders": {
-      "current": {"type": "int"},
-      "total": {"type": "int"}
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "courseReassessmentProjectStep": "Project step {current} of {total}",
   "@courseReassessmentProjectStep": {
     "placeholders": {
-      "current": {"type": "int"},
-      "total": {"type": "int"}
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
     }
   },
   "courseReassessmentRole": "Your role",
@@ -2696,14 +2825,20 @@
   "courseReassessmentLength": "{minimum} to {maximum} Korean characters",
   "@courseReassessmentLength": {
     "placeholders": {
-      "minimum": {"type": "int"},
-      "maximum": {"type": "int"}
+      "minimum": {
+        "type": "int"
+      },
+      "maximum": {
+        "type": "int"
+      }
     }
   },
   "courseReassessmentEvidencePoint": "Evidence point {index}",
   "@courseReassessmentEvidencePoint": {
     "placeholders": {
-      "index": {"type": "int"}
+      "index": {
+        "type": "int"
+      }
     }
   },
   "courseReassessmentEvidencePointHint": "Write this point in Korean and include it in your complete answer.",
@@ -2712,7 +2847,9 @@
   "courseReassessmentSource": "Source {index}",
   "@courseReassessmentSource": {
     "placeholders": {
-      "index": {"type": "int"}
+      "index": {
+        "type": "int"
+      }
     }
   },
   "courseReassessmentProjectReviewTitle": "Review the sources before you respond",
@@ -2737,14 +2874,18 @@
   "courseReassessmentPassedBody": "{score}%. Only the result and its exact task provenance were saved.",
   "@courseReassessmentPassedBody": {
     "placeholders": {
-      "score": {"type": "int"}
+      "score": {
+        "type": "int"
+      }
     }
   },
   "courseReassessmentTryAgainTitle": "Not secure enough yet",
   "courseReassessmentTryAgainBody": "{score}%. Your answer was not saved. You can revise it now.",
   "@courseReassessmentTryAgainBody": {
     "placeholders": {
-      "score": {"type": "int"}
+      "score": {
+        "type": "int"
+      }
     }
   },
   "courseReassessmentContinue": "Open the next evidence task",
@@ -3278,10 +3419,22 @@
   "soriStageGamesTitle": "Play with a clear purpose.",
   "soriStageGamesBody": "See the XP, personal best, and related quest before you start.",
   "soriStageMinutes": "{minutes} min",
-  "@soriStageMinutes": {"placeholders": {"minutes": {"type": "int"}}},
+  "@soriStageMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
   "soriStagePossibleReward": "Possible reward",
   "soriStageOpenActivity": "Open {activity}",
-  "@soriStageOpenActivity": {"placeholders": {"activity": {"type": "String"}}},
+  "@soriStageOpenActivity": {
+    "placeholders": {
+      "activity": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageHanokTitle": "Build a home from what you can do.",
   "soriStageHanokBody": "Seven permanent stages show exactly what is built and what opens next.",
   "soriStageOpenMap": "Open Hanok map",
@@ -3330,25 +3483,82 @@
   "soriStageActivityInProgress": "In progress",
   "soriStageActivityCompleted": "Completed",
   "soriStageActivityTitle": "{activityId, select, course{Course} hangul{Hangul} calligraphy{Calligraphy} pronunciation{Pronunciation} vocab_packs{Vocabulary packs} srs{SRS review} hard_words{Hard words} word_web{Word web} grammar{Grammar} listening{Listening} scenarios{Real-life scenarios} smalltalk{Small Talk} book_capture{Scan a book} vocab_notebook{Vocab notebook} bookshelf{Bookshelf} word_search{Word search} daily_game{Daily challenge} chosung{Chosung quiz} syllable_cross{Syllable cross} cloze{Cloze} speed_match{Speed Match} sentence_arcade{Sentence arcade} kkeunmari{Kkeunmari} custom_quiz{Custom quiz} custom_matching{Custom matching} custom_typing{Custom typing} other{Learning activity}}}",
-  "@soriStageActivityTitle": {"placeholders": {"activityId": {"type": "String"}}},
+  "@soriStageActivityTitle": {
+    "placeholders": {
+      "activityId": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageActivityDescription": "{activityId, select, course{Your guided path through real situations.} hangul{Build syllables and read with confidence.} calligraphy{Write one character with intention.} pronunciation{Listen, repeat, and optionally assess.} vocab_packs{Learn words by everyday topic.} srs{Strengthen due words at the right moment.} hard_words{Focus on the words that trip you up.} word_web{Neighbors, opposites, and expressions for words you have already studied.} grammar{Understand patterns and use them right away.} listening{Recognize short natural phrases.} scenarios{Practice cafés, transport, and conversations.} smalltalk{Connect short conversations naturally.} book_capture{Bring words in from your own material.} vocab_notebook{Photograph your notebook and practice those exact words.} bookshelf{Manage your pages and word lists.} word_search{Find a word and its learning paths.} daily_game{A short mix for today.} chosung{Recognize words from their first sounds.} syllable_cross{Combine syllables and find words.} cloze{Recall the right word in a sentence.} speed_match{Match meanings quickly and accurately.} sentence_arcade{Build sentences under time pressure.} kkeunmari{Play a word chain against the tiger.} custom_quiz{Choose a word pack from your bookshelf.} custom_matching{Strengthen your words as pairs.} custom_typing{Actively recall your own words.} other{Continue learning.}}}",
-  "@soriStageActivityDescription": {"placeholders": {"activityId": {"type": "String"}}},
+  "@soriStageActivityDescription": {
+    "placeholders": {
+      "activityId": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageCatalogCopy": "{copyKey, select, firstCompletion{On first completion} finishSession{When you finish the session} verifiedLearning{After verified learning} rewardXp{Learning XP} rewardQuest{Related quest} rewardHanok{Verified Hanok construction progress} rewardStamp{Dojang stamp} rewardBest{Personal best} rewardNone{No direct reward} rewardQuestProgress{Quest progress} rewardHanokPiece{New Hanok building piece} rewardBojagi{Bojagi} rewardGyeLantern{Gye lantern} other{Reward}}}",
-  "@soriStageCatalogCopy": {"placeholders": {"copyKey": {"type": "String"}}},
+  "@soriStageCatalogCopy": {
+    "placeholders": {
+      "copyKey": {
+        "type": "String"
+      }
+    }
+  },
   "questActionLabel": "{actionKey, select, openQuests{Open quests} openVocabulary{Open vocabulary packs} openScenarios{Open real-life scenarios} practicePronunciation{Practice pronunciation} playKkeunmari{Play Kkeunmari} openHangul{Open Hangul} openCalligraphy{Open calligraphy} openToday{Open today's mission} openGye{Open Gye} playChosung{Play Chosung} other{Open}}}",
-  "@questActionLabel": {"placeholders": {"actionKey": {"type": "String"}}},
+  "@questActionLabel": {
+    "placeholders": {
+      "actionKey": {
+        "type": "String"
+      }
+    }
+  },
   "questSeasonOpens": "Opens {date}",
-  "@questSeasonOpens": {"placeholders": {"date": {"type": "String"}}},
+  "@questSeasonOpens": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
   "soriStagePreviewCopy": "{copyKey, select, todayEyebrow{TODAY} todayTitle{One phrase. One building piece.} nearComplete{Nearly complete} cafeOrder{Order at a café} strongWords{Strong everyday words} sevenDayStreak{Keep going for seven days} lessonEyebrow{LESSON 2 OF 4} lessonPhrase{덜 맵게 해 주세요} listen{Listen} naturalTempo{Natural tempo} speak{Speak} rhythmMouth{Rhythm and mouth cues} remember{Remember} withoutHelp{Recall without help} beginListening{Start with listening} receiptEyebrow{JUST CHANGED} receiptTitle{Your phrase now supports the roof.} beamStage{DAECHEONG · BEAM 3} newBeam{1 new beam in the construction plan} xpEarned{Learning XP +12} completedMission{for the completed mission} questEarned{Quest progress +1} scenarioProgress{Real-life scenarios · 4 of 10} hanokEarned{Hanok building piece +1} verifiedSpeaking{from verified speaking} continueToday{Continue to Today} journeyEyebrow{YOUR JOURNEY} journeyTitle{Every kind of learning builds in the same place.} missionEyebrow{ORDER LESS SPICY} missionTitle{Listen. Speak. Use it in real life.} missionReward{Complete → learning XP + verified progress} missionStart{Start mission} bojagiWaiting{1 Bojagi is waiting} bojagiBody{Choose one of three pieces for your room.} other{Sori Stage preview}}",
-  "@soriStagePreviewCopy": {"placeholders": {"copyKey": {"type": "String"}}},
+  "@soriStagePreviewCopy": {
+    "placeholders": {
+      "copyKey": {
+        "type": "String"
+      }
+    }
+  },
   "soriStagePreviewProgress": "{current} of {target}",
-  "@soriStagePreviewProgress": {"placeholders": {"current": {"type": "int"}, "target": {"type": "int"}}},
+  "@soriStagePreviewProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
   "soriStageActivityStart": "Start",
   "soriStageActivityDetails": "Details for {activity}",
-  "@soriStageActivityDetails": {"placeholders": {"activity": {"type": "String"}}},
+  "@soriStageActivityDetails": {
+    "placeholders": {
+      "activity": {
+        "type": "String"
+      }
+    }
+  },
   "soriStageActivityLocked": "Locked",
   "culturalHelpSemantics": "Learn more about {term}",
-  "@culturalHelpSemantics": {"placeholders": {"term": {"type": "String"}}},
+  "@culturalHelpSemantics": {
+    "placeholders": {
+      "term": {
+        "type": "String"
+      }
+    }
+  },
   "culturalMeaningLabel": "What is it?",
   "culturalStoryLabel": "Why did it matter?",
   "culturalClose": "Close cultural story",
@@ -3397,25 +3607,33 @@
   "vocabNotebookStudioCloze": "{count, plural, one{Cloze · 1 sentence} other{Cloze · {count} sentences}}",
   "@vocabNotebookStudioCloze": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "vocabNotebookStudioSatz": "{count, plural, one{Build a sentence · 1 sentence} other{Build a sentence · {count} sentences}}",
   "@vocabNotebookStudioSatz": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "vocabNotebookStudioSpeed": "{count, plural, one{Speed Match · 1 word} other{Speed Match · {count} words}}",
   "@vocabNotebookStudioSpeed": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "vocabNotebookStudioChosung": "{count, plural, one{Chosung · 1 word} other{Chosung · {count} words}}",
   "@vocabNotebookStudioChosung": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "vocabNotebookStudioNoCorpus": "We do not have a ready sentence for these words yet. Use your own meanings above.",
@@ -3423,25 +3641,33 @@
   "vocabNotebookStudioSmalltalk": "{count, plural, one{Small talk · 1 line} other{Small talk · {count} lines}}",
   "@vocabNotebookStudioSmalltalk": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "vocabNotebookStudioPronunciation": "{count, plural, one{Pronunciation · 1 sentence} other{Pronunciation · {count} sentences}}",
   "@vocabNotebookStudioPronunciation": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "vocabNotebookStudioScenarios": "{count, plural, one{Scenario · 1 scene} other{Scenario · {count} scenes}}",
   "@vocabNotebookStudioScenarios": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   },
   "vocabNotebookStudioWordWeb": "{count, plural, one{Word web · 1 word} other{Word web · {count} words}}",
   "@vocabNotebookStudioWordWeb": {
     "placeholders": {
-      "count": {"type": "int"}
+      "count": {
+        "type": "int"
+      }
     }
   }
 }

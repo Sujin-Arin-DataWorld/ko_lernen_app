@@ -421,6 +421,32 @@ class SoriMotion {
   static const double pressScale = 0.96;
   static const double bounceUp = 1.15;
 
+  // ── Sori Deck 3.0 — 카드 제스처 물리 (2026-08-18) ──────────────────────
+  //
+  // 덱 카드는 손가락에서 이어지는 "물건"이라 트윈+커브가 아니라 **스프링
+  // 시뮬레이션**으로 복귀한다. [release](elasticOut)는 250ms 안에 여러 번
+  // 오버슛해 카드가 붕붕대 보였다 — 덱에서는 쓰지 않는다.
+  //
+  // damping ratio = damping / (2·√(mass·stiffness)) = 32 / (2·√380) ≈ 0.82
+  // → 미세 언더댐프. 오버슛이 1회 미만이라 "탄력 있지만 흔들리지 않는" 지점.
+  // 정착 ≈ 250ms 로 medium 과 체감이 맞는다.
+
+  /// 카드 스프링백 — 임계 미달 복귀·축 잠금 정리·저장(↑) 제자리 복귀 공용.
+  static const SpringDescription deckSpring = SpringDescription(
+    mass: 1,
+    stiffness: 380,
+    damping: 32,
+  );
+
+  /// 퇴장(좌/우/아래)은 플링 속도를 승계한다 — 세게 던지면 빨리 나간다.
+  /// 진입(스프링백 ≈250ms)의 ~75% 를 중앙값으로 두고 이 범위로 clamp.
+  static const Duration deckExitMin = Duration(milliseconds: 120);
+  static const Duration deckExitMax = Duration(milliseconds: 220);
+
+  /// 지배축 확정 임계. 잠금 **전에도 카드는 손가락을 따라간다** — 예전 12px
+  /// 은 그 구간 표시 오프셋을 버려서 "안 따라오다 갑자기 붙는" 데드존이었다.
+  static const double deckAxisLock = 4;
+
   /// 사용자 시스템 "동작 줄이기(Reduce Motion)" 켜져 있는지.
   ///
   /// 켜져 있으면 Ken Burns·매화 입자·flying magpie·celebration 등

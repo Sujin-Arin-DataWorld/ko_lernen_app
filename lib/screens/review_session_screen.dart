@@ -515,6 +515,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     fit: StackFit.passthrough,
                     children: [
                       SoriSwipeCard(
+                        // 첫 덱 1회 넛지 — 게이트는 순수 질의, 소비는 실제
+                        // 재생 시점(deck_coach.dart). 6개 덱 전부에 붙여야 "먼저
+                        // 연 덱이 제스처를 가르친다"가 성립한다.
+                        nudge: soriDeckNudgeDue(),
+                        onNudgePlayed: markSoriDeckNudgeShown,
                         // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
                         // 카드에 SRS가 기록되는 데이터 버그 방지.
                         enabled: _cardRevealed,

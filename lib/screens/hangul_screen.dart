@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 
 import '../models/feedback_completion.dart';
@@ -10,15 +11,19 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/deck_action_bar.dart';
+import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../services/sound_service.dart';
+import '../services/storage_service.dart';
 import '../services/stroke_matcher.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/stroke_canvas.dart';
@@ -28,9 +33,17 @@ import '../services/tts_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class HangulScreen extends StatefulWidget {
-  const HangulScreen({super.key, this.cardsRandom, this.speechPlayer});
+  const HangulScreen({
+    super.key,
+    this.cardsRandom,
+    this.speechPlayer,
+    this.textPrefetcher,
+  });
   final math.Random? cardsRandom;
   final Future<bool> Function(String text)? speechPlayer;
+
+  /// 음성 미리받기 주입구(테스트용). 미지정이면 [TtsService.prefetch].
+  final Future<void> Function(String text)? textPrefetcher;
 
   @override
   State<HangulScreen> createState() => _HangulScreenState();
@@ -81,6 +94,7 @@ class _HangulScreenState extends State<HangulScreen>
         _ => 'unknown',
       },
     );
+    _warmJamoAudio();
   }
 
   @override
@@ -88,6 +102,35 @@ class _HangulScreenState extends State<HangulScreen>
     _abandonTracker.dispose();
     _tabs.dispose();
     super.dispose();
+  }
+
+  /// 프리페치는 **어떤 경우에도 화면을 깨뜨리지 않는다**.
+  ///
+  /// 구현이 삼키는 것과 별개로 호출 지점에서도 막는다 — 주입된 구현이
+  /// 던지면 `unawaited` 된 Future 가 미처리 예외로 새어나온다.
+  Future<void> _prefetch(String text) async {
+    try {
+      await (widget.textPrefetcher?.call(text) ?? TtsService.prefetch(text));
+    } catch (_) {
+      // 못 받아도 누르면 평소 경로로 재생된다.
+    }
+  }
+
+  /// 화면에 들어온 순간 낱자 34개 음성을 미리 받아둔다.
+  ///
+  /// 2026-08-17 테스터(Amor): "카드 음성이 너무 늦게 나온다." 첫 재생은
+  /// Storage 다운로드를 기다린 뒤에야 소리가 났다. 고정된 34개짜리 작은
+  /// 집합이라 미리 받아두면 이후 탭은 전부 로컬 디스크에서 즉시 난다.
+  /// 실패는 무시한다 — 못 받아도 누르면 평소 경로로 재생된다.
+  void _warmJamoAudio() {
+    final texts = [
+      for (final c in [...consonants, ...vowels]) speakableJamo(c.letter),
+    ];
+    if (widget.textPrefetcher != null) {
+      unawaited(Future.wait([for (final t in texts) _prefetch(t)]));
+      return;
+    }
+    unawaited(TtsService.prefetchAll(texts));
   }
 
   Future<void> _finishCards(int interactionCount) async {
@@ -104,14 +147,16 @@ class _HangulScreenState extends State<HangulScreen>
     _cardsCompletion.reset();
   }
 
-  Future<void> _finishWriting(int strokeCount) async {
+  Future<void> _finishWriting(HangulWritingResult result) async {
     final t = AppL10n.of(context);
     Analytics.lessonCompleted(lessonType: 'hangul', lessonId: 'writing');
     _abandonTracker.markCompleted();
     final completion = _writingCompletion.complete(
       () => FeedbackCompletion.hangulWriting(
         contentLabel: t.hangulTabWrite,
-        strokeCount: strokeCount,
+        letterCount: result.letters,
+        strokeCount: result.strokes,
+        strict: result.strict,
       ),
     );
     await _showCompletion(completion, t.testerFeedbackCompleteHangul);
@@ -193,16 +238,21 @@ class _HangulScreenState extends State<HangulScreen>
       body: SafeArea(
         child: TabBarView(
           controller: _tabs,
-          // "그리기 박스에서만 스와이프 차단" — Schreiben 탭(index 2)에서만
-          // 좌우 스와이프를 끈다. 손가락 그리기(pan)가 탭 넘김을 유발하지 않고,
-          // Übersicht/Karten 탭은 정상 스와이프 유지. (탭 전환은 상단 탭 클릭)
-          physics: _tabIndex == 2 ? const NeverScrollableScrollPhysics() : null,
+          // 탭 넘김 스와이프는 **개요 탭에서만** 켠다.
+          //
+          // 카드 탭과 쓰기 탭은 둘 다 가로 드래그를 스스로 쓴다 — 카드는
+          // SoriSwipeCard(이전/다음 글자), 쓰기는 손가락 그리기와 좌우 이동.
+          // TabBarView 의 가로 드래그 인식기는 제스처 아레나에서 카드의
+          // Pan 인식기를 이겨버리기 때문에, 켜두면 카드를 미는 대신 탭이
+          // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
+          physics: _tabIndex == 0 ? null : const NeverScrollableScrollPhysics(),
           children: [
             _OverviewTab(speak: _speakJamo),
             _CardsTab(
               onFinish: _finishCards,
               random: widget.cardsRandom ?? math.Random(),
               speak: _speakJamo,
+              prefetch: _prefetch,
             ),
             _WriteTab(onFinish: _finishWriting, speak: _speakJamo),
           ],
@@ -422,7 +472,11 @@ class _DetailSheet extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               Text(
-                char.descriptionDe,
+                // 2026-08-17 테스터(Amor): EN UI 인데 연상 힌트가 독일어였다.
+                // descriptionEn 은 처음부터 채워져 있었고 읽히지만 않았다.
+                char.descriptionFor(
+                  Localizations.localeOf(context).languageCode,
+                ),
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                   fontSize: 14,
@@ -524,10 +578,12 @@ class _CardsTab extends StatefulWidget {
     required this.onFinish,
     required this.random,
     required this.speak,
+    required this.prefetch,
   });
   final Future<void> Function(int interactionCount) onFinish;
   final math.Random random;
   final Future<bool> Function(String letter) speak;
+  final Future<void> Function(String text) prefetch;
   @override
   State<_CardsTab> createState() => _CardsTabState();
 }
@@ -538,27 +594,101 @@ class _CardsTabState extends State<_CardsTab> {
   bool _flipped = false;
   int _sessionInteractions = 0;
 
-  List<HangulChar> get _pool {
+  /// 플립 전 판정 시도 → 힌트 칩 펄스 (deck_coach.dart 계약).
+  final ValueNotifier<int> _flipHint = ValueNotifier<int>(0);
+
+  /// "다시 볼 글자만" 필터. 좌(모름) 판정이 모은 `Storage.hangulHard` 를
+  /// **읽는 유일한 경로**다 — 이게 없으면 좌/우 판정이 write-only 라 아무
+  /// 효과가 없다(grammar 의 Schwer 필터와 같은 모양, `grammar_screen.dart:215`).
+  bool _hardOnly = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _prefetchAround();
+  }
+
+  @override
+  void dispose() {
+    _flipHint.dispose();
+    super.dispose();
+  }
+
+  /// 지금 카드와 좌우 이웃의 음성을 미리 받아둔다. 스와이프가 빨라질수록
+  /// 다음 카드에 도착하는 시점이 앞당겨지므로 이게 더 중요해진다.
+  void _prefetchAround() {
+    final pool = _pool;
+    if (pool.isEmpty) {
+      return;
+    }
+    for (final offset in const [0, 1, -1]) {
+      final c = pool[(_idx + offset + pool.length) % pool.length];
+      unawaited(widget.prefetch(speakableJamo(c.letter)));
+      if (c.exampleWord.isNotEmpty) {
+        unawaited(widget.prefetch(c.exampleWord));
+      }
+    }
+  }
+
+  List<HangulChar> get _basePool {
     switch (_mode) {
       case 1:
         return vowels;
       case 2:
-        return syllables
-            .map(
-              (s) => HangulChar(
-                s.letter,
-                s.romanization,
-                s.composition,
-                s.composition,
-                s.exampleWord,
-                s.exampleDe,
-                s.exampleEn,
-              ),
-            )
-            .toList();
+        return [for (final s in syllables) s.toHangulChar()];
       default:
         return consonants;
     }
+  }
+
+  List<HangulChar> get _pool {
+    final base = _basePool;
+    if (!_hardOnly) {
+      return base;
+    }
+    final hard = Storage.hangulHard.toSet();
+    final filtered = base.where((c) => hard.contains(c.letter)).toList();
+    // 마지막 어려운 글자를 "앎"으로 지우면 덱이 비어 `_pool[_idx % 0]` 이
+    // 터진다. 빈 결과는 필터를 없는 셈 치고 전체를 돌려준다 — 다음 build 에서
+    // 칩도 자동으로 꺼진 것처럼 보인다.
+    return filtered.isEmpty ? base : filtered;
+  }
+
+  void _toggleHardOnly() {
+    HapticFeedback.selectionClick();
+    setState(() {
+      _hardOnly = !_hardOnly;
+      _idx = 0;
+      _flipped = false;
+    });
+    _prefetchAround();
+  }
+
+  /// 우 = 앎. 앱 공용 계약(좌=모름 · 우=앎 · 위=저장 · 아래=넘어가기)의 판정.
+  ///
+  /// 자모는 어휘가 아니라 **SRS 를 건드리지 않는다** — 문법의 `grammarHard` 와
+  /// 같은 SRS 밖 집합(`Storage.hangulHard`)만 쓴다.
+  void _known() {
+    final letter = _pool[_idx % _pool.length].letter;
+    unawaited(Storage.markHangulEasy(letter));
+    _advance();
+  }
+
+  /// 좌 = 모름. 다시 볼 낱자로 표시하고 넘어간다.
+  void _dontKnow() {
+    final letter = _pool[_idx % _pool.length].letter;
+    unawaited(Storage.markHangulHard(letter));
+    _advance();
+  }
+
+  /// 판정 후 전진 — 햅틱은 커밋 순간 `SoriSwipeCard` 가 방향별로 이미 쳤다.
+  void _advance() {
+    setState(() {
+      _sessionInteractions++;
+      _flipped = false;
+      _idx = (_idx + 1) % _pool.length;
+    });
+    _prefetchAround();
   }
 
   void _next() {
@@ -568,6 +698,7 @@ class _CardsTabState extends State<_CardsTab> {
       _flipped = false;
       _idx = (_idx + 1) % _pool.length;
     });
+    _prefetchAround();
   }
 
   void _prev() {
@@ -577,6 +708,7 @@ class _CardsTabState extends State<_CardsTab> {
       _flipped = false;
       _idx = (_idx - 1 + _pool.length) % _pool.length;
     });
+    _prefetchAround();
   }
 
   void _random() {
@@ -588,6 +720,7 @@ class _CardsTabState extends State<_CardsTab> {
       _flipped = false;
       _idx = candidate;
     });
+    _prefetchAround();
   }
 
   void _onFlip() {
@@ -607,6 +740,7 @@ class _CardsTabState extends State<_CardsTab> {
       _idx = 0;
       _flipped = false;
     });
+    _prefetchAround();
   }
 
   Future<void> _finish() async {
@@ -637,52 +771,58 @@ class _CardsTabState extends State<_CardsTab> {
   // 카드 뒷면 — 글자(헤드라인) + [로마자·설명] 묶음 + 예문 박스. spaceEvenly 가
   // 흩뜨리지 않도록 로마자와 설명은 한 Column 으로 묶는다. 폰트/아이콘 크기는
   // 카드 높이 [h] 에 비례(soriFillSize), 최소값은 기존 고정값이라 폰 축소 없음.
-  List<Widget> _backFace(HangulChar c, SoriSurfaces s, double h) => [
-    FittedBox(
-      fit: BoxFit.scaleDown,
-      child: Text(
-        c.letter,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: soriFillSize(h, 0.16, 60, 110),
-          fontWeight: FontWeight.w800,
-          color: SoriColors.primary,
-        ),
-      ),
-    ),
-    Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          '[${c.romanization}]',
+  List<Widget> _backFace(
+    BuildContext context,
+    HangulChar c,
+    SoriSurfaces s,
+    double h,
+  ) {
+    final t = AppL10n.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
+    return [
+      FittedBox(
+        fit: BoxFit.scaleDown,
+        child: Text(
+          c.letter,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontSize: soriFillSize(h, 0.05, 20, 30),
-            color: SoriColors.info,
-            fontStyle: FontStyle.italic,
-            fontWeight: FontWeight.w600,
+            fontSize: soriFillSize(h, 0.16, 60, 110),
+            fontWeight: FontWeight.w800,
+            color: SoriColors.primary,
           ),
         ),
-        SizedBox(height: soriFillSize(h, 0.02, 6, 14)),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Text(
-            c.descriptionDe,
+      ),
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            '[${c.romanization}]',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: soriFillSize(h, 0.045, 13, 22),
-              color: s.text,
-              height: 1.5,
+              fontSize: soriFillSize(h, 0.05, 20, 30),
+              color: SoriColors.info,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w600,
             ),
           ),
-        ),
-      ],
-    ),
-    if (c.exampleWord.isNotEmpty)
-      GestureDetector(
-        onTap: () => TtsService.speak(c.exampleWord),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+          SizedBox(height: soriFillSize(h, 0.02, 6, 14)),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: Text(
+              c.descriptionFor(lang),
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: soriFillSize(h, 0.045, 13, 22),
+                color: s.text,
+                height: 1.5,
+              ),
+            ),
+          ),
+        ],
+      ),
+      if (c.exampleWord.isNotEmpty)
+        Container(
+          padding: const EdgeInsets.fromLTRB(18, 6, 10, 6),
           decoration: BoxDecoration(
             color: SoriColors.hangul.withValues(alpha: 0.10),
             borderRadius: BorderRadius.circular(14),
@@ -705,16 +845,31 @@ class _CardsTabState extends State<_CardsTab> {
                     ),
                   ),
                   const SizedBox(width: 6),
-                  Icon(
-                    Icons.volume_up_rounded,
-                    size: soriFillSize(h, 0.05, 16, 28),
-                    color: SoriColors.hangul,
+                  // 2026-08-17 테스터(Amor): "카드를 누르면 예시어가 나온다."
+                  // 예전엔 이 칩 **전체**가 GestureDetector 라 카드 탭을 가로챘다.
+                  // 예시어는 이 스피커 버튼으로만 재생한다 — 카드 아무 데나
+                  // 누르면 언제나 낱자 음가다.
+                  IconButton(
+                    key: ValueKey('hangul-example-speak-${c.letter}'),
+                    onPressed: () => unawaited(TtsService.speak(c.exampleWord)),
+                    icon: Icon(
+                      Icons.volume_up_rounded,
+                      size: soriFillSize(h, 0.05, 16, 28),
+                      color: SoriColors.hangul,
+                    ),
+                    tooltip: t.hangulPronounceLetter(c.exampleWord),
+                    padding: const EdgeInsets.all(6),
+                    visualDensity: VisualDensity.compact,
+                    constraints: const BoxConstraints(
+                      minWidth: 40,
+                      minHeight: 40,
+                    ),
                   ),
                 ],
               ),
               const SizedBox(height: 2),
               Text(
-                c.exampleDe,
+                c.exampleFor(lang),
                 style: TextStyle(
                   fontSize: soriFillSize(h, 0.05, 13, 26),
                   color: s.text,
@@ -724,8 +879,8 @@ class _CardsTabState extends State<_CardsTab> {
             ],
           ),
         ),
-      ),
-  ];
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -741,19 +896,29 @@ class _CardsTabState extends State<_CardsTab> {
               spacing: 8,
               children: [
                 SoriChip(
-                  label: '자음',
+                  label: AppL10n.of(context).hangulChipConsonants,
                   accent: SoriColors.hangul,
                   selected: _mode == 0,
                   onTap: () => _setMode(0),
                 ),
                 SoriChip(
-                  label: '모음',
+                  label: AppL10n.of(context).hangulChipVowels,
                   accent: SoriColors.hangul,
                   selected: _mode == 1,
                   onTap: () => _setMode(1),
                 ),
+                // 좌(모름)로 모은 글자만 다시 돌아본다 — `Storage.hangulHard`
+                // 를 읽는 유일한 경로다. 모은 게 없으면 띄우지 않는다(빈 필터).
+                if (Storage.hangulHard.isNotEmpty)
+                  SoriChip(
+                    key: const Key('hangul-cards-hard-only'),
+                    label: AppL10n.of(context).hangulHardOnly,
+                    accent: SoriColors.danger,
+                    selected: _hardOnly,
+                    onTap: _toggleHardOnly,
+                  ),
                 SoriChip(
-                  label: '음절',
+                  label: AppL10n.of(context).hangulChipSyllables,
                   accent: SoriColors.hangul,
                   selected: _mode == 2,
                   onTap: () => _setMode(2),
@@ -781,87 +946,152 @@ class _CardsTabState extends State<_CardsTab> {
                   final h = constraints.maxHeight.isFinite
                       ? constraints.maxHeight
                       : 360.0;
-                  return GestureDetector(
-                    onHorizontalDragEnd: (d) {
-                      if (d.primaryVelocity == null) {
-                        return;
-                      }
-                      if (d.primaryVelocity! < -250) {
-                        _next();
-                      } else if (d.primaryVelocity! > 250) {
-                        _prev();
-                      }
-                    },
-                    child: SoriStudyScale(
-                      child: FlipCard(
-                        flipped: _flipped,
-                        onTap: () {
-                          unawaited(widget.speak(c.letter));
-                          _onFlip();
-                        },
-                        front: _HangulCardFace(
+                  // 덱 미리보기는 **다음 카드 앞면만** — swipe_card.dart 계약.
+                  // (한글 카드엔 유출될 정답이 없지만 관례를 깨지 않는다.)
+                  final next = _pool[(_idx + 1) % _pool.length];
+                  final t = AppL10n.of(context);
+                  return Stack(
+                    alignment: Alignment.topCenter,
+                    children: [
+                      SoriSwipeCard(
+                        // 앱 공용 계약(Jin 확정): 좌=모름 · 우=앎 · 위=저장 ·
+                        // 아래=넘어가기. 2026-08-18 1차 이식에서 좌=다음/우=이전
+                        // 으로 들어갔던 걸 계약에 맞춘다 — 화면마다 좌/우 뜻이
+                        // 달라지면 "말 안 해도 방향을 안다"는 목표가 깨진다.
+                        // ↑ 저장은 꺼 둔다: 자모는 단어장에 담을 대상이 아니다.
+                        enabled: _flipped,
+                        onSwipeLeft: _dontKnow,
+                        onSwipeRight: _known,
+                        onSwipeDown: _next,
+                        onBlockedHorizontalDrag: () => _flipHint.value++,
+                        nudge: soriDeckNudgeDue(),
+                        onNudgePlayed: markSoriDeckNudgeShown,
+                        leftBadge: SoriSwipeBadge(
+                          label: t.btnNichtGewusst,
+                          icon: Icons.question_mark_rounded,
+                          color: SoriColors.danger,
+                        ),
+                        rightBadge: SoriSwipeBadge(
+                          label: t.btnGewusst,
+                          icon: Icons.check_rounded,
+                          color: SoriColors.success,
+                        ),
+                        downBadge: SoriSwipeBadge(
+                          label: t.btnSkip,
+                          icon: Icons.arrow_downward_rounded,
+                          color: SoriColors.info,
+                        ),
+                        // 임계값은 공용 위젯 기본값을 그대로 쓴다. 체감 속도를
+                        // 만드는 건 임계값이 아니라 **손가락을 따라오는 이동·기울기
+                        // + 퇴장 애니메이션**이고, 예전 이 화면엔 그게 아예 없어
+                        // (생 onHorizontalDragEnd + setState) 죽은 느낌이 났다.
+                        underlay: _HangulCardFace(
                           gradient: const [
                             SoriColors.accent,
                             SoriColors.darkAccent,
                           ],
                           borderColor: SoriColors.hangul,
-                          children: _frontFace(c, h),
+                          children: _frontFace(next, h),
                         ),
-                        back: _HangulCardFace(
-                          gradient: const [
-                            SoriColors.highlight,
-                            SoriColors.darkPrimary,
-                          ],
-                          borderColor: SoriColors.info,
-                          children: _backFace(c, s, h),
+                        // FlipCard 는 내용이 바뀔 때 새 key 가 필요하다
+                        // (flip_card.dart 계약). 없으면 State 가 재사용돼 다음
+                        // 카드의 뒷면이 ~190ms 먼저 노출되고, 그 사이 예시어
+                        // 히트영역이 살아 있다.
+                        child: SoriStudyScale(
+                          child: FlipCard(
+                            key: ValueKey('hangul-card-${c.letter}'),
+                            flipped: _flipped,
+                            onTap: () {
+                              unawaited(widget.speak(c.letter));
+                              _onFlip();
+                            },
+                            front: _HangulCardFace(
+                              gradient: const [
+                                SoriColors.accent,
+                                SoriColors.darkAccent,
+                              ],
+                              borderColor: SoriColors.hangul,
+                              children: _frontFace(c, h),
+                            ),
+                            back: _HangulCardFace(
+                              gradient: const [
+                                SoriColors.highlight,
+                                SoriColors.darkPrimary,
+                              ],
+                              borderColor: SoriColors.info,
+                              children: _backFace(context, c, s, h),
+                            ),
+                          ),
                         ),
                       ),
-                    ),
+                      // 플립 전 판정 시도 → "먼저 뒤집으세요" 칩.
+                      Padding(
+                        padding: const EdgeInsets.only(top: Spacing.sm),
+                        child: SoriDeckFlipHint(trigger: _flipHint),
+                      ),
+                    ],
                   );
                 },
               ),
             ),
             const SizedBox(height: 12),
-            // 독일어 "Zurück"/"Weiter" 는 영어보다 20~30% 길어 3버튼 균등 1/3
-            // 에선 잘린다("Zurü…"). 좁은 폰(360dp)에선 아이콘+독일어 라벨 3개가
-            // 한 줄에 물리적으로 안 들어간다 → 라벨을 온전히 보이려면 3개를 한
-            // 줄에 두지 않는다: nav(prev/next)는 반폭 2버튼(라벨 여유), 핵심
-            // 액션인 듣기는 아래 full-width 로 승격(발음 카드는 소리가 우선).
+            // 전폭 버튼 5단(Zurück/Weiter · Hören · Zufällig · 완료)을 단어팩과
+            // **같은 원형 4버튼 바**로 바꾼다 (Sori Deck 3.0, 2026-08-18).
+            // 버튼 바는 스와이프의 접근성 정본 — 제스처를 모르거나 정밀 터치가
+            // 필요한 사용자에게 완전한 대체 수단이어야 한다(WCAG).
+            // ↑ 저장은 숨긴다: 자모는 단어장에 담을 대상이 아니다.
+            SoriDeckActionBar(
+              onDontKnow: _dontKnow,
+              onKnow: _known,
+              onSkip: _next,
+              showSave: false,
+              judgmentsEnabled: _flipped,
+              onBlockedJudgmentTap: () => _flipHint.value++,
+              dontKnowLabel: AppL10n.of(context).btnNichtGewusst,
+              knowLabel: AppL10n.of(context).btnGewusst,
+              skipLabel: AppL10n.of(context).btnSkip,
+              saveLabel: AppL10n.of(context).deckActionSave,
+            ),
+            const SizedBox(height: 10),
+            // 보조 동작(이전·듣기·무작위)은 판정이 아니므로 44dp 아이콘 행으로
+            // 내린다 — legacy_vocab 의 보조 행과 같은 계층 규칙.
             Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Expanded(
-                  child: SoriButton.outlined(
-                    label: AppL10n.of(context).btnPrev,
-                    icon: Icons.arrow_back,
-                    onTap: _prev,
-                    fullWidth: true,
+                IconButton(
+                  key: const Key('hangul-cards-prev'),
+                  onPressed: _prev,
+                  icon: const Icon(Icons.arrow_back_rounded),
+                  tooltip: AppL10n.of(context).btnPrev,
+                  constraints: const BoxConstraints(
+                    minWidth: 44,
+                    minHeight: 44,
                   ),
                 ),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: SoriButton.outlined(
-                    label: AppL10n.of(context).btnNext,
-                    icon: Icons.arrow_forward,
-                    onTap: _next,
-                    fullWidth: true,
+                const SizedBox(width: Spacing.md),
+                IconButton(
+                  key: const Key('hangul-cards-speak'),
+                  onPressed: () => unawaited(widget.speak(c.letter)),
+                  icon: const Icon(Icons.volume_up_rounded),
+                  color: SoriColors.primary,
+                  tooltip: AppL10n.of(context).btnHoeren,
+                  constraints: const BoxConstraints(
+                    minWidth: 44,
+                    minHeight: 44,
+                  ),
+                ),
+                const SizedBox(width: Spacing.md),
+                IconButton(
+                  key: const Key('hangul-cards-random'),
+                  onPressed: _random,
+                  icon: const Icon(Icons.shuffle_rounded),
+                  tooltip: AppL10n.of(context).btnRandom,
+                  constraints: const BoxConstraints(
+                    minWidth: 44,
+                    minHeight: 44,
                   ),
                 ),
               ],
-            ),
-            const SizedBox(height: 8),
-            SoriButton.outlined(
-              label: AppL10n.of(context).btnHoeren,
-              icon: Icons.volume_up,
-              onTap: () => unawaited(widget.speak(c.letter)),
-              fullWidth: true,
-            ),
-            const SizedBox(height: 6),
-            SoriButton.filled(
-              label: AppL10n.of(context).btnRandom,
-              icon: Icons.shuffle,
-              accent: SoriColors.hangul,
-              onTap: _random,
-              fullWidth: true,
             ),
             const SizedBox(height: 8),
             SoriButton.filled(
@@ -911,9 +1141,15 @@ class _HangulCardFace extends StatelessWidget {
 // Tab 3 — Schreiben (Stroke Order Animation + Practice)
 // ═══════════════════════════════════════════════════════════════════════════
 
+/// Schreiben 탭 한 세션의 결과.
+///
+/// [letters] 는 **획순까지 맞게 완성한 글자 수**다. 예전엔 획 수만 세서 아무
+/// 낙서 1획으로도 완료가 됐다 (2026-08-17 테스터 지적).
+typedef HangulWritingResult = ({int letters, int strokes, bool strict});
+
 class _WriteTab extends StatefulWidget {
   const _WriteTab({required this.onFinish, required this.speak});
-  final Future<void> Function(int strokeCount) onFinish;
+  final Future<void> Function(HangulWritingResult result) onFinish;
   final Future<bool> Function(String letter) speak;
   @override
   State<_WriteTab> createState() => _WriteTabState();
@@ -922,104 +1158,268 @@ class _WriteTab extends StatefulWidget {
 class _WriteTabState extends State<_WriteTab> {
   int _mode = 0; // 0=cons, 1=vowels
   int _idx = 0;
+
+  /// 세션 총 획 수 — 완료 payload 용. **Finish 게이트가 아니다.**
   int _strokeCount = 0;
-  int _currentLetterStrokeCount = 0;
+
+  /// 현재 글자에서 통과한 획 수 = 다음에 기대하는 획 index.
+  int _acceptedStrokes = 0;
+
+  /// 획순까지 맞게 끝낸 글자 수 — 이것만이 Finish 를 연다.
+  int _completedLetters = 0;
+
+  /// 마지막 판정. 힌트 문구용. 맞으면 null.
+  StrokeAttempt? _lastAttempt;
+
+  /// 완성 연출 중 — 입력·판정을 정지시킨다.
+  bool _letterDone = false;
+
+  late bool _strict;
+
+  Timer? _errorTimer;
+  Timer? _advanceTimer;
+
+  static const Duration _errorFlash = Duration(milliseconds: 450);
+  static const Duration _advanceDelay = Duration(milliseconds: 650);
+
   final _practiceKey = GlobalKey<_PracticeCanvasState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _strict = Storage.hangulStrictStrokes;
+  }
+
+  @override
+  void dispose() {
+    // Future.delayed 는 취소할 수 없어 Timer 로 바꿨다. dispose 후 _next 가
+    // 튀는 것과, 완성 직후 Weiter 를 눌러 글자를 건너뛰는 것을 둘 다 막는다.
+    _errorTimer?.cancel();
+    _advanceTimer?.cancel();
+    super.dispose();
+  }
 
   List<HangulChar> get _pool => _mode == 0 ? consonants : vowels;
   HangulChar get _current => _pool[_idx % _pool.length];
+  List<Stroke> get _targetStrokes =>
+      hangulStrokes[_current.letter] ?? const <Stroke>[];
+
+  /// 현재 글자 진행 상태를 처음으로 되돌린다.
+  ///
+  /// 예전엔 Löschen 이 캔버스만 지우고 획 카운터를 남겨, **지운 뒤로는 그
+  /// 글자가 두 번 다시 판정되지 않았다** — 테스터가 본 "성공음이 일관되지
+  /// 않다" 의 정체다. 되돌리기는 한 군데(여기)로 모은다.
+  void _resetLetter() {
+    _errorTimer?.cancel();
+    _advanceTimer?.cancel();
+    setState(() {
+      _acceptedStrokes = 0;
+      _lastAttempt = null;
+      _letterDone = false;
+    });
+    _practiceKey.currentState?.clear();
+  }
 
   void _next() {
     HapticFeedback.selectionClick();
-    setState(() {
-      _idx = (_idx + 1) % _pool.length;
-      _currentLetterStrokeCount = 0;
-    });
-    _practiceKey.currentState?.clear();
+    setState(() => _idx = (_idx + 1) % _pool.length);
+    _resetLetter();
   }
 
   void _prev() {
     HapticFeedback.selectionClick();
-    setState(() {
-      _idx = (_idx - 1 + _pool.length) % _pool.length;
-      _currentLetterStrokeCount = 0;
-    });
-    _practiceKey.currentState?.clear();
+    setState(() => _idx = (_idx - 1 + _pool.length) % _pool.length);
+    _resetLetter();
   }
 
   void _setMode(int m) {
-    if (_mode == m) return;
+    if (_mode == m) {
+      return;
+    }
     HapticFeedback.selectionClick();
     setState(() {
       _mode = m;
       _idx = 0;
-      _currentLetterStrokeCount = 0;
     });
-    _practiceKey.currentState?.clear();
+    _resetLetter();
+  }
+
+  void _setStrict(bool strict) {
+    if (_strict == strict) {
+      return;
+    }
+    HapticFeedback.selectionClick();
+    setState(() => _strict = strict);
+    // 판정 규칙이 바뀌면 진행 중인 글자는 무효다.
+    _resetLetter();
+    unawaited(Storage.setHangulStrictStrokes(strict));
+  }
+
+  void _clearPractice() {
+    HapticFeedback.selectionClick();
+    _resetLetter();
   }
 
   void _onStrokeEnd() {
-    setState(() {
-      _strokeCount++;
-      _currentLetterStrokeCount++;
-    });
-    _checkStrokes();
+    setState(() => _strokeCount++);
+    _judgeLastStroke();
   }
 
-  /// 획을 하나 그을 때마다, 정답 획 수를 채웠으면 모양을 대조한다.
+  /// 획을 뗄 때마다 **그 획 하나만** 기대 획과 대조한다.
   ///
-  /// 2026-08-12: "제대로 맞게 그리면 맞은 소리 나면서 자동으로 넘어가는 게
-  /// 있었는데 없어졌어"(Jin). 실제로는 그런 코드가 저장소 이력에 한 번도 없었고
-  /// (`git log --all -S`), _onStrokeEnd 는 획 개수만 세고 있었다. 새로 만든다.
-  ///
-  /// 틀렸을 때 오답음을 내거나 캔버스를 지우지는 않는다 — 획을 하나 더 그어
-  /// 고칠 수 있어야 하고, 획순 연습에서 즉시 오답 판정은 과하다. 맞았을 때만
-  /// 보상하고 넘어간다.
-  void _checkStrokes() {
-    final canvas = _practiceKey.currentState;
-    final target = hangulStrokes[_current.letter];
-    if (canvas == null || target == null || target.isEmpty) {
+  /// 예전에는 그은 획 수가 정답 획 수와 같아지는 순간 한 번만 봤고, 틀리면
+  /// 아무 말도 하지 않았다 — 테스터(Amor)가 "일부러 틀려도 인식하지 못하고
+  /// 그냥 진행된다" 고 본 그대로다.
+  void _judgeLastStroke() {
+    if (_letterDone) {
       return;
     }
-    if (_currentLetterStrokeCount != target.length) {
+    final canvas = _practiceKey.currentState;
+    final target = _targetStrokes;
+    if (canvas == null || target.isEmpty || canvas.strokes.isEmpty) {
       return;
     }
     final size = canvas.canvasSize;
-    if (size == null) {
+    if (size == null || size.isEmpty) {
       return;
     }
-    final result = matchStrokes(
+    final attempt = evaluateStroke(
       target: target,
-      drawn: canvas.strokes,
+      expectedIndex: _acceptedStrokes,
+      drawn: canvas.strokes.last,
       canvasSize: size,
+      // 방향은 획순 검사 모드에서만 본다. ㅡ 를 거꾸로 그어도 남는 모양은
+      // 같아서, 연습 모드에서까지 막으면 학습이 아니라 시험이 된다.
+      checkDirection: _strict,
     );
-    if (!result.matched) {
+    if (attempt.ok) {
+      _acceptStroke(target.length);
       return;
     }
+    _rejectStroke(attempt);
+  }
+
+  void _acceptStroke(int total) {
+    _errorTimer?.cancel();
+    _practiceKey.currentState?.clearErrorGhost();
+    setState(() {
+      _acceptedStrokes++;
+      _lastAttempt = null;
+    });
+    if (_acceptedStrokes < total) {
+      // 중간 획은 햅틱만 — ㅃ(8획)마다 효과음이 나면 소리가 의미를 잃는다.
+      HapticFeedback.selectionClick();
+      return;
+    }
+    _completeLetter();
+  }
+
+  void _completeLetter() {
+    setState(() {
+      _letterDone = true;
+      _completedLetters++;
+    });
     SoundService.correct();
-    HapticFeedback.lightImpact();
-    // 정답 획을 눈으로 확인할 틈을 준 뒤 넘어간다 — 즉시 지우면 방금 그린 게
-    // 맞았는지 볼 수가 없다.
-    Future<void>.delayed(const Duration(milliseconds: 650), () {
-      if (mounted) {
-        _next();
+    HapticFeedback.mediumImpact();
+    _advanceTimer?.cancel();
+    // 방금 그린 게 맞았는지 눈으로 볼 틈을 준 뒤 넘어간다.
+    _advanceTimer = Timer(_advanceDelay, () {
+      if (!mounted) {
+        return;
       }
+      _next();
+    });
+  }
+
+  void _rejectStroke(StrokeAttempt attempt) {
+    setState(() => _lastAttempt = attempt);
+    if (!_strict) {
+      // 연습 모드: 무엇이 틀렸는지 말해주되 지우거나 막지 않는다.
+      return;
+    }
+    SoundService.wrong();
+    HapticFeedback.heavyImpact();
+    // 틀린 획은 **동기적으로** 판정 대상에서 빼고 잔상만 잠깐 남긴다.
+    // 타이머가 _strokes 를 건드리지 않으므로, 잔상이 남은 동안 빠르게 다시
+    // 그려도 엉뚱한 획이 지워지지 않는다.
+    _practiceKey.currentState?.rejectLastStroke();
+    _errorTimer?.cancel();
+    _errorTimer = Timer(_errorFlash, () {
+      if (!mounted) {
+        return;
+      }
+      _practiceKey.currentState?.clearErrorGhost();
     });
   }
 
   Future<void> _finish() async {
-    if (_strokeCount == 0) return;
-    await widget.onFinish(_strokeCount);
-    if (!mounted) return;
-    setState(() => _strokeCount = 0);
-    _practiceKey.currentState?.clear();
+    if (_completedLetters == 0) {
+      return;
+    }
+    _errorTimer?.cancel();
+    _advanceTimer?.cancel();
+    await widget.onFinish((
+      letters: _completedLetters,
+      strokes: _strokeCount,
+      strict: _strict,
+    ));
+    if (!mounted) {
+      return;
+    }
+    setState(() {
+      _completedLetters = 0;
+      _strokeCount = 0;
+    });
+    _resetLetter();
+  }
+
+  /// 힌트 줄은 **절대 비우지 않는다** — 줄 수가 들쭉날쭉하면 캔버스가 위아래로
+  /// 튄다. 픽셀 높이를 고정하는 대신 항상 한 줄을 채우는 쪽을 택했다(글자
+  /// 배율이 커져도 안 깨진다).
+  String _hintText(AppL10n t) {
+    if (_targetStrokes.isEmpty) {
+      return '';
+    }
+    if (_letterDone) {
+      return t.hangulStrokeLetterDone(_current.letter);
+    }
+    final attempt = _lastAttempt;
+    if (attempt == null) {
+      return t.hangulStrokeNextHint(_acceptedStrokes + 1);
+    }
+    return switch (attempt.verdict) {
+      StrokeVerdict.wrongOrder => t.hangulStrokeWrongOrder(
+        (attempt.matchedIndex ?? 0) + 1,
+        attempt.expectedIndex + 1,
+      ),
+      StrokeVerdict.wrongDirection => t.hangulStrokeWrongDirection(
+        attempt.expectedIndex + 1,
+      ),
+      StrokeVerdict.tooShort => t.hangulStrokeTooShort,
+      StrokeVerdict.offShape => t.hangulStrokeWrongShape(
+        attempt.expectedIndex + 1,
+      ),
+      StrokeVerdict.ok => t.hangulStrokeNextHint(_acceptedStrokes + 1),
+    };
+  }
+
+  Color _hintColor() {
+    if (_letterDone) {
+      return SoriColors.success;
+    }
+    if (_lastAttempt != null) {
+      return SoriColors.danger;
+    }
+    return SoriColors.darkTextMuted;
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final c = _current;
-    final strokes = hangulStrokes[c.letter] ?? [];
+    final strokes = _targetStrokes;
+    final total = strokes.length;
+    final shown = _letterDone ? total : math.min(_acceptedStrokes + 1, total);
 
     return LayoutBuilder(
       builder: (context, viewport) => SingleChildScrollView(
@@ -1029,238 +1429,359 @@ class _WriteTabState extends State<_WriteTab> {
         ),
         // 태블릿 등 세로 여백이 남으면 내용을 세로 중앙 정렬(위 쏠림 해소).
         // 콘텐츠가 뷰포트보다 길면 스크롤(폰·큰 글자 안전).
-        child: ConstrainedBox(
-          constraints: BoxConstraints(minHeight: viewport.maxHeight),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // 3 Regeln
-              SoriCard(
-                variant: SoriCardVariant.compact,
-                accent: SoriColors.warning,
-                tinted: true,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+        //
+        // 제스처 대체 수단(WCAG 2.2 §2.5.1): 화면엔 아무것도 안 그리지만
+        // TalkBack/VoiceOver 에는 이전/다음이 메뉴로 노출된다.
+        child: Semantics(
+          container: true,
+          // 제스처 대체 수단(WCAG 2.2 §2.5.1) 겸 유일한 이동 경로 안내.
+          //
+          // 좌우 스와이프는 **일부러 붙이지 않았다**. 앱의 덱 제스처 의미가
+          // 좌 = 모름 / 우 = 앎 로 하나인데(Jin, 2026-08-18) 여기서만 좌우를
+          // 이전/다음으로 쓰면 두 번째 멘탈 모델이 생긴다. 게다가 커진 연습
+          // 캔버스가 자기 위 드래그를 독점해서 어차피 여백에서만 먹혔다.
+          // 글자 이동은 ‹ › 아이콘이 정본이다.
+          customSemanticsActions: <CustomSemanticsAction, VoidCallback>{
+            CustomSemanticsAction(label: t.btnPrev): _prev,
+            CustomSemanticsAction(label: t.btnNext): _next,
+          },
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: viewport.maxHeight),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // 3 Regeln
+                SoriCard(
+                  variant: SoriCardVariant.compact,
+                  accent: SoriColors.warning,
+                  tinted: true,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        t.hangulRulesTitle,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w800,
+                          color: SoriColors.warning,
+                          fontSize: 13,
+                        ),
+                      ),
+                      const SizedBox(height: 6),
+                      Text(
+                        t.hangulRulesBody,
+                        style: const TextStyle(
+                          color: SoriColors.darkTextMuted,
+                          fontSize: 11.5,
+                          height: 1.5,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+
+                // Mode
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 8,
+                  runSpacing: 6,
+                  children: [
+                    SoriChip(
+                      label: t.hangulChipConsonants,
+                      accent: SoriColors.hangul,
+                      selected: _mode == 0,
+                      onTap: () => _setMode(0),
+                    ),
+                    SoriChip(
+                      label: t.hangulChipVowels,
+                      accent: SoriColors.hangul,
+                      selected: _mode == 1,
+                      onTap: () => _setMode(1),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 8),
+
+                // ── 판정 강도 ──
+                // 설정 화면이 아니라 여기 둔다. 같은 학습자가 ㄱ 을 배울 땐
+                // 자유롭게, ㅃ 을 익힐 땐 엄격하게 쓰고 싶어 한다 — 그 판단이
+                // 필요한 순간이 바로 이 화면이다. 칩 자체가 규칙 설명이기도 하다.
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 6,
+                  runSpacing: 6,
                   children: [
                     Text(
-                      t.hangulRulesTitle,
+                      t.hangulCheckModeLabel,
                       style: const TextStyle(
-                        fontWeight: FontWeight.w800,
-                        color: SoriColors.warning,
-                        fontSize: 13,
+                        fontSize: 11.5,
+                        fontWeight: FontWeight.w700,
+                        color: SoriColors.darkTextMuted,
                       ),
                     ),
-                    const SizedBox(height: 6),
-                    Text(
-                      t.hangulRulesBody,
-                      style: const TextStyle(
-                        color: SoriColors.darkTextMuted,
-                        fontSize: 11.5,
-                        height: 1.5,
+                    SoriChip(
+                      key: const Key('hangul-check-strict'),
+                      label: t.hangulCheckModeExam,
+                      accent: SoriColors.info,
+                      selected: _strict,
+                      onTap: () => _setStrict(true),
+                    ),
+                    SoriChip(
+                      key: const Key('hangul-check-practice'),
+                      label: t.hangulCheckModePractice,
+                      accent: SoriColors.info,
+                      selected: !_strict,
+                      onTap: () => _setStrict(false),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  _strict
+                      ? t.hangulCheckModeExamHint
+                      : t.hangulCheckModePracticeHint,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 11,
+                    color: SoriColors.darkTextDim,
+                  ),
+                ),
+                const SizedBox(height: 12),
+
+                // ── Demo (시범 stroke order) + Practice (사용자 따라쓰기) Side-by-Side ──
+                // 비교 학습 효과 ↑. AspectRatio 1:1로 폰 너비에 적응 (iPhone SE 320pt도 OK).
+                // ── 시범 · 연습 캔버스 (세로 2단, 같은 크기) ──
+                //
+                // 2026-08-18: 좌우 반반이던 걸 세로로 쌓았다. 좌우 배치는 **가로가
+                // 병목**이라 iPhone 16(393pt)에서 한 쪽이 165pt 밖에 안 됐다
+                // ((393-28여백-10간격-24카드패딩)/2). 세로로 쌓으면 둘 다 240pt
+                // 까지 커진다(면적 약 2배). 그만큼의 세로 공간은 아래 전폭 버튼
+                // 4줄을 스와이프 + 아이콘 한 줄로 줄여 마련했다.
+                //
+                // 제목 높이를 맞추던 IntrinsicHeight 2단 Row 는 세로 배치에선
+                // 필요 없다 — 나란히 놓인 짝이 없으니 어긋날 일이 없다.
+                LayoutBuilder(
+                  builder: (ctx, constraints) {
+                    final canvasSize = math.min(
+                      constraints.maxWidth - 12,
+                      240.0,
+                    );
+                    return Column(
+                      children: [
+                        _CanvasPane(
+                          title: t.hangulStrokeOrderTitle,
+                          titleColor: SoriColors.darkTextMuted,
+                          accent: SoriColors.info,
+                          size: canvasSize,
+                          child: StrokeCanvas(
+                            letter: c.letter,
+                            strokes: strokes,
+                            size: canvasSize,
+                            color: SoriColors.hangul,
+                            // 지금 그려야 할 획을 시범 쪽에서 짚어준다.
+                            highlightIndex: _letterDone || strokes.isEmpty
+                                ? null
+                                : _acceptedStrokes,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        _CanvasPane(
+                          title: t.hangulTraceTitle,
+                          titleColor: SoriColors.success,
+                          accent: SoriColors.success,
+                          size: canvasSize,
+                          child: _PracticeCanvas(
+                            key: _practiceKey,
+                            ghost: c.letter,
+                            color: SoriColors.success,
+                            errorColor: SoriColors.danger,
+                            // 완성 연출 중에는 입력을 받지 않는다 — 낙서가
+                            // 다음 글자로 넘어가면 안 된다.
+                            enabled: !_letterDone,
+                            onStrokeEnd: _onStrokeEnd,
+                          ),
+                        ),
+                      ],
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+
+                // ── 진행 + 힌트 ──
+                if (strokes.isNotEmpty) ...[
+                  SoriChip(
+                    key: const Key('hangul-stroke-progress'),
+                    label: t.hangulStrokeProgress(shown, total),
+                    accent: _letterDone
+                        ? SoriColors.success
+                        : SoriColors.darkTextMuted,
+                    selected: _letterDone,
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    key: const Key('hangul-stroke-hint'),
+                    _hintText(t),
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w600,
+                      color: _hintColor(),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                ],
+
+                // ── 컴팩트 액션 행 ──
+                //
+                // 예전엔 캔버스 아래를 전폭 버튼 4줄이 먹었다(Löschen ·
+                // Zurück/Weiter · aussprechen · abschließen ≈ 230pt). 좌우 이동은
+                // 스와이프로 옮기고 나머지는 아이콘으로 줄여 그 공간을 캔버스에
+                // 넘겼다.
+                //
+                // ‹ › 버튼을 없애지는 않는다. 연습 캔버스가 커져서 그 위 드래그는
+                // 전부 획으로 먹히므로(EagerGestureRecognizer) 스와이프만 남기면
+                // 넘길 방법이 사라지고, 경로 기반 제스처가 유일한 수단이면
+                // WCAG 2.2 §2.5.1 위반이다.
+                Wrap(
+                  alignment: WrapAlignment.center,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  spacing: 2,
+                  runSpacing: 6,
+                  children: [
+                    IconButton(
+                      key: const Key('hangul-write-prev'),
+                      onPressed: _prev,
+                      icon: const Icon(Icons.chevron_left_rounded),
+                      tooltip: t.btnPrev,
+                      constraints: const BoxConstraints(
+                        minWidth: 44,
+                        minHeight: 44,
+                      ),
+                    ),
+                    SoriCard(
+                      variant: SoriCardVariant.compact,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 8,
+                      ),
+                      child: Builder(
+                        builder: (ctx) {
+                          final s = SoriSurfaces.of(ctx);
+                          return Text(
+                            '${_idx + 1} / ${_pool.length}',
+                            style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              color: s.text,
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                    IconButton(
+                      key: const Key('hangul-write-next'),
+                      onPressed: _next,
+                      icon: const Icon(Icons.chevron_right_rounded),
+                      tooltip: t.btnNext,
+                      constraints: const BoxConstraints(
+                        minWidth: 44,
+                        minHeight: 44,
+                      ),
+                    ),
+                    IconButton(
+                      key: const Key('hangul-write-speak'),
+                      onPressed: () => unawaited(widget.speak(c.letter)),
+                      icon: const Icon(Icons.volume_up_rounded),
+                      tooltip: t.hangulPronounceLetter(c.letter),
+                      constraints: const BoxConstraints(
+                        minWidth: 44,
+                        minHeight: 44,
+                      ),
+                    ),
+                    IconButton(
+                      key: const Key('hangul-write-clear'),
+                      onPressed: _clearPractice,
+                      icon: const Icon(Icons.delete_outline_rounded),
+                      color: SoriColors.danger,
+                      tooltip: t.hangulClearBtn,
+                      constraints: const BoxConstraints(
+                        minWidth: 44,
+                        minHeight: 44,
                       ),
                     ),
                   ],
                 ),
-              ),
-              const SizedBox(height: 12),
 
-              // Mode
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SoriChip(
-                    label: '자음',
-                    accent: SoriColors.hangul,
-                    selected: _mode == 0,
-                    onTap: () => _setMode(0),
+                // 글자를 하나라도 정확히 완성하기 전에는 아예 그리지 않는다 —
+                // 예전엔 비활성 상태로 늘 자리를 차지하던 죽은 공간이었다.
+                if (_completedLetters > 0) ...[
+                  const SizedBox(height: 10),
+                  Text(
+                    t.hangulLettersDone(_completedLetters),
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700,
+                      color: SoriColors.success,
+                    ),
                   ),
-                  const SizedBox(width: 8),
-                  SoriChip(
-                    label: '모음',
+                  const SizedBox(height: 6),
+                  SoriButton.filled(
+                    key: const Key('hangul-writing-finish'),
+                    label: t.testerFeedbackCompleteHangul,
                     accent: SoriColors.hangul,
-                    selected: _mode == 1,
-                    onTap: () => _setMode(1),
+                    onTap: _finish,
+                    fullWidth: true,
                   ),
                 ],
-              ),
-              const SizedBox(height: 14),
-
-              // ── Demo (시범 stroke order) + Practice (사용자 따라쓰기) Side-by-Side ──
-              // 비교 학습 효과 ↑. AspectRatio 1:1로 폰 너비에 적응 (iPhone SE 320pt도 OK).
-              LayoutBuilder(
-                builder: (ctx, constraints) {
-                  // 양쪽 canvas 사이 gap 10, 각 Expanded → AspectRatio 1
-                  // 한쪽 canvas 실제 size: (width - 10) / 2 - inner SoriCard padding(~12)
-                  final canvasSize = ((constraints.maxWidth - 10) / 2 - 12)
-                      .clamp(120.0, 220.0);
-
-                  // 제목과 캔버스를 **각각의 Row** 로 나눈다.
-                  //
-                  // 예전에는 [제목+캔버스] Column 두 개를 Row 에 나란히 놓았다.
-                  // 그러면 제목 줄 수가 다를 때 캔버스 시작 높이가 어긋난다 —
-                  // 독일어 좌측 "📽 Strichreihenfolge (zum Wiederholen tippen)"
-                  // 은 2줄, 우측 "Mit dem Finger nachzeichnen" 은 1줄이라 좌측
-                  // 캔버스만 한 줄만큼 내려갔다("예시창이랑 그려보는 창 위치가
-                  // 다르고" — Jin, 2026-08-12 실기기).
-                  //
-                  // 제목 높이를 상수로 예약하는 방법도 있지만 글꼴 배율과 번역
-                  // 길이에 따라 다시 깨진다. 제목끼리 한 Row 에 묶고
-                  // IntrinsicHeight + stretch 로 둘 다 큰 쪽 높이를 갖게 하면
-                  // 캔버스 Row 는 언제나 같은 y 에서 시작한다 — 매직넘버가 없어
-                  // 어떤 언어·배율에서도 어긋날 수 없다.
-                  const titleStyleBase = TextStyle(
-                    fontSize: 11.5,
-                    fontWeight: FontWeight.w700,
-                  );
-                  return Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      IntrinsicHeight(
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                t.hangulStrokeOrderTitle,
-                                style: titleStyleBase.copyWith(
-                                  color: SoriColors.darkTextMuted,
-                                ),
-                                textAlign: TextAlign.center,
-                                maxLines: 2,
-                                overflow: TextOverflow.visible,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            Expanded(
-                              child: Text(
-                                t.hangulTraceTitle,
-                                style: titleStyleBase.copyWith(
-                                  color: SoriColors.success,
-                                ),
-                                textAlign: TextAlign.center,
-                                maxLines: 2,
-                                overflow: TextOverflow.visible,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(height: 6),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // ── 좌: 시범 stroke animation ──
-                          Expanded(
-                            child: SoriCard(
-                              variant: SoriCardVariant.base,
-                              accent: SoriColors.info,
-                              padding: const EdgeInsets.all(6),
-                              child: AspectRatio(
-                                aspectRatio: 1,
-                                child: StrokeCanvas(
-                                  letter: c.letter,
-                                  strokes: strokes,
-                                  size: canvasSize,
-                                  color: SoriColors.hangul,
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          // ── 우: Practice canvas (사용자 손가락) ──
-                          Expanded(
-                            child: SoriCard(
-                              variant: SoriCardVariant.base,
-                              accent: SoriColors.success,
-                              padding: const EdgeInsets.all(6),
-                              child: AspectRatio(
-                                aspectRatio: 1,
-                                child: _PracticeCanvas(
-                                  key: _practiceKey,
-                                  ghost: c.letter,
-                                  color: SoriColors.success,
-                                  onStrokeEnd: _onStrokeEnd,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  );
-                },
-              ),
-              const SizedBox(height: 10),
-              SoriButton.outlined(
-                label: t.hangulClearBtn,
-                icon: Icons.delete_outline,
-                onTap: () => _practiceKey.currentState?.clear(),
-                destructive: true,
-                fullWidth: true,
-              ),
-              const SizedBox(height: 12),
-
-              // Nav
-              Row(
-                children: [
-                  Expanded(
-                    child: SoriButton.outlined(
-                      label: t.btnPrev,
-                      icon: Icons.arrow_back,
-                      onTap: _prev,
-                      fullWidth: true,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  SoriCard(
-                    variant: SoriCardVariant.compact,
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 14,
-                      vertical: 10,
-                    ),
-                    child: Builder(
-                      builder: (ctx) {
-                        final s = SoriSurfaces.of(ctx);
-                        return Text(
-                          '${_idx + 1} / ${_pool.length}',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            color: s.text,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  Expanded(
-                    child: SoriButton.outlined(
-                      label: t.btnNext,
-                      icon: Icons.arrow_forward,
-                      onTap: _next,
-                      fullWidth: true,
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 14),
-              SoriButton.outlined(
-                label: t.hangulPronounceLetter(c.letter),
-                icon: Icons.volume_up,
-                onTap: () => unawaited(widget.speak(c.letter)),
-                fullWidth: true,
-              ),
-              const SizedBox(height: 8),
-              SoriButton.filled(
-                key: const Key('hangul-writing-finish'),
-                label: t.testerFeedbackCompleteHangul,
-                accent: SoriColors.hangul,
-                onTap: _strokeCount == 0 ? null : _finish,
-                fullWidth: true,
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
+    );
+  }
+}
+
+/// 시범·연습 캔버스 한 칸 — 제목 + 정사각 카드.
+class _CanvasPane extends StatelessWidget {
+  const _CanvasPane({
+    required this.title,
+    required this.titleColor,
+    required this.accent,
+    required this.size,
+    required this.child,
+  });
+
+  final String title;
+  final Color titleColor;
+  final Color accent;
+  final double size;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 11.5,
+            fontWeight: FontWeight.w700,
+            color: titleColor,
+          ),
+          textAlign: TextAlign.center,
+          maxLines: 2,
+        ),
+        const SizedBox(height: 6),
+        SoriCard(
+          variant: SoriCardVariant.base,
+          accent: accent,
+          padding: const EdgeInsets.all(6),
+          child: SizedBox(width: size, height: size, child: child),
+        ),
+      ],
     );
   }
 }
@@ -1269,12 +1790,16 @@ class _WriteTabState extends State<_WriteTab> {
 class _PracticeCanvas extends StatefulWidget {
   final String ghost;
   final Color color;
+  final Color errorColor;
+  final bool enabled;
   final VoidCallback onStrokeEnd;
   const _PracticeCanvas({
     super.key,
     required this.ghost,
     required this.color,
+    required this.errorColor,
     required this.onStrokeEnd,
+    this.enabled = true,
   });
 
   @override
@@ -1284,9 +1809,15 @@ class _PracticeCanvas extends StatefulWidget {
 class _PracticeCanvasState extends State<_PracticeCanvas> {
   final List<List<Offset>> _strokes = [];
   List<Offset>? _current;
+
+  /// 방금 퇴짜맞은 획. **[_strokes] 바깥에 둔다** — 판정 대상 목록은 즉시
+  /// 정리되고 여기 남는 건 잔상뿐이라, 잔상이 사라지기 전에 다시 그려도
+  /// 타이머가 엉뚱한 획을 지울 수 없다.
+  List<Offset>? _errorGhost;
+
   int _paintRevision = 0;
 
-  /// 지금까지 그은 획들. 획순 판정([matchStrokes])에 넘긴다.
+  /// 지금까지 통과 판정을 기다리는 획들. 획순 판정에 넘긴다.
   List<List<Offset>> get strokes => _strokes;
 
   /// 실제로 그린 영역의 크기. 판정은 220×220 기준으로 정규화하므로 필요하다.
@@ -1300,12 +1831,40 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
     setState(() {
       _strokes.clear();
       _current = null;
+      _errorGhost = null;
+      _paintRevision++;
+    });
+  }
+
+  /// 마지막 획을 판정 대상에서 빼고 잔상으로 옮긴다.
+  void rejectLastStroke() {
+    if (_strokes.isEmpty) {
+      return;
+    }
+    setState(() {
+      _errorGhost = _strokes.removeLast();
+      _paintRevision++;
+    });
+  }
+
+  /// 잔상을 지운다. 두 번 불러도 안전하다(타이머 콜백이 겹쳐도 무해).
+  void clearErrorGhost() {
+    if (_errorGhost == null) {
+      return;
+    }
+    setState(() {
+      _errorGhost = null;
       _paintRevision++;
     });
   }
 
   void _startStroke(PointerDownEvent event) {
+    if (!widget.enabled) {
+      return;
+    }
     setState(() {
+      // 새로 긋기 시작하면 잔상은 바로 걷는다.
+      _errorGhost = null;
       _current = [event.localPosition];
       _strokes.add(_current!);
       _paintRevision++;
@@ -1335,11 +1894,11 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
       });
       return;
     }
-    HapticFeedback.lightImpact();
     setState(() {
       _current = null;
       _paintRevision++;
     });
+    // 햅틱은 부모가 판정 결과에 맞춰 준다 — 여기서 미리 울리면 오답 햅틱과 겹친다.
     widget.onStrokeEnd();
   }
 
@@ -1379,7 +1938,9 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
             painter: _PracticePainter(
               ghost: widget.ghost,
               strokes: _strokes,
+              errorGhost: _errorGhost,
               color: widget.color,
+              errorColor: widget.errorColor,
               revision: _paintRevision,
             ),
             child: const SizedBox.expand(),
@@ -1393,15 +1954,30 @@ class _PracticeCanvasState extends State<_PracticeCanvas> {
 class _PracticePainter extends CustomPainter {
   final String ghost;
   final List<List<Offset>> strokes;
+  final List<Offset>? errorGhost;
   final Color color;
+  final Color errorColor;
   final int revision;
 
   _PracticePainter({
     required this.ghost,
     required this.strokes,
+    required this.errorGhost,
     required this.color,
+    required this.errorColor,
     required this.revision,
   });
+
+  void _drawPolyline(Canvas canvas, List<Offset> stroke, Paint paint) {
+    if (stroke.length < 2) {
+      return;
+    }
+    final path = Path()..moveTo(stroke.first.dx, stroke.first.dy);
+    for (var i = 1; i < stroke.length; i++) {
+      path.lineTo(stroke[i].dx, stroke[i].dy);
+    }
+    canvas.drawPath(path, paint);
+  }
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -1432,12 +2008,23 @@ class _PracticePainter extends CustomPainter {
       ..style = PaintingStyle.stroke;
 
     for (final stroke in strokes) {
-      if (stroke.length < 2) continue;
-      final path = Path()..moveTo(stroke.first.dx, stroke.first.dy);
-      for (var i = 1; i < stroke.length; i++) {
-        path.lineTo(stroke[i].dx, stroke[i].dy);
-      }
-      canvas.drawPath(path, p);
+      _drawPolyline(canvas, stroke, p);
+    }
+
+    // 퇴짜맞은 획은 위에 더 굵게 — "이건 틀렸고 곧 사라진다" 가 읽히게.
+    // 소리·햅틱은 웹/무음 설정에서 안 나므로 색이 유일한 신호일 수 있다.
+    final ghostStroke = errorGhost;
+    if (ghostStroke != null) {
+      _drawPolyline(
+        canvas,
+        ghostStroke,
+        Paint()
+          ..color = errorColor
+          ..strokeCap = StrokeCap.round
+          ..strokeJoin = StrokeJoin.round
+          ..strokeWidth = 7
+          ..style = PaintingStyle.stroke,
+      );
     }
   }
 

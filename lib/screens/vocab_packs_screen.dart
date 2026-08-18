@@ -213,7 +213,12 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     final t = AppL10n.of(context);
     final msg = prev == null
         ? t.vocabPackLockedNoPrev
-        : t.vocabPackLockedHint(VocabPackService.displayLabel(prev.id));
+        : t.vocabPackLockedHint(
+            VocabPackService.displayLabel(
+              prev.id,
+              lang: Localizations.localeOf(context).languageCode,
+            ),
+          );
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(msg),
@@ -354,7 +359,10 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                           final e = _packs[i];
                           return PackCard(
                             packId: e.pack.id,
-                            title: VocabPackService.displayLabel(e.pack.id),
+                            title: VocabPackService.displayLabel(
+                              e.pack.id,
+                              lang: Localizations.localeOf(context).languageCode,
+                            ),
                             progress: e.progress,
                             // §H 티저: A2+ 비프리미엄이면 카드에서 미리 알린다
                             // — 탭은 기존 _onPackTap 의 게이트가 그대로 받는다.

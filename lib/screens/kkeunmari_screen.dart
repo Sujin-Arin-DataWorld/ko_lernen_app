@@ -373,6 +373,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   @override
   void dispose() {
+    _abandonTracker.dispose();
     _timer?.cancel();
     _ctrl.dispose();
     _focusNode.dispose();

@@ -24,6 +24,8 @@ import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
 
+import 'helpers/deck_actions.dart';
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -80,7 +82,6 @@ void main() {
     );
     expect(completions, 2);
   });
-
 
   testWidgets('daily character requires the guide before completion feedback', (
     tester,
@@ -212,7 +213,6 @@ void main() {
       isNot(firstCard.feedbackContext.completionId),
     );
   });
-
 
   testWidgets('Kkeunmari timeout renders feedback and replay resets identity', (
     tester,
@@ -384,13 +384,11 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
 
+    // Sori Deck 3.0(2026-08-18): 전폭 버튼 5단이 원형 판정 바 + 44dp 보조
+    // 아이콘 행으로 바뀌었다. Zufällig 는 이제 아이콘 버튼이다.
     tester
-        .widget<SoriButton>(
-          find.byWidgetPredicate(
-            (widget) => widget is SoriButton && widget.label == 'Random',
-          ),
-        )
-        .onTap!();
+        .widget<IconButton>(find.byKey(const Key('hangul-cards-random')))
+        .onPressed!();
     await tester.pump();
 
     final finish = tester.widget<SoriButton>(
@@ -437,13 +435,8 @@ void main() {
     expect(finish.onTap, isNull);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
-    tester
-        .widget<SoriButton>(
-          find.byWidgetPredicate(
-            (widget) => widget is SoriButton && widget.label == 'Next',
-          ),
-        )
-        .onTap!();
+    // 'Weiter' 전폭 버튼은 덱 바의 ↓(넘어가기)로 흡수됐다 — 같은 `_next`.
+    tapDeckAction(tester, 'Skip');
     await tester.pump();
     finish = tester.widget<SoriButton>(
       find.byKey(const Key('hangul-cards-finish')),
@@ -457,7 +450,11 @@ void main() {
     expect(secondCard.feedbackContext.completionId, isNot(firstCompletionId));
   });
 
-  testWidgets('Hangul writing finish requires a completed canvas stroke', (
+  // 2026-08-17 테스터(Amor): "일부러 획순을 틀려도 인식하지 못하고 그냥
+  // 진행된다." 예전 이 테스트는 구석에 10px 사선 하나만 긋고 Finish 가 열리는
+  // 것을 **정답으로 단언**하고 있었다. 이제 Finish 는 획순까지 맞게 완성한
+  // 글자가 하나 있어야 열린다.
+  testWidgets('Hangul writing finish requires a correctly completed letter', (
     tester,
   ) async {
     await _setLargeView(tester);
@@ -466,18 +463,20 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
 
-    var finish = tester.widget<SoriButton>(
-      find.byKey(const Key('hangul-writing-finish')),
-    );
-    expect(finish.onTap, isNull);
+    // 2026-08-18: Finish 는 글자를 정확히 완성하기 전엔 **아예 렌더되지
+    // 않는다**(비활성 자리만 차지하던 죽은 공간을 없애 캔버스에 세로 공간을
+    // 넘겼다). 그래서 "비활성" 이 아니라 "부재" 를 단언한다.
+    expect(_hangulFinish, findsNothing);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
-    await _drawHangulStroke(tester);
+    // 아무 낙서로는 열리지 않는다.
+    await _scribbleHangul(tester);
+    expect(_hangulFinish, findsNothing);
 
-    finish = tester.widget<SoriButton>(
-      find.byKey(const Key('hangul-writing-finish')),
-    );
-    expect(finish.onTap, isNotNull);
+    await _traceHangulLetter(tester, 'ㄱ');
+
+    expect(_hangulFinish, findsOneWidget);
+    expect(tester.widget<SoriButton>(_hangulFinish).onTap, isNotNull);
 
     await tester.tap(find.byKey(const Key('hangul-writing-finish')));
     await tester.pump(const Duration(milliseconds: 500));
@@ -485,22 +484,19 @@ void main() {
       find.byType(ContentFeedbackCard),
     );
     expect(card.feedbackContext.contentType, 'hangul_writing');
-    expect(card.feedbackContext.scoreSummary, 'strokes:1');
+    expect(
+      card.feedbackContext.scoreSummary,
+      'letters:1; strokes:2; mode:strict',
+    );
     expect(card.feedbackContext.level, isNull);
 
     final firstCompletionId = card.feedbackContext.completionId;
     await _closeFeedbackResult(tester);
-    finish = tester.widget<SoriButton>(
-      find.byKey(const Key('hangul-writing-finish')),
-    );
-    expect(finish.onTap, isNull);
+    expect(_hangulFinish, findsNothing);
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
-    await _drawHangulStroke(tester);
-    finish = tester.widget<SoriButton>(
-      find.byKey(const Key('hangul-writing-finish')),
-    );
-    expect(finish.onTap, isNotNull);
+    await _traceHangulLetter(tester, 'ㄱ');
+    expect(_hangulFinish, findsOneWidget);
     await tester.tap(find.byKey(const Key('hangul-writing-finish')));
     await tester.pump(const Duration(milliseconds: 500));
     final secondCard = tester.widget<ContentFeedbackCard>(
@@ -509,6 +505,8 @@ void main() {
     expect(secondCard.feedbackContext.completionId, isNot(firstCompletionId));
   });
 }
+
+final Finder _hangulFinish = find.byKey(const Key('hangul-writing-finish'));
 
 Future<void> _closeFeedbackResult(WidgetTester tester) async {
   tester
@@ -521,15 +519,49 @@ Future<void> _closeFeedbackResult(WidgetTester tester) async {
   await tester.pumpAndSettle();
 }
 
-Future<void> _drawHangulStroke(WidgetTester tester) async {
+/// 획순과 상관없는 낙서 — 판정에서 떨어져야 한다.
+Future<void> _scribbleHangul(WidgetTester tester) async {
   final canvas = find.byKey(const Key('hangul-practice-canvas'));
+  await tester.ensureVisible(canvas);
+  await tester.pump();
   final bounds = tester.getRect(canvas);
   final gesture = await tester.startGesture(
-    Offset(bounds.left + 10, bounds.top + 10),
+    Offset(bounds.left + 8, bounds.bottom - 8),
   );
-  await gesture.moveTo(Offset(bounds.left + 20, bounds.top + 20));
+  await gesture.moveTo(Offset(bounds.left + 30, bounds.bottom - 20));
   await gesture.up();
   await tester.pump();
+}
+
+/// [letter] 의 기준 획을 순서대로, 실제 좌표로 따라 그린다.
+Future<void> _traceHangulLetter(WidgetTester tester, String letter) async {
+  final canvas = find.byKey(const Key('hangul-practice-canvas'));
+  await tester.ensureVisible(canvas);
+  await tester.pump();
+  final bounds = tester.getRect(canvas);
+  final scaleX = bounds.width / strokeCanvas.width;
+  final scaleY = bounds.height / strokeCanvas.height;
+  Offset at(Offset p) =>
+      Offset(bounds.left + p.dx * scaleX, bounds.top + p.dy * scaleY);
+
+  for (final stroke in hangulStrokes[letter]!) {
+    final points = switch (stroke) {
+      LineStroke(:final points) => points,
+      CircleStroke(:final center, :final radius) => [
+        for (var i = 0; i <= 24; i++)
+          Offset(
+            center.dx + radius * math.cos(i / 24 * 2 * math.pi),
+            center.dy + radius * math.sin(i / 24 * 2 * math.pi),
+          ),
+      ],
+    };
+    final gesture = await tester.startGesture(at(points.first));
+    for (final p in points.skip(1)) {
+      await gesture.moveTo(at(p));
+    }
+    await gesture.up();
+    await tester.pump();
+  }
 }
 
 Future<void> _skipChosungRound(WidgetTester tester) async {

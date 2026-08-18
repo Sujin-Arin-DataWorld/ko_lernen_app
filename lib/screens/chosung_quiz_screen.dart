@@ -490,7 +490,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                             runSpacing: Spacing.xs,
                             children: [
                               SoriChip(
-                                label: '초성 + 모음',
+                                label: AppL10n.of(context).chosungModeWithVowels,
                                 icon: Icons.lightbulb_outline,
                                 accent: SoriColors.warning,
                                 selected: _mode == HintMode.chosungVowel,
@@ -503,7 +503,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                                       ),
                               ),
                               SoriChip(
-                                label: '초성 only',
+                                label: AppL10n.of(context).chosungModeInitialsOnly,
                                 icon: Icons.flash_on_rounded,
                                 accent: SoriColors.danger,
                                 selected: _mode == HintMode.chosung,
@@ -929,7 +929,13 @@ class _QuizCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          ChosungHint(word: word, mode: mode, accent: accent),
+          ChosungHint(
+            word: word,
+            mode: mode,
+            accent: accent,
+            vowelLabel: t.chosungSlotVowel,
+            jongsungLabel: t.chosungSlotBatchim,
+          ),
           const SizedBox(height: 16),
           switch (state) {
             _State.correct => Text(

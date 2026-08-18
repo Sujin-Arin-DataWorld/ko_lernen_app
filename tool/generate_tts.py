@@ -295,24 +295,21 @@ def collect():
 
     # 10. 한글 화면 + 오늘의 글자 — Dart const 소스라 정규식으로 추출.
     #    2026-08-12 전수조사: 이 세 부류가 미수집 → 한글 탭이 전부 OS 폴백.
-    #    a) 발음 표본: 대부분은 자음+ㅡ(ㅉ→쯔)·ㅇ+모음으로 만들되, 실기기에서
-    #       단음절 오인이 확인된 ㅃ·ㄷ·ㅏ·ㅠ·ㅢ는 안정적인 예시어를 쓴다.
-    #       hangul_data.dart 의 speakableJamo 와 반드시 동일해야 한다.
+    #    a) 발음 표본: 자음+ㅡ(ㅉ→쯔)·ㅇ+모음. 2026-08-18 부터 예외 없이
+    #       **1음절**이다 — 테스터가 "낱자를 누르면 예시어가 나온다"고 지적해
+    #       예시어 우회(ㄷ→'다리' 등)를 걷어냈다. 낱자를 사전 생성해 Storage 에
+    #       고정하므로 런타임 합성 흔들림도 없다.
+    #       hangul_data.dart 의 speakableJamo 와 반드시 동일해야 한다
+    #       (test/jamo_speech_test.dart 가 두 파일을 대조한다).
     #    b) 예시 단어·음절 글자: hangul_screen.dart:631 exampleWord,
     #       daily_char_sheet.dart:243 은 음절이면 글자 자체(가·한…)를 발화.
-    #    c) 낱자 이름: daily_char_sheet.dart _getJamoName (기역·쌍기역…).
     leads = ["ㄱ", "ㄲ", "ㄴ", "ㄷ", "ㄸ", "ㄹ", "ㅁ", "ㅂ", "ㅃ", "ㅅ",
              "ㅆ", "ㅇ", "ㅈ", "ㅉ", "ㅊ", "ㅋ", "ㅌ", "ㅍ", "ㅎ"]
     vowels_j = ["ㅏ", "ㅐ", "ㅑ", "ㅒ", "ㅓ", "ㅔ", "ㅕ", "ㅖ", "ㅗ", "ㅘ",
                 "ㅙ", "ㅚ", "ㅛ", "ㅜ", "ㅝ", "ㅞ", "ㅟ", "ㅠ", "ㅡ", "ㅢ",
                 "ㅣ"]
-    stable_carriers = {
-        "ㅃ": "빵",
-        "ㄷ": "다리",
-        "ㅏ": "아빠",
-        "ㅠ": "유리",
-        "ㅢ": "의자",
-    }
+    # 청취 검수에서 오인이 확인된 글자만 다른 1음절로 등록한다. 현재 비어 있다.
+    stable_carriers = {}
     for i, letter in enumerate(leads):  # 자음+ㅡ (중성 index 18)
         add_female(stable_carriers.get(
             letter, chr(0xAC00 + (i * 21 + 18) * 28)))
@@ -340,17 +337,10 @@ def collect():
         if all("가" <= ch <= "힣" for ch in letter):  # 음절 글자(가·한…)
             add_female(letter)
 
-    with open(
-        os.path.join(ROOT, "lib/screens/daily_char_sheet.dart"),
-        encoding="utf-8",
-    ) as f:
-        sheet = f.read()
-    names_block = _re.search(
-        r"jamoNames = \{(.*?)\};", sheet, _re.DOTALL
-    )
-    if names_block:
-        for m in _re.finditer(r"'.':\s*'([^']+)'", names_block.group(1)):
-            add_female(m.group(1))
+    # 2026-08-18: 낱자 "이름"(기역·니은…) 수집을 없앴다. daily_char_sheet 가
+    #   자체 jamoNames 표로 이름을 읽던 걸 speakableJamo(음가)로 통일해서
+    #   앱 어디에서도 낱자 이름을 발화하지 않는다. 남은 원격 키는 stale 로
+    #   남지만 재생 경로가 없어 무해하다.
 
     # 11. 배치고사(placement) 질문 — placement_diagnostic.dart 의
     #     korean: '...' 필드 (placement_diagnostic_screen.dart:47 발화).

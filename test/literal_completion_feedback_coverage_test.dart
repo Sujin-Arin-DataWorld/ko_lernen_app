@@ -173,7 +173,9 @@ void main() {
               context: FeedbackCompletion.hangulWriting(
                 createId: createId,
                 contentLabel: 'Hangul Writing',
+                letterCount: 3,
                 strokeCount: 18,
+                strict: true,
               ).context,
               missionId: 'beta_language_form',
             ),

@@ -903,6 +903,138 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get hangulChipConsonants => 'Consonants';
+
+  @override
+  String get hangulChipVowels => 'Vowels';
+
+  @override
+  String get hangulChipSyllables => 'Syllables';
+
+  @override
+  String get hangulCheckModeLabel => 'Stroke check';
+
+  @override
+  String get hangulCheckModePractice => 'Free practice';
+
+  @override
+  String get hangulCheckModeExam => 'Strict';
+
+  @override
+  String get hangulCheckModePracticeHint =>
+      'You get hints, but nothing is erased.';
+
+  @override
+  String get hangulCheckModeExamHint =>
+      'Order and direction both have to be right.';
+
+  @override
+  String hangulStrokeProgress(int current, int total) {
+    return 'Stroke $current / $total';
+  }
+
+  @override
+  String hangulStrokeNextHint(int index) {
+    return 'Now draw stroke $index.';
+  }
+
+  @override
+  String hangulStrokeWrongOrder(int drawn, int expected) {
+    return 'That is stroke $drawn. Draw stroke $expected first.';
+  }
+
+  @override
+  String hangulStrokeWrongDirection(int index) {
+    return 'Right line, wrong direction. Stroke $index goes the other way.';
+  }
+
+  @override
+  String hangulStrokeWrongShape(int index) {
+    return 'That does not match any stroke. Look at stroke $index on the left.';
+  }
+
+  @override
+  String get hangulStrokeTooShort =>
+      'Too short. Draw the stroke in one motion.';
+
+  @override
+  String hangulStrokeLetterDone(Object letter) {
+    return '$letter is done! On to the next one.';
+  }
+
+  @override
+  String hangulLettersDone(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count letters done',
+      one: '1 letter done',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get hangulHardOnly => 'Difficult only';
+
+  @override
+  String get chosungModeWithVowels => 'Initial + vowel';
+
+  @override
+  String get chosungModeInitialsOnly => 'Initials only';
+
+  @override
+  String get chosungSlotVowel => 'Vowel';
+
+  @override
+  String get chosungSlotBatchim => 'Batchim';
+
+  @override
+  String get errorUnknown => 'Unknown error';
+
+  @override
+  String questTypeUnsupported(Object type) {
+    return 'Quest type \"$type\" is not available yet.';
+  }
+
+  @override
+  String get customPackCsvHint => '안녕하세요, hello\\n사과, apple';
+
+  @override
+  String get packStateLocked => 'locked';
+
+  @override
+  String get packStatePremium => 'Premium';
+
+  @override
+  String get packStateCleared => 'cleared';
+
+  @override
+  String get packStateAvailable => 'available';
+
+  @override
+  String packSemantics(Object title, Object state, int learned, int total) {
+    return 'Pack $title, $state, $learned of $total learned';
+  }
+
+  @override
+  String get packLockedHintShort => 'Unlock first';
+
+  @override
+  String smalltalkUseWith(Object context) {
+    return 'Use with: $context';
+  }
+
+  @override
+  String get smalltalkSaferAlternativeAndNext =>
+      'Safer alternative and next turn';
+
+  @override
+  String get smalltalkSaferAlternative => 'Safer alternative';
+
+  @override
+  String get smalltalkNextTurn => 'Next turn';
+
+  @override
   String wordleSyllableCount(int n) {
     return '$n-syllable word · 6 tries';
   }

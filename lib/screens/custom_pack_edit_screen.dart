@@ -250,9 +250,9 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
               autofocus: true,
               minLines: 4,
               maxLines: 10,
-              decoration: const InputDecoration(
-                hintText: '안녕하세요, Hallo, 안녕하세요!\n사과, Apfel',
-                border: OutlineInputBorder(),
+              decoration: InputDecoration(
+                hintText: AppL10n.of(context).customPackCsvHint,
+                border: const OutlineInputBorder(),
               ),
             ),
           ],

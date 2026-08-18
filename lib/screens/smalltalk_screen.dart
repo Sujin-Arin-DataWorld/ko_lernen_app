@@ -657,9 +657,9 @@ class _PhraseCardState extends State<_PhraseCard> {
             if (!_canRecordRelationshipCheckpoint ||
                 _submittedRelationshipContext != null)
               Text(
-                lang == 'de'
-                    ? 'Passend für: ${p.relationshipContext.labelFor(lang)}'
-                    : 'Use with: ${p.relationshipContext.labelFor(lang)}',
+                AppL10n.of(
+                  context,
+                ).smalltalkUseWith(p.relationshipContext.labelFor(lang)),
                 style: TextStyle(
                   fontFamily: 'Pretendard',
                   fontSize: 12.5,
@@ -738,9 +738,7 @@ class _PhraseCardState extends State<_PhraseCard> {
                       setState(() => _showConversationGuide = true),
                   icon: const Icon(Icons.alt_route_rounded, size: 16),
                   label: Text(
-                    lang == 'de'
-                        ? 'Sichere Alternative und nächster Schritt'
-                        : 'Safer alternative and next turn',
+                    AppL10n.of(context).smalltalkSaferAlternativeAndNext,
                   ),
                 ),
               )
@@ -789,7 +787,7 @@ class _ConversationGuide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    final german = lang == 'de';
+    final t = AppL10n.of(context);
     return Container(
       width: double.infinity,
       margin: const EdgeInsets.only(bottom: Spacing.xs),
@@ -802,13 +800,13 @@ class _ConversationGuide extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _ConversationTurn(
-            label: german ? 'Sichere Alternative' : 'Safer alternative',
+            label: t.smalltalkSaferAlternative,
             turn: alternative,
             lang: lang,
           ),
           const Divider(height: Spacing.lg),
           _ConversationTurn(
-            label: german ? 'Nächster Gesprächsschritt' : 'Next turn',
+            label: t.smalltalkNextTurn,
             turn: followUp,
             lang: lang,
             textColor: s.text,

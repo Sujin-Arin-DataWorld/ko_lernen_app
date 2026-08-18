@@ -1717,6 +1717,210 @@ abstract class AppL10n {
   /// **'{letter} aussprechen'**
   String hangulPronounceLetter(Object letter);
 
+  /// No description provided for @hangulChipConsonants.
+  ///
+  /// In de, this message translates to:
+  /// **'Konsonanten'**
+  String get hangulChipConsonants;
+
+  /// No description provided for @hangulChipVowels.
+  ///
+  /// In de, this message translates to:
+  /// **'Vokale'**
+  String get hangulChipVowels;
+
+  /// No description provided for @hangulChipSyllables.
+  ///
+  /// In de, this message translates to:
+  /// **'Silben'**
+  String get hangulChipSyllables;
+
+  /// No description provided for @hangulCheckModeLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Strichprüfung'**
+  String get hangulCheckModeLabel;
+
+  /// No description provided for @hangulCheckModePractice.
+  ///
+  /// In de, this message translates to:
+  /// **'Frei üben'**
+  String get hangulCheckModePractice;
+
+  /// No description provided for @hangulCheckModeExam.
+  ///
+  /// In de, this message translates to:
+  /// **'Streng'**
+  String get hangulCheckModeExam;
+
+  /// No description provided for @hangulCheckModePracticeHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Du bekommst Hinweise, aber nichts wird gelöscht.'**
+  String get hangulCheckModePracticeHint;
+
+  /// No description provided for @hangulCheckModeExamHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Reihenfolge und Richtung müssen stimmen.'**
+  String get hangulCheckModeExamHint;
+
+  /// No description provided for @hangulStrokeProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Strich {current} / {total}'**
+  String hangulStrokeProgress(int current, int total);
+
+  /// No description provided for @hangulStrokeNextHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt Strich {index} zeichnen.'**
+  String hangulStrokeNextHint(int index);
+
+  /// No description provided for @hangulStrokeWrongOrder.
+  ///
+  /// In de, this message translates to:
+  /// **'Das ist Strich {drawn}. Zeichne zuerst Strich {expected}.'**
+  String hangulStrokeWrongOrder(int drawn, int expected);
+
+  /// No description provided for @hangulStrokeWrongDirection.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtige Linie, falsche Richtung. Strich {index} läuft andersherum.'**
+  String hangulStrokeWrongDirection(int index);
+
+  /// No description provided for @hangulStrokeWrongShape.
+  ///
+  /// In de, this message translates to:
+  /// **'Das passt zu keinem Strich. Sieh dir Strich {index} links an.'**
+  String hangulStrokeWrongShape(int index);
+
+  /// No description provided for @hangulStrokeTooShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Zu kurz. Zieh den Strich in einem Zug.'**
+  String get hangulStrokeTooShort;
+
+  /// No description provided for @hangulStrokeLetterDone.
+  ///
+  /// In de, this message translates to:
+  /// **'{letter} sitzt! Weiter zum nächsten.'**
+  String hangulStrokeLetterDone(Object letter);
+
+  /// No description provided for @hangulLettersDone.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 Buchstabe fertig} other{{count} Buchstaben fertig}}'**
+  String hangulLettersDone(int count);
+
+  /// No description provided for @hangulHardOnly.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur schwierige'**
+  String get hangulHardOnly;
+
+  /// No description provided for @chosungModeWithVowels.
+  ///
+  /// In de, this message translates to:
+  /// **'Anlaut + Vokal'**
+  String get chosungModeWithVowels;
+
+  /// No description provided for @chosungModeInitialsOnly.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur Anlaute'**
+  String get chosungModeInitialsOnly;
+
+  /// No description provided for @chosungSlotVowel.
+  ///
+  /// In de, this message translates to:
+  /// **'Vokal'**
+  String get chosungSlotVowel;
+
+  /// No description provided for @chosungSlotBatchim.
+  ///
+  /// In de, this message translates to:
+  /// **'Batchim'**
+  String get chosungSlotBatchim;
+
+  /// No description provided for @errorUnknown.
+  ///
+  /// In de, this message translates to:
+  /// **'Unbekannter Fehler'**
+  String get errorUnknown;
+
+  /// No description provided for @questTypeUnsupported.
+  ///
+  /// In de, this message translates to:
+  /// **'Quest-Typ \"{type}\" ist noch nicht verfügbar.'**
+  String questTypeUnsupported(Object type);
+
+  /// No description provided for @customPackCsvHint.
+  ///
+  /// In de, this message translates to:
+  /// **'안녕하세요, Hallo\\n사과, Apfel'**
+  String get customPackCsvHint;
+
+  /// No description provided for @packStateLocked.
+  ///
+  /// In de, this message translates to:
+  /// **'gesperrt'**
+  String get packStateLocked;
+
+  /// No description provided for @packStatePremium.
+  ///
+  /// In de, this message translates to:
+  /// **'Premium'**
+  String get packStatePremium;
+
+  /// No description provided for @packStateCleared.
+  ///
+  /// In de, this message translates to:
+  /// **'geschafft'**
+  String get packStateCleared;
+
+  /// No description provided for @packStateAvailable.
+  ///
+  /// In de, this message translates to:
+  /// **'verfügbar'**
+  String get packStateAvailable;
+
+  /// No description provided for @packSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Paket {title}, {state}, {learned} von {total} gelernt'**
+  String packSemantics(Object title, Object state, int learned, int total);
+
+  /// No description provided for @packLockedHintShort.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorher freischalten'**
+  String get packLockedHintShort;
+
+  /// No description provided for @smalltalkUseWith.
+  ///
+  /// In de, this message translates to:
+  /// **'Passend für: {context}'**
+  String smalltalkUseWith(Object context);
+
+  /// No description provided for @smalltalkSaferAlternativeAndNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Sichere Alternative und nächster Schritt'**
+  String get smalltalkSaferAlternativeAndNext;
+
+  /// No description provided for @smalltalkSaferAlternative.
+  ///
+  /// In de, this message translates to:
+  /// **'Sichere Alternative'**
+  String get smalltalkSaferAlternative;
+
+  /// No description provided for @smalltalkNextTurn.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Gesprächsschritt'**
+  String get smalltalkNextTurn;
+
   /// No description provided for @wordleSyllableCount.
   ///
   /// In de, this message translates to:

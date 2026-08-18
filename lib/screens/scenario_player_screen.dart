@@ -1310,7 +1310,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             builder: (ctx) {
               final ss = SoriSurfaces.of(ctx);
               return Text(
-                'Quest type "${spec.type.name}" noch nicht implementiert.',
+                AppL10n.of(context).questTypeUnsupported(spec.type.name),
                 style: TextStyle(color: ss.textMuted),
                 textAlign: TextAlign.center,
               );

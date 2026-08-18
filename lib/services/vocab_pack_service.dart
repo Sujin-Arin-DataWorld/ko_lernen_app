@@ -59,7 +59,10 @@ class VocabPackService {
   /// 정의는 [packDisplayMap] 참조. ARB 키와 다르게 빌드 타임 상수로 유지 —
   /// 팩 이름은 잘 안 바뀌고, l10n 키가 폭증하면 ARB 관리가 어려워짐.
   /// UI 에 다국어 노출이 필요해지면 향후 `pack_{id}_name` 키로 이전.
-  static String displayLabel(String packId, {String lang = 'de'}) {
+  /// [lang] 에 기본값을 두지 않는다 — 'de' 기본값 때문에 호출부 4곳이 조용히
+  /// 독일어를 쓰고 있었다 (2026-08-18 l10n 스윕). required 로 두면 새 호출부도
+  /// 컴파일 단계에서 걸린다.
+  static String displayLabel(String packId, {required String lang}) {
     final base = _baseId(packId);
     final pair = packDisplayMap[base];
     if (pair == null) return packId;

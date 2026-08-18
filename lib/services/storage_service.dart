@@ -720,6 +720,30 @@ class Storage {
     await _si('kl_wordle_streak', 0);
   }
 
+  // ───────── Hangul 낱자 판정 ─────────
+  //
+  // 자모는 어휘가 아니라 **SRS 대상이 아니다** — `srsReview`/`incrementWrongCount`
+  // 를 쓰면 단어 복습 큐가 오염된다. 문법의 `grammarHard` 와 똑같이 SRS 밖의
+  // 단순 집합으로 둔다 (Sori Deck 3.0, 2026-08-18: 한글 카드 탭이 앱 공용
+  // 좌=모름/우=앎 계약을 따르게 하면서 필요해진 저장소).
+  static List<String> get hangulHard => _l('kl_hangul_hard');
+
+  static Future<void> markHangulHard(String letter) async {
+    final list = hangulHard;
+    if (!list.contains(letter)) {
+      list.add(letter);
+      await _sl('kl_hangul_hard', list);
+    }
+  }
+
+  static Future<void> markHangulEasy(String letter) async {
+    final list = hangulHard;
+    if (list.contains(letter)) {
+      list.remove(letter);
+      await _sl('kl_hangul_hard', list);
+    }
+  }
+
   // ───────── Grammatik ─────────
   static int get grammarLastIdx => _i('kl_gram_last_idx');
   static List<String> get grammarSeen => _l('kl_gram_seen');
@@ -1289,6 +1313,18 @@ class Storage {
   static bool get introSeen => _prefs?.getBool('kl_intro_seen') ?? false;
   static Future<void> setIntroSeen() async =>
       _prefs?.setBool('kl_intro_seen', true);
+
+  // ───────── 한글 쓰기 판정 강도 ─────────
+
+  /// 한글 Schreiben 탭에서 획순을 엄격히 검사하는가.
+  ///
+  /// 2026-08-17 테스터(Amor): "일부러 획순을 틀려도 그냥 진행된다." 기본값을
+  /// 검사 ON 으로 두되, 자유 필기를 원하면 화면 안에서 칩으로 끌 수 있다
+  /// (`stroke_matcher.dart` 에 적힌 관대함 논리는 그 모드로 살아남는다).
+  static bool get hangulStrictStrokes =>
+      _prefs?.getBool('kl_hangul_strict_strokes') ?? true;
+  static Future<void> setHangulStrictStrokes(bool v) =>
+      _sb('kl_hangul_strict_strokes', v);
 
   // ───────── 온보딩 코치마크 1회성 플래그 (Stage 1) ─────────
   // `introSeen` 패턴과 동일. 각각 진입 화면에서 최초 1회 시트 표시.

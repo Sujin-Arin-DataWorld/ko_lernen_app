@@ -140,6 +140,10 @@ flutter:
     - assets/illustrations/personal_hanok_v2/map/
     - assets/illustrations/personal_hanok_v2/map/structures/
     - assets/illustrations/personal_hanok_v2/map/landscape/
+    # B1/B2 estate construction stages (14 non-final PNGs, flattened;
+    # each building's final stage is byte-identical to its structures/ or
+    # landscape/ file above and is not duplicated here).
+    - assets/illustrations/personal_hanok_v2/map/stages/
     - assets/illustrations/personal_hanok_v2/interiors/
     # A1 16 construction states, promoted 2026-08-17 as one approved set.
     # tool/promote_hanok_a1_states.py refuses a partial set, so this stays all-or-nothing.

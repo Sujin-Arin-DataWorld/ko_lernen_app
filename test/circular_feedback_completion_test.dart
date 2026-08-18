@@ -119,7 +119,9 @@ void main() {
       final writing = FeedbackCompletion.hangulWriting(
         createId: () => 'writing-1',
         contentLabel: 'Hangul writing',
+        letterCount: 1,
         strokeCount: 2,
+        strict: true,
       );
 
       expect(cards.context.toWire(), {
@@ -134,7 +136,7 @@ void main() {
         'contentType': 'hangul_writing',
         'contentId': 'hangul:writing',
         'contentLabel': 'Hangul writing',
-        'scoreSummary': 'strokes:2',
+        'scoreSummary': 'letters:1; strokes:2; mode:strict',
       });
       expect(cards.context.level, isNull);
       expect(writing.context.level, isNull);

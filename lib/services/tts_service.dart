@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math' as math;
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:crypto/crypto.dart';
@@ -492,6 +493,80 @@ class TtsService {
     return speak(text, voice: voice, rateMultiplier: 0.65);
   }
 
+  /// 재생하지 않고 **로컬 캐시만 채운다**.
+  ///
+  /// 2026-08-17 테스터(Amor): "카드 음성이 너무 늦게 나온다." 캐시가 비면
+  /// 낱자마다 Storage 다운로드 + fsync 를 기다린 **뒤에야** 소리가 난다.
+  /// 화면에 들어온 순간 미리 받아두면 탭 시점엔 1단(로컬 디스크)이라 즉시 난다.
+  ///
+  /// **동적 합성은 하지 않는다**(`allowSynthesis: false`) — 누르지도 않은 걸
+  /// 미리 합성하면 할당량만 태운다. Storage 에 없으면 조용히 포기하고, 실제로
+  /// 누를 때 평소 경로가 처리한다.
+  ///
+  /// 실패는 전부 삼킨다. 프리페치가 안 돼도 앱 동작은 그대로다
+  /// (`DancheongBurst.preload()` 와 같은 best-effort 철학).
+  static Future<void> prefetch(String text, {String voice = 'female'}) async {
+    final trimmed = text.trim();
+    if (trimmed.isEmpty) {
+      return;
+    }
+    // 음성 채널을 꺼 둔 사용자에게는 받지 않는다. speak() 가 같은 게이트로
+    // 재생을 막는데 미리받기만 도는 건 절대 못 들을 파일을 내려받는 것이다.
+    if (AudioPolicy.instance.volumeFor(SoundChannel.speech) <= 0) {
+      return;
+    }
+    // 세션 내 1회로 묶는다. Storage 에 없는 텍스트는 매번 네트워크 왕복을
+    // 되풀이하고, 있는 텍스트도 mp3 전체를 다시 읽는다 — 카드를 넘길 때마다
+    // ±1 이웃이 겹쳐 들어오므로 이게 금방 수십 번이 된다.
+    final key = '$voice|$trimmed';
+    if (!_prefetchAttempted.add(key)) {
+      return;
+    }
+    try {
+      await _resolveFile(trimmed, voice, allowSynthesis: false);
+    } catch (_) {
+      // 조용히 무시 — 최선 노력이다.
+    }
+  }
+
+  /// 이번 실행에서 이미 시도한 프리페치 키. 재시도 억제용.
+  static final Set<String> _prefetchAttempted = <String>{};
+
+  @visibleForTesting
+  static void resetPrefetchMemoForTesting() => _prefetchAttempted.clear();
+
+  /// [texts] 를 동시 [concurrency] 개씩 미리 받는다. 중복은 알아서 제거한다.
+  ///
+  /// 동시 개수를 제한하는 이유: 한글 화면은 낱자 34개를 한 번에 요청하는데,
+  /// 전부 동시에 던지면 첫 탭이 자기 차례를 기다리게 된다 — 프리페치가 오히려
+  /// 지연을 만드는 셈이다.
+  static Future<void> prefetchAll(
+    Iterable<String> texts, {
+    String voice = 'female',
+    int concurrency = 3,
+  }) async {
+    final queue = <String>{
+      for (final t in texts)
+        if (t.trim().isNotEmpty) t.trim(),
+    }.toList();
+    if (queue.isEmpty) {
+      return;
+    }
+    final lanes = math.max(1, math.min(concurrency, queue.length));
+    var next = 0;
+    Future<void> worker() async {
+      while (true) {
+        final index = next++;
+        if (index >= queue.length) {
+          return;
+        }
+        await prefetch(queue[index], voice: voice);
+      }
+    }
+
+    await Future.wait([for (var i = 0; i < lanes; i++) worker()]);
+  }
+
   static Future<void> stop() {
     // 진행 중이던 speak 의 완료 처리를 무효화한다.
     //
@@ -552,7 +627,16 @@ class TtsService {
   // ── 핵심 흐름 ──────────────────────────────────────────────────────
 
   /// 캐시 → Storage → CF 순으로 mp3 파일을 확보. 실패 시 null.
-  static Future<File?> _resolveFile(String text, String voice) async {
+  ///
+  /// [allowSynthesis] 가 false 면 **3단(Cloud Function 동적 합성)을 건너뛴다**.
+  /// 프리페치 전용 스위치다 — 아직 누르지도 않은 낱자를 투기적으로 합성하면
+  /// 합성 할당량을 쓰고 12초 타임아웃까지 잡아먹는다. 사용자가 실제로 누르면
+  /// 그때 평소 경로가 3단까지 간다.
+  static Future<File?> _resolveFile(
+    String text,
+    String voice, {
+    bool allowSynthesis = true,
+  }) async {
     final dir = await _ensureCacheDir();
     if (dir == null) {
       return null;
@@ -579,7 +663,7 @@ class TtsService {
           .ref(key.storagePath)
           .getData(_maxBytes);
       if (data != null && TtsCacheKey.isUsableAudio(data)) {
-        await file.writeAsBytes(data, flush: true);
+        await _writeAtomically(file, data);
         return file;
       }
     } catch (_) {
@@ -587,6 +671,9 @@ class TtsService {
     }
 
     // 3. Authenticated Firebase callable (dynamic synthesis).
+    if (!allowSynthesis) {
+      return null;
+    }
     try {
       final installationId = await _installationIdProvider.getOrCreate();
       final bytes = await takeCallableAudio(
@@ -618,7 +705,7 @@ class TtsService {
         },
       );
       if (bytes != null) {
-        await file.writeAsBytes(bytes, flush: true);
+        await _writeAtomically(file, bytes);
         return file;
       }
     } on TtsSynthesisBlocked {
@@ -627,6 +714,29 @@ class TtsService {
       // Firebase/Auth/App Check unavailable → OS TTS fallback.
     }
     return null;
+  }
+
+  /// 임시 파일에 쓰고 rename 으로 갈아끼운다.
+  ///
+  /// 같은 캐시 파일을 프리페치(쓰기)와 재생(읽기)이 동시에 만진다 — 화면에
+  /// 들어오면 낱자 34개를 받는 동안 사용자는 이미 카드를 누른다.
+  /// `isUsableAudio` 는 길이와 앞 몇 바이트만 보므로 **쓰다 만 파일도 통과**해
+  /// 잘린 소리가 나거나, 읽는 쪽이 "망가진 파일"로 판단해 프리페치가 쓰던
+  /// 파일을 지워버린다. rename 은 같은 파일시스템에서 원자적이라 읽는 쪽은
+  /// 항상 완성본 아니면 없음만 본다.
+  static Future<void> _writeAtomically(File file, Uint8List bytes) async {
+    final tmp = File('${file.path}.part');
+    try {
+      await tmp.writeAsBytes(bytes, flush: true);
+      await tmp.rename(file.path);
+    } catch (_) {
+      try {
+        await tmp.delete();
+      } catch (_) {
+        // 임시 파일 정리 실패는 무해하다.
+      }
+      rethrow;
+    }
   }
 
   /// Retry / fail-closed policy for one Cloud TTS callable sequence.
