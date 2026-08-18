@@ -230,7 +230,10 @@ class RoomLayoutService {
       );
     }
     if (kind == RoomAssetKind.decoration &&
-        !furnishedDecorSlugs(Storage.ownedDecor).contains(assetId)) {
+        !furnishedDecorSlugs(
+          Storage.ownedDecor,
+          openedVenues: {surface},
+        ).contains(assetId)) {
       return RoomLayoutMutation(
         layouts: snapshot.layouts,
         result: RoomLayoutWriteResult.notOwned,

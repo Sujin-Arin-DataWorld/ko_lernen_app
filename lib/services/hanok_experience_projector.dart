@@ -121,6 +121,13 @@ final class HanokExperienceProjector {
     }
 
     final currentEra = earned.isEmpty ? HanokGrowthEra.build : earned.last.era;
+    final nextGrant = _firstAttainableGrant(
+      grantCatalog.grants,
+      earnedIds: earnedIds,
+      bypassedCourseUnitIds: courseMastery.bypassedPrerequisiteUnitIds
+          .toSet(),
+      segmentCatalog: segmentCatalog,
+    );
     return HanokExperienceProjection(
       verifiedCanDoSegmentIds: verified,
       reassessmentEligibleSegmentIds: reassessmentEligible,
@@ -131,13 +138,15 @@ final class HanokExperienceProjector {
       availableDesignOptions: options,
       activeLoadout: activeLoadout,
       weatheringTier: state.careState.weatheringAt(asOf),
-      nextGrant: _firstAttainableGrant(
-        grantCatalog.grants,
-        earnedIds: earnedIds,
-        bypassedCourseUnitIds: courseMastery.bypassedPrerequisiteUnitIds
-            .toSet(),
-        segmentCatalog: segmentCatalog,
-      ),
+      nextGrant: nextGrant,
+      nextGrantProgress: nextGrant == null
+          ? 0.0
+          : _bestSatisfyingProgress(
+              nextGrant,
+              courseMastery: courseMastery,
+              segmentCatalog: segmentCatalog,
+              assessmentCatalog: assessmentCatalog,
+            ),
       trackProgress: progress,
       roomLayouts: partitionRoomLayouts(
         roomLayouts: roomLayouts,
@@ -268,4 +277,35 @@ bool _slotIsVerified(
         segmentId: segment.id,
       )
       .any(verified.contains);
+}
+
+/// The furthest-along evidence progress across every segment id that could
+/// satisfy [grant]'s slot — mirrors [_slotIsVerified]'s "any satisfying
+/// segment" semantics, so this reaches exactly 1.0 whenever [_slotIsVerified]
+/// would first become true.
+double _bestSatisfyingProgress(
+  HanokGrantDefinition grant, {
+  required CourseMasterySnapshot courseMastery,
+  required CourseSegmentCatalog segmentCatalog,
+  required ProductiveAssessmentCatalog assessmentCatalog,
+}) {
+  final segment = segmentCatalog.findSegment(grant.canDoSegmentId)!;
+  final candidateIds = segmentCatalog.satisfyingSegmentIdsForEditionSlot(
+    editionId: segment.trackEditionId,
+    segmentId: segment.id,
+  );
+  var best = 0.0;
+  for (final candidateId in candidateIds) {
+    final progress = canDoSegmentEvidenceProgress(
+      segmentId: candidateId,
+      evidence: courseMastery.productiveEvidence,
+      projectStepEvidence: courseMastery.productiveProjectStepEvidence,
+      segmentCatalog: segmentCatalog,
+      assessmentCatalog: assessmentCatalog,
+    ).fraction;
+    if (progress > best) {
+      best = progress;
+    }
+  }
+  return best;
 }

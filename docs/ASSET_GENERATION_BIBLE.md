@@ -42,6 +42,11 @@
 
 ## 1.3 컬러 팔레트 (전 자산 공통 — 이 hex만 사용)
 
+> **⛔ 정정(2026-08-18): 한옥/장식 계열(F-A/F-B/F-C)은 이 절이 stale하다.** 실측 팔레트는
+> `docs/assets/STYLE_LOCK.json`의 families.*.palette가 정본이다 — 예: F-A 실측 목재는
+> `#A2663A`, 청 `#274A3F`, 적 `#6A2316`으로 아래 명목값보다 어둡고 탁하다. 우선순위:
+> STYLE_LOCK.json > `docs/HANOK_ASSET_INVENTORY_2026-08-17.md` > 이 문서.
+
 **한지/배경**
 | 이름 | Hex | 용도 |
 |---|---|---|
@@ -568,6 +573,12 @@ Aspect ratio: 9:20 (1236x2700).
 ```
 
 ## 3.5 영구 장식 (투명 PNG 오버레이) — 공통
+
+> **⛔ 정정(2026-08-18): "자체 그림자 약간" 은 실내(F-A, 사랑방/A2 가구)엔 틀린 규약이다.**
+> 사랑방은 자유 배치 방 편집기라 아이템이 박스 중심으로 회전하는데, 바닥 그림자가 있으면
+> 회전할 때 같이 돌아 깨진다 — F-A는 그림자 완전 금지가 정본이다(`docs/assets/STYLE_LOCK.json`
+> families.F-A.camera). 이 §3.5는 **마당(F-B) 전용**으로 읽을 것. 우선순위:
+> STYLE_LOCK.json > `docs/HANOK_ASSET_INVENTORY_2026-08-17.md` > 이 문서.
 
 - **포맷**: PNG-24, 알파 O (배경 투명 필수). 자체 그림자 약간(밑 어두운 면), 떠있는 느낌 X.
 - **경로**: `assets/illustrations/decorations/{quest_id}.png`. 카메라 각은 stage와 동일.

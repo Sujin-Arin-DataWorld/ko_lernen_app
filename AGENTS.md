@@ -18,6 +18,7 @@
 > **⛔ 필수 기록 규칙 (예외 없음):** 코드·데이터·에셋·설정 등 **무엇이든 하나라도 변경하면 반드시** `docs/SESSION_LOG.md`에 항목을 남긴다(무엇을·왜·검증·커밋해시). 커밋할 때 관련 로그 갱신을 **같은 커밋 또는 직후 커밋에 포함**. 기록 없이 변경만 커밋하는 것 금지. 프로젝트 밖 지속 사실은 `~/.claude/.../memory/`에도 남기고 MEMORY.md 인덱스에 한 줄 추가.
 > **작업 완료 시마다** "현재 진행 중인 작업" 체크리스트를 업데이트할 것 (완료 항목 체크, 새 항목 추가).
 > **비주얼 에셋 작업 전** `docs/ASSET_GENERATION_BIBLE.md` **하나만** 읽으면 됨 — 스타일 가이드·디자인 토큰·한옥/장식/도장/스티커/마스코트 프롬프트를 모두 흡수한 자급자족 AI 생성 바이블 (스타일명 **"Faceted Minhwa (모던 면 분할 민화)"**). 일러스트/아이콘/마케팅 자산 신규 제작·이터레이션 시 이 파일을 프롬프트 소스로 사용. (구 `HANGUL_SORI_STYLE_GUIDE.md`·`HANGUL_SORI_DESIGN_TOKENS.md`·`stately-rising-jongga-assets.md`는 상세 레퍼런스로만.)
+> **⛔ 정정(2026-08-18): 한옥/장식 계열은 위 문장이 stale하다.** 실제 우선순위는 `docs/assets/STYLE_LOCK.json` **>** `docs/HANOK_ASSET_INVENTORY_2026-08-17.md` **>** BIBLE — BIBLE §1.3 팔레트는 실측보다 밝고, §3.5는 마당 전용 규약이라 실내(F-A)엔 안 맞는다. 리더: `tool/style_lock.py`.
 > **마스코트(2026-06-02 v2)**: 업로드된 앉은 호랑이=`tiger_idle.png`, 갓 까치 비행 2프레임=`magpie_wingup/wingdown.png`가 캐릭터 source of truth. `tiger_sleepy`·`tiger_thinking`은 화풍 이질 → 교체 1순위. 상세는 BIBLE §2.
 
 ---
@@ -384,6 +385,21 @@ flutter run -d <android-id>   # 안드로이드
   그려 07~10에 뒷줄·옆보가 없고 완성 사랑채는 앞기둥 8개(7칸)라, 05~10 계보 전체를 새로
   만든다.** BBANANA ledger 19건(13.5 credit)은 **이관하지 않기로 확정**(2026-08-17, Jin) —
   근거는 `docs/HANOK_V1_SOURCE_REGISTRY.md` 생성 기록 절.
+- [x] **살아 있는 한옥 — 배선·자동화·세분화 (2026-08-18, PR-B~D + Phase 2)**: 정본
+  `~/.claude/plans/swift-yawning-squirrel.md`. `chore/hanok-asset-ledger-backfill`
+  브랜치(아직 main 미병합). PR-B: 원장 소급 기록(24cr hanok + 93cr 장식, 계획서의
+  44cr 추정은 틀렸었다) + 크레딧 상한 600. PR-C: `canDoSegmentEvidenceProgress()`
+  등 **데이터 절반만** — 실제 렌더 필터 변경은 골든 테스트가 있는 라이브
+  위젯이라 PR-E cutover와 함께로 미뤘다. PR-D: 방별 가구 풀 + A2 가구 12종이
+  모든 방에 노출되던 실버그 수정. Phase 2-1~2-3 완성(STYLE_LOCK.json·
+  check_style_conformance.py·ledger_append.py·asset_recipe.py, family 4개 실측
+  게이트 전량 ShippedBaselineTest 통과) — Phase 2-4는 `decoration_transparency_
+  test.dart` 구멍만 폐쇄, 등록 자동화 러너는 미착수. **PR-E(cutover)·PR-F(레벨별
+  발행)·Phase 3(별당·서고 신규 생성) 전부 미착수** — grant 발행은 영구 고정
+  지점이고 cutover는 라이브 렌더러 실배선이라 실기기 검수(Jin) 없이 진행할 수
+  없다. Phase 3 recipe 2종(byeoldang·seogo)은 DRAFT 상태로 `docs/assets/
+  recipes/`에 있으나 미실행. 아래 "PR4 자산 파이프라인" 항목의 "레거시 한옥이
+  정본이다" 상태는 이 작업 이후에도 **변하지 않았다**.
 - [x] **Batch 06 앱 데이터 승격 + 카탈로그 계약**: `fa86b7af`가 Batch 06
   68개 standalone + embedded quest 20개를 production asset과
   `curriculum_manifest.json` contentLinks에 올렸다. review ledger는 전부

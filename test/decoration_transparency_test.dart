@@ -2,32 +2,16 @@ import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
 
 void main() {
-  const repaired = <String>[
-    'decoration_chuseok_moon.png',
-    'decoration_hangeulday_plaque.png',
-    'decoration_kite.png',
-    'decoration_seollal_flag.png',
-    'decoration_sagunja_guk.png',
-    // A2 살다 — 사랑방 가구 12 (2026-08-18). 이 목록은 디렉터리를 훑지 않으므로
-    // 새 장식은 여기에 직접 넣어야 알파 검사를 받는다.
-    'decoration_sabangtakja.png',
-    'decoration_boryo_set.png',
-    'decoration_bangseok_pair.png',
-    'decoration_bandaji.png',
-    'decoration_hwaro.png',
-    'decoration_deungjan.png',
-    'decoration_geomungo.png',
-    'decoration_baduk.png',
-    'decoration_mokchim.png',
-    'decoration_byeongpung_small.png',
-    'decoration_gobi.png',
-    'decoration_hyangno.png',
-  ];
-
+  // 2026-08-18 (Phase 2-4): 하드코딩 17개 목록 대신 kAvailableDecorations 전체를
+  // 훑는다 — decoration_slot_test.dart:169-191(디스크 ↔ 화이트리스트 양방향 검사)와
+  // 같은 이유다. 목록이 손으로 관리되면 새 장식을 추가한 사람이 "여기에도 추가"를
+  // 잊는 순간 그 파일은 알파 검사를 영영 못 받는다 — 화이트리스트 자체를 순회하면
+  // 그 실수 자체가 구조적으로 불가능해진다.
   test('free-placement decorations have genuine transparent pixels', () async {
-    for (final name in repaired) {
+    for (final name in kAvailableDecorations.map((slug) => '$slug.png')) {
       final file = File('assets/illustrations/decorations/$name');
       expect(file.existsSync(), isTrue, reason: name);
       final codec = await ui.instantiateImageCodec(await file.readAsBytes());

@@ -578,6 +578,7 @@ final class HanokExperienceProjection {
     required Map<HanokDesignSlot, HanokGrantDefinition> activeLoadout,
     required this.weatheringTier,
     required this.nextGrant,
+    this.nextGrantProgress = 0.0,
     required Iterable<HanokTrackProgress> trackProgress,
     required this.roomLayouts,
   }) : verifiedCanDoSegmentIds = Set.unmodifiable(verifiedCanDoSegmentIds),
@@ -603,6 +604,12 @@ final class HanokExperienceProjection {
   final Map<HanokDesignSlot, HanokGrantDefinition> activeLoadout;
   final HanokWeatheringTier weatheringTier;
   final HanokGrantDefinition? nextGrant;
+
+  /// Fraction (0.0–1.0) of [nextGrant]'s evidence already trusted — see
+  /// [canDoSegmentEvidenceProgress]. Always 0.0 when [nextGrant] is null.
+  /// Sub-beat rendering uses this to paint the next construction stage at
+  /// partial alpha instead of only ever jumping fully opaque.
+  final double nextGrantProgress;
   final List<HanokTrackProgress> trackProgress;
   final HanokRoomLayoutProjection roomLayouts;
 

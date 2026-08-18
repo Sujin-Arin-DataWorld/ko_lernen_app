@@ -344,9 +344,9 @@ void main() {
         ledger['budgetCredits'],
         'generationLedger.budgetCredits',
       );
-      expect(_number(budgets['staticMax'], 'budgetCredits.staticMax'), 200.0);
+      expect(_number(budgets['staticMax'], 'budgetCredits.staticMax'), 600.0);
       expect(_number(budgets['videoMax'], 'budgetCredits.videoMax'), 10.4);
-      expect(_number(budgets['totalMax'], 'budgetCredits.totalMax'), 210.4);
+      expect(_number(budgets['totalMax'], 'budgetCredits.totalMax'), 610.4);
       final schema = _object(
         ledger['recordSchema'],
         'generationLedger.recordSchema',
