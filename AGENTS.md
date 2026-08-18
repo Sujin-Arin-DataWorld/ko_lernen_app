@@ -473,6 +473,11 @@ flutter run -d <android-id>   # 안드로이드
 > 세션 히스토리(2,700+줄)는 컨텍스트 비용 절감을 위해 **`docs/SESSION_LOG.md`** 로 분리했다.
 > - 과거 맥락이 필요하면 그 파일만 **grep/Read**(자동 로드하지 않음).
 > - ⛔ **새 변경 기록은 이제 `docs/SESSION_LOG.md` 최상단(최신이 위)에 남긴다** — 무엇을·왜·검증·커밋해시.
+> - ⛔ **`docs/SESSION_LOG.md`는 항상 최근 3일 분만 유지한다**(2026-08-18 시행). 새 항목을
+>   적기 전에 그 파일의 가장 오래된 날짜가 오늘 기준 3일을 넘었으면 먼저
+>   `python tool/rotate_session_log.py --apply` 를 실행해 그 이전 기록을
+>   **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮긴다(무손실, 자체 검증 후 기록). 아카이브도
+>   자동 로드하지 않고 필요할 때만 grep/Read.
 
 ---
 
