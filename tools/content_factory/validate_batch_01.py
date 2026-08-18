@@ -1312,13 +1312,20 @@ def _write_overlay(
     if not isinstance(graph, dict) or not isinstance(units, list) or not isinstance(families, list):
         _fail(f"{audit_path}: graph and curriculum graph arrays must exist")
     graph["courseUnits"] = len(units)
-    for level in ("a1", "a2", "b1", "b2", "c1", "c2"):
-        graph[f"{level}CourseUnits"] = sum(
+    # 감사 그래프의 레벨별 키는 `courseUnitsByLevel` **딕셔너리** 하나다 —
+    # 여기서 `a1CourseUnits` 같은 스칼라 키를 쓰면 스키마에 없는 키를 만들면서
+    # 정작 검사 대상(`courseUnitsByLevel`)은 stale 로 남는다.  유닛을 새로 만드는
+    # 배치에서만 터지므로 C1/C2(첫 그런 트랙)까지 드러나지 않았다.
+    # integrate_review_batches._refresh_audit_graph 와 같은 계산이어야 한다.
+    graph["courseUnitsByLevel"] = {
+        level: sum(
             1
             for unit in units
             if isinstance(unit, dict)
             and str(unit.get("level") or "").strip().lower() == level
         )
+        for level in ("a1", "a2", "b1", "b2", "c1", "c2")
+    }
     graph["formFamilies"] = len(families)
     _write_json(audit_path, audit)
     return counts

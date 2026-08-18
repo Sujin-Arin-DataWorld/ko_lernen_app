@@ -341,6 +341,14 @@ class VocabPackService {
     'c2_audit_trail': ('Prüfspur', 'Audit trail'),
     'c2_withdrawal_right': ('Widerrufsrecht', 'Withdrawal right'),
     'c2_automated_harm': ('Folgen der Automatik', 'Automated harm'),
+    'c1_media_evidence': ('Evidenz in den Medien', 'Evidence in the media'),
+    'c1_play_time_policy': ('Regulierung der Spielzeit', 'Play-time regulation'),
+    'c1_fan_labor': ('Fanarbeit und Belastung', 'Fan work and load'),
+    'c1_intimacy_safety': ('Sicherheit beim Kennenlernen', 'Safety when meeting people'),
+    'c2_automation_redress': ('Automatisierung und Rechtsweg', 'Automation and redress'),
+    'c2_sanction_accountability': ('Sanktion und Rechenschaft', 'Sanctions and accountability'),
+    'c2_relationship_narratives': ('Narrativ und Perspektive', 'Narrative and perspective'),
+    'c2_fandom_discourse': ('Fandom-Sprache und Macht', 'Fandom language and power'),
   };
 
   /// 레벨 내 팩 학습 순서 (위→아래). 디스플레이·잠금 순서.
@@ -551,5 +559,13 @@ class VocabPackService {
     'c2_audit_trail': 12,
     'c2_withdrawal_right': 13,
     'c2_automated_harm': 14,
+    'c1_media_evidence': 15,
+    'c1_play_time_policy': 16,
+    'c1_fan_labor': 17,
+    'c1_intimacy_safety': 18,
+    'c2_automation_redress': 15,
+    'c2_sanction_accountability': 16,
+    'c2_relationship_narratives': 17,
+    'c2_fandom_discourse': 18,
   };
 }

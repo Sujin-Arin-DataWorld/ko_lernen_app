@@ -75,6 +75,7 @@ class Slice:
         return categories.pop()
 
 
+
 def _vocab_rows(pack: dict[str, Any], records: list[dict[str, Any]]) -> list[dict[str, str]]:
     if len(records) != ROWS_PER_PACK:
         raise SliceError(f"{pack['packId']}: needs exactly {ROWS_PER_PACK} words")
@@ -332,7 +333,11 @@ def build(root: Path = ROOT) -> dict[str, int]:
             "blockedBy": "PR #62 must merge first: the new units use Batch 11 scenarios as checkpointContentIds.",
         },
         "predecessorManifests": [],
-        "curriculumAdditions": {"courseUnits": units, "concepts": concepts},
+        # 키는 "curriculumExtensions" 다 — integrate_review_batches §346 이 그렇게
+        # 읽는다. 형태({concepts, courseUnits})는 같고 이름만 달랐다. 이 이름으로
+        # 적지 않으면 8개 유닛이 커리큘럼에 안 들어가고, 그 유닛을 가리키는
+        # clozeTopicUnitMap 이 "unknown course unit" 으로 죽는다.
+        "curriculumExtensions": {"courseUnits": units, "concepts": concepts},
         "artifacts": [
             {
                 "kind": "vocab",

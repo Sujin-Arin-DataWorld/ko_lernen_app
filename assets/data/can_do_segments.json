@@ -6544,11 +6544,39 @@
     {
       "id": "cluster_c1_evidence_validity_v1",
       "level": "c1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
-        "seed_scenario_c1_youtube_health_claims_v1"
+        "seed_scenario_c1_youtube_health_claims_v1",
+        "seed_vocab_pack_c1_media_evidence_1_v1",
+        "seed_grammar_grammar_c1_limited_to_v1",
+        "seed_smalltalk_smalltalk_c1_0025_v1",
+        "seed_smalltalk_smalltalk_c1_0026_v1",
+        "seed_cloze_cloze_c1_0173_v1",
+        "seed_cloze_cloze_c1_0174_v1",
+        "seed_cloze_cloze_c1_0175_v1",
+        "seed_cloze_cloze_c1_0176_v1",
+        "seed_cloze_cloze_c1_0177_v1",
+        "seed_cloze_cloze_c1_0178_v1",
+        "seed_cloze_cloze_c1_0179_v1",
+        "seed_cloze_cloze_c1_0180_v1",
+        "seed_cloze_cloze_c1_0181_v1",
+        "seed_cloze_cloze_c1_0182_v1",
+        "seed_cloze_cloze_c1_0183_v1",
+        "seed_cloze_cloze_c1_0184_v1",
+        "seed_satz_satz_c1_0175_v1",
+        "seed_satz_satz_c1_0176_v1",
+        "seed_satz_satz_c1_0177_v1",
+        "seed_satz_satz_c1_0178_v1",
+        "seed_satz_satz_c1_0179_v1",
+        "seed_satz_satz_c1_0180_v1",
+        "seed_satz_satz_c1_0181_v1",
+        "seed_satz_satz_c1_0182_v1",
+        "seed_satz_satz_c1_0183_v1",
+        "seed_satz_satz_c1_0184_v1",
+        "seed_satz_satz_c1_0185_v1",
+        "seed_satz_satz_c1_0186_v1"
       ],
       "contentReferences": [
         {
@@ -6618,6 +6646,118 @@
         {
           "kind": "scenario",
           "id": "c1_youtube_health_claims"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_media_evidence_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_limited_to"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0025"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0026"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0173"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0174"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0175"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0176"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0177"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0178"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0179"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0180"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0181"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0182"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0183"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0184"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0175"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0176"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0177"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0178"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0179"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0180"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0181"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0182"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0183"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0184"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0185"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0186"
         }
       ]
     },
@@ -7590,7 +7730,7 @@
     {
       "id": "cluster_c1_participatory_access_remedy_v1",
       "level": "c1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c1_accessible_participation_1_v1",
         "seed_project_c1_accessibility_v1",
@@ -7701,7 +7841,35 @@
         "seed_cloze_cloze_c1_0170_v1",
         "seed_cloze_cloze_c1_0171_v1",
         "seed_cloze_cloze_c1_0172_v1",
-        "seed_scenario_c1_dating_app_safety_v1"
+        "seed_scenario_c1_dating_app_safety_v1",
+        "seed_vocab_pack_c1_intimacy_safety_1_v1",
+        "seed_grammar_grammar_c1_but_not_v1",
+        "seed_smalltalk_smalltalk_c1_0031_v1",
+        "seed_smalltalk_smalltalk_c1_0032_v1",
+        "seed_cloze_cloze_c1_0209_v1",
+        "seed_cloze_cloze_c1_0210_v1",
+        "seed_cloze_cloze_c1_0211_v1",
+        "seed_cloze_cloze_c1_0212_v1",
+        "seed_cloze_cloze_c1_0213_v1",
+        "seed_cloze_cloze_c1_0214_v1",
+        "seed_cloze_cloze_c1_0215_v1",
+        "seed_cloze_cloze_c1_0216_v1",
+        "seed_cloze_cloze_c1_0217_v1",
+        "seed_cloze_cloze_c1_0218_v1",
+        "seed_cloze_cloze_c1_0219_v1",
+        "seed_cloze_cloze_c1_0220_v1",
+        "seed_satz_satz_c1_0211_v1",
+        "seed_satz_satz_c1_0212_v1",
+        "seed_satz_satz_c1_0213_v1",
+        "seed_satz_satz_c1_0214_v1",
+        "seed_satz_satz_c1_0215_v1",
+        "seed_satz_satz_c1_0216_v1",
+        "seed_satz_satz_c1_0217_v1",
+        "seed_satz_satz_c1_0218_v1",
+        "seed_satz_satz_c1_0219_v1",
+        "seed_satz_satz_c1_0220_v1",
+        "seed_satz_satz_c1_0221_v1",
+        "seed_satz_satz_c1_0222_v1"
       ],
       "contentReferences": [
         {
@@ -8199,17 +8367,157 @@
         {
           "kind": "scenario",
           "id": "c1_dating_app_safety"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_intimacy_safety_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_but_not"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0031"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0032"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0209"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0210"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0211"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0212"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0213"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0214"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0215"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0216"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0217"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0218"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0219"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0220"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0211"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0212"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0213"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0214"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0215"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0216"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0217"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0218"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0219"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0220"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0221"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0222"
         }
       ]
     },
     {
       "id": "cluster_c1_sustainable_lifecycle_v1",
       "level": "c1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
-        "seed_scenario_c1_kpop_fan_labor_v1"
+        "seed_scenario_c1_kpop_fan_labor_v1",
+        "seed_vocab_pack_c1_fan_labor_1_v1",
+        "seed_grammar_grammar_c1_insufficient_for_v1",
+        "seed_smalltalk_smalltalk_c1_0029_v1",
+        "seed_smalltalk_smalltalk_c1_0030_v1",
+        "seed_cloze_cloze_c1_0197_v1",
+        "seed_cloze_cloze_c1_0198_v1",
+        "seed_cloze_cloze_c1_0199_v1",
+        "seed_cloze_cloze_c1_0200_v1",
+        "seed_cloze_cloze_c1_0201_v1",
+        "seed_cloze_cloze_c1_0202_v1",
+        "seed_cloze_cloze_c1_0203_v1",
+        "seed_cloze_cloze_c1_0204_v1",
+        "seed_cloze_cloze_c1_0205_v1",
+        "seed_cloze_cloze_c1_0206_v1",
+        "seed_cloze_cloze_c1_0207_v1",
+        "seed_cloze_cloze_c1_0208_v1",
+        "seed_satz_satz_c1_0199_v1",
+        "seed_satz_satz_c1_0200_v1",
+        "seed_satz_satz_c1_0201_v1",
+        "seed_satz_satz_c1_0202_v1",
+        "seed_satz_satz_c1_0203_v1",
+        "seed_satz_satz_c1_0204_v1",
+        "seed_satz_satz_c1_0205_v1",
+        "seed_satz_satz_c1_0206_v1",
+        "seed_satz_satz_c1_0207_v1",
+        "seed_satz_satz_c1_0208_v1",
+        "seed_satz_satz_c1_0209_v1",
+        "seed_satz_satz_c1_0210_v1"
       ],
       "contentReferences": [
         {
@@ -8287,13 +8595,125 @@
         {
           "kind": "scenario",
           "id": "c1_kpop_fan_labor"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_fan_labor_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_insufficient_for"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0029"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0030"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0197"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0198"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0199"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0200"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0201"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0202"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0203"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0204"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0205"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0206"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0207"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0208"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0199"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0200"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0201"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0202"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0203"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0204"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0205"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0206"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0207"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0208"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0209"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0210"
         }
       ]
     },
     {
       "id": "cluster_c1_local_tradeoff_adaptation_v1",
       "level": "c1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -8346,7 +8766,35 @@
         "seed_satz_satz_c1_0171_v1",
         "seed_satz_satz_c1_0172_v1",
         "seed_satz_satz_c1_0173_v1",
-        "seed_satz_satz_c1_0174_v1"
+        "seed_satz_satz_c1_0174_v1",
+        "seed_vocab_pack_c1_play_time_policy_1_v1",
+        "seed_grammar_grammar_c1_not_necessarily_v1",
+        "seed_smalltalk_smalltalk_c1_0027_v1",
+        "seed_smalltalk_smalltalk_c1_0028_v1",
+        "seed_cloze_cloze_c1_0185_v1",
+        "seed_cloze_cloze_c1_0186_v1",
+        "seed_cloze_cloze_c1_0187_v1",
+        "seed_cloze_cloze_c1_0188_v1",
+        "seed_cloze_cloze_c1_0189_v1",
+        "seed_cloze_cloze_c1_0190_v1",
+        "seed_cloze_cloze_c1_0191_v1",
+        "seed_cloze_cloze_c1_0192_v1",
+        "seed_cloze_cloze_c1_0193_v1",
+        "seed_cloze_cloze_c1_0194_v1",
+        "seed_cloze_cloze_c1_0195_v1",
+        "seed_cloze_cloze_c1_0196_v1",
+        "seed_satz_satz_c1_0187_v1",
+        "seed_satz_satz_c1_0188_v1",
+        "seed_satz_satz_c1_0189_v1",
+        "seed_satz_satz_c1_0190_v1",
+        "seed_satz_satz_c1_0191_v1",
+        "seed_satz_satz_c1_0192_v1",
+        "seed_satz_satz_c1_0193_v1",
+        "seed_satz_satz_c1_0194_v1",
+        "seed_satz_satz_c1_0195_v1",
+        "seed_satz_satz_c1_0196_v1",
+        "seed_satz_satz_c1_0197_v1",
+        "seed_satz_satz_c1_0198_v1"
       ],
       "contentReferences": [
         {
@@ -8620,6 +9068,118 @@
         {
           "kind": "satz",
           "id": "satz_c1_0174"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_play_time_policy_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_not_necessarily"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0027"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0028"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0185"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0186"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0187"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0188"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0189"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0190"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0191"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0192"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0193"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0194"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0195"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0196"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0187"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0188"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0189"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0190"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0191"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0192"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0193"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0194"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0195"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0196"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0197"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0198"
         }
       ]
     },
@@ -9588,11 +10148,39 @@
     {
       "id": "cluster_c2_narrative_perspective_v1",
       "level": "c2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c2_narrative_perspective_1_v1",
         "seed_project_c2_narrative_v1",
-        "seed_scenario_c2_dating_romance_frames_v1"
+        "seed_scenario_c2_dating_romance_frames_v1",
+        "seed_vocab_pack_c2_relationship_narratives_1_v1",
+        "seed_grammar_grammar_c2_as_if_framing_v1",
+        "seed_smalltalk_smalltalk_c2_0029_v1",
+        "seed_smalltalk_smalltalk_c2_0030_v1",
+        "seed_cloze_cloze_c2_0197_v1",
+        "seed_cloze_cloze_c2_0198_v1",
+        "seed_cloze_cloze_c2_0199_v1",
+        "seed_cloze_cloze_c2_0200_v1",
+        "seed_cloze_cloze_c2_0201_v1",
+        "seed_cloze_cloze_c2_0202_v1",
+        "seed_cloze_cloze_c2_0203_v1",
+        "seed_cloze_cloze_c2_0204_v1",
+        "seed_cloze_cloze_c2_0205_v1",
+        "seed_cloze_cloze_c2_0206_v1",
+        "seed_cloze_cloze_c2_0207_v1",
+        "seed_cloze_cloze_c2_0208_v1",
+        "seed_satz_satz_c2_0199_v1",
+        "seed_satz_satz_c2_0200_v1",
+        "seed_satz_satz_c2_0201_v1",
+        "seed_satz_satz_c2_0202_v1",
+        "seed_satz_satz_c2_0203_v1",
+        "seed_satz_satz_c2_0204_v1",
+        "seed_satz_satz_c2_0205_v1",
+        "seed_satz_satz_c2_0206_v1",
+        "seed_satz_satz_c2_0207_v1",
+        "seed_satz_satz_c2_0208_v1",
+        "seed_satz_satz_c2_0209_v1",
+        "seed_satz_satz_c2_0210_v1"
       ],
       "contentReferences": [
         {
@@ -9666,6 +10254,118 @@
         {
           "kind": "scenario",
           "id": "c2_dating_romance_frames"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_relationship_narratives_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_as_if_framing"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0029"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0030"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0197"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0198"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0199"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0200"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0201"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0202"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0203"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0204"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0205"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0206"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0207"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0208"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0199"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0200"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0201"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0202"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0203"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0204"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0205"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0206"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0207"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0208"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0209"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0210"
         }
       ]
     },
@@ -9837,11 +10537,39 @@
     {
       "id": "cluster_c2_discourse_boundary_power_v1",
       "level": "c2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
-        "seed_scenario_c2_kpop_fandom_language_v1"
+        "seed_scenario_c2_kpop_fandom_language_v1",
+        "seed_vocab_pack_c2_fandom_discourse_1_v1",
+        "seed_grammar_grammar_c2_no_matter_how_v1",
+        "seed_smalltalk_smalltalk_c2_0031_v1",
+        "seed_smalltalk_smalltalk_c2_0032_v1",
+        "seed_cloze_cloze_c2_0209_v1",
+        "seed_cloze_cloze_c2_0210_v1",
+        "seed_cloze_cloze_c2_0211_v1",
+        "seed_cloze_cloze_c2_0212_v1",
+        "seed_cloze_cloze_c2_0213_v1",
+        "seed_cloze_cloze_c2_0214_v1",
+        "seed_cloze_cloze_c2_0215_v1",
+        "seed_cloze_cloze_c2_0216_v1",
+        "seed_cloze_cloze_c2_0217_v1",
+        "seed_cloze_cloze_c2_0218_v1",
+        "seed_cloze_cloze_c2_0219_v1",
+        "seed_cloze_cloze_c2_0220_v1",
+        "seed_satz_satz_c2_0211_v1",
+        "seed_satz_satz_c2_0212_v1",
+        "seed_satz_satz_c2_0213_v1",
+        "seed_satz_satz_c2_0214_v1",
+        "seed_satz_satz_c2_0215_v1",
+        "seed_satz_satz_c2_0216_v1",
+        "seed_satz_satz_c2_0217_v1",
+        "seed_satz_satz_c2_0218_v1",
+        "seed_satz_satz_c2_0219_v1",
+        "seed_satz_satz_c2_0220_v1",
+        "seed_satz_satz_c2_0221_v1",
+        "seed_satz_satz_c2_0222_v1"
       ],
       "contentReferences": [
         {
@@ -9911,13 +10639,125 @@
         {
           "kind": "scenario",
           "id": "c2_kpop_fandom_language"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_fandom_discourse_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_no_matter_how"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0031"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0032"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0209"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0210"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0211"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0212"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0213"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0214"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0215"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0216"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0217"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0218"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0219"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0220"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0211"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0212"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0213"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0214"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0215"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0216"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0217"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0218"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0219"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0220"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0221"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0222"
         }
       ]
     },
     {
       "id": "cluster_c2_technology_traceability_appeal_v1",
       "level": "c2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
@@ -10044,7 +10884,35 @@
         "seed_satz_satz_c2_0173_v1",
         "seed_satz_satz_c2_0174_v1",
         "seed_scenario_c2_daily_automation_redress_v1",
-        "seed_scenario_c2_gaming_auto_sanction_v1"
+        "seed_scenario_c2_gaming_auto_sanction_v1",
+        "seed_vocab_pack_c2_automation_redress_1_v1",
+        "seed_grammar_grammar_c2_no_more_than_doing_v1",
+        "seed_smalltalk_smalltalk_c2_0025_v1",
+        "seed_smalltalk_smalltalk_c2_0026_v1",
+        "seed_cloze_cloze_c2_0173_v1",
+        "seed_cloze_cloze_c2_0174_v1",
+        "seed_cloze_cloze_c2_0175_v1",
+        "seed_cloze_cloze_c2_0176_v1",
+        "seed_cloze_cloze_c2_0177_v1",
+        "seed_cloze_cloze_c2_0178_v1",
+        "seed_cloze_cloze_c2_0179_v1",
+        "seed_cloze_cloze_c2_0180_v1",
+        "seed_cloze_cloze_c2_0181_v1",
+        "seed_cloze_cloze_c2_0182_v1",
+        "seed_cloze_cloze_c2_0183_v1",
+        "seed_cloze_cloze_c2_0184_v1",
+        "seed_satz_satz_c2_0175_v1",
+        "seed_satz_satz_c2_0176_v1",
+        "seed_satz_satz_c2_0177_v1",
+        "seed_satz_satz_c2_0178_v1",
+        "seed_satz_satz_c2_0179_v1",
+        "seed_satz_satz_c2_0180_v1",
+        "seed_satz_satz_c2_0181_v1",
+        "seed_satz_satz_c2_0182_v1",
+        "seed_satz_satz_c2_0183_v1",
+        "seed_satz_satz_c2_0184_v1",
+        "seed_satz_satz_c2_0185_v1",
+        "seed_satz_satz_c2_0186_v1"
       ],
       "contentReferences": [
         {
@@ -10614,17 +11482,157 @@
         {
           "kind": "scenario",
           "id": "c2_gaming_auto_sanction"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_automation_redress_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_no_more_than_doing"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0025"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0026"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0173"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0174"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0175"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0176"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0177"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0178"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0179"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0180"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0181"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0182"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0183"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0184"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0175"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0176"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0177"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0178"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0179"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0180"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0181"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0182"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0183"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0184"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0185"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0186"
         }
       ]
     },
     {
       "id": "cluster_c2_technology_responsibility_rights_v1",
       "level": "c2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
-        "seed_scenario_c2_youtube_algorithm_duty_v1"
+        "seed_scenario_c2_youtube_algorithm_duty_v1",
+        "seed_vocab_pack_c2_sanction_accountability_1_v1",
+        "seed_grammar_grammar_c2_merely_on_grounds_v1",
+        "seed_smalltalk_smalltalk_c2_0027_v1",
+        "seed_smalltalk_smalltalk_c2_0028_v1",
+        "seed_cloze_cloze_c2_0185_v1",
+        "seed_cloze_cloze_c2_0186_v1",
+        "seed_cloze_cloze_c2_0187_v1",
+        "seed_cloze_cloze_c2_0188_v1",
+        "seed_cloze_cloze_c2_0189_v1",
+        "seed_cloze_cloze_c2_0190_v1",
+        "seed_cloze_cloze_c2_0191_v1",
+        "seed_cloze_cloze_c2_0192_v1",
+        "seed_cloze_cloze_c2_0193_v1",
+        "seed_cloze_cloze_c2_0194_v1",
+        "seed_cloze_cloze_c2_0195_v1",
+        "seed_cloze_cloze_c2_0196_v1",
+        "seed_satz_satz_c2_0187_v1",
+        "seed_satz_satz_c2_0188_v1",
+        "seed_satz_satz_c2_0189_v1",
+        "seed_satz_satz_c2_0190_v1",
+        "seed_satz_satz_c2_0191_v1",
+        "seed_satz_satz_c2_0192_v1",
+        "seed_satz_satz_c2_0193_v1",
+        "seed_satz_satz_c2_0194_v1",
+        "seed_satz_satz_c2_0195_v1",
+        "seed_satz_satz_c2_0196_v1",
+        "seed_satz_satz_c2_0197_v1",
+        "seed_satz_satz_c2_0198_v1"
       ],
       "contentReferences": [
         {
@@ -10702,6 +11710,118 @@
         {
           "kind": "scenario",
           "id": "c2_youtube_algorithm_duty"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_sanction_accountability_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_merely_on_grounds"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0027"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0028"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0185"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0186"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0187"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0188"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0189"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0190"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0191"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0192"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0193"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0194"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0195"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0196"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0187"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0188"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0189"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0190"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0191"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0192"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0193"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0194"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0195"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0196"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0197"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0198"
         }
       ]
     }

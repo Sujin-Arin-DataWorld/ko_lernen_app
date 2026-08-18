@@ -35,7 +35,8 @@ class LoaderCoverageAuditTest(unittest.TestCase):
             report["libraryLoader"]["smalltalkCategoryCoverage"]["c1"][
                 "emptyCategoryCount"
             ],
-            18,
+            # Batch 12 가 c1 의 screen·hobby·kpop·dating 4개를 채웠다 (18 → 14).
+            14,
         )
         other = report["libraryLoader"]["otherGames"]
         self.assertEqual(other["silben"]["exactPerLevel"]["c1"], 0)

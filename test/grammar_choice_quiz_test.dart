@@ -31,7 +31,7 @@ void main() {
       final byId = {for (final item in grammar) item.id: item};
       final disabled = grammar.where((item) => !item.quizEnabled).toList();
 
-      expect(grammar, hasLength(206));
+      expect(grammar, hasLength(214));
       expect(
         disabled.map((item) => item.id),
         unorderedEquals(_disabledIrregularIds),

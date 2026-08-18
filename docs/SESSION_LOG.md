@@ -81,6 +81,38 @@ grep 으로 확정, 테스트 파일은 안 건드림). 감사 목록에 끼워 
 실패 목록을 diff 해 **내가 새로 깬 것 0건**, 기존 실패 1건(`setUpClass`) 해소를 확인했다 — 남은
 21건은 전부 main 에도 있는 것이고 이 작업 범위 밖이다. `validate_content.py` OK.
 
+**⑩ Batch 12 승격 완료 — 312레코드, 관문 6개를 차례로 뚫었다.** 매니페스트가 통합기와 다른
+스키마로 쓰여 있던 게 근본이다: ⓐ `grammarIntents` 키가 `id` 가 아니라 `grammarId`,
+ⓑ 커리큘럼 확장 키가 `curriculumExtensions` 가 아니라 `curriculumAdditions`,
+ⓒ `checkpointContentIds` 가 `kind:id` 가 아니라 맨 id, ⓓ 그 kind 는 grammar/smalltalk 만
+허용되는데 scenario 를 가리켰다(이 도구는 시나리오 아티팩트를 다루지 않아 검증할 수단이
+없다 — live 의 C1/C2 유닛도 전부 grammar:/smalltalk: 다). 각 유닛이 자기 문법을 정확히 하나
+갖고 있어 그것으로 바꿨다. ⓔ `relationshipContext` 4건이 열거에 없는 `friend`
+(→ `close_friend`, live dating 8건의 관행). ⓕ **오버레이 감사 그래프 갱신기가 스키마에 없는
+`a1CourseUnits` 류 스칼라 키를 쓰고 정작 검사 대상 `courseUnitsByLevel` 은 stale 로 남겼다** —
+유닛을 새로 만드는 배치에서만 터지므로 C1/C2(첫 그런 트랙)까지 드러나지 않았다.
+결과: 코스 유닛 40 → **48** (C1·C2 각 2 → 6), vocab 2196 → 2292, smalltalk 377 → 393,
+cloze 1538 → 1634, satz 2091 → 2187, grammar 206 → 214.
+
+**⑪ `c2:daily` 소유권 — live 를 지키고 새 유닛엔 제 카테고리를 줬다.** 카테고리당 유닛은
+하나인데 Batch 12 가 `c2:daily` 를 `c2_02_technology_public_ethics` 에서 뺏으려 했다. live 의
+그 버킷 8건을 읽어 보니 자동 심사 이의(0014·0017·0018)와 더 넓은 기술윤리(0002·0007·0009·
+0016·0024)가 섞여 있어, 통째로 옮기면 뒤 5건이 좁은 유닛으로 잘못 간다. 그래서 소유는
+그대로 두고 — 다만 그러면 `c2_03` 이 스몰토크 없이 남아 "모든 C1/C2 유닛은 모든 고급 활동을
+갖는다"(`course_graph_test`)를 어긴다 — 그 2건을 **`c2:phone`** 으로 옮겼다. B2 의 phone 이
+이미 "상위 부서 공식 문의·서면 답변" 계열이라 자동 처리 불복이 그 계보에 정확히 얹힌다.
+
+**⑫ Batch 12 의 concept 8개에 `kind`·`explanation` 이 없었다.** 나머지 49개는 전부 갖고 있어
+`conceptKinds` 를 만드는 A1 센서가 널 캐스트로 죽었다. 형제 concept 관행대로 speechStyle/
+situation 을 주고 설명을 집필했다(초안 슬라이스가 정본, live 는 거기서 옮김). 처음 쓴 독일어
+설명에 em dash 를 넣었다가 `arb_l10n_guard` 에 걸려 마침표로 다시 썼다 — 학습자 대상 DE/EN
+에서 금지된 부호다.
+
+**⑬ 진행 테스트를 순서 하드코딩에서 순회로 바꿨다.** `advanced_checkpoint_mastery_test` 가
+C1/C2 4단계를 이름으로 박아 두어 유닛이 늘 때마다 의미 없이 깨졌다. 카탈로그를 (레벨, order)
+로 정렬해 걸어가며 "선언된 체크포인트가 다음 미션을 연다"만 지키게 했다 — 제목이 말하는
+every 에 실제로 맞고 다음 확장에도 안 깨진다. (적재 순서 ≠ 진행 순서라는 것도 여기서 드러났다.)
+
 **⑨ Batch 12 는 관문이 하나 더 있었다** (`4681ad1e`). Batch 11 이 풀리자 드라이런이 다음
 결함을 드러냈다: 매니페스트의 `grammarIntents` 가 `id` 대신 `grammarId` 키를 써서
 `integrate_review_batches`(§411-420)가 "malformed grammar intent" 로 즉사한다. 생성기

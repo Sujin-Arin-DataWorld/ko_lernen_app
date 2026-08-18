@@ -203,7 +203,7 @@ class ContentValidatorTest(unittest.TestCase):
 
         self.assertTrue(
             any(
-                "graph courseUnits is 36, actual is 40" in message
+                "graph courseUnits is 36, actual is 48" in message
                 for message in self._messages(validator)
             ),
         )
@@ -220,7 +220,8 @@ class ContentValidatorTest(unittest.TestCase):
         self.assertTrue(
             any(
                 "graph courseUnitsByLevel" in message
-                and "'c2': 2" in message
+                # Batch 12 로 c2 코스 유닛이 2 → 6 이 됐다.
+                and "'c2': 6" in message
                 for message in self._messages(validator)
             ),
         )

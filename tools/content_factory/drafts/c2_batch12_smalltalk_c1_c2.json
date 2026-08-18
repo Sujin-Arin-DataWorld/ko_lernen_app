@@ -279,7 +279,7 @@
     "de": "Nur meine Version wurde mehrfach geglättet.",
     "en": "Only my version got smoothed over several times."
    },
-   "relationshipContext": "friend",
+   "relationshipContext": "close_friend",
    "safeAlternativeQuestions": [
     {
      "turnKind": "question",
@@ -303,7 +303,7 @@
    "ko": "지나고 나면 좋았던 장면만 남아서 판단이 흐려져요.",
    "de": "Im Rückblick bleiben nur die schönen Szenen, und das trübt das Urteil.",
    "en": "Looking back, only the good scenes remain and that clouds the judgement.",
-   "relationshipContext": "friend",
+   "relationshipContext": "close_friend",
    "safeAlternativeQuestions": [
     {
      "turnKind": "question",
@@ -332,7 +332,7 @@
     "de": "Es kam nur die Eingangsbestätigung, danach nichts.",
     "en": "Only an acknowledgement came, nothing after that."
    },
-   "relationshipContext": "friend",
+   "relationshipContext": "close_friend",
    "safeAlternativeQuestions": [
     {
      "turnKind": "question",
@@ -356,7 +356,7 @@
    "ko": "처음 만날 때는 장소를 제가 정하는 편이 마음이 편해요.",
    "de": "Beim ersten Treffen ist es mir lieber, den Ort selbst zu wählen.",
    "en": "For a first meeting I'd rather pick the place myself.",
-   "relationshipContext": "friend",
+   "relationshipContext": "close_friend",
    "safeAlternativeQuestions": [
     {
      "turnKind": "question",

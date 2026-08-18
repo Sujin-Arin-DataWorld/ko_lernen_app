@@ -1,910 +1,916 @@
 {
- "version": 1,
- "batch": "12",
- "status": "review_only_draft",
- "provenance": {
-  "scope": "Original C1/C2 discourse vocabulary for eight new course units, with grammar, Cloze, Satzbau and smalltalk authored alongside.",
-  "rights": "original",
-  "date": "2026-08-17",
-  "requiresJinReview": true,
-  "slices": "4 of 4 (two new course units per slice)",
-  "originalPlan": "docs/superpowers/specs/2026-08-17-batch12-c1-c2-unit-extension-design.md",
-  "blockedBy": "PR #62 must merge first: the new units use Batch 11 scenarios as checkpointContentIds."
- },
- "predecessorManifests": [],
- "curriculumAdditions": {
-  "courseUnits": [
-   {
-    "id": "c1_03_media_evidence_literacy",
-    "level": "c1",
-    "order": 3,
-    "title": {
-     "ko": "대중 매체의 근거 읽기",
-     "de": "Evidenz in populären Medien lesen",
-     "en": "Reading evidence in popular media"
+  "version": 1,
+  "batch": "12",
+  "status": "merged",
+  "provenance": {
+    "scope": "Original C1/C2 discourse vocabulary for eight new course units, with grammar, Cloze, Satzbau and smalltalk authored alongside.",
+    "rights": "original",
+    "date": "2026-08-17",
+    "requiresJinReview": true,
+    "slices": "4 of 4 (two new course units per slice)",
+    "originalPlan": "docs/superpowers/specs/2026-08-17-batch12-c1-c2-unit-extension-design.md",
+    "blockedBy": "PR #62 must merge first: the new units use Batch 11 scenarios as checkpointContentIds.",
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-15",
+      "scope": "all records promoted to bundled app content"
     },
-    "canDo": {
-     "ko": "널리 퍼진 주장의 표본과 방법을 확인해 그 근거가 어디까지 말할 수 있는지 한정할 수 있어요.",
-     "de": "Ich kann Stichprobe und Methode einer verbreiteten Behauptung prüfen und eingrenzen, was die Evidenz trägt.",
-     "en": "I can check the sample and method behind a widespread claim and bound what its evidence supports."
-    },
-    "requiredConceptIds": [
-     "concept_c1_media_evidence"
+    "mergedAt": "2026-08-15"
+  },
+  "predecessorManifests": [],
+  "curriculumExtensions": {
+    "courseUnits": [
+      {
+        "id": "c1_03_media_evidence_literacy",
+        "level": "c1",
+        "order": 3,
+        "title": {
+          "ko": "대중 매체의 근거 읽기",
+          "de": "Evidenz in populären Medien lesen",
+          "en": "Reading evidence in popular media"
+        },
+        "canDo": {
+          "ko": "널리 퍼진 주장의 표본과 방법을 확인해 그 근거가 어디까지 말할 수 있는지 한정할 수 있어요.",
+          "de": "Ich kann Stichprobe und Methode einer verbreiteten Behauptung prüfen und eingrenzen, was die Evidenz trägt.",
+          "en": "I can check the sample and method behind a widespread claim and bound what its evidence supports."
+        },
+        "requiredConceptIds": [
+          "concept_c1_media_evidence"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c1_limited_to"
+        ]
+      },
+      {
+        "id": "c2_03_automation_redress",
+        "level": "c2",
+        "order": 3,
+        "title": {
+          "ko": "자동 처리와 구제 절차",
+          "de": "Automatische Bearbeitung und Rechtsweg",
+          "en": "Automated processing and redress"
+        },
+        "canDo": {
+          "ko": "자동 처리로 생긴 손해의 구제 경로가 형식에 그치지 않도록 조건과 기한을 요구할 수 있어요.",
+          "de": "Ich kann Bedingungen und Fristen fordern, damit der Rechtsweg bei Schäden aus automatischer Bearbeitung nicht formal bleibt.",
+          "en": "I can demand conditions and deadlines so that redress for automated errors is more than a formality."
+        },
+        "requiredConceptIds": [
+          "concept_c2_automation_redress"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c2_no_more_than_doing"
+        ]
+      },
+      {
+        "id": "c1_04_play_time_policy",
+        "level": "c1",
+        "order": 4,
+        "title": {
+          "ko": "이용시간 규제안 검토",
+          "de": "Regulierungsvorschläge zur Spielzeit prüfen",
+          "en": "Reviewing play-time regulation"
+        },
+        "canDo": {
+          "ko": "이용시간 자료를 근거로 규제안의 효과와 부작용을 함께 놓고 검토할 수 있어요.",
+          "de": "Ich kann anhand von Spielzeitdaten Wirkung und Nebenwirkungen eines Regulierungsvorschlags nebeneinander prüfen.",
+          "en": "I can weigh a play-time rule's effect and its side effects together, using the usage data as grounds."
+        },
+        "requiredConceptIds": [
+          "concept_c1_play_time_policy"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c1_not_necessarily"
+        ]
+      },
+      {
+        "id": "c2_04_sanction_accountability",
+        "level": "c2",
+        "order": 4,
+        "title": {
+          "ko": "자동 제재와 책임",
+          "de": "Automatische Sanktionen und Rechenschaft",
+          "en": "Automated sanctions and accountability"
+        },
+        "canDo": {
+          "ko": "자동 제재가 딛고 선 전제를 드러내고 이의 절차가 갖춰야 할 조건을 규정할 수 있어요.",
+          "de": "Ich kann die Prämissen automatischer Sanktionen offenlegen und festlegen, welche Bedingungen ein Einspruchsverfahren erfüllen muss.",
+          "en": "I can surface the premises an automated sanction rests on and set the conditions an appeal process has to meet."
+        },
+        "requiredConceptIds": [
+          "concept_c2_sanction_accountability"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c2_merely_on_grounds"
+        ]
+      },
+      {
+        "id": "c1_05_fan_labor_sustainability",
+        "level": "c1",
+        "order": 5,
+        "title": {
+          "ko": "팬 활동의 지속 가능한 범위",
+          "de": "Nachhaltiger Umfang von Fanarbeit",
+          "en": "A sustainable scope for fan work"
+        },
+        "canDo": {
+          "ko": "무보수로 이뤄지는 참여 노동의 양과 분담을 지속 가능한 범위로 설계할 수 있어요.",
+          "de": "Ich kann Umfang und Aufteilung unbezahlter Mitarbeit so gestalten, dass sie nachhaltig bleiben.",
+          "en": "I can design the amount and sharing of unpaid participatory work so that it stays sustainable."
+        },
+        "requiredConceptIds": [
+          "concept_c1_fan_labor"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c1_insufficient_for"
+        ]
+      },
+      {
+        "id": "c2_05_relationship_narratives",
+        "level": "c2",
+        "order": 5,
+        "title": {
+          "ko": "관계 서사와 관점",
+          "de": "Beziehungsnarrative und Perspektive",
+          "en": "Relationship narratives and perspective"
+        },
+        "canDo": {
+          "ko": "이야기의 짜임이 만들어 내는 관점 편향을 관계 자체와 분리해 분석할 수 있어요.",
+          "de": "Ich kann die Perspektivverzerrung, die eine Erzählweise erzeugt, von der Beziehung selbst trennen und analysieren.",
+          "en": "I can separate the perspective bias a narrative shape creates from the relationship itself and analyse it."
+        },
+        "requiredConceptIds": [
+          "concept_c2_relationship_narratives"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c2_as_if_framing"
+        ]
+      },
+      {
+        "id": "c1_06_intimacy_safety_design",
+        "level": "c1",
+        "order": 6,
+        "title": {
+          "ko": "만남의 안전 절차 설계",
+          "de": "Sicherheitsverfahren beim Kennenlernen gestalten",
+          "en": "Designing safety steps for meeting people"
+        },
+        "canDo": {
+          "ko": "안전과 표현의 자유 사이에서 신고와 차단 절차가 어디까지 가야 하는지 설계할 수 있어요.",
+          "de": "Ich kann zwischen Sicherheit und Meinungsfreiheit festlegen, wie weit Melde- und Sperrverfahren gehen sollen.",
+          "en": "I can set how far reporting and blocking steps should go between safety and freedom of expression."
+        },
+        "requiredConceptIds": [
+          "concept_c1_intimacy_safety"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c1_but_not"
+        ]
+      },
+      {
+        "id": "c2_06_fandom_discourse_power",
+        "level": "c2",
+        "order": 6,
+        "title": {
+          "ko": "팬덤 언어와 담론 권력",
+          "de": "Fandom-Sprache und Diskursmacht",
+          "en": "Fandom language and discursive power"
+        },
+        "canDo": {
+          "ko": "집단이 쓰는 말이 가진 담론 권력을 짚고 양보 구문으로 그 전제를 반박할 수 있어요.",
+          "de": "Ich kann die Diskursmacht kollektiver Sprache benennen und ihre Prämissen mit Konzessivkonstruktionen widerlegen.",
+          "en": "I can name the discursive power of a group's language and rebut its premises with concessive constructions."
+        },
+        "requiredConceptIds": [
+          "concept_c2_fandom_discourse"
+        ],
+        "checkpointContentIds": [
+          "grammar:grammar_c2_no_matter_how"
+        ]
+      }
     ],
-    "checkpointContentIds": [
-     "c1_youtube_health_claims"
+    "concepts": [
+      {
+        "id": "concept_c1_media_evidence",
+        "level": "c1",
+        "title": {
+          "ko": "근거의 범위 한정",
+          "de": "Reichweite der Evidenz eingrenzen",
+          "en": "Bounding the reach of evidence"
+        }
+      },
+      {
+        "id": "concept_c2_automation_redress",
+        "level": "c2",
+        "title": {
+          "ko": "자동 처리의 구제 조건",
+          "de": "Bedingungen des Rechtswegs bei Automatisierung",
+          "en": "Conditions for redress under automation"
+        }
+      },
+      {
+        "id": "concept_c1_play_time_policy",
+        "level": "c1",
+        "title": {
+          "ko": "효과와 부작용의 동시 검토",
+          "de": "Wirkung und Nebenwirkung zusammen prüfen",
+          "en": "Weighing effect and side effect together"
+        }
+      },
+      {
+        "id": "concept_c2_sanction_accountability",
+        "level": "c2",
+        "title": {
+          "ko": "제재의 전제와 이의 조건",
+          "de": "Prämissen der Sanktion und Bedingungen des Einspruchs",
+          "en": "Premises of a sanction and conditions for appeal"
+        }
+      },
+      {
+        "id": "concept_c1_fan_labor",
+        "level": "c1",
+        "title": {
+          "ko": "참여 노동의 지속 가능 범위",
+          "de": "Nachhaltiger Rahmen für Mitarbeit",
+          "en": "A sustainable frame for participatory work"
+        }
+      },
+      {
+        "id": "concept_c2_relationship_narratives",
+        "level": "c2",
+        "title": {
+          "ko": "서사와 관계의 분리",
+          "de": "Erzählung und Beziehung trennen",
+          "en": "Separating narrative from relationship"
+        }
+      },
+      {
+        "id": "concept_c1_intimacy_safety",
+        "level": "c1",
+        "title": {
+          "ko": "안전과 표현 사이의 절차",
+          "de": "Verfahren zwischen Sicherheit und Ausdruck",
+          "en": "Procedure between safety and expression"
+        }
+      },
+      {
+        "id": "concept_c2_fandom_discourse",
+        "level": "c2",
+        "title": {
+          "ko": "집단 언어의 담론 권력",
+          "de": "Diskursmacht kollektiver Sprache",
+          "en": "Discursive power of collective language"
+        }
+      }
     ]
-   },
-   {
-    "id": "c2_03_automation_redress",
-    "level": "c2",
-    "order": 3,
-    "title": {
-     "ko": "자동 처리와 구제 절차",
-     "de": "Automatische Bearbeitung und Rechtsweg",
-     "en": "Automated processing and redress"
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/c3_batch12_vocab_c1_c2.csv",
+      "review": "tools/content_factory/review/c3_batch12_vocab_c1_c2.csv",
+      "count": 96,
+      "levels": {
+        "c1": 48,
+        "c2": 48
+      }
     },
-    "canDo": {
-     "ko": "자동 처리로 생긴 손해의 구제 경로가 형식에 그치지 않도록 조건과 기한을 요구할 수 있어요.",
-     "de": "Ich kann Bedingungen und Fristen fordern, damit der Rechtsweg bei Schäden aus automatischer Bearbeitung nicht formal bleibt.",
-     "en": "I can demand conditions and deadlines so that redress for automated errors is more than a formality."
+    {
+      "kind": "grammar",
+      "draft": "tools/content_factory/drafts/c4_batch12_grammar_c1_c2.csv",
+      "review": "tools/content_factory/review/c4_batch12_grammar_c1_c2.csv",
+      "count": 8,
+      "levels": {
+        "c1": 4,
+        "c2": 4
+      }
     },
-    "requiredConceptIds": [
-     "concept_c2_automation_redress"
-    ],
-    "checkpointContentIds": [
-     "c2_daily_automation_redress"
-    ]
-   },
-   {
-    "id": "c1_04_play_time_policy",
-    "level": "c1",
-    "order": 4,
-    "title": {
-     "ko": "이용시간 규제안 검토",
-     "de": "Regulierungsvorschläge zur Spielzeit prüfen",
-     "en": "Reviewing play-time regulation"
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
+      "review": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
+      "count": 16,
+      "levels": {
+        "c1": 8,
+        "c2": 8
+      }
     },
-    "canDo": {
-     "ko": "이용시간 자료를 근거로 규제안의 효과와 부작용을 함께 놓고 검토할 수 있어요.",
-     "de": "Ich kann anhand von Spielzeitdaten Wirkung und Nebenwirkungen eines Regulierungsvorschlags nebeneinander prüfen.",
-     "en": "I can weigh a play-time rule's effect and its side effects together, using the usage data as grounds."
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/c2_batch12_cloze_c1_c2.json",
+      "review": "tools/content_factory/review/c2_batch12_cloze_c1_c2.csv",
+      "count": 96,
+      "levels": {
+        "c1": 48,
+        "c2": 48
+      }
     },
-    "requiredConceptIds": [
-     "concept_c1_play_time_policy"
-    ],
-    "checkpointContentIds": [
-     "c1_gaming_playtime_policy"
-    ]
-   },
-   {
-    "id": "c2_04_sanction_accountability",
-    "level": "c2",
-    "order": 4,
-    "title": {
-     "ko": "자동 제재와 책임",
-     "de": "Automatische Sanktionen und Rechenschaft",
-     "en": "Automated sanctions and accountability"
-    },
-    "canDo": {
-     "ko": "자동 제재가 딛고 선 전제를 드러내고 이의 절차가 갖춰야 할 조건을 규정할 수 있어요.",
-     "de": "Ich kann die Prämissen automatischer Sanktionen offenlegen und festlegen, welche Bedingungen ein Einspruchsverfahren erfüllen muss.",
-     "en": "I can surface the premises an automated sanction rests on and set the conditions an appeal process has to meet."
-    },
-    "requiredConceptIds": [
-     "concept_c2_sanction_accountability"
-    ],
-    "checkpointContentIds": [
-     "c2_gaming_auto_sanction"
-    ]
-   },
-   {
-    "id": "c1_05_fan_labor_sustainability",
-    "level": "c1",
-    "order": 5,
-    "title": {
-     "ko": "팬 활동의 지속 가능한 범위",
-     "de": "Nachhaltiger Umfang von Fanarbeit",
-     "en": "A sustainable scope for fan work"
-    },
-    "canDo": {
-     "ko": "무보수로 이뤄지는 참여 노동의 양과 분담을 지속 가능한 범위로 설계할 수 있어요.",
-     "de": "Ich kann Umfang und Aufteilung unbezahlter Mitarbeit so gestalten, dass sie nachhaltig bleiben.",
-     "en": "I can design the amount and sharing of unpaid participatory work so that it stays sustainable."
-    },
-    "requiredConceptIds": [
-     "concept_c1_fan_labor"
-    ],
-    "checkpointContentIds": [
-     "c1_kpop_fan_labor"
-    ]
-   },
-   {
-    "id": "c2_05_relationship_narratives",
-    "level": "c2",
-    "order": 5,
-    "title": {
-     "ko": "관계 서사와 관점",
-     "de": "Beziehungsnarrative und Perspektive",
-     "en": "Relationship narratives and perspective"
-    },
-    "canDo": {
-     "ko": "이야기의 짜임이 만들어 내는 관점 편향을 관계 자체와 분리해 분석할 수 있어요.",
-     "de": "Ich kann die Perspektivverzerrung, die eine Erzählweise erzeugt, von der Beziehung selbst trennen und analysieren.",
-     "en": "I can separate the perspective bias a narrative shape creates from the relationship itself and analyse it."
-    },
-    "requiredConceptIds": [
-     "concept_c2_relationship_narratives"
-    ],
-    "checkpointContentIds": [
-     "c2_dating_romance_frames"
-    ]
-   },
-   {
-    "id": "c1_06_intimacy_safety_design",
-    "level": "c1",
-    "order": 6,
-    "title": {
-     "ko": "만남의 안전 절차 설계",
-     "de": "Sicherheitsverfahren beim Kennenlernen gestalten",
-     "en": "Designing safety steps for meeting people"
-    },
-    "canDo": {
-     "ko": "안전과 표현의 자유 사이에서 신고와 차단 절차가 어디까지 가야 하는지 설계할 수 있어요.",
-     "de": "Ich kann zwischen Sicherheit und Meinungsfreiheit festlegen, wie weit Melde- und Sperrverfahren gehen sollen.",
-     "en": "I can set how far reporting and blocking steps should go between safety and freedom of expression."
-    },
-    "requiredConceptIds": [
-     "concept_c1_intimacy_safety"
-    ],
-    "checkpointContentIds": [
-     "c1_dating_app_safety"
-    ]
-   },
-   {
-    "id": "c2_06_fandom_discourse_power",
-    "level": "c2",
-    "order": 6,
-    "title": {
-     "ko": "팬덤 언어와 담론 권력",
-     "de": "Fandom-Sprache und Diskursmacht",
-     "en": "Fandom language and discursive power"
-    },
-    "canDo": {
-     "ko": "집단이 쓰는 말이 가진 담론 권력을 짚고 양보 구문으로 그 전제를 반박할 수 있어요.",
-     "de": "Ich kann die Diskursmacht kollektiver Sprache benennen und ihre Prämissen mit Konzessivkonstruktionen widerlegen.",
-     "en": "I can name the discursive power of a group's language and rebut its premises with concessive constructions."
-    },
-    "requiredConceptIds": [
-     "concept_c2_fandom_discourse"
-    ],
-    "checkpointContentIds": [
-     "c2_kpop_fandom_language"
-    ]
-   }
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/c2_batch12_satz_c1_c2.json",
+      "review": "tools/content_factory/review/c2_batch12_satz_c1_c2.csv",
+      "count": 96,
+      "levels": {
+        "c1": 48,
+        "c2": 48
+      }
+    }
   ],
-  "concepts": [
-   {
-    "id": "concept_c1_media_evidence",
-    "level": "c1",
-    "title": {
-     "ko": "근거의 범위 한정",
-     "de": "Reichweite der Evidenz eingrenzen",
-     "en": "Bounding the reach of evidence"
+  "recordCount": 312,
+  "grammarIntents": [
+    {
+      "id": "grammar_c1_limited_to",
+      "level": "c1",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    {
+      "id": "grammar_c2_no_more_than_doing",
+      "level": "c2",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
+    },
+    {
+      "id": "grammar_c1_not_necessarily",
+      "level": "c1",
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ]
+    },
+    {
+      "id": "grammar_c2_merely_on_grounds",
+      "level": "c2",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ]
+    },
+    {
+      "id": "grammar_c1_insufficient_for",
+      "level": "c1",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ]
+    },
+    {
+      "id": "grammar_c2_as_if_framing",
+      "level": "c2",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ]
+    },
+    {
+      "id": "grammar_c1_but_not",
+      "level": "c1",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ]
+    },
+    {
+      "id": "grammar_c2_no_matter_how",
+      "level": "c2",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ]
     }
-   },
-   {
-    "id": "concept_c2_automation_redress",
-    "level": "c2",
-    "title": {
-     "ko": "자동 처리의 구제 조건",
-     "de": "Bedingungen des Rechtswegs bei Automatisierung",
-     "en": "Conditions for redress under automation"
+  ],
+  "vocabPacks": [
+    {
+      "packId": "c1_media_evidence_1",
+      "level": "c1",
+      "orderInLevel": 15,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "미디어 속 근거",
+        "de": "Evidenz in den Medien",
+        "en": "Evidence in the media"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_03_media_evidence_literacy",
+        "conceptIds": [
+          "concept_c1_media_evidence"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "c1_play_time_policy_1",
+      "level": "c1",
+      "orderInLevel": 16,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "이용시간 규제",
+        "de": "Regulierung der Spielzeit",
+        "en": "Play-time regulation"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_04_play_time_policy",
+        "conceptIds": [
+          "concept_c1_play_time_policy"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "c1_fan_labor_1",
+      "level": "c1",
+      "orderInLevel": 17,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "팬 활동과 부담",
+        "de": "Fanarbeit und Belastung",
+        "en": "Fan work and load"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_05_fan_labor_sustainability",
+        "conceptIds": [
+          "concept_c1_fan_labor"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "c1_intimacy_safety_1",
+      "level": "c1",
+      "orderInLevel": 18,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "만남의 안전",
+        "de": "Sicherheit beim Kennenlernen",
+        "en": "Safety when meeting people"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_06_intimacy_safety_design",
+        "conceptIds": [
+          "concept_c1_intimacy_safety"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "c2_automation_redress_1",
+      "level": "c2",
+      "orderInLevel": 15,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "자동 처리와 구제",
+        "de": "Automatisierung und Rechtsweg",
+        "en": "Automation and redress"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_03_automation_redress",
+        "conceptIds": [
+          "concept_c2_automation_redress"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "c2_sanction_accountability_1",
+      "level": "c2",
+      "orderInLevel": 16,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "자동 제재와 책임",
+        "de": "Sanktion und Rechenschaft",
+        "en": "Sanctions and accountability"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_04_sanction_accountability",
+        "conceptIds": [
+          "concept_c2_sanction_accountability"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "c2_relationship_narratives_1",
+      "level": "c2",
+      "orderInLevel": 17,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "관계 서사와 관점",
+        "de": "Narrativ und Perspektive",
+        "en": "Narrative and perspective"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_05_relationship_narratives",
+        "conceptIds": [
+          "concept_c2_relationship_narratives"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
+    },
+    {
+      "packId": "c2_fandom_discourse_1",
+      "level": "c2",
+      "orderInLevel": 18,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "팬덤 언어와 권력",
+        "de": "Fandom-Sprache und Macht",
+        "en": "Fandom language and power"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_06_fandom_discourse_power",
+        "conceptIds": [
+          "concept_c2_fandom_discourse"
+        ]
+      },
+      "motif": "gwigap",
+      "motifEnum": "DancheongMotif.gwigap"
     }
-   },
-   {
-    "id": "concept_c1_play_time_policy",
-    "level": "c1",
-    "title": {
-     "ko": "효과와 부작용의 동시 검토",
-     "de": "Wirkung und Nebenwirkung zusammen prüfen",
-     "en": "Weighing effect and side effect together"
+  ],
+  "smalltalkCategoryMappings": [
+    {
+      "level": "c1",
+      "category": "screen",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "hobby",
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "kpop",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "dating",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "hobby",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "dating",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "kpop",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "daily",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
     }
-   },
-   {
-    "id": "concept_c2_sanction_accountability",
-    "level": "c2",
-    "title": {
-     "ko": "제재의 전제와 이의 조건",
-     "de": "Prämissen der Sanktion und Bedingungen des Einspruchs",
-     "en": "Premises of a sanction and conditions for appeal"
+  ],
+  "clozeTopicMappings": [
+    {
+      "level": "c1",
+      "topic": "Medien & Evidenz",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Regulierung & Nebenwirkung",
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Fanarbeit & Belastung",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Sicherheit & Grenzen",
+      "courseUnitId": "c1_06_intimacy_safety_design",
+      "conceptIds": [
+        "concept_c1_intimacy_safety"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Automatisierung & Rechtsweg",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Sanktion & Rechenschaft",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Narrativ & Perspektive",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Diskurs & Macht",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ]
     }
-   },
-   {
-    "id": "concept_c1_fan_labor",
-    "level": "c1",
-    "title": {
-     "ko": "참여 노동의 지속 가능 범위",
-     "de": "Nachhaltiger Rahmen für Mitarbeit",
-     "en": "A sustainable frame for participatory work"
+  ],
+  "satzDependencies": [
+    {
+      "level": "c1",
+      "vocabPackId": "c1_media_evidence_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_play_time_policy_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_fan_labor_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_intimacy_safety_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_automation_redress_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_sanction_accountability_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_relationship_narratives_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_fandom_discourse_1",
+      "count": 12
     }
-   },
-   {
-    "id": "concept_c2_relationship_narratives",
-    "level": "c2",
-    "title": {
-     "ko": "서사와 관계의 분리",
-     "de": "Erzählung und Beziehung trennen",
-     "en": "Separating narrative from relationship"
+  ],
+  "requiresCompleteSentenceDerivations": true,
+  "sentenceDerivationSets": [
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        169,
+        180
+      ],
+      "clozeIdRange": [
+        173,
+        184
+      ],
+      "satzIdRange": [
+        175,
+        186
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        181,
+        192
+      ],
+      "clozeIdRange": [
+        185,
+        196
+      ],
+      "satzIdRange": [
+        187,
+        198
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        193,
+        204
+      ],
+      "clozeIdRange": [
+        197,
+        208
+      ],
+      "satzIdRange": [
+        199,
+        210
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        205,
+        216
+      ],
+      "clozeIdRange": [
+        209,
+        220
+      ],
+      "satzIdRange": [
+        211,
+        222
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        169,
+        180
+      ],
+      "clozeIdRange": [
+        173,
+        184
+      ],
+      "satzIdRange": [
+        175,
+        186
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        181,
+        192
+      ],
+      "clozeIdRange": [
+        185,
+        196
+      ],
+      "satzIdRange": [
+        187,
+        198
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        193,
+        204
+      ],
+      "clozeIdRange": [
+        197,
+        208
+      ],
+      "satzIdRange": [
+        199,
+        210
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        205,
+        216
+      ],
+      "clozeIdRange": [
+        209,
+        220
+      ],
+      "satzIdRange": [
+        211,
+        222
+      ]
     }
-   },
-   {
-    "id": "concept_c1_intimacy_safety",
-    "level": "c1",
-    "title": {
-     "ko": "안전과 표현 사이의 절차",
-     "de": "Verfahren zwischen Sicherheit und Ausdruck",
-     "en": "Procedure between safety and expression"
-    }
-   },
-   {
-    "id": "concept_c2_fandom_discourse",
-    "level": "c2",
-    "title": {
-     "ko": "집단 언어의 담론 권력",
-     "de": "Diskursmacht kollektiver Sprache",
-     "en": "Discursive power of collective language"
-    }
-   }
+  ],
+  "mergeOrder": [
+    "course units and concepts with checkpointContentIds from Batch 11 scenarios",
+    "vocab with vocabPackUnitMap companion mapping",
+    "grammar with its course unit intents",
+    "smalltalk with category companion mapping",
+    "cloze with topic companion mapping",
+    "satz after same-level vocabulary exists"
+  ],
+  "nonMergeGuards": [
+    "Jin approval required before --apply",
+    "PR #62 (Batch 11 scenarios) must merge before the new units validate",
+    "no TTS synthesis or Firebase writes",
+    "core_2026_v1 segments, editions and rewards stay untouched",
+    "extension release tracks, segments and productive assessments follow in a later step"
   ]
- },
- "artifacts": [
-  {
-   "kind": "vocab",
-   "draft": "tools/content_factory/drafts/c3_batch12_vocab_c1_c2.csv",
-   "review": "tools/content_factory/review/c3_batch12_vocab_c1_c2.csv",
-   "count": 96,
-   "levels": {
-    "c1": 48,
-    "c2": 48
-   }
-  },
-  {
-   "kind": "grammar",
-   "draft": "tools/content_factory/drafts/c4_batch12_grammar_c1_c2.csv",
-   "review": "tools/content_factory/review/c4_batch12_grammar_c1_c2.csv",
-   "count": 8,
-   "levels": {
-    "c1": 4,
-    "c2": 4
-   }
-  },
-  {
-   "kind": "smalltalk",
-   "draft": "tools/content_factory/drafts/c2_batch12_smalltalk_c1_c2.json",
-   "review": "tools/content_factory/review/c2_batch12_smalltalk_c1_c2.csv",
-   "count": 16,
-   "levels": {
-    "c1": 8,
-    "c2": 8
-   }
-  },
-  {
-   "kind": "cloze",
-   "draft": "tools/content_factory/drafts/c2_batch12_cloze_c1_c2.json",
-   "review": "tools/content_factory/review/c2_batch12_cloze_c1_c2.csv",
-   "count": 96,
-   "levels": {
-    "c1": 48,
-    "c2": 48
-   }
-  },
-  {
-   "kind": "satz",
-   "draft": "tools/content_factory/drafts/c2_batch12_satz_c1_c2.json",
-   "review": "tools/content_factory/review/c2_batch12_satz_c1_c2.csv",
-   "count": 96,
-   "levels": {
-    "c1": 48,
-    "c2": 48
-   }
-  }
- ],
- "recordCount": 312,
- "grammarIntents": [
-  {
-   "id": "grammar_c1_limited_to",
-   "level": "c1",
-   "courseUnitId": "c1_03_media_evidence_literacy",
-   "conceptIds": [
-    "concept_c1_media_evidence"
-   ]
-  },
-  {
-   "id": "grammar_c2_no_more_than_doing",
-   "level": "c2",
-   "courseUnitId": "c2_03_automation_redress",
-   "conceptIds": [
-    "concept_c2_automation_redress"
-   ]
-  },
-  {
-   "id": "grammar_c1_not_necessarily",
-   "level": "c1",
-   "courseUnitId": "c1_04_play_time_policy",
-   "conceptIds": [
-    "concept_c1_play_time_policy"
-   ]
-  },
-  {
-   "id": "grammar_c2_merely_on_grounds",
-   "level": "c2",
-   "courseUnitId": "c2_04_sanction_accountability",
-   "conceptIds": [
-    "concept_c2_sanction_accountability"
-   ]
-  },
-  {
-   "id": "grammar_c1_insufficient_for",
-   "level": "c1",
-   "courseUnitId": "c1_05_fan_labor_sustainability",
-   "conceptIds": [
-    "concept_c1_fan_labor"
-   ]
-  },
-  {
-   "id": "grammar_c2_as_if_framing",
-   "level": "c2",
-   "courseUnitId": "c2_05_relationship_narratives",
-   "conceptIds": [
-    "concept_c2_relationship_narratives"
-   ]
-  },
-  {
-   "id": "grammar_c1_but_not",
-   "level": "c1",
-   "courseUnitId": "c1_06_intimacy_safety_design",
-   "conceptIds": [
-    "concept_c1_intimacy_safety"
-   ]
-  },
-  {
-   "id": "grammar_c2_no_matter_how",
-   "level": "c2",
-   "courseUnitId": "c2_06_fandom_discourse_power",
-   "conceptIds": [
-    "concept_c2_fandom_discourse"
-   ]
-  }
- ],
- "vocabPacks": [
-  {
-   "packId": "c1_media_evidence_1",
-   "level": "c1",
-   "orderInLevel": 15,
-   "orderRange": [
-    1,
-    12
-   ],
-   "reviewBossOrders": [
-    10,
-    11,
-    12
-   ],
-   "displayLabel": {
-    "ko": "미디어 속 근거",
-    "de": "Evidenz in den Medien",
-    "en": "Evidence in the media"
-   },
-   "curriculum": {
-    "courseUnitId": "c1_03_media_evidence_literacy",
-    "conceptIds": [
-     "concept_c1_media_evidence"
-    ]
-   },
-   "motif": "gwigap",
-   "motifEnum": "DancheongMotif.gwigap"
-  },
-  {
-   "packId": "c1_play_time_policy_1",
-   "level": "c1",
-   "orderInLevel": 16,
-   "orderRange": [
-    1,
-    12
-   ],
-   "reviewBossOrders": [
-    10,
-    11,
-    12
-   ],
-   "displayLabel": {
-    "ko": "이용시간 규제",
-    "de": "Regulierung der Spielzeit",
-    "en": "Play-time regulation"
-   },
-   "curriculum": {
-    "courseUnitId": "c1_04_play_time_policy",
-    "conceptIds": [
-     "concept_c1_play_time_policy"
-    ]
-   },
-   "motif": "gwigap",
-   "motifEnum": "DancheongMotif.gwigap"
-  },
-  {
-   "packId": "c1_fan_labor_1",
-   "level": "c1",
-   "orderInLevel": 17,
-   "orderRange": [
-    1,
-    12
-   ],
-   "reviewBossOrders": [
-    10,
-    11,
-    12
-   ],
-   "displayLabel": {
-    "ko": "팬 활동과 부담",
-    "de": "Fanarbeit und Belastung",
-    "en": "Fan work and load"
-   },
-   "curriculum": {
-    "courseUnitId": "c1_05_fan_labor_sustainability",
-    "conceptIds": [
-     "concept_c1_fan_labor"
-    ]
-   },
-   "motif": "gwigap",
-   "motifEnum": "DancheongMotif.gwigap"
-  },
-  {
-   "packId": "c1_intimacy_safety_1",
-   "level": "c1",
-   "orderInLevel": 18,
-   "orderRange": [
-    1,
-    12
-   ],
-   "reviewBossOrders": [
-    10,
-    11,
-    12
-   ],
-   "displayLabel": {
-    "ko": "만남의 안전",
-    "de": "Sicherheit beim Kennenlernen",
-    "en": "Safety when meeting people"
-   },
-   "curriculum": {
-    "courseUnitId": "c1_06_intimacy_safety_design",
-    "conceptIds": [
-     "concept_c1_intimacy_safety"
-    ]
-   },
-   "motif": "gwigap",
-   "motifEnum": "DancheongMotif.gwigap"
-  },
-  {
-   "packId": "c2_automation_redress_1",
-   "level": "c2",
-   "orderInLevel": 15,
-   "orderRange": [
-    1,
-    12
-   ],
-   "reviewBossOrders": [
-    10,
-    11,
-    12
-   ],
-   "displayLabel": {
-    "ko": "자동 처리와 구제",
-    "de": "Automatisierung und Rechtsweg",
-    "en": "Automation and redress"
-   },
-   "curriculum": {
-    "courseUnitId": "c2_03_automation_redress",
-    "conceptIds": [
-     "concept_c2_automation_redress"
-    ]
-   },
-   "motif": "gwigap",
-   "motifEnum": "DancheongMotif.gwigap"
-  },
-  {
-   "packId": "c2_sanction_accountability_1",
-   "level": "c2",
-   "orderInLevel": 16,
-   "orderRange": [
-    1,
-    12
-   ],
-   "reviewBossOrders": [
-    10,
-    11,
-    12
-   ],
-   "displayLabel": {
-    "ko": "자동 제재와 책임",
-    "de": "Sanktion und Rechenschaft",
-    "en": "Sanctions and accountability"
-   },
-   "curriculum": {
-    "courseUnitId": "c2_04_sanction_accountability",
-    "conceptIds": [
-     "concept_c2_sanction_accountability"
-    ]
-   },
-   "motif": "gwigap",
-   "motifEnum": "DancheongMotif.gwigap"
-  },
-  {
-   "packId": "c2_relationship_narratives_1",
-   "level": "c2",
-   "orderInLevel": 17,
-   "orderRange": [
-    1,
-    12
-   ],
-   "reviewBossOrders": [
-    10,
-    11,
-    12
-   ],
-   "displayLabel": {
-    "ko": "관계 서사와 관점",
-    "de": "Narrativ und Perspektive",
-    "en": "Narrative and perspective"
-   },
-   "curriculum": {
-    "courseUnitId": "c2_05_relationship_narratives",
-    "conceptIds": [
-     "concept_c2_relationship_narratives"
-    ]
-   },
-   "motif": "gwigap",
-   "motifEnum": "DancheongMotif.gwigap"
-  },
-  {
-   "packId": "c2_fandom_discourse_1",
-   "level": "c2",
-   "orderInLevel": 18,
-   "orderRange": [
-    1,
-    12
-   ],
-   "reviewBossOrders": [
-    10,
-    11,
-    12
-   ],
-   "displayLabel": {
-    "ko": "팬덤 언어와 권력",
-    "de": "Fandom-Sprache und Macht",
-    "en": "Fandom language and power"
-   },
-   "curriculum": {
-    "courseUnitId": "c2_06_fandom_discourse_power",
-    "conceptIds": [
-     "concept_c2_fandom_discourse"
-    ]
-   },
-   "motif": "gwigap",
-   "motifEnum": "DancheongMotif.gwigap"
-  }
- ],
- "smalltalkCategoryMappings": [
-  {
-   "level": "c1",
-   "category": "screen",
-   "courseUnitId": "c1_03_media_evidence_literacy",
-   "conceptIds": [
-    "concept_c1_media_evidence"
-   ]
-  },
-  {
-   "level": "c1",
-   "category": "hobby",
-   "courseUnitId": "c1_04_play_time_policy",
-   "conceptIds": [
-    "concept_c1_play_time_policy"
-   ]
-  },
-  {
-   "level": "c1",
-   "category": "kpop",
-   "courseUnitId": "c1_05_fan_labor_sustainability",
-   "conceptIds": [
-    "concept_c1_fan_labor"
-   ]
-  },
-  {
-   "level": "c1",
-   "category": "dating",
-   "courseUnitId": "c1_06_intimacy_safety_design",
-   "conceptIds": [
-    "concept_c1_intimacy_safety"
-   ]
-  },
-  {
-   "level": "c2",
-   "category": "daily",
-   "courseUnitId": "c2_03_automation_redress",
-   "conceptIds": [
-    "concept_c2_automation_redress"
-   ]
-  },
-  {
-   "level": "c2",
-   "category": "hobby",
-   "courseUnitId": "c2_04_sanction_accountability",
-   "conceptIds": [
-    "concept_c2_sanction_accountability"
-   ]
-  },
-  {
-   "level": "c2",
-   "category": "dating",
-   "courseUnitId": "c2_05_relationship_narratives",
-   "conceptIds": [
-    "concept_c2_relationship_narratives"
-   ]
-  },
-  {
-   "level": "c2",
-   "category": "kpop",
-   "courseUnitId": "c2_06_fandom_discourse_power",
-   "conceptIds": [
-    "concept_c2_fandom_discourse"
-   ]
-  }
- ],
- "clozeTopicMappings": [
-  {
-   "level": "c1",
-   "topic": "Medien & Evidenz",
-   "courseUnitId": "c1_03_media_evidence_literacy",
-   "conceptIds": [
-    "concept_c1_media_evidence"
-   ]
-  },
-  {
-   "level": "c1",
-   "topic": "Regulierung & Nebenwirkung",
-   "courseUnitId": "c1_04_play_time_policy",
-   "conceptIds": [
-    "concept_c1_play_time_policy"
-   ]
-  },
-  {
-   "level": "c1",
-   "topic": "Fanarbeit & Belastung",
-   "courseUnitId": "c1_05_fan_labor_sustainability",
-   "conceptIds": [
-    "concept_c1_fan_labor"
-   ]
-  },
-  {
-   "level": "c1",
-   "topic": "Sicherheit & Grenzen",
-   "courseUnitId": "c1_06_intimacy_safety_design",
-   "conceptIds": [
-    "concept_c1_intimacy_safety"
-   ]
-  },
-  {
-   "level": "c2",
-   "topic": "Automatisierung & Rechtsweg",
-   "courseUnitId": "c2_03_automation_redress",
-   "conceptIds": [
-    "concept_c2_automation_redress"
-   ]
-  },
-  {
-   "level": "c2",
-   "topic": "Sanktion & Rechenschaft",
-   "courseUnitId": "c2_04_sanction_accountability",
-   "conceptIds": [
-    "concept_c2_sanction_accountability"
-   ]
-  },
-  {
-   "level": "c2",
-   "topic": "Narrativ & Perspektive",
-   "courseUnitId": "c2_05_relationship_narratives",
-   "conceptIds": [
-    "concept_c2_relationship_narratives"
-   ]
-  },
-  {
-   "level": "c2",
-   "topic": "Diskurs & Macht",
-   "courseUnitId": "c2_06_fandom_discourse_power",
-   "conceptIds": [
-    "concept_c2_fandom_discourse"
-   ]
-  }
- ],
- "satzDependencies": [
-  {
-   "level": "c1",
-   "vocabPackId": "c1_media_evidence_1",
-   "count": 12
-  },
-  {
-   "level": "c1",
-   "vocabPackId": "c1_play_time_policy_1",
-   "count": 12
-  },
-  {
-   "level": "c1",
-   "vocabPackId": "c1_fan_labor_1",
-   "count": 12
-  },
-  {
-   "level": "c1",
-   "vocabPackId": "c1_intimacy_safety_1",
-   "count": 12
-  },
-  {
-   "level": "c2",
-   "vocabPackId": "c2_automation_redress_1",
-   "count": 12
-  },
-  {
-   "level": "c2",
-   "vocabPackId": "c2_sanction_accountability_1",
-   "count": 12
-  },
-  {
-   "level": "c2",
-   "vocabPackId": "c2_relationship_narratives_1",
-   "count": 12
-  },
-  {
-   "level": "c2",
-   "vocabPackId": "c2_fandom_discourse_1",
-   "count": 12
-  }
- ],
- "requiresCompleteSentenceDerivations": true,
- "sentenceDerivationSets": [
-  {
-   "level": "c1",
-   "vocabIdRange": [
-    169,
-    180
-   ],
-   "clozeIdRange": [
-    173,
-    184
-   ],
-   "satzIdRange": [
-    175,
-    186
-   ]
-  },
-  {
-   "level": "c1",
-   "vocabIdRange": [
-    181,
-    192
-   ],
-   "clozeIdRange": [
-    185,
-    196
-   ],
-   "satzIdRange": [
-    187,
-    198
-   ]
-  },
-  {
-   "level": "c1",
-   "vocabIdRange": [
-    193,
-    204
-   ],
-   "clozeIdRange": [
-    197,
-    208
-   ],
-   "satzIdRange": [
-    199,
-    210
-   ]
-  },
-  {
-   "level": "c1",
-   "vocabIdRange": [
-    205,
-    216
-   ],
-   "clozeIdRange": [
-    209,
-    220
-   ],
-   "satzIdRange": [
-    211,
-    222
-   ]
-  },
-  {
-   "level": "c2",
-   "vocabIdRange": [
-    169,
-    180
-   ],
-   "clozeIdRange": [
-    173,
-    184
-   ],
-   "satzIdRange": [
-    175,
-    186
-   ]
-  },
-  {
-   "level": "c2",
-   "vocabIdRange": [
-    181,
-    192
-   ],
-   "clozeIdRange": [
-    185,
-    196
-   ],
-   "satzIdRange": [
-    187,
-    198
-   ]
-  },
-  {
-   "level": "c2",
-   "vocabIdRange": [
-    193,
-    204
-   ],
-   "clozeIdRange": [
-    197,
-    208
-   ],
-   "satzIdRange": [
-    199,
-    210
-   ]
-  },
-  {
-   "level": "c2",
-   "vocabIdRange": [
-    205,
-    216
-   ],
-   "clozeIdRange": [
-    209,
-    220
-   ],
-   "satzIdRange": [
-    211,
-    222
-   ]
-  }
- ],
- "mergeOrder": [
-  "course units and concepts with checkpointContentIds from Batch 11 scenarios",
-  "vocab with vocabPackUnitMap companion mapping",
-  "grammar with its course unit intents",
-  "smalltalk with category companion mapping",
-  "cloze with topic companion mapping",
-  "satz after same-level vocabulary exists"
- ],
- "nonMergeGuards": [
-  "Jin approval required before --apply",
-  "PR #62 (Batch 11 scenarios) must merge before the new units validate",
-  "no TTS synthesis or Firebase writes",
-  "core_2026_v1 segments, editions and rewards stay untouched",
-  "extension release tracks, segments and productive assessments follow in a later step"
- ]
 }

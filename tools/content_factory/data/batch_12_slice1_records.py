@@ -27,7 +27,7 @@ UNITS: list[dict[str, Any]] = [
             "en": "I can check the sample and method behind a widespread claim and bound what its evidence supports.",
         },
         "requiredConceptIds": ["concept_c1_media_evidence"],
-        "checkpointContentIds": ["c1_youtube_health_claims"],
+        "checkpointContentIds": ["grammar:grammar_c1_limited_to"],
     },
     {
         "id": "c2_03_automation_redress",
@@ -44,7 +44,7 @@ UNITS: list[dict[str, Any]] = [
             "en": "I can demand conditions and deadlines so that redress for automated errors is more than a formality.",
         },
         "requiredConceptIds": ["concept_c2_automation_redress"],
-        "checkpointContentIds": ["c2_daily_automation_redress"],
+        "checkpointContentIds": ["grammar:grammar_c2_no_more_than_doing"],
     },
 ]
 
@@ -52,19 +52,31 @@ CONCEPTS: list[dict[str, Any]] = [
     {
         "id": "concept_c1_media_evidence",
         "level": "c1",
+        "kind": "speechStyle",
         "title": {
             "ko": "근거의 범위 한정",
             "de": "Reichweite der Evidenz eingrenzen",
             "en": "Bounding the reach of evidence",
         },
+        "explanation": {
+            "ko": "널리 퍼진 주장일수록 표본과 방법을 먼저 확인하고, 근거가 감당하는 범위까지만 말해요.",
+            "de": "Je verbreiteter eine Behauptung, desto wichtiger sind Stichprobe und Methode. Aussagen reichen nur so weit, wie die Evidenz trägt.",
+            "en": "The more widespread a claim, the more you check sample and method first, and say only as much as the evidence carries.",
+        },
     },
     {
         "id": "concept_c2_automation_redress",
         "level": "c2",
+        "kind": "situation",
         "title": {
             "ko": "자동 처리의 구제 조건",
             "de": "Bedingungen des Rechtswegs bei Automatisierung",
             "en": "Conditions for redress under automation",
+        },
+        "explanation": {
+            "ko": "자동 처리로 생긴 손해는 구제 창구가 있다는 말만으로 끝나지 않고, 조건과 기한을 물어야 실제로 열려요.",
+            "de": "Bei Schäden aus automatischer Bearbeitung reicht der Hinweis auf eine Stelle nicht. Erst Bedingungen und Fristen öffnen den Weg wirklich.",
+            "en": "For harm from automated processing, being told a desk exists is not enough. Conditions and deadlines are what actually open the way.",
         },
     },
 ]
@@ -424,7 +436,7 @@ SMALLTALK: list[dict[str, Any]] = [
     },
     {
         "id": "smalltalk_c2_0025",
-        "category": "daily",
+        "category": "phone",
         "level": "c2",
         "kind": "question",
         "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
@@ -453,7 +465,7 @@ SMALLTALK: list[dict[str, Any]] = [
     },
     {
         "id": "smalltalk_c2_0026",
-        "category": "daily",
+        "category": "phone",
         "level": "c2",
         "kind": "reaction",
         "ko": "창구가 있다고 해서 구제가 되는 건 아니더라고요.",
