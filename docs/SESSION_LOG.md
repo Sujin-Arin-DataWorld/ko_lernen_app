@@ -5,6 +5,26 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-18 (Cursor Grok 4.6, Cloud) — 한옥 자산 감사 인수인계를 스킬로 재실측
+
+**무엇을 왜.** Jin이 오더를 정정했다. 콘텐츠 UI 계획이 아니라, 다운받은
+스킬로 한옥 자산 감사 인수인계를 더 철저히 다시 쓰라는 요청이다.
+
+**남긴 것.** `.claude/handoffs/2026-08-18-235200-hanok-asset-skill-audit.md`.
+`session-handoff` CREATE + `verification-before-completion` + writing-guidelines
++ frontend-design(이미지 오픈) + `ui-ux-pro-max` color 검색(0건, persist 없음).
+234800 대비 새 사실: 릴리스 원장 파일은 있고 `publishedGrants`만 빈 리스트,
+책가도 bowl/brushpot/scroll은 F-A 통과·vase만 실패, A1 unused 16장은 런타임과
+sha256 동일, `origin/main`=`a00fc1d1`, 파이프라인 게이트 `3c788ff9`는 main 아님,
+`AGENTS.md` "아직 main 미병합" 정정.
+
+**하지 않은 것.** 픽셀 생성, 레시피 emit, #81 머지, #82 UI 구현.
+
+**검증.** F-A 강제 측정 8장, STYLE_LOCK `--all` 73/73, 원장 JSON 재합산,
+`validate_handoff.py`는 커밋 직전에 돌린다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-18 (Claude Sonnet 5, 웹사이트) — 직전 concurrency 수정으로도 안 됨: 진단 정정 + workflow_dispatch 자체 격리
 
 **직전 커밋(`c4271f7`)이 부족했다.** `release-website` 잡에만 전용 concurrency 그룹을 줬는데,
