@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
-"""레벨별 12칸 서재(책가도)의 칸 정의와 live 264개 배정.
+"""레벨별 15칸 서재(책가도)의 칸 정의와 live 300개 배정.
 
 정본은 docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md 의
 §4(축 설계)와 부록 A(전수 배정)다.  단 §4.2 관심 3칸은 2026-08-17 Jin 결정으로
-레벨별 기능 확장 3칸으로 교체됐다(docs/HANDOFF_HOEREN_GRID_2026-08-17.md §3.2).
+레벨별 기능 확장 3칸으로 **교체**됐다가(docs/HANDOFF_HOEREN_GRID_2026-08-17.md
+§3.2), 2026-08-18 Jin 재결정으로 **둘 다** 서게 됐다 — 교체가 아니라 병치다.
+그 결정의 근거는 아래 INTEREST_SLUGS 주석에 적었다.
 이 모듈은 그 표를 실행 가능한 형태로 옮긴 것이며, I/O 를 하지 않는다 —
-읽기는 scenario_store, 주입은 migrate_shelf_backdrop 이 한다.
+읽기는 scenario_store, 주입은 migrate_shelf_backdrop 과
+integrate_scenario_batch 가 한다.
 """
 
 from __future__ import annotations
@@ -40,9 +43,8 @@ FUNCTIONAL_SLUGS: dict[str, tuple[str, ...]] = {
     ),
 }
 
-# 기능 확장 3칸 — 레벨별 slug. 스펙 §4.2 의 관심 3칸(friends·dating·fandom)을
-# 2026-08-17 Jin 결정으로 교체했다(핸드오프 §3.2 (나)). 아트 명세 72장·DE 표시명이
-# 이 축 위에 있다. 관심축은 서재 밖 별도 진입으로 살리고 Batch 11 36편은 그때 편입한다.
+# 기능 확장 3칸 — 레벨별 slug (핸드오프 §3.2 (나), 2026-08-17).  아트 명세 72장·
+# DE 표시명이 이 축 위에 있다.
 EXPANSION_SLUGS: dict[str, tuple[str, ...]] = {
     "a1": ("numbers", "phone", "wayfinding"),
     "a2": ("delivery", "enrolment", "booking"),
@@ -52,16 +54,33 @@ EXPANSION_SLUGS: dict[str, tuple[str, ...]] = {
     "c2": ("limitation", "jurisdiction", "representation"),
 }
 
+# 관심 3칸 — 레벨 공용.  2026-08-17 에 이 축은 기능 확장에 자리를 내주고 폐기
+# 대기로 갔는데, 그 판단의 전제가 "서재는 12칸"이었다.  전제가 틀렸다:
+# ChaekgadoShelfCase 는 칸 수를 고정하지 않고 compartments 길이만큼 행을 늘리며
+# 듣기 화면이 그걸 세로 스크롤 안에 담는다.  12칸을 놓고 다툴 이유가 없어
+# 2026-08-18 Jin 재결정으로 15칸이 됐다("책가도를 밑으로 슬라이스 내려서 다른
+# 카테고리도 보게").  이 축이 Batch 11 36편의 착지점이고, 이미 번들에 있으나
+# 아무 데서도 참조되지 않던 SocialFriends/SocialDating/SocialFandom 3장이
+# 6레벨 공용으로 이 축을 덮는다 — 신규 아트 0장.
+#
+# Batch 11 의 6개 집필 축은 3칸으로 접힌다: gaming→friends(둘 다 또래 상호작용),
+# youtube→fandom(미디어 소비), daily→기능칸 분산(관심사가 아니라 생활 절차라
+# 이 축에 둘 이유가 없다).
+INTEREST_SLUGS: dict[str, tuple[str, ...]] = {
+    level: ("friends", "dating", "fandom") for level in LEVELS
+}
+
 SHELF_SLUGS: dict[str, tuple[str, ...]] = {
-    level: FUNCTIONAL_SLUGS[level] + EXPANSION_SLUGS[level] for level in LEVELS
+    level: FUNCTIONAL_SLUGS[level] + EXPANSION_SLUGS[level] + INTEREST_SLUGS[level]
+    for level in LEVELS
 }
 
 ALL_SHELVES: frozenset[str] = frozenset(
     f"{level}_{slug}" for level in LEVELS for slug in SHELF_SLUGS[level]
 )
 
-# 부록 A — live 264 전수 배정.  재고 0 인 26칸은 키가 없다: 칸의 **존재**는
-# ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
+# 부록 A — live 300 전수 배정 (264 + Batch 11 36편).  재고 0 인 23칸은 키가
+# 없다: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
 ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_transit": (
         "a1_bus_late", "a1_last_train", "a1_platform_line",
@@ -84,7 +103,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_home": (
         "a1_door_bell", "a1_floor_number", "a1_gate_code", "a1_hall_shoes",
         "a1_home_light", "a1_neighbor_box", "home_morning_routine",
-        "a1_trash_sort",
+        "a1_trash_sort", "a1_daily_recycling_day",
     ),
     "a1_greet": (
         "introduce_yourself", "first_class_meeting",
@@ -105,6 +124,15 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a1_partner_more_side_dishes", "a1_partner_wrong_seat",
         "a1_partner_new_year_money", "a1_partner_seollal_bow",
         "a1_partner_songpyeon_too_big",
+    ),
+    "a1_friends": (
+        "a1_friends_major_and_number", "a1_gaming_one_more_round",
+    ),
+    "a1_dating": (
+        "a1_dating_what_to_call_you",
+    ),
+    "a1_fandom": (
+        "a1_kpop_my_bias", "a1_youtube_shorts_last_night",
     ),
     "a2_move": (
         "a2_direction_bus", "a2_station_lost", "a2_seat_hold",
@@ -148,6 +176,18 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a2_partner_morning_greeting", "a2_partner_hanbok_rental",
         "a2_partner_holiday_train", "a2_partner_leftover_bags",
     ),
+    "a2_delivery": (
+        "a2_daily_late_delivery",
+    ),
+    "a2_friends": (
+        "a2_friends_weekend_slot", "a2_gaming_cant_connect",
+    ),
+    "a2_dating": (
+        "a2_dating_slow_replies",
+    ),
+    "a2_fandom": (
+        "a2_kpop_concert_queue", "a2_youtube_send_the_link",
+    ),
     "b1_repair": (
         "b1_leak_report", "b1_repair_photo", "b1_repair_visit_followup",
         "b1_heating_safety_call", "b1_move_in_handover",
@@ -160,7 +200,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "b1_bill": (
         "b1_bill_split", "b1_cafe_invoice", "b1_taxi_receipt",
-        "bank_account",
+        "bank_account", "b1_daily_cut_the_bills",
     ),
     "b1_delay": (
         "b1_connecting", "b1_pickup_delay", "b1_typhoon_change",
@@ -189,6 +229,15 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b1_partner_drink_table", "b1_partner_heavy_bags_home",
         "b1_partner_interpret_skip", "b1_partner_marriage_question",
         "b1_partner_overnight_door", "b1_partner_salary_deflect",
+    ),
+    "b1_friends": (
+        "b1_friends_he_said_that", "b1_gaming_team_voice",
+    ),
+    "b1_dating": (
+        "b1_dating_anniversary_gap",
+    ),
+    "b1_fandom": (
+        "b1_kpop_missing_goods", "b1_youtube_up_all_night",
     ),
     "b2_meeting": (
         "b2_agenda_swap", "b2_minutes_draft", "b2_quorum_wait",
@@ -232,6 +281,18 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_partner_photo_permission", "b2_partner_public_intro",
         "b2_partner_holiday_labor_chart",
     ),
+    "b2_authorities": (
+        "b2_daily_upstairs_noise",
+    ),
+    "b2_friends": (
+        "b2_friends_split_the_bill", "b2_gaming_ban_appeal",
+    ),
+    "b2_dating": (
+        "b2_dating_moving_in_terms",
+    ),
+    "b2_fandom": (
+        "b2_kpop_staff_interview", "b2_youtube_collab_pitch",
+    ),
     "c1_briefing": (
         "c1_briefing_number", "c1_leading_item", "c1_speaking_slot",
         "c1_question_window",
@@ -246,8 +307,27 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "c1_labor": (
         "c1_partner_invisible_labor", "c1_partner_guest_or_family",
     ),
+    # C1/C2 에서는 관심 소재가 담화 기능과 겹쳐 보인다 —
+    # c1_kpop_fan_labor 는 c1_labor 로, c1_gaming_playtime_policy 는
+    # c1_policy 로 가도 말이 된다.  그렇게 흩으면 관심 3칸이 상급 레벨에서만
+    # 비고, 학습자가 스크롤해 내려간 자리가 레벨마다 다른 뜻이 된다.
+    # **축은 전 레벨에서 같은 것을 뜻해야 한다** — 기능칸의 구멍은 신규 집필로
+    # 메우고, 관심 소재는 소재 축에 둔다.
+    "c1_methodology": (
+        "c1_daily_prices_vs_data",
+    ),
+    "c1_friends": (
+        "c1_friends_venue_access", "c1_gaming_playtime_policy",
+    ),
+    "c1_dating": (
+        "c1_dating_app_safety",
+    ),
+    "c1_fandom": (
+        "c1_kpop_fan_labor", "c1_youtube_health_claims",
+    ),
     "c2_automation": (
         "c2_appeal_bot", "c2_automated_decision_appeal",
+        "c2_daily_automation_redress",
     ),
     "c2_record": (
         "c2_archive_gap", "c2_trace_log",
@@ -263,6 +343,15 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c2_memory": (
         "c2_partner_document_the_place", "c2_partner_name_and_memory",
+    ),
+    "c2_friends": (
+        "c2_friends_quoted_privately", "c2_gaming_auto_sanction",
+    ),
+    "c2_dating": (
+        "c2_dating_romance_frames",
+    ),
+    "c2_fandom": (
+        "c2_kpop_fandom_language", "c2_youtube_algorithm_duty",
     ),
 }
 

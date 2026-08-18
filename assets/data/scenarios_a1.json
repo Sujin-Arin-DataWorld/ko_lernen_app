@@ -15868,6 +15868,1467 @@
       ],
       "shelf": "a1_body",
       "backdrop": "pharmacy"
+    },
+    {
+      "id": "a1_daily_recycling_day",
+      "level": "a1",
+      "emoji": "🗑️",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "neighbors",
+      "intent": "check_recycling_day",
+      "courseUnitId": "a1_09_home_daily_life",
+      "conceptIds": [
+        "concept_a1_home_daily"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "분리수거는 무슨 요일에",
+        "de": "An welchem Tag kommt der Müll raus",
+        "en": "Which day is recycling day"
+      },
+      "intro": {
+        "ko": "박스를 들고 나갔는데 수거장이 비어 있습니다. 옆집 사람에게 요일을 물어봅니다.",
+        "de": "Du stehst mit deinem Karton vor einer leeren Sammelstelle und fragst die Nachbarin.",
+        "en": "You carry a box down to an empty collection point and ask your neighbor."
+      },
+      "vocab": [
+        {
+          "korean": "분리수거"
+        },
+        {
+          "korean": "요일"
+        },
+        {
+          "korean": "박스"
+        },
+        {
+          "korean": "수요일"
+        },
+        {
+          "korean": "저녁"
+        },
+        {
+          "korean": "버리다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_direction_time_particle"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N에",
+          "de": "N에: Zeitangabe",
+          "en": "N에: time marker"
+        },
+        "explanation": {
+          "ko": "요일이나 시간 뒤에 에를 붙여 언제 하는 일인지 말한다. 수요일에, 저녁에처럼 쓴다.",
+          "de": "에 hängt an Wochentage und Uhrzeiten und sagt, wann etwas passiert: 수요일에, 저녁에.",
+          "en": "Attach 에 to a weekday or time to say when something happens: 수요일에, 저녁에."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "안녕하세요. 여기 박스 버려요?",
+          "de": "Hallo. Kommen die Kartons hier hin?",
+          "en": "Hi. Do the boxes go here?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 맞아요. 그런데 오늘은 아니에요.",
+          "de": "Ja, genau. Heute aber nicht.",
+          "en": "Yes, right here. Just not today."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 무슨 요일에 버려요?",
+          "de": "An welchem Tag denn?",
+          "en": "So which day do they go out?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "박스는 수요일에 나가요.",
+          "de": "Kartons kommen mittwochs raus.",
+          "en": "Boxes go out on Wednesdays."
+        },
+        {
+          "speaker": "user",
+          "ko": "몇 시에 놓으면 돼요?",
+          "de": "Um welche Zeit soll ich sie rausstellen?",
+          "en": "What time should I put them out?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "저녁에 놓으면 돼요.",
+          "de": "Abends hinstellen reicht.",
+          "en": "Putting them out in the evening is fine."
+        },
+        {
+          "speaker": "user",
+          "ko": "알았어요. 수요일 저녁에 올게요.",
+          "de": "Gut, dann komme ich Mittwochabend.",
+          "en": "Got it, I'll come Wednesday evening."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 그때 봐요.",
+          "de": "Bis dann.",
+          "en": "See you then."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_daily_recycling_day_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "audioKo": "박스는 수요일에 나가요.",
+            "options": [
+              {
+                "de": "Kartons kommen mittwochs raus.",
+                "en": "Boxes go out on Wednesdays."
+              },
+              {
+                "de": "Kartons kommen samstags raus.",
+                "en": "Boxes go out on Saturdays."
+              },
+              {
+                "de": "Kartons darf man nicht wegwerfen.",
+                "en": "Boxes may not be thrown away."
+              },
+              {
+                "de": "Die Sammelstelle ist geschlossen.",
+                "en": "The collection point is closed."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_daily_recycling_day_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "promptDe": "An welchem Tag denn?",
+            "promptEn": "So which day do they go out?",
+            "options": [
+              {
+                "ko": "그럼 무슨 요일에 버려요?"
+              },
+              {
+                "ko": "그럼 얼마예요?"
+              },
+              {
+                "ko": "여기가 어디예요?"
+              },
+              {
+                "ko": "이거 제 박스예요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_daily_recycling_day_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "sentence": "박스는 수요일___ 나가요.",
+            "options": [
+              "에",
+              "에서",
+              "도",
+              "만"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_daily_recycling_day_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "targetKo": "저녁에 놓으면 돼요.",
+            "promptDe": "Abends hinstellen reicht.",
+            "promptEn": "Putting them out in the evening is fine.",
+            "distractors": [
+              "아침에",
+              "박스를"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_daily_recycling_day_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "targetKo": "수요일 저녁에 올게요.",
+            "promptDe": "Ich komme Mittwochabend.",
+            "promptEn": "I'll come Wednesday evening."
+          }
+        },
+        {
+          "id": "quest_a1_daily_recycling_day_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_home_daily"
+          ],
+          "data": {
+            "prefix": "박스",
+            "suffix": " 수요일에 나가요.",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가"
+            ],
+            "correctIndex": 1,
+            "explanationDe": "박스 endet auf Vokal (ㅡ) → Topic-Partikel 는. Das Thema ist »die Kartons«, nicht der Tag.",
+            "explanationEn": "박스 ends in a vowel (ㅡ) → topic particle 는. The topic is the boxes, not the day."
+          }
+        }
+      ],
+      "shelf": "a1_home",
+      "backdrop": "home"
+    },
+    {
+      "id": "a1_friends_major_and_number",
+      "level": "a1",
+      "emoji": "📚",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "new_acquaintances",
+      "intent": "swap_contact_after_class",
+      "courseUnitId": "a1_15_first_class_work",
+      "conceptIds": [
+        "concept_a1_first_meeting"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "무슨 전공이에요",
+        "de": "Was studierst du",
+        "en": "What's your major"
+      },
+      "intro": {
+        "ko": "첫 수업이 끝났습니다. 옆자리에 앉았던 사람과 이야기를 시작합니다.",
+        "de": "Die erste Vorlesung ist vorbei. Du sprichst die Person an, die neben dir saß.",
+        "en": "The first class just ended. You start talking to the person who sat beside you."
+      },
+      "vocab": [
+        {
+          "korean": "이름"
+        },
+        {
+          "korean": "전공"
+        },
+        {
+          "korean": "수업"
+        },
+        {
+          "korean": "번호"
+        },
+        {
+          "korean": "컴퓨터"
+        },
+        {
+          "korean": "다음 주"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_which_question"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "무슨/어떤 N",
+          "de": "무슨/어떤 N: welche Art, welches davon",
+          "en": "무슨/어떤 N: what kind, which one"
+        },
+        "explanation": {
+          "ko": "무슨은 종류를 묻고 어떤은 여러 개 중에서 하나를 고르게 한다. 무슨 전공, 어떤 수업처럼 쓴다.",
+          "de": "무슨 fragt nach der Art, 어떤 lässt aus mehreren auswählen: 무슨 전공, 어떤 수업.",
+          "en": "무슨 asks what kind, 어떤 asks which one of several: 무슨 전공, 어떤 수업."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "저 옆에 앉았어요. 이름이 뭐예요?",
+          "de": "Ich saß neben dir. Wie heißt du?",
+          "en": "I was sitting next to you. What's your name?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "현우예요. 반가워요.",
+          "de": "Ich heiße Hyunwoo. Freut mich.",
+          "en": "I'm Hyunwoo. Nice to meet you."
+        },
+        {
+          "speaker": "user",
+          "ko": "저도 반가워요. 무슨 전공이에요?",
+          "de": "Freut mich auch. Was studierst du?",
+          "en": "Nice to meet you too. What's your major?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "저는 컴퓨터 전공이에요.",
+          "de": "Ich mache Informatik.",
+          "en": "I'm in computer science."
+        },
+        {
+          "speaker": "user",
+          "ko": "어떤 수업이 제일 좋아요?",
+          "de": "Welcher Kurs gefällt dir am besten?",
+          "en": "Which class do you like best?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "이 수업이 좋아요. 그런데 좀 어려워요.",
+          "de": "Dieser hier. Er ist aber etwas schwer.",
+          "en": "This one. It's a bit hard though."
+        },
+        {
+          "speaker": "user",
+          "ko": "저도 어려워요. 번호 좀 알려 주세요.",
+          "de": "Für mich auch. Sag mir mal deine Nummer.",
+          "en": "Same for me. Let me get your number."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 여기요. 다음 주에 봐요.",
+          "de": "Ja, hier. Bis nächste Woche.",
+          "en": "Sure, here. See you next week."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_friends_major_and_number_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "audioKo": "저는 컴퓨터 전공이에요.",
+            "options": [
+              {
+                "de": "Ich mache Informatik.",
+                "en": "I'm in computer science."
+              },
+              {
+                "de": "Ich arbeite am Computer.",
+                "en": "I work on a computer."
+              },
+              {
+                "de": "Mein Computer ist kaputt.",
+                "en": "My computer is broken."
+              },
+              {
+                "de": "Der Kurs fällt heute aus.",
+                "en": "The class is cancelled today."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_friends_major_and_number_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "promptDe": "Welcher Kurs gefällt dir am besten?",
+            "promptEn": "Which class do you like best?",
+            "options": [
+              {
+                "ko": "어떤 수업이 제일 좋아요?"
+              },
+              {
+                "ko": "이 수업은 몇 시예요?"
+              },
+              {
+                "ko": "수업이 어디에 있어요?"
+              },
+              {
+                "ko": "전공이 뭐예요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_friends_major_and_number_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "sentence": "___ 전공이에요?",
+            "options": [
+              "무슨",
+              "어디",
+              "얼마나",
+              "언제"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_friends_major_and_number_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "targetKo": "번호 좀 알려 주세요.",
+            "promptDe": "Sag mir mal deine Nummer.",
+            "promptEn": "Let me get your number.",
+            "distractors": [
+              "이름을",
+              "다음 주에"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_friends_major_and_number_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "targetKo": "다음 주에 봐요.",
+            "promptDe": "Bis nächste Woche.",
+            "promptEn": "See you next week."
+          }
+        },
+        {
+          "id": "quest_a1_friends_major_and_number_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_first_meeting"
+          ],
+          "data": {
+            "prefix": "이름",
+            "suffix": " 뭐예요?",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가"
+            ],
+            "correctIndex": 2,
+            "explanationDe": "이름 endet auf Konsonant ㅁ → Subjektpartikel 이 (nicht 가). 이름이 뭐예요? ist die Standardfrage.",
+            "explanationEn": "이름 ends in the consonant ㅁ → subject particle 이 (not 가). 이름이 뭐예요? is the standard question."
+          }
+        }
+      ],
+      "shelf": "a1_friends",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "a1_dating_what_to_call_you",
+      "level": "a1",
+      "emoji": "☕",
+      "register": "casual",
+      "speechStyle": "casual",
+      "relationshipContext": "close_friends",
+      "intent": "settle_on_a_name",
+      "courseUnitId": "a1_11_titles_relationships",
+      "conceptIds": [
+        "concept_a1_titles_relationships"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 125,
+      "title": {
+        "ko": "뭐라고 부를까",
+        "de": "Wie nennen wir uns",
+        "en": "What should we call each other"
+      },
+      "intro": {
+        "ko": "두 번째로 만난 날입니다. 서로를 뭐라고 부를지 정합니다.",
+        "de": "Ihr trefft euch zum zweiten Mal und klärt, wie ihr einander nennt.",
+        "en": "It's your second time meeting, and you settle on what to call each other."
+      },
+      "vocab": [
+        {
+          "korean": "이름"
+        },
+        {
+          "korean": "누나",
+          "note": {
+            "ko": "남자가 나이 많은 여자를 부르는 말.",
+            "de": "Anrede eines Mannes für eine ältere Frau.",
+            "en": "What a man calls an older woman."
+          }
+        },
+        {
+          "korean": "친구"
+        },
+        {
+          "korean": "커피"
+        },
+        {
+          "korean": "부르다"
+        },
+        {
+          "korean": "편하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_want"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-고 싶다",
+          "de": "V-고 싶다: etwas wollen",
+          "en": "V-고 싶다: want to do"
+        },
+        "explanation": {
+          "ko": "동사에 고 싶다를 붙여 내가 하고 싶은 일을 말한다. 부르고 싶어, 마시고 싶어처럼 쓴다.",
+          "de": "고 싶다 am Verb sagt, was ich möchte: 부르고 싶어, 마시고 싶어.",
+          "en": "Add 고 싶다 to a verb to say what you want: 부르고 싶어, 마시고 싶어."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "나 물어보고 싶은 게 있어.",
+          "de": "Ich will dich was fragen.",
+          "en": "There's something I want to ask you."
+        },
+        {
+          "speaker": "user",
+          "ko": "뭔데?",
+          "de": "Was denn?",
+          "en": "What is it?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "나를 뭐라고 부르고 싶어?",
+          "de": "Wie willst du mich nennen?",
+          "en": "What do you want to call me?"
+        },
+        {
+          "speaker": "user",
+          "ko": "음, 이름으로 부르고 싶어.",
+          "de": "Hm, ich will deinen Namen sagen.",
+          "en": "Hmm, I want to use your name."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "좋아. 나도 이름이 편해.",
+          "de": "Gut. Mir ist der Name auch lieber.",
+          "en": "Good. I prefer my name too."
+        },
+        {
+          "speaker": "user",
+          "ko": "근데 친구들은 너를 누나라고 해.",
+          "de": "Deine Freunde sagen aber Nuna.",
+          "en": "But your friends call you nuna."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "응, 친구들만 그래. 너는 이름으로 해.",
+          "de": "Ja, nur die Freunde. Du sagst meinen Namen.",
+          "en": "Yeah, only they do. You use my name."
+        },
+        {
+          "speaker": "user",
+          "ko": "알았어. 지은아, 커피 마시고 싶어.",
+          "de": "Okay. Jieun, ich will einen Kaffee.",
+          "en": "Got it. Jieun, I want a coffee."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_dating_what_to_call_you_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "audioKo": "나를 뭐라고 부르고 싶어?",
+            "options": [
+              {
+                "de": "Wie willst du mich nennen?",
+                "en": "What do you want to call me?"
+              },
+              {
+                "de": "Wen hast du gerade angerufen?",
+                "en": "Who did you just call?"
+              },
+              {
+                "de": "Wie heißt dieser Ort?",
+                "en": "What is this place called?"
+              },
+              {
+                "de": "Willst du mich morgen treffen?",
+                "en": "Do you want to meet me tomorrow?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_dating_what_to_call_you_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "promptDe": "Hm, ich will deinen Namen sagen.",
+            "promptEn": "Hmm, I want to use your name.",
+            "options": [
+              {
+                "ko": "음, 이름으로 부르고 싶어."
+              },
+              {
+                "ko": "음, 이름이 안 좋아."
+              },
+              {
+                "ko": "음, 누나라고 해."
+              },
+              {
+                "ko": "음, 이름을 몰라."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_dating_what_to_call_you_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "sentence": "커피 마시___ 싶어.",
+            "options": [
+              "고",
+              "서",
+              "지만",
+              "면"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_dating_what_to_call_you_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "targetKo": "나도 이름이 편해.",
+            "promptDe": "Mir ist der Name auch lieber.",
+            "promptEn": "I prefer my name too.",
+            "distractors": [
+              "누나가",
+              "친구는"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_dating_what_to_call_you_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "targetKo": "친구들은 너를 누나라고 해.",
+            "promptDe": "Deine Freunde sagen Nuna zu dir.",
+            "promptEn": "Your friends call you nuna."
+          }
+        },
+        {
+          "id": "quest_a1_dating_what_to_call_you_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_titles_relationships"
+          ],
+          "data": {
+            "prefix": "이름",
+            "suffix": " 부르고 싶어.",
+            "options": [
+              "으로",
+              "로",
+              "에",
+              "에서"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "이름 endet auf Konsonant ㅁ → 으로 (nach Vokal wäre es 로). 으로 nennt das Mittel: »beim Namen«.",
+            "explanationEn": "이름 ends in the consonant ㅁ → 으로 (after a vowel it would be 로). 으로 marks the means: 'by name'."
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "이름과 호칭 사이",
+          "de": "Name oder Anrede",
+          "en": "Name or title"
+        },
+        "body": {
+          "ko": "한국에서는 나이와 관계에 따라 이름 대신 누나, 오빠, 씨를 쓴다. 사귀는 사이에서는 서로 부를 말을 직접 정하는 일이 흔하다.",
+          "de": "In Korea entscheiden Alter und Beziehung, ob man den Namen oder 누나, 오빠, 씨 benutzt. Paare klären das oft ausdrücklich miteinander.",
+          "en": "In Korea age and closeness decide whether you use a name or 누나, 오빠, 씨. Couples often settle it out loud."
+        }
+      },
+      "shelf": "a1_dating",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "a1_youtube_shorts_last_night",
+      "level": "a1",
+      "emoji": "📱",
+      "register": "casual",
+      "speechStyle": "casual",
+      "relationshipContext": "close_friends",
+      "intent": "compare_what_we_watched",
+      "courseUnitId": "a1_12_daily_negation",
+      "conceptIds": [
+        "concept_a1_negation"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "어제 그 쇼츠",
+        "de": "Der Clip von gestern",
+        "en": "That clip from last night"
+      },
+      "intro": {
+        "ko": "어제 많이 퍼진 짧은 영상을 서로 봤는지 확인합니다.",
+        "de": "Ihr vergleicht, wer den kurzen Clip von gestern schon gesehen hat.",
+        "en": "You compare notes on the short clip that went around last night."
+      },
+      "vocab": [
+        {
+          "korean": "쇼츠",
+          "note": {
+            "ko": "1분 안쪽의 짧은 영상.",
+            "de": "Sehr kurzes Video unter einer Minute.",
+            "en": "A very short video under a minute."
+          }
+        },
+        {
+          "korean": "고양이"
+        },
+        {
+          "korean": "냉장고"
+        },
+        {
+          "korean": "채널"
+        },
+        {
+          "korean": "구독",
+          "note": {
+            "ko": "채널을 계속 보겠다고 등록하는 일.",
+            "de": "Einen Kanal abonnieren, um ihn weiter zu sehen.",
+            "en": "Signing up to keep seeing a channel."
+          }
+        },
+        {
+          "korean": "어제"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_short_negation",
+        "grammar_a1_polite_past"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "안 + V / V-았/었어",
+          "de": "안 + V und Vergangenheit",
+          "en": "안 + V and the past form"
+        },
+        "explanation": {
+          "ko": "동사 앞에 안을 붙여 하지 않았다고 말하고, 았/었을 붙여 지난 일을 말한다. 안 봤어처럼 두 가지를 함께 쓴다.",
+          "de": "안 vor dem Verb heißt nicht tun, 았/었 macht die Vergangenheit: 안 봤어 verbindet beides.",
+          "en": "안 before a verb means not doing it, 았/었 makes it past: 안 봤어 combines both."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "어제 그 쇼츠 봤어?",
+          "de": "Hast du den Clip von gestern gesehen?",
+          "en": "Did you see that clip last night?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아니, 안 봤어. 무슨 쇼츠?",
+          "de": "Nein, hab ich nicht. Welcher Clip?",
+          "en": "No, I didn't. Which clip?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "고양이가 냉장고를 열었어.",
+          "de": "Eine Katze hat den Kühlschrank aufgemacht.",
+          "en": "A cat opened the fridge."
+        },
+        {
+          "speaker": "user",
+          "ko": "진짜? 그건 정말 안 봤어.",
+          "de": "Echt? Den habe ich wirklich nicht gesehen.",
+          "en": "Really? I definitely haven't seen that one."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "여기 봐. 이거야.",
+          "de": "Schau mal, das ist er.",
+          "en": "Look. This is it."
+        },
+        {
+          "speaker": "user",
+          "ko": "아, 어제 이거 봤어. 이름을 몰랐어.",
+          "de": "Ach, den habe ich gestern doch gesehen. Ich kannte den Namen nicht.",
+          "en": "Oh, I did watch this yesterday. I just didn't know its name."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 채널 구독 안 했어?",
+          "de": "Hast du den Kanal nicht abonniert?",
+          "en": "You haven't subscribed to that channel?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아직 안 했어. 지금 구독해.",
+          "de": "Noch nicht. Ich mache es jetzt.",
+          "en": "Not yet. I'm doing it now."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_youtube_shorts_last_night_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "audioKo": "고양이가 냉장고를 열었어.",
+            "options": [
+              {
+                "de": "Eine Katze hat den Kühlschrank aufgemacht.",
+                "en": "A cat opened the fridge."
+              },
+              {
+                "de": "Eine Katze sitzt im Kühlschrank.",
+                "en": "A cat is sitting in the fridge."
+              },
+              {
+                "de": "Der Kühlschrank ist kaputt.",
+                "en": "The fridge is broken."
+              },
+              {
+                "de": "Die Katze hat nichts gefressen.",
+                "en": "The cat didn't eat anything."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_youtube_shorts_last_night_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "promptDe": "Noch nicht. Ich mache es jetzt.",
+            "promptEn": "Not yet. I'm doing it now.",
+            "options": [
+              {
+                "ko": "아직 안 했어. 지금 구독해."
+              },
+              {
+                "ko": "벌써 했어. 어제 구독했어."
+              },
+              {
+                "ko": "지금 못 봐. 나중에 봐."
+              },
+              {
+                "ko": "그 채널을 몰라."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_youtube_shorts_last_night_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "sentence": "그 채널 구독 ___ 했어?",
+            "options": [
+              "안",
+              "도",
+              "만",
+              "잘"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_youtube_shorts_last_night_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "targetKo": "어제 이거 봤어.",
+            "promptDe": "Das habe ich gestern gesehen.",
+            "promptEn": "I watched this yesterday.",
+            "distractors": [
+              "채널을",
+              "고양이가"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_youtube_shorts_last_night_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "targetKo": "아직 안 했어.",
+            "promptDe": "Noch nicht.",
+            "promptEn": "Not yet."
+          }
+        },
+        {
+          "id": "quest_a1_youtube_shorts_last_night_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_a1_negation"
+          ],
+          "data": {
+            "prefix": "고양이가 냉장고",
+            "suffix": " 열었어.",
+            "options": [
+              "을",
+              "를",
+              "이",
+              "가"
+            ],
+            "correctIndex": 1,
+            "explanationDe": "냉장고 endet auf Vokal ㅗ → Objektpartikel 를. 고양이가 ist schon das Subjekt.",
+            "explanationEn": "냉장고 ends in the vowel ㅗ → object particle 를. 고양이가 is already the subject."
+          }
+        }
+      ],
+      "shelf": "a1_fandom",
+      "backdrop": "home"
+    },
+    {
+      "id": "a1_gaming_one_more_round",
+      "level": "a1",
+      "emoji": "🎮",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "classmates",
+      "intent": "invite_to_play",
+      "courseUnitId": "a1_04_order_request_object",
+      "conceptIds": [
+        "concept_request_polite"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 120,
+      "title": {
+        "ko": "한 판만 같이 해요",
+        "de": "Spielen wir eine Runde",
+        "en": "Let's play one round"
+      },
+      "intro": {
+        "ko": "같은 동아리 사람에게 한 판만 같이 하자고 합니다. 처음이라 안내를 받습니다.",
+        "de": "Du fragst jemanden aus deinem Club nach einer Runde und lässt dich anleiten.",
+        "en": "You ask someone from your club for one round and let them guide you."
+      },
+      "vocab": [
+        {
+          "korean": "판",
+          "note": {
+            "ko": "게임 한 번을 세는 말.",
+            "de": "Zähleinheit für eine Spielrunde.",
+            "en": "The counter for one game round."
+          }
+        },
+        {
+          "korean": "캐릭터"
+        },
+        {
+          "korean": "문"
+        },
+        {
+          "korean": "열쇠"
+        },
+        {
+          "korean": "고르다"
+        },
+        {
+          "korean": "찾다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_object_particle",
+        "grammar_a1_polite_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 + V-(으)세요",
+          "de": "N을/를 mit höflicher Aufforderung",
+          "en": "N을/를 with a polite instruction"
+        },
+        "explanation": {
+          "ko": "을/를은 행동의 대상을 표시하고, (으)세요는 상대에게 정중히 시키거나 권한다. 문을 여세요처럼 함께 쓴다.",
+          "de": "을/를 markiert das Objekt, (으)세요 fordert höflich auf: 문을 여세요.",
+          "en": "을/를 marks the object and (으)세요 tells someone politely: 문을 여세요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "현우 씨, 한 판만 같이 해요.",
+          "de": "Hyunwoo, spielen wir eine Runde.",
+          "en": "Hyunwoo, let's play one round."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "좋아요. 캐릭터를 먼저 고르세요.",
+          "de": "Gerne. Wähl zuerst einen Charakter.",
+          "en": "Sure. Pick a character first."
+        },
+        {
+          "speaker": "user",
+          "ko": "이 캐릭터가 좋아요?",
+          "de": "Ist dieser Charakter gut?",
+          "en": "Is this character any good?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 그거 하세요. 쉬워요.",
+          "de": "Ja, nimm den. Der ist einfach.",
+          "en": "Yes, take that one. It's easy."
+        },
+        {
+          "speaker": "user",
+          "ko": "알았어요. 이제 뭐 해요?",
+          "de": "Okay. Was mache ich jetzt?",
+          "en": "Got it. What do I do now?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 문을 여세요. 안에 열쇠가 있어요.",
+          "de": "Öffne die Tür. Drinnen ist ein Schlüssel.",
+          "en": "Open that door. There's a key inside."
+        },
+        {
+          "speaker": "user",
+          "ko": "열쇠를 찾았어요!",
+          "de": "Ich habe den Schlüssel!",
+          "en": "I found the key!"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "잘했어요. 한 판 더 해요.",
+          "de": "Gut gemacht. Noch eine Runde.",
+          "en": "Nice work. One more round."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_gaming_one_more_round_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "audioKo": "그 문을 여세요. 안에 열쇠가 있어요.",
+            "options": [
+              {
+                "de": "Öffne die Tür, drinnen ist ein Schlüssel.",
+                "en": "Open the door, there's a key inside."
+              },
+              {
+                "de": "Schließ die Tür, der Schlüssel ist weg.",
+                "en": "Close the door, the key is gone."
+              },
+              {
+                "de": "Der Schlüssel passt nicht zur Tür.",
+                "en": "The key doesn't fit the door."
+              },
+              {
+                "de": "Warte vor der Tür auf mich.",
+                "en": "Wait for me in front of the door."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_gaming_one_more_round_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "promptDe": "Wähl zuerst einen Charakter.",
+            "promptEn": "Pick a character first.",
+            "options": [
+              {
+                "ko": "캐릭터를 먼저 고르세요."
+              },
+              {
+                "ko": "캐릭터가 먼저 나와요."
+              },
+              {
+                "ko": "캐릭터를 지금 사세요."
+              },
+              {
+                "ko": "캐릭터 이름이 뭐예요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_gaming_one_more_round_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "sentence": "그 문___ 여세요.",
+            "options": [
+              "을",
+              "이",
+              "에",
+              "도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_gaming_one_more_round_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "targetKo": "열쇠를 찾았어요.",
+            "promptDe": "Ich habe den Schlüssel gefunden.",
+            "promptEn": "I found the key.",
+            "distractors": [
+              "캐릭터가",
+              "문에서"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_gaming_one_more_round_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "targetKo": "한 판 더 해요.",
+            "promptDe": "Noch eine Runde.",
+            "promptEn": "One more round."
+          }
+        },
+        {
+          "id": "quest_a1_gaming_one_more_round_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_request_polite"
+          ],
+          "data": {
+            "prefix": "그 문",
+            "suffix": " 여세요.",
+            "options": [
+              "을",
+              "를",
+              "이",
+              "가"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "문 endet auf Konsonant ㄴ → Objektpartikel 을 (nach Vokal wäre es 를).",
+            "explanationEn": "문 ends in the consonant ㄴ → object particle 을 (after a vowel it would be 를)."
+          }
+        }
+      ],
+      "shelf": "a1_friends",
+      "backdrop": "home"
+    },
+    {
+      "id": "a1_kpop_my_bias",
+      "level": "a1",
+      "emoji": "💜",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "new_acquaintances",
+      "intent": "introduce_my_bias",
+      "courseUnitId": "a1_02_self_intro_identity",
+      "conceptIds": [
+        "concept_identity_polite"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "제 최애는요",
+        "de": "Mein Bias ist",
+        "en": "My bias is"
+      },
+      "intro": {
+        "ko": "팬 모임에 처음 갔습니다. 옆 사람과 최애를 소개합니다.",
+        "de": "Du bist zum ersten Mal bei einem Fantreffen und stellst deinen Bias vor.",
+        "en": "It's your first fan meetup, and you introduce your bias."
+      },
+      "vocab": [
+        {
+          "korean": "최애",
+          "note": {
+            "ko": "가장 좋아하는 멤버.",
+            "de": "Das Lieblingsmitglied einer Gruppe.",
+            "en": "Your favorite member of a group."
+          }
+        },
+        {
+          "korean": "팬"
+        },
+        {
+          "korean": "목소리"
+        },
+        {
+          "korean": "춤"
+        },
+        {
+          "korean": "사진"
+        },
+        {
+          "korean": "리더"
+        }
+      ],
+      "grammarIds": [
+        "grammar_a1_copula_polite"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N이에요/예요",
+          "de": "N이에요/예요: das ist",
+          "en": "N이에요/예요: it is"
+        },
+        "explanation": {
+          "ko": "받침이 있는 말에는 이에요, 없는 말에는 예요를 붙인다. 하린이에요, 팬이에요처럼 쓴다.",
+          "de": "Nach Konsonant steht 이에요, nach Vokal 예요: 하린이에요, 팬이에요.",
+          "en": "Use 이에요 after a consonant and 예요 after a vowel: 하린이에요, 팬이에요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "여기 처음이에요?",
+          "de": "Bist du zum ersten Mal hier?",
+          "en": "Is this your first time here?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 처음이에요. 저는 독일에서 왔어요.",
+          "de": "Ja, zum ersten Mal. Ich komme aus Deutschland.",
+          "en": "Yes, first time. I'm from Germany."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "반가워요. 최애가 누구예요?",
+          "de": "Freut mich. Wer ist dein Bias?",
+          "en": "Nice to meet you. Who's your bias?"
+        },
+        {
+          "speaker": "user",
+          "ko": "제 최애는 하린이에요.",
+          "de": "Mein Bias ist Harin.",
+          "en": "My bias is Harin."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "저도 하린 팬이에요! 왜 좋아요?",
+          "de": "Ich bin auch Harin-Fan! Warum magst du sie?",
+          "en": "I'm a Harin fan too! Why do you like her?"
+        },
+        {
+          "speaker": "user",
+          "ko": "목소리가 좋아요. 춤도 잘해요.",
+          "de": "Ihre Stimme mag ich. Und sie tanzt gut.",
+          "en": "I love her voice. And she dances well."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "저는 리더가 최애예요. 이 사진이 제일 좋아요.",
+          "de": "Mein Bias ist die Leaderin. Dieses Foto mag ich am liebsten.",
+          "en": "My bias is the leader. This photo is my favorite."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 사진도 좋아요. 우리 둘 다 팬이에요.",
+          "de": "Das Foto ist auch schön. Wir sind beide Fans.",
+          "en": "That photo's great too. We're both fans."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_a1_kpop_my_bias_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "audioKo": "저는 리더가 최애예요.",
+            "options": [
+              {
+                "de": "Mein Bias ist die Leaderin.",
+                "en": "My bias is the leader."
+              },
+              {
+                "de": "Ich bin die Leaderin der Gruppe.",
+                "en": "I'm the leader of the group."
+              },
+              {
+                "de": "Die Leaderin singt heute nicht.",
+                "en": "The leader isn't singing today."
+              },
+              {
+                "de": "Ich mag keine Leaderin.",
+                "en": "I don't like leaders."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_kpop_my_bias_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "promptDe": "Wer ist dein Bias?",
+            "promptEn": "Who's your bias?",
+            "options": [
+              {
+                "ko": "최애가 누구예요?"
+              },
+              {
+                "ko": "최애가 몇 명이에요?"
+              },
+              {
+                "ko": "이 사람 이름이 뭐예요?"
+              },
+              {
+                "ko": "여기 처음이에요?"
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_kpop_my_bias_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "sentence": "제 최애는 하린___.",
+            "options": [
+              "이에요",
+              "예요",
+              "이가",
+              "이에서"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_kpop_my_bias_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "targetKo": "목소리가 좋아요.",
+            "promptDe": "Ihre Stimme mag ich.",
+            "promptEn": "I love her voice.",
+            "distractors": [
+              "춤이",
+              "사진을"
+            ]
+          }
+        },
+        {
+          "id": "quest_a1_kpop_my_bias_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "targetKo": "저도 하린 팬이에요.",
+            "promptDe": "Ich bin auch Harin-Fan.",
+            "promptEn": "I'm a Harin fan too."
+          }
+        },
+        {
+          "id": "quest_a1_kpop_my_bias_particle",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_identity_polite"
+          ],
+          "data": {
+            "prefix": "목소리",
+            "suffix": " 좋아요.",
+            "options": [
+              "이",
+              "가",
+              "은",
+              "는"
+            ],
+            "correctIndex": 1,
+            "explanationDe": "목소리 endet auf Vokal ㅣ → Subjektpartikel 가 (nicht 이).",
+            "explanationEn": "목소리 ends in the vowel ㅣ → subject particle 가 (not 이)."
+          }
+        }
+      ],
+      "culturalNote": {
+        "title": {
+          "ko": "최애와 입덕",
+          "de": "최애 und 입덕",
+          "en": "최애 and 입덕"
+        },
+        "body": {
+          "ko": "최애는 가장 좋아하는 멤버, 입덕은 어떤 그룹을 좋아하게 되는 순간을 뜻한다. 팬 모임에서는 이 두 말로 대화가 시작되는 일이 많다.",
+          "de": "최애 ist das Lieblingsmitglied, 입덕 der Moment, in dem man Fan einer Gruppe wird. Bei Fantreffen beginnen Gespräche oft mit diesen zwei Wörtern.",
+          "en": "최애 is your favorite member and 입덕 is the moment you fall for a group. At fan meetups these two words often start the conversation."
+        }
+      },
+      "shelf": "a1_fandom",
+      "backdrop": "cafe"
     }
   ]
 }

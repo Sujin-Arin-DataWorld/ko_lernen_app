@@ -16,13 +16,13 @@
     },
     {
       "kind": "scenario",
-      "count": 264,
+      "count": 300,
       "source": "scenarios",
       "requiresExplicitId": true
     },
     {
       "kind": "scenarioQuest",
-      "count": 971,
+      "count": 1157,
       "source": "scenarios",
       "requiresExplicitId": false
     },

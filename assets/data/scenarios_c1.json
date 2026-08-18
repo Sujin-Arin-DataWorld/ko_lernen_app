@@ -2089,6 +2089,1296 @@
       ],
       "shelf": "c1_briefing",
       "backdrop": "office"
+    },
+    {
+      "id": "c1_daily_prices_vs_data",
+      "level": "c1",
+      "emoji": "📊",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "analyst_and_public_program_manager",
+      "intent": "reconcile_feeling_and_data",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 190,
+      "title": {
+        "ko": "체감 물가와 지표",
+        "de": "Gefühlte Preise und Indikatoren",
+        "en": "Felt prices and the indicator"
+      },
+      "intro": {
+        "ko": "주민 설명회 자료를 검토합니다. 평균 지표와 체감의 간극을 근거의 한계까지 밝혀 설명합니다.",
+        "de": "Ihr prüft Material für eine Bürgerversammlung und benennt die Lücke zwischen Durchschnitt und Alltagsgefühl.",
+        "en": "You review briefing material and name the gap between the average and what people feel."
+      },
+      "vocab": [
+        {
+          "korean": "지표"
+        },
+        {
+          "korean": "장바구니"
+        },
+        {
+          "korean": "품목"
+        },
+        {
+          "korean": "추이"
+        },
+        {
+          "korean": "한계"
+        },
+        {
+          "korean": "설명회"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 감안하면",
+          "de": "N을/를 감안하면: unter Berücksichtigung von",
+          "en": "N을/를 감안하면: taking into account"
+        },
+        "explanation": {
+          "ko": "어떤 조건을 계산에 넣었을 때 결론이 달라짐을 보인다. 품목만 감안하면처럼 근거의 범위를 좁혀 말한다.",
+          "de": "Zeigt, wie sich der Schluss ändert, wenn man eine Bedingung einbezieht: 품목만 감안하면 grenzt die Basis ein.",
+          "en": "Shows how a conclusion shifts once a condition is counted in: 품목만 감안하면 narrows the basis."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "주민 설명회에서 물가가 안정됐다는 지표를 쓸 계획입니다.",
+          "de": "Bei der Bürgerversammlung wollen wir den Indikator nutzen, dass die Preise stabil sind.",
+          "en": "At the residents' briefing we plan to use the indicator showing prices have stabilised."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 지표는 전체 평균입니다. 장바구니 품목만 감안하면 다른 그림이 나옵니다.",
+          "de": "Dieser Indikator ist ein Gesamtdurchschnitt. Nimmt man nur den Warenkorb, ergibt sich ein anderes Bild.",
+          "en": "That indicator is an overall average. Taking only the everyday basket into account, a different picture appears."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "구체적으로 어떤 품목입니까?",
+          "de": "Welche Posten genau?",
+          "en": "Which items specifically?"
+        },
+        {
+          "speaker": "user",
+          "ko": "채소와 달걀입니다. 지난해 같은 달을 감안하면 두 자릿수로 올랐습니다.",
+          "de": "Gemüse und Eier. Gegenüber dem Vorjahresmonat zweistellig gestiegen.",
+          "en": "Vegetables and eggs. Set against the same month last year, they're up by double digits."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그러면 안정됐다는 표현은 쓰기 어렵겠습니다.",
+          "de": "Dann lässt sich das Wort stabil kaum halten.",
+          "en": "Then the word stable is hard to defend."
+        },
+        {
+          "speaker": "user",
+          "ko": "평균은 그대로 쓰되 품목별 표를 같이 두면 됩니다.",
+          "de": "Den Durchschnitt behalten und daneben eine Tabelle nach Posten stellen.",
+          "en": "Keep the average, but put a table by item next to it."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "질문이 많아질 텐데 답할 자료가 있습니까?",
+          "de": "Es wird viele Fragen geben. Haben Sie Material für die Antworten?",
+          "en": "There will be plenty of questions. Do you have material to answer them?"
+        },
+        {
+          "speaker": "user",
+          "ko": "3년 추이와 조사 한계를 함께 넣겠습니다. 한계를 밝히면 신뢰가 올라갑니다.",
+          "de": "Ich füge den Dreijahrestrend und die Grenzen der Erhebung bei. Offen benannte Grenzen stärken das Vertrauen.",
+          "en": "I'll add the three-year trend and the survey's limits. Naming the limits raises trust."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_daily_prices_vs_data_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "장바구니 품목만 감안하면 다른 그림이 나옵니다.",
+            "options": [
+              {
+                "de": "Nimmt man nur den Warenkorb, ergibt sich ein anderes Bild.",
+                "en": "Taking only the basket items into account gives a different picture."
+              },
+              {
+                "de": "Der Warenkorb bestätigt den Gesamtdurchschnitt.",
+                "en": "The basket confirms the overall average."
+              },
+              {
+                "de": "Wir haben keine Daten zum Warenkorb.",
+                "en": "We have no data on the basket."
+              },
+              {
+                "de": "Der Warenkorb ist für Bürger nicht relevant.",
+                "en": "The basket isn't relevant to residents."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_daily_prices_vs_data_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Offen benannte Grenzen stärken das Vertrauen.",
+            "promptEn": "Naming the limits raises trust.",
+            "options": [
+              {
+                "ko": "한계를 밝히면 신뢰가 올라갑니다."
+              },
+              {
+                "ko": "한계를 숨기면 신뢰가 올라갑니다."
+              },
+              {
+                "ko": "신뢰는 자료와 관계가 없습니다."
+              },
+              {
+                "ko": "한계가 없으면 신뢰가 생깁니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_daily_prices_vs_data_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "지난해 같은 달을 ___ 두 자릿수로 올랐습니다.",
+            "options": [
+              "감안하면",
+              "불문하고",
+              "비롯해",
+              "둘러싸고"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_daily_prices_vs_data_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "품목별 표를 같이 두면 됩니다.",
+            "promptDe": "Man stellt eine Tabelle nach Posten daneben.",
+            "promptEn": "You put a table by item alongside it.",
+            "distractors": [
+              "지표를",
+              "한계가"
+            ]
+          }
+        },
+        {
+          "id": "quest_c1_daily_prices_vs_data_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "3년 추이를 함께 넣겠습니다.",
+            "promptDe": "Ich füge den Dreijahrestrend bei.",
+            "promptEn": "I'll include the three-year trend."
+          }
+        }
+      ],
+      "shelf": "c1_methodology",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_friends_venue_access",
+      "level": "c1",
+      "emoji": "🚪",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "community_organizers",
+      "intent": "raise_an_access_barrier",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 190,
+      "title": {
+        "ko": "모임 장소의 계단",
+        "de": "Die Treppe am Veranstaltungsort",
+        "en": "The stairs at our venue"
+      },
+      "intro": {
+        "ko": "모임 장소가 2층이고 엘리베이터가 없습니다. 빠진 회원 이야기를 근거로 절차를 바꿉니다.",
+        "de": "Der Treffpunkt liegt im ersten Stock ohne Aufzug. Mit dem Fall fehlender Mitglieder änderst du das Verfahren.",
+        "en": "The venue is upstairs with no lift. Using the members who dropped out, you change the process."
+      },
+      "vocab": [
+        {
+          "korean": "접근"
+        },
+        {
+          "korean": "계단"
+        },
+        {
+          "korean": "예약금"
+        },
+        {
+          "korean": "공지"
+        },
+        {
+          "korean": "층수"
+        },
+        {
+          "korean": "참여"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_two_sides"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 한편",
+          "de": "A/V-(으)ㄴ/는 한편: zwei Seiten nennen",
+          "en": "A/V-(으)ㄴ/는 한편: naming two sides"
+        },
+        "explanation": {
+          "ko": "한 사안의 두 면을 함께 세워 어느 한쪽만 근거로 삼지 않게 한다. 좋은 한편 어렵다처럼 쓴다.",
+          "de": "Stellt beide Seiten einer Sache nebeneinander, damit nicht nur eine als Grund zählt: 좋은 한편 어렵다.",
+          "en": "Sets both sides of an issue side by side so neither alone carries the argument: 좋은 한편 어렵다."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "이번 모임 장소는 2층이고 엘리베이터가 없습니다.",
+          "de": "Der Treffpunkt liegt im ersten Stock, und es gibt keinen Aufzug.",
+          "en": "This venue is on the second floor and has no lift."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "분위기가 좋은 한편 접근이 어렵다는 말씀이군요.",
+          "de": "Die Atmosphäre ist gut, der Zugang aber schwierig.",
+          "en": "Great atmosphere on one side, hard to reach on the other."
+        },
+        {
+          "speaker": "user",
+          "ko": "회원 중 두 분이 계단을 쓰기 어렵습니다. 지난번엔 아예 오지 않았습니다.",
+          "de": "Zwei Mitglieder haben Schwierigkeiten mit Treppen. Letztes Mal kamen sie gar nicht.",
+          "en": "Two members struggle with stairs. Last time they simply didn't come."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 사실을 몰랐습니다. 장소를 바꾸면 예약금을 잃습니다.",
+          "de": "Das war mir nicht bekannt. Ein Wechsel kostet uns die Anzahlung.",
+          "en": "I didn't know that. Changing venue means losing the deposit."
+        },
+        {
+          "speaker": "user",
+          "ko": "예약금은 아까운 한편 한 번 빠진 사람은 다시 오지 않습니다.",
+          "de": "Die Anzahlung ist schade, wer aber einmal fehlt, kommt selten wieder.",
+          "en": "The deposit stings on one hand, but someone left out once rarely returns."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "다음 달부터 1층 공간을 기본으로 하겠습니다. 이번엔 어떻게 합니까?",
+          "de": "Ab nächstem Monat nehmen wir Räume im Erdgeschoss. Und diesmal?",
+          "en": "From next month we'll default to ground-floor rooms. What about this time?"
+        },
+        {
+          "speaker": "user",
+          "ko": "이번은 온라인 참여를 함께 열고, 공지에 층수와 계단 수를 적읍시다.",
+          "de": "Diesmal öffnen wir zusätzlich online und schreiben Etage und Stufenzahl in die Ankündigung.",
+          "en": "For this one let's also open online access and put the floor and stair count in the notice."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "좋습니다. 공지 문구는 오늘 회원들에게 확인받겠습니다.",
+          "de": "Gut. Den Text lasse ich heute von den Mitgliedern prüfen.",
+          "en": "Agreed. I'll have members check the wording today."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_friends_venue_access_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "회원 중 두 분이 계단을 쓰기 어렵습니다.",
+            "options": [
+              {
+                "de": "Zwei Mitglieder haben Schwierigkeiten mit Treppen.",
+                "en": "Two members have difficulty with stairs."
+              },
+              {
+                "de": "Zwei Mitglieder wohnen im zweiten Stock.",
+                "en": "Two members live on the second floor."
+              },
+              {
+                "de": "Der Aufzug ist für zwei Personen zu klein.",
+                "en": "The lift is too small for two people."
+              },
+              {
+                "de": "Zwei Mitglieder kommen immer zu spät.",
+                "en": "Two members are always late."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_friends_venue_access_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Schreiben wir Etage und Stufenzahl in die Ankündigung.",
+            "promptEn": "Let's put the floor and stair count in the notice.",
+            "options": [
+              {
+                "ko": "공지에 층수와 계단 수를 적읍시다."
+              },
+              {
+                "ko": "공지에서 층수는 빼는 게 좋겠습니다."
+              },
+              {
+                "ko": "공지를 회원에게 보내지 맙시다."
+              },
+              {
+                "ko": "계단 수는 아무도 궁금해하지 않습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_friends_venue_access_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "분위기가 좋은 ___ 접근이 어렵습니다.",
+            "options": [
+              "한편",
+              "한다면",
+              "한테서",
+              "하기에"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_friends_venue_access_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "다음 달부터 1층 공간을 기본으로 하겠습니다.",
+            "promptDe": "Ab nächstem Monat nehmen wir standardmäßig das Erdgeschoss.",
+            "promptEn": "From next month we'll default to ground-floor space.",
+            "distractors": [
+              "예약금을",
+              "계단이"
+            ]
+          }
+        },
+        {
+          "id": "quest_c1_friends_venue_access_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "지난번엔 아예 오지 않았습니다.",
+            "promptDe": "Letztes Mal kamen sie gar nicht.",
+            "promptEn": "Last time they didn't come at all."
+          }
+        }
+      ],
+      "shelf": "c1_friends",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "c1_dating_app_safety",
+      "level": "c1",
+      "emoji": "🛡️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "user_and_platform_trust_team",
+      "intent": "design_a_safety_path",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 195,
+      "title": {
+        "ko": "신고 절차를 다시 짜기",
+        "de": "Das Meldeverfahren neu bauen",
+        "en": "Rebuilding the report flow"
+      },
+      "intro": {
+        "ko": "데이팅앱 신고가 늘었지만 기준과 처리 기간이 문제입니다. 안전과 악용 사이에서 절차를 설계합니다.",
+        "de": "Die Meldungen in der Dating-App steigen, Kriterien und Bearbeitungszeit stimmen nicht. Ihr entwerft ein Verfahren zwischen Sicherheit und Missbrauch.",
+        "en": "Reports in the dating app are up but criteria and turnaround lag. You design a flow between safety and abuse."
+      },
+      "vocab": [
+        {
+          "korean": "신고"
+        },
+        {
+          "korean": "기준"
+        },
+        {
+          "korean": "악용"
+        },
+        {
+          "korean": "가중치"
+        },
+        {
+          "korean": "처리 기간"
+        },
+        {
+          "korean": "인력"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_even_at_cost"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 한이 있어도",
+          "de": "V-는 한이 있어도: selbst um den Preis",
+          "en": "V-는 한이 있어도: even at the cost of"
+        },
+        "explanation": {
+          "ko": "비용이나 손해를 인정하면서도 지켜야 할 선을 못 박는다. 인력을 더 쓰는 한이 있어도처럼 쓴다.",
+          "de": "Erkennt Kosten an und hält dennoch eine Grenze fest: 인력을 더 쓰는 한이 있어도.",
+          "en": "Concedes the cost while holding a line: 인력을 더 쓰는 한이 있어도."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "신고가 늘었지만 처리 기준이 공개되지 않아 불만이 많습니다.",
+          "de": "Die Meldungen steigen, aber die Kriterien sind nicht öffentlich, daher der Unmut.",
+          "en": "Reports are up, but the handling criteria aren't public, so people are unhappy."
+        },
+        {
+          "speaker": "user",
+          "ko": "기준을 공개하면 악용하는 사람도 생깁니다.",
+          "de": "Veröffentlicht man die Kriterien, nutzen manche das aus.",
+          "en": "Publish the criteria and some will game them."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그래도 큰 틀은 알려야 합니다. 이용자가 기준을 모르면 신고를 포기합니다.",
+          "de": "Der Rahmen muss dennoch bekannt sein. Ohne Kriterien geben Nutzende das Melden auf.",
+          "en": "The broad frame still has to be known. Without criteria users stop reporting."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 항목별 예시는 공개하고 판단 가중치는 비공개로 둡시다.",
+          "de": "Dann veröffentlichen wir Beispiele je Kategorie und halten die Gewichtung zurück.",
+          "en": "Then let's publish examples per category and keep the weighting internal."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "처리 기간도 문제입니다. 지금은 평균 나흘입니다.",
+          "de": "Die Bearbeitungszeit ist auch ein Problem: im Schnitt vier Tage.",
+          "en": "Turnaround is a problem too: four days on average."
+        },
+        {
+          "speaker": "user",
+          "ko": "인력을 더 쓰는 한이 있어도 위험 신고는 24시간 안에 봐야 합니다.",
+          "de": "Selbst wenn es mehr Personal kostet: Gefahrenmeldungen müssen binnen 24 Stunden geprüft werden.",
+          "en": "Even at the cost of more staff, safety reports must be seen within 24 hours."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그렇게 나누면 나머지 신고가 밀립니다.",
+          "de": "Bei dieser Aufteilung stauen sich die übrigen Meldungen.",
+          "en": "Split that way, the remaining reports back up."
+        },
+        {
+          "speaker": "user",
+          "ko": "밀리는 한이 있어도 위험과 불편을 같은 줄에 두지 않는 편이 안전합니다.",
+          "de": "Auch um den Preis eines Staus: Gefahr und Ärgernis gehören nicht in dieselbe Schlange.",
+          "en": "Even at the cost of a backlog, danger and annoyance shouldn't share one queue."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_dating_app_safety_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "위험 신고는 24시간 안에 봐야 합니다.",
+            "options": [
+              {
+                "de": "Gefahrenmeldungen müssen binnen 24 Stunden geprüft werden.",
+                "en": "Safety reports have to be reviewed within 24 hours."
+              },
+              {
+                "de": "Gefahrenmeldungen prüfen wir nach vier Tagen.",
+                "en": "We review safety reports after four days."
+              },
+              {
+                "de": "Alle Meldungen sind gleich zu behandeln.",
+                "en": "All reports must be treated the same."
+              },
+              {
+                "de": "Meldungen werden automatisch geschlossen.",
+                "en": "Reports are closed automatically."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_dating_app_safety_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Beispiele je Kategorie veröffentlichen, die Gewichtung zurückhalten.",
+            "promptEn": "Publish examples per category and keep the weighting internal.",
+            "options": [
+              {
+                "ko": "항목별 예시는 공개하고 판단 가중치는 비공개로 둡시다."
+              },
+              {
+                "ko": "항목별 예시와 가중치를 모두 공개합시다."
+              },
+              {
+                "ko": "예시도 가중치도 공개하지 맙시다."
+              },
+              {
+                "ko": "가중치만 공개하고 예시는 숨깁시다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_dating_app_safety_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "인력을 더 쓰는 ___ 있어도 24시간 안에 봐야 합니다.",
+            "options": [
+              "한이",
+              "김이",
+              "바가",
+              "척이"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_dating_app_safety_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "이용자가 기준을 모르면 신고를 포기합니다.",
+            "promptDe": "Ohne Kriterien geben Nutzende das Melden auf.",
+            "promptEn": "If users don't know the criteria, they give up reporting.",
+            "distractors": [
+              "가중치를",
+              "인력이"
+            ]
+          }
+        },
+        {
+          "id": "quest_c1_dating_app_safety_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "처리 기준이 공개되지 않았습니다.",
+            "promptDe": "Die Kriterien sind nicht veröffentlicht.",
+            "promptEn": "The handling criteria aren't public."
+          }
+        }
+      ],
+      "shelf": "c1_dating",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_youtube_health_claims",
+      "level": "c1",
+      "emoji": "🧪",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "analyst_and_public_program_manager",
+      "intent": "limit_an_evidence_claim",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 190,
+      "title": {
+        "ko": "조회수와 근거 사이",
+        "de": "Zwischen Klickzahl und Beleg",
+        "en": "Between the view count and the evidence"
+      },
+      "intro": {
+        "ko": "인기 건강 영상의 주장을 검토합니다. 근거가 어디까지 말할 수 있는지 한정해 씁니다.",
+        "de": "Ihr prüft die Behauptung eines populären Gesundheitsvideos und grenzt ein, was der Beleg trägt.",
+        "en": "You review a popular health video's claim and bound what the evidence can carry."
+      },
+      "vocab": [
+        {
+          "korean": "보충제"
+        },
+        {
+          "korean": "참가자"
+        },
+        {
+          "korean": "일반화"
+        },
+        {
+          "korean": "표본"
+        },
+        {
+          "korean": "반박"
+        },
+        {
+          "korean": "단정하다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_room_for"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ 여지가 있다",
+          "de": "V-(으)ㄹ 여지가 있다: Raum lassen",
+          "en": "V-(으)ㄹ 여지가 있다: leaving room"
+        },
+        "explanation": {
+          "ko": "결론을 닫지 않고 남는 가능성을 표시한다. 일반화할 여지가 크지 않다처럼 양쪽 방향으로 쓴다.",
+          "de": "Markiert offene Möglichkeiten statt eines geschlossenen Urteils: 일반화할 여지가 크지 않다. In beide Richtungen nutzbar.",
+          "en": "Marks remaining possibility instead of closing the verdict: 일반화할 여지가 크지 않다 works in both directions."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "조회수 300만인 영상이 이 보충제가 피로를 없앤다고 말합니다.",
+          "de": "Ein Video mit drei Millionen Aufrufen sagt, dieses Präparat beseitige Müdigkeit.",
+          "en": "A video with three million views says this supplement eliminates fatigue."
+        },
+        {
+          "speaker": "user",
+          "ko": "원 논문은 참가자가 서른 명입니다. 일반화할 여지가 크지 않습니다.",
+          "de": "Die zugrunde liegende Studie hatte dreißig Teilnehmende. Für eine Verallgemeinerung bleibt wenig Raum.",
+          "en": "The underlying study had thirty participants. There's little room to generalise."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그러면 영상이 틀렸다고 써도 됩니까?",
+          "de": "Können wir dann schreiben, das Video sei falsch?",
+          "en": "So can we write that the video is wrong?"
+        },
+        {
+          "speaker": "user",
+          "ko": "아니요. 효과가 없다고 단정할 여지도 없습니다. 자료가 부족하다고 써야 합니다.",
+          "de": "Nein. Für ein klares Nein bleibt genauso wenig Raum. Wir schreiben, die Datenlage reicht nicht.",
+          "en": "No. There's just as little room to declare it useless. We write that the data is insufficient."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "시청자는 결론을 원합니다. 애매하면 보지 않습니다.",
+          "de": "Zuschauende wollen ein Ergebnis. Bleibt es vage, schauen sie nicht.",
+          "en": "Viewers want a verdict. If it's vague they won't watch."
+        },
+        {
+          "speaker": "user",
+          "ko": "결론은 낼 수 있습니다. 이 근거로는 권할 수 없다고 쓰면 됩니다.",
+          "de": "Ein Ergebnis ist möglich: auf dieser Grundlage nicht empfehlenswert.",
+          "en": "We can give a verdict: on this evidence, not recommendable."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "제조사가 반박할 여지는 남습니까?",
+          "de": "Bleibt dem Hersteller Raum für Widerspruch?",
+          "en": "Does the maker have room to push back?"
+        },
+        {
+          "speaker": "user",
+          "ko": "남습니다. 그래서 논문 번호와 표본 수를 화면에 같이 띄웁시다.",
+          "de": "Ja. Deshalb zeigen wir Studiennummer und Stichprobengröße mit im Bild.",
+          "en": "It does. So let's put the study number and sample size on screen."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_youtube_health_claims_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "원 논문은 참가자가 서른 명입니다.",
+            "options": [
+              {
+                "de": "Die Studie hatte dreißig Teilnehmende.",
+                "en": "The study had thirty participants."
+              },
+              {
+                "de": "Die Studie lief über dreißig Monate.",
+                "en": "The study ran for thirty months."
+              },
+              {
+                "de": "Dreißig Studien kommen zum selben Ergebnis.",
+                "en": "Thirty studies reach the same result."
+              },
+              {
+                "de": "Die Studie wurde nie veröffentlicht.",
+                "en": "The study was never published."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_youtube_health_claims_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Auf dieser Grundlage nicht empfehlenswert.",
+            "promptEn": "On this evidence, not recommendable.",
+            "options": [
+              {
+                "ko": "이 근거로는 권할 수 없다고 쓰면 됩니다."
+              },
+              {
+                "ko": "이 근거로는 꼭 권해야 합니다."
+              },
+              {
+                "ko": "근거가 없어도 권할 수 있습니다."
+              },
+              {
+                "ko": "권하지 않는 이유는 쓸 수 없습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_youtube_health_claims_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "일반화할 ___ 크지 않습니다.",
+            "options": [
+              "여지가",
+              "김이",
+              "바가",
+              "나머지가"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_youtube_health_claims_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "논문 번호와 표본 수를 같이 띄웁시다.",
+            "promptDe": "Zeigen wir Studiennummer und Stichprobengröße mit.",
+            "promptEn": "Let's show the study number and sample size too.",
+            "distractors": [
+              "보충제를",
+              "참가자가"
+            ]
+          }
+        },
+        {
+          "id": "quest_c1_youtube_health_claims_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "자료가 부족하다고 써야 합니다.",
+            "promptDe": "Wir müssen schreiben, dass die Daten nicht reichen.",
+            "promptEn": "We have to write that the data is insufficient."
+          }
+        }
+      ],
+      "shelf": "c1_fandom",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_gaming_playtime_policy",
+      "level": "c1",
+      "emoji": "⏱️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "analyst_and_public_program_manager",
+      "intent": "weigh_a_playtime_rule",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 190,
+      "title": {
+        "ko": "이용시간 규제안 검토",
+        "de": "Prüfung der Spielzeitregel",
+        "en": "Reviewing the playtime rule"
+      },
+      "intro": {
+        "ko": "청소년 이용시간 제한안이 다시 올라왔습니다. 과거 자료의 한계를 짚고 측정 대상을 다시 정합니다.",
+        "de": "Der Vorschlag zur Spielzeitbegrenzung liegt wieder vor. Ihr benennt die Grenzen alter Daten und definiert die Messgröße neu.",
+        "en": "The playtime cap is back on the table. You name the limits of old data and redefine what gets measured."
+      },
+      "vocab": [
+        {
+          "korean": "이용시간"
+        },
+        {
+          "korean": "명의"
+        },
+        {
+          "korean": "측정"
+        },
+        {
+          "korean": "결석"
+        },
+        {
+          "korean": "동의 절차"
+        },
+        {
+          "korean": "시범"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_unless_condition"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-지 않는 한",
+          "de": "V-지 않는 한: solange nicht",
+          "en": "V-지 않는 한: unless"
+        },
+        "explanation": {
+          "ko": "조건이 충족되지 않으면 결론을 낼 수 없다고 못 박는다. 바꾸지 않는 한, 받지 않는 한처럼 쓴다.",
+          "de": "Hält fest, dass ohne erfüllte Bedingung kein Schluss möglich ist: 바꾸지 않는 한, 받지 않는 한.",
+          "en": "Fixes that no conclusion follows until a condition is met: 바꾸지 않는 한, 받지 않는 한."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "청소년 이용시간을 밤에 제한하는 안이 다시 올라왔습니다.",
+          "de": "Der Vorschlag, die Spielzeit von Jugendlichen nachts zu begrenzen, liegt wieder vor.",
+          "en": "The proposal to cap night-time play for minors is back."
+        },
+        {
+          "speaker": "user",
+          "ko": "과거 자료를 보면 계정을 부모 명의로 바꾸는 비율이 늘었습니다.",
+          "de": "Die alten Daten zeigen: mehr Konten liefen auf den Namen der Eltern.",
+          "en": "Past data shows a rise in accounts moved to a parent's name."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그러면 효과가 없었다는 뜻입니까?",
+          "de": "Heißt das, es hatte keine Wirkung?",
+          "en": "Does that mean it had no effect?"
+        },
+        {
+          "speaker": "user",
+          "ko": "측정 대상을 바꾸지 않는 한 효과를 확인할 수 없습니다. 접속 시간만 봤기 때문입니다.",
+          "de": "Solange wir die Messgröße nicht ändern, ist keine Wirkung nachweisbar. Gemessen wurde nur die Onlinezeit.",
+          "en": "Unless we change what we measure, we can't verify any effect. Only login time was tracked."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "무엇을 봐야 합니까?",
+          "de": "Was sollten wir messen?",
+          "en": "What should we be measuring?"
+        },
+        {
+          "speaker": "user",
+          "ko": "수면 시간과 다음 날 결석입니다. 학교 자료를 받지 않는 한 그건 못 봅니다.",
+          "de": "Schlafdauer und Fehlzeiten am Folgetag. Ohne Schuldaten sehen wir das nicht.",
+          "en": "Sleep duration and next-day absence. Unless we get school data, we can't see it."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "학교 자료는 동의 절차가 깁니다. 6개월은 걸립니다.",
+          "de": "Für Schuldaten braucht es ein langes Zustimmungsverfahren, rund sechs Monate.",
+          "en": "School data needs a long consent process, about six months."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 이번 안은 시범 지역으로 좁히고 6개월 뒤에 다시 판단합시다.",
+          "de": "Dann begrenzen wir den Vorschlag auf Pilotregionen und entscheiden in sechs Monaten neu.",
+          "en": "Then let's narrow this to pilot regions and decide again in six months."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_gaming_playtime_policy_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "측정 대상을 바꾸지 않는 한 효과를 확인할 수 없습니다.",
+            "options": [
+              {
+                "de": "Solange die Messgröße gleich bleibt, ist keine Wirkung nachweisbar.",
+                "en": "Unless the measure changes, no effect can be verified."
+              },
+              {
+                "de": "Die Wirkung ist bereits klar belegt.",
+                "en": "The effect is already clearly proven."
+              },
+              {
+                "de": "Wir sollten die Messung ganz einstellen.",
+                "en": "We should stop measuring altogether."
+              },
+              {
+                "de": "Die Regel wirkt nur bei Erwachsenen.",
+                "en": "The rule only works for adults."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_gaming_playtime_policy_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Ohne Schuldaten sehen wir das nicht.",
+            "promptEn": "Unless we get school data, we can't see it.",
+            "options": [
+              {
+                "ko": "학교 자료를 받지 않는 한 그건 못 봅니다."
+              },
+              {
+                "ko": "학교 자료를 받으면 그건 못 봅니다."
+              },
+              {
+                "ko": "학교 자료가 없어도 충분히 봅니다."
+              },
+              {
+                "ko": "학교 자료는 이미 다 받았습니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_gaming_playtime_policy_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "측정 대상을 바꾸지 ___ 한 효과를 확인할 수 없습니다.",
+            "options": [
+              "않는",
+              "못한",
+              "말고",
+              "없는"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_gaming_playtime_policy_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "이번 안은 시범 지역으로 좁힙시다.",
+            "promptDe": "Begrenzen wir den Vorschlag auf Pilotregionen.",
+            "promptEn": "Let's narrow this proposal to pilot regions.",
+            "distractors": [
+              "측정을",
+              "결석이"
+            ]
+          }
+        },
+        {
+          "id": "quest_c1_gaming_playtime_policy_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "수면 시간과 다음 날 결석입니다.",
+            "promptDe": "Schlafdauer und Fehlzeiten am Folgetag.",
+            "promptEn": "Sleep duration and next-day absence."
+          }
+        }
+      ],
+      "shelf": "c1_friends",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_kpop_fan_labor",
+      "level": "c1",
+      "emoji": "🌐",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "fan_representative_and_agency",
+      "intent": "question_unpaid_fan_labor",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 195,
+      "title": {
+        "ko": "팬 번역은 자원봉사인가",
+        "de": "Ist Fanübersetzung Freiwilligenarbeit",
+        "en": "Is fan translation volunteering"
+      },
+      "intro": {
+        "ko": "팬이 만든 번역과 자막을 공식 계정이 씁니다. 지속 가능한 범위와 사례를 논의합니다.",
+        "de": "Der offizielle Account nutzt Übersetzungen und Untertitel von Fans. Ihr verhandelt Umfang und Vergütung.",
+        "en": "The official account uses fan-made translations and subtitles. You negotiate scope and payment."
+      },
+      "vocab": [
+        {
+          "korean": "자막"
+        },
+        {
+          "korean": "무보수"
+        },
+        {
+          "korean": "예산 항목"
+        },
+        {
+          "korean": "지급"
+        },
+        {
+          "korean": "사례"
+        },
+        {
+          "korean": "범위"
+        }
+      ],
+      "grammarIds": [
+        "grammar_c1_given_situation"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 마당에",
+          "de": "V-는 마당에: da nun einmal",
+          "en": "V-는 마당에: given that this is happening"
+        },
+        "explanation": {
+          "ko": "이미 벌어진 상황을 전제로 두고 그 위에서 판단을 세운다. 쓰는 마당에, 어려운 마당에처럼 쓴다.",
+          "de": "Setzt eine bereits bestehende Lage voraus und urteilt darauf: 쓰는 마당에, 어려운 마당에.",
+          "en": "Takes an already-existing situation as given and judges from there: 쓰는 마당에, 어려운 마당에."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "번역과 자막을 팬들이 무보수로 맡고 있습니다.",
+          "de": "Übersetzung und Untertitel übernehmen Fans unbezahlt.",
+          "en": "Fans handle translation and subtitles without pay."
+        },
+        {
+          "speaker": "user",
+          "ko": "공식 계정이 그 자막을 그대로 올리는 마당에 자원봉사라고 부르기 어렵습니다.",
+          "de": "Da der offizielle Account diese Untertitel unverändert übernimmt, ist das kaum Freiwilligenarbeit.",
+          "en": "Given that the official account posts those subtitles as they are, calling it volunteering doesn't hold."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "예산 항목이 없습니다. 지금 구조에서는 지급이 어렵습니다.",
+          "de": "Es gibt keinen Budgetposten. In der jetzigen Struktur ist eine Zahlung schwierig.",
+          "en": "There's no budget line. Payment is difficult in the current structure."
+        },
+        {
+          "speaker": "user",
+          "ko": "지급이 어려운 마당에 결과물을 공식으로 쓰면 신뢰가 깎입니다.",
+          "de": "Wenn eine Zahlung schwer ist, kostet die offizielle Nutzung Vertrauen.",
+          "en": "Given that payment is hard, using the output officially costs you trust."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그럼 사용을 멈추는 편이 낫습니까?",
+          "de": "Sollten wir die Nutzung dann besser einstellen?",
+          "en": "Would it be better to stop using it, then?"
+        },
+        {
+          "speaker": "user",
+          "ko": "멈추는 것도 방법입니다. 또는 사용 범위를 정하고 최소 사례를 두는 방법도 있습니다.",
+          "de": "Einstellen ist eine Möglichkeit. Oder man begrenzt die Nutzung und zahlt ein Minimum.",
+          "en": "Stopping is one option. Or set a usage scope and pay a minimum."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "사례를 시작하면 모든 팬 활동에 요구가 생깁니다.",
+          "de": "Zahlt man einmal, entstehen Forderungen aus allen Fanaktivitäten.",
+          "en": "Once we pay, demands will come from every fan activity."
+        },
+        {
+          "speaker": "user",
+          "ko": "그건 범위를 문서로 좁히면 됩니다. 공식 사용분만 대상으로 하면 구분이 됩니다.",
+          "de": "Das löst ein schriftlich enger Rahmen: nur offiziell genutzte Arbeit.",
+          "en": "A written narrow scope handles that: only work used officially counts."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_c1_kpop_fan_labor_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "예산 항목이 없습니다. 지금 구조에서는 지급이 어렵습니다.",
+            "options": [
+              {
+                "de": "Es gibt keinen Budgetposten, daher ist Zahlung schwierig.",
+                "en": "There's no budget line, so payment is difficult."
+              },
+              {
+                "de": "Das Budget ist bereits bewilligt.",
+                "en": "The budget has already been approved."
+              },
+              {
+                "de": "Wir zahlen bereits an alle Fans.",
+                "en": "We already pay every fan."
+              },
+              {
+                "de": "Die Struktur wurde letztes Jahr geändert.",
+                "en": "The structure was changed last year."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_kpop_fan_labor_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Wenn eine Zahlung schwer ist, kostet die offizielle Nutzung Vertrauen.",
+            "promptEn": "Given that payment is hard, using the output officially costs trust.",
+            "options": [
+              {
+                "ko": "지급이 어려운 마당에 결과물을 공식으로 쓰면 신뢰가 깎입니다."
+              },
+              {
+                "ko": "지급이 쉬우니까 결과물을 공식으로 써도 됩니다."
+              },
+              {
+                "ko": "신뢰는 지급과 아무 관계가 없습니다."
+              },
+              {
+                "ko": "결과물을 쓰지 않으면 신뢰가 깎입니다."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_kpop_fan_labor_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "지급이 어려운 ___ 결과물을 공식으로 쓰면 신뢰가 깎입니다.",
+            "options": [
+              "마당에",
+              "김에",
+              "대신에",
+              "바람에"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_kpop_fan_labor_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "사용 범위를 문서로 좁히면 됩니다.",
+            "promptDe": "Man begrenzt den Nutzungsrahmen schriftlich.",
+            "promptEn": "You narrow the usage scope in writing.",
+            "distractors": [
+              "예산을",
+              "사례가"
+            ]
+          }
+        },
+        {
+          "id": "quest_c1_kpop_fan_labor_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "예산 항목이 없습니다.",
+            "promptDe": "Es gibt keinen Budgetposten.",
+            "promptEn": "There's no budget line."
+          }
+        }
+      ],
+      "shelf": "c1_fandom",
+      "backdrop": "office"
     }
   ]
 }

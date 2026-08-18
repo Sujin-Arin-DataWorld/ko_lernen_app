@@ -294,6 +294,14 @@
       "level": "a1"
     },
     {
+      "id": "seed_scenario_a1_daily_recycling_day_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_dating_what_to_call_you_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_scenario_a1_direction_left_v1",
       "level": "a1"
     },
@@ -314,6 +322,14 @@
       "level": "a1"
     },
     {
+      "id": "seed_scenario_a1_friends_major_and_number_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_gaming_one_more_round_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_scenario_a1_gate_code_v1",
       "level": "a1"
     },
@@ -327,6 +343,10 @@
     },
     {
       "id": "seed_scenario_a1_hotel_key_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_kpop_my_bias_v1",
       "level": "a1"
     },
     {
@@ -471,6 +491,10 @@
     },
     {
       "id": "seed_scenario_a1_whiteboard_word_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_youtube_shorts_last_night_v1",
       "level": "a1"
     },
     {
@@ -1538,7 +1562,15 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_daily_late_delivery_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_data_roam_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_dating_slow_replies_v1",
       "level": "a2"
     },
     {
@@ -1562,7 +1594,15 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_friends_weekend_slot_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_front_desk_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_gaming_cant_connect_v1",
       "level": "a2"
     },
     {
@@ -1591,6 +1631,10 @@
     },
     {
       "id": "seed_scenario_a2_id_pickup_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_kpop_concert_queue_v1",
       "level": "a2"
     },
     {
@@ -1699,6 +1743,10 @@
     },
     {
       "id": "seed_scenario_a2_water_set_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_youtube_send_the_link_v1",
       "level": "a2"
     },
     {
@@ -2718,6 +2766,14 @@
       "level": "b1"
     },
     {
+      "id": "seed_scenario_b1_daily_cut_the_bills_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_dating_anniversary_gap_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_scenario_b1_deductible_v1",
       "level": "b1"
     },
@@ -2727,6 +2783,14 @@
     },
     {
       "id": "seed_scenario_b1_followup_mail_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_friends_he_said_that_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_gaming_team_voice_v1",
       "level": "b1"
     },
     {
@@ -2743,6 +2807,10 @@
     },
     {
       "id": "seed_scenario_b1_intranet_form_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_kpop_missing_goods_v1",
       "level": "b1"
     },
     {
@@ -2867,6 +2935,10 @@
     },
     {
       "id": "seed_scenario_b1_warranty_week_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_youtube_up_all_night_v1",
       "level": "b1"
     },
     {
@@ -3874,6 +3946,14 @@
       "level": "b2"
     },
     {
+      "id": "seed_scenario_b2_daily_upstairs_noise_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_dating_moving_in_terms_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_scenario_b2_deadline_deferral_request_v1",
       "level": "b2"
     },
@@ -3894,11 +3974,23 @@
       "level": "b2"
     },
     {
+      "id": "seed_scenario_b2_friends_split_the_bill_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_gaming_ban_appeal_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_scenario_b2_hold_share_v1",
       "level": "b2"
     },
     {
       "id": "seed_scenario_b2_hotel_clause_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_kpop_staff_interview_v1",
       "level": "b2"
     },
     {
@@ -4027,6 +4119,10 @@
     },
     {
       "id": "seed_scenario_b2_vacate_short_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_youtube_collab_pitch_v1",
       "level": "b2"
     },
     {
@@ -5694,6 +5790,26 @@
       "level": "c1"
     },
     {
+      "id": "seed_scenario_c1_daily_prices_vs_data_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_dating_app_safety_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_friends_venue_access_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_gaming_playtime_policy_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_kpop_fan_labor_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_scenario_c1_leading_item_v1",
       "level": "c1"
     },
@@ -5727,6 +5843,10 @@
     },
     {
       "id": "seed_scenario_c1_uncertainty_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_youtube_health_claims_v1",
       "level": "c1"
     },
     {
@@ -6866,7 +6986,27 @@
       "level": "c2"
     },
     {
+      "id": "seed_scenario_c2_daily_automation_redress_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_dating_romance_frames_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_scenario_c2_discourse_premise_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_friends_quoted_privately_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_gaming_auto_sanction_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_kpop_fandom_language_v1",
       "level": "c2"
     },
     {
@@ -6895,6 +7035,10 @@
     },
     {
       "id": "seed_scenario_c2_withdraw_deep_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_youtube_algorithm_duty_v1",
       "level": "c2"
     },
     {
@@ -7484,6 +7628,20 @@
     },
     {
       "kind": "scenario",
+      "id": "a1_daily_recycling_day",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_daily_recycling_day_v1",
+      "courseUnitId": "a1_09_home_daily_life"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_dating_what_to_call_you",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_dating_what_to_call_you_v1",
+      "courseUnitId": "a1_11_titles_relationships"
+    },
+    {
+      "kind": "scenario",
       "id": "a1_direction_left",
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_direction_left_v1",
@@ -7519,6 +7677,20 @@
     },
     {
       "kind": "scenario",
+      "id": "a1_friends_major_and_number",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_friends_major_and_number_v1",
+      "courseUnitId": "a1_15_first_class_work"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_gaming_one_more_round",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_gaming_one_more_round_v1",
+      "courseUnitId": "a1_04_order_request_object"
+    },
+    {
+      "kind": "scenario",
       "id": "a1_gate_code",
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_gate_code_v1",
@@ -7544,6 +7716,13 @@
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_hotel_key_v1",
       "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_kpop_my_bias",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_kpop_my_bias_v1",
+      "courseUnitId": "a1_02_self_intro_identity"
     },
     {
       "kind": "scenario",
@@ -7796,6 +7975,13 @@
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_whiteboard_word_v1",
       "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_youtube_shorts_last_night",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_youtube_shorts_last_night_v1",
+      "courseUnitId": "a1_12_daily_negation"
     },
     {
       "kind": "scenario",
@@ -9661,10 +9847,24 @@
     },
     {
       "kind": "scenario",
+      "id": "a2_daily_late_delivery",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_daily_late_delivery_v1",
+      "courseUnitId": "a2_05_delivery_services"
+    },
+    {
+      "kind": "scenario",
       "id": "a2_data_roam",
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_data_roam_v1",
       "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_dating_slow_replies",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_dating_slow_replies_v1",
+      "courseUnitId": "a2_04_feelings_health"
     },
     {
       "kind": "scenario",
@@ -9703,9 +9903,23 @@
     },
     {
       "kind": "scenario",
+      "id": "a2_friends_weekend_slot",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_friends_weekend_slot_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
       "id": "a2_front_desk",
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_front_desk_v1",
+      "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_gaming_cant_connect",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_gaming_cant_connect_v1",
       "courseUnitId": "a2_07_travel_repair"
     },
     {
@@ -9756,6 +9970,13 @@
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_id_pickup_v1",
       "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_kpop_concert_queue",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_kpop_concert_queue_v1",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "kind": "scenario",
@@ -9945,6 +10166,13 @@
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_water_set_v1",
       "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_youtube_send_the_link",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_youtube_send_the_link_v1",
+      "courseUnitId": "a2_03_chat_relationships"
     },
     {
       "kind": "scenario",
@@ -11726,6 +11954,20 @@
     },
     {
       "kind": "scenario",
+      "id": "b1_daily_cut_the_bills",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_daily_cut_the_bills_v1",
+      "courseUnitId": "b1_06_life_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_dating_anniversary_gap",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_dating_anniversary_gap_v1",
+      "courseUnitId": "b1_04_relationships"
+    },
+    {
+      "kind": "scenario",
       "id": "b1_deductible",
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_deductible_v1",
@@ -11744,6 +11986,20 @@
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_followup_mail_v1",
       "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_friends_he_said_that",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_friends_he_said_that_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_gaming_team_voice",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_gaming_team_voice_v1",
+      "courseUnitId": "b1_03_work_softening"
     },
     {
       "kind": "scenario",
@@ -11771,6 +12027,13 @@
       "id": "b1_intranet_form",
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_intranet_form_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_kpop_missing_goods",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_kpop_missing_goods_v1",
       "courseUnitId": "b1_05_complaint_resolution"
     },
     {
@@ -11989,6 +12252,13 @@
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_warranty_week_v1",
       "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_youtube_up_all_night",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_youtube_up_all_night_v1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "kind": "scenario",
@@ -13749,6 +14019,20 @@
     },
     {
       "kind": "scenario",
+      "id": "b2_daily_upstairs_noise",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_daily_upstairs_noise_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_dating_moving_in_terms",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_dating_moving_in_terms_v1",
+      "courseUnitId": "b2_06_advanced_capstone"
+    },
+    {
+      "kind": "scenario",
       "id": "b2_deadline_deferral_request",
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_deadline_deferral_request_v1",
@@ -13784,6 +14068,20 @@
     },
     {
       "kind": "scenario",
+      "id": "b2_friends_split_the_bill",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_friends_split_the_bill_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_gaming_ban_appeal",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_gaming_ban_appeal_v1",
+      "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
       "id": "b2_hold_share",
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_hold_share_v1",
@@ -13795,6 +14093,13 @@
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_hotel_clause_v1",
       "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_kpop_staff_interview",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_kpop_staff_interview_v1",
+      "courseUnitId": "b2_05_interview"
     },
     {
       "kind": "scenario",
@@ -14019,6 +14324,13 @@
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_vacate_short_v1",
       "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_youtube_collab_pitch",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_youtube_collab_pitch_v1",
+      "courseUnitId": "b2_01_formal_opening"
     },
     {
       "kind": "scenario",
@@ -17634,6 +17946,41 @@
     },
     {
       "kind": "scenario",
+      "id": "c1_daily_prices_vs_data",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_daily_prices_vs_data_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_dating_app_safety",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_dating_app_safety_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_friends_venue_access",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_friends_venue_access_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_gaming_playtime_policy",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_gaming_playtime_policy_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_kpop_fan_labor",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_kpop_fan_labor_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "scenario",
       "id": "c1_leading_item",
       "level": "c1",
       "sourceSeedId": "seed_scenario_c1_leading_item_v1",
@@ -17693,6 +18040,13 @@
       "id": "c1_uncertainty",
       "level": "c1",
       "sourceSeedId": "seed_scenario_c1_uncertainty_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_youtube_health_claims",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_youtube_health_claims_v1",
       "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
@@ -20525,10 +20879,45 @@
     },
     {
       "kind": "scenario",
+      "id": "c2_daily_automation_redress",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_daily_automation_redress_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_dating_romance_frames",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_dating_romance_frames_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
       "id": "c2_discourse_premise",
       "level": "c2",
       "sourceSeedId": "seed_scenario_c2_discourse_premise_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_friends_quoted_privately",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_friends_quoted_privately_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_gaming_auto_sanction",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_gaming_auto_sanction_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_kpop_fandom_language",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_kpop_fandom_language_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
       "kind": "scenario",
@@ -20577,6 +20966,13 @@
       "id": "c2_withdraw_deep",
       "level": "c2",
       "sourceSeedId": "seed_scenario_c2_withdraw_deep_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_youtube_algorithm_duty",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_youtube_algorithm_duty_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
@@ -20851,7 +21247,7 @@
       "vocabPack": 201,
       "grammar": 206,
       "smalltalk": 377,
-      "scenario": 264,
+      "scenario": 300,
       "cloze": 566,
       "satz": 360,
       "project": 8

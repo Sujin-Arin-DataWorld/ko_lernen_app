@@ -22,6 +22,7 @@ import tempfile
 from typing import Any
 
 import scenario_store
+from shelf_assignment import SHELF_BY_ID
 from validate_content import ContentValidator, LOWER_LEVELS
 
 
@@ -231,6 +232,20 @@ def _validate_bundle(
         raise ScenarioIntegrationError(f"{manifest_path}: backdrop map must cover every scenario exactly once")
     if any(value not in SCENE_KEYS for value in backdrops.values()):
         raise ScenarioIntegrationError(f"{manifest_path}: backdrop uses an unknown existing scene category")
+    # shelf 는 매니페스트가 아니라 shelf_assignment.ASSIGNMENT 가 정본이다 —
+    # 한 시나리오가 어느 칸에 서는지는 배치의 성질이 아니라 서재 전체의 성질이라
+    # 배치마다 따로 적으면 두 표가 갈라진다.  validate_content 가 live 전수에
+    # shelf 를 요구하므로(§356) 여기서 못 채우면 승격 자체가 불가능하다.
+    #
+    # **승격할 때만** 막는다.  초안 미리보기와 검수 패킷 렌더는 아직 칸이 정해지지
+    # 않은 배치에도 돌아야 한다 — 칸 배정은 Jin 이 초안을 읽고 나서 하는 결정이다.
+    if require_approved:
+        unshelved = sorted(ident for ident in scenario_ids if ident not in SHELF_BY_ID)
+        if unshelved:
+            raise ScenarioIntegrationError(
+                f"{manifest_path}: {len(unshelved)} scenarios have no shelf — add them "
+                f"to shelf_assignment.ASSIGNMENT first: {unshelved[:5]}"
+            )
     return manifest_path, manifest, records_by_kind, {key: str(value) for key, value in backdrops.items()}
 
 
@@ -307,8 +322,23 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
             if kind == "scenario":
                 # 2026-08-17 이전에는 이 값이 Dart const map 으로 갔다. 이제는
                 # 레코드 자체에 실린다 — 신규 시나리오의 Dart 수정은 0 회다.
+                # shelf 도 같이 실어야 한다: 마이그레이션(migrate_shelf_backdrop)이
+                # live 264 에만 소급 부여했고 이 경로는 빠져 있어서, 08-17 이후
+                # 어떤 배치도 승격되지 못했다(2026-08-18 확인).
+                # 칸을 모르는 레코드는 필드를 비운 채 스테이징으로 보낸다 —
+                # 승격 경로는 위 _validate_bundle(require_approved=True) 이 이미
+                # 막았고, 미리보기에서는 스테이징된 validate_content 가 같은 결손을
+                # 제 문구로 보고하는 편이 낫다.
                 records = [
-                    {**record, "backdrop": backdrops[str(record["id"])]}
+                    {
+                        **record,
+                        **(
+                            {"shelf": SHELF_BY_ID[str(record["id"])]}
+                            if str(record["id"]) in SHELF_BY_ID
+                            else {}
+                        ),
+                        "backdrop": backdrops[str(record["id"])],
+                    }
                     for record in records
                 ]
             for target_name, shard_records in _shard_slices(kind, records):

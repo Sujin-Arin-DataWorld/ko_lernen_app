@@ -9,6 +9,12 @@ import 'support/scenario_json.dart';
 /// 마이그레이션 전/후 264개의 backdrop 이 완전히 동일함을 고정한다 (스펙 §11).
 /// `_categoryById` 는 Task 6 에서 사라지므로, 이 기준선 파일이 그 값의 유일한
 /// 사후 증인이다.
+///
+/// 기준선은 **264개에서 자라지 않는다** — 마이그레이션 당시 코퍼스의 동결
+/// 사본이기 때문이다. 이후 승격된 시나리오(2026-08-18 Batch 11 36편)는 여기
+/// 없는 게 정상이고, 그 backdrop 은 배치 매니페스트가 증인이다. 그래서 이
+/// 그룹은 "코퍼스 크기 == 기준선 크기"가 아니라 "기준선에 있는 것은 안 변했다"를
+/// 검사한다.
 void main() {
   group('backdrop 무회귀 기준선', () {
     late Map<String, String> baseline;
@@ -28,17 +34,25 @@ void main() {
       expect(baseline.length, 264);
     });
 
-    test('모든 시나리오의 backdropKey 가 기준선과 같다', () {
+    test('기준선의 264개는 backdropKey 가 그대로다', () {
       final scenarios = allScenarioJson();
-      expect(scenarios.length, baseline.length);
+      expect(scenarios.length, greaterThanOrEqualTo(baseline.length));
+      var checked = 0;
       for (final raw in scenarios) {
         final scenario = Scenario.fromJson(raw);
+        final expected = baseline[scenario.id];
+        if (expected == null) {
+          continue;
+        }
+        checked++;
         expect(
           scenario.backdropKey,
-          baseline[scenario.id],
+          expected,
           reason: '${scenario.id} 의 배경이 바뀌었습니다',
         );
       }
+      // 기준선 항목이 코퍼스에서 사라지는 것도 회귀다.
+      expect(checked, baseline.length);
     });
   });
 
@@ -59,13 +73,14 @@ void main() {
       'station',
       'taxi',
     };
+    // 2026-08-18 Batch 11 승격으로 레벨마다 정확히 6편씩 늘었다 (264 → 300).
     const expectedCounts = <String, int>{
-      'a1': 67,
-      'a2': 66,
-      'b1': 55,
-      'b2': 54,
-      'c1': 11,
-      'c2': 11,
+      'a1': 73,
+      'a2': 72,
+      'b1': 61,
+      'b2': 60,
+      'c1': 17,
+      'c2': 17,
     };
 
     test('레거시 단일 파일은 사라졌다', () {
@@ -77,7 +92,7 @@ void main() {
         final items = scenarioShardRoot(level)['scenarios'] as List;
         expect(items.length, expectedCounts[level], reason: level);
       }
-      expect(allScenarioJson().length, 264);
+      expect(allScenarioJson().length, 300);
     });
 
     test('샤드에는 자기 레벨만 들어 있다', () {

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Regression tests for loader-aware content coverage."""
+"""Regression tests for loader-aware content coverage.
+
+2026-08-18 Batch 11 승격으로 코퍼스가 264 → 300 (레벨마다 +6) 이 됐다.
+C1 은 11 → 17 이다.
+"""
 
 from __future__ import annotations
 
@@ -17,7 +21,7 @@ class LoaderCoverageAuditTest(unittest.TestCase):
         report = LoaderCoverageAudit(ROOT).build()
 
         self.assertEqual(report["state"], "live")
-        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 11)
+        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 17)
         self.assertEqual(report["inventory"]["pronunciation"]["total"], 20)
         self.assertEqual(
             report["libraryLoader"]["pronunciationVisiblePerLearnerLevel"]["c2"],
@@ -48,12 +52,12 @@ class LoaderCoverageAuditTest(unittest.TestCase):
 
         self.assertEqual(report["state"], "preview")
         self.assertEqual(report["inventory"], live["inventory"])
-        self.assertEqual(report["inventory"]["scenario"]["total"], 264)
+        self.assertEqual(report["inventory"]["scenario"]["total"], 300)
         self.assertEqual(report["inventory"]["smalltalk"]["total"], 377)
         self.assertEqual(report["inventory"]["cloze"]["total"], 1538)
         self.assertEqual(report["inventory"]["satz"]["total"], 2091)
         self.assertEqual(report["inventory"]["pronunciation"]["total"], 20)
-        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 11)
+        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 17)
         self.assertEqual(
             report["libraryLoader"]["pronunciationVisiblePerLearnerLevel"]["c2"],
             20,

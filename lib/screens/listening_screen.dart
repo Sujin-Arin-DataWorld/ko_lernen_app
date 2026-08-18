@@ -201,7 +201,7 @@ class _ListeningScreenState extends State<ListeningScreen>
   /// 서재 12칸 — 이름표·재고·진행도. 진행도는 `Storage.completedScenarios`
   /// (모드 무관, 시나리오 id 기준 공유 완료 목록)에서 뽑는다.
   List<ChaekgadoCompartment> _shelfCompartments(AppL10n t) {
-    final slots = kChaekgadoSlots[_shelfLevel.code] ?? const [];
+    final slots = kChaekgadoSlots[_shelfLevel] ?? const [];
     final done = Storage.completedScenarios.toSet();
     return [
       for (final slot in slots)
@@ -225,7 +225,7 @@ class _ListeningScreenState extends State<ListeningScreen>
     AppL10n t,
     ChaekgadoCompartment compartment,
   ) async {
-    final slot = (kChaekgadoSlots[_shelfLevel.code] ?? const [])
+    final slot = (kChaekgadoSlots[_shelfLevel] ?? const [])
         .firstWhere((s) => s.slug == compartment.slug);
     final matching = _scenariosForSlug(compartment.slug);
     final done = Storage.completedScenarios.toSet();
@@ -239,10 +239,10 @@ class _ListeningScreenState extends State<ListeningScreen>
           ? t.listeningShelfEmpty
           : t.listeningShelfScenarioCount(matching.length),
       footnote: t.listeningProgress(
-        (kChaekgadoSlots[_shelfLevel.code] ?? const [])
+        (kChaekgadoSlots[_shelfLevel] ?? const [])
                 .indexWhere((s) => s.slug == compartment.slug) +
             1,
-        (kChaekgadoSlots[_shelfLevel.code] ?? const []).length,
+        (kChaekgadoSlots[_shelfLevel] ?? const []).length,
       ),
       illustration: Image.asset(
         chaekgadoCardAsset(slot.imageKey),

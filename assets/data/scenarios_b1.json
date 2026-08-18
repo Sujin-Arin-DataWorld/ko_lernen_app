@@ -10460,6 +10460,1302 @@
       ],
       "shelf": "b1_bill",
       "backdrop": "cafe"
+    },
+    {
+      "id": "b1_daily_cut_the_bills",
+      "level": "b1",
+      "emoji": "💸",
+      "register": "casual",
+      "speechStyle": "casual",
+      "relationshipContext": "close_friends",
+      "intent": "plan_a_cheaper_month",
+      "courseUnitId": "b1_06_life_capstone",
+      "conceptIds": [
+        "concept_b1_life"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "이번 달 카드값",
+        "de": "Die Kartenabrechnung diesen Monat",
+        "en": "This month's card bill"
+      },
+      "intro": {
+        "ko": "카드값을 보고 놀랐습니다. 다음 달에 줄일 항목 두 개를 정합니다.",
+        "de": "Die Abrechnung hat euch erschreckt. Ihr legt zwei Posten fest, die nächsten Monat wegfallen.",
+        "en": "The bill was a shock. You pick two things to cut next month."
+      },
+      "vocab": [
+        {
+          "korean": "카드값"
+        },
+        {
+          "korean": "배달"
+        },
+        {
+          "korean": "구독"
+        },
+        {
+          "korean": "정리하다"
+        },
+        {
+          "korean": "아깝다"
+        },
+        {
+          "korean": "끊다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_decision"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-기로 하다",
+          "de": "V-기로 하다: sich entscheiden",
+          "en": "V-기로 하다: deciding to do"
+        },
+        "explanation": {
+          "ko": "스스로 또는 서로 정한 결정을 말한다. 시키기로 했어, 정리하기로 했어처럼 쓴다.",
+          "de": "Nennt eine Entscheidung, allein oder gemeinsam getroffen: 시키기로 했어, 정리하기로 했어.",
+          "en": "States a decision you made alone or together: 시키기로 했어, 정리하기로 했어."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "이번 달 카드값 보고 놀랐어.",
+          "de": "Bei der Kartenabrechnung diesen Monat bin ich erschrocken.",
+          "en": "This month's card bill gave me a shock."
+        },
+        {
+          "speaker": "user",
+          "ko": "나도. 배달만 30만 원 넘게 썼어.",
+          "de": "Ich auch. Allein für Lieferungen über 300.000 Won.",
+          "en": "Me too. Over 300,000 won on delivery alone."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그래서 다음 달부터 배달을 주말에만 시키기로 했어.",
+          "de": "Deshalb bestelle ich ab nächstem Monat nur noch am Wochenende.",
+          "en": "So from next month I've decided to order only on weekends."
+        },
+        {
+          "speaker": "user",
+          "ko": "그거 좋다. 나는 구독을 두 개 정리하기로 했어.",
+          "de": "Gute Idee. Ich habe beschlossen, zwei Abos zu kündigen.",
+          "en": "That's smart. I've decided to cut two subscriptions."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "어떤 거? 너 다 보는 거 아니었어?",
+          "de": "Welche? Ich dachte, du guckst alle.",
+          "en": "Which ones? I thought you watched all of them."
+        },
+        {
+          "speaker": "user",
+          "ko": "두 달 동안 한 번도 안 켰어. 그러니까 아까워.",
+          "de": "In zwei Monaten kein einziges Mal geöffnet. Also schade ums Geld.",
+          "en": "Haven't opened them once in two months. Feels like a waste."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그럼 나도 하나 끊기로 할게. 같이 확인하자.",
+          "de": "Dann kündige ich auch eins. Prüfen wir es zusammen.",
+          "en": "Then I'll cancel one too. Let's check together."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아. 다음 주에 카드값 다시 보기로 하자.",
+          "de": "Gut. Nächste Woche schauen wir wieder auf die Abrechnung.",
+          "en": "Deal. Let's look at the bills again next week."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_daily_cut_the_bills_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "audioKo": "다음 달부터 배달을 주말에만 시키기로 했어.",
+            "options": [
+              {
+                "de": "Ab nächstem Monat bestelle ich nur am Wochenende.",
+                "en": "From next month I'll only order on weekends."
+              },
+              {
+                "de": "Ab nächstem Monat bestelle ich jeden Tag.",
+                "en": "From next month I'll order every day."
+              },
+              {
+                "de": "Am Wochenende koche ich nie.",
+                "en": "I never cook on weekends."
+              },
+              {
+                "de": "Die Lieferung war diesen Monat billig.",
+                "en": "Delivery was cheap this month."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_daily_cut_the_bills_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "promptDe": "Ich habe beschlossen, zwei Abos zu kündigen.",
+            "promptEn": "I've decided to cut two subscriptions.",
+            "options": [
+              {
+                "ko": "나는 구독을 두 개 정리하기로 했어."
+              },
+              {
+                "ko": "나는 구독을 두 개 더 했어."
+              },
+              {
+                "ko": "나는 구독료를 두 번 냈어."
+              },
+              {
+                "ko": "나는 구독을 정리하고 싶지 않아."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_daily_cut_the_bills_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "sentence": "구독을 두 개 정리하___ 했어.",
+            "options": [
+              "기로",
+              "려고",
+              "도록",
+              "다가"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_daily_cut_the_bills_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "targetKo": "다음 주에 카드값 다시 보기로 하자.",
+            "promptDe": "Schauen wir nächste Woche wieder auf die Abrechnung.",
+            "promptEn": "Let's look at the card bill again next week.",
+            "distractors": [
+              "구독을",
+              "배달이"
+            ]
+          }
+        },
+        {
+          "id": "quest_b1_daily_cut_the_bills_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_life"
+          ],
+          "data": {
+            "targetKo": "두 달 동안 한 번도 안 켰어.",
+            "promptDe": "In zwei Monaten habe ich es nicht einmal geöffnet.",
+            "promptEn": "I haven't opened it once in two months."
+          }
+        }
+      ],
+      "shelf": "b1_bill",
+      "backdrop": "home"
+    },
+    {
+      "id": "b1_friends_he_said_that",
+      "level": "b1",
+      "emoji": "🗣️",
+      "register": "casual",
+      "speechStyle": "casual",
+      "relationshipContext": "close_friends",
+      "intent": "undo_a_relayed_remark",
+      "courseUnitId": "b1_02_indirect_speech",
+      "conceptIds": [
+        "concept_b1_indirect_speech"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "그런 말 안 했어",
+        "de": "Das habe ich nie gesagt",
+        "en": "I never said that"
+      },
+      "intro": {
+        "ko": "전해 들은 말 때문에 오해가 생겼습니다. 원래 맥락을 확인해 되돌립니다.",
+        "de": "Eine weitergegebene Aussage hat ein Missverständnis erzeugt. Ihr klärt den ursprünglichen Zusammenhang.",
+        "en": "A relayed remark caused a mix-up. You track down what was actually said."
+      },
+      "vocab": [
+        {
+          "korean": "오해"
+        },
+        {
+          "korean": "모임"
+        },
+        {
+          "korean": "전하다"
+        },
+        {
+          "korean": "직접"
+        },
+        {
+          "korean": "잘못"
+        },
+        {
+          "korean": "물어보다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_indirect_speech"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(ㄴ/는)다고 하다",
+          "de": "Indirekte Rede",
+          "en": "Indirect speech"
+        },
+        "explanation": {
+          "ko": "다른 사람의 말을 옮길 때 쓴다. 화났다고 했어, 안 온다고 했어처럼 원래 말과 전한 말을 구분한다.",
+          "de": "Für die Wiedergabe fremder Aussagen: 화났다고 했어, 안 온다고 했어 trennt Original und Weitergabe.",
+          "en": "Used to relay what someone said: 화났다고 했어, 안 온다고 했어 separates the original from the retelling."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "어제 수진이가 너 화났다고 했는데, 진짜야?",
+          "de": "Sujin hat gesagt, du wärst sauer. Stimmt das?",
+          "en": "Sujin said you were angry. Is that true?"
+        },
+        {
+          "speaker": "user",
+          "ko": "내가? 나 그런 말 안 했어.",
+          "de": "Ich? Das habe ich nie gesagt.",
+          "en": "Me? I never said that."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네가 모임에 안 온다고 했다고 들었어.",
+          "de": "Ich habe gehört, du hättest gesagt, du kommst nicht.",
+          "en": "I heard you said you weren't coming to the meetup."
+        },
+        {
+          "speaker": "user",
+          "ko": "늦게 간다고 했어. 안 간다고 하지 않았어.",
+          "de": "Ich sagte, ich komme später. Nicht, dass ich nicht komme.",
+          "en": "I said I'd come late. Not that I wasn't coming."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "아, 그래서 오해가 생겼구나.",
+          "de": "Ach, daher kommt das Missverständnis.",
+          "en": "Ah, so that's where the mix-up came from."
+        },
+        {
+          "speaker": "user",
+          "ko": "내가 수진이한테 직접 말할게. 저녁에 전화할게.",
+          "de": "Ich sage es Sujin selbst. Ich rufe heute Abend an.",
+          "en": "I'll tell Sujin myself. I'll call this evening."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그게 좋겠다. 나도 잘못 전했어. 미안.",
+          "de": "Das ist besser. Ich habe es auch falsch weitergegeben. Sorry.",
+          "en": "Better that way. I passed it on wrong too. Sorry."
+        },
+        {
+          "speaker": "user",
+          "ko": "괜찮아. 다음엔 나한테 먼저 물어봐.",
+          "de": "Kein Problem. Frag nächstes Mal erst mich.",
+          "en": "It's fine. Next time just ask me first."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_friends_he_said_that_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_indirect_speech"
+          ],
+          "data": {
+            "audioKo": "늦게 간다고 했어. 안 간다고 하지 않았어.",
+            "options": [
+              {
+                "de": "Ich sagte, ich komme später, nicht dass ich nicht komme.",
+                "en": "I said I'd come late, not that I wasn't coming."
+              },
+              {
+                "de": "Ich sagte, ich komme gar nicht.",
+                "en": "I said I wasn't coming at all."
+              },
+              {
+                "de": "Ich habe gesagt, ich bin sauer.",
+                "en": "I said I was angry."
+              },
+              {
+                "de": "Ich habe nichts über das Treffen gesagt.",
+                "en": "I said nothing about the meetup."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_friends_he_said_that_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_indirect_speech"
+          ],
+          "data": {
+            "promptDe": "Frag nächstes Mal erst mich.",
+            "promptEn": "Next time just ask me first.",
+            "options": [
+              {
+                "ko": "다음엔 나한테 먼저 물어봐."
+              },
+              {
+                "ko": "다음엔 수진이한테 물어봐."
+              },
+              {
+                "ko": "다음엔 아무한테도 말하지 마."
+              },
+              {
+                "ko": "다음엔 내가 먼저 전할게."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_friends_he_said_that_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_indirect_speech"
+          ],
+          "data": {
+            "sentence": "네가 모임에 안 온다___ 했다고 들었어.",
+            "options": [
+              "고",
+              "서",
+              "면",
+              "지만"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_friends_he_said_that_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_indirect_speech"
+          ],
+          "data": {
+            "targetKo": "내가 수진이한테 직접 말할게.",
+            "promptDe": "Ich sage es Sujin selbst.",
+            "promptEn": "I'll tell Sujin myself.",
+            "distractors": [
+              "오해가",
+              "모임을"
+            ]
+          }
+        },
+        {
+          "id": "quest_b1_friends_he_said_that_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_indirect_speech"
+          ],
+          "data": {
+            "targetKo": "나도 잘못 전했어.",
+            "promptDe": "Ich habe es auch falsch weitergegeben.",
+            "promptEn": "I passed it on wrong too."
+          }
+        }
+      ],
+      "shelf": "b1_friends",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "b1_dating_anniversary_gap",
+      "level": "b1",
+      "emoji": "🎂",
+      "register": "intimate",
+      "speechStyle": "intimate",
+      "relationshipContext": "romantic_partners",
+      "intent": "repair_mismatched_expectations",
+      "courseUnitId": "b1_04_relationships",
+      "conceptIds": [
+        "concept_b1_relationships"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 165,
+      "title": {
+        "ko": "기념일이 어긋났어",
+        "de": "Unser Jubiläum lief schief",
+        "en": "Our anniversary went sideways"
+      },
+      "intro": {
+        "ko": "기념일 기대가 서로 달랐습니다. 서운함을 말하고 다음 방식을 함께 정합니다.",
+        "de": "Ihr hattet unterschiedliche Erwartungen. Du sagst, was weh tat, und ihr legt das nächste Mal fest.",
+        "en": "You expected different things. You name what hurt and agree how to do it next time."
+      },
+      "vocab": [
+        {
+          "korean": "기념일"
+        },
+        {
+          "korean": "당일"
+        },
+        {
+          "korean": "미루다"
+        },
+        {
+          "korean": "한마디"
+        },
+        {
+          "korean": "준비하다"
+        },
+        {
+          "korean": "미리"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_wish"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-았/었으면 좋겠다",
+          "de": "V-았/었으면 좋겠다: sich etwas wünschen",
+          "en": "V-았/었으면 좋겠다: wishing for something"
+        },
+        "explanation": {
+          "ko": "상대를 비난하지 않고 바라는 것을 말한다. 해 줬으면 좋겠어처럼 부드러운 부탁이 된다.",
+          "de": "Nennt einen Wunsch ohne Vorwurf: 해 줬으면 좋겠어 klingt wie eine sanfte Bitte.",
+          "en": "States a wish without blame: 해 줬으면 좋겠어 lands as a gentle request."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "jieun",
+          "ko": "어제 기념일인데 아무 말도 없어서 좀 그랬어.",
+          "de": "Gestern war unser Jubiläum, und du hast nichts gesagt. Das hat mich getroffen.",
+          "en": "Yesterday was our anniversary and you said nothing. That got to me."
+        },
+        {
+          "speaker": "user",
+          "ko": "나는 주말에 같이 하려고 미뤘어.",
+          "de": "Ich wollte es aufs Wochenende legen.",
+          "en": "I was saving it for the weekend."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그건 몰랐어. 그날 아침에 한마디만 해 줬으면 좋겠어.",
+          "de": "Das wusste ich nicht. Ich hätte an dem Morgen gern ein Wort gehört.",
+          "en": "I didn't know that. I'd love just one word on the morning itself."
+        },
+        {
+          "speaker": "user",
+          "ko": "알았어. 나는 큰 걸 준비하고 싶었어.",
+          "de": "Verstehe. Ich wollte etwas Großes vorbereiten.",
+          "en": "Got it. I wanted to put together something big."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "큰 건 좋아. 그런데 당일에 아무것도 없으면 서운해.",
+          "de": "Groß ist schön. Aber wenn am Tag selbst nichts kommt, tut es weh.",
+          "en": "Big is lovely. But nothing at all on the day itself stings."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 이렇게 하자. 당일에는 짧게, 주말에는 크게.",
+          "de": "Dann machen wir es so: am Tag kurz, am Wochenende groß.",
+          "en": "Then let's do this: short on the day, big on the weekend."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그러면 좋겠어. 나도 미리 말할게.",
+          "de": "Das wäre schön. Ich sage auch vorher etwas.",
+          "en": "I'd like that. I'll say things ahead of time too."
+        },
+        {
+          "speaker": "user",
+          "ko": "응. 다음 기념일은 같이 정하자.",
+          "de": "Ja. Das nächste Jubiläum planen wir zusammen.",
+          "en": "Yeah. Let's plan the next anniversary together."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_dating_anniversary_gap_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "audioKo": "그날 아침에 한마디만 해 줬으면 좋겠어.",
+            "options": [
+              {
+                "de": "Ich hätte an dem Morgen gern ein Wort gehört.",
+                "en": "I'd have liked just one word that morning."
+              },
+              {
+                "de": "Am Morgen habe ich nichts gesagt.",
+                "en": "I didn't say anything that morning."
+              },
+              {
+                "de": "Ich möchte kein Geschenk mehr.",
+                "en": "I don't want a present anymore."
+              },
+              {
+                "de": "Wir feiern lieber gar nicht.",
+                "en": "I'd rather not celebrate at all."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_dating_anniversary_gap_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "promptDe": "Am Tag selbst kurz, am Wochenende groß.",
+            "promptEn": "Short on the day, big on the weekend.",
+            "options": [
+              {
+                "ko": "당일에는 짧게, 주말에는 크게."
+              },
+              {
+                "ko": "당일에는 크게, 주말에는 짧게."
+              },
+              {
+                "ko": "당일에도 주말에도 크게."
+              },
+              {
+                "ko": "당일에는 아무것도 하지 말자."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_dating_anniversary_gap_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "sentence": "한마디만 해 ___ 좋겠어.",
+            "options": [
+              "줬으면",
+              "주면서",
+              "주니까",
+              "주려고"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_dating_anniversary_gap_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "targetKo": "다음 기념일은 같이 정하자.",
+            "promptDe": "Das nächste Jubiläum planen wir zusammen.",
+            "promptEn": "Let's plan the next anniversary together.",
+            "distractors": [
+              "당일에는",
+              "한마디를"
+            ]
+          }
+        },
+        {
+          "id": "quest_b1_dating_anniversary_gap_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_relationships"
+          ],
+          "data": {
+            "targetKo": "나도 미리 말할게.",
+            "promptDe": "Ich sage auch vorher etwas.",
+            "promptEn": "I'll say something in advance too."
+          }
+        }
+      ],
+      "shelf": "b1_dating",
+      "backdrop": "restaurant"
+    },
+    {
+      "id": "b1_youtube_up_all_night",
+      "level": "b1",
+      "emoji": "🌙",
+      "register": "casual",
+      "speechStyle": "casual",
+      "relationshipContext": "close_friends",
+      "intent": "explain_a_lost_night",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "영상 보다가 밤샜어",
+        "de": "Wegen Videos die Nacht durchgemacht",
+        "en": "Videos ate my night"
+      },
+      "intro": {
+        "ko": "밤새 영상을 봤습니다. 이유를 설명하고 습관을 하나 바꿉니다.",
+        "de": "Du hast die Nacht mit Videos verbracht. Du erklärst den Grund und änderst eine Gewohnheit.",
+        "en": "You spent the night on videos. You explain why and change one habit."
+      },
+      "vocab": [
+        {
+          "korean": "영상"
+        },
+        {
+          "korean": "후회하다"
+        },
+        {
+          "korean": "졸다"
+        },
+        {
+          "korean": "회의"
+        },
+        {
+          "korean": "끄다"
+        },
+        {
+          "korean": "재밌다"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_negative_cause",
+        "grammar_b1_experience"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-느라고 / V-(으)ㄴ 적이 있다",
+          "de": "V-느라고 und V-(으)ㄴ 적이 있다: Grund und Erfahrung",
+          "en": "V-느라고 and V-(으)ㄴ 적이 있다: cause and experience"
+        },
+        "explanation": {
+          "ko": "느라고는 그것 때문에 다른 일을 못 했다고 말하고, (으)ㄴ 적이 있다는 그런 경험이 있다고 말한다.",
+          "de": "느라고 sagt, dass deshalb etwas anderes liegen blieb; (으)ㄴ 적이 있다 nennt eine Erfahrung.",
+          "en": "느라고 says something else got dropped because of it; (으)ㄴ 적이 있다 reports having had that experience."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "minsu",
+          "ko": "너 눈이 완전 빨개. 못 잤어?",
+          "de": "Deine Augen sind total rot. Nicht geschlafen?",
+          "en": "Your eyes are completely red. Didn't you sleep?"
+        },
+        {
+          "speaker": "user",
+          "ko": "영상 보느라고 세 시까지 안 잤어.",
+          "de": "Ich habe bis drei Videos geguckt.",
+          "en": "I was up until three watching videos."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "뭐 봤어? 그렇게 재밌었어?",
+          "de": "Was denn? War es so gut?",
+          "en": "What were you watching? Was it that good?"
+        },
+        {
+          "speaker": "user",
+          "ko": "처음엔 요리 영상이었어. 그다음은 나도 모르겠어.",
+          "de": "Erst Kochvideos. Was danach kam, weiß ich selbst nicht.",
+          "en": "It started with cooking videos. After that, no idea."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "나도 그런 적 있어. 하나 보면 계속 나오니까.",
+          "de": "Kenne ich. Guckt man eins, kommt das nächste.",
+          "en": "I've been there. Watch one and they keep coming."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞아. 다 보고 나서 후회했어. 오늘 회의에서 졸았어.",
+          "de": "Genau. Danach habe ich es bereut. Heute im Meeting bin ich eingenickt.",
+          "en": "Right. I regretted it afterwards. I dozed off in a meeting today."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "자기 전에 폰을 다른 방에 두는 사람도 있어.",
+          "de": "Manche legen das Handy vor dem Schlafen in ein anderes Zimmer.",
+          "en": "Some people leave their phone in another room before bed."
+        },
+        {
+          "speaker": "user",
+          "ko": "오늘부터 그렇게 해 볼게. 열두 시엔 끄기로 했어.",
+          "de": "Ab heute probiere ich das. Um zwölf mache ich aus.",
+          "en": "I'll try that from tonight. I've decided to switch off at twelve."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_youtube_up_all_night_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "audioKo": "영상 보느라고 세 시까지 안 잤어.",
+            "options": [
+              {
+                "de": "Wegen der Videos war ich bis drei wach.",
+                "en": "Because of the videos I was up until three."
+              },
+              {
+                "de": "Ich bin um drei Uhr aufgewacht.",
+                "en": "I woke up at three."
+              },
+              {
+                "de": "Ich habe drei Videos gesehen.",
+                "en": "I watched three videos."
+              },
+              {
+                "de": "Ich habe gestern früh geschlafen.",
+                "en": "I went to bed early yesterday."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_youtube_up_all_night_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "promptDe": "Das kenne ich auch.",
+            "promptEn": "I've been there myself.",
+            "options": [
+              {
+                "ko": "나도 그런 적 있어."
+              },
+              {
+                "ko": "나는 그런 적 없어."
+              },
+              {
+                "ko": "나도 그거 봤어."
+              },
+              {
+                "ko": "나는 영상을 안 봐."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_youtube_up_all_night_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "sentence": "영상 보___ 세 시까지 안 잤어.",
+            "options": [
+              "느라고",
+              "으니까",
+              "지만",
+              "고서"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_youtube_up_all_night_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "targetKo": "오늘 회의에서 졸았어.",
+            "promptDe": "Heute bin ich im Meeting eingenickt.",
+            "promptEn": "I dozed off in a meeting today.",
+            "distractors": [
+              "영상을",
+              "열두 시엔"
+            ]
+          }
+        },
+        {
+          "id": "quest_b1_youtube_up_all_night_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "targetKo": "열두 시엔 끄기로 했어.",
+            "promptDe": "Um zwölf mache ich aus.",
+            "promptEn": "I've decided to switch off at twelve."
+          }
+        }
+      ],
+      "shelf": "b1_fandom",
+      "backdrop": "home"
+    },
+    {
+      "id": "b1_gaming_team_voice",
+      "level": "b1",
+      "emoji": "🎧",
+      "register": "casual",
+      "speechStyle": "casual",
+      "relationshipContext": "close_friends",
+      "intent": "soften_a_callout",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "팀 보이스에서",
+        "de": "Im Team-Voice",
+        "en": "On team voice"
+      },
+      "intro": {
+        "ko": "지난 판에서 손발이 안 맞았습니다. 상대를 몰아붙이지 않고 다음 판 역할을 나눕니다.",
+        "de": "Die letzte Runde lief unkoordiniert. Ohne Vorwürfe teilt ihr die Rollen für die nächste.",
+        "en": "The last round fell apart. Without piling on, you split roles for the next one."
+      },
+      "vocab": [
+        {
+          "korean": "판"
+        },
+        {
+          "korean": "실수"
+        },
+        {
+          "korean": "마이크"
+        },
+        {
+          "korean": "확인하다"
+        },
+        {
+          "korean": "잘못"
+        },
+        {
+          "korean": "미리"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_background_contrast"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는데",
+          "de": "V-는데: Hintergrund und Gegensatz",
+          "en": "V-는데: background and contrast"
+        },
+        "explanation": {
+          "ko": "지적하기 전에 상황을 먼저 깔아 준다. 좋은데, 갔는데처럼 앞말을 배경으로 두면 말이 부드러워진다.",
+          "de": "Legt vor der Kritik erst den Kontext: 좋은데, 갔는데 macht die Aussage weicher.",
+          "en": "Sets the scene before the critique: 좋은데, 갔는데 softens what follows."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "아까 그 판 말인데, 잠깐 얘기해도 돼?",
+          "de": "Wegen der Runde vorhin, können wir kurz reden?",
+          "en": "About that round earlier, can we talk for a second?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "응, 왜? 내가 실수했지?",
+          "de": "Ja, was ist? Ich habe Mist gemacht, oder?",
+          "en": "Sure, what's up? I messed up, didn't I?"
+        },
+        {
+          "speaker": "user",
+          "ko": "실수는 아니야. 다들 앞으로 갔는데 너는 뒤에 있었어.",
+          "de": "Kein Fehler. Alle sind nach vorn, du bist hinten geblieben.",
+          "en": "Not a mistake. Everyone pushed forward but you stayed back."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "나는 뒤를 봐야 한다고 생각했어.",
+          "de": "Ich dachte, jemand muss hinten absichern.",
+          "en": "I thought someone had to watch the back."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 생각은 좋은데 우리한테 말을 안 했어.",
+          "de": "Der Gedanke ist gut, du hast es uns aber nicht gesagt.",
+          "en": "That's good thinking, but you didn't tell us."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "아, 마이크가 꺼져 있었어. 그건 내 잘못이야.",
+          "de": "Ach, mein Mikro war aus. Das ist mein Fehler.",
+          "en": "Oh, my mic was off. That one's on me."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 다음 판엔 마이크만 확인하자.",
+          "de": "Dann prüfen wir nächste Runde nur die Mikros.",
+          "en": "Then next round let's just check mics."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그러자. 내가 뒤를 볼 때는 미리 말할게.",
+          "de": "Machen wir. Wenn ich hinten bleibe, sage ich es vorher.",
+          "en": "Let's do that. I'll call it out in advance when I hold the back."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_gaming_team_voice_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "audioKo": "다들 앞으로 갔는데 너는 뒤에 있었어.",
+            "options": [
+              {
+                "de": "Alle gingen nach vorn, du bist hinten geblieben.",
+                "en": "Everyone went forward while you stayed back."
+              },
+              {
+                "de": "Alle sind hinten geblieben, nur du bist vor.",
+                "en": "Everyone stayed back and only you went forward."
+              },
+              {
+                "de": "Niemand wusste, wohin wir gehen.",
+                "en": "Nobody knew where we were going."
+              },
+              {
+                "de": "Du hast die Runde gewonnen.",
+                "en": "You won the round."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_gaming_team_voice_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "promptDe": "Der Gedanke ist gut, du hast es uns aber nicht gesagt.",
+            "promptEn": "That's good thinking, but you didn't tell us.",
+            "options": [
+              {
+                "ko": "그 생각은 좋은데 우리한테 말을 안 했어."
+              },
+              {
+                "ko": "그 생각은 별로여서 말을 안 했어."
+              },
+              {
+                "ko": "우리한테 말했는데 우리가 못 들었어."
+              },
+              {
+                "ko": "그 생각은 좋고 말도 잘했어."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_gaming_team_voice_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "sentence": "그 생각은 좋___ 우리한테 말을 안 했어.",
+            "options": [
+              "은데",
+              "아서",
+              "으려고",
+              "도록"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_gaming_team_voice_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "다음 판엔 마이크만 확인하자.",
+            "promptDe": "Nächste Runde prüfen wir nur die Mikros.",
+            "promptEn": "Next round let's just check mics.",
+            "distractors": [
+              "실수를",
+              "뒤에서"
+            ]
+          }
+        },
+        {
+          "id": "quest_b1_gaming_team_voice_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "그건 내 잘못이야.",
+            "promptDe": "Das ist mein Fehler.",
+            "promptEn": "That one's on me."
+          }
+        }
+      ],
+      "shelf": "b1_friends",
+      "backdrop": "home"
+    },
+    {
+      "id": "b1_kpop_missing_goods",
+      "level": "b1",
+      "emoji": "📦",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "customer_and_shop_staff",
+      "intent": "claim_a_missing_item",
+      "courseUnitId": "b1_05_complaint_resolution",
+      "conceptIds": [
+        "concept_b1_complaint_resolution"
+      ],
+      "surfaceFormIds": [],
+      "sidekick": "jieun",
+      "xpReward": 165,
+      "title": {
+        "ko": "포토카드가 없어요",
+        "de": "Die Photocard fehlt",
+        "en": "The photocard is missing"
+      },
+      "intro": {
+        "ko": "굿즈 박스에 포토카드가 빠져 있었습니다. 증거를 대고 재발송을 확정합니다.",
+        "de": "In der Merch-Box fehlte die Photocard. Mit Belegen klärst du den Neuversand.",
+        "en": "The merch box came without its photocard. With proof, you lock in a resend."
+      },
+      "vocab": [
+        {
+          "korean": "굿즈"
+        },
+        {
+          "korean": "포토카드",
+          "note": {
+            "ko": "앨범이나 굿즈에 들어 있는 멤버 사진 카드.",
+            "de": "Fotokarte eines Mitglieds, die Alben und Merch beiliegt.",
+            "en": "A member photo card that comes with albums and merch."
+          }
+        },
+        {
+          "korean": "봉인"
+        },
+        {
+          "korean": "재고"
+        },
+        {
+          "korean": "재발송"
+        },
+        {
+          "korean": "배송비"
+        }
+      ],
+      "grammarIds": [
+        "grammar_b1_soft_request"
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 주시면 좋겠다",
+          "de": "V-아/어 주시면 좋겠다: höfliche Bitte",
+          "en": "V-아/어 주시면 좋겠다: a polite request"
+        },
+        "explanation": {
+          "ko": "요구를 부드럽게 바꿔 상대가 움직이게 한다. 재발송해 주시면 좋겠어요처럼 쓴다.",
+          "de": "Verwandelt eine Forderung in eine weiche Bitte: 재발송해 주시면 좋겠어요.",
+          "en": "Turns a demand into a soft ask: 재발송해 주시면 좋겠어요."
+        }
+      },
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "어제 받은 굿즈 박스에 포토카드가 없었어요.",
+          "de": "In der Merch-Box von gestern fehlte die Photocard.",
+          "en": "The merch box I got yesterday had no photocard."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "주문 번호를 확인할게요. 박스는 그대로 있나요?",
+          "de": "Ich prüfe die Bestellnummer. Ist die Box noch unverändert?",
+          "en": "Let me check the order number. Is the box still as it came?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 사진도 찍어 놨어요. 봉인은 안 뜯겨 있었어요.",
+          "de": "Ja, ich habe Fotos gemacht. Das Siegel war unversehrt.",
+          "en": "Yes, and I took photos. The seal was intact."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "확인했어요. 재고가 하나 남아 있어요.",
+          "de": "Ich sehe es. Es ist noch eine auf Lager.",
+          "en": "I can see it. There's one left in stock."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 재발송해 주시면 좋겠어요.",
+          "de": "Dann wäre es schön, wenn Sie sie neu verschicken.",
+          "en": "Then I'd appreciate it if you could resend it."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "재발송하면 배송비는 저희가 냅니다. 3일 걸려요.",
+          "de": "Beim Neuversand übernehmen wir den Versand. Es dauert drei Tage.",
+          "en": "On a resend we cover shipping. It takes three days."
+        },
+        {
+          "speaker": "user",
+          "ko": "3일은 괜찮아요. 이번엔 봉인을 확인해 주시면 좋겠어요.",
+          "de": "Drei Tage sind in Ordnung. Diesmal prüfen Sie bitte das Siegel.",
+          "en": "Three days is fine. This time I'd like the seal checked."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 포장 전에 사진을 같이 보내 드릴게요.",
+          "de": "Ja, vor dem Verpacken schicke ich Ihnen ein Foto mit.",
+          "en": "Sure, I'll send a photo before we pack it."
+        }
+      ],
+      "quests": [
+        {
+          "id": "quest_b1_kpop_missing_goods_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_complaint_resolution"
+          ],
+          "data": {
+            "audioKo": "재발송하면 배송비는 저희가 냅니다.",
+            "options": [
+              {
+                "de": "Beim Neuversand zahlen wir den Versand.",
+                "en": "On a resend we pay the shipping."
+              },
+              {
+                "de": "Den Versand müssen Sie selbst zahlen.",
+                "en": "You have to pay the shipping yourself."
+              },
+              {
+                "de": "Ein Neuversand ist nicht möglich.",
+                "en": "A resend isn't possible."
+              },
+              {
+                "de": "Wir erstatten Ihnen den Kaufpreis.",
+                "en": "We'll refund the purchase price."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_kpop_missing_goods_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_complaint_resolution"
+          ],
+          "data": {
+            "promptDe": "Dann wäre es schön, wenn Sie sie neu verschicken.",
+            "promptEn": "Then I'd appreciate it if you could resend it.",
+            "options": [
+              {
+                "ko": "그럼 재발송해 주시면 좋겠어요."
+              },
+              {
+                "ko": "그럼 환불해 주시면 좋겠어요."
+              },
+              {
+                "ko": "그럼 제가 다시 살게요."
+              },
+              {
+                "ko": "그럼 그냥 취소해 주세요."
+              }
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_kpop_missing_goods_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_complaint_resolution"
+          ],
+          "data": {
+            "sentence": "재발송해 ___ 좋겠어요.",
+            "options": [
+              "주시면",
+              "주니까",
+              "주려고",
+              "주면서"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_kpop_missing_goods_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_complaint_resolution"
+          ],
+          "data": {
+            "targetKo": "봉인은 안 뜯겨 있었어요.",
+            "promptDe": "Das Siegel war unversehrt.",
+            "promptEn": "The seal was intact.",
+            "distractors": [
+              "재고가",
+              "배송비를"
+            ]
+          }
+        },
+        {
+          "id": "quest_b1_kpop_missing_goods_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_complaint_resolution"
+          ],
+          "data": {
+            "targetKo": "사진도 찍어 놨어요.",
+            "promptDe": "Ich habe auch Fotos gemacht.",
+            "promptEn": "I took photos too."
+          }
+        }
+      ],
+      "shelf": "b1_fandom",
+      "backdrop": "market"
     }
   ]
 }
