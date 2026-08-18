@@ -417,8 +417,9 @@ void main() {
     );
 
     // 11 = kDecorationRewardPool(퀘스트 보상으로 획득) + 12 = A2 사랑방
-    // 가구(furnishedDecorSlugs 의 임시 언락 — Storage.ownedDecor 와 무관하게
-    // 항상 보인다. `kA2FurnishingTemporaryUnlock` 문서 참고).
+    // 가구(furnishedDecorSlugs 의 방별 무상 풀 — Storage.ownedDecor 와 무관하게
+    // 이 방(sarangbang)이 openedVenues 에 있으면 항상 보인다.
+    // `kRoomFurnishingPool` 문서 참고).
     expect(find.byType(SoriDecorationImage), findsNWidgets(23));
     expect(
       find.byType(CulturalDecorationHelpButton),
@@ -429,6 +430,44 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(DancheongStamp), findsNWidgets(14));
   });
+
+  testWidgets(
+    'an unlocked room outside kRoomFurnishingPool never gains another '
+    'room\'s furniture (PR-D room-scoping fix)',
+    (tester) async {
+      CulturalGlossaryRepository.setLoaderForTesting(
+        () async => culturalCatalog,
+      );
+      addTearDown(CulturalGlossaryRepository.resetForTesting);
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({
+        'kl_user_level': 'a1',
+        'kl_owned_decor': kDecorationRewardPool,
+      });
+      await Storage.init();
+      await tester.pumpWidget(
+        _host(
+          PersonalRoomFurnishScreen(
+            surface: PersonalRoomSurface.anbang,
+            loadRatios: () async =>
+                const LevelRatios(a1: 1, a2: 1, b1: 1, b2: .25),
+            loadProjection: _legacyProjection,
+          ),
+        ),
+      );
+      await tester.pump();
+      await tester.pump();
+      await tester.scrollUntilVisible(
+        find.byKey(const ValueKey('room-inventory-tab-decoration')),
+        400,
+        scrollable: find.byType(Scrollable).first,
+      );
+
+      // Only the 11 kDecorationRewardPool items -- none of A2 sarangbang's
+      // 12 kRoomFurnishingPool items, since anbang has no pool entry yet.
+      expect(find.byType(SoriDecorationImage), findsNWidgets(11));
+    },
+  );
 
   testWidgets('an older save callback cannot overwrite a newer drag draft', (
     tester,

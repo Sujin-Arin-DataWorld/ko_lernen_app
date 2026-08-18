@@ -375,6 +375,7 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
                             ),
                             if (furnishedDecorSlugs(
                               Storage.ownedDecor,
+                              openedVenues: {widget.surface},
                             ).isEmpty) ...[
                               const SizedBox(height: Spacing.md),
                               Text(
@@ -448,6 +449,7 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
                       ],
                       const SizedBox(height: Spacing.lg),
                       _RoomInventory(
+                        surface: widget.surface,
                         kind: _inventoryKind,
                         layouts: _layouts,
                         onKindChanged: (kind) =>
@@ -599,12 +601,14 @@ class _RoomItemToolbar extends StatelessWidget {
 }
 
 class _RoomInventory extends StatelessWidget {
+  final PersonalRoomSurface surface;
   final RoomAssetKind kind;
   final RoomLayouts layouts;
   final ValueChanged<RoomAssetKind> onKindChanged;
   final void Function(RoomAssetKind kind, String assetId)? onAdd;
 
   const _RoomInventory({
+    required this.surface,
     required this.kind,
     required this.layouts,
     required this.onKindChanged,
@@ -728,8 +732,12 @@ class _RoomInventory extends StatelessWidget {
           '${item.kind.name}:${item.assetId}',
     };
     if (kind == RoomAssetKind.decoration) {
-      final slugs = furnishedDecorSlugs(Storage.ownedDecor).toList()
-        ..sort((a, b) => decorName(t, a).compareTo(decorName(t, b)));
+      final slugs =
+          furnishedDecorSlugs(
+            Storage.ownedDecor,
+            openedVenues: {surface},
+          ).toList()
+            ..sort((a, b) => decorName(t, a).compareTo(decorName(t, b)));
       return [
         for (final slug in slugs)
           _RoomInventoryEntry(
