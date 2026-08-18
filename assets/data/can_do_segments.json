@@ -6744,7 +6744,7 @@
     {
       "id": "cluster_c1_evidence_validity_v1",
       "level": "c1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -6776,7 +6776,11 @@
         "seed_satz_satz_c1_0183_v1",
         "seed_satz_satz_c1_0184_v1",
         "seed_satz_satz_c1_0185_v1",
-        "seed_satz_satz_c1_0186_v1"
+        "seed_satz_satz_c1_0186_v1",
+        "seed_scenario_c1_conflict_interest_disclose_stake_v1",
+        "seed_scenario_c1_conflict_interest_dual_role_v1",
+        "seed_scenario_c1_conflict_interest_recuse_request_v1",
+        "seed_scenario_c1_conflict_interest_sponsored_talk_v1"
       ],
       "contentReferences": [
         {
@@ -6958,13 +6962,29 @@
         {
           "kind": "satz",
           "id": "satz_c1_0186"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_conflict_interest_disclose_stake"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_conflict_interest_dual_role"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_conflict_interest_recuse_request"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_conflict_interest_sponsored_talk"
         }
       ]
     },
     {
       "id": "cluster_c1_evidence_limits_conclusion_v1",
       "level": "c1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -7094,7 +7114,11 @@
         "seed_satz_satz_c1_0124_v1",
         "seed_satz_satz_c1_0125_v1",
         "seed_satz_satz_c1_0126_v1",
-        "seed_scenario_c1_daily_prices_vs_data_v1"
+        "seed_scenario_c1_daily_prices_vs_data_v1",
+        "seed_scenario_c1_critique_anonymous_limits_v1",
+        "seed_scenario_c1_critique_metric_gaming_v1",
+        "seed_scenario_c1_critique_public_wording_v1",
+        "seed_scenario_c1_critique_work_not_person_v1"
       ],
       "contentReferences": [
         {
@@ -7668,6 +7692,22 @@
         {
           "kind": "scenario",
           "id": "c1_daily_prices_vs_data"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_critique_anonymous_limits"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_critique_metric_gaming"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_critique_public_wording"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_critique_work_not_person"
         }
       ]
     },
@@ -7767,10 +7807,14 @@
     {
       "id": "cluster_c1_risk_update_correction_v1",
       "level": "c1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_batch05_c1_risk_communication_1_v1",
-        "seed_project_c1_risk_v1"
+        "seed_project_c1_risk_v1",
+        "seed_scenario_c1_facework_accept_correction_v1",
+        "seed_scenario_c1_facework_correct_in_private_v1",
+        "seed_scenario_c1_facework_decline_without_wound_v1",
+        "seed_scenario_c1_facework_praise_before_others_v1"
       ],
       "contentReferences": [
         {
@@ -7844,17 +7888,37 @@
         {
           "kind": "project",
           "id": "project_c1_risk_v1"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_facework_accept_correction"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_facework_correct_in_private"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_facework_decline_without_wound"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_facework_praise_before_others"
         }
       ]
     },
     {
       "id": "cluster_c1_accessibility_barrier_diagnosis_v1",
       "level": "c1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c1_accessible_participation_1_v1",
         "seed_project_c1_accessibility_v1",
-        "seed_scenario_c1_friends_venue_access_v1"
+        "seed_scenario_c1_friends_venue_access_v1",
+        "seed_scenario_c1_mediation_ground_rules_v1",
+        "seed_scenario_c1_mediation_partial_agreement_v1",
+        "seed_scenario_c1_mediation_restate_position_v1",
+        "seed_scenario_c1_mediation_walk_away_line_v1"
       ],
       "contentReferences": [
         {
@@ -7924,13 +7988,29 @@
         {
           "kind": "scenario",
           "id": "c1_friends_venue_access"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_mediation_ground_rules"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_mediation_partial_agreement"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_mediation_restate_position"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_mediation_walk_away_line"
         }
       ]
     },
     {
       "id": "cluster_c1_participatory_access_remedy_v1",
       "level": "c1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c1_accessible_participation_1_v1",
         "seed_project_c1_accessibility_v1",
@@ -8069,7 +8149,11 @@
         "seed_satz_satz_c1_0219_v1",
         "seed_satz_satz_c1_0220_v1",
         "seed_satz_satz_c1_0221_v1",
-        "seed_satz_satz_c1_0222_v1"
+        "seed_satz_satz_c1_0222_v1",
+        "seed_scenario_c1_clinical_data_reuse_v1",
+        "seed_scenario_c1_clinical_informed_consent_v1",
+        "seed_scenario_c1_clinical_second_opinion_v1",
+        "seed_scenario_c1_clinical_trial_withdrawal_v1"
       ],
       "contentReferences": [
         {
@@ -8679,13 +8763,29 @@
         {
           "kind": "satz",
           "id": "satz_c1_0222"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_clinical_data_reuse"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_clinical_informed_consent"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_clinical_second_opinion"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_clinical_trial_withdrawal"
         }
       ]
     },
     {
       "id": "cluster_c1_sustainable_lifecycle_v1",
       "level": "c1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -8717,7 +8817,11 @@
         "seed_satz_satz_c1_0207_v1",
         "seed_satz_satz_c1_0208_v1",
         "seed_satz_satz_c1_0209_v1",
-        "seed_satz_satz_c1_0210_v1"
+        "seed_satz_satz_c1_0210_v1",
+        "seed_scenario_c1_attribution_author_order_v1",
+        "seed_scenario_c1_attribution_collective_byline_v1",
+        "seed_scenario_c1_attribution_reuse_without_credit_v1",
+        "seed_scenario_c1_attribution_unpaid_translation_v1"
       ],
       "contentReferences": [
         {
@@ -8907,13 +9011,29 @@
         {
           "kind": "satz",
           "id": "satz_c1_0210"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_attribution_author_order"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_attribution_collective_byline"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_attribution_reuse_without_credit"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_attribution_unpaid_translation"
         }
       ]
     },
     {
       "id": "cluster_c1_local_tradeoff_adaptation_v1",
       "level": "c1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -8994,7 +9114,11 @@
         "seed_satz_satz_c1_0195_v1",
         "seed_satz_satz_c1_0196_v1",
         "seed_satz_satz_c1_0197_v1",
-        "seed_satz_satz_c1_0198_v1"
+        "seed_satz_satz_c1_0198_v1",
+        "seed_scenario_c1_policy_exemption_edge_v1",
+        "seed_scenario_c1_policy_pilot_before_rollout_v1",
+        "seed_scenario_c1_policy_sunset_clause_v1",
+        "seed_scenario_c1_policy_who_bears_cost_v1"
       ],
       "contentReferences": [
         {
@@ -9380,6 +9504,22 @@
         {
           "kind": "satz",
           "id": "satz_c1_0198"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_policy_exemption_edge"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_policy_pilot_before_rollout"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_policy_sunset_clause"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_policy_who_bears_cost"
         }
       ]
     },

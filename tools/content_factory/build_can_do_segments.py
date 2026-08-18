@@ -904,6 +904,46 @@ BATCH_12_SEGMENT_ROUTES: dict[tuple[str, str], str] = {
     ("satz", "satz_c2_0222"): "c2_discourse_boundary_power",
 }
 
+# Batch 15 (2026-08-18) — C1 확장 7칸 28편. 세그먼트 86 은 그대로 두고 기존
+# published 세그먼트에 붙인다 (Batch 09/10·12 와 같은 원칙).
+BATCH_15_SEGMENT_ROUTES: dict[tuple[str, str], str] = {
+    # conflict_interest → c1_evidence_validity
+    ("scenario", "c1_conflict_interest_disclose_stake"): "c1_evidence_validity",
+    ("scenario", "c1_conflict_interest_recuse_request"): "c1_evidence_validity",
+    ("scenario", "c1_conflict_interest_sponsored_talk"): "c1_evidence_validity",
+    ("scenario", "c1_conflict_interest_dual_role"): "c1_evidence_validity",
+    # policy → c1_local_tradeoff_adaptation
+    ("scenario", "c1_policy_pilot_before_rollout"): "c1_local_tradeoff_adaptation",
+    ("scenario", "c1_policy_who_bears_cost"): "c1_local_tradeoff_adaptation",
+    ("scenario", "c1_policy_sunset_clause"): "c1_local_tradeoff_adaptation",
+    ("scenario", "c1_policy_exemption_edge"): "c1_local_tradeoff_adaptation",
+    # clinical → c1_participatory_access_remedy
+    ("scenario", "c1_clinical_informed_consent"): "c1_participatory_access_remedy",
+    ("scenario", "c1_clinical_second_opinion"): "c1_participatory_access_remedy",
+    ("scenario", "c1_clinical_trial_withdrawal"): "c1_participatory_access_remedy",
+    ("scenario", "c1_clinical_data_reuse"): "c1_participatory_access_remedy",
+    # critique → c1_evidence_limits_conclusion
+    ("scenario", "c1_critique_work_not_person"): "c1_evidence_limits_conclusion",
+    ("scenario", "c1_critique_anonymous_limits"): "c1_evidence_limits_conclusion",
+    ("scenario", "c1_critique_metric_gaming"): "c1_evidence_limits_conclusion",
+    ("scenario", "c1_critique_public_wording"): "c1_evidence_limits_conclusion",
+    # mediation → c1_accessibility_barrier_diagnosis
+    ("scenario", "c1_mediation_ground_rules"): "c1_accessibility_barrier_diagnosis",
+    ("scenario", "c1_mediation_restate_position"): "c1_accessibility_barrier_diagnosis",
+    ("scenario", "c1_mediation_partial_agreement"): "c1_accessibility_barrier_diagnosis",
+    ("scenario", "c1_mediation_walk_away_line"): "c1_accessibility_barrier_diagnosis",
+    # facework → c1_risk_update_correction
+    ("scenario", "c1_facework_decline_without_wound"): "c1_risk_update_correction",
+    ("scenario", "c1_facework_correct_in_private"): "c1_risk_update_correction",
+    ("scenario", "c1_facework_accept_correction"): "c1_risk_update_correction",
+    ("scenario", "c1_facework_praise_before_others"): "c1_risk_update_correction",
+    # attribution → c1_sustainable_lifecycle
+    ("scenario", "c1_attribution_author_order"): "c1_sustainable_lifecycle",
+    ("scenario", "c1_attribution_unpaid_translation"): "c1_sustainable_lifecycle",
+    ("scenario", "c1_attribution_reuse_without_credit"): "c1_sustainable_lifecycle",
+    ("scenario", "c1_attribution_collective_byline"): "c1_sustainable_lifecycle",
+}
+
 MODE_SUFFIX = {
     "guidedProduction": "guided_production",
     "dictation": "dictation",
@@ -2153,7 +2193,15 @@ class SourceIndex:
         if reference.kind == "scenario":
             row = _require(self.scenarios, reference.id, "scenario")
             actual_level = row["level"]
-            actual_parent = row["courseUnitId"]
+            if _promotion_segment_key("scenario", reference.id) is not None:
+                # 라우팅된 시나리오는 자기 코스 유닛이 아니라 붙기로 한 세그먼트를
+                # 따른다.  Batch 12 가 만든 신규 유닛(c1_03~c1_06 등)에는 세그먼트가
+                # 없고, 모듈 첫머리의 교리대로 세그먼트를 새로 만들지도 않기 때문에
+                # 이 우회가 없으면 그 유닛의 시나리오는 어디에도 붙지 못한다.
+                # cloze·satz·grammar·vocabPack 에는 이미 있던 우회다.
+                actual_parent = expected_parent
+            else:
+                actual_parent = row["courseUnitId"]
         elif reference.kind == "vocabPack":
             base_pack_id = re.sub(r"_\d+$", "", reference.id)
             if _promotion_segment_key("vocabPack", reference.id) is not None:
@@ -2678,6 +2726,9 @@ def _promotion_segment_key(kind: str, content_id: str) -> str | None:
     batch_12 = BATCH_12_SEGMENT_ROUTES.get((kind, content_id))
     if batch_12 is not None:
         return batch_12
+    batch_15 = BATCH_15_SEGMENT_ROUTES.get((kind, content_id))
+    if batch_15 is not None:
+        return batch_15
     return FOUR_X_SEGMENT_ROUTES.get((kind, content_id))
 
 
