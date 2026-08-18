@@ -400,6 +400,12 @@ flutter run -d <android-id>   # 안드로이드
   없다. Phase 3 recipe 2종(byeoldang·seogo)은 DRAFT 상태로 `docs/assets/
   recipes/`에 있으나 미실행. 아래 "PR4 자산 파이프라인" 항목의 "레거시 한옥이
   정본이다" 상태는 이 작업 이후에도 **변하지 않았다**.
+  `tool/asset_recipe.py`는 DRAFT·Seedream·참조≠1·resolution≠2K를 --check/--emit에서
+  막는다. cutout은 F-A `promptSkeleton` 전문을 조립한다. **무인 `--emit-work-order`로
+  별당/서고를 돌리지 말 것.**
+- [x] **한옥 레시피 러너 게이트 (2026-08-18)**: DRAFT 차단, Seedream `allowed:false`,
+  참조 정확히 1장, 모든 kind `2K`, F-A 골격 조립, 거절 spec 디스크 기록,
+  `cutout-fa-decoration-geomungo.json` 재생 픽스처. 남은 후속은 SESSION_LOG 참고.
 - [x] **Batch 06 앱 데이터 승격 + 카탈로그 계약**: `fa86b7af`가 Batch 06
   68개 standalone + embedded quest 20개를 production asset과
   `curriculum_manifest.json` contentLinks에 올렸다. review ledger는 전부

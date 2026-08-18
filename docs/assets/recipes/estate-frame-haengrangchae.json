@@ -4,6 +4,7 @@
   "family": "F-C-estate",
   "targetBuilding": "haengrangchae",
   "model": "Nano Banana Pro",
+  "resolution": "2K",
   "aspectRatio": "4:3",
   "referenceImages": [
     "assets/illustrations/personal_hanok_v2/map/structures/haengrangchae.png"

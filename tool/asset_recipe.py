@@ -15,10 +15,12 @@ brackets the agent call:
       the exact taskId/cost/prompt actually sent >
     asset_recipe.py RECIPE.json --ingest RESULT.json  # cut -> gate -> ledger record
 
-A recipe kind that fails --check or whose --ingest gate fails writes nothing
-and the ledger gets a `decision: "rejected"` record instead — same contract
-as the existing `a1-frame-4x3-rejected-2026-08-17` precedent, so a rejected
-generation is never silently discarded from the credit history.
+A recipe kind that fails --check writes nothing. A --ingest gate failure
+writes `{slug}_rejected_ledger_spec.json` under pending_review (decision:
+"rejected") so the credit spend is not only a stdout dump. Appending that
+spec to the production provenance ledger is still a human step — the raw
+file is usually not yet in `allowedModelInputs`. DRAFT recipes fail
+--check/--emit and may only be reviewed with --plan.
 
 Kinds (cover everything this repo has actually generated so far):
   cutout      — one free-placement object on #00FF00 (tool/cut_single_object.py)
@@ -60,6 +62,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+DRAFT_STATUS_PREFIX = "DRAFT"
+
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
@@ -82,7 +86,7 @@ REQUIRED_FIELDS = {
     ),
     "frameEdit": (
         "recipeId", "kind", "family", "targetBuilding", "model",
-        "aspectRatio", "referenceImages", "promptTemplate",
+        "resolution", "aspectRatio", "referenceImages", "promptTemplate",
         "expectedCreditsPerCall", "targetBbox",
     ),
     "overlay": (
@@ -106,6 +110,17 @@ def load_recipe(path: Path) -> dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def is_draft(recipe: dict[str, Any]) -> bool:
+    status = str(recipe.get("status") or "").strip()
+    return status.upper().startswith(DRAFT_STATUS_PREFIX)
+
+
+def wants_assemble_from_family(recipe: dict[str, Any]) -> bool:
+    if "assembleFromFamily" in recipe:
+        return bool(recipe["assembleFromFamily"])
+    return recipe.get("kind") == "cutout"
+
+
 def check(recipe: dict[str, Any]) -> list[str]:
     problems: list[str] = []
     kind = recipe.get("kind")
@@ -118,26 +133,41 @@ def check(recipe: dict[str, Any]) -> list[str]:
     if problems:
         return problems  # further checks assume the fields exist
 
+    if is_draft(recipe):
+        problems.append(
+            "recipe status is DRAFT — --check/--emit refused until Jin approves "
+            "(use --plan to review)"
+        )
+
     lock = style_lock.load_style_lock()
     family = recipe["family"]
     if family not in lock["families"]:
         problems.append(f"family {family!r} is not in STYLE_LOCK.json")
     else:
-        routing_models = {r["model"] for r in lock["families"][family].get("modelRouting", [])}
-        if routing_models and recipe["model"] not in routing_models:
-            problems.append(
-                f"model {recipe['model']!r} is not in STYLE_LOCK.json families.{family}."
-                f"modelRouting {sorted(routing_models)} (warning-worthy, not necessarily wrong "
-                "if this is a deliberate new choice -- but check generationFacts.modelRouting first)"
-            )
+        routing_error = style_lock.model_routing_error(lock, family, recipe["model"])
+        if routing_error:
+            problems.append(routing_error)
+        if wants_assemble_from_family(recipe):
+            skeleton = lock["families"][family].get("promptSkeleton") or ""
+            if "{SUBJECT}" not in skeleton:
+                problems.append(
+                    f"assembleFromFamily requires families.{family}.promptSkeleton to contain "
+                    "{{SUBJECT}}"
+                )
 
-    for ref in recipe.get("referenceImages", []):
-        if not (ROOT / ref).is_file():
-            problems.append(f"referenceImages entry does not exist: {ref}")
-    if len(recipe.get("referenceImages", [])) > 1:
+    refs = recipe.get("referenceImages") or []
+    if len(refs) != 1:
         problems.append(
-            f"{len(recipe['referenceImages'])} reference images -- generationFacts.referenceCount "
-            "says exactly 1, more has cost real credits with no benefit before"
+            f"{len(refs)} reference images — generationFacts.referenceCount requires exactly 1"
+        )
+    else:
+        if not (ROOT / refs[0]).is_file():
+            problems.append(f"referenceImages entry does not exist: {refs[0]}")
+
+    if recipe.get("resolution") != "2K":
+        problems.append(
+            "resolution must be '2K' — generationFacts.resolutionDefault says the API "
+            "silently returns 1K when this is missing or null"
         )
 
     if kind == "cutout":
@@ -149,25 +179,46 @@ def check(recipe: dict[str, Any]) -> list[str]:
         if style_lock.family_for_slug(lock, recipe["targetSlug"]) is None:
             problems.append(
                 f"targetSlug {recipe['targetSlug']!r} is not (yet) a member of any STYLE_LOCK.json "
-                "family -- add it there once the recipe is approved, or --check will keep warning"
+                "family -- add it there before --emit, or --check will keep failing"
             )
-
-    if kind == "frameEdit" and recipe.get("resolution") not in (None, "2K"):
-        problems.append("frameEdit generationFacts precedent is always 2K -- confirm this isn't 1K by omission")
-    elif kind != "frameEdit" and recipe.get("resolution") is None:
-        # resolution is in REQUIRED_FIELDS for every non-frameEdit kind, so this
-        # only fires when the field is present but explicitly null.
-        problems.append(
-            "resolution is null -- generationFacts.resolutionDefault says the API defaults "
-            "to 1K silently, so this must be an explicit value"
-        )
 
     return problems
 
 
-def render_prompt(recipe: dict[str, Any]) -> str:
+def _subject_text(recipe: dict[str, Any]) -> str:
+    variables = recipe.get("promptVars") or {}
+    subject = variables.get("SUBJECT")
+    if subject:
+        return str(subject)
     template = recipe.get("promptTemplate", "")
-    variables = recipe.get("promptVars", {})
+    try:
+        return template.format(**variables)
+    except KeyError as exc:
+        raise RecipeError(f"promptTemplate references undefined var {exc}") from exc
+
+
+def assemble_family_prompt(recipe: dict[str, Any], lock: dict[str, Any] | None = None) -> str:
+    lock = lock or style_lock.load_style_lock()
+    family = lock["families"][recipe["family"]]
+    skeleton = family.get("promptSkeleton") or ""
+    if "{SUBJECT}" not in skeleton:
+        raise RecipeError(
+            f"families.{recipe['family']}.promptSkeleton must contain {{SUBJECT}} "
+            "when assembleFromFamily is on"
+        )
+    prompt = skeleton.replace("{SUBJECT}", _subject_text(recipe))
+    guards = [guard for guard in (recipe.get("subjectGuards") or []) if guard]
+    if guards:
+        prompt += "\n\nSUBJECT GUARDS (reject the output if any fail):\n"
+        prompt += "\n".join(f"- {guard}" for guard in guards)
+    return prompt
+
+
+def render_prompt(recipe: dict[str, Any]) -> str:
+    if wants_assemble_from_family(recipe):
+        return assemble_family_prompt(recipe)
+    template = recipe.get("promptTemplate", "")
+    variables = recipe.get("promptVars") or {}
     try:
         return template.format(**variables)
     except KeyError as exc:
@@ -176,9 +227,8 @@ def render_prompt(recipe: dict[str, Any]) -> str:
 
 def emit_work_order(recipe: dict[str, Any]) -> dict[str, Any]:
     problems = check(recipe)
-    blocking = [p for p in problems if "warning-worthy" not in p]
-    if blocking:
-        raise RecipeError("recipe fails --check, refusing to emit a work order:\n" + "\n".join(blocking))
+    if problems:
+        raise RecipeError("recipe fails --check, refusing to emit a work order:\n" + "\n".join(problems))
     prompt = render_prompt(recipe)
     return {
         "recipeId": recipe["recipeId"],
@@ -261,7 +311,11 @@ def _ingest_cutout(recipe: dict[str, Any], result: dict[str, Any]) -> int:
         return 1
 
     print(f"[ok] {slug} passed cut + gate. NOT auto-registered -- run manually:")
-    print(f"  1. tool/decoration_normalize.py (trim to 1254 + 3% pad -> assets/illustrations/decorations/{slug}.png)")
+    print(
+        "  1. Keep the chroma-cut PNG. Do NOT run tool/decoration_normalize.py on it "
+        "(that tool is a white-background flood-fill; LANCZOS without redespill "
+        "reintroduces #00FF00 — see generationFacts.lanczosDespill)."
+    )
     print("  2. add the slug to kDecorCategory/kDecorScale/decorName()/kAvailableDecorations")
     print("  3. add decorName{Slug} to lib/l10n/app_de.arb + app_en.arb")
     print(f"  4. python3 tool/ledger_append.py --append <spec for {slug}>")
@@ -286,6 +340,23 @@ def _ingest_cutout(recipe: dict[str, Any], result: dict[str, Any]) -> int:
 
 
 def _record_rejected(recipe: dict, result: dict, raw_path: Path, *, reason: str) -> None:
+    slug = recipe.get("targetSlug") or recipe.get("targetBuilding") or recipe.get("recipeId")
+    pending_dir = ROOT / "assets_unused" / "pending_review" / "asset_recipe" / str(slug)
+    pending_dir.mkdir(parents=True, exist_ok=True)
+    stored_raw = pending_dir / f"{slug}_raw.png"
+    output_path: str
+    if raw_path.is_file():
+        if raw_path.resolve() != stored_raw.resolve():
+            stored_raw.write_bytes(raw_path.read_bytes())
+        try:
+            output_path = str(stored_raw.relative_to(ROOT))
+        except ValueError:
+            output_path = str(stored_raw)
+    else:
+        try:
+            output_path = str(raw_path.relative_to(ROOT)) if raw_path.is_relative_to(ROOT) else str(raw_path)
+        except ValueError:
+            output_path = str(raw_path)
     spec = {
         "id": f"{recipe['recipeId']}-{result.get('providerTaskId', 'unknown')}-rejected",
         "provider": result["provider"],
@@ -298,9 +369,13 @@ def _record_rejected(recipe: dict, result: dict, raw_path: Path, *, reason: str)
         "promptSource": f"tool/asset_recipe.py --emit-work-order for {recipe['recipeId']}",
         "note": f"rejected: {reason}",
         "inputAssets": [{"path": ref} for ref in recipe.get("referenceImages", [])],
-        "outputAssets": [{"path": str(raw_path.relative_to(ROOT)) if raw_path.is_relative_to(ROOT) else str(raw_path), "decision": "rejected"}],
+        "outputAssets": [{"path": output_path, "decision": "rejected"}],
     }
-    print("rejected-record spec (append manually with tool/ledger_append.py --append):")
+    spec_path = pending_dir / f"{slug}_rejected_ledger_spec.json"
+    spec_path.write_text(json.dumps(spec, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    print(f"rejected-record spec written to {spec_path}")
+    print("append to the production ledger only after the paths are allowlisted:")
+    print(f"  python3 tool/ledger_append.py --append {spec_path}")
     print(json.dumps(spec, indent=2, ensure_ascii=False))
 
 

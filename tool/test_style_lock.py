@@ -91,6 +91,22 @@ class StyleLockLoaderTest(unittest.TestCase):
                 self.assertGreaterEqual(gates["satMean"][1], measured["satMean"][1])
                 self.assertGreaterEqual(gates["neonMax"], measured["neonMax"])
 
+    def test_f_a_denies_seedream_and_allows_gpt_image_2(self) -> None:
+        lock = style_lock.load_style_lock()
+        self.assertIn("GPT Image 2", style_lock.allowed_models(lock, "F-A"))
+        self.assertIn("Seedream V4.5", style_lock.denied_models(lock, "F-A"))
+        self.assertIn("denied", style_lock.model_routing_error(lock, "F-A", "Seedream V4.5") or "")
+        self.assertIsNone(style_lock.model_routing_error(lock, "F-A", "GPT Image 2"))
+        self.assertIn("Seedream V4.5", style_lock.denied_models(lock, "F-B"))
+        self.assertIn(
+            "empty modelRouting",
+            style_lock.model_routing_error(lock, "F-C-a1states", "GPT Image 2") or "",
+        )
+        skeleton = lock["families"]["F-A"]["promptSkeleton"]
+        self.assertIn("{SUBJECT}", skeleton)
+        self.assertIn("CAMERA AND LIGHT", skeleton)
+        self.assertIn("#A2663A", skeleton)
+
     def test_all_member_dirs_exist_on_disk(self) -> None:
         lock = style_lock.load_style_lock()
         for path in style_lock.all_member_dirs(lock):

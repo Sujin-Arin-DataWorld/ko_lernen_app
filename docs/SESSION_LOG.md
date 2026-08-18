@@ -5,6 +5,28 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-18 (Cursor Grok 4.6, Cloud) — 한옥 레시피 러너 우선순위 게이트 폐쇄
+
+**무엇을 왜.** 코드 리뷰에서 `--emit-work-order`가 DRAFT 별당/서고와 탈락
+모델(Seedream)을 그대로 통과시키고, 참조 0장·frameEdit `resolution: null`·
+잘린 프롬프트 골격·거절 ingest의 stdout-only 원장을 허용하는 구멍이 확인됐다.
+다음 세션이 러너만 믿고 크레딧을 태우지 못하게 우선순위 7개를 닫았다.
+
+**고침.** `STYLE_LOCK.json` F-A 골격 전문(§3) + `allowed: true|false` 라우팅.
+F-B도 GPT Image 2만 허용. `asset_recipe.py`: DRAFT는 `--check`/`--emit` 거부
+(`--plan`만 허용), 참조 정확히 1장, 모든 kind `2K`, cutout은 family 골격+
+subjectGuards 조립, 거절 ingest는 `*_rejected_ledger_spec.json`을
+`pending_review`에 기록. frameEdit 4장에 `"resolution": "2K"` 추가.
+F-A 재생 픽스처 `docs/assets/recipes/cutout-fa-decoration-geomungo.json`.
+
+**하지 않은 것.** FRAME_PROMPTS 이중 SSoT 제거, Dart↔STYLE_LOCK 래칫,
+cutout ingest의 LANCZOS+재디스필 자동화, 등록 러너, 별당/서고 실제 생성.
+
+**검증.** `python3.12 -m unittest tool.test_style_lock tool.test_check_style_conformance
+tool.test_ledger_append tool.test_asset_recipe` — 이 커밋에서 다시 돌린 결과.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-18 (Claude Sonnet 5, 웹사이트) — 직전 concurrency 수정으로도 안 됨: 진단 정정 + workflow_dispatch 자체 격리
 
 **직전 커밋(`c4271f7`)이 부족했다.** `release-website` 잡에만 전용 concurrency 그룹을 줬는데,

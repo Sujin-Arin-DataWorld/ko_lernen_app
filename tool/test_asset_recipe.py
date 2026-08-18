@@ -36,7 +36,10 @@ def _minimal_cutout_recipe(**overrides) -> dict:
         "model": "GPT Image 2",
         "resolution": "2K",
         "aspectRatio": "3:2",
-        "referenceImages": [],
+        "referenceImages": [
+            "assets/illustrations/decorations/decoration_seoan.png",
+        ],
+        "assembleFromFamily": False,
         "promptTemplate": "draw a {SUBJECT}",
         "promptVars": {"SUBJECT": "test object"},
         "subjectGuards": ["must look like the described subject"],
@@ -48,17 +51,34 @@ def _minimal_cutout_recipe(**overrides) -> dict:
 
 
 class RealRecipesBaselineTest(unittest.TestCase):
-    """Every committed recipe must pass --check -- a recipe file that can't
-    even be checked is not ready to review, let alone run."""
+    """Ready recipes must pass --check. DRAFT recipes must not emit."""
 
-    def test_every_committed_recipe_passes_check(self) -> None:
+    def test_ready_committed_recipes_pass_check_and_drafts_do_not(self) -> None:
         paths = sorted(RECIPES_DIR.glob("*.json"))
-        self.assertGreaterEqual(len(paths), 6, "expected the 4 frameEdit + 2 newBuilding recipes")
+        self.assertGreaterEqual(
+            len(paths), 7, "expected 4 frameEdit + 2 DRAFT newBuilding + 1 F-A cutout"
+        )
+        ready = 0
+        drafts = 0
         for path in paths:
             with self.subTest(recipe=path.name):
                 recipe = asset_recipe.load_recipe(path)
                 problems = asset_recipe.check(recipe)
-                self.assertEqual(problems, [], f"{path.name}: {problems}")
+                if asset_recipe.is_draft(recipe):
+                    drafts += 1
+                    self.assertTrue(
+                        any("DRAFT" in problem for problem in problems),
+                        f"{path.name} is DRAFT but --check did not refuse: {problems}",
+                    )
+                    with self.assertRaises(asset_recipe.RecipeError):
+                        asset_recipe.emit_work_order(recipe)
+                    plan_text = asset_recipe.plan(recipe)
+                    self.assertIn("DRAFT", plan_text)
+                else:
+                    ready += 1
+                    self.assertEqual(problems, [], f"{path.name}: {problems}")
+        self.assertGreaterEqual(ready, 5)
+        self.assertEqual(drafts, 2)
 
     def test_frameEdit_recipes_reproduce_the_exact_historical_prompt_hash(self) -> None:
         # Cross-check against the real sha256 computed independently during
@@ -103,16 +123,36 @@ class CheckRuleTest(unittest.TestCase):
         problems = asset_recipe.check(recipe)
         self.assertTrue(any("generationFacts.referenceCount" in p for p in problems))
 
+    def test_zero_reference_images_is_flagged(self) -> None:
+        recipe = _minimal_cutout_recipe(referenceImages=[])
+        problems = asset_recipe.check(recipe)
+        self.assertTrue(any("exactly 1" in p for p in problems))
+
     def test_omitting_resolution_is_a_missing_required_field(self) -> None:
         recipe = _minimal_cutout_recipe()
         del recipe["resolution"]
         problems = asset_recipe.check(recipe)
         self.assertTrue(any("resolution" in p for p in problems))
 
-    def test_explicit_null_resolution_is_flagged_for_non_frameEdit_kinds(self) -> None:
+    def test_explicit_null_resolution_is_flagged_for_every_kind(self) -> None:
         recipe = _minimal_cutout_recipe(resolution=None)
         problems = asset_recipe.check(recipe)
-        self.assertTrue(any("resolutionDefault" in p for p in problems))
+        self.assertTrue(any("2K" in p for p in problems))
+
+    def test_seedream_is_a_hard_failure_on_f_a(self) -> None:
+        recipe = _minimal_cutout_recipe(model="Seedream V4.5")
+        problems = asset_recipe.check(recipe)
+        self.assertTrue(any("denied" in p for p in problems))
+        with self.assertRaises(asset_recipe.RecipeError):
+            asset_recipe.emit_work_order(recipe)
+
+    def test_unknown_model_is_a_hard_failure(self) -> None:
+        recipe = _minimal_cutout_recipe(model="Totally Unknown Model XYZ")
+        problems = asset_recipe.check(recipe)
+        self.assertTrue(problems)
+        self.assertFalse(any("warning-worthy" in p for p in problems))
+        with self.assertRaises(asset_recipe.RecipeError):
+            asset_recipe.emit_work_order(recipe)
 
     def test_nonexistent_reference_image_is_flagged(self) -> None:
         recipe = _minimal_cutout_recipe(referenceImages=["assets/does/not/exist.png"])
@@ -134,6 +174,26 @@ class EmitWorkOrderTest(unittest.TestCase):
         recipe = _minimal_cutout_recipe(subjectGuards=[])
         with self.assertRaises(asset_recipe.RecipeError):
             asset_recipe.emit_work_order(recipe)
+
+    def test_assemble_from_family_injects_palette_camera_and_guards(self) -> None:
+        recipe = _minimal_cutout_recipe(
+            assembleFromFamily=True,
+            promptVars={"SUBJECT": "a walnut test block"},
+        )
+        problems = asset_recipe.check(recipe)
+        self.assertEqual(problems, [])
+        prompt = asset_recipe.render_prompt(recipe)
+        self.assertIn("a walnut test block", prompt)
+        self.assertIn("#A2663A", prompt)
+        self.assertIn("CAMERA AND LIGHT", prompt)
+        self.assertIn("flat pure #00FF00", prompt)
+        self.assertIn("must look like the described subject", prompt)
+        self.assertNotEqual(prompt, "draw a test object")
+
+    def test_frameEdit_work_order_carries_2k(self) -> None:
+        recipe = asset_recipe.load_recipe(RECIPES_DIR / "estate-frame-anchae.json")
+        work_order = asset_recipe.emit_work_order(recipe)
+        self.assertEqual(work_order["resolution"], "2K")
 
 
 def _synthetic_generation(color: tuple[int, int, int], size=(200, 200)) -> np.ndarray:
@@ -216,11 +276,16 @@ class IngestCutoutTest(unittest.TestCase):
             try:
                 exit_code = asset_recipe.ingest(recipe, result_path)
                 self.assertEqual(exit_code, 1)
-                ledger_spec = pending_dir / "decoration_test_synthetic_neon_ledger_spec.json"
+                approved_spec = pending_dir / "decoration_test_synthetic_neon_ledger_spec.json"
                 self.assertFalse(
-                    ledger_spec.exists(),
+                    approved_spec.exists(),
                     "a rejected cutout must not produce an 'approved' ledger spec file",
                 )
+                rejected_spec = pending_dir / "decoration_test_synthetic_neon_rejected_ledger_spec.json"
+                self.assertTrue(rejected_spec.is_file(), "rejected ingest must write a spec to disk")
+                spec = json.loads(rejected_spec.read_text(encoding="utf-8"))
+                self.assertEqual(spec["outputAssets"][0]["decision"], "rejected")
+                self.assertIn("rejected:", spec["note"])
             finally:
                 if pending_dir.exists():
                     for f in pending_dir.iterdir():
