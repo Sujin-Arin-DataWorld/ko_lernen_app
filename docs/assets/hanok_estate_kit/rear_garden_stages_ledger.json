@@ -1,0 +1,35 @@
+{
+  "building": "rear_garden",
+  "stages": [
+    {
+      "id": "s1_hardscape",
+      "label": "기초 조경(석축·연못·장독대)",
+      "kind": "regionUnion",
+      "file": "assets_unused/pending_review/estate_stages/rear_garden/rear_garden_s1_hardscape.png",
+      "sha256": "a1c83379ca1422647a494ecd6c6ab5d5ac1581b58dc4268114e0fd7aefc9443d",
+      "bytes": 363763,
+      "visiblePx": 131373,
+      "recall": 1.0
+    },
+    {
+      "id": "s2_bridge",
+      "label": "+ 다리",
+      "kind": "regionUnion",
+      "file": "assets_unused/pending_review/estate_stages/rear_garden/rear_garden_s2_bridge.png",
+      "sha256": "63b20199b9d3f6cae82fa837d7b38e6621e3826473533f1febd050a1436440ae",
+      "bytes": 399478,
+      "visiblePx": 145323,
+      "recall": 1.0
+    },
+    {
+      "id": "s3_final",
+      "label": "완성(정자·식재)",
+      "kind": "final",
+      "file": "assets_unused/pending_review/estate_stages/rear_garden/rear_garden_s3_final.png",
+      "sha256": "fd95dbebcc6f3879c2e594e2a8b20eba72f8efaf172ff4ee2a0259f742dc9d84",
+      "bytes": 1257933,
+      "visiblePx": 449996,
+      "recall": 1.0
+    }
+  ]
+}

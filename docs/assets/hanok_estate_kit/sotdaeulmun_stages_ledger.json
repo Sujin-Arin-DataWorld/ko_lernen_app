@@ -1,0 +1,35 @@
+{
+  "building": "sotdaeulmun",
+  "stages": [
+    {
+      "id": "s1_platform",
+      "label": "기단",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/sotdaeulmun/sotdaeulmun_s1_platform.png",
+      "sha256": "9f2a4d4dbef0265a80a8cc721fe1c82ea77f9b6331880439e1023e5d2d10f6e0",
+      "bytes": 19531,
+      "visiblePx": 5082,
+      "recall": 1.0
+    },
+    {
+      "id": "s2_frame_roof",
+      "label": "골조+지붕",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/sotdaeulmun/sotdaeulmun_s2_frame_roof.png",
+      "sha256": "2ecbf047b9d8ab591d2554770ade14c641ba9306a756abe060d78d6ab3e28570",
+      "bytes": 107911,
+      "visiblePx": 45442,
+      "recall": 1.0
+    },
+    {
+      "id": "s3_final",
+      "label": "완성(문짝·편액)",
+      "kind": "final",
+      "file": "assets_unused/pending_review/estate_stages/sotdaeulmun/sotdaeulmun_s3_final.png",
+      "sha256": "33a9400b699c100e8d5c51bdef2dfbca8420458972726de38f7264909d01f47d",
+      "bytes": 114980,
+      "visiblePx": 48993,
+      "recall": 1.0
+    }
+  ]
+}

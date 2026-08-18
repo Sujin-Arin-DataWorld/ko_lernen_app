@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "building": "daecheongmaru",
+  "label": "대청마루",
+  "source": "assets/illustrations/personal_hanok_v2/map/structures/daecheongmaru.png",
+  "sourceSha256": "6d42d042cfe4415546c22e8fb6eda3ca38b940af81690e1ead110418474263a0",
+  "canvas": [1536, 1152],
+  "alphaBboxMeasured": [691, 351, 860, 489],
+  "note": "Genuinely open pavilion: columns/beams are fully exposed at every row from the eave down to the platform in the FINISHED art. No frame stage needs generation -- all three stages are pure crops of the finished PNG. classify() misreads the stone platform as 'wood' (WOOD_MIN_RB_DELTA/RED fires on this building's tan sandstone, no saturation floor) -- platformTopRow was fixed via direct per-column saturation sampling (sat drops from ~60-85% wood to ~27-44% stone at row 459-463), not trusted from classify() wood-fraction.",
+  "windows": [
+    {"id": "main", "xRange": [691, 861]}
+  ],
+  "stages": [
+    {
+      "id": "s1_platform",
+      "label": "기단",
+      "kind": "reveal",
+      "rowMin": {"main": 460},
+      "rationale": "saturation-based platform-top measurement (classify() wood-fraction is wrong here, see note)."
+    },
+    {
+      "id": "s2_frame",
+      "label": "골조(개방형, 생성 불필요)",
+      "kind": "reveal",
+      "rowMin": {"main": 416},
+      "rationale": "last full-tile row is 415; columns/floor are already fully exposed in the source art -- pure crop, zero generation cost."
+    },
+    {
+      "id": "s3_final",
+      "label": "완성(지붕)",
+      "kind": "final"
+    }
+  ],
+  "maxBytesPerStage": 350000
+}

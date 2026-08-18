@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "building": "anchae",
+  "label": "안채",
+  "source": "assets/illustrations/personal_hanok_v2/map/structures/anchae.png",
+  "sourceSha256": "93cc25cbe79731f81c04adeaea16a3a8e8a3178142af5d5f1ad68ee126607c73",
+  "canvas": [1536, 1152],
+  "alphaBboxMeasured": [403, 299, 1099, 633],
+  "note": "NOT a single silhouette: three roofed masses at three depths (left wing / center hall set back in isometric perspective / right wing), each with its own ridgeRow/eaveRow/wallBaseRow/platformTopRow. Zone x-boundaries are placed in the transparent gaps between wings and hall (~5px gap on each side), so boundary placement is not precision-critical. Both wings also show a small outward wall bulge (y~515-548, likely a chimney) that finished_alpha captures automatically -- no separate window needed.",
+  "windows": [
+    {"id": "leftWing", "xRange": [403, 581]},
+    {"id": "hall", "xRange": [581, 939]},
+    {"id": "rightWing", "xRange": [939, 1100]}
+  ],
+  "stages": [
+    {
+      "id": "s1_platform",
+      "label": "기단",
+      "kind": "reveal",
+      "rowMin": {"leftWing": 612, "hall": 451, "rightWing": 612},
+      "rationale": "wing platform flattens at 611->612 (both wings); hall platform edge at 450->451."
+    },
+    {
+      "id": "s2_frame",
+      "label": "골조",
+      "kind": "reveal",
+      "rowMin": {"leftWing": 342, "hall": 317, "rightWing": 336},
+      "frame": {
+        "leftWing": {"band": [342, 611], "rawKey": "anchae_frame"},
+        "hall": {"band": [317, 450], "rawKey": "anchae_frame"},
+        "rightWing": {"band": [336, 611], "rawKey": "anchae_frame"}
+      },
+      "rationale": "solid wall/lattice-door texture hides the frame in all three zones (unlike daecheongmaru) -> single combined generated edit covering all three wall bands, clipped per zone. No roof yet in this stage."
+    },
+    {
+      "id": "s3_roof",
+      "label": "지붕",
+      "kind": "reveal",
+      "rowMin": {"leftWing": 310, "hall": 299, "rightWing": 312},
+      "frame": {
+        "leftWing": {"band": [342, 611], "rawKey": "anchae_frame"},
+        "hall": {"band": [317, 450], "rawKey": "anchae_frame"},
+        "rightWing": {"band": [336, 611], "rawKey": "anchae_frame"}
+      },
+      "rationale": "adds pure-crop roof bands (ridgeRow..eaveRow per zone) on top of s2's generated frame; same frame layer reused."
+    },
+    {
+      "id": "s4_final",
+      "label": "완성(창호·마감)",
+      "kind": "final"
+    }
+  ],
+  "maxBytesPerStage": 350000
+}

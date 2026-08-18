@@ -1,0 +1,35 @@
+{
+  "building": "daecheongmaru",
+  "stages": [
+    {
+      "id": "s1_platform",
+      "label": "기단",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/daecheongmaru/daecheongmaru_s1_platform.png",
+      "sha256": "5678d04589e303695a7a5208f7ccfd54530b7f14dcb36656fc16b44b84d9e10d",
+      "bytes": 17993,
+      "visiblePx": 3696,
+      "recall": 1.0
+    },
+    {
+      "id": "s2_frame",
+      "label": "골조(개방형, 생성 불필요)",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/daecheongmaru/daecheongmaru_s2_frame.png",
+      "sha256": "99fa560dbaa41547994ed028c87ffbfd72ceaf0fa384a5ec1e304ba4c56c2b25",
+      "bytes": 33703,
+      "visiblePx": 9375,
+      "recall": 1.0
+    },
+    {
+      "id": "s3_final",
+      "label": "완성(지붕)",
+      "kind": "final",
+      "file": "assets_unused/pending_review/estate_stages/daecheongmaru/daecheongmaru_s3_final.png",
+      "sha256": "6d42d042cfe4415546c22e8fb6eda3ca38b940af81690e1ead110418474263a0",
+      "bytes": 56214,
+      "visiblePx": 18683,
+      "recall": 1.0
+    }
+  ]
+}

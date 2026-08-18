@@ -1,5 +1,40 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude, macOS) — B1/B2 건물 단계 6종 생성 완료 (16크레딧)
+
+**무엇.** 살아 있는 한옥 V1의 B1/B2 건물 단계(공사 과정 역분해)를 6개 대상(솟을대문·행랑채·안채·
+사당·대청마루·후원) 전부 완성했다. 총 20개 단계 PNG, 전량 게이트 통과(포함·구조 연속성 recall
+1.0·chroma 0·바이트 예산), 마지막 단계는 전부 기존 승인 파일과 sha256 완전 일치(재인코딩 없는
+alias).
+
+**왜.** Jin 요청 "B1/B2 건물 단계까지 마친 뒤 배선해줘"를 순서대로 지켰다 — 이번 턴은 건물 단계
+자산만, 배선(pubspec·카탈로그·원장)은 다음.
+
+**어떻게.** 배경 워크플로(3 에이전트)가 `derive_hanok_a1_kit.classify()`를 이식해 6개 대상의
+실루엣을 실측 → classify()가 estate 건물엔 잘 안 맞는다는 걸 확인하고(그림자 진 벽이 타일로,
+따뜻한 톤 석재가 나무로 오분류) 실루엣 폭 변화율 기반 수동 실측값을 `docs/assets/hanok_estate_kit/
+{building}_stages.json`에 고정 기록 → 신규 `tool/derive_estate_building_stages.py`(모드
+`--emit-prompt`/`--align --target-bbox`/`--build`/`--check`)로 골조가 필요한 4곳(솟을대문·행랑채·
+안채·사당)만 Nano Banana Pro `edit_image` 1회씩(A1 KEEP/REMOVE/ADD 골격 재사용, 건물별 구조 명사만
+교체) → 정렬(청록 디코드 후 출력 자체 알파 bbox를 완성 건물 실측 bbox로 리스케일, LANCZOS 보간이
+되살린 저알파 림 청록기는 재디스필+림 클램프로 제거) → 결정론 조립+게이트. 대청마루(완전 개방형
+골조가 이미 노출)와 후원(연결요소+수작업 사각 영역, 행 기반 아님)은 생성 없이 크롭만으로 3단계
+완성. 안채는 3구역(왼쪽 채·뒤로 물러난 대청·오른쪽 채)이 서로 다른 ridgeRow/eaveRow를 가져 단일
+행 표로 안 되는 걸 확인하고 구역별 window로 분리했다. 사당은 원안의 "대문+담장+사당" 가정이
+틀렸다는 걸 확인(실측: 단일 지붕 실루엣 + 담장 기둥 조각 2개)하고 스펙을 정정했다.
+
+**검증.** `--build` 게이트 4종 전부 자동 통과(수치는 `docs/assets/prompts/
+B1B2_BUILDING_STAGES_2026-08-18.md` §4 표). 솟을대문·행랑채는 생성 직후 육안 확인(골조·지붕 정합
+우수). 안채·사당은 Jin 요청으로 이 세션에 이미지를 렌더하지 않아 수치 점검(가시 px 단조 증가,
+meanRGB 전부 목재/석재 톤, 청록 잔여 없음)만 거쳤다 — **Jin 육안 승인 전 배선 금지**.
+
+**다음.** 배선(PR5b): pubspec 폴더 선언·`personal_hanok_catalog.dart` `estateStage` 엔트리·
+`HANOK_V1_ASSET_PROVENANCE.json` 원장 기록·`tool/promote_estate_layers.py` 신규. 마당 구조물
+3종(우물·석등·담장 장식)은 기존 건물의 "단계"가 아닌 신규 소품이라 이번 범위 밖으로 판단 —
+Jin 확인 필요.
+
+---
+
 ### 2026-08-18 (Claude, macOS) — GA4 드롭오프 퍼널 계측 6종 + 동의 초대 문구 재작성
 
 **무엇.** Jin이 GA4 이벤트 설계(온보딩·퀘스트·한옥 꾸미기 3단 퍼널)를 요청했고, 조사 결과

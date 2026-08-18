@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "building": "sadang",
+  "label": "사당",
+  "source": "assets/illustrations/personal_hanok_v2/map/structures/sadang.png",
+  "sourceSha256": "3f5cf5246a763fb8a6d4b639af3e4801b42ff23c62a9ef033f1f3c04ff16eb81",
+  "canvas": [1536, 1152],
+  "alphaBboxMeasured": [1198, 346, 1395, 575],
+  "note": "Correction vs the original brief: the alpha silhouette is ONE continuous roof ridge (the shrine building itself), not a separate gate+wall structure. The front gate/threshold is a narrow forward projection of the shrine's own base (x~1266-1326, extending to row 575), captured automatically by finished_alpha. Two tiny decorative corner-wall-post fragments (19-20px tall, y~463-483) sit outside the shrine body's x-range; they are not hidden by anything generated, so they are pure crops at their own window, included from stage 1 onward.",
+  "windows": [
+    {"id": "shrine", "xRange": [1206, 1390]},
+    {"id": "cornerLeft", "xRange": [1198, 1206]},
+    {"id": "cornerRight", "xRange": [1390, 1396]}
+  ],
+  "stages": [
+    {
+      "id": "s1_platform",
+      "label": "기단",
+      "kind": "reveal",
+      "rowMin": {"shrine": 567, "cornerLeft": 463, "cornerRight": 463},
+      "rationale": "shrine wall collapses to platform/light at row 566->567 (also the front gate threshold, captured via finished_alpha to row 575); corner posts included from their own measured top (463)."
+    },
+    {
+      "id": "s2_frame_roof",
+      "label": "골조+지붕",
+      "kind": "reveal",
+      "rowMin": {"shrine": 346, "cornerLeft": 463, "cornerRight": 463},
+      "frame": {
+        "shrine": {"band": [386, 566], "rawKey": "sadang_frame"}
+      },
+      "rationale": "eaveRow=386 (roof-width growth rate collapses to 0), wallBaseRow=566. Solid wall hides the frame -> generated bare-post edit for 386-566, clipped to finished alpha. Roof rows 346-385 are a pure crop. Corner posts are pure crop throughout, unaffected by the generated band."
+    },
+    {
+      "id": "s3_final",
+      "label": "완성(벽·문)",
+      "kind": "final"
+    }
+  ],
+  "maxBytesPerStage": 350000
+}

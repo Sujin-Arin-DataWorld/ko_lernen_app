@@ -1,0 +1,45 @@
+{
+  "building": "haengrangchae",
+  "stages": [
+    {
+      "id": "s1_foundation",
+      "label": "기초",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/haengrangchae/haengrangchae_s1_foundation.png",
+      "sha256": "75cbadbff5e3e5b175d99e471b6881d3da2a6adb77e11ff845c4873b2be84ba0",
+      "bytes": 9475,
+      "visiblePx": 863,
+      "recall": 1.0
+    },
+    {
+      "id": "s2_frame",
+      "label": "골조",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/haengrangchae/haengrangchae_s2_frame.png",
+      "sha256": "0cc6b1e6c2b28195b8c69a7f8a8cef55957650b4529422c28568a7e48202ab13",
+      "bytes": 63509,
+      "visiblePx": 25839,
+      "recall": 1.0
+    },
+    {
+      "id": "s3_roof",
+      "label": "지붕",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/haengrangchae/haengrangchae_s3_roof.png",
+      "sha256": "c3f7d23df4d87ca1ccdbee9280aaa38c15902120b706b32d8989e9cf542a5047",
+      "bytes": 128070,
+      "visiblePx": 54026,
+      "recall": 1.0
+    },
+    {
+      "id": "s4_final",
+      "label": "완성(격자창·마감)",
+      "kind": "final",
+      "file": "assets_unused/pending_review/estate_stages/haengrangchae/haengrangchae_s4_final.png",
+      "sha256": "3ff376e182d482b743c07ef07c77bc16999e9b3cac4b87555fc5ea8436ff41dc",
+      "bytes": 146177,
+      "visiblePx": 62214,
+      "recall": 1.0
+    }
+  ]
+}

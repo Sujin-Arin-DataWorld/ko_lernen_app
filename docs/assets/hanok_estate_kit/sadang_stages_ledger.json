@@ -1,0 +1,35 @@
+{
+  "building": "sadang",
+  "stages": [
+    {
+      "id": "s1_platform",
+      "label": "기단",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/sadang/sadang_s1_platform.png",
+      "sha256": "ed132a4f6ea0a7cc745e52f690c016fb1bb9738bdd85ffff1e7273153bc9e7bf",
+      "bytes": 10256,
+      "visiblePx": 920,
+      "recall": 1.0
+    },
+    {
+      "id": "s2_frame_roof",
+      "label": "골조+지붕",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/sadang/sadang_s2_frame_roof.png",
+      "sha256": "3978646ea67ac274d7c0e24517c41531cd2db70dded4802b47b5300e9677322e",
+      "bytes": 78337,
+      "visiblePx": 28081,
+      "recall": 1.0
+    },
+    {
+      "id": "s3_final",
+      "label": "완성(벽·문)",
+      "kind": "final",
+      "file": "assets_unused/pending_review/estate_stages/sadang/sadang_s3_final.png",
+      "sha256": "3f5cf5246a763fb8a6d4b639af3e4801b42ff23c62a9ef033f1f3c04ff16eb81",
+      "bytes": 95238,
+      "visiblePx": 35290,
+      "recall": 1.0
+    }
+  ]
+}

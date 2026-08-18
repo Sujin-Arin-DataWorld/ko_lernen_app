@@ -1,0 +1,45 @@
+{
+  "building": "anchae",
+  "stages": [
+    {
+      "id": "s1_platform",
+      "label": "기단",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/anchae/anchae_s1_platform.png",
+      "sha256": "6c31e5e1326e572cdd8fc74dfaf79c49e0aa1f0c51b97ab2f108bc336ce11456",
+      "bytes": 25053,
+      "visiblePx": 6049,
+      "recall": 1.0
+    },
+    {
+      "id": "s2_frame",
+      "label": "골조",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/anchae/anchae_s2_frame.png",
+      "sha256": "6531a6858812a2d1e1d9383604793bc93c595bf288b7632bbd3e81c31a6e2b2f",
+      "bytes": 274518,
+      "visiblePx": 105786,
+      "recall": 1.0
+    },
+    {
+      "id": "s3_roof",
+      "label": "지붕",
+      "kind": "reveal",
+      "file": "assets_unused/pending_review/estate_stages/anchae/anchae_s3_roof.png",
+      "sha256": "ef1e7263b9ff5f00b05f2ea0b574566298de2b5ea0da927559ba8f75fa6910ec",
+      "bytes": 291144,
+      "visiblePx": 112554,
+      "recall": 1.0
+    },
+    {
+      "id": "s4_final",
+      "label": "완성(창호·마감)",
+      "kind": "final",
+      "file": "assets_unused/pending_review/estate_stages/anchae/anchae_s4_final.png",
+      "sha256": "93cc25cbe79731f81c04adeaea16a3a8e8a3178142af5d5f1ad68ee126607c73",
+      "bytes": 348664,
+      "visiblePx": 137017,
+      "recall": 1.0
+    }
+  ]
+}

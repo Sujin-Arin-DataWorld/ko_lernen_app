@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "building": "rear_garden",
+  "label": "후원",
+  "source": "assets/illustrations/personal_hanok_v2/map/landscape/rear_garden.png",
+  "sourceSha256": "fd95dbebcc6f3879c2e594e2a8b20eba72f8efaf172ff4ee2a0259f742dc9d84",
+  "canvas": [1536, 1152],
+  "alphaBboxMeasured": [22, 106, 1512, 627],
+  "note": "NOT row-based: a landscape with 2 disconnected alpha components (west/central mega-cluster vs east jangdokdae+rockery) and classify() is unusable for material segmentation here (WOOD/TILE thresholds fire on 66% of opaque pixels from autumn foliage color alone -- confirmed by research agent, see docs/assets/prompts b1b2 geometry reports). Regions below were hand-placed rectangles verified by direct visual inspection of gridded 3x crops (not classify() output). Jangdokdae jars are folded into stage 1 alongside their stone platform (not split out) since a clean jar-free crop would need per-pixel material masking that classify() cannot provide reliably for this asset -- ceremonial jars are a defensible part of the garden's early hardscape rather than a late addition. Zero generation cost: all 3 stages are pure crops/subtractions of the finished PNG.",
+  "regions": {
+    "pavilionBase": {"box": [108, 318, 232, 393]},
+    "jangdokPlatformWithJars": {"box": [1155, 176, 1402, 238]},
+    "pond1Basin": {"box": [392, 292, 828, 508], "subtract": [540, 290, 695, 380]},
+    "pond2Basin": {"box": [165, 415, 405, 595]},
+    "bridge": {"box": [540, 290, 695, 380]}
+  },
+  "stages": [
+    {
+      "id": "s1_hardscape",
+      "label": "기초 조경(석축·연못·장독대)",
+      "kind": "regionUnion",
+      "regions": ["pavilionBase", "jangdokPlatformWithJars", "pond1Basin", "pond2Basin"],
+      "rationale": "pavilion stone base, jangdokdae platform+jars, both pond basins -- bridge footprint excluded from pond1Basin via subtract."
+    },
+    {
+      "id": "s2_bridge",
+      "label": "+ 다리",
+      "kind": "regionUnion",
+      "regions": ["pavilionBase", "jangdokPlatformWithJars", "pond1Basin", "pond2Basin", "bridge"],
+      "rationale": "adds the wooden arched bridge crop back into the pond1 gap left by stage 1's subtraction -- union of the two stages equals full source content in that area (structural continuity)."
+    },
+    {
+      "id": "s3_final",
+      "label": "완성(정자·식재)",
+      "kind": "final"
+    }
+  ],
+  "maxBytesPerStage": 1300000
+}

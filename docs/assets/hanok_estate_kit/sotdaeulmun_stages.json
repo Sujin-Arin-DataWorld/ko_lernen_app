@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "building": "sotdaeulmun",
+  "label": "솟을대문",
+  "source": "assets/illustrations/personal_hanok_v2/map/structures/sotdaeulmun.png",
+  "sourceSha256": "33a9400b699c100e8d5c51bdef2dfbca8420458972726de38f7264909d01f47d",
+  "canvas": [1536, 1152],
+  "alphaBboxMeasured": [600, 875, 939, 1080],
+  "note": "3 background research agents (Explore, wf_d4912fe4-ad0) measured this geometry via classify() row/column silhouette analysis on 2026-08-18. Stepped roofline: center-bay ridge apex at row 875 (cols 703-835), wing ridges ~900-908. A single main window suffices because finished_alpha already encodes the true per-column silhouette (stepped roof, center-bay staircase extending to row 1079) -- rowMin only needs to state the TOP boundary per stage; the bottom follows the real alpha shape for free.",
+  "windows": [
+    {"id": "main", "xRange": [600, 939]}
+  ],
+  "stages": [
+    {
+      "id": "s1_platform",
+      "label": "기단",
+      "kind": "reveal",
+      "rowMin": {"main": 1041},
+      "rationale": "wing platform flattens uniformly at row 1041-1042 (measured bottom_per_col); center-bay staircase (to row 1079) follows automatically from finished_alpha."
+    },
+    {
+      "id": "s2_frame_roof",
+      "label": "골조+지붕",
+      "kind": "reveal",
+      "rowMin": {"main": 875},
+      "frame": {
+        "main": {"band": [967, 1040], "rawKey": "sotdaeulmun_frame"}
+      },
+      "rationale": "eaveRow=967 (last row tile is per-row plurality); wallBaseRow=1040 (last wood-dominant row before platform flip). Wing walls + gate door leaves hide the frame in the finished art (no bare-frame crop exists) -> rows 967-1040 sourced from a generated bare-post/no-door edit, clipped to finished alpha (containment). Roof rows 875-966 and platform rows >=1041 are pure crops from the finished PNG."
+    },
+    {
+      "id": "s3_final",
+      "label": "완성(문짝·편액)",
+      "kind": "final"
+    }
+  ],
+  "maxBytesPerStage": 350000
+}

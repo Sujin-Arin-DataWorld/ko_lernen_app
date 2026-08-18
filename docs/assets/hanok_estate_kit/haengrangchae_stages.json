@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "building": "haengrangchae",
+  "label": "행랑채",
+  "source": "assets/illustrations/personal_hanok_v2/map/structures/haengrangchae.png",
+  "sourceSha256": "3ff376e182d482b743c07ef07c77bc16999e9b3cac4b87555fc5ea8436ff41dc",
+  "canvas": [1536, 1152],
+  "alphaBboxMeasured": [253, 857, 674, 1031],
+  "note": "Roof ridge essentially flat (864-871) with two small ornament tips at row 857. No distinct stone-platform band exists (light/lum>=150 never forms a broad band); the base is close to a thin ground-contact line. A localized doorway step (x=441-488) extends 7 rows below the rest of the ground line -- captured for free by finished_alpha's real per-column bottom, no separate window needed.",
+  "windows": [
+    {"id": "main", "xRange": [253, 675]}
+  ],
+  "stages": [
+    {
+      "id": "s1_foundation",
+      "label": "기초",
+      "kind": "reveal",
+      "rowMin": {"main": 1024},
+      "rationale": "ground-contact/shadow line where width collapses; doorway step at x441-488 extends to row 1031 automatically via finished_alpha."
+    },
+    {
+      "id": "s2_frame",
+      "label": "골조",
+      "kind": "reveal",
+      "rowMin": {"main": 938},
+      "frame": {
+        "main": {"band": [938, 1023], "rawKey": "haengrangchae_frame"}
+      },
+      "rationale": "eaveRow=938 (tile plurality ends), wallBaseRow=1023 (last wood-dominant row before ground shadow). Continuous closed wall (with lattice windows) hides the frame -> generated bare-post edit for the full 938-1023 band, no roof yet."
+    },
+    {
+      "id": "s3_roof",
+      "label": "지붕",
+      "kind": "reveal",
+      "rowMin": {"main": 857},
+      "frame": {
+        "main": {"band": [938, 1023], "rawKey": "haengrangchae_frame"}
+      },
+      "rationale": "adds the pure-crop roof band (857-937) on top of s2's generated frame; same frame layer reused."
+    },
+    {
+      "id": "s4_final",
+      "label": "완성(격자창·마감)",
+      "kind": "final"
+    }
+  ],
+  "maxBytesPerStage": 350000
+}
