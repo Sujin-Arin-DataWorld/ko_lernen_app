@@ -1,5 +1,30 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude Sonnet 5, 웹사이트) — release-website 배포가 계속 취소돼 전용 concurrency 그룹 분리
+
+**증상.** PR #73(App Store CTA → 신청서) 병합 뒤 Cloudflare 프로덕션 배포가 **네 번 연속** 못
+돌았다. 자동 push 트리거 세 번은 diff 감지가 `website=false`로 보거나(다른 세션의 push라 그 커밋
+diff엔 웹사이트 파일이 없음) 그 전에 실행 자체가 취소됐고, `workflow_dispatch task=release-website`
+수동 트리거까지 큐에 들어간 지 몇 초 만에 취소됐다.
+
+**원인.** `release-website` 잡이 워크플로 전체 concurrency 그룹(`${{ github.workflow }}-ci-${{
+github.ref_name }}`, main 기준 사실상 `CI-ci-main`)을 그대로 물려받는데, 이 그룹은 main에 대한
+모든 push/PR/workflow_dispatch 실행이 공유한다. 이 저장소는 여러 AI 세션이 몇 분 간격으로 계속
+main에 push하고(`docs/SESSION_LOG.md` 상단만 봐도 같은 시간대에 다른 세션 커밋들이 촘촘하다),
+`cancel-in-progress`가 push 이벤트에는 `false`인데도 **실행이 겹치면 나중 실행이 앞선 실행을
+취소하는 동작을 실측**했다(원인은 워크플로 YAML 밖의 저장소 설정으로 추정, YAML만으로는 재현 불가).
+배포 잡은 30분짜리 긴 잡이라 그 그룹 안에서 살아남을 확률이 사실상 0에 가깝다.
+
+**고침.** `Signed AAB to Play Internal Testing` 잡이 이미 쓰고 있는 패턴을 그대로 따라
+`release-website` 잡에 전용 concurrency 그룹을 붙였다: `group: cloudflare-production-deploy,
+cancel-in-progress: false`. 이제 이 잡은 다른 push/PR CI와 그룹을 공유하지 않으니 취소당하지
+않고, 같은 그룹 안 배포끼리는(동시에 여러 개 큐잉되어도) 취소 대신 순서대로 돈다.
+
+**검증.** `python3 -m unittest discover -s .github/scripts -p "test_*.py"` 33/33 통과(concurrency
+관련 계약 테스트는 원래 없었고 새로 안 깨짐), `python3 -c "import yaml; yaml.safe_load(...)"`로
+구문 확인. 브랜치 `claude/app-store-open-link-form-sdt7s8`(PR #73 병합 완료라 최신 main에서
+재시작) → 새 PR → 병합 → `release-website` 재트리거까지 이어서 진행.
+
 ### 2026-08-18 (Claude Sonnet 5, macOS) — main CI red 진단 + golden 기준선 갱신
 
 **무엇을 왜.** Jin이 GitHub 저장소 페이지의 커밋 X 표시(`ko_lernen_app | Default` Xcode
