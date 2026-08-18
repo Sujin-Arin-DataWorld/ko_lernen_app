@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""레벨별 15칸 서재(책가도)의 칸 정의와 live 312개 배정.
+"""레벨별 15칸 서재(책가도)의 칸 정의와 live 340개 배정.
 
 정본은 docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md 의
 §4(축 설계)와 부록 A(전수 배정)다.  단 §4.2 관심 3칸은 2026-08-17 Jin 결정으로
@@ -79,8 +79,8 @@ ALL_SHELVES: frozenset[str] = frozenset(
     f"{level}_{slug}" for level in LEVELS for slug in SHELF_SLUGS[level]
 )
 
-# 부록 A — live 312 전수 배정 (264 + Batch 11 36 + Batch 13 12).  재고 0 인 20칸은
-# 키가 없다: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
+# 부록 A — live 340 전수 배정 (264 + Batch 11 36 + Batch 13 12 + Batch 14 28).
+# 재고 0 인 13칸(전부 C1/C2)은 키가 없다: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
 ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_transit": (
         "a1_bus_late", "a1_last_train", "a1_platform_line",
@@ -196,6 +196,48 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "a2_delivery": (
         "a2_daily_late_delivery",
+    ),
+    "a2_enrolment": (
+        "a2_enrolment_change_class",
+        "a2_enrolment_class_signup",
+        "a2_enrolment_level_test",
+        "a2_enrolment_missing_document",
+    ),
+    "a2_booking": (
+        "a2_booking_change_date",
+        "a2_booking_extra_person",
+        "a2_booking_no_show_fee",
+        "a2_booking_table_time",
+    ),
+    "b1_insurance": (
+        "b1_insurance_claim_documents",
+        "b1_insurance_claim_rejected",
+        "b1_insurance_deductible_share",
+        "b1_insurance_what_is_covered",
+    ),
+    "b1_incident": (
+        "b1_incident_leak_from_upstairs",
+        "b1_incident_lost_item_desk",
+        "b1_incident_parking_scratch",
+        "b1_incident_witness_note",
+    ),
+    "b1_cancellation": (
+        "b1_cancellation_auto_payment",
+        "b1_cancellation_early_penalty",
+        "b1_cancellation_gym_membership",
+        "b1_cancellation_move_out_notice",
+    ),
+    "b2_hiring": (
+        "b2_hiring_reference_consent",
+        "b2_hiring_role_scope",
+        "b2_hiring_salary_band",
+        "b2_hiring_start_date",
+    ),
+    "b2_privacy": (
+        "b2_privacy_data_scope",
+        "b2_privacy_delete_request",
+        "b2_privacy_retention_period",
+        "b2_privacy_third_party",
     ),
     "a2_friends": (
         "a2_friends_weekend_slot", "a2_gaming_cant_connect",

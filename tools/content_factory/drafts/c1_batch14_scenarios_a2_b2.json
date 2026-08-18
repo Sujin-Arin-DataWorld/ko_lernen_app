@@ -1,0 +1,6054 @@
+{
+ "version": 1,
+ "_comment": "Review-only Batch 14 scenarios. A2-B2 expansion shelves, four per shelf.",
+ "scenarios": [
+  {
+   "id": "a2_enrolment_class_signup",
+   "level": "a2",
+   "emoji": "📝",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "register_before_the_deadline",
+   "courseUnitId": "a2_06_study_work",
+   "conceptIds": [
+    "concept_a2_work_study"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 130,
+   "title": {
+    "ko": "오늘까지 신청할 수 있어요",
+    "de": "Kann ich mich noch heute anmelden",
+    "en": "Can I still sign up today"
+   },
+   "intro": {
+    "ko": "마감이 오늘인지 내일인지 헷갈립니다. 창구에서 확인하고 그 자리에서 처리합니다.",
+    "de": "Du bist unsicher, ob die Frist heute oder morgen endet. Am Schalter klärst du das und erledigst es gleich.",
+    "en": "You are unsure whether the deadline is today or tomorrow. You check at the desk and finish it there."
+   },
+   "vocab": [
+    {
+     "korean": "신청"
+    },
+    {
+     "korean": "마감"
+    },
+    {
+     "korean": "정원"
+    },
+    {
+     "korean": "대기"
+    },
+    {
+     "korean": "접수"
+    },
+    {
+     "korean": "확정"
+    }
+   ],
+   "grammarIds": [
+    "grammar_a2_ability"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-(으)ㄹ 수 있다/없다",
+     "de": "V-(으)ㄹ 수 있다: können",
+     "en": "V-(으)ㄹ 수 있다: can"
+    },
+    "explanation": {
+     "ko": "가능한지 아닌지 말할 때 쓴다. 신청할 수 있어요, 낼 수 없어요처럼 쓴다.",
+     "de": "Sagt, ob etwas möglich ist: 신청할 수 있어요, 낼 수 없어요.",
+     "en": "States whether something is possible: 신청할 수 있어요, 낼 수 없어요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "초급반 신청, 오늘까지 할 수 있어요?",
+     "de": "Kann ich mich für den Anfängerkurs noch heute anmelden?",
+     "en": "Can I still sign up for the beginner class today?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "마감은 어제였는데, 자리가 하나 남았어요.",
+     "de": "Die Frist war gestern, aber ein Platz ist noch frei.",
+     "en": "The deadline was yesterday, but one spot is open."
+    },
+    {
+     "speaker": "user",
+     "ko": "그럼 지금 접수할 수 있는 거죠?",
+     "de": "Dann kann ich mich jetzt noch eintragen, oder?",
+     "en": "So I can still register now, right?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "네, 대신 오늘 안에 결제까지 하셔야 해요.",
+     "de": "Ja, aber die Zahlung muss heute noch rein.",
+     "en": "Yes, but the payment has to be in today as well."
+    },
+    {
+     "speaker": "user",
+     "ko": "카드로 지금 할게요. 정원이 몇 명이에요?",
+     "de": "Ich zahle gleich mit Karte. Wie viele Plätze gibt es?",
+     "en": "I'll pay by card now. How many spots are there?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "열두 명이요. 이제 다 찼네요.",
+     "de": "Zwölf. Damit ist er voll.",
+     "en": "Twelve. That fills it up."
+    },
+    {
+     "speaker": "user",
+     "ko": "확정 문자 받을 수 있어요?",
+     "de": "Bekomme ich eine Bestätigung per SMS?",
+     "en": "Can I get a confirmation text?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "네, 오 분 안에 갈 거예요.",
+     "de": "Ja, in fünf Minuten.",
+     "en": "Yes, within five minutes."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_a2_enrolment_class_signup_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "audioKo": "마감은 어제였는데, 자리가 하나 남았어요.",
+      "options": [
+       {
+        "de": "Die Frist ist vorbei, aber ein Platz ist frei.",
+        "en": "The deadline passed, but one spot is open."
+       },
+       {
+        "de": "Die Frist läuft noch bis morgen.",
+        "en": "The deadline runs until tomorrow."
+       },
+       {
+        "de": "Der Kurs ist komplett ausgebucht.",
+        "en": "The class is completely full."
+       },
+       {
+        "de": "Der Kurs wurde abgesagt.",
+        "en": "The class was cancelled."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_class_signup_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "promptDe": "Bekomme ich eine Bestätigung per SMS?",
+      "promptEn": "Can I get a confirmation text?",
+      "options": [
+       {
+        "ko": "확정 문자 받을 수 있어요?"
+       },
+       {
+        "ko": "확정 날짜가 언제예요?"
+       },
+       {
+        "ko": "확정되면 환불돼요?"
+       },
+       {
+        "ko": "확정 서류를 내야 해요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_class_signup_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "sentence": "오늘까지 신청___ 수 있어요?",
+      "options": [
+       "할",
+       "하는",
+       "해서",
+       "하고"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_class_signup_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "targetKo": "오늘 안에 결제까지 하셔야 해요.",
+      "promptDe": "Sag, dass die Zahlung heute noch erfolgen muss.",
+      "promptEn": "Say that the payment must be made today.",
+      "distractors": [
+       "자리가 하나 남았어요",
+       "이제 다 찼네요",
+       "오 분 안에 갈 거예요"
+      ],
+      "audioKo": "오늘 안에 결제까지 하셔야 해요."
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_class_signup_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "targetKo": "정원이 몇 명이에요?",
+      "audioKo": "정원이 몇 명이에요?",
+      "promptDe": "Wie viele Plätze gibt es?",
+      "promptEn": "How many spots are there?"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2_enrolment_missing_document",
+   "level": "a2",
+   "emoji": "📄",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "resolve_a_missing_enrolment_paper",
+   "courseUnitId": "a2_06_study_work",
+   "conceptIds": [
+    "concept_a2_work_study"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 130,
+   "title": {
+    "ko": "서류 하나가 빠졌어요",
+    "de": "Ein Dokument fehlt",
+    "en": "One document is missing"
+   },
+   "intro": {
+    "ko": "서류를 냈는데 하나가 없다고 합니다. 언제까지 어떻게 보내면 되는지 정합니다.",
+    "de": "Du hast die Unterlagen abgegeben, aber eine fehlt. Ihr klärt, bis wann und wie du sie nachreichst.",
+    "en": "You handed in your papers but one is missing. You settle how and by when to send it."
+   },
+   "vocab": [
+    {
+     "korean": "서류"
+    },
+    {
+     "korean": "증명서"
+    },
+    {
+     "korean": "제출"
+    },
+    {
+     "korean": "메일"
+    },
+    {
+     "korean": "스캔"
+    },
+    {
+     "korean": "원본"
+    }
+   ],
+   "grammarIds": [
+    "grammar_a2_cause_nikka"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-(으)니까",
+     "de": "V-(으)니까: weil",
+     "en": "V-(으)니까: since"
+    },
+    "explanation": {
+     "ko": "이유를 말하고 이어서 부탁하거나 제안할 때 쓴다. 없으니까 보내 주세요처럼 쓴다.",
+     "de": "Nennt einen Grund und leitet zu einer Bitte über: 없으니까 보내 주세요.",
+     "en": "Gives a reason and leads into a request: 없으니까 보내 주세요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "minsu",
+     "ko": "서류 확인했는데 증명서가 없네요.",
+     "de": "Ich habe die Unterlagen geprüft, die Bescheinigung fehlt.",
+     "en": "I checked your papers, the certificate is missing."
+    },
+    {
+     "speaker": "user",
+     "ko": "아, 그건 아직 안 나왔어요.",
+     "de": "Ach, die habe ich noch nicht bekommen.",
+     "en": "Ah, that one has not come through yet."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "언제쯤 나오는지 아세요?",
+     "de": "Wissen Sie, wann sie kommt?",
+     "en": "Do you know roughly when it will come?"
+    },
+    {
+     "speaker": "user",
+     "ko": "다음 주 월요일이요. 그때 가져와도 돼요?",
+     "de": "Nächsten Montag. Kann ich sie dann bringen?",
+     "en": "Next Monday. Can I bring it then?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "접수는 오늘 되니까 서류만 나중에 주세요.",
+     "de": "Die Anmeldung geht heute durch, reichen Sie das Papier einfach später nach.",
+     "en": "The registration goes through today, so just send the paper later."
+    },
+    {
+     "speaker": "user",
+     "ko": "스캔해서 메일로 보내도 될까요?",
+     "de": "Kann ich sie einscannen und mailen?",
+     "en": "Could I scan it and send it by email?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "메일은 되는데 원본도 한 번 보여 주셔야 해요.",
+     "de": "Per Mail geht, aber das Original müssen Sie einmal zeigen.",
+     "en": "Email works, but you also have to show the original once."
+    },
+    {
+     "speaker": "user",
+     "ko": "알겠어요. 월요일에 들를게요.",
+     "de": "Verstanden. Ich komme am Montag vorbei.",
+     "en": "Understood. I'll drop by on Monday."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_a2_enrolment_missing_document_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "audioKo": "메일은 되는데 원본도 한 번 보여 주셔야 해요.",
+      "options": [
+       {
+        "de": "Mail reicht nicht ganz, das Original muss einmal gezeigt werden.",
+        "en": "Email is not quite enough, the original must be shown once."
+       },
+       {
+        "de": "Nur per Mail, das Original ist unnötig.",
+        "en": "Email only, the original is not needed."
+       },
+       {
+        "de": "Nur das Original, keine Mail.",
+        "en": "Original only, no email."
+       },
+       {
+        "de": "Weder Mail noch Original nötig.",
+        "en": "Neither email nor original is needed."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_missing_document_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "promptDe": "Kann ich sie einscannen und mailen?",
+      "promptEn": "Could I scan it and send it by email?",
+      "options": [
+       {
+        "ko": "스캔해서 메일로 보내도 될까요?"
+       },
+       {
+        "ko": "원본을 지금 가져올까요?"
+       },
+       {
+        "ko": "접수를 취소할 수 있을까요?"
+       },
+       {
+        "ko": "증명서를 다시 발급받을까요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_missing_document_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "sentence": "접수는 오늘 ___ 서류만 나중에 주세요.",
+      "options": [
+       "되니까",
+       "됐지만",
+       "되거나",
+       "되려고"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_missing_document_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "targetKo": "다음 주 월요일이요. 그때 가져와도 돼요?",
+      "promptDe": "Sag den Termin und frag, ob du es dann bringen darfst.",
+      "promptEn": "Give the date and ask whether you may bring it then.",
+      "distractors": [
+       "증명서가 없네요",
+       "월요일에 들를게요",
+       "언제쯤 나오는지 아세요"
+      ],
+      "audioKo": "다음 주 월요일이요. 그때 가져와도 돼요?"
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_missing_document_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "targetKo": "그건 아직 안 나왔어요.",
+      "audioKo": "그건 아직 안 나왔어요.",
+      "promptDe": "Die habe ich noch nicht bekommen.",
+      "promptEn": "That one has not come through yet."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2_enrolment_level_test",
+   "level": "a2",
+   "emoji": "🧪",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "student_and_teacher",
+   "intent": "ask_how_placement_decides_the_class",
+   "courseUnitId": "a2_06_study_work",
+   "conceptIds": [
+    "concept_a2_work_study"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 130,
+   "title": {
+    "ko": "반은 어떻게 정해지나요",
+    "de": "Wie wird die Klasse festgelegt",
+    "en": "How is the class decided"
+   },
+   "intro": {
+    "ko": "배치 시험을 앞두고 있습니다. 무엇으로 반이 갈리는지 미리 물어봅니다.",
+    "de": "Der Einstufungstest steht an. Du fragst vorher, wonach die Klassen aufgeteilt werden.",
+    "en": "The placement test is coming up. You ask in advance what decides the class."
+   },
+   "vocab": [
+    {
+     "korean": "배치"
+    },
+    {
+     "korean": "시험"
+    },
+    {
+     "korean": "듣기"
+    },
+    {
+     "korean": "말하기"
+    },
+    {
+     "korean": "결과"
+    },
+    {
+     "korean": "기준"
+    }
+   ],
+   "grammarIds": [
+    "grammar_a2_gentle_question"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "A-(으)ㄴ가요? / V-나요?",
+     "de": "V-나요?: weiche Frage",
+     "en": "V-나요?: gentle question"
+    },
+    "explanation": {
+     "ko": "부드럽게 물어볼 때 쓴다. 어려운가요? 보나요?처럼 쓴다.",
+     "de": "Für weiche Rückfragen: 어려운가요? 보나요?",
+     "en": "For softly worded questions: 어려운가요? 보나요?"
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "배치 시험은 듣기만 보나요?",
+     "de": "Prüft der Einstufungstest nur Hören?",
+     "en": "Does the placement test only cover listening?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "듣기하고 말하기 둘 다 봐요.",
+     "de": "Hören und Sprechen, beides.",
+     "en": "Listening and speaking, both."
+    },
+    {
+     "speaker": "user",
+     "ko": "말하기가 많이 어려운가요?",
+     "de": "Ist der Sprechteil sehr schwer?",
+     "en": "Is the speaking part very hard?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "길지 않아요. 삼 분 정도 얘기하면 돼요.",
+     "de": "Er ist kurz. Etwa drei Minuten reden reicht.",
+     "en": "It is short. About three minutes of talking is enough."
+    },
+    {
+     "speaker": "user",
+     "ko": "결과는 바로 나오나요?",
+     "de": "Kommt das Ergebnis sofort?",
+     "en": "Do the results come right away?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "당일에 나와요. 문자로 반을 알려 드려요.",
+     "de": "Noch am selben Tag. Die Klasse kommt per SMS.",
+     "en": "Same day. You get the class by text."
+    },
+    {
+     "speaker": "user",
+     "ko": "반이 마음에 안 들면 바꿀 수 있나요?",
+     "de": "Kann man wechseln, wenn die Klasse nicht passt?",
+     "en": "Can you switch if the class does not suit you?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "첫 주까지는 가능해요.",
+     "de": "In der ersten Woche geht das.",
+     "en": "Within the first week, yes."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_a2_enrolment_level_test_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "audioKo": "당일에 나와요. 문자로 반을 알려 드려요.",
+      "options": [
+       {
+        "de": "Ergebnis am selben Tag, Klasse per SMS.",
+        "en": "Result the same day, class by text."
+       },
+       {
+        "de": "Ergebnis nach einer Woche per Post.",
+        "en": "Result after a week by post."
+       },
+       {
+        "de": "Man muss selbst nachfragen.",
+        "en": "You have to ask for it yourself."
+       },
+       {
+        "de": "Das Ergebnis hängt am Schwarzen Brett.",
+        "en": "The result is posted on the board."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_level_test_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "promptDe": "Ist der Sprechteil sehr schwer?",
+      "promptEn": "Is the speaking part very hard?",
+      "options": [
+       {
+        "ko": "말하기가 많이 어려운가요?"
+       },
+       {
+        "ko": "말하기가 몇 분인가요?"
+       },
+       {
+        "ko": "말하기를 안 봐도 되나요?"
+       },
+       {
+        "ko": "말하기가 먼저인가요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_level_test_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "sentence": "결과는 바로 ___?",
+      "options": [
+       "나오나요",
+       "나온가요",
+       "나오는가요",
+       "나올나요"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_level_test_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "targetKo": "반이 마음에 안 들면 바꿀 수 있나요?",
+      "promptDe": "Frag, ob ein Wechsel möglich ist.",
+      "promptEn": "Ask whether switching is possible.",
+      "distractors": [
+       "첫 주까지는 가능해요",
+       "삼 분 정도 얘기하면 돼요",
+       "듣기하고 말하기 둘 다 봐요"
+      ],
+      "audioKo": "반이 마음에 안 들면 바꿀 수 있나요?"
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_level_test_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "targetKo": "첫 주까지는 가능해요.",
+      "audioKo": "첫 주까지는 가능해요.",
+      "promptDe": "In der ersten Woche geht das.",
+      "promptEn": "Within the first week, yes."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2_enrolment_change_class",
+   "level": "a2",
+   "emoji": "🔁",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "student_and_teacher",
+   "intent": "move_to_a_different_class_slot",
+   "courseUnitId": "a2_06_study_work",
+   "conceptIds": [
+    "concept_a2_work_study"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 130,
+   "title": {
+    "ko": "저녁반으로 옮기고 싶어요",
+    "de": "Ich möchte in den Abendkurs wechseln",
+    "en": "I want to move to the evening class"
+   },
+   "intro": {
+    "ko": "일 때문에 오전반이 어렵습니다. 옮길 수 있는지, 어떻게 하는지 묻습니다.",
+    "de": "Wegen der Arbeit passt der Vormittagskurs nicht. Du fragst, ob und wie ein Wechsel geht.",
+    "en": "Work makes the morning class hard. You ask whether and how you can move."
+   },
+   "vocab": [
+    {
+     "korean": "오전"
+    },
+    {
+     "korean": "저녁"
+    },
+    {
+     "korean": "옮기다"
+    },
+    {
+     "korean": "빈자리"
+    },
+    {
+     "korean": "일정"
+    },
+    {
+     "korean": "담당"
+    }
+   ],
+   "grammarIds": [
+    "grammar_a2_recommendation"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-아/어 보세요",
+     "de": "V-아/어 보세요: Empfehlung",
+     "en": "V-아/어 보세요: try doing"
+    },
+    "explanation": {
+     "ko": "한번 해 보라고 권할 때 쓴다. 신청해 보세요, 물어보세요처럼 쓴다.",
+     "de": "Empfiehlt, etwas einmal zu versuchen: 신청해 보세요, 물어보세요.",
+     "en": "Suggests giving something a try: 신청해 보세요, 물어보세요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "오전반인데 저녁반으로 옮길 수 있을까요?",
+     "de": "Ich bin im Vormittagskurs, kann ich in den Abendkurs wechseln?",
+     "en": "I'm in the morning class, could I move to the evening one?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "저녁반은 지금 꽉 찼어요.",
+     "de": "Der Abendkurs ist gerade voll.",
+     "en": "The evening class is full right now."
+    },
+    {
+     "speaker": "user",
+     "ko": "그럼 대기라도 걸 수 있어요?",
+     "de": "Kann ich mich wenigstens auf die Warteliste setzen?",
+     "en": "Can I at least get on the waiting list?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "네, 대기 신청해 보세요. 첫 주에 자주 빠져요.",
+     "de": "Ja, versuchen Sie die Warteliste. In der ersten Woche springen oft Leute ab.",
+     "en": "Yes, try the waiting list. People often drop out in the first week."
+    },
+    {
+     "speaker": "user",
+     "ko": "자리 나면 연락 주시나요?",
+     "de": "Melden Sie sich, wenn ein Platz frei wird?",
+     "en": "Will you contact me if a spot opens?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "문자 드려요. 답이 늦으면 다음 사람한테 가요.",
+     "de": "Wir schreiben. Wenn Sie zu spät antworten, geht der Platz weiter.",
+     "en": "We will text. If you reply late, the spot goes to the next person."
+    },
+    {
+     "speaker": "user",
+     "ko": "몇 시간 안에 답해야 해요?",
+     "de": "Wie schnell muss ich antworten?",
+     "en": "How quickly do I have to reply?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "두 시간이요. 짧으니까 알림 켜 두세요.",
+     "de": "Zwei Stunden. Das ist knapp, lassen Sie die Benachrichtigung an.",
+     "en": "Two hours. That is tight, so keep notifications on."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_a2_enrolment_change_class_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "audioKo": "문자 드려요. 답이 늦으면 다음 사람한테 가요.",
+      "options": [
+       {
+        "de": "Bei später Antwort geht der Platz weiter.",
+        "en": "If you answer late, the spot moves on."
+       },
+       {
+        "de": "Der Platz bleibt beliebig lange reserviert.",
+        "en": "The spot stays reserved indefinitely."
+       },
+       {
+        "de": "Man muss persönlich vorbeikommen.",
+        "en": "You have to come in person."
+       },
+       {
+        "de": "Es gibt keine Warteliste.",
+        "en": "There is no waiting list."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_change_class_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "promptDe": "Kann ich mich wenigstens auf die Warteliste setzen?",
+      "promptEn": "Can I at least get on the waiting list?",
+      "options": [
+       {
+        "ko": "그럼 대기라도 걸 수 있어요?"
+       },
+       {
+        "ko": "그럼 환불이라도 받을 수 있어요?"
+       },
+       {
+        "ko": "그럼 오전반에 남을까요?"
+       },
+       {
+        "ko": "그럼 다음 달에 신청할까요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_change_class_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "sentence": "대기 ___ 보세요.",
+      "options": [
+       "신청해",
+       "신청하",
+       "신청을",
+       "신청해서"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_change_class_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "targetKo": "자리 나면 연락 주시나요?",
+      "promptDe": "Frag, ob man dich bei einem freien Platz benachrichtigt.",
+      "promptEn": "Ask whether they will contact you when a spot opens.",
+      "distractors": [
+       "저녁반은 지금 꽉 찼어요",
+       "짧으니까 알림 켜 두세요",
+       "두 시간이요"
+      ],
+      "audioKo": "자리 나면 연락 주시나요?"
+     }
+    },
+    {
+     "id": "quest_a2_enrolment_change_class_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_a2_work_study"
+     ],
+     "data": {
+      "targetKo": "몇 시간 안에 답해야 해요?",
+      "audioKo": "몇 시간 안에 답해야 해요?",
+      "promptDe": "Wie schnell muss ich antworten?",
+      "promptEn": "How quickly do I have to reply?"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2_booking_table_time",
+   "level": "a2",
+   "emoji": "🍽️",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "settle_a_restaurant_slot",
+   "courseUnitId": "a2_02_plans_proposals",
+   "conceptIds": [
+    "concept_proposal_polite"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 130,
+   "title": {
+    "ko": "일곱 시로 할까요",
+    "de": "Sollen wir sieben Uhr nehmen",
+    "en": "Shall we make it seven"
+   },
+   "intro": {
+    "ko": "원하는 시간이 안 됩니다. 앞뒤 시간 중에서 하나를 골라 정합니다.",
+    "de": "Die Wunschzeit ist weg. Ihr einigt euch auf früher oder später.",
+    "en": "Your preferred time is gone. You settle on either earlier or later."
+   },
+   "vocab": [
+    {
+     "korean": "예약"
+    },
+    {
+     "korean": "자리"
+    },
+    {
+     "korean": "창가"
+    },
+    {
+     "korean": "인원"
+    },
+    {
+     "korean": "성함"
+    },
+    {
+     "korean": "확인"
+    }
+   ],
+   "grammarIds": [
+    "grammar_a2_polite_proposal"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-(으)ㄹ까요?",
+     "de": "V-(으)ㄹ까요?: Vorschlag",
+     "en": "V-(으)ㄹ까요?: shall we"
+    },
+    "explanation": {
+     "ko": "같이 정하자고 제안할 때 쓴다. 할까요? 갈까요?처럼 쓴다.",
+     "de": "Für gemeinsame Vorschläge: 할까요? 갈까요?",
+     "en": "For joint suggestions: 할까요? 갈까요?"
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "토요일 여섯 시에 네 명 예약돼요?",
+     "de": "Geht Samstag um sechs für vier Personen?",
+     "en": "Is Saturday at six for four available?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "여섯 시는 다 찼고, 다섯 시나 일곱 시가 돼요.",
+     "de": "Sechs ist voll, fünf oder sieben ginge.",
+     "en": "Six is full, five or seven would work."
+    },
+    {
+     "speaker": "user",
+     "ko": "음, 일곱 시로 할까요?",
+     "de": "Hm, sollen wir sieben nehmen?",
+     "en": "Hmm, shall we make it seven?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "네, 일곱 시 네 분 잡을게요.",
+     "de": "Ja, sieben Uhr für vier Personen.",
+     "en": "Yes, seven o'clock for four."
+    },
+    {
+     "speaker": "user",
+     "ko": "창가 자리도 될까요?",
+     "de": "Geht auch ein Fensterplatz?",
+     "en": "Could we have a window seat?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "창가는 확답은 못 드리고, 비면 드릴게요.",
+     "de": "Fensterplatz kann ich nicht zusagen, aber wenn einer frei wird, gern.",
+     "en": "I cannot promise a window seat, but if one frees up it is yours."
+    },
+    {
+     "speaker": "user",
+     "ko": "네, 성함은 이레나로 해 주세요.",
+     "de": "Gut, bitte auf den Namen Lena.",
+     "en": "Okay, please put it under Lena."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "확인 문자 보내 드릴게요.",
+     "de": "Ich schicke eine Bestätigung.",
+     "en": "I'll send a confirmation text."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_a2_booking_table_time_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "audioKo": "여섯 시는 다 찼고, 다섯 시나 일곱 시가 돼요.",
+      "options": [
+       {
+        "de": "Sechs ist belegt, fünf oder sieben ist frei.",
+        "en": "Six is taken, five or seven is open."
+       },
+       {
+        "de": "Nur sechs Uhr ist noch frei.",
+        "en": "Only six is still open."
+       },
+       {
+        "de": "Samstag ist komplett ausgebucht.",
+        "en": "Saturday is fully booked."
+       },
+       {
+        "de": "Es gibt keine Reservierungen.",
+        "en": "They do not take reservations."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_table_time_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "promptDe": "Geht auch ein Fensterplatz?",
+      "promptEn": "Could we have a window seat?",
+      "options": [
+       {
+        "ko": "창가 자리도 될까요?"
+       },
+       {
+        "ko": "창문을 열어도 될까요?"
+       },
+       {
+        "ko": "자리를 옮겨도 될까요?"
+       },
+       {
+        "ko": "조금 늦어도 될까요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_table_time_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "sentence": "일곱 시로 ___?",
+      "options": [
+       "할까요",
+       "하까요",
+       "할가요",
+       "하ㄹ까요"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_table_time_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "targetKo": "토요일 여섯 시에 네 명 예약돼요?",
+      "promptDe": "Frag nach einem Tisch für vier am Samstag um sechs.",
+      "promptEn": "Ask for a table for four on Saturday at six.",
+      "distractors": [
+       "확인 문자 보내 드릴게요",
+       "비면 드릴게요",
+       "일곱 시 네 분 잡을게요"
+      ],
+      "audioKo": "토요일 여섯 시에 네 명 예약돼요?"
+     }
+    },
+    {
+     "id": "quest_a2_booking_table_time_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "targetKo": "창가 자리도 될까요?",
+      "audioKo": "창가 자리도 될까요?",
+      "promptDe": "Geht auch ein Fensterplatz?",
+      "promptEn": "Could we have a window seat?"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2_booking_change_date",
+   "level": "a2",
+   "emoji": "📅",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "shift_a_booking_to_another_day",
+   "courseUnitId": "a2_02_plans_proposals",
+   "conceptIds": [
+    "concept_proposal_polite"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 130,
+   "title": {
+    "ko": "날짜를 하루 미룰 수 있어요",
+    "de": "Kann ich einen Tag später kommen",
+    "en": "Can I push it back a day"
+   },
+   "intro": {
+    "ko": "일정이 하루 밀렸습니다. 미룰 수 있는지, 돈이 더 드는지 확인합니다.",
+    "de": "Dein Plan hat sich um einen Tag verschoben. Du prüfst, ob das geht und was es kostet.",
+    "en": "Your plan slipped by a day. You check whether that works and what it costs."
+   },
+   "vocab": [
+    {
+     "korean": "날짜"
+    },
+    {
+     "korean": "미루다"
+    },
+    {
+     "korean": "취소"
+    },
+    {
+     "korean": "수수료"
+    },
+    {
+     "korean": "차액"
+    },
+    {
+     "korean": "숙박"
+    }
+   ],
+   "grammarIds": [
+    "grammar_a2_or_verbs"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-거나",
+     "de": "V-거나: oder",
+     "en": "V-거나: or"
+    },
+    "explanation": {
+     "ko": "둘 중 하나를 고를 때 쓴다. 미루거나 취소하거나처럼 쓴다.",
+     "de": "Stellt zwei Möglichkeiten nebeneinander: 미루거나 취소하거나.",
+     "en": "Puts two options side by side: 미루거나 취소하거나."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "예약을 하루 미룰 수 있어요?",
+     "de": "Kann ich die Buchung um einen Tag verschieben?",
+     "en": "Can I push my booking back by a day?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "미루거나 취소하거나 둘 다 되는데, 조건이 달라요.",
+     "de": "Verschieben oder stornieren geht beides, aber zu anderen Bedingungen.",
+     "en": "Moving it or cancelling both work, but the terms differ."
+    },
+    {
+     "speaker": "user",
+     "ko": "미루면 수수료가 있나요?",
+     "de": "Kostet das Verschieben etwas?",
+     "en": "Is there a fee for moving it?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "수수료는 없고, 그날 값이 더 비싸요.",
+     "de": "Keine Gebühr, aber der Tag ist teurer.",
+     "en": "No fee, but that day costs more."
+    },
+    {
+     "speaker": "user",
+     "ko": "얼마나 차이 나요?",
+     "de": "Wie groß ist der Unterschied?",
+     "en": "How big is the difference?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "만 오천 원이요. 차액만 더 내시면 돼요.",
+     "de": "Fünfzehntausend Won. Sie zahlen nur die Differenz.",
+     "en": "Fifteen thousand won. You just pay the difference."
+    },
+    {
+     "speaker": "user",
+     "ko": "그럼 미룰게요. 지금 결제해요?",
+     "de": "Dann verschiebe ich. Zahle ich jetzt?",
+     "en": "Then I'll move it. Do I pay now?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "도착하실 때 하셔도 돼요.",
+     "de": "Das geht auch bei der Ankunft.",
+     "en": "You can also pay on arrival."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_a2_booking_change_date_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "audioKo": "수수료는 없고, 그날 값이 더 비싸요.",
+      "options": [
+       {
+        "de": "Keine Gebühr, aber der neue Tag ist teurer.",
+        "en": "No fee, but the new day is more expensive."
+       },
+       {
+        "de": "Es fällt eine Gebühr an, der Preis bleibt.",
+        "en": "There is a fee, the price stays the same."
+       },
+       {
+        "de": "Verschieben ist ganz kostenlos.",
+        "en": "Moving it is entirely free."
+       },
+       {
+        "de": "Der neue Tag ist billiger.",
+        "en": "The new day is cheaper."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_change_date_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "promptDe": "Wie groß ist der Unterschied?",
+      "promptEn": "How big is the difference?",
+      "options": [
+       {
+        "ko": "얼마나 차이 나요?"
+       },
+       {
+        "ko": "언제까지 가능해요?"
+       },
+       {
+        "ko": "어디에서 결제해요?"
+       },
+       {
+        "ko": "누가 확인해 줘요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_change_date_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "sentence": "미루___ 취소하거나 둘 다 돼요.",
+      "options": [
+       "거나",
+       "면서",
+       "지만",
+       "니까"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_change_date_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "targetKo": "차액만 더 내시면 돼요.",
+      "promptDe": "Sag, dass nur die Differenz zu zahlen ist.",
+      "promptEn": "Say that only the difference needs to be paid.",
+      "distractors": [
+       "도착하실 때 하셔도 돼요",
+       "지금 결제해요",
+       "예약을 하루 미룰 수 있어요"
+      ],
+      "audioKo": "차액만 더 내시면 돼요."
+     }
+    },
+    {
+     "id": "quest_a2_booking_change_date_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "targetKo": "미루면 수수료가 있나요?",
+      "audioKo": "미루면 수수료가 있나요?",
+      "promptDe": "Kostet das Verschieben etwas?",
+      "promptEn": "Is there a fee for moving it?"
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2_booking_no_show_fee",
+   "level": "a2",
+   "emoji": "⏳",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_support_staff",
+   "intent": "clarify_the_no_show_rule",
+   "courseUnitId": "a2_02_plans_proposals",
+   "conceptIds": [
+    "concept_proposal_polite"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 130,
+   "title": {
+    "ko": "못 가면 돈을 내야 하나요",
+    "de": "Zahle ich, wenn ich nicht komme",
+    "en": "Do I pay if I cannot come"
+   },
+   "intro": {
+    "ko": "갈 수 있을지 확실하지 않습니다. 못 갔을 때 어떻게 되는지 먼저 확인합니다.",
+    "de": "Du bist nicht sicher, ob du kommst. Du klärst vorher, was passiert, wenn nicht.",
+    "en": "You are not sure you can make it. You check up front what happens if you cannot."
+   },
+   "vocab": [
+    {
+     "korean": "노쇼"
+    },
+    {
+     "korean": "위약금"
+    },
+    {
+     "korean": "당일"
+    },
+    {
+     "korean": "전날"
+    },
+    {
+     "korean": "환불"
+    },
+    {
+     "korean": "규정"
+    }
+   ],
+   "grammarIds": [
+    "grammar_a2_probability"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-(으)ㄴ/는 것 같다",
+     "de": "V-는 것 같다: scheinen",
+     "en": "V-는 것 같다: seems"
+    },
+    "explanation": {
+     "ko": "확실하지 않을 때 조심스럽게 말한다. 어려울 것 같아요처럼 쓴다.",
+     "de": "Für vorsichtige Aussagen: 어려울 것 같아요.",
+     "en": "For hedged statements: 어려울 것 같아요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "그날 못 갈 것 같은데 어떻게 되나요?",
+     "de": "Ich schaffe es an dem Tag wohl nicht. Was passiert dann?",
+     "en": "I probably cannot make it that day. What happens then?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "전날까지 말씀하시면 그냥 취소돼요.",
+     "de": "Wenn Sie bis zum Vortag Bescheid geben, wird einfach storniert.",
+     "en": "If you tell us by the day before, it is simply cancelled."
+    },
+    {
+     "speaker": "user",
+     "ko": "당일에 연락하면요?",
+     "de": "Und wenn ich am selben Tag anrufe?",
+     "en": "And if I call on the day itself?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "당일은 절반만 환불돼요.",
+     "de": "Am selben Tag gibt es nur die Hälfte zurück.",
+     "en": "On the day itself only half is refunded."
+    },
+    {
+     "speaker": "user",
+     "ko": "아예 연락을 못 하면 어떻게 돼요?",
+     "de": "Und wenn ich mich gar nicht melde?",
+     "en": "What if I cannot get in touch at all?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "그건 환불이 안 돼요. 규정이 그래요.",
+     "de": "Dann gibt es keine Rückerstattung. So ist die Regel.",
+     "en": "Then there is no refund. That is the rule."
+    },
+    {
+     "speaker": "user",
+     "ko": "알겠어요. 오늘 밤에 정해서 알려 드릴게요.",
+     "de": "Verstanden. Ich entscheide heute Abend und melde mich.",
+     "en": "Understood. I'll decide tonight and let you know."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "네, 그게 제일 안전해요.",
+     "de": "Ja, das ist am sichersten.",
+     "en": "Yes, that is the safest way."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_a2_booking_no_show_fee_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "audioKo": "당일은 절반만 환불돼요.",
+      "options": [
+       {
+        "de": "Am selben Tag nur die Hälfte zurück.",
+        "en": "On the day itself only half is refunded."
+       },
+       {
+        "de": "Am selben Tag alles zurück.",
+        "en": "On the day itself everything is refunded."
+       },
+       {
+        "de": "Am selben Tag gar nichts zurück.",
+        "en": "On the day itself nothing is refunded."
+       },
+       {
+        "de": "Am Vortag nur die Hälfte zurück.",
+        "en": "The day before only half is refunded."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_no_show_fee_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "promptDe": "Und wenn ich mich gar nicht melde?",
+      "promptEn": "What if I cannot get in touch at all?",
+      "options": [
+       {
+        "ko": "아예 연락을 못 하면 어떻게 돼요?"
+       },
+       {
+        "ko": "지금 취소하면 어떻게 돼요?"
+       },
+       {
+        "ko": "다른 날로 바꾸면 어떻게 돼요?"
+       },
+       {
+        "ko": "한 명 더 가면 어떻게 돼요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_no_show_fee_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "sentence": "그날 못 갈 ___ 같은데요.",
+      "options": [
+       "것",
+       "거",
+       "수",
+       "줄"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_no_show_fee_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "targetKo": "전날까지 말씀하시면 그냥 취소돼요.",
+      "promptDe": "Sag, dass bis zum Vortag kostenlos storniert wird.",
+      "promptEn": "Say that cancelling by the day before is free.",
+      "distractors": [
+       "규정이 그래요",
+       "그게 제일 안전해요",
+       "당일에 연락하면요"
+      ],
+      "audioKo": "전날까지 말씀하시면 그냥 취소돼요."
+     }
+    },
+    {
+     "id": "quest_a2_booking_no_show_fee_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "targetKo": "오늘 밤에 정해서 알려 드릴게요.",
+      "audioKo": "오늘 밤에 정해서 알려 드릴게요.",
+      "promptDe": "Ich entscheide heute Abend und melde mich.",
+      "promptEn": "I'll decide tonight and let you know."
+     }
+    }
+   ]
+  },
+  {
+   "id": "a2_booking_extra_person",
+   "level": "a2",
+   "emoji": "➕",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "add_one_more_to_the_party",
+   "courseUnitId": "a2_02_plans_proposals",
+   "conceptIds": [
+    "concept_proposal_polite"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 130,
+   "title": {
+    "ko": "한 명 더 가도 돼요",
+    "de": "Darf noch eine Person mit",
+    "en": "Can one more person come"
+   },
+   "intro": {
+    "ko": "인원이 한 명 늘었습니다. 자리가 되는지, 미리 말해야 하는지 확인합니다.",
+    "de": "Ihr seid einer mehr. Du fragst, ob der Tisch reicht und ob man das vorher sagen muss.",
+    "en": "Your group grew by one. You check whether the table fits and whether it must be said in advance."
+   },
+   "vocab": [
+    {
+     "korean": "인원"
+    },
+    {
+     "korean": "한 명"
+    },
+    {
+     "korean": "테이블"
+    },
+    {
+     "korean": "붙이다"
+    },
+    {
+     "korean": "미리"
+    },
+    {
+     "korean": "변경"
+    }
+   ],
+   "grammarIds": [
+    "grammar_a2_exclamation"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-네요",
+     "de": "V-네요: Feststellung",
+     "en": "V-네요: noticing"
+    },
+    "explanation": {
+     "ko": "방금 알게 된 것에 반응할 때 쓴다. 되네요, 많네요처럼 쓴다.",
+     "de": "Reaktion auf gerade Bemerktes: 되네요, 많네요.",
+     "en": "Reacting to something just noticed: 되네요, 많네요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "네 명으로 했는데 한 명 더 가도 돼요?",
+     "de": "Ich hatte für vier gebucht, darf noch eine Person mit?",
+     "en": "I booked for four, can one more person come?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "잠시만요. 아, 다섯 명도 되네요.",
+     "de": "Einen Moment. Ah, fünf geht auch.",
+     "en": "One moment. Ah, five works too."
+    },
+    {
+     "speaker": "user",
+     "ko": "같은 테이블에 앉을 수 있어요?",
+     "de": "Sitzen wir an einem Tisch?",
+     "en": "Can we sit at the same table?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "테이블 두 개를 붙여 드릴게요.",
+     "de": "Ich stelle zwei Tische zusammen.",
+     "en": "I'll push two tables together."
+    },
+    {
+     "speaker": "user",
+     "ko": "미리 말 안 하면 안 됐을까요?",
+     "de": "Wäre es ohne Vorankündigung ein Problem gewesen?",
+     "en": "Would it have been a problem without telling you first?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "주말이면 어려웠어요. 오늘은 괜찮아요.",
+     "de": "Am Wochenende wäre es schwierig gewesen. Heute geht es.",
+     "en": "On a weekend it would have been hard. Today it is fine."
+    },
+    {
+     "speaker": "user",
+     "ko": "그럼 다섯 명으로 변경해 주세요.",
+     "de": "Dann bitte auf fünf ändern.",
+     "en": "Then please change it to five."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "변경됐어요. 이따 뵐게요.",
+     "de": "Geändert. Bis später.",
+     "en": "Changed. See you later."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_a2_booking_extra_person_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "audioKo": "주말이면 어려웠어요. 오늘은 괜찮아요.",
+      "options": [
+       {
+        "de": "Am Wochenende wäre es schwierig, heute nicht.",
+        "en": "On a weekend it would be hard, today it is not."
+       },
+       {
+        "de": "Heute ist es schwierig, am Wochenende nicht.",
+        "en": "Today it is hard, on a weekend it is not."
+       },
+       {
+        "de": "Es ist immer schwierig.",
+        "en": "It is always hard."
+       },
+       {
+        "de": "Es ist nie ein Problem.",
+        "en": "It is never a problem."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_extra_person_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "promptDe": "Sitzen wir an einem Tisch?",
+      "promptEn": "Can we sit at the same table?",
+      "options": [
+       {
+        "ko": "같은 테이블에 앉을 수 있어요?"
+       },
+       {
+        "ko": "다른 방에 앉을 수 있어요?"
+       },
+       {
+        "ko": "창가에 앉을 수 있어요?"
+       },
+       {
+        "ko": "밖에 앉을 수 있어요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_extra_person_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "sentence": "아, 다섯 명도 ___.",
+      "options": [
+       "되네요",
+       "됐네요",
+       "되는네요",
+       "될네요"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_a2_booking_extra_person_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "targetKo": "그럼 다섯 명으로 변경해 주세요.",
+      "promptDe": "Bitte darum, auf fünf Personen zu ändern.",
+      "promptEn": "Ask them to change it to five people.",
+      "distractors": [
+       "테이블 두 개를 붙여 드릴게요",
+       "변경됐어요. 이따 뵐게요",
+       "잠시만요"
+      ],
+      "audioKo": "그럼 다섯 명으로 변경해 주세요."
+     }
+    },
+    {
+     "id": "quest_a2_booking_extra_person_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_proposal_polite"
+     ],
+     "data": {
+      "targetKo": "테이블 두 개를 붙여 드릴게요.",
+      "audioKo": "테이블 두 개를 붙여 드릴게요.",
+      "promptDe": "Ich stelle zwei Tische zusammen.",
+      "promptEn": "I'll push two tables together."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_insurance_what_is_covered",
+   "level": "b1",
+   "emoji": "🛡️",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "map_the_edge_of_the_coverage",
+   "courseUnitId": "b1_05_complaint_resolution",
+   "conceptIds": [
+    "concept_b1_complaint_resolution"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 140,
+   "title": {
+    "ko": "어디까지 보장되나요",
+    "de": "Was ist davon abgedeckt",
+    "en": "How far does the cover go"
+   },
+   "intro": {
+    "ko": "보장된다는 말만으로는 부족합니다. 어디서 끊기는지 한 줄로 확인합니다.",
+    "de": "Dass etwas abgedeckt ist, reicht nicht. Du klärst in einem Satz, wo die Grenze liegt.",
+    "en": "Being told it is covered is not enough. You pin down where it stops."
+   },
+   "vocab": [
+    {
+     "korean": "보장"
+    },
+    {
+     "korean": "항목"
+    },
+    {
+     "korean": "제외"
+    },
+    {
+     "korean": "약관"
+    },
+    {
+     "korean": "한도"
+    },
+    {
+     "korean": "기준"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_background_contrast"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-는데",
+     "de": "V-는데: Hintergrund",
+     "en": "V-는데: background"
+    },
+    "explanation": {
+     "ko": "상황을 먼저 깔고 본론을 꺼낼 때 쓴다. 되는데 조건이 있어요처럼 쓴다.",
+     "de": "Legt den Rahmen und kommt dann zum Punkt: 되는데 조건이 있어요.",
+     "en": "Sets the background, then the point: 되는데 조건이 있어요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "치과도 보장되는 거 맞죠?",
+     "de": "Zahnbehandlung ist mitversichert, richtig?",
+     "en": "Dental is covered, right?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "되는데 항목이 나뉘어요. 치료는 되고 교정은 안 돼요.",
+     "de": "Ja, aber es ist aufgeteilt. Behandlung ja, Kieferorthopädie nein.",
+     "en": "It is, but it splits. Treatment yes, orthodontics no."
+    },
+    {
+     "speaker": "user",
+     "ko": "임플란트는 어느 쪽이에요?",
+     "de": "Und wo stehen Implantate?",
+     "en": "Which side do implants fall on?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "임플란트는 일부만이에요. 한 개당 한도가 있어요.",
+     "de": "Implantate nur teilweise, mit einer Obergrenze pro Zahn.",
+     "en": "Implants only partly, with a cap per tooth."
+    },
+    {
+     "speaker": "user",
+     "ko": "한도가 얼마인지 서면으로 받을 수 있을까요?",
+     "de": "Kann ich die Obergrenze schriftlich bekommen?",
+     "en": "Could I get the cap in writing?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "약관 해당 쪽을 메일로 보내 드릴게요.",
+     "de": "Ich schicke Ihnen die passende Seite der Bedingungen per Mail.",
+     "en": "I'll email you the relevant page of the terms."
+    },
+    {
+     "speaker": "user",
+     "ko": "그럼 치료만 먼저 받을게요.",
+     "de": "Dann mache ich erst nur die Behandlung.",
+     "en": "Then I'll get just the treatment first."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "그게 안전해요. 영수증은 꼭 보관하세요.",
+     "de": "Das ist sicherer. Heben Sie die Quittungen auf.",
+     "en": "That is safer. Do keep the receipts."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_insurance_what_is_covered_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "audioKo": "되는데 항목이 나뉘어요. 치료는 되고 교정은 안 돼요.",
+      "options": [
+       {
+        "de": "Behandlung ist gedeckt, Kieferorthopädie nicht.",
+        "en": "Treatment is covered, orthodontics is not."
+       },
+       {
+        "de": "Alles Zahnärztliche ist gedeckt.",
+        "en": "Everything dental is covered."
+       },
+       {
+        "de": "Nichts Zahnärztliches ist gedeckt.",
+        "en": "Nothing dental is covered."
+       },
+       {
+        "de": "Nur Kieferorthopädie ist gedeckt.",
+        "en": "Only orthodontics is covered."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_what_is_covered_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "promptDe": "Kann ich die Obergrenze schriftlich bekommen?",
+      "promptEn": "Could I get the cap in writing?",
+      "options": [
+       {
+        "ko": "한도가 얼마인지 서면으로 받을 수 있을까요?"
+       },
+       {
+        "ko": "보험을 지금 해지할 수 있을까요?"
+       },
+       {
+        "ko": "병원을 바꿀 수 있을까요?"
+       },
+       {
+        "ko": "영수증을 다시 받을 수 있을까요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_what_is_covered_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "sentence": "되___ 항목이 나뉘어요.",
+      "options": [
+       "는데",
+       "으니까",
+       "거나",
+       "려고"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_what_is_covered_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "targetKo": "임플란트는 일부만이에요.",
+      "promptDe": "Sag, dass Implantate nur teilweise gedeckt sind.",
+      "promptEn": "Say that implants are only partly covered.",
+      "distractors": [
+       "영수증은 꼭 보관하세요",
+       "치료만 먼저 받을게요",
+       "약관 해당 쪽을 보내 드릴게요"
+      ],
+      "audioKo": "임플란트는 일부만이에요."
+     }
+    },
+    {
+     "id": "quest_b1_insurance_what_is_covered_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "targetKo": "한 개당 한도가 있어요.",
+      "audioKo": "한 개당 한도가 있어요.",
+      "promptDe": "Es gibt eine Obergrenze pro Zahn.",
+      "promptEn": "There is a cap per tooth."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_insurance_claim_documents",
+   "level": "b1",
+   "emoji": "🧾",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "assemble_a_claim_packet",
+   "courseUnitId": "b1_05_complaint_resolution",
+   "conceptIds": [
+    "concept_b1_complaint_resolution"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 140,
+   "title": {
+    "ko": "청구하려면 뭐가 필요해요",
+    "de": "Was brauche ich für die Erstattung",
+    "en": "What do I need to file a claim"
+   },
+   "intro": {
+    "ko": "서류를 한 번에 맞춰 내지 않으면 다시 오게 됩니다. 목록을 정확히 받아 둡니다.",
+    "de": "Wenn die Unterlagen nicht komplett sind, musst du wiederkommen. Du lässt dir die Liste genau geben.",
+    "en": "An incomplete packet means another trip. You get the exact list."
+   },
+   "vocab": [
+    {
+     "korean": "청구"
+    },
+    {
+     "korean": "진단서"
+    },
+    {
+     "korean": "영수증"
+    },
+    {
+     "korean": "사본"
+    },
+    {
+     "korean": "계좌"
+    },
+    {
+     "korean": "접수증"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_soft_request"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-아/어 주시면 좋겠다",
+     "de": "V-아/어 주시면 좋겠다: weiche Bitte",
+     "en": "V-아/어 주시면 좋겠다: soft request"
+    },
+    "explanation": {
+     "ko": "직접 시키지 않고 부드럽게 부탁한다. 적어 주시면 좋겠어요처럼 쓴다.",
+     "de": "Bittet indirekt und höflich: 적어 주시면 좋겠어요.",
+     "en": "Asks indirectly and politely: 적어 주시면 좋겠어요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "실비 청구하려는데 뭐가 필요해요?",
+     "de": "Ich möchte die Kosten einreichen, was brauche ich?",
+     "en": "I want to file for reimbursement, what do I need?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "진단서하고 영수증이요. 진단서는 원본이어야 해요.",
+     "de": "Attest und Quittung. Das Attest im Original.",
+     "en": "The medical certificate and the receipt. The certificate has to be the original."
+    },
+    {
+     "speaker": "user",
+     "ko": "영수증도 원본이어야 하나요?",
+     "de": "Muss die Quittung auch im Original sein?",
+     "en": "Does the receipt have to be original too?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "영수증은 사본도 돼요. 대신 항목이 다 보여야 해요.",
+     "de": "Bei der Quittung reicht eine Kopie, aber alle Posten müssen lesbar sein.",
+     "en": "A copy of the receipt is fine, but every line has to be visible."
+    },
+    {
+     "speaker": "user",
+     "ko": "필요한 걸 목록으로 적어 주시면 좋겠어요.",
+     "de": "Es wäre gut, wenn Sie mir die Liste aufschreiben könnten.",
+     "en": "It would help if you could write the list down for me."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "여기 적어 드릴게요. 계좌번호도 같이 내셔야 해요.",
+     "de": "Ich schreibe es auf. Die Kontonummer brauchen wir auch.",
+     "en": "I'll write it out. We also need your account number."
+    },
+    {
+     "speaker": "user",
+     "ko": "접수하면 언제쯤 들어와요?",
+     "de": "Wann kommt das Geld nach dem Einreichen?",
+     "en": "How soon does it come through after filing?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "보통 영업일 기준 오 일이요.",
+     "de": "Meist fünf Werktage.",
+     "en": "Usually five business days."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_insurance_claim_documents_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "audioKo": "영수증은 사본도 돼요. 대신 항목이 다 보여야 해요.",
+      "options": [
+       {
+        "de": "Kopie reicht, aber alle Posten müssen lesbar sein.",
+        "en": "A copy is fine, but all items must be readable."
+       },
+       {
+        "de": "Nur das Original wird akzeptiert.",
+        "en": "Only the original is accepted."
+       },
+       {
+        "de": "Die Quittung wird gar nicht gebraucht.",
+        "en": "The receipt is not needed at all."
+       },
+       {
+        "de": "Eine Fotoaufnahme genügt nie.",
+        "en": "A photo is never enough."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_claim_documents_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "promptDe": "Wann kommt das Geld nach dem Einreichen?",
+      "promptEn": "How soon does it come through after filing?",
+      "options": [
+       {
+        "ko": "접수하면 언제쯤 들어와요?"
+       },
+       {
+        "ko": "접수는 어디에서 해요?"
+       },
+       {
+        "ko": "접수증을 다시 받을까요?"
+       },
+       {
+        "ko": "접수를 취소할 수 있어요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_claim_documents_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "sentence": "목록으로 적어 ___ 좋겠어요.",
+      "options": [
+       "주시면",
+       "주시니까",
+       "주시거나",
+       "주시는데"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_claim_documents_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "targetKo": "진단서는 원본이어야 해요.",
+      "promptDe": "Sag, dass das Attest im Original sein muss.",
+      "promptEn": "Say that the certificate must be the original.",
+      "distractors": [
+       "보통 영업일 기준 오 일이요",
+       "여기 적어 드릴게요",
+       "계좌번호도 같이 내셔야 해요"
+      ],
+      "audioKo": "진단서는 원본이어야 해요."
+     }
+    },
+    {
+     "id": "quest_b1_insurance_claim_documents_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "targetKo": "계좌번호도 같이 내셔야 해요.",
+      "audioKo": "계좌번호도 같이 내셔야 해요.",
+      "promptDe": "Die Kontonummer müssen Sie auch abgeben.",
+      "promptEn": "You have to submit the account number too."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_insurance_deductible_share",
+   "level": "b1",
+   "emoji": "➗",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "relay_what_the_clinic_said_about_the_share",
+   "courseUnitId": "b1_05_complaint_resolution",
+   "conceptIds": [
+    "concept_b1_complaint_resolution"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 140,
+   "title": {
+    "ko": "병원에서는 다르게 말했어요",
+    "de": "In der Praxis hieß es anders",
+    "en": "The clinic said something different"
+   },
+   "intro": {
+    "ko": "병원 말과 보험사 말이 다릅니다. 들은 그대로 옮겨서 어느 쪽이 맞는지 맞춰 봅니다.",
+    "de": "Praxis und Versicherung sagen Unterschiedliches. Du gibst wörtlich wieder, was du gehört hast.",
+    "en": "The clinic and the insurer disagree. You relay exactly what you were told."
+   },
+   "vocab": [
+    {
+     "korean": "자기부담"
+    },
+    {
+     "korean": "비율"
+    },
+    {
+     "korean": "적용"
+    },
+    {
+     "korean": "안내"
+    },
+    {
+     "korean": "확인"
+    },
+    {
+     "korean": "차이"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_indirect_speech"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-(ㄴ/는)다고 하다",
+     "de": "V-다고 하다: indirekte Rede",
+     "en": "V-다고 하다: reported speech"
+    },
+    "explanation": {
+     "ko": "들은 말을 옮길 때 쓴다. 된다고 했어요, 안 된다고 하던데요처럼 쓴다.",
+     "de": "Gibt Gehörtes wieder: 된다고 했어요, 안 된다고 하던데요.",
+     "en": "Relays what someone said: 된다고 했어요, 안 된다고 하던데요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "병원에서는 자기부담이 이십 퍼센트라고 했는데요.",
+     "de": "In der Praxis hieß es, der Eigenanteil sei zwanzig Prozent.",
+     "en": "At the clinic they said the out-of-pocket share is twenty percent."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "그건 예전 기준이에요. 지금은 삼십이에요.",
+     "de": "Das ist der alte Stand. Jetzt sind es dreißig.",
+     "en": "That is the old rate. It is thirty now."
+    },
+    {
+     "speaker": "user",
+     "ko": "언제 바뀌었다고 보시면 돼요?",
+     "de": "Seit wann gilt das?",
+     "en": "As of when did it change?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "올해 초부터요. 안내문이 늦게 나갔어요.",
+     "de": "Seit Jahresanfang. Die Mitteilung ging spät raus.",
+     "en": "Since the start of this year. The notice went out late."
+    },
+    {
+     "speaker": "user",
+     "ko": "병원 쪽에도 그렇게 전해도 될까요?",
+     "de": "Darf ich das der Praxis so weitergeben?",
+     "en": "May I pass that on to the clinic like that?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "네, 저희가 공문도 보냈다고 말씀하셔도 돼요.",
+     "de": "Ja, Sie können sagen, dass wir auch ein Schreiben geschickt haben.",
+     "en": "Yes, you can say that we sent an official notice as well."
+    },
+    {
+     "speaker": "user",
+     "ko": "그럼 이번 건은 삼십으로 계산되는 거네요.",
+     "de": "Dann wird dieser Fall mit dreißig gerechnet.",
+     "en": "So this case gets calculated at thirty."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "맞아요. 차액은 나중에 정산돼요.",
+     "de": "Genau. Die Differenz wird später verrechnet.",
+     "en": "Correct. The difference is settled later."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_insurance_deductible_share_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "audioKo": "그건 예전 기준이에요. 지금은 삼십이에요.",
+      "options": [
+       {
+        "de": "Der Satz wurde von zwanzig auf dreißig geändert.",
+        "en": "The rate changed from twenty to thirty."
+       },
+       {
+        "de": "Der Satz ist weiterhin zwanzig.",
+        "en": "The rate is still twenty."
+       },
+       {
+        "de": "Es gibt gar keinen Eigenanteil.",
+        "en": "There is no out-of-pocket share at all."
+       },
+       {
+        "de": "Der Satz hängt vom Krankenhaus ab.",
+        "en": "The rate depends on the hospital."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_deductible_share_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "promptDe": "Darf ich das der Praxis so weitergeben?",
+      "promptEn": "May I pass that on to the clinic like that?",
+      "options": [
+       {
+        "ko": "병원 쪽에도 그렇게 전해도 될까요?"
+       },
+       {
+        "ko": "병원을 바꿔도 될까요?"
+       },
+       {
+        "ko": "병원에 다시 가 봐야 할까요?"
+       },
+       {
+        "ko": "병원비를 미뤄도 될까요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_deductible_share_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "sentence": "병원에서는 이십 퍼센트___ 했는데요.",
+      "options": [
+       "라고",
+       "이라서",
+       "이니까",
+       "이지만"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_deductible_share_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "targetKo": "그럼 이번 건은 삼십으로 계산되는 거네요.",
+      "promptDe": "Fasse zusammen, dass dieser Fall mit dreißig gerechnet wird.",
+      "promptEn": "Sum up that this case is calculated at thirty.",
+      "distractors": [
+       "안내문이 늦게 나갔어요",
+       "차액은 나중에 정산돼요",
+       "올해 초부터요"
+      ],
+      "audioKo": "그럼 이번 건은 삼십으로 계산되는 거네요."
+     }
+    },
+    {
+     "id": "quest_b1_insurance_deductible_share_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "targetKo": "차액은 나중에 정산돼요.",
+      "audioKo": "차액은 나중에 정산돼요.",
+      "promptDe": "Die Differenz wird später verrechnet.",
+      "promptEn": "The difference is settled later."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_insurance_claim_rejected",
+   "level": "b1",
+   "emoji": "🚫",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "reopen_a_rejected_claim",
+   "courseUnitId": "b1_05_complaint_resolution",
+   "conceptIds": [
+    "concept_b1_complaint_resolution"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 140,
+   "title": {
+    "ko": "청구가 거절됐어요",
+    "de": "Der Antrag wurde abgelehnt",
+    "en": "My claim was rejected"
+   },
+   "intro": {
+    "ko": "이유가 한 줄뿐입니다. 무엇이 부족했는지 짚고 다시 낼 길을 찾습니다.",
+    "de": "Die Begründung ist eine Zeile. Du klärst, was fehlte, und wie du neu einreichst.",
+    "en": "The reason is one line. You work out what was missing and how to refile."
+   },
+   "vocab": [
+    {
+     "korean": "거절"
+    },
+    {
+     "korean": "사유"
+    },
+    {
+     "korean": "재청구"
+    },
+    {
+     "korean": "보완"
+    },
+    {
+     "korean": "이의"
+    },
+    {
+     "korean": "기한"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_experience"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-(으)ㄴ 적이 있다/없다",
+     "de": "V-(으)ㄴ 적이 있다: Erfahrung",
+     "en": "V-(으)ㄴ 적이 있다: have ever"
+    },
+    "explanation": {
+     "ko": "경험이 있는지 말할 때 쓴다. 받아 본 적이 없어요처럼 쓴다.",
+     "de": "Spricht über Erfahrung: 받아 본 적이 없어요.",
+     "en": "Talks about experience: 받아 본 적이 없어요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "청구가 거절됐는데 사유가 한 줄이라 모르겠어요.",
+     "de": "Mein Antrag wurde abgelehnt, aber die Begründung ist nur eine Zeile.",
+     "en": "My claim was rejected but the reason is just one line."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "확인해 볼게요. 진단서에 날짜가 없었네요.",
+     "de": "Ich schaue nach. Auf dem Attest fehlt das Datum.",
+     "en": "Let me check. The certificate has no date on it."
+    },
+    {
+     "speaker": "user",
+     "ko": "이런 걸로 거절당한 적이 없어서 몰랐어요.",
+     "de": "So etwas ist mir noch nie passiert, deshalb wusste ich es nicht.",
+     "en": "I have never been rejected for that, so I did not know."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "날짜만 넣어서 다시 내시면 돼요.",
+     "de": "Ergänzen Sie das Datum und reichen Sie neu ein.",
+     "en": "Just add the date and file it again."
+    },
+    {
+     "speaker": "user",
+     "ko": "다시 낼 때 기한이 있나요?",
+     "de": "Gibt es eine Frist für die Neueinreichung?",
+     "en": "Is there a deadline for refiling?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "거절일부터 삼십 일이요. 아직 여유 있어요.",
+     "de": "Dreißig Tage ab Ablehnung. Sie haben noch Zeit.",
+     "en": "Thirty days from the rejection. You still have time."
+    },
+    {
+     "speaker": "user",
+     "ko": "처음 낸 서류는 다시 안 내도 돼요?",
+     "de": "Muss ich die ersten Unterlagen noch mal einreichen?",
+     "en": "Do I have to submit the first documents again?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "그건 남아 있어요. 보완분만 주세요.",
+     "de": "Die liegen vor. Reichen Sie nur die Ergänzung nach.",
+     "en": "Those are on file. Just send the missing piece."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_insurance_claim_rejected_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "audioKo": "그건 남아 있어요. 보완분만 주세요.",
+      "options": [
+       {
+        "de": "Die alten Unterlagen liegen vor, nur die Ergänzung fehlt.",
+        "en": "The old documents are on file, only the addition is needed."
+       },
+       {
+        "de": "Alles muss komplett neu eingereicht werden.",
+        "en": "Everything must be resubmitted from scratch."
+       },
+       {
+        "de": "Die alten Unterlagen wurden vernichtet.",
+        "en": "The old documents were destroyed."
+       },
+       {
+        "de": "Eine Neueinreichung ist nicht möglich.",
+        "en": "Refiling is not possible."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_claim_rejected_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "promptDe": "Gibt es eine Frist für die Neueinreichung?",
+      "promptEn": "Is there a deadline for refiling?",
+      "options": [
+       {
+        "ko": "다시 낼 때 기한이 있나요?"
+       },
+       {
+        "ko": "다시 낼 때 돈이 드나요?"
+       },
+       {
+        "ko": "다시 낼 때 병원에 가야 하나요?"
+       },
+       {
+        "ko": "다시 낼 때 이유를 써야 하나요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_claim_rejected_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "sentence": "거절당한 ___ 없어서 몰랐어요.",
+      "options": [
+       "적이",
+       "줄이",
+       "수가",
+       "것이"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_insurance_claim_rejected_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "targetKo": "날짜만 넣어서 다시 내시면 돼요.",
+      "promptDe": "Sag, dass nur das Datum ergänzt und neu eingereicht werden muss.",
+      "promptEn": "Say that only the date needs adding before refiling.",
+      "distractors": [
+       "아직 여유 있어요",
+       "진단서에 날짜가 없었네요",
+       "보완분만 주세요"
+      ],
+      "audioKo": "날짜만 넣어서 다시 내시면 돼요."
+     }
+    },
+    {
+     "id": "quest_b1_insurance_claim_rejected_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_complaint_resolution"
+     ],
+     "data": {
+      "targetKo": "거절일부터 삼십 일이요.",
+      "audioKo": "거절일부터 삼십 일이요.",
+      "promptDe": "Dreißig Tage ab Ablehnung.",
+      "promptEn": "Thirty days from the rejection."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_incident_parking_scratch",
+   "level": "b1",
+   "emoji": "🚗",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "tenant_and_building_manager",
+   "intent": "relay_a_parking_damage_report",
+   "courseUnitId": "b1_02_indirect_speech",
+   "conceptIds": [
+    "concept_b1_indirect_speech"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 140,
+   "title": {
+    "ko": "차에 긁힌 자국이 있어요",
+    "de": "Am Auto ist ein Kratzer",
+    "en": "There is a scratch on the car"
+   },
+   "intro": {
+    "ko": "누가 그랬는지 못 봤습니다. 경비실에서 들은 말을 그대로 옮겨 관리실에 전합니다.",
+    "de": "Du hast niemanden gesehen. Du gibst weiter, was der Wachdienst gesagt hat.",
+    "en": "You did not see who did it. You relay what the guard told you."
+   },
+   "vocab": [
+    {
+     "korean": "긁히다"
+    },
+    {
+     "korean": "자국"
+    },
+    {
+     "korean": "경비실"
+    },
+    {
+     "korean": "영상"
+    },
+    {
+     "korean": "확인"
+    },
+    {
+     "korean": "연락처"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_indirect_speech"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-(ㄴ/는)다고 하다",
+     "de": "V-다고 하다: indirekte Rede",
+     "en": "V-다고 하다: reported speech"
+    },
+    "explanation": {
+     "ko": "본 사람의 말을 옮길 때 쓴다. 봤다고 하던데요처럼 쓴다.",
+     "de": "Gibt die Aussage eines Zeugen weiter: 봤다고 하던데요.",
+     "en": "Relays a witness statement: 봤다고 하던데요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "지하 이 층에서 차가 긁혔어요.",
+     "de": "Mein Auto wurde in der zweiten Tiefgarage zerkratzt.",
+     "en": "My car got scratched on parking level two."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "언제쯤인지 아세요?",
+     "de": "Wissen Sie ungefähr wann?",
+     "en": "Do you know roughly when?"
+    },
+    {
+     "speaker": "user",
+     "ko": "경비실에서는 어제 밤에 공사 차가 들어왔다고 하던데요.",
+     "de": "Der Wachdienst sagte, gestern Nacht sei ein Baufahrzeug reingefahren.",
+     "en": "The guard said a construction vehicle came in last night."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "그럼 그 시간대 영상을 볼게요.",
+     "de": "Dann sehe ich mir die Aufnahmen aus der Zeit an.",
+     "en": "Then I'll look at the footage from that window."
+    },
+    {
+     "speaker": "user",
+     "ko": "영상은 며칠까지 남아 있어요?",
+     "de": "Wie lange bleiben die Aufnahmen gespeichert?",
+     "en": "How many days is the footage kept?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "이 주요. 오늘 확인하는 게 좋겠어요.",
+     "de": "Zwei Wochen. Wir sollten heute nachsehen.",
+     "en": "Two weeks. We had better check today."
+    },
+    {
+     "speaker": "user",
+     "ko": "확인되면 연락 주시겠어요?",
+     "de": "Melden Sie sich, wenn Sie etwas finden?",
+     "en": "Will you let me know if you find something?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "네, 오후에 결과 알려 드릴게요.",
+     "de": "Ja, ich melde mich am Nachmittag.",
+     "en": "Yes, I'll tell you the outcome this afternoon."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_incident_parking_scratch_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "audioKo": "이 주요. 오늘 확인하는 게 좋겠어요.",
+      "options": [
+       {
+        "de": "Die Aufnahmen bleiben zwei Wochen, besser heute prüfen.",
+        "en": "Footage is kept two weeks, better to check today."
+       },
+       {
+        "de": "Die Aufnahmen bleiben zwei Monate.",
+        "en": "Footage is kept two months."
+       },
+       {
+        "de": "Es gibt gar keine Aufnahmen.",
+        "en": "There is no footage at all."
+       },
+       {
+        "de": "Die Prüfung dauert zwei Wochen.",
+        "en": "The check takes two weeks."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_parking_scratch_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "promptDe": "Wie lange bleiben die Aufnahmen gespeichert?",
+      "promptEn": "How many days is the footage kept?",
+      "options": [
+       {
+        "ko": "영상은 며칠까지 남아 있어요?"
+       },
+       {
+        "ko": "영상은 어디에서 봐요?"
+       },
+       {
+        "ko": "영상은 누가 관리해요?"
+       },
+       {
+        "ko": "영상은 왜 필요해요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_parking_scratch_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "sentence": "공사 차가 들어왔___ 하던데요.",
+      "options": [
+       "다고",
+       "으니까",
+       "는데",
+       "거나"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_parking_scratch_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "targetKo": "지하 이 층에서 차가 긁혔어요.",
+      "promptDe": "Melde, dass das Auto auf Ebene zwei zerkratzt wurde.",
+      "promptEn": "Report that the car was scratched on level two.",
+      "distractors": [
+       "오후에 결과 알려 드릴게요",
+       "그 시간대 영상을 볼게요",
+       "언제쯤인지 아세요"
+      ],
+      "audioKo": "지하 이 층에서 차가 긁혔어요."
+     }
+    },
+    {
+     "id": "quest_b1_incident_parking_scratch_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "targetKo": "확인되면 연락 주시겠어요?",
+      "audioKo": "확인되면 연락 주시겠어요?",
+      "promptDe": "Melden Sie sich, wenn Sie etwas finden?",
+      "promptEn": "Will you let me know if you find something?"
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_incident_lost_item_desk",
+   "level": "b1",
+   "emoji": "🎒",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "describe_a_lost_item_precisely",
+   "courseUnitId": "b1_02_indirect_speech",
+   "conceptIds": [
+    "concept_b1_indirect_speech"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 140,
+   "title": {
+    "ko": "가방을 두고 내렸어요",
+    "de": "Ich habe die Tasche liegen lassen",
+    "en": "I left my bag on board"
+   },
+   "intro": {
+    "ko": "분실물 센터에서는 특징이 정확해야 찾아 줍니다. 무엇이 들었는지까지 말합니다.",
+    "de": "Im Fundbüro hilft nur eine genaue Beschreibung. Du sagst auch, was drin war.",
+    "en": "Lost and found needs an exact description. You say what was inside too."
+   },
+   "vocab": [
+    {
+     "korean": "분실물"
+    },
+    {
+     "korean": "선반"
+    },
+    {
+     "korean": "특징"
+    },
+    {
+     "korean": "지퍼"
+    },
+    {
+     "korean": "보관"
+    },
+    {
+     "korean": "신분증"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_negative_cause"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-느라고",
+     "de": "V-느라고: dadurch dass",
+     "en": "V-느라고: because of doing"
+    },
+    "explanation": {
+     "ko": "그 일 때문에 못 한 이유를 말할 때 쓴다. 전화받느라고 못 봤어요처럼 쓴다.",
+     "de": "Nennt den Grund, warum etwas nicht klappte: 전화받느라고 못 봤어요.",
+     "en": "Gives the reason something failed: 전화받느라고 못 봤어요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "아까 급행에 가방을 두고 내렸어요.",
+     "de": "Ich habe meine Tasche im Schnellzug liegen lassen.",
+     "en": "I left my bag on the express train earlier."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "몇 시 차였는지 기억나세요?",
+     "de": "Erinnern Sie sich an die Uhrzeit?",
+     "en": "Do you remember which train it was?"
+    },
+    {
+     "speaker": "user",
+     "ko": "두 시 사십 분이요. 통화하느라고 선반을 못 봤어요.",
+     "de": "Um zwei Uhr vierzig. Ich telefonierte und habe die Ablage übersehen.",
+     "en": "Two forty. I was on a call and did not look at the rack."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "가방 특징을 말씀해 주세요.",
+     "de": "Beschreiben Sie die Tasche bitte.",
+     "en": "Please describe the bag."
+    },
+    {
+     "speaker": "user",
+     "ko": "검정 배낭이고 앞주머니 지퍼가 고장 났어요.",
+     "de": "Ein schwarzer Rucksack, der Reißverschluss vorn ist kaputt.",
+     "en": "A black backpack with a broken zip on the front pocket."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "안에 뭐가 들었는지도 알려 주세요.",
+     "de": "Sagen Sie mir auch, was drin war.",
+     "en": "Tell me what was inside as well."
+    },
+    {
+     "speaker": "user",
+     "ko": "노트하고 우산이요. 신분증은 없어요.",
+     "de": "Ein Heft und ein Schirm. Kein Ausweis.",
+     "en": "A notebook and an umbrella. No ID."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "종점 사무실에 문의해 볼게요. 번호 남겨 주세요.",
+     "de": "Ich frage im Endbahnhof nach. Lassen Sie mir Ihre Nummer da.",
+     "en": "I'll check with the terminal office. Leave me your number."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_incident_lost_item_desk_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "audioKo": "종점 사무실에 문의해 볼게요. 번호 남겨 주세요.",
+      "options": [
+       {
+        "de": "Er fragt im Endbahnhof nach und braucht die Nummer.",
+        "en": "He will ask the terminal office and needs your number."
+       },
+       {
+        "de": "Die Tasche ist schon gefunden.",
+        "en": "The bag has already been found."
+       },
+       {
+        "de": "Man muss selbst zum Endbahnhof fahren.",
+        "en": "You have to go to the terminal yourself."
+       },
+       {
+        "de": "Verlorene Sachen werden nicht gesucht.",
+        "en": "Lost items are not searched for."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_lost_item_desk_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "promptDe": "Ein schwarzer Rucksack, der Reißverschluss vorn ist kaputt.",
+      "promptEn": "A black backpack with a broken zip on the front pocket.",
+      "options": [
+       {
+        "ko": "검정 배낭이고 앞주머니 지퍼가 고장 났어요."
+       },
+       {
+        "ko": "갈색 가방이고 손잡이가 길어요."
+       },
+       {
+        "ko": "작은 지갑이고 카드가 들어 있어요."
+       },
+       {
+        "ko": "파란 우산이고 손잡이가 굽었어요."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_lost_item_desk_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "sentence": "통화하___ 선반을 못 봤어요.",
+      "options": [
+       "느라고",
+       "는데도",
+       "거나",
+       "다고"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_lost_item_desk_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "targetKo": "노트하고 우산이요. 신분증은 없어요.",
+      "promptDe": "Sag, was drin war und was nicht.",
+      "promptEn": "Say what was inside and what was not.",
+      "distractors": [
+       "번호 남겨 주세요",
+       "몇 시 차였는지 기억나세요",
+       "가방 특징을 말씀해 주세요"
+      ],
+      "audioKo": "노트하고 우산이요. 신분증은 없어요."
+     }
+    },
+    {
+     "id": "quest_b1_incident_lost_item_desk_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "targetKo": "아까 급행에 가방을 두고 내렸어요.",
+      "audioKo": "아까 급행에 가방을 두고 내렸어요.",
+      "promptDe": "Ich habe die Tasche im Schnellzug liegen lassen.",
+      "promptEn": "I left my bag on the express train."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_incident_leak_from_upstairs",
+   "level": "b1",
+   "emoji": "💧",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "tenant_and_building_manager",
+   "intent": "escalate_a_leak_between_neighbours",
+   "courseUnitId": "b1_02_indirect_speech",
+   "conceptIds": [
+    "concept_b1_indirect_speech"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 140,
+   "title": {
+    "ko": "위층에서 물이 새요",
+    "de": "Von oben tropft Wasser",
+    "en": "Water is leaking from upstairs"
+   },
+   "intro": {
+    "ko": "직접 올라가기 전에 관리실을 거칩니다. 사실만 순서대로 말합니다.",
+    "de": "Statt selbst hochzugehen, gehst du über die Verwaltung. Du schilderst die Fakten der Reihe nach.",
+    "en": "Rather than going up yourself, you go through the office. You give the facts in order."
+   },
+   "vocab": [
+    {
+     "korean": "누수"
+    },
+    {
+     "korean": "천장"
+    },
+    {
+     "korean": "얼룩"
+    },
+    {
+     "korean": "번지다"
+    },
+    {
+     "korean": "점검"
+    },
+    {
+     "korean": "책임"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_background_contrast"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-는데",
+     "de": "V-는데: Hintergrund",
+     "en": "V-는데: background"
+    },
+    "explanation": {
+     "ko": "상황을 깔고 요청으로 넘어간다. 새는데 좀 봐 주세요처럼 쓴다.",
+     "de": "Schildert die Lage und leitet zur Bitte: 새는데 좀 봐 주세요.",
+     "en": "Sets the situation, then the request: 새는데 좀 봐 주세요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "천장에 얼룩이 생겼는데 점점 번져요.",
+     "de": "An der Decke ist ein Fleck, der größer wird.",
+     "en": "There is a stain on the ceiling and it keeps spreading."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "언제부터 보이셨어요?",
+     "de": "Seit wann sehen Sie das?",
+     "en": "Since when have you noticed it?"
+    },
+    {
+     "speaker": "user",
+     "ko": "그저께부터요. 어제는 물이 한 방울 떨어졌어요.",
+     "de": "Seit vorgestern. Gestern fiel ein Tropfen herunter.",
+     "en": "Since the day before yesterday. A drop fell yesterday."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "위층에 연락해 볼게요. 지금 계시는지 모르겠네요.",
+     "de": "Ich rufe oben an. Ob jemand da ist, weiß ich nicht.",
+     "en": "I'll call upstairs. I'm not sure anyone is home."
+    },
+    {
+     "speaker": "user",
+     "ko": "제가 직접 올라가는 건 아닌 것 같아서요.",
+     "de": "Ich wollte nicht selbst hochgehen.",
+     "en": "I did not think it was my place to go up myself."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "잘하셨어요. 저희가 먼저 확인하는 게 맞아요.",
+     "de": "Richtig so. Wir prüfen das zuerst.",
+     "en": "You did the right thing. We should check first."
+    },
+    {
+     "speaker": "user",
+     "ko": "사진을 미리 찍어 뒀는데 보내 드릴까요?",
+     "de": "Ich habe vorab Fotos gemacht, soll ich sie schicken?",
+     "en": "I took photos in advance, should I send them?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "네, 날짜 나오게 보내 주세요.",
+     "de": "Ja, bitte mit sichtbarem Datum.",
+     "en": "Yes, please send them with the date visible."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_incident_leak_from_upstairs_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "audioKo": "잘하셨어요. 저희가 먼저 확인하는 게 맞아요.",
+      "options": [
+       {
+        "de": "Die Verwaltung prüft zuerst, nicht der Mieter.",
+        "en": "The office checks first, not the tenant."
+       },
+       {
+        "de": "Der Mieter soll selbst hochgehen.",
+        "en": "The tenant should go up personally."
+       },
+       {
+        "de": "Man muss die Feuerwehr rufen.",
+        "en": "You have to call the fire service."
+       },
+       {
+        "de": "Nichts kann getan werden.",
+        "en": "Nothing can be done."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_leak_from_upstairs_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "promptDe": "Ich habe vorab Fotos gemacht, soll ich sie schicken?",
+      "promptEn": "I took photos in advance, should I send them?",
+      "options": [
+       {
+        "ko": "사진을 미리 찍어 뒀는데 보내 드릴까요?"
+       },
+       {
+        "ko": "사진을 지금 찍어도 될까요?"
+       },
+       {
+        "ko": "사진이 없는데 어떡하죠?"
+       },
+       {
+        "ko": "사진을 지워도 될까요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_leak_from_upstairs_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "sentence": "얼룩이 생겼___ 점점 번져요.",
+      "options": [
+       "는데",
+       "느라고",
+       "다고",
+       "거나"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_leak_from_upstairs_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "targetKo": "어제는 물이 한 방울 떨어졌어요.",
+      "promptDe": "Sag, dass gestern ein Tropfen herunterfiel.",
+      "promptEn": "Say that a drop fell yesterday.",
+      "distractors": [
+       "날짜 나오게 보내 주세요",
+       "위층에 연락해 볼게요",
+       "언제부터 보이셨어요"
+      ],
+      "audioKo": "어제는 물이 한 방울 떨어졌어요."
+     }
+    },
+    {
+     "id": "quest_b1_incident_leak_from_upstairs_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "targetKo": "천장에 얼룩이 생겼어요.",
+      "audioKo": "천장에 얼룩이 생겼어요.",
+      "promptDe": "An der Decke ist ein Fleck.",
+      "promptEn": "There is a stain on the ceiling."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_incident_witness_note",
+   "level": "b1",
+   "emoji": "👀",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "give_a_careful_witness_account",
+   "courseUnitId": "b1_02_indirect_speech",
+   "conceptIds": [
+    "concept_b1_indirect_speech"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 140,
+   "title": {
+    "ko": "본 것만 말씀드릴게요",
+    "de": "Ich sage nur, was ich gesehen habe",
+    "en": "I'll only say what I saw"
+   },
+   "intro": {
+    "ko": "목격자로 이름이 올라갔습니다. 확실한 것과 아닌 것을 나눠서 말합니다.",
+    "de": "Du wirst als Zeuge geführt. Du trennst, was du sicher weißt, von dem, was nicht.",
+    "en": "You are down as a witness. You separate what you are sure of from what you are not."
+   },
+   "vocab": [
+    {
+     "korean": "목격"
+    },
+    {
+     "korean": "진술"
+    },
+    {
+     "korean": "확실"
+    },
+    {
+     "korean": "추측"
+    },
+    {
+     "korean": "당시"
+    },
+    {
+     "korean": "기록"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_experience"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-(으)ㄴ 적이 있다/없다",
+     "de": "V-(으)ㄴ 적이 있다: Erfahrung",
+     "en": "V-(으)ㄴ 적이 있다: have ever"
+    },
+    "explanation": {
+     "ko": "겪어 봤는지로 확실성을 가른다. 본 적은 없어요처럼 쓴다.",
+     "de": "Trennt Erlebtes von Vermutetem: 본 적은 없어요.",
+     "en": "Separates what you experienced from what you assume: 본 적은 없어요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "minsu",
+     "ko": "그때 계셨다고 들었어요. 뭘 보셨어요?",
+     "de": "Ich habe gehört, Sie waren dabei. Was haben Sie gesehen?",
+     "en": "I heard you were there. What did you see?"
+    },
+    {
+     "speaker": "user",
+     "ko": "소리는 들었는데 넘어지는 건 못 봤어요.",
+     "de": "Ich habe es gehört, aber den Sturz nicht gesehen.",
+     "en": "I heard it, but I did not see the fall."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "바닥이 젖어 있었나요?",
+     "de": "War der Boden nass?",
+     "en": "Was the floor wet?"
+    },
+    {
+     "speaker": "user",
+     "ko": "젖어 있었어요. 그 자리에서 미끄러진 적이 저도 있어요.",
+     "de": "Er war nass. Ich bin dort selbst schon ausgerutscht.",
+     "en": "It was wet. I have slipped there myself before."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "표지판은 있었는지 기억나세요?",
+     "de": "Erinnern Sie sich, ob ein Schild stand?",
+     "en": "Do you remember whether a sign was up?"
+    },
+    {
+     "speaker": "user",
+     "ko": "그건 확실하지 않아요. 봤다고 말씀드리기 어려워요.",
+     "de": "Da bin ich nicht sicher. Das kann ich nicht behaupten.",
+     "en": "I'm not sure about that. I cannot say I saw one."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "그렇게 나눠 주시니까 기록하기 좋네요.",
+     "de": "Dass Sie das trennen, hilft beim Protokoll.",
+     "en": "Separating it like that makes the record easier."
+    },
+    {
+     "speaker": "user",
+     "ko": "확실한 것만 적어 주세요.",
+     "de": "Schreiben Sie bitte nur das Sichere auf.",
+     "en": "Please write down only what is certain."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_incident_witness_note_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "audioKo": "그건 확실하지 않아요. 봤다고 말씀드리기 어려워요.",
+      "options": [
+       {
+        "de": "Beim Schild ist sie unsicher und will es nicht behaupten.",
+        "en": "She is unsure about the sign and will not claim it."
+       },
+       {
+        "de": "Sie hat das Schild eindeutig gesehen.",
+        "en": "She clearly saw the sign."
+       },
+       {
+        "de": "Es stand definitiv kein Schild.",
+        "en": "There was definitely no sign."
+       },
+       {
+        "de": "Sie will gar nichts aussagen.",
+        "en": "She refuses to say anything."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_witness_note_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "promptDe": "Schreiben Sie bitte nur das Sichere auf.",
+      "promptEn": "Please write down only what is certain.",
+      "options": [
+       {
+        "ko": "확실한 것만 적어 주세요."
+       },
+       {
+        "ko": "들은 것도 다 적어 주세요."
+       },
+       {
+        "ko": "제 이름은 빼 주세요."
+       },
+       {
+        "ko": "나중에 다시 올게요."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_witness_note_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "sentence": "그 자리에서 미끄러진 ___ 저도 있어요.",
+      "options": [
+       "적이",
+       "줄이",
+       "수가",
+       "일이"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_incident_witness_note_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "targetKo": "소리는 들었는데 넘어지는 건 못 봤어요.",
+      "promptDe": "Sag, dass du es gehört, aber nicht gesehen hast.",
+      "promptEn": "Say that you heard it but did not see it.",
+      "distractors": [
+       "기록하기 좋네요",
+       "바닥이 젖어 있었나요",
+       "확실한 것만 적어 주세요"
+      ],
+      "audioKo": "소리는 들었는데 넘어지는 건 못 봤어요."
+     }
+    },
+    {
+     "id": "quest_b1_incident_witness_note_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_indirect_speech"
+     ],
+     "data": {
+      "targetKo": "바닥이 젖어 있었어요.",
+      "audioKo": "바닥이 젖어 있었어요.",
+      "promptDe": "Der Boden war nass.",
+      "promptEn": "The floor was wet."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_cancellation_gym_membership",
+   "level": "b1",
+   "emoji": "🏋️",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "end_a_membership_without_a_fight",
+   "courseUnitId": "b1_03_work_softening",
+   "conceptIds": [
+    "concept_b1_softening"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 140,
+   "title": {
+    "ko": "헬스장을 그만두려고요",
+    "de": "Ich möchte das Fitnessstudio kündigen",
+    "en": "I want to end my gym membership"
+   },
+   "intro": {
+    "ko": "붙잡는 말이 나옵니다. 이유를 짧게 대고 절차만 밟습니다.",
+    "de": "Man versucht dich zu halten. Du nennst kurz den Grund und bleibst beim Ablauf.",
+    "en": "They try to keep you. You give a short reason and stick to the process."
+   },
+   "vocab": [
+    {
+     "korean": "해지"
+    },
+    {
+     "korean": "잔여"
+    },
+    {
+     "korean": "환불"
+    },
+    {
+     "korean": "정지"
+    },
+    {
+     "korean": "약정"
+    },
+    {
+     "korean": "처리"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_soft_request"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-아/어 주시면 좋겠다",
+     "de": "V-아/어 주시면 좋겠다: weiche Bitte",
+     "en": "V-아/어 주시면 좋겠다: soft request"
+    },
+    "explanation": {
+     "ko": "부담 없이 요청할 때 쓴다. 처리해 주시면 좋겠어요처럼 쓴다.",
+     "de": "Für unaufdringliche Bitten: 처리해 주시면 좋겠어요.",
+     "en": "For low-pressure requests: 처리해 주시면 좋겠어요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "이번 달까지만 하고 해지하려고요.",
+     "de": "Ich möchte zum Monatsende kündigen.",
+     "en": "I want to end it after this month."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "정지는 어떠세요? 세 달까지 무료예요.",
+     "de": "Wie wäre Pausieren? Bis drei Monate kostenlos.",
+     "en": "How about pausing? Up to three months free."
+    },
+    {
+     "speaker": "user",
+     "ko": "이사를 가서 정지는 의미가 없어요.",
+     "de": "Ich ziehe um, Pausieren bringt mir nichts.",
+     "en": "I'm moving, so pausing does not help."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "아, 그러시면 해지가 맞겠네요.",
+     "de": "Ach so, dann ist Kündigen richtig.",
+     "en": "I see, then cancelling is the right call."
+    },
+    {
+     "speaker": "user",
+     "ko": "잔여 기간은 환불되나요?",
+     "de": "Wird die Restlaufzeit erstattet?",
+     "en": "Is the remaining period refunded?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "일할 계산해서 돌려드려요. 위약금은 없어요.",
+     "de": "Anteilig zurück, ohne Vertragsstrafe.",
+     "en": "Refunded pro rata, with no penalty."
+    },
+    {
+     "speaker": "user",
+     "ko": "오늘 안에 처리해 주시면 좋겠어요.",
+     "de": "Es wäre gut, wenn Sie das heute noch erledigen könnten.",
+     "en": "It would help if you could process it today."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "지금 해 드릴게요. 확인 문자 갈 거예요.",
+     "de": "Ich mache das gleich. Sie bekommen eine Bestätigung.",
+     "en": "I'll do it now. You will get a confirmation text."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_cancellation_gym_membership_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "audioKo": "일할 계산해서 돌려드려요. 위약금은 없어요.",
+      "options": [
+       {
+        "de": "Anteilige Rückzahlung ohne Vertragsstrafe.",
+        "en": "Pro rata refund with no penalty."
+       },
+       {
+        "de": "Keine Rückzahlung, aber auch keine Strafe.",
+        "en": "No refund, but no penalty either."
+       },
+       {
+        "de": "Volle Rückzahlung mit Strafe.",
+        "en": "Full refund with a penalty."
+       },
+       {
+        "de": "Nur Gutschrift für neue Verträge.",
+        "en": "Credit for a new contract only."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_gym_membership_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "promptDe": "Ich ziehe um, Pausieren bringt mir nichts.",
+      "promptEn": "I'm moving, so pausing does not help.",
+      "options": [
+       {
+        "ko": "이사를 가서 정지는 의미가 없어요."
+       },
+       {
+        "ko": "시간이 없어서 정지하고 싶어요."
+       },
+       {
+        "ko": "돈이 없어서 정지할게요."
+       },
+       {
+        "ko": "다쳐서 정지해야 해요."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_gym_membership_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "sentence": "오늘 안에 처리해 ___ 좋겠어요.",
+      "options": [
+       "주시면",
+       "주시니까",
+       "주시는데",
+       "주시거나"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_gym_membership_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "targetKo": "잔여 기간은 환불되나요?",
+      "promptDe": "Frag, ob die Restlaufzeit erstattet wird.",
+      "promptEn": "Ask whether the remaining period is refunded.",
+      "distractors": [
+       "세 달까지 무료예요",
+       "확인 문자 갈 거예요",
+       "정지는 어떠세요"
+      ],
+      "audioKo": "잔여 기간은 환불되나요?"
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_gym_membership_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "targetKo": "이번 달까지만 하고 해지하려고요.",
+      "audioKo": "이번 달까지만 하고 해지하려고요.",
+      "promptDe": "Ich möchte zum Monatsende kündigen.",
+      "promptEn": "I want to end it after this month."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_cancellation_auto_payment",
+   "level": "b1",
+   "emoji": "💳",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "stop_a_recurring_charge",
+   "courseUnitId": "b1_03_work_softening",
+   "conceptIds": [
+    "concept_b1_softening"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 140,
+   "title": {
+    "ko": "자동결제를 끊고 싶어요",
+    "de": "Ich will die Abbuchung stoppen",
+    "en": "I want to stop the auto payment"
+   },
+   "intro": {
+    "ko": "앱에서 해지 버튼이 안 보입니다. 전화로 끊고 확인까지 받아 둡니다.",
+    "de": "In der App findest du keinen Kündigungsknopf. Du kündigst telefonisch und lässt es bestätigen.",
+    "en": "The app has no cancel button. You cancel by phone and get it confirmed."
+   },
+   "vocab": [
+    {
+     "korean": "자동결제"
+    },
+    {
+     "korean": "구독"
+    },
+    {
+     "korean": "결제일"
+    },
+    {
+     "korean": "해지"
+    },
+    {
+     "korean": "증빙"
+    },
+    {
+     "korean": "다음 달"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_decision"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-기로 하다",
+     "de": "V-기로 하다: sich entscheiden",
+     "en": "V-기로 하다: decide to"
+    },
+    "explanation": {
+     "ko": "정한 것을 알릴 때 쓴다. 해지하기로 했어요처럼 쓴다.",
+     "de": "Teilt einen Entschluss mit: 해지하기로 했어요.",
+     "en": "States a decision: 해지하기로 했어요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "구독을 해지하기로 했는데 앱에 버튼이 없네요.",
+     "de": "Ich habe mich entschieden zu kündigen, aber die App hat keinen Knopf.",
+     "en": "I decided to cancel, but the app has no button for it."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "전화로만 되는 상품이에요. 지금 처리해 드릴게요.",
+     "de": "Bei diesem Tarif geht es nur telefonisch. Ich mache das jetzt.",
+     "en": "This plan is phone only. I'll take care of it now."
+    },
+    {
+     "speaker": "user",
+     "ko": "다음 결제일이 모레인데 늦지 않았나요?",
+     "de": "Die nächste Abbuchung ist übermorgen, ist es zu spät?",
+     "en": "The next charge is the day after tomorrow, is it too late?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "오늘 하시면 안 빠져요. 하루 전까지예요.",
+     "de": "Heute reicht. Bis einen Tag vorher geht es.",
+     "en": "Today is fine. Up to one day before works."
+    },
+    {
+     "speaker": "user",
+     "ko": "해지됐다는 걸 뭘로 확인해요?",
+     "de": "Woran sehe ich, dass gekündigt ist?",
+     "en": "How do I confirm it is cancelled?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "문자하고 메일 둘 다 가요.",
+     "de": "Sie bekommen SMS und Mail.",
+     "en": "You get both a text and an email."
+    },
+    {
+     "speaker": "user",
+     "ko": "혹시 다음 달에 또 빠지면요?",
+     "de": "Und wenn nächsten Monat trotzdem abgebucht wird?",
+     "en": "And if it charges again next month anyway?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "그 문자 보여 주시면 바로 돌려드려요.",
+     "de": "Zeigen Sie die SMS, dann erstatten wir sofort.",
+     "en": "Show that text and we refund it right away."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_cancellation_auto_payment_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "audioKo": "오늘 하시면 안 빠져요. 하루 전까지예요.",
+      "options": [
+       {
+        "de": "Bis einen Tag vor der Abbuchung geht die Kündigung.",
+        "en": "Cancelling works up to one day before the charge."
+       },
+       {
+        "de": "Die Abbuchung kommt auf jeden Fall noch.",
+        "en": "The charge will go through no matter what."
+       },
+       {
+        "de": "Man muss eine Woche vorher kündigen.",
+        "en": "You must cancel a week ahead."
+       },
+       {
+        "de": "Die Kündigung wirkt erst in zwei Monaten.",
+        "en": "Cancelling only takes effect in two months."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_auto_payment_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "promptDe": "Woran sehe ich, dass gekündigt ist?",
+      "promptEn": "How do I confirm it is cancelled?",
+      "options": [
+       {
+        "ko": "해지됐다는 걸 뭘로 확인해요?"
+       },
+       {
+        "ko": "해지가 언제 끝나요?"
+       },
+       {
+        "ko": "해지하면 얼마 돌려받아요?"
+       },
+       {
+        "ko": "해지를 취소할 수 있어요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_auto_payment_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "sentence": "구독을 해지___ 했어요.",
+      "options": [
+       "하기로",
+       "하려고",
+       "하니까",
+       "하는데"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_auto_payment_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "targetKo": "혹시 다음 달에 또 빠지면요?",
+      "promptDe": "Frag, was passiert, wenn erneut abgebucht wird.",
+      "promptEn": "Ask what happens if it charges again.",
+      "distractors": [
+       "문자하고 메일 둘 다 가요",
+       "전화로만 되는 상품이에요",
+       "지금 처리해 드릴게요"
+      ],
+      "audioKo": "혹시 다음 달에 또 빠지면요?"
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_auto_payment_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "targetKo": "그 문자 보여 주시면 바로 돌려드려요.",
+      "audioKo": "그 문자 보여 주시면 바로 돌려드려요.",
+      "promptDe": "Zeigen Sie die SMS, dann erstatten wir sofort.",
+      "promptEn": "Show that text and we refund it right away."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_cancellation_move_out_notice",
+   "level": "b1",
+   "emoji": "📦",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "tenant_and_building_manager",
+   "intent": "give_notice_and_set_the_handover",
+   "courseUnitId": "b1_03_work_softening",
+   "conceptIds": [
+    "concept_b1_softening"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 140,
+   "title": {
+    "ko": "계약을 연장 안 하려고요",
+    "de": "Ich verlängere den Vertrag nicht",
+    "en": "I am not renewing the lease"
+   },
+   "intro": {
+    "ko": "통보 기한이 다가옵니다. 날짜를 못박고 확인서를 받아 둡니다.",
+    "de": "Die Kündigungsfrist rückt näher. Du legst das Datum fest und lässt es bestätigen.",
+    "en": "The notice deadline is near. You fix the date and get it in writing."
+   },
+   "vocab": [
+    {
+     "korean": "연장"
+    },
+    {
+     "korean": "통보"
+    },
+    {
+     "korean": "만기"
+    },
+    {
+     "korean": "보증금"
+    },
+    {
+     "korean": "인수"
+    },
+    {
+     "korean": "확인서"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_wish"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-았/었으면 좋겠다",
+     "de": "V-았/었으면 좋겠다: Wunsch",
+     "en": "V-았/었으면 좋겠다: I wish"
+    },
+    "explanation": {
+     "ko": "바라는 바를 부드럽게 말한다. 받았으면 좋겠어요처럼 쓴다.",
+     "de": "Drückt einen Wunsch sanft aus: 받았으면 좋겠어요.",
+     "en": "States a wish gently: 받았으면 좋겠어요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "이번 만기에 연장 안 하려고 미리 말씀드려요.",
+     "de": "Ich sage vorab Bescheid, dass ich nicht verlängere.",
+     "en": "I'm letting you know early that I won't renew."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "언제 나가실 예정이세요?",
+     "de": "Wann ziehen Sie aus?",
+     "en": "When do you plan to move out?"
+    },
+    {
+     "speaker": "user",
+     "ko": "다음 달 말일이요. 그날 정리 끝나요.",
+     "de": "Ende nächsten Monats. Bis dahin ist alles geräumt.",
+     "en": "End of next month. Everything is out by then."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "그럼 통보는 오늘 자로 접수할게요.",
+     "de": "Dann nehme ich die Kündigung mit dem heutigen Datum auf.",
+     "en": "Then I'll log the notice as of today."
+    },
+    {
+     "speaker": "user",
+     "ko": "보증금은 언제 돌려받나요?",
+     "de": "Wann bekomme ich die Kaution zurück?",
+     "en": "When do I get the deposit back?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "점검 끝나고 사흘 안에요.",
+     "de": "Innerhalb von drei Tagen nach der Abnahme.",
+     "en": "Within three days after the inspection."
+    },
+    {
+     "speaker": "user",
+     "ko": "확인서를 한 장 받았으면 좋겠어요.",
+     "de": "Ich hätte gern eine schriftliche Bestätigung.",
+     "en": "I would like a written confirmation."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "출력해 드릴게요. 서명만 해 주세요.",
+     "de": "Ich drucke sie aus. Bitte nur unterschreiben.",
+     "en": "I'll print it. Just sign it, please."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_cancellation_move_out_notice_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "audioKo": "점검 끝나고 사흘 안에요.",
+      "options": [
+       {
+        "de": "Kaution kommt binnen drei Tagen nach der Abnahme.",
+        "en": "The deposit comes within three days of the inspection."
+       },
+       {
+        "de": "Kaution kommt sofort am Auszugstag.",
+        "en": "The deposit comes on moving day itself."
+       },
+       {
+        "de": "Kaution kommt erst nach drei Monaten.",
+        "en": "The deposit takes three months."
+       },
+       {
+        "de": "Kaution wird nicht erstattet.",
+        "en": "The deposit is not refunded."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_move_out_notice_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "promptDe": "Ich hätte gern eine schriftliche Bestätigung.",
+      "promptEn": "I would like a written confirmation.",
+      "options": [
+       {
+        "ko": "확인서를 한 장 받았으면 좋겠어요."
+       },
+       {
+        "ko": "계약서를 한 장 더 쓸까요?"
+       },
+       {
+        "ko": "확인서를 지금 버려도 될까요?"
+       },
+       {
+        "ko": "확인서가 꼭 필요한가요?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_move_out_notice_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "sentence": "확인서를 한 장 ___ 좋겠어요.",
+      "options": [
+       "받았으면",
+       "받으면서",
+       "받으니까",
+       "받거나"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_move_out_notice_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "targetKo": "다음 달 말일이요. 그날 정리 끝나요.",
+      "promptDe": "Nenne das Auszugsdatum und sag, dass dann alles geräumt ist.",
+      "promptEn": "Give the move-out date and say everything is cleared by then.",
+      "distractors": [
+       "출력해 드릴게요",
+       "언제 나가실 예정이세요",
+       "점검 끝나고 사흘 안에요"
+      ],
+      "audioKo": "다음 달 말일이요. 그날 정리 끝나요."
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_move_out_notice_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "targetKo": "보증금은 언제 돌려받나요?",
+      "audioKo": "보증금은 언제 돌려받나요?",
+      "promptDe": "Wann bekomme ich die Kaution zurück?",
+      "promptEn": "When do I get the deposit back?"
+     }
+    }
+   ]
+  },
+  {
+   "id": "b1_cancellation_early_penalty",
+   "level": "b1",
+   "emoji": "✂️",
+   "register": "polite",
+   "speechStyle": "polite",
+   "relationshipContext": "customer_and_service_staff",
+   "intent": "reduce_an_early_termination_fee",
+   "courseUnitId": "b1_03_work_softening",
+   "conceptIds": [
+    "concept_b1_softening"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 140,
+   "title": {
+    "ko": "위약금이 생각보다 커요",
+    "de": "Die Gebühr ist höher als gedacht",
+    "en": "The penalty is bigger than I expected"
+   },
+   "intro": {
+    "ko": "약정이 두 달 남았습니다. 깎을 수 있는 방법이 있는지 하나씩 확인합니다.",
+    "de": "Zwei Monate Bindung bleiben. Du gehst durch, was die Gebühr senken könnte.",
+    "en": "Two months of the term remain. You work through what could reduce the fee."
+   },
+   "vocab": [
+    {
+     "korean": "위약금"
+    },
+    {
+     "korean": "약정"
+    },
+    {
+     "korean": "남다"
+    },
+    {
+     "korean": "감면"
+    },
+    {
+     "korean": "명의"
+    },
+    {
+     "korean": "승계"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b1_background_contrast"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-는데",
+     "de": "V-는데: Hintergrund",
+     "en": "V-는데: background"
+    },
+    "explanation": {
+     "ko": "사정을 먼저 말하고 요청으로 넘어간다. 남았는데 방법이 없을까요처럼 쓴다.",
+     "de": "Nennt erst die Lage, dann die Bitte: 남았는데 방법이 없을까요.",
+     "en": "States the situation, then the ask: 남았는데 방법이 없을까요."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "약정이 두 달 남았는데 위약금이 십만 원이에요?",
+     "de": "Noch zwei Monate Bindung, und die Gebühr ist hunderttausend Won?",
+     "en": "Two months left on the term and the fee is a hundred thousand won?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "네, 남은 개월 수로 계산돼요.",
+     "de": "Ja, sie richtet sich nach den Restmonaten.",
+     "en": "Yes, it is based on the months remaining."
+    },
+    {
+     "speaker": "user",
+     "ko": "두 달만 더 쓰면 안 내도 되는 거죠?",
+     "de": "Wenn ich zwei Monate weiternutze, entfällt sie?",
+     "en": "If I keep it two more months, it goes away?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "그렇죠. 요금은 두 달 치가 더 나가요.",
+     "de": "Richtig. Dafür zahlen Sie zwei Monatsbeiträge.",
+     "en": "Right. But you pay two more months of the fee."
+    },
+    {
+     "speaker": "user",
+     "ko": "계산해 보면 그게 더 싸네요.",
+     "de": "Gerechnet ist das günstiger.",
+     "en": "Doing the maths, that is cheaper."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "명의를 넘기는 방법도 있어요.",
+     "de": "Sie könnten den Vertrag auch übertragen.",
+     "en": "You could also transfer the contract."
+    },
+    {
+     "speaker": "user",
+     "ko": "승계하면 위약금은 아예 없어요?",
+     "de": "Entfällt die Gebühr bei Übertragung ganz?",
+     "en": "Does a transfer drop the fee entirely?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "네, 받는 분이 남은 약정을 이어받아요.",
+     "de": "Ja, die andere Person übernimmt die Restlaufzeit.",
+     "en": "Yes, the other person takes over the remaining term."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b1_cancellation_early_penalty_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "audioKo": "네, 받는 분이 남은 약정을 이어받아요.",
+      "options": [
+       {
+        "de": "Bei Übertragung übernimmt die andere Person die Restlaufzeit.",
+        "en": "On transfer the other person takes over the remaining term."
+       },
+       {
+        "de": "Bei Übertragung zahlen beide die Gebühr.",
+        "en": "On transfer both pay the fee."
+       },
+       {
+        "de": "Eine Übertragung ist nicht erlaubt.",
+        "en": "Transfers are not allowed."
+       },
+       {
+        "de": "Die Restlaufzeit verfällt einfach.",
+        "en": "The remaining term simply lapses."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_early_penalty_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "promptDe": "Gerechnet ist das günstiger.",
+      "promptEn": "Doing the maths, that is cheaper.",
+      "options": [
+       {
+        "ko": "계산해 보면 그게 더 싸네요."
+       },
+       {
+        "ko": "계산이 잘못된 것 같아요."
+       },
+       {
+        "ko": "계산서를 다시 주세요."
+       },
+       {
+        "ko": "계산은 나중에 할게요."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_early_penalty_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "sentence": "약정이 두 달 남았___ 위약금이 십만 원이에요?",
+      "options": [
+       "는데",
+       "느라고",
+       "다고",
+       "기로"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_early_penalty_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "targetKo": "승계하면 위약금은 아예 없어요?",
+      "promptDe": "Frag, ob die Gebühr bei Übertragung komplett entfällt.",
+      "promptEn": "Ask whether a transfer removes the fee entirely.",
+      "distractors": [
+       "남은 개월 수로 계산돼요",
+       "요금은 두 달 치가 더 나가요",
+       "명의를 넘기는 방법도 있어요"
+      ],
+      "audioKo": "승계하면 위약금은 아예 없어요?"
+     }
+    },
+    {
+     "id": "quest_b1_cancellation_early_penalty_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b1_softening"
+     ],
+     "data": {
+      "targetKo": "명의를 넘기는 방법도 있어요.",
+      "audioKo": "명의를 넘기는 방법도 있어요.",
+      "promptDe": "Sie könnten den Vertrag auch übertragen.",
+      "promptEn": "You could also transfer the contract."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2_hiring_role_scope",
+   "level": "b2",
+   "emoji": "🧭",
+   "register": "business",
+   "speechStyle": "business",
+   "relationshipContext": "candidate_and_interviewer",
+   "intent": "bound_the_role_before_accepting",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 150,
+   "title": {
+    "ko": "직무 범위를 확인하고자 합니다",
+    "de": "Ich möchte den Aufgabenbereich klären",
+    "en": "I would like to clarify the role's scope"
+   },
+   "intro": {
+    "ko": "공고와 면접 설명이 조금 다릅니다. 어디까지가 내 일인지 지금 정리합니다.",
+    "de": "Anzeige und Gespräch weichen leicht ab. Du klärst jetzt, was zur Rolle gehört.",
+    "en": "The posting and the interview differ slightly. You settle now what the role includes."
+   },
+   "vocab": [
+    {
+     "korean": "직무"
+    },
+    {
+     "korean": "범위"
+    },
+    {
+     "korean": "겸임"
+    },
+    {
+     "korean": "공고"
+    },
+    {
+     "korean": "권한"
+    },
+    {
+     "korean": "보고선"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b2_formal_intention"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-고자",
+     "de": "V-고자: Absicht (formell)",
+     "en": "V-고자: formal intent"
+    },
+    "explanation": {
+     "ko": "격식 있게 의도를 밝힌다. 확인하고자 합니다처럼 쓴다.",
+     "de": "Nennt die Absicht förmlich: 확인하고자 합니다.",
+     "en": "States intent formally: 확인하고자 합니다."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "공고와 조금 달라서 직무 범위를 확인하고자 합니다.",
+     "de": "Da es von der Anzeige abweicht, möchte ich den Aufgabenbereich klären.",
+     "en": "Since it differs from the posting, I would like to clarify the scope."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "어떤 부분이 다르게 느껴지셨습니까?",
+     "de": "Welcher Teil kam Ihnen anders vor?",
+     "en": "Which part seemed different to you?"
+    },
+    {
+     "speaker": "user",
+     "ko": "공고에는 분석만 있었는데 운영도 말씀하셨습니다.",
+     "de": "In der Anzeige stand nur Analyse, Sie erwähnten aber auch Betrieb.",
+     "en": "The posting listed analysis only, but you mentioned operations too."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "초기 육 개월은 운영을 겸합니다. 그 뒤에는 분리됩니다.",
+     "de": "Die ersten sechs Monate laufen beide parallel, danach getrennt.",
+     "en": "For the first six months both run together, then they separate."
+    },
+    {
+     "speaker": "user",
+     "ko": "분리 시점이 문서에 남습니까?",
+     "de": "Wird der Zeitpunkt schriftlich festgehalten?",
+     "en": "Is that separation point recorded in writing?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "계약서 부속 합의로 넣을 수 있습니다.",
+     "de": "Wir können es als Zusatzvereinbarung aufnehmen.",
+     "en": "We can add it as an annex to the contract."
+    },
+    {
+     "speaker": "user",
+     "ko": "그렇다면 보고선도 함께 적어 주시면 좋겠습니다.",
+     "de": "Dann bitte auch die Berichtslinie mit aufnehmen.",
+     "en": "In that case please record the reporting line as well."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "네, 두 항목 다 초안에 반영하겠습니다.",
+     "de": "Ja, beides kommt in den Entwurf.",
+     "en": "Yes, both go into the draft."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b2_hiring_role_scope_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "audioKo": "초기 육 개월은 운영을 겸합니다. 그 뒤에는 분리됩니다.",
+      "options": [
+       {
+        "de": "Sechs Monate beides, danach getrennt.",
+        "en": "Six months of both, separated afterwards."
+       },
+       {
+        "de": "Betrieb bleibt dauerhaft dabei.",
+        "en": "Operations stays part of it permanently."
+       },
+       {
+        "de": "Betrieb gehört gar nicht dazu.",
+        "en": "Operations is not included at all."
+       },
+       {
+        "de": "Die Trennung erfolgt nach zwei Jahren.",
+        "en": "The split happens after two years."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_role_scope_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "promptDe": "Wird der Zeitpunkt schriftlich festgehalten?",
+      "promptEn": "Is that separation point recorded in writing?",
+      "options": [
+       {
+        "ko": "분리 시점이 문서에 남습니까?"
+       },
+       {
+        "ko": "분리 시점을 앞당길 수 있습니까?"
+       },
+       {
+        "ko": "분리 후에도 급여가 같습니까?"
+       },
+       {
+        "ko": "분리 전에 평가가 있습니까?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_role_scope_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "sentence": "직무 범위를 확인___ 합니다.",
+      "options": [
+       "하고자",
+       "하는 한",
+       "하므로",
+       "하도록"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_role_scope_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "targetKo": "보고선도 함께 적어 주시면 좋겠습니다.",
+      "promptDe": "Bitte darum, auch die Berichtslinie aufzunehmen.",
+      "promptEn": "Ask that the reporting line be recorded too.",
+      "distractors": [
+       "두 항목 다 초안에 반영하겠습니다",
+       "어떤 부분이 다르게 느껴지셨습니까",
+       "계약서 부속 합의로 넣을 수 있습니다"
+      ],
+      "audioKo": "보고선도 함께 적어 주시면 좋겠습니다."
+     }
+    },
+    {
+     "id": "quest_b2_hiring_role_scope_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "targetKo": "계약서 부속 합의로 넣을 수 있습니다.",
+      "audioKo": "계약서 부속 합의로 넣을 수 있습니다.",
+      "promptDe": "Wir können es als Zusatzvereinbarung aufnehmen.",
+      "promptEn": "We can add it as an annex to the contract."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2_hiring_salary_band",
+   "level": "b2",
+   "emoji": "⚖️",
+   "register": "business",
+   "speechStyle": "business",
+   "relationshipContext": "candidate_and_interviewer",
+   "intent": "trade_one_term_against_another",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 150,
+   "title": {
+    "ko": "구간의 어디쯤입니까",
+    "de": "Wo in der Spanne liegt es",
+    "en": "Where in the band does it sit"
+   },
+   "intro": {
+    "ko": "숫자 하나만 묻지 않습니다. 무엇을 내주면 무엇이 오는지로 이야기합니다.",
+    "de": "Du fragst nicht nur nach einer Zahl, sondern danach, was gegen was steht.",
+    "en": "You do not just ask for a number. You ask what trades against what."
+   },
+   "vocab": [
+    {
+     "korean": "구간"
+    },
+    {
+     "korean": "연봉"
+    },
+    {
+     "korean": "성과급"
+    },
+    {
+     "korean": "재량"
+    },
+    {
+     "korean": "조정"
+    },
+    {
+     "korean": "시점"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b2_instead_tradeoff"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-는 대신(에)",
+     "de": "V-는 대신에: statt / dafür",
+     "en": "V-는 대신에: instead / in return"
+    },
+    "explanation": {
+     "ko": "하나를 주고 하나를 받을 때 쓴다. 낮추는 대신에처럼 쓴다.",
+     "de": "Setzt Gegenleistungen gegeneinander: 낮추는 대신에.",
+     "en": "Sets one thing against another: 낮추는 대신에."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "제시하신 금액이 구간의 어디쯤입니까?",
+     "de": "Wo liegt Ihr Angebot innerhalb der Spanne?",
+     "en": "Where does your offer sit within the band?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "중간보다 조금 아래입니다.",
+     "de": "Etwas unter der Mitte.",
+     "en": "A little below the midpoint."
+    },
+    {
+     "speaker": "user",
+     "ko": "중간까지 올리는 건 어렵습니까?",
+     "de": "Wäre die Mitte möglich?",
+     "en": "Would the midpoint be possible?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "기본급을 올리는 대신에 성과급 비중이 줄어듭니다.",
+     "de": "Höheres Grundgehalt bedeutet dafür weniger Bonusanteil.",
+     "en": "Raising base pay means a smaller bonus share in return."
+    },
+    {
+     "speaker": "user",
+     "ko": "성과급은 어떤 기준으로 정해집니까?",
+     "de": "Wonach richtet sich der Bonus?",
+     "en": "What determines the bonus?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "팀 지표 절반, 개인 평가 절반입니다.",
+     "de": "Zur Hälfte Teamkennzahlen, zur Hälfte Einzelbewertung.",
+     "en": "Half team metrics, half individual review."
+    },
+    {
+     "speaker": "user",
+     "ko": "그렇다면 기본급을 택하겠습니다.",
+     "de": "Dann nehme ich das höhere Grundgehalt.",
+     "en": "In that case I'll take the higher base."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "확인해서 수정안을 보내겠습니다.",
+     "de": "Ich prüfe das und schicke einen angepassten Entwurf.",
+     "en": "I'll check and send a revised offer."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b2_hiring_salary_band_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "audioKo": "기본급을 올리는 대신에 성과급 비중이 줄어듭니다.",
+      "options": [
+       {
+        "de": "Mehr Grundgehalt, dafür weniger Bonus.",
+        "en": "More base pay, less bonus in return."
+       },
+       {
+        "de": "Mehr Grundgehalt und mehr Bonus.",
+        "en": "More base pay and more bonus."
+       },
+       {
+        "de": "Grundgehalt ist nicht verhandelbar.",
+        "en": "Base pay is not negotiable."
+       },
+       {
+        "de": "Es gibt gar keinen Bonus.",
+        "en": "There is no bonus at all."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_salary_band_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "promptDe": "Wonach richtet sich der Bonus?",
+      "promptEn": "What determines the bonus?",
+      "options": [
+       {
+        "ko": "성과급은 어떤 기준으로 정해집니까?"
+       },
+       {
+        "ko": "성과급은 언제 나옵니까?"
+       },
+       {
+        "ko": "성과급은 세금이 붙습니까?"
+       },
+       {
+        "ko": "성과급을 포기해도 됩니까?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_salary_band_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "sentence": "기본급을 올리는 ___ 성과급이 줄어듭니다.",
+      "options": [
+       "대신에",
+       "덕분에",
+       "때문에",
+       "김에"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_salary_band_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "targetKo": "제시하신 금액이 구간의 어디쯤입니까?",
+      "promptDe": "Frag, wo das Angebot in der Gehaltsspanne liegt.",
+      "promptEn": "Ask where the offer sits within the salary band.",
+      "distractors": [
+       "확인해서 수정안을 보내겠습니다",
+       "중간보다 조금 아래입니다",
+       "팀 지표 절반, 개인 평가 절반입니다"
+      ],
+      "audioKo": "제시하신 금액이 구간의 어디쯤입니까?"
+     }
+    },
+    {
+     "id": "quest_b2_hiring_salary_band_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "targetKo": "팀 지표 절반, 개인 평가 절반입니다.",
+      "audioKo": "팀 지표 절반, 개인 평가 절반입니다.",
+      "promptDe": "Zur Hälfte Teamkennzahlen, zur Hälfte Einzelbewertung.",
+      "promptEn": "Half team metrics, half individual review."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2_hiring_reference_consent",
+   "level": "b2",
+   "emoji": "📇",
+   "register": "business",
+   "speechStyle": "business",
+   "relationshipContext": "candidate_and_interviewer",
+   "intent": "limit_who_may_be_contacted",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 150,
+   "title": {
+    "ko": "평판 조회 범위를 정하고 싶습니다",
+    "de": "Ich möchte den Rahmen der Referenzen festlegen",
+    "en": "I want to set the scope of reference checks"
+   },
+   "intro": {
+    "ko": "현 직장에 알려지면 곤란합니다. 누구에게까지 연락할지 미리 못박습니다.",
+    "de": "Es wäre heikel, wenn der aktuelle Arbeitgeber davon erfährt. Du legst vorab fest, wen man kontaktieren darf.",
+    "en": "It would be awkward if your current employer heard. You fix in advance who may be contacted."
+   },
+   "vocab": [
+    {
+     "korean": "평판"
+    },
+    {
+     "korean": "조회"
+    },
+    {
+     "korean": "동의"
+    },
+    {
+     "korean": "재직"
+    },
+    {
+     "korean": "전 직장"
+    },
+    {
+     "korean": "시점"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b2_shared_merit"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "A/V-다는 점에서",
+     "de": "A/V-다는 점에서: insofern als",
+     "en": "A/V-다는 점에서: in that it"
+    },
+    "explanation": {
+     "ko": "어떤 점에서 그런지 근거를 댈 때 쓴다. 재직 중이라는 점에서처럼 쓴다.",
+     "de": "Nennt den Punkt, auf den es ankommt: 재직 중이라는 점에서.",
+     "en": "Names the respect in which something holds: 재직 중이라는 점에서."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "minsu",
+     "ko": "평판 조회에 동의해 주실 수 있습니까?",
+     "de": "Sind Sie mit einer Referenzeinholung einverstanden?",
+     "en": "Would you consent to a reference check?"
+    },
+    {
+     "speaker": "user",
+     "ko": "아직 재직 중이라는 점에서 범위를 제한하고 싶습니다.",
+     "de": "Da ich noch angestellt bin, möchte ich den Rahmen begrenzen.",
+     "en": "Given that I'm still employed, I would like to limit the scope."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "어느 선까지 허용하시겠습니까?",
+     "de": "Bis wohin wäre es für Sie in Ordnung?",
+     "en": "How far would you allow it to go?"
+    },
+    {
+     "speaker": "user",
+     "ko": "전 직장 두 곳까지만 부탁드립니다.",
+     "de": "Bitte nur bei zwei früheren Arbeitgebern.",
+     "en": "Two previous employers only, please."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "현 직장은 최종 합격 이후로 미루겠습니다.",
+     "de": "Den aktuellen Arbeitgeber verschieben wir auf die Zeit nach der Zusage.",
+     "en": "We will hold the current employer until after the final offer."
+    },
+    {
+     "speaker": "user",
+     "ko": "그 시점도 서면에 남겨 주시겠습니까?",
+     "de": "Können Sie diesen Zeitpunkt schriftlich festhalten?",
+     "en": "Could you put that timing in writing as well?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "동의서에 조건으로 넣겠습니다.",
+     "de": "Ich nehme es als Bedingung in die Einwilligung auf.",
+     "en": "I'll add it as a condition in the consent form."
+    },
+    {
+     "speaker": "user",
+     "ko": "그러면 동의하겠습니다.",
+     "de": "Dann stimme ich zu.",
+     "en": "Then I consent."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b2_hiring_reference_consent_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "audioKo": "현 직장은 최종 합격 이후로 미루겠습니다.",
+      "options": [
+       {
+        "de": "Der aktuelle Arbeitgeber wird erst nach der Zusage kontaktiert.",
+        "en": "The current employer is contacted only after the final offer."
+       },
+       {
+        "de": "Der aktuelle Arbeitgeber wird sofort kontaktiert.",
+        "en": "The current employer is contacted immediately."
+       },
+       {
+        "de": "Der aktuelle Arbeitgeber wird nie kontaktiert.",
+        "en": "The current employer is never contacted."
+       },
+       {
+        "de": "Referenzen entfallen ganz.",
+        "en": "References are dropped entirely."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_reference_consent_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "promptDe": "Bitte nur bei zwei früheren Arbeitgebern.",
+      "promptEn": "Two previous employers only, please.",
+      "options": [
+       {
+        "ko": "전 직장 두 곳까지만 부탁드립니다."
+       },
+       {
+        "ko": "전 직장은 빼 주시기 바랍니다."
+       },
+       {
+        "ko": "전 직장 모두 확인해 주십시오."
+       },
+       {
+        "ko": "전 직장 연락처를 지워 주십시오."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_reference_consent_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "sentence": "재직 중이___ 점에서 범위를 제한하고 싶습니다.",
+      "options": [
+       "라는",
+       "라고",
+       "라서",
+       "라도"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_reference_consent_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "targetKo": "그 시점도 서면에 남겨 주시겠습니까?",
+      "promptDe": "Bitte darum, den Zeitpunkt schriftlich festzuhalten.",
+      "promptEn": "Ask that the timing be recorded in writing.",
+      "distractors": [
+       "동의서에 조건으로 넣겠습니다",
+       "어느 선까지 허용하시겠습니까",
+       "그러면 동의하겠습니다"
+      ],
+      "audioKo": "그 시점도 서면에 남겨 주시겠습니까?"
+     }
+    },
+    {
+     "id": "quest_b2_hiring_reference_consent_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "targetKo": "동의서에 조건으로 넣겠습니다.",
+      "audioKo": "동의서에 조건으로 넣겠습니다.",
+      "promptDe": "Ich nehme es als Bedingung in die Einwilligung auf.",
+      "promptEn": "I'll add it as a condition in the consent form."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2_hiring_start_date",
+   "level": "b2",
+   "emoji": "🗓️",
+   "register": "business",
+   "speechStyle": "business",
+   "relationshipContext": "candidate_and_interviewer",
+   "intent": "fix_a_workable_start_date",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 150,
+   "title": {
+    "ko": "입사일을 조정하고 싶습니다",
+    "de": "Ich möchte den Starttermin anpassen",
+    "en": "I would like to adjust the start date"
+   },
+   "intro": {
+    "ko": "인수인계가 남아 있습니다. 늦추되 이유와 대안을 같이 냅니다.",
+    "de": "Die Übergabe läuft noch. Du bittest um später, nennst aber Grund und Alternative.",
+    "en": "A handover is still running. You ask for later, with a reason and an alternative."
+   },
+   "vocab": [
+    {
+     "korean": "입사일"
+    },
+    {
+     "korean": "인수인계"
+    },
+    {
+     "korean": "잔여"
+    },
+    {
+     "korean": "연차"
+    },
+    {
+     "korean": "조정"
+    },
+    {
+     "korean": "합의"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b2_formal_arrangement"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-도록 하다",
+     "de": "V-도록 하다: veranlassen",
+     "en": "V-도록 하다: arrange for"
+    },
+    "explanation": {
+     "ko": "그렇게 되게 하겠다는 뜻이다. 마치도록 하겠습니다처럼 쓴다.",
+     "de": "Sagt zu, dass man es so einrichtet: 마치도록 하겠습니다.",
+     "en": "Commits to making it so: 마치도록 하겠습니다."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "jieun",
+     "ko": "다음 달 일 일 입사로 진행하겠습니다.",
+     "de": "Wir setzen den Start auf den Ersten des nächsten Monats.",
+     "en": "We will set the start for the first of next month."
+    },
+    {
+     "speaker": "user",
+     "ko": "인수인계가 남아 이 주만 늦추고 싶습니다.",
+     "de": "Wegen der Übergabe möchte ich um zwei Wochen verschieben.",
+     "en": "Because of the handover I would like two more weeks."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "교육 일정이 그 주에 잡혀 있어서 곤란합니다.",
+     "de": "In der Woche liegt die Einarbeitung, das ist schwierig.",
+     "en": "The onboarding sits in that week, which makes it hard."
+    },
+    {
+     "speaker": "user",
+     "ko": "교육만 먼저 듣고 업무는 이 주 뒤에 시작해도 되겠습니까?",
+     "de": "Könnte ich die Einarbeitung vorziehen und die Arbeit zwei Wochen später beginnen?",
+     "en": "Could I attend onboarding first and start the work two weeks later?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "그건 가능합니다. 계약 시작일은 그대로 둡니다.",
+     "de": "Das geht. Das Vertragsdatum bleibt gleich.",
+     "en": "That works. The contract date stays the same."
+    },
+    {
+     "speaker": "user",
+     "ko": "그 이 주는 연차로 처리됩니까?",
+     "de": "Werden die zwei Wochen als Urlaub gebucht?",
+     "en": "Are those two weeks booked as leave?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "무급으로 하고 연차는 남기도록 하겠습니다.",
+     "de": "Wir machen es unbezahlt und lassen den Urlaub stehen.",
+     "en": "We will make it unpaid and leave your holiday untouched."
+    },
+    {
+     "speaker": "user",
+     "ko": "그 조건으로 합의하겠습니다.",
+     "de": "Unter diesen Bedingungen bin ich einverstanden.",
+     "en": "I agree on those terms."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b2_hiring_start_date_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "audioKo": "무급으로 하고 연차는 남기도록 하겠습니다.",
+      "options": [
+       {
+        "de": "Unbezahlt, der Urlaub bleibt erhalten.",
+        "en": "Unpaid, and the holiday is preserved."
+       },
+       {
+        "de": "Bezahlt, aber der Urlaub wird verbraucht.",
+        "en": "Paid, but the holiday is used up."
+       },
+       {
+        "de": "Beides entfällt.",
+        "en": "Both are dropped."
+       },
+       {
+        "de": "Der Start wird ganz abgesagt.",
+        "en": "The start is cancelled entirely."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_start_date_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "promptDe": "Wegen der Übergabe möchte ich um zwei Wochen verschieben.",
+      "promptEn": "Because of the handover I would like two more weeks.",
+      "options": [
+       {
+        "ko": "인수인계가 남아 이 주만 늦추고 싶습니다."
+       },
+       {
+        "ko": "이사가 남아 한 달을 늦추고 싶습니다."
+       },
+       {
+        "ko": "교육이 있어 하루만 늦추고 싶습니다."
+       },
+       {
+        "ko": "면접이 남아 다시 잡고 싶습니다."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_start_date_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "sentence": "연차는 남기___ 하겠습니다.",
+      "options": [
+       "도록",
+       "으므로",
+       "는 한",
+       "고자"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_hiring_start_date_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "targetKo": "교육만 먼저 듣고 업무는 이 주 뒤에 시작해도 되겠습니까?",
+      "promptDe": "Schlage vor, die Einarbeitung vorzuziehen und später zu starten.",
+      "promptEn": "Propose attending onboarding first and starting work later.",
+      "distractors": [
+       "계약 시작일은 그대로 둡니다",
+       "그 조건으로 합의하겠습니다",
+       "교육 일정이 그 주에 잡혀 있어서 곤란합니다"
+      ],
+      "audioKo": "교육만 먼저 듣고 업무는 이 주 뒤에 시작해도 되겠습니까?"
+     }
+    },
+    {
+     "id": "quest_b2_hiring_start_date_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b2_interview"
+     ],
+     "data": {
+      "targetKo": "계약 시작일은 그대로 둡니다.",
+      "audioKo": "계약 시작일은 그대로 둡니다.",
+      "promptDe": "Das Vertragsdatum bleibt gleich.",
+      "promptEn": "The contract date stays the same."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2_privacy_data_scope",
+   "level": "b2",
+   "emoji": "🔐",
+   "register": "business",
+   "speechStyle": "business",
+   "relationshipContext": "customer_and_service_department",
+   "intent": "narrow_what_is_collected",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 150,
+   "title": {
+    "ko": "필수 항목만 남겨 주시기 바랍니다",
+    "de": "Bitte nur die Pflichtangaben behalten",
+    "en": "Please keep only the required fields"
+   },
+   "intro": {
+    "ko": "가입 양식이 필요 이상을 묻습니다. 무엇이 필수인지 근거와 함께 요구합니다.",
+    "de": "Das Formular fragt mehr ab als nötig. Du forderst mit Begründung, was Pflicht ist.",
+    "en": "The form asks more than it needs. You ask, with grounds, what is actually required."
+   },
+   "vocab": [
+    {
+     "korean": "필수"
+    },
+    {
+     "korean": "선택"
+    },
+    {
+     "korean": "수집"
+    },
+    {
+     "korean": "근거"
+    },
+    {
+     "korean": "동의"
+    },
+    {
+     "korean": "항목"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b2_explicit_formal_request"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-아/어 주시기를 요청하다",
+     "de": "V-주시기를 요청하다: förmliche Bitte",
+     "en": "V-주시기를 요청하다: formal request"
+    },
+    "explanation": {
+     "ko": "문서에 남길 만큼 분명하게 요청한다. 삭제해 주시기를 요청합니다처럼 쓴다.",
+     "de": "Bittet so klar, dass es aktenkundig ist: 삭제해 주시기를 요청합니다.",
+     "en": "Requests clearly enough for the record: 삭제해 주시기를 요청합니다."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "가입에 생년월일과 주소가 왜 필수입니까?",
+     "de": "Warum sind Geburtsdatum und Adresse Pflichtfelder?",
+     "en": "Why are date of birth and address required to sign up?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "연령 확인과 배송 때문입니다.",
+     "de": "Wegen Altersprüfung und Versand.",
+     "en": "For age verification and delivery."
+    },
+    {
+     "speaker": "user",
+     "ko": "배송을 쓰지 않는데도 주소가 필요합니까?",
+     "de": "Brauchen Sie die Adresse auch ohne Versand?",
+     "en": "Do you need the address even if I never use delivery?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "그 경우에는 선택 항목으로 바꿀 수 있습니다.",
+     "de": "In dem Fall lässt es sich auf freiwillig umstellen.",
+     "en": "In that case it can be switched to optional."
+    },
+    {
+     "speaker": "user",
+     "ko": "그러면 주소는 선택으로 바꿔 주시기를 요청합니다.",
+     "de": "Dann bitte ich darum, die Adresse auf freiwillig zu stellen.",
+     "en": "Then I request that the address be made optional."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "처리했습니다. 이미 입력된 값은 어떻게 할까요?",
+     "de": "Erledigt. Was soll mit den bereits erfassten Daten geschehen?",
+     "en": "Done. What should happen to the data already entered?"
+    },
+    {
+     "speaker": "user",
+     "ko": "그것도 삭제해 주시기 바랍니다.",
+     "de": "Bitte löschen Sie diese ebenfalls.",
+     "en": "Please delete those as well."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "삭제 결과를 메일로 보내 드리겠습니다.",
+     "de": "Ich sende Ihnen die Löschbestätigung per Mail.",
+     "en": "I'll email you confirmation of the deletion."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b2_privacy_data_scope_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "audioKo": "그 경우에는 선택 항목으로 바꿀 수 있습니다.",
+      "options": [
+       {
+        "de": "Ohne Versand kann das Feld freiwillig werden.",
+        "en": "Without delivery the field can become optional."
+       },
+       {
+        "de": "Das Feld bleibt in jedem Fall Pflicht.",
+        "en": "The field stays mandatory in any case."
+       },
+       {
+        "de": "Das Feld wird ganz entfernt.",
+        "en": "The field is removed entirely."
+       },
+       {
+        "de": "Nur mit Ausweis kann man es ändern.",
+        "en": "It can only be changed with an ID."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_data_scope_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "promptDe": "Bitte löschen Sie diese ebenfalls.",
+      "promptEn": "Please delete those as well.",
+      "options": [
+       {
+        "ko": "그것도 삭제해 주시기 바랍니다."
+       },
+       {
+        "ko": "그것도 보관해 주시기 바랍니다."
+       },
+       {
+        "ko": "그것도 다시 보내 주시기 바랍니다."
+       },
+       {
+        "ko": "그것도 확인해 주시기 바랍니다."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_data_scope_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "sentence": "선택으로 바꿔 주시기___ 요청합니다.",
+      "options": [
+       "를",
+       "가",
+       "에",
+       "로"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_data_scope_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "targetKo": "배송을 쓰지 않는데도 주소가 필요합니까?",
+      "promptDe": "Frag, ob die Adresse auch ohne Versand nötig ist.",
+      "promptEn": "Ask whether the address is needed even without delivery.",
+      "distractors": [
+       "연령 확인과 배송 때문입니다",
+       "삭제 결과를 메일로 보내 드리겠습니다",
+       "이미 입력된 값은 어떻게 할까요"
+      ],
+      "audioKo": "배송을 쓰지 않는데도 주소가 필요합니까?"
+     }
+    },
+    {
+     "id": "quest_b2_privacy_data_scope_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "targetKo": "삭제 결과를 메일로 보내 드리겠습니다.",
+      "audioKo": "삭제 결과를 메일로 보내 드리겠습니다.",
+      "promptDe": "Ich sende die Löschbestätigung per Mail.",
+      "promptEn": "I'll email confirmation of the deletion."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2_privacy_retention_period",
+   "level": "b2",
+   "emoji": "⏱️",
+   "register": "business",
+   "speechStyle": "business",
+   "relationshipContext": "customer_and_service_department",
+   "intent": "pin_down_how_long_data_is_kept",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 150,
+   "title": {
+    "ko": "언제까지 보관하십니까",
+    "de": "Wie lange speichern Sie das",
+    "en": "How long do you keep it"
+   },
+   "intro": {
+    "ko": "탈퇴해도 남는 기록이 있습니다. 무엇이 왜 얼마나 남는지 확인합니다.",
+    "de": "Auch nach der Kündigung bleiben Daten. Du klärst was, warum und wie lange.",
+    "en": "Some records survive account closure. You check what, why, and for how long."
+   },
+   "vocab": [
+    {
+     "korean": "보관"
+    },
+    {
+     "korean": "기간"
+    },
+    {
+     "korean": "탈퇴"
+    },
+    {
+     "korean": "법정"
+    },
+    {
+     "korean": "거래"
+    },
+    {
+     "korean": "파기"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b2_formal_reason"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-(으)므로",
+     "de": "V-(으)므로: da (formell)",
+     "en": "V-(으)므로: since (formal)"
+    },
+    "explanation": {
+     "ko": "격식 있게 근거를 댄다. 법에 정해져 있으므로처럼 쓴다.",
+     "de": "Nennt förmlich den Grund: 법에 정해져 있으므로.",
+     "en": "Gives the reason formally: 법에 정해져 있으므로."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "탈퇴하면 기록은 바로 지워집니까?",
+     "de": "Werden die Daten nach der Kündigung sofort gelöscht?",
+     "en": "Is the record deleted immediately when I close the account?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "대부분은 즉시 파기됩니다.",
+     "de": "Das meiste wird sofort vernichtet.",
+     "en": "Most of it is destroyed at once."
+    },
+    {
+     "speaker": "user",
+     "ko": "남는 항목은 무엇입니까?",
+     "de": "Was bleibt übrig?",
+     "en": "What remains?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "거래 내역은 법에 정해져 있으므로 오 년 보관합니다.",
+     "de": "Transaktionsdaten bleiben fünf Jahre, da es gesetzlich vorgeschrieben ist.",
+     "en": "Transaction records are kept five years since the law requires it."
+    },
+    {
+     "speaker": "user",
+     "ko": "그 안에 이름과 연락처도 포함됩니까?",
+     "de": "Sind Name und Kontaktdaten darin enthalten?",
+     "en": "Does that include name and contact details?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "이름은 남고 연락처는 지웁니다.",
+     "de": "Der Name bleibt, die Kontaktdaten werden gelöscht.",
+     "en": "The name stays, contact details are removed."
+    },
+    {
+     "speaker": "user",
+     "ko": "오 년 뒤 파기도 자동으로 이뤄집니까?",
+     "de": "Erfolgt die Löschung nach fünf Jahren automatisch?",
+     "en": "Is the deletion after five years automatic?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "월 단위로 일괄 파기합니다.",
+     "de": "Wir löschen monatlich gesammelt.",
+     "en": "We purge in monthly batches."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b2_privacy_retention_period_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "audioKo": "거래 내역은 법에 정해져 있으므로 오 년 보관합니다.",
+      "options": [
+       {
+        "de": "Transaktionsdaten bleiben gesetzlich fünf Jahre.",
+        "en": "Transaction records stay five years by law."
+       },
+       {
+        "de": "Transaktionsdaten werden sofort gelöscht.",
+        "en": "Transaction records are deleted at once."
+       },
+       {
+        "de": "Transaktionsdaten bleiben unbegrenzt.",
+        "en": "Transaction records are kept forever."
+       },
+       {
+        "de": "Transaktionsdaten bleiben fünf Monate.",
+        "en": "Transaction records stay five months."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_retention_period_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "promptDe": "Erfolgt die Löschung nach fünf Jahren automatisch?",
+      "promptEn": "Is the deletion after five years automatic?",
+      "options": [
+       {
+        "ko": "오 년 뒤 파기도 자동으로 이뤄집니까?"
+       },
+       {
+        "ko": "오 년 뒤에 다시 가입해야 합니까?"
+       },
+       {
+        "ko": "오 년 동안 요금이 나갑니까?"
+       },
+       {
+        "ko": "오 년 전 기록도 볼 수 있습니까?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_retention_period_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "sentence": "법에 정해져 있___ 오 년 보관합니다.",
+      "options": [
+       "으므로",
+       "는 한",
+       "도록",
+       "고자"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_retention_period_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "targetKo": "그 안에 이름과 연락처도 포함됩니까?",
+      "promptDe": "Frag, ob Name und Kontaktdaten dazugehören.",
+      "promptEn": "Ask whether name and contact details are included.",
+      "distractors": [
+       "월 단위로 일괄 파기합니다",
+       "대부분은 즉시 파기됩니다",
+       "이름은 남고 연락처는 지웁니다"
+      ],
+      "audioKo": "그 안에 이름과 연락처도 포함됩니까?"
+     }
+    },
+    {
+     "id": "quest_b2_privacy_retention_period_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "targetKo": "이름은 남고 연락처는 지웁니다.",
+      "audioKo": "이름은 남고 연락처는 지웁니다.",
+      "promptDe": "Der Name bleibt, die Kontaktdaten werden gelöscht.",
+      "promptEn": "The name stays, contact details are removed."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2_privacy_third_party",
+   "level": "b2",
+   "emoji": "🔁",
+   "register": "business",
+   "speechStyle": "business",
+   "relationshipContext": "customer_and_service_department",
+   "intent": "separate_consent_from_necessity",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "minsu",
+   "xpReward": 150,
+   "title": {
+    "ko": "동의했다고 다 되는 건 아니지요",
+    "de": "Zustimmung heißt nicht alles",
+    "en": "Consent does not cover everything"
+   },
+   "intro": {
+    "ko": "제3자 제공에 한 번 동의했더니 범위가 넓어졌습니다. 어디까지인지 되짚습니다.",
+    "de": "Eine einmalige Zustimmung zur Weitergabe wurde weit ausgelegt. Du ziehst die Grenze nach.",
+    "en": "One consent to sharing got read broadly. You draw the line again."
+   },
+   "vocab": [
+    {
+     "korean": "제3자"
+    },
+    {
+     "korean": "제공"
+    },
+    {
+     "korean": "위탁"
+    },
+    {
+     "korean": "철회"
+    },
+    {
+     "korean": "목적"
+    },
+    {
+     "korean": "고지"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b2_not_automatic_conclusion"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "A/V-다고 해서 A/V-는 것은 아니다",
+     "de": "-다고 해서 ~는 것은 아니다: daraus folgt nicht",
+     "en": "-다고 해서 ~는 것은 아니다: it does not follow"
+    },
+    "explanation": {
+     "ko": "앞말이 뒷말을 자동으로 만들지 않는다고 못박는다.",
+     "de": "Stellt klar, dass das eine nicht automatisch das andere ergibt.",
+     "en": "States that one thing does not automatically yield the other."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "제휴사 세 곳에 제공된다고 안내가 왔습니다.",
+     "de": "Ich habe eine Mitteilung über die Weitergabe an drei Partner erhalten.",
+     "en": "I got a notice about sharing with three partner companies."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "가입 시 동의하신 항목입니다.",
+     "de": "Dem haben Sie bei der Anmeldung zugestimmt.",
+     "en": "You consented to that at sign-up."
+    },
+    {
+     "speaker": "user",
+     "ko": "동의했다고 해서 목적이 늘어나는 것은 아니지요.",
+     "de": "Aus der Zustimmung folgt aber nicht, dass sich der Zweck erweitert.",
+     "en": "Consenting does not mean the purpose can expand."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "맞습니다. 목적이 바뀌면 다시 고지해야 합니다.",
+     "de": "Richtig. Bei geändertem Zweck muss neu informiert werden.",
+     "en": "Correct. A changed purpose requires a fresh notice."
+    },
+    {
+     "speaker": "user",
+     "ko": "이번 건은 목적이 같습니까?",
+     "de": "Ist der Zweck in diesem Fall derselbe?",
+     "en": "Is the purpose the same in this case?"
+    },
+    {
+     "speaker": "minsu",
+     "ko": "두 곳은 같고 한 곳은 광고 목적입니다.",
+     "de": "Bei zweien ja, bei einer geht es um Werbung.",
+     "en": "For two yes, for one it is advertising."
+    },
+    {
+     "speaker": "user",
+     "ko": "그 한 곳만 철회하겠습니다.",
+     "de": "Dann widerrufe ich nur diese eine.",
+     "en": "Then I withdraw consent for that one only."
+    },
+    {
+     "speaker": "minsu",
+     "ko": "부분 철회로 처리하고 결과를 보내겠습니다.",
+     "de": "Ich bearbeite das als Teilwiderruf und melde das Ergebnis.",
+     "en": "I'll process it as a partial withdrawal and send the outcome."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b2_privacy_third_party_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "audioKo": "두 곳은 같고 한 곳은 광고 목적입니다.",
+      "options": [
+       {
+        "de": "Zwei mit gleichem Zweck, eine für Werbung.",
+        "en": "Two share the same purpose, one is for advertising."
+       },
+       {
+        "de": "Alle drei dienen der Werbung.",
+        "en": "All three are for advertising."
+       },
+       {
+        "de": "Keine der drei betrifft Werbung.",
+        "en": "None of the three involves advertising."
+       },
+       {
+        "de": "Der Zweck ist nicht bekannt.",
+        "en": "The purpose is unknown."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_third_party_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "promptDe": "Dann widerrufe ich nur diese eine.",
+      "promptEn": "Then I withdraw consent for that one only.",
+      "options": [
+       {
+        "ko": "그 한 곳만 철회하겠습니다."
+       },
+       {
+        "ko": "세 곳 다 철회하겠습니다."
+       },
+       {
+        "ko": "철회는 하지 않겠습니다."
+       },
+       {
+        "ko": "가입을 취소하겠습니다."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_third_party_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "sentence": "동의했다고 해서 목적이 늘어나는 것은 ___.",
+      "options": [
+       "아니지요",
+       "맞지요",
+       "그렇지요",
+       "되지요"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_third_party_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "targetKo": "목적이 바뀌면 다시 고지해야 합니다.",
+      "promptDe": "Sag, dass ein geänderter Zweck eine neue Mitteilung verlangt.",
+      "promptEn": "Say that a changed purpose requires a new notice.",
+      "distractors": [
+       "가입 시 동의하신 항목입니다",
+       "부분 철회로 처리하겠습니다",
+       "이번 건은 목적이 같습니까"
+      ],
+      "audioKo": "목적이 바뀌면 다시 고지해야 합니다."
+     }
+    },
+    {
+     "id": "quest_b2_privacy_third_party_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "targetKo": "부분 철회로 처리하겠습니다.",
+      "audioKo": "부분 철회로 처리하겠습니다.",
+      "promptDe": "Ich bearbeite das als Teilwiderruf.",
+      "promptEn": "I'll process it as a partial withdrawal."
+     }
+    }
+   ]
+  },
+  {
+   "id": "b2_privacy_delete_request",
+   "level": "b2",
+   "emoji": "🗑️",
+   "register": "business",
+   "speechStyle": "business",
+   "relationshipContext": "customer_and_service_department",
+   "intent": "bound_a_deletion_request_in_time",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "surfaceFormIds": [],
+   "sidekick": "jieun",
+   "xpReward": 150,
+   "title": {
+    "ko": "삭제 요청을 접수해 주십시오",
+    "de": "Bitte nehmen Sie meinen Löschantrag auf",
+    "en": "Please log my deletion request"
+   },
+   "intro": {
+    "ko": "삭제하겠다는 말만으로는 남는 게 없습니다. 접수번호와 기한을 받습니다.",
+    "de": "Eine mündliche Zusage reicht nicht. Du lässt dir Vorgangsnummer und Frist geben.",
+    "en": "A verbal promise leaves no trace. You get a case number and a deadline."
+   },
+   "vocab": [
+    {
+     "korean": "삭제"
+    },
+    {
+     "korean": "접수번호"
+    },
+    {
+     "korean": "처리"
+    },
+    {
+     "korean": "기한"
+    },
+    {
+     "korean": "백업"
+    },
+    {
+     "korean": "회신"
+    }
+   ],
+   "grammarIds": [
+    "grammar_b2_as_long_as"
+   ],
+   "grammarBlock": {
+    "title": {
+     "ko": "V-는 한",
+     "de": "V-는 한: solange",
+     "en": "V-는 한: as long as"
+    },
+    "explanation": {
+     "ko": "조건이 유지되는 동안만 그렇다는 뜻이다. 남아 있는 한처럼 쓴다.",
+     "de": "Gilt nur, solange die Bedingung besteht: 남아 있는 한.",
+     "en": "Holds only while the condition lasts: 남아 있는 한."
+    }
+   },
+   "dialog": [
+    {
+     "speaker": "user",
+     "ko": "계정 데이터 삭제를 정식으로 요청합니다.",
+     "de": "Ich beantrage förmlich die Löschung meiner Kontodaten.",
+     "en": "I'm formally requesting deletion of my account data."
+    },
+    {
+     "speaker": "jieun",
+     "ko": "접수하겠습니다. 십오 일 안에 처리됩니다.",
+     "de": "Ich nehme das auf. Bearbeitung binnen fünfzehn Tagen.",
+     "en": "I'll log it. It is processed within fifteen days."
+    },
+    {
+     "speaker": "user",
+     "ko": "접수번호를 지금 받을 수 있습니까?",
+     "de": "Kann ich jetzt eine Vorgangsnummer bekommen?",
+     "en": "Can I get a case number now?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "네, 문자로 바로 보내 드립니다.",
+     "de": "Ja, per SMS sofort.",
+     "en": "Yes, by text right away."
+    },
+    {
+     "speaker": "user",
+     "ko": "백업 서버에도 남습니까?",
+     "de": "Bleiben Daten auf Backup-Servern?",
+     "en": "Does anything remain on backup servers?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "백업은 주기가 있어 최대 삼십 일까지 남습니다.",
+     "de": "Backups laufen im Zyklus, dort bleibt es bis zu dreißig Tage.",
+     "en": "Backups run on a cycle, so up to thirty days there."
+    },
+    {
+     "speaker": "user",
+     "ko": "그 기간에도 조회가 됩니까?",
+     "de": "Ist in dieser Zeit noch ein Zugriff möglich?",
+     "en": "Is it still searchable during that period?"
+    },
+    {
+     "speaker": "jieun",
+     "ko": "백업에 남아 있는 한 조회는 차단됩니다.",
+     "de": "Solange es im Backup liegt, ist der Zugriff gesperrt.",
+     "en": "As long as it sits in backup, access is blocked."
+    }
+   ],
+   "quests": [
+    {
+     "id": "quest_b2_privacy_delete_request_hear",
+     "type": "hoerverstehen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "audioKo": "백업은 주기가 있어 최대 삼십 일까지 남습니다.",
+      "options": [
+       {
+        "de": "Im Backup bleibt es bis zu dreißig Tage.",
+        "en": "In backup it remains for up to thirty days."
+       },
+       {
+        "de": "Backups werden sofort mitgelöscht.",
+        "en": "Backups are deleted at the same time."
+       },
+       {
+        "de": "Backups bleiben unbegrenzt.",
+        "en": "Backups are kept indefinitely."
+       },
+       {
+        "de": "Es gibt keine Backups.",
+        "en": "There are no backups."
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_delete_request_tr",
+     "type": "uebersetzen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "promptDe": "Kann ich jetzt eine Vorgangsnummer bekommen?",
+      "promptEn": "Can I get a case number now?",
+      "options": [
+       {
+        "ko": "접수번호를 지금 받을 수 있습니까?"
+       },
+       {
+        "ko": "처리 기한을 늘릴 수 있습니까?"
+       },
+       {
+        "ko": "삭제를 취소할 수 있습니까?"
+       },
+       {
+        "ko": "계정을 다시 만들 수 있습니까?"
+       }
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_delete_request_gap",
+     "type": "luecken",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "sentence": "백업에 남아 있는 ___ 조회는 차단됩니다.",
+      "options": [
+       "한",
+       "대신",
+       "김에",
+       "덕분에"
+      ],
+      "correctIndex": 0
+     }
+    },
+    {
+     "id": "quest_b2_privacy_delete_request_build",
+     "type": "satzBauen",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "targetKo": "계정 데이터 삭제를 정식으로 요청합니다.",
+      "promptDe": "Beantrage förmlich die Löschung der Kontodaten.",
+      "promptEn": "Formally request deletion of the account data.",
+      "distractors": [
+       "십오 일 안에 처리됩니다",
+       "문자로 바로 보내 드립니다",
+       "백업 서버에도 남습니까"
+      ],
+      "audioKo": "계정 데이터 삭제를 정식으로 요청합니다."
+     }
+    },
+    {
+     "id": "quest_b2_privacy_delete_request_dict",
+     "type": "diktat",
+     "conceptIds": [
+      "concept_b2_precise_requests"
+     ],
+     "data": {
+      "targetKo": "십오 일 안에 처리됩니다.",
+      "audioKo": "십오 일 안에 처리됩니다.",
+      "promptDe": "Bearbeitung binnen fünfzehn Tagen.",
+      "promptEn": "It is processed within fifteen days."
+     }
+    }
+   ]
+  }
+ ]
+}

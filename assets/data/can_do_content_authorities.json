@@ -1590,6 +1590,22 @@
       "level": "a2"
     },
     {
+      "id": "seed_scenario_a2_booking_change_date_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_booking_extra_person_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_booking_no_show_fee_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_booking_table_time_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_scenario_a2_booth_line_v1",
       "level": "a2"
     },
@@ -1627,6 +1643,22 @@
     },
     {
       "id": "seed_scenario_a2_dye_dark_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_enrolment_change_class_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_enrolment_class_signup_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_enrolment_level_test_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_enrolment_missing_document_v1",
       "level": "a2"
     },
     {
@@ -2790,6 +2822,22 @@
       "level": "b1"
     },
     {
+      "id": "seed_scenario_b1_cancellation_auto_payment_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_cancellation_early_penalty_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_cancellation_gym_membership_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_cancellation_move_out_notice_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_scenario_b1_case_status_v1",
       "level": "b1"
     },
@@ -2851,6 +2899,38 @@
     },
     {
       "id": "seed_scenario_b1_hotel_shift_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_incident_leak_from_upstairs_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_incident_lost_item_desk_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_incident_parking_scratch_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_incident_witness_note_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_insurance_claim_documents_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_insurance_claim_rejected_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_insurance_deductible_share_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_insurance_what_is_covered_v1",
       "level": "b1"
     },
     {
@@ -4030,6 +4110,22 @@
       "level": "b2"
     },
     {
+      "id": "seed_scenario_b2_hiring_reference_consent_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_hiring_role_scope_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_hiring_salary_band_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_hiring_start_date_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_scenario_b2_hold_share_v1",
       "level": "b2"
     },
@@ -4099,6 +4195,22 @@
     },
     {
       "id": "seed_scenario_b2_pharmacy_claim_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_privacy_data_scope_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_privacy_delete_request_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_privacy_retention_period_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_privacy_third_party_v1",
       "level": "b2"
     },
     {
@@ -10840,6 +10952,34 @@
     },
     {
       "kind": "scenario",
+      "id": "a2_booking_change_date",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_booking_change_date_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_booking_extra_person",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_booking_extra_person_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_booking_no_show_fee",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_booking_no_show_fee_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_booking_table_time",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_booking_table_time_v1",
+      "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "scenario",
       "id": "a2_booth_line",
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_booth_line_v1",
@@ -10907,6 +11047,34 @@
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_dye_dark_v1",
       "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_enrolment_change_class",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_enrolment_change_class_v1",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_enrolment_class_signup",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_enrolment_class_signup_v1",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_enrolment_level_test",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_enrolment_level_test_v1",
+      "courseUnitId": "a2_06_study_work"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_enrolment_missing_document",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_enrolment_missing_document_v1",
+      "courseUnitId": "a2_06_study_work"
     },
     {
       "kind": "scenario",
@@ -12940,6 +13108,34 @@
     },
     {
       "kind": "scenario",
+      "id": "b1_cancellation_auto_payment",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_cancellation_auto_payment_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_cancellation_early_penalty",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_cancellation_early_penalty_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_cancellation_gym_membership",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_cancellation_gym_membership_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_cancellation_move_out_notice",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_cancellation_move_out_notice_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "scenario",
       "id": "b1_case_status",
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_case_status_v1",
@@ -13048,6 +13244,62 @@
       "id": "b1_hotel_shift",
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_hotel_shift_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_incident_leak_from_upstairs",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_incident_leak_from_upstairs_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_incident_lost_item_desk",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_incident_lost_item_desk_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_incident_parking_scratch",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_incident_parking_scratch_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_incident_witness_note",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_incident_witness_note_v1",
+      "courseUnitId": "b1_02_indirect_speech"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_insurance_claim_documents",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_insurance_claim_documents_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_insurance_claim_rejected",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_insurance_claim_rejected_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_insurance_deductible_share",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_insurance_deductible_share_v1",
+      "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_insurance_what_is_covered",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_insurance_what_is_covered_v1",
       "courseUnitId": "b1_05_complaint_resolution"
     },
     {
@@ -15110,6 +15362,34 @@
     },
     {
       "kind": "scenario",
+      "id": "b2_hiring_reference_consent",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_hiring_reference_consent_v1",
+      "courseUnitId": "b2_05_interview"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_hiring_role_scope",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_hiring_role_scope_v1",
+      "courseUnitId": "b2_05_interview"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_hiring_salary_band",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_hiring_salary_band_v1",
+      "courseUnitId": "b2_05_interview"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_hiring_start_date",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_hiring_start_date_v1",
+      "courseUnitId": "b2_05_interview"
+    },
+    {
+      "kind": "scenario",
       "id": "b2_hold_share",
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_hold_share_v1",
@@ -15233,6 +15513,34 @@
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_pharmacy_claim_v1",
       "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_privacy_data_scope",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_privacy_data_scope_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_privacy_delete_request",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_privacy_delete_request_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_privacy_retention_period",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_privacy_retention_period_v1",
+      "courseUnitId": "b2_03_precise_requests"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_privacy_third_party",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_privacy_third_party_v1",
+      "courseUnitId": "b2_03_precise_requests"
     },
     {
       "kind": "scenario",
@@ -23843,7 +24151,7 @@
       "vocabPack": 209,
       "grammar": 214,
       "smalltalk": 393,
-      "scenario": 312,
+      "scenario": 340,
       "cloze": 662,
       "satz": 456,
       "project": 8
