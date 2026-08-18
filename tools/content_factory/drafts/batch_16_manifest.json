@@ -1,0 +1,276 @@
+{
+  "version": 1,
+  "batch": "16",
+  "status": "merged",
+  "provenance": {
+    "scope": "Original A1 episodes for the C2 expansion shelves.",
+    "rights": "original",
+    "requiresJinReview": true,
+    "promotedAt": "2026-08-18 — Jin 승인 하에 live 로 승격됐다(A1 확장 3칸 파일럿). 이 매니페스트는 생성물이라 status 는 항상 review_only_draft 로 다시 쓰인다 — 승격 여부의 정본은 shelf_assignment.ASSIGNMENT 와 SESSION_LOG 다.",
+    "originalPlan": "docs/HANDOFF_HOEREN_GRID_2026-08-17.md §3.2 (기능 확장 3칸)",
+    "mergedAt": "2026-08-18"
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/c1_batch16_scenarios_c2.json",
+      "review": "tools/content_factory/review/c1_batch16_scenarios.csv",
+      "collection": "scenarios",
+      "count": 24,
+      "levels": {
+        "c2": 24
+      }
+    }
+  ],
+  "recordCount": 24,
+  "questCount": 120,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_ethics_embargo_disclosure_window",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_ethics_consent_form_scope_gap",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_ethics_reviewer_dual_appointment_disclosure",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_ethics_misconduct_review_procedure_defined",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_history_compile_committee_wording_dispute",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_history_monument_inscription_agreement",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_history_sealed_records_disclosure_timing",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_history_merging_conflicting_testimonies",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_aesthetic_poem_rhythm_meaning_loss",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_aesthetic_dialect_subtitle_flatten",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_aesthetic_word_without_equivalent",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_aesthetic_translator_editor_dispute",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_limitation_notice_delay_appeal_window",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_limitation_extension_premise_error_proof",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_limitation_define_accrual_date",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_limitation_ex_officio_review_path",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_jurisdiction_neither_claims_authority",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_jurisdiction_provisional_ruling_no_authority",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_jurisdiction_cross_border_premise",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_jurisdiction_even_if_authorized_escalate",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_representation_fan_rep_mandate_defined",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_representation_minority_view_regardless",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_representation_press_quote_not_official",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_representation_spokesperson_handover_concession",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    }
+  ],
+  "backdrops": {
+    "c2_ethics_embargo_disclosure_window": "office",
+    "c2_ethics_consent_form_scope_gap": "office",
+    "c2_ethics_reviewer_dual_appointment_disclosure": "office",
+    "c2_ethics_misconduct_review_procedure_defined": "office",
+    "c2_history_compile_committee_wording_dispute": "office",
+    "c2_history_monument_inscription_agreement": "office",
+    "c2_history_sealed_records_disclosure_timing": "office",
+    "c2_history_merging_conflicting_testimonies": "office",
+    "c2_aesthetic_poem_rhythm_meaning_loss": "office",
+    "c2_aesthetic_dialect_subtitle_flatten": "office",
+    "c2_aesthetic_word_without_equivalent": "office",
+    "c2_aesthetic_translator_editor_dispute": "office",
+    "c2_limitation_notice_delay_appeal_window": "office",
+    "c2_limitation_extension_premise_error_proof": "office",
+    "c2_limitation_define_accrual_date": "office",
+    "c2_limitation_ex_officio_review_path": "office",
+    "c2_jurisdiction_neither_claims_authority": "office",
+    "c2_jurisdiction_provisional_ruling_no_authority": "office",
+    "c2_jurisdiction_cross_border_premise": "office",
+    "c2_jurisdiction_even_if_authorized_escalate": "office",
+    "c2_representation_fan_rep_mandate_defined": "office",
+    "c2_representation_minority_view_regardless": "office",
+    "c2_representation_press_quote_not_official": "cafe",
+    "c2_representation_spokesperson_handover_concession": "office"
+  },
+  "nonMergeGuards": [
+    "Jin approval required before --apply",
+    "no TTS synthesis or Firebase writes",
+    "no assets/data or lib edits from this batch"
+  ]
+}

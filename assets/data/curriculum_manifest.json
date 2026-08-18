@@ -5580,6 +5580,222 @@
         "concept_c1_fan_labor"
       ],
       "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_ethics_embargo_disclosure_window",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_ethics_consent_form_scope_gap",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_ethics_reviewer_dual_appointment_disclosure",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_ethics_misconduct_review_procedure_defined",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_history_compile_committee_wording_dispute",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_history_monument_inscription_agreement",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_history_sealed_records_disclosure_timing",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_history_merging_conflicting_testimonies",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_aesthetic_poem_rhythm_meaning_loss",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_aesthetic_dialect_subtitle_flatten",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_aesthetic_word_without_equivalent",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_aesthetic_translator_editor_dispute",
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_limitation_notice_delay_appeal_window",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_limitation_extension_premise_error_proof",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_limitation_define_accrual_date",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_limitation_ex_officio_review_path",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_jurisdiction_neither_claims_authority",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_jurisdiction_provisional_ruling_no_authority",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_jurisdiction_cross_border_premise",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_jurisdiction_even_if_authorized_escalate",
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_representation_fan_rep_mandate_defined",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_representation_minority_view_regardless",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_representation_press_quote_not_official",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_representation_spokesperson_handover_concession",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
     }
   ],
   "grammarRuleMap": {

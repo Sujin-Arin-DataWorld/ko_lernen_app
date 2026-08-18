@@ -53,7 +53,7 @@ class LoaderCoverageAuditTest(unittest.TestCase):
 
         self.assertEqual(report["state"], "preview")
         self.assertEqual(report["inventory"], live["inventory"])
-        self.assertEqual(report["inventory"]["scenario"]["total"], 368)
+        self.assertEqual(report["inventory"]["scenario"]["total"], 392)
         self.assertEqual(report["inventory"]["smalltalk"]["total"], 377)
         self.assertEqual(report["inventory"]["cloze"]["total"], 1538)
         self.assertEqual(report["inventory"]["satz"]["total"], 2091)
