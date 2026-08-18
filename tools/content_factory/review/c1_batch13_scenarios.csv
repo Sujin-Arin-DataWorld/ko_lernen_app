@@ -1,0 +1,13 @@
+id,level,ko,de,en,field_notes,상태,jin_memo
+a1_numbers_open_hours,A1,몇 시에 열어요,Wann macht ihr auf,What time do you open,rights: original; shelf=a1_numbers; grammar=N에; gap answer=에는,draft,
+a1_numbers_how_many_left,A1,몇 개 남았어요,Wie viele sind noch da,How many are left,rights: original; shelf=a1_numbers; grammar=N을/를; gap answer=면,draft,
+a1_numbers_floor_and_room,A1,몇 층 몇 호예요,"Welche Etage, welches Zimmer","Which floor, which room",rights: original; shelf=a1_numbers; grammar=N이에요/예요; gap answer=이에요,draft,
+a1_numbers_total_price,A1,다 해서 얼마예요,Was macht das zusammen,How much is it all together,rights: original; shelf=a1_numbers; grammar=V-았/었어요; gap answer=받았어요,draft,
+a1_phone_wrong_number,A1,전화 잘못 거셨어요,Sie haben sich verwählt,You have the wrong number,rights: original; shelf=a1_phone; grammar=안 + V; gap answer=안,draft,
+a1_phone_call_later,A1,지금 통화 괜찮아요,Passt es gerade zum Telefonieren,Is now a good time to talk,rights: original; shelf=a1_phone; grammar=V-고 싶다; gap answer=묻고,draft,
+a1_phone_text_instead,A1,안 받으셔서 문자 남겼어요,Ich habe eine Nachricht hinterlassen,You did not pick up so I texted,rights: original; shelf=a1_phone; grammar=V-았/었어요; gap answer=걸었어요,draft,
+a1_phone_read_back_address,A1,주소 다시 불러 주세요,Lesen Sie die Adresse noch einmal vor,Please read the address back,rights: original; shelf=a1_phone; grammar=V-(으)세요; gap answer=놓아,draft,
+a1_wayfinding_exit_number,A1,몇 번 출구로 나가요,Welcher Ausgang ist der richtige,Which exit do I take,rights: original; shelf=a1_wayfinding; grammar=어떤 N; gap answer=어떤,draft,
+a1_wayfinding_this_way_right,A1,이쪽이 맞아요,Ist das hier richtig,Is this the right way,rights: original; shelf=a1_wayfinding; grammar=N이에요/예요; gap answer=이에요,draft,
+a1_wayfinding_sign_says,A1,저 표지판 뭐라고 써 있어요,Was steht auf dem Schild,What does that sign say,rights: original; shelf=a1_wayfinding; grammar=V-(으)세요; gap answer=돌아가세요,draft,
+a1_wayfinding_how_long_walk,A1,걸어서 얼마나 걸려요,Wie lange läuft man,How long is it on foot,rights: original; shelf=a1_wayfinding; grammar=N에; gap answer=에,draft,

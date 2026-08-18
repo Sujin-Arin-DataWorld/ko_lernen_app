@@ -75,7 +75,7 @@ void main() {
     };
     // 2026-08-18 Batch 11 승격으로 레벨마다 정확히 6편씩 늘었다 (264 → 300).
     const expectedCounts = <String, int>{
-      'a1': 73,
+      'a1': 85,
       'a2': 72,
       'b1': 61,
       'b2': 60,
@@ -92,7 +92,7 @@ void main() {
         final items = scenarioShardRoot(level)['scenarios'] as List;
         expect(items.length, expectedCounts[level], reason: level);
       }
-      expect(allScenarioJson().length, 300);
+      expect(allScenarioJson().length, 312);
     });
 
     test('샤드에는 자기 레벨만 들어 있다', () {

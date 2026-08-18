@@ -81,6 +81,23 @@ grep 으로 확정, 테스트 파일은 안 건드림). 감사 목록에 끼워 
 실패 목록을 diff 해 **내가 새로 깬 것 0건**, 기존 실패 1건(`setUpClass`) 해소를 확인했다 — 남은
 21건은 전부 main 에도 있는 것이고 이 작업 범위 밖이다. `validate_content.py` OK.
 
+**⑭ Batch 13 — A1 기능 확장 3칸을 처음으로 채웠다 (12편).** PR #71 이 만든 기능 확장 18칸은
+콘텐츠가 한 번도 집필된 적이 없다. 그중 A1 3칸을 칸당 4편으로 채우는 파일럿이다
+(Jin: "레벨 c2까지 4편씩, 자연스럽고 진짜 사람이 말하는 것처럼").
+`a1_numbers` 영업시간·남은 개수·층과 호수·총액과 잔돈 / `a1_phone` 잘못 걸린 전화·통화 가능
+시간·문자로 대체·주소 복창 / `a1_wayfinding` 몇 번 출구·방향 확인·표지판 읽기·도보 소요시간.
+대사 원칙은 **상대가 늘 매끄럽게 답하지 않는다** 로 잡았다 — "세 개요. 아, 네 개네요",
+"사백오 호가 아니라 사백육 호예요" 처럼 자기수정과 되묻기가 들어가야 듣기 연습이 된다.
+A1 계약대로 편당 6퀘스트(교정 `particlePop` 포함), 문법은 allowlist 8종을 고루 쓴다.
+**live 300 → 312, 퀘스트 1157 → 1229. A1 서재 15칸이 전부 찼다.** 남은 빈 칸은 20개(A2~C2,
+칸당 4편이면 80편).
+
+**⑮ 매니페스트는 생성물이라 승인 기록을 담을 수 없다.** 빌더 테스트가 setUp 에서 초안을
+재생성하므로 `status: approved` 와 검수 CSV 의 approved 가 테스트 한 번에 되돌아간다 —
+내가 ⑬까지 커밋한 batch 11 매니페스트의 "approved" 도 그렇게 이미 드리프트해 있었다.
+남아야 할 것은 **생성기 소스**에 있어야 하므로 승격 사실을 `provenance.promotedAt` 으로
+옮겼다. 승격 여부의 정본은 `shelf_assignment.ASSIGNMENT` 와 이 로그다.
+
 **⑩ Batch 12 승격 완료 — 312레코드, 관문 6개를 차례로 뚫었다.** 매니페스트가 통합기와 다른
 스키마로 쓰여 있던 게 근본이다: ⓐ `grammarIntents` 키가 `id` 가 아니라 `grammarId`,
 ⓑ 커리큘럼 확장 키가 `curriculumExtensions` 가 아니라 `curriculumAdditions`,
@@ -122,11 +139,9 @@ every 에 실제로 맞고 다음 확장에도 안 깨진다. (적재 순서 ≠
 가 `c2_03_automation_redress` 로 가져가려 한다. 어느 유닛이 그 문구를 소유하느냐는 학습자가
 보는 자리를 바꾼다 — Jin 확인 필요.
 
-**남은 것 (다음 세션).** ⓐ Batch 12 승격 — 위 `c2:daily` 소유권 결정만 나면 나머지는 뚫린다
-(8유닛 + vocab 96·cloze 96·satz 96·smalltalk 16·grammar 8). ⓑ **빈 23칸 신규 집필
-(칸당 4편 = 92편, Jin 지시: "레벨 c2까지 4편씩, 자연스럽고 진짜 사람이 말하는 것처럼")** —
-`a1_numbers/phone/wayfinding`, `a2_enrolment/booking`, `b1_insurance/incident/cancellation`,
-`b2_hiring/privacy`, C1 7칸, C2 6칸. ⓒ 죽은 자산 3장은 이제 죽지 않았다(관심 3칸이 쓴다).
+**남은 것 (다음 세션).** ⓐ ~~Batch 12 승격~~ **완료**(⑩⑪, 커밋 7cde4c74). ⓑ **남은 빈 20칸 신규 집필 (칸당 4편 = 80편)** —
+`a2_enrolment/booking`, `b1_insurance/incident/cancellation`, `b2_hiring/privacy`, C1 7칸,
+C2 6칸. A1 3칸은 Batch 13 으로 끝났다. ⓒ 죽은 자산 3장은 이제 죽지 않았다(관심 3칸이 쓴다).
 ⓓ 파이썬 기존 실패 21건.
 
 ### 2026-08-18 (Claude Sonnet 5, macOS) — 살아 있는 한옥: Phase 2-3 완성(asset_recipe.py) 후속

@@ -378,6 +378,22 @@
       "level": "a1"
     },
     {
+      "id": "seed_scenario_a1_numbers_floor_and_room_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_numbers_how_many_left_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_numbers_open_hours_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_numbers_total_price_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_scenario_a1_office_print_v1",
       "level": "a1"
     },
@@ -419,6 +435,22 @@
     },
     {
       "id": "seed_scenario_a1_pharmacy_ointment_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_phone_call_later_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_phone_read_back_address_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_phone_text_instead_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_phone_wrong_number_v1",
       "level": "a1"
     },
     {
@@ -479,6 +511,22 @@
     },
     {
       "id": "seed_scenario_a1_water_shop_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_wayfinding_exit_number_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_wayfinding_how_long_walk_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_wayfinding_sign_says_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_wayfinding_this_way_right_v1",
       "level": "a1"
     },
     {
@@ -8671,6 +8719,34 @@
     },
     {
       "kind": "scenario",
+      "id": "a1_numbers_floor_and_room",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_numbers_floor_and_room_v1",
+      "courseUnitId": "a1_05_numbers_time"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_numbers_how_many_left",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_numbers_how_many_left_v1",
+      "courseUnitId": "a1_05_numbers_time"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_numbers_open_hours",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_numbers_open_hours_v1",
+      "courseUnitId": "a1_05_numbers_time"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_numbers_total_price",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_numbers_total_price_v1",
+      "courseUnitId": "a1_05_numbers_time"
+    },
+    {
+      "kind": "scenario",
       "id": "a1_office_print",
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_office_print_v1",
@@ -8745,6 +8821,34 @@
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_pharmacy_ointment_v1",
       "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_phone_call_later",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_phone_call_later_v1",
+      "courseUnitId": "a1_07_contact_address"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_phone_read_back_address",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_phone_read_back_address_v1",
+      "courseUnitId": "a1_07_contact_address"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_phone_text_instead",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_phone_text_instead_v1",
+      "courseUnitId": "a1_07_contact_address"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_phone_wrong_number",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_phone_wrong_number_v1",
+      "courseUnitId": "a1_07_contact_address"
     },
     {
       "kind": "scenario",
@@ -8850,6 +8954,34 @@
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_water_shop_v1",
       "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_wayfinding_exit_number",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_wayfinding_exit_number_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_wayfinding_how_long_walk",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_wayfinding_how_long_walk_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_wayfinding_sign_says",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_wayfinding_sign_says_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_wayfinding_this_way_right",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_wayfinding_this_way_right_v1",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "kind": "scenario",
@@ -23711,7 +23843,7 @@
       "vocabPack": 209,
       "grammar": 214,
       "smalltalk": 393,
-      "scenario": 300,
+      "scenario": 312,
       "cloze": 662,
       "satz": 456,
       "project": 8

@@ -49,7 +49,7 @@ class ShelfAssignmentTest(unittest.TestCase):
 
     def test_assignment_covers_the_live_corpus_exactly(self) -> None:
         live = _live_levels()
-        self.assertEqual(len(live), 300)
+        self.assertEqual(len(live), 312)
         report = check_assignment(live)
         self.assertEqual(report["dupes"], [])
         self.assertEqual(report["orphans"], [])
@@ -58,7 +58,7 @@ class ShelfAssignmentTest(unittest.TestCase):
 
     def test_assigned_shelves_are_declared_shelves(self) -> None:
         self.assertTrue(set(ASSIGNMENT).issubset(ALL_SHELVES))
-        self.assertEqual(len(SHELF_BY_ID), 300)
+        self.assertEqual(len(SHELF_BY_ID), 312)
 
     def test_interest_shelves_are_stocked_at_every_level(self) -> None:
         # 관심 3칸은 Batch 11 승격으로 전 레벨이 채워졌다.  한 레벨이라도 비면
@@ -78,7 +78,8 @@ class ShelfAssignmentTest(unittest.TestCase):
         unseeded = sorted(
             shelf for shelf in ALL_SHELVES if not ASSIGNMENT.get(shelf, ())
         )
-        self.assertEqual(len(unseeded), 23, unseeded)
+        # Batch 13 이 A1 확장 3칸을 채웠다 (23 → 20).
+        self.assertEqual(len(unseeded), 20, unseeded)
         expansion = {
             f"{level}_{slug}" for level in LEVELS for slug in EXPANSION_SLUGS[level]
         }

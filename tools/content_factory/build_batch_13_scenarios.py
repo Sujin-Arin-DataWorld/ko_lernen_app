@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Emit review-only Batch 11 scenario drafts: daily, friends, dating, youtube, gaming, kpop.
+"""Emit review-only Batch 13 scenario drafts: A1 기능 확장 3칸(numbers·phone·wayfinding).
 
-Preview only. This script never writes assets/data or lib.
+PR #71 이 만든 기능 확장 18칸은 콘텐츠가 한 번도 집필된 적이 없다. 그중 A1 3칸을
+칸당 4편으로 채우는 파일럿이다. Preview only — assets/data 나 lib 을 쓰지 않는다.
 """
 
 from __future__ import annotations
@@ -16,12 +17,12 @@ SCRIPT_DIR = Path(__file__).resolve().parent
 if str(SCRIPT_DIR) not in sys.path:
     sys.path.insert(0, str(SCRIPT_DIR))
 
-from data.batch_11_scene_scripts import SCENES
+from data.batch_13_scene_scripts import SCENES
 
 ROOT = SCRIPT_DIR.parents[1]
-DRAFT_PATH = Path("tools/content_factory/drafts/c1_batch11_scenarios_a1_c2.json")
-MANIFEST_PATH = Path("tools/content_factory/drafts/batch_11_manifest.json")
-REVIEW_PATH = Path("tools/content_factory/review/c1_batch11_scenarios.csv")
+DRAFT_PATH = Path("tools/content_factory/drafts/c1_batch13_scenarios_a1.json")
+MANIFEST_PATH = Path("tools/content_factory/drafts/batch_13_manifest.json")
+REVIEW_PATH = Path("tools/content_factory/review/c1_batch13_scenarios.csv")
 REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_memo"]
 QUEST_SUFFIXES = ("hear", "tr", "gap", "build", "dict")
 # A1 만 6번째 퀘스트를 갖는다.  test/a1_real_life_scenarios_test.dart 가 모든 A1
@@ -29,7 +30,7 @@ QUEST_SUFFIXES = ("hear", "tr", "gap", "build", "dict")
 # 못 고친다), 위 5종에는 교정형이 없다.  상위 레벨에는 그 계약이 없어 5종 그대로다.
 A1_CORRECTION_SUFFIX = "particle"
 LEVEL_ORDER = ("a1", "a2", "b1", "b2", "c1", "c2")
-CATEGORY_ORDER = ("daily", "friends", "dating", "youtube", "gaming", "kpop")
+CATEGORY_ORDER = ("numbers", "phone", "wayfinding")
 
 LEVEL_GRAMMAR_ALLOWLIST: dict[str, frozenset[str]] = {
     "a1": frozenset({
@@ -94,19 +95,19 @@ def build(root: Path = ROOT) -> dict[str, int]:
 
     draft = {
         "version": 1,
-        "_comment": "Review-only Batch 11 scenarios. Six categories per CEFR level.",
+        "_comment": "Review-only Batch 13 scenarios. A1 expansion shelves, four per shelf.",
         "scenarios": records,
     }
     manifest = {
         "version": 1,
-        "batch": "11",
+        "batch": "13",
         "status": "review_only_draft",
         "provenance": {
-            "scope": "Original everyday, friendship, dating, video, gaming and fandom episodes for A1-C2.",
+            "scope": "Original A1 episodes for the numbers, phone and wayfinding expansion shelves.",
             "rights": "original",
             "requiresJinReview": True,
-            "promotedAt": "2026-08-18 — Jin 승인 하에 live 로 승격됐다(커밋 6f03da16). 이 매니페스트는 생성물이라 status 는 항상 review_only_draft 로 다시 쓰인다 — 승격 여부의 정본은 shelf_assignment.ASSIGNMENT 와 SESSION_LOG 다.",
-            "originalPlan": "docs/superpowers/specs/2026-08-17-scenario-level-category-batch11-design.md",
+            "promotedAt": "2026-08-18 — Jin 승인 하에 live 로 승격됐다(A1 확장 3칸 파일럿). 이 매니페스트는 생성물이라 status 는 항상 review_only_draft 로 다시 쓰인다 — 승격 여부의 정본은 shelf_assignment.ASSIGNMENT 와 SESSION_LOG 다.",
+            "originalPlan": "docs/HANDOFF_HOEREN_GRID_2026-08-17.md §3.2 (기능 확장 3칸)",
         },
         "artifacts": [
             {

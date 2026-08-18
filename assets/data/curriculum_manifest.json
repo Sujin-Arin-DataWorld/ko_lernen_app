@@ -4968,6 +4968,114 @@
         "concept_c2_discourse_institutions"
       ],
       "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_numbers_open_hours",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_numbers_how_many_left",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_numbers_floor_and_room",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_numbers_total_price",
+      "courseUnitId": "a1_05_numbers_time",
+      "conceptIds": [
+        "concept_a1_time_numbers"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_phone_wrong_number",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_phone_call_later",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_phone_text_instead",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_phone_read_back_address",
+      "courseUnitId": "a1_07_contact_address",
+      "conceptIds": [
+        "concept_a1_contact_address"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_wayfinding_exit_number",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_wayfinding_this_way_right",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_wayfinding_sign_says",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_wayfinding_how_long_walk",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
     }
   ],
   "grammarRuleMap": {

@@ -6,6 +6,7 @@
   "scope": "Original everyday, friendship, dating, video, gaming and fandom episodes for A1-C2.",
   "rights": "original",
   "requiresJinReview": true,
+  "promotedAt": "2026-08-18 — Jin 승인 하에 live 로 승격됐다(커밋 6f03da16). 이 매니페스트는 생성물이라 status 는 항상 review_only_draft 로 다시 쓰인다 — 승격 여부의 정본은 shelf_assignment.ASSIGNMENT 와 SESSION_LOG 다.",
   "originalPlan": "docs/superpowers/specs/2026-08-17-scenario-level-category-batch11-design.md"
  },
  "artifacts": [

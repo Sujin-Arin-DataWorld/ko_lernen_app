@@ -220,7 +220,7 @@
     {
       "id": "cluster_a1_05_numbers_time_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_numbers_1_v1",
         "seed_vocab_pack_a1_numbers_2_v1",
@@ -233,7 +233,11 @@
         "seed_cloze_cloze_a1_0070_v1",
         "seed_cloze_cloze_a1_0071_v1",
         "seed_cloze_cloze_a1_0074_v1",
-        "seed_cloze_cloze_a1_0093_v1"
+        "seed_cloze_cloze_a1_0093_v1",
+        "seed_scenario_a1_numbers_floor_and_room_v1",
+        "seed_scenario_a1_numbers_how_many_left_v1",
+        "seed_scenario_a1_numbers_open_hours_v1",
+        "seed_scenario_a1_numbers_total_price_v1"
       ],
       "contentReferences": [
         {
@@ -283,13 +287,29 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0093"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_numbers_floor_and_room"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_numbers_how_many_left"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_numbers_open_hours"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_numbers_total_price"
         }
       ]
     },
     {
       "id": "cluster_a1_06_transport_directions_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_taxi_kakao_v1",
         "seed_vocab_pack_a1_position_v1",
@@ -309,7 +329,11 @@
         "seed_smalltalk_smalltalk_a1_0043_v1",
         "seed_smalltalk_smalltalk_a1_0061_v1",
         "seed_smalltalk_smalltalk_a1_0062_v1",
-        "seed_vocab_pack_a1_subway_card_1_v1"
+        "seed_vocab_pack_a1_subway_card_1_v1",
+        "seed_scenario_a1_wayfinding_exit_number_v1",
+        "seed_scenario_a1_wayfinding_how_long_walk_v1",
+        "seed_scenario_a1_wayfinding_sign_says_v1",
+        "seed_scenario_a1_wayfinding_this_way_right_v1"
       ],
       "contentReferences": [
         {
@@ -387,13 +411,29 @@
         {
           "kind": "vocabPack",
           "id": "a1_subway_card_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_wayfinding_exit_number"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_wayfinding_how_long_walk"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_wayfinding_sign_says"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_wayfinding_this_way_right"
         }
       ]
     },
     {
       "id": "cluster_a1_07_contact_address_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_phone_messenger_reply_v1",
         "seed_grammar_grammar_a1_possessive_particle_v1",
@@ -403,7 +443,11 @@
         "seed_smalltalk_smalltalk_a1_0050_v1",
         "seed_smalltalk_smalltalk_a1_0051_v1",
         "seed_smalltalk_smalltalk_a1_0052_v1",
-        "seed_vocab_pack_a1_post_office_1_v1"
+        "seed_vocab_pack_a1_post_office_1_v1",
+        "seed_scenario_a1_phone_call_later_v1",
+        "seed_scenario_a1_phone_read_back_address_v1",
+        "seed_scenario_a1_phone_text_instead_v1",
+        "seed_scenario_a1_phone_wrong_number_v1"
       ],
       "contentReferences": [
         {
@@ -441,6 +485,22 @@
         {
           "kind": "vocabPack",
           "id": "a1_post_office_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_phone_call_later"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_phone_read_back_address"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_phone_text_instead"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_phone_wrong_number"
         }
       ]
     },

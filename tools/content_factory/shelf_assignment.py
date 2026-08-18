@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""레벨별 15칸 서재(책가도)의 칸 정의와 live 300개 배정.
+"""레벨별 15칸 서재(책가도)의 칸 정의와 live 312개 배정.
 
 정본은 docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md 의
 §4(축 설계)와 부록 A(전수 배정)다.  단 §4.2 관심 3칸은 2026-08-17 Jin 결정으로
@@ -79,8 +79,8 @@ ALL_SHELVES: frozenset[str] = frozenset(
     f"{level}_{slug}" for level in LEVELS for slug in SHELF_SLUGS[level]
 )
 
-# 부록 A — live 300 전수 배정 (264 + Batch 11 36편).  재고 0 인 23칸은 키가
-# 없다: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
+# 부록 A — live 312 전수 배정 (264 + Batch 11 36 + Batch 13 12).  재고 0 인 20칸은
+# 키가 없다: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
 ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_transit": (
         "a1_bus_late", "a1_last_train", "a1_platform_line",
@@ -124,6 +124,24 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a1_partner_more_side_dishes", "a1_partner_wrong_seat",
         "a1_partner_new_year_money", "a1_partner_seollal_bow",
         "a1_partner_songpyeon_too_big",
+    ),
+    "a1_numbers": (
+        "a1_numbers_floor_and_room",
+        "a1_numbers_how_many_left",
+        "a1_numbers_open_hours",
+        "a1_numbers_total_price",
+    ),
+    "a1_phone": (
+        "a1_phone_call_later",
+        "a1_phone_read_back_address",
+        "a1_phone_text_instead",
+        "a1_phone_wrong_number",
+    ),
+    "a1_wayfinding": (
+        "a1_wayfinding_exit_number",
+        "a1_wayfinding_how_long_walk",
+        "a1_wayfinding_sign_says",
+        "a1_wayfinding_this_way_right",
     ),
     "a1_friends": (
         "a1_friends_major_and_number", "a1_gaming_one_more_round",
