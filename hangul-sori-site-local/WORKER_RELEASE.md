@@ -64,8 +64,8 @@ GitHub Pages source claim `hangul-sori.com` again.
 bake the Git
 commit SHA into the Worker, deploy with Wrangler strict mode, and require that
 exact SHA on both domains. They verify 11 public routes, exact plain-text 404s,
-security headers, all owned public assets, binding presence, and the TestFlight
-CTA. If the new version fails verification and is still the active version, the
+security headers, all owned public assets, binding presence, and the gated
+store CTAs. If the new version fails verification and is still the active version, the
 release command rolls back to the exact previously active Worker version.
 
 For a manual or stricter check:
@@ -78,9 +78,9 @@ npm run verify:live:external  # also fetches the Apple TestFlight page
 Then, when doing a manual release check:
 
 1. Open `https://hangul-sori.com` and confirm the current release renders.
-2. Click its iOS/TestFlight CTA. Confirm the browser reaches
-   `https://testflight.apple.com/join/sbvJNQSt` and the Apple page title is
-   `Join the Hangul Sori beta - TestFlight - Apple`.
+2. Click its App Store and Google Play CTAs. Confirm both open the tester
+   application form instead of a store link — Apple and Google only let a
+   tester in after we add that email, so nobody may reach a store first.
 3. Open `https://www.hangul-sori.com` and repeat the render and CTA checks.
 
 List versions through the pinned, sanitized wrapper:
