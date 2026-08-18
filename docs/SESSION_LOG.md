@@ -1,5 +1,40 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-18 (Claude Opus 5, macOS) — C1 확장 7칸 28편 (Batch 15) + PR #72 머지
+
+**PR #72 머지 (`a06bb5bb`).** 올리기 직전에 내 브랜치가 다른 세션의 **미머지 커밋
+`e50fd520` 위에** 얹혀 있는 걸 발견했다 — 그대로 밀면 그쪽 작업까지 올라간다.
+`origin/main` 위로 리베이스해 내 6개만 떼어 올렸다(해시가 바뀌어 로그도 맞췄다).
+
+**Batch 15 — C1 기능 확장 7칸 28편.** `conflict_interest`(지분 고지·회피 신청·협찬 강연·
+겸직) · `policy`(시범 후 확대·부담 주체·일몰 조항·예외의 경계) · `clinical`(설명 동의·재판독·
+시험 중단·자료 2차 이용) · `critique`(작품과 사람 분리·익명 심사의 한계·지표 왜곡·공개 수위) ·
+`mediation`(기본 규칙·상대 말 되말하기·부분 합의·결렬선) · `facework`(거절·따로 정정·지적
+받기·공개 칭찬의 무게) · `attribution`(저자 순서·무상 번역의 이름·출처 없는 재사용·단체 명의).
+
+C1 은 **판단의 조건을 드러내는 층위**로 잡았다 — 무엇을 아는가가 아니라 그 앎이 어디까지
+유효하고 누가 이득을 보는지를 말로 표시한다. 그래서 장면이 결론이 아니라 유보와 조건으로
+끝난다("그렇습니다" 가 아니라 "그 부분은 여지가 있습니다"). 문법 6종(감안하면·여지가 있다·
+지 않는 한·한편·한이 있어도·마당에)이 그 층위를 그대로 나른다.
+
+**live 340 → 368, 퀘스트 1369 → 1509. 남은 빈 칸은 6개, 전부 C2.**
+
+**도구 쪽 한 가지.** `build_can_do_segments.resolve()` 의 **scenario 분기에도 "라우팅되면
+부모 검사 우회" 를 줬다.** Batch 12 가 만든 신규 유닛(c1_03~c1_06)에는 세그먼트가 없고
+모듈 교리대로 세그먼트를 새로 만들지도 않으므로, 이 우회가 없으면 그 유닛의 시나리오는
+어디에도 붙지 못한다. cloze·satz·grammar·vocabPack 에는 이미 있던 우회다.
+
+**내가 낸 결함 둘.** ① 영어 대사 4곳에 uncontracted "I am"/"I will" (Batch 14 와 같은 실수다).
+② `conflict_interest` 4편의 id 를 `c1_conflict_*` 로 줄여 써 `{level}_{category}_` 규약을
+어겼다 — 센서를 약화시키는 대신 id 를 `c1_conflict_interest_*` 로 맞추고 재승격했다.
+
+**검증.** `flutter test` 4011건 중 **4010 green**. 남은 1건 `asset_orphan_guard_test` 는
+**main 자체의 red** 다(한옥 자산 14개를 배선하는 커밋이 아직 main 에 없다). 파이썬 201건은
+main 기준선 대비 새로 깬 것 0건. `validate_content` OK.
+
+**남은 것.** C2 확장 6칸(`ethics`·`history`·`aesthetic`·`limitation`·`jurisdiction`·
+`representation`) × 4편 = 24편.
+
 ### 2026-08-18 (Claude Opus 5, macOS) — 책가도 15칸 재결정 + Batch 11 승격(264→300) + 승격 파이프라인 복구
 
 **왜 이 작업이 필요했나 — 4시간 시차 충돌.** Jin 이 "batch 만든 게 왜 콘텐츠로 안 들어가나"를
