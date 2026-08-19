@@ -1,5 +1,16 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 미디어 문구 수고했어 ≠ guten Job
+
+**무엇을 왜.** `오늘 하루도 수고했어`를 실적 칭찬(guten Job / great job)으로
+옮기면 한국어 성격이 사라진다. DE는 Heute auch wieder viel, EN은 long day.
+화이팅 EN에서 Konglish fighting을 빼고, 눈치·큰일·한 만큼도 각 언어 구어로.
+스캔 테스트에 media/culture와 이 직역 패턴을 넣었다.
+
+**검증.** learner_copy_scan + 해당 문자열 Grep.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 시나리오 제목 Convenience-Hacks → Spätkauf-Tipps
 
 **무엇을 왜.** A1 편의점 문화 노트 제목이 독일어 화면에 영어 Hacks를

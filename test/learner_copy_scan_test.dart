@@ -17,6 +17,8 @@ const _shippedLearnerFiles = <String>[
   'assets/data/cloze.json',
   'assets/data/satz_sentences.json',
   'assets/data/pronunciation_phrases.json',
+  'assets/data/media_phrases.json',
+  'assets/data/culture_notes.json',
 ];
 
 const _generatorFiles = <String>[
@@ -54,6 +56,11 @@ final _textbookPhrases = <RegExp>[
   RegExp('I said it is delicious at every plate'),
   RegExp('double-bow angle'),
   RegExp('drilled the New Year bow angle'),
+  // 직역·영어-in-독일어. 한국어 원문은 그대로 두고 DE/EN 성격만 막는다.
+  RegExp('guten Job gemacht'),
+  RegExp(r'Cheer up, fighting'),
+  RegExp('Convenience-Hacks'),
+  RegExp(r'Convenience Store'),
 ];
 
 // 2026-08-17: Batch 07/08 은 수량·ID·스키마 게이트를 전부 통과했지만, 문장을
