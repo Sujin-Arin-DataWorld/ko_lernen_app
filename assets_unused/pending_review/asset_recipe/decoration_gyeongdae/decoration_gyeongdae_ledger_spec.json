@@ -1,0 +1,23 @@
+{
+  "id": "cutout-fa-decoration-gyeongdae-505fe7c3-d63a-4a24-9bcf-79a75969f3ec",
+  "provider": "bbanana",
+  "model": "GPT Image 2",
+  "providerTaskId": "505fe7c3-d63a-4a24-9bcf-79a75969f3ec",
+  "mediaKind": "static",
+  "occurredAtUtc": "2026-08-19T02:38:00Z",
+  "costCredits": 2.7,
+  "promptText": "SEE_RECIPE_PROMPT",
+  "promptSource": "tool/asset_recipe.py --emit-work-order for cutout-fa-decoration-gyeongdae",
+  "inputAssets": [
+    {
+      "path": "assets/illustrations/decorations/decoration_jagae_mungap.png"
+    }
+  ],
+  "outputAssets": [
+    {
+      "path": "assets_unused/pending_review/asset_recipe/decoration_gyeongdae/decoration_gyeongdae_cut.png",
+      "decision": "approved",
+      "kind": "part"
+    }
+  ]
+}

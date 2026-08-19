@@ -1,0 +1,26 @@
+{
+  "recipeId": "cutout-fa-decoration-gyeongdae",
+  "kind": "cutout",
+  "family": "F-A",
+  "targetSlug": "decoration_gyeongdae",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "1:1",
+  "referenceImages": [
+    "assets/illustrations/decorations/decoration_jagae_mungap.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a Korean gyeongdae (경대), a small standalone table mirror WITHOUT any drawers (a museum reference photo confirms this specific piece has no drawers -- it is only a mirror on a stand): a small rectangular mirror panel held upright in a simple walnut wood frame, propped up at a backward-leaning angle by a narrow foot base so it stands on its own like a free-standing mirror. Render the mirror surface as a smooth flat muted stoneGrey facet (a plain reflective panel, not a scene), the frame in this set's dark lacquer and walnut wood with a thin dancheong gold trim line."
+  },
+  "subjectGuards": [
+    "NO drawers anywhere -- this is a simple standing mirror on a frame, not a chest or box with storage",
+    "mirror surface renders as a plain flat muted grey facet, NOT a reflection, NOT another scene, NOT glossy",
+    "the frame stands upright on a narrow base, tilted slightly backward like a free-standing mirror",
+    "no readable text, no hanja"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/decoration_gyeongdae/decoration_gyeongdae_raw.png",
+  "note": "Candidate from the 2026-08-18 handoff's priority list (경대). 2026-08-19: Jin sent 은평역사한옥박물관 reference photos -- the museum's gyeongdae is explicitly labelled '서랍이 없는 소형 경대로 오늘날의 거울 역할' (small, no drawers, functions as today's mirror). Revised from an earlier drawer-box guess to match."
+}

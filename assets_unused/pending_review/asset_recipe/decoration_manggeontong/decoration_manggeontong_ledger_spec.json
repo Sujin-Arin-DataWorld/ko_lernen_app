@@ -1,0 +1,23 @@
+{
+  "id": "cutout-fa-decoration-manggeontong-task-unified-1787107147-ecbfsmgl",
+  "provider": "bbanana",
+  "model": "GPT Image 2",
+  "providerTaskId": "task-unified-1787107147-ecbfsmgl",
+  "mediaKind": "static",
+  "occurredAtUtc": "2026-08-19T02:41:00Z",
+  "costCredits": 2.7,
+  "promptText": "SEE_RECIPE_PROMPT",
+  "promptSource": "tool/asset_recipe.py --emit-work-order for cutout-fa-decoration-manggeontong",
+  "inputAssets": [
+    {
+      "path": "assets/illustrations/decorations/decoration_hyangno.png"
+    }
+  ],
+  "outputAssets": [
+    {
+      "path": "assets_unused/pending_review/asset_recipe/decoration_manggeontong/decoration_manggeontong_cut.png",
+      "decision": "approved",
+      "kind": "part"
+    }
+  ]
+}

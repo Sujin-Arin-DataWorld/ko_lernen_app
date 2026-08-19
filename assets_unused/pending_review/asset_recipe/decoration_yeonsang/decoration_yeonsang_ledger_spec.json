@@ -1,0 +1,23 @@
+{
+  "id": "cutout-fa-decoration-yeonsang-81dccd43-0d61-4a47-b56c-ade7d54c9338",
+  "provider": "bbanana",
+  "model": "GPT Image 2",
+  "providerTaskId": "81dccd43-0d61-4a47-b56c-ade7d54c9338",
+  "mediaKind": "static",
+  "occurredAtUtc": "2026-08-19T02:40:00Z",
+  "costCredits": 2.7,
+  "promptText": "SEE_RECIPE_PROMPT",
+  "promptSource": "tool/asset_recipe.py --emit-work-order for cutout-fa-decoration-yeonsang",
+  "inputAssets": [
+    {
+      "path": "assets/illustrations/decorations/decoration_seoan.png"
+    }
+  ],
+  "outputAssets": [
+    {
+      "path": "assets_unused/pending_review/asset_recipe/decoration_yeonsang/decoration_yeonsang_cut.png",
+      "decision": "approved",
+      "kind": "part"
+    }
+  ]
+}

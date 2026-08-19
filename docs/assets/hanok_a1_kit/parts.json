@@ -184,6 +184,24 @@
       "sha256": "c685820f3ffb04fbcb3b2237487028c17a4bce3a387850f5ae13496c831c043a",
       "source": "bbanana nano-banana-pro task 5baedfcabb9a487981741880369c800e (prop sheet) -> tool/cut_prop_sheet.py -> tool/make_kit_parts.py movein",
       "decision": "pending_jin_review"
+    },
+    "frame_headbeam": {
+      "file": "assets_unused/pending_review/a1_kit/generated/frame_headbeam.png",
+      "sha256": "77d28e3afc7833badcdcd07b57845de5f42c40e5a942c587b4c9b2ba8f250b55",
+      "source": "tool/make_a1_frame_parts.py band-cut of generated/08_frame_purlins.png (bbanana task p9hh9hpgk9rmy0d01zb80bs7v0); vertical members redrawn on the measured a1_kit_overrides.json pillarXRanges, 0 credit — head beam / changbang tier y112-131, model timber unchanged",
+      "decision": "pending_jin_review"
+    },
+    "frame_upper": {
+      "file": "assets_unused/pending_review/a1_kit/generated/frame_upper.png",
+      "sha256": "3532980d79e04081b3796a597fe12bd639b399a5cc10e0947862a7825270bffc",
+      "source": "tool/make_a1_frame_parts.py band-cut of generated/08_frame_purlins.png (bbanana task p9hh9hpgk9rmy0d01zb80bs7v0); vertical members redrawn on the measured a1_kit_overrides.json pillarXRanges, 0 credit — purlin + ridge tier y45-111, model timber unchanged",
+      "decision": "pending_jin_review"
+    },
+    "frame_posts": {
+      "file": "assets_unused/pending_review/a1_kit/generated/frame_posts.png",
+      "sha256": "e16e3f7e97f1493eeabe38526308ecbacfaf9bf2db065c33b54f6427e4d0baaa",
+      "source": "tool/make_a1_frame_parts.py band-cut of generated/08_frame_purlins.png (bbanana task p9hh9hpgk9rmy0d01zb80bs7v0); vertical members redrawn on the measured a1_kit_overrides.json pillarXRanges, 0 credit — eight capital blocks y131-156 drawn on the real pillar x-ranges",
+      "decision": "pending_jin_review"
     }
   }
 }

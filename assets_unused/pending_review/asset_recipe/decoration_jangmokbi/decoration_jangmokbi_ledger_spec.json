@@ -1,0 +1,23 @@
+{
+  "id": "cutout-fa-decoration-jangmokbi-task-unified-1787107360-5mfdpbt0",
+  "provider": "bbanana",
+  "model": "GPT Image 2",
+  "providerTaskId": "task-unified-1787107360-5mfdpbt0",
+  "mediaKind": "static",
+  "occurredAtUtc": "2026-08-19T02:44:00Z",
+  "costCredits": 2.7,
+  "promptText": "SEE_RECIPE_PROMPT",
+  "promptSource": "tool/asset_recipe.py --emit-work-order for cutout-fa-decoration-jangmokbi",
+  "inputAssets": [
+    {
+      "path": "assets/illustrations/decorations/decoration_munbangsau.png"
+    }
+  ],
+  "outputAssets": [
+    {
+      "path": "assets_unused/pending_review/asset_recipe/decoration_jangmokbi/decoration_jangmokbi_cut.png",
+      "decision": "approved",
+      "kind": "part"
+    }
+  ]
+}

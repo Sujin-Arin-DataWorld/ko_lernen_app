@@ -1,0 +1,64 @@
+{
+ "source": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_yeonsang/decoration_yeonsang_raw.png",
+ "sourceSha256": "6dbbdd0a8fe79a1b8ed0688a03fd5c1813470e9c40f0828c48e3edce6187642e",
+ "out": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_yeonsang/decoration_yeonsang_cut.png",
+ "outSha256": "387dc76c3a5417a2453c24fae30cf5e346438bc185584224643929f1e92603fa",
+ "sourceSize": [
+  2304,
+  1536
+ ],
+ "outSize": [
+  1286,
+  1095
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   499,
+   197,
+   1785,
+   1292
+  ]
+ ],
+ "visiblePixels": 1045060,
+ "coveragePct": 74.21,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    8.1,
+    244.2,
+    37.4
+   ],
+   "greenness": 206.7
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    8.3,
+    244.6,
+    39.0
+   ],
+   "greenness": 205.6
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    7.4,
+    244.4,
+    36.8
+   ],
+   "greenness": 207.6
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    8.2,
+    244.8,
+    38.5
+   ],
+   "greenness": 206.3
+  }
+ ],
+ "pillow": "10.4.0"
+}

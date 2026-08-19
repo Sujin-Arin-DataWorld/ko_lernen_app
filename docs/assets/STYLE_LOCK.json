@@ -59,7 +59,10 @@
         "decoration_sabangtakja", "decoration_boryo_set", "decoration_bangseok_pair",
         "decoration_bandaji", "decoration_hwaro", "decoration_deungjan",
         "decoration_geomungo", "decoration_baduk", "decoration_mokchim",
-        "decoration_byeongpung_small", "decoration_gobi", "decoration_hyangno"
+        "decoration_byeongpung_small", "decoration_gobi", "decoration_hyangno",
+        "decoration_baekja_byeong", "decoration_jagaeham", "decoration_boseokham",
+        "decoration_gyeongdae", "decoration_yakjang", "decoration_yeonsang",
+        "decoration_jangmokbi", "decoration_manggeontong", "decoration_mukpodo_byeongpung"
       ],
       "anchors": [
         "assets/illustrations/decorations/decoration_seoan.png",

@@ -1,0 +1,27 @@
+{
+  "recipeId": "cutout-fa-decoration-jangmokbi",
+  "kind": "cutout",
+  "family": "F-A",
+  "targetSlug": "decoration_jangmokbi",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "2:3",
+  "referenceImages": [
+    "assets/illustrations/decorations/decoration_munbangsau.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a Korean jangmokbi (장목비), a duster made of bundled pheasant tail feathers (꿩 꼬리털을 묶어 만든 청소 도구): a long straight wooden handle, ending in a bundle of very long, thin, gently curving tail-feather strands tied together near the base and fanning outward and drooping down at the tip -- long and slender like pheasant tail feathers, not a wide round fan shape. Rendered as the same low-poly faceted plane style as the two writing brushes already in this set (angular tapered facets standing in for the feather strands, not soft realistic feather texture). Hang the object so the handle is at top and the long feather bundle droops down the frame."
+  },
+  "subjectGuards": [
+    "one duster only, no stand, no second object",
+    "the feather bundle is made of several long THIN drooping strands (like a pheasant's actual tail feathers), NOT a wide round fan and NOT a short bristle brush",
+    "the feather strands are flat angular facets like folded paper, matching the brush tips in the reference -- NOT soft fluffy realistic feathers",
+    "elongated silhouette with the handle at top and feathers hanging down, filling the frame vertically",
+    "no readable text, no hanja"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/decoration_jangmokbi/decoration_jangmokbi_raw.png",
+  "note": "Candidate from the 2026-08-18 handoff's priority list (장목비). 2026-08-19: Jin sent 은평역사한옥박물관 reference photos showing the actual object hanging on the wall -- '꿩 꼬리털을 묶어 만든 오늘날의 청소 도구', long drooping thin feather strands, not a wide fan. Revised SUBJECT to match. decoration_munbangsau.png's brush tips remain the closest existing facet-style precedent for feather/frond texture."
+}

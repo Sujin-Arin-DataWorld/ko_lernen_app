@@ -1,0 +1,26 @@
+{
+  "recipeId": "cutout-fa-decoration-yakjang",
+  "kind": "cutout",
+  "family": "F-A",
+  "targetSlug": "decoration_yakjang",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "2:3",
+  "referenceImages": [
+    "assets/illustrations/decorations/decoration_bandaji.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a Korean yakjang (약장), a tall wooden apothecary medicine chest built as a grid of many small identical square drawers -- at least six rows and three columns of small drawers filling the entire front face, each drawer the same size with a single small round brass pull centred on it. The chest stands on short block feet and has a plain flat top with a thin brass edge trim."
+  },
+  "subjectGuards": [
+    "the grid of many identical small square drawers is the single defining feature -- do not simplify it into two or three large drawers like a normal chest",
+    "every drawer front is a plain wood facet with only a small round brass pull -- NO labels, NO hanja characters, NO text of any kind on any drawer",
+    "tall proportions, taller than it is wide",
+    "no readable text anywhere in the image"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/decoration_yakjang/decoration_yakjang_raw.png",
+  "note": "New candidate from the 2026-08-18 handoff's priority list (약장). No photo reference from Jin exists -- real yakjang drawers are usually labelled with hanja, which STYLE_LOCK's ABSOLUTELY AVOID list forbids, so subjectGuards explicitly strip labels."
+}

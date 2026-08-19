@@ -1,0 +1,64 @@
+{
+ "source": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_baekja_byeong/decoration_baekja_byeong_raw.png",
+ "sourceSha256": "cff0bbabff5bfd88135f6dc2344bef61fbf6e0909e2df9280ae4ece74901c972",
+ "out": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_baekja_byeong/decoration_baekja_byeong_cut.png",
+ "outSha256": "a621104f46fc0e23a5583f3bf7cbc54344560066584376e6a7b224b89ffe4fcb",
+ "sourceSize": [
+  1536,
+  2304
+ ],
+ "outSize": [
+  955,
+  1783
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   290,
+   237,
+   1245,
+   2020
+  ]
+ ],
+ "visiblePixels": 1122493,
+ "coveragePct": 65.92,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    5.7,
+    248.7,
+    3.6
+   ],
+   "greenness": 243.0
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    5.4,
+    248.5,
+    4.0
+   ],
+   "greenness": 243.2
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    4.7,
+    249.2,
+    3.5
+   ],
+   "greenness": 244.5
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    5.2,
+    249.2,
+    3.9
+   ],
+   "greenness": 244.1
+  }
+ ],
+ "pillow": "10.4.0"
+}

@@ -1,0 +1,64 @@
+{
+ "source": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_jagaeham/decoration_jagaeham_raw.png",
+ "sourceSha256": "28fbb1bae2feca0a393779b0d21940e4f4300d1b6f4eee2fa11eaa81d4be2419",
+ "out": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_jagaeham/decoration_jagaeham_cut.png",
+ "outSha256": "54801355031e07aefd2622a8c49a6b85c11e7a498be78ac4f77b84a610f275ac",
+ "sourceSize": [
+  2304,
+  1536
+ ],
+ "outSize": [
+  1858,
+  1078
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   228,
+   215,
+   2086,
+   1293
+  ]
+ ],
+ "visiblePixels": 1678960,
+ "coveragePct": 83.83,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    4.5,
+    248.3,
+    25.5
+   ],
+   "greenness": 222.8
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    4.1,
+    248.7,
+    26.4
+   ],
+   "greenness": 222.3
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    3.9,
+    248.5,
+    24.3
+   ],
+   "greenness": 224.1
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    4.1,
+    248.2,
+    25.8
+   ],
+   "greenness": 222.5
+  }
+ ],
+ "pillow": "10.4.0"
+}

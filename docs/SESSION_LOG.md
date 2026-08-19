@@ -1,5 +1,96 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Claude Opus 5, macOS) — A1 07/08 기둥 정렬 수정 + 별당·서고 생성
+
+**① 사랑채 07/08 골조가 기둥과 어긋나던 것.** Jin이 눈으로 잡아냈다. 실측하니
+`a1_kit_overrides.json` 기둥 8개 중 **1개만** 모델이 그린 세로부재와 5px 안에 들어왔고
+중앙값 오차는 ~24px(기둥 폭 16-20px), 기둥 4·5번 위에는 부재가 아예 없었다. 원인은
+플레이북 §4의 `align_model_frame.py --top-row 112` — 골조 이미지 **한 장**을 가로로 잘라
+07/08을 만드는데, 가로 분할로는 가로 오차를 못 고친다. 모델은 균등 간격으로 그렸지만 실제
+사랑채 칸은 110·111·**83**·**123**·**83**·110·110 (가운데가 계단 때문에 좁다).
+09부터 티가 안 나는 이유도 확인 — 서까래 45개가 그 띠를 덮는다.
+
+**고침(0크레딧).** `tool/make_a1_frame_parts.py` 신규. 모델의 긴 가로재는 살리고 세로부재만
+교체한다: `frame_headbeam`(y112-131 머리보) + `frame_upper`(y45-111 도리·종도리) +
+`frame_posts`(y131-156, 실측 기둥 x에 주두 8개를 기둥 파트에서 색 샘플링해 새로 그림).
+`stage_07/08`은 이 부품들로 교체, `stage_09/10`은 기존 부품 아래에 새 부품을 깔아 연속성 유지.
+
+**검증.** 07~11 재합성 전부 게이트 통과 — 구조 연속성 recall **1.0**, containment 위반 0,
+edge drift 0, chroma 0, 최대 285KB(상한 350KB). 10→11도 recall 1.0. 대조 시트
+`a1_kit/qa/fix_0708_compare_2026-08-19.png`.
+
+**② A2 외관 오버레이 3종.** 결정론 재확인만 했다 — `compose_a2_exterior_overlays.py` 재실행
+결과가 기존 QA와 **바이트 동일**, zone 위반 0. 승격은 안 했다: `asset_orphan_guard_test`가
+lib/ 미참조 에셋을 막으므로 pubspec 선언만으로는 안 되고 렌더러 배선(PR5b)이 필요하다.
+그건 라이브 화면 변경이라 Jin 기기 검수 전에는 손대지 않는다. 장독 위치도 A/B 미정.
+
+**③ 별당·서고 생성 (16cr).** DRAFT를 Jin 승인(2026-08-19)으로 풀고 생성.
+- 별당: 3콜 12cr. try1 지붕이 하나 더 떠서 거절(neon 3.8%>3.0%), try2 톤 게이트는 통과했으나
+  3/4 회전 뷰 + 마름모 기단이라 거절(기존 건물은 전부 정면 입면), try3에서 **카메라 강제 블록**을
+  넣고 통과. satMean 0.3187 / valMean 0.5275 / neon 0.01%.
+- 서고: 1콜 4cr. 별당에서 배운 카메라·단일지붕 블록을 처음부터 넣어 1발 통과.
+  satMean 0.3498 / valMean 0.5111 / neon 0.
+- 둘 다 모델이 **떠 있는 지붕 조각**을 냈다 — 최대 연결성분만 남겨 결정론적으로 제거.
+  서고는 창살로 초록이 새서 내부 구멍도 메웠다(지도 위 건물은 불투명해야 한다).
+- 산출물은 `assets_unused/pending_review/estate_stages/{byeoldang,seogo}/`, 원장 초안 동봉.
+
+**런타임 승격 완료(Jin 승인 2026-08-19).** 원장에서 `a1-states-compose-2026-08-17`의 07-10 출력 4건을 `rejected`로 내리고(구 sha는 그 레코드 note에 보존), 0크레딧 신규 레코드 `a1-states-recompose-frame-2026-08-19`이 새 4장 + 신규 부품 3개를 approved로 기록한다. 스키마가 decision을 approved/rejected 둘로만 허용해서 'superseded'는 못 쓴다. `promote_hanok_a1_states.py --apply` 16/16 통과, `check_personal_hanok_assets.py --require-a1-states` 통과, `flutter test hanok_v1_asset_provenance_test asset_orphan_guard_test` 17/17 통과. pubspec은 이미 선언돼 있어 바로 반영된다.
+
+**정정.** 앞 세션에서 "visualBounds로 화면 배율만 조정하면 싸다"고 했는데 틀렸다. `visualBounds`는 잠금해제 스포트라이트 위치용이고, 지도는 `personal_hanok_map.dart`가 레이어 PNG를 `BoxFit.cover`로 전체 캔버스에 겹칠 뿐 레이어별 변환이 없다. 크기를 바꾸려면 ① PNG 자체를 다시 그리거나 ② 렌더러에 레이어 변환을 새로 넣어야 한다.
+
+**하지 않은 것.** 오버레이 배선,
+별당·서고의 단계(s1~s4) 저작·지도 배치·카탈로그 등록. 전부 Jin 승인 대기.
+별당/서고 배치 구역이 10px 겹치는 것도 배치 때 조정 필요(레시피 자체 경고사항).
+
+**크레딧.** 560.1 → 544.1 (16cr).
+
+**커밋해시.** 없음 — 커밋/푸시 안 함.
+
+### 2026-08-19 (Claude Sonnet 5, macOS) — 사랑방 소품 9종 생성 (F-A, 전부 게이트 통과, 앱 미등록)
+
+**무엇을 왜.** Jin이 은평역사한옥박물관 사랑채 참고사진을 보내고 "필요한 소품 다 뽑아"를
+승인. `.claude/handoffs/`의 우선순위 목록(백자술병·자개함·보석함·경대·약장·연상·장목비·
+망건통·병풍변형)에서 담배 세트만 제외하고 9종 전부 생성. `docs/assets/STYLE_LOCK.json`
+F-A `members`에 9개 슬러그 선등록(러너 게이트가 요구) 후 각각 `docs/assets/recipes/
+cutout-fa-decoration-*.json` 신규 작성 → `tool/asset_recipe.py --check/--emit-work-order`
+→ `generate_image`(GPT Image 2, 2K) → `--ingest`(cut+gate) 순서로 진행. 참조 이미지는
+항상 F-A 기존 앵커(hyangno/jagae_mungap/bandaji/seoan/munbangsau/byeongpung_small)만
+사용 — 실물 사진을 참조로 주면 프롬프트 골격이 "참조 속 물체는 다시 그리지 마라"고 해서
+형태 자체가 회피된다. 신규 물체 형태는 SUBJECT 텍스트 서술로만 지정.
+
+**결과.** 9/9 게이트 통과 (`assets_unused/pending_review/asset_recipe/decoration_*/`):
+자개함/보석함/경대/약장/연상/장목비/망건통/묵포도병풍은 전부 1차 시도에 통과. 백자술병은
+5차 시도까지 갔다 — 1차 satMean 0.264 과소채도 실패, 2차 valMean 0.730 과다밝기 실패,
+3차 "호두목 다크 스톤웨어" 톤으로 게이트는 통과(satMean 0.674/valMean 0.299)했지만 Jin이
+실물 검토에서 "나무처럼 보인다, 도자기색으로" 반려, 4차 stoneGrey 위주 옅은 청자색은
+satMean 0.192로 다시 실패(육안은 좋았으나 채도 하한 0.30 미달), 5차에서 deepMutedTeal을
+주색으로 뒤집은 짙은 청자 유약 톤으로 게이트(satMean 0.578/valMean 0.322)와 Jin 승인을
+동시에 통과. 크레딧 총 35.1cr 소비(595.2→560.1, budget staticMax 600 대비 여유 충분).
+**`--ingest`가 승인 결정까지 하지는 않는다** — cut PNG는 pending_review에 있을 뿐,
+`kAvailableDecorations`/ARB/STYLE_LOCK.json anchors에 등록되지 않았고
+`tool/ledger_append.py --append`도 아직 안 돌렸다(각 폴더의 `*_ledger_spec.json`은 초안).
+다음 세션은 Jin이 9장을 직접 열어 확인한 뒤에만 등록 단계로 진행.
+
+**업로드 사고.** 앵커 이미지를 base64로 손으로 붙여넣다가 jagae_mungap이 손상되고
+munbangsau가 bandaji 사본으로 잘못 매핑된 걸 발견 — 두 URL을 실제로 다운로드해 PIL로
+치수 대조하고서야 잡았다. `--check`가 URL 형식만 보고 내용까지 검증하진 않는다는 뜻.
+
+**경대/장목비/묵포도병풍 SUBJECT 정정.** 박물관 사진 기준: 경대는 서랍 없는 소형 거울
+(초안은 서랍 있다고 잘못 가정), 장목비는 꿩 꼬리털 다발이 아래로 늘어진 형태(넓은 부채
+모양 아님), 묵포도병풍은 사랑채 내부 사진에 실제로 존재(추측 추가가 아님) — 세 SUBJECT
+텍스트를 재작성한 뒤 생성.
+
+**하지 않은 것.** 앱 런타임 등록(카탈로그/ARB/STYLE_LOCK anchors), `ledger_append.py
+--append` 실행, 한옥 건물(사랑채 등) 단계별 골조 에셋 확장 — Jin이 요청했으나 이 세션은
+소품 9종에서 멈췄다. `lib/main.dart`/`ios/Podfile.lock`의 미커밋 변경은 이 세션 것이
+아니다(건드리지 않음, 다른 세션의 선행 작업으로 추정).
+
+**검증.** `tool/asset_recipe.py --ingest`가 각 항목마다 `tool/check_style_conformance.py`
+게이트(satMean/valMean/neonFraction/greenRim/paletteDistance)를 돌렸고 9/9 `"ok": true`.
+`python3.12 -m unittest tool.test_style_lock tool.test_check_style_conformance
+tool.test_ledger_append tool.test_asset_recipe` 42/42 (작업 시작 전 확인).
+
+**커밋해시.** 없음 — 커밋/푸시 안 함(Jin 지시 대기).
 ### 2026-08-19 (Cursor Grok 4.6, Cloud) — PR #85를 main에 맞춘다
 
 **무엇을 왜.** Jin이 `cursor/play-internal-only-f7a6` / #85 도 main에
