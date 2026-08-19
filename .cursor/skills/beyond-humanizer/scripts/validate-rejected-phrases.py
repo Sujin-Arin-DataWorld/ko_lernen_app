@@ -31,6 +31,8 @@ REJECTED = (
     "look asking for a translation",
     "When does it go up?",
     "When will it go up?",
+    "I'll line it up like that",
+    "Do not write long",
 )
 
 

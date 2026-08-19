@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 맞춰 두다 ≠ line it up
+
+**무엇을 왜.** Beyond Humanizer: `맞춰 두겠습니다`는 그렇게 맞춘다는 뜻이지
+정렬 절차가 아니다. `길게 쓰지 말고`도 Do not write long 교과서 영어.
+DE는 이미 맞음. 생성기 템플릿도 같이.
+
+**검증.** flutter test scan/cloze.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — Beyond Humanizer로 권한·직책 창작을 걷어냄
 
 **무엇을 왜.** Jin의 `JinnysHumanizer_v1` 그대로: 자연스러운 DE/EN이
@@ -16,9 +26,9 @@
 - 생성기 뼈대 `Mit formelle Bitte bittest du…` → `Mit dieser Form…`.
 - 스킬: `.cursor/skills/beyond-humanizer/`. 한국어 표제어·ID는 유지.
 
-**검증.** 스크립트 unicode/rejected-phrases + flutter test scan/cloze/satz/content_id/vocab_pack.
+**검증.** 스크립트 unicode/rejected-phrases + flutter test scan/cloze/satz/content_id/vocab_pack 43 passed.
 
-**커밋해시.** 이 로그와 같은 커밋.
+**커밋해시.** `749a8b9f`.
 
 ### 2026-08-19 (Cursor) — 예산 이월·과장 표현 Satz를 적은 문장으로
 

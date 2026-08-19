@@ -90,6 +90,8 @@ final _textbookPhrases = <RegExp>[
   RegExp('mandate edge'),
   RegExp(r'When does it go up\?'),
   RegExp(r'When will it go up\?'),
+  RegExp("I'll line it up like that"),
+  RegExp('Do not write long'),
 ];
 
 // 2026-08-17: Batch 07/08 은 수량·ID·스키마 게이트를 전부 통과했지만, 문장을
