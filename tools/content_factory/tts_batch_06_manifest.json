@@ -1,0 +1,44 @@
+{
+  "batch": "06",
+  "date": "2026-08-19",
+  "authorization": {
+    "approvedBy": "Jin",
+    "approvedAt": "2026-08-19",
+    "scope": "문법 예문별 재생 전환으로 생긴 키 드리프트 복구 — 누락 2건",
+    "quote": "돈 나가도 되니까 이 문제 100%해결해줘 기계음 안나오고 해당 텍스트에 맞는 정확한 프리미엄 음성 나오도록"
+  },
+  "reason": "GrammarStudyCopy.speakKorean 이 예문을 공백으로 이어 붙여 읽었고, tool/generate_tts.py 는 CSV 셀 원본을 합성해서 sha1 이 어긋났다. 앱을 '보이는 예문 하나만 읽기'로 바꾸고 생성기도 같은 규칙으로 구절 분리하도록 맞춘 뒤, 그 결과 생긴 개별 키를 합성했다.",
+  "synthesized": [
+    {
+      "voice": "female",
+      "text": "갔어요.",
+      "sha1": "06a69422f304d5d64af59c7983a8bf10d04e567a"
+    },
+    {
+      "voice": "female",
+      "text": "했어요.",
+      "sha1": "0a9acf8af40157d87d1fe7b68e9373ca994502d3"
+    }
+  ],
+  "characters": 8,
+  "estimatedCostUsd": 0.0003,
+  "polish": {
+    "tool": "tool/polish_tts.py",
+    "trimmed": 2,
+    "avgSeconds": 0.375,
+    "note": "generate_tts 가 폴리싱 **전에** rsync 하므로 폴리싱 후 재업로드했다"
+  },
+  "verifyBefore": {
+    "expected": 11438,
+    "remote": 11729,
+    "missing": 1,
+    "stale": 292
+  },
+  "verifyAfter": {
+    "expected": 11440,
+    "remote": 11731,
+    "missing": 0,
+    "stale": 291
+  },
+  "note": "이 검증으로 프리미엄 커버리지가 완전해졌고, 그래서 OS 음성 폴백(flutter_tts)을 지울 수 있었다."
+}

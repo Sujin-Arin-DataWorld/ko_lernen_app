@@ -6,6 +6,7 @@ import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
 import '../services/analytics_service.dart';
 import '../services/content_share_service.dart';
+import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/storage_service.dart';
@@ -213,14 +214,16 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     );
   }
 
-  void _shareCurrent() {
+  Future<void> _shareCurrent() async {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    ContentShareService.shareStory(
+    final outcome = await ContentShareService.shareStory(
       korean: _line.ko,
       gloss: _line.pick(lang),
-      caption: t.contentShareBody(_line.ko, _line.pick(lang)),
     );
+    if (outcome == ShareOutcome.failed && mounted) {
+      soriToast(context, t.shareError);
+    }
   }
 
   @override
@@ -264,6 +267,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
       onPrevious: _step > 0 ? _prev : null,
       onLike: _likeCurrent,
       onBookmark: _line.ko.isEmpty ? null : _bookmarkCurrent,
+      bookmarkKey: _line.ko,
       onShare: _shareCurrent,
       onFlip: () => setState(() => _showGloss = !_showGloss),
       liked: LikedContentService.isLiked(

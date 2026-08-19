@@ -71,6 +71,26 @@ class HanjiTexture extends StatelessWidget {
   }
 }
 
+/// 위젯 트리 **밖**에서 같은 한지를 그린다 — 오프스크린 PNG 렌더처럼
+/// [HanjiTexture] 를 얹을 수 없는 캔버스용 단일 진입점.
+///
+/// [HanjiTexture] 와 같은 페인터를 호출하므로 결·티끌·구름 얼룩이 화면과
+/// 픽셀 규칙까지 같다. 캔버스 원점부터 [size] 만큼 채우니, 일부 영역만
+/// 칠하려면 부르는 쪽에서 `save`/`clipRect`/`translate` 하고 부른다.
+void paintHanjiInto(
+  Canvas canvas,
+  Size size, {
+  required Color baseColor,
+  double? noiseAlpha,
+  int seed = 42,
+}) {
+  _HanjiPainter(
+    baseColor: baseColor,
+    noiseAlpha: noiseAlpha ?? HanokSizing.hanjiNoiseAlpha,
+    seed: seed,
+  ).paint(canvas, size);
+}
+
 /// 실제 한지("은은 크림" 룩)를 재현하는 페인터.
 /// 크림 워시 + 따뜻한 구름 얼룩 + 먹 티끌(불순물 반점) + 가늘고 성긴 창백한 닥 섬유.
 /// [noiseAlpha]가 강도(intensity) → 섬유 밀도(area/dens)·alpha·티끌 양을 함께 도출.

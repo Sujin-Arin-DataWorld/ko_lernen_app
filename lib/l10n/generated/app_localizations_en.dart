@@ -1912,11 +1912,6 @@ class AppL10nEn extends AppL10n {
   String get contentActionBookmark => 'Save';
 
   @override
-  String contentShareBody(String korean, String gloss) {
-    return '$korean\n$gloss\nhangul-sori.com';
-  }
-
-  @override
   String get deckFlipFirstHint => 'Tap the card to flip it first';
 
   @override
@@ -8007,4 +8002,20 @@ class AppL10nEn extends AppL10n {
     );
     return '$_temp0';
   }
+
+  @override
+  String get ttsUnavailableChannelOff =>
+      'Pronunciation is muted. Settings → Sound';
+
+  @override
+  String get ttsUnavailableQuota =>
+      'Daily voice limit reached. It resets tomorrow.';
+
+  @override
+  String get ttsUnavailablePending =>
+      'The voice is being generated. Tap again in a moment.';
+
+  @override
+  String get ttsUnavailableOffline =>
+      'Pronunciation unavailable. Are you online?';
 }

@@ -626,7 +626,6 @@ class _PhraseCardState extends State<_PhraseCard> {
             translationDe: p.de,
             translationEn: p.en,
             translationLanguage: lang,
-            notify: false,
           ),
         );
         setState(() {});

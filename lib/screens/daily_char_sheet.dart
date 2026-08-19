@@ -133,7 +133,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
           t.dailyCharTitle,
           style: TextStyle(
             fontFamily: 'Pretendard',
-            color: SoriColors.hangul,
+            color: SoriColors.primary,
             fontWeight: FontWeight.w800,
             fontSize: 13,
             letterSpacing: 0.5,
@@ -154,7 +154,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
         if (hasStrokes)
           SoriCard(
             variant: SoriCardVariant.hero,
-            accent: SoriColors.hangul,
+            accent: SoriColors.primary,
             child: SizedBox(
               width: 220,
               height: 220,
@@ -171,7 +171,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
           // Fallback for syllables without stroke data
           SoriCard(
             variant: SoriCardVariant.hero,
-            accent: SoriColors.hangul,
+            accent: SoriColors.primary,
             tinted: true,
             child: SizedBox(
               width: 220,
@@ -183,7 +183,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                     fontFamily: 'Pretendard',
                     fontSize: 140,
                     fontWeight: FontWeight.w800,
-                    color: SoriColors.hangul,
+                    color: SoriColors.primary,
                     height: 1,
                   ),
                 ),

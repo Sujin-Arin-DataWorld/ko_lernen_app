@@ -3421,12 +3421,6 @@ abstract class AppL10n {
   /// **'Merken'**
   String get contentActionBookmark;
 
-  /// No description provided for @contentShareBody.
-  ///
-  /// In de, this message translates to:
-  /// **'{korean}\n{gloss}\nhangul-sori.com'**
-  String contentShareBody(String korean, String gloss);
-
   /// No description provided for @deckFlipFirstHint.
   ///
   /// In de, this message translates to:
@@ -13643,6 +13637,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{count, plural, one{Wortnetz · 1 Wort} other{Wortnetz · {count} Wörter}}'**
   String vocabNotebookStudioWordWeb(int count);
+
+  /// No description provided for @ttsUnavailableChannelOff.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprache ist stumm geschaltet. Einstellungen → Ton'**
+  String get ttsUnavailableChannelOff;
+
+  /// No description provided for @ttsUnavailableQuota.
+  ///
+  /// In de, this message translates to:
+  /// **'Heutiges Sprachlimit erreicht. Morgen geht es weiter.'**
+  String get ttsUnavailableQuota;
+
+  /// No description provided for @ttsUnavailablePending.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Stimme wird gerade erzeugt. Gleich nochmal antippen.'**
+  String get ttsUnavailablePending;
+
+  /// No description provided for @ttsUnavailableOffline.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprache nicht verfügbar. Bist du online?'**
+  String get ttsUnavailableOffline;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

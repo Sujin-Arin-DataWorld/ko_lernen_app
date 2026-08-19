@@ -8,24 +8,68 @@ import 'package:crypto/crypto.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_tts/flutter_tts.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'audio_policy.dart';
-import 'hangul_util.dart';
 import 'analytics_service.dart';
 import 'storage_service.dart';
 import 'tts_installation_id.dart';
 
-typedef TtsAudioResolver = Future<File?> Function(String text, String voice);
+/// 해결된 프리미엄 오디오 한 건.
+///
+/// io 호스트는 mp3 를 디스크에 캐시하고 경로로 재생하고, 웹은 파일시스템이
+/// 없어 같은 바이트를 메모리에서 재생한다. **둘 다 `tts/v3/...` 의 같은
+/// Chirp3-HD 객체다** — 플랫폼이 바꾸는 건 플레이어에 건네는 방법뿐이고,
+/// 들리는 소리는 같다.
+class TtsAudio {
+  const TtsAudio.path(String this.path) : bytes = null;
+  const TtsAudio.bytes(Uint8List this.bytes) : path = null;
+
+  /// 캐시된 mp3 의 절대 경로. 웹에서는 null.
+  final String? path;
+
+  /// 메모리 상의 mp3. [path] 가 있으면 null.
+  final Uint8List? bytes;
+}
+
+typedef TtsAudioResolver =
+    Future<TtsAudio?> Function(String text, String voice);
 typedef TtsErrorReporter = void Function(String message);
 
-/// Cloud TTS refused this request. The playback engine must not fall through
-/// to OS speech — quota and in-flight waits are not "use the robot voice".
+/// 프리미엄 오디오를 못 들려주는 이유. UI 가 사람 말로 옮겨 보여준다.
+///
+/// 예전에는 실패가 전부 `lastError` 문자열 하나로 뭉개졌고 **그걸 읽는
+/// 위젯이 0개**였다 — 사용자에게는 그냥 "아무 소리도 안 남"이었다
+/// (Jin 2026-08-19: "letter of the day 소리 안나와").
+enum TtsUnavailableReason {
+  /// 설정 → Ton 에서 발음 채널이 꺼져 있다.
+  channelOff,
+
+  /// 오늘치 동적 합성 한도를 다 썼다.
+  quota,
+
+  /// 서버가 같은 문장을 합성하는 중이다 — 잠시 뒤 다시 되는 상태.
+  pendingSynthesis,
+
+  /// Storage/CF 에 닿지 못했다 (오프라인 포함).
+  offline,
+
+  /// 응답이 시한 안에 오지 않았다.
+  timeout,
+}
+
+/// Cloud TTS refused this request.
+///
+/// 던져진 뒤에는 [reason] 이 그대로 [TtsService.unavailable] 로 흘러가
+/// 화면에 뜬다. 조용히 삼키지 않는다.
 class TtsSynthesisBlocked implements Exception {
-  const TtsSynthesisBlocked(this.message);
+  const TtsSynthesisBlocked(
+    this.message, {
+    this.reason = TtsUnavailableReason.pendingSynthesis,
+  });
 
   final String message;
+  final TtsUnavailableReason reason;
 
   @override
   String toString() => message;
@@ -137,7 +181,10 @@ class TtsPlaybackRates {
 
   /// [userMultiplier] = 전역 사용자 속도 배수 (`Storage.ttsSpeed`, 프리셋
   /// 0.5–1.5). 요청별 [multiplier](speakSlow 0.65, 화면 오버라이드)와 곱해져
-  /// mp3(fileRate)·flutter_tts(speechRate) 양쪽에 같은 clamp 로 반영된다.
+  /// mp3 재생 속도([fileRate])에 clamp 와 함께 반영된다.
+  ///
+  /// [speechRate] 는 OS 음성 티어가 있던 시절의 값이고 지금은 저장된 기준
+  /// 속도로만 남아 있다 — 재생에 쓰이는 건 [fileRate] 다.
   static TtsPlaybackRates compose({
     required double baseRate,
     required double multiplier,
@@ -161,8 +208,7 @@ class TtsPlaybackSession {
 }
 
 abstract interface class TtsPlaybackPlatform {
-  Future<TtsPlaybackSession?> startFile(File file, double rate);
-  Future<TtsPlaybackSession?> startSpeech(String text, double rate);
+  Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate);
   Future<void> stop();
 }
 
@@ -196,13 +242,13 @@ class TtsFilePlayback {
 /// Executes one TTS request with an immutable, request-local playback rate.
 class TtsPlaybackEngine {
   TtsPlaybackEngine({
-    required this.resolveFile,
+    required this.resolveAudio,
     required this.platform,
     this.completionTimeout = const Duration(seconds: 30),
     this.errorReporter,
   });
 
-  final TtsAudioResolver resolveFile;
+  final TtsAudioResolver resolveAudio;
   final TtsPlaybackPlatform platform;
   final Duration completionTimeout;
   final TtsErrorReporter? errorReporter;
@@ -245,18 +291,22 @@ class TtsPlaybackEngine {
           },
         );
     final resolution =
-        Future<File?>.sync(
-          () => resolveFile(trimmed, normalizedVoice),
+        Future<TtsAudio?>.sync(
+          () => resolveAudio(trimmed, normalizedVoice),
         ).then<_TtsResolution>(
-          (file) => _TtsResolution(file: file),
+          (audio) => _TtsResolution(audio: audio),
           onError: (Object error, _) {
             if (error is TtsSynthesisBlocked) {
               errorReporter?.call(error.message);
-              return const _TtsResolution.blocked();
             }
-            return const _TtsResolution(file: null);
+            return const _TtsResolution(audio: null);
           },
         );
+    // 시한은 **각 티어 안**에 있다(디스크 2s · Storage 8s · CF 시퀀스 20s).
+    // 여기에 벽시계 타이머를 하나 더 두지 않는 이유: 해결이 즉시 끝나도
+    // 타이머가 먼저 만들어져 살아남고, `speak()` 를 await 하지 않는 화면·
+    // 위젯 테스트에서 "A Timer is still pending" 으로 터진다. 티어 시한은
+    // 실제로 그 작업을 할 때만 걸리므로 그런 부작용이 없다.
     final resolved = await Future.any<_TtsResolution>([
       resolution,
       cancellation.future.then((_) => const _TtsResolution.cancelled()),
@@ -268,27 +318,25 @@ class TtsPlaybackEngine {
       return false;
     }
     if (_disposed || generation != _generation) return false;
-    final file = resolved.file;
+    final audio = resolved.audio;
+    // 프리미엄 오디오가 없으면 아무 소리도 내지 않는다. 예전에는 여기서
+    // OS 음성으로 떨어졌는데, 독일어 엔진이 한국어를 읽어 "전부 das" 가
+    // 됐다 (Jin 2026-08-19). 사유는 이미 errorReporter 로 올라갔다.
+    if (audio == null) {
+      return false;
+    }
 
     TtsPlaybackSession? session;
     try {
       session = await _serialize<TtsPlaybackSession?>(() async {
         if (_disposed || generation != _generation) return null;
-        if (file != null) {
-          try {
-            final fileSession = await platform.startFile(file, rates.fileRate);
-            if (fileSession != null) return fileSession;
-          } catch (error) {
-            // A thrown start may mean playback began but cleanup failed.
-            errorReporter?.call('TTS file playback start failed: $error');
-            return null;
-          }
-          if (_disposed || generation != _generation) return null;
-        }
-        if (resolved.blockSpeechFallback) {
+        try {
+          return await platform.startAudio(audio, rates.fileRate);
+        } catch (error) {
+          // A thrown start may mean playback began but cleanup failed.
+          errorReporter?.call('TTS audio playback start failed: $error');
           return null;
         }
-        return platform.startSpeech(trimmed, rates.speechRate);
       });
     } catch (error) {
       errorReporter?.call('TTS platform playback start failed: $error');
@@ -358,53 +406,45 @@ class TtsPlaybackEngine {
 }
 
 class _TtsResolution {
-  const _TtsResolution({required this.file})
-    : wasCancelled = false,
-      blockSpeechFallback = false;
-  const _TtsResolution.cancelled()
-    : file = null,
-      wasCancelled = true,
-      blockSpeechFallback = false;
-  const _TtsResolution.blocked()
-    : file = null,
-      wasCancelled = false,
-      blockSpeechFallback = true;
-
-  final File? file;
+  const _TtsResolution({required this.audio}) : wasCancelled = false;
+  const _TtsResolution.cancelled() : audio = null, wasCancelled = true;
+  final TtsAudio? audio;
   final bool wasCancelled;
-  final bool blockSpeechFallback;
 }
 
 class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
   const _ServicePlaybackPlatform();
 
   @override
-  Future<TtsPlaybackSession?> startFile(File file, double rate) =>
-      TtsService._startFile(file, rate);
-
-  @override
-  Future<TtsPlaybackSession?> startSpeech(String text, double rate) =>
-      TtsService._startFallback(text, rate);
+  Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate) =>
+      TtsService._startAudio(audio, rate);
 
   @override
   Future<void> stop() => TtsService._stopPlatforms();
 }
 
-/// 고품질 한국어 발음 TTS — **캐시 우선 3단**.
+/// 고품질 한국어 발음 TTS — **프리미엄 전용 3단**.
 ///
-/// 1. 로컬 캐시 mp3 → 즉시 재생 (오프라인·무료)
+/// 1. 로컬 캐시 mp3 → 즉시 재생 (오프라인·무료). 웹은 메모리 캐시.
 /// 2. Firebase Storage `tts/v3/{voice}/{sha1}.mp3` → 다운로드·캐시·재생
-///    (사전생성된 고정 콘텐츠: 558 단어 + 558 예문 + 204 대화 — dedup 후 1,314)
 /// 3. Cloud Function 합성 → base64 수신·캐시·재생
 ///    (동적 콘텐츠: 책 한 컷 OCR·내 단어장의 사용자 입력 단어)
-/// 4. flutter_tts 폴백 (오프라인 + 미캐시 → 기존 OS 음성)
 ///
-/// 공개 인터페이스(`speak`/`speakSlow`/`stop`/`setRate`/`rate`)는 기존과
-/// 호환되므로 23개 호출 화면을 수정할 필요가 없다.
+/// **OS 음성(flutter_tts) 폴백은 없다.** 2026-08-19 에 지웠다.
+///
+/// 왜: 폴백은 "안전망"이 아니라 조용한 오답 생성기였다. 독일어 로케일
+/// 기기에서 `setLanguage('ko-KR')` 이 실패해도 그 실패를 성공으로 메모이즈해
+/// 독일어 음성이 한국어를 읽었다 — Jin: "전부 das 이 지랄하고있네".
+/// 발음을 배우는 앱에서 틀린 발음은 무음보다 나쁘다.
+/// 그리고 실측상 그럴 필요도 없다: 2026-08-19 `--verify-storage` 기준
+/// 발화 11,438개 중 Storage 에 없는 건 **1개**다. 프리미엄이 사실상 전부다.
+///
+/// 프리미엄을 못 받으면 **무음 + 사유**다. 사유는 [unavailable] 로 나가고
+/// 화면이 사람 말로 옮긴다. 조용히 실패하지 않는다.
+///
+/// 공개 인터페이스(`speak`/`speakSlow`/`stop`/`setRate`/`rate`)는 그대로라
+/// 호출 70곳을 고칠 필요가 없다.
 /// `voice`: 'female'(Chirp3-HD-Zephyr, 기본) / 'male'(Chirp3-HD-Enceladus).
-///
-/// 웹에서는 path_provider 캐시 디렉토리가 없어 1~3단계가 자동 실패 →
-/// 기존 flutter_tts 폴백으로 동작 (웹은 개발 테스트용).
 class TtsService {
   TtsService._();
 
@@ -420,25 +460,46 @@ class TtsService {
 
   static const Duration _netTimeout = Duration(seconds: 12);
   static const Duration _playTimeout = Duration(seconds: 30);
+
+  /// Storage 읽기 시한. 예전에는 없어서 멈춘 연결 하나가 `speak()` 를
+  /// 영원히 붙잡았다 — 탭해도 아무 일도 안 일어나는 것처럼 보였다.
+  static const Duration _storageTimeout = Duration(seconds: 8);
+
+  /// 로컬 캐시 파일 I/O 시한.
+  static const Duration _diskTimeout = Duration(seconds: 2);
   static const int _maxBytes = 5 * 1024 * 1024; // 5MB/파일 상한
 
   // ── 내부 상태 ──────────────────────────────────────────────────────
   static final AudioPlayer _player = AudioPlayer();
-  static final FlutterTts _tts = FlutterTts();
-  static bool _ttsInit = false;
   static Directory? _cacheDir;
   static String? lastError;
   static final TtsInstallationIdProvider _installationIdProvider =
       TtsInstallationIdProvider();
   static final TtsPlaybackEngine _playbackEngine = TtsPlaybackEngine(
-    resolveFile: _resolveFile,
+    resolveAudio: _resolveAudio,
     platform: const _ServicePlaybackPlatform(),
     completionTimeout: _playTimeout,
     errorReporter: (message) => lastError = message,
   );
 
-  /// 폴백(flutter_tts)에서 ko 음성 존재 여부. 화면 안내용.
-  static bool koVoiceAvailable = false;
+  /// 웹 전용 메모리 캐시 — 파일시스템이 없어 1단을 여기에 둔다.
+  /// 상한을 두는 이유: 한 세션에서 수백 줄을 들으면 탭이 무거워진다.
+  static final Map<String, Uint8List> _memoryCache = <String, Uint8List>{};
+  static const int _memoryCacheEntries = 64;
+
+  /// 지금 왜 소리가 안 나는지. null 이면 문제 없음.
+  ///
+  /// [lastError] 는 9곳에서 쓰였지만 **읽는 위젯이 0개**였다 — 그래서
+  /// 무음이 사용자에게 늘 원인 불명이었다. 이건 화면이 구독한다.
+  static final ValueNotifier<TtsUnavailableReason?> unavailable =
+      ValueNotifier<TtsUnavailableReason?>(null);
+
+  static void _reportUnavailable(TtsUnavailableReason reason) {
+    unavailable.value = reason;
+  }
+
+  /// 사용자가 배너를 닫았거나, 다음 발화가 성공했다.
+  static void clearUnavailable() => unavailable.value = null;
 
   /// 발화 중 여부 — [AudioPolicy] 더킹·UI 표시용 (ADR-002 §5-2).
   static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
@@ -461,8 +522,10 @@ class TtsService {
   }) {
     if (AudioPolicy.instance.volumeFor(SoundChannel.speech) <= 0) {
       lastError = 'speech 채널이 꺼져 있음 (설정 → Ton)';
+      _reportUnavailable(TtsUnavailableReason.channelOff);
       return Future<bool>.value(false);
     }
+    unavailable.value = null;
     final token = ++_speakToken;
     speaking.value = true;
     AudioPolicy.instance.noteSpeechStarted();
@@ -523,9 +586,12 @@ class TtsService {
       return;
     }
     try {
-      await _resolveFile(trimmed, voice, allowSynthesis: false);
+      await _resolveAudio(trimmed, voice, allowSynthesis: false);
     } catch (_) {
-      // 조용히 무시 — 최선 노력이다.
+      // 일시적 실패(시한 초과·오프라인)는 메모에서 뺀다. 예전에는 시도
+      // **전에** 기록해서, 한 번 삐끗한 문자열이 그 세션 내내 봉인됐다 —
+      // 한글 탭에 들어오자마자 자모 40개를 던지는 화면에서 특히 잘 터졌다.
+      _prefetchAttempted.remove(key);
     }
   }
 
@@ -590,12 +656,9 @@ class TtsService {
     try {
       await _player.stop();
     } catch (_) {}
-    try {
-      await _tts.stop();
-    } catch (_) {}
   }
 
-  /// 0.1 (langsam) … 1.0 (schnell). flutter_tts 폴백용 + 저장.
+  /// 0.1 (langsam) … 1.0 (schnell). mp3 재생 속도의 기준값 + 저장.
   static Future<void> setRate(double rate) async {
     final clamped = rate.clamp(0.1, 1.0);
     await Storage.setTtsRate(clamped);
@@ -632,28 +695,45 @@ class TtsService {
   /// 프리페치 전용 스위치다 — 아직 누르지도 않은 낱자를 투기적으로 합성하면
   /// 합성 할당량을 쓰고 12초 타임아웃까지 잡아먹는다. 사용자가 실제로 누르면
   /// 그때 평소 경로가 3단까지 간다.
-  static Future<File?> _resolveFile(
+  static Future<TtsAudio?> _resolveAudio(
     String text,
     String voice, {
     bool allowSynthesis = true,
   }) async {
-    final dir = await _ensureCacheDir();
-    if (dir == null) {
+    final key = TtsCacheKey.forRequest(voice: voice, text: text);
+    // 웹은 파일시스템이 없다. 예전에는 여기서 1~3단이 통째로 죽고 OS 음성만
+    // 남아 브라우저 독일어 음성이 한국어를 읽었다. 이제 같은 Storage 객체를
+    // 메모리로 받아 재생한다 — 웹도 프리미엄이다.
+    final Directory? dir = kIsWeb ? null : await _ensureCacheDir();
+    if (!kIsWeb && dir == null) {
+      _reportUnavailable(TtsUnavailableReason.offline);
       return null;
     }
-    final key = TtsCacheKey.forRequest(voice: voice, text: text);
-    final file = File('${dir.path}/${key.localFileName}');
+    final File? file = dir == null
+        ? null
+        : File('${dir.path}/${key.localFileName}');
 
-    // 1. 로컬 캐시
-    if (await file.exists()) {
-      final localBytes = await file.readAsBytes();
-      if (TtsCacheKey.isUsableAudio(localBytes)) {
-        return file;
-      }
+    // 1. 로컬 캐시. 멈춘 파일시스템이 speak() 를 붙잡지 못하게 시한을 건다.
+    if (file != null) {
       try {
-        await file.delete();
-      } catch (_) {
-        // Never return this file. The next lookup still rejects junk bytes.
+        if (await file.exists().timeout(_diskTimeout)) {
+          final localBytes = await file.readAsBytes().timeout(_diskTimeout);
+          if (TtsCacheKey.isUsableAudio(localBytes)) {
+            return TtsAudio.path(file.path);
+          }
+          try {
+            await file.delete();
+          } catch (_) {
+            // Never return this file. The next lookup still rejects junk bytes.
+          }
+        }
+      } on TimeoutException {
+        // 디스크가 막혔다 — Storage 로 넘어간다.
+      }
+    } else {
+      final cached = _memoryCache[key.localFileName];
+      if (cached != null) {
+        return TtsAudio.bytes(cached);
       }
     }
 
@@ -661,11 +741,13 @@ class TtsService {
     try {
       final Uint8List? data = await _storage
           .ref(key.storagePath)
-          .getData(_maxBytes);
+          .getData(_maxBytes)
+          .timeout(_storageTimeout);
       if (data != null && TtsCacheKey.isUsableAudio(data)) {
-        await _writeAtomically(file, data);
-        return file;
+        return await _cacheAndWrap(key, file, data);
       }
+    } on TimeoutException {
+      // 느린 회선 — 무한정 붙잡느니 CF 를 시도한다.
     } catch (_) {
       // object-not-found / 오프라인 → CF 시도
     }
@@ -705,15 +787,33 @@ class TtsService {
         },
       );
       if (bytes != null) {
-        await _writeAtomically(file, bytes);
-        return file;
+        return await _cacheAndWrap(key, file, bytes);
       }
-    } on TtsSynthesisBlocked {
+    } on TtsSynthesisBlocked catch (blocked) {
+      _reportUnavailable(blocked.reason);
       rethrow;
     } catch (_) {
-      // Firebase/Auth/App Check unavailable → OS TTS fallback.
+      // Firebase/Auth/App Check 에 못 닿았다. 무음이지만 이유는 남긴다.
+      _reportUnavailable(TtsUnavailableReason.offline);
     }
     return null;
+  }
+
+  /// 받은 바이트를 플랫폼에 맞게 캐시하고 재생 가능한 형태로 감싼다.
+  static Future<TtsAudio> _cacheAndWrap(
+    TtsCacheKey key,
+    File? file,
+    Uint8List data,
+  ) async {
+    if (file == null) {
+      if (_memoryCache.length >= _memoryCacheEntries) {
+        _memoryCache.remove(_memoryCache.keys.first);
+      }
+      _memoryCache[key.localFileName] = data;
+      return TtsAudio.bytes(data);
+    }
+    await _writeAtomically(file, data);
+    return TtsAudio.path(file.path);
   }
 
   /// 임시 파일에 쓰고 rename 으로 갈아끼운다.
@@ -770,10 +870,14 @@ class TtsService {
     return null;
   }
 
-  static Future<TtsPlaybackSession?> _startFile(
-    File file,
+  static Future<TtsPlaybackSession?> _startAudio(
+    TtsAudio audio,
     double playbackRate,
   ) async {
+    final path = audio.path;
+    final source = path != null
+        ? DeviceFileSource(path)
+        : BytesSource(audio.bytes!, mimeType: 'audio/mpeg');
     try {
       await _ensureSpeechAudioContext();
       // 완료 대기 future 를 play 전에 준비 (짧은 mp3 의 complete race 방지).
@@ -781,7 +885,7 @@ class TtsService {
       return await TtsFilePlayback.start(
         completion: _guardCompletion(done, errorPrefix: 'mp3 재생 완료 대기 실패'),
         play: () => _player.play(
-          DeviceFileSource(file.path),
+          source,
           volume: AudioPolicy.instance.volumeFor(SoundChannel.speech),
         ),
         setRate: _player.setPlaybackRate,
@@ -799,26 +903,6 @@ class TtsService {
         lastError = 'mp3 재생 실패: $e; 정지 실패: $stopError';
         return TtsPlaybackSession(Future<bool>.value(false));
       }
-      return null;
-    }
-  }
-
-  static Future<TtsPlaybackSession?> _startFallback(
-    String text,
-    double rate,
-  ) async {
-    try {
-      await _initTts();
-      await _applyFallbackLanguage(text);
-      await _tts.setSpeechRate(rate);
-      await _tts.setVolume(AudioPolicy.instance.volumeFor(SoundChannel.speech));
-      final completion = _guardCompletion(
-        _tts.speak(text).then((result) => result == 1),
-        errorPrefix: 'TTS 폴백 완료 대기 실패',
-      );
-      return TtsPlaybackSession(completion);
-    } catch (e) {
-      lastError = 'TTS 폴백 실패: $e';
       return null;
     }
   }
@@ -871,6 +955,9 @@ class TtsService {
   }
 
   static Future<Directory?> _ensureCacheDir() async {
+    if (kIsWeb) {
+      return null; // path_provider 는 웹에서 던진다 — 메모리 캐시를 쓴다.
+    }
     if (_cacheDir != null) {
       return _cacheDir;
     }
@@ -893,98 +980,19 @@ class TtsService {
   /// 여기서는 respectSilence 를 걸지 않는다 — 무음 스위치 존중은 SFX 전역
   /// 컨텍스트([AudioPolicy.applyPlatformAudioContext]) 몫.
   static Future<void> _ensureSpeechAudioContext() async {
-    if (_speechContextApplied) {
+    if (_speechContextApplied || kIsWeb) {
       return;
     }
-    _speechContextApplied = true;
     try {
       await _player.setAudioContext(
         AudioContextConfig(focus: AudioContextConfigFocus.duckOthers).build(),
       );
+      // 성공한 뒤에 표시한다. 예전에는 await 앞에서 세워서, 한 번 실패하면
+      // 다시는 시도하지 않고 플랫폼 기본 세션으로 조용히 재생했다.
+      _speechContextApplied = true;
     } catch (_) {
-      // best-effort — 실패 시 플랫폼 기본 세션으로 재생.
+      // best-effort — 다음 발화에서 다시 시도한다.
     }
   }
 
-  static Future<void> _initTts() async {
-    if (_ttsInit) {
-      return;
-    }
-    try {
-      await _tts.awaitSpeakCompletion(true);
-      await _tts.setLanguage('ko-KR');
-      await _trySelectKoreanVoice();
-      await _tts.setSpeechRate(Storage.ttsRate);
-      await _tts.setPitch(1.0);
-      await _tts.setVolume(AudioPolicy.instance.volumeFor(SoundChannel.speech));
-      _ttsInit = true;
-    } catch (e) {
-      lastError = 'TTS 초기화 실패: $e';
-    }
-  }
-
-  /// 마지막으로 OS 엔진에 넘긴 언어. 같은 언어면 다시 설정하지 않는다
-  /// (setLanguage 는 엔진에 따라 수십 ms 걸린다).
-  static String? _fallbackLanguage;
-
-  /// OS 폴백으로 읽을 때 **텍스트에 맞는 언어**를 고른다.
-  ///
-  /// _initTts 가 ko-KR 을 한 번 설정하고 끝이라, 독일어 문장도 한국어 엔진이
-  /// 읽어 알아들을 수 없는 소리가 났다("독일어랑 한국어랑 구분을 못해" — Jin,
-  /// 2026-08-12 Buchseite einlesen). 한글이 하나라도 있으면 한국어, 아니면
-  /// 학습자의 모국어(독일어/영어)로 본다 — 이 앱에서 비한글 텍스트는 뜻풀이·
-  /// 예문 번역이라 사실상 그 둘뿐이다.
-  ///
-  /// HD mp3 가 있을 때는 여기까지 오지 않는다. 폴백 전용 처리다.
-  static Future<void> _applyFallbackLanguage(String text) async {
-    final hasHangul = text.runes.any(
-      (r) => isHangulSyllable(r) || (r >= 0x3131 && r <= 0x318E), // 홀자모(ㄱ·ㅏ…)
-    );
-    // localeCode 는 'de' | 'en' | ''(시스템). 빈 값이면 이 앱의 기본인 독일어.
-    final language = hasHangul
-        ? 'ko-KR'
-        : (Storage.localeCode == 'en' ? 'en-US' : 'de-DE');
-    if (_fallbackLanguage == language) {
-      return;
-    }
-    try {
-      await _tts.setLanguage(language);
-      _fallbackLanguage = language;
-    } catch (e) {
-      // 기기에 그 언어 데이터가 없을 수 있다 — 그대로 두는 편이 낫다.
-      lastError = 'TTS 언어 설정 실패($language): $e';
-    }
-  }
-
-  static Future<void> _trySelectKoreanVoice() async {
-    try {
-      var voices = await _tts.getVoices;
-      if (voices is List && voices.isEmpty) {
-        await Future<void>.delayed(const Duration(milliseconds: 250));
-        voices = await _tts.getVoices;
-      }
-      if (voices is! List) {
-        return;
-      }
-      for (final v in voices) {
-        if (v is! Map) {
-          continue;
-        }
-        final locale = (v['locale'] ?? '').toString().toLowerCase();
-        final name = (v['name'] ?? '').toString();
-        if (locale.startsWith('ko') ||
-            locale.contains('ko-') ||
-            name.toLowerCase().contains('korean')) {
-          await _tts.setVoice({
-            'name': name,
-            'locale': (v['locale'] ?? 'ko-KR').toString(),
-          });
-          koVoiceAvailable = true;
-          return;
-        }
-      }
-    } catch (_) {
-      // getVoices/setVoice 미지원 플랫폼 — 무시.
-    }
-  }
 }

@@ -38,6 +38,7 @@ import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../services/content_share_service.dart';
+import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
@@ -445,19 +446,20 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     }
   }
 
-  void _shareCurrent() {
+  Future<void> _shareCurrent() async {
     final cur = _currentLearn;
     if (cur == null) {
       return;
     }
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    // ignore: discarded_futures
-    ContentShareService.shareStory(
+    final outcome = await ContentShareService.shareStory(
       korean: cur.korean,
       gloss: cur.translationFor(lang),
-      caption: t.contentShareBody(cur.korean, cur.translationFor(lang)),
     );
+    if (outcome == ShareOutcome.failed && mounted) {
+      soriToast(context, t.shareError);
+    }
   }
 
   /// ↓ 스킵 (§P2-2) — **기록 없는 미루기**. SRS/오답/ledger 금지 대상이 아닌
@@ -673,7 +675,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         ScorePop.show(
           context,
           AppL10n.of(context).comboPop(_combo),
-          color: SoriColors.tiger,
+          // 콤보는 실제 보상 순간이고 카드가 아니라 떠오르는 팝이라
+          // 황을 유지한다 — 카드 위 금색과는 다른 이야기다.
+          color: SoriColors.gold,
         );
       }
       if (_stage == _Stage.quiz) {
@@ -959,6 +963,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 onSkip: _learnDefer,
                 onLike: _likeCurrent,
                 onBookmark: _saveCurrent,
+                bookmarkKey: cur.korean,
                 onShare: _shareCurrent,
                 onFlip: _toggleLearnFlip,
                 liked: LikedContentService.isLiked(
@@ -1076,8 +1081,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
               final h = soriStudyTypeScaleHeight(context);
               final promptCard = SoriCard(
                 variant: SoriCardVariant.hero,
+                // 보스는 "더 깊은 녹청" 으로 어려움을 말한다. 예전 머스터드는
+                // Jin 이 "골든색 너무 답답해 보인다" 고 지목한 카드다.
                 accent: _stage == _Stage.boss
-                    ? SoriColors.warning
+                    ? SoriColors.primaryDark
                     : SoriColors.info,
                 tinted: true,
                 child: Column(
@@ -1108,7 +1115,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                       icon: Icons.volume_up_rounded,
                       variant: SoriButtonVariant.outlined,
                       accent: _stage == _Stage.boss
-                          ? SoriColors.warning
+                          ? SoriColors.primaryDark
                           : SoriColors.info,
                       onTap: () {
                         // ignore: discarded_futures
@@ -1287,7 +1294,7 @@ class _FlipFront extends StatelessWidget {
               ],
             ),
             style: TextStyle(
-              fontSize: soriFillSize(h, 0.032, 12, 20),
+              fontSize: soriFillSize(h, 0.032, 12.5, 20),
               color: s.textDim,
             ),
           ),

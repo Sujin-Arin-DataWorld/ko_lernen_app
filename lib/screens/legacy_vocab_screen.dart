@@ -21,6 +21,7 @@ import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../services/content_share_service.dart';
+import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
@@ -369,19 +370,20 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     }
   }
 
-  void _shareCurrent() {
+  Future<void> _shareCurrent() async {
     final cur = _current;
     if (cur == null) {
       return;
     }
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    // ignore: discarded_futures
-    ContentShareService.shareStory(
+    final outcome = await ContentShareService.shareStory(
       korean: cur.korean,
       gloss: cur.translationFor(lang),
-      caption: t.contentShareBody(cur.korean, cur.translationFor(lang)),
     );
+    if (outcome == ShareOutcome.failed && mounted) {
+      soriToast(context, t.shareError);
+    }
   }
 
   void _onFlip() {
@@ -439,7 +441,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
             title: t.vocabEmptyFavorites,
             ctaLabel: t.vocabModeAll,
             onCta: () => _setMode('all'),
-            accent: SoriColors.warning,
+            accent: SoriColors.like,
           ),
         );
       }
@@ -512,7 +514,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                     ),
                     SoriChip(
                       label: t.vocabFavoritesBadge(_favorites.length),
-                      accent: SoriColors.warning,
+                      // 즐겨찾기는 하트·책갈피와 같은 석간주로 읽혀야 한다.
+                      accent: SoriColors.like,
                       selected: _mode == 'favorites',
                       variant: SoriChipVariant.filled,
                       onTap: () => _setMode('favorites'),
@@ -542,7 +545,10 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                     const SizedBox(width: Spacing.xs + 2),
                     SoriChip(label: '❌ $_wrong', accent: SoriColors.danger),
                     const SizedBox(width: Spacing.xs + 2),
-                    SoriChip(label: '⏭ $_skipped', accent: SoriColors.warning),
+                    SoriChip(
+                      label: '⏭ $_skipped',
+                      accent: SoriColors.info,
+                    ),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -969,7 +975,7 @@ class _Front extends StatelessWidget {
                         v.posFor(lang),
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: soriFillSize(h, 0.05, 12, 26),
+                          fontSize: soriFillSize(h, 0.05, 12.5, 26),
                           color: s.textMuted,
                         ),
                       ),
@@ -1019,7 +1025,7 @@ class _MasteryChip extends StatelessWidget {
         Icons.fiber_new_rounded,
       ),
       MasteryState.learning => (SoriColors.info, Icons.school_outlined),
-      MasteryState.reviewDue => (SoriColors.warning, Icons.refresh_rounded),
+      MasteryState.reviewDue => (SoriColors.info, Icons.refresh_rounded),
       MasteryState.strong => (
         SoriColors.success,
         Icons.workspace_premium_rounded,
@@ -1153,7 +1159,7 @@ class _Back extends StatelessWidget {
                         '${v.posFor(lang)} · ${v.topic}',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: soriFillSize(h, 0.05, 12, 26),
+                          fontSize: soriFillSize(h, 0.05, 12.5, 26),
                           color: s.textMuted,
                         ),
                       ),

@@ -406,6 +406,21 @@ class _DancheongStampState extends State<DancheongStamp>
   }
 }
 
+/// 위젯 트리 **밖**에서 같은 도장을 찍는다 — 오프스크린 PNG 렌더처럼
+/// [DancheongStamp] 를 세울 수 없는 캔버스용 단일 진입점.
+///
+/// [DancheongStamp] 와 같은 페인터라 붉은 테·크림 바탕·문양이 화면과 같다.
+/// 캔버스 원점부터 [size] 안에 원으로 그린다 — 위치는 부르는 쪽에서
+/// `save`/`translate` 로 잡는다.
+void paintDancheongStamp(
+  Canvas canvas,
+  Size size, {
+  required DancheongMotif motif,
+  double intensity = 1.0,
+}) {
+  _StampPainter(motif: motif, intensity: intensity).paint(canvas, size);
+}
+
 class _StampPainter extends CustomPainter {
   final DancheongMotif motif;
   final double intensity;

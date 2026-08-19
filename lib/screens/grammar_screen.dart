@@ -388,7 +388,6 @@ class _GrammarScreenState extends State<GrammarScreen>
       posDe: g.typeDe,
       exampleKorean: g.exampleKorean,
       exampleDe: g.exampleGerman,
-      notify: false,
     );
     if (mounted) {
       setState(() {});
@@ -476,7 +475,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                   style: SoriTextTheme.of(sheetContext).h3,
                 ),
                 const SizedBox(height: Spacing.sm),
-                Text(
+                SoriPhraseWrap(
                   target.exampleKorean,
                   style: TextStyle(
                     fontSize: 18,
@@ -1301,7 +1300,7 @@ class _Front extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: Spacing.sm),
-                Text(
+                SoriPhraseWrap(
                   copy.title.isEmpty ? g.typeFor(lang) : copy.title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -1354,7 +1353,7 @@ class _Front extends StatelessWidget {
               t.hintTapForExplanation,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: soriFillSize(h, 0.038, 12, 18),
+                fontSize: soriFillSize(h, 0.038, 12.5, 18),
                 color: s.textDim,
               ),
             ),
@@ -1455,7 +1454,7 @@ class _Back extends StatelessWidget {
                 ),
                 if (copy.title.isNotEmpty) ...[
                   const SizedBox(height: Spacing.xs),
-                  Text(
+                  SoriPhraseWrap(
                     copy.title,
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -1475,11 +1474,11 @@ class _Back extends StatelessWidget {
                 cardHeight: h,
               ),
             if (copy.note.isNotEmpty)
-              Text(
+              SoriPhraseWrap(
                 copy.note,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: soriFillSize(h, 0.038, 12, 18),
+                  fontSize: soriFillSize(h, 0.038, 12.5, 18),
                   color: s.textMuted,
                   height: 1.4,
                 ),
@@ -1510,7 +1509,7 @@ class _RuleExampleRow extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         if (rule.isNotEmpty)
-          Text(
+          SoriPhraseWrap(
             rule,
             textAlign: TextAlign.center,
             style: TextStyle(

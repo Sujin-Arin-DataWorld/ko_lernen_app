@@ -21,6 +21,7 @@ import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
 import '../services/content_share_service.dart';
+import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
@@ -201,18 +202,19 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     }
   }
 
-  void _shareCurrent() {
+  Future<void> _shareCurrent() async {
     if (_loading || _done || _deck.isEmpty) {
       return;
     }
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    // ignore: discarded_futures
-    ContentShareService.shareStory(
+    final outcome = await ContentShareService.shareStory(
       korean: _card.korean,
       gloss: _card.translationFor(lang),
-      caption: t.contentShareBody(_card.korean, _card.translationFor(lang)),
     );
+    if (outcome == ShareOutcome.failed && mounted) {
+      soriToast(context, t.shareError);
+    }
   }
 
   /// ↓ 스킵 (§P2-2) — 현재 카드를 덱 맨 뒤로 + 앞면 리셋. SRS 기록 없음.
@@ -390,6 +392,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                 const SizedBox(height: Spacing.md),
                 Text(
                   '+${_reviewed * 2} XP',
+                  // 황은 XP·스트릭 전용이다. 여기는 실제 XP 라 유지한다 —
+                  // 카드 위 장식 금색과는 다른 이야기.
                   style: tt.h2.copyWith(color: SoriColors.gold),
                 ),
                 // M5: "한마디" — interessen-passender Small-talk-Satz als Bonus.
@@ -547,6 +551,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                   skipEnabled: _idx < _deck.length - 1,
                   onLike: _likeCurrent,
                   onBookmark: _saveCurrent,
+                  bookmarkKey: _card.korean,
                   onShare: _shareCurrent,
                   onFlip: _toggleFlip,
                   liked: LikedContentService.isLiked(

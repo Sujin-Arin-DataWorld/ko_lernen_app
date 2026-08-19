@@ -111,6 +111,7 @@ import 'screens/ux_preview_app.dart';
 import 'widgets/sori/dancheong_burst.dart';
 import 'widgets/sori/content_feedback_card.dart';
 import 'widgets/sori/tiger_video.dart';
+import 'widgets/sori/tts_unavailable_banner.dart';
 import 'widgets/sori/mascot_preference.dart';
 import 'widgets/sori/diagnostics_route_observer.dart';
 import 'widgets/sori/route_observer.dart';
@@ -538,7 +539,10 @@ class _KoLernenAppState extends State<KoLernenApp> {
             child: GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-              child: child,
+              // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
+              // 지운 뒤로 프리미엄을 못 받으면 무음인데, 이유 없는 무음은
+              // 고장과 구분이 안 된다.
+              child: TtsUnavailableBanner(child: child ?? const SizedBox()),
             ),
           ),
         ),

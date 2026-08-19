@@ -1407,8 +1407,6 @@ PODS:
     - FlutterMacOS
   - flutter_timezone (0.0.1):
     - Flutter
-  - flutter_tts (0.0.1):
-    - Flutter
   - google_mlkit_commons (0.12.0):
     - Flutter
     - MLKitVision (~> 10.0.0)
@@ -1642,15 +1640,15 @@ PODS:
   - PromisesObjC (2.4.1)
   - PromisesSwift (2.4.1):
     - PromisesObjC (= 2.4.1)
-  - purchases_flutter (10.7.0):
+  - purchases_flutter (10.9.0):
     - Flutter
-    - PurchasesHybridCommon (= 18.28.0)
-  - PurchasesHybridCommon (18.28.0):
-    - RevenueCat (= 5.83.0)
+    - PurchasesHybridCommon (= 18.30.0)
+  - PurchasesHybridCommon (18.30.0):
+    - RevenueCat (= 5.83.1)
   - RecaptchaInterop (101.0.0)
   - record_ios (2.0.0):
     - Flutter
-  - RevenueCat (5.83.0)
+  - RevenueCat (5.83.1)
   - rive_native (0.0.1):
     - Flutter
   - share_plus (0.0.1):
@@ -1686,7 +1684,6 @@ DEPENDENCIES:
   - flutter_local_notifications (from `.symlinks/plugins/flutter_local_notifications/ios`)
   - flutter_secure_storage_darwin (from `.symlinks/plugins/flutter_secure_storage_darwin/darwin`)
   - flutter_timezone (from `.symlinks/plugins/flutter_timezone/ios`)
-  - flutter_tts (from `.symlinks/plugins/flutter_tts/ios`)
   - google_mlkit_commons (from `.symlinks/plugins/google_mlkit_commons/ios`)
   - google_mlkit_text_recognition (from `.symlinks/plugins/google_mlkit_text_recognition/ios`)
   - google_sign_in_ios (from `.symlinks/plugins/google_sign_in_ios/darwin`)
@@ -1794,8 +1791,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_secure_storage_darwin/darwin"
   flutter_timezone:
     :path: ".symlinks/plugins/flutter_timezone/ios"
-  flutter_tts:
-    :path: ".symlinks/plugins/flutter_tts/ios"
   google_mlkit_commons:
     :path: ".symlinks/plugins/google_mlkit_commons/ios"
   google_mlkit_text_recognition:
@@ -1873,7 +1868,6 @@ SPEC CHECKSUMS:
   flutter_local_notifications: a5a732f069baa862e728d839dd2ebb904737effb
   flutter_secure_storage_darwin: acdb3f316ed05a3e68f856e0353b133eec373a23
   flutter_timezone: 7c838e17ffd4645d261e87037e5bebf6d38fe544
-  flutter_tts: 35ac3c7d42412733e795ea96ad2d7e05d0a75113
   google_mlkit_commons: b4dfe2f6ae4cbf24010dc6640a28984d01343c86
   google_mlkit_text_recognition: 9b164471713e3afdb4c129cabe6d1d64fef7e817
   google_sign_in_ios: b48bb9af78576358a168361173155596c845f0b9
@@ -1903,11 +1897,11 @@ SPEC CHECKSUMS:
   permission_handler_apple: 92d754bbaa7361d436db2d6c3c1c2a0fdcec462e
   PromisesObjC: 752c3227f599e3467650e47ea36f433eeb10c273
   PromisesSwift: 217dea0fd5d2ad65222a109c48698add13cc1c5b
-  purchases_flutter: 174b063d0e6f1f31424adedfcc3a7cda540fe026
-  PurchasesHybridCommon: 8563d6a7d832332beb9b30478dbe56eeaa0dd425
+  purchases_flutter: 208163b2383af842ff8ae9bd065cbcc641dd1f34
+  PurchasesHybridCommon: 6a2230d42f14de597e3f6a0633938992c2442133
   RecaptchaInterop: 11e0b637842dfb48308d242afc3f448062325aba
   record_ios: 390a30c7caaf8b5d0fb1cb1d2fd5064b48b4520c
-  RevenueCat: a83de0391a1061302699cb55eb1ff0662f5768b5
+  RevenueCat: 9a06074a6aebf09f749c19a73a96f0870ad477e6
   rive_native: c8fbe631855835dc84f7d59befcdb43de3ac48d4
   share_plus: 50da8cb520a8f0f65671c6c6a99b3617ed10a58a
   shared_preferences_foundation: 7036424c3d8ec98dfe75ff1667cb0cd531ec82bb

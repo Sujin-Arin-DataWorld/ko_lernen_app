@@ -64,14 +64,31 @@ class GrammarStudyCopy {
     );
   }
 
-  /// Korean the listen button should speak — examples only, never the gloss.
-  String get speakKorean {
-    final parts = [
-      for (final example in examples)
-        if (example.korean.isNotEmpty) example.korean,
-    ];
-    return parts.join(' ');
+  /// 스피커가 읽어야 할 한국어 — **화면에 보이는 예문 하나**.
+  ///
+  /// 예전에는 예문 전부를 공백으로 이어 붙여 읽었다. 문제가 둘이었다.
+  ///
+  /// 1. 보는 것과 듣는 것이 달랐다. 카드 앞면은 `examples.first` 만
+  ///    보여주는데 스피커는 세 문장을 내리 읽었다 (Jin: "tts파일이랑 내용
+  ///    이랑 1도 안 맞고").
+  /// 2. 그 이어붙인 문자열은 **어디에도 합성돼 있지 않다**. 캐시 키가
+  ///    `sha1('{voice}|{text}')` 인데 사전생성기는 CSV 원본
+  ///    (`'갔어요. / 먹었어요. / 했어요.'`)을 합성하고 앱은 공백 join
+  ///    (`'갔어요. 먹었어요. 했어요.'`)을 요청했다 — 영구 miss.
+  ///    2026-08-19 `--verify-storage` 에서 발화 11,438개 중 유일한 누락이
+  ///    정확히 이 문자열이었다.
+  ///
+  /// 예문 하나만 읽으면 발화 문자열이 언제나 `splitStudyPhrases` 의
+  /// 원소와 같아져 드리프트가 구조적으로 사라진다.
+  String speakKoreanAt(int index) {
+    if (index < 0 || index >= examples.length) {
+      return '';
+    }
+    return examples[index].korean;
   }
+
+  /// 카드 앞면이 보여주는 예문. 스피커도 이것만 읽는다.
+  String get speakKorean => speakKoreanAt(0);
 }
 
 class GrammarStudyExample {
