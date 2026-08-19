@@ -1300,14 +1300,14 @@
     {
       "id": "satz_a2_0010",
       "level": "a2",
-      "targetKo": "메뉴 좀 주세요.",
-      "promptDe": "Die Speisekarte bitte.",
-      "promptEn": "The menu, please.",
+      "targetKo": "메뉴판 좀 볼 수 있을까요?",
+      "promptDe": "Könnte ich bitte die Speisekarte sehen?",
+      "promptEn": "Could I see the menu, please?",
       "distractors": [
         "꽃이",
         "없어요"
       ],
-      "vocabKo": "메뉴"
+      "vocabKo": "메뉴판"
     },
     {
       "id": "satz_a2_0011",

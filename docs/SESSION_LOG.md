@@ -1,5 +1,16 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 번역 스택 흡수 뒤 메뉴판·smalltalk 지문
+
+**무엇을 왜.** 스택 merge 뒤 4개 회귀. `메뉴` 표제어가 `메뉴판`인데
+`satz_a2_0010`/`cloze_a2_0043`가 옛 표제어를 가리켜 한옥 조인이 깨졌고,
+smalltalk 카피 4개의 `phraseFingerprintSha256`이 낡았다.
+
+**무엇을.** Satz/Cloze를 vocab 예문에 맞춤. 지문 도구가 phrase 해시까지
+갱신. 세그먼트 ID·canDoFingerprint 유지.
+
+**검증.** 집중 Flutter 예정. 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 번역 스택 #105·#107·#108·#109를 손실 없이 main에
 
 **무엇을 왜.** Jin이 자러 가며 지금 PR을 코드 손실 없이 main에 넣고,

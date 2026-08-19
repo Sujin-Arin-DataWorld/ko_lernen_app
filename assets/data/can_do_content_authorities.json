@@ -55836,7 +55836,7 @@
         },
         {
           "phraseId": "smalltalk_a1_0042",
-          "phraseFingerprintSha256": "15ef6ae054eba29050a6881c88ffca6fb87ecf03b66c054e7e60e97cc1af4fb8",
+          "phraseFingerprintSha256": "49d7979c4de8d5abeb016d038429fe6b4f81314b674790b38fd15f98273be359",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a1_06_transport_directions",
           "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
@@ -56736,7 +56736,7 @@
         },
         {
           "phraseId": "smalltalk_a2_0050",
-          "phraseFingerprintSha256": "1269721feb922e889b3abb60cd572a7a421a1ce165254eb5f8aa445edd1c223c",
+          "phraseFingerprintSha256": "6d11f5786d5315fc3053d5e9a947a9ad387d5c261c5f1ec08c31ee227c335cd6",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_a2_running_late",
           "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
@@ -58276,7 +58276,7 @@
         },
         {
           "phraseId": "smalltalk_b2_0057",
-          "phraseFingerprintSha256": "365af0f9e8aa88cffa8586e7af5dc7f3828b0947c2c3bfa92c0d09fe2905c4c8",
+          "phraseFingerprintSha256": "c5870824dbfe208debd0a2838149c268a18ac927c1eace8fb9c5d02ff8ecada4",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_literary_cultural_response",
           "canDoFingerprintSha256": "ebbd22d740049157c73ff900dedce541d4b7564298b3d4df505ec483cd3afcbf",
@@ -58356,7 +58356,7 @@
         },
         {
           "phraseId": "smalltalk_b2_0065",
-          "phraseFingerprintSha256": "731576440bf6212bc8b5773ad638e12ab340981d7a4737d07ee7710e6000700d",
+          "phraseFingerprintSha256": "5f2b65db566f617b6f22290cf2a940eed74cf1052c4bba21b818a26945ca574c",
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b2_collaborative_feedback",
           "canDoFingerprintSha256": "f36974cbb488136ef241cb172292e5a4a196d3e263af87bf3ae8f6c4e02486c5",

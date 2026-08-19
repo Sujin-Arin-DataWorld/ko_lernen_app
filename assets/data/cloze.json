@@ -2821,11 +2821,11 @@
     {
       "id": "cloze_a2_0043",
       "level": "a2",
-      "sentenceKo": "＿＿＿ 좀 주세요.",
-      "answer": "메뉴",
-      "fullKo": "메뉴 좀 주세요.",
-      "de": "Die Speisekarte bitte.",
-      "en": "The menu, please.",
+      "sentenceKo": "＿＿＿ 좀 볼 수 있을까요?",
+      "answer": "메뉴판",
+      "fullKo": "메뉴판 좀 볼 수 있을까요?",
+      "de": "Könnte ich bitte die Speisekarte sehen?",
+      "en": "Could I see the menu, please?",
       "distractors": [
         "숙제",
         "부츠",
