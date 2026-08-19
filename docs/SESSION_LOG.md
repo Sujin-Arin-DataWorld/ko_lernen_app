@@ -7,10 +7,10 @@
 독일어는 sich mit Blicken verständigen / Versteht Hyunwoo meinen Blick nicht.
 한국어 합성어·ID는 유지.
 
-**검증.** 생성기/리뷰/드래프트에서 Augenbitte·Sagen Sie es ruhig 제거.
-Grep 앱 데이터 0. factory 동기 후 scan·cloze·satz·vocab_pack.
+**검증.** 앱 데이터 Grep Sagen Sie es ruhig·Augenbitte 0.
+생성기/리뷰/드래프트 동기. flutter test scan·cloze·satz·content_id·vocab_pack·word_relation·silben 56 passed.
 
-**커밋해시.** 이 로그와 같은 커밋.
+**커밋해시.** 이 로그와 같은 커밋. 앱 데이터는 `6b4407d8`.
 
 ### 2026-08-19 (Cursor) — 통역 눈짓 예문에서 통역을 빼지 않는다
 
