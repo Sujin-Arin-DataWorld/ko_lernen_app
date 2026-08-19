@@ -311,10 +311,17 @@ void main() {
       isNotNull,
     );
 
+    // 칩 라벨이 개수를 달면서(`A2 · 46`) 줄이 길어져 A2 가 가로 스크롤 밖으로
+    // 밀린다. ensureVisible 만으로는 스크롤이 정착하기 전에 탭이 나가 빗나간다.
     final a2Filter = _grammarLevelChip('A2');
-    await tester.ensureVisible(a2Filter);
+    await tester.scrollUntilVisible(
+      a2Filter,
+      120,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pumpAndSettle();
     await tester.tap(a2Filter);
-    await tester.pump();
+    await tester.pumpAndSettle();
 
     expect(
       tester
@@ -353,9 +360,7 @@ void main() {
       await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
 
-      final a1Filter = tester.widget<SoriChip>(
-        _grammarLevelChip('A1').first,
-      );
+      final a1Filter = tester.widget<SoriChip>(_grammarLevelChip('A1').first);
       expect(a1Filter.selected, isTrue);
       expect(
         tester
