@@ -14492,9 +14492,9 @@
     {
       "id": "satz_b2_0285",
       "level": "b2",
-      "targetKo": "과장 표현을 빼고 숫자를 다시 말해요.",
-      "promptDe": "Ich lasse die Übertreibung weg und nenne die Zahl erneut.",
-      "promptEn": "I drop the loaded wording and restate the number.",
+      "targetKo": "자극적인 표현은 빼고 수치를 있는 그대로 전달해요.",
+      "promptDe": "Ich lasse reißerische Formulierungen weg und gebe die Zahlen sachlich wieder.",
+      "promptEn": "I leave out sensational wording and present the figures as they are.",
       "distractors": [
         "원문 대조",
         "선택 편집"
@@ -16340,9 +16340,9 @@
     {
       "id": "satz_c1_0170",
       "level": "c1",
-      "targetKo": "예산 이월이 막히면 가을에 성급한 구매가 생겨요.",
-      "promptDe": "Ohne Mittelübertragung kommt im Herbst der Hastkauf.",
-      "promptEn": "If budget carryover is blocked, hasty autumn purchases appear.",
+      "targetKo": "예산 이월이 제한되면 남은 예산을 소진하기 위한 불필요한 지출이 발생할 수 있어요.",
+      "promptDe": "Wenn die Übertragung von Haushaltsmitteln eingeschränkt ist, kann es zu unnötigen Ausgaben kommen, nur um das verbleibende Budget auszuschöpfen.",
+      "promptEn": "If budget carryover is restricted, unnecessary spending may occur simply to use up the remaining budget.",
       "distractors": [
         "운영 인력",
         "교체 주기"

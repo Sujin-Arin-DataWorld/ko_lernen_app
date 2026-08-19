@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 예산 이월·과장 표현 Satz를 적은 문장으로
+
+**무엇을 왜.** Jin이 `satz_c1_0170`·`satz_b2_0285` 한국어·DE·EN을 직접 고쳤다.
+같은 예문 cloze/vocab도 맞춤. 표제어 예산 이월·과장 표현·ID는 유지.
+cloze_b2_0299 빈칸은 새 문장의 `자극적인 표현`.
+
+**검증.** flutter test cloze/satz/content_id 예정.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 수거·맞장구·비교 기준·비난·메뉴판
 
 **무엇을 왜.** Jin이 어색한 한국어/직역을 직접 고쳤다.

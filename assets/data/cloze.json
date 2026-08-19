@@ -19345,11 +19345,11 @@
     {
       "id": "cloze_b2_0299",
       "level": "b2",
-      "sentenceKo": "＿＿＿을 빼고 숫자를 다시 말해요.",
-      "answer": "과장 표현",
-      "fullKo": "과장 표현을 빼고 숫자를 다시 말해요.",
-      "de": "Ich lasse die Übertreibung weg und nenne die Zahl erneut.",
-      "en": "I drop the loaded wording and restate the number.",
+      "sentenceKo": "＿＿＿은 빼고 수치를 있는 그대로 전달해요.",
+      "answer": "자극적인 표현",
+      "fullKo": "자극적인 표현은 빼고 수치를 있는 그대로 전달해요.",
+      "de": "Ich lasse reißerische Formulierungen weg und gebe die Zahlen sachlich wieder.",
+      "en": "I leave out sensational wording and present the figures as they are.",
       "distractors": [
         "원문 대조",
         "선택 편집",
@@ -21655,11 +21655,11 @@
     {
       "id": "cloze_c1_0168",
       "level": "c1",
-      "sentenceKo": "＿＿＿이 막히면 가을에 성급한 구매가 생겨요.",
+      "sentenceKo": "＿＿＿이 제한되면 남은 예산을 소진하기 위한 불필요한 지출이 발생할 수 있어요.",
       "answer": "예산 이월",
-      "fullKo": "예산 이월이 막히면 가을에 성급한 구매가 생겨요.",
-      "de": "Ohne Mittelübertragung kommt im Herbst der Hastkauf.",
-      "en": "If budget carryover is blocked, hasty autumn purchases appear.",
+      "fullKo": "예산 이월이 제한되면 남은 예산을 소진하기 위한 불필요한 지출이 발생할 수 있어요.",
+      "de": "Wenn die Übertragung von Haushaltsmitteln eingeschränkt ist, kann es zu unnötigen Ausgaben kommen, nur um das verbleibende Budget auszuschöpfen.",
+      "en": "If budget carryover is restricted, unnecessary spending may occur simply to use up the remaining budget.",
       "distractors": [
         "운영 인력",
         "교체 주기",
