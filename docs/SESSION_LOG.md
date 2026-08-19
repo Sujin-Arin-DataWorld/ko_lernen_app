@@ -5,6 +5,16 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-19 (Cursor Grok 4.6) — 공유안 A 확정 + 틴더 덱 제거 + 세로 피드
+
+**무엇을.** Jin이 A/B/C를 스킬로 고르고 전역 UI 개편을 시작하며 틴더 덱을 제거하라고 했다. 공유 이미지는 **A 두루마리**로 잠갔다. P0 시맨틱 토큰(`contentCta`/`like`/`koDisplay`/`gloss`/`meta`), P1 `hideCurrentSnackBar`+1.5s, P2 `SoriContentFeed`+하트/보관 분리+`LikedContentService`, P5 덱 6화면(`vocab_pack`·`review`·`legacy`·`custom_pack`·`hangul`·`grammar`)에서 `SoriSwipeCard`/`SoriDeckActionBar`를 제거했다. 좌우 스와이프 없음. 뒤집기 전 세로=스킵, 뒤집은 뒤 세로=앎. 모름/스킵은 텍스트 판정. 공유는 텍스트 stub(이미지 A는 P7).
+
+**왜.** 4방향 틴더는 어제 철회된 손버릇이고, 하트와 보관을 합치면 놀이 덱과 단어장이 다시 섞인다.
+
+**검증.** 이 항목 커밋 후 `flutter analyze` 해당 파일 + `content_feed`/`liked_content`/`deck_direction`/`flipgate`/`hangul`/`course_practice` 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-18 (Cursor Grok 4.6) — 콘텐츠 UI 바이블에 벤치마크·공유 3안·하트/보관 분리
 
 **무엇을.** Jin이 thevocabulary.app 단어 장을 벤치마크로 주고 `i`→`?` 플립, 공유,

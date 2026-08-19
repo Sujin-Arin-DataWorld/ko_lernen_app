@@ -33,9 +33,10 @@ versionCode를 확인하기 전에는 버전이나 출시일을 추측해 쓰지
 - [ ] 그 인계에는 flutter analyze 0 issues와 아래 정확한 검증 명령의 통과가 포함된다.
   `flutter test test/swipe_card_test.dart test/custom_pack_flipgate_test.dart
   test/review_session_flipgate_test.dart`
-- [ ] flip-gate 회귀는 텍스트가 아니라 SoriSwipeCard wrapper의 key/finder를 잡는다.
-  각 화면에서 뒤집기 전 좌·우 swipe가 SRS 0이고, 뒤집은 뒤 swipe는 해당 화면의 기존
-  positive/negative 흐름을 기록함을 보인다. VocabPackScreen 수준의 증거도 포함한다.
+- [ ] flip-gate 회귀는 텍스트가 아니라 SoriContentFeed wrapper의 key/finder를 잡는다.
+  각 화면에서 뒤집기 전 가로 드래그와 게이트된 판정이 SRS 0이고, 뒤집은 뒤 세로
+  다음/텍스트 판정은 해당 화면의 기존 positive/negative 흐름을 기록함을 보인다.
+  VocabPackScreen 수준의 증거도 포함한다.
 - [ ] 정확한 release commit에서 만든 **clean worktree**만 사용한다. 현재 작업 루트의
   미인계 변경, untracked test, 또는 빌드 산출물을 섞지 않는다.
 - [ ] 아래의 자동 게이트와 Internal Play 설치를 통과했다.

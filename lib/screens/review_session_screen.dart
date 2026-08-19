@@ -17,10 +17,11 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
-import '../widgets/sori/deck_action_bar.dart';
+import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/swipe_card.dart';
+import '../services/content_share_service.dart';
+import '../services/liked_content_service.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_background.dart';
@@ -183,7 +184,32 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       posDe: card.posDe,
       exampleKorean: card.exampleKorean,
       exampleDe: card.exampleGerman,
-      source: 'deck_swipe',
+      source: 'content_bookmark',
+    );
+  }
+
+  Future<void> _likeCurrent() async {
+    if (_loading || _done || _deck.isEmpty) {
+      return;
+    }
+    await LikedContentService.toggle(
+      kind: LikedContentService.vocab,
+      id: _card.korean,
+    );
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _shareCurrent() {
+    if (_loading || _done || _deck.isEmpty) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
+    // ignore: discarded_futures
+    ContentShareService.shareStoryText(
+      t.contentShareBody(_card.korean, _card.translationFor(lang)),
     );
   }
 
@@ -508,126 +534,67 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                 final Vocab? next = _idx + 1 < _deck.length
                     ? _deck[_idx + 1]
                     : null;
-                return Center(
-                  // 2026-08-14 §P2: 4방향 덱 — 우=Gewusst, 좌=Nicht gewusst,
-                  // ↑=저장(가속 경로), ↓=맨 뒤로 미루기. 탭 플립과 공존.
-                  child: Stack(
-                    fit: StackFit.passthrough,
-                    children: [
-                      SoriSwipeCard(
-                        // 첫 덱 1회 넛지 — 게이트는 순수 질의, 소비는 실제
-                        // 재생 시점(deck_coach.dart). 6개 덱 전부에 붙여야 "먼저
-                        // 연 덱이 제스처를 가르친다"가 성립한다.
-                        nudge: soriDeckNudgeDue(),
-                        onNudgePlayed: markSoriDeckNudgeShown,
-                        // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
-                        // 카드에 SRS가 기록되는 데이터 버그 방지.
-                        enabled: _cardRevealed,
-                        onSwipeRight: () => _answer(true),
-                        onSwipeLeft: () => _answer(false),
-                        onSwipeUp: _saveCurrent,
-                        onSwipeDown: _idx >= _deck.length - 1
-                            ? null
-                            : _deferCurrent,
-                        onBlockedHorizontalDrag: () => _flipHintTrigger.value++,
-                        rightBadge: SoriSwipeBadge(
-                          label: t.btnGewusst,
-                          icon: Icons.check_rounded,
-                          color: SoriColors.success,
-                        ),
-                        leftBadge: SoriSwipeBadge(
-                          label: t.btnNichtGewusst,
-                          icon: Icons.close_rounded,
-                          color: SoriColors.danger,
-                        ),
-                        upBadge: SoriSwipeBadge(
-                          label: t.deckActionSave,
-                          icon: Icons.redeem_rounded,
-                          color: SoriColors.goldOnLight,
-                        ),
-                        downBadge: SoriSwipeBadge(
-                          label: t.btnSkip,
-                          icon: Icons.arrow_downward_rounded,
-                          color: SoriColors.info,
-                        ),
-                        // 덱 스택 미리보기 — 다음 카드 **앞면만** (§P2-1).
-                        underlay: next == null
-                            ? null
-                            : SizedBox(
-                                width: double.infinity,
-                                height: cardH,
-                                child: SoriStudyScale(
-                                  child: _heroCardBody(
-                                    next,
-                                    s,
-                                    tt,
-                                    t,
-                                    showBack: false,
-                                  ),
-                                ),
-                              ),
-                        child: SoriPressable(
-                          key: _cardKey,
-                          onTap: _toggleFlip,
-                          haptic: SoriHaptic.selection,
-                          child: SizedBox(
-                            // P1 공통 센서 finder —
-                            // test/deck_card_geometry_test.dart.
-                            key: const ValueKey('deck-card-slot'),
-                            width: double.infinity,
-                            height: cardH,
-                            child: SoriStudyScale(
-                              child: _heroCardBody(
-                                card,
-                                s,
-                                tt,
-                                t,
-                                showBack: _flipped,
-                              ),
+                return SoriContentFeed(
+                  key: _answerRowKey,
+                  judgmentsEnabled: _cardRevealed,
+                  onBlockedJudgment: () => _flipHintTrigger.value++,
+                  flipHintTrigger: _flipHintTrigger,
+                  onNext: () => _answer(true),
+                  onHard: () => _answer(false),
+                  onSkip: _idx >= _deck.length - 1 ? null : _deferCurrent,
+                  skipEnabled: _idx < _deck.length - 1,
+                  onLike: _likeCurrent,
+                  onBookmark: _saveCurrent,
+                  onShare: _shareCurrent,
+                  onFlip: _toggleFlip,
+                  liked: LikedContentService.isLiked(
+                    kind: LikedContentService.vocab,
+                    id: card.korean,
+                  ),
+                  underlay: next == null
+                      ? null
+                      : SizedBox(
+                          width: double.infinity,
+                          height: cardH,
+                          child: SoriStudyScale(
+                            child: _heroCardBody(
+                              next,
+                              s,
+                              tt,
+                              t,
+                              showBack: false,
                             ),
                           ),
                         ),
-                      ),
-                      Positioned(
-                        top: Spacing.sm,
-                        left: 0,
-                        right: 0,
-                        child: Center(
-                          child: SoriDeckFlipHint(trigger: _flipHintTrigger),
+                  knowLabel: t.btnGewusst,
+                  hardLabel: t.btnNichtGewusst,
+                  skipLabel: t.btnSkip,
+                  bookmarkLabel: t.deckActionSave,
+                  child: SoriPressable(
+                    key: _cardKey,
+                    onTap: _toggleFlip,
+                    haptic: SoriHaptic.selection,
+                    child: SizedBox(
+                      key: const ValueKey('deck-card-slot'),
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: SoriStudyScale(
+                        child: _heroCardBody(
+                          card,
+                          s,
+                          tt,
+                          t,
+                          showBack: _flipped,
                         ),
                       ),
-                    ],
+                    ),
                   ),
                 );
               },
             ),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(
-            Spacing.lg,
-            0,
-            Spacing.lg,
-            Spacing.lg,
-          ),
-          // §P2-3: 텍스트 CTA → 아이콘 버튼 바. ⚠️ 의도적 행동 변경: 판정
-          // 버튼에 플립 게이트 확장 — flipgate 계약의 강화(완화 금지).
-          // _answerRowKey 재부착 필수 — SpotlightCoach 2단계 타깃.
-          child: SoriDeckActionBar(
-            key: _answerRowKey,
-            onDontKnow: () => _answer(false),
-            onKnow: () => _answer(true),
-            onSkip: _deferCurrent,
-            onSave: _saveCurrent,
-            skipEnabled: _idx < _deck.length - 1,
-            judgmentsEnabled: _cardRevealed,
-            onBlockedJudgmentTap: () => _flipHintTrigger.value++,
-            dontKnowLabel: t.btnNichtGewusst,
-            knowLabel: t.btnGewusst,
-            skipLabel: t.btnSkip,
-            saveLabel: t.deckActionSave,
-          ),
-        ),
+        const SizedBox(height: Spacing.lg),
       ],
     );
   }

@@ -684,6 +684,21 @@ class Storage {
     await _sl('kl_vok_favorites', list);
   }
 
+  /// Liked content keys (`kind|id`) — play-later drawer, not the wordbook.
+  static List<String> get likedContentKeys => _l('kl_liked_content_v1');
+  static bool isLikedContent(String key) => likedContentKeys.contains(key);
+  static Future<bool> toggleLikedContent(String key) async {
+    final list = likedContentKeys;
+    final liked = list.contains(key);
+    if (liked) {
+      list.remove(key);
+    } else {
+      list.add(key);
+    }
+    await _sl('kl_liked_content_v1', list);
+    return !liked;
+  }
+
   // ───────── Chosung Quiz ─────────
   static int get chosungCorrect => _i('kl_chosung_correct');
   static int get chosungWrong => _i('kl_chosung_wrong');

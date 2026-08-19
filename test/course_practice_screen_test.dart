@@ -16,7 +16,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/swipe_card.dart';
+import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -161,11 +161,11 @@ void main() {
     // 판정은 한 장짜리 덱에서도 살아 있다 — 마지막 카드의 판정이 곧 세션
     // 종료이므로 막다른 길이 생기지 않는다. 하단 CTA 는 없앴고 판정은
     // 스와이프(와 Semantics 액션)로만 한다.
-    final deck = tester.widget<SoriSwipeCard>(find.byType(SoriSwipeCard));
-    expect(deck.onSwipeRight, isNotNull, reason: '오른쪽 = 이해함');
-    expect(deck.onSwipeLeft, isNotNull, reason: '왼쪽 = 어렵다');
-    expect(deck.onSwipeUp, isNotNull, reason: '위 = 단어장 저장');
-    expect(deck.onSwipeDown, isNull, reason: '한 장이라 넘길 카드가 없다');
+    final deck = tester.widget<SoriContentFeed>(find.byType(SoriContentFeed));
+    expect(deck.onNext, isNotNull, reason: '다음/이해함');
+    expect(deck.onHard, isNotNull, reason: '어렵다');
+    expect(deck.onBookmark, isNotNull, reason: '보관');
+    expect(deck.onSkip, isNull, reason: '한 장이라 넘길 카드가 없다');
     expect(find.byKey(const Key('grammar-judge-easy')), findsNothing);
     expect(find.byKey(const Key('grammar-judge-hard')), findsNothing);
     // 되돌릴 카드가 없으므로 실행취소는 꺼져 있어야 한다.
@@ -216,12 +216,12 @@ void main() {
     expect(find.widgetWithText(SoriButton, 'Next'), findsNothing);
     expect(find.widgetWithText(SoriButton, 'Random'), findsNothing);
     expect(find.byKey(const Key('grammar-judge-easy')), findsNothing);
-    final browseDeck = tester.widget<SoriSwipeCard>(
-      find.byType(SoriSwipeCard),
+    final browseDeck = tester.widget<SoriContentFeed>(
+      find.byType(SoriContentFeed),
     );
-    expect(browseDeck.onSwipeRight, isNotNull);
-    expect(browseDeck.onSwipeLeft, isNotNull);
-    expect(browseDeck.onSwipeUp, isNotNull);
+    expect(browseDeck.onNext, isNotNull);
+    expect(browseDeck.onHard, isNotNull);
+    expect(browseDeck.onBookmark, isNotNull);
     expect(
       tester
           .widget<IconButton>(find.byKey(const Key('grammar-undo')))

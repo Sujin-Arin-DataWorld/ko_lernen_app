@@ -19,7 +19,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/swipe_card.dart';
+import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
@@ -280,7 +280,7 @@ void main() {
     expect(find.byType(ContentFeedbackCard), findsNothing);
 
     // 판정 CTA 는 없앴다 — "이 카드를 이해했다"는 이제 오른쪽 스와이프다.
-    tester.widget<SoriSwipeCard>(find.byType(SoriSwipeCard)).onSwipeRight!();
+    tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onNext!();
     await tester.pump();
     finish = tester.widget<IconButton>(
       find.byKey(const Key('grammar-finish-session')),

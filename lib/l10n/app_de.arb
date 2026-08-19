@@ -942,10 +942,21 @@
   "vocabPackDontKnow": "Weiß ich nicht",
   "vocabPackGotIt": "Gewusst",
   "deckActionSave": "Merken",
+  "contentActionFlip": "Umdrehen",
+  "contentActionLike": "Gefällt mir",
+  "contentActionShare": "Teilen",
+  "contentActionBookmark": "Merken",
+  "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
+  "@contentShareBody": {
+    "placeholders": {
+      "korean": {"type": "String"},
+      "gloss": {"type": "String"}
+    }
+  },
   "deckFlipFirstHint": "Erst antippen und umdrehen",
-  "coachSoriDeckTitle": "Karte wischen",
-  "coachSoriDeckBody": "Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.",
-  "coachSoriDeckBodyNoSave": "Wische die Karte: rechts = gewusst, links = nicht gewusst, runter = überspringen. In anderen Decks speichert hoch das Wort.",
+  "coachSoriDeckTitle": "Karte weiterwischen",
+  "coachSoriDeckBody": "Wische nach oben oder unten zur nächsten Karte. ? dreht um, Herz merkt für später, Lesezeichen legt ins Wörterbuch.",
+  "coachSoriDeckBodyNoSave": "Wische nach oben oder unten zur nächsten Karte. ? dreht um, Herz merkt für später.",
   "vocabPackStageLearn": "Lernen",
   "vocabPackStageQuiz": "Quiz",
   "vocabPackStageBoss": "Boss",
@@ -2426,7 +2437,7 @@
   "coachBookStep3": "Neue Wörter landen direkt in deiner Wortliste",
   "coachBookLimitNote": "Tageslimit: 20 Seiten",
   "coachVocabPackTitle": "In 3 Schritten lernen",
-  "coachVocabPackStep1": "Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen. Rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen",
+  "coachVocabPackStep1": "Schritt 1 · Lernen: Karte antippen oder ? zum Umdrehen, dann nach oben wischen. Herz = später üben, Lesezeichen = Wörterbuch",
   "coachVocabPackStep2": "Schritt 2 · Quiz: Wähle die richtige Übersetzung",
   "coachVocabPackStep3": "Schritt 3 · Boss: Hör zu und wähle die Bedeutung",
   "coachPackStageQuiz": "Jetzt das Quiz! Wähle die richtige Übersetzung.",

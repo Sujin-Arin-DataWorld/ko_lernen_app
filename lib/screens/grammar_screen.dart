@@ -33,8 +33,10 @@ import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
-import '../widgets/sori/swipe_card.dart';
+import '../services/content_share_service.dart';
+import '../services/liked_content_service.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -344,6 +346,32 @@ class _GrammarScreenState extends State<GrammarScreen>
       exampleKorean: g.exampleKorean,
       exampleDe: g.exampleGerman,
     );
+  }
+
+  Future<void> _likeCurrent() async {
+    final g = _current;
+    if (g == null) {
+      return;
+    }
+    await LikedContentService.toggle(
+      kind: LikedContentService.grammar,
+      id: g.pattern,
+    );
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _shareCurrent() {
+    final g = _current;
+    if (g == null) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
+    final gloss = lang == 'en' ? g.explanationEn : g.explanationDe;
+    // ignore: discarded_futures
+    ContentShareService.shareStoryText(t.contentShareBody(g.pattern, gloss));
   }
 
   /// This is intentionally a separate, free-practice route. Course grammar
@@ -765,41 +793,42 @@ class _GrammarScreenState extends State<GrammarScreen>
                                               label: t.btnSkip,
                                             ): _skipCurrent,
                                         },
-                                    child: SoriSwipeCard(
-                                      // 첫 사용자에게만, 코치와 같은 게이트.
-                                      nudge: soriDeckNudgeDue(),
-                                      onNudgePlayed: markSoriDeckNudgeShown,
-                                      enabled: allowJudging && _flipped,
-                                      onSwipeRight: allowJudging
+                                    child: SoriContentFeed(
+                                      judgmentsEnabled: allowJudging && _flipped,
+                                      onBlockedJudgment: allowJudging
+                                          ? () {}
+                                          : null,
+                                      onNext: allowJudging
                                           ? () => _judge(understood: true)
                                           : null,
-                                      onSwipeLeft: allowJudging
+                                      onHard: allowJudging
                                           ? () => _judge(understood: false)
                                           : null,
-                                      onSwipeUp: _saveCurrent,
-                                      onSwipeDown: _canNavigateDeck
+                                      onSkip: _canNavigateDeck
                                           ? _skipCurrent
                                           : null,
-                                      upBadge: SoriSwipeBadge(
-                                        label: t.deckActionSave,
-                                        icon: Icons.redeem_rounded,
-                                        color: SoriColors.goldOnLight,
+                                      skipEnabled: _canNavigateDeck,
+                                      onLike: _likeCurrent,
+                                      onBookmark: _saveCurrent,
+                                      onShare: _shareCurrent,
+                                      onFlip: canRecordCheckpoint
+                                          ? () => _showCheckpoint(
+                                              g,
+                                              assessmentLink!,
+                                            )
+                                          : _onFlip,
+                                      liked: LikedContentService.isLiked(
+                                        kind: LikedContentService.grammar,
+                                        id: g.pattern,
                                       ),
-                                      rightBadge: SoriSwipeBadge(
-                                        label: t.grammarEasy,
-                                        icon: Icons.thumb_up_alt_outlined,
-                                        color: SoriColors.success,
-                                      ),
-                                      leftBadge: SoriSwipeBadge(
-                                        label: t.grammarHard,
-                                        icon: Icons.psychology_outlined,
-                                        color: SoriColors.danger,
-                                      ),
-                                      downBadge: SoriSwipeBadge(
-                                        label: t.btnSkip,
-                                        icon: Icons.arrow_downward_rounded,
-                                        color: SoriColors.info,
-                                      ),
+                                      knowLabel: allowJudging
+                                          ? t.grammarEasy
+                                          : null,
+                                      hardLabel: allowJudging
+                                          ? t.grammarHard
+                                          : null,
+                                      skipLabel: t.btnSkip,
+                                      bookmarkLabel: t.deckActionSave,
                                       child: SoriStudyScale(
                                         child: FlipCard(
                                           key: _cardKey,

@@ -54,10 +54,11 @@ Future<void> addToWordbook(
     WordbookAddResult.alreadyExists => t.wbAlreadyAdded(korean),
     WordbookAddResult.failed => t.wbAddFailed,
   };
+  messenger.hideCurrentSnackBar();
   messenger.showSnackBar(
     SnackBar(
       content: Text(msg),
-      duration: const Duration(seconds: 3),
+      duration: const Duration(milliseconds: 1500),
       behavior: SnackBarBehavior.floating,
       action: res == WordbookAddResult.failed
           ? null

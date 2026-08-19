@@ -157,7 +157,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('학교'), findsOneWidget);
 
-    await tester.drag(find.text('학교'), const Offset(220, 0));
+    await tester.drag(find.text('학교'), const Offset(0, -220));
     await tester.pumpAndSettle();
 
     expect(find.text('선생님'), findsOneWidget);

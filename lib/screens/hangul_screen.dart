@@ -11,14 +11,14 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/content_feedback_card.dart';
-import '../widgets/sori/deck_action_bar.dart';
-import '../widgets/sori/deck_coach.dart';
+import '../widgets/sori/content_feed.dart';
+import '../services/content_share_service.dart';
+import '../services/liked_content_service.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/sheet.dart';
-import '../widgets/sori/swipe_card.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
@@ -241,7 +241,7 @@ class _HangulScreenState extends State<HangulScreen>
           // 탭 넘김 스와이프는 **개요 탭에서만** 켠다.
           //
           // 카드 탭과 쓰기 탭은 둘 다 가로 드래그를 스스로 쓴다 — 카드는
-          // SoriSwipeCard(이전/다음 글자), 쓰기는 손가락 그리기와 좌우 이동.
+          // 카드 탭은 세로 피드(이전/다음 글자), 쓰기는 손가락 그리기와 좌우 이동.
           // TabBarView 의 가로 드래그 인식기는 제스처 아레나에서 카드의
           // Pan 인식기를 이겨버리기 때문에, 켜두면 카드를 미는 대신 탭이
           // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
@@ -731,6 +731,26 @@ class _CardsTabState extends State<_CardsTab> {
     });
   }
 
+  Future<void> _likeCurrent() async {
+    final letter = _pool[_idx % _pool.length].letter;
+    await LikedContentService.toggle(
+      kind: LikedContentService.hangul,
+      id: letter,
+    );
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _shareCurrent() {
+    final c = _pool[_idx % _pool.length];
+    final t = AppL10n.of(context);
+    // ignore: discarded_futures
+    ContentShareService.shareStoryText(
+      t.contentShareBody(c.letter, c.romanization),
+    );
+  }
+
   void _setMode(int m) {
     if (_mode == m) return;
     HapticFeedback.selectionClick();
@@ -950,107 +970,65 @@ class _CardsTabState extends State<_CardsTab> {
                   // (한글 카드엔 유출될 정답이 없지만 관례를 깨지 않는다.)
                   final next = _pool[(_idx + 1) % _pool.length];
                   final t = AppL10n.of(context);
-                  return Stack(
-                    alignment: Alignment.topCenter,
-                    children: [
-                      SoriSwipeCard(
-                        // 앱 공용 계약(Jin 확정): 좌=모름 · 우=앎 · 위=저장 ·
-                        // 아래=넘어가기. 2026-08-18 1차 이식에서 좌=다음/우=이전
-                        // 으로 들어갔던 걸 계약에 맞춘다 — 화면마다 좌/우 뜻이
-                        // 달라지면 "말 안 해도 방향을 안다"는 목표가 깨진다.
-                        // ↑ 저장은 꺼 둔다: 자모는 단어장에 담을 대상이 아니다.
-                        enabled: _flipped,
-                        onSwipeLeft: _dontKnow,
-                        onSwipeRight: _known,
-                        onSwipeDown: _next,
-                        onBlockedHorizontalDrag: () => _flipHint.value++,
-                        nudge: soriDeckNudgeDue(),
-                        onNudgePlayed: markSoriDeckNudgeShown,
-                        leftBadge: SoriSwipeBadge(
-                          label: t.btnNichtGewusst,
-                          icon: Icons.question_mark_rounded,
-                          color: SoriColors.danger,
-                        ),
-                        rightBadge: SoriSwipeBadge(
-                          label: t.btnGewusst,
-                          icon: Icons.check_rounded,
-                          color: SoriColors.success,
-                        ),
-                        downBadge: SoriSwipeBadge(
-                          label: t.btnSkip,
-                          icon: Icons.arrow_downward_rounded,
-                          color: SoriColors.info,
-                        ),
-                        // 임계값은 공용 위젯 기본값을 그대로 쓴다. 체감 속도를
-                        // 만드는 건 임계값이 아니라 **손가락을 따라오는 이동·기울기
-                        // + 퇴장 애니메이션**이고, 예전 이 화면엔 그게 아예 없어
-                        // (생 onHorizontalDragEnd + setState) 죽은 느낌이 났다.
-                        underlay: _HangulCardFace(
+                  return SoriContentFeed(
+                    judgmentsEnabled: _flipped,
+                    onBlockedJudgment: () => _flipHint.value++,
+                    flipHintTrigger: _flipHint,
+                    onNext: _known,
+                    onHard: _dontKnow,
+                    onSkip: _next,
+                    onPrevious: _prev,
+                    onLike: _likeCurrent,
+                    onShare: _shareCurrent,
+                    onFlip: () {
+                      unawaited(widget.speak(c.letter));
+                      _onFlip();
+                    },
+                    showBookmark: false,
+                    liked: LikedContentService.isLiked(
+                      kind: LikedContentService.hangul,
+                      id: c.letter,
+                    ),
+                    underlay: _HangulCardFace(
+                      gradient: const [
+                        SoriColors.accent,
+                        SoriColors.darkAccent,
+                      ],
+                      borderColor: SoriColors.hangul,
+                      children: _frontFace(next, h),
+                    ),
+                    knowLabel: t.btnGewusst,
+                    hardLabel: t.btnNichtGewusst,
+                    skipLabel: t.btnSkip,
+                    child: SoriStudyScale(
+                      child: FlipCard(
+                        key: ValueKey('hangul-card-${c.letter}'),
+                        flipped: _flipped,
+                        onTap: () {
+                          unawaited(widget.speak(c.letter));
+                          _onFlip();
+                        },
+                        front: _HangulCardFace(
                           gradient: const [
                             SoriColors.accent,
                             SoriColors.darkAccent,
                           ],
                           borderColor: SoriColors.hangul,
-                          children: _frontFace(next, h),
+                          children: _frontFace(c, h),
                         ),
-                        // FlipCard 는 내용이 바뀔 때 새 key 가 필요하다
-                        // (flip_card.dart 계약). 없으면 State 가 재사용돼 다음
-                        // 카드의 뒷면이 ~190ms 먼저 노출되고, 그 사이 예시어
-                        // 히트영역이 살아 있다.
-                        child: SoriStudyScale(
-                          child: FlipCard(
-                            key: ValueKey('hangul-card-${c.letter}'),
-                            flipped: _flipped,
-                            onTap: () {
-                              unawaited(widget.speak(c.letter));
-                              _onFlip();
-                            },
-                            front: _HangulCardFace(
-                              gradient: const [
-                                SoriColors.accent,
-                                SoriColors.darkAccent,
-                              ],
-                              borderColor: SoriColors.hangul,
-                              children: _frontFace(c, h),
-                            ),
-                            back: _HangulCardFace(
-                              gradient: const [
-                                SoriColors.highlight,
-                                SoriColors.darkPrimary,
-                              ],
-                              borderColor: SoriColors.info,
-                              children: _backFace(context, c, s, h),
-                            ),
-                          ),
+                        back: _HangulCardFace(
+                          gradient: const [
+                            SoriColors.highlight,
+                            SoriColors.darkPrimary,
+                          ],
+                          borderColor: SoriColors.info,
+                          children: _backFace(context, c, s, h),
                         ),
                       ),
-                      // 플립 전 판정 시도 → "먼저 뒤집으세요" 칩.
-                      Padding(
-                        padding: const EdgeInsets.only(top: Spacing.sm),
-                        child: SoriDeckFlipHint(trigger: _flipHint),
-                      ),
-                    ],
+                    ),
                   );
                 },
               ),
-            ),
-            const SizedBox(height: 12),
-            // 전폭 버튼 5단(Zurück/Weiter · Hören · Zufällig · 완료)을 단어팩과
-            // **같은 원형 4버튼 바**로 바꾼다 (Sori Deck 3.0, 2026-08-18).
-            // 버튼 바는 스와이프의 접근성 정본 — 제스처를 모르거나 정밀 터치가
-            // 필요한 사용자에게 완전한 대체 수단이어야 한다(WCAG).
-            // ↑ 저장은 숨긴다: 자모는 단어장에 담을 대상이 아니다.
-            SoriDeckActionBar(
-              onDontKnow: _dontKnow,
-              onKnow: _known,
-              onSkip: _next,
-              showSave: false,
-              judgmentsEnabled: _flipped,
-              onBlockedJudgmentTap: () => _flipHint.value++,
-              dontKnowLabel: AppL10n.of(context).btnNichtGewusst,
-              knowLabel: AppL10n.of(context).btnGewusst,
-              skipLabel: AppL10n.of(context).btnSkip,
-              saveLabel: AppL10n.of(context).deckActionSave,
             ),
             const SizedBox(height: 10),
             // 보조 동작(이전·듣기·무작위)은 판정이 아니므로 44dp 아이콘 행으로

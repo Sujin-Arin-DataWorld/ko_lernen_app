@@ -20,8 +20,10 @@ import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/swipe_card.dart';
+import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
+
+import 'helpers/deck_actions.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -85,28 +87,17 @@ void main() {
     });
   });
 
-  group('③ 카드 스와이프 — 앱 공용 방향 계약', () {
-    // 좌 = 모름 · 우 = 앎 · 위 = 저장 · 아래 = 넘어가기 (Jin 확정 2026-08-18).
-    // 화면마다 좌/우 뜻이 달라지면 "말 안 해도 방향을 안다"가 깨진다.
-    testWidgets('공용 SoriSwipeCard 를 쓰고 방향 계약을 지킨다', (tester) async {
+  group('③ 카드 스와이프 — 세로 피드 계약', () {
+    testWidgets('공용 SoriContentFeed 를 쓰고 틴더 축을 쓰지 않는다', (tester) async {
       await pumpScreen(tester);
-      expect(find.byType(SoriSwipeCard), findsOneWidget);
-      final card = tester.widget<SoriSwipeCard>(find.byType(SoriSwipeCard));
+      expect(find.byType(SoriContentFeed), findsOneWidget);
+      final feed = tester.widget<SoriContentFeed>(find.byType(SoriContentFeed));
 
-      expect(card.onSwipeLeft, isNotNull, reason: '좌 = 모름');
-      expect(card.onSwipeRight, isNotNull, reason: '우 = 앎');
-      expect(card.onSwipeDown, isNotNull, reason: '아래 = 넘어가기');
-      // 위 = 저장. 자모는 단어장에 담을 대상이 아니라 일부러 끈다.
-      expect(card.onSwipeUp, isNull, reason: '자모는 저장 대상이 아니다');
-
-      // 의미를 쓰는 방향은 배지로 선언해야 레일이 중립색으로 안 빠진다.
-      expect(card.leftBadge, isNotNull);
-      expect(card.rightBadge, isNotNull);
-      expect(card.downBadge, isNotNull);
-      expect(card.upBadge, isNull);
-
-      // 덱 스택 미리보기(다음 카드 앞면).
-      expect(card.underlay, isNotNull);
+      expect(feed.onNext, isNotNull, reason: '뒤집은 뒤 세로 다음 = 앎');
+      expect(feed.onHard, isNotNull, reason: '모름은 텍스트 판정');
+      expect(feed.onSkip, isNotNull, reason: '뒤집기 전 세로 = 넘어가기');
+      expect(feed.showBookmark, isFalse, reason: '자모는 단어장 대상이 아니다');
+      expect(feed.underlay, isNotNull);
     });
 
     testWidgets('아래로 밀면 넘어간다 — 뒤집지 않아도 된다', (tester) async {
@@ -126,11 +117,11 @@ void main() {
       expect(Storage.hangulHard, isEmpty);
     });
 
-    testWidgets('뒤집은 뒤 좌로 밀면 모름으로 기록하고 넘어간다', (tester) async {
+    testWidgets('뒤집은 뒤 모름 텍스트로 기록하고 넘어간다', (tester) async {
       await pumpScreen(tester);
       await tester.tap(find.byType(FlipCard).first);
       await tester.pumpAndSettle();
-      await tester.fling(find.byType(FlipCard).first, const Offset(-400, 0), 1200);
+      tapDeckAction(tester, 'Didn\'t know');
       await tester.pumpAndSettle();
       expect(Storage.hangulHard, contains('ㄱ'));
       expect(find.text('2 / 19'), findsOneWidget);
