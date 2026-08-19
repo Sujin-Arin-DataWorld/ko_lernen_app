@@ -8,7 +8,9 @@ DE/EN의 em dash를 잡았다. 같은 예문이 vocab `vocab_a1_0351`에도 있�
 
 **무엇을.** dash를 마침표·쉼표로. inherited 지문 2개만 맞춤. ID 유지.
 
-**검증.** 집중 Flutter 예정. 이 로그와 같은 커밋.
+**검증.** arb_l10n_guard · can_do_segment_asset ·
+canonical_course_segment_loader · learner_copy_scan · content_id ·
+data_loader 30 passed. 이 로그와 같은 커밋.
 
 ### 2026-08-19 (Cursor) — 번역 스택 흡수 뒤 메뉴판·smalltalk 지문
 
