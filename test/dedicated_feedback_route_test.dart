@@ -18,9 +18,11 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/chaekgado/shelf_case.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
+import 'package:ko_lernen_app/widgets/sori/tts_speed_control.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'helpers/deck_actions.dart';
@@ -110,6 +112,7 @@ void main() {
       'kl_tut_pack_boss': true,
       'kl_tut_scenario': true,
       'kl_tut_listening': true,
+      'kl_tut_listening_play': true,
       'kl_tut_review': true,
       'kl_tut_legacyVocab': true,
       'kl_tut_soriDeck': true,
@@ -228,13 +231,11 @@ void main() {
     'listening feedback appears only after completing the selected session',
     (tester) async {
       await tester.pumpWidget(
-        _app(
-          ListeningScreen(scenariosLoader: () async => [_listeningScenario]),
-        ),
+        _app(ListeningPlayScreen(scenario: _listeningScenario)),
       );
       await tester.pump();
       await tester.pump();
-      // 2026-08-12: 화면에 들어오면 첫 대사를 자동 재생한다(B1). 그 끝에
+      // 플레이어에 들어오면 첫 대사를 자동 재생한다. 그 끝에
       // AudioPolicy 가 200ms 덕킹 복원 타이머를 건다 — 흘려보내지 않으면
       // "pending timer" 로 실패한다. 기능이 아니라 정리 문제다.
       await tester.pump(const Duration(milliseconds: 300));
@@ -350,55 +351,30 @@ void main() {
     expect(find.byType(ContentFeedbackCard), findsNothing);
   });
 
-  testWidgets('listening controls fit a 390px portrait viewport', (
-    tester,
-  ) async {
-    _setViewport(const Size(390, 844));
-    await tester.pumpWidget(
-      _app(ListeningScreen(scenariosLoader: () async => [_listeningScenario])),
-    );
-    await tester.pump();
-    await tester.pump();
+  testWidgets(
+    'listening player fits a 390px portrait viewport without the shelf',
+    (tester) async {
+      _setViewport(const Size(390, 844));
+      await tester.pumpWidget(
+        _app(ListeningPlayScreen(scenario: _listeningScenario)),
+      );
+      await tester.pump();
+      await tester.pump();
 
-    // 전역 TtsSpeedControl 프리셋 (2026-08-13 — 화면 로컬 0.75x/1.0x/1.25x 대체).
-    const speedChoices = ['0.5×', '0.75×', '0.8×', '1×', '1.25×', '1.5×'];
-    const subtitleChoices = ['Beides', 'Koreanisch', 'Übersetzung', 'Aus'];
-    final controls = [
-      ...speedChoices.map(_chip),
-      ...subtitleChoices.map(_chip),
-    ];
-    for (final finder in controls) {
-      expect(finder, findsOneWidget);
-      expect(tester.getSize(finder).height, inInclusiveRange(44, 48));
-    }
-    _expectInsideViewport(tester, controls, const Size(390, 844));
-    expect(tester.takeException(), isNull);
-    // 첫 대사 자동재생(B1)이 남긴 AudioPolicy 200ms 덕킹 타이머를 흘려보낸다.
-    await tester.pump(const Duration(milliseconds: 300));
-    for (final selectedLabel in speedChoices) {
-      await tester.tap(_chip(selectedLabel));
-      await tester.pump();
+      expect(find.byType(ListeningPlayScreen), findsOneWidget);
+      expect(find.byType(ChaekgadoShelfCase), findsNothing);
+      expect(find.text('Beides'), findsNothing);
+      expect(find.text('Koreanisch'), findsNothing);
+      expect(find.byType(TtsSpeedControl), findsOneWidget);
+      expect(
+        tester.getRect(find.byType(ListeningPlayScreen)),
+        const Offset(0, 0) & const Size(390, 844),
+      );
       expect(tester.takeException(), isNull);
-      for (final label in speedChoices) {
-        expect(
-          tester.widget<SoriChip>(_chip(label)).selected,
-          label == selectedLabel,
-        );
-      }
-    }
-    for (final selectedLabel in subtitleChoices) {
-      await tester.tap(_chip(selectedLabel));
-      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
       expect(tester.takeException(), isNull);
-      for (final label in subtitleChoices) {
-        expect(
-          tester.widget<SoriChip>(_chip(label)).selected,
-          label == selectedLabel,
-        );
-      }
-    }
-    expect(tester.takeException(), isNull);
-  });
+    },
+  );
 
   testWidgets('legacy mode controls fit a 390px portrait viewport', (
     tester,
@@ -437,26 +413,13 @@ void main() {
   ) async {
     _setViewport(const Size(600, 900));
     await tester.pumpWidget(
-      _app(ListeningScreen(scenariosLoader: () async => [_listeningScenario])),
+      _app(ListeningPlayScreen(scenario: _listeningScenario)),
     );
     await tester.pump();
     await tester.pump();
-    _expectSameRow(tester, [
-      '0.5×',
-      '0.75×',
-      '0.8×',
-      '1×',
-      '1.25×',
-      '1.5×',
-    ]);
-    _expectSameRow(tester, ['Beides', 'Koreanisch']);
-    _expectSameRow(tester, ['Übersetzung', 'Aus']);
-    expect(
-      tester.getTopLeft(_chip('Übersetzung')).dy,
-      greaterThan(tester.getTopLeft(_chip('Beides')).dy),
-    );
-    // 첫 대사 자동재생(B1)이 남긴 AudioPolicy 200ms 덕킹 타이머를 흘려보낸 뒤
-    // 다음 화면으로 교체한다.
+    expect(find.byType(TtsSpeedControl), findsOneWidget);
+    expect(find.text('Beides'), findsNothing);
+    expect(find.byType(ChaekgadoShelfCase), findsNothing);
     await tester.pump(const Duration(milliseconds: 300));
 
     await tester.pumpWidget(

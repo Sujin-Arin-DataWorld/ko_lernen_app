@@ -1900,18 +1900,35 @@ class AppL10nEn extends AppL10n {
   String get deckActionSave => 'Save';
 
   @override
+  String get contentActionFlip => 'Flip';
+
+  @override
+  String get contentActionLike => 'Like';
+
+  @override
+  String get contentActionShare => 'Share';
+
+  @override
+  String get contentActionBookmark => 'Save';
+
+  @override
+  String contentShareBody(String korean, String gloss) {
+    return '$korean\n$gloss\nhangul-sori.com';
+  }
+
+  @override
   String get deckFlipFirstHint => 'Tap the card to flip it first';
 
   @override
-  String get coachSoriDeckTitle => 'Swipe the card';
+  String get coachSoriDeckTitle => 'Swipe to the next card';
 
   @override
   String get coachSoriDeckBody =>
-      'Swipe the card: right = knew it, left = didn\'t know, up = save, down = skip.';
+      'Swipe up or down for the next card. ? flips, the heart likes for later, the bookmark adds to your wordbook.';
 
   @override
   String get coachSoriDeckBodyNoSave =>
-      'Swipe the card: right = knew it, left = didn\'t know, down = skip. In other decks, swipe up to save the word.';
+      'Swipe up or down for the next card. ? flips, the heart likes for later.';
 
   @override
   String get vocabPackStageLearn => 'Learn';
@@ -3026,7 +3043,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get listeningPickFirst => 'Pick a scenario above to start.';
+  String get listeningPickFirst => 'Tap a shelf to start.';
 
   @override
   String get listeningEmptyTitle => 'No scenarios yet';
@@ -4942,7 +4959,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      'Step 1 · Learn: tap to flip the card, then swipe. Right = knew it, left = didn\'t know, up = save, down = skip';
+      'Step 1 · Learn: tap or ? to flip, then swipe up. Heart = play later, bookmark = wordbook';
 
   @override
   String get coachVocabPackStep2 => 'Step 2 · Quiz: pick the right translation';
@@ -5209,18 +5226,18 @@ class AppL10nEn extends AppL10n {
       'Tap a card to select the scenario you want to listen to';
 
   @override
-  String get coachListeningStep2Title => 'Speed & subtitles';
+  String get coachListeningStep2Title => 'Speed';
 
   @override
   String get coachListeningStep2Body =>
-      'Adjust playback speed from 0.75× to 1.25× and choose a subtitle mode';
+      'One speed icon at the top. ? shows the translation on the line, not as a chip row.';
 
   @override
   String get coachListeningStep3Title => 'Line by line';
 
   @override
   String get coachListeningStep3Body =>
-      'Listen and tap ⟳ to replay, or Next to advance';
+      'Fling up for the next line. Double-tap likes the line; it does not save to the wordbook.';
 
   @override
   String get coachHangulTitle => 'Three tabs for learning Hangul';

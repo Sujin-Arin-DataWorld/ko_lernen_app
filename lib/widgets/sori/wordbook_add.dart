@@ -24,6 +24,7 @@ Future<void> addToWordbook(
   String exampleDe = '',
   String definitionKo = '',
   String source = 'manual',
+  bool notify = true,
 }) async {
   final t = AppL10n.of(context);
   // Vor dem await einsammeln — kein BuildContext-Zugriff nach await.
@@ -54,10 +55,15 @@ Future<void> addToWordbook(
     WordbookAddResult.alreadyExists => t.wbAlreadyAdded(korean),
     WordbookAddResult.failed => t.wbAddFailed,
   };
+  if (!notify) {
+    return;
+  }
+  messenger.hideCurrentSnackBar();
+  const linger = Duration(milliseconds: 500);
   messenger.showSnackBar(
     SnackBar(
       content: Text(msg),
-      duration: const Duration(seconds: 3),
+      duration: linger,
       behavior: SnackBarBehavior.floating,
       action: res == WordbookAddResult.failed
           ? null
@@ -67,6 +73,7 @@ Future<void> addToWordbook(
             ),
     ),
   );
+  Future<void>.delayed(linger, messenger.hideCurrentSnackBar);
 }
 
 /// Wiederverwendbarer "Zur Wortliste"-Button (Lesezeichen-Icon).

@@ -935,19 +935,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: Spacing.lg),
-          SoriCard(
-            variant: SoriCardVariant.base,
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Text(
-              s.intro.pick(lang),
-              style: TextStyle(
-                color: ss.textMuted,
-                fontSize: 16,
-                height: 1.7,
-                fontWeight: FontWeight.w500,
-              ),
-              textAlign: TextAlign.center,
+          Text(
+            s.intro.pick(lang),
+            style: SoriTextTheme.of(context).gloss.copyWith(
+              color: ss.textMuted,
+              height: 1.7,
             ),
+            textAlign: TextAlign.center,
           ),
           const SizedBox(height: Spacing.lg),
           SoriBadge.level(s.level.display, size: 28),
@@ -1660,6 +1654,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       child: SoriButton.filled(
         key: _nextBtnKey,
         label: isIntro ? t.scenarioStartBtn : t.scenarioNextBtn,
+        accent: SoriColors.contentCta,
         fullWidth: true,
         onTap: enabled ? _next : null,
       ),
@@ -1693,7 +1688,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             Text(
               _scenario!.title.pick(lang),
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+              style: SoriTextTheme.of(context).h3,
               overflow: TextOverflow.ellipsis,
             ),
             if (_usesSegmentHeader)

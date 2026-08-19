@@ -13,6 +13,7 @@ import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/cloze_prompt.dart';
@@ -236,14 +237,14 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
 
     if (_loading) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.clozeTitle)),
+        appBar: SoriAppBar(title: t.clozeTitle),
         body: const AppLoading(),
       );
     }
 
     if (_round.isEmpty) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.clozeTitle)),
+        appBar: SoriAppBar(title: t.clozeTitle),
         body: SoriScreenBackground(
           child: SafeArea(
             child: Column(
@@ -281,11 +282,9 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     final revealed = _picked != null;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.clozeTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+      appBar: SoriAppBar(
+        title: t.clozeTitle,
+        eyebrow: '${_idx + 1} / ${_round.length} · ${t.quizScore(_score, _round.length)}',
         leading: IconButton(
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
@@ -301,23 +300,11 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   if (widget.items == null) _levelBar(t),
-                  Row(
-                    children: [
-                      SoriChip(
-                        label: '${_idx + 1} / ${_round.length}',
-                        accent: SoriColors.info,
-                      ),
-                      const Spacer(),
-                      SoriChip(
-                        label: t.quizScore(_score, _round.length),
-                        accent: SoriColors.success,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: Spacing.lg),
                   Text(
                     t.clozeInstruction,
-                    style: TextStyle(fontSize: 13, color: s.textMuted),
+                    style: SoriTextTheme.of(context).meta.copyWith(
+                      color: s.textMuted,
+                    ),
                   ),
                   const SizedBox(height: Spacing.md),
                   SoriStudyScale(
@@ -380,12 +367,9 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
   Widget _buildDone(AppL10n t) {
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
     return Scaffold(
-      appBar: AppBar(
+      appBar: SoriAppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          t.clozeTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+        title: t.clozeTitle,
       ),
       body: SafeArea(
         child: SoriCenterClamp(
@@ -407,7 +391,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
                 label: t.quizAgain,
                 icon: Icons.refresh_rounded,
                 variant: SoriButtonVariant.filled,
-                accent: SoriColors.primary,
+                accent: SoriColors.contentCta,
                 fullWidth: true,
                 onTap: _newRound,
               ),

@@ -1907,18 +1907,35 @@ class AppL10nDe extends AppL10n {
   String get deckActionSave => 'Merken';
 
   @override
+  String get contentActionFlip => 'Umdrehen';
+
+  @override
+  String get contentActionLike => 'Gefällt mir';
+
+  @override
+  String get contentActionShare => 'Teilen';
+
+  @override
+  String get contentActionBookmark => 'Merken';
+
+  @override
+  String contentShareBody(String korean, String gloss) {
+    return '$korean\n$gloss\nhangul-sori.com';
+  }
+
+  @override
   String get deckFlipFirstHint => 'Erst antippen und umdrehen';
 
   @override
-  String get coachSoriDeckTitle => 'Karte wischen';
+  String get coachSoriDeckTitle => 'Karte weiterwischen';
 
   @override
   String get coachSoriDeckBody =>
-      'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.';
+      'Wische nach oben oder unten zur nächsten Karte. ? dreht um, Herz merkt für später, Lesezeichen legt ins Wörterbuch.';
 
   @override
   String get coachSoriDeckBodyNoSave =>
-      'Wische die Karte: rechts = gewusst, links = nicht gewusst, runter = überspringen. In anderen Decks speichert hoch das Wort.';
+      'Wische nach oben oder unten zur nächsten Karte. ? dreht um, Herz merkt für später.';
 
   @override
   String get vocabPackStageLearn => 'Lernen';
@@ -3038,7 +3055,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get listeningPickFirst => 'Wähl oben ein Szenario, um zu starten.';
+  String get listeningPickFirst => 'Tippe ein Fach an, um zu starten.';
 
   @override
   String get listeningEmptyTitle => 'Noch keine Szenarien';
@@ -4958,7 +4975,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachVocabPackStep1 =>
-      'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen. Rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen';
+      'Schritt 1 · Lernen: Karte antippen oder ? zum Umdrehen, dann nach oben wischen. Herz = später üben, Lesezeichen = Wörterbuch';
 
   @override
   String get coachVocabPackStep2 =>
@@ -5228,18 +5245,18 @@ class AppL10nDe extends AppL10n {
       'Tippe auf eine Karte, um die passende Situation auszuwählen';
 
   @override
-  String get coachListeningStep2Title => 'Tempo & Untertitel';
+  String get coachListeningStep2Title => 'Tempo';
 
   @override
   String get coachListeningStep2Body =>
-      'Stelle die Geschwindigkeit von 0,75× bis 1,25× und den Untertitelmodus ein';
+      'Oben ein Tempo-Symbol. ? zeigt die Übersetzung auf der Zeile, nicht als Chip-Leiste.';
 
   @override
   String get coachListeningStep3Title => 'Zeile für Zeile';
 
   @override
   String get coachListeningStep3Body =>
-      'Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile';
+      'Nach oben wischen für die nächste Zeile. Doppeltipp ist ein Like, nicht die Wortliste.';
 
   @override
   String get coachHangulTitle => 'Drei Tabs zum Hangul-Lernen';

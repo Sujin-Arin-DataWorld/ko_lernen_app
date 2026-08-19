@@ -165,7 +165,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('도서관'), findsOneWidget);
 
-    await tester.drag(find.text('도서관'), const Offset(220, 0));
+    await tester.drag(find.text('도서관'), const Offset(0, -220));
     await tester.pumpAndSettle();
 
     expect(find.text('의자'), findsOneWidget);

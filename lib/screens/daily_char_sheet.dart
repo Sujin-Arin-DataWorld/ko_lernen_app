@@ -74,6 +74,12 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
     super.initState();
     _char = widget.character ?? DailyCharService.today();
     _guideCompleted = (hangulStrokes[_char] ?? const []).isEmpty;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) {
+        return;
+      }
+      TtsService.speak(speakableJamo(_char));
+    });
   }
 
   Future<void> _finish() async {
@@ -156,7 +162,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                 letter: _char,
                 strokes: strokes,
                 size: 220,
-                color: SoriColors.hangul,
+                color: SoriColors.primary,
                 onCompleted: _markGuideCompleted,
               ),
             ),
@@ -204,15 +210,17 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
         if (!_doneNow) ...[
           Row(
             children: [
-              Expanded(
-                child: SoriButton.outlined(
-                  label: t.btnHoeren,
-                  icon: Icons.volume_up_rounded,
-                  // 낱자면 음가(ㅊ→'츠'), 이미 음절이면 그대로.
-                  // 한글 탭과 **같은** speakableJamo 를 쓴다 — 예전엔 낱자
-                  // 이름(치읓)을 읽어 같은 글자가 화면마다 다르게 들렸고,
-                  // 그 표에는 ㅡ→'은' 같은 오류까지 있었다.
-                  onTap: () => TtsService.speak(speakableJamo(_char)),
+              SizedBox(
+                width: 56,
+                height: 56,
+                child: IconButton.filled(
+                  tooltip: t.btnHoeren,
+                  style: IconButton.styleFrom(
+                    backgroundColor: SoriColors.primary.withValues(alpha: 0.12),
+                    foregroundColor: SoriColors.primary,
+                  ),
+                  onPressed: () => TtsService.speak(speakableJamo(_char)),
+                  icon: const Icon(Icons.volume_up_rounded),
                 ),
               ),
               const SizedBox(width: Spacing.sm),

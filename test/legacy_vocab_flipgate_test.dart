@@ -170,14 +170,14 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('사과'), findsOneWidget);
 
-    await tester.drag(find.text('사과'), const Offset(220, 0));
+    await tester.drag(find.text('사과'), const Offset(0, -220));
     await tester.pumpAndSettle();
 
     expect(find.text('바나나'), findsOneWidget);
     expect(Storage.srsCard('사과')?.reviewCount, 1);
 
     final secondBefore = Storage.srsCard('바나나')?.reviewCount;
-    await tester.drag(find.text('바나나'), const Offset(220, 0));
+    await tester.drag(find.text('바나나'), const Offset(0, -220));
     await tester.pumpAndSettle();
     expect(Storage.srsCard('바나나')?.reviewCount, secondBefore);
     expect(find.text('바나나'), findsOneWidget);

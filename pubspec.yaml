@@ -157,7 +157,6 @@ flutter:
     - assets/illustrations/gye/
     - assets/illustrations/book/
     - assets/illustrations/scenes/
-    - assets/illustrations/empty/
     - assets/illustrations/error/
     - assets/illustrations/onboarding/
     # 단어팩 motif 일러스트 (2026-08-13 UI 개편 Phase 1) — 규약:

@@ -942,10 +942,21 @@
   "vocabPackDontKnow": "Weiß ich nicht",
   "vocabPackGotIt": "Gewusst",
   "deckActionSave": "Merken",
+  "contentActionFlip": "Umdrehen",
+  "contentActionLike": "Gefällt mir",
+  "contentActionShare": "Teilen",
+  "contentActionBookmark": "Merken",
+  "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
+  "@contentShareBody": {
+    "placeholders": {
+      "korean": {"type": "String"},
+      "gloss": {"type": "String"}
+    }
+  },
   "deckFlipFirstHint": "Erst antippen und umdrehen",
-  "coachSoriDeckTitle": "Karte wischen",
-  "coachSoriDeckBody": "Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.",
-  "coachSoriDeckBodyNoSave": "Wische die Karte: rechts = gewusst, links = nicht gewusst, runter = überspringen. In anderen Decks speichert hoch das Wort.",
+  "coachSoriDeckTitle": "Karte weiterwischen",
+  "coachSoriDeckBody": "Wische nach oben oder unten zur nächsten Karte. ? dreht um, Herz merkt für später, Lesezeichen legt ins Wörterbuch.",
+  "coachSoriDeckBodyNoSave": "Wische nach oben oder unten zur nächsten Karte. ? dreht um, Herz merkt für später.",
   "vocabPackStageLearn": "Lernen",
   "vocabPackStageQuiz": "Quiz",
   "vocabPackStageBoss": "Boss",
@@ -1488,7 +1499,7 @@
       }
     }
   },
-  "listeningPickFirst": "Wähl oben ein Szenario, um zu starten.",
+  "listeningPickFirst": "Tippe ein Fach an, um zu starten.",
   "listeningEmptyTitle": "Noch keine Szenarien",
   "listeningEmptyBody": "Sobald Szenarien verfügbar sind, kannst du sie hier anhören.",
   "listeningShelfEmpty": "noch nicht bestückt",
@@ -2426,7 +2437,7 @@
   "coachBookStep3": "Neue Wörter landen direkt in deiner Wortliste",
   "coachBookLimitNote": "Tageslimit: 20 Seiten",
   "coachVocabPackTitle": "In 3 Schritten lernen",
-  "coachVocabPackStep1": "Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen. Rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen",
+  "coachVocabPackStep1": "Schritt 1 · Lernen: Karte antippen oder ? zum Umdrehen, dann nach oben wischen. Herz = später üben, Lesezeichen = Wörterbuch",
   "coachVocabPackStep2": "Schritt 2 · Quiz: Wähle die richtige Übersetzung",
   "coachVocabPackStep3": "Schritt 3 · Boss: Hör zu und wähle die Bedeutung",
   "coachPackStageQuiz": "Jetzt das Quiz! Wähle die richtige Übersetzung.",
@@ -2547,10 +2558,10 @@
   "coachKkeunmariStep3Body": "Gib ein gültiges koreanisches Wort ein. Der Tiger antwortet automatisch.",
   "coachListeningStep1Title": "Situation wählen",
   "coachListeningStep1Body": "Tippe auf eine Karte, um die passende Situation auszuwählen",
-  "coachListeningStep2Title": "Tempo & Untertitel",
-  "coachListeningStep2Body": "Stelle die Geschwindigkeit von 0,75× bis 1,25× und den Untertitelmodus ein",
+  "coachListeningStep2Title": "Tempo",
+  "coachListeningStep2Body": "Oben ein Tempo-Symbol. ? zeigt die Übersetzung auf der Zeile, nicht als Chip-Leiste.",
   "coachListeningStep3Title": "Zeile für Zeile",
-  "coachListeningStep3Body": "Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile",
+  "coachListeningStep3Body": "Nach oben wischen für die nächste Zeile. Doppeltipp ist ein Like, nicht die Wortliste.",
   "@_coach_c2": {
     "description": "Stage C-2 학습 7화면 코치마크 키 (2026-06-09)"
   },
