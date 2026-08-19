@@ -454,8 +454,12 @@ flutter run -d <android-id>   # 안드로이드
   구버전이고 cache 379건에 원문이 있으며 TTL 정책은 없다. Secret/전용 계정과 Rules+TTL,
   Python Gen2를 배포하고 source SHA, Android `de`/iOS `en` signed smoke, 실제 혼합 교재
   촬영을 통과한 뒤에만 별도 삭제 승인으로 legacy cache를 정리한다.
-- [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인, Android
-  AAB의 Play Internal Testing 설치·App Check·데이터 보존 확인 뒤 Closed Testing 승격.
+- [x] **Android main → 내부테스트 자동배포**: `main` Flutter 변경은 CI quality
+  gate 성공 뒤에만 Play **내부 테스트(`internal`)** 트랙에 서명 AAB를 올린다.
+  비공개테스트(Closed/`alpha`)·공개테스트·Production·iOS/TestFlight는 자동화하지
+  않는다. 테스터는 Play Console 내부 테스트 이메일(Jin 전용).
+- [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인,
+  Android Internal 설치·App Check·데이터 보존 확인. Closed Testing 승격은 수동.
 - [x] **문서 정리**: 활성 정본 목록은 `docs/README.md`에 둔다. 완료된 계획·세션별
  초안은 working tree에 되살리지 말고 Git history와 `docs/SESSION_LOG.md`로 추적한다.
 - [x] **단어장 사진 → 그 단어만 놀이 연습**: 교재 분석과 분리된 Vokabelheft

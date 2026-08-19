@@ -234,6 +234,10 @@ jobs:
         if: github.event_name != 'pull_request'
         run: flutter build web --release
 
+  # Android 자동배포는 Google Play **내부 테스트(internal)** 만 쓴다.
+  # 비공개 테스트(Closed Testing / alpha)·공개 테스트(beta)·Production·
+  # iOS/TestFlight 는 이 워크플로가 절대 쓰지 않는다. 테스터 목록은 Play
+  # Console 내부 테스트 이메일(Jin 전용)이고, 트랙 승격은 자동화하지 않는다.
   release-internal:
     name: Signed AAB to Play Internal Testing
     needs: [changes, build]
@@ -335,7 +339,7 @@ jobs:
           flutter pub get
           flutter gen-l10n
 
-      - name: Build signed closed-testing bundle
+      - name: Build signed internal-testing bundle
         run: >-
           flutter build appbundle --release --obfuscate
           --split-debug-info=build/app/outputs/symbols
@@ -382,6 +386,8 @@ jobs:
           serviceAccountJsonPlainText: ${{ secrets.GOOGLE_PLAY_SERVICE_ACCOUNT_JSON }}
           packageName: com.sujinarin.ko_lernen_app
           releaseFiles: build/app/outputs/bundle/release/app-release.aab
+          # Play track 이름. Closed Testing 기본 트랙은 alpha 다. 여기 값을
+          # internal 이외로 바꾸면 비공개/공개/프로덕션에 올라간다.
           tracks: internal
           status: completed
           releaseName: ${{ steps.release-meta.outputs.name }}

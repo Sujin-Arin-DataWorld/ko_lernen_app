@@ -1,5 +1,17 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — PR #85를 main에 맞춘다
+
+**무엇을 왜.** Jin이 `cursor/play-internal-only-f7a6` / #85 도 main에
+넣으라고 했다. #83 squash 뒤 로그가 충돌했다.
+
+**고침.** `origin/main`을 이 브랜치에 합치고 SESSION_LOG만 양쪽 항목을
+유지한다. Play 자동업로드는 내부테스트(`internal`)만.
+
+**검증.** `python3 -m unittest .github/scripts/test_play_internal_workflow.py`
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor Grok 4.6, Cloud) — PR #83 여기까지 마무리
 
 **무엇을 왜.** Jin이 이 작업 브랜치와 PR을 여기서 닫자고 했다.
@@ -60,6 +72,21 @@ grammar_choice_quiz_screen · grammar_choice_quiz 전부 통과.
 > **아카이브.** 2026-08-17 이전 세션 기록 394건은 컨텍스트 비용 절감을 위해
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
+
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — main → CI → Play 내부테스트만
+
+**무엇을 왜.** Jin: GitHub `main`은 CI 테스트 후 Android **내부테스트**만 자동
+배포하고, 비공개테스트(Closed Testing)에는 영향 없게. iOS 자동배포는 없음.
+
+**고침.** `release-internal` 잡 주석·스텝 이름을 내부테스트로 고정. Play 업로드
+`tracks: internal` 단일 값. 계약 테스트가 `alpha`/`beta`/`production`/`closed`
+트랙·TestFlight/fastlane/App Store Connect 잡을 금지. 문서에 테스터=Play
+Console 내부 테스트 이메일(Jin 전용), Closed 승격은 수동이라고 적음.
+
+**검증.** `python3 -m unittest .github/scripts/test_play_internal_workflow.py
+.github/scripts/test_ci_scope.py .github/scripts/test_select_flutter_tests.py`.
+
+**커밋해시.** 이 로그와 같은 커밋.
 
 ### 2026-08-19 (Cursor Grok 4.6, Cloud) — 쓰기 첫 실행 시트가 Finish 테스트를 막던 것
 
