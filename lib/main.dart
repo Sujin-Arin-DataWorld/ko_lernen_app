@@ -142,9 +142,81 @@ Future<void> launchKoLernenApp({
 Future<void> _startProductionApplication(
   void Function(Widget app) runner,
 ) async {
-  // Persistente Speicher initialisieren (vor runApp wichtig)
+  // Persistente Speicher initialisieren (vor runApp wichtig) — Storage's
+  // synchronous getters (including the splash screen's 2s-later navigation
+  // check, and MascotPreference.load() below) need this done first.
   await Storage.init();
 
+  // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
+  // MediaQuery가 상태바/네비바 inset을 정확히 보고 → SafeArea가 콘텐츠를 그 위로
+  // 올려 잘림 방지. (manual 모드는 일부 기기서 inset 보고가 깨져 회귀했었음.)
+  // 첫 프레임보다 늦게 적용하면 잘못된 상태바 스타일이 잠깐 노출된다 —
+  // runApp 직전 최대한 앞에서 건다.
+  // ignore: discarded_futures, unawaited_futures
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      // 시스템바 색은 edge-to-edge 배경이 제공한다. Android 15에서 지원 중단된
+      // setStatusBarColor/setNavigationBarColor 요청 없이 아이콘 대비만 제어한다.
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light, // iOS
+      systemNavigationBarIconBrightness: Brightness.dark,
+    ),
+  );
+
+  // 2026-08-06: Rive 런타임 초기화 제거. 프레임 시퀀스(TigerStage)와 Rive 폴백
+  // (TigerStageRive)을 함께 폐지했다 — 어떤 화면도 TigerStageVideo 를 만들지
+  // 않고, 캐릭터는 CharacterClipPlayer + assets/video/character/ 가 정본이며
+  // 영상이 불가한 경우(reduce-motion 포함)엔 정적 Mascot PNG 로 떨어진다.
+
+  // 캐릭터/호랑이 영상 전역 게이트. 별도 init 불필요 — 플래그만.
+  // 테스트는 videoReady 기본 false 유지 → 프레임/마스코트 폴백(이 줄은 main).
+  // ⚠️ Android <33 Impeller 영상 텍스처 fence 버그("ImageTextureEntry can't
+  // wait on the fence on Android < 33")는 AndroidManifest 에서 Impeller 를 끄고
+  // (Skia 렌더러) 근본 해소했다. Skia 는 SurfaceTexture 경로라 fence 문제가 없어
+  // 모든 Android 버전에서 캐릭터 영상이 정상 렌더된다 → 영상 허용(fail-open).
+  // 동시 디코더는 video_lease 가 1개로 직렬화한다(구형 기기 decoder reclaim 대응).
+  // ⚠️ Impeller 를 다시 켜면(매니페스트) 여기 sdkInt>=33 게이트를 되살려야 한다.
+  //   (Jin 실기기 M2101K6G/Android 12=API31: 이전 sdkInt>=33 게이트가 영상을
+  //    통째로 막아 홈·프로필이 전부 정적 폴백으로 떨어졌다 — 2026-08-06.)
+  // 위 사유로 캐릭터 영상은 항상 허용(fail-open). 예전 `async => true` 를 await
+  // 하던 불필요한 async 홉을 제거 — runApp 전 마이크로태스크 1회 절약.
+  TigerStageVideo.videoReady = true;
+
+  // 선택된 캐릭터를 전역 notifier 로 올린다. Storage 초기화 뒤여야 한다.
+  // 이걸 빼면 홈·게임·레슨완료가 전부 호랑이로 고정된다(2026-07-31 배선 수정).
+  MascotPreference.load();
+
+  // The resolver must finish before the first frame. Otherwise a dedicated
+  // per-scenario illustration can be silently replaced by its category
+  // fallback for the lifetime of the already-built screen.
+  // (계약: test/scene_asset_resolver_test.dart 가 이 순서를 고정한다.)
+  await SceneAssetResolver.load();
+
+  // 정답 축하 스프라이트(복주머니·엽전)를 첫 프레임 전에 디코딩한다.
+  // 새 설치 직후 첫 정답도 Satz 전용 6배 시트를 쓰도록 완료를 기다린다.
+  // 에셋 실패는 preload 내부에서 기록하고 절차적 burst로 안전하게 폴백한다.
+  // (계약: test/dancheong_burst_preload_contract_test.dart 가 이 순서를 고정한다.)
+  await DancheongBurst.preload();
+
+  // 2026-08-19: 위 두 단계(에셋 매니페스트 + 축하 스프라이트 디코딩)만 첫
+  // 프레임 전에 끝내면 된다는 게 기존 계약이었다. 그런데 마이그레이션·미디어
+  // 정리·크롭/피커 복구·오디오 세션까지 **전부** runApp() 앞에서 순차 await
+  // 되고 있었던 게 "로고가 뜨기까지" 체감 지연(내부테스트 리포트: 3초+)의
+  // 실제 원인이었다 — 특히 BookImageService.initialize() 는 저장된 책 이미지가
+  // 쌓일수록 디렉터리 스캔+해시 비용이 커진다. 이것들은 스플래시 로고와 아무
+  // 관계가 없으므로 Firebase/Ads/Notification 과 같은 방식으로 화면 뒤
+  // 백그라운드로 미룬다 — 스플래시가 최소 2초 떠 있는 동안 끝난다.
+  runner(const KoLernenApp());
+
+  unawaited(_finishStartupInBackground());
+}
+
+/// `runApp()` 뒤에 이어지는 나머지 시작 초기화. 전부 best-effort이며, 스플래시
+/// 로고가 이미 화면에 떠 있는 동안 진행된다. 순서는 기존 의존성(마이그레이션
+/// → 스트릭, Storage.init() 이후)만 유지하면 되고 실패해도 앱은 이미 떠 있다.
+Future<void> _finishStartupInBackground() async {
   // 로컬 스키마 점검 — Storage.init() 직후, 어떤 학습 데이터에 손대기 전에.
   // 로컬 전용이라 빠르고 네트워크를 타지 않는다. 실패해도 앱은 뜨며, 그 경우
   // 학습 데이터 쓰기만 잠긴다(DataMigrationService 가 처리).
@@ -198,61 +270,9 @@ Future<void> _startProductionApplication(
   // ignore: discarded_futures, unawaited_futures
   NotificationService.init();
 
-  // 2026-08-06: Rive 런타임 초기화 제거. 프레임 시퀀스(TigerStage)와 Rive 폴백
-  // (TigerStageRive)을 함께 폐지했다 — 어떤 화면도 TigerStageVideo 를 만들지
-  // 않고, 캐릭터는 CharacterClipPlayer + assets/video/character/ 가 정본이며
-  // 영상이 불가한 경우(reduce-motion 포함)엔 정적 Mascot PNG 로 떨어진다.
-
-  // 캐릭터/호랑이 영상 전역 게이트. 별도 init 불필요 — 플래그만.
-  // 테스트는 videoReady 기본 false 유지 → 프레임/마스코트 폴백(이 줄은 main).
-  // ⚠️ Android <33 Impeller 영상 텍스처 fence 버그("ImageTextureEntry can't
-  // wait on the fence on Android < 33")는 AndroidManifest 에서 Impeller 를 끄고
-  // (Skia 렌더러) 근본 해소했다. Skia 는 SurfaceTexture 경로라 fence 문제가 없어
-  // 모든 Android 버전에서 캐릭터 영상이 정상 렌더된다 → 영상 허용(fail-open).
-  // 동시 디코더는 video_lease 가 1개로 직렬화한다(구형 기기 decoder reclaim 대응).
-  // ⚠️ Impeller 를 다시 켜면(매니페스트) 여기 sdkInt>=33 게이트를 되살려야 한다.
-  //   (Jin 실기기 M2101K6G/Android 12=API31: 이전 sdkInt>=33 게이트가 영상을
-  //    통째로 막아 홈·프로필이 전부 정적 폴백으로 떨어졌다 — 2026-08-06.)
-  // 위 사유로 캐릭터 영상은 항상 허용(fail-open). 예전 `async => true` 를 await
-  // 하던 불필요한 async 홉을 제거 — runApp 전 마이크로태스크 1회 절약.
-  TigerStageVideo.videoReady = true;
-
-  // 선택된 캐릭터를 전역 notifier 로 올린다. Storage 초기화 뒤여야 한다.
-  // 이걸 빼면 홈·게임·레슨완료가 전부 호랑이로 고정된다(2026-07-31 배선 수정).
-  MascotPreference.load();
-
-  // The resolver must finish before the first frame. Otherwise a dedicated
-  // per-scenario illustration can be silently replaced by its category
-  // fallback for the lifetime of the already-built screen.
-  await SceneAssetResolver.load();
-
-  // 정답 축하 스프라이트(복주머니·엽전)를 첫 프레임 전에 디코딩한다.
-  // 새 설치 직후 첫 정답도 Satz 전용 6배 시트를 쓰도록 완료를 기다린다.
-  // 에셋 실패는 preload 내부에서 기록하고 절차적 burst로 안전하게 폴백한다.
-  await DancheongBurst.preload();
-
-  // 시스템바: edge-to-edge(Flutter 권장) + 화면별 SafeArea가 inset 담당.
-  // MediaQuery가 상태바/네비바 inset을 정확히 보고 → SafeArea가 콘텐츠를 그 위로
-  // 올려 잘림 방지. (manual 모드는 일부 기기서 inset 보고가 깨져 회귀했었음.)
-  // ignore: discarded_futures, unawaited_futures
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
-
-  SystemChrome.setSystemUIOverlayStyle(
-    const SystemUiOverlayStyle(
-      // 시스템바 색은 edge-to-edge 배경이 제공한다. Android 15에서 지원 중단된
-      // setStatusBarColor/setNavigationBarColor 요청 없이 아이콘 대비만 제어한다.
-      statusBarIconBrightness: Brightness.dark,
-      statusBarBrightness: Brightness.light, // iOS
-      systemNavigationBarIconBrightness: Brightness.dark,
-    ),
-  );
-
-  // 크래시 재현용 문맥. 동의가 꺼져 있으면 전부 no-op 이고, 어느 경우에도
-  // runApp 을 지연시키지 않는다.
+  // 크래시 재현용 문맥. 동의가 꺼져 있으면 전부 no-op 이다.
   // ignore: discarded_futures, unawaited_futures
   _recordStartupDiagnostics(migration);
-
-  runner(const KoLernenApp());
 }
 
 /// 시작 시점에 확정되는 진단 키를 기록한다.
