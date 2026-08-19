@@ -1,5 +1,17 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — Today 보자기 CTA flex가 태블릿 골든을 밀던 것
+
+**무엇을 왜.** PR #101 ready 뒤 Analyze가 `sori_today` compact 8px /
+medium 21% 골든 실패. CTA `Flexible`(flex 1)이 800dp에서 제목 폭을
+절반으로 나눠 보자기가 높아지고 한옥 배너가 올라왔다.
+
+**고침.** CTA는 flex가 아니라 행 폭의 38%(72–160) ConstrainedBox.
+
+**검증.** `screen_layout_golden_test` sori_today 3폭 + Today 맞춤 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — Learn/Games/Hanok/Gye 글자·폭 맞춤
 
 **무엇을 왜.** Jin이 Today와 같은 방식으로 나머지 4탭도 기기·글자배율·

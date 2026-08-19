@@ -870,44 +870,52 @@ class _PendingBojagi extends StatelessWidget {
           border: Border.all(color: SoriColors.gold),
           borderRadius: BorderRadius.circular(SoriRadius.md),
         ),
-        child: Row(
-          children: [
-            const Icon(
-              Icons.redeem_rounded,
-              size: 36,
-              color: SoriColors.goldOnLight,
-            ),
-            const SizedBox(width: Spacing.md),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '${t.soriStageBojagiTitle} · $count',
-                    style: tt.h3,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final double ctaMax = (constraints.maxWidth * 0.38).clamp(
+              72.0,
+              160.0,
+            );
+            return Row(
+              children: [
+                const Icon(
+                  Icons.redeem_rounded,
+                  size: 36,
+                  color: SoriColors.goldOnLight,
+                ),
+                const SizedBox(width: Spacing.md),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${t.soriStageBojagiTitle} · $count',
+                        style: tt.h3,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        t.soriStageBojagiBody,
+                        style: tt.bodySmall,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ],
+                  ),
+                ),
+                ConstrainedBox(
+                  constraints: BoxConstraints(maxWidth: ctaMax),
+                  child: Text(
+                    t.soriStageOpenBojagi,
+                    style: tt.label,
+                    textAlign: TextAlign.end,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  Text(
-                    t.soriStageBojagiBody,
-                    style: tt.bodySmall,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
-              ),
-            ),
-            Flexible(
-              fit: FlexFit.loose,
-              child: Text(
-                t.soriStageOpenBojagi,
-                style: tt.label,
-                textAlign: TextAlign.end,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ],
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
