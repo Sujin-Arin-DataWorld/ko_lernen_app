@@ -1,5 +1,19 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — #105 Analyze 35실패: 카피 지문·고정 문자열
+
+**무엇을 왜.** Ready 뒤 전체 suite가 카피 변경을 잡았다. 반응형 오버플로가
+아니라 `cloze_a1_0013` 등 inherited vocab fingerprint 105개와 온보딩/네 예문
+고정 문자열이 옛 카피를 보고 있었다.
+
+**고침.** `sourceVocabFingerprintSha256`만 현재 CSV에 맞춤(세그먼트 ID 유지).
+테스트: `Ja, alles klar.` / `Joy is coming with you.` / `Taego is coming with you.`
+
+**검증.** 집중 Flutter: data_loader · character_selection · can_do_segment_asset ·
+canonical_course_segment_loader · hanok_grant_catalog.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — B1–C2 단어팩 DE/EN 뉘앙스
 
 **무엇을 왜.** 남은 레벨의 합성 직역·틀린 독일어.
