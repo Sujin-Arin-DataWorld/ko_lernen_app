@@ -266,7 +266,8 @@ void main() {
 
     test('brand/game character surfaces remain explicit', () {
       const authored = <String, String>{
-        'lib/screens/listening_screen.dart': 'fallbackKind: MascotKind.magpie',
+        'lib/screens/listening_play_screen.dart':
+            'fallbackKind: MascotKind.magpie',
         'lib/widgets/sori/game_reward.dart': 'widget.mascotKind ??',
         'lib/screens/book_result_screen.dart':
             'Fixed book artwork is brand decoration',

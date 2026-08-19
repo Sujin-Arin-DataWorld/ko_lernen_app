@@ -32,13 +32,13 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/dancheong_stamp.dart';
-import '../widgets/sori/deck_action_bar.dart';
-import '../widgets/sori/deck_coach.dart';
+import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/quiz_choice.dart';
-import '../widgets/sori/swipe_card.dart';
+import '../services/content_share_service.dart';
+import '../services/liked_content_service.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/screen_background.dart';
@@ -427,7 +427,36 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       posDe: cur.posDe,
       exampleKorean: cur.exampleKorean,
       exampleDe: cur.exampleGerman,
-      source: 'deck_swipe',
+      source: 'content_bookmark',
+    );
+  }
+
+  Future<void> _likeCurrent() async {
+    final cur = _currentLearn;
+    if (cur == null) {
+      return;
+    }
+    await LikedContentService.toggle(
+      kind: LikedContentService.vocab,
+      id: cur.korean,
+    );
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _shareCurrent() {
+    final cur = _currentLearn;
+    if (cur == null) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    final lang = Localizations.localeOf(context).languageCode;
+    // ignore: discarded_futures
+    ContentShareService.shareStory(
+      korean: cur.korean,
+      gloss: cur.translationFor(lang),
+      caption: t.contentShareBody(cur.korean, cur.translationFor(lang)),
     );
   }
 
@@ -917,125 +946,67 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           ],
         ),
         const SizedBox(height: Spacing.md),
-        // 2026-08-14: 데이팅앱식 판정 스와이프 — 오른쪽=Gewusst,
-        // 왼쪽=Nicht gewusst. 하단 버튼은 접근성 정본으로 유지.
         Expanded(
-          // P1 (2026-08-14): 카드 슬롯 고정. 바깥 LayoutBuilder 는 슬롯 높이
-          // 소스(box.maxHeight)로만 쓴다. SizedBox 가 SoriSwipeCard 의 child
-          // **안쪽**에 있어야 하는 이유: 내부 Stack 이 기본 loose 라 바깥에서
-          // 죄어도 자식까지 안 내려간다 (swipe_card.dart). 이 폭 핀이 없으면
-          // FlipCard._fitFace 의 세로 SingleChildScrollView 가 가로 제약을
-          // loose 로 통과시켜 카드 폭이 단어 내재폭으로 신축한다 —
-          // review_session_screen "절대 지우지 말 것" 주석과 같은 계약.
-          // 센서: test/deck_card_geometry_test.dart.
           child: LayoutBuilder(
             builder: (context, box) {
               final next = _learnQueue?.peekNext;
-              return Stack(
-                fit: StackFit.passthrough,
-                children: [
-                  SoriSwipeCard(
-                    // ⛔ 이 화면만 넛지를 **안 붙인다**. 진입 시
-                    // `FeatureCoach.vocabPack` 모달이 네 방향을 문장으로 이미
-                    // 가르치므로(그래서 `maybeShowSoriDeckCoach` 도 일부러 안
-                    // 부른다) 흔들림을 겹치면 중복이고, 넛지의 회전·이동이
-                    // `vocab_pack_uniform_card_test` 의 글자 높이 측정을 깬다
-                    // — 그 센서는 FittedBox 가 긴 단어를 몰래 줄이는 걸 잡는
-                    // 진짜 계약이라 테스트가 옳다.
-                    enabled: _learnCardRevealed,
-                    onSwipeRight: _learnGotIt,
-                    onSwipeLeft: _learnDontKnow,
-                    onSwipeUp: _saveCurrent,
-                    onSwipeDown: _learnDefer,
-                    onBlockedHorizontalDrag: () => _flipHintTrigger.value++,
-                    rightBadge: SoriSwipeBadge(
-                      label: t.vocabPackGotIt,
-                      icon: Icons.check_rounded,
-                      color: SoriColors.success,
-                    ),
-                    leftBadge: SoriSwipeBadge(
-                      label: t.vocabPackDontKnow,
-                      icon: Icons.close_rounded,
-                      color: SoriColors.danger,
-                    ),
-                    upBadge: SoriSwipeBadge(
-                      label: t.deckActionSave,
-                      icon: Icons.redeem_rounded,
-                      color: SoriColors.goldOnLight,
-                    ),
-                    downBadge: SoriSwipeBadge(
-                      label: t.btnSkip,
-                      icon: Icons.arrow_downward_rounded,
-                      color: SoriColors.info,
-                    ),
-                    // 덱 스택 미리보기 — 반드시 다음 카드의 **앞면(한국어)만**
-                    // (뒷면은 정답 유출 — flip_card re-key 계약과 같은 원칙).
-                    underlay: next == null
-                        ? null
-                        : _learnFaceSlot(next, box.maxHeight),
-                    child: SizedBox(
-                      key: const ValueKey('deck-card-slot'),
-                      width: double.infinity,
-                      height: box.maxHeight,
-                      // ⚠️ soriUniformFitSize 계산은 반드시 SoriStudyScale
-                      // 서브트리 안에 남는다 — 태블릿 textScaler 부스트
-                      // (≤1.35×)를 실측에 반영해야 FittedBox 안전망이 정상
-                      // 경로에서 발동하지 않는다.
-                      child: SoriStudyScale(
-                        child: LayoutBuilder(
-                          builder: (context, constraints) {
-                            final h = soriStudyTypeScaleHeight(context);
-                            final headlineSize = soriUniformFitSize(
-                              context,
-                              texts: [for (final w in _learnWords) w.korean],
-                              maxWidth: constraints.maxWidth - Spacing.xl * 2,
-                              cap: soriFillSize(h, 0.18, 36, 96),
-                              min: 32,
-                              letterSpacing: -0.5,
-                              lineHeight: 1.05,
-                            );
-                            return FlipCard(
-                              key: ValueKey('learn-$_learnServe'),
-                              flipped: _flipped,
-                              onTap: _toggleLearnFlip,
-                              front: _FlipFront(
-                                v: cur,
-                                h: h,
-                                headlineSize: headlineSize,
-                              ),
-                              back: _FlipBack(v: cur, h: h),
-                            );
-                          },
-                        ),
-                      ),
+              return SoriContentFeed(
+                judgmentsEnabled: _learnCardRevealed,
+                onBlockedJudgment: () => _flipHintTrigger.value++,
+                flipHintTrigger: _flipHintTrigger,
+                onNext: _learnGotIt,
+                onHard: _learnDontKnow,
+                onSkip: _learnDefer,
+                onLike: _likeCurrent,
+                onBookmark: _saveCurrent,
+                onShare: _shareCurrent,
+                onFlip: _toggleLearnFlip,
+                liked: LikedContentService.isLiked(
+                  kind: LikedContentService.vocab,
+                  id: cur.korean,
+                ),
+                underlay: next == null
+                    ? null
+                    : _learnFaceSlot(next, box.maxHeight),
+                knowLabel: t.vocabPackGotIt,
+                hardLabel: t.vocabPackDontKnow,
+                skipLabel: t.btnSkip,
+                bookmarkLabel: t.deckActionSave,
+                child: SizedBox(
+                  key: const ValueKey('deck-card-slot'),
+                  width: double.infinity,
+                  height: double.infinity,
+                  child: SoriStudyScale(
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final h = soriStudyTypeScaleHeight(context);
+                        final headlineSize = soriUniformFitSize(
+                          context,
+                          texts: [for (final w in _learnWords) w.korean],
+                          maxWidth: constraints.maxWidth - Spacing.xl * 2,
+                          cap: soriFillSize(h, 0.18, 36, 96),
+                          min: 32,
+                          letterSpacing: -0.5,
+                          lineHeight: 1.05,
+                        );
+                        return FlipCard(
+                          key: ValueKey('learn-$_learnServe'),
+                          flipped: _flipped,
+                          onTap: _toggleLearnFlip,
+                          front: _FlipFront(
+                            v: cur,
+                            h: h,
+                            headlineSize: headlineSize,
+                          ),
+                          back: _FlipBack(v: cur, h: h),
+                        );
+                      },
                     ),
                   ),
-                  Positioned(
-                    top: Spacing.sm,
-                    left: 0,
-                    right: 0,
-                    child: Center(
-                      child: SoriDeckFlipHint(trigger: _flipHintTrigger),
-                    ),
-                  ),
-                ],
+                ),
               );
             },
           ),
-        ),
-        const SizedBox(height: Spacing.md),
-        // §P2-3: 대형 텍스트 CTA → 미니 원형 아이콘 버튼 바 (Jin 확정 §1-2).
-        SoriDeckActionBar(
-          onDontKnow: _learnDontKnow,
-          onKnow: _learnGotIt,
-          onSkip: _learnDefer,
-          onSave: _saveCurrent,
-          judgmentsEnabled: _learnCardRevealed,
-          onBlockedJudgmentTap: () => _flipHintTrigger.value++,
-          dontKnowLabel: t.vocabPackDontKnow,
-          knowLabel: t.vocabPackGotIt,
-          skipLabel: t.btnSkip,
-          saveLabel: t.deckActionSave,
         ),
       ],
     );

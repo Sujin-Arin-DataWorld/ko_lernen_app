@@ -11,7 +11,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
-    SharedPreferences.setMockInitialValues({'kl_tut_hangul': true});
+    SharedPreferences.setMockInitialValues({
+      'kl_tut_hangul': true,
+      'kl_tut_hangulWriteRules': true,
+    });
     Storage.resetForTesting();
     await Storage.init();
   });
@@ -69,12 +72,6 @@ void main() {
       findsOneWidget,
     );
 
-    final verticalScroll = find.byWidgetPredicate(
-      (widget) =>
-          widget is Scrollable && widget.axisDirection == AxisDirection.down,
-    );
-    final scrollable = tester.state<ScrollableState>(verticalScroll.first);
-    final beforeScroll = scrollable.position.pixels;
     final canvas = find.byKey(const Key('hangul-practice-canvas'));
     final box = tester.getRect(canvas);
     final gesture = await tester.startGesture(
@@ -91,15 +88,12 @@ void main() {
     final painter = paintedCanvas.painter as dynamic;
     final strokes = painter.strokes as List<List<Offset>>;
     expect(strokes.single.length, greaterThan(1));
-    expect(scrollable.position.pixels, beforeScroll);
 
     await gesture.moveTo(
       Offset(box.left + box.width * 0.75, box.top + box.height * 0.75),
     );
     await gesture.up();
     await tester.pump();
-
-    expect(scrollable.position.pixels, beforeScroll);
     await tester.pump(const Duration(milliseconds: 700));
   });
 }

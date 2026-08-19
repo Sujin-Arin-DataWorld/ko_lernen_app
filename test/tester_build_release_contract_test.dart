@@ -83,7 +83,7 @@ void main() {
         checklist,
         contains('BETA_UNLOCK_ALL=true는 beta의 premium entitlement만 연다.'),
       );
-      expect(checklist, contains('SoriSwipeCard wrapper'));
+      expect(checklist, contains('SoriContentFeed wrapper'));
       expect(checklist, contains('App Check 보호 경로를 거쳐 accepted/delivered 상태'));
       expect(checklist, contains('10명 이상이 opt-in하고 실제 핵심 흐름을'));
       expect(checklist, contains('완료해야 한다.'));

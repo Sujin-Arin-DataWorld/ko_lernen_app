@@ -12,6 +12,10 @@ history rather than copied into the working tree.
    history; newest entry is first.
 3. The SSoT for the task at hand:
    - UI/UX: [HANDOFF_UI_OVERHAUL_2_2026-08-14.md](HANDOFF_UI_OVERHAUL_2_2026-08-14.md)
+     for Today/home/catalog chrome. **Content players** (listen, write, decks,
+     cloze, satz, smalltalk, scenario) use
+     [CONTENT_UI_BIBLE.md](CONTENT_UI_BIBLE.md) — that file supersedes the
+     4-way Tinder deck in Overhaul 2 §1-1·§1-2.
    - Content: [CONTENT_AUTHORING_GUIDE.md](CONTENT_AUTHORING_GUIDE.md),
      [CONTENT_ARCHITECTURE.md](CONTENT_ARCHITECTURE.md), and
      [CONTENT_SOURCE_POLICY.md](CONTENT_SOURCE_POLICY.md)

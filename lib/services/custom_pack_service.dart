@@ -220,6 +220,19 @@ class CustomPackService {
     }
   }
 
+  /// True when [korean] is already in the quick-save pack.
+  static bool containsKorean(String korean) {
+    final needle = korean.trim();
+    if (needle.isEmpty) {
+      return false;
+    }
+    final pack = getById(quickPackId);
+    if (pack == null) {
+      return false;
+    }
+    return pack.words.any((word) => word.korean.trim() == needle);
+  }
+
   /// 책장 페이지에서 새 팩 생성 + 저장. 새 팩의 id 반환.
   static Future<CustomPack> createFromPage({
     required BookPage page,

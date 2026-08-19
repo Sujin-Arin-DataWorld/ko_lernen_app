@@ -1,5 +1,73 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — PR #85를 main에 맞춘다
+
+**무엇을 왜.** Jin이 `cursor/play-internal-only-f7a6` / #85 도 main에
+넣으라고 했다. #83 squash 뒤 로그가 충돌했다.
+
+**고침.** `origin/main`을 이 브랜치에 합치고 SESSION_LOG만 양쪽 항목을
+유지한다. Play 자동업로드는 내부테스트(`internal`)만.
+
+**검증.** `python3 -m unittest .github/scripts/test_play_internal_workflow.py`
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — PR #83 여기까지 마무리
+
+**무엇을 왜.** Jin이 이 작업 브랜치와 PR을 여기서 닫자고 했다.
+`d26c98c6` Analyze & Build가 4038 통과 / 3 실패였다.
+
+**고침.** 문법 visual은 `SoriPhraseWrap`이 `Ich bin Student.`를 어절
+Text로 나눠 `find.text`가 0이 된 것을 wrap finder로 맞춘다. 책갈피 두
+건은 snackbar 0.5초 강제 숨김 타이머가 settle(450ms)보다 길어서 pending
+timer로 터졌다. `deck_vertical` settle을 550ms로 올린다.
+
+**남긴 것 (이 PR 밖).** TTS/`das`·웹 폴백, 공유 PNG(Jin 교체), 문법
+전행 3예문, 카드 있을 때 뒤로=홈, 쓰기 시범 vs 손글, 타이포 전면.
+
+**검증.** `flutter test` visual_layout_regression · deck_vertical_gesture
+통과. Play 잠금은 #85.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 스몰톡 한 화면 레이아웃
+
+**무엇을 왜.** Jin이 스몰톡이 망가졌다고 찍었다. 한국어가 왼쪽에서
+잘리고, A1/스피커/책갈피가 오른쪽 끝에 떠 있으며, 레벨 칩이 일곱 색이고
+가운데가 비어 있었다. P6이 히어로 카드를 뺀 뒤 본문 패딩과 정렬을 안 맞춘
+상태다.
+
+**고침.** 문장·뜻을 가운데 두고 좌우 `Spacing.lg`를 준다. 옆 아이콘 열을
+없애고 듣기만 52dp 녹청 원으로 둔다. 책갈피는 하단 스탬프만. `?`가 안전한
+대안을 연다. 레벨 칩은 `info` 하나. 공유 텍스트 덤프는 끈다.
+
+**검증.** `flutter analyze` smalltalk_screen + presentation test 0 issue.
+`flutter test` smalltalk_test · smalltalk_presentation · course_practice
+smalltalk 2건 통과. 문장 왼쪽 ≥16dp, Listen 라벨 없음.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 문법·CTA·한글 손맛
+
+**무엇을 왜.** Jin이 문법 카드가 한 덩어리로 줄바꿈되고, Listen이 뒤집히고,
+골든 카드·안 사라지는 단어장 스낵바·필터 빈 화면·홈으로 튀는 뒤로,
+시나리오 CTA 파랑, 오늘 글자/한글 Pronounce 무음, 쓰기 시범과 손글 불일치,
+공유 텍스트 덤프를 찍었다.
+
+**고침.** 문법 설명을 제목/`·` 규칙/예문 1:1로 쪼갠다. 한국어는 어절 단위로만
+접는다. Listen은 카드 밖 스피커만. 책갈피는 채움만(스낵바 0.5초 후 강제
+숨김). 필터는 표시 언어로 맞추고 빈 결과는 적용하지 않으며 뒤로는 필터를
+먼저 푼다. Grammar practice를 레벨 칩 줄로 올린다. CTA 토큰은 녹청.
+쓰기 고스트는 시범과 같은 획, 오늘 글자는 열릴 때 음가. 공유 실패는 텍스트를
+버리지 않는다.
+
+**검증.** `flutter analyze` 해당 Dart 11파일 0 issue.
+`flutter test` grammar_study_copy · sori_phrase_wrap · wordbook_quick_add ·
+course_practice_screen · hangul_write_gate · hangul_swipe_and_prefetch ·
+hangul_interaction_regression · content_share_slip · content_feed ·
+grammar_choice_quiz_screen · grammar_choice_quiz 전부 통과.
+
+**커밋해시.** 이 로그와 같은 커밋.
 
 > **아카이브.** 2026-08-17 이전 세션 기록 394건은 컨텍스트 비용 절감을 위해
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
@@ -19,6 +87,102 @@ Console 내부 테스트 이메일(Jin 전용), Closed 승격은 수동이라고
 .github/scripts/test_ci_scope.py .github/scripts/test_select_flutter_tests.py`.
 
 **커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 쓰기 첫 실행 시트가 Finish 테스트를 막던 것
+
+**무엇을 왜.** `0b45e9dd` CI가 4036 통과 뒤 `circular_feedback_widget_test` 한
+건만 실패했다. Write 탭이 규칙 시트를 띄워 `hangul-writing-finish`를 못 찾았다.
+
+**고침.** 그 테스트 setUp에 `kl_tut_hangulWriteRules: true`.
+
+**검증.** `flutter test test/circular_feedback_widget_test.dart --name 'Hangul writing finish'` 통과.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 콘텐츠 UI 바이블 P4–P7 + PR83 CI
+
+**무엇을 왜.** Jin이 자러 가며 세션 처음 부탁을 전부 끝내 달라고 했다. 디자인
+스킬(`frontend-design`) + `CONTENT_UI_BIBLE` §0. PR 83 CI 실패(플립게이트·
+빈 에셋·코치 카피·세로 제스처)를 고치고, 남은 P4 쓰기 크롬·P6 Cloze/Satz/
+Smalltalk/Scenario 셸·P7 두루마리 공유 이미지를 넣었다. Play 자동배포는
+`internal`만 (#85).
+
+**고침.** 쓰기: 규칙 시트+`?`, 칩은 overflow, 시범은 고스트 한 캔버스.
+Cloze/Satz는 `SoriAppBar`+eyebrow, CTA는 `contentCta`. Smalltalk는 카드 없이
+피드, 짧은 화면은 장만 스크롤. 문법 플레이어에서 한옥 배너·원시 AppBar를
+빼고 체크포인트 CTA를 `contentCta`로 맞춘다. 시나리오 인트로 카드 제거·
+Weiter `contentCta`. 공유는 9:16 한지 두루마리 PNG. 사라진 `empty/` 에셋은
+까치 PNG로 바꾼다.
+
+**검증.** `flutter analyze` 해당 파일 0 issue. `flutter test` content_feed·
+flipgate·deck_vertical·course_practice·smalltalk 단문·share_slip·
+data_integrity 에셋·listening_shelf·hangul write/swipe·responsive
+short-height(smalltalk 포함) 통과.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor Grok 4.6) — P3 듣기 책장과 플레이어 라우트 분리
+
+**무엇을.** `/listening`은 책가도만, `/listening/play`는 `SoriContentFeed` 한 줄 피드다. 재생 중 책장 위젯은 플레이어 자손이 아니다. 배속은 AppBar 아이콘 하나, 자막 칩은 없고 `?`가 줄 위 gloss다. 1400px 서재 테스트는 390×844로 바꿨다.
+
+**왜.** 한 스크롤에 플레이어+책장이 같이 보여 Jin이 집어낸 이중 UI였다. PR #83 브랜치를 main에 맞춘 뒤 남은 바이블 순서의 다음 칸이다.
+
+**검증.** `flutter analyze` 해당 파일 0 issue. `flutter test` listening_shelf + dedicated_feedback + c0 + mascot_wiring + screen_smoke 72 passed.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor Grok 4.6) — PR #83을 최신 main에 맞추고 판정 줄 overflow 수정
+
+**무엇을.** #83이 `main`과 dirty(충돌)였다. 브랜치가 `a00fc1d1`에 묶여 있고 main은 `d1406210`(#84 한옥 감사 + 에셋 교체)까지 가 있었다. `origin/main`을 이 브랜치에 병합하고 `SESSION_LOG` 충돌을 양쪽 항목 모두 남기는 쪽으로 풀었다. 판정 텍스트 Row는 368px에서 45px overflow → `Expanded`+ellipsis.
+
+**왜.** 문서-only PR 위에 구현을 얹고 main이 먼저 가서 GitHub가 mergeable=dirty로 표시했다.
+
+**검증.** `flutter test` content_feed·liked_content·deck_direction·flipgate·hangul·course_practice·deck_card_geometry 42 passed. 판정 Row는 Expanded+ellipsis, 마지막 카드는 Skip 숨김.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor Grok 4.6) — 공유안 A 확정 + 틴더 덱 제거 + 세로 피드
+
+**무엇을.** Jin이 A/B/C를 스킬로 고르고 전역 UI 개편을 시작하며 틴더 덱을 제거하라고 했다. 공유 이미지는 **A 두루마리**로 잠갔다. P0 시맨틱 토큰(`contentCta`/`like`/`koDisplay`/`gloss`/`meta`), P1 `hideCurrentSnackBar`+1.5s, P2 `SoriContentFeed`+하트/보관 분리+`LikedContentService`, P5 덱 6화면(`vocab_pack`·`review`·`legacy`·`custom_pack`·`hangul`·`grammar`)에서 `SoriSwipeCard`/`SoriDeckActionBar`를 제거했다. 좌우 스와이프 없음. 뒤집기 전 세로=스킵, 뒤집은 뒤 세로=앎. 모름/스킵은 텍스트 판정. 공유는 텍스트 stub(이미지 A는 P7).
+
+**왜.** 4방향 틴더는 어제 철회된 손버릇이고, 하트와 보관을 합치면 놀이 덱과 단어장이 다시 섞인다.
+
+**검증.** 이 항목 커밋 후 `flutter analyze` 해당 파일 + `content_feed`/`liked_content`/`deck_direction`/`flipgate`/`hangul`/`course_practice` 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-18 (Cursor Grok 4.6) — 콘텐츠 UI 바이블에 벤치마크·공유 3안·하트/보관 분리
+
+**무엇을.** Jin이 thevocabulary.app 단어 장을 벤치마크로 주고 `i`→`?` 플립, 공유,
+하트 vs 보관을 나누라고 했다. `npx skills find`로 공유 스킬을 검증한 뒤
+`docs/CONTENT_UI_BIBLE.md` §0·§4·§11–§14를 고쳤다. 구현 없음.
+
+**왜.** 어제 계획의 “더블탭 = 저장”은 벤치마크의 하트/책갈피 분리와 충돌한다.
+공유는 앱에 텍스트 `SharePlus`만 있고 이야기 이미지가 없다.
+
+**검증.** social-share-generator 842 / open-graph 926 채택, 북마크 인용 스킬
+260은 기각. 문서 교차 확인.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-18 (Cursor Grok 4.6) — 콘텐츠 UI 바이블·개편 계획 (구현 없음)
+
+**무엇을.** Jin이 8월 18일 콘텐츠 작업(듣기 책가도·Deck 3.0·쓰기 세로·배치 11–16)을
+보고 CTA 통일, 듣기 이중 UI, 저장 토스트 잔류, 타이포 혼선, 틴더→인스타 세로 피드,
+한 화면 맞춤, 쓰기 크롬 낭비를 집어 전역 개선 계획서를 요청했다. 다운받은
+`frontend-design`·`web-design-guidelines`·`ui-ux-pro-max`·`ui-styling`·
+`design-system`·`brand`로 콘텐츠 화면을 4번 훑고 `docs/CONTENT_UI_BIBLE.md`를
+새 SSoT로 썼다. `docs/README.md` UI 항목과 `AGENTS.md` 게이트에 연결했다.
+코드·에셋 변경 없음.
+
+**왜.** 그림 바이블(`STYLE_LOCK`·BIBLE)과 Overhaul 2(틴더 4방향)는 플레이어 크롬을
+못 다룬다. 듣기 블루(`info` `#57799E`)와 주황 CTA가 섞이고, 플레이어+책장이 한
+스크롤에 남아 있으며, `wordbook_add`가 `hideCurrentSnackBar` 없이 3초 토스트를
+줄 세운다. 제네릭 스킬의 Claymorphism/키즈 폰트는 버렸다.
+
+**검증.** `origin/main` `a00fc1d1` 기준 파일 실측(듣기 426–580, 쓰기 1453–1551,
+`wordbook_add` 57–69, `deck_action_bar`, `SoriTextTheme`, typography_guard 상한).
+구현·테스트 실행 없음 — 문서만.
 
 ### 2026-08-18 (Cursor Grok 4.6, Cloud) — 한옥 자산 감사 인수인계를 스킬로 재실측
 
