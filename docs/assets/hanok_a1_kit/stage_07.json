@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "stage": 7,
   "id": "07_beams_changbang",
-  "note": "Derived kit parts + one aligned generated frame part (BBANANA task p9hh9hpgk9rmy0d01zb80bs7v0, pending Jin review).",
+  "note": "Derived kit parts + model frame timber re-cut by tool/make_a1_frame_parts.py. The vertical members are drawn on the measured pillarXRanges instead of the model's evenly-spaced grid (2026-08-19: only 1 of 8 model posts landed within 5px of a pillar, median error ~24px on a 16-20px pillar).",
   "layers": [
     {
       "part": "platform",
@@ -153,7 +153,15 @@
       "z": 307
     },
     {
-      "part": "generated:frame_beams",
+      "part": "generated:frame_posts",
+      "z": 890,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "part": "generated:frame_headbeam",
       "z": 900,
       "at": [
         0,

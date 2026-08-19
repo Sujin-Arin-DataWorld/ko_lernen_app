@@ -65,6 +65,16 @@ void main() {
     );
   });
 
+  test('containsKorean follows the quick-save pack', () async {
+    expect(CustomPackService.containsKorean('사과'), isFalse);
+    await CustomPackService.quickAdd(
+      defaultPackName: '⭐',
+      word: w('사과', 'Apfel'),
+    );
+    expect(CustomPackService.containsKorean('사과'), isTrue);
+    expect(CustomPackService.containsKorean('물'), isFalse);
+  });
+
   test('mehrere verschiedene Wörter landen im selben Pack', () async {
     await CustomPackService.quickAdd(
       defaultPackName: '⭐',

@@ -78,6 +78,66 @@ Firebase 프로젝트: `ko-lernen-app`
 
 ---
 
+## 토큰 절약 도구 (2026-08-19)
+
+두 오픈소스 도구를 Claude Code에 붙여 탐색/리뷰 시 토큰 낭비를 줄인다. 둘 다
+저장소별 설정(`.mcp.json`/`.claude/`)이라 **머신마다(Jin의 Mac 포함) 아래 설치를
+한 번씩 해야** 적용된다 — repo clone만으로는 안 붙는다.
+
+### Ponytail — 과설계 방지 (Claude Code 플러그인)
+`DietrichGebert/ponytail` (npm `@dietrichgebert/ponytail`, MIT). "게으른 시니어처럼
+생각하기"를 강제해 불필요한 코드 생성을 줄인다(평균 ~54% 코드 감소 주장).
+
+```bash
+claude plugin marketplace add DietrichGebert/ponytail
+claude plugin install ponytail@ponytail
+```
+
+| 명령 | 용도 |
+|---|---|
+| `/ponytail [lite\|full\|ultra\|off]` | 강도 조절/비활성화 |
+| `/ponytail-review` | 현재 diff 과설계 검토 |
+| `/ponytail-audit` | 전체 저장소 감사 |
+| `/ponytail-debt` | 지연 작업 목록 |
+
+### code-review-graph — 구조 그래프 기반 MCP 탐색/리뷰
+`tirth8205/code-review-graph` (PyPI `code-review-graph`, MIT). Tree-sitter로
+코드베이스를 그래프화해 두고, 변경 시 영향받는 caller/dependent/test만 골라
+읽게 한다 — Grep/전체 파일 스캔보다 토큰이 적게 든다.
+
+```bash
+pipx install --backend pip code-review-graph   # 또는 pip install
+code-review-graph install --platform claude-code   # .mcp.json·.claude/settings.json 훅 생성
+code-review-graph install --platform codex --no-instructions --no-skills   # Codex도 쓸 거면
+code-review-graph build                             # 그래프 최초 빌드 (수백 파일당 수십 초)
+```
+
+설치 시 자동 생성/수정되는 것: `.mcp.json`(MCP 서버, `uvx code-review-graph serve`로
+실행 — 머신에 `uv`만 있으면 됨), `.claude/settings.json` 훅(Edit/Write 후 그래프
+증분 갱신, SessionStart에 상태 출력), `.claude/skills/{debug-issue,explore-codebase,
+refactor-safely,review-changes}`, `.gitignore`에 `.code-review-graph/`(그래프 DB —
+로컬 산출물이라 커밋 안 함, 머신마다 `build` 필요). Codex는 저장소 밖
+`~/.codex/config.toml` + `~/.codex/hooks.json`(전역, 머신별로 한 번씩 — repo에는
+안 잡힘)에 MCP 서버를 등록한다. `--no-instructions`는 이 저장소 CLAUDE.md/AGENTS.md
+자동 주입을 막는 옵션(위 경고 참고), `--no-skills`는 Claude 설치 때 이미 만들어진
+`.claude/skills/*`와 중복 생성을 막는 옵션.
+
+**⚠️ 설치 스크립트가 기본으로 `CLAUDE.md`에 MCP 툴 사용 지침을 주입하려 하는데, 이
+저장소는 `CLAUDE.md`를 AGENTS.md 포인터 전용으로 유지한다 — 주입되면 되돌리고
+아래 표만 참고할 것.**
+
+| 도구(MCP) | 언제 |
+|---|---|
+| `semantic_search_nodes_tool` / `query_graph_tool` | Grep 대신 코드 탐색 |
+| `get_impact_radius_tool` / `get_affected_flows_tool` | 변경의 영향 범위(blast radius) |
+| `detect_changes_tool` + `get_review_context_tool` | 코드 리뷰 (위험도 스코어링 + 관련 스니펫만) |
+| `get_architecture_overview_tool` / `list_communities_tool` | 아키텍처 개요 |
+| `refactor_tool` | 리네임 계획·죽은 코드 탐지 |
+
+그래프가 다루지 못하는 것만 Grep/Glob/Read로 폴백.
+
+---
+
 ## 파일 맵 (SSoT)
 
 ### 진입점
@@ -344,6 +404,9 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를
   하지 않는다.
+- [x] **콘텐츠 UI 전역 개편**: 정본 `docs/CONTENT_UI_BIBLE.md`. P0–P7
+  (토큰·토스트·피드·듣기 분리·쓰기 크롬·덱 제거·Cloze/Satz/Smalltalk/Scenario
+  셸·두루마리 공유 PNG). 실기기 손맛은 Jin 게이트.
 - [x] **콘텐츠 Batch 01–05**: B1/B2 기존 확장에 더해 Batch 05의 B2/C1/C2
   vocabulary·grammar·smalltalk·Cloze·Satz 504개와 4개 고급 코스 단원이 앱 데이터에
   통합됐다. 기존 16개 시나리오/듣기 퀘스트도 유지한다. 콘텐츠 정본은
@@ -451,8 +514,12 @@ flutter run -d <android-id>   # 안드로이드
   구버전이고 cache 379건에 원문이 있으며 TTL 정책은 없다. Secret/전용 계정과 Rules+TTL,
   Python Gen2를 배포하고 source SHA, Android `de`/iOS `en` signed smoke, 실제 혼합 교재
   촬영을 통과한 뒤에만 별도 삭제 승인으로 legacy cache를 정리한다.
-- [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인, Android
-  AAB의 Play Internal Testing 설치·App Check·데이터 보존 확인 뒤 Closed Testing 승격.
+- [x] **Android main → 내부테스트 자동배포**: `main` Flutter 변경은 CI quality
+  gate 성공 뒤에만 Play **내부 테스트(`internal`)** 트랙에 서명 AAB를 올린다.
+  비공개테스트(Closed/`alpha`)·공개테스트·Production·iOS/TestFlight는 자동화하지
+  않는다. 테스터는 Play Console 내부 테스트 이메일(Jin 전용).
+- [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인,
+  Android Internal 설치·App Check·데이터 보존 확인. Closed Testing 승격은 수동.
 - [x] **문서 정리**: 활성 정본 목록은 `docs/README.md`에 둔다. 완료된 계획·세션별
  초안은 working tree에 되살리지 말고 Git history와 `docs/SESSION_LOG.md`로 추적한다.
 - [x] **단어장 사진 → 그 단어만 놀이 연습**: 교재 분석과 분리된 Vokabelheft

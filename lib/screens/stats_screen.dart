@@ -96,7 +96,7 @@ class _StatsScreenState extends State<StatsScreen>
         appBar: SoriAppBar(title: t.statsHeader),
         body: SafeArea(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+            asset: 'assets/illustrations/mascot/magpie_encourage.png',
             icon: Icons.auto_stories_outlined,
             title: t.statsFirstEntryTitle,
             body: t.statsFirstEntryBody,

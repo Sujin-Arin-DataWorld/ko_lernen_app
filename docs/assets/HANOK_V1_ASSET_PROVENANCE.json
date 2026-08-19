@@ -692,7 +692,7 @@
         "costCredits": 0.0,
         "promptSha256": "146b9e29a0c82fa7743bd162fd1afd5d434ab213f6167cb4bb47f35d57445600",
         "promptSource": "command line, not a model prompt",
-        "note": "deterministic composition of the 16 stage manifests; derived-part lineage in docs/assets/hanok_a1_kit/parts.json",
+        "note": "deterministic composition of the 16 stage manifests; derived-part lineage in docs/assets/hanok_a1_kit/parts.json | 2026-08-19: Jin rejected 07 and 08 on sight — the generated frame's vertical members were drawn on an evenly spaced grid while the real bays are 110/111/83/123/83/110/110, so only 1 of 8 landed within 5px of a pillar (median error ~24px on a 16-20px pillar). 09 and 10 sit on the same frame base and were rebuilt with it. Those four outputs are marked rejected here and replaced by a1-states-recompose-frame-2026-08-19; 01-06 and 11-16 are untouched and still approved from this record.",
         "inputAssets": [
           {
             "path": "assets/illustrations/personal_hanok_v2/map/site_base_light.png",
@@ -787,25 +787,25 @@
           {
             "path": "assets_unused/pending_review/a1_states/07_beams_changbang.webp",
             "sha256": "2f74901c155322512841834c907ae7e014a6262d789622c4d6e8bb913c846fc8",
-            "decision": "approved",
+            "decision": "rejected",
             "kind": "state"
           },
           {
             "path": "assets_unused/pending_review/a1_states/08_purlins_sangnyang.webp",
             "sha256": "6461b498cca8dc36f693ff7c3a19f78b75d3c190655cb229a252d0dfdf4b34ad",
-            "decision": "approved",
+            "decision": "rejected",
             "kind": "state"
           },
           {
             "path": "assets_unused/pending_review/a1_states/09_rafters_roof_frame.webp",
             "sha256": "078f995d3dc37ba969ed1f58a9191e9c552169a1d1a2e69793aadc7c7429645f",
-            "decision": "approved",
+            "decision": "rejected",
             "kind": "state"
           },
           {
             "path": "assets_unused/pending_review/a1_states/10_roof_base.webp",
             "sha256": "aed5780107dbacf51a005f271b066fb9a77573b73ce87977b4c0473645a809dd",
-            "decision": "approved",
+            "decision": "rejected",
             "kind": "state"
           },
           {
@@ -1423,6 +1423,66 @@
             "sha256": "63b20199b9d3f6cae82fa837d7b38e6621e3826473533f1febd050a1436440ae",
             "decision": "approved",
             "kind": "estateStage"
+          }
+        ]
+      },
+      {
+        "id": "a1-states-recompose-frame-2026-08-19",
+        "provider": "local",
+        "model": "python3 tool/make_a1_frame_parts.py && python3 tool/compose_hanok_a1_state.py --kit-manifest docs/assets/hanok_a1_kit/stage_NN.json",
+        "mediaKind": "static",
+        "occurredAtUtc": "2026-08-19T08:20:00Z",
+        "costCredits": 0.0,
+        "promptSha256": "f4d8121cf7902aa9bf6fa175d067eb3c46f3b4723591d78e856ca148cd1241ec",
+        "note": "0 credit. Keeps the model's long horizontal timbers from the already-approved 08_frame_purlins.png and replaces only the misaligned vertical members with eight capital blocks drawn on the measured a1_kit_overrides.json pillarXRanges. Stages 07-10 recomposed; every gate passed — structural recall 1.0, containment violations 0, edge drift 0, chroma 0, max 285,356 B against the 350,000 cap. 11 recomposes byte-identical, so the change is contained to the frame stages. Supersedes the four outputs demoted in a1-states-compose-2026-08-17: 07_beams_changbang.webp was 2f74901c15532251…; 08_purlins_sangnyang.webp was 6461b498cca8dc36…; 09_rafters_roof_frame.webp was 078f995d3dc37ba9…; 10_roof_base.webp was aed5780107dbacf5…",
+        "inputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/08_frame_purlins.png",
+            "sha256": "8968ce9f8b59edade6e213257a57b1fece23dc4f6314f3448194057b2dcc8c7b"
+          }
+        ],
+        "outputAssets": [
+          {
+            "path": "assets_unused/pending_review/a1_states/07_beams_changbang.webp",
+            "sha256": "be5bd230710cd1859860f09e7c74bae30be5b60c743439ba26cf94a07ccb467f",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/08_purlins_sangnyang.webp",
+            "sha256": "1a18ee0b3d5521c90b398240b7782f7ca967518387b70bbde60009dcdaff42e2",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/09_rafters_roof_frame.webp",
+            "sha256": "a8cee9103db4d276a728a02eacb657039bef7236fdfa536c9bdd9babcc54f840",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_states/10_roof_base.webp",
+            "sha256": "a9b33ebba0bca7cf8079d7916a66c4e87c507cb380034e9a06f69fb65a314f7c",
+            "decision": "approved",
+            "kind": "state"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/frame_headbeam.png",
+            "sha256": "77d28e3afc7833badcdcd07b57845de5f42c40e5a942c587b4c9b2ba8f250b55",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/frame_upper.png",
+            "sha256": "3532980d79e04081b3796a597fe12bd639b399a5cc10e0947862a7825270bffc",
+            "decision": "approved",
+            "kind": "part"
+          },
+          {
+            "path": "assets_unused/pending_review/a1_kit/generated/frame_posts.png",
+            "sha256": "e16e3f7e97f1493eeabe38526308ecbacfaf9bf2db065c33b54f6427e4d0baaa",
+            "decision": "approved",
+            "kind": "part"
           }
         ]
       }

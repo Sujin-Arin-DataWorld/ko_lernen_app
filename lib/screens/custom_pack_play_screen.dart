@@ -15,9 +15,10 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
-import '../widgets/sori/deck_action_bar.dart';
+import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
-import '../widgets/sori/swipe_card.dart';
+import '../services/content_share_service.dart';
+import '../services/liked_content_service.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
@@ -140,6 +141,35 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     _advance();
   }
 
+  Future<void> _likeCurrent() async {
+    final pack = _pack;
+    if (pack == null || _idx >= pack.words.length) {
+      return;
+    }
+    await LikedContentService.toggle(
+      kind: LikedContentService.vocab,
+      id: pack.words[_idx].korean,
+    );
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  void _shareCurrent() {
+    final pack = _pack;
+    if (pack == null || _idx >= pack.words.length) {
+      return;
+    }
+    final w = pack.words[_idx];
+    final t = AppL10n.of(context);
+    // ignore: discarded_futures
+    ContentShareService.shareStory(
+      korean: w.korean,
+      gloss: w.translationDe,
+      caption: t.contentShareBody(w.korean, w.translationDe),
+    );
+  }
+
   void _advance() {
     final pack = _pack;
     if (pack == null) return;
@@ -256,109 +286,54 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                 ),
                 const SizedBox(height: Spacing.md),
                 Expanded(
-                  // 카드는 글자 수와 무관하게 영역의 82%로 고정(쪼그라들지 않음) +
-                  // 상하 여백으로 코치마크·버튼 공간 확보.
-                  // 2026-08-14 §P2: 4방향 덱 — 우=Gewusst, 좌=Nicht gewusst,
-                  // ↓=기록 없는 스킵. ↑ 저장은 이 화면에서 비노출(§P2-2:
-                  // 단어가 정의상 이미 사용자 팩 소속 — quickAdd 는 quick pack
-                  // 내부만 dedupe 하므로 무의미하거나 중복 복사가 된다).
-                  child: Stack(
-                    fit: StackFit.passthrough,
-                    children: [
-                      SoriSwipeCard(
-                        // 첫 덱 1회 넛지 — 게이트는 순수 질의, 소비는 실제
-                        // 재생 시점(deck_coach.dart). 6개 덱 전부에 붙여야 "먼저
-                        // 연 덱이 제스처를 가르친다"가 성립한다.
-                        nudge: soriDeckNudgeDue(),
-                        onNudgePlayed: markSoriDeckNudgeShown,
-                        // §C-1-1: 플립 전 스와이프 금지 — 답을 보지 않은
-                        // 카드에 SRS가 기록되는 데이터 버그 방지.
-                        enabled: _cardRevealed,
-                        onSwipeRight: _gotIt,
-                        onSwipeLeft: _dontKnow,
-                        onSwipeDown: _defer,
-                        onBlockedHorizontalDrag: () => _flipHintTrigger.value++,
-                        rightBadge: SoriSwipeBadge(
-                          label: t.btnGewusst,
-                          icon: Icons.check_rounded,
-                          color: SoriColors.success,
-                        ),
-                        leftBadge: SoriSwipeBadge(
-                          label: t.btnNichtGewusst,
-                          icon: Icons.close_rounded,
-                          color: SoriColors.danger,
-                        ),
-                        downBadge: SoriSwipeBadge(
-                          label: t.btnSkip,
-                          icon: Icons.arrow_downward_rounded,
-                          color: SoriColors.info,
-                        ),
-                        // 덱 스택 미리보기 — 다음 카드 **앞면만** (§P2-1).
-                        underlay: _idx + 1 < pack.words.length
-                            ? _faceSlot(pack, pack.words[_idx + 1])
-                            : null,
-                        child: Center(
-                          child: FractionallySizedBox(
-                            heightFactor: 0.82,
-                            // P1 (2026-08-14): 카드 슬롯 고정 — 폭 핀이 없으면
-                            // FlipCard._fitFace 의 세로 스크롤이 가로 제약을
-                            // loose 로 통과시켜 카드 폭이 단어 내재폭으로
-                            // 신축한다. 센서: test/deck_card_geometry_test.dart.
-                            child: SizedBox(
-                              key: const ValueKey('deck-card-slot'),
-                              width: double.infinity,
-                              child: SoriStudyScale(
-                                // 코치마크 타겟(GlobalKey)은 렌더객체 없는
-                                // KeyedSubtree에 걸고, FlipCard 자체는 서빙
-                                // 카운터 key로 카드마다 새로 만든다 (뒷면
-                                // 선노출 방지).
-                                child: KeyedSubtree(
-                                  key: _cardKey,
-                                  child: FlipCard(
-                                    key: ValueKey('cp-$_serve'),
-                                    flipped: _flipped,
-                                    onTap: _toggleFlip,
-                                    front: _Front(
-                                      word: w,
-                                      deckKoreans: [
-                                        for (final x in pack.words) x.korean,
-                                      ],
-                                    ),
-                                    back: _Back(word: w),
-                                  ),
+                  child: SoriContentFeed(
+                    judgmentsEnabled: _cardRevealed,
+                    onBlockedJudgment: () => _flipHintTrigger.value++,
+                    flipHintTrigger: _flipHintTrigger,
+                    onNext: _gotIt,
+                    onHard: _dontKnow,
+                    onSkip: _defer,
+                    onLike: _likeCurrent,
+                    onShare: _shareCurrent,
+                    onFlip: _toggleFlip,
+                    showBookmark: false,
+                    liked: LikedContentService.isLiked(
+                      kind: LikedContentService.vocab,
+                      id: w.korean,
+                    ),
+                    underlay: _idx + 1 < pack.words.length
+                        ? _faceSlot(pack, pack.words[_idx + 1])
+                        : null,
+                    knowLabel: t.btnGewusst,
+                    hardLabel: t.btnNichtGewusst,
+                    skipLabel: t.btnSkip,
+                    child: Center(
+                      child: FractionallySizedBox(
+                        heightFactor: 0.82,
+                        child: SizedBox(
+                          key: const ValueKey('deck-card-slot'),
+                          width: double.infinity,
+                          child: SoriStudyScale(
+                            child: KeyedSubtree(
+                              key: _cardKey,
+                              child: FlipCard(
+                                key: ValueKey('cp-$_serve'),
+                                flipped: _flipped,
+                                onTap: _toggleFlip,
+                                front: _Front(
+                                  word: w,
+                                  deckKoreans: [
+                                    for (final x in pack.words) x.korean,
+                                  ],
                                 ),
+                                back: _Back(word: w),
                               ),
                             ),
                           ),
                         ),
                       ),
-                      Positioned(
-                        top: Spacing.sm,
-                        left: 0,
-                        right: 0,
-                        child: Center(
-                          child: SoriDeckFlipHint(trigger: _flipHintTrigger),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
-                const SizedBox(height: Spacing.md),
-                // §P2-3: 텍스트 CTA → 아이콘 버튼 바. ⚠️ 의도적 행동 변경:
-                // 판정 버튼에 플립 게이트 확장 — flipgate 계약의 강화
-                // (custom_pack_flipgate_test 갱신 + SESSION_LOG 기록).
-                // ↑ 저장은 비노출 (§P2-2 — showSave: false).
-                SoriDeckActionBar(
-                  onDontKnow: _dontKnow,
-                  onKnow: _gotIt,
-                  onSkip: _defer,
-                  judgmentsEnabled: _cardRevealed,
-                  onBlockedJudgmentTap: () => _flipHintTrigger.value++,
-                  showSave: false,
-                  dontKnowLabel: t.btnNichtGewusst,
-                  knowLabel: t.btnGewusst,
-                  skipLabel: t.btnSkip,
-                  saveLabel: t.deckActionSave,
                 ),
               ],
             ),

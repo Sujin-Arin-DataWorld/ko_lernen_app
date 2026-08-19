@@ -153,6 +153,30 @@
       "z": 307
     },
     {
+      "part": "generated:frame_posts",
+      "z": 860,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "part": "generated:frame_headbeam",
+      "z": 870,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
+      "part": "generated:frame_upper",
+      "z": 880,
+      "at": [
+        0,
+        0
+      ]
+    },
+    {
       "part": "generated:frame_beams",
       "z": 890,
       "at": [
