@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — Cloze·Satz DE/EN을 단어팩 예문에 동기
+
+**무엇을 왜.** 단어팩에서 고친 구어 DE/EN이 Cloze/Satz에 그대로 남아 있으면
+학습자가 직역을 다시 본다. fullKo/targetKo가 vocab `example_korean`과 같은
+32문만 맞춤. ID·개수·한국어 유지.
+
+**검증.** 알려진 직역 잔여 0 (협업=Zusammenarbeit는 본뜻이라 유지).
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — B1–C2 단어팩 DE/EN 뉘앙스
 
 **무엇을 왜.** 남은 레벨의 합성 직역·틀린 독일어.
