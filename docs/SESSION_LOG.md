@@ -6,7 +6,8 @@
 정렬 절차가 아니다. `길게 쓰지 말고`도 Do not write long 교과서 영어.
 DE는 이미 맞음. 생성기 템플릿도 같이.
 
-**검증.** flutter test scan/cloze.
+**검증.** flutter test scan/satz. `포장하지 않아요` EN은
+I don't pass off a decision… as custom.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
