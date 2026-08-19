@@ -5,6 +5,21 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — main → CI → Play 내부테스트만
+
+**무엇을 왜.** Jin: GitHub `main`은 CI 테스트 후 Android **내부테스트**만 자동
+배포하고, 비공개테스트(Closed Testing)에는 영향 없게. iOS 자동배포는 없음.
+
+**고침.** `release-internal` 잡 주석·스텝 이름을 내부테스트로 고정. Play 업로드
+`tracks: internal` 단일 값. 계약 테스트가 `alpha`/`beta`/`production`/`closed`
+트랙·TestFlight/fastlane/App Store Connect 잡을 금지. 문서에 테스터=Play
+Console 내부 테스트 이메일(Jin 전용), Closed 승격은 수동이라고 적음.
+
+**검증.** `python3 -m unittest .github/scripts/test_play_internal_workflow.py
+.github/scripts/test_ci_scope.py .github/scripts/test_select_flutter_tests.py`.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-18 (Cursor Grok 4.6, Cloud) — 한옥 자산 감사 인수인계를 스킬로 재실측
 
 **무엇을 왜.** Jin이 오더를 정정했다. 콘텐츠 UI 계획이 아니라, 다운받은

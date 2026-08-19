@@ -1,4 +1,5 @@
 import pathlib
+import re
 import unittest
 
 
@@ -18,14 +19,49 @@ class PlayInternalWorkflowTest(unittest.TestCase):
         self.assertIn("name: google-play-internal", release)
 
     def test_release_is_signed_reproducible_and_targets_internal_only(self):
-        release = self.workflow.split("  release-internal:", 1)[1]
+        release = self.workflow.split("  release-internal:", 1)[1].split(
+            "  release-website:", 1
+        )[0]
         self.assertIn("fetch-depth: 0", release)
         self.assertIn("flutter build appbundle --release --obfuscate", release)
         self.assertIn("ANDROID_UPLOAD_KEYSTORE_BASE64", release)
         self.assertIn("GOOGLE_PLAY_SERVICE_ACCOUNT_JSON", release)
         self.assertIn("r0adkll/upload-google-play@v1.1.5", release)
+        self.assertIn("Build signed internal-testing bundle", release)
+        self.assertNotIn("closed-testing bundle", release)
+        self.assertEqual(release.count("r0adkll/upload-google-play"), 1)
+        self.assertEqual(release.count("tracks:"), 1)
         self.assertIn("tracks: internal", release)
-        self.assertNotIn("tracks: production", release)
+        for forbidden in (
+            "tracks: production",
+            "tracks: alpha",
+            "tracks: beta",
+            "tracks: closed",
+            "tracks: open",
+        ):
+            self.assertNotIn(forbidden, release)
+
+    def test_ci_never_deploys_ios_or_closed_testing(self):
+        uses = re.findall(r"^\s+uses:\s+(\S+)", self.workflow, re.MULTILINE)
+        play_uploads = [
+            action for action in uses if "upload-google-play" in action
+        ]
+        self.assertEqual(play_uploads, ["r0adkll/upload-google-play@v1.1.5"])
+        ios_uploads = [
+            action
+            for action in uses
+            if any(
+                token in action.lower()
+                for token in (
+                    "testflight",
+                    "fastlane",
+                    "app-store-connect",
+                    "apple-actions",
+                )
+            )
+        ]
+        self.assertEqual(ios_uploads, [])
+        self.assertEqual(self.workflow.count("tracks:"), 1)
 
     def test_main_release_survives_unrelated_follow_up_pushes(self):
         workflow_concurrency = self.workflow.split("jobs:", 1)[0]

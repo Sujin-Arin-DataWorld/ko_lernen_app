@@ -1,8 +1,23 @@
 # GitHub Actions → Google Play Internal Testing
 
 `main`의 Flutter 변경이 기존 CI를 통과하면 서명된 AAB를 만들고 Google Play의
-`internal` 트랙에 자동 업로드한다. Production·Closed Testing 승격은 자동화하지
-않는다.
+**내부 테스트(`internal`)** 트랙에만 자동 업로드한다.
+
+자동화하지 않는 것:
+
+- 비공개 테스트 (Closed Testing, Play 트랙 `alpha`)
+- 공개 테스트 (Open Testing, Play 트랙 `beta`)
+- Production
+- iOS / TestFlight
+
+비공개테스트 테스터·트랙·승격은 CI가 읽지도 쓰지도 않는다. Closed Testing으로
+올리려면 Play Console에서 Jin이 수동으로 한다.
+
+## 누가 설치할 수 있나 (나만)
+
+Play Console → 테스트 → **내부 테스트** → 테스터 이메일에 Jin 계정만 둔다.
+내부 테스트 옵트인 링크를 공개 채널에 올리지 않는다. 비공개 테스트 트랙의
+테스터 목록은 이 자동 업로드와 무관하다.
 
 ## 최초 1회 설정
 
@@ -47,11 +62,13 @@ Console에서 수동으로 만들어야 한다. 현재 package는
 - 기존 Flutter 분석·전체 테스트·웹 release build가 모두 성공함
 - upload keystore로 AAB를 서명하고 Dart obfuscation symbols를 생성함
 - AAB·SHA-256·symbols를 Actions artifact로 14일 보관함
-- AAB를 Google Play **Internal Testing**에 `completed` 상태로 업로드함
+- AAB를 Google Play **내부 테스트(`internal`)** 에 `completed` 상태로 업로드함
+- 비공개 테스트·공개 테스트·Production 트랙은 그대로 둔다
 
 내부 테스트 빌드는 기존 수동 계약과 동일하게
 `ENABLE_TESTER_FEEDBACK=true`, `BETA_UNLOCK_ALL=true`, exact `GIT_COMMIT`을
-주입한다. Production에는 쓰지 않는다.
+주입한다. 이 플래그는 AAB 내용이지 Play 트랙이 아니다. Production·Closed
+Testing 빌드에는 쓰지 않는다.
 
 자동 실행 실패를 수정한 뒤 다시 올릴 때는 GitHub Actions의 `CI` workflow를 열고
 `Run workflow`에서 `release-internal`을 선택한다. 이 수동 재실행도 먼저 Flutter
