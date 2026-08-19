@@ -1,5 +1,14 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 시나리오 제목 Convenience-Hacks → Spätkauf-Tipps
+
+**무엇을 왜.** A1 편의점 문화 노트 제목이 독일어 화면에 영어 Hacks를
+남겼다. DE는 Spätkauf-Tipps, EN Convenience-store hacks 유지.
+
+**검증.** Grep Convenience-Hacks 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 시나리오·끝말잇기 편의점 ≠ Convenience Store
 
 **무엇을 왜.** 독일어 학습 화면에 영어 Convenience Store가 남았다.
