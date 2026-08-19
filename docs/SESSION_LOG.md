@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 시나리오 잘 부탁 ≠ Zusammenarbeit
+
+**무엇을 왜.** A1 소개 듣기 정답이 또 Zusammenarbeit였다. 문화 노트도
+「Wörtlich bitte um Wohlwollen」로 직역을 가르쳤다. 비즈니스 B2도
+「Ich freu mich darauf」로 낮춘다. 한국어 대사는 유지.
+
+**검증.** Grep: 남은 Zusammenarbeit 정답 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — Cloze·Satz DE/EN을 단어팩 예문에 동기
 
 **무엇을 왜.** 단어팩에서 고친 구어 DE/EN이 Cloze/Satz에 그대로 남아 있으면

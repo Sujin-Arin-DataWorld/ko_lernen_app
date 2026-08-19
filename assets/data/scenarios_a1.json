@@ -326,8 +326,8 @@
           "korean": "잘 부탁드립니다",
           "note": {
             "ko": "",
-            "de": "Wörtlich 'bitte um Ihr Wohlwollen', kein deutsches Äquivalent. Bei Vorstellungen, neuen Beziehungen, Bitten. Siehe Kulturnotiz.",
-            "en": "Literally 'please treat me kindly', no English equivalent. Used in intros, new relationships, requests. See culture note."
+            "de": "Schön, dass wir uns kennen. Kein Wort-für-Wort. Bei der Vorstellung, in neuen Beziehungen, bei Bitten. Siehe Kulturnotiz.",
+            "en": "Hope we get along. Not word-for-word. Used in intros, new relationships, requests. See culture note."
           }
         }
       ],
@@ -438,8 +438,8 @@
             "audioKo": "잘 부탁드립니다.",
             "options": [
               {
-                "de": "Ich freue mich auf die Zusammenarbeit.",
-                "en": "Looking forward to working together."
+                "de": "Schön, dass wir uns kennen.",
+                "en": "Hope we get along."
               },
               {
                 "de": "Vielen Dank für alles.",
@@ -554,8 +554,8 @@
         },
         "body": {
           "ko": "",
-          "de": "Wörtlich 'bitte behandelt mich gut', kein 1:1 Äquivalent. Du sagst es bei Vorstellungen, neuen Jobs, Bitten, manchmal sogar in E-Mails. Spiegelt die koreanische Beziehungskultur: 'Wir sind jetzt verbunden, lass uns gut miteinander umgehen.' Klingt vielleicht übertrieben, aber lass es NICHT weg. Ohne diese Phrase fehlt etwas.",
-          "en": "Literally 'please treat me well', no English equivalent. Said at intros, new jobs, requests, even in emails sometimes. Reflects Korean relational culture: 'We're connected now, let's be good to each other.' Might feel excessive, but don't skip it. Without it, something feels missing."
+          "de": "Deutsche sagen eher 'Freut mich' oder 'Schön, dass wir uns kennen' — nicht 'behandle mich gut'. Du sagst es bei Vorstellungen, neuen Jobs, Bitten, manchmal in Mails. Es heißt: wir sind jetzt verbunden, lass uns gut miteinander umgehen. Klingt vielleicht viel, aber weglassen wirkt unvollständig.",
+          "en": "English speakers just say 'Nice to meet you' or 'Hope we get along' — not 'please treat me well'. You say it at intros, new jobs, requests, even in emails. It means we're connected now, let's be good to each other. It can feel like a lot, but skipping it leaves a gap."
         }
       },
       "shelf": "a1_greet",
