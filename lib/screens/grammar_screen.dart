@@ -777,6 +777,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                         key: _filterRowKey,
                         height: 44,
                         child: ListView(
+                          key: const Key('grammar-filter-row'),
                           scrollDirection: Axis.horizontal,
                           children: [
                             Padding(
@@ -793,6 +794,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                               Padding(
                                 padding: const EdgeInsets.only(right: 6),
                                 child: SoriChip(
+                                  key: Key('grammar-level-$lvl'),
                                   label:
                                       '${lvl == 'Alle' ? t.filterAll : lvl}'
                                       ' · ${_levelCount(lvl)}',

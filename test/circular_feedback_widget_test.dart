@@ -311,10 +311,12 @@ void main() {
       isNotNull,
     );
 
-    final a2Filter = _grammarLevelChip('A2');
-    await tester.ensureVisible(a2Filter);
-    await tester.tap(a2Filter);
-    await tester.pump();
+    // PR #88 이후 라벨이 `A2 · 46` 이고 앞쪽에 Practice CTA 가 있어
+    // 칩이 가로 ListView 오른쪽 클립 끝에 붙는다. ensureVisible 기본
+    // alignment 는 trailing 이라 탭 좌표가 (≈758, 82) 로 히트 영역을
+    // 벗어나고 세션이 안 리셋된다. pumpAndSettle 로는 안 고쳐진다 —
+    // 상태 갱신이 늦은 게 아니라 탭이 빗나간다. 칩을 가운데로 두고 탭한다.
+    await _tapGrammarLevel(tester, 'A2');
 
     expect(
       tester
@@ -354,7 +356,7 @@ void main() {
       await tester.pumpAndSettle();
 
       final a1Filter = tester.widget<SoriChip>(
-        _grammarLevelChip('A1').first,
+        find.byKey(const Key('grammar-level-A1')),
       );
       expect(a1Filter.selected, isTrue);
       expect(
@@ -628,8 +630,12 @@ class _SameIndexRandom implements math.Random {
   int nextInt(int max) => 0;
 }
 
-/// 문법 레벨 칩 파인더. 라벨이 `A2 · 46` 처럼 **개수를 달고** 나오므로
-/// 정확 일치(`widgetWithText`)로는 못 잡는다 (2026-08-19 레벨별 개수 표시).
-Finder _grammarLevelChip(String level) => find.byWidgetPredicate(
-  (widget) => widget is SoriChip && widget.label.startsWith('$level ·'),
-);
+Future<void> _tapGrammarLevel(WidgetTester tester, String level) async {
+  final chip = find.byKey(Key('grammar-level-$level'));
+  expect(chip, findsOneWidget);
+  // WidgetTester.ensureVisible 은 alignment 가 없어 trailing 에 붙인다.
+  await Scrollable.ensureVisible(tester.element(chip), alignment: 0.5);
+  await tester.pump();
+  await tester.tap(chip);
+  await tester.pump();
+}

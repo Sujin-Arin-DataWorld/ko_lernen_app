@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 문법 레벨 칩 탭이 세션을 리셋하게
+
+**무엇을 왜.** main Analyze 잡이 `grammar level filter resets the current
+study interaction set` 1실패. Copilot은 `pumpAndSettle`이 부족하다고 했지만
+프로덕션 `_applyFilters()`는 이미 `_sessionSeen.clear()`를 한다. 탭 좌표가
+가로 ListView 클립 끝(≈758, 82)을 빗나가 콜백이 안 불린 것이다.
+
+**고침.** 칩에 `Key('grammar-level-$lvl')`. 테스트는
+`Scrollable.ensureVisible(..., alignment: 0.5)`로 가운데 두고 **실제로 탭**.
+onTap 직접 호출이나 pumpAndSettle 만으로는 히트 실패를 가린다.
+
+**검증.** `flutter test` circular_feedback 13/13 · grammar_type_filter.
+`dart analyze` 변경 파일 이슈 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor Grok 4.6, Cloud) — 3일 main 전수 감사 파일만
 
 **무엇을 왜.** Jin이 최근 3일 커밋을 최신 HEAD까지 하나씩 읽고, 오류·누락·앱
