@@ -188,6 +188,232 @@ grammar_choice_quiz_screen · grammar_choice_quiz 전부 통과.
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-19 (Claude Opus 5, macOS) — Android 전역 무음 + 레벨×콘텐츠 배치 편중
+
+**무엇을 왜.** Jin: "스몰톡·시나리오·듣기·문법 레벨별로 몇 개 이런 배치가 하나도
+안 되고 사운드도 하나도 안 나와. 레벨별-컨텐츠별 배치 전부 조사해서 해결해줘."
+실기기는 **Android, 효과음까지 전부 무음**. 두 갈래 원인을 실측으로 분리했다.
+
+**① Android 전역 무음 (근본 원인).** `AudioPolicy.applyPlatformAudioContext()` 가
+`AudioContextConfig(respectSilence: respectSilentMode)` 를 그대로
+`buildAndroid()` 에 넘겼다. 이 플래그는 Android 에서 "무음 스위치 존중"이 아니라
+`usageType: USAGE_NOTIFICATION_RINGTONE` 으로 번역된다(audioplayers 6.8.1
+`audio_context_config.dart` → `AudioContextAndroid.buildAttributes` →
+`AudioAttributes.setUsage`). 기본값이 true 라 **앱의 모든 소리가 벨소리
+스트림**으로 나갔다 — 폰이 진동/무음이면 효과음·발음이 전부 안 들리고, 볼륨 키로
+올리는 미디어 볼륨은 아무 효과가 없다. ADR-002 §10 이 "Android 는 respectSilence
+가 기기마다 다름 — 실기기 미검증"으로 남겨 둔 바로 그 항목이다.
+→ `AudioPolicy.buildAndroidContext()` 를 새로 두고 Android 는 **항상
+`USAGE_MEDIA`**(mixWithOthers 유지). `respectSilentMode` 는 iOS 무음 스위치
+전용으로 남기고, 설정의 해당 토글은 **iOS 에서만** 보이게 했다(Android 에선
+죽은 컨트롤이었다).
+
+**② 사전생성 TTS 1,460개 누락.** `generate_tts.py --verify-storage` 실측:
+`expected 11438, remote 10269, missing 1460`. AGENTS.md 가 적어 둔 6,321 기준은
+stale 이었다 — batch 10–16 콘텐츠가 들어오며 코퍼스가 11,438 로 늘었는데
+사전생성을 안 돌렸다. 누락분은 CF 동적 합성으로 가고, CF 가 quota/unavailable 을
+뱉으면 클라가 **의도적으로 OS 폴백을 차단**(`blockSpeechFallback`)해 무음이 된다.
+→ Jin 승인 후 `--missing-from-storage --workers 8` 실행. 1,460개 합성·업로드 완료,
+재검증 **missing 0** (remote 11729, stale 291 = 구 콘텐츠 잔여).
+
+**③ 레벨×콘텐츠 배치.** 카탈로그 자체는 정상이었다(링크 7,446 · 검증 이슈 0).
+진짜 문제는 **batch 10–16 이 시나리오 130편을 레벨마다 포괄 유닛 하나에
+통째로 넣은 것**: a1_16_survival_capstone 46/85(54%) · a2_07_travel_repair
+50/80(63%) · b1_05 42/73(58%) · b2_04 41/68(60%). `conceptIds` 도 시나리오·퀘스트
+양쪽 다 포괄 개념 하나(`concept_a1_survival` 등)로 박혀 있었고, 매니페스트의
+명시 `contentLinks` assess 간선 127개도 같은 유닛을 가리켰다. 나머지 주제 유닛은
+시나리오 1–5편이라 코스 미션이 사실상 비었다.
+→ `tools/content_factory/rebalance_scenario_units.py` 신규. `shelf`(=
+`shelf_assignment.py` 가 정한 주제 정본, 전수 태깅됨)를 기준으로 **포괄 유닛에
+들어 있는 것만** 재배정한다. 목적지는 발명이 아니라 **같은 칸의 손으로 쓴
+시나리오가 이미 앉아 있는 유닛**을 따랐다. 체크포인트 선언 시나리오는 제외,
+`practice` 간선은 유지(캡스톤이 남의 콘텐츠를 연습시키는 건 의도된 설계).
+시나리오 `conceptIds` · **퀘스트 `conceptIds`**(링크 빌더가 개념을 요구 유닛
+전부로 팬아웃해서 이걸 안 고치면 몰빵 유닛이 링크를 되찾는다) · 명시 assess
+링크까지 세 곳을 함께 고친다. 도구는 멱등이다.
+결과 130편 이동 · assess 링크 127개 재조준 · 최대 점유율 **30%**.
+예: a1_06 5→18 · a1_14 2→11 · a2_08 2→15 · b1_06 3→14 · b2_03 9→20.
+
+**③-b 빈 유닛 채우기 (Jin 승인 14건).** 재배정 뒤에도 유닛 12개가 특정 종류
+0이었다. 콘텐츠가 없어서가 아니라 `{level}:{category}`·규칙 ID 매핑이 몇몇 유닛에
+몰려 있어서다(a1 스몰톡 23개 주제가 유닛 9개에만 붙어 a1_09 가 5개, a1_01·02·03·
+05·13·16 은 0). `tools/content_factory/fill_empty_unit_kinds.py` 로 스몰톡 6 ·
+문법 7 · 클로즈 1 = **14건**을 과잉 유닛에서 빈 유닛으로 옮겼다(예: a1:weather →
+a1_01 인사 · V-아/어요 → a1_13 말투전환 · A/V-다는 점에서 → b2_05 면접).
+목적지 개념은 전부 그 유닛 `requiredConceptIds` 안이고, 문법 간선은 role=assess 라
+개념 1개 규칙도 지켰다. **구멍 있는 유닛 12 → 6.**
+
+남은 6개는 **콘텐츠 자체가 없어서** 매핑으로 못 채운다 — a1_14_payment_delivery
+(시나리오 11편뿐, 나머지 5종 전부 0: 결제·배달 단어팩이 코퍼스에 없음) ·
+a1_03/a1_08/a2_02 의 단어·satz(조사·되묻기·제안 전용 팩 없음) · a1_16 클로즈 ·
+a1_01 문법(인사 전용 문법 패턴 없음 — 억지로 옮기면 다른 유닛이 빈다).
+⚠️ 트레이드오프: `a1:shopping` 은 a1_05(수 표현) 대신 a1_14(결제)로 보낼 수도
+있다. a1 은 주제 23개에 유닛 16개라 어느 쪽이든 하나는 빈다 — Jin 판단 대기.
+
+**④ UI — 레벨별 개수가 안 보이던 것.** 스몰톡 레벨 칩은 `A1 · 82` 처럼 개수를
+달고 0 이면 탭이 막힌다. 주제 시트는 현재 레벨 기준 개수를 붙이고 있는 주제를
+앞으로 보내며 0 인 주제는 고를 수 없다 — C1/C2 는 23개 주제 중 **14개가 완전히
+비어 있어서** 그냥 두면 "골랐더니 빈 화면"이 기본 경험이었다. 문법 레벨 칩에도
+같은 개수를 붙였다(문법 화면은 이미 빈 레벨을 숨기고 있었다).
+
+**④-b "뭘 눌러도 같은 것만 나온다" (Grammatik·Hören).** Jin 이 두 화면에서
+같은 항목만 반복된다고 했다. 원인이 화면마다 달랐다.
+
+- **문법**: `grammar.csv` 의 `type_de` 가 214 행에 고유값 213 개다(212 개가
+  1 행짜리) — 분류가 아니라 사실상 기본키인데 화면이 그대로 "Typ" 필터
+  선택지로 내줬다. 유형을 하나 고르면 덱이 **카드 1 장**이 되고
+  `_canNavigateDeck`(길이>1)이 false 라 뭘 눌러도 같은 카드만 나온다. 유형
+  이름 6 개가 `Frage` 를 포함해(`Sanfte Frage`·`Vorschlag / Frage`·
+  `Indirekte Frage`·`Fragewort …`) 증상이 "Frage 어쩌고"로 보였다.
+  → `_typesForLevel(level)` 이 **현재 레벨에서 2 건 이상인 유형만** 내주고,
+  남는 게 'Alle' 뿐이면 드롭다운을 감춘다. 레벨 변경 시 그 레벨에 없는 유형이
+  남아 결과 0 장 + DropdownButton value 이탈로 터지던 것도 `_applyFilters`
+  진입부에서 막았다. CSV 가 굵은 분류로 정리되면 필터가 자동 복귀한다.
+  래칫 = `test/grammar_type_filter_test.dart`.
+- **듣기**: 진입하면 `selectInitialListeningScenario` 가 레벨의 첫 시나리오를
+  자동 선택하고 바로 재생을 시작하는데, 다른 걸 고르는 책가도 서재는 재생기
+  한참 아래라 보이는 곳을 눌러선 바뀌지 않았다. → **main 병합으로 자동
+  해소**. `01bd8849`(콘텐츠 UI 개편)가 `/listening` 을 책가도 전용으로,
+  플레이어를 `/listening/play` 라우트로 이미 분리해 서재가 첫 화면이 됐다.
+  이 브랜치가 8bbaf9e7 기반이라 옛 인라인 플레이어에 `_NowPlayingBar` 를
+  붙였었지만, 병합 시 `listening_screen.dart` 는 main 판을 그대로 채택했다.
+
+**⚠️ 앞선 결정과 겹치는 부분.** `course_practice_screen_test.dart` 에는
+"a type filter that leaves one card keeps every control alive" 가 있었고 주석에
+**"This is the path Jin actually hit"** 라고 적혀 있었다 — 즉 이전 세션은 같은
+증상을 알고서 "1 장 덱을 막지 말고 컨트롤을 정직하게 두자"로 대응했다. 이번엔
+**애초에 1 장이 되는 필터 값을 안 내주는 쪽**으로 바꿨으므로 그 결정을 일부
+덮는다. 1 장 덱 계약 자체는 살아 있어야 하므로(난이도 필터로는 여전히 도달),
+테스트는 지우지 않고 난이도 경로로 다시 썼다. 두 방식 중 무엇이 맞는지는
+Jin 판단 — 되돌리려면 `_typesForLevel` 의 `>= 2` 조건만 빼면 된다.
+
+**⑥ 세션마다 워킹트리 격리 (Jin 지시).** 이 세션 하루에만 공유 워킹트리로 세 번
+터졌다: ① 다른 세션의 SESSION_LOG 쓰기가 내 병합 해소를 덮음 ② 다른 세션이
+브랜치를 갈아타 내 HEAD 가 발밑에서 바뀜(그 바람에 로그가 날아간 줄 알고
+오진했다 — 실제로는 멀쩡했다) ③ `flutter test` 실행 중 파일이 갈려 유령 실패
+3건. Jin: "무조건 모든 세션은 시작하면 자기 워킹트리 따로 빼서 내 메인
+안 건드리게 해줘."
+→ `tool/session_worktree.sh <슬러그>` 신규 (origin/main 기준 `session/<슬러그>-<날짜>`
+브랜치 + `../ko_lernen_app_worktrees/<슬러그>` 워킹트리, 재실행 안전) ·
+`tool/check_session_worktree.sh` 신규 + `.claude/settings.json` SessionStart 훅
+(주 체크아웃이면 크게 경고, 링크된 워크트리면 조용. 판별은 `--git-dir` 과
+`--git-common-dir` 이 같은지로 한다) · AGENTS.md 최상단 ⛔⛔ 규칙.
+훅은 cwd 를 못 바꾸므로 경고만 한다 — 옮기는 건 세션 몫이다.
+검증: 메인에서 경고 JSON 출력 / 워크트리에서 무출력 · 생성·재실행·정리 전 과정
+실행 · `jq -e` 로 훅 스키마 위치와 기존 훅 2개 보존 확인.
+
+**⑤ 곁가지.** `assets/illustrations/empty/` 는 `4b5f5ccf` 에서 디렉터리째
+지워졌는데 pubspec 선언과 4개 화면 참조가 남아 `flutter` 실행마다
+`unable to find directory entry in pubspec.yaml` 을 찍고 있었다 → 선언 제거,
+참조 4곳을 `mascot/` 폴백으로 교체.
+
+**⚠️ 브랜치.** 세션 도중 브랜치가 밖에서 바뀌었다(reflog:
+`chore/hanok-decoration-batch2` → `cursor/content-ui-bible-f7a6` → 현재
+`chore/hanok-sarangbang-props-2026-08-19` @ `8bbaf9e7`). 이 변경분은 전부 현재
+브랜치 기준이며, `cursor/content-ui-bible-f7a6`(945a8b1c)의 콘텐츠 UI 개편은
+여기 없다 — 병합 시 `listening_screen.dart` 등에서 충돌 가능.
+
+**검증.** `flutter analyze` 손댄 8파일 0 issue · `dart format` ·
+`audio_policy_test`(Android USAGE_MEDIA 래칫 2건 신규) + `audio_policy_guard`
+12 passed · `course_graph`/`course_mission_brief_production`/
+`course_segment_catalog`/`course_checkpoint_questions`/`course_mastery_production`/
+`content_audit_manifest` 66 passed · `course_unit_balance_test`(신규 래칫: 한
+유닛이 레벨 시나리오의 40% 초과 금지 + 모든 유닛 시나리오 ≥1) 2 passed ·
+`generate_tts.py --verify-storage` missing 0.
+
+**커밋해시.** 없음 — 커밋/푸시 안 함(Jin 지시 대기).
+
+### 2026-08-19 (Claude Opus 5, macOS) — A1 07/08 기둥 정렬 수정 + 별당·서고 생성
+
+**① 사랑채 07/08 골조가 기둥과 어긋나던 것.** Jin이 눈으로 잡아냈다. 실측하니
+`a1_kit_overrides.json` 기둥 8개 중 **1개만** 모델이 그린 세로부재와 5px 안에 들어왔고
+중앙값 오차는 ~24px(기둥 폭 16-20px), 기둥 4·5번 위에는 부재가 아예 없었다. 원인은
+플레이북 §4의 `align_model_frame.py --top-row 112` — 골조 이미지 **한 장**을 가로로 잘라
+07/08을 만드는데, 가로 분할로는 가로 오차를 못 고친다. 모델은 균등 간격으로 그렸지만 실제
+사랑채 칸은 110·111·**83**·**123**·**83**·110·110 (가운데가 계단 때문에 좁다).
+09부터 티가 안 나는 이유도 확인 — 서까래 45개가 그 띠를 덮는다.
+
+**고침(0크레딧).** `tool/make_a1_frame_parts.py` 신규. 모델의 긴 가로재는 살리고 세로부재만
+교체한다: `frame_headbeam`(y112-131 머리보) + `frame_upper`(y45-111 도리·종도리) +
+`frame_posts`(y131-156, 실측 기둥 x에 주두 8개를 기둥 파트에서 색 샘플링해 새로 그림).
+`stage_07/08`은 이 부품들로 교체, `stage_09/10`은 기존 부품 아래에 새 부품을 깔아 연속성 유지.
+
+**검증.** 07~11 재합성 전부 게이트 통과 — 구조 연속성 recall **1.0**, containment 위반 0,
+edge drift 0, chroma 0, 최대 285KB(상한 350KB). 10→11도 recall 1.0. 대조 시트
+`a1_kit/qa/fix_0708_compare_2026-08-19.png`.
+
+**② A2 외관 오버레이 3종.** 결정론 재확인만 했다 — `compose_a2_exterior_overlays.py` 재실행
+결과가 기존 QA와 **바이트 동일**, zone 위반 0. 승격은 안 했다: `asset_orphan_guard_test`가
+lib/ 미참조 에셋을 막으므로 pubspec 선언만으로는 안 되고 렌더러 배선(PR5b)이 필요하다.
+그건 라이브 화면 변경이라 Jin 기기 검수 전에는 손대지 않는다. 장독 위치도 A/B 미정.
+
+**③ 별당·서고 생성 (16cr).** DRAFT를 Jin 승인(2026-08-19)으로 풀고 생성.
+- 별당: 3콜 12cr. try1 지붕이 하나 더 떠서 거절(neon 3.8%>3.0%), try2 톤 게이트는 통과했으나
+  3/4 회전 뷰 + 마름모 기단이라 거절(기존 건물은 전부 정면 입면), try3에서 **카메라 강제 블록**을
+  넣고 통과. satMean 0.3187 / valMean 0.5275 / neon 0.01%.
+- 서고: 1콜 4cr. 별당에서 배운 카메라·단일지붕 블록을 처음부터 넣어 1발 통과.
+  satMean 0.3498 / valMean 0.5111 / neon 0.
+- 둘 다 모델이 **떠 있는 지붕 조각**을 냈다 — 최대 연결성분만 남겨 결정론적으로 제거.
+  서고는 창살로 초록이 새서 내부 구멍도 메웠다(지도 위 건물은 불투명해야 한다).
+- 산출물은 `assets_unused/pending_review/estate_stages/{byeoldang,seogo}/`, 원장 초안 동봉.
+
+**런타임 승격 완료(Jin 승인 2026-08-19).** 원장에서 `a1-states-compose-2026-08-17`의 07-10 출력 4건을 `rejected`로 내리고(구 sha는 그 레코드 note에 보존), 0크레딧 신규 레코드 `a1-states-recompose-frame-2026-08-19`이 새 4장 + 신규 부품 3개를 approved로 기록한다. 스키마가 decision을 approved/rejected 둘로만 허용해서 'superseded'는 못 쓴다. `promote_hanok_a1_states.py --apply` 16/16 통과, `check_personal_hanok_assets.py --require-a1-states` 통과, `flutter test hanok_v1_asset_provenance_test asset_orphan_guard_test` 17/17 통과. pubspec은 이미 선언돼 있어 바로 반영된다.
+
+**정정.** 앞 세션에서 "visualBounds로 화면 배율만 조정하면 싸다"고 했는데 틀렸다. `visualBounds`는 잠금해제 스포트라이트 위치용이고, 지도는 `personal_hanok_map.dart`가 레이어 PNG를 `BoxFit.cover`로 전체 캔버스에 겹칠 뿐 레이어별 변환이 없다. 크기를 바꾸려면 ① PNG 자체를 다시 그리거나 ② 렌더러에 레이어 변환을 새로 넣어야 한다.
+
+**하지 않은 것.** 오버레이 배선,
+별당·서고의 단계(s1~s4) 저작·지도 배치·카탈로그 등록. 전부 Jin 승인 대기.
+별당/서고 배치 구역이 10px 겹치는 것도 배치 때 조정 필요(레시피 자체 경고사항).
+
+**크레딧.** 560.1 → 544.1 (16cr).
+
+**커밋해시.** 없음 — 커밋/푸시 안 함.
+
+### 2026-08-19 (Claude Sonnet 5, macOS) — 사랑방 소품 9종 생성 (F-A, 전부 게이트 통과, 앱 미등록)
+
+**무엇을 왜.** Jin이 은평역사한옥박물관 사랑채 참고사진을 보내고 "필요한 소품 다 뽑아"를
+승인. `.claude/handoffs/`의 우선순위 목록(백자술병·자개함·보석함·경대·약장·연상·장목비·
+망건통·병풍변형)에서 담배 세트만 제외하고 9종 전부 생성. `docs/assets/STYLE_LOCK.json`
+F-A `members`에 9개 슬러그 선등록(러너 게이트가 요구) 후 각각 `docs/assets/recipes/
+cutout-fa-decoration-*.json` 신규 작성 → `tool/asset_recipe.py --check/--emit-work-order`
+→ `generate_image`(GPT Image 2, 2K) → `--ingest`(cut+gate) 순서로 진행. 참조 이미지는
+항상 F-A 기존 앵커(hyangno/jagae_mungap/bandaji/seoan/munbangsau/byeongpung_small)만
+사용 — 실물 사진을 참조로 주면 프롬프트 골격이 "참조 속 물체는 다시 그리지 마라"고 해서
+형태 자체가 회피된다. 신규 물체 형태는 SUBJECT 텍스트 서술로만 지정.
+
+**결과.** 9/9 게이트 통과 (`assets_unused/pending_review/asset_recipe/decoration_*/`):
+자개함/보석함/경대/약장/연상/장목비/망건통/묵포도병풍은 전부 1차 시도에 통과. 백자술병은
+5차 시도까지 갔다 — 1차 satMean 0.264 과소채도 실패, 2차 valMean 0.730 과다밝기 실패,
+3차 "호두목 다크 스톤웨어" 톤으로 게이트는 통과(satMean 0.674/valMean 0.299)했지만 Jin이
+실물 검토에서 "나무처럼 보인다, 도자기색으로" 반려, 4차 stoneGrey 위주 옅은 청자색은
+satMean 0.192로 다시 실패(육안은 좋았으나 채도 하한 0.30 미달), 5차에서 deepMutedTeal을
+주색으로 뒤집은 짙은 청자 유약 톤으로 게이트(satMean 0.578/valMean 0.322)와 Jin 승인을
+동시에 통과. 크레딧 총 35.1cr 소비(595.2→560.1, budget staticMax 600 대비 여유 충분).
+**`--ingest`가 승인 결정까지 하지는 않는다** — cut PNG는 pending_review에 있을 뿐,
+`kAvailableDecorations`/ARB/STYLE_LOCK.json anchors에 등록되지 않았고
+`tool/ledger_append.py --append`도 아직 안 돌렸다(각 폴더의 `*_ledger_spec.json`은 초안).
+다음 세션은 Jin이 9장을 직접 열어 확인한 뒤에만 등록 단계로 진행.
+
+**업로드 사고.** 앵커 이미지를 base64로 손으로 붙여넣다가 jagae_mungap이 손상되고
+munbangsau가 bandaji 사본으로 잘못 매핑된 걸 발견 — 두 URL을 실제로 다운로드해 PIL로
+치수 대조하고서야 잡았다. `--check`가 URL 형식만 보고 내용까지 검증하진 않는다는 뜻.
+
+**경대/장목비/묵포도병풍 SUBJECT 정정.** 박물관 사진 기준: 경대는 서랍 없는 소형 거울
+(초안은 서랍 있다고 잘못 가정), 장목비는 꿩 꼬리털 다발이 아래로 늘어진 형태(넓은 부채
+모양 아님), 묵포도병풍은 사랑채 내부 사진에 실제로 존재(추측 추가가 아님) — 세 SUBJECT
+텍스트를 재작성한 뒤 생성.
+
+**하지 않은 것.** 앱 런타임 등록(카탈로그/ARB/STYLE_LOCK anchors), `ledger_append.py
+--append` 실행, 한옥 건물(사랑채 등) 단계별 골조 에셋 확장 — Jin이 요청했으나 이 세션은
+소품 9종에서 멈췄다. `lib/main.dart`/`ios/Podfile.lock`의 미커밋 변경은 이 세션 것이
+아니다(건드리지 않음, 다른 세션의 선행 작업으로 추정).
+
+**검증.** `tool/asset_recipe.py --ingest`가 각 항목마다 `tool/check_style_conformance.py`
+게이트(satMean/valMean/neonFraction/greenRim/paletteDistance)를 돌렸고 9/9 `"ok": true`.
+`python3.12 -m unittest tool.test_style_lock tool.test_check_style_conformance
+tool.test_ledger_append tool.test_asset_recipe` 42/42 (작업 시작 전 확인).
+
+**커밋해시.** 없음 — 커밋/푸시 안 함(Jin 지시 대기).
 ### 2026-08-19 (Claude Code, Cloud) — 토큰 절약 도구 2종 설치 (Ponytail·code-review-graph)
 
 **무엇을 왜.** Jin이 인스타 릴스에서 본 오픈소스 두 개(과설계 방지 플러그인

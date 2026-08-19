@@ -123,9 +123,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
           injected.map((phrase) => phrase.id).toSet(),
         );
         setState(() {
-          _courseContentIds = {
-            for (final phrase in injected) phrase.id,
-          };
+          _courseContentIds = {for (final phrase in injected) phrase.id};
           _courseAssessmentLinks = const <String, ContentLink>{};
           _missionStep = null;
           _missionTitle = null;
@@ -204,6 +202,36 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
 
   List<SmalltalkCategory> get _visibleCategories =>
       _categoriesFor(_courseContentIds);
+
+  /// 주제 목록 + 현재 레벨 기준 문장 수. 있는 주제가 먼저, 그 안에서는
+  /// 카탈로그 순서를 지킨다 (사라진 주제를 찾아 헤매지 않게).
+  List<MapEntry<SmalltalkCategory, int>> _categoriesByAvailability(
+    List<SmalltalkCategory> categories,
+  ) {
+    final entries = [
+      for (final category in categories)
+        MapEntry(category, _phraseCount(level: _level, category: category.id)),
+    ];
+    final available = entries.where((entry) => entry.value > 0);
+    final empty = entries.where((entry) => entry.value == 0);
+    return [...available, ...empty];
+  }
+
+  /// 지금 범위(코스 미션이면 그 미션 안)에서 이 레벨·주제에 실제로 있는 문장 수.
+  ///
+  /// C1/C2 는 23 개 주제 중 9 개에만 문장이 있다. 개수를 안 보여 주면 학습자는
+  /// 빈 주제를 골라 놓고 "배치가 안 돼 있다"고 읽는다 (2026-08-19 Jin).
+  int _phraseCount({String? level, String? category}) {
+    final ids = _courseContentIds;
+    return SmalltalkLoader.phrases
+        .where(
+          (phrase) =>
+              (level == null || phrase.level == level) &&
+              (category == null || phrase.category == category) &&
+              (ids == null || ids.contains(phrase.id)),
+        )
+        .length;
+  }
 
   List<SmalltalkCategory> _categoriesFor(Set<String>? contentIds) {
     if (contentIds == null) return SmalltalkLoader.categories;
@@ -343,12 +371,13 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                   children: [
                     Flexible(
                       child: Text(
-                        '${current.emoji} ${current.labelFor(lang)}',
+                        '${current.emoji} ${current.labelFor(lang)}'
+                        ' · ${phrases.length}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: SoriTextTheme.of(context).h3.copyWith(
-                          color: s.text,
-                        ),
+                        style: SoriTextTheme.of(
+                          context,
+                        ).h3.copyWith(color: s.text),
                       ),
                     ),
                     const Spacer(),
@@ -366,18 +395,17 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
             child: Row(
               children: [
                 _levelChip(t.filterAll, null),
-                const SizedBox(width: 6),
-                _levelChip('A1', 'a1'),
-                const SizedBox(width: 6),
-                _levelChip('A2', 'a2'),
-                const SizedBox(width: 6),
-                _levelChip('B1', 'b1'),
-                const SizedBox(width: 6),
-                _levelChip('B2', 'b2'),
-                const SizedBox(width: 6),
-                _levelChip('C1', 'c1'),
-                const SizedBox(width: 6),
-                _levelChip('C2', 'c2'),
+                for (final lvl in const [
+                  'a1',
+                  'a2',
+                  'b1',
+                  'b2',
+                  'c1',
+                  'c2',
+                ]) ...[
+                  const SizedBox(width: 6),
+                  _levelChip(lvl.toUpperCase(), lvl),
+                ],
               ],
             ),
           ),
@@ -428,13 +456,19 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     );
   }
 
-  Widget _levelChip(String label, String? lvl) => SoriChip(
-    label: label,
-    accent: SoriColors.info,
-    selected: _level == lvl,
-    variant: SoriChipVariant.soft,
-    onTap: () => _setLevel(lvl),
-  );
+  /// 레벨 칩은 그 레벨의 문장 수를 달고 나온다. 0 이면 탭을 막는다 —
+  /// 눌러 봐야 빈 화면이고, 그게 "레벨별 배치가 없다"로 읽힌다.
+  /// 칩 색은 콘텐츠 UI 개편의 단일 accent(`info`)를 따른다.
+  Widget _levelChip(String label, String? lvl) {
+    final count = _phraseCount(level: lvl);
+    return SoriChip(
+      label: '$label · $count',
+      accent: SoriColors.info,
+      selected: _level == lvl,
+      variant: SoriChipVariant.soft,
+      onTap: count == 0 ? null : () => _setLevel(lvl),
+    );
+  }
 
   /// 카테고리 18개 선택 바텀시트 — Wrap 그리드로 한눈에(가로 스크롤 제거).
   void _showCategorySheet(AppL10n t, String lang) {
@@ -458,21 +492,29 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
               ),
             ),
           ),
+          // 지금 고른 레벨 기준 개수를 달고, 있는 주제를 앞으로 보낸다.
+          // 0 인 주제는 고를 수 없다 — C1/C2 는 23 개 중 14 개가 비어 있어서
+          // 그냥 두면 "골랐더니 빈 화면"이 기본 경험이 된다.
           Wrap(
             spacing: 8,
             runSpacing: 8,
             children: [
-              for (final c in cats)
+              for (final entry in _categoriesByAvailability(cats))
                 ChoiceChip(
-                  label: Text('${c.emoji} ${c.labelFor(lang)}'),
-                  selected: c.id == _cat,
-                  onSelected: (_) {
-                    setState(() {
-                      _cat = c.id;
-                      _phraseIndex = 0;
-                    });
-                    Navigator.pop(ctx);
-                  },
+                  label: Text(
+                    '${entry.key.emoji} ${entry.key.labelFor(lang)} · '
+                    '${entry.value}',
+                  ),
+                  selected: entry.key.id == _cat,
+                  onSelected: entry.value == 0
+                      ? null
+                      : (_) {
+                          setState(() {
+                            _cat = entry.key.id;
+                            _phraseIndex = 0;
+                          });
+                          Navigator.pop(ctx);
+                        },
                 ),
             ],
           ),
@@ -618,10 +660,7 @@ class _PhraseCardState extends State<_PhraseCard> {
                         style: tt.koDisplay.copyWith(color: s.text),
                       ),
                       const SizedBox(height: Spacing.sm),
-                      SoriPhraseWrap(
-                        p.translation(lang),
-                        style: tt.gloss,
-                      ),
+                      SoriPhraseWrap(p.translation(lang), style: tt.gloss),
                       const SizedBox(height: Spacing.md),
                       _SpeakButton(korean: p.ko),
                       const SizedBox(height: Spacing.md),
@@ -715,8 +754,7 @@ class _PhraseCardState extends State<_PhraseCard> {
                         Align(
                           alignment: Alignment.center,
                           child: TextButton.icon(
-                            onPressed: () =>
-                                setState(() => _showReply = true),
+                            onPressed: () => setState(() => _showReply = true),
                             icon: const Icon(
                               Icons.chat_bubble_outline_rounded,
                               size: 16,

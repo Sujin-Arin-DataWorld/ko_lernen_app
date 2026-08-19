@@ -3587,9 +3587,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_review_three",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -3694,7 +3694,7 @@
           "id": "quest_b2_review_three_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "audioKo": "이 세 문장만 남길까요?",
@@ -3723,7 +3723,7 @@
           "id": "quest_b2_review_three_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "promptDe": "Nicht lang. Nur drei Zeilen zu dem, was erledigt ist.",
@@ -3749,7 +3749,7 @@
           "id": "quest_b2_review_three_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "sentence": "오후에 바로 올려 ___.",
@@ -3774,9 +3774,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_self_fail",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -3881,7 +3881,7 @@
           "id": "quest_b2_self_fail_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "audioKo": "이 문장으로 충분할까요?",
@@ -3910,7 +3910,7 @@
           "id": "quest_b2_self_fail_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "promptDe": "Ich will in einer Zeile lassen, warum der letzte Versuch scheiterte.",
@@ -3936,7 +3936,7 @@
           "id": "quest_b2_self_fail_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "sentence": "___은 오늘 안에 넣겠습니다.",
@@ -4148,9 +4148,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_restore_scope",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -4255,7 +4255,7 @@
           "id": "quest_b2_restore_scope_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "이 선을 경계로 할까요?",
@@ -4284,7 +4284,7 @@
           "id": "quest_b2_restore_scope_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Nur die Wand zurück, den Boden nicht anfassen.",
@@ -4310,7 +4310,7 @@
           "id": "quest_b2_restore_scope_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "___는 내일 문장으로 보내 드리겠습니다.",
@@ -4335,9 +4335,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_source_check",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -4442,7 +4442,7 @@
           "id": "quest_b2_source_check_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "audioKo": "이 쪽만 같이 볼까요?",
@@ -4471,7 +4471,7 @@
           "id": "quest_b2_source_check_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "promptDe": "Schauen Sie bitte, ob diese Zahl zur Quelltabelle passt.",
@@ -4497,7 +4497,7 @@
           "id": "quest_b2_source_check_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "sentence": "___는 한 시간 안에 끝납니다.",
@@ -4522,9 +4522,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_hold_share",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_01_formal_opening",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_formal_opening"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -4629,7 +4629,7 @@
           "id": "quest_b2_hold_share_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "audioKo": "내부 폴더에만 둘까요?",
@@ -4658,7 +4658,7 @@
           "id": "quest_b2_hold_share_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "promptDe": "Diesen Entwurf bitte noch nicht nach außen senden.",
@@ -4684,7 +4684,7 @@
           "id": "quest_b2_hold_share_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "sentence": "___이 끝나면 바로 알려 드리겠습니다.",
@@ -4709,9 +4709,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_agenda_swap",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_01_formal_opening",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_formal_opening"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -4816,7 +4816,7 @@
           "id": "quest_b2_agenda_swap_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "audioKo": "이 두 칸만 바꿀까요?",
@@ -4845,7 +4845,7 @@
           "id": "quest_b2_agenda_swap_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "promptDe": "Den Haushaltspunkt möchte ich ganz nach vorn.",
@@ -4871,7 +4871,7 @@
           "id": "quest_b2_agenda_swap_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "sentence": "___는 오전에 다시 올려 두겠습니다.",
@@ -4896,9 +4896,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_quorum_wait",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_01_formal_opening",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_formal_opening"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5003,7 +5003,7 @@
           "id": "quest_b2_quorum_wait_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "audioKo": "십 분만 더 기다릴까요?",
@@ -5032,7 +5032,7 @@
           "id": "quest_b2_quorum_wait_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "promptDe": "Mit dieser Zahl sollten wir nicht beschließen.",
@@ -5058,7 +5058,7 @@
           "id": "quest_b2_quorum_wait_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "sentence": "___이 오면 바로 시작하겠습니다.",
@@ -5083,9 +5083,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_must_have",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5190,7 +5190,7 @@
           "id": "quest_b2_must_have_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "이 한 줄만 핵심으로 쓸까요?",
@@ -5219,7 +5219,7 @@
           "id": "quest_b2_must_have_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Das Datum kann weichen, die Preisgrenze nicht.",
@@ -5245,7 +5245,7 @@
           "id": "quest_b2_must_have_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "문장은 오늘 저녁에 보내 ___.",
@@ -5270,9 +5270,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_time_box",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_01_formal_opening",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_formal_opening"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5377,7 +5377,7 @@
           "id": "quest_b2_time_box_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "audioKo": "타이머를 지금 켤까요?",
@@ -5406,7 +5406,7 @@
           "id": "quest_b2_time_box_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "promptDe": "Dieser Punkt soll nur fünfzehn Minuten bekommen.",
@@ -5432,7 +5432,7 @@
           "id": "quest_b2_time_box_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "sentence": "___이 되면 바로 끊겠습니다.",
@@ -5457,9 +5457,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_one_pager",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5564,7 +5564,7 @@
           "id": "quest_b2_one_pager_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "audioKo": "숫자 표만 남길까요?",
@@ -5593,7 +5593,7 @@
           "id": "quest_b2_one_pager_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "promptDe": "Drei Seiten möchte ich auf eine Seite kürzen und senden.",
@@ -5619,7 +5619,7 @@
           "id": "quest_b2_one_pager_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "sentence": "___은 내일 아침에 올리겠습니다.",
@@ -5644,9 +5644,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_assumption",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5751,7 +5751,7 @@
           "id": "quest_b2_assumption_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "audioKo": "이 문장을 맨 위에 둘까요?",
@@ -5780,7 +5780,7 @@
           "id": "quest_b2_assumption_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "promptDe": "Bitte oben schreiben, dass die Kopfzahl gleich bleibt.",
@@ -5806,7 +5806,7 @@
           "id": "quest_b2_assumption_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "sentence": "___은 오늘 안에 넣어 두겠습니다.",
@@ -5831,9 +5831,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_next_level",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5938,7 +5938,7 @@
           "id": "quest_b2_next_level_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "이 요약만 첨부할까요?",
@@ -5967,7 +5967,7 @@
           "id": "quest_b2_next_level_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Der Betrag übersteigt meine Befugnis. Es muss nach oben.",
@@ -5993,7 +5993,7 @@
           "id": "quest_b2_next_level_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "___은 오후에 바로 하겠습니다.",
@@ -6018,9 +6018,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_case_id",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6125,7 +6125,7 @@
           "id": "quest_b2_case_id_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "임시 번호를 먼저 받을까요?",
@@ -6154,7 +6154,7 @@
           "id": "quest_b2_case_id_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Bitte nicht teilen, bevor es eine Nummer gibt.",
@@ -6180,7 +6180,7 @@
           "id": "quest_b2_case_id_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "번호는 ___ 안에 나옵니다.",
@@ -6205,9 +6205,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_limit_line",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6312,7 +6312,7 @@
           "id": "quest_b2_limit_line_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "이 한계 문장을 각주에 둘까요?",
@@ -6341,7 +6341,7 @@
           "id": "quest_b2_limit_line_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Bitte schreiben, dass man daraus keine landesweite Zahl machen darf.",
@@ -6367,7 +6367,7 @@
           "id": "quest_b2_limit_line_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "___은 오늘 저녁에 넣겠습니다.",
@@ -6392,9 +6392,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_chart_axes",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6499,7 +6499,7 @@
           "id": "quest_b2_chart_axes_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "audioKo": "이 눈금만 고칠까요?",
@@ -6528,7 +6528,7 @@
           "id": "quest_b2_chart_axes_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "promptDe": "Bitte noch einmal prüfen, ob die Querachse das Datum ist.",
@@ -6554,7 +6554,7 @@
           "id": "quest_b2_chart_axes_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "sentence": "___는 오전에 다시 올리겠습니다.",
@@ -6579,9 +6579,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_minutes_draft",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_01_formal_opening",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_formal_opening"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6686,7 +6686,7 @@
           "id": "quest_b2_minutes_draft_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "audioKo": "이 네 줄만 남길까요?",
@@ -6715,7 +6715,7 @@
           "id": "quest_b2_minutes_draft_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "promptDe": "Bitte die Gespräche streichen und nur die beschlossenen Sätze lassen.",
@@ -6741,7 +6741,7 @@
           "id": "quest_b2_minutes_draft_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_formal_opening"
           ],
           "data": {
             "sentence": "___은 내일 아침에 돌리겠습니다.",
@@ -6953,9 +6953,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_selective_edit",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7060,7 +7060,7 @@
           "id": "quest_b2_selective_edit_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "audioKo": "이 주의 문장을 위에 넣을까요?",
@@ -7089,7 +7089,7 @@
           "id": "quest_b2_selective_edit_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "promptDe": "Nur den Anfang zu zeigen führt in die Irre. Wir brauchen das Ganze.",
@@ -7115,7 +7115,7 @@
           "id": "quest_b2_selective_edit_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "sentence": "문장은 오늘 안에 ___.",
@@ -7140,9 +7140,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_public_question",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7247,7 +7247,7 @@
           "id": "quest_b2_public_question_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "audioKo": "이 질문으로 올릴까요?",
@@ -7276,7 +7276,7 @@
           "id": "quest_b2_public_question_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "promptDe": "Ich will in einem Satz fragen, wo die Zahlenherkunft liegt.",
@@ -7302,7 +7302,7 @@
           "id": "quest_b2_public_question_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "sentence": "질의는 내일 오전에 ___됩니다.",
@@ -7327,9 +7327,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_counter_offer",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7434,7 +7434,7 @@
           "id": "quest_b2_counter_offer_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "이 대안을 첫 줄에 쓸까요?",
@@ -7463,7 +7463,7 @@
           "id": "quest_b2_counter_offer_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Dieses Datum geht nicht, nächster Dienstag schon.",
@@ -7489,7 +7489,7 @@
           "id": "quest_b2_counter_offer_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "___은 오늘 저녁에 보내겠습니다.",
@@ -7514,9 +7514,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_metric_clear",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7621,7 +7621,7 @@
           "id": "quest_b2_metric_clear_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "audioKo": "이 이름을 지표로 쓸까요?",
@@ -7650,7 +7650,7 @@
           "id": "quest_b2_metric_clear_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "promptDe": "Nicht Besuchszahlen, sondern erledigte Fälle.",
@@ -7676,7 +7676,7 @@
           "id": "quest_b2_metric_clear_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "sentence": "___는 내일 오전에 적어 두겠습니다.",
@@ -7888,9 +7888,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_cross_check",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7995,7 +7995,7 @@
           "id": "quest_b2_cross_check_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "audioKo": "이 두 열만 먼저 볼까요?",
@@ -8024,7 +8024,7 @@
           "id": "quest_b2_cross_check_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "promptDe": "Bitte diese Zutrittsliste mit dem Dienstplan abgleichen.",
@@ -8050,7 +8050,7 @@
           "id": "quest_b2_cross_check_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "sentence": "___ 확인은 한 시간 안에 끝납니다.",
@@ -8075,9 +8075,9 @@
       "speechStyle": "polite",
       "relationshipContext": "neighbor",
       "intent": "confirm_vacate_short",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8182,7 +8182,7 @@
           "id": "quest_b2_vacate_short_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "이 날짜를 기준으로 쓸까요?",
@@ -8211,7 +8211,7 @@
           "id": "quest_b2_vacate_short_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Eine Woche ist zu kurz. Ich will fragen, ob der Auszug warten kann.",
@@ -8237,7 +8237,7 @@
           "id": "quest_b2_vacate_short_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "답은 내일 오전에 ___.",
@@ -8262,9 +8262,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_read_receipt",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8369,7 +8369,7 @@
           "id": "quest_b2_read_receipt_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "audioKo": "읽음 확인을 켤까요?",
@@ -8398,7 +8398,7 @@
           "id": "quest_b2_read_receipt_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "promptDe": "Diese Mitteilung soll hinterlassen, ob sie gelesen wurde.",
@@ -8424,7 +8424,7 @@
           "id": "quest_b2_read_receipt_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "sentence": "___은 오후에 바로 하겠습니다.",
@@ -8636,9 +8636,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_hotel_clause",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8743,7 +8743,7 @@
           "id": "quest_b2_hotel_clause_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "이 문단을 같이 읽을까요?",
@@ -8772,7 +8772,7 @@
           "id": "quest_b2_hotel_clause_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Bitte sagen, welche Klausel bei einem Problem gilt.",
@@ -8798,7 +8798,7 @@
           "id": "quest_b2_hotel_clause_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "설명은 오늘 안에 적어 ___.",
@@ -9010,9 +9010,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_market_source",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9117,7 +9117,7 @@
           "id": "quest_b2_market_source_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "audioKo": "이 구분을 메모 첫 줄에 쓸까요?",
@@ -9146,7 +9146,7 @@
           "id": "quest_b2_market_source_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "promptDe": "Dass der Preis steigt, ist Gerücht. Die amtliche Zahl bleibt.",
@@ -9172,7 +9172,7 @@
           "id": "quest_b2_market_source_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "sentence": "___는 오후에 돌려 두겠습니다.",
@@ -9197,9 +9197,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_cafe_brief",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9304,7 +9304,7 @@
           "id": "quest_b2_cafe_brief_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "audioKo": "이 세 항목만 볼까요?",
@@ -9333,7 +9333,7 @@
           "id": "quest_b2_cafe_brief_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "promptDe": "Nur zehn Minuten, nur die Reihenfolge für morgen.",
@@ -9359,7 +9359,7 @@
           "id": "quest_b2_cafe_brief_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_advanced"
           ],
           "data": {
             "sentence": "___는 자리에서 바로 적어 두겠습니다.",
@@ -9571,9 +9571,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_pharmacy_claim",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9678,7 +9678,7 @@
           "id": "quest_b2_pharmacy_claim_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "이 항목을 다시 출력할까요?",
@@ -9707,7 +9707,7 @@
           "id": "quest_b2_pharmacy_claim_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Ich brauche einen Beleg mit Medikamentenname und Datum.",
@@ -9733,7 +9733,7 @@
           "id": "quest_b2_pharmacy_claim_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "서류는 오 분 안에 ___.",
@@ -9758,9 +9758,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_restaurant_note",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9865,7 +9865,7 @@
           "id": "quest_b2_restaurant_note_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "이 문장을 주방에 전달할까요?",
@@ -9894,7 +9894,7 @@
           "id": "quest_b2_restaurant_note_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Bitte in die Notiz: kein Erdnuss.",
@@ -9920,7 +9920,7 @@
           "id": "quest_b2_restaurant_note_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "___는 바로 붙이겠습니다.",
@@ -10132,9 +10132,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_convenience_scan",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10239,7 +10239,7 @@
           "id": "quest_b2_convenience_scan_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "audioKo": "주소를 여기에 적을까요?",
@@ -10268,7 +10268,7 @@
           "id": "quest_b2_convenience_scan_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "promptDe": "Bitte dieses Blatt scannen und an meine Mail senden.",
@@ -10294,7 +10294,7 @@
           "id": "quest_b2_convenience_scan_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_precise_requests"
           ],
           "data": {
             "sentence": "파일은 오 분 안에 ___.",
@@ -11181,9 +11181,9 @@
       "speechStyle": "business",
       "relationshipContext": "customer_and_service_staff",
       "intent": "contest_an_account_ban",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "surfaceFormIds": [],
       "sidekick": "minsu",
@@ -11289,7 +11289,7 @@
           "id": "quest_b2_gaming_ban_appeal_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "audioKo": "자동 탐지에서 비정상 접속으로 분류됐습니다.",
@@ -11318,7 +11318,7 @@
           "id": "quest_b2_gaming_ban_appeal_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "promptDe": "Ich beantrage schriftlich eine Neuprüfung.",
@@ -11344,7 +11344,7 @@
           "id": "quest_b2_gaming_ban_appeal_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "sentence": "어제 출장 중이었___ 접속 지역이 달랐습니다.",
@@ -11361,7 +11361,7 @@
           "id": "quest_b2_gaming_ban_appeal_build",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "targetKo": "항공권과 숙소 기록을 보내겠습니다.",
@@ -11377,7 +11377,7 @@
           "id": "quest_b2_gaming_ban_appeal_dict",
           "type": "diktat",
           "conceptIds": [
-            "concept_b2_complaint"
+            "concept_b2_opinion"
           ],
           "data": {
             "targetKo": "사유를 확인하고 싶습니다.",

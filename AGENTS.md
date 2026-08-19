@@ -2,6 +2,23 @@
 
 > **⛔⛔ 어떤 AI 에이전트/환경(Codex · Claude Code · Cursor · Gemini 등)이든, 어떤 세션이든 시작 즉시 이 AGENTS.md를 가장 먼저 (상단 개요·파일맵·규칙 위주로) 읽고 시작한다 — 예외 없음.** 이 파일이 프로젝트의 유일한 단일 진실 원천이다. (구 `CLAUDE.md`·`memory/` 내용은 전부 이 파일로 통합됨. `CLAUDE.md`는 이 파일을 가리키는 포인터일 뿐.)
 >
+> **⛔⛔ 세션은 시작 즉시 자기 워킹트리를 파고 거기서만 일한다 — 예외 없음 (2026-08-19 확정).**
+> Jin 은 앱을 빨리 끝내려고 AI 세션을 여러 개 동시에 돌린다. 세션들이 전부 메인
+> 체크아웃(`~/Developer/ko_lernen_app`)에서 작업하면 한 폴더를 여럿이 쓰게 되고,
+> 커밋 전 변경은 워킹트리에만 있으므로 **서로의 작업을 조용히 지운다.**
+> 2026-08-19 하루에 세 번 터졌다: ① 한 세션의 파일 쓰기가 다른 세션 것을 덮어씀
+> ② 한 세션이 브랜치를 갈아타 다른 세션의 HEAD 가 발밑에서 바뀜 ③ `flutter test`
+> 실행 중 파일이 갈려 유령 실패 3건. git 은 이걸 막아 주지 않는다.
+>
+> ```bash
+> bash tool/session_worktree.sh <슬러그>   # 예: audio-fix
+> cd <출력된 경로>                          # 이후 모든 작업은 여기서만
+> ```
+> `.claude/settings.json` 의 SessionStart 훅(`tool/check_session_worktree.sh`)이
+> 메인 체크아웃에서 시작한 세션을 잡아 경고한다. 훅은 cwd 를 바꿀 수 없으니
+> **경고를 보면 반드시 직접 옮겨갈 것.** 메인 체크아웃은 Jin 것이다.
+> 끝나면 `git worktree remove <경로>`.
+>
 > **⛔ 필수 기록 규칙 (예외 없음):** 코드·데이터·에셋·설정·문서 등 무엇이든 하나라도 변경하면 반드시 `docs/SESSION_LOG.md` 최상단에 항목을 남긴다(무엇을·왜·검증·커밋해시). 기록 없이 변경만 커밋 금지. 로그 갱신은 같은/직후 커밋에 포함.
 > **⛔ 커밋/푸시는 Jin이 명시적으로 요청할 때만.** 여러 AI 세션(Codex·Claude 등)이 동시에 돌 수 있으니 본인이 만진 파일만 골라 스테이징.
 > **⛔ 개발 환경 = 단일 맥 (2026-08-13 확정).** 모든 개발이 맥 한 대로 통합됐다(Jin이 맥에서 Android 빌드도 가능함을 확인). 아래는 **전부 무효 — 어떤 세션도 이걸 전제로 대기/분담하지 말 것:**
@@ -196,7 +213,7 @@ refactor-safely,review-changes}`, `.gitignore`에 `.code-review-graph/`(그래�
 - `lib/services/theme_service.dart` — 다크모드 toggle
 - `lib/services/locale_service.dart` — 언어 선택 (DE/EN)
 - `lib/services/kkeunmari_engine.dart` — 끝말잇기 풀 로더 + chain 검증 + 호랑이 다음 단어 선택 (`is_dead_end` 회피 우선)
-- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단, 캐시 리비전 v3** (① 로컬캐시 `tts_v3_{voice}_{sha1}.mp3` → ② Firebase Storage `tts/v3/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Zephyr**(Batch 05 포함 corpus 6,146), **male=Chirp3-HD-Enceladus**(시나리오 NPC·narrator corpus 175 + 책한컷·내단어장 동적). 전체 corpus 6,321개를 Storage에서 검증했으며 결과는 expected 6,321, remote 6,376, missing 0, stale 55다. 실제 음성명은 CF에만 있고 클라는 'female'/'male'만 전송한다. 시나리오 대화는 화자별 voice (`scenario_player`: user=여 / 그 외=남). `audioplayers` 재생, sha1 키 계약은 `functions/tts/tts_contract.js` + `tool/generate_tts.py` + `test/tts_cache_key_test.dart` 3중 고정(동일 벡터). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`(callable, App Check enforce).
+- `lib/services/tts_service.dart` — **고품질 한국어 음성: 캐시우선 3단, 캐시 리비전 v3** (① 로컬캐시 `tts_v3_{voice}_{sha1}.mp3` → ② Firebase Storage `tts/v3/{voice}/{sha1}.mp3` 사전생성 → ③ Cloud Function 동적합성 → ④ flutter_tts 폴백). `speak(text,{voice})`/`speakSlow`/`setRate` 인터페이스 유지(23화면 무수정). voice: **female=Chirp3-HD-Zephyr**, **male=Chirp3-HD-Enceladus**(시나리오 NPC·narrator + 책한컷·내단어장 동적). **corpus 11,438 (female 10,234 / male 1,204), 2026-08-19 재검증: expected 11,438, remote 11,729, missing 0, stale 291.** ⚠️ 콘텐츠 배치를 추가하면 이 숫자가 바로 낡는다 — 배치 직후 `python3 tool/generate_tts.py --verify-storage` 로 확인하고 누락이 있으면 `--missing-from-storage` 를 돌릴 것(2026-08-19: batch 10–16 이후 이걸 안 돌려 1,460개가 비어 있었고, CF 차단 시 OS 폴백까지 막히는 설계라 그 콘텐츠는 무음이었다). 실제 음성명은 CF에만 있고 클라는 'female'/'male'만 전송한다. 시나리오 대화는 화자별 voice (`scenario_player`: user=여 / 그 외=남). `audioplayers` 재생, sha1 키 계약은 `functions/tts/tts_contract.js` + `tool/generate_tts.py` + `test/tts_cache_key_test.dart` 3중 고정(동일 벡터). 버킷 `ko-lernen-app.firebasestorage.app`(europe-west3). 동적 CF `functions/tts/synthesize_tts`(callable, App Check enforce).
 - **책 한 컷 (Phase 5)**:
   - `lib/services/snap_ocr_service.dart` — ML Kit **on-device 한국어 OCR** (`OcrResult`). 이미지 기기 밖 전송 X.
   - `lib/services/book_analysis_service.dart` — Cloud Function 클라이언트 + 오프라인 stub. `setEndpoint(url)` / `analyze(text, targetLang)`. endpoint 빈 값/장애 시 문법패턴만 폴백.

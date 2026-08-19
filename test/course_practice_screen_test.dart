@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 
 void main() {
@@ -137,8 +138,11 @@ void main() {
     // `a1_02_self_intro_identity` links exactly one grammar card, so its deck
     // is 1 / 1. Wrapping navigation with `% _filtered.length` then returns the
     // same index, which made Weiter/Zurück/Zufällig look active while doing
-    // nothing. The browse path reaches the same state far more often: 180 of
-    // 181 level+type filter combinations in `grammar.csv` leave one card.
+    // nothing.
+    //
+    // 둘러보기에서도 같은 상태에 닿을 수 있다. 2026-08-19 이전에는 "Typ" 필터가
+    // 그 지름길이었는데(type_de 214 행 중 고유값 213 개), 이제 화면이 2 건 이상인
+    // 유형만 내주므로 남은 경로는 난이도 필터다 — 아래 테스트가 그쪽을 덮는다.
     final catalog = (await tester.runAsync(CurriculumCatalog.load))!;
     final link = catalog.contentLinks.singleWhere(
       (item) =>
@@ -180,33 +184,31 @@ void main() {
     await _disposeCourseScreen(tester);
   });
 
-  testWidgets('a type filter that leaves one card keeps every control alive', (
+  testWidgets('a filter that leaves one card keeps every control alive', (
     tester,
   ) async {
-    // This is the path Jin actually hit. The Typ facet is one-card-per-value
-    // for 180 of its 181 values, so narrowing by type is the ordinary way to
-    // land on a 1 / 1 deck — the browse deck must then hand back the filter
-    // rather than a Weiter button that cannot move.
+    // 1 / 1 덱은 여전히 도달 가능한 상태다 — 이 화면은 그때 움직이지 않는
+    // Weiter 버튼 대신 필터를 돌려줘야 한다.
+    //
+    // 2026-08-19 이전에는 "Typ" 필터가 이 상태로 가는 지름길이었다(type_de 는
+    // 214 행에 고유값 213 개라 유형 하나 = 카드 하나). 그게 Jin 이 실제로
+    // 밟은 경로였고, 지금은 화면이 **2 건 이상인 유형만** 내주므로 그 길은
+    // 막혀 있다. 계약 자체는 그대로 유효하니, 남은 경로인 난이도 필터로
+    // 같은 상태를 만든다.
     final grammar = (await tester.runAsync(DataLoader.loadGrammar))!;
     expect(grammar, isNotEmpty);
-    // Mirrors `_types` in the screen, so the menu order matches.
-    final types = grammar.map((item) => item.typeFor('en')).toSet().toList()
-      ..sort();
-    final soleType = types.firstWhere(
-      (type) => grammar.where((item) => item.typeFor('en') == type).length == 1,
-    );
+    // 'Schwer' 는 Storage 의 어려움 목록만 남긴다 — 한 개만 넣어 1 / 1 을 만든다.
+    await Storage.markGrammarHard(grammar.first.pattern);
 
     await tester.pumpWidget(_wrap(const GrammarScreen()));
     await _settleCourseScreen(tester);
 
     await tester.tap(find.byIcon(Icons.tune));
     await tester.pumpAndSettle();
-    await tester.tap(find.byType(DropdownButton<String>).last);
+    final hardChip = find.widgetWithText(SoriChip, 'Schwer');
+    await tester.ensureVisible(hardChip);
     await tester.pumpAndSettle();
-    final typeItem = find.text(soleType).last;
-    await tester.ensureVisible(typeItem);
-    await tester.pumpAndSettle();
-    await tester.tap(typeItem);
+    await tester.tap(hardChip);
     await tester.pumpAndSettle();
     await tester.tap(find.widgetWithText(SoriButton, 'Apply'));
     await tester.pumpAndSettle();
