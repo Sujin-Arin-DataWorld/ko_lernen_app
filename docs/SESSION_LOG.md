@@ -1,9 +1,11 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
-### 2026-08-19 (Cursor) — B1 단어팩 DE/EN 뉘앙스
+### 2026-08-19 (Cursor) — B1–C2 단어팩 DE/EN 뉘앙스
 
-**무엇을 왜.** 알림장 Mitbringsel, 방문 후기 Besuchsnachlese, 선물 감사
-Geschenkdank, 준비물 분담 Materialteilung 등 합성 직역을 구어로.
+**무엇을 왜.** 남은 레벨의 합성 직역·틀린 독일어.
+B1: 알림장 Mitbringsel, 방문 후기 Besuchsnachlese, 선물 감사 Geschenkdank.
+B2: 처가살이 문법, Schwiegerwelt, Becher darbringen, 협업 (formell).
+C: Ausgleichskreis·Ausrollkreis·Eilzurückhaltung 등 만든 합성어.
 
 **검증.** 해당 id만. 한국어 유지.
 
