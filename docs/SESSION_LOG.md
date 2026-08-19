@@ -11,7 +11,7 @@
 
 **왜.** 문서-only PR 위에 구현을 얹고 main이 먼저 가서 GitHub가 mergeable=dirty로 표시했다.
 
-**검증.** 이 커밋 뒤 flipgate/content_feed 테스트.
+**검증.** `flutter test` content_feed·liked_content·deck_direction·flipgate·hangul·course_practice·deck_card_geometry 42 passed. 판정 Row는 Expanded+ellipsis, 마지막 카드는 Skip 숨김.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
