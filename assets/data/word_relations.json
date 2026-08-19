@@ -1125,8 +1125,8 @@
       "id": "rel_a1_0025",
       "sourceKo": "있다",
       "sourceVocabId": "vocab_a1_0091",
-      "sourceDe": "sein / haben (existieren)",
-      "sourceEn": "to be / to have (to exist)",
+      "sourceDe": "da sein / haben",
+      "sourceEn": "to be there / to have",
       "level": "A1",
       "synonyms": [
         {
@@ -1173,8 +1173,8 @@
       "id": "rel_a1_0026",
       "sourceKo": "없다",
       "sourceVocabId": "vocab_a1_0092",
-      "sourceDe": "nicht haben / nicht sein",
-      "sourceEn": "to not have / to not exist",
+      "sourceDe": "nicht da sein / nicht haben",
+      "sourceEn": "to not be there / to not have",
       "level": "A1",
       "synonyms": [
         {
@@ -1689,8 +1689,8 @@
       "id": "rel_a1_0037",
       "sourceKo": "빨리",
       "sourceVocabId": "vocab_a1_0086",
-      "sourceDe": "schnell / beeile dich",
-      "sourceEn": "quickly / hurry up",
+      "sourceDe": "schnell",
+      "sourceEn": "quickly",
       "level": "A1",
       "synonyms": [
         {

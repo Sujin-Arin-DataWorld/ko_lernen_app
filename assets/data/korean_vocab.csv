@@ -6,13 +6,13 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 죄송합니다,joesonghamnida,Entschuldigung (formell),A1,Ausdruck,늦어서 죄송합니다.,"Entschuldigen Sie, dass ich zu spät bin.",Höflichkeit,a1_greetings_1,5,false,I'm sorry (formal),Expression,I'm sorry I'm late.,vocab_a1_0005
 미안해요,mianhaeyo,Tut mir leid (höflich),A1,Ausdruck,진짜 미안해요.,Es tut mir wirklich leid.,Höflichkeit,a1_greetings_1,6,false,I'm sorry (polite),Expression,I'm really sorry.,vocab_a1_0006
 괜찮아요,gwaenchanayo,Kein Problem / Es ist okay,A1,Ausdruck,저는 괜찮아요.,Mir geht es gut.,Alltag,a1_daily_1,1,false,It's okay / No problem,Expression,I'm okay.,vocab_a1_0007
-네,ne,Ja,A1,Ausdruck,"네, 알겠어요.","Ja, verstanden.",Alltag,a1_daily_1,2,false,Yes,Expression,"Yes, got it.",vocab_a1_0008
+네,ne,Ja,A1,Ausdruck,"네, 알겠어요.","Ja, alles klar.",Alltag,a1_daily_1,2,false,Yes,Expression,"Yes, got it.",vocab_a1_0008
 아니요,aniyo,Nein,A1,Ausdruck,"아니요, 저는 안 갈래요.","Nein, ich möchte nicht gehen.",Alltag,a1_daily_1,3,false,No,Expression,"No, I don't want to go.",vocab_a1_0009
 이름,ireum,Name,A1,Nomen,제 이름은 크리스티안이에요.,Mein Name ist Christian.,Person,a1_self_intro,1,false,name,Noun,My name is Christian.,vocab_a1_0010
 나이,nai,Alter,A1,Nomen,나이가 어떻게 되세요?,Wie alt sind Sie?,Person,a1_self_intro,2,false,age,Noun,How old are you?,vocab_a1_0011
 나라,nara,Land,A1,Nomen,어느 나라 사람이에요?,Aus welchem Land kommst du?,Geographie,a1_misc_1,1,false,country,Noun,Which country are you from?,vocab_a1_0012
 학생,haksaeng,Student/Schüler,A1,Nomen,저는 학생이에요.,Ich bin Student.,Person,a1_self_intro,3,false,student / pupil,Noun,I'm a student.,vocab_a1_0013
-선생님,seonsaengnim,Lehrer/in,A1,Nomen,"선생님, 안녕하세요.",Hallo!,Person,a1_self_intro,4,false,teacher,Noun,Hi!,vocab_a1_0014
+선생님,seonsaengnim,Lehrer/in,A1,Nomen,"선생님, 안녕하세요.",Guten Tag!,Person,a1_self_intro,4,false,teacher,Noun,"Hello, teacher!",vocab_a1_0014
 친구,chingu,Freund/Freundin,A1,Nomen,이 사람 제 친구예요.,Das ist mein Freund.,Beziehungen,a1_family_1,1,false,friend,Noun,This is my friend.,vocab_a1_0015
 남자친구,namjachingu,Freund (Beziehung),A1,Nomen,남자친구가 있어요.,Ich habe einen Freund.,Beziehungen,a1_family_1,2,false,boyfriend,Noun,I have a boyfriend.,vocab_a1_0016
 여자친구,yeojachingu,Freundin (Beziehung),A1,Nomen,여자친구가 있어요.,Ich habe eine Freundin.,Beziehungen,a1_family_1,3,false,girlfriend,Noun,I have a girlfriend.,vocab_a1_0017
@@ -24,7 +24,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 커피,keopi,Kaffee,A1,Nomen,커피 마셔요.,Ich trinke Kaffee.,Essen & Trinken,a1_food_1,3,false,coffee,Noun,I drink coffee.,vocab_a1_0023
 빵,ppang,Brot,A1,Nomen,빵을 먹어요.,Ich esse Brot.,Essen & Trinken,a1_food_1,4,false,bread,Noun,I eat bread.,vocab_a1_0024
 책,chaek,Buch,A1,Nomen,책을 읽어요.,Ich lese ein Buch.,Bildung,a1_misc_1,3,false,book,Noun,I read a book.,vocab_a1_0025
-핸드폰,haendeupon,Handy,A1,Nomen,핸드폰이 있어요?,Hast du ein Handy?,Technologie,a1_misc_1,4,false,cellphone,Noun,Do you have a cellphone?,vocab_a1_0026
+핸드폰,haendeupon,Handy,A1,Nomen,핸드폰이 있어요?,Hast du ein Handy?,Technologie,a1_misc_1,4,false,phone,Noun,Do you have a phone?,vocab_a1_0026
 버스,beoseu,Bus,A1,Nomen,버스를 타요.,Ich nehme den Bus.,Verkehr,a1_transport,1,false,bus,Noun,I take the bus.,vocab_a1_0027
 지하철,jihacheol,U-Bahn,A1,Nomen,지하철역이 어디예요?,Wo ist die U-Bahn-Station?,Verkehr,a1_transport,2,false,subway,Noun,Where is the subway station?,vocab_a1_0028
 오늘,oneul,heute,A1,Adverb,오늘 뭐 해요?,Was machst du heute?,Zeit,a1_time_1,1,false,today,Adverb,What are you doing today?,vocab_a1_0029
@@ -50,8 +50,8 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 손,son,Hand,A1,Nomen,손을 씻어요.,Ich wasche meine Hände.,Körper,a1_body,6,false,hand,Noun,I wash my hands.,vocab_a1_0049
 발,bal,Fuß,A1,Nomen,발이 아파요.,Mein Fuß tut weh.,Körper,a1_body,7,false,foot,Noun,My foot hurts.,vocab_a1_0050
 다리,dari,Bein,A1,Nomen,다리가 길어요.,Die Beine sind lang.,Körper,a1_body,8,false,leg,Noun,The legs are long.,vocab_a1_0051
-몸,mom,Körper / Leib,A1,Nomen,몸이 좀 안 좋아요.,Ich fühle mich nicht so wohl.,Körper,a1_body,9,true,body,Noun,I'm not feeling so well.,vocab_a1_0052
-빨간색,ppalgan saek,rot,A1,Nomen,저는 빨간색을 제일 좋아해요.,Ich mag Rot am liebsten.,Farben,a1_colors,1,false,red,Noun,I like red the most.,vocab_a1_0053
+몸,mom,Körper,A1,Nomen,몸이 좀 안 좋아요.,Ich fühle mich nicht so wohl.,Körper,a1_body,9,true,body,Noun,I'm not feeling so well.,vocab_a1_0052
+빨간색,ppalgan saek,rot,A1,Nomen,저는 빨간색을 제일 좋아해요.,Ich mag Rot am liebsten.,Farben,a1_colors,1,false,red,Noun,Red is my favorite.,vocab_a1_0053
 파란색,paran saek,blau,A1,Nomen,오늘 하늘이 정말 파래요.,Der Himmel ist heute richtig blau.,Farben,a1_colors,2,false,blue,Noun,The sky is really blue today.,vocab_a1_0054
 초록색,chorok saek,grün,A1,Nomen,이 초록색 옷이 예뻐요.,Dieses grüne Outfit ist hübsch.,Farben,a1_colors,3,false,green,Noun,This green outfit is pretty.,vocab_a1_0055
 노란색,noran saek,gelb,A1,Nomen,노란색 우산을 새로 샀어요.,Ich habe einen neuen gelben Regenschirm gekauft.,Farben,a1_colors,4,false,yellow,Noun,I bought a new yellow umbrella.,vocab_a1_0056
@@ -67,11 +67,11 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 계란,gyeran,Ei,A1,Nomen,아침에 계란 두 개 먹었어요.,Ich habe heute Morgen zwei Eier gegessen.,Essen & Trinken,a1_food_2,3,false,egg,Noun,I ate two eggs this morning.,vocab_a1_0066
 차,cha,Tee,A1,Nomen,자기 전에 따뜻한 차 마셔요.,Vor dem Schlafengehen trinke ich warmen Tee.,Essen & Trinken,a1_food_2,4,false,tea,Noun,I drink warm tea before bed.,vocab_a1_0067
 화장실,hwajangsil,Toilette / Badezimmer,A1,Nomen,화장실이 어디예요?,Wo ist die Toilette?,Alltag,a1_daily_1,5,false,toilet / bathroom,Noun,Where is the bathroom?,vocab_a1_0068
-편의점,pyeonijeom,Convenience Store,A1,Nomen,편의점에서 사요.,Ich kaufe im Convenience Store.,Alltag,a1_daily_1,6,false,convenience store,Noun,I buy it at the convenience store.,vocab_a1_0069
+편의점,pyeonijeom,Spätkauf / Mini-Markt,A1,Nomen,편의점에서 사요.,Ich kaufe im Spätkauf.,Alltag,a1_daily_1,6,false,convenience store,Noun,I buy it at the convenience store.,vocab_a1_0069
 공원,gongwon,Park,A1,Nomen,공원에서 산책해요.,Ich gehe im Park spazieren.,Freizeit,a1_misc_1,5,false,park,Noun,I take a walk in the park.,vocab_a1_0070
 도서관,doseogwan,Bibliothek,A1,Nomen,도서관에서 공부해요.,Ich lerne in der Bibliothek.,Bildung,a1_misc_1,6,false,library,Noun,I study at the library.,vocab_a1_0071
 방,bang,Zimmer / Raum,A1,Nomen,제 방이 작아요.,Mein Zimmer ist klein.,Alltag,a1_daily_1,7,false,room,Noun,My room is small.,vocab_a1_0072
-침대,chimdae,Bett,A1,Nomen,침대에서 자요.,Ich schlafe im Bett.,Alltag,a1_daily_1,8,true,bed,Noun,I sleep in the bed.,vocab_a1_0073
+침대,chimdae,Bett,A1,Nomen,침대에서 자요.,Ich schlafe im Bett.,Alltag,a1_daily_1,8,true,bed,Noun,I sleep in bed.,vocab_a1_0073
 의자,uija,Stuhl,A1,Nomen,의자에 앉아요.,Ich sitze auf dem Stuhl.,Alltag,a1_daily_1,9,true,chair,Noun,I sit on the chair.,vocab_a1_0074
 문,mun,Tür,A1,Nomen,문을 열어요.,Ich öffne die Tür.,Alltag,a1_daily_2,1,false,door,Noun,I open the door.,vocab_a1_0075
 옷,ot,Kleidung,A1,Nomen,새 옷을 샀어요.,Ich habe neue Kleidung gekauft.,Alltag,a1_daily_2,2,false,clothes,Noun,I bought new clothes.,vocab_a1_0076
@@ -83,14 +83,14 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 주말,jumal,Wochenende,A1,Nomen,주말에 뭐 해요?,Was machst du am Wochenende?,Zeit,a1_time_1,9,true,weekend,Noun,What do you do on the weekend?,vocab_a1_0082
 매일,maeil,jeden Tag / täglich,A1,Adverb,저는 매일 아침 운동해요.,Ich mache jeden Morgen Sport.,Zeit,a1_time_2,1,false,every day / daily,Adverb,I exercise every morning.,vocab_a1_0083
 항상,hangsang,immer,A1,Adverb,항상 도와주셔서 감사해요.,"Danke, dass Sie mir immer helfen.",Alltag,a1_daily_2,3,false,always,Adverb,Thank you for always helping me.,vocab_a1_0084
-가끔,gakkeum,manchmal / gelegentlich,A1,Adverb,가끔 영화를 봐요.,Ich schaue manchmal Filme.,Alltag,a1_daily_2,4,false,sometimes / occasionally,Adverb,I sometimes watch movies.,vocab_a1_0085
-빨리,ppalli,schnell / beeile dich,A1,Adverb,"늦었어요, 빨리 가요!","Wir sind spät dran, gehen wir schnell!",Alltag,a1_daily_2,5,false,quickly / hurry up,Adverb,"We're late, let's hurry!",vocab_a1_0086
+가끔,gakkeum,manchmal,A1,Adverb,가끔 영화를 봐요.,Ich schaue manchmal Filme.,Alltag,a1_daily_2,4,false,sometimes,Adverb,I sometimes watch movies.,vocab_a1_0085
+빨리,ppalli,schnell,A1,Adverb,"늦었어요, 빨리 가요!","Wir sind spät dran, gehen wir schnell!",Alltag,a1_daily_2,5,false,quickly,Adverb,"We're late, let's hurry!",vocab_a1_0086
 가다,gada,gehen,A1,Verb,학교에 가요.,Ich gehe zur Schule.,Bewegung,a1_transport,3,true,to go,Verb,I go to school.,vocab_a1_0087
 오다,oda,kommen,A1,Verb,집에 와요.,Ich komme nach Hause.,Bewegung,a1_transport,4,true,to come,Verb,I come home.,vocab_a1_0088
-먹다,meokda,essen,A1,Verb,밥을 먹어요.,Ich esse Reis.,Essen & Trinken,a1_food_2,5,false,to eat,Verb,I eat rice.,vocab_a1_0089
+먹다,meokda,essen,A1,Verb,밥을 먹어요.,Ich esse.,Essen & Trinken,a1_food_2,5,false,to eat,Verb,I'm eating.,vocab_a1_0089
 마시다,masida,trinken,A1,Verb,커피를 마셔요.,Ich trinke Kaffee.,Essen & Trinken,a1_food_2,6,false,to drink,Verb,I drink coffee.,vocab_a1_0090
-있다,itda,sein / haben (existieren),A1,Verb,집에 있어요.,Ich bin zu Hause.,Alltag,a1_daily_2,6,false,to be / to have (to exist),Verb,I'm at home.,vocab_a1_0091
-없다,eopda,nicht haben / nicht sein,A1,Verb,시간이 없어요.,Ich habe keine Zeit.,Alltag,a1_daily_2,7,false,to not have / to not exist,Verb,I have no time.,vocab_a1_0092
+있다,itda,da sein / haben,A1,Verb,집에 있어요.,Ich bin zu Hause.,Alltag,a1_daily_2,6,false,to be there / to have,Verb,I'm at home.,vocab_a1_0091
+없다,eopda,nicht da sein / nicht haben,A1,Verb,시간이 없어요.,Ich habe keine Zeit.,Alltag,a1_daily_2,7,false,to not be there / to not have,Verb,I have no time.,vocab_a1_0092
 하다,hada,machen / tun,A1,Verb,뭐 해요?,Was machst du?,Alltag,a1_daily_2,8,true,to do,Verb,What are you doing?,vocab_a1_0093
 보다,boda,sehen / schauen,A1,Verb,TV를 봐요.,Ich schaue fern.,Freizeit,a1_misc_1,7,false,to see / to watch,Verb,I watch TV.,vocab_a1_0094
 듣다,deutda,hören,A1,Verb,음악을 들어요.,Ich höre Musik.,Freizeit,a1_misc_1,8,false,to listen / to hear,Verb,I listen to music.,vocab_a1_0095
@@ -108,7 +108,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 주다,juda,geben,A1,Verb,이거 친구 선물로 줄 거예요.,Das gebe ich einem Freund als Geschenk.,Alltag,a1_daily_3,3,false,to give,Verb,I'm going to give this to a friend as a present.,vocab_a1_0107
 받다,batda,bekommen / empfangen,A1,Verb,선물을 받았어요.,Ich habe ein Geschenk bekommen.,Alltag,a1_daily_3,4,false,to receive / to get,Verb,I received a gift.,vocab_a1_0108
 앉다,anda,sitzen,A1,Verb,의자에 앉아요.,Ich sitze auf dem Stuhl.,Alltag,a1_daily_3,5,false,to sit,Verb,I sit on the chair.,vocab_a1_0109
-서다,seoda,stehen,A1,Verb,여기 잠깐 서 있어요.,Bleiben Sie hier kurz stehen.,Alltag,a1_daily_3,6,false,to stand,Verb,Please stand here for a moment.,vocab_a1_0110
+서다,seoda,stehen,A1,Verb,여기 잠깐 서 있어요.,Bleiben Sie hier bitte kurz stehen.,Alltag,a1_daily_3,6,false,to stand,Verb,Please stay here a moment.,vocab_a1_0110
 열다,yeolda,öffnen,A1,Verb,문을 열어요.,Ich öffne die Tür.,Alltag,a1_daily_3,7,false,to open,Verb,I open the door.,vocab_a1_0111
 닫다,datda,schließen,A1,Verb,창문을 닫아요.,Ich schließe das Fenster.,Alltag,a1_daily_3,8,true,to close,Verb,I close the window.,vocab_a1_0112
 입다,ipda,anziehen / tragen (Kleidung),A1,Verb,옷을 입어요.,Ich ziehe mich an.,Alltag,a1_daily_3,9,true,to wear / to put on (clothes),Verb,I get dressed.,vocab_a1_0113
@@ -341,10 +341,10 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 안녕히 가세요,annyeonghi gaseyo,"Auf Wiedersehen (zur Person, die geht)",A1,Ausdruck,조심히 안녕히 가세요.,Kommen Sie gut nach Hause.,Begrüßung,a1_greetings_1,7,false,Goodbye (to someone leaving),Expression,"Goodbye, get home safe.",vocab_a1_0165
 안녕히 계세요,annyeonghi gyeseyo,"Auf Wiedersehen (zur Person, die bleibt)",A1,Ausdruck,저 먼저 갈게요. 안녕히 계세요.,Ich gehe schon mal. Auf Wiedersehen.,Begrüßung,a1_greetings_1,8,true,Goodbye (to someone staying),Expression,I'm heading out first. Take care.,vocab_a1_0166
 잘 자요,jal jayo,Gute Nacht,A1,Ausdruck,오늘 수고했어요. 잘 자요.,Heute war viel. Schlaf gut.,Begrüßung,a1_greetings_1,9,true,Good night,Expression,You did a lot today. Sleep well.,vocab_a1_0167
-잘 지내요?,jal jinaeyo,Wie läuft's?,A1,Ausdruck,요즘 잘 지내요?,Wie läuft's bei dir so?,Begrüßung,a1_greetings_2,1,false,How've you been?,Expression,How've you been?,vocab_a1_0168
+잘 지내요?,jal jinaeyo,Wie geht's?,A1,Ausdruck,요즘 잘 지내요?,Wie geht's dir so?,Begrüßung,a1_greetings_2,1,false,How've you been?,Expression,How've you been lately?,vocab_a1_0168
 처음 뵙겠습니다,cheoeum boepgesseumnida,Freut mich (formell),A1,Ausdruck,처음 뵙겠습니다. 잘 부탁드려요.,Freut mich.,Begrüßung,a1_greetings_2,2,false,Nice to meet you (formal),Expression,Nice to meet you.,vocab_a1_0169
 만나서 반가워요,mannaseo bangawoyo,Freut mich,A1,Ausdruck,정말 만나서 반가워요.,Freut mich wirklich.,Begrüßung,a1_greetings_2,3,false,Nice to meet you,Expression,Really nice to meet you.,vocab_a1_0170
-잘 부탁드려요,jal butakdeuryeoyo,Ich freue mich auf die Zusammenarbeit,A1,Ausdruck,앞으로 잘 부탁드려요.,Ich freue mich auf die Zusammenarbeit.,Höflichkeit,a1_greetings_2,4,false,Looking forward to working together,Expression,Looking forward to working together.,vocab_a1_0171
+잘 부탁드려요,jal butakdeuryeoyo,"Schön, dass wir uns kennen",A1,Ausdruck,앞으로 잘 부탁드려요.,"Schön, dass wir uns kennen. Ich freu mich.",Höflichkeit,a1_greetings_2,4,false,Hope we get along,Expression,Great to meet you. Hope we get along.,vocab_a1_0171
 천만에요,cheonmaneyo,Gern geschehen / Keine Ursache,A1,Ausdruck,"아니에요, 천만에요.","Ach was, gern geschehen.",Höflichkeit,a1_greetings_2,5,false,You're welcome,Expression,No worries.,vocab_a1_0172
 별말씀을요,byeolmalsseumeurueyo,Keine Ursache (höflich),A1,Ausdruck,"별말씀을요, 당연한 거예요.","Keine Ursache, gern.",Höflichkeit,a1_greetings_2,6,false,Don't mention it (polite),Expression,Don't mention it.,vocab_a1_0173
 실례합니다,sillyehamnida,Entschuldigen Sie,A1,Ausdruck,"실례합니다, 화장실이 어디예요?","Entschuldigung, wo ist die Toilette?",Höflichkeit,a1_greetings_2,7,true,Excuse me,Expression,"Excuse me, where's the restroom?",vocab_a1_0174
@@ -357,7 +357,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 옆,yeop,neben / Seite,A1,Nomen,옆에 앉아도 돼요?,Darf ich neben dir sitzen?,Position,a1_position,5,false,next to / side,Noun,May I sit next to you?,vocab_a1_0181
 안,an,drinnen / in,A1,Nomen,가방 안에 책이 있어요.,In der Tasche ist ein Buch.,Position,a1_position,6,false,inside / in,Noun,There's a book in the bag.,vocab_a1_0182
 밖,bak,draußen / außerhalb,A1,Nomen,밖에 비가 와요.,Draußen regnet es.,Position,a1_position,7,false,outside,Noun,It's raining outside.,vocab_a1_0183
-사이,sai,zwischen / Zwischenraum,A1,Nomen,우리 사이는 좋아요.,Wir verstehen uns gut.,Beziehungen,a1_family_2,9,true,between / gap,Noun,We get along well.,vocab_a1_0184
+사이,sai,Verhältnis / dazwischen,A1,Nomen,우리 사이는 좋아요.,Wir verstehen uns gut.,Beziehungen,a1_family_2,9,true,relationship / between,Noun,We get along well.,vocab_a1_0184
 왼쪽,oenjjok,links,A1,Nomen,왼쪽으로 가세요.,Gehen Sie nach links.,Position,a1_position,8,false,left,Noun,Go to the left.,vocab_a1_0185
 오른쪽,oreunjjok,rechts,A1,Nomen,오른쪽에 화장실이 있어요.,Rechts ist die Toilette.,Position,a1_position,9,false,right,Noun,The bathroom is on the right.,vocab_a1_0186
 저,jeo,ich (höflich),A1,Pronomen,저는 한국어를 배워요.,Ich lerne Koreanisch.,Person,a1_self_intro,5,false,I (polite),Pronoun,I'm learning Korean.,vocab_a1_0187
@@ -370,7 +370,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 여기,yeogi,hier,A1,Nomen,여기 앉으세요.,Setzen Sie sich bitte hier hin.,Position,a1_position,10,true,here,Noun,Please sit here.,vocab_a1_0194
 거기,geogi,da,A1,Nomen,거기 가 본 적 있어요.,Da war ich schon mal.,Position,a1_position,11,true,there,Noun,I've been there before.,vocab_a1_0195
 저기,jeogi,dort,A1,Nomen,저기 보세요.,Schauen Sie dort hin.,Position,a1_position,12,true,over there,Noun,Look over there.,vocab_a1_0196
-새,sae,neu (attributiv),A1,Adjektiv,새 옷이 마음에 들어요.,Die neue Kleidung gefällt mir.,Beschreibung,a1_descriptions,11,true,new (attributive),Adjective,I like the new clothes.,vocab_a1_0197
+새,sae,neu,A1,Adjektiv,새 옷이 마음에 들어요.,Die neue Kleidung gefällt mir.,Beschreibung,a1_descriptions,11,true,new,Adjective,I like the new clothes.,vocab_a1_0197
 다른,dareun,andere/r/s,A1,Adjektiv,다른 색깔도 있어요?,Gibt es auch andere Farben?,Beschreibung,a1_descriptions,12,true,other / different,Adjective,Are there other colors too?,vocab_a1_0198
 같은,gateun,gleich / dasselbe,A1,Adjektiv,같은 학교에 다녀요.,Wir gehen zur gleichen Schule.,Beschreibung,a1_descriptions,13,true,same,Adjective,We go to the same school.,vocab_a1_0199
 모든,modeun,alle / sämtliche,A1,Adjektiv,모든 사람이 좋아해요.,Alle Leute mögen es.,Menge,a1_numbers_3,7,true,all / every,Adjective,Everyone likes it.,vocab_a1_0200
@@ -1187,7 +1187,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 예외 사례를 처리하다,yeoe sarereul cheorihada,Ausnahmefälle bearbeiten,C2,Verb,평균적인 이용자만 기준으로 삼으면 예외 사례를 제대로 처리하기 어려워요.,"Wenn nur durchschnittliche Nutzer als Maßstab dienen, lassen sich Ausnahmefälle schwer angemessen bearbeiten.",Technikethik & Verantwortung,c2_technology_ethics_1,10,true,to handle edge cases,Verb,"If the system is designed only around average users, it will struggle to handle edge cases properly.",vocab_c2_0046
 감시 범위를 제한하다,gamsi beomwireul jehanhada,den Umfang der Überwachung begrenzen,C2,Verb,안전을 위한 장치라도 목적과 기간을 정해 감시 범위를 제한해야 해요.,"Auch Sicherheitsmaßnahmen brauchen einen klaren Zweck und Zeitraum, um den Umfang der Überwachung zu begrenzen.",Technikethik & Verantwortung,c2_technology_ethics_1,11,true,to limit the scope of surveillance,Verb,Even a safety measure needs a defined purpose and duration to limit the scope of surveillance.,vocab_c2_0047
 철회할 권리를 보장하다,cheolhoeh al gwonrireul bojanghada,das Recht auf Widerruf gewährleisten,C2,Verb,처음에 동의했더라도 나중에 데이터 제공을 철회할 권리를 보장해야 합니다.,"Auch nach einer anfänglichen Einwilligung muss das Recht gewährleistet sein, die Datenfreigabe später zu widerrufen.",Technikethik & Verantwortung,c2_technology_ethics_1,12,true,to guarantee the right to withdraw,Verb,"Even after initial consent, people must retain the right to withdraw permission to use their data.",vocab_c2_0048
-인사드리겠습니다,insadeurigessseubnida,ich begrüße Sie respektvoll,A1,Ausdruck,문 앞에서 숨을 고르고 인사드리겠습니다.,Vor der Tür hole ich kurz Luft und begrüße sie dann respektvoll.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,1,false,let me greet you respectfully,Expression,At the door I take a breath and then greet them respectfully.,vocab_a1_0212
+인사드리겠습니다,insadeurigessseubnida,Darf ich Sie begrüßen,A1,Ausdruck,문 앞에서 숨을 고르고 인사드리겠습니다.,Vor der Tür atme ich einmal durch und begrüße sie dann.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,1,false,Let me say hello,Expression,"I catch my breath at the door, then I greet them.",vocab_a1_0212
 인사드리다,insadeurida,respektvoll grüßen,A1,Verb,문 앞에서 먼저 인사드렸어요.,Vor der Tür habe ich sie zuerst respektvoll gegrüßt.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,2,false,to greet respectfully,Verb,I greeted them respectfully at the door first.,vocab_a1_0213
 장인어른,jangineoreun,Schwiegervater (Vater der Ehefrau),A1,Nomen,오늘은 장인어른께 처음 인사드려요.,Heute begrüße ich zum ersten Mal meinen Schwiegervater.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,3,false,father-in-law (wife's father),Noun,Today I meet my father-in-law for the first time.,vocab_a1_0214
 장모님,jangmonim,Schwiegermutter (Mutter der Ehefrau),A1,Nomen,장모님께 과일을 드렸어요.,Meiner Schwiegermutter habe ich Obst gegeben.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,4,false,mother-in-law (wife's mother),Noun,I gave my mother-in-law some fruit.,vocab_a1_0215
@@ -1197,7 +1197,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 높임말,nopimmal,Höflichkeitsform,A1,Nomen,부모님 앞에서는 높임말을 써요.,Vor seinen Eltern spreche ich in der Höflichkeitsform.,Partnerschaft & koreanische Familie,a1_partner_meet_names_1,8,false,honorific speech,Noun,In front of his parents I use honorific speech.,vocab_a1_0219
 성함을 묻다,seonghameul mudda,nach dem Namen fragen,A1,Ausdruck,성함을 묻기 전에 현우가 눈짓을 했어요.,"Bevor ich nach dem Namen fragte, gab mir Hyunwoo ein Zeichen.",Partnerschaft & koreanische Familie,a1_partner_meet_names_1,9,false,to ask someone's name politely,Expression,"Before I asked their name, Hyunwoo shot me a look.",vocab_a1_0220
 몇 살이세요,myeoch saliseyo,wie alt sind Sie,A1,Ausdruck,할머니가 웃으면서 몇 살이세요 하고 물으셨어요.,"Die Großmutter fragte lächelnd, wie alt ich sei.",Partnerschaft & koreanische Familie,a1_partner_meet_names_1,10,true,how old are you (polite),Expression,Grandmother smiled and asked how old I was.,vocab_a1_0221
-잘 부탁드립니다,jal butagdeuribnida,ich bitte um Ihr Wohlwollen,A1,Ausdruck,앞으로 잘 부탁드립니다.,"Ich hoffe, wir kommen von jetzt an gut miteinander aus.",Partnerschaft & koreanische Familie,a1_partner_meet_names_1,11,true,please look after me,Expression,I hope we get along well from now on.,vocab_a1_0222
+잘 부탁드립니다,jal butagdeuribnida,"Ich hoffe, wir verstehen uns",A1,Ausdruck,앞으로 잘 부탁드립니다.,"Ich hoffe, wir kommen von jetzt an gut miteinander aus.",Partnerschaft & koreanische Familie,a1_partner_meet_names_1,11,true,Hope we get along,Expression,I hope we get along well from now on.,vocab_a1_0222
 댁에,daege,bei Ihnen zu Hause (höflich),A1,Ausdruck,댁에 처음 와서 신발을 어디에 둘지 몰랐어요.,"Ich war zum ersten Mal bei ihnen zu Hause und wusste nicht, wohin mit den Schuhen.",Partnerschaft & koreanische Familie,a1_partner_meet_names_1,12,true,at your home (honorific),Expression,It was my first time at their home and I didn't know where to put my shoes.,vocab_a1_0223
 과일 바구니,gwail baguni,Obstkorb,A1,Nomen,과일 바구니를 들고 초인종을 눌렀어요.,Mit einem Obstkorb in der Hand habe ich geklingelt.,Partnerschaft & koreanische Familie,a1_partner_first_gift_1,1,false,fruit basket,Noun,I rang the doorbell with a fruit basket in my hands.,vocab_a1_0224
 건강식품,geongangsigpum,Gesundheitsprodukt,A1,Nomen,건강식품은 약처럼 보일까 봐 고민했어요.,"Ich zögerte, weil ein Gesundheitsprodukt schnell wie Medizin aussieht.",Partnerschaft & koreanische Familie,a1_partner_first_gift_1,2,false,health supplement (as a gift),Noun,I hesitated because a health supplement can look like medicine.,vocab_a1_0225
@@ -1271,10 +1271,10 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 친해지다,chinhaejida,sich anfreunden,A1,Verb,게임 한 판 하니 금방 친해졌어요.,Nach einer Spielrunde wurden wir schnell vertrauter.,Partnerschaft & koreanische Familie,a1_partner_siblings_hello_1,10,true,to get closer,Verb,After one game we got closer quickly.,vocab_a1_0293
 장난,jangnan,Scherz,A1,Nomen,장난으로 제 발음을 따라 해서 같이 웃었어요.,"Im Scherz ahmten sie meine Aussprache nach, und wir lachten.",Partnerschaft & koreanische Familie,a1_partner_siblings_hello_1,11,true,teasing,Noun,"They teased my pronunciation, and we laughed together.",vocab_a1_0294
 단체 사진,danche sajin,Gruppenfoto,A1,Nomen,단체 사진에서 제가 제일 뒤에 서 있어요.,Auf dem Gruppenfoto stehe ich ganz hinten.,Partnerschaft & koreanische Familie,a1_partner_siblings_hello_1,12,true,group photo,Noun,In the group photo I am standing at the very back.,vocab_a1_0295
-인증샷,injeungsyas,Beweis-Foto,A1,Nomen,인증샷은 올리지 말라고 현우가 먼저 말했어요.,"Hyunwoo sagte zuerst, das Beweis-Foto nicht hochzuladen.",Partnerschaft & koreanische Familie,a1_partner_photo_thanks_1,1,false,proof photo,Noun,Hyunwoo said first not to post the proof photo.,vocab_a1_0296
+인증샷,injeungsyas,Foto fürs Netz,A1,Nomen,인증샷은 올리지 말라고 현우가 먼저 말했어요.,"Hyunwoo sagte zuerst, das Foto nicht hochzuladen.",Partnerschaft & koreanische Familie,a1_partner_photo_thanks_1,1,false,pic to show you were there,Noun,Hyunwoo said first not to post the pic.,vocab_a1_0296
 가족 앨범,gajog aelbeom,Familienalbum,A1,Nomen,가족 앨범에서 현우 교복 사진을 봤어요.,Im Familienalbum sah ich Hyunwoos Schuluniform.,Partnerschaft & koreanische Familie,a1_partner_photo_thanks_1,2,false,family album,Noun,I saw Hyunwoo's school uniform in the family album.,vocab_a1_0297
 촬영 금지,chwalyeong geumji,Fotografierverbot,A1,Ausdruck,차례상 앞에서는 촬영 금지라고 작게 알려 주셨어요.,"Vor dem Ahnentisch sagten sie leise, dass man nicht fotografieren darf.",Partnerschaft & koreanische Familie,a1_partner_photo_thanks_1,3,false,no photos,Expression,In front of the ancestral table they quietly told me photos were not allowed.,vocab_a1_0298
-잘 다녀오겠습니다,jal danyeoogessseubnida,ich gehe und komme gut wieder,A1,Ausdruck,나갈 때 잘 다녀오겠습니다라고 했어요.,"Beim Hinausgehen sagte ich, ich gehe und komme gut wieder.",Partnerschaft & koreanische Familie,a1_partner_photo_thanks_1,4,false,I will go and come back safely,Expression,When leaving I said I will go and come back safely.,vocab_a1_0299
+잘 다녀오겠습니다,jal danyeoogessseubnida,Ich mache mich dann auf den Weg,A1,Ausdruck,나갈 때 잘 다녀오겠습니다라고 했어요.,Ich mache mich dann auf den Weg. Danke für heute.,Partnerschaft & koreanische Familie,a1_partner_photo_thanks_1,4,false,I'll be heading out now,Expression,I'll be heading out now. Thanks for having me.,vocab_a1_0299
 잘 먹었습니다,jal meogeossseubnida,"es hat geschmeckt, danke",A1,Ausdruck,상을 물릴 때 잘 먹었습니다 하고 크게 인사했어요.,Beim Abräumen bedankte ich mich laut für das Essen.,Partnerschaft & koreanische Familie,a1_partner_photo_thanks_1,5,false,thank you for the meal,Expression,"As the table was cleared, I said thank you for the meal out loud.",vocab_a1_0300
 다음에 또 오세요,daeume tto oseyo,kommen Sie wieder,A1,Ausdruck,다음에 또 오세요 하셔서 신발을 거꾸로 신었어요.,"Als sie sagten, ich solle wiederkommen, zog ich die Schuhe verkehrt herum an.",Partnerschaft & koreanische Familie,a1_partner_photo_thanks_1,6,false,please come again,Expression,"When they told me to come again, I put my shoes on backwards.",vocab_a1_0301
 연락드릴게요,yeonragdeurilgeyo,ich melde mich,A1,Ausdruck,문 앞에서 연락드릴게요 하고 손을 흔들었어요.,"An der Tür sagte ich, ich melde mich, und winkte.",Partnerschaft & koreanische Familie,a1_partner_photo_thanks_1,7,false,I will be in touch,Expression,At the door I said I'd be in touch and waved.,vocab_a1_0302
@@ -1658,22 +1658,22 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 초인종,choinjong,Klingel,A1,Nomen,초인종을 두 번 눌렀어요.,Ich habe zweimal an der Klingel gedrückt.,Nachbarschaft,a1_neighbors_hall_1,1,false,doorbell,Noun,I pressed the doorbell twice.,vocab_a1_0344
 복도,bokdo,Flur,A1,Nomen,복도에 신발을 두지 마세요.,Bitte stellen Sie keine Schuhe in den Flur.,Nachbarschaft,a1_neighbors_hall_1,2,false,hallway,Noun,Please do not leave shoes in the hallway.,vocab_a1_0345
 이웃집,iutjip,Nachbarwohnung,A1,Nomen,이웃집에 택배가 잘못 왔어요.,Ein Paket wurde falsch an die Nachbarwohnung geliefert.,Nachbarschaft,a1_neighbors_hall_1,3,false,neighbor's place,Noun,A parcel was delivered to the neighbor's place by mistake.,vocab_a1_0346
-층수,cheungsu,Stockwerk,A1,Nomen,저희 층수는 다섯 층이에요.,Unser Stockwerk ist der fünfte.,Nachbarschaft,a1_neighbors_hall_1,4,false,floor number,Noun,Our floor number is the fifth.,vocab_a1_0347
-분리배출,bunribaechul,getrennte Entsorgung,A1,Nomen,플라스틱은 분리배출하세요.,Bitte entsorgen Sie Plastik getrennt.,Nachbarschaft,a1_neighbors_hall_1,5,false,sorted disposal,Noun,Please use sorted disposal for plastic.,vocab_a1_0348
+층수,cheungsu,Stockwerk,A1,Nomen,저희 층수는 다섯 층이에요.,Wir wohnen im fünften Stock.,Nachbarschaft,a1_neighbors_hall_1,4,false,floor number,Noun,We're on the fifth floor.,vocab_a1_0347
+분리배출,bunribaechul,getrennte Entsorgung,A1,Nomen,플라스틱은 분리배출하세요.,Bitte entsorgen Sie Plastik getrennt.,Nachbarschaft,a1_neighbors_hall_1,5,false,sorted disposal,Noun,Please sort the plastic.,vocab_a1_0348
 문패,munpae,Namensschild,A1,Nomen,문패에 이름을 새로 붙였어요.,Ich habe ein neues Namensschild an die Tür geklebt.,Nachbarschaft,a1_neighbors_hall_1,6,false,door nameplate,Noun,I put a new nameplate on the door.,vocab_a1_0349
 공동현관,gongdonghyeongwan,Hauseingang,A1,Nomen,공동현관 비밀번호가 바뀌었어요.,Das Passwort am Hauseingang hat sich geändert.,Nachbarschaft,a1_neighbors_hall_1,7,false,shared entrance,Noun,The shared entrance password changed.,vocab_a1_0350
-층간소음,cheunggansoeum,Lärm zwischen den Etagen,A1,Nomen,밤에는 층간소음을 조심해요.,Nachts achte ich auf Lärm zwischen den Etagen.,Nachbarschaft,a1_neighbors_hall_1,8,false,noise between floors,Noun,At night I am careful about noise between floors.,vocab_a1_0351
+층간소음,cheunggansoeum,Lärm durch die Decke,A1,Nomen,밤에는 층간소음을 조심해요.,Bitte etwas leiser — wegen der Nachbarn unten.,Nachbarschaft,a1_neighbors_hall_1,8,false,noise from upstairs,Noun,Keep it down a bit — the neighbors downstairs can hear.,vocab_a1_0351
 택배함,taekbaeham,Paketkasten,A1,Nomen,택배함에 비밀번호를 넣어요.,Ich gebe das Passwort in den Paketkasten ein.,Nachbarschaft,a1_neighbors_hall_1,9,false,parcel locker,Noun,I enter the password on the parcel locker.,vocab_a1_0352
 공지문,gongjimun,Aushang,A1,Nomen,엘리베이터에 공지문이 있어요.,Am Aufzug hängt ein Aushang.,Nachbarschaft,a1_neighbors_hall_1,10,true,notice,Noun,There is a notice on the elevator.,vocab_a1_0353
-무단주차,mudanjucha,unerlaubtes Parken,A1,Nomen,입구 앞 무단주차는 안 돼요.,Unerlaubtes Parken vor der Einfahrt ist nicht erlaubt.,Nachbarschaft,a1_neighbors_hall_1,11,true,unauthorized parking,Noun,Unauthorized parking in front of the entrance is not allowed.,vocab_a1_0354
-이웃 인사,iut insa,Nachbarsgruß,A1,Ausdruck,아침에 이웃 인사를 했어요.,Heute Morgen habe ich den Nachbarsgruß gesagt.,Nachbarschaft,a1_neighbors_hall_1,12,true,neighbor greeting,Expression,This morning I gave a neighbor greeting.,vocab_a1_0355
+무단주차,mudanjucha,unerlaubtes Parken,A1,Nomen,입구 앞 무단주차는 안 돼요.,Vor der Einfahrt darf man nicht parken.,Nachbarschaft,a1_neighbors_hall_1,11,true,unauthorized parking,Noun,You can't park in front of the entrance.,vocab_a1_0354
+이웃 인사,iut insa,Nachbarn grüßen,A1,Ausdruck,아침에 이웃 인사를 했어요.,Heute Morgen habe ich die Nachbarn gegrüßt.,Nachbarschaft,a1_neighbors_hall_1,12,true,saying hi to the neighbors,Expression,This morning I said hi to the neighbors.,vocab_a1_0355
 필통,piltong,Federmäppchen,A1,Nomen,필통 안에 펜이 세 자루 있어요.,Im Federmäppchen sind drei Stifte.,Schultasche,a1_school_supplies_1,1,false,pencil case,Noun,There are three pens in the pencil case.,vocab_a1_0356
 지우개,jiugae,Radiergummi,A1,Nomen,연필 실수를 지우개로 지워요.,Ich radiere den Bleistiftfehler mit dem Radiergummi weg.,Schultasche,a1_school_supplies_1,2,false,eraser,Noun,I erase the pencil mistake with an eraser.,vocab_a1_0357
 가위,gawi,Schere,A1,Nomen,이 종이를 가위로 잘라 주세요.,Bitte schneiden Sie dieses Papier mit der Schere.,Schultasche,a1_school_supplies_1,3,false,scissors,Noun,Please cut this paper with scissors.,vocab_a1_0358
 자,ja,Lineal,A1,Nomen,자로 선을 반듯하게 그어요.,Mit dem Lineal ziehe ich eine gerade Linie.,Schultasche,a1_school_supplies_1,4,false,ruler,Noun,I draw a straight line with a ruler.,vocab_a1_0359
 색연필,saekyeonpil,Buntstift,A1,Nomen,지도를 색연필로 칠했어요.,Ich habe die Karte mit Buntstiften ausgemalt.,Schultasche,a1_school_supplies_1,5,false,colored pencil,Noun,I colored the map with colored pencils.,vocab_a1_0360
 연습장,yeonseupjang,Schreibheft,A1,Nomen,한글을 연습장에 여러 번 썼어요.,Ich habe Hangul mehrmals ins Schreibheft geschrieben.,Schultasche,a1_school_supplies_1,6,false,practice notebook,Noun,I wrote Hangul several times in the practice notebook.,vocab_a1_0361
-준비물,junbimul,Mitbringsel,A1,Nomen,내일 수업 준비물을 가방에 넣어요.,Ich packe die Mitbringsel für den Unterricht morgen in die Tasche.,Schultasche,a1_school_supplies_1,7,false,things to bring,Noun,I put tomorrow's class supplies in the bag.,vocab_a1_0362
+준비물,junbimul,Sachen für den Unterricht,A1,Nomen,내일 수업 준비물을 가방에 넣어요.,Ich packe die Sachen für den Unterricht in die Tasche.,Schultasche,a1_school_supplies_1,7,false,what to bring,Noun,I'm putting what I need for class in my bag.,vocab_a1_0362
 제출하다,jechulhada,abgeben,A1,Verb,숙제를 제출하다 전에 이름을 써요.,"Bevor ich die Hausaufgaben abgebe, schreibe ich meinen Namen.",Schultasche,a1_school_supplies_1,8,false,to submit,Verb,"Before I submit the homework, I write my name.",vocab_a1_0363
 화이트보드,hwaiteubodeu,Whiteboard,A1,Nomen,선생님이 화이트보드에 단어를 썼어요.,Die Lehrkraft hat das Wort auf das Whiteboard geschrieben.,Schultasche,a1_school_supplies_1,9,false,whiteboard,Noun,The teacher wrote the word on the whiteboard.,vocab_a1_0364
 자리표,jaripyo,Platzkarte,A1,Nomen,첫날에는 자리표 이름을 확인해요.,Am ersten Tag prüfe ich den Namen auf der Platzkarte.,Schultasche,a1_school_supplies_1,10,true,seat card,Noun,On the first day I check the name on the seat card.,vocab_a1_0365
@@ -1691,13 +1691,13 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 도착 안내,dochak annae,Ansage,A1,Ausdruck,도착 안내가 나오면 일어나요.,"Wenn die Ansage kommt, stehe ich auf.",U-Bahnkarte,a1_subway_card_1,10,true,arrival announcement,Expression,"When the arrival announcement comes, I stand up.",vocab_a1_0377
 카드 잔액,kadeu janaek,Kartenguthaben,A1,Ausdruck,카드 잔액이 부족해서 충전이 필요해요.,"Das Kartenguthaben reicht nicht, ich muss aufladen.",U-Bahnkarte,a1_subway_card_1,11,true,card balance,Expression,"The card balance is low, so I need to top up.",vocab_a1_0378
 내리는 문,naerineun mun,Ausstiegstür,A1,Ausdruck,내리는 문은 오른쪽이에요.,Die Ausstiegstür ist rechts.,U-Bahnkarte,a1_subway_card_1,12,true,exit door,Expression,The exit door is on the right.,vocab_a1_0379
-겉옷,geotot,Überzieher,A1,Nomen,바람이 불어서 겉옷을 입어요.,"Es ist windig, deshalb ziehe ich einen Überzieher an.",Wetterschicht,a1_weather_layer_1,1,false,outer layer,Noun,"It is windy, so I put on an outer layer.",vocab_a1_0380
+겉옷,geotot,Jacke / etwas drüber,A1,Nomen,바람이 불어서 겉옷을 입어요.,"Es ist windig, deshalb ziehe ich einen Überzieher an.",Wetterschicht,a1_weather_layer_1,1,false,jacket / something over it,Noun,"It is windy, so I put on an outer layer.",vocab_a1_0380
 미세먼지,misemeonji,Feinstaub,A1,Nomen,오늘 미세먼지가 많아서 마스크를 써요.,"Heute gibt es viel Feinstaub, deshalb trage ich eine Maske.",Wetterschicht,a1_weather_layer_1,2,false,fine dust,Noun,"There is a lot of fine dust today, so I wear a mask.",vocab_a1_0381
 일기예보,ilgiyebo,Wetterbericht,A1,Nomen,일기예보를 보고 옷을 골라요.,Ich schaue den Wetterbericht und wähle die Kleidung.,Wetterschicht,a1_weather_layer_1,3,false,weather forecast,Noun,I check the forecast and choose clothes.,vocab_a1_0382
 우비,ubi,Regenjacke,A1,Nomen,소나기가 와서 우비를 챙겼어요.,"Ein Schauer kommt, deshalb habe ich die Regenjacke eingepackt.",Wetterschicht,a1_weather_layer_1,4,false,rain jacket,Noun,"A shower is coming, so I packed a rain jacket.",vocab_a1_0383
 얇은 옷,yalbeun ot,leichte Kleidung,A1,Ausdruck,낮에는 얇은 옷이 편해요.,Tagsüber ist leichte Kleidung angenehm.,Wetterschicht,a1_weather_layer_1,5,false,light clothes,Expression,Light clothes are comfortable during the day.,vocab_a1_0384
 두꺼운 옷,dukkeoun ot,dicke Kleidung,A1,Ausdruck,밤에는 두꺼운 옷이 필요해요.,Nachts brauche ich dicke Kleidung.,Wetterschicht,a1_weather_layer_1,6,false,thick clothes,Expression,At night I need thick clothes.,vocab_a1_0385
-일교차,ilgyocha,Tag-Nacht-Unterschied,A1,Nomen,봄에는 일교차가 커서 겉옷이 필요해요.,"Im Frühling ist der Tag-Nacht-Unterschied groß, deshalb brauche ich einen Überzieher.",Wetterschicht,a1_weather_layer_1,7,false,day-night gap,Noun,"In spring the day-night gap is large, so I need an outer layer.",vocab_a1_0386
+일교차,ilgyocha,Temperaturunterschied,A1,Nomen,봄에는 일교차가 커서 겉옷이 필요해요.,"Im Frühling ist der Temperaturunterschied groß, deshalb brauche ich eine Jacke.",Wetterschicht,a1_weather_layer_1,7,false,day-to-night temperature swing,Noun,"In spring the day-to-night swing is big, so I need a jacket.",vocab_a1_0386
 습하다,seuphada,schwül,A1,Adjektiv,오늘 공기가 습하다 느껴져서 창문을 열어요.,"Die Luft fühlt sich heute schwül an, deshalb öffne ich das Fenster.",Wetterschicht,a1_weather_layer_1,8,false,humid,Adjective,"The air feels humid today, so I open the window.",vocab_a1_0387
 쌀쌀하다,ssalssalhada,kühl,A1,Adjektiv,아침이 쌀쌀하다 해서 목을 가렸어요.,"Weil der Morgen kühl ist, habe ich den Hals bedeckt.",Wetterschicht,a1_weather_layer_1,9,false,chilly,Adjective,"Because the morning is chilly, I covered my neck.",vocab_a1_0388
 맑음,malgeum,heiter,A1,Nomen,오후 예보가 맑음이에요.,Die Nachmittagsvorhersage ist heiter.,Wetterschicht,a1_weather_layer_1,10,true,clear skies,Noun,The afternoon forecast is clear skies.,vocab_a1_0389

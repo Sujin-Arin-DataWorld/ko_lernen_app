@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — A1 단어팩 DE/EN 뉘앙스 (직역 제거)
+
+**무엇을 왜.** Jin: KO:DE / KO:EN을 1:1 직역하지 말고 각 언어 느낌으로.
+A1 나머지 팩. `a1_greetings_1`은 앞 커밋. 한국어 표제어·ID·원문 유지.
+
+**고침.**
+- 잘 부탁드려요/부탁드립니다 ≠ Zusammenarbeit / please look after me
+- 잘 다녀오겠습니다 ≠ go and come back safely
+- 준비물 ≠ Mitbringsel · 편의점 = Spätkauf · 인증샷 ≠ Beweis-Foto
+- 층간소음/이웃 인사/층수 예문을 구어로. 인사드리겠습니다 예문 복구
+  (선생에게 공손하라는 오역을 방문 인사로 되돌림).
+
+**검증.** CSV↔HEAD id 대조. word_relations sourceDe/En 동기.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 위에 전해주세요 ≠ nach oben
 
 **무엇을 왜.** Jin: 「위에 전해주세요」는 공간 *oben*이 아니라 윗사람·담당에게
