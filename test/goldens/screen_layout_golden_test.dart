@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
 /// 폰·태블릿·가로 화면 배치 골든.
@@ -173,6 +174,9 @@ Widget _wrap(Widget child) => MaterialApp(
   locale: const Locale('de'),
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
+  // Production installs this in MaterialApp.builder (`lib/main.dart`).
+  // Without it, tablet goldens lock in "no comfort scaler" after #96.
+  builder: (context, app) => SoriTypeScale(child: app!),
   home: child,
   onGenerateRoute: (settings) => null,
 );
