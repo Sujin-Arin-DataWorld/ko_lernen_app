@@ -1,5 +1,14 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 스몰톡 Convenience-Store·딱딱한 Sie
+
+**무엇을 왜.** 편의점 답을 Convenience-Store로 두었고, 교실 스몰톡이
+Möchten Sie 관청 말투였다. Spätkauf / du 구어로.
+
+**검증.** 해당 문자열 Grep.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 실벤 힌트 DE를 단어팩과 동기
 
 **무엇을 왜.** 퍼즐 힌트가 옛 직역(Convenience Store, existieren)을 보여 줌.
