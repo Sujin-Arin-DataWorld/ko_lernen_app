@@ -3,23 +3,42 @@
 ### 2026-08-19 (Cursor) — 열린 PR 3개를 main 위에 손실 없이 흡수한다
 
 **무엇을 왜.** Jin 이 메인 코드 손실 없이 #95·#96·#97 을 전부 `main` 으로
-흡수하라고 했다. 합치기가 어려운 이유는 기능 충돌이 아니라 (1) 여러 에이전트가
-동시에 브랜치를 만들고, (2) `docs/SESSION_LOG.md` 최상단이 매번 겹치며,
-(3) draft PR 은 Analyze 를 건너뛰고 concurrency 가 겹친 run 을 cancelled 로
-남겨 GitHub 에 빨간 X 가 뜨기 때문이다.
+흡수하라고 했다. 중간에 #95 를 다시 손댄 뒤 이전 흡수 요청은 취소하고,
+세 PR 을 모아 `main` 으로 머지해 달라고 했다. 합치기가 어려운 이유는
+기능 충돌이 아니라 (1) 여러 에이전트가 동시에 브랜치를 만들고,
+(2) `docs/SESSION_LOG.md` 최상단이 매번 겹치며, (3) draft PR 은
+Analyze 를 건너뛰고 concurrency 가 겹친 run 을 cancelled 로 남겨
+GitHub 에 빨간 X 가 뜨기 때문이다.
 
-**무엇을.** `origin/main`(`6c919055`) 위에 merge commit 3개로 흡수했다.
-#95 `4bd2ca80` → iOS `TESTER_BUILD=1` + ASC 키 자기복사 가드.
-#96 `73b62860` → Wanted Sans 번들 + `SoriTypeScale` + 한글 FlipCard 래퍼 제거
-(#93 획/색/줄바꿈은 #96 베이스라 유지).
-#97 문서만 → `docs/HANDOFF_HOEREN_REDESIGN_2026-08-19.md` +
-`docs/mockups/hoeren_redesign_2026-08-19.html`. SESSION_LOG 만 양쪽 항목을
-이어 붙였다. squash 하지 않아 각 PR head 가 조상이 된다.
+**무엇을.** `origin/main`(`6c919055`) 위에 squash 없이 merge commit 으로
+흡수했다. #95 `05473126` → iOS `TESTER_BUILD=1` + ASC 키 자기복사 가드 +
+Select 가 `fetch-depth: 0` 으로 전 브랜치를 받아 5분에 죽던 수정.
+#96 `73b62860` → Wanted Sans 번들 + `SoriTypeScale` + 한글 FlipCard 래퍼
+제거 (#93 획/색/줄바꿈은 #96 베이스라 유지).
+#97 `e4d97a91` 문서만 → `docs/HANDOFF_HOEREN_REDESIGN_2026-08-19.md` +
+`docs/mockups/hoeren_redesign_2026-08-19.html`. SESSION_LOG 만 양쪽
+항목을 이어 붙였다. 각 PR head 가 조상이라 GitHub 가 세 PR 을 닫는다.
 
 **검증.** 세 PR head 의 unique 경로가 흡수 트리에 있고 `main` 고유 파일도
-빠지지 않았는지 확인. typography/font guard + 관련 테스트.
+빠지지 않았는지 확인. typography/font guard + CI Select 계약 테스트.
 
 **커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — PR 95 빨간불: Select 가 전체 git fetch 에서 5분 컷
+
+**무엇을 왜.** PR 95 필수 체크 `Select required checks` 가 빨간불이었다.
+첫 `pull_request` run `32257638693` 이 `actions/checkout@v4` 의
+`fetch-depth: 0` 때문에 `+refs/heads/*` + `+refs/tags/*` 를 5분 job
+timeout 동안 못 끝내 cancelled. 이후 `workflow_dispatch` Analyze 는
+초록이지만 PR status rollup 은 그 첫 cancelled Select 를 남긴다.
+iOS 스크립트 자체 실패가 아니다.
+
+**고침.** Select job 은 tip 만 받고, default branch + PR/push SHA 이력만
+`blob:none` 으로 가져온다. timeout 은 15분. 계약은
+`test_changes_job_does_not_clone_every_branch`.
+
+**검증.** `.github/scripts` unittest. PR synchronize 뒤 Select 가
+`pull_request` 이벤트로 초록인지 확인.
 
 ### 2026-08-19 (Claude Fable 5, Windows) — Hören "살아있는 책가도" 비평·재설계 목업 + 공유 이미지 6종 패밀리 (문서·목업만, 코드 0)
 

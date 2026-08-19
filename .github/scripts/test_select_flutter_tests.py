@@ -146,6 +146,24 @@ class WorkflowWiringTest(unittest.TestCase):
         self.assertIn("flutter_test_mode: ${{ steps.flutter_tests.outputs.flutter_test_mode }}", changes)
         self.assertIn("flutter_tests: ${{ steps.flutter_tests.outputs.flutter_tests }}", changes)
 
+    def test_changes_job_does_not_clone_every_branch(self):
+        # PR 95: fetch-depth 0 made checkout pull every branch and tag
+        # for 5 minutes and cancelled the required Select check.
+        changes = self.workflow.split("\n  changes:\n", 1)[1].split("\n  website:\n", 1)[0]
+        active = "\n".join(
+            line
+            for line in changes.splitlines()
+            if not line.lstrip().startswith("#")
+        )
+        self.assertNotIn("fetch-depth: 0", active)
+        self.assertIn("fetch-depth: 1", active)
+        self.assertIn("timeout-minutes: 15", active)
+        self.assertIn("Fetch comparison history", active)
+        self.assertIn("filter=blob:none", active)
+        self.assertIn("+refs/heads/${CI_DEFAULT_BRANCH}", active)
+        self.assertNotIn("+refs/heads/*", active)
+        self.assertNotIn("+refs/tags/*", active)
+
     def test_build_job_skips_drafts_scopes_pr_tests_and_keeps_main_full(self):
         build = self.workflow.split("\n  build:\n", 1)[1].split("\n  release-internal:\n", 1)[0]
         self.assertIn("github.event.pull_request.draft == false", build)
