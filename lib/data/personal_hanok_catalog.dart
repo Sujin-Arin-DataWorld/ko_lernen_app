@@ -97,7 +97,9 @@ const kPersonalHanokLayers = <PersonalHanokMapLayer>[
   PersonalHanokMapLayer(
     id: 'sotdaeulmun',
     assetPath: '${kPersonalHanokAssetRoot}map/structures/sotdaeulmun.png',
-    zIndex: 20,
+    // 화면 아래일수록 관찰자에 가까우므로 나중에 그린다(painter's algorithm).
+    // 이 세 채의 알파 하단은 사랑채 920 < 행랑채 1031 < 솟을대문 1079 이다.
+    zIndex: 22,
     milestone: PersonalHanokMilestone.sotdaeulmun,
     visualBounds: PersonalHanokRect(
       left: .389,
@@ -121,7 +123,9 @@ const kPersonalHanokLayers = <PersonalHanokMapLayer>[
   PersonalHanokMapLayer(
     id: 'sarangchae',
     assetPath: '${kPersonalHanokAssetRoot}map/structures/sarangchae.png',
-    zIndex: 22,
+    // 셋 중 가장 뒤(안쪽)라 먼저 그린다. 22였을 때는 사랑채 기단이 앞에 선
+    // 솟을대문·행랑채 지붕을 잘라먹었다(행랑채 알파의 27.9%가 가려졌다).
+    zIndex: 20,
     milestone: PersonalHanokMilestone.sarangchae,
     visualBounds: PersonalHanokRect(
       left: .104,
