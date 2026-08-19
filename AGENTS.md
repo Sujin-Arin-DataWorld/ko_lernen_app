@@ -19,7 +19,11 @@
 > **경고를 보면 반드시 직접 옮겨갈 것.** 메인 체크아웃은 Jin 것이다.
 > 끝나면 `git worktree remove <경로>`.
 >
-> **⛔ 필수 기록 규칙 (예외 없음):** 코드·데이터·에셋·설정·문서 등 무엇이든 하나라도 변경하면 반드시 `docs/SESSION_LOG.md` 최상단에 항목을 남긴다(무엇을·왜·검증·커밋해시). 기록 없이 변경만 커밋 금지. 로그 갱신은 같은/직후 커밋에 포함.
+> **⛔ 세션 기록 (2026-08-19 교체):** 변경마다 `docs/SESSION_LOG.md`에 쓰지 않는다.
+> 이유는 커밋 메시지와 PR 본문. 세션이 끝나거나 에이전트를 넘길 때는
+> `.claude/skills/session-handoff` 로 `.claude/handoffs/`에 **짧은 인수인계 하나**
+> (지금 상태 · 다음 한 일 · 읽지 말 것). 다음 세션은 이 파일 + 아래 게이트만 읽는다.
+> SESSION_LOG/ARCHIVE는 과거 검색용 — 자동 로드 금지.
 > **⛔ 커밋/푸시는 Jin이 명시적으로 요청할 때만.** 여러 AI 세션(Codex·Claude 등)이 동시에 돌 수 있으니 본인이 만진 파일만 골라 스테이징.
 > **⛔ 개발 환경 = 단일 맥 (2026-08-13 확정).** 모든 개발이 맥 한 대로 통합됐다(Jin이 맥에서 Android 빌드도 가능함을 확인). 아래는 **전부 무효 — 어떤 세션도 이걸 전제로 대기/분담하지 말 것:**
 > - ~~"Windows=UI/Android · Mac=데이터/iOS" 기계별 분담~~
@@ -30,10 +34,9 @@
 ---
 
 
-> **⛔ 세션 시작 시 이 AGENTS.md(간결)를 읽고 시작한다 — 예외 없음.** 그 다음 필요한 파일만 grep/Read.
-> 전역 운영 원칙은 `~/.claude/CLAUDE.md` 참조.
-> **⛔ 필수 기록 규칙 (예외 없음):** 코드·데이터·에셋·설정 등 **무엇이든 하나라도 변경하면 반드시** `docs/SESSION_LOG.md`에 항목을 남긴다(무엇을·왜·검증·커밋해시). 커밋할 때 관련 로그 갱신을 **같은 커밋 또는 직후 커밋에 포함**. 기록 없이 변경만 커밋하는 것 금지. 프로젝트 밖 지속 사실은 `~/.claude/.../memory/`에도 남기고 MEMORY.md 인덱스에 한 줄 추가.
-> **작업 완료 시마다** "현재 진행 중인 작업" 체크리스트를 업데이트할 것 (완료 항목 체크, 새 항목 추가).
+> **⛔ 세션 시작 시 이 AGENTS.md(간결)와 `.claude/handoffs/` 최신 파일 하나만 읽는다 — 예외 없음.**
+> `docs/SESSION_LOG.md`는 자동으로 읽지 않는다. 전역 운영 원칙은 `~/.claude/CLAUDE.md` 참조.
+> **작업 게이트가 열리거나 닫히면** 아래 "현재 진행 중인 작업"만 고친다. 완료 항목은 체크리스트에 남기지 말고 지운다.
 > **비주얼 에셋 작업 전** `docs/ASSET_GENERATION_BIBLE.md` **하나만** 읽으면 됨 — 스타일 가이드·디자인 토큰·한옥/장식/도장/스티커/마스코트 프롬프트를 모두 흡수한 자급자족 AI 생성 바이블 (스타일명 **"Faceted Minhwa (모던 면 분할 민화)"**). 일러스트/아이콘/마케팅 자산 신규 제작·이터레이션 시 이 파일을 프롬프트 소스로 사용. (구 `HANGUL_SORI_STYLE_GUIDE.md`·`HANGUL_SORI_DESIGN_TOKENS.md`·`stately-rising-jongga-assets.md`는 상세 레퍼런스로만.)
 > **⛔ 정정(2026-08-18): 한옥/장식 계열은 위 문장이 stale하다.** 실제 우선순위는 `docs/assets/STYLE_LOCK.json` **>** `docs/HANOK_ASSET_INVENTORY_2026-08-17.md` **>** BIBLE — BIBLE §1.3 팔레트는 실측보다 밝고, §3.5는 마당 전용 규약이라 실내(F-A)엔 안 맞는다. 리더: `tool/style_lock.py`.
 > **마스코트(2026-06-02 v2)**: 업로드된 앉은 호랑이=`tiger_idle.png`, 갓 까치 비행 2프레임=`magpie_wingup/wingdown.png`가 캐릭터 source of truth. `tiger_sleepy`·`tiger_thinking`은 화풍 이질 → 교체 1순위. 상세는 BIBLE §2.
@@ -69,7 +72,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | 새 기능·설계 요구사항을 캐물어 다듬기 | `grill-me` (ADR·용어집까지 남길 땐 `grill-with-docs`) |
 | 코드베이스 구조 개선점 스캔 | `improve-codebase-architecture` |
 | 브랜치·PR·작업분 리뷰 (표준 vs 스펙 2축 병렬) | `code-review` |
-| 세션 인수인계 문서 작성 | `handoff` |
+| 세션 종료·에이전트 전환 | `session-handoff` (`.claude/handoffs/` 한 장, 의무) |
 | `flutter analyze` 경고 정리 · `dart fix` | `dart-run-static-analysis` |
 | 런타임 에러·스택트레이스 수정 | `dart-fix-runtime-errors` |
 | 순수 Dart 로직 유닛 테스트 | `dart-add-unit-test` |
@@ -91,7 +94,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | 위 표에 없는 능력이 필요할 때 | `find-skills` (설치 후보 탐색) |
 
 ⚠️ 스킬은 조언·절차서일 뿐 이 저장소의 규칙보다 우선하지 않는다. 충돌 시 **AGENTS.md 가 이긴다**
-(특히 커밋 금지·SESSION_LOG 기록·하드코딩 문자열 금지·`if/else` 중괄호).
+(특히 커밋 금지·SESSION_LOG 의무 없음·하드코딩 문자열 금지·`if/else` 중괄호).
 
 ---
 
@@ -351,215 +354,47 @@ flutter run -d <android-id>   # 안드로이드
 
 ---
 
-## 현재 진행 중인 작업 (2026-08-16 기준)
+## 현재 진행 중인 작업 (2026-08-19)
 
-> 완료 이력·커밋별 검증은 `docs/SESSION_LOG.md`에만 남긴다. 이 섹션은 다음 세션이
-> 바로 행동할 수 있는 **현재 게이트**만 적는다.
+> 미완료 게이트만 적는다. 끝난 항목은 지우며, 이력은 `git log` / PR / `.claude/handoffs/`다.
 
-- [x] **단어망 V1 + 검수 후속**: 학습한 단어의 비슷한 말·반대말·연관어·표현
- 66클러스터(A1 42·A2 8·B1 8·B2 8)를 `assets/data/word_relations.json`에 두고,
- 연습 허브·둘러보기·Learn 카탈로그에서 `/word_web`으로 공부·4지선다 연습을 연다.
- 질문은 배운 단어, 보기는 전체 시드. 학습 범위는 `vokSeenIds`+SRS 한국어.
- 코스 증거·한옥 보상은 쓰지 않는다. 단어장 뉘앙스(Hanja)와 입구를 나눈다.
-- [x] **Google/Apple 연동·계정 삭제 클라 복구**: 모든 Google 경로가 web
-  `serverClientId`와 비어 있지 않은 ID 토큰을 요구하고, 연동 전 익명 세션을
-  다시 만들며, Apple 취소는 실패가 아니라 취소로 남는다. iOS Info.plist에
-  공개 reversed client URL scheme을 넣었다. Apple 해지 시크릿이 placeholder/
-  미구성이면 서버가 삭제를 멈추지 않고 TN3194대로 계정을 지운다. 실기기
-  Google SHA·실제 Apple `.p8` 해지·Functions 재배포는 운영 게이트로 남는다.
-- [x] **DE/EN 교과서 관용구 제거**: `오랜만이야` → `long time no see` /
- `lange nicht gesehen` 같은 세트 문구를 학습자용 DE/EN에서 걷어냈다. 인사·작별·
- 안부·첫만남과 smalltalk 템플릿·폴백을 구어로 맞췄고, 한국어 원문과 ID는 유지했다.
-
-- [x] **문화어 미니 이야기 V1**: 한옥·계·사랑방·마당·종가·단청·보자기·장독대·
- 문방사우·매화·사군자·갓·책가도·소반·자개문갑 15개를 DE/EN/KO 공통 JSON으로
- 고정했다. 앱은 제목·보상·장식함과 읽기 전용 사랑방/마당에 48dp 도움말·직접 탭·
- 1회 안내를 제공하고, 홈페이지는 첫 등장 한옥/Gye에 데스크톱 대화상자·모바일 하단
- 시트를 제공한다. 데이터 실패 시 기존 흐름/문장은 유지하고 도움말만 숨긴다. production
- 반영은 `fc85a997`에서 문화어 요소로 나뉜 문장을 visible text로 검증해 확인했다.
-
-- [x] **B2 문법 체크포인트 입력 복원**: `V-았/었더라면`을 포함한 코스 문법
-  체크포인트는 카드 전체 탭과 하단 CTA가 같은 채점 시트를 열며, 정답 선택까지 실제
-  위젯 탭 회귀로 고정했다. 일반 문법 카드의 앞뒤 뒤집기 동작은 유지한다.
-
-- [x] **전체 시나리오 문제 프레임 통합**: 58개 시나리오·241개 문제의 7개 엔진을
-  장면 포스터·문항 분절 진행·명시적 확인·2회 시도·단일 계속 CTA로 통일했다. 첫 실행은
-  실제 마지막 문항 저장 성공 뒤에만 최종 성공 화면을 연다. 역할극도 장면 크롭·탭 재생
-  문장 카드·제목 옆 배속·고정 CTA로 통합했고, 공유 카드/타일은 220ms 이하 눌림·상태
-  모션과 reduced-motion 계약을 따른다. 자세한 검증은 세션 로그 최상단이다.
-
-- [x] **첫 공항 초보자 탈출 경로 + Play·홈페이지 자동화**: 공항 2번 Cloze는
-  `한국 처음이세요?`를 정확히 완성하고, courseContext 없는 첫 실행의 7개 엔진은
-  정답을 공개하되 점수를 주지 않는 `모르겠어요` 보조 액션을 제공한다. 짧은 Cloze
-  선택지는 남는 높이 중앙에 배치한다. `main` Flutter 변경은 기존 quality gate 성공 뒤
-  서명 AAB를 Google Play Internal Testing에 자동 업로드한다. 홈페이지·공통 문화어
-  JSON 변경은 웹 gate 뒤 exact Git SHA를 Cloudflare production에 배포하고 live SHA를
-  검증한다. 두 release job은 각각 repository variable로 명시적으로 활성화한다.
-
-- [x] **웹사이트 로컬 Sites/ZIP 탈출**: 정본은 부모 저장소가 추적하는
-  `hangul-sori-site-local/` 하나다. Sites 패키징·Bash·중첩 Git·ZIP·기본 root Worker와
-  Pages CNAME을 격리했고, Node 24.18.0 fresh build·17 tests·strict dry-run·전체 audit를
-  통과했다. 배포는 커밋 SHA 확인과 조건부 자동 rollback을 포함한다.
-- [x] **웹사이트 GitHub/Cloudflare 최종 전환**: GitHub `main` push가 redesign Workers
-  Builds의 `npm run deploy:check` → `npm run deploy:production`으로 자동 배포된다. apex/www는
-  `hangul-sori-redesign` production이며 exact release·11 routes·hashed build assets·21 owned
-  assets·API/bindings·TestFlight를 배포 뒤 검사한다. 레거시 `hangulsori` build config/trigger와
-  Sites custom-domain claim은 0개다. 과거 Wrangler OAuth grant와 로컬 credential 파일도
-  폐기했으며, 수동 배포가 필요할 때만 `npm run cloudflare:login`으로 OS keychain 기반
-  credential을 새로 만든다.
-- [x] **웹사이트 모바일 DE/EN 전환**: 560px 이하에서도 헤더 언어 전환을 유지하고,
-  360px 이하에서만 중복 헤더 CTA를 숨겨 공간을 확보한다. 390px DE/EN 실제 전환과
-  360px·1440px 무오버플로 회귀를 고정했다.
-
-- [x] **사랑방 자유 배치·에셋 전면 활용**: 고정 슬롯을 v3 연속 좌표 편집기로 교체하고
-  보유 장식 11종·스티커 30종·도장 14종을 개인 방 인벤토리에 연결했다. 퀘스트 전용
-  장식 13종은 기존 마당 경로를 유지하며, 상세 검증은 `docs/SESSION_LOG.md` 최상단이다.
-- [x] **UI/UX 개편 2**: 정본은 `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`이고 구현은
-  `main`의 `f718106c`에 통합됐다. 새 화면/흐름의 설계 기준은 이 문서 하나를 사용한다.
-- [x] **시나리오 문제 UI 계약 마감 + 목업 프레임**: G1–G7 + B1–B8.
-  포스터는 기존 12장 크롭. 실기기 TTS·키보드 inset은 Jin 게이트.
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를
   하지 않는다.
-- [x] **콘텐츠 UI 전역 개편**: 정본 `docs/CONTENT_UI_BIBLE.md`. P0–P7
-  (토큰·토스트·피드·듣기 분리·쓰기 크롬·덱 제거·Cloze/Satz/Smalltalk/Scenario
-  셸·두루마리 공유 PNG). 실기기 손맛은 Jin 게이트.
-- [x] **콘텐츠 Batch 01–05**: B1/B2 기존 확장에 더해 Batch 05의 B2/C1/C2
-  vocabulary·grammar·smalltalk·Cloze·Satz 504개와 4개 고급 코스 단원이 앱 데이터에
-  통합됐다. 기존 16개 시나리오/듣기 퀘스트도 유지한다. 콘텐츠 정본은
-  `docs/CONTENT_AUTHORING_GUIDE.md`, `docs/CONTENT_ARCHITECTURE.md`,
-  `docs/CONTENT_SOURCE_POLICY.md`, `docs/CONTENT_REFERENCE_INTAKE_GUIDE.md`다.
-- [x] **C레벨 오늘·스몰톡 노출 계약**: 새 오늘의 단어는 학습자의 exact CEFR에서
-  뽑고, 이미 학습해 복습일이 된 하위 레벨 카드만 SRS 복습으로 유지한다. Review,
-  legacy Today, Practice Hub, Today snapshot, 개인화 코스가 같은 selection helper를
-  사용한다. 비코스 Smalltalk도 사용자 exact level과 그 레벨에 실제 문장이 있는
-  category로 시작하며 exact-level 콘텐츠가 없을 때만 누적 fallback한다.
-- [x] **살아 있는 한옥 V1 PR1 선행 계약**: 40개 `CourseUnit`을 영구 보상 수로
-  고정하지 않고 `core_2026_v1`의 검증 가능한 `CanDoSegment`를
-  A1/A2/B1/B2/C1/C2 `16/16/18/20/8/8`, 총 86개로 분리했다. 같은 능력의 새 콘텐츠는
-  cluster revision, 독립 can-do는 후방 extension track으로 추가해 과거 분모·한옥을
-  낮추지 않는다. 정본은 `docs/ADR-003-can-do-segment-authority.md`다.
-- [x] **살아 있는 한옥 V1 PR2 병합 게이트**: 86개 실제 segment·cluster와 118개 typed
-  생산 평가 요구, CourseMastery V3 증거, C1/C2 4단계 project receipt, CourseUnit 완료와
-  생산 도장을 분리한 재평가 경로까지 구현했다. 미승인 learner copy는 draft에만 격리하고
-  production route를 fail closed했다. PR #31 exact-head CI를 통과하고 main merge
-  `90613738`에 반영됐다.
-- [x] **살아 있는 한옥 V1 PR3 (병합 완료 · dark-launch)**: 검증된 productive
-  `CanDoSegment`만 86개 영구 보상을 여는 `HanokState v1`·grant catalog·projection·
-  idempotent cutover·cloud/account merge를 `64b7e24a`로 main에 넣었다. CourseUnit 완료는
-  재평가 자격만 열고 집을 올리지 않으며, room-v3·장식·Gye 데이터는 보존한다. 미승인
-  grant plan은 `tools/content_factory/drafts/`에만 두고 Flutter asset/production loader로
-  ship하지 않는다.
 - [ ] **살아 있는 한옥 V1 사용자 노출 게이트 (Jin)**: PR3 코드는 들어왔지만 **UI 호출자가
   0이다.** `HanokStateService`/`HanokExperienceProjector`는 `cloud_sync`·
   `account_reconciliation`·`hanok_cutover_service`만 사용하고, 사용자는 여전히 레거시
-  한옥을 본다. 투영을 실제 화면에 연결할지는 이 게이트에서 정한다. 연결 전까지 레거시
-  한옥이 정본이다.
-- [ ] **살아 있는 한옥 V1 PR4 자산 파이프라인**: A1 0–16 catalog·4:3 디코드 창
-  renderer·투명 socket compositor·연속성/lineage gate·원자적 승격/썸네일 도구는
-  코드로 고정됐다. 승인되지 않은 이미지는 runtime/pubspec에 넣지 않는다. Jin이
-  남은 투명 레이어를 만들면 QA 합성 → 연속성 검사 → 16개 원자 승격 순서로만
-  런타임에 넣는다. production route 연결과 PR3 Play 업로드 결정은 이 항목에
-  포함되지 않는다. Codex 파일럿 A1-05~10 raw·레이어·QA WebP는 `9958a458`로
-  `assets_unused/pending_review/`에 들어왔다(승격 아님). **Codex 06이 앞줄 기둥 7개만
-  그려 07~10에 뒷줄·옆보가 없고 완성 사랑채는 앞기둥 8개(7칸)라, 05~10 계보 전체를 새로
-  만든다.** BBANANA ledger 19건(13.5 credit)은 **이관하지 않기로 확정**(2026-08-17, Jin) —
-  근거는 `docs/HANOK_V1_SOURCE_REGISTRY.md` 생성 기록 절.
-- [x] **살아 있는 한옥 — 배선·자동화·세분화 (2026-08-18, PR-B~D + Phase 2)**:
-  `145e7928`로 **이미 main 병합**. 정본 계획 `~/.claude/plans/swift-yawning-squirrel.md`는
-  Mac 로컬에만 있다. PR-B 원장(한옥 48.0cr + discarded 20.6, 장식 65.0cr +
-  discarded 28.0, budget 600) · PR-C 데이터 절반 · PR-D 사랑방 가구 풀 12 ·
-  Phase 2-1~2-3 STYLE_LOCK/러너 · Phase 2-4 투명도 순회. **PR-E/PR-F/Phase 3
-  생성은 미착수.** 레거시 한옥이 라이브 정본. 다음 세션 시작:
-  `.claude/handoffs/2026-08-18-235200-hanok-asset-skill-audit.md`.
+  한옥을 본다. 연결 전까지 레거시 한옥이 정본이다. PR-E/PR-F/Phase 3 생성은 미착수.
   `chore/hanok-pr-e-prep` / `chore/hanok-asset-ledger-backfill`을 잇지 말 것.
-- [x] **한옥 레시피 러너 게이트 (2026-08-18)**: DRAFT 차단, Seedream `allowed:false`,
-  참조 정확히 1장, 모든 kind `2K`, F-A 골격 조립, 거절 spec 디스크 기록,
-  `cutout-fa-decoration-geomungo.json` 재생 픽스처. 남은 후속은 SESSION_LOG 참고.
-- [x] **Batch 06 앱 데이터 승격 + 카탈로그 계약**: `fa86b7af`가 Batch 06
-  68개 standalone + embedded quest 20개를 production asset과
-  `curriculum_manifest.json` contentLinks에 올렸다. review ledger는 전부
-  `approved`이고 manifest 상태는 `merged`다.
-- [x] **한국 파트너 가족·명절 트랙 live 승격**: Batch 07/08 partner-family가
-  live 자산에 들어갔다. 그 직후 카탈로그는 vocab 1620, cloze 962, satz 875,
-  smalltalk 365, scenario 90, quest 359, pronunciation 20, A1–B2 smalltalk
-  semantic decision 321이었다.
-- [x] **A1 partner 수리·생산 퀘스트 + typography 래칫**: 7개 A1 partner
-  시나리오에 particlePop+satzBauen을 넣어 카탈로그 345→359. 단어장/커스텀팩
-  라벨 CTA의 raw AppBar·w800·장식 아이콘을 걷어 래칫을 166/98/71로 내렸다.
-- [x] **레벨 콘텐츠 4× 잔량 live 승격 (Batch 09/10)**: `batch_09_4x` /
-  `batch_10_4x`를 앱 데이터에 올렸다. Batch 10 시나리오 174개는 영어 슬러그와
-  `해결해야 합니다` 템플릿을 빼고 장면별 한국어로 다시 썼다. 우체국·휴대폰
-  창구 백드롭과 `비밀번호`/`잰 다음` 문장, humanizer로 제목 끼움 접수
-  프레임까지 이어서 고쳤다. 현재 카탈로그는
-  vocab 2196, cloze 1538, satz 2091, smalltalk 377, grammar 206, scenario 264,
-  quest 971, pronunciation 20, A1–B2 smalltalk semantic decision 329다.
-  TTS/Firebase는 아직 없다. 원래 4× 단어 목표(4752)까지는 잔량이 남는다. 다음
-  작성 번호는 Batch 11이다.
-- [ ] **다음 콘텐츠**: 다음 미사용 번호는 Batch 11이다. loader 재계산
-  작업량은 `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`를 따른다.
-  PDF, OCR, 표 판독은 `reference_intake/` 격리 DB를 거쳐 source가 제거된 brief만
-  독립 집필에 쓴다. review 승인 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다.
-- [x] **Batch 05 TTS/Storage**: 신규 504개를 합성·업로드했고 전체 corpus 6,321개를
-  Storage에서 검증했다. 결과는 expected 6,321, remote 6,376, missing 0, stale 55이며
-  과거 immutable stale 객체는 삭제하지 않는다.
-- [x] **책 한 컷 로컬 하드닝**: ML Kit Korean 단일 인식, 공용 NFC/혼합-text 계약,
-  사진 선명도·명암·회전 gate와 3단 정렬, 엄격한 응답 schema/언어 검증, 빈·오염 결과의
-  저장·팩·TTS 차단, DE/EN 출처, Kiwi 관형형, source-free 30일 cache, exact source
-  allowlist와 배포 verifier를 구현했다. Flutter/Python/Firestore 회귀와 preflight는 통과했다.
-- [x] **백엔드 신뢰성 1단계 (로컬)**: 책 분석·TTS·발음이 제공자 실패 시 할당량을
-  환급하고, DeepL/Azure/Cloud TTS에 프로세스 내 서킷 브레이커를 둔다. TTS `usage`와
-  `service_quota_ledgers`는 `expiresAt` TTL을 쓰고, 레거시 `cache/translations`와
-  할당량 컬렉션은 클라 접근을 차단한다. 끝말잇기 사전 HTTP는 2KB 상한을 강제한다.
-  live 배포·TTL ACTIVE 확인은 아래 운영 게이트에 남긴다.
-- [x] **백엔드 신뢰성 2단계 (로컬)**: 끝말잇기 사전 503은 할당량을 환급하고, 빈
-  TTS 버퍼는 Storage에 남기지 않으며, DeepL/Cloud TTS는 클라 12초보다 짧은
-  deadline으로 실패한다. 같은 책 분석 지문과 같은 `assessmentId` 재시도는
-  `service_idempotency` 영수증으로 한도를 다시 깎지 않는다. 클라 접근은 차단하고
-  `expiresAt` TTL 15분이다. live 배포는 운영 게이트에 남긴다.
-- [x] **유료 경로 4결함 완전 차단 (로컬)**: 책 분석·발음은 consume 전 pending
-  선점으로 진행 중 재시도가 한도를 두 번 깎지 않는다. DeepL은 요청당 8초
-  공유 예산, 사전 예외도 환급, TTS는 MPEG/ID3 최소 길이만 캐시 히트다.
-- [x] **TTS 리뷰 잔여 4건 (로컬)**: 선점 실패는 과금하지 않고 503이다. pending
-  패자는 재합성하지 않는다. 함수 timeout은 클라와 같은 12초, 합성은 7초다.
-  에러 로그는 코드만, 클라 로컬 캐시는 MPEG/ID3만 재생한다.
+- [ ] **살아 있는 한옥 V1 PR4 자산 파이프라인**: A1 0–16 catalog·도구는 코드로 고정.
+  승인되지 않은 이미지는 runtime/pubspec에 넣지 않는다. Codex 06이 앞줄 기둥 7개만
+  그려 05~10 계보를 새로 만든다. BBANANA ledger는 이관하지 않음.
+- [ ] **다음 콘텐츠**: 다음 번호는 Batch 11. `docs/CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`.
+  review 승인 전에는 앱 데이터, TTS, Firebase에 쓰지 않는다. 4× 단어 목표(4752)까지 잔량.
 - [ ] **TTS·Rules 배포 (Jin)**: 빈 캐시 거절·환급·12초 timeout·7초 deadline·
   fail-closed 선점은 `functions/tts` live에 아직 없다. indexes → rules →
-  `functions:tts-firebase-functions` 순으로 올린다. 책 분석 Gen2는 별도
-  운영 게이트다.
-- [ ] **책 한 컷 운영 게이트 (Jin 승인 필요)**: 2026-08-15 live Gen2는 필수 모듈이 빠진
-  구버전이고 cache 379건에 원문이 있으며 TTL 정책은 없다. Secret/전용 계정과 Rules+TTL,
-  Python Gen2를 배포하고 source SHA, Android `de`/iOS `en` signed smoke, 실제 혼합 교재
-  촬영을 통과한 뒤에만 별도 삭제 승인으로 legacy cache를 정리한다.
-- [x] **Android main → 내부테스트 자동배포**: `main` Flutter 변경은 CI quality
-  gate 성공 뒤에만 Play **내부 테스트(`internal`)** 트랙에 서명 AAB를 올린다.
-  비공개테스트(Closed/`alpha`)·공개테스트·Production·iOS/TestFlight는 자동화하지
-  않는다. 테스터는 Play Console 내부 테스트 이메일(Jin 전용).
-- [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인,
-  Android Internal 설치·App Check·데이터 보존 확인. Closed Testing 승격은 수동.
-- [x] **문서 정리**: 활성 정본 목록은 `docs/README.md`에 둔다. 완료된 계획·세션별
- 초안은 working tree에 되살리지 말고 Git history와 `docs/SESSION_LOG.md`로 추적한다.
-- [x] **단어장 사진 → 그 단어만 놀이 연습**: 교재 분석과 분리된 Vokabelheft
- 경로가 사진의 한국어–뜻 쌍을 그대로 팩으로 만들고, 카드·짝맞추기·받아쓰기·퀴즈와
- 한자/유의어/격식 비교 놀이로 이어진다. CSV/TSV 가져오기는 8,000행까지 받는다.
- 코드 리뷰 후 두 칸 OCR 짝짓기, 괄호 뜻, 추가 사진 시 저장, 교재 할당량 우회,
- 중복 단어 제거를 고쳤다. 학습자는 그 단어 중 골라 카드·퀴즈와 기존 Cloze·
- 문장 만들기·초성·스피드매치·스몰토크·발음·시나리오·단어망 콘텐츠로
- 스스로 게임을 만든다. 없는 문장은 만들지 않는다. 실기기 촬영 검수는
- Jin 게이트로 남는다.
+  `functions:tts-firebase-functions`. 책 분석 Gen2는 별도 게이트.
+- [ ] **책 한 컷 운영 게이트 (Jin)**: live Gen2는 구버전. Secret/Rules+TTL, Python Gen2,
+  실기기 촬영 뒤에만 legacy cache 삭제.
+- [ ] **릴리스 운영 (Jin)**: TestFlight 실기기, Android Internal 설치·App Check.
+  Closed Testing 승격은 수동. Play는 internal만 자동화.
+- [ ] **#100 태블릿 골든 (CI)**: #96 Wanted Sans 이후 medium/expanded 6장이 깨졌다.
+  `cursor/fix-tablet-goldens-4772`가 하니스에 `SoriTypeScale`을 넣고 Linux 기준선을 갱신 중.
 
-## 세션 로그 → docs/SESSION_LOG.md
+## 세션 기록 — handoff (SESSION_LOG 의무 폐지)
 
-> 세션 히스토리(2,700+줄)는 컨텍스트 비용 절감을 위해 **`docs/SESSION_LOG.md`** 로 분리했다.
-> - 과거 맥락이 필요하면 그 파일만 **grep/Read**(자동 로드하지 않음).
-> - ⛔ **새 변경 기록은 이제 `docs/SESSION_LOG.md` 최상단(최신이 위)에 남긴다** — 무엇을·왜·검증·커밋해시.
-> - ⛔ **`docs/SESSION_LOG.md`는 항상 최근 3일 분만 유지한다**(2026-08-18 시행). 새 항목을
->   적기 전에 그 파일의 가장 오래된 날짜가 오늘 기준 3일을 넘었으면 먼저
->   `python tool/rotate_session_log.py --apply` 를 실행해 그 이전 기록을
->   **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮긴다(무손실, 자체 검증 후 기록). 아카이브도
->   자동 로드하지 않고 필요할 때만 grep/Read.
-
----
+> **변경마다 `docs/SESSION_LOG.md`에 쓰지 않는다** (2026-08-19, Jin).
+> 그 파일은 여러 에이전트가 맨 위에 붙여 merge conflict의 주원인이었고, 세션마다
+> ~5만 토큰을 삼켰다.
+>
+> - **세션 시작:** 이 AGENTS(게이트) + `.claude/handoffs/`에서 가장 최근 파일 하나.
+> - **세션 종료 / 에이전트 전환 / "저장하고 멈춰":**
+>   `python .claude/skills/session-handoff/scripts/create_handoff.py <슬러그>`
+>   후 빈칸을 채운다. 한 장: 지금 상태 · 다음 한 일 · 읽지 말 것 · 브랜치/SHA.
+>   이미 있는 계획·PR·커밋은 경로만 적는다.
+> - **이력:** `git log`, PR 본문. `docs/SESSION_LOG.md`와
+>   `docs/SESSION_LOG_ARCHIVE.md`는 과거 검색용 — 자동 로드 금지, Jin이 일기
+>   요청할 때만 적는다. 로테이션이 필요하면 `python tool/rotate_session_log.py --apply`.
 
 ## PR·CI 규칙 (AI 에이전트 필수)
 
