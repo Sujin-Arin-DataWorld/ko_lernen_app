@@ -137,7 +137,19 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
     });
   }
 
+  bool get _canFling {
+    if (widget.judgmentsEnabled) {
+      return widget.onNext != null ||
+          widget.onPrevious != null ||
+          (widget.onSkip != null && widget.skipEnabled);
+    }
+    return widget.onSkip != null && widget.skipEnabled;
+  }
+
   void _onVerticalDragUpdate(DragUpdateDetails details) {
+    if (!_canFling) {
+      return;
+    }
     setState(() => _dy += details.delta.dy);
   }
 
@@ -299,8 +311,9 @@ class SoriContentActions extends StatelessWidget {
   Widget build(BuildContext context) {
     final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
+    final visibleSkip = skipLabel != null && onSkip != null;
     final showJudgments =
-        knowLabel != null || hardLabel != null || skipLabel != null;
+        knowLabel != null || hardLabel != null || visibleSkip;
     return Padding(
       padding: const EdgeInsets.only(top: Spacing.sm),
       child: Column(
@@ -351,40 +364,44 @@ class SoriContentActions extends StatelessWidget {
           if (showJudgments) ...[
             const SizedBox(height: Spacing.sm),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 if (hardLabel != null)
-                  _TextAction(
-                    name: 'dontknow',
-                    label: hardLabel!,
-                    style: tt.meta.copyWith(
-                      color: judgmentsEnabled
-                          ? SoriColors.accent
-                          : s.textDim,
+                  Expanded(
+                    child: _TextAction(
+                      name: 'dontknow',
+                      label: hardLabel!,
+                      style: tt.meta.copyWith(
+                        color: judgmentsEnabled
+                            ? SoriColors.accent
+                            : s.textDim,
+                      ),
+                      onTap: onHard,
+                      dimmed: !judgmentsEnabled,
                     ),
-                    onTap: onHard,
-                    dimmed: !judgmentsEnabled,
                   ),
-                if (skipLabel != null)
-                  _TextAction(
-                    name: 'skip',
-                    label: skipLabel!,
-                    style: tt.meta,
-                    onTap: onSkip,
-                    dimmed: onSkip == null,
+                if (visibleSkip)
+                  Expanded(
+                    child: _TextAction(
+                      name: 'skip',
+                      label: skipLabel!,
+                      style: tt.meta,
+                      onTap: onSkip,
+                    ),
                   ),
                 if (knowLabel != null)
-                  _TextAction(
-                    name: 'know',
-                    label: knowLabel!,
-                    style: tt.meta.copyWith(
-                      color: judgmentsEnabled
-                          ? SoriColors.contentCta
-                          : s.textDim,
-                      fontWeight: FontWeight.w700,
+                  Expanded(
+                    child: _TextAction(
+                      name: 'know',
+                      label: knowLabel!,
+                      style: tt.meta.copyWith(
+                        color: judgmentsEnabled
+                            ? SoriColors.contentCta
+                            : s.textDim,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      onTap: onKnow,
+                      dimmed: !judgmentsEnabled,
                     ),
-                    onTap: onKnow,
-                    dimmed: !judgmentsEnabled,
                   ),
               ],
             ),
@@ -466,7 +483,13 @@ class _TextAction extends StatelessWidget {
             child: Opacity(
               opacity: dimmed ? 0.38 : 1,
               child: Center(
-                child: Text(label, style: style, textAlign: TextAlign.center),
+                child: Text(
+                  label,
+                  style: style,
+                  textAlign: TextAlign.center,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ),
             ),
           ),
