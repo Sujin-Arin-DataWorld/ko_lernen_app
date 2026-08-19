@@ -78,15 +78,10 @@ class PersonalHanokMap extends StatelessWidget {
               fit: StackFit.expand,
               children: [
                 for (final layer in layers)
-                  Image.asset(
-                    key: ValueKey('personal-hanok-layer-${layer.id}'),
-                    layer.assetPath,
-                    fit: BoxFit.cover,
+                  _MapLayerImage(
+                    layer: layer,
                     cacheWidth: cacheW,
-                    gaplessPlayback: true,
-                    errorBuilder: (ctx, _, __) => layer.opaque
-                        ? ColoredBox(color: SoriSurfaces.of(ctx).surfaceAlt)
-                        : const SizedBox.expand(),
+                    canvasHeight: constraints.maxHeight,
                   ),
                 if (selectedZone != null &&
                     visiblePersonalHanokZones(
@@ -366,5 +361,47 @@ class _ZoneTarget extends StatelessWidget {
             )
           : ExcludeSemantics(child: target),
     );
+  }
+}
+
+/// One estate art layer, optionally nudged on the master canvas.
+///
+/// [PersonalHanokMapLayer.canvasOffsetY] is expressed in 1536 × 1152
+/// master-canvas pixels, so it has to be scaled to whatever height the map
+/// is actually drawn at. A zero offset builds the plain [Image.asset] with
+/// no wrapper, keeping the render path identical for every layer that does
+/// not opt in.
+class _MapLayerImage extends StatelessWidget {
+  final PersonalHanokMapLayer layer;
+  final int? cacheWidth;
+  final double canvasHeight;
+
+  const _MapLayerImage({
+    required this.layer,
+    required this.cacheWidth,
+    required this.canvasHeight,
+  });
+
+  static const double _masterCanvasHeight = 1152;
+
+  @override
+  Widget build(BuildContext context) {
+    final image = Image.asset(
+      key: ValueKey('personal-hanok-layer-${layer.id}'),
+      layer.assetPath,
+      fit: BoxFit.cover,
+      cacheWidth: cacheWidth,
+      gaplessPlayback: true,
+      errorBuilder: (ctx, _, __) => layer.opaque
+          ? ColoredBox(color: SoriSurfaces.of(ctx).surfaceAlt)
+          : const SizedBox.expand(),
+    );
+    if (layer.canvasOffsetY == 0 ||
+        !canvasHeight.isFinite ||
+        canvasHeight <= 0) {
+      return image;
+    }
+    final dy = layer.canvasOffsetY * canvasHeight / _masterCanvasHeight;
+    return Transform.translate(offset: Offset(0, dy), child: image);
   }
 }
