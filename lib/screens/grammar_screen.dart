@@ -1353,7 +1353,7 @@ class _Front extends StatelessWidget {
               t.hintTapForExplanation,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: soriFillSize(h, 0.038, 12, 18),
+                fontSize: soriFillSize(h, 0.038, 12.5, 18),
                 color: s.textDim,
               ),
             ),
@@ -1478,7 +1478,7 @@ class _Back extends StatelessWidget {
                 copy.note,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: soriFillSize(h, 0.038, 12, 18),
+                  fontSize: soriFillSize(h, 0.038, 12.5, 18),
                   color: s.textMuted,
                   height: 1.4,
                 ),

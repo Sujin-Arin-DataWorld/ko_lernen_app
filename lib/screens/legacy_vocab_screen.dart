@@ -975,7 +975,7 @@ class _Front extends StatelessWidget {
                         v.posFor(lang),
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: soriFillSize(h, 0.05, 12, 26),
+                          fontSize: soriFillSize(h, 0.05, 12.5, 26),
                           color: s.textMuted,
                         ),
                       ),
@@ -1159,7 +1159,7 @@ class _Back extends StatelessWidget {
                         '${v.posFor(lang)} · ${v.topic}',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: soriFillSize(h, 0.05, 12, 26),
+                          fontSize: soriFillSize(h, 0.05, 12.5, 26),
                           color: s.textMuted,
                         ),
                       ),

@@ -1294,7 +1294,7 @@ class _FlipFront extends StatelessWidget {
               ],
             ),
             style: TextStyle(
-              fontSize: soriFillSize(h, 0.032, 12, 20),
+              fontSize: soriFillSize(h, 0.032, 12.5, 20),
               color: s.textDim,
             ),
           ),

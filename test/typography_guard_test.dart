@@ -35,7 +35,8 @@ void main() {
     // 2026-08-03 R1-e: 온보딩 레벨 배지 w900 1곳 제거 → 45 로 래칫 하향.
     // 2026-08-14 Phase 3(§D~§F) 재실측: 40→35 (_StatTile w900 제거 포함).
     // 2026-08-17 카드 면 굵기 정리: 학습 카드 앞/뒷면을 Bold(700) 로 → 35→31.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 31, 'FontWeight.w900');
+    // 2026-08-19 재실측: 31→28.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 28, 'FontWeight.w900');
   });
 
   test('FontWeight.w800 은 더 늘지 않는다', () {
@@ -49,7 +50,8 @@ void main() {
     // 2026-08-17: 단어장 앱바 제목 w800 3곳 → SoriAppBar.h2, 168→166.
     // 2026-08-17 카드 면 굵기 정리: 복습·단어팩·커스텀팩·레거시 카드와
     // `soriUniformFitSize` 실측 기본값을 Bold(700) 로 → 166→155.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 155, 'FontWeight.w800');
+    // 2026-08-19 재실측: 155→141.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 141, 'FontWeight.w800');
   });
 
   test("하드코딩 'Pretendard' 리터럴은 더 늘지 않는다 (SoriFonts.sans 사용)", () {
@@ -61,7 +63,8 @@ void main() {
     _expectAtMost(
       sources,
       RegExp("fontFamily: 'Pretendard'"),
-      94,
+      // 2026-08-19 재실측: 94→79.
+      79,
       "fontFamily: 'Pretendard'",
       useRaw: true,
     );
@@ -86,7 +89,8 @@ void main() {
     _expectAtMost(
       sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
       RegExp(r'(^|[^A-Za-z_$.])TextStyle\('),
-      409,
+      // 2026-08-19 재실측: 409→371 (콘텐츠 화면 색·줄바꿈 정리).
+      371,
       'lib/screens/ 원시 TextStyle(',
     );
   });
@@ -99,7 +103,8 @@ void main() {
     _expectAtMost(
       sources,
       RegExp(r'BorderRadius\.circular\(\s*[0-9]'),
-      54,
+      // 2026-08-19 재실측: 54→38.
+      38,
       '숫자 리터럴 BorderRadius.circular(',
     );
   });
@@ -113,7 +118,8 @@ void main() {
     _expectAtMost(
       sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
       RegExp(r'(^|[^A-Za-z_$.])AppBar\('),
-      98,
+      // 2026-08-19 재실측: 98→84.
+      84,
       'lib/screens/ 원시 AppBar(',
     );
   });
