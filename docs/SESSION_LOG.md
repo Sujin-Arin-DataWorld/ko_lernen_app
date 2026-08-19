@@ -1,5 +1,14 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — A2 단어팩 DE/EN 뉘앙스
+
+**무엇을 왜.** A2 파트너·일상 팩의 합성 직역(Festtagsgruß, Ankunftsgruß,
+Dolmetschbitte, Vermittlungsdate, TraditionsTee)을 독일어·영어 구어로.
+
+**검증.** 해당 id만 교체. 한국어 원문 유지.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — A1 단어팩 DE/EN 뉘앙스 (직역 제거)
 
 **무엇을 왜.** Jin: KO:DE / KO:EN을 1:1 직역하지 말고 각 언어 느낌으로.
