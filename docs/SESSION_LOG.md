@@ -1,5 +1,14 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — B1 단어팩 DE/EN 뉘앙스
+
+**무엇을 왜.** 알림장 Mitbringsel, 방문 후기 Besuchsnachlese, 선물 감사
+Geschenkdank, 준비물 분담 Materialteilung 등 합성 직역을 구어로.
+
+**검증.** 해당 id만. 한국어 유지.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — A2 단어팩 DE/EN 뉘앙스
 
 **무엇을 왜.** A2 파트너·일상 팩의 합성 직역(Festtagsgruß, Ankunftsgruß,
