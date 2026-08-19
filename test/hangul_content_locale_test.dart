@@ -25,7 +25,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
-    SharedPreferences.setMockInitialValues({'kl_tut_hangul': true});
+    SharedPreferences.setMockInitialValues({
+      'kl_tut_hangul': true,
+      'kl_tut_hangulWriteRules': true,
+    });
     Storage.resetForTesting();
     await Storage.init();
   });

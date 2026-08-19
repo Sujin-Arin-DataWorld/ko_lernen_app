@@ -158,6 +158,16 @@ class SoriColors {
   static const Color danger = Color(0xFFC44F40); // 오답/삭제 (단청 적 lifted)
   static const Color info = Color(0xFF57799E); // 정보 (청금석, white 4.53:1)
 
+  /// Content-player CTA — 녹청. Jin 2026-08-19: listening blue is not the
+  /// filled button. Level chips keep [info]; XP/streak keep [gold].
+  static const Color contentCta = primary;
+
+  /// Text/icon on [contentCta]. White — not a new pigment.
+  static const Color contentCtaOn = Color(0xFFFFFFFF);
+
+  /// Like/heart fill — same pigment as [accent] (석간주). Not Instagram pink.
+  static const Color like = accent;
+
   // ── Light surfaces (한지 위에서) ─────────────────────────────────────
   static const Color lightBg = Color(0xFFFAF6EC); // 한지 cream
   static const Color lightSurface = Color(0xFFF1ECDC); // 한지 깊은 톤
@@ -592,6 +602,32 @@ class SoriTextTheme {
 
   // ── Caption / Label ──────────────────────────────────────────────────
   TextStyle get caption => _base(
+    fontSize: 12.5,
+    weight: FontWeight.w500,
+    letterSpacing: 0,
+    height: 1.35,
+    color: _s.textMuted,
+  );
+
+  /// Content-player Korean hero. Hierarchy is size/weight only — no new font.
+  TextStyle get koDisplay => _base(
+    fontSize: 28,
+    weight: FontWeight.w700,
+    letterSpacing: -0.4,
+    height: 1.25,
+  );
+
+  /// Content-player DE/EN gloss under the Korean word.
+  TextStyle get gloss => _base(
+    fontSize: 17,
+    weight: FontWeight.w500,
+    letterSpacing: -0.1,
+    height: 1.4,
+    color: _s.textMuted,
+  );
+
+  /// Content-player chrome (progress `3 / 12`, hints). Do not go below 12.5.
+  TextStyle get meta => _base(
     fontSize: 12.5,
     weight: FontWeight.w500,
     letterSpacing: 0,

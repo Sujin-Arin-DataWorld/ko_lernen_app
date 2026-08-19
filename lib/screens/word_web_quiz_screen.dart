@@ -196,7 +196,7 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
   Widget _buildEmpty(AppL10n t) {
     return Center(
       child: SoriEmptyState(
-        asset: 'assets/illustrations/empty/studyroom_waiting.png',
+        asset: 'assets/illustrations/mascot/magpie_encourage.png',
         icon: Icons.hub_outlined,
         title: t.wordWebQuizEmptyTitle,
         body: t.wordWebQuizEmptyBody,

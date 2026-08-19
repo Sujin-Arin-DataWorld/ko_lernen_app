@@ -404,6 +404,9 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **UI 실기기 게이트 (Jin)**: 덱 4방향 손맛·시스템 엣지·히어로 잘림, 승인 대기 중인
   아이콘/리소 자산을 실제 기기에서 검수한다. 승인 전에는 대규모 UI 재설계나 자산 덮어쓰기를
   하지 않는다.
+- [x] **콘텐츠 UI 전역 개편**: 정본 `docs/CONTENT_UI_BIBLE.md`. P0–P7
+  (토큰·토스트·피드·듣기 분리·쓰기 크롬·덱 제거·Cloze/Satz/Smalltalk/Scenario
+  셸·두루마리 공유 PNG). 실기기 손맛은 Jin 게이트.
 - [x] **콘텐츠 Batch 01–05**: B1/B2 기존 확장에 더해 Batch 05의 B2/C1/C2
   vocabulary·grammar·smalltalk·Cloze·Satz 504개와 4개 고급 코스 단원이 앱 데이터에
   통합됐다. 기존 16개 시나리오/듣기 퀘스트도 유지한다. 콘텐츠 정본은
@@ -511,8 +514,12 @@ flutter run -d <android-id>   # 안드로이드
   구버전이고 cache 379건에 원문이 있으며 TTL 정책은 없다. Secret/전용 계정과 Rules+TTL,
   Python Gen2를 배포하고 source SHA, Android `de`/iOS `en` signed smoke, 실제 혼합 교재
   촬영을 통과한 뒤에만 별도 삭제 승인으로 legacy cache를 정리한다.
-- [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인, Android
-  AAB의 Play Internal Testing 설치·App Check·데이터 보존 확인 뒤 Closed Testing 승격.
+- [x] **Android main → 내부테스트 자동배포**: `main` Flutter 변경은 CI quality
+  gate 성공 뒤에만 Play **내부 테스트(`internal`)** 트랙에 서명 AAB를 올린다.
+  비공개테스트(Closed/`alpha`)·공개테스트·Production·iOS/TestFlight는 자동화하지
+  않는다. 테스터는 Play Console 내부 테스트 이메일(Jin 전용).
+- [ ] **릴리스 운영 (Jin)**: App Store Connect 처리 뒤 TestFlight 실기기 확인,
+  Android Internal 설치·App Check·데이터 보존 확인. Closed Testing 승격은 수동.
 - [x] **문서 정리**: 활성 정본 목록은 `docs/README.md`에 둔다. 완료된 계획·세션별
  초안은 working tree에 되살리지 말고 Git history와 `docs/SESSION_LOG.md`로 추적한다.
 - [x] **단어장 사진 → 그 단어만 놀이 연습**: 교재 분석과 분리된 Vokabelheft

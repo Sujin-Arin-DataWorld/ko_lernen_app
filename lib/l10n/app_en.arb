@@ -935,10 +935,21 @@
   "vocabPackDontKnow": "Don't know",
   "vocabPackGotIt": "Got it",
   "deckActionSave": "Save",
+  "contentActionFlip": "Flip",
+  "contentActionLike": "Like",
+  "contentActionShare": "Share",
+  "contentActionBookmark": "Save",
+  "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
+  "@contentShareBody": {
+    "placeholders": {
+      "korean": {"type": "String"},
+      "gloss": {"type": "String"}
+    }
+  },
   "deckFlipFirstHint": "Tap the card to flip it first",
-  "coachSoriDeckTitle": "Swipe the card",
-  "coachSoriDeckBody": "Swipe the card: right = knew it, left = didn't know, up = save, down = skip.",
-  "coachSoriDeckBodyNoSave": "Swipe the card: right = knew it, left = didn't know, down = skip. In other decks, swipe up to save the word.",
+  "coachSoriDeckTitle": "Swipe to the next card",
+  "coachSoriDeckBody": "Swipe up or down for the next card. ? flips, the heart likes for later, the bookmark adds to your wordbook.",
+  "coachSoriDeckBodyNoSave": "Swipe up or down for the next card. ? flips, the heart likes for later.",
   "vocabPackStageLearn": "Learn",
   "vocabPackStageQuiz": "Quiz",
   "vocabPackStageBoss": "Boss",
@@ -1448,7 +1459,7 @@
       }
     }
   },
-  "listeningPickFirst": "Pick a scenario above to start.",
+  "listeningPickFirst": "Tap a shelf to start.",
   "listeningEmptyTitle": "No scenarios yet",
   "listeningEmptyBody": "Once scenarios are available, you can listen to them here.",
   "listeningShelfEmpty": "not stocked yet",
@@ -2358,7 +2369,7 @@
   "coachBookStep3": "New words are saved straight to your word list",
   "coachBookLimitNote": "Daily limit: 20 pages",
   "coachVocabPackTitle": "Learn in 3 steps",
-  "coachVocabPackStep1": "Step 1 · Learn: tap to flip the card, then swipe. Right = knew it, left = didn't know, up = save, down = skip",
+  "coachVocabPackStep1": "Step 1 · Learn: tap or ? to flip, then swipe up. Heart = play later, bookmark = wordbook",
   "coachVocabPackStep2": "Step 2 · Quiz: pick the right translation",
   "coachVocabPackStep3": "Step 3 · Boss: listen and choose the meaning",
   "coachPackStageQuiz": "Quiz time! Pick the right translation.",
@@ -2479,10 +2490,10 @@
   "coachKkeunmariStep3Body": "Enter a valid Korean word. The tiger responds automatically.",
   "coachListeningStep1Title": "Choose a situation",
   "coachListeningStep1Body": "Tap a card to select the scenario you want to listen to",
-  "coachListeningStep2Title": "Speed & subtitles",
-  "coachListeningStep2Body": "Adjust playback speed from 0.75× to 1.25× and choose a subtitle mode",
+  "coachListeningStep2Title": "Speed",
+  "coachListeningStep2Body": "One speed icon at the top. ? shows the translation on the line, not as a chip row.",
   "coachListeningStep3Title": "Line by line",
-  "coachListeningStep3Body": "Listen and tap ⟳ to replay, or Next to advance",
+  "coachListeningStep3Body": "Fling up for the next line. Double-tap likes the line; it does not save to the wordbook.",
   "@_coach_c2": {
     "description": "Stage C-2 learning 7-screen coach keys (2026-06-09)"
   },

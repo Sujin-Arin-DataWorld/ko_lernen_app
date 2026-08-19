@@ -121,7 +121,7 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('나무'), findsOneWidget);
 
-    await tester.drag(find.text('나무'), const Offset(220, 0));
+    await tester.drag(find.text('나무'), const Offset(0, -220));
     await tester.pumpAndSettle();
 
     expect(find.text('2 / 3'), findsOneWidget);
@@ -148,9 +148,8 @@ void main() {
       expect(find.byKey(kSpotlightTooltipKey), findsNothing);
       expect(
         find.text(
-          'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen. '
-          'Rechts = gewusst, links = nicht gewusst, hoch = merken, runter = '
-          'überspringen',
+          'Schritt 1 · Lernen: Karte antippen oder ? zum Umdrehen, dann nach oben wischen. '
+          'Herz = später üben, Lesezeichen = Wörterbuch',
         ),
         findsOneWidget,
       );

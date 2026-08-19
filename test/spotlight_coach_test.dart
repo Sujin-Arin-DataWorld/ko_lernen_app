@@ -306,7 +306,7 @@ void main() {
     maybeShowSoriDeckCoach(hostContext, targetKey: targetKey);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 50));
-    expect(find.text('Karte wischen'), findsOneWidget);
+    expect(find.text('Karte weiterwischen'), findsOneWidget);
     await tester.tap(find.text('Fertig'));
     await tester.pump(const Duration(milliseconds: 100));
     expect(Storage.tutSeen('soriDeck'), isTrue);
@@ -315,6 +315,6 @@ void main() {
     maybeShowSoriDeckCoach(hostContext, targetKey: targetKey);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 50));
-    expect(find.text('Karte wischen'), findsOneWidget);
+    expect(find.text('Karte weiterwischen'), findsOneWidget);
   });
 }

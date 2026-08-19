@@ -8,6 +8,7 @@ import '../services/course_activity_reporter.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/satz_loader.dart';
 import '../services/storage_service.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
@@ -191,13 +192,13 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     final t = AppL10n.of(context);
     if (_loading) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.satzArcadeTitle)),
+        appBar: SoriAppBar(title: t.satzArcadeTitle),
         body: const Center(child: CircularProgressIndicator()),
       );
     }
     if (_round.isEmpty) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.satzArcadeTitle)),
+        appBar: SoriAppBar(title: t.satzArcadeTitle),
         body: SafeArea(
           child: Column(
             children: [
@@ -229,11 +230,9 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
 
     final item = _round[_idx];
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.satzArcadeTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+      appBar: SoriAppBar(
+        title: t.satzArcadeTitle,
+        eyebrow: '${_idx + 1} / ${_round.length}',
         leading: IconButton(
           icon: const Icon(Icons.close),
           onPressed: () => Navigator.of(context).maybePop(),
@@ -248,14 +247,6 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   if (widget.items == null) _levelBar(t),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: SoriChip(
-                      label: '${_idx + 1} / ${_round.length}',
-                      accent: SoriColors.info,
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.md),
                   Expanded(
                     child: SatzBauenQuest(
                       key: ValueKey('satz_${_roundId}_$_idx'),
@@ -304,12 +295,9 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   Widget _buildDone(AppL10n t) {
     final pct = _round.isEmpty ? 0 : ((_passed / _round.length) * 100).round();
     return Scaffold(
-      appBar: AppBar(
+      appBar: SoriAppBar(
         automaticallyImplyLeading: false,
-        title: Text(
-          t.satzArcadeTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+        title: t.satzArcadeTitle,
       ),
       body: SafeArea(
         child: SoriCenterClamp(
@@ -331,7 +319,7 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
                 label: t.quizAgain,
                 icon: Icons.refresh_rounded,
                 variant: SoriButtonVariant.filled,
-                accent: SoriColors.primary,
+                accent: SoriColors.contentCta,
                 fullWidth: true,
                 onTap: _newRound,
               ),

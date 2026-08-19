@@ -3397,6 +3397,36 @@ abstract class AppL10n {
   /// **'Merken'**
   String get deckActionSave;
 
+  /// No description provided for @contentActionFlip.
+  ///
+  /// In de, this message translates to:
+  /// **'Umdrehen'**
+  String get contentActionFlip;
+
+  /// No description provided for @contentActionLike.
+  ///
+  /// In de, this message translates to:
+  /// **'Gefällt mir'**
+  String get contentActionLike;
+
+  /// No description provided for @contentActionShare.
+  ///
+  /// In de, this message translates to:
+  /// **'Teilen'**
+  String get contentActionShare;
+
+  /// No description provided for @contentActionBookmark.
+  ///
+  /// In de, this message translates to:
+  /// **'Merken'**
+  String get contentActionBookmark;
+
+  /// No description provided for @contentShareBody.
+  ///
+  /// In de, this message translates to:
+  /// **'{korean}\n{gloss}\nhangul-sori.com'**
+  String contentShareBody(String korean, String gloss);
+
   /// No description provided for @deckFlipFirstHint.
   ///
   /// In de, this message translates to:
@@ -3406,19 +3436,19 @@ abstract class AppL10n {
   /// No description provided for @coachSoriDeckTitle.
   ///
   /// In de, this message translates to:
-  /// **'Karte wischen'**
+  /// **'Karte weiterwischen'**
   String get coachSoriDeckTitle;
 
   /// No description provided for @coachSoriDeckBody.
   ///
   /// In de, this message translates to:
-  /// **'Wische die Karte: rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen.'**
+  /// **'Wische nach oben oder unten zur nächsten Karte. ? dreht um, Herz merkt für später, Lesezeichen legt ins Wörterbuch.'**
   String get coachSoriDeckBody;
 
   /// No description provided for @coachSoriDeckBodyNoSave.
   ///
   /// In de, this message translates to:
-  /// **'Wische die Karte: rechts = gewusst, links = nicht gewusst, runter = überspringen. In anderen Decks speichert hoch das Wort.'**
+  /// **'Wische nach oben oder unten zur nächsten Karte. ? dreht um, Herz merkt für später.'**
   String get coachSoriDeckBodyNoSave;
 
   /// No description provided for @vocabPackStageLearn.
@@ -5380,7 +5410,7 @@ abstract class AppL10n {
   /// No description provided for @listeningPickFirst.
   ///
   /// In de, this message translates to:
-  /// **'Wähl oben ein Szenario, um zu starten.'**
+  /// **'Tippe ein Fach an, um zu starten.'**
   String get listeningPickFirst;
 
   /// No description provided for @listeningEmptyTitle.
@@ -8637,7 +8667,7 @@ abstract class AppL10n {
   /// No description provided for @coachVocabPackStep1.
   ///
   /// In de, this message translates to:
-  /// **'Schritt 1 · Lernen: Karte antippen und umdrehen, dann wischen. Rechts = gewusst, links = nicht gewusst, hoch = merken, runter = überspringen'**
+  /// **'Schritt 1 · Lernen: Karte antippen oder ? zum Umdrehen, dann nach oben wischen. Herz = später üben, Lesezeichen = Wörterbuch'**
   String get coachVocabPackStep1;
 
   /// No description provided for @coachVocabPackStep2.
@@ -9087,13 +9117,13 @@ abstract class AppL10n {
   /// No description provided for @coachListeningStep2Title.
   ///
   /// In de, this message translates to:
-  /// **'Tempo & Untertitel'**
+  /// **'Tempo'**
   String get coachListeningStep2Title;
 
   /// No description provided for @coachListeningStep2Body.
   ///
   /// In de, this message translates to:
-  /// **'Stelle die Geschwindigkeit von 0,75× bis 1,25× und den Untertitelmodus ein'**
+  /// **'Oben ein Tempo-Symbol. ? zeigt die Übersetzung auf der Zeile, nicht als Chip-Leiste.'**
   String get coachListeningStep2Body;
 
   /// No description provided for @coachListeningStep3Title.
@@ -9105,7 +9135,7 @@ abstract class AppL10n {
   /// No description provided for @coachListeningStep3Body.
   ///
   /// In de, this message translates to:
-  /// **'Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile'**
+  /// **'Nach oben wischen für die nächste Zeile. Doppeltipp ist ein Like, nicht die Wortliste.'**
   String get coachListeningStep3Body;
 
   /// No description provided for @coachHangulTitle.
