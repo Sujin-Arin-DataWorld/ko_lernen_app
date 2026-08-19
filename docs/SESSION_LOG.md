@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 통역 눈짓 예문에서 통역을 빼지 않는다
+
+**무엇을 왜.** Cloze/Satz가 `den Blick` / `the look`만 남겨 문장이 안 읽혔다.
+한국어는 현우에게 ‘통역해 줘’ 눈짓을 보내는 장면. DE/EN에 통역을 다시 넣음.
+단어 뜻(Blick, der um Übersetzung bittet)은 유지. 한국어·ID 유지.
+
+**검증.** vocab_a2_0311 + cloze_a2_0118 + satz_a2_0081.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 듣고 있어요 말씀하세요 ≠ Sagen Sie
 
 **무엇을 왜.** `듣고 있어요. 말씀하세요`를 Ich höre. Sagen Sie로 두면
