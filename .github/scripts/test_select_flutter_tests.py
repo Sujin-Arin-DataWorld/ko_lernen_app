@@ -183,7 +183,9 @@ class WorkflowWiringTest(unittest.TestCase):
         self.assertNotIn("apt-get update", active)
         self.assertNotIn("apt-get install", active)
         self.assertIn("eugeneware/ffmpeg-static", active)
-        self.assertIn("ffmpeg-linux-x64", active)
+        self.assertIn("${name}-linux-x64", active)
+        self.assertIn("install_static ffmpeg", active)
+        self.assertIn("install_static ffprobe", active)
 
 
 if __name__ == "__main__":

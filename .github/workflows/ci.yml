@@ -219,20 +219,28 @@ jobs:
       - name: Ensure FFmpeg for matte verification
         run: |
           set -euo pipefail
-          if command -v ffmpeg >/dev/null 2>&1; then
-            ffmpeg -version | head -1
-            exit 0
-          fi
           # apt ffmpeg pulls ~80 packages. Azure Ubuntu mirrors Ign: then
           # archive.ubuntu.com and die at timeout 180s (exit 124). Matte
-          # checks only need one static binary — GitHub release, no apt.
-          tmp="$(mktemp)"
-          timeout 90s curl -fsSL -o "$tmp" \
-            https://github.com/eugeneware/ffmpeg-static/releases/download/b6.1.1/ffmpeg-linux-x64
-          test "$(wc -c < "$tmp")" -gt 1000000
-          chmod +x "$tmp"
-          sudo mv "$tmp" /usr/local/bin/ffmpeg
-          ffmpeg -version | head -1
+          # checks need ffmpeg + ffprobe — GitHub static binaries, no apt.
+          # ffmpeg alone is not enough: check_home_hero_matte.py dies
+          # without ffprobe (color-tag contract).
+          install_static() {
+            local name="$1"
+            if command -v "$name" >/dev/null 2>&1; then
+              "$name" -version | head -1
+              return 0
+            fi
+            local tmp
+            tmp="$(mktemp)"
+            timeout 90s curl -fsSL -o "$tmp" \
+              "https://github.com/eugeneware/ffmpeg-static/releases/download/b6.1.1/${name}-linux-x64"
+            test "$(wc -c < "$tmp")" -gt 1000000
+            chmod +x "$tmp"
+            sudo mv "$tmp" "/usr/local/bin/${name}"
+            "$name" -version | head -1
+          }
+          install_static ffmpeg
+          install_static ffprobe
 
 
       - name: Verify character video mattes
