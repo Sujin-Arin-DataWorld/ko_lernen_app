@@ -10,6 +10,8 @@
 
 사용한 스킬: `find-skills`(리더보드 + CLI), `frontend-design`(주제·토큰·시그니처·자기비판), 저장소 `explore-codebase`/`review-changes` 절차. `code-review-graph` MCP는 이 세션에 안 붙어 파일 실독으로 대체했다.
 
+**클릭 목업:** `docs/mockups/today_courtyard_2026-08-19.html` — A 현재 스택 / B 마당=미션 / C 오프라인. 레포 PNG·WebP만. 호랑이·까치 신규 생성 없음.
+
 ---
 
 ## 0. 한 줄 결론
@@ -266,13 +268,21 @@ Today는 캐릭터 히어로. 나머지 탭은 `SoriStageRootHeader`(eyebrow + �
 
 ### PR H1 — Today가 정직해진다 (로직, 시각 최소)
 
-- 로더: 소스 실패를 fail-closed로 접지 않음. 오프라인+로컬 미션 유지.
-- `recommendMission`: 빈 코스 스냅샷을 첫 유닛으로 채우지 않음. due가 임계면 복습이 코스를 이길 수 있음 (임계는 기존 10, 카피만 DE/EN).
-- 테스트: 기존 Today availability + recommender 유닛. 시나리오만 실패해도 코스 미션이 보이는 픽스처.
+> **정정 (코드 재독):** 아래 두 줄은 테스트 계약과 충돌한다. **구현하지 말 것.**
+> - 소스 실패 → Today unavailable: `today_learning_snapshot_test` + `sori_stage_today_availability_test`가 잠근다.
+> - 코스 > 팩 > 복습≥10 > 시나리오: `mission_recommender_test`가 잠근다.
+>
+> **먼저 고칠 것:** Today 복귀/`SoriStageProgressionService.load`에서 `QuestTracker.syncEarnedRewards()` (보자기 persist). 캡처 CTA는 catalog와 같은 `loadSnapshot` seam. `currentCourseUnitId`가 끝난 유닛이면 fallback.
+
+- ~~로더: 소스 실패를 fail-closed로 접지 않음. 오프라인+로컬 미션 유지.~~ 계약. C 목업은 제품 선택지일 뿐.
+- ~~`recommendMission`: due가 임계면 복습이 코스를 이길 수 있음.~~ 계약. 바꾸지 않음.
+- 테스트: 기존 Today availability + recommender는 **유지**. 추가할 것은 Today 복귀 뒤 보자기 persist.
 
 완료 조건: 로컬 데이터만으로 Today가 미션을 보여 준다. 원격 실패는 배너/unavailable 카드가 **그 가족만** 설명한다.
 
 ### PR H2 — Today가 마당이 된다 (시각, H1 위)
+
+시안: `docs/mockups/today_courtyard_2026-08-19.html` 폰 B. Jin이 §6-1을 예로 고른 뒤에만 앱에 옮긴다.
 
 - 스크롤에서 한옥 바·퀘스트 행 제거(탭과 중복). 보자기는 pending > 0일 때만.
 - 미션을 히어로 아래로 붙여 **한 덩어리**. 생산 카드 하나. `MissionHeroCard`는 삭제하거나 생산으로 흡수(둘 중 하나).
@@ -303,7 +313,7 @@ Today는 캐릭터 히어로. 나머지 탭은 `SoriStageRootHeader`(eyebrow + �
 ## 6. Jin이 고를 것
 
 1. Today에서 한옥/퀘스트 블록을 **빼도 되는가?** (이 계획의 권고: 뺀다)
-2. due 복습이 코스보다 앞설 수 있는가? (권고: 임계 이상이면 예)
+2. due 복습이 코스보다 앞설 수 있는가? (**계약: 아니오.** `mission_recommender_test`. 바꾸려면 테스트부터)
 3. 탭 아이콘을 커스텀 PNG로 바꿀 것인가, 일단 시스템 아이콘을 줄이기만 할 것인가?
 4. 웹 랜딩을 이번 라운드에 넣을 것인가?
 

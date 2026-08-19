@@ -1,5 +1,19 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — Today 마당 클릭 목업
+
+**무엇을 왜.** Jin이 목업도 만들 수 있냐고 물었다. 앱 Dart는 안 고친다.
+시안만: 현재 Today 스택 vs 마당=미션 바닥 vs 오프라인 띠.
+
+**남긴 것.** `docs/mockups/today_courtyard_2026-08-19.html`. 레포
+`tiger_sitting2`·`magpie_perched`·`course.webp`·보자기·기둥·매화만.
+DE/EN·호랑이/까치 토글. 계획 H1은 테스트 계약과 충돌한다고 정정
+(먼저 `syncEarnedRewards`). 포인터: 계획·`docs/README.md`.
+
+**검증.** 에셋 경로 실존. HTML을 로컬 서버로 열어 세 폰 스크린샷.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 메인 홈 수석 UI/UX·백엔드 비판 + 실행 계획
 
 **무엇을 왜.** Jin이 현재 메인을 수석 UI/UX·수석 백엔드 관점으로 비판하고
