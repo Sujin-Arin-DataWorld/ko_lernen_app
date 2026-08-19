@@ -1,5 +1,14 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 실벤 힌트 DE를 단어팩과 동기
+
+**무엇을 왜.** 퍼즐 힌트가 옛 직역(Convenience Store, existieren)을 보여 줌.
+exampleKo가 현재 vocab 예문과 같을 때만 german/exampleDe를 맞춤. 격자·ID 유지.
+
+**검증.** silben_puzzle 계약 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 시나리오 잘 부탁 ≠ Zusammenarbeit
 
 **무엇을 왜.** A1 소개 듣기 정답이 또 Zusammenarbeit였다. 문화 노트도
