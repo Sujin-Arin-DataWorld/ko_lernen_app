@@ -16,9 +16,11 @@ history rather than copied into the working tree.
      it** uses
      [MAIN_HOME_CRITIQUE_PLAN_2026-08-19.md](MAIN_HOME_CRITIQUE_PLAN_2026-08-19.md)
      — that file is the critique/plan SSoT for the 5-tab main, not content
-     players. Clickable Today courtyard mock:
-     [mockups/today_courtyard_2026-08-19.html](mockups/today_courtyard_2026-08-19.html)
-     (A current / B courtyard=mission / C offline). **Content players** (listen, write, decks, cloze, satz,
+     players. Clickable Today mocks:
+     [courtyard](mockups/today_courtyard_2026-08-19.html) (older, covers mascot)
+     and
+     [four houses](mockups/today_four_houses_2026-08-19.html)
+     (현판 / 책가도 / 마루 / 문). **Content players** (listen, write, decks, cloze, satz,
      smalltalk, scenario) use
      [CONTENT_UI_BIBLE.md](CONTENT_UI_BIBLE.md) — that file supersedes the
      4-way Tinder deck in Overhaul 2 §1-1·§1-2.

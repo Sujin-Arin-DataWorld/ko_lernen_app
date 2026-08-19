@@ -10,7 +10,9 @@
 
 사용한 스킬: `find-skills`(리더보드 + CLI), `frontend-design`(주제·토큰·시그니처·자기비판), 저장소 `explore-codebase`/`review-changes` 절차. `code-review-graph` MCP는 이 세션에 안 붙어 파일 실독으로 대체했다.
 
-**클릭 목업:** `docs/mockups/today_courtyard_2026-08-19.html` — A 현재 스택 / B 마당=미션 / C 오프라인. 레포 PNG·WebP만. 호랑이·까치 신규 생성 없음.
+**클릭 목업:**
+- 이전(캐릭터를 가리던) 시안: `docs/mockups/today_courtyard_2026-08-19.html`
+- **네 집 (2026-08-19 재탐색):** `docs/mockups/today_four_houses_2026-08-19.html` — 현판 / 책가도 / 마루 / 문. 창 밖 문턱은 안 씀. 캐릭터 위에 카드 없음.
 
 ---
 

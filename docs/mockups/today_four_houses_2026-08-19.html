@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Today — 네 집 · Hangul Sori</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap">
+<style>
+:root{
+  --ink:#0E1A18;
+  --studio:#141C19;
+  --hanji:#FAF6EC;
+  --mat:#FBF5EB;
+  --muted:#8A938C;
+  --paper:#EDE6D6;
+  --nok:#1F7A6B;
+  --seok:#A0524A;
+  --gold:#C99A2E;
+  --wood:#8E6646;
+  --wood-deep:#5C4028;
+  --sans:"Noto Sans KR",Pretendard,"Wanted Sans",system-ui,sans-serif;
+  --brush:"Nanum Myeongjo","Noto Serif KR",serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:var(--sans);
+  background:var(--studio);
+  color:var(--paper);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:#8FCFC2}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px 88px}
+.hero{padding:48px 0 8px}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#C4A24A}
+h1{font-family:var(--brush);font-size:clamp(32px,4.4vw,52px);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:10px 0 12px;color:#FAF6EC}
+.lede{max-width:70ch;font-size:16px;color:#C9D0CB}
+.rule{height:5px;width:220px;margin:22px 0 0;background:linear-gradient(90deg,#10564C 0 28%,#9B2F26 28% 54%,#C98E22 54% 78%,#FAF6EC 78%)}
+.note{margin:20px 0 0;max-width:78ch;padding:12px 14px;border-left:3px solid var(--gold);background:#1C2622;font-size:13.5px;color:#D5DCD7}
+.controls{position:sticky;top:0;z-index:6;display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;padding:12px 0;margin:20px 0 0;background:rgba(20,28,25,.94);backdrop-filter:blur(10px);border-bottom:1px solid #2A3530}
+.ctl{font-size:12px;font-weight:800;color:var(--muted)}
+.seg{display:inline-flex;background:#0E1A18;border:1px solid #3A4540;border-radius:4px;padding:3px}
+.seg button{appearance:none;border:0;background:transparent;font:inherit;font-size:13px;font-weight:800;color:#A8B2AC;padding:8px 14px;cursor:pointer;min-height:40px}
+.seg button[aria-pressed="true"]{background:#FAF6EC;color:#0E1A18}
+.seg button:focus-visible{outline:3px solid #8FCFC2;outline-offset:2px}
+.board{display:grid;grid-template-columns:repeat(2,minmax(320px,1fr));gap:36px 28px;margin:36px 0 8px;justify-items:center}
+@media (max-width:820px){.board{grid-template-columns:1fr}}
+.plate{width:360px}
+.cap{margin:0 0 10px}
+.cap b{display:block;font-family:var(--brush);font-size:22px;color:#FAF6EC}
+.cap span{display:block;font-size:13px;color:#A8B2AC;margin-top:2px}
+.phone{width:360px;height:800px;border-radius:36px;overflow:hidden;position:relative;background:var(--hanji);color:#1A1F1D;box-shadow:0 18px 44px rgba(0,0,0,.4),0 0 0 9px #23201C,0 0 0 11px #4A4338}
+.sb{height:26px;display:flex;justify-content:space-between;align-items:center;padding:0 20px;font-size:11px;font-weight:700}
+.screen{position:absolute;inset:26px 0 0;display:flex;flex-direction:column}
+.tabs{height:60px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid #E3D8C2;background:#FFFDF8}
+.tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;font-size:10px;font-weight:700;color:#5C6660}
+.tab.on{color:var(--nok)}
+.mark{width:22px;height:22px}
+.tiny{font-size:12px;font-weight:700;color:#5C6660}
+.greet{font-size:13px;font-weight:800;letter-spacing:.02em;margin:0;padding:6px 16px 0}
+
+/* 현판 */
+.eave{height:92px;overflow:hidden}
+.eave img{width:100%;height:140px;object-fit:cover;object-position:18% 6%;display:block}
+.strings{display:flex;justify-content:center;gap:72px;height:18px}
+.strings i{width:2px;background:#5C4028}
+.plaque{margin:0 auto;width:210px;background:linear-gradient(180deg,#A87F55,#8E6646 40%,#6B4A2E);border:3px solid #3E2B1B;box-shadow:0 8px 0 #3E2B1B;padding:14px 12px 12px;text-align:center;color:#FAF6EC;cursor:pointer}
+.plaque .ko{font-family:var(--brush);font-size:34px;line-height:1;letter-spacing:.08em}
+.plaque .de{font-size:13px;font-weight:800;margin-top:4px;opacity:.92}
+.plaque .meta{font-size:11px;font-weight:600;margin-top:6px;opacity:.8}
+.air{flex:1;position:relative}
+.air .mascot{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);height:210px;filter:drop-shadow(0 10px 8px rgba(26,31,29,.18))}
+
+/* 책가도 */
+.cab-wrap{flex:1;position:relative;padding:8px 18px 8px}
+.cab{background:linear-gradient(180deg,#6B4A2E,#4A301C);border:3px solid #2C1C10;border-radius:6px 6px 2px 2px;padding:8px 8px 10px;margin-top:156px}
+.crown-sit{position:absolute;left:50%;top:4px;transform:translateX(-50%);height:150px;z-index:2;filter:drop-shadow(0 6px 6px rgba(0,0,0,.25))}
+.shelf{background:#EFE3CB;margin:6px 4px;border:2px solid #3E2B1B;min-height:86px;display:flex;align-items:center;justify-content:center;padding:6px;position:relative}
+.painting{width:100%;height:74px;object-fit:cover;display:block;cursor:pointer}
+.shelf .perch{position:absolute;right:4px;bottom:2px;height:52px}
+.wood-label{position:absolute;left:8px;bottom:6px;background:#3E2B1B;color:#FAF6EC;font-size:11px;font-weight:800;padding:3px 7px}
+
+/* 마루 */
+.split{flex:1;display:flex;flex-direction:column;min-height:0}
+.yard{flex:1.15;position:relative;overflow:hidden;background:#2A4038}
+.yard .floor{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.yard .mascot{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);height:176px;filter:drop-shadow(0 8px 8px rgba(0,0,0,.28))}
+.maru{flex:.85;background:repeating-linear-gradient(90deg,#8B5E3C 0 38px,#7A5134 38px 40px,#946547 40px 78px,#7A5134 78px 80px);padding:16px 18px 10px;color:#FAF6EC;display:flex;flex-direction:column;justify-content:flex-end}
+.maru h2{font-size:28px;font-weight:900;letter-spacing:-.03em;margin:0 0 4px}
+.maru p{margin:0 0 12px;font-size:13px;opacity:.88}
+.maru .inlay{appearance:none;border:2px solid #3E2B1B;background:#FAF6EC;color:#1A1F1D;font:inherit;font-weight:800;font-size:15px;padding:11px;width:100%;cursor:pointer}
+
+/* 문 */
+.gate{flex:1;position:relative;background:#2A4038;overflow:hidden}
+.gate .through{position:absolute;left:-20%;top:-8%;width:140%;height:140%;object-fit:cover;object-position:50% 88%}
+.gate .frame{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none}
+.gate .mascot{position:absolute;left:50%;bottom:7%;transform:translateX(-50%);height:168px;z-index:2;filter:drop-shadow(0 8px 8px rgba(0,0,0,.35))}
+.gate .pyeonaek{position:absolute;left:50%;top:16.5%;transform:translateX(-50%);width:118px;text-align:center;color:#3E2B1B;pointer-events:none}
+.gate .pyeonaek .ko{font-family:var(--brush);font-size:22px;line-height:1}
+.gate .pyeonaek .de{font-size:10px;font-weight:800}
+.hit{position:absolute;left:22%;right:22%;top:28%;bottom:28%;cursor:pointer}
+
+.sec{margin-top:56px}
+h2.doc{font-family:var(--brush);font-size:28px;color:#FAF6EC;margin:0 0 8px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media (max-width:820px){.grid{grid-template-columns:1fr}}
+.cardish{background:#1C2622;padding:14px 16px;border-top:3px solid var(--gold)}
+.cardish:nth-child(2){border-top-color:var(--nok)}
+.cardish:nth-child(3){border-top-color:var(--seok)}
+.cardish:nth-child(4){border-top-color:#FAF6EC}
+.cardish b{display:block;margin-bottom:4px;color:#FAF6EC}
+.cardish span{color:#C9D0CB;font-size:13.5px}
+.link{margin-top:18px;font-size:13px;color:#A8B2AC}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="eyebrow">Sori Stage · four houses</div>
+    <h1>창 밖 문턱은 버리고,<br>집을 네 채로 다시 그린다.</h1>
+    <p class="lede">이전 시안은 호랑이 위에 카드를 올렸다. 이건 그 수정의 다음이 아니다. 오늘 할 일 하나와 캐릭터 전체를 같은 화면에 두는 네 가지 공간이다. 에셋은 저장소에 있는 것만.</p>
+    <div class="rule"></div>
+    <p class="note">앱 코드 0. 서명만 고른다. 현판은 나무 패를 누른다. 책가도는 그림이 오늘이다. 마루는 네가 앉은 바닥이 버튼이다. 문은 편액에 이름이 있고 호랑이는 돌계단에 있다.</p>
+  </header>
+
+  <div class="controls">
+    <span class="ctl">Begleiter</span>
+    <div class="seg" id="segChar">
+      <button type="button" data-v="tiger" aria-pressed="true">Tiger</button>
+      <button type="button" data-v="magpie" aria-pressed="false">Elster</button>
+    </div>
+    <span class="ctl">Sprache</span>
+    <div class="seg" id="segLang">
+      <button type="button" data-v="de" aria-pressed="true">DE</button>
+      <button type="button" data-v="en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+
+  <div class="board">
+    <figure class="plate">
+      <figcaption class="cap"><b>현판</b><span class="t cap1">패를 누르면 오늘이 시작된다</span></figcaption>
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>5G</span></div>
+        <div class="screen">
+          <p class="greet t greet">Guten Morgen</p>
+          <div class="eave"><img alt="" src="../../assets/illustrations/hanok/porch.png"></div>
+          <div class="strings"><i></i><i></i></div>
+          <button class="plaque" type="button">
+            <div class="ko">코스</div>
+            <div class="de t title">Kurs</div>
+            <div class="meta t meta">3 · A1</div>
+          </button>
+          <div class="air"><img class="mascot" alt="" src="../../assets/illustrations/mascot/tiger_sitting2.png"></div>
+          <nav class="tabs" aria-label="현판">
+            <div class="tab on"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#1F7A6B"/></svg><span class="t n0">Heute</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">한</text></svg><span class="t n1">Lernen</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">놀</text></svg><span class="t n2">Spiele</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">집</text></svg><span class="t n3">Hanok</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">계</text></svg><span class="t n4">Gye</span></div>
+          </nav>
+        </div>
+      </div>
+    </figure>
+
+    <figure class="plate">
+      <figcaption class="cap"><b>책가도</b><span class="t cap2">선반의 그림이 오늘이다</span></figcaption>
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>5G</span></div>
+        <div class="screen">
+          <p class="greet t greet">Guten Morgen</p>
+          <div class="cab-wrap">
+            <img class="crown-sit mascot" alt="" src="../../assets/illustrations/mascot/tiger_sitting2.png">
+            <div class="cab">
+              <div class="shelf">
+                <img class="painting" alt="" src="../../assets/illustrations/activities/course.webp">
+                <span class="wood-label t title">Kurs</span>
+              </div>
+              <div class="shelf">
+                <img class="perch other" alt="" src="../../assets/illustrations/mascot/magpie_perched.png">
+              </div>
+              <div class="shelf">
+                <img alt="" src="../../assets/illustrations/reward/reward_bojagi_closed.png" style="height:48px">
+              </div>
+            </div>
+          </div>
+          <nav class="tabs" aria-label="책가도">
+            <div class="tab on"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#1F7A6B"/></svg><span class="t n0">Heute</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">한</text></svg><span class="t n1">Lernen</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">놀</text></svg><span class="t n2">Spiele</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">집</text></svg><span class="t n3">Hanok</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">계</text></svg><span class="t n4">Gye</span></div>
+          </nav>
+        </div>
+      </div>
+    </figure>
+
+    <figure class="plate">
+      <figcaption class="cap"><b>마루</b><span class="t cap3">밖은 마당, 안은 네가 앉은 나무</span></figcaption>
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>5G</span></div>
+        <div class="screen">
+          <div class="split">
+            <div class="yard">
+              <img class="floor" alt="" src="../../assets/illustrations/activities/course.webp">
+              <img class="mascot" alt="" src="../../assets/illustrations/mascot/tiger_sitting2.png">
+            </div>
+            <div class="maru">
+              <h2 class="t title">Kurs</h2>
+              <p class="t line3">Draußen wartet der Weg. Hier drinnen startest du.</p>
+              <button class="inlay t start" type="button">Starten</button>
+            </div>
+          </div>
+          <nav class="tabs" aria-label="마루">
+            <div class="tab on"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#1F7A6B"/></svg><span class="t n0">Heute</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">한</text></svg><span class="t n1">Lernen</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">놀</text></svg><span class="t n2">Spiele</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">집</text></svg><span class="t n3">Hanok</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">계</text></svg><span class="t n4">Gye</span></div>
+          </nav>
+        </div>
+      </div>
+    </figure>
+
+    <figure class="plate">
+      <figcaption class="cap"><b>문</b><span class="t cap4">이름은 편액, 호랑이는 돌계단</span></figcaption>
+      <div class="phone">
+        <div class="sb"><span>9:41</span><span>5G</span></div>
+        <div class="screen">
+          <div class="gate">
+            <img class="through" alt="" src="../../assets/illustrations/activities/course.webp">
+            <img class="frame" alt="" src="../../assets/illustrations/hanok/gate_frame.png">
+            <div class="pyeonaek"><div class="ko">코스</div><div class="de t title">Kurs</div></div>
+            <img class="mascot" alt="" src="../../assets/illustrations/mascot/tiger_sitting2.png">
+            <button class="hit" type="button" aria-label="Starten"></button>
+          </div>
+          <nav class="tabs" aria-label="문">
+            <div class="tab on"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#1F7A6B"/></svg><span class="t n0">Heute</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">한</text></svg><span class="t n1">Lernen</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">놀</text></svg><span class="t n2">Spiele</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">집</text></svg><span class="t n3">Hanok</span></div>
+            <div class="tab"><svg class="mark" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" fill="#E9DFC9"/><text x="12" y="16" text-anchor="middle" font-size="11" font-weight="800" fill="#1A1F1D">계</text></svg><span class="t n4">Gye</span></div>
+          </nav>
+        </div>
+      </div>
+    </figure>
+  </div>
+
+  <section class="sec">
+    <h2 class="doc">네 집이 기억하는 것</h2>
+    <div class="grid">
+      <div class="cardish"><b>현판</b><span>위는 처마와 나무 패, 아래는 빈 마루와 호랑이. 초록 카드가 없다. 앱에 옮기면 패의 해서체는 Wanted ExtraBlack 한 줄로 바꾼다.</span></div>
+      <div class="cardish"><b>책가도</b><span>호랑이는 장 꼭대기. 오늘 일은 선반 그림. 보자기는 아래 칸의 물건이다. 듣기 책가도와 집을 나눈다 — 여기는 Today 한 칸만.</span></div>
+      <div class="cardish"><b>마루</b><span>화면이 밖/안으로 잘린다. 캐릭터는 전부 마당에 있다. 글과 시작은 네가 앉은 나무에만 있다. 녹청 문턱이 아니다.</span></div>
+      <div class="cardish"><b>문</b><span>이미 있는 솟을대문. 편액에 이름, 돌계단에 호랑이, 문구멍으로 디딤돌. 구멍 안을 누르면 시작.</span></div>
+    </div>
+    <p class="link">이전(가리던) 시안: <a href="today_courtyard_2026-08-19.html">today_courtyard_2026-08-19.html</a></p>
+  </section>
+</div>
+<script>
+const copy = {
+  de: {
+    greet: "Guten Morgen",
+    title: "Kurs",
+    meta: "3 · A1",
+    start: "Starten",
+    line3: "Draußen wartet der Weg. Hier drinnen startest du.",
+    n0: "Heute", n1: "Lernen", n2: "Spiele", n3: "Hanok", n4: "Gye",
+    cap1: "패를 누르면 오늘이 시작된다",
+    cap2: "선반의 그림이 오늘이다",
+    cap3: "밖은 마당, 안은 네가 앉은 나무",
+    cap4: "이름은 편액, 호랑이는 돌계단"
+  },
+  en: {
+    greet: "Good morning",
+    title: "Course",
+    meta: "3 · A1",
+    start: "Start",
+    line3: "The path waits outside. You start from the floor.",
+    n0: "Today", n1: "Learn", n2: "Games", n3: "Hanok", n4: "Gye",
+    cap1: "The plaque starts the day",
+    cap2: "The shelf painting is today",
+    cap3: "Yard outside, wood under you",
+    cap4: "Name on the board, tiger on the steps"
+  }
+};
+const mascot = {
+  tiger: "../../assets/illustrations/mascot/tiger_sitting2.png",
+  magpie: "../../assets/illustrations/mascot/magpie_perched.png"
+};
+function setPressed(root, value){
+  root.querySelectorAll("button").forEach((b) => {
+    b.setAttribute("aria-pressed", String(b.dataset.v === value));
+  });
+}
+function applyLang(lang){
+  const pack = copy[lang];
+  document.documentElement.lang = lang;
+  document.querySelectorAll(".t").forEach((el) => {
+    for (const key of Object.keys(pack)){
+      if (el.classList.contains(key)){
+        el.textContent = pack[key];
+      }
+    }
+  });
+}
+function applyChar(kind){
+  document.querySelectorAll("img.mascot").forEach((img) => {
+    img.src = mascot[kind];
+  });
+  const other = kind === "tiger" ? mascot.magpie : mascot.tiger;
+  document.querySelectorAll("img.other").forEach((img) => {
+    img.src = other;
+  });
+}
+document.getElementById("segLang").addEventListener("click", (e) => {
+  const b = e.target.closest("button");
+  if (!b) { return; }
+  setPressed(e.currentTarget, b.dataset.v);
+  applyLang(b.dataset.v);
+});
+document.getElementById("segChar").addEventListener("click", (e) => {
+  const b = e.target.closest("button");
+  if (!b) { return; }
+  setPressed(e.currentTarget, b.dataset.v);
+  applyChar(b.dataset.v);
+});
+</script>
+</body>
+</html>
