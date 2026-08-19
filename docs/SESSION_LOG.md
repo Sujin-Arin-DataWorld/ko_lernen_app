@@ -1,5 +1,93 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — #105 Analyze 35실패: 카피 지문·고정 문자열
+
+**무엇을 왜.** Ready 뒤 전체 suite가 카피 변경을 잡았다. 반응형 오버플로가
+아니라 `cloze_a1_0013` 등 inherited vocab fingerprint 105개와 온보딩/네 예문
+고정 문자열이 옛 카피를 보고 있었다.
+
+**고침.** `sourceVocabFingerprintSha256`만 현재 CSV에 맞춤(세그먼트 ID 유지).
+테스트: `Ja, alles klar.` / `Joy is coming with you.` / `Taego is coming with you.`
+
+**검증.** 집중 Flutter: data_loader · character_selection · can_do_segment_asset ·
+canonical_course_segment_loader · hanok_grant_catalog.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — B1–C2 단어팩 DE/EN 뉘앙스
+
+**무엇을 왜.** 남은 레벨의 합성 직역·틀린 독일어.
+B1: 알림장 Mitbringsel, 방문 후기 Besuchsnachlese, 선물 감사 Geschenkdank.
+B2: 처가살이 문법, Schwiegerwelt, Becher darbringen, 협업 (formell).
+C: Ausgleichskreis·Ausrollkreis·Eilzurückhaltung 등 만든 합성어.
+
+**검증.** 해당 id만. 한국어 유지.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — A2 단어팩 DE/EN 뉘앙스
+
+**무엇을 왜.** A2 파트너·일상 팩의 합성 직역(Festtagsgruß, Ankunftsgruß,
+Dolmetschbitte, Vermittlungsdate, TraditionsTee)을 독일어·영어 구어로.
+
+**검증.** 해당 id만 교체. 한국어 원문 유지.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — A1 단어팩 DE/EN 뉘앙스 (직역 제거)
+
+**무엇을 왜.** Jin: KO:DE / KO:EN을 1:1 직역하지 말고 각 언어 느낌으로.
+A1 나머지 팩. `a1_greetings_1`은 앞 커밋. 한국어 표제어·ID·원문 유지.
+
+**고침.**
+- 잘 부탁드려요/부탁드립니다 ≠ Zusammenarbeit / please look after me
+- 잘 다녀오겠습니다 ≠ go and come back safely
+- 준비물 ≠ Mitbringsel · 편의점 = Spätkauf · 인증샷 ≠ Beweis-Foto
+- 층간소음/이웃 인사/층수 예문을 구어로. 인사드리겠습니다 예문 복구
+  (선생에게 공손하라는 오역을 방문 인사로 되돌림).
+
+**검증.** CSV↔HEAD id 대조. word_relations sourceDe/En 동기.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 위에 전해주세요 ≠ nach oben
+
+**무엇을 왜.** Jin: 「위에 전해주세요」는 공간 *oben*이 아니라 윗사람·담당에게
+넘겨 달라는 말이다. 시나리오에서 계층 위만 고치고, 책상/문서 맨 위·층간소음
+같은 실제 공간은 그대로 둔다.
+
+**고침.**
+- `scenarios_b2.json` 택시: 위에 전해 주세요 → Leitung weitergeben /
+  pass on to supervisor. 금액 위로 올려야 → Leitung entscheiden /
+  run it by my manager. 언제 위로 올라가요 → Wann kommt das bei der
+  Leitung an? / When will your manager see it?
+- `scenarios_c2.json` 위로 가야 합니다 → Leitung entscheiden /
+  someone who can sign it off.
+
+**검증.** Grep: 계층 위만 DE/EN 교체, 공간 위는 유지.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 온보딩 ARB + a1_greetings_1 DE/EN 검수
+
+**무엇을 왜.** Jin: 라이브 DE/EN을 자연스럽게. 온보딩 ARB와 첫 단어팩
+`a1_greetings_1`만. `humanizer` · `lokalisieren-de` · `humanizer-de` ·
+`du-sie-check`. 한국어 ID·원문은 유지. UI는 du.
+
+**고침.**
+- 온보딩: 번역투(„Koreanisch sprechen für“), Behörden-Ton, AI 티, 예문에
+  한국어에 없는 Iced/Tall·Spaß. A2=`아메리카노 한 잔 주세요`에 맞춤.
+  `firstVoiceCompanionBody`의 Satzanfang-„Sie“는 동반자 3인칭이라 du와
+  섞여 보였다 → Taego/Joy로 명시.
+- 단어팩: 하세요=höflich(formal 아님), 요≠informell, 안녕히 가세요에서
+  Tschüss+Sie 혼용 제거. 예문 말단계는 한국어에 맞춤.
+- `word_relations.json` sourceDe/En을 CSV와 동기(테스트 계약).
+- `onboarding_start_screen_test` EN 카피 갱신.
+
+**검증.** `flutter gen-l10n`. 온보딩·단어망·l10n 가드 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — main Analyze 빨간불: #96 태블릿 골든 6장
 
 **무엇을 왜.** Jin 이 붙인 CI 로그(`Run set -euo pipefail` + `Got dependencies!` +

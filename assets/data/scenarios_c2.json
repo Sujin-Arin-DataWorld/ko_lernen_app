@@ -1038,8 +1038,8 @@
         {
           "speaker": "user",
           "ko": "가격을 정하는 일은 제 위임 밖이에요. 위로 가야 합니다.",
-          "de": "Den Preis festzulegen liegt außerhalb meines Mandats. Es muss nach oben.",
-          "en": "Setting the price is outside my mandate. It has to go up."
+          "de": "Den Preis festzulegen darf ich nicht. Das muss die Leitung entscheiden.",
+          "en": "Setting the price isn't mine to decide. That has to go to someone who can sign it off."
         },
         {
           "speaker": "jieun",
@@ -1115,8 +1115,8 @@
             "concept_c2_accountable_systems"
           ],
           "data": {
-            "promptDe": "Den Preis festzulegen liegt außerhalb meines Mandats. Es muss nach oben.",
-            "promptEn": "Setting the price is outside my mandate. It has to go up.",
+            "promptDe": "Den Preis festzulegen darf ich nicht. Das muss die Leitung entscheiden.",
+            "promptEn": "Setting the price isn't mine to decide. That has to go to someone who can sign it off.",
             "options": [
               {
                 "ko": "가격을 정하는 일은 제 위임 밖이에요. 위로 가야 합니다."

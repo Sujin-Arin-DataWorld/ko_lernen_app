@@ -135,7 +135,7 @@ void main() {
     expect(find.text('Not now'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('companion-option-magpie')));
     await tester.pump();
-    expect(find.text('Joy will learn with you.'), findsOneWidget);
+    expect(find.text('Joy is coming with you.'), findsOneWidget);
     await tester.tap(find.text('Not now'));
     await tester.pump();
 
@@ -173,7 +173,7 @@ void main() {
     await tester.pump();
 
     expect(completed, isFalse);
-    expect(find.text('Taego will learn with you.'), findsOneWidget);
+    expect(find.text('Taego is coming with you.'), findsOneWidget);
     expect(tester.widget<SoriButton>(continueButton).onTap, isNotNull);
     expect(
       find.byType(CharacterClipPlayer),
@@ -190,8 +190,8 @@ void main() {
 
     var preferences = await SharedPreferences.getInstance();
     expect(preferences.containsKey('kl_preferred_mascot'), isFalse);
-    expect(find.text('Joy will learn with you.'), findsOneWidget);
-    expect(find.text('Taego will learn with you.'), findsNothing);
+    expect(find.text('Joy is coming with you.'), findsOneWidget);
+    expect(find.text('Taego is coming with you.'), findsNothing);
 
     await tester.tap(continueButton);
     await tester.pump();

@@ -24,10 +24,10 @@ void main() {
   ) async {
     await tester.pumpWidget(_host());
 
-    expect(find.text('What do you want to speak Korean for?'), findsOneWidget);
-    expect(find.text('Open my first scene'), findsOneWidget);
+    expect(find.text('What do you need Korean for?'), findsOneWidget);
+    expect(find.text('Start my first scene'), findsOneWidget);
     expect(_cardFor(tester, 'Getting around Korea').selected, isTrue);
-    expect(_cardFor(tester, 'I am just starting').selected, isTrue);
+    expect(_cardFor(tester, "I'm just starting").selected, isTrue);
   });
 
   testWidgets('changes the visible purpose without adding another CTA', (
@@ -40,7 +40,7 @@ void main() {
 
     expect(_cardFor(tester, 'Talking with people').selected, isTrue);
     expect(_cardFor(tester, 'Getting around Korea').selected, isFalse);
-    expect(find.text('Open my first scene'), findsOneWidget);
+    expect(find.text('Start my first scene'), findsOneWidget);
   });
 
   testWidgets(
@@ -54,7 +54,7 @@ void main() {
         ),
       );
 
-      final cta = find.text('Open my first scene');
+      final cta = find.text('Start my first scene');
       await tester.ensureVisible(cta);
       await tester.tap(cta);
       await tester.pump();
@@ -97,7 +97,7 @@ void main() {
         await tester.tap(find.text(entry.key));
         await tester.pump();
       }
-      final cta = find.text('Open my first scene');
+      final cta = find.text('Start my first scene');
       await tester.ensureVisible(cta);
       await tester.tap(cta);
       await tester.pump();
@@ -119,7 +119,7 @@ void main() {
       ),
     );
 
-    final cta = find.text('Open my first scene');
+    final cta = find.text('Start my first scene');
     await tester.ensureVisible(cta);
     await tester.tap(cta);
     await tester.pump();
