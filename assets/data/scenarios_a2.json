@@ -10178,8 +10178,8 @@
         {
           "speaker": "user",
           "ko": "금요일에 병원이라 하루 쉬고 싶어요.",
-          "de": "Am Freitag habe ich Arzt, deshalb möchte ich einen Tag frei.",
-          "en": "I have a clinic visit on Friday, so I want one day off."
+          "de": "Freitag muss ich zum Arzt, deshalb möchte ich einen Tag frei.",
+          "en": "I've got a doctor's appointment Friday, so I want the day off."
         },
         {
           "speaker": "jieun",
@@ -10255,8 +10255,8 @@
             "concept_a2_work_study"
           ],
           "data": {
-            "promptDe": "Am Freitag habe ich Arzt, deshalb möchte ich einen Tag frei.",
-            "promptEn": "I have a clinic visit on Friday, so I want one day off.",
+            "promptDe": "Freitag muss ich zum Arzt, deshalb möchte ich einen Tag frei.",
+            "promptEn": "I've got a doctor's appointment Friday, so I want the day off.",
             "options": [
               {
                 "ko": "금요일에 병원이라 하루 쉬고 싶어요."

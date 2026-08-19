@@ -1652,9 +1652,9 @@
       "row": 0,
       "col": 0,
       "answer": "병원",
-      "german": "Krankenhaus",
+      "german": "Arzt / Klinik",
       "exampleKo": "감기가 심해서 ◯◯에 다녀왔어요.",
-      "exampleDe": "Meine Erkältung war schlimm, deshalb war ich im Krankenhaus."
+      "exampleDe": "Die Erkältung war so schlimm, ich war beim Arzt."
      },
      {
       "dir": "v",

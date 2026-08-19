@@ -1024,8 +1024,8 @@
       "sentenceKo": "＿＿＿에 가요.",
       "answer": "병원",
       "fullKo": "병원에 가요.",
-      "de": "Ich gehe ins Krankenhaus.",
-      "en": "I go to the hospital.",
+      "de": "Ich geh zum Arzt.",
+      "en": "I'm going to the doctor.",
       "distractors": [
         "중학생",
         "비행기",

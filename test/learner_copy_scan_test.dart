@@ -64,6 +64,7 @@ final _textbookPhrases = <RegExp>[
   RegExp('Ich gehe auf Reise'),
   RegExp('Danke, Lehrerin'),
   RegExp('Familienmitglieder'),
+  RegExp('Erkältung war schlimm, deshalb war ich im Krankenhaus'),
 ];
 
 // 2026-08-17: Batch 07/08 은 수량·ID·스키마 게이트를 전부 통과했지만, 문장을

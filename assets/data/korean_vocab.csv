@@ -137,7 +137,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 여름,yeoreum,Sommer,A2,Nomen,한국 여름은 진짜 더워요.,Der Sommer in Korea ist echt heiß.,Wetter,a2_weather,4,false,summer,Noun,Summer in Korea is really hot.,vocab_a2_0007
 가을,gaeul,Herbst,A2,Nomen,가을 단풍이 정말 예뻐요.,Das Herbstlaub ist wirklich schön.,Wetter,a2_weather,5,false,autumn / fall,Noun,The autumn leaves are really beautiful.,vocab_a2_0008
 겨울,gyeoul,Winter,A2,Nomen,한국 겨울은 좀 추워요.,Der Winter in Korea ist ziemlich kalt.,Wetter,a2_weather,6,false,winter,Noun,Winter in Korea is pretty cold.,vocab_a2_0009
-병원,byeongwon,Krankenhaus,A2,Nomen,감기가 심해서 병원에 다녀왔어요.,"Meine Erkältung war schlimm, deshalb war ich im Krankenhaus.",Gesundheit,a2_health_misc_1,2,false,hospital,Noun,"My cold was bad, so I went to the hospital.",vocab_a2_0010
+병원,byeongwon,Arzt / Klinik,A2,Nomen,감기가 심해서 병원에 다녀왔어요.,"Die Erkältung war so schlimm, ich war beim Arzt.",Gesundheit,a2_health_misc_1,2,false,doctor's / clinic,Noun,My cold was so bad I went to the doctor.,vocab_a2_0010
 약,yak,Medizin / Medikament,A2,Nomen,감기약 좀 사러 왔어요.,"Ich bin hier, um Erkältungsmedizin zu kaufen.",Gesundheit,a2_health_misc_1,3,false,medicine / medication,Noun,I came to buy some cold medicine.,vocab_a2_0011
 식당,sikdang,Restaurant,A2,Nomen,이 근처에 맛있는 식당 있어요?,Gibt es hier in der Nähe ein gutes Restaurant?,Essen & Trinken,a2_food_1,1,false,restaurant,Noun,Is there a good restaurant around here?,vocab_a2_0012
 시장,sijang,Markt,A2,Nomen,주말에 시장에 다녀왔어요.,Am Wochenende war ich auf dem Markt.,Einkaufen,a2_shopping_1,1,false,market,Noun,I went to the market over the weekend.,vocab_a2_0013

@@ -18009,8 +18009,8 @@
       "id": "satz_a2_0238",
       "level": "a2",
       "targetKo": "감기가 심해서 병원에 다녀왔어요.",
-      "promptDe": "Meine Erkältung war schlimm, deshalb war ich im Krankenhaus.",
-      "promptEn": "My cold was bad, so I went to the hospital.",
+      "promptDe": "Die Erkältung war so schlimm, ich war beim Arzt.",
+      "promptEn": "My cold was so bad I went to the doctor.",
       "distractors": [
         "회사",
         "직업"

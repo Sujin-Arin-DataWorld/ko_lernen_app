@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 감기 병원 ≠ Krankenhaus
+
+**무엇을 왜.** 일상 `병원에 가요`/`감기가 심해서 병원`을 Krankenhaus로 두면
+독일어 학습자가 감기에 병원을 간다. 한국어 병원은 여기선 동네 의원.
+DE Arzt/Klinik, EN doctor's/clinic. 입원·응급·큰 병원은 Krankenhaus 유지.
+
+**검증.** 단어팩 ID vocab_a2_0010 + cloze/satz/silben/kkeunmari/시나리오.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 교실·친구 해요체를 Sie가 아니라 du로
 
 **무엇을 왜.** 숙제·문자·주말 계획·준비됐나요 등 해요체 친구/교실 예문이
