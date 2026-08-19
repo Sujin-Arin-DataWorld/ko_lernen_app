@@ -1,5 +1,17 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 번역 스택 main CI 초록 + Play internal
+
+**무엇을 왜.** Jin이 자며 빌드 에러를 이 세션이 끝낼 것을 못 박았다.
+`793a55a6` 1실패는 반응형이 아니라 em dash. `d939ab4e`로 고친 뒤
+전체 Analyze와 서명 AAB를 다시 돌렸다.
+
+**검증.** run `32309731574` SUCCESS. Analyze 9m17s. Play internal
+업로드 성공. AAB 250.2MB SHA-256 `9a272230…01995180`. artifact
+`android-internal-649-d939ab4e…`. `#101` `#102` `#103`은 열어둠.
+
+**커밋해시.** `d939ab4e` (코드) · 이 로그는 직후 기록.
+
 ### 2026-08-19 (Cursor) — main Analyze 1실패: 학습 DE/EN em dash
 
 **무엇을 왜.** `793a55a6` 전체 suite 4099/1. 반응형 ✅가 아니라
