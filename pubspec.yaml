@@ -157,7 +157,9 @@ flutter:
     - assets/illustrations/gye/
     - assets/illustrations/book/
     - assets/illustrations/scenes/
-    - assets/illustrations/empty/
+    # empty/ 는 4b5f5ccf 에서 파일이 통째로 지워졌다(디렉터리 자체가 없음).
+    # 선언만 남으면 flutter 가 매 실행마다 'unable to find directory entry'
+    # 를 찍는다. 참조하던 4 화면은 mascot/ 폴백으로 옮겼다 (2026-08-19).
     - assets/illustrations/error/
     - assets/illustrations/onboarding/
     # 단어팩 motif 일러스트 (2026-08-13 UI 개편 Phase 1) — 규약:

@@ -5,6 +5,125 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-19 (Claude Opus 5, macOS) — Android 전역 무음 + 레벨×콘텐츠 배치 편중
+
+**무엇을 왜.** Jin: "스몰톡·시나리오·듣기·문법 레벨별로 몇 개 이런 배치가 하나도
+안 되고 사운드도 하나도 안 나와. 레벨별-컨텐츠별 배치 전부 조사해서 해결해줘."
+실기기는 **Android, 효과음까지 전부 무음**. 두 갈래 원인을 실측으로 분리했다.
+
+**① Android 전역 무음 (근본 원인).** `AudioPolicy.applyPlatformAudioContext()` 가
+`AudioContextConfig(respectSilence: respectSilentMode)` 를 그대로
+`buildAndroid()` 에 넘겼다. 이 플래그는 Android 에서 "무음 스위치 존중"이 아니라
+`usageType: USAGE_NOTIFICATION_RINGTONE` 으로 번역된다(audioplayers 6.8.1
+`audio_context_config.dart` → `AudioContextAndroid.buildAttributes` →
+`AudioAttributes.setUsage`). 기본값이 true 라 **앱의 모든 소리가 벨소리
+스트림**으로 나갔다 — 폰이 진동/무음이면 효과음·발음이 전부 안 들리고, 볼륨 키로
+올리는 미디어 볼륨은 아무 효과가 없다. ADR-002 §10 이 "Android 는 respectSilence
+가 기기마다 다름 — 실기기 미검증"으로 남겨 둔 바로 그 항목이다.
+→ `AudioPolicy.buildAndroidContext()` 를 새로 두고 Android 는 **항상
+`USAGE_MEDIA`**(mixWithOthers 유지). `respectSilentMode` 는 iOS 무음 스위치
+전용으로 남기고, 설정의 해당 토글은 **iOS 에서만** 보이게 했다(Android 에선
+죽은 컨트롤이었다).
+
+**② 사전생성 TTS 1,460개 누락.** `generate_tts.py --verify-storage` 실측:
+`expected 11438, remote 10269, missing 1460`. AGENTS.md 가 적어 둔 6,321 기준은
+stale 이었다 — batch 10–16 콘텐츠가 들어오며 코퍼스가 11,438 로 늘었는데
+사전생성을 안 돌렸다. 누락분은 CF 동적 합성으로 가고, CF 가 quota/unavailable 을
+뱉으면 클라가 **의도적으로 OS 폴백을 차단**(`blockSpeechFallback`)해 무음이 된다.
+→ Jin 승인 후 `--missing-from-storage --workers 8` 실행. 1,460개 합성·업로드 완료,
+재검증 **missing 0** (remote 11729, stale 291 = 구 콘텐츠 잔여).
+
+**③ 레벨×콘텐츠 배치.** 카탈로그 자체는 정상이었다(링크 7,446 · 검증 이슈 0).
+진짜 문제는 **batch 10–16 이 시나리오 130편을 레벨마다 포괄 유닛 하나에
+통째로 넣은 것**: a1_16_survival_capstone 46/85(54%) · a2_07_travel_repair
+50/80(63%) · b1_05 42/73(58%) · b2_04 41/68(60%). `conceptIds` 도 시나리오·퀘스트
+양쪽 다 포괄 개념 하나(`concept_a1_survival` 등)로 박혀 있었고, 매니페스트의
+명시 `contentLinks` assess 간선 127개도 같은 유닛을 가리켰다. 나머지 주제 유닛은
+시나리오 1–5편이라 코스 미션이 사실상 비었다.
+→ `tools/content_factory/rebalance_scenario_units.py` 신규. `shelf`(=
+`shelf_assignment.py` 가 정한 주제 정본, 전수 태깅됨)를 기준으로 **포괄 유닛에
+들어 있는 것만** 재배정한다. 목적지는 발명이 아니라 **같은 칸의 손으로 쓴
+시나리오가 이미 앉아 있는 유닛**을 따랐다. 체크포인트 선언 시나리오는 제외,
+`practice` 간선은 유지(캡스톤이 남의 콘텐츠를 연습시키는 건 의도된 설계).
+시나리오 `conceptIds` · **퀘스트 `conceptIds`**(링크 빌더가 개념을 요구 유닛
+전부로 팬아웃해서 이걸 안 고치면 몰빵 유닛이 링크를 되찾는다) · 명시 assess
+링크까지 세 곳을 함께 고친다. 도구는 멱등이다.
+결과 130편 이동 · assess 링크 127개 재조준 · 최대 점유율 **30%**.
+예: a1_06 5→18 · a1_14 2→11 · a2_08 2→15 · b1_06 3→14 · b2_03 9→20.
+
+**④ UI — 레벨별 개수가 안 보이던 것.** 스몰톡 레벨 칩은 `A1 · 82` 처럼 개수를
+달고 0 이면 탭이 막힌다. 주제 시트는 현재 레벨 기준 개수를 붙이고 있는 주제를
+앞으로 보내며 0 인 주제는 고를 수 없다 — C1/C2 는 23개 주제 중 **14개가 완전히
+비어 있어서** 그냥 두면 "골랐더니 빈 화면"이 기본 경험이었다. 문법 레벨 칩에도
+같은 개수를 붙였다(문법 화면은 이미 빈 레벨을 숨기고 있었다).
+
+**⑤ 곁가지.** `assets/illustrations/empty/` 는 `4b5f5ccf` 에서 디렉터리째
+지워졌는데 pubspec 선언과 4개 화면 참조가 남아 `flutter` 실행마다
+`unable to find directory entry in pubspec.yaml` 을 찍고 있었다 → 선언 제거,
+참조 4곳을 `mascot/` 폴백으로 교체.
+
+**⚠️ 브랜치.** 세션 도중 브랜치가 밖에서 바뀌었다(reflog:
+`chore/hanok-decoration-batch2` → `cursor/content-ui-bible-f7a6` → 현재
+`chore/hanok-sarangbang-props-2026-08-19` @ `8bbaf9e7`). 이 변경분은 전부 현재
+브랜치 기준이며, `cursor/content-ui-bible-f7a6`(945a8b1c)의 콘텐츠 UI 개편은
+여기 없다 — 병합 시 `listening_screen.dart` 등에서 충돌 가능.
+
+**검증.** `flutter analyze` 손댄 8파일 0 issue · `dart format` ·
+`audio_policy_test`(Android USAGE_MEDIA 래칫 2건 신규) + `audio_policy_guard`
+12 passed · `course_graph`/`course_mission_brief_production`/
+`course_segment_catalog`/`course_checkpoint_questions`/`course_mastery_production`/
+`content_audit_manifest` 66 passed · `course_unit_balance_test`(신규 래칫: 한
+유닛이 레벨 시나리오의 40% 초과 금지 + 모든 유닛 시나리오 ≥1) 2 passed ·
+`generate_tts.py --verify-storage` missing 0.
+
+**커밋해시.** 없음 — 커밋/푸시 안 함(Jin 지시 대기).
+
+### 2026-08-19 (Claude Sonnet 5, macOS) — 사랑방 소품 9종 생성 (F-A, 전부 게이트 통과, 앱 미등록)
+
+**무엇을 왜.** Jin이 은평역사한옥박물관 사랑채 참고사진을 보내고 "필요한 소품 다 뽑아"를
+승인. `.claude/handoffs/`의 우선순위 목록(백자술병·자개함·보석함·경대·약장·연상·장목비·
+망건통·병풍변형)에서 담배 세트만 제외하고 9종 전부 생성. `docs/assets/STYLE_LOCK.json`
+F-A `members`에 9개 슬러그 선등록(러너 게이트가 요구) 후 각각 `docs/assets/recipes/
+cutout-fa-decoration-*.json` 신규 작성 → `tool/asset_recipe.py --check/--emit-work-order`
+→ `generate_image`(GPT Image 2, 2K) → `--ingest`(cut+gate) 순서로 진행. 참조 이미지는
+항상 F-A 기존 앵커(hyangno/jagae_mungap/bandaji/seoan/munbangsau/byeongpung_small)만
+사용 — 실물 사진을 참조로 주면 프롬프트 골격이 "참조 속 물체는 다시 그리지 마라"고 해서
+형태 자체가 회피된다. 신규 물체 형태는 SUBJECT 텍스트 서술로만 지정.
+
+**결과.** 9/9 게이트 통과 (`assets_unused/pending_review/asset_recipe/decoration_*/`):
+자개함/보석함/경대/약장/연상/장목비/망건통/묵포도병풍은 전부 1차 시도에 통과. 백자술병은
+5차 시도까지 갔다 — 1차 satMean 0.264 과소채도 실패, 2차 valMean 0.730 과다밝기 실패,
+3차 "호두목 다크 스톤웨어" 톤으로 게이트는 통과(satMean 0.674/valMean 0.299)했지만 Jin이
+실물 검토에서 "나무처럼 보인다, 도자기색으로" 반려, 4차 stoneGrey 위주 옅은 청자색은
+satMean 0.192로 다시 실패(육안은 좋았으나 채도 하한 0.30 미달), 5차에서 deepMutedTeal을
+주색으로 뒤집은 짙은 청자 유약 톤으로 게이트(satMean 0.578/valMean 0.322)와 Jin 승인을
+동시에 통과. 크레딧 총 35.1cr 소비(595.2→560.1, budget staticMax 600 대비 여유 충분).
+**`--ingest`가 승인 결정까지 하지는 않는다** — cut PNG는 pending_review에 있을 뿐,
+`kAvailableDecorations`/ARB/STYLE_LOCK.json anchors에 등록되지 않았고
+`tool/ledger_append.py --append`도 아직 안 돌렸다(각 폴더의 `*_ledger_spec.json`은 초안).
+다음 세션은 Jin이 9장을 직접 열어 확인한 뒤에만 등록 단계로 진행.
+
+**업로드 사고.** 앵커 이미지를 base64로 손으로 붙여넣다가 jagae_mungap이 손상되고
+munbangsau가 bandaji 사본으로 잘못 매핑된 걸 발견 — 두 URL을 실제로 다운로드해 PIL로
+치수 대조하고서야 잡았다. `--check`가 URL 형식만 보고 내용까지 검증하진 않는다는 뜻.
+
+**경대/장목비/묵포도병풍 SUBJECT 정정.** 박물관 사진 기준: 경대는 서랍 없는 소형 거울
+(초안은 서랍 있다고 잘못 가정), 장목비는 꿩 꼬리털 다발이 아래로 늘어진 형태(넓은 부채
+모양 아님), 묵포도병풍은 사랑채 내부 사진에 실제로 존재(추측 추가가 아님) — 세 SUBJECT
+텍스트를 재작성한 뒤 생성.
+
+**하지 않은 것.** 앱 런타임 등록(카탈로그/ARB/STYLE_LOCK anchors), `ledger_append.py
+--append` 실행, 한옥 건물(사랑채 등) 단계별 골조 에셋 확장 — Jin이 요청했으나 이 세션은
+소품 9종에서 멈췄다. `lib/main.dart`/`ios/Podfile.lock`의 미커밋 변경은 이 세션 것이
+아니다(건드리지 않음, 다른 세션의 선행 작업으로 추정).
+
+**검증.** `tool/asset_recipe.py --ingest`가 각 항목마다 `tool/check_style_conformance.py`
+게이트(satMean/valMean/neonFraction/greenRim/paletteDistance)를 돌렸고 9/9 `"ok": true`.
+`python3.12 -m unittest tool.test_style_lock tool.test_check_style_conformance
+tool.test_ledger_append tool.test_asset_recipe` 42/42 (작업 시작 전 확인).
+
+**커밋해시.** 없음 — 커밋/푸시 안 함(Jin 지시 대기).
+
 ### 2026-08-18 (Cursor Grok 4.6, Cloud) — 한옥 자산 감사 인수인계를 스킬로 재실측
 
 **무엇을 왜.** Jin이 오더를 정정했다. 콘텐츠 UI 계획이 아니라, 다운받은

@@ -3082,414 +3082,414 @@
     {
       "contentKind": "scenario",
       "contentId": "a1_post_queue",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_stamp_ask",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_parcel_weight",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_pharmacy_ointment",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_health_safety"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_mask_pack",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_weekend_rain",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_greeting_politeness"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_late_text",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_greeting_politeness"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_neighbor_box",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_hall_shoes",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_class_pencil",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_08_clarify_repair",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_clarification"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_submit_name",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_subway_exit",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_last_train",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_card_topup",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_weather_layer",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_health_safety"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_dust_mask",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_health_safety"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_sorry_late",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_greeting_politeness"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_thanks_seat",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_slow_speech",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_08_clarify_repair",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_clarification"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_door_bell",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_trash_sort",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_gate_code",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_whiteboard_word",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_08_clarify_repair",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_clarification"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_platform_line",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_rain_jacket",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_health_safety"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_excuse_pass",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_greeting_politeness"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_ask_again",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_08_clarify_repair",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_clarification"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_meet_station",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_cancel_walk",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_greeting_politeness"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_floor_number",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_locker_key",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_bus_late",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_water_shop",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_tea_order",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_04_order_request_object",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_request_polite"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_taxi_address",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_hotel_key",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_market_bag",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_airport_cart",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_rice_shop",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_direction_left",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_office_print",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_cafe_wifi",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_04_order_request_object",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_request_polite"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_station_rest",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_home_light",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a1_pharmacy_hours",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_health_safety"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_phone_plan",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
@@ -3505,90 +3505,90 @@
     {
       "contentKind": "scenario",
       "contentId": "a2_bank_number",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_transfer_limit",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_gym_lock",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_feelings"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_stretch_start",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_feelings"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_salon_cut",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_feelings"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_dye_dark",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_feelings"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_apt_sticker",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_food_bag",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_shift_table",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_night_pay",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
@@ -3613,9 +3613,9 @@
     {
       "contentKind": "scenario",
       "contentId": "a2_festival_stamp",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "role": "assess"
     },
@@ -3631,144 +3631,144 @@
     {
       "contentKind": "scenario",
       "contentId": "a2_bill_high",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_auto_debit",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_hair_time",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_feelings"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_quiet_ten",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_handover_note",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_id_pickup",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_volunteer_vest",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_tea_taste",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_contract_read",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_recycle_box",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_card_balance",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_rain_cancel",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_02_plans_proposals",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_proposal_polite"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_guest_pass",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_manager_leave",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_label_phone",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_hours_six",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_02_plans_proposals",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_proposal_polite"
       ],
       "role": "assess"
     },
@@ -3784,9 +3784,9 @@
     {
       "contentKind": "scenario",
       "contentId": "a2_water_set",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "role": "assess"
     },
@@ -3820,18 +3820,18 @@
     {
       "contentKind": "scenario",
       "contentId": "a2_market_change",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_restaurant_split",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "role": "assess"
     },
@@ -3847,18 +3847,18 @@
     {
       "contentKind": "scenario",
       "contentId": "a2_convenience_copy",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "a2_cafe_plug",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "role": "assess"
     },
@@ -3874,9 +3874,9 @@
     {
       "contentKind": "scenario",
       "contentId": "a2_office_badge",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "role": "assess"
     },
@@ -3892,36 +3892,36 @@
     {
       "contentKind": "scenario",
       "contentId": "b1_mail_cc",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_03_work_softening",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_softening"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_missing_file",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_03_work_softening",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_softening"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_quiet_exam",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_04_relationships",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_relationships"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_bill_split",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
@@ -3946,36 +3946,36 @@
     {
       "contentKind": "scenario",
       "contentId": "b1_civil_ticket",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_extra_paper",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_volunteer_gap",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_03_work_softening",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_softening"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_parent_slot",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
@@ -4018,54 +4018,54 @@
     {
       "contentKind": "scenario",
       "contentId": "b1_followup_mail",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_03_work_softening",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_softening"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_guest_notice",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_04_relationships",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_relationships"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_scan_note",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_proxy_form",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_safety_vest",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_04_relationships",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_relationships"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_school_letter",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
@@ -4090,18 +4090,18 @@
     {
       "contentKind": "scenario",
       "contentId": "b1_intranet_form",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b1_laundry_turn",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_04_relationships",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_relationships"
       ],
       "role": "assess"
     },
@@ -4126,9 +4126,9 @@
     {
       "contentKind": "scenario",
       "contentId": "b1_case_status",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
@@ -4153,9 +4153,9 @@
     {
       "contentKind": "scenario",
       "contentId": "b1_taxi_receipt",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
@@ -4171,27 +4171,27 @@
     {
       "contentKind": "scenario",
       "contentId": "b1_cafe_invoice",
-      "courseUnitId": "b1_05_complaint_resolution",
+      "courseUnitId": "b1_06_life_capstone",
       "conceptIds": [
-        "concept_b1_complaint_resolution"
+        "concept_b1_life"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_review_three",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_self_fail",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "role": "assess"
     },
@@ -4207,126 +4207,126 @@
     {
       "contentKind": "scenario",
       "contentId": "b2_restore_scope",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_source_check",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_hold_share",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_01_formal_opening",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_formal_opening"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_agenda_swap",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_01_formal_opening",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_formal_opening"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_quorum_wait",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_01_formal_opening",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_formal_opening"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_must_have",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_time_box",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_01_formal_opening",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_formal_opening"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_one_pager",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_assumption",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_next_level",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_case_id",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_limit_line",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_chart_axes",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_minutes_draft",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_01_formal_opening",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_formal_opening"
       ],
       "role": "assess"
     },
@@ -4342,36 +4342,36 @@
     {
       "contentKind": "scenario",
       "contentId": "b2_selective_edit",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_public_question",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_counter_offer",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_metric_clear",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "role": "assess"
     },
@@ -4387,27 +4387,27 @@
     {
       "contentKind": "scenario",
       "contentId": "b2_cross_check",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_vacate_short",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_read_receipt",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "role": "assess"
     },
@@ -4423,9 +4423,9 @@
     {
       "contentKind": "scenario",
       "contentId": "b2_hotel_clause",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },
@@ -4441,18 +4441,18 @@
     {
       "contentKind": "scenario",
       "contentId": "b2_market_source",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_02_professional_opinion",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_opinion"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_cafe_brief",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_06_advanced_capstone",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_advanced"
       ],
       "role": "assess"
     },
@@ -4468,18 +4468,18 @@
     {
       "contentKind": "scenario",
       "contentId": "b2_pharmacy_claim",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },
     {
       "contentKind": "scenario",
       "contentId": "b2_restaurant_note",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },
@@ -4495,9 +4495,9 @@
     {
       "contentKind": "scenario",
       "contentId": "b2_convenience_scan",
-      "courseUnitId": "b2_04_complaint_resolution",
+      "courseUnitId": "b2_03_precise_requests",
       "conceptIds": [
-        "concept_b2_complaint"
+        "concept_b2_precise_requests"
       ],
       "role": "assess"
     },

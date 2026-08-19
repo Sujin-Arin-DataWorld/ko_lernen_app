@@ -310,7 +310,7 @@ void main() {
       isNotNull,
     );
 
-    final a2Filter = find.widgetWithText(SoriChip, 'A2');
+    final a2Filter = _grammarLevelChip('A2');
     await tester.ensureVisible(a2Filter);
     await tester.tap(a2Filter);
     await tester.pump();
@@ -353,7 +353,7 @@ void main() {
       await tester.pumpAndSettle();
 
       final a1Filter = tester.widget<SoriChip>(
-        find.widgetWithText(SoriChip, 'A1').first,
+        _grammarLevelChip('A1').first,
       );
       expect(a1Filter.selected, isTrue);
       expect(
@@ -626,3 +626,9 @@ class _SameIndexRandom implements math.Random {
   @override
   int nextInt(int max) => 0;
 }
+
+/// 문법 레벨 칩 파인더. 라벨이 `A2 · 46` 처럼 **개수를 달고** 나오므로
+/// 정확 일치(`widgetWithText`)로는 못 잡는다 (2026-08-19 레벨별 개수 표시).
+Finder _grammarLevelChip(String level) => find.byWidgetPredicate(
+  (widget) => widget is SoriChip && widget.label.startsWith('$level ·'),
+);

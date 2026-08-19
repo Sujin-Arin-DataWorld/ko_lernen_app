@@ -559,6 +559,13 @@ class _GrammarScreenState extends State<GrammarScreen>
     return ['Alle', ...s];
   }
 
+  /// 이 레벨에 실제로 있는 패턴 수 ('Alle' = 전체). 칩에 붙여 보여준다 —
+  /// 레벨을 눌러 보기 전에 A1 37 · C2 17 처럼 분포가 드러나야 한다
+  /// (2026-08-19 Jin: "레벨별로 몇 개인지 배치가 안 보인다").
+  int _levelCount(String level) => level == 'Alle'
+      ? _courseGrammarCandidates.length
+      : _courseGrammarCandidates.where((g) => g.level == level).length;
+
   List<String> get _types {
     final s = _courseGrammarCandidates.map((g) => g.typeDe).toSet().toList()
       ..sort();
@@ -691,7 +698,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                             Padding(
                               padding: const EdgeInsets.only(right: 6),
                               child: SoriChip(
-                                label: lvl == 'Alle' ? t.filterAll : lvl,
+                                label:
+                                    '${lvl == 'Alle' ? t.filterAll : lvl}'
+                                    ' · ${_levelCount(lvl)}',
                                 accent: SoriColors.warning,
                                 selected: _level == lvl,
                                 variant: SoriChipVariant.soft,

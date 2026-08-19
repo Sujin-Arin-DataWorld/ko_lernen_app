@@ -796,7 +796,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SoriEmptyState(
-                  asset: 'assets/illustrations/empty/celebrate_complete.png',
+                  asset: 'assets/illustrations/mascot/magpie_celebrate.png',
                   icon: Icons.celebration_outlined,
                   title: t.vocabDueEmptyTitle,
                   body: t.vocabDueEmptyBody,

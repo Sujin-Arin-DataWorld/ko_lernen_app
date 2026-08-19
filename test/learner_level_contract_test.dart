@@ -40,10 +40,12 @@ void main() {
       'lib/screens/smalltalk_screen.dart',
       'lib/screens/speed_match_screen.dart',
     };
+    // smalltalk_screen.dart 는 2026-08-19 에 레벨 칩을 'A1'…'C2' 하드코딩에서
+    // 소문자 코드 + toUpperCase() 로 바꾸면서 이 목록에서 빠졌다. 래칫은
+    // 줄어드는 방향만 허용한다 — 다시 넣지 말 것.
     const auditedUppercaseLegacy = {
       'lib/models/content_feedback.dart',
       'lib/screens/review_session_screen.dart',
-      'lib/screens/smalltalk_screen.dart',
       'lib/services/book_analysis_service.dart',
     };
     final lowercaseAuthorities = <String>{};
