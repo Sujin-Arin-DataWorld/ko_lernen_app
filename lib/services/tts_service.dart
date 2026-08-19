@@ -494,9 +494,6 @@ class TtsService {
   static final ValueNotifier<TtsUnavailableReason?> unavailable =
       ValueNotifier<TtsUnavailableReason?>(null);
 
-  /// 해결 중인 요청 수 — 스피커 버튼의 로딩 상태용.
-  static final ValueNotifier<int> resolving = ValueNotifier<int>(0);
-
   static void _reportUnavailable(TtsUnavailableReason reason) {
     unavailable.value = reason;
   }
