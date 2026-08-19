@@ -94,8 +94,8 @@
       "sentenceKo": "＿＿＿ 감사합니다.",
       "answer": "선생님",
       "fullKo": "선생님 감사합니다.",
-      "de": "Danke, Lehrerin.",
-      "en": "Thank you, teacher.",
+      "de": "Danke schön.",
+      "en": "Thank you.",
       "distractors": [
         "여섯",
         "옆",
@@ -154,8 +154,8 @@
       "sentenceKo": "＿＿＿이 몇 명이에요?",
       "answer": "가족",
       "fullKo": "가족이 몇 명이에요?",
-      "de": "Wie viele Familienmitglieder hast du?",
-      "en": "How many people are in your family?",
+      "de": "Wie groß ist deine Familie?",
+      "en": "How big is your family?",
       "distractors": [
         "사",
         "여동생",
@@ -469,8 +469,8 @@
       "sentenceKo": "＿＿＿을 좋아해요.",
       "answer": "빨간색",
       "fullKo": "빨간색을 좋아해요.",
-      "de": "Ich mag die Farbe Rot.",
-      "en": "I like the color red.",
+      "de": "Ich mag Rot.",
+      "en": "I like red.",
       "distractors": [
         "파란색",
         "오",
@@ -920,7 +920,7 @@
       "answer": "직업",
       "fullKo": "직업이 뭐예요?",
       "de": "Was ist dein Beruf?",
-      "en": "What is your occupation?",
+      "en": "What do you do?",
       "distractors": [
         "열쇠",
         "모기",
@@ -1084,7 +1084,7 @@
       "sentenceKo": "＿＿＿을 가요.",
       "answer": "여행",
       "fullKo": "여행을 가요.",
-      "de": "Ich gehe auf Reise.",
+      "de": "Ich fahre in den Urlaub.",
       "en": "I'm going on a trip.",
       "distractors": [
         "지갑",

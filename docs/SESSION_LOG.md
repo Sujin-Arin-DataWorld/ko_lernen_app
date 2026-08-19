@@ -1,5 +1,17 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — A1/A2 Cloze·Satz 교과서 독일어
+
+**무엇을 왜.** 단어팩과 안 겹치는 커스텀 문장에 깨진/교과서 DE·EN이 남았다.
+`Ich gehe auf Reise` → Urlaub fahren, `Danke, Lehrerin` → Danke schön,
+Familienmitglieder → Wie groß ist deine Familie, occupation → What do you do,
+nah am Haus → Zur Arbeit hab ich's nicht weit, beklemmend → frustrierend.
+한국어·ID·문항 수 유지.
+
+**검증.** learner_copy_scan에 깨진 패턴 추가. cloze/satz 테스트 예정.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 미디어 문구 수고했어 ≠ guten Job
 
 **무엇을 왜.** `오늘 하루도 수고했어`를 실적 칭찬(guten Job / great job)으로

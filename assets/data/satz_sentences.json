@@ -53,8 +53,8 @@
       "id": "satz_a1_0004",
       "level": "a1",
       "targetKo": "가족이 몇 명이에요?",
-      "promptDe": "Wie viele Familienmitglieder hast du?",
-      "promptEn": "How many people are in your family?",
+      "promptDe": "Wie groß ist deine Familie?",
+      "promptEn": "How big is your family?",
       "distractors": [
         "뒤에",
         "일어나요"
@@ -1397,8 +1397,8 @@
       "id": "satz_a2_0018",
       "level": "a2",
       "targetKo": "회사가 집에서 가까워요.",
-      "promptDe": "Die Firma ist nah am Haus.",
-      "promptEn": "The company is near my home.",
+      "promptDe": "Zur Arbeit hab ich's nicht weit.",
+      "promptEn": "Work is close to home.",
       "distractors": [
         "야근해야",
         "회의가"
@@ -1421,7 +1421,7 @@
       "id": "satz_a2_0020",
       "level": "a2",
       "targetKo": "답답해서 못 견디겠어요.",
-      "promptDe": "Es ist so beklemmend, ich halte es kaum aus.",
+      "promptDe": "Es ist so frustrierend, ich halt's kaum aus.",
       "promptEn": "It's so frustrating. I can hardly stand it.",
       "distractors": [
         "청소해요",
