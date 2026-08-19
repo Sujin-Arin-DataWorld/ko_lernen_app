@@ -520,7 +520,7 @@ _beat(
 _beat(
     "b1_volunteer_gap",
     take=("네, 그 시간만 맡을게요.", "Ja, ich übernehme nur diese Zeit.", "Yes, I'll take just that slot."),
-    probe=("명단은 언제 올라가요?", "Wann kommt die Liste hoch?", "When does the list go up?"),
+    probe=("명단은 언제 올라가요?", "Wann wird die Liste eingestellt?", "When will the list be posted?"),
 )
 _beat(
     "b1_parent_slot",
@@ -640,7 +640,7 @@ _beat(
 _beat(
     "b2_review_three",
     take=("네, 그 세 문장만 남겨 주세요.", "Ja, nur diese drei Sätze behalten.", "Yes, keep just those three sentences."),
-    probe=("언제 올라가요?", "Wann wird es hochgeladen?", "When does it go up?"),
+    probe=("언제 올라가요?", "Wann wird es hochgeladen?", "When will it be posted?"),
 )
 _beat(
     "b2_self_fail",
@@ -690,7 +690,7 @@ _beat(
 _beat(
     "b2_one_pager",
     take=("네, 숫자 표만 남겨 주세요.", "Ja, nur die Zahlentabelle behalten.", "Yes, keep only the number table."),
-    probe=("언제 올라가요?", "Wann wird es hochgeladen?", "When will it go up?"),
+    probe=("언제 올라가요?", "Wann wird es hochgeladen?", "When will it be posted?"),
 )
 _beat(
     "b2_assumption",
@@ -700,7 +700,7 @@ _beat(
 _beat(
     "b2_next_level",
     take=("네, 요약만 붙여 주세요.", "Ja, nur die Zusammenfassung anhängen.", "Yes, attach the summary only."),
-    probe=("언제 위로 올라가요?", "Wann geht es nach oben?", "When will it move up the chain?"),
+    probe=("언제 위로 올라가요?", "Wann wird das zur Freigabe weitergeleitet?", "When will it be sent up for approval?"),
 )
 _beat(
     "b2_case_id",
@@ -835,7 +835,7 @@ _beat(
 _beat(
     "c1_question_window",
     take=("네, 안내에 적어 주세요.", "Ja, in den Hinweis schreiben.", "Yes, write it in the notice."),
-    probe=("안내는 언제 올라가요?", "Wann geht der Hinweis hoch?", "When will the notice go up?"),
+    probe=("안내는 언제 올라가요?", "Wann wird der Hinweis veröffentlicht?", "When will the notice be posted?"),
 )
 _beat(
     "c1_leading_item",

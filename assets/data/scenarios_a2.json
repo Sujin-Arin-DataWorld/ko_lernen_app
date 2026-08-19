@@ -4741,8 +4741,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -4928,8 +4928,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -5115,8 +5115,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -5302,8 +5302,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -5489,8 +5489,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -5676,8 +5676,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -5863,8 +5863,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -6050,8 +6050,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -6237,8 +6237,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -6424,8 +6424,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -6611,8 +6611,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -6644,7 +6644,7 @@
           "speaker": "jieun",
           "ko": "알겠습니다. 그렇게 하죠.",
           "de": "Gut. Machen wir so.",
-          "en": "Sure. Let us do that."
+          "en": "Sure. Let's do that."
         },
         {
           "speaker": "user",
@@ -6798,8 +6798,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -6831,7 +6831,7 @@
           "speaker": "jieun",
           "ko": "알겠어요. 그럼 그 방향으로 가죠.",
           "de": "Gut. Dann in diese Richtung.",
-          "en": "Okay. We will go that way then."
+          "en": "Okay. Let's go that way then."
         },
         {
           "speaker": "user",
@@ -6985,8 +6985,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -7172,8 +7172,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -7359,8 +7359,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -7546,8 +7546,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -7733,8 +7733,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -7920,8 +7920,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -8107,8 +8107,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -8294,8 +8294,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -8481,8 +8481,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -8668,8 +8668,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -8855,8 +8855,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -9042,8 +9042,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -9229,8 +9229,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -9262,7 +9262,7 @@
           "speaker": "jieun",
           "ko": "네, 제가 그렇게 맞춰 두겠습니다.",
           "de": "Ja, ich passe es entsprechend an.",
-          "en": "Yes, I'll line it up like that."
+          "en": "Yes, I'll adjust it that way."
         },
         {
           "speaker": "user",
@@ -9416,8 +9416,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -9603,8 +9603,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -9790,8 +9790,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -9977,8 +9977,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -10125,13 +10125,13 @@
       "xpReward": 160,
       "title": {
         "ko": "점장에게 휴가",
-        "de": "Urlaub bei der Leitung",
-        "en": "Leave with the manager"
+        "de": "Urlaub bei der Filialleitung",
+        "en": "Leave with the store manager"
       },
       "intro": {
         "ko": "점장에게 하루 휴가를 요청합니다.",
-        "de": "Man bittet die Leitung um einen Urlaubstag.",
-        "en": "You ask the manager for a day of leave."
+        "de": "Man bittet die Filialleitung um einen Urlaubstag.",
+        "en": "You ask the store manager for a day of leave."
       },
       "vocab": [
         {
@@ -10164,8 +10164,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -10197,7 +10197,7 @@
           "speaker": "jieun",
           "ko": "알겠어요. 그럼 그 방향으로 가죠.",
           "de": "Gut. Dann in diese Richtung.",
-          "en": "Okay. We will go that way then."
+          "en": "Okay. Let's go that way then."
         },
         {
           "speaker": "user",
@@ -10351,8 +10351,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -10538,8 +10538,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -10725,8 +10725,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -10912,8 +10912,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -11099,8 +11099,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -11286,8 +11286,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -11473,8 +11473,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -11660,8 +11660,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -11847,8 +11847,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -12034,8 +12034,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -12221,8 +12221,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -12408,8 +12408,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -12595,8 +12595,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -12782,8 +12782,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -12969,8 +12969,8 @@
         },
         "explanation": {
           "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit Vorschlag bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use shall we to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [

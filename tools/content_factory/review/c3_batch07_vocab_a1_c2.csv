@@ -493,7 +493,7 @@ vocab_c2_0059,C2,청자 위치,Adressatenort,where the listener is put,rights: o
 vocab_c2_0060,C2,해석 경쟁,Deutungskonkurrenz,competing readings,rights: original; pack: c2_framing_analysis_1; canonical sentence derives matching cloze/satz,draft,
 vocab_c2_0061,C2,제도적 권한,Amtsmacht,institutional power,rights: original; pack: c2_institutional_voice_1; canonical sentence derives matching cloze/satz,draft,
 vocab_c2_0062,C2,공식 어조,Amtsregister,official register,rights: original; pack: c2_institutional_voice_1; canonical sentence derives matching cloze/satz,draft,
-vocab_c2_0063,C2,위임 범위,Mandatsgrenze,mandate edge,rights: original; pack: c2_institutional_voice_1; canonical sentence derives matching cloze/satz,draft,
+vocab_c2_0063,C2,위임 범위,Zuständigkeitsgrenze,scope of authority,rights: original; pack: c2_institutional_voice_1; canonical sentence derives matching cloze/satz,draft,
 vocab_c2_0064,C2,기록 의무,Dokumentationspflicht,duty to record,rights: original; pack: c2_institutional_voice_1; canonical sentence derives matching cloze/satz,draft,
 vocab_c2_0065,C2,재량 공간,Ermessensraum,discretion space,rights: original; pack: c2_institutional_voice_1; canonical sentence derives matching cloze/satz,draft,
 vocab_c2_0066,C2,항의 창구,Widerspruchsstelle,objection desk,rights: original; pack: c2_institutional_voice_1; canonical sentence derives matching cloze/satz,draft,

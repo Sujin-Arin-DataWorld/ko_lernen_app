@@ -88,6 +88,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | 실제 브라우저 조작·스크린샷·탐색적 QA | `agent-browser` |
 | 로컬 Flutter web 앱 Playwright 검증 | `webapp-testing` |
 | DE/EN 카피의 AI 티 제거 | `humanizer` |
+| 학습 콘텐츠 KO↔DE/EN 의미·권한·화행 검수 | `beyond-humanizer` (자연스러움만으로 직책·절차를 만들지 않음) |
 | 위 표에 없는 능력이 필요할 때 | `find-skills` (설치 후보 탐색) |
 
 ⚠️ 스킬은 조언·절차서일 뿐 이 저장소의 규칙보다 우선하지 않는다. 충돌 시 **AGENTS.md 가 이긴다**

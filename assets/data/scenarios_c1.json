@@ -650,8 +650,8 @@
         },
         "explanation": {
           "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use taking into account to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -837,8 +837,8 @@
         },
         "explanation": {
           "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use taking into account to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -870,7 +870,7 @@
           "speaker": "jieun",
           "ko": "네, 제가 그렇게 맞춰 두겠습니다.",
           "de": "Ja, ich passe es entsprechend an.",
-          "en": "Yes, I'll line it up like that."
+          "en": "Yes, I'll adjust it that way."
         },
         {
           "speaker": "user",
@@ -1024,8 +1024,8 @@
         },
         "explanation": {
           "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use taking into account to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -1211,8 +1211,8 @@
         },
         "explanation": {
           "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use taking into account to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -1249,8 +1249,8 @@
         {
           "speaker": "user",
           "ko": "안내는 언제 올라가요?",
-          "de": "Wann geht der Hinweis hoch?",
-          "en": "When will the notice go up?"
+          "de": "Wann wird der Hinweis veröffentlicht?",
+          "en": "When will the notice be posted?"
         },
         {
           "speaker": "jieun",
@@ -1398,8 +1398,8 @@
         },
         "explanation": {
           "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use taking into account to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -1585,8 +1585,8 @@
         },
         "explanation": {
           "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use taking into account to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -1618,7 +1618,7 @@
           "speaker": "jieun",
           "ko": "네, 제가 그렇게 맞춰 두겠습니다.",
           "de": "Ja, ich passe es entsprechend an.",
-          "en": "Yes, I'll line it up like that."
+          "en": "Yes, I'll adjust it that way."
         },
         {
           "speaker": "user",
@@ -1772,8 +1772,8 @@
         },
         "explanation": {
           "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use taking into account to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
@@ -1805,7 +1805,7 @@
           "speaker": "jieun",
           "ko": "네, 제가 그렇게 맞춰 두겠습니다.",
           "de": "Ja, ich passe es entsprechend an.",
-          "en": "Yes, I'll line it up like that."
+          "en": "Yes, I'll adjust it that way."
         },
         {
           "speaker": "user",
@@ -1959,8 +1959,8 @@
         },
         "explanation": {
           "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit unter Berücksichtigung bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use taking into account to ask politely or name a condition."
+          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+          "en": "Use this form to ask politely or name a condition."
         }
       },
       "dialog": [
