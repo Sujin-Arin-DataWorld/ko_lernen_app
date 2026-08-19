@@ -20,9 +20,10 @@ import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feed.dart';
-import '../services/content_share_service.dart';
+import '../services/custom_pack_service.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/ko_wrap.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
@@ -258,25 +259,6 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     _load();
   }
 
-  static Color _levelColor(String lvl) {
-    switch (lvl) {
-      case 'a1':
-        return SoriColors.success;
-      case 'a2':
-        return SoriColors.primary;
-      case 'b1':
-        return SoriColors.warning;
-      case 'b2':
-        return SoriColors.accent;
-      case 'c1':
-        return SoriColors.hangul;
-      case 'c2':
-        return SoriColors.primary;
-      default:
-        return SoriColors.primary;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -412,10 +394,13 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                   builder: (context) {
                     final i = _phraseIndex.clamp(0, phrases.length - 1);
                     final phrase = phrases[i];
-                    return SoriContentFeed(
+                    return _PhraseCard(
                       key: ValueKey('smalltalk_${phrase.id}_$i'),
-                      judgmentsEnabled: true,
-                      skipEnabled: false,
+                      p: phrase,
+                      lang: lang,
+                      coachKey: i == 0 ? _firstCardKey : null,
+                      courseContext: widget.courseContext,
+                      assessmentLink: _courseAssessmentLinks[phrase.id],
                       onNext: i < phrases.length - 1
                           ? () => setState(() => _phraseIndex = i + 1)
                           : null,
@@ -431,40 +416,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                           setState(() {});
                         }
                       },
-                      onShare: () {
-                        unawaited(
-                          ContentShareService.shareStory(
-                            korean: phrase.ko,
-                            gloss: phrase.translation(lang),
-                          ),
-                        );
-                      },
                       liked: LikedContentService.isLiked(
                         kind: LikedContentService.smalltalk,
                         id: phrase.id,
-                      ),
-                      child: KeyedSubtree(
-                        key: i == 0 ? _firstCardKey : ValueKey(phrase.id),
-                        child: LayoutBuilder(
-                          builder: (context, constraints) {
-                            final minH = constraints.maxHeight.isFinite
-                                ? constraints.maxHeight
-                                : 0.0;
-                            return SingleChildScrollView(
-                              child: ConstrainedBox(
-                                constraints: BoxConstraints(minHeight: minH),
-                                child: _PhraseCard(
-                                  p: phrase,
-                                  lang: lang,
-                                  levelColor: _levelColor(phrase.level),
-                                  courseContext: widget.courseContext,
-                                  assessmentLink:
-                                      _courseAssessmentLinks[phrase.id],
-                                ),
-                              ),
-                            );
-                          },
-                        ),
                       ),
                     );
                   },
@@ -476,7 +430,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
 
   Widget _levelChip(String label, String? lvl) => SoriChip(
     label: label,
-    accent: lvl == null ? SoriColors.primary : _levelColor(lvl),
+    accent: SoriColors.info,
     selected: _level == lvl,
     variant: SoriChipVariant.soft,
     onTap: () => _setLevel(lvl),
@@ -531,15 +485,24 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
 class _PhraseCard extends StatefulWidget {
   final SmalltalkPhrase p;
   final String lang;
-  final Color levelColor;
+  final GlobalKey? coachKey;
   final CoursePracticeContext? courseContext;
   final ContentLink? assessmentLink;
+  final VoidCallback? onNext;
+  final VoidCallback? onPrevious;
+  final VoidCallback? onLike;
+  final bool liked;
   const _PhraseCard({
+    super.key,
     required this.p,
     required this.lang,
-    required this.levelColor,
+    this.coachKey,
     this.courseContext,
     this.assessmentLink,
+    this.onNext,
+    this.onPrevious,
+    this.onLike,
+    this.liked = false,
   });
 
   @override
@@ -599,205 +562,215 @@ class _PhraseCardState extends State<_PhraseCard> {
     final lang = widget.lang;
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
+    final tt = SoriTextTheme.of(context);
     final hasReply = p.reply != null;
     final relationshipQuestion = SmalltalkRelationshipCheckpoint.forPhrase(p);
 
-    return Padding(
-      padding: const EdgeInsets.only(bottom: Spacing.md),
-      child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            InkWell(
-              onTap: () => TtsService.speak(p.ko),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+    return SoriContentFeed(
+      judgmentsEnabled: true,
+      skipEnabled: false,
+      showShare: false,
+      showFlip: true,
+      onNext: widget.onNext,
+      onPrevious: widget.onPrevious,
+      onLike: widget.onLike,
+      liked: widget.liked,
+      bookmarked: CustomPackService.containsKorean(p.ko),
+      onBookmark: () {
+        unawaited(
+          addToWordbook(
+            context,
+            korean: p.ko,
+            translationDe: p.de,
+            translationEn: p.en,
+            translationLanguage: lang,
+            notify: false,
+          ),
+        );
+        setState(() {});
+      },
+      onFlip: () =>
+          setState(() => _showConversationGuide = !_showConversationGuide),
+      child: KeyedSubtree(
+        key: widget.coachKey,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final minH = constraints.maxHeight.isFinite
+                ? constraints.maxHeight
+                : 0.0;
+            return SingleChildScrollView(
+              child: ConstrainedBox(
+                constraints: BoxConstraints(minHeight: minH),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    Spacing.lg,
+                    Spacing.md,
+                    Spacing.lg,
+                    Spacing.sm,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      SoriPhraseWrap(
+                        p.ko,
+                        key: const Key('smalltalk-ko'),
+                        style: tt.koDisplay.copyWith(color: s.text),
+                      ),
+                      const SizedBox(height: Spacing.sm),
+                      SoriPhraseWrap(
+                        p.translation(lang),
+                        style: tt.gloss,
+                      ),
+                      const SizedBox(height: Spacing.md),
+                      _SpeakButton(korean: p.ko),
+                      const SizedBox(height: Spacing.md),
+                      if (!_canRecordRelationshipCheckpoint ||
+                          _submittedRelationshipContext != null)
                         Text(
-                          p.ko,
-                          style: SoriTextTheme.of(context).koDisplay.copyWith(
-                            color: s.text,
+                          '${p.level.toUpperCase()} · ${t.smalltalkUseWith(p.relationshipContext.labelFor(lang))}',
+                          textAlign: TextAlign.center,
+                          style: tt.meta.copyWith(color: s.textMuted),
+                        ),
+                      if (_canRecordRelationshipCheckpoint &&
+                          _submittedRelationshipContext == null)
+                        Align(
+                          alignment: Alignment.center,
+                          child: TextButton.icon(
+                            onPressed: _savingRelationshipCheck
+                                ? null
+                                : () => setState(
+                                    () => _showRelationshipCheck = true,
+                                  ),
+                            icon: const Icon(
+                              Icons.fact_check_outlined,
+                              size: 16,
+                            ),
+                            label: Text(t.courseCheckpointCheck),
                           ),
                         ),
-                        const SizedBox(height: 4),
+                      if (_canRecordRelationshipCheckpoint &&
+                          _showRelationshipCheck) ...[
                         Text(
-                          p.translation(lang),
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            fontSize: 13,
-                            color: s.textMuted,
-                            height: 1.35,
+                          t.courseCheckpointSmalltalkPrompt,
+                          textAlign: TextAlign.center,
+                          style: tt.body.copyWith(fontWeight: FontWeight.w700),
+                        ),
+                        const SizedBox(height: Spacing.sm),
+                        for (final option in relationshipQuestion.options)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: Spacing.xs),
+                            child: SoriButton.outlined(
+                              label: option.labelFor(lang),
+                              fullWidth: true,
+                              accent:
+                                  _submittedRelationshipContext != null &&
+                                      option == p.relationshipContext
+                                  ? SoriColors.success
+                                  : null,
+                              destructive:
+                                  _submittedRelationshipContext != null &&
+                                  option == _submittedRelationshipContext &&
+                                  option != p.relationshipContext,
+                              onTap:
+                                  _savingRelationshipCheck ||
+                                      _submittedRelationshipContext != null
+                                  ? null
+                                  : () => _submitRelationshipCheck(option),
+                            ),
+                          ),
+                      ],
+                      if (_canRecordRelationshipCheckpoint &&
+                          _submittedRelationshipContext != null)
+                        Padding(
+                          padding: const EdgeInsets.only(top: Spacing.xs),
+                          child: Text(
+                            _submittedRelationshipContext ==
+                                    p.relationshipContext
+                                ? t.courseCheckpointCorrect
+                                : t.courseCheckpointIncorrect,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color:
+                                  _submittedRelationshipContext ==
+                                      p.relationshipContext
+                                  ? SoriColors.success
+                                  : SoriColors.danger,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ),
+                      if (_showConversationGuide) ...[
+                        const SizedBox(height: Spacing.md),
+                        _ConversationGuide(
+                          alternative: p.safeAlternativeQuestions.first,
+                          followUp: p.followUp,
+                          lang: lang,
+                        ),
+                      ],
+                      if (hasReply && _showReply) ...[
+                        const SizedBox(height: Spacing.sm),
+                        _ReplyView(reply: p.reply!, lang: lang),
+                      ] else if (hasReply && !_showReply) ...[
+                        Align(
+                          alignment: Alignment.center,
+                          child: TextButton.icon(
+                            onPressed: () =>
+                                setState(() => _showReply = true),
+                            icon: const Icon(
+                              Icons.chat_bubble_outline_rounded,
+                              size: 16,
+                            ),
+                            label: Text(t.smalltalkReply),
                           ),
                         ),
                       ],
-                    ),
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  Column(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 7,
-                          vertical: 2,
-                        ),
-                        decoration: BoxDecoration(
-                          color: widget.levelColor.withValues(alpha: 0.15),
-                          borderRadius: BorderRadius.circular(SoriRadius.pill),
-                        ),
-                        child: Text(
-                          p.level.toUpperCase(),
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            fontSize: 10,
-                            fontWeight: FontWeight.w900,
-                            color: widget.levelColor,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      Icon(
-                        Icons.volume_up_rounded,
-                        color: SoriColors.primary.withValues(alpha: 0.7),
-                        size: 20,
-                      ),
-                      const SizedBox(height: 10),
-                      // Satz ins eigene Wörterbuch (Satz = Karte).
-                      GestureDetector(
-                        onTap: () => addToWordbook(
-                          context,
-                          korean: p.ko,
-                          translationDe: p.de,
-                          translationEn: p.en,
-                        ),
-                        child: Icon(
-                          Icons.bookmark_add_outlined,
-                          color: SoriColors.primary.withValues(alpha: 0.7),
-                          size: 20,
-                        ),
-                      ),
                     ],
                   ),
-                ],
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class _SpeakButton extends StatelessWidget {
+  const _SpeakButton({required this.korean});
+
+  final String korean;
+
+  @override
+  Widget build(BuildContext context) {
+    if (korean.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    final t = AppL10n.of(context);
+    return Semantics(
+      button: true,
+      label: t.btnHoeren,
+      child: Center(
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () => TtsService.speak(korean),
+          child: Material(
+            color: SoriColors.primary.withValues(alpha: 0.12),
+            shape: const CircleBorder(),
+            child: const SizedBox(
+              key: Key('smalltalk-speak'),
+              width: 52,
+              height: 52,
+              child: Icon(
+                Icons.volume_up_rounded,
+                size: 24,
+                color: SoriColors.primary,
               ),
             ),
-            const SizedBox(height: Spacing.sm),
-            if (!_canRecordRelationshipCheckpoint ||
-                _submittedRelationshipContext != null)
-              Text(
-                AppL10n.of(
-                  context,
-                ).smalltalkUseWith(p.relationshipContext.labelFor(lang)),
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 12.5,
-                  color: s.textMuted,
-                  height: 1.3,
-                ),
-              ),
-            if (_canRecordRelationshipCheckpoint &&
-                _submittedRelationshipContext == null)
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextButton.icon(
-                  onPressed: _savingRelationshipCheck
-                      ? null
-                      : () => setState(() => _showRelationshipCheck = true),
-                  icon: const Icon(Icons.fact_check_outlined, size: 16),
-                  label: Text(t.courseCheckpointCheck),
-                ),
-              ),
-            if (_canRecordRelationshipCheckpoint && _showRelationshipCheck) ...[
-              Text(
-                t.courseCheckpointSmalltalkPrompt,
-                style: TextStyle(
-                  fontFamily: 'Pretendard',
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
-                  color: s.text,
-                ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              for (final option in relationshipQuestion.options)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: Spacing.xs),
-                  child: SoriButton.outlined(
-                    label: option.labelFor(lang),
-                    fullWidth: true,
-                    accent:
-                        _submittedRelationshipContext != null &&
-                            option == p.relationshipContext
-                        ? SoriColors.success
-                        : null,
-                    destructive:
-                        _submittedRelationshipContext != null &&
-                        option == _submittedRelationshipContext &&
-                        option != p.relationshipContext,
-                    onTap:
-                        _savingRelationshipCheck ||
-                            _submittedRelationshipContext != null
-                        ? null
-                        : () => _submitRelationshipCheck(option),
-                  ),
-                ),
-            ],
-            if (_canRecordRelationshipCheckpoint &&
-                _submittedRelationshipContext != null)
-              Padding(
-                padding: const EdgeInsets.only(top: Spacing.xs),
-                child: Text(
-                  _submittedRelationshipContext == p.relationshipContext
-                      ? t.courseCheckpointCorrect
-                      : t.courseCheckpointIncorrect,
-                  style: TextStyle(
-                    color:
-                        _submittedRelationshipContext == p.relationshipContext
-                        ? SoriColors.success
-                        : SoriColors.danger,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-              ),
-            if (!_showConversationGuide)
-              Align(
-                alignment: Alignment.centerLeft,
-                child: TextButton.icon(
-                  onPressed: () =>
-                      setState(() => _showConversationGuide = true),
-                  icon: const Icon(Icons.alt_route_rounded, size: 16),
-                  label: Text(
-                    AppL10n.of(context).smalltalkSaferAlternativeAndNext,
-                  ),
-                ),
-              )
-            else
-              _ConversationGuide(
-                alternative: p.safeAlternativeQuestions.first,
-                followUp: p.followUp,
-                lang: lang,
-              ),
-            // Catch-ball: Beispielantwort (nur bei Fragen).
-            if (hasReply) ...[
-              const SizedBox(height: Spacing.xs),
-              if (!_showReply)
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: TextButton.icon(
-                    onPressed: () => setState(() => _showReply = true),
-                    icon: const Icon(
-                      Icons.chat_bubble_outline_rounded,
-                      size: 16,
-                    ),
-                    label: Text(t.smalltalkReply),
-                  ),
-                )
-              else
-                _ReplyView(reply: p.reply!, lang: lang),
-            ],
-          ],
+          ),
         ),
+      ),
     );
   }
 }

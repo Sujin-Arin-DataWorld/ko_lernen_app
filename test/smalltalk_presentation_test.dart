@@ -51,8 +51,15 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
 
-    expect(find.text('새 안내 방식이 실제로 접근성을 높였는지 어떻게 확인할까요?'), findsOneWidget);
+    expect(find.text('접근성을'), findsOneWidget);
+    expect(find.textContaining('확인할까요?'), findsOneWidget);
     expect(find.text('날씨 좋네요.'), findsNothing);
+    expect(find.text('Listen'), findsNothing);
+    expect(find.byKey(const Key('smalltalk-speak')), findsOneWidget);
+    expect(
+      tester.getTopLeft(find.byKey(const Key('smalltalk-ko'))).dx,
+      greaterThanOrEqualTo(16),
+    );
     expect(tester.takeException(), isNull);
 
     await tester.pumpWidget(const SizedBox.shrink());

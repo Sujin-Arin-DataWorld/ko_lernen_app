@@ -1,5 +1,22 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 스몰톡 한 화면 레이아웃
+
+**무엇을 왜.** Jin이 스몰톡이 망가졌다고 찍었다. 한국어가 왼쪽에서
+잘리고, A1/스피커/책갈피가 오른쪽 끝에 떠 있으며, 레벨 칩이 일곱 색이고
+가운데가 비어 있었다. P6이 히어로 카드를 뺀 뒤 본문 패딩과 정렬을 안 맞춘
+상태다.
+
+**고침.** 문장·뜻을 가운데 두고 좌우 `Spacing.lg`를 준다. 옆 아이콘 열을
+없애고 듣기만 52dp 녹청 원으로 둔다. 책갈피는 하단 스탬프만. `?`가 안전한
+대안을 연다. 레벨 칩은 `info` 하나. 공유 텍스트 덤프는 끈다.
+
+**검증.** `flutter analyze` smalltalk_screen + presentation test 0 issue.
+`flutter test` smalltalk_test · smalltalk_presentation · course_practice
+smalltalk 2건 통과. 문장 왼쪽 ≥16dp, Listen 라벨 없음.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor Grok 4.6, Cloud) — 문법·CTA·한글 손맛
 
 **무엇을 왜.** Jin이 문법 카드가 한 덩어리로 줄바꿈되고, Listen이 뒤집히고,
