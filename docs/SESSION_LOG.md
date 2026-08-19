@@ -1,5 +1,14 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 듣고 있어요 말씀하세요 ≠ Sagen Sie
+
+**무엇을 왜.** `듣고 있어요. 말씀하세요`를 Ich höre. Sagen Sie로 두면
+독일어가 명령처럼 들린다. Ich höre. Ja, bitte? 로. C1 괜찮습니다도 Nur zu.
+
+**검증.** Grep Ich höre. Sagen Sie 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 질문 직역·주말 du·Ja bitte?
 
 **무엇을 왜.** `여기서 뭐가 제일 맛있어요?`를 Empfehlen Sie… 요청으로 바꾸면

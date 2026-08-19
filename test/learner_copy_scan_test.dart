@@ -67,6 +67,7 @@ final _textbookPhrases = <RegExp>[
   RegExp('Erkältung war schlimm, deshalb war ich im Krankenhaus'),
   RegExp('Ja, bitte sagen Sie'),
   RegExp('leckerste Gericht hier'),
+  RegExp(r'Ich höre\. Sagen Sie'),
 ];
 
 // 2026-08-17: Batch 07/08 은 수량·ID·스키마 게이트를 전부 통과했지만, 문장을
