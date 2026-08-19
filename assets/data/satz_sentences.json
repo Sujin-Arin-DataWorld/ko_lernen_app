@@ -11025,7 +11025,7 @@
       "id": "satz_a1_0192",
       "level": "a1",
       "targetKo": "주말 계획을 같이 세워 봐요.",
-      "promptDe": "Lassen Sie uns den Wochenendplan gemeinsam machen.",
+      "promptDe": "Lass uns den Wochenendplan zusammen machen.",
       "promptEn": "Let's make the weekend plan together.",
       "distractors": [
         "늦잠",
@@ -11349,7 +11349,7 @@
       "id": "satz_a1_0219",
       "level": "a1",
       "targetKo": "수업 시작 전에 준비됐나요?",
-      "promptDe": "Sind Sie vor Unterrichtsbeginn bereit?",
+      "promptDe": "Bist du vor der Stunde soweit?",
       "promptEn": "Are you ready before class starts?",
       "distractors": [
         "필통",
@@ -11709,7 +11709,7 @@
       "id": "satz_a1_0249",
       "level": "a1",
       "targetKo": "실수해도 큰 문제없어요.",
-      "promptDe": "Wenn Sie einen Fehler machen, ist das kein Problem.",
+      "promptDe": "Wenn du einen Fehler machst, ist das kein Problem.",
       "promptEn": "If you make a mistake, no problem.",
       "distractors": [
         "죄송하다",
@@ -11757,7 +11757,7 @@
       "id": "satz_a1_0253",
       "level": "a1",
       "targetKo": "한국어를 천천히 말하다 들으면 이해가 돼요.",
-      "promptDe": "Wenn Sie Koreanisch langsam sprechen, verstehe ich es.",
+      "promptDe": "Wenn du Koreanisch langsam sprichst, versteh ich’s.",
       "promptEn": "If you speak Korean slowly, I understand.",
       "distractors": [
         "죄송하다",
@@ -18129,7 +18129,7 @@
       "id": "satz_a2_0248",
       "level": "a2",
       "targetKo": "숙제 다 했어요?",
-      "promptDe": "Haben Sie Ihre Hausaufgaben schon gemacht?",
+      "promptDe": "Hast du deine Hausaufgaben schon gemacht?",
       "promptEn": "Did you finish your homework?",
       "distractors": [
         "회사",
@@ -18225,7 +18225,7 @@
       "id": "satz_a2_0256",
       "level": "a2",
       "targetKo": "답장 문자 못 봤어요?",
-      "promptDe": "Haben Sie meine Antwort-SMS nicht gesehen?",
+      "promptDe": "Hast du meine Antwort nicht gesehen?",
       "promptEn": "Didn't you see my reply text?",
       "distractors": [
         "회사",
@@ -18369,7 +18369,7 @@
       "id": "satz_a2_0268",
       "level": "a2",
       "targetKo": "이따 다시 전화할게요.",
-      "promptDe": "Ich rufe Sie später noch mal an.",
+      "promptDe": "Ich ruf dich später noch mal an.",
       "promptEn": "I'll call you back later.",
       "distractors": [
         "회사",
@@ -18417,7 +18417,7 @@
       "id": "satz_a2_0272",
       "level": "a2",
       "targetKo": "무슨 말인지 이해했어요.",
-      "promptDe": "Ich habe verstanden, was Sie meinen.",
+      "promptDe": "Ich hab verstanden, was du meinst.",
       "promptEn": "I understood what you meant.",
       "distractors": [
         "회사",
@@ -19749,7 +19749,7 @@
       "id": "satz_a2_0315",
       "level": "a2",
       "targetKo": "이 색이 진짜 잘 어울려요.",
-      "promptDe": "Diese Farbe steht Ihnen wirklich gut.",
+      "promptDe": "Die Farbe steht dir echt gut.",
       "promptEn": "This color really suits you.",
       "distractors": [
         "회사",
@@ -19953,7 +19953,7 @@
       "id": "satz_a2_0332",
       "level": "a2",
       "targetKo": "저 분홍색 진짜 잘 어울리네요.",
-      "promptDe": "Das Rosa steht Ihnen wirklich gut.",
+      "promptDe": "Das Rosa steht dir echt gut.",
       "promptEn": "That pink really suits you.",
       "distractors": [
         "회사",

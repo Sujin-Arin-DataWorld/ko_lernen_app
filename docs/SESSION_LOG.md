@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 교실·친구 해요체를 Sie가 아니라 du로
+
+**무엇을 왜.** 숙제·문자·주말 계획·준비됐나요 등 해요체 친구/교실 예문이
+관청 Sie로 남아 있었다. 가게·지하철 안내·양보(하세요/주셔서)는 Sie 유지.
+단어팩이 정본이고 Cloze·Satz·실벤·시나리오 오답을 같은 예문에 맞춤.
+
+**검증.** ID로 CSV 갱신. cloze/satz/silben/learner_copy_scan 예정.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — A1/A2 Cloze·Satz 교과서 독일어
 
 **무엇을 왜.** 단어팩과 안 겹치는 커스텀 문장에 깨진/교과서 DE·EN이 남았다.
