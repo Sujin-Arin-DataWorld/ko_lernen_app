@@ -845,7 +845,7 @@
         {
           "speaker": "jieun",
           "ko": "네, 편하게 말씀하세요.",
-          "de": "Sagen Sie es ruhig.",
+          "de": "Sie können mir ruhig sagen.",
           "en": "Go ahead, tell me."
         },
         {
@@ -1032,7 +1032,7 @@
         {
           "speaker": "jieun",
           "ko": "네, 편하게 말씀하세요.",
-          "de": "Sagen Sie es ruhig.",
+          "de": "Sie können mir ruhig sagen.",
           "en": "Go ahead, tell me."
         },
         {
@@ -1219,7 +1219,7 @@
         {
           "speaker": "jieun",
           "ko": "네, 편하게 말씀하세요.",
-          "de": "Sagen Sie es ruhig.",
+          "de": "Sie können mir ruhig sagen.",
           "en": "Go ahead, tell me."
         },
         {
@@ -1780,7 +1780,7 @@
         {
           "speaker": "jieun",
           "ko": "네, 편하게 말씀하세요.",
-          "de": "Sagen Sie es ruhig.",
+          "de": "Sie können mir ruhig sagen.",
           "en": "Go ahead, tell me."
         },
         {
@@ -5412,7 +5412,7 @@
         {
           "speaker": "minsu",
           "ko": "괜찮습니다. 편하게 말씀하세요.",
-          "de": "Kein Problem. Nur zu.",
+          "de": "Kein Problem. Sie können mir ruhig sagen.",
           "en": "That's fine. Go ahead."
         },
         {
