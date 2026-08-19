@@ -6,10 +6,10 @@
 정렬만 맞추라고 했다. `/frontend-design`은 새 집을 그리지 않고 기존
 토큰·구성을 유지하는 가독성 패스에만 썼다.
 
-**무엇을.** 페이지 헤더 wrap. Learn/Games 분 필 말줄임. Hanok은 이중
-bottom SafeArea를 제거하고 숏컷을 헤더와 같은 960 클램프·짧은 화면은
-`SoriMinHeightScroll`(640, 390+는 시각 0). Gye 임베디드는 이중 SafeArea
-제거·본문 폭을 헤더와 같은 880·흐름 띠/칩/멤버 수 wrap. 색·카드·IA 불변.
+**무엇을.** 페이지 헤더 wrap. Learn/Games 분 필 말줄임. Hanok/Gye 비스크롤
+헤더는 제목·본문 3줄. `soriStageChromeMinHeight`로 짧은 화면·200% 글자만
+스크롤(390×844·1.0은 시각 0). Hanok 숏컷은 헤더와 같은 960, 이중 bottom
+SafeArea 제거. Gye 임베디드 이중 SafeArea 제거·본문 880. 색·카드·IA 불변.
 
 **검증.** 카탈로그 learn/games 320–1280 × 1/1.3/2 + Hanok/Gye 320/360/390/1280
 × 1/2 + 기존 Today/availability/matte/gye_embedded_fit/hanok_shortcuts.
