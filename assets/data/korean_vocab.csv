@@ -387,7 +387,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 덜,deol,weniger,A1,Adverb,설탕은 덜 넣어요.,Ich gebe weniger Zucker hinein.,Alltag,a1_daily_4,9,true,less,Adverb,I put in less sugar.,vocab_a1_0211
 주문하다,jumunhada,bestellen,A2,Verb,저희 아직 주문 안 했어요.,Wir haben noch nicht bestellt.,Essen & Trinken,a2_food_1,5,false,to order,Verb,We haven't ordered yet.,vocab_a2_0087
 메뉴,menyu,Speisekarte,A2,Nomen,메뉴판 좀 볼 수 있을까요?,Könnte ich bitte die Speisekarte sehen?,Essen & Trinken,a2_food_1,6,true,menu,Noun,"Could I see the menu, please?",vocab_a2_0088
-추천하다,chucheonhada,empfehlen,A2,Verb,여기서 뭐가 제일 맛있어요?,Empfehlen Sie mir bitte das leckerste Gericht hier.,Essen & Trinken,a2_food_1,7,true,to recommend,Verb,Please recommend the tastiest dish here.,vocab_a2_0089
+추천하다,chucheonhada,empfehlen,A2,Verb,여기서 뭐가 제일 맛있어요?,Was schmeckt hier am besten?,Essen & Trinken,a2_food_1,7,true,to recommend,Verb,What's best here?,vocab_a2_0089
 맛,mat,Geschmack,A2,Nomen,이 집 김치찌개 맛이 진짜예요.,Der Kimchi-Eintopf hier schmeckt einfach unglaublich.,Essen & Trinken,a2_food_2,1,false,taste / flavor,Noun,The kimchi stew at this place is the real deal.,vocab_a2_0090
 짜다,jjada,salzig sein,A2,Adjektiv,국이 좀 짜네요.,Die Suppe ist etwas salzig.,Essen & Trinken,a2_food_2,2,false,to be salty,Adjective,The soup is a bit salty.,vocab_a2_0091
 시다,sida,sauer sein,A2,Adjektiv,이 귤 좀 셔요.,Diese Mandarine ist etwas sauer.,Essen & Trinken,a2_food_2,3,false,to be sour,Adjective,This tangerine is a bit sour.,vocab_a2_0092
@@ -1647,7 +1647,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 약속 시간,yaksok sigan,Terminzeit,A1,Ausdruck,약속 시간을 세 시로 바꿀까요?,Sollen wir die Terminzeit auf drei Uhr ändern?,Wochenendzusage,a1_weekend_promise_1,2,false,meeting time,Expression,Shall we change the meeting time to three?,vocab_a1_0333
 약속 장소,yaksok jangso,Treffpunkt,A1,Ausdruck,약속 장소는 역 앞이에요.,Der Treffpunkt ist vor dem Bahnhof.,Wochenendzusage,a1_weekend_promise_1,3,false,meeting place,Expression,The meeting place is in front of the station.,vocab_a1_0334
 취소하다,chwisohada,absagen,A1,Verb,비가 오면 산책을 취소하다 결정해요.,"Wenn es regnet, entscheide ich, den Spaziergang abzusagen.",Wochenendzusage,a1_weekend_promise_1,4,false,to cancel,Verb,"If it rains, I decide to cancel the walk.",vocab_a1_0335
-미리 연락,miri yeonrak,vorher Bescheid sagen,A1,Ausdruck,늦으면 미리 연락해 주세요.,"Wenn Sie sich verspäten, sagen Sie bitte vorher Bescheid.",Wochenendzusage,a1_weekend_promise_1,5,false,advance notice,Expression,"If you will be late, please give advance notice.",vocab_a1_0336
+미리 연락,miri yeonrak,vorher Bescheid sagen,A1,Ausdruck,늦으면 미리 연락해 주세요.,"Wenn du zu spät kommst, sag vorher Bescheid.",Wochenendzusage,a1_weekend_promise_1,5,false,advance notice,Expression,"If you're gonna be late, text me first.",vocab_a1_0336
 시간 맞추다,sigan matchuda,die Zeit abstimmen,A1,Ausdruck,내일 오후에 시간 맞추다 문자를 보냈어요.,"Morgen Nachmittag habe ich geschrieben, um die Zeit abzustimmen.",Wochenendzusage,a1_weekend_promise_1,6,false,to match the time,Expression,I texted tomorrow afternoon to match the time.,vocab_a1_0337
 다음에 봐요,daeume bwayo,bis zum nächsten Mal,A1,Ausdruck,오늘은 여기까지 하고 다음에 봐요.,"Für heute reicht es, bis zum nächsten Mal.",Wochenendzusage,a1_weekend_promise_1,7,false,see you next time,Expression,"That's enough for today, see you next time.",vocab_a1_0338
 바로 갈게요,baro galgeyo,ich komme gleich,A1,Ausdruck,지금 나와서 바로 갈게요.,Ich gehe jetzt raus und komme gleich.,Wochenendzusage,a1_weekend_promise_1,8,false,I'll come right away,Expression,I'm heading out now and I'll come right away.,vocab_a1_0339

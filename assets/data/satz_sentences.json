@@ -10977,8 +10977,8 @@
       "id": "satz_a1_0188",
       "level": "a1",
       "targetKo": "늦으면 미리 연락해 주세요.",
-      "promptDe": "Wenn Sie sich verspäten, sagen Sie bitte vorher Bescheid.",
-      "promptEn": "If you will be late, please give advance notice.",
+      "promptDe": "Wenn du zu spät kommst, sag vorher Bescheid.",
+      "promptEn": "If you're gonna be late, text me first.",
       "distractors": [
         "늦잠",
         "약속 시간"
@@ -19665,8 +19665,8 @@
       "id": "satz_a2_0308",
       "level": "a2",
       "targetKo": "여기서 뭐가 제일 맛있어요?",
-      "promptDe": "Empfehlen Sie mir bitte das leckerste Gericht hier.",
-      "promptEn": "Please recommend the tastiest dish here.",
+      "promptDe": "Was schmeckt hier am besten?",
+      "promptEn": "What's best here?",
       "distractors": [
         "회사",
         "직업"

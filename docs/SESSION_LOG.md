@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 질문 직역·주말 du·Ja bitte?
+
+**무엇을 왜.** `여기서 뭐가 제일 맛있어요?`를 Empfehlen Sie… 요청으로 바꾸면
+질문을 진술/부탁으로 바꾼다. DE/EN을 질문으로. 주말 `미리 연락해 주세요`는
+친구 해요체라 du. 창구 `네, 말씀하세요`의 Ja, bitte sagen Sie는 Ja, bitte?
+
+**검증.** 시나리오 Grep Ja, bitte sagen Sie 0. cloze/satz 동기.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 감기 병원 ≠ Krankenhaus
 
 **무엇을 왜.** 일상 `병원에 가요`/`감기가 심해서 병원`을 Krankenhaus로 두면
