@@ -6,7 +6,7 @@
 같은 예문 cloze/vocab도 맞춤. 표제어 예산 이월·과장 표현·ID는 유지.
 cloze_b2_0299 빈칸은 새 문장의 `자극적인 표현`.
 
-**검증.** flutter test cloze/satz/content_id 예정.
+**검증.** flutter test cloze/satz/content_id/vocab_pack 31 passed.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
