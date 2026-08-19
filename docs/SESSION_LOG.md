@@ -172,6 +172,21 @@ a1_01 문법(인사 전용 문법 패턴 없음 — 억지로 옮기면 다른 �
 테스트는 지우지 않고 난이도 경로로 다시 썼다. 두 방식 중 무엇이 맞는지는
 Jin 판단 — 되돌리려면 `_typesForLevel` 의 `>= 2` 조건만 빼면 된다.
 
+**⑥ 세션마다 워킹트리 격리 (Jin 지시).** 이 세션 하루에만 공유 워킹트리로 세 번
+터졌다: ① 다른 세션의 SESSION_LOG 쓰기가 내 병합 해소를 덮음 ② 다른 세션이
+브랜치를 갈아타 내 HEAD 가 발밑에서 바뀜(그 바람에 로그가 날아간 줄 알고
+오진했다 — 실제로는 멀쩡했다) ③ `flutter test` 실행 중 파일이 갈려 유령 실패
+3건. Jin: "무조건 모든 세션은 시작하면 자기 워킹트리 따로 빼서 내 메인
+안 건드리게 해줘."
+→ `tool/session_worktree.sh <슬러그>` 신규 (origin/main 기준 `session/<슬러그>-<날짜>`
+브랜치 + `../ko_lernen_app_worktrees/<슬러그>` 워킹트리, 재실행 안전) ·
+`tool/check_session_worktree.sh` 신규 + `.claude/settings.json` SessionStart 훅
+(주 체크아웃이면 크게 경고, 링크된 워크트리면 조용. 판별은 `--git-dir` 과
+`--git-common-dir` 이 같은지로 한다) · AGENTS.md 최상단 ⛔⛔ 규칙.
+훅은 cwd 를 못 바꾸므로 경고만 한다 — 옮기는 건 세션 몫이다.
+검증: 메인에서 경고 JSON 출력 / 워크트리에서 무출력 · 생성·재실행·정리 전 과정
+실행 · `jq -e` 로 훅 스키마 위치와 기존 훅 2개 보존 확인.
+
 **⑤ 곁가지.** `assets/illustrations/empty/` 는 `4b5f5ccf` 에서 디렉터리째
 지워졌는데 pubspec 선언과 4개 화면 참조가 남아 `flutter` 실행마다
 `unable to find directory entry in pubspec.yaml` 을 찍고 있었다 → 선언 제거,
