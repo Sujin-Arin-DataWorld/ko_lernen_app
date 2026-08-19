@@ -6,6 +6,9 @@
 #   # 초기 완전 무료 출시:
 #   FREE_LAUNCH=1 bash scripts/build_ios_ipa.sh
 #
+#   # 내부테스터(TestFlight) — Android 내부테스트와 같은 계약:
+#   TESTER_BUILD=1 bash scripts/build_ios_ipa.sh
+#
 #   # 구독 출시:
 #   export RC_IOS_KEY=appl_xxxxxxxx      # RevenueCat 공개 Apple SDK 키
 #   bash scripts/build_ios_ipa.sh
@@ -69,6 +72,22 @@ xcrun --find xcodebuild >/dev/null 2>&1 ||
   die "APPLE_TEAM_ID 는 10자여야 한다 (지금 ${#APPLE_TEAM_ID}자)."
 ok "APPLE_TEAM_ID (10자)"
 
+# 내부테스터 빌드 — Android 내부테스트(.github/workflows/ci.yml 의
+# release-internal)와 **같은 dart-define 계약**을 쓴다. 이게 없으면 iOS 만
+# FREE_LAUNCH 로 굽게 되는데, 그건 프로덕션 무료 출시 모드라 RevenueCat 을
+# 아예 초기화하지 않는다 — 두 플랫폼 테스터가 서로 다른 코드 경로를 밟는다.
+# BETA_UNLOCK_ALL 은 테스터 오버라이드라 결제 게이팅 코드는 그대로 돈다.
+tester_build="${TESTER_BUILD:-0}"
+if [ "$tester_build" = "1" ]; then
+  [ "${FREE_LAUNCH:-0}" = "0" ] ||
+    die "TESTER_BUILD 와 FREE_LAUNCH 는 같이 못 쓴다 — 전자는 테스터 오버라이드, 후자는 프로덕션 무료 출시 모드다."
+  release_defines=(
+    --dart-define=BETA_UNLOCK_ALL=true
+    --dart-define=ENABLE_TESTER_FEEDBACK=true
+  )
+  ok "TESTER_BUILD=1 (내부테스터 · Android release-internal 과 동일 계약)"
+else
+
 free_launch="${FREE_LAUNCH:-0}"
 case "$free_launch" in
 1)
@@ -85,6 +104,7 @@ case "$free_launch" in
   ;;
 *) die "FREE_LAUNCH 는 0 또는 1만 가능하다 (초기 무료 출시는 FREE_LAUNCH=1)." ;;
 esac
+fi
 
 [ -s ios/Runner/GoogleService-Info.plist ] ||
   die "ios/Runner/GoogleService-Info.plist 없음 (의도적 gitignore). docs/store/ios-external-setup.md §1 대로 'flutterfire configure --platforms ios' 로 로컬 생성할 것."
@@ -156,7 +176,14 @@ if [ -n "${ASC_KEY_ID:-}" ] && [ -n "${ASC_ISSUER_ID:-}" ] && [ -n "${ASC_KEY_PA
   # altool 은 ~/.appstoreconnect/private_keys/AuthKey_<KEYID>.p8 규칙을 따른다.
   keydir="$HOME/.appstoreconnect/private_keys"
   mkdir -p "$keydir"
-  cp "$ASC_KEY_PATH" "$keydir/AuthKey_${ASC_KEY_ID}.p8"
+  # ASC_KEY_PATH 가 이미 altool 의 키 디렉토리를 가리키면 src==dest 라
+  # `cp` 가 "are identical" 로 죽고, set -e 때문에 빌드가 다 끝난 뒤
+  # 업로드 직전에 스크립트 전체가 중단된다. 같은 파일이면 복사하지 않는다.
+  if [ "$ASC_KEY_PATH" -ef "$keydir/AuthKey_${ASC_KEY_ID}.p8" ]; then
+    ok "키가 이미 altool 위치에 있다 — 복사 생략"
+  else
+    cp "$ASC_KEY_PATH" "$keydir/AuthKey_${ASC_KEY_ID}.p8"
+  fi
   chmod 600 "$keydir/AuthKey_${ASC_KEY_ID}.p8"
   xcrun altool --validate-app -f "$ipa" -t ios \
     --apiKey "$ASC_KEY_ID" --apiIssuer "$ASC_ISSUER_ID"
