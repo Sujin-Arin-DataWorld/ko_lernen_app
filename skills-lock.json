@@ -7,6 +7,12 @@
       "skillPath": "SKILL.md",
       "computedHash": "ffe5d0020ae97e7af2eeab79a3cdb2d13da004cc998dff6817b071308923b71f"
     },
+    "du-sie-check": {
+      "source": "bndkts/copycraft",
+      "sourceType": "github",
+      "skillPath": "skills/du-sie-check/SKILL.md",
+      "computedHash": "bc613a5b2ab4e391d32484517924ea7e48d7b767aa6ecfd765cda94c932adbb9"
+    },
     "find-skills": {
       "source": "vercel-labs/skills",
       "sourceType": "github",
@@ -24,6 +30,24 @@
       "sourceType": "github",
       "skillPath": "skills/productivity/grill-me/SKILL.md",
       "computedHash": "7edd436132b43ea2973710f0c28a9879c9b0910651eb89a991a7e98cb6dbbacb"
+    },
+    "humanizer": {
+      "source": "blader/humanizer",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "a9e52ffc97e9d8fdda35a6fb3967ace6fbc1ae3a0b7703774ad077fcf1e27153"
+    },
+    "humanizer-de": {
+      "source": "bndkts/copycraft",
+      "sourceType": "github",
+      "skillPath": "skills/humanizer-de/SKILL.md",
+      "computedHash": "1a9d26b836e08c58dd447751f9435b525267b94f01cf7c81a0d15ad98de68eee"
+    },
+    "lokalisieren-de": {
+      "source": "bndkts/copycraft",
+      "sourceType": "github",
+      "skillPath": "skills/lokalisieren-de/SKILL.md",
+      "computedHash": "a2937582f7fd673d10766f95b80783820a6ecc726809ff50fd24c7593753781c"
     },
     "session-handoff": {
       "source": "softaworks/agent-toolkit",

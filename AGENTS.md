@@ -87,7 +87,10 @@ Firebase 프로젝트: `ko-lernen-app`
 | 크래시 리포팅 | `firebase-crashlytics` |
 | 실제 브라우저 조작·스크린샷·탐색적 QA | `agent-browser` |
 | 로컬 Flutter web 앱 Playwright 검증 | `webapp-testing` |
-| DE/EN 카피의 AI 티 제거 | `humanizer` |
+| DE/EN 카피의 AI 티 제거 | `humanizer` (프로젝트 `.agents/skills/humanizer`, `-g` 불필요) |
+| 영어/브리프 → 네이티브 독일어 (번역투·Denglisch) | `lokalisieren-de` |
+| 독일어 AI 티 제거 | `humanizer-de` |
+| du/Sie 일관성 | `du-sie-check` |
 | 위 표에 없는 능력이 필요할 때 | `find-skills` (설치 후보 탐색) |
 
 ⚠️ 스킬은 조언·절차서일 뿐 이 저장소의 규칙보다 우선하지 않는다. 충돌 시 **AGENTS.md 가 이긴다**
@@ -356,6 +359,10 @@ flutter run -d <android-id>   # 안드로이드
 > 완료 이력·커밋별 검증은 `docs/SESSION_LOG.md`에만 남긴다. 이 섹션은 다음 세션이
 > 바로 행동할 수 있는 **현재 게이트**만 적는다.
 
+- [x] **DE/EN 카피 검수 스킬 프로젝트 설치**: `humanizer` + `lokalisieren-de` +
+  `humanizer-de` + `du-sie-check` 를 `.agents/skills/` 에 두었다. 글로벌 `-g` 는
+  PromptScript 가 거절하므로 쓰지 않는다. 맥에서는 `git pull` 뒤 `npx skills ls`
+  로 확인하면 된다.
 - [x] **단어망 V1 + 검수 후속**: 학습한 단어의 비슷한 말·반대말·연관어·표현
  66클러스터(A1 42·A2 8·B1 8·B2 8)를 `assets/data/word_relations.json`에 두고,
  연습 허브·둘러보기·Learn 카탈로그에서 `/word_web`으로 공부·4지선다 연습을 연다.

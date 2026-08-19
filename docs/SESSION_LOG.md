@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — DE/EN 검수 스킬을 프로젝트에 설치 (글로벌 `-g` 우회)
+
+**무엇을 왜.** 라이브 DE/EN 카피 검수에 `humanizer` + 독일어 네이티브 3종
+(`lokalisieren-de` · `humanizer-de` · `du-sie-check`)이 필요하다. 맥 터미널의
+`npx skills add … -g` 는 PromptScript 가 글로벌 설치를 거절해서 실패로 보인다
+(`PromptScript does not support global skill installation`). 스킬 CLI 는 이
+저장소에 이미 프로젝트 스킬(`.agents/skills/`)을 쓰고 있으므로 같은 경로에
+받아 둔다. `-g` 는 머신 로컬이라 pull 해도 맥에 안 따라온다.
+
+**고침.**
+- `npx skills add blader/humanizer -y --copy -a cursor claude-code`
+- `npx skills add bndkts/copycraft -y --copy -a cursor claude-code -s lokalisieren-de humanizer-de du-sie-check`
+- `.claude/skills/` 는 기존 `animate` 처럼 `.agents/skills/` 심볼릭 링크.
+- `humanizer` 업스트림 `.github/` 워크플로는 이 저장소에 넣지 않음.
+- `AGENTS.md` 라우팅 표에 4스킬을 명시. 글로벌 설치는 필요 없음.
+
+**검증.** `npx skills ls` 가 프로젝트 스킬 4개를 Cursor + Claude Code 로 표시.
+`skills-lock.json` 에 source/hash 기록.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 열린 PR 3개를 main 위에 손실 없이 흡수한다
 
 **무엇을 왜.** Jin 이 메인 코드 손실 없이 #95·#96·#97 을 전부 `main` 으로
