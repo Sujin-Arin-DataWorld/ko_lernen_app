@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — main Analyze 1실패: 학습 DE/EN em dash
+
+**무엇을 왜.** `793a55a6` 전체 suite 4099/1. 반응형 ✅가 아니라
+`arb_l10n_guard`가 `satz_a1_0203`·`cloze_a1_0239`·소개 시나리오 문화 메모
+DE/EN의 em dash를 잡았다. 같은 예문이 vocab `vocab_a1_0351`에도 있었다.
+
+**무엇을.** dash를 마침표·쉼표로. inherited 지문 2개만 맞춤. ID 유지.
+
+**검증.** 집중 Flutter 예정. 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 번역 스택 흡수 뒤 메뉴판·smalltalk 지문
 
 **무엇을 왜.** 스택 merge 뒤 4개 회귀. `메뉴` 표제어가 `메뉴판`인데
