@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
+import 'package:ko_lernen_app/widgets/sori/ko_wrap.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -46,7 +47,9 @@ void main() {
       await tester.pump(const Duration(milliseconds: 100));
       await tester.pump(const Duration(milliseconds: 2000));
 
-      final example = find.text('Ich bin Student.');
+      final example = find.byWidgetPredicate(
+        (w) => w is SoriPhraseWrap && w.text == 'Ich bin Student.',
+      );
       final card = find.ancestor(of: example, matching: find.byType(SoriCard));
 
       expect(example, findsOneWidget);

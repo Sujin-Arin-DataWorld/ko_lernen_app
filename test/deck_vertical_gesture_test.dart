@@ -83,7 +83,8 @@ void main() {
 
   Future<void> settle(WidgetTester tester) async {
     await tester.pump();
-    await tester.pump(const Duration(milliseconds: 450));
+    // Wordbook snackbar force-hides after 500ms; leave no pending timer.
+    await tester.pump(const Duration(milliseconds: 550));
   }
 
   group('vocab_pack Learn', () {

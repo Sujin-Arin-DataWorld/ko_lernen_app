@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — PR #83 여기까지 마무리
+
+**무엇을 왜.** Jin이 이 작업 브랜치와 PR을 여기서 닫자고 했다.
+`d26c98c6` Analyze & Build가 4038 통과 / 3 실패였다.
+
+**고침.** 문법 visual은 `SoriPhraseWrap`이 `Ich bin Student.`를 어절
+Text로 나눠 `find.text`가 0이 된 것을 wrap finder로 맞춘다. 책갈피 두
+건은 snackbar 0.5초 강제 숨김 타이머가 settle(450ms)보다 길어서 pending
+timer로 터졌다. `deck_vertical` settle을 550ms로 올린다.
+
+**남긴 것 (이 PR 밖).** TTS/`das`·웹 폴백, 공유 PNG(Jin 교체), 문법
+전행 3예문, 카드 있을 때 뒤로=홈, 쓰기 시범 vs 손글, 타이포 전면.
+
+**검증.** `flutter test` visual_layout_regression · deck_vertical_gesture
+통과. Play 잠금은 #85.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor Grok 4.6, Cloud) — 스몰톡 한 화면 레이아웃
 
 **무엇을 왜.** Jin이 스몰톡이 망가졌다고 찍었다. 한국어가 왼쪽에서
