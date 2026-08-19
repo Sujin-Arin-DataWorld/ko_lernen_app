@@ -392,6 +392,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                 const SizedBox(height: Spacing.md),
                 Text(
                   '+${_reviewed * 2} XP',
+                  // 황은 XP·스트릭 전용이다. 여기는 실제 XP 라 유지한다 —
+                  // 카드 위 장식 금색과는 다른 이야기.
                   style: tt.h2.copyWith(color: SoriColors.gold),
                 ),
                 // M5: "한마디" — interessen-passender Small-talk-Satz als Bonus.

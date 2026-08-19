@@ -92,8 +92,15 @@ class SoriContentFeed extends StatefulWidget {
 }
 
 class _SoriContentFeedState extends State<SoriContentFeed> {
-  static const double _commitPx = 64;
-  static const double _commitVelocity = 700;
+  // 판정 커밋 임계값. 2026-08-19 에 64/700 에서 올렸다.
+  //
+  // 왜: 세로 드래그를 감지하는 GestureDetector 가 카드 전체를 덮고 있어서,
+  // 카드 위 스피커 버튼(48dp)을 누른 채 엄지가 조금만 밀려도 드래그가
+  // 아레나에서 탭을 이기고 `onNext` 가 커밋됐다 — 즉 "다시 듣기" 를 누르려다
+  // 그 항목이 **앎 처리되고 다음으로 넘어간다**. 64px 은 버튼을 누르는 손의
+  // 자연스러운 흔들림 범위 안이다.
+  static const double _commitPx = 88;
+  static const double _commitVelocity = 850;
 
   double _dy = 0;
   int _tapCount = 0;

@@ -13,7 +13,6 @@ class StrokeCanvas extends StatefulWidget {
   final List<Stroke> strokes;
   final double size;
   final Color color;
-  final Color guideColor;
   final bool showNumbers;
   final Duration perStroke;
   final VoidCallback? onCompleted;
@@ -30,7 +29,6 @@ class StrokeCanvas extends StatefulWidget {
     required this.strokes,
     this.size = 220,
     this.color = SoriColors.primary,
-    this.guideColor = const Color(0x331F7A6B),
     this.showNumbers = true,
     this.perStroke = const Duration(milliseconds: 700),
     this.onCompleted,
@@ -104,7 +102,6 @@ class _StrokeCanvasState extends State<StrokeCanvas>
               strokes: widget.strokes,
               progress: _ctrl.value,
               color: widget.color,
-              guideColor: widget.guideColor,
               showNumbers: widget.showNumbers,
               letter: widget.letter,
               source: strokeCanvas,
@@ -121,7 +118,6 @@ class _Painter extends CustomPainter {
   final List<Stroke> strokes;
   final double progress; // 0..1 für alle Striche zusammen
   final Color color;
-  final Color guideColor;
   final bool showNumbers;
   final String letter;
   final Size source; // 220×220 reference
@@ -131,7 +127,6 @@ class _Painter extends CustomPainter {
     required this.strokes,
     required this.progress,
     required this.color,
-    required this.guideColor,
     required this.showNumbers,
     required this.letter,
     required this.source,
@@ -154,7 +149,7 @@ class _Painter extends CustomPainter {
       ..strokeJoin = StrokeJoin.round
       ..style = PaintingStyle.stroke;
     for (final st in strokes) {
-      _drawStroke(canvas, st, ghostP, s, 1.0);
+      _drawStroke(canvas, st, ghostP, s, 1.0, scale);
     }
 
     // Aktuelle Striche
@@ -173,7 +168,7 @@ class _Painter extends CustomPainter {
         ..strokeCap = StrokeCap.round
         ..strokeJoin = StrokeJoin.round
         ..style = PaintingStyle.stroke;
-      _drawStroke(canvas, strokes[i], paint, s, prog);
+      _drawStroke(canvas, strokes[i], paint, s, prog, scale);
 
       if (showNumbers && prog > 0.05) {
         _drawNumber(canvas, strokes[i], i + 1, s, scale);
@@ -183,13 +178,24 @@ class _Painter extends CustomPainter {
     // 지금 그려야 할 획을 애니메이션 위에 덧그린다.
     final hi = highlightIndex;
     if (hi != null && hi >= 0 && hi < n) {
-      final highlight = Paint()
-        ..color = color
-        ..strokeWidth = 13 * scale
+      // 지금 그릴 획은 **색**으로 구분한다. 예전에는 같은 색에 2px 만 굵어서
+      // 구분이 안 됐고, 고스트(12)+본선(11)+하이라이트(13) 삼중 페인트가
+      // 오히려 획을 뭉툭해 보이게 만들었다 (Jin: "시범이랑 내가 그리는
+      // 글자체가 너무 달라서 이상해보여").
+      final halo = Paint()
+        ..color = SoriColors.accent.withValues(alpha: 0.22)
+        ..strokeWidth = 20 * scale
         ..strokeCap = StrokeCap.round
         ..strokeJoin = StrokeJoin.round
         ..style = PaintingStyle.stroke;
-      _drawStroke(canvas, strokes[hi], highlight, s, 1.0);
+      _drawStroke(canvas, strokes[hi], halo, s, 1.0, scale);
+      final highlight = Paint()
+        ..color = SoriColors.accent
+        ..strokeWidth = 11 * scale
+        ..strokeCap = StrokeCap.round
+        ..strokeJoin = StrokeJoin.round
+        ..style = PaintingStyle.stroke;
+      _drawStroke(canvas, strokes[hi], highlight, s, 1.0, scale);
       if (showNumbers) {
         _drawNumber(canvas, strokes[hi], hi + 1, s, scale);
       }
@@ -202,6 +208,7 @@ class _Painter extends CustomPainter {
     Paint paint,
     Offset Function(Offset) s,
     double prog,
+    double scale,
   ) {
     if (st is LineStroke) {
       final pts = st.points.map(s).toList();
@@ -209,7 +216,10 @@ class _Painter extends CustomPainter {
       canvas.drawPath(path, paint);
     } else if (st is CircleStroke) {
       final c = s(st.center);
-      final r = st.radius * (paint.strokeWidth / 11);
+      // 반지름은 캔버스 배율만 따른다. 예전에는 `paint.strokeWidth / 11` 로
+      // 배율을 역산했는데, 고스트(12·scale)와 하이라이트(13·scale) 는 그 식이
+      // 각각 9%·18% 큰 값을 내서 ㅇ·ㅎ 에 동심원 세 개가 겹쳐 보였다.
+      final r = st.radius * scale;
       final sweep = 2 * math.pi * prog;
       canvas.drawArc(
         Rect.fromCircle(center: c, radius: r),

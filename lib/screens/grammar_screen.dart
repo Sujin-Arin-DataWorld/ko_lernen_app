@@ -475,7 +475,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                   style: SoriTextTheme.of(sheetContext).h3,
                 ),
                 const SizedBox(height: Spacing.sm),
-                Text(
+                SoriPhraseWrap(
                   target.exampleKorean,
                   style: TextStyle(
                     fontSize: 18,
@@ -1300,7 +1300,7 @@ class _Front extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: Spacing.sm),
-                Text(
+                SoriPhraseWrap(
                   copy.title.isEmpty ? g.typeFor(lang) : copy.title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -1454,7 +1454,7 @@ class _Back extends StatelessWidget {
                 ),
                 if (copy.title.isNotEmpty) ...[
                   const SizedBox(height: Spacing.xs),
-                  Text(
+                  SoriPhraseWrap(
                     copy.title,
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -1474,7 +1474,7 @@ class _Back extends StatelessWidget {
                 cardHeight: h,
               ),
             if (copy.note.isNotEmpty)
-              Text(
+              SoriPhraseWrap(
                 copy.note,
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -1509,7 +1509,7 @@ class _RuleExampleRow extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         if (rule.isNotEmpty)
-          Text(
+          SoriPhraseWrap(
             rule,
             textAlign: TextAlign.center,
             style: TextStyle(

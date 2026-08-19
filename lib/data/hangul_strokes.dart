@@ -35,7 +35,10 @@ const Map<String, List<Stroke>> hangulStrokes = {
   'ㄹ': [
     LineStroke([Offset(35, 42), Offset(170, 42), Offset(170, 110)]),
     LineStroke([Offset(35, 110), Offset(170, 110)]),
-    LineStroke([Offset(35, 112), Offset(35, 175), Offset(170, 175)]),
+    // 35,112 였다 — 2획이 끝나는 35,110 보다 2px 아래라서, 큰 캔버스로
+    // 확대하면 왼쪽 이음매에 눈에 띄는 틈이 생겼다. 파일 전체에서 어긋난
+    // 이음매는 여기 하나뿐이다.
+    LineStroke([Offset(35, 110), Offset(35, 175), Offset(170, 175)]),
   ],
   'ㅁ': [
     LineStroke([Offset(42, 42), Offset(42, 175)]),

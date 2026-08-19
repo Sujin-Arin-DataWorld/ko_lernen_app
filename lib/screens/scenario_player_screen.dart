@@ -1043,19 +1043,18 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     );
   }
 
-  /// Speaker별 bubble accent 컬러
+  /// Speaker별 bubble accent 컬러.
+  ///
+  /// 2026-08-19: 5색 → 2색. 화자를 구분하는 건 **이름**이지 색이 아닌데,
+  /// 한 대화에 머스터드·석간주·빨강·초록이 동시에 뜨면 화면이 시끄럽고
+  /// 정작 "내 차례"가 안 보인다 (Jin: "색상이 너무 많달까").
+  /// 나 = 녹청, 나머지 = 잉크.
   Color _speakerAccent(String speaker) {
     switch (speaker) {
       case 'user':
         return SoriColors.primary;
-      case 'narrator':
-        return SoriColors.warning;
-      case 'partner':
-        return SoriColors.hangul;
-      case 'officer':
-        return SoriColors.danger;
       default:
-        return SoriColors.success; // minsu, jieun, etc.
+        return SoriColors.lightTextMuted;
     }
   }
 
@@ -1176,7 +1175,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   Widget _buildGrammar(AppL10n t, String lang) {
     final block = _scenario!.grammarBlock!;
     final ss = SoriSurfaces.of(context);
-    const grammarAccent = SoriColors.warning;
+    const grammarAccent = SoriColors.primary;
     return _StageScroll(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1427,7 +1426,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                 else
                   const Icon(
                     Icons.sync_problem_outlined,
-                    color: SoriColors.warning,
+                    color: SoriColors.primary,
                   ),
                 const SizedBox(width: Spacing.md),
                 Expanded(
@@ -2180,7 +2179,7 @@ class _RollenspielStageState extends State<_RollenspielStage> {
                     children: [
                       const Icon(
                         Icons.theater_comedy_outlined,
-                        color: SoriColors.tiger,
+                        color: SoriColors.contentCta,
                         size: 20,
                       ),
                       const SizedBox(width: Spacing.xs),
@@ -2188,7 +2187,7 @@ class _RollenspielStageState extends State<_RollenspielStage> {
                         child: Text(
                           t.scenarioRoleplayTitle,
                           style: SoriTextTheme.of(context).label.copyWith(
-                            color: SoriColors.tiger,
+                            color: SoriColors.contentCta,
                             fontWeight: FontWeight.w700,
                           ),
                         ),

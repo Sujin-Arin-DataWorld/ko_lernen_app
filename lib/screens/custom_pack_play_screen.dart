@@ -618,7 +618,9 @@ class _Back extends StatelessWidget {
                           style: TextStyle(
                             fontSize: soriFillSize(h, 0.05, 13, 24),
                             fontWeight: FontWeight.w700,
-                            color: SoriColors.goldOnLight,
+                            // 한자는 보상이 아니라 메타데이터다 — 황금색은
+                            // XP/스트릭 전용이고 카드에서는 뺀다.
+                            color: SoriSurfaces.of(context).textMuted,
                           ),
                         ),
                       ],

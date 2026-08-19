@@ -441,7 +441,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
             title: t.vocabEmptyFavorites,
             ctaLabel: t.vocabModeAll,
             onCta: () => _setMode('all'),
-            accent: SoriColors.warning,
+            accent: SoriColors.like,
           ),
         );
       }
@@ -514,7 +514,8 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                     ),
                     SoriChip(
                       label: t.vocabFavoritesBadge(_favorites.length),
-                      accent: SoriColors.warning,
+                      // 즐겨찾기는 하트·책갈피와 같은 석간주로 읽혀야 한다.
+                      accent: SoriColors.like,
                       selected: _mode == 'favorites',
                       variant: SoriChipVariant.filled,
                       onTap: () => _setMode('favorites'),
@@ -544,7 +545,10 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                     const SizedBox(width: Spacing.xs + 2),
                     SoriChip(label: '❌ $_wrong', accent: SoriColors.danger),
                     const SizedBox(width: Spacing.xs + 2),
-                    SoriChip(label: '⏭ $_skipped', accent: SoriColors.warning),
+                    SoriChip(
+                      label: '⏭ $_skipped',
+                      accent: SoriColors.info,
+                    ),
                   ],
                 ),
                 const SizedBox(height: 10),
@@ -1021,7 +1025,7 @@ class _MasteryChip extends StatelessWidget {
         Icons.fiber_new_rounded,
       ),
       MasteryState.learning => (SoriColors.info, Icons.school_outlined),
-      MasteryState.reviewDue => (SoriColors.warning, Icons.refresh_rounded),
+      MasteryState.reviewDue => (SoriColors.info, Icons.refresh_rounded),
       MasteryState.strong => (
         SoriColors.success,
         Icons.workspace_premium_rounded,

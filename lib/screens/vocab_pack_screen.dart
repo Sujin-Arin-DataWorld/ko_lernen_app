@@ -675,7 +675,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         ScorePop.show(
           context,
           AppL10n.of(context).comboPop(_combo),
-          color: SoriColors.tiger,
+          // 콤보는 실제 보상 순간이고 카드가 아니라 떠오르는 팝이라
+          // 황을 유지한다 — 카드 위 금색과는 다른 이야기다.
+          color: SoriColors.gold,
         );
       }
       if (_stage == _Stage.quiz) {
@@ -1079,8 +1081,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
               final h = soriStudyTypeScaleHeight(context);
               final promptCard = SoriCard(
                 variant: SoriCardVariant.hero,
+                // 보스는 "더 깊은 녹청" 으로 어려움을 말한다. 예전 머스터드는
+                // Jin 이 "골든색 너무 답답해 보인다" 고 지목한 카드다.
                 accent: _stage == _Stage.boss
-                    ? SoriColors.warning
+                    ? SoriColors.primaryDark
                     : SoriColors.info,
                 tinted: true,
                 child: Column(
@@ -1111,7 +1115,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                       icon: Icons.volume_up_rounded,
                       variant: SoriButtonVariant.outlined,
                       accent: _stage == _Stage.boss
-                          ? SoriColors.warning
+                          ? SoriColors.primaryDark
                           : SoriColors.info,
                       onTap: () {
                         // ignore: discarded_futures

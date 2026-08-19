@@ -223,9 +223,9 @@ class _HangulScreenState extends State<HangulScreen>
         bottom: TabBar(
           key: _tabBarKey,
           controller: _tabs,
-          indicatorColor: SoriColors.hangul,
-          labelColor: SoriColors.hangul,
-          unselectedLabelColor: SoriColors.darkTextMuted,
+          indicatorColor: SoriColors.primary,
+          labelColor: SoriColors.primary,
+          unselectedLabelColor: SoriSurfaces.of(context).textMuted,
           tabs: [
             Tab(
               icon: const Icon(Icons.grid_view_rounded),
@@ -287,7 +287,7 @@ class _OverviewTab extends StatelessWidget {
         ),
         const SizedBox(height: 16),
         _SectionLabel('${t.hangulConsonantsLabel} (${consonants.length})'),
-        _CharGrid(chars: consonants, color: SoriColors.hangul, speak: speak),
+        _CharGrid(chars: consonants, color: SoriColors.primary, speak: speak),
         const SizedBox(height: 24),
         _SectionLabel('${t.hangulVowelsLabel} (${vowels.length})'),
         _CharGrid(chars: vowels, color: SoriColors.info, speak: speak),
@@ -308,10 +308,10 @@ class _SectionLabel extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
       child: Text(
         label,
-        style: const TextStyle(
+        style: TextStyle(
           fontSize: 13,
           fontWeight: FontWeight.w700,
-          color: SoriColors.darkTextMuted,
+          color: SoriSurfaces.of(context).textMuted,
           letterSpacing: 0.5,
         ),
       ),
@@ -440,7 +440,7 @@ class _DetailSheet extends StatelessWidget {
     // insetPadding responsive — 좁은 폰(width < 360) 대비.
     final screenWidth = MediaQuery.sizeOf(context).width;
     return Dialog(
-      backgroundColor: SoriColors.darkSurface,
+      backgroundColor: SoriSurfaces.of(context).surface,
       insetPadding: EdgeInsets.symmetric(
         horizontal: screenWidth < 360 ? 16 : 32,
         vertical: 24,
@@ -479,9 +479,9 @@ class _DetailSheet extends StatelessWidget {
                   Localizations.localeOf(context).languageCode,
                 ),
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 14,
-                  color: SoriColors.darkText,
+                  color: SoriSurfaces.of(context).text,
                   height: 1.5,
                 ),
               ),
@@ -532,9 +532,11 @@ class _SyllableDemo extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    const Text(
+                    Text(
                       '=',
-                      style: TextStyle(color: SoriColors.darkTextMuted),
+                      style: TextStyle(
+                        color: SoriSurfaces.of(context).textMuted,
+                      ),
                     ),
                     const SizedBox(width: 6),
                     for (var i = 0; i < e.$2.length; i++) ...[
@@ -546,9 +548,11 @@ class _SyllableDemo extends StatelessWidget {
                         ),
                       ),
                       if (i < e.$2.length - 1)
-                        const Text(
+                        Text(
                           ' + ',
-                          style: TextStyle(color: SoriColors.darkTextDim),
+                          style: TextStyle(
+                            color: SoriSurfaces.of(context).textDim,
+                          ),
                         ),
                     ],
                     const Spacer(),
@@ -786,7 +790,7 @@ class _CardsTabState extends State<_CardsTab> {
         style: TextStyle(
           fontSize: soriFillSize(h, 0.40, 110, 200),
           fontWeight: FontWeight.w800,
-          color: SoriColors.hangul,
+          color: SoriColors.primary,
         ),
       ),
     ),
@@ -848,10 +852,10 @@ class _CardsTabState extends State<_CardsTab> {
         Container(
           padding: const EdgeInsets.fromLTRB(18, 6, 10, 6),
           decoration: BoxDecoration(
-            color: SoriColors.hangul.withValues(alpha: 0.10),
+            color: SoriColors.primary.withValues(alpha: 0.10),
             borderRadius: BorderRadius.circular(14),
             border: Border.all(
-              color: SoriColors.hangul.withValues(alpha: 0.30),
+              color: SoriColors.primary.withValues(alpha: 0.30),
             ),
           ),
           child: Column(
@@ -865,7 +869,7 @@ class _CardsTabState extends State<_CardsTab> {
                     style: TextStyle(
                       fontSize: soriFillSize(h, 0.075, 22, 40),
                       fontWeight: FontWeight.w800,
-                      color: SoriColors.hangul,
+                      color: SoriColors.primary,
                     ),
                   ),
                   const SizedBox(width: 6),
@@ -879,7 +883,7 @@ class _CardsTabState extends State<_CardsTab> {
                     icon: Icon(
                       Icons.volume_up_rounded,
                       size: soriFillSize(h, 0.05, 16, 28),
-                      color: SoriColors.hangul,
+                      color: SoriColors.primary,
                     ),
                     tooltip: t.hangulPronounceLetter(c.exampleWord),
                     padding: const EdgeInsets.all(6),
@@ -921,13 +925,13 @@ class _CardsTabState extends State<_CardsTab> {
               children: [
                 SoriChip(
                   label: AppL10n.of(context).hangulChipConsonants,
-                  accent: SoriColors.hangul,
+                  accent: SoriColors.primary,
                   selected: _mode == 0,
                   onTap: () => _setMode(0),
                 ),
                 SoriChip(
                   label: AppL10n.of(context).hangulChipVowels,
-                  accent: SoriColors.hangul,
+                  accent: SoriColors.primary,
                   selected: _mode == 1,
                   onTap: () => _setMode(1),
                 ),
@@ -943,7 +947,7 @@ class _CardsTabState extends State<_CardsTab> {
                   ),
                 SoriChip(
                   label: AppL10n.of(context).hangulChipSyllables,
-                  accent: SoriColors.hangul,
+                  accent: SoriColors.primary,
                   selected: _mode == 2,
                   onTap: () => _setMode(2),
                 ),
@@ -994,11 +998,7 @@ class _CardsTabState extends State<_CardsTab> {
                       id: c.letter,
                     ),
                     underlay: _HangulCardFace(
-                      gradient: const [
-                        SoriColors.accent,
-                        SoriColors.darkAccent,
-                      ],
-                      borderColor: SoriColors.hangul,
+                      borderColor: SoriColors.primary,
                       children: _frontFace(next, h),
                     ),
                     knowLabel: t.btnGewusst,
@@ -1013,18 +1013,10 @@ class _CardsTabState extends State<_CardsTab> {
                           _onFlip();
                         },
                         front: _HangulCardFace(
-                          gradient: const [
-                            SoriColors.accent,
-                            SoriColors.darkAccent,
-                          ],
-                          borderColor: SoriColors.hangul,
+                          borderColor: SoriColors.primary,
                           children: _frontFace(c, h),
                         ),
                         back: _HangulCardFace(
-                          gradient: const [
-                            SoriColors.highlight,
-                            SoriColors.darkPrimary,
-                          ],
                           borderColor: SoriColors.info,
                           children: _backFace(context, c, s, h),
                         ),
@@ -1079,7 +1071,7 @@ class _CardsTabState extends State<_CardsTab> {
             SoriButton.filled(
               key: const Key('hangul-cards-finish'),
               label: AppL10n.of(context).testerFeedbackCompleteHangul,
-              accent: SoriColors.hangul,
+              accent: SoriColors.primary,
               onTap: _sessionInteractions == 0 ? null : _finish,
               fullWidth: true,
             ),
@@ -1091,11 +1083,9 @@ class _CardsTabState extends State<_CardsTab> {
 }
 
 class _HangulCardFace extends StatelessWidget {
-  final List<Color> gradient;
   final Color borderColor;
   final List<Widget> children;
   const _HangulCardFace({
-    required this.gradient,
     required this.borderColor,
     required this.children,
   });
@@ -1504,7 +1494,7 @@ class _WriteTabState extends State<_WriteTab> {
     if (_lastAttempt != null) {
       return SoriColors.danger;
     }
-    return SoriColors.darkTextMuted;
+    return SoriSurfaces.of(context).textMuted;
   }
 
   @override
