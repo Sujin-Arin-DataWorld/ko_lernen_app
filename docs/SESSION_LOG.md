@@ -5,6 +5,45 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-19 (Claude Code, Cloud) — 토큰 절약 도구 2종 설치 (Ponytail·code-review-graph)
+
+**무엇을 왜.** Jin이 인스타 릴스에서 본 오픈소스 두 개(과설계 방지 플러그인
+Ponytail, Tree-sitter 기반 리뷰용 MCP 서버 code-review-graph)를 설치해 토큰
+낭비를 줄여달라고 요청. 설치 전 npm/PyPI/GitHub에서 실존·정상 프로젝트인지
+먼저 확인(인스타 광고발 미검증 패키지 설치 리스크 때문).
+
+**한 것.** 이 클라우드 컨테이너에서 `claude plugin marketplace add
+DietrichGebert/ponytail` + `claude plugin install ponytail@ponytail`,
+`pipx install --backend pip code-review-graph` + `code-review-graph install
+--platform claude-code` + `code-review-graph build`(1164 files, 12971 nodes)
+실행·검증. Jin이 추가로 Codex 쪽에도 적용해달라고 요청 → `code-review-graph
+install --platform codex --no-instructions --no-skills` 실행, 전역
+`~/.codex/config.toml` + `~/.codex/hooks.json`에 MCP 서버 등록 확인(둘 다 repo
+밖 경로라 git에는 안 잡힘 — `git status`로 확인).
+
+설치 스크립트가 `CLAUDE.md`에 MCP 사용 지침을 자동 주입했는데,
+이 저장소는 `CLAUDE.md`를 AGENTS.md 포인터 전용으로 유지하는 규칙이 있어
+되돌리고 대신 AGENTS.md에 "토큰 절약 도구" 섹션(설치 명령·라우팅 표)을 새로
+추가했다. `.mcp.json`(uvx 기반, 머신에 uv만 있으면 이식 가능)·
+`.claude/settings.json` 훅·`.claude/skills/{debug-issue,explore-codebase,
+refactor-safely,review-changes}`는 code-review-graph 설치기가 생성한 그대로
+유지. `.gitignore`에 `.code-review-graph/`(로컬 그래프 DB) 추가됨. **고침:**
+설치기가 생성한 `.mcp.json`은 `cwd`를 이 컨테이너 절대경로로 하드코딩해 다른
+머신에서 깨질 뻔했다 — `cwd` 대신 `uvx code-review-graph serve --repo
+"${CLAUDE_PROJECT_DIR}"`로 바꿔 이식성 확보(Claude Code가 `args`는 변수
+치환하지만 `cwd`는 안 함을 확인 후 적용, `--repo` 인자로 우회).
+
+**하지 않은 것.** 이 설치는 저장소별(`.mcp.json`/`.claude/`)이라 이 클라우드
+컨테이너에만 적용됐다 — Jin의 Mac에서는 AGENTS.md의 설치 명령을 그대로 한 번
+더 실행해야 한다. Ponytail의 npm 전역 설치나 실제 diff 절감 효과 실측은
+하지 않았다.
+
+**검증.** 두 CLI 모두 `--version`/`plugin list`로 설치 확인. 그래프 빌드
+로그로 1164개 파일 파싱·9896개 CALLS edge 해석 확인. `git diff CLAUDE.md`가
+빈 것으로 되돌림 확인.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-18 (Cursor Grok 4.6, Cloud) — 한옥 자산 감사 인수인계를 스킬로 재실측
 
 **무엇을 왜.** Jin이 오더를 정정했다. 콘텐츠 UI 계획이 아니라, 다운받은

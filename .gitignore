@@ -160,3 +160,5 @@ re 2/
 .claude/data/
 .claude/worktrees/
 .mvn/
+# Added by code-review-graph
+.code-review-graph/

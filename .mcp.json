@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "code-review-graph": {
+      "command": "uvx",
+      "args": [
+        "code-review-graph",
+        "serve",
+        "--repo",
+        "${CLAUDE_PROJECT_DIR}"
+      ],
+      "type": "stdio"
+    }
+  }
+}
