@@ -26,8 +26,8 @@
     "modelRouting": [
       {
         "situation": "faceted(각진 면분할) 오브젝트 — 목재·석재·기와 등 원래 각진 재질",
-        "model": "Seedream V4.5 또는 GPT Image 2 둘 다 가능하지만 GPT Image 2가 더 안정적",
-        "evidence": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §2 대조군 시험 — Seedream V4.5는 바닥 그림자·매끈한 3D 렌더로 탈락, GPT Image 2 채택"
+        "model": "GPT Image 2 only. Seedream V4.5 is banned (cast shadow, smooth 3D, bright teal).",
+        "evidence": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §2 대조군 시험 — Seedream V4.5는 바닥 그림자·매끈한 3D 렌더로 탈락, GPT Image 2 채택. tool/asset_recipe.py treats allowed:false as a hard --check/--emit failure."
       },
       {
         "situation": "faceted 오브젝트지만 유기적 대상(연기·새·항아리 몸통·등롱) 포함",
@@ -82,10 +82,11 @@
         "light": "soft light from the upper left, gentle self-shading on facets only",
         "shadow": "NO cast shadow, NO shadow on the ground, NO floor, NO wall, NO room, NO horizon line — free-placement room editor rotates items around their box center, a ground shadow breaks on rotation"
       },
-      "promptSkeleton": "Create a NEW illustration in exactly the same illustrated-set style as the reference image (a Korean scholar's-room furniture set: LOW-POLY FACETED planes — every surface is broken into flat angular colour facets like folded paper, NO drawn outlines, matte finish, subtle hanji paper grain visible inside the facets, warm walnut wood with dark lacquer and small muted dancheong accents), but with this subject instead: {SUBJECT}. Do not redraw any object that appears in the reference image; the reference is for style, palette, camera and lighting only. [카메라/조명/합성/배경/팔레트/금지 문구 — 전문은 docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §3]",
+      "promptSkeleton": "Create a NEW illustration in exactly the same illustrated-set style as the reference image (a Korean scholar's-room furniture set: LOW-POLY FACETED planes — every surface is broken into flat angular colour facets like folded paper, NO drawn outlines, matte finish, subtle hanji paper grain visible inside the facets, warm walnut wood with dark lacquer and small muted dancheong accents), but with this subject instead:\n\n{SUBJECT}\n\nDo not redraw any object that appears in the reference image; the reference is for style, palette, camera and lighting only.\n\nCAMERA AND LIGHT: exactly one object, seen from the front and a little from the left, from slightly above eye level (three-quarter view), so the top surface and the front face are both visible; soft light from the upper left; gentle self-shading on the facets only; NO cast shadow, NO shadow on the ground, NO floor, NO wall, NO room, NO horizon line.\n\nCOMPOSITION RULES: the object is centred in the frame with an even margin of clear green on every side; it is a complete, self-contained cutout with crisp edges; nothing is cropped by the frame; one object only, no variants, no extra props.\n\nBACKGROUND: flat pure #00FF00 chroma-key green everywhere outside the object, no gradient, no vignette, no shadow on the green.\n\nIMPORTANT COLOR: keep exactly the reference palette — wood #A2663A #8F5130 #844A2D with facet shadows #633720 #5A3623 #3B271B, dark lacquer #2C221D #211914, aged hanji ivory #DBBC8D #C6AE8B, dancheong gold #BD924C, deep muted teal #274A3F, dark brick red #6A2316, stone grey #8B8478. Do NOT brighten, do NOT desaturate, do NOT use bright teal or bright red; matte only, no gloss.\n\nABSOLUTELY AVOID: black or dark outlines, line art, watercolour wash, soft painterly blending, gradients inside a facet, cast shadow, drop shadow, ground plane, room interior, white canvas, cute style, glossy 3D render, photorealism, sepia, people, hands, animals, readable text, letters, digits, hangul or hanja on any surface, extra objects, multiple variants of the object.\n\nIMPORTANT: match the geometric faceted style, color palette, paper grain texture, and overall mood of the attached reference image exactly. This must look like part of the same illustrated set.",
+      "promptSkeletonSource": "docs/assets/prompts/A2_SARANGBANG_FURNISHING_2026-08-17.md §3 — full text, not a pointer. asset_recipe.assemble_family_prompt injects {SUBJECT} + subjectGuards.",
       "modelRouting": [
-        {"model": "GPT Image 2", "when": "정식 채택 경로 — 전 품목", "evidence": "A2_SARANGBANG_FURNISHING_2026-08-17.md §2"},
-        {"model": "Seedream V4.5", "when": "쓰지 말 것 — 대조군에서 탈락(그림자·매끈한 렌더·밝은 청록)", "evidence": "A2_SARANGBANG_FURNISHING_2026-08-17.md §2"}
+        {"model": "GPT Image 2", "allowed": true, "when": "정식 채택 경로 — 전 품목", "evidence": "A2_SARANGBANG_FURNISHING_2026-08-17.md §2"},
+        {"model": "Seedream V4.5", "allowed": false, "when": "쓰지 말 것 — 대조군에서 탈락(그림자·매끈한 렌더·밝은 청록)", "evidence": "A2_SARANGBANG_FURNISHING_2026-08-17.md §2"}
       ],
       "postProcess": [
         "tool/cut_single_object.py --expect-parts 1 (chroma_to_alpha 재사용)",
@@ -128,8 +129,11 @@
         "note": "F-A보다 넓은 팔레트 — 절기 장식은 주제 자체가 원색(태극 홍청 등)이라 F-A 팔레트에 맞추면 안 된다."
       },
       "camera": {"view": "F-A와 동일 원칙(단일 오브젝트, 그림자 없음)이나 프롬프트를 재작성하지 않은 legacy 파일이 섞여 있어 개별 편차가 크다."},
-      "promptSkeleton": "이 family는 정본 프롬프트 문서가 없다(legacy, 2026-08-04 이전 다수) — 새로 만들 때는 F-A 골격을 재사용하되 palette 제약을 풀 것.",
-      "modelRouting": [],
+      "promptSkeleton": "이 family는 정본 프롬프트 문서가 없다(legacy, 2026-08-04 이전 다수) — 새로 만들 때는 F-A 골격을 재사용하되 palette 제약을 풀 것. assembleFromFamily cutouts must copy F-A.promptSkeleton and then relax the IMPORTANT COLOR line.",
+      "modelRouting": [
+        {"model": "GPT Image 2", "allowed": true, "when": "신규 마당 장식 — F-A 골격 + 이 family의 넓은 팔레트", "evidence": "F-A §2; Seedream 탈락은 family와 무관하게 유지"},
+        {"model": "Seedream V4.5", "allowed": false, "when": "쓰지 말 것", "evidence": "A2_SARANGBANG_FURNISHING_2026-08-17.md §2"}
+      ],
       "postProcess": ["tool/cut_single_object.py 또는 tool/cut_prop_sheet.py", "tool/decoration_normalize.py", "tool/check_decoration_cutouts.py"],
       "gates": {
         "satMean": [0.20, 0.80],
@@ -176,7 +180,7 @@
       },
       "promptSkeleton": "Edit this illustration of a finished traditional Korean {BUILDING_TYPE_KOREAN_DESC}, seen straight from the front in a slightly elevated view. Show the SAME building at the timber-frame stage of construction, BEFORE the roof was covered... KEEP UNCHANGED, pixel for pixel: {UNCHANGED_ELEMENTS}. REMOVE completely: {REMOVED_ELEMENTS}. ADD the exposed timber frame... Background: replace everything outside the object with flat, pure #00FF00 chroma-key green, no gradient. [전문은 tool/derive_estate_building_stages.py의 FRAME_PROMPTS 딕셔너리 — 건물 4종 전문이 코드에 얼어붙어 있다, Phase 2-3에서 레시피로 옮길 예정]",
       "modelRouting": [
-        {"model": "Nano Banana Pro", "when": "KEEP/REMOVE/ADD 골조 편집 — 전 건물", "evidence": "B1B2_BUILDING_STAGES_2026-08-18.md §2"}
+        {"model": "Nano Banana Pro", "allowed": true, "when": "KEEP/REMOVE/ADD 골조 편집 — 전 건물", "evidence": "B1B2_BUILDING_STAGES_2026-08-18.md §2"}
       ],
       "postProcess": [
         "tool/derive_estate_building_stages.py --align --target-bbox (출력 자체 알파 bbox 측정 -> 완성건물 bbox로 LANCZOS 리스케일 -> despill 재적용)",

@@ -1,0 +1,25 @@
+{
+  "recipeId": "cutout-fa-decoration-geomungo",
+  "kind": "cutout",
+  "family": "F-A",
+  "targetSlug": "decoration_geomungo",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "3:2",
+  "referenceImages": [
+    "assets/illustrations/decorations/decoration_seoan.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a Korean geomungo zither (거문고) lying flat: a long narrow slightly convex paulownia soundboard with dark walnut end pieces, sixteen thin fixed wooden frets set across the middle section, and six strings running the whole length; one short thin bamboo plectrum stick rests on the strings. Lay the instrument diagonally across the frame from the lower left to the upper right so it fills the square area well."
+  },
+  "subjectGuards": [
+    "SIX strings and SIXTEEN fixed frets — NOT a gayageum, no movable anjok bridges, no 12-string set",
+    "dark aged walnut / paulownia — no bright orange wood",
+    "one instrument only, no stand, no second zither"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/decoration_geomungo/decoration_geomungo_raw.png",
+  "note": "Replay / copy-paste fixture for a shipped F-A cutout. The runtime PNG already exists — do not generate unless Jin asks to replace it. Clone this file to author a new F-A decoration (change recipeId, targetSlug, SUBJECT, guards, aspectRatio)."
+}
