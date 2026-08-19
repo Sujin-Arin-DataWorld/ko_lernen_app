@@ -389,21 +389,14 @@ flutter run -d <android-id>   # 안드로이드
   그려 07~10에 뒷줄·옆보가 없고 완성 사랑채는 앞기둥 8개(7칸)라, 05~10 계보 전체를 새로
   만든다.** BBANANA ledger 19건(13.5 credit)은 **이관하지 않기로 확정**(2026-08-17, Jin) —
   근거는 `docs/HANOK_V1_SOURCE_REGISTRY.md` 생성 기록 절.
-- [x] **살아 있는 한옥 — 배선·자동화·세분화 (2026-08-18, PR-B~D + Phase 2)**: 정본
-  `~/.claude/plans/swift-yawning-squirrel.md`. `chore/hanok-asset-ledger-backfill`
-  브랜치(아직 main 미병합). PR-B: 원장 소급 기록(24cr hanok + 93cr 장식, 계획서의
-  44cr 추정은 틀렸었다) + 크레딧 상한 600. PR-C: `canDoSegmentEvidenceProgress()`
-  등 **데이터 절반만** — 실제 렌더 필터 변경은 골든 테스트가 있는 라이브
-  위젯이라 PR-E cutover와 함께로 미뤘다. PR-D: 방별 가구 풀 + A2 가구 12종이
-  모든 방에 노출되던 실버그 수정. Phase 2-1~2-3 완성(STYLE_LOCK.json·
-  check_style_conformance.py·ledger_append.py·asset_recipe.py, family 4개 실측
-  게이트 전량 ShippedBaselineTest 통과) — Phase 2-4는 `decoration_transparency_
-  test.dart` 구멍만 폐쇄, 등록 자동화 러너는 미착수. **PR-E(cutover)·PR-F(레벨별
-  발행)·Phase 3(별당·서고 신규 생성) 전부 미착수** — grant 발행은 영구 고정
-  지점이고 cutover는 라이브 렌더러 실배선이라 실기기 검수(Jin) 없이 진행할 수
-  없다. Phase 3 recipe 2종(byeoldang·seogo)은 DRAFT 상태로 `docs/assets/
-  recipes/`에 있으나 미실행. 아래 "PR4 자산 파이프라인" 항목의 "레거시 한옥이
-  정본이다" 상태는 이 작업 이후에도 **변하지 않았다**.
+- [x] **살아 있는 한옥 — 배선·자동화·세분화 (2026-08-18, PR-B~D + Phase 2)**:
+  `145e7928`로 **이미 main 병합**. 정본 계획 `~/.claude/plans/swift-yawning-squirrel.md`는
+  Mac 로컬에만 있다. PR-B 원장(한옥 48.0cr + discarded 20.6, 장식 65.0cr +
+  discarded 28.0, budget 600) · PR-C 데이터 절반 · PR-D 사랑방 가구 풀 12 ·
+  Phase 2-1~2-3 STYLE_LOCK/러너 · Phase 2-4 투명도 순회. **PR-E/PR-F/Phase 3
+  생성은 미착수.** 레거시 한옥이 라이브 정본. 다음 세션 시작:
+  `.claude/handoffs/2026-08-18-235200-hanok-asset-skill-audit.md`.
+  `chore/hanok-pr-e-prep` / `chore/hanok-asset-ledger-backfill`을 잇지 말 것.
 - [x] **Batch 06 앱 데이터 승격 + 카탈로그 계약**: `fa86b7af`가 Batch 06
   68개 standalone + embedded quest 20개를 production asset과
   `curriculum_manifest.json` contentLinks에 올렸다. review ledger는 전부

@@ -5,6 +5,16 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-19 (Cursor Grok 4.6) — PR #83을 최신 main에 맞추고 판정 줄 overflow 수정
+
+**무엇을.** #83이 `main`과 dirty(충돌)였다. 브랜치가 `a00fc1d1`에 묶여 있고 main은 `d1406210`(#84 한옥 감사 + 에셋 교체)까지 가 있었다. `origin/main`을 이 브랜치에 병합하고 `SESSION_LOG` 충돌을 양쪽 항목 모두 남기는 쪽으로 풀었다. 판정 텍스트 Row는 368px에서 45px overflow → `Expanded`+ellipsis.
+
+**왜.** 문서-only PR 위에 구현을 얹고 main이 먼저 가서 GitHub가 mergeable=dirty로 표시했다.
+
+**검증.** 이 커밋 뒤 flipgate/content_feed 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor Grok 4.6) — 공유안 A 확정 + 틴더 덱 제거 + 세로 피드
 
 **무엇을.** Jin이 A/B/C를 스킬로 고르고 전역 UI 개편을 시작하며 틴더 덱을 제거하라고 했다. 공유 이미지는 **A 두루마리**로 잠갔다. P0 시맨틱 토큰(`contentCta`/`like`/`koDisplay`/`gloss`/`meta`), P1 `hideCurrentSnackBar`+1.5s, P2 `SoriContentFeed`+하트/보관 분리+`LikedContentService`, P5 덱 6화면(`vocab_pack`·`review`·`legacy`·`custom_pack`·`hangul`·`grammar`)에서 `SoriSwipeCard`/`SoriDeckActionBar`를 제거했다. 좌우 스와이프 없음. 뒤집기 전 세로=스킵, 뒤집은 뒤 세로=앎. 모름/스킵은 텍스트 판정. 공유는 텍스트 stub(이미지 A는 P7).
@@ -47,6 +57,24 @@
 **검증.** `origin/main` `a00fc1d1` 기준 파일 실측(듣기 426–580, 쓰기 1453–1551,
 `wordbook_add` 57–69, `deck_action_bar`, `SoriTextTheme`, typography_guard 상한).
 구현·테스트 실행 없음 — 문서만.
+
+### 2026-08-18 (Cursor Grok 4.6, Cloud) — 한옥 자산 감사 인수인계를 스킬로 재실측
+
+**무엇을 왜.** Jin이 오더를 정정했다. 콘텐츠 UI 계획이 아니라, 다운받은
+스킬로 한옥 자산 감사 인수인계를 더 철저히 다시 쓰라는 요청이다.
+
+**남긴 것.** `.claude/handoffs/2026-08-18-235200-hanok-asset-skill-audit.md`.
+`session-handoff` CREATE + `verification-before-completion` + writing-guidelines
++ frontend-design(이미지 오픈) + `ui-ux-pro-max` color 검색(0건, persist 없음).
+234800 대비 새 사실: 릴리스 원장 파일은 있고 `publishedGrants`만 빈 리스트,
+책가도 bowl/brushpot/scroll은 F-A 통과·vase만 실패, A1 unused 16장은 런타임과
+sha256 동일, `origin/main`=`a00fc1d1`, 파이프라인 게이트 `3c788ff9`는 main 아님,
+`AGENTS.md` "아직 main 미병합" 정정.
+
+**하지 않은 것.** 픽셀 생성, 레시피 emit, #81 머지, #82 UI 구현.
+
+**검증.** F-A 강제 측정 8장, STYLE_LOCK `--all` 73/73, 원장 JSON 재합산,
+`validate_handoff.py`는 커밋 직전에 돌린다.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
