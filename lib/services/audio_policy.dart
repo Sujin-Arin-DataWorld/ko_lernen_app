@@ -194,8 +194,29 @@ class AudioPolicy extends ChangeNotifier {
       asset == null ? 1.0 : (_ambienceGain[asset] ?? 1.0);
 
   // ── 플랫폼 오디오 세션 (ADR-002 §5-3) ────────────────────────────────
+  /// Android 전역 컨텍스트. **항상 `USAGE_MEDIA`** 다.
+  ///
+  /// ⛔ `AudioContextConfig(respectSilence: true).buildAndroid()` 를 쓰면 안 된다.
+  /// 그 플래그는 Android 에서 "무음 스위치 존중"이 아니라
+  /// `usageType: USAGE_NOTIFICATION_RINGTONE` 으로 번역된다
+  /// (audioplayers `audio_context_config.dart` → `AudioContextAndroid`
+  /// → `AudioAttributes.setUsage`). 즉 앱의 **모든 소리가 벨소리 스트림**으로
+  /// 나간다 — 폰이 진동/무음이거나 벨 볼륨만 낮아도 효과음·발음이 전부 안
+  /// 들리고, 사용자가 볼륨 키를 눌러 조절하는 미디어 볼륨은 아무 효과가 없다.
+  /// ADR-002 §10 이 "Android 는 respectSilence 가 기기마다 다름 — 실기기 미검증"
+  /// 으로 남겨 뒀던 항목이며, 2026-08-19 Jin 의 Android 실기기에서
+  /// **효과음·발음 전부 무음**으로 재현됐다.
+  ///
+  /// Android 에서 무음/방해금지 존중은 시스템(미디어 볼륨·DND)이 이미 한다.
+  /// [respectSilentMode] 는 **iOS 무음 스위치 전용 설정**으로 남긴다.
+  @visibleForTesting
+  static AudioContextAndroid buildAndroidContext() => AudioContextConfig(
+    focus: AudioContextConfigFocus.mixWithOthers,
+    // ⛔ respectSilence 를 여기에 넣지 말 것 (위 주석 참조).
+  ).buildAndroid();
+
   /// 전역 audioplayers 컨텍스트: SFX 가 사용자의 음악(Spotify 등)을 끊지
-  /// 않게 mixWithOthers + 무음 스위치 존중. main.dart 초기화와
+  /// 않게 mixWithOthers + (iOS 만) 무음 스위치 존중. main.dart 초기화와
   /// [setRespectSilentMode] 변경 시 호출.
   ///
   /// TTS(speech)는 duckOthers 가 맞지만 iOS 에서 respectSilence 와 병용이
@@ -209,13 +230,9 @@ class AudioPolicy extends ChangeNotifier {
       // 금지(validateIOS assert — playAndRecord 강제 문제)하므로
       // AudioContextConfig.build() 를 통째로 쓰지 않고 iOS 쪽만 직접 구성한다:
       // ambient 카테고리 자체가 "타 앱과 mix + 무음 스위치 존중"이다.
-      final config = AudioContextConfig(
-        focus: AudioContextConfigFocus.mixWithOthers,
-        respectSilence: respectSilentMode,
-      );
       await AudioPlayer.global.setAudioContext(
         AudioContext(
-          android: config.buildAndroid(),
+          android: buildAndroidContext(),
           iOS: respectSilentMode
               ? AudioContextIOS(
                   category: AVAudioSessionCategory.ambient,

@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/audio_policy.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -120,5 +121,44 @@ void main() {
     expect(policy.duckActive, isFalse);
     expect(policy.volumeFor(SoundChannel.ambience), base);
     await policy.setChannelOn(SoundChannel.ambience, false);
+  });
+
+  // ── Android 라우팅 래칫 (2026-08-19 실기기 무음 회귀) ──────────────────
+  //
+  // audioplayers 의 `respectSilence` 는 Android 에서 "무음 스위치 존중"이
+  // 아니라 `USAGE_NOTIFICATION_RINGTONE` 으로 번역된다 → 앱의 모든 소리가
+  // 벨소리 스트림으로 나가고, 폰이 진동/무음이면 효과음·발음이 전부 안 들린다.
+  // (Jin Android 실기기, 2026-08-19: 효과음·TTS 모두 무음.)
+  test('Android 전역 컨텍스트는 respectSilent 와 무관하게 USAGE_MEDIA', () async {
+    final ringtone = AudioContextConfig(
+      respectSilence: true,
+    ).buildAndroid().usageType;
+
+    for (final respectSilent in [true, false]) {
+      await AudioPolicy.instance.setRespectSilentMode(respectSilent);
+      final android = AudioPolicy.buildAndroidContext();
+      expect(
+        android.usageType,
+        isNot(ringtone),
+        reason:
+            'respectSilent=$respectSilent 에서 벨소리 스트림으로 라우팅되면 '
+            '진동 모드의 Android 기기가 앱 전체 무음이 된다',
+      );
+      expect(
+        android.usageType,
+        AudioContextConfig().buildAndroid().usageType,
+        reason: 'Android 는 항상 미디어 스트림(USAGE_MEDIA)',
+      );
+    }
+    await AudioPolicy.instance.setRespectSilentMode(true);
+  });
+
+  test('Android 컨텍스트는 타 앱 음악을 끊지 않는다 (mixWithOthers 유지)', () {
+    expect(
+      AudioPolicy.buildAndroidContext().audioFocus,
+      AudioContextConfig(
+        focus: AudioContextConfigFocus.mixWithOthers,
+      ).buildAndroid().audioFocus,
+    );
   });
 }
