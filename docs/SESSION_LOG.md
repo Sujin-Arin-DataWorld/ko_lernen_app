@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 번역 스택 #105·#107·#108·#109를 손실 없이 main에
+
+**무엇을 왜.** Jin이 자러 가며 지금 PR을 코드 손실 없이 main에 넣고,
+에러가 끝나면 전체 빌드와 Android 내부테스트를 하라고 했다. `#101` 홈
+디자인·`#102` 세션로그 폐지·`#103` 스킬 설치는 번역 줄이 아니라 제외.
+
+**무엇을.** squash 없이 merge commit. `#105` `8931fd56` → practice →
+nuance → Beyond Humanizer. 각 PR head가 조상이라 GitHub가 닫는다.
+CSV 쉼표 3행(`vocab_a2_0309`·`0310`·`vocab_c2_0215`)만 따옴표. inherited
+지문 33개를 현재 CSV에 맞춤. 세그먼트 ID 유지.
+
+**검증.** 네 head ancestor. 집중 Flutter 예정. main 전체 CI + Play
+internal은 push 뒤.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — #105 Analyze 35실패: 카피 지문·고정 문자열
 
 **무엇을 왜.** Ready 뒤 전체 suite가 카피 변경을 잡았다. 반응형 오버플로가
