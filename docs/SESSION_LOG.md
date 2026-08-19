@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — PR 95 빨간불: Select 가 전체 git fetch 에서 5분 컷
+
+**무엇을 왜.** PR 95 필수 체크 `Select required checks` 가 빨간불이었다.
+첫 `pull_request` run `32257638693` 이 `actions/checkout@v4` 의
+`fetch-depth: 0` 때문에 `+refs/heads/*` + `+refs/tags/*` 를 5분 job
+timeout 동안 못 끝내 cancelled. 이후 `workflow_dispatch` Analyze 는
+초록이지만 PR status rollup 은 그 첫 cancelled Select 를 남긴다.
+iOS 스크립트 자체 실패가 아니다.
+
+**고침.** Select job 은 tip 만 받고, default branch + PR/push SHA 이력만
+`blob:none` 으로 가져온다. timeout 은 15분. 계약은
+`test_changes_job_does_not_clone_every_branch`.
+
+**검증.** `.github/scripts` unittest. PR synchronize 뒤 Select 가
+`pull_request` 이벤트로 초록인지 확인.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Claude Opus 5, macOS) — 콘텐츠 UI/UX 마감: 소리 복구 · 공유 · 책갈피 · 색 · 줄바꿈
 
 **무엇을 왜.** PR #83(바이블)이 `01bd8849` 로 머지된 뒤에도 Jin 이 요청 8건 중 다수가
