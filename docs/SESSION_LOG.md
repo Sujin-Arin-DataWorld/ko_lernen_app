@@ -11,7 +11,7 @@
 
 **왜.** 한 스크롤에 플레이어+책장이 같이 보여 Jin이 집어낸 이중 UI였다. PR #83 브랜치를 main에 맞춘 뒤 남은 바이블 순서의 다음 칸이다.
 
-**검증.** `flutter test` listening_shelf_route + dedicated_feedback listening + c0 + mascot_wiring. `flutter analyze` 해당 파일.
+**검증.** `flutter analyze` 해당 파일 0 issue. `flutter test` listening_shelf + dedicated_feedback + c0 + mascot_wiring + screen_smoke 72 passed.
 
 **커밋해시.** 이 로그와 같은 커밋.
 

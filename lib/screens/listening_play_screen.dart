@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
-import '../models/content_feedback.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
 import '../services/analytics_service.dart';
