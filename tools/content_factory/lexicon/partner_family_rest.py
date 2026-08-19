@@ -66,7 +66,7 @@ REST_PACKS = [
         ("게임 한 판", "eine Spielrunde", "one game round", "Ausdruck", "게임 한 판 하니 존댓말이 반말로 넘어갔어요.", "Nach einer Runde rutschte die Höflichkeit ins Vertraute.", "After one game, honorifics slipped into casual speech."),
         ("비밀 보장", "ein Geheimnis wahren", "keeping a secret", "Ausdruck", "현우 어릴 적 비밀 보장은 제가 먼저 약속했어요.", "Das Kindheitsgeheimnis zu wahren versprach ich zuerst.", "I promised first to keep Hyunwoo's childhood secret."),
         ("맞장구", "zustimmendes Mitgehen", "supportive backchannel", "Nomen", "맞장구를 너무 크게 해서 국이 흔들렸어요.", "Mein Mitgehen war so laut, dass die Suppe wackelte.", "My backchannel was so loud the soup shook."),
-        ("통역 눈짓", "Augenbitte um Übersetzung", "eye-ask for interpreting", "Ausdruck", "통역 눈짓을 현우가 못 보면 그냥 웃어요.", "Sieht Hyunwoo die Augenbitte nicht, lache ich einfach.", "If Hyunwoo misses the eye-ask, I just laugh."),
+        ("통역 눈짓", "sich mit Blicken verständigen", "to signal with a look", "Ausdruck", "통역 눈짓을 현우가 못 보면 그냥 웃어요.", "Versteht Hyunwoo meinen Blick nicht, lache ich einfach.", "If Hyunwoo doesn't get the look, I just laugh."),
         ("같이 웃다", "zusammen lachen", "to laugh together", "Ausdruck", "같이 웃다 보면 존댓말 실수는 잊혀요.", "Wenn man zusammen lacht, vergisst man Höflichkeitsfehler.", "If you laugh together, honorific mistakes are forgotten."),
         ("동생 편", "Seite des jüngeren Geschwisters", "the younger sibling side", "Ausdruck", "동생 편을 들면 현우가 눈을 흘겨요.", "Halte ich zum jüngeren Geschwister, schielt Hyunwoo.", "If I take the younger sibling side, Hyunwoo side-eyes me."),
         ("단톡방", "Familienchat", "family group chat", "Nomen", "단톡방에 입장하자마자 이모티콘이 쏟아졌어요.", "Kaum war ich im Familienchat, regnete es Sticker.", "As soon as I joined the family group chat, stickers poured in."),

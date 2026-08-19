@@ -1660,8 +1660,8 @@
       "id": "satz_a2_0081",
       "level": "a2",
       "targetKo": "통역 눈짓을 현우가 못 보면 그냥 웃어요.",
-      "promptDe": "Sieht Hyunwoo die Augenbitte nicht, lache ich einfach.",
-      "promptEn": "If Hyunwoo misses the eye-ask, I just laugh.",
+      "promptDe": "Versteht Hyunwoo meinen Blick nicht, lache ich einfach.",
+      "promptEn": "If Hyunwoo doesn't get the look, I just laugh.",
       "distractors": [
         "그냥 웃고",
         "지금은 괜찮아요"

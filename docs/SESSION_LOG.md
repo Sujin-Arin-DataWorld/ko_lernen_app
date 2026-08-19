@@ -1,5 +1,17 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 편하게 말씀하세요·통역 눈짓을 각 언어로
+
+**무엇을 왜.** `Sagen Sie es ruhig`는 명령처럼 들린다. Jin 요청대로
+`Sie können mir ruhig sagen`. `통역 눈짓`을 Übersetzung-Blick로 합성하지 않고
+독일어는 sich mit Blicken verständigen / Versteht Hyunwoo meinen Blick nicht.
+한국어 합성어·ID는 유지.
+
+**검증.** 생성기/리뷰/드래프트에서 Augenbitte·Sagen Sie es ruhig 제거.
+Grep 앱 데이터 0. factory 동기 후 scan·cloze·satz·vocab_pack.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 통역 눈짓 예문에서 통역을 빼지 않는다
 
 **무엇을 왜.** Cloze/Satz가 `den Blick` / `the look`만 남겨 문장이 안 읽혔다.
