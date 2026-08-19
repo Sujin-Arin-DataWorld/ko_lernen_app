@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
@@ -7,15 +6,14 @@ import 'package:ko_lernen_app/services/tts_service.dart';
 class _FakePlatform implements TtsPlaybackPlatform {
   final mutations = <String>[];
   final fileSessions = <String, Completer<bool>>{};
-  final speechSessions = <String, Completer<bool>>{};
   bool failFileStart = false;
   int throwFileStarts = 0;
-  int throwSpeechStarts = 0;
   int throwStops = 0;
 
   @override
-  Future<TtsPlaybackSession?> startFile(File file, double rate) async {
-    mutations.add('file:${file.path}:$rate');
+  Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate) async {
+    final id = audio.path ?? 'bytes:${audio.bytes!.length}';
+    mutations.add('file:$id:$rate');
     if (throwFileStarts > 0) {
       throwFileStarts--;
       await Future<void>.delayed(Duration.zero);
@@ -23,20 +21,7 @@ class _FakePlatform implements TtsPlaybackPlatform {
     }
     if (failFileStart) return null;
     final completion = Completer<bool>();
-    fileSessions[file.path] = completion;
-    return TtsPlaybackSession(completion.future);
-  }
-
-  @override
-  Future<TtsPlaybackSession?> startSpeech(String text, double rate) async {
-    mutations.add('speech:$text:$rate');
-    if (throwSpeechStarts > 0) {
-      throwSpeechStarts--;
-      await Future<void>.delayed(Duration.zero);
-      throw StateError('async speech start failure');
-    }
-    final completion = Completer<bool>();
-    speechSessions[text] = completion;
+    fileSessions[id] = completion;
     return TtsPlaybackSession(completion.future);
   }
 
@@ -104,63 +89,52 @@ void main() {
     expect(await unsafe!.completion, isFalse);
   });
 
-  test(
-    'async file play failure falls back to OS speech without throwing',
-    () async {
-      final fallbackCompletion = Completer<bool>();
-      final platform = _CallbackPlatform((file, rate) async {
-        // Mirrors production _startFile: await the helper so its asynchronous
-        // play error is caught, then return null only after cleanup succeeds.
-        try {
-          return await TtsFilePlayback.start(
-            completion: Future.value(true),
-            play: () async => throw StateError('async play failure'),
-            setRate: (rate) async {},
-            stop: () async {},
-            rate: rate,
-          );
-        } catch (_) {
-          await Future<void>.delayed(Duration.zero);
-          return null;
-        }
-      }, (text, rate) async => TtsPlaybackSession(fallbackCompletion.future));
-      final engine = TtsPlaybackEngine(
-        resolveFile: (text, voice) async => File('broken.mp3'),
-        platform: platform,
-      );
+  test('async file play failure stays contained without throwing', () async {
+    final platform = _CallbackPlatform((audio, rate) async {
+      // Mirrors production _startAudio: await the helper so its asynchronous
+      // play error is caught, then return null only after cleanup succeeds.
+      try {
+        return await TtsFilePlayback.start(
+          completion: Future.value(true),
+          play: () async => throw StateError('async play failure'),
+          setRate: (rate) async {},
+          stop: () async {},
+          rate: rate,
+        );
+      } catch (_) {
+        await Future<void>.delayed(Duration.zero);
+        return null;
+      }
+    });
+    final engine = TtsPlaybackEngine(
+      resolveAudio: (text, voice) async => TtsAudio.path('broken.mp3'),
+      platform: platform,
+    );
 
-      final result = engine.speak(
-        text: 'fallback',
+    expect(
+      await engine.speak(
+        text: 'broken audio',
         voice: 'female',
         baseRate: 0.42,
-      );
-      await Future<void>.delayed(Duration.zero);
-      await Future<void>.delayed(Duration.zero);
-      fallbackCompletion.complete(true);
-
-      expect(await result, isTrue);
-    },
-  );
+      ),
+      isFalse,
+    );
+  });
 
   test(
     'async rate cleanup failure is contained without unsafe fallback',
     () async {
-      var speechStarts = 0;
       final platform = _CallbackPlatform(
-        (file, rate) => TtsFilePlayback.start(
+        (audio, rate) => TtsFilePlayback.start(
           completion: Future.value(true),
           play: () async {},
           setRate: (rate) async => throw StateError('rate failure'),
           stop: () async => throw StateError('cleanup failure'),
           rate: rate,
         ),
-        (text, rate) async {
-          speechStarts++;
-          return TtsPlaybackSession(Future.value(true));
-        },
       );
       final engine = TtsPlaybackEngine(
-        resolveFile: (text, voice) async => File('rate.mp3'),
+        resolveAudio: (text, voice) async => TtsAudio.path('rate.mp3'),
         platform: platform,
       );
 
@@ -170,7 +144,6 @@ void main() {
         baseRate: 0.42,
       );
       expect(await result, isFalse);
-      expect(speechStarts, 0);
     },
   );
 
@@ -178,7 +151,7 @@ void main() {
     final platform = _FakePlatform();
     final errors = <String>[];
     final engine = TtsPlaybackEngine(
-      resolveFile: (text, voice) async =>
+      resolveAudio: (text, voice) async =>
           throw const TtsSynthesisBlocked(
             TtsCallableFailure.audioUnavailableMessage,
           ),
@@ -194,7 +167,6 @@ void main() {
       ),
       isFalse,
     );
-    expect(platform.speechSessions, isEmpty);
     expect(platform.fileSessions, isEmpty);
     expect(errors, contains(TtsCallableFailure.audioUnavailableMessage));
   });
@@ -203,7 +175,7 @@ void main() {
     final platform = _FakePlatform();
     final errors = <String>[];
     final engine = TtsPlaybackEngine(
-      resolveFile: (text, voice) async =>
+      resolveAudio: (text, voice) async =>
           throw const TtsSynthesisBlocked('Daily synthesis limit reached.'),
       platform: platform,
       errorReporter: errors.add,
@@ -217,27 +189,27 @@ void main() {
       ),
       isFalse,
     );
-    expect(platform.speechSessions, isEmpty);
     expect(platform.fileSessions, isEmpty);
     expect(errors, contains('Daily synthesis limit reached.'));
   });
 
-  test('resolver errors safely fall back to OS speech', () async {
+  test('resolver errors settle false and never start playback', () async {
     final platform = _FakePlatform();
     final engine = TtsPlaybackEngine(
-      resolveFile: (text, voice) async => throw StateError('cache unavailable'),
+      resolveAudio: (text, voice) async =>
+          throw StateError('cache unavailable'),
       platform: platform,
     );
 
-    final result = engine.speak(
-      text: 'resolver fallback',
-      voice: 'female',
-      baseRate: 0.42,
+    expect(
+      await engine.speak(
+        text: 'resolver error',
+        voice: 'female',
+        baseRate: 0.42,
+      ),
+      isFalse,
     );
-    await Future<void>.delayed(Duration.zero);
-    platform.speechSessions['resolver fallback']!.complete(true);
-
-    expect(await result, isTrue);
+    expect(platform.fileSessions, isEmpty);
   });
 
   test('rate pair preserves OS scale and normalizes cached audio to 1x', () {
@@ -313,7 +285,7 @@ void main() {
   test('engine forwards userMultiplier to the file rate', () async {
     final platform = _FakePlatform();
     final engine = TtsPlaybackEngine(
-      resolveFile: (text, voice) async => File('cached.mp3'),
+      resolveAudio: (text, voice) async => TtsAudio.path('cached.mp3'),
       platform: platform,
     );
     final result = engine.speak(
@@ -333,23 +305,18 @@ void main() {
     );
   });
 
-  test('file rate failure falls back safely to OS speech', () async {
+  test('a refused file start stays silent instead of speaking', () async {
     final platform = _FakePlatform()..failFileStart = true;
     final engine = TtsPlaybackEngine(
-      resolveFile: (text, voice) async => File('cached.mp3'),
+      resolveAudio: (text, voice) async => TtsAudio.path('cached.mp3'),
       platform: platform,
     );
 
-    final result = engine.speak(text: '안녕하세요', voice: 'female', baseRate: 0.42);
-    await Future<void>.delayed(Duration.zero);
-    platform.speechSessions['안녕하세요']!.complete(true);
-
-    expect(await result, isTrue);
-    expect(platform.mutations, [
-      'stop',
-      'file:cached.mp3:1.0',
-      'speech:안녕하세요:0.42',
-    ]);
+    expect(
+      await engine.speak(text: '안녕하세요', voice: 'female', baseRate: 0.42),
+      isFalse,
+    );
+    expect(platform.mutations, ['stop', 'file:cached.mp3:1.0']);
   });
 
   test(
@@ -358,7 +325,7 @@ void main() {
       final platform = _FakePlatform();
       final resolutions = <String>[];
       final engine = TtsPlaybackEngine(
-        resolveFile: (text, voice) async {
+        resolveAudio: (text, voice) async {
           resolutions.add('$voice|$text');
           return null;
         },
@@ -366,15 +333,12 @@ void main() {
       );
 
       for (final multiplier in [0.75, 1.25]) {
-        final request = engine.speak(
+        await engine.speak(
           text: '같은 음성',
           voice: 'female',
           baseRate: 0.42,
           rateMultiplier: multiplier,
         );
-        await Future<void>.delayed(Duration.zero);
-        platform.speechSessions['같은 음성']!.complete(true);
-        await request;
       }
 
       expect(resolutions, ['female|같은 음성', 'female|같은 음성']);
@@ -385,17 +349,17 @@ void main() {
     'older slow resolution performs no mutations after newer starts',
     () async {
       final platform = _FakePlatform();
-      final releaseOld = Completer<File?>();
+      final releaseOld = Completer<TtsAudio?>();
       final engine = TtsPlaybackEngine(
-        resolveFile: (text, voice) =>
-            text == 'old' ? releaseOld.future : Future.value(File('new.mp3')),
+        resolveAudio: (text, voice) =>
+            text == 'old' ? releaseOld.future : Future.value(TtsAudio.path('new.mp3')),
         platform: platform,
       );
 
       final old = engine.speak(text: 'old', voice: 'female', baseRate: 0.42);
       final newer = engine.speak(text: 'new', voice: 'female', baseRate: 0.42);
       await Future<void>.delayed(Duration.zero);
-      releaseOld.complete(File('old.mp3'));
+      releaseOld.complete(TtsAudio.path('old.mp3'));
       await Future<void>.delayed(Duration.zero);
       platform.fileSessions['new.mp3']!.complete(true);
 
@@ -409,10 +373,10 @@ void main() {
     'new request promptly stops current audio before blocked resolution',
     () async {
       final platform = _FakePlatform();
-      final blockedResolution = Completer<File?>();
+      final blockedResolution = Completer<TtsAudio?>();
       final engine = TtsPlaybackEngine(
-        resolveFile: (text, voice) => text == 'first'
-            ? Future.value(File('first.mp3'))
+        resolveAudio: (text, voice) => text == 'first'
+            ? Future.value(TtsAudio.path('first.mp3'))
             : blockedResolution.future,
         platform: platform,
       );
@@ -434,56 +398,53 @@ void main() {
       expect(platform.mutations.where((m) => m == 'stop').length, 2);
 
       blockedResolution.complete(null);
-      await Future<void>.delayed(Duration.zero);
-      platform.speechSessions['second']!.complete(true);
-      expect(await second, isTrue);
+      expect(await second, isFalse);
     },
   );
 
-  test(
-    'fallback and file starts cannot cross-contaminate request rates',
-    () async {
-      final platform = _FakePlatform();
-      final speechResolution = Completer<File?>();
-      final engine = TtsPlaybackEngine(
-        resolveFile: (text, voice) => text == 'speech'
-            ? speechResolution.future
-            : Future.value(File('file.mp3')),
-        platform: platform,
-      );
+  test('an unresolved request never taints the next request rate', () async {
+    final platform = _FakePlatform();
+    final missResolution = Completer<TtsAudio?>();
+    final engine = TtsPlaybackEngine(
+      resolveAudio: (text, voice) => text == 'miss'
+          ? missResolution.future
+          : Future.value(TtsAudio.path('file.mp3')),
+      platform: platform,
+    );
 
-      final speech = engine.speak(
-        text: 'speech',
-        voice: 'female',
-        baseRate: 0.42,
-        rateMultiplier: 0.75,
-      );
-      speechResolution.complete(null);
-      await Future<void>.delayed(Duration.zero);
-      final file = engine.speak(
-        text: 'file',
-        voice: 'female',
-        baseRate: 0.42,
-        rateMultiplier: 1.25,
-      );
-      await Future<void>.delayed(Duration.zero);
-      platform.fileSessions['file.mp3']!.complete(true);
+    final miss = engine.speak(
+      text: 'miss',
+      voice: 'female',
+      baseRate: 0.42,
+      rateMultiplier: 0.75,
+    );
+    missResolution.complete(null);
+    await Future<void>.delayed(Duration.zero);
+    final file = engine.speak(
+      text: 'file',
+      voice: 'female',
+      baseRate: 0.42,
+      rateMultiplier: 1.25,
+    );
+    await Future<void>.delayed(Duration.zero);
+    platform.fileSessions['file.mp3']!.complete(true);
 
-      expect(await file, isTrue);
-      expect(await speech, isFalse);
-      expect(
-        platform.mutations,
-        containsAllInOrder(['speech:speech:0.315', 'file:file.mp3:1.25']),
-      );
-    },
-  );
+    expect(await file, isTrue);
+    expect(await miss, isFalse);
+    expect(platform.mutations, contains('file:file.mp3:1.25'));
+    expect(
+      platform.mutations.where((m) => m.startsWith('file:')),
+      hasLength(1),
+      reason: '해결 못 한 요청은 재생을 시작하지 않는다',
+    );
+  });
 
   test('stop and dispose invalidate pending resolution', () async {
     for (final shouldDispose in [false, true]) {
       final platform = _FakePlatform();
-      final resolution = Completer<File?>();
+      final resolution = Completer<TtsAudio?>();
       final engine = TtsPlaybackEngine(
-        resolveFile: (text, voice) => resolution.future,
+        resolveAudio: (text, voice) => resolution.future,
         platform: platform,
       );
       final pending = engine.speak(
@@ -496,7 +457,7 @@ void main() {
       } else {
         await engine.stop();
       }
-      resolution.complete(File('late.mp3'));
+      resolution.complete(TtsAudio.path('late.mp3'));
       expect(await pending, isFalse);
       expect(platform.mutations.where((m) => m.startsWith('file:')), isEmpty);
     }
@@ -507,9 +468,9 @@ void main() {
     () async {
       for (final shouldDispose in [false, true]) {
         final platform = _FakePlatform();
-        final resolution = Completer<File?>();
+        final resolution = Completer<TtsAudio?>();
         final engine = TtsPlaybackEngine(
-          resolveFile: (text, voice) => resolution.future,
+          resolveAudio: (text, voice) => resolution.future,
           platform: platform,
         );
         final pending = engine.speak(
@@ -539,9 +500,9 @@ void main() {
     final uncaught = <Object>[];
     await runZonedGuarded(() async {
       final platform = _FakePlatform()..throwStops = 2;
-      final resolution = Completer<File?>();
+      final resolution = Completer<TtsAudio?>();
       final engine = TtsPlaybackEngine(
-        resolveFile: (text, voice) => resolution.future,
+        resolveAudio: (text, voice) => resolution.future,
         platform: platform,
       );
       final pending = engine.speak(
@@ -562,7 +523,7 @@ void main() {
   test('file completion errors resolve false instead of throwing', () async {
     final platform = _FakePlatform();
     final engine = TtsPlaybackEngine(
-      resolveFile: (text, voice) async => File('completion.mp3'),
+      resolveAudio: (text, voice) async => TtsAudio.path('completion.mp3'),
       platform: platform,
     );
 
@@ -579,58 +540,54 @@ void main() {
     expect(await result, isFalse);
   });
 
-  test('speech completion errors resolve false instead of throwing', () async {
+  test('a resolved miss resolves false without starting playback', () async {
     final platform = _FakePlatform();
     final engine = TtsPlaybackEngine(
-      resolveFile: (text, voice) async => null,
+      resolveAudio: (text, voice) async => null,
       platform: platform,
     );
 
-    final result = engine.speak(
-      text: 'speech error',
-      voice: 'female',
-      baseRate: 0.42,
+    expect(
+      await engine.speak(
+        text: 'no premium audio',
+        voice: 'female',
+        baseRate: 0.42,
+      ),
+      isFalse,
     );
-    await Future<void>.delayed(Duration.zero);
-    platform.speechSessions['speech error']!.completeError(
-      StateError('TTS completion failed'),
-    );
-
-    expect(await result, isFalse);
+    expect(platform.fileSessions, isEmpty);
+    expect(platform.mutations.where((m) => m.startsWith('file:')), isEmpty);
   });
 
   test(
-    'file and speech completion timeouts return false and stop current audio',
+    'completion timeouts return false and stop the current audio',
     () async {
-      for (final hasFile in [true, false]) {
-        final platform = _FakePlatform();
-        final errors = <String>[];
-        final engine = TtsPlaybackEngine(
-          resolveFile: (text, voice) async =>
-              hasFile ? File('timeout.mp3') : null,
-          platform: platform,
-          completionTimeout: const Duration(milliseconds: 10),
-          errorReporter: errors.add,
-        );
+      final platform = _FakePlatform();
+      final errors = <String>[];
+      final engine = TtsPlaybackEngine(
+        resolveAudio: (text, voice) async => TtsAudio.path('timeout.mp3'),
+        platform: platform,
+        completionTimeout: const Duration(milliseconds: 10),
+        errorReporter: errors.add,
+      );
 
-        expect(
-          await engine.speak(
-            text: hasFile ? 'file timeout' : 'speech timeout',
-            voice: 'female',
-            baseRate: 0.42,
-          ),
-          isFalse,
-        );
-        expect(platform.mutations.last, 'stop');
-        expect(errors.single, contains('timed out'));
-      }
+      expect(
+        await engine.speak(
+          text: 'file timeout',
+          voice: 'female',
+          baseRate: 0.42,
+        ),
+        isFalse,
+      );
+      expect(platform.mutations.last, 'stop');
+      expect(errors.single, contains('timed out'));
     },
   );
 
   test('stale timed-out completion cannot stop newer audio', () async {
     final platform = _FakePlatform();
     final engine = TtsPlaybackEngine(
-      resolveFile: (text, voice) async => File('$text.mp3'),
+      resolveAudio: (text, voice) async => TtsAudio.path('$text.mp3'),
       platform: platform,
       completionTimeout: const Duration(milliseconds: 15),
     );
@@ -654,9 +611,9 @@ void main() {
   test('platform stop and start errors do not poison later requests', () async {
     final platform = _FakePlatform()
       ..throwStops = 1
-      ..throwSpeechStarts = 1;
+      ..throwFileStarts = 1;
     final engine = TtsPlaybackEngine(
-      resolveFile: (text, voice) async => null,
+      resolveAudio: (text, voice) async => TtsAudio.path('$text.mp3'),
       platform: platform,
     );
 
@@ -674,30 +631,23 @@ void main() {
       baseRate: 0.42,
     );
     await Future<void>.delayed(Duration.zero);
-    platform.speechSessions['healthy']!.complete(true);
+    platform.fileSessions['healthy.mp3']!.complete(true);
 
     expect(await healthy, isTrue);
   });
 }
 
-typedef _StartFile =
-    Future<TtsPlaybackSession?> Function(File file, double rate);
-typedef _StartSpeech =
-    Future<TtsPlaybackSession?> Function(String text, double rate);
+typedef _StartAudio =
+    Future<TtsPlaybackSession?> Function(TtsAudio audio, double rate);
 
 class _CallbackPlatform implements TtsPlaybackPlatform {
-  _CallbackPlatform(this._startFile, this._startSpeech);
+  _CallbackPlatform(this._startAudio);
 
-  final _StartFile _startFile;
-  final _StartSpeech _startSpeech;
-
-  @override
-  Future<TtsPlaybackSession?> startFile(File file, double rate) =>
-      _startFile(file, rate);
+  final _StartAudio _startAudio;
 
   @override
-  Future<TtsPlaybackSession?> startSpeech(String text, double rate) =>
-      _startSpeech(text, rate);
+  Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate) =>
+      _startAudio(audio, rate);
 
   @override
   Future<void> stop() async {}

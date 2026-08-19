@@ -24,7 +24,10 @@ dependencies:
   connectivity_plus: 7.0.0
 
   # ── Audio / Sprache ─────────────────────────────────────
-  flutter_tts: ^4.2.0
+  # flutter_tts 는 2026-08-19 에 제거했다. OS 음성 폴백이 독일어 엔진으로
+  # 한국어를 읽어("전부 das" — Jin) 발음 학습을 망가뜨렸고, Storage 실측상
+  # 발화 11,438개 중 프리미엄이 없는 건 1개뿐이라 폴백이 필요 없다.
+  # 자세한 이유는 TtsService 클래스 주석 참조.
   # SFX (정답/오답/콤보/레벨업) — assets/sfx/*.mp3. 에셋 없으면 SoundService가
   # 조용히 무음 처리(no-op). Jin이 mp3 5개 넣으면 자동 재생.
   audioplayers: ^6.8.1
