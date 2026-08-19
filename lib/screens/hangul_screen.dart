@@ -397,7 +397,7 @@ class _CharCell extends StatelessWidget {
             child: Text(
               char.letter,
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: 36,
                 fontWeight: FontWeight.w900,
                 color: color,
@@ -409,7 +409,7 @@ class _CharCell extends StatelessWidget {
           Text(
             char.romanization,
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               fontSize: 11,
               color: color.withValues(alpha: 0.75),
               fontStyle: FontStyle.italic,

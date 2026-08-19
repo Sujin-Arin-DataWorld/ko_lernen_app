@@ -471,36 +471,25 @@ class SoriMotion {
 }
 
 // ─────────────────────────────────────────────────────────────────────────
-// TEXT — Pretendard 중앙 TextStyle 토큰
+// TEXT — Wanted Sans 중앙 TextStyle 토큰
 // ─────────────────────────────────────────────────────────────────────────
 /// 앱 폰트 패밀리 상수 — 한 곳에서 교체 가능.
-/// - [sans] Pretendard: **앱 전 표면 단일 폰트** (본문·UI·제목·숫자·한국어).
-///   400/500/600/700/800 번들 → 위계는 크기·굵기로만 표현(폰트 혼용 X).
+/// - [sans] Wanted Sans: **앱 전 표면 단일 폰트** (본문·UI·제목·숫자·한국어·독일어).
+///   400/500/600/700/800 번들, 한글 11,172자 + 라틴/독일어 완비.
 ///
-/// **2026-07-01 통일**: 기존 [serif] GowunBatang(라틴 서브셋 명조)를 디스플레이/
-/// 제목/AppBar에 섞어 쓰던 걸 전면 폐기. 라틴엔 명조·한글엔 산세리프로 갈라져
-/// "제각각"으로 보였고 명조 서브셋 자체가 저품질 → Pretendard 하나로 수렴.
-/// [serif]/[serifFallback]는 하위호환용 alias(= sans)로만 남김.
+/// **2026-08-19 교체**: 이전 PretendardStd 는 라틴 전용 서브셋이라 한글 글리프가
+/// 0개였다. 한국어는 전부 OS 폴백(맑은 고딕·제조사 기본·Apple SD Gothic)으로
+/// 그려져 한·독 혼용 줄에서 서체·굵기·베이스라인이 갈렸다. "단일 폰트" 전제가
+/// 한글에서 처음으로 성립한다. `test/font_bundle_guard_test.dart` 가 번들 폰트의
+/// 한글·독일어 글리프를 검사해 재발을 막는다.
 class SoriFonts {
   SoriFonts._();
-  static const String sans = 'Pretendard';
-
-  /// @deprecated 명조 폐기 — sans의 alias. 신규 코드는 [sans] 사용.
-  static const String serif = sans;
-  static const List<String> serifFallback = [sans];
-
-  /// 디스플레이(대형 헤드라인) 폰트 — **미래 한국어 세리프 도입의 단일 지점**
-  /// (2026-08-13 UI 개편 D1). 지금은 sans 와 동일: Vocabulary급 위계는 폰트
-  /// 혼용이 아니라 [SoriTextTheme.hero] 크기 + [SoriTextTheme.eyebrow] 대비로
-  /// 만든다. 라이선스 검토된 한국어 세리프(마루부리급)를 번들하게 되면 이 상수
-  /// 하나만 바꾼다 — 2026-07-01 라틴/한글 분열 실패를 반복하지 않기 위해
-  /// **한국어 글리프가 있는 세리프만** 허용.
-  static const String display = sans;
+  static const String sans = 'WantedSans';
 }
 
 /// 모든 Sori 컴포넌트가 따르는 TextStyle 프리셋.
 ///
-/// 기존 컴포넌트는 `TextStyle(fontFamily: 'Pretendard', ...)` 하드코딩.
+/// 기존 컴포넌트는 `TextStyle(fontFamily: SoriFonts.sans, ...)` 하드코딩.
 /// 점진 마이그레이션 — 신규 텍스트는 [SoriTextTheme.of(ctx).body] 등 사용.
 ///
 /// 색은 surface 기반 — `s.text` (default), `s.textMuted`, `s.textDim`.
@@ -664,12 +653,9 @@ class SoriTextTheme {
     required double letterSpacing,
     required double height,
     Color? color,
-    bool serif = false,
     bool tabular = false,
   }) => TextStyle(
-    fontFamily: serif ? SoriFonts.serif : SoriFonts.sans,
-    // serif엔 한글 글리프가 없다 → 한국어는 Pretendard로 자동 폴백(두부 방지).
-    fontFamilyFallback: serif ? SoriFonts.serifFallback : null,
+    fontFamily: SoriFonts.sans,
     fontSize: fontSize * _deviceScale,
     fontWeight: weight,
     letterSpacing: letterSpacing * _deviceScale,

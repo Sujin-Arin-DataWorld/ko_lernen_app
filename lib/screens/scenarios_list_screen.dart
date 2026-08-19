@@ -708,7 +708,7 @@ class _LevelProgressChip extends StatelessWidget {
             Text(
               label,
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
                 color: tint,
@@ -804,7 +804,7 @@ class _NextRecommended extends StatelessWidget {
                   Text(
                     t.scenariosPathStartCta,
                     style: const TextStyle(
-                      fontFamily: 'Pretendard',
+                      fontFamily: SoriFonts.sans,
                       fontSize: 12,
                       color: Colors.white,
                       fontWeight: FontWeight.w800,
@@ -881,7 +881,7 @@ class _EmptyLevelCard extends StatelessWidget {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontFamily: 'Pretendard',
+                    fontFamily: SoriFonts.sans,
                     color: s.text,
                     fontWeight: FontWeight.w800,
                     fontSize: 14,

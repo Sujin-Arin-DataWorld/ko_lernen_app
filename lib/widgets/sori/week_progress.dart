@@ -146,7 +146,7 @@ class _Stone extends StatelessWidget {
           Text(
             label,
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               fontSize: 11,
               fontWeight: FontWeight.w700,
               color: isToday ? SoriColors.goldOnLight : s.textMuted,
@@ -193,7 +193,7 @@ class DailyGoalCard extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontFamily: 'Pretendard',
+                    fontFamily: SoriFonts.sans,
                     fontSize: 13,
                     fontWeight: FontWeight.w800,
                     color: s.text,
@@ -205,7 +205,7 @@ class DailyGoalCard extends StatelessWidget {
               Text(
                 '$today/$goal XP',
                 style: TextStyle(
-                  fontFamily: 'Pretendard',
+                  fontFamily: SoriFonts.sans,
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
                   color: s.textMuted,

@@ -685,7 +685,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         v.korean,
         textAlign: TextAlign.center,
         style: TextStyle(
-          fontFamily: 'Pretendard',
+          fontFamily: SoriFonts.sans,
           fontSize: headlineSize,
           fontWeight: FontWeight.w700,
           height: 1.05,
@@ -741,7 +741,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
           v.translationFor(lang),
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             // 앞면(0.155)의 약 0.8 배 — 위 주석의 1.3 배 계약.
             fontSize: _sz(h, 0.125, 28, 54),
             fontWeight: FontWeight.w700,
@@ -761,7 +761,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
               // 쪼그라들 이유가 없다(Jin, 2026-08-12).
               maxLines: 2,
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: _sz(h, 0.068, 20, 34),
                 fontWeight: FontWeight.w600,
                 height: 1.25,

@@ -121,7 +121,7 @@ class SoriCharacterHero extends StatelessWidget {
         final greetingText = Text(
           greeting,
           style: TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             fontSize: greetingSize,
             fontWeight: FontWeight.w900,
             color: s.text,
@@ -265,7 +265,7 @@ class _SpeechBubble extends StatelessWidget {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               fontSize: 14.5,
               fontWeight: FontWeight.w700,
               color: isDark ? const Color(0xFF1F1A14) : s.text,

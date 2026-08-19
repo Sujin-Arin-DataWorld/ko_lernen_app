@@ -34,7 +34,6 @@ dependencies:
 
   # ── UI ──────────────────────────────────────────────────
   flutter_svg: ^2.0.10
-  google_fonts: ^6.2.1
   animations: ^2.0.11        # OpenContainer Material container transform
 
   # ── Werbung ─────────────────────────────────────────────
@@ -185,28 +184,23 @@ flutter:
     - assets/video/home_hero/
     - assets/video/gye/
 
-  # ── Pretendard (한국어 모던 산세리프, SIL OFL, Std subset ~310KB×5) ──
+  # ── Wanted Sans (한글 11,172자 + 라틴/독일어 완비, OFL 1.1, 2026-08-19 교체) ──
+  # ⚠️ 이전 PretendardStd 는 라틴 전용 서브셋이라 한글 글리프가 0개였다 — 한국어가
+  # 전부 OS 폴백 폰트로 그려졌다. test/font_bundle_guard_test.dart 가 재발을 막는다.
+  # WantedSansStd(라틴 전용)는 쓰지 말 것.
   fonts:
-    - family: Pretendard
+    - family: WantedSans
       fonts:
-        - asset: assets/fonts/Pretendard/PretendardStd-Regular.otf
+        - asset: assets/fonts/WantedSans/WantedSans-Regular.otf
           weight: 400
-        - asset: assets/fonts/Pretendard/PretendardStd-Medium.otf
+        - asset: assets/fonts/WantedSans/WantedSans-Medium.otf
           weight: 500
-        - asset: assets/fonts/Pretendard/PretendardStd-SemiBold.otf
+        - asset: assets/fonts/WantedSans/WantedSans-SemiBold.otf
           weight: 600
-        - asset: assets/fonts/Pretendard/PretendardStd-Bold.otf
+        - asset: assets/fonts/WantedSans/WantedSans-Bold.otf
           weight: 700
-        - asset: assets/fonts/Pretendard/PretendardStd-ExtraBold.otf
+        - asset: assets/fonts/WantedSans/WantedSans-ExtraBold.otf
           weight: 800
-    # Gowun Batang (고운바탕) — OFL 명조 serif, DISPLAY/제목 전용 (라틴 서브셋 ~56KB×2).
-    # 한국어 글리프 미포함 → 한글은 Pretendard 폴백(fontFamilyFallback). 에디토리얼 대비용.
-    - family: GowunBatang
-      fonts:
-        - asset: assets/fonts/GowunBatang/GowunBatang-Regular.ttf
-          weight: 400
-        - asset: assets/fonts/GowunBatang/GowunBatang-Bold.ttf
-          weight: 700
 
 # ─────────────────────────────────────────────────────────
 # Launcher Icon — generiert mit:

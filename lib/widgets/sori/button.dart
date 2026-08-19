@@ -185,7 +185,7 @@ class SoriButton extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: 'Pretendard',
+                  fontFamily: SoriFonts.sans,
                   color: fg,
                   fontWeight: FontWeight.w700,
                   fontSize: visualFontSize,

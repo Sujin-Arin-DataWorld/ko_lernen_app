@@ -132,7 +132,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
         Text(
           t.dailyCharTitle,
           style: TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             color: SoriColors.primary,
             fontWeight: FontWeight.w800,
             fontSize: 13,
@@ -143,7 +143,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
         Text(
           hasStrokes ? t.dailyCharSubtitle : t.dailyCharFallbackSubtitle,
           style: TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             color: s.textMuted,
             fontSize: 12,
           ),
@@ -180,7 +180,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                 child: Text(
                   _char,
                   style: TextStyle(
-                    fontFamily: 'Pretendard',
+                    fontFamily: SoriFonts.sans,
                     fontSize: 140,
                     fontWeight: FontWeight.w800,
                     color: SoriColors.primary,
@@ -238,7 +238,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
           Text(
             t.dailyCharStreak(Storage.calligraphyTotalDays),
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               color: s.textDim,
               fontSize: 11,
             ),
@@ -256,7 +256,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
               Text(
                 t.dailyCharGreatJob,
                 style: TextStyle(
-                  fontFamily: 'Pretendard',
+                  fontFamily: SoriFonts.sans,
                   color: SoriColors.success,
                   fontSize: 20,
                   fontWeight: FontWeight.w800,

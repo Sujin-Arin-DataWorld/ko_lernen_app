@@ -60,13 +60,13 @@ Future<void> _loadRealFonts() async {
   if (!_captureEvidence) {
     return;
   }
-  final loader = FontLoader('Pretendard');
+  final loader = FontLoader('WantedSans');
   for (final path in const <String>[
-    'assets/fonts/Pretendard/PretendardStd-Regular.otf',
-    'assets/fonts/Pretendard/PretendardStd-Medium.otf',
-    'assets/fonts/Pretendard/PretendardStd-SemiBold.otf',
-    'assets/fonts/Pretendard/PretendardStd-Bold.otf',
-    'assets/fonts/Pretendard/PretendardStd-ExtraBold.otf',
+    'assets/fonts/WantedSans/WantedSans-Regular.otf',
+    'assets/fonts/WantedSans/WantedSans-Medium.otf',
+    'assets/fonts/WantedSans/WantedSans-SemiBold.otf',
+    'assets/fonts/WantedSans/WantedSans-Bold.otf',
+    'assets/fonts/WantedSans/WantedSans-ExtraBold.otf',
   ]) {
     final bytes = File(path).readAsBytesSync();
     loader.addFont(Future<ByteData>.value(ByteData.view(bytes.buffer)));

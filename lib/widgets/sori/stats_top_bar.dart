@@ -90,7 +90,7 @@ class SoriStatsTopBar extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontFamily: 'Pretendard',
+                            fontFamily: SoriFonts.sans,
                             fontSize: 16,
                             fontWeight: FontWeight.w900,
                             color: s.text,

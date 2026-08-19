@@ -70,7 +70,7 @@ class _FeatureCoachSheet extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             fontSize: 19,
             fontWeight: FontWeight.w900,
             color: s.text,
@@ -92,7 +92,7 @@ class _FeatureCoachSheet extends StatelessWidget {
             t.coachBookLimitNote,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               fontSize: 11.5,
               color: s.textMuted,
               fontWeight: FontWeight.w500,
@@ -159,7 +159,7 @@ class _StepRow extends StatelessWidget {
           child: Text(
             '$index',
             style: const TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               fontSize: 11,
               fontWeight: FontWeight.w900,
               color: SoriColors.primary,
@@ -172,7 +172,7 @@ class _StepRow extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               fontSize: 13.5,
               height: 1.45,
               color: s.text,

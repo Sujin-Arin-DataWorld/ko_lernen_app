@@ -96,7 +96,7 @@ class SoriBadge extends StatelessWidget {
   Widget build(BuildContext context) {
     final fg = _fgFor(context);
     final textStyle = TextStyle(
-      fontFamily: 'Pretendard',
+      fontFamily: SoriFonts.sans,
       color: fg,
       fontWeight: FontWeight.w900,
       fontSize: size * 0.5,

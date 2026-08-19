@@ -679,7 +679,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                               Text(
                                 t.btnHoeren,
                                 style: TextStyle(
-                                  fontFamily: 'Pretendard',
+                                  fontFamily: SoriFonts.sans,
                                   color: SoriSurfaces.of(context).text,
                                   fontWeight: FontWeight.w600,
                                   fontSize: 14,
@@ -706,7 +706,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                   child: Text(
                     t.vocabSlowHint,
                     style: TextStyle(
-                      fontFamily: 'Pretendard',
+                      fontFamily: SoriFonts.sans,
                       fontSize: 10.5,
                       color: SoriSurfaces.of(context).textDim,
                     ),
@@ -1048,7 +1048,7 @@ class _MasteryChip extends StatelessWidget {
             Text(
               label,
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
                 color: color,
