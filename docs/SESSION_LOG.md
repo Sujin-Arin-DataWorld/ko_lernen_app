@@ -9,7 +9,10 @@ smalltalk 카피 4개의 `phraseFingerprintSha256`이 낡았다.
 **무엇을.** Satz/Cloze를 vocab 예문에 맞춤. 지문 도구가 phrase 해시까지
 갱신. 세그먼트 ID·canDoFingerprint 유지.
 
-**검증.** 집중 Flutter 예정. 이 로그와 같은 커밋.
+**검증.** data_loader · character_selection · can_do_segment_asset ·
+canonical_course_segment_loader · hanok_grant_catalog ·
+hanok_experience_projector · learner_copy_scan · content_id 38 passed.
+`d47be782`.
 
 ### 2026-08-19 (Cursor) — 번역 스택 #105·#107·#108·#109를 손실 없이 main에
 
