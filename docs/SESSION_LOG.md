@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 온보딩 ARB + a1_greetings_1 DE/EN 검수
+
+**무엇을 왜.** Jin: 라이브 DE/EN을 자연스럽게. 온보딩 ARB와 첫 단어팩
+`a1_greetings_1`만. `humanizer` · `lokalisieren-de` · `humanizer-de` ·
+`du-sie-check`. 한국어 ID·원문은 유지. UI는 du.
+
+**고침.**
+- 온보딩: 번역투(„Koreanisch sprechen für“), Behörden-Ton, AI 티, 예문에
+  한국어에 없는 Iced/Tall·Spaß. A2=`아메리카노 한 잔 주세요`에 맞춤.
+  `firstVoiceCompanionBody`의 Satzanfang-„Sie“는 동반자 3인칭이라 du와
+  섞여 보였다 → Taego/Joy로 명시.
+- 단어팩: 하세요=höflich(formal 아님), 요≠informell, 안녕히 가세요에서
+  Tschüss+Sie 혼용 제거. 예문 말단계는 한국어에 맞춤.
+- `word_relations.json` sourceDe/En을 CSV와 동기(테스트 계약).
+- `onboarding_start_screen_test` EN 카피 갱신.
+
+**검증.** `flutter gen-l10n`. 온보딩·단어망·l10n 가드 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — main Analyze 빨간불: #96 태블릿 골든 6장
 
 **무엇을 왜.** Jin 이 붙인 CI 로그(`Run set -euo pipefail` + `Got dependencies!` +

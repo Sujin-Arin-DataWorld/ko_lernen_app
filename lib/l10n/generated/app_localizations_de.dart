@@ -2195,15 +2195,14 @@ class AppL10nDe extends AppL10n {
   String get onboardingPage2Title => '5 Minuten pro Tag';
 
   @override
-  String get onboardingPage2Subtitle =>
-      'Kurz und leicht in den Alltag einzubauen';
+  String get onboardingPage2Subtitle => 'Kurz genug für zwischendurch';
 
   @override
-  String get onboardingPage3Title => 'Streaks zählen';
+  String get onboardingPage3Title => 'Dranbleiben zählt';
 
   @override
   String get onboardingPage3Subtitle =>
-      'Mit regelmäßigem Lernen sammelst du Belohnungen.';
+      'Wenn du regelmäßig lernst, gibt\'s Belohnungen.';
 
   @override
   String get onboardingPage4Title => 'Wie viel Zeit hast du?';
@@ -2218,20 +2217,21 @@ class AppL10nDe extends AppL10n {
   String get onboardingGoal15min => '15 Minuten';
 
   @override
-  String get onboardingStartEyebrow => 'Dein erster Weg';
+  String get onboardingStartEyebrow => 'Dein Einstieg';
 
   @override
-  String get onboardingStartTitle => 'Wofür willst du Koreanisch sprechen?';
+  String get onboardingStartTitle => 'Wofür willst du Koreanisch können?';
 
   @override
   String get onboardingStartBody =>
-      'Damit legst du deine ersten Situationen fest. Es ist kein Test deiner Fähigkeiten.';
+      'So merken wir uns, womit du anfängst. Das ist kein Test.';
 
   @override
-  String get onboardingStartTravelTitle => 'In Korea unterwegs sein';
+  String get onboardingStartTravelTitle => 'Unterwegs in Korea';
 
   @override
-  String get onboardingStartTravelBody => 'Café, Weg, Einkaufen und Hilfe';
+  String get onboardingStartTravelBody =>
+      'Café, Weg fragen, einkaufen, Hilfe holen';
 
   @override
   String get onboardingStartPeopleTitle => 'Mit Menschen sprechen';
@@ -2243,16 +2243,16 @@ class AppL10nDe extends AppL10n {
   String get onboardingStartWorkTitle => 'Studium oder Arbeit';
 
   @override
-  String get onboardingStartWorkBody => 'Höflich fragen und verstehen';
+  String get onboardingStartWorkBody => 'Höflich fragen und mitkommen';
 
   @override
   String get onboardingStartPoint => 'Startpunkt';
 
   @override
-  String get onboardingStartNewTitle => 'Ich beginne neu';
+  String get onboardingStartNewTitle => 'Ich fange neu an';
 
   @override
-  String get onboardingStartNewBody => 'Direkt mit Hören und Sprechen';
+  String get onboardingStartNewBody => 'Gleich mit Hören und Sprechen';
 
   @override
   String get onboardingStartExistingTitle => 'Ich kann schon etwas';
@@ -2262,7 +2262,7 @@ class AppL10nDe extends AppL10n {
       'Level wählen oder acht bis zehn Fragen beantworten';
 
   @override
-  String get onboardingStartPrimary => 'Meine erste Szene öffnen';
+  String get onboardingStartPrimary => 'Meine erste Szene starten';
 
   @override
   String get onboardingStartChooseLevel => 'Level wählen';
@@ -2283,7 +2283,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingFirstSceneWorkCanDo =>
-      'Ich kann mich in Kurs oder Arbeit kurz vorstellen.';
+      'Ich kann mich im Kurs oder auf der Arbeit kurz vorstellen.';
 
   @override
   String get onboardingCompanionChoose => 'Lernfreund wählen';
@@ -2292,24 +2292,24 @@ class AppL10nDe extends AppL10n {
   String get onboardingCompanionSkip => 'Jetzt nicht';
 
   @override
-  String get onboardingCompanionEyebrow => 'Deine Lernbegleitung';
+  String get onboardingCompanionEyebrow => 'Dein Lernfreund';
 
   @override
   String get onboardingCompanionPrompt =>
       'Wähle Taego oder Joy. Beide helfen dir, und du kannst dich auch später entscheiden.';
 
   @override
-  String get onboardingCompanionSelectedTiger => 'Taego begleitet dich.';
+  String get onboardingCompanionSelectedTiger => 'Taego kommt mit.';
 
   @override
-  String get onboardingCompanionSelectedMagpie => 'Joy begleitet dich.';
+  String get onboardingCompanionSelectedMagpie => 'Joy kommt mit.';
 
   @override
   String get onboardingCompanionSelectionBody =>
-      'Deine Wahl kannst du jederzeit in deinem Profil ändern.';
+      'Im Profil kannst du das später ändern.';
 
   @override
-  String get onboardingCompanionContinue => 'Mit Begleitung zu Heute';
+  String get onboardingCompanionContinue => 'Mit Begleitung weiter zu Heute';
 
   @override
   String get onboardingCompanionChange => 'Anders wählen';
@@ -2322,7 +2322,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get firstVoiceBody =>
-      'Du hast einen ersten koreanischen Ausdruck verstanden und kannst ihn in deiner Szene einsetzen.';
+      'Du hast einen koreanischen Ausdruck verstanden und kannst ihn in der Szene brauchen.';
 
   @override
   String get firstVoicePhraseBody =>
@@ -2344,7 +2344,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get firstVoiceCompanionBody =>
-      'Sie feiert Erfolge und erklärt Hinweise. Du kannst die Wahl auch auf später verschieben.';
+      'Taego oder Joy feiert mit und erklärt Hinweise. Die Wahl kannst du auch später treffen.';
 
   @override
   String get firstVoiceSkip => 'Direkt zu Heute';
@@ -2389,35 +2389,35 @@ class AppL10nDe extends AppL10n {
   String get onboardingLevelB1 => 'Mittelstufe';
 
   @override
-  String get onboardingLevelB1Desc => 'Alltagsgespräche möglich';
+  String get onboardingLevelB1Desc => 'Alltagsgespräche klappen schon';
 
   @override
   String get onboardingLevelB2 => 'Fortgeschritten';
 
   @override
-  String get onboardingLevelB2Desc => 'Fließend, auch Nuancen';
+  String get onboardingLevelB2Desc => 'Flüssig, auch mit Nuancen';
 
   @override
   String get onboardingLevelC1 => 'Kompetent';
 
   @override
-  String get onboardingLevelC1Desc => 'Evidenz, Institutionen, präzise Nuancen';
+  String get onboardingLevelC1Desc => 'Belege, Behörden, feine Unterschiede';
 
   @override
   String get onboardingLevelC2 => 'Expertenniveau';
 
   @override
-  String get onboardingLevelC2Desc => 'Feine Analyse und rhetorische Kontrolle';
+  String get onboardingLevelC2Desc => 'Texte zerlegen und bewusst formulieren';
 
   @override
   String get onboardingExampleA1Trans => 'Hallo / Guten Tag.';
 
   @override
-  String get onboardingExampleA2Trans => 'Einen Iced Americano in Tall, bitte.';
+  String get onboardingExampleA2Trans => 'Einen Americano, bitte.';
 
   @override
   String get onboardingExampleB1Trans =>
-      'Gestern habe ich mit einem Freund einen Film gesehen. Das hat richtig Spaß gemacht.';
+      'Gestern habe ich mit einem Freund einen Film gesehen.';
 
   @override
   String get onboardingExampleB2Trans =>
@@ -2425,7 +2425,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingExampleC1Trans =>
-      'Ich werde bestätigte Fakten und unsere derzeitige Deutung getrennt darstellen.';
+      'Ich erkläre bestätigte Fakten und unsere jetzige Deutung getrennt.';
 
   @override
   String get onboardingExampleC2Trans =>
@@ -2464,7 +2464,7 @@ class AppL10nDe extends AppL10n {
   String get onboardingCompareColLearn => 'Das lernst du hier';
 
   @override
-  String get onboardingCompareClose => 'Verstanden';
+  String get onboardingCompareClose => 'Alles klar';
 
   @override
   String get onboardingLevelA1Can => 'Du kennst vielleicht ein paar Wörter.';
@@ -2494,23 +2494,23 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingLevelB2Learn =>
-      'Beruf und Nachrichten, Nuancen, Redewendungen, Ehrerbietung.';
+      'Beruf und Nachrichten, Nuancen, Redewendungen, Höflichkeitsformen.';
 
   @override
   String get onboardingLevelC1Can =>
-      'Du diskutierst komplexe Themen und stufst Schlussfolgerungen genau ab.';
+      'Du kannst schwierige Themen besprechen und sagen, wie sicher du dir bist.';
 
   @override
   String get onboardingLevelC1Learn =>
-      'Evidenz, Unsicherheit, inklusive Systeme und öffentliche Erklärungen.';
+      'Belege, Unsicherheit, inklusive Systeme, öffentliche Erklärungen.';
 
   @override
   String get onboardingLevelC2Can =>
-      'Du analysierst Prämissen, Deutungsrahmen und institutionelle Sprache.';
+      'Du kannst Annahmen, Frage-Rahmen und Behördensprache auseinandernehmen.';
 
   @override
   String get onboardingLevelC2Learn =>
-      'Diskurs, Interpretation, Technikethik und verantwortliche Entscheidungen.';
+      'Diskurs, Deutung, Technikethik, verantwortliche Entscheidungen.';
 
   @override
   String get homeHeroGreetingMorning => 'Guten Morgen!';

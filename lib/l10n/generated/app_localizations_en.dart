@@ -2179,19 +2179,19 @@ class AppL10nEn extends AppL10n {
   String get onboardingPage1Title => 'Meet your study buddy';
 
   @override
-  String get onboardingPage1Subtitle => 'Taego is here to help you learn';
+  String get onboardingPage1Subtitle => 'Taego learns with you';
 
   @override
   String get onboardingPage2Title => '5 minutes a day';
 
   @override
-  String get onboardingPage2Subtitle => 'Short lessons that fit your day';
+  String get onboardingPage2Subtitle => 'Short enough to fit your day';
 
   @override
-  String get onboardingPage3Title => 'Streaks matter';
+  String get onboardingPage3Title => 'Days in a row count';
 
   @override
-  String get onboardingPage3Subtitle => 'Learn regularly to earn rewards.';
+  String get onboardingPage3Subtitle => 'Keep it up and you unlock rewards.';
 
   @override
   String get onboardingPage4Title => 'How much time do you have?';
@@ -2206,21 +2206,21 @@ class AppL10nEn extends AppL10n {
   String get onboardingGoal15min => '15 minutes';
 
   @override
-  String get onboardingStartEyebrow => 'Your first path';
+  String get onboardingStartEyebrow => 'Your start';
 
   @override
-  String get onboardingStartTitle => 'What do you want to speak Korean for?';
+  String get onboardingStartTitle => 'What do you need Korean for?';
 
   @override
   String get onboardingStartBody =>
-      'This sets your first situations. It does not assess your ability.';
+      'This just picks where you start. It\'s not a test.';
 
   @override
   String get onboardingStartTravelTitle => 'Getting around Korea';
 
   @override
   String get onboardingStartTravelBody =>
-      'Cafés, directions, shopping and help';
+      'Cafés, asking the way, shops, getting help';
 
   @override
   String get onboardingStartPeopleTitle => 'Talking with people';
@@ -2238,11 +2238,10 @@ class AppL10nEn extends AppL10n {
   String get onboardingStartPoint => 'Starting point';
 
   @override
-  String get onboardingStartNewTitle => 'I am just starting';
+  String get onboardingStartNewTitle => 'I\'m just starting';
 
   @override
-  String get onboardingStartNewBody =>
-      'Begin directly with listening and speaking';
+  String get onboardingStartNewBody => 'Straight into listening and speaking';
 
   @override
   String get onboardingStartExistingTitle => 'I already know some Korean';
@@ -2252,7 +2251,7 @@ class AppL10nEn extends AppL10n {
       'Choose a level or answer eight to ten questions';
 
   @override
-  String get onboardingStartPrimary => 'Open my first scene';
+  String get onboardingStartPrimary => 'Start my first scene';
 
   @override
   String get onboardingStartChooseLevel => 'Choose a level';
@@ -2268,8 +2267,7 @@ class AppL10nEn extends AppL10n {
       'I can answer politely at immigration.';
 
   @override
-  String get onboardingFirstScenePeopleCanDo =>
-      'I can introduce myself in a friendly way.';
+  String get onboardingFirstScenePeopleCanDo => 'I can introduce myself.';
 
   @override
   String get onboardingFirstSceneWorkCanDo =>
@@ -2282,28 +2280,27 @@ class AppL10nEn extends AppL10n {
   String get onboardingCompanionSkip => 'Not now';
 
   @override
-  String get onboardingCompanionEyebrow => 'Your study companion';
+  String get onboardingCompanionEyebrow => 'Your study buddy';
 
   @override
   String get onboardingCompanionPrompt =>
       'Choose Taego or Joy. Both can help, and you can decide later too.';
 
   @override
-  String get onboardingCompanionSelectedTiger => 'Taego will learn with you.';
+  String get onboardingCompanionSelectedTiger => 'Taego is coming with you.';
 
   @override
-  String get onboardingCompanionSelectedMagpie => 'Joy will learn with you.';
+  String get onboardingCompanionSelectedMagpie => 'Joy is coming with you.';
 
   @override
   String get onboardingCompanionSelectionBody =>
-      'You can change your choice any time in your profile.';
+      'You can change this later in your profile.';
 
   @override
-  String get onboardingCompanionContinue =>
-      'Continue to Today with a companion';
+  String get onboardingCompanionContinue => 'Go to Today with your buddy';
 
   @override
-  String get onboardingCompanionChange => 'Choose someone else';
+  String get onboardingCompanionChange => 'Choose again';
 
   @override
   String get firstVoiceStamp => 'FIRST\nVOICE';
@@ -2313,7 +2310,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get firstVoiceBody =>
-      'You understood a first Korean expression and can use it in your scene.';
+      'You caught a Korean phrase and can use it in your scene.';
 
   @override
   String get firstVoicePhraseBody => 'a sentence you can now hear and answer.';
@@ -2330,11 +2327,11 @@ class AppL10nEn extends AppL10n {
   String get firstVoiceCanDoBody => 'Your A1 path begins with this scene.';
 
   @override
-  String get firstVoiceCompanionTitle => 'Would you like a learning companion?';
+  String get firstVoiceCompanionTitle => 'Want a study buddy?';
 
   @override
   String get firstVoiceCompanionBody =>
-      'They celebrate successes and explain hints. You can also decide later.';
+      'They cheer you on and explain hints. You can decide later.';
 
   @override
   String get firstVoiceSkip => 'Go straight to Today';
@@ -2361,7 +2358,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingSubtitle =>
-      'We start at your level. Earlier levels stay open, later ones unlock as you progress.';
+      'We start where you are. Earlier levels stay open. Later ones unlock as you go.';
 
   @override
   String get onboardingLevelA1 => 'Beginner';
@@ -2373,13 +2370,13 @@ class AppL10nEn extends AppL10n {
   String get onboardingLevelA2 => 'Basic';
 
   @override
-  String get onboardingLevelA2Desc => 'Greetings, simple ordering';
+  String get onboardingLevelA2Desc => 'Greetings, simple orders';
 
   @override
   String get onboardingLevelB1 => 'Intermediate';
 
   @override
-  String get onboardingLevelB1Desc => 'Daily conversations';
+  String get onboardingLevelB1Desc => 'Everyday conversations already work';
 
   @override
   String get onboardingLevelB2 => 'Advanced';
@@ -2391,23 +2388,25 @@ class AppL10nEn extends AppL10n {
   String get onboardingLevelC1 => 'Proficient';
 
   @override
-  String get onboardingLevelC1Desc => 'Evidence, institutions, precise nuance';
+  String get onboardingLevelC1Desc =>
+      'Evidence, institutions, fine distinctions';
 
   @override
   String get onboardingLevelC2 => 'Expert';
 
   @override
-  String get onboardingLevelC2Desc => 'Nuanced analysis and rhetorical control';
+  String get onboardingLevelC2Desc =>
+      'Break texts down and choose your wording';
 
   @override
   String get onboardingExampleA1Trans => 'Hello / Hi.';
 
   @override
-  String get onboardingExampleA2Trans => 'A tall iced Americano, please.';
+  String get onboardingExampleA2Trans => 'An americano, please.';
 
   @override
   String get onboardingExampleB1Trans =>
-      'Yesterday I watched a movie with a friend. It was really fun.';
+      'Yesterday I watched a movie with a friend.';
 
   @override
   String get onboardingExampleB2Trans =>
@@ -2415,11 +2414,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingExampleC1Trans =>
-      'I will separate confirmed facts from our current interpretation.';
+      'I\'ll explain the confirmed facts and our current reading separately.';
 
   @override
   String get onboardingExampleC2Trans =>
-      'Treating silence as consent can make the framing of a question restrict participation.';
+      'If you take silence as yes, the way you ask can already shut people out.';
 
   @override
   String get onboardingSkip => 'Skip for now (starts at A1)';
@@ -2489,19 +2488,19 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get onboardingLevelC1Can =>
-      'You discuss complex topics and qualify your conclusions.';
+      'You can talk through hard topics and say how sure you are.';
 
   @override
   String get onboardingLevelC1Learn =>
-      'Evidence, uncertainty, inclusive systems, and public explanations.';
+      'Evidence, uncertainty, inclusive systems, public explanations.';
 
   @override
   String get onboardingLevelC2Can =>
-      'You analyze assumptions, framing, and institutional language.';
+      'You can unpack assumptions, framing, and official language.';
 
   @override
   String get onboardingLevelC2Learn =>
-      'Discourse, interpretation, technology ethics, and accountable decisions.';
+      'Discourse, interpretation, technology ethics, accountable decisions.';
 
   @override
   String get homeHeroGreetingMorning => 'Good morning!';
@@ -5901,7 +5900,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get onboardingDiagnosticCta => 'Not sure? Take 8 questions';
+  String get onboardingDiagnosticCta => 'Not sure? Answer 8 questions';
 
   @override
   String get placementTitle => 'Quick placement check';

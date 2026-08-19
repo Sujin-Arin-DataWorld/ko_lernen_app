@@ -1,10 +1,10 @@
 korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack_id,pack_order,is_review_boss,english,pos_en,example_english,id
-안녕하세요,annyeonghaseyo,Hallo (höflich),A1,Ausdruck,"안녕하세요, 처음 뵙겠습니다.","Hallo, freut mich.",Begrüßung,a1_greetings_1,1,false,Hello (formal),Expression,"Hi, nice to meet you.",vocab_a1_0001
+안녕하세요,annyeonghaseyo,Hallo (höflich),A1,Ausdruck,"안녕하세요, 처음 뵙겠습니다.","Hallo, freut mich.",Begrüßung,a1_greetings_1,1,false,Hello (polite),Expression,"Hello, nice to meet you.",vocab_a1_0001
 안녕,annyeong,Hallo / Tschüss (informell),A1,Ausdruck,"안녕, 오랜만이야!","Hey, lange her!",Begrüßung,a1_greetings_1,2,false,Hi / Bye (informal),Expression,"Hey, it's been a while!",vocab_a1_0002
-감사합니다,gamsahamnida,Vielen Dank (sehr formell),A1,Ausdruck,도와주셔서 감사합니다.,Vielen Dank für Ihre Hilfe.,Höflichkeit,a1_greetings_1,3,false,Thank you (very formal),Expression,Thank you for your help.,vocab_a1_0003
-고마워요,gomawoyo,Danke (informell),A1,Ausdruck,정말 고마워요.,"Vielen, vielen Dank.",Höflichkeit,a1_greetings_1,4,false,Thanks (informal),Expression,Thank you so much.,vocab_a1_0004
+감사합니다,gamsahamnida,Vielen Dank (formell),A1,Ausdruck,도와주셔서 감사합니다.,Vielen Dank für Ihre Hilfe.,Höflichkeit,a1_greetings_1,3,false,Thank you (formal),Expression,Thank you for your help.,vocab_a1_0003
+고마워요,gomawoyo,Danke (höflich),A1,Ausdruck,정말 고마워요.,Wirklich vielen Dank.,Höflichkeit,a1_greetings_1,4,false,Thanks (polite),Expression,Thank you so much.,vocab_a1_0004
 죄송합니다,joesonghamnida,Entschuldigung (formell),A1,Ausdruck,늦어서 죄송합니다.,"Entschuldigen Sie, dass ich zu spät bin.",Höflichkeit,a1_greetings_1,5,false,I'm sorry (formal),Expression,I'm sorry I'm late.,vocab_a1_0005
-미안해요,mianhaeyo,Es tut mir leid,A1,Ausdruck,진짜 미안해요.,Es tut mir wirklich leid.,Höflichkeit,a1_greetings_1,6,false,I'm sorry,Expression,I'm really sorry.,vocab_a1_0006
+미안해요,mianhaeyo,Tut mir leid (höflich),A1,Ausdruck,진짜 미안해요.,Es tut mir wirklich leid.,Höflichkeit,a1_greetings_1,6,false,I'm sorry (polite),Expression,I'm really sorry.,vocab_a1_0006
 괜찮아요,gwaenchanayo,Kein Problem / Es ist okay,A1,Ausdruck,저는 괜찮아요.,Mir geht es gut.,Alltag,a1_daily_1,1,false,It's okay / No problem,Expression,I'm okay.,vocab_a1_0007
 네,ne,Ja,A1,Ausdruck,"네, 알겠어요.","Ja, verstanden.",Alltag,a1_daily_1,2,false,Yes,Expression,"Yes, got it.",vocab_a1_0008
 아니요,aniyo,Nein,A1,Ausdruck,"아니요, 저는 안 갈래요.","Nein, ich möchte nicht gehen.",Alltag,a1_daily_1,3,false,No,Expression,"No, I don't want to go.",vocab_a1_0009
@@ -338,9 +338,9 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 금요일,geumyoil,Freitag,A1,Nomen,금요일 저녁에 만나요.,Wir treffen uns Freitagabend.,Zeit,a1_time_3,3,false,Friday,Noun,We meet on Friday evening.,vocab_a1_0162
 토요일,toyoil,Samstag,A1,Nomen,토요일에 쉬어요.,Am Samstag ruhe ich mich aus.,Zeit,a1_time_3,4,false,Saturday,Noun,I rest on Saturday.,vocab_a1_0163
 일요일,iryoil,Sonntag,A1,Nomen,일요일에는 늦잠 자요.,Sonntags schlafe ich aus.,Zeit,a1_time_3,5,false,Sunday,Noun,I sleep in on Sundays.,vocab_a1_0164
-안녕히 가세요,annyeonghi gaseyo,Tschüss (zum Gehenden),A1,Ausdruck,조심히 안녕히 가세요.,"Tschüss, kommen Sie gut nach Hause.",Begrüßung,a1_greetings_1,7,false,Goodbye (to someone leaving),Expression,"Bye, get home safe.",vocab_a1_0165
-안녕히 계세요,annyeonghi gyeseyo,Tschüss (zum Bleibenden),A1,Ausdruck,저 먼저 갈게요. 안녕히 계세요.,Ich geh schon mal. Tschüss.,Begrüßung,a1_greetings_1,8,true,Goodbye (to someone staying),Expression,I'm heading out first. Bye.,vocab_a1_0166
-잘 자요,jal jayo,Gute Nacht,A1,Ausdruck,오늘 수고했어요. 잘 자요.,Gute Arbeit heute. Schlafen Sie gut.,Begrüßung,a1_greetings_1,9,true,Good night,Expression,Good work today. Sleep well.,vocab_a1_0167
+안녕히 가세요,annyeonghi gaseyo,"Auf Wiedersehen (zur Person, die geht)",A1,Ausdruck,조심히 안녕히 가세요.,Kommen Sie gut nach Hause.,Begrüßung,a1_greetings_1,7,false,Goodbye (to someone leaving),Expression,"Goodbye, get home safe.",vocab_a1_0165
+안녕히 계세요,annyeonghi gyeseyo,"Auf Wiedersehen (zur Person, die bleibt)",A1,Ausdruck,저 먼저 갈게요. 안녕히 계세요.,Ich gehe schon mal. Auf Wiedersehen.,Begrüßung,a1_greetings_1,8,true,Goodbye (to someone staying),Expression,I'm heading out first. Take care.,vocab_a1_0166
+잘 자요,jal jayo,Gute Nacht,A1,Ausdruck,오늘 수고했어요. 잘 자요.,Heute war viel. Schlaf gut.,Begrüßung,a1_greetings_1,9,true,Good night,Expression,You did a lot today. Sleep well.,vocab_a1_0167
 잘 지내요?,jal jinaeyo,Wie läuft's?,A1,Ausdruck,요즘 잘 지내요?,Wie läuft's bei dir so?,Begrüßung,a1_greetings_2,1,false,How've you been?,Expression,How've you been?,vocab_a1_0168
 처음 뵙겠습니다,cheoeum boepgesseumnida,Freut mich (formell),A1,Ausdruck,처음 뵙겠습니다. 잘 부탁드려요.,Freut mich.,Begrüßung,a1_greetings_2,2,false,Nice to meet you (formal),Expression,Nice to meet you.,vocab_a1_0169
 만나서 반가워요,mannaseo bangawoyo,Freut mich,A1,Ausdruck,정말 만나서 반가워요.,Freut mich wirklich.,Begrüßung,a1_greetings_2,3,false,Nice to meet you,Expression,Really nice to meet you.,vocab_a1_0170

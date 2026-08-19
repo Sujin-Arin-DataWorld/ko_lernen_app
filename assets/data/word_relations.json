@@ -7,7 +7,7 @@
       "sourceKo": "안녕하세요",
       "sourceVocabId": "vocab_a1_0001",
       "sourceDe": "Hallo (höflich)",
-      "sourceEn": "Hello (formal)",
+      "sourceEn": "Hello (polite)",
       "level": "A1",
       "synonyms": [
         {
@@ -53,8 +53,8 @@
       "id": "rel_a1_0002",
       "sourceKo": "감사합니다",
       "sourceVocabId": "vocab_a1_0003",
-      "sourceDe": "Vielen Dank (sehr formell)",
-      "sourceEn": "Thank you (very formal)",
+      "sourceDe": "Vielen Dank (formell)",
+      "sourceEn": "Thank you (formal)",
       "level": "A1",
       "synonyms": [
         {

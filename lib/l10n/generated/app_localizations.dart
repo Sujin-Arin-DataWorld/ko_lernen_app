@@ -3916,19 +3916,19 @@ abstract class AppL10n {
   /// No description provided for @onboardingPage2Subtitle.
   ///
   /// In de, this message translates to:
-  /// **'Kurz und leicht in den Alltag einzubauen'**
+  /// **'Kurz genug für zwischendurch'**
   String get onboardingPage2Subtitle;
 
   /// No description provided for @onboardingPage3Title.
   ///
   /// In de, this message translates to:
-  /// **'Streaks zählen'**
+  /// **'Dranbleiben zählt'**
   String get onboardingPage3Title;
 
   /// No description provided for @onboardingPage3Subtitle.
   ///
   /// In de, this message translates to:
-  /// **'Mit regelmäßigem Lernen sammelst du Belohnungen.'**
+  /// **'Wenn du regelmäßig lernst, gibt\'s Belohnungen.'**
   String get onboardingPage3Subtitle;
 
   /// No description provided for @onboardingPage4Title.
@@ -3958,31 +3958,31 @@ abstract class AppL10n {
   /// No description provided for @onboardingStartEyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Dein erster Weg'**
+  /// **'Dein Einstieg'**
   String get onboardingStartEyebrow;
 
   /// No description provided for @onboardingStartTitle.
   ///
   /// In de, this message translates to:
-  /// **'Wofür willst du Koreanisch sprechen?'**
+  /// **'Wofür willst du Koreanisch können?'**
   String get onboardingStartTitle;
 
   /// No description provided for @onboardingStartBody.
   ///
   /// In de, this message translates to:
-  /// **'Damit legst du deine ersten Situationen fest. Es ist kein Test deiner Fähigkeiten.'**
+  /// **'So merken wir uns, womit du anfängst. Das ist kein Test.'**
   String get onboardingStartBody;
 
   /// No description provided for @onboardingStartTravelTitle.
   ///
   /// In de, this message translates to:
-  /// **'In Korea unterwegs sein'**
+  /// **'Unterwegs in Korea'**
   String get onboardingStartTravelTitle;
 
   /// No description provided for @onboardingStartTravelBody.
   ///
   /// In de, this message translates to:
-  /// **'Café, Weg, Einkaufen und Hilfe'**
+  /// **'Café, Weg fragen, einkaufen, Hilfe holen'**
   String get onboardingStartTravelBody;
 
   /// No description provided for @onboardingStartPeopleTitle.
@@ -4006,7 +4006,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingStartWorkBody.
   ///
   /// In de, this message translates to:
-  /// **'Höflich fragen und verstehen'**
+  /// **'Höflich fragen und mitkommen'**
   String get onboardingStartWorkBody;
 
   /// No description provided for @onboardingStartPoint.
@@ -4018,13 +4018,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingStartNewTitle.
   ///
   /// In de, this message translates to:
-  /// **'Ich beginne neu'**
+  /// **'Ich fange neu an'**
   String get onboardingStartNewTitle;
 
   /// No description provided for @onboardingStartNewBody.
   ///
   /// In de, this message translates to:
-  /// **'Direkt mit Hören und Sprechen'**
+  /// **'Gleich mit Hören und Sprechen'**
   String get onboardingStartNewBody;
 
   /// No description provided for @onboardingStartExistingTitle.
@@ -4042,7 +4042,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingStartPrimary.
   ///
   /// In de, this message translates to:
-  /// **'Meine erste Szene öffnen'**
+  /// **'Meine erste Szene starten'**
   String get onboardingStartPrimary;
 
   /// No description provided for @onboardingStartChooseLevel.
@@ -4078,7 +4078,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingFirstSceneWorkCanDo.
   ///
   /// In de, this message translates to:
-  /// **'Ich kann mich in Kurs oder Arbeit kurz vorstellen.'**
+  /// **'Ich kann mich im Kurs oder auf der Arbeit kurz vorstellen.'**
   String get onboardingFirstSceneWorkCanDo;
 
   /// No description provided for @onboardingCompanionChoose.
@@ -4096,7 +4096,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingCompanionEyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Deine Lernbegleitung'**
+  /// **'Dein Lernfreund'**
   String get onboardingCompanionEyebrow;
 
   /// No description provided for @onboardingCompanionPrompt.
@@ -4108,25 +4108,25 @@ abstract class AppL10n {
   /// No description provided for @onboardingCompanionSelectedTiger.
   ///
   /// In de, this message translates to:
-  /// **'Taego begleitet dich.'**
+  /// **'Taego kommt mit.'**
   String get onboardingCompanionSelectedTiger;
 
   /// No description provided for @onboardingCompanionSelectedMagpie.
   ///
   /// In de, this message translates to:
-  /// **'Joy begleitet dich.'**
+  /// **'Joy kommt mit.'**
   String get onboardingCompanionSelectedMagpie;
 
   /// No description provided for @onboardingCompanionSelectionBody.
   ///
   /// In de, this message translates to:
-  /// **'Deine Wahl kannst du jederzeit in deinem Profil ändern.'**
+  /// **'Im Profil kannst du das später ändern.'**
   String get onboardingCompanionSelectionBody;
 
   /// No description provided for @onboardingCompanionContinue.
   ///
   /// In de, this message translates to:
-  /// **'Mit Begleitung zu Heute'**
+  /// **'Mit Begleitung weiter zu Heute'**
   String get onboardingCompanionContinue;
 
   /// No description provided for @onboardingCompanionChange.
@@ -4150,7 +4150,7 @@ abstract class AppL10n {
   /// No description provided for @firstVoiceBody.
   ///
   /// In de, this message translates to:
-  /// **'Du hast einen ersten koreanischen Ausdruck verstanden und kannst ihn in deiner Szene einsetzen.'**
+  /// **'Du hast einen koreanischen Ausdruck verstanden und kannst ihn in der Szene brauchen.'**
   String get firstVoiceBody;
 
   /// No description provided for @firstVoicePhraseBody.
@@ -4186,7 +4186,7 @@ abstract class AppL10n {
   /// No description provided for @firstVoiceCompanionBody.
   ///
   /// In de, this message translates to:
-  /// **'Sie feiert Erfolge und erklärt Hinweise. Du kannst die Wahl auch auf später verschieben.'**
+  /// **'Taego oder Joy feiert mit und erklärt Hinweise. Die Wahl kannst du auch später treffen.'**
   String get firstVoiceCompanionBody;
 
   /// No description provided for @firstVoiceSkip.
@@ -4270,7 +4270,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingLevelB1Desc.
   ///
   /// In de, this message translates to:
-  /// **'Alltagsgespräche möglich'**
+  /// **'Alltagsgespräche klappen schon'**
   String get onboardingLevelB1Desc;
 
   /// No description provided for @onboardingLevelB2.
@@ -4282,7 +4282,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingLevelB2Desc.
   ///
   /// In de, this message translates to:
-  /// **'Fließend, auch Nuancen'**
+  /// **'Flüssig, auch mit Nuancen'**
   String get onboardingLevelB2Desc;
 
   /// No description provided for @onboardingLevelC1.
@@ -4294,7 +4294,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingLevelC1Desc.
   ///
   /// In de, this message translates to:
-  /// **'Evidenz, Institutionen, präzise Nuancen'**
+  /// **'Belege, Behörden, feine Unterschiede'**
   String get onboardingLevelC1Desc;
 
   /// No description provided for @onboardingLevelC2.
@@ -4306,7 +4306,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingLevelC2Desc.
   ///
   /// In de, this message translates to:
-  /// **'Feine Analyse und rhetorische Kontrolle'**
+  /// **'Texte zerlegen und bewusst formulieren'**
   String get onboardingLevelC2Desc;
 
   /// No description provided for @onboardingExampleA1Trans.
@@ -4318,13 +4318,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingExampleA2Trans.
   ///
   /// In de, this message translates to:
-  /// **'Einen Iced Americano in Tall, bitte.'**
+  /// **'Einen Americano, bitte.'**
   String get onboardingExampleA2Trans;
 
   /// No description provided for @onboardingExampleB1Trans.
   ///
   /// In de, this message translates to:
-  /// **'Gestern habe ich mit einem Freund einen Film gesehen. Das hat richtig Spaß gemacht.'**
+  /// **'Gestern habe ich mit einem Freund einen Film gesehen.'**
   String get onboardingExampleB1Trans;
 
   /// No description provided for @onboardingExampleB2Trans.
@@ -4336,7 +4336,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingExampleC1Trans.
   ///
   /// In de, this message translates to:
-  /// **'Ich werde bestätigte Fakten und unsere derzeitige Deutung getrennt darstellen.'**
+  /// **'Ich erkläre bestätigte Fakten und unsere jetzige Deutung getrennt.'**
   String get onboardingExampleC1Trans;
 
   /// No description provided for @onboardingExampleC2Trans.
@@ -4408,7 +4408,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingCompareClose.
   ///
   /// In de, this message translates to:
-  /// **'Verstanden'**
+  /// **'Alles klar'**
   String get onboardingCompareClose;
 
   /// No description provided for @onboardingLevelA1Can.
@@ -4456,31 +4456,31 @@ abstract class AppL10n {
   /// No description provided for @onboardingLevelB2Learn.
   ///
   /// In de, this message translates to:
-  /// **'Beruf und Nachrichten, Nuancen, Redewendungen, Ehrerbietung.'**
+  /// **'Beruf und Nachrichten, Nuancen, Redewendungen, Höflichkeitsformen.'**
   String get onboardingLevelB2Learn;
 
   /// No description provided for @onboardingLevelC1Can.
   ///
   /// In de, this message translates to:
-  /// **'Du diskutierst komplexe Themen und stufst Schlussfolgerungen genau ab.'**
+  /// **'Du kannst schwierige Themen besprechen und sagen, wie sicher du dir bist.'**
   String get onboardingLevelC1Can;
 
   /// No description provided for @onboardingLevelC1Learn.
   ///
   /// In de, this message translates to:
-  /// **'Evidenz, Unsicherheit, inklusive Systeme und öffentliche Erklärungen.'**
+  /// **'Belege, Unsicherheit, inklusive Systeme, öffentliche Erklärungen.'**
   String get onboardingLevelC1Learn;
 
   /// No description provided for @onboardingLevelC2Can.
   ///
   /// In de, this message translates to:
-  /// **'Du analysierst Prämissen, Deutungsrahmen und institutionelle Sprache.'**
+  /// **'Du kannst Annahmen, Frage-Rahmen und Behördensprache auseinandernehmen.'**
   String get onboardingLevelC2Can;
 
   /// No description provided for @onboardingLevelC2Learn.
   ///
   /// In de, this message translates to:
-  /// **'Diskurs, Interpretation, Technikethik und verantwortliche Entscheidungen.'**
+  /// **'Diskurs, Deutung, Technikethik, verantwortliche Entscheidungen.'**
   String get onboardingLevelC2Learn;
 
   /// No description provided for @homeHeroGreetingMorning.
