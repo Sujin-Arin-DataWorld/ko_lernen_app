@@ -37,6 +37,18 @@ class PersonalHanokMapLayer {
   /// `revealAssetIds` -> grant mapping. Null when [buildingId] is null.
   final String? grantId;
 
+  /// Vertical nudge in master-canvas pixels (negative = up), applied only
+  /// when this layer is painted on the map.
+  ///
+  /// The PNG itself is never touched. `sarangchae.png` is the source the
+  /// whole A1 kit is derived from and its sha256 is pinned by nine ledger
+  /// records plus `a1_kit_geometry.json`, `overlays.json` and this repo's
+  /// provenance test — repainting it to move the building would either
+  /// break those or force us to rewrite what was actually fed to the model.
+  /// A paint-time offset moves the building on the map and leaves every
+  /// audit record true. See `docs/SESSION_LOG.md` 2026-08-19.
+  final int canvasOffsetY;
+
   const PersonalHanokMapLayer({
     required this.id,
     required this.assetPath,
@@ -47,6 +59,7 @@ class PersonalHanokMapLayer {
     this.buildingId,
     this.stageIndex,
     this.grantId,
+    this.canvasOffsetY = 0,
   });
 }
 
@@ -126,10 +139,15 @@ const kPersonalHanokLayers = <PersonalHanokMapLayer>[
     // 셋 중 가장 뒤(안쪽)라 먼저 그린다. 22였을 때는 사랑채 기단이 앞에 선
     // 솟을대문·행랑채 지붕을 잘라먹었다(행랑채 알파의 27.9%가 가려졌다).
     zIndex: 20,
+    // z를 고쳐 가림 순서는 맞췄지만 두 줄이 여전히 맞닿아 있었다. 40px 올리면
+    // 겹침이 17,370px -> 1,735px 로 줄어 사랑마당이 드러난다(Jin 선택, 2026-08-19).
+    canvasOffsetY: -40,
     milestone: PersonalHanokMilestone.sarangchae,
     visualBounds: PersonalHanokRect(
       left: .104,
-      top: .533,
+      // 616 - 40 = 576 → 576/1152. canvasOffsetY 와 함께 움직여야 잠금해제
+      // 스포트라이트가 건물을 따라간다.
+      top: .500,
       width: .556,
       height: .268,
     ),

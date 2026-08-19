@@ -5662,9 +5662,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_post_queue",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5769,7 +5769,7 @@
           "id": "quest_a1_post_queue_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "audioKo": "무게를 먼저 재 볼까요?",
@@ -5798,7 +5798,7 @@
           "id": "quest_a1_post_queue_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "promptDe": "Ich möchte ein Paket nach Deutschland schicken.",
@@ -5824,7 +5824,7 @@
           "id": "quest_a1_post_queue_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "sentence": "앞에 두 분만 기다리시면 ___.",
@@ -5841,7 +5841,7 @@
           "id": "quest_a1_post_queue_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "prefix": "무게",
@@ -5863,7 +5863,7 @@
           "id": "quest_a1_post_queue_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "targetKo": "앞에 두 분만 기다리시면 됩니다.",
@@ -5889,9 +5889,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_stamp_ask",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5996,7 +5996,7 @@
           "id": "quest_a1_stamp_ask_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "audioKo": "두 장을 붙이면 됩니다.",
@@ -6025,7 +6025,7 @@
           "id": "quest_a1_stamp_ask_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "promptDe": "Wie viele Marken braucht dieser Brief?",
@@ -6051,7 +6051,7 @@
           "id": "quest_a1_stamp_ask_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "sentence": "___는 바로 드릴 수 있습니다.",
@@ -6068,7 +6068,7 @@
           "id": "quest_a1_stamp_ask_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "prefix": "두 장",
@@ -6090,7 +6090,7 @@
           "id": "quest_a1_stamp_ask_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "targetKo": "우표는 바로 드릴 수 있습니다.",
@@ -6116,9 +6116,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_parcel_weight",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6223,7 +6223,7 @@
           "id": "quest_a1_parcel_weight_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "audioKo": "상자를 저울에 올려 주시겠어요?",
@@ -6252,7 +6252,7 @@
           "id": "quest_a1_parcel_weight_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "promptDe": "Bitte wiegen Sie dieses Paket.",
@@ -6278,7 +6278,7 @@
           "id": "quest_a1_parcel_weight_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "sentence": "___은 바로 나옵니다.",
@@ -6295,7 +6295,7 @@
           "id": "quest_a1_parcel_weight_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "prefix": "상자",
@@ -6317,7 +6317,7 @@
           "id": "quest_a1_parcel_weight_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "targetKo": "요금은 바로 나옵니다.",
@@ -6343,9 +6343,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_pharmacy_ointment",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_health_safety"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6450,7 +6450,7 @@
           "id": "quest_a1_pharmacy_ointment_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "audioKo": "이 선반을 보시면 됩니다.",
@@ -6479,7 +6479,7 @@
           "id": "quest_a1_pharmacy_ointment_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "promptDe": "Wo ist die Hautsalbe?",
@@ -6505,7 +6505,7 @@
           "id": "quest_a1_pharmacy_ointment_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "sentence": "___는 바로 옆에 있습니다.",
@@ -6522,7 +6522,7 @@
           "id": "quest_a1_pharmacy_ointment_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "prefix": "이 선반",
@@ -6544,7 +6544,7 @@
           "id": "quest_a1_pharmacy_ointment_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "targetKo": "연고는 바로 옆에 있습니다.",
@@ -6570,9 +6570,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_mask_pack",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6677,7 +6677,7 @@
           "id": "quest_a1_mask_pack_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "audioKo": "작은 통을 드릴까요, 큰 통을 드릴까요?",
@@ -6706,7 +6706,7 @@
           "id": "quest_a1_mask_pack_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "promptDe": "Eine Packung Masken, bitte.",
@@ -6732,7 +6732,7 @@
           "id": "quest_a1_mask_pack_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "sentence": "___은 바로 됩니다.",
@@ -6749,7 +6749,7 @@
           "id": "quest_a1_mask_pack_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "prefix": "작은 통",
@@ -6771,7 +6771,7 @@
           "id": "quest_a1_mask_pack_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "targetKo": "계산은 바로 됩니다.",
@@ -6797,9 +6797,9 @@
       "speechStyle": "polite",
       "relationshipContext": "family",
       "intent": "confirm_weekend_rain",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_greeting_politeness"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6904,7 +6904,7 @@
           "id": "quest_a1_weekend_rain_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "audioKo": "우산을 가져갈까, 그냥 집에 있을까?",
@@ -6933,7 +6933,7 @@
           "id": "quest_a1_weekend_rain_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "promptDe": "Am Samstag soll es regnen. Verschieben wir das Rausgehen?",
@@ -6959,7 +6959,7 @@
           "id": "quest_a1_weekend_rain_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "sentence": "오후에 다시 하늘 ___ 돼.",
@@ -6976,7 +6976,7 @@
           "id": "quest_a1_weekend_rain_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "prefix": "우산",
@@ -6998,7 +6998,7 @@
           "id": "quest_a1_weekend_rain_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "targetKo": "오후에 다시 하늘 보면 돼.",
@@ -7024,9 +7024,9 @@
       "speechStyle": "polite",
       "relationshipContext": "family",
       "intent": "confirm_late_text",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_greeting_politeness"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7131,7 +7131,7 @@
           "id": "quest_a1_late_text_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "audioKo": "문자를 엄마에게 보냈어?",
@@ -7160,7 +7160,7 @@
           "id": "quest_a1_late_text_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "promptDe": "Ich bin zehn Minuten später. Iss schon mal.",
@@ -7186,7 +7186,7 @@
           "id": "quest_a1_late_text_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "sentence": "곧 ___한다고 다시 쓸게.",
@@ -7203,7 +7203,7 @@
           "id": "quest_a1_late_text_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "prefix": "문자",
@@ -7225,7 +7225,7 @@
           "id": "quest_a1_late_text_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "targetKo": "곧 도착한다고 다시 쓸게.",
@@ -7251,9 +7251,9 @@
       "speechStyle": "polite",
       "relationshipContext": "neighbor",
       "intent": "confirm_neighbor_box",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7358,7 +7358,7 @@
           "id": "quest_a1_neighbor_box_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "audioKo": "이름을 문에 적어 둘까요?",
@@ -7387,7 +7387,7 @@
           "id": "quest_a1_neighbor_box_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "promptDe": "Ihr Paket ist bei uns. Wann holen Sie es ab?",
@@ -7413,7 +7413,7 @@
           "id": "quest_a1_neighbor_box_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "sentence": "___에 바로 가져가시면 됩니다.",
@@ -7430,7 +7430,7 @@
           "id": "quest_a1_neighbor_box_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "prefix": "이름",
@@ -7452,7 +7452,7 @@
           "id": "quest_a1_neighbor_box_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "targetKo": "저녁에 바로 가져가시면 됩니다.",
@@ -7478,9 +7478,9 @@
       "speechStyle": "polite",
       "relationshipContext": "neighbor",
       "intent": "confirm_hall_shoes",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7585,7 +7585,7 @@
           "id": "quest_a1_hall_shoes_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "audioKo": "이 신발을 안으로 옮길까요?",
@@ -7614,7 +7614,7 @@
           "id": "quest_a1_hall_shoes_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "promptDe": "Im Flur stehen Schuhe. Soll ich sie reinstellen?",
@@ -7640,7 +7640,7 @@
           "id": "quest_a1_hall_shoes_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "sentence": "지금 바로 치우면 ___.",
@@ -7657,7 +7657,7 @@
           "id": "quest_a1_hall_shoes_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "prefix": "이 신발",
@@ -7679,7 +7679,7 @@
           "id": "quest_a1_hall_shoes_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "targetKo": "지금 바로 치우면 됩니다.",
@@ -7705,9 +7705,9 @@
       "speechStyle": "polite",
       "relationshipContext": "student_and_teacher",
       "intent": "confirm_class_pencil",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_08_clarify_repair",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_clarification"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7812,7 +7812,7 @@
           "id": "quest_a1_class_pencil_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "audioKo": "연필을 같이 드릴까요?",
@@ -7841,7 +7841,7 @@
           "id": "quest_a1_class_pencil_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "promptDe": "Darf ich kurz das Mäppchen leihen?",
@@ -7867,7 +7867,7 @@
           "id": "quest_a1_class_pencil_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "sentence": "___ 끝에 바로 돌려주세요.",
@@ -7884,7 +7884,7 @@
           "id": "quest_a1_class_pencil_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "prefix": "연필",
@@ -7906,7 +7906,7 @@
           "id": "quest_a1_class_pencil_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "targetKo": "수업 끝에 바로 돌려주세요.",
@@ -7932,9 +7932,9 @@
       "speechStyle": "polite",
       "relationshipContext": "student_and_teacher",
       "intent": "confirm_submit_name",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8039,7 +8039,7 @@
           "id": "quest_a1_submit_name_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "audioKo": "오른쪽 위를 보시면 됩니다.",
@@ -8068,7 +8068,7 @@
           "id": "quest_a1_submit_name_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "promptDe": "Wohin soll ich den Namen auf die Aufgabe schreiben?",
@@ -8094,7 +8094,7 @@
           "id": "quest_a1_submit_name_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "sentence": "지금 바로 ___.",
@@ -8111,7 +8111,7 @@
           "id": "quest_a1_submit_name_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "prefix": "오른쪽 위",
@@ -8133,7 +8133,7 @@
           "id": "quest_a1_submit_name_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "targetKo": "지금 바로 걷겠습니다.",
@@ -8159,9 +8159,9 @@
       "speechStyle": "polite",
       "relationshipContext": "stranger",
       "intent": "confirm_subway_exit",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8266,7 +8266,7 @@
           "id": "quest_a1_subway_exit_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "이 화살표를 따라가시면 됩니다.",
@@ -8295,7 +8295,7 @@
           "id": "quest_a1_subway_exit_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Wo ist Ausgang vier?",
@@ -8321,7 +8321,7 @@
           "id": "quest_a1_subway_exit_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___은 바로 앞에 있습니다.",
@@ -8338,7 +8338,7 @@
           "id": "quest_a1_subway_exit_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "이 화살표",
@@ -8360,7 +8360,7 @@
           "id": "quest_a1_subway_exit_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "계단은 바로 앞에 있습니다.",
@@ -8386,9 +8386,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_last_train",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8493,7 +8493,7 @@
           "id": "quest_a1_last_train_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "이 화면을 보시면 됩니다.",
@@ -8522,7 +8522,7 @@
           "id": "quest_a1_last_train_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Wann fährt heute der letzte Zug?",
@@ -8548,7 +8548,7 @@
           "id": "quest_a1_last_train_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___ 이십 분에 있습니다.",
@@ -8565,7 +8565,7 @@
           "id": "quest_a1_last_train_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "이 화면",
@@ -8587,7 +8587,7 @@
           "id": "quest_a1_last_train_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "십일 시 이십 분에 있습니다.",
@@ -8613,9 +8613,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_card_topup",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8720,7 +8720,7 @@
           "id": "quest_a1_card_topup_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "현금을 여기에 넣으시겠어요?",
@@ -8749,7 +8749,7 @@
           "id": "quest_a1_card_topup_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Bitte laden Sie zehntausend Won auf die Karte.",
@@ -8775,7 +8775,7 @@
           "id": "quest_a1_card_topup_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___은 바로 끝납니다.",
@@ -8792,7 +8792,7 @@
           "id": "quest_a1_card_topup_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "현금",
@@ -8814,7 +8814,7 @@
           "id": "quest_a1_card_topup_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "충전은 바로 끝납니다.",
@@ -8840,9 +8840,9 @@
       "speechStyle": "polite",
       "relationshipContext": "family",
       "intent": "confirm_weather_layer",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_health_safety"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8947,7 +8947,7 @@
           "id": "quest_a1_weather_layer_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "audioKo": "목도리를 같이 가져갈래?",
@@ -8976,7 +8976,7 @@
           "id": "quest_a1_weather_layer_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "promptDe": "Heute soll es kalt sein. Ich nehme eine Jacke mit.",
@@ -9002,7 +9002,7 @@
           "id": "quest_a1_weather_layer_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "sentence": "___에 바로 있어.",
@@ -9019,7 +9019,7 @@
           "id": "quest_a1_weather_layer_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "prefix": "목도리",
@@ -9041,7 +9041,7 @@
           "id": "quest_a1_weather_layer_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "targetKo": "현관에 바로 있어.",
@@ -9067,9 +9067,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_dust_mask",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_health_safety"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9174,7 +9174,7 @@
           "id": "quest_a1_dust_mask_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "audioKo": "이 흰색을 드릴까요?",
@@ -9203,7 +9203,7 @@
           "id": "quest_a1_dust_mask_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "promptDe": "Haben Sie Masken gegen Feinstaub?",
@@ -9229,7 +9229,7 @@
           "id": "quest_a1_dust_mask_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "sentence": "___에서 바로 드릴게요.",
@@ -9246,7 +9246,7 @@
           "id": "quest_a1_dust_mask_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "prefix": "이 흰색",
@@ -9268,7 +9268,7 @@
           "id": "quest_a1_dust_mask_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "targetKo": "계산대에서 바로 드릴게요.",
@@ -9294,9 +9294,9 @@
       "speechStyle": "polite",
       "relationshipContext": "peer",
       "intent": "confirm_sorry_late",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_greeting_politeness"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9401,7 +9401,7 @@
           "id": "quest_a1_sorry_late_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "audioKo": "음료를 먼저 시켜 둘까?",
@@ -9430,7 +9430,7 @@
           "id": "quest_a1_sorry_late_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "promptDe": "Sorry. Der Bus war spät, deshalb bin ich jetzt da.",
@@ -9456,7 +9456,7 @@
           "id": "quest_a1_sorry_late_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "sentence": "오 분만 더 ___ 돼.",
@@ -9473,7 +9473,7 @@
           "id": "quest_a1_sorry_late_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "prefix": "음료",
@@ -9495,7 +9495,7 @@
           "id": "quest_a1_sorry_late_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "targetKo": "오 분만 더 기다리면 돼.",
@@ -9521,9 +9521,9 @@
       "speechStyle": "polite",
       "relationshipContext": "stranger",
       "intent": "confirm_thanks_seat",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9628,7 +9628,7 @@
           "id": "quest_a1_thanks_seat_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "이 옆을 쓰셔도 됩니다.",
@@ -9657,7 +9657,7 @@
           "id": "quest_a1_thanks_seat_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Danke, dass Sie den Platz überlassen.",
@@ -9683,7 +9683,7 @@
           "id": "quest_a1_thanks_seat_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___에서 바로 내리시면 됩니다.",
@@ -9700,7 +9700,7 @@
           "id": "quest_a1_thanks_seat_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "이 옆",
@@ -9722,7 +9722,7 @@
           "id": "quest_a1_thanks_seat_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "다음 역에서 바로 내리시면 됩니다.",
@@ -9748,9 +9748,9 @@
       "speechStyle": "polite",
       "relationshipContext": "student_and_teacher",
       "intent": "confirm_slow_speech",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_08_clarify_repair",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_clarification"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9855,7 +9855,7 @@
           "id": "quest_a1_slow_speech_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "audioKo": "이 문장을 다시 들을까요?",
@@ -9884,7 +9884,7 @@
           "id": "quest_a1_slow_speech_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "promptDe": "Entschuldigung. Bitte sprechen Sie etwas langsamer.",
@@ -9910,7 +9910,7 @@
           "id": "quest_a1_slow_speech_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "sentence": "___ 다시 말하겠습니다.",
@@ -9927,7 +9927,7 @@
           "id": "quest_a1_slow_speech_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "prefix": "이 문장",
@@ -9949,7 +9949,7 @@
           "id": "quest_a1_slow_speech_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "targetKo": "천천히 다시 말하겠습니다.",
@@ -9975,9 +9975,9 @@
       "speechStyle": "polite",
       "relationshipContext": "family",
       "intent": "confirm_door_bell",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10082,7 +10082,7 @@
           "id": "quest_a1_door_bell_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "audioKo": "열쇠를 가져왔어?",
@@ -10111,7 +10111,7 @@
           "id": "quest_a1_door_bell_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "promptDe": "Ich bin da. Mach bitte die Tür auf.",
@@ -10137,7 +10137,7 @@
           "id": "quest_a1_door_bell_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "sentence": "지금 내려갈게. ___만 기다려.",
@@ -10154,7 +10154,7 @@
           "id": "quest_a1_door_bell_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "prefix": "열쇠",
@@ -10176,7 +10176,7 @@
           "id": "quest_a1_door_bell_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "targetKo": "지금 내려갈게. 일 분만 기다려.",
@@ -10202,9 +10202,9 @@
       "speechStyle": "polite",
       "relationshipContext": "neighbor",
       "intent": "confirm_trash_sort",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10309,7 +10309,7 @@
           "id": "quest_a1_trash_sort_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "audioKo": "노란 봉지를 쓰시면 됩니다.",
@@ -10338,7 +10338,7 @@
           "id": "quest_a1_trash_sort_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "promptDe": "Wohin kommt das Plastik?",
@@ -10364,7 +10364,7 @@
           "id": "quest_a1_trash_sort_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "sentence": "___는 내일 아침에 있습니다.",
@@ -10381,7 +10381,7 @@
           "id": "quest_a1_trash_sort_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "prefix": "노란 봉지",
@@ -10403,7 +10403,7 @@
           "id": "quest_a1_trash_sort_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "targetKo": "수거는 내일 아침에 있습니다.",
@@ -10429,9 +10429,9 @@
       "speechStyle": "polite",
       "relationshipContext": "neighbor",
       "intent": "confirm_gate_code",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10536,7 +10536,7 @@
           "id": "quest_a1_gate_code_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "audioKo": "이 숫자를 누르시면 됩니다.",
@@ -10565,7 +10565,7 @@
           "id": "quest_a1_gate_code_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "promptDe": "Wie ist der Code am Hauseingang?",
@@ -10591,7 +10591,7 @@
           "id": "quest_a1_gate_code_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "sentence": "___은 바로 열립니다.",
@@ -10608,7 +10608,7 @@
           "id": "quest_a1_gate_code_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "prefix": "이 숫자",
@@ -10630,7 +10630,7 @@
           "id": "quest_a1_gate_code_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "targetKo": "문은 바로 열립니다.",
@@ -10656,9 +10656,9 @@
       "speechStyle": "polite",
       "relationshipContext": "student_and_teacher",
       "intent": "confirm_whiteboard_word",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_08_clarify_repair",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_clarification"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10763,7 +10763,7 @@
           "id": "quest_a1_whiteboard_word_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "audioKo": "이 단어를 노트에 쓰시겠어요?",
@@ -10792,7 +10792,7 @@
           "id": "quest_a1_whiteboard_word_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "promptDe": "Was ist das Wort? Bitte noch einmal lesen.",
@@ -10818,7 +10818,7 @@
           "id": "quest_a1_whiteboard_word_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "sentence": "___은 바로 다시 해 드릴게요.",
@@ -10835,7 +10835,7 @@
           "id": "quest_a1_whiteboard_word_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "prefix": "이 단어",
@@ -10857,7 +10857,7 @@
           "id": "quest_a1_whiteboard_word_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "targetKo": "발음은 바로 다시 해 드릴게요.",
@@ -10883,9 +10883,9 @@
       "speechStyle": "polite",
       "relationshipContext": "stranger",
       "intent": "confirm_platform_line",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10990,7 +10990,7 @@
           "id": "quest_a1_platform_line_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "이 선을 넘지 마세요.",
@@ -11019,7 +11019,7 @@
           "id": "quest_a1_platform_line_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Soll ich hinter der gelben Linie stehen?",
@@ -11045,7 +11045,7 @@
           "id": "quest_a1_platform_line_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "열차는 ___ 뒤에 옵니다.",
@@ -11062,7 +11062,7 @@
           "id": "quest_a1_platform_line_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "이 선",
@@ -11084,7 +11084,7 @@
           "id": "quest_a1_platform_line_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "열차는 일 분 뒤에 옵니다.",
@@ -11110,9 +11110,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_rain_jacket",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_health_safety"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -11217,7 +11217,7 @@
           "id": "quest_a1_rain_jacket_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "audioKo": "이 노란색을 입어 보시겠어요?",
@@ -11246,7 +11246,7 @@
           "id": "quest_a1_rain_jacket_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "promptDe": "Haben Sie Regenjacken? Ich möchte eine kaufen.",
@@ -11272,7 +11272,7 @@
           "id": "quest_a1_rain_jacket_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "sentence": "___대로 오시면 됩니다.",
@@ -11289,7 +11289,7 @@
           "id": "quest_a1_rain_jacket_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "prefix": "이 노란색",
@@ -11311,7 +11311,7 @@
           "id": "quest_a1_rain_jacket_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "targetKo": "계산대로 오시면 됩니다.",
@@ -11337,9 +11337,9 @@
       "speechStyle": "polite",
       "relationshipContext": "stranger",
       "intent": "confirm_excuse_pass",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_greeting_politeness"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -11444,7 +11444,7 @@
           "id": "quest_a1_excuse_pass_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "audioKo": "이 옆을 지나가시면 됩니다.",
@@ -11473,7 +11473,7 @@
           "id": "quest_a1_excuse_pass_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "promptDe": "Entschuldigung. Ich gehe vorbei.",
@@ -11499,7 +11499,7 @@
           "id": "quest_a1_excuse_pass_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "sentence": "조금 기다리시면 ___이 납니다.",
@@ -11516,7 +11516,7 @@
           "id": "quest_a1_excuse_pass_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "prefix": "이 옆",
@@ -11538,7 +11538,7 @@
           "id": "quest_a1_excuse_pass_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "targetKo": "조금 기다리시면 길이 납니다.",
@@ -11564,9 +11564,9 @@
       "speechStyle": "polite",
       "relationshipContext": "student_and_teacher",
       "intent": "confirm_ask_again",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_08_clarify_repair",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_clarification"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -11671,7 +11671,7 @@
           "id": "quest_a1_ask_again_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "audioKo": "어느 부분을 다시 들을까요?",
@@ -11700,7 +11700,7 @@
           "id": "quest_a1_ask_again_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "promptDe": "Bitte sagen Sie es noch einmal.",
@@ -11726,7 +11726,7 @@
           "id": "quest_a1_ask_again_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "sentence": "___ 다시 말할게요.",
@@ -11743,7 +11743,7 @@
           "id": "quest_a1_ask_again_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "prefix": "어느 부분",
@@ -11765,7 +11765,7 @@
           "id": "quest_a1_ask_again_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_clarification"
           ],
           "data": {
             "targetKo": "처음부터 다시 말할게요.",
@@ -11791,9 +11791,9 @@
       "speechStyle": "polite",
       "relationshipContext": "peer",
       "intent": "confirm_meet_station",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -11898,7 +11898,7 @@
           "id": "quest_a1_meet_station_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "빨간 문을 보고 있으면 돼?",
@@ -11927,7 +11927,7 @@
           "id": "quest_a1_meet_station_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Ich bin vor dem Bahnhof. Kommst du gleich?",
@@ -11953,7 +11953,7 @@
           "id": "quest_a1_meet_station_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___ 안에 나갈게.",
@@ -11970,7 +11970,7 @@
           "id": "quest_a1_meet_station_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "빨간 문",
@@ -11992,7 +11992,7 @@
           "id": "quest_a1_meet_station_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "오 분 안에 나갈게.",
@@ -12018,9 +12018,9 @@
       "speechStyle": "polite",
       "relationshipContext": "family",
       "intent": "confirm_cancel_walk",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_greeting_politeness"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -12125,7 +12125,7 @@
           "id": "quest_a1_cancel_walk_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "audioKo": "차를 집에 끓일까?",
@@ -12154,7 +12154,7 @@
           "id": "quest_a1_cancel_walk_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "promptDe": "Sagen wir den Spaziergang heute ab. Ich bin zu müde.",
@@ -12180,7 +12180,7 @@
           "id": "quest_a1_cancel_walk_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "sentence": "조금 쉬면 다시 ___.",
@@ -12197,7 +12197,7 @@
           "id": "quest_a1_cancel_walk_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "prefix": "차",
@@ -12219,7 +12219,7 @@
           "id": "quest_a1_cancel_walk_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_greeting_politeness"
           ],
           "data": {
             "targetKo": "조금 쉬면 다시 이야기하자.",
@@ -12245,9 +12245,9 @@
       "speechStyle": "polite",
       "relationshipContext": "family",
       "intent": "confirm_floor_number",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -12352,7 +12352,7 @@
           "id": "quest_a1_floor_number_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "audioKo": "삼 층을 누르면 돼?",
@@ -12381,7 +12381,7 @@
           "id": "quest_a1_floor_number_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "promptDe": "In welchem Stock wohnen wir? Drück bitte den Knopf.",
@@ -12407,7 +12407,7 @@
           "id": "quest_a1_floor_number_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "sentence": "___이 바로 열릴 거야.",
@@ -12424,7 +12424,7 @@
           "id": "quest_a1_floor_number_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "prefix": "삼 층",
@@ -12446,7 +12446,7 @@
           "id": "quest_a1_floor_number_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "targetKo": "문이 바로 열릴 거야.",
@@ -12472,9 +12472,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_locker_key",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -12579,7 +12579,7 @@
           "id": "quest_a1_locker_key_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "이 바구니를 쓰시면 됩니다.",
@@ -12608,7 +12608,7 @@
           "id": "quest_a1_locker_key_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Wohin soll ich den Spindschlüssel legen?",
@@ -12634,7 +12634,7 @@
           "id": "quest_a1_locker_key_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___는 바로 옆에 있습니다.",
@@ -12651,7 +12651,7 @@
           "id": "quest_a1_locker_key_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "이 바구니",
@@ -12673,7 +12673,7 @@
           "id": "quest_a1_locker_key_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "열쇠는 바로 옆에 있습니다.",
@@ -12699,9 +12699,9 @@
       "speechStyle": "polite",
       "relationshipContext": "stranger",
       "intent": "confirm_bus_late",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -12806,7 +12806,7 @@
           "id": "quest_a1_bus_late_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "이 전광판을 보시면 됩니다.",
@@ -12835,7 +12835,7 @@
           "id": "quest_a1_bus_late_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Ist dieser Bus sehr spät?",
@@ -12861,7 +12861,7 @@
           "id": "quest_a1_bus_late_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "다음 버스는 ___ 뒤에 옵니다.",
@@ -12878,7 +12878,7 @@
           "id": "quest_a1_bus_late_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "이 전광판",
@@ -12900,7 +12900,7 @@
           "id": "quest_a1_bus_late_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "다음 버스는 칠 분 뒤에 옵니다.",
@@ -12926,9 +12926,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_water_shop",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -13033,7 +13033,7 @@
           "id": "quest_a1_water_shop_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "audioKo": "차가운 물을 드릴까요?",
@@ -13062,7 +13062,7 @@
           "id": "quest_a1_water_shop_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "promptDe": "Eine Flasche Wasser, bitte.",
@@ -13088,7 +13088,7 @@
           "id": "quest_a1_water_shop_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "sentence": "여기서 바로 ___하시면 됩니다.",
@@ -13105,7 +13105,7 @@
           "id": "quest_a1_water_shop_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "prefix": "차가운 물",
@@ -13127,7 +13127,7 @@
           "id": "quest_a1_water_shop_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "targetKo": "여기서 바로 계산하시면 됩니다.",
@@ -13153,9 +13153,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_tea_order",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_04_order_request_object",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_request_polite"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -13260,7 +13260,7 @@
           "id": "quest_a1_tea_order_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_request_polite"
           ],
           "data": {
             "audioKo": "녹차를 드릴까요?",
@@ -13289,7 +13289,7 @@
           "id": "quest_a1_tea_order_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_request_polite"
           ],
           "data": {
             "promptDe": "Einen heißen Tee, bitte.",
@@ -13315,7 +13315,7 @@
           "id": "quest_a1_tea_order_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_request_polite"
           ],
           "data": {
             "sentence": "___는 바로 나옵니다.",
@@ -13332,7 +13332,7 @@
           "id": "quest_a1_tea_order_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_request_polite"
           ],
           "data": {
             "prefix": "녹차",
@@ -13354,7 +13354,7 @@
           "id": "quest_a1_tea_order_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_request_polite"
           ],
           "data": {
             "targetKo": "차는 바로 나옵니다.",
@@ -13380,9 +13380,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_taxi_address",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -13487,7 +13487,7 @@
           "id": "quest_a1_taxi_address_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "이 길을 따라갈까요?",
@@ -13516,7 +13516,7 @@
           "id": "quest_a1_taxi_address_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Bitte zu dieser Adresse.",
@@ -13542,7 +13542,7 @@
           "id": "quest_a1_taxi_address_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___ 안에 도착합니다.",
@@ -13559,7 +13559,7 @@
           "id": "quest_a1_taxi_address_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "이 길",
@@ -13581,7 +13581,7 @@
           "id": "quest_a1_taxi_address_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "십오 분 안에 도착합니다.",
@@ -13607,9 +13607,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_hotel_key",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -13714,7 +13714,7 @@
           "id": "quest_a1_hotel_key_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "신분증을 보여 주시겠어요?",
@@ -13743,7 +13743,7 @@
           "id": "quest_a1_hotel_key_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Den Schlüssel für Zimmer dreihundertzwei, bitte.",
@@ -13769,7 +13769,7 @@
           "id": "quest_a1_hotel_key_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___는 바로 드리겠습니다.",
@@ -13786,7 +13786,7 @@
           "id": "quest_a1_hotel_key_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "신분증",
@@ -13808,7 +13808,7 @@
           "id": "quest_a1_hotel_key_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "열쇠는 바로 드리겠습니다.",
@@ -13834,9 +13834,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_market_bag",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -13941,7 +13941,7 @@
           "id": "quest_a1_market_bag_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "audioKo": "종이봉투를 드릴까요?",
@@ -13970,7 +13970,7 @@
           "id": "quest_a1_market_bag_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "promptDe": "Eine Einkaufstasche, bitte.",
@@ -13996,7 +13996,7 @@
           "id": "quest_a1_market_bag_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "sentence": "___ 옆에 바로 있습니다.",
@@ -14013,7 +14013,7 @@
           "id": "quest_a1_market_bag_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "prefix": "종이봉투",
@@ -14035,7 +14035,7 @@
           "id": "quest_a1_market_bag_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "targetKo": "계산대 옆에 바로 있습니다.",
@@ -14061,9 +14061,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_airport_cart",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -14168,7 +14168,7 @@
           "id": "quest_a1_airport_cart_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "이 줄을 따라가시면 됩니다.",
@@ -14197,7 +14197,7 @@
           "id": "quest_a1_airport_cart_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Wo gibt es einen Wagen?",
@@ -14223,7 +14223,7 @@
           "id": "quest_a1_airport_cart_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___는 바로 앞에 있습니다.",
@@ -14240,7 +14240,7 @@
           "id": "quest_a1_airport_cart_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "이 줄",
@@ -14262,7 +14262,7 @@
           "id": "quest_a1_airport_cart_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "카트는 바로 앞에 있습니다.",
@@ -14288,9 +14288,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_rice_shop",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -14395,7 +14395,7 @@
           "id": "quest_a1_rice_shop_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "audioKo": "김밥을 반으로 잘라 드릴까요?",
@@ -14424,7 +14424,7 @@
           "id": "quest_a1_rice_shop_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "promptDe": "Ein Thunfisch-Kimbap, bitte.",
@@ -14450,7 +14450,7 @@
           "id": "quest_a1_rice_shop_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "sentence": "음식은 ___ 안에 나옵니다.",
@@ -14467,7 +14467,7 @@
           "id": "quest_a1_rice_shop_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "prefix": "김밥",
@@ -14489,7 +14489,7 @@
           "id": "quest_a1_rice_shop_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "targetKo": "음식은 오 분 안에 나옵니다.",
@@ -14515,9 +14515,9 @@
       "speechStyle": "polite",
       "relationshipContext": "stranger",
       "intent": "confirm_direction_left",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -14622,7 +14622,7 @@
           "id": "quest_a1_direction_left_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "이 모퉁이를 돌면 됩니다.",
@@ -14651,7 +14651,7 @@
           "id": "quest_a1_direction_left_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Kommt man durch die linke Gasse zum Markt?",
@@ -14677,7 +14677,7 @@
           "id": "quest_a1_direction_left_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___이 바로 보입니다.",
@@ -14694,7 +14694,7 @@
           "id": "quest_a1_direction_left_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "이 모퉁이",
@@ -14716,7 +14716,7 @@
           "id": "quest_a1_direction_left_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "표지판이 바로 보입니다.",
@@ -14742,9 +14742,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_office_print",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_14_payment_delivery",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_payment_delivery"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -14849,7 +14849,7 @@
           "id": "quest_a1_office_print_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "audioKo": "이 버튼을 눌러 볼까요?",
@@ -14878,7 +14878,7 @@
           "id": "quest_a1_office_print_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "promptDe": "Es druckt nicht. Bitte diese Seite ausgeben.",
@@ -14904,7 +14904,7 @@
           "id": "quest_a1_office_print_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "sentence": "___만 다시 나오면 됩니다.",
@@ -14921,7 +14921,7 @@
           "id": "quest_a1_office_print_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "prefix": "이 버튼",
@@ -14943,7 +14943,7 @@
           "id": "quest_a1_office_print_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_payment_delivery"
           ],
           "data": {
             "targetKo": "한 장만 다시 나오면 됩니다.",
@@ -14969,9 +14969,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_cafe_wifi",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_04_order_request_object",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_request_polite"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -15076,7 +15076,7 @@
           "id": "quest_a1_cafe_wifi_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_request_polite"
           ],
           "data": {
             "audioKo": "영수증을 뒤집으면 됩니다.",
@@ -15105,7 +15105,7 @@
           "id": "quest_a1_cafe_wifi_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_request_polite"
           ],
           "data": {
             "promptDe": "Wie lautet das WLAN-Passwort?",
@@ -15131,7 +15131,7 @@
           "id": "quest_a1_cafe_wifi_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_request_polite"
           ],
           "data": {
             "sentence": "___를 바로 불러 드릴게요.",
@@ -15148,7 +15148,7 @@
           "id": "quest_a1_cafe_wifi_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_request_polite"
           ],
           "data": {
             "prefix": "영수증",
@@ -15170,7 +15170,7 @@
           "id": "quest_a1_cafe_wifi_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_request_polite"
           ],
           "data": {
             "targetKo": "번호를 바로 불러 드릴게요.",
@@ -15196,9 +15196,9 @@
       "speechStyle": "polite",
       "relationshipContext": "stranger",
       "intent": "confirm_station_rest",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_06_transport_directions",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_directions"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -15303,7 +15303,7 @@
           "id": "quest_a1_station_rest_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "audioKo": "이 계단을 내려가시면 됩니다.",
@@ -15332,7 +15332,7 @@
           "id": "quest_a1_station_rest_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "promptDe": "Wo ist die Toilette?",
@@ -15358,7 +15358,7 @@
           "id": "quest_a1_station_rest_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "sentence": "___이 바로 보입니다.",
@@ -15375,7 +15375,7 @@
           "id": "quest_a1_station_rest_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "prefix": "이 계단",
@@ -15397,7 +15397,7 @@
           "id": "quest_a1_station_rest_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_directions"
           ],
           "data": {
             "targetKo": "표지판이 바로 보입니다.",
@@ -15423,9 +15423,9 @@
       "speechStyle": "polite",
       "relationshipContext": "family",
       "intent": "confirm_home_light",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_09_home_daily_life",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_home_daily"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -15530,7 +15530,7 @@
           "id": "quest_a1_home_light_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "audioKo": "스위치를 왼쪽에서 찾을까?",
@@ -15559,7 +15559,7 @@
           "id": "quest_a1_home_light_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "promptDe": "Das Licht im Flur ist aus. Mach es bitte an.",
@@ -15585,7 +15585,7 @@
           "id": "quest_a1_home_light_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "sentence": "지금 바로 켜질 ___.",
@@ -15602,7 +15602,7 @@
           "id": "quest_a1_home_light_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "prefix": "스위치",
@@ -15624,7 +15624,7 @@
           "id": "quest_a1_home_light_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_home_daily"
           ],
           "data": {
             "targetKo": "지금 바로 켜질 거야.",
@@ -15650,9 +15650,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_pharmacy_hours",
-      "courseUnitId": "a1_16_survival_capstone",
+      "courseUnitId": "a1_10_health_safety",
       "conceptIds": [
-        "concept_a1_survival"
+        "concept_a1_health_safety"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -15757,7 +15757,7 @@
           "id": "quest_a1_pharmacy_hours_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "audioKo": "이 안내문을 보시면 됩니다.",
@@ -15786,7 +15786,7 @@
           "id": "quest_a1_pharmacy_hours_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "promptDe": "Um wie viel Uhr schließen Sie heute?",
@@ -15812,7 +15812,7 @@
           "id": "quest_a1_pharmacy_hours_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "sentence": "___까지 열어둡니다.",
@@ -15829,7 +15829,7 @@
           "id": "quest_a1_pharmacy_hours_particle",
           "type": "particlePop",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "prefix": "이 안내문",
@@ -15851,7 +15851,7 @@
           "id": "quest_a1_pharmacy_hours_satz",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a1_survival"
+            "concept_a1_health_safety"
           ],
           "data": {
             "targetKo": "여덟 시까지 열어둡니다.",

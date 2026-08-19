@@ -4693,9 +4693,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_phone_plan",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -4800,7 +4800,7 @@
           "id": "quest_a2_phone_plan_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "이 표를 같이 볼까요?",
@@ -4829,7 +4829,7 @@
           "id": "quest_a2_phone_plan_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Ich möchte weniger Daten und eine niedrigere Gebühr.",
@@ -4855,7 +4855,7 @@
           "id": "quest_a2_phone_plan_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "변경은 오늘 ___에 반영됩니다.",
@@ -5067,9 +5067,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_bank_number",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5174,7 +5174,7 @@
           "id": "quest_a2_bank_number_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "이 기계를 누르시면 됩니다.",
@@ -5203,7 +5203,7 @@
           "id": "quest_a2_bank_number_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Wo ziehe ich eine Nummer für eine Überweisung?",
@@ -5229,7 +5229,7 @@
           "id": "quest_a2_bank_number_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "세 번만 기다리시면 ___.",
@@ -5254,9 +5254,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_transfer_limit",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5361,7 +5361,7 @@
           "id": "quest_a2_transfer_limit_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "신분증을 보여 주시겠어요?",
@@ -5390,7 +5390,7 @@
           "id": "quest_a2_transfer_limit_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Ich möchte das Limit erhöhen, um heute die Miete zu zahlen.",
@@ -5416,7 +5416,7 @@
           "id": "quest_a2_transfer_limit_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "___는 오 분 안에 바뀝니다.",
@@ -5441,9 +5441,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_gym_lock",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_feelings"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5548,7 +5548,7 @@
           "id": "quest_a2_gym_lock_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "audioKo": "자물쇠를 앞에서 빌릴까요?",
@@ -5577,7 +5577,7 @@
           "id": "quest_a2_gym_lock_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "promptDe": "Ich gebe einen Spind ab und trainiere dann.",
@@ -5603,7 +5603,7 @@
           "id": "quest_a2_gym_lock_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "sentence": "___는 바로 안내하겠습니다.",
@@ -5628,9 +5628,9 @@
       "speechStyle": "polite",
       "relationshipContext": "peer",
       "intent": "confirm_stretch_start",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_feelings"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5735,7 +5735,7 @@
           "id": "quest_a2_stretch_start_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "audioKo": "어깨를 먼저 돌릴까?",
@@ -5764,7 +5764,7 @@
           "id": "quest_a2_stretch_start_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "promptDe": "Nicht gleich laufen. Erst aufwärmen.",
@@ -5790,7 +5790,7 @@
           "id": "quest_a2_stretch_start_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "sentence": "___만 하면 충분해.",
@@ -5815,9 +5815,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_salon_cut",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_feelings"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -5922,7 +5922,7 @@
           "id": "quest_a2_salon_cut_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "audioKo": "사진을 보여 주시겠어요?",
@@ -5951,7 +5951,7 @@
           "id": "quest_a2_salon_cut_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "promptDe": "Bitte nur wenig über den Ohren kürzen.",
@@ -5977,7 +5977,7 @@
           "id": "quest_a2_salon_cut_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "sentence": "___ 안에 끝납니다.",
@@ -6002,9 +6002,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_dye_dark",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_feelings"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6109,7 +6109,7 @@
           "id": "quest_a2_dye_dark_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "audioKo": "이 갈색을 쓸까요?",
@@ -6138,7 +6138,7 @@
           "id": "quest_a2_dye_dark_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "promptDe": "Jetzt ist es zu hell. Nur eine Stufe dunkler bitte.",
@@ -6164,7 +6164,7 @@
           "id": "quest_a2_dye_dark_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "sentence": "___은 사십 분 뒤에 나옵니다.",
@@ -6189,9 +6189,9 @@
       "speechStyle": "polite",
       "relationshipContext": "neighbor",
       "intent": "confirm_apt_sticker",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6296,7 +6296,7 @@
           "id": "quest_a2_apt_sticker_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "차 번호를 불러 주시겠어요?",
@@ -6325,7 +6325,7 @@
           "id": "quest_a2_apt_sticker_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Ich möchte einen neuen Parkaufkleber.",
@@ -6351,7 +6351,7 @@
           "id": "quest_a2_apt_sticker_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "___는 내일 오전에 나옵니다.",
@@ -6376,9 +6376,9 @@
       "speechStyle": "polite",
       "relationshipContext": "neighbor",
       "intent": "confirm_food_bag",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6483,7 +6483,7 @@
           "id": "quest_a2_food_bag_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "audioKo": "관리실을 오전에 가시면 됩니다.",
@@ -6512,7 +6512,7 @@
           "id": "quest_a2_food_bag_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "promptDe": "Die Biotüte ist alle. Wo bekomme ich eine?",
@@ -6538,7 +6538,7 @@
           "id": "quest_a2_food_bag_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "sentence": "___는 바로 드립니다.",
@@ -6563,9 +6563,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_shift_table",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6670,7 +6670,7 @@
           "id": "quest_a2_shift_table_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "audioKo": "이 칸을 같이 볼까요?",
@@ -6699,7 +6699,7 @@
           "id": "quest_a2_shift_table_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "promptDe": "Ich möchte prüfen, ob der Mittwochabend stimmt.",
@@ -6725,7 +6725,7 @@
           "id": "quest_a2_shift_table_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "sentence": "표는 오늘 안에 ___됩니다.",
@@ -6750,9 +6750,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_night_pay",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -6857,7 +6857,7 @@
           "id": "quest_a2_night_pay_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "근무 시간을 다시 적어 볼까요?",
@@ -6886,7 +6886,7 @@
           "id": "quest_a2_night_pay_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Der Nachtzuschlag von letzter Woche fehlt wohl.",
@@ -6912,7 +6912,7 @@
           "id": "quest_a2_night_pay_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "___는 내일 다시 확인됩니다.",
@@ -7311,9 +7311,9 @@
       "speechStyle": "polite",
       "relationshipContext": "stranger",
       "intent": "confirm_festival_stamp",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7418,7 +7418,7 @@
           "id": "quest_a2_festival_stamp_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "audioKo": "이 칸을 보여 주시겠어요?",
@@ -7447,7 +7447,7 @@
           "id": "quest_a2_festival_stamp_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "promptDe": "Bekomme ich an diesem Stand einen Stempel?",
@@ -7473,7 +7473,7 @@
           "id": "quest_a2_festival_stamp_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "sentence": "___는 바로 찍어 드립니다.",
@@ -7685,9 +7685,9 @@
       "speechStyle": "polite",
       "relationshipContext": "family",
       "intent": "confirm_bill_high",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7792,7 +7792,7 @@
           "id": "quest_a2_bill_high_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "사용량을 같이 볼까?",
@@ -7821,7 +7821,7 @@
           "id": "quest_a2_bill_high_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Warum ist der Strom diesen Monat so hoch?",
@@ -7847,7 +7847,7 @@
           "id": "quest_a2_bill_high_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "내일 아침에 다시 ___해 보자.",
@@ -7872,9 +7872,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_auto_debit",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -7979,7 +7979,7 @@
           "id": "quest_a2_auto_debit_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "이십오 일로 바꿀까요?",
@@ -8008,7 +8008,7 @@
           "id": "quest_a2_auto_debit_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Ich möchte die Lastschrift hinter den Zahltag legen.",
@@ -8034,7 +8034,7 @@
           "id": "quest_a2_auto_debit_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "변경은 ___부터 적용됩니다.",
@@ -8059,9 +8059,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_hair_time",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_04_feelings_health",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_feelings"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8166,7 +8166,7 @@
           "id": "quest_a2_hair_time_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "audioKo": "토요일 열한 시를 드릴까요?",
@@ -8195,7 +8195,7 @@
           "id": "quest_a2_hair_time_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "promptDe": "Ich möchte Freitag um vier auf Samstag legen.",
@@ -8221,7 +8221,7 @@
           "id": "quest_a2_hair_time_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_feelings"
           ],
           "data": {
             "sentence": "___은 바로 옮겨 드립니다.",
@@ -8246,9 +8246,9 @@
       "speechStyle": "polite",
       "relationshipContext": "neighbor",
       "intent": "confirm_quiet_ten",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8353,7 +8353,7 @@
           "id": "quest_a2_quiet_ten_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "매트를 깔면 될까요?",
@@ -8382,7 +8382,7 @@
           "id": "quest_a2_quiet_ten_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Bitte nach zweiundzwanzig Uhr etwas leiser gehen.",
@@ -8408,7 +8408,7 @@
           "id": "quest_a2_quiet_ten_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "오늘 ___부터 조심하겠습니다.",
@@ -8433,9 +8433,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_handover_note",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8540,7 +8540,7 @@
           "id": "quest_a2_handover_note_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "audioKo": "이 메모를 책상 위에 둘까요?",
@@ -8569,7 +8569,7 @@
           "id": "quest_a2_handover_note_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "promptDe": "Für die Person von morgen will ich wenigstens das hinterlassen.",
@@ -8595,7 +8595,7 @@
           "id": "quest_a2_handover_note_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "sentence": "___에 바로 볼 수 있게 두겠습니다.",
@@ -8620,9 +8620,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_id_pickup",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8727,7 +8727,7 @@
           "id": "quest_a2_id_pickup_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "audioKo": "접수 번호를 보여 주시겠어요?",
@@ -8756,7 +8756,7 @@
           "id": "quest_a2_id_pickup_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "promptDe": "Ich hole den Ausweis von letzter Woche ab.",
@@ -8782,7 +8782,7 @@
           "id": "quest_a2_id_pickup_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "sentence": "___은 바로 드리겠습니다.",
@@ -8807,9 +8807,9 @@
       "speechStyle": "polite",
       "relationshipContext": "stranger",
       "intent": "confirm_volunteer_vest",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -8914,7 +8914,7 @@
           "id": "quest_a2_volunteer_vest_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "audioKo": "이 노란 조끼를 입으시면 됩니다.",
@@ -8943,7 +8943,7 @@
           "id": "quest_a2_volunteer_vest_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "promptDe": "Wo bekomme ich die Weste für heute?",
@@ -8969,7 +8969,7 @@
           "id": "quest_a2_volunteer_vest_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "sentence": "___는 바로 옆에 있습니다.",
@@ -8994,9 +8994,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_tea_taste",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9101,7 +9101,7 @@
           "id": "quest_a2_tea_taste_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "audioKo": "따뜻한 잔을 드릴까요?",
@@ -9130,7 +9130,7 @@
           "id": "quest_a2_tea_taste_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "promptDe": "Darf ich diesen Tee kurz probieren?",
@@ -9156,7 +9156,7 @@
           "id": "quest_a2_tea_taste_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "sentence": "___은 바로 됩니다.",
@@ -9181,9 +9181,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_contract_read",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9288,7 +9288,7 @@
           "id": "quest_a2_contract_read_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "이 칸을 크게 볼까요?",
@@ -9317,7 +9317,7 @@
           "id": "quest_a2_contract_read_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Vor der Unterschrift will ich nur die Arbeitszeit sehen.",
@@ -9343,7 +9343,7 @@
           "id": "quest_a2_contract_read_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "___만 읽으면 됩니다.",
@@ -9368,9 +9368,9 @@
       "speechStyle": "polite",
       "relationshipContext": "neighbor",
       "intent": "confirm_recycle_box",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9475,7 +9475,7 @@
           "id": "quest_a2_recycle_box_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "이 구석을 잠시 쓸까요?",
@@ -9504,7 +9504,7 @@
           "id": "quest_a2_recycle_box_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Der Raum ist voll. Ich habe keinen Platz für den Karton.",
@@ -9530,7 +9530,7 @@
           "id": "quest_a2_recycle_box_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "___에 바로 비우겠습니다.",
@@ -9555,9 +9555,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_card_balance",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9662,7 +9662,7 @@
           "id": "quest_a2_card_balance_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "이 기계에 카드를 올려 보시겠어요?",
@@ -9691,7 +9691,7 @@
           "id": "quest_a2_card_balance_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Wie viel Geld ist noch auf der Karte?",
@@ -9717,7 +9717,7 @@
           "id": "quest_a2_card_balance_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "___은 바로 나옵니다.",
@@ -9742,9 +9742,9 @@
       "speechStyle": "polite",
       "relationshipContext": "peer",
       "intent": "confirm_rain_cancel",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_02_plans_proposals",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_proposal_polite"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -9849,7 +9849,7 @@
           "id": "quest_a2_rain_cancel_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_proposal_polite"
           ],
           "data": {
             "audioKo": "실내를 다른 날로 옮길까?",
@@ -9878,7 +9878,7 @@
           "id": "quest_a2_rain_cancel_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_proposal_polite"
           ],
           "data": {
             "promptDe": "Es regnet zu stark. Sagen wir das Treffen heute ab.",
@@ -9904,7 +9904,7 @@
           "id": "quest_a2_rain_cancel_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_proposal_polite"
           ],
           "data": {
             "sentence": "내일 아침에 다시 ___.",
@@ -9929,9 +9929,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_guest_pass",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10036,7 +10036,7 @@
           "id": "quest_a2_guest_pass_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "이름을 여기에 적을까요?",
@@ -10065,7 +10065,7 @@
           "id": "quest_a2_guest_pass_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Für den Gast von heute brauche ich einen Ausweis.",
@@ -10091,7 +10091,7 @@
           "id": "quest_a2_guest_pass_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "___는 오 분 안에 나옵니다.",
@@ -10116,9 +10116,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_manager_leave",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10223,7 +10223,7 @@
           "id": "quest_a2_manager_leave_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "audioKo": "대체 근무를 누가 할지 적을까요?",
@@ -10252,7 +10252,7 @@
           "id": "quest_a2_manager_leave_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "promptDe": "Am Freitag habe ich Arzt, deshalb möchte ich einen Tag frei.",
@@ -10278,7 +10278,7 @@
           "id": "quest_a2_manager_leave_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "sentence": "오후에 바로 답 ___.",
@@ -10303,9 +10303,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_label_phone",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_08_home_money",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_home_money"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10410,7 +10410,7 @@
           "id": "quest_a2_label_phone_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "audioKo": "끝 네 자리를 불러 주시겠어요?",
@@ -10439,7 +10439,7 @@
           "id": "quest_a2_label_phone_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "promptDe": "Ist diese Etikettnummer mein Gepäck?",
@@ -10465,7 +10465,7 @@
           "id": "quest_a2_label_phone_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_home_money"
           ],
           "data": {
             "sentence": "___는 바로 됩니다.",
@@ -10490,9 +10490,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_hours_six",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_02_plans_proposals",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_proposal_polite"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10597,7 +10597,7 @@
           "id": "quest_a2_hours_six_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_proposal_polite"
           ],
           "data": {
             "audioKo": "여섯 시를 목표로 보면 됩니다.",
@@ -10626,7 +10626,7 @@
           "id": "quest_a2_hours_six_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_proposal_polite"
           ],
           "data": {
             "promptDe": "Bis wann haben Sie heute auf?",
@@ -10652,7 +10652,7 @@
           "id": "quest_a2_hours_six_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_proposal_polite"
           ],
           "data": {
             "sentence": "___가 끝나면 더 일찍 닫습니다.",
@@ -10864,9 +10864,9 @@
       "speechStyle": "polite",
       "relationshipContext": "peer",
       "intent": "confirm_water_set",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -10971,7 +10971,7 @@
           "id": "quest_a2_water_set_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "audioKo": "병을 이쪽에 둘까?",
@@ -11000,7 +11000,7 @@
           "id": "quest_a2_water_set_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "promptDe": "Nach einem Satz nur einen Schluck Wasser.",
@@ -11026,7 +11026,7 @@
           "id": "quest_a2_water_set_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "sentence": "일 분만 쉬면 다시 ___ 돼.",
@@ -11612,9 +11612,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_market_change",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -11719,7 +11719,7 @@
           "id": "quest_a2_market_change_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "audioKo": "이 영수증을 같이 볼까요?",
@@ -11748,7 +11748,7 @@
           "id": "quest_a2_market_change_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "promptDe": "Ich habe zehntausend gegeben. Bitte das Wechselgeld prüfen.",
@@ -11774,7 +11774,7 @@
           "id": "quest_a2_market_change_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "sentence": "___은 바로 드리겠습니다.",
@@ -11799,9 +11799,9 @@
       "speechStyle": "polite",
       "relationshipContext": "peer",
       "intent": "confirm_restaurant_split",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -11906,7 +11906,7 @@
           "id": "quest_a2_restaurant_split_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "audioKo": "이 접시를 누구 몫으로 넣을까요?",
@@ -11935,7 +11935,7 @@
           "id": "quest_a2_restaurant_split_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "promptDe": "Heute zahlt jede Person selbst.",
@@ -11961,7 +11961,7 @@
           "id": "quest_a2_restaurant_split_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "sentence": "___는 바로 나눠 드리겠습니다.",
@@ -12173,9 +12173,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_convenience_copy",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -12280,7 +12280,7 @@
           "id": "quest_a2_convenience_copy_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "audioKo": "흑백으로 할까요?",
@@ -12309,7 +12309,7 @@
           "id": "quest_a2_convenience_copy_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "promptDe": "Bitte nur dieses eine Blatt kopieren.",
@@ -12335,7 +12335,7 @@
           "id": "quest_a2_convenience_copy_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "sentence": "복사는 ___이면 됩니다.",
@@ -12360,9 +12360,9 @@
       "speechStyle": "polite",
       "relationshipContext": "customer_and_service_staff",
       "intent": "confirm_cafe_plug",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_05_delivery_services",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_services"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -12467,7 +12467,7 @@
           "id": "quest_a2_cafe_plug_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "audioKo": "창가 자리를 쓰시겠어요?",
@@ -12496,7 +12496,7 @@
           "id": "quest_a2_cafe_plug_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "promptDe": "Gibt es einen Platz mit Steckdose?",
@@ -12522,7 +12522,7 @@
           "id": "quest_a2_cafe_plug_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_services"
           ],
           "data": {
             "sentence": "그 ___는 바로 비었습니다.",
@@ -12734,9 +12734,9 @@
       "speechStyle": "polite",
       "relationshipContext": "coworker",
       "intent": "confirm_office_badge",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_06_study_work",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_work_study"
       ],
       "surfaceFormIds": [],
       "sidekick": "jieun",
@@ -12841,7 +12841,7 @@
           "id": "quest_a2_office_badge_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "audioKo": "카드를 여기에 올려 보시겠어요?",
@@ -12870,7 +12870,7 @@
           "id": "quest_a2_office_badge_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "promptDe": "Der Ausweis öffnet die Tür nicht.",
@@ -12896,7 +12896,7 @@
           "id": "quest_a2_office_badge_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_work_study"
           ],
           "data": {
             "sentence": "___은 십 분 안에 됩니다.",
@@ -13969,9 +13969,9 @@
       "speechStyle": "casual",
       "relationshipContext": "close_friends",
       "intent": "fix_a_login_block",
-      "courseUnitId": "a2_07_travel_repair",
+      "courseUnitId": "a2_03_chat_relationships",
       "conceptIds": [
-        "concept_a2_travel_repair"
+        "concept_a2_relationships"
       ],
       "surfaceFormIds": [],
       "sidekick": "minsu",
@@ -14086,7 +14086,7 @@
           "id": "quest_a2_gaming_cant_connect_hear",
           "type": "hoerverstehen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_relationships"
           ],
           "data": {
             "audioKo": "패치 안 하면 들어올 수 없어.",
@@ -14115,7 +14115,7 @@
           "id": "quest_a2_gaming_cant_connect_tr",
           "type": "uebersetzen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_relationships"
           ],
           "data": {
             "promptDe": "YouTube läuft. Nur das Spiel nicht.",
@@ -14141,7 +14141,7 @@
           "id": "quest_a2_gaming_cant_connect_gap",
           "type": "luecken",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_relationships"
           ],
           "data": {
             "sentence": "패치 안 하면 들어올 수 ___.",
@@ -14158,7 +14158,7 @@
           "id": "quest_a2_gaming_cant_connect_build",
           "type": "satzBauen",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_relationships"
           ],
           "data": {
             "targetKo": "지금 접속할 수 없어.",
@@ -14174,7 +14174,7 @@
           "id": "quest_a2_gaming_cant_connect_dict",
           "type": "diktat",
           "conceptIds": [
-            "concept_a2_travel_repair"
+            "concept_a2_relationships"
           ],
           "data": {
             "targetKo": "나 로비에 있어.",

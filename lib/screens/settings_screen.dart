@@ -2155,23 +2155,29 @@ class _SoundSettings extends StatelessWidget {
                     : null,
               ),
             ),
-            Opacity(
-              opacity: master ? 1.0 : 0.4,
-              child: SwitchListTile(
-                secondary: const Icon(
-                  Icons.notifications_paused_outlined,
-                  color: SoriColors.primary,
+            // iOS 전용 — Android 에는 "무음 스위치"라는 개념이 없고,
+            // AudioPolicy 도 이 값을 Android 컨텍스트에 반영하지 않는다
+            // (반영하면 벨소리 스트림으로 라우팅돼 앱 전체가 무음이 된다 —
+            // AudioPolicy.buildAndroidContext 주석). 죽은 컨트롤을 노출하지
+            // 않기 위해 Android/웹에서는 타일 자체를 감춘다.
+            if (!kIsWeb && defaultTargetPlatform == TargetPlatform.iOS)
+              Opacity(
+                opacity: master ? 1.0 : 0.4,
+                child: SwitchListTile(
+                  secondary: const Icon(
+                    Icons.notifications_paused_outlined,
+                    color: SoriColors.primary,
+                  ),
+                  title: Text(t.settingsSoundRespectSilent),
+                  subtitle: Text(t.settingsSoundRespectSilentDesc),
+                  value: policy.respectSilentMode,
+                  onChanged: master
+                      ? (v) {
+                          policy.setRespectSilentMode(v);
+                        }
+                      : null,
                 ),
-                title: Text(t.settingsSoundRespectSilent),
-                subtitle: Text(t.settingsSoundRespectSilentDesc),
-                value: policy.respectSilentMode,
-                onChanged: master
-                    ? (v) {
-                        policy.setRespectSilentMode(v);
-                      }
-                    : null,
               ),
-            ),
           ],
         );
       },
