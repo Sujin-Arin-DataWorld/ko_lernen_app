@@ -95,7 +95,7 @@ class SoriChip extends StatelessWidget {
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 color: fg,
                 fontSize: fontSize,
                 fontWeight: FontWeight.w700,

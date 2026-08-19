@@ -87,7 +87,7 @@ class _MotivationRow extends StatelessWidget {
             child: Text(
               m.label(t),
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: 15,
                 fontWeight: FontWeight.w700,
                 color: s.text,

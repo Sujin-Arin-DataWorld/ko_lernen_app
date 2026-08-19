@@ -485,7 +485,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
             child: Text(
               t.smalltalkPickCategory,
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: 16,
                 fontWeight: FontWeight.w800,
                 color: s.text,
@@ -891,7 +891,7 @@ class _ConversationTurn extends StatelessWidget {
               Text(
                 label,
                 style: TextStyle(
-                  fontFamily: 'Pretendard',
+                  fontFamily: SoriFonts.sans,
                   fontSize: 11.5,
                   fontWeight: FontWeight.w700,
                   color: s.textMuted,
@@ -901,7 +901,7 @@ class _ConversationTurn extends StatelessWidget {
               Text(
                 turn.ko,
                 style: TextStyle(
-                  fontFamily: 'Pretendard',
+                  fontFamily: SoriFonts.sans,
                   fontSize: 14.5,
                   fontWeight: FontWeight.w700,
                   color: foreground,
@@ -912,7 +912,7 @@ class _ConversationTurn extends StatelessWidget {
               Text(
                 turn.translation(lang),
                 style: TextStyle(
-                  fontFamily: 'Pretendard',
+                  fontFamily: SoriFonts.sans,
                   fontSize: 12,
                   color: s.textMuted,
                   height: 1.3,
@@ -971,7 +971,7 @@ class _ReplyView extends StatelessWidget {
                       child: Text(
                         reply.ko,
                         style: const TextStyle(
-                          fontFamily: 'Pretendard',
+                          fontFamily: SoriFonts.sans,
                           fontSize: 15,
                           fontWeight: FontWeight.w700,
                           color: SoriColors.primaryOnLight,
@@ -985,7 +985,7 @@ class _ReplyView extends StatelessWidget {
                 Text(
                   reply.translation(lang),
                   style: TextStyle(
-                    fontFamily: 'Pretendard',
+                    fontFamily: SoriFonts.sans,
                     fontSize: 12.5,
                     color: s.textMuted,
                     height: 1.3,

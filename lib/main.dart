@@ -115,6 +115,7 @@ import 'widgets/sori/tts_unavailable_banner.dart';
 import 'widgets/sori/mascot_preference.dart';
 import 'widgets/sori/diagnostics_route_observer.dart';
 import 'widgets/sori/route_observer.dart';
+import 'widgets/sori/type_scale.dart';
 
 Future<void> main() => launchKoLernenApp();
 
@@ -527,22 +528,24 @@ class _KoLernenAppState extends State<KoLernenApp> {
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
         // Tap außerhalb von Inputs → Tastatur weg
-        builder: (context, child) => ContentFeedbackControllerScope(
-          featureGate: _contentFeedbackLifecycle.featureGate,
-          submitFeedback: _contentFeedbackLifecycle.submit,
-          resumePending: _contentFeedbackLifecycle.resumePending,
-          resumeDeliveryNotifier: _resumeDeliveryNotifier,
-          readPassportState: _contentFeedbackLifecycle.readPassportState,
-          child: ContentFeedbackLifecycleObserver(
+        builder: (context, child) => SoriTypeScale(
+          child: ContentFeedbackControllerScope(
+            featureGate: _contentFeedbackLifecycle.featureGate,
+            submitFeedback: _contentFeedbackLifecycle.submit,
             resumePending: _contentFeedbackLifecycle.resumePending,
-            onResumeResult: _resumeDeliveryNotifier.report,
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-              // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
-              // 지운 뒤로 프리미엄을 못 받으면 무음인데, 이유 없는 무음은
-              // 고장과 구분이 안 된다.
-              child: TtsUnavailableBanner(child: child ?? const SizedBox()),
+            resumeDeliveryNotifier: _resumeDeliveryNotifier,
+            readPassportState: _contentFeedbackLifecycle.readPassportState,
+            child: ContentFeedbackLifecycleObserver(
+              resumePending: _contentFeedbackLifecycle.resumePending,
+              onResumeResult: _resumeDeliveryNotifier.report,
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                // 발음이 안 나올 때 이유를 한 줄로 띄운다. OS 음성 폴백을
+                // 지운 뒤로 프리미엄을 못 받으면 무음인데, 이유 없는 무음은
+                // 고장과 구분이 안 된다.
+                child: TtsUnavailableBanner(child: child ?? const SizedBox()),
+              ),
             ),
           ),
         ),

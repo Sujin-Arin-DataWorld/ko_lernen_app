@@ -241,20 +241,18 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
                   style: TextStyle(fontSize: 13, color: s.textMuted),
                 ),
                 const SizedBox(height: Spacing.sm),
-                SoriStudyScale(
-                  child: SoriCard(
-                    variant: SoriCardVariant.hero,
-                    accent: SoriColors.accent,
-                    tinted: true,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
-                      child: Text(
-                        word.translationDe,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.w800,
-                        ),
+                SoriCard(
+                  variant: SoriCardVariant.hero,
+                  accent: SoriColors.accent,
+                  tinted: true,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
+                    child: Text(
+                      word.translationDe,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.w800,
                       ),
                     ),
                   ),

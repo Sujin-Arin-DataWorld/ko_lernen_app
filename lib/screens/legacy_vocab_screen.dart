@@ -589,28 +589,26 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                           key: const ValueKey('deck-card-slot'),
                           width: double.infinity,
                           height: double.infinity,
-                          child: SoriStudyScale(
-                            child: KeyedSubtree(
-                              key: _flashCardKey,
-                              child: FlipCard(
-                                key: ValueKey('legacy-$_serve'),
-                                flipped: _flipped,
-                                onTap: _onFlip,
-                                front: _Front(
-                                  v: v,
-                                  koFirst: _koFirst,
-                                  deckKoreans: _deckKoreans,
-                                  deckTranslations: _deckTranslations(
-                                    context,
-                                  ),
+                          child: KeyedSubtree(
+                            key: _flashCardKey,
+                            child: FlipCard(
+                              key: ValueKey('legacy-$_serve'),
+                              flipped: _flipped,
+                              onTap: _onFlip,
+                              front: _Front(
+                                v: v,
+                                koFirst: _koFirst,
+                                deckKoreans: _deckKoreans,
+                                deckTranslations: _deckTranslations(
+                                  context,
                                 ),
-                                back: _Back(
-                                  v: v,
-                                  koFirst: _koFirst,
-                                  deckKoreans: _deckKoreans,
-                                  deckTranslations: _deckTranslations(
-                                    context,
-                                  ),
+                              ),
+                              back: _Back(
+                                v: v,
+                                koFirst: _koFirst,
+                                deckKoreans: _deckKoreans,
+                                deckTranslations: _deckTranslations(
+                                  context,
                                 ),
                               ),
                             ),
@@ -679,7 +677,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                               Text(
                                 t.btnHoeren,
                                 style: TextStyle(
-                                  fontFamily: 'Pretendard',
+                                  fontFamily: SoriFonts.sans,
                                   color: SoriSurfaces.of(context).text,
                                   fontWeight: FontWeight.w600,
                                   fontSize: 14,
@@ -706,7 +704,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                   child: Text(
                     t.vocabSlowHint,
                     style: TextStyle(
-                      fontFamily: 'Pretendard',
+                      fontFamily: SoriFonts.sans,
                       fontSize: 10.5,
                       color: SoriSurfaces.of(context).textDim,
                     ),
@@ -725,13 +723,11 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
-      child: SoriStudyScale(
-        child: _Front(
-          v: v,
-          koFirst: _koFirst,
-          deckKoreans: _deckKoreans,
-          deckTranslations: _deckTranslations(context),
-        ),
+      child: _Front(
+        v: v,
+        koFirst: _koFirst,
+        deckKoreans: _deckKoreans,
+        deckTranslations: _deckTranslations(context),
       ),
     );
   }
@@ -1048,7 +1044,7 @@ class _MasteryChip extends StatelessWidget {
             Text(
               label,
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: 11,
                 fontWeight: FontWeight.w700,
                 color: color,

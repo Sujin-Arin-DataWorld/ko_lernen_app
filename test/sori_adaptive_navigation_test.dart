@@ -53,10 +53,10 @@ void main() {
     expect(rail.extended, isFalse);
     expect(rail.labelType, NavigationRailLabelType.all);
     expect(rail.minWidth, 96);
-    expect(
-      tester.widget<Text>(find.text('Practice')).style!.fontSize,
-      closeTo(14.3, 0.001),
-    );
+    // 2026-08-19: 글자 배율은 SoriTypeScale(MaterialApp.builder) 하나로 모았다
+    // — 이 테스트는 builder 를 안 쓰므로 label fontSize 는 이제 comfort 배율
+    // 없이 토큰값 그대로 나온다.
+    expect(tester.widget<Text>(find.text('Practice')).style!.fontSize, 13);
     expect(find.text('Practice'), findsOneWidget);
   });
 

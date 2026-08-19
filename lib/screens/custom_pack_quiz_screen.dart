@@ -262,41 +262,39 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
                   style: TextStyle(fontSize: 13, color: s.textMuted),
                 ),
                 const SizedBox(height: Spacing.sm),
-                SoriStudyScale(
-                  child: SoriCard(
-                    variant: SoriCardVariant.hero,
-                    accent: SoriColors.primary,
-                    tinted: true,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
-                      child: Column(
-                        children: [
-                          if (word.imagePath.isNotEmpty) ...[
-                            ManagedMediaImage(
-                              reference: word.imagePath,
-                              width: 220,
-                              height: 110,
-                              borderRadius: BorderRadius.circular(
-                                SoriRadius.md,
-                              ),
-                            ),
-                            const SizedBox(height: Spacing.md),
-                          ],
-                          Text(
-                            word.korean,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              fontSize: 32,
-                              fontWeight: FontWeight.w800,
+                SoriCard(
+                  variant: SoriCardVariant.hero,
+                  accent: SoriColors.primary,
+                  tinted: true,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
+                    child: Column(
+                      children: [
+                        if (word.imagePath.isNotEmpty) ...[
+                          ManagedMediaImage(
+                            reference: word.imagePath,
+                            width: 220,
+                            height: 110,
+                            borderRadius: BorderRadius.circular(
+                              SoriRadius.md,
                             ),
                           ),
-                          const SizedBox(height: Spacing.sm),
-                          IconButton(
-                            icon: const Icon(Icons.volume_up_rounded, size: 26),
-                            onPressed: () => TtsService.speak(word.korean),
-                          ),
+                          const SizedBox(height: Spacing.md),
                         ],
-                      ),
+                        Text(
+                          word.korean,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        const SizedBox(height: Spacing.sm),
+                        IconButton(
+                          icon: const Icon(Icons.volume_up_rounded, size: 26),
+                          onPressed: () => TtsService.speak(word.korean),
+                        ),
+                      ],
                     ),
                   ),
                 ),

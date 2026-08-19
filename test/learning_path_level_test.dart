@@ -188,6 +188,13 @@ void main() {
 
     final toggle = find.byKey(const ValueKey('path-legacy-practice-toggle'));
     await tester.scrollUntilVisible(toggle, 300);
+    // scrollUntilVisible stops as soon as any part of the widget intersects
+    // the viewport — its center can still land outside it (2026-08-19: the
+    // SoriTypeScale migration made comfort-scaled text a touch shorter here,
+    // which was enough to move the tap point off-screen). ensureVisible
+    // scrolls it fully into view before we tap.
+    await tester.ensureVisible(toggle);
+    await tester.pump();
     expect(toggle, findsOneWidget);
     expect(find.text('Weitere Übungen anzeigen'), findsOneWidget);
     expect(

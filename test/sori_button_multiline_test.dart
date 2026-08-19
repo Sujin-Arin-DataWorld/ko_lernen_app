@@ -79,10 +79,10 @@ void main() {
       ),
     );
 
-    expect(
-      tester.widget<Text>(find.text('Weiterlernen')).style!.fontSize,
-      closeTo(19.8, 0.001),
-    );
+    // 2026-08-19: 글자 배율은 SoriTypeScale(MaterialApp.builder) 하나로 모았다
+    // — 이 테스트는 builder 를 안 쓰므로 fontSize 는 이제 comfort 배율 없이
+    // 그대로 나온다. 높이·패딩의 comfort 배율은 button.dart 에 남아 있다.
+    expect(tester.widget<Text>(find.text('Weiterlernen')).style!.fontSize, 18);
     expect(
       tester.getSize(find.byType(SoriPressable)).height,
       closeTo(61.6, 0.001),

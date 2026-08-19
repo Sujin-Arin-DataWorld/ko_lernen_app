@@ -119,7 +119,9 @@ class SoriButton extends StatelessWidget {
     final disabled = onTap == null;
     final comfortScale = soriComfortScale(MediaQuery.sizeOf(context).width);
     final visualHeight = _height * comfortScale;
-    final visualFontSize = _fontSize * comfortScale;
+    // 글자 배율은 SoriTypeScale(MaterialApp.builder) 이 유일하게 담당한다 —
+    // 여기서 곱하면 comfort 가 두 번 겹친다(2026-08-19).
+    final visualFontSize = _fontSize;
     final visualHorizontalPadding = _hpad * comfortScale;
     final color = destructive
         ? SoriColors.danger
@@ -185,7 +187,7 @@ class SoriButton extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontFamily: 'Pretendard',
+                  fontFamily: SoriFonts.sans,
                   color: fg,
                   fontWeight: FontWeight.w700,
                   fontSize: visualFontSize,

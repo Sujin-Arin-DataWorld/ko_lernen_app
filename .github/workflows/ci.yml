@@ -82,7 +82,7 @@ jobs:
     name: Select required checks
     if: github.event_name != 'workflow_dispatch' || inputs.task != 'regenerate-goldens'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     outputs:
       app: ${{ steps.scope.outputs.app }}
       website: ${{ steps.scope.outputs.website }}
@@ -92,10 +92,37 @@ jobs:
       flutter_test_mode: ${{ steps.flutter_tests.outputs.flutter_test_mode }}
       flutter_tests: ${{ steps.flutter_tests.outputs.flutter_tests }}
     steps:
-      - name: Checkout with comparison history
+      # fetch-depth: 0 은 checkout 이 +refs/heads/* +refs/tags/* 를 전부
+      # 받는다. 세션 브랜치가 많은 이 저장소에서는 5분 job timeout 을
+      # 넘긴다 (PR 95 run 32257638693: git fetch 가 13:21:42→13:26:41 에
+      # cancelled → Select required checks 가 PR 필수 체크로 빨간불).
+      # 비교·grant ledger 에 필요한 건 default branch 조상과 PR/push SHA
+      # 뿐이라, tip 만 받은 뒤 blob 없이 그 이력만 가져온다.
+      - name: Checkout tip
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+
+      - name: Fetch comparison history
+        env:
+          CI_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          CI_PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CI_PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          CI_BEFORE_SHA: ${{ github.event.before }}
+        run: |
+          set -euo pipefail
+          git fetch --no-tags --filter=blob:none origin \
+            "+refs/heads/${CI_DEFAULT_BRANCH}:refs/remotes/origin/${CI_DEFAULT_BRANCH}"
+          extra=()
+          if [ -n "${CI_PR_HEAD_SHA:-}" ]; then
+            extra+=("${CI_PR_HEAD_SHA}" "${CI_PR_BASE_SHA}")
+          fi
+          if [ -n "${CI_BEFORE_SHA:-}" ] && [ "${CI_BEFORE_SHA}" != "0000000000000000000000000000000000000000" ]; then
+            extra+=("${CI_BEFORE_SHA}")
+          fi
+          if [ "${#extra[@]}" -gt 0 ]; then
+            git fetch --no-tags --filter=blob:none origin "${extra[@]}"
+          fi
 
       - name: Verify CI and release contracts
         run: python3 -m unittest discover -s .github/scripts -p "test_*.py"

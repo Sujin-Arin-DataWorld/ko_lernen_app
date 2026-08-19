@@ -238,7 +238,7 @@ class _WordRow extends StatelessWidget {
                       child: Text(
                         word.korean,
                         style: TextStyle(
-                          fontFamily: 'Pretendard',
+                          fontFamily: SoriFonts.sans,
                           fontSize: 17,
                           fontWeight: FontWeight.w800,
                           color: s.text,

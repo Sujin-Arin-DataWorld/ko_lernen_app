@@ -1197,7 +1197,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             Text(
               t.settingsDataSourcesIntro,
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: 13,
                 color: Theme.of(
                   ctx,
@@ -1259,7 +1259,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       Text(
                         t.settingsDataLicenseNote,
                         style: const TextStyle(
-                          fontFamily: 'Pretendard',
+                          fontFamily: SoriFonts.sans,
                           fontSize: 13,
                           fontWeight: FontWeight.w800,
                         ),
@@ -1270,7 +1270,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   Text(
                     t.settingsDataLicenseBody,
                     style: TextStyle(
-                      fontFamily: 'Pretendard',
+                      fontFamily: SoriFonts.sans,
                       fontSize: 12.5,
                       height: 1.5,
                       color: Theme.of(
@@ -1951,7 +1951,7 @@ class _DataSourceCard extends StatelessWidget {
                     child: Text(
                       name,
                       style: const TextStyle(
-                        fontFamily: 'Pretendard',
+                        fontFamily: SoriFonts.sans,
                         fontSize: 14,
                         fontWeight: FontWeight.w800,
                       ),
@@ -1969,7 +1969,7 @@ class _DataSourceCard extends StatelessWidget {
                     child: Text(
                       license,
                       style: const TextStyle(
-                        fontFamily: 'Pretendard',
+                        fontFamily: SoriFonts.sans,
                         fontSize: 10.5,
                         fontWeight: FontWeight.w800,
                         color: SoriColors.primary,
@@ -1983,7 +1983,7 @@ class _DataSourceCard extends StatelessWidget {
               Text(
                 role,
                 style: TextStyle(
-                  fontFamily: 'Pretendard',
+                  fontFamily: SoriFonts.sans,
                   fontSize: 12,
                   color: onSurface.withValues(alpha: 0.7),
                   height: 1.4,
@@ -1998,7 +1998,7 @@ class _DataSourceCard extends StatelessWidget {
                     child: Text(
                       url,
                       style: TextStyle(
-                        fontFamily: 'Pretendard',
+                        fontFamily: SoriFonts.sans,
                         fontSize: 11,
                         color: onSurface.withValues(alpha: 0.55),
                       ),
@@ -2013,7 +2013,7 @@ class _DataSourceCard extends StatelessWidget {
               Text(
                 'Attribution: $attribution',
                 style: TextStyle(
-                  fontFamily: 'Pretendard',
+                  fontFamily: SoriFonts.sans,
                   fontSize: 10.5,
                   fontStyle: FontStyle.italic,
                   color: onSurface.withValues(alpha: 0.5),
