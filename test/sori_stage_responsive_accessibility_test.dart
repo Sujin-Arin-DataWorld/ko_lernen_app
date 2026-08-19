@@ -8,6 +8,8 @@ import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_gye_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_hanok_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
@@ -115,29 +117,38 @@ void main() {
     expect(find.byType(SoriStageCatalogScreen), findsOneWidget);
   });
 
-  for (final size in const <Size>[
-    Size(390, 844),
-    Size(720, 1024),
-    Size(1280, 900),
+  for (final tab in const <SoriStageTab>[
+    SoriStageTab.learn,
+    SoriStageTab.games,
   ]) {
-    for (final textScale in const <double>[1, 1.3, 2]) {
-      testWidgets('catalog fits ${size.width}dp at ${textScale}x text', (
-        tester,
-      ) async {
-        _setViewport(tester, size);
-        await tester.pumpWidget(
-          _catalogApp(
-            locale: const Locale('de'),
-            theme: AppTheme.light,
-            disableAnimations: true,
-            textScale: textScale,
-          ),
-        );
-        await tester.pump();
+    for (final size in const <Size>[
+      Size(320, 640),
+      Size(360, 400),
+      Size(390, 844),
+      Size(720, 1024),
+      Size(1280, 900),
+    ]) {
+      for (final textScale in const <double>[1, 1.3, 2]) {
+        testWidgets(
+          '${tab.name} catalog fits ${size.width}x${size.height} at ${textScale}x',
+          (tester) async {
+            _setViewport(tester, size);
+            await tester.pumpWidget(
+              _catalogApp(
+                locale: const Locale('de'),
+                theme: AppTheme.light,
+                disableAnimations: true,
+                textScale: textScale,
+                tab: tab,
+              ),
+            );
+            await tester.pump();
 
-        expect(tester.takeException(), isNull);
-        expect(find.byType(SoriStageCatalogScreen), findsOneWidget);
-      });
+            expect(tester.takeException(), isNull);
+            expect(find.byType(SoriStageCatalogScreen), findsOneWidget);
+          },
+        );
+      }
     }
   }
 
@@ -163,6 +174,45 @@ void main() {
 
         expect(tester.takeException(), isNull);
         expect(find.byType(SoriStageTodayScreen), findsOneWidget);
+      });
+    }
+  }
+
+  for (final size in const <Size>[
+    Size(320, 640),
+    Size(360, 400),
+    Size(390, 844),
+    Size(1280, 900),
+  ]) {
+    for (final textScale in const <double>[1, 2]) {
+      testWidgets('Hanok fits ${size.width}x${size.height} at ${textScale}x', (
+        tester,
+      ) async {
+        await _initStorage();
+        _setViewport(tester, size);
+        await tester.pumpWidget(_hanokApp(textScale: textScale));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 400));
+
+        expect(tester.takeException(), isNull);
+        expect(find.byType(SoriStageHanokScreen), findsOneWidget);
+        expect(
+          find.byKey(const ValueKey('hanok-shortcut-quests')),
+          findsOneWidget,
+        );
+      });
+
+      testWidgets('Gye fits ${size.width}x${size.height} at ${textScale}x', (
+        tester,
+      ) async {
+        await _initGyeStorage();
+        _setViewport(tester, size);
+        await tester.pumpWidget(_gyeApp(textScale: textScale));
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 300));
+
+        expect(tester.takeException(), isNull);
+        expect(find.byType(SoriStageGyeScreen), findsOneWidget);
       });
     }
   }
@@ -199,6 +249,7 @@ Widget _catalogApp({
   required ThemeData theme,
   required bool disableAnimations,
   double textScale = 1,
+  SoriStageTab tab = SoriStageTab.learn,
 }) => MaterialApp(
   debugShowCheckedModeBanner: false,
   theme: theme,
@@ -212,7 +263,7 @@ Widget _catalogApp({
     ),
     child: child!,
   ),
-  home: const SoriStageCatalogScreen(tab: SoriStageTab.learn),
+  home: SoriStageCatalogScreen(tab: tab),
   onGenerateRoute: (_) => MaterialPageRoute<void>(
     builder: (_) => const Scaffold(body: Text('route')),
   ),
@@ -253,37 +304,92 @@ Widget _todayApp({required double textScale, required Locale locale}) {
   );
 }
 
-SoriStageProgressionSnapshot _todayFitSnapshot() => SoriStageProgressionSnapshot(
-  today: const TodayLearningSnapshot(
-    pick: ReviewPick(dueCount: 12),
-    destination: TodayLearningDestination(route: '/review'),
-    dueCount: 12,
-  ),
-  hanok: PersonalHanokProjection.from(
-    const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
-  ),
-  quests: const [
-    QuestProgress(
-      questId: 'q_jangdokdae',
-      current: 3,
-      target: 15,
-      active: true,
-      completed: false,
-      completedAtIso: null,
-    ),
-  ],
-  pendingBojagiCount: 1,
-  stampCount: 4,
-  xp: 320,
-  streakDays: 6,
-  todayReward: const RewardContract(
-    activityId: 'srs',
-    condition: SoriLocalizedCopy(de: 'Lernen', en: 'Learn'),
-    items: [
-      RewardContractItem(
-        kind: SoriRewardKind.xp,
-        label: SoriLocalizedCopy(de: 'Lern-XP', en: 'Learning XP'),
+SoriStageProgressionSnapshot _todayFitSnapshot() =>
+    SoriStageProgressionSnapshot(
+      today: const TodayLearningSnapshot(
+        pick: ReviewPick(dueCount: 12),
+        destination: TodayLearningDestination(route: '/review'),
+        dueCount: 12,
       ),
-    ],
-  ),
-);
+      hanok: PersonalHanokProjection.from(
+        const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
+      ),
+      quests: const [
+        QuestProgress(
+          questId: 'q_jangdokdae',
+          current: 3,
+          target: 15,
+          active: true,
+          completed: false,
+          completedAtIso: null,
+        ),
+      ],
+      pendingBojagiCount: 1,
+      stampCount: 4,
+      xp: 320,
+      streakDays: 6,
+      todayReward: const RewardContract(
+        activityId: 'srs',
+        condition: SoriLocalizedCopy(de: 'Lernen', en: 'Learn'),
+        items: [
+          RewardContractItem(
+            kind: SoriRewardKind.xp,
+            label: SoriLocalizedCopy(de: 'Lern-XP', en: 'Learning XP'),
+          ),
+        ],
+      ),
+    );
+
+Future<void> _initGyeStorage() async {
+  Storage.resetForTesting();
+  SharedPreferences.setMockInitialValues(<String, Object>{
+    'kl_user_level': 'a1',
+    'kl_tut_gye_tab': true,
+  });
+  await Storage.init();
+}
+
+Widget _hanokApp({required double textScale}) {
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: AppTheme.light,
+    locale: const Locale('de'),
+    supportedLocales: AppL10n.supportedLocales,
+    localizationsDelegates: AppL10n.localizationsDelegates,
+    builder: (context, child) => MediaQuery(
+      data: MediaQuery.of(context).copyWith(
+        disableAnimations: true,
+        textScaler: TextScaler.linear(textScale),
+      ),
+      child: child!,
+    ),
+    home: SoriStageHanokScreen(
+      worldForTesting: const ColoredBox(color: Colors.transparent),
+      loadSnapshot: () async => _todayFitSnapshot(),
+    ),
+    onGenerateRoute: (_) => MaterialPageRoute<void>(
+      builder: (_) => const Scaffold(body: Text('route')),
+    ),
+  );
+}
+
+Widget _gyeApp({required double textScale}) {
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: AppTheme.light,
+    locale: const Locale('de'),
+    supportedLocales: AppL10n.supportedLocales,
+    localizationsDelegates: AppL10n.localizationsDelegates,
+    builder: (context, child) => MediaQuery(
+      data: MediaQuery.of(context).copyWith(
+        disableAnimations: true,
+        textScaler: TextScaler.linear(textScale),
+      ),
+      child: child!,
+    ),
+    home: const SoriStageGyeScreen(),
+    onGenerateRoute: (_) => MaterialPageRoute<void>(
+      builder: (_) => const Scaffold(body: Text('route')),
+    ),
+  );
+}

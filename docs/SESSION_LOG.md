@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — Learn/Games/Hanok/Gye 글자·폭 맞춤
+
+**무엇을 왜.** Jin이 Today와 같은 방식으로 나머지 4탭도 기기·글자배율·
+정렬만 맞추라고 했다. `/frontend-design`은 새 집을 그리지 않고 기존
+토큰·구성을 유지하는 가독성 패스에만 썼다.
+
+**무엇을.** 페이지 헤더 wrap. Learn/Games 분 필 말줄임. Hanok은 이중
+bottom SafeArea를 제거하고 숏컷을 헤더와 같은 960 클램프·짧은 화면은
+`SoriMinHeightScroll`(640, 390+는 시각 0). Gye 임베디드는 이중 SafeArea
+제거·본문 폭을 헤더와 같은 880·흐름 띠/칩/멤버 수 wrap. 색·카드·IA 불변.
+
+**검증.** 카탈로그 learn/games 320–1280 × 1/1.3/2 + Hanok/Gye 320/360/390/1280
+× 1/2 + 기존 Today/availability/matte/gye_embedded_fit/hanok_shortcuts.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 레이아웃 맞춤 브랜치를 main에 잇고 H2 시안 포인터 삭제
 
 **무엇을 왜.** PR #101 이 `main`(`d73a448f`)과 SESSION_LOG 충돌로 dirty.

@@ -340,7 +340,12 @@ class _MinutesPill extends StatelessWidget {
         color: Color(0x8C000000), // black @0.55
         borderRadius: SoriRadius.brPill,
       ),
-      child: Text(label, style: tt.caption.copyWith(color: Colors.white)),
+      child: Text(
+        label,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: tt.caption.copyWith(color: Colors.white),
+      ),
     );
   }
 }

@@ -154,7 +154,13 @@ class _GyeTabScreenState extends State<GyeTabScreen>
             ),
       body: SoriScreenBackground(
         child: SafeArea(
+          top: !widget.embedded,
+          left: !widget.embedded,
+          right: !widget.embedded,
+          bottom: !widget.embedded,
           child: SoriContentClamp(
+            // 셸 헤더와 같은 880 — 폰에서는 폭이 880 미만이라 시각 변화 0.
+            maxWidth: widget.embedded ? 880 : null,
             base: const EdgeInsets.fromLTRB(
               Spacing.lg,
               Spacing.md,
@@ -390,7 +396,13 @@ class _ShortPointCard extends StatelessWidget {
           Icon(icon, size: 20, color: SoriColors.primary),
           const SizedBox(width: Spacing.md),
           Expanded(
-            child: Text(text, style: tt.bodySmall.copyWith(color: s.text)),
+            child: Text(
+              text,
+              style: tt.bodySmall.copyWith(color: s.text),
+              softWrap: true,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+            ),
           ),
           if (trailing != null) trailing!,
         ],
@@ -513,6 +525,8 @@ class _GyeCard extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   t.gyeMembersN(gye.memberCount),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: SoriTextTheme.of(
                     context,
                   ).cardSubtitle.copyWith(color: s.textMuted),

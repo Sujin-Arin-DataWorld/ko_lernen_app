@@ -16,57 +16,64 @@ class SoriStageGyeScreen extends StatelessWidget {
     final t = AppL10n.of(context);
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            SoriContentClamp(
-              maxWidth: 880,
-              base: const EdgeInsets.fromLTRB(20, 20, 20, 12),
-              builder: (context, padding) => Padding(
-                padding: padding,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SoriStageRootHeader(
-                      eyebrow: t.soriStageNavGye,
-                      title: t.soriStageGyePromise,
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                    Container(
-                      width: double.infinity,
-                      // §P5-1 밀도 패스 — 390×844 스크롤 없는 CTA 도달.
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: Spacing.lg,
-                        vertical: Spacing.md,
+        child: SoriMinHeightScroll(
+          minHeight: soriStageChromeMinHeight(context),
+          child: Column(
+            children: [
+              SoriContentClamp(
+                maxWidth: 880,
+                base: const EdgeInsets.fromLTRB(20, 20, 20, 12),
+                builder: (context, padding) => Padding(
+                  padding: padding,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SoriStageRootHeader(
+                        eyebrow: t.soriStageNavGye,
+                        title: t.soriStageGyePromise,
+                        titleMaxLines: 3,
                       ),
-                      decoration: BoxDecoration(
-                        color: SoriActivityColors.collaboration.withValues(
-                          alpha: .16,
+                      const SizedBox(height: Spacing.sm),
+                      Container(
+                        width: double.infinity,
+                        // §P5-1 밀도 패스 — 390×844 스크롤 없는 CTA 도달.
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: Spacing.lg,
+                          vertical: Spacing.md,
                         ),
-                        borderRadius: BorderRadius.circular(SoriRadius.md),
-                      ),
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.local_fire_department_outlined,
-                            color: SoriColors.highlight,
+                        decoration: BoxDecoration(
+                          color: SoriActivityColors.collaboration.withValues(
+                            alpha: .16,
                           ),
-                          const SizedBox(width: Spacing.md),
-                          Expanded(
-                            child: Text(
-                              t.soriStageGyeFlow,
-                              // §P5-1-5: raw TextStyle(w700) → 토큰 수렴.
-                              style: SoriTextTheme.of(context).label,
+                          borderRadius: BorderRadius.circular(SoriRadius.md),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.local_fire_department_outlined,
+                              color: SoriColors.highlight,
                             ),
-                          ),
-                        ],
+                            const SizedBox(width: Spacing.md),
+                            Expanded(
+                              child: Text(
+                                t.soriStageGyeFlow,
+                                // §P5-1-5: raw TextStyle(w700) → 토큰 수렴.
+                                style: SoriTextTheme.of(context).label,
+                                softWrap: true,
+                                maxLines: 3,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Expanded(child: GyeTabScreen(embedded: true, active: active)),
-          ],
+              Expanded(child: GyeTabScreen(embedded: true, active: active)),
+            ],
+          ),
         ),
       ),
     );

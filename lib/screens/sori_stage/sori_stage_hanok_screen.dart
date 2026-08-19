@@ -84,56 +84,64 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
     return Scaffold(
       body: SoriScreenBackground(
         child: SafeArea(
-          child: Column(
-            children: [
-              SoriContentClamp(
-                maxWidth: 960,
-                base: const EdgeInsets.fromLTRB(20, 20, 20, 12),
-                builder: (context, padding) => Padding(
-                  padding: padding,
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 44),
-                        child: SoriStageRootHeader(
-                          eyebrow: t.soriStageNavHanok,
-                          title: t.soriStageHanokTitle,
-                          body: t.soriStageHanokBody,
+          // 가로·짧은 폰에서 헤더+숏컷이 월드를 밀어 넘치지 않게.
+          // 390×844 이상은 지금까지와 같은 flex (시각 변화 0).
+          child: SoriMinHeightScroll(
+            minHeight: soriStageChromeMinHeight(context),
+            child: Column(
+              children: [
+                SoriContentClamp(
+                  maxWidth: 960,
+                  base: const EdgeInsets.fromLTRB(20, 20, 20, 12),
+                  builder: (context, padding) => Padding(
+                    padding: padding,
+                    child: Stack(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsetsDirectional.only(end: 44),
+                          child: SoriStageRootHeader(
+                            eyebrow: t.soriStageNavHanok,
+                            title: t.soriStageHanokTitle,
+                            body: t.soriStageHanokBody,
+                            titleMaxLines: 3,
+                            bodyMaxLines: 3,
+                          ),
                         ),
-                      ),
-                      const PositionedDirectional(
-                        end: 0,
-                        top: 0,
-                        child: CulturalHelpButton(termId: 'hanok'),
-                      ),
-                    ],
+                        const PositionedDirectional(
+                          end: 0,
+                          top: 0,
+                          child: CulturalHelpButton(termId: 'hanok'),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Expanded(
-                child:
-                    widget.worldForTesting ??
-                    const HanokWorldScreen(embedded: true),
-              ),
-              SafeArea(
-                top: false,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
-                  child: FutureBuilder<SoriStageProgressionSnapshot>(
-                    future: _future,
-                    builder: (context, snapshot) {
-                      final ready =
-                          snapshot.connectionState == ConnectionState.done &&
-                          !snapshot.hasError;
-                      return _ShortcutTiles(
-                        snapshot: ready ? snapshot.data : null,
-                        onOpen: _openShortcut,
-                      );
-                    },
+                Expanded(
+                  child:
+                      widget.worldForTesting ??
+                      const HanokWorldScreen(embedded: true),
+                ),
+                SoriContentClamp(
+                  maxWidth: 960,
+                  base: const EdgeInsets.fromLTRB(20, 8, 20, 12),
+                  builder: (context, padding) => Padding(
+                    padding: padding,
+                    child: FutureBuilder<SoriStageProgressionSnapshot>(
+                      future: _future,
+                      builder: (context, snapshot) {
+                        final ready =
+                            snapshot.connectionState == ConnectionState.done &&
+                            !snapshot.hasError;
+                        return _ShortcutTiles(
+                          snapshot: ready ? snapshot.data : null,
+                          onOpen: _openShortcut,
+                        );
+                      },
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -282,6 +290,9 @@ class _ShortcutTile extends StatelessWidget {
                   Text(
                     count!,
                     key: ValueKey('hanok-shortcut-count-$id'),
+                    textAlign: TextAlign.center,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     style: tt.caption.copyWith(color: s.textMuted),
                   ),
               ],

@@ -16,6 +16,8 @@ class SoriPageHeader extends StatelessWidget {
     this.body,
     this.trailing,
     this.titleStyle,
+    this.titleMaxLines,
+    this.bodyMaxLines,
   });
 
   /// 헤드라인 위 소형 라벨. 대문자화는 여기서 하지 않는다 — 독일어 ß 등
@@ -31,6 +33,10 @@ class SoriPageHeader extends StatelessWidget {
   /// 기본 [SoriTextTheme.hero] 를 다른 위계로 낮출 때 (컴팩트 맥락).
   final TextStyle? titleStyle;
 
+  /// 비스크롤 크롬(한옥/계 헤더)에서만 쓴다. 스크롤 탭은 null 로 줄만 늘린다.
+  final int? titleMaxLines;
+  final int? bodyMaxLines;
+
   @override
   Widget build(BuildContext context) {
     final tt = SoriTextTheme.of(context);
@@ -41,10 +47,26 @@ class SoriPageHeader extends StatelessWidget {
           Text(eyebrow!, style: tt.eyebrow),
           const SizedBox(height: Spacing.xs),
         ],
-        Text(title, style: titleStyle ?? tt.hero),
+        Text(
+          title,
+          style: titleStyle ?? tt.hero,
+          softWrap: true,
+          maxLines: titleMaxLines,
+          overflow: titleMaxLines == null
+              ? TextOverflow.visible
+              : TextOverflow.ellipsis,
+        ),
         if (body != null) ...[
           const SizedBox(height: Spacing.sm),
-          Text(body!, style: tt.body),
+          Text(
+            body!,
+            style: tt.body,
+            softWrap: true,
+            maxLines: bodyMaxLines,
+            overflow: bodyMaxLines == null
+                ? TextOverflow.visible
+                : TextOverflow.ellipsis,
+          ),
         ],
       ],
     );
