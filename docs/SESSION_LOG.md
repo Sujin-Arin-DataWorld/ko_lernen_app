@@ -7,7 +7,7 @@
 가 `SoriChip` A2 를 `ensureVisible`+`tap` 하는데, 개수 라벨(`A2 · 46`)과 앞쪽
 `Practice with examples` CTA 때문에 칩이 가로 ListView 오른쪽 클립 끝에 붙고
 탭 좌표 `(757.7, 82.0)` 가 히트 영역을 벗어난다. 세션이 안 지워져
-`_finishSession` 이 그대로 남았다.
+`_finishSession` 이 그대로 남았다. `6c49eeb1` workflow_dispatch 도 같은 1실패.
 
 **고침.** 레벨 칩에 `Key('grammar-level-$lvl')` · 필터 ListView 에
 `Key('grammar-filter-row')` 를 달고, 해당 테스트는 칩 `onTap` 을 직접 호출해
@@ -17,6 +17,36 @@
 test/grammar_type_filter_test.dart test/data_integrity_test.dart` 통과.
 `flutter test test/visual_layout_regression_test.dart --name grammar` 통과.
 `dart analyze` 변경 파일 이슈 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Claude Opus 5, macOS) — 사랑채를 40px 올려 사랑마당을 되찾는다
+
+**무엇을 왜.** z순서를 고쳐 가림 순서는 맞췄지만 사랑채와 앞줄(행랑채·솟을대문)이
+여전히 맞닿아 있었다. Jin이 벌리자고 해서 40px 위로(직접 선택).
+
+**막혔던 것과 우회.** 처음엔 `sarangchae.png` 자체를 평행이동했다(알파 214,816 보존,
+RGBA 완전 일치까지 확인). 그런데 그 파일의 sha256이 **원장 레코드 9건의 inputAssets**에
+박혀 있고, 테스트가 `allowedModelInputs`와 각 레코드의 inputAssets sha를 **같은
+path→sha 맵**으로 대조한다. allowlist만 새 sha로 바꾸면 9건이 전부 깨지고, 9건을 같이
+바꾸면 "모델에 무엇을 먹였는가"라는 감사 기록이 거짓이 된다. 스키마엔 자산 버전 개념이
+없다. 그래서 **PNG를 원상복구하고**(sha f523e93f 확인) 그리기 시점에 옮기는 쪽으로 바꿨다.
+
+**고침.** `PersonalHanokMapLayer.canvasOffsetY`(마스터 캔버스 px, 기본 0) 신설 +
+`_MapLayerImage`가 실제 표시 높이에 비례 환산해 `Transform.translate` 적용. 0이면
+Transform을 만들지 않아 기존 레이어 렌더 경로는 그대로다. 사랑채 `canvasOffsetY: -40`,
+`visualBounds.top` .533→.500(잠금해제 스포트라이트가 건물을 따라가게).
+
+**결과.** 사랑채∩행랑채 17,370px → 1,735px(90%↓). 남은 겹침은 앞 건물이 뒤 건물 기단을
+살짝 가리는 자연스러운 정도다. 에셋 0장 변경, 원장·allowlist·프롬프트 문서 전부 무손상.
+
+**A1 16단계는 안 옮겼다.** 소켓 크롭이 `sarangchae.png` 좌표 기준이라 `camera.socket.y`만
+바꾸면 엉뚱한 영역을 잘라낸다. A1 시공 화면은 자체적으로 일관되며 지도와는 별 화면이다.
+지도와 A1 완성본 사이에 40px 차이가 남는 것은 알고 남긴 선택이다.
+
+**검증.** `flutter test test/goldens/ asset_orphan_guard hanok_v1_asset_provenance` 통과,
+`personal_hanok_map/unlock_reveal/hanok_world_screen/world_map_viewport/
+a1_hanok_construction_catalog` 31/31 통과. `flutter analyze` 클린. 골든 2장 갱신.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
