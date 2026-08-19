@@ -1352,7 +1352,7 @@
       "xpReward": 110,
       "title": {
         "ko": "편의점에서 사기",
-        "de": "Im Convenience Store",
+        "de": "Im Spätkauf",
         "en": "At the convenience store"
       },
       "intro": {
@@ -1365,7 +1365,7 @@
           "korean": "편의점",
           "note": {
             "ko": "",
-            "de": "Convenience Store (CU, GS25, 7-Eleven, Emart24). Allgegenwärtig, 24/7.",
+            "de": "Spätkauf / Mini-Markt (in Korea: CU, GS25, 7-Eleven, Emart24). Überall, rund um die Uhr.",
             "en": "Convenience store (CU, GS25, 7-Eleven, Emart24). Everywhere, 24/7."
           }
         },

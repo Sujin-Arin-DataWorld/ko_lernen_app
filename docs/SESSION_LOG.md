@@ -1,5 +1,15 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 시나리오·끝말잇기 편의점 ≠ Convenience Store
+
+**무엇을 왜.** 독일어 학습 화면에 영어 Convenience Store가 남았다.
+A1 편의점 시나리오 제목·어휘 노트, A2 택시 하차, 끝말잇기 풀을
+Spätkauf / Mini-Markt로. EN convenience store는 유지.
+
+**검증.** assets/data Grep Convenience Store 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 스몰톡 Convenience-Store·딱딱한 Sie
 
 **무엇을 왜.** 편의점 답을 Convenience-Store로 두었고, 교실 스몰톡이
