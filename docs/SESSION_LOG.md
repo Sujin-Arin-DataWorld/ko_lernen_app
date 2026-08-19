@@ -20,6 +20,26 @@ test/grammar_type_filter_test.dart test/data_integrity_test.dart` 통과.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 3일 main 전수 감사 파일만
+
+**무엇을 왜.** Jin이 최근 3일 커밋을 최신 HEAD까지 하나씩 읽고, 오류·누락·앱
+미반영·치명적인 것을 권장 해결과 한 파일에 남긴 뒤 **그 파일만** main에
+올리라고 했다. 코드·에셋·설정은 안 고친다.
+
+**남긴 것.** `docs/MAIN_3DAY_AUDIT_2026-08-19.md`. HEAD `6fad2bab`. first-parent
+135 / non-merge 258 / 전체 346. 스킬은 review-changes·explore·debug·
+refactor-safely·frontend-design + GitHub MCP. code-review-graph는 이 세션 MCP에
+없음.
+
+**P0만.** TTS/책분석 live 미배포, 새 클라 `blockSpeechFallback` 무음, 한옥 V1
+UI 0 + 19일 생성 43cr 미원장, main Analyze 1실패는 열린 PR #89.
+
+**검증.** `generate_tts.py --dry-run` 11,438쌍. `validate_content.py --json`
+ok. 시나리오 샤드 392 · vocab 2292 · grammar 214. `TtsService.lastError` 위젯
+읽기 0. `HanokCutoverService` 생산 호출 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Claude Opus 5, macOS) — 사랑채를 40px 올려 사랑마당을 되찾는다
 
 **무엇을 왜.** z순서를 고쳐 가림 순서는 맞췄지만 사랑채와 앞줄(행랑채·솟을대문)이
