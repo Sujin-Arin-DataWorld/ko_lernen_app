@@ -105,8 +105,10 @@ class ModuleCard extends StatelessWidget {
                     : ribbonValue != null
                     ? '$ribbonValue'
                     : t.moduleBadgeDue,
+                // 글자 배율은 SoriTypeScale(MaterialApp.builder) 이 유일하게 담당한다 —
+                // 여기서 comfortScale 을 곱하면 이중 배율이 된다(2026-08-19).
                 style: tt.label.copyWith(
-                  fontSize: 11 * comfortScale,
+                  fontSize: 11,
                   color: SoriColors.onFill(
                     ribbonType == 'new'
                         ? SoriColors.success
@@ -235,8 +237,10 @@ class FeaturedModuleCard extends StatelessWidget {
             ),
             child: Text(
               ribbonType == 'new' ? t.moduleBadgeNew : t.moduleBadgeDue,
+              // 글자 배율은 SoriTypeScale(MaterialApp.builder) 이 유일하게 담당한다 —
+              // 여기서 comfortScale 을 곱하면 이중 배율이 된다(2026-08-19).
               style: tt.label.copyWith(
-                fontSize: 11 * comfortScale,
+                fontSize: 11,
                 color: SoriColors.onFill(
                   ribbonType == 'new' ? SoriColors.success : SoriColors.warning,
                 ),
