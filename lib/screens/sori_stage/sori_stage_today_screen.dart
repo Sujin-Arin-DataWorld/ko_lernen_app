@@ -747,11 +747,16 @@ class _TodayUnavailableMissionStage extends StatelessWidget {
             ],
           ),
           const SizedBox(height: Spacing.md),
-          Text(copy.title, style: tt.h1.copyWith(color: Colors.white)),
+          Text(
+            copy.title,
+            style: tt.h1.copyWith(color: Colors.white),
+            softWrap: true,
+          ),
           const SizedBox(height: Spacing.sm),
           Text(
             copy.body,
             style: tt.body.copyWith(color: SoriActivityColors.onHanokStage),
+            softWrap: true,
           ),
           if (hasSavedReview) ...[
             const SizedBox(height: Spacing.xl),
@@ -1059,6 +1064,8 @@ class _QuestProgressRow extends StatelessWidget {
               style: tt.label.copyWith(
                 fontFeatures: const [FontFeature.tabularFigures()],
               ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),
