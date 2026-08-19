@@ -137,7 +137,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 여름,yeoreum,Sommer,A2,Nomen,한국 여름은 진짜 더워요.,Der Sommer in Korea ist echt heiß.,Wetter,a2_weather,4,false,summer,Noun,Summer in Korea is really hot.,vocab_a2_0007
 가을,gaeul,Herbst,A2,Nomen,가을 단풍이 정말 예뻐요.,Das Herbstlaub ist wirklich schön.,Wetter,a2_weather,5,false,autumn / fall,Noun,The autumn leaves are really beautiful.,vocab_a2_0008
 겨울,gyeoul,Winter,A2,Nomen,한국 겨울은 좀 추워요.,Der Winter in Korea ist ziemlich kalt.,Wetter,a2_weather,6,false,winter,Noun,Winter in Korea is pretty cold.,vocab_a2_0009
-병원,byeongwon,Krankenhaus,A2,Nomen,감기가 심해서 병원에 다녀왔어요.,"Meine Erkältung war schlimm, deshalb war ich im Krankenhaus.",Gesundheit,a2_health_misc_1,2,false,hospital,Noun,"My cold was bad, so I went to the hospital.",vocab_a2_0010
+병원,byeongwon,Arzt / Klinik,A2,Nomen,감기가 심해서 병원에 다녀왔어요.,"Die Erkältung war so schlimm, ich war beim Arzt.",Gesundheit,a2_health_misc_1,2,false,doctor's / clinic,Noun,My cold was so bad I went to the doctor.,vocab_a2_0010
 약,yak,Medizin / Medikament,A2,Nomen,감기약 좀 사러 왔어요.,"Ich bin hier, um Erkältungsmedizin zu kaufen.",Gesundheit,a2_health_misc_1,3,false,medicine / medication,Noun,I came to buy some cold medicine.,vocab_a2_0011
 식당,sikdang,Restaurant,A2,Nomen,이 근처에 맛있는 식당 있어요?,Gibt es hier in der Nähe ein gutes Restaurant?,Essen & Trinken,a2_food_1,1,false,restaurant,Noun,Is there a good restaurant around here?,vocab_a2_0012
 시장,sijang,Markt,A2,Nomen,주말에 시장에 다녀왔어요.,Am Wochenende war ich auf dem Markt.,Einkaufen,a2_shopping_1,1,false,market,Noun,I went to the market over the weekend.,vocab_a2_0013
@@ -148,7 +148,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 음악,eumak,Musik,A2,Nomen,요즘 이 음악 자주 들어요.,Diese Musik höre ich zurzeit oft.,Freizeit,a2_health_misc_1,6,false,music,Noun,I've been listening to this music a lot lately.,vocab_a2_0018
 영화,yeonghwa,Film,A2,Nomen,주말에 영화 한 편 봤어요.,Am Wochenende habe ich einen Film gesehen.,Freizeit,a2_health_misc_1,7,false,movie / film,Noun,I watched a movie over the weekend.,vocab_a2_0019
 시험,siheom,Prüfung / Test,A2,Nomen,다음 주에 시험이 있어서 걱정이에요.,"Ich mache mir Sorgen, weil ich nächste Woche eine Prüfung habe.",Bildung,a2_education,1,false,exam / test,Noun,I'm worried because I have an exam next week.,vocab_a2_0020
-숙제,sukje,Hausaufgaben,A2,Nomen,숙제 다 했어요?,Haben Sie Ihre Hausaufgaben schon gemacht?,Bildung,a2_education,2,false,homework,Noun,Did you finish your homework?,vocab_a2_0021
+숙제,sukje,Hausaufgaben,A2,Nomen,숙제 다 했어요?,Hast du deine Hausaufgaben schon gemacht?,Bildung,a2_education,2,false,homework,Noun,Did you finish your homework?,vocab_a2_0021
 성적,seongjeok,Noten / Ergebnis,A2,Nomen,이번엔 성적이 좀 올랐어요.,Diesmal sind meine Noten etwas besser geworden.,Bildung,a2_education,3,false,grades / results,Noun,My grades went up a bit this time.,vocab_a2_0022
 휴가,hyuga,Urlaub / Freizeit,A2,Nomen,다음 주부터 휴가예요.,Ab nächster Woche habe ich Urlaub.,Beruf,a2_work,3,false,vacation / time off,Noun,I'm on vacation starting next week.,vocab_a2_0023
 회의,hoeui,Meeting / Besprechung,A2,Nomen,지금 회의 중이에요.,Ich bin gerade in einem Meeting.,Beruf,a2_work,4,false,meeting,Noun,I'm in a meeting right now.,vocab_a2_0024
@@ -156,7 +156,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 기차,gicha,Zug / Bahn,A2,Nomen,기차 시간에 늦었어요.,Ich war zu spät für den Zug.,Verkehr,a2_transport,3,false,train,Noun,I was late for the train.,vocab_a2_0026
 자전거,jajeongeo,Fahrrad,A2,Nomen,요즘 자전거로 출근해요.,Zurzeit fahre ich mit dem Fahrrad zur Arbeit.,Verkehr,a2_transport,4,false,bicycle,Noun,These days I ride my bike to work.,vocab_a2_0027
 전화,jeonhwa,Telefon / Anruf,A2,Nomen,아까 부재중 전화 왔어요.,Vorhin gab es einen verpassten Anruf.,Kommunikation,a2_health_misc_1,8,true,phone / call,Noun,There was a missed call earlier.,vocab_a2_0028
-문자,munja,Nachricht (SMS),A2,Nomen,답장 문자 못 봤어요?,Haben Sie meine Antwort-SMS nicht gesehen?,Kommunikation,a2_health_misc_1,9,true,text message,Noun,Didn't you see my reply text?,vocab_a2_0029
+문자,munja,Nachricht (SMS),A2,Nomen,답장 문자 못 봤어요?,Hast du meine Antwort nicht gesehen?,Kommunikation,a2_health_misc_1,9,true,text message,Noun,Didn't you see my reply text?,vocab_a2_0029
 인터넷,inteonet,Internet,A2,Nomen,여기 인터넷 좀 느리네요.,Das Internet hier ist etwas langsam.,Technologie,a2_health_misc_2,1,false,internet,Noun,The internet here is a bit slow.,vocab_a2_0030
 컴퓨터,keompyuteo,Computer,A2,Nomen,컴퓨터가 갑자기 꺼졌어요.,Der Computer ist plötzlich ausgegangen.,Technologie,a2_health_misc_2,2,false,computer,Noun,The computer suddenly shut off.,vocab_a2_0031
 지갑,jigap,Geldbörse / Portemonnaie,A2,Nomen,"아, 지갑을 집에 두고 왔어요.","Ach, ich habe meine Geldbörse zu Hause gelassen.",Alltag,a2_daily_1,2,false,wallet / purse,Noun,"Oh no, I left my wallet at home.",vocab_a2_0032
@@ -170,11 +170,11 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 운동하다,undonghada,Sport machen,A2,Verb,요즘 매일 운동하려고 해요.,"Zurzeit versuche ich, jeden Tag Sport zu machen.",Sport,a2_health_misc_2,3,false,to exercise,Verb,Lately I've been trying to exercise every day.,vocab_a2_0040
 여행하다,yeohaenghada,reisen,A2,Verb,여름에 유럽을 여행하고 싶어요.,Im Sommer möchte ich durch Europa reisen.,Reise,a2_health_misc_2,4,false,to travel,Verb,I want to travel around Europe in the summer.,vocab_a2_0041
 요리하다,yorihada,kochen,A2,Verb,저는 주말에 요리하는 걸 좋아해요.,Ich koche am Wochenende gern.,Essen & Trinken,a2_food_1,2,false,to cook,Verb,I like cooking on weekends.,vocab_a2_0042
-전화하다,jeonhwahada,anrufen,A2,Verb,이따 다시 전화할게요.,Ich rufe Sie später noch mal an.,Kommunikation,a2_health_misc_2,5,false,to call (on the phone),Verb,I'll call you back later.,vocab_a2_0043
+전화하다,jeonhwahada,anrufen,A2,Verb,이따 다시 전화할게요.,Ich ruf dich später noch mal an.,Kommunikation,a2_health_misc_2,5,false,to call (on the phone),Verb,I'll call you back later.,vocab_a2_0043
 도착하다,dochakhada,ankommen,A2,Verb,지금 막 도착했어요.,Ich bin gerade angekommen.,Bewegung,a2_transport,5,false,to arrive,Verb,I just arrived.,vocab_a2_0044
 쉬다,swida,sich ausruhen,A2,Verb,오늘은 그냥 집에서 쉴래요.,Heute möchte ich mich einfach zu Hause ausruhen.,Alltag,a2_daily_1,4,false,to rest,Verb,Today I just want to rest at home.,vocab_a2_0045
 기억하다,gieokada,sich erinnern,A2,Verb,이름이 기억이 안 나요.,Ich kann mich nicht an den Namen erinnern.,Alltag,a2_daily_1,5,false,to remember,Verb,I can't remember the name.,vocab_a2_0046
-이해하다,ihaehada,verstehen,A2,Verb,무슨 말인지 이해했어요.,"Ich habe verstanden, was Sie meinen.",Bildung,a2_education,5,false,to understand,Verb,I understood what you meant.,vocab_a2_0047
+이해하다,ihaehada,verstehen,A2,Verb,무슨 말인지 이해했어요.,"Ich hab verstanden, was du meinst.",Bildung,a2_education,5,false,to understand,Verb,I understood what you meant.,vocab_a2_0047
 배우다,baeuda,lernen / etwas Neues erlernen,A2,Verb,요즘 기타를 배우고 있어요.,Zurzeit lerne ich Gitarre.,Bildung,a2_education,6,true,to learn (something new),Verb,I'm learning guitar these days.,vocab_a2_0048
 가르치다,gareuchida,lehren / unterrichten,A2,Verb,저희 언니가 영어를 가르쳐요.,Meine ältere Schwester unterrichtet Englisch.,Bildung,a2_education,7,true,to teach,Verb,My older sister teaches English.,vocab_a2_0049
 찾다,chatda,suchen / finden,A2,Verb,지금 열쇠를 찾고 있어요.,Ich suche gerade den Schlüssel.,Alltag,a2_daily_1,6,false,to look for / to find,Verb,I'm looking for the key right now.,vocab_a2_0050
@@ -398,7 +398,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 사이즈,saijeu,Größe,A2,Nomen,혹시 한 사이즈 큰 거 있어요?,Haben Sie das vielleicht eine Größe größer?,Einkaufen,a2_shopping_1,7,true,size,Noun,Do you have this one size bigger?,vocab_a2_0097
 색깔,saekkkal,Farbe,A2,Nomen,다른 색깔도 있어요?,Gibt es auch andere Farben?,Einkaufen,a2_shopping_2,1,false,color,Noun,Are there other colors too?,vocab_a2_0098
 입어보다,ibeoboda,anprobieren,A2,Verb,이거 한번 입어봐도 될까요?,Darf ich das mal anprobieren?,Einkaufen,a2_shopping_2,2,false,to try on,Verb,Can I try this on?,vocab_a2_0099
-어울리다,eoullida,passen / stehen,A2,Verb,이 색이 진짜 잘 어울려요.,Diese Farbe steht Ihnen wirklich gut.,Einkaufen,a2_shopping_2,3,false,to suit / to look good on,Verb,This color really suits you.,vocab_a2_0100
+어울리다,eoullida,passen / stehen,A2,Verb,이 색이 진짜 잘 어울려요.,Die Farbe steht dir echt gut.,Einkaufen,a2_shopping_2,3,false,to suit / to look good on,Verb,This color really suits you.,vocab_a2_0100
 환불,hwanbul,Rückerstattung,A2,Nomen,환불 좀 하고 싶은데요.,Ich hätte gern eine Rückerstattung.,Einkaufen,a2_shopping_2,4,false,refund,Noun,I'd like to get a refund.,vocab_a2_0101
 교환,gyohwan,Umtausch,A2,Nomen,다른 사이즈로 교환할 수 있을까요?,Könnte ich das in eine andere Größe umtauschen?,Einkaufen,a2_shopping_2,5,false,exchange,Noun,Could I exchange this for a different size?,vocab_a2_0102
 손님,sonnim,Kunde / Gast,A2,Nomen,오늘 손님이 많으시네요.,Sie haben heute aber viele Gäste.,Einkaufen,a2_shopping_2,6,true,customer / guest,Noun,You've got a lot of customers today.,vocab_a2_0103
@@ -434,7 +434,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 청소하다,cheongsohada,putzen / sauber machen,A2,Verb,오늘 방 청소 좀 해야겠어요.,Heute sollte ich mal mein Zimmer putzen.,Alltag,a2_daily_3,6,false,to clean,Verb,I really need to clean my room today.,vocab_a2_0133
 정리하다,jeongnihada,aufräumen / ordnen,A2,Verb,책상 좀 정리했어요.,Ich habe den Schreibtisch aufgeräumt.,Alltag,a2_daily_3,7,true,to tidy up / to organize,Verb,I tidied up the desk.,vocab_a2_0134
 설거지하다,seolgeojihada,Geschirr spülen,A2,Verb,밥 먹고 설거지는 제가 할게요.,Nach dem Essen übernehme ich den Abwasch.,Alltag,a2_daily_3,8,true,to wash the dishes,Verb,I'll do the dishes after we eat.,vocab_a2_0135
-분홍색,bunhongsaek,rosa,A2,Nomen,저 분홍색 진짜 잘 어울리네요.,Das Rosa steht Ihnen wirklich gut.,Farben,a2_descriptions_2,3,false,pink,Noun,That pink really suits you.,vocab_a2_0136
+분홍색,bunhongsaek,rosa,A2,Nomen,저 분홍색 진짜 잘 어울리네요.,Das Rosa steht dir echt gut.,Farben,a2_descriptions_2,3,false,pink,Noun,That pink really suits you.,vocab_a2_0136
 보라색,borasaek,lila / violett,A2,Nomen,보라색 옷은 잘 안 입어요.,Lila Sachen trage ich eher selten.,Farben,a2_descriptions_2,4,false,purple / violet,Noun,I don't really wear purple.,vocab_a2_0137
 갈색,galsaek,braun,A2,Nomen,저는 갈색 머리로 염색했어요.,Ich habe mir die Haare braun gefärbt.,Farben,a2_descriptions_2,5,false,brown,Noun,I dyed my hair brown.,vocab_a2_0138
 회색,hoesaek,grau,A2,Nomen,오늘은 회색 코트 입을래요.,Heute ziehe ich den grauen Mantel an.,Farben,a2_descriptions_2,6,true,gray,Noun,I'm going to wear my gray coat today.,vocab_a2_0139
@@ -1651,7 +1651,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 시간 맞추다,sigan matchuda,die Zeit abstimmen,A1,Ausdruck,내일 오후에 시간 맞추다 문자를 보냈어요.,"Morgen Nachmittag habe ich geschrieben, um die Zeit abzustimmen.",Wochenendzusage,a1_weekend_promise_1,6,false,to match the time,Expression,I texted tomorrow afternoon to match the time.,vocab_a1_0337
 다음에 봐요,daeume bwayo,bis zum nächsten Mal,A1,Ausdruck,오늘은 여기까지 하고 다음에 봐요.,"Für heute reicht es, bis zum nächsten Mal.",Wochenendzusage,a1_weekend_promise_1,7,false,see you next time,Expression,"That's enough for today, see you next time.",vocab_a1_0338
 바로 갈게요,baro galgeyo,ich komme gleich,A1,Ausdruck,지금 나와서 바로 갈게요.,Ich gehe jetzt raus und komme gleich.,Wochenendzusage,a1_weekend_promise_1,8,false,I'll come right away,Expression,I'm heading out now and I'll come right away.,vocab_a1_0339
-주말 계획,jumal gyehoek,Wochenendplan,A1,Ausdruck,주말 계획을 같이 세워 봐요.,Lassen Sie uns den Wochenendplan gemeinsam machen.,Wochenendzusage,a1_weekend_promise_1,9,false,weekend plan,Expression,Let's make the weekend plan together.,vocab_a1_0340
+주말 계획,jumal gyehoek,Wochenendplan,A1,Ausdruck,주말 계획을 같이 세워 봐요.,Lass uns den Wochenendplan zusammen machen.,Wochenendzusage,a1_weekend_promise_1,9,false,weekend plan,Expression,Let's make the weekend plan together.,vocab_a1_0340
 늦을 것 같다,neuteul geot gatda,wahrscheinlich zu spät,A1,Ausdruck,버스가 막혀서 늦을 것 같다 연락했어요.,"Der Bus steckt fest, deshalb habe ich geschrieben, dass ich wahrscheinlich zu spät bin.",Wochenendzusage,a1_weekend_promise_1,10,true,looks like I'll be late,Expression,"The bus is stuck, so I wrote that it looks like I'll be late.",vocab_a1_0341
 같이 걷다,gati geotda,zusammen gehen,A1,Ausdruck,한강에서 같이 걷다 제안했어요.,"Ich habe vorgeschlagen, am Hangang zusammen zu gehen.",Wochenendzusage,a1_weekend_promise_1,11,true,to walk together,Expression,I suggested that we walk together at the Hangang.,vocab_a1_0342
 먼저 가다,meonjeo gada,schon vorausgehen,A1,Ausdruck,저는 먼저 가다 자리를 잡을게요.,Ich gehe schon voraus und sichere uns Plätze.,Wochenendzusage,a1_weekend_promise_1,12,true,to go ahead first,Expression,I'll go ahead first and hold seats.,vocab_a1_0343
@@ -1678,7 +1678,7 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 화이트보드,hwaiteubodeu,Whiteboard,A1,Nomen,선생님이 화이트보드에 단어를 썼어요.,Die Lehrkraft hat das Wort auf das Whiteboard geschrieben.,Schultasche,a1_school_supplies_1,9,false,whiteboard,Noun,The teacher wrote the word on the whiteboard.,vocab_a1_0364
 자리표,jaripyo,Platzkarte,A1,Nomen,첫날에는 자리표 이름을 확인해요.,Am ersten Tag prüfe ich den Namen auf der Platzkarte.,Schultasche,a1_school_supplies_1,10,true,seat card,Noun,On the first day I check the name on the seat card.,vocab_a1_0365
 필기하다,pilgihada,mitschreiben,A1,Verb,중요한 문장은 빨리 필기하다 보면 손이 아파요.,"Wenn ich wichtige Sätze schnell mitschreibe, tun die Hände weh.",Schultasche,a1_school_supplies_1,11,true,to take notes,Verb,"If I take notes on important sentences quickly, my hands hurt.",vocab_a1_0366
-준비됐나요,junbidwaetnayo,sind Sie bereit,A1,Ausdruck,수업 시작 전에 준비됐나요?,Sind Sie vor Unterrichtsbeginn bereit?,Schultasche,a1_school_supplies_1,12,true,are you ready,Expression,Are you ready before class starts?,vocab_a1_0367
+준비됐나요,junbidwaetnayo,bist du soweit,A1,Ausdruck,수업 시작 전에 준비됐나요?,Bist du vor der Stunde soweit?,Schultasche,a1_school_supplies_1,12,true,are you ready,Expression,Are you ready before class starts?,vocab_a1_0367
 환승,hwanseung,Umsteigen,A1,Nomen,다음 역에서 환승하세요.,Steigen Sie an der nächsten Station um.,U-Bahnkarte,a1_subway_card_1,1,false,transfer,Noun,Transfer at the next station.,vocab_a1_0368
 출구,chulgu,Ausgang,A1,Nomen,사 번 출구로 나가면 은행이 있어요.,"Wenn Sie Ausgang vier nehmen, ist dort eine Bank.",U-Bahnkarte,a1_subway_card_1,2,false,exit,Noun,"If you take exit four, there is a bank.",vocab_a1_0369
 승강장,seunggangjang,Bahnsteig,A1,Nomen,승강장에서 노란 선 뒤에 서요.,Auf dem Bahnsteig stehe ich hinter der gelben Linie.,U-Bahnkarte,a1_subway_card_1,3,false,platform,Noun,On the platform I stand behind the yellow line.,vocab_a1_0370
@@ -1708,11 +1708,11 @@ korean,romanization,german,level,pos_de,example_korean,example_german,topic,pack
 실례하다,silryehada,stören,A1,Verb,잠깐 실례하다 하고 지나갔어요.,Ich sagte Entschuldigung und ging vorbei.,Entschuldigung,a1_sorry_thanks_1,3,false,to excuse oneself,Verb,I said excuse me and passed by.,vocab_a1_0394
 양해,yanghae,Verständnis,A1,Nomen,소음에 양해를 구했어요.,Ich habe um Verständnis für den Lärm gebeten.,Entschuldigung,a1_sorry_thanks_1,4,false,understanding,Noun,I asked for understanding about the noise.,vocab_a1_0395
 부탁하다,butakhada,bitten,A1,Verb,창문을 닫아 달라고 부탁하다 전에 먼저 인사해요.,"Bevor ich bitte, das Fenster zu schließen, grüße ich zuerst.",Entschuldigung,a1_sorry_thanks_1,5,false,to ask a favor,Verb,"Before I ask them to close the window, I greet them first.",vocab_a1_0396
-문제없어요,munjeeopseoyo,kein Problem,A1,Ausdruck,실수해도 문제없어요.,"Wenn Sie einen Fehler machen, ist das kein Problem.",Entschuldigung,a1_sorry_thanks_1,6,false,no problem,Expression,"If you make a mistake, no problem.",vocab_a1_0397
+문제없어요,munjeeopseoyo,kein Problem,A1,Ausdruck,실수해도 문제없어요.,"Wenn du einen Fehler machst, ist das kein Problem.",Entschuldigung,a1_sorry_thanks_1,6,false,no problem,Expression,"If you make a mistake, no problem.",vocab_a1_0397
 제가 더요,jega deoyo,ich habe zu danken,A1,Ausdruck,도와줘서 고맙다는 말에 제가 더요.,"Auf das Danke sage ich, ich habe zu danken.",Entschuldigung,a1_sorry_thanks_1,7,false,I should thank you,Expression,"When someone thanks me, I say I should thank you.",vocab_a1_0398
 잠깐만요,jamkkanmanyo,einen Moment,A1,Ausdruck,계산 전에 잠깐만요.,"Vor dem Bezahlen, einen Moment bitte.",Entschuldigung,a1_sorry_thanks_1,8,false,just a moment,Expression,Just a moment before paying.,vocab_a1_0399
 다시 말하다,dasi malhada,noch einmal sagen,A1,Ausdruck,못 들어서 다시 말하다 부탁했어요.,"Ich habe gebeten, es noch einmal zu sagen, weil ich es nicht gehört habe.",Entschuldigung,a1_sorry_thanks_1,9,false,to say again,Expression,I asked them to say it again because I did not hear it.,vocab_a1_0400
-천천히 말하다,cheoncheonhi malhada,langsam sprechen,A1,Ausdruck,한국어를 천천히 말하다 들으면 이해가 돼요.,"Wenn Sie Koreanisch langsam sprechen, verstehe ich es.",Entschuldigung,a1_sorry_thanks_1,10,true,to speak slowly,Expression,"If you speak Korean slowly, I understand.",vocab_a1_0401
+천천히 말하다,cheoncheonhi malhada,langsam sprechen,A1,Ausdruck,한국어를 천천히 말하다 들으면 이해가 돼요.,"Wenn du Koreanisch langsam sprichst, versteh ich's.",Entschuldigung,a1_sorry_thanks_1,10,true,to speak slowly,Expression,"If you speak Korean slowly, I understand.",vocab_a1_0401
 정말 감사해요,jeongmal gamsahaeyo,vielen Dank,A1,Ausdruck,자리를 양보해 주셔서 정말 감사해요.,"Vielen Dank, dass Sie den Platz überlassen haben.",Entschuldigung,a1_sorry_thanks_1,11,true,thank you so much,Expression,Thank you so much for giving up the seat.,vocab_a1_0402
 정말 죄송해요,jeongmal joesonghaeyo,es tut mir sehr leid,A1,Ausdruck,발을 밟아서 정말 죄송해요.,"Es tut mir sehr leid, dass ich auf Ihren Fuß getreten bin.",Entschuldigung,a1_sorry_thanks_1,12,true,I am very sorry,Expression,I am very sorry I stepped on your foot.,vocab_a1_0403
 요금제,yogeumje,Tarif,A2,Nomen,이 요금제가 데이터량이 더 많아요.,Dieser Tarif hat mehr Datenvolumen.,Handytarif,a2_phone_plan_1,1,false,rate plan,Noun,This rate plan has more data.,vocab_a2_0365

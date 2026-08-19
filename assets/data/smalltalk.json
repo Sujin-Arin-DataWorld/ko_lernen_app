@@ -4201,7 +4201,7 @@
       ],
       "reply": {
         "ko": "편의점에서 하세요.",
-        "de": "Im Convenience-Store.",
+        "de": "Im Spätkauf.",
         "en": "At the convenience store."
       },
       "followUp": {
@@ -4896,7 +4896,7 @@
       ],
       "reply": {
         "ko": "편의점에서 팔아요.",
-        "de": "Die gibt es im Convenience-Store.",
+        "de": "Die gibt es im Spätkauf.",
         "en": "They sell them at convenience stores."
       },
       "followUp": {
@@ -6355,8 +6355,8 @@
         {
           "turnKind": "question",
           "ko": "그 부분이 어떤 감정을 남겼는지 말해 볼래요?",
-          "de": "Möchten Sie beschreiben, welches Gefühl dieser Teil hinterlassen hat?",
-          "en": "Would you describe what feeling that part left behind?"
+          "de": "Was hat der Teil für ein Gefühl hinterlassen?",
+          "en": "What did that part leave you feeling?"
         }
       ],
       "followUp": {
@@ -6555,8 +6555,8 @@
       "level": "b2",
       "kind": "question",
       "ko": "피드백을 받을 때 바로 말해 주는 게 좋아요, 아니면 먼저 좋은 점을 듣는 게 좋아요?",
-      "de": "Mögen Sie Feedback lieber direkt, oder möchten Sie zuerst hören, was schon gut funktioniert?",
-      "en": "When you get feedback, do you prefer it directly, or would you rather hear what is working first?",
+      "de": "Magst du Feedback lieber direkt, oder erst mal hören, was schon gut läuft?",
+      "en": "When you get feedback, do you want it straight, or the good parts first?",
       "reply": {
         "ko": "저는 좋은 점을 짧게 듣고 나서 고칠 부분을 구체적으로 듣는 게 편해요.",
         "de": "Ich höre gern kurz, was gut ist, und danach konkret, was ich verbessern kann.",

@@ -2349,7 +2349,7 @@
       "first": "병",
       "last": "원",
       "level": "A2",
-      "german": "Krankenhaus",
+      "german": "Arzt / Klinik",
       "topic": "Gesundheit",
       "next_count": 7,
       "is_dead_end": false
@@ -25179,7 +25179,7 @@
       "first": "편",
       "last": "점",
       "level": "A1",
-      "german": "Convenience Store",
+      "german": "Spätkauf / Mini-Markt",
       "topic": "Alltag",
       "next_count": 7,
       "is_dead_end": false

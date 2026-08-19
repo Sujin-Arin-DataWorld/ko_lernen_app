@@ -11,6 +11,103 @@
 
 **검증.** 집중 Flutter: data_loader · character_selection · can_do_segment_asset ·
 canonical_course_segment_loader · hanok_grant_catalog.
+### 2026-08-19 (Cursor) — 감기 병원 ≠ Krankenhaus
+
+**무엇을 왜.** 일상 `병원에 가요`/`감기가 심해서 병원`을 Krankenhaus로 두면
+독일어 학습자가 감기에 병원을 간다. 한국어 병원은 여기선 동네 의원.
+DE Arzt/Klinik, EN doctor's/clinic. 입원·응급·큰 병원은 Krankenhaus 유지.
+
+**검증.** 단어팩 ID vocab_a2_0010 + cloze/satz/silben/kkeunmari/시나리오.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 교실·친구 해요체를 Sie가 아니라 du로
+
+**무엇을 왜.** 숙제·문자·주말 계획·준비됐나요 등 해요체 친구/교실 예문이
+관청 Sie로 남아 있었다. 가게·지하철 안내·양보(하세요/주셔서)는 Sie 유지.
+단어팩이 정본이고 Cloze·Satz·실벤·시나리오 오답을 같은 예문에 맞춤.
+
+**검증.** ID로 CSV 갱신. cloze/satz/silben/learner_copy_scan 예정.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — A1/A2 Cloze·Satz 교과서 독일어
+
+**무엇을 왜.** 단어팩과 안 겹치는 커스텀 문장에 깨진/교과서 DE·EN이 남았다.
+`Ich gehe auf Reise` → Urlaub fahren, `Danke, Lehrerin` → Danke schön,
+Familienmitglieder → Wie groß ist deine Familie, occupation → What do you do,
+nah am Haus → Zur Arbeit hab ich's nicht weit, beklemmend → frustrierend.
+한국어·ID·문항 수 유지.
+
+**검증.** learner_copy_scan에 깨진 패턴 추가. cloze/satz 테스트 예정.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 미디어 문구 수고했어 ≠ guten Job
+
+**무엇을 왜.** `오늘 하루도 수고했어`를 실적 칭찬(guten Job / great job)으로
+옮기면 한국어 성격이 사라진다. DE는 Heute auch wieder viel, EN은 long day.
+화이팅 EN에서 Konglish fighting을 빼고, 눈치·큰일·한 만큼도 각 언어 구어로.
+스캔 테스트에 media/culture와 이 직역 패턴을 넣었다.
+
+**검증.** learner_copy_scan + 해당 문자열 Grep.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 시나리오 제목 Convenience-Hacks → Spätkauf-Tipps
+
+**무엇을 왜.** A1 편의점 문화 노트 제목이 독일어 화면에 영어 Hacks를
+남겼다. DE는 Spätkauf-Tipps, EN Convenience-store hacks 유지.
+
+**검증.** Grep Convenience-Hacks 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 시나리오·끝말잇기 편의점 ≠ Convenience Store
+
+**무엇을 왜.** 독일어 학습 화면에 영어 Convenience Store가 남았다.
+A1 편의점 시나리오 제목·어휘 노트, A2 택시 하차, 끝말잇기 풀을
+Spätkauf / Mini-Markt로. EN convenience store는 유지.
+
+**검증.** assets/data Grep Convenience Store 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 스몰톡 Convenience-Store·딱딱한 Sie
+
+**무엇을 왜.** 편의점 답을 Convenience-Store로 두었고, 교실 스몰톡이
+Möchten Sie 관청 말투였다. Spätkauf / du 구어로.
+
+**검증.** 해당 문자열 Grep.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 실벤 힌트 DE를 단어팩과 동기
+
+**무엇을 왜.** 퍼즐 힌트가 옛 직역(Convenience Store, existieren)을 보여 줌.
+exampleKo가 현재 vocab 예문과 같을 때만 german/exampleDe를 맞춤. 격자·ID 유지.
+
+**검증.** silben_puzzle 계약 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 시나리오 잘 부탁 ≠ Zusammenarbeit
+
+**무엇을 왜.** A1 소개 듣기 정답이 또 Zusammenarbeit였다. 문화 노트도
+「Wörtlich bitte um Wohlwollen」로 직역을 가르쳤다. 비즈니스 B2도
+「Ich freu mich darauf」로 낮춘다. 한국어 대사는 유지.
+
+**검증.** Grep: 남은 Zusammenarbeit 정답 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — Cloze·Satz DE/EN을 단어팩 예문에 동기
+
+**무엇을 왜.** 단어팩에서 고친 구어 DE/EN이 Cloze/Satz에 그대로 남아 있으면
+학습자가 직역을 다시 본다. fullKo/targetKo가 vocab `example_korean`과 같은
+32문만 맞춤. ID·개수·한국어 유지.
+
+**검증.** 알려진 직역 잔여 0 (협업=Zusammenarbeit는 본뜻이라 유지).
 
 **커밋해시.** 이 로그와 같은 커밋.
 
