@@ -1983,11 +1983,11 @@
     {
       "id": "cloze_a2_0112",
       "level": "a2",
-      "sentenceKo": "발음을 ＿＿＿ 웃어 주면 금방 끝나요.",
+      "sentenceKo": "누가 내 발음을 ＿＿＿ 그냥 웃어넘기면 돼요.",
       "answer": "놀려도",
-      "fullKo": "발음을 놀려도 웃어 주면 금방 끝나요.",
-      "de": "Wenn sie die Aussprache aufziehen und ich lache, ist es vorbei.",
-      "en": "If they tease my pronunciation and I laugh, it ends quickly.",
+      "fullKo": "누가 내 발음을 놀려도 그냥 웃어넘기면 돼요.",
+      "de": "Auch wenn sich jemand über meine Aussprache lustig macht, kann ich einfach darüber lachen.",
+      "en": "Even if someone makes fun of my pronunciation, I can just laugh it off.",
       "distractors": [
         "나중에",
         "그냥",
@@ -1998,11 +1998,11 @@
     {
       "id": "cloze_a2_0113",
       "level": "a2",
-      "sentenceKo": "현우가 제 ＿＿＿ 들어 줘서 어깨가 내려갔어요.",
+      "sentenceKo": "현우가 제 ＿＿＿ 들어 줘서 든든했어요.",
       "answer": "편을",
-      "fullKo": "현우가 제 편을 들어 줘서 어깨가 내려갔어요.",
-      "de": "Hyunwoo ergriff für mich Partei, da sank die Schulter.",
-      "en": "Hyunwoo took my side, and my shoulders dropped.",
+      "fullKo": "현우가 제 편을 들어 줘서 든든했어요.",
+      "de": "Hyunwoo hat zu mir gehalten, und das hat mir Sicherheit gegeben.",
+      "en": "Hyunwoo took my side, and that made me feel supported.",
       "distractors": [
         "그냥",
         "다시",
@@ -2043,30 +2043,30 @@
     {
       "id": "cloze_a2_0116",
       "level": "a2",
-      "sentenceKo": "현우 어릴 적 ＿＿＿은 제가 먼저 약속했어요.",
-      "answer": "비밀 보장",
-      "fullKo": "현우 어릴 적 비밀 보장은 제가 먼저 약속했어요.",
-      "de": "Das Kindheitsgeheimnis zu wahren versprach ich zuerst.",
-      "en": "I promised first to keep Hyunwoo's childhood secret.",
+      "sentenceKo": "현우가 어릴 때 이야기는 아무에게도 ＿＿＿ 했어요.",
+      "answer": "말하지 않기로",
+      "fullKo": "현우가 어릴 때 이야기는 아무에게도 말하지 않기로 했어요.",
+      "de": "Ich habe beschlossen, niemandem von Hyunwoos Kindheit zu erzählen.",
+      "en": "I decided not to tell anyone about Hyunwoo's childhood.",
       "distractors": [
-        "같이",
-        "아직",
-        "벌써"
+        "말해 주기로",
+        "같이 가기로",
+        "물어보기로"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
     {
       "id": "cloze_a2_0117",
       "level": "a2",
-      "sentenceKo": "＿＿＿를 너무 크게 해서 국이 흔들렸어요.",
+      "sentenceKo": "현우의 이야기를 들으면서 계속 ＿＿＿를 쳤어요.",
       "answer": "맞장구",
-      "fullKo": "맞장구를 너무 크게 해서 국이 흔들렸어요.",
-      "de": "Mein Mitgehen war so laut, dass die Suppe wackelte.",
-      "en": "My backchannel was so loud the soup shook.",
+      "fullKo": "현우의 이야기를 들으면서 계속 맞장구를 쳤어요.",
+      "de": "Während ich Hyunwoos Geschichte zuhörte, reagierte ich immer wieder zustimmend.",
+      "en": "While listening to Hyunwoo's story, I kept responding in agreement.",
       "distractors": [
-        "아직",
-        "벌써",
-        "천천히"
+        "아침 인사",
+        "안부 전화",
+        "박수"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },

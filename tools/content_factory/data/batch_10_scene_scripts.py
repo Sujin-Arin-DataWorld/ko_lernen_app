@@ -580,7 +580,7 @@ _add(
     sit=("쓰레기를 종류별로 나눕니다.", "Man trennt den Müll nach Art.", "You sort trash by type."),
     need=("비닐은 어디에 넣어요?", "Wohin kommt das Plastik?", "Where does the plastic go?"),
     ask=("노란 봉지를 쓰시면 됩니다.", "Bitte die gelbe Tüte nehmen.", "Please use the yellow bag."),
-    wait=("수거는 내일 아침에 있습니다.", "Die Abholung ist morgen früh.", "Pickup is tomorrow morning."),
+    wait=("내일 아침에 수거하러 와요.", "Morgen früh wird der Müll abgeholt.", "They pick up the trash tomorrow morning."),
     vocab=["쓰레기", "비닐", "봉지", "나누다", "수거", "아침"],
     particle="를",
 )

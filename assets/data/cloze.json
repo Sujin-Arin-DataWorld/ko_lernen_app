@@ -10030,11 +10030,11 @@
     {
       "id": "cloze_a2_0112",
       "level": "a2",
-      "sentenceKo": "발음을 ＿＿＿ 웃어 주면 금방 끝나요.",
+      "sentenceKo": "누가 내 발음을 ＿＿＿ 그냥 웃어넘기면 돼요.",
       "answer": "놀려도",
-      "fullKo": "발음을 놀려도 웃어 주면 금방 끝나요.",
-      "de": "Wenn sie die Aussprache aufziehen und ich lache, ist es vorbei.",
-      "en": "If they tease my pronunciation and I laugh, it ends quickly.",
+      "fullKo": "누가 내 발음을 놀려도 그냥 웃어넘기면 돼요.",
+      "de": "Auch wenn sich jemand über meine Aussprache lustig macht, kann ich einfach darüber lachen.",
+      "en": "Even if someone makes fun of my pronunciation, I can just laugh it off.",
       "distractors": [
         "편을",
         "세배하러 가",
@@ -10045,11 +10045,11 @@
     {
       "id": "cloze_a2_0113",
       "level": "a2",
-      "sentenceKo": "현우가 제 ＿＿＿ 들어 줘서 긴장이 풀렸어요.",
+      "sentenceKo": "현우가 제 ＿＿＿ 들어 줘서 든든했어요.",
       "answer": "편을",
-      "fullKo": "현우가 제 편을 들어 줘서 긴장이 풀렸어요.",
-      "de": "Hyunwoo ergriff für mich Partei, und die Anspannung fiel ab.",
-      "en": "Hyunwoo took my side, and the tension left me.",
+      "fullKo": "현우가 제 편을 들어 줘서 든든했어요.",
+      "de": "Hyunwoo hat zu mir gehalten, und das hat mir Sicherheit gegeben.",
+      "en": "Hyunwoo took my side, and that made me feel supported.",
       "distractors": [
         "놀려도",
         "세배하러 가",
@@ -10090,30 +10090,30 @@
     {
       "id": "cloze_a2_0116",
       "level": "a2",
-      "sentenceKo": "현우 어릴 적 ＿＿＿은 제가 먼저 약속했어요.",
-      "answer": "비밀 보장",
-      "fullKo": "현우 어릴 적 비밀 보장은 제가 먼저 약속했어요.",
-      "de": "Das Kindheitsgeheimnis zu wahren versprach ich zuerst.",
-      "en": "I promised first to keep Hyunwoo's childhood secret.",
+      "sentenceKo": "현우가 어릴 때 이야기는 아무에게도 ＿＿＿ 했어요.",
+      "answer": "말하지 않기로",
+      "fullKo": "현우가 어릴 때 이야기는 아무에게도 말하지 않기로 했어요.",
+      "de": "Ich habe beschlossen, niemandem von Hyunwoos Kindheit zu erzählen.",
+      "en": "I decided not to tell anyone about Hyunwoo's childhood.",
       "distractors": [
-        "통역 눈짓",
-        "편하게 말해요",
-        "한국어 잘하시네요"
+        "말해 주기로",
+        "같이 가기로",
+        "물어보기로"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
     {
       "id": "cloze_a2_0117",
       "level": "a2",
-      "sentenceKo": "＿＿＿를 너무 크게 치는 바람에 국그릇이 흔들렸어요.",
+      "sentenceKo": "현우의 이야기를 들으면서 계속 ＿＿＿를 쳤어요.",
       "answer": "맞장구",
-      "fullKo": "맞장구를 너무 크게 치는 바람에 국그릇이 흔들렸어요.",
-      "de": "Ich stimmte so laut zu, dass die Suppenschüssel wackelte.",
-      "en": "I agreed so loudly that the soup bowl wobbled.",
+      "fullKo": "현우의 이야기를 들으면서 계속 맞장구를 쳤어요.",
+      "de": "Während ich Hyunwoos Geschichte zuhörte, reagierte ich immer wieder zustimmend.",
+      "en": "While listening to Hyunwoo's story, I kept responding in agreement.",
       "distractors": [
         "아침 인사",
-        "아침밥",
-        "안부 전화"
+        "안부 전화",
+        "박수"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -19255,15 +19255,15 @@
     {
       "id": "cloze_b2_0293",
       "level": "b2",
-      "sentenceKo": "＿＿＿가 바뀌면 비교가 어려워요.",
-      "answer": "통계 단위",
-      "fullKo": "통계 단위가 바뀌면 비교가 어려워요.",
-      "de": "Wechselt die Maßeinheit, wird der Vergleich schwer.",
-      "en": "If the statistic unit changes, comparison gets hard.",
+      "sentenceKo": "자료마다 ＿＿＿이 다르면 수치만 보고 비교하기 어려워요.",
+      "answer": "비교 기준",
+      "fullKo": "자료마다 비교 기준이 다르면 수치만 보고 비교하기 어려워요.",
+      "de": "Wenn unterschiedliche Vergleichsmaßstäbe verwendet werden, lassen sich Zahlen nicht einfach direkt miteinander vergleichen.",
+      "en": "If different comparison criteria are used, the figures cannot be compared directly just by looking at the numbers.",
       "distractors": [
-        "원문 대조",
-        "선택 편집",
-        "후원 표시"
+        "기사 제목",
+        "출처 표시",
+        "작성 시점"
       ],
       "topic": "Medienkompetenz"
     },
@@ -24580,11 +24580,11 @@
     {
       "id": "cloze_c2_0219",
       "level": "c2",
-      "sentenceKo": "특정인을 향한 ＿＿＿이 시작되면 대화가 멈춥니다.",
-      "answer": "호명",
-      "fullKo": "특정인을 향한 호명이 시작되면 대화가 멈춥니다.",
-      "de": "Beginnt die namentliche Benennung einer bestimmten Person, endet das Gespräch.",
-      "en": "Once calling out a specific person by name starts, the conversation stops.",
+      "sentenceKo": "논점보다 특정 개인에 대한 ＿＿＿이 앞서기 시작하면 생산적인 대화가 어려워집니다.",
+      "answer": "비난",
+      "fullKo": "논점보다 특정 개인에 대한 비난이 앞서기 시작하면 생산적인 대화가 어려워집니다.",
+      "de": "Wenn persönliche Vorwürfe gegen eine bestimmte Person die sachliche Auseinandersetzung verdrängen, wird ein produktives Gespräch schwierig.",
+      "en": "When criticism of a specific individual begins to overshadow the issue itself, productive discussion becomes difficult.",
       "distractors": [
         "배제",
         "결집",
