@@ -9,7 +9,8 @@ cloze_a2_0112/0113/0116/0117, b2_0293(`비교 기준`), c2_0219(`비난`)는
 적어 준 문장 그대로. `메뉴` 표제어는 예문이 메뉴판이라 `메뉴판`.
 오답 `번호를 바꾸어 주세요`는 `번호를 바꿔 주세요`. ID 유지.
 
-**검증.** cloze 보기 3개 계약 유지. flutter test 예정.
+**검증.** cloze 보기 3개 계약 유지.
+flutter test cloze/satz/scan/content_id/vocab_pack/word_relation 45 passed.
 
 **커밋해시.** 이 로그와 같은 커밋.
 
