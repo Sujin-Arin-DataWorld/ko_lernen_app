@@ -1,5 +1,32 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — main 내부배포 게이트: FFmpeg apt hang 을 잘라 Analyze 를 살린다
+
+**무엇을 왜.** Jin 이 #93 은 다른 세션이 머지하고, 안 들어오면 최신
+`main` 으로 Flutter/CI 를 끝까지 돌린 뒤 Android·iOS 내부테스터만
+배포하라고 했다. 대기 중 #93 은 계속 커밋이라 머지하지 않았고,
+11:40 UTC 에 다른 세션이 `94bbf68a` 로 넣었다. 그 전 최신 `main`
+`11c97d45`(#91) 로컬 `flutter analyze` + `flutter test` 는 4047 passed /
+2 skipped / EXIT 0. `functions/tts` Node 23/23. Play Internal 은
+`8608b08c`(#89) 가 `599 · 8608b08c` `completed` / track `internal`.
+`11c97d45` 자동 CI `32241090233` 은 Analyze `apt-get update` 가 25분
+job timeout 동안 안 끝나 cancelled. 이 토큰은 `workflow_dispatch`/
+`rerun` 403. iOS IPA 는 Linux 불가. live TTS CF 는 `FIREBASE_TOKEN`
+없음.
+
+**고침.** ffmpeg 가 있으면 apt 를 건너뛴다. 없으면 `Acquire::http::Timeout`
+30초 + `timeout` 을 건다. 첫 시도의 90s/120s 는 정상 `apt-get install
+ffmpeg`(의존성 많음) 를 120초에 죽여 exit 124 가 났다 — update 180초,
+install 600초로 올린다. draft→ready 만으로는 Analyze 가 안 떠
+`ready_for_review` 트리거를 넣는다.
+
+**검증.** 로컬 스위트 `/opt/cursor/artifacts/main_flutter_full_suite.log`
+(11c97d45). Play `/opt/cursor/artifacts/play_internal_8608b08c_success.log`.
+`.github/scripts` 34/34. #93 머지 후 main CI `32248714421` 이 Play
+Internal 을 다시 탄다.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Claude Opus 5, macOS) — 콘텐츠 UI/UX 마감: 소리 복구 · 공유 · 책갈피 · 색 · 줄바꿈
 
 **무엇을 왜.** PR #83(바이블)이 `01bd8849` 로 머지된 뒤에도 Jin 이 요청 8건 중 다수가
