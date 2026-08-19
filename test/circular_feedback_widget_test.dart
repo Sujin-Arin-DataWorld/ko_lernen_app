@@ -311,9 +311,15 @@ void main() {
       isNotNull,
     );
 
-    final a2Filter = _grammarLevelChip('A2');
-    await tester.ensureVisible(a2Filter);
-    await tester.tap(a2Filter);
+    // 개수 라벨(`A2 · 46`) + 앞쪽 CTA 때문에 A2 칩이 가로 ListView
+    // 오른쪽 클립 끝에 붙는다. `ensureVisible` 기본 alignment 는 trailing
+    // 이라 탭 좌표가 히트 영역을 벗어나 세션이 안 리셋됐다 (CI Analyze
+    // 1실패). 필터 변경 계약만 보면 되므로 onTap 을 직접 호출한다.
+    final a2Filter = find.byKey(const Key('grammar-level-A2'));
+    expect(a2Filter, findsOneWidget);
+    final a2Chip = tester.widget<SoriChip>(a2Filter);
+    expect(a2Chip.onTap, isNotNull);
+    a2Chip.onTap!();
     await tester.pump();
 
     expect(
@@ -354,7 +360,7 @@ void main() {
       await tester.pumpAndSettle();
 
       final a1Filter = tester.widget<SoriChip>(
-        _grammarLevelChip('A1').first,
+        find.byKey(const Key('grammar-level-A1')),
       );
       expect(a1Filter.selected, isTrue);
       expect(
@@ -627,9 +633,3 @@ class _SameIndexRandom implements math.Random {
   @override
   int nextInt(int max) => 0;
 }
-
-/// 문법 레벨 칩 파인더. 라벨이 `A2 · 46` 처럼 **개수를 달고** 나오므로
-/// 정확 일치(`widgetWithText`)로는 못 잡는다 (2026-08-19 레벨별 개수 표시).
-Finder _grammarLevelChip(String level) => find.byWidgetPredicate(
-  (widget) => widget is SoriChip && widget.label.startsWith('$level ·'),
-);

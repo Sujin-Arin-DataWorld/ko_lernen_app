@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — CI 빨간불: 문법 레벨 칩 탭이 세션 리셋을 못 하던 것
+
+**무엇을 왜.** `main` 최신 Analyze & Build 가 1실패로 빨갛다. PR #88
+(`dc5fa0b8`) 의 `grammar level filter resets the current study interaction set`
+가 `SoriChip` A2 를 `ensureVisible`+`tap` 하는데, 개수 라벨(`A2 · 46`)과 앞쪽
+`Practice with examples` CTA 때문에 칩이 가로 ListView 오른쪽 클립 끝에 붙고
+탭 좌표 `(757.7, 82.0)` 가 히트 영역을 벗어난다. 세션이 안 지워져
+`_finishSession` 이 그대로 남았다. `6c49eeb1` workflow_dispatch 도 같은 1실패.
+
+**고침.** 레벨 칩에 `Key('grammar-level-$lvl')` · 필터 ListView 에
+`Key('grammar-filter-row')` 를 달고, 해당 테스트는 칩 `onTap` 을 직접 호출해
+필터 변경→세션 리셋 계약만 고정한다.
+
+**검증.** `flutter test test/circular_feedback_widget_test.dart
+test/grammar_type_filter_test.dart test/data_integrity_test.dart` 통과.
+`flutter test test/visual_layout_regression_test.dart --name grammar` 통과.
+`dart analyze` 변경 파일 이슈 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor Grok 4.6, Cloud) — 3일 main 전수 감사 파일만
 
 **무엇을 왜.** Jin이 최근 3일 커밋을 최신 HEAD까지 하나씩 읽고, 오류·누락·앱
