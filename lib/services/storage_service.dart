@@ -1396,6 +1396,7 @@ class Storage {
     'wordle',
     'kkeunmari',
     'listening',
+    'listening_play',
     'hangul',
     'grammar',
     'smalltalk',

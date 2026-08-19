@@ -1459,7 +1459,7 @@
       }
     }
   },
-  "listeningPickFirst": "Pick a scenario above to start.",
+  "listeningPickFirst": "Tap a shelf to start.",
   "listeningEmptyTitle": "No scenarios yet",
   "listeningEmptyBody": "Once scenarios are available, you can listen to them here.",
   "listeningShelfEmpty": "not stocked yet",
@@ -2490,10 +2490,10 @@
   "coachKkeunmariStep3Body": "Enter a valid Korean word. The tiger responds automatically.",
   "coachListeningStep1Title": "Choose a situation",
   "coachListeningStep1Body": "Tap a card to select the scenario you want to listen to",
-  "coachListeningStep2Title": "Speed & subtitles",
-  "coachListeningStep2Body": "Adjust playback speed from 0.75× to 1.25× and choose a subtitle mode",
+  "coachListeningStep2Title": "Speed",
+  "coachListeningStep2Body": "One speed icon at the top. ? shows the translation on the line, not as a chip row.",
   "coachListeningStep3Title": "Line by line",
-  "coachListeningStep3Body": "Listen and tap ⟳ to replay, or Next to advance",
+  "coachListeningStep3Body": "Fling up for the next line. Double-tap likes the line; it does not save to the wordbook.",
   "@_coach_c2": {
     "description": "Stage C-2 learning 7-screen coach keys (2026-06-09)"
   },

@@ -5410,7 +5410,7 @@ abstract class AppL10n {
   /// No description provided for @listeningPickFirst.
   ///
   /// In de, this message translates to:
-  /// **'Wähl oben ein Szenario, um zu starten.'**
+  /// **'Tippe ein Fach an, um zu starten.'**
   String get listeningPickFirst;
 
   /// No description provided for @listeningEmptyTitle.
@@ -9117,13 +9117,13 @@ abstract class AppL10n {
   /// No description provided for @coachListeningStep2Title.
   ///
   /// In de, this message translates to:
-  /// **'Tempo & Untertitel'**
+  /// **'Tempo'**
   String get coachListeningStep2Title;
 
   /// No description provided for @coachListeningStep2Body.
   ///
   /// In de, this message translates to:
-  /// **'Stelle die Geschwindigkeit von 0,75× bis 1,25× und den Untertitelmodus ein'**
+  /// **'Oben ein Tempo-Symbol. ? zeigt die Übersetzung auf der Zeile, nicht als Chip-Leiste.'**
   String get coachListeningStep2Body;
 
   /// No description provided for @coachListeningStep3Title.
@@ -9135,7 +9135,7 @@ abstract class AppL10n {
   /// No description provided for @coachListeningStep3Body.
   ///
   /// In de, this message translates to:
-  /// **'Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile'**
+  /// **'Nach oben wischen für die nächste Zeile. Doppeltipp ist ein Like, nicht die Wortliste.'**
   String get coachListeningStep3Body;
 
   /// No description provided for @coachHangulTitle.

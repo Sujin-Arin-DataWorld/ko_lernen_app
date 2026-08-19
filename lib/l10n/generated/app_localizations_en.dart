@@ -3043,7 +3043,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get listeningPickFirst => 'Pick a scenario above to start.';
+  String get listeningPickFirst => 'Tap a shelf to start.';
 
   @override
   String get listeningEmptyTitle => 'No scenarios yet';
@@ -5226,18 +5226,18 @@ class AppL10nEn extends AppL10n {
       'Tap a card to select the scenario you want to listen to';
 
   @override
-  String get coachListeningStep2Title => 'Speed & subtitles';
+  String get coachListeningStep2Title => 'Speed';
 
   @override
   String get coachListeningStep2Body =>
-      'Adjust playback speed from 0.75× to 1.25× and choose a subtitle mode';
+      'One speed icon at the top. ? shows the translation on the line, not as a chip row.';
 
   @override
   String get coachListeningStep3Title => 'Line by line';
 
   @override
   String get coachListeningStep3Body =>
-      'Listen and tap ⟳ to replay, or Next to advance';
+      'Fling up for the next line. Double-tap likes the line; it does not save to the wordbook.';
 
   @override
   String get coachHangulTitle => 'Three tabs for learning Hangul';

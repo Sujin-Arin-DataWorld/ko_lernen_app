@@ -6,6 +6,7 @@ class LikedContentService {
   static const String vocab = 'vocab';
   static const String grammar = 'grammar';
   static const String hangul = 'hangul';
+  static const String listening = 'listening';
 
   static String keyFor({required String kind, required String id}) =>
       LikedContent(kind: kind, id: id).key;

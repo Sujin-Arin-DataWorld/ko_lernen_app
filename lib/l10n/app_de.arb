@@ -1499,7 +1499,7 @@
       }
     }
   },
-  "listeningPickFirst": "Wähl oben ein Szenario, um zu starten.",
+  "listeningPickFirst": "Tippe ein Fach an, um zu starten.",
   "listeningEmptyTitle": "Noch keine Szenarien",
   "listeningEmptyBody": "Sobald Szenarien verfügbar sind, kannst du sie hier anhören.",
   "listeningShelfEmpty": "noch nicht bestückt",
@@ -2558,10 +2558,10 @@
   "coachKkeunmariStep3Body": "Gib ein gültiges koreanisches Wort ein. Der Tiger antwortet automatisch.",
   "coachListeningStep1Title": "Situation wählen",
   "coachListeningStep1Body": "Tippe auf eine Karte, um die passende Situation auszuwählen",
-  "coachListeningStep2Title": "Tempo & Untertitel",
-  "coachListeningStep2Body": "Stelle die Geschwindigkeit von 0,75× bis 1,25× und den Untertitelmodus ein",
+  "coachListeningStep2Title": "Tempo",
+  "coachListeningStep2Body": "Oben ein Tempo-Symbol. ? zeigt die Übersetzung auf der Zeile, nicht als Chip-Leiste.",
   "coachListeningStep3Title": "Zeile für Zeile",
-  "coachListeningStep3Body": "Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile",
+  "coachListeningStep3Body": "Nach oben wischen für die nächste Zeile. Doppeltipp ist ein Like, nicht die Wortliste.",
   "@_coach_c2": {
     "description": "Stage C-2 학습 7화면 코치마크 키 (2026-06-09)"
   },

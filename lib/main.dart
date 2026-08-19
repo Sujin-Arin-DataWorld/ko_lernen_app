@@ -41,6 +41,7 @@ import 'services/course_mission_navigation.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'models/curriculum.dart';
 import 'models/personal_room.dart';
+import 'models/scenario.dart';
 import 'screens/splash_screen.dart';
 import 'screens/quick_onboarding_screen.dart';
 import 'screens/character_selection_screen.dart';
@@ -640,6 +641,15 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/listening':
               return SoriTransitions.fadeScale(
                 (_) => const ListeningScreen(),
+                settings: settings,
+              );
+            case '/listening/play':
+              final listeningScenario = settings.arguments;
+              return SoriTransitions.fadeScale(
+                (_) => listeningScenario is Scenario &&
+                        listeningScenario.dialog.isNotEmpty
+                    ? ListeningPlayScreen(scenario: listeningScenario)
+                    : const ListeningScreen(),
                 settings: settings,
               );
             case '/kkeunmari':

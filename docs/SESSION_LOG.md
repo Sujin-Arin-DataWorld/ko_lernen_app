@@ -5,6 +5,16 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-19 (Cursor Grok 4.6) — P3 듣기 책장과 플레이어 라우트 분리
+
+**무엇을.** `/listening`은 책가도만, `/listening/play`는 `SoriContentFeed` 한 줄 피드다. 재생 중 책장 위젯은 플레이어 자손이 아니다. 배속은 AppBar 아이콘 하나, 자막 칩은 없고 `?`가 줄 위 gloss다. 1400px 서재 테스트는 390×844로 바꿨다.
+
+**왜.** 한 스크롤에 플레이어+책장이 같이 보여 Jin이 집어낸 이중 UI였다. PR #83 브랜치를 main에 맞춘 뒤 남은 바이블 순서의 다음 칸이다.
+
+**검증.** `flutter test` listening_shelf_route + dedicated_feedback listening + c0 + mascot_wiring. `flutter analyze` 해당 파일.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor Grok 4.6) — PR #83을 최신 main에 맞추고 판정 줄 overflow 수정
 
 **무엇을.** #83이 `main`과 dirty(충돌)였다. 브랜치가 `a00fc1d1`에 묶여 있고 main은 `d1406210`(#84 한옥 감사 + 에셋 교체)까지 가 있었다. `origin/main`을 이 브랜치에 병합하고 `SESSION_LOG` 충돌을 양쪽 항목 모두 남기는 쪽으로 풀었다. 판정 텍스트 Row는 368px에서 45px overflow → `Expanded`+ellipsis.

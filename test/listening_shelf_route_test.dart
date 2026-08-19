@@ -65,11 +65,12 @@ void main() {
   setUp(() async {
     final view =
         TestWidgetsFlutterBinding.instance.platformDispatcher.views.first;
-    view.physicalSize = const Size(480, 1400);
+    view.physicalSize = const Size(390, 844);
     view.devicePixelRatio = 1;
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_tut_listening': true,
+      'kl_tut_listening_play': true,
       'kl_user_level': 'a1',
     });
     await Storage.init();
@@ -172,10 +173,17 @@ void main() {
     await tester.pump();
     await tester.pump(kChaekgadoUnrollDuration + const Duration(milliseconds: 100));
 
-    // 재생 화면이 그 시나리오의 대사를 물고 있어야 한다 — 두루마리가 닫히기만
-    // 하고 선택이 버려지는 회귀를 잡는 지점이다.
+    // 재생은 별도 라우트다 — 두루마리가 닫히기만 하고 선택이 버려지면 실패.
+    expect(find.byType(ListeningPlayScreen), findsOneWidget);
     expect(find.text('Wochenende 한국어'), findsOneWidget);
     expect(find.byType(ChaekgadoScrollItem), findsNothing);
+    expect(
+      find.descendant(
+        of: find.byType(ListeningPlayScreen),
+        matching: find.byType(ChaekgadoShelfCase),
+      ),
+      findsNothing,
+    );
     await tester.pump(const Duration(milliseconds: 400));
   });
 }

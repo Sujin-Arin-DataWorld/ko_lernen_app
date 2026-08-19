@@ -2,7 +2,7 @@
 
 > **역할**: 콘텐츠를 연 뒤의 화면(단어·듣기·쓰기·문법·클로즈·문장·스몰톡·시나리오·복습)에 대한 **유일한 상호작용·타이포·CTA 정본**.
 > **범위**: 플레이어/피드만. 한옥 자산은 `docs/assets/STYLE_LOCK.json`, 일러스트 생성은 `docs/ASSET_GENERATION_BIBLE.md`, 홈/Today 매트는 `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`를 유지한다.
-> **상태**: 2026-08-19 Jin이 전역 개편·틴더 제거를 지시. 공유 이미지 **안 A 두루마리** 확정. P0–P2·P5(덱 6화면) 구현 중.
+> **상태**: 2026-08-19 Jin이 전역 개편·틴더 제거를 지시. 공유 이미지 **안 A 두루마리** 확정. P0–P2·P5(덱 6화면) + P3(듣기 책장≠플레이어) 구현. P4·P6·P7 남음.
 > **선행 문서 정정**: `HANDOFF_UI_OVERHAUL_2` §1-1·§1-2(좌=모름·우=앎·위=저장·아래=스킵, 하단 원형 4버튼)는 **이 문서가 대체한다**. 4방향 틴더 덱은 폐기 대상이다.
 
 ---
@@ -371,7 +371,7 @@ P0–P1은 시각 승인 없이도 버그 수정으로 갈 수 있다. P2부터�
 
 **화면**
 
-- `listening_screen.dart` (+ 라우트 `main.dart`)
+- `listening_screen.dart` (책가도만) + `listening_play_screen.dart` (`/listening/play`)
 - `hangul_screen.dart` `_WriteTab`
 - `vocab_pack_screen.dart`, `review_session_screen.dart`, `legacy_vocab_screen.dart`, `custom_pack_play_screen.dart`, `grammar_screen.dart`
 - `cloze_game_screen.dart`, `satz_arcade_screen.dart`, `smalltalk_screen.dart`, `scenario_player_screen.dart`

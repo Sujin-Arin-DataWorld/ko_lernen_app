@@ -346,8 +346,8 @@ flutter run -d <android-id>   # 안드로이드
   하지 않는다.
 - [ ] **콘텐츠 UI 전역 개편 (구현 중)**: 정본 `docs/CONTENT_UI_BIBLE.md`.
   공유 이미지 **A 두루마리** 확정. P0 토큰·P1 토스트·P2 `SoriContentFeed`·
-  P5 틴더 덱 6화면 제거가 이 브랜치에 들어간다. P3 듣기 분리·P4 쓰기·
-  P6 나머지 플레이어·P7 이야기 PNG는 남는다.
+  P5 틴더 덱 6화면 제거·P3 듣기 책장≠`/listening/play`가 이 브랜치에 있다.
+  P4 쓰기·P6 나머지 플레이어·P7 이야기 PNG는 남는다.
 - [x] **콘텐츠 Batch 01–05**: B1/B2 기존 확장에 더해 Batch 05의 B2/C1/C2
   vocabulary·grammar·smalltalk·Cloze·Satz 504개와 4개 고급 코스 단원이 앱 데이터에
   통합됐다. 기존 16개 시나리오/듣기 퀘스트도 유지한다. 콘텐츠 정본은

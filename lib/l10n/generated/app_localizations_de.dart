@@ -3055,7 +3055,7 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get listeningPickFirst => 'Wähl oben ein Szenario, um zu starten.';
+  String get listeningPickFirst => 'Tippe ein Fach an, um zu starten.';
 
   @override
   String get listeningEmptyTitle => 'Noch keine Szenarien';
@@ -5245,18 +5245,18 @@ class AppL10nDe extends AppL10n {
       'Tippe auf eine Karte, um die passende Situation auszuwählen';
 
   @override
-  String get coachListeningStep2Title => 'Tempo & Untertitel';
+  String get coachListeningStep2Title => 'Tempo';
 
   @override
   String get coachListeningStep2Body =>
-      'Stelle die Geschwindigkeit von 0,75× bis 1,25× und den Untertitelmodus ein';
+      'Oben ein Tempo-Symbol. ? zeigt die Übersetzung auf der Zeile, nicht als Chip-Leiste.';
 
   @override
   String get coachListeningStep3Title => 'Zeile für Zeile';
 
   @override
   String get coachListeningStep3Body =>
-      'Hör zu und tippe ⟳ zum Wiederholen oder Weiter zur nächsten Zeile';
+      'Nach oben wischen für die nächste Zeile. Doppeltipp ist ein Like, nicht die Wortliste.';
 
   @override
   String get coachHangulTitle => 'Drei Tabs zum Hangul-Lernen';
