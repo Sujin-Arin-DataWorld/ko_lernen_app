@@ -212,6 +212,11 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   void _applyFilters() {
     setState(() {
+      // 레벨을 바꾸면 그 레벨에 없는 유형이 남아 있을 수 있다. 남겨 두면
+      // 결과가 0 장이 되고 드롭다운 value 도 항목 밖이라 터진다.
+      if (!_types.contains(_type)) {
+        _type = 'Alle';
+      }
       final hardPatterns = Storage.grammarHard;
       final scoped = _courseContentIds == null
           ? _all
@@ -566,10 +571,33 @@ class _GrammarScreenState extends State<GrammarScreen>
       ? _courseGrammarCandidates.length
       : _courseGrammarCandidates.where((g) => g.level == level).length;
 
-  List<String> get _types {
-    final s = _courseGrammarCandidates.map((g) => g.typeDe).toSet().toList()
-      ..sort();
-    return ['Alle', ...s];
+  /// Typ 후보 — **현재 레벨 스코프에서 2개 이상인 유형만** 내놓는다.
+  ///
+  /// `grammar.csv` 의 `type_de` 는 214 행에 고유값 213 개다(212 개가 1 행짜리).
+  /// 사실상 기본키라, 유형을 하나 고르면 덱이 카드 1 장으로 줄고
+  /// [_canNavigateDeck](길이>1)이 false 가 되어 뭘 눌러도 같은 카드만 나왔다
+  /// ("뭘 눌러도 이것만 나온다니까?" — Jin, 2026-08-19. 유형 이름 6 개가
+  /// 'Frage' 를 포함해 증상이 그 문구로 보였다).
+  ///
+  /// 고를 수 있는 게 'Alle' 뿐이면 [_showFilterSheet] 가 드롭다운 자체를
+  /// 감춘다 — 죽은 컨트롤을 살아 있는 척 보여주지 않는다.
+  List<String> get _types => _typesForLevel(_level);
+
+  List<String> _typesForLevel(String level) {
+    final counts = <String, int>{};
+    for (final grammar in _courseGrammarCandidates) {
+      if (level != 'Alle' && grammar.level != level) {
+        continue;
+      }
+      counts[grammar.typeDe] = (counts[grammar.typeDe] ?? 0) + 1;
+    }
+    final usable =
+        counts.entries
+            .where((entry) => entry.value >= 2)
+            .map((entry) => entry.key)
+            .toList()
+          ..sort();
+    return ['Alle', ...usable];
   }
 
   @override
@@ -936,12 +964,27 @@ class _GrammarScreenState extends State<GrammarScreen>
               Text(t.filterTitle, style: SoriTextTheme.of(ctx).h3),
               const SizedBox(height: Spacing.md),
               _dropdown(t.filterLevel, stagedLevel, _levels, (v) {
-                setLocal(() => stagedLevel = v!);
+                setLocal(() {
+                  stagedLevel = v!;
+                  // 레벨이 바뀌면 그 레벨에 없는 유형은 후보에서 사라진다.
+                  // 남겨 두면 DropdownButton 의 value 가 항목 밖이 된다.
+                  if (!_typesForLevel(stagedLevel).contains(stagedType)) {
+                    stagedType = 'Alle';
+                  }
+                });
               }),
-              const SizedBox(height: Spacing.sm + 2),
-              _dropdown(t.filterType, stagedType, _types, (v) {
-                setLocal(() => stagedType = v!);
-              }),
+              // 고를 수 있는 유형이 'Alle' 뿐이면 감춘다 (죽은 컨트롤 금지).
+              if (_typesForLevel(stagedLevel).length > 1) ...[
+                const SizedBox(height: Spacing.sm + 2),
+                _dropdown(
+                  t.filterType,
+                  stagedType,
+                  _typesForLevel(stagedLevel),
+                  (v) {
+                    setLocal(() => stagedType = v!);
+                  },
+                ),
+              ],
               const SizedBox(height: Spacing.sm + 2),
               // 난이도는 학습 화면의 가로줄에서 여기로 옮겼다. 카드가 세로
               // 공간을 먼저 갖되, 스와이프로 모은 "Schwierig" 를 다시 모아

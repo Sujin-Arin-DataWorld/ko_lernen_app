@@ -225,8 +225,9 @@ class _ListeningScreenState extends State<ListeningScreen>
     AppL10n t,
     ChaekgadoCompartment compartment,
   ) async {
-    final slot = (kChaekgadoSlots[_shelfLevel] ?? const [])
-        .firstWhere((s) => s.slug == compartment.slug);
+    final slot = (kChaekgadoSlots[_shelfLevel] ?? const []).firstWhere(
+      (s) => s.slug == compartment.slug,
+    );
     final matching = _scenariosForSlug(compartment.slug);
     final done = Storage.completedScenarios.toSet();
     final lang = Localizations.localeOf(context).languageCode;
@@ -239,8 +240,9 @@ class _ListeningScreenState extends State<ListeningScreen>
           ? t.listeningShelfEmpty
           : t.listeningShelfScenarioCount(matching.length),
       footnote: t.listeningProgress(
-        (kChaekgadoSlots[_shelfLevel] ?? const [])
-                .indexWhere((s) => s.slug == compartment.slug) +
+        (kChaekgadoSlots[_shelfLevel] ?? const []).indexWhere(
+              (s) => s.slug == compartment.slug,
+            ) +
             1,
         (kChaekgadoSlots[_shelfLevel] ?? const []).length,
       ),
@@ -424,6 +426,32 @@ class _ListeningScreenState extends State<ListeningScreen>
                 // 12칸)를 위에 두면 컨트롤이 화면 밖으로 밀려 매번 스크롤해야
                 // 재생 버튼이 보였다.
                 if (_selected != null) ...[
+                  // 지금 듣는 게 뭔지 + 서재로 가는 문.
+                  //
+                  // 들어오면 `selectInitialListeningScenario` 가 레벨의 첫
+                  // 시나리오를 자동으로 골라 재생을 시작하는데, 다른 걸 고르는
+                  // 책가도 서재는 이 아래로 한참 스크롤해야 나온다. 그래서
+                  // 보이는 곳을 아무리 눌러도 늘 같은 시나리오만 나왔다
+                  // ("뭘 눌러도 이것만 나온다니까?" — Jin, 2026-08-19).
+                  _NowPlayingBar(
+                    title: _selected!.title.pick(
+                      Localizations.localeOf(context).languageCode,
+                    ),
+                    level: _selected!.level.display,
+                    changeLabel: t.listeningSelectScenario,
+                    onChange: () {
+                      final target = _scenarioChipKey.currentContext;
+                      if (target == null) {
+                        return;
+                      }
+                      Scrollable.ensureVisible(
+                        target,
+                        duration: const Duration(milliseconds: 350),
+                        curve: Curves.easeOutCubic,
+                      );
+                    },
+                  ),
+                  const SizedBox(height: Spacing.sm),
                   KeyedSubtree(
                     key: _controlsBarKey,
                     child: _ControlsBar(
@@ -550,8 +578,7 @@ class _ListeningScreenState extends State<ListeningScreen>
                               accent: SoriColors.info,
                               selected: level == _shelfLevel,
                               variant: SoriChipVariant.filled,
-                              onTap: () =>
-                                  setState(() => _shelfLevel = level),
+                              onTap: () => setState(() => _shelfLevel = level),
                             );
                           },
                         ),
@@ -588,6 +615,51 @@ class _ListeningScreenState extends State<ListeningScreen>
 }
 
 // ─── Controls Bar ─────────────────────────────────────────────────────────────
+
+/// 지금 재생 중인 시나리오 이름 + 서재로 스크롤하는 버튼.
+///
+/// 자동 선택된 시나리오가 무엇인지 이름으로 보여 주고, 바꾸려면 어디로 가야
+/// 하는지를 한 번의 탭으로 연결한다 — 서재가 화면 아래에 있어 존재를 모를 수
+/// 있다는 게 이 위젯이 있는 유일한 이유다.
+class _NowPlayingBar extends StatelessWidget {
+  final String title;
+  final String level;
+  final String changeLabel;
+  final VoidCallback onChange;
+
+  const _NowPlayingBar({
+    required this.title,
+    required this.level,
+    required this.changeLabel,
+    required this.onChange,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      child: Row(
+        children: [
+          SoriBadge.level(level),
+          const SizedBox(width: Spacing.sm),
+          Expanded(
+            child: Text(
+              title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: SoriTextTheme.of(
+                context,
+              ).cardTitle.copyWith(color: s.text),
+            ),
+          ),
+          const SizedBox(width: Spacing.xs),
+          SoriButton.ghost(label: changeLabel, onTap: onChange),
+        ],
+      ),
+    );
+  }
+}
 
 class _ControlsBar extends StatelessWidget {
   final _SubMode subs;

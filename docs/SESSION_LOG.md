@@ -73,6 +73,26 @@ a1_01 문법(인사 전용 문법 패턴 없음 — 억지로 옮기면 다른 �
 비어 있어서** 그냥 두면 "골랐더니 빈 화면"이 기본 경험이었다. 문법 레벨 칩에도
 같은 개수를 붙였다(문법 화면은 이미 빈 레벨을 숨기고 있었다).
 
+**④-b "뭘 눌러도 같은 것만 나온다" (Grammatik·Hören).** Jin 이 두 화면에서
+같은 항목만 반복된다고 했다. 원인이 화면마다 달랐다.
+
+- **문법**: `grammar.csv` 의 `type_de` 가 214 행에 고유값 213 개다(212 개가
+  1 행짜리) — 분류가 아니라 사실상 기본키인데 화면이 그대로 "Typ" 필터
+  선택지로 내줬다. 유형을 하나 고르면 덱이 **카드 1 장**이 되고
+  `_canNavigateDeck`(길이>1)이 false 라 뭘 눌러도 같은 카드만 나온다. 유형
+  이름 6 개가 `Frage` 를 포함해(`Sanfte Frage`·`Vorschlag / Frage`·
+  `Indirekte Frage`·`Fragewort …`) 증상이 "Frage 어쩌고"로 보였다.
+  → `_typesForLevel(level)` 이 **현재 레벨에서 2 건 이상인 유형만** 내주고,
+  남는 게 'Alle' 뿐이면 드롭다운을 감춘다. 레벨 변경 시 그 레벨에 없는 유형이
+  남아 결과 0 장 + DropdownButton value 이탈로 터지던 것도 `_applyFilters`
+  진입부에서 막았다. CSV 가 굵은 분류로 정리되면 필터가 자동 복귀한다.
+  래칫 = `test/grammar_type_filter_test.dart`.
+- **듣기**: 진입하면 `selectInitialListeningScenario` 가 레벨의 첫 시나리오를
+  자동 선택하고 바로 재생을 시작하는데, 다른 걸 고르는 책가도 서재는 재생기
+  한참 아래라 보이는 곳을 눌러선 바뀌지 않았다. → 재생기 위에
+  `_NowPlayingBar`(지금 듣는 시나리오 + 레벨 배지 + "Szenario wählen")를 넣고,
+  누르면 `Scrollable.ensureVisible` 로 서재까지 스크롤한다.
+
 **⑤ 곁가지.** `assets/illustrations/empty/` 는 `4b5f5ccf` 에서 디렉터리째
 지워졌는데 pubspec 선언과 4개 화면 참조가 남아 `flutter` 실행마다
 `unable to find directory entry in pubspec.yaml` 을 찍고 있었다 → 선언 제거,
