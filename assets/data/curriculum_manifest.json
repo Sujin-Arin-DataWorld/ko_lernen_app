@@ -5824,9 +5824,9 @@
       ]
     },
     "grammar_a1_approx": {
-      "courseUnitId": "a1_09_home_daily_life",
+      "courseUnitId": "a1_05_numbers_time",
       "conceptIds": [
-        "concept_a1_home_daily"
+        "concept_a1_time_numbers"
       ]
     },
     "grammar_a2_only_negative": {
@@ -6052,9 +6052,9 @@
       ]
     },
     "grammar_a1_polite_present": {
-      "courseUnitId": "a1_12_daily_negation",
+      "courseUnitId": "a1_13_register_switching",
       "conceptIds": [
-        "concept_a1_negation"
+        "concept_action_polite"
       ]
     },
     "grammar_a1_polite_past": {
@@ -6094,9 +6094,9 @@
       ]
     },
     "grammar_a1_sequence_connector": {
-      "courseUnitId": "a1_12_daily_negation",
+      "courseUnitId": "a1_16_survival_capstone",
       "conceptIds": [
-        "concept_a1_negation"
+        "concept_a1_survival"
       ]
     },
     "grammar_a1_from_to": {
@@ -6106,9 +6106,9 @@
       ]
     },
     "grammar_a1_which_question": {
-      "courseUnitId": "a1_08_clarify_repair",
+      "courseUnitId": "a1_15_first_class_work",
       "conceptIds": [
-        "concept_a1_clarification"
+        "concept_a1_first_meeting"
       ]
     },
     "grammar_a1_degree_question": {
@@ -6730,9 +6730,9 @@
       ]
     },
     "grammar_b2_shared_merit": {
-      "courseUnitId": "b2_02_professional_opinion",
+      "courseUnitId": "b2_05_interview",
       "conceptIds": [
-        "concept_b2_opinion"
+        "concept_b2_interview"
       ]
     },
     "grammar_b2_in_light_of": {
@@ -6856,9 +6856,9 @@
       ]
     },
     "grammar_a1_honorific_kke": {
-      "courseUnitId": "a1_11_titles_relationships",
+      "courseUnitId": "a1_13_register_switching",
       "conceptIds": [
-        "concept_a1_titles_relationships"
+        "concept_a1_register_switch"
       ]
     },
     "grammar_a2_humble_give": {
@@ -6898,9 +6898,9 @@
       ]
     },
     "grammar_a1_duration_span": {
-      "courseUnitId": "a1_08_clarify_repair",
+      "courseUnitId": "a1_05_numbers_time",
       "conceptIds": [
-        "concept_a1_clarification"
+        "concept_a1_time_numbers"
       ]
     },
     "grammar_a1_come_purpose": {
@@ -7134,9 +7134,9 @@
       ]
     },
     "a1:interview": {
-      "courseUnitId": "a1_15_first_class_work",
+      "courseUnitId": "a1_13_register_switching",
       "conceptIds": [
-        "concept_a1_first_meeting"
+        "concept_a1_register_switch"
       ]
     },
     "a1:job_hunting": {
@@ -7146,15 +7146,15 @@
       ]
     },
     "a1:kpop": {
-      "courseUnitId": "a1_09_home_daily_life",
+      "courseUnitId": "a1_02_self_intro_identity",
       "conceptIds": [
-        "concept_a1_home_daily"
+        "concept_identity_polite"
       ]
     },
     "a1:mood": {
-      "courseUnitId": "a1_12_daily_negation",
+      "courseUnitId": "a1_03_topic_subject_particles",
       "conceptIds": [
-        "concept_a1_negation"
+        "concept_topic_particle"
       ]
     },
     "a1:moving": {
@@ -7188,9 +7188,9 @@
       ]
     },
     "a1:shopping": {
-      "courseUnitId": "a1_04_order_request_object",
+      "courseUnitId": "a1_05_numbers_time",
       "conceptIds": [
-        "concept_request_polite"
+        "concept_a1_time_numbers"
       ]
     },
     "a1:transport": {
@@ -7200,15 +7200,15 @@
       ]
     },
     "a1:travel": {
-      "courseUnitId": "a1_06_transport_directions",
+      "courseUnitId": "a1_16_survival_capstone",
       "conceptIds": [
-        "concept_a1_directions"
+        "concept_a1_survival"
       ]
     },
     "a1:weather": {
-      "courseUnitId": "a1_09_home_daily_life",
+      "courseUnitId": "a1_01_greetings_hangul",
       "conceptIds": [
-        "concept_a1_home_daily"
+        "concept_greeting_politeness"
       ]
     },
     "a1:weekend": {
@@ -7873,7 +7873,7 @@
     "b2:teamverhandlung": "b2_03_precise_requests",
     "b2:kurzlage": "b2_06_advanced_capstone",
     "b2:eskalation": "b2_04_complaint_resolution",
-    "b2:kurzreferat": "b2_02_professional_opinion",
+    "b2:kurzreferat": "b2_01_formal_opening",
     "c1:evidenzvorbehalt": "c1_01_evidence_public_reasoning",
     "c1:öffentliche lage": "c1_01_evidence_public_reasoning",
     "c1:erhebungsdesign": "c1_01_evidence_public_reasoning",
