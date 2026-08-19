@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — Beyond Humanizer로 권한·직책 창작을 걷어냄
+
+**무엇을 왜.** Jin의 `JinnysHumanizer_v1` 그대로: 자연스러운 DE/EN이
+원문에 없는 manager/Leitung/sign-off를 만들면 실패다. 이 세션 문장과
+앱 데이터·생성기를 그 슬롯으로 다시 봤다.
+
+- 승인: `Freigabe weiterleiten` / send it up for approval. 직책 없음.
+- 택시 미터기: `Taxameter` 유지, `zuständige Stelle`. Zähler로 일반화 금지.
+- 위임 밖: Zuständigkeit / next decision-making level. `darf ich nicht` 아님.
+- `풀어 쓰다`: paraphrase. `spell it out` 아님.
+- 게시 `올라가요`: posted / eingestellt. 조직의 *oben* 아님.
+- `위임 범위`: Zuständigkeitsgrenze / scope of authority. Mandatsgrenze 아님.
+- 점장: Filialleitung / store manager. 이름 없는 Leitung 아님.
+- 생성기 뼈대 `Mit formelle Bitte bittest du…` → `Mit dieser Form…`.
+- 스킬: `.cursor/skills/beyond-humanizer/`. 한국어 표제어·ID는 유지.
+
+**검증.** 스크립트 unicode/rejected-phrases + flutter test scan/cloze/satz/content_id/vocab_pack.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 예산 이월·과장 표현 Satz를 적은 문장으로
 
 **무엇을 왜.** Jin이 `satz_c1_0170`·`satz_b2_0285` 한국어·DE·EN을 직접 고쳤다.

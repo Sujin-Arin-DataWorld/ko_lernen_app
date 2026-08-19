@@ -2251,7 +2251,7 @@
      "speaker": "user",
      "ko": "이 단어, 대응하는 표현이 없습니다. 풀어 쓸 수밖에 없습니다.",
      "de": "Für dieses Wort gibt es keine Entsprechung. Ich muss es umschreiben.",
-     "en": "There's no equivalent for this word. I need to spell it out."
+     "en": "There's no direct equivalent for this word, so I'll have to paraphrase it."
     },
     {
      "speaker": "minsu",
@@ -2334,7 +2334,7 @@
      ],
      "data": {
       "promptDe": "Für dieses Wort gibt es keine Entsprechung. Ich muss es umschreiben.",
-      "promptEn": "There's no equivalent for this word. I need to spell it out.",
+      "promptEn": "There's no direct equivalent for this word, so I'll have to paraphrase it.",
       "options": [
        {
         "ko": "이 단어, 대응하는 표현이 없습니다. 풀어 쓸 수밖에 없습니다."

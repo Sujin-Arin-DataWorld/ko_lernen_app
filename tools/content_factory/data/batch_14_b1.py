@@ -523,7 +523,7 @@ SCENES: list[dict[str, Any]] = [
              "en": "I'll call upstairs. I'm not sure anyone is home."},
             {"speaker": "user", "ko": "제가 직접 올라가는 건 아닌 것 같아서요.",
              "de": "Ich wollte nicht selbst hochgehen.",
-             "en": "I did not think it was my place to go up myself."},
+             "en": "I didn't think I should go up there myself."},
             {"speaker": "jieun", "ko": "잘하셨어요. 저희가 먼저 확인하는 게 맞아요.",
              "de": "Richtig so. Wir prüfen das zuerst.",
              "en": "You did the right thing. We should check first."},

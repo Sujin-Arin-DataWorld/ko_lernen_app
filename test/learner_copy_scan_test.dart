@@ -30,6 +30,10 @@ const _generatorFiles = <String>[
   'tools/content_factory/build_batch_08_partner_family_scenarios.py',
   'tools/content_factory/add_phrasebook_smalltalk.py',
   'tools/content_factory/build_productive_assessments.py',
+  'tools/content_factory/build_level_content_4x.py',
+  'tools/content_factory/data/batch_10_scene_scripts.py',
+  'tools/content_factory/data/batch_10_scene_beats.py',
+  'tools/content_factory/data/batch_16_c2_aesthetic.py',
 ];
 
 final _textbookNames = <RegExp>[
@@ -72,6 +76,20 @@ final _textbookPhrases = <RegExp>[
   RegExp('Blick, der um Übersetzung'),
   RegExp('look asking for a translation'),
   RegExp('Augenbitte'),
+  RegExp('run it by my manager'),
+  RegExp('When will your manager see it'),
+  RegExp('spell it out'),
+  RegExp('Es muss nach oben'),
+  RegExp('It has to go up'),
+  RegExp('die Leitung entscheiden'),
+  RegExp('sign it off'),
+  RegExp('Bitte nach oben geben'),
+  RegExp('Wann geht es nach oben'),
+  RegExp('When will it move up the chain'),
+  RegExp('Mandatsgrenze'),
+  RegExp('mandate edge'),
+  RegExp(r'When does it go up\?'),
+  RegExp(r'When will it go up\?'),
 ];
 
 // 2026-08-17: Batch 07/08 은 수량·ID·스키마 게이트를 전부 통과했지만, 문장을

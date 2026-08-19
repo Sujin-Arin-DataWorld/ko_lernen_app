@@ -16569,8 +16569,8 @@
       "id": "satz_c2_0093",
       "level": "c2",
       "targetKo": "위임 범위를 넘는 결정을 관행으로 포장하지 않아요.",
-      "promptDe": "Eine Entscheidung jenseits der Mandatsgrenze nenne ich nicht Gewohnheit.",
-      "promptEn": "I do not dress a decision beyond the mandate edge as custom.",
+      "promptDe": "Eine Entscheidung jenseits der Zuständigkeitsgrenze nenne ich nicht Gewohnheit.",
+      "promptEn": "I do not dress a decision beyond the scope of authority as custom.",
       "distractors": [
         "제도적 권한",
         "공식 어조"

@@ -191,7 +191,7 @@ SCENES: list[dict[str, Any]] = [
         "dialog": [
             {"speaker": "user", "ko": "이 단어, 대응하는 표현이 없습니다. 풀어 쓸 수밖에 없습니다.",
              "de": "Für dieses Wort gibt es keine Entsprechung. Ich muss es umschreiben.",
-             "en": "There's no equivalent for this word. I need to spell it out."},
+             "en": "There's no direct equivalent for this word, so I'll have to paraphrase it."},
             {"speaker": "minsu", "ko": "얼마나 늘어납니까?",
              "de": "Wie viel länger wird es dadurch?",
              "en": "How much longer does that make it?"},
@@ -223,7 +223,7 @@ SCENES: list[dict[str, Any]] = [
                             {"de": "Ein Absatz wird zu einem einzigen Wort gekürzt.", "en": "A paragraph gets trimmed down to a single word."}],
                 "correctIndex": 0}),
             _q("c2_aesthetic_word_without_equivalent", "tr", "uebersetzen", _AES[1],
-               {"promptDe": "Für dieses Wort gibt es keine Entsprechung. Ich muss es umschreiben.", "promptEn": "There's no equivalent for this word. I need to spell it out.",
+               {"promptDe": "Für dieses Wort gibt es keine Entsprechung. Ich muss es umschreiben.", "promptEn": "There's no direct equivalent for this word, so I'll have to paraphrase it.",
                 "options": [{"ko": "이 단어, 대응하는 표현이 없습니다. 풀어 쓸 수밖에 없습니다."}, {"ko": "이 단어, 대응하는 표현이 이미 있습니다."},
                             {"ko": "이 문단, 줄일 수밖에 없습니다."}, {"ko": "이 단어, 삭제할 수밖에 없습니다."}],
                 "correctIndex": 0}),

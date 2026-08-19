@@ -679,7 +679,7 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
         ("card_balance", "카드 잔액", "Kartenguthaben", "Card balance", "station"),
         ("rain_cancel", "비로 취소", "Regenabsage", "Rain cancel", "home"),
         ("guest_pass", "방문증", "Besucherausweis", "Visitor pass", "home"),
-        ("manager_leave", "점장에게 휴가", "Urlaub bei der Leitung", "Leave with the manager", "office"),
+        ("manager_leave", "점장에게 휴가", "Urlaub bei der Filialleitung", "Leave with the store manager", "office"),
         ("label_phone", "라벨 번호", "Nummer auf dem Etikett", "Number on the label", "station"),
         ("hours_six", "운영시간", "Öffnungszeit", "Opening hours", "market"),
         ("seat_hold", "자리 잡기", "Plätze sichern", "Hold seats", "cafe"),
@@ -782,7 +782,7 @@ def scenario_catalog() -> list[tuple[str, str, str, str, str, str, str]]:
     c2 = [
         ("discourse_premise", "담론 전제", "Diskursprämisse", "Discourse premise", "office"),
         ("passive_hide", "수동 은폐", "Passivverdeckung", "Passive concealment", "office"),
-        ("mandate_edge", "위임 범위", "Mandatsgrenze", "Mandate edge", "office"),
+        ("mandate_edge", "위임 범위", "Zuständigkeitsgrenze", "Authority limit", "office"),
         ("archive_gap", "기록 공백", "Archivlücke", "Archive gap", "office"),
         ("appeal_bot", "챗봇 이의", "Chatbot-Einspruch", "Chatbot appeal", "office"),
         ("trace_log", "추적 로그", "Prüfprotokoll", "Trace log", "office"),
@@ -865,8 +865,8 @@ def build_scenario(
             "title": {"ko": g_ko, "de": g_de, "en": g_en},
             "explanation": {
                 "ko": f"{g_ko} 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-                "de": f"Mit {g_de} bittest du höflich oder nennst eine Bedingung.",
-                "en": f"Use {g_en} to ask politely or name a condition.",
+                "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+                "en": "Use this form to ask politely or name a condition.",
             },
         },
         "dialog": script["dialog"],
