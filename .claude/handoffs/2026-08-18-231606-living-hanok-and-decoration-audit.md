@@ -1,3 +1,8 @@
+> **Superseded.** 정본은
+> `.claude/handoffs/2026-08-18-235200-hanok-asset-skill-audit.md` 이다.
+> 이 파일의 git 안내(`chore/hanok-pr-e-prep` 빈 브랜치, flutter 4018/4018)는
+> 쓰지 말 것.
+
 # Handoff: 살아 있는 한옥 — 원장/PR-B~D/Phase 2 자동화 완료 + 사랑방 소품 감사(진행 중)
 
 ## Session Metadata
