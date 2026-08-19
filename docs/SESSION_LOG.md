@@ -1,5 +1,32 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 메인 홈 수석 UI/UX·백엔드 비판 + 실행 계획
+
+**무엇을 왜.** Jin이 현재 메인을 수석 UI/UX·수석 백엔드 관점으로 비판하고
+개선 계획을 달라고 했다. `/find-skills` + `/frontend-design`을 먼저 돌렸다.
+코드·에셋·서버는 안 고친다.
+
+**실측.** HEAD `d7488bcd` (`origin/main`, #95+#96+#97 흡수). Today는
+히어로 아래 미션+보자기+한옥 바+퀘스트 스택. 탭 아이콘·보자기·분 표기는
+Material/필. `recommendMission`은 코스가 있으면 복습을 숨긴다.
+`TodayLearningSnapshotLoader`는 소스 하나 실패면 오늘 전체를 접는다.
+`users/{uid}` owner update + 클라 XP 페이로드. 한옥 V1 UI 호출자 0.
+`MissionHeroCard`는 골든만. 웹 랜딩은 Lucide + 가짜 62%. #93 배너·#96
+Wanted Sans는 이미 main.
+
+**스킬.** 리더보드 `frontend-design`(사용). CLI: UI 리뷰 스킬은 436/362
+설치라 미설치. 백엔드 `langgenius/dify@backend-code-review` 1.7K는 후보.
+저장소 `firebase-security-rules-auditor`가 rules 감사 정본.
+
+**남긴 것.** `docs/MAIN_HOME_CRITIQUE_PLAN_2026-08-19.md` — 마당=오늘 일
+시그니처, P0–P2 비판, PR H1–H5 순서, Jin 결정 4항. `docs/README.md` UI
+포인터. AGENTS 체크리스트에 홈 IA 항목.
+
+**검증.** 파일 실독(셸/Today/로더/추천/영수증/cloud_sync/rules/site.tsx).
+`MissionHeroCard(` 생산 호출 0. 배포·위젯 테스트 없음(문서만).
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — main Analyze 빨간불: #96 태블릿 골든 6장
 
 **무엇을 왜.** Jin 이 붙인 CI 로그(`Run set -euo pipefail` + `Got dependencies!` +
