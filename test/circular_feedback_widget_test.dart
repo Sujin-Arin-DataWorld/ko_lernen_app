@@ -37,6 +37,7 @@ void main() {
       'kl_tut_kkeunmari': true,
       'kl_tut_grammar': true,
       'kl_tut_hangul': true,
+      'kl_tut_hangulWriteRules': true,
       // 4방향 덱 코치는 전체 화면 스포트라이트라 탭을 삼킨다. 이 파일은
       // 피드백 수집 계약을 보는 곳이라 코치를 이미 본 사용자로 시작한다.
       'kl_tut_soriDeck': true,

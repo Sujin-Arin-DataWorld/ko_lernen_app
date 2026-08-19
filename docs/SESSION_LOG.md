@@ -5,6 +5,17 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 쓰기 첫 실행 시트가 Finish 테스트를 막던 것
+
+**무엇을 왜.** `0b45e9dd` CI가 4036 통과 뒤 `circular_feedback_widget_test` 한
+건만 실패했다. Write 탭이 규칙 시트를 띄워 `hangul-writing-finish`를 못 찾았다.
+
+**고침.** 그 테스트 setUp에 `kl_tut_hangulWriteRules: true`.
+
+**검증.** `flutter test test/circular_feedback_widget_test.dart --name 'Hangul writing finish'` 통과.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor Grok 4.6, Cloud) — 콘텐츠 UI 바이블 P4–P7 + PR83 CI
 
 **무엇을 왜.** Jin이 자러 가며 세션 처음 부탁을 전부 끝내 달라고 했다. 디자인
