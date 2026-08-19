@@ -85,6 +85,48 @@ def all_member_dirs(lock: dict[str, Any]) -> set[str]:
     return {d for family in lock["families"].values() for d in family["dirs"]}
 
 
+def allowed_models(lock: dict[str, Any], family_name: str) -> set[str]:
+    """Models with allowed:true. Empty routing means the family does not generate."""
+    family = lock["families"].get(family_name) or {}
+    return {
+        entry["model"]
+        for entry in family.get("modelRouting") or []
+        if entry.get("model") and entry.get("allowed") is True
+    }
+
+
+def denied_models(lock: dict[str, Any], family_name: str) -> set[str]:
+    """Models with allowed:false (e.g. Seedream on F-A / F-B)."""
+    family = lock["families"].get(family_name) or {}
+    return {
+        entry["model"]
+        for entry in family.get("modelRouting") or []
+        if entry.get("model") and entry.get("allowed") is False
+    }
+
+
+def model_routing_error(lock: dict[str, Any], family_name: str, model: str) -> str | None:
+    """Hard-fail reason, or None if this model may be used for the family."""
+    routing = (lock["families"].get(family_name) or {}).get("modelRouting") or []
+    if not routing:
+        return (
+            f"family {family_name!r} has an empty modelRouting — no generation is allowed"
+        )
+    if model in denied_models(lock, family_name):
+        return f"model {model!r} is denied for family {family_name}"
+    allowed = allowed_models(lock, family_name)
+    if allowed and model not in allowed:
+        return (
+            f"model {model!r} is not in the allowed list for family {family_name}: "
+            f"{sorted(allowed)}"
+        )
+    if not allowed and model not in {entry.get("model") for entry in routing}:
+        return (
+            f"model {model!r} is not in STYLE_LOCK.json families.{family_name}.modelRouting"
+        )
+    return None
+
+
 if __name__ == "__main__":
     lock = load_style_lock()
     print(f"families: {sorted(lock['families'])}")

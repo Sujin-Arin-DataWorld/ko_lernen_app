@@ -393,6 +393,9 @@ flutter run -d <android-id>   # 안드로이드
   생성은 미착수.** 레거시 한옥이 라이브 정본. 다음 세션 시작:
   `.claude/handoffs/2026-08-18-235200-hanok-asset-skill-audit.md`.
   `chore/hanok-pr-e-prep` / `chore/hanok-asset-ledger-backfill`을 잇지 말 것.
+- [x] **한옥 레시피 러너 게이트 (2026-08-18)**: DRAFT 차단, Seedream `allowed:false`,
+  참조 정확히 1장, 모든 kind `2K`, F-A 골격 조립, 거절 spec 디스크 기록,
+  `cutout-fa-decoration-geomungo.json` 재생 픽스처. 남은 후속은 SESSION_LOG 참고.
 - [x] **Batch 06 앱 데이터 승격 + 카탈로그 계약**: `fa86b7af`가 Batch 06
   68개 standalone + embedded quest 20개를 production asset과
   `curriculum_manifest.json` contentLinks에 올렸다. review ledger는 전부
