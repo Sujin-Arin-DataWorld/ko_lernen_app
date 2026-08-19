@@ -754,7 +754,7 @@
                 "ko": "이 일은 이미 끝났습니다."
               },
               {
-                "ko": "번호를 바꾸어 주세요."
+                "ko": "번호를 바꿔 주세요."
               }
             ],
             "correctIndex": 0
@@ -845,7 +845,7 @@
         {
           "speaker": "jieun",
           "ko": "네, 편하게 말씀하세요.",
-          "de": "Sagen Sie es ruhig.",
+          "de": "Sie können mir ruhig sagen.",
           "en": "Go ahead, tell me."
         },
         {
@@ -941,7 +941,7 @@
                 "ko": "이 일은 이미 끝났습니다."
               },
               {
-                "ko": "번호를 바꾸어 주세요."
+                "ko": "번호를 바꿔 주세요."
               }
             ],
             "correctIndex": 0
@@ -1032,7 +1032,7 @@
         {
           "speaker": "jieun",
           "ko": "네, 편하게 말씀하세요.",
-          "de": "Sagen Sie es ruhig.",
+          "de": "Sie können mir ruhig sagen.",
           "en": "Go ahead, tell me."
         },
         {
@@ -1128,7 +1128,7 @@
                 "ko": "이 일은 이미 끝났습니다."
               },
               {
-                "ko": "번호를 바꾸어 주세요."
+                "ko": "번호를 바꿔 주세요."
               }
             ],
             "correctIndex": 0
@@ -1219,7 +1219,7 @@
         {
           "speaker": "jieun",
           "ko": "네, 편하게 말씀하세요.",
-          "de": "Sagen Sie es ruhig.",
+          "de": "Sie können mir ruhig sagen.",
           "en": "Go ahead, tell me."
         },
         {
@@ -1315,7 +1315,7 @@
                 "ko": "이 일은 이미 끝났습니다."
               },
               {
-                "ko": "번호를 바꾸어 주세요."
+                "ko": "번호를 바꿔 주세요."
               }
             ],
             "correctIndex": 0
@@ -1406,7 +1406,7 @@
         {
           "speaker": "jieun",
           "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte sagen Sie.",
+          "de": "Ja, bitte?",
           "en": "Yes, go ahead."
         },
         {
@@ -1502,7 +1502,7 @@
                 "ko": "이 일은 이미 끝났습니다."
               },
               {
-                "ko": "번호를 바꾸어 주세요."
+                "ko": "번호를 바꿔 주세요."
               }
             ],
             "correctIndex": 0
@@ -1689,7 +1689,7 @@
                 "ko": "이 일은 이미 끝났습니다."
               },
               {
-                "ko": "번호를 바꾸어 주세요."
+                "ko": "번호를 바꿔 주세요."
               }
             ],
             "correctIndex": 0
@@ -1780,7 +1780,7 @@
         {
           "speaker": "jieun",
           "ko": "네, 편하게 말씀하세요.",
-          "de": "Sagen Sie es ruhig.",
+          "de": "Sie können mir ruhig sagen.",
           "en": "Go ahead, tell me."
         },
         {
@@ -1876,7 +1876,7 @@
                 "ko": "이 일은 이미 끝났습니다."
               },
               {
-                "ko": "번호를 바꾸어 주세요."
+                "ko": "번호를 바꿔 주세요."
               }
             ],
             "correctIndex": 0
@@ -1967,7 +1967,7 @@
         {
           "speaker": "jieun",
           "ko": "네, 말씀하세요.",
-          "de": "Ja, bitte sagen Sie.",
+          "de": "Ja, bitte?",
           "en": "Yes, go ahead."
         },
         {
@@ -2063,7 +2063,7 @@
                 "ko": "이 일은 이미 끝났습니다."
               },
               {
-                "ko": "번호를 바꾸어 주세요."
+                "ko": "번호를 바꿔 주세요."
               }
             ],
             "correctIndex": 0
@@ -5412,8 +5412,8 @@
         {
           "speaker": "minsu",
           "ko": "괜찮습니다. 편하게 말씀하세요.",
-          "de": "Kein Problem. Sagen Sie ruhig.",
-          "en": "That is fine. Please say it."
+          "de": "Kein Problem. Sie können mir ruhig sagen.",
+          "en": "That's fine. Go ahead."
         },
         {
           "speaker": "user",

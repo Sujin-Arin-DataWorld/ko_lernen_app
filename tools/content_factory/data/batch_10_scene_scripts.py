@@ -127,7 +127,7 @@ FRAME_POOLS: dict[tuple[str, bool], dict[str, tuple[tuple[str, str, str], ...]]]
     ("service", True): {
         "open": (
             ("어서 오세요. 어떤 일로 오셨어요?", "Guten Tag. Was können wir für Sie tun?", "Welcome. What brings you in?"),
-            ("네, 말씀하세요.", "Ja, bitte sagen Sie.", "Yes, go ahead."),
+            ("네, 말씀하세요.", "Ja, bitte?", "Yes, go ahead."),
             ("안녕하세요. 무엇부터 도와드릴까요?", "Hallo. Wo fangen wir an?", "Hello. Where should we start?"),
             ("어서 오세요. 편하게 말씀해 주세요.", "Guten Tag. Sagen Sie ruhig, was Sie brauchen.", "Welcome. Just tell me what you need."),
             ("네, 다음 분. 이쪽으로 오세요.", "Der Nächste bitte. Kommen Sie hierher.", "Next, please. Come this way."),
@@ -166,10 +166,10 @@ FRAME_POOLS: dict[tuple[str, bool], dict[str, tuple[tuple[str, str, str], ...]]]
     },
     ("coworker", True): {
         "open": (
-            ("네, 말씀하세요.", "Ja, bitte sagen Sie.", "Yes, go ahead."),
+            ("네, 말씀하세요.", "Ja, bitte?", "Yes, go ahead."),
             ("지금 시간 괜찮아요. 어떤 건이에요?", "Ich habe Zeit. Um welchen Fall geht es?", "I have time. Which case is it?"),
-            ("네, 편하게 말씀하세요.", "Sagen Sie es ruhig.", "Go ahead, tell me."),
-            ("듣고 있어요. 말씀하세요.", "Ich höre. Sagen Sie.", "I'm listening. Go ahead."),
+            ("네, 편하게 말씀하세요.", "Sie können mir ruhig sagen.", "Go ahead, tell me."),
+            ("듣고 있어요. 말씀하세요.", "Ich höre. Ja, bitte?", "I'm listening. Go ahead."),
             ("네, 어디부터 볼까요?", "Ja, wo fangen wir an?", "Sure, where should we start?"),
         ),
         "check_do": (
@@ -580,7 +580,7 @@ _add(
     sit=("쓰레기를 종류별로 나눕니다.", "Man trennt den Müll nach Art.", "You sort trash by type."),
     need=("비닐은 어디에 넣어요?", "Wohin kommt das Plastik?", "Where does the plastic go?"),
     ask=("노란 봉지를 쓰시면 됩니다.", "Bitte die gelbe Tüte nehmen.", "Please use the yellow bag."),
-    wait=("수거는 내일 아침에 있습니다.", "Die Abholung ist morgen früh.", "Pickup is tomorrow morning."),
+    wait=("내일 아침에 수거하러 와요.", "Morgen früh wird der Müll abgeholt.", "They pick up the trash tomorrow morning."),
     vocab=["쓰레기", "비닐", "봉지", "나누다", "수거", "아침"],
     particle="를",
 )

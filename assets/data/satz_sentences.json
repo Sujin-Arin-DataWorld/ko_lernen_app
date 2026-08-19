@@ -7040,9 +7040,9 @@
     {
       "id": "satz_a2_0075",
       "level": "a2",
-      "targetKo": "발음을 놀려도 웃어 주면 금방 끝나요.",
-      "promptDe": "Wenn sie die Aussprache aufziehen und ich lache, ist es vorbei.",
-      "promptEn": "If they tease my pronunciation and I laugh, it ends quickly.",
+      "targetKo": "누가 내 발음을 놀려도 그냥 웃어넘기면 돼요.",
+      "promptDe": "Auch wenn sich jemand über meine Aussprache lustig macht, kann ich einfach darüber lachen.",
+      "promptEn": "Even if someone makes fun of my pronunciation, I can just laugh it off.",
       "distractors": [
         "동생이",
         "동아리에서"
@@ -7052,9 +7052,9 @@
     {
       "id": "satz_a2_0076",
       "level": "a2",
-      "targetKo": "현우가 제 편을 들어 줘서 긴장이 풀렸어요.",
-      "promptDe": "Hyunwoo ergriff für mich Partei, und die Anspannung fiel ab.",
-      "promptEn": "Hyunwoo took my side, and the tension left me.",
+      "targetKo": "현우가 제 편을 들어 줘서 든든했어요.",
+      "promptDe": "Hyunwoo hat zu mir gehalten, und das hat mir Sicherheit gegeben.",
+      "promptEn": "Hyunwoo took my side, and that made me feel supported.",
       "distractors": [
         "하셨어요",
         "하시길래"
@@ -7088,9 +7088,9 @@
     {
       "id": "satz_a2_0079",
       "level": "a2",
-      "targetKo": "현우 어릴 적 비밀 보장은 제가 먼저 약속했어요.",
-      "promptDe": "Das Kindheitsgeheimnis zu wahren versprach ich zuerst.",
-      "promptEn": "I promised first to keep Hyunwoo's childhood secret.",
+      "targetKo": "현우가 어릴 때 이야기는 아무에게도 말하지 않기로 했어요.",
+      "promptDe": "Ich habe beschlossen, niemandem von Hyunwoos Kindheit zu erzählen.",
+      "promptEn": "I decided not to tell anyone about Hyunwoo's childhood.",
       "distractors": [
         "매운",
         "먹기"
@@ -7100,9 +7100,9 @@
     {
       "id": "satz_a2_0080",
       "level": "a2",
-      "targetKo": "맞장구를 너무 크게 치는 바람에 국그릇이 흔들렸어요.",
-      "promptDe": "Ich stimmte so laut zu, dass die Suppenschüssel wackelte.",
-      "promptEn": "I agreed so loudly that the soup bowl wobbled.",
+      "targetKo": "현우의 이야기를 들으면서 계속 맞장구를 쳤어요.",
+      "promptDe": "Während ich Hyunwoos Geschichte zuhörte, reagierte ich immer wieder zustimmend.",
+      "promptEn": "While listening to Hyunwoo's story, I kept responding in agreement.",
       "distractors": [
         "있으라고",
         "잊혀요"
@@ -7113,8 +7113,8 @@
       "id": "satz_a2_0081",
       "level": "a2",
       "targetKo": "통역 눈짓을 현우가 못 보면 그냥 웃어요.",
-      "promptDe": "Sieht Hyunwoo den Blick nicht, lache ich einfach.",
-      "promptEn": "If Hyunwoo misses the look, I just laugh.",
+      "promptDe": "Versteht Hyunwoo meinen Blick nicht, lache ich einfach.",
+      "promptEn": "If Hyunwoo doesn't get the look, I just laugh.",
       "distractors": [
         "서로",
         "서서"
@@ -10977,8 +10977,8 @@
       "id": "satz_a1_0188",
       "level": "a1",
       "targetKo": "늦으면 미리 연락해 주세요.",
-      "promptDe": "Wenn Sie sich verspäten, sagen Sie bitte vorher Bescheid.",
-      "promptEn": "If you will be late, please give advance notice.",
+      "promptDe": "Wenn du zu spät kommst, sag vorher Bescheid.",
+      "promptEn": "If you're gonna be late, text me first.",
       "distractors": [
         "늦잠",
         "약속 시간"
@@ -14420,14 +14420,14 @@
     {
       "id": "satz_b2_0279",
       "level": "b2",
-      "targetKo": "통계 단위가 바뀌면 비교가 어려워요.",
-      "promptDe": "Wechselt die Maßeinheit, wird der Vergleich schwer.",
-      "promptEn": "If the statistic unit changes, comparison gets hard.",
+      "targetKo": "자료마다 비교 기준이 다르면 수치만 보고 비교하기 어려워요.",
+      "promptDe": "Wenn unterschiedliche Vergleichsmaßstäbe verwendet werden, lassen sich Zahlen nicht einfach direkt miteinander vergleichen.",
+      "promptEn": "If different comparison criteria are used, the figures cannot be compared directly just by looking at the numbers.",
       "distractors": [
         "원문 대조",
         "선택 편집"
       ],
-      "vocabKo": "통계 단위"
+      "vocabKo": "비교 기준"
     },
     {
       "id": "satz_b2_0280",
@@ -14492,9 +14492,9 @@
     {
       "id": "satz_b2_0285",
       "level": "b2",
-      "targetKo": "과장 표현을 빼고 숫자를 다시 말해요.",
-      "promptDe": "Ich lasse die Übertreibung weg und nenne die Zahl erneut.",
-      "promptEn": "I drop the loaded wording and restate the number.",
+      "targetKo": "자극적인 표현은 빼고 수치를 있는 그대로 전달해요.",
+      "promptDe": "Ich lasse reißerische Formulierungen weg und gebe die Zahlen sachlich wieder.",
+      "promptEn": "I leave out sensational wording and present the figures as they are.",
       "distractors": [
         "원문 대조",
         "선택 편집"
@@ -16340,9 +16340,9 @@
     {
       "id": "satz_c1_0170",
       "level": "c1",
-      "targetKo": "예산 이월이 막히면 가을에 성급한 구매가 생겨요.",
-      "promptDe": "Ohne Mittelübertragung kommt im Herbst der Hastkauf.",
-      "promptEn": "If budget carryover is blocked, hasty autumn purchases appear.",
+      "targetKo": "예산 이월이 제한되면 남은 예산을 소진하기 위한 불필요한 지출이 발생할 수 있어요.",
+      "promptDe": "Wenn die Übertragung von Haushaltsmitteln eingeschränkt ist, kann es zu unnötigen Ausgaben kommen, nur um das verbleibende Budget auszuschöpfen.",
+      "promptEn": "If budget carryover is restricted, unnecessary spending may occur simply to use up the remaining budget.",
       "distractors": [
         "운영 인력",
         "교체 주기"
@@ -19665,8 +19665,8 @@
       "id": "satz_a2_0308",
       "level": "a2",
       "targetKo": "여기서 뭐가 제일 맛있어요?",
-      "promptDe": "Empfehlen Sie mir bitte das leckerste Gericht hier.",
-      "promptEn": "Please recommend the tastiest dish here.",
+      "promptDe": "Was schmeckt hier am besten?",
+      "promptEn": "What's best here?",
       "distractors": [
         "회사",
         "직업"
@@ -26360,14 +26360,14 @@
     {
       "id": "satz_c2_0221",
       "level": "c2",
-      "targetKo": "특정인을 향한 호명이 시작되면 대화가 멈춥니다.",
-      "promptDe": "Beginnt die namentliche Benennung einer bestimmten Person, endet das Gespräch.",
-      "promptEn": "Once calling out a specific person by name starts, the conversation stops.",
+      "targetKo": "논점보다 특정 개인에 대한 비난이 앞서기 시작하면 생산적인 대화가 어려워집니다.",
+      "promptDe": "Wenn persönliche Vorwürfe gegen eine bestimmte Person die sachliche Auseinandersetzung verdrängen, wird ein produktives Gespräch schwierig.",
+      "promptEn": "When criticism of a specific individual begins to overshadow the issue itself, productive discussion becomes difficult.",
       "distractors": [
         "위계가",
         "잣대를"
       ],
-      "vocabKo": "호명"
+      "vocabKo": "비난"
     },
     {
       "id": "satz_c2_0222",

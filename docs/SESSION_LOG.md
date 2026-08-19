@@ -11,6 +11,71 @@
 
 **검증.** 집중 Flutter: data_loader · character_selection · can_do_segment_asset ·
 canonical_course_segment_loader · hanok_grant_catalog.
+### 2026-08-19 (Cursor) — 예산 이월·과장 표현 Satz를 적은 문장으로
+
+**무엇을 왜.** Jin이 `satz_c1_0170`·`satz_b2_0285` 한국어·DE·EN을 직접 고쳤다.
+같은 예문 cloze/vocab도 맞춤. 표제어 예산 이월·과장 표현·ID는 유지.
+cloze_b2_0299 빈칸은 새 문장의 `자극적인 표현`.
+
+**검증.** flutter test cloze/satz/content_id/vocab_pack 31 passed.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 수거·맞장구·비교 기준·비난·메뉴판
+
+**무엇을 왜.** Jin이 어색한 한국어/직역을 직접 고쳤다.
+분리배출 `수거는 내일 아침에 있습니다`는 택배 문장이 아니다.
+`내일 아침에 수거하러 와요` / Morgen früh wird der Müll abgeholt.
+cloze_a2_0112/0113/0116/0117, b2_0293(`비교 기준`), c2_0219(`비난`)는
+적어 준 문장 그대로. `메뉴` 표제어는 예문이 메뉴판이라 `메뉴판`.
+오답 `번호를 바꾸어 주세요`는 `번호를 바꿔 주세요`. ID 유지.
+
+**검증.** cloze 보기 3개 계약 유지.
+flutter test cloze/satz/scan/content_id/vocab_pack/word_relation 45 passed.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 편하게 말씀하세요·통역 눈짓을 각 언어로
+
+**무엇을 왜.** `Sagen Sie es ruhig`는 명령처럼 들린다. Jin 요청대로
+`Sie können mir ruhig sagen`. `통역 눈짓`을 Übersetzung-Blick로 합성하지 않고
+독일어는 sich mit Blicken verständigen / Versteht Hyunwoo meinen Blick nicht.
+한국어 합성어·ID는 유지.
+
+**검증.** 앱 데이터 Grep Sagen Sie es ruhig·Augenbitte 0.
+생성기/리뷰/드래프트 동기. flutter test scan·cloze·satz·content_id·vocab_pack·word_relation·silben 56 passed.
+
+**커밋해시.** 이 로그와 같은 커밋. 앱 데이터는 `6b4407d8`.
+
+### 2026-08-19 (Cursor) — 통역 눈짓 예문에서 통역을 빼지 않는다
+
+**무엇을 왜.** Cloze/Satz가 `den Blick` / `the look`만 남겨 문장이 안 읽혔다.
+한국어는 현우에게 ‘통역해 줘’ 눈짓을 보내는 장면. DE/EN에 통역을 다시 넣음.
+단어 뜻(Blick, der um Übersetzung bittet)은 유지. 한국어·ID 유지.
+
+**검증.** vocab_a2_0311 + cloze_a2_0118 + satz_a2_0081.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 듣고 있어요 말씀하세요 ≠ Sagen Sie
+
+**무엇을 왜.** `듣고 있어요. 말씀하세요`를 Ich höre. Sagen Sie로 두면
+독일어가 명령처럼 들린다. Ich höre. Ja, bitte? 로. C1 괜찮습니다도 Nur zu.
+
+**검증.** Grep Ich höre. Sagen Sie 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — 질문 직역·주말 du·Ja bitte?
+
+**무엇을 왜.** `여기서 뭐가 제일 맛있어요?`를 Empfehlen Sie… 요청으로 바꾸면
+질문을 진술/부탁으로 바꾼다. DE/EN을 질문으로. 주말 `미리 연락해 주세요`는
+친구 해요체라 du. 창구 `네, 말씀하세요`의 Ja, bitte sagen Sie는 Ja, bitte?
+
+**검증.** 시나리오 Grep Ja, bitte sagen Sie 0. cloze/satz 동기.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 감기 병원 ≠ Krankenhaus
 
 **무엇을 왜.** 일상 `병원에 가요`/`감기가 심해서 병원`을 Krankenhaus로 두면
