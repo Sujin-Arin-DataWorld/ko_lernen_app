@@ -93,6 +93,15 @@ a1_01 문법(인사 전용 문법 패턴 없음 — 억지로 옮기면 다른 �
   `_NowPlayingBar`(지금 듣는 시나리오 + 레벨 배지 + "Szenario wählen")를 넣고,
   누르면 `Scrollable.ensureVisible` 로 서재까지 스크롤한다.
 
+**⚠️ 앞선 결정과 겹치는 부분.** `course_practice_screen_test.dart` 에는
+"a type filter that leaves one card keeps every control alive" 가 있었고 주석에
+**"This is the path Jin actually hit"** 라고 적혀 있었다 — 즉 이전 세션은 같은
+증상을 알고서 "1 장 덱을 막지 말고 컨트롤을 정직하게 두자"로 대응했다. 이번엔
+**애초에 1 장이 되는 필터 값을 안 내주는 쪽**으로 바꿨으므로 그 결정을 일부
+덮는다. 1 장 덱 계약 자체는 살아 있어야 하므로(난이도 필터로는 여전히 도달),
+테스트는 지우지 않고 난이도 경로로 다시 썼다. 두 방식 중 무엇이 맞는지는
+Jin 판단 — 되돌리려면 `_typesForLevel` 의 `>= 2` 조건만 빼면 된다.
+
 **⑤ 곁가지.** `assets/illustrations/empty/` 는 `4b5f5ccf` 에서 디렉터리째
 지워졌는데 pubspec 선언과 4개 화면 참조가 남아 `flutter` 실행마다
 `unable to find directory entry in pubspec.yaml` 을 찍고 있었다 → 선언 제거,
@@ -148,7 +157,11 @@ lib/ 미참조 에셋을 막으므로 pubspec 선언만으로는 안 되고 렌�
   서고는 창살로 초록이 새서 내부 구멍도 메웠다(지도 위 건물은 불투명해야 한다).
 - 산출물은 `assets_unused/pending_review/estate_stages/{byeoldang,seogo}/`, 원장 초안 동봉.
 
-**하지 않은 것.** 런타임 교체(07-10 webp 재승격 + 원장 sha 갱신), 오버레이 배선,
+**런타임 승격 완료(Jin 승인 2026-08-19).** 원장에서 `a1-states-compose-2026-08-17`의 07-10 출력 4건을 `rejected`로 내리고(구 sha는 그 레코드 note에 보존), 0크레딧 신규 레코드 `a1-states-recompose-frame-2026-08-19`이 새 4장 + 신규 부품 3개를 approved로 기록한다. 스키마가 decision을 approved/rejected 둘로만 허용해서 'superseded'는 못 쓴다. `promote_hanok_a1_states.py --apply` 16/16 통과, `check_personal_hanok_assets.py --require-a1-states` 통과, `flutter test hanok_v1_asset_provenance_test asset_orphan_guard_test` 17/17 통과. pubspec은 이미 선언돼 있어 바로 반영된다.
+
+**정정.** 앞 세션에서 "visualBounds로 화면 배율만 조정하면 싸다"고 했는데 틀렸다. `visualBounds`는 잠금해제 스포트라이트 위치용이고, 지도는 `personal_hanok_map.dart`가 레이어 PNG를 `BoxFit.cover`로 전체 캔버스에 겹칠 뿐 레이어별 변환이 없다. 크기를 바꾸려면 ① PNG 자체를 다시 그리거나 ② 렌더러에 레이어 변환을 새로 넣어야 한다.
+
+**하지 않은 것.** 오버레이 배선,
 별당·서고의 단계(s1~s4) 저작·지도 배치·카탈로그 등록. 전부 Jin 승인 대기.
 별당/서고 배치 구역이 10px 겹치는 것도 배치 때 조정 필요(레시피 자체 경고사항).
 
