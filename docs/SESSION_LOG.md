@@ -1,5 +1,100 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Claude Fable 5, Windows) — PR #89·#91 을 main 에 코드 손실 없이 합친다
+
+**무엇을 왜.** Jin 이 열린 PR #89·#91 을 main 에 머지하라고 했다. 둘 다 `CONFLICTING`.
+#91 은 **#88 과 같은 브랜치** `fix/android-audio-level-balance-2026-08-19` 라 #88 squash
+(`dc5fa0b8`) 와 같은 변경을 양쪽에서 보고 충돌했고, main 대비 실제 신규분은 `cd1d0e5c`
+(`test/circular_feedback_widget_test.dart` 10줄) 하나뿐이다 (`git diff dc5fa0b8 62efbbf8` 로
+확인). #89 는 `grammar_screen.dart` Key 2줄 + 같은 테스트 + SESSION_LOG. 두 PR 이 같은
+테스트 `grammar level filter resets the current study interaction set` 의 같은 hunk 를 다르게
+고친다 — #89 는 Key 파인더 + `onTap` 직접 호출, #91 은 `scrollUntilVisible` + `pumpAndSettle`
++ 실제 탭. 각각 main 코드 위에서 돌려 **둘 다 통과** 하는 것을 먼저 확인했다.
+
+**고침.** ① #89: 브랜치에 main 머지 (충돌 = SESSION_LOG 최상단 삽입 경합뿐, 두 항목 보존)
+→ squash `8608b08c`. ② #91: 브랜치에 새 main 머지. `grammar_screen.dart` 는 main 쪽
+(브랜치 내용 + Key 2줄) 채택. 테스트는 두 PR 을 합쳤다 — `Key('grammar-level-A2')` 로 칩을,
+`Key('grammar-filter-row')` 하위 `Scrollable` 을 스크롤 대상으로 찾고(#89), `scrollUntilVisible`
+→ `pumpAndSettle` → 실제 `tap` → `pumpAndSettle`(#91) 로 히트 테스트까지 포함해 계약을 고정.
+A1 도 Key 파인더. 사용처가 없어진 `_grammarLevelChip` 헬퍼는 #89 대로 제거. 그 외 파일은
+main 과 동일(#91 브랜치의 나머지는 #88 로 이미 들어가 있음).
+
+**검증.** `flutter test test/circular_feedback_widget_test.dart test/grammar_type_filter_test.dart`
+13/13 통과. `dart analyze` 두 파일 이슈 0. `git diff origin/main` 이 테스트 파일 + 이 로그뿐임을
+확인. 열린 PR #92(같은 테스트의 세 번째 수정안)는 이번 범위 밖 — 머지 후 중복이므로 닫을 후보.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor) — CI 빨간불: 문법 레벨 칩 탭이 세션 리셋을 못 하던 것
+
+**무엇을 왜.** `main` 최신 Analyze & Build 가 1실패로 빨갛다. PR #88
+(`dc5fa0b8`) 의 `grammar level filter resets the current study interaction set`
+가 `SoriChip` A2 를 `ensureVisible`+`tap` 하는데, 개수 라벨(`A2 · 46`)과 앞쪽
+`Practice with examples` CTA 때문에 칩이 가로 ListView 오른쪽 클립 끝에 붙고
+탭 좌표 `(757.7, 82.0)` 가 히트 영역을 벗어난다. 세션이 안 지워져
+`_finishSession` 이 그대로 남았다. `6c49eeb1` workflow_dispatch 도 같은 1실패.
+
+**고침.** 레벨 칩에 `Key('grammar-level-$lvl')` · 필터 ListView 에
+`Key('grammar-filter-row')` 를 달고, 해당 테스트는 칩 `onTap` 을 직접 호출해
+필터 변경→세션 리셋 계약만 고정한다.
+
+**검증.** `flutter test test/circular_feedback_widget_test.dart
+test/grammar_type_filter_test.dart test/data_integrity_test.dart` 통과.
+`flutter test test/visual_layout_regression_test.dart --name grammar` 통과.
+`dart analyze` 변경 파일 이슈 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 3일 main 전수 감사 파일만
+
+**무엇을 왜.** Jin이 최근 3일 커밋을 최신 HEAD까지 하나씩 읽고, 오류·누락·앱
+미반영·치명적인 것을 권장 해결과 한 파일에 남긴 뒤 **그 파일만** main에
+올리라고 했다. 코드·에셋·설정은 안 고친다.
+
+**남긴 것.** `docs/MAIN_3DAY_AUDIT_2026-08-19.md`. HEAD `6fad2bab`. first-parent
+135 / non-merge 258 / 전체 346. 스킬은 review-changes·explore·debug·
+refactor-safely·frontend-design + GitHub MCP. code-review-graph는 이 세션 MCP에
+없음.
+
+**P0만.** TTS/책분석 live 미배포, 새 클라 `blockSpeechFallback` 무음, 한옥 V1
+UI 0 + 19일 생성 43cr 미원장, main Analyze 1실패는 열린 PR #89.
+
+**검증.** `generate_tts.py --dry-run` 11,438쌍. `validate_content.py --json`
+ok. 시나리오 샤드 392 · vocab 2292 · grammar 214. `TtsService.lastError` 위젯
+읽기 0. `HanokCutoverService` 생산 호출 0.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
+### 2026-08-19 (Claude Opus 5, macOS) — 사랑채를 40px 올려 사랑마당을 되찾는다
+
+**무엇을 왜.** z순서를 고쳐 가림 순서는 맞췄지만 사랑채와 앞줄(행랑채·솟을대문)이
+여전히 맞닿아 있었다. Jin이 벌리자고 해서 40px 위로(직접 선택).
+
+**막혔던 것과 우회.** 처음엔 `sarangchae.png` 자체를 평행이동했다(알파 214,816 보존,
+RGBA 완전 일치까지 확인). 그런데 그 파일의 sha256이 **원장 레코드 9건의 inputAssets**에
+박혀 있고, 테스트가 `allowedModelInputs`와 각 레코드의 inputAssets sha를 **같은
+path→sha 맵**으로 대조한다. allowlist만 새 sha로 바꾸면 9건이 전부 깨지고, 9건을 같이
+바꾸면 "모델에 무엇을 먹였는가"라는 감사 기록이 거짓이 된다. 스키마엔 자산 버전 개념이
+없다. 그래서 **PNG를 원상복구하고**(sha f523e93f 확인) 그리기 시점에 옮기는 쪽으로 바꿨다.
+
+**고침.** `PersonalHanokMapLayer.canvasOffsetY`(마스터 캔버스 px, 기본 0) 신설 +
+`_MapLayerImage`가 실제 표시 높이에 비례 환산해 `Transform.translate` 적용. 0이면
+Transform을 만들지 않아 기존 레이어 렌더 경로는 그대로다. 사랑채 `canvasOffsetY: -40`,
+`visualBounds.top` .533→.500(잠금해제 스포트라이트가 건물을 따라가게).
+
+**결과.** 사랑채∩행랑채 17,370px → 1,735px(90%↓). 남은 겹침은 앞 건물이 뒤 건물 기단을
+살짝 가리는 자연스러운 정도다. 에셋 0장 변경, 원장·allowlist·프롬프트 문서 전부 무손상.
+
+**A1 16단계는 안 옮겼다.** 소켓 크롭이 `sarangchae.png` 좌표 기준이라 `camera.socket.y`만
+바꾸면 엉뚱한 영역을 잘라낸다. A1 시공 화면은 자체적으로 일관되며 지도와는 별 화면이다.
+지도와 A1 완성본 사이에 40px 차이가 남는 것은 알고 남긴 선택이다.
+
+**검증.** `flutter test test/goldens/ asset_orphan_guard hanok_v1_asset_provenance` 통과,
+`personal_hanok_map/unlock_reveal/hanok_world_screen/world_map_viewport/
+a1_hanok_construction_catalog` 31/31 통과. `flutter analyze` 클린. 골든 2장 갱신.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Claude Opus 5, macOS) — 지도 z순서 정정: 앞건물이 뒤건물에 먹히던 것
 
 **무엇을 왜.** Jin이 지도 하단에서 솟을대문·행랑채가 사랑채와 붙어 보인다고 지적했다.

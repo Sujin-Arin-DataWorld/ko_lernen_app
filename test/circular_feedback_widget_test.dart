@@ -311,13 +311,20 @@ void main() {
       isNotNull,
     );
 
-    // 칩 라벨이 개수를 달면서(`A2 · 46`) 줄이 길어져 A2 가 가로 스크롤 밖으로
-    // 밀린다. ensureVisible 만으로는 스크롤이 정착하기 전에 탭이 나가 빗나간다.
-    final a2Filter = _grammarLevelChip('A2');
+    // 개수 라벨(`A2 · 46`) + 앞쪽 CTA 때문에 A2 칩이 가로 ListView 오른쪽
+    // 클립 끝에 붙고, `ensureVisible`+`tap` 은 탭 좌표가 히트 영역을 벗어나
+    // 세션이 안 리셋됐다 (CI Analyze 1실패). Key 로 칩과 필터행을 찾고
+    // (#89), scrollUntilVisible + pumpAndSettle 로 정착시킨 뒤 실제로 탭해
+    // (#91) 필터 변경→세션 리셋 계약을 히트 테스트까지 포함해 고정한다.
+    final a2Filter = find.byKey(const Key('grammar-level-A2'));
+    expect(a2Filter, findsOneWidget);
     await tester.scrollUntilVisible(
       a2Filter,
       120,
-      scrollable: find.byType(Scrollable).first,
+      scrollable: find.descendant(
+        of: find.byKey(const Key('grammar-filter-row')),
+        matching: find.byType(Scrollable),
+      ),
     );
     await tester.pumpAndSettle();
     await tester.tap(a2Filter);
@@ -360,7 +367,9 @@ void main() {
       await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
 
-      final a1Filter = tester.widget<SoriChip>(_grammarLevelChip('A1').first);
+      final a1Filter = tester.widget<SoriChip>(
+        find.byKey(const Key('grammar-level-A1')),
+      );
       expect(a1Filter.selected, isTrue);
       expect(
         tester
@@ -632,9 +641,3 @@ class _SameIndexRandom implements math.Random {
   @override
   int nextInt(int max) => 0;
 }
-
-/// 문법 레벨 칩 파인더. 라벨이 `A2 · 46` 처럼 **개수를 달고** 나오므로
-/// 정확 일치(`widgetWithText`)로는 못 잡는다 (2026-08-19 레벨별 개수 표시).
-Finder _grammarLevelChip(String level) => find.byWidgetPredicate(
-  (widget) => widget is SoriChip && widget.label.startsWith('$level ·'),
-);

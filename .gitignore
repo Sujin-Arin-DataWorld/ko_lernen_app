@@ -93,7 +93,6 @@ scripts/cache/wiktionary_de.json
 # GCP/Firebase 서비스 계정 키 (시크릿 — 절대 커밋 금지)
 ko-lernen-app-key.json
 *-service-account*.json
-/ios/Runner/GoogleService-Info.plist
 
 # 사전생성 TTS 로컬 빌드 폴더 (Storage 로 업로드, repo 미포함)
 .tts_pregen/
