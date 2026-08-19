@@ -1,5 +1,62 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Claude Opus 5, macOS) — 콘텐츠 UI/UX 마감: 소리 복구 · 공유 · 책갈피 · 색 · 줄바꿈
+
+**무엇을 왜.** PR #83(바이블)이 `01bd8849` 로 머지된 뒤에도 Jin 이 요청 8건 중 다수가
+그대로라고 보고했다. 조사해 보니 원인이 두 갈래였다.
+
+**1) Jin 은 바이블 코드를 한 번도 본 적이 없다.** 돌고 있던 Flutter 웹 서버 2개가 각각
+다른 브랜치를 물고 있었다 — 새벽 3:52 `-d chrome` 은 메인 저장소의 구 브랜치, 오전 9:14
+`-d web-server` 는 `.claude/worktrees/chaekgado-scroll-overflow` 워크트리. PR83 코드가 있던
+`ko_lernen_app-p7-scroll` 에서는 서버가 안 돌았다. 둘 다 종료하고 전용 워크트리
+(`feat/content-uiux-finish`)를 팠다. **교훈: 실행 전에 `git rev-parse --abbrev-ref HEAD` 를
+찍어 브랜치를 눈으로 확인한다.**
+
+**2) 소리 문제는 TTS 가 아니라 그 위였다.** 실측 순서대로:
+
+- **Android 전역 라우팅.** `Storage.sndRespectSilent` 기본값 true 가
+  `AudioContextConfig(respectSilence:).buildAndroid()` 로 흘러갔는데, Android 에서 그
+  플래그는 "무음 스위치 존중"이 아니라 `USAGE_NOTIFICATION_RINGTONE` 이다. 프리미엄 mp3
+  까지 앱의 **모든 소리**가 벨소리 스트림으로 나갔다 — 진동 모드면 전부 무음, 미디어 볼륨
+  무효. PR #91 로 이미 main 에 들어와 있었다.
+- **"전부 das" 는 텍스트가 아니라 음성.** 호출 70곳을 전수 확인한 결과 speak() 에 독일어를
+  넘기는 곳은 0곳. `flutter_tts` 폴백이 `setLanguage` 실패를 성공으로 메모이즈해 독일어
+  엔진이 한국어를 읽었고, `getVoices` 재시도가 250ms 단발이라 Chrome 에서는 늘 실패했다.
+- **웹.** `dart:io`/path_provider 가 런타임에 던져 1~3단이 통째로 죽고 OS 음성만 남았다.
+
+`--verify-storage` 로 실측하니 **발화 11,438개 중 Storage 누락 1개**였고, 그 1개가 문법
+키 드리프트 문자열이었다. 즉 콘텐츠 공백이 아니라 전부 클라이언트 버그였고, 프리미엄이
+사실상 다 있으니 **OS 음성 폴백을 지울 수 있었다** (Jin: "기계음 안나오고").
+
+**한 일 (커밋 8개, `feat/content-uiux-finish`).**
+- 소리: 4단 제거, 웹도 프리미엄(메모리 캐시 + BytesSource), Storage 8s·디스크 2s 시한,
+  사유 노티파이어 + 배너(DE/EN), 오디오 세션 플래그 순서, 프리페치 메모 위생.
+- 공유: `5229be29` 에서 두루마리 렌더러 회수. `text:` 캡션 제거(= Jin 이 본
+  "N에 / Direction… / hangul-sori.com"), `XFile.fromData` 로 웹 안전, 실패 반환.
+- 책갈피: 성공 스낵바 폐지 + 아이콘 채움. `hide` 직후 `show` 가 교체가 아니라 **큐잉**
+  이라 쌓였던 것 — duration 문제가 아니었다. `CustomPackService.revision` 으로 자가 갱신.
+- 줄바꿈: `SoriPhraseWrap` 을 U+2060 word joiner 단일 문단으로 재작성. 규칙 줄·노트·
+  제목·체크포인트에도 적용.
+- 색: 콘텐츠에서 황·타이거·머스터드 제거(황은 XP 전용), 한글 7색→4색, 시나리오 화자
+  5색→2색, 다크 토큰을 크림 위에 쓰던 자리 교정.
+- 한글 획: 원 반지름 배율 버그(동심원 3개), 다음 획을 색으로 구분, ㄹ 2px 이음매.
+- TTS 패리티: 문법은 보이는 예문만 읽고 생성기도 같은 규칙으로 구절 분리 →
+  드리프트가 구조적으로 사라짐. 누락 2건 합성($0.001 미만) 후 **missing 0**.
+- iOS: Podfile.lock 복구. flutter_tts 잔여 + **원래 깨져 있던** PurchasesHybridCommon
+  18.28↔18.30 불일치 — 후자는 Xcode Cloud 의 `pod install` 도 못 넘긴다.
+
+**남긴 것 (이 브랜치 밖).**
+- 배율 권한 4개를 ambient TextScaler 하나로 통합 + `SoriKoreanText` 도입 → 골든 6장
+  재생성이 필요해 CI 를 거쳐야 한다. 폰(390dp)에서는 comfort·study 배율이 둘 다 1.0 이라
+  Jin 이 지금 보는 화면에는 영향 없음.
+- 문법 허브(검색 기반) + 필터 삭제. 타입이 213종·레벨과 1:1 이라 Level×Type 1,278쌍 중
+  1,065쌍이 0행이고 비어있지 않은 213쌍 중 212쌍이 1장짜리다 — 필터가 아니라 카드 피커다.
+- 문법 13행 예문 집필(규칙 n개 = 예문 n개). 퀴즈 focus 유일성과 얽혀 있어
+  `splitStudyPhrases(...).first` 리팩터가 선행돼야 하고, 새 한국어는 Jin 검수가 필요하다.
+- 피드 제스처: 스피커 더블탭이 좋아요까지 토글. 고치려면 6개 화면의 카드 탭 소유권을
+  피드로 옮겨야 해서 배포 직전 작업으로는 위험이 크다. 세로 커밋 임계값만 88px/850 으로
+  올려 "스피커 누르다 앎 처리" 는 막았다.
+
 ### 2026-08-19 (Claude Fable 5, Windows) — PR #89·#91 을 main 에 코드 손실 없이 합친다
 
 **무엇을 왜.** Jin 이 열린 PR #89·#91 을 main 에 머지하라고 했다. 둘 다 `CONFLICTING`.
