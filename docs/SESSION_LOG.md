@@ -1,5 +1,30 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Claude Fable 5, Windows) — PR #89·#91 을 main 에 코드 손실 없이 합친다
+
+**무엇을 왜.** Jin 이 열린 PR #89·#91 을 main 에 머지하라고 했다. 둘 다 `CONFLICTING`.
+#91 은 **#88 과 같은 브랜치** `fix/android-audio-level-balance-2026-08-19` 라 #88 squash
+(`dc5fa0b8`) 와 같은 변경을 양쪽에서 보고 충돌했고, main 대비 실제 신규분은 `cd1d0e5c`
+(`test/circular_feedback_widget_test.dart` 10줄) 하나뿐이다 (`git diff dc5fa0b8 62efbbf8` 로
+확인). #89 는 `grammar_screen.dart` Key 2줄 + 같은 테스트 + SESSION_LOG. 두 PR 이 같은
+테스트 `grammar level filter resets the current study interaction set` 의 같은 hunk 를 다르게
+고친다 — #89 는 Key 파인더 + `onTap` 직접 호출, #91 은 `scrollUntilVisible` + `pumpAndSettle`
++ 실제 탭. 각각 main 코드 위에서 돌려 **둘 다 통과** 하는 것을 먼저 확인했다.
+
+**고침.** ① #89: 브랜치에 main 머지 (충돌 = SESSION_LOG 최상단 삽입 경합뿐, 두 항목 보존)
+→ squash `8608b08c`. ② #91: 브랜치에 새 main 머지. `grammar_screen.dart` 는 main 쪽
+(브랜치 내용 + Key 2줄) 채택. 테스트는 두 PR 을 합쳤다 — `Key('grammar-level-A2')` 로 칩을,
+`Key('grammar-filter-row')` 하위 `Scrollable` 을 스크롤 대상으로 찾고(#89), `scrollUntilVisible`
+→ `pumpAndSettle` → 실제 `tap` → `pumpAndSettle`(#91) 로 히트 테스트까지 포함해 계약을 고정.
+A1 도 Key 파인더. 사용처가 없어진 `_grammarLevelChip` 헬퍼는 #89 대로 제거. 그 외 파일은
+main 과 동일(#91 브랜치의 나머지는 #88 로 이미 들어가 있음).
+
+**검증.** `flutter test test/circular_feedback_widget_test.dart test/grammar_type_filter_test.dart`
+13/13 통과. `dart analyze` 두 파일 이슈 0. `git diff origin/main` 이 테스트 파일 + 이 로그뿐임을
+확인. 열린 PR #92(같은 테스트의 세 번째 수정안)는 이번 범위 밖 — 머지 후 중복이므로 닫을 후보.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — CI 빨간불: 문법 레벨 칩 탭이 세션 리셋을 못 하던 것
 
 **무엇을 왜.** `main` 최신 Analyze & Build 가 1실패로 빨갛다. PR #88
