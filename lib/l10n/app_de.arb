@@ -949,8 +949,12 @@
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {
-      "korean": {"type": "String"},
-      "gloss": {"type": "String"}
+      "korean": {
+        "type": "String"
+      },
+      "gloss": {
+        "type": "String"
+      }
     }
   },
   "deckFlipFirstHint": "Erst antippen und umdrehen",
@@ -3786,5 +3790,9 @@
         "type": "int"
       }
     }
-  }
+  },
+  "ttsUnavailableChannelOff": "Aussprache ist stumm geschaltet. Einstellungen → Ton",
+  "ttsUnavailableQuota": "Heutiges Sprachlimit erreicht. Morgen geht es weiter.",
+  "ttsUnavailablePending": "Die Stimme wird gerade erzeugt. Gleich nochmal antippen.",
+  "ttsUnavailableOffline": "Aussprache nicht verfügbar. Bist du online?"
 }

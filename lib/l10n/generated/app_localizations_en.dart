@@ -8007,4 +8007,20 @@ class AppL10nEn extends AppL10n {
     );
     return '$_temp0';
   }
+
+  @override
+  String get ttsUnavailableChannelOff =>
+      'Pronunciation is muted. Settings → Sound';
+
+  @override
+  String get ttsUnavailableQuota =>
+      'Daily voice limit reached. It resets tomorrow.';
+
+  @override
+  String get ttsUnavailablePending =>
+      'The voice is being generated. Tap again in a moment.';
+
+  @override
+  String get ttsUnavailableOffline =>
+      'Pronunciation unavailable. Are you online?';
 }

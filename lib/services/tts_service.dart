@@ -501,8 +501,8 @@ class TtsService {
     unavailable.value = reason;
   }
 
-  @visibleForTesting
-  static void clearUnavailableForTesting() => unavailable.value = null;
+  /// 사용자가 배너를 닫았거나, 다음 발화가 성공했다.
+  static void clearUnavailable() => unavailable.value = null;
 
   /// 발화 중 여부 — [AudioPolicy] 더킹·UI 표시용 (ADR-002 §5-2).
   static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);

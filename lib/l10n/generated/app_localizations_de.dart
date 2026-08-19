@@ -8042,4 +8042,20 @@ class AppL10nDe extends AppL10n {
     );
     return '$_temp0';
   }
+
+  @override
+  String get ttsUnavailableChannelOff =>
+      'Aussprache ist stumm geschaltet. Einstellungen → Ton';
+
+  @override
+  String get ttsUnavailableQuota =>
+      'Heutiges Sprachlimit erreicht. Morgen geht es weiter.';
+
+  @override
+  String get ttsUnavailablePending =>
+      'Die Stimme wird gerade erzeugt. Gleich nochmal antippen.';
+
+  @override
+  String get ttsUnavailableOffline =>
+      'Aussprache nicht verfügbar. Bist du online?';
 }
