@@ -140,7 +140,7 @@ class SoriEmptyState extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontFamily: 'Pretendard',
+                    fontFamily: SoriFonts.sans,
                     color: s.text,
                     fontWeight: FontWeight.w800,
                     fontSize: 18,
@@ -157,7 +157,7 @@ class SoriEmptyState extends StatelessWidget {
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontFamily: 'Pretendard',
+                    fontFamily: SoriFonts.sans,
                     color: s.textMuted,
                     fontSize: 14,
                     height: 1.5,

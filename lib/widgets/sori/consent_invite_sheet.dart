@@ -142,7 +142,7 @@ class _ConsentInviteBodyState extends State<_ConsentInviteBody> {
                     child: Text(
                       t.consentInviteTitle,
                       style: TextStyle(
-                        fontFamily: 'Pretendard',
+                        fontFamily: SoriFonts.sans,
                         fontSize: 20,
                         fontWeight: FontWeight.w900,
                         color: s.text,

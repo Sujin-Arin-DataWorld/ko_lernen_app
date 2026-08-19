@@ -250,7 +250,7 @@ class _IntroGateScreenState extends State<IntroGateScreen>
                 AppL10n.of(context).introSkipHint,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontFamily: 'Pretendard',
+                  fontFamily: SoriFonts.sans,
                   fontSize: 12,
                   color: HanokColors.hwangtoDark,
                   letterSpacing: 0.3,

@@ -529,7 +529,7 @@ class _CoachTooltip extends StatelessWidget {
                       child: Text(
                         step.title,
                         style: const TextStyle(
-                          fontFamily: 'Pretendard',
+                          fontFamily: SoriFonts.sans,
                           fontSize: 15,
                           fontWeight: FontWeight.w900,
                           color: Color(0xFF0E1A18),
@@ -546,7 +546,7 @@ class _CoachTooltip extends StatelessWidget {
                 Text(
                   step.body,
                   style: const TextStyle(
-                    fontFamily: 'Pretendard',
+                    fontFamily: SoriFonts.sans,
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF4A6560),
@@ -590,7 +590,7 @@ class _CoachTooltip extends StatelessWidget {
                     Text(
                       '${stepIndex + 1} / $totalSteps',
                       style: const TextStyle(
-                        fontFamily: 'Pretendard',
+                        fontFamily: SoriFonts.sans,
                         fontSize: 12,
                         fontWeight: FontWeight.w700,
                         // 구 #6B827D 은 흰 카드 위 4.11:1 로 WCAG AA(4.5) 미달이었다
@@ -631,7 +631,7 @@ class _CoachTooltip extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
-                            fontFamily: 'Pretendard',
+                            fontFamily: SoriFonts.sans,
                             fontSize: 13,
                             fontWeight: FontWeight.w600,
                           ),

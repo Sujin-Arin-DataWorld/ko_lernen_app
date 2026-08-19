@@ -41,7 +41,7 @@ class CultureNoteCard extends StatelessWidget {
                 Text(
                   t.cultureNoteTitle,
                   style: TextStyle(
-                    fontFamily: 'Pretendard',
+                    fontFamily: SoriFonts.sans,
                     fontSize: 11.5,
                     fontWeight: FontWeight.w800,
                     color: accent,
@@ -54,7 +54,7 @@ class CultureNoteCard extends StatelessWidget {
             Text(
               note.text(lang),
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: 12.5,
                 height: 1.45,
                 color: s.text,

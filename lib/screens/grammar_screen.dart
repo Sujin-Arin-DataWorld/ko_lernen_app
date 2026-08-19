@@ -901,48 +901,46 @@ class _GrammarScreenState extends State<GrammarScreen>
                                             g.pattern,
                                           ),
                                       bookmarkLabel: t.deckActionSave,
-                                      child: SoriStudyScale(
-                                        child: Stack(
-                                          alignment: Alignment.bottomCenter,
-                                          children: [
-                                            FlipCard(
-                                              key: _cardKey,
-                                              flipped: _flipped,
-                                              onTap: canRecordCheckpoint
-                                                  ? () => _showCheckpoint(
+                                      child: Stack(
+                                        alignment: Alignment.bottomCenter,
+                                        children: [
+                                          FlipCard(
+                                            key: _cardKey,
+                                            flipped: _flipped,
+                                            onTap: canRecordCheckpoint
+                                                ? () => _showCheckpoint(
+                                                    g,
+                                                    assessmentLink!,
+                                                  )
+                                                : _onFlip,
+                                            front: canRecordCheckpoint
+                                                ? _CourseCheckpointFront(
+                                                    g: g,
+                                                    cardHeight: cardH,
+                                                  )
+                                                : _Front(
+                                                    g: g,
+                                                    cardHeight: cardH,
+                                                  ),
+                                            back: _Back(
+                                              g: g,
+                                              cardHeight: cardH,
+                                            ),
+                                          ),
+                                          if (!canRecordCheckpoint)
+                                            Positioned(
+                                              bottom: 8,
+                                              child: _ListenButton(
+                                                korean:
+                                                    GrammarStudyCopy.fromGrammar(
                                                       g,
-                                                      assessmentLink!,
-                                                    )
-                                                  : _onFlip,
-                                              front: canRecordCheckpoint
-                                                  ? _CourseCheckpointFront(
-                                                      g: g,
-                                                      cardHeight: cardH,
-                                                    )
-                                                  : _Front(
-                                                      g: g,
-                                                      cardHeight: cardH,
-                                                    ),
-                                              back: _Back(
-                                                g: g,
-                                                cardHeight: cardH,
+                                                      Localizations.localeOf(
+                                                        context,
+                                                      ).languageCode,
+                                                    ).speakKorean,
                                               ),
                                             ),
-                                            if (!canRecordCheckpoint)
-                                              Positioned(
-                                                bottom: 8,
-                                                child: _ListenButton(
-                                                  korean:
-                                                      GrammarStudyCopy.fromGrammar(
-                                                        g,
-                                                        Localizations.localeOf(
-                                                          context,
-                                                        ).languageCode,
-                                                      ).speakKorean,
-                                                ),
-                                              ),
-                                          ],
-                                        ),
+                                        ],
                                       ),
                                     ),
                                   );

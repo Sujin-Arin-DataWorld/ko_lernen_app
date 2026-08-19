@@ -86,7 +86,7 @@ class _AccountNudgeSheetState extends State<_AccountNudgeSheet> {
           t.accountNudgeTitle,
           textAlign: TextAlign.center,
           style: TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             fontSize: 19,
             fontWeight: FontWeight.w900,
             color: s.text,
@@ -132,7 +132,7 @@ class _AccountNudgeSheetState extends State<_AccountNudgeSheet> {
           child: Text(
             t.accountNudgeLater,
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               color: s.textMuted,
               fontWeight: FontWeight.w600,
             ),

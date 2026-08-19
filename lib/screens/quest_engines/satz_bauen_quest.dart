@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
-import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/tts_speed_control.dart';
 import 'quest_flow.dart';
@@ -559,7 +558,7 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
     bool highlightOk = false,
     bool expand = false,
   }) {
-    final scale = soriStudyScale(MediaQuery.sizeOf(context).width);
+    const scale = 1.0;
 
     return SoriWordTile(
       label: tile.text,

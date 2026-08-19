@@ -397,7 +397,7 @@ class _CharCell extends StatelessWidget {
             child: Text(
               char.letter,
               style: TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: 36,
                 fontWeight: FontWeight.w900,
                 color: color,
@@ -409,7 +409,7 @@ class _CharCell extends StatelessWidget {
           Text(
             char.romanization,
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               fontSize: 11,
               color: color.withValues(alpha: 0.75),
               fontStyle: FontStyle.italic,
@@ -1004,22 +1004,20 @@ class _CardsTabState extends State<_CardsTab> {
                     knowLabel: t.btnGewusst,
                     hardLabel: t.btnNichtGewusst,
                     skipLabel: t.btnSkip,
-                    child: SoriStudyScale(
-                      child: FlipCard(
-                        key: ValueKey('hangul-card-${c.letter}'),
-                        flipped: _flipped,
-                        onTap: () {
-                          unawaited(widget.speak(c.letter));
-                          _onFlip();
-                        },
-                        front: _HangulCardFace(
-                          borderColor: SoriColors.primary,
-                          children: _frontFace(c, h),
-                        ),
-                        back: _HangulCardFace(
-                          borderColor: SoriColors.info,
-                          children: _backFace(context, c, s, h),
-                        ),
+                    child: FlipCard(
+                      key: ValueKey('hangul-card-${c.letter}'),
+                      flipped: _flipped,
+                      onTap: () {
+                        unawaited(widget.speak(c.letter));
+                        _onFlip();
+                      },
+                      front: _HangulCardFace(
+                        borderColor: SoriColors.primary,
+                        children: _frontFace(c, h),
+                      ),
+                      back: _HangulCardFace(
+                        borderColor: SoriColors.info,
+                        children: _backFace(context, c, s, h),
                       ),
                     ),
                   );

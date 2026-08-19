@@ -54,18 +54,19 @@ void main() {
     _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 141, 'FontWeight.w800');
   });
 
-  test("하드코딩 'Pretendard' 리터럴은 더 늘지 않는다 (SoriFonts.sans 사용)", () {
-    // 기준선 2026-07-31: 119곳 / 30파일. 목표 0.
+  test("하드코딩 fontFamily: ' 문자열 리터럴은 0 이다 (SoriFonts.sans 사용)", () {
+    // 기준선 2026-07-31: 119곳 / 30파일 (당시 'Pretendard' 한정 패턴).
     // ⚠️ 이 패턴은 **문자열 리터럴 안에** 산다. clean 소스에서는 리터럴이
     // 공백으로 지워져 있어 절대 매치되지 않는다(= 조용히 통과하는 가짜 가드).
     // 반드시 raw 를 봐야 한다.
     // 2026-08-14 Phase 3(§D~§F) 재실측: 119→94.
+    // 2026-08-19 재실측: 94→79 → Wanted Sans 교체로 전량 토큰화, 79→0.
+    // family 명이 바뀌면 리터럴은 시스템 폴백으로 떨어진다 — 토큰만.
     _expectAtMost(
       sources,
-      RegExp("fontFamily: 'Pretendard'"),
-      // 2026-08-19 재실측: 94→79.
-      79,
-      "fontFamily: 'Pretendard'",
+      RegExp("fontFamily: '"),
+      0,
+      "fontFamily: '",
       useRaw: true,
     );
   });

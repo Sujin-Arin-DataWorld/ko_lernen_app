@@ -22,7 +22,16 @@ void main() {
     expect(tester.widget<Text>(find.text('NEW')).style!.fontSize, 11);
   });
 
-  testWidgets('module cards scale their type on tablets', (tester) async {
+  // 2026-08-19: 글자 배율은 SoriTypeScale(MaterialApp.builder) 하나로 모았다 —
+  // Title/Description 은 SoriTextTheme 을 그대로 쓰므로 fontSize 자체는 이제
+  // 폭과 무관하게 고정값을 낸다(태블릿 comfort 배율은 ambient TextScaler 쪽에서
+  // 적용되지, 토큰 fontSize 를 더는 부풀리지 않는다 — type_scale_test.dart 가
+  // 그 배율 자체를 검증한다). NEW 배지는 `tt.label.copyWith(fontSize: 11 *
+  // comfortScale)` 처럼 자체 리터럴을 쓰는 별개 경로라 이 태스크 범위 밖이고,
+  // 여전히 태블릿에서 커진다.
+  testWidgets('module cards keep a fixed type scale on tablets', (
+    tester,
+  ) async {
     tester.view.physicalSize = const Size(800, 900);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
@@ -30,13 +39,10 @@ void main() {
 
     await tester.pumpWidget(_app(const Locale('en'), subtitle: 'Description'));
 
-    expect(
-      tester.widget<Text>(find.text('Title').first).style!.fontSize,
-      closeTo(16.5, 0.001),
-    );
+    expect(tester.widget<Text>(find.text('Title').first).style!.fontSize, 15);
     expect(
       tester.widget<Text>(find.text('Description').first).style!.fontSize,
-      closeTo(13.2, 0.001),
+      12,
     );
     expect(
       tester.widget<Text>(find.text('NEW')).style!.fontSize,

@@ -530,7 +530,7 @@ class _SharePackSheetState extends State<_SharePackSheet> {
             const SizedBox(height: 14),
             Text(
               t.shareGenerating,
-              style: TextStyle(fontFamily: 'Pretendard', color: s.textMuted),
+              style: TextStyle(fontFamily: SoriFonts.sans, color: s.textMuted),
             ),
           ],
         ),
@@ -546,7 +546,7 @@ class _SharePackSheetState extends State<_SharePackSheet> {
             Text(
               msg,
               textAlign: TextAlign.center,
-              style: TextStyle(fontFamily: 'Pretendard', color: s.text),
+              style: TextStyle(fontFamily: SoriFonts.sans, color: s.text),
             ),
             const SizedBox(height: 16),
             SoriButton(
@@ -565,7 +565,7 @@ class _SharePackSheetState extends State<_SharePackSheet> {
             t.shareCodeLabel,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               fontSize: 11,
               fontWeight: FontWeight.w700,
               letterSpacing: 0.5,
@@ -586,7 +586,7 @@ class _SharePackSheetState extends State<_SharePackSheet> {
               code,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                fontFamily: 'Pretendard',
+                fontFamily: SoriFonts.sans,
                 fontSize: 34,
                 fontWeight: FontWeight.w900,
                 letterSpacing: 8,
@@ -599,7 +599,7 @@ class _SharePackSheetState extends State<_SharePackSheet> {
             t.shareExpiryNote,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               fontSize: 11,
               color: s.textDim,
             ),
@@ -652,7 +652,7 @@ class _SharePackSheetState extends State<_SharePackSheet> {
         Text(
           t.shareTitle,
           style: const TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             fontSize: 17,
             fontWeight: FontWeight.w800,
           ),
@@ -663,7 +663,7 @@ class _SharePackSheetState extends State<_SharePackSheet> {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             fontSize: 12.5,
             color: s.textMuted,
           ),
@@ -737,7 +737,7 @@ class _RedeemDialogState extends State<_RedeemDialog> {
         children: [
           Text(
             t.redeemHint,
-            style: const TextStyle(fontFamily: 'Pretendard', fontSize: 12.5),
+            style: const TextStyle(fontFamily: SoriFonts.sans, fontSize: 12.5),
           ),
           const SizedBox(height: 14),
           TextField(
@@ -748,7 +748,7 @@ class _RedeemDialogState extends State<_RedeemDialog> {
             textCapitalization: TextCapitalization.characters,
             maxLength: 6,
             style: const TextStyle(
-              fontFamily: 'Pretendard',
+              fontFamily: SoriFonts.sans,
               fontSize: 26,
               fontWeight: FontWeight.w900,
               letterSpacing: 8,

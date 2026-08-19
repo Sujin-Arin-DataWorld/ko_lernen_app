@@ -32,7 +32,7 @@ class AppTheme {
       useMaterial3: true,
       scaffoldBackgroundColor: s.bg,
       colorScheme: colorScheme,
-      fontFamily: 'Pretendard',
+      fontFamily: SoriFonts.sans,
 
       // ── AppBar ───────────────────────────────────────────────────────
       appBarTheme: AppBarTheme(
@@ -61,7 +61,7 @@ class AppTheme {
             borderRadius: BorderRadius.circular(SoriRadius.lg),
           ),
           textStyle: const TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             fontWeight: FontWeight.w700,
             fontSize: 15,
             letterSpacing: -0.2,
@@ -78,7 +78,7 @@ class AppTheme {
           foregroundColor: s.text,
           side: BorderSide(color: s.border, width: 1.5),
           textStyle: const TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             fontWeight: FontWeight.w600,
             fontSize: 14,
           ),
@@ -89,7 +89,7 @@ class AppTheme {
         style: TextButton.styleFrom(
           foregroundColor: primary,
           textStyle: const TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             fontWeight: FontWeight.w600,
             fontSize: 14,
           ),
@@ -125,13 +125,13 @@ class AppTheme {
         selectedColor: primary,
         labelStyle: TextStyle(
           color: s.text,
-          fontFamily: 'Pretendard',
+          fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w600,
           fontSize: 12,
         ),
         secondaryLabelStyle: const TextStyle(
           color: Colors.white,
-          fontFamily: 'Pretendard',
+          fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w700,
           fontSize: 12,
         ),
@@ -155,7 +155,7 @@ class AppTheme {
         backgroundColor: s.text,
         contentTextStyle: TextStyle(
           color: s.bg,
-          fontFamily: 'Pretendard',
+          fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w600,
         ),
         shape: RoundedRectangleBorder(borderRadius: SoriRadius.brLg),
@@ -169,13 +169,13 @@ class AppTheme {
         textColor: s.text,
         titleTextStyle: TextStyle(
           color: s.text,
-          fontFamily: 'Pretendard',
+          fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w600,
           fontSize: 15,
         ),
         subtitleTextStyle: TextStyle(
           color: s.textMuted,
-          fontFamily: 'Pretendard',
+          fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w500,
           fontSize: 12,
         ),
@@ -189,7 +189,7 @@ class AppTheme {
         labelTextStyle: WidgetStateProperty.resolveWith((states) {
           final selected = states.contains(WidgetState.selected);
           return TextStyle(
-            fontFamily: 'Pretendard',
+            fontFamily: SoriFonts.sans,
             fontSize: 11,
             fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
             color: selected ? primary : s.textMuted,
@@ -219,7 +219,7 @@ class AppTheme {
       double spacing = 0,
       Color? color,
     }) => TextStyle(
-      fontFamily: 'Pretendard',
+      fontFamily: SoriFonts.sans,
       fontSize: size,
       fontWeight: w,
       height: height,
