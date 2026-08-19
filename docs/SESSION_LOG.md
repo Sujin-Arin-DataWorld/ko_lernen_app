@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — main CI em dash 1건: 층간소음·잘 부탁드립니다
+
+**무엇을 왜.** tip CI `32304956462` Analyze Test가 4099/1/2로 실패.
+`arb_l10n_guard`가 학습 DE/EN em dash 6칸을 잡았다. 반응형 오버플로가
+아니라 카피 가드. docs 커밋 `793a55a6`가 넣은 게 아니고 #105–#109 흡수
+잔량이다.
+
+**무엇을.** `vocab_a1_0351` 예문과 파생 `satz_a1_0203`/`cloze_a1_0239`를
+마침표로 다시 씀. `introduce_yourself` 문화어 본문은 쉼표. inherited
+지문 2개만 현재 CSV에 맞춤. 세그먼트 ID 유지.
+
+**검증.** arb_l10n_guard · can_do_segment_asset ·
+canonical_course_segment_loader · learner_copy_scan · content_id ·
+cloze · satz · scenario_loader 44 passed.
+
 ### 2026-08-19 (Cursor) — 번역 스택 흡수 뒤 메뉴판·smalltalk 지문
 
 **무엇을 왜.** 스택 merge 뒤 4개 회귀. `메뉴` 표제어가 `메뉴판`인데

@@ -11157,8 +11157,8 @@
       "id": "satz_a1_0203",
       "level": "a1",
       "targetKo": "밤에는 층간소음을 조심해요.",
-      "promptDe": "Bitte etwas leiser — wegen der Nachbarn unten.",
-      "promptEn": "Keep it down a bit — the neighbors downstairs can hear.",
+      "promptDe": "Bitte etwas leiser. Wegen der Nachbarn unten.",
+      "promptEn": "Keep it down a bit. The neighbors downstairs can hear.",
       "distractors": [
         "초인종",
         "복도"
