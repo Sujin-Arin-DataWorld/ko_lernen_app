@@ -549,6 +549,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                   skipEnabled: _idx < _deck.length - 1,
                   onLike: _likeCurrent,
                   onBookmark: _saveCurrent,
+                  bookmarkKey: _card.korean,
                   onShare: _shareCurrent,
                   onFlip: _toggleFlip,
                   liked: LikedContentService.isLiked(

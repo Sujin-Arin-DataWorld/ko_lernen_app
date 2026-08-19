@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:math' as math;
 
 import 'package:crypto/crypto.dart';
+import 'package:flutter/foundation.dart';
 
 import '../models/book_page.dart';
 import '../models/custom_pack.dart';
@@ -28,6 +29,15 @@ class LocalCustomPackGenerationConflict implements Exception {
 /// Lokal-only — Firestore sync 는 v1 에서 미구현 (사용자 1대 기기 가정).
 /// Cloud sync 가 필요해지면 BookshelfService 의 best-effort 패턴 그대로 추가.
 class CustomPackService {
+  /// 팩이 바뀔 때마다 오른다. 책갈피 아이콘이 이걸 구독해서 스스로 채워진다.
+  ///
+  /// 왜 필요한가: 예전엔 저장 성공을 **스낵바**로 알렸는데, 그 스낵바가
+  /// 안 사라진다는 게 Jin 의 가장 큰 불만이었다("가장중요한건 저장기능인
+  /// 책갈피 누르면 added ...to your word list가 안사라져"). 알림을 없애고
+  /// 하트처럼 아이콘이 차오르게 하려면, 화면마다 setState 를 잊지 않고
+  /// 부르는 대신 저장소가 바뀌었다고 스스로 말해야 한다.
+  static final ValueNotifier<int> revision = ValueNotifier<int>(0);
+
   static const int defaultRemoteReadLimitBytes = 512 * 1024;
 
   static final math.Random _rng = math.Random.secure();
@@ -629,6 +639,7 @@ class CustomPackService {
 
   static Future<void> _writeRawStrict(Map<String, dynamic> data) async {
     await Storage.setCustomPacksRawJsonStrict(jsonEncode(data));
+    revision.value++;
   }
 
   static ManagedMediaReferenceSnapshot _referenceSnapshot() =>

@@ -961,6 +961,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 onSkip: _learnDefer,
                 onLike: _likeCurrent,
                 onBookmark: _saveCurrent,
+                bookmarkKey: cur.korean,
                 onShare: _shareCurrent,
                 onFlip: _toggleLearnFlip,
                 liked: LikedContentService.isLiked(

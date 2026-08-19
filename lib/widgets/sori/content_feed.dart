@@ -1,4 +1,5 @@
 import 'dart:async';
+import '../../services/custom_pack_service.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,6 +36,7 @@ class SoriContentFeed extends StatefulWidget {
     this.onFlip,
     this.liked = false,
     this.bookmarked = false,
+    this.bookmarkKey,
     this.showLike = true,
     this.showBookmark = true,
     this.showShare = true,
@@ -67,6 +69,10 @@ class SoriContentFeed extends StatefulWidget {
 
   final bool liked;
   final bool bookmarked;
+
+  /// 담김 여부를 스스로 판정할 한국어 키. 주면 [bookmarked] 없이도
+  /// 저장소 변경에 맞춰 아이콘이 채워진다 — 화면이 setState 를 잊어도 된다.
+  final String? bookmarkKey;
   final bool showLike;
   final bool showBookmark;
   final bool showShare;
@@ -240,6 +246,7 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
           onSkip: widget.skipEnabled ? widget.onSkip : null,
           liked: widget.liked,
           bookmarked: widget.bookmarked,
+          bookmarkKey: widget.bookmarkKey,
           showFlip: widget.showFlip,
           showShare: widget.showShare,
           showLike: widget.showLike,
@@ -271,6 +278,7 @@ class SoriContentActions extends StatelessWidget {
     this.onSkip,
     this.liked = false,
     this.bookmarked = false,
+    this.bookmarkKey,
     this.showFlip = true,
     this.showShare = true,
     this.showLike = true,
@@ -294,6 +302,10 @@ class SoriContentActions extends StatelessWidget {
   final VoidCallback? onSkip;
   final bool liked;
   final bool bookmarked;
+
+  /// 담김 여부를 스스로 판정할 한국어 키. 주면 [bookmarked] 없이도
+  /// 저장소 변경에 맞춰 아이콘이 채워진다 — 화면이 setState 를 잊어도 된다.
+  final String? bookmarkKey;
   final bool showFlip;
   final bool showShare;
   final bool showLike;
@@ -350,14 +362,26 @@ class SoriContentActions extends StatelessWidget {
                   onTap: onLike,
                 ),
               if (showBookmark)
-                _Stamp(
-                  name: 'save',
-                  label: bookmarkLabel,
-                  icon: bookmarked
-                      ? Icons.bookmark_rounded
-                      : Icons.bookmark_border_rounded,
-                  color: bookmarked ? SoriColors.like : s.text,
-                  onTap: onBookmark,
+                // 담긴 상태는 저장소가 직접 말한다. 예전에는 저장 성공을
+                // 스낵바로 알렸는데 그게 안 사라졌다 — 알림을 없앤 자리를
+                // 채워지는 아이콘이 대신한다.
+                ValueListenableBuilder<int>(
+                  valueListenable: CustomPackService.revision,
+                  builder: (context, _, __) {
+                    final key = bookmarkKey;
+                    final saved =
+                        bookmarked ||
+                        (key != null && CustomPackService.containsKorean(key));
+                    return _Stamp(
+                      name: 'save',
+                      label: bookmarkLabel,
+                      icon: saved
+                          ? Icons.bookmark_rounded
+                          : Icons.bookmark_border_rounded,
+                      color: saved ? SoriColors.like : s.text,
+                      onTap: onBookmark,
+                    );
+                  },
                 ),
             ],
           ),

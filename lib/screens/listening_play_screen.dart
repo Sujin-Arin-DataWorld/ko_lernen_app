@@ -267,6 +267,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
       onPrevious: _step > 0 ? _prev : null,
       onLike: _likeCurrent,
       onBookmark: _line.ko.isEmpty ? null : _bookmarkCurrent,
+      bookmarkKey: _line.ko,
       onShare: _shareCurrent,
       onFlip: () => setState(() => _showGloss = !_showGloss),
       liked: LikedContentService.isLiked(

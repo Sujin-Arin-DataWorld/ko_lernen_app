@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../l10n/generated/app_localizations.dart';
@@ -6,13 +8,21 @@ import '../../services/analytics_service.dart';
 import '../../services/custom_pack_service.dart';
 import '../../services/storage_service.dart';
 import 'spotlight_coach.dart';
+import 'toast.dart';
 import 'tokens.dart';
 
-/// Globaler "Zur Wortliste hinzufügen"-Flow (v2.0). Überall im Lern-Flow
-/// nutzbar (Vokabel-Pack, Wiederholung, Anlaut-Quiz, Wordle, Small Talk,
-/// Szenario): legt das Wort in den Schnellspeicher-Pack und zeigt eine
-/// SnackBar (hinzugefügt / schon vorhanden) mit "Ansehen" → /bookshelf.
-Future<void> addToWordbook(
+/// 전역 "단어장에 담기" 흐름. 단어를 빠른저장 팩에 넣는다.
+///
+/// **성공은 알리지 않는다.** 아이콘이 차오르는 것이 곧 확인이다 — 하트와
+/// 같은 방식이다. 예전에는 성공마다 스낵바를 띄웠는데 그게 안 사라졌다:
+/// `hideCurrentSnackBar()` 는 ~250ms 역방향 애니메이션을 시작할 뿐이고
+/// 항목은 dismissed 에서야 큐에서 빠지므로, 곧이어 부른 `showSnackBar` 는
+/// 교체가 아니라 **큐잉**이 된다. 연타하면 사슬처럼 쌓이고, 모달 시트가
+/// 떠 있으면 자동 소멸 타이머가 아예 안 걸려 영영 남는다
+/// (Jin 2026-08-19: "added ...to your word list가 안사라져").
+///
+/// 실패만 [soriToast] 로 한 번 말한다 — 조용히 삼키면 담긴 줄 알게 된다.
+Future<WordbookAddResult> addToWordbook(
   BuildContext context, {
   required String korean,
   required String translationDe,
@@ -24,12 +34,8 @@ Future<void> addToWordbook(
   String exampleDe = '',
   String definitionKo = '',
   String source = 'manual',
-  bool notify = true,
 }) async {
   final t = AppL10n.of(context);
-  // Vor dem await einsammeln — kein BuildContext-Zugriff nach await.
-  final messenger = ScaffoldMessenger.of(context);
-  final navigator = Navigator.of(context);
 
   final res = await CustomPackService.quickAdd(
     defaultPackName: t.wbQuickPackName,
@@ -50,30 +56,10 @@ Future<void> addToWordbook(
     Analytics.wordbookAdded(source: source);
   }
 
-  final msg = switch (res) {
-    WordbookAddResult.added => t.wbAdded(korean),
-    WordbookAddResult.alreadyExists => t.wbAlreadyAdded(korean),
-    WordbookAddResult.failed => t.wbAddFailed,
-  };
-  if (!notify) {
-    return;
+  if (res == WordbookAddResult.failed && context.mounted) {
+    soriToast(context, t.wbAddFailed);
   }
-  messenger.hideCurrentSnackBar();
-  const linger = Duration(milliseconds: 500);
-  messenger.showSnackBar(
-    SnackBar(
-      content: Text(msg),
-      duration: linger,
-      behavior: SnackBarBehavior.floating,
-      action: res == WordbookAddResult.failed
-          ? null
-          : SnackBarAction(
-              label: t.wbViewAction,
-              onPressed: () => navigator.pushNamed('/bookshelf'),
-            ),
-    ),
-  );
-  Future<void>.delayed(linger, messenger.hideCurrentSnackBar);
+  return res;
 }
 
 /// Wiederverwendbarer "Zur Wortliste"-Button (Lesezeichen-Icon).
@@ -177,7 +163,7 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
     });
   }
 
-  void _add(BuildContext context) => addToWordbook(
+  Future<void> _add(BuildContext context) => addToWordbook(
     context,
     korean: widget.korean,
     translationDe: widget.translationDe,
@@ -193,21 +179,32 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final enabled = widget.korean.trim().isNotEmpty;
-    if (widget.compact) {
-      return IconButton(
-        key: _coachKey,
-        tooltip: t.wbAddTooltip,
-        icon: const Icon(Icons.bookmark_add_outlined),
-        color: SoriColors.primary,
-        onPressed: enabled ? () => _add(context) : null,
-      );
-    }
-    return TextButton.icon(
-      key: _coachKey,
-      onPressed: enabled ? () => _add(context) : null,
-      icon: const Icon(Icons.bookmark_add_outlined, size: 18),
-      label: Text(t.wbAddTooltip),
-      style: TextButton.styleFrom(foregroundColor: SoriColors.primary),
+    // 담긴 상태를 아이콘이 직접 말한다. 성공 알림을 없앤 자리를 이게 채운다.
+    return ValueListenableBuilder<int>(
+      valueListenable: CustomPackService.revision,
+      builder: (context, _, __) {
+        final saved = CustomPackService.containsKorean(widget.korean);
+        final icon = saved
+            ? Icons.bookmark_rounded
+            : Icons.bookmark_add_outlined;
+        final color = saved ? SoriColors.like : SoriColors.primary;
+        if (widget.compact) {
+          return IconButton(
+            key: _coachKey,
+            tooltip: t.wbAddTooltip,
+            icon: Icon(icon),
+            color: color,
+            onPressed: enabled ? () => unawaited(_add(context)) : null,
+          );
+        }
+        return TextButton.icon(
+          key: _coachKey,
+          onPressed: enabled ? () => unawaited(_add(context)) : null,
+          icon: Icon(icon, size: 18),
+          label: Text(t.wbAddTooltip),
+          style: TextButton.styleFrom(foregroundColor: color),
+        );
+      },
     );
   }
 }

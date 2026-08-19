@@ -388,7 +388,6 @@ class _GrammarScreenState extends State<GrammarScreen>
       posDe: g.typeDe,
       exampleKorean: g.exampleKorean,
       exampleDe: g.exampleGerman,
-      notify: false,
     );
     if (mounted) {
       setState(() {});
