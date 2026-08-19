@@ -3421,12 +3421,6 @@ abstract class AppL10n {
   /// **'Merken'**
   String get contentActionBookmark;
 
-  /// No description provided for @contentShareBody.
-  ///
-  /// In de, this message translates to:
-  /// **'{korean}\n{gloss}\nhangul-sori.com'**
-  String contentShareBody(String korean, String gloss);
-
   /// No description provided for @deckFlipFirstHint.
   ///
   /// In de, this message translates to:

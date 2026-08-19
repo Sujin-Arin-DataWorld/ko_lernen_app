@@ -21,6 +21,7 @@ import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../services/content_share_service.dart';
+import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
@@ -369,19 +370,20 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     }
   }
 
-  void _shareCurrent() {
+  Future<void> _shareCurrent() async {
     final cur = _current;
     if (cur == null) {
       return;
     }
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    // ignore: discarded_futures
-    ContentShareService.shareStory(
+    final outcome = await ContentShareService.shareStory(
       korean: cur.korean,
       gloss: cur.translationFor(lang),
-      caption: t.contentShareBody(cur.korean, cur.translationFor(lang)),
     );
+    if (outcome == ShareOutcome.failed && mounted) {
+      soriToast(context, t.shareError);
+    }
   }
 
   void _onFlip() {

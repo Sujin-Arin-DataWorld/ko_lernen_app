@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../../data/chaekgado_shelf.dart';
 import '../tokens.dart';
+import 'scroll_palette.dart';
 
-/// 두루마리 — 서재의 칸을 눌렀을 때 세로로 풀리는 시나리오 목록.
+const Duration kChaekgadoUnrollDuration = Duration(milliseconds: 320);
+
+/// 두루마리를 풀어 시나리오를 고르게 한다. 고른 값을 돌려주고, 바깥을 누르면
+/// null 을 돌려준다.
 ///
 /// 책 페이지 대신 두루마리를 쓰는 이유는 두 가지다.
 ///
@@ -15,21 +19,9 @@ import '../tokens.dart';
 ///
 /// 애니메이션은 3D 원근이 필요 없다. 위 축은 고정이고 한지가 [SizeTransition]
 /// 으로 아래로 자라며, 아래 축은 같은 [Column] 에 있어 저절로 내려간다.
-abstract final class _ScrollPalette {
-  static const Color paper = Color(0xFFFFFDF6);
-  static const Color rodTop = Color(0xFF7A5636);
-  static const Color rodMid = Color(0xFF3E2B1B);
-  static const Color rodBottom = Color(0xFF5C4028);
-  static const Color capTop = Color(0xFFE8BC6A);
-  static const Color capBottom = Color(0xFFB98A34);
-  static const Color rule = Color(0xFFEEE0C6);
-  static const Color footnote = Color(0xFFB0A085);
-}
-
-const Duration kChaekgadoUnrollDuration = Duration(milliseconds: 320);
-
-/// 두루마리를 풀어 시나리오를 고르게 한다. 고른 값을 돌려주고, 바깥을 누르면
-/// null 을 돌려준다.
+///
+/// 색은 [SoriScrollPalette] — 공유 이미지의 두루마리([ShareSlipRenderer])와
+/// 같은 종이·축·마구리를 쓴다.
 Future<T?> showChaekgadoScroll<T>({
   required BuildContext context,
   required String title,
@@ -169,9 +161,9 @@ class _RodFallback extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    _ScrollPalette.rodTop,
-                    _ScrollPalette.rodMid,
-                    _ScrollPalette.rodBottom,
+                    SoriScrollPalette.rodTop,
+                    SoriScrollPalette.rodMid,
+                    SoriScrollPalette.rodBottom,
                   ],
                   stops: [0, 0.58, 1],
                 ),
@@ -199,7 +191,7 @@ class _RodCap extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [_ScrollPalette.capTop, _ScrollPalette.capBottom],
+          colors: [SoriScrollPalette.capTop, SoriScrollPalette.capBottom],
         ),
       ),
     );
@@ -224,7 +216,7 @@ class _Sheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: _ScrollPalette.paper,
+      color: SoriScrollPalette.paper,
       child: Stack(
         children: [
           Column(
@@ -257,7 +249,7 @@ class _Sheet extends StatelessWidget {
               const Divider(
                 height: 0.5,
                 thickness: 0.5,
-                color: _ScrollPalette.rule,
+                color: SoriScrollPalette.rule,
               ),
               if (illustration != null)
                 Padding(
@@ -295,7 +287,7 @@ class _Sheet extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: const TextStyle(
                       fontSize: 9,
-                      color: _ScrollPalette.footnote,
+                      color: SoriScrollPalette.footnote,
                     ),
                   ),
                 ),
@@ -354,7 +346,7 @@ class ChaekgadoScrollItem extends StatelessWidget {
         ),
         decoration: const BoxDecoration(
           border: Border(
-            bottom: BorderSide(color: _ScrollPalette.rule, width: 0.5),
+            bottom: BorderSide(color: SoriScrollPalette.rule, width: 0.5),
           ),
         ),
         child: Row(

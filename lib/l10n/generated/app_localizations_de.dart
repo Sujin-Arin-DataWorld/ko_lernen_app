@@ -1919,11 +1919,6 @@ class AppL10nDe extends AppL10n {
   String get contentActionBookmark => 'Merken';
 
   @override
-  String contentShareBody(String korean, String gloss) {
-    return '$korean\n$gloss\nhangul-sori.com';
-  }
-
-  @override
   String get deckFlipFirstHint => 'Erst antippen und umdrehen';
 
   @override

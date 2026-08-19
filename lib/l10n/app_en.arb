@@ -939,17 +939,6 @@
   "contentActionLike": "Like",
   "contentActionShare": "Share",
   "contentActionBookmark": "Save",
-  "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
-  "@contentShareBody": {
-    "placeholders": {
-      "korean": {
-        "type": "String"
-      },
-      "gloss": {
-        "type": "String"
-      }
-    }
-  },
   "deckFlipFirstHint": "Tap the card to flip it first",
   "coachSoriDeckTitle": "Swipe to the next card",
   "coachSoriDeckBody": "Swipe up or down for the next card. ? flips, the heart likes for later, the bookmark adds to your wordbook.",

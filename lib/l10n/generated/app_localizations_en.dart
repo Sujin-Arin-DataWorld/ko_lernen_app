@@ -1912,11 +1912,6 @@ class AppL10nEn extends AppL10n {
   String get contentActionBookmark => 'Save';
 
   @override
-  String contentShareBody(String korean, String gloss) {
-    return '$korean\n$gloss\nhangul-sori.com';
-  }
-
-  @override
   String get deckFlipFirstHint => 'Tap the card to flip it first';
 
   @override

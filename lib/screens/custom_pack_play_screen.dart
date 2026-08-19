@@ -18,6 +18,7 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../services/content_share_service.dart';
+import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
@@ -155,19 +156,20 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     }
   }
 
-  void _shareCurrent() {
+  Future<void> _shareCurrent() async {
     final pack = _pack;
     if (pack == null || _idx >= pack.words.length) {
       return;
     }
     final w = pack.words[_idx];
     final t = AppL10n.of(context);
-    // ignore: discarded_futures
-    ContentShareService.shareStory(
+    final outcome = await ContentShareService.shareStory(
       korean: w.korean,
       gloss: w.translationDe,
-      caption: t.contentShareBody(w.korean, w.translationDe),
     );
+    if (outcome == ShareOutcome.failed && mounted) {
+      soriToast(context, t.shareError);
+    }
   }
 
   void _advance() {
