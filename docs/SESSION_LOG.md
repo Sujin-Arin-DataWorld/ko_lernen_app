@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — Analyze FFmpeg 를 apt 대신 정적 바이너리로
+
+**무엇을 왜.** #98 흡수 PR 의 Analyze 가 테스트가 아니라
+`apt-get install ffmpeg` 에서 죽었다. 의존성 ~80개, libcodec2 9MB 가
+Azure mirror 에서 9분, 600s timeout → exit 124. #94 가 건 timeout 으로는
+부족하다. main 흡수 직후 Analyze 도 같은 스텝에 걸려 있다.
+
+**고침.** 이미 있으면 그대로 쓰고, 없으면
+`eugeneware/ffmpeg-static` b6.1.1 linux-x64 를 90초 안에 받아
+`/usr/local/bin/ffmpeg` 에 둔다. 계약은
+`test_build_job_does_not_apt_install_ffmpeg`.
+
+**검증.** `.github/scripts` unittest.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 열린 PR 3개를 main 위에 손실 없이 흡수한다
 
 **무엇을 왜.** Jin 이 메인 코드 손실 없이 #95·#96·#97 을 전부 `main` 으로

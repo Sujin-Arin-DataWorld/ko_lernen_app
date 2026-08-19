@@ -223,17 +223,16 @@ jobs:
             ffmpeg -version | head -1
             exit 0
           fi
-          # 2026-08-19: main run 32241090233 hung here for the full 25m
-          # job timeout (apt-get update never returned). A later 90s/120s
-          # cap killed a healthy install (exit 124) — ffmpeg pulls ~80
-          # packages. Keep a hang ceiling well under the 25m Analyze budget.
-          sudo timeout 180s apt-get update \
-            -o Acquire::Retries=3 \
-            -o Acquire::http::Timeout=30 \
-            -o Acquire::https::Timeout=30
-          sudo timeout 600s env DEBIAN_FRONTEND=noninteractive \
-            apt-get install --no-install-recommends --yes ffmpeg
-          command -v ffmpeg >/dev/null
+          # apt ffmpeg 는 의존성 ~80개라 Azure mirror 가 느리면
+          # 600s timeout 에도 죽는다 (PR 98 run 32265006151: libcodec2
+          # 9MB 가 9분, exit 124). 정적 바이너리 하나면 매트 검사에 충분하다.
+          tmp="$(mktemp)"
+          timeout 90s curl -fsSL -o "$tmp" \
+            https://github.com/eugeneware/ffmpeg-static/releases/download/b6.1.1/ffmpeg-linux-x64
+          test "$(wc -c < "$tmp")" -gt 1000000
+          chmod +x "$tmp"
+          sudo mv "$tmp" /usr/local/bin/ffmpeg
+          ffmpeg -version | head -1
 
 
       - name: Verify character video mattes
