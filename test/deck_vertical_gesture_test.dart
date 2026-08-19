@@ -15,6 +15,8 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
+import 'helpers/deck_actions.dart';
+
 /// **§P2 화면 센서 — ↑/↓ 스와이프의 학습 데이터 무결성** (2026-08-14).
 ///
 /// 철칙(§P2-2): ↑/↓ 는 SRS·wrongCount·ledger 를 절대 건드리지 않는다.
@@ -135,15 +137,15 @@ void main() {
       expect(Storage.wrongCountOf('둘째'), 0);
     });
 
-    testWidgets('↑ 저장: quickAdd 1회 · 전진 없음 · SRS 0 · 앞면에서도 동작', (tester) async {
+    testWidgets('책갈피 저장: quickAdd 1회 · 전진 없음 · SRS 0 · 앞면에서도 동작', (tester) async {
       fixViewport(tester);
       await pump(tester);
       expect(find.text('하나'), findsOneWidget);
 
-      await tester.drag(find.text('하나'), const Offset(0, -350));
+      tapDeckAction(tester, 'Merken');
       await settle(tester);
 
-      expect(find.text('하나'), findsOneWidget, reason: '↑ 저장은 전진하지 않는다');
+      expect(find.text('하나'), findsOneWidget, reason: '책갈피는 전진하지 않는다');
       expect(Storage.srsCard('하나')?.reviewCount ?? 0, 0);
       final quick = CustomPackService.getAll().where(
         (p) => p.words.any((w) => w.korean == '하나'),
@@ -175,13 +177,13 @@ void main() {
       expect(Storage.srsCard('병원')?.reviewCount ?? 0, 0);
     });
 
-    testWidgets('↑ 저장: quickAdd · 전진 없음 · SRS 0 · 앞면에서도 동작', (tester) async {
+    testWidgets('책갈피 저장: quickAdd · 전진 없음 · SRS 0 · 앞면에서도 동작', (tester) async {
       fixViewport(tester);
       await tester.pumpWidget(app(ReviewSessionScreen(deck: deck())));
       await tester.pump(const Duration(milliseconds: 300));
       expect(find.text('학교'), findsOneWidget);
 
-      await tester.drag(find.text('학교'), const Offset(0, -350));
+      tapDeckAction(tester, 'Merken');
       await settle(tester);
 
       expect(find.text('학교'), findsOneWidget);
@@ -270,7 +272,7 @@ void main() {
       expect(Storage.srsCard('바나나')?.reviewCount ?? 0, 0);
     });
 
-    testWidgets('↑ 즐겨찾기: 추가 전용 — 재스와이프 no-op (해제 안 됨)', (tester) async {
+    testWidgets('책갈피 즐겨찾기: 추가 전용 — 다시 눌러도 해제 안 됨', (tester) async {
       fixViewport(tester);
       await tester.pumpWidget(
         app(LegacyVocabScreen(vocabLoader: () async => deck())),
@@ -279,13 +281,12 @@ void main() {
       await tester.pump(const Duration(milliseconds: 500));
       expect(find.text('사과'), findsOneWidget);
 
-      await tester.drag(find.text('사과'), const Offset(0, -350));
+      tapDeckAction(tester, 'Merken');
       await settle(tester);
       expect(Storage.vokFavorites, contains('사과'));
-      expect(find.text('사과'), findsOneWidget, reason: '↑ 는 전진하지 않는다');
+      expect(find.text('사과'), findsOneWidget, reason: '책갈피는 전진하지 않는다');
 
-      // 재스와이프 = no-op — 해제되지 않는다 (해제는 별 탭 경로만).
-      await tester.drag(find.text('사과'), const Offset(0, -350));
+      tapDeckAction(tester, 'Merken');
       await settle(tester);
       expect(Storage.vokFavorites, contains('사과'));
       expect(Storage.srsCard('사과')?.reviewCount ?? 0, 0);

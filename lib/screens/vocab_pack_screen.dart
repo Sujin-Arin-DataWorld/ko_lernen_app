@@ -453,8 +453,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     // ignore: discarded_futures
-    ContentShareService.shareStoryText(
-      t.contentShareBody(cur.korean, cur.translationFor(lang)),
+    ContentShareService.shareStory(
+      korean: cur.korean,
+      gloss: cur.translationFor(lang),
+      caption: t.contentShareBody(cur.korean, cur.translationFor(lang)),
     );
   }
 

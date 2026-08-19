@@ -163,8 +163,10 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     final w = pack.words[_idx];
     final t = AppL10n.of(context);
     // ignore: discarded_futures
-    ContentShareService.shareStoryText(
-      t.contentShareBody(w.korean, w.translationDe),
+    ContentShareService.shareStory(
+      korean: w.korean,
+      gloss: w.translationDe,
+      caption: t.contentShareBody(w.korean, w.translationDe),
     );
   }
 

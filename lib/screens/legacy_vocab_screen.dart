@@ -377,8 +377,10 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     // ignore: discarded_futures
-    ContentShareService.shareStoryText(
-      t.contentShareBody(cur.korean, cur.translationFor(lang)),
+    ContentShareService.shareStory(
+      korean: cur.korean,
+      gloss: cur.translationFor(lang),
+      caption: t.contentShareBody(cur.korean, cur.translationFor(lang)),
     );
   }
 
@@ -741,7 +743,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SoriEmptyState(
-                  asset: 'assets/illustrations/empty/celebrate_complete.png',
+                  asset: 'assets/illustrations/mascot/magpie_celebrate.png',
                   icon: Icons.celebration_outlined,
                   title: t.vocabDueEmptyTitle,
                   body: t.vocabDueEmptyBody,

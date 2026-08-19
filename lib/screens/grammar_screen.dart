@@ -20,13 +20,13 @@ import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
-import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/progress.dart';
@@ -371,7 +371,11 @@ class _GrammarScreenState extends State<GrammarScreen>
     final lang = Localizations.localeOf(context).languageCode;
     final gloss = lang == 'en' ? g.explanationEn : g.explanationDe;
     // ignore: discarded_futures
-    ContentShareService.shareStoryText(t.contentShareBody(g.pattern, gloss));
+    ContentShareService.shareStory(
+      korean: g.pattern,
+      gloss: gloss,
+      caption: t.contentShareBody(g.pattern, gloss),
+    );
   }
 
   /// This is intentionally a separate, free-practice route. Course grammar
@@ -601,7 +605,7 @@ class _GrammarScreenState extends State<GrammarScreen>
     }
     if (_loadFailed) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.screenGrammarTitle)),
+        appBar: SoriAppBar(title: t.screenGrammarTitle),
         body: AppError(
           message: _loadError ?? DataLoader.lastError ?? t.errorUnknown,
           onRetry: () {
@@ -614,7 +618,7 @@ class _GrammarScreenState extends State<GrammarScreen>
     final g = _current;
     if (g == null) {
       return Scaffold(
-        appBar: AppBar(title: Text(t.screenGrammarTitle)),
+        appBar: SoriAppBar(title: t.screenGrammarTitle),
         body: SoriEmptyState(
           asset: 'assets/illustrations/mascot/magpie_wave.png',
           icon: Icons.menu_book_outlined,
@@ -649,11 +653,8 @@ class _GrammarScreenState extends State<GrammarScreen>
     });
     final s = SoriSurfaces.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.screenGrammarTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+      appBar: SoriAppBar(
+        title: t.screenGrammarTitle,
         actions: [
           if (!_isCoursePractice)
             IconButton(
@@ -689,56 +690,44 @@ class _GrammarScreenState extends State<GrammarScreen>
                 padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
                 child: Column(
                   children: [
-                    // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
-                    //
-                    // 짧은 뷰포트에서 배너가 스스로 접히는 규칙은 HanokHeader 안에
-                    // 있다(자기 높이가 화면의 22% 를 넘으면 SizedBox.shrink).
-                    // 배너를 쓰는 모든 화면이 같은 규칙을 받는다.
-                    const HanokHeader(
-                      asset: 'assets/illustrations/hanok/study_scholar.png',
-                      fallbackIcon: Icons.auto_stories_outlined,
-                    ),
                     if (_missionStep case final step?) ...[
-                      const SizedBox(height: Spacing.md),
                       MissionContextBar(
                         missionTitle:
                             _missionTitle ?? t.courseMissionTitleShort,
                         step: step,
                       ),
+                      const SizedBox(height: Spacing.sm),
                     ],
-                    const SizedBox(height: Spacing.md),
 
-                    // 레벨 분할 칩 — 80+ 패턴을 레벨별로 쪼개 한 번에 보는 양을 줄임.
-                    SizedBox(
-                      key: _filterRowKey,
-                      height: 36,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          for (final lvl in _levels)
-                            Padding(
-                              padding: const EdgeInsets.only(right: 6),
-                              child: SoriChip(
-                                label: lvl == 'Alle' ? t.filterAll : lvl,
-                                accent: SoriColors.warning,
-                                selected: _level == lvl,
-                                variant: SoriChipVariant.soft,
-                                onTap: _level == lvl
-                                    ? null
-                                    : () {
-                                        setState(() => _level = lvl);
-                                        _applyFilters();
-                                      },
+                    // 둘러보기만 레벨 칩. 코스 연습은 필터 시트.
+                    if (!_isCoursePractice) ...[
+                      SizedBox(
+                        key: _filterRowKey,
+                        height: 36,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            for (final lvl in _levels)
+                              Padding(
+                                padding: const EdgeInsets.only(right: 6),
+                                child: SoriChip(
+                                  label: lvl == 'Alle' ? t.filterAll : lvl,
+                                  accent: SoriColors.contentCta,
+                                  selected: _level == lvl,
+                                  variant: SoriChipVariant.soft,
+                                  onTap: _level == lvl
+                                      ? null
+                                      : () {
+                                          setState(() => _level = lvl);
+                                          _applyFilters();
+                                        },
+                                ),
                               ),
-                            ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    // 난이도(Leicht/Schwer)는 **필터 시트로 이동**했고, 진행바는
-                    // Hören 과 같이 카드 **아래**로 내렸다. 학습 화면의 세로
-                    // 공간은 카드가 먼저 가져간다 — C1/C2 처럼 예문이 길어질수록
-                    // 고정 크롬이 카드를 눌러 읽기 어려워졌기 때문이다.
-                    const SizedBox(height: Spacing.sm),
+                      const SizedBox(height: Spacing.sm),
+                    ],
 
                     // Card + Difficulty Buttons
                     Expanded(
@@ -925,7 +914,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                           // 장식 아이콘 없이 라벨만 — 타이포 래칫의
                           // "라벨 CTA 에 장식 아이콘 금지" 규칙을 따른다.
                           label: t.courseCheckpointCheck,
-                          accent: SoriColors.warning,
+                          accent: SoriColors.contentCta,
                           fullWidth: true,
                           onTap: () => _showCheckpoint(g, assessmentLink!),
                         ),

@@ -5,6 +5,28 @@
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만
 > grep/Read). 이 파일은 최근 3일 분만 유지한다.
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 콘텐츠 UI 바이블 P4–P7 + PR83 CI
+
+**무엇을 왜.** Jin이 자러 가며 세션 처음 부탁을 전부 끝내 달라고 했다. 디자인
+스킬(`frontend-design`) + `CONTENT_UI_BIBLE` §0. PR 83 CI 실패(플립게이트·
+빈 에셋·코치 카피·세로 제스처)를 고치고, 남은 P4 쓰기 크롬·P6 Cloze/Satz/
+Smalltalk/Scenario 셸·P7 두루마리 공유 이미지를 넣었다. Play 자동배포는
+`internal`만 (#85).
+
+**고침.** 쓰기: 규칙 시트+`?`, 칩은 overflow, 시범은 고스트 한 캔버스.
+Cloze/Satz는 `SoriAppBar`+eyebrow, CTA는 `contentCta`. Smalltalk는 카드 없이
+피드, 짧은 화면은 장만 스크롤. 문법 플레이어에서 한옥 배너·원시 AppBar를
+빼고 체크포인트 CTA를 `contentCta`로 맞춘다. 시나리오 인트로 카드 제거·
+Weiter `contentCta`. 공유는 9:16 한지 두루마리 PNG. 사라진 `empty/` 에셋은
+까치 PNG로 바꾼다.
+
+**검증.** `flutter analyze` 해당 파일 0 issue. `flutter test` content_feed·
+flipgate·deck_vertical·course_practice·smalltalk 단문·share_slip·
+data_integrity 에셋·listening_shelf·hangul write/swipe·responsive
+short-height(smalltalk 포함) 통과.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor Grok 4.6) — P3 듣기 책장과 플레이어 라우트 분리
 
 **무엇을.** `/listening`은 책가도만, `/listening/play`는 `SoriContentFeed` 한 줄 피드다. 재생 중 책장 위젯은 플레이어 자손이 아니다. 배속은 AppBar 아이콘 하나, 자막 칩은 없고 `?`가 줄 위 gloss다. 1400px 서재 테스트는 390×844로 바꿨다.

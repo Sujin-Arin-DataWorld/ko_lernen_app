@@ -31,7 +31,10 @@ void main() {
   late List<String> prefetched;
 
   setUp(() async {
-    SharedPreferences.setMockInitialValues({'kl_tut_hangul': true});
+    SharedPreferences.setMockInitialValues({
+      'kl_tut_hangul': true,
+      'kl_tut_hangulWriteRules': true,
+    });
     Storage.resetForTesting();
     await Storage.init();
     prefetched = <String>[];
@@ -129,24 +132,15 @@ void main() {
   });
 
   group('① Write 탭 레이아웃', () {
-    testWidgets('시범·연습 캔버스가 세로로 쌓이고 크기가 같다', (tester) async {
+    testWidgets('시범은 연습 캔버스 고스트로 겹친다', (tester) async {
       await pumpScreen(tester, tab: 2);
       final demo = tester.getRect(find.byType(StrokeCanvas));
       final practice = tester.getRect(
         find.byKey(const Key('hangul-practice-canvas')),
       );
-      expect(
-        demo.size.width,
-        closeTo(practice.size.width, 1),
-        reason: '둘 다 같은 크기여야 한다',
-      );
-      expect(
-        demo.size.height,
-        closeTo(practice.size.height, 1),
-      );
-      // 세로 배치 — 연습이 시범 **아래**.
-      expect(practice.top, greaterThan(demo.bottom - 1));
-      // 좌우 반반(165pt)보다 확실히 커졌다.
+      expect(demo.size.width, closeTo(practice.size.width, 1));
+      expect(demo.size.height, closeTo(practice.size.height, 1));
+      expect(demo.top, closeTo(practice.top, 2));
       expect(demo.size.width, greaterThan(200));
     });
 
@@ -182,7 +176,11 @@ void main() {
       // 정반대가 된다(우 = 앎). 이동은 ‹ › 아이콘이 정본이다.
       await pumpScreen(tester, tab: 2);
       expect(find.text('1 / 19'), findsOneWidget);
-      await tester.fling(find.byType(StrokeCanvas), const Offset(-400, 0), 1200);
+      await tester.fling(
+        find.byKey(const Key('hangul-practice-canvas')),
+        const Offset(-400, 0),
+        1200,
+      );
       await tester.pumpAndSettle();
       expect(find.text('1 / 19'), findsOneWidget);
 

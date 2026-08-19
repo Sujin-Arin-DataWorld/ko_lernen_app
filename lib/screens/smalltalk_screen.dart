@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -14,16 +16,18 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
-import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/content_feed.dart';
+import '../services/content_share_service.dart';
+import '../services/liked_content_service.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -54,6 +58,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   CourseMissionStep? _missionStep;
   String? _missionTitle;
   bool _loadFailed = false;
+  int _phraseIndex = 0;
 
   bool get _isCoursePractice => widget.courseContext != null;
 
@@ -240,6 +245,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     );
     setState(() {
       _level = level;
+      _phraseIndex = 0;
       if (available.isNotEmpty &&
           !available.any((category) => category.id == _cat)) {
         _cat = available.first.id;
@@ -279,11 +285,8 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
 
     return Scaffold(
       backgroundColor: s.bg,
-      appBar: AppBar(
-        title: Text(
-          t.smalltalkTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+      appBar: SoriAppBar(
+        title: t.smalltalkTitle,
         actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
@@ -361,10 +364,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                         '${current.emoji} ${current.labelFor(lang)}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontFamily: 'Pretendard',
-                          fontSize: 15,
-                          fontWeight: FontWeight.w800,
+                        style: SoriTextTheme.of(context).h3.copyWith(
                           color: s.text,
                         ),
                       ),
@@ -408,32 +408,66 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                     style: TextStyle(color: s.textMuted),
                   ),
                 )
-              : LayoutBuilder(
-                  builder: (context, c) => ListView.builder(
-                    padding: soriClampPadding(
-                      c.maxWidth,
-                      base: const EdgeInsets.fromLTRB(
-                        Spacing.lg,
-                        0,
-                        Spacing.lg,
-                        Spacing.xl,
+              : Builder(
+                  builder: (context) {
+                    final i = _phraseIndex.clamp(0, phrases.length - 1);
+                    final phrase = phrases[i];
+                    return SoriContentFeed(
+                      key: ValueKey('smalltalk_${phrase.id}_$i'),
+                      judgmentsEnabled: true,
+                      skipEnabled: false,
+                      onNext: i < phrases.length - 1
+                          ? () => setState(() => _phraseIndex = i + 1)
+                          : null,
+                      onPrevious: i > 0
+                          ? () => setState(() => _phraseIndex = i - 1)
+                          : null,
+                      onLike: () async {
+                        await LikedContentService.toggle(
+                          kind: LikedContentService.smalltalk,
+                          id: phrase.id,
+                        );
+                        if (mounted) {
+                          setState(() {});
+                        }
+                      },
+                      onShare: () {
+                        unawaited(
+                          ContentShareService.shareStory(
+                            korean: phrase.ko,
+                            gloss: phrase.translation(lang),
+                          ),
+                        );
+                      },
+                      liked: LikedContentService.isLiked(
+                        kind: LikedContentService.smalltalk,
+                        id: phrase.id,
                       ),
-                    ),
-                    itemCount: phrases.length,
-                    itemBuilder: (_, i) {
-                      final card = _PhraseCard(
-                        p: phrases[i],
-                        lang: lang,
-                        levelColor: _levelColor(phrases[i].level),
-                        courseContext: widget.courseContext,
-                        assessmentLink: _courseAssessmentLinks[phrases[i].id],
-                      );
-                      if (i == 0) {
-                        return KeyedSubtree(key: _firstCardKey, child: card);
-                      }
-                      return card;
-                    },
-                  ),
+                      child: KeyedSubtree(
+                        key: i == 0 ? _firstCardKey : ValueKey(phrase.id),
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            final minH = constraints.maxHeight.isFinite
+                                ? constraints.maxHeight
+                                : 0.0;
+                            return SingleChildScrollView(
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(minHeight: minH),
+                                child: _PhraseCard(
+                                  p: phrase,
+                                  lang: lang,
+                                  levelColor: _levelColor(phrase.level),
+                                  courseContext: widget.courseContext,
+                                  assessmentLink:
+                                      _courseAssessmentLinks[phrase.id],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
+                    );
+                  },
                 ),
         ),
       ],
@@ -479,7 +513,10 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                   label: Text('${c.emoji} ${c.labelFor(lang)}'),
                   selected: c.id == _cat,
                   onSelected: (_) {
-                    setState(() => _cat = c.id);
+                    setState(() {
+                      _cat = c.id;
+                      _phraseIndex = 0;
+                    });
                     Navigator.pop(ctx);
                   },
                 ),
@@ -567,12 +604,9 @@ class _PhraseCardState extends State<_PhraseCard> {
 
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.md),
-      child: SoriCard(
-        variant: SoriCardVariant.base,
-        child: Column(
+      child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Frage/Satz — tippen spricht Koreanisch.
             InkWell(
               onTap: () => TtsService.speak(p.ko),
               child: Row(
@@ -584,12 +618,8 @@ class _PhraseCardState extends State<_PhraseCard> {
                       children: [
                         Text(
                           p.ko,
-                          style: TextStyle(
-                            fontFamily: 'Pretendard',
-                            fontSize: 17,
-                            fontWeight: FontWeight.w800,
+                          style: SoriTextTheme.of(context).koDisplay.copyWith(
                             color: s.text,
-                            height: 1.3,
                           ),
                         ),
                         const SizedBox(height: 4),
@@ -768,7 +798,6 @@ class _PhraseCardState extends State<_PhraseCard> {
             ],
           ],
         ),
-      ),
     );
   }
 }

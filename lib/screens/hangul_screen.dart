@@ -216,7 +216,7 @@ class _HangulScreenState extends State<HangulScreen>
       appBar: AppBar(
         title: Text(
           t.screenHangulTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
+          style: SoriTextTheme.of(context).h2,
         ),
         actions: const [TtsSpeedAction()],
         bottom: TabBar(
@@ -746,8 +746,10 @@ class _CardsTabState extends State<_CardsTab> {
     final c = _pool[_idx % _pool.length];
     final t = AppL10n.of(context);
     // ignore: discarded_futures
-    ContentShareService.shareStoryText(
-      t.contentShareBody(c.letter, c.romanization),
+    ContentShareService.shareStory(
+      korean: c.letter,
+      gloss: c.romanization,
+      caption: t.contentShareBody(c.letter, c.romanization),
     );
   }
 
@@ -1166,6 +1168,107 @@ class _WriteTabState extends State<_WriteTab> {
   void initState() {
     super.initState();
     _strict = Storage.hangulStrictStrokes;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || Storage.tutSeen('hangulWriteRules')) {
+        return;
+      }
+      unawaited(_showRules());
+    });
+  }
+
+  Future<void> _showRules() async {
+    if (!mounted) {
+      return;
+    }
+    final t = AppL10n.of(context);
+    await showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              t.hangulRulesTitle,
+              style: SoriTextTheme.of(sheetContext).h2,
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: Spacing.md),
+            Text(
+              t.hangulRulesBody,
+              style: SoriTextTheme.of(sheetContext).gloss,
+            ),
+            const SizedBox(height: Spacing.lg),
+            SoriButton.filled(
+              label: t.btnClose,
+              accent: SoriColors.contentCta,
+              fullWidth: true,
+              onTap: () => Navigator.pop(sheetContext),
+            ),
+          ],
+        );
+      },
+    );
+    await Storage.setTutSeen('hangulWriteRules');
+  }
+
+  Future<void> _showWriteSettings() async {
+    final t = AppL10n.of(context);
+    await showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 8,
+              runSpacing: 8,
+              children: [
+                SoriChip(
+                  label: t.hangulChipConsonants,
+                  accent: SoriColors.contentCta,
+                  selected: _mode == 0,
+                  onTap: () {
+                    _setMode(0);
+                    Navigator.pop(sheetContext);
+                  },
+                ),
+                SoriChip(
+                  label: t.hangulChipVowels,
+                  accent: SoriColors.contentCta,
+                  selected: _mode == 1,
+                  onTap: () {
+                    _setMode(1);
+                    Navigator.pop(sheetContext);
+                  },
+                ),
+                SoriChip(
+                  key: const Key('hangul-check-strict'),
+                  label: t.hangulCheckModeExam,
+                  accent: SoriColors.contentCta,
+                  selected: _strict,
+                  onTap: () {
+                    _setStrict(true);
+                    Navigator.pop(sheetContext);
+                  },
+                ),
+                SoriChip(
+                  key: const Key('hangul-check-practice'),
+                  label: t.hangulCheckModePractice,
+                  accent: SoriColors.contentCta,
+                  selected: !_strict,
+                  onTap: () {
+                    _setStrict(false);
+                    Navigator.pop(sheetContext);
+                  },
+                ),
+              ],
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -1400,283 +1503,123 @@ class _WriteTabState extends State<_WriteTab> {
     final shown = _letterDone ? total : math.min(_acceptedStrokes + 1, total);
 
     return LayoutBuilder(
-      builder: (context, viewport) => SingleChildScrollView(
-        padding: soriClampPadding(
-          MediaQuery.sizeOf(context).width,
-          base: const EdgeInsets.all(14),
-        ),
-        // 태블릿 등 세로 여백이 남으면 내용을 세로 중앙 정렬(위 쏠림 해소).
-        // 콘텐츠가 뷰포트보다 길면 스크롤(폰·큰 글자 안전).
-        //
-        // 제스처 대체 수단(WCAG 2.2 §2.5.1): 화면엔 아무것도 안 그리지만
-        // TalkBack/VoiceOver 에는 이전/다음이 메뉴로 노출된다.
-        child: Semantics(
+      builder: (context, viewport) {
+        final tt = SoriTextTheme.of(context);
+        final chrome = 48.0;
+        final nav = 56.0;
+        final hintH = strokes.isNotEmpty ? 52.0 : 0.0;
+        final finishH = _completedLetters > 0 ? 92.0 : 0.0;
+        final canvasSize = math.min(
+          viewport.maxWidth - 28,
+          math.max(220.0, viewport.maxHeight - chrome - nav - hintH - finishH - 16),
+        );
+        return Semantics(
           container: true,
-          // 제스처 대체 수단(WCAG 2.2 §2.5.1) 겸 유일한 이동 경로 안내.
-          //
-          // 좌우 스와이프는 **일부러 붙이지 않았다**. 앱의 덱 제스처 의미가
-          // 좌 = 모름 / 우 = 앎 로 하나인데(Jin, 2026-08-18) 여기서만 좌우를
-          // 이전/다음으로 쓰면 두 번째 멘탈 모델이 생긴다. 게다가 커진 연습
-          // 캔버스가 자기 위 드래그를 독점해서 어차피 여백에서만 먹혔다.
-          // 글자 이동은 ‹ › 아이콘이 정본이다.
           customSemanticsActions: <CustomSemanticsAction, VoidCallback>{
             CustomSemanticsAction(label: t.btnPrev): _prev,
             CustomSemanticsAction(label: t.btnNext): _next,
           },
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minHeight: viewport.maxHeight),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(14, 4, 14, 8),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // 3 Regeln
-                SoriCard(
-                  variant: SoriCardVariant.compact,
-                  accent: SoriColors.warning,
-                  tinted: true,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                SizedBox(
+                  height: chrome,
+                  child: Row(
                     children: [
-                      Text(
-                        t.hangulRulesTitle,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: SoriColors.warning,
-                          fontSize: 13,
-                        ),
+                      IconButton(
+                        key: const Key('hangul-write-rules'),
+                        onPressed: () => unawaited(_showRules()),
+                        tooltip: t.hangulRulesTitle,
+                        icon: Text('?', style: tt.h2),
                       ),
-                      const SizedBox(height: 6),
-                      Text(
-                        t.hangulRulesBody,
-                        style: const TextStyle(
-                          color: SoriColors.darkTextMuted,
-                          fontSize: 11.5,
-                          height: 1.5,
+                      if (strokes.isNotEmpty)
+                        Flexible(
+                          child: SoriChip(
+                            key: const Key('hangul-stroke-progress'),
+                            label: t.hangulStrokeProgress(shown, total),
+                            accent: _letterDone
+                                ? SoriColors.success
+                                : SoriColors.contentCta,
+                            selected: _letterDone,
+                          ),
                         ),
+                      const Spacer(),
+                      IconButton(
+                        key: const Key('hangul-write-speak'),
+                        onPressed: () => unawaited(widget.speak(c.letter)),
+                        icon: const Icon(Icons.volume_up_rounded),
+                        tooltip: t.hangulPronounceLetter(c.letter),
+                      ),
+                      IconButton(
+                        key: const Key('hangul-write-overflow'),
+                        onPressed: () => unawaited(_showWriteSettings()),
+                        tooltip: t.hangulCheckModeLabel,
+                        icon: const Icon(Icons.more_horiz_rounded),
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 12),
-
-                // Mode
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 8,
-                  runSpacing: 6,
-                  children: [
-                    SoriChip(
-                      label: t.hangulChipConsonants,
-                      accent: SoriColors.hangul,
-                      selected: _mode == 0,
-                      onTap: () => _setMode(0),
-                    ),
-                    SoriChip(
-                      label: t.hangulChipVowels,
-                      accent: SoriColors.hangul,
-                      selected: _mode == 1,
-                      onTap: () => _setMode(1),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 8),
-
-                // ── 판정 강도 ──
-                // 설정 화면이 아니라 여기 둔다. 같은 학습자가 ㄱ 을 배울 땐
-                // 자유롭게, ㅃ 을 익힐 땐 엄격하게 쓰고 싶어 한다 — 그 판단이
-                // 필요한 순간이 바로 이 화면이다. 칩 자체가 규칙 설명이기도 하다.
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 6,
-                  runSpacing: 6,
-                  children: [
-                    Text(
-                      t.hangulCheckModeLabel,
-                      style: const TextStyle(
-                        fontSize: 11.5,
-                        fontWeight: FontWeight.w700,
-                        color: SoriColors.darkTextMuted,
-                      ),
-                    ),
-                    SoriChip(
-                      key: const Key('hangul-check-strict'),
-                      label: t.hangulCheckModeExam,
-                      accent: SoriColors.info,
-                      selected: _strict,
-                      onTap: () => _setStrict(true),
-                    ),
-                    SoriChip(
-                      key: const Key('hangul-check-practice'),
-                      label: t.hangulCheckModePractice,
-                      accent: SoriColors.info,
-                      selected: !_strict,
-                      onTap: () => _setStrict(false),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  _strict
-                      ? t.hangulCheckModeExamHint
-                      : t.hangulCheckModePracticeHint,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 11,
-                    color: SoriColors.darkTextDim,
-                  ),
-                ),
-                const SizedBox(height: 12),
-
-                // ── Demo (시범 stroke order) + Practice (사용자 따라쓰기) Side-by-Side ──
-                // 비교 학습 효과 ↑. AspectRatio 1:1로 폰 너비에 적응 (iPhone SE 320pt도 OK).
-                // ── 시범 · 연습 캔버스 (세로 2단, 같은 크기) ──
-                //
-                // 2026-08-18: 좌우 반반이던 걸 세로로 쌓았다. 좌우 배치는 **가로가
-                // 병목**이라 iPhone 16(393pt)에서 한 쪽이 165pt 밖에 안 됐다
-                // ((393-28여백-10간격-24카드패딩)/2). 세로로 쌓으면 둘 다 240pt
-                // 까지 커진다(면적 약 2배). 그만큼의 세로 공간은 아래 전폭 버튼
-                // 4줄을 스와이프 + 아이콘 한 줄로 줄여 마련했다.
-                //
-                // 제목 높이를 맞추던 IntrinsicHeight 2단 Row 는 세로 배치에선
-                // 필요 없다 — 나란히 놓인 짝이 없으니 어긋날 일이 없다.
-                LayoutBuilder(
-                  builder: (ctx, constraints) {
-                    final canvasSize = math.min(
-                      constraints.maxWidth - 12,
-                      240.0,
-                    );
-                    return Column(
-                      children: [
-                        _CanvasPane(
-                          title: t.hangulStrokeOrderTitle,
-                          titleColor: SoriColors.darkTextMuted,
-                          accent: SoriColors.info,
-                          size: canvasSize,
-                          child: StrokeCanvas(
-                            letter: c.letter,
-                            strokes: strokes,
-                            size: canvasSize,
-                            color: SoriColors.hangul,
-                            // 지금 그려야 할 획을 시범 쪽에서 짚어준다.
-                            highlightIndex: _letterDone || strokes.isEmpty
-                                ? null
-                                : _acceptedStrokes,
+                Expanded(
+                  child: Center(
+                    child: SizedBox(
+                      width: canvasSize,
+                      height: canvasSize,
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          IgnorePointer(
+                            child: StrokeCanvas(
+                              letter: c.letter,
+                              strokes: strokes,
+                              size: canvasSize,
+                              color: SoriColors.contentCta,
+                              highlightIndex: _letterDone || strokes.isEmpty
+                                  ? null
+                                  : _acceptedStrokes,
+                            ),
                           ),
-                        ),
-                        const SizedBox(height: 10),
-                        _CanvasPane(
-                          title: t.hangulTraceTitle,
-                          titleColor: SoriColors.success,
-                          accent: SoriColors.success,
-                          size: canvasSize,
-                          child: _PracticeCanvas(
+                          _PracticeCanvas(
                             key: _practiceKey,
                             ghost: c.letter,
                             color: SoriColors.success,
                             errorColor: SoriColors.danger,
-                            // 완성 연출 중에는 입력을 받지 않는다 — 낙서가
-                            // 다음 글자로 넘어가면 안 된다.
                             enabled: !_letterDone,
                             onStrokeEnd: _onStrokeEnd,
                           ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
-                const SizedBox(height: 10),
-
-                // ── 진행 + 힌트 ──
-                if (strokes.isNotEmpty) ...[
-                  SoriChip(
-                    key: const Key('hangul-stroke-progress'),
-                    label: t.hangulStrokeProgress(shown, total),
-                    accent: _letterDone
-                        ? SoriColors.success
-                        : SoriColors.darkTextMuted,
-                    selected: _letterDone,
+                        ],
+                      ),
+                    ),
                   ),
+                ),
+                if (strokes.isNotEmpty) ...[
                   const SizedBox(height: 6),
                   Text(
                     key: const Key('hangul-stroke-hint'),
                     _hintText(t),
                     textAlign: TextAlign.center,
                     maxLines: 2,
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600,
-                      color: _hintColor(),
-                    ),
+                    style: tt.meta.copyWith(color: _hintColor()),
                   ),
-                  const SizedBox(height: 10),
                 ],
-
-                // ── 컴팩트 액션 행 ──
-                //
-                // 예전엔 캔버스 아래를 전폭 버튼 4줄이 먹었다(Löschen ·
-                // Zurück/Weiter · aussprechen · abschließen ≈ 230pt). 좌우 이동은
-                // 스와이프로 옮기고 나머지는 아이콘으로 줄여 그 공간을 캔버스에
-                // 넘겼다.
-                //
-                // ‹ › 버튼을 없애지는 않는다. 연습 캔버스가 커져서 그 위 드래그는
-                // 전부 획으로 먹히므로(EagerGestureRecognizer) 스와이프만 남기면
-                // 넘길 방법이 사라지고, 경로 기반 제스처가 유일한 수단이면
-                // WCAG 2.2 §2.5.1 위반이다.
-                Wrap(
-                  alignment: WrapAlignment.center,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 2,
-                  runSpacing: 6,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     IconButton(
                       key: const Key('hangul-write-prev'),
                       onPressed: _prev,
                       icon: const Icon(Icons.chevron_left_rounded),
                       tooltip: t.btnPrev,
-                      constraints: const BoxConstraints(
-                        minWidth: 44,
-                        minHeight: 44,
-                      ),
                     ),
-                    SoriCard(
-                      variant: SoriCardVariant.compact,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 12,
-                        vertical: 8,
-                      ),
-                      child: Builder(
-                        builder: (ctx) {
-                          final s = SoriSurfaces.of(ctx);
-                          return Text(
-                            '${_idx + 1} / ${_pool.length}',
-                            style: TextStyle(
-                              fontWeight: FontWeight.w800,
-                              color: s.text,
-                            ),
-                          );
-                        },
-                      ),
+                    Text(
+                      '${_idx + 1} / ${_pool.length}',
+                      style: tt.meta,
                     ),
                     IconButton(
                       key: const Key('hangul-write-next'),
                       onPressed: _next,
                       icon: const Icon(Icons.chevron_right_rounded),
                       tooltip: t.btnNext,
-                      constraints: const BoxConstraints(
-                        minWidth: 44,
-                        minHeight: 44,
-                      ),
-                    ),
-                    IconButton(
-                      key: const Key('hangul-write-speak'),
-                      onPressed: () => unawaited(widget.speak(c.letter)),
-                      icon: const Icon(Icons.volume_up_rounded),
-                      tooltip: t.hangulPronounceLetter(c.letter),
-                      constraints: const BoxConstraints(
-                        minWidth: 44,
-                        minHeight: 44,
-                      ),
                     ),
                     IconButton(
                       key: const Key('hangul-write-clear'),
@@ -1684,31 +1627,19 @@ class _WriteTabState extends State<_WriteTab> {
                       icon: const Icon(Icons.delete_outline_rounded),
                       color: SoriColors.danger,
                       tooltip: t.hangulClearBtn,
-                      constraints: const BoxConstraints(
-                        minWidth: 44,
-                        minHeight: 44,
-                      ),
                     ),
                   ],
                 ),
-
-                // 글자를 하나라도 정확히 완성하기 전에는 아예 그리지 않는다 —
-                // 예전엔 비활성 상태로 늘 자리를 차지하던 죽은 공간이었다.
                 if (_completedLetters > 0) ...[
-                  const SizedBox(height: 10),
                   Text(
                     t.hangulLettersDone(_completedLetters),
-                    style: const TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700,
-                      color: SoriColors.success,
-                    ),
+                    style: tt.meta.copyWith(color: SoriColors.success),
                   ),
                   const SizedBox(height: 6),
                   SoriButton.filled(
                     key: const Key('hangul-writing-finish'),
                     label: t.testerFeedbackCompleteHangul,
-                    accent: SoriColors.hangul,
+                    accent: SoriColors.contentCta,
                     onTap: _finish,
                     fullWidth: true,
                   ),
@@ -1716,50 +1647,8 @@ class _WriteTabState extends State<_WriteTab> {
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-/// 시범·연습 캔버스 한 칸 — 제목 + 정사각 카드.
-class _CanvasPane extends StatelessWidget {
-  const _CanvasPane({
-    required this.title,
-    required this.titleColor,
-    required this.accent,
-    required this.size,
-    required this.child,
-  });
-
-  final String title;
-  final Color titleColor;
-  final Color accent;
-  final double size;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text(
-          title,
-          style: TextStyle(
-            fontSize: 11.5,
-            fontWeight: FontWeight.w700,
-            color: titleColor,
-          ),
-          textAlign: TextAlign.center,
-          maxLines: 2,
-        ),
-        const SizedBox(height: 6),
-        SoriCard(
-          variant: SoriCardVariant.base,
-          accent: accent,
-          padding: const EdgeInsets.all(6),
-          child: SizedBox(width: size, height: size, child: child),
-        ),
-      ],
+        );
+      },
     );
   }
 }

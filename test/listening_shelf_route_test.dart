@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ko_lernen_app/data/chaekgado_shelf.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';

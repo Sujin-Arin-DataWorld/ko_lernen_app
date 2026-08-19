@@ -161,6 +161,9 @@ class SoriColors {
   /// Content-player CTA — same pigment as [info]. Buttons only; not a new hex.
   static const Color contentCta = info;
 
+  /// Text/icon on [contentCta]. White — not a new pigment.
+  static const Color contentCtaOn = Color(0xFFFFFFFF);
+
   /// Like/heart fill — same pigment as [accent] (석간주). Not Instagram pink.
   static const Color like = accent;
 

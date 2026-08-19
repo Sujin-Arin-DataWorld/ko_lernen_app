@@ -27,7 +27,10 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
-    SharedPreferences.setMockInitialValues({'kl_tut_hangul': true});
+    SharedPreferences.setMockInitialValues({
+      'kl_tut_hangul': true,
+      'kl_tut_hangulWriteRules': true,
+    });
     Storage.resetForTesting();
     await Storage.init();
   });
@@ -112,6 +115,7 @@ void main() {
     tester,
   ) async {
     await _openWriteTab(tester);
+    await _openWriteMenu(tester);
     await tester.tap(find.byKey(const Key('hangul-check-practice')));
     await tester.pump();
     await _goToLetter(tester, 'ㅂ');
@@ -131,10 +135,12 @@ void main() {
     await _openWriteTab(tester);
     expect(Storage.hangulStrictStrokes, isTrue);
 
+    await _openWriteMenu(tester);
     await tester.tap(find.byKey(const Key('hangul-check-practice')));
     await tester.pump();
     expect(Storage.hangulStrictStrokes, isFalse);
 
+    await _openWriteMenu(tester);
     await tester.tap(find.byKey(const Key('hangul-check-strict')));
     await tester.pump();
     expect(Storage.hangulStrictStrokes, isTrue);
@@ -150,6 +156,7 @@ void main() {
       'Right line, wrong direction. Stroke 1 goes the other way.',
     );
 
+    await _openWriteMenu(tester);
     await tester.tap(find.byKey(const Key('hangul-check-practice')));
     await tester.pump();
     await _goToLetter(tester, 'ㅡ', vowels: true);
@@ -163,6 +170,11 @@ void main() {
 // ─────────────────────────── 도우미 ───────────────────────────
 
 final Finder _demoCanvas = find.byType(StrokeCanvas);
+
+Future<void> _openWriteMenu(WidgetTester tester) async {
+  await tester.tap(find.byKey(const Key('hangul-write-overflow')));
+  await tester.pumpAndSettle();
+}
 
 Future<void> _openWriteTab(WidgetTester tester) async {
   tester.view.physicalSize = const Size(1200, 2600);
@@ -194,6 +206,7 @@ Future<void> _goToLetter(
   bool vowels = false,
 }) async {
   if (vowels) {
+    await _openWriteMenu(tester);
     await tester.tap(find.widgetWithText(SoriChip, 'Vowels'));
     await tester.pump();
   }
