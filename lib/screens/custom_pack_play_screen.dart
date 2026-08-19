@@ -315,21 +315,19 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                         child: SizedBox(
                           key: const ValueKey('deck-card-slot'),
                           width: double.infinity,
-                          child: SoriStudyScale(
-                            child: KeyedSubtree(
-                              key: _cardKey,
-                              child: FlipCard(
-                                key: ValueKey('cp-$_serve'),
-                                flipped: _flipped,
-                                onTap: _toggleFlip,
-                                front: _Front(
-                                  word: w,
-                                  deckKoreans: [
-                                    for (final x in pack.words) x.korean,
-                                  ],
-                                ),
-                                back: _Back(word: w),
+                          child: KeyedSubtree(
+                            key: _cardKey,
+                            child: FlipCard(
+                              key: ValueKey('cp-$_serve'),
+                              flipped: _flipped,
+                              onTap: _toggleFlip,
+                              front: _Front(
+                                word: w,
+                                deckKoreans: [
+                                  for (final x in pack.words) x.korean,
+                                ],
                               ),
+                              back: _Back(word: w),
                             ),
                           ),
                         ),
@@ -352,11 +350,9 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         heightFactor: 0.82,
         child: SizedBox(
           width: double.infinity,
-          child: SoriStudyScale(
-            child: _Front(
-              word: word,
-              deckKoreans: [for (final x in pack.words) x.korean],
-            ),
+          child: _Front(
+            word: word,
+            deckKoreans: [for (final x in pack.words) x.korean],
           ),
         ),
       ),

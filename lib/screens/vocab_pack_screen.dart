@@ -981,32 +981,30 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                   key: const ValueKey('deck-card-slot'),
                   width: double.infinity,
                   height: double.infinity,
-                  child: SoriStudyScale(
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        final h = soriStudyTypeScaleHeight(context);
-                        final headlineSize = soriUniformFitSize(
-                          context,
-                          texts: [for (final w in _learnWords) w.korean],
-                          maxWidth: constraints.maxWidth - Spacing.xl * 2,
-                          cap: soriFillSize(h, 0.18, 36, 96),
-                          min: 32,
-                          letterSpacing: -0.5,
-                          lineHeight: 1.05,
-                        );
-                        return FlipCard(
-                          key: ValueKey('learn-$_learnServe'),
-                          flipped: _flipped,
-                          onTap: _toggleLearnFlip,
-                          front: _FlipFront(
-                            v: cur,
-                            h: h,
-                            headlineSize: headlineSize,
-                          ),
-                          back: _FlipBack(v: cur, h: h),
-                        );
-                      },
-                    ),
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      final h = soriStudyTypeScaleHeight(context);
+                      final headlineSize = soriUniformFitSize(
+                        context,
+                        texts: [for (final w in _learnWords) w.korean],
+                        maxWidth: constraints.maxWidth - Spacing.xl * 2,
+                        cap: soriFillSize(h, 0.18, 36, 96),
+                        min: 32,
+                        letterSpacing: -0.5,
+                        lineHeight: 1.05,
+                      );
+                      return FlipCard(
+                        key: ValueKey('learn-$_learnServe'),
+                        flipped: _flipped,
+                        onTap: _toggleLearnFlip,
+                        front: _FlipFront(
+                          v: cur,
+                          h: h,
+                          headlineSize: headlineSize,
+                        ),
+                        back: _FlipBack(v: cur, h: h),
+                      );
+                    },
                   ),
                 ),
               );
@@ -1018,27 +1016,25 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   /// 덱 스택 underlay 용 앞면 슬롯 — 본 카드와 동일한 지오메트리/타이포 경로
-  /// (슬롯 핀 + SoriStudyScale + 덱 공유 균일 헤드라인).
+  /// (슬롯 핀 + 덱 공유 균일 헤드라인).
   Widget _learnFaceSlot(Vocab v, double slotHeight) {
     return SizedBox(
       width: double.infinity,
       height: slotHeight,
-      child: SoriStudyScale(
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final h = soriStudyTypeScaleHeight(context);
-            final headlineSize = soriUniformFitSize(
-              context,
-              texts: [for (final w in _learnWords) w.korean],
-              maxWidth: constraints.maxWidth - Spacing.xl * 2,
-              cap: soriFillSize(h, 0.18, 36, 96),
-              min: 32,
-              letterSpacing: -0.5,
-              lineHeight: 1.05,
-            );
-            return _FlipFront(v: v, h: h, headlineSize: headlineSize);
-          },
-        ),
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final h = soriStudyTypeScaleHeight(context);
+          final headlineSize = soriUniformFitSize(
+            context,
+            texts: [for (final w in _learnWords) w.korean],
+            maxWidth: constraints.maxWidth - Spacing.xl * 2,
+            cap: soriFillSize(h, 0.18, 36, 96),
+            min: 32,
+            letterSpacing: -0.5,
+            lineHeight: 1.05,
+          );
+          return _FlipFront(v: v, h: h, headlineSize: headlineSize);
+        },
       ),
     );
   }
@@ -1132,7 +1128,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        SoriStudyScale(child: promptCard),
+                        promptCard,
                         for (var i = 0; i < choices.length; i++)
                           Padding(
                             padding: const EdgeInsets.symmetric(

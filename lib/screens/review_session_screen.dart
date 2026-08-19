@@ -563,14 +563,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                       : SizedBox(
                           width: double.infinity,
                           height: cardH,
-                          child: SoriStudyScale(
-                            child: _heroCardBody(
-                              next,
-                              s,
-                              tt,
-                              t,
-                              showBack: false,
-                            ),
+                          child: _heroCardBody(
+                            next,
+                            s,
+                            tt,
+                            t,
+                            showBack: false,
                           ),
                         ),
                   knowLabel: t.btnGewusst,
@@ -585,14 +583,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                       key: const ValueKey('deck-card-slot'),
                       width: double.infinity,
                       height: double.infinity,
-                      child: SoriStudyScale(
-                        child: _heroCardBody(
-                          card,
-                          s,
-                          tt,
-                          t,
-                          showBack: _flipped,
-                        ),
+                      child: _heroCardBody(
+                        card,
+                        s,
+                        tt,
+                        t,
+                        showBack: _flipped,
                       ),
                     ),
                   ),

@@ -14,14 +14,14 @@ double soriAdaptiveContentMaxWidth(double availableWidth) {
       (SoriBreakpoints.tabletContent - SoriBreakpoints.content) * progress;
 }
 
-// ── Immersive study cards: tablet width + hero text scale ─────────────────
+// ── Immersive study cards: tablet width ramp ───────────────────────────────
 // Fixed-focus flashcard/quiz screens (grammar·vocab·cloze…) show a single
-// hero card, so — unlike browsing text — they can afford a wider card and
-// larger hero type on tablets without the line-length concern. The phone
-// experience (≤ [SoriBreakpoints.grid] = 600dp) is untouched; both ramps reach
-// full size by [_studyRampEnd] so 8--13" tablets read comfortably. This is
-// deliberately more generous than [soriComfortScale] (the app-wide +10% cap),
-// applied ONLY to immersive study surfaces via [SoriStudyScale]/[SoriStudyClamp].
+// hero card, so — unlike browsing text — they can afford a wider card on
+// tablets without the line-length concern. The phone experience
+// (≤ [SoriBreakpoints.grid] = 600dp) is untouched; the ramp reaches full size
+// by [_studyRampEnd] so 8--13" tablets read comfortably. 폭 램프만 남기고
+// 글씨 배율은 SoriTypeScale 로 이관(2026-08-19) — hero text no longer gets an
+// extra multiplier here; see [SoriStudyClamp].
 
 const double _studyRampStart = SoriBreakpoints.grid; // 600dp — phone baseline
 const double _studyRampEnd = 900; // full tablet enlargement reached here
@@ -30,12 +30,6 @@ double _studyProgress(double width) =>
     ((width - _studyRampStart) / (_studyRampEnd - _studyRampStart))
         .clamp(0.0, 1.0)
         .toDouble();
-
-/// Device-width-driven enlargement for immersive study-card **hero text**.
-/// 1.0 on phones, growing smoothly to 1.35 on tablets. Independent of the OS
-/// accessibility text scale — [SoriStudyScale] multiplies the two, so a user's
-/// large-text setting stays fully additive on top of this.
-double soriStudyScale(double width) => 1 + 0.35 * _studyProgress(width);
 
 /// Content column width for fixed-focus study screens. 480 on phones (visual
 /// change 0), growing to 760 on tablets so the card fills more of the screen.
@@ -82,8 +76,8 @@ double soriStudyTypeScaleHeight(BuildContext context) =>
 /// 줄에 들어가는 크기 하나**를 돌려준다. 덱 내내 이 값 하나를 쓰면 어떤
 /// 단어가 나와도 크기가 같다.
 ///
-/// - [context] 의 ambient textScaler(OS 접근성 배율 + [SoriStudyScale] 태블릿
-///   부스트)를 실측에 반영하므로, 반드시 렌더링과 **같은 서브트리의 컨텍스트**
+/// - [context] 의 ambient textScaler(OS 접근성 배율 + SoriTypeScale 의 comfort
+///   배율)를 실측에 반영하므로, 반드시 렌더링과 **같은 서브트리의 컨텍스트**
 ///   로 호출한다.
 /// - 실측은 [DefaultTextStyle] 의 폰트 패밀리를 상속한다 (측정/렌더 폰트 불일치
 ///   방지) + 2% 안전 마진.
@@ -165,54 +159,6 @@ class SoriStudyClamp extends StatelessWidget {
       ),
     );
   }
-}
-
-/// Boosts hero text size for its subtree on tablets via [soriStudyScale],
-/// composing multiplicatively with the OS accessibility text scale. Wrap ONLY
-/// the hero card so surrounding buttons/chrome keep their tuned size. The
-/// enclosed layouts already scroll under the OS 1.3x path (regression-tested),
-/// so this rides the same proven mechanism. Phones (≤600dp): no-op.
-class SoriStudyScale extends StatelessWidget {
-  final Widget child;
-
-  const SoriStudyScale({super.key, required this.child});
-
-  @override
-  Widget build(BuildContext context) {
-    final mq = MediaQuery.of(context);
-    final factor = soriStudyScale(mq.size.width);
-    if (factor <= 1.0) return child;
-    return MediaQuery(
-      data: mq.copyWith(textScaler: _StudyTextScaler(mq.textScaler, factor)),
-      child: child,
-    );
-  }
-}
-
-/// Multiplies an ambient [TextScaler] by a constant [_factor] so the tablet
-/// study boost composes with (rather than replaces) the user's OS text scale.
-class _StudyTextScaler extends TextScaler {
-  final TextScaler _base;
-  final double _factor;
-
-  const _StudyTextScaler(this._base, this._factor);
-
-  @override
-  double scale(double fontSize) => _base.scale(fontSize) * _factor;
-
-  // Canonical 14pt-anchored factor, derived via [scale] to avoid reading the
-  // deprecated getter on [_base].
-  @override
-  double get textScaleFactor => scale(14) / 14;
-
-  @override
-  bool operator ==(Object other) =>
-      other is _StudyTextScaler &&
-      other._base == _base &&
-      other._factor == _factor;
-
-  @override
-  int get hashCode => Object.hash(_base, _factor);
 }
 
 /// When [maxWidth] is omitted, the same adaptive phone-to-tablet column is

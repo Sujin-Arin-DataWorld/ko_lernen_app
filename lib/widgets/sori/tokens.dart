@@ -71,7 +71,8 @@ class SoriBreakpoints {
   static const double tabletContent = 640;
 
   /// Maximum visual enlargement for app-controlled type and touch targets.
-  /// Accessibility text scaling remains independent of this value.
+  /// [SoriTypeScale] multiplies this once into the ambient [TextScaler] —
+  /// it is not applied a second time anywhere else.
   static const double tabletComfortScale = 1.10;
 
   /// A wide tablet in landscape can afford an expanded navigation rail.
@@ -79,8 +80,9 @@ class SoriBreakpoints {
 }
 
 /// Returns the small, device-width-driven visual enlargement used above the
-/// large-phone breakpoint. This deliberately does not read [TextScaler], so
-/// the operating system's accessibility text size remains fully additive.
+/// large-phone breakpoint. This deliberately does not read [TextScaler] —
+/// [SoriTypeScale] is the single place that multiplies it into the ambient
+/// TextScaler, once, so it composes with the OS accessibility scale.
 double soriComfortScale(double width) {
   final progress =
       ((width - SoriBreakpoints.grid) /
@@ -500,14 +502,11 @@ class SoriFonts {
 /// 본문 w500, 라벨 w700. (구 명조 serif 혼용은 라틴/한글 분열 + 저품질로 폐기.)
 class SoriTextTheme {
   final SoriSurfaces _s;
-  final double _deviceScale;
 
-  const SoriTextTheme._(this._s, this._deviceScale);
+  const SoriTextTheme._(this._s);
 
-  static SoriTextTheme of(BuildContext context) => SoriTextTheme._(
-    SoriSurfaces.of(context),
-    soriComfortScale(MediaQuery.sizeOf(context).width),
-  );
+  static SoriTextTheme of(BuildContext context) =>
+      SoriTextTheme._(SoriSurfaces.of(context));
 
   // ── Display / Heading (Pretendard ExtraBold — 통일) ───────────────────
   // 위계는 크기·굵기로만. Pretendard w800 번들 → 합성볼드 아닌 진짜 ExtraBold.
@@ -656,9 +655,9 @@ class SoriTextTheme {
     bool tabular = false,
   }) => TextStyle(
     fontFamily: SoriFonts.sans,
-    fontSize: fontSize * _deviceScale,
+    fontSize: fontSize,
     fontWeight: weight,
-    letterSpacing: letterSpacing * _deviceScale,
+    letterSpacing: letterSpacing,
     height: height,
     color: color ?? _s.text,
     fontFeatures: tabular ? const [FontFeature.tabularFigures()] : null,

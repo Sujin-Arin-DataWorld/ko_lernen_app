@@ -1004,22 +1004,20 @@ class _CardsTabState extends State<_CardsTab> {
                     knowLabel: t.btnGewusst,
                     hardLabel: t.btnNichtGewusst,
                     skipLabel: t.btnSkip,
-                    child: SoriStudyScale(
-                      child: FlipCard(
-                        key: ValueKey('hangul-card-${c.letter}'),
-                        flipped: _flipped,
-                        onTap: () {
-                          unawaited(widget.speak(c.letter));
-                          _onFlip();
-                        },
-                        front: _HangulCardFace(
-                          borderColor: SoriColors.primary,
-                          children: _frontFace(c, h),
-                        ),
-                        back: _HangulCardFace(
-                          borderColor: SoriColors.info,
-                          children: _backFace(context, c, s, h),
-                        ),
+                    child: FlipCard(
+                      key: ValueKey('hangul-card-${c.letter}'),
+                      flipped: _flipped,
+                      onTap: () {
+                        unawaited(widget.speak(c.letter));
+                        _onFlip();
+                      },
+                      front: _HangulCardFace(
+                        borderColor: SoriColors.primary,
+                        children: _frontFace(c, h),
+                      ),
+                      back: _HangulCardFace(
+                        borderColor: SoriColors.info,
+                        children: _backFace(context, c, s, h),
                       ),
                     ),
                   );

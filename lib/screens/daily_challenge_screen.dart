@@ -270,14 +270,12 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
                     style: TextStyle(fontSize: 13, color: s.textMuted),
                   ),
                   const SizedBox(height: Spacing.md),
-                  SoriStudyScale(
-                    child: ClozePromptCard(
-                      item: item,
-                      lang: lang,
-                      gloss: _vocabByKo[item.answer]?.translationFor(lang),
-                      picked: _picked,
-                      pickedWrong: _picked != null && _picked != item.answer,
-                    ),
+                  ClozePromptCard(
+                    item: item,
+                    lang: lang,
+                    gloss: _vocabByKo[item.answer]?.translationFor(lang),
+                    picked: _picked,
+                    pickedWrong: _picked != null && _picked != item.answer,
                   ),
                   const SizedBox(height: Spacing.xl),
                   Expanded(

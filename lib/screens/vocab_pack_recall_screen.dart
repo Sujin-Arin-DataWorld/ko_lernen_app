@@ -345,21 +345,19 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
                             ),
                           ),
                           const SizedBox(height: Spacing.sm),
-                          SoriStudyScale(
-                            child: SoriCard(
-                              variant: SoriCardVariant.hero,
-                              accent: SoriColors.accent,
-                              tinted: true,
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: Spacing.xl,
-                                  horizontal: Spacing.md,
-                                ),
-                                child: Text(
-                                  word.translationFor(lang),
-                                  textAlign: TextAlign.center,
-                                  style: tt.display.copyWith(fontSize: 28),
-                                ),
+                          SoriCard(
+                            variant: SoriCardVariant.hero,
+                            accent: SoriColors.accent,
+                            tinted: true,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: Spacing.xl,
+                                horizontal: Spacing.md,
+                              ),
+                              child: Text(
+                                word.translationFor(lang),
+                                textAlign: TextAlign.center,
+                                style: tt.display.copyWith(fontSize: 28),
                               ),
                             ),
                           ),

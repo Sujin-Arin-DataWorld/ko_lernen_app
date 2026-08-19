@@ -589,28 +589,26 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                           key: const ValueKey('deck-card-slot'),
                           width: double.infinity,
                           height: double.infinity,
-                          child: SoriStudyScale(
-                            child: KeyedSubtree(
-                              key: _flashCardKey,
-                              child: FlipCard(
-                                key: ValueKey('legacy-$_serve'),
-                                flipped: _flipped,
-                                onTap: _onFlip,
-                                front: _Front(
-                                  v: v,
-                                  koFirst: _koFirst,
-                                  deckKoreans: _deckKoreans,
-                                  deckTranslations: _deckTranslations(
-                                    context,
-                                  ),
+                          child: KeyedSubtree(
+                            key: _flashCardKey,
+                            child: FlipCard(
+                              key: ValueKey('legacy-$_serve'),
+                              flipped: _flipped,
+                              onTap: _onFlip,
+                              front: _Front(
+                                v: v,
+                                koFirst: _koFirst,
+                                deckKoreans: _deckKoreans,
+                                deckTranslations: _deckTranslations(
+                                  context,
                                 ),
-                                back: _Back(
-                                  v: v,
-                                  koFirst: _koFirst,
-                                  deckKoreans: _deckKoreans,
-                                  deckTranslations: _deckTranslations(
-                                    context,
-                                  ),
+                              ),
+                              back: _Back(
+                                v: v,
+                                koFirst: _koFirst,
+                                deckKoreans: _deckKoreans,
+                                deckTranslations: _deckTranslations(
+                                  context,
                                 ),
                               ),
                             ),
@@ -725,13 +723,11 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
-      child: SoriStudyScale(
-        child: _Front(
-          v: v,
-          koFirst: _koFirst,
-          deckKoreans: _deckKoreans,
-          deckTranslations: _deckTranslations(context),
-        ),
+      child: _Front(
+        v: v,
+        koFirst: _koFirst,
+        deckKoreans: _deckKoreans,
+        deckTranslations: _deckTranslations(context),
       ),
     );
   }
