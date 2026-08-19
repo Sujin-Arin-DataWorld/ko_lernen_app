@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/personal_hanok.dart';
+import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/sori_stage_progression.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_catalog_screen.dart';
+import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
+import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/mission_recommender.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 
 void main() {
@@ -132,6 +140,32 @@ void main() {
       });
     }
   }
+
+  // Today keeps the current chrome. These cases only lock overflow / text
+  // fit on narrow, short, large-type, and wide viewports.
+  for (final size in const <Size>[
+    Size(320, 640),
+    Size(360, 400),
+    Size(390, 844),
+    Size(1280, 900),
+  ]) {
+    for (final textScale in const <double>[1, 2]) {
+      testWidgets('Today fits ${size.width}x${size.height} at ${textScale}x', (
+        tester,
+      ) async {
+        await _initStorage();
+        _setViewport(tester, size);
+        await tester.pumpWidget(
+          _todayApp(textScale: textScale, locale: const Locale('de')),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 400));
+
+        expect(tester.takeException(), isNull);
+        expect(find.byType(SoriStageTodayScreen), findsOneWidget);
+      });
+    }
+  }
 }
 
 void _setViewport(WidgetTester tester, Size size) {
@@ -181,5 +215,75 @@ Widget _catalogApp({
   home: const SoriStageCatalogScreen(tab: SoriStageTab.learn),
   onGenerateRoute: (_) => MaterialPageRoute<void>(
     builder: (_) => const Scaffold(body: Text('route')),
+  ),
+);
+
+Future<void> _initStorage() async {
+  Storage.resetForTesting();
+  SharedPreferences.setMockInitialValues(<String, Object>{
+    'kl_user_level': 'a1',
+    'kl_tut_home_tour': true,
+  });
+  await Storage.init();
+}
+
+Widget _todayApp({required double textScale, required Locale locale}) {
+  return MaterialApp(
+    debugShowCheckedModeBanner: false,
+    theme: AppTheme.light,
+    locale: locale,
+    supportedLocales: AppL10n.supportedLocales,
+    localizationsDelegates: AppL10n.localizationsDelegates,
+    builder: (context, child) => MediaQuery(
+      data: MediaQuery.of(context).copyWith(
+        disableAnimations: true,
+        textScaler: TextScaler.linear(textScale),
+      ),
+      child: child!,
+    ),
+    home: SoriStageTodayScreen(
+      loadSnapshot: () async => _todayFitSnapshot(),
+      now: () => DateTime(2026, 8, 14, 9),
+      forceStaticHero: true,
+      enableMilestoneCelebrations: false,
+    ),
+    onGenerateRoute: (_) => MaterialPageRoute<void>(
+      builder: (_) => const Scaffold(body: Text('route')),
+    ),
+  );
+}
+
+SoriStageProgressionSnapshot _todayFitSnapshot() => SoriStageProgressionSnapshot(
+  today: const TodayLearningSnapshot(
+    pick: ReviewPick(dueCount: 12),
+    destination: TodayLearningDestination(route: '/review'),
+    dueCount: 12,
+  ),
+  hanok: PersonalHanokProjection.from(
+    const LevelRatios(a1: 1, a2: .5, b1: 0, b2: 0),
+  ),
+  quests: const [
+    QuestProgress(
+      questId: 'q_jangdokdae',
+      current: 3,
+      target: 15,
+      active: true,
+      completed: false,
+      completedAtIso: null,
+    ),
+  ],
+  pendingBojagiCount: 1,
+  stampCount: 4,
+  xp: 320,
+  streakDays: 6,
+  todayReward: const RewardContract(
+    activityId: 'srs',
+    condition: SoriLocalizedCopy(de: 'Lernen', en: 'Learn'),
+    items: [
+      RewardContractItem(
+        kind: SoriRewardKind.xp,
+        label: SoriLocalizedCopy(de: 'Lern-XP', en: 'Learning XP'),
+      ),
+    ],
   ),
 );

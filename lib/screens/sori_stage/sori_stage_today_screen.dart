@@ -601,8 +601,9 @@ class _TodayMissionStage extends StatelessWidget {
                 Text(
                   title,
                   // §D: 카드 내부 헤드라인은 h1 상한 — hero(38)는 페이지
-                  // 헤더 전용.
+                  // 헤더 전용. 좁은 폭·큰 글자배율에서는 줄만 늘리고 넘치지 않게.
                   style: tt.h1.copyWith(color: Colors.white),
+                  softWrap: true,
                 ),
                 if (contract != null && contract.items.isNotEmpty) ...[
                   const SizedBox(height: Spacing.lg),
@@ -876,12 +877,31 @@ class _PendingBojagi extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('${t.soriStageBojagiTitle} · $count', style: tt.h3),
-                  Text(t.soriStageBojagiBody, style: tt.bodySmall),
+                  Text(
+                    '${t.soriStageBojagiTitle} · $count',
+                    style: tt.h3,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Text(
+                    t.soriStageBojagiBody,
+                    style: tt.bodySmall,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ],
               ),
             ),
-            Text(t.soriStageOpenBojagi, style: tt.label),
+            Flexible(
+              fit: FlexFit.loose,
+              child: Text(
+                t.soriStageOpenBojagi,
+                style: tt.label,
+                textAlign: TextAlign.end,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
           ],
         ),
       ),
@@ -977,6 +997,7 @@ class _HanokProgress extends StatelessWidget {
                     '${t.soriStageNextPiece}: '
                     '${hanokStageDisplayName(t, stage)}',
                     style: tt.label,
+                    softWrap: true,
                   ),
                 ],
               ),
@@ -1020,6 +1041,8 @@ class _QuestProgressRow extends StatelessWidget {
                   Text(
                     language == 'de' ? definition.name.de : definition.name.en,
                     style: tt.cardTitle,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: 6),
                   LinearProgressIndicator(

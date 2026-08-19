@@ -10,9 +10,8 @@
 
 사용한 스킬: `find-skills`(리더보드 + CLI), `frontend-design`(주제·토큰·시그니처·자기비판), 저장소 `explore-codebase`/`review-changes` 절차. `code-review-graph` MCP는 이 세션에 안 붙어 파일 실독으로 대체했다.
 
-**클릭 목업:**
-- 이전(캐릭터를 가리던) 시안: `docs/mockups/today_courtyard_2026-08-19.html`
-- **네 집 (2026-08-19 재탐색):** `docs/mockups/today_four_houses_2026-08-19.html` — 현판 / 책가도 / 마루 / 문. 창 밖 문턱은 안 씀. 캐릭터 위에 카드 없음.
+> **취소 (2026-08-19 Jin):** 시각 재설계·목업은 버린다. 홈은 **지금 있는 레이아웃을
+> 기기·글자배율·정렬만** 맞춘다. 마당/현판/책가도/문 시안 HTML은 삭제했다.
 
 ---
 

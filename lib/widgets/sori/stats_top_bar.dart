@@ -69,8 +69,14 @@ class SoriStatsTopBar extends StatelessWidget {
           builder: (context, constraints) {
             final double w = constraints.maxWidth;
             final double reserve = onProfileTap != null ? _kProfileReserve : 0;
+            // 이미 1.4 로 클램프된 scaler. 기본 1.0 에서는 임계가 그대로라
+            // 390 폰 모습은 안 바뀌고, 360+page padding+큰 글자에서만
+            // 레벨 칩을 접어 0.5px overflow 를 막는다.
+            final double typeScale =
+                MediaQuery.textScalerOf(context).scale(14) / 14;
             final bool showWordmarkText = w >= _kWordmarkTextMinWidth + reserve;
-            final bool showLevelChip = w >= _kLevelChipMinWidth + reserve;
+            final bool showLevelChip =
+                w >= _kLevelChipMinWidth * typeScale + reserve + 8;
             return Row(
               children: [
                 ClipRRect(

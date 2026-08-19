@@ -1,5 +1,20 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 홈 시각 재설계 취소, 레이아웃 맞춤만
+
+**무엇을 왜.** Jin이 메인 시안을 거절하고 디자인 변경 코드를 취소하라고
+했다. 새 집은 그리지 않는다. 지금 Today의 글씨·정렬·기기 폭만 맞춘다.
+`/find-skills` → 공식 `flutter-fix-layout-issues`(28.5K) ·
+`flutter-build-responsive-layout`(공식).
+
+**무엇을.** 목업 HTML 두 개 삭제. 계획·README·AGENTS에서 시각 재설계를
+취소로 표시. Today 보자기 CTA·퀘스트 제목·한옥 다음 조각·미션 제목이
+좁은 폭/큰 글자에서 넘치지 않게 Flexible/ellipsis만. 색·카드·IA는 그대로.
+
+**검증.** Today 320·짧은 가로·390@2x·1280 위젯 테스트.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — Today 네 집 목업 (창 문턱 버림)
 
 **무엇을 왜.** Jin이 캐릭터 가림을 싫어했고, 창 밖·녹청 문턱으로
