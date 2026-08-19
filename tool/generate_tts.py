@@ -207,8 +207,24 @@ def collect():
                 voice = "female" if line.get("speaker") == "user" else "male"
                 texts[(voice, t)] = None
 
-    # 3. 문법 예문 — grammar.csv col4 (exampleKorean).
-    #    grammar_screen.dart:745  TtsService.speak(g.exampleKorean) (기본 여성).
+    # 3. 문법 예문 — grammar.csv col4 (exampleKorean), **구절 단위**.
+    #
+    #    앱은 셀 전체가 아니라 화면에 보이는 예문 하나를 읽는다
+    #    (`GrammarStudyCopy.speakKoreanAt` → `splitStudyPhrases` 의 원소).
+    #    여기서도 같은 규칙으로 쪼개야 한다. 예전에는 셀 원본을 통째로
+    #    합성했는데, 다예문 행에서 앱이 요청하는 키와 어긋나 영구 miss 가
+    #    났다 — 2026-08-19 --verify-storage 의 유일한 누락이 그것이다
+    #    ('갔어요. / 먹었어요. / 했어요.').
+    #
+    #    분리자 우선순위는 Dart 쪽 `splitStudyPhrases` 와 같다: ' / ' 먼저,
+    #    없으면 '|'. 둘 다 없으면 셀 전체가 한 구절이다.
+    def _study_phrases(cell):
+        raw = (cell or "").strip()
+        if not raw:
+            return []
+        parts = raw.split(" / ") if " / " in raw else raw.split("|")
+        return [p.strip() for p in parts if p.strip()]
+
     with open(os.path.join(ROOT, "assets/data/grammar.csv"), encoding="utf-8") as f:
         for row in csv.reader(f):
             if len(row) >= 5 and row[1].strip() in (
@@ -219,7 +235,8 @@ def collect():
                 "C1",
                 "C2",
             ):
-                add_female(row[4])
+                for phrase in _study_phrases(row[4]):
+                    add_female(phrase)
 
     # 4. 스몰토크 — phrases 안의 모든 ko (opener·대안질문·followUp).
     #    smalltalk_screen.dart 는 p.ko / turn.ko / reply.ko 를 발화한다. 카테고리

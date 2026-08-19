@@ -38,7 +38,22 @@ void main() {
       'I did.',
     ]);
     expect(copy.note, isEmpty);
-    expect(copy.speakKorean, '갔어요. 먹었어요. 했어요.');
+    // 스피커는 **화면에 보이는 예문 하나**만 읽는다. 예전에는 셋을 공백으로
+    // 이어 붙여 읽었는데, (a) 앞면은 첫 예문만 보여주므로 보는 것과 듣는
+    // 것이 달랐고 (b) 그 이어붙인 문자열은 Storage 에 없었다 — 사전생성기는
+    // CSV 원본('… / … / …')을 합성하는데 앱은 공백 join 을 요청해서 sha1 이
+    // 어긋났다. 2026-08-19 --verify-storage 의 유일한 누락이 이 문자열이다.
+    expect(copy.speakKorean, '갔어요.');
+    expect(copy.speakKoreanAt(1), '먹었어요.');
+    expect(copy.speakKoreanAt(2), '했어요.');
+    expect(copy.speakKoreanAt(3), '', reason: '범위 밖은 무음');
+    for (var i = 0; i < copy.examples.length; i++) {
+      expect(
+        copy.speakKoreanAt(i),
+        copy.examples[i].korean,
+        reason: '발화 문자열은 언제나 splitStudyPhrases 의 원소여야 한다',
+      );
+    }
   });
 
   test('keeps a single example unsliced', () {
