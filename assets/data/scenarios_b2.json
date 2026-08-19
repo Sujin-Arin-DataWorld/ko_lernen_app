@@ -5893,8 +5893,8 @@
         {
           "speaker": "user",
           "ko": "금액이 제 권한을 넘어서 위로 올려야 해요.",
-          "de": "Der Betrag übersteigt meine Befugnis. Es muss nach oben.",
-          "en": "The amount is beyond my authority. It has to go up."
+          "de": "Der Betrag geht über meine Befugnis. Das muss die Leitung entscheiden.",
+          "en": "This amount is beyond what I can approve. I need to run it by my manager."
         },
         {
           "speaker": "jieun",
@@ -5917,8 +5917,8 @@
         {
           "speaker": "user",
           "ko": "언제 위로 올라가요?",
-          "de": "Wann geht es nach oben?",
-          "en": "When will it move up the chain?"
+          "de": "Wann kommt das bei der Leitung an?",
+          "en": "When will your manager see it?"
         },
         {
           "speaker": "jieun",
@@ -5970,8 +5970,8 @@
             "concept_b2_precise_requests"
           ],
           "data": {
-            "promptDe": "Der Betrag übersteigt meine Befugnis. Es muss nach oben.",
-            "promptEn": "The amount is beyond my authority. It has to go up.",
+            "promptDe": "Der Betrag geht über meine Befugnis. Das muss die Leitung entscheiden.",
+            "promptEn": "This amount is beyond what I can approve. I need to run it by my manager.",
             "options": [
               {
                 "ko": "금액이 제 권한을 넘어서 위로 올려야 해요."
@@ -8885,8 +8885,8 @@
         {
           "speaker": "user",
           "ko": "미터기가 멈춘 채로 요금이 올랐어요. 위에 전해 주세요.",
-          "de": "Der Taxameter stand, der Preis stieg. Bitte nach oben geben.",
-          "en": "The meter was stopped but the fare rose. Please pass it up."
+          "de": "Der Zähler stand still, der Fahrpreis ist trotzdem gestiegen. Geben Sie das bitte an Ihre Leitung weiter.",
+          "en": "The meter wasn't running, but the fare still went up. Please pass this on to your supervisor."
         },
         {
           "speaker": "jieun",
@@ -8962,8 +8962,8 @@
             "concept_b2_complaint"
           ],
           "data": {
-            "promptDe": "Der Taxameter stand, der Preis stieg. Bitte nach oben geben.",
-            "promptEn": "The meter was stopped but the fare rose. Please pass it up.",
+            "promptDe": "Der Zähler stand still, der Fahrpreis ist trotzdem gestiegen. Geben Sie das bitte an Ihre Leitung weiter.",
+            "promptEn": "The meter wasn't running, but the fare still went up. Please pass this on to your supervisor.",
             "options": [
               {
                 "ko": "미터기가 멈춘 채로 요금이 올랐어요. 위에 전해 주세요."

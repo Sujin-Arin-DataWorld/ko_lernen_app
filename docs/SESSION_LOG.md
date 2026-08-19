@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — 위에 전해주세요 ≠ nach oben
+
+**무엇을 왜.** Jin: 「위에 전해주세요」는 공간 *oben*이 아니라 윗사람·담당에게
+넘겨 달라는 말이다. 시나리오에서 계층 위만 고치고, 책상/문서 맨 위·층간소음
+같은 실제 공간은 그대로 둔다.
+
+**고침.**
+- `scenarios_b2.json` 택시: 위에 전해 주세요 → Leitung weitergeben /
+  pass on to supervisor. 금액 위로 올려야 → Leitung entscheiden /
+  run it by my manager. 언제 위로 올라가요 → Wann kommt das bei der
+  Leitung an? / When will your manager see it?
+- `scenarios_c2.json` 위로 가야 합니다 → Leitung entscheiden /
+  someone who can sign it off.
+
+**검증.** Grep: 계층 위만 DE/EN 교체, 공간 위는 유지.
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 온보딩 ARB + a1_greetings_1 DE/EN 검수
 
 **무엇을 왜.** Jin: 라이브 DE/EN을 자연스럽게. 온보딩 ARB와 첫 단어팩
