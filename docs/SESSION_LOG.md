@@ -1,5 +1,21 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor) — main Analyze 빨간불: #96 태블릿 골든 6장
+
+**무엇을 왜.** Jin 이 붙인 CI 로그(`Run set -euo pipefail` + `Got dependencies!` +
+41 packages outdated)는 실패가 아니다. `flutter test` 가 패키지를 받은 뒤
+`4094 passed, 6 failed` 로 죽었다. 실패는 `screen_layout_golden_test` 의
+settings/vocab_packs/sori_today × medium/expanded. compact 는 통과 —
+`SoriTypeScale` 이 폰에서 no-op 이고 골든 하니스가 production builder 를
+안 깔아서 태블릿 픽셀이 Wanted Sans + comfort 와 어긋난 것.
+
+**고침.** `_wrap()` 에 `SoriTypeScale` 을 넣고 Linux 에서 그 6장 기준선을
+갱신한다. 패키지 41개 업은 하지 않는다.
+
+**검증.** `flutter test test/goldens/screen_layout_golden_test.dart`
+
+**커밋해시.** 이 로그와 같은 커밋.
+
 ### 2026-08-19 (Cursor) — 열린 PR 3개를 main 위에 손실 없이 흡수한다
 
 **무엇을 왜.** Jin 이 메인 코드 손실 없이 #95·#96·#97 을 전부 `main` 으로
