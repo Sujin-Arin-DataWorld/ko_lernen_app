@@ -1,0 +1,26 @@
+{
+  "recipeId": "cutout-fa-decoration-yeonsang",
+  "kind": "cutout",
+  "family": "F-A",
+  "targetSlug": "decoration_yeonsang",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "3:2",
+  "referenceImages": [
+    "assets/illustrations/decorations/decoration_seoan.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a Korean yeonsang (연상), a small low lacquered scholar's box-table for writing implements: a compact rectangular box, lower and smaller than a full writing desk, with a flat hinged lid propped open on one side revealing a shallow recessed compartment, and short block feet. The proportions are noticeably smaller and more box-like than a desk -- a lidded box for an inkstone, not a table to write on."
+  },
+  "subjectGuards": [
+    "smaller and more box-like than the existing writing-desk object already in this set -- do not just redraw a desk",
+    "the lid is propped open showing a shallow recessed compartment, not closed flat",
+    "no visible ink stick, brush, or paper -- the empty box itself is the subject",
+    "no readable text, no hanja"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/decoration_yeonsang/decoration_yeonsang_raw.png",
+  "note": "New candidate from the 2026-08-18 handoff's priority list (연상). Distinct from the shipped decoration_seoan (open desk) by being a smaller closed/lidded box form."
+}

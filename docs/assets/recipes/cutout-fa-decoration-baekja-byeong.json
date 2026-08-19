@@ -1,0 +1,28 @@
+{
+  "recipeId": "cutout-fa-decoration-baekja-byeong",
+  "kind": "cutout",
+  "family": "F-A",
+  "targetSlug": "decoration_baekja_byeong",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "2:3",
+  "referenceImages": [
+    "assets/illustrations/decorations/decoration_hyangno.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a Korean baekja/celadon porcelain wine bottle (백자·청자 술병), rendered as a smooth CERAMIC vessel -- explicitly NOT a wooden or lacquered object, and NOT warm brown. Same silhouette as before: a tall bottle with a full rounded lower body that tapers smoothly into a narrower neck and ends in a small flared mouth rim, standing on a slightly recessed flat foot ring; a single smooth continuous curve, entirely free of handles, spouts, ears, or a lid. Render this as a DEEP CELADON glaze piece: most of the body's facets are this set's deep muted teal (#274A3F) -- a rich, clearly-visible blue-green glaze colour, not a faint accent -- with the lighter stoneGrey (#8B8478) appearing only on the upper-lit facets (shoulder and neck highlights) and a thin dancheong-gold (#BD924C) line at the rim. The overall read must be a saturated blue-green celadon glaze vessel, matte, with soft tonal facet variation -- clearly ceramic, not wood."
+  },
+  "subjectGuards": [
+    "one bottle only, no cup, no tray, no stand, no second vessel",
+    "smooth continuously curved body -- do not turn it into an angular box, chest, or building shape",
+    "deep muted teal (#274A3F) must cover the MAJORITY of the body's facets (a rich visible blue-green celadon glaze, not a thin accent) -- attempt 4 used stoneGrey as the dominant tone with teal only as a rim line and that measured too desaturated (satMean 0.192, floor is 0.30); this attempt inverts the ratio so teal is dominant and stoneGrey is the minority highlight, which should land satMean 0.30-0.80 while keeping valMean 0.25-0.65 since teal itself is both saturated and dark",
+    "explicitly still NOT warm walnut-wood browns (#A2663A/#8F5130/#844A2D/#633720/#5A3623/#3B271B) -- attempt 3 used those and read as wood, not porcelain",
+    "no painted glaze cracks, no reflections, no glossy highlights; matte faceted planes only, same as every other object",
+    "no readable text, no hanja, no decorative painted scenes on the surface"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/decoration_baekja_byeong/decoration_baekja_byeong_raw.png",
+  "note": "Jin's ref_baekja_jubyeong.png photo failed F-A (satMean 0.0884, valMean 0.9154 -- too pale/desaturated). This recipe is Option A from the 2026-08-18 handoff: recreate the SAME bottle silhouette but in-palette, not loosen the gate. Reference image is decoration_hyangno.png (style/palette anchor only). Retry history: #1 satMean 0.264 -- too desaturated. #2 satMean 0.4829 valMean 0.7303 -- too bright (cap 0.65). #3 satMean 0.674 valMean 0.299 -- PASSED gate but Jin's visual review (2026-08-19) called it out as reading like wood, not porcelain (\"약간 도자기색으로 뽑아야돼\"). #4 satMean 0.1923 valMean 0.4343 -- visually a good pale celadon/stoneGrey read (Jin would likely have liked it) but FAILED the automated satMean floor (0.30) for being too flat/grey. #5 (this version): inverted the teal/grey ratio so deep muted teal is the dominant celadon-glaze tone instead of a rim accent, aiming to keep the same visual family while lifting satMean into gate range."
+}

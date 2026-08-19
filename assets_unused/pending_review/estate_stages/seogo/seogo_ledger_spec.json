@@ -1,0 +1,30 @@
+{
+  "id": "estate-newbuilding-seogo-2026-08-19",
+  "provider": "bbanana",
+  "model": "Nano Banana Pro",
+  "providerTaskId": "gvi_1787126383568_x2nx1m",
+  "mediaKind": "static",
+  "occurredAtUtc": "2026-08-19T08:03:00Z",
+  "costCredits": 4.0,
+  "note": "Phase 3 P2 seogo finished building, approved on the first call because the frontal-camera and single-roof blocks learned from byeoldang were in the prompt up front. The model still emitted a detached translucent roof ghost (261,764px, 10.5% of object pixels) and let green through the lattice vent windows (4,596px of interior holes); both removed deterministically — largest connected component, then fill-holes so the building stays opaque on the map. Gate on the cut: satMean 0.3498 / valMean 0.5111 / neon 0 / greenRim 0 / chromaResidue 0 — F-C-estate PASS.",
+  "promptSource": "tool/asset_recipe.py --emit-work-order for estate-newbuilding-seogo",
+  "inputAssets": [
+    {
+      "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png"
+    }
+  ],
+  "outputAssets": [
+    {
+      "path": "assets_unused/pending_review/estate_stages/seogo/raw/seogo_finished_raw.png",
+      "decision": "approved",
+      "kind": "raw",
+      "sha256": "28c446728150de76214b64f6a2609ea5e0f5bd55b796eb0356823148744e051d"
+    },
+    {
+      "path": "assets_unused/pending_review/estate_stages/seogo/cut/seogo_finished.png",
+      "decision": "approved",
+      "kind": "part",
+      "sha256": "44bbfb7cf7878717bdfb68ab0d40ac63761f5975074dc877b6933e7247ebe3c4"
+    }
+  ]
+}

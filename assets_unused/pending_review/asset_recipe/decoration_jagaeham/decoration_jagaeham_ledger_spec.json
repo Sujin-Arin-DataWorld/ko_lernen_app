@@ -1,0 +1,23 @@
+{
+  "id": "cutout-fa-decoration-jagaeham-d2b3cd14-c73d-473b-acc1-ed320f07a184",
+  "provider": "bbanana",
+  "model": "GPT Image 2",
+  "providerTaskId": "d2b3cd14-c73d-473b-acc1-ed320f07a184",
+  "mediaKind": "static",
+  "occurredAtUtc": "2026-08-19T02:35:00Z",
+  "costCredits": 2.7,
+  "promptText": "SEE_RECIPE_PROMPT",
+  "promptSource": "tool/asset_recipe.py --emit-work-order for cutout-fa-decoration-jagaeham",
+  "inputAssets": [
+    {
+      "path": "assets/illustrations/decorations/decoration_jagae_mungap.png"
+    }
+  ],
+  "outputAssets": [
+    {
+      "path": "assets_unused/pending_review/asset_recipe/decoration_jagaeham/decoration_jagaeham_cut.png",
+      "decision": "approved",
+      "kind": "part"
+    }
+  ]
+}

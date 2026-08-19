@@ -1,0 +1,64 @@
+{
+ "source": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_yakjang/decoration_yakjang_raw.png",
+ "sourceSha256": "a034271c4c9be0f4b9242e6816fda632ca72db3720e199e835d7a80211bee10f",
+ "out": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_yakjang/decoration_yakjang_cut.png",
+ "outSha256": "95df3ea5282611334eb461d247d756ae74346a846330130e31777e7e93549849",
+ "sourceSize": [
+  1536,
+  2304
+ ],
+ "outSize": [
+  1019,
+  2050
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   257,
+   121,
+   1276,
+   2171
+  ]
+ ],
+ "visiblePixels": 1898303,
+ "coveragePct": 90.87,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    4.6,
+    249.1,
+    25.3
+   ],
+   "greenness": 223.7
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    3.9,
+    248.6,
+    26.2
+   ],
+   "greenness": 222.4
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    3.9,
+    248.9,
+    23.4
+   ],
+   "greenness": 225.5
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    3.8,
+    248.9,
+    25.7
+   ],
+   "greenness": 223.2
+  }
+ ],
+ "pillow": "10.4.0"
+}

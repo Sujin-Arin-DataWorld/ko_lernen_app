@@ -1,0 +1,30 @@
+{
+  "id": "estate-newbuilding-byeoldang-2026-08-19",
+  "provider": "bbanana",
+  "model": "Nano Banana Pro",
+  "providerTaskId": "2171efdb5ded405e8fa7779407891958",
+  "mediaKind": "static",
+  "occurredAtUtc": "2026-08-19T07:56:00Z",
+  "costCredits": 12.0,
+  "note": "Phase 3 P1 byeoldang finished building. 3 calls x 4cr: try1 gvi_1787125523338_pu1lcj rejected (floating second roof, neon 3.8% > 3.0%), try2 4638a3ae3090fab969dc28af7bd15aed rejected (tone gate passed but 3/4 rotated camera, rhombus platform — does not sit with the straight-on estate buildings), try3 approved after adding an explicit frontal-camera block. try3 still emitted a detached floating roof fragment (57,563px, 3.2% of object pixels); removed deterministically by keeping only the largest connected component before despill. Gate on the cut: satMean 0.3187 / valMean 0.5275 / neon 0.01% / greenRim 0 / chromaResidue 0 — F-C-estate PASS.",
+  "promptSource": "tool/asset_recipe.py --emit-work-order for estate-newbuilding-byeoldang",
+  "inputAssets": [
+    {
+      "path": "assets/illustrations/personal_hanok_v2/map/structures/sarangchae.png"
+    }
+  ],
+  "outputAssets": [
+    {
+      "path": "assets_unused/pending_review/estate_stages/byeoldang/raw/byeoldang_finished_raw.jpg",
+      "decision": "approved",
+      "kind": "raw",
+      "sha256": "6f9bbf0a4fa18cb377ab3b98b248199bd594bae55f2953243ff25c476a7cf913"
+    },
+    {
+      "path": "assets_unused/pending_review/estate_stages/byeoldang/cut/byeoldang_finished.png",
+      "decision": "approved",
+      "kind": "part",
+      "sha256": "a69ffe1261f01a95ff886946078255837af2f52ddc76f16ffa38b466763f9509"
+    }
+  ]
+}

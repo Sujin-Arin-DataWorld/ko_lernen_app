@@ -1,0 +1,64 @@
+{
+ "source": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_boseokham/decoration_boseokham_raw.png",
+ "sourceSha256": "b2b190d983aacc09e180a54a0c4dd3c961f92ad67971029c53b46519bcbf9100",
+ "out": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_boseokham/decoration_boseokham_cut.png",
+ "outSha256": "0788c50038b6b2a2e69f5681dbfe372c9d9f3d234e7acea6d298798920427695",
+ "sourceSize": [
+  2048,
+  2048
+ ],
+ "outSize": [
+  1453,
+  1477
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   322,
+   311,
+   1775,
+   1788
+  ]
+ ],
+ "visiblePixels": 1919706,
+ "coveragePct": 89.45,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    10.5,
+    243.6,
+    9.7
+   ],
+   "greenness": 233.1
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    10.8,
+    244.4,
+    15.7
+   ],
+   "greenness": 228.6
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    10.8,
+    242.0,
+    17.2
+   ],
+   "greenness": 224.8
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    9.4,
+    245.4,
+    13.1
+   ],
+   "greenness": 232.2
+  }
+ ],
+ "pillow": "10.4.0"
+}

@@ -1,0 +1,64 @@
+{
+ "source": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_jangmokbi/decoration_jangmokbi_raw.png",
+ "sourceSha256": "1c20d1585382dc604817cb464814dfa5ec0490327ee5b95d3bdc25fe142fbb13",
+ "out": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_jangmokbi/decoration_jangmokbi_cut.png",
+ "outSha256": "d4b902dcb4671a6beb2cb25e94468939f0113a56c4fba954a542132068aaf6bd",
+ "sourceSize": [
+  1680,
+  2512
+ ],
+ "outSize": [
+  689,
+  2411
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   571,
+   53,
+   1260,
+   2464
+  ]
+ ],
+ "visiblePixels": 621790,
+ "coveragePct": 37.43,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    12.2,
+    243.9,
+    2.9
+   ],
+   "greenness": 231.7
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    11.3,
+    245.2,
+    5.9
+   ],
+   "greenness": 233.9
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    11.8,
+    242.9,
+    4.7
+   ],
+   "greenness": 231.1
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    9.7,
+    246.9,
+    3.9
+   ],
+   "greenness": 237.1
+  }
+ ],
+ "pillow": "10.4.0"
+}

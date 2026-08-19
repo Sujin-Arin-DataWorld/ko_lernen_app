@@ -1,0 +1,23 @@
+{
+  "id": "cutout-fa-decoration-yakjang-2cfa2177-427d-4164-a8a6-ca09f799cc61",
+  "provider": "bbanana",
+  "model": "GPT Image 2",
+  "providerTaskId": "2cfa2177-427d-4164-a8a6-ca09f799cc61",
+  "mediaKind": "static",
+  "occurredAtUtc": "2026-08-19T02:39:00Z",
+  "costCredits": 2.7,
+  "promptText": "SEE_RECIPE_PROMPT",
+  "promptSource": "tool/asset_recipe.py --emit-work-order for cutout-fa-decoration-yakjang",
+  "inputAssets": [
+    {
+      "path": "assets/illustrations/decorations/decoration_bandaji.png"
+    }
+  ],
+  "outputAssets": [
+    {
+      "path": "assets_unused/pending_review/asset_recipe/decoration_yakjang/decoration_yakjang_cut.png",
+      "decision": "approved",
+      "kind": "part"
+    }
+  ]
+}

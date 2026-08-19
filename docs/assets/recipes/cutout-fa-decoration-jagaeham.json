@@ -1,0 +1,26 @@
+{
+  "recipeId": "cutout-fa-decoration-jagaeham",
+  "kind": "cutout",
+  "family": "F-A",
+  "targetSlug": "decoration_jagaeham",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "3:2",
+  "referenceImages": [
+    "assets/illustrations/decorations/decoration_jagae_mungap.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a Korean jagae (mother-of-pearl inlay style) lacquered wooden document chest (자개함), low and rectangular, wider than it is tall, standing on four short block feet. The front has exactly TWO drawers stacked one above the other, each drawer front fully covered in a geometric jagae inlay pattern of small angular colour facets, with a single small round brass ring pull centred on each drawer. The lid/top surface is a plain dark lacquer panel with a thin brass edge trim -- no inlay pattern on top."
+  },
+  "subjectGuards": [
+    "exactly two drawers, stacked vertically -- not three drawers, and not a hinged lid with a latch (that shape already exists in this set as a different object)",
+    "small round brass ring pulls only, no large ornate latch plate",
+    "low wide chest silhouette, wider than tall -- do not draw it as a tall cabinet",
+    "no readable text, no hanja"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/decoration_jagaeham/decoration_jagaeham_raw.png",
+  "note": "Jin's ref_jagaeham.png (docs/assets/reference_images/) is a 2-drawer low console/mungap-type box, watercolour technique, F-A fail (sat 0.1543/val 0.2776). Per 2026-08-18 handoff: shape reference only, NOT a style reference -- decoration_jagae_mungap.png (already F-A pass) is the style anchor instead, and the 2-drawer count is what differentiates this from the existing 3-drawer jagae_mungap."
+}

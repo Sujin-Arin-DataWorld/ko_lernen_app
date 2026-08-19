@@ -56,10 +56,13 @@ class RealRecipesBaselineTest(unittest.TestCase):
     def test_ready_committed_recipes_pass_check_and_drafts_do_not(self) -> None:
         paths = sorted(RECIPES_DIR.glob("*.json"))
         self.assertGreaterEqual(
-            len(paths), 7, "expected 4 frameEdit + 2 DRAFT newBuilding + 1 F-A cutout"
+            len(paths), 7, "expected 4 frameEdit + 2 newBuilding + F-A cutouts"
         )
         ready = 0
-        drafts = 0
+        drafts = 0  # DRAFT is a lifecycle state, not a fixed population: byeoldang
+        # and seogo were the only two and Jin approved both on 2026-08-19, so the
+        # count is legitimately 0 today. What must hold is the behaviour on each
+        # side of the flag, which the loop below asserts per recipe.
         for path in paths:
             with self.subTest(recipe=path.name):
                 recipe = asset_recipe.load_recipe(path)
@@ -78,7 +81,7 @@ class RealRecipesBaselineTest(unittest.TestCase):
                     ready += 1
                     self.assertEqual(problems, [], f"{path.name}: {problems}")
         self.assertGreaterEqual(ready, 5)
-        self.assertEqual(drafts, 2)
+        self.assertEqual(ready + drafts, len(paths))
 
     def test_frameEdit_recipes_reproduce_the_exact_historical_prompt_hash(self) -> None:
         # Cross-check against the real sha256 computed independently during

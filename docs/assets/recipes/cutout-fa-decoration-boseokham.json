@@ -1,0 +1,26 @@
+{
+  "recipeId": "cutout-fa-decoration-boseokham",
+  "kind": "cutout",
+  "family": "F-A",
+  "targetSlug": "decoration_boseokham",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "1:1",
+  "referenceImages": [
+    "assets/illustrations/decorations/decoration_jagae_mungap.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a small Korean lacquered jewelry box (보석함), roughly cube-shaped and small enough to sit on a table, with a hinged flat lid on top and a round decorative brass lock plate with a small hanging clasp on the front centre (similar in spirit to this set's existing latched chest, but much smaller and simpler -- a single compact box, not a chest with drawers). The lid and sides carry a muted jagae-style inlay pattern in small diamond facets."
+  },
+  "subjectGuards": [
+    "one small compact box only -- no drawers, no legs, no feet visible below the box",
+    "hinged lid with a round brass clasp on the front, closed",
+    "small proportions, roughly as wide as it is tall -- do not draw it as a large low chest",
+    "no readable text, no hanja"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/decoration_boseokham/decoration_boseokham_raw.png",
+  "note": "Jin's ref_boseokham.png (docs/assets/reference_images/) is a small hinged/clasped box, watercolour technique, F-A fail (sat 0.2044/val 0.3101). Shape reference only, per 2026-08-18 handoff -- decoration_jagae_mungap.png is the style anchor for the latch hardware and inlay pattern."
+}

@@ -1,0 +1,64 @@
+{
+ "source": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_mukpodo_byeongpung/decoration_mukpodo_byeongpung_raw.png",
+ "sourceSha256": "92b38977ec67cdc08bdf071a0f3b9bda9d5021ad969e8f7022fc6faff3f0f75b",
+ "out": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_mukpodo_byeongpung/decoration_mukpodo_byeongpung_cut.png",
+ "outSha256": "3e2746132a435e41d964cb459cebc9d892046de57978d6d6ac795ca098255429",
+ "sourceSize": [
+  1680,
+  2512
+ ],
+ "outSize": [
+  1530,
+  2025
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   67,
+   245,
+   1597,
+   2270
+  ]
+ ],
+ "visiblePixels": 2807062,
+ "coveragePct": 90.6,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    10.5,
+    245.5,
+    2.1
+   ],
+   "greenness": 235.0
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    10.0,
+    245.2,
+    6.8
+   ],
+   "greenness": 235.1
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    10.2,
+    243.2,
+    6.2
+   ],
+   "greenness": 233.0
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    7.4,
+    247.5,
+    4.3
+   ],
+   "greenness": 240.1
+  }
+ ],
+ "pillow": "10.4.0"
+}

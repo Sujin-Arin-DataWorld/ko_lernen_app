@@ -1,0 +1,23 @@
+{
+  "id": "cutout-fa-decoration-baekja-byeong-48e3fd75-4da6-46a0-82f5-15c97422cd88",
+  "provider": "bbanana",
+  "model": "GPT Image 2",
+  "providerTaskId": "48e3fd75-4da6-46a0-82f5-15c97422cd88",
+  "mediaKind": "static",
+  "occurredAtUtc": "2026-08-19T05:05:00Z",
+  "costCredits": 2.7,
+  "promptText": "SEE_RECIPE_PROMPT",
+  "promptSource": "tool/asset_recipe.py --emit-work-order for cutout-fa-decoration-baekja-byeong",
+  "inputAssets": [
+    {
+      "path": "assets/illustrations/decorations/decoration_hyangno.png"
+    }
+  ],
+  "outputAssets": [
+    {
+      "path": "assets_unused/pending_review/asset_recipe/decoration_baekja_byeong/decoration_baekja_byeong_cut.png",
+      "decision": "approved",
+      "kind": "part"
+    }
+  ]
+}

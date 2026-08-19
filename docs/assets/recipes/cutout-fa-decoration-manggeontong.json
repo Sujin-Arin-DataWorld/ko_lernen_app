@@ -1,0 +1,26 @@
+{
+  "recipeId": "cutout-fa-decoration-manggeontong",
+  "kind": "cutout",
+  "family": "F-A",
+  "targetSlug": "decoration_manggeontong",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "1:1",
+  "referenceImages": [
+    "assets/illustrations/decorations/decoration_hyangno.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a Korean manggeontong (망건통), a small cylindrical lidded case traditionally used to store a horsehair headband: a short drum-shaped cylinder standing upright, with a separate flat lid sitting on top, a woven-bamboo texture rendered as narrow vertical facet strips running around the cylinder, and a plain lacquer lid with a small centred brass finial knob."
+  },
+  "subjectGuards": [
+    "short upright cylinder shape -- wider than it is tall or roughly equal, like a squat drum, not a tall tube",
+    "narrow vertical facet strips around the side suggest woven bamboo without literal weave texture or realistic basket rendering",
+    "one case only, lid on and closed",
+    "no readable text, no hanja"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/decoration_manggeontong/decoration_manggeontong_raw.png",
+  "note": "New candidate from the 2026-08-18 handoff's priority list (망건통). No photo reference from Jin exists -- shape comes entirely from this written description."
+}

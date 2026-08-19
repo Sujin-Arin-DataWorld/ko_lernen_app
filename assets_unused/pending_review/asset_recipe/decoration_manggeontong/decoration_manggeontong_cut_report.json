@@ -1,0 +1,64 @@
+{
+ "source": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_manggeontong/decoration_manggeontong_raw.png",
+ "sourceSha256": "4e2af5cd0e5250e2ed043b2ae24737d51f6412143a8e03479ceacad57a192927",
+ "out": "/Users/sujinpark/Developer/ko_lernen_app/assets_unused/pending_review/asset_recipe/decoration_manggeontong/decoration_manggeontong_cut.png",
+ "outSha256": "a682c7d65677839404ea760dc3586b1be0f22a9c868d0501f608b041500f1a60",
+ "sourceSize": [
+  2048,
+  2048
+ ],
+ "outSize": [
+  1440,
+  1463
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   304,
+   286,
+   1744,
+   1749
+  ]
+ ],
+ "visiblePixels": 1872648,
+ "coveragePct": 88.89,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    10.3,
+    245.1,
+    2.5
+   ],
+   "greenness": 234.9
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    10.6,
+    245.0,
+    7.6
+   ],
+   "greenness": 234.4
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    10.1,
+    243.4,
+    4.8
+   ],
+   "greenness": 233.3
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    8.2,
+    247.5,
+    4.1
+   ],
+   "greenness": 239.3
+  }
+ ],
+ "pillow": "10.4.0"
+}

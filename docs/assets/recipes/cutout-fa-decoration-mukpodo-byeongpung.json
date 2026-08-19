@@ -1,0 +1,26 @@
+{
+  "recipeId": "cutout-fa-decoration-mukpodo-byeongpung",
+  "kind": "cutout",
+  "family": "F-A",
+  "targetSlug": "decoration_mukpodo_byeongpung",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "2:3",
+  "referenceImages": [
+    "assets/illustrations/decorations/decoration_byeongpung_small.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a small two-panel Korean folding screen (병풍), identical in overall shape and wood-and-hanji-panel construction to the plain screen already in this set, but each of the two panels now carries a simple ink-wash grapevine painting (묵포도도): a few curling dark-ink vine tendrils and clusters of round grapes rendered as flat dark facets against the pale aged-hanji panel background, in the same low-poly faceted style as everything else -- a stylised faceted brushwork motif, not a realistic painting."
+  },
+  "subjectGuards": [
+    "the grapevine ink motif must appear on BOTH panels of the screen, rendered as flat angular dark-ink facets -- not a soft painterly wash, not a gradient",
+    "no calligraphy, no seals, no readable text, no hanja anywhere on the panels",
+    "keep the same two-panel folding screen frame shape (walnut frame, dark lacquer inner border, brass hinge) as the rest of this set",
+    "the panel background stays pale aged-hanji ivory -- do not darken the whole panel"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/decoration_mukpodo_byeongpung/decoration_mukpodo_byeongpung_raw.png",
+  "note": "Candidate from the 2026-08-18 handoff's priority list (병풍 변형 -- 묵포도도). 2026-08-19: Jin sent 은평역사한옥박물관 reference photos -- the '사랑채 내부' photo shows exactly this object in situ (a black-ground ink grapevine screen behind the sarangchae daybed), confirming it is a real, well-attested sarangbang furnishing, not a speculative addition. Distinct slug from the shipped decoration_byeongpung_small (which is blank)."
+}
