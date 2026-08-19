@@ -29,8 +29,8 @@ class StrokeCanvas extends StatefulWidget {
     required this.letter,
     required this.strokes,
     this.size = 220,
-    this.color = SoriColors.hangul,
-    this.guideColor = const Color(0x33845EF7),
+    this.color = SoriColors.primary,
+    this.guideColor = const Color(0x331F7A6B),
     this.showNumbers = true,
     this.perStroke = const Duration(milliseconds: 700),
     this.onCompleted,
@@ -184,7 +184,7 @@ class _Painter extends CustomPainter {
     final hi = highlightIndex;
     if (hi != null && hi >= 0 && hi < n) {
       final highlight = Paint()
-        ..color = SoriColors.warning
+        ..color = color
         ..strokeWidth = 13 * scale
         ..strokeCap = StrokeCap.round
         ..strokeJoin = StrokeJoin.round
@@ -278,7 +278,7 @@ class _Painter extends CustomPainter {
     )..layout();
 
     final r = 11 * scale;
-    canvas.drawCircle(pos, r, Paint()..color = SoriColors.hangul);
+    canvas.drawCircle(pos, r, Paint()..color = color);
     tp.paint(canvas, pos - Offset(tp.width / 2, tp.height / 2));
   }
 

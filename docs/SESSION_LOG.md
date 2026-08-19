@@ -1,5 +1,26 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-19 (Cursor Grok 4.6, Cloud) — 문법·CTA·한글 손맛
+
+**무엇을 왜.** Jin이 문법 카드가 한 덩어리로 줄바꿈되고, Listen이 뒤집히고,
+골든 카드·안 사라지는 단어장 스낵바·필터 빈 화면·홈으로 튀는 뒤로,
+시나리오 CTA 파랑, 오늘 글자/한글 Pronounce 무음, 쓰기 시범과 손글 불일치,
+공유 텍스트 덤프를 찍었다.
+
+**고침.** 문법 설명을 제목/`·` 규칙/예문 1:1로 쪼갠다. 한국어는 어절 단위로만
+접는다. Listen은 카드 밖 스피커만. 책갈피는 채움만(스낵바 0.5초 후 강제
+숨김). 필터는 표시 언어로 맞추고 빈 결과는 적용하지 않으며 뒤로는 필터를
+먼저 푼다. Grammar practice를 레벨 칩 줄로 올린다. CTA 토큰은 녹청.
+쓰기 고스트는 시범과 같은 획, 오늘 글자는 열릴 때 음가. 공유 실패는 텍스트를
+버리지 않는다.
+
+**검증.** `flutter analyze` 해당 Dart 11파일 0 issue.
+`flutter test` grammar_study_copy · sori_phrase_wrap · wordbook_quick_add ·
+course_practice_screen · hangul_write_gate · hangul_swipe_and_prefetch ·
+hangul_interaction_regression · content_share_slip · content_feed ·
+grammar_choice_quiz_screen · grammar_choice_quiz 전부 통과.
+
+**커밋해시.** 이 로그와 같은 커밋.
 
 > **아카이브.** 2026-08-17 이전 세션 기록 394건은 컨텍스트 비용 절감을 위해
 > **`docs/SESSION_LOG_ARCHIVE.md`** 로 옮겼다 (매 세션 자동으로 읽지 말고, 필요할 때만

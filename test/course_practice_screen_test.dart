@@ -190,9 +190,10 @@ void main() {
     final grammar = (await tester.runAsync(DataLoader.loadGrammar))!;
     expect(grammar, isNotEmpty);
     // Mirrors `_types` in the screen, so the menu order matches.
-    final types = grammar.map((item) => item.typeDe).toSet().toList()..sort();
+    final types = grammar.map((item) => item.typeFor('en')).toSet().toList()
+      ..sort();
     final soleType = types.firstWhere(
-      (type) => grammar.where((item) => item.typeDe == type).length == 1,
+      (type) => grammar.where((item) => item.typeFor('en') == type).length == 1,
     );
 
     await tester.pumpWidget(_wrap(const GrammarScreen()));

@@ -7,6 +7,7 @@ import '../models/course_practice_context.dart';
 import '../models/course_mission_step_plan.dart';
 import '../models/curriculum.dart';
 import '../models/grammar.dart';
+import '../models/grammar_study_copy.dart';
 import '../models/feedback_completion.dart';
 import '../models/learner_level.dart';
 import '../services/course_activity_reporter.dart';
@@ -21,7 +22,9 @@ import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
 import '../widgets/sori/app_bar.dart';
+import '../services/custom_pack_service.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/ko_wrap.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -35,7 +38,6 @@ import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
-import '../services/content_share_service.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -212,30 +214,66 @@ class _GrammarScreenState extends State<GrammarScreen>
     }
   }
 
+  bool get _hasActiveFilter =>
+      _level != 'Alle' || _type != 'Alle' || _difficulty != 'Alle';
+
+  bool _typeMatches(Grammar grammar, String type, String lang) {
+    if (type == 'Alle') {
+      return true;
+    }
+    return grammar.typeFor(lang) == type ||
+        grammar.typeDe == type ||
+        grammar.typeEn == type;
+  }
+
+  List<Grammar> _computeFiltered({
+    required String level,
+    required String type,
+    required String difficulty,
+  }) {
+    final lang = Localizations.localeOf(context).languageCode;
+    final hardPatterns = Storage.grammarHard;
+    final scoped = _courseContentIds == null
+        ? _all
+        : _all
+              .where((item) => _courseContentIds!.contains(item.id))
+              .toList(growable: false);
+    return scoped.where((g) {
+      if (level != 'Alle' && g.level != level) {
+        return false;
+      }
+      if (!_typeMatches(g, type, lang)) {
+        return false;
+      }
+      if (difficulty == 'Schwer' && !hardPatterns.contains(g.pattern)) {
+        return false;
+      }
+      if (difficulty == 'Leicht' && hardPatterns.contains(g.pattern)) {
+        return false;
+      }
+      return true;
+    }).toList();
+  }
+
   void _applyFilters() {
     setState(() {
-      final hardPatterns = Storage.grammarHard;
-      final scoped = _courseContentIds == null
-          ? _all
-          : _all
-                .where((item) => _courseContentIds!.contains(item.id))
-                .toList(growable: false);
-      _filtered = scoped.where((g) {
-        if (_level != 'Alle' && g.level != _level) return false;
-        if (_type != 'Alle' && g.typeDe != _type) return false;
-        if (_difficulty == 'Schwer' && !hardPatterns.contains(g.pattern)) {
-          return false;
-        }
-        if (_difficulty == 'Leicht' && hardPatterns.contains(g.pattern)) {
-          return false;
-        }
-        return true;
-      }).toList();
+      _filtered = _computeFiltered(
+        level: _level,
+        type: _type,
+        difficulty: _difficulty,
+      );
       _idx = 0;
       _flipped = false;
       _sessionSeen.clear();
       _feedbackCompletion.reset();
     });
+  }
+
+  void _clearFilters() {
+    _level = 'Alle';
+    _type = 'Alle';
+    _difficulty = 'Alle';
+    _applyFilters();
   }
 
   Grammar? get _current =>
@@ -345,7 +383,11 @@ class _GrammarScreenState extends State<GrammarScreen>
       posDe: g.typeDe,
       exampleKorean: g.exampleKorean,
       exampleDe: g.exampleGerman,
+      notify: false,
     );
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   Future<void> _likeCurrent() async {
@@ -360,22 +402,6 @@ class _GrammarScreenState extends State<GrammarScreen>
     if (mounted) {
       setState(() {});
     }
-  }
-
-  void _shareCurrent() {
-    final g = _current;
-    if (g == null) {
-      return;
-    }
-    final t = AppL10n.of(context);
-    final lang = Localizations.localeOf(context).languageCode;
-    final gloss = lang == 'en' ? g.explanationEn : g.explanationDe;
-    // ignore: discarded_futures
-    ContentShareService.shareStory(
-      korean: g.pattern,
-      gloss: gloss,
-      caption: t.contentShareBody(g.pattern, gloss),
-    );
   }
 
   /// This is intentionally a separate, free-practice route. Course grammar
@@ -592,7 +618,11 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   List<String> get _types {
-    final s = _courseGrammarCandidates.map((g) => g.typeDe).toSet().toList()
+    final lang = Localizations.localeOf(context).languageCode;
+    final s = _courseGrammarCandidates
+        .map((g) => g.typeFor(lang))
+        .toSet()
+        .toList()
       ..sort();
     return ['Alle', ...s];
   }
@@ -617,14 +647,30 @@ class _GrammarScreenState extends State<GrammarScreen>
     }
     final g = _current;
     if (g == null) {
-      return Scaffold(
-        appBar: SoriAppBar(title: t.screenGrammarTitle),
-        body: SoriEmptyState(
-          asset: 'assets/illustrations/mascot/magpie_wave.png',
-          icon: Icons.menu_book_outlined,
-          title: t.emptyGrammar,
-          ctaLabel: _isCoursePractice ? null : t.filterOpenBtn,
-          onCta: _isCoursePractice ? null : _showFilterSheet,
+      return PopScope(
+        canPop: !_hasActiveFilter,
+        onPopInvokedWithResult: (didPop, _) {
+          if (!didPop && _hasActiveFilter) {
+            _clearFilters();
+          }
+        },
+        child: Scaffold(
+          appBar: SoriAppBar(
+            title: t.screenGrammarTitle,
+            leading: _hasActiveFilter
+                ? IconButton(
+                    icon: const BackButtonIcon(),
+                    onPressed: _clearFilters,
+                  )
+                : null,
+          ),
+          body: SoriEmptyState(
+            asset: 'assets/illustrations/mascot/magpie_wave.png',
+            icon: Icons.menu_book_outlined,
+            title: t.emptyGrammar,
+            ctaLabel: _isCoursePractice ? null : t.filterOpenBtn,
+            onCta: _isCoursePractice ? null : _showFilterSheet,
+          ),
         ),
       );
     }
@@ -656,13 +702,6 @@ class _GrammarScreenState extends State<GrammarScreen>
       appBar: SoriAppBar(
         title: t.screenGrammarTitle,
         actions: [
-          if (!_isCoursePractice)
-            IconButton(
-              key: const Key('grammar-choice-cta'),
-              tooltip: t.grammarChoiceCta,
-              icon: const Icon(Icons.fact_check_outlined),
-              onPressed: _openChoicePractice,
-            ),
           IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
           // 세션 종료(테스터 피드백 수집)는 하단에서 앱바로 올렸다. 하단은
           // 판정 2버튼만 남기지만, 182장짜리 둘러보기 덱에서는 "마지막 카드"에
@@ -703,16 +742,26 @@ class _GrammarScreenState extends State<GrammarScreen>
                     if (!_isCoursePractice) ...[
                       SizedBox(
                         key: _filterRowKey,
-                        height: 36,
+                        height: 44,
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: [
+                            Padding(
+                              padding: const EdgeInsets.only(right: 8),
+                              child: SoriButton.filled(
+                                key: const Key('grammar-choice-cta'),
+                                label: t.grammarChoiceCta,
+                                size: SoriButtonSize.sm,
+                                accent: SoriColors.primary,
+                                onTap: _openChoicePractice,
+                              ),
+                            ),
                             for (final lvl in _levels)
                               Padding(
                                 padding: const EdgeInsets.only(right: 6),
                                 child: SoriChip(
                                   label: lvl == 'Alle' ? t.filterAll : lvl,
-                                  accent: SoriColors.contentCta,
+                                  accent: SoriColors.info,
                                   selected: _level == lvl,
                                   variant: SoriChipVariant.soft,
                                   onTap: _level == lvl
@@ -799,7 +848,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                                       skipEnabled: _canNavigateDeck,
                                       onLike: _likeCurrent,
                                       onBookmark: _saveCurrent,
-                                      onShare: _shareCurrent,
+                                      showShare: false,
                                       onFlip: canRecordCheckpoint
                                           ? () => _showCheckpoint(
                                               g,
@@ -810,31 +859,52 @@ class _GrammarScreenState extends State<GrammarScreen>
                                         kind: LikedContentService.grammar,
                                         id: g.pattern,
                                       ),
-                                      knowLabel: allowJudging
-                                          ? t.grammarEasy
-                                          : null,
-                                      hardLabel: allowJudging
-                                          ? t.grammarHard
-                                          : null,
-                                      skipLabel: t.btnSkip,
+                                      bookmarked:
+                                          CustomPackService.containsKorean(
+                                        g.pattern,
+                                      ),
                                       bookmarkLabel: t.deckActionSave,
                                       child: SoriStudyScale(
-                                        child: FlipCard(
-                                          key: _cardKey,
-                                          flipped: _flipped,
-                                          onTap: canRecordCheckpoint
-                                              ? () => _showCheckpoint(
-                                                  g,
-                                                  assessmentLink!,
-                                                )
-                                              : _onFlip,
-                                          front: canRecordCheckpoint
-                                              ? _CourseCheckpointFront(
-                                                  g: g,
-                                                  cardHeight: cardH,
-                                                )
-                                              : _Front(g: g, cardHeight: cardH),
-                                          back: _Back(g: g, cardHeight: cardH),
+                                        child: Stack(
+                                          alignment: Alignment.bottomCenter,
+                                          children: [
+                                            FlipCard(
+                                              key: _cardKey,
+                                              flipped: _flipped,
+                                              onTap: canRecordCheckpoint
+                                                  ? () => _showCheckpoint(
+                                                      g,
+                                                      assessmentLink!,
+                                                    )
+                                                  : _onFlip,
+                                              front: canRecordCheckpoint
+                                                  ? _CourseCheckpointFront(
+                                                      g: g,
+                                                      cardHeight: cardH,
+                                                    )
+                                                  : _Front(
+                                                      g: g,
+                                                      cardHeight: cardH,
+                                                    ),
+                                              back: _Back(
+                                                g: g,
+                                                cardHeight: cardH,
+                                              ),
+                                            ),
+                                            if (!canRecordCheckpoint)
+                                              Positioned(
+                                                bottom: 8,
+                                                child: _ListenButton(
+                                                  korean:
+                                                      GrammarStudyCopy.fromGrammar(
+                                                        g,
+                                                        Localizations.localeOf(
+                                                          context,
+                                                        ).languageCode,
+                                                      ).speakKorean,
+                                                ),
+                                              ),
+                                          ],
                                         ),
                                       ),
                                     ),
@@ -862,7 +932,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                           ? 0
                           : (_idx + 1) / _filtered.length,
                       thickness: 6,
-                      color: SoriColors.warning,
+                      color: SoriColors.primary,
                       animated: true,
                     ),
                     const SizedBox(height: Spacing.xs),
@@ -977,6 +1047,22 @@ class _GrammarScreenState extends State<GrammarScreen>
                 label: t.btnApply,
                 fullWidth: true,
                 onTap: () {
+                  final next = _computeFiltered(
+                    level: stagedLevel,
+                    type: stagedType,
+                    difficulty: stagedDifficulty,
+                  );
+                  if (next.isEmpty) {
+                    ScaffoldMessenger.of(ctx).hideCurrentSnackBar();
+                    ScaffoldMessenger.of(ctx).showSnackBar(
+                      SnackBar(
+                        content: Text(t.emptyGrammar),
+                        duration: const Duration(milliseconds: 500),
+                        behavior: SnackBarBehavior.floating,
+                      ),
+                    );
+                    return;
+                  }
                   _level = stagedLevel;
                   _type = stagedType;
                   _difficulty = stagedDifficulty;
@@ -1046,7 +1132,7 @@ class _CourseCheckpointFront extends StatelessWidget {
     final h = cardHeight;
     return SoriCard(
       variant: SoriCardVariant.hero,
-      accent: SoriColors.warning,
+      accent: SoriColors.primary,
       width: double.infinity,
       // 히어로 학습 카드: 내용을 spaceEvenly 로 세로로 꽉 채운다. 오버플로는
       // FlipCard 의 스크롤 래퍼가 받아낸다(추가 스크롤뷰 불필요).
@@ -1060,14 +1146,14 @@ class _CourseCheckpointFront extends StatelessWidget {
             children: [
               SoriChip(
                 label: g.level,
-                accent: SoriColors.warning,
+                accent: SoriColors.primary,
                 variant: SoriChipVariant.filled,
               ),
               const SizedBox(height: Spacing.sm),
               const Icon(
                 Icons.fact_check_outlined,
                 size: 34,
-                color: SoriColors.warning,
+                color: SoriColors.primary,
               ),
               const SizedBox(height: Spacing.sm),
               Text(
@@ -1085,13 +1171,12 @@ class _CourseCheckpointFront extends StatelessWidget {
           Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
+              SoriPhraseWrap(
                 g.exampleKorean,
-                textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: soriFillSize(h, 0.09, 21, 48),
                   fontWeight: FontWeight.w700,
-                  color: SoriColors.warning,
+                  color: SoriColors.primary,
                   height: 1.35,
                 ),
               ),
@@ -1127,114 +1212,101 @@ class _Front extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
+    final copy = GrammarStudyCopy.fromGrammar(g, lang);
     final h = cardHeight;
+    final preview = copy.examples.isEmpty ? null : copy.examples.first;
     return SoriCard(
       variant: SoriCardVariant.hero,
-      accent: SoriColors.warning,
+      accent: SoriColors.primary,
       width: double.infinity,
-      // 히어로 학습 카드: spaceEvenly 로 세로를 채운다. 오버플로는 FlipCard 의
-      // 스크롤 래퍼가 받아낸다(추가 스크롤뷰 불필요). 논리적으로 붙는 요소는
-      // 내부 Column(min) 으로 묶어 spaceEvenly 가 흩뜨리지 않게 한다.
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // 레벨 칩 + 패턴(헤드라인) + 품사를 한 묶음으로.
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SoriChip(
-                label: g.level,
-                accent: SoriColors.warning,
-                variant: SoriChipVariant.filled,
-              ),
-              const SizedBox(height: 12),
-              // 패턴 — 카드를 채우는 대형 헤드라인. 짧은 토큰이라 한 줄에
-              // 맞추는 FittedBox(scaleDown)로 폭을 채운다.
-              FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  g.pattern,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: soriFillSize(h, 0.18, 30, 90),
-                    fontWeight: FontWeight.w800,
-                    color: SoriColors.warning,
-                    height: 1.15,
-                  ),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 44),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SoriChip(
+                  label: g.level,
+                  accent: SoriColors.info,
+                  variant: SoriChipVariant.filled,
                 ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                g.typeFor(lang),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: soriFillSize(h, 0.05, 13, 26),
-                  color: SoriColors.warning.withValues(alpha: 0.75),
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-            ],
-          ),
-          // 예문 미리보기 — 빈 카드를 채우고 패턴을 바로 용례로 보여줌.
-          if (g.exampleKorean.isNotEmpty)
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-              decoration: BoxDecoration(
-                color: SoriColors.warning.withValues(alpha: 0.08),
-                borderRadius: BorderRadius.circular(SoriRadius.md),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    g.exampleKorean,
+                const SizedBox(height: 12),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    g.pattern,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: soriFillSize(h, 0.075, 17, 40),
-                      fontWeight: FontWeight.w700,
-                      color: s.text,
-                      height: 1.3,
+                      fontSize: soriFillSize(h, 0.16, 28, 72),
+                      fontWeight: FontWeight.w800,
+                      color: SoriColors.primary,
+                      height: 1.15,
                     ),
-                  ),
-                  if (g.exampleGerman.isNotEmpty) ...[
-                    const SizedBox(height: 4),
-                    Text(
-                      g.exampleFor(lang),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: soriFillSize(h, 0.05, 12.5, 26),
-                        color: s.textMuted,
-                        fontStyle: FontStyle.italic,
-                      ),
-                    ),
-                  ],
-                ],
-              ),
-            ),
-          // 인라인 아이콘 + 힌트 — Text.rich라 좁은 폭에서 자연스럽게 줄바꿈(오버플로 X).
-          Text.rich(
-            TextSpan(
-              children: [
-                WidgetSpan(
-                  alignment: PlaceholderAlignment.middle,
-                  child: Icon(
-                    Icons.touch_app_outlined,
-                    size: 13,
-                    color: s.textDim,
                   ),
                 ),
-                const WidgetSpan(child: SizedBox(width: 4)),
-                TextSpan(text: t.hintTapForExplanation),
+                const SizedBox(height: Spacing.sm),
+                Text(
+                  copy.title.isEmpty ? g.typeFor(lang) : copy.title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: soriFillSize(h, 0.048, 14, 22),
+                    color: s.textMuted,
+                    fontWeight: FontWeight.w600,
+                    height: 1.35,
+                  ),
+                ),
               ],
             ),
-            style: TextStyle(
-              fontSize: soriFillSize(h, 0.038, 12, 20),
-              color: s.textDim,
+            if (preview != null)
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 10,
+                ),
+                decoration: BoxDecoration(
+                  color: SoriColors.primary.withValues(alpha: 0.08),
+                  borderRadius: BorderRadius.circular(SoriRadius.md),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SoriPhraseWrap(
+                      preview.korean,
+                      style: TextStyle(
+                        fontSize: soriFillSize(h, 0.07, 17, 32),
+                        fontWeight: FontWeight.w700,
+                        color: s.text,
+                        height: 1.35,
+                      ),
+                    ),
+                    if (preview.gloss.isNotEmpty) ...[
+                      const SizedBox(height: 4),
+                      SoriPhraseWrap(
+                        preview.gloss,
+                        style: TextStyle(
+                          fontSize: soriFillSize(h, 0.045, 13, 20),
+                          color: s.textMuted,
+                          fontStyle: FontStyle.italic,
+                          height: 1.35,
+                        ),
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            Text(
+              t.hintTapForExplanation,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: soriFillSize(h, 0.038, 12, 18),
+                color: s.textDim,
+              ),
             ),
-          ),
-          _ListenButton(korean: g.exampleKorean),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -1252,41 +1324,27 @@ class _ListenButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (korean.isEmpty) return const SizedBox.shrink();
+    if (korean.isEmpty) {
+      return const SizedBox.shrink();
+    }
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     return Semantics(
       button: true,
       label: t.btnHoeren,
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: () => TtsService.speak(korean),
-          borderRadius: BorderRadius.circular(SoriRadius.md),
-          child: Container(
-            constraints: const BoxConstraints(minHeight: 48, minWidth: 48),
-            padding: const EdgeInsets.symmetric(
-              horizontal: Spacing.md,
-              vertical: 10,
-            ),
-            decoration: BoxDecoration(
-              color: SoriColors.warning.withValues(alpha: 0.12),
-              borderRadius: BorderRadius.circular(SoriRadius.md),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.volume_up, size: 18, color: s.text),
-                const SizedBox(width: Spacing.xs + 2),
-                Text(
-                  t.btnHoeren,
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w700,
-                    color: s.text,
-                  ),
-                ),
-              ],
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => TtsService.speak(korean),
+        child: Material(
+          color: SoriColors.lightSurfaceRaised,
+          shape: const CircleBorder(),
+          elevation: 1,
+          child: const SizedBox(
+            width: 48,
+            height: 48,
+            child: Icon(
+              Icons.volume_up_rounded,
+              size: 22,
+              color: SoriColors.primary,
             ),
           ),
         ),
@@ -1306,100 +1364,134 @@ class _Back extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
+    final copy = GrammarStudyCopy.fromGrammar(g, lang);
     final h = cardHeight;
+    final pairCount = copy.rules.length > copy.examples.length
+        ? copy.rules.length
+        : copy.examples.length;
     return SoriCard(
       variant: SoriCardVariant.hero,
-      accent: SoriColors.hangul,
+      accent: SoriColors.primary,
       width: double.infinity,
-      // 히어로 학습 카드: spaceEvenly 로 세로를 채운다. 오버플로는 FlipCard 의
-      // 스크롤 래퍼가 받아낸다. 예문·주석은 각각 Column(min) 으로 묶는다.
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          // 레벨 칩 + 패턴(헤드라인)을 한 묶음으로.
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SoriChip(
-                label: g.level,
-                accent: SoriColors.hangul,
-                variant: SoriChipVariant.filled,
-              ),
-              const SizedBox(height: 10),
-              FittedBox(
-                fit: BoxFit.scaleDown,
-                child: Text(
-                  g.pattern,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: soriFillSize(h, 0.10, 22, 52),
-                    fontWeight: FontWeight.w800,
-                    color: SoriColors.hangul,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          // 설명 — 뒷면의 핵심 본문(여러 줄로 줄바꿈).
-          Text(
-            g.explanationFor(lang),
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: soriFillSize(h, 0.045, 13.5, 24),
-              color: s.text,
-              height: 1.5,
-            ),
-          ),
-          // 예문(한국어 + 번역)을 한 묶음으로.
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                g.exampleKorean,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: soriFillSize(h, 0.075, 16, 40),
-                  fontWeight: FontWeight.w700,
-                  color: SoriColors.hangul.withValues(alpha: 0.85),
-                ),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                g.exampleFor(lang),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: soriFillSize(h, 0.05, 13, 26),
-                  color: s.text,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-            ],
-          ),
-          if (g.note.isNotEmpty)
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 44),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Divider(
-                  color: SoriColors.hangul.withValues(alpha: 0.25),
-                  height: 1,
+                SoriChip(
+                  label: g.level,
+                  accent: SoriColors.info,
+                  variant: SoriChipVariant.filled,
                 ),
-                const SizedBox(height: Spacing.xs + 2),
-                Text(
-                  g.noteFor(lang),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: soriFillSize(h, 0.038, 11.5, 22),
-                    color: s.textMuted,
-                    height: 1.4,
+                const SizedBox(height: 10),
+                FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    g.pattern,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.09, 20, 40),
+                      fontWeight: FontWeight.w800,
+                      color: SoriColors.primary,
+                    ),
                   ),
                 ),
+                if (copy.title.isNotEmpty) ...[
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    copy.title,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: soriFillSize(h, 0.042, 14, 20),
+                      fontWeight: FontWeight.w600,
+                      color: s.text,
+                      height: 1.35,
+                    ),
+                  ),
+                ],
               ],
             ),
-          // 뒤집어 설명을 보는 중에도 예문을 다시 들을 수 있어야 한다.
-          _ListenButton(korean: g.exampleKorean),
-        ],
+            for (var i = 0; i < pairCount; i++)
+              _RuleExampleRow(
+                rule: i < copy.rules.length ? copy.rules[i] : '',
+                example: i < copy.examples.length ? copy.examples[i] : null,
+                cardHeight: h,
+              ),
+            if (copy.note.isNotEmpty)
+              Text(
+                copy.note,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: soriFillSize(h, 0.038, 12, 18),
+                  color: s.textMuted,
+                  height: 1.4,
+                ),
+              ),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class _RuleExampleRow extends StatelessWidget {
+  const _RuleExampleRow({
+    required this.rule,
+    required this.example,
+    required this.cardHeight,
+  });
+
+  final String rule;
+  final GrammarStudyExample? example;
+  final double cardHeight;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    final h = cardHeight;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        if (rule.isNotEmpty)
+          Text(
+            rule,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: soriFillSize(h, 0.042, 14, 20),
+              fontWeight: FontWeight.w700,
+              color: SoriColors.primary,
+              height: 1.35,
+            ),
+          ),
+        if (example != null) ...[
+          const SizedBox(height: 4),
+          SoriPhraseWrap(
+            example!.korean,
+            style: TextStyle(
+              fontSize: soriFillSize(h, 0.055, 16, 24),
+              fontWeight: FontWeight.w700,
+              color: s.text,
+              height: 1.35,
+            ),
+          ),
+          if (example!.gloss.isNotEmpty) ...[
+            const SizedBox(height: 2),
+            SoriPhraseWrap(
+              example!.gloss,
+              style: TextStyle(
+                fontSize: soriFillSize(h, 0.04, 13, 18),
+                color: s.textMuted,
+                fontStyle: FontStyle.italic,
+                height: 1.35,
+              ),
+            ),
+          ],
+        ],
+      ],
     );
   }
 }

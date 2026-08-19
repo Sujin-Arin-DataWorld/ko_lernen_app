@@ -276,7 +276,7 @@ class _ListeningScreenState extends State<ListeningScreen>
                             final level = LearnerLevel.values[i];
                             return SoriChip(
                               label: level.display,
-                              accent: SoriColors.contentCta,
+                              accent: SoriColors.info,
                               selected: level == _shelfLevel,
                               variant: SoriChipVariant.filled,
                               onTap: () => setState(() => _shelfLevel = level),

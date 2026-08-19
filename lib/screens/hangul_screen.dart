@@ -1169,11 +1169,19 @@ class _WriteTabState extends State<_WriteTab> {
     super.initState();
     _strict = Storage.hangulStrictStrokes;
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted || Storage.tutSeen('hangulWriteRules')) {
+      if (!mounted) {
+        return;
+      }
+      unawaited(widget.speak(_current.letter));
+      if (Storage.tutSeen('hangulWriteRules')) {
         return;
       }
       unawaited(_showRules());
     });
+  }
+
+  void _speakCurrent() {
+    unawaited(widget.speak(_current.letter));
   }
 
   Future<void> _showRules() async {
@@ -1305,12 +1313,14 @@ class _WriteTabState extends State<_WriteTab> {
     HapticFeedback.selectionClick();
     setState(() => _idx = (_idx + 1) % _pool.length);
     _resetLetter();
+    _speakCurrent();
   }
 
   void _prev() {
     HapticFeedback.selectionClick();
     setState(() => _idx = (_idx - 1 + _pool.length) % _pool.length);
     _resetLetter();
+    _speakCurrent();
   }
 
   void _setMode(int m) {
@@ -1323,6 +1333,7 @@ class _WriteTabState extends State<_WriteTab> {
       _idx = 0;
     });
     _resetLetter();
+    _speakCurrent();
   }
 
   void _setStrict(bool strict) {
@@ -1582,7 +1593,7 @@ class _WriteTabState extends State<_WriteTab> {
                           _PracticeCanvas(
                             key: _practiceKey,
                             ghost: c.letter,
-                            color: SoriColors.success,
+                            color: SoriColors.primary,
                             errorColor: SoriColors.danger,
                             enabled: !_letterDone,
                             onStrokeEnd: _onStrokeEnd,
@@ -1848,30 +1859,12 @@ class _PracticePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // Ghost Buchstabe als Hintergrund
-    final tp = TextPainter(
-      text: TextSpan(
-        text: ghost,
-        style: TextStyle(
-          fontSize: size.height * 0.85,
-          fontWeight: FontWeight.w900,
-          color: color.withValues(alpha: 0.08),
-          height: 1,
-        ),
-      ),
-      textDirection: TextDirection.ltr,
-    )..layout();
-    tp.paint(
-      canvas,
-      Offset((size.width - tp.width) / 2, (size.height - tp.height) / 2 - 8),
-    );
-
-    // Striche
+    // Guide form is the StrokeCanvas underneath — same paths, same box.
     final p = Paint()
       ..color = color
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round
-      ..strokeWidth = 6
+      ..strokeWidth = size.height / 220 * 11
       ..style = PaintingStyle.stroke;
 
     for (final stroke in strokes) {

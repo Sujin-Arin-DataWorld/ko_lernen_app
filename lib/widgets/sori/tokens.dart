@@ -158,8 +158,9 @@ class SoriColors {
   static const Color danger = Color(0xFFC44F40); // 오답/삭제 (단청 적 lifted)
   static const Color info = Color(0xFF57799E); // 정보 (청금석, white 4.53:1)
 
-  /// Content-player CTA — same pigment as [info]. Buttons only; not a new hex.
-  static const Color contentCta = info;
+  /// Content-player CTA — 녹청. Jin 2026-08-19: listening blue is not the
+  /// filled button. Level chips keep [info]; XP/streak keep [gold].
+  static const Color contentCta = primary;
 
   /// Text/icon on [contentCta]. White — not a new pigment.
   static const Color contentCtaOn = Color(0xFFFFFFFF);

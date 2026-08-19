@@ -32,7 +32,7 @@ class ContentShareService {
         ),
       );
     } catch (_) {
-      await shareStoryText(line);
+      // Jin supplies the slip PNG. Do not dump raw gloss / site text.
     }
   }
 }
