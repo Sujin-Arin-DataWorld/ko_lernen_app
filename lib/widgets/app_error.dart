@@ -106,12 +106,27 @@ class _BreathingTransform extends StatefulWidget {
 class _BreathingTransformState extends State<_BreathingTransform>
     with SingleTickerProviderStateMixin {
   late final AnimationController _c;
+  bool _motionEnabled = false;
 
   @override
   void initState() {
     super.initState();
-    _c = AnimationController(vsync: this, duration: widget.period)
-      ..repeat(reverse: true);
+    _c = AnimationController(vsync: this, duration: widget.period);
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final enabled = !SoriMotion.reduceMotion(context);
+    if (_motionEnabled == enabled) {
+      return;
+    }
+    _motionEnabled = enabled;
+    if (enabled) {
+      _c.repeat(reverse: true);
+    } else {
+      _c.stop();
+    }
   }
 
   @override
