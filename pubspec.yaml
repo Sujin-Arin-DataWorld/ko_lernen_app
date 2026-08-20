@@ -125,6 +125,13 @@ dev_dependencies:
   flutter_launcher_icons: ^0.14.1
 
 flutter:
+  # Runner deliberately uses CocoaPods only. Flutter 3.44 enables SwiftPM by
+  # default on macOS; without this project-level override, Xcode Cloud sends
+  # supported plugins (including audioplayers_darwin) to the removed
+  # FlutterGeneratedPluginSwiftPackage integration and the archive cannot link.
+  config:
+    enable-swift-package-manager: false
+
   uses-material-design: true
   generate: true                   # für ARB Localisations
 
