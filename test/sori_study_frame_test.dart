@@ -9,6 +9,32 @@ import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 void main() {
+  testWidgets('short 100% title preserves the legacy toolbar geometry', (
+    tester,
+  ) async {
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(360, 800);
+
+    await tester.pumpWidget(
+      _host(
+        textScale: 1,
+        child: const SoriStudyFrame(
+          title: 'Wortschatz',
+          child: SizedBox.expand(),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+    final title = tester.widget<Text>(find.text('Wortschatz'));
+    expect(appBar.preferredSize.height, kToolbarHeight);
+    expect(title.maxLines, isNull);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('study frame app bar preserves its full title at 200% text', (
     tester,
   ) async {

@@ -42,7 +42,7 @@ import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/score_pop.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -840,15 +840,17 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     final t = AppL10n.of(context);
 
     if (_loading) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.vocabPackPlayTitle)),
-        body: const AppLoading(),
+      return SoriStudyFrame(
+        title: t.vocabPackPlayTitle,
+        padding: EdgeInsets.zero,
+        child: const AppLoading(),
       );
     }
     if (_error != null || _pack == null) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.vocabPackPlayTitle)),
-        body: AppError(message: _error ?? 'unknown error', onRetry: _load),
+      return SoriStudyFrame(
+        title: t.vocabPackPlayTitle,
+        padding: EdgeInsets.zero,
+        child: AppError(message: _error ?? 'unknown error', onRetry: _load),
       );
     }
 
@@ -860,53 +862,43 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         ? _currentLearn
         : _currentQuiz;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title, style: const TextStyle(fontWeight: FontWeight.w800)),
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
-        actions: [
-          if (addable != null)
-            AddToWordbookButton(
-              korean: addable.korean,
-              translationDe: addable.german,
-              translationEn: addable.english,
-              romanization: addable.romanization,
-              posDe: addable.posDe,
-              exampleKorean: addable.exampleKorean,
-              exampleDe: addable.exampleGerman,
-              compact: true,
-              // The pack's modal three-step coach owns first admission. Queue
-              // the global wordbook spotlight until that sheet has closed.
-              coachEnabled: _featureCoachComplete,
-            ),
-          const TtsSpeedAction(),
-        ],
+    return SoriStudyFrame(
+      title: title,
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: () => Navigator.of(context).maybePop(),
       ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-              child: Column(
-                children: [
-                  if (_missionStep case final step?) ...[
-                    MissionContextBar(
-                      missionTitle: _missionTitle ?? t.courseMissionTitleShort,
-                      step: step,
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                  ],
-                  _StageBar(stage: _stage),
-                  const SizedBox(height: Spacing.md),
-                  Expanded(child: _buildStageBody(t)),
-                ],
-              ),
-            ),
+      actions: [
+        if (addable != null)
+          AddToWordbookButton(
+            korean: addable.korean,
+            translationDe: addable.german,
+            translationEn: addable.english,
+            romanization: addable.romanization,
+            posDe: addable.posDe,
+            exampleKorean: addable.exampleKorean,
+            exampleDe: addable.exampleGerman,
+            compact: true,
+            // The pack's modal three-step coach owns first admission. Queue
+            // the global wordbook spotlight until that sheet has closed.
+            coachEnabled: _featureCoachComplete,
           ),
-        ),
+        const TtsSpeedAction(),
+      ],
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+      child: Column(
+        children: [
+          if (_missionStep case final step?) ...[
+            MissionContextBar(
+              missionTitle: _missionTitle ?? t.courseMissionTitleShort,
+              step: step,
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+          _StageBar(stage: _stage),
+          const SizedBox(height: Spacing.md),
+          Expanded(child: _buildStageBody(t)),
+        ],
       ),
     );
   }

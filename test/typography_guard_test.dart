@@ -122,8 +122,9 @@ void main() {
       sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
       RegExp(r'(^|[^A-Za-z_$.])AppBar\('),
       // 2026-08-19 재실측: 98→84.
-      // 2026-08-20 SoriStandardPage 이식: 84→70.
-      70,
+      // 2026-08-20 SoriStandardPage 이식: 84→70; 단어팩/결과/편집 프레임
+      // 수렴: 70→64.
+      64,
       'lib/screens/ 원시 AppBar(',
     );
   });

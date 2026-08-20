@@ -96,6 +96,11 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   int _textLines(String value, TextStyle style) =>
       _textMetrics(value, style).lines;
 
+  bool get _usesAdaptiveChrome =>
+      textScale > 1 ||
+      _textLines(title, _titleStyle) > 1 ||
+      (eyebrow != null && _textLines(eyebrow!, _eyebrowStyle) > 1);
+
   double get _titleBlockHeight {
     final titleHeight = _textMetrics(title, _titleStyle).height;
     final eyebrowHeight = eyebrow == null
@@ -110,15 +115,50 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
       : math.max(kToolbarHeight, _titleBlockHeight);
 
   @override
-  Size get preferredSize => Size.fromHeight(
-    _toolbarHeight +
-        (_stackTitle ? _titleBlockHeight : 0) +
-        (bottom?.preferredSize.height ?? 0),
-  );
+  Size get preferredSize => !_usesAdaptiveChrome
+      ? Size.fromHeight(kToolbarHeight + (bottom?.preferredSize.height ?? 0))
+      : Size.fromHeight(
+          _toolbarHeight +
+              (_stackTitle ? _titleBlockHeight : 0) +
+              (bottom?.preferredSize.height ?? 0),
+        );
 
   @override
   Widget build(BuildContext context) {
     final tt = SoriTextTheme.of(context);
+    if (!_usesAdaptiveChrome) {
+      return AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        centerTitle: false,
+        titleSpacing: eyebrow == null ? null : Spacing.xs,
+        leading: leading,
+        automaticallyImplyLeading: automaticallyImplyLeading,
+        title: eyebrow == null
+            ? Text(title, style: tt.h2)
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    eyebrow!,
+                    style: tt.eyebrow,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Text(
+                    title,
+                    style: tt.h2,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
+              ),
+        actions: actions,
+        bottom: bottom,
+      );
+    }
     Widget completeText(String value, TextStyle style) => Text(
       value,
       style: style,

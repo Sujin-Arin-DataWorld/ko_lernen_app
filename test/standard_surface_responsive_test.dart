@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -10,6 +11,7 @@ import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/screens/bookshelf_screen.dart';
+import 'package:ko_lernen_app/screens/custom_pack_edit_screen.dart';
 import 'package:ko_lernen_app/screens/dojangcheop_screen.dart';
 import 'package:ko_lernen_app/screens/hard_words_screen.dart';
 import 'package:ko_lernen_app/screens/listening_screen.dart';
@@ -18,6 +20,7 @@ import 'package:ko_lernen_app/screens/quests_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
+import 'package:ko_lernen_app/screens/vocab_pack_result_screen.dart';
 import 'package:ko_lernen_app/screens/wordbook_search_screen.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
@@ -27,6 +30,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
+import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 void main() {
@@ -55,6 +59,7 @@ void main() {
       'hardWords',
       'listening',
       'dojang',
+      'cpEdit',
     ]) {
       await Storage.setTutSeen(coachId);
     }
@@ -126,6 +131,107 @@ void main() {
       greaterThan(44),
     );
     expect(find.text('innere Haltung und Einstellung'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('custom pack actions and user text stay complete at 200%', (
+    tester,
+  ) async {
+    const translation =
+        'eine besonders ausführliche innere Haltung und Einstellung';
+    await CustomPackService.save(
+      CustomPack.manual(
+        id: 'responsive-edit-pack',
+        name: 'Mein ausführliches koreanisches Lernwörterbuch',
+        words: [
+          ExtractedWord.manual(korean: '마음가짐', translationDe: translation),
+        ],
+      ),
+    );
+    await _configurePhone(tester);
+    await tester.pumpWidget(
+      _host(const CustomPackEditScreen(packId: 'responsive-edit-pack')),
+    );
+    await tester.pump();
+
+    final t = AppL10n.of(tester.element(find.byType(CustomPackEditScreen)));
+    final cards = find.text(t.wbStudyCards);
+    final matching = find.text(t.wbMatching);
+    expect(find.byType(SoriStandardFrame), findsOneWidget);
+    expect(tester.takeException(), isNull);
+    expect(find.byType(ListView), findsOneWidget);
+    expect(tester.getSize(find.byType(ListView)).height, greaterThan(0));
+    expect(
+      find.text('Mein ausführliches koreanisches Lernwörterbuch'),
+      findsOneWidget,
+    );
+    expect(cards, findsOneWidget);
+    expect(matching, findsOneWidget);
+    expect(
+      tester.getRect(matching).top,
+      greaterThan(tester.getRect(cards).bottom),
+    );
+    expect(find.text(t.wbAddWord), findsOneWidget);
+
+    final translationFinder = find.text(translation);
+    await tester.scrollUntilVisible(
+      translationFinder,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
+    expect(translationFinder, findsOneWidget);
+    expect(
+      tester.renderObject<RenderParagraph>(translationFinder).didExceedMaxLines,
+      isFalse,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('vocab result stacks stats and keeps the final CTA reachable', (
+    tester,
+  ) async {
+    await _configurePhone(tester);
+    await tester.pumpWidget(
+      _host(
+        const VocabPackResultScreen(
+          packId: 'a1_greetings_1',
+          bossAccuracy: 1 / 3,
+          bossCorrect: 1,
+          bossTotal: 3,
+          quizCorrect: 2,
+          quizTotal: 4,
+          justCleared: false,
+          nextUnlockedPackId: null,
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 1100));
+
+    final t = AppL10n.of(tester.element(find.byType(VocabPackResultScreen)));
+    final bossLabel = find.text(t.vocabPackResultBossLabel);
+    final bossValue = find.text('1 / 3 (33%)');
+    expect(find.byType(SoriStudyFrame), findsOneWidget);
+    expect(bossLabel, findsOneWidget);
+    expect(bossValue, findsOneWidget);
+    expect(
+      tester.getRect(bossValue).top,
+      greaterThanOrEqualTo(tester.getRect(bossLabel).bottom),
+    );
+
+    final finalCta = find.text(t.vocabPackResultBackToGrid);
+    await tester.scrollUntilVisible(
+      finalCta,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
+    expect(finalCta, findsOneWidget);
+    expect(
+      tester.renderObject<RenderParagraph>(finalCta).didExceedMaxLines,
+      isFalse,
+    );
     expect(tester.takeException(), isNull);
   });
 
