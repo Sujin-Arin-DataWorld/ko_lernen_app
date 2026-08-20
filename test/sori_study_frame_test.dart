@@ -69,6 +69,48 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('normal-scale long app bar copy wraps without truncation', (
+    tester,
+  ) async {
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(390, 844);
+
+    const title =
+        'Persönliche Lernsammlung aufmerksam bearbeiten und fortsetzen';
+    const eyebrow = 'Aus deinem koreanischen Lernweg';
+    await tester.pumpWidget(
+      _host(
+        textScale: 1,
+        child: const SoriStudyFrame(
+          title: title,
+          eyebrow: eyebrow,
+          child: SizedBox.expand(),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+    final titleText = tester.widget<Text>(find.text(title));
+    final eyebrowText = tester.widget<Text>(find.text(eyebrow));
+    final titleParagraph = tester.renderObject<RenderParagraph>(
+      find.text(title),
+    );
+    final eyebrowParagraph = tester.renderObject<RenderParagraph>(
+      find.text(eyebrow),
+    );
+
+    expect(appBar.preferredSize.height, greaterThan(kToolbarHeight));
+    expect(titleText.maxLines, greaterThan(1));
+    expect(titleText.overflow, TextOverflow.clip);
+    expect(eyebrowText.overflow, TextOverflow.clip);
+    expect(titleParagraph.didExceedMaxLines, isFalse);
+    expect(eyebrowParagraph.didExceedMaxLines, isFalse);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('study frame app bar preserves its full title at 200% text', (
     tester,
   ) async {
