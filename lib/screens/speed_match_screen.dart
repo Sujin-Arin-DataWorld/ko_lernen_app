@@ -17,8 +17,8 @@ import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/game_layout.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **Speed-Match** — gegen die Uhr Koreanisch ↔ Bedeutung paaren.
@@ -250,15 +250,16 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     if (_loading) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.speedMatchTitle)),
-        body: const Center(child: CircularProgressIndicator()),
+      return SoriStudyFrame(
+        title: t.speedMatchTitle,
+        padding: EdgeInsets.zero,
+        child: const Center(child: CircularProgressIndicator()),
       );
     }
     if (!_running && _outcome == null && _active.length < 2) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.speedMatchTitle)),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.speedMatchTitle,
+        child: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/magpie_encourage.png',
             icon: Icons.bolt_rounded,
@@ -277,139 +278,185 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
     final lowTime = _remaining <= 10;
     final compact = _slotCount < _regularSlots;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.speedMatchTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
+    return SoriStudyFrame(
+      title: t.speedMatchTitle,
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: () => Navigator.of(context).maybePop(),
       ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: Spacing.lg,
-                vertical: compact ? Spacing.sm : Spacing.lg,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  if (widget.items == null) _levelBar(t),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.timer_outlined,
-                        size: 20,
-                        color: lowTime ? SoriColors.danger : s.textMuted,
-                      ),
-                      const SizedBox(width: 4),
-                      Text(
-                        '$_remaining s',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w900,
-                          color: lowTime ? SoriColors.danger : s.text,
-                          // 카운트다운 자릿수 폭 고정(흔들림 방지).
-                          fontFeatures: const [FontFeature.tabularFigures()],
-                        ),
-                      ),
-                      const Spacer(),
-                      if (_combo >= 2) ...[
-                        SoriChip(
-                          label: compact ? '×$_combo' : t.comboPop(_combo),
-                          icon: SoriGlyph.streak,
-                          accent: SoriColors.tiger,
-                          variant: SoriChipVariant.filled,
-                          fontSize: compact ? 11 : 12,
-                        ),
-                        const SizedBox(width: Spacing.sm),
-                      ],
-                      SoriChip(
-                        label: t.speedMatchScore(_score),
-                        accent: SoriColors.success,
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: compact ? Spacing.xs : Spacing.sm),
-                  Text(
-                    t.speedMatchInstruction,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: compact ? 12 : 13,
-                      height: 1.2,
-                      color: s.textMuted,
+      padding: EdgeInsets.symmetric(
+        horizontal: Spacing.lg,
+        vertical: compact ? Spacing.sm : Spacing.lg,
+      ),
+      child: SoriAdaptiveStudyBody(
+        minHeight: 560,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (widget.items == null) _levelBar(t),
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: Spacing.sm,
+              runSpacing: Spacing.sm,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.timer_outlined,
+                      size: 20,
+                      color: lowTime ? SoriColors.danger : s.textMuted,
                     ),
-                  ),
-                  SizedBox(height: compact ? Spacing.sm : Spacing.md),
-                  // 카드가 남는 세로를 나눠 갖되 높이는 정확히 고정한다.
-                  // 장문 번역은 카드 안에서 3줄까지 맞춰져 마지막 행을
-                  // 화면 밖으로 밀어내지 않는다.
-                  Expanded(
-                    child: LayoutBuilder(
-                      builder: (context, c) {
-                        final tileHeight = soriFairTileHeight(
-                          available: c.maxHeight,
-                          count: _active.length,
-                          minimum: 44,
-                        );
-                        return Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  for (final v in _active)
-                                    _MatchTile(
-                                      key: ValueKey(
-                                        'speed-match-left-${v.korean}',
-                                      ),
-                                      label: v.korean,
-                                      height: tileHeight,
-                                      selected: _selLeftKo == v.korean,
-                                      accent: SoriColors.primary,
-                                      onTap: () => _tapLeft(v.korean),
-                                    ),
-                                ],
-                              ),
-                            ),
-                            const SizedBox(width: Spacing.md),
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  for (final v in _rightOrder)
-                                    _MatchTile(
-                                      key: ValueKey(
-                                        'speed-match-right-${v.korean}',
-                                      ),
-                                      label: v.translationFor(lang),
-                                      height: tileHeight,
-                                      wrong:
-                                          _wrongRightKo ==
-                                          v.translationFor(lang),
-                                      accent: SoriColors.accent,
-                                      onTap: () => _tapRight(v),
-                                    ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        );
-                      },
+                    const SizedBox(width: 4),
+                    Text(
+                      '$_remaining s',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w900,
+                        color: lowTime ? SoriColors.danger : s.text,
+                        // 카운트다운 자릿수 폭 고정(흔들림 방지).
+                        fontFeatures: const [FontFeature.tabularFigures()],
+                      ),
                     ),
+                  ],
+                ),
+                if (_combo >= 2)
+                  SoriChip(
+                    label: compact ? '×$_combo' : t.comboPop(_combo),
+                    icon: SoriGlyph.streak,
+                    accent: SoriColors.tiger,
+                    variant: SoriChipVariant.filled,
+                    fontSize: compact ? 11 : 12,
                   ),
-                ],
+                SoriChip(
+                  label: t.speedMatchScore(_score),
+                  accent: SoriColors.success,
+                ),
+              ],
+            ),
+            SizedBox(height: compact ? Spacing.xs : Spacing.sm),
+            Text(
+              t.speedMatchInstruction,
+              style: TextStyle(
+                fontSize: compact ? 12 : 13,
+                height: 1.2,
+                color: s.textMuted,
               ),
             ),
-          ),
+            SizedBox(height: compact ? Spacing.sm : Spacing.md),
+            // 보드는 정상 화면의 남는 높이를 균등하게 사용한다. 번역이 길거나
+            // 글자가 커져 타일이 최소 높이보다 커지면 보드 자체가 스크롤되어
+            // 어떤 단어도 ellipsis로 사라지지 않는다.
+            Expanded(
+              child: LayoutBuilder(
+                builder: (context, c) {
+                  final tileHeight = soriFairTileHeight(
+                    available: c.maxHeight,
+                    count: _active.length,
+                    minimum: 44,
+                  );
+                  final expandForText = _boardNeedsScroll(
+                    context,
+                    boardWidth: c.maxWidth,
+                    tileHeight: tileHeight,
+                    lang: lang,
+                  );
+                  final board = Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        child: Column(
+                          children: [
+                            for (final v in _active)
+                              _MatchTile(
+                                key: ValueKey('speed-match-left-${v.korean}'),
+                                label: v.korean,
+                                height: tileHeight,
+                                expandForText: expandForText,
+                                selected: _selLeftKo == v.korean,
+                                accent: SoriColors.primary,
+                                onTap: () => _tapLeft(v.korean),
+                              ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(width: Spacing.md),
+                      Expanded(
+                        child: Column(
+                          children: [
+                            for (final v in _rightOrder)
+                              _MatchTile(
+                                key: ValueKey('speed-match-right-${v.korean}'),
+                                label: v.translationFor(lang),
+                                height: tileHeight,
+                                expandForText: expandForText,
+                                wrong: _wrongRightKo == v.translationFor(lang),
+                                accent: SoriColors.accent,
+                                onTap: () => _tapRight(v),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  );
+                  if (expandForText) {
+                    return SingleChildScrollView(child: board);
+                  }
+                  return board;
+                },
+              ),
+            ),
+          ],
         ),
       ),
     );
+  }
+
+  bool _boardNeedsScroll(
+    BuildContext context, {
+    required double boardWidth,
+    required double tileHeight,
+    required String lang,
+  }) {
+    const minimumFontSize = 12.0;
+    const maxLines = 3;
+    final textWidth = ((boardWidth - Spacing.md) / 2 - Spacing.sm * 2).clamp(
+      1.0,
+      double.infinity,
+    );
+    final textHeight = (tileHeight - Spacing.sm * 2).clamp(
+      1.0,
+      double.infinity,
+    );
+    final textScaler = MediaQuery.textScalerOf(context);
+    final textDirection = Directionality.of(context);
+    final locale = Localizations.maybeLocaleOf(context);
+    final style = DefaultTextStyle.of(context).style.merge(
+      const TextStyle(
+        fontWeight: FontWeight.w700,
+        height: 1.1,
+        fontSize: minimumFontSize,
+      ),
+    );
+    final labels = <String>[
+      for (final vocab in _active) vocab.korean,
+      for (final vocab in _rightOrder) vocab.translationFor(lang),
+    ];
+
+    for (final label in labels) {
+      final painter = TextPainter(
+        text: TextSpan(text: label, style: style),
+        maxLines: maxLines,
+        textDirection: textDirection,
+        textScaler: textScaler,
+        locale: locale,
+      )..layout(maxWidth: textWidth);
+      if (painter.didExceedMaxLines || painter.height > textHeight) {
+        return true;
+      }
+    }
+    return false;
   }
 
   Widget _levelBar(AppL10n t) {
@@ -439,44 +486,38 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   }
 
   Widget _buildDone(AppL10n t) {
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          t.speedMatchTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: GameOverCard(
-            headline: t.quizResultTitle,
-            scoreLabel: t.speedMatchScore(_score),
-            feedbackContext: _feedbackCompletion.current?.context,
-            xpGained: _score * 3,
-            isNewBest: _outcome?.isNewBest ?? false,
-            newBestLabel: t.gameNewBest,
-            bestLabel: t.speedMatchBest(Storage.gameBest('speed_match')),
-            mascotKind: MascotKind.magpie,
-            mascotEmotion: MascotEmotion.celebrate,
-            celebrate: _score > 0,
-            actions: [
-              SoriButton(
-                label: t.quizAgain,
-                icon: Icons.refresh_rounded,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.tiger,
-                fullWidth: true,
-                onTap: _startRound,
-              ),
-              SoriButton(
-                label: t.btnClose,
-                variant: SoriButtonVariant.ghost,
-                fullWidth: true,
-                onTap: () => Navigator.of(context).maybePop(),
-              ),
-            ],
-          ),
+    return SoriStudyFrame(
+      automaticallyImplyLeading: false,
+      title: t.speedMatchTitle,
+      padding: EdgeInsets.zero,
+      child: SoriCenterClamp(
+        child: GameOverCard(
+          headline: t.quizResultTitle,
+          scoreLabel: t.speedMatchScore(_score),
+          feedbackContext: _feedbackCompletion.current?.context,
+          xpGained: _score * 3,
+          isNewBest: _outcome?.isNewBest ?? false,
+          newBestLabel: t.gameNewBest,
+          bestLabel: t.speedMatchBest(Storage.gameBest('speed_match')),
+          mascotKind: MascotKind.magpie,
+          mascotEmotion: MascotEmotion.celebrate,
+          celebrate: _score > 0,
+          actions: [
+            SoriButton(
+              label: t.quizAgain,
+              icon: Icons.refresh_rounded,
+              variant: SoriButtonVariant.filled,
+              accent: SoriColors.tiger,
+              fullWidth: true,
+              onTap: _startRound,
+            ),
+            SoriButton(
+              label: t.btnClose,
+              variant: SoriButtonVariant.ghost,
+              fullWidth: true,
+              onTap: () => Navigator.of(context).maybePop(),
+            ),
+          ],
         ),
       ),
     );
@@ -487,10 +528,11 @@ class _MatchTile extends StatelessWidget {
   final String label;
   final bool selected;
   final bool wrong;
+  final bool expandForText;
   final Color accent;
   final VoidCallback onTap;
 
-  /// Exact row height. Long labels fit inside rather than growing the board.
+  /// Normal row height. Long labels grow instead of being clipped.
   final double height;
 
   const _MatchTile({
@@ -501,6 +543,7 @@ class _MatchTile extends StatelessWidget {
     this.height = 52,
     this.selected = false,
     this.wrong = false,
+    this.expandForText = false,
   });
 
   @override
@@ -525,7 +568,10 @@ class _MatchTile extends StatelessWidget {
           onTap: onTap,
           child: Container(
             width: double.infinity,
-            height: height,
+            height: expandForText ? null : height,
+            constraints: expandForText
+                ? BoxConstraints(minHeight: height)
+                : null,
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(
               horizontal: Spacing.sm,
@@ -535,7 +581,11 @@ class _MatchTile extends StatelessWidget {
               border: Border.all(color: border, width: 1.5),
               borderRadius: BorderRadius.circular(SoriRadius.md),
             ),
-            child: _MatchTileLabel(label: label, tileHeight: height),
+            child: _MatchTileLabel(
+              label: label,
+              tileHeight: height,
+              expandForText: expandForText,
+            ),
           ),
         ),
       ),
@@ -549,11 +599,27 @@ class _MatchTileLabel extends StatelessWidget {
 
   final String label;
   final double tileHeight;
+  final bool expandForText;
 
-  const _MatchTileLabel({required this.label, required this.tileHeight});
+  const _MatchTileLabel({
+    required this.label,
+    required this.tileHeight,
+    required this.expandForText,
+  });
 
   @override
   Widget build(BuildContext context) {
+    if (expandForText) {
+      return Text(
+        label,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontWeight: FontWeight.w700,
+          height: 1.1,
+          fontSize: soriTileFontSize(tileHeight: tileHeight),
+        ),
+      );
+    }
     return LayoutBuilder(
       builder: (context, constraints) {
         final textScaler = MediaQuery.textScalerOf(context);
@@ -577,7 +643,6 @@ class _MatchTileLabel extends StatelessWidget {
           label,
           locale: locale,
           maxLines: _maxLines,
-          overflow: TextOverflow.ellipsis,
           softWrap: true,
           textAlign: TextAlign.center,
           textDirection: textDirection,

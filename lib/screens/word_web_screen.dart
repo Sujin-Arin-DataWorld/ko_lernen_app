@@ -101,8 +101,7 @@ class _WordWebScreenState extends State<WordWebScreen>
       failed = true;
       all = const [];
     }
-    var seen =
-        widget.seenLoader?.call() ?? WordRelationService.learnedKorean();
+    var seen = widget.seenLoader?.call() ?? WordRelationService.learnedKorean();
     if (widget.seenLoader == null) {
       try {
         seen = await WordRelationService.learnedKoreanWithCourse();
@@ -154,6 +153,8 @@ class _WordWebScreenState extends State<WordWebScreen>
     return Scaffold(
       appBar: SoriAppBar(
         title: t.wordWebTitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
         actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
@@ -337,8 +338,6 @@ class _WordWebScreenState extends State<WordWebScreen>
                     cluster.related.length,
                     cluster.expressions.length,
                   ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                   style: SoriTextTheme.of(context).cardSubtitle,
                 ),
               ],

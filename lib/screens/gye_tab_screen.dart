@@ -5,6 +5,7 @@ import '../models/gye.dart';
 import '../services/gye_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
@@ -16,6 +17,7 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/age_gate_prompt.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// **Lerngruppe(계) 탭** — BottomNav 탭 3 (D4-5 방향 C: 탭 유지 + 맥락화).
 ///
@@ -132,29 +134,19 @@ class _GyeTabScreenState extends State<GyeTabScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-    final tt = SoriTextTheme.of(context);
     return Scaffold(
       appBar: widget.embedded
           ? null
-          : AppBar(
-              titleSpacing: 16,
-              // §P5-1-6: raw Pretendard TextStyle → 공용 토큰 수렴.
-              title: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(t.navGye, style: tt.h3.copyWith(height: 1.1)),
-                  Text(
-                    t.gyeTabSubtitle,
-                    style: tt.caption.copyWith(color: s.textMuted, height: 1.2),
-                  ),
-                ],
-              ),
+          : SoriAppBar(
+              title: t.navGye,
+              eyebrow: t.gyeTabSubtitle,
+              textScale: MediaQuery.textScalerOf(context).scale(1),
+              viewportWidth: MediaQuery.sizeOf(context).width,
             ),
       body: SoriScreenBackground(
         child: SafeArea(
           child: SoriContentClamp(
+            maxWidth: SoriMaxWidth.hub,
             base: const EdgeInsets.fromLTRB(
               Spacing.lg,
               Spacing.md,
@@ -304,6 +296,7 @@ class _IntroEmpty extends StatelessWidget {
           label: t.gyeFindOrCreate,
           icon: Icons.groups_2_outlined,
           fullWidth: true,
+          maxLines: null,
           onTap: onFindOrCreate,
         ),
         const SizedBox(height: Spacing.xs),
@@ -504,12 +497,7 @@ class _GyeCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // §P5-1-6: raw Pretendard TextStyle → 공용 토큰 수렴.
-                Text(
-                  gye.name,
-                  style: SoriTextTheme.of(context).cardTitle,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
+                Text(gye.name, style: SoriTextTheme.of(context).cardTitle),
                 const SizedBox(height: 2),
                 Text(
                   t.gyeMembersN(gye.memberCount),

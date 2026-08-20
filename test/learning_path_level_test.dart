@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/screens/learning_path_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 
 /// [pathVisibleLevel] is the single source of truth for which CEFR level the
 /// Lernpfad renders. It must never return an empty/invalid level (the path
@@ -210,6 +211,38 @@ void main() {
       findsOneWidget,
     );
   });
+
+  testWidgets('04C stays reachable at 320dp and 200% with safe areas', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    await tester.pumpWidget(
+      _host(
+        LearningPathScreen.preview(
+          courseUnits: _units,
+          snapshot: const CourseMasterySnapshot(
+            completedUnitIds: ['a1_01', 'a1_02'],
+            currentCourseUnitId: 'a1_03',
+          ),
+        ),
+        textScale: 2,
+        safeInsets: const EdgeInsets.only(top: 44, bottom: 34),
+      ),
+    );
+
+    expect(find.byType(SoriStandardFrame), findsOneWidget);
+    final toggle = find.byKey(const ValueKey('path-legacy-practice-toggle'));
+    await tester.scrollUntilVisible(toggle, 200);
+    await tester.ensureVisible(toggle);
+    await tester.pump();
+
+    expect(find.text('Weitere Übungen anzeigen'), findsOneWidget);
+    expect(tester.getRect(toggle).bottom, lessThanOrEqualTo(640 - 34));
+    expect(tester.takeException(), isNull);
+  });
 }
 
 const _units = <CourseUnit>[
@@ -304,6 +337,7 @@ Widget _host(
   Widget child, {
   ValueChanged<RouteSettings>? onRoute,
   double textScale = 1,
+  EdgeInsets safeInsets = EdgeInsets.zero,
 }) => MaterialApp(
   theme: AppTheme.light,
   locale: const Locale('de'),
@@ -318,11 +352,16 @@ Widget _host(
             builder: (_) => const Scaffold(body: SizedBox()),
           );
         },
-  home: textScale == 1
-      ? child
-      : MediaQuery.withClampedTextScaling(
-          minScaleFactor: textScale,
-          maxScaleFactor: textScale,
-          child: child,
-        ),
+  builder: (context, appChild) {
+    final media = MediaQuery.of(context);
+    return MediaQuery(
+      data: media.copyWith(
+        padding: safeInsets,
+        viewPadding: safeInsets,
+        textScaler: TextScaler.linear(textScale),
+      ),
+      child: appChild!,
+    );
+  },
+  home: child,
 );

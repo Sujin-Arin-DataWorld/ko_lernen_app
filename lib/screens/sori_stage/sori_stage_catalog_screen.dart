@@ -79,6 +79,17 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
     final gridEntries = heroEntry == null
         ? entries
         : entries.where((entry) => entry.id != heroEntry!.id).toList();
+    final gridTitles = gridEntries.map(
+      (entry) => localCopy(context, entry.title),
+    );
+    final footerLabels = <String>[
+      t.soriStageActivityReady,
+      t.soriStageActivityInProgress,
+      t.soriStageActivityCompleted,
+      for (final entry in gridEntries)
+        if (entry.unlock.explanation case final explanation?)
+          localCopy(context, explanation),
+    ];
     return Scaffold(
       body: SoriScreenBackground(
         child: SafeArea(
@@ -92,13 +103,19 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                 // 들어가 1280dp에서 880px 안에 6열 → 18px 오버플로.
                 final double available =
                     constraints.maxWidth - padding.horizontal;
-                final columns = soriGridColumns(
+                final baseColumns = soriGridColumns(
                   available,
                   target: 160,
                   min: 2,
                   outerPadding: 0,
                   spacing: Spacing.md,
                 );
+                final textScale =
+                    MediaQuery.textScalerOf(context).scale(14) / 14;
+                final columns =
+                    textScale >= 1.6 && available < SoriBreakpoints.grid
+                    ? 1
+                    : baseColumns;
                 final double cellWidth =
                     (available - Spacing.md * (columns - 1)) / columns;
                 return CustomScrollView(
@@ -169,6 +186,8 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
                                       childAspectRatio: _cellAspectRatio(
                                         context,
                                         cellWidth,
+                                        titles: gridTitles,
+                                        footerLabels: footerLabels,
                                       ),
                                     ),
                                 delegate: SliverChildBuilderDelegate((
@@ -299,29 +318,75 @@ class _ActivityGridCard extends StatelessWidget {
   }
 }
 
-/// Grid ratio derived from the 4:3 image plus the maximum two-line title and
-/// status footer. Unlike a fixed constant, this continues to fit when system
-/// text scaling grows while keeping every card in the row the same height.
-double _cellAspectRatio(BuildContext context, double cellWidth) {
+/// Grid ratio derived from the 4:3 image plus the measured localized title and
+/// status footer. Every string remains available while cards in a row keep the
+/// same height.
+double _cellAspectRatio(
+  BuildContext context,
+  double cellWidth, {
+  required Iterable<String> titles,
+  required Iterable<String> footerLabels,
+}) {
   if (!cellWidth.isFinite || cellWidth <= 0) {
     return 0.78;
   }
   final scaler = MediaQuery.textScalerOf(context);
+  final direction = Directionality.of(context);
+  final locale = Localizations.localeOf(context);
   final tt = SoriTextTheme.of(context);
   final titleStyle = tt.cardTitle;
   final footerStyle = tt.cardSubtitle;
   const double bodyPadding = Spacing.sm + Spacing.md;
-  final double title =
-      scaler.scale(titleStyle.fontSize!) * (titleStyle.height ?? 1) * 2;
-  final double footer =
-      Spacing.xs +
-      scaler.scale(footerStyle.fontSize!) * (footerStyle.height ?? 1);
+  final bodyWidth = (cellWidth - Spacing.md * 2).clamp(1.0, double.infinity);
+  final title = _maxMeasuredTextHeight(
+    texts: titles,
+    style: titleStyle,
+    maxWidth: bodyWidth,
+    scaler: scaler,
+    direction: direction,
+    locale: locale,
+  );
+  final footer = _maxMeasuredTextHeight(
+    texts: footerLabels,
+    style: footerStyle,
+    maxWidth: (bodyWidth - 14).clamp(1.0, double.infinity),
+    scaler: scaler,
+    direction: direction,
+    locale: locale,
+  );
   // Two physical border pixels plus a small rounding allowance keep the
   // fixed-height grid honest at tablet comfort scale and 200% OS text.
   const double layoutAllowance = 4;
   final double height =
-      cellWidth / (4 / 3) + bodyPadding + title + footer + layoutAllowance;
+      cellWidth / (4 / 3) +
+      bodyPadding +
+      title +
+      Spacing.xs +
+      footer +
+      layoutAllowance;
   return cellWidth / height;
+}
+
+double _maxMeasuredTextHeight({
+  required Iterable<String> texts,
+  required TextStyle style,
+  required double maxWidth,
+  required TextScaler scaler,
+  required TextDirection direction,
+  required Locale locale,
+}) {
+  var height = scaler.scale(style.fontSize ?? 14) * (style.height ?? 1);
+  for (final text in texts) {
+    final painter = TextPainter(
+      text: TextSpan(text: text, style: style),
+      textDirection: direction,
+      textScaler: scaler,
+      locale: locale,
+    )..layout(maxWidth: maxWidth);
+    height = height < painter.height ? painter.height : height;
+    painter.dispose();
+  }
+  return height;
 }
 
 /// §P4-3: 이미지 슬롯 우하단 분(分) 미니 필.
@@ -395,8 +460,6 @@ class _StateLabel extends StatelessWidget {
         Expanded(
           child: Text(
             '$label$suffix',
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
             // §C-1-9: raw TextStyle → 토큰. "작아서 예외"는 없다.
             style: tt.cardSubtitle.copyWith(
               fontWeight: FontWeight.w600,

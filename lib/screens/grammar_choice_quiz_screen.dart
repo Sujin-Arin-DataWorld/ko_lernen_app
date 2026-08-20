@@ -11,14 +11,12 @@ import '../services/grammar_choice_quiz.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Standalone grammar recognition practice.
@@ -275,29 +273,19 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.grammarChoiceTitle,
-        eyebrow: t.grammarChoiceEyebrow,
-      ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: Padding(
-              padding: Spacing.page,
-              child: _loading
-                  ? const Center(child: AppLoading())
-                  : _loadError != null
-                  ? _buildLoadFailure(t)
-                  : _round.isEmpty
-                  ? _buildEmpty(t)
-                  : _isDone
-                  ? _buildDone(t)
-                  : _buildQuestion(t),
-            ),
-          ),
-        ),
-      ),
+    return SoriStudyFrame(
+      title: t.grammarChoiceTitle,
+      eyebrow: t.grammarChoiceEyebrow,
+      padding: Spacing.page,
+      child: _loading
+          ? const Center(child: AppLoading())
+          : _loadError != null
+          ? _buildLoadFailure(t)
+          : _round.isEmpty
+          ? _buildEmpty(t)
+          : _isDone
+          ? _buildDone(t)
+          : _buildQuestion(t),
     );
   }
 

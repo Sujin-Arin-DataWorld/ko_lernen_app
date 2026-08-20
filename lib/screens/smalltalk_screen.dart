@@ -16,7 +16,6 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feed.dart';
@@ -28,8 +27,8 @@ import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
 
@@ -293,28 +292,22 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
 
-    return Scaffold(
-      backgroundColor: s.bg,
-      appBar: SoriAppBar(
-        title: t.smalltalkTitle,
-        actions: const [TtsSpeedAction()],
-      ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: _loading
-              ? const AppLoading()
-              : _loadFailed
-              ? AppError(message: t.courseMissionLoadError, onRetry: _retryLoad)
-              : _visibleCategories.isEmpty
-              ? SoriEmptyState(
-                  asset: 'assets/illustrations/mascot/magpie_encourage.png',
-                  icon: Icons.chat_bubble_outline_rounded,
-                  title: t.smalltalkTitle,
-                  body: SmalltalkLoader.lastError ?? '',
-                )
-              : _buildBody(t, s, lang),
-        ),
-      ),
+    return SoriStudyFrame(
+      title: t.smalltalkTitle,
+      actions: const [TtsSpeedAction()],
+      padding: EdgeInsets.zero,
+      child: _loading
+          ? const AppLoading()
+          : _loadFailed
+          ? AppError(message: t.courseMissionLoadError, onRetry: _retryLoad)
+          : _visibleCategories.isEmpty
+          ? SoriEmptyState(
+              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              icon: Icons.chat_bubble_outline_rounded,
+              title: t.smalltalkTitle,
+              body: SmalltalkLoader.lastError ?? '',
+            )
+          : _buildBody(t, s, lang),
     );
   }
 
@@ -332,127 +325,128 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
         )
         .toList(growable: false);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (_missionStep case final step?)
+    return SoriAdaptiveStudyBody(
+      minHeight: 480,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          if (_missionStep case final step?)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                Spacing.lg,
+                Spacing.sm,
+                Spacing.lg,
+                Spacing.sm,
+              ),
+              child: MissionContextBar(
+                missionTitle: _missionTitle ?? t.courseMissionTitleShort,
+                step: step,
+              ),
+            ),
+          // 카테고리 18개 — 가로 스크롤 대신 바텀시트로 선택(발견성 개선).
           Padding(
-            padding: const EdgeInsets.fromLTRB(
-              Spacing.lg,
-              Spacing.sm,
-              Spacing.lg,
-              Spacing.sm,
-            ),
-            child: MissionContextBar(
-              missionTitle: _missionTitle ?? t.courseMissionTitleShort,
-              step: step,
-            ),
-          ),
-        // 카테고리 18개 — 가로 스크롤 대신 바텀시트로 선택(발견성 개선).
-        Padding(
-          padding: const EdgeInsets.fromLTRB(Spacing.lg, 10, Spacing.lg, 6),
-          child: Material(
-            key: _categoryKey,
-            color: s.surface,
-            borderRadius: SoriRadius.brMd,
-            child: InkWell(
-              onTap: () => _showCategorySheet(t, lang),
+            padding: const EdgeInsets.fromLTRB(Spacing.lg, 10, Spacing.lg, 6),
+            child: Material(
+              key: _categoryKey,
+              color: s.surface,
               borderRadius: SoriRadius.brMd,
-              child: Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: Spacing.md,
-                  vertical: 12,
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: SoriRadius.brMd,
-                  border: Border.all(color: s.border),
-                ),
-                child: Row(
-                  children: [
-                    Flexible(
-                      child: Text(
-                        '${current.emoji} ${current.labelFor(lang)}'
-                        ' · ${phrases.length}',
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: SoriTextTheme.of(
-                          context,
-                        ).h3.copyWith(color: s.text),
+              child: InkWell(
+                onTap: () => _showCategorySheet(t, lang),
+                borderRadius: SoriRadius.brMd,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Spacing.md,
+                    vertical: 12,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: SoriRadius.brMd,
+                    border: Border.all(color: s.border),
+                  ),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        child: Text(
+                          '${current.emoji} ${current.labelFor(lang)}'
+                          ' · ${phrases.length}',
+                          style: SoriTextTheme.of(
+                            context,
+                          ).h3.copyWith(color: s.text),
+                        ),
                       ),
-                    ),
-                    const Spacer(),
-                    Icon(Icons.expand_more_rounded, color: s.textMuted),
-                  ],
+                      const Spacer(),
+                      Icon(Icons.expand_more_rounded, color: s.textMuted),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
-        ),
-        if (!_isInjected)
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-            child: Row(
-              children: [
-                _levelChip(t.filterAll, null),
-                for (final lvl in const [
-                  'a1',
-                  'a2',
-                  'b1',
-                  'b2',
-                  'c1',
-                  'c2',
-                ]) ...[
-                  const SizedBox(width: 6),
-                  _levelChip(lvl.toUpperCase(), lvl),
+          if (!_isInjected)
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+              child: Row(
+                children: [
+                  _levelChip(t.filterAll, null),
+                  for (final lvl in const [
+                    'a1',
+                    'a2',
+                    'b1',
+                    'b2',
+                    'c1',
+                    'c2',
+                  ]) ...[
+                    const SizedBox(width: 6),
+                    _levelChip(lvl.toUpperCase(), lvl),
+                  ],
                 ],
-              ],
+              ),
             ),
-          ),
-        const SizedBox(height: Spacing.sm),
-        Expanded(
-          child: phrases.isEmpty
-              ? Center(
-                  child: Text(
-                    t.smalltalkEmpty,
-                    style: TextStyle(color: s.textMuted),
-                  ),
-                )
-              : Builder(
-                  builder: (context) {
-                    final i = _phraseIndex.clamp(0, phrases.length - 1);
-                    final phrase = phrases[i];
-                    return _PhraseCard(
-                      key: ValueKey('smalltalk_${phrase.id}_$i'),
-                      p: phrase,
-                      lang: lang,
-                      coachKey: i == 0 ? _firstCardKey : null,
-                      courseContext: widget.courseContext,
-                      assessmentLink: _courseAssessmentLinks[phrase.id],
-                      onNext: i < phrases.length - 1
-                          ? () => setState(() => _phraseIndex = i + 1)
-                          : null,
-                      onPrevious: i > 0
-                          ? () => setState(() => _phraseIndex = i - 1)
-                          : null,
-                      onLike: () async {
-                        await LikedContentService.toggle(
+          const SizedBox(height: Spacing.sm),
+          Expanded(
+            child: phrases.isEmpty
+                ? Center(
+                    child: Text(
+                      t.smalltalkEmpty,
+                      style: TextStyle(color: s.textMuted),
+                    ),
+                  )
+                : Builder(
+                    builder: (context) {
+                      final i = _phraseIndex.clamp(0, phrases.length - 1);
+                      final phrase = phrases[i];
+                      return _PhraseCard(
+                        key: ValueKey('smalltalk_${phrase.id}_$i'),
+                        p: phrase,
+                        lang: lang,
+                        coachKey: i == 0 ? _firstCardKey : null,
+                        courseContext: widget.courseContext,
+                        assessmentLink: _courseAssessmentLinks[phrase.id],
+                        onNext: i < phrases.length - 1
+                            ? () => setState(() => _phraseIndex = i + 1)
+                            : null,
+                        onPrevious: i > 0
+                            ? () => setState(() => _phraseIndex = i - 1)
+                            : null,
+                        onLike: () async {
+                          await LikedContentService.toggle(
+                            kind: LikedContentService.smalltalk,
+                            id: phrase.id,
+                          );
+                          if (mounted) {
+                            setState(() {});
+                          }
+                        },
+                        liked: LikedContentService.isLiked(
                           kind: LikedContentService.smalltalk,
                           id: phrase.id,
-                        );
-                        if (mounted) {
-                          setState(() {});
-                        }
-                      },
-                      liked: LikedContentService.isLiked(
-                        kind: LikedContentService.smalltalk,
-                        id: phrase.id,
-                      ),
-                    );
-                  },
-                ),
-        ),
-      ],
+                        ),
+                      );
+                    },
+                  ),
+          ),
+        ],
+      ),
     );
   }
 

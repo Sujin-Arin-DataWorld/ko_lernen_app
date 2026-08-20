@@ -128,9 +128,8 @@ class SoriCharacterHero extends StatelessWidget {
             letterSpacing: -0.7,
             height: 1.05,
           ),
-          // §4.3: 독일어 복합어 말줄임 방지 — 2줄 허용.
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
+          // 독일어 복합어와 접근성 확대에서도 인사말 전체를 보여 준다. 홈 본문은
+          // 스크롤되므로 줄 수를 고정해 정보를 버릴 이유가 없다.
         );
 
         // §6.1 블록 2 발화 단일화(H-4): 서브카피 폐지 — 발화는 말풍선 1개만.

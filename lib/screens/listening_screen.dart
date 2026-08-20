@@ -8,17 +8,16 @@ import '../services/learner_level_selection.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/chaekgado/scroll_sheet.dart';
 import '../widgets/sori/chaekgado/shelf_case.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 import 'listening_play_screen.dart';
 
 export 'listening_play_screen.dart';
@@ -157,8 +156,9 @@ class _ListeningScreenState extends State<ListeningScreen>
     AppL10n t,
     ChaekgadoCompartment compartment,
   ) async {
-    final slot = (kChaekgadoSlots[_shelfLevel] ?? const [])
-        .firstWhere((s) => s.slug == compartment.slug);
+    final slot = (kChaekgadoSlots[_shelfLevel] ?? const []).firstWhere(
+      (s) => s.slug == compartment.slug,
+    );
     final matching = _scenariosForSlug(compartment.slug);
     final done = Storage.completedScenarios.toSet();
     final lang = Localizations.localeOf(context).languageCode;
@@ -171,8 +171,9 @@ class _ListeningScreenState extends State<ListeningScreen>
           ? t.listeningShelfEmpty
           : t.listeningShelfScenarioCount(matching.length),
       footnote: t.listeningProgress(
-        (kChaekgadoSlots[_shelfLevel] ?? const [])
-                .indexWhere((s) => s.slug == compartment.slug) +
+        (kChaekgadoSlots[_shelfLevel] ?? const []).indexWhere(
+              (s) => s.slug == compartment.slug,
+            ) +
             1,
         (kChaekgadoSlots[_shelfLevel] ?? const []).length,
       ),
@@ -214,101 +215,105 @@ class _ListeningScreenState extends State<ListeningScreen>
     final t = AppL10n.of(context);
 
     if (_loading) {
-      return const Scaffold(body: AppLoading());
+      return SoriStandardFrame(
+        appBarTitle: t.listeningTitle,
+        builder: (context, padding) => const AppLoading(),
+      );
     }
     if (_scenarios.isEmpty) {
-      return Scaffold(
-        appBar: SoriAppBar(title: t.listeningTitle),
-        body: SoriEmptyState(
-          asset: 'assets/illustrations/mascot/magpie_encourage.png',
-          icon: Icons.headphones_outlined,
-          title: t.listeningEmptyTitle,
-          body: t.listeningEmptyBody,
+      return SoriStandardFrame(
+        appBarTitle: t.listeningTitle,
+        padding: const EdgeInsets.all(Spacing.lg),
+        builder: (context, padding) => Center(
+          child: Padding(
+            padding: padding,
+            child: SoriEmptyState(
+              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              icon: Icons.headphones_outlined,
+              title: t.listeningEmptyTitle,
+              body: t.listeningEmptyBody,
+            ),
+          ),
         ),
       );
     }
 
-    return Scaffold(
-      appBar: SoriAppBar(title: t.listeningTitle),
-      body: SoriScreenBackground(
-        particles: true,
-        child: SafeArea(
-          child: SingleChildScrollView(
-            padding: soriClampPadding(
-              MediaQuery.sizeOf(context).width,
-              base: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+    return SoriStandardFrame(
+      appBarTitle: t.listeningTitle,
+      maxWidth: SoriMaxWidth.hub,
+      particles: true,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.sm,
+        Spacing.lg,
+        Spacing.xl,
+      ),
+      builder: (context, padding) => SingleChildScrollView(
+        padding: padding,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const HanokHeader(
+              asset: 'assets/illustrations/hanok/listening_hero.png',
+              fallbackIcon: Icons.headphones_outlined,
+              fallbackTint: SoriColors.info,
+              aspectRatio: 10 / 3,
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const HanokHeader(
-                  asset: 'assets/illustrations/hanok/listening_hero.png',
-                  fallbackIcon: Icons.headphones_outlined,
-                  fallbackTint: SoriColors.info,
-                  aspectRatio: 10 / 3,
-                ),
-                const SizedBox(height: Spacing.md),
-                Text(t.listeningSubtitle, style: SoriTextTheme.of(context).bodySmall),
-                const SizedBox(height: Spacing.xs),
-                Text(
-                  t.listeningPickFirst,
-                  style: SoriTextTheme.of(context).meta,
-                ),
-                const SizedBox(height: Spacing.lg),
-                Text(
-                  t.listeningSelectScenario,
-                  style: SoriTextTheme.of(context).h3,
-                ),
-                const SizedBox(height: Spacing.sm),
-                KeyedSubtree(
-                  key: _shelfKey,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
+            const SizedBox(height: Spacing.md),
+            Text(
+              t.listeningSubtitle,
+              style: SoriTextTheme.of(context).bodySmall,
+            ),
+            const SizedBox(height: Spacing.xs),
+            Text(t.listeningPickFirst, style: SoriTextTheme.of(context).meta),
+            const SizedBox(height: Spacing.lg),
+            Text(
+              t.listeningSelectScenario,
+              style: SoriTextTheme.of(context).h3,
+            ),
+            const SizedBox(height: Spacing.sm),
+            KeyedSubtree(
+              key: _shelfKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Wrap(
+                    spacing: Spacing.xs,
+                    runSpacing: Spacing.xs,
                     children: [
-                      SizedBox(
-                        height: 38,
-                        child: ListView.separated(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: LearnerLevel.values.length,
-                          separatorBuilder: (_, _) =>
-                              const SizedBox(width: Spacing.xs + 2),
-                          itemBuilder: (_, i) {
-                            final level = LearnerLevel.values[i];
-                            return SoriChip(
-                              label: level.display,
-                              accent: SoriColors.info,
-                              selected: level == _shelfLevel,
-                              variant: SoriChipVariant.filled,
-                              onTap: () => setState(() => _shelfLevel = level),
-                            );
-                          },
+                      for (final level in LearnerLevel.values)
+                        SoriChip(
+                          label: level.display,
+                          accent: SoriColors.info,
+                          selected: level == _shelfLevel,
+                          variant: SoriChipVariant.filled,
+                          onTap: () => setState(() => _shelfLevel = level),
                         ),
-                      ),
-                      const SizedBox(height: Spacing.sm),
-                      SizedBox(
-                        height: 9,
-                        child: Image.asset(
-                          kChaekgadoDancheongBandAsset,
-                          fit: BoxFit.cover,
-                          errorBuilder: (_, _, _) =>
-                              const ColoredBox(color: SoriColors.contentCta),
-                        ),
-                      ),
-                      ClipRRect(
-                        borderRadius: SoriRadius.brMd,
-                        child: ChaekgadoShelfCase(
-                          compartments: _shelfCompartments(t),
-                          emptyLabel: t.listeningShelfEmpty,
-                          onOpen: (compartment) =>
-                              _openShelfCompartment(context, t, compartment),
-                        ),
-                      ),
                     ],
                   ),
-                ),
-              ],
+                  const SizedBox(height: Spacing.sm),
+                  SizedBox(
+                    height: 9,
+                    child: Image.asset(
+                      kChaekgadoDancheongBandAsset,
+                      fit: BoxFit.cover,
+                      errorBuilder: (_, _, _) =>
+                          const ColoredBox(color: SoriColors.contentCta),
+                    ),
+                  ),
+                  ClipRRect(
+                    borderRadius: SoriRadius.brMd,
+                    child: ChaekgadoShelfCase(
+                      compartments: _shelfCompartments(t),
+                      emptyLabel: t.listeningShelfEmpty,
+                      onOpen: (compartment) =>
+                          _openShelfCompartment(context, t, compartment),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
+          ],
         ),
       ),
     );

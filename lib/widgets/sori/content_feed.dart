@@ -331,8 +331,7 @@ class SoriContentActions extends StatelessWidget {
     final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
     final visibleSkip = skipLabel != null && onSkip != null;
-    final showJudgments =
-        knowLabel != null || hardLabel != null || visibleSkip;
+    final showJudgments = knowLabel != null || hardLabel != null || visibleSkip;
     return Padding(
       padding: const EdgeInsets.only(top: Spacing.sm),
       child: Column(
@@ -394,34 +393,28 @@ class SoriContentActions extends StatelessWidget {
           ),
           if (showJudgments) ...[
             const SizedBox(height: Spacing.sm),
-            Row(
-              children: [
-                if (hardLabel != null)
-                  Expanded(
-                    child: _TextAction(
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final actions = <Widget>[
+                  if (hardLabel != null)
+                    _TextAction(
                       name: 'dontknow',
                       label: hardLabel!,
                       style: tt.meta.copyWith(
-                        color: judgmentsEnabled
-                            ? SoriColors.accent
-                            : s.textDim,
+                        color: judgmentsEnabled ? SoriColors.accent : s.textDim,
                       ),
                       onTap: onHard,
                       dimmed: !judgmentsEnabled,
                     ),
-                  ),
-                if (visibleSkip)
-                  Expanded(
-                    child: _TextAction(
+                  if (visibleSkip)
+                    _TextAction(
                       name: 'skip',
                       label: skipLabel!,
                       style: tt.meta,
                       onTap: onSkip,
                     ),
-                  ),
-                if (knowLabel != null)
-                  Expanded(
-                    child: _TextAction(
+                  if (knowLabel != null)
+                    _TextAction(
                       name: 'know',
                       label: knowLabel!,
                       style: tt.meta.copyWith(
@@ -433,8 +426,29 @@ class SoriContentActions extends StatelessWidget {
                       onTap: onKnow,
                       dimmed: !judgmentsEnabled,
                     ),
-                  ),
-              ],
+                ];
+                final textScale = MediaQuery.textScalerOf(context).scale(1);
+                final stackActions =
+                    textScale >= 1.6 ||
+                    constraints.maxWidth < SoriBreakpoints.contentActionStack;
+                if (stackActions) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      for (var index = 0; index < actions.length; index++) ...[
+                        actions[index],
+                        if (index != actions.length - 1)
+                          const SizedBox(height: Spacing.xs),
+                      ],
+                    ],
+                  );
+                }
+                return Row(
+                  children: [
+                    for (final action in actions) Expanded(child: action),
+                  ],
+                );
+              },
             ),
           ],
         ],
@@ -514,13 +528,7 @@ class _TextAction extends StatelessWidget {
             child: Opacity(
               opacity: dimmed ? 0.38 : 1,
               child: Center(
-                child: Text(
-                  label,
-                  style: style,
-                  textAlign: TextAlign.center,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
+                child: Text(label, style: style, textAlign: TextAlign.center),
               ),
             ),
           ),

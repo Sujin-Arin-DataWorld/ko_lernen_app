@@ -11,7 +11,6 @@ import '../services/liked_content_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/character_clip.dart';
@@ -19,9 +18,9 @@ import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -231,30 +230,23 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final title = _scenario.title.pick(lang);
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: title.isEmpty ? t.listeningTitle : title,
-        eyebrow: t.listeningProgress(
-          _completed ? _scenario.dialog.length : _step + 1,
-          _scenario.dialog.length,
-        ),
-        actions: [
-          KeyedSubtree(key: _speedKey, child: const TtsSpeedAction()),
-        ],
+    return SoriStudyFrame(
+      title: title.isEmpty ? t.listeningTitle : title,
+      eyebrow: t.listeningProgress(
+        _completed ? _scenario.dialog.length : _step + 1,
+        _scenario.dialog.length,
       ),
-      body: SoriScreenBackground(
-        particles: true,
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(
-              Spacing.lg,
-              Spacing.sm,
-              Spacing.lg,
-              Spacing.lg,
-            ),
-            child: _completed ? _buildComplete(t) : _buildFeed(t, lang),
-          ),
-        ),
+      actions: [KeyedSubtree(key: _speedKey, child: const TtsSpeedAction())],
+      particles: true,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.sm,
+        Spacing.lg,
+        Spacing.lg,
+      ),
+      child: SoriAdaptiveStudyBody(
+        minHeight: 520,
+        child: _completed ? _buildComplete(t) : _buildFeed(t, lang),
       ),
     );
   }

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 /// 번들 폰트가 **한글과 독일어를 실제로 담고 있는지** 검사한다.
 ///
@@ -10,15 +11,24 @@ import 'package:flutter_test/flutter_test.dart';
 /// "한국어 모던 산세리프"라고 적혀 있었다. 의존성 없이 OTF `cmap`(format 4/12)을
 /// 직접 읽어 `가`·`힣`·`ㄱ`·`ä`·`ß` 가 있는지 본다.
 void main() {
+  test('font roles keep UI sans and culture display separate', () {
+    expect(SoriFonts.sans, 'WantedSans');
+    expect(SoriFonts.culture, 'MaruBuri');
+  });
+
   test('pubspec 에 선언된 모든 폰트 파일이 한글·독일어 글리프를 가진다', () {
     final pubspec = File('pubspec.yaml').readAsStringSync();
-    final assets = RegExp(r'asset:\s*(assets/fonts/\S+\.(?:otf|ttf))')
-        .allMatches(pubspec)
-        .map((m) => m.group(1)!)
-        .toList();
+    final assets = RegExp(
+      r'asset:\s*(assets/fonts/\S+\.(?:otf|ttf))',
+    ).allMatches(pubspec).map((m) => m.group(1)!).toList();
     expect(assets, isNotEmpty, reason: 'pubspec fonts: 블록이 비어 있다');
     const required = <String, int>{
-      '가': 0xAC00, '힣': 0xD7A3, 'ㄱ': 0x3131, 'ä': 0xE4, 'ß': 0xDF, '€': 0x20AC,
+      '가': 0xAC00,
+      '힣': 0xD7A3,
+      'ㄱ': 0x3131,
+      'ä': 0xE4,
+      'ß': 0xDF,
+      '€': 0x20AC,
     };
     for (final asset in assets) {
       final cps = _cmapCodepoints(File(asset).readAsBytesSync());

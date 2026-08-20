@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -6,6 +7,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/bojagi_screen.dart';
 import 'package:ko_lernen_app/services/decoration_reward_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 
 /// `q_punggyeong` 의 고정 후보 3종 — 서비스의 stable index 계약 그대로.
 const _guk = 'Chrysanthemen-Bild (국화)';
@@ -22,6 +24,34 @@ Future<void> _pump(WidgetTester tester) async {
         data: MediaQueryData(disableAnimations: true),
         child: BojagiScreen(),
       ),
+    ),
+  );
+  await _pumpBojagiMotion(tester);
+}
+
+Future<void> _pumpAccessible(WidgetTester tester) async {
+  tester.view.physicalSize = const Size(320, 640);
+  tester.view.devicePixelRatio = 1;
+  addTearDown(tester.view.resetPhysicalSize);
+  addTearDown(tester.view.resetDevicePixelRatio);
+  await tester.pumpWidget(
+    MaterialApp(
+      localizationsDelegates: AppL10n.localizationsDelegates,
+      supportedLocales: AppL10n.supportedLocales,
+      locale: const Locale('de'),
+      builder: (context, child) {
+        final media = MediaQuery.of(context);
+        const safeInsets = EdgeInsets.only(top: 44, bottom: 34);
+        return MediaQuery(
+          data: media.copyWith(
+            padding: safeInsets,
+            viewPadding: safeInsets,
+            textScaler: const TextScaler.linear(2),
+          ),
+          child: child!,
+        );
+      },
+      home: const BojagiScreen(),
     ),
   );
   await _pumpBojagiMotion(tester);
@@ -167,5 +197,33 @@ void main() {
 
     expect(find.text('Bekommen!'), findsOneWidget);
     expect(find.text('Nächstes Bündel öffnen'), findsOneWidget);
+  });
+
+  testWidgets('320dp 200%에서 보자기 후보 이름을 자르지 않고 도달한다', (tester) async {
+    await Storage.setPendingBoxes(['q_punggyeong']);
+    await _pumpAccessible(tester);
+
+    expect(find.byType(SoriStandardFrame), findsOneWidget);
+    await tester.tap(find.byKey(const Key('bojagi_knot')));
+    await _pumpBojagiMotion(tester);
+
+    final finalCandidate = find.text(_chaekgado);
+    final scrollable = find.descendant(
+      of: find.byKey(const ValueKey('bojagi-scroll')),
+      matching: find.byType(Scrollable),
+    );
+    await tester.scrollUntilVisible(
+      finalCandidate,
+      200,
+      scrollable: scrollable,
+    );
+    await tester.ensureVisible(finalCandidate);
+    await tester.pump();
+
+    expect(finalCandidate, findsOneWidget);
+    final paragraph = tester.renderObject<RenderParagraph>(finalCandidate);
+    expect(paragraph.didExceedMaxLines, isFalse);
+    expect(tester.getRect(finalCandidate).bottom, lessThanOrEqualTo(640 - 34));
+    expect(tester.takeException(), isNull);
   });
 }

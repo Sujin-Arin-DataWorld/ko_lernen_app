@@ -22,6 +22,7 @@ import 'package:ko_lernen_app/services/decoration_reward_service.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/room_layout_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/cultural_help.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 import 'package:ko_lernen_app/widgets/sori/free_room_layer.dart';
@@ -386,9 +387,7 @@ void main() {
   testWidgets('shows all owned furnishings and all earned stamps', (
     tester,
   ) async {
-    CulturalGlossaryRepository.setLoaderForTesting(
-      () async => culturalCatalog,
-    );
+    CulturalGlossaryRepository.setLoaderForTesting(() async => culturalCatalog);
     addTearDown(CulturalGlossaryRepository.resetForTesting);
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
@@ -558,7 +557,7 @@ void main() {
   testWidgets(
     'narrow 200 percent text keeps the complete sticker chest usable',
     (tester) async {
-      await tester.binding.setSurfaceSize(const Size(320, 568));
+      await tester.binding.setSurfaceSize(const Size(320, 640));
       addTearDown(() => tester.binding.setSurfaceSize(null));
       Storage.resetForTesting();
       SharedPreferences.setMockInitialValues({
@@ -591,10 +590,23 @@ void main() {
             loadProjection: _legacyProjection,
           ),
           textScaler: TextScaler.linear(2),
+          size: const Size(320, 640),
+          safeInsets: const EdgeInsets.only(top: 44, bottom: 34),
         ),
       );
       await tester.pump();
       await tester.pump();
+
+      final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+      final title = tester.widget<Text>(
+        find.descendant(
+          of: find.byType(SoriAppBar),
+          matching: find.text(appBar.title),
+        ),
+      );
+      expect(appBar.title, 'Study room');
+      expect(title.maxLines, isNotNull);
+      expect(title.overflow, TextOverflow.clip);
 
       final stickerTab = find.byKey(
         const ValueKey('room-inventory-tab-sticker'),
@@ -622,16 +634,26 @@ void main() {
   );
 }
 
-Widget _host(Widget child, {TextScaler textScaler = TextScaler.noScaling}) =>
-    MaterialApp(
-      locale: const Locale('en'),
-      supportedLocales: AppL10n.supportedLocales,
-      localizationsDelegates: AppL10n.localizationsDelegates,
-      home: MediaQuery(
-        data: MediaQueryData(disableAnimations: true, textScaler: textScaler),
-        child: child,
-      ),
-    );
+Widget _host(
+  Widget child, {
+  TextScaler textScaler = TextScaler.noScaling,
+  Size size = Size.zero,
+  EdgeInsets safeInsets = EdgeInsets.zero,
+}) => MaterialApp(
+  locale: const Locale('en'),
+  supportedLocales: AppL10n.supportedLocales,
+  localizationsDelegates: AppL10n.localizationsDelegates,
+  home: MediaQuery(
+    data: MediaQueryData(
+      size: size,
+      padding: safeInsets,
+      viewPadding: safeInsets,
+      disableAnimations: true,
+      textScaler: textScaler,
+    ),
+    child: child,
+  ),
+);
 
 const _text = CurriculumText(ko: '?λ㈃', de: 'Szene', en: 'Scene');
 

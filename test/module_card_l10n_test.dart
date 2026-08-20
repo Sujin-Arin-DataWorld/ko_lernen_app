@@ -59,6 +59,53 @@ void main() {
     expect(find.text('NEU'), findsOneWidget);
     expect(find.text('FÄLLIG'), findsOneWidget);
   });
+
+  testWidgets('featured module copy stacks without ellipsis at 200%', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    const title = 'Aussprache und Hörverständnis gemeinsam trainieren';
+    const subtitle =
+        'Vergleiche vollständige koreanische Beispielsätze in deinem Tempo.';
+    var tapped = false;
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: Scaffold(
+          body: Padding(
+            padding: const EdgeInsets.all(20),
+            child: MediaQuery.withClampedTextScaling(
+              minScaleFactor: 2,
+              maxScaleFactor: 2,
+              child: SingleChildScrollView(
+                child: FeaturedModuleCard(
+                  key: const Key('featured-module'),
+                  icon: Icons.hearing_rounded,
+                  title: title,
+                  subtitle: subtitle,
+                  accent: SoriColors.primary,
+                  onTap: () => tapped = true,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    expect(tester.takeException(), isNull);
+    expect(tester.widget<Text>(find.text(title)).overflow, isNull);
+    expect(tester.widget<Text>(find.text(subtitle)).overflow, isNull);
+    await tester.ensureVisible(find.byKey(const Key('featured-module')));
+    await tester.tap(find.byKey(const Key('featured-module')));
+    expect(tapped, isTrue);
+  });
 }
 
 Widget _app(Locale locale, {String? subtitle}) => MaterialApp(

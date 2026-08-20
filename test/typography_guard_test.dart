@@ -91,7 +91,8 @@ void main() {
       sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
       RegExp(r'(^|[^A-Za-z_$.])TextStyle\('),
       // 2026-08-19 재실측: 409→371 (콘텐츠 화면 색·줄바꿈 정리).
-      371,
+      // 2026-08-20 표준 페이지 이식: 371→359.
+      359,
       'lib/screens/ 원시 TextStyle(',
     );
   });
@@ -105,7 +106,8 @@ void main() {
       sources,
       RegExp(r'BorderRadius\.circular\(\s*[0-9]'),
       // 2026-08-19 재실측: 54→38.
-      38,
+      // 2026-08-20 의미 기반 표면 정리 재실측: 38→33.
+      33,
       '숫자 리터럴 BorderRadius.circular(',
     );
   });
@@ -120,8 +122,25 @@ void main() {
       sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
       RegExp(r'(^|[^A-Za-z_$.])AppBar\('),
       // 2026-08-19 재실측: 98→84.
-      84,
+      // 2026-08-20 SoriStandardPage 이식: 84→70; 단어팩/결과/편집 프레임
+      // 수렴: 70→64; 학습 경로/보자기 프레임 수렴: 64→62;
+      // 코스 미션 4개 상태 수렴: 62→58; 레거시 단어 학습 5개 상태
+      // 공용 프레임 수렴: 58→53; Gye 3개 상태 수렴: 53→50;
+      // Gye 탭·개인 한옥 월드 수렴: 50→48; 책 촬영·미리보기·결과
+      // 6개 상태 수렴: 48→42; 배치 진단·발음 연습 수렴: 42→40;
+      // 2026-08-20: 시나리오 플레이어와 디버그 UX 갤러리의 마지막
+      // 실제 호출부를 옮긴 뒤 전체 lib/screens 어휘 검사를 0으로 고정.
+      0,
       'lib/screens/ 원시 AppBar(',
+    );
+  });
+
+  test('화면 콘텐츠를 ellipsis 로 숨기지 않는다', () {
+    _expectAtMost(
+      sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
+      RegExp(r'TextOverflow\.ellipsis'),
+      0,
+      'lib/screens/ TextOverflow.ellipsis',
     );
   });
 

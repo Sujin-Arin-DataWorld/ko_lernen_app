@@ -11,6 +11,7 @@ import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/reward_thumb.dart';
 import '../../widgets/sori/screen_background.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/window_class.dart';
 import '../bojagi_screen.dart' show kBojagiClosed;
 import '../hanok_world_screen.dart';
 import 'sori_stage_common.dart';
@@ -81,58 +82,67 @@ class _SoriStageHanokScreenState extends State<SoriStageHanokScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    Widget header() => SoriContentClamp(
+      maxWidth: SoriMaxWidth.world,
+      base: const EdgeInsets.fromLTRB(20, 20, 20, 12),
+      builder: (context, padding) => Padding(
+        padding: padding,
+        child: Stack(
+          children: [
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 44),
+              child: SoriStageRootHeader(
+                eyebrow: t.soriStageNavHanok,
+                title: t.soriStageHanokTitle,
+                body: t.soriStageHanokBody,
+              ),
+            ),
+            const PositionedDirectional(
+              end: 0,
+              top: 0,
+              child: CulturalHelpButton(termId: 'hanok'),
+            ),
+          ],
+        ),
+      ),
+    );
+    Widget world() =>
+        widget.worldForTesting ?? const HanokWorldScreen(embedded: true);
+    Widget shortcuts() => Padding(
+      padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
+      child: FutureBuilder<SoriStageProgressionSnapshot>(
+        future: _future,
+        builder: (context, snapshot) {
+          final ready =
+              snapshot.connectionState == ConnectionState.done &&
+              !snapshot.hasError;
+          return _ShortcutTiles(
+            snapshot: ready ? snapshot.data : null,
+            onOpen: _openShortcut,
+          );
+        },
+      ),
+    );
+
     return Scaffold(
       body: SoriScreenBackground(
-        child: SafeArea(
+        child: SoriStageSafeViewport(
+          largeTextChildBuilder: (context, constraints) => ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              header(),
+              SizedBox(
+                height: constraints.maxHeight.clamp(280, 520),
+                child: world(),
+              ),
+              shortcuts(),
+            ],
+          ),
           child: Column(
             children: [
-              SoriContentClamp(
-                maxWidth: 960,
-                base: const EdgeInsets.fromLTRB(20, 20, 20, 12),
-                builder: (context, padding) => Padding(
-                  padding: padding,
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsetsDirectional.only(end: 44),
-                        child: SoriStageRootHeader(
-                          eyebrow: t.soriStageNavHanok,
-                          title: t.soriStageHanokTitle,
-                          body: t.soriStageHanokBody,
-                        ),
-                      ),
-                      const PositionedDirectional(
-                        end: 0,
-                        top: 0,
-                        child: CulturalHelpButton(termId: 'hanok'),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                child:
-                    widget.worldForTesting ??
-                    const HanokWorldScreen(embedded: true),
-              ),
-              SafeArea(
-                top: false,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
-                  child: FutureBuilder<SoriStageProgressionSnapshot>(
-                    future: _future,
-                    builder: (context, snapshot) {
-                      final ready =
-                          snapshot.connectionState == ConnectionState.done &&
-                          !snapshot.hasError;
-                      return _ShortcutTiles(
-                        snapshot: ready ? snapshot.data : null,
-                        onOpen: _openShortcut,
-                      );
-                    },
-                  ),
-                ),
-              ),
+              header(),
+              Expanded(child: world()),
+              shortcuts(),
             ],
           ),
         ),
@@ -170,64 +180,83 @@ class _ShortcutTiles extends StatelessWidget {
         ? null
         : '${snapshot!.pendingBojagiCount}';
 
-    return Row(
-      children: [
-        Expanded(
-          child: _ShortcutTile(
-            id: 'quests',
-            label: t.soriStageQuests,
-            count: questsCount,
-            thumb: const SoriRewardThumb(
-              // 대표 마당 장식 1장 — 실재 화이트리스트 슬러그.
-              slug: 'decoration_maehwa',
-              earned: true,
-              size: 40,
-              semantic: '',
-            ),
-            onTap: () => onOpen('/quests'),
+    final tiles = <Widget>[
+      _ShortcutTile(
+        id: 'quests',
+        label: t.soriStageQuests,
+        count: questsCount,
+        thumb: const SoriRewardThumb(
+          // 대표 마당 장식 1장 — 실재 화이트리스트 슬러그.
+          slug: 'decoration_maehwa',
+          earned: true,
+          size: 40,
+          semantic: '',
+        ),
+        onTap: () => onOpen('/quests'),
+      ),
+      _ShortcutTile(
+        id: 'dojang',
+        label: t.soriStageDojang,
+        count: dojangCount,
+        thumb: Image.asset(
+          'assets/illustrations/stamps/stamp_lotus.png',
+          width: 40,
+          height: 40,
+          fit: BoxFit.contain,
+          errorBuilder: (_, _, _) => const Icon(
+            Icons.approval_rounded,
+            size: 32,
+            color: SoriColors.accent,
           ),
         ),
-        const SizedBox(width: Spacing.md),
-        Expanded(
-          child: _ShortcutTile(
-            id: 'dojang',
-            label: t.soriStageDojang,
-            count: dojangCount,
-            thumb: Image.asset(
-              'assets/illustrations/stamps/stamp_lotus.png',
-              width: 40,
-              height: 40,
-              fit: BoxFit.contain,
-              errorBuilder: (_, _, _) => const Icon(
-                Icons.approval_rounded,
-                size: 32,
-                color: SoriColors.accent,
-              ),
-            ),
-            onTap: () => onOpen('/dojangcheop'),
+        onTap: () => onOpen('/dojangcheop'),
+      ),
+      _ShortcutTile(
+        id: 'bojagi',
+        label: t.soriStageBojagi,
+        count: bojagiCount,
+        thumb: Image.asset(
+          kBojagiClosed,
+          width: 40,
+          height: 40,
+          fit: BoxFit.contain,
+          errorBuilder: (_, _, _) => const Icon(
+            Icons.redeem_rounded,
+            size: 32,
+            color: SoriColors.goldOnLight,
           ),
         ),
-        const SizedBox(width: Spacing.md),
-        Expanded(
-          child: _ShortcutTile(
-            id: 'bojagi',
-            label: t.soriStageBojagi,
-            count: bojagiCount,
-            thumb: Image.asset(
-              kBojagiClosed,
-              width: 40,
-              height: 40,
-              fit: BoxFit.contain,
-              errorBuilder: (_, _, _) => const Icon(
-                Icons.redeem_rounded,
-                size: 32,
-                color: SoriColors.goldOnLight,
-              ),
-            ),
-            onTap: () => onOpen('/bojagi'),
-          ),
-        ),
-      ],
+        onTap: () => onOpen('/bojagi'),
+      ),
+    ];
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final textScale = MediaQuery.textScalerOf(context).scale(1);
+        final stacked =
+            constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
+            textScale >= 1.6;
+        if (stacked) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              for (var index = 0; index < tiles.length; index++) ...[
+                tiles[index],
+                if (index != tiles.length - 1)
+                  const SizedBox(height: Spacing.sm),
+              ],
+            ],
+          );
+        }
+        return Row(
+          children: [
+            for (var index = 0; index < tiles.length; index++) ...[
+              Expanded(child: tiles[index]),
+              if (index != tiles.length - 1) const SizedBox(width: Spacing.md),
+            ],
+          ],
+        );
+      },
     );
   }
 }
@@ -273,10 +302,9 @@ class _ShortcutTile extends StatelessWidget {
                 const SizedBox(height: Spacing.xs),
                 Text(
                   label,
+                  key: ValueKey('hanok-shortcut-label-$id'),
                   textAlign: TextAlign.center,
                   style: tt.cardTitle,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                 ),
                 if (count != null)
                   Text(

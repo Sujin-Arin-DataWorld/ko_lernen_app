@@ -6,10 +6,11 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/gye.dart';
 import '../services/gye_service.dart';
 import '../services/account/cloud_write_session.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// 계 멤버 목록 + 신고 + 차단. plan §7.4/§9 + Play UGC 정책(사용자 주도 숨김).
 /// rules: 멤버만 read, 신고는 본인 reporterUid, 차단은 users/{me}.blockedUids.
@@ -36,157 +37,149 @@ class GyeMembersScreen extends StatelessWidget {
       valueListenable: accountSessions ?? cloudWriteSessionController.changes,
       builder: (context, session, _) {
         final writesAvailable = session?.mode == CloudWriteMode.ready;
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(
-              t.gyeMembersTitle,
-              style: const TextStyle(fontWeight: FontWeight.w800),
-            ),
+        return SoriStandardFrame(
+          appBarTitle: t.gyeMembersTitle,
+          maxWidth: SoriMaxWidth.prose,
+          padding: const EdgeInsets.fromLTRB(
+            Spacing.lg,
+            Spacing.sm,
+            Spacing.lg,
+            Spacing.xxxl,
           ),
-          body: SafeArea(
-            child: Column(
-              children: [
-                if (!writesAvailable)
-                  Padding(
-                    padding: const EdgeInsets.all(Spacing.md),
-                    child: Text(
-                      t.gyeAccountTransitionPaused,
-                      textAlign: TextAlign.center,
-                    ),
+          builder: (context, pagePadding) => Column(
+            children: [
+              if (!writesAvailable)
+                Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    pagePadding.left,
+                    pagePadding.top,
+                    pagePadding.right,
+                    Spacing.md,
                   ),
-                Expanded(
-                  child: StreamBuilder<Set<String>>(
-                    stream: blockedUids ?? GyeService.blockedUidsStream(),
-                    builder: (context, bsnap) {
-                      final blocked = bsnap.data ?? const <String>{};
-                      return StreamBuilder<List<GyeMember>>(
-                        stream: members ?? GyeService.membersStream(gyeId),
-                        builder: (context, snap) {
-                          final members = snap.data ?? const <GyeMember>[];
-                          if (members.isEmpty) {
-                            // §8.1: 스피너 단독 금지 — 표준 로딩. (계는 항상
-                            // 소유자 1명 이상이라 empty ≈ 로딩 중.)
-                            return const AppLoading();
-                          }
-                          final width = MediaQuery.sizeOf(context).width;
-                          return ListView.builder(
-                            padding: soriClampPadding(
-                              width,
-                              base: const EdgeInsets.symmetric(
-                                horizontal: Spacing.lg,
-                                vertical: Spacing.sm,
-                              ),
-                            ),
-                            itemCount: members.length + 1,
-                            itemBuilder: (_, i) {
-                              if (i == 0) {
-                                return const Padding(
-                                  padding: EdgeInsets.only(bottom: Spacing.sm),
-                                  child: _GyeSafetyRulesCard(),
-                                );
-                              }
-                              final m = members[i - 1];
-                              final isSelf = m.uid == me;
-                              final isBlocked = blocked.contains(m.uid);
-                              return ListTile(
-                                onTap: () =>
-                                    _showProfileCard(context, m, isSelf),
-                                leading: CircleAvatar(
-                                  backgroundColor: isBlocked
-                                      ? s.border
-                                      : SoriColors.primary.withValues(
-                                          alpha: 0.18,
-                                        ),
-                                  child: Text(
-                                    m.nickname.isNotEmpty
-                                        ? m.nickname.substring(0, 1)
-                                        : '?',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w800,
-                                      color: isBlocked
-                                          ? s.textDim
-                                          : SoriColors.primary,
-                                    ),
-                                  ),
-                                ),
-                                title: Text(
-                                  m.nickname.isEmpty ? '…' : m.nickname,
-                                  style: isBlocked
-                                      ? TextStyle(
-                                          color: s.textDim,
-                                          decoration:
-                                              TextDecoration.lineThrough,
-                                        )
-                                      : null,
-                                ),
-                                subtitle: isBlocked
-                                    ? Text(
-                                        t.gyeBlockedLabel,
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: s.textDim,
-                                        ),
-                                      )
-                                    : m.role == GyeRole.owner
-                                    ? Text(
-                                        t.gyeRoleOwner,
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: s.textMuted,
-                                        ),
-                                      )
-                                    : null,
-                                trailing: isSelf
-                                    ? Text(
-                                        t.gyeMemberSelf,
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: s.textDim,
-                                        ),
-                                      )
-                                    : Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          IconButton(
-                                            icon: Icon(
-                                              isBlocked
-                                                  ? Icons
-                                                        .person_add_alt_outlined
-                                                  : Icons.block_outlined,
-                                            ),
-                                            tooltip: isBlocked
-                                                ? t.gyeUnblock
-                                                : t.gyeBlockTitle,
-                                            onPressed: writesAvailable
-                                                ? () => _toggleBlock(
-                                                    context,
-                                                    m,
-                                                    isBlocked,
-                                                  )
-                                                : null,
-                                          ),
-                                          IconButton(
-                                            icon: const Icon(
-                                              Icons.flag_outlined,
-                                            ),
-                                            tooltip: t.gyeReportTitle,
-                                            onPressed: writesAvailable
-                                                ? () =>
-                                                      _report(context, gyeId, m)
-                                                : null,
-                                          ),
-                                        ],
-                                      ),
-                              );
-                            },
-                          );
-                        },
-                      );
-                    },
+                  child: Text(
+                    t.gyeAccountTransitionPaused,
+                    textAlign: TextAlign.center,
                   ),
                 ),
-              ],
-            ),
+              Expanded(
+                child: StreamBuilder<Set<String>>(
+                  stream: blockedUids ?? GyeService.blockedUidsStream(),
+                  builder: (context, bsnap) {
+                    final blocked = bsnap.data ?? const <String>{};
+                    return StreamBuilder<List<GyeMember>>(
+                      stream: members ?? GyeService.membersStream(gyeId),
+                      builder: (context, snap) {
+                        final members = snap.data ?? const <GyeMember>[];
+                        if (members.isEmpty) {
+                          // §8.1: 스피너 단독 금지 — 표준 로딩. (계는 항상
+                          // 소유자 1명 이상이라 empty ≈ 로딩 중.)
+                          return const AppLoading();
+                        }
+                        return ListView.builder(
+                          padding: pagePadding,
+                          itemCount: members.length + 1,
+                          itemBuilder: (_, i) {
+                            if (i == 0) {
+                              return const Padding(
+                                padding: EdgeInsets.only(bottom: Spacing.sm),
+                                child: _GyeSafetyRulesCard(),
+                              );
+                            }
+                            final m = members[i - 1];
+                            final isSelf = m.uid == me;
+                            final isBlocked = blocked.contains(m.uid);
+                            return ListTile(
+                              onTap: () => _showProfileCard(context, m, isSelf),
+                              leading: CircleAvatar(
+                                backgroundColor: isBlocked
+                                    ? s.border
+                                    : SoriColors.primary.withValues(
+                                        alpha: 0.18,
+                                      ),
+                                child: Text(
+                                  m.nickname.isNotEmpty
+                                      ? m.nickname.substring(0, 1)
+                                      : '?',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                    color: isBlocked
+                                        ? s.textDim
+                                        : SoriColors.primary,
+                                  ),
+                                ),
+                              ),
+                              title: Text(
+                                m.nickname.isEmpty ? '…' : m.nickname,
+                                style: isBlocked
+                                    ? TextStyle(
+                                        color: s.textDim,
+                                        decoration: TextDecoration.lineThrough,
+                                      )
+                                    : null,
+                              ),
+                              subtitle: isBlocked
+                                  ? Text(
+                                      t.gyeBlockedLabel,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: s.textDim,
+                                      ),
+                                    )
+                                  : m.role == GyeRole.owner
+                                  ? Text(
+                                      t.gyeRoleOwner,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: s.textMuted,
+                                      ),
+                                    )
+                                  : null,
+                              trailing: isSelf
+                                  ? Text(
+                                      t.gyeMemberSelf,
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                        color: s.textDim,
+                                      ),
+                                    )
+                                  : Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        IconButton(
+                                          icon: Icon(
+                                            isBlocked
+                                                ? Icons.person_add_alt_outlined
+                                                : Icons.block_outlined,
+                                          ),
+                                          tooltip: isBlocked
+                                              ? t.gyeUnblock
+                                              : t.gyeBlockTitle,
+                                          onPressed: writesAvailable
+                                              ? () => _toggleBlock(
+                                                  context,
+                                                  m,
+                                                  isBlocked,
+                                                )
+                                              : null,
+                                        ),
+                                        IconButton(
+                                          icon: const Icon(Icons.flag_outlined),
+                                          tooltip: t.gyeReportTitle,
+                                          onPressed: writesAvailable
+                                              ? () => _report(context, gyeId, m)
+                                              : null,
+                                        ),
+                                      ],
+                                    ),
+                            );
+                          },
+                        );
+                      },
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         );
       },

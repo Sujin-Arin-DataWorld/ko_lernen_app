@@ -250,19 +250,31 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
     final t = AppL10n.of(context);
     if (_loading) {
       return Scaffold(
-        appBar: SoriAppBar(title: t.vocabPackRecallTitle),
+        appBar: SoriAppBar(
+          title: t.vocabPackRecallTitle,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
+        ),
         body: const AppLoading(),
       );
     }
     if (_error != null) {
       return Scaffold(
-        appBar: SoriAppBar(title: t.vocabPackRecallTitle),
+        appBar: SoriAppBar(
+          title: t.vocabPackRecallTitle,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
+        ),
         body: AppError(message: _error!, onRetry: _load),
       );
     }
     if (_words.isEmpty) {
       return Scaffold(
-        appBar: SoriAppBar(title: t.vocabPackRecallTitle),
+        appBar: SoriAppBar(
+          title: t.vocabPackRecallTitle,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
+        ),
         body: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
@@ -298,6 +310,8 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
     return Scaffold(
       appBar: SoriAppBar(
         title: t.vocabPackRecallTitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
         leading: IconButton(
           icon: const Icon(Icons.close),
           tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
@@ -504,6 +518,8 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
       appBar: SoriAppBar(
         automaticallyImplyLeading: false,
         title: t.vocabPackRecallTitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
       ),
       body: SoriScreenBackground(
         child: SafeArea(

@@ -20,12 +20,12 @@ import '../widgets/sori/reward_thumb.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// Phase 4 (stately-rising-jongga) — 특별 퀘스트 진행 화면.
 ///
@@ -171,15 +171,16 @@ class _QuestsScreenState extends State<QuestsScreen>
     final t = AppL10n.of(context);
 
     if (_loading) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.questsTitle)),
-        body: const AppLoading(),
+      return SoriStandardFrame(
+        appBarTitle: t.questsTitle,
+        builder: (context, padding) => const AppLoading(),
       );
     }
     if (_error != null) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.questsTitle)),
-        body: AppError(message: _error!, onRetry: _load),
+      return SoriStandardFrame(
+        appBarTitle: t.questsTitle,
+        builder: (context, padding) =>
+            AppError(message: _error!, onRetry: _load),
       );
     }
 
@@ -194,14 +195,17 @@ class _QuestsScreenState extends State<QuestsScreen>
         .where((q) => !q.active && !q.completed)
         .toList();
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.questsTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
+    return SoriStandardFrame(
+      appBarTitle: t.questsTitle,
+      maxWidth: SoriMaxWidth.hub,
+      particles: true,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.xs,
+        Spacing.lg,
+        Spacing.xxl,
       ),
-      body: CulturalGlossaryBuilder(
+      builder: (context, padding) => CulturalGlossaryBuilder(
         builder: (context, glossary) {
           final shownTermIds = <String>{};
           bool showCulturalHelp(QuestProgress quest) {
@@ -212,84 +216,67 @@ class _QuestsScreenState extends State<QuestsScreen>
             return termId != null && shownTermIds.add(termId);
           }
 
-          return SoriScreenBackground(
-            particles: true,
-            child: SafeArea(
-              child: RefreshIndicator(
-                onRefresh: _load,
-                color: SoriColors.primary,
-                child: ListView(
-                  padding: soriClampPadding(
-                    MediaQuery.sizeOf(context).width,
-                    base: const EdgeInsets.fromLTRB(12, 4, 12, 32),
-                  ),
-                  children: [
-                    const HanokHeader(
-                      asset: 'assets/illustrations/hanok/achievements.png',
-                      fallbackIcon: Icons.workspace_premium_outlined,
-                    ),
-                    const SizedBox(height: Spacing.md),
-                    // 전체 진행 요약 — 완료/전체 + 진행바 (한눈에 보기).
-                    if (_quests.isNotEmpty) ...[
-                      KeyedSubtree(
-                        key: _summaryKey,
-                        child: _QuestSummary(quests: _quests),
-                      ),
-                      const SizedBox(height: Spacing.md),
-                    ],
-                    if (inProgress.isEmpty &&
-                        available.isEmpty &&
-                        completed.isEmpty &&
-                        seasonalLocked.isEmpty)
-                      SoriEmptyState(
-                        asset:
-                            'assets/illustrations/mascot/magpie_encourage.png',
-                        icon: Icons.local_florist_outlined,
-                        title: t.questsEmptyTitle,
-                        body: t.questsEmptyBody,
-                      ),
-                    if (inProgress.isNotEmpty) ...[
-                      SoriSectionHeader(t.questsSectionInProgress),
-                      ...inProgress.map(
-                        (q) => _QuestTile(
-                          q: q,
-                          showCulturalHelp: showCulturalHelp(q),
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.lg),
-                    ],
-                    if (available.isNotEmpty) ...[
-                      SoriSectionHeader(t.questsSectionAvailable),
-                      ...available.map(
-                        (q) => _QuestTile(
-                          q: q,
-                          showCulturalHelp: showCulturalHelp(q),
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.lg),
-                    ],
-                    if (completed.isNotEmpty) ...[
-                      SoriSectionHeader(t.questsSectionCompleted),
-                      ...completed.map(
-                        (q) => _QuestTile(
-                          q: q,
-                          showCulturalHelp: showCulturalHelp(q),
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.lg),
-                    ],
-                    if (seasonalLocked.isNotEmpty) ...[
-                      SoriSectionHeader(t.questsSectionSeasonalLocked),
-                      ...seasonalLocked.map(
-                        (q) => _QuestTile(
-                          q: q,
-                          showCulturalHelp: showCulturalHelp(q),
-                        ),
-                      ),
-                    ],
-                  ],
+          return RefreshIndicator(
+            onRefresh: _load,
+            color: SoriColors.primary,
+            child: ListView(
+              padding: padding,
+              children: [
+                const HanokHeader(
+                  asset: 'assets/illustrations/hanok/achievements.png',
+                  fallbackIcon: Icons.workspace_premium_outlined,
                 ),
-              ),
+                const SizedBox(height: Spacing.md),
+                // 전체 진행 요약 — 완료/전체 + 진행바 (한눈에 보기).
+                if (_quests.isNotEmpty) ...[
+                  KeyedSubtree(
+                    key: _summaryKey,
+                    child: _QuestSummary(quests: _quests),
+                  ),
+                  const SizedBox(height: Spacing.md),
+                ],
+                if (inProgress.isEmpty &&
+                    available.isEmpty &&
+                    completed.isEmpty &&
+                    seasonalLocked.isEmpty)
+                  SoriEmptyState(
+                    asset: 'assets/illustrations/mascot/magpie_encourage.png',
+                    icon: Icons.local_florist_outlined,
+                    title: t.questsEmptyTitle,
+                    body: t.questsEmptyBody,
+                  ),
+                if (inProgress.isNotEmpty) ...[
+                  SoriSectionHeader(t.questsSectionInProgress),
+                  ...inProgress.map(
+                    (q) =>
+                        _QuestTile(q: q, showCulturalHelp: showCulturalHelp(q)),
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                if (available.isNotEmpty) ...[
+                  SoriSectionHeader(t.questsSectionAvailable),
+                  ...available.map(
+                    (q) =>
+                        _QuestTile(q: q, showCulturalHelp: showCulturalHelp(q)),
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                if (completed.isNotEmpty) ...[
+                  SoriSectionHeader(t.questsSectionCompleted),
+                  ...completed.map(
+                    (q) =>
+                        _QuestTile(q: q, showCulturalHelp: showCulturalHelp(q)),
+                  ),
+                  const SizedBox(height: Spacing.lg),
+                ],
+                if (seasonalLocked.isNotEmpty) ...[
+                  SoriSectionHeader(t.questsSectionSeasonalLocked),
+                  ...seasonalLocked.map(
+                    (q) =>
+                        _QuestTile(q: q, showCulturalHelp: showCulturalHelp(q)),
+                  ),
+                ],
+              ],
             ),
           );
         },
@@ -343,6 +330,7 @@ class _QuestTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Icon(
                 isCompleted
@@ -355,34 +343,27 @@ class _QuestTile extends StatelessWidget {
               ),
               const SizedBox(width: Spacing.sm),
               Expanded(
-                child: Text(
-                  name,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 14,
-                    color: isLocked ? s.textDim : s.text,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      name,
+                      style: SoriTextTheme.of(context).cardTitle.copyWith(
+                        color: isLocked ? s.textDim : s.text,
+                      ),
+                    ),
+                    if (def.type == QuestType.seasonal) ...[
+                      const SizedBox(height: Spacing.xs),
+                      Text(
+                        AppL10n.of(context).questsSeasonalBadge,
+                        style: SoriTextTheme.of(
+                          context,
+                        ).meta.copyWith(color: SoriColors.warning),
+                      ),
+                    ],
+                  ],
                 ),
               ),
-              if (def.type == QuestType.seasonal)
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 2,
-                  ),
-                  decoration: BoxDecoration(
-                    color: SoriColors.warning.withValues(alpha: 0.15),
-                    borderRadius: BorderRadius.circular(SoriRadius.pill),
-                  ),
-                  child: Text(
-                    AppL10n.of(context).questsSeasonalBadge,
-                    style: const TextStyle(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w700,
-                      color: SoriColors.warning,
-                    ),
-                  ),
-                ),
               if (showCulturalHelp)
                 CulturalDecorationHelpButton(
                   decorationSlug: def.decorationSlug,
@@ -397,7 +378,12 @@ class _QuestTile extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 4),
-          Text(desc, style: TextStyle(fontSize: 12, color: s.textMuted)),
+          Text(
+            desc,
+            style: SoriTextTheme.of(
+              context,
+            ).bodySmall.copyWith(color: s.textMuted),
+          ),
           if (!isCompleted) ...[
             const SizedBox(height: Spacing.sm),
             ClipRRect(
@@ -412,11 +398,9 @@ class _QuestTile extends StatelessWidget {
             const SizedBox(height: 4),
             Text(
               '${q.current} / ${q.target}  ·  ${(q.fraction * 100).round()}%',
-              style: TextStyle(
-                fontSize: 11,
-                color: s.textMuted,
-                fontWeight: FontWeight.w600,
-              ),
+              style: SoriTextTheme.of(
+                context,
+              ).meta.copyWith(color: s.textMuted),
             ),
             const SizedBox(height: Spacing.sm),
             if (action.route != null)
@@ -471,50 +455,48 @@ class _QuestSummary extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
+          Wrap(
+            spacing: Spacing.sm,
+            runSpacing: Spacing.xs,
+            crossAxisAlignment: WrapCrossAlignment.center,
             children: [
               const Icon(
                 Icons.emoji_events_rounded,
                 color: SoriColors.gold,
                 size: 22,
               ),
-              const SizedBox(width: Spacing.sm),
               Text(
                 '$done / $total',
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w900,
-                  color: SoriColors.success,
-                ),
+                style: SoriTextTheme.of(
+                  context,
+                ).numeral.copyWith(color: SoriColors.success),
               ),
-              const SizedBox(width: Spacing.sm),
               Text(
                 t.questsSectionCompleted,
-                style: TextStyle(
-                  fontSize: 12,
-                  color: s.textMuted,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: SoriTextTheme.of(
+                  context,
+                ).bodySmall.copyWith(color: s.textMuted),
               ),
-              const Spacer(),
               if (inProgress > 0)
-                Row(
-                  children: [
-                    Icon(
-                      Icons.local_florist_outlined,
-                      size: 14,
-                      color: SoriColors.info,
-                    ),
-                    const SizedBox(width: 3),
-                    Text(
-                      '$inProgress',
-                      style: const TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w800,
+                Semantics(
+                  label: '$inProgress',
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const Icon(
+                        Icons.local_florist_outlined,
+                        size: 14,
                         color: SoriColors.info,
                       ),
-                    ),
-                  ],
+                      const SizedBox(width: Spacing.xs),
+                      Text(
+                        '$inProgress',
+                        style: SoriTextTheme.of(
+                          context,
+                        ).label.copyWith(color: SoriColors.info),
+                      ),
+                    ],
+                  ),
                 ),
             ],
           ),

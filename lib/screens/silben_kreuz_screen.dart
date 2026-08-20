@@ -14,9 +14,9 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -306,47 +306,43 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     final s = SoriSurfaces.of(context);
 
     if (_loading) {
-      return const Scaffold(body: AppLoading());
+      return SoriStudyFrame(
+        title: t.screenWordleTitle,
+        padding: EdgeInsets.zero,
+        child: const AppLoading(),
+      );
     }
 
     final p = _puzzle;
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.screenWordleTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20),
-          onPressed: () => Navigator.pop(context),
-        ),
-        actions: const [TtsSpeedAction()],
+    return SoriStudyFrame(
+      title: t.screenWordleTitle,
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back_ios_new, size: 20),
+        onPressed: () => Navigator.pop(context),
       ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: p == null
-              ? const AppLoading()
-              : SingleChildScrollView(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      _levelPicker(s),
-                      const SizedBox(height: Spacing.md),
-                      // 섹션 간격 md→lg: 격자·타일풀·힌트가 "다닥다닥" 붙어
-                      // 무엇을 하는 화면인지 안 읽혔다(2026-08-12 Jin 실기기).
-                      KeyedSubtree(key: _gridKey, child: _grid(p, s)),
-                      const SizedBox(height: Spacing.lg),
-                      if (!_solved)
-                        KeyedSubtree(key: _poolKey, child: _tilePool(p, s)),
-                      if (_solved) _solvedCard(t),
-                      const SizedBox(height: Spacing.lg),
-                      KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
-                    ],
-                  ),
-                ),
-        ),
-      ),
+      actions: const [TtsSpeedAction()],
+      padding: EdgeInsets.zero,
+      child: p == null
+          ? const AppLoading()
+          : SingleChildScrollView(
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  _levelPicker(s),
+                  const SizedBox(height: Spacing.md),
+                  // 섹션 간격 md→lg: 격자·타일풀·힌트가 "다닥다닥" 붙어
+                  // 무엇을 하는 화면인지 안 읽혔다(2026-08-12 Jin 실기기).
+                  KeyedSubtree(key: _gridKey, child: _grid(p, s)),
+                  const SizedBox(height: Spacing.lg),
+                  if (!_solved)
+                    KeyedSubtree(key: _poolKey, child: _tilePool(p, s)),
+                  if (_solved) _solvedCard(t),
+                  const SizedBox(height: Spacing.lg),
+                  KeyedSubtree(key: _cluesKey, child: _clues(p, s)),
+                ],
+              ),
+            ),
     );
   }
 

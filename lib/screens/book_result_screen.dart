@@ -24,9 +24,10 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/window_class.dart';
 import '../widgets/sori/wordbook_add.dart';
 
 /// Phase 5 (stately-rising-jongga) — Analysis-Result Screen.
@@ -356,23 +357,31 @@ class _BookResultScreenState extends State<BookResultScreen> {
 
     if (_loading) {
       return _guard(
-        Scaffold(
-          appBar: AppBar(title: Text(t.bookResultTitle)),
-          body: AppLoading(
-            message: t.bookResultAnalyzing,
-            asset: 'assets/illustrations/book/book_analyzing.png',
+        SoriStandardFrame(
+          appBarTitle: t.bookResultTitle,
+          maxWidth: SoriMaxWidth.prose,
+          builder: (context, padding) => Padding(
+            padding: padding,
+            child: AppLoading(
+              message: t.bookResultAnalyzing,
+              asset: 'assets/illustrations/book/book_analyzing.png',
+            ),
           ),
         ),
       );
     }
     if (_error != null || _result == null) {
       return _guard(
-        Scaffold(
-          appBar: AppBar(title: Text(t.bookResultTitle)),
-          body: AppError(
-            message: _error ?? 'unknown',
-            onRetry: () => _analyze(_analysisLanguage ?? 'de'),
-            asset: 'assets/illustrations/book/book_error.png',
+        SoriStandardFrame(
+          appBarTitle: t.bookResultTitle,
+          maxWidth: SoriMaxWidth.prose,
+          builder: (context, padding) => Padding(
+            padding: padding,
+            child: AppError(
+              message: _error ?? 'unknown',
+              onRetry: () => _analyze(_analysisLanguage ?? 'de'),
+              asset: 'assets/illustrations/book/book_error.png',
+            ),
           ),
         ),
       );
@@ -404,232 +413,217 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final blockedResult = !r.isSaveable;
 
     return _guard(
-      Scaffold(
-        appBar: AppBar(
-          title: Text(
-            t.bookResultTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800),
-          ),
-          actions: r.isSaveable ? const [TtsSpeedAction()] : const [],
+      SoriStandardFrame(
+        appBarTitle: t.bookResultTitle,
+        actions: r.isSaveable ? const [TtsSpeedAction()] : const [],
+        maxWidth: SoriMaxWidth.prose,
+        padding: const EdgeInsets.fromLTRB(
+          Spacing.lg,
+          Spacing.sm,
+          Spacing.lg,
+          Spacing.xxl,
         ),
-        body: SafeArea(
-          child: LayoutBuilder(
-            builder: (context, constraints) => SingleChildScrollView(
-              padding: soriClampPadding(
-                constraints.maxWidth,
-                base: const EdgeInsets.fromLTRB(16, 8, 16, 32),
+        builder: (context, padding) => SingleChildScrollView(
+          padding: padding,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Center(
+                child: r.words.isNotEmpty
+                    ? Image.asset(
+                        'assets/illustrations/book/book_success.png',
+                        height: 150,
+                        fit: BoxFit.contain,
+                        // Fixed book artwork is brand decoration, not the
+                        // learner's selected companion.
+                        errorBuilder: (_, __, ___) => const Icon(
+                          Icons.auto_stories_rounded,
+                          size: 96,
+                          color: SoriColors.primary,
+                        ),
+                      )
+                    : CompanionBuilder(
+                        builder: (context, kind) => Mascot(
+                          kind: kind,
+                          emotion: MascotEmotion.thinking,
+                          size: 96,
+                        ),
+                        noneBuilder: (context) => const Icon(
+                          Icons.auto_stories_rounded,
+                          size: 96,
+                          color: SoriColors.primary,
+                        ),
+                      ),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Center(
-                    child: r.words.isNotEmpty
-                        ? Image.asset(
-                            'assets/illustrations/book/book_success.png',
-                            height: 150,
-                            fit: BoxFit.contain,
-                            // Fixed book artwork is brand decoration, not the
-                            // learner's selected companion.
-                            errorBuilder: (_, __, ___) => const Icon(
-                              Icons.auto_stories_rounded,
-                              size: 96,
-                              color: SoriColors.primary,
-                            ),
-                          )
-                        : CompanionBuilder(
-                            builder: (context, kind) => Mascot(
-                              kind: kind,
-                              emotion: MascotEmotion.thinking,
-                              size: 96,
-                            ),
-                            noneBuilder: (context) => const Icon(
-                              Icons.auto_stories_rounded,
-                              size: 96,
-                              color: SoriColors.primary,
-                            ),
-                          ),
+              const SizedBox(height: Spacing.sm),
+              Center(
+                child: Text(
+                  t.bookResultFoundN(r.words.length),
+                  style: SoriTextTheme.of(context).h3,
+                ),
+              ),
+              const SizedBox(height: Spacing.lg),
+              if (offlineStub) ...[
+                SoriCard(
+                  variant: SoriCardVariant.compact,
+                  accent: SoriColors.warning,
+                  tinted: true,
+                  child: Row(
+                    children: [
+                      const Icon(
+                        Icons.cloud_off_outlined,
+                        color: SoriColors.warning,
+                        size: 18,
+                      ),
+                      const SizedBox(width: Spacing.sm),
+                      Expanded(
+                        child: Text(
+                          rateLimited
+                              ? t.bookResultRateLimited
+                              : credentialsUnavailable
+                              ? t.bookResultCredentialsNotice
+                              : t.bookResultOfflineNotice,
+                          style: TextStyle(fontSize: 12, color: s.textMuted),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: Spacing.md),
+              ],
+              if (noKoreanText || qualityFiltered || blockedResult) ...[
+                SoriCard(
+                  variant: SoriCardVariant.compact,
+                  accent: SoriColors.warning,
+                  tinted: true,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.fact_check_outlined,
+                        color: SoriColors.warning,
+                        size: 18,
+                      ),
+                      const SizedBox(width: Spacing.sm),
+                      Expanded(
+                        child: Text(
+                          noKoreanText
+                              ? t.bookResultNoKoreanNotice
+                              : translationUnavailable
+                              ? t.bookResultTranslationUnavailable
+                              : t.bookResultQualityNotice,
+                          style: TextStyle(fontSize: 12, color: s.textMuted),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: Spacing.md),
+              ],
+              // 단어 카드
+              if (r.words.isNotEmpty) ...[
+                _SectionLabel(label: t.bookResultSectionWords),
+                ...r.words.map(
+                  (w) =>
+                      _WordCard(word: w, result: r, allowActions: r.isSaveable),
+                ),
+                const SizedBox(height: Spacing.lg),
+              ],
+              if (r.expressions.isNotEmpty) ...[
+                _SectionLabel(label: t.bookResultSectionExpressions),
+                ...r.expressions.map(
+                  (expression) => _ExpressionCard(
+                    expression: expression,
+                    result: r,
+                    allowTts: r.isSaveable,
+                  ),
+                ),
+                const SizedBox(height: Spacing.lg),
+              ],
+              // 문법 패턴
+              if (r.grammar.isNotEmpty) ...[
+                _SectionLabel(label: t.bookResultSectionGrammar),
+                ...r.grammar.map((g) => _GrammarCard(hit: g, result: r)),
+                const SizedBox(height: Spacing.lg),
+              ],
+              // 문장
+              if (r.sentences.isNotEmpty) ...[
+                _SectionLabel(label: t.bookResultSectionSentences),
+                ...r.sentences.map(
+                  (s) => _SentenceCard(
+                    sentence: s,
+                    result: r,
+                    allowTts: r.isSaveable,
+                  ),
+                ),
+                const SizedBox(height: Spacing.lg),
+              ],
+              if (feedbackCompletion != null &&
+                  feedbackScope != null &&
+                  feedbackScope.featureGate.isEnabled) ...[
+                ContentFeedbackCard(
+                  feedbackContext: feedbackCompletion.context,
+                  featureGate: feedbackScope.featureGate,
+                  submitFeedback: feedbackScope.submitFeedback,
+                ),
+                const SizedBox(height: Spacing.md),
+              ],
+              const SizedBox(height: Spacing.md),
+              if (blockedResult) ...[
+                if (!noKoreanText) ...[
+                  SoriButton(
+                    label: t.btnRetry,
+                    icon: Icons.refresh_rounded,
+                    variant: SoriButtonVariant.filled,
+                    accent: SoriColors.primary,
+                    fullWidth: true,
+                    onTap: () => _analyze(_analysisLanguage ?? 'de'),
                   ),
                   const SizedBox(height: Spacing.sm),
-                  Center(
-                    child: Text(
-                      t.bookResultFoundN(r.words.length),
-                      style: SoriTextTheme.of(context).h3,
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                  if (offlineStub) ...[
-                    SoriCard(
-                      variant: SoriCardVariant.compact,
-                      accent: SoriColors.warning,
-                      tinted: true,
-                      child: Row(
-                        children: [
-                          const Icon(
-                            Icons.cloud_off_outlined,
-                            color: SoriColors.warning,
-                            size: 18,
-                          ),
-                          const SizedBox(width: Spacing.sm),
-                          Expanded(
-                            child: Text(
-                              rateLimited
-                                  ? t.bookResultRateLimited
-                                  : credentialsUnavailable
-                                  ? t.bookResultCredentialsNotice
-                                  : t.bookResultOfflineNotice,
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: s.textMuted,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.md),
-                  ],
-                  if (noKoreanText || qualityFiltered || blockedResult) ...[
-                    SoriCard(
-                      variant: SoriCardVariant.compact,
-                      accent: SoriColors.warning,
-                      tinted: true,
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Icon(
-                            Icons.fact_check_outlined,
-                            color: SoriColors.warning,
-                            size: 18,
-                          ),
-                          const SizedBox(width: Spacing.sm),
-                          Expanded(
-                            child: Text(
-                              noKoreanText
-                                  ? t.bookResultNoKoreanNotice
-                                  : translationUnavailable
-                                  ? t.bookResultTranslationUnavailable
-                                  : t.bookResultQualityNotice,
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: s.textMuted,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.md),
-                  ],
-                  // 단어 카드
-                  if (r.words.isNotEmpty) ...[
-                    _SectionLabel(label: t.bookResultSectionWords),
-                    ...r.words.map(
-                      (w) => _WordCard(
-                        word: w,
-                        result: r,
-                        allowActions: r.isSaveable,
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.lg),
-                  ],
-                  if (r.expressions.isNotEmpty) ...[
-                    _SectionLabel(label: t.bookResultSectionExpressions),
-                    ...r.expressions.map(
-                      (expression) => _ExpressionCard(
-                        expression: expression,
-                        result: r,
-                        allowTts: r.isSaveable,
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.lg),
-                  ],
-                  // 문법 패턴
-                  if (r.grammar.isNotEmpty) ...[
-                    _SectionLabel(label: t.bookResultSectionGrammar),
-                    ...r.grammar.map((g) => _GrammarCard(hit: g, result: r)),
-                    const SizedBox(height: Spacing.lg),
-                  ],
-                  // 문장
-                  if (r.sentences.isNotEmpty) ...[
-                    _SectionLabel(label: t.bookResultSectionSentences),
-                    ...r.sentences.map(
-                      (s) => _SentenceCard(
-                        sentence: s,
-                        result: r,
-                        allowTts: r.isSaveable,
-                      ),
-                    ),
-                    const SizedBox(height: Spacing.lg),
-                  ],
-                  if (feedbackCompletion != null &&
-                      feedbackScope != null &&
-                      feedbackScope.featureGate.isEnabled) ...[
-                    ContentFeedbackCard(
-                      feedbackContext: feedbackCompletion.context,
-                      featureGate: feedbackScope.featureGate,
-                      submitFeedback: feedbackScope.submitFeedback,
-                    ),
-                    const SizedBox(height: Spacing.md),
-                  ],
-                  const SizedBox(height: Spacing.md),
-                  if (blockedResult) ...[
-                    if (!noKoreanText) ...[
-                      SoriButton(
-                        label: t.btnRetry,
-                        icon: Icons.refresh_rounded,
-                        variant: SoriButtonVariant.filled,
-                        accent: SoriColors.primary,
-                        fullWidth: true,
-                        onTap: () => _analyze(_analysisLanguage ?? 'de'),
-                      ),
-                      const SizedBox(height: Spacing.sm),
-                    ],
-                    SoriButton(
-                      label: t.bookPreviewRetake,
-                      icon: Icons.replay_outlined,
-                      variant: SoriButtonVariant.outlined,
-                      accent: SoriColors.info,
-                      fullWidth: true,
-                      onTap: () => Navigator.of(context).popUntil(
-                        (route) =>
-                            route.settings.name == '/book' || route.isFirst,
-                      ),
-                    ),
-                  ] else if (!_saved)
-                    SoriButton(
-                      label: t.bookResultSave,
-                      icon: Icons.bookmark_add_outlined,
-                      variant: SoriButtonVariant.filled,
-                      accent: SoriColors.primary,
-                      fullWidth: true,
-                      onTap: _save,
-                    )
-                  else ...[
-                    if (r.words.isNotEmpty) ...[
-                      SoriButton(
-                        label: t.bookshelfCreatePackCta,
-                        icon: Icons.style_outlined,
-                        variant: SoriButtonVariant.filled,
-                        accent: SoriColors.primary,
-                        fullWidth: true,
-                        onTap: () => _createCustomPack(t),
-                      ),
-                      const SizedBox(height: Spacing.sm),
-                    ],
-                    SoriButton(
-                      label: t.bookResultBackToCapture,
-                      icon: Icons.add_a_photo_outlined,
-                      variant: SoriButtonVariant.outlined,
-                      accent: SoriColors.info,
-                      fullWidth: true,
-                      onTap: () => Navigator.of(context).popUntil(
-                        (r) => r.settings.name == '/book' || r.isFirst,
-                      ),
-                    ),
-                  ],
                 ],
-              ),
-            ),
+                SoriButton(
+                  label: t.bookPreviewRetake,
+                  icon: Icons.replay_outlined,
+                  variant: SoriButtonVariant.outlined,
+                  accent: SoriColors.info,
+                  fullWidth: true,
+                  onTap: () => Navigator.of(context).popUntil(
+                    (route) => route.settings.name == '/book' || route.isFirst,
+                  ),
+                ),
+              ] else if (!_saved)
+                SoriButton(
+                  label: t.bookResultSave,
+                  icon: Icons.bookmark_add_outlined,
+                  variant: SoriButtonVariant.filled,
+                  accent: SoriColors.primary,
+                  fullWidth: true,
+                  onTap: _save,
+                )
+              else ...[
+                if (r.words.isNotEmpty) ...[
+                  SoriButton(
+                    label: t.bookshelfCreatePackCta,
+                    icon: Icons.style_outlined,
+                    variant: SoriButtonVariant.filled,
+                    accent: SoriColors.primary,
+                    fullWidth: true,
+                    onTap: () => _createCustomPack(t),
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                ],
+                SoriButton(
+                  label: t.bookResultBackToCapture,
+                  icon: Icons.add_a_photo_outlined,
+                  variant: SoriButtonVariant.outlined,
+                  accent: SoriColors.info,
+                  fullWidth: true,
+                  onTap: () => Navigator.of(
+                    context,
+                  ).popUntil((r) => r.settings.name == '/book' || r.isFirst),
+                ),
+              ],
+            ],
           ),
         ),
       ),

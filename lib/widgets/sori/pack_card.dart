@@ -112,8 +112,6 @@ class _BottomRow extends StatelessWidget {
             child: Text(
               AppL10n.of(context).packLockedHintShort,
               style: TextStyle(fontSize: 11, color: accent),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
             ),
           ),
         ],

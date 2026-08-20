@@ -83,4 +83,57 @@ void main() {
     expect(find.text('Schritt 3 von 3'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('stacks complete German mission context at 320dp and 200%', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final link = ContentLink(
+      id: 'preview-less-spicy-assess-large-text',
+      contentKind: CurriculumContentKind.scenario,
+      contentId: 'preview_less_spicy',
+      courseUnitId: 'a1_preview_less_spicy',
+      conceptIds: ['request_less_spicy'],
+      role: ContentLinkRole.assess,
+    );
+    const title = 'Im Restaurant höflich weniger scharfes Essen bestellen';
+
+    await tester.pumpWidget(
+      MaterialApp(
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        locale: const Locale('de'),
+        home: MediaQuery(
+          data: const MediaQueryData(
+            size: Size(320, 640),
+            textScaler: TextScaler.linear(2),
+          ),
+          child: Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: MissionContextBar(
+                missionTitle: title,
+                step: CourseMissionStep(link: link, index: 2, total: 3),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final label = find.text('Aktuelle Mission');
+    final progress = find.text('Schritt 3 von 3');
+    final titleText = tester.widget<Text>(find.text(title));
+    expect(
+      tester.getRect(progress).top,
+      greaterThan(tester.getRect(label).top),
+    );
+    expect(titleText.maxLines, isNull);
+    expect(titleText.overflow, isNull);
+    expect(tester.takeException(), isNull);
+  });
 }

@@ -23,6 +23,7 @@ class CultureNoteCard extends StatelessWidget {
     }
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final (icon, accent) = _kindStyle(note.kind);
     return Padding(
@@ -40,26 +41,14 @@ class CultureNoteCard extends StatelessWidget {
                 const SizedBox(width: 6),
                 Text(
                   t.cultureNoteTitle,
-                  style: TextStyle(
-                    fontFamily: SoriFonts.sans,
-                    fontSize: 11.5,
-                    fontWeight: FontWeight.w800,
-                    color: accent,
-                    letterSpacing: 0.2,
-                  ),
+                  style: tt.label.copyWith(color: accent),
                 ),
               ],
             ),
-            const SizedBox(height: 6),
-            Text(
-              note.text(lang),
-              style: TextStyle(
-                fontFamily: SoriFonts.sans,
-                fontSize: 12.5,
-                height: 1.45,
-                color: s.text,
-              ),
-            ),
+            const SizedBox(height: Spacing.sm),
+            Text(note.ko, style: tt.cultureTitle.copyWith(color: s.text)),
+            const SizedBox(height: Spacing.xs),
+            Text(note.text(lang), style: tt.bodySmall.copyWith(color: s.text)),
           ],
         ),
       ),

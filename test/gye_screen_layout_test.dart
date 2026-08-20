@@ -361,7 +361,10 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    for (final textScale in [1.0, 1.3]) {
+    const safeInsets = EdgeInsets.only(top: 44, bottom: 34);
+    const courtyardName =
+        'Moon courtyard for patient learners practising together';
+    for (final textScale in [1.0, 1.3, 1.6, 2.0]) {
       for (final viewport in viewports) {
         tester.view.physicalSize = viewport;
         final sessions = ValueNotifier<CloudWriteSession?>(null);
@@ -372,9 +375,11 @@ void main() {
             supportedLocales: AppL10n.supportedLocales,
             localizationsDelegates: AppL10n.localizationsDelegates,
             builder: (context, child) => MediaQuery(
-              data: MediaQuery.of(
-                context,
-              ).copyWith(textScaler: TextScaler.linear(textScale)),
+              data: MediaQuery.of(context).copyWith(
+                padding: safeInsets,
+                viewPadding: safeInsets,
+                textScaler: TextScaler.linear(textScale),
+              ),
               child: child!,
             ),
             home: GyeScreen(
@@ -383,7 +388,7 @@ void main() {
               metaUpdates: Stream<GyeMeta?>.value(
                 const GyeMeta(
                   id: 'ABC234',
-                  name: 'Moon courtyard',
+                  name: courtyardName,
                   code: 'ABC234',
                   ownerId: 'owner',
                   weeklyPromiseSchemaVersion: 1,
@@ -410,6 +415,14 @@ void main() {
           isNull,
           reason: '${viewport.width}dp at ${textScale}x text scale',
         );
+        if (textScale > 1) {
+          final title = tester.widget<Text>(find.text(courtyardName));
+          expect(title.maxLines, isNotNull);
+          expect(title.overflow, TextOverflow.clip);
+        }
+        final codeLabel = tester.widget<Text>(find.text('Entry code:'));
+        expect(codeLabel.maxLines, isNull);
+        expect(codeLabel.overflow, isNull);
         sessions.dispose();
         await tester.pumpWidget(const SizedBox.shrink());
         await tester.pump();

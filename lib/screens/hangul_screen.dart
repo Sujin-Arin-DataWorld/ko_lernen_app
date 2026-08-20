@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 
 import '../models/feedback_completion.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/button.dart';
@@ -17,6 +18,7 @@ import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/sheet.dart';
@@ -214,11 +216,10 @@ class _HangulScreenState extends State<HangulScreen>
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.screenHangulTitle,
-          style: SoriTextTheme.of(context).h2,
-        ),
+      appBar: SoriAppBar(
+        title: t.screenHangulTitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
         actions: const [TtsSpeedAction()],
         bottom: TabBar(
           key: _tabBarKey,
@@ -236,27 +237,32 @@ class _HangulScreenState extends State<HangulScreen>
           ],
         ),
       ),
-      body: SafeArea(
-        child: TabBarView(
-          controller: _tabs,
-          // 탭 넘김 스와이프는 **개요 탭에서만** 켠다.
-          //
-          // 카드 탭과 쓰기 탭은 둘 다 가로 드래그를 스스로 쓴다 — 카드는
-          // 카드 탭은 세로 피드(이전/다음 글자), 쓰기는 손가락 그리기와 좌우 이동.
-          // TabBarView 의 가로 드래그 인식기는 제스처 아레나에서 카드의
-          // Pan 인식기를 이겨버리기 때문에, 켜두면 카드를 미는 대신 탭이
-          // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
-          physics: _tabIndex == 0 ? null : const NeverScrollableScrollPhysics(),
-          children: [
-            _OverviewTab(speak: _speakJamo),
-            _CardsTab(
-              onFinish: _finishCards,
-              random: widget.cardsRandom ?? math.Random(),
-              speak: _speakJamo,
-              prefetch: _prefetch,
-            ),
-            _WriteTab(onFinish: _finishWriting, speak: _speakJamo),
-          ],
+      body: SoriScreenBackground(
+        child: SafeArea(
+          top: false,
+          child: TabBarView(
+            controller: _tabs,
+            // 탭 넘김 스와이프는 **개요 탭에서만** 켠다.
+            //
+            // 카드 탭과 쓰기 탭은 둘 다 가로 드래그를 스스로 쓴다 — 카드는
+            // 카드 탭은 세로 피드(이전/다음 글자), 쓰기는 손가락 그리기와 좌우 이동.
+            // TabBarView 의 가로 드래그 인식기는 제스처 아레나에서 카드의
+            // Pan 인식기를 이겨버리기 때문에, 켜두면 카드를 미는 대신 탭이
+            // 넘어간다(2026-08-18 실측). 탭 전환은 상단 TabBar 로 한다.
+            physics: _tabIndex == 0
+                ? null
+                : const NeverScrollableScrollPhysics(),
+            children: [
+              _OverviewTab(speak: _speakJamo),
+              _CardsTab(
+                onFinish: _finishCards,
+                random: widget.cardsRandom ?? math.Random(),
+                speak: _speakJamo,
+                prefetch: _prefetch,
+              ),
+              _WriteTab(onFinish: _finishWriting, speak: _speakJamo),
+            ],
+          ),
         ),
       ),
     );
@@ -331,16 +337,22 @@ class _CharGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 5×N → 4×N: 셀이 커져 큰 한글(36) + romanization(12) 여유롭게 들어감.
-    // 정사각형 셀(aspect 1.0) — 시각적 안정 + 안드로이드 그리드 표준.
+    final textScaler = MediaQuery.textScalerOf(context);
+    // 기본 배율에서는 기존 정사각형에 가까운 리듬을 유지한다. 큰 글자에서는
+    // 한글과 로마자가 둘 다 잘리지 않도록 셀 높이도 실제 글자 높이만큼 늘린다.
+    // 개요 전체가 ListView 안에 있어 늘어난 그리드는 끝까지 스크롤할 수 있다.
+    final cellHeight = math.max(
+      68.0,
+      textScaler.scale(36) + textScaler.scale(11) + 21,
+    );
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
-        childAspectRatio: 1.0,
+        mainAxisExtent: cellHeight,
       ),
       itemCount: chars.length,
       itemBuilder: (ctx, i) {
@@ -1083,10 +1095,7 @@ class _CardsTabState extends State<_CardsTab> {
 class _HangulCardFace extends StatelessWidget {
   final Color borderColor;
   final List<Widget> children;
-  const _HangulCardFace({
-    required this.borderColor,
-    required this.children,
-  });
+  const _HangulCardFace({required this.borderColor, required this.children});
 
   @override
   Widget build(BuildContext context) {
@@ -1512,7 +1521,10 @@ class _WriteTabState extends State<_WriteTab> {
         final finishH = _completedLetters > 0 ? 92.0 : 0.0;
         final canvasSize = math.min(
           viewport.maxWidth - 28,
-          math.max(220.0, viewport.maxHeight - chrome - nav - hintH - finishH - 16),
+          math.max(
+            220.0,
+            viewport.maxHeight - chrome - nav - hintH - finishH - 16,
+          ),
         );
         return Semantics(
           container: true,
@@ -1612,10 +1624,7 @@ class _WriteTabState extends State<_WriteTab> {
                       icon: const Icon(Icons.chevron_left_rounded),
                       tooltip: t.btnPrev,
                     ),
-                    Text(
-                      '${_idx + 1} / ${_pool.length}',
-                      style: tt.meta,
-                    ),
+                    Text('${_idx + 1} / ${_pool.length}', style: tt.meta),
                     IconButton(
                       key: const Key('hangul-write-next'),
                       onPressed: _next,

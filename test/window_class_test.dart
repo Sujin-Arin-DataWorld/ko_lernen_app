@@ -244,6 +244,8 @@ void main() {
     test('용도별 상한이 의도한 순서다', () {
       expect(SoriMaxWidth.dialog, lessThan(SoriMaxWidth.form));
       expect(SoriMaxWidth.form, lessThan(SoriMaxWidth.prose));
+      expect(SoriMaxWidth.prose, lessThan(SoriMaxWidth.hub));
+      expect(SoriMaxWidth.hub, lessThan(SoriMaxWidth.world));
       expect(SoriMaxWidth.focus, SoriBreakpoints.content);
     });
 
@@ -253,6 +255,8 @@ void main() {
         SoriMaxWidth.dialog,
         SoriMaxWidth.form,
         SoriMaxWidth.prose,
+        SoriMaxWidth.hub,
+        SoriMaxWidth.world,
       ]) {
         expect(maxWidth, greaterThanOrEqualTo(kWindowClassMediumMin - 80));
       }
