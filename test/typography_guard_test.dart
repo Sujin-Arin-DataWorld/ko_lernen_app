@@ -91,7 +91,8 @@ void main() {
       sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
       RegExp(r'(^|[^A-Za-z_$.])TextStyle\('),
       // 2026-08-19 재실측: 409→371 (콘텐츠 화면 색·줄바꿈 정리).
-      371,
+      // 2026-08-20 표준 페이지 이식: 371→359.
+      359,
       'lib/screens/ 원시 TextStyle(',
     );
   });
@@ -105,7 +106,8 @@ void main() {
       sources,
       RegExp(r'BorderRadius\.circular\(\s*[0-9]'),
       // 2026-08-19 재실측: 54→38.
-      38,
+      // 2026-08-20 의미 기반 표면 정리 재실측: 38→33.
+      33,
       '숫자 리터럴 BorderRadius.circular(',
     );
   });
@@ -120,7 +122,8 @@ void main() {
       sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
       RegExp(r'(^|[^A-Za-z_$.])AppBar\('),
       // 2026-08-19 재실측: 98→84.
-      84,
+      // 2026-08-20 SoriStandardPage 이식: 84→70.
+      70,
       'lib/screens/ 원시 AppBar(',
     );
   });

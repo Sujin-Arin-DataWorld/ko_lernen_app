@@ -79,6 +79,14 @@ class SoriEmptyState extends StatelessWidget {
         final illustrationHeight = hasBoundedHeight
             ? illustrationMaxHeight.clamp(0.0, constraints.maxHeight * 0.38)
             : illustrationMaxHeight;
+        if (!hasBoundedHeight) {
+          return _buildContent(
+            context,
+            s,
+            accentColor,
+            illustrationHeight.toDouble(),
+          );
+        }
         return SingleChildScrollView(
           child: ConstrainedBox(
             constraints: BoxConstraints(
@@ -137,8 +145,6 @@ class SoriEmptyState extends StatelessWidget {
                 child: Text(
                   title,
                   textAlign: TextAlign.center,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontFamily: SoriFonts.sans,
                     color: s.text,
@@ -154,8 +160,6 @@ class SoriEmptyState extends StatelessWidget {
                 Text(
                   body!,
                   textAlign: TextAlign.center,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontFamily: SoriFonts.sans,
                     color: s.textMuted,

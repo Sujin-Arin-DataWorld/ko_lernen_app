@@ -9,9 +9,10 @@ import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/window_class.dart';
 import '../widgets/sori/external_link.dart';
 import '../services/storage_service.dart';
 import '../services/audio_policy.dart';
@@ -631,531 +632,513 @@ class _SettingsScreenState extends State<SettingsScreen> {
     final account = widget.account ?? AuthService.accountSnapshot;
     final providers = account.providers;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.settingsTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
-      body: SafeArea(
-        child: ListView(
-          controller: _scrollController,
-          padding: soriClampPadding(
-            MediaQuery.sizeOf(context).width,
-            base: const EdgeInsets.symmetric(vertical: 8),
+    return SoriStandardPage(
+      appBarTitle: t.settingsTitle,
+      controller: _scrollController,
+      maxWidth: SoriMaxWidth.form,
+      padding: const EdgeInsets.fromLTRB(0, Spacing.sm, 0, Spacing.xxxl),
+      children: [
+        // ── 서재 헤더 (한옥 학자방 일러스트) ──
+        Padding(
+          padding: const EdgeInsets.fromLTRB(
+            Spacing.lg,
+            Spacing.xs,
+            Spacing.lg,
+            Spacing.md,
           ),
-          children: [
-            // ── 서재 헤더 (한옥 학자방 일러스트) ──
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                Spacing.lg,
-                Spacing.xs,
-                Spacing.lg,
-                Spacing.md,
-              ),
-              child: HanokHeader(
-                asset: 'assets/illustrations/hanok/study_scholar.png',
-                fallbackIcon: Icons.tune_rounded,
-              ),
-            ),
+          child: HanokHeader(
+            asset: 'assets/illustrations/hanok/study_scholar.png',
+            fallbackIcon: Icons.tune_rounded,
+          ),
+        ),
 
-            // ── Erscheinungsbild: Dark Mode in v2.0 deaktiviert ──
-            // (App läuft ausschließlich im Light-Theme — Auswahl entfernt.)
+        // ── Erscheinungsbild: Dark Mode in v2.0 deaktiviert ──
+        // (App läuft ausschließlich im Light-Theme — Auswahl entfernt.)
 
-            // ── Sprache ──
-            _Section(label: t.settingsLanguage),
-            RadioGroup<String>(
-              groupValue: currentLocale == null
-                  ? 'system'
-                  : currentLocale.languageCode,
-              onChanged: (v) => setState(() {
-                switch (v) {
-                  case 'de':
-                    setLocale(const Locale('de'));
-                  case 'en':
-                    setLocale(const Locale('en'));
-                  default:
-                    setLocale(null);
-                }
+        // ── Sprache ──
+        _Section(label: t.settingsLanguage),
+        RadioGroup<String>(
+          groupValue: currentLocale == null
+              ? 'system'
+              : currentLocale.languageCode,
+          onChanged: (v) => setState(() {
+            switch (v) {
+              case 'de':
+                setLocale(const Locale('de'));
+              case 'en':
+                setLocale(const Locale('en'));
+              default:
+                setLocale(null);
+            }
+          }),
+          child: Column(
+            children: [
+              _RadioTile<String>(
+                title: t.settingsLanguageSystem,
+                value: 'system',
+              ),
+              _RadioTile<String>(title: t.settingsLanguageDe, value: 'de'),
+              _RadioTile<String>(title: t.settingsLanguageEn, value: 'en'),
+            ],
+          ),
+        ),
+
+        // ── Lernlevel ──
+        _Section(label: t.settingsUserLevel),
+        ListTile(
+          leading: const Icon(Icons.school_outlined, color: SoriColors.primary),
+          title: Text(_levelDisplay(t)),
+          subtitle: Text(
+            t.settingsUserLevelChange,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          trailing: const Icon(
+            Icons.chevron_right,
+            color: SoriColors.darkTextMuted,
+          ),
+          onTap: _showLevelDialog,
+        ),
+
+        // ── Lernbegleiter (캐릭터) ──
+        // 2026-07-31 신설. 이전에는 `/character_selection` 으로 가는
+        // 진입점이 앱 전체에 0개라 온보딩에서 한 번 고르면 영원히 못 바꿨다.
+        // 여기서 바꾸면 MascotPreference 통지로 홈·게임이 즉시 따라온다.
+        _Section(label: t.characterSelectionTitle),
+        ValueListenableBuilder<CompanionPreference>(
+          valueListenable: MascotPreference.preference,
+          builder: (context, preference, _) {
+            final kind = MascotPreference.mascotKindFor(preference);
+            return ListTile(
+              leading: kind == null
+                  ? const SizedBox.square(
+                      dimension: 34,
+                      child: Icon(Icons.person_outline_rounded),
+                    )
+                  : Mascot(kind: kind, size: 34),
+              title: Text(switch (preference) {
+                CompanionPreference.none => t.companionNoneName,
+                CompanionPreference.tiger => t.characterNameTiger,
+                CompanionPreference.magpie => t.characterRomanMagpie,
               }),
-              child: Column(
-                children: [
-                  _RadioTile<String>(
-                    title: t.settingsLanguageSystem,
-                    value: 'system',
-                  ),
-                  _RadioTile<String>(title: t.settingsLanguageDe, value: 'de'),
-                  _RadioTile<String>(title: t.settingsLanguageEn, value: 'en'),
-                ],
-              ),
-            ),
-
-            // ── Lernlevel ──
-            _Section(label: t.settingsUserLevel),
-            ListTile(
-              leading: const Icon(
-                Icons.school_outlined,
-                color: SoriColors.primary,
-              ),
-              title: Text(_levelDisplay(t)),
-              subtitle: Text(
-                t.settingsUserLevelChange,
-                style: SoriTextTheme.of(context).caption,
-              ),
+              subtitle: Text(switch (preference) {
+                CompanionPreference.none => t.companionNoneDescription,
+                CompanionPreference.tiger => t.characterTraitTiger,
+                CompanionPreference.magpie => t.characterTraitMagpie,
+              }, style: SoriTextTheme.of(context).caption),
               trailing: const Icon(
                 Icons.chevron_right,
-                color: SoriColors.darkTextMuted,
+                color: SoriColors.lightTextMuted,
               ),
-              onTap: _showLevelDialog,
+              onTap: () => _showMascotDialog(preference),
+            );
+          },
+        ),
+
+        // ── Ton (ADR-002 §7) — AudioPolicy 단일 진실원천 ──
+        _Section(label: t.settingsSoundSection),
+        const _SoundSettings(),
+
+        // ── TTS Speed ── 전역 배수 프리셋 (엔진 base rate 는 저장값 유지).
+        // 구 0.1–1.0 슬라이더는 mp3 배속 의미가 불투명했다 — 이제 모든
+        // 학습 화면과 같은 0.5×–1.5× 프리셋 컨트롤을 공유한다.
+        _Section(label: t.settingsTtsRate),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+          child: TtsSpeedControl(
+            mode: TtsSpeedControlMode.row,
+            onChanged: (_) {
+              // ignore: discarded_futures
+              TtsService.speak('안녕하세요');
+            },
+          ),
+        ),
+
+        // ── Erinnerung (M3) ──
+        _Section(label: t.settingsNotifSection),
+        SwitchListTile(
+          secondary: const Icon(
+            Icons.notifications_active_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.settingsNotifTitle),
+          subtitle: Text(
+            t.settingsNotifSubtitle,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          value: Storage.notificationsEnabled,
+          activeThumbColor: SoriColors.primary,
+          onChanged: _onToggleNotif,
+        ),
+        if (Storage.notificationsEnabled)
+          ListTile(
+            leading: const Icon(
+              Icons.schedule_outlined,
+              color: SoriColors.primary,
             ),
-
-            // ── Lernbegleiter (캐릭터) ──
-            // 2026-07-31 신설. 이전에는 `/character_selection` 으로 가는
-            // 진입점이 앱 전체에 0개라 온보딩에서 한 번 고르면 영원히 못 바꿨다.
-            // 여기서 바꾸면 MascotPreference 통지로 홈·게임이 즉시 따라온다.
-            _Section(label: t.characterSelectionTitle),
-            ValueListenableBuilder<CompanionPreference>(
-              valueListenable: MascotPreference.preference,
-              builder: (context, preference, _) {
-                final kind = MascotPreference.mascotKindFor(preference);
-                return ListTile(
-                  leading: kind == null
-                      ? const SizedBox.square(
-                          dimension: 34,
-                          child: Icon(Icons.person_outline_rounded),
-                        )
-                      : Mascot(kind: kind, size: 34),
-                  title: Text(switch (preference) {
-                    CompanionPreference.none => t.companionNoneName,
-                    CompanionPreference.tiger => t.characterNameTiger,
-                    CompanionPreference.magpie => t.characterRomanMagpie,
-                  }),
-                  subtitle: Text(switch (preference) {
-                    CompanionPreference.none => t.companionNoneDescription,
-                    CompanionPreference.tiger => t.characterTraitTiger,
-                    CompanionPreference.magpie => t.characterTraitMagpie,
-                  }, style: SoriTextTheme.of(context).caption),
-                  trailing: const Icon(
-                    Icons.chevron_right,
-                    color: SoriColors.lightTextMuted,
-                  ),
-                  onTap: () => _showMascotDialog(preference),
-                );
-              },
-            ),
-
-            // ── Ton (ADR-002 §7) — AudioPolicy 단일 진실원천 ──
-            _Section(label: t.settingsSoundSection),
-            const _SoundSettings(),
-
-            // ── TTS Speed ── 전역 배수 프리셋 (엔진 base rate 는 저장값 유지).
-            // 구 0.1–1.0 슬라이더는 mp3 배속 의미가 불투명했다 — 이제 모든
-            // 학습 화면과 같은 0.5×–1.5× 프리셋 컨트롤을 공유한다.
-            _Section(label: t.settingsTtsRate),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-              child: TtsSpeedControl(
-                mode: TtsSpeedControlMode.row,
-                onChanged: (_) {
-                  // ignore: discarded_futures
-                  TtsService.speak('안녕하세요');
-                },
-              ),
-            ),
-
-            // ── Erinnerung (M3) ──
-            _Section(label: t.settingsNotifSection),
-            SwitchListTile(
-              secondary: const Icon(
-                Icons.notifications_active_outlined,
+            title: Text(t.settingsNotifTime),
+            trailing: Text(
+              _notifTimeLabel(),
+              style: const TextStyle(
+                fontWeight: FontWeight.w800,
                 color: SoriColors.primary,
               ),
-              title: Text(t.settingsNotifTitle),
-              subtitle: Text(
-                t.settingsNotifSubtitle,
-                style: SoriTextTheme.of(context).caption,
-              ),
-              value: Storage.notificationsEnabled,
-              activeThumbColor: SoriColors.primary,
-              onChanged: _onToggleNotif,
             ),
-            if (Storage.notificationsEnabled)
-              ListTile(
-                leading: const Icon(
-                  Icons.schedule_outlined,
-                  color: SoriColors.primary,
-                ),
-                title: Text(t.settingsNotifTime),
-                trailing: Text(
-                  _notifTimeLabel(),
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w800,
-                    color: SoriColors.primary,
-                  ),
-                ),
-                onTap: _pickNotifTime,
-              ),
+            onTap: _pickNotifTime,
+          ),
 
-            // ── Interessen (M5) — für den personalisierten Tageskurs ──
-            _Section(label: t.settingsInterestsTitle),
-            ListTile(
-              leading: const Icon(
-                Icons.category_outlined,
-                color: SoriColors.primary,
-              ),
-              title: Text(t.settingsInterestsTitle),
-              subtitle: Text(
-                t.settingsInterestsSubtitle,
-                style: SoriTextTheme.of(context).caption,
-              ),
-              trailing: const Icon(
-                Icons.chevron_right,
-                color: SoriColors.darkTextMuted,
-              ),
-              onTap: _showInterestPicker,
-            ),
+        // ── Interessen (M5) — für den personalisierten Tageskurs ──
+        _Section(label: t.settingsInterestsTitle),
+        ListTile(
+          leading: const Icon(
+            Icons.category_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.settingsInterestsTitle),
+          subtitle: Text(
+            t.settingsInterestsSubtitle,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          trailing: const Icon(
+            Icons.chevron_right,
+            color: SoriColors.darkTextMuted,
+          ),
+          onTap: _showInterestPicker,
+        ),
 
-            // ── Cloud-Backup (Firebase Auth) ──
-            KeyedSubtree(
-              key: _accountSectionKey,
-              child: _Section(label: t.settingsCloudSection),
-            ),
-            AccountPendingOperationPanel(
-              operations: _accountOperations,
-              retryLocalDeletion: _onDeleteAccount,
-              cloudDeletionState: _cloudDataDeletionJournalState,
-              resumeCloudDeletion: _onDeleteCloudData,
-              onCompleted: () async {
-                if (mounted) setState(() {});
-              },
-            ),
-            if (!providers.isDurable)
-              ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                valueListenable: _cloudDataDeletionJournalState,
-                builder: (context, cloudDeletionState, _) {
-                  final durableActionsAvailable =
-                      cloudDeletionState ==
-                      CloudBackupDeletionJournalState.clear;
-                  return AccountNewLinkGuard(
-                    operations: _accountOperations,
-                    builder: (context, linkAvailable) => Column(
-                      children: [
-                        ListTile(
-                          leading: const Icon(
-                            Icons.cloud_outlined,
-                            color: SoriColors.primary,
-                          ),
-                          title: Text(t.settingsCloudSignInPrompt),
-                          subtitle: Text(t.settingsCloudSignInDesc),
-                          onTap: linkAvailable && durableActionsAvailable
-                              ? _onGoogleTap
-                              : () => _showActionLocked(cloudDeletionState),
-                        ),
-                        if (AuthService.appleSignInAvailable)
-                          ListTile(
-                            leading: const Icon(Icons.apple),
-                            title: Text(t.authAppleSignIn),
-                            subtitle: Text(t.settingsCloudSignInDesc),
-                            onTap: linkAvailable && durableActionsAvailable
-                                ? _onAppleTap
-                                : () => _showActionLocked(cloudDeletionState),
-                          ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            if (providers.isDurable) ...[
-              ListTile(
-                leading: const Icon(
-                  Icons.cloud_outlined,
-                  color: SoriColors.primary,
-                ),
-                title: Text(
-                  t.settingsCloudSignedIn(
-                    account.displayName ?? _providerLabel(t, providers),
-                  ),
-                ),
-                subtitle: Text(t.settingsCloudSignedInDesc),
-              ),
-              AccountNewLinkGuard(
+        // ── Cloud-Backup (Firebase Auth) ──
+        KeyedSubtree(
+          key: _accountSectionKey,
+          child: _Section(label: t.settingsCloudSection),
+        ),
+        AccountPendingOperationPanel(
+          operations: _accountOperations,
+          retryLocalDeletion: _onDeleteAccount,
+          cloudDeletionState: _cloudDataDeletionJournalState,
+          resumeCloudDeletion: _onDeleteCloudData,
+          onCompleted: () async {
+            if (mounted) setState(() {});
+          },
+        ),
+        if (!providers.isDurable)
+          ValueListenableBuilder<CloudBackupDeletionJournalState>(
+            valueListenable: _cloudDataDeletionJournalState,
+            builder: (context, cloudDeletionState, _) {
+              final durableActionsAvailable =
+                  cloudDeletionState == CloudBackupDeletionJournalState.clear;
+              return AccountNewLinkGuard(
                 operations: _accountOperations,
-                builder: (context, accountActionsAvailable) => Column(
+                builder: (context, linkAvailable) => Column(
                   children: [
-                    ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                      valueListenable: _cloudDataDeletionJournalState,
-                      builder: (context, cloudDeletionState, _) => ListTile(
-                        leading: const Icon(Icons.cloud_upload_outlined),
-                        title: Text(t.settingsCloudBackupNow),
-                        subtitle: Text(
-                          _lastBackupAt == null
-                              ? t.settingsCloudLastBackupNever
-                              : t.settingsCloudLastBackup(
-                                  _formatBackupTime(_lastBackupAt!),
-                                ),
-                        ),
-                        onTap:
-                            accountActionsAvailable &&
-                                cloudDeletionState ==
-                                    CloudBackupDeletionJournalState.clear
-                            ? _onBackupTap
+                    ListTile(
+                      leading: const Icon(
+                        Icons.cloud_outlined,
+                        color: SoriColors.primary,
+                      ),
+                      title: Text(t.settingsCloudSignInPrompt),
+                      subtitle: Text(t.settingsCloudSignInDesc),
+                      onTap: linkAvailable && durableActionsAvailable
+                          ? _onGoogleTap
+                          : () => _showActionLocked(cloudDeletionState),
+                    ),
+                    if (AuthService.appleSignInAvailable)
+                      ListTile(
+                        leading: const Icon(Icons.apple),
+                        title: Text(t.authAppleSignIn),
+                        subtitle: Text(t.settingsCloudSignInDesc),
+                        onTap: linkAvailable && durableActionsAvailable
+                            ? _onAppleTap
                             : () => _showActionLocked(cloudDeletionState),
                       ),
-                    ),
-                    ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                      valueListenable: _cloudDataDeletionJournalState,
-                      builder: (context, cloudDeletionState, _) => ListTile(
-                        leading: const Icon(Icons.cloud_download_outlined),
-                        title: Text(t.settingsCloudRestore),
-                        onTap:
-                            accountActionsAvailable &&
-                                cloudDeletionState ==
-                                    CloudBackupDeletionJournalState.clear
-                            ? _onRestoreTap
-                            : () => _showActionLocked(cloudDeletionState),
-                      ),
-                    ),
-                    ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                      valueListenable: _cloudDataDeletionJournalState,
-                      builder: (context, cloudDeletionState, _) => ListTile(
-                        leading: const Icon(Icons.logout_rounded),
-                        title: Text(t.profileSignOut),
-                        onTap:
-                            accountActionsAvailable &&
-                                cloudDeletionState ==
-                                    CloudBackupDeletionJournalState.clear
-                            ? _onSignOutTap
-                            : () => _showActionLocked(cloudDeletionState),
-                      ),
-                    ),
-                    ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                      valueListenable: _cloudDataDeletionJournalState,
-                      builder: (context, cloudDeletionState, _) => ListTile(
-                        leading: const Icon(
-                          Icons.cloud_off_outlined,
-                          color: SoriColors.danger,
-                        ),
-                        title: Text(
-                          t.settingsCloudDeleteData,
-                          style: const TextStyle(color: SoriColors.danger),
-                        ),
-                        subtitle: Text(t.settingsCloudDeleteDataDesc),
-                        // A persisted journal resumes the exact server request
-                        // regardless of the account guard — the guard reports
-                        // `blocked` for this very journal, which previously
-                        // made its own resume unreachable (dead code).
-                        onTap:
-                            cloudDeletionState ==
-                                CloudBackupDeletionJournalState.pending
-                            ? _confirmCloudDeleteResume
-                            : accountActionsAvailable &&
-                                  cloudDeletionState ==
-                                      CloudBackupDeletionJournalState.clear
-                            ? _confirmCloudDelete
-                            : () => _showActionLocked(cloudDeletionState),
-                      ),
-                    ),
                   ],
                 ),
+              );
+            },
+          ),
+        if (providers.isDurable) ...[
+          ListTile(
+            leading: const Icon(
+              Icons.cloud_outlined,
+              color: SoriColors.primary,
+            ),
+            title: Text(
+              t.settingsCloudSignedIn(
+                account.displayName ?? _providerLabel(t, providers),
               ),
-            ],
-
-            // ── 광고 섹션 제거 (2026-08-12, hardening fcec48d 이식) ──
-            // 앱에 광고 SDK 가 없다 — ad_service.dart 는 스텁이고 google_mobile_ads
-            // 는 비활성이다. 그런데 설정에 "광고 표시" 토글이 살아 있으면 Play
-            // Data Safety 의 "광고 없음" 진술과 정면으로 모순된다. 토글을 지운다.
-            // (키 자체는 storage_service 에 남기되 기본값을 false 로 내렸다 —
-            //  토글만 지우면 기존 기기에 kl_ads_enabled=true 가 남아 향후 광고를
-            //  도입할 때 기본 ON 이 된다.)
-
-            // ── 안내 다시 보기 ──
-            _Section(label: t.settingsTutorialResetSection),
-            ListTile(
-              leading: const Icon(Icons.replay_rounded),
-              title: Text(t.settingsTutorialResetTitle),
-              subtitle: Text(t.settingsTutorialResetSubtitle),
-              onTap: _resetTutorials,
             ),
-
-            // ── Datenschutz: Analytics/Crashlytics Opt-in (TTDSG §25,
-            //    DSGVO Art. 7 Abs. 3 — jederzeit widerrufbar) ──
-            _Section(label: t.settingsPrivacySection),
-            SwitchListTile(
-              secondary: const Icon(Icons.insights_outlined),
-              title: Text(t.settingsAnalyticsTitle),
-              subtitle: Text(t.settingsAnalyticsDesc),
-              value: Storage.analyticsConsent,
-              onChanged: (v) async {
-                await PrivacyConsentService.setAnalytics(v);
-                if (mounted) {
-                  setState(() {});
-                }
-              },
-            ),
-            SwitchListTile(
-              secondary: const Icon(Icons.bug_report_outlined),
-              title: Text(t.settingsCrashTitle),
-              subtitle: Text(t.settingsCrashDesc),
-              value: Storage.crashConsent,
-              onChanged: (v) async {
-                await PrivacyConsentService.setCrash(v);
-                if (mounted) {
-                  setState(() {});
-                }
-              },
-            ),
-            SwitchListTile(
-              secondary: const Icon(Icons.mic_none_rounded),
-              title: Text(t.settingsPronunciationConsentTitle),
-              subtitle: Text(
-                Storage.pronunciationConsent
-                    ? t.settingsPronunciationConsentDesc
-                    : t.settingsPronunciationConsentOff,
-                style: SoriTextTheme.of(context).caption,
-              ),
-              value: Storage.pronunciationConsent,
-              onChanged: (value) async {
-                if (value && !await _confirmPronunciationConsent()) {
-                  return;
-                }
-                await Storage.setPronunciationConsent(value);
-                if (mounted) {
-                  setState(() {});
-                }
-              },
-            ),
-
-            // ── Reset ──
-            _Section(label: ''),
-            AccountNewLinkGuard(
-              operations: _accountOperations,
-              builder: (context, accountActionsAvailable) => Column(
-                children: [
-                  // Local reset stays available in every journal state: the
-                  // wipe preserves durable account journals (see
-                  // Storage.resetAll) and only an active replacement
-                  // transition may still refuse it at the storage fence.
-                  ListTile(
+            subtitle: Text(t.settingsCloudSignedInDesc),
+          ),
+          AccountNewLinkGuard(
+            operations: _accountOperations,
+            builder: (context, accountActionsAvailable) => Column(
+              children: [
+                ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                  valueListenable: _cloudDataDeletionJournalState,
+                  builder: (context, cloudDeletionState, _) => ListTile(
+                    leading: const Icon(Icons.cloud_upload_outlined),
+                    title: Text(t.settingsCloudBackupNow),
+                    subtitle: Text(
+                      _lastBackupAt == null
+                          ? t.settingsCloudLastBackupNever
+                          : t.settingsCloudLastBackup(
+                              _formatBackupTime(_lastBackupAt!),
+                            ),
+                    ),
+                    onTap:
+                        accountActionsAvailable &&
+                            cloudDeletionState ==
+                                CloudBackupDeletionJournalState.clear
+                        ? _onBackupTap
+                        : () => _showActionLocked(cloudDeletionState),
+                  ),
+                ),
+                ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                  valueListenable: _cloudDataDeletionJournalState,
+                  builder: (context, cloudDeletionState, _) => ListTile(
+                    leading: const Icon(Icons.cloud_download_outlined),
+                    title: Text(t.settingsCloudRestore),
+                    onTap:
+                        accountActionsAvailable &&
+                            cloudDeletionState ==
+                                CloudBackupDeletionJournalState.clear
+                        ? _onRestoreTap
+                        : () => _showActionLocked(cloudDeletionState),
+                  ),
+                ),
+                ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                  valueListenable: _cloudDataDeletionJournalState,
+                  builder: (context, cloudDeletionState, _) => ListTile(
+                    leading: const Icon(Icons.logout_rounded),
+                    title: Text(t.profileSignOut),
+                    onTap:
+                        accountActionsAvailable &&
+                            cloudDeletionState ==
+                                CloudBackupDeletionJournalState.clear
+                        ? _onSignOutTap
+                        : () => _showActionLocked(cloudDeletionState),
+                  ),
+                ),
+                ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                  valueListenable: _cloudDataDeletionJournalState,
+                  builder: (context, cloudDeletionState, _) => ListTile(
                     leading: const Icon(
-                      Icons.delete_outline,
+                      Icons.cloud_off_outlined,
                       color: SoriColors.danger,
                     ),
                     title: Text(
-                      t.settingsReset,
+                      t.settingsCloudDeleteData,
                       style: const TextStyle(color: SoriColors.danger),
                     ),
-                    onTap: _confirmReset,
+                    subtitle: Text(t.settingsCloudDeleteDataDesc),
+                    // A persisted journal resumes the exact server request
+                    // regardless of the account guard — the guard reports
+                    // `blocked` for this very journal, which previously
+                    // made its own resume unreachable (dead code).
+                    onTap:
+                        cloudDeletionState ==
+                            CloudBackupDeletionJournalState.pending
+                        ? _confirmCloudDeleteResume
+                        : accountActionsAvailable &&
+                              cloudDeletionState ==
+                                  CloudBackupDeletionJournalState.clear
+                        ? _confirmCloudDelete
+                        : () => _showActionLocked(cloudDeletionState),
                   ),
-                  ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                    valueListenable: _cloudDataDeletionJournalState,
-                    builder: (context, cloudDeletionState, _) => KeyedSubtree(
-                      key: _accountDeletionKey,
-                      child: ListTile(
-                        leading: const Icon(
-                          Icons.person_remove_outlined,
-                          color: SoriColors.danger,
-                        ),
-                        title: Text(
-                          t.settingsAccountDelete,
-                          style: const TextStyle(color: SoriColors.danger),
-                        ),
-                        subtitle: Text(t.settingsAccountDeleteDesc),
-                        onTap:
-                            accountActionsAvailable &&
-                                cloudDeletionState ==
-                                    CloudBackupDeletionJournalState.clear
-                            ? _confirmAccountDelete
-                            : () => _showActionLocked(cloudDeletionState),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
+          ),
+        ],
 
-            // ── DEBUG: Premium-Override (nur im Debug-Build sichtbar) ──
-            // Damit Gating + Paywall ohne RevenueCat-Dashboard testbar sind.
-            // Wird im Release-Build NICHT angezeigt (kein Gratis-Premium-Schalter).
-            if (kDebugMode) ...[
-              _Section(label: 'DEBUG'),
-              SwitchListTile(
-                secondary: const Icon(
-                  Icons.workspace_premium_outlined,
-                  color: SoriColors.gold,
+        // ── 광고 섹션 제거 (2026-08-12, hardening fcec48d 이식) ──
+        // 앱에 광고 SDK 가 없다 — ad_service.dart 는 스텁이고 google_mobile_ads
+        // 는 비활성이다. 그런데 설정에 "광고 표시" 토글이 살아 있으면 Play
+        // Data Safety 의 "광고 없음" 진술과 정면으로 모순된다. 토글을 지운다.
+        // (키 자체는 storage_service 에 남기되 기본값을 false 로 내렸다 —
+        //  토글만 지우면 기존 기기에 kl_ads_enabled=true 가 남아 향후 광고를
+        //  도입할 때 기본 ON 이 된다.)
+
+        // ── 안내 다시 보기 ──
+        _Section(label: t.settingsTutorialResetSection),
+        ListTile(
+          leading: const Icon(Icons.replay_rounded),
+          title: Text(t.settingsTutorialResetTitle),
+          subtitle: Text(t.settingsTutorialResetSubtitle),
+          onTap: _resetTutorials,
+        ),
+
+        // ── Datenschutz: Analytics/Crashlytics Opt-in (TTDSG §25,
+        //    DSGVO Art. 7 Abs. 3 — jederzeit widerrufbar) ──
+        _Section(label: t.settingsPrivacySection),
+        SwitchListTile(
+          secondary: const Icon(Icons.insights_outlined),
+          title: Text(t.settingsAnalyticsTitle),
+          subtitle: Text(t.settingsAnalyticsDesc),
+          value: Storage.analyticsConsent,
+          onChanged: (v) async {
+            await PrivacyConsentService.setAnalytics(v);
+            if (mounted) {
+              setState(() {});
+            }
+          },
+        ),
+        SwitchListTile(
+          secondary: const Icon(Icons.bug_report_outlined),
+          title: Text(t.settingsCrashTitle),
+          subtitle: Text(t.settingsCrashDesc),
+          value: Storage.crashConsent,
+          onChanged: (v) async {
+            await PrivacyConsentService.setCrash(v);
+            if (mounted) {
+              setState(() {});
+            }
+          },
+        ),
+        SwitchListTile(
+          secondary: const Icon(Icons.mic_none_rounded),
+          title: Text(t.settingsPronunciationConsentTitle),
+          subtitle: Text(
+            Storage.pronunciationConsent
+                ? t.settingsPronunciationConsentDesc
+                : t.settingsPronunciationConsentOff,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          value: Storage.pronunciationConsent,
+          onChanged: (value) async {
+            if (value && !await _confirmPronunciationConsent()) {
+              return;
+            }
+            await Storage.setPronunciationConsent(value);
+            if (mounted) {
+              setState(() {});
+            }
+          },
+        ),
+
+        // ── Reset ──
+        _Section(label: ''),
+        AccountNewLinkGuard(
+          operations: _accountOperations,
+          builder: (context, accountActionsAvailable) => Column(
+            children: [
+              // Local reset stays available in every journal state: the
+              // wipe preserves durable account journals (see
+              // Storage.resetAll) and only an active replacement
+              // transition may still refuse it at the storage fence.
+              ListTile(
+                leading: const Icon(
+                  Icons.delete_outline,
+                  color: SoriColors.danger,
                 ),
-                title: const Text('Premium (Dev-Override)'),
-                subtitle: const Text(
-                  'Nur Debug: testet Gating/Paywall ohne RevenueCat',
-                  style: TextStyle(
-                    fontSize: 12,
-                    color: SoriColors.darkTextMuted,
+                title: Text(
+                  t.settingsReset,
+                  style: const TextStyle(color: SoriColors.danger),
+                ),
+                onTap: _confirmReset,
+              ),
+              ValueListenableBuilder<CloudBackupDeletionJournalState>(
+                valueListenable: _cloudDataDeletionJournalState,
+                builder: (context, cloudDeletionState, _) => KeyedSubtree(
+                  key: _accountDeletionKey,
+                  child: ListTile(
+                    leading: const Icon(
+                      Icons.person_remove_outlined,
+                      color: SoriColors.danger,
+                    ),
+                    title: Text(
+                      t.settingsAccountDelete,
+                      style: const TextStyle(color: SoriColors.danger),
+                    ),
+                    subtitle: Text(t.settingsAccountDeleteDesc),
+                    onTap:
+                        accountActionsAvailable &&
+                            cloudDeletionState ==
+                                CloudBackupDeletionJournalState.clear
+                        ? _confirmAccountDelete
+                        : () => _showActionLocked(cloudDeletionState),
                   ),
                 ),
-                value: Storage.devPremiumOverride,
-                activeThumbColor: SoriColors.gold,
-                onChanged: (v) async {
-                  await PremiumService.setDevOverride(v);
-                  if (mounted) setState(() {});
-                },
               ),
             ],
-
-            // ── About ──
-            _Section(label: t.settingsAbout),
-            ListTile(
-              leading: const Icon(Icons.info_outline),
-              title: Text(t.settingsVersion(_appVersion)),
-              subtitle: Text(t.settingsMadeWith),
-            ),
-            ListTile(
-              leading: const Icon(Icons.privacy_tip_outlined),
-              title: Text(t.settingsPrivacyTitle),
-              subtitle: Text(t.settingsPrivacySubtitle),
-              trailing: const Icon(Icons.copy_rounded, size: 18),
-              onTap: _copyPrivacyUrl,
-            ),
-            ListTile(
-              leading: const Icon(Icons.manage_accounts_outlined),
-              title: Text(t.settingsAccountDeletionTitle),
-              subtitle: Text(t.settingsAccountDeletionSubtitle),
-              trailing: const Icon(Icons.copy_rounded, size: 18),
-              onTap: _copyDeletionUrl,
-            ),
-            ListTile(
-              leading: const Icon(Icons.gavel_outlined),
-              title: Text(t.settingsTermsTitle),
-              trailing: const Icon(Icons.open_in_new_rounded, size: 18),
-              onTap: () => openExternalUrl(context, _termsUrl),
-            ),
-            ListTile(
-              leading: const Icon(Icons.badge_outlined),
-              title: Text(t.settingsImpressumTitle),
-              trailing: const Icon(Icons.open_in_new_rounded, size: 18),
-              onTap: () => openExternalUrl(context, _impressumUrl),
-            ),
-            ListTile(
-              leading: const Icon(Icons.description_outlined),
-              title: Text(t.settingsLicensesTitle),
-              subtitle: Text(t.settingsLicensesSubtitle),
-              trailing: const Icon(Icons.chevron_right_rounded),
-              onTap: () => showLicensePage(
-                context: context,
-                applicationName: 'Hangul Sori',
-                applicationVersion: _appVersion,
-                applicationLegalese: '© 2026 Hangul Sori',
-              ),
-            ),
-            ListTile(
-              leading: const Icon(Icons.library_books_outlined),
-              title: Text(t.settingsDataSourcesTitle),
-              subtitle: Text(t.settingsDataSourcesSubtitle),
-              trailing: const Icon(Icons.chevron_right_rounded),
-              onTap: _showDataSources,
-            ),
-          ],
+          ),
         ),
-      ),
+
+        // ── DEBUG: Premium-Override (nur im Debug-Build sichtbar) ──
+        // Damit Gating + Paywall ohne RevenueCat-Dashboard testbar sind.
+        // Wird im Release-Build NICHT angezeigt (kein Gratis-Premium-Schalter).
+        if (kDebugMode) ...[
+          _Section(label: 'DEBUG'),
+          SwitchListTile(
+            secondary: const Icon(
+              Icons.workspace_premium_outlined,
+              color: SoriColors.gold,
+            ),
+            title: const Text('Premium (Dev-Override)'),
+            subtitle: const Text(
+              'Nur Debug: testet Gating/Paywall ohne RevenueCat',
+              style: TextStyle(fontSize: 12, color: SoriColors.darkTextMuted),
+            ),
+            value: Storage.devPremiumOverride,
+            activeThumbColor: SoriColors.gold,
+            onChanged: (v) async {
+              await PremiumService.setDevOverride(v);
+              if (mounted) setState(() {});
+            },
+          ),
+        ],
+
+        // ── About ──
+        _Section(label: t.settingsAbout),
+        ListTile(
+          leading: const Icon(Icons.info_outline),
+          title: Text(t.settingsVersion(_appVersion)),
+          subtitle: Text(t.settingsMadeWith),
+        ),
+        ListTile(
+          leading: const Icon(Icons.privacy_tip_outlined),
+          title: Text(t.settingsPrivacyTitle),
+          subtitle: Text(t.settingsPrivacySubtitle),
+          trailing: const Icon(Icons.copy_rounded, size: 18),
+          onTap: _copyPrivacyUrl,
+        ),
+        ListTile(
+          leading: const Icon(Icons.manage_accounts_outlined),
+          title: Text(t.settingsAccountDeletionTitle),
+          subtitle: Text(t.settingsAccountDeletionSubtitle),
+          trailing: const Icon(Icons.copy_rounded, size: 18),
+          onTap: _copyDeletionUrl,
+        ),
+        ListTile(
+          leading: const Icon(Icons.gavel_outlined),
+          title: Text(t.settingsTermsTitle),
+          trailing: const Icon(Icons.open_in_new_rounded, size: 18),
+          onTap: () => openExternalUrl(context, _termsUrl),
+        ),
+        ListTile(
+          leading: const Icon(Icons.badge_outlined),
+          title: Text(t.settingsImpressumTitle),
+          trailing: const Icon(Icons.open_in_new_rounded, size: 18),
+          onTap: () => openExternalUrl(context, _impressumUrl),
+        ),
+        ListTile(
+          leading: const Icon(Icons.description_outlined),
+          title: Text(t.settingsLicensesTitle),
+          subtitle: Text(t.settingsLicensesSubtitle),
+          trailing: const Icon(Icons.chevron_right_rounded),
+          onTap: () => showLicensePage(
+            context: context,
+            applicationName: 'Hangul Sori',
+            applicationVersion: _appVersion,
+            applicationLegalese: '© 2026 Hangul Sori',
+          ),
+        ),
+        ListTile(
+          leading: const Icon(Icons.library_books_outlined),
+          title: Text(t.settingsDataSourcesTitle),
+          subtitle: Text(t.settingsDataSourcesSubtitle),
+          trailing: const Icon(Icons.chevron_right_rounded),
+          onTap: _showDataSources,
+        ),
+      ],
     );
   }
 

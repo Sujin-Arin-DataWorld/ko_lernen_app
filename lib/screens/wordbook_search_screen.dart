@@ -6,9 +6,10 @@ import '../services/custom_pack_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/window_class.dart';
 
 /// **Meine Wörter** (v2.0) — durchsucht ALLE selbst gespeicherten Wörter
 /// (alle Custom-Packs zusammengeführt) per Text + Wortart-Filter (Kategorie).
@@ -77,139 +78,132 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
     final results = _filtered;
     final posOptions = _posOptions;
 
-    return Scaffold(
-      backgroundColor: s.bg,
-      appBar: AppBar(
-        title: Text(
-          t.wbSearchTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        actions: const [TtsSpeedAction()],
+    return SoriStandardFrame(
+      appBarTitle: t.wbSearchTitle,
+      actions: const [TtsSpeedAction()],
+      maxWidth: SoriMaxWidth.prose,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.md,
+        Spacing.lg,
+        Spacing.xl,
       ),
-      body: SafeArea(
-        child: _all.isEmpty
-            ? SoriEmptyState(
+      builder: (context, pagePadding) => _all.isEmpty
+          ? Padding(
+              padding: pagePadding,
+              child: SoriEmptyState(
                 asset: 'assets/illustrations/mascot/magpie_wave.png',
                 icon: Icons.bookmark_border_rounded,
                 title: t.wbSearchTitle,
                 body: t.wbSearchNoWords,
-              )
-            : LayoutBuilder(
-                builder: (context, constraints) => Column(
-                  children: [
-                    Padding(
-                      padding: soriClampPadding(
-                        constraints.maxWidth,
-                        base: const EdgeInsets.fromLTRB(
-                          Spacing.lg,
-                          Spacing.md,
-                          Spacing.lg,
-                          Spacing.sm,
-                        ),
-                      ),
-                      child: TextField(
-                        controller: _ctrl,
-                        onChanged: (v) => setState(() => _query = v),
-                        decoration: InputDecoration(
-                          hintText: t.wbSearchHint,
-                          prefixIcon: const Icon(Icons.search_rounded),
-                          suffixIcon: _query.isEmpty
-                              ? null
-                              : IconButton(
-                                  icon: const Icon(Icons.clear_rounded),
-                                  onPressed: () {
-                                    _ctrl.clear();
-                                    setState(() => _query = '');
-                                  },
-                                ),
-                          filled: true,
-                          fillColor: s.surface,
-                          border: const OutlineInputBorder(
-                            borderRadius: SoriRadius.brMd,
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                      ),
-                    ),
-                    if (posOptions.isNotEmpty)
-                      SizedBox(
-                        height: 44,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: Spacing.lg,
-                          ),
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(right: 6),
-                              child: ChoiceChip(
-                                label: Text(t.wbPosAll),
-                                selected: _pos == null,
-                                onSelected: (_) => setState(() => _pos = null),
-                              ),
-                            ),
-                            for (final p in posOptions)
-                              Padding(
-                                padding: const EdgeInsets.only(right: 6),
-                                child: ChoiceChip(
-                                  label: Text(p),
-                                  selected: _pos == p,
-                                  onSelected: (_) => setState(() => _pos = p),
-                                ),
-                              ),
-                          ],
-                        ),
-                      ),
-                    Padding(
-                      padding: soriClampPadding(
-                        constraints.maxWidth,
-                        base: const EdgeInsets.fromLTRB(
-                          Spacing.lg,
-                          Spacing.sm,
-                          Spacing.lg,
-                          0,
-                        ),
-                      ),
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          t.wbSearchCount(results.length),
-                          style: TextStyle(
-                            color: s.textMuted,
-                            fontSize: 12.5,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      child: results.isEmpty
-                          ? Center(
-                              child: Text(
-                                t.wbSearchEmpty,
-                                style: TextStyle(color: s.textMuted),
-                              ),
-                            )
-                          : ListView.separated(
-                              padding: soriClampPadding(
-                                constraints.maxWidth,
-                                base: const EdgeInsets.fromLTRB(
-                                  Spacing.lg,
-                                  Spacing.sm,
-                                  Spacing.lg,
-                                  Spacing.xl,
-                                ),
-                              ),
-                              itemCount: results.length,
-                              separatorBuilder: (_, __) =>
-                                  const SizedBox(height: Spacing.sm),
-                              itemBuilder: (_, i) => _WordRow(word: results[i]),
-                            ),
-                    ),
-                  ],
-                ),
               ),
-      ),
+            )
+          : Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    pagePadding.left,
+                    pagePadding.top,
+                    pagePadding.right,
+                    Spacing.sm,
+                  ),
+                  child: TextField(
+                    controller: _ctrl,
+                    onChanged: (v) => setState(() => _query = v),
+                    decoration: InputDecoration(
+                      hintText: t.wbSearchHint,
+                      prefixIcon: const Icon(Icons.search_rounded),
+                      suffixIcon: _query.isEmpty
+                          ? null
+                          : IconButton(
+                              icon: const Icon(Icons.clear_rounded),
+                              onPressed: () {
+                                _ctrl.clear();
+                                setState(() => _query = '');
+                              },
+                            ),
+                      filled: true,
+                      fillColor: s.surface,
+                      border: const OutlineInputBorder(
+                        borderRadius: SoriRadius.brMd,
+                        borderSide: BorderSide.none,
+                      ),
+                    ),
+                  ),
+                ),
+                if (posOptions.isNotEmpty)
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(minHeight: 44),
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: pagePadding.left,
+                      ),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: Spacing.xs),
+                            child: ChoiceChip(
+                              label: Text(t.wbPosAll),
+                              selected: _pos == null,
+                              onSelected: (_) => setState(() => _pos = null),
+                            ),
+                          ),
+                          for (final p in posOptions)
+                            Padding(
+                              padding: const EdgeInsets.only(right: Spacing.xs),
+                              child: ChoiceChip(
+                                label: Text(p),
+                                selected: _pos == p,
+                                onSelected: (_) => setState(() => _pos = p),
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(
+                    pagePadding.left,
+                    Spacing.sm,
+                    pagePadding.right,
+                    0,
+                  ),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      t.wbSearchCount(results.length),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).caption.copyWith(fontWeight: FontWeight.w600),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: results.isEmpty
+                      ? Center(
+                          child: Text(
+                            t.wbSearchEmpty,
+                            style: TextStyle(color: s.textMuted),
+                          ),
+                        )
+                      : ListView.separated(
+                          keyboardDismissBehavior:
+                              ScrollViewKeyboardDismissBehavior.onDrag,
+                          padding: EdgeInsets.fromLTRB(
+                            pagePadding.left,
+                            Spacing.sm,
+                            pagePadding.right,
+                            pagePadding.bottom,
+                          ),
+                          itemCount: results.length,
+                          separatorBuilder: (_, __) =>
+                              const SizedBox(height: Spacing.sm),
+                          itemBuilder: (_, i) => _WordRow(word: results[i]),
+                        ),
+                ),
+              ],
+            ),
     );
   }
 }
@@ -226,76 +220,105 @@ class _WordRow extends StatelessWidget {
         : word.translationEn;
     return SoriCard(
       variant: SoriCardVariant.base,
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
+          final stackMetadata =
+              constraints.maxWidth - kMinInteractiveDimension <
+                  SoriAdaptiveWidth.criticalActionRow ||
+              textScale >= 1.6;
+          final titleAndPartOfSpeech = stackMetadata
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Flexible(
-                      child: Text(
-                        word.korean,
-                        style: TextStyle(
-                          fontFamily: SoriFonts.sans,
-                          fontSize: 17,
-                          fontWeight: FontWeight.w800,
-                          color: s.text,
-                        ),
-                      ),
-                    ),
+                    _WordTitle(word: word),
                     if (word.posDe.trim().isNotEmpty) ...[
-                      const SizedBox(width: 8),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 7,
-                          vertical: 2,
-                        ),
-                        decoration: BoxDecoration(
-                          color: SoriColors.primary.withValues(alpha: 0.12),
-                          borderRadius: BorderRadius.circular(SoriRadius.pill),
-                        ),
-                        child: Text(
-                          word.posDe,
-                          style: const TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w800,
-                            color: SoriColors.primaryOnLight,
-                          ),
-                        ),
+                      const SizedBox(height: Spacing.xs),
+                      _PartOfSpeech(label: word.posDe),
+                    ],
+                  ],
+                )
+              : Row(
+                  children: [
+                    Flexible(child: _WordTitle(word: word)),
+                    if (word.posDe.trim().isNotEmpty) ...[
+                      const SizedBox(width: Spacing.sm),
+                      Flexible(child: _PartOfSpeech(label: word.posDe)),
+                    ],
+                  ],
+                );
+
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    titleAndPartOfSpeech,
+                    if (meaning.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xs),
+                      Text(
+                        meaning,
+                        style: TextStyle(fontSize: 13, color: s.textMuted),
+                      ),
+                    ],
+                    if (word.definitionKo.isNotEmpty) ...[
+                      const SizedBox(height: Spacing.xs),
+                      Text(
+                        word.definitionKo,
+                        style: TextStyle(fontSize: 12, color: s.textDim),
                       ),
                     ],
                   ],
                 ),
-                if (meaning.isNotEmpty) ...[
-                  const SizedBox(height: 2),
-                  Text(
-                    meaning,
-                    style: TextStyle(fontSize: 13, color: s.textMuted),
-                  ),
-                ],
-                if (word.definitionKo.isNotEmpty) ...[
-                  const SizedBox(height: 2),
-                  Text(
-                    word.definitionKo,
-                    style: TextStyle(fontSize: 12, color: s.textDim),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
-              ],
-            ),
-          ),
-          IconButton(
-            icon: Icon(
-              Icons.volume_up_rounded,
-              color: SoriColors.primary.withValues(alpha: 0.75),
-            ),
-            onPressed: () => TtsService.speak(word.korean),
-          ),
-        ],
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.volume_up_rounded,
+                  color: SoriColors.primary.withValues(alpha: 0.75),
+                ),
+                onPressed: () => TtsService.speak(word.korean),
+              ),
+            ],
+          );
+        },
       ),
     );
   }
+}
+
+class _WordTitle extends StatelessWidget {
+  const _WordTitle({required this.word});
+
+  final ExtractedWord word;
+
+  @override
+  Widget build(BuildContext context) =>
+      Text(word.korean, style: SoriTextTheme.of(context).cardTitle);
+}
+
+class _PartOfSpeech extends StatelessWidget {
+  const _PartOfSpeech({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) => Container(
+    padding: const EdgeInsets.symmetric(
+      horizontal: Spacing.sm,
+      vertical: Spacing.xs,
+    ),
+    decoration: BoxDecoration(
+      color: SoriColors.primary.withValues(alpha: 0.12),
+      borderRadius: SoriRadius.brPill,
+    ),
+    child: Text(
+      label,
+      style: SoriTextTheme.of(context).caption.copyWith(
+        fontWeight: FontWeight.w700,
+        color: SoriColors.primaryOnLight,
+      ),
+    ),
+  );
 }

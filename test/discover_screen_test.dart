@@ -63,7 +63,13 @@ void main() {
       (key: 'words', route: '/wordbook/search'),
     ]) {
       final priority = find.byKey(ValueKey('discover-priority-${entry.key}'));
+      await tester.scrollUntilVisible(
+        priority,
+        240,
+        scrollable: find.byType(Scrollable).first,
+      );
       await tester.ensureVisible(priority);
+      await tester.pump();
       await tester.tap(priority);
       await tester.pumpAndSettle();
       expect(opened.last, entry.route);

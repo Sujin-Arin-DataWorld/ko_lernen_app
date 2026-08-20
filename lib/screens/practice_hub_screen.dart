@@ -6,11 +6,12 @@ import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/module_card.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// **연습 허브** — 탭 2 (R1 IA, 2026-06-06).
 ///
@@ -88,78 +89,67 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final text = SoriTextTheme.of(context);
-    return Scaffold(
-      appBar: AppBar(title: Text(t.navPractice)),
-      body: SafeArea(
-        child: SoriContentClamp(
-          base: const EdgeInsets.fromLTRB(
-            Spacing.lg,
-            Spacing.md,
-            Spacing.lg,
-            Spacing.xl,
-          ),
-          builder: (context, padding) => ListView(
-            padding: padding,
-            children: [
-              Text(t.practiceEyebrow, style: text.label),
-              const SizedBox(height: Spacing.xs),
-              Text(t.practiceTitle, style: text.h1),
-              const SizedBox(height: Spacing.xs),
-              Text(t.practiceSubtitle, style: text.bodySmall),
-              const SizedBox(height: Spacing.lg),
-              KeyedSubtree(
-                key: _coachTargetKey,
-                child: _PurposeRouteList(
-                  dueCount: _dueCount,
-                  onReview: () async {
-                    await Navigator.pushNamed(context, '/review');
-                    if (mounted && widget.previewDueCount == null) {
-                      await _loadDue();
-                    }
-                  },
-                  onFocused: () => _openPurposePicker(
-                    title: t.practiceSecLearn,
-                    items: _learnItems(t),
-                  ),
-                  onFreePlay: () => _openPurposePicker(
-                    title: t.practiceSecGames,
-                    items: _gameItems(t),
-                  ),
-                  onWords: () => _openPurposePicker(
-                    title: t.practiceSecWords,
-                    items: _wordItems(t),
-                  ),
-                ),
-              ),
-              const SizedBox(height: Spacing.lg),
-              SoriButton.outlined(
-                key: const ValueKey('practice-all-activities'),
-                label: _showAllActivities
-                    ? t.practiceHideAllActivities
-                    : t.practiceAllActivities,
-                trailingIcon: _showAllActivities
-                    ? Icons.expand_less_rounded
-                    : Icons.expand_more_rounded,
-                fullWidth: true,
-                onTap: () =>
-                    setState(() => _showAllActivities = !_showAllActivities),
-              ),
-              if (_showAllActivities) ...[
-                const SizedBox(height: Spacing.lg),
-                _section(context, t.practiceSecLearn, _learnItems(t)),
-                const SizedBox(height: Spacing.lg),
-                _section(context, t.practiceSecWords, _wordItems(t)),
-                const SizedBox(height: Spacing.lg),
-                _section(context, t.practiceSecGames, _gameItems(t)),
-                const SizedBox(height: Spacing.lg),
-                _section(context, t.practiceSecSpace, _spaceItems(t)),
-              ],
-              const SizedBox(height: Spacing.xxxl),
-            ],
+    return SoriStandardPage(
+      appBarTitle: t.navPractice,
+      eyebrow: t.practiceEyebrow,
+      headline: t.practiceTitle,
+      description: t.practiceSubtitle,
+      maxWidth: SoriMaxWidth.hub,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.md,
+        Spacing.lg,
+        Spacing.xl,
+      ),
+      children: [
+        KeyedSubtree(
+          key: _coachTargetKey,
+          child: _PurposeRouteList(
+            dueCount: _dueCount,
+            onReview: () async {
+              await Navigator.pushNamed(context, '/review');
+              if (mounted && widget.previewDueCount == null) {
+                await _loadDue();
+              }
+            },
+            onFocused: () => _openPurposePicker(
+              title: t.practiceSecLearn,
+              items: _learnItems(t),
+            ),
+            onFreePlay: () => _openPurposePicker(
+              title: t.practiceSecGames,
+              items: _gameItems(t),
+            ),
+            onWords: () => _openPurposePicker(
+              title: t.practiceSecWords,
+              items: _wordItems(t),
+            ),
           ),
         ),
-      ),
+        const SizedBox(height: Spacing.lg),
+        SoriButton.outlined(
+          key: const ValueKey('practice-all-activities'),
+          label: _showAllActivities
+              ? t.practiceHideAllActivities
+              : t.practiceAllActivities,
+          trailingIcon: _showAllActivities
+              ? Icons.expand_less_rounded
+              : Icons.expand_more_rounded,
+          fullWidth: true,
+          onTap: () => setState(() => _showAllActivities = !_showAllActivities),
+        ),
+        if (_showAllActivities) ...[
+          const SizedBox(height: Spacing.lg),
+          _section(context, t.practiceSecLearn, _learnItems(t)),
+          const SizedBox(height: Spacing.lg),
+          _section(context, t.practiceSecWords, _wordItems(t)),
+          const SizedBox(height: Spacing.lg),
+          _section(context, t.practiceSecGames, _gameItems(t)),
+          const SizedBox(height: Spacing.lg),
+          _section(context, t.practiceSecSpace, _spaceItems(t)),
+        ],
+        const SizedBox(height: Spacing.xxxl),
+      ],
     );
   }
 

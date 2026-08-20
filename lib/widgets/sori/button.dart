@@ -18,8 +18,9 @@ enum SoriButtonSize { lg, md, sm }
 /// SoriButton.ghost(label: 'Mehr', onTap: ...)
 /// ```
 class SoriButton extends StatelessWidget {
-  /// Maximum label lines. Leave null only for a critical full-width CTA whose
-  /// complete wording must remain available at large accessibility scales.
+  /// Maximum label lines. The default is unbounded so an action never hides
+  /// its meaning. Dense chrome may opt into one line; that path scales down
+  /// instead of ellipsizing the label.
   final int? maxLines;
   final String label;
   final IconData? icon;
@@ -45,7 +46,7 @@ class SoriButton extends StatelessWidget {
     this.accent,
     this.fullWidth = false,
     this.destructive = false,
-    this.maxLines = 1,
+    this.maxLines,
   }) : assert(maxLines == null || maxLines > 0);
 
   const SoriButton.filled({
@@ -58,7 +59,7 @@ class SoriButton extends StatelessWidget {
     this.accent,
     this.fullWidth = false,
     this.destructive = false,
-    this.maxLines = 1,
+    this.maxLines,
   }) : variant = SoriButtonVariant.filled,
        assert(maxLines == null || maxLines > 0);
 
@@ -72,7 +73,7 @@ class SoriButton extends StatelessWidget {
     this.accent,
     this.fullWidth = false,
     this.destructive = false,
-    this.maxLines = 1,
+    this.maxLines,
   }) : variant = SoriButtonVariant.outlined,
        assert(maxLines == null || maxLines > 0);
 
@@ -86,7 +87,7 @@ class SoriButton extends StatelessWidget {
     this.accent,
     this.fullWidth = false,
     this.destructive = false,
-    this.maxLines = 1,
+    this.maxLines,
   }) : variant = SoriButtonVariant.ghost,
        assert(maxLines == null || maxLines > 0);
 
@@ -186,7 +187,6 @@ class SoriButton extends StatelessWidget {
               child: Text(
                 label,
                 maxLines: maxLines,
-                overflow: maxLines == null ? null : TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: SoriFonts.sans,

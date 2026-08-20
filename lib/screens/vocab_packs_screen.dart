@@ -25,6 +25,7 @@ import '../widgets/sori/pack_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// **Vocab Packs Screen** — Phase 2 의 새 vocab 진입 화면.
 ///
@@ -345,33 +346,68 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
                         top: Spacing.md,
                         bottom: 80,
                       ),
-                      sliver: SliverGrid(
-                        gridDelegate:
-                            const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: Spacing.md,
-                              crossAxisSpacing: Spacing.md,
-                              // 일러스트 슬롯(16:10)이 얹힌 카드라 세로가
-                              // 길어졌다 (구 0.92 — 텍스트 전용 카드 기준).
-                              childAspectRatio: 0.82,
-                            ),
-                        delegate: SliverChildBuilderDelegate((context, i) {
-                          final e = _packs[i];
-                          return PackCard(
-                            packId: e.pack.id,
-                            title: VocabPackService.displayLabel(
-                              e.pack.id,
-                              lang: Localizations.localeOf(context).languageCode,
-                            ),
-                            progress: e.progress,
-                            // §H 티저: A2+ 비프리미엄이면 카드에서 미리 알린다
-                            // — 탭은 기존 _onPackTap 의 게이트가 그대로 받는다.
-                            premium:
-                                _level != 'A1' && !PremiumService.isPremium,
-                            onTap: () => _onPackTap(e.pack),
-                            onLockedTap: () => _onLockedTap(e.pack),
+                      sliver: SliverLayoutBuilder(
+                        builder: (context, constraints) {
+                          final available = constraints.crossAxisExtent;
+                          final textScale =
+                              MediaQuery.textScalerOf(context).scale(14) / 14;
+                          final baseColumns = soriGridColumns(
+                            available,
+                            target: 210,
+                            min: 2,
+                            max: 4,
+                            outerPadding: 0,
+                            spacing: Spacing.md,
                           );
-                        }, childCount: _packs.length),
+                          final columns =
+                              textScale >= 1.6 &&
+                                  available < SoriBreakpoints.grid
+                              ? 1
+                              : baseColumns;
+                          final cellWidth =
+                              (available - Spacing.md * (columns - 1)) /
+                              columns;
+                          final languageCode = Localizations.localeOf(
+                            context,
+                          ).languageCode;
+                          final labels = _packs.map(
+                            (entry) => VocabPackService.displayLabel(
+                              entry.pack.id,
+                              lang: languageCode,
+                            ),
+                          );
+                          return SliverGrid(
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: columns,
+                                  mainAxisSpacing: Spacing.md,
+                                  crossAxisSpacing: Spacing.md,
+                                  mainAxisExtent: _packCardMainAxisExtent(
+                                    context,
+                                    cellWidth: cellWidth,
+                                    titles: labels,
+                                    lockedHint: t.packLockedHintShort,
+                                  ),
+                                ),
+                            delegate: SliverChildBuilderDelegate((context, i) {
+                              final e = _packs[i];
+                              return PackCard(
+                                packId: e.pack.id,
+                                title: VocabPackService.displayLabel(
+                                  e.pack.id,
+                                  lang: languageCode,
+                                ),
+                                progress: e.progress,
+                                // §H 티저: A2+ 비프리미엄이면 카드에서 미리 알린다
+                                // — 탭은 기존 _onPackTap 의 게이트가 그대로 받는다.
+                                premium:
+                                    _level != 'A1' && !PremiumService.isPremium,
+                                onTap: () => _onPackTap(e.pack),
+                                onLockedTap: () => _onLockedTap(e.pack),
+                              );
+                            }, childCount: _packs.length),
+                          );
+                        },
                       ),
                     ),
                 ],
@@ -382,6 +418,51 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
       ),
     );
   }
+}
+
+double _packCardMainAxisExtent(
+  BuildContext context, {
+  required double cellWidth,
+  required Iterable<String> titles,
+  required String lockedHint,
+}) {
+  final textScaler = MediaQuery.textScalerOf(context);
+  final textDirection = Directionality.of(context);
+  final locale = Localizations.localeOf(context);
+  final titleStyle = SoriTextTheme.of(context).cardTitle;
+  final bodyWidth = (cellWidth - Spacing.md * 2).clamp(1.0, double.infinity);
+  var titleHeight = 0.0;
+  for (final title in titles) {
+    final painter = TextPainter(
+      text: TextSpan(text: title, style: titleStyle),
+      textDirection: textDirection,
+      textScaler: textScaler,
+      locale: locale,
+    )..layout(maxWidth: bodyWidth);
+    titleHeight = titleHeight < painter.height ? painter.height : titleHeight;
+    painter.dispose();
+  }
+  final footerPainter = TextPainter(
+    text: TextSpan(text: lockedHint, style: const TextStyle(fontSize: 11)),
+    textDirection: textDirection,
+    textScaler: textScaler,
+    locale: locale,
+  )..layout(maxWidth: (bodyWidth - 14).clamp(1.0, double.infinity));
+  final footerHeight = footerPainter.height < 8 ? 8.0 : footerPainter.height;
+  footerPainter.dispose();
+
+  const imageAspectRatio = 16 / 10;
+  const bodyVerticalPadding = Spacing.sm + Spacing.md;
+  // TextPainter and RenderParagraph can differ by sub-pixel font leading;
+  // borders and grid rounding also consume a fraction. Eight dp keeps the
+  // measured no-truncation contract stable across bundled font backends.
+  const layoutAllowance = 8.0;
+  return cellWidth / imageAspectRatio +
+      bodyVerticalPadding +
+      titleHeight +
+      Spacing.xs +
+      footerHeight +
+      layoutAllowance;
 }
 
 /// 미션 경로로 진입한 스코프 뷰에서 "이건 미션 팩만"임을 알리고, 전체 팩
@@ -442,28 +523,46 @@ class _LevelProgressHeader extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Text(level, style: SoriTextTheme.of(context).h2),
-              const SizedBox(width: Spacing.sm),
-              // ⚠️ 예전에는 이 Text 가 고정 크기 + `Spacer` 였다. 독일어 진행도
-              // 문구와 태블릿 comfort scale 이 겹치면 Row 가 통째로 넘쳐
-              // (800dp 에서 51px) 노란 줄무늬가 떴다. Expanded 로 남는 폭을
-              // 주고 넘칠 때는 잘라 낸다 — 오른쪽 단계 라벨 위치는 그대로다.
-              Expanded(
-                child: Text(
-                  t.vocabPacksProgressLabel(cleared, total),
-                  style: SoriTextTheme.of(context).bodySmall,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ),
-              const SizedBox(width: Spacing.sm),
-              _StageLabel(level: level, pct: pct),
-            ],
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
+              final stack =
+                  constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
+                  textScale >= 1.6;
+              final progress = Row(
+                children: [
+                  Text(level, style: SoriTextTheme.of(context).h2),
+                  const SizedBox(width: Spacing.sm),
+                  Expanded(
+                    child: Text(
+                      t.vocabPacksProgressLabel(cleared, total),
+                      style: SoriTextTheme.of(context).bodySmall,
+                    ),
+                  ),
+                ],
+              );
+              if (stack) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    progress,
+                    const SizedBox(height: Spacing.sm),
+                    _StageLabel(level: level, pct: pct),
+                  ],
+                );
+              }
+              return Row(
+                children: [
+                  Expanded(child: progress),
+                  const SizedBox(width: Spacing.sm),
+                  _StageLabel(level: level, pct: pct),
+                ],
+              );
+            },
           ),
           const SizedBox(height: Spacing.sm),
           ClipRRect(
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: SoriRadius.brPill,
             child: LinearProgressIndicator(
               value: pct,
               minHeight: 8,
@@ -493,7 +592,7 @@ class _StageLabel extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
       decoration: BoxDecoration(
         color: SoriColors.primary.withValues(alpha: 0.10),
-        borderRadius: BorderRadius.circular(SoriRadius.pill),
+        borderRadius: SoriRadius.brPill,
         border: Border.all(
           color: SoriColors.primary.withValues(alpha: 0.3),
           width: 0.8,

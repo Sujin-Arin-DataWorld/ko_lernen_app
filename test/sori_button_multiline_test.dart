@@ -116,4 +116,37 @@ void main() {
     expect(tester.widget<Text>(find.text(label)).maxLines, 2);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('default CTA preserves its full label at 200% text', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    const label = 'Mit deinem nächsten persönlichen Lernschritt weitermachen';
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: Center(
+            child: SizedBox(
+              width: 180,
+              child: MediaQuery.withClampedTextScaling(
+                minScaleFactor: 2,
+                maxScaleFactor: 2,
+                child: const SoriButton.filled(label: label),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    final text = tester.widget<Text>(find.text(label));
+    expect(text.maxLines, isNull);
+    expect(text.overflow, isNull);
+    expect(tester.getSize(find.text(label)).height, greaterThan(60));
+    expect(tester.takeException(), isNull);
+  });
 }

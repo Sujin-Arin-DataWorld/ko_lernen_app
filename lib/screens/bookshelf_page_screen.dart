@@ -7,9 +7,10 @@ import '../services/custom_pack_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/window_class.dart';
 
 /// Phase 5.1 (stately-rising-jongga) — 책장 페이지 상세.
 ///
@@ -115,16 +116,17 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
     final t = AppL10n.of(context);
 
     if (_page == null) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.bookshelfPageTitle)),
-        body: Center(
-          child: SoriEmptyState(
+      return SoriStandardPage(
+        appBarTitle: t.bookshelfPageTitle,
+        maxWidth: SoriMaxWidth.prose,
+        children: [
+          SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.help_outline,
             title: t.bookshelfPageNotFoundTitle,
             body: t.bookshelfPageNotFoundBody,
           ),
-        ),
+        ],
       );
     }
 
@@ -132,80 +134,70 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
     final s = SoriSurfaces.of(context);
     final hasWords = page.words.isNotEmpty;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.bookshelfPageTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
+    return SoriStandardPage(
+      appBarTitle: t.bookshelfPageTitle,
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.delete_outline),
+          tooltip: t.btnDelete,
+          onPressed: _delete,
         ),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.delete_outline),
-            tooltip: t.btnDelete,
-            onPressed: _delete,
+        const TtsSpeedAction(),
+      ],
+      maxWidth: SoriMaxWidth.prose,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.sm,
+        Spacing.lg,
+        Spacing.xxl,
+      ),
+      children: [
+        // 추출 원문 미리보기
+        Container(
+          padding: const EdgeInsets.all(Spacing.md),
+          decoration: BoxDecoration(
+            color: SoriColors.info.withValues(alpha: 0.06),
+            borderRadius: SoriRadius.brMd,
+            border: Border.all(color: SoriColors.info.withValues(alpha: 0.20)),
           ),
-          const TtsSpeedAction(),
+          child: Text(
+            page.extractedText,
+            style: const TextStyle(fontSize: 14, height: 1.5),
+          ),
+        ),
+        const SizedBox(height: Spacing.lg),
+
+        if (hasWords) ...[
+          SoriButton(
+            label: t.bookshelfCreatePackCta,
+            icon: Icons.style_outlined,
+            variant: SoriButtonVariant.filled,
+            accent: SoriColors.primary,
+            fullWidth: true,
+            onTap: _createCustomPack,
+          ),
+          const SizedBox(height: Spacing.lg),
         ],
-      ),
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) => ListView(
-            padding: soriClampPadding(
-              constraints.maxWidth,
-              base: const EdgeInsets.fromLTRB(16, 8, 16, 32),
-            ),
-            children: [
-              // 추출 원문 미리보기
-              Container(
-                padding: const EdgeInsets.all(Spacing.md),
-                decoration: BoxDecoration(
-                  color: SoriColors.info.withValues(alpha: 0.06),
-                  borderRadius: BorderRadius.circular(SoriRadius.md),
-                  border: Border.all(
-                    color: SoriColors.info.withValues(alpha: 0.20),
-                  ),
-                ),
-                child: Text(
-                  page.extractedText,
-                  style: const TextStyle(fontSize: 14, height: 1.5),
-                ),
-              ),
-              const SizedBox(height: Spacing.lg),
 
-              if (hasWords) ...[
-                SoriButton(
-                  label: t.bookshelfCreatePackCta,
-                  icon: Icons.style_outlined,
-                  variant: SoriButtonVariant.filled,
-                  accent: SoriColors.primary,
-                  fullWidth: true,
-                  onTap: _createCustomPack,
-                ),
-                const SizedBox(height: Spacing.lg),
-              ],
+        if (page.words.isNotEmpty) ...[
+          _SectionLabel(label: t.bookResultSectionWords),
+          ...page.words.map((w) => _MiniWordRow(word: w, s: s)),
+          const SizedBox(height: Spacing.lg),
+        ],
 
-              if (page.words.isNotEmpty) ...[
-                _SectionLabel(label: t.bookResultSectionWords),
-                ...page.words.map((w) => _MiniWordRow(word: w, s: s)),
-                const SizedBox(height: Spacing.lg),
-              ],
+        if (page.grammar.isNotEmpty) ...[
+          _SectionLabel(label: t.bookResultSectionGrammar),
+          ...page.grammar.map((g) => _MiniGrammarRow(hit: g, s: s)),
+          const SizedBox(height: Spacing.lg),
+        ],
 
-              if (page.grammar.isNotEmpty) ...[
-                _SectionLabel(label: t.bookResultSectionGrammar),
-                ...page.grammar.map((g) => _MiniGrammarRow(hit: g, s: s)),
-                const SizedBox(height: Spacing.lg),
-              ],
-
-              if (page.sentences.isNotEmpty) ...[
-                _SectionLabel(label: t.bookResultSectionSentences),
-                ...page.sentences
-                    .take(10)
-                    .map((sent) => _MiniSentenceRow(sentence: sent, s: s)),
-              ],
-            ],
-          ),
-        ),
-      ),
+        if (page.sentences.isNotEmpty) ...[
+          _SectionLabel(label: t.bookResultSectionSentences),
+          ...page.sentences
+              .take(10)
+              .map((sent) => _MiniSentenceRow(sentence: sent, s: s)),
+        ],
+      ],
     );
   }
 }

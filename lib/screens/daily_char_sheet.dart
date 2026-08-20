@@ -14,7 +14,9 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 import '../widgets/stroke_canvas.dart';
 
 /// 홈에서 호출되는 Daily Calligraphy bottom sheet.
@@ -40,16 +42,16 @@ class DailyCalligraphyRouteScreen extends StatelessWidget {
   final String? character;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text(AppL10n.of(context).dailyCharTitle)),
-    body: SafeArea(
-      child: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(Spacing.xl),
-          child: _DailyCharSheet(character: character),
-        ),
-      ),
+  Widget build(BuildContext context) => SoriStandardPage(
+    appBarTitle: AppL10n.of(context).dailyCharTitle,
+    maxWidth: SoriMaxWidth.form,
+    padding: const EdgeInsets.fromLTRB(
+      Spacing.xl,
+      Spacing.xl,
+      Spacing.xl,
+      Spacing.xxxl,
     ),
+    children: [_DailyCharSheet(character: character)],
   );
 }
 

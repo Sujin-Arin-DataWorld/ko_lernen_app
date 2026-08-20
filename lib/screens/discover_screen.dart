@@ -6,7 +6,9 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/module_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/section_header.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// A scan-first feature directory for learners who do not yet know which
 /// Hangul Sori activity solves their current learning need.
@@ -82,112 +84,96 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
     final showPriorities =
         query.isEmpty && _selectedPurpose == DiscoverPurpose.forMe;
 
-    return Scaffold(
-      appBar: AppBar(title: Text(t.navDiscover)),
-      body: SafeArea(
-        child: SoriContentClamp(
-          base: const EdgeInsets.fromLTRB(
-            Spacing.lg,
-            Spacing.md,
-            Spacing.lg,
-            Spacing.xxxl,
-          ),
-          builder: (context, padding) => ListView(
-            padding: padding,
-            children: [
-              Text(t.discoverEyebrow, style: tt.label),
-              const SizedBox(height: Spacing.xs),
-              Text(t.discoverTitle, style: tt.h1),
-              const SizedBox(height: Spacing.xs),
-              Text(t.discoverSubtitle, style: tt.bodySmall),
-              const SizedBox(height: Spacing.lg),
-              TextField(
-                controller: _searchController,
-                onChanged: (value) => setState(() => _query = value),
-                textInputAction: TextInputAction.search,
-                decoration: InputDecoration(
-                  hintText: t.discoverSearchHint,
-                  prefixIcon: const Icon(Icons.search_rounded),
-                  suffixIcon: _query.isEmpty
-                      ? null
-                      : IconButton(
-                          tooltip: MaterialLocalizations.of(
-                            context,
-                          ).deleteButtonTooltip,
-                          icon: const Icon(Icons.clear_rounded),
-                          onPressed: () {
-                            _searchController.clear();
-                            setState(() => _query = '');
-                          },
-                        ),
-                  filled: true,
-                  fillColor: surfaces.surface,
-                  border: const OutlineInputBorder(
-                    borderRadius: SoriRadius.brMd,
-                    borderSide: BorderSide.none,
+    return SoriStandardPage(
+      appBarTitle: t.navDiscover,
+      eyebrow: t.discoverEyebrow,
+      headline: t.discoverTitle,
+      description: t.discoverSubtitle,
+      maxWidth: SoriMaxWidth.hub,
+      children: [
+        TextField(
+          controller: _searchController,
+          onChanged: (value) => setState(() => _query = value),
+          textInputAction: TextInputAction.search,
+          decoration: InputDecoration(
+            hintText: t.discoverSearchHint,
+            prefixIcon: const Icon(Icons.search_rounded),
+            suffixIcon: _query.isEmpty
+                ? null
+                : IconButton(
+                    tooltip: MaterialLocalizations.of(
+                      context,
+                    ).deleteButtonTooltip,
+                    icon: const Icon(Icons.clear_rounded),
+                    onPressed: () {
+                      _searchController.clear();
+                      setState(() => _query = '');
+                    },
                   ),
-                ),
-              ),
-              const SizedBox(height: Spacing.md),
-              Wrap(
-                spacing: 4,
-                runSpacing: 4,
-                children: [
-                  for (final purpose in DiscoverPurpose.values)
-                    _CategoryChip(
-                      label: purpose.label(t),
-                      selected: _selectedPurpose == purpose,
-                      onSelected: () =>
-                          setState(() => _selectedPurpose = purpose),
-                    ),
-                ],
-              ),
-              if (showPriorities) ...[
-                const SizedBox(height: Spacing.md),
-                const _DiscoverPriorityRoutes(),
-              ],
-              const SizedBox(height: Spacing.lg),
-              SoriSectionHeader(_selectedPurpose.label(t)),
-              if (visibleFeatures.isEmpty)
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: Spacing.xl),
-                  child: Column(
-                    children: [
-                      const Icon(
-                        Icons.search_off_rounded,
-                        size: 36,
-                        color: SoriColors.primary,
-                      ),
-                      const SizedBox(height: Spacing.sm),
-                      Text(t.discoverNoResults, style: tt.bodySmall),
-                      const SizedBox(height: Spacing.xs),
-                      Text(
-                        t.discoverNoResultsHint,
-                        textAlign: TextAlign.center,
-                        style: tt.caption,
-                      ),
-                    ],
-                  ),
-                )
-              else
-                _FeatureGrid(
-                  features: showPriorities
-                      ? visibleFeatures
-                            .where(
-                              (feature) => !const {
-                                '/book',
-                                '/vocab_notebook',
-                                '/listening',
-                                '/wordbook/search',
-                              }.contains(feature.route),
-                            )
-                            .toList(growable: false)
-                      : visibleFeatures,
-                ),
-            ],
+            filled: true,
+            fillColor: surfaces.surface,
+            border: const OutlineInputBorder(
+              borderRadius: SoriRadius.brMd,
+              borderSide: BorderSide.none,
+            ),
           ),
         ),
-      ),
+        const SizedBox(height: Spacing.md),
+        Wrap(
+          spacing: Spacing.xs,
+          runSpacing: Spacing.xs,
+          children: [
+            for (final purpose in DiscoverPurpose.values)
+              _CategoryChip(
+                label: purpose.label(t),
+                selected: _selectedPurpose == purpose,
+                onSelected: () => setState(() => _selectedPurpose = purpose),
+              ),
+          ],
+        ),
+        if (showPriorities) ...[
+          const SizedBox(height: Spacing.md),
+          const _DiscoverPriorityRoutes(),
+        ],
+        const SizedBox(height: Spacing.lg),
+        SoriSectionHeader(_selectedPurpose.label(t)),
+        if (visibleFeatures.isEmpty)
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: Spacing.xl),
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.search_off_rounded,
+                  size: 36,
+                  color: SoriColors.primary,
+                ),
+                const SizedBox(height: Spacing.sm),
+                Text(t.discoverNoResults, style: tt.bodySmall),
+                const SizedBox(height: Spacing.xs),
+                Text(
+                  t.discoverNoResultsHint,
+                  textAlign: TextAlign.center,
+                  style: tt.caption,
+                ),
+              ],
+            ),
+          )
+        else
+          _FeatureGrid(
+            features: showPriorities
+                ? visibleFeatures
+                      .where(
+                        (feature) => !const {
+                          '/book',
+                          '/vocab_notebook',
+                          '/listening',
+                          '/wordbook/search',
+                        }.contains(feature.route),
+                      )
+                      .toList(growable: false)
+                : visibleFeatures,
+          ),
+      ],
     );
   }
 }

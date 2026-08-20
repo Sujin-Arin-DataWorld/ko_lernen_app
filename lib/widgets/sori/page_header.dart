@@ -41,7 +41,10 @@ class SoriPageHeader extends StatelessWidget {
           Text(eyebrow!, style: tt.eyebrow),
           const SizedBox(height: Spacing.xs),
         ],
-        Text(title, style: titleStyle ?? tt.hero),
+        Semantics(
+          header: true,
+          child: Text(title, style: titleStyle ?? tt.hero),
+        ),
         if (body != null) ...[
           const SizedBox(height: Spacing.sm),
           Text(body!, style: tt.body),
