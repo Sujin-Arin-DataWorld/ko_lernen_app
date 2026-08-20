@@ -17,7 +17,9 @@ import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_choice_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hard_choice_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/listening_play_screen.dart';
 import 'package:ko_lernen_app/screens/review_session_screen.dart';
@@ -35,6 +37,7 @@ import 'package:ko_lernen_app/services/silben_puzzle_loader.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
@@ -203,9 +206,13 @@ void main() {
       'kl_tut_listening_play': true,
       'kl_tut_review': true,
       'kl_tut_smalltalk': true,
+      'kl_tut_grammar': true,
+      'kl_tut_hangul': true,
+      'kl_tut_hangulWriteRules': true,
     });
     await Storage.init();
     await DataLoader.loadVocab();
+    await DataLoader.loadGrammar();
     await KkeunmariEngine.load();
     await SilbenPuzzleLoader.load();
     await SmalltalkLoader.load();
@@ -219,6 +226,7 @@ void main() {
   });
 
   final activities = <String, Widget Function()>{
+    'grammar deck': () => const GrammarScreen(),
     'grammar choice': () => GrammarChoiceQuizScreen(
       initialLevel: 'A1',
       randomSeed: 5,
@@ -307,6 +315,35 @@ void main() {
     }
   }
 
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    for (final viewport in const <({Size size, double textScale})>[
+      (size: Size(320, 640), textScale: 2),
+      (size: Size(360, 400), textScale: 1),
+    ]) {
+      testWidgets('Hangul tabs stay usable in ${locale.languageCode} '
+          '@ ${viewport.size.width.toInt()}x${viewport.size.height.toInt()} '
+          '×${viewport.textScale}', (tester) async {
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        tester.view.devicePixelRatio = 1;
+        tester.view.physicalSize = viewport.size;
+
+        await tester.pumpWidget(
+          _host(
+            locale: locale,
+            textScale: viewport.textScale,
+            child: HangulScreen(textPrefetcher: (_) async {}),
+          ),
+        );
+        await tester.pump(const Duration(milliseconds: 500));
+
+        expect(find.byType(SoriAppBar), findsOneWidget);
+        expect(find.byType(TabBarView), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      });
+    }
+  }
+
   testWidgets(
     'speed match exposes complete instructional and vocabulary text',
     (tester) async {
@@ -355,6 +392,7 @@ Finder? _readyFinderFor(String activity) {
     'listening player' ||
     'review session' ||
     'small talk' => find.byType(SoriContentFeed),
+    'grammar deck' => find.byKey(const ValueKey('grammar-filter-row')),
     _ => null,
   };
 }

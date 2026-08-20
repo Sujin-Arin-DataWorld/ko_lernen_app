@@ -20,6 +20,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.leading,
     this.automaticallyImplyLeading = true,
+    this.bottom,
   });
 
   final String title;
@@ -31,9 +32,11 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final Widget? leading;
   final bool automaticallyImplyLeading;
+  final PreferredSizeWidget? bottom;
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize =>
+      Size.fromHeight(kToolbarHeight + (bottom?.preferredSize.height ?? 0));
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +70,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
               ],
             ),
       actions: actions,
+      bottom: bottom,
     );
   }
 }
