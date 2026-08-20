@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
+import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/gye_hanok.dart';
 import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
@@ -143,6 +144,43 @@ void main() {
     expect(find.text('Mondhof'), findsOneWidget);
   });
 
+  testWidgets(
+    'standalone Gye keeps chrome and courtyard names complete at 200%',
+    (tester) async {
+      tester.view.physicalSize = const Size(320, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      const courtyardName =
+          'Mondhof für geduldige Lernende, die jeden Abend gemeinsam üben';
+
+      await _pump(
+        tester,
+        () async => const [
+          GyeMeta(
+            id: 'ABC234',
+            name: courtyardName,
+            code: 'ABC234',
+            ownerId: 'owner',
+          ),
+        ],
+        textScale: 2,
+        safeInsets: const EdgeInsets.only(top: 44, bottom: 34),
+      );
+
+      expect(find.byType(SoriAppBar), findsOneWidget);
+      await tester.scrollUntilVisible(
+        find.text(courtyardName),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      final name = tester.widget<Text>(find.text(courtyardName));
+      expect(name.maxLines, isNull);
+      expect(name.overflow, isNull);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
   testWidgets('parent rebuild reuses one Gye load future', (tester) async {
     var loads = 0;
     Future<List<GyeMeta>> loader() async {
@@ -187,6 +225,7 @@ Future<void> _pump(
   VoidCallback? onFindOrCreate,
   VoidCallback? onContinueSolo,
   double textScale = 1,
+  EdgeInsets safeInsets = EdgeInsets.zero,
   bool active = true,
   bool settle = true,
 }) async {
@@ -197,9 +236,11 @@ Future<void> _pump(
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       builder: (context, child) => MediaQuery(
-        data: MediaQuery.of(
-          context,
-        ).copyWith(textScaler: TextScaler.linear(textScale)),
+        data: MediaQuery.of(context).copyWith(
+          padding: safeInsets,
+          viewPadding: safeInsets,
+          textScaler: TextScaler.linear(textScale),
+        ),
         child: child!,
       ),
       home: GyeTabScreen(
