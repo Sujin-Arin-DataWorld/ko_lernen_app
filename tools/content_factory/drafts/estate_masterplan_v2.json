@@ -1,0 +1,372 @@
+{
+  "schemaVersion": 2,
+  "contractId": "estate_masterplan_v2",
+  "status": "phase0Review",
+  "runtimeEnabled": false,
+  "coordinateSpace": {
+    "width": 1000,
+    "height": 750,
+    "unit": "normalizedMasterCanvas",
+    "aspectRatio": "4:3"
+  },
+  "visualBudgetPercent": {
+    "architectureAndWalls": 35,
+    "emptyCourtyards": 40,
+    "pathsAndFutureSockets": 15,
+    "plantingAndLifePropsMax": 10
+  },
+  "overviewSocketPolicy": "oneRepresentativeSocketPerLevel",
+  "focusedLevelDetailSocketPolicy": "deferred",
+  "retiredStructureIds": [
+    "daecheongmaru",
+    "rear_garden"
+  ],
+  "architecturalGrammar": {
+    "id": "unjoru_validated_original_jongga",
+    "reconstructionMode": "grammarOnly",
+    "frontBoundary": "integratedHaengrangAndSotdaeulmun",
+    "sarangComplex": "asymmetricalWithModestNumaru",
+    "anchae": "fourWingCourtyard",
+    "serviceCourt": "attachedToAnchae",
+    "shrine": "separateRearEnclosure",
+    "elevationBands": [
+      "frontLow",
+      "sarangMiddle",
+      "anchaeShrineHigh"
+    ]
+  },
+  "visualCanon": {
+    "id": "hangul_sori_compound_faceted_minhwa",
+    "architectureAuthority": "unjoruSpatialGrammar",
+    "visualDnaAuthority": "legacyCompoundAndCrossChannelGate",
+    "geometryAuthority": "approvedSingleGoldenMaster",
+    "legacyPixelReuse": false,
+    "runtimeAssetPromotion": "deferred"
+  },
+  "boundaryPrologue": {
+    "authority": "presentationOnly",
+    "createsGrant": false,
+    "grantIds": [],
+    "steps": [
+      {
+        "id": "outer_wall_foundation",
+        "order": 1,
+        "structureId": "outer_wall",
+        "cameraRevealId": "camera_a1_arrival"
+      },
+      {
+        "id": "outer_wall_complete",
+        "order": 2,
+        "structureId": "outer_wall",
+        "cameraRevealId": "camera_a1_arrival"
+      },
+      {
+        "id": "sotdaeulmun_threshold",
+        "order": 3,
+        "structureId": "sotdaeulmun",
+        "cameraRevealId": "camera_a1_arrival"
+      }
+    ]
+  },
+  "zones": [
+    {
+      "id": "zone_outer_approach",
+      "bounds": {
+        "x": 0,
+        "y": 660,
+        "width": 1000,
+        "height": 90
+      }
+    },
+    {
+      "id": "zone_front_haengrang_boundary",
+      "bounds": {
+        "x": 50,
+        "y": 590,
+        "width": 900,
+        "height": 70
+      }
+    },
+    {
+      "id": "zone_sarang_court",
+      "bounds": {
+        "x": 260,
+        "y": 360,
+        "width": 480,
+        "height": 230
+      }
+    },
+    {
+      "id": "zone_sarang_complex",
+      "bounds": {
+        "x": 310,
+        "y": 275,
+        "width": 370,
+        "height": 100
+      }
+    },
+    {
+      "id": "zone_inner_threshold",
+      "bounds": {
+        "x": 440,
+        "y": 230,
+        "width": 120,
+        "height": 55
+      }
+    },
+    {
+      "id": "zone_anchae_courtyard",
+      "bounds": {
+        "x": 300,
+        "y": 55,
+        "width": 400,
+        "height": 200
+      }
+    },
+    {
+      "id": "zone_attached_kitchen_service",
+      "bounds": {
+        "x": 680,
+        "y": 245,
+        "width": 240,
+        "height": 260
+      }
+    },
+    {
+      "id": "zone_rear_shrine",
+      "bounds": {
+        "x": 750,
+        "y": 45,
+        "width": 170,
+        "height": 170
+      }
+    },
+    {
+      "id": "zone_transmission_expansion",
+      "bounds": {
+        "x": 80,
+        "y": 55,
+        "width": 190,
+        "height": 200
+      }
+    }
+  ],
+  "levelSockets": [
+    {
+      "id": "hanok_socket_a1_sarangchae_build",
+      "level": "a1",
+      "zoneId": "zone_sarang_court",
+      "position": {
+        "x": 500,
+        "y": 470
+      },
+      "minimumLogicalHitSize": 48,
+      "overviewMode": "progressOrQuestionMark",
+      "allowedTargetStructureIds": [
+        "sarangchae"
+      ]
+    },
+    {
+      "id": "hanok_socket_a2_sarangbang_life",
+      "level": "a2",
+      "zoneId": "zone_sarang_complex",
+      "position": {
+        "x": 490,
+        "y": 325
+      },
+      "minimumLogicalHitSize": 48,
+      "overviewMode": "futureQuestionMark",
+      "allowedTargetStructureIds": [
+        "sarangbang",
+        "sarangchae_life"
+      ]
+    },
+    {
+      "id": "hanok_socket_b1_inner_connection",
+      "level": "b1",
+      "zoneId": "zone_inner_threshold",
+      "position": {
+        "x": 500,
+        "y": 255
+      },
+      "minimumLogicalHitSize": 48,
+      "overviewMode": "futureQuestionMark",
+      "allowedTargetStructureIds": [
+        "inner_wall",
+        "middle_gate",
+        "haengrangchae",
+        "work_yard",
+        "inner_court",
+        "anchae",
+        "anbang"
+      ]
+    },
+    {
+      "id": "hanok_socket_b2_household_ritual",
+      "level": "b2",
+      "zoneId": "zone_attached_kitchen_service",
+      "position": {
+        "x": 790,
+        "y": 275
+      },
+      "minimumLogicalHitSize": 48,
+      "overviewMode": "futureQuestionMark",
+      "allowedTargetStructureIds": [
+        "service_court",
+        "jangdokdae",
+        "gotgan",
+        "well",
+        "household_boundary",
+        "sadang"
+      ]
+    },
+    {
+      "id": "hanok_socket_c1_estate_stewardship",
+      "level": "c1",
+      "zoneId": "zone_anchae_courtyard",
+      "position": {
+        "x": 500,
+        "y": 155
+      },
+      "minimumLogicalHitSize": 48,
+      "overviewMode": "futureQuestionMark",
+      "allowedTargetStructureIds": [
+        "estate_stewardship"
+      ]
+    },
+    {
+      "id": "hanok_socket_c2_transmission",
+      "level": "c2",
+      "zoneId": "zone_transmission_expansion",
+      "position": {
+        "x": 175,
+        "y": 170
+      },
+      "minimumLogicalHitSize": 48,
+      "overviewMode": "futureQuestionMark",
+      "allowedTargetStructureIds": [
+        "heritage_archive",
+        "seogo",
+        "byeoldang",
+        "literary_collection",
+        "interpretation_station"
+      ]
+    }
+  ],
+  "cameraReveals": [
+    {
+      "id": "camera_a1_arrival",
+      "level": "a1",
+      "order": 1,
+      "focusSocketId": "hanok_socket_a1_sarangchae_build",
+      "viewport": {
+        "x": 200,
+        "y": 300,
+        "width": 600,
+        "height": 450
+      },
+      "visibleZoneIds": [
+        "zone_outer_approach",
+        "zone_front_haengrang_boundary",
+        "zone_sarang_court",
+        "zone_sarang_complex"
+      ]
+    },
+    {
+      "id": "camera_a2_lived_sarangchae",
+      "level": "a2",
+      "order": 2,
+      "focusSocketId": "hanok_socket_a2_sarangbang_life",
+      "viewport": {
+        "x": 240,
+        "y": 230,
+        "width": 520,
+        "height": 390
+      },
+      "visibleZoneIds": [
+        "zone_sarang_court",
+        "zone_sarang_complex"
+      ]
+    },
+    {
+      "id": "camera_b1_inner_connection",
+      "level": "b1",
+      "order": 3,
+      "focusSocketId": "hanok_socket_b1_inner_connection",
+      "viewport": {
+        "x": 120,
+        "y": 160,
+        "width": 760,
+        "height": 570
+      },
+      "visibleZoneIds": [
+        "zone_front_haengrang_boundary",
+        "zone_sarang_court",
+        "zone_sarang_complex",
+        "zone_inner_threshold",
+        "zone_anchae_courtyard",
+        "zone_attached_kitchen_service"
+      ]
+    },
+    {
+      "id": "camera_b2_household_ritual",
+      "level": "b2",
+      "order": 4,
+      "focusSocketId": "hanok_socket_b2_household_ritual",
+      "viewport": {
+        "x": 260,
+        "y": 20,
+        "width": 720,
+        "height": 540
+      },
+      "visibleZoneIds": [
+        "zone_anchae_courtyard",
+        "zone_attached_kitchen_service",
+        "zone_rear_shrine"
+      ]
+    },
+    {
+      "id": "camera_c1_estate_stewardship",
+      "level": "c1",
+      "order": 5,
+      "focusSocketId": "hanok_socket_c1_estate_stewardship",
+      "viewport": {
+        "x": 80,
+        "y": 20,
+        "width": 840,
+        "height": 630
+      },
+      "visibleZoneIds": [
+        "zone_sarang_court",
+        "zone_sarang_complex",
+        "zone_inner_threshold",
+        "zone_anchae_courtyard",
+        "zone_attached_kitchen_service",
+        "zone_rear_shrine"
+      ]
+    },
+    {
+      "id": "camera_c2_transmission",
+      "level": "c2",
+      "order": 6,
+      "focusSocketId": "hanok_socket_c2_transmission",
+      "viewport": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 750
+      },
+      "visibleZoneIds": [
+        "zone_outer_approach",
+        "zone_front_haengrang_boundary",
+        "zone_sarang_court",
+        "zone_sarang_complex",
+        "zone_inner_threshold",
+        "zone_anchae_courtyard",
+        "zone_attached_kitchen_service",
+        "zone_rear_shrine",
+        "zone_transmission_expansion"
+      ]
+    }
+  ]
+}
