@@ -35,6 +35,40 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('360dp app bar preserves legacy geometry with two actions', (
+    tester,
+  ) async {
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(360, 800);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light,
+        home: Scaffold(
+          appBar: const SoriAppBar(
+            title: 'Vokabel-Pakete',
+            textScale: 1,
+            viewportWidth: 360,
+            actions: [
+              IconButton(onPressed: null, icon: Icon(Icons.star)),
+              IconButton(onPressed: null, icon: Icon(Icons.swap_horiz)),
+            ],
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+    final title = tester.widget<Text>(find.text('Vokabel-Pakete'));
+    expect(appBar.preferredSize.height, kToolbarHeight);
+    expect(title.maxLines, isNull);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('study frame app bar preserves its full title at 200% text', (
     tester,
   ) async {

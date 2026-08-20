@@ -71,7 +71,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
     final leadingWidth = leading != null || automaticallyImplyLeading
         ? kToolbarHeight
         : 0.0;
-    final actionsWidth = (actions?.length ?? 0) * kToolbarHeight;
+    final actionsWidth = (actions?.length ?? 0) * kMinInteractiveDimension;
     final horizontalSpacing = eyebrow == null ? Spacing.lg * 2 : Spacing.xs * 2;
     return math.max(
       96,
@@ -96,10 +96,14 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   int _textLines(String value, TextStyle style) =>
       _textMetrics(value, style).lines;
 
+  /// Keep ordinary 360dp/100% chrome pixel-stable. Below the narrow-phone
+  /// boundary, or whenever accessibility text scaling is active, measured
+  /// wrapping expands the bar instead of clipping the title.
   bool get _usesAdaptiveChrome =>
       textScale > 1 ||
-      _textLines(title, _titleStyle) > 1 ||
-      (eyebrow != null && _textLines(eyebrow!, _eyebrowStyle) > 1);
+      (viewportWidth < SoriBreakpoints.narrowPhone &&
+          (_textLines(title, _titleStyle) > 1 ||
+              (eyebrow != null && _textLines(eyebrow!, _eyebrowStyle) > 1)));
 
   double get _titleBlockHeight {
     final titleHeight = _textMetrics(title, _titleStyle).height;
