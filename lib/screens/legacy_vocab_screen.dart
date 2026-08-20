@@ -31,7 +31,10 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scroll_if_needed.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/window_class.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class LegacyVocabScreen extends StatefulWidget {
@@ -413,9 +416,10 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       return Scaffold(body: AppLoading(message: t.loadingVocab));
     }
     if (_loadFailed) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.screenVocabTitle)),
-        body: AppError(
+      return SoriStandardFrame(
+        appBarTitle: t.screenVocabTitle,
+        maxWidth: SoriMaxWidth.focus,
+        builder: (context, padding) => AppError(
           message: DataLoader.lastError ?? t.errorUnknown,
           onRetry: () {
             DataLoader.reset();
@@ -433,9 +437,10 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       }
       // Im 'favorites' Modus: noch keine Sternchen → Hinweis-State.
       if (_mode == 'favorites') {
-        return Scaffold(
-          appBar: AppBar(title: Text(t.screenVocabTitle)),
-          body: SoriEmptyState(
+        return SoriStandardFrame(
+          appBarTitle: t.screenVocabTitle,
+          maxWidth: SoriMaxWidth.focus,
+          builder: (context, padding) => SoriEmptyState(
             asset: 'assets/illustrations/mascot/magpie_wave.png',
             icon: Icons.star_outline_rounded,
             title: t.vocabEmptyFavorites,
@@ -445,9 +450,10 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           ),
         );
       }
-      return Scaffold(
-        appBar: AppBar(title: Text(t.screenVocabTitle)),
-        body: SoriEmptyState(
+      return SoriStandardFrame(
+        appBarTitle: t.screenVocabTitle,
+        maxWidth: SoriMaxWidth.focus,
+        builder: (context, padding) => SoriEmptyState(
           asset: 'assets/illustrations/mascot/magpie_wave.png',
           icon: Icons.tune_rounded,
           title: t.emptyVocab,
@@ -468,253 +474,261 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       }
     });
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.screenVocabTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        actions: [
-          IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
-          const TtsSpeedAction(),
-        ],
-      ),
-      body: SafeArea(
-        child: SoriStudyClamp(
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
-            child: Column(
+    return SoriStudyFrame(
+      title: t.screenVocabTitle,
+      actions: [
+        IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
+        const TtsSpeedAction(),
+      ],
+      padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
+      child: SoriAdaptiveStudyBody(
+        minHeight: 680,
+        child: Column(
+          children: [
+            // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
+            const HanokHeader(
+              asset: 'assets/illustrations/hanok/study_classroom.png',
+              fallbackIcon: Icons.menu_book_outlined,
+            ),
+            const SizedBox(height: Spacing.md),
+
+            // Mode chips (Tagesziel / Favorites / Alle)
+            //
+            // Phase 1 SRS-UX-Patch (stately-rising-jongga):
+            //   Früher: "🔥 522 fällig" (Schock-UX bei Erstanwendung).
+            //   Jetzt:  "🔥 Heute (N+M)" — N neue + M Wdh., gecapped.
+            Wrap(
+              spacing: Spacing.sm,
+              runSpacing: Spacing.sm,
               children: [
-                // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
-                const HanokHeader(
-                  asset: 'assets/illustrations/hanok/study_classroom.png',
-                  fallbackIcon: Icons.menu_book_outlined,
+                SoriChip(
+                  label: t.vocabTodayBadge(_todayNewCount, _todayReviewCount),
+                  accent: SoriColors.info,
+                  selected: _mode == 'due',
+                  variant: SoriChipVariant.filled,
+                  onTap: () => _setMode('due'),
+                  minInteractiveHeight: 44,
                 ),
-                const SizedBox(height: Spacing.md),
-
-                // Mode chips (Tagesziel / Favorites / Alle)
-                //
-                // Phase 1 SRS-UX-Patch (stately-rising-jongga):
-                //   Früher: "🔥 522 fällig" (Schock-UX bei Erstanwendung).
-                //   Jetzt:  "🔥 Heute (N+M)" — N neue + M Wdh., gecapped.
-                Wrap(
-                  spacing: Spacing.sm,
-                  runSpacing: Spacing.sm,
-                  children: [
-                    SoriChip(
-                      label: t.vocabTodayBadge(
-                        _todayNewCount,
-                        _todayReviewCount,
-                      ),
-                      accent: SoriColors.info,
-                      selected: _mode == 'due',
-                      variant: SoriChipVariant.filled,
-                      onTap: () => _setMode('due'),
-                      minInteractiveHeight: 44,
-                    ),
-                    SoriChip(
-                      label: t.vocabFavoritesBadge(_favorites.length),
-                      // 즐겨찾기는 하트·책갈피와 같은 석간주로 읽혀야 한다.
-                      accent: SoriColors.like,
-                      selected: _mode == 'favorites',
-                      variant: SoriChipVariant.filled,
-                      onTap: () => _setMode('favorites'),
-                      minInteractiveHeight: 44,
-                    ),
-                    SoriChip(
-                      label: t.vocabModeAll,
-                      accent: SoriColors.info,
-                      selected: _mode == 'all',
-                      variant: SoriChipVariant.filled,
-                      onTap: () => _setMode('all'),
-                      minInteractiveHeight: 44,
-                    ),
-                  ],
+                SoriChip(
+                  label: t.vocabFavoritesBadge(_favorites.length),
+                  // 즐겨찾기는 하트·책갈피와 같은 석간주로 읽혀야 한다.
+                  accent: SoriColors.like,
+                  selected: _mode == 'favorites',
+                  variant: SoriChipVariant.filled,
+                  onTap: () => _setMode('favorites'),
+                  minInteractiveHeight: 44,
                 ),
-                const SizedBox(height: Spacing.sm),
-
-                // Stat chips
-                Row(
-                  children: [
-                    SoriChip(
-                      label: '${_idx + 1}/${_filtered.length}',
-                      accent: SoriColors.info,
-                    ),
-                    const SizedBox(width: Spacing.xs + 2),
-                    SoriChip(label: '✅ $_correct', accent: SoriColors.success),
-                    const SizedBox(width: Spacing.xs + 2),
-                    SoriChip(label: '❌ $_wrong', accent: SoriColors.danger),
-                    const SizedBox(width: Spacing.xs + 2),
-                    SoriChip(
-                      label: '⏭ $_skipped',
-                      accent: SoriColors.info,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 10),
-
-                // Card with swipe judgment + favorite star overlay
-                // 2026-08-14 §P2: 4방향 덱 — 우=Gewusst, 좌=Nicht gewusst,
-                // ↑=즐겨찾기 추가 전용, ↓=스킵(기존 ⏭ 카운터).
-                Expanded(
-                  child: Center(
-                    child: FractionallySizedBox(
-                      heightFactor: 0.82,
-                      child: SoriContentFeed(
-                        judgmentsEnabled: _cardRevealed,
-                        onBlockedJudgment: () => _flipHintTrigger.value++,
-                        flipHintTrigger: _flipHintTrigger,
-                        onNext: _gewusst,
-                        onHard: _nichtGewusst,
-                        onSkip: _skip,
-                        onLike: _likeCurrent,
-                        onBookmark: _favoriteAdd,
-                        onShare: _shareCurrent,
-                        onFlip: _onFlip,
-                        liked: LikedContentService.isLiked(
-                          kind: LikedContentService.vocab,
-                          id: v.korean,
-                        ),
-                        bookmarked: _favorites.contains(v.korean),
-                        underlay: _filtered.length > 1
-                            ? _faceSlot(
-                                _filtered[(_idx + 1) % _filtered.length],
-                              )
-                            : null,
-                        knowLabel: t.btnGewusst,
-                        hardLabel: t.btnNichtGewusst,
-                        skipLabel: t.btnSkip,
-                        bookmarkLabel: t.deckActionSave,
-                        child: SizedBox(
-                          key: const ValueKey('deck-card-slot'),
-                          width: double.infinity,
-                          height: double.infinity,
-                          child: KeyedSubtree(
-                            key: _flashCardKey,
-                            child: FlipCard(
-                              key: ValueKey('legacy-$_serve'),
-                              flipped: _flipped,
-                              onTap: _onFlip,
-                              front: _Front(
-                                v: v,
-                                koFirst: _koFirst,
-                                deckKoreans: _deckKoreans,
-                                deckTranslations: _deckTranslations(
-                                  context,
-                                ),
-                              ),
-                              back: _Back(
-                                v: v,
-                                koFirst: _koFirst,
-                                deckKoreans: _deckKoreans,
-                                deckTranslations: _deckTranslations(
-                                  context,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: Spacing.sm),
-
-                // Bottom row — §C-1-2: prev 버튼 복원 (판정 덱 + prev 공존)
-                Row(
-                  children: [
-                    // Prev: 이전 카드 (판정 없음)
-                    Semantics(
-                      label: t.legacyVocabPrevious,
-                      button: true,
-                      child: SoriPressable(
-                        onTap: _prev,
-                        haptic: SoriHaptic.selection,
-                        child: Container(
-                          width: 48,
-                          height: 48,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(SoriRadius.md),
-                            border: Border.all(
-                              color: SoriSurfaces.of(context).border,
-                              width: 1.5,
-                            ),
-                          ),
-                          alignment: Alignment.center,
-                          child: Icon(
-                            Icons.navigate_before_rounded,
-                            size: 22,
-                            color: SoriSurfaces.of(context).text,
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: Spacing.xs + 2),
-                    Expanded(
-                      child: SoriPressable(
-                        onTap: () => TtsService.speak(v.korean),
-                        onLongPress: () => TtsService.speakSlow(v.korean),
-                        haptic: SoriHaptic.selection,
-                        child: Container(
-                          height: 44,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(SoriRadius.md),
-                            border: Border.all(
-                              color: SoriSurfaces.of(context).border,
-                              width: 1.5,
-                            ),
-                          ),
-                          alignment: Alignment.center,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                Icons.volume_up,
-                                size: 17,
-                                color: SoriSurfaces.of(context).text,
-                              ),
-                              const SizedBox(width: Spacing.sm),
-                              Text(
-                                t.btnHoeren,
-                                style: TextStyle(
-                                  fontFamily: SoriFonts.sans,
-                                  color: SoriSurfaces.of(context).text,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: Spacing.xs + 2),
-                    Expanded(
-                      child: SoriButton.outlined(
-                        label: t.btnRandom,
-                        icon: Icons.shuffle,
-                        fullWidth: true,
-                        onTap: _random,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: Spacing.xs),
-                Center(
-                  child: Text(
-                    t.vocabSlowHint,
-                    style: TextStyle(
-                      fontFamily: SoriFonts.sans,
-                      fontSize: 10.5,
-                      color: SoriSurfaces.of(context).textDim,
-                    ),
-                  ),
+                SoriChip(
+                  label: t.vocabModeAll,
+                  accent: SoriColors.info,
+                  selected: _mode == 'all',
+                  variant: SoriChipVariant.filled,
+                  onTap: () => _setMode('all'),
+                  minInteractiveHeight: 44,
                 ),
               ],
             ),
+            const SizedBox(height: Spacing.sm),
+
+            // 통계는 접근성 배율에서 다음 줄로 흐르며 내용을 숨기지 않는다.
+            Wrap(
+              spacing: Spacing.xs + 2,
+              runSpacing: Spacing.xs,
+              children: [
+                SoriChip(
+                  label: '${_idx + 1}/${_filtered.length}',
+                  accent: SoriColors.info,
+                ),
+                SoriChip(label: '✅ $_correct', accent: SoriColors.success),
+                SoriChip(label: '❌ $_wrong', accent: SoriColors.danger),
+                SoriChip(label: '⏭ $_skipped', accent: SoriColors.info),
+              ],
+            ),
+            const SizedBox(height: 10),
+
+            // Card with swipe judgment + favorite star overlay
+            // 2026-08-14 §P2: 4방향 덱 — 우=Gewusst, 좌=Nicht gewusst,
+            // ↑=즐겨찾기 추가 전용, ↓=스킵(기존 ⏭ 카운터).
+            Expanded(
+              child: Center(
+                child: FractionallySizedBox(
+                  heightFactor: 0.82,
+                  child: SoriContentFeed(
+                    judgmentsEnabled: _cardRevealed,
+                    onBlockedJudgment: () => _flipHintTrigger.value++,
+                    flipHintTrigger: _flipHintTrigger,
+                    onNext: _gewusst,
+                    onHard: _nichtGewusst,
+                    onSkip: _skip,
+                    onLike: _likeCurrent,
+                    onBookmark: _favoriteAdd,
+                    onShare: _shareCurrent,
+                    onFlip: _onFlip,
+                    liked: LikedContentService.isLiked(
+                      kind: LikedContentService.vocab,
+                      id: v.korean,
+                    ),
+                    bookmarked: _favorites.contains(v.korean),
+                    underlay: _filtered.length > 1
+                        ? _faceSlot(_filtered[(_idx + 1) % _filtered.length])
+                        : null,
+                    knowLabel: t.btnGewusst,
+                    hardLabel: t.btnNichtGewusst,
+                    skipLabel: t.btnSkip,
+                    bookmarkLabel: t.deckActionSave,
+                    child: SizedBox(
+                      key: const ValueKey('deck-card-slot'),
+                      width: double.infinity,
+                      height: double.infinity,
+                      child: KeyedSubtree(
+                        key: _flashCardKey,
+                        child: FlipCard(
+                          key: ValueKey('legacy-$_serve'),
+                          flipped: _flipped,
+                          onTap: _onFlip,
+                          front: _Front(
+                            v: v,
+                            koFirst: _koFirst,
+                            deckKoreans: _deckKoreans,
+                            deckTranslations: _deckTranslations(context),
+                          ),
+                          back: _Back(
+                            v: v,
+                            koFirst: _koFirst,
+                            deckKoreans: _deckKoreans,
+                            deckTranslations: _deckTranslations(context),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: Spacing.sm),
+
+            _buildBottomActions(t, v),
+            const SizedBox(height: Spacing.xs),
+            Center(
+              child: Text(
+                t.vocabSlowHint,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: SoriFonts.sans,
+                  fontSize: 10.5,
+                  color: SoriSurfaces.of(context).textDim,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBottomActions(AppL10n t, Vocab v) {
+    final previous = Semantics(
+      label: t.legacyVocabPrevious,
+      button: true,
+      child: SoriPressable(
+        onTap: _prev,
+        haptic: SoriHaptic.selection,
+        child: Container(
+          width: 48,
+          height: 48,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(SoriRadius.md),
+            border: Border.all(
+              color: SoriSurfaces.of(context).border,
+              width: 1.5,
+            ),
+          ),
+          alignment: Alignment.center,
+          child: Icon(
+            Icons.navigate_before_rounded,
+            size: 22,
+            color: SoriSurfaces.of(context).text,
           ),
         ),
       ),
+    );
+    final listen = SoriPressable(
+      onTap: () => TtsService.speak(v.korean),
+      onLongPress: () => TtsService.speakSlow(v.korean),
+      haptic: SoriHaptic.selection,
+      child: Container(
+        constraints: const BoxConstraints(minHeight: 44),
+        padding: const EdgeInsets.symmetric(
+          horizontal: Spacing.md,
+          vertical: Spacing.sm,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(SoriRadius.md),
+          border: Border.all(
+            color: SoriSurfaces.of(context).border,
+            width: 1.5,
+          ),
+        ),
+        alignment: Alignment.center,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              Icons.volume_up,
+              size: 17,
+              color: SoriSurfaces.of(context).text,
+            ),
+            const SizedBox(width: Spacing.sm),
+            Flexible(
+              child: Text(
+                t.btnHoeren,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: SoriFonts.sans,
+                  color: SoriSurfaces.of(context).text,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+    final random = SoriButton.outlined(
+      label: t.btnRandom,
+      icon: Icons.shuffle,
+      fullWidth: true,
+      onTap: _random,
+    );
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final stack =
+            constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
+            MediaQuery.textScalerOf(context).scale(1) >= 1.6;
+        if (stack) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Align(alignment: Alignment.centerLeft, child: previous),
+              const SizedBox(height: Spacing.sm),
+              listen,
+              const SizedBox(height: Spacing.sm),
+              random,
+            ],
+          );
+        }
+        return Row(
+          children: [
+            previous,
+            const SizedBox(width: Spacing.xs + 2),
+            Expanded(child: listen),
+            const SizedBox(width: Spacing.xs + 2),
+            Expanded(child: random),
+          ],
+        );
+      },
     );
   }
 
@@ -735,40 +749,38 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   Widget _buildDueResult(AppL10n t) {
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final completion = _dueFeedback.current;
-    return Scaffold(
-      appBar: AppBar(title: Text(t.screenVocabTitle)),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                SoriEmptyState(
-                  asset: 'assets/illustrations/mascot/magpie_celebrate.png',
-                  icon: Icons.celebration_outlined,
-                  title: t.vocabDueEmptyTitle,
-                  body: t.vocabDueEmptyBody,
-                ),
-                if (completion != null &&
-                    feedbackScope != null &&
-                    feedbackScope.featureGate.isEnabled) ...[
-                  ContentFeedbackCard(
-                    feedbackContext: completion.context,
-                    featureGate: feedbackScope.featureGate,
-                    submitFeedback: feedbackScope.submitFeedback,
-                    completedMissionIds: feedbackScope.completedMissionIds,
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                ],
-                SoriButton.filled(
-                  label: t.vocabDueEmptyAction,
-                  fullWidth: true,
-                  onTap: () => _setMode('all'),
-                ),
-              ],
+    return SoriStandardFrame(
+      appBarTitle: t.screenVocabTitle,
+      maxWidth: SoriMaxWidth.focus,
+      padding: const EdgeInsets.all(Spacing.lg),
+      builder: (context, padding) => SingleChildScrollView(
+        padding: padding,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SoriEmptyState(
+              asset: 'assets/illustrations/mascot/magpie_celebrate.png',
+              icon: Icons.celebration_outlined,
+              title: t.vocabDueEmptyTitle,
+              body: t.vocabDueEmptyBody,
             ),
-          ),
+            if (completion != null &&
+                feedbackScope != null &&
+                feedbackScope.featureGate.isEnabled) ...[
+              ContentFeedbackCard(
+                feedbackContext: completion.context,
+                featureGate: feedbackScope.featureGate,
+                submitFeedback: feedbackScope.submitFeedback,
+                completedMissionIds: feedbackScope.completedMissionIds,
+              ),
+              const SizedBox(height: Spacing.lg),
+            ],
+            SoriButton.filled(
+              label: t.vocabDueEmptyAction,
+              fullWidth: true,
+              onTap: () => _setMode('all'),
+            ),
+          ],
         ),
       ),
     );

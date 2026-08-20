@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,6 +10,7 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
+import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 
 /// §C-3c P0-2: 화면 레벨 플립게이트 테스트 — "앞면(flipped=false) 드래그 시
 /// SRS/wrongCount 미기록 + 카드 인덱스 불변"을 검증.
@@ -181,5 +183,103 @@ void main() {
     await tester.pumpAndSettle();
     expect(Storage.srsCard('바나나')?.reviewCount, secondBefore);
     expect(find.text('바나나'), findsOneWidget);
+  });
+
+  testWidgets('320dp 200% SafeArea에서 전체 하단 행동이 스크롤로 도달된다', (tester) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final semantics = tester.ensureSemantics();
+    const safeInsets = EdgeInsets.only(top: 44, bottom: 34);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        builder: (context, child) {
+          final media = MediaQuery.of(context);
+          return MediaQuery(
+            data: media.copyWith(
+              padding: safeInsets,
+              viewPadding: safeInsets,
+              textScaler: const TextScaler.linear(2),
+              disableAnimations: true,
+            ),
+            child: child!,
+          );
+        },
+        home: LegacyVocabScreen(vocabLoader: () async => testVocab),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+
+    final t = await AppL10n.delegate.load(const Locale('de'));
+    expect(find.byType(SoriStudyFrame), findsOneWidget);
+    expect(find.bySemanticsLabel(t.legacyVocabPrevious), findsOneWidget);
+    expect(tester.takeException(), isNull);
+
+    final slowHint = find.text(t.vocabSlowHint);
+    final outerScroll = find
+        .descendant(
+          of: find.byType(SoriAdaptiveStudyBody),
+          matching: find.byType(Scrollable),
+        )
+        .first;
+    await tester.scrollUntilVisible(slowHint, 300, scrollable: outerScroll);
+    final position = tester.state<ScrollableState>(outerScroll).position;
+    position.jumpTo(position.maxScrollExtent);
+    await tester.pump();
+
+    expect(tester.getRect(slowHint).bottom, lessThanOrEqualTo(640 - 34));
+    for (final label in [t.btnHoeren, t.btnRandom, t.vocabSlowHint]) {
+      final paragraph = tester.renderObject<RenderParagraph>(find.text(label));
+      expect(paragraph.didExceedMaxLines, isFalse, reason: label);
+    }
+    expect(tester.takeException(), isNull);
+    semantics.dispose();
+  });
+
+  testWidgets('390x844 100% SafeArea는 정상 높이 덱을 스크롤로 바꾸지 않는다', (tester) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    const safeInsets = EdgeInsets.only(top: 44, bottom: 34);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        builder: (context, child) {
+          final media = MediaQuery.of(context);
+          return MediaQuery(
+            data: media.copyWith(
+              padding: safeInsets,
+              viewPadding: safeInsets,
+              textScaler: TextScaler.noScaling,
+              disableAnimations: true,
+            ),
+            child: child!,
+          );
+        },
+        home: LegacyVocabScreen(vocabLoader: () async => testVocab),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+
+    expect(
+      tester.getSize(find.byType(SoriAdaptiveStudyBody)).height,
+      greaterThanOrEqualTo(680),
+    );
+    expect(tester.takeException(), isNull);
   });
 }
