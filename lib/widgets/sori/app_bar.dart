@@ -26,6 +26,7 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.bottom,
     required this.textScale,
     required this.viewportWidth,
+    this.adaptTitleAtNormalScale = false,
   });
 
   final String title;
@@ -40,6 +41,10 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   final PreferredSizeWidget? bottom;
   final double textScale;
   final double viewportWidth;
+
+  /// Enables measured multi-line chrome for user-authored or otherwise
+  /// unbounded titles even at the default system text scale.
+  final bool adaptTitleAtNormalScale;
 
   static const _titleStyle = TextStyle(
     fontFamily: SoriFonts.sans,
@@ -101,7 +106,8 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   /// wrapping expands the bar instead of clipping the title.
   bool get _usesAdaptiveChrome =>
       textScale > 1 ||
-      (viewportWidth < SoriBreakpoints.narrowPhone &&
+      ((adaptTitleAtNormalScale ||
+              viewportWidth < SoriBreakpoints.narrowPhone) &&
           (_textLines(title, _titleStyle) > 1 ||
               (eyebrow != null && _textLines(eyebrow!, _eyebrowStyle) > 1)));
 

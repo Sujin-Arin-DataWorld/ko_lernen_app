@@ -16,6 +16,7 @@ import '../services/storage_service.dart';
 import '../services/today_learning_navigation.dart';
 import '../services/today_learning_snapshot.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/dure_board.dart';
@@ -24,11 +25,14 @@ import '../widgets/sori/gye_dedication_action.dart';
 import '../widgets/sori/gye_feed.dart';
 import '../widgets/sori/gye_hanok.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/sticker_picker.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 bool gyeActionsAvailable(CloudWriteSession? session) =>
     session != null && session.mode == CloudWriteMode.ready;
@@ -255,21 +259,27 @@ class _GyeScreenState extends State<GyeScreen>
           builder: (context, snap) {
             if (snap.connectionState == ConnectionState.waiting &&
                 !snap.hasData) {
-              return Scaffold(
-                appBar: AppBar(title: Text(t.gyeTitle)),
-                body: const AppLoading(),
+              return SoriStandardFrame(
+                appBarTitle: t.gyeTitle,
+                maxWidth: SoriMaxWidth.hub,
+                builder: (context, padding) =>
+                    Padding(padding: padding, child: const AppLoading()),
               );
             }
             final meta = snap.data;
             if (meta == null) {
-              return Scaffold(
-                appBar: AppBar(title: Text(t.gyeTitle)),
-                body: Center(
-                  child: SoriEmptyState(
-                    asset: 'assets/illustrations/mascot/magpie_perched.png',
-                    icon: Icons.groups_2_outlined,
-                    title: t.gyeNotFoundTitle,
-                    body: t.gyeNotFoundBody,
+              return SoriStandardFrame(
+                appBarTitle: t.gyeTitle,
+                maxWidth: SoriMaxWidth.hub,
+                builder: (context, padding) => Padding(
+                  padding: padding,
+                  child: Center(
+                    child: SoriEmptyState(
+                      asset: 'assets/illustrations/mascot/magpie_perched.png',
+                      icon: Icons.groups_2_outlined,
+                      title: t.gyeNotFoundTitle,
+                      body: t.gyeNotFoundBody,
+                    ),
                   ),
                 ),
               );
@@ -283,13 +293,11 @@ class _GyeScreenState extends State<GyeScreen>
               });
             }
             return Scaffold(
-              appBar: AppBar(
-                title: Text(
-                  meta.name,
-                  style: const TextStyle(fontWeight: FontWeight.w800),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
+              appBar: SoriAppBar(
+                title: meta.name,
+                textScale: MediaQuery.textScalerOf(context).scale(1),
+                viewportWidth: MediaQuery.sizeOf(context).width,
+                adaptTitleAtNormalScale: true,
                 actions: [
                   Center(
                     child: Text(
@@ -334,15 +342,180 @@ class _GyeScreenState extends State<GyeScreen>
                   ),
                 ],
               ),
-              body: SafeArea(
-                child: SoriCenterClamp(
-                  child: CustomScrollView(
-                    slivers: [
-                      SliverToBoxAdapter(
-                        child: Column(
-                          children: [
-                            if (!cloudActionsAvailable &&
-                                !widget.readOnlyPreview)
+              body: SoriScreenBackground(
+                child: SafeArea(
+                  top: false,
+                  child: SoriCenterClamp(
+                    maxWidth: SoriMaxWidth.hub,
+                    child: CustomScrollView(
+                      slivers: [
+                        SliverToBoxAdapter(
+                          child: Column(
+                            children: [
+                              if (!cloudActionsAvailable &&
+                                  !widget.readOnlyPreview)
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                    Spacing.lg,
+                                    Spacing.md,
+                                    Spacing.lg,
+                                    0,
+                                  ),
+                                  child: Semantics(
+                                    liveRegion: true,
+                                    child: Container(
+                                      padding: const EdgeInsets.all(Spacing.md),
+                                      decoration: BoxDecoration(
+                                        color: SoriColors.gold.withValues(
+                                          alpha: 0.12,
+                                        ),
+                                        borderRadius: SoriRadius.brMd,
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          const Icon(
+                                            Icons.sync_lock_rounded,
+                                            color: SoriColors.gold,
+                                          ),
+                                          const SizedBox(width: Spacing.sm),
+                                          Expanded(
+                                            child: Text(
+                                              t.gyeAccountTransitionPaused,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              // 솔로 계(멤버 1) → 초대 유도. 협력 기능은 멤버가 있어야 산다.
+                              Padding(
+                                padding: const EdgeInsets.all(Spacing.lg),
+                                child: _GyeWeeklyPromise(
+                                  meta: meta,
+                                  navigation: _navigationFor(meta),
+                                  onOpenNavigation: _openPromiseNavigation,
+                                  board:
+                                      meta.weeklyPromiseSchemaVersion == 1 &&
+                                          meta.weeklyPromiseId.isNotEmpty
+                                      ? _GyeAnonymousPromiseProgress(meta: meta)
+                                      : KeyedSubtree(
+                                          key: _dureBoardKey,
+                                          child: DureBoard(
+                                            gyeId: widget.gyeId,
+                                            meta: meta,
+                                            myUid: GyeService.currentUid,
+                                            writesAvailable:
+                                                cloudActionsAvailable,
+                                            showPausedReason: false,
+                                            memberUpdates: widget.memberUpdates,
+                                          ),
+                                        ),
+                                ),
+                              ),
+                              // Keep the shared learning promise ahead of the
+                              // optional invitation.  A new group should first
+                              // explain what it is for, not ask for a member.
+                              if (meta.memberCount <= 1)
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                    Spacing.lg,
+                                    0,
+                                    Spacing.lg,
+                                    Spacing.lg,
+                                  ),
+                                  child: _SoloInviteCard(
+                                    code: meta.code,
+                                    enabled: cloudActionsAvailable,
+                                  ),
+                                ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(
+                                  Spacing.lg,
+                                  0,
+                                  Spacing.lg,
+                                  Spacing.md,
+                                ),
+                                child: _GyeCourtyardContext(meta: meta),
+                              ),
+                              LayoutBuilder(
+                                builder: (context, c) {
+                                  final h = (c.maxWidth * 0.72).clamp(
+                                    280.0,
+                                    380.0,
+                                  );
+                                  return SizedBox(
+                                    height: h,
+                                    child: StreamBuilder<GyeMember?>(
+                                      stream:
+                                          widget.currentMemberUpdates ??
+                                          GyeService.currentMemberStream(
+                                            widget.gyeId,
+                                          ),
+                                      builder: (context, memberSnapshot) {
+                                        final currentMember =
+                                            memberSnapshot.data;
+                                        final currentMembershipEpoch =
+                                            currentMember?.joinedAtEpoch;
+                                        return StreamBuilder<
+                                          List<GyeDedication>
+                                        >(
+                                          stream:
+                                              widget.dedicationUpdates ??
+                                              GyeDedicationService.streamForGye(
+                                                widget.gyeId,
+                                              ),
+                                          builder: (context, dedicationSnapshot) {
+                                            final dedications =
+                                                dedicationSnapshot.data ??
+                                                const <GyeDedication>[];
+                                            return Stack(
+                                              children: [
+                                                Positioned.fill(
+                                                  child: GyeHanok(
+                                                    meta: meta,
+                                                    dedications: dedications,
+                                                  ),
+                                                ),
+                                                if (currentMember != null &&
+                                                    currentMembershipEpoch !=
+                                                        null)
+                                                  Positioned(
+                                                    top: Spacing.sm,
+                                                    right: Spacing.sm,
+                                                    child: GyeDedicationAction(
+                                                      gyeId: widget.gyeId,
+                                                      ownedDecor:
+                                                          Storage.ownedDecor,
+                                                      current:
+                                                          currentGyeDedicationFor(
+                                                            dedications,
+                                                            GyeService
+                                                                .currentUid,
+                                                            currentMember
+                                                                .membershipId,
+                                                            currentMembershipEpoch,
+                                                          ),
+                                                      expectedMembershipId:
+                                                          currentMember
+                                                              .membershipId,
+                                                      expectedMembershipEpoch:
+                                                          currentMembershipEpoch,
+                                                      actionsAvailable:
+                                                          cloudActionsAvailable,
+                                                      onCommit: _dedicationService
+                                                          .setForCurrentSession,
+                                                    ),
+                                                  ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                    ),
+                                  );
+                                },
+                              ),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(
                                   Spacing.lg,
@@ -350,237 +523,81 @@ class _GyeScreenState extends State<GyeScreen>
                                   Spacing.lg,
                                   0,
                                 ),
-                                child: Semantics(
-                                  liveRegion: true,
-                                  child: Container(
-                                    padding: const EdgeInsets.all(Spacing.md),
-                                    decoration: BoxDecoration(
-                                      color: SoriColors.gold.withValues(
-                                        alpha: 0.12,
-                                      ),
-                                      borderRadius: SoriRadius.brMd,
+                                child: Column(
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.stretch,
+                                  children: [
+                                    SoriButton.filled(
+                                      key: const ValueKey('gye-safe-message'),
+                                      label: t.gyeSafeMessage,
+                                      icon: Icons.emoji_emotions_outlined,
+                                      accent: SoriColors.gold,
+                                      fullWidth: true,
+                                      onTap: safeMessageAvailable
+                                          ? () => _openSafeMessage(context)
+                                          : null,
                                     ),
-                                    child: Row(
-                                      children: [
-                                        const Icon(
-                                          Icons.sync_lock_rounded,
-                                          color: SoriColors.gold,
-                                        ),
-                                        const SizedBox(width: Spacing.sm),
-                                        Expanded(
-                                          child: Text(
-                                            t.gyeAccountTransitionPaused,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            // 솔로 계(멤버 1) → 초대 유도. 협력 기능은 멤버가 있어야 산다.
-                            Padding(
-                              padding: const EdgeInsets.all(Spacing.lg),
-                              child: _GyeWeeklyPromise(
-                                meta: meta,
-                                navigation: _navigationFor(meta),
-                                onOpenNavigation: _openPromiseNavigation,
-                                board:
-                                    meta.weeklyPromiseSchemaVersion == 1 &&
-                                        meta.weeklyPromiseId.isNotEmpty
-                                    ? _GyeAnonymousPromiseProgress(meta: meta)
-                                    : KeyedSubtree(
-                                        key: _dureBoardKey,
-                                        child: DureBoard(
-                                          gyeId: widget.gyeId,
-                                          meta: meta,
-                                          myUid: GyeService.currentUid,
-                                          writesAvailable:
-                                              cloudActionsAvailable,
-                                          showPausedReason: false,
-                                          memberUpdates: widget.memberUpdates,
-                                        ),
+                                    TextButton(
+                                      key: const ValueKey('gye-rules-members'),
+                                      onPressed: _openMembers,
+                                      style: TextButton.styleFrom(
+                                        minimumSize: const Size(48, 48),
                                       ),
-                              ),
-                            ),
-                            // Keep the shared learning promise ahead of the
-                            // optional invitation.  A new group should first
-                            // explain what it is for, not ask for a member.
-                            if (meta.memberCount <= 1)
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(
-                                  Spacing.lg,
-                                  0,
-                                  Spacing.lg,
-                                  Spacing.lg,
-                                ),
-                                child: _SoloInviteCard(
-                                  code: meta.code,
-                                  enabled: cloudActionsAvailable,
+                                      child: Text(t.gyeRulesAndMembers),
+                                    ),
+                                  ],
                                 ),
                               ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(
-                                Spacing.lg,
-                                0,
-                                Spacing.lg,
-                                Spacing.md,
-                              ),
-                              child: _GyeCourtyardContext(meta: meta),
+                            ],
+                          ),
+                        ),
+                        SliverToBoxAdapter(
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(
+                              Spacing.lg,
+                              Spacing.md,
+                              Spacing.lg,
+                              Spacing.xs,
                             ),
-                            LayoutBuilder(
-                              builder: (context, c) {
-                                final h = (c.maxWidth * 0.72).clamp(
-                                  280.0,
-                                  380.0,
-                                );
-                                return SizedBox(
-                                  height: h,
-                                  child: StreamBuilder<GyeMember?>(
-                                    stream:
-                                        widget.currentMemberUpdates ??
-                                        GyeService.currentMemberStream(
-                                          widget.gyeId,
-                                        ),
-                                    builder: (context, memberSnapshot) {
-                                      final currentMember = memberSnapshot.data;
-                                      final currentMembershipEpoch =
-                                          currentMember?.joinedAtEpoch;
-                                      return StreamBuilder<List<GyeDedication>>(
-                                        stream:
-                                            widget.dedicationUpdates ??
-                                            GyeDedicationService.streamForGye(
-                                              widget.gyeId,
-                                            ),
-                                        builder: (context, dedicationSnapshot) {
-                                          final dedications =
-                                              dedicationSnapshot.data ??
-                                              const <GyeDedication>[];
-                                          return Stack(
-                                            children: [
-                                              Positioned.fill(
-                                                child: GyeHanok(
-                                                  meta: meta,
-                                                  dedications: dedications,
-                                                ),
-                                              ),
-                                              if (currentMember != null &&
-                                                  currentMembershipEpoch !=
-                                                      null)
-                                                Positioned(
-                                                  top: Spacing.sm,
-                                                  right: Spacing.sm,
-                                                  child: GyeDedicationAction(
-                                                    gyeId: widget.gyeId,
-                                                    ownedDecor:
-                                                        Storage.ownedDecor,
-                                                    current:
-                                                        currentGyeDedicationFor(
-                                                          dedications,
-                                                          GyeService.currentUid,
-                                                          currentMember
-                                                              .membershipId,
-                                                          currentMembershipEpoch,
-                                                        ),
-                                                    expectedMembershipId:
-                                                        currentMember
-                                                            .membershipId,
-                                                    expectedMembershipEpoch:
-                                                        currentMembershipEpoch,
-                                                    actionsAvailable:
-                                                        cloudActionsAvailable,
-                                                    onCommit: _dedicationService
-                                                        .setForCurrentSession,
-                                                  ),
-                                                ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                    },
-                                  ),
-                                );
-                              },
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(
-                                Spacing.lg,
-                                Spacing.md,
-                                Spacing.lg,
-                                0,
+                            child: Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                t.gyeFeedTitle,
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.w800,
+                                ),
                               ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  SoriButton.filled(
-                                    key: const ValueKey('gye-safe-message'),
-                                    label: t.gyeSafeMessage,
-                                    icon: Icons.emoji_emotions_outlined,
-                                    accent: SoriColors.gold,
-                                    fullWidth: true,
-                                    onTap: safeMessageAvailable
-                                        ? () => _openSafeMessage(context)
+                            ),
+                          ),
+                        ),
+                        SliverToBoxAdapter(
+                          // 차단한 멤버의 이벤트는 숨김 (Play UGC — 사용자 주도).
+                          child: StreamBuilder<Set<String>>(
+                            stream:
+                                widget.blockedUidUpdates ??
+                                GyeService.blockedUidsStream(),
+                            builder: (context, bsnap) =>
+                                StreamBuilder<List<GyeFeedEvent>>(
+                                  stream:
+                                      widget.feedUpdates ??
+                                      GyeService.feedStream(widget.gyeId),
+                                  builder: (context, fsnap) => GyeFeed(
+                                    events: GyeService.filterBlocked(
+                                      fsnap.data ?? const [],
+                                      bsnap.data ?? const {},
+                                    ),
+                                    onReact: reactionAvailable
+                                        ? (eventId) =>
+                                              _openReaction(context, eventId)
                                         : null,
+                                    shrinkWrap: true,
                                   ),
-                                  TextButton(
-                                    key: const ValueKey('gye-rules-members'),
-                                    onPressed: _openMembers,
-                                    style: TextButton.styleFrom(
-                                      minimumSize: const Size(48, 48),
-                                    ),
-                                    child: Text(t.gyeRulesAndMembers),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SliverToBoxAdapter(
-                        child: Padding(
-                          padding: const EdgeInsets.fromLTRB(
-                            Spacing.lg,
-                            Spacing.md,
-                            Spacing.lg,
-                            Spacing.xs,
-                          ),
-                          child: Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              t.gyeFeedTitle,
-                              style: const TextStyle(
-                                fontSize: 13,
-                                fontWeight: FontWeight.w800,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SliverToBoxAdapter(
-                        // 차단한 멤버의 이벤트는 숨김 (Play UGC — 사용자 주도).
-                        child: StreamBuilder<Set<String>>(
-                          stream:
-                              widget.blockedUidUpdates ??
-                              GyeService.blockedUidsStream(),
-                          builder: (context, bsnap) =>
-                              StreamBuilder<List<GyeFeedEvent>>(
-                                stream:
-                                    widget.feedUpdates ??
-                                    GyeService.feedStream(widget.gyeId),
-                                builder: (context, fsnap) => GyeFeed(
-                                  events: GyeService.filterBlocked(
-                                    fsnap.data ?? const [],
-                                    bsnap.data ?? const {},
-                                  ),
-                                  onReact: reactionAvailable
-                                      ? (eventId) =>
-                                            _openReaction(context, eventId)
-                                      : null,
-                                  shrinkWrap: true,
                                 ),
-                              ),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -1047,7 +1064,7 @@ class _SoloInviteCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
+    final text = SoriTextTheme.of(context);
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.primary,
@@ -1062,49 +1079,46 @@ class _SoloInviteCard extends StatelessWidget {
                 size: 20,
                 color: SoriColors.primary,
               ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: Text(
-                  t.gyeInviteTitle,
-                  style: const TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-              ),
+              const SizedBox(width: Spacing.sm),
+              Expanded(child: Text(t.gyeInviteTitle, style: text.h3)),
             ],
           ),
-          const SizedBox(height: 6),
-          Text(
-            t.gyeInviteBody,
-            style: TextStyle(fontSize: 13, height: 1.45, color: s.textMuted),
-          ),
+          const SizedBox(height: Spacing.xs),
+          Text(t.gyeInviteBody, style: text.bodySmall),
           const SizedBox(height: Spacing.md),
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  '${t.gyeCodeLabel}:',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 12, color: s.textMuted),
-                ),
-              ),
-              const SizedBox(width: Spacing.xs),
-              Text(
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final textScale = MediaQuery.textScalerOf(context).scale(1);
+              final stackCode =
+                  constraints.maxWidth < SoriAdaptiveWidth.criticalActionRow ||
+                  textScale >= 1.6;
+              final label = Text('${t.gyeCodeLabel}:', style: text.caption);
+              final value = Text(
                 code,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w900,
-                  letterSpacing: 3,
-                ),
-              ),
-            ],
+                style: text.h2.copyWith(letterSpacing: 3),
+              );
+              if (stackCode) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    label,
+                    const SizedBox(height: Spacing.xs),
+                    value,
+                  ],
+                );
+              }
+              return Row(
+                children: [
+                  Expanded(child: label),
+                  const SizedBox(width: Spacing.xs),
+                  value,
+                ],
+              );
+            },
           ),
           const SizedBox(height: Spacing.md),
           SoriButton(
             label: t.gyeShareCode,
-            icon: Icons.ios_share,
             accent: SoriColors.primary,
             fullWidth: true,
             onTap: enabled ? () => _shareGyeCode(context, code) : null,
