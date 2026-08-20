@@ -19,6 +19,7 @@ import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -110,10 +111,16 @@ class RecoveredBookOcrLeaseOwner {
 }
 
 class BookCaptureScreen extends StatefulWidget {
-  const BookCaptureScreen({super.key, this.captureMode, this.existingPackId});
+  const BookCaptureScreen({
+    super.key,
+    this.captureMode,
+    this.existingPackId,
+    this.requestCameraPermission,
+  });
 
   final String? captureMode;
   final String? existingPackId;
+  final Future<bool> Function()? requestCameraPermission;
 
   @override
   State<BookCaptureScreen> createState() => _BookCaptureScreenState();
@@ -350,11 +357,10 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
     // 웹은 "책 한 컷" 파이프라인(카메라 + dart:io File + ML Kit 온디바이스 OCR)을
     // 지원하지 않는다 → 무한 로딩 대신 명확히 안내하고 종료. (모바일 전용 기능)
     if (kIsWeb) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(l10n.bookCaptureWebNotice),
-          duration: const Duration(seconds: 4),
-        ),
+      soriNotice(
+        context,
+        l10n.bookCaptureWebNotice,
+        duration: const Duration(seconds: 4),
       );
       return;
     }
@@ -382,8 +388,10 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
       // image_picker_android opens the system picker for gallery images, so
       // broad media-library permission is neither needed nor requested.
       if (source == ImageSource.camera) {
-        final permission = await Permission.camera.request();
-        if (!permission.isGranted) {
+        final granted =
+            await (widget.requestCameraPermission?.call() ??
+                Permission.camera.request().then((status) => status.isGranted));
+        if (!granted) {
           if (!mounted) {
             return;
           }

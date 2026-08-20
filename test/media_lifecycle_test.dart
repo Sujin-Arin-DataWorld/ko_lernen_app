@@ -187,6 +187,27 @@ void main() {
     expect(await source.exists(), isFalse);
   });
 
+  test('word camera denial never launches the platform picker', () async {
+    final picker = _FilePicker(XFile('unused-camera-path'));
+    var permissionRequests = 0;
+
+    await expectLater(
+      WordImageService.pickPending(
+        ImageSource.camera,
+        workflowId: 'word-camera-denied',
+        picker: picker,
+        requestCameraPermission: () async {
+          permissionRequests++;
+          return false;
+        },
+      ),
+      throwsA(isA<CameraPermissionDeniedException>()),
+    );
+
+    expect(permissionRequests, 1);
+    expect(picker.calls, 0);
+  });
+
   test(
     'non-Android word picker creates no marker but durable ownership',
     () async {

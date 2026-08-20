@@ -7,9 +7,11 @@ import '../../models/gye_dedication.dart';
 import '../../services/gye_dedication_service.dart';
 import '../../services/gye_service.dart';
 import 'button.dart';
+import 'dialog.dart';
 import 'gye_dedication_picker.dart';
 import 'placed_decoration.dart';
 import 'sheet.dart';
+import 'toast.dart';
 import 'tokens.dart';
 
 /// The one callable-only mutation seam used by the shared exhibition UI.
@@ -130,9 +132,9 @@ class _GyeDedicationActionState extends State<GyeDedicationAction> {
     final body = decorationSlug == null
         ? t.gyeDedicationWithdrawConfirmBody
         : t.gyeDedicationConfirmBody(decorName(t, decorationSlug));
-    return (await showDialog<bool>(
+    return (await showSoriDialog<bool>(
           context: context,
-          builder: (dialogContext) => AlertDialog(
+          builder: (dialogContext) => SoriDialog(
             title: Text(
               decorationSlug == null
                   ? t.gyeDedicationWithdraw
@@ -215,26 +217,21 @@ class _GyeDedicationActionState extends State<GyeDedicationAction> {
     final message = failure.category == GyeDedicationFailureCategory.conflict
         ? t.gyeDedicationConflict
         : t.gyeDedicationUpdateFailed;
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(
-        SnackBar(
-          content: Text(message),
-          // A revision conflict must be resolved by the live stream. Retrying
-          // the same compare-and-set request would only repeat the stale
-          // revision and makes a blind overwrite look possible.
-          action:
-              failure.retryable &&
-                  failure.category != GyeDedicationFailureCategory.conflict
-              ? SnackBarAction(
-                  label: t.gyeDedicationRetry,
-                  onPressed: () {
-                    _submit(request);
-                  },
-                )
-              : null,
-        ),
-      );
+    // A revision conflict must be resolved by the live stream. Retrying the
+    // same compare-and-set request would only repeat the stale revision and
+    // makes a blind overwrite look possible.
+    if (!failure.retryable ||
+        failure.category == GyeDedicationFailureCategory.conflict) {
+      soriToast(context, message);
+      return;
+    }
+    showSoriActionNotice(
+      context: context,
+      message: message,
+      dismissLabel: t.btnClose,
+      actionLabel: t.gyeDedicationRetry,
+      onAction: () => _submit(request),
+    );
   }
 
   @override

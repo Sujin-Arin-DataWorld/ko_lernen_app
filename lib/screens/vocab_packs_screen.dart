@@ -24,6 +24,7 @@ import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pack_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -220,13 +221,7 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
               lang: Localizations.localeOf(context).languageCode,
             ),
           );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(msg),
-        duration: const Duration(seconds: 2),
-        behavior: SnackBarBehavior.floating,
-      ),
-    );
+    soriNotice(context, msg, duration: const Duration(seconds: 2));
   }
 
   /// 미션 경로로 진입해 팩이 미션 그래프 링크로 좁혀진 상태인지.

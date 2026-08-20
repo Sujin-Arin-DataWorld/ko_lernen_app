@@ -269,17 +269,12 @@ void main() {
           ),
         ),
       );
-      await _pumpUntil(
-        tester,
-        find.byKey(const ValueKey('chosung-level-C2')),
-      );
+      await _pumpUntil(tester, find.byKey(const ValueKey('chosung-level-C2')));
 
       expect(tester.takeException(), isNull);
       final chipTops = <double>{
         for (final level in const ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'])
-          tester
-              .getTopLeft(find.byKey(ValueKey('chosung-level-$level')))
-              .dy,
+          tester.getTopLeft(find.byKey(ValueKey('chosung-level-$level'))).dy,
       };
       expect(chipTops.length, greaterThan(1));
     });
@@ -299,6 +294,61 @@ void main() {
       final border = decoration.border! as Border;
       expect(border.top.width, 1.5);
     });
+
+    testWidgets(
+      'silben keeps cell semantics and a non-motion wrong cue at reduced motion',
+      (tester) async {
+        final semantics = tester.ensureSemantics();
+        await tester.binding.setSurfaceSize(const Size(320, 640));
+        addTearDown(() => tester.binding.setSurfaceSize(null));
+        await _setStoredLevel('a1');
+        final puzzles = await tester.runAsync(SilbenPuzzleLoader.load);
+        final puzzle = puzzles!['A1']!.first;
+        final cell = puzzle.solution.keys.first;
+        final answer = puzzle.solution[cell]!;
+        final wrongTile = puzzle.pool.firstWhere((tile) => tile != answer);
+
+        await tester.pumpWidget(
+          _screenApp(
+            Builder(
+              builder: (context) => MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  disableAnimations: true,
+                  textScaler: const TextScaler.linear(2),
+                ),
+                child: const SilbenKreuzScreen(),
+              ),
+            ),
+          ),
+        );
+        await _pumpUntil(tester, find.byKey(const ValueKey('silben-level-A1')));
+
+        expect(find.bySemanticsLabel('A1'), findsOneWidget);
+        final cellLabel = '${cell.$1 + 1}, ${cell.$2 + 1}';
+        await tester.ensureVisible(find.bySemanticsLabel(cellLabel));
+        await tester.tap(find.bySemanticsLabel(cellLabel));
+        await tester.ensureVisible(find.bySemanticsLabel(wrongTile).first);
+        expect(
+          tester.getSize(find.bySemanticsLabel(wrongTile).first),
+          const Size(46, 46),
+        );
+        await tester.tap(find.bySemanticsLabel(wrongTile).first);
+        await tester.pump();
+
+        final grid = find.byKey(const ValueKey('silben-level-A1'));
+        expect(find.byIcon(Icons.close_rounded), findsOneWidget);
+        expect(
+          find.byType(TweenAnimationBuilder<double>),
+          findsNothing,
+          reason: '오답은 아이콘으로 남고 흔들림은 모션 감소에서 없어야 한다.',
+        );
+        expect(tester.takeException(), isNull);
+        expect(grid, findsOneWidget);
+
+        await tester.pump(const Duration(milliseconds: 700));
+        semantics.dispose();
+      },
+    );
   });
 }
 

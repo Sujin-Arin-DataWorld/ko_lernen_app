@@ -11,6 +11,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Review the exact pairs taken from a photographed vocabulary notebook,
@@ -85,9 +86,7 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
     }
     setState(() => _saving = false);
     if (pack == null) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(t.vocabNotebookSaveFailed)));
+      soriToast(context, t.vocabNotebookSaveFailed);
     }
     return pack;
   }

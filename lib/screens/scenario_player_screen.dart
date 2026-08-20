@@ -46,6 +46,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scenario_write_after_roleplay_card.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/wordbook_add.dart';
 import 'quest_engines/hoerverstehen_quest.dart';
 import 'quest_engines/luecken_quest.dart';
@@ -866,9 +867,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     } catch (_) {
       if (!mounted) return;
       setState(() => _resultSaving = false);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppL10n.of(context).courseCheckpointSaveError)),
-      );
+      soriToast(context, AppL10n.of(context).courseCheckpointSaveError);
     }
   }
 

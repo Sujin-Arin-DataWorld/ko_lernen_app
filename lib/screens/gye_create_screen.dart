@@ -13,6 +13,7 @@ import '../services/account/cloud_write_session.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -42,8 +43,7 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
     super.dispose();
   }
 
-  void _snack(String m) =>
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(m)));
+  void _snack(String m) => soriToast(context, m);
 
   Future<void> _create() async {
     FocusScope.of(context).unfocus();

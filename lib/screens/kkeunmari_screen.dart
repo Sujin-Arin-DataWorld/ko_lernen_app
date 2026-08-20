@@ -40,6 +40,8 @@ enum _Turn { user, tiger }
 
 enum _End { none, tigerStuck, userStuck, deadEnd, timeUp }
 
+enum _PendingTurnAction { none, deadEnd, tigerMove }
+
 /// 끝말잇기 화면 — 호랑이 ↔ 사용자 턴제 게임.
 ///
 /// 시작: 호랑이가 안전한 단어 1개 제시.
@@ -54,7 +56,7 @@ class KkeunmariScreen extends StatefulWidget {
 }
 
 class _KkeunmariScreenState extends State<KkeunmariScreen>
-    with ScreenCoachMixin<KkeunmariScreen> {
+    with ScreenCoachMixin<KkeunmariScreen>, WidgetsBindingObserver {
   static const _turnSeconds = 30;
 
   bool _loading = true;
@@ -74,6 +76,12 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   Timer? _timer;
   int _remaining = _turnSeconds;
+  bool _lifecyclePaused = false;
+  bool _resumeCountdownAfterLifecycle = false;
+  Timer? _turnDelayTimer;
+  _PendingTurnAction _pendingTurnAction = _PendingTurnAction.none;
+  Duration _pendingTurnDelay = Duration.zero;
+  DateTime? _pendingTurnStartedAt;
 
   final _ctrl = TextEditingController();
   final _focusNode = FocusNode();
@@ -117,6 +125,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _start();
     scheduleCoach();
     Analytics.gameStarted(gameType: 'kkeunmari');
@@ -126,9 +135,37 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     );
   }
 
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        _lifecyclePaused = false;
+        if (_resumeCountdownAfterLifecycle &&
+            _end == _End.none &&
+            _turn == _Turn.user &&
+            _remaining > 0) {
+          _runTimer();
+        }
+        _resumeCountdownAfterLifecycle = false;
+        _resumePendingTurnAction();
+      case AppLifecycleState.inactive:
+      case AppLifecycleState.hidden:
+      case AppLifecycleState.paused:
+      case AppLifecycleState.detached:
+        _lifecyclePaused = true;
+        if (_timer != null) {
+          _resumeCountdownAfterLifecycle = true;
+          _timer?.cancel();
+          _timer = null;
+        }
+        _pausePendingTurnAction();
+    }
+  }
+
   Future<void> _start() async {
     _roundGeneration++;
     _feedbackCompletion.reset();
+    _cancelPendingTurnAction();
     _maxLevel = learnerLevelForStoredCode(Storage.userLevelCode);
     await KkeunmariEngine.load();
     if (!mounted) return;
@@ -174,6 +211,16 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   void _startTimer() {
     _timer?.cancel();
     _remaining = _turnSeconds;
+    if (_lifecyclePaused) {
+      _timer = null;
+      _resumeCountdownAfterLifecycle = true;
+      return;
+    }
+    _runTimer();
+  }
+
+  void _runTimer() {
+    _timer?.cancel();
     _timer = Timer.periodic(const Duration(seconds: 1), (t) {
       if (!mounted) {
         t.cancel();
@@ -190,6 +237,64 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   void _stopTimer() {
     _timer?.cancel();
     _timer = null;
+    _resumeCountdownAfterLifecycle = false;
+  }
+
+  void _schedulePendingTurnAction(_PendingTurnAction action, Duration delay) {
+    _turnDelayTimer?.cancel();
+    _pendingTurnAction = action;
+    _pendingTurnDelay = delay;
+    _pendingTurnStartedAt = null;
+    if (!_lifecyclePaused) {
+      _armPendingTurnAction();
+    }
+  }
+
+  void _armPendingTurnAction() {
+    if (_pendingTurnAction == _PendingTurnAction.none) return;
+    _pendingTurnStartedAt = DateTime.now();
+    _turnDelayTimer = Timer(_pendingTurnDelay, () {
+      final action = _pendingTurnAction;
+      _turnDelayTimer = null;
+      _pendingTurnAction = _PendingTurnAction.none;
+      _pendingTurnDelay = Duration.zero;
+      _pendingTurnStartedAt = null;
+      switch (action) {
+        case _PendingTurnAction.none:
+          break;
+        case _PendingTurnAction.deadEnd:
+          _endGame(_End.deadEnd);
+        case _PendingTurnAction.tigerMove:
+          _tigerMove();
+      }
+    });
+  }
+
+  void _pausePendingTurnAction() {
+    final startedAt = _pendingTurnStartedAt;
+    if (_turnDelayTimer == null || startedAt == null) return;
+    final elapsed = DateTime.now().difference(startedAt);
+    _pendingTurnDelay = elapsed >= _pendingTurnDelay
+        ? Duration.zero
+        : _pendingTurnDelay - elapsed;
+    _turnDelayTimer?.cancel();
+    _turnDelayTimer = null;
+    _pendingTurnStartedAt = null;
+  }
+
+  void _resumePendingTurnAction() {
+    if (_pendingTurnAction != _PendingTurnAction.none &&
+        _turnDelayTimer == null) {
+      _armPendingTurnAction();
+    }
+  }
+
+  void _cancelPendingTurnAction() {
+    _turnDelayTimer?.cancel();
+    _turnDelayTimer = null;
+    _pendingTurnAction = _PendingTurnAction.none;
+    _pendingTurnDelay = Duration.zero;
+    _pendingTurnStartedAt = null;
   }
 
   String get _required => _last?.last ?? '';
@@ -289,9 +394,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     // a stale next_count can end a valid chain (or delay an impossible one).
     if (KkeunmariEngine.nextCountFor(w.last, _used, maxLevel: _maxLevel) == 0) {
       _stopTimer();
-      Future.delayed(const Duration(milliseconds: 1000), () {
-        if (mounted) _endGame(_End.deadEnd);
-      });
+      _schedulePendingTurnAction(
+        _PendingTurnAction.deadEnd,
+        const Duration(milliseconds: 1000),
+      );
       return;
     }
 
@@ -299,7 +405,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     // 오류처럼 보이지 않게 한다 — 상대가 '생각하는' 순간으로 또렷이 읽히도록.
     _stopTimer();
     setState(() => _turn = _Turn.tiger);
-    Future.delayed(const Duration(milliseconds: 1800), _tigerMove);
+    _schedulePendingTurnAction(
+      _PendingTurnAction.tigerMove,
+      const Duration(milliseconds: 1800),
+    );
   }
 
   void _tigerMove() {
@@ -327,6 +436,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   void _endGame(_End reason) {
     if (_end != _End.none) return;
     _stopTimer();
+    _cancelPendingTurnAction();
     HapticFeedback.heavyImpact();
     _feedbackCompletion.complete(
       () => FeedbackCompletion.kkeunmari(
@@ -373,8 +483,10 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _abandonTracker.dispose();
     _timer?.cancel();
+    _turnDelayTimer?.cancel();
     _ctrl.dispose();
     _focusNode.dispose();
     super.dispose();
@@ -687,30 +799,36 @@ class _Timer extends StatelessWidget {
     final t = AppL10n.of(context);
     final urgent = remaining <= 10;
     final color = urgent ? SoriColors.danger : SoriColors.info;
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SizedBox(
-          width: 50,
-          child: SoriProgressBar(
-            value: (remaining / total).clamp(0.0, 1.0),
-            thickness: 6,
-            animated: false,
-            color: color,
+    final label = t.kkeunmariTimerSeconds(remaining < 0 ? 0 : remaining);
+    return Semantics(
+      liveRegion: urgent,
+      label: label,
+      excludeSemantics: true,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            width: 50,
+            child: SoriProgressBar(
+              value: (remaining / total).clamp(0.0, 1.0),
+              thickness: 6,
+              animated: false,
+              color: color,
+            ),
           ),
-        ),
-        const SizedBox(width: Spacing.xs),
-        Text(
-          t.kkeunmariTimerSeconds(remaining < 0 ? 0 : remaining),
-          style: TextStyle(
-            color: color,
-            fontWeight: FontWeight.w800,
-            fontSize: 13,
-            // 카운트다운 자릿수 폭 고정(흔들림 방지).
-            fontFeatures: const [FontFeature.tabularFigures()],
+          const SizedBox(width: Spacing.xs),
+          Text(
+            label,
+            style: TextStyle(
+              color: color,
+              fontWeight: FontWeight.w800,
+              fontSize: 13,
+              // 카운트다운 자릿수 폭 고정(흔들림 방지).
+              fontFeatures: const [FontFeature.tabularFigures()],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

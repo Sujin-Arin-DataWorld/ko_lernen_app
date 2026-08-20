@@ -14,7 +14,9 @@ import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/course_mission_brief.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import 'first_voice_success_screen.dart';
@@ -122,9 +124,7 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     }
     if (!mounted) return;
     if (destination == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppL10n.of(context).loadErrorTryAgain)),
-      );
+      soriToast(context, AppL10n.of(context).loadErrorTryAgain);
       return;
     }
     final evidenceIdsBefore =
@@ -235,17 +235,11 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
 
   void _showWhy(CourseUnit unit) {
     final lang = Localizations.localeOf(context).languageCode;
-    showModalBottomSheet<void>(
+    showSoriSheet<void>(
       context: context,
-      showDragHandle: true,
-      builder: (sheetContext) => SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(Spacing.lg),
-          child: Text(
-            unit.canDo.pick(lang),
-            style: SoriTextTheme.of(sheetContext).body,
-          ),
-        ),
+      builder: (sheetContext) => Text(
+        unit.canDo.pick(lang),
+        style: SoriTextTheme.of(sheetContext).body,
       ),
     );
   }

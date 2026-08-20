@@ -5,12 +5,14 @@ import '../widgets/sori/section_header.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/window_class.dart';
 import '../services/auth_service.dart';
 import '../services/account/account_transition_coordinator.dart';
@@ -270,9 +272,9 @@ class _ProfileScreenState extends State<ProfileScreen>
     }
     final t = AppL10n.of(context);
     final current = _learningStartPoint;
-    final selected = await showDialog<LearnerLevel>(
+    final selected = await showSoriDialog<LearnerLevel>(
       context: context,
-      builder: (dialogContext) => SimpleDialog(
+      builder: (dialogContext) => SoriSimpleDialog(
         title: Text(t.profileLearningStartPoint),
         children: [
           for (final level in LearnerLevel.values)
@@ -300,9 +302,9 @@ class _ProfileScreenState extends State<ProfileScreen>
       return;
     }
     if (!mounted) return;
-    final confirmed = await showDialog<bool>(
+    final confirmed = await showSoriDialog<bool>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
+      builder: (dialogContext) => SoriDialog(
         title: Text(t.profileLearningStartPointConfirmTitle),
         content: Text(t.profileLearningStartPointConfirmBody),
         actions: [
@@ -331,9 +333,7 @@ class _ProfileScreenState extends State<ProfileScreen>
     } catch (error, stackTrace) {
       debugPrint('Profile start-point change failed: $error\n$stackTrace');
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(t.profileLearningStartPointChangeFailed)),
-        );
+        soriToast(context, t.profileLearningStartPointChangeFailed);
       }
       return;
     }
@@ -354,9 +354,9 @@ class _ProfileScreenState extends State<ProfileScreen>
       CompanionPreference.magpie,
       CompanionPreference.none,
     ];
-    final selected = await showDialog<CompanionPreference>(
+    final selected = await showSoriDialog<CompanionPreference>(
       context: context,
-      builder: (dialogContext) => SimpleDialog(
+      builder: (dialogContext) => SoriSimpleDialog(
         title: Text(t.characterSelectionTitle),
         children: [
           for (final option in options)
@@ -451,7 +451,6 @@ class _ProfileScreenState extends State<ProfileScreen>
   Future<void> _exportLearningData() async {
     if (_exportBusy) return;
     if (widget.previewMode && widget.exportLearningData == null) return;
-    final messenger = ScaffoldMessenger.of(context);
     final t = AppL10n.of(context);
     setState(() => _exportBusy = true);
     try {
@@ -463,15 +462,11 @@ class _ProfileScreenState extends State<ProfileScreen>
         await LearningDataExportService.sharePackage(package);
       }
       if (mounted) {
-        messenger.showSnackBar(
-          SnackBar(content: Text(t.profileLearningDataExportReady)),
-        );
+        soriNotice(context, t.profileLearningDataExportReady);
       }
     } catch (_) {
       if (mounted) {
-        messenger.showSnackBar(
-          SnackBar(content: Text(t.profileLearningDataExportFailed)),
-        );
+        soriToast(context, t.profileLearningDataExportFailed);
       }
     } finally {
       if (mounted) setState(() => _exportBusy = false);

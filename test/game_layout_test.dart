@@ -228,11 +228,7 @@ void main() {
         final spread =
             heights.reduce((a, b) => a > b ? a : b) -
             heights.reduce((a, b) => a < b ? a : b);
-        expect(
-          spread,
-          lessThan(0.01),
-          reason: '타일 높이가 서로 달라졌다: $heights',
-        );
+        expect(spread, lessThan(0.01), reason: '타일 높이가 서로 달라졌다: $heights');
 
         final labels = find.text(longGerman);
         expect(labels, findsNWidgets(scenario.expectedPairs));
@@ -246,6 +242,27 @@ void main() {
       });
     }
   });
+
+  testWidgets(
+    'Blitz-Paare pauses its countdown while the app is backgrounded',
+    (tester) async {
+      await _pumpSpeedMatch(tester, size: const Size(360, 800));
+
+      expect(find.text('60s'), findsOneWidget);
+      await tester.pump(const Duration(seconds: 2));
+      expect(find.text('58s'), findsOneWidget);
+
+      tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+      await tester.pump(const Duration(seconds: 5));
+      expect(find.text('58s'), findsOneWidget);
+
+      tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.hidden);
+      tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.inactive);
+      tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+      await tester.pump(const Duration(seconds: 1));
+      expect(find.text('57s'), findsOneWidget);
+    },
+  );
 
   group('Lückentext — 빈칸 표시·선택 반영·재시도', () {
     testWidgets('고르기 전에는 빈칸 표시가 문장에 남는다', (tester) async {
@@ -304,6 +321,17 @@ void main() {
       );
       expect(correct.revealCorrect, isTrue);
       await _drainTimers(tester);
+    });
+
+    testWidgets('오답 선택지는 색과 무관하게 의미 값으로도 드러난다', (tester) async {
+      final semantics = tester.ensureSemantics();
+      await _pumpCloze(tester);
+      await tester.tap(find.bySemanticsLabel('곧장'));
+      await tester.pump();
+
+      expect(tester.getSemantics(find.bySemanticsLabel('곧장')).value, 'Falsch');
+      await _drainTimers(tester);
+      semantics.dispose();
     });
   });
 

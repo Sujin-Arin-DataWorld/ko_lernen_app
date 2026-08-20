@@ -6,6 +6,7 @@ import '../../services/privacy_consent_service.dart';
 import '../../services/storage_service.dart';
 import 'button.dart';
 import 'mascot.dart';
+import 'sheet.dart';
 import 'tokens.dart';
 
 /// **Nachgelagerte Analytics/Crash-Einwilligung** — kontextbezogen nach dem
@@ -56,11 +57,8 @@ class ConsentInviteSheet {
     if (!context.mounted) {
       return;
     }
-    await showModalBottomSheet<void>(
+    await showSoriSheet<void>(
       context: context,
-      isScrollControlled: true,
-      showDragHandle: true,
-      backgroundColor: SoriSurfaces.of(context).bg,
       builder: (_) => const _ConsentInviteBody(),
     );
   }

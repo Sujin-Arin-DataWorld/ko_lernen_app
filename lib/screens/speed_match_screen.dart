@@ -36,7 +36,8 @@ class SpeedMatchScreen extends StatefulWidget {
   State<SpeedMatchScreen> createState() => _SpeedMatchScreenState();
 }
 
-class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
+class _SpeedMatchScreenState extends State<SpeedMatchScreen>
+    with WidgetsBindingObserver {
   static const _seconds = 60;
   static const _regularSlots = 5;
   static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
@@ -62,6 +63,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   int _remaining = _seconds;
   Timer? _timer;
   bool _running = false;
+  bool _lifecyclePaused = false;
   int _slotCount = _regularSlots;
   GameOutcome? _outcome;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
@@ -69,7 +71,26 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _load();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        _lifecyclePaused = false;
+        if (_running && _remaining > 0 && _timer == null) {
+          _runTimer();
+        }
+      case AppLifecycleState.inactive:
+      case AppLifecycleState.hidden:
+      case AppLifecycleState.paused:
+      case AppLifecycleState.detached:
+        _lifecyclePaused = true;
+        _timer?.cancel();
+        _timer = null;
+    }
   }
 
   @override
@@ -155,13 +176,16 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
       _running = _active.length >= 2;
       _reshuffleRight();
     });
-    if (_running) {
-      _timer = Timer.periodic(const Duration(seconds: 1), (_) {
-        if (!mounted) return;
-        setState(() => _remaining--);
-        if (_remaining <= 0) _end();
-      });
-    }
+    if (_running && !_lifecyclePaused) _runTimer();
+  }
+
+  void _runTimer() {
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(seconds: 1), (_) {
+      if (!mounted || !_running) return;
+      setState(() => _remaining--);
+      if (_remaining <= 0) _end();
+    });
   }
 
   void _reshuffleRight() {
@@ -223,6 +247,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
   Future<void> _end() async {
     if (!_running) return;
     _timer?.cancel();
+    _timer = null;
     _running = false;
     _feedbackCompletion.complete(
       () => FeedbackCompletion.speedMatch(
@@ -242,6 +267,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _timer?.cancel();
     super.dispose();
   }
@@ -300,26 +326,35 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen> {
               spacing: Spacing.sm,
               runSpacing: Spacing.sm,
               children: [
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.timer_outlined,
-                      size: 20,
-                      color: lowTime ? SoriColors.danger : s.textMuted,
-                    ),
-                    const SizedBox(width: 4),
-                    Text(
-                      '$_remaining s',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w900,
-                        color: lowTime ? SoriColors.danger : s.text,
-                        // 카운트다운 자릿수 폭 고정(흔들림 방지).
-                        fontFeatures: const [FontFeature.tabularFigures()],
+                Semantics(
+                  liveRegion: lowTime,
+                  label: t.kkeunmariTimerSeconds(
+                    _remaining < 0 ? 0 : _remaining,
+                  ),
+                  excludeSemantics: true,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.timer_outlined,
+                        size: 20,
+                        color: lowTime ? SoriColors.danger : s.textMuted,
                       ),
-                    ),
-                  ],
+                      const SizedBox(width: 4),
+                      Text(
+                        t.kkeunmariTimerSeconds(
+                          _remaining < 0 ? 0 : _remaining,
+                        ),
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w900,
+                          color: lowTime ? SoriColors.danger : s.text,
+                          // 카운트다운 자릿수 폭 고정(흔들림 방지).
+                          fontFeatures: const [FontFeature.tabularFigures()],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 if (_combo >= 2)
                   SoriChip(
@@ -549,6 +584,7 @@ class _MatchTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
     Color border = s.border;
     Color bg = s.surface;
     if (wrong) {
@@ -558,33 +594,62 @@ class _MatchTile extends StatelessWidget {
       border = accent;
       bg = accent.withValues(alpha: 0.12);
     }
-    return Padding(
-      padding: const EdgeInsets.only(bottom: Spacing.sm),
-      child: Material(
-        color: bg,
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-        child: InkWell(
+    return Semantics(
+      button: true,
+      selected: selected,
+      label: label,
+      value: wrong ? t.statsWrong : null,
+      excludeSemantics: true,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: Spacing.sm),
+        child: Material(
+          color: bg,
           borderRadius: BorderRadius.circular(SoriRadius.md),
-          onTap: onTap,
-          child: Container(
-            width: double.infinity,
-            height: expandForText ? null : height,
-            constraints: expandForText
-                ? BoxConstraints(minHeight: height)
-                : null,
-            alignment: Alignment.center,
-            padding: const EdgeInsets.symmetric(
-              horizontal: Spacing.sm,
-              vertical: Spacing.sm,
-            ),
-            decoration: BoxDecoration(
-              border: Border.all(color: border, width: 1.5),
-              borderRadius: BorderRadius.circular(SoriRadius.md),
-            ),
-            child: _MatchTileLabel(
-              label: label,
-              tileHeight: height,
-              expandForText: expandForText,
+          child: InkWell(
+            excludeFromSemantics: true,
+            borderRadius: BorderRadius.circular(SoriRadius.md),
+            onTap: onTap,
+            child: Container(
+              width: double.infinity,
+              height: expandForText ? null : height,
+              constraints: expandForText
+                  ? BoxConstraints(minHeight: height)
+                  : null,
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(
+                horizontal: Spacing.sm,
+                vertical: Spacing.sm,
+              ),
+              decoration: BoxDecoration(
+                border: Border.all(color: border, width: 1.5),
+                borderRadius: BorderRadius.circular(SoriRadius.md),
+              ),
+              child: Stack(
+                alignment: Alignment.center,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: wrong || selected ? 20 : 0,
+                    ),
+                    child: _MatchTileLabel(
+                      label: label,
+                      tileHeight: height,
+                      expandForText: expandForText,
+                    ),
+                  ),
+                  if (wrong || selected)
+                    Positioned(
+                      right: 0,
+                      child: Icon(
+                        wrong
+                            ? Icons.close_rounded
+                            : Icons.radio_button_checked_rounded,
+                        color: wrong ? SoriColors.danger : accent,
+                        size: 18,
+                      ),
+                    ),
+                ],
+              ),
             ),
           ),
         ),

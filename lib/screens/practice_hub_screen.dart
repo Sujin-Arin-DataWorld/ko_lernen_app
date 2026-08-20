@@ -8,6 +8,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/module_card.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/tokens.dart';
@@ -210,50 +211,37 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
     required String title,
     required List<_HubItem> items,
   }) async {
-    await showModalBottomSheet<void>(
+    await showSoriSheet<void>(
       context: context,
-      showDragHandle: true,
-      // showModalBottomSheet 의 기본 상한은 화면의 9/16 이다. 목록이 그보다 길면
-      // 시트 안에서만 스크롤돼 첫 항목이 위로 잘린 채 열린다("창뜨는거 좀 길게
-      // 빼서 더 잘보이게 해줘" — Jin, 2026-08-12 실기기). isScrollControlled 로
-      // 그 상한을 풀고 85% 를 새 상한으로 준다.
+      // 짧은 목록은 내용 높이만큼, 긴 목록은 화면의 85% 안에서 스크롤한다.
       //
       // ListView 의 shrinkWrap 은 그대로 둔다 — 항목이 적은 목록까지 85% 로
       // 늘어나면 거의 빈 시트가 화면을 덮는다. 짧은 목록은 내용 높이만큼,
       // 긴 목록은 85% 까지.
-      isScrollControlled: true,
-      constraints: BoxConstraints(
-        maxHeight: MediaQuery.of(context).size.height * 0.85,
-      ),
-      builder: (sheetContext) => SafeArea(
-        child: ListView.separated(
-          shrinkWrap: true,
-          padding: const EdgeInsets.fromLTRB(
-            Spacing.lg,
-            Spacing.sm,
-            Spacing.lg,
-            Spacing.xl,
-          ),
-          itemCount: items.length + 1,
-          separatorBuilder: (_, index) => index == 0
-              ? const SizedBox(height: Spacing.sm)
-              : const Divider(height: 1),
-          itemBuilder: (context, index) {
-            if (index == 0) {
-              return Text(title, style: SoriTextTheme.of(context).h3);
-            }
-            final item = items[index - 1];
-            return ListTile(
-              leading: Icon(item.icon, color: item.accent),
-              title: Text(item.title),
-              subtitle: Text(item.subtitle),
-              onTap: () {
-                Navigator.of(sheetContext).pop();
-                Navigator.of(this.context).pushNamed(item.route);
-              },
-            );
-          },
-        ),
+      scrollable: false,
+      maxHeightFactor: 0.85,
+      builder: (sheetContext) => ListView.separated(
+        shrinkWrap: true,
+        padding: const EdgeInsets.only(bottom: Spacing.sm),
+        itemCount: items.length + 1,
+        separatorBuilder: (_, index) => index == 0
+            ? const SizedBox(height: Spacing.sm)
+            : const Divider(height: 1),
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return Text(title, style: SoriTextTheme.of(context).h3);
+          }
+          final item = items[index - 1];
+          return ListTile(
+            leading: Icon(item.icon, color: item.accent),
+            title: Text(item.title),
+            subtitle: Text(item.subtitle),
+            onTap: () {
+              Navigator.of(sheetContext).pop();
+              Navigator.of(this.context).pushNamed(item.route);
+            },
+          );
+        },
       ),
     );
   }

@@ -165,6 +165,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
                 strokes: strokes,
                 size: 220,
                 color: SoriColors.primary,
+                semanticsLabel: t.hangulStrokeOrderTitle,
                 onCompleted: _markGuideCompleted,
               ),
             ),

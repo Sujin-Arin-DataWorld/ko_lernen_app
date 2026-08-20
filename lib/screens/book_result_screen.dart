@@ -23,8 +23,10 @@ import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/window_class.dart';
@@ -319,22 +321,12 @@ class _BookResultScreenState extends State<BookResultScreen> {
     } on PreferenceOutcomeUnknownException {
       if (!mounted) return;
       final t = AppL10n.of(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(t.bookCaptureErrorUnknown),
-          behavior: SnackBarBehavior.floating,
-        ),
-      );
+      soriToast(context, t.bookCaptureErrorUnknown);
       return;
     } on Object {
       if (!mounted) return;
       final t = AppL10n.of(context);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('${t.bookCaptureErrorUnknown} ${t.btnRetry}'),
-          behavior: SnackBarBehavior.floating,
-        ),
-      );
+      soriToast(context, '${t.bookCaptureErrorUnknown} ${t.btnRetry}');
       return;
     } finally {
       if (mounted) {
@@ -342,12 +334,10 @@ class _BookResultScreenState extends State<BookResultScreen> {
       }
     }
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(AppL10n.of(context).bookResultSaved),
-        behavior: SnackBarBehavior.floating,
-        duration: const Duration(seconds: 2),
-      ),
+    soriNotice(
+      context,
+      AppL10n.of(context).bookResultSaved,
+      duration: const Duration(seconds: 2),
     );
   }
 
@@ -640,9 +630,9 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final controller = TextEditingController(
       text: 'Pack ${DateTime.now().toIso8601String().substring(0, 10)}',
     );
-    final name = await showDialog<String>(
+    final name = await showSoriDialog<String>(
       context: context,
-      builder: (ctx) => AlertDialog(
+      builder: (ctx) => SoriDialog(
         title: Text(t.bookshelfCreatePackTitle),
         content: TextField(
           controller: controller,
@@ -682,17 +672,14 @@ class _BookResultScreenState extends State<BookResultScreen> {
       name: name,
     );
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(t.bookshelfCreatePackSaved),
-        behavior: SnackBarBehavior.floating,
-        action: SnackBarAction(
-          label: t.btnPlay,
-          onPressed: () => Navigator.of(
-            context,
-          ).pushNamed('/custom_pack/play', arguments: pack.id),
-        ),
-      ),
+    await showSoriActionNotice(
+      context: context,
+      message: t.bookshelfCreatePackSaved,
+      dismissLabel: t.btnClose,
+      actionLabel: t.btnPlay,
+      onAction: () => Navigator.of(
+        context,
+      ).pushNamed('/custom_pack/play', arguments: pack.id),
     );
   }
 }

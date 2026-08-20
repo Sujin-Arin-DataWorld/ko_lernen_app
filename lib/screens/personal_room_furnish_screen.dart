@@ -29,6 +29,7 @@ import '../widgets/sori/placed_decoration.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/sticker_image.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -277,9 +278,7 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
   }
 
   void _showMessage(String message) {
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text(message)));
+    soriNotice(context, message);
   }
 
   Future<void> _openStudy() async {

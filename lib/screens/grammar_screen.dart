@@ -41,6 +41,7 @@ import '../services/liked_content_service.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'grammar_choice_quiz_screen.dart';
@@ -531,9 +532,7 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _showCheckpointSaveError() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(AppL10n.of(context).courseCheckpointSaveError)),
-    );
+    soriToast(context, AppL10n.of(context).courseCheckpointSaveError);
   }
 
   void _onFlip() {
@@ -1076,13 +1075,10 @@ class _GrammarScreenState extends State<GrammarScreen>
                     difficulty: stagedDifficulty,
                   );
                   if (next.isEmpty) {
-                    ScaffoldMessenger.of(ctx).hideCurrentSnackBar();
-                    ScaffoldMessenger.of(ctx).showSnackBar(
-                      SnackBar(
-                        content: Text(t.emptyGrammar),
-                        duration: const Duration(milliseconds: 500),
-                        behavior: SnackBarBehavior.floating,
-                      ),
+                    showSoriToast(
+                      ctx,
+                      t.emptyGrammar,
+                      duration: const Duration(milliseconds: 500),
                     );
                     return;
                   }

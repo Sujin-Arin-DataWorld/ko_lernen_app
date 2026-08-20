@@ -28,6 +28,7 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -586,9 +587,7 @@ class _PhraseCardState extends State<_PhraseCard> {
       }
     });
     if (update == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(AppL10n.of(context).courseCheckpointSaveError)),
-      );
+      soriToast(context, AppL10n.of(context).courseCheckpointSaveError);
     }
   }
 
