@@ -95,7 +95,8 @@ class SoriAdaptiveNavigation extends StatelessWidget {
             // 합성어에는 줄바꿈 기회가 없어서 Flutter 가 글자 사이를 끊었다 —
             // 96dp 레일에서 `Lerngruppe` 가 "Lerngrupp / e" 로 떨어져 UI 가
             // 미완성처럼 보였다(2026-08-06 Jin 태블릿 실기기). 한 줄로 못을
-            // 박고, 그래도 넘치면 `FittedBox` 가 **줄바꿈 대신 축소**한다.
+            // 박고, 그래도 넘치면 `FittedBox` 가 **줄바꿈이나 말줄임 대신
+            // 전체 단어를 축소**한다.
             label: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 2),
               child: FittedBox(
@@ -106,7 +107,6 @@ class SoriAdaptiveNavigation extends StatelessWidget {
                   textAlign: TextAlign.center,
                   maxLines: 1,
                   softWrap: false,
-                  overflow: TextOverflow.ellipsis,
                 ),
               ),
             ),
