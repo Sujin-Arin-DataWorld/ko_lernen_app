@@ -3,11 +3,20 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/data/quest_catalog.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/custom_pack.dart';
+import 'package:ko_lernen_app/models/quest.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
+import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/screens/bookshelf_screen.dart';
+import 'package:ko_lernen_app/screens/dojangcheop_screen.dart';
+import 'package:ko_lernen_app/screens/hard_words_screen.dart';
+import 'package:ko_lernen_app/screens/listening_screen.dart';
+import 'package:ko_lernen_app/screens/profile_screen.dart';
+import 'package:ko_lernen_app/screens/quests_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
+import 'package:ko_lernen_app/screens/stats_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_packs_screen.dart';
 import 'package:ko_lernen_app/screens/wordbook_search_screen.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
@@ -15,7 +24,9 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
+import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 void main() {
@@ -26,9 +37,27 @@ void main() {
     SharedPreferences.setMockInitialValues({
       'kl_tut_bookshelf': true,
       'kl_tut_scenarios': true,
+      'kl_tut_profile': true,
+      'kl_tut_quests': true,
+      'kl_tut_hardWords': true,
+      'kl_tut_listening': true,
+      'kl_tut_dojang': true,
       'kl_user_level': 'a1',
+      'kl_streak_days': 3,
+      'kl_xp': 40,
+      'kl_stamps_earned': <String>['lotus'],
     });
     await Storage.init();
+    for (final coachId in <String>[
+      'profile',
+      'stats',
+      'quests',
+      'hardWords',
+      'listening',
+      'dojang',
+    ]) {
+      await Storage.setTutSeen(coachId);
+    }
     DataLoader.reset();
     VocabPackService.reset();
   });
@@ -152,6 +181,154 @@ void main() {
     expect(tester.getSize(find.byType(PackCard).first).width, greaterThan(250));
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('profile copy and final stats action remain reachable at 200%', (
+    tester,
+  ) async {
+    await _configurePhone(tester);
+    await tester.pumpWidget(_host(const ProfileScreen()));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    final t = AppL10n.of(tester.element(find.byType(ProfileScreen)));
+    final target = find.text(t.profileViewStats);
+    await tester.scrollUntilVisible(
+      target,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.ensureVisible(target);
+    await tester.pump();
+
+    expect(find.byType(SoriStandardFrame), findsOneWidget);
+    expect(tester.getRect(target).bottom, lessThanOrEqualTo(640 - 34));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('stats keep the final game summary reachable at 200%', (
+    tester,
+  ) async {
+    await _configurePhone(tester);
+    await tester.pumpWidget(_host(const StatsScreen()));
+    await tester.pump();
+
+    final t = AppL10n.of(tester.element(find.byType(StatsScreen)));
+    final target = find.text(t.gameWordleTitle);
+    final list = find.byType(ListView).first;
+    for (var i = 0; i < 14 && target.evaluate().isEmpty; i += 1) {
+      await tester.drag(list, const Offset(0, -240));
+      await tester.pump();
+    }
+    await tester.ensureVisible(target);
+    await tester.pump();
+
+    expect(target, findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('quest title and action are not compressed into badge chrome', (
+    tester,
+  ) async {
+    final definition = kQuestCatalog.first;
+    final progress = QuestProgress(
+      questId: definition.id,
+      current: 1,
+      target: definition.target,
+      active: true,
+      completed: false,
+      completedAtIso: null,
+    );
+    await _configurePhone(tester);
+    await tester.pumpWidget(
+      _host(
+        QuestsScreen(
+          loadQuests: () async => [progress],
+          persistNewCompletions: (_) async {},
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    final title = find.text(definition.name.de);
+    final list = find.byType(ListView).first;
+    for (var i = 0; i < 5 && title.evaluate().isEmpty; i += 1) {
+      await tester.drag(list, const Offset(0, -180));
+      await tester.pump();
+    }
+    expect(title, findsOneWidget);
+    expect(find.byType(SoriStandardFrame), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('hard-word translation and both bottom actions stay visible', (
+    tester,
+  ) async {
+    for (var i = 0; i < 3; i += 1) {
+      await Storage.incrementWrongCount(_hardWordFixture.korean);
+    }
+    await _configurePhone(tester);
+    await tester.pumpWidget(
+      _host(HardWordsScreen(deckLoader: () async => [_hardWordFixture])),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    final t = AppL10n.of(tester.element(find.byType(HardWordsScreen)));
+    final list = find.byType(ListView).first;
+    for (
+      var i = 0;
+      i < 4 && find.text(t.hardWordsStudyCta).evaluate().isEmpty;
+      i += 1
+    ) {
+      await tester.drag(list, const Offset(0, -180));
+      await tester.pump();
+    }
+    final translation = tester.widget<Text>(find.text(_hardWordFixture.german));
+    expect(translation.overflow, isNull);
+    expect(find.text(t.hardWordsHardQuizCta), findsOneWidget);
+    expect(find.text(t.hardWordsStudyCta), findsOneWidget);
+    expect(find.byType(SoriBottomActionArea), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('listening level filters wrap at 200% without fixed clipping', (
+    tester,
+  ) async {
+    await _configurePhone(tester);
+    await tester.pumpWidget(
+      _host(
+        ListeningScreen(scenariosLoader: () async => const [_scenarioFixture]),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 100));
+
+    expect(find.text('A1'), findsWidgets);
+    expect(find.text('C2'), findsWidgets);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('dojang stamps shrink inside the 320dp three-column grid', (
+    tester,
+  ) async {
+    await _configurePhone(tester);
+    await tester.pumpWidget(_host(const DojangcheopScreen()));
+    await tester.pump();
+
+    final list = find.byType(ListView).first;
+    for (var i = 0; i < 4; i += 1) {
+      await tester.drag(list, const Offset(0, -200));
+      await tester.pump();
+    }
+
+    final stamps = tester.widgetList<DancheongStamp>(
+      find.byType(DancheongStamp),
+    );
+    expect(stamps, isNotEmpty);
+    expect(stamps.every((stamp) => stamp.size < 96), isTrue);
+    expect(tester.takeException(), isNull);
+  });
 }
 
 const _scenarioFixture = Scenario(
@@ -159,6 +336,7 @@ const _scenarioFixture = Scenario(
   level: LearnerLevel.a1,
   emoji: 'tiger',
   register: Register.polite,
+  shelf: 'a1_friends',
   title: LocalizedText(
     ko: '공항에서 길고 자세하게 입국 절차를 묻기',
     de: 'Am Flughafen ausführlich nach dem gesamten Einreiseweg fragen',
@@ -167,8 +345,27 @@ const _scenarioFixture = Scenario(
   intro: LocalizedText(ko: '', de: '', en: ''),
   vocab: [],
   grammarIds: [],
-  dialog: [],
+  dialog: [
+    DialogLine(
+      speaker: 'jieun',
+      ko: '도와주세요.',
+      de: 'Bitte helfen Sie mir.',
+      en: 'Please help me.',
+    ),
+  ],
   quests: [],
+);
+
+const _hardWordFixture = Vocab(
+  id: 'responsive_hard_word',
+  korean: '마음가짐',
+  romanization: 'maeumgajim',
+  german: 'eine besonders ausführliche innere Haltung und Einstellung',
+  level: 'B2',
+  posDe: 'Nomen',
+  exampleKorean: '',
+  exampleGerman: '',
+  topic: 'test',
 );
 
 Future<void> _configurePhone(WidgetTester tester) async {
@@ -178,11 +375,11 @@ Future<void> _configurePhone(WidgetTester tester) async {
   addTearDown(tester.view.resetDevicePixelRatio);
 }
 
-Widget _host(Widget child) {
+Widget _host(Widget child, {Locale locale = const Locale('de')}) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: AppTheme.light,
-    locale: const Locale('de'),
+    locale: locale,
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
     builder: (context, appChild) {

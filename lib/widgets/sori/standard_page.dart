@@ -26,6 +26,7 @@ class SoriStandardFrame extends StatelessWidget {
     this.maxWidth = SoriMaxWidth.prose,
     this.padding = EdgeInsets.zero,
     this.particles = false,
+    this.bottomNavigationBar,
   });
 
   final String appBarTitle;
@@ -33,9 +34,12 @@ class SoriStandardFrame extends StatelessWidget {
   final List<Widget>? actions;
   final Widget? leading;
   final bool automaticallyImplyLeading;
-  final double maxWidth;
+
+  /// 명시적 의미 폭. `null`이면 기존 폰→태블릿 적응형 콘텐츠 폭을 쓴다.
+  final double? maxWidth;
   final EdgeInsets padding;
   final bool particles;
+  final Widget? bottomNavigationBar;
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +60,38 @@ class SoriStandardFrame extends StatelessWidget {
             builder: builder,
           ),
         ),
+      ),
+      bottomNavigationBar: bottomNavigationBar,
+    );
+  }
+}
+
+/// 고정 하단 행동을 SafeArea와 콘텐츠 폭 안에 두는 표준 영역.
+///
+/// 학습·목록 화면의 CTA가 태블릿 전체 폭으로 늘어나거나 시스템 제스처 영역과
+/// 겹치지 않도록 한다. 버튼 문구는 [SoriButton]의 자연 높이 규칙을 그대로
+/// 따르므로 큰 글자에서 잘리지 않는다.
+class SoriBottomActionArea extends StatelessWidget {
+  const SoriBottomActionArea({
+    super.key,
+    required this.child,
+    this.maxWidth = SoriMaxWidth.prose,
+    this.padding = const EdgeInsets.all(Spacing.lg),
+  });
+
+  final Widget child;
+  final double maxWidth;
+  final EdgeInsets padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      top: false,
+      child: SoriContentClamp(
+        maxWidth: maxWidth,
+        base: padding,
+        builder: (context, resolvedPadding) =>
+            Padding(padding: resolvedPadding, child: child),
       ),
     );
   }

@@ -102,6 +102,7 @@ class AccountPendingOperationPanel extends StatefulWidget {
     this.onCompleted,
     this.cloudDeletionState,
     this.resumeCloudDeletion,
+    this.refreshOnMount = true,
   });
 
   final AccountUiOperations operations;
@@ -113,6 +114,12 @@ class AccountPendingOperationPanel extends StatefulWidget {
   /// [resumeCloudDeletion] instead of rendering a dead text card.
   final ValueListenable<CloudBackupDeletionJournalState>? cloudDeletionState;
   final Future<void> Function()? resumeCloudDeletion;
+
+  /// Whether this panel owns the first persisted-state refresh.
+  ///
+  /// A parent that must refresh before this panel enters a lazy viewport can
+  /// set this to false and perform the refresh from its own lifecycle.
+  final bool refreshOnMount;
 
   @override
   State<AccountPendingOperationPanel> createState() =>
@@ -134,7 +141,7 @@ class _AccountPendingOperationPanelState
     // static notifier and mark sibling ValueListenableBuilders dirty mid-build.
     // Defer to after the frame. (See _beginInitialRefresh above.)
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) return;
+      if (!mounted || !widget.refreshOnMount) return;
       _source?.refreshPendingState();
     });
   }

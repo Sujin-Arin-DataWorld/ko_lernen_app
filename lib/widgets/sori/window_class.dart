@@ -147,6 +147,9 @@ abstract final class SoriAdaptiveWidth {
 
   /// 아이콘·설명형 shortcut 두 개를 나란히 둘 수 있는 최소 내부 폭.
   static const double shortcutRow = 320;
+
+  /// 긴 라벨과 수치 값을 한 줄에서 함께 읽을 수 있는 최소 내부 폭.
+  static const double labelValueRow = 320;
 }
 
 /// [SafeArea] + 최대 너비 클램프를 한 번에 적용하는 화면 프레임.

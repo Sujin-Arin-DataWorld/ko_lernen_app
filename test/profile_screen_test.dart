@@ -745,6 +745,9 @@ void main() {
         ),
       );
       await refreshStarted.future;
+      // The screen-level refresh now starts in the first post-frame callback;
+      // finish the Material route transition before driving the scroll view.
+      await tester.pump(const Duration(milliseconds: 300));
 
       await tester.scrollUntilVisible(
         find.widgetWithText(SoriButton, 'Abmelden'),
