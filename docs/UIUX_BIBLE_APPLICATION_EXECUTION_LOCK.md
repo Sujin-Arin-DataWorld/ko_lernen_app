@@ -1,12 +1,12 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.1
+- **Version:** 1.2
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-foundation-1a-2026-08-21`
-- **Base:** `origin/main@151c08b28a75bf909aa873996b9d495d0bf91f8b`
-- **State:** Phase 1A implementation and local verification complete; PR pending
-- **Next action:** commit and push Phase 1A, open its PR, inspect the automatic
-  current-head CI run, merge only if green, then start Phase 1B from latest main
+- **Branch:** `session/uiux-bible-foundation-1b-2026-08-21`
+- **Base:** `origin/main@6c631f088d999f25aec1fc7157fac5b34f010435`
+- **State:** Phase 1B implementation and local verification complete; PR pending
+- **Next action:** commit and push Phase 1B, open its PR, inspect the automatic
+  current-head CI run, merge only if green, then start Phase 2A from latest main
 
 ## 1. Purpose
 
@@ -252,7 +252,7 @@ use it rather than reproduce it locally.
 |---|---|---|
 | Foundations and frames | `tokens`, `type_scale`, `window_class`, `responsive`, `screen_background`, `standard_page`, `study_frame`, `app_bar`, `adaptive_navigation`, `page_header`, `section_header`, `scroll_if_needed`, `motion`, `pressable` | Retain. Phase 1A removes appbar truncation and strengthens frame/reduced-motion tests. No new token layer. |
 | Core controls and overlays | `button`, `card`, `chip`, `badge`, `progress`, `dialog`, `sheet`, `toast`, `sori_icon`, `illustrated_card`, `sticker_image`, `sticker_picker`, `room_slot_picker` | Retain. Touched screens migrate raw equivalents; labels remain complete and semantic. |
-| State, account, and guidance | `empty_state`, `account_nudge`, `account_operation_ui`, `age_gate_prompt`, `consent_invite_sheet`, `external_link`, `feature_coach`, `screen_coach`, `spotlight_coach`, `diagnostics_route_observer`, `route_observer`, `tab_reselect` | Retain. Phase 1B adds a Sori field wrapper inside this system and aligns loading/error states; it does not alter account/platform behavior. |
+| State, account, and guidance | `empty_state`, `text_field`, `account_nudge`, `account_operation_ui`, `age_gate_prompt`, `consent_invite_sheet`, `external_link`, `feature_coach`, `screen_coach`, `spotlight_coach`, `diagnostics_route_observer`, `route_observer`, `tab_reselect` | Retain. `SoriTextField` is the canonical app-owned input wrapper; screens migrate incrementally without changing validation, persistence, or submit behavior. |
 | Study and evidence | `can_do_result_card`, `chosung_hint`, `cloze_prompt`, `content_feed`, `content_feedback_card`, `content_feedback_sheet`, `course_mission_brief`, `course_progress_evidence_note`, `culture_note_card`, `deck_action_bar`, `deck_coach`, `game_layout`, `game_reward`, `hub_progress_header`, `level_chip`, `mission_context_bar`, `mission_hero_card`, `module_card`, `pack_card`, `path_preview_row`, `path_trail`, `quiz_choice`, `scenario_write_after_roleplay_card`, `score_pop`, `share_slip`, `stats_top_bar`, `study_action_bar`, `study_card_face`, `swipe_card`, `swipe_rails`, `tts_speed_control`, `tts_unavailable_banner`, `week_progress`, `week_sheet`, `wordbook_add`, `ko_wrap` | Protected. Visual adoption must not bypass the evidence, flip-gate, SRS, timer, or route contracts these components encode. |
 | Rewards, art, and media | `activity_illustration`, `activity_sheet`, `ambient_particles`, `celebration`, `character_clip`, `cultural_help`, `dancheong_burst`, `dancheong_stamp`, `decoration_layer`, `home_hero`, `like_burst`, `localized_copy`, `mascot`, `mascot_pop`, `mascot_preference`, `milestone_celebration`, `motivation_sheet`, `pending_reward_card`, `placed_decoration`, `reward_icon`, `reward_thumb`, `tiger_video`, `video_lease` | Retain approved assets and decoder ownership. No generation or silent asset swap. Reduced motion must keep a readable outcome. |
 | Hanok and rooms | `a1_hanok_construction_map`, `free_room_layer`, `hanok_build_narrative_line`, `hanok_cinematic`, `hanok_header`, `hanok_stage_names`, `hanok_tokens`, `madang_background`, `personal_hanok_map`, `personal_hanok_unlock_reveal`, `personal_hanok_venue_sheet`, `personal_room_scene`, `room_layer`, `world_map_viewport`, `hanok/eaves_corner`, `hanok/gate_art`, `hanok/giwa_pattern`, `hanok/hanji_texture`, `chaekgado/scroll_palette`, `chaekgado/scroll_sheet`, `chaekgado/shelf_case` | Protected visual/evidence system. UI phases may adjust surrounding chrome only unless a dedicated Hanok test proves map/room geometry unchanged. |
@@ -320,8 +320,8 @@ production, and deployment remain unclaimed and out of scope.
 |---|---|---|
 | Phase 2 native/game precursor | merged | PR #116; main merge `63b62e10fc923aa91d55642c68d67dae66161178`; CI green; local analyze clean; 4,250 tests passed, 14 conditional skips |
 | 0 audit + execution lock | merged | PR #118; main merge `151c08b28a75bf909aa873996b9d495d0bf91f8b`; docs-only CI path filter correctly scheduled no run |
-| 1A common chrome/motion | local complete | appbar ellipsis 2→0; long normal-scale copy wraps; short chrome remains 56 dp; reduced-motion error ticker stops; 15 focused and 53 shared matrix/accessibility tests passed; analyze clean in 131.5 s; commit/PR next |
-| 1B common field/state | pending | follows 1A |
+| 1A common chrome/motion | merged | PR #120; main merge `6c631f088d999f25aec1fc7157fac5b34f010435`; CI run 32429108058 green; appbar ellipsis 2→0; reduced-motion error ticker stops |
+| 1B common field/state | local complete | `SoriTextField` added; Discover + Wordbook Search migrated; screen raw TextField ratchet 25→23; 3 component and 25 focused/responsive/guard tests passed; analyze clean in 86.3 s; commit/PR next |
 | 2A–2D main tabs/home | pending | start only from latest merged main |
 | 3A–3D learning flows | pending | split by evidence boundary |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |

@@ -150,6 +150,15 @@ void main() {
     );
   });
 
+  test('화면의 원시 TextField 는 더 늘지 않는다', () {
+    _expectAtMost(
+      sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
+      RegExp(r'(^|[^A-Za-z_$.])TextField\('),
+      23,
+      'lib/screens/ 원시 TextField(',
+    );
+  });
+
   test('아이콘 달린 SoriButton 은 더 늘지 않는다', () {
     // 기준선 2026-07-31: 114 span 중 74곳.
     // (114 = 실제 콜사이트 110 + button.dart 안의 생성자 선언 4)
