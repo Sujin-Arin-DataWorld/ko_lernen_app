@@ -13,17 +13,24 @@ import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
 import 'package:ko_lernen_app/screens/custom_pack_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/custom_pack_typing_screen.dart';
 import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
+import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_choice_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/hard_choice_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/screens/satz_arcade_screen.dart';
+import 'package:ko_lernen_app/screens/silben_kreuz_screen.dart';
 import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/screens/word_web_quiz_screen.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
+import 'package:ko_lernen_app/services/data_loader.dart';
+import 'package:ko_lernen_app/services/kkeunmari_engine.dart';
 import 'package:ko_lernen_app/services/satz_loader.dart';
+import 'package:ko_lernen_app/services/silben_puzzle_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
@@ -160,8 +167,14 @@ void main() {
       'kl_tut_cpTyping': true,
       'kl_tut_soriDeck': true,
       'kl_tut_wordbook': true,
+      'kl_tut_chosung': true,
+      'kl_tut_kkeunmari': true,
+      'kl_tut_silben_kreuz': true,
     });
     await Storage.init();
+    await DataLoader.loadVocab();
+    await KkeunmariEngine.load();
+    await SilbenPuzzleLoader.load();
     await CustomPackService.save(
       CustomPack.manual(
         id: _packId,
@@ -206,6 +219,9 @@ void main() {
     'cloze game': () => const ClozeGameScreen(items: [_cloze]),
     'sentence arcade': () => const SatzArcadeScreen(items: [_satz]),
     'speed match': () => const SpeedMatchScreen(items: _speedWords),
+    'initial consonant quiz': () => const ChosungQuizScreen(),
+    'word chain': () => const KkeunmariScreen(),
+    'syllable crossword': () => const SilbenKreuzScreen(),
   };
 
   for (final locale in const [Locale('de'), Locale('en')]) {
@@ -232,6 +248,11 @@ void main() {
           await tester.pump(const Duration(milliseconds: 500));
 
           expect(find.byType(SoriStudyFrame), findsOneWidget);
+          final readyFinder = _readyFinderFor(activity.key);
+          if (readyFinder != null) {
+            await _pumpUntilVisible(tester, readyFinder);
+            expect(readyFinder, findsOneWidget);
+          }
           final adaptiveBody = find.byType(SoriAdaptiveStudyBody);
           if (adaptiveBody.evaluate().isNotEmpty) {
             expect(
@@ -287,6 +308,25 @@ void main() {
       semantics.dispose();
     },
   );
+}
+
+Finder? _readyFinderFor(String activity) {
+  return switch (activity) {
+    'initial consonant quiz' || 'word chain' => find.byType(HanokHeader),
+    'syllable crossword' => find.byKey(const ValueKey('silben-level-A1')),
+    _ => null,
+  };
+}
+
+Future<void> _pumpUntilVisible(
+  WidgetTester tester,
+  Finder finder, {
+  int attempts = 40,
+}) async {
+  for (var attempt = 0; attempt < attempts; attempt++) {
+    if (finder.evaluate().isNotEmpty) return;
+    await tester.pump(const Duration(milliseconds: 100));
+  }
 }
 
 Widget _host({

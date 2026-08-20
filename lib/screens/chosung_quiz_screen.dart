@@ -12,7 +12,6 @@ import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot_preference.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/celebration.dart';
@@ -27,9 +26,9 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/wordbook_add.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../services/hangul_composer.dart';
 import '../widgets/app_loading.dart';
@@ -396,8 +395,13 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     if (_deck.isEmpty) {
-      return const Scaffold(body: AppLoading());
+      return SoriStudyFrame(
+        title: t.gameChosungTitle,
+        padding: EdgeInsets.zero,
+        child: const AppLoading(),
+      );
     }
 
     final card = _card;
@@ -408,254 +412,232 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
         ? 1.0
         : (_roundIndex / _roundSize).clamp(0.0, 1.0);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          AppL10n.of(context).gameChosungTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new, size: 20),
-          onPressed: () => Navigator.pop(context),
-        ),
-        actions: [
-          // 현재 글자를 내 단어장에 담기.
-          AddToWordbookButton(
-            korean: card.korean,
-            translationDe: card.german,
-            romanization: card.romanization,
-            posDe: card.posDe,
-            exampleKorean: card.exampleKorean,
-            exampleDe: card.exampleGerman,
-            compact: true,
-          ),
-        ],
+    return SoriStudyFrame(
+      title: t.gameChosungTitle,
+      leading: IconButton(
+        icon: const Icon(Icons.arrow_back_ios_new, size: 20),
+        onPressed: () => Navigator.pop(context),
       ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(18, 8, 18, 16),
+      actions: [
+        // 현재 글자를 내 단어장에 담기.
+        AddToWordbookButton(
+          korean: card.korean,
+          translationDe: card.german,
+          romanization: card.romanization,
+          posDe: card.posDe,
+          exampleKorean: card.exampleKorean,
+          exampleDe: card.exampleGerman,
+          compact: true,
+        ),
+      ],
+      padding: const EdgeInsets.fromLTRB(18, 8, 18, 16),
+      child: Column(
+        children: [
+          // 본문은 스크롤 가능 — autofocus 키보드 + 자음패드가 동시에 떠도
+          // 하단 오버플로 없이 스크롤된다. 진행 바는 아래 고정.
+          Expanded(
+            child: SingleChildScrollView(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  // 본문은 스크롤 가능 — autofocus 키보드 + 자음패드가 동시에 떠도
-                  // 하단 오버플로 없이 스크롤된다. 진행 바는 아래 고정.
-                  Expanded(
-                    child: SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          // 모듈 헤더 — calligraphy 한지 화선지 톤(붓글씨)이 chosung 자음
-                          // 학습과 가장 잘 어울림 (이전 porch.png는 generic 처마 풍경이었음).
-                          const SoriEntrance(
-                            child: HanokHeader(
-                              asset:
-                                  'assets/illustrations/hanok/calligraphy.png',
-                              fallbackIcon: Icons.abc_rounded,
-                            ),
-                          ),
-                          const SizedBox(height: Spacing.md),
-
-                          // ── 레벨 선택 ──────────────────────────────────────────
-                          Wrap(
-                            key: _levelRowKey,
-                            alignment: WrapAlignment.center,
-                            spacing: Spacing.sm,
-                            runSpacing: Spacing.xs,
-                            children: LearnerLevel.values.map((level) {
-                              final lvl = level.display;
-                              final selected = _level == lvl;
-                              return SoriChip(
-                                key: ValueKey('chosung-level-$lvl'),
-                                label: lvl,
-                                accent: SoriColors.primary,
-                                selected: selected,
-                                variant: SoriChipVariant.soft,
-                                fontSize: 13,
-                                onTap: selected
-                                    ? null
-                                    : () {
-                                        setState(() => _level = lvl);
-                                        _load();
-                                      },
-                              );
-                            }).toList(),
-                          ),
-                          const SizedBox(height: 8),
-
-                          // ── 난이도 토글 (초성 only / 초성+모음) ────────────────
-                          Wrap(
-                            alignment: WrapAlignment.center,
-                            spacing: Spacing.sm,
-                            runSpacing: Spacing.xs,
-                            children: [
-                              SoriChip(
-                                label: AppL10n.of(context).chosungModeWithVowels,
-                                icon: Icons.lightbulb_outline,
-                                accent: SoriColors.warning,
-                                selected: _mode == HintMode.chosungVowel,
-                                variant: SoriChipVariant.soft,
-                                fontSize: 12,
-                                onTap: _mode == HintMode.chosungVowel
-                                    ? null
-                                    : () => setState(
-                                        () => _mode = HintMode.chosungVowel,
-                                      ),
-                              ),
-                              SoriChip(
-                                label: AppL10n.of(context).chosungModeInitialsOnly,
-                                icon: Icons.flash_on_rounded,
-                                accent: SoriColors.danger,
-                                selected: _mode == HintMode.chosung,
-                                variant: SoriChipVariant.soft,
-                                fontSize: 12,
-                                onTap: _mode == HintMode.chosung
-                                    ? null
-                                    : () => setState(
-                                        () => _mode = HintMode.chosung,
-                                      ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-
-                          // ── 통계 칩 ────────────────────────────────────────────
-                          // Wrap = textScale 1.3 × 308px에서 가로 오버플로 없이
-                          // 다음 줄로 흐름. 이모지 → 시맨틱 아이콘(성공/실패 색).
-                          Wrap(
-                            spacing: Spacing.sm,
-                            runSpacing: Spacing.xs,
-                            children: [
-                              SoriChip(
-                                label: '$_correct',
-                                icon: Icons.check_rounded,
-                                accent: SoriColors.success,
-                              ),
-                              SoriChip(
-                                label: '$_wrong',
-                                icon: Icons.close_rounded,
-                                accent: SoriColors.danger,
-                              ),
-                              SoriChip(label: '$roundPos / $_roundSize'),
-                            ],
-                          ),
-                          const SizedBox(height: 14),
-
-                          if (_roundComplete) ...[
-                            Builder(
-                              builder: (context) {
-                                final t = AppL10n.of(context);
-                                return _RoundSummaryCard(
-                                  correct: _roundCorrect,
-                                  total: _roundSize,
-                                  durationsMs: _roundDurationsMs,
-                                  earnedXp: _roundXp,
-                                  isNewBest: _roundNewBest,
-                                  recommendation: _recommendation(t),
-                                  feedbackCompletion:
-                                      _feedbackCompletion.current,
-                                  onContinue: _startNewRound,
-                                );
-                              },
-                            ),
-                          ] else ...[
-                            // ── 카드 ─────────────────────────────────────────────
-                            KeyedSubtree(
-                              key: _quizCardKey,
-                              child: _QuizCard(
-                                word: card.korean,
-                                mode: _mode,
-                                german: card.german,
-                                state: _state,
-                              ),
-                            ),
-                            const SizedBox(height: 12),
-                          ],
-
-                          // ── 입력 ───────────────────────────────────────────────
-                          if (!_roundComplete && _state == _State.waiting) ...[
-                            Builder(
-                              builder: (context) {
-                                final t = AppL10n.of(context);
-                                return Column(
-                                  children: [
-                                    TextField(
-                                      key: _inputFieldKey,
-                                      controller: _ctrl,
-                                      focusNode: _focusNode,
-                                      autofocus: true,
-                                      textAlign: TextAlign.center,
-                                      style: const TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                      onSubmitted: (_) => _submit(),
-                                    ),
-                                    const SizedBox(height: Spacing.sm + 2),
-                                    Row(
-                                      children: [
-                                        Expanded(
-                                          flex: 3,
-                                          child: SoriButton.filled(
-                                            label: t.chosungSubmitBtn,
-                                            fullWidth: true,
-                                            onTap: _submit,
-                                          ),
-                                        ),
-                                        const SizedBox(width: Spacing.sm + 2),
-                                        Expanded(
-                                          flex: 2,
-                                          child: SoriButton.outlined(
-                                            label: t.btnSkip,
-                                            fullWidth: true,
-                                            onTap: _skip,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                );
-                              },
-                            ),
-                            if (showPad) ...[
-                              const SizedBox(height: 12),
-                              _JamoPad(
-                                onJamo: _appendJamo,
-                                onBackspace: _backspaceJamo,
-                              ),
-                            ] else ...[
-                              // 자판이 사라지는 게 고장처럼 보인다는 피드백
-                              // ("B부터는 없다고 설명해줘야될것같아. 오류같잖아"
-                              // — Jin, 2026-08-12). 의도된 난이도 설계라는 걸
-                              // 한 줄로 알린다.
-                              const SizedBox(height: 12),
-                              Text(
-                                AppL10n.of(context).chosungPadHiddenNote,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  fontSize: 12.5,
-                                  color: SoriColors.darkTextMuted,
-                                ),
-                              ),
-                            ],
-                          ],
-                        ],
-                      ),
+                  // 모듈 헤더 — calligraphy 한지 화선지 톤(붓글씨)이 chosung 자음
+                  // 학습과 가장 잘 어울림 (이전 porch.png는 generic 처마 풍경이었음).
+                  const SoriEntrance(
+                    child: HanokHeader(
+                      asset: 'assets/illustrations/hanok/calligraphy.png',
+                      fallbackIcon: Icons.abc_rounded,
                     ),
                   ),
+                  const SizedBox(height: Spacing.md),
 
-                  // ── 진행 바 (하단 고정) ────────────────────────────────
-                  const SizedBox(height: 10),
-                  SoriProgressBar(
-                    value: roundProgress,
-                    thickness: 6,
-                    animated: true,
+                  // ── 레벨 선택 ──────────────────────────────────────────
+                  Wrap(
+                    key: _levelRowKey,
+                    alignment: WrapAlignment.center,
+                    spacing: Spacing.sm,
+                    runSpacing: Spacing.xs,
+                    children: LearnerLevel.values.map((level) {
+                      final lvl = level.display;
+                      final selected = _level == lvl;
+                      return SoriChip(
+                        key: ValueKey('chosung-level-$lvl'),
+                        label: lvl,
+                        accent: SoriColors.primary,
+                        selected: selected,
+                        variant: SoriChipVariant.soft,
+                        fontSize: 13,
+                        onTap: selected
+                            ? null
+                            : () {
+                                setState(() => _level = lvl);
+                                _load();
+                              },
+                      );
+                    }).toList(),
                   ),
+                  const SizedBox(height: 8),
+
+                  // ── 난이도 토글 (초성 only / 초성+모음) ────────────────
+                  Wrap(
+                    alignment: WrapAlignment.center,
+                    spacing: Spacing.sm,
+                    runSpacing: Spacing.xs,
+                    children: [
+                      SoriChip(
+                        label: AppL10n.of(context).chosungModeWithVowels,
+                        icon: Icons.lightbulb_outline,
+                        accent: SoriColors.warning,
+                        selected: _mode == HintMode.chosungVowel,
+                        variant: SoriChipVariant.soft,
+                        fontSize: 12,
+                        onTap: _mode == HintMode.chosungVowel
+                            ? null
+                            : () =>
+                                  setState(() => _mode = HintMode.chosungVowel),
+                      ),
+                      SoriChip(
+                        label: AppL10n.of(context).chosungModeInitialsOnly,
+                        icon: Icons.flash_on_rounded,
+                        accent: SoriColors.danger,
+                        selected: _mode == HintMode.chosung,
+                        variant: SoriChipVariant.soft,
+                        fontSize: 12,
+                        onTap: _mode == HintMode.chosung
+                            ? null
+                            : () => setState(() => _mode = HintMode.chosung),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+
+                  // ── 통계 칩 ────────────────────────────────────────────
+                  // Wrap = textScale 1.3 × 308px에서 가로 오버플로 없이
+                  // 다음 줄로 흐름. 이모지 → 시맨틱 아이콘(성공/실패 색).
+                  Wrap(
+                    spacing: Spacing.sm,
+                    runSpacing: Spacing.xs,
+                    children: [
+                      SoriChip(
+                        label: '$_correct',
+                        icon: Icons.check_rounded,
+                        accent: SoriColors.success,
+                      ),
+                      SoriChip(
+                        label: '$_wrong',
+                        icon: Icons.close_rounded,
+                        accent: SoriColors.danger,
+                      ),
+                      SoriChip(label: '$roundPos / $_roundSize'),
+                    ],
+                  ),
+                  const SizedBox(height: 14),
+
+                  if (_roundComplete) ...[
+                    Builder(
+                      builder: (context) {
+                        final t = AppL10n.of(context);
+                        return _RoundSummaryCard(
+                          correct: _roundCorrect,
+                          total: _roundSize,
+                          durationsMs: _roundDurationsMs,
+                          earnedXp: _roundXp,
+                          isNewBest: _roundNewBest,
+                          recommendation: _recommendation(t),
+                          feedbackCompletion: _feedbackCompletion.current,
+                          onContinue: _startNewRound,
+                        );
+                      },
+                    ),
+                  ] else ...[
+                    // ── 카드 ─────────────────────────────────────────────
+                    KeyedSubtree(
+                      key: _quizCardKey,
+                      child: _QuizCard(
+                        word: card.korean,
+                        mode: _mode,
+                        german: card.german,
+                        state: _state,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                  ],
+
+                  // ── 입력 ───────────────────────────────────────────────
+                  if (!_roundComplete && _state == _State.waiting) ...[
+                    Builder(
+                      builder: (context) {
+                        final t = AppL10n.of(context);
+                        return Column(
+                          children: [
+                            TextField(
+                              key: _inputFieldKey,
+                              controller: _ctrl,
+                              focusNode: _focusNode,
+                              autofocus: true,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.w700,
+                              ),
+                              onSubmitted: (_) => _submit(),
+                            ),
+                            const SizedBox(height: Spacing.sm + 2),
+                            Row(
+                              children: [
+                                Expanded(
+                                  flex: 3,
+                                  child: SoriButton.filled(
+                                    label: t.chosungSubmitBtn,
+                                    fullWidth: true,
+                                    onTap: _submit,
+                                  ),
+                                ),
+                                const SizedBox(width: Spacing.sm + 2),
+                                Expanded(
+                                  flex: 2,
+                                  child: SoriButton.outlined(
+                                    label: t.btnSkip,
+                                    fullWidth: true,
+                                    onTap: _skip,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        );
+                      },
+                    ),
+                    if (showPad) ...[
+                      const SizedBox(height: 12),
+                      _JamoPad(
+                        onJamo: _appendJamo,
+                        onBackspace: _backspaceJamo,
+                      ),
+                    ] else ...[
+                      // 자판이 사라지는 게 고장처럼 보인다는 피드백
+                      // ("B부터는 없다고 설명해줘야될것같아. 오류같잖아"
+                      // — Jin, 2026-08-12). 의도된 난이도 설계라는 걸
+                      // 한 줄로 알린다.
+                      const SizedBox(height: 12),
+                      Text(
+                        AppL10n.of(context).chosungPadHiddenNote,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 12.5,
+                          color: SoriColors.darkTextMuted,
+                        ),
+                      ),
+                    ],
+                  ],
                 ],
               ),
             ),
           ),
-        ),
+
+          // ── 진행 바 (하단 고정) ────────────────────────────────
+          const SizedBox(height: 10),
+          SoriProgressBar(value: roundProgress, thickness: 6, animated: true),
+        ],
       ),
     );
   }
