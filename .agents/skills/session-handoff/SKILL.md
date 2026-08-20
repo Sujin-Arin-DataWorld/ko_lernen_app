@@ -17,8 +17,12 @@ Determine which mode applies:
 **Resuming from a handoff?** User wants to continue previous work, load context, or mentions an existing handoff.
 - Follow: RESUME Workflow below
 
-**Proactive suggestion?** After substantial work (5+ file edits, complex debugging, major decisions), suggest:
-> "We've made significant progress. Consider creating a handoff document to preserve this context for future sessions. Say 'create handoff' when ready."
+**Session end (AGENTS.md, 2026-08-19):** Every session that changes code or
+decisions MUST write a short handoff before stopping. Do not write
+`docs/SESSION_LOG.md` instead.
+
+**Proactive suggestion?** After substantial work, do not wait — create the
+handoff when the session is ending.
 
 ## CREATE Workflow
 

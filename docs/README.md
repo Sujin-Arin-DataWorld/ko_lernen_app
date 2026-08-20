@@ -8,8 +8,9 @@ history rather than copied into the working tree.
 
 1. [AGENTS.md](../AGENTS.md) — repository rules, architecture map, and active
    gates.
-2. [SESSION_LOG.md](SESSION_LOG.md) — append-only change and verification
-   history; newest entry is first.
+2. [`.claude/handoffs/`](../.claude/handoffs/) — latest session handoff (read
+   one file). [SESSION_LOG.md](SESSION_LOG.md) is historical search only;
+   do not append on every change.
 3. The SSoT for the task at hand:
    - UI/UX: [HANDOFF_UI_OVERHAUL_2_2026-08-14.md](HANDOFF_UI_OVERHAUL_2_2026-08-14.md)
      for Today/home/catalog chrome. **Content players** (listen, write, decks,
