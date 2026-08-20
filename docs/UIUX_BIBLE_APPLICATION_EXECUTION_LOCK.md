@@ -3,7 +3,7 @@
 - **Version:** 1.0
 - **Created:** 2026-08-21
 - **Branch:** `session/uiux-bible-application-2026-08-21`
-- **Base:** `origin/main@63b62e10fc923aa91d55642c68d67dae66161178`
+- **Base:** `origin/main@566f1ac52d3874e0b77ef6d8b1dec44266f409ac`
 - **State:** Phase 0 audit complete; document-only PR pending
 - **Next action:** validate, commit, push, open the Phase 0 PR, wait for the
   automatic current-head CI run, and merge only if it is green
