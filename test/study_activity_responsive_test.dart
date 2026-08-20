@@ -12,12 +12,16 @@ import 'package:ko_lernen_app/screens/custom_pack_matching_screen.dart';
 import 'package:ko_lernen_app/screens/custom_pack_play_screen.dart';
 import 'package:ko_lernen_app/screens/custom_pack_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/custom_pack_typing_screen.dart';
+import 'package:ko_lernen_app/screens/cloze_game_screen.dart';
 import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_choice_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/hard_choice_quiz_screen.dart';
+import 'package:ko_lernen_app/screens/satz_arcade_screen.dart';
+import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/screens/word_web_quiz_screen.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
+import 'package:ko_lernen_app/services/satz_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
@@ -88,6 +92,62 @@ const _wordWebItem = WordRelationQuizItem(
   options: ['작다', '사이즈', '조금', '커다랗다'],
 );
 
+const _satz = SatzSentence(
+  level: 'a1',
+  targetKo: '오늘은 도서관에서 천천히 공부해요.',
+  promptDe: 'Heute lerne ich langsam und aufmerksam in der Bibliothek.',
+  promptEn: 'Today I study slowly and carefully in the library.',
+  distractors: ['친구와'],
+  vocabKo: '공부하다',
+);
+
+const _speedWords = <Vocab>[
+  Vocab(
+    korean: '공부하다',
+    romanization: 'gongbuhada',
+    german: 'langsam und aufmerksam lernen',
+    english: 'study slowly and carefully',
+    level: 'a1',
+    posDe: 'Verb',
+    exampleKorean: '',
+    exampleGerman: '',
+    topic: 'test',
+  ),
+  Vocab(
+    korean: '도서관',
+    romanization: 'doseogwan',
+    german: 'öffentliche Bibliothek',
+    english: 'public library',
+    level: 'a1',
+    posDe: 'Nomen',
+    exampleKorean: '',
+    exampleGerman: '',
+    topic: 'test',
+  ),
+  Vocab(
+    korean: '천천히',
+    romanization: 'cheoncheonhi',
+    german: 'langsam und sorgfältig',
+    english: 'slowly and carefully',
+    level: 'a1',
+    posDe: 'Adverb',
+    exampleKorean: '',
+    exampleGerman: '',
+    topic: 'test',
+  ),
+  Vocab(
+    korean: '친구',
+    romanization: 'chingu',
+    german: 'befreundete Person',
+    english: 'friend and companion',
+    level: 'a1',
+    posDe: 'Nomen',
+    exampleKorean: '',
+    exampleGerman: '',
+    topic: 'test',
+  ),
+];
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -143,6 +203,9 @@ void main() {
         const CustomPackMatchingScreen(packId: _packId),
     'custom pack typing': () => const CustomPackTypingScreen(packId: _packId),
     'daily challenge': () => const DailyChallengeScreen(items: [_cloze]),
+    'cloze game': () => const ClozeGameScreen(items: [_cloze]),
+    'sentence arcade': () => const SatzArcadeScreen(items: [_satz]),
+    'speed match': () => const SpeedMatchScreen(items: _speedWords),
   };
 
   for (final locale in const [Locale('de'), Locale('en')]) {
@@ -184,6 +247,46 @@ void main() {
       }
     }
   }
+
+  testWidgets(
+    'speed match exposes complete instructional and vocabulary text',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(320, 640);
+
+      await tester.pumpWidget(
+        _host(
+          locale: const Locale('de'),
+          textScale: 2,
+          child: const SpeedMatchScreen(items: _speedWords),
+        ),
+      );
+      await tester.pump(const Duration(milliseconds: 500));
+
+      final l10n = AppL10n.of(tester.element(find.byType(SpeedMatchScreen)));
+      final instruction = tester.widget<Text>(
+        find.text(l10n.speedMatchInstruction),
+      );
+      final translation = tester.widget<Text>(
+        find.text('langsam und aufmerksam lernen'),
+      );
+
+      expect(instruction.maxLines, isNull);
+      expect(instruction.overflow, isNull);
+      expect(translation.maxLines, isNull);
+      expect(translation.overflow, isNull);
+      expect(find.bySemanticsLabel(l10n.speedMatchInstruction), findsOneWidget);
+      expect(
+        find.bySemanticsLabel('langsam und aufmerksam lernen'),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull);
+      semantics.dispose();
+    },
+  );
 }
 
 Widget _host({

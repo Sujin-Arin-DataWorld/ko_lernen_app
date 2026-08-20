@@ -13,7 +13,6 @@ import '../services/curriculum_catalog.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/cloze_prompt.dart';
@@ -21,7 +20,7 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -236,37 +235,35 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     final t = AppL10n.of(context);
 
     if (_loading) {
-      return Scaffold(
-        appBar: SoriAppBar(title: t.clozeTitle),
-        body: const AppLoading(),
+      return SoriStudyFrame(
+        title: t.clozeTitle,
+        padding: EdgeInsets.zero,
+        child: const AppLoading(),
       );
     }
 
     if (_round.isEmpty) {
-      return Scaffold(
-        appBar: SoriAppBar(title: t.clozeTitle),
-        body: SoriScreenBackground(
-          child: SafeArea(
-            child: Column(
-              children: [
-                if (widget.items == null)
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-                    child: _levelBar(t),
-                  ),
-                Expanded(
-                  child: Center(
-                    child: SoriEmptyState(
-                      asset: 'assets/illustrations/mascot/magpie_encourage.png',
-                      icon: Icons.menu_book_outlined,
-                      title: t.clozeTitle,
-                      body: t.clozeEmptyBody,
-                    ),
-                  ),
+      return SoriStudyFrame(
+        title: t.clozeTitle,
+        padding: EdgeInsets.zero,
+        child: Column(
+          children: [
+            if (widget.items == null)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+                child: _levelBar(t),
+              ),
+            Expanded(
+              child: Center(
+                child: SoriEmptyState(
+                  asset: 'assets/illustrations/mascot/magpie_encourage.png',
+                  icon: Icons.menu_book_outlined,
+                  title: t.clozeTitle,
+                  body: t.clozeEmptyBody,
                 ),
-              ],
+              ),
             ),
-          ),
+          ],
         ),
       );
     }
@@ -281,53 +278,46 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     final options = item.options(_roundId * 100 + _idx);
     final revealed = _picked != null;
 
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.clozeTitle,
-        eyebrow: '${_idx + 1} / ${_round.length} · ${t.quizScore(_score, _round.length)}',
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
-        actions: const [TtsSpeedAction()],
+    return SoriStudyFrame(
+      title: t.clozeTitle,
+      eyebrow:
+          '${_idx + 1} / ${_round.length} · ${t.quizScore(_score, _round.length)}',
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: () => Navigator.of(context).maybePop(),
       ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: Padding(
-              padding: const EdgeInsets.all(Spacing.lg),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  if (widget.items == null) _levelBar(t),
-                  Text(
-                    t.clozeInstruction,
-                    style: SoriTextTheme.of(context).meta.copyWith(
-                      color: s.textMuted,
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.md),
-                  ClozePromptCard(
-                    item: item,
-                    lang: lang,
-                    gloss: _vocabByKo[item.answer]?.translationFor(lang),
-                    picked: _picked,
-                    pickedWrong: _picked != null && _picked != item.answer,
-                  ),
-                  const SizedBox(height: Spacing.xl),
-                  Expanded(
-                    child: ClozeOptionsList(
-                      options: options,
-                      answer: item.answer,
-                      picked: _picked,
-                      revealed: revealed,
-                      onPick: (opt) => _pick(item, opt),
-                    ),
-                  ),
-                ],
+      actions: const [TtsSpeedAction()],
+      child: SoriAdaptiveStudyBody(
+        minHeight: 520,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (widget.items == null) _levelBar(t),
+            Text(
+              t.clozeInstruction,
+              style: SoriTextTheme.of(
+                context,
+              ).meta.copyWith(color: s.textMuted),
+            ),
+            const SizedBox(height: Spacing.md),
+            ClozePromptCard(
+              item: item,
+              lang: lang,
+              gloss: _vocabByKo[item.answer]?.translationFor(lang),
+              picked: _picked,
+              pickedWrong: _picked != null && _picked != item.answer,
+            ),
+            const SizedBox(height: Spacing.xl),
+            Expanded(
+              child: ClozeOptionsList(
+                options: options,
+                answer: item.answer,
+                picked: _picked,
+                revealed: revealed,
+                onPick: (opt) => _pick(item, opt),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -364,43 +354,40 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
 
   Widget _buildDone(AppL10n t) {
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
-    return Scaffold(
-      appBar: SoriAppBar(
-        automaticallyImplyLeading: false,
-        title: t.clozeTitle,
-      ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: GameOverCard(
-            headline: t.quizResultTitle,
-            scoreLabel: t.quizScore(_score, _round.length),
-            feedbackContext: _feedbackCompletion.current?.context,
-            xpGained: _score * 5,
-            isNewBest: _outcome?.isNewBest ?? false,
-            newBestLabel: t.gameNewBest,
-            bestLabel: t.gameBestAccuracy(Storage.gameBest('cloze')),
-            mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
-            mascotEmotion: pct >= 50
-                ? MascotEmotion.celebrate
-                : MascotEmotion.worry,
-            celebrate: pct >= 50, // schlechte Runde → kein Konfetti (Tonalität)
-            actions: [
-              SoriButton(
-                label: t.quizAgain,
-                icon: Icons.refresh_rounded,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.contentCta,
-                fullWidth: true,
-                onTap: _newRound,
-              ),
-              SoriButton(
-                label: t.btnClose,
-                variant: SoriButtonVariant.ghost,
-                fullWidth: true,
-                onTap: () => Navigator.of(context).maybePop(),
-              ),
-            ],
-          ),
+    return SoriStudyFrame(
+      automaticallyImplyLeading: false,
+      title: t.clozeTitle,
+      padding: EdgeInsets.zero,
+      child: SoriCenterClamp(
+        child: GameOverCard(
+          headline: t.quizResultTitle,
+          scoreLabel: t.quizScore(_score, _round.length),
+          feedbackContext: _feedbackCompletion.current?.context,
+          xpGained: _score * 5,
+          isNewBest: _outcome?.isNewBest ?? false,
+          newBestLabel: t.gameNewBest,
+          bestLabel: t.gameBestAccuracy(Storage.gameBest('cloze')),
+          mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
+          mascotEmotion: pct >= 50
+              ? MascotEmotion.celebrate
+              : MascotEmotion.worry,
+          celebrate: pct >= 50, // schlechte Runde → kein Konfetti (Tonalität)
+          actions: [
+            SoriButton(
+              label: t.quizAgain,
+              icon: Icons.refresh_rounded,
+              variant: SoriButtonVariant.filled,
+              accent: SoriColors.contentCta,
+              fullWidth: true,
+              onTap: _newRound,
+            ),
+            SoriButton(
+              label: t.btnClose,
+              variant: SoriButtonVariant.ghost,
+              fullWidth: true,
+              onTap: () => Navigator.of(context).maybePop(),
+            ),
+          ],
         ),
       ),
     );

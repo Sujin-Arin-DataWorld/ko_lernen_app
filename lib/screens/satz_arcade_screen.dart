@@ -8,14 +8,13 @@ import '../services/course_activity_reporter.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/satz_loader.dart';
 import '../services/storage_service.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import 'quest_engines/quest_models.dart';
 import 'quest_engines/satz_bauen_quest.dart';
@@ -191,34 +190,34 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     if (_loading) {
-      return Scaffold(
-        appBar: SoriAppBar(title: t.satzArcadeTitle),
-        body: const Center(child: CircularProgressIndicator()),
+      return SoriStudyFrame(
+        title: t.satzArcadeTitle,
+        padding: EdgeInsets.zero,
+        child: const Center(child: CircularProgressIndicator()),
       );
     }
     if (_round.isEmpty) {
-      return Scaffold(
-        appBar: SoriAppBar(title: t.satzArcadeTitle),
-        body: SafeArea(
-          child: Column(
-            children: [
-              if (widget.items == null)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-                  child: _levelBar(t),
-                ),
-              Expanded(
-                child: Center(
-                  child: SoriEmptyState(
-                    asset: 'assets/illustrations/mascot/magpie_encourage.png',
-                    icon: Icons.reorder_rounded,
-                    title: t.satzArcadeTitle,
-                    body: t.clozeEmptyBody,
-                  ),
+      return SoriStudyFrame(
+        title: t.satzArcadeTitle,
+        padding: EdgeInsets.zero,
+        child: Column(
+          children: [
+            if (widget.items == null)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
+                child: _levelBar(t),
+              ),
+            Expanded(
+              child: Center(
+                child: SoriEmptyState(
+                  asset: 'assets/illustrations/mascot/magpie_encourage.png',
+                  icon: Icons.reorder_rounded,
+                  title: t.satzArcadeTitle,
+                  body: t.clozeEmptyBody,
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       );
     }
@@ -229,35 +228,27 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     }
 
     final item = _round[_idx];
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.satzArcadeTitle,
-        eyebrow: '${_idx + 1} / ${_round.length}',
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
+    return SoriStudyFrame(
+      title: t.satzArcadeTitle,
+      eyebrow: '${_idx + 1} / ${_round.length}',
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: () => Navigator.of(context).maybePop(),
       ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: Padding(
-              padding: const EdgeInsets.all(Spacing.lg),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  if (widget.items == null) _levelBar(t),
-                  Expanded(
-                    child: SatzBauenQuest(
-                      key: ValueKey('satz_${_roundId}_$_idx'),
-                      data: item.toQuestData(),
-                      onComplete: _onComplete,
-                    ),
-                  ),
-                ],
+      child: SoriAdaptiveStudyBody(
+        minHeight: 520,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (widget.items == null) _levelBar(t),
+            Expanded(
+              child: SatzBauenQuest(
+                key: ValueKey('satz_${_roundId}_$_idx'),
+                data: item.toQuestData(),
+                onComplete: _onComplete,
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -294,43 +285,40 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
 
   Widget _buildDone(AppL10n t) {
     final pct = _round.isEmpty ? 0 : ((_passed / _round.length) * 100).round();
-    return Scaffold(
-      appBar: SoriAppBar(
-        automaticallyImplyLeading: false,
-        title: t.satzArcadeTitle,
-      ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: GameOverCard(
-            headline: t.quizResultTitle,
-            scoreLabel: t.quizScore(_passed, _round.length),
-            feedbackContext: _feedbackCompletion.current?.context,
-            xpGained: _outcome?.xpGained ?? (_passed * 5),
-            isNewBest: _outcome?.isNewBest ?? false,
-            newBestLabel: t.gameNewBest,
-            bestLabel: t.gameBestAccuracy(_outcome?.best ?? 0),
-            mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
-            mascotEmotion: pct >= 50
-                ? MascotEmotion.celebrate
-                : MascotEmotion.worry,
-            celebrate: pct >= 50,
-            actions: [
-              SoriButton(
-                label: t.quizAgain,
-                icon: Icons.refresh_rounded,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.contentCta,
-                fullWidth: true,
-                onTap: _newRound,
-              ),
-              SoriButton(
-                label: t.btnClose,
-                variant: SoriButtonVariant.ghost,
-                fullWidth: true,
-                onTap: () => Navigator.of(context).maybePop(),
-              ),
-            ],
-          ),
+    return SoriStudyFrame(
+      automaticallyImplyLeading: false,
+      title: t.satzArcadeTitle,
+      padding: EdgeInsets.zero,
+      child: SoriCenterClamp(
+        child: GameOverCard(
+          headline: t.quizResultTitle,
+          scoreLabel: t.quizScore(_passed, _round.length),
+          feedbackContext: _feedbackCompletion.current?.context,
+          xpGained: _outcome?.xpGained ?? (_passed * 5),
+          isNewBest: _outcome?.isNewBest ?? false,
+          newBestLabel: t.gameNewBest,
+          bestLabel: t.gameBestAccuracy(_outcome?.best ?? 0),
+          mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
+          mascotEmotion: pct >= 50
+              ? MascotEmotion.celebrate
+              : MascotEmotion.worry,
+          celebrate: pct >= 50,
+          actions: [
+            SoriButton(
+              label: t.quizAgain,
+              icon: Icons.refresh_rounded,
+              variant: SoriButtonVariant.filled,
+              accent: SoriColors.contentCta,
+              fullWidth: true,
+              onTap: _newRound,
+            ),
+            SoriButton(
+              label: t.btnClose,
+              variant: SoriButtonVariant.ghost,
+              fullWidth: true,
+              onTap: () => Navigator.of(context).maybePop(),
+            ),
+          ],
         ),
       ),
     );
