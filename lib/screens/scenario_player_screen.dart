@@ -25,6 +25,7 @@ import '../services/scene_asset_resolver.dart';
 import '../services/scenario_writing_check_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/button.dart';
@@ -937,10 +938,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
           const SizedBox(height: Spacing.lg),
           Text(
             s.intro.pick(lang),
-            style: SoriTextTheme.of(context).gloss.copyWith(
-              color: ss.textMuted,
-              height: 1.7,
-            ),
+            style: SoriTextTheme.of(
+              context,
+            ).gloss.copyWith(color: ss.textMuted, height: 1.7),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: Spacing.lg),
@@ -1675,34 +1675,22 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     }
 
     final scaffold = Scaffold(
-      appBar: AppBar(
+      appBar: SoriAppBar(
+        title: _scenario!.title.pick(lang),
+        eyebrow: _usesSegmentHeader
+            ? t.scenarioQuestProgress(_segmentCurrent + 1, _segmentTotal)
+            : null,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
+        adaptTitleAtNormalScale: true,
         leading: IconButton(
+          tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
           icon: const Icon(Icons.close_rounded),
           onPressed: _requestExit,
         ),
-        centerTitle: _usesSegmentHeader,
-        title: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              _scenario!.title.pick(lang),
-              textAlign: TextAlign.center,
-              style: SoriTextTheme.of(context).h3,
-              overflow: TextOverflow.ellipsis,
-            ),
-            if (_usesSegmentHeader)
-              Text(
-                t.scenarioQuestProgress(_segmentCurrent + 1, _segmentTotal),
-                textAlign: TextAlign.center,
-                style: SoriTextTheme.of(context).caption.copyWith(
-                  color: SoriColors.primary,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-          ],
-        ),
+        automaticallyImplyLeading: false,
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(_usesSegmentHeader ? 18 : 6),
+          preferredSize: const Size.fromHeight(12),
           child: Padding(
             padding: const EdgeInsets.fromLTRB(
               Spacing.lg,
