@@ -37,6 +37,21 @@ dart run rive_native:setup --verbose --clean --platform ios
 
 echo "▸ pod install"
 cd "${CI_PRIMARY_REPOSITORY_PATH}/ios"
-pod install
+POD_INSTALL_ATTEMPT=1
+while [ "${POD_INSTALL_ATTEMPT}" -le 3 ]; do
+  if pod install; then
+    break
+  fi
+
+  if [ "${POD_INSTALL_ATTEMPT}" -eq 3 ]; then
+    echo "CocoaPods installation failed after 3 attempts." >&2
+    exit 1
+  fi
+
+  POD_INSTALL_RETRY_DELAY=$((POD_INSTALL_ATTEMPT * 10))
+  echo "CocoaPods download failed; retrying in ${POD_INSTALL_RETRY_DELAY}s." >&2
+  sleep "${POD_INSTALL_RETRY_DELAY}"
+  POD_INSTALL_ATTEMPT=$((POD_INSTALL_ATTEMPT + 1))
+done
 
 echo "▸ Post-clone complete — Flutter available for archive."
