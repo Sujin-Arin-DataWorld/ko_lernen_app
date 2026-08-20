@@ -8,8 +8,9 @@ import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/placed_decoration.dart';
 import '../widgets/sori/pressable.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 const String kBojagiClosed =
     'assets/illustrations/reward/reward_bojagi_closed.png';
@@ -104,19 +105,29 @@ class _BojagiScreenState extends State<BojagiScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final text = SoriTextTheme.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Flexible(child: Text(t.bojagiTitle, style: text.h3)),
-            const CulturalHelpButton(termId: 'bojagi'),
-          ],
-        ),
+    return SoriStandardFrame(
+      appBarTitle: t.bojagiTitle,
+      maxWidth: SoriMaxWidth.prose,
+      padding: const EdgeInsets.symmetric(
+        horizontal: Spacing.lg,
+        vertical: Spacing.md,
       ),
-      body: SoriScreenBackground(
-        child: SafeArea(child: Center(child: _body(t))),
+      actions: const [CulturalHelpButton(termId: 'bojagi')],
+      builder: (context, resolvedPadding) => LayoutBuilder(
+        builder: (context, constraints) {
+          final contentHeight =
+              (constraints.maxHeight - resolvedPadding.vertical)
+                  .clamp(0.0, double.infinity)
+                  .toDouble();
+          return SingleChildScrollView(
+            key: const ValueKey('bojagi-scroll'),
+            padding: resolvedPadding,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: contentHeight),
+              child: Center(child: _body(t)),
+            ),
+          );
+        },
       ),
     );
   }
@@ -231,65 +242,59 @@ class _PickView extends StatelessWidget {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
 
-    return SingleChildScrollView(
-      padding: const EdgeInsets.symmetric(
-        horizontal: Spacing.xl,
-        vertical: Spacing.lg,
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          SizedBox(
-            height: 92,
-            child: Image.asset(
-              kBojagiOpen,
-              fit: BoxFit.contain,
-              errorBuilder: (_, __, ___) => const SizedBox.shrink(),
-            ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(
+          height: 92,
+          child: Image.asset(
+            kBojagiOpen,
+            fit: BoxFit.contain,
+            errorBuilder: (_, __, ___) => const SizedBox.shrink(),
           ),
-          const SizedBox(height: Spacing.md),
-          Semantics(
-            header: true,
-            child: Text(
-              t.bojagiPickTitle,
-              textAlign: TextAlign.center,
-              style: text.h2,
-            ),
-          ),
-          const SizedBox(height: Spacing.sm),
-          Text(
-            t.bojagiPickBody,
+        ),
+        const SizedBox(height: Spacing.md),
+        Semantics(
+          header: true,
+          child: Text(
+            t.bojagiPickTitle,
             textAlign: TextAlign.center,
-            style: text.bodySmall,
+            style: text.h2,
           ),
-          const SizedBox(height: Spacing.xl),
-          CulturalGlossaryBuilder(
-            builder: (context, glossary) {
-              final shownTermIds = <String>{};
-              final cards = <Widget>[];
-              for (var i = 0; i < candidates.length; i++) {
-                final slug = candidates[i];
-                final termId = glossary?.termIdForDecoration(slug);
-                cards.add(
-                  SoriEntrance(
-                    delay: Duration(milliseconds: 90 * i),
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: Spacing.md),
-                      child: _CandidateCard(
-                        slug: slug,
-                        showCulturalHelp:
-                            termId != null && shownTermIds.add(termId),
-                        onTap: () => onPick(slug),
-                      ),
+        ),
+        const SizedBox(height: Spacing.sm),
+        Text(
+          t.bojagiPickBody,
+          textAlign: TextAlign.center,
+          style: text.bodySmall,
+        ),
+        const SizedBox(height: Spacing.xl),
+        CulturalGlossaryBuilder(
+          builder: (context, glossary) {
+            final shownTermIds = <String>{};
+            final cards = <Widget>[];
+            for (var i = 0; i < candidates.length; i++) {
+              final slug = candidates[i];
+              final termId = glossary?.termIdForDecoration(slug);
+              cards.add(
+                SoriEntrance(
+                  delay: Duration(milliseconds: 90 * i),
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: Spacing.md),
+                    child: _CandidateCard(
+                      slug: slug,
+                      showCulturalHelp:
+                          termId != null && shownTermIds.add(termId),
+                      onTap: () => onPick(slug),
                     ),
                   ),
-                );
-              }
-              return Column(children: cards);
-            },
-          ),
-        ],
-      ),
+                ),
+              );
+            }
+            return Column(children: cards);
+          },
+        ),
+      ],
     );
   }
 }
@@ -335,14 +340,7 @@ class _CandidateCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: Spacing.lg),
-              Expanded(
-                child: Text(
-                  decorName(t, slug),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: text.cardTitle,
-                ),
-              ),
+              Expanded(child: Text(decorName(t, slug), style: text.cardTitle)),
               if (showCulturalHelp)
                 CulturalDecorationHelpButton(decorationSlug: slug),
               Icon(Icons.chevron_right_rounded, color: s.textDim),

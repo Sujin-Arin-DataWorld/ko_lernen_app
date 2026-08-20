@@ -28,10 +28,11 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/course_progress_evidence_note.dart';
 import '../widgets/sori/path_trail.dart';
 import '../widgets/sori/progress.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// 경로가 렌더할 단일 CEFR 레벨을 정한다. 학습자의 온보딩 선택
 /// ([Storage.userLevelCode], 소문자 'a1'..'c2')이 진실의 출처이며, 온보딩 전
@@ -334,90 +335,81 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
-    return Scaffold(
-      backgroundColor: s.bg,
-      appBar: AppBar(
-        title: Text(t.pathTitle),
-        backgroundColor: s.bg,
-        surfaceTintColor: Colors.transparent,
-        actions: [
-          // §6.2-①: 현재 노드로 점프 (자동 스크롤과 병행).
-          IconButton(
-            tooltip: t.pathJumpToNow,
-            icon: const Icon(Icons.my_location_rounded),
-            onPressed: () => _autoScrollToTarget(force: true),
-          ),
-          const SizedBox(width: Spacing.xs),
-        ],
-      ),
-      body: SafeArea(
-        child: _loading
-            ? const AppLoading()
-            : RefreshIndicator(
-                onRefresh: _load,
-                child: ListView(
-                  padding: soriClampPadding(
-                    MediaQuery.sizeOf(context).width,
-                    base: const EdgeInsets.fromLTRB(16, 8, 16, 48),
+    return SoriStandardFrame(
+      appBarTitle: t.pathTitle,
+      maxWidth: SoriMaxWidth.hub,
+      padding: const EdgeInsets.fromLTRB(16, 8, 16, 48),
+      actions: [
+        // §6.2-①: 현재 노드로 점프 (자동 스크롤과 병행).
+        IconButton(
+          tooltip: t.pathJumpToNow,
+          icon: const Icon(Icons.my_location_rounded),
+          onPressed: () => _autoScrollToTarget(force: true),
+        ),
+        const SizedBox(width: Spacing.xs),
+      ],
+      builder: (context, resolvedPadding) => _loading
+          ? const AppLoading()
+          : RefreshIndicator(
+              onRefresh: _load,
+              child: ListView(
+                padding: resolvedPadding,
+                children: [
+                  if (_courseUnits.isNotEmpty && _courseSnapshot != null) ...[
+                    _CourseMissionPath(
+                      courseUnits: _courseUnits,
+                      snapshot: _courseSnapshot!,
+                      lang: Localizations.localeOf(context).languageCode,
+                      filterLevel:
+                          (LearnerLevel.fromCode(_courseLevel) ??
+                                  LearnerLevel.a1)
+                              .code,
+                      onTapUnit: (unit) async {
+                        await Navigator.pushNamed(
+                          context,
+                          '/course/mission',
+                          arguments: unit.id,
+                        );
+                        if (mounted) await _load();
+                      },
+                    ),
+                    const SizedBox(height: Spacing.xl),
+                  ],
+                  SoriButton.outlined(
+                    key: const ValueKey('path-legacy-practice-toggle'),
+                    label: _showLegacyPractice
+                        ? t.pathHideMorePractice
+                        : t.pathShowMorePractice,
+                    trailingIcon: _showLegacyPractice
+                        ? Icons.expand_less_rounded
+                        : Icons.expand_more_rounded,
+                    fullWidth: true,
+                    onTap: () => setState(
+                      () => _showLegacyPractice = !_showLegacyPractice,
+                    ),
                   ),
-                  children: [
-                    if (_courseUnits.isNotEmpty && _courseSnapshot != null) ...[
-                      _CourseMissionPath(
-                        courseUnits: _courseUnits,
-                        snapshot: _courseSnapshot!,
-                        lang: Localizations.localeOf(context).languageCode,
-                        filterLevel:
-                            (LearnerLevel.fromCode(_courseLevel) ??
-                                    LearnerLevel.a1)
-                                .code,
-                        onTapUnit: (unit) async {
-                          await Navigator.pushNamed(
-                            context,
-                            '/course/mission',
-                            arguments: unit.id,
-                          );
-                          if (mounted) await _load();
-                        },
-                      ),
-                      const SizedBox(height: Spacing.xl),
-                    ],
-                    SoriButton.outlined(
-                      key: const ValueKey('path-legacy-practice-toggle'),
-                      label: _showLegacyPractice
-                          ? t.pathHideMorePractice
-                          : t.pathShowMorePractice,
-                      trailingIcon: _showLegacyPractice
-                          ? Icons.expand_less_rounded
-                          : Icons.expand_more_rounded,
-                      fullWidth: true,
-                      onTap: () => setState(
-                        () => _showLegacyPractice = !_showLegacyPractice,
+                  if (_showLegacyPractice)
+                    KeyedSubtree(
+                      key: const ValueKey('path-legacy-practice-content'),
+                      child: Column(
+                        children: [
+                          const SizedBox(height: Spacing.lg),
+                          _HanokHeader(
+                            stage: _stage,
+                            cleared: _clearedTotal,
+                            total: _packTotal,
+                          ),
+                          const SizedBox(height: Spacing.xl),
+                          // 선택한 레벨만 렌더 — 전체 A1~C2 나열 대신.
+                          for (final g in _groups)
+                            if (g.level == _selectedLevel)
+                              ..._levelSection(t, g),
+                        ],
                       ),
                     ),
-                    if (_showLegacyPractice)
-                      KeyedSubtree(
-                        key: const ValueKey('path-legacy-practice-content'),
-                        child: Column(
-                          children: [
-                            const SizedBox(height: Spacing.lg),
-                            _HanokHeader(
-                              stage: _stage,
-                              cleared: _clearedTotal,
-                              total: _packTotal,
-                            ),
-                            const SizedBox(height: Spacing.xl),
-                            // 선택한 레벨만 렌더 — 전체 A1~C2 나열 대신.
-                            for (final g in _groups)
-                              if (g.level == _selectedLevel)
-                                ..._levelSection(t, g),
-                          ],
-                        ),
-                      ),
-                  ],
-                ),
+                ],
               ),
-      ),
+            ),
     );
   }
 
