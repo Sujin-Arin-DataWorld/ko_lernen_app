@@ -21,6 +21,7 @@ class SoriStudyFrame extends StatelessWidget {
     this.automaticallyImplyLeading = true,
     this.padding = const EdgeInsets.all(Spacing.lg),
     this.particles = false,
+    this.noiseAlpha = 0.11,
     this.bottomNavigationBar,
   });
 
@@ -32,6 +33,7 @@ class SoriStudyFrame extends StatelessWidget {
   final bool automaticallyImplyLeading;
   final EdgeInsetsGeometry padding;
   final bool particles;
+  final double noiseAlpha;
   final Widget? bottomNavigationBar;
 
   @override
@@ -46,6 +48,7 @@ class SoriStudyFrame extends StatelessWidget {
       ),
       body: SoriScreenBackground(
         particles: particles,
+        noiseAlpha: noiseAlpha,
         child: SafeArea(
           top: false,
           child: SoriStudyClamp(

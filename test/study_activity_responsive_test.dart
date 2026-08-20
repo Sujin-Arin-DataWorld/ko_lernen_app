@@ -6,6 +6,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/models/custom_pack.dart';
 import 'package:ko_lernen_app/models/grammar.dart';
+import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/word_relation.dart';
 import 'package:ko_lernen_app/screens/custom_pack_matching_screen.dart';
@@ -18,8 +19,11 @@ import 'package:ko_lernen_app/screens/daily_challenge_screen.dart';
 import 'package:ko_lernen_app/screens/grammar_choice_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/hard_choice_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
+import 'package:ko_lernen_app/screens/listening_play_screen.dart';
+import 'package:ko_lernen_app/screens/review_session_screen.dart';
 import 'package:ko_lernen_app/screens/satz_arcade_screen.dart';
 import 'package:ko_lernen_app/screens/silben_kreuz_screen.dart';
+import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
 import 'package:ko_lernen_app/screens/speed_match_screen.dart';
 import 'package:ko_lernen_app/screens/word_web_quiz_screen.dart';
 import 'package:ko_lernen_app/services/cloze_loader.dart';
@@ -28,9 +32,11 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/kkeunmari_engine.dart';
 import 'package:ko_lernen_app/services/satz_loader.dart';
 import 'package:ko_lernen_app/services/silben_puzzle_loader.dart';
+import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
+import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
@@ -155,6 +161,30 @@ const _speedWords = <Vocab>[
   ),
 ];
 
+const _listeningScenario = Scenario(
+  id: 'responsive-listening',
+  level: LearnerLevel.a1,
+  emoji: '🎧',
+  register: Register.polite,
+  title: LocalizedText(
+    ko: '도서관에서 천천히 말하기',
+    de: 'Aufmerksam in der Bibliothek zuhören',
+    en: 'Listening carefully in the library',
+  ),
+  intro: LocalizedText(ko: '', de: '', en: ''),
+  vocab: [],
+  grammarIds: [],
+  dialog: [
+    DialogLine(
+      speaker: 'teacher',
+      ko: '도서관에서는 천천히 말해 주세요.',
+      de: 'Bitte sprechen Sie in der Bibliothek langsam und deutlich.',
+      en: 'Please speak slowly and clearly in the library.',
+    ),
+  ],
+  quests: [],
+);
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -170,11 +200,15 @@ void main() {
       'kl_tut_chosung': true,
       'kl_tut_kkeunmari': true,
       'kl_tut_silben_kreuz': true,
+      'kl_tut_listening_play': true,
+      'kl_tut_review': true,
+      'kl_tut_smalltalk': true,
     });
     await Storage.init();
     await DataLoader.loadVocab();
     await KkeunmariEngine.load();
     await SilbenPuzzleLoader.load();
+    await SmalltalkLoader.load();
     await CustomPackService.save(
       CustomPack.manual(
         id: _packId,
@@ -222,6 +256,10 @@ void main() {
     'initial consonant quiz': () => const ChosungQuizScreen(),
     'word chain': () => const KkeunmariScreen(),
     'syllable crossword': () => const SilbenKreuzScreen(),
+    'listening player': () =>
+        const ListeningPlayScreen(scenario: _listeningScenario),
+    'review session': () => const ReviewSessionScreen(deck: _speedWords),
+    'small talk': () => const SmalltalkScreen(),
   };
 
   for (final locale in const [Locale('de'), Locale('en')]) {
@@ -314,6 +352,9 @@ Finder? _readyFinderFor(String activity) {
   return switch (activity) {
     'initial consonant quiz' || 'word chain' => find.byType(HanokHeader),
     'syllable crossword' => find.byKey(const ValueKey('silben-level-A1')),
+    'listening player' ||
+    'review session' ||
+    'small talk' => find.byType(SoriContentFeed),
     _ => null,
   };
 }
