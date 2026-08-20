@@ -17,6 +17,7 @@ import '../services/hanok_structure_projection_service.dart';
 import '../services/room_layout_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
@@ -29,6 +30,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/sticker_image.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// A collectible interior in the private Hanok estate.
 ///
@@ -301,18 +303,13 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
     final s = SoriSurfaces.of(context);
     final projection = _projection;
     return Scaffold(
-      appBar: AppBar(
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Flexible(
-              child: Text(_roomTitle(t, widget.surface), style: text.h3),
-            ),
-            if (widget.surface == PersonalRoomSurface.sarangbang)
-              const CulturalHelpButton(termId: 'sarangbang'),
-          ],
-        ),
+      appBar: SoriAppBar(
+        title: _roomTitle(t, widget.surface),
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
         actions: [
+          if (widget.surface == PersonalRoomSurface.sarangbang)
+            const CulturalHelpButton(termId: 'sarangbang'),
           if (widget.surface == PersonalRoomSurface.sarangbang)
             IconButton(
               tooltip: t.bojagiTitle,
@@ -340,7 +337,7 @@ class _PersonalRoomFurnishScreenState extends State<PersonalRoomFurnishScreen> {
                       Navigator.of(context).pushReplacementNamed('/hanok'),
                 )
               : SoriContentClamp(
-                  maxWidth: 720,
+                  maxWidth: SoriMaxWidth.prose,
                   base: const EdgeInsets.fromLTRB(
                     Spacing.lg,
                     Spacing.md,
@@ -664,6 +661,8 @@ class _RoomInventory extends StatelessWidget {
             LayoutBuilder(
               builder: (context, constraints) => CulturalGlossaryBuilder(
                 builder: (context, glossary) {
+                  final usesAccessibleTiles =
+                      MediaQuery.textScalerOf(context).scale(1) >= 1.6;
                   final helpSlugs = <String>{};
                   final seenTerms = <String>{};
                   if (kind == RoomAssetKind.decoration) {
@@ -684,11 +683,11 @@ class _RoomInventory extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: soriGridColumns(
                         constraints.maxWidth,
-                        target: 112,
-                        min: 2,
-                        max: 5,
+                        target: usesAccessibleTiles ? 208 : 112,
+                        min: usesAccessibleTiles ? 1 : 2,
+                        max: usesAccessibleTiles ? 3 : 5,
                       ),
-                      mainAxisExtent: 126,
+                      mainAxisExtent: usesAccessibleTiles ? 192 : 144,
                       mainAxisSpacing: Spacing.sm,
                       crossAxisSpacing: Spacing.sm,
                     ),
@@ -732,12 +731,10 @@ class _RoomInventory extends StatelessWidget {
           '${item.kind.name}:${item.assetId}',
     };
     if (kind == RoomAssetKind.decoration) {
-      final slugs =
-          furnishedDecorSlugs(
-            Storage.ownedDecor,
-            openedVenues: {surface},
-          ).toList()
-            ..sort((a, b) => decorName(t, a).compareTo(decorName(t, b)));
+      final slugs = furnishedDecorSlugs(
+        Storage.ownedDecor,
+        openedVenues: {surface},
+      ).toList()..sort((a, b) => decorName(t, a).compareTo(decorName(t, b)));
       return [
         for (final slug in slugs)
           _RoomInventoryEntry(
@@ -849,8 +846,6 @@ class _RoomInventoryTile extends StatelessWidget {
                             ),
                             child: Text(
                               entry.label,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
                               textAlign: TextAlign.center,
                               style: SoriTextTheme.of(context).caption,
                             ),
