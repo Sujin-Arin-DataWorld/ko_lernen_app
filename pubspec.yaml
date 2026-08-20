@@ -201,6 +201,14 @@ flutter:
           weight: 700
         - asset: assets/fonts/WantedSans/WantedSans-ExtraBold.otf
           weight: 800
+    # Maru Buri는 한국어 문화 제목·완료 순간에만 쓰는 display family다.
+    # DE/EN UI, 버튼, 학습 본문은 Wanted Sans를 유지한다.
+    - family: MaruBuri
+      fonts:
+        - asset: assets/fonts/MaruBuri/MaruBuri-Regular.otf
+          weight: 400
+        - asset: assets/fonts/MaruBuri/MaruBuri-SemiBold.otf
+          weight: 600
 
 # ─────────────────────────────────────────────────────────
 # Launcher Icon — generiert mit:

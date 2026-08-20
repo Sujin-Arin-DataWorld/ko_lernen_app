@@ -475,9 +475,10 @@ class SoriMotion {
 // ─────────────────────────────────────────────────────────────────────────
 // TEXT — Wanted Sans 중앙 TextStyle 토큰
 // ─────────────────────────────────────────────────────────────────────────
-/// 앱 폰트 패밀리 상수 — 한 곳에서 교체 가능.
-/// - [sans] Wanted Sans: **앱 전 표면 단일 폰트** (본문·UI·제목·숫자·한국어·독일어).
-///   400/500/600/700/800 번들, 한글 11,172자 + 라틴/독일어 완비.
+/// 앱 폰트 패밀리 상수 — 역할로만 선택한다.
+/// - [sans] Wanted Sans: UI·DE/EN·학습 본문·숫자의 기본 폰트.
+/// - [culture] Maru Buri: 짧은 한국어 문화 제목과 특별한 완료 순간 전용.
+///   버튼·메뉴·긴 본문에는 사용하지 않는다.
 ///
 /// **2026-08-19 교체**: 이전 PretendardStd 는 라틴 전용 서브셋이라 한글 글리프가
 /// 0개였다. 한국어는 전부 OS 폴백(맑은 고딕·제조사 기본·Apple SD Gothic)으로
@@ -487,6 +488,7 @@ class SoriMotion {
 class SoriFonts {
   SoriFonts._();
   static const String sans = 'WantedSans';
+  static const String culture = 'MaruBuri';
 }
 
 /// 모든 Sori 컴포넌트가 따르는 TextStyle 프리셋.
@@ -497,9 +499,9 @@ class SoriFonts {
 /// 색은 surface 기반 — `s.text` (default), `s.textMuted`, `s.textDim`.
 /// 사이즈·weight·letter-spacing·height 만 중앙화.
 ///
-/// **타이포 보이스(2026-07-01 통일)**: 앱 전 표면 단일 폰트 Pretendard.
-/// 위계는 폰트 혼용이 아니라 **크기·굵기**로만 — 디스플레이/제목은 w800(ExtraBold),
-/// 본문 w500, 라벨 w700. (구 명조 serif 혼용은 라틴/한글 분열 + 저품질로 폐기.)
+/// **타이포 보이스(2026-08-20)**: 현대적 학습 UI 80 + 한국적 문화 정체성 20.
+/// 기본 위계는 Wanted Sans의 크기·굵기로 만들고, 검증된 한국어 문화 맥락에만
+/// Maru Buri를 제한적으로 사용한다.
 class SoriTextTheme {
   final SoriSurfaces _s;
 
@@ -550,12 +552,22 @@ class SoriTextTheme {
     height: 1.3,
   );
 
-  /// 히어로용 대형 헤드라인 (온보딩·결과).
-  TextStyle get serifDisplay => _base(
+  /// 한국어 문화 오프닝·완료 순간용 대형 제목.
+  TextStyle get cultureDisplay => _base(
     fontSize: 40,
-    weight: FontWeight.w800,
-    letterSpacing: -0.6,
-    height: 1.1,
+    weight: FontWeight.w600,
+    letterSpacing: -0.8,
+    height: 1.2,
+    fontFamily: SoriFonts.culture,
+  );
+
+  /// 문화 카드 안의 짧은 한국어 표제.
+  TextStyle get cultureTitle => _base(
+    fontSize: 21,
+    weight: FontWeight.w600,
+    letterSpacing: -0.35,
+    height: 1.35,
+    fontFamily: SoriFonts.culture,
   );
 
   /// 큰 통계 숫자 — tabular(자릿수 정렬). 스트릭·XP 히어로 수치.
@@ -653,8 +665,9 @@ class SoriTextTheme {
     required double height,
     Color? color,
     bool tabular = false,
+    String fontFamily = SoriFonts.sans,
   }) => TextStyle(
-    fontFamily: SoriFonts.sans,
+    fontFamily: fontFamily,
     fontSize: fontSize,
     fontWeight: weight,
     letterSpacing: letterSpacing,

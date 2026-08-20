@@ -1,0 +1,18 @@
+Maru Buri font notice
+
+Copyright (c) 2010, NAVER Corporation (https://www.navercorp.com/)
+Reserved Font Name: MaruBuri
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+The complete license is included in OFL.txt in this directory.
+
+Official distribution:
+https://hangeul.naver.com/font
+https://hangeul.naver.com/hangeul_static/webfont/zips/maruburi.zip
+
+Files selected for Hangul Sori from the official OTF archive:
+MaruBuri-Regular.otf
+SHA-256 79451E27328BA230B6B39AB41AC039390FCE3DE41BE2A3F745D5EB8B24F35B90
+
+MaruBuri-SemiBold.otf
+SHA-256 18DFD1167D44877A5AFC1386DB5F09C3EA494AB83A5ADF0A64953C43C208DD21
