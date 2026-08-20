@@ -172,21 +172,6 @@ class WorkflowWiringTest(unittest.TestCase):
         self.assertIn("            flutter test\n", build)
         self.assertIn("if: github.event_name != 'pull_request'\n        run: flutter build web --release", build)
 
-    def test_build_job_does_not_apt_install_ffmpeg(self):
-        # apt-get update hit Azure mirrors and exited 124 at 180s.
-        build = self.workflow.split("\n  build:\n", 1)[1].split("\n  release-internal:\n", 1)[0]
-        active = "\n".join(
-            line
-            for line in build.splitlines()
-            if not line.lstrip().startswith("#")
-        )
-        self.assertNotIn("apt-get update", active)
-        self.assertNotIn("apt-get install", active)
-        self.assertIn("eugeneware/ffmpeg-static", active)
-        self.assertIn("${name}-linux-x64", active)
-        self.assertIn("install_static ffmpeg", active)
-        self.assertIn("install_static ffprobe", active)
-
 
 if __name__ == "__main__":
     unittest.main()

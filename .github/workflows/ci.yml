@@ -219,28 +219,21 @@ jobs:
       - name: Ensure FFmpeg for matte verification
         run: |
           set -euo pipefail
-          # apt ffmpeg pulls ~80 packages. Azure Ubuntu mirrors Ign: then
-          # archive.ubuntu.com and die at timeout 180s (exit 124). Matte
-          # checks need ffmpeg + ffprobe — GitHub static binaries, no apt.
-          # ffmpeg alone is not enough: check_home_hero_matte.py dies
-          # without ffprobe (color-tag contract).
-          install_static() {
-            local name="$1"
-            if command -v "$name" >/dev/null 2>&1; then
-              "$name" -version | head -1
-              return 0
-            fi
-            local tmp
-            tmp="$(mktemp)"
-            timeout 90s curl -fsSL -o "$tmp" \
-              "https://github.com/eugeneware/ffmpeg-static/releases/download/b6.1.1/${name}-linux-x64"
-            test "$(wc -c < "$tmp")" -gt 1000000
-            chmod +x "$tmp"
-            sudo mv "$tmp" "/usr/local/bin/${name}"
-            "$name" -version | head -1
-          }
-          install_static ffmpeg
-          install_static ffprobe
+          if command -v ffmpeg >/dev/null 2>&1; then
+            ffmpeg -version | head -1
+            exit 0
+          fi
+          # 2026-08-19: main run 32241090233 hung here for the full 25m
+          # job timeout (apt-get update never returned). A later 90s/120s
+          # cap killed a healthy install (exit 124) — ffmpeg pulls ~80
+          # packages. Keep a hang ceiling well under the 25m Analyze budget.
+          sudo timeout 180s apt-get update \
+            -o Acquire::Retries=3 \
+            -o Acquire::http::Timeout=30 \
+            -o Acquire::https::Timeout=30
+          sudo timeout 600s env DEBIAN_FRONTEND=noninteractive \
+            apt-get install --no-install-recommends --yes ffmpeg
+          command -v ffmpeg >/dev/null
 
 
       - name: Verify character video mattes

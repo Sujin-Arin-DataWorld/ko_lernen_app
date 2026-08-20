@@ -1,0 +1,765 @@
+{
+  "schemaVersion": 1,
+  "created": "2026-08-19",
+  "assets": [
+    {
+      "path": "README.md",
+      "sha256": "96dbb71f04580260b08f05335df41531b0e5c75115cb48a42ff88e76ffc59a60",
+      "bytes": 1488
+    },
+    {
+      "path": "books/raw_green/books_cluster_06.png",
+      "sha256": "306137127c7eb5e881b0fe7976d36bfac68507e73de63b8c58f7f2c469b0ea89",
+      "bytes": 1400175,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "books/raw_green/books_cluster_03.png",
+      "sha256": "1af5e945b9df206c38c55608c43cf1f32ee167456e53dfe99403c0cbe60af4ef",
+      "bytes": 1361526,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "books/raw_green/books_cluster_05.png",
+      "sha256": "decb4d4fcb484a2798fe3dd555443652498f458e6103498824fcd4a96658092c",
+      "bytes": 1378850,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "books/raw_green/books_cluster_01.png",
+      "sha256": "317f8e51c69c9643b88878275669a4d970dfb2f3b67774fff8bca121b9bfcf8a",
+      "bytes": 1452583,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "books/raw_green/books_cluster_02.png",
+      "sha256": "9b2f004af9f62c834d9f3f2841ac2980d00ece172176da718b7b67312bf27893",
+      "bytes": 1388194,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "books/raw_green/books_cluster_04.png",
+      "sha256": "01b9054b7e9d56db48b36fe23939085c57cf5f9013821f4788a274d88cff8cca",
+      "bytes": 1399759,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "books/transparent/books_cluster_06.png",
+      "sha256": "84935662f2a96c53ee950778a5bfac3739c304d7f01bca2d2e7bed3d3fd148dd",
+      "bytes": 832144,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "books/transparent/books_cluster_03.png",
+      "sha256": "350c356bf932e50d7a11420e040ff74df5210c9d691eb24d3760b8abd1d5fb90",
+      "bytes": 594196,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "books/transparent/books_cluster_05.png",
+      "sha256": "097e3157ace61cdfe607d30f5c019eebc11734591e98c1a4ed356212b4975dc2",
+      "bytes": 801153,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "books/transparent/books_cluster_01.png",
+      "sha256": "836747774622d77009fe4501b86f67d13e4e39ad4fb8e54fbb0b3bc7ed699249",
+      "bytes": 818695,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "books/transparent/books_cluster_02.png",
+      "sha256": "4db718870fa250c8c5e6485d801d70fee8d13b06fac7f7ef622335295fcb7003",
+      "bytes": 768296,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "books/transparent/books_cluster_04.png",
+      "sha256": "8bbb000676f1269299c6d0b745d0f0b417f9932dee004eb0d5bf1619b84cc0e3",
+      "bytes": 677821,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "qa/bookcase_layering_demo.jpg",
+      "sha256": "3dcea883cfd4af20f21135bcf3a7508fc476696847882b5cf1fcb43ddb64e177",
+      "bytes": 216635,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "qa/contact_books_categories.jpg",
+      "sha256": "5623f1408ce463f9e5a7e9fd5d9152a6117054630ef2664544702ad0421e2af1",
+      "bytes": 247224,
+      "width": 1500,
+      "height": 1350,
+      "mode": "RGB"
+    },
+    {
+      "path": "qa/contact_new_missing_assets.jpg",
+      "sha256": "8f32b82e53c405abdfa0922d3563aa207d43ca85d89bd4a12fe09ca0c4f3c1e7",
+      "bytes": 159600,
+      "width": 1200,
+      "height": 1240,
+      "mode": "RGB"
+    },
+    {
+      "path": "bookcase/chaekgado_bookcase_complete.png",
+      "sha256": "a3df6ecef24854d6fdc973835a253ab842a10b0fc23f3fcddd74550c96d68284",
+      "bytes": 1925937,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/layout.json",
+      "sha256": "5877e080167100f8458360e315710a6add2bbbcd812f3de9354a091989f1d231",
+      "bytes": 2165
+    },
+    {
+      "path": "bookcase/chaekgado_slot_mask.png",
+      "sha256": "6efd62218e8402ccd3435120055bbfa947ec7b2dd30de76c4c7c2c7097270284",
+      "bytes": 3231,
+      "width": 1254,
+      "height": 1254,
+      "mode": "L"
+    },
+    {
+      "path": "bookcase/chaekgado_bookcase_foreground_frame.png",
+      "sha256": "a55040bc2a7827a7f9a7f2b1d234820f2a8fa8fbcfd20cb2a7121229a20edd2c",
+      "bytes": 1925955,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/chaekgado_bookcase_backplate.png",
+      "sha256": "b9eb82d44f4619845f87a9ddbce386ef9960aecc84e98f3283981e13b3db5d85",
+      "bytes": 767725,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/slices/complete/chaekgado_complete_top.png",
+      "sha256": "3a60bf5034764dcf1b44680216f7aef792fa52532755067cfb415c8b0d83160d",
+      "bytes": 485368,
+      "width": 1254,
+      "height": 294,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/slices/complete/chaekgado_complete_bottom.png",
+      "sha256": "98cc99c7f026ea13adb7c905aa4b8750b820b543363967cc0d97e60c31c22c60",
+      "bytes": 425402,
+      "width": 1254,
+      "height": 266,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/slices/complete/chaekgado_complete_middle.png",
+      "sha256": "1b54bd8c6a3d3bef5894f911b34f0df662d8e1e70b46c35d6d377b3284819167",
+      "bytes": 310276,
+      "width": 1254,
+      "height": 199,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/slices/frame/chaekgado_frame_bottom.png",
+      "sha256": "6ae394dc428f2d88c6df4e622a54306bd110e0f0cf521854446229ba5fd2607d",
+      "bytes": 425405,
+      "width": 1254,
+      "height": 266,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/slices/frame/chaekgado_frame_top.png",
+      "sha256": "33f0d056f1567bd3f5adaaa2793fe2387c984d4ec5eeaf2164264a928e125ea4",
+      "bytes": 485371,
+      "width": 1254,
+      "height": 294,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/slices/frame/chaekgado_frame_middle.png",
+      "sha256": "4ac5daa02345d529f6c938d3b16835a862b96e93b6746b122e3946cf29f9544b",
+      "bytes": 310277,
+      "width": 1254,
+      "height": 199,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/slices/backplate/chaekgado_backplate_middle.png",
+      "sha256": "5cbaf96c77e1e0afb817c631ea5413cd6d42dd4115471425fb4e033507b1902c",
+      "bytes": 160070,
+      "width": 1254,
+      "height": 199,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/slices/backplate/chaekgado_backplate_bottom.png",
+      "sha256": "dc0fd0b7714c90e6da9a2a4775df08e61e6f4b4b932a88707f40060ce09edb25",
+      "bytes": 130889,
+      "width": 1254,
+      "height": 266,
+      "mode": "RGBA"
+    },
+    {
+      "path": "bookcase/slices/backplate/chaekgado_backplate_top.png",
+      "sha256": "7078421ffd052fb6648d3ba8a7f5a86af100234537f3c99e82b3738911324d92",
+      "bytes": 168183,
+      "width": 1254,
+      "height": 294,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/raw_green/vignette_15_fandom_video.png",
+      "sha256": "0d16ce7b412e705567cdf469029faf1531bb549a3b7b3755c486310e34112b75",
+      "bytes": 1687432,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_08_neighbors_housing.png",
+      "sha256": "92d593184787787b70b461005f857b7f3938db4d33959355b86fb7cf6d1ce56f",
+      "bytes": 1802513,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_14_dating_relationship.png",
+      "sha256": "4c2e0ea272b6d7010f615829776e32a1664e94ef9a90bb41f77af3a495382269",
+      "bytes": 1660640,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_09_family_boundaries.png",
+      "sha256": "68d3ce6e93f628b64850b964c95090c9e41473ead3c6fd066ed44bdf00e3980e",
+      "bytes": 1486283,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_13_friends_gaming.png",
+      "sha256": "4ce44b4551355eb90a1860c4430fce4c792c927c367f66013a38954ad18940cb",
+      "bytes": 1758637,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_05_home_door.png",
+      "sha256": "1b84946ba06e271390356d882aba5194c6291384641839d101be44cb84c4126d",
+      "bytes": 1654565,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_06_greeting_introduction.png",
+      "sha256": "eec64820e1a67e9e3e563870be04798192421edbb4e2b2d1e0274d9f4a7a00bd",
+      "bytes": 1715850,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_12_data_consent.png",
+      "sha256": "30279c1d00f969e5d532b86940d9a7fce6959a008b26dd2b4b4d20e9d43508ef",
+      "bytes": 1646432,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_03_shopping.png",
+      "sha256": "c8b03c8519ebe6c37e21bb621db3a7e13d8f6e78d721fc457b4d72ff53acbf0a",
+      "bytes": 1908909,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_07_health_sport.png",
+      "sha256": "6ea626ae86a2a20552e07c6a9e59ff56321bb6432071a02e511ddee2b3319726",
+      "bytes": 1606708,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_04_cafe_food.png",
+      "sha256": "4708e43e82975f514228d1d90738051d7823cba24053335c38afe38a6a5c6d25",
+      "bytes": 1623205,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_11_authorities_permits.png",
+      "sha256": "58dc6ad1befed5139e1d550b3281b5b1ca5252c2f7b5f1952fea6570fc9f6edd",
+      "bytes": 1863376,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_01_transport.png",
+      "sha256": "bdecd2190fc23be6a9387284ca158b83c0c47ceb60ede99556b85911d344b0ce",
+      "bytes": 1483485,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_10_evaluation_interview.png",
+      "sha256": "5998d43dc2ed0e5624b6ec935f6261c5c8e65f03983184628f3efa96e29577e1",
+      "bytes": 1558684,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/raw_green/vignette_02_travel_lodging.png",
+      "sha256": "cc8424d0548be6a7b6c29c8b873b1e386584bd6d103fa08b83ae369e14154d38",
+      "bytes": 1907600,
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB"
+    },
+    {
+      "path": "categories/transparent/vignette_15_fandom_video.png",
+      "sha256": "4eb49e311ebcb8e0d267b9f1ddb1c863550f291921844a9fb6c2a260a07e45dc",
+      "bytes": 842708,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_08_neighbors_housing.png",
+      "sha256": "35d4fbabb6301ac1d47958d3fe678d1927be281c5ab23423472d9fe2fd9a308a",
+      "bytes": 843836,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_14_dating_relationship.png",
+      "sha256": "f0a5eea87bcf9763bfc97086435e62c421e27acfca6160c15f692a3cd1040cc3",
+      "bytes": 830064,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_09_family_boundaries.png",
+      "sha256": "52b361b7ddedf1f7d0e90105d69ffe3fc0db848fb21cc862084005593387fc0d",
+      "bytes": 635164,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_13_friends_gaming.png",
+      "sha256": "61d19ab1c0c55a1b732b0b0dfbd616119e0aa0a28ac645971860e687e4faa06f",
+      "bytes": 714043,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_05_home_door.png",
+      "sha256": "5c1e29b0d0605581e9c82ae5a65e0e6f5d0885ea2286d9375ce4e46b29e8ec3f",
+      "bytes": 765221,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_06_greeting_introduction.png",
+      "sha256": "131ccd5d5d67828d61c7ab6e2ba58c72ec7fac6ab95b22d31641a52f38ad6c5c",
+      "bytes": 891876,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_12_data_consent.png",
+      "sha256": "50fc2a23317ce60ff1a89d369eb330b2cbc2a1af1be0e6864d49cf5c2708ee23",
+      "bytes": 861596,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_03_shopping.png",
+      "sha256": "60c8a093667f8fbc557ec84f037f2bb1be93a4bbcf064217f91e9b1677bfc6a6",
+      "bytes": 1045433,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_07_health_sport.png",
+      "sha256": "b9dcc6308f2713ad6cab3bfae31b7d242f8ae696a6ee8d7f6a4927dcddcd4aa0",
+      "bytes": 836168,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_04_cafe_food.png",
+      "sha256": "ac6e6291ffa4ea7485cfe341167383652ced2679e732ba1a38e530e3dd0bb8c7",
+      "bytes": 699152,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_11_authorities_permits.png",
+      "sha256": "f83695c9a7d79cf60a59d0514ba39b95fd7399eba19b039171bdecdbd6d7e795",
+      "bytes": 963984,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_01_transport.png",
+      "sha256": "1366e08e2b687ac3cf0a5b0e8264bde7f7443e432bc22e86216cfd836d58dd36",
+      "bytes": 538312,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_10_evaluation_interview.png",
+      "sha256": "d7d6e888af62658da78db75399842e4e478c544183d9c8ed07356556895354ac",
+      "bytes": 864217,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "categories/transparent/vignette_02_travel_lodging.png",
+      "sha256": "fe458adf9dd0be20be60bfc278acbf33f234c20d19bd027645dafb8b849550bb",
+      "bytes": 1029616,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/raw_green/decor_bronze_incense_burner.png",
+      "sha256": "8de0bc37f30277f2bf58c2075c73a3fcb459a9fbd09544671afcb24b7df0817e",
+      "bytes": 327459,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/decor_blue_white_vase_peony.png",
+      "sha256": "f40a1d764fd3f0130f78510f8d4133fd4d15ca820d06a7f6417e13fd12e1e81c",
+      "bytes": 365851,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/scholar_inkstone_set.png",
+      "sha256": "858d46b685ce2e5f4ac64fa4ce76138a45b95e689ea9a77c60ee26ec660b32f3",
+      "bytes": 312329,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/decor_obangsaek_norigae.png",
+      "sha256": "f0d4c60ae95bc5d8c4b6bc7fbfec27bc25a3668d1ced2abb98fd3e52e297c509",
+      "bytes": 215538,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/decor_wooden_tiger_figurine.png",
+      "sha256": "121994c97217198533a00ea6bb6bd58f512005c34ca85eb70034c782fe75866f",
+      "bytes": 546167,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/scholar_brush_holder.png",
+      "sha256": "e5e1fe841c9943e6c049d7e30ecb4ed43dbc16c3b6a5ebc7cb75ef52a1fc731b",
+      "bytes": 257528,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/decor_pomegranate_peony.png",
+      "sha256": "b9d661f94d253654438e9aaeccfed54271309bdabe75ceeb102578708e958b13",
+      "bytes": 489327,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/decor_wooden_magpie_figurine.png",
+      "sha256": "74127dacdd1c1196c67d297d9a3bd87e1f0f7eb84ffe533b34c033af27145e41",
+      "bytes": 383378,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/decor_celadon_maebyeong.png",
+      "sha256": "8f6598525d59d11f70b5d4a4b6afe1a23917d9783a31ea5ccd0dec5a2c0dd583",
+      "bytes": 233618,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/life_fruit_soban.png",
+      "sha256": "61da038e5d79b135880dabe0f7b9bb7a87618a114d3de67cf3a39086c365e4b4",
+      "bytes": 376730,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/scholar_seal_box.png",
+      "sha256": "6330bf8aa528fff001ec268dc10426d0a74095aecc4dcca64fc745b36e83b40a",
+      "bytes": 592620,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/decor_joseon_hanji_lantern.png",
+      "sha256": "b6c37da589fd30e586023489be8b4fe0322f4014936dc6551a82a2f19889ce1a",
+      "bytes": 290816,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/life_tea_cups_tray.png",
+      "sha256": "a94f0632b478d40397f6964112d792eb9b4be296e8418fce4a7d2bf2fdfe90c9",
+      "bytes": 419339,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/raw_green/scholar_book_case_books.png",
+      "sha256": "e6f224b79874b8b2f98911041f5817c6aa29962893ced856ac521d7662d61a1d",
+      "bytes": 529146,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGB"
+    },
+    {
+      "path": "decor/transparent/decor_bronze_incense_burner.png",
+      "sha256": "d5585656149a71e3bc8822f245d0dd40df5a72536609292e54a9393008b974a0",
+      "bytes": 384697,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/decor_blue_white_vase_peony.png",
+      "sha256": "7cefb13e34cd6cf8f2315d6e610babbf163aab8270a4a66cf090a10b5652e65e",
+      "bytes": 430059,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/scholar_inkstone_set.png",
+      "sha256": "2fc119919ef5623633175fa89aec0106f709651c18c440ee05ad43839b4f093a",
+      "bytes": 354770,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/decor_obangsaek_norigae.png",
+      "sha256": "ad907fcc0f9a508de6e9cb6979586ee9f29ee96ebe2ea3f3244fb1cacec37271",
+      "bytes": 265579,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/decor_wooden_tiger_figurine.png",
+      "sha256": "da1e2f0051c9fd6d0a8cd93cb56175f2b72345b93da10424819bb5f35d904a46",
+      "bytes": 632659,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/scholar_brush_holder.png",
+      "sha256": "a3984c8c4a7beb2b11d30757a76abeabc45a1ca03e697b6506febdb7b9762b4a",
+      "bytes": 299013,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/decor_pomegranate_peony.png",
+      "sha256": "89bc683cbdf71683d8d7f1f36b21cd67579a7ade4fe9d1c0a8a6fbb237a21de2",
+      "bytes": 570716,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/decor_wooden_magpie_figurine.png",
+      "sha256": "6d9182cd547b5a31a036fc0eeafbc7357c6b32b9172a62fceb3a5cae96cb048e",
+      "bytes": 438820,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/decor_celadon_maebyeong.png",
+      "sha256": "9e3eebd6c48bce6b3dcc3e36a3e55afc2278e42dfa92ccd4c7fc24235eb84226",
+      "bytes": 267948,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/life_fruit_soban.png",
+      "sha256": "27da73c10f106b4c21ab688874b090838baa80367f46732ef210532eb2877fbd",
+      "bytes": 437516,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/scholar_seal_box.png",
+      "sha256": "ad3b9d78705b7e099d5014f1f3dba1fe3f699d8c504f3dcf3191dc0ab57c831e",
+      "bytes": 675166,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/decor_joseon_hanji_lantern.png",
+      "sha256": "52972b9b2c02946207eed89346d088fba477c19f1586855ad0ff1b293c801a28",
+      "bytes": 336622,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/life_tea_cups_tray.png",
+      "sha256": "16fda1607d9d79e318a4c64b821d264675a103b8547ce54d6f0d28d69f1ec406",
+      "bytes": 482772,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "decor/transparent/scholar_book_case_books.png",
+      "sha256": "45755c31388b4da1322020fafe44bd300dd990c10c7d84084b0d8668355f95d2",
+      "bytes": 597072,
+      "width": 1024,
+      "height": 1024,
+      "mode": "RGBA"
+    },
+    {
+      "path": "scroll/hoeren_scroll_top.png",
+      "sha256": "4d77f16ccacacc0e15651ba572ff1d4b35e8585d84616f1c01944004a94ddd14",
+      "bytes": 513536,
+      "width": 1152,
+      "height": 320,
+      "mode": "RGBA"
+    },
+    {
+      "path": "scroll/README.txt",
+      "sha256": "24b2f1f18f312520408e9b2f13bdfda5804df7803328f7f67933c39942d5dfd2",
+      "bytes": 723
+    },
+    {
+      "path": "scroll/hoeren_scroll_transparent.png",
+      "sha256": "82607e4f051dc0f60b2fdf828b41fc58a37f70dafdb199e6a76150a7212c18bc",
+      "bytes": 3197607,
+      "width": 1152,
+      "height": 2048,
+      "mode": "RGBA"
+    },
+    {
+      "path": "scroll/hoeren_scroll_bottom.png",
+      "sha256": "9869e6f2b6658123660556c80523ee3cf45d657273fd56cd877874db4c05aa8b",
+      "bytes": 510344,
+      "width": 1152,
+      "height": 320,
+      "mode": "RGBA"
+    },
+    {
+      "path": "scroll/hoeren_scroll_short_card_preview.jpg",
+      "sha256": "cd775a14633c3131ccaa48b699753f3c8307d4dfac2dd09674058001324f4207",
+      "bytes": 217705,
+      "width": 1152,
+      "height": 960,
+      "mode": "RGB"
+    },
+    {
+      "path": "scroll/hoeren_scroll_body_tile.png",
+      "sha256": "9fe41505d87f3d5228a6aeff94f2d618806520b40bc0afbf4b918e193a4b028b",
+      "bytes": 207733,
+      "width": 1152,
+      "height": 128,
+      "mode": "RGBA"
+    },
+    {
+      "path": "scroll/hoeren_scroll_short_card.png",
+      "sha256": "a738093d804514c480b2bfde6a2913bed8a80ec9cd88c0bb1918882987014662",
+      "bytes": 1367910,
+      "width": 1152,
+      "height": 960,
+      "mode": "RGBA"
+    },
+    {
+      "path": "scroll/hoeren_scroll_lesson_mockup.jpg",
+      "sha256": "69e2b8bc6b89ad6355498ae45ca08dc6a5647261f4fcf01b74c07b62bad28a71",
+      "bytes": 265145,
+      "width": 921,
+      "height": 2048,
+      "mode": "RGB"
+    }
+  ]
+}
