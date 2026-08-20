@@ -43,7 +43,8 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double viewportWidth;
 
   /// Enables measured multi-line chrome for user-authored or otherwise
-  /// unbounded titles even at the default system text scale.
+  /// unbounded titles even at the default system text scale. Eyebrow chrome and
+  /// narrow phones are measured automatically.
   final bool adaptTitleAtNormalScale;
 
   static const _titleStyle = TextStyle(
@@ -101,12 +102,13 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
   int _textLines(String value, TextStyle style) =>
       _textMetrics(value, style).lines;
 
-  /// Keep ordinary 360dp/100% chrome pixel-stable. Below the narrow-phone
-  /// boundary, or whenever accessibility text scaling is active, measured
-  /// wrapping expands the bar instead of clipping the title.
+  /// Keep ordinary bounded 100% chrome pixel-stable. Eyebrow chrome, narrow
+  /// phones, and explicitly unbounded titles expand instead of clipping or
+  /// hiding measured multi-line copy.
   bool get _usesAdaptiveChrome =>
       textScale > 1 ||
       ((adaptTitleAtNormalScale ||
+              eyebrow != null ||
               viewportWidth < SoriBreakpoints.narrowPhone) &&
           (_textLines(title, _titleStyle) > 1 ||
               (eyebrow != null && _textLines(eyebrow!, _eyebrowStyle) > 1)));
@@ -151,18 +153,8 @@ class SoriAppBar extends StatelessWidget implements PreferredSizeWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
-                    eyebrow!,
-                    style: tt.eyebrow,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  Text(
-                    title,
-                    style: tt.h2,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  Text(eyebrow!, style: tt.eyebrow),
+                  Text(title, style: tt.h2),
                 ],
               ),
         actions: actions,

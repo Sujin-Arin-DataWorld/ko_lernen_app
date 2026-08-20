@@ -20,4 +20,31 @@ void main() {
     expect(find.byType(SoriButton), findsOneWidget);
     expect(find.byType(FilledButton), findsNothing);
   });
+
+  testWidgets('AppError stops idle animation when motion is disabled', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      const MaterialApp(
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: MediaQuery(
+          data: MediaQueryData(disableAnimations: true),
+          child: Scaffold(body: AppError(message: 'Offline')),
+        ),
+      ),
+    );
+
+    await tester.pump(const Duration(seconds: 1));
+
+    expect(
+      find.descendant(
+        of: find.byType(AppError),
+        matching: find.byType(AnimatedBuilder),
+      ),
+      findsNothing,
+    );
+    expect(tester.binding.transientCallbackCount, 0);
+    expect(tester.takeException(), isNull);
+  });
 }

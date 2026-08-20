@@ -1,12 +1,12 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.0
+- **Version:** 1.1
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-application-2026-08-21`
-- **Base:** `origin/main@566f1ac52d3874e0b77ef6d8b1dec44266f409ac`
-- **State:** Phase 0 audit complete; document-only PR pending
-- **Next action:** validate, commit, push, open the Phase 0 PR, wait for the
-  automatic current-head CI run, and merge only if it is green
+- **Branch:** `session/uiux-bible-foundation-1a-2026-08-21`
+- **Base:** `origin/main@151c08b28a75bf909aa873996b9d495d0bf91f8b`
+- **State:** Phase 1A implementation and local verification complete; PR pending
+- **Next action:** commit and push Phase 1A, open its PR, inspect the automatic
+  current-head CI run, merge only if green, then start Phase 1B from latest main
 
 ## 1. Purpose
 
@@ -319,8 +319,8 @@ production, and deployment remain unclaimed and out of scope.
 | Phase | State | Evidence / next action |
 |---|---|---|
 | Phase 2 native/game precursor | merged | PR #116; main merge `63b62e10fc923aa91d55642c68d67dae66161178`; CI green; local analyze clean; 4,250 tests passed, 14 conditional skips |
-| 0 audit + execution lock | local complete | validate this document, then document-only PR |
-| 1A common chrome/motion | pending | first code phase after Phase 0 merge |
+| 0 audit + execution lock | merged | PR #118; main merge `151c08b28a75bf909aa873996b9d495d0bf91f8b`; docs-only CI path filter correctly scheduled no run |
+| 1A common chrome/motion | local complete | appbar ellipsis 2→0; long normal-scale copy wraps; short chrome remains 56 dp; reduced-motion error ticker stops; 15 focused and 53 shared matrix/accessibility tests passed; analyze clean in 131.5 s; commit/PR next |
 | 1B common field/state | pending | follows 1A |
 | 2A–2D main tabs/home | pending | start only from latest merged main |
 | 3A–3D learning flows | pending | split by evidence boundary |

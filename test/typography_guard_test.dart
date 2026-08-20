@@ -135,12 +135,18 @@ void main() {
     );
   });
 
-  test('화면 콘텐츠를 ellipsis 로 숨기지 않는다', () {
+  test('화면 콘텐츠와 공통 앱바를 ellipsis 로 숨기지 않는다', () {
     _expectAtMost(
-      sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
+      sources
+          .where(
+            (s) =>
+                s.path.startsWith('lib/screens/') ||
+                s.path == 'lib/widgets/sori/app_bar.dart',
+          )
+          .toList(),
       RegExp(r'TextOverflow\.ellipsis'),
       0,
-      'lib/screens/ TextOverflow.ellipsis',
+      'lib/screens/ + SoriAppBar TextOverflow.ellipsis',
     );
   });
 
