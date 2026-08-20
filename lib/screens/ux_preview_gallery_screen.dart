@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../models/ux_preview_catalog.dart';
 import '../widgets/sori/card.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 
 typedef UxPreviewPanelBuilder = Widget Function(UxPreviewPanel panel);
@@ -76,20 +76,16 @@ class UxPreviewGalleryScreen extends StatelessWidget {
       );
     }
 
-    return Scaffold(
-      appBar: AppBar(title: const Text('UX 01-07')),
-      body: SafeArea(
-        child: SoriContentClamp(
-          base: const EdgeInsets.fromLTRB(
-            Spacing.lg,
-            Spacing.md,
-            Spacing.lg,
-            Spacing.xxxl,
-          ),
-          builder: (context, padding) =>
-              ListView(padding: padding, children: children),
-        ),
+    return SoriStandardFrame(
+      appBarTitle: 'UX 01-07',
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.md,
+        Spacing.lg,
+        Spacing.xxxl,
       ),
+      builder: (context, padding) =>
+          ListView(padding: padding, children: children),
     );
   }
 

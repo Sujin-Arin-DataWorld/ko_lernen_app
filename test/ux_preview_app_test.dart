@@ -31,6 +31,7 @@ import 'package:ko_lernen_app/services/gye_weekly_promise_navigation.dart';
 
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/sticker_image.dart';
 
 void main() {
@@ -192,6 +193,40 @@ void main() {
       ModalRoute.of(tester.element(find.byType(ConsentScreen)))?.settings.name,
       '/ux_gallery/01A',
     );
+  });
+
+  testWidgets('gallery keeps every panel reachable at 320dp and 200 percent', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      const UxPreviewApp(textScaler: TextScaler.linear(2)),
+    );
+
+    final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+    final title = tester.widget<Text>(
+      find.descendant(
+        of: find.byType(SoriAppBar),
+        matching: find.text(appBar.title),
+      ),
+    );
+    expect(appBar.title, 'UX 01-07');
+    expect(title.maxLines, isNotNull);
+    expect(title.overflow, TextOverflow.clip);
+
+    final finalPanel = find.byKey(const ValueKey('ux-preview-panel-07D'));
+    await tester.scrollUntilVisible(
+      finalPanel,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
+    expect(finalPanel.hitTestable(), findsOneWidget);
+    expect(tester.takeException(), isNull);
   });
 
   testWidgets(

@@ -26,6 +26,7 @@ import '../services/mission_recommender.dart';
 import '../services/today_learning_snapshot.dart';
 import '../theme.dart';
 import '../widgets/sori/mascot_preference.dart';
+import '../widgets/sori/standard_page.dart';
 import 'character_selection_screen.dart';
 import 'consent_screen.dart';
 import 'course_mission_screen.dart';
@@ -242,16 +243,15 @@ class _UxPreviewNavigationBoundary extends StatelessWidget {
   final String? routeName;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: const Text('UX Gallery')),
-    body: SafeArea(
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Text(
-            '${routeName ?? 'Diese Aktion'} ist in der Vorschau schreibgeschützt.',
-            textAlign: TextAlign.center,
-          ),
+  Widget build(BuildContext context) => SoriStandardFrame(
+    appBarTitle: 'UX Gallery',
+    padding: const EdgeInsets.all(24),
+    builder: (context, padding) => Center(
+      child: SingleChildScrollView(
+        padding: padding,
+        child: Text(
+          '${routeName ?? 'Diese Aktion'} ist in der Vorschau schreibgeschützt.',
+          textAlign: TextAlign.center,
         ),
       ),
     ),
