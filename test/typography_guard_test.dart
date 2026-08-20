@@ -36,7 +36,8 @@ void main() {
     // 2026-08-14 Phase 3(§D~§F) 재실측: 40→35 (_StatTile w900 제거 포함).
     // 2026-08-17 카드 면 굵기 정리: 학습 카드 앞/뒷면을 Bold(700) 로 → 35→31.
     // 2026-08-19 재실측: 31→28.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 28, 'FontWeight.w900');
+    // 2026-08-19 SoriTypeRamp 통합(Task 3) 재실측: 28→27.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w900'), 27, 'FontWeight.w900');
   });
 
   test('FontWeight.w800 은 더 늘지 않는다', () {
@@ -51,7 +52,9 @@ void main() {
     // 2026-08-17 카드 면 굵기 정리: 복습·단어팩·커스텀팩·레거시 카드와
     // `soriUniformFitSize` 실측 기본값을 Bold(700) 로 → 166→155.
     // 2026-08-19 재실측: 155→141.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 141, 'FontWeight.w800');
+    // 2026-08-19 SoriTypeRamp 통합(Task 3, tokens.dart/theme.dart 의 w800 전량
+    // 제거) 재실측: 141→131.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 131, 'FontWeight.w800');
   });
 
   test("하드코딩 fontFamily: ' 문자열 리터럴은 0 이다 (SoriFonts.sans 사용)", () {

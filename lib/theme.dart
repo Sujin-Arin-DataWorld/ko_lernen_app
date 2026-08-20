@@ -41,14 +41,8 @@ class AppTheme {
         centerTitle: false,
         elevation: 0,
         scrolledUnderElevation: 0,
-        titleTextStyle: TextStyle(
-          color: s.text,
-          // 통일 Pretendard ExtraBold (2026-07-01 — 명조 혼용 폐기).
-          fontFamily: SoriFonts.sans,
-          fontWeight: FontWeight.w800,
-          fontSize: 19,
-          letterSpacing: -0.3,
-        ),
+        // 램프 h2 파생 (2026-08-19 — 두 램프 통합, Wanted Sans).
+        titleTextStyle: _from(SoriTypeRamp.h2, s.text),
       ),
 
       // ── Buttons ──────────────────────────────────────────────────────
@@ -127,13 +121,13 @@ class AppTheme {
           color: s.text,
           fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w600,
-          fontSize: 12,
+          fontSize: 12.5,
         ),
         secondaryLabelStyle: const TextStyle(
           color: Colors.white,
           fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w700,
-          fontSize: 12,
+          fontSize: 12.5,
         ),
         side: BorderSide(color: s.border),
         shape: RoundedRectangleBorder(borderRadius: SoriRadius.brPill),
@@ -177,7 +171,7 @@ class AppTheme {
           color: s.textMuted,
           fontFamily: SoriFonts.sans,
           fontWeight: FontWeight.w500,
-          fontSize: 12,
+          fontSize: 12.5,
         ),
       ),
 
@@ -190,7 +184,7 @@ class AppTheme {
           final selected = states.contains(WidgetState.selected);
           return TextStyle(
             fontFamily: SoriFonts.sans,
-            fontSize: 11,
+            fontSize: 12,
             fontWeight: selected ? FontWeight.w700 : FontWeight.w500,
             color: selected ? primary : s.textMuted,
           );
@@ -211,38 +205,36 @@ class AppTheme {
     );
   }
 
-  static TextTheme _buildTextTheme(SoriSurfaces s) {
-    TextStyle base(
-      double size,
-      FontWeight w, {
-      double height = 1.4,
-      double spacing = 0,
-      Color? color,
-    }) => TextStyle(
-      fontFamily: SoriFonts.sans,
-      fontSize: size,
-      fontWeight: w,
-      height: height,
-      letterSpacing: spacing,
-      color: color ?? s.text,
-    );
+  /// [SoriTypeRamp] 한 칸을 Material [TextStyle]로 옮긴다 — 램프가 유일한
+  /// 소스이므로 여기서 값을 다시 적지 않는다.
+  static TextStyle _from(SoriTypeRole r, Color color, {double? spacing}) =>
+      TextStyle(
+        fontFamily: SoriFonts.sans,
+        fontSize: r.size,
+        fontWeight: r.weight,
+        height: r.height,
+        letterSpacing: spacing ?? r.spacing,
+        color: color,
+      );
 
-    return TextTheme(
-      displayLarge: base(44, FontWeight.w900, height: 1.1, spacing: -1.5),
-      displayMedium: base(36, FontWeight.w800, height: 1.1, spacing: -1.0),
-      displaySmall: base(28, FontWeight.w800, height: 1.2, spacing: -0.8),
-      headlineLarge: base(24, FontWeight.w800, height: 1.25, spacing: -0.5),
-      headlineMedium: base(20, FontWeight.w700, height: 1.3, spacing: -0.3),
-      headlineSmall: base(18, FontWeight.w700, height: 1.35, spacing: -0.2),
-      titleLarge: base(16, FontWeight.w700, height: 1.4),
-      titleMedium: base(14, FontWeight.w600, height: 1.4),
-      titleSmall: base(13, FontWeight.w600, height: 1.4, color: s.textMuted),
-      bodyLarge: base(15, FontWeight.w500, height: 1.5),
-      bodyMedium: base(14, FontWeight.w500, height: 1.5),
-      bodySmall: base(12, FontWeight.w500, height: 1.5, color: s.textMuted),
-      labelLarge: base(14, FontWeight.w700),
-      labelMedium: base(12, FontWeight.w700, color: s.textMuted),
-      labelSmall: base(11, FontWeight.w700, color: s.textMuted, spacing: 0.5),
-    );
-  }
+  static TextTheme _buildTextTheme(SoriSurfaces s) => TextTheme(
+    displayLarge: _from(SoriTypeRamp.hero, s.text),
+    displayMedium: _from(SoriTypeRamp.display, s.text),
+    displaySmall: _from(SoriTypeRamp.koDisplaySm, s.text),
+    headlineLarge: _from(SoriTypeRamp.h1, s.text),
+    headlineMedium: _from(SoriTypeRamp.h2, s.text),
+    headlineSmall: _from(SoriTypeRamp.h3, s.text),
+    titleLarge: _from(SoriTypeRamp.cardTitle, s.text),
+    titleMedium: _from(
+      SoriTypeRamp.bodySmall,
+      s.text,
+    ).copyWith(fontWeight: FontWeight.w600),
+    titleSmall: _from(SoriTypeRamp.label, s.textMuted),
+    bodyLarge: _from(SoriTypeRamp.body, s.text),
+    bodyMedium: _from(SoriTypeRamp.bodySmall, s.text),
+    bodySmall: _from(SoriTypeRamp.caption, s.textMuted),
+    labelLarge: _from(SoriTypeRamp.label, s.text),
+    labelMedium: _from(SoriTypeRamp.meta, s.textMuted),
+    labelSmall: _from(SoriTypeRamp.caption, s.textMuted, spacing: 0.3),
+  );
 }

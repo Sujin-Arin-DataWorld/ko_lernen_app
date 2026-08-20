@@ -489,17 +489,199 @@ class SoriFonts {
   static const String sans = 'WantedSans';
 }
 
+/// 램프 한 칸 — 색은 없다(색은 SoriTextTheme 가 surface 로 입힌다).
+class SoriTypeRole {
+  const SoriTypeRole(
+    this.name,
+    this.size,
+    this.weight, {
+    required this.spacing,
+    required this.height,
+    this.tabular = false,
+  });
+  final String name;
+  final double size;
+  final FontWeight weight;
+  final double spacing;
+  final double height;
+  final bool tabular;
+}
+
+/// **유일한 타이포 램프** (2026-08-19, Wanted Sans 기준). `SoriTextTheme` 과
+/// `AppTheme._buildTextTheme` 둘 다 여기서 읽는다 — 값을 두 군데 적지 말 것.
+/// 원칙: w800/w900 없음 · 하한 12.5 · 한국어 height ≥ 1.25 · 본문 1.5 ·
+/// 자간은 대형만 음수, 본문 이하 0.
+abstract final class SoriTypeRamp {
+  static const koHero = SoriTypeRole(
+    'koHero',
+    56,
+    FontWeight.w700,
+    spacing: 0,
+    height: 1.10,
+  );
+  static const hero = SoriTypeRole(
+    'hero',
+    36,
+    FontWeight.w700,
+    spacing: -0.4,
+    height: 1.12,
+  );
+  static const display = SoriTypeRole(
+    'display',
+    30,
+    FontWeight.w700,
+    spacing: -0.3,
+    height: 1.18,
+  );
+  static const koDisplay = SoriTypeRole(
+    'koDisplay',
+    30,
+    FontWeight.w700,
+    spacing: -0.2,
+    height: 1.28,
+  );
+  static const numeral = SoriTypeRole(
+    'numeral',
+    30,
+    FontWeight.w700,
+    spacing: -0.2,
+    height: 1.1,
+    tabular: true,
+  );
+  static const h1 = SoriTypeRole(
+    'h1',
+    24,
+    FontWeight.w700,
+    spacing: -0.3,
+    height: 1.25,
+  );
+  static const koDisplaySm = SoriTypeRole(
+    'koDisplaySm',
+    24,
+    FontWeight.w700,
+    spacing: -0.1,
+    height: 1.32,
+  );
+  static const h2 = SoriTypeRole(
+    'h2',
+    20,
+    FontWeight.w700,
+    spacing: -0.2,
+    height: 1.3,
+  );
+  static const h3 = SoriTypeRole(
+    'h3',
+    17,
+    FontWeight.w600,
+    spacing: -0.1,
+    height: 1.35,
+  );
+  static const gloss = SoriTypeRole(
+    'gloss',
+    17,
+    FontWeight.w500,
+    spacing: 0,
+    height: 1.45,
+  );
+  static const body = SoriTypeRole(
+    'body',
+    15,
+    FontWeight.w500,
+    spacing: 0,
+    height: 1.5,
+  );
+  static const glossSm = SoriTypeRole(
+    'glossSm',
+    15,
+    FontWeight.w500,
+    spacing: 0,
+    height: 1.45,
+  );
+  static const cardTitle = SoriTypeRole(
+    'cardTitle',
+    15,
+    FontWeight.w700,
+    spacing: -0.1,
+    height: 1.35,
+  );
+  static const bodySmall = SoriTypeRole(
+    'bodySmall',
+    14,
+    FontWeight.w500,
+    spacing: 0,
+    height: 1.45,
+  );
+  static const label = SoriTypeRole(
+    'label',
+    13,
+    FontWeight.w600,
+    spacing: 0.1,
+    height: 1.25,
+  );
+  static const caption = SoriTypeRole(
+    'caption',
+    12.5,
+    FontWeight.w500,
+    spacing: 0,
+    height: 1.4,
+  );
+  static const meta = SoriTypeRole(
+    'meta',
+    12.5,
+    FontWeight.w600,
+    spacing: 0,
+    height: 1.35,
+  );
+  static const cardSubtitle = SoriTypeRole(
+    'cardSubtitle',
+    12.5,
+    FontWeight.w500,
+    spacing: 0,
+    height: 1.4,
+  );
+  static const eyebrow = SoriTypeRole(
+    'eyebrow',
+    12,
+    FontWeight.w700,
+    spacing: 1.2,
+    height: 1.2,
+  );
+  static const List<SoriTypeRole> all = [
+    koHero,
+    hero,
+    display,
+    koDisplay,
+    numeral,
+    h1,
+    koDisplaySm,
+    h2,
+    h3,
+    gloss,
+    body,
+    glossSm,
+    cardTitle,
+    bodySmall,
+    label,
+    caption,
+    meta,
+    cardSubtitle,
+    eyebrow,
+  ];
+}
+
 /// 모든 Sori 컴포넌트가 따르는 TextStyle 프리셋.
 ///
 /// 기존 컴포넌트는 `TextStyle(fontFamily: SoriFonts.sans, ...)` 하드코딩.
 /// 점진 마이그레이션 — 신규 텍스트는 [SoriTextTheme.of(ctx).body] 등 사용.
 ///
 /// 색은 surface 기반 — `s.text` (default), `s.textMuted`, `s.textDim`.
-/// 사이즈·weight·letter-spacing·height 만 중앙화.
+/// 크기·굵기·자간·행간은 [SoriTypeRamp] 단일 소스에서 온다 — 여기 값을
+/// 직접 적지 않는다.
 ///
-/// **타이포 보이스(2026-07-01 통일)**: 앱 전 표면 단일 폰트 Pretendard.
-/// 위계는 폰트 혼용이 아니라 **크기·굵기**로만 — 디스플레이/제목은 w800(ExtraBold),
-/// 본문 w500, 라벨 w700. (구 명조 serif 혼용은 라틴/한글 분열 + 저품질로 폐기.)
+/// **타이포 보이스(2026-07-01 통일, 2026-08-19 Wanted Sans 교체)**: 앱 전
+/// 표면 단일 폰트 Wanted Sans. 위계는 폰트 혼용이 아니라 **크기·굵기**로만 —
+/// w800/w900 은 램프에서 제거됐고 디스플레이/제목 상한은 w700. (구 명조 serif
+/// 혼용은 라틴/한글 분열 + 저품질로 폐기.)
 class SoriTextTheme {
   final SoriSurfaces _s;
 
@@ -508,158 +690,65 @@ class SoriTextTheme {
   static SoriTextTheme of(BuildContext context) =>
       SoriTextTheme._(SoriSurfaces.of(context));
 
-  // ── Display / Heading (Pretendard ExtraBold — 통일) ───────────────────
-  // 위계는 크기·굵기로만. Pretendard w800 번들 → 합성볼드 아닌 진짜 ExtraBold.
-  TextStyle get display => _base(
-    fontSize: 32,
-    weight: FontWeight.w800,
-    letterSpacing: -0.5,
-    height: 1.15,
-  );
+  /// 앱 최대 헤드라인 — 한국어 전용 (온보딩·결과 화면).
+  TextStyle get koHero => _style(SoriTypeRamp.koHero);
 
   /// 페이지 대형 헤드라인 (2026-08-13 UI 개편 Phase 1).
   /// Vocabulary급 "화면당 1메시지" 위계의 앵커 — [eyebrow] 와 짝으로 쓴다.
-  /// [display](32) 는 컴팩트 맥락용으로 유지.
-  TextStyle get hero => _base(
-    fontSize: 38,
-    weight: FontWeight.w800,
-    letterSpacing: -0.8,
-    height: 1.08,
-  );
-
-  /// 헤드라인 위의 소형 대문자 라벨 (자간 넓힘, 기본 석간주).
-  /// `SoriStageRootHeader` 가 손으로 쓰던 패턴의 토큰화 — 호출부에서
-  /// `.toUpperCase()` 는 직접 한다 (독일어 ß 등 로케일 정책은 호출부 소관).
-  TextStyle get eyebrow => _base(
-    fontSize: 12,
-    weight: FontWeight.w700,
-    letterSpacing: 1.4,
-    height: 1.2,
-    color: SoriColors.accent,
-  );
-  TextStyle get h1 => _base(
-    fontSize: 24,
-    weight: FontWeight.w800,
-    letterSpacing: -0.4,
-    height: 1.25,
-  );
-  TextStyle get h2 => _base(
-    fontSize: 20,
-    weight: FontWeight.w800,
-    letterSpacing: -0.3,
-    height: 1.3,
-  );
-
-  /// 히어로용 대형 헤드라인 (온보딩·결과).
-  TextStyle get serifDisplay => _base(
-    fontSize: 40,
-    weight: FontWeight.w800,
-    letterSpacing: -0.6,
-    height: 1.1,
-  );
-
-  /// 큰 통계 숫자 — tabular(자릿수 정렬). 스트릭·XP 히어로 수치.
-  TextStyle get numeral => _base(
-    fontSize: 30,
-    weight: FontWeight.w800,
-    letterSpacing: -0.2,
-    height: 1.1,
-    tabular: true,
-  );
-  TextStyle get h3 => _base(
-    fontSize: 17,
-    weight: FontWeight.w700,
-    letterSpacing: -0.2,
-    height: 1.3,
-  );
-
-  // ── Body ─────────────────────────────────────────────────────────────
-  TextStyle get body => _base(
-    fontSize: 15,
-    weight: FontWeight.w500,
-    letterSpacing: -0.1,
-    height: 1.45,
-  );
-  TextStyle get bodySmall => _base(
-    fontSize: 14,
-    weight: FontWeight.w500,
-    letterSpacing: -0.05,
-    height: 1.4,
-    color: _s.textMuted,
-  );
-
-  // ── Caption / Label ──────────────────────────────────────────────────
-  TextStyle get caption => _base(
-    fontSize: 12.5,
-    weight: FontWeight.w500,
-    letterSpacing: 0,
-    height: 1.35,
-    color: _s.textMuted,
-  );
+  TextStyle get hero => _style(SoriTypeRamp.hero);
+  TextStyle get display => _style(SoriTypeRamp.display);
 
   /// Content-player Korean hero. Hierarchy is size/weight only — no new font.
-  TextStyle get koDisplay => _base(
-    fontSize: 28,
-    weight: FontWeight.w700,
-    letterSpacing: -0.4,
-    height: 1.25,
-  );
+  TextStyle get koDisplay => _style(SoriTypeRamp.koDisplay);
+
+  /// [koDisplay] 보다 한 단 작은 한국어 헤드라인 — displaySmall Material 슬롯.
+  TextStyle get koDisplaySm => _style(SoriTypeRamp.koDisplaySm);
+
+  /// 큰 통계 숫자 — tabular(자릿수 정렬). 스트릭·XP 히어로 수치.
+  TextStyle get numeral => _style(SoriTypeRamp.numeral);
+  TextStyle get h1 => _style(SoriTypeRamp.h1);
+  TextStyle get h2 => _style(SoriTypeRamp.h2);
+  TextStyle get h3 => _style(SoriTypeRamp.h3);
 
   /// Content-player DE/EN gloss under the Korean word.
-  TextStyle get gloss => _base(
-    fontSize: 17,
-    weight: FontWeight.w500,
-    letterSpacing: -0.1,
-    height: 1.4,
-    color: _s.textMuted,
-  );
+  TextStyle get gloss => _style(SoriTypeRamp.gloss, color: _s.textMuted);
 
-  /// Content-player chrome (progress `3 / 12`, hints). Do not go below 12.5.
-  TextStyle get meta => _base(
-    fontSize: 12.5,
-    weight: FontWeight.w500,
-    letterSpacing: 0,
-    height: 1.35,
-    color: _s.textMuted,
-  );
-  TextStyle get label => _base(
-    fontSize: 13,
-    weight: FontWeight.w700,
-    letterSpacing: 0.2,
-    height: 1.2,
-  );
+  /// [gloss] 보다 한 단 작은 DE/EN gloss — 좁은 카드용.
+  TextStyle get glossSm => _style(SoriTypeRamp.glossSm, color: _s.textMuted);
+
+  // ── Body ─────────────────────────────────────────────────────────────
+  TextStyle get body => _style(SoriTypeRamp.body);
+  TextStyle get bodySmall =>
+      _style(SoriTypeRamp.bodySmall, color: _s.textMuted);
 
   // ── Card (앱 최빈 패턴 — 카드 제목/부제. B-2 타이포 통일 2026-06-12) ──
   // §4.3 (2026-08-04): 카드 제목 = 15~17 w700 — w800 금지 규정에 맞춰
   // 14/w800 → 15/w700. 위계는 크기 차(제목 15 vs 본문 12~13)로 낸다.
-  TextStyle get cardTitle => _base(
-    fontSize: 15,
-    weight: FontWeight.w700,
-    letterSpacing: -0.2,
-    height: 1.3,
-  );
-  TextStyle get cardSubtitle => _base(
-    fontSize: 12,
-    weight: FontWeight.w500,
-    letterSpacing: 0,
-    height: 1.35,
-    color: _s.textMuted,
-  );
+  TextStyle get cardTitle => _style(SoriTypeRamp.cardTitle);
+  TextStyle get cardSubtitle =>
+      _style(SoriTypeRamp.cardSubtitle, color: _s.textMuted);
 
-  TextStyle _base({
-    required double fontSize,
-    required FontWeight weight,
-    required double letterSpacing,
-    required double height,
-    Color? color,
-    bool tabular = false,
-  }) => TextStyle(
+  TextStyle get label => _style(SoriTypeRamp.label);
+
+  // ── Caption / Label ──────────────────────────────────────────────────
+  TextStyle get caption => _style(SoriTypeRamp.caption, color: _s.textMuted);
+
+  /// Content-player chrome (progress `3 / 12`, hints). Do not go below 12.5.
+  TextStyle get meta => _style(SoriTypeRamp.meta, color: _s.textMuted);
+
+  /// 헤드라인 위의 소형 대문자 라벨 (자간 넓힘, 기본 석간주).
+  /// `SoriStageRootHeader` 가 손으로 쓰던 패턴의 토큰화 — 호출부에서
+  /// `.toUpperCase()` 는 직접 한다 (독일어 ß 등 로케일 정책은 호출부 소관).
+  TextStyle get eyebrow =>
+      _style(SoriTypeRamp.eyebrow, color: SoriColors.accent);
+
+  TextStyle _style(SoriTypeRole r, {Color? color}) => TextStyle(
     fontFamily: SoriFonts.sans,
-    fontSize: fontSize,
-    fontWeight: weight,
-    letterSpacing: letterSpacing,
-    height: height,
+    fontSize: r.size,
+    fontWeight: r.weight,
+    letterSpacing: r.spacing,
+    height: r.height,
     color: color ?? _s.text,
-    fontFeatures: tabular ? const [FontFeature.tabularFigures()] : null,
+    fontFeatures: r.tabular ? const [FontFeature.tabularFigures()] : null,
   );
 }
