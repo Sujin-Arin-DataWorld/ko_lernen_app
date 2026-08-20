@@ -6,15 +6,13 @@ import '../models/word_relation.dart';
 import '../services/sound_service.dart';
 import '../services/tts_service.dart';
 import '../services/word_relation_service.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Free-practice quiz over a filtered word-web set.
@@ -117,22 +115,13 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
 
-    return Scaffold(
-      appBar: SoriAppBar(title: t.wordWebQuizTitle),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: Padding(
-              padding: const EdgeInsets.all(Spacing.lg),
-              child: _items.isEmpty
-                  ? _buildEmpty(t)
-                  : _done
-                  ? _buildDone(t)
-                  : _buildQuestion(t, lang),
-            ),
-          ),
-        ),
-      ),
+    return SoriStudyFrame(
+      title: t.wordWebQuizTitle,
+      child: _items.isEmpty
+          ? _buildEmpty(t)
+          : _done
+          ? _buildDone(t)
+          : _buildQuestion(t, lang),
     );
   }
 

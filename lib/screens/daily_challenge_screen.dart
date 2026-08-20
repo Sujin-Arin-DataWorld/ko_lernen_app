@@ -18,7 +18,7 @@ import '../widgets/sori/cloze_prompt.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -192,10 +192,7 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     if (_loading) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.dailyTitle)),
-        body: const AppLoading(),
-      );
+      return SoriStudyFrame(title: t.dailyTitle, child: const AppLoading());
     }
     // Index-only Guard (wie cloze/satz_arcade): _outcome wird erst nach den
     // async SharedPreferences-Writes gesetzt — ohne diese Reihenfolge gäbe es
@@ -207,9 +204,9 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
     }
     if (_round.isEmpty) {
       // Defensive: cloze.json leer/fehlend → kein RangeError.
-      return Scaffold(
-        appBar: AppBar(title: Text(t.dailyTitle)),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.dailyTitle,
+        child: Center(
           child: Text(t.clozeEmptyBody, textAlign: TextAlign.center),
         ),
       );
@@ -223,74 +220,65 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
     );
     final revealed = _picked != null;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.dailyTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
-        actions: const [TtsSpeedAction()],
+    return SoriStudyFrame(
+      title: t.dailyTitle,
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: () => Navigator.of(context).maybePop(),
       ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: Padding(
-              padding: const EdgeInsets.all(Spacing.lg),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  if (_alreadyDone) ...[
-                    SoriChip(
-                      label: t.dailyAlreadyDone,
-                      icon: Icons.check_circle_rounded,
-                      accent: SoriColors.gold,
-                    ),
-                    const SizedBox(height: Spacing.sm),
-                  ],
-                  Row(
-                    children: [
-                      SoriChip(
-                        label: '${_idx + 1} / ${_round.length}',
-                        accent: SoriColors.info,
-                      ),
-                      const Spacer(),
-                      SoriChip(
-                        label: t.quizScore(_score, _round.length),
-                        accent: SoriColors.success,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                  Text(
-                    t.clozeInstruction,
-                    style: TextStyle(fontSize: 13, color: s.textMuted),
-                  ),
-                  const SizedBox(height: Spacing.md),
-                  ClozePromptCard(
-                    item: item,
-                    lang: lang,
-                    gloss: _vocabByKo[item.answer]?.translationFor(lang),
-                    picked: _picked,
-                    pickedWrong: _picked != null && _picked != item.answer,
-                  ),
-                  const SizedBox(height: Spacing.xl),
-                  Expanded(
-                    child: ClozeOptionsList(
-                      options: options,
-                      answer: item.answer,
-                      picked: _picked,
-                      revealed: revealed,
-                      onPick: (opt) => _pick(item, opt),
-                    ),
-                  ),
-                ],
+      actions: const [TtsSpeedAction()],
+      child: SoriAdaptiveStudyBody(
+        minHeight: 520,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            if (_alreadyDone) ...[
+              SoriChip(
+                label: t.dailyAlreadyDone,
+                icon: Icons.check_circle_rounded,
+                accent: SoriColors.gold,
+              ),
+              const SizedBox(height: Spacing.sm),
+            ],
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              spacing: Spacing.sm,
+              runSpacing: Spacing.sm,
+              children: [
+                SoriChip(
+                  label: '${_idx + 1} / ${_round.length}',
+                  accent: SoriColors.info,
+                ),
+                SoriChip(
+                  label: t.quizScore(_score, _round.length),
+                  accent: SoriColors.success,
+                ),
+              ],
+            ),
+            const SizedBox(height: Spacing.lg),
+            Text(
+              t.clozeInstruction,
+              style: TextStyle(fontSize: 13, color: s.textMuted),
+            ),
+            const SizedBox(height: Spacing.md),
+            ClozePromptCard(
+              item: item,
+              lang: lang,
+              gloss: _vocabByKo[item.answer]?.translationFor(lang),
+              picked: _picked,
+              pickedWrong: _picked != null && _picked != item.answer,
+            ),
+            const SizedBox(height: Spacing.xl),
+            Expanded(
+              child: ClozeOptionsList(
+                options: options,
+                answer: item.answer,
+                picked: _picked,
+                revealed: revealed,
+                onPick: (opt) => _pick(item, opt),
               ),
             ),
-          ),
+          ],
         ),
       ),
     );
@@ -298,43 +286,37 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
 
   Widget _buildDone(AppL10n t) {
     final pct = _round.isEmpty ? 0 : ((_score / _round.length) * 100).round();
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          t.dailyTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: GameOverCard(
-            headline: t.quizResultTitle,
-            scoreLabel: t.quizScore(_score, _round.length),
-            feedbackContext: _feedbackCompletion.current?.context,
-            // tatsächlich gutgeschriebener Wert (eine Quelle der Wahrheit).
-            xpGained: _outcome?.xpGained ?? (_score * 5),
-            // echter Genauigkeits-Rekord (vom recordGameResult), nicht der Streak.
-            isNewBest: _outcome?.isNewBest ?? false,
-            newBestLabel: t.gameNewBest,
-            // Streak nur, wenn HEUTE neu abgeschlossen (nicht im Übungsmodus).
-            streakLabel: _alreadyDone ? null : t.dailyStreak(_streak),
-            mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
-            mascotEmotion: pct >= 50
-                ? MascotEmotion.celebrate
-                : MascotEmotion.worry,
-            celebrate: pct >= 50,
-            actions: [
-              SoriButton(
-                label: t.btnClose,
-                icon: Icons.check_rounded,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.gold,
-                fullWidth: true,
-                onTap: () => Navigator.of(context).maybePop(),
-              ),
-            ],
-          ),
+    return SoriStudyFrame(
+      title: t.dailyTitle,
+      automaticallyImplyLeading: false,
+      padding: EdgeInsets.zero,
+      child: SoriCenterClamp(
+        child: GameOverCard(
+          headline: t.quizResultTitle,
+          scoreLabel: t.quizScore(_score, _round.length),
+          feedbackContext: _feedbackCompletion.current?.context,
+          // tatsächlich gutgeschriebener Wert (eine Quelle der Wahrheit).
+          xpGained: _outcome?.xpGained ?? (_score * 5),
+          // echter Genauigkeits-Rekord (vom recordGameResult), nicht der Streak.
+          isNewBest: _outcome?.isNewBest ?? false,
+          newBestLabel: t.gameNewBest,
+          // Streak nur, wenn HEUTE neu abgeschlossen (nicht im Übungsmodus).
+          streakLabel: _alreadyDone ? null : t.dailyStreak(_streak),
+          mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
+          mascotEmotion: pct >= 50
+              ? MascotEmotion.celebrate
+              : MascotEmotion.worry,
+          celebrate: pct >= 50,
+          actions: [
+            SoriButton(
+              label: t.btnClose,
+              icon: Icons.check_rounded,
+              variant: SoriButtonVariant.filled,
+              accent: SoriColors.gold,
+              fullWidth: true,
+              onTap: () => Navigator.of(context).maybePop(),
+            ),
+          ],
         ),
       ),
     );

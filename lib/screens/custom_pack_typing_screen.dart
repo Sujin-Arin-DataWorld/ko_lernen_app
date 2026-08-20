@@ -18,9 +18,9 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -29,11 +29,7 @@ import '../widgets/sori/tts_speed_control.dart';
 class CustomPackTypingScreen extends StatefulWidget {
   final String packId;
   final List<ExtractedWord>? words;
-  const CustomPackTypingScreen({
-    super.key,
-    required this.packId,
-    this.words,
-  });
+  const CustomPackTypingScreen({super.key, required this.packId, this.words});
 
   @override
   State<CustomPackTypingScreen> createState() => _CustomPackTypingScreenState();
@@ -170,9 +166,9 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     final t = AppL10n.of(context);
 
     if (_pack == null) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.wbTyping)),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.wbTyping,
+        child: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.help_outline,
@@ -183,9 +179,9 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
       );
     }
     if (_pool.isEmpty) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.wbTyping)),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.wbTyping,
+        child: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/magpie_encourage.png',
             icon: Icons.keyboard_alt_outlined,
@@ -203,118 +199,108 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     final word = _pool[_order[_idx]];
     final revealed = _correct != null;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.wbTyping,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
-        actions: const [TtsSpeedAction()],
+    return SoriStudyFrame(
+      title: t.wbTyping,
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: () => Navigator.of(context).maybePop(),
       ),
-      body: SafeArea(
-        child: SoriStudyClamp(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+      actions: const [TtsSpeedAction()],
+      child: SoriAdaptiveStudyBody(
+        minHeight: 450,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              spacing: Spacing.sm,
+              runSpacing: Spacing.sm,
               children: [
-                Row(
-                  children: [
-                    SoriChip(
-                      label: '${_idx + 1} / ${_order.length}',
-                      accent: SoriColors.info,
-                    ),
-                    const Spacer(),
-                    SoriChip(
-                      label: t.quizScore(_score, _order.length),
-                      accent: SoriColors.success,
-                    ),
-                  ],
+                SoriChip(
+                  label: '${_idx + 1} / ${_order.length}',
+                  accent: SoriColors.info,
                 ),
-                const SizedBox(height: Spacing.lg),
-                Text(
-                  t.wbTypingPrompt,
-                  style: TextStyle(fontSize: 13, color: s.textMuted),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriCard(
-                  variant: SoriCardVariant.hero,
-                  accent: SoriColors.accent,
-                  tinted: true,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
-                    child: Text(
-                      word.translationDe,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: Spacing.lg),
-                TextField(
-                  key: _inputKey,
-                  controller: _input,
-                  autofocus: true,
-                  enabled: !revealed,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w700,
-                  ),
-                  decoration: InputDecoration(
-                    hintText: t.wbTypingHint,
-                    border: const OutlineInputBorder(),
-                    enabledBorder: revealed
-                        ? OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: _correct!
-                                  ? SoriColors.success
-                                  : SoriColors.danger,
-                              width: 2,
-                            ),
-                          )
-                        : null,
-                  ),
-                  onSubmitted: (_) => _submit(),
-                ),
-                if (revealed && !_correct!) ...[
-                  const SizedBox(height: Spacing.sm),
-                  Text(
-                    t.wbTypingAnswer(word.korean),
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w700,
-                      color: SoriColors.danger,
-                    ),
-                  ),
-                ],
-                if (revealed && _correct!) ...[
-                  const SizedBox(height: Spacing.sm),
-                  Text(
-                    '✓',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 28, color: SoriColors.success),
-                  ),
-                ],
-                const Spacer(),
-                SoriButton(
-                  label: revealed ? t.btnNext : t.btnSubmit,
-                  variant: SoriButtonVariant.filled,
-                  accent: SoriColors.accent,
-                  fullWidth: true,
-                  onTap: revealed ? _next : _submit,
+                SoriChip(
+                  label: t.quizScore(_score, _order.length),
+                  accent: SoriColors.success,
                 ),
               ],
             ),
-          ),
+            const SizedBox(height: Spacing.lg),
+            Text(
+              t.wbTypingPrompt,
+              style: TextStyle(fontSize: 13, color: s.textMuted),
+            ),
+            const SizedBox(height: Spacing.sm),
+            SoriCard(
+              variant: SoriCardVariant.hero,
+              accent: SoriColors.accent,
+              tinted: true,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
+                child: Text(
+                  word.translationDe,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: Spacing.lg),
+            TextField(
+              key: _inputKey,
+              controller: _input,
+              autofocus: true,
+              enabled: !revealed,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+              decoration: InputDecoration(
+                hintText: t.wbTypingHint,
+                border: const OutlineInputBorder(),
+                enabledBorder: revealed
+                    ? OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: _correct!
+                              ? SoriColors.success
+                              : SoriColors.danger,
+                          width: 2,
+                        ),
+                      )
+                    : null,
+              ),
+              onSubmitted: (_) => _submit(),
+            ),
+            if (revealed && !_correct!) ...[
+              const SizedBox(height: Spacing.sm),
+              Text(
+                t.wbTypingAnswer(word.korean),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                  color: SoriColors.danger,
+                ),
+              ),
+            ],
+            if (revealed && _correct!) ...[
+              const SizedBox(height: Spacing.sm),
+              Text(
+                '✓',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 28, color: SoriColors.success),
+              ),
+            ],
+            const Spacer(),
+            SoriButton(
+              label: revealed ? t.btnNext : t.btnSubmit,
+              variant: SoriButtonVariant.filled,
+              accent: SoriColors.accent,
+              fullWidth: true,
+              onTap: revealed ? _next : _submit,
+            ),
+          ],
         ),
       ),
     );
@@ -322,58 +308,50 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
 
   Widget _buildDone(AppL10n t) {
     final pct = ((_score / _order.length) * 100).round();
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          t.quizResultTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: GameOverCard(
-            headline: t.quizResultTitle,
-            scoreLabel: t.quizScore(_score, _order.length),
-            feedbackContext: _feedbackCompletion.current?.context,
-            xpGained: _score * 5,
-            isNewBest: _outcome?.isNewBest ?? false,
-            newBestLabel: t.gameNewBest,
-            bestLabel: t.gameBestAccuracy(Storage.gameBest('cp_typing')),
-            mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
-            mascotEmotion: pct >= 50
-                ? MascotEmotion.celebrate
-                : MascotEmotion.worry,
-            celebrate: pct >= 50,
-            actions: [
-              SoriButton(
-                label: t.quizAgain,
-                icon: Icons.refresh_rounded,
-                variant: SoriButtonVariant.filled,
-                accent: SoriColors.accent,
-                fullWidth: true,
-                onTap: () => setState(() {
-                  _order = List<int>.generate(_pool.length, (i) => i)
-                    ..shuffle(math.Random());
-                  _idx = 0;
-                  _score = 0;
-                  _correct = null;
-                  _outcome = null;
-                  _feedbackCompletion.reset();
-                  _input.clear();
-                }),
-              ),
-              SoriButton(
-                label: t.customPackResultBack,
-                icon: Icons.menu_book_outlined,
-                variant: SoriButtonVariant.outlined,
-                accent: SoriColors.primary,
-                fullWidth: true,
-                onTap: () => Navigator.of(context).maybePop(),
-              ),
-            ],
+    return SoriStudyFrame(
+      title: t.quizResultTitle,
+      automaticallyImplyLeading: false,
+      padding: EdgeInsets.zero,
+      child: GameOverCard(
+        headline: t.quizResultTitle,
+        scoreLabel: t.quizScore(_score, _order.length),
+        feedbackContext: _feedbackCompletion.current?.context,
+        xpGained: _score * 5,
+        isNewBest: _outcome?.isNewBest ?? false,
+        newBestLabel: t.gameNewBest,
+        bestLabel: t.gameBestAccuracy(Storage.gameBest('cp_typing')),
+        mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
+        mascotEmotion: pct >= 50
+            ? MascotEmotion.celebrate
+            : MascotEmotion.worry,
+        celebrate: pct >= 50,
+        actions: [
+          SoriButton(
+            label: t.quizAgain,
+            icon: Icons.refresh_rounded,
+            variant: SoriButtonVariant.filled,
+            accent: SoriColors.accent,
+            fullWidth: true,
+            onTap: () => setState(() {
+              _order = List<int>.generate(_pool.length, (i) => i)
+                ..shuffle(math.Random());
+              _idx = 0;
+              _score = 0;
+              _correct = null;
+              _outcome = null;
+              _feedbackCompletion.reset();
+              _input.clear();
+            }),
           ),
-        ),
+          SoriButton(
+            label: t.customPackResultBack,
+            icon: Icons.menu_book_outlined,
+            variant: SoriButtonVariant.outlined,
+            accent: SoriColors.primary,
+            fullWidth: true,
+            onTap: () => Navigator.of(context).maybePop(),
+          ),
+        ],
       ),
     );
   }

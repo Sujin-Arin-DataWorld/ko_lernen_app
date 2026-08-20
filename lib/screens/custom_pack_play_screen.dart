@@ -28,6 +28,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scroll_if_needed.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -207,9 +208,9 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     final t = AppL10n.of(context);
 
     if (_pack == null) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.customPackPlayTitle)),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.customPackPlayTitle,
+        child: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.help_outline,
@@ -222,9 +223,9 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
     final pack = _pack!;
 
     if (pack.words.isEmpty) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.customPackPlayTitle)),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.customPackPlayTitle,
+        child: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/magpie_encourage.png',
             icon: Icons.style_outlined,
@@ -255,90 +256,79 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
       }
     });
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          pack.displayName(),
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
-        actions: const [TtsSpeedAction()],
+    return SoriStudyFrame(
+      title: pack.displayName(),
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: () => Navigator.of(context).maybePop(),
       ),
-      body: SafeArea(
-        child: SoriStudyClamp(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              children: [
-                Row(
-                  children: [
-                    SoriChip(
-                      label: '${_idx + 1} / ${pack.words.length}',
-                      accent: SoriColors.info,
-                    ),
-                    const Spacer(),
-                    Text(
-                      t.vocabPackTapToFlip,
-                      style: TextStyle(fontSize: 12, color: s.textMuted),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: Spacing.md),
-                Expanded(
-                  child: SoriContentFeed(
-                    judgmentsEnabled: _cardRevealed,
-                    onBlockedJudgment: () => _flipHintTrigger.value++,
-                    flipHintTrigger: _flipHintTrigger,
-                    onNext: _gotIt,
-                    onHard: _dontKnow,
-                    onSkip: _defer,
-                    onLike: _likeCurrent,
-                    onShare: _shareCurrent,
-                    onFlip: _toggleFlip,
-                    showBookmark: false,
-                    liked: LikedContentService.isLiked(
-                      kind: LikedContentService.vocab,
-                      id: w.korean,
-                    ),
-                    underlay: _idx + 1 < pack.words.length
-                        ? _faceSlot(pack, pack.words[_idx + 1])
-                        : null,
-                    knowLabel: t.btnGewusst,
-                    hardLabel: t.btnNichtGewusst,
-                    skipLabel: t.btnSkip,
-                    child: Center(
-                      child: FractionallySizedBox(
-                        heightFactor: 0.82,
-                        child: SizedBox(
-                          key: const ValueKey('deck-card-slot'),
-                          width: double.infinity,
-                          child: KeyedSubtree(
-                            key: _cardKey,
-                            child: FlipCard(
-                              key: ValueKey('cp-$_serve'),
-                              flipped: _flipped,
-                              onTap: _toggleFlip,
-                              front: _Front(
-                                word: w,
-                                deckKoreans: [
-                                  for (final x in pack.words) x.korean,
-                                ],
-                              ),
-                              back: _Back(word: w),
-                            ),
-                          ),
+      actions: const [TtsSpeedAction()],
+      child: Column(
+        children: [
+          Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            spacing: Spacing.sm,
+            runSpacing: Spacing.sm,
+            children: [
+              SoriChip(
+                label: '${_idx + 1} / ${pack.words.length}',
+                accent: SoriColors.info,
+              ),
+              Text(
+                t.vocabPackTapToFlip,
+                style: TextStyle(fontSize: 12, color: s.textMuted),
+              ),
+            ],
+          ),
+          const SizedBox(height: Spacing.md),
+          Expanded(
+            child: SoriContentFeed(
+              judgmentsEnabled: _cardRevealed,
+              onBlockedJudgment: () => _flipHintTrigger.value++,
+              flipHintTrigger: _flipHintTrigger,
+              onNext: _gotIt,
+              onHard: _dontKnow,
+              onSkip: _defer,
+              onLike: _likeCurrent,
+              onShare: _shareCurrent,
+              onFlip: _toggleFlip,
+              showBookmark: false,
+              liked: LikedContentService.isLiked(
+                kind: LikedContentService.vocab,
+                id: w.korean,
+              ),
+              underlay: _idx + 1 < pack.words.length
+                  ? _faceSlot(pack, pack.words[_idx + 1])
+                  : null,
+              knowLabel: t.btnGewusst,
+              hardLabel: t.btnNichtGewusst,
+              skipLabel: t.btnSkip,
+              child: Center(
+                child: FractionallySizedBox(
+                  heightFactor: 0.82,
+                  child: SizedBox(
+                    key: const ValueKey('deck-card-slot'),
+                    width: double.infinity,
+                    child: KeyedSubtree(
+                      key: _cardKey,
+                      child: FlipCard(
+                        key: ValueKey('cp-$_serve'),
+                        flipped: _flipped,
+                        onTap: _toggleFlip,
+                        front: _Front(
+                          word: w,
+                          deckKoreans: [for (final x in pack.words) x.korean],
                         ),
+                        back: _Back(word: w),
                       ),
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -361,91 +351,85 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
 
   Widget _buildDone(AppL10n t, CustomPack pack) {
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: Text(
-          t.customPackResultTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: ListView(
-              children: [
+    return SoriStudyFrame(
+      title: t.customPackResultTitle,
+      automaticallyImplyLeading: false,
+      padding: EdgeInsets.zero,
+      child: SoriCenterClamp(
+        child: Padding(
+          padding: const EdgeInsets.all(Spacing.lg),
+          child: ListView(
+            children: [
+              const SizedBox(height: Spacing.xl),
+              CompanionBuilder(
+                builder: (context, kind) => Mascot(
+                  kind: kind,
+                  emotion: MascotEmotion.celebrate,
+                  size: 96,
+                  animate: true,
+                ),
+                noneBuilder: (context) => const Icon(
+                  Icons.task_alt_rounded,
+                  size: 88,
+                  color: SoriColors.success,
+                ),
+              ),
+              const SizedBox(height: Spacing.md),
+              Text(
+                t.customPackResultDone,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const SizedBox(height: Spacing.sm),
+              Text(
+                t.customPackResultStats(_learned, pack.totalWords),
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: SoriSurfaces.of(context).textMuted,
+                ),
+              ),
+              if (_feedbackCompletion.current != null &&
+                  feedbackScope != null &&
+                  feedbackScope.featureGate.isEnabled) ...[
                 const SizedBox(height: Spacing.xl),
-                CompanionBuilder(
-                  builder: (context, kind) => Mascot(
-                    kind: kind,
-                    emotion: MascotEmotion.celebrate,
-                    size: 96,
-                    animate: true,
-                  ),
-                  noneBuilder: (context) => const Icon(
-                    Icons.task_alt_rounded,
-                    size: 88,
-                    color: SoriColors.success,
-                  ),
-                ),
-                const SizedBox(height: Spacing.md),
-                Text(
-                  t.customPackResultDone,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  t.customPackResultStats(_learned, pack.totalWords),
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 14,
-                    color: SoriSurfaces.of(context).textMuted,
-                  ),
-                ),
-                if (_feedbackCompletion.current != null &&
-                    feedbackScope != null &&
-                    feedbackScope.featureGate.isEnabled) ...[
-                  const SizedBox(height: Spacing.xl),
-                  ContentFeedbackCard(
-                    feedbackContext: _feedbackCompletion.current!.context,
-                    featureGate: feedbackScope.featureGate,
-                    submitFeedback: feedbackScope.submitFeedback,
-                    completedMissionIds: feedbackScope.completedMissionIds,
-                  ),
-                ],
-                const SizedBox(height: Spacing.xl),
-                SoriButton(
-                  label: t.customPackResultAgain,
-                  icon: Icons.refresh_rounded,
-                  variant: SoriButtonVariant.filled,
-                  accent: SoriColors.primary,
-                  fullWidth: true,
-                  onTap: () => setState(() {
-                    _idx = 0;
-                    _learned = 0;
-                    _flipped = false;
-                    _cardRevealed = false;
-                    _feedbackCompletion.reset();
-                  }),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton(
-                  label: t.customPackResultBack,
-                  icon: Icons.menu_book_outlined,
-                  variant: SoriButtonVariant.outlined,
-                  accent: SoriColors.info,
-                  fullWidth: true,
-                  onTap: () => Navigator.of(context).popUntil(
-                    (r) => r.settings.name == '/bookshelf' || r.isFirst,
-                  ),
+                ContentFeedbackCard(
+                  feedbackContext: _feedbackCompletion.current!.context,
+                  featureGate: feedbackScope.featureGate,
+                  submitFeedback: feedbackScope.submitFeedback,
+                  completedMissionIds: feedbackScope.completedMissionIds,
                 ),
               ],
-            ),
+              const SizedBox(height: Spacing.xl),
+              SoriButton(
+                label: t.customPackResultAgain,
+                icon: Icons.refresh_rounded,
+                variant: SoriButtonVariant.filled,
+                accent: SoriColors.primary,
+                fullWidth: true,
+                onTap: () => setState(() {
+                  _idx = 0;
+                  _learned = 0;
+                  _flipped = false;
+                  _cardRevealed = false;
+                  _feedbackCompletion.reset();
+                }),
+              ),
+              const SizedBox(height: Spacing.sm),
+              SoriButton(
+                label: t.customPackResultBack,
+                icon: Icons.menu_book_outlined,
+                variant: SoriButtonVariant.outlined,
+                accent: SoriColors.info,
+                fullWidth: true,
+                onTap: () => Navigator.of(
+                  context,
+                ).popUntil((r) => r.settings.name == '/bookshelf' || r.isFirst),
+              ),
+            ],
           ),
         ),
       ),
