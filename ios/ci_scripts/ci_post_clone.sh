@@ -29,12 +29,6 @@ echo "▸ flutter pub get (generates ios/Flutter/Generated.xcconfig)"
 cd "${CI_PRIMARY_REPOSITORY_PATH}"
 flutter pub get
 
-echo "Preparing Rive Native iOS libraries"
-# rive_native's CocoaPods build phase runs from ios/Pods, where Dart cannot
-# locate the app pubspec. Download the verified prebuilt libraries here so the
-# phase sees its setup marker and skips the invalid working-directory path.
-dart run rive_native:setup --verbose --clean --platform ios
-
 echo "▸ pod install"
 cd "${CI_PRIMARY_REPOSITORY_PATH}/ios"
 POD_INSTALL_ATTEMPT=1
@@ -53,5 +47,31 @@ while [ "${POD_INSTALL_ATTEMPT}" -le 3 ]; do
   sleep "${POD_INSTALL_RETRY_DELAY}"
   POD_INSTALL_ATTEMPT=$((POD_INSTALL_ATTEMPT + 1))
 done
+
+echo "Preparing Rive Native iOS libraries"
+# CocoaPods creates rive_native's development-pod symlink during pod install.
+# Prepare the verified libraries afterwards, then mark the exact source path
+# Xcode's [CP-User] phase reads. Without that marker, the upstream phase runs
+# Dart from ios/Pods and cannot locate the app pubspec.
+cd "${CI_PRIMARY_REPOSITORY_PATH}"
+dart run rive_native:setup --verbose --clean --platform ios
+
+RIVE_NATIVE_IOS_ROOT="${CI_PRIMARY_REPOSITORY_PATH}/ios/.symlinks/plugins/rive_native"
+RIVE_NATIVE_IOS_MARKER="${RIVE_NATIVE_IOS_ROOT}/ios/rive_marker_ios_setup_complete"
+RIVE_NATIVE_DEVICE_LIBRARY="${RIVE_NATIVE_IOS_ROOT}/native/build/iphoneos/bin/release/librive_native.a"
+RIVE_NATIVE_SIMULATOR_LIBRARY="${RIVE_NATIVE_IOS_ROOT}/native/build/iphoneos/bin/emulator/librive_native.a"
+
+for RIVE_NATIVE_REQUIRED_FILE in \
+  "${RIVE_NATIVE_DEVICE_LIBRARY}" \
+  "${RIVE_NATIVE_SIMULATOR_LIBRARY}"
+do
+  if [ ! -f "${RIVE_NATIVE_REQUIRED_FILE}" ]; then
+    echo "Rive Native setup did not create ${RIVE_NATIVE_REQUIRED_FILE}." >&2
+    exit 1
+  fi
+done
+
+touch "${RIVE_NATIVE_IOS_MARKER}"
+echo "Rive Native iOS setup verified at ${RIVE_NATIVE_IOS_ROOT}."
 
 echo "▸ Post-clone complete — Flutter available for archive."
