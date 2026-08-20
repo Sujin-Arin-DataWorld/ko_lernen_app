@@ -7134,6 +7134,24 @@ class AppL10nEn extends AppL10n {
   String get decorNameHyangno => 'Incense burner (향로)';
 
   @override
+  String get decorNameTaegoJoy => 'Taego and the magpie';
+
+  @override
+  String get decorNameTigerFront => 'Tiger on the move';
+
+  @override
+  String get decorNameTigerJoyHi => 'Taego waves hello';
+
+  @override
+  String get decorNameTigerRight => 'Striding tiger';
+
+  @override
+  String get decorNameTigerSit => 'Resting tiger';
+
+  @override
+  String get decorNameTigerSuprise => 'Surprised tiger';
+
+  @override
   String get decorNameFallback => 'Decoration';
 
   @override

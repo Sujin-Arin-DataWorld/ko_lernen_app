@@ -1,5 +1,24 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-20 (Codex) — Mascot and decoration asset wiring
+
+**Changed.** Brought in the 29 user-updated decoration PNGs, five new mascot
+poses, six mascot-decoration PNGs, and the replacement surprised-tiger
+sticker. `Mascot` now selects every new mascot pose through its public emotion
+API. All six decoration slugs are localized, catalogued, sized, and visible in
+the Sarangbang furnishing inventory. Gye sticker code 3 keeps its wire ID but
+now resolves to `tiger_surprised_new.png`.
+
+**Verified.** `flutter gen-l10n` regenerated DE/EN localizations; focused
+`flutter analyze` reported no issues; `git diff --check` passed. A direct
+catalog audit found 42 PNGs on disk and 42 catalog entries, and SHA-256 parity
+checked all 41 copied user assets with zero mismatches. The focused Flutter
+test command could not start because this worktree's base `pubspec.yaml`
+references missing Pretendard font assets; the unrelated typography WIP was
+not copied or changed.
+
+**Commit.** None — not requested.
+
 ### 2026-08-19 (Cursor) — main 내부배포 게이트: FFmpeg apt hang 을 잘라 Analyze 를 살린다
 
 **무엇을 왜.** Jin 이 #93 은 다른 세션이 머지하고, 안 들어오면 최신
@@ -4695,4 +4714,3 @@ it.`, 작별은 `kommen Sie gut nach Hause`, 호칭 허락은 `Darf ich`로 되�
 `data_integrity` **29/29**. vocab 1188×15.
 
 **커밋.** `8409391` + 이 로그 커밋.
-

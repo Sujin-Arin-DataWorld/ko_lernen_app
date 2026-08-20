@@ -91,10 +91,13 @@ class Mascot extends StatefulWidget {
 // TickerProviderStateMixin (nicht Single): _motion kann beim Umschalten von
 // widget.animate (true→false→true) mehrfach neu erstellt werden.
 class _MascotState extends State<Mascot> with TickerProviderStateMixin {
-  // Jin 2026-08-06: 호랑이는 감정·프레임 구분 없이 tiger_sitting2 정지 한 장으로
-  // 통일(옛 tiger_* 포즈 PNG 전량 폐지). 까치는 기존 포즈 시스템 유지.
-  static const _tigerSitting2 =
-      'assets/illustrations/mascot/tiger_sitting2.png';
+  // New static tiger poses are selected by emotion; the magpie retains its
+  // existing animated-pose system.
+  static const _tigerFront = 'assets/illustrations/mascot/tiger_front.png';
+  static const _tigerJoyHi = 'assets/illustrations/mascot/tiger_joy_hi.png';
+  static const _tigerRight = 'assets/illustrations/mascot/tiger_right.png';
+  static const _tigerSit = 'assets/illustrations/mascot/tiger_sit.png';
+  static const _taegoJoy = 'assets/illustrations/mascot/taego_joy.png';
 
   static const _magpieWingUp = 'assets/illustrations/mascot/magpie_wingup.png';
   static const _magpieWingDown =
@@ -143,7 +146,7 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   /// no ticker → static pose. Called from didChangeDependencies + didUpdateWidget
   /// so both widget.animate flips and MediaQuery changes are honoured.
   void _syncMotion() {
-    // 호랑이는 정지(tiger_sitting2 한 장) → 티커 불필요. 까치만 애니메이션.
+    // Tiger poses are static, so only the magpie needs an animation ticker.
     final wantMotion =
         widget.animate && _isMagpie && !SoriMotion.reduceMotion(context);
     if (wantMotion && _motion == null) {
@@ -200,8 +203,16 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
       }
     }
 
-    // 호랑이는 감정·애니메이션 무관 정지 한 장(Jin 2026-08-06).
-    return _tigerSitting2;
+    // Tiger poses are static, but vary by the caller's public emotion.
+    return switch (widget.emotion) {
+      MascotEmotion.neutral => _tigerFront,
+      MascotEmotion.smile => _taegoJoy,
+      MascotEmotion.worry => _tigerRight,
+      MascotEmotion.celebrate => _tigerJoyHi,
+      MascotEmotion.sleepy => _tigerSit,
+      MascotEmotion.surprised => _tigerFront,
+      MascotEmotion.thinking => _tigerSit,
+    };
   }
 
   String get _semanticsLabel {

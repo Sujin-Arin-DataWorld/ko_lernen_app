@@ -12438,6 +12438,42 @@ abstract class AppL10n {
   /// **'Räuchergefäß (향로)'**
   String get decorNameHyangno;
 
+  /// No description provided for @decorNameTaegoJoy.
+  ///
+  /// In de, this message translates to:
+  /// **'Taego und die Elster'**
+  String get decorNameTaegoJoy;
+
+  /// No description provided for @decorNameTigerFront.
+  ///
+  /// In de, this message translates to:
+  /// **'Tiger unterwegs'**
+  String get decorNameTigerFront;
+
+  /// No description provided for @decorNameTigerJoyHi.
+  ///
+  /// In de, this message translates to:
+  /// **'Taego winkt Hallo'**
+  String get decorNameTigerJoyHi;
+
+  /// No description provided for @decorNameTigerRight.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreitender Tiger'**
+  String get decorNameTigerRight;
+
+  /// No description provided for @decorNameTigerSit.
+  ///
+  /// In de, this message translates to:
+  /// **'Ruhender Tiger'**
+  String get decorNameTigerSit;
+
+  /// No description provided for @decorNameTigerSuprise.
+  ///
+  /// In de, this message translates to:
+  /// **'Überraschter Tiger'**
+  String get decorNameTigerSuprise;
+
   /// No description provided for @decorNameFallback.
   ///
   /// In de, this message translates to:

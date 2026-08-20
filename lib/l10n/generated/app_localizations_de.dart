@@ -7169,6 +7169,24 @@ class AppL10nDe extends AppL10n {
   String get decorNameHyangno => 'Räuchergefäß (향로)';
 
   @override
+  String get decorNameTaegoJoy => 'Taego und die Elster';
+
+  @override
+  String get decorNameTigerFront => 'Tiger unterwegs';
+
+  @override
+  String get decorNameTigerJoyHi => 'Taego winkt Hallo';
+
+  @override
+  String get decorNameTigerRight => 'Schreitender Tiger';
+
+  @override
+  String get decorNameTigerSit => 'Ruhender Tiger';
+
+  @override
+  String get decorNameTigerSuprise => 'Überraschter Tiger';
+
+  @override
   String get decorNameFallback => 'Dekoration';
 
   @override

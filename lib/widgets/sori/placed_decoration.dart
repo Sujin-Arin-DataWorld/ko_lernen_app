@@ -64,6 +64,12 @@ const Map<String, DecorCategory> kDecorCategory = {
   'decoration_byeongpung_small': DecorCategory.wall,
   'decoration_gobi': DecorCategory.wall,
   'decoration_hyangno': DecorCategory.shelf,
+  'taego_joy': DecorCategory.floor,
+  'tiger_front': DecorCategory.floor,
+  'tiger_joy_hi': DecorCategory.floor,
+  'tiger_right': DecorCategory.floor,
+  'tiger_sit': DecorCategory.floor,
+  'tiger_suprise': DecorCategory.floor,
 };
 
 /// [slug] 의 카테고리 — 미등록은 실외로 간주.
@@ -107,6 +113,12 @@ const Map<String, double> kDecorScale = {
   'decoration_byeongpung_small': 0.55,
   'decoration_gobi': 0.26,
   'decoration_hyangno': 0.52,
+  'taego_joy': 1.00,
+  'tiger_front': 0.72,
+  'tiger_joy_hi': 1.00,
+  'tiger_right': 0.72,
+  'tiger_sit': 0.82,
+  'tiger_suprise': 0.72,
 };
 
 /// [slug] 의 상대 크기 — 미등록은 1.0.
@@ -151,6 +163,12 @@ String decorName(AppL10n t, String slug) => switch (slug) {
   'decoration_byeongpung_small' => t.decorNameByeongpungSmall,
   'decoration_gobi' => t.decorNameGobi,
   'decoration_hyangno' => t.decorNameHyangno,
+  'taego_joy' => t.decorNameTaegoJoy,
+  'tiger_front' => t.decorNameTigerFront,
+  'tiger_joy_hi' => t.decorNameTigerJoyHi,
+  'tiger_right' => t.decorNameTigerRight,
+  'tiger_sit' => t.decorNameTigerSit,
+  'tiger_suprise' => t.decorNameTigerSuprise,
   _ => t.decorNameFallback,
 };
 
@@ -215,6 +233,12 @@ const Set<String> kAvailableDecorations = {
   'decoration_byeongpung_small',
   'decoration_gobi',
   'decoration_hyangno',
+  'taego_joy',
+  'tiger_front',
+  'tiger_joy_hi',
+  'tiger_right',
+  'tiger_sit',
+  'tiger_suprise',
 };
 
 /// 방별 무상 가구 풀 — grant·`Storage.ownedDecor`·`kDecorationRewardPool`
@@ -242,6 +266,12 @@ const Map<PersonalRoomSurface, Set<String>> kRoomFurnishingPool = {
     'decoration_byeongpung_small',
     'decoration_gobi',
     'decoration_hyangno',
+    'taego_joy',
+    'tiger_front',
+    'tiger_joy_hi',
+    'tiger_right',
+    'tiger_sit',
+    'tiger_suprise',
   },
 };
 

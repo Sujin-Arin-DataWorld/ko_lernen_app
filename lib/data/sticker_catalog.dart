@@ -23,7 +23,7 @@ typedef StickerDef = StickerSpec;
 const List<StickerSpec> kStickers = [
   StickerSpec(1, 'tiger_cheer', StickerCategory.tiger),
   StickerSpec(2, 'tiger_clap', StickerCategory.tiger),
-  StickerSpec(3, 'tiger_surprised', StickerCategory.tiger),
+  StickerSpec(3, 'tiger_surprised_new', StickerCategory.tiger),
   StickerSpec(4, 'tiger_sad', StickerCategory.tiger),
   StickerSpec(5, 'tiger_love', StickerCategory.tiger),
   StickerSpec(6, 'magpie_dance', StickerCategory.magpie),

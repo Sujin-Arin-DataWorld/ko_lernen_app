@@ -41,6 +41,7 @@ void main() {
 
   test('code lookup keeps its wire-format boundary', () {
     expect(stickerByCode(1)?.slug, 'tiger_cheer');
+    expect(stickerByCode(3)?.slug, 'tiger_surprised_new');
     expect(stickerByCode(30)?.slug, 'stamp_sticker_happy');
     expect(stickerByCode(0), isNull);
     expect(stickerByCode(31), isNull);
