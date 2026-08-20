@@ -7,6 +7,7 @@ import '../widgets/sori/module_card.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/section_header.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -62,7 +63,6 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
-    final surfaces = SoriSurfaces.of(context);
     final allFeatures = discoverCatalog(t);
     final query = _query.trim().toLowerCase();
     final visibleFeatures = allFeatures
@@ -91,32 +91,24 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
       description: t.discoverSubtitle,
       maxWidth: SoriMaxWidth.hub,
       children: [
-        TextField(
+        SoriTextField(
           controller: _searchController,
           onChanged: (value) => setState(() => _query = value),
           textInputAction: TextInputAction.search,
-          decoration: InputDecoration(
-            hintText: t.discoverSearchHint,
-            prefixIcon: const Icon(Icons.search_rounded),
-            suffixIcon: _query.isEmpty
-                ? null
-                : IconButton(
-                    tooltip: MaterialLocalizations.of(
-                      context,
-                    ).deleteButtonTooltip,
-                    icon: const Icon(Icons.clear_rounded),
-                    onPressed: () {
-                      _searchController.clear();
-                      setState(() => _query = '');
-                    },
-                  ),
-            filled: true,
-            fillColor: surfaces.surface,
-            border: const OutlineInputBorder(
-              borderRadius: SoriRadius.brMd,
-              borderSide: BorderSide.none,
-            ),
-          ),
+          hintText: t.discoverSearchHint,
+          prefixIcon: const Icon(Icons.search_rounded),
+          suffixIcon: _query.isEmpty
+              ? null
+              : IconButton(
+                  tooltip: MaterialLocalizations.of(
+                    context,
+                  ).deleteButtonTooltip,
+                  icon: const Icon(Icons.clear_rounded),
+                  onPressed: () {
+                    _searchController.clear();
+                    setState(() => _query = '');
+                  },
+                ),
         ),
         const SizedBox(height: Spacing.md),
         Wrap(

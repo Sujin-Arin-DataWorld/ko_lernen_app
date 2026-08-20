@@ -7,6 +7,7 @@ import '../services/tts_service.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/window_class.dart';
@@ -107,28 +108,23 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
                     pagePadding.right,
                     Spacing.sm,
                   ),
-                  child: TextField(
+                  child: SoriTextField(
                     controller: _ctrl,
                     onChanged: (v) => setState(() => _query = v),
-                    decoration: InputDecoration(
-                      hintText: t.wbSearchHint,
-                      prefixIcon: const Icon(Icons.search_rounded),
-                      suffixIcon: _query.isEmpty
-                          ? null
-                          : IconButton(
-                              icon: const Icon(Icons.clear_rounded),
-                              onPressed: () {
-                                _ctrl.clear();
-                                setState(() => _query = '');
-                              },
-                            ),
-                      filled: true,
-                      fillColor: s.surface,
-                      border: const OutlineInputBorder(
-                        borderRadius: SoriRadius.brMd,
-                        borderSide: BorderSide.none,
-                      ),
-                    ),
+                    hintText: t.wbSearchHint,
+                    prefixIcon: const Icon(Icons.search_rounded),
+                    suffixIcon: _query.isEmpty
+                        ? null
+                        : IconButton(
+                            tooltip: MaterialLocalizations.of(
+                              context,
+                            ).deleteButtonTooltip,
+                            icon: const Icon(Icons.clear_rounded),
+                            onPressed: () {
+                              _ctrl.clear();
+                              setState(() => _query = '');
+                            },
+                          ),
                   ),
                 ),
                 if (posOptions.isNotEmpty)
