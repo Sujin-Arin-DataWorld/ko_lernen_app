@@ -30,6 +30,9 @@ class IosXcodeCloudWorkflowTest(unittest.TestCase):
     def test_post_clone_reads_project_config_before_installing_pods(self):
         repository_root = 'cd "${CI_PRIMARY_REPOSITORY_PATH}"'
         pub_get = "flutter pub get"
+        rive_setup = (
+            "dart run rive_native:setup --verbose --clean --platform ios"
+        )
         ios_root = 'cd "${CI_PRIMARY_REPOSITORY_PATH}/ios"'
         pod_install = "pod install"
         commands = [line.strip() for line in self.post_clone.splitlines()]
@@ -38,7 +41,8 @@ class IosXcodeCloudWorkflowTest(unittest.TestCase):
             commands.index(repository_root),
             commands.index(pub_get),
         )
-        self.assertLess(commands.index(pub_get), commands.index(ios_root))
+        self.assertLess(commands.index(pub_get), commands.index(rive_setup))
+        self.assertLess(commands.index(rive_setup), commands.index(ios_root))
         self.assertLess(commands.index(ios_root), commands.index(pod_install))
 
 

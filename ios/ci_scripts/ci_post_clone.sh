@@ -29,6 +29,12 @@ echo "▸ flutter pub get (generates ios/Flutter/Generated.xcconfig)"
 cd "${CI_PRIMARY_REPOSITORY_PATH}"
 flutter pub get
 
+echo "Preparing Rive Native iOS libraries"
+# rive_native's CocoaPods build phase runs from ios/Pods, where Dart cannot
+# locate the app pubspec. Download the verified prebuilt libraries here so the
+# phase sees its setup marker and skips the invalid working-directory path.
+dart run rive_native:setup --verbose --clean --platform ios
+
 echo "▸ pod install"
 cd "${CI_PRIMARY_REPOSITORY_PATH}/ios"
 pod install
