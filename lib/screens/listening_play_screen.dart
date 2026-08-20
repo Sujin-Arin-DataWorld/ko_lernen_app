@@ -216,8 +216,12 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   void _shareCurrent() {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    ContentShareService.shareStoryText(
-      t.contentShareBody(_line.ko, _line.pick(lang)),
+    final gloss = _line.pick(lang);
+    // ignore: discarded_futures
+    ContentShareService.shareStorySlip(
+      korean: _line.ko,
+      gloss: gloss,
+      caption: t.contentShareBody(_line.ko, gloss),
     );
   }
 

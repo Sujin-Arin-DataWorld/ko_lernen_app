@@ -207,9 +207,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     }
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
+    final gloss = _card.translationFor(lang);
     // ignore: discarded_futures
-    ContentShareService.shareStoryText(
-      t.contentShareBody(_card.korean, _card.translationFor(lang)),
+    ContentShareService.shareStorySlip(
+      korean: _card.korean,
+      gloss: gloss,
+      caption: t.contentShareBody(_card.korean, gloss),
     );
   }
 

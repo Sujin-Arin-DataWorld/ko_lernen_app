@@ -376,9 +376,12 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     }
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
+    final gloss = cur.translationFor(lang);
     // ignore: discarded_futures
-    ContentShareService.shareStoryText(
-      t.contentShareBody(cur.korean, cur.translationFor(lang)),
+    ContentShareService.shareStorySlip(
+      korean: cur.korean,
+      gloss: gloss,
+      caption: t.contentShareBody(cur.korean, gloss),
     );
   }
 

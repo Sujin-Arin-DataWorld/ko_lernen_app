@@ -371,7 +371,11 @@ class _GrammarScreenState extends State<GrammarScreen>
     final lang = Localizations.localeOf(context).languageCode;
     final gloss = lang == 'en' ? g.explanationEn : g.explanationDe;
     // ignore: discarded_futures
-    ContentShareService.shareStoryText(t.contentShareBody(g.pattern, gloss));
+    ContentShareService.shareStorySlip(
+      korean: g.pattern,
+      gloss: gloss,
+      caption: t.contentShareBody(g.pattern, gloss),
+    );
   }
 
   /// This is intentionally a separate, free-practice route. Course grammar

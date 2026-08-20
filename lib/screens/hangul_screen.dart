@@ -746,8 +746,10 @@ class _CardsTabState extends State<_CardsTab> {
     final c = _pool[_idx % _pool.length];
     final t = AppL10n.of(context);
     // ignore: discarded_futures
-    ContentShareService.shareStoryText(
-      t.contentShareBody(c.letter, c.romanization),
+    ContentShareService.shareStorySlip(
+      korean: c.letter,
+      gloss: c.romanization,
+      caption: t.contentShareBody(c.letter, c.romanization),
     );
   }
 
