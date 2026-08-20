@@ -8,7 +8,7 @@ A1이 `docs/assets/prompts/a1_kit_prompts.json`으로 같은 일을 했고, 그�
 
 ## 0. 기준선 — 왜 "복구된 프롬프트"를 쓰지 않는가
 
-인수인계 `docs/HANDOFF_LIVING_HANOK_V1_2026-08-17.md` §6.3은 기존 6종의 원본 프롬프트를 복구해 기준으로 삼으라고 했다.
+Git 이력의 인수인계 `9ba9af4b:docs/HANDOFF_LIVING_HANOK_V1_2026-08-17.md` §6.3은 기존 6종의 원본 프롬프트를 복구해 기준으로 삼으라고 했다.
 `get_status`로 세 개를 실제로 복구했다:
 
 | taskId | 품목 | 프롬프트 성격 |

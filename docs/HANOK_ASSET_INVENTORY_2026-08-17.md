@@ -157,7 +157,7 @@
 | `ASSET_INVENTORY_2026-08-06.md` | stale(§3-7) — 한옥·장식은 이 문서로 대체 |
 | `PERSONAL_HANOK_CANONICAL_ASSET_CONTRACT.md` | map 8장 계약은 유효, a1/states 16장 미기재 |
 | `ASSET_GENERATION_BIBLE.md` | §3.5는 **마당** 규약(실내에 쓰면 어긋남), §1.3 명목 팔레트는 실측과 다름 |
-| `HANDOFF_LIVING_HANOK_V1_2026-08-17.md` | §6.3 프롬프트 복구 지시가 잘못된 계보를 가리킴 |
+| `9ba9af4b:docs/HANDOFF_LIVING_HANOK_V1_2026-08-17.md` | Git 이력만 보존. §6.3 프롬프트 복구 지시가 잘못된 계보를 가리킴 |
 | `HANOK_V1_SOURCE_REGISTRY.md` | 유효(출처 3곳은 사실 색인 전용, 이미지 입력·crop 금지) |
 
 ---

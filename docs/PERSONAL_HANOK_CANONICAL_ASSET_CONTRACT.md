@@ -2,6 +2,13 @@
 
 **상태:** 런타임 정본 · 2026-08-05
 
+> **Legacy runtime only / 새 개발에 사용 금지.** 이 문서는 현재 사용자에게 노출되는
+> 4:3 개인 한옥 지도의 회귀 계약만 설명한다. 목표 제품과 V2 masterplan은
+> [`2026-08-20-hanok-level-proof-and-skip-recovery-design.md`](superpowers/specs/2026-08-20-hanok-level-proof-and-skip-recovery-design.md)가 정본이다.
+> 아래 `daecheongmaru`와 `rear_garden` 행은 현 renderer inventory일 뿐 V2 설계·생성
+> 입력이 아니다. V2 cutover 전까지 현재 런타임 사실을 거짓으로 바꾸지 않기 위해
+> 이 문서를 유지한다.
+
 개인 한옥 지도는 `assets/illustrations/personal_hanok_v2/` 하나의 얕은
 3/4 시점 세계만 사용한다. `hanok_compound/`는 과거 프로토타입이고,
 `gye/`는 공동 마당 전용이다. 두 폴더의 PNG를 개인 지도에 섞지 않는다.

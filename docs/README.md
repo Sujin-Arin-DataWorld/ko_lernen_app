@@ -22,14 +22,21 @@ history rather than copied into the working tree.
      [CONTENT_SOURCE_POLICY.md](CONTENT_SOURCE_POLICY.md)
    - PDF, OCR, table intake: [CONTENT_REFERENCE_INTAKE_GUIDE.md](CONTENT_REFERENCE_INTAKE_GUIDE.md)
    - Visual assets: [ASSET_GENERATION_BIBLE.md](ASSET_GENERATION_BIBLE.md)
-   - Hanok/decoration asset inventory (what exists, where it is used, what is
-     still missing): [HANOK_ASSET_INVENTORY_2026-08-17.md](HANOK_ASSET_INVENTORY_2026-08-17.md)
-     — regenerate its tables with `python3.12 tool/asset_inventory.py`
-   - **⛔ 정정(2026-08-18)**: for hanok/decoration style facts specifically
-     (palette, camera, gates, prompt skeletons, model routing), read
-     [assets/STYLE_LOCK.json](assets/STYLE_LOCK.json) first — it outranks
-     both the inventory above and the Bible (`tool/style_lock.py` is the
-     reader; `tool/check_style_lock_docs.py` enforces this banner exists).
+   - Hanok product/runtime, in this order:
+     1. [Level proof and skip recovery](superpowers/specs/2026-08-20-hanok-level-proof-and-skip-recovery-design.md)
+        — approved target product and V2 direction.
+     2. [Living Hanok V1 execution](plans/2026-08-16-living-hanok-v1-execution.md)
+        — productive-evidence authority and the 86-core contract.
+     3. [Canonical personal-Hanok assets](PERSONAL_HANOK_CANONICAL_ASSET_CONTRACT.md)
+        — current legacy 4:3 runtime only, not the V2 masterplan.
+     4. **⛔ 정정(2026-08-18)**: for hanok/decoration style facts specifically,
+        current facts and rights follow [STYLE_LOCK](assets/STYLE_LOCK.json) >
+        [asset inventory](HANOK_ASSET_INVENTORY_2026-08-17.md), plus the
+        [source registry](HANOK_V1_SOURCE_REGISTRY.md) and
+        [machine-readable provenance](assets/HANOK_V1_ASSET_PROVENANCE.json).
+        Regenerate inventory tables with `python3.12 tool/asset_inventory.py`.
+        `tool/style_lock.py` is the style reader and
+        `tool/check_style_lock_docs.py` enforces the priority banner.
    - Release: [RELEASE_RUNBOOK_2026-08-02.md](RELEASE_RUNBOOK_2026-08-02.md)
 
 ## Maintenance rule

@@ -5,6 +5,13 @@
 제품 범위: 코드·규칙·자산·테스트의 `main` 병합까지. Firebase 프로덕션 배포와
 스토어 제출은 별도 승인 사항이다.
 
+> **부분 승계.** 이 문서의 86개 core `CanDoSegment`, exact productive evidence,
+> additive content evolution 계약은 계속 유효하다. 외부 증빙 receipt, 건너뛴 보상
+> 회수, 새 레벨별 시각 매핑과 V2 masterplan은
+> [`2026-08-20-hanok-level-proof-and-skip-recovery-design.md`](../superpowers/specs/2026-08-20-hanok-level-proof-and-skip-recovery-design.md)가 확장·대체한다.
+> 이 문서에서 recognition이 정상 한옥 권한이 아니라는 말은 CourseMastery와 기존
+> productive grant 경로에 적용되며, 별도 receipt 기반 recovery를 금지한다는 뜻이 아니다.
+
 ## 1. 처음 계획에서 바뀐 핵심
 
 처음의 `40 CourseUnit = 40 영구 보상` 계약은 폐기한다. 현재 CourseUnit은
