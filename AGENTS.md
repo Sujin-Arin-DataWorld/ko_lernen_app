@@ -90,7 +90,10 @@ Firebase 프로젝트: `ko-lernen-app`
 | 크래시 리포팅 | `firebase-crashlytics` |
 | 실제 브라우저 조작·스크린샷·탐색적 QA | `agent-browser` |
 | 로컬 Flutter web 앱 Playwright 검증 | `webapp-testing` |
-| DE/EN 카피의 AI 티 제거 | `humanizer` |
+| DE/EN 카피의 AI 티 제거 | `humanizer` (프로젝트 `.agents/skills/humanizer`, `-g` 불필요) |
+| 영어/브리프 → 네이티브 독일어 (번역투·Denglisch) | `lokalisieren-de` |
+| 독일어 AI 티 제거 | `humanizer-de` |
+| du/Sie 일관성 | `du-sie-check` |
 | 학습 콘텐츠 KO↔DE/EN 의미·권한·화행 검수 | `beyond-humanizer` (자연스러움만으로 직책·절차를 만들지 않음) |
 | 위 표에 없는 능력이 필요할 때 | `find-skills` (설치 후보 탐색) |
 
