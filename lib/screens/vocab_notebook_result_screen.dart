@@ -45,9 +45,7 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
     final existing = _existingPackId == null
         ? null
         : CustomPackService.getById(_existingPackId!);
-    _nameCtrl = TextEditingController(
-      text: existing?.displayName() ?? '',
-    );
+    _nameCtrl = TextEditingController(text: existing?.displayName() ?? '');
   }
 
   @override
@@ -87,9 +85,9 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
     }
     setState(() => _saving = false);
     if (pack == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(t.vocabNotebookSaveFailed)),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(t.vocabNotebookSaveFailed)));
     }
     return pack;
   }
@@ -132,7 +130,11 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
     final s = SoriSurfaces.of(context);
     if (_pairs.isEmpty) {
       return Scaffold(
-        appBar: SoriAppBar(title: t.vocabNotebookTitle),
+        appBar: SoriAppBar(
+          title: t.vocabNotebookTitle,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
+        ),
         body: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/book/book_error.png',
@@ -147,7 +149,11 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
     }
 
     return Scaffold(
-      appBar: SoriAppBar(title: t.vocabNotebookTitle),
+      appBar: SoriAppBar(
+        title: t.vocabNotebookTitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
+      ),
       body: SafeArea(
         child: SoriCenterClamp(
           child: Padding(
@@ -209,17 +215,21 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
                                     const SizedBox(height: Spacing.xs),
                                     Text(
                                       pair.meaning,
-                                      style: SoriTextTheme.of(context).bodySmall,
+                                      style: SoriTextTheme.of(
+                                        context,
+                                      ).bodySmall,
                                     ),
                                     if (hanja != null &&
-                                        hanja.nuanceFor(
-                                          Localizations.localeOf(
-                                                    context,
-                                                  ).languageCode ==
-                                                  'en'
-                                              ? 'en'
-                                              : 'de',
-                                        ).isNotEmpty) ...<Widget>[
+                                        hanja
+                                            .nuanceFor(
+                                              Localizations.localeOf(
+                                                        context,
+                                                      ).languageCode ==
+                                                      'en'
+                                                  ? 'en'
+                                                  : 'de',
+                                            )
+                                            .isNotEmpty) ...<Widget>[
                                       const SizedBox(height: Spacing.xs),
                                       Text(
                                         hanja.nuanceFor(
@@ -230,9 +240,9 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
                                               ? 'en'
                                               : 'de',
                                         ),
-                                        style: SoriTextTheme.of(context)
-                                            .caption
-                                            .copyWith(color: s.textMuted),
+                                        style: SoriTextTheme.of(
+                                          context,
+                                        ).caption.copyWith(color: s.textMuted),
                                       ),
                                     ],
                                   ],

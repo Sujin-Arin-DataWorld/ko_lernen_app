@@ -263,72 +263,75 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         onPressed: () => Navigator.of(context).maybePop(),
       ),
       actions: const [TtsSpeedAction()],
-      child: Column(
-        children: [
-          Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: Spacing.sm,
-            runSpacing: Spacing.sm,
-            children: [
-              SoriChip(
-                label: '${_idx + 1} / ${pack.words.length}',
-                accent: SoriColors.info,
-              ),
-              Text(
-                t.vocabPackTapToFlip,
-                style: TextStyle(fontSize: 12, color: s.textMuted),
-              ),
-            ],
-          ),
-          const SizedBox(height: Spacing.md),
-          Expanded(
-            child: SoriContentFeed(
-              judgmentsEnabled: _cardRevealed,
-              onBlockedJudgment: () => _flipHintTrigger.value++,
-              flipHintTrigger: _flipHintTrigger,
-              onNext: _gotIt,
-              onHard: _dontKnow,
-              onSkip: _defer,
-              onLike: _likeCurrent,
-              onShare: _shareCurrent,
-              onFlip: _toggleFlip,
-              showBookmark: false,
-              liked: LikedContentService.isLiked(
-                kind: LikedContentService.vocab,
-                id: w.korean,
-              ),
-              underlay: _idx + 1 < pack.words.length
-                  ? _faceSlot(pack, pack.words[_idx + 1])
-                  : null,
-              knowLabel: t.btnGewusst,
-              hardLabel: t.btnNichtGewusst,
-              skipLabel: t.btnSkip,
-              child: Center(
-                child: FractionallySizedBox(
-                  heightFactor: 0.82,
-                  child: SizedBox(
-                    key: const ValueKey('deck-card-slot'),
-                    width: double.infinity,
-                    child: KeyedSubtree(
-                      key: _cardKey,
-                      child: FlipCard(
-                        key: ValueKey('cp-$_serve'),
-                        flipped: _flipped,
-                        onTap: _toggleFlip,
-                        front: _Front(
-                          word: w,
-                          deckKoreans: [for (final x in pack.words) x.korean],
+      child: SoriAdaptiveStudyBody(
+        minHeight: 560,
+        child: Column(
+          children: [
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: Spacing.sm,
+              runSpacing: Spacing.sm,
+              children: [
+                SoriChip(
+                  label: '${_idx + 1} / ${pack.words.length}',
+                  accent: SoriColors.info,
+                ),
+                Text(
+                  t.vocabPackTapToFlip,
+                  style: TextStyle(fontSize: 12, color: s.textMuted),
+                ),
+              ],
+            ),
+            const SizedBox(height: Spacing.md),
+            Expanded(
+              child: SoriContentFeed(
+                judgmentsEnabled: _cardRevealed,
+                onBlockedJudgment: () => _flipHintTrigger.value++,
+                flipHintTrigger: _flipHintTrigger,
+                onNext: _gotIt,
+                onHard: _dontKnow,
+                onSkip: _defer,
+                onLike: _likeCurrent,
+                onShare: _shareCurrent,
+                onFlip: _toggleFlip,
+                showBookmark: false,
+                liked: LikedContentService.isLiked(
+                  kind: LikedContentService.vocab,
+                  id: w.korean,
+                ),
+                underlay: _idx + 1 < pack.words.length
+                    ? _faceSlot(pack, pack.words[_idx + 1])
+                    : null,
+                knowLabel: t.btnGewusst,
+                hardLabel: t.btnNichtGewusst,
+                skipLabel: t.btnSkip,
+                child: Center(
+                  child: FractionallySizedBox(
+                    heightFactor: 0.82,
+                    child: SizedBox(
+                      key: const ValueKey('deck-card-slot'),
+                      width: double.infinity,
+                      child: KeyedSubtree(
+                        key: _cardKey,
+                        child: FlipCard(
+                          key: ValueKey('cp-$_serve'),
+                          flipped: _flipped,
+                          onTap: _toggleFlip,
+                          front: _Front(
+                            word: w,
+                            deckKoreans: [for (final x in pack.words) x.korean],
+                          ),
+                          back: _Back(word: w),
                         ),
-                        back: _Back(word: w),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

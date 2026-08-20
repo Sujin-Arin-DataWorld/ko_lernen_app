@@ -214,11 +214,11 @@ void main() {
 
     final t = AppL10n.of(tester.element(find.byType(StatsScreen)));
     final target = find.text(t.gameWordleTitle);
-    final list = find.byType(ListView).first;
-    for (var i = 0; i < 14 && target.evaluate().isEmpty; i += 1) {
-      await tester.drag(list, const Offset(0, -240));
-      await tester.pump();
-    }
+    await tester.scrollUntilVisible(
+      target,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.ensureVisible(target);
     await tester.pump();
 

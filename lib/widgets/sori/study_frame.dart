@@ -41,6 +41,8 @@ class SoriStudyFrame extends StatelessWidget {
     return Scaffold(
       appBar: SoriAppBar(
         title: title,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
         eyebrow: eyebrow,
         actions: actions,
         leading: leading,

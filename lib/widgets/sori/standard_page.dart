@@ -49,6 +49,8 @@ class SoriStandardFrame extends StatelessWidget {
         actions: actions,
         leading: leading,
         automaticallyImplyLeading: automaticallyImplyLeading,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
       ),
       body: SoriScreenBackground(
         particles: particles,

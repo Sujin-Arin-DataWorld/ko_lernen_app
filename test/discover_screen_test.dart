@@ -37,20 +37,36 @@ void main() {
       expect(tester.getSize(target).height, greaterThanOrEqualTo(48));
     }
     for (final priority in const [
-      'Buch scannen',
-      'Vokabelheft',
-      'Aussprache hören',
-      'Wörterbuch & Meine Wörter',
+      (
+        key: 'book',
+        title: 'Buch scannen',
+        body: 'Text aus deinem Lehrbuch verstehen',
+      ),
+      (
+        key: 'notebook',
+        title: 'Vokabelheft',
+        body: 'Dein Heft fotografieren und genau diese Wörter üben.',
+      ),
+      (
+        key: 'pronunciation',
+        title: 'Aussprache hören',
+        body: 'Laute langsam vergleichen',
+      ),
+      (
+        key: 'words',
+        title: 'Wörterbuch & Meine Wörter',
+        body: 'Gespeicherte Wörter wiederfinden',
+      ),
     ]) {
-      expect(find.text(priority), findsOneWidget);
-    }
-    for (final body in const [
-      'Text aus deinem Lehrbuch verstehen',
-      'Dein Heft fotografieren und genau diese Wörter üben.',
-      'Laute langsam vergleichen',
-      'Gespeicherte Wörter wiederfinden',
-    ]) {
-      expect(find.text(body), findsOneWidget);
+      final card = find.byKey(ValueKey('discover-priority-${priority.key}'));
+      await tester.scrollUntilVisible(
+        card,
+        240,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.pump();
+      expect(find.text(priority.title), findsOneWidget);
+      expect(find.text(priority.body), findsOneWidget);
     }
     await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
     await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));

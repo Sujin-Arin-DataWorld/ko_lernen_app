@@ -218,6 +218,8 @@ class _HangulScreenState extends State<HangulScreen>
     return Scaffold(
       appBar: SoriAppBar(
         title: t.screenHangulTitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
         actions: const [TtsSpeedAction()],
         bottom: TabBar(
           key: _tabBarKey,

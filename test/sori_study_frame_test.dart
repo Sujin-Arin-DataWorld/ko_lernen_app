@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/theme.dart';
@@ -8,6 +9,39 @@ import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 void main() {
+  testWidgets('study frame app bar preserves its full title at 200% text', (
+    tester,
+  ) async {
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(320, 640);
+
+    const title = 'Grammatik erkennen und sicher anwenden';
+    await tester.pumpWidget(
+      _host(
+        textScale: 2,
+        child: const SoriStudyFrame(
+          title: title,
+          eyebrow: 'Freies Training',
+          child: SizedBox.expand(),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+    final titleText = tester.widget<Text>(find.text(title));
+    final titleParagraph = tester.renderObject<RenderParagraph>(
+      find.text(title),
+    );
+    expect(appBar.preferredSize.height, greaterThan(kToolbarHeight));
+    expect(titleText.maxLines, greaterThan(1));
+    expect(titleText.overflow, TextOverflow.clip);
+    expect(titleParagraph.didExceedMaxLines, isFalse);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets(
     'study frame keeps focused content reachable across the responsive matrix',
     (tester) async {
@@ -33,6 +67,7 @@ void main() {
                 title: 'Grammatik erkennen und sicher anwenden',
                 eyebrow: 'Freies Training',
                 child: ListView(
+                  key: ValueKey('$size-$textScale'),
                   children: [
                     const SizedBox(
                       key: Key('study-frame-width-marker'),
@@ -66,13 +101,33 @@ void main() {
             240,
             scrollable: find.byType(Scrollable).first,
           );
-          await tester.ensureVisible(action);
+          final position = tester
+              .state<ScrollableState>(find.byType(Scrollable).first)
+              .position;
+          position.jumpTo(position.maxScrollExtent);
           await tester.pump();
+          final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+          final titleText = tester.widget<Text>(
+            find.text('Grammatik erkennen und sicher anwenden'),
+          );
+          final actionParagraph = tester.renderObject<RenderParagraph>(
+            find.text('Antwort prüfen und mit der nächsten Aufgabe fortfahren'),
+          );
           expect(
             tester.getRect(action).bottom,
             lessThanOrEqualTo(size.height - 34),
+            reason:
+                '$size at ${textScale}x, scroll '
+                '${position.pixels}/${position.maxScrollExtent}, '
+                'viewport ${position.viewportDimension}, '
+                'app bar ${appBar.preferredSize.height}, '
+                'title lines ${titleText.maxLines}',
           );
-          await tester.tap(action);
+          expect(actionParagraph.didExceedMaxLines, isFalse);
+          final actionRect = tester.getRect(action);
+          await tester.tapAt(
+            Offset(actionRect.center.dx, actionRect.bottom - 8),
+          );
           await tester.pump();
           expect(taps, 1);
           expect(tester.takeException(), isNull);

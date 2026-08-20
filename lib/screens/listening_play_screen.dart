@@ -244,7 +244,10 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
         Spacing.lg,
         Spacing.lg,
       ),
-      child: _completed ? _buildComplete(t) : _buildFeed(t, lang),
+      child: SoriAdaptiveStudyBody(
+        minHeight: 520,
+        child: _completed ? _buildComplete(t) : _buildFeed(t, lang),
+      ),
     );
   }
 

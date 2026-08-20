@@ -46,6 +46,13 @@ class Spacing {
 /// 480은 폰엔 시각 변화 0, 넓은 화면만 가운데 정렬된다.
 /// 적용은 [soriClampPadding] / [SoriContentClamp] (responsive.dart) 참조.
 class SoriBreakpoints {
+  /// Mission chrome stacks its label and progress before either phrase wraps
+  /// into an unreadably narrow side-by-side column.
+  static const double missionHeaderStack = 280;
+
+  /// Deck judgment labels become full-width rows at this component width.
+  static const double contentActionStack = 320;
+
   /// Very narrow phone content where two comparison panels must stack.
   static const double narrowPhone = 360;
 

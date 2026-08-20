@@ -252,13 +252,21 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
 
     if (_loading) {
       return Scaffold(
-        appBar: SoriAppBar(title: t.vocabPacksTitle),
+        appBar: SoriAppBar(
+          title: t.vocabPacksTitle,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
+        ),
         body: const AppLoading(),
       );
     }
     if (_loadError != null) {
       return Scaffold(
-        appBar: SoriAppBar(title: t.vocabPacksTitle),
+        appBar: SoriAppBar(
+          title: t.vocabPacksTitle,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
+        ),
         body: AppError(message: _loadError!, onRetry: _load),
       );
     }
@@ -266,6 +274,8 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     return Scaffold(
       appBar: SoriAppBar(
         title: t.vocabPacksTitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
         actions: [
           IconButton(
             icon: const Icon(Icons.workspace_premium_outlined),

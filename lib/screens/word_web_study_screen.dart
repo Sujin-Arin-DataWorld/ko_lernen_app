@@ -25,6 +25,8 @@ class WordWebStudyScreen extends StatelessWidget {
     return Scaffold(
       appBar: SoriAppBar(
         title: cluster.sourceKo,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
         actions: const [TtsSpeedAction()],
       ),
       body: SoriScreenBackground(
