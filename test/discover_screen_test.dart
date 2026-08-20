@@ -5,6 +5,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/discover_catalog.dart';
 import 'package:ko_lernen_app/screens/discover_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 
 void main() {
   testWidgets('04B shows four purpose filters and four priority routes', (
@@ -26,6 +27,7 @@ void main() {
       tester.widget<TextField>(find.byType(TextField)).decoration?.hintText,
       'Suchen: z. B. Aussprache, Buch, OCR …',
     );
+    expect(find.byType(SoriTextField), findsOneWidget);
     expect(find.text('Direkt zu deinem Ziel'), findsNothing);
     for (final filter in const ['Für mich', 'Sprache', 'Wörter', 'Freizeit']) {
       final finder = find.text(filter);

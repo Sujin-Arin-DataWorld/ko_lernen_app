@@ -32,6 +32,7 @@ import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
+import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 void main() {
@@ -116,6 +117,7 @@ void main() {
     await tester.pumpWidget(_host(const WordbookSearchScreen()));
     await tester.pump();
 
+    expect(find.byType(SoriTextField), findsOneWidget);
     expect(find.text('마음가짐'), findsOneWidget);
     expect(
       find.text('zusammengesetztes koreanisches Substantiv'),
