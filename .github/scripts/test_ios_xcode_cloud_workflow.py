@@ -34,8 +34,12 @@ class IosXcodeCloudWorkflowTest(unittest.TestCase):
             "dart run rive_native:setup --verbose --clean --platform ios"
         )
         ios_root = 'cd "${CI_PRIMARY_REPOSITORY_PATH}/ios"'
-        pod_install = "pod install"
         commands = [line.strip() for line in self.post_clone.splitlines()]
+        pod_install_index = next(
+            index
+            for index, command in enumerate(commands)
+            if command.startswith("if pod install;")
+        )
 
         self.assertLess(
             commands.index(repository_root),
@@ -43,7 +47,13 @@ class IosXcodeCloudWorkflowTest(unittest.TestCase):
         )
         self.assertLess(commands.index(pub_get), commands.index(rive_setup))
         self.assertLess(commands.index(rive_setup), commands.index(ios_root))
-        self.assertLess(commands.index(ios_root), commands.index(pod_install))
+        self.assertLess(commands.index(ios_root), pod_install_index)
+
+    def test_post_clone_retries_transient_cocoapods_download_failures(self):
+        self.assertIn('while [ "${POD_INSTALL_ATTEMPT}" -le 3 ]; do', self.post_clone)
+        self.assertIn("if pod install; then", self.post_clone)
+        self.assertIn('if [ "${POD_INSTALL_ATTEMPT}" -eq 3 ]; then', self.post_clone)
+        self.assertIn('sleep "${POD_INSTALL_RETRY_DELAY}"', self.post_clone)
 
 
 if __name__ == "__main__":
