@@ -1,11 +1,11 @@
 # UI/UX Native & Game Phase 2 — Execution Lock
 
-- **Status:** local implementation and verification complete; remote gates await authority
-- **Version:** 1.4
-- **Updated:** 2026-08-21 00:43 Europe/Berlin
+- **Status:** latest-main local verification complete; PR, CI, and merge pending
+- **Version:** 1.5
+- **Updated:** 2026-08-21 00:57 Europe/Berlin
 - **Branch:** `session/uiux-native-game-surfaces-2026-08-20`
 - **Base:** `origin/main@1136c53891ce3bf1a5d95001914272a6261d0e0a`
-- **Latest observed main:** `origin/main@c64fbfa21fb8cfd7ae88b7a76e83e6733de7fc5e`
+- **Latest integrated main:** `origin/main@c8f8a49ba141b07ea74166ba411736c831dcf3de`
 
 ## Purpose
 
@@ -146,6 +146,11 @@ Final local inventory and review:
   Main advanced in four non-overlapping paths: the iOS Xcode Cloud workflow,
   Hanok asset inventory, an empty audit placeholder, and `pubspec.yaml`'s iOS
   package-manager configuration.
+- The final local verification was repeated after integrating main: full
+  `flutter analyze` passed, 4,250 tests passed with 14 environment-conditional
+  skips, and `git diff --check` passed. A later main advance changed only the
+  Xcode Cloud workflow and `ci_post_clone.sh`; its two exact Python contract
+  tests passed after the second conflict-free integration.
 
 ## Verification Matrix
 
@@ -191,17 +196,21 @@ load `SESSION_LOG` for routine continuation.
 
 ## Current Next Action
 
-Finish only the authority-gated delivery steps:
+Finish only the delivery steps:
 
-1. After Jin grants commit/push/PR authority, integrate the latest
-   `origin/main` without disturbing the task-owned diff, then repeat the
-   proportional local gates on the resulting head.
-2. Split and create task-owned commits, push this branch, and open a PR.
-3. Linux game-family goldens and current-head CI remain remote gates. This
-   Windows host has WSL2 but no native Linux Flutter SDK; do not create Linux
-   baselines with the Windows engine.
-4. Do not commit, push, open a PR, merge, or deploy without Jin's explicit
-   authority. Merge and release remain separately gated even after PR creation.
+1. Push this branch and open the Phase 2 PR.
+2. Wait for the current PR HEAD's Linux CI and game-family goldens. If a check
+   fails, inspect its exact log and repair only the owned cause without
+   duplicating a run for the same SHA.
+3. Merge only after every required check is green, then confirm the merge SHA
+   on `origin/main`.
+4. After that merge, start the UI/UX Bible application audit in a new clean
+   Windows-native worktree created from that latest main. Do not reuse this
+   worktree or reload the historical Phase 2 handoff.
+5. This Windows host has WSL2 but no native Linux Flutter SDK; do not create or
+   update Linux baselines with the Windows engine.
+6. Do not deploy, upload to a store, alter Firebase/Cloudflare production, or
+   change paid-service configuration as part of this task.
 
 ## Update Rule
 
