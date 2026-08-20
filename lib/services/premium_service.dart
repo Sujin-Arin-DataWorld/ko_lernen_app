@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
@@ -14,6 +15,19 @@ import 'storage_service.dart';
 final ValueNotifier<bool> premiumNotifier = ValueNotifier<bool>(
   PremiumService.fullAccessBuild,
 );
+
+enum PremiumPurchaseOutcome { purchased, cancelled, failed }
+
+enum PremiumRestoreOutcome { restored, none, failed }
+
+PremiumPurchaseOutcome premiumPurchaseOutcomeForError(Object error) {
+  if (error is PlatformException &&
+      PurchasesErrorHelper.getErrorCode(error) ==
+          PurchasesErrorCode.purchaseCancelledError) {
+    return PremiumPurchaseOutcome.cancelled;
+  }
+  return PremiumPurchaseOutcome.failed;
+}
 
 abstract interface class RevenueCatIdentityClient {
   Future<void> logIn(String uid);
@@ -286,31 +300,38 @@ class PremiumService {
     }
   }
 
-  /// Kauf eines Pakets. Gibt `true` zurück, wenn das Premium-Entitlement
-  /// danach aktiv ist. User-Abbruch und Fehler liefern beide `false`.
-  static Future<bool> purchase(Package package) async {
-    if (!_configured) return false;
+  /// Kauf eines Pakets. Nutzerabbruch und echter Fehler bleiben getrennt,
+  /// damit die App einen freiwilligen Abbruch nicht als Fehlermeldung zeigt.
+  static Future<PremiumPurchaseOutcome> purchase(Package package) async {
+    if (!_configured) return PremiumPurchaseOutcome.failed;
     try {
       // v9+: purchase(PurchaseParams) liefert ein PurchaseResult mit CustomerInfo.
       final result = await Purchases.purchase(PurchaseParams.package(package));
       _onCustomerInfo(result.customerInfo);
-      return isPremium;
-    } catch (e) {
-      debugPrint('PremiumService: purchase not completed — $e');
-      return false;
+      return isPremium
+          ? PremiumPurchaseOutcome.purchased
+          : PremiumPurchaseOutcome.failed;
+    } on Object catch (error) {
+      final outcome = premiumPurchaseOutcomeForError(error);
+      if (outcome == PremiumPurchaseOutcome.failed) {
+        debugPrint('PremiumService: purchase not completed — $error');
+      }
+      return outcome;
     }
   }
 
-  /// Käufe wiederherstellen (Pflicht für Store-Review). `true` wenn danach
-  /// Premium aktiv ist.
-  static Future<bool> restore() async {
-    if (!_configured) return false;
+  /// Käufe wiederherstellen (Pflicht für Store-Review). Kein früherer Kauf
+  /// und ein SDK-Fehler bleiben getrennt.
+  static Future<PremiumRestoreOutcome> restore() async {
+    if (!_configured) return PremiumRestoreOutcome.failed;
     try {
       _onCustomerInfo(await Purchases.restorePurchases());
-      return isPremium;
-    } catch (e) {
-      debugPrint('PremiumService: restore failed — $e');
-      return false;
+      return isPremium
+          ? PremiumRestoreOutcome.restored
+          : PremiumRestoreOutcome.none;
+    } on Object catch (error) {
+      debugPrint('PremiumService: restore failed — $error');
+      return PremiumRestoreOutcome.failed;
     }
   }
 

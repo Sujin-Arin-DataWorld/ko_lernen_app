@@ -15,6 +15,7 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -195,11 +196,10 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
             stars: stars,
             onLockedTap: (sc) {
               HapticFeedback.selectionClick();
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(t.scenariosLocked(sc.level.display)),
-                  duration: const Duration(seconds: 2),
-                ),
+              soriNotice(
+                context,
+                t.scenariosLocked(sc.level.display),
+                duration: const Duration(seconds: 2),
               );
             },
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/chaekgado_shelf.dart';
+import '../dialog.dart';
 import '../tokens.dart';
 import 'scroll_palette.dart';
 
@@ -30,7 +31,7 @@ Future<T?> showChaekgadoScroll<T>({
   Widget? illustration,
   String? footnote,
 }) {
-  return showGeneralDialog<T>(
+  return showSoriGeneralDialog<T>(
     context: context,
     barrierDismissible: true,
     barrierLabel: title,
@@ -356,9 +357,7 @@ class ChaekgadoScrollItem extends StatelessWidget {
               height: 18,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: done
-                    ? SoriColors.primary
-                    : const Color(0xFFF0E2C6),
+                color: done ? SoriColors.primary : const Color(0xFFF0E2C6),
                 borderRadius: const BorderRadius.all(Radius.circular(5)),
               ),
               child: done

@@ -8,6 +8,7 @@ import '../widgets/sori/activity_illustration.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 
 /// €5/Monat Premium-Paywall.
@@ -17,11 +18,21 @@ import '../widgets/sori/tokens.dart';
 /// RevenueCat-Offering verfügbar (Dashboard noch nicht eingerichtet), zeigt
 /// die Seite den Fallback-Preis und einen Hinweis — sie crasht nie.
 class PaywallScreen extends StatefulWidget {
-  const PaywallScreen({super.key, this.placement = 'unspecified'});
+  const PaywallScreen({
+    super.key,
+    this.placement = 'unspecified',
+    this.offeringLoader,
+    this.purchaseOperation,
+    this.restoreOperation,
+  });
 
   /// Woher die Paywall geöffnet wurde (Analytics placement). Vom Gate/Route
   /// gesetzt; Standard 'unspecified'.
   final String placement;
+  final Future<Offering?> Function()? offeringLoader;
+  final Future<PremiumPurchaseOutcome> Function(Package package)?
+  purchaseOperation;
+  final Future<PremiumRestoreOutcome> Function()? restoreOperation;
 
   @override
   State<PaywallScreen> createState() => _PaywallScreenState();
@@ -40,7 +51,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
   }
 
   Future<void> _load() async {
-    final offering = await PremiumService.currentOffering();
+    final offering =
+        await (widget.offeringLoader?.call() ??
+            PremiumService.currentOffering());
     if (!mounted) return;
     setState(() {
       _offering = offering;
@@ -65,7 +78,7 @@ class _PaywallScreenState extends State<PaywallScreen> {
     final t = AppL10n.of(context);
     final pkg = _monthly;
     if (pkg == null) {
-      _snack(t.paywallNotAvailable);
+      soriToast(context, t.paywallNotAvailable);
       return;
     }
     Analytics.subscribeStarted(
@@ -73,35 +86,38 @@ class _PaywallScreenState extends State<PaywallScreen> {
       placement: widget.placement,
     );
     setState(() => _busy = true);
-    final ok = await PremiumService.purchase(pkg);
+    final outcome =
+        await (widget.purchaseOperation?.call(pkg) ??
+            PremiumService.purchase(pkg));
     if (!mounted) return;
     setState(() => _busy = false);
-    if (ok) {
-      _snack(t.paywallSuccess);
-      Navigator.of(context).pop(true);
-    } else {
-      _snack(t.paywallFailed);
+    switch (outcome) {
+      case PremiumPurchaseOutcome.purchased:
+        soriNotice(context, t.paywallSuccess);
+        Navigator.of(context).pop(true);
+      case PremiumPurchaseOutcome.cancelled:
+        return;
+      case PremiumPurchaseOutcome.failed:
+        soriToast(context, t.paywallFailed);
     }
   }
 
   Future<void> _restore() async {
     final t = AppL10n.of(context);
     setState(() => _busy = true);
-    final ok = await PremiumService.restore();
+    final outcome =
+        await (widget.restoreOperation?.call() ?? PremiumService.restore());
     if (!mounted) return;
     setState(() => _busy = false);
-    if (ok) {
-      _snack(t.paywallSuccess);
-      Navigator.of(context).pop(true);
-    } else {
-      _snack(t.paywallRestoreNone);
+    switch (outcome) {
+      case PremiumRestoreOutcome.restored:
+        soriNotice(context, t.paywallSuccess);
+        Navigator.of(context).pop(true);
+      case PremiumRestoreOutcome.none:
+        soriNotice(context, t.paywallRestoreNone);
+      case PremiumRestoreOutcome.failed:
+        soriToast(context, t.paywallRestoreFailed);
     }
-  }
-
-  void _snack(String msg) {
-    ScaffoldMessenger.of(context)
-      ..hideCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text(msg)));
   }
 
   @override

@@ -9,6 +9,7 @@ import '../services/gye_service.dart';
 import '../services/account/cloud_write_session.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -35,8 +36,7 @@ class _GyeJoinScreenState extends State<GyeJoinScreen> {
     super.dispose();
   }
 
-  void _snack(String m) =>
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(m)));
+  void _snack(String m) => soriToast(context, m);
 
   Future<void> _join() async {
     FocusScope.of(context).unfocus();

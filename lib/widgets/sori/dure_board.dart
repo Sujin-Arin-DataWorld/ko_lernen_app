@@ -6,6 +6,7 @@ import '../../models/gye.dart';
 import '../../services/gye_service.dart';
 import 'celebration.dart';
 import 'sheet.dart';
+import 'toast.dart';
 import 'tokens.dart';
 
 /// 두레판 — 계 주간 공동 기여를 "함께 채우는" 협력 보드.
@@ -99,9 +100,7 @@ class DureBoard extends StatelessWidget {
                         cheerCode: i + 1,
                       );
                       if (!ok && context.mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(t.gyeStickerRateLimited)),
-                        );
+                        soriToast(context, t.gyeStickerRateLimited);
                       }
                     }
                   : null,

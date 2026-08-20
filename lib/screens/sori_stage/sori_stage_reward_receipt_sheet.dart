@@ -4,6 +4,7 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../models/sori_stage_progression.dart';
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/reward_icon.dart';
+import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
 import 'sori_stage_common.dart';
 
@@ -94,9 +95,7 @@ class _RewardLine extends StatelessWidget {
 Future<void> showSoriStageRewardReceipt(
   BuildContext context,
   RewardReceipt receipt,
-) => showModalBottomSheet<void>(
+) => showSoriSheet<void>(
   context: context,
-  isScrollControlled: true,
-  showDragHandle: true,
   builder: (_) => SoriStageRewardReceiptSheet(receipt: receipt),
 );

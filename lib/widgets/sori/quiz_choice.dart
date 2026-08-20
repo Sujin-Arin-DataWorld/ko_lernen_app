@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import 'motion.dart';
 import 'tokens.dart';
 
@@ -96,6 +97,7 @@ class _QuizChoiceState extends State<QuizChoice>
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
     final reduce = SoriMotion.reduceMotion(context);
 
     // ── 색 결정 (revealed 단계가 우선) ──
@@ -105,6 +107,7 @@ class _QuizChoiceState extends State<QuizChoice>
     double opacity = 1.0;
     IconData? trailing;
     Color? trailingColor;
+    String? semanticValue;
 
     if (widget.revealed) {
       if (widget.isCorrect && widget.revealCorrect) {
@@ -112,11 +115,13 @@ class _QuizChoiceState extends State<QuizChoice>
         border = SoriColors.success;
         trailing = Icons.check_circle_rounded;
         trailingColor = SoriColors.success;
+        semanticValue = t.statsCorrect;
       } else if (widget.isSelected && !widget.isCorrect) {
         bg = SoriColors.danger.withValues(alpha: 0.14);
         border = SoriColors.danger;
         trailing = Icons.cancel_rounded;
         trailingColor = SoriColors.danger;
+        semanticValue = t.statsWrong;
       } else if (widget.revealCorrect) {
         // 선택 안 된 오답 — 흐리게.
         opacity = 0.55;
@@ -124,7 +129,7 @@ class _QuizChoiceState extends State<QuizChoice>
     }
 
     final content = AnimatedContainer(
-      duration: SoriAnimation.quick,
+      duration: SoriMotion.respect(context, SoriAnimation.quick),
       curve: Curves.easeOut,
       width: double.infinity,
       constraints: widget.minHeight != null
@@ -183,7 +188,7 @@ class _QuizChoiceState extends State<QuizChoice>
     );
 
     final reveal = AnimatedOpacity(
-      duration: SoriAnimation.quick,
+      duration: SoriMotion.respect(context, SoriAnimation.quick),
       opacity: opacity,
       child: tappable,
     );
@@ -191,14 +196,24 @@ class _QuizChoiceState extends State<QuizChoice>
     if (reduce) {
       return Semantics(
         button: true,
+        enabled: widget.onSelected != null && !widget.revealed,
         selected: widget.isSelected,
+        label: widget.text,
+        value: semanticValue,
+        hint: widget.subtitle,
+        excludeSemantics: true,
         child: reveal,
       );
     }
 
     return Semantics(
       button: true,
+      enabled: widget.onSelected != null && !widget.revealed,
       selected: widget.isSelected,
+      label: widget.text,
+      value: semanticValue,
+      hint: widget.subtitle,
+      excludeSemantics: true,
       child: AnimatedBuilder(
         animation: _press,
         builder: (_, child) {

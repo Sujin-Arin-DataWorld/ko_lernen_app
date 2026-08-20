@@ -6,6 +6,7 @@ import '../services/grounded_book_study_service.dart';
 import 'sori/card.dart';
 import 'sori/mascot.dart';
 import 'sori/mascot_preference.dart';
+import 'sori/sheet.dart';
 import 'sori/tokens.dart';
 
 class GroundedBookAskButton extends StatelessWidget {
@@ -39,21 +40,12 @@ class GroundedBookAskButton extends StatelessWidget {
   }
 
   void _showStudySheet(BuildContext context) {
-    showModalBottomSheet<void>(
+    showSoriSheet<void>(
       context: context,
-      isScrollControlled: true,
-      useSafeArea: true,
-      builder: (context) => FractionallySizedBox(
-        heightFactor: 0.82,
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.fromLTRB(
-            Spacing.md,
-            Spacing.sm,
-            Spacing.md,
-            Spacing.xl,
-          ),
-          child: GroundedBookStudyCard(result: result, target: target),
-        ),
+      maxHeightFactor: 0.82,
+      builder: (context) => Padding(
+        padding: const EdgeInsets.only(bottom: Spacing.sm),
+        child: GroundedBookStudyCard(result: result, target: target),
       ),
     );
   }

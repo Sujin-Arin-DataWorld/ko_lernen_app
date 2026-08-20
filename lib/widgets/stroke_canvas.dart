@@ -16,6 +16,8 @@ class StrokeCanvas extends StatefulWidget {
   final bool showNumbers;
   final Duration perStroke;
   final VoidCallback? onCompleted;
+  final String? semanticsLabel;
+  final String? semanticsHint;
 
   /// 지금 그려야 할 획을 강조한다. null 이면 강조 없음(기존 동작).
   ///
@@ -32,6 +34,8 @@ class StrokeCanvas extends StatefulWidget {
     this.showNumbers = true,
     this.perStroke = const Duration(milliseconds: 700),
     this.onCompleted,
+    this.semanticsLabel,
+    this.semanticsHint,
     this.highlightIndex,
   });
 
@@ -42,6 +46,8 @@ class StrokeCanvas extends StatefulWidget {
 class _StrokeCanvasState extends State<StrokeCanvas>
     with SingleTickerProviderStateMixin {
   late AnimationController _ctrl;
+  bool _reduceMotion = false;
+  bool _motionInitialized = false;
 
   @override
   void initState() {
@@ -54,11 +60,34 @@ class _StrokeCanvasState extends State<StrokeCanvas>
       vsync: this,
       duration: widget.perStroke * widget.strokes.length,
     )..addStatusListener(_handleStatus);
-    _ctrl.forward();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final reduceMotion = SoriMotion.reduceMotion(context);
+    if (_motionInitialized && reduceMotion == _reduceMotion) {
+      return;
+    }
+    _reduceMotion = reduceMotion;
+    _motionInitialized = true;
+    if (_reduceMotion) {
+      _ctrl.value = 1;
+    } else {
+      _ctrl.forward(from: 0);
+    }
   }
 
   void _handleStatus(AnimationStatus status) {
     if (status == AnimationStatus.completed) {
+      widget.onCompleted?.call();
+    }
+  }
+
+  void _completeWithoutMotion({bool notifyIfAlreadyComplete = false}) {
+    final wasComplete = _ctrl.value == 1;
+    _ctrl.value = 1;
+    if (wasComplete && notifyIfAlreadyComplete) {
       widget.onCompleted?.call();
     }
   }
@@ -71,16 +100,25 @@ class _StrokeCanvasState extends State<StrokeCanvas>
       // Controller wiederverwenden (nur Dauer anpassen), statt einen neuen zu
       // erzeugen — SingleTickerProviderStateMixin erlaubt nur einen Ticker.
       _ctrl.duration = widget.perStroke * widget.strokes.length;
-      _ctrl
-        ..reset()
-        ..forward();
+      if (_reduceMotion) {
+        _completeWithoutMotion(notifyIfAlreadyComplete: true);
+      } else {
+        _ctrl
+          ..reset()
+          ..forward();
+      }
     }
   }
 
   void _restart() {
     HapticFeedback.selectionClick();
-    _ctrl.reset();
-    _ctrl.forward();
+    if (_reduceMotion) {
+      _completeWithoutMotion(notifyIfAlreadyComplete: true);
+    } else {
+      _ctrl
+        ..reset()
+        ..forward();
+    }
   }
 
   @override
@@ -91,24 +129,30 @@ class _StrokeCanvasState extends State<StrokeCanvas>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _restart,
-      child: AnimatedBuilder(
-        animation: _ctrl,
-        builder: (_, __) {
-          return CustomPaint(
-            size: Size(widget.size, widget.size),
-            painter: _Painter(
-              strokes: widget.strokes,
-              progress: _ctrl.value,
-              color: widget.color,
-              showNumbers: widget.showNumbers,
-              letter: widget.letter,
-              source: strokeCanvas,
-              highlightIndex: widget.highlightIndex,
-            ),
-          );
-        },
+    return Semantics(
+      button: true,
+      label: widget.semanticsLabel ?? widget.letter,
+      hint: widget.semanticsHint,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: _restart,
+        child: AnimatedBuilder(
+          animation: _ctrl,
+          builder: (_, __) {
+            return CustomPaint(
+              size: Size(widget.size, widget.size),
+              painter: _Painter(
+                strokes: widget.strokes,
+                progress: _ctrl.value,
+                color: widget.color,
+                showNumbers: widget.showNumbers,
+                letter: widget.letter,
+                source: strokeCanvas,
+                highlightIndex: widget.highlightIndex,
+              ),
+            );
+          },
+        ),
       ),
     );
   }

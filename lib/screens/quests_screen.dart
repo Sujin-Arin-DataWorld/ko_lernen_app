@@ -14,6 +14,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/decoration_layer.dart' show kAvailableDecorations;
 import '../widgets/sori/reward_thumb.dart';
@@ -153,7 +154,7 @@ class _QuestsScreenState extends State<QuestsScreen>
       target: def.target,
     ).context;
 
-    final openGift = await showDialog<bool>(
+    final openGift = await showSoriDialog<bool>(
       context: context,
       barrierDismissible: false,
       builder: (ctx) => _QuestCompletionCelebration(
@@ -583,7 +584,7 @@ class _QuestCompletionCelebrationState
       color: SoriColors.success,
     );
 
-    return Dialog(
+    return SoriDialogFrame(
       backgroundColor: s.surface,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(SoriRadius.lg),

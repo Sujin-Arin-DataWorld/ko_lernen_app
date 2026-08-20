@@ -244,6 +244,38 @@ void main() {
     );
   });
 
+  testWidgets('Kkeunmari pauses its turn countdown in the background', (
+    tester,
+  ) async {
+    await _setLargeView(tester);
+    await tester.pumpWidget(_wrap(const KkeunmariScreen()));
+    await _pumpUntil(tester, find.byType(TextField));
+
+    final timerText = find.byWidgetPredicate(
+      (widget) =>
+          widget is Text && RegExp(r'^\d+s$').hasMatch(widget.data ?? ''),
+    );
+    int remaining() =>
+        int.parse(tester.widget<Text>(timerText).data!.replaceFirst('s', ''));
+
+    final before = remaining();
+    await tester.pump(const Duration(seconds: 2));
+    expect(remaining(), before - 2);
+
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.paused);
+    final pausedAt = remaining();
+    await tester.pump(const Duration(seconds: 5));
+    expect(remaining(), pausedAt);
+
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.hidden);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.inactive);
+    tester.binding.handleAppLifecycleStateChanged(AppLifecycleState.resumed);
+    await tester.pump(const Duration(seconds: 1));
+    expect(remaining(), pausedAt - 1);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+  });
+
   testWidgets('grammar finish requires a meaningful study interaction', (
     tester,
   ) async {

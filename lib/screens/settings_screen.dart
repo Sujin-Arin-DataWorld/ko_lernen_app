@@ -5,11 +5,13 @@ import 'package:flutter/foundation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../widgets/sori/button.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/window_class.dart';
@@ -308,6 +310,59 @@ class SubscriptionManagementLauncher {
 
 enum SettingsInitialFocus { account, accountDeletion }
 
+abstract interface class NotificationSettingsOperations {
+  Future<bool> requestPermission();
+
+  Future<void> enable({
+    required int hour,
+    required String title,
+    required String body,
+    required String streakTitle,
+    required String streakBody,
+  });
+
+  Future<void> disable();
+}
+
+class ProductionNotificationSettingsOperations
+    implements NotificationSettingsOperations {
+  const ProductionNotificationSettingsOperations();
+
+  @override
+  Future<bool> requestPermission() => NotificationService.requestPermission();
+
+  @override
+  Future<void> enable({
+    required int hour,
+    required String title,
+    required String body,
+    required String streakTitle,
+    required String streakBody,
+  }) async {
+    await NotificationService.scheduleDaily(
+      hour: hour,
+      minute: 0,
+      title: title,
+      body: body,
+    );
+    await NotificationService.scheduleStreakSaver(
+      hour: 21,
+      minute: 0,
+      title: streakTitle,
+      body: streakBody,
+    );
+    // FCM is optional. A failed cloud registration must not undo local
+    // reminder permission or scheduling.
+    await pushService.enable();
+  }
+
+  @override
+  Future<void> disable() async {
+    await NotificationService.cancelAll();
+    await pushService.disable();
+  }
+}
+
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({
     super.key,
@@ -320,6 +375,7 @@ class SettingsScreen extends StatefulWidget {
     this.resetAllData,
     this.appVersionReader,
     this.initialFocus,
+    this.notificationOperations,
   });
 
   final AuthAccountSnapshot? account;
@@ -332,6 +388,7 @@ class SettingsScreen extends StatefulWidget {
   final Future<void> Function()? resetAllData;
   final AppVersionReader? appVersionReader;
   final SettingsInitialFocus? initialFocus;
+  final NotificationSettingsOperations? notificationOperations;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
@@ -367,6 +424,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         launchExternal: (uri) =>
             launchUrl(uri, mode: LaunchMode.externalApplication),
       );
+
+  NotificationSettingsOperations get _notificationOperations =>
+      widget.notificationOperations ??
+      const ProductionNotificationSettingsOperations();
 
   @override
   void initState() {
@@ -432,10 +493,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<bool> _confirmPronunciationConsent() async {
     final t = AppL10n.of(context);
-    return await showDialog<bool>(
+    return await showSoriDialog<bool>(
           context: context,
           barrierDismissible: false,
-          builder: (dialogContext) => AlertDialog(
+          builder: (dialogContext) => SoriDialog(
             title: Text(t.pronunciationConsentTitle),
             content: Text(t.pronunciationConsentBody),
             actions: [
@@ -484,35 +545,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _onToggleNotif(bool v) async {
     final t = AppL10n.of(context);
-    final messenger = ScaffoldMessenger.of(context);
     await Storage.setNotificationsEnabled(v);
     if (v) {
-      final granted = await NotificationService.requestPermission();
+      final granted = await _notificationOperations.requestPermission();
       if (granted) {
-        await NotificationService.scheduleDaily(
+        await _notificationOperations.enable(
           hour: Storage.notificationHour,
-          minute: 0,
           title: t.notificationTitle,
           body: t.notificationBody,
+          streakTitle: t.notifStreakSaverTitle,
+          streakBody: t.notifStreakSaverBody,
         );
-        // 늦은 저녁 스트릭 보호 알림 (별도 채널 · 강한 retention 넛지)
-        await NotificationService.scheduleStreakSaver(
-          hour: 21,
-          minute: 0,
-          title: t.notifStreakSaverTitle,
-          body: t.notifStreakSaverBody,
-        );
-        // FCM is optional. A failed cloud registration must not undo local
-        // reminder permission or scheduling.
-        await pushService.enable();
       } else {
         await Storage.setNotificationsEnabled(false);
-        await pushService.disable();
-        messenger.showSnackBar(SnackBar(content: Text(t.settingsNotifDenied)));
+        await _notificationOperations.disable();
+        if (!mounted) return;
+        soriToast(context, t.settingsNotifDenied);
       }
     } else {
-      await NotificationService.cancelAll();
-      await pushService.disable();
+      await _notificationOperations.disable();
     }
     if (mounted) {
       setState(() {});
@@ -1145,36 +1196,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
   /// CC BY-SA 2.0 KR 라이선스 준수 — NIKL 우리말샘 등 데이터 출처 표시.
   void _showDataSources() {
     final t = AppL10n.of(context);
-    showModalBottomSheet<void>(
+    showSoriSheet<void>(
       context: context,
-      isScrollControlled: true,
-      // edge-to-edge: 상단 시스템바를 피해서 연다 (잘림 방어).
-      useSafeArea: true,
-      backgroundColor: Theme.of(context).colorScheme.surface,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-      ),
+      showHandle: true,
+      scrollable: false,
+      maxHeightFactor: 0.92,
       builder: (ctx) => DraggableScrollableSheet(
         expand: false,
         initialChildSize: 0.7,
         maxChildSize: 0.92,
         builder: (_, scroll) => ListView(
           controller: scroll,
-          padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
+          padding: const EdgeInsets.only(bottom: Spacing.sm),
           children: [
-            Center(
-              child: Container(
-                width: 36,
-                height: 4,
-                margin: const EdgeInsets.only(bottom: 18),
-                decoration: BoxDecoration(
-                  color: Theme.of(
-                    ctx,
-                  ).colorScheme.outline.withValues(alpha: 0.4),
-                  borderRadius: BorderRadius.circular(2),
-                ),
-              ),
-            ),
             Text(t.settingsDataSourcesTitle, style: SoriTextTheme.of(ctx).h2),
             const SizedBox(height: 6),
             Text(
@@ -1319,9 +1353,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       CompanionPreference.magpie,
       CompanionPreference.none,
     ];
-    final picked = await showDialog<CompanionPreference>(
+    final picked = await showSoriDialog<CompanionPreference>(
       context: context,
-      builder: (ctx) => SimpleDialog(
+      builder: (ctx) => SoriSimpleDialog(
         title: Text(t.characterSelectionTitle),
         children: [
           for (final option in options)
@@ -1394,9 +1428,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
       LearnerLevel.c2 => t.onboardingLevelC2,
     };
 
-    showDialog(
+    showSoriDialog<void>(
       context: context,
-      builder: (ctx) => AlertDialog(
+      builder: (ctx) => SoriDialog(
         backgroundColor: SoriSurfaces.of(context).surface,
         title: Text(t.settingsUserLevel),
         content: RadioGroup<LearnerLevel>(
@@ -1440,21 +1474,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _onBackupTap() async {
     final t = AppL10n.of(context);
-    final messenger = ScaffoldMessenger.of(context);
     try {
       final result = await CloudSync.backupWithResult();
       if (!mounted) return;
       if (result != CloudWriteResult.completed) {
-        messenger.showSnackBar(
-          SnackBar(content: Text(t.accountOperationRetryBody)),
-        );
+        soriToast(context, t.accountOperationRetryBody);
         return;
       }
-      messenger.showSnackBar(
-        SnackBar(
-          content: Text(t.settingsCloudBackupSuccess),
-          duration: const Duration(seconds: 2),
-        ),
+      soriNotice(
+        context,
+        t.settingsCloudBackupSuccess,
+        duration: const Duration(seconds: 2),
       );
       await _loadLastBackupAt();
     } catch (_) {
@@ -1465,7 +1495,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _onRestoreTap() async {
     final t = AppL10n.of(context);
-    final messenger = ScaffoldMessenger.of(context);
     try {
       final result = await CloudSync.restoreWithResult();
       if (!mounted) return;
@@ -1475,7 +1504,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
         CloudRestoreResult.blocked ||
         CloudRestoreResult.stale => t.accountOperationRetryBody,
       };
-      messenger.showSnackBar(SnackBar(content: Text(message)));
+      if (result == CloudRestoreResult.blocked ||
+          result == CloudRestoreResult.stale) {
+        soriToast(context, message);
+      } else {
+        soriNotice(context, message);
+      }
       setState(() {});
     } catch (_) {
       if (!mounted) return;
@@ -1485,29 +1519,23 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _onDeleteCloudData() async {
     final t = AppL10n.of(context);
-    final messenger = ScaffoldMessenger.of(context);
     try {
       final result =
           await (widget.cloudDataDeletion ?? AuthService.deleteCloudData)();
       if (!mounted) return;
       if (result != CloudWriteResult.completed) {
-        messenger.showSnackBar(
-          SnackBar(content: Text(t.settingsCloudDeleteDataFailed)),
-        );
+        soriToast(context, t.settingsCloudDeleteDataFailed);
         return;
       }
       HapticFeedback.heavyImpact();
-      messenger.showSnackBar(
-        SnackBar(
-          content: Text(t.settingsCloudDeleteDataSuccess),
-          duration: const Duration(seconds: 2),
-        ),
+      soriNotice(
+        context,
+        t.settingsCloudDeleteDataSuccess,
+        duration: const Duration(seconds: 2),
       );
     } catch (_) {
       if (!mounted) return;
-      messenger.showSnackBar(
-        SnackBar(content: Text(t.settingsCloudDeleteDataFailed)),
-      );
+      soriToast(context, t.settingsCloudDeleteDataFailed);
     }
   }
 
@@ -1521,7 +1549,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _runAccountDeletion(Future<void> Function() operation) async {
     final t = AppL10n.of(context);
-    final messenger = ScaffoldMessenger.of(context);
     final rootNav = Navigator.of(context);
     try {
       await operation();
@@ -1529,11 +1556,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         return;
       }
       HapticFeedback.heavyImpact();
-      messenger.showSnackBar(
-        SnackBar(
-          content: Text(t.settingsAccountDeleteSuccess),
-          duration: const Duration(seconds: 3),
-        ),
+      soriNotice(
+        context,
+        t.settingsAccountDeleteSuccess,
+        duration: const Duration(seconds: 3),
       );
       rootNav.pushNamedAndRemoveUntil('/intro', (route) => false);
     } on AccountDeletionFailure catch (failure) {
@@ -1577,24 +1603,21 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _openSubscriptionManagement() async {
     final t = AppL10n.of(context);
-    final messenger = ScaffoldMessenger.of(context);
     try {
       await _subscriptionManager.open();
     } catch (_) {
       if (!mounted) {
         return;
       }
-      messenger.showSnackBar(
-        SnackBar(content: Text(t.settingsManageSubscriptionFailed)),
-      );
+      soriToast(context, t.settingsManageSubscriptionFailed);
     }
   }
 
   void _showOfflineDialog({required Future<void> Function() retry}) {
     final t = AppL10n.of(context);
-    showDialog<void>(
+    showSoriDialog<void>(
       context: context,
-      builder: (ctx) => Dialog(
+      builder: (ctx) => SoriDialogFrame(
         backgroundColor: Theme.of(ctx).scaffoldBackgroundColor,
         insetPadding: const EdgeInsets.all(Spacing.xl),
         shape: RoundedRectangleBorder(borderRadius: SoriRadius.brLg),
@@ -1658,25 +1681,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
     final t = AppL10n.of(context);
     final nav = Navigator.of(context);
-    final messenger = ScaffoldMessenger.of(context);
     HapticFeedback.lightImpact();
+    soriNotice(
+      context,
+      t.settingsTutorialResetDone,
+      duration: const Duration(seconds: 2),
+    );
     // 홈으로 돌아가 즉시 안내 투어를 다시 띄운다(재시작 불필요).
     nav.popUntil((r) => r.isFirst);
     AppShell.replayHomeTour.value++;
-    messenger.showSnackBar(
-      SnackBar(
-        content: Text(t.settingsTutorialResetDone),
-        behavior: SnackBarBehavior.floating,
-        duration: const Duration(seconds: 2),
-      ),
-    );
   }
 
   void _confirmReset() {
     final t = AppL10n.of(context);
-    showDialog(
+    showSoriDialog<void>(
       context: context,
-      builder: (ctx) => AlertDialog(
+      builder: (ctx) => SoriDialog(
         backgroundColor: SoriSurfaces.of(context).surface,
         title: Text(t.settingsReset),
         content: Text(t.settingsResetConfirm),
@@ -1690,7 +1710,6 @@ class _SettingsScreenState extends State<SettingsScreen> {
             onPressed: () async {
               final dialogNav = Navigator.of(ctx);
               final rootNav = Navigator.of(context);
-              final messenger = ScaffoldMessenger.of(context);
               try {
                 await (widget.resetAllData?.call() ?? Storage.resetAll());
                 await WordImageService.deleteAll();
@@ -1702,9 +1721,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 HapticFeedback.heavyImpact();
                 if (_cloudDataDeletionJournalState.value !=
                     CloudBackupDeletionJournalState.clear) {
-                  messenger.showSnackBar(
-                    SnackBar(content: Text(t.settingsResetDoneJournalKept)),
-                  );
+                  soriNotice(context, t.settingsResetDoneJournalKept);
                 }
               } on CloudBackupDeletionResetBlockedException {
                 if (!mounted) return;
@@ -1712,9 +1729,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   dialogNav.pop();
                 }
                 if (!mounted) return;
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(t.accountOperationRetryBody)),
-                );
+                soriToast(context, t.accountOperationRetryBody);
               }
             },
             child: Text(t.btnConfirm),
@@ -1783,9 +1798,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
     Future<void> Function()? onSecondaryAction,
   }) {
     final t = AppL10n.of(context);
-    showDialog<void>(
+    showSoriDialog<void>(
       context: context,
-      builder: (ctx) => AlertDialog(
+      builder: (ctx) => SoriDialog(
         backgroundColor: SoriSurfaces.of(context).surface,
         title: Text(title),
         content: Column(
@@ -1902,9 +1917,7 @@ class _DataSourceCard extends StatelessWidget {
     await Clipboard.setData(ClipboardData(text: url));
     HapticFeedback.selectionClick();
     if (!context.mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(url), duration: const Duration(seconds: 2)),
-    );
+    soriNotice(context, url, duration: const Duration(seconds: 2));
   }
 
   @override

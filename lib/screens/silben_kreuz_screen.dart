@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -61,6 +62,8 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   SilbenWord? _activeWord;
   bool _solved = false;
   int _wrongTick = 0;
+  (int, int)? _wrongCell;
+  Timer? _wrongFeedbackTimer;
 
   // ── 첫 방문 코치마크 (chosung_quiz_screen 과 동일 패턴) ──
   final GlobalKey _gridKey = GlobalKey();
@@ -235,7 +238,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     }
     final p = _puzzle!;
     if (p.pool[i] == _solution[sel]) {
+      _wrongFeedbackTimer?.cancel();
       setState(() {
+        _wrongCell = null;
         _locked.add(sel);
         _tileUsed[i] = true;
         // 풀던 단어 안에서 다음 빈 칸으로. 그 단어를 다 채웠을 때만 격자 전체의
@@ -260,11 +265,24 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       }
     } else {
       HapticFeedback.mediumImpact();
+      _wrongFeedbackTimer?.cancel();
       setState(() {
         _selected = sel;
+        _wrongCell = sel;
         _wrongTick++;
       });
+      _wrongFeedbackTimer = Timer(const Duration(milliseconds: 600), () {
+        if (mounted && _wrongCell == sel) {
+          setState(() => _wrongCell = null);
+        }
+      });
     }
+  }
+
+  @override
+  void dispose() {
+    _wrongFeedbackTimer?.cancel();
+    super.dispose();
   }
 
   void _onSolved() {
@@ -352,36 +370,44 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         for (final l in _levels)
           if ((_byLevel[l] ?? const []).isNotEmpty)
             Expanded(
-              child: GestureDetector(
-                onTap: () => _openLevel(l),
-                child: Container(
-                  key: ValueKey('silben-level-$l'),
-                  margin: const EdgeInsets.symmetric(horizontal: 3),
-                  padding: const EdgeInsets.symmetric(vertical: 8),
-                  decoration: BoxDecoration(
-                    color: l == _level
-                        ? SoriColors.accent.withValues(alpha: 0.16)
-                        : s.surfaceAlt,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: l == _level ? SoriColors.accent : s.border,
-                      width: l == _level ? 1.5 : 1,
+              child: Semantics(
+                button: true,
+                selected: l == _level,
+                label: l,
+                value: '${_solvedCount(l)}/${(_byLevel[l] ?? const []).length}',
+                excludeSemantics: true,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => _openLevel(l),
+                  child: Container(
+                    key: ValueKey('silben-level-$l'),
+                    margin: const EdgeInsets.symmetric(horizontal: 3),
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    decoration: BoxDecoration(
+                      color: l == _level
+                          ? SoriColors.accent.withValues(alpha: 0.16)
+                          : s.surfaceAlt,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: l == _level ? SoriColors.accent : s.border,
+                        width: l == _level ? 1.5 : 1,
+                      ),
                     ),
-                  ),
-                  child: Column(
-                    children: [
-                      Text(
-                        l,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: l == _level ? SoriColors.accent : s.text,
+                    child: Column(
+                      children: [
+                        Text(
+                          l,
+                          style: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: l == _level ? SoriColors.accent : s.text,
+                          ),
                         ),
-                      ),
-                      Text(
-                        '${_solvedCount(l)}/${(_byLevel[l] ?? const []).length}',
-                        style: TextStyle(fontSize: 11, color: s.textMuted),
-                      ),
-                    ],
+                        Text(
+                          '${_solvedCount(l)}/${(_byLevel[l] ?? const []).length}',
+                          style: TextStyle(fontSize: 11, color: s.textMuted),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -431,9 +457,11 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     }
     final locked = _locked.contains(cell);
     final selected = _selected == cell;
+    final wrong = _wrongCell == cell;
+    final reduceMotion = SoriMotion.reduceMotion(context);
 
     Widget box = AnimatedContainer(
-      duration: SoriMotion.fast,
+      duration: SoriMotion.respect(context, SoriMotion.fast),
       width: size,
       height: size,
       alignment: Alignment.center,
@@ -462,10 +490,12 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 color: SoriColors.success,
               ),
             )
+          : wrong
+          ? const Icon(Icons.close_rounded, color: SoriColors.danger, size: 24)
           : null,
     );
 
-    if (selected && !locked) {
+    if (selected && wrong && !reduceMotion) {
       // 오답 흔들림 — _wrongTick 이 바뀔 때마다 좌우 스냅.
       box = TweenAnimationBuilder<double>(
         key: ValueKey(_wrongTick),
@@ -478,7 +508,19 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         child: box,
       );
     }
-    return GestureDetector(onTap: () => _onCellTap(cell), child: box);
+    return Semantics(
+      button: true,
+      enabled: !locked,
+      selected: selected,
+      label: locked ? syllable : '${cell.$1 + 1}, ${cell.$2 + 1}',
+      value: wrong ? AppL10n.of(context).statsWrong : null,
+      excludeSemantics: true,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: locked ? null : () => _onCellTap(cell),
+        child: box,
+      ),
+    );
   }
 
   Widget _tilePool(SilbenPuzzle p, SoriSurfaces s) {
@@ -490,25 +532,32 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       children: [
         for (var i = 0; i < p.pool.length; i++)
           AnimatedOpacity(
-            duration: SoriMotion.fast,
+            duration: SoriMotion.respect(context, SoriMotion.fast),
             opacity: _tileUsed[i] ? 0.18 : 1,
-            child: GestureDetector(
-              onTap: () => _onTileTap(i),
-              child: Container(
-                width: 46,
-                height: 46,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: s.surface,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: s.border),
-                ),
-                child: Text(
-                  p.pool[i],
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
+            child: Semantics(
+              button: true,
+              enabled: !_tileUsed[i],
+              label: p.pool[i],
+              excludeSemantics: true,
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: _tileUsed[i] ? null : () => _onTileTap(i),
+                child: Container(
+                  width: 46,
+                  height: 46,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: s.surface,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: s.border),
+                  ),
+                  child: Text(
+                    p.pool[i],
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                      color: s.text,
+                    ),
                   ),
                 ),
               ),
@@ -536,49 +585,52 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
 
   Widget _clueRow(SilbenWord w, SoriSurfaces s) {
     final done = _spoken.contains(w.answer);
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: () => _onClueTap(w),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(
-            w.isHorizontal
-                ? Icons.arrow_forward_rounded
-                : Icons.arrow_downward_rounded,
-            size: 16,
-            color: done ? SoriColors.success : SoriColors.accent,
-          ),
-          const SizedBox(width: Spacing.sm),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  done ? '${w.answer} · ${w.german}' : w.german,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 15,
-                    color: done ? SoriColors.success : s.text,
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  w.exampleDe,
-                  style: TextStyle(fontSize: 12.5, color: s.textMuted),
-                ),
-                Text(
-                  w.exampleKo,
-                  style: TextStyle(
-                    fontSize: 12.5,
-                    color: s.textMuted,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
+    return Semantics(
+      button: true,
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () => _onClueTap(w),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(
+              w.isHorizontal
+                  ? Icons.arrow_forward_rounded
+                  : Icons.arrow_downward_rounded,
+              size: 16,
+              color: done ? SoriColors.success : SoriColors.accent,
             ),
-          ),
-        ],
+            const SizedBox(width: Spacing.sm),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    done ? '${w.answer} · ${w.german}' : w.german,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 15,
+                      color: done ? SoriColors.success : s.text,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    w.exampleDe,
+                    style: TextStyle(fontSize: 12.5, color: s.textMuted),
+                  ),
+                  Text(
+                    w.exampleKo,
+                    style: TextStyle(
+                      fontSize: 12.5,
+                      color: s.textMuted,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

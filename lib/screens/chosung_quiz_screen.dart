@@ -88,7 +88,7 @@ class ChosungQuizScreen extends StatefulWidget {
 }
 
 class _ChosungQuizScreenState extends State<ChosungQuizScreen>
-    with ScreenCoachMixin<ChosungQuizScreen> {
+    with ScreenCoachMixin<ChosungQuizScreen>, WidgetsBindingObserver {
   static const int _roundSize = 10;
 
   // ── 코치마크 타겟 ──
@@ -143,6 +143,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   int _combo = 0; // 연속 정답 (도파민 루프)
   final List<int> _roundDurationsMs = [];
   DateTime? _questionStart;
+  DateTime? _lifecyclePauseStarted;
   bool _roundComplete = false;
   int _roundXp = 0;
   bool _roundNewBest = false;
@@ -155,6 +156,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _level = learnerLevelDisplayForStoredCode(Storage.userLevelCode);
     _load();
     scheduleCoach();
@@ -163,6 +165,28 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       questType: 'chosung',
       lastStepReached: () => 'question_$_idx',
     );
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        final pausedAt = _lifecyclePauseStarted;
+        final questionStart = _questionStart;
+        if (pausedAt != null && questionStart != null) {
+          final now = DateTime.now();
+          final overlapStart = pausedAt.isAfter(questionStart)
+              ? pausedAt
+              : questionStart;
+          _questionStart = questionStart.add(now.difference(overlapStart));
+        }
+        _lifecyclePauseStarted = null;
+      case AppLifecycleState.inactive:
+      case AppLifecycleState.hidden:
+      case AppLifecycleState.paused:
+      case AppLifecycleState.detached:
+        _lifecyclePauseStarted ??= DateTime.now();
+    }
   }
 
   Future<void> _load() async {
@@ -387,6 +411,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _abandonTracker.dispose();
     _ctrl.dispose();
     _focusNode.dispose();

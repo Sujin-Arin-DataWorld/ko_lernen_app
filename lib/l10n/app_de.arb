@@ -19,6 +19,7 @@
   "paywallSuccess": "Premium ist aktiv. Viel Spaß!",
   "paywallFailed": "Kauf nicht abgeschlossen.",
   "paywallRestoreNone": "Keine früheren Käufe gefunden.",
+  "paywallRestoreFailed": "Käufe konnten nicht wiederhergestellt werden. Versuche es erneut.",
   "streakDisplay": "{days, plural, one{1 Tag} other{{days} Tage}}",
   "@streakDisplay": {
     "placeholders": {

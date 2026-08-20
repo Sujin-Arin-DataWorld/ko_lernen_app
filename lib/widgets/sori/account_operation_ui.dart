@@ -10,6 +10,7 @@ import '../../services/account/account_transition_coordinator.dart';
 import '../../services/account/account_ui_operations.dart';
 import '../../services/account/cloud_backup_deletion.dart';
 import '../../services/cloud_sync.dart';
+import 'dialog.dart';
 import 'tokens.dart';
 
 class AccountNewLinkGuard extends StatefulWidget {
@@ -290,9 +291,9 @@ Future<void> runConfirmedAccountLink(
   Future<void> Function()? onCompleted,
 }) async {
   final t = AppL10n.of(context);
-  final confirmed = await showDialog<bool>(
+  final confirmed = await showSoriDialog<bool>(
     context: context,
-    builder: (dialogContext) => AlertDialog(
+    builder: (dialogContext) => SoriDialog(
       title: Text(t.accountSafeConnectTitle),
       content: Text(t.accountSafeConnectExplain),
       actions: [
@@ -403,9 +404,9 @@ Future<void> _showLinkProblem(
   Future<void> Function()? retry,
 }) {
   final t = AppL10n.of(context);
-  return showDialog<void>(
+  return showSoriDialog<void>(
     context: context,
-    builder: (dialogContext) => AlertDialog(
+    builder: (dialogContext) => SoriDialog(
       title: Text(title),
       content: Text(body),
       actions: [
@@ -509,9 +510,9 @@ Future<void> _showLockedAction(
   required Future<void> Function() action,
 }) {
   final t = AppL10n.of(context);
-  return showDialog<void>(
+  return showSoriDialog<void>(
     context: context,
-    builder: (dialogContext) => AlertDialog(
+    builder: (dialogContext) => SoriDialog(
       title: Text(title),
       content: Text(body),
       actions: [
@@ -546,9 +547,9 @@ Future<void> showSafeAccountFailure(
     AccountFailureReason.serverBusy => t.accountFailureReasonServer,
     AccountFailureReason.unknown || null => null,
   };
-  return showDialog<void>(
+  return showSoriDialog<void>(
     context: context,
-    builder: (dialogContext) => AlertDialog(
+    builder: (dialogContext) => SoriDialog(
       title: Text(
         deletion ? t.accountDeletionPendingTitle : t.accountOperationRetryTitle,
       ),
@@ -639,9 +640,9 @@ Future<void> _showResume(
   Future<void> Function()? onCompleted,
 }) {
   final t = AppL10n.of(context);
-  return showDialog<void>(
+  return showSoriDialog<void>(
     context: context,
-    builder: (dialogContext) => AlertDialog(
+    builder: (dialogContext) => SoriDialog(
       title: Text(t.accountOperationResumeTitle),
       content: Text(t.accountOperationResumeBody),
       actions: [
@@ -711,9 +712,9 @@ Future<void> _showBlocked(
   AccountUiOperations operations,
 ) {
   final t = AppL10n.of(context);
-  return showDialog<void>(
+  return showSoriDialog<void>(
     context: context,
-    builder: (dialogContext) => AlertDialog(
+    builder: (dialogContext) => SoriDialog(
       title: Text(t.accountOperationBlockedTitle),
       content: Text(
         '${t.accountOperationBlockedBody}\n\n${t.accountOperationSupportBody}',
@@ -736,10 +737,10 @@ Future<void> _showBlocked(
 }
 
 void _showProgress(BuildContext context, String label) {
-  showDialog<void>(
+  showSoriDialog<void>(
     context: context,
     barrierDismissible: false,
-    builder: (_) => Dialog(
+    builder: (_) => SoriDialogFrame(
       child: Padding(
         padding: const EdgeInsets.all(Spacing.xl),
         child: Row(

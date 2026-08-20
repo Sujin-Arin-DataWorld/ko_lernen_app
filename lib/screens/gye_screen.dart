@@ -20,6 +20,7 @@ import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/dure_board.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/gye_dedication_action.dart';
 import '../widgets/sori/gye_feed.dart';
@@ -31,6 +32,7 @@ import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/sticker_picker.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -184,9 +186,7 @@ class _GyeScreenState extends State<GyeScreen>
     final destination = resolution.destination;
     if (destination == null) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppL10n.of(context).gyeTodayUnavailable)),
-        );
+        soriNotice(context, AppL10n.of(context).gyeTodayUnavailable);
       }
       return;
     }
@@ -652,9 +652,9 @@ Future<void> confirmLeaveGye(
   Future<void> Function(String gyeId) leave = GyeService.leaveGye,
 }) async {
   final t = AppL10n.of(context);
-  final ok = await showDialog<bool>(
+  final ok = await showSoriDialog<bool>(
     context: context,
-    builder: (dctx) => AlertDialog(
+    builder: (dctx) => SoriDialog(
       content: Text(t.gyeLeaveConfirm),
       actions: [
         TextButton(
@@ -676,15 +676,11 @@ Future<void> confirmLeaveGye(
       }
     } on GyeException catch (error) {
       if (context.mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(gyeErrorMessage(t, error.error))),
-        );
+        soriToast(context, gyeErrorMessage(t, error.error));
       }
     } catch (_) {
       if (context.mounted) {
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(SnackBar(content: Text(t.gyeErrNetwork)));
+        soriToast(context, t.gyeErrNetwork);
       }
     }
   }
@@ -702,9 +698,7 @@ void _openGyeStickerPicker(BuildContext context, String gyeId) {
         Navigator.of(sheetCtx).pop();
         final ok = await GyeService.sendSticker(gyeId: gyeId, code: code);
         if (!ok && context.mounted) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(t.gyeStickerRateLimited)));
+          soriToast(context, t.gyeStickerRateLimited);
         }
       },
     ),
@@ -731,9 +725,7 @@ void _openReactionPicker(
           code: code,
         );
         if (!ok && context.mounted) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(t.gyeStickerRateLimited)));
+          soriToast(context, t.gyeStickerRateLimited);
         }
       },
     ),
@@ -860,9 +852,9 @@ Future<void> _showPromiseIntention(BuildContext context, GyeMeta meta) {
     GyeWeeklyPromises.selfIntroduction => t.gyePromiseSelfIntroductionTitle,
     _ => t.gyeWeeklyTitle,
   };
-  return showDialog<void>(
+  return showSoriDialog<void>(
     context: context,
-    builder: (dialogContext) => AlertDialog(
+    builder: (dialogContext) => SoriDialog(
       title: Text(title),
       content: Text('${t.gyePromiseBody}\n\n${t.gyePromisePrivacyRule}'),
       actions: [

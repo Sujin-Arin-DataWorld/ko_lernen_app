@@ -9,6 +9,7 @@ import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/shared_pack_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/page_header.dart';
@@ -16,6 +17,7 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -95,19 +97,16 @@ class _BookshelfScreenState extends State<BookshelfScreen>
 
   /// 코드 입력 다이얼로그 → 성공 시 로컬 import + 새로고침.
   Future<void> _openRedeem() async {
-    final imported = await showDialog<CustomPack>(
+    final imported = await showSoriDialog<CustomPack>(
       context: context,
       builder: (_) => const _RedeemDialog(),
     );
     if (imported == null || !mounted) return;
     _reload();
     final t = AppL10n.of(context);
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          t.redeemSuccess(imported.displayName(), imported.totalWords),
-        ),
-      ),
+    soriNotice(
+      context,
+      t.redeemSuccess(imported.displayName(), imported.totalWords),
     );
   }
 
@@ -115,9 +114,9 @@ class _BookshelfScreenState extends State<BookshelfScreen>
   Future<void> _createWordbook() async {
     final t = AppL10n.of(context);
     final controller = TextEditingController();
-    final name = await showDialog<String>(
+    final name = await showSoriDialog<String>(
       context: context,
-      builder: (ctx) => AlertDialog(
+      builder: (ctx) => SoriDialog(
         title: Text(t.createWordbookTitle),
         content: TextField(
           controller: controller,
@@ -468,9 +467,9 @@ class _CustomPackTile extends StatelessWidget {
 
   Future<void> _confirmDelete(BuildContext context) async {
     final t = AppL10n.of(context);
-    final ok = await showDialog<bool>(
+    final ok = await showSoriDialog<bool>(
       context: context,
-      builder: (ctx) => AlertDialog(
+      builder: (ctx) => SoriDialog(
         title: Text(t.bookshelfDeletePackTitle),
         content: Text(t.bookshelfDeletePackBody(pack.displayName())),
         actions: [
@@ -633,11 +632,10 @@ class _SharePackSheetState extends State<_SharePackSheet> {
                   variant: SoriButtonVariant.ghost,
                   accent: SoriColors.primary,
                   onTap: () async {
-                    final messenger = ScaffoldMessenger.of(context);
                     await Clipboard.setData(ClipboardData(text: code));
-                    messenger.showSnackBar(
-                      SnackBar(content: Text(t.shareCodeCopied)),
-                    );
+                    if (context.mounted) {
+                      soriNotice(context, t.shareCodeCopied);
+                    }
                   },
                 ),
               ),
@@ -748,7 +746,7 @@ class _RedeemDialogState extends State<_RedeemDialog> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return AlertDialog(
+    return SoriDialog(
       title: Text(t.redeemTitle),
       content: Column(
         mainAxisSize: MainAxisSize.min,
