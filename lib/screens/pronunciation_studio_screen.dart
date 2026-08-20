@@ -18,10 +18,10 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/window_class.dart';
 
 class PronunciationStudioScreen extends StatefulWidget {
   const PronunciationStudioScreen({
@@ -314,152 +314,150 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final phrase = _currentPhrase;
-    final Widget body;
-    if (_loading) {
-      body = AppLoading(message: t.pronunciationPhrasesLoading);
-    } else if (_loadFailed) {
-      body = SoriScreenBackground(
-        child: SoriEmptyState(
-          asset: 'assets/illustrations/mascot/magpie_encourage.png',
-          icon: Icons.volume_off_rounded,
-          title: t.pronunciationPhrasesUnavailableTitle,
-          body: t.pronunciationPhrasesUnavailableBody,
-          ctaLabel: t.btnRetry,
-          onCta: _retryPhraseLoad,
-          accent: SoriActivityColors.speaking,
-        ),
-      );
-    } else if (phrase == null) {
-      body = SoriScreenBackground(
-        child: SoriEmptyState(
-          asset: 'assets/illustrations/mascot/magpie_encourage.png',
-          icon: Icons.record_voice_over_outlined,
-          title: t.pronunciationPhrasesEmptyTitle,
-          body: t.pronunciationPhrasesEmptyBody,
-          ctaLabel: t.btnRetry,
-          onCta: _retryPhraseLoad,
-          accent: SoriActivityColors.speaking,
-        ),
-      );
-    } else {
-      final surfaces = SoriSurfaces.of(context);
-      body = SoriScreenBackground(
-        child: SoriContentClamp(
-          maxWidth: 760,
-          base: const EdgeInsets.all(Spacing.lg),
-          builder: (context, padding) => ListView(
+    return SoriStandardFrame(
+      appBarTitle: t.pronunciationTitle,
+      actions: const [TtsSpeedAction()],
+      maxWidth: SoriMaxWidth.prose,
+      padding: const EdgeInsets.all(Spacing.lg),
+      builder: (context, padding) {
+        if (_loading) {
+          return Padding(
             padding: padding,
-            children: [
-              Text(
-                t.pronunciationEyebrow,
-                style: const TextStyle(
-                  color: SoriColors.accent,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 1.1,
-                ),
+            child: AppLoading(message: t.pronunciationPhrasesLoading),
+          );
+        }
+        if (_loadFailed) {
+          return Padding(
+            padding: padding,
+            child: SoriEmptyState(
+              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              icon: Icons.volume_off_rounded,
+              title: t.pronunciationPhrasesUnavailableTitle,
+              body: t.pronunciationPhrasesUnavailableBody,
+              ctaLabel: t.btnRetry,
+              onCta: _retryPhraseLoad,
+              accent: SoriActivityColors.speaking,
+            ),
+          );
+        }
+        if (phrase == null) {
+          return Padding(
+            padding: padding,
+            child: SoriEmptyState(
+              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              icon: Icons.record_voice_over_outlined,
+              title: t.pronunciationPhrasesEmptyTitle,
+              body: t.pronunciationPhrasesEmptyBody,
+              ctaLabel: t.btnRetry,
+              onCta: _retryPhraseLoad,
+              accent: SoriActivityColors.speaking,
+            ),
+          );
+        }
+
+        final surfaces = SoriSurfaces.of(context);
+        return ListView(
+          padding: padding,
+          children: [
+            Text(
+              t.pronunciationEyebrow,
+              style: const TextStyle(
+                color: SoriColors.accent,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 1.1,
               ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                t.pronunciationIntro,
-                style: const TextStyle(fontSize: 18, height: 1.4),
-              ),
-              const SizedBox(height: Spacing.xl),
-              SoriCard(
-                variant: SoriCardVariant.hero,
-                accent: SoriActivityColors.speaking,
-                tinted: true,
-                child: Column(
-                  children: [
-                    const Mascot.tiger(size: 132),
-                    const SizedBox(height: Spacing.md),
-                    Semantics(
-                      label: phrase.ko,
-                      child: Text(
-                        phrase.ko,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 36,
-                          height: 1.2,
-                          fontWeight: FontWeight.w700,
-                        ),
+            ),
+            const SizedBox(height: Spacing.sm),
+            Text(
+              t.pronunciationIntro,
+              style: const TextStyle(fontSize: 18, height: 1.4),
+            ),
+            const SizedBox(height: Spacing.xl),
+            SoriCard(
+              variant: SoriCardVariant.hero,
+              accent: SoriActivityColors.speaking,
+              tinted: true,
+              child: Column(
+                children: [
+                  const Mascot.tiger(size: 132),
+                  const SizedBox(height: Spacing.md),
+                  Semantics(
+                    label: phrase.ko,
+                    child: Text(
+                      phrase.ko,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 36,
+                        height: 1.2,
+                        fontWeight: FontWeight.w700,
                       ),
                     ),
-                    const SizedBox(height: Spacing.xl),
-                    Wrap(
-                      spacing: Spacing.sm,
-                      runSpacing: Spacing.sm,
-                      alignment: WrapAlignment.center,
-                      children: [
-                        SoriButton.outlined(
-                          label: t.pronunciationListen,
-                          icon: Icons.volume_up_rounded,
-                          onTap: _recording || _assessing
-                              ? null
-                              : () => TtsService.speakSlow(phrase.ko),
-                        ),
-                        SoriButton.filled(
-                          label: _recording
-                              ? t.pronunciationStop
-                              : (_assessing
-                                    ? t.pronunciationRecording
-                                    : t.pronunciationRecord),
-                          icon: _recording
-                              ? Icons.stop_circle_outlined
-                              : Icons.mic_rounded,
-                          accent: SoriActivityColors.speaking,
-                          onTap: _assessing
-                              ? null
-                              : (_recording
-                                    ? _finishRecording
-                                    : _startRecording),
-                        ),
-                      ],
-                    ),
-                    if (_recording) ...[
-                      const SizedBox(height: Spacing.md),
-                      LinearProgressIndicator(
-                        color: SoriActivityColors.speaking,
-                        backgroundColor: surfaces.surfaceAlt,
-                      ),
-                      const SizedBox(height: Spacing.xs),
-                      Text(t.pronunciationRecording),
-                    ],
-                  ],
-                ),
-              ),
-              if (_notice != null) ...[
-                const SizedBox(height: Spacing.lg),
-                Semantics(
-                  liveRegion: true,
-                  child: SoriCard(
-                    accent: SoriActivityColors.listening,
-                    tinted: true,
-                    child: Text(_notice!, style: const TextStyle(height: 1.4)),
                   ),
-                ),
-              ],
-              if (_result case final result?) ...[
-                const SizedBox(height: Spacing.lg),
-                _ScorePanel(result: result),
-              ],
+                  const SizedBox(height: Spacing.xl),
+                  Wrap(
+                    spacing: Spacing.sm,
+                    runSpacing: Spacing.sm,
+                    alignment: WrapAlignment.center,
+                    children: [
+                      SoriButton.outlined(
+                        label: t.pronunciationListen,
+                        icon: Icons.volume_up_rounded,
+                        onTap: _recording || _assessing
+                            ? null
+                            : () => TtsService.speakSlow(phrase.ko),
+                      ),
+                      SoriButton.filled(
+                        label: _recording
+                            ? t.pronunciationStop
+                            : (_assessing
+                                  ? t.pronunciationRecording
+                                  : t.pronunciationRecord),
+                        icon: _recording
+                            ? Icons.stop_circle_outlined
+                            : Icons.mic_rounded,
+                        accent: SoriActivityColors.speaking,
+                        onTap: _assessing
+                            ? null
+                            : (_recording ? _finishRecording : _startRecording),
+                      ),
+                    ],
+                  ),
+                  if (_recording) ...[
+                    const SizedBox(height: Spacing.md),
+                    LinearProgressIndicator(
+                      color: SoriActivityColors.speaking,
+                      backgroundColor: surfaces.surfaceAlt,
+                    ),
+                    const SizedBox(height: Spacing.xs),
+                    Text(t.pronunciationRecording),
+                  ],
+                ],
+              ),
+            ),
+            if (_notice != null) ...[
               const SizedBox(height: Spacing.lg),
-              SoriButton.ghost(
-                label: t.pronunciationContinueWithoutScore,
-                onTap: _recording || _assessing ? null : _nextPhrase,
-                fullWidth: true,
+              Semantics(
+                liveRegion: true,
+                child: SoriCard(
+                  accent: SoriActivityColors.listening,
+                  tinted: true,
+                  child: Text(_notice!, style: const TextStyle(height: 1.4)),
+                ),
               ),
             ],
-          ),
-        ),
-      );
-    }
-
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(t.pronunciationTitle),
-        actions: const [TtsSpeedAction()],
-      ),
-      body: body,
+            if (_result case final result?) ...[
+              const SizedBox(height: Spacing.lg),
+              _ScorePanel(result: result),
+            ],
+            const SizedBox(height: Spacing.lg),
+            SoriButton.ghost(
+              label: t.pronunciationContinueWithoutScore,
+              onTap: _recording || _assessing ? null : _nextPhrase,
+              fullWidth: true,
+            ),
+          ],
+        );
+      },
     );
   }
 }
