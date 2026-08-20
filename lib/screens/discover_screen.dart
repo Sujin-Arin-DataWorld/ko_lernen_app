@@ -265,12 +265,7 @@ class _DiscoverPriorityRoute extends StatelessWidget {
             children: [
               Text(title, style: SoriTextTheme.of(context).cardTitle),
               const SizedBox(height: 2),
-              Text(
-                subtitle,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: SoriTextTheme.of(context).caption,
-              ),
+              Text(subtitle, style: SoriTextTheme.of(context).caption),
             ],
           ),
         ),

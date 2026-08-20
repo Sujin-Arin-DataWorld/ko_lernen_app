@@ -1843,8 +1843,6 @@ class _Section extends StatelessWidget {
           Flexible(
             child: Text(
               label.toUpperCase(),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
               style: SoriTextTheme.of(context).cardSubtitle.copyWith(
                 fontWeight: FontWeight.w800,
                 letterSpacing: 0.8,
@@ -1985,8 +1983,7 @@ class _DataSourceCard extends StatelessWidget {
                         fontSize: 11,
                         color: onSurface.withValues(alpha: 0.55),
                       ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                      softWrap: true,
                     ),
                   ),
                   const Icon(Icons.copy_rounded, size: 14),

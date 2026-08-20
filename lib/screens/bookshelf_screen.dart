@@ -317,8 +317,6 @@ class _PageTile extends StatelessWidget {
                   children: [
                     Text(
                       preview.isEmpty ? '(leer)' : preview,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
@@ -378,56 +376,90 @@ class _CustomPackTile extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(SoriRadius.md),
           ),
-          child: Row(
-            children: [
-              Icon(Icons.style_outlined, color: SoriColors.primary),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final stackActions =
+                  MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
+                  constraints.maxWidth < SoriAdaptiveWidth.labelValueRow;
+              final identity = Row(
+                children: [
+                  Icon(Icons.style_outlined, color: SoriColors.primary),
+                  const SizedBox(width: Spacing.md),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          pack.displayName(),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w800,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          t.bookshelfPackMeta(pack.totalWords),
+                          style: TextStyle(fontSize: 11, color: s.textMuted),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+              final actions = <Widget>[
+                SoriButton(
+                  label: t.btnPlay,
+                  variant: SoriButtonVariant.ghost,
+                  size: SoriButtonSize.sm,
+                  accent: SoriColors.primary,
+                  onTap: onTap,
+                ),
+                IconButton(
+                  icon: Icon(Icons.edit_outlined, color: SoriColors.primary),
+                  tooltip: t.wbEditTooltip,
+                  visualDensity: VisualDensity.compact,
+                  onPressed: onEdit,
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.ios_share_rounded,
+                    color: SoriColors.primary,
+                  ),
+                  tooltip: t.shareTooltip,
+                  visualDensity: VisualDensity.compact,
+                  onPressed: onShare,
+                ),
+                IconButton(
+                  icon: Icon(Icons.delete_outline, color: s.textDim),
+                  tooltip: t.btnDelete,
+                  visualDensity: VisualDensity.compact,
+                  onPressed: () => _confirmDelete(context),
+                ),
+              ];
+              if (stackActions) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
-                      pack.displayName(),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w800,
-                        fontSize: 14,
+                    identity,
+                    const SizedBox(height: Spacing.sm),
+                    Align(
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: Wrap(
+                        spacing: Spacing.xs,
+                        runSpacing: Spacing.xs,
+                        alignment: WrapAlignment.end,
+                        children: actions,
                       ),
                     ),
-                    Text(
-                      t.bookshelfPackMeta(pack.totalWords),
-                      style: TextStyle(fontSize: 11, color: s.textMuted),
-                    ),
                   ],
-                ),
-              ),
-              SoriButton(
-                label: t.btnPlay,
-                variant: SoriButtonVariant.ghost,
-                size: SoriButtonSize.sm,
-                accent: SoriColors.primary,
-                onTap: onTap,
-              ),
-              IconButton(
-                icon: Icon(Icons.edit_outlined, color: SoriColors.primary),
-                tooltip: t.wbEditTooltip,
-                visualDensity: VisualDensity.compact,
-                onPressed: onEdit,
-              ),
-              IconButton(
-                icon: Icon(Icons.ios_share_rounded, color: SoriColors.primary),
-                tooltip: t.shareTooltip,
-                visualDensity: VisualDensity.compact,
-                onPressed: onShare,
-              ),
-              IconButton(
-                icon: Icon(Icons.delete_outline, color: s.textDim),
-                tooltip: t.btnDelete,
-                visualDensity: VisualDensity.compact,
-                onPressed: () => _confirmDelete(context),
-              ),
-            ],
+                );
+              }
+              return Row(
+                children: [
+                  Expanded(child: identity),
+                  ...actions,
+                ],
+              );
+            },
           ),
         ),
       ),
@@ -648,8 +680,7 @@ class _SharePackSheetState extends State<_SharePackSheet> {
         const SizedBox(height: 2),
         Text(
           widget.pack.displayName(),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: SoriFonts.sans,
             fontSize: 12.5,

@@ -1117,16 +1117,12 @@ class _GrammarScreenState extends State<GrammarScreen>
       child: DropdownButton<String>(
         value: value,
         isExpanded: true,
+        itemHeight: null,
         underline: const SizedBox.shrink(),
         dropdownColor: s.surface,
         hint: Text(label, style: TextStyle(color: s.textMuted)),
         items: items
-            .map(
-              (item) => DropdownMenuItem(
-                value: item,
-                child: Text(item, overflow: TextOverflow.ellipsis),
-              ),
-            )
+            .map((item) => DropdownMenuItem(value: item, child: Text(item)))
             .toList(),
         onChanged: onChanged,
       ),

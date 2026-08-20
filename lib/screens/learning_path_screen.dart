@@ -639,11 +639,28 @@ class _CourseMissionNode extends StatelessWidget {
       _MissionPathStatus.preview => t.pathNextAfterEvidence,
       _MissionPathStatus.bypassed => canDo,
     };
+    final stackStatus = MediaQuery.textScalerOf(context).scale(1) >= 1.6;
+    final details = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(unit.title.pick(lang), style: SoriTextTheme.of(context).label),
+        const SizedBox(height: 2),
+        Text(body, style: SoriTextTheme.of(context).bodySmall),
+        if (stackStatus) ...[
+          const SizedBox(height: Spacing.sm),
+          Text(
+            statusText,
+            style: SoriTextTheme.of(context).caption.copyWith(color: color),
+          ),
+        ],
+      ],
+    );
     return SoriCard(
       variant: SoriCardVariant.compact,
       accent: color,
       onTap: onTap,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _MissionStatusBadge(
             order: unit.order,
@@ -653,35 +670,18 @@ class _CourseMissionNode extends StatelessWidget {
             semanticLabel: statusText,
           ),
           const SizedBox(width: Spacing.md),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  unit.title.pick(lang),
-                  style: SoriTextTheme.of(context).label,
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  body,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: SoriTextTheme.of(context).bodySmall,
-                ),
-              ],
+          Expanded(child: details),
+          if (!stackStatus) ...[
+            const SizedBox(width: Spacing.sm),
+            ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 96),
+              child: Text(
+                statusText,
+                textAlign: TextAlign.end,
+                style: SoriTextTheme.of(context).caption.copyWith(color: color),
+              ),
             ),
-          ),
-          const SizedBox(width: Spacing.sm),
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 72),
-            child: Text(
-              statusText,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.end,
-              style: SoriTextTheme.of(context).caption.copyWith(color: color),
-            ),
-          ),
+          ],
         ],
       ),
     );

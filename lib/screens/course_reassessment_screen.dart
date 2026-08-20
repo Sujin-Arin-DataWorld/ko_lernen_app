@@ -1028,6 +1028,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
             key: ValueKey('course-reassessment-source-$slotId'),
             initialValue: _slotSourceIds[slotId],
             isExpanded: true,
+            itemHeight: null,
             decoration: InputDecoration(
               labelText: t.courseReassessmentSourceForPoint,
               border: const OutlineInputBorder(),
@@ -1040,10 +1041,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
               )
                 DropdownMenuItem(
                   value: sources[sourceIndex].id,
-                  child: Text(
-                    t.courseReassessmentSource(sourceIndex + 1),
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  child: Text(t.courseReassessmentSource(sourceIndex + 1)),
                 ),
             ],
             onChanged: _submitting

@@ -338,8 +338,6 @@ class _WordWebScreenState extends State<WordWebScreen>
                     cluster.related.length,
                     cluster.expressions.length,
                   ),
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                   style: SoriTextTheme.of(context).cardSubtitle,
                 ),
               ],
