@@ -265,7 +265,7 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
         appBar: SoriAppBar(title: t.vocabPackRecallTitle),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+            asset: 'assets/illustrations/mascot/tiger_sit.png',
             icon: Icons.keyboard_alt_outlined,
             title: t.vocabPackRecallTitle,
             body: t.vocabPackRecallNoBossWords,

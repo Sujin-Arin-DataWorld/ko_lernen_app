@@ -1,5 +1,23 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-20 (Codex) — Mascot `tiger_sit` asset wiring
+
+**What and why.** Replaced every static `tiger_sitting2.png` reference with
+the user-supplied `assets/illustrations/mascot/tiger_sit.png`, including the
+shared `Mascot` fallback, empty/error states, custom-pack screens, notebook
+screens, and the layout golden fixture. The separate `tiger_sitting2.mp4`
+profile clip remains unchanged: no replacement video was provided.
+
+**Verification.** `dart analyze` on all 15 changed Dart files passed with no
+issues; `git diff --check` passed; no static `tiger_sitting2.png` reference
+remains in `lib/` or `test/`; and `tiger_sit.png` is present. Targeted
+`flutter test test/character_clip_test.dart` could not build because this
+worktree's base `pubspec.yaml` references the absent
+`assets/fonts/Pretendard/PretendardStd-Regular.otf`; that pre-existing asset
+bundle mismatch is unrelated to this change.
+
+**Commit.** Not created (not requested).
+
 ### 2026-08-19 (Cursor) — main 내부배포 게이트: FFmpeg apt hang 을 잘라 Analyze 를 살린다
 
 **무엇을 왜.** Jin 이 #93 은 다른 세션이 머지하고, 안 들어오면 최신

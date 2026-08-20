@@ -91,10 +91,9 @@ class Mascot extends StatefulWidget {
 // TickerProviderStateMixin (nicht Single): _motion kann beim Umschalten von
 // widget.animate (true→false→true) mehrfach neu erstellt werden.
 class _MascotState extends State<Mascot> with TickerProviderStateMixin {
-  // Jin 2026-08-06: 호랑이는 감정·프레임 구분 없이 tiger_sitting2 정지 한 장으로
+  // Jin 2026-08-20: 호랑이는 감정·프레임 구분 없이 tiger_sit 정지 한 장으로
   // 통일(옛 tiger_* 포즈 PNG 전량 폐지). 까치는 기존 포즈 시스템 유지.
-  static const _tigerSitting2 =
-      'assets/illustrations/mascot/tiger_sitting2.png';
+  static const _tigerSit = 'assets/illustrations/mascot/tiger_sit.png';
 
   static const _magpieWingUp = 'assets/illustrations/mascot/magpie_wingup.png';
   static const _magpieWingDown =
@@ -200,8 +199,8 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
       }
     }
 
-    // 호랑이는 감정·애니메이션 무관 정지 한 장(Jin 2026-08-06).
-    return _tigerSitting2;
+    // 호랑이는 감정·애니메이션 무관 정지 한 장(Jin 2026-08-20).
+    return _tigerSit;
   }
 
   String get _semanticsLabel {

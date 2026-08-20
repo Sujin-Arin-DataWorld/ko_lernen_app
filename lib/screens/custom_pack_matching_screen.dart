@@ -29,11 +29,7 @@ import '../widgets/sori/tts_speed_control.dart';
 class CustomPackMatchingScreen extends StatefulWidget {
   final String packId;
   final List<ExtractedWord>? words;
-  const CustomPackMatchingScreen({
-    super.key,
-    required this.packId,
-    this.words,
-  });
+  const CustomPackMatchingScreen({super.key, required this.packId, this.words});
 
   @override
   State<CustomPackMatchingScreen> createState() =>
@@ -214,7 +210,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         appBar: AppBar(title: Text(t.wbMatching)),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+            asset: 'assets/illustrations/mascot/tiger_sit.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,

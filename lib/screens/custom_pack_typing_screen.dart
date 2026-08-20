@@ -29,11 +29,7 @@ import '../widgets/sori/tts_speed_control.dart';
 class CustomPackTypingScreen extends StatefulWidget {
   final String packId;
   final List<ExtractedWord>? words;
-  const CustomPackTypingScreen({
-    super.key,
-    required this.packId,
-    this.words,
-  });
+  const CustomPackTypingScreen({super.key, required this.packId, this.words});
 
   @override
   State<CustomPackTypingScreen> createState() => _CustomPackTypingScreenState();
@@ -174,7 +170,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
         appBar: AppBar(title: Text(t.wbTyping)),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+            asset: 'assets/illustrations/mascot/tiger_sit.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,

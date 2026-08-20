@@ -23,10 +23,9 @@ class VocabNotebookPracticeScreen extends StatefulWidget {
 class _VocabNotebookPracticeScreenState
     extends State<VocabNotebookPracticeScreen> {
   Future<void> _open(String route, {Object? arguments}) async {
-    await Navigator.of(context).pushNamed(
-      route,
-      arguments: arguments ?? widget.packId,
-    );
+    await Navigator.of(
+      context,
+    ).pushNamed(route, arguments: arguments ?? widget.packId);
     if (mounted) {
       setState(() {});
     }
@@ -41,7 +40,7 @@ class _VocabNotebookPracticeScreenState
         appBar: SoriAppBar(title: t.vocabNotebookTitle),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+            asset: 'assets/illustrations/mascot/tiger_sit.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,

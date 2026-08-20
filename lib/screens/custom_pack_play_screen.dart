@@ -211,7 +211,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
         appBar: AppBar(title: Text(t.customPackPlayTitle)),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+            asset: 'assets/illustrations/mascot/tiger_sit.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,

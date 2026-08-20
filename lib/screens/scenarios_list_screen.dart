@@ -197,7 +197,8 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
 
             // Per-Level Sections
             for (final level in LearnerLevel.values.where(
-              (candidate) => _all.any((scenario) => scenario.level == candidate),
+              (candidate) =>
+                  _all.any((scenario) => scenario.level == candidate),
             )) ...[
               _LevelSection(
                 level: level,
@@ -608,7 +609,8 @@ class _LessonPathHeader extends StatelessWidget {
             runSpacing: Spacing.xs,
             children: [
               for (final lvl in LearnerLevel.values.where(
-                (candidate) => all.any((scenario) => scenario.level == candidate),
+                (candidate) =>
+                    all.any((scenario) => scenario.level == candidate),
               ))
                 _LevelProgressChip(
                   level: lvl,
@@ -853,7 +855,7 @@ class _EmptyLevelCard extends StatelessWidget {
             width: 56,
             height: 56,
             child: Image.asset(
-              'assets/illustrations/mascot/tiger_sitting2.png',
+              'assets/illustrations/mascot/tiger_sit.png',
               fit: BoxFit.contain,
               filterQuality: FilterQuality.medium,
               errorBuilder: (_, __, ___) => Container(

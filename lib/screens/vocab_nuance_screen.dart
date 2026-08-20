@@ -17,11 +17,7 @@ import '../widgets/sori/tokens.dart';
 /// Playful comparison of synonyms, register, and Hanja roots using only
 /// the words already in the learner's notebook pack.
 class VocabNuanceScreen extends StatefulWidget {
-  const VocabNuanceScreen({
-    super.key,
-    required this.packId,
-    this.words,
-  });
+  const VocabNuanceScreen({super.key, required this.packId, this.words});
 
   final String packId;
   final List<ExtractedWord>? words;
@@ -112,7 +108,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
         appBar: SoriAppBar(title: t.vocabNotebookNuanceTitle),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+            asset: 'assets/illustrations/mascot/tiger_sit.png',
             icon: Icons.help_outline,
             title: t.customPackNotFoundTitle,
             body: t.customPackNotFoundBody,
@@ -125,7 +121,7 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
         appBar: SoriAppBar(title: t.vocabNotebookNuanceTitle),
         body: Center(
           child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+            asset: 'assets/illustrations/mascot/tiger_sit.png',
             icon: Icons.compare_arrows_rounded,
             title: t.vocabNotebookNuanceEmptyTitle,
             body: t.vocabNotebookNuanceEmptyBody,
