@@ -71,72 +71,95 @@ class SoriStatsTopBar extends StatelessWidget {
             final double reserve = onProfileTap != null ? _kProfileReserve : 0;
             final bool showWordmarkText = w >= _kWordmarkTextMinWidth + reserve;
             final bool showLevelChip = w >= _kLevelChipMinWidth + reserve;
-            return Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    'assets/icons/icon-192.png',
-                    width: 36,
-                    height: 36,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(width: Spacing.sm),
-                Expanded(
-                  child: showWordmarkText
-                      ? Text(
-                          'Hangul Sori',
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontFamily: SoriFonts.sans,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w900,
-                            color: s.text,
-                            letterSpacing: -0.3,
-                          ),
-                        )
-                      : const SizedBox.shrink(),
-                ),
-                // §6.1 블록 1: 스탯을 헤더 칩 1줄로 — 🔥는 아이콘으로만(이모지
-                // 글리프 금지). 스트릭 칩 탭 = 주간 시트, 레벨 칩 탭 = /stats.
-                _HeaderChip(
-                  icon: Icons.local_fire_department_rounded,
-                  color: SoriColors.warning,
-                  label: '$streak',
-                  semanticLabel: '$streak ${t.statsDays}',
-                  onTap: onStreakTap,
-                ),
-                const SizedBox(width: Spacing.sm),
-                if (showLevelChip) ...[
-                  _HeaderChip(
-                    icon: Icons.stars_rounded,
-                    color: SoriColors.primary,
-                    label: 'Lv $level',
-                    semanticLabel: 'Lv $level · $xp XP',
-                    onTap: onStatsTap,
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                ],
-                if (onProfileTap != null)
-                  Tooltip(
+            final textScale = MediaQuery.textScalerOf(context).scale(1);
+            final stacked = !showLevelChip || textScale > 1.3;
+
+            final logo = ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.asset(
+                'assets/icons/icon-192.png',
+                width: 36,
+                height: 36,
+                fit: BoxFit.cover,
+              ),
+            );
+            final wordmark = Text(
+              'Hangul Sori',
+              style: TextStyle(
+                fontFamily: SoriFonts.sans,
+                fontSize: 16,
+                fontWeight: FontWeight.w900,
+                color: s.text,
+                letterSpacing: -0.3,
+              ),
+            );
+            final streakChip = _HeaderChip(
+              icon: Icons.local_fire_department_rounded,
+              color: SoriColors.warning,
+              label: '$streak',
+              semanticLabel: '$streak ${t.statsDays}',
+              onTap: onStreakTap,
+            );
+            final levelChip = _HeaderChip(
+              icon: Icons.stars_rounded,
+              color: SoriColors.primary,
+              label: 'Lv $level',
+              semanticLabel: 'Lv $level · $xp XP',
+              onTap: onStatsTap,
+            );
+            final profileButton = onProfileTap == null
+                ? null
+                : Tooltip(
                     message: profileTooltip ?? '',
                     child: _RoundIconButton(
                       icon: Icons.person_outline_rounded,
                       semanticLabel: profileTooltip,
                       onTap: onProfileTap!,
                     ),
+                  );
+            final settingsButton = _RoundIconButton(
+              icon: Icons.settings_outlined,
+              semanticLabel: t.settingsTitle,
+              onTap: () => Navigator.pushNamed(context, '/settings'),
+            );
+
+            if (stacked) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    children: [
+                      logo,
+                      const SizedBox(width: Spacing.sm),
+                      Expanded(child: wordmark),
+                      if (profileButton != null) profileButton,
+                      settingsButton,
+                    ],
                   ),
-                // 2026-07-31: 아이콘 4개 → 1개.
-                // 학습그룹·프로필은 하단 탭에 이미 있어 중복 진입점이었고
-                // (SC 3.2.3), 통계는 프로필 안에서 갈 수 있다. 설정만 남긴다 —
-                // 하단 탭에 없는 유일한 목적지.
-                _RoundIconButton(
-                  icon: Icons.settings_outlined,
-                  semanticLabel: t.settingsTitle,
-                  onTap: () => Navigator.pushNamed(context, '/settings'),
+                  const SizedBox(height: Spacing.xs),
+                  Wrap(
+                    alignment: WrapAlignment.end,
+                    spacing: Spacing.sm,
+                    children: [streakChip, levelChip],
+                  ),
+                ],
+              );
+            }
+
+            return Row(
+              children: [
+                logo,
+                const SizedBox(width: Spacing.sm),
+                Expanded(
+                  child: showWordmarkText ? wordmark : const SizedBox.shrink(),
                 ),
+                // §6.1 블록 1: 스트릭 칩 탭 = 주간 시트, 레벨 칩 탭 = /stats.
+                streakChip,
+                const SizedBox(width: Spacing.sm),
+                levelChip,
+                const SizedBox(width: Spacing.sm),
+                if (profileButton != null) profileButton,
+                settingsButton,
               ],
             );
           },

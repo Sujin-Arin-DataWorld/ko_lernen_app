@@ -280,18 +280,17 @@ class WordRelationService {
       final mastery = snapshot ?? _snapshotFromStorage();
       CurriculumCatalog? catalog;
       try {
-        catalog = await (catalogLoader ??
-            catalogLoaderForTesting ??
-            CurriculumCatalog.load)();
+        catalog =
+            await (catalogLoader ??
+                catalogLoaderForTesting ??
+                CurriculumCatalog.load)();
       } catch (_) {
         catalog = null;
       }
       final loadedCatalog = catalog;
       final ids = courseVocabContentIds(
         snapshot: mastery,
-        linksForCompletedUnit: loadedCatalog == null
-            ? null
-            : loadedCatalog.linksForCourseUnit,
+        linksForCompletedUnit: loadedCatalog?.linksForCourseUnit,
         passThresholdForUnit: loadedCatalog == null
             ? null
             : (unitId) {
@@ -304,9 +303,10 @@ class WordRelationService {
       if (ids.isEmpty) {
         return learned;
       }
-      final rows = await (vocabLoader ??
-          vocabLoaderForTesting ??
-          DataLoader.loadVocab)();
+      final rows =
+          await (vocabLoader ??
+              vocabLoaderForTesting ??
+              DataLoader.loadVocab)();
       final byId = {for (final item in rows) item.id: item};
       return {
         ...learned,

@@ -14,9 +14,9 @@ import '../services/storage_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/course_mission_brief.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 import 'first_voice_success_screen.dart';
 
 /// The course-first entry point. Legacy libraries remain available, but every
@@ -163,18 +163,21 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     if (widget.previewBrief case final preview?) {
-      return _buildBriefScaffold(t, preview, widget.previewOpenLink!);
+      return _buildBriefFrame(t, preview, widget.previewOpenLink!);
     }
     if (_loading) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.courseMissionTitle)),
-        body: const AppLoading(),
+      return SoriStandardFrame(
+        appBarTitle: t.courseMissionTitle,
+        maxWidth: SoriMaxWidth.prose,
+        builder: (context, resolvedPadding) => const AppLoading(),
       );
     }
     if (_error != null || _unit == null) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.courseMissionTitleShort)),
-        body: AppError(message: t.courseMissionLoadError, onRetry: _load),
+      return SoriStandardFrame(
+        appBarTitle: t.courseMissionTitleShort,
+        maxWidth: SoriMaxWidth.prose,
+        builder: (context, resolvedPadding) =>
+            AppError(message: t.courseMissionLoadError, onRetry: _load),
       );
     }
 
@@ -188,50 +191,44 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
       isCurrent: _isCurrent,
       snapshot: _snapshot ?? const CourseMasterySnapshot.empty(),
     );
-    return Scaffold(
-      appBar: AppBar(title: Text(t.courseMissionTitle)),
-      body: SoriScreenBackground(
-        child: RefreshIndicator(
-          onRefresh: _load,
-          child: ListView(
-            padding: soriClampPadding(
-              MediaQuery.sizeOf(context).width,
-              base: const EdgeInsets.fromLTRB(16, 12, 16, 48),
+    return SoriStandardFrame(
+      appBarTitle: t.courseMissionTitle,
+      maxWidth: SoriMaxWidth.prose,
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 48),
+      builder: (context, resolvedPadding) => RefreshIndicator(
+        onRefresh: _load,
+        child: ListView(
+          padding: resolvedPadding,
+          children: [
+            CourseMissionBriefView(
+              brief: brief,
+              openLink: _openLink,
+              onExplain: () => _showWhy(unit),
             ),
-            children: [
-              CourseMissionBriefView(
-                brief: brief,
-                openLink: _openLink,
-                onExplain: () => _showWhy(unit),
-              ),
-            ],
-          ),
+          ],
         ),
       ),
     );
   }
 
-  Widget _buildBriefScaffold(
+  Widget _buildBriefFrame(
     AppL10n t,
     CourseMissionBrief brief,
     CourseMissionBriefOpener openLink,
   ) {
-    return Scaffold(
-      appBar: AppBar(title: Text(t.courseMissionTitle)),
-      body: SoriScreenBackground(
-        child: ListView(
-          padding: soriClampPadding(
-            MediaQuery.sizeOf(context).width,
-            base: const EdgeInsets.fromLTRB(16, 12, 16, 48),
+    return SoriStandardFrame(
+      appBarTitle: t.courseMissionTitle,
+      maxWidth: SoriMaxWidth.prose,
+      padding: const EdgeInsets.fromLTRB(16, 12, 16, 48),
+      builder: (context, resolvedPadding) => ListView(
+        padding: resolvedPadding,
+        children: [
+          CourseMissionBriefView(
+            brief: brief,
+            openLink: openLink,
+            onExplain: () => _showWhy(brief.unit),
           ),
-          children: [
-            CourseMissionBriefView(
-              brief: brief,
-              openLink: openLink,
-              onExplain: () => _showWhy(brief.unit),
-            ),
-          ],
-        ),
+        ],
       ),
     );
   }

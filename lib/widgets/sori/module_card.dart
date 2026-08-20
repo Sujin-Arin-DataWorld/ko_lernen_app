@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import 'card.dart';
 import 'tokens.dart';
+import 'window_class.dart';
 
 /// **ModuleCard** — 모듈/게임 진입 미니 카드.
 ///
@@ -106,7 +107,11 @@ class ModuleCard extends StatelessWidget {
                     : t.moduleBadgeDue,
                 style: tt.label.copyWith(
                   fontSize: 11 * comfortScale,
-                  color: Colors.white,
+                  color: SoriColors.onFill(
+                    ribbonType == 'new'
+                        ? SoriColors.success
+                        : SoriColors.warning,
+                  ),
                   letterSpacing: -0.1,
                 ),
               ),
@@ -145,50 +150,69 @@ class FeaturedModuleCard extends StatelessWidget {
     final tt = SoriTextTheme.of(context);
     final t = AppL10n.of(context);
     final comfortScale = soriComfortScale(MediaQuery.sizeOf(context).width);
+    final iconBox = Container(
+      width: 52 * comfortScale,
+      height: 52 * comfortScale,
+      decoration: BoxDecoration(
+        color: accent.withValues(alpha: 0.16),
+        borderRadius: BorderRadius.circular(SoriRadius.md * comfortScale),
+      ),
+      alignment: Alignment.center,
+      child: Icon(icon, size: 28 * comfortScale, color: accent),
+    );
+    final copy = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(title, style: tt.h2),
+        if (subtitle != null) ...[
+          const SizedBox(height: Spacing.xs),
+          Text(subtitle!, style: tt.bodySmall),
+        ],
+      ],
+    );
     final card = SoriCard(
       variant: SoriCardVariant.hanji,
       accent: accent,
       onTap: onTap,
-      child: Row(
-        children: [
-          Container(
-            width: 52 * comfortScale,
-            height: 52 * comfortScale,
-            decoration: BoxDecoration(
-              color: accent.withValues(alpha: 0.16),
-              borderRadius: BorderRadius.circular(SoriRadius.md * comfortScale),
-            ),
-            alignment: Alignment.center,
-            child: Icon(icon, size: 28 * comfortScale, color: accent),
-          ),
-          SizedBox(width: Spacing.md * comfortScale),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
+          final stack =
+              constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
+              textScale >= 1.6;
+          if (stack) {
+            return Column(
               mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // 명조 h2 (에디토리얼 히어로 제목).
-                Text(
-                  title,
-                  style: tt.h2,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
+                iconBox,
+                SizedBox(height: Spacing.md * comfortScale),
+                copy,
+                const SizedBox(height: Spacing.sm),
+                Align(
+                  alignment: Alignment.centerRight,
+                  child: Icon(Icons.chevron_right_rounded, color: s.textDim),
                 ),
-                if (subtitle != null) ...[
-                  const SizedBox(height: 3),
-                  Text(
-                    subtitle!,
-                    style: tt.bodySmall,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
               ],
-            ),
-          ),
-          SizedBox(width: Spacing.sm * comfortScale),
-          Icon(Icons.chevron_right_rounded, color: s.textDim),
-        ],
+            );
+          }
+          final leadingCopy = Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              iconBox,
+              SizedBox(width: Spacing.md * comfortScale),
+              Expanded(child: copy),
+            ],
+          );
+          return Row(
+            children: [
+              Expanded(child: leadingCopy),
+              SizedBox(width: Spacing.sm * comfortScale),
+              Icon(Icons.chevron_right_rounded, color: s.textDim),
+            ],
+          );
+        },
       ),
     );
     if (ribbonType == null) return card;
@@ -213,7 +237,9 @@ class FeaturedModuleCard extends StatelessWidget {
               ribbonType == 'new' ? t.moduleBadgeNew : t.moduleBadgeDue,
               style: tt.label.copyWith(
                 fontSize: 11 * comfortScale,
-                color: Colors.white,
+                color: SoriColors.onFill(
+                  ribbonType == 'new' ? SoriColors.success : SoriColors.warning,
+                ),
                 letterSpacing: -0.1,
               ),
             ),

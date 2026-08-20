@@ -18,9 +18,9 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -29,11 +29,7 @@ import '../widgets/sori/tts_speed_control.dart';
 class CustomPackMatchingScreen extends StatefulWidget {
   final String packId;
   final List<ExtractedWord>? words;
-  const CustomPackMatchingScreen({
-    super.key,
-    required this.packId,
-    this.words,
-  });
+  const CustomPackMatchingScreen({super.key, required this.packId, this.words});
 
   @override
   State<CustomPackMatchingScreen> createState() =>
@@ -210,9 +206,9 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     final pack = _pack;
 
     if (pack == null) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.wbMatching)),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.wbMatching,
+        child: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.help_outline,
@@ -223,9 +219,9 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       );
     }
     if (_pool.length < 2) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.wbMatching)),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.wbMatching,
+        child: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/magpie_encourage.png',
             icon: Icons.grid_view_rounded,
@@ -238,87 +234,82 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
 
     final s = SoriSurfaces.of(context);
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.wbMatching,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
-        actions: const [TtsSpeedAction()],
+    return SoriStudyFrame(
+      title: t.wbMatching,
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        onPressed: () => Navigator.of(context).maybePop(),
       ),
-      body: SafeArea(
-        child: SoriStudyClamp(
-          child: _roundDone
-              ? _buildDone(t)
-              : Padding(
-                  padding: const EdgeInsets.all(Spacing.lg),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Text(
-                        t.wbMatchingHint,
-                        style: TextStyle(fontSize: 13, color: s.textMuted),
-                      ),
-                      const SizedBox(height: Spacing.md),
-                      Expanded(
-                        child: KeyedSubtree(
-                          key: _boardKey,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // 한국어 열
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    for (var i = 0; i < _leftKo.length; i++)
-                                      _Tile(
-                                        label: _leftKo[i],
-                                        matched: _matched.contains(_leftKo[i]),
-                                        selected: _selLeft == i,
-                                        accent: SoriColors.primary,
-                                        onTap: () => _tapLeft(i),
-                                      ),
-                                  ],
-                                ),
+      actions: const [TtsSpeedAction()],
+      padding: EdgeInsets.zero,
+      child: _roundDone
+          ? _buildDone(t)
+          : SoriAdaptiveStudyBody(
+              minHeight: 560,
+              child: Padding(
+                padding: const EdgeInsets.all(Spacing.lg),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(
+                      t.wbMatchingHint,
+                      style: TextStyle(fontSize: 13, color: s.textMuted),
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    Expanded(
+                      child: KeyedSubtree(
+                        key: _boardKey,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            // 한국어 열
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  for (var i = 0; i < _leftKo.length; i++)
+                                    _Tile(
+                                      label: _leftKo[i],
+                                      matched: _matched.contains(_leftKo[i]),
+                                      selected: _selLeft == i,
+                                      accent: SoriColors.primary,
+                                      onTap: () => _tapLeft(i),
+                                    ),
+                                ],
                               ),
-                              const SizedBox(width: Spacing.md),
-                              // 뜻 열
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    for (final de in _rightDe)
-                                      _Tile(
-                                        label: de,
-                                        matched: _matched.any(
-                                          (ko) =>
-                                              _round
-                                                  .firstWhere(
-                                                    (w) => w.korean == ko,
-                                                  )
-                                                  .translationDe
-                                                  .trim() ==
-                                              de,
-                                        ),
-                                        wrong: _wrongRight == de,
-                                        accent: SoriColors.accent,
-                                        onTap: () => _tapRight(de),
+                            ),
+                            const SizedBox(width: Spacing.md),
+                            // 뜻 열
+                            Expanded(
+                              child: Column(
+                                children: [
+                                  for (final de in _rightDe)
+                                    _Tile(
+                                      label: de,
+                                      matched: _matched.any(
+                                        (ko) =>
+                                            _round
+                                                .firstWhere(
+                                                  (w) => w.korean == ko,
+                                                )
+                                                .translationDe
+                                                .trim() ==
+                                            de,
                                       ),
-                                  ],
-                                ),
+                                      wrong: _wrongRight == de,
+                                      accent: SoriColors.accent,
+                                      onTap: () => _tapRight(de),
+                                    ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-        ),
-      ),
+              ),
+            ),
     );
   }
 

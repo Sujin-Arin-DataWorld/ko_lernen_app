@@ -651,18 +651,30 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
     final t = AppL10n.of(context);
     if (_loading) {
       return Scaffold(
-        appBar: SoriAppBar(title: t.courseReassessmentTitle),
+        appBar: SoriAppBar(
+          title: t.courseReassessmentTitle,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
+        ),
         body: AppLoading(message: t.courseReassessmentLoading),
       );
     }
     if (_loadError != null || _segment == null || _definition == null) {
       return Scaffold(
-        appBar: SoriAppBar(title: t.courseReassessmentTitle),
+        appBar: SoriAppBar(
+          title: t.courseReassessmentTitle,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
+        ),
         body: AppError(message: t.courseReassessmentLoadError, onRetry: _load),
       );
     }
     return Scaffold(
-      appBar: SoriAppBar(title: t.courseReassessmentTitle),
+      appBar: SoriAppBar(
+        title: t.courseReassessmentTitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
+      ),
       body: SoriScreenBackground(
         child: SoriContentClamp(
           maxWidth: 820,
@@ -1016,6 +1028,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
             key: ValueKey('course-reassessment-source-$slotId'),
             initialValue: _slotSourceIds[slotId],
             isExpanded: true,
+            itemHeight: null,
             decoration: InputDecoration(
               labelText: t.courseReassessmentSourceForPoint,
               border: const OutlineInputBorder(),
@@ -1028,10 +1041,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
               )
                 DropdownMenuItem(
                   value: sources[sourceIndex].id,
-                  child: Text(
-                    t.courseReassessmentSource(sourceIndex + 1),
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  child: Text(t.courseReassessmentSource(sourceIndex + 1)),
                 ),
             ],
             onChanged: _submitting

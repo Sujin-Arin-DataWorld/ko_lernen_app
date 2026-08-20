@@ -38,7 +38,7 @@ class VocabNotebookStudioScreen extends StatefulWidget {
 
   final String packId;
   final Future<CustomPackCorpusLoadResult> Function(CustomPack pack)?
-      corpusLoader;
+  corpusLoader;
 
   @override
   State<VocabNotebookStudioScreen> createState() =>
@@ -73,9 +73,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
   void initState() {
     super.initState();
     final pack = _pack;
-    _kept = <int>{
-      for (var i = 0; i < (pack?.words.length ?? 0); i++) i,
-    };
+    _kept = <int>{for (var i = 0; i < (pack?.words.length ?? 0); i++) i};
     _loadCorpus();
   }
 
@@ -117,9 +115,9 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
   }
 
   Future<void> _openPage(Widget page) async {
-    await Navigator.of(context).push<void>(
-      MaterialPageRoute<void>(builder: (_) => page),
-    );
+    await Navigator.of(
+      context,
+    ).push<void>(MaterialPageRoute<void>(builder: (_) => page));
     if (mounted) {
       setState(() {});
     }
@@ -141,7 +139,11 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
     final pack = _pack;
     if (pack == null) {
       return Scaffold(
-        appBar: SoriAppBar(title: t.vocabNotebookStudioTitle),
+        appBar: SoriAppBar(
+          title: t.vocabNotebookStudioTitle,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
+        ),
         body: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
@@ -167,7 +169,11 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
     final surfaces = SoriSurfaces.of(context);
 
     return Scaffold(
-      appBar: SoriAppBar(title: t.vocabNotebookStudioTitle),
+      appBar: SoriAppBar(
+        title: t.vocabNotebookStudioTitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
+      ),
       body: SafeArea(
         child: SoriCenterClamp(
           child: ListView(
@@ -186,9 +192,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                       onTap: () => setState(() {
                         _kept
                           ..clear()
-                          ..addAll(
-                            Iterable<int>.generate(pack.words.length),
-                          );
+                          ..addAll(Iterable<int>.generate(pack.words.length));
                       }),
                     ),
                   ),
@@ -267,10 +271,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                 onTap: selected.isEmpty
                     ? null
                     : () => _openPage(
-                        CustomPackPlayScreen(
-                          packId: pack.id,
-                          words: selected,
-                        ),
+                        CustomPackPlayScreen(packId: pack.id, words: selected),
                       ),
               ),
               const SizedBox(height: Spacing.sm),
@@ -308,10 +309,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                 onTap: selected.length < 4
                     ? null
                     : () => _openPage(
-                        CustomPackQuizScreen(
-                          packId: pack.id,
-                          words: selected,
-                        ),
+                        CustomPackQuizScreen(packId: pack.id, words: selected),
                       ),
               ),
               const SizedBox(height: Spacing.sm),
@@ -322,10 +320,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                 onTap: nuanceCount == 0
                     ? null
                     : () => _openPage(
-                        VocabNuanceScreen(
-                          packId: pack.id,
-                          words: selected,
-                        ),
+                        VocabNuanceScreen(packId: pack.id, words: selected),
                       ),
               ),
               const SizedBox(height: Spacing.sm),
@@ -352,9 +347,9 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
               const SizedBox(height: Spacing.xs),
               Text(
                 t.vocabNotebookStudioCorpusHint,
-                style: SoriTextTheme.of(context).caption.copyWith(
-                  color: surfaces.textMuted,
-                ),
+                style: SoriTextTheme.of(
+                  context,
+                ).caption.copyWith(color: surfaces.textMuted),
               ),
               const SizedBox(height: Spacing.sm),
               if (_loading)
@@ -366,9 +361,9 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                 if (_loadFailed) ...<Widget>[
                   Text(
                     t.vocabNotebookStudioLoadFailed,
-                    style: SoriTextTheme.of(context).body.copyWith(
-                      color: surfaces.textMuted,
-                    ),
+                    style: SoriTextTheme.of(
+                      context,
+                    ).body.copyWith(color: surfaces.textMuted),
                   ),
                   const SizedBox(height: Spacing.sm),
                   SoriButton.outlined(
@@ -452,9 +447,9 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                   const SizedBox(height: Spacing.md),
                   Text(
                     t.vocabNotebookStudioNoCorpus,
-                    style: SoriTextTheme.of(context).caption.copyWith(
-                      color: surfaces.textMuted,
-                    ),
+                    style: SoriTextTheme.of(
+                      context,
+                    ).caption.copyWith(color: surfaces.textMuted),
                   ),
                 ],
               ],

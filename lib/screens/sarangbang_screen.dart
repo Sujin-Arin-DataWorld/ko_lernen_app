@@ -16,6 +16,7 @@ import '../services/today_learning_navigation.dart';
 import '../services/today_learning_snapshot.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
@@ -25,6 +26,7 @@ import '../widgets/sori/personal_room_scene.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// The Sarangbang is a deliberate return space: it shows what has arrived in
 /// the room and how to arrange it. Home owns today's primary recommendation;
@@ -280,15 +282,12 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     final s = SoriSurfaces.of(context);
     return Scaffold(
       backgroundColor: s.bg,
-      appBar: AppBar(
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Flexible(child: Text(t.sarangbangStudyTitle)),
-            const CulturalHelpButton(termId: 'sarangbang'),
-          ],
-        ),
+      appBar: SoriAppBar(
+        title: t.sarangbangStudyTitle,
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
         actions: [
+          const CulturalHelpButton(termId: 'sarangbang'),
           IconButton(
             tooltip: t.hanokWorldTitle,
             icon: const Icon(Icons.account_balance_outlined),
@@ -311,7 +310,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                   // A room scene and the learning CTA share a tablet row.
                   // This is deliberately wider than the default reading clamp;
                   // the decision below still uses the *actual* post-rail width.
-                  maxWidth: 960,
+                  maxWidth: SoriMaxWidth.world,
                   base: const EdgeInsets.fromLTRB(
                     Spacing.lg,
                     Spacing.md,
@@ -516,12 +515,7 @@ class _SarangbangStudyScene extends StatelessWidget {
                               color: SoriColors.gold.withValues(alpha: .55),
                             ),
                           ),
-                          child: Text(
-                            value.trim(),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: text.label,
-                          ),
+                          child: Text(value.trim(), style: text.label),
                         ),
                       ),
                     ),
@@ -603,7 +597,7 @@ class _SarangbangFurnishCard extends StatelessWidget {
           SoriButton.outlined(
             key: const ValueKey('sarangbang-furnish-action'),
             label: t.sarangbangStudyFurnish,
-            accent: SoriColors.gold,
+            accent: SoriColors.goldOnLight,
             fullWidth: true,
             onTap: onFurnish,
           ),

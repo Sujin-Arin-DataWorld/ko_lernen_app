@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/section_header.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/mascot_preference.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/window_class.dart';
 import '../services/auth_service.dart';
 import '../services/account/account_transition_coordinator.dart';
 import '../services/account/account_ui_operations.dart';
@@ -164,6 +164,21 @@ class _ProfileScreenState extends State<ProfileScreen>
     if (!widget.previewMode && widget.cloudDataDeletionJournalState == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
         await AuthService.refreshCloudBackupDeletionJournalState();
+      });
+    }
+    final accountOperations = _accountOperations;
+    final accountPendingState =
+        !widget.previewMode && accountOperations is AccountUiPendingStateSource
+        ? accountOperations as AccountUiPendingStateSource
+        : null;
+    if (accountPendingState != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        if (!mounted) return;
+        try {
+          await accountPendingState.refreshPendingState();
+        } catch (_) {
+          // The account card remains locked until a later explicit refresh.
+        }
       });
     }
   }
@@ -474,279 +489,278 @@ class _ProfileScreenState extends State<ProfileScreen>
     final motivation =
         widget.previewMotivation ?? learnerMotivationFromId(Storage.motivation);
 
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.profileTitle,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.settings_outlined),
-            onPressed: () => Navigator.pushNamed(context, '/settings'),
-          ),
-        ],
+    return SoriStandardFrame(
+      appBarTitle: t.profileTitle,
+      // 프로필은 기존 480→640dp 읽기 컬럼 계약을 유지한다. 고정 prose 폭보다
+      // 내비게이션 레일 옆 남은 공간에 자연스럽게 적응하는 편이 맞다.
+      maxWidth: null,
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.settings_outlined),
+          onPressed: () => Navigator.pushNamed(context, '/settings'),
+        ),
+      ],
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.lg,
+        Spacing.lg,
+        Spacing.xxl,
       ),
-      body: SafeArea(
-        child: SoriContentClamp(
-          base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
-          builder: (context, padding) => ListView(
-            padding: padding,
-            children: [
-              // 06A: first surface = a learning route the learner can alter,
-              // not a dashboard of account state. Account controls remain
-              // below the editable learning choices.
-              SoriCard(
-                variant: SoriCardVariant.hero,
-                accent: SoriColors.primary,
-                tinted: true,
-                child: Row(
+      builder: (context, padding) => ListView(
+        padding: padding,
+        children: [
+          // 06A: first surface = a learning route the learner can alter,
+          // not a dashboard of account state. Account controls remain
+          // below the editable learning choices.
+          SoriCard(
+            variant: SoriCardVariant.hero,
+            accent: SoriColors.primary,
+            tinted: true,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final textScale = MediaQuery.textScalerOf(context).scale(1);
+                final stackHero =
+                    windowClassFor(constraints.maxWidth).isCompact ||
+                    textScale >= 1.6;
+                final copy = Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      t.profileJourneyTitle(
+                        linked ? (name ?? providerLabel) : t.profileGuestName,
+                      ),
+                      style: SoriTextTheme.of(context).h2,
+                    ),
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      '${t.profileJourneySummary(_levelLabel(t), motivation?.label(t) ?? t.profileLearningGoalNotSet)} · '
+                      '${t.profileSafeSituations(Storage.completedScenarios.length)}',
+                      style: SoriTextTheme.of(context).bodySmall,
+                    ),
+                    if (linked) ...[
+                      const SizedBox(height: 2),
+                      Text(
+                        t.profileConnectedProviderBadge(providerLabel),
+                        style: SoriTextTheme.of(context).caption,
+                      ),
+                    ],
+                  ],
+                );
+                final avatar = _Avatar(
+                  size: stackHero ? 84 : 96,
+                  preference: widget.previewCompanion,
+                  // ⚠️ 이 카드의 **실제 채움색**을 넘긴다. 아바타 클립은 흰
+                  // 매트를 multiply 로 지우므로 결과가 이 값이 되는데, 예전엔
+                  // 스캐폴드 크림(#FAF6EC)을 넘겨서 teal 카드(#EDF3ED) 위에
+                  // 크림 사각형이 떴다(Jin 2026-08-12 실기기, 실측 확인).
+                  // 위 SoriCard 의 accent·tinted 와 반드시 같은 인자를 쓴다.
+                  backdrop: SoriCard.resolvedBackground(
+                    context,
+                    accent: SoriColors.primary,
+                    tinted: true,
+                  ),
+                );
+                if (stackHero) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      copy,
+                      const SizedBox(height: Spacing.md),
+                      Align(alignment: Alignment.centerRight, child: avatar),
+                    ],
+                  );
+                }
+                return Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            t.profileJourneyTitle(
-                              linked
-                                  ? (name ?? providerLabel)
-                                  : t.profileGuestName,
-                            ),
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: SoriTextTheme.of(context).h2,
-                          ),
-                          const SizedBox(height: Spacing.xs),
-                          Text(
-                            '${t.profileJourneySummary(_levelLabel(t), motivation?.label(t) ?? t.profileLearningGoalNotSet)} · '
-                            '${t.profileSafeSituations(Storage.completedScenarios.length)}',
-                            style: SoriTextTheme.of(context).bodySmall,
-                          ),
-                          if (linked) ...[
-                            const SizedBox(height: 2),
-                            Text(
-                              t.profileConnectedProviderBadge(providerLabel),
-                              style: SoriTextTheme.of(context).caption,
-                            ),
-                          ],
-                        ],
-                      ),
-                    ),
+                    Expanded(child: copy),
                     const SizedBox(width: Spacing.sm),
-                    _Avatar(
-                      size: 96,
-                      preference: widget.previewCompanion,
-                      // ⚠️ 이 카드의 **실제 채움색**을 넘긴다. 아바타 클립은 흰
-                      // 매트를 multiply 로 지우므로 결과가 이 값이 되는데, 예전엔
-                      // 스캐폴드 크림(#FAF6EC)을 넘겨서 teal 카드(#EDF3ED) 위에
-                      // 크림 사각형이 떴다(Jin 2026-08-12 실기기, 실측 확인).
-                      // 위 SoriCard 의 accent·tinted 와 반드시 같은 인자를 쓴다.
-                      backdrop: SoriCard.resolvedBackground(
-                        context,
-                        accent: SoriColors.primary,
-                        tinted: true,
-                      ),
-                    ),
+                    avatar,
                   ],
-                ),
-              ),
-              const SizedBox(height: 20),
-
-              _ProfileSectionLabel(
-                label: t.profileLearningSection,
-                action: t.profileEditAction,
-              ),
-              SoriCard(
-                variant: SoriCardVariant.base,
-                child: Column(
-                  children: [
-                    _ProfileSettingTile(
-                      key: const ValueKey('profile-learning-goal'),
-                      icon: motivation?.icon ?? Icons.flag_outlined,
-                      label: t.profileLearningGoal,
-                      value:
-                          motivation?.label(t) ?? t.profileLearningGoalNotSet,
-                      onTap: _changeMotivation,
-                    ),
-                    const Divider(height: 1),
-                    _ProfileSettingTile(
-                      key: const ValueKey('profile-learning-start-point'),
-                      icon: Icons.school_outlined,
-                      label: t.profileLearningStartPoint,
-                      value: _levelLabel(t),
-                      onTap: _changeLevel,
-                    ),
-                    const Divider(height: 1),
-                    if (widget.previewCompanion case final previewPreference?)
-                      _ProfileSettingTile(
-                        key: const ValueKey('profile-learning-companion'),
-                        icon: switch (previewPreference) {
-                          CompanionPreference.none =>
-                            Icons.person_outline_rounded,
-                          CompanionPreference.tiger => Icons.pets_outlined,
-                          CompanionPreference.magpie =>
-                            Icons.flutter_dash_rounded,
-                        },
-                        label: t.profileLearningCompanion,
-                        value: switch (previewPreference) {
-                          CompanionPreference.none => t.companionNoneName,
-                          CompanionPreference.tiger => t.characterNameTiger,
-                          CompanionPreference.magpie => t.characterRomanMagpie,
-                        },
-                        onTap: _changeCompanion,
-                      )
-                    else
-                      ValueListenableBuilder<CompanionPreference>(
-                        valueListenable: MascotPreference.preference,
-                        builder: (context, preference, _) =>
-                            _ProfileSettingTile(
-                              key: const ValueKey('profile-learning-companion'),
-                              icon: switch (preference) {
-                                CompanionPreference.none =>
-                                  Icons.person_outline_rounded,
-                                CompanionPreference.tiger =>
-                                  Icons.pets_outlined,
-                                CompanionPreference.magpie =>
-                                  Icons.flutter_dash_rounded,
-                              },
-                              label: t.profileLearningCompanion,
-                              value: switch (preference) {
-                                CompanionPreference.none => t.companionNoneName,
-                                CompanionPreference.tiger =>
-                                  t.characterNameTiger,
-                                CompanionPreference.magpie =>
-                                  t.characterRomanMagpie,
-                              },
-                              onTap: _changeCompanion,
-                            ),
-                      ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: Spacing.lg),
-              _ProfileSectionLabel(label: t.profileSpaceSection),
-              SoriCard(
-                variant: SoriCardVariant.base,
-                child: Column(
-                  children: [
-                    _ProfileSettingTile(
-                      key: const ValueKey('profile-account-controls'),
-                      icon: Icons.shield_outlined,
-                      label: t.profilePrivacyAccount,
-                      value: t.profilePrivacyAccountDescription,
-                      onTap: _openAccountControls,
-                    ),
-                    const Divider(height: 1),
-                    FutureBuilder<List<GyeMeta>>(
-                      future: _gyeMetas,
-                      builder: (context, snapshot) => _ProfileSettingTile(
-                        key: const ValueKey('profile-gye'),
-                        icon: Icons.groups_2_outlined,
-                        label: t.profileGye,
-                        value:
-                            snapshot.connectionState == ConnectionState.waiting
-                            ? t.profileGyeLoading
-                            : snapshot.hasError ||
-                                  (snapshot.data ?? const <GyeMeta>[]).isEmpty
-                            ? t.profileGyeNone
-                            : snapshot.data!.first.name,
-                        onTap: _openGye,
-                      ),
-                    ),
-                    const Divider(height: 1),
-                    _ProfileSettingTile(
-                      key: const ValueKey('profile-learning-data-export'),
-                      icon: Icons.file_download_outlined,
-                      label: t.profileLearningData,
-                      value: _exportBusy
-                          ? t.profileLearningDataPreparing
-                          : t.profileLearningDataDescription,
-                      onTap: _exportLearningData,
-                    ),
-                    const Divider(height: 1),
-                    _ProfileSettingTile(
-                      key: const ValueKey('profile-account-delete'),
-                      icon: Icons.person_remove_outlined,
-                      label: t.profileAccountDelete,
-                      value: t.profileAccountDeleteDescription,
-                      destructive: true,
-                      onTap: _openAccountDeletion,
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: Spacing.lg),
-
-              // The full durable account controls follow the learner's
-              // journey, choices, and space. Its connected-provider badge is
-              // already visible in the hero above.
-              AccountPendingOperationPanel(
-                operations: _accountOperations,
-                cloudDeletionState: _cloudDataDeletionJournalState,
-                resumeCloudDeletion: _resumeCloudDeletion,
-                onCompleted: () async {
-                  if (mounted) setState(() {});
-                },
-              ),
-              const SizedBox(height: 12),
-              KeyedSubtree(
-                key: _accountCardKey,
-                child: ValueListenableBuilder<CloudBackupDeletionJournalState>(
-                  valueListenable: _cloudDataDeletionJournalState,
-                  builder: (context, cloudDeletionState, _) =>
-                      AccountNewLinkGuard(
-                        operations: _accountOperations,
-                        builder: (context, linkAvailable) => linked
-                            ? _ConnectedCard(
-                                name: name ?? providerLabel,
-                                onSignOut:
-                                    linkAvailable &&
-                                        cloudDeletionState ==
-                                            CloudBackupDeletionJournalState
-                                                .clear
-                                    ? _signOut
-                                    : () =>
-                                          _showActionLocked(cloudDeletionState),
-                              )
-                            : _GuestCard(
-                                busy: _busy,
-                                onConnect:
-                                    linkAvailable &&
-                                        cloudDeletionState ==
-                                            CloudBackupDeletionJournalState
-                                                .clear
-                                    ? () => _connectWith(
-                                        AccountLinkProvider.google,
-                                      )
-                                    : () =>
-                                          _showActionLocked(cloudDeletionState),
-                                onConnectApple:
-                                    !_accountOperations.appleSignInAvailable
-                                    ? null
-                                    : linkAvailable &&
-                                          cloudDeletionState ==
-                                              CloudBackupDeletionJournalState
-                                                  .clear
-                                    ? () => _connectWith(
-                                        AccountLinkProvider.apple,
-                                      )
-                                    : () =>
-                                          _showActionLocked(cloudDeletionState),
-                              ),
-                      ),
-                ),
-              ),
-              const SizedBox(height: Spacing.lg),
-              _ProfileSectionLabel(label: t.profileProgressSection),
-              const _StatsRow(),
-              const SizedBox(height: Spacing.md),
-              SoriButton.outlined(
-                label: t.profileViewStats,
-                icon: Icons.bar_chart_rounded,
-                fullWidth: true,
-                onTap: () => Navigator.pushNamed(context, '/stats'),
-              ),
-            ],
+                );
+              },
+            ),
           ),
-        ),
+          const SizedBox(height: 20),
+
+          _ProfileSectionLabel(
+            label: t.profileLearningSection,
+            action: t.profileEditAction,
+          ),
+          SoriCard(
+            variant: SoriCardVariant.base,
+            child: Column(
+              children: [
+                _ProfileSettingTile(
+                  key: const ValueKey('profile-learning-goal'),
+                  icon: motivation?.icon ?? Icons.flag_outlined,
+                  label: t.profileLearningGoal,
+                  value: motivation?.label(t) ?? t.profileLearningGoalNotSet,
+                  onTap: _changeMotivation,
+                ),
+                const Divider(height: 1),
+                _ProfileSettingTile(
+                  key: const ValueKey('profile-learning-start-point'),
+                  icon: Icons.school_outlined,
+                  label: t.profileLearningStartPoint,
+                  value: _levelLabel(t),
+                  onTap: _changeLevel,
+                ),
+                const Divider(height: 1),
+                if (widget.previewCompanion case final previewPreference?)
+                  _ProfileSettingTile(
+                    key: const ValueKey('profile-learning-companion'),
+                    icon: switch (previewPreference) {
+                      CompanionPreference.none => Icons.person_outline_rounded,
+                      CompanionPreference.tiger => Icons.pets_outlined,
+                      CompanionPreference.magpie => Icons.flutter_dash_rounded,
+                    },
+                    label: t.profileLearningCompanion,
+                    value: switch (previewPreference) {
+                      CompanionPreference.none => t.companionNoneName,
+                      CompanionPreference.tiger => t.characterNameTiger,
+                      CompanionPreference.magpie => t.characterRomanMagpie,
+                    },
+                    onTap: _changeCompanion,
+                  )
+                else
+                  ValueListenableBuilder<CompanionPreference>(
+                    valueListenable: MascotPreference.preference,
+                    builder: (context, preference, _) => _ProfileSettingTile(
+                      key: const ValueKey('profile-learning-companion'),
+                      icon: switch (preference) {
+                        CompanionPreference.none =>
+                          Icons.person_outline_rounded,
+                        CompanionPreference.tiger => Icons.pets_outlined,
+                        CompanionPreference.magpie =>
+                          Icons.flutter_dash_rounded,
+                      },
+                      label: t.profileLearningCompanion,
+                      value: switch (preference) {
+                        CompanionPreference.none => t.companionNoneName,
+                        CompanionPreference.tiger => t.characterNameTiger,
+                        CompanionPreference.magpie => t.characterRomanMagpie,
+                      },
+                      onTap: _changeCompanion,
+                    ),
+                  ),
+              ],
+            ),
+          ),
+          const SizedBox(height: Spacing.lg),
+          _ProfileSectionLabel(label: t.profileSpaceSection),
+          SoriCard(
+            variant: SoriCardVariant.base,
+            child: Column(
+              children: [
+                _ProfileSettingTile(
+                  key: const ValueKey('profile-account-controls'),
+                  icon: Icons.shield_outlined,
+                  label: t.profilePrivacyAccount,
+                  value: t.profilePrivacyAccountDescription,
+                  onTap: _openAccountControls,
+                ),
+                const Divider(height: 1),
+                FutureBuilder<List<GyeMeta>>(
+                  future: _gyeMetas,
+                  builder: (context, snapshot) => _ProfileSettingTile(
+                    key: const ValueKey('profile-gye'),
+                    icon: Icons.groups_2_outlined,
+                    label: t.profileGye,
+                    value: snapshot.connectionState == ConnectionState.waiting
+                        ? t.profileGyeLoading
+                        : snapshot.hasError ||
+                              (snapshot.data ?? const <GyeMeta>[]).isEmpty
+                        ? t.profileGyeNone
+                        : snapshot.data!.first.name,
+                    onTap: _openGye,
+                  ),
+                ),
+                const Divider(height: 1),
+                _ProfileSettingTile(
+                  key: const ValueKey('profile-learning-data-export'),
+                  icon: Icons.file_download_outlined,
+                  label: t.profileLearningData,
+                  value: _exportBusy
+                      ? t.profileLearningDataPreparing
+                      : t.profileLearningDataDescription,
+                  onTap: _exportLearningData,
+                ),
+                const Divider(height: 1),
+                _ProfileSettingTile(
+                  key: const ValueKey('profile-account-delete'),
+                  icon: Icons.person_remove_outlined,
+                  label: t.profileAccountDelete,
+                  value: t.profileAccountDeleteDescription,
+                  destructive: true,
+                  onTap: _openAccountDeletion,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: Spacing.lg),
+
+          // The full durable account controls follow the learner's
+          // journey, choices, and space. Its connected-provider badge is
+          // already visible in the hero above.
+          AccountPendingOperationPanel(
+            operations: _accountOperations,
+            // Profile refreshes from its own lifecycle so this safety state is
+            // not coupled to whether the below-fold panel entered the viewport.
+            refreshOnMount: false,
+            cloudDeletionState: _cloudDataDeletionJournalState,
+            resumeCloudDeletion: _resumeCloudDeletion,
+            onCompleted: () async {
+              if (mounted) setState(() {});
+            },
+          ),
+          const SizedBox(height: 12),
+          KeyedSubtree(
+            key: _accountCardKey,
+            child: ValueListenableBuilder<CloudBackupDeletionJournalState>(
+              valueListenable: _cloudDataDeletionJournalState,
+              builder: (context, cloudDeletionState, _) => AccountNewLinkGuard(
+                operations: _accountOperations,
+                builder: (context, linkAvailable) => linked
+                    ? _ConnectedCard(
+                        name: name ?? providerLabel,
+                        onSignOut:
+                            linkAvailable &&
+                                cloudDeletionState ==
+                                    CloudBackupDeletionJournalState.clear
+                            ? _signOut
+                            : () => _showActionLocked(cloudDeletionState),
+                      )
+                    : _GuestCard(
+                        busy: _busy,
+                        onConnect:
+                            linkAvailable &&
+                                cloudDeletionState ==
+                                    CloudBackupDeletionJournalState.clear
+                            ? () => _connectWith(AccountLinkProvider.google)
+                            : () => _showActionLocked(cloudDeletionState),
+                        onConnectApple: !_accountOperations.appleSignInAvailable
+                            ? null
+                            : linkAvailable &&
+                                  cloudDeletionState ==
+                                      CloudBackupDeletionJournalState.clear
+                            ? () => _connectWith(AccountLinkProvider.apple)
+                            : () => _showActionLocked(cloudDeletionState),
+                      ),
+              ),
+            ),
+          ),
+          const SizedBox(height: Spacing.lg),
+          _ProfileSectionLabel(label: t.profileProgressSection),
+          const _StatsRow(),
+          const SizedBox(height: Spacing.md),
+          SoriButton.outlined(
+            label: t.profileViewStats,
+            icon: Icons.bar_chart_rounded,
+            fullWidth: true,
+            onTap: () => Navigator.pushNamed(context, '/stats'),
+          ),
+        ],
       ),
     );
   }
@@ -970,8 +984,6 @@ class _ConnectedCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   t.settingsCloudSignedIn(name ?? 'Google'),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                   // §4.3: 카드 제목 w800 금지 — cardTitle(15/w700).
                   style: SoriTextTheme.of(
                     context,
@@ -1127,8 +1139,6 @@ class _StatTile extends StatelessWidget {
           Text(
             label,
             textAlign: TextAlign.center,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
             style: SoriTextTheme.of(context).caption,
           ),
         ],

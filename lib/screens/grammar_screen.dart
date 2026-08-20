@@ -21,7 +21,6 @@ import '../services/storage_service.dart';
 import '../widgets/flip_card.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/app_error.dart';
-import '../widgets/sori/app_bar.dart';
 import '../services/custom_pack_service.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/ko_wrap.dart';
@@ -34,8 +33,8 @@ import '../widgets/sori/motion.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/sheet.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../services/liked_content_service.dart';
@@ -663,12 +662,16 @@ class _GrammarScreenState extends State<GrammarScreen>
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     if (_loading) {
-      return Scaffold(body: AppLoading(message: t.loadingGrammar));
+      return SoriStudyFrame(
+        title: t.screenGrammarTitle,
+        padding: EdgeInsets.zero,
+        child: AppLoading(message: t.loadingGrammar),
+      );
     }
     if (_loadFailed) {
-      return Scaffold(
-        appBar: SoriAppBar(title: t.screenGrammarTitle),
-        body: AppError(
+      return SoriStudyFrame(
+        title: t.screenGrammarTitle,
+        child: AppError(
           message: _loadError ?? DataLoader.lastError ?? t.errorUnknown,
           onRetry: () {
             DataLoader.reset();
@@ -686,17 +689,15 @@ class _GrammarScreenState extends State<GrammarScreen>
             _clearFilters();
           }
         },
-        child: Scaffold(
-          appBar: SoriAppBar(
-            title: t.screenGrammarTitle,
-            leading: _hasActiveFilter
-                ? IconButton(
-                    icon: const BackButtonIcon(),
-                    onPressed: _clearFilters,
-                  )
-                : null,
-          ),
-          body: SoriEmptyState(
+        child: SoriStudyFrame(
+          title: t.screenGrammarTitle,
+          leading: _hasActiveFilter
+              ? IconButton(
+                  icon: const BackButtonIcon(),
+                  onPressed: _clearFilters,
+                )
+              : null,
+          child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/magpie_wave.png',
             icon: Icons.menu_book_outlined,
             title: t.emptyGrammar,
@@ -730,304 +731,276 @@ class _GrammarScreenState extends State<GrammarScreen>
       }
     });
     final s = SoriSurfaces.of(context);
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.screenGrammarTitle,
-        actions: [
-          IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
-          // 세션 종료(테스터 피드백 수집)는 하단에서 앱바로 올렸다. 하단은
-          // 판정 2버튼만 남기지만, 182장짜리 둘러보기 덱에서는 "마지막 카드"에
-          // 도달할 일이 없어 자동 종료만으로는 피드백 경로가 사라진다.
-          // 의미 있는 학습(카드를 한 장이라도 본 뒤)에만 켜지는 계약은 그대로다.
-          IconButton(
-            key: const Key('grammar-finish-session'),
-            tooltip: t.testerFeedbackCompleteGrammar,
-            icon: const Icon(Icons.task_alt_rounded),
-            onPressed: _sessionSeen.isEmpty ? null : _finishSession,
-          ),
-          const TtsSpeedAction(),
-        ],
-      ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            // 짧은 뷰포트에서 넘치는 대신 스크롤한다. 이 화면은 헤더·필터 2줄·
-            // 진행바가 고정 높이라, 세로가 짧아지면 가운데 `Expanded` 가 0이 돼도
-            // 카드 아래 난이도 버튼이 그대로 넘쳤다(360×400 에서 25px).
-            // 460 이상에서는 지금까지와 같은 flex 레이아웃이라 시각 변화 0.
-            child: SoriMinHeightScroll(
-              minHeight: _studyBodyMinHeight,
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
-                child: Column(
-                  children: [
-                    if (_missionStep case final step?) ...[
-                      MissionContextBar(
-                        missionTitle:
-                            _missionTitle ?? t.courseMissionTitleShort,
-                        step: step,
-                      ),
-                      const SizedBox(height: Spacing.sm),
-                    ],
+    return SoriStudyFrame(
+      title: t.screenGrammarTitle,
+      actions: [
+        IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
+        // 세션 종료(테스터 피드백 수집)는 하단에서 앱바로 올렸다. 하단은
+        // 판정 2버튼만 남기지만, 182장짜리 둘러보기 덱에서는 "마지막 카드"에
+        // 도달할 일이 없어 자동 종료만으로는 피드백 경로가 사라진다.
+        // 의미 있는 학습(카드를 한 장이라도 본 뒤)에만 켜지는 계약은 그대로다.
+        IconButton(
+          key: const Key('grammar-finish-session'),
+          tooltip: t.testerFeedbackCompleteGrammar,
+          icon: const Icon(Icons.task_alt_rounded),
+          onPressed: _sessionSeen.isEmpty ? null : _finishSession,
+        ),
+        const TtsSpeedAction(),
+      ],
+      padding: EdgeInsets.zero,
+      // 짧은 뷰포트에서 넘치는 대신 스크롤한다. 이 화면은 헤더·필터 2줄·
+      // 진행바가 고정 높이라, 세로가 짧아지면 가운데 `Expanded` 가 0이 돼도
+      // 카드 아래 난이도 버튼이 그대로 넘쳤다(360×400 에서 25px).
+      // 460 이상에서는 지금까지와 같은 flex 레이아웃이라 시각 변화 0.
+      child: SoriMinHeightScroll(
+        minHeight: _studyBodyMinHeight,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
+          child: Column(
+            children: [
+              if (_missionStep case final step?) ...[
+                MissionContextBar(
+                  missionTitle: _missionTitle ?? t.courseMissionTitleShort,
+                  step: step,
+                ),
+                const SizedBox(height: Spacing.sm),
+              ],
 
-                    // 둘러보기만 레벨 칩. 코스 연습은 필터 시트.
-                    if (!_isCoursePractice) ...[
-                      SizedBox(
-                        key: _filterRowKey,
-                        height: 44,
-                        child: ListView(
-                          key: const Key('grammar-filter-row'),
-                          scrollDirection: Axis.horizontal,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(right: 8),
-                              child: SoriButton.filled(
-                                key: const Key('grammar-choice-cta'),
-                                label: t.grammarChoiceCta,
-                                size: SoriButtonSize.sm,
-                                accent: SoriColors.primary,
-                                onTap: _openChoicePractice,
-                              ),
-                            ),
-                            for (final lvl in _levels)
-                              Padding(
-                                padding: const EdgeInsets.only(right: 6),
-                                child: SoriChip(
-                                  key: Key('grammar-level-$lvl'),
-                                  label:
-                                      '${lvl == 'Alle' ? t.filterAll : lvl}'
-                                      ' · ${_levelCount(lvl)}',
-                                  accent: SoriColors.info,
-                                  selected: _level == lvl,
-                                  variant: SoriChipVariant.soft,
-                                  onTap: _level == lvl
-                                      ? null
-                                      : () {
-                                          setState(() => _level = lvl);
-                                          _applyFilters();
-                                        },
-                                ),
-                              ),
-                          ],
+              // 둘러보기만 레벨 칩. 코스 연습은 필터 시트.
+              if (!_isCoursePractice) ...[
+                SizedBox(
+                  key: _filterRowKey,
+                  height: 44,
+                  child: ListView(
+                    key: const Key('grammar-filter-row'),
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8),
+                        child: SoriButton.filled(
+                          key: const Key('grammar-choice-cta'),
+                          label: t.grammarChoiceCta,
+                          size: SoriButtonSize.sm,
+                          accent: SoriColors.primary,
+                          onTap: _openChoicePractice,
                         ),
                       ),
-                      const SizedBox(height: Spacing.sm),
+                      for (final lvl in _levels)
+                        Padding(
+                          padding: const EdgeInsets.only(right: 6),
+                          child: SoriChip(
+                            key: Key('grammar-level-$lvl'),
+                            label:
+                                '${lvl == 'Alle' ? t.filterAll : lvl}'
+                                ' · ${_levelCount(lvl)}',
+                            accent: SoriColors.info,
+                            selected: _level == lvl,
+                            variant: SoriChipVariant.soft,
+                            onTap: _level == lvl
+                                ? null
+                                : () {
+                                    setState(() => _level = lvl);
+                                    _applyFilters();
+                                  },
+                          ),
+                        ),
                     ],
+                  ),
+                ),
+                const SizedBox(height: Spacing.sm),
+              ],
 
-                    // Card + Difficulty Buttons
-                    Expanded(
-                      child: SoriEntrance(
-                        child: Column(
-                          children: [
-                            Expanded(
-                              // 카드가 놓이는 바운드 영역의 유한 높이를 여기서
-                              // 읽어(플립카드 내부 스크롤 래퍼 아래로 내려가면
-                              // maxHeight 가 무한이 된다) 앞/뒷면 학습 텍스트를
-                              // 카드 높이에 비례해 키운다 — review_session 히어로
-                              // 카드와 같은 충전 규칙(soriFillSize).
-                              child: LayoutBuilder(
-                                builder: (context, cardConstraints) {
-                                  final cardH =
-                                      cardConstraints.maxHeight.isFinite
-                                      ? cardConstraints.maxHeight
-                                      : 360.0;
-                                  // Sori Deck 2.0 — 단어장·복습 덱과 같은 4방향
-                                  // 제스처. 좌=Schwierig · 우=Verstanden ·
-                                  // 아래=평가 없이 넘기기. 위(저장)는 문법
-                                  // 패턴이 단어장 저장 대상이 아니라 끈다.
-                                  //
-                                  // `enabled` 는 **좌/우 판정 허용** 계약이다:
-                                  // 뒤집어 뜻을 보기 전에는 판정할 수 없다
-                                  // (안 그러면 못 본 패턴에 SRS 가 기록된다).
-                                  // 코스 체크포인트 카드는 앞면이 패턴을
-                                  // 가리므로 판정 자체를 막는다.
-                                  // 제스처 대체 수단(WCAG 2.2 §2.5.1). 화면에는
-                                  // 아무것도 그리지 않지만 TalkBack/VoiceOver 에는
-                                  // 네 동작이 메뉴로 노출된다 — 스와이프를 쓸 수
-                                  // 없는 사용자가 하단 버튼 없이도 판정할 수 있다.
-                                  return Semantics(
-                                    container: true,
-                                    customSemanticsActions:
-                                        <CustomSemanticsAction, VoidCallback>{
-                                          if (allowJudging)
-                                            CustomSemanticsAction(
-                                              label: t.grammarEasy,
-                                            ): () =>
-                                                _judge(understood: true),
-                                          if (allowJudging)
-                                            CustomSemanticsAction(
-                                              label: t.grammarHard,
-                                            ): () =>
-                                                _judge(understood: false),
-                                          CustomSemanticsAction(
-                                            label: t.deckActionSave,
-                                          ): _saveCurrent,
-                                          if (_canNavigateDeck)
-                                            CustomSemanticsAction(
-                                              label: t.btnSkip,
-                                            ): _skipCurrent,
-                                        },
-                                    child: SoriContentFeed(
-                                      judgmentsEnabled:
-                                          allowJudging && _flipped,
-                                      onBlockedJudgment: allowJudging
-                                          ? () {}
-                                          : null,
-                                      onNext: allowJudging
-                                          ? () => _judge(understood: true)
-                                          : null,
-                                      onHard: allowJudging
-                                          ? () => _judge(understood: false)
-                                          : null,
-                                      onSkip: _canNavigateDeck
-                                          ? _skipCurrent
-                                          : null,
-                                      skipEnabled: _canNavigateDeck,
-                                      onLike: _likeCurrent,
-                                      onBookmark: _saveCurrent,
-                                      showShare: false,
-                                      onFlip: canRecordCheckpoint
+              // Card + Difficulty Buttons
+              Expanded(
+                child: SoriEntrance(
+                  child: Column(
+                    children: [
+                      Expanded(
+                        // 카드가 놓이는 바운드 영역의 유한 높이를 여기서
+                        // 읽어(플립카드 내부 스크롤 래퍼 아래로 내려가면
+                        // maxHeight 가 무한이 된다) 앞/뒷면 학습 텍스트를
+                        // 카드 높이에 비례해 키운다 — review_session 히어로
+                        // 카드와 같은 충전 규칙(soriFillSize).
+                        child: LayoutBuilder(
+                          builder: (context, cardConstraints) {
+                            final cardH = cardConstraints.maxHeight.isFinite
+                                ? cardConstraints.maxHeight
+                                : 360.0;
+                            // Sori Deck 2.0 — 단어장·복습 덱과 같은 4방향
+                            // 제스처. 좌=Schwierig · 우=Verstanden ·
+                            // 아래=평가 없이 넘기기. 위(저장)는 문법
+                            // 패턴이 단어장 저장 대상이 아니라 끈다.
+                            //
+                            // `enabled` 는 **좌/우 판정 허용** 계약이다:
+                            // 뒤집어 뜻을 보기 전에는 판정할 수 없다
+                            // (안 그러면 못 본 패턴에 SRS 가 기록된다).
+                            // 코스 체크포인트 카드는 앞면이 패턴을
+                            // 가리므로 판정 자체를 막는다.
+                            // 제스처 대체 수단(WCAG 2.2 §2.5.1). 화면에는
+                            // 아무것도 그리지 않지만 TalkBack/VoiceOver 에는
+                            // 네 동작이 메뉴로 노출된다 — 스와이프를 쓸 수
+                            // 없는 사용자가 하단 버튼 없이도 판정할 수 있다.
+                            return Semantics(
+                              container: true,
+                              customSemanticsActions:
+                                  <CustomSemanticsAction, VoidCallback>{
+                                    if (allowJudging)
+                                      CustomSemanticsAction(
+                                        label: t.grammarEasy,
+                                      ): () =>
+                                          _judge(understood: true),
+                                    if (allowJudging)
+                                      CustomSemanticsAction(
+                                        label: t.grammarHard,
+                                      ): () =>
+                                          _judge(understood: false),
+                                    CustomSemanticsAction(
+                                      label: t.deckActionSave,
+                                    ): _saveCurrent,
+                                    if (_canNavigateDeck)
+                                      CustomSemanticsAction(label: t.btnSkip):
+                                          _skipCurrent,
+                                  },
+                              child: SoriContentFeed(
+                                judgmentsEnabled: allowJudging && _flipped,
+                                onBlockedJudgment: allowJudging ? () {} : null,
+                                onNext: allowJudging
+                                    ? () => _judge(understood: true)
+                                    : null,
+                                onHard: allowJudging
+                                    ? () => _judge(understood: false)
+                                    : null,
+                                onSkip: _canNavigateDeck ? _skipCurrent : null,
+                                skipEnabled: _canNavigateDeck,
+                                onLike: _likeCurrent,
+                                onBookmark: _saveCurrent,
+                                showShare: false,
+                                onFlip: canRecordCheckpoint
+                                    ? () => _showCheckpoint(g, assessmentLink!)
+                                    : _onFlip,
+                                liked: LikedContentService.isLiked(
+                                  kind: LikedContentService.grammar,
+                                  id: g.pattern,
+                                ),
+                                bookmarked: CustomPackService.containsKorean(
+                                  g.pattern,
+                                ),
+                                bookmarkLabel: t.deckActionSave,
+                                child: Stack(
+                                  alignment: Alignment.bottomCenter,
+                                  children: [
+                                    FlipCard(
+                                      key: _cardKey,
+                                      flipped: _flipped,
+                                      onTap: canRecordCheckpoint
                                           ? () => _showCheckpoint(
                                               g,
                                               assessmentLink!,
                                             )
                                           : _onFlip,
-                                      liked: LikedContentService.isLiked(
-                                        kind: LikedContentService.grammar,
-                                        id: g.pattern,
-                                      ),
-                                      bookmarked:
-                                          CustomPackService.containsKorean(
-                                            g.pattern,
-                                          ),
-                                      bookmarkLabel: t.deckActionSave,
-                                      child: Stack(
-                                        alignment: Alignment.bottomCenter,
-                                        children: [
-                                          FlipCard(
-                                            key: _cardKey,
-                                            flipped: _flipped,
-                                            onTap: canRecordCheckpoint
-                                                ? () => _showCheckpoint(
-                                                    g,
-                                                    assessmentLink!,
-                                                  )
-                                                : _onFlip,
-                                            front: canRecordCheckpoint
-                                                ? _CourseCheckpointFront(
-                                                    g: g,
-                                                    cardHeight: cardH,
-                                                  )
-                                                : _Front(
-                                                    g: g,
-                                                    cardHeight: cardH,
-                                                  ),
-                                            back: _Back(
+                                      front: canRecordCheckpoint
+                                          ? _CourseCheckpointFront(
                                               g: g,
                                               cardHeight: cardH,
-                                            ),
-                                          ),
-                                          if (!canRecordCheckpoint)
-                                            Positioned(
-                                              bottom: 8,
-                                              child: _ListenButton(
-                                                korean:
-                                                    GrammarStudyCopy.fromGrammar(
-                                                      g,
-                                                      Localizations.localeOf(
-                                                        context,
-                                                      ).languageCode,
-                                                    ).speakKorean,
-                                              ),
-                                            ),
-                                        ],
-                                      ),
+                                            )
+                                          : _Front(g: g, cardHeight: cardH),
+                                      back: _Back(g: g, cardHeight: cardH),
                                     ),
-                                  );
-                                },
+                                    if (!canRecordCheckpoint)
+                                      Positioned(
+                                        bottom: 8,
+                                        child: _ListenButton(
+                                          korean: GrammarStudyCopy.fromGrammar(
+                                            g,
+                                            Localizations.localeOf(
+                                              context,
+                                            ).languageCode,
+                                          ).speakKorean,
+                                        ),
+                                      ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            // SRS 판정(Verstanden/Schwierig)은 하단 주버튼 2개와
-                            // 4방향 스와이프로 옮겼다 — 카드 바로 아래의 고정
-                            // 높이 Row 가 C1/C2 처럼 예문이 길어질 때 카드를
-                            // 눌러 읽기를 방해했다. 체크포인트 카드에서 판정을
-                            // 막는 계약은 `allowJudging` 이 그대로 이어받는다.
-                          ],
+                            );
+                          },
                         ),
                       ),
-                    ),
-                    const SizedBox(height: Spacing.md),
-
-                    // 진행바 → [듣기] 위치 [되돌리기]. Hören 과 같은 배치다.
-                    // Zurück 은 전진 흐름을 막지 않도록 작은 실행취소 아이콘
-                    // 하나로 줄였고(Tinder 의 Rewind 위계), 첫 카드에서는 되돌릴
-                    // 것이 없으므로 꺼진다. 두 아이콘 모두 44×44 터치 영역이다.
-                    SoriProgressBar(
-                      value: _filtered.isEmpty
-                          ? 0
-                          : (_idx + 1) / _filtered.length,
-                      thickness: 6,
-                      color: SoriColors.primary,
-                      animated: true,
-                    ),
-                    const SizedBox(height: Spacing.xs),
-                    Row(
-                      children: [
-                        // 듣기는 카드 안(읽어 주는 문장 옆)으로 옮겼다. 균형을
-                        // 위해 실행취소와 같은 폭만 비워 카운터를 가운데 둔다.
-                        const SizedBox(width: 44),
-                        Expanded(
-                          child: Center(
-                            child: Text(
-                              '${_idx + 1} / ${_filtered.length}',
-                              style: TextStyle(
-                                fontSize: 12.5,
-                                fontWeight: FontWeight.w700,
-                                color: s.textMuted,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: 44,
-                          height: 44,
-                          child: IconButton(
-                            key: const Key('grammar-undo'),
-                            tooltip: t.btnPrev,
-                            icon: const Icon(Icons.undo_rounded),
-                            iconSize: 20,
-                            color: s.textMuted,
-                            onPressed: _idx > 0 ? _prev : null,
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: Spacing.sm),
-
-                    // 판정은 **스와이프 전용**이다(Jin 확정) — 하단 CTA 를 없애
-                    // 카드가 세로를 더 갖는다. 제스처를 못 쓰는 사용자를 위한
-                    // 대체 수단은 시각적 버튼이 아니라 카드의 Semantics 액션이
-                    // 맡는다(WCAG 2.2 §2.5.1 — 대체 수단은 필요하지만 그게
-                    // 화면을 차지하는 버튼이어야 할 필요는 없다).
-                    //
-                    // 코스 체크포인트만 CTA 를 유지한다 — "카드 전체 탭과 하단
-                    // CTA 가 같은 채점 시트를 연다" 는 기존 계약이 있다.
-                    if (canRecordCheckpoint)
-                      SoriEntrance(
-                        delay: const Duration(milliseconds: 80),
-                        child: SoriButton.filled(
-                          // 장식 아이콘 없이 라벨만 — 타이포 래칫의
-                          // "라벨 CTA 에 장식 아이콘 금지" 규칙을 따른다.
-                          label: t.courseCheckpointCheck,
-                          accent: SoriColors.contentCta,
-                          fullWidth: true,
-                          onTap: () => _showCheckpoint(g, assessmentLink!),
-                        ),
-                      ),
-                  ],
+                      // SRS 판정(Verstanden/Schwierig)은 하단 주버튼 2개와
+                      // 4방향 스와이프로 옮겼다 — 카드 바로 아래의 고정
+                      // 높이 Row 가 C1/C2 처럼 예문이 길어질 때 카드를
+                      // 눌러 읽기를 방해했다. 체크포인트 카드에서 판정을
+                      // 막는 계약은 `allowJudging` 이 그대로 이어받는다.
+                    ],
+                  ),
                 ),
               ),
-            ),
+              const SizedBox(height: Spacing.md),
+
+              // 진행바 → [듣기] 위치 [되돌리기]. Hören 과 같은 배치다.
+              // Zurück 은 전진 흐름을 막지 않도록 작은 실행취소 아이콘
+              // 하나로 줄였고(Tinder 의 Rewind 위계), 첫 카드에서는 되돌릴
+              // 것이 없으므로 꺼진다. 두 아이콘 모두 44×44 터치 영역이다.
+              SoriProgressBar(
+                value: _filtered.isEmpty ? 0 : (_idx + 1) / _filtered.length,
+                thickness: 6,
+                color: SoriColors.primary,
+                animated: true,
+              ),
+              const SizedBox(height: Spacing.xs),
+              Row(
+                children: [
+                  // 듣기는 카드 안(읽어 주는 문장 옆)으로 옮겼다. 균형을
+                  // 위해 실행취소와 같은 폭만 비워 카운터를 가운데 둔다.
+                  const SizedBox(width: 44),
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        '${_idx + 1} / ${_filtered.length}',
+                        style: TextStyle(
+                          fontSize: 12.5,
+                          fontWeight: FontWeight.w700,
+                          color: s.textMuted,
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 44,
+                    height: 44,
+                    child: IconButton(
+                      key: const Key('grammar-undo'),
+                      tooltip: t.btnPrev,
+                      icon: const Icon(Icons.undo_rounded),
+                      iconSize: 20,
+                      color: s.textMuted,
+                      onPressed: _idx > 0 ? _prev : null,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: Spacing.sm),
+
+              // 판정은 **스와이프 전용**이다(Jin 확정) — 하단 CTA 를 없애
+              // 카드가 세로를 더 갖는다. 제스처를 못 쓰는 사용자를 위한
+              // 대체 수단은 시각적 버튼이 아니라 카드의 Semantics 액션이
+              // 맡는다(WCAG 2.2 §2.5.1 — 대체 수단은 필요하지만 그게
+              // 화면을 차지하는 버튼이어야 할 필요는 없다).
+              //
+              // 코스 체크포인트만 CTA 를 유지한다 — "카드 전체 탭과 하단
+              // CTA 가 같은 채점 시트를 연다" 는 기존 계약이 있다.
+              if (canRecordCheckpoint)
+                SoriEntrance(
+                  delay: const Duration(milliseconds: 80),
+                  child: SoriButton.filled(
+                    // 장식 아이콘 없이 라벨만 — 타이포 래칫의
+                    // "라벨 CTA 에 장식 아이콘 금지" 규칙을 따른다.
+                    label: t.courseCheckpointCheck,
+                    accent: SoriColors.contentCta,
+                    fullWidth: true,
+                    onTap: () => _showCheckpoint(g, assessmentLink!),
+                  ),
+                ),
+            ],
           ),
         ),
       ),
@@ -1144,16 +1117,12 @@ class _GrammarScreenState extends State<GrammarScreen>
       child: DropdownButton<String>(
         value: value,
         isExpanded: true,
+        itemHeight: null,
         underline: const SizedBox.shrink(),
         dropdownColor: s.surface,
         hint: Text(label, style: TextStyle(color: s.textMuted)),
         items: items
-            .map(
-              (item) => DropdownMenuItem(
-                value: item,
-                child: Text(item, overflow: TextOverflow.ellipsis),
-              ),
-            )
+            .map((item) => DropdownMenuItem(value: item, child: Text(item)))
             .toList(),
         onChanged: onChanged,
       ),

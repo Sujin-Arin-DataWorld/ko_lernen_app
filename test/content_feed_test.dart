@@ -4,6 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
+import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -104,5 +105,61 @@ void main() {
     await tester.pump();
     expect(like, 1);
     expect(bookmark, 0);
+  });
+
+  testWidgets('judgment labels stack without truncation at 320dp and 200%', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    const hard = 'Das wusste ich noch nicht';
+    const skip = 'Diese Aufgabe überspringen';
+    const know = 'Das habe ich sicher gewusst';
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        home: MediaQuery(
+          data: const MediaQueryData(
+            size: Size(320, 640),
+            textScaler: TextScaler.linear(2),
+            disableAnimations: true,
+          ),
+          child: Scaffold(
+            body: SoriContentActions(
+              onHard: () {},
+              onSkip: () {},
+              onKnow: () {},
+              showFlip: false,
+              showShare: false,
+              showLike: false,
+              showBookmark: false,
+              flipLabel: 'Umdrehen',
+              shareLabel: 'Teilen',
+              likeLabel: 'Gefällt mir',
+              bookmarkLabel: 'Speichern',
+              hardLabel: hard,
+              skipLabel: skip,
+              knowLabel: know,
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final hardRect = tester.getRect(find.byKey(deckActionKey('dontknow')));
+    final skipRect = tester.getRect(find.byKey(deckActionKey('skip')));
+    final knowRect = tester.getRect(find.byKey(deckActionKey('know')));
+    expect(skipRect.top, greaterThan(hardRect.top));
+    expect(knowRect.top, greaterThan(skipRect.top));
+    for (final label in const [hard, skip, know]) {
+      final text = tester.widget<Text>(find.text(label));
+      expect(text.maxLines, isNull);
+      expect(text.overflow, isNull);
+    }
+    expect(tester.takeException(), isNull);
   });
 }

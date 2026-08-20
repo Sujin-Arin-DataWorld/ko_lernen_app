@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
+import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/pending_reward_card.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
 
@@ -166,7 +167,7 @@ void main() {
   testWidgets('03C preview shows the actual earned expression and record', (
     tester,
   ) async {
-    tester.view.physicalSize = const Size(308, 900);
+    tester.view.physicalSize = const Size(320, 640);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
@@ -199,9 +200,22 @@ void main() {
           onOpenRecommendation: (_) async => opens++,
         ),
         locale: const Locale('de'),
-        textScale: 1.3,
+        textScale: 2,
+        size: const Size(320, 640),
+        safeInsets: const EdgeInsets.only(top: 44, bottom: 34),
       ),
     );
+
+    final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+    final title = tester.widget<Text>(
+      find.descendant(
+        of: find.byType(SoriAppBar),
+        matching: find.text(appBar.title),
+      ),
+    );
+    expect(appBar.title, 'Sarangbang');
+    expect(title.maxLines, isNotNull);
+    expect(title.overflow, TextOverflow.clip);
 
     final welcome = find.byKey(const ValueKey('sarangbang-welcome'));
     expect(
@@ -213,6 +227,12 @@ void main() {
       lessThan(tester.getTopLeft(find.text('Was du heute gelernt hast')).dy),
     );
     final room = find.byKey(const ValueKey('sarangbang-study-room'));
+    await tester.scrollUntilVisible(
+      room,
+      160,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
     final expression = find.text('안 맵게 해 주세요.');
     expect(expression, findsOneWidget);
     expect(find.descendant(of: room, matching: expression), findsOneWidget);
@@ -257,12 +277,17 @@ Widget _host(
   Widget child, {
   Locale locale = const Locale('en'),
   double textScale = 1,
+  Size size = Size.zero,
+  EdgeInsets safeInsets = EdgeInsets.zero,
 }) => MaterialApp(
   locale: locale,
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
   home: MediaQuery(
     data: MediaQueryData(
+      size: size,
+      padding: safeInsets,
+      viewPadding: safeInsets,
       disableAnimations: true,
       textScaler: TextScaler.linear(textScale),
     ),

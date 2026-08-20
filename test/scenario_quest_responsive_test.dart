@@ -5,6 +5,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 
 const _responsiveScene = Scenario(
   id: 'airport_arrival',
@@ -174,6 +175,46 @@ void main() {
     expect(find.byType(TextField), findsOneWidget);
     expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
   });
+
+  testWidgets(
+    'long title remains complete with 200 percent text and safe area',
+    (tester) async {
+      await tester.binding.setSurfaceSize(const Size(320, 640));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      await tester.pumpWidget(
+        _host(
+          textScale: 2,
+          dark: false,
+          questIndex: 0,
+          locale: const Locale('de'),
+          safeInsets: const EdgeInsets.only(top: 44, bottom: 34),
+        ),
+      );
+      await tester.pump();
+
+      final appBar = tester.widget<SoriAppBar>(find.byType(SoriAppBar));
+      final title = tester.widget<Text>(
+        find.descendant(
+          of: find.byType(SoriAppBar),
+          matching: find.text(appBar.title),
+        ),
+      );
+      expect(appBar.title, 'Einreise am Flughafen');
+      final closeIcon = find.descendant(
+        of: find.byType(SoriAppBar),
+        matching: find.byIcon(Icons.close_rounded),
+      );
+      final close = tester.widget<IconButton>(
+        find.ancestor(of: closeIcon, matching: find.byType(IconButton)),
+      );
+      expect(close.tooltip, isNotEmpty);
+      expect(title.maxLines, isNotNull);
+      expect(title.overflow, TextOverflow.clip);
+      expect(find.text('1 von 7'), findsOneWidget);
+      expect(find.byKey(const ValueKey('quest-submit')), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
 }
 
 Widget _host({
@@ -182,9 +223,11 @@ Widget _host({
   required int questIndex,
   double keyboardInset = 0,
   bool roleplay = false,
+  Locale locale = const Locale('en'),
+  EdgeInsets safeInsets = EdgeInsets.zero,
 }) => MaterialApp(
   theme: dark ? AppTheme.dark : AppTheme.light,
-  locale: const Locale('en'),
+  locale: locale,
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
   builder: (context, child) {
@@ -193,6 +236,8 @@ Widget _host({
       data: media.copyWith(
         textScaler: TextScaler.linear(textScale),
         disableAnimations: true,
+        padding: safeInsets,
+        viewPadding: safeInsets,
         viewInsets: EdgeInsets.only(bottom: keyboardInset),
       ),
       child: child!,

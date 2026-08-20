@@ -16,8 +16,7 @@ import '../widgets/sori/celebration.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 
 /// **어려운 철자 퀴즈** — Extra-Lernset(어려운 단어)의 2단계 연습
@@ -76,10 +75,13 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
       /* best-effort — 덱 표제어만으로도 동작 */
     }
     if (!mounted) return;
-    final round = widget.deck
-        .where((v) => v.german.trim().isNotEmpty || v.english.trim().isNotEmpty)
-        .toList()
-      ..shuffle(_rng);
+    final round =
+        widget.deck
+            .where(
+              (v) => v.german.trim().isNotEmpty || v.english.trim().isNotEmpty,
+            )
+            .toList()
+          ..shuffle(_rng);
     setState(() {
       _blocklist = blocklist;
       _round = round;
@@ -174,27 +176,16 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          widget.title ?? t.hardQuizTitle,
-          style: const TextStyle(fontWeight: FontWeight.w700),
-        ),
-      ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: Padding(
-              padding: const EdgeInsets.all(Spacing.lg),
-              child: _loading
-                  ? const Center(child: CircularProgressIndicator())
-                  : _done || _round.isEmpty
+    return SoriStudyFrame(
+      title: widget.title ?? t.hardQuizTitle,
+      child: _loading
+          ? const Center(child: CircularProgressIndicator())
+          : SoriAdaptiveStudyBody(
+              minHeight: 380,
+              child: _done || _round.isEmpty
                   ? _buildDone(t)
                   : _buildQuestion(t, s, lang),
             ),
-          ),
-        ),
-      ),
     );
   }
 
@@ -204,18 +195,18 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
+        Wrap(
+          spacing: Spacing.sm,
+          runSpacing: Spacing.sm,
+          crossAxisAlignment: WrapCrossAlignment.center,
           children: [
             SoriChip(
               label: '${_idx + 1} / ${_round.length}',
               accent: SoriColors.info,
             ),
-            const SizedBox(width: Spacing.sm),
-            Expanded(
-              child: Text(
-                t.hardQuizHint,
-                style: TextStyle(fontSize: 12, color: s.textMuted),
-              ),
+            Text(
+              t.hardQuizHint,
+              style: TextStyle(fontSize: 12, color: s.textMuted),
             ),
           ],
         ),

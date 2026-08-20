@@ -39,43 +39,59 @@ class MissionContextBar extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                children: [
-                  const Icon(
-                    Icons.route_outlined,
-                    size: 18,
-                    color: SoriColors.primary,
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  Flexible(
-                    child: Text(
-                      t.missionContextLabel,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: SoriTextTheme.of(
-                        context,
-                      ).label.copyWith(color: SoriColors.primary),
-                    ),
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  Flexible(
-                    child: Text(
-                      progressLabel,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.end,
-                      style: SoriTextTheme.of(
-                        context,
-                      ).bodySmall.copyWith(color: s.textMuted),
-                    ),
-                  ),
-                ],
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final textScale = MediaQuery.textScalerOf(context).scale(1);
+                  final stackHeader =
+                      textScale >= 1.6 ||
+                      constraints.maxWidth < SoriBreakpoints.missionHeaderStack;
+                  final missionLabel = Row(
+                    children: [
+                      const Icon(
+                        Icons.route_outlined,
+                        size: 18,
+                        color: SoriColors.primary,
+                      ),
+                      const SizedBox(width: Spacing.sm),
+                      Flexible(
+                        child: Text(
+                          t.missionContextLabel,
+                          style: SoriTextTheme.of(
+                            context,
+                          ).label.copyWith(color: SoriColors.primary),
+                        ),
+                      ),
+                    ],
+                  );
+                  final progress = Text(
+                    progressLabel,
+                    textAlign: stackHeader ? TextAlign.start : TextAlign.end,
+                    style: SoriTextTheme.of(
+                      context,
+                    ).bodySmall.copyWith(color: s.textMuted),
+                  );
+                  if (stackHeader) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        missionLabel,
+                        const SizedBox(height: Spacing.xs),
+                        progress,
+                      ],
+                    );
+                  }
+                  return Row(
+                    children: [
+                      Expanded(child: missionLabel),
+                      const SizedBox(width: Spacing.sm),
+                      Flexible(child: progress),
+                    ],
+                  );
+                },
               ),
               const SizedBox(height: Spacing.xs),
               Text(
                 missionTitle,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
                 style: SoriTextTheme.of(
                   context,
                 ).body.copyWith(fontWeight: FontWeight.w700),

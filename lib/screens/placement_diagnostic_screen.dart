@@ -8,10 +8,10 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/window_class.dart';
 
 /// An optional practical placement check. It deliberately has no microphone
 /// and exposes the final level choice, so its result is a recommendation only.
@@ -96,29 +96,28 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(t.placementTitle),
-        actions: const [TtsSpeedAction()],
+    return SoriStandardFrame(
+      appBarTitle: t.placementTitle,
+      actions: const [TtsSpeedAction()],
+      maxWidth: SoriMaxWidth.focus,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.lg,
+        Spacing.lg,
+        Spacing.xxl,
       ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriCenterClamp(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 36),
-              child: _done ? _result(t) : _question(t),
-            ),
-          ),
-        ),
-      ),
+      builder: (context, padding) =>
+          _done ? _result(t, padding) : _question(t, padding),
     );
   }
 
-  Widget _question(AppL10n t) {
+  Widget _question(AppL10n t, EdgeInsets padding) {
     final question = placementDiagnosticQuestions[_index];
     final choices = question.choices(_lang);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    return ListView(
+      key: ValueKey('placement-question-$_index'),
+      primary: false,
+      padding: padding,
       children: [
         Text(
           t.placementProgress(_index + 1, placementDiagnosticQuestions.length),
@@ -193,7 +192,7 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
               ),
             ),
           ),
-        const Spacer(),
+        const SizedBox(height: Spacing.sm),
         SoriButton.filled(
           label: _index + 1 == placementDiagnosticQuestions.length
               ? t.placementSeeRecommendation
@@ -205,9 +204,12 @@ class _PlacementDiagnosticScreenState extends State<PlacementDiagnosticScreen> {
     );
   }
 
-  Widget _result(AppL10n t) {
+  Widget _result(AppL10n t, EdgeInsets padding) {
     final recommendation = recommendPlacement(_correct);
     return ListView(
+      key: const ValueKey('placement-result'),
+      primary: false,
+      padding: padding,
       children: [
         SoriCard(
           variant: SoriCardVariant.hero,

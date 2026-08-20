@@ -16,24 +16,15 @@ void main() {
 
   test('notebook photos stay open after the textbook analysis quota', () {
     expect(
-      bookCaptureQuotaBlocksPick(
-        captureMode: 'notebook',
-        quotaReached: true,
-      ),
+      bookCaptureQuotaBlocksPick(captureMode: 'notebook', quotaReached: true),
       isFalse,
     );
     expect(
-      bookCaptureQuotaBlocksPick(
-        captureMode: null,
-        quotaReached: true,
-      ),
+      bookCaptureQuotaBlocksPick(captureMode: null, quotaReached: true),
       isTrue,
     );
     expect(
-      bookCaptureQuotaBlocksPick(
-        captureMode: 'textbook',
-        quotaReached: false,
-      ),
+      bookCaptureQuotaBlocksPick(captureMode: 'textbook', quotaReached: false),
       isFalse,
     );
   });
@@ -263,7 +254,10 @@ void main() {
     );
     expect(analyzeButton.onTap, isNotNull);
 
-    await tester.tap(find.widgetWithText(SoriButton, 'Analyze'));
+    final analyze = find.widgetWithText(SoriButton, 'Analyze');
+    await tester.ensureVisible(analyze);
+    await tester.pump();
+    await tester.tap(analyze);
     await tester.pump();
 
     expect(pushed?.name, '/book/result');
@@ -279,34 +273,39 @@ void main() {
     });
   });
 
-  testWidgets('notebook-like preview keeps the written pairs and skips analysis', (
-    tester,
-  ) async {
-    RouteSettings? pushed;
-    await tester.pumpWidget(
-      _previewApp(
-        locale: const Locale('de'),
-        args: const <String, dynamic>{
-          'text': '학교 - Schule\n학생 = Schüler\n시작 Anfang\n개시 Eröffnung',
-          'blockCount': 4,
-          'captureMode': 'notebook',
-        },
-        imageResolver: (_) async => null,
-        onRoute: (settings) => pushed = settings,
-      ),
-    );
-    await tester.pump();
+  testWidgets(
+    'notebook-like preview keeps the written pairs and skips analysis',
+    (tester) async {
+      RouteSettings? pushed;
+      await tester.pumpWidget(
+        _previewApp(
+          locale: const Locale('de'),
+          args: const <String, dynamic>{
+            'text': '학교 - Schule\n학생 = Schüler\n시작 Anfang\n개시 Eröffnung',
+            'blockCount': 4,
+            'captureMode': 'notebook',
+          },
+          imageResolver: (_) async => null,
+          onRoute: (settings) => pushed = settings,
+        ),
+      );
+      await tester.pump();
 
-    await tester.tap(
-      find.widgetWithText(SoriButton, 'Diese Wörter übernehmen'),
-    );
-    await tester.pump();
+      final importWords = find.widgetWithText(
+        SoriButton,
+        'Diese Wörter übernehmen',
+      );
+      await tester.ensureVisible(importWords);
+      await tester.pump();
+      await tester.tap(importWords);
+      await tester.pump();
 
-    expect(pushed?.name, '/vocab_notebook/result');
-    final arguments = pushed?.arguments as Map<String, dynamic>;
-    expect(arguments['text'], contains('Schule'));
-    expect(arguments['text'], contains('Schüler'));
-  });
+      expect(pushed?.name, '/vocab_notebook/result');
+      final arguments = pushed?.arguments as Map<String, dynamic>;
+      expect(arguments['text'], contains('Schule'));
+      expect(arguments['text'], contains('Schüler'));
+    },
+  );
 }
 
 Widget _previewApp({

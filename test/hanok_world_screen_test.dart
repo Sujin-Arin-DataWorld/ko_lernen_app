@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/screens/hanok_world_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
 import 'package:ko_lernen_app/services/personal_hanok_reveal_service.dart';
+import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/madang_background.dart';
 import 'package:ko_lernen_app/widgets/sori/personal_hanok_map.dart';
 import 'package:ko_lernen_app/widgets/sori/progress.dart';
@@ -231,6 +232,37 @@ void main() {
     await expectLater(tester, meetsGuideline(androidTapTargetGuideline));
     await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
     await expectLater(tester, meetsGuideline(textContrastGuideline));
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('standalone Hanok chrome stays complete at 320dp and 200%', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final projection = PersonalHanokProjection.from(
+      const LevelRatios(a1: .25, a2: 0, b1: 0, b2: 0),
+    );
+
+    await tester.pumpWidget(
+      _host(
+        HanokWorldScreen.preview(
+          projection: projection,
+          narrative: HanokBuildNarrative.empty(projection),
+        ),
+        locale: const Locale('de'),
+        textScale: 2,
+        safeInsets: const EdgeInsets.only(top: 44, bottom: 34),
+      ),
+    );
+    await tester.pump();
+
+    expect(find.byType(SoriAppBar), findsOneWidget);
+    final title = tester.widget<Text>(find.text('Meine Hanok-Welt'));
+    expect(title.maxLines, isNotNull);
+    expect(title.overflow, TextOverflow.clip);
     expect(tester.takeException(), isNull);
   });
 
@@ -608,6 +640,7 @@ Widget _host(
   Widget child, {
   Locale locale = const Locale('en'),
   double textScale = 1,
+  EdgeInsets safeInsets = EdgeInsets.zero,
 }) => MaterialApp(
   locale: locale,
   supportedLocales: AppL10n.supportedLocales,
@@ -615,6 +648,8 @@ Widget _host(
   home: MediaQuery(
     data: MediaQueryData(
       disableAnimations: true,
+      padding: safeInsets,
+      viewPadding: safeInsets,
       textScaler: TextScaler.linear(textScale),
     ),
     child: child,

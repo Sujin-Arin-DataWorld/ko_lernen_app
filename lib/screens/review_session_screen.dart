@@ -25,12 +25,12 @@ import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scroll_if_needed.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
 
@@ -289,50 +289,39 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
 
-    return Scaffold(
-      backgroundColor: s.bg,
-      appBar: AppBar(
-        title: Text(
-          widget.title ?? t.reviewTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-        actions: [
-          // 오늘의 복습 카드를 바로 내 단어장에 담기 (item 11).
-          if (!_loading && _deck.isNotEmpty && !_done)
-            AddToWordbookButton(
-              korean: _card.korean,
-              translationDe: _card.german,
-              translationEn: _card.english,
-              romanization: _card.romanization,
-              posDe: _card.posDe,
-              exampleKorean: _card.exampleKorean,
-              exampleDe: _card.exampleGerman,
-              compact: true,
-            ),
-          const TtsSpeedAction(),
-        ],
-      ),
-      body: SoriScreenBackground(
-        // ⚠️ 완료 화면에서는 한지 결을 끈다. `_HanjiPainter` 는 반지름 48~163px
-        // 짜리 따뜻한 구름 얼룩(#D4C496 @0.075)을 최대 40개 뿌려 배경을
-        // 얼룩덜룩하게 만든다 — 실측 #FAF6EC → #F7F2E6. 그런데 캐릭터 mp4 는
-        // 흰 매트를 multiply 로 지운 **완전 평면 #FAF6EC** 사각형이라, 색이
-        // 맞아도 "매끈한 밝은 사각형"으로 읽힌다. Jin 이 여러 화면에서 반복
-        // 지적한 "호랑이 흰 배경"의 실제 정체가 이 평면 대 얼룩 대비다.
-        // 배경을 평면으로 두면 사각형이 배경과 **완전히 같은 값**이 된다.
-        noiseAlpha: _done ? 0 : 0.11,
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: _loading
-                ? const AppLoading()
-                : _deck.isEmpty
-                ? _buildEmpty(t)
-                : _done
-                ? _buildDone(t, s)
-                : _buildCard(t, s),
+    return SoriStudyFrame(
+      title: widget.title ?? t.reviewTitle,
+      actions: [
+        // 오늘의 복습 카드를 바로 내 단어장에 담기 (item 11).
+        if (!_loading && _deck.isNotEmpty && !_done)
+          AddToWordbookButton(
+            korean: _card.korean,
+            translationDe: _card.german,
+            translationEn: _card.english,
+            romanization: _card.romanization,
+            posDe: _card.posDe,
+            exampleKorean: _card.exampleKorean,
+            exampleDe: _card.exampleGerman,
+            compact: true,
           ),
-        ),
-      ),
+        const TtsSpeedAction(),
+      ],
+      padding: EdgeInsets.zero,
+      // ⚠️ 완료 화면에서는 한지 결을 끈다. `_HanjiPainter` 는 반지름 48~163px
+      // 짜리 따뜻한 구름 얼룩(#D4C496 @0.075)을 최대 40개 뿌려 배경을
+      // 얼룩덜룩하게 만든다 — 실측 #FAF6EC → #F7F2E6. 그런데 캐릭터 mp4 는
+      // 흰 매트를 multiply 로 지운 **완전 평면 #FAF6EC** 사각형이라, 색이
+      // 맞아도 "매끈한 밝은 사각형"으로 읽힌다. Jin 이 여러 화면에서 반복
+      // 지적한 "호랑이 흰 배경"의 실제 정체가 이 평면 대 얼룩 대비다.
+      // 배경을 평면으로 두면 사각형이 배경과 **완전히 같은 값**이 된다.
+      noiseAlpha: _done ? 0 : 0.11,
+      child: _loading
+          ? const AppLoading()
+          : _deck.isEmpty
+          ? _buildEmpty(t)
+          : _done
+          ? _buildDone(t, s)
+          : _buildCard(t, s),
     );
   }
 
@@ -563,13 +552,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                       : SizedBox(
                           width: double.infinity,
                           height: cardH,
-                          child: _heroCardBody(
-                            next,
-                            s,
-                            tt,
-                            t,
-                            showBack: false,
-                          ),
+                          child: _heroCardBody(next, s, tt, t, showBack: false),
                         ),
                   knowLabel: t.btnGewusst,
                   hardLabel: t.btnNichtGewusst,
@@ -583,13 +566,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                       key: const ValueKey('deck-card-slot'),
                       width: double.infinity,
                       height: double.infinity,
-                      child: _heroCardBody(
-                        card,
-                        s,
-                        tt,
-                        t,
-                        showBack: _flipped,
-                      ),
+                      child: _heroCardBody(card, s, tt, t, showBack: _flipped),
                     ),
                   ),
                 );

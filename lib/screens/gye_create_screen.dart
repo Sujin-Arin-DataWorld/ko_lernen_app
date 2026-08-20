@@ -12,8 +12,9 @@ import '../services/gye_service.dart';
 import '../services/account/cloud_write_session.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// 계 만들기 — 이름·닉네임 입력 → 6자리 코드 생성·공유. plan §7.3.
 /// (가입 후 계 마당은 Tier 3c에서 — 여기선 코드 생성·공유까지.)
@@ -78,26 +79,14 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
     return ValueListenableBuilder<CloudWriteSession?>(
       valueListenable:
           widget.accountSessions ?? cloudWriteSessionController.changes,
-      builder: (context, session, _) => Scaffold(
-        appBar: AppBar(
-          title: Text(
-            t.gyeCreateTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800),
-          ),
-        ),
-        body: SafeArea(
-          child: LayoutBuilder(
-            builder: (context, constraints) => SingleChildScrollView(
-              padding: soriClampPadding(
-                constraints.maxWidth,
-                base: const EdgeInsets.all(Spacing.lg),
-              ),
-              child: _code == null
-                  ? _form(t, session?.mode == CloudWriteMode.ready)
-                  : _created(t),
-            ),
-          ),
-        ),
+      builder: (context, session, _) => SoriStandardPage(
+        appBarTitle: t.gyeCreateTitle,
+        maxWidth: SoriMaxWidth.form,
+        children: [
+          _code == null
+              ? _form(t, session?.mode == CloudWriteMode.ready)
+              : _created(t),
+        ],
       ),
     );
   }
@@ -135,6 +124,7 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
         DropdownButtonFormField<String>(
           initialValue: _weeklyPromiseId,
           isExpanded: true,
+          itemHeight: null,
           decoration: InputDecoration(
             labelText: t.gyePromisePickerLabel,
             border: const OutlineInputBorder(),
@@ -143,11 +133,7 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
               .map(
                 (promise) => DropdownMenuItem(
                   value: promise.id,
-                  child: Text(
-                    _promiseLabel(t, promise.id),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
+                  child: Text(_promiseLabel(t, promise.id)),
                 ),
               )
               .toList(growable: false),

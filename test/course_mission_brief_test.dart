@@ -8,6 +8,7 @@ import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/course_mission_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 
 const _unit = CourseUnit(
   id: 'a1_food',
@@ -216,5 +217,56 @@ void main() {
     await tester.tap(find.text('Listen now'));
     await tester.pump();
     expect(opened?.id, 'listen');
+  });
+
+  testWidgets('preview stays complete at 320dp and 200% with safe areas', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final brief = CourseMissionBrief.from(
+      unit: _unit,
+      links: [
+        _link('listen', CurriculumContentKind.vocab),
+        _link('build', CurriculumContentKind.grammar),
+        _link('speak', CurriculumContentKind.scenario),
+      ],
+      scenarios: const [_scenario],
+      isCurrent: true,
+    );
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('en'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        builder: (context, child) {
+          final media = MediaQuery.of(context);
+          const safeInsets = EdgeInsets.only(top: 44, bottom: 34);
+          return MediaQuery(
+            data: media.copyWith(
+              padding: safeInsets,
+              viewPadding: safeInsets,
+              textScaler: const TextScaler.linear(2),
+            ),
+            child: child!,
+          );
+        },
+        home: CourseMissionScreen.preview(brief: brief, openLink: (_) async {}),
+      ),
+    );
+
+    expect(find.byType(SoriStandardFrame), findsOneWidget);
+    expect(find.text('Recognize the polite form'), findsOneWidget);
+    final action = find.text('Listen now');
+    await tester.scrollUntilVisible(action, 200);
+    await tester.ensureVisible(action);
+    await tester.pump();
+
+    expect(action, findsOneWidget);
+    expect(tester.getRect(action).bottom, lessThanOrEqualTo(640 - 34));
+    expect(tester.takeException(), isNull);
   });
 }

@@ -12,10 +12,11 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/pressable.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'scenario_player_screen.dart';
 
@@ -122,105 +123,89 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
     final t = AppL10n.of(context);
 
     if (_loading) {
-      return Scaffold(body: AppLoading(message: t.scenariosListTitle));
+      return SoriStandardPage(
+        appBarTitle: t.scenariosListTitle,
+        maxWidth: SoriMaxWidth.hub,
+        children: [AppLoading(message: t.scenariosListTitle)],
+      );
     }
     if (_loadFailed) {
-      return Scaffold(
-        appBar: AppBar(title: Text(t.scenariosListTitle)),
-        body: SoriEmptyState(
-          asset: 'assets/illustrations/error/lost_magpie.png',
-          icon: Icons.signal_wifi_statusbar_null_rounded,
-          title: t.scenariosLoadFailedTitle,
-          body: ScenarioLoader.lastError,
-          ctaLabel: t.btnRetry,
-          onCta: () {
-            ScenarioLoader.reset();
-            _load();
-          },
-          accent: SoriColors.accent,
-        ),
+      return SoriStandardPage(
+        appBarTitle: t.scenariosListTitle,
+        maxWidth: SoriMaxWidth.hub,
+        children: [
+          SoriEmptyState(
+            asset: 'assets/illustrations/error/lost_magpie.png',
+            icon: Icons.signal_wifi_statusbar_null_rounded,
+            title: t.scenariosLoadFailedTitle,
+            body: ScenarioLoader.lastError,
+            ctaLabel: t.btnRetry,
+            onCta: () {
+              ScenarioLoader.reset();
+              _load();
+            },
+            accent: SoriColors.accent,
+          ),
+        ],
       );
     }
 
     final stars = Storage.scenarioStars;
     final lang = Localizations.localeOf(context).languageCode;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.scenariosListTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
+    return SoriStandardPage(
+      appBarTitle: t.scenariosListTitle,
+      headline: t.scenariosListTitle,
+      description: t.scenariosListSubtitle,
+      maxWidth: SoriMaxWidth.hub,
+      children: [
+        // 모듈 헤더 — 16:9 원본 영상과 같은 비율을 유지한다.
+        // 마당 포스터 위로 종가 앰비언트 루프(굴뚝 연기·감 흔들림) 페이드인.
+        const HanokHeader(
+          asset: 'assets/illustrations/hanok/madang(light).png',
+          fallbackIcon: Icons.travel_explore_outlined,
+          loopAsset: 'assets/video/loops/hanok_jongga.mp4',
+          aspectRatio: ScenariosListScreen.heroAspectRatio,
         ),
-      ),
-      body: SafeArea(
-        child: ListView(
-          padding: soriClampPadding(
-            MediaQuery.sizeOf(context).width,
-            base: const EdgeInsets.fromLTRB(
-              Spacing.lg,
-              Spacing.xs,
-              Spacing.lg,
-              Spacing.xl,
-            ),
+        const SizedBox(height: Spacing.xl),
+
+        // Lesson Path header (Phase 3 — visible lesson path)
+        KeyedSubtree(
+          key: _pathHeaderKey,
+          child: _LessonPathHeader(
+            all: _all,
+            userLevel: _userLevel,
+            stars: stars,
+            lang: lang,
+            levelColor: _levelColor,
           ),
-          children: [
-            // 모듈 헤더 — 16:9 원본 영상과 같은 비율을 유지한다.
-            // 마당 포스터 위로 종가 앰비언트 루프(굴뚝 연기·감 흔들림) 페이드인.
-            const HanokHeader(
-              asset: 'assets/illustrations/hanok/madang(light).png',
-              fallbackIcon: Icons.travel_explore_outlined,
-              loopAsset: 'assets/video/loops/hanok_jongga.mp4',
-              aspectRatio: ScenariosListScreen.heroAspectRatio,
-            ),
-            const SizedBox(height: Spacing.md),
-            // Subtitle
-            Padding(
-              padding: const EdgeInsets.only(bottom: Spacing.md, left: 2),
-              child: Text(
-                t.scenariosListSubtitle,
-                style: SoriTextTheme.of(context).bodySmall,
-              ),
-            ),
-
-            // Lesson Path header (Phase 3 — visible lesson path)
-            KeyedSubtree(
-              key: _pathHeaderKey,
-              child: _LessonPathHeader(
-                all: _all,
-                userLevel: _userLevel,
-                stars: stars,
-                lang: lang,
-                levelColor: _levelColor,
-              ),
-            ),
-            const SizedBox(height: Spacing.lg),
-
-            // Per-Level Sections
-            for (final level in LearnerLevel.values.where(
-              (candidate) => _all.any((scenario) => scenario.level == candidate),
-            )) ...[
-              _LevelSection(
-                level: level,
-                accent: _levelColor(level),
-                locked: _isLocked(level),
-                scenarios: _all.where((sc) => sc.level == level).toList(),
-                lang: lang,
-                stars: stars,
-                onLockedTap: (sc) {
-                  HapticFeedback.selectionClick();
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(t.scenariosLocked(sc.level.display)),
-                      duration: const Duration(seconds: 2),
-                    ),
-                  );
-                },
-              ),
-              const SizedBox(height: Spacing.xl),
-            ],
-          ],
         ),
-      ),
+        const SizedBox(height: Spacing.lg),
+
+        // Per-Level Sections
+        for (final level in LearnerLevel.values.where(
+          (candidate) => _all.any((scenario) => scenario.level == candidate),
+        )) ...[
+          _LevelSection(
+            level: level,
+            accent: _levelColor(level),
+            locked: _isLocked(level),
+            scenarios: _all.where((sc) => sc.level == level).toList(),
+            lang: lang,
+            stars: stars,
+            onLockedTap: (sc) {
+              HapticFeedback.selectionClick();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text(t.scenariosLocked(sc.level.display)),
+                  duration: const Duration(seconds: 2),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: Spacing.xl),
+        ],
+      ],
     );
   }
 }
@@ -267,8 +252,6 @@ class _LevelSection extends StatelessWidget {
             Expanded(
               child: Text(
                 t.scenariosLevelBadge(level.display),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   color: locked ? s.textDim : s.textMuted,
                   fontSize: 13,
@@ -277,33 +260,28 @@ class _LevelSection extends StatelessWidget {
                 ),
               ),
             ),
-            if (locked)
-              Flexible(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: Spacing.sm),
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        WidgetSpan(
-                          alignment: PlaceholderAlignment.middle,
-                          child: Icon(
-                            Icons.lock_outline_rounded,
-                            size: 13,
-                            color: s.textDim,
-                          ),
-                        ),
-                        const WidgetSpan(child: SizedBox(width: Spacing.xs)),
-                        TextSpan(text: t.scenariosLocked(level.display)),
-                      ],
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(color: s.textDim, fontSize: 11),
-                  ),
-                ),
-              ),
           ],
         ),
+        if (locked) ...[
+          const SizedBox(height: Spacing.xs),
+          Text.rich(
+            TextSpan(
+              children: [
+                WidgetSpan(
+                  alignment: PlaceholderAlignment.middle,
+                  child: Icon(
+                    Icons.lock_outline_rounded,
+                    size: 13,
+                    color: s.textDim,
+                  ),
+                ),
+                const WidgetSpan(child: SizedBox(width: Spacing.xs)),
+                TextSpan(text: t.scenariosLocked(level.display)),
+              ],
+            ),
+            style: TextStyle(color: s.textDim, fontSize: 11),
+          ),
+        ],
         const SizedBox(height: Spacing.sm),
 
         // Cards or empty placeholder (Faceted Minhwa empty card)
@@ -469,8 +447,6 @@ class _ScenarioCardBody extends StatelessWidget {
                       fontWeight: FontWeight.w800,
                       color: locked ? s.textDim : s.text,
                     ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
                   ),
                   const SizedBox(height: Spacing.xs),
                   Row(
@@ -484,8 +460,6 @@ class _ScenarioCardBody extends StatelessWidget {
                       Expanded(
                         child: Text(
                           '5-7 min · +${scenario.xpReward} XP',
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                           style: TextStyle(
                             color: s.textDim,
                             fontSize: 11,
@@ -577,28 +551,30 @@ class _LessonPathHeader extends StatelessWidget {
           // Title + overall progress
           Row(
             children: [
-              Icon(Icons.route_rounded, size: 18, color: SoriColors.primary),
+              const Icon(
+                Icons.route_rounded,
+                size: 18,
+                color: SoriColors.primary,
+              ),
               const SizedBox(width: Spacing.sm),
               Expanded(
                 child: Text(
                   t.scenariosPathTitle,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                   style: SoriTextTheme.of(context).cardTitle,
                 ),
               ),
-              Flexible(
-                child: Text(
-                  t.scenariosPathProgress(totalUnlocked, totalAll),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  textAlign: TextAlign.end,
-                  style: SoriTextTheme.of(
-                    context,
-                  ).cardSubtitle.copyWith(fontWeight: FontWeight.w600),
-                ),
-              ),
             ],
+          ),
+          const SizedBox(height: Spacing.xs),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Text(
+              t.scenariosPathProgress(totalUnlocked, totalAll),
+              textAlign: TextAlign.end,
+              style: SoriTextTheme.of(
+                context,
+              ).cardSubtitle.copyWith(fontWeight: FontWeight.w600),
+            ),
           ),
           const SizedBox(height: Spacing.sm),
 
@@ -608,7 +584,8 @@ class _LessonPathHeader extends StatelessWidget {
             runSpacing: Spacing.xs,
             children: [
               for (final lvl in LearnerLevel.values.where(
-                (candidate) => all.any((scenario) => scenario.level == candidate),
+                (candidate) =>
+                    all.any((scenario) => scenario.level == candidate),
               ))
                 _LevelProgressChip(
                   level: lvl,
@@ -695,7 +672,7 @@ class _LevelProgressChip extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
           color: tint.withValues(alpha: 0.12),
-          borderRadius: BorderRadius.circular(999),
+          borderRadius: SoriRadius.brPill,
           border: Border.all(color: tint.withValues(alpha: 0.32), width: 1),
         ),
         child: Row(
@@ -736,6 +713,68 @@ class _NextRecommended extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
+    final details = Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _ScenarioThumbnail(
+          scenario: scenario,
+          accent: accent,
+          locked: false,
+          size: 44,
+        ),
+        const SizedBox(width: Spacing.md),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                t.scenariosPathNextLabel,
+                style: TextStyle(
+                  fontSize: 10,
+                  color: accent,
+                  fontWeight: FontWeight.w800,
+                  letterSpacing: 0.6,
+                ),
+              ),
+              const SizedBox(height: Spacing.xs),
+              Text(
+                scenario.title.pick(lang),
+                style: SoriTextTheme.of(context).cardTitle,
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+    final cta = Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: Spacing.md,
+        vertical: Spacing.sm,
+      ),
+      decoration: BoxDecoration(color: accent, borderRadius: SoriRadius.brPill),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            t.scenariosPathStartCta,
+            style: TextStyle(
+              fontFamily: SoriFonts.sans,
+              fontSize: 12,
+              color: SoriColors.onFill(accent),
+              fontWeight: FontWeight.w800,
+              letterSpacing: 0.3,
+            ),
+          ),
+          const SizedBox(width: Spacing.xs),
+          Icon(
+            Icons.arrow_forward_rounded,
+            size: 14,
+            color: SoriColors.onFill(accent),
+          ),
+        ],
+      ),
+    );
     return SoriPressable(
       onTap: () {
         HapticFeedback.selectionClick();
@@ -753,74 +792,30 @@ class _NextRecommended extends StatelessWidget {
           borderRadius: SoriRadius.brSm,
           border: Border.all(color: accent.withValues(alpha: 0.32), width: 1),
         ),
-        child: Row(
-          children: [
-            _ScenarioThumbnail(
-              scenario: scenario,
-              accent: accent,
-              locked: false,
-              size: 44,
-            ),
-            const SizedBox(width: Spacing.md),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
+            final stack =
+                constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
+                textScale >= 1.6;
+            if (stack) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text(
-                    t.scenariosPathNextLabel,
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: accent,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 0.6,
-                    ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    scenario.title.pick(lang),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: s.text,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: -0.1,
-                    ),
-                  ),
+                  details,
+                  const SizedBox(height: Spacing.md),
+                  Align(alignment: Alignment.centerRight, child: cta),
                 ],
-              ),
-            ),
-            const SizedBox(width: Spacing.sm),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 7),
-              decoration: BoxDecoration(
-                color: accent,
-                borderRadius: BorderRadius.circular(999),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    t.scenariosPathStartCta,
-                    style: const TextStyle(
-                      fontFamily: SoriFonts.sans,
-                      fontSize: 12,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: 0.3,
-                    ),
-                  ),
-                  const SizedBox(width: 4),
-                  const Icon(
-                    Icons.arrow_forward_rounded,
-                    size: 14,
-                    color: Colors.white,
-                  ),
-                ],
-              ),
-            ),
-          ],
+              );
+            }
+            return Row(
+              children: [
+                Expanded(child: details),
+                const SizedBox(width: Spacing.sm),
+                cta,
+              ],
+            );
+          },
         ),
       ),
     );
@@ -878,8 +873,6 @@ class _EmptyLevelCard extends StatelessWidget {
               children: [
                 Text(
                   t.scenariosEmptyTitle,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontFamily: SoriFonts.sans,
                     color: s.text,
@@ -891,8 +884,6 @@ class _EmptyLevelCard extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   t.scenariosEmptyBody,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: s.textMuted,
                     fontSize: 12,

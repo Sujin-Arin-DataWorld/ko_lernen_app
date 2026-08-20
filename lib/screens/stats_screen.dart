@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/tokens.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/window_class.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
@@ -92,185 +91,177 @@ class _StatsScreenState extends State<StatsScreen>
         Storage.streakDays == 0;
 
     if (isFirstEntry) {
-      return Scaffold(
-        appBar: SoriAppBar(title: t.statsHeader),
-        body: SafeArea(
-          child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/magpie_encourage.png',
-            icon: Icons.auto_stories_outlined,
-            title: t.statsFirstEntryTitle,
-            body: t.statsFirstEntryBody,
-            ctaLabel: t.statsFirstEntryCta,
-            onCta: () => Navigator.of(context).pushNamed('/scenarios'),
-            illustrationMaxHeight: 220,
+      return SoriStandardFrame(
+        appBarTitle: t.statsHeader,
+        padding: const EdgeInsets.all(Spacing.lg),
+        builder: (context, padding) => Center(
+          child: Padding(
+            padding: padding,
+            child: SoriEmptyState(
+              asset: 'assets/illustrations/mascot/magpie_encourage.png',
+              icon: Icons.auto_stories_outlined,
+              title: t.statsFirstEntryTitle,
+              body: t.statsFirstEntryBody,
+              ctaLabel: t.statsFirstEntryCta,
+              onCta: () => Navigator.of(context).pushNamed('/scenarios'),
+              illustrationMaxHeight: 220,
+            ),
           ),
         ),
       );
     }
 
-    return Scaffold(
-      appBar: SoriAppBar(title: t.statsHeader),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: ListView(
-            padding: soriClampPadding(
-              MediaQuery.sizeOf(context).width,
-              base: const EdgeInsets.fromLTRB(16, 16, 16, 32),
+    return SoriStandardFrame(
+      appBarTitle: t.statsHeader,
+      maxWidth: SoriMaxWidth.hub,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.md,
+        Spacing.lg,
+        Spacing.xxl,
+      ),
+      builder: (context, padding) => ListView(
+        padding: padding,
+        children: [
+          // ── 친구들 hero — 호랑이+갓 쓴 까치 듀오 컷 (투명 PNG, 크게) ──
+          // 구 한옥 배너(achievements.png) + 별도 마스코트 2개 스택을
+          // 단일 듀오 컷 하나로 통합(2026-08-05 Jin: "이미지 둘 다 지우고
+          // 이걸로 크게"). 투명 배경이라 한지 크림 위에 그대로 얹힌다.
+          Center(
+            child: Image.asset(
+              'assets/illustrations/mascot/magpie_tiger_together.png',
+              width: (MediaQuery.sizeOf(context).width - 32).clamp(
+                240.0,
+                420.0,
+              ),
+              fit: BoxFit.contain,
+              filterQuality: FilterQuality.high,
+              errorBuilder: (_, __, ___) =>
+                  const Mascot.tiger(size: 156, animate: false),
             ),
-            children: [
-              // ── 친구들 hero — 호랑이+갓 쓴 까치 듀오 컷 (투명 PNG, 크게) ──
-              // 구 한옥 배너(achievements.png) + 별도 마스코트 2개 스택을
-              // 단일 듀오 컷 하나로 통합(2026-08-05 Jin: "이미지 둘 다 지우고
-              // 이걸로 크게"). 투명 배경이라 한지 크림 위에 그대로 얹힌다.
-              Center(
-                child: Image.asset(
-                  'assets/illustrations/mascot/magpie_tiger_together.png',
-                  width: (MediaQuery.sizeOf(context).width - 32).clamp(
-                    240.0,
-                    420.0,
-                  ),
-                  fit: BoxFit.contain,
-                  filterQuality: FilterQuality.high,
-                  errorBuilder: (_, __, ___) =>
-                      const Mascot.tiger(size: 156, animate: false),
-                ),
-              ),
-              const SizedBox(height: 12),
+          ),
+          const SizedBox(height: 12),
 
-              // Streak Hero
-              KeyedSubtree(
-                key: _streakHeroKey,
-                child: _StreakHero(
-                  streak: Storage.streakDays,
-                  best: Storage.bestStreak,
-                  shields: Storage.streakFreezes,
-                  label: t.statsStreak,
-                  bestLabel: t.statsBestStreak,
-                  shieldLabel: t.statsStreakShield,
-                  shieldHint: t.statsStreakShieldHint,
-                ),
-              ),
-              const SizedBox(height: 12),
+          // Streak Hero
+          KeyedSubtree(
+            key: _streakHeroKey,
+            child: _StreakHero(
+              streak: Storage.streakDays,
+              best: Storage.bestStreak,
+              shields: Storage.streakFreezes,
+              label: t.statsStreak,
+              bestLabel: t.statsBestStreak,
+              shieldLabel: t.statsStreakShield,
+              shieldHint: t.statsStreakShieldHint,
+            ),
+          ),
+          const SizedBox(height: 12),
 
-              // §E: 섹션 구분은 전부 SoriSectionHeader — 카드 안 제목 중복 제거.
-              // P1-4: G9 7일 heatmap
-              SoriSectionHeader(t.statsThisWeek),
-              _StreakWeekHeatmap(streak: Storage.streakDays),
-              const SizedBox(height: 16),
+          // §E: 섹션 구분은 전부 SoriSectionHeader — 카드 안 제목 중복 제거.
+          // P1-4: G9 7일 heatmap
+          SoriSectionHeader(t.statsThisWeek),
+          _StreakWeekHeatmap(streak: Storage.streakDays),
+          const SizedBox(height: 16),
 
-              // ── Szenario-Fortschritt (XP/Level/Badges) ──
-              SoriSectionHeader(
-                t.statsXpTitle,
-                trailing: Text(
-                  t.statsLevelLabel(Storage.xpLevel),
-                  style: SoriTextTheme.of(
-                    context,
-                  ).label.copyWith(color: SoriColors.primary),
-                ),
-              ),
-              _XpCard(
-                xp: Storage.xp,
-                level: Storage.xpLevel,
-                toNext: Storage.xpToNext,
-                scenariosDone: Storage.completedScenarios.length,
-                badges: Storage.earnedBadges,
-                toNextLabel: t.statsToNextLevel(
-                  Storage.xpToNext,
-                  Storage.xpLevel + 1,
-                ),
-                scenariosLabel: t.statsScenariosCompleted,
-                badgesTitle: t.statsBadgesTitle,
-                noBadges: t.statsNoBadges,
-              ),
-              const SizedBox(height: 16),
+          // ── Szenario-Fortschritt (XP/Level/Badges) ──
+          SoriSectionHeader(
+            t.statsXpTitle,
+            trailing: Text(
+              t.statsLevelLabel(Storage.xpLevel),
+              style: SoriTextTheme.of(
+                context,
+              ).label.copyWith(color: SoriColors.primary),
+            ),
+          ),
+          _XpCard(
+            xp: Storage.xp,
+            level: Storage.xpLevel,
+            toNext: Storage.xpToNext,
+            scenariosDone: Storage.completedScenarios.length,
+            badges: Storage.earnedBadges,
+            toNextLabel: t.statsToNextLevel(
+              Storage.xpToNext,
+              Storage.xpLevel + 1,
+            ),
+            scenariosLabel: t.statsScenariosCompleted,
+            badgesTitle: t.statsBadgesTitle,
+            noBadges: t.statsNoBadges,
+          ),
+          const SizedBox(height: 16),
 
-              // Vocab
-              SoriSectionHeader(t.statsGamesSection),
-              _StatCard(
-                icon: Icons.style_outlined,
-                title: t.moduleVocabTitle,
-                color: SoriColors.info,
-                rows: [
-                  _MetricRow(
-                    label: t.statsGotIt,
-                    value: '${Storage.vokCorrect}',
-                  ),
-                  _MetricRow(
-                    label: t.statsNotGotIt,
-                    value: '${Storage.vokWrong}',
-                  ),
-                  _MetricRow(
-                    label: t.statsSkipped,
-                    value: '${Storage.vokSkipped}',
-                  ),
-                  _MetricRow(
-                    label: t.statsCardsLearned,
-                    value: '${Storage.vokSeenIds.length}',
-                  ),
-                  _MetricRow(
-                    label: t.statsAccuracy,
-                    value: '$vokAccuracy %',
-                    accent: true,
-                  ),
-                ],
+          // Vocab
+          SoriSectionHeader(t.statsGamesSection),
+          _StatCard(
+            icon: Icons.style_outlined,
+            title: t.moduleVocabTitle,
+            color: SoriColors.info,
+            rows: [
+              _MetricRow(label: t.statsGotIt, value: '${Storage.vokCorrect}'),
+              _MetricRow(label: t.statsNotGotIt, value: '${Storage.vokWrong}'),
+              _MetricRow(label: t.statsSkipped, value: '${Storage.vokSkipped}'),
+              _MetricRow(
+                label: t.statsCardsLearned,
+                value: '${Storage.vokSeenIds.length}',
               ),
-              const SizedBox(height: 12),
-
-              // Chosung
-              _StatCard(
-                icon: Icons.spellcheck,
-                title: t.gameChosungTitle,
-                color: SoriColors.primary,
-                rows: [
-                  _MetricRow(
-                    label: t.statsCorrect,
-                    value: '${Storage.chosungCorrect}',
-                  ),
-                  _MetricRow(
-                    label: t.statsWrong,
-                    value: '${Storage.chosungWrong}',
-                  ),
-                  _MetricRow(
-                    label: t.statsAccuracy,
-                    value: '$chosungAccuracy %',
-                    accent: true,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 12),
-
-              // Wordle
-              _StatCard(
-                icon: Icons.grid_4x4,
-                title: t.gameWordleTitle,
-                color: SoriColors.success,
-                rows: [
-                  _MetricRow(
-                    label: t.statsWordleWins,
-                    value: '${Storage.wordleWins}',
-                  ),
-                  _MetricRow(
-                    label: t.statsLosses,
-                    value: '${Storage.wordleLosses}',
-                  ),
-                  _MetricRow(
-                    label: t.statsWordleStreak,
-                    value: '${Storage.wordleStreak}',
-                  ),
-                  _MetricRow(
-                    label: t.statsBestShort,
-                    value: '${Storage.wordleBestStreak}',
-                  ),
-                  _MetricRow(
-                    label: t.statsWinRate,
-                    value: '$wordleRate %',
-                    accent: true,
-                  ),
-                ],
+              _MetricRow(
+                label: t.statsAccuracy,
+                value: '$vokAccuracy %',
+                accent: true,
               ),
             ],
           ),
-        ),
+          const SizedBox(height: 12),
+
+          // Chosung
+          _StatCard(
+            icon: Icons.spellcheck,
+            title: t.gameChosungTitle,
+            color: SoriColors.primary,
+            rows: [
+              _MetricRow(
+                label: t.statsCorrect,
+                value: '${Storage.chosungCorrect}',
+              ),
+              _MetricRow(label: t.statsWrong, value: '${Storage.chosungWrong}'),
+              _MetricRow(
+                label: t.statsAccuracy,
+                value: '$chosungAccuracy %',
+                accent: true,
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+
+          // Wordle
+          _StatCard(
+            icon: Icons.grid_4x4,
+            title: t.gameWordleTitle,
+            color: SoriColors.success,
+            rows: [
+              _MetricRow(
+                label: t.statsWordleWins,
+                value: '${Storage.wordleWins}',
+              ),
+              _MetricRow(
+                label: t.statsLosses,
+                value: '${Storage.wordleLosses}',
+              ),
+              _MetricRow(
+                label: t.statsWordleStreak,
+                value: '${Storage.wordleStreak}',
+              ),
+              _MetricRow(
+                label: t.statsBestShort,
+                value: '${Storage.wordleBestStreak}',
+              ),
+              _MetricRow(
+                label: t.statsWinRate,
+                value: '$wordleRate %',
+                accent: true,
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -424,14 +415,7 @@ class _StatCard extends StatelessWidget {
                 child: Icon(icon, color: color, size: 22),
               ),
               const SizedBox(width: Spacing.md),
-              Expanded(
-                child: Text(
-                  title,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: tt.cardTitle,
-                ),
-              ),
+              Expanded(child: Text(title, style: tt.cardTitle)),
             ],
           ),
           Divider(height: 18, color: s.surfaceAlt),
@@ -589,8 +573,10 @@ class _StreakWeekHeatmap extends StatelessWidget {
       variant: SoriCardVariant.compact,
       padding: const EdgeInsets.all(12),
       // §E: 제목은 카드 밖 SoriSectionHeader(statsThisWeek) 로 승격.
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      child: Wrap(
+        alignment: WrapAlignment.spaceEvenly,
+        spacing: Spacing.xs,
+        runSpacing: Spacing.sm,
         children: List.generate(7, (i) {
           final isToday = i == today;
           final isDone = streak > (6 - i);
@@ -600,44 +586,47 @@ class _StreakWeekHeatmap extends StatelessWidget {
               ? SoriColors.warning
               : s.border;
 
-          return Column(
-            children: [
-              Text(
-                days[i],
-                style: SoriTextTheme.of(
-                  context,
-                ).caption.copyWith(color: s.textMuted),
-              ),
-              const SizedBox(height: 6),
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  color: color.withValues(alpha: isDone ? 1.0 : 0.15),
-                  borderRadius: BorderRadius.circular(SoriRadius.xs),
-                  border: isToday && !isDone
-                      ? Border.all(color: color, width: 1.5)
-                      : null,
+          return SizedBox(
+            width: 48,
+            child: Column(
+              children: [
+                Text(
+                  days[i],
+                  style: SoriTextTheme.of(
+                    context,
+                  ).caption.copyWith(color: s.textMuted),
                 ),
-                child: SizedBox(
-                  width: 24,
-                  height: 24,
-                  child: Center(
-                    child: isDone
-                        ? const Icon(
-                            Icons.check_rounded,
-                            size: 14,
-                            color: Colors.white,
-                          )
-                        : isToday
-                        ? const Icon(
-                            Icons.favorite_rounded,
-                            size: 10,
-                            color: SoriColors.warning,
-                          )
+                const SizedBox(height: Spacing.xs),
+                DecoratedBox(
+                  decoration: BoxDecoration(
+                    color: color.withValues(alpha: isDone ? 1.0 : 0.15),
+                    borderRadius: BorderRadius.circular(SoriRadius.xs),
+                    border: isToday && !isDone
+                        ? Border.all(color: color, width: 1.5)
                         : null,
                   ),
+                  child: SizedBox(
+                    width: 24,
+                    height: 24,
+                    child: Center(
+                      child: isDone
+                          ? const Icon(
+                              Icons.check_rounded,
+                              size: 14,
+                              color: Colors.white,
+                            )
+                          : isToday
+                          ? const Icon(
+                              Icons.favorite_rounded,
+                              size: 10,
+                              color: SoriColors.warning,
+                            )
+                          : null,
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           );
         }),
       ),
@@ -658,26 +647,44 @@ class _MetricRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(label, style: SoriTextTheme.of(context).body),
-          Text(
-            value,
-            // §E: 수치는 tabular — 정렬 유지. 강조 행은 h3 + primary.
-            style:
-                (accent
-                        ? SoriTextTheme.of(context).h3
-                        : SoriTextTheme.of(context).cardTitle)
-                    .copyWith(
-                      color: accent ? SoriColors.primary : s.text,
-                      fontFeatures: const [FontFeature.tabularFigures()],
+    final valueStyle =
+        (accent
+                ? SoriTextTheme.of(context).h3
+                : SoriTextTheme.of(context).cardTitle)
+            .copyWith(
+              color: accent ? SoriColors.primary : s.text,
+              fontFeatures: const [FontFeature.tabularFigures()],
+            );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final stack =
+            constraints.maxWidth < SoriAdaptiveWidth.labelValueRow ||
+            MediaQuery.textScalerOf(context).scale(1) >= 1.6;
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
+          child: stack
+              ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Text(label, style: SoriTextTheme.of(context).body),
+                    const SizedBox(height: Spacing.xs),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(value, style: valueStyle),
                     ),
-          ),
-        ],
-      ),
+                  ],
+                )
+              : Row(
+                  children: [
+                    Expanded(
+                      child: Text(label, style: SoriTextTheme.of(context).body),
+                    ),
+                    const SizedBox(width: Spacing.sm),
+                    Text(value, style: valueStyle),
+                  ],
+                ),
+        );
+      },
     );
   }
 }

@@ -127,6 +127,29 @@ abstract final class SoriMaxWidth {
   /// 집중형 학습 카드의 폰 기준 컬럼. 태블릿 확장이 필요하면 고정값 대신
   /// [SoriStudyClamp] 를 쓴다.
   static const double focus = SoriBreakpoints.content;
+
+  /// Today·Gye 같은 허브 화면. 여러 카드가 한 흐름으로 이어지되 태블릿에서
+  /// 지나치게 넓어지지 않도록 한다.
+  static const double hub = 880;
+
+  /// 한옥처럼 공간 탐색이 핵심인 월드 화면. 지도와 장소 목록이 같은 시각 축을
+  /// 공유할 수 있는 가장 넓은 콘텐츠 컬럼이다.
+  static const double world = 960;
+}
+
+/// 컴포넌트가 가로 배치에서 세로 배치로 전환하는 **가용 콘텐츠 폭**.
+///
+/// 창 전체의 size class가 아니라 padding과 clamp를 지난 실제 내부 폭에 쓴다.
+/// 화면 파일에 숫자 비교가 흩어지지 않도록 이곳에서만 관리한다.
+abstract final class SoriAdaptiveWidth {
+  /// 긴 핵심 CTA의 문구와 행동을 나란히 둘 수 있는 최소 내부 폭.
+  static const double criticalActionRow = 280;
+
+  /// 아이콘·설명형 shortcut 두 개를 나란히 둘 수 있는 최소 내부 폭.
+  static const double shortcutRow = 320;
+
+  /// 긴 라벨과 수치 값을 한 줄에서 함께 읽을 수 있는 최소 내부 폭.
+  static const double labelValueRow = 320;
 }
 
 /// [SafeArea] + 최대 너비 클램프를 한 번에 적용하는 화면 프레임.

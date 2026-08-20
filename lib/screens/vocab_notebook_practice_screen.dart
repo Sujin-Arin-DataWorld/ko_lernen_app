@@ -23,10 +23,9 @@ class VocabNotebookPracticeScreen extends StatefulWidget {
 class _VocabNotebookPracticeScreenState
     extends State<VocabNotebookPracticeScreen> {
   Future<void> _open(String route, {Object? arguments}) async {
-    await Navigator.of(context).pushNamed(
-      route,
-      arguments: arguments ?? widget.packId,
-    );
+    await Navigator.of(
+      context,
+    ).pushNamed(route, arguments: arguments ?? widget.packId);
     if (mounted) {
       setState(() {});
     }
@@ -38,7 +37,11 @@ class _VocabNotebookPracticeScreenState
     final pack = CustomPackService.getById(widget.packId);
     if (pack == null) {
       return Scaffold(
-        appBar: SoriAppBar(title: t.vocabNotebookTitle),
+        appBar: SoriAppBar(
+          title: t.vocabNotebookTitle,
+          textScale: MediaQuery.textScalerOf(context).scale(1),
+          viewportWidth: MediaQuery.sizeOf(context).width,
+        ),
         body: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
@@ -59,7 +62,11 @@ class _VocabNotebookPracticeScreenState
     ).length;
 
     return Scaffold(
-      appBar: SoriAppBar(title: pack.displayName()),
+      appBar: SoriAppBar(
+        title: pack.displayName(),
+        textScale: MediaQuery.textScalerOf(context).scale(1),
+        viewportWidth: MediaQuery.sizeOf(context).width,
+      ),
       body: SafeArea(
         child: SoriCenterClamp(
           child: ListView(

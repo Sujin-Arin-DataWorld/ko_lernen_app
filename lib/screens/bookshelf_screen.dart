@@ -11,11 +11,13 @@ import '../services/shared_pack_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/page_header.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// Phase 5.1 (stately-rising-jongga) — 내 책장 (Bookshelf) 목록.
 ///
@@ -159,18 +161,13 @@ class _BookshelfScreenState extends State<BookshelfScreen>
     final t = AppL10n.of(context);
 
     if (_pages.isEmpty && _packs.isEmpty) {
-      return Scaffold(
-        appBar: AppBar(
-          titleSpacing: 0,
-          title: FittedBox(
-            fit: BoxFit.scaleDown,
-            alignment: Alignment.centerLeft,
-            child: Text(t.bookshelfTitle),
-          ),
-          actions: [_createAction(t), _redeemAction(t)],
-        ),
-        body: Center(
-          child: SoriEmptyState(
+      return SoriStandardPage(
+        appBarTitle: t.bookshelfTitle,
+        headline: t.bookshelfTitle,
+        actions: [_createAction(t), _redeemAction(t)],
+        maxWidth: SoriMaxWidth.hub,
+        children: [
+          SoriEmptyState(
             asset: 'assets/illustrations/book/book_empty_shelf.png',
             icon: Icons.menu_book_outlined,
             title: t.bookshelfEmptyTitle,
@@ -181,89 +178,80 @@ class _BookshelfScreenState extends State<BookshelfScreen>
             secondaryLabel: t.createWordbookCta,
             onSecondary: _createWordbook,
           ),
-        ),
+        ],
       );
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        titleSpacing: 0,
-        title: FittedBox(
-          fit: BoxFit.scaleDown,
-          alignment: Alignment.centerLeft,
-          child: Text(
-            t.bookshelfTitle,
-            style: const TextStyle(fontWeight: FontWeight.w800),
-          ),
+    return SoriStandardFrame(
+      appBarTitle: t.bookshelfTitle,
+      actions: [
+        IconButton(
+          key: _searchKey,
+          icon: const Icon(Icons.search_rounded),
+          tooltip: t.wbSearchTitle,
+          onPressed: () => Navigator.of(context).pushNamed('/wordbook/search'),
         ),
-        actions: [
-          IconButton(
-            key: _searchKey,
-            icon: const Icon(Icons.search_rounded),
-            tooltip: t.wbSearchTitle,
-            onPressed: () =>
-                Navigator.of(context).pushNamed('/wordbook/search'),
-          ),
-          _createAction(t),
-          _redeemAction(t),
-          IconButton(
-            icon: const Icon(Icons.add_a_photo_outlined),
-            tooltip: t.bookshelfAddPage,
-            onPressed: () =>
-                Navigator.of(context).pushNamed('/book').then((_) => _reload()),
-          ),
-        ],
+        _createAction(t),
+        _redeemAction(t),
+        IconButton(
+          icon: const Icon(Icons.add_a_photo_outlined),
+          tooltip: t.bookshelfAddPage,
+          onPressed: () =>
+              Navigator.of(context).pushNamed('/book').then((_) => _reload()),
+        ),
+      ],
+      maxWidth: SoriMaxWidth.hub,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.md,
+        Spacing.xs,
+        Spacing.md,
+        Spacing.xxl,
       ),
-      body: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, constraints) => RefreshIndicator(
-            onRefresh: () async => _reload(),
-            color: SoriColors.primary,
-            child: ListView(
-              padding: soriClampPadding(
-                constraints.maxWidth,
-                base: const EdgeInsets.fromLTRB(12, 4, 12, 32),
-              ),
-              children: [
-                const HanokHeader(
-                  asset: 'assets/illustrations/hanok/calligraphy.png',
-                  fallbackIcon: Icons.menu_book_outlined,
-                ),
-                const SizedBox(height: Spacing.md),
-                if (_packs.isNotEmpty) ...[
-                  _SectionHeader(label: t.bookshelfSectionCustomPacks),
-                  ..._packs.map(
-                    (p) => _CustomPackTile(
-                      pack: p,
-                      onTap: () => Navigator.of(
-                        context,
-                      ).pushNamed('/custom_pack/play', arguments: p.id),
-                      onEdit: () => Navigator.of(context)
-                          .pushNamed('/custom_pack/edit', arguments: p.id)
-                          .then((_) => _reload()),
-                      onShare: () => _sharePack(p),
-                      onDelete: () async {
-                        await CustomPackService.delete(p.id);
-                        _reload();
-                      },
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                ],
-                if (_pages.isNotEmpty) ...[
-                  _SectionHeader(label: t.bookshelfSectionPages),
-                  ..._pages.map(
-                    (p) => _PageTile(
-                      page: p,
-                      onTap: () => Navigator.of(context)
-                          .pushNamed('/bookshelf/page', arguments: p.id)
-                          .then((_) => _reload()),
-                    ),
-                  ),
-                ],
-              ],
+      builder: (context, pagePadding) => RefreshIndicator(
+        onRefresh: () async => _reload(),
+        color: SoriColors.primary,
+        child: ListView(
+          padding: pagePadding,
+          children: [
+            SoriPageHeader(title: t.bookshelfTitle),
+            const SizedBox(height: Spacing.xl),
+            const HanokHeader(
+              asset: 'assets/illustrations/hanok/calligraphy.png',
+              fallbackIcon: Icons.menu_book_outlined,
             ),
-          ),
+            const SizedBox(height: Spacing.md),
+            if (_packs.isNotEmpty) ...[
+              _SectionHeader(label: t.bookshelfSectionCustomPacks),
+              ..._packs.map(
+                (p) => _CustomPackTile(
+                  pack: p,
+                  onTap: () => Navigator.of(
+                    context,
+                  ).pushNamed('/custom_pack/play', arguments: p.id),
+                  onEdit: () => Navigator.of(context)
+                      .pushNamed('/custom_pack/edit', arguments: p.id)
+                      .then((_) => _reload()),
+                  onShare: () => _sharePack(p),
+                  onDelete: () async {
+                    await CustomPackService.delete(p.id);
+                    _reload();
+                  },
+                ),
+              ),
+              const SizedBox(height: Spacing.lg),
+            ],
+            if (_pages.isNotEmpty) ...[
+              _SectionHeader(label: t.bookshelfSectionPages),
+              ..._pages.map(
+                (p) => _PageTile(
+                  page: p,
+                  onTap: () => Navigator.of(context)
+                      .pushNamed('/bookshelf/page', arguments: p.id)
+                      .then((_) => _reload()),
+                ),
+              ),
+            ],
+          ],
         ),
       ),
     );
@@ -329,8 +317,6 @@ class _PageTile extends StatelessWidget {
                   children: [
                     Text(
                       preview.isEmpty ? '(leer)' : preview,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
                       style: const TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: 14,
@@ -390,56 +376,90 @@ class _CustomPackTile extends StatelessWidget {
             ),
             borderRadius: BorderRadius.circular(SoriRadius.md),
           ),
-          child: Row(
-            children: [
-              Icon(Icons.style_outlined, color: SoriColors.primary),
-              const SizedBox(width: Spacing.md),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final stackActions =
+                  MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
+                  constraints.maxWidth < SoriAdaptiveWidth.labelValueRow;
+              final identity = Row(
+                children: [
+                  Icon(Icons.style_outlined, color: SoriColors.primary),
+                  const SizedBox(width: Spacing.md),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          pack.displayName(),
+                          style: const TextStyle(
+                            fontWeight: FontWeight.w800,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          t.bookshelfPackMeta(pack.totalWords),
+                          style: TextStyle(fontSize: 11, color: s.textMuted),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              );
+              final actions = <Widget>[
+                SoriButton(
+                  label: t.btnPlay,
+                  variant: SoriButtonVariant.ghost,
+                  size: SoriButtonSize.sm,
+                  accent: SoriColors.primary,
+                  onTap: onTap,
+                ),
+                IconButton(
+                  icon: Icon(Icons.edit_outlined, color: SoriColors.primary),
+                  tooltip: t.wbEditTooltip,
+                  visualDensity: VisualDensity.compact,
+                  onPressed: onEdit,
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.ios_share_rounded,
+                    color: SoriColors.primary,
+                  ),
+                  tooltip: t.shareTooltip,
+                  visualDensity: VisualDensity.compact,
+                  onPressed: onShare,
+                ),
+                IconButton(
+                  icon: Icon(Icons.delete_outline, color: s.textDim),
+                  tooltip: t.btnDelete,
+                  visualDensity: VisualDensity.compact,
+                  onPressed: () => _confirmDelete(context),
+                ),
+              ];
+              if (stackActions) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text(
-                      pack.displayName(),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w800,
-                        fontSize: 14,
+                    identity,
+                    const SizedBox(height: Spacing.sm),
+                    Align(
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: Wrap(
+                        spacing: Spacing.xs,
+                        runSpacing: Spacing.xs,
+                        alignment: WrapAlignment.end,
+                        children: actions,
                       ),
                     ),
-                    Text(
-                      t.bookshelfPackMeta(pack.totalWords),
-                      style: TextStyle(fontSize: 11, color: s.textMuted),
-                    ),
                   ],
-                ),
-              ),
-              SoriButton(
-                label: t.btnPlay,
-                variant: SoriButtonVariant.ghost,
-                size: SoriButtonSize.sm,
-                accent: SoriColors.primary,
-                onTap: onTap,
-              ),
-              IconButton(
-                icon: Icon(Icons.edit_outlined, color: SoriColors.primary),
-                tooltip: t.wbEditTooltip,
-                visualDensity: VisualDensity.compact,
-                onPressed: onEdit,
-              ),
-              IconButton(
-                icon: Icon(Icons.ios_share_rounded, color: SoriColors.primary),
-                tooltip: t.shareTooltip,
-                visualDensity: VisualDensity.compact,
-                onPressed: onShare,
-              ),
-              IconButton(
-                icon: Icon(Icons.delete_outline, color: s.textDim),
-                tooltip: t.btnDelete,
-                visualDensity: VisualDensity.compact,
-                onPressed: () => _confirmDelete(context),
-              ),
-            ],
+                );
+              }
+              return Row(
+                children: [
+                  Expanded(child: identity),
+                  ...actions,
+                ],
+              );
+            },
           ),
         ),
       ),
@@ -660,8 +680,7 @@ class _SharePackSheetState extends State<_SharePackSheet> {
         const SizedBox(height: 2),
         Text(
           widget.pack.displayName(),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: SoriFonts.sans,
             fontSize: 12.5,

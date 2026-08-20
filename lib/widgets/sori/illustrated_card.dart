@@ -108,20 +108,13 @@ class SoriIllustratedCard extends StatelessWidget {
             children: [
               Text(
                 title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
                 style: tt.cardTitle.copyWith(
                   color: _locked ? s.text.withValues(alpha: 0.55) : s.text,
                 ),
               ),
               if (subtitle != null) ...[
                 const SizedBox(height: 2),
-                Text(
-                  subtitle!,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: tt.cardSubtitle,
-                ),
+                Text(subtitle!, style: tt.cardSubtitle),
               ],
             ],
           ),

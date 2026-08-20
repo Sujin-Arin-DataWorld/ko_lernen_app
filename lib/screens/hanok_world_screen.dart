@@ -14,6 +14,7 @@ import '../services/hanok_structure_projection_service.dart';
 import '../services/personal_hanok_reveal_service.dart';
 import 'daily_char_sheet.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/cultural_help.dart';
@@ -25,6 +26,7 @@ import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 import '../widgets/sori/world_map_viewport.dart';
 
 /// The personal estate is a read-only projection of existing course progress.
@@ -377,14 +379,11 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
       backgroundColor: s.bg,
       appBar: widget.embedded
           ? null
-          : AppBar(
-              title: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Flexible(child: Text(t.hanokWorldTitle)),
-                  const CulturalHelpButton(termId: 'hanok'),
-                ],
-              ),
+          : SoriAppBar(
+              title: t.hanokWorldTitle,
+              textScale: MediaQuery.textScalerOf(context).scale(1),
+              viewportWidth: MediaQuery.sizeOf(context).width,
+              actions: const [CulturalHelpButton(termId: 'hanok')],
             ),
       body: Stack(
         children: [
@@ -396,7 +395,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                       builder: (context, constraints) {
                         final padding = soriClampPadding(
                           constraints.maxWidth,
-                          maxWidth: 960,
+                          maxWidth: SoriMaxWidth.world,
                           base: const EdgeInsets.fromLTRB(
                             Spacing.lg,
                             Spacing.md,
