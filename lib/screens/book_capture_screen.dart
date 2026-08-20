@@ -17,8 +17,10 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 const int bookCaptureJpegQuality = 100;
 
@@ -63,7 +65,8 @@ Map<String, dynamic> buildBookPreviewArguments({
     'ocrDocument': ocr.document,
     'imageQuality': imageQuality.toMap(),
     'imageLease': imageLease,
-    if (captureMode != null && captureMode.isNotEmpty) 'captureMode': captureMode,
+    if (captureMode != null && captureMode.isNotEmpty)
+      'captureMode': captureMode,
     if (existingPackId != null && existingPackId.isNotEmpty)
       'existingPackId': existingPackId,
   };
@@ -107,11 +110,7 @@ class RecoveredBookOcrLeaseOwner {
 }
 
 class BookCaptureScreen extends StatefulWidget {
-  const BookCaptureScreen({
-    super.key,
-    this.captureMode,
-    this.existingPackId,
-  });
+  const BookCaptureScreen({super.key, this.captureMode, this.existingPackId});
 
   final String? captureMode;
   final String? existingPackId;
@@ -581,79 +580,79 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
     final title = isNotebook ? t.vocabNotebookTitle : t.bookCaptureTitle;
 
     if (_busy) {
-      return Scaffold(
-        appBar: AppBar(title: Text(title)),
-        body: AppLoading(message: t.bookCaptureLoading),
+      return SoriStandardFrame(
+        appBarTitle: title,
+        maxWidth: SoriMaxWidth.focus,
+        builder: (context, padding) => Padding(
+          padding: padding,
+          child: AppLoading(message: t.bookCaptureLoading),
+        ),
       );
     }
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          title,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: Spacing.lg),
-                Center(
-                  child: Image.asset(
-                    'assets/illustrations/book/book_camera_guide.png',
-                    height: 160,
-                    fit: BoxFit.contain,
-                    errorBuilder: (_, __, ___) => const Mascot(
-                      kind: MascotKind.magpie,
-                      emotion: MascotEmotion.smile,
-                      size: 130,
-                    ),
+    return SoriStandardFrame(
+      appBarTitle: title,
+      maxWidth: SoriMaxWidth.focus,
+      padding: const EdgeInsets.all(Spacing.lg),
+      builder: (context, padding) => SoriAdaptiveStudyBody(
+        minHeight: 640,
+        child: Padding(
+          padding: padding,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const SizedBox(height: Spacing.lg),
+              Center(
+                child: Image.asset(
+                  'assets/illustrations/book/book_camera_guide.png',
+                  height: 160,
+                  fit: BoxFit.contain,
+                  errorBuilder: (_, __, ___) => const Mascot(
+                    kind: MascotKind.magpie,
+                    emotion: MascotEmotion.smile,
+                    size: 130,
                   ),
                 ),
-                const SizedBox(height: Spacing.md),
-                Text(
-                  isNotebook ? t.vocabNotebookTitle : t.bookCaptureHero,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w800,
-                  ),
+              ),
+              const SizedBox(height: Spacing.md),
+              Text(
+                isNotebook ? t.vocabNotebookTitle : t.bookCaptureHero,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
                 ),
-                const SizedBox(height: Spacing.sm),
-                Text(
-                  isNotebook ? t.vocabNotebookDesc : t.bookCaptureSubtitle,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: SoriSurfaces.of(context).textMuted,
-                  ),
+              ),
+              const SizedBox(height: Spacing.sm),
+              Text(
+                isNotebook ? t.vocabNotebookDesc : t.bookCaptureSubtitle,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: SoriSurfaces.of(context).textMuted,
                 ),
-                const Spacer(),
-                if (_errorKey != null) _ErrorCard(errorKey: _errorKey!),
-                if (_errorKey != null) const SizedBox(height: Spacing.md),
-                SoriButton(
-                  label: t.bookCaptureCamera,
-                  icon: Icons.photo_camera_outlined,
-                  variant: SoriButtonVariant.filled,
-                  accent: SoriColors.primary,
-                  fullWidth: true,
-                  onTap: () => _pick(ImageSource.camera),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton(
-                  label: t.bookCaptureGallery,
-                  icon: Icons.photo_library_outlined,
-                  variant: SoriButtonVariant.outlined,
-                  accent: SoriColors.info,
-                  fullWidth: true,
-                  onTap: () => _pick(ImageSource.gallery),
-                ),
-              ],
-            ),
+              ),
+              const Spacer(),
+              if (_errorKey != null) _ErrorCard(errorKey: _errorKey!),
+              if (_errorKey != null) const SizedBox(height: Spacing.md),
+              SoriButton(
+                label: t.bookCaptureCamera,
+                icon: Icons.photo_camera_outlined,
+                variant: SoriButtonVariant.filled,
+                accent: SoriColors.primary,
+                fullWidth: true,
+                onTap: () => _pick(ImageSource.camera),
+              ),
+              const SizedBox(height: Spacing.sm),
+              SoriButton(
+                label: t.bookCaptureGallery,
+                icon: Icons.photo_library_outlined,
+                variant: SoriButtonVariant.outlined,
+                accent: SoriColors.info,
+                fullWidth: true,
+                onTap: () => _pick(ImageSource.gallery),
+              ),
+            ],
           ),
         ),
       ),

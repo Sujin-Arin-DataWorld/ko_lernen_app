@@ -8,8 +8,10 @@ import '../services/book_image_service.dart';
 import '../services/book_ocr_document.dart';
 import '../services/vocab_notebook_parser.dart';
 import '../widgets/sori/button.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 typedef BookPreviewImageResolver = Future<File?> Function(String? encodedLease);
 
@@ -114,7 +116,8 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
   }
 
   BookOcrDocument? get _currentDocument =>
-      _ctrl.text == _initialText && widget.args['ocrDocument'] is BookOcrDocument
+      _ctrl.text == _initialText &&
+          widget.args['ocrDocument'] is BookOcrDocument
       ? widget.args['ocrDocument'] as BookOcrDocument
       : null;
 
@@ -183,112 +186,108 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
             .toList() ??
         const <String>[];
 
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          t.bookPreviewTitle,
-          style: const TextStyle(fontWeight: FontWeight.w800),
-        ),
-      ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  _useNotebookPath
-                      ? t.vocabNotebookDesc
-                      : t.bookPreviewHint(blockCount),
-                  style: TextStyle(fontSize: 13, color: s.textMuted),
-                ),
-                if (qualityWarnings.isNotEmpty) ...[
-                  const SizedBox(height: Spacing.sm),
-                  Container(
-                    padding: const EdgeInsets.all(Spacing.sm),
-                    decoration: BoxDecoration(
-                      color: SoriColors.warning.withValues(alpha: 0.10),
-                      borderRadius: BorderRadius.circular(SoriRadius.sm),
-                      border: Border.all(
-                        color: SoriColors.warning.withValues(alpha: 0.35),
-                      ),
-                    ),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Icon(
-                          Icons.fact_check_outlined,
-                          size: 18,
-                          color: SoriColors.warning,
-                        ),
-                        const SizedBox(width: Spacing.sm),
-                        Expanded(
-                          child: Text(
-                            _hasSevereCaptureWarning
-                                ? t.bookPreviewSevereQualityWarning
-                                : t.bookPreviewQualityWarning,
-                            style: TextStyle(fontSize: 12, color: s.textMuted),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-                const SizedBox(height: Spacing.md),
-                _BookPreviewImage(image: _previewImage),
-                const SizedBox(height: Spacing.md),
-                Expanded(
-                  child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: s.text.withValues(alpha: 0.20),
-                        width: 1,
-                      ),
-                      borderRadius: BorderRadius.circular(SoriRadius.md),
-                    ),
-                    padding: const EdgeInsets.all(Spacing.md),
-                    child: TextField(
-                      controller: _ctrl,
-                      maxLines: null,
-                      expands: true,
-                      textAlignVertical: TextAlignVertical.top,
-                      style: const TextStyle(
-                        fontSize: 16,
-                        height: 1.5,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: t.bookPreviewTextFieldHint,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: Spacing.lg),
-                SoriButton(
-                  label: _useNotebookPath
-                      ? t.vocabNotebookPreviewCta
-                      : t.bookPreviewAnalyze,
-                  icon: _useNotebookPath
-                      ? Icons.menu_book_outlined
-                      : Icons.auto_awesome,
-                  variant: SoriButtonVariant.filled,
-                  accent: SoriColors.primary,
-                  fullWidth: true,
-                  onTap: _canAnalyze ? _continue : null,
-                ),
+    return SoriStandardFrame(
+      appBarTitle: t.bookPreviewTitle,
+      maxWidth: SoriMaxWidth.focus,
+      padding: const EdgeInsets.all(Spacing.lg),
+      builder: (context, padding) => SoriAdaptiveStudyBody(
+        minHeight: 640,
+        child: Padding(
+          padding: padding,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                _useNotebookPath
+                    ? t.vocabNotebookDesc
+                    : t.bookPreviewHint(blockCount),
+                style: TextStyle(fontSize: 13, color: s.textMuted),
+              ),
+              if (qualityWarnings.isNotEmpty) ...[
                 const SizedBox(height: Spacing.sm),
-                SoriButton(
-                  label: t.bookPreviewRetake,
-                  icon: Icons.replay_outlined,
-                  variant: SoriButtonVariant.outlined,
-                  accent: SoriColors.info,
-                  fullWidth: true,
-                  onTap: () => Navigator.of(context).maybePop(),
+                Container(
+                  padding: const EdgeInsets.all(Spacing.sm),
+                  decoration: BoxDecoration(
+                    color: SoriColors.warning.withValues(alpha: 0.10),
+                    borderRadius: BorderRadius.circular(SoriRadius.sm),
+                    border: Border.all(
+                      color: SoriColors.warning.withValues(alpha: 0.35),
+                    ),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Icon(
+                        Icons.fact_check_outlined,
+                        size: 18,
+                        color: SoriColors.warning,
+                      ),
+                      const SizedBox(width: Spacing.sm),
+                      Expanded(
+                        child: Text(
+                          _hasSevereCaptureWarning
+                              ? t.bookPreviewSevereQualityWarning
+                              : t.bookPreviewQualityWarning,
+                          style: TextStyle(fontSize: 12, color: s.textMuted),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ],
-            ),
+              const SizedBox(height: Spacing.md),
+              _BookPreviewImage(image: _previewImage),
+              const SizedBox(height: Spacing.md),
+              Expanded(
+                child: Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: s.text.withValues(alpha: 0.20),
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(SoriRadius.md),
+                  ),
+                  padding: const EdgeInsets.all(Spacing.md),
+                  child: TextField(
+                    controller: _ctrl,
+                    maxLines: null,
+                    expands: true,
+                    textAlignVertical: TextAlignVertical.top,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      height: 1.5,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: t.bookPreviewTextFieldHint,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: Spacing.lg),
+              SoriButton(
+                label: _useNotebookPath
+                    ? t.vocabNotebookPreviewCta
+                    : t.bookPreviewAnalyze,
+                icon: _useNotebookPath
+                    ? Icons.menu_book_outlined
+                    : Icons.auto_awesome,
+                variant: SoriButtonVariant.filled,
+                accent: SoriColors.primary,
+                fullWidth: true,
+                onTap: _canAnalyze ? _continue : null,
+              ),
+              const SizedBox(height: Spacing.sm),
+              SoriButton(
+                label: t.bookPreviewRetake,
+                icon: Icons.replay_outlined,
+                variant: SoriButtonVariant.outlined,
+                accent: SoriColors.info,
+                fullWidth: true,
+                onTap: () => Navigator.of(context).maybePop(),
+              ),
+            ],
           ),
         ),
       ),
