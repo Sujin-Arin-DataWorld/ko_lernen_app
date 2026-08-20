@@ -16,6 +16,7 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/age_gate_prompt.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// **Lerngruppe(계) 탭** — BottomNav 탭 3 (D4-5 방향 C: 탭 유지 + 맥락화).
 ///
@@ -155,6 +156,7 @@ class _GyeTabScreenState extends State<GyeTabScreen>
       body: SoriScreenBackground(
         child: SafeArea(
           child: SoriContentClamp(
+            maxWidth: SoriMaxWidth.hub,
             base: const EdgeInsets.fromLTRB(
               Spacing.lg,
               Spacing.md,
@@ -304,6 +306,7 @@ class _IntroEmpty extends StatelessWidget {
           label: t.gyeFindOrCreate,
           icon: Icons.groups_2_outlined,
           fullWidth: true,
+          maxLines: null,
           onTap: onFindOrCreate,
         ),
         const SizedBox(height: Spacing.xs),

@@ -9,6 +9,8 @@ import 'package:ko_lernen_app/theme.dart';
 
 void main() {
   for (final size in const <Size>[
+    Size(320, 640),
+    Size(360, 400),
     Size(390, 844),
     Size(600, 960),
     Size(720, 1024),
@@ -112,7 +114,7 @@ void main() {
     Size(720, 1024),
     Size(1280, 900),
   ]) {
-    for (final textScale in const <double>[1, 1.3, 2]) {
+    for (final textScale in const <double>[1, 1.3, 1.6, 2]) {
       testWidgets('catalog fits ${size.width}dp at ${textScale}x text', (
         tester,
       ) async {

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/window_class.dart';
 import '../gye_tab_screen.dart';
 import 'sori_stage_common.dart';
 
@@ -15,11 +16,11 @@ class SoriStageGyeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return Scaffold(
-      body: SafeArea(
+      body: SoriStageSafeViewport(
         child: Column(
           children: [
             SoriContentClamp(
-              maxWidth: 880,
+              maxWidth: SoriMaxWidth.hub,
               base: const EdgeInsets.fromLTRB(20, 20, 20, 12),
               builder: (context, padding) => Padding(
                 padding: padding,

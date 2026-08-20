@@ -25,6 +25,7 @@ import '../widgets/sori/progress.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 import '../widgets/sori/world_map_viewport.dart';
 
 /// The personal estate is a read-only projection of existing course progress.
@@ -396,7 +397,7 @@ class _HanokWorldScreenState extends State<HanokWorldScreen> {
                       builder: (context, constraints) {
                         final padding = soriClampPadding(
                           constraints.maxWidth,
-                          maxWidth: 960,
+                          maxWidth: SoriMaxWidth.world,
                           base: const EdgeInsets.fromLTRB(
                             Spacing.lg,
                             Spacing.md,

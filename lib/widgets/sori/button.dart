@@ -18,7 +18,9 @@ enum SoriButtonSize { lg, md, sm }
 /// SoriButton.ghost(label: 'Mehr', onTap: ...)
 /// ```
 class SoriButton extends StatelessWidget {
-  final int maxLines;
+  /// Maximum label lines. Leave null only for a critical full-width CTA whose
+  /// complete wording must remain available at large accessibility scales.
+  final int? maxLines;
   final String label;
   final IconData? icon;
 
@@ -44,7 +46,7 @@ class SoriButton extends StatelessWidget {
     this.fullWidth = false,
     this.destructive = false,
     this.maxLines = 1,
-  }) : assert(maxLines > 0);
+  }) : assert(maxLines == null || maxLines > 0);
 
   const SoriButton.filled({
     super.key,
@@ -58,7 +60,7 @@ class SoriButton extends StatelessWidget {
     this.destructive = false,
     this.maxLines = 1,
   }) : variant = SoriButtonVariant.filled,
-       assert(maxLines > 0);
+       assert(maxLines == null || maxLines > 0);
 
   const SoriButton.outlined({
     super.key,
@@ -72,7 +74,7 @@ class SoriButton extends StatelessWidget {
     this.destructive = false,
     this.maxLines = 1,
   }) : variant = SoriButtonVariant.outlined,
-       assert(maxLines > 0);
+       assert(maxLines == null || maxLines > 0);
 
   const SoriButton.ghost({
     super.key,
@@ -86,7 +88,7 @@ class SoriButton extends StatelessWidget {
     this.destructive = false,
     this.maxLines = 1,
   }) : variant = SoriButtonVariant.ghost,
-       assert(maxLines > 0);
+       assert(maxLines == null || maxLines > 0);
 
   double get _height => switch (size) {
     SoriButtonSize.lg => 56,
@@ -184,7 +186,7 @@ class SoriButton extends StatelessWidget {
               child: Text(
                 label,
                 maxLines: maxLines,
-                overflow: TextOverflow.ellipsis,
+                overflow: maxLines == null ? null : TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontFamily: SoriFonts.sans,
@@ -220,7 +222,7 @@ class SoriButton extends StatelessWidget {
       constraints: BoxConstraints(minHeight: visualHeight),
       padding: EdgeInsets.symmetric(
         horizontal: visualHorizontalPadding,
-        vertical: maxLines > 1 ? Spacing.xs * comfortScale : 0,
+        vertical: maxLines != 1 ? Spacing.xs * comfortScale : 0,
       ),
       decoration: BoxDecoration(
         color: bg,

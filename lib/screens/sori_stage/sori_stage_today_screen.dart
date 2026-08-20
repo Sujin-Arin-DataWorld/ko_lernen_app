@@ -34,6 +34,7 @@ import '../../widgets/sori/spotlight_coach.dart';
 import '../../widgets/sori/stats_top_bar.dart';
 import '../../widgets/sori/tokens.dart';
 import '../../widgets/sori/week_sheet.dart';
+import '../../widgets/sori/window_class.dart';
 import 'sori_stage_common.dart';
 import 'sori_stage_reward_receipt_sheet.dart';
 
@@ -442,7 +443,7 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
                 final bool waiting =
                     snapshot.connectionState == ConnectionState.waiting;
                 return SoriContentClamp(
-                  maxWidth: 880,
+                  maxWidth: SoriMaxWidth.hub,
                   base: Spacing.page,
                   builder: (context, padding) => ListView(
                     padding: padding,
@@ -482,7 +483,7 @@ class _TodayContent extends StatelessWidget {
     final t = AppL10n.of(context);
     final todayUnavailable = snapshot.today.isUnavailable;
     return SoriContentClamp(
-      maxWidth: 880,
+      maxWidth: SoriMaxWidth.hub,
       base: Spacing.page,
       builder: (context, padding) => RefreshIndicator(
         onRefresh: () async => onRefresh(),
@@ -853,36 +854,93 @@ class _PendingBojagi extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final tt = SoriTextTheme.of(context);
-    return InkWell(
-      onTap: () => Navigator.of(context).pushNamed('/bojagi'),
-      borderRadius: BorderRadius.circular(SoriRadius.md),
-      child: Container(
-        constraints: const BoxConstraints(minHeight: 88),
-        padding: const EdgeInsets.all(Spacing.lg),
-        decoration: BoxDecoration(
-          color: SoriColors.gold.withValues(alpha: .18),
-          border: Border.all(color: SoriColors.gold),
+    final semanticsLabel = [
+      t.soriStageBojagiTitle,
+      '$count',
+      t.soriStageBojagiBody,
+      t.soriStageOpenBojagi,
+    ].join('. ');
+    return Semantics(
+      button: true,
+      label: semanticsLabel,
+      child: ExcludeSemantics(
+        child: InkWell(
+          onTap: () => Navigator.of(context).pushNamed('/bojagi'),
           borderRadius: BorderRadius.circular(SoriRadius.md),
-        ),
-        child: Row(
-          children: [
-            const Icon(
-              Icons.redeem_rounded,
-              size: 36,
-              color: SoriColors.goldOnLight,
+          child: Container(
+            constraints: const BoxConstraints(minHeight: 88),
+            padding: const EdgeInsets.all(Spacing.lg),
+            decoration: BoxDecoration(
+              color: SoriColors.gold.withValues(alpha: .18),
+              border: Border.all(color: SoriColors.gold),
+              borderRadius: BorderRadius.circular(SoriRadius.md),
             ),
-            const SizedBox(width: Spacing.md),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('${t.soriStageBojagiTitle} · $count', style: tt.h3),
-                  Text(t.soriStageBojagiBody, style: tt.bodySmall),
-                ],
-              ),
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                final textScale = MediaQuery.textScalerOf(context).scale(1);
+                final stacked =
+                    constraints.maxWidth <
+                        SoriAdaptiveWidth.criticalActionRow ||
+                    textScale >= 1.6;
+                final details = Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      '${t.soriStageBojagiTitle} · $count',
+                      key: const ValueKey('pending-bojagi-title'),
+                      style: tt.h3,
+                    ),
+                    Text(
+                      t.soriStageBojagiBody,
+                      key: const ValueKey('pending-bojagi-body'),
+                      style: tt.bodySmall,
+                    ),
+                  ],
+                );
+                final action = Text(
+                  t.soriStageOpenBojagi,
+                  key: const ValueKey('pending-bojagi-action'),
+                  style: tt.label,
+                );
+                const icon = Icon(
+                  Icons.redeem_rounded,
+                  size: 36,
+                  color: SoriColors.goldOnLight,
+                );
+
+                if (stacked) {
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          icon,
+                          const SizedBox(width: Spacing.md),
+                          Expanded(child: details),
+                        ],
+                      ),
+                      const SizedBox(height: Spacing.md),
+                      Align(
+                        alignment: AlignmentDirectional.centerEnd,
+                        child: action,
+                      ),
+                    ],
+                  );
+                }
+
+                return Row(
+                  children: [
+                    icon,
+                    const SizedBox(width: Spacing.md),
+                    Expanded(child: details),
+                    const SizedBox(width: Spacing.md),
+                    action,
+                  ],
+                );
+              },
             ),
-            Text(t.soriStageOpenBojagi, style: tt.label),
-          ],
+          ),
         ),
       ),
     );
