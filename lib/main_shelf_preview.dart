@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'theme.dart';
 import 'widgets/sori/chaekgado/scroll_sheet.dart';
 import 'widgets/sori/chaekgado/shelf_case.dart';
+import 'widgets/sori/toast.dart';
 import 'widgets/sori/tokens.dart';
 
 void main() => runApp(const _ShelfPreviewApp());
@@ -18,27 +19,107 @@ void main() => runApp(const _ShelfPreviewApp());
 /// A1 18칸 — 이름표는 ARB 가 오기 전이라 하드코딩이다.
 /// 개수는 실제 코퍼스 분포(a1 67편/18칸)를 흉내낸 값이다.
 const _a1 = <ChaekgadoCompartment>[
-  ChaekgadoCompartment(slug: 'transit', label: 'Bahn & Bus', count: 4, progress: .55),
-  ChaekgadoCompartment(slug: 'taxi_stay', label: 'Taxi & Flughafen', count: 5, progress: .30),
-  ChaekgadoCompartment(slug: 'counter', label: 'Läden & Schalter', count: 4, progress: .72),
-  ChaekgadoCompartment(slug: 'eat', label: 'Café & Snack', count: 4, progress: .44),
-  ChaekgadoCompartment(slug: 'home', label: 'Zuhause & Eingang', count: 3, progress: .18),
-  ChaekgadoCompartment(slug: 'greet', label: 'Gruß & Termine', count: 4, progress: .90),
-  ChaekgadoCompartment(slug: 'repeat', label: 'Nicht verstanden', count: 3, progress: .05),
-  ChaekgadoCompartment(slug: 'body', label: 'Apotheke & Wetter', count: 4, progress: .36),
-  ChaekgadoCompartment(slug: 'partner', label: 'Partnerfamilie', count: 3, progress: .12),
-  ChaekgadoCompartment(slug: 'numbers', label: 'Zahlen & Uhrzeit', count: 4, progress: .60),
-  ChaekgadoCompartment(slug: 'phone', label: 'Anrufe & Nachrichten', count: 3, progress: 0),
-  ChaekgadoCompartment(slug: 'wayfinding', label: 'Wege & Schilder', count: 4, progress: .25),
+  ChaekgadoCompartment(
+    slug: 'transit',
+    label: 'Bahn & Bus',
+    count: 4,
+    progress: .55,
+  ),
+  ChaekgadoCompartment(
+    slug: 'taxi_stay',
+    label: 'Taxi & Flughafen',
+    count: 5,
+    progress: .30,
+  ),
+  ChaekgadoCompartment(
+    slug: 'counter',
+    label: 'Läden & Schalter',
+    count: 4,
+    progress: .72,
+  ),
+  ChaekgadoCompartment(
+    slug: 'eat',
+    label: 'Café & Snack',
+    count: 4,
+    progress: .44,
+  ),
+  ChaekgadoCompartment(
+    slug: 'home',
+    label: 'Zuhause & Eingang',
+    count: 3,
+    progress: .18,
+  ),
+  ChaekgadoCompartment(
+    slug: 'greet',
+    label: 'Gruß & Termine',
+    count: 4,
+    progress: .90,
+  ),
+  ChaekgadoCompartment(
+    slug: 'repeat',
+    label: 'Nicht verstanden',
+    count: 3,
+    progress: .05,
+  ),
+  ChaekgadoCompartment(
+    slug: 'body',
+    label: 'Apotheke & Wetter',
+    count: 4,
+    progress: .36,
+  ),
+  ChaekgadoCompartment(
+    slug: 'partner',
+    label: 'Partnerfamilie',
+    count: 3,
+    progress: .12,
+  ),
+  ChaekgadoCompartment(
+    slug: 'numbers',
+    label: 'Zahlen & Uhrzeit',
+    count: 4,
+    progress: .60,
+  ),
+  ChaekgadoCompartment(
+    slug: 'phone',
+    label: 'Anrufe & Nachrichten',
+    count: 3,
+    progress: 0,
+  ),
+  ChaekgadoCompartment(
+    slug: 'wayfinding',
+    label: 'Wege & Schilder',
+    count: 4,
+    progress: .25,
+  ),
 ];
 
 /// C1 12칸 — **4칸만 재고가 있다.** 나머지는 count 0 이라 소품만 놓인다.
 /// 이 화면이 "C1/C2 를 신규 아트 0장으로 출시한다"는 주장의 증거다.
 const _c1 = <ChaekgadoCompartment>[
-  ChaekgadoCompartment(slug: 'briefing', label: 'Briefing & Rederecht', count: 4, progress: .25),
-  ChaekgadoCompartment(slug: 'uncertainty', label: 'Unsicherheit & Stichproben', count: 4, progress: 0),
-  ChaekgadoCompartment(slug: 'access', label: 'Zugriff & Fristen', count: 1, progress: 0),
-  ChaekgadoCompartment(slug: 'labor', label: 'Unsichtbare Arbeit', count: 2, progress: 0),
+  ChaekgadoCompartment(
+    slug: 'briefing',
+    label: 'Briefing & Rederecht',
+    count: 4,
+    progress: .25,
+  ),
+  ChaekgadoCompartment(
+    slug: 'uncertainty',
+    label: 'Unsicherheit & Stichproben',
+    count: 4,
+    progress: 0,
+  ),
+  ChaekgadoCompartment(
+    slug: 'access',
+    label: 'Zugriff & Fristen',
+    count: 1,
+    progress: 0,
+  ),
+  ChaekgadoCompartment(
+    slug: 'labor',
+    label: 'Unsichtbare Arbeit',
+    count: 2,
+    progress: 0,
+  ),
   ChaekgadoCompartment(slug: 'conflict_interest', label: 'Interessenkonflikt'),
   ChaekgadoCompartment(slug: 'policy', label: 'Auslegung & Ermessen'),
   ChaekgadoCompartment(slug: 'clinical', label: 'Aufklärung & Einwilligung'),
@@ -119,16 +200,17 @@ class _ShelfPreviewScreenState extends State<_ShelfPreviewScreen> {
               child: Text(
                 'Für dieses Fach gibt es noch keine Szenarien.',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12, color: SoriColors.lightTextMuted),
+                style: TextStyle(
+                  fontSize: 12,
+                  color: SoriColors.lightTextMuted,
+                ),
               ),
             ),
           ),
       ],
     );
     if (picked != null && mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('→ player: $picked')),
-      );
+      soriNotice(context, '→ player: $picked');
     }
   }
 

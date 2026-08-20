@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/age_gate_service.dart';
+import 'dialog.dart';
 
 /// Gye/Community 진입 전 **연령 게이트** (GDPR-K, 16세 — DSGVO Art. 8).
 ///
@@ -36,9 +37,9 @@ Future<bool> ensureGyeAgeAllowed(BuildContext context) async {
 
 Future<void> _showBlocked(BuildContext context) async {
   final t = AppL10n.of(context);
-  await showDialog<void>(
+  await showSoriDialog<void>(
     context: context,
-    builder: (ctx) => AlertDialog(
+    builder: (ctx) => SoriDialog(
       icon: const Icon(Icons.lock_outline_rounded),
       content: Text(t.gyeErrAgeRestricted),
       actions: [
@@ -57,7 +58,7 @@ Future<int?> _askBirthYear(BuildContext context) {
   // "used after being disposed" → framework `_dependents.isEmpty` 레드스크린
   // (Jin 실기기 gye 크래시의 근본 원인, 2026-06-12 웹 재현으로 확정).
   // → State가 컨트롤러를 소유해 route 트리 파괴 후 dispose되게 한다.
-  return showDialog<int>(
+  return showSoriDialog<int>(
     context: context,
     builder: (_) => const _BirthYearDialog(),
   );
@@ -83,7 +84,7 @@ class _BirthYearDialogState extends State<_BirthYearDialog> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return AlertDialog(
+    return SoriDialog(
       title: Text(t.gyeAgeYearTitle),
       content: Column(
         mainAxisSize: MainAxisSize.min,

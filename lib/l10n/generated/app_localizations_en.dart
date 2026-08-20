@@ -69,6 +69,10 @@ class AppL10nEn extends AppL10n {
   String get paywallRestoreNone => 'No previous purchases found.';
 
   @override
+  String get paywallRestoreFailed =>
+      'Purchases could not be restored. Try again.';
+
+  @override
   String streakDisplay(int days) {
     String _temp0 = intl.Intl.pluralLogic(
       days,

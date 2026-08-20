@@ -26,6 +26,7 @@ import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_service.dart';
+import 'package:ko_lernen_app/services/word_image_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
@@ -186,6 +187,43 @@ void main() {
       isFalse,
     );
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('word photo denial stays in the editor with a clear message', (
+    tester,
+  ) async {
+    await CustomPackService.save(
+      CustomPack.manual(id: 'camera-denied-pack', name: 'Mein Wörterbuch'),
+    );
+    var pickerCalls = 0;
+    await _configurePhone(tester);
+    await tester.pumpWidget(
+      _host(
+        CustomPackEditScreen(
+          packId: 'camera-denied-pack',
+          wordImagePicker: (source, {required workflowId}) async {
+            pickerCalls++;
+            throw const CameraPermissionDeniedException();
+          },
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final addWord = find.text('Wort hinzufügen');
+    await tester.scrollUntilVisible(
+      addWord,
+      220,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(addWord);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Kamera'));
+    await tester.pumpAndSettle();
+
+    expect(pickerCalls, 1);
+    expect(find.textContaining('Berechtigung verweigert'), findsOneWidget);
+    expect(find.text('Galerie'), findsOneWidget);
   });
 
   testWidgets('vocab result stacks stats and keeps the final CTA reachable', (

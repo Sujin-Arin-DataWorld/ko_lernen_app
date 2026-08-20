@@ -16,6 +16,7 @@ import '../services/tts_service.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/standard_page.dart';
@@ -145,10 +146,10 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
       return true;
     }
     final t = AppL10n.of(context);
-    final accepted = await showDialog<bool>(
+    final accepted = await showSoriDialog<bool>(
       context: context,
       barrierDismissible: false,
-      builder: (context) => AlertDialog(
+      builder: (context) => SoriDialog(
         title: Text(t.pronunciationConsentTitle),
         content: Text(t.pronunciationConsentBody),
         actions: [

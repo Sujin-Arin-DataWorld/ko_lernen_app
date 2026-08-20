@@ -19,6 +19,7 @@
   "paywallSuccess": "Premium is active. Enjoy!",
   "paywallFailed": "Purchase not completed.",
   "paywallRestoreNone": "No previous purchases found.",
+  "paywallRestoreFailed": "Purchases could not be restored. Try again.",
   "streakDisplay": "{days, plural, one{1 day} other{{days} days}}",
   "@streakDisplay": {
     "placeholders": {

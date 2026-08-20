@@ -6,8 +6,10 @@ import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/window_class.dart';
@@ -38,9 +40,9 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
 
   Future<void> _delete() async {
     final t = AppL10n.of(context);
-    final ok = await showDialog<bool>(
+    final ok = await showSoriDialog<bool>(
       context: context,
-      builder: (ctx) => AlertDialog(
+      builder: (ctx) => SoriDialog(
         title: Text(t.bookshelfDeletePageTitle),
         content: Text(t.bookshelfDeletePageBody),
         actions: [
@@ -70,9 +72,9 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
           ? page.note
           : 'Pack ${page.capturedAtIso.length >= 10 ? page.capturedAtIso.substring(0, 10) : ''}',
     );
-    final name = await showDialog<String>(
+    final name = await showSoriDialog<String>(
       context: context,
-      builder: (ctx) => AlertDialog(
+      builder: (ctx) => SoriDialog(
         title: Text(t.bookshelfCreatePackTitle),
         content: TextField(
           controller: controller,
@@ -97,17 +99,14 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
     if (name == null || name.isEmpty) return;
     final pack = await CustomPackService.createFromPage(page: page, name: name);
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(t.bookshelfCreatePackSaved),
-        behavior: SnackBarBehavior.floating,
-        action: SnackBarAction(
-          label: t.btnPlay,
-          onPressed: () => Navigator.of(
-            context,
-          ).pushNamed('/custom_pack/play', arguments: pack.id),
-        ),
-      ),
+    await showSoriActionNotice(
+      context: context,
+      message: t.bookshelfCreatePackSaved,
+      dismissLabel: t.btnClose,
+      actionLabel: t.btnPlay,
+      onAction: () => Navigator.of(
+        context,
+      ).pushNamed('/custom_pack/play', arguments: pack.id),
     );
   }
 

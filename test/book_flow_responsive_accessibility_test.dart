@@ -39,6 +39,45 @@ void main() {
     semantics.dispose();
   });
 
+  testWidgets(
+    'camera permission starts only after rationale and denial returns',
+    (tester) async {
+      var permissionRequests = 0;
+      await _pumpAccessiblePhone(
+        tester,
+        BookCaptureScreen(
+          requestCameraPermission: () async {
+            permissionRequests++;
+            return false;
+          },
+        ),
+        size: const Size(390, 844),
+        textScale: 1,
+      );
+
+      expect(
+        find.textContaining('Das Bild bleibt auf deinem Gerät'),
+        findsOneWidget,
+      );
+      expect(permissionRequests, 0);
+
+      await tester.pumpAndSettle();
+      final coachDismiss = find.text('Alles klar!');
+      if (coachDismiss.evaluate().isNotEmpty) {
+        await tester.tap(coachDismiss);
+        await tester.pumpAndSettle();
+      }
+
+      final camera = find.widgetWithText(SoriButton, 'Kamera');
+      await tester.tap(camera);
+      await tester.pumpAndSettle();
+
+      expect(permissionRequests, 1);
+      expect(find.textContaining('Berechtigung verweigert'), findsOneWidget);
+      expect(find.widgetWithText(SoriButton, 'Aus Galerie'), findsOneWidget);
+    },
+  );
+
   testWidgets('OCR preview keeps both decisions reachable at 320dp and 200%', (
     tester,
   ) async {

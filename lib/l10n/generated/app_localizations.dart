@@ -211,6 +211,12 @@ abstract class AppL10n {
   /// **'Keine früheren Käufe gefunden.'**
   String get paywallRestoreNone;
 
+  /// No description provided for @paywallRestoreFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Käufe konnten nicht wiederhergestellt werden. Versuche es erneut.'**
+  String get paywallRestoreFailed;
+
   /// No description provided for @streakDisplay.
   ///
   /// In de, this message translates to:

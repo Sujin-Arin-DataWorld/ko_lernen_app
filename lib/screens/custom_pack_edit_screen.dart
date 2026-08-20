@@ -15,11 +15,13 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/word_image_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 import '../widgets/managed_media_image.dart';
@@ -31,9 +33,20 @@ import '../widgets/managed_media_image.dart';
 ///  - "자동 채우기" (Cloud Function 번역 + 우리말샘 뜻풀이)
 ///  - TTS 발음 미리듣기
 ///  - 카드 학습(/custom_pack/play) + 객관식 퀴즈(/custom_pack/quiz)
+typedef WordImagePicker =
+    Future<PendingMediaLease?> Function(
+      ImageSource source, {
+      required String workflowId,
+    });
+
 class CustomPackEditScreen extends StatefulWidget {
   final String packId;
-  const CustomPackEditScreen({super.key, required this.packId});
+  final WordImagePicker? wordImagePicker;
+  const CustomPackEditScreen({
+    super.key,
+    required this.packId,
+    this.wordImagePicker,
+  });
 
   @override
   State<CustomPackEditScreen> createState() => _CustomPackEditScreenState();
@@ -101,6 +114,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
       builder: (_) => _WordEditorSheet(
         existing: existing,
         workflowId: CustomPackService.mediaWorkflowId(pack.id, index, existing),
+        imagePicker: widget.wordImagePicker,
       ),
     );
     if (result == null) return;
@@ -133,9 +147,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
       _reload();
     } on Object {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(AppL10n.of(context).bookCaptureErrorUnknown)),
-        );
+        soriToast(context, AppL10n.of(context).bookCaptureErrorUnknown);
       }
     }
   }
@@ -148,9 +160,9 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
     _wordDeleteInFlight = true;
     try {
       final t = AppL10n.of(context);
-      final ok = await showDialog<bool>(
+      final ok = await showSoriDialog<bool>(
         context: context,
-        builder: (ctx) => AlertDialog(
+        builder: (ctx) => SoriDialog(
           title: Text(t.wbDeleteWordTitle),
           content: Text(t.wbDeleteWordBody),
           actions: [
@@ -175,11 +187,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
           _reload();
         } on Object {
           if (mounted) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(AppL10n.of(context).bookCaptureErrorUnknown),
-              ),
-            );
+            soriToast(context, AppL10n.of(context).bookCaptureErrorUnknown);
           }
         }
       }
@@ -194,9 +202,9 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
     if (pack == null) return;
     final t = AppL10n.of(context);
     final controller = TextEditingController(text: pack.name);
-    final name = await showDialog<String>(
+    final name = await showSoriDialog<String>(
       context: context,
-      builder: (ctx) => AlertDialog(
+      builder: (ctx) => SoriDialog(
         title: Text(t.wbRenameTitle),
         content: TextField(
           controller: controller,
@@ -233,9 +241,9 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
         ? 'en'
         : 'de';
     final controller = TextEditingController();
-    final raw = await showDialog<String>(
+    final raw = await showSoriDialog<String>(
       context: context,
-      builder: (ctx) => AlertDialog(
+      builder: (ctx) => SoriDialog(
         title: Text(t.csvImportTitle),
         content: Column(
           mainAxisSize: MainAxisSize.min,
@@ -277,17 +285,13 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
 
     if (!mounted) return;
     if (words.isEmpty) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(t.csvImportEmpty)));
+      soriToast(context, t.csvImportEmpty);
       return;
     }
     await CustomPackService.addWords(pack.id, words);
     _reload();
     if (!mounted) return;
-    ScaffoldMessenger.of(
-      context,
-    ).showSnackBar(SnackBar(content: Text(t.csvImportResult(words.length))));
+    soriNotice(context, t.csvImportResult(words.length));
   }
 
   @override
@@ -616,7 +620,12 @@ class _WordEditorResult {
 class _WordEditorSheet extends StatefulWidget {
   final ExtractedWord? existing;
   final String workflowId;
-  const _WordEditorSheet({this.existing, required this.workflowId});
+  final WordImagePicker? imagePicker;
+  const _WordEditorSheet({
+    this.existing,
+    required this.workflowId,
+    this.imagePicker,
+  });
 
   @override
   State<_WordEditorSheet> createState() => _WordEditorSheetState();
@@ -720,10 +729,9 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
     if (_photoBusy) return;
     setState(() => _photoBusy = true);
     try {
-      final lease = await WordImageService.pickPending(
-        source,
-        workflowId: _workflowId,
-      );
+      final lease =
+          await (widget.imagePicker?.call(source, workflowId: _workflowId) ??
+              WordImageService.pickPending(source, workflowId: _workflowId));
       if (lease == null) {
         return;
       }
@@ -750,6 +758,12 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
       } on Object {
         // The editor owns the lease; a duplicate durable recovery record is
         // safe and will be ignored after the pending file is finalized.
+      }
+    } on CameraPermissionDeniedException {
+      if (mounted) {
+        setState(
+          () => _autoNote = AppL10n.of(context).bookCaptureErrorPermission,
+        );
       }
     } on Object {
       if (mounted) {

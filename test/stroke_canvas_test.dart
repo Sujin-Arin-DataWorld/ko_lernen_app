@@ -10,16 +10,26 @@ import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
 /// AnimationController (zweiter Ticker) → SingleTickerProviderStateMixin warf.
 /// Jetzt wird der eine Controller wiederverwendet (nur Dauer + reset/forward).
 void main() {
-  Widget canvasFor(String letter) => MaterialApp(
-        home: Scaffold(
-          body: Center(
-            child: StrokeCanvas(
-              letter: letter,
-              strokes: hangulStrokes[letter]!,
-            ),
+  Widget canvasFor(
+    String letter, {
+    bool disableAnimations = false,
+    VoidCallback? onCompleted,
+  }) => MaterialApp(
+    home: MediaQuery(
+      data: MediaQueryData(disableAnimations: disableAnimations),
+      child: Scaffold(
+        body: Center(
+          child: StrokeCanvas(
+            letter: letter,
+            strokes: hangulStrokes[letter]!,
+            semanticsLabel: 'Stroke order $letter',
+            semanticsHint: 'Tap to replay',
+            onCompleted: onCompleted,
           ),
         ),
-      );
+      ),
+    ),
+  );
 
   testWidgets('Buchstabenwechsel wirft keinen Ticker-Fehler', (tester) async {
     await tester.pumpWidget(canvasFor('ㄱ')); // 1 Strich
@@ -41,5 +51,26 @@ void main() {
     await tester.tap(find.byType(StrokeCanvas));
     await tester.pump();
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('reduce motion shows the finished guide without a ticker', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    var completions = 0;
+    await tester.pumpWidget(
+      canvasFor('ㄷ', disableAnimations: true, onCompleted: () => completions++),
+    );
+    await tester.pump();
+
+    expect(completions, 1);
+    expect(tester.hasRunningAnimations, isFalse);
+    expect(find.bySemanticsLabel('Stroke order ㄷ'), findsOneWidget);
+
+    await tester.tap(find.byType(StrokeCanvas));
+    await tester.pump();
+    expect(completions, 2);
+    expect(tester.hasRunningAnimations, isFalse);
+    semantics.dispose();
   });
 }

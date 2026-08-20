@@ -540,14 +540,15 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         if (!mounted) {
           return;
         }
-        await ScaffoldMessenger.of(context)
-            .showSnackBar(
-              SnackBar(
-                content: Text(AppL10n.of(context).coachPackStageQuiz),
-                duration: const Duration(seconds: 3),
-              ),
-            )
-            .closed;
+        final notice = showSoriToast(
+          context,
+          AppL10n.of(context).coachPackStageQuiz,
+          tone: SoriToastTone.neutral,
+          duration: const Duration(seconds: 3),
+        );
+        if (notice != null) {
+          await notice.closed;
+        }
         await Storage.setTutPackQuizSeen();
       });
     }
@@ -576,14 +577,15 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         if (!mounted) {
           return;
         }
-        await ScaffoldMessenger.of(context)
-            .showSnackBar(
-              SnackBar(
-                content: Text(AppL10n.of(context).coachPackStageBoss),
-                duration: const Duration(seconds: 3),
-              ),
-            )
-            .closed;
+        final notice = showSoriToast(
+          context,
+          AppL10n.of(context).coachPackStageBoss,
+          tone: SoriToastTone.neutral,
+          duration: const Duration(seconds: 3),
+        );
+        if (notice != null) {
+          await notice.closed;
+        }
         await Storage.setTutPackBossSeen();
       });
     }

@@ -14,6 +14,10 @@ class ManagedMediaCleanupException implements Exception {
   final List<Object> causes;
 }
 
+class CameraPermissionDeniedException implements Exception {
+  const CameraPermissionDeniedException();
+}
+
 class WordImageService {
   static Future<PendingMediaLease?> pickPending(
     ImageSource source, {
@@ -27,6 +31,7 @@ class WordImageService {
     Future<void> Function()? clearLaunch,
     Future<void> Function()? refreshRecoveryState,
     bool Function()? hasRecoveryMarker,
+    Future<bool> Function()? requestCameraPermission,
   }) async {
     final usePickerRecovery =
         Platform.isAndroid || markLaunch != null || clearLaunch != null;
@@ -37,9 +42,11 @@ class WordImageService {
       }
     }
     if (source == ImageSource.camera) {
-      final status = await Permission.camera.request();
-      if (!status.isGranted) {
-        return null;
+      final granted =
+          await (requestCameraPermission?.call() ??
+              Permission.camera.request().then((status) => status.isGranted));
+      if (!granted) {
+        throw const CameraPermissionDeniedException();
       }
     }
     final attemptId =

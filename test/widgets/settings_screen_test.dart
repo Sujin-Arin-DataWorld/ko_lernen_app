@@ -121,6 +121,43 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('notification permission follows the visible reminder action', (
+    tester,
+  ) async {
+    final notifications = _FakeNotificationSettingsOperations(granted: false);
+    await tester.pumpWidget(
+      _wrap(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+          appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+          notificationOperations: notifications,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final reminder = find.text('Tägliche Erinnerung');
+    await _ensureSettingsActionVisible(tester, reminder);
+    expect(find.text('Taego erinnert dich ans Lernen'), findsOneWidget);
+    expect(notifications.permissionRequests, 0);
+
+    await tester.tap(
+      find.ancestor(of: reminder, matching: find.byType(SwitchListTile)),
+    );
+    await tester.pumpAndSettle();
+
+    expect(notifications.permissionRequests, 1);
+    expect(notifications.enableCalls, 0);
+    expect(notifications.disableCalls, 1);
+    expect(Storage.notificationsEnabled, isFalse);
+    expect(
+      find.textContaining('Benachrichtigungen sind deaktiviert'),
+      findsOneWidget,
+    );
+  });
+
   testWidgets(
     'voice assessment can only be enabled after the separate disclosure',
     (tester) async {
@@ -999,6 +1036,38 @@ void main() {
 const _guest = AuthAccountSnapshot(
   providers: AuthProviderState(isGoogleLinked: false, isAppleLinked: false),
 );
+
+class _FakeNotificationSettingsOperations
+    implements NotificationSettingsOperations {
+  _FakeNotificationSettingsOperations({required this.granted});
+
+  final bool granted;
+  int permissionRequests = 0;
+  int enableCalls = 0;
+  int disableCalls = 0;
+
+  @override
+  Future<bool> requestPermission() async {
+    permissionRequests++;
+    return granted;
+  }
+
+  @override
+  Future<void> enable({
+    required int hour,
+    required String title,
+    required String body,
+    required String streakTitle,
+    required String streakBody,
+  }) async {
+    enableCalls++;
+  }
+
+  @override
+  Future<void> disable() async {
+    disableCalls++;
+  }
+}
 
 class _FixedAppVersionReader implements AppVersionReader {
   const _FixedAppVersionReader(this.version);

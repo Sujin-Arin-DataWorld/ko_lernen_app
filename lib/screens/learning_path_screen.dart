@@ -31,6 +31,7 @@ import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -318,9 +319,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   Future<void> _openPack(VocabPack pack, PackStatus status) async {
     final t = AppL10n.of(context);
     if (status == PackStatus.locked) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(t.pathLockedHint)));
+      soriNotice(context, t.pathLockedHint);
       return;
     }
     // Premium-Gate 단일화 — ensurePackAccess (A1 frei, A2/B1/B2 Abo).

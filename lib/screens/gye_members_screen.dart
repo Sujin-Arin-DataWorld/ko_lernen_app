@@ -7,8 +7,10 @@ import '../models/gye.dart';
 import '../services/gye_service.dart';
 import '../services/account/cloud_write_session.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/dialog.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -333,15 +335,13 @@ Future<void> _toggleBlock(
   if (isBlocked) {
     final ok = await GyeService.unblockUser(target.uid);
     if (context.mounted && !ok) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(t.gyeErrNetwork)));
+      soriToast(context, t.gyeErrNetwork);
     }
     return;
   }
-  final confirmed = await showDialog<bool>(
+  final confirmed = await showSoriDialog<bool>(
     context: context,
-    builder: (dctx) => AlertDialog(
+    builder: (dctx) => SoriDialog(
       title: Text(t.gyeBlockTitle),
       content: Text(t.gyeBlockBody),
       actions: [
@@ -359,9 +359,11 @@ Future<void> _toggleBlock(
   if (confirmed == true) {
     final ok = await GyeService.blockUser(target.uid);
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(ok ? t.gyeBlockedSnack : t.gyeErrNetwork)),
-      );
+      if (ok) {
+        soriNotice(context, t.gyeBlockedSnack);
+      } else {
+        soriToast(context, t.gyeErrNetwork);
+      }
     }
   }
 }
@@ -382,7 +384,7 @@ Future<void> _report(
   // ⚠️ 컨트롤러를 여기서 만들고 `await showDialog` 직후 dispose하면 퇴장
   // 애니메이션 중 리빌드가 "used after disposed" → `_dependents.isEmpty`
   // 레드스크린(실기기 gye 크래시 동일 패턴). State가 소유하게 한다.
-  final result = await showDialog<({GyeReportReason reason, String note})>(
+  final result = await showSoriDialog<({GyeReportReason reason, String note})>(
     context: context,
     builder: (_) => const _ReportDialog(),
   );
@@ -394,9 +396,11 @@ Future<void> _report(
       note: result.note,
     );
     if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(ok ? t.gyeReportSent : t.gyeErrNetwork)),
-      );
+      if (ok) {
+        soriNotice(context, t.gyeReportSent);
+      } else {
+        soriToast(context, t.gyeErrNetwork);
+      }
     }
   }
 }
@@ -421,7 +425,7 @@ class _ReportDialogState extends State<_ReportDialog> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    return AlertDialog(
+    return SoriDialog(
       title: Text(t.gyeReportTitle),
       content: SizedBox(
         width: double.maxFinite,

@@ -13,6 +13,7 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
+import '../widgets/sori/dialog.dart';
 import '../services/content_share_service.dart';
 import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
@@ -374,7 +375,7 @@ class _CharGrid extends StatelessWidget {
     unawaited(speak(c.letter));
     // 바텀시트 대신 중앙 다이얼로그 — 화면 정중앙에 떠서 상단/하단 시스템바에
     // 구조적으로 안 걸림(기기 무관 동일). 내용은 스크롤 가능해 오버플로도 0.
-    showDialog(
+    showSoriDialog<void>(
       context: ctx,
       builder: (_) => _DetailSheet(char: c, color: color, speak: speak),
     );
@@ -451,7 +452,7 @@ class _DetailSheet extends StatelessWidget {
     // SingleChildScrollView → 설명이 길거나 글자배율이 커도 스크롤(오버플로 0).
     // insetPadding responsive — 좁은 폰(width < 360) 대비.
     final screenWidth = MediaQuery.sizeOf(context).width;
-    return Dialog(
+    return SoriDialogFrame(
       backgroundColor: SoriSurfaces.of(context).surface,
       insetPadding: EdgeInsets.symmetric(
         horizontal: screenWidth < 360 ? 16 : 32,
@@ -1528,6 +1529,10 @@ class _WriteTabState extends State<_WriteTab> {
         );
         return Semantics(
           container: true,
+          label: t.hangulTraceTitle,
+          value: strokes.isEmpty
+              ? c.letter
+              : t.hangulStrokeProgress(shown, total),
           customSemanticsActions: <CustomSemanticsAction, VoidCallback>{
             CustomSemanticsAction(label: t.btnPrev): _prev,
             CustomSemanticsAction(label: t.btnNext): _next,
@@ -1581,15 +1586,18 @@ class _WriteTabState extends State<_WriteTab> {
                       child: Stack(
                         fit: StackFit.expand,
                         children: [
-                          IgnorePointer(
-                            child: StrokeCanvas(
-                              letter: c.letter,
-                              strokes: strokes,
-                              size: canvasSize,
-                              color: SoriColors.contentCta,
-                              highlightIndex: _letterDone || strokes.isEmpty
-                                  ? null
-                                  : _acceptedStrokes,
+                          ExcludeSemantics(
+                            child: IgnorePointer(
+                              child: StrokeCanvas(
+                                letter: c.letter,
+                                strokes: strokes,
+                                size: canvasSize,
+                                color: SoriColors.contentCta,
+                                highlightIndex:
+                                    _letterDone || strokes.isEmpty
+                                    ? null
+                                    : _acceptedStrokes,
+                              ),
                             ),
                           ),
                           _PracticeCanvas(
