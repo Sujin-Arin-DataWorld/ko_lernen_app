@@ -5137,6 +5137,12 @@ abstract class AppL10n {
   /// **'Noch keine. Schließ ein Szenario ab und hol dir die erste! 🚀'**
   String get statsNoBadges;
 
+  /// No description provided for @statsWeekDaySemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'{weekday}: {status, select, todayCompleted{heute, geschafft} today{heute} completed{geschafft} pending{noch offen} other{noch offen}}'**
+  String statsWeekDaySemantics(String weekday, String status);
+
   /// No description provided for @homeRecommended.
   ///
   /// In de, this message translates to:

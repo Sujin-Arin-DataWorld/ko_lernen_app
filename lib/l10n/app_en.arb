@@ -1395,6 +1395,17 @@
   "statsScenariosCompleted": "Scenarios completed",
   "statsBadgesTitle": "Badges",
   "statsNoBadges": "None yet. Complete a scenario to earn your first! 🚀",
+  "statsWeekDaySemantics": "{weekday}: {status, select, todayCompleted{today, completed} today{today} completed{completed} pending{not completed} other{not completed}}",
+  "@statsWeekDaySemantics": {
+    "placeholders": {
+      "weekday": {
+        "type": "String"
+      },
+      "status": {
+        "type": "String"
+      }
+    }
+  },
   "homeRecommended": "Recommended today",
   "homeAllDone": "All scenarios done!",
   "homeNoScenario": "Scenarios for your level coming soon",
