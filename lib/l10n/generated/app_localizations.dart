@@ -1093,6 +1093,12 @@ abstract class AppL10n {
   /// **'Typ'**
   String get filterType;
 
+  /// No description provided for @filterDifficulty.
+  ///
+  /// In de, this message translates to:
+  /// **'Schwierigkeit'**
+  String get filterDifficulty;
+
   /// No description provided for @filterDirection.
   ///
   /// In de, this message translates to:

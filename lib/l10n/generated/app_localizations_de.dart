@@ -566,6 +566,9 @@ class AppL10nDe extends AppL10n {
   String get filterType => 'Typ';
 
   @override
+  String get filterDifficulty => 'Schwierigkeit';
+
+  @override
   String get filterDirection => 'Vorderseite zeigt';
 
   @override

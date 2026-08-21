@@ -477,11 +477,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                 const SizedBox(height: Spacing.sm),
                 SoriPhraseWrap(
                   target.exampleKorean,
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w700,
-                    color: SoriSurfaces.of(sheetContext).text,
-                  ),
+                  style: SoriTextTheme.of(
+                    sheetContext,
+                  ).h3.copyWith(height: 1.45),
                 ),
                 const SizedBox(height: Spacing.lg),
                 for (final optionId in question.optionIds)
@@ -508,18 +506,15 @@ class _GrammarScreenState extends State<GrammarScreen>
                     isCorrect
                         ? t.courseCheckpointCorrect
                         : t.courseCheckpointIncorrect,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(sheetContext).label.copyWith(
                       color: isCorrect ? SoriColors.success : SoriColors.danger,
-                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   if (savedAnswer != null) ...[
                     const SizedBox(height: Spacing.xs),
                     Text(
                       t.courseCheckpointSaved,
-                      style: TextStyle(
-                        color: SoriSurfaces.of(sheetContext).textMuted,
-                      ),
+                      style: SoriTextTheme.of(sheetContext).caption,
                     ),
                   ],
                 ],
@@ -955,11 +950,9 @@ class _GrammarScreenState extends State<GrammarScreen>
                     child: Center(
                       child: Text(
                         '${_idx + 1} / ${_filtered.length}',
-                        style: TextStyle(
-                          fontSize: 12.5,
-                          fontWeight: FontWeight.w700,
-                          color: s.textMuted,
-                        ),
+                        style: SoriTextTheme.of(
+                          context,
+                        ).meta.copyWith(fontWeight: FontWeight.w700),
                       ),
                     ),
                   ),
@@ -1021,7 +1014,7 @@ class _GrammarScreenState extends State<GrammarScreen>
             children: [
               Text(t.filterTitle, style: SoriTextTheme.of(ctx).h3),
               const SizedBox(height: Spacing.md),
-              _dropdown(t.filterLevel, stagedLevel, _levels, (v) {
+              _dropdown(ctx, t.filterLevel, stagedLevel, _levels, (v) {
                 setLocal(() {
                   stagedLevel = v!;
                   // 레벨이 바뀌면 그 레벨에 없는 유형은 후보에서 사라진다.
@@ -1033,8 +1026,9 @@ class _GrammarScreenState extends State<GrammarScreen>
               }),
               // 고를 수 있는 유형이 'Alle' 뿐이면 감춘다 (죽은 컨트롤 금지).
               if (_typesForLevel(stagedLevel).length > 1) ...[
-                const SizedBox(height: Spacing.sm + 2),
+                const SizedBox(height: Spacing.md),
                 _dropdown(
+                  ctx,
                   t.filterType,
                   stagedType,
                   _typesForLevel(stagedLevel),
@@ -1043,18 +1037,22 @@ class _GrammarScreenState extends State<GrammarScreen>
                   },
                 ),
               ],
-              const SizedBox(height: Spacing.sm + 2),
+              const SizedBox(height: Spacing.md),
               // 난이도는 학습 화면의 가로줄에서 여기로 옮겼다. 카드가 세로
               // 공간을 먼저 갖되, 스와이프로 모은 "Schwierig" 를 다시 모아
               // 볼 수 있어야 판정이 보상으로 돌아온다.
-              // TODO(l10n): 'Leicht'/'Schwer' 는 이 화면이 원래 갖고 있던
-              // 하드코딩 문자열을 그대로 옮긴 것이다. ARB 로 빼야 한다.
+              Text(t.filterDifficulty, style: SoriTextTheme.of(ctx).label),
+              const SizedBox(height: Spacing.sm),
               Wrap(
                 spacing: Spacing.xs + 2,
                 children: [
                   for (final diff in const ['Alle', 'Leicht', 'Schwer'])
                     SoriChip(
-                      label: diff == 'Alle' ? t.filterAll : diff,
+                      label: switch (diff) {
+                        'Leicht' => t.grammarEasy,
+                        'Schwer' => t.grammarHard,
+                        _ => t.filterAll,
+                      },
                       accent: SoriColors.info,
                       selected: stagedDifficulty == diff,
                       variant: SoriChipVariant.soft,
@@ -1097,31 +1095,24 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   Widget _dropdown(
+    BuildContext context,
     String label,
     String value,
     List<String> items,
     ValueChanged<String?> onChanged,
   ) {
-    final s = SoriSurfaces.of(context);
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
-      decoration: BoxDecoration(
-        color: s.bg,
-        borderRadius: BorderRadius.circular(SoriRadius.sm),
-        border: Border.all(color: s.surfaceAlt),
+    return DropdownButtonFormField<String>(
+      initialValue: value,
+      isExpanded: true,
+      itemHeight: null,
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: SoriTextTheme.of(context).label,
       ),
-      child: DropdownButton<String>(
-        value: value,
-        isExpanded: true,
-        itemHeight: null,
-        underline: const SizedBox.shrink(),
-        dropdownColor: s.surface,
-        hint: Text(label, style: TextStyle(color: s.textMuted)),
-        items: items
-            .map((item) => DropdownMenuItem(value: item, child: Text(item)))
-            .toList(),
-        onChanged: onChanged,
-      ),
+      items: items
+          .map((item) => DropdownMenuItem(value: item, child: Text(item)))
+          .toList(),
+      onChanged: onChanged,
     );
   }
 }
