@@ -333,7 +333,7 @@ production, and deployment remain unclaimed and out of scope.
 | 2C Gye tab | merged | PR #124; main merge `abe2be2bb278a257e776e0e4c2a043b2e4ed4c6f`; CI run 32432348610 green; Gye member-count and feed-title typography connected to the Sori label token; screen raw TextStyle 319→317 and w800 99→98 |
 | 2D Hanok tab/world boundary | merged | PR #125; main merge `e104ae213b813edd20777f0f063acf6bc9c2088c`; CI run 32433115213 green; German 320×640 at 200% Stage shortcut matrix added; approved runtime, grants, reveals, rewards, evidence, and assets unchanged |
 | Phase 2 closeout | merged | PR #126; main merge `ba6036e4c11e5affbbde758534a1be33c7f88ecc`; docs-only CI path filter correctly scheduled no run |
-| 3A–3D learning flows | in progress | Phase 3A Vocab catalog sub-unit: locked hint renderer and grid measurement share the 12.5dp `caption` token; German 320×640 at 200% contract added; raw screen TextStyle 317→316; 130 Deck geometry/gesture/flip/order/SRS tests plus focused responsive/premium/guard tests green; next audit Deck outer UI in a fresh worktree |
+| 3A–3D learning flows | in progress | Phase 3A Vocab catalog sub-unit: locked hint renderer and grid measurement share the 12.5dp `caption` token; German 320×640 at 200% contract added; raw screen TextStyle 317→316; 130 Deck geometry/gesture/flip/order/SRS tests plus focused responsive/premium/guard tests green; Linux golden generation run 32434187771 changed only the medium/expanded Vocab baselines; next audit Deck outer UI in a fresh worktree |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
