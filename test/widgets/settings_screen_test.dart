@@ -1031,6 +1031,82 @@ void main() {
     expect(MascotPreference.selectedKind, MascotKind.tiger);
     expect(find.text('태고'), findsOneWidget);
   });
+
+  testWidgets(
+    'settings and data sources reflow across the locked DE/EN matrix',
+    (tester) async {
+      const locales = [
+        (
+          locale: Locale('de'),
+          title: 'Einstellungen',
+          dataSources: 'Datenquellen',
+          close: 'Schließen',
+        ),
+        (
+          locale: Locale('en'),
+          title: 'Settings',
+          dataSources: 'Data sources',
+          close: 'Close',
+        ),
+      ];
+      const viewports = [
+        (size: Size(320, 640), textScale: 2.0),
+        (size: Size(360, 400), textScale: 1.0),
+        (size: Size(390, 844), textScale: 1.3),
+        (size: Size(720, 1024), textScale: 1.3),
+        (size: Size(1280, 900), textScale: 1.3),
+      ];
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      for (final locale in locales) {
+        for (final viewport in viewports) {
+          tester.view.physicalSize = viewport.size;
+          await tester.pumpWidget(
+            _wrapForLocale(
+              SettingsScreen(
+                key: ValueKey(
+                  '${locale.locale}-${viewport.size}-${viewport.textScale}',
+                ),
+                account: _guest,
+                accountOperations: _SettingsAccountOperations(),
+                cloudDataDeletionJournalState: cloudJournalState,
+                appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+              ),
+              locale: locale.locale,
+              textScaler: TextScaler.linear(viewport.textScale),
+            ),
+          );
+          await tester.pump();
+
+          expect(find.text(locale.title), findsOneWidget);
+          final dataSources = find.text(locale.dataSources);
+          await _scrollSettingsUntilBuilt(tester, dataSources);
+          await tester.tap(dataSources);
+          await tester.pumpAndSettle();
+
+          final sheet = find.byType(DraggableScrollableSheet);
+          expect(sheet, findsOneWidget);
+          expect(tester.takeException(), isNull);
+          final close = find.text(locale.close);
+          final sheetScrollable = find
+              .descendant(of: sheet, matching: find.byType(Scrollable))
+              .first;
+          final longLicense = find.text(
+            'Translation output: factual data, attribution voluntary',
+          );
+          await _scrollUntilBuilt(tester, longLicense, sheetScrollable);
+          expect(longLicense, findsOneWidget);
+          expect(tester.takeException(), isNull);
+          await _scrollUntilBuilt(tester, close, sheetScrollable);
+          await tester.tap(close);
+          await tester.pumpAndSettle();
+          expect(sheet, findsNothing);
+        }
+      }
+    },
+  );
 }
 
 const _guest = AuthAccountSnapshot(
@@ -1221,11 +1297,23 @@ class _DeletionCleanup implements AccountDeletionCleanupOperations {
 }
 
 Widget _wrap(Widget child) {
+  return _wrapForLocale(child, locale: const Locale('de'));
+}
+
+Widget _wrapForLocale(
+  Widget child, {
+  required Locale locale,
+  TextScaler textScaler = TextScaler.noScaling,
+}) {
   return MaterialApp(
     theme: AppTheme.light,
-    locale: const Locale('de'),
+    locale: locale,
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
+    builder: (context, appChild) => MediaQuery(
+      data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+      child: appChild!,
+    ),
     home: child,
   );
 }
@@ -1240,6 +1328,27 @@ Future<void> _ensureSettingsActionVisible(
     scrollDelta,
     scrollable: find.byType(Scrollable).first,
   );
+  await tester.ensureVisible(finder);
+  await tester.pump();
+}
+
+Future<void> _scrollSettingsUntilBuilt(
+  WidgetTester tester,
+  Finder finder,
+) async {
+  await _scrollUntilBuilt(tester, finder, find.byType(Scrollable).first);
+}
+
+Future<void> _scrollUntilBuilt(
+  WidgetTester tester,
+  Finder finder,
+  Finder scrollable,
+) async {
+  for (var attempt = 0; attempt < 100 && finder.evaluate().isEmpty; attempt++) {
+    await tester.drag(scrollable, const Offset(0, -240));
+    await tester.pump();
+  }
+  expect(finder, findsOneWidget);
   await tester.ensureVisible(finder);
   await tester.pump();
 }
