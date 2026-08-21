@@ -434,7 +434,8 @@ double _packCardMainAxisExtent(
   final textScaler = MediaQuery.textScalerOf(context);
   final textDirection = Directionality.of(context);
   final locale = Localizations.localeOf(context);
-  final titleStyle = SoriTextTheme.of(context).cardTitle;
+  final textTheme = SoriTextTheme.of(context);
+  final titleStyle = textTheme.cardTitle;
   final bodyWidth = (cellWidth - Spacing.md * 2).clamp(1.0, double.infinity);
   var titleHeight = 0.0;
   for (final title in titles) {
@@ -448,7 +449,7 @@ double _packCardMainAxisExtent(
     painter.dispose();
   }
   final footerPainter = TextPainter(
-    text: TextSpan(text: lockedHint, style: const TextStyle(fontSize: 11)),
+    text: TextSpan(text: lockedHint, style: textTheme.caption),
     textDirection: textDirection,
     textScaler: textScaler,
     locale: locale,
