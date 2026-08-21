@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/services/custom_pack_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/widgets/sori/wordbook_add.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 /// 소스 스캔이 아니라 **실제 동작**으로 잠근다.
 ///
@@ -87,5 +88,31 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byIcon(Icons.bookmark_rounded), findsOneWidget);
+  });
+
+  testWidgets('compact 책갈피도 48dp 터치 영역을 유지한다', (tester) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: const Scaffold(
+          body: Center(
+            child: AddToWordbookButton(
+              korean: '사과',
+              translationDe: 'Apfel',
+              compact: true,
+              coachEnabled: false,
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.pump();
+
+    expect(
+      tester.getSize(find.byType(IconButton)),
+      const Size(Spacing.xxxl, Spacing.xxxl),
+    );
   });
 }

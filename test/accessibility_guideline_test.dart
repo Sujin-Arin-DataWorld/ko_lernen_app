@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
+import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
@@ -62,6 +63,12 @@ void main() {
     'scenarios list': () => ScenariosListScreen(
       ignoreLevelLock: true,
       loadScenarios: () async => const [scenarioAirportArrivalFixture],
+    ),
+    'scenario player vocabulary': () => ScenarioPlayerScreen.preview(
+      fixture: const ScenarioPlayerPreviewFixture.action(
+        scenario: scenarioAirportArrivalFixture,
+        stage: ScenarioStage.vocab,
+      ),
     ),
     'stats': StatsScreen.new,
     'consent': ConsentScreen.new,

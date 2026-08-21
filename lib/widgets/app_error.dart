@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
@@ -38,48 +40,60 @@ class AppError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
     final t = AppL10n.of(context);
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: SoriEntrance(
-          duration: const Duration(milliseconds: 340),
-          slideY: 14,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              _BreathingTransform(
-                scaleEnd: 1.07,
-                period: const Duration(milliseconds: 900),
-                child: asset != null
-                    ? Image.asset(
-                        asset!,
-                        height: 124,
-                        fit: BoxFit.contain,
-                        errorBuilder: (_, __, ___) =>
-                            Icon(icon, size: 56, color: SoriColors.danger),
-                      )
-                    : Icon(icon, size: 56, color: SoriColors.danger),
-              ),
-              const SizedBox(height: 14),
-              Text(
-                message,
-                textAlign: TextAlign.center,
-                style: TextStyle(color: s.text, fontSize: 15, height: 1.5),
-              ),
-              if (onRetry != null) ...[
-                const SizedBox(height: 18),
-                SoriButton.filled(
-                  onTap: onRetry,
-                  icon: Icons.refresh,
-                  label: retryLabel ?? t.btnRetry,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final minHeight = constraints.hasBoundedHeight
+            ? math.max(0.0, constraints.maxHeight - Spacing.xl * 2)
+            : 0.0;
+        return SingleChildScrollView(
+          padding: const EdgeInsets.all(Spacing.xl),
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: minHeight),
+            child: Center(
+              child: SoriEntrance(
+                duration: const Duration(milliseconds: 340),
+                slideY: 14,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _BreathingTransform(
+                      scaleEnd: 1.07,
+                      period: const Duration(milliseconds: 900),
+                      child: asset != null
+                          ? Image.asset(
+                              asset!,
+                              height: 124,
+                              fit: BoxFit.contain,
+                              errorBuilder: (_, __, ___) => Icon(
+                                icon,
+                                size: 56,
+                                color: SoriColors.danger,
+                              ),
+                            )
+                          : Icon(icon, size: 56, color: SoriColors.danger),
+                    ),
+                    const SizedBox(height: Spacing.md),
+                    Text(
+                      message,
+                      textAlign: TextAlign.center,
+                      style: SoriTextTheme.of(context).body,
+                    ),
+                    if (onRetry != null) ...[
+                      const SizedBox(height: Spacing.lg),
+                      SoriButton.filled(
+                        onTap: onRetry,
+                        icon: Icons.refresh,
+                        label: retryLabel ?? t.btnRetry,
+                      ),
+                    ],
+                  ],
                 ),
-              ],
-            ],
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
