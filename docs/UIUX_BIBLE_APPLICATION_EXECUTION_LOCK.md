@@ -1,13 +1,12 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.63
+- **Version:** 1.64
 - **Created:** 2026-08-21
 - **Branch:** `session/uiux-bible-4b-vocab-practice-2026-08-21`
 - **Base:** `origin/main@00060aef6b501e5a3c1e7cc3dee139f2c22ee375`
 - **State:** Phase 4B result is merged; the isolated
   `/vocab_notebook/practice` outer-UI unit is locally final-verified
-- **Next action:** push the current clean branch head
-  `656fb88df9e683aea3201ac6fc04abc2189207f2`, which contains app commit
+- **Next action:** push the current clean branch head, which contains app commit
   `211ebec0ef7b98b99afa70aeec17e63dc27fb55e`; open one PR, rely on automatic
   exact-head CI, and merge only when green
 
@@ -50,9 +49,8 @@ remain separate high-risk units.
 
 ## Immediate Next Steps
 
-1. Push the current clean branch head
-   `656fb88df9e683aea3201ac6fc04abc2189207f2`, open one PR, and use the
-   automatic PR exact-head CI without duplicate dispatch.
+1. Push the current clean branch head, open one PR, and use the automatic PR
+   exact-head CI without duplicate dispatch.
 2. Merge only after the exact PR head is green. Cancel any release-capable
    post-main run before build/sign/upload work, prove zero Signed AAB/Play
    steps, then start the next non-overlapping Phase 4B unit from new main.
