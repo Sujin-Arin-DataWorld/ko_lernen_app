@@ -1,13 +1,13 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.11
+- **Version:** 1.12
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3a-recall-closeout-2026-08-21`
-- **Base:** `origin/main@5159ad64fdef37faecaed2360d3e79f9716b0564`
-- **State:** Phase 3A Vocab recall outer UI merged; clean restart boundary
-- **Next action:** create a fresh worktree from latest `origin/main` and audit
-  `/vocab/result` outer result hierarchy without changing Deck, recall-session,
-  route, or SRS contracts
+- **Branch:** `session/uiux-bible-learning-3a-result-2026-08-21`
+- **Base:** `origin/main@a2aab8b1af874c48832f6c306d0de48c3284826a`
+- **State:** Phase 3A Vocab result hierarchy locally green and ready for one
+  current-head PR
+- **Next action:** push this exact head, open one PR, verify its automatic CI,
+  then merge only if that current-head run is green
 
 ## 1. Purpose
 
@@ -122,8 +122,8 @@ current ratchet:
 | `lib/screens` Dart files | 96 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 125 | Existing system; no parallel system permitted |
 | Test files | 440 | Reuse focused suites plus shared matrices |
-| Raw screen `TextStyle` | 316 (guard ≤316) | Must not increase; migrate by touched surface |
-| Raw screen `fontSize` | 286 (guard ≤141 at w800, ≤28 at w900) | Reduce through tokens, never raise ratchets |
+| Raw screen `TextStyle` | 310 (guard ≤310) | Must not increase; migrate by touched surface |
+| Raw screen `fontSize` | 277 (guards ≤95 at w800, ≤28 at w900) | Reduce through tokens, never raise ratchets |
 | Numeric screen `BorderRadius.circular` | 97 (guard ≤33) | Touched code uses radius tokens |
 | Raw screen `Scaffold` calls | 52 | Many are intentional shell/immersive owners; classify before changing |
 | Screen `TextOverflow.ellipsis` | 0 | Locked at zero |
@@ -340,7 +340,8 @@ production, and deployment remain unclaimed and out of scope.
 | Phase 2 closeout | merged | PR #126; main merge `ba6036e4c11e5affbbde758534a1be33c7f88ecc`; docs-only CI path filter correctly scheduled no run |
 | 3A Vocab catalog caption | merged | PR #127; main merge `1dc2172070be9b4d26f8dd166dc8cfacd384b7eb`; PR CI run 32434385023 green; locked hint renderer and grid measurement share the 12.5dp `caption` token; German 320×640 at 200% contract added; raw screen TextStyle 317→316; 130 local Deck geometry/gesture/flip/order/SRS tests green; Linux golden generation run 32434187771 changed only the medium/expanded Vocab baselines; post-merge run 32434973864 was cancelled before jobs and older main run 32433364094 was force-cancelled during bundle build with its Play upload step confirmed skipped |
 | 3A Vocab recall outer UI | merged | PR #130; main merge `5159ad64fdef37faecaed2360d3e79f9716b0564`; PR current-head CI run 32436071838 green; `/vocab/recall` loading/error/empty/prompt/result share `SoriStudyFrame`; recall input uses `SoriTextField` while its editable-field key remains stable; DE/EN 320×640 at 200% input-to-result flow green; raw screen TextField 23→22; analyze clean; 144 Deck geometry/gesture/flip/order/SRS tests and 13 shared responsive tests green; post-merge main run 32436306821 cancelled before jobs, so no Play upload job was created or run |
-| 3A remaining Deck outer UI | pending | after the recall PR merges, create a fresh worktree and audit `/vocab/result` outer result hierarchy; preserve Deck, recall-session, route, and SRS contracts |
+| 3A Vocab result hierarchy | local green | `/vocab/result` pack title, result heading, metrics, and XP now use the existing Sori type hierarchy; metric and animated XP visuals expose stable combined semantics; DE/EN 320×640 at 200% keep stacked stats and the final CTA reachable; raw screen TextStyle 316→310 and w800 98→95; analyze clean; 183 Deck/result/feedback/responsive tests green; awaiting one current-head PR/CI |
+| 3A remaining Deck outer UI | pending | after the result PR merges, create a fresh worktree and audit `/vocab/legacy` outer states/chrome; preserve rollback, Deck geometry, flip gate, ordering, and SRS contracts |
 | 3B–3D learning flows | pending | split by evidence boundary |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |

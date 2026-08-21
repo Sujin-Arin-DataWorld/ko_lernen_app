@@ -52,7 +52,8 @@ void main() {
     // `soriUniformFitSize` 실측 기본값을 Bold(700) 로 → 166→155.
     // 2026-08-19 재실측: 155→141.
     // 2026-08-21 Phase 2C Gye 피드 제목 토큰화: 99→98.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 98, 'FontWeight.w800');
+    // 2026-08-21 Phase 3A Vocab 결과 계층 토큰화: 98→95.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 95, 'FontWeight.w800');
   });
 
   test("하드코딩 fontFamily: ' 문자열 리터럴은 0 이다 (SoriFonts.sans 사용)", () {
@@ -95,7 +96,8 @@ void main() {
       // 2026-08-20 표준 페이지 이식: 371→359.
       // 2026-08-21 Phase 2C Gye 멤버 수·피드 제목 토큰화: 319→317.
       // 2026-08-21 Phase 3A Vocab 잠금 안내 측정 스타일 토큰화: 317→316.
-      316,
+      // 2026-08-21 Phase 3A Vocab 결과 제목·통계·XP 토큰화: 316→310.
+      310,
       'lib/screens/ 원시 TextStyle(',
     );
   });
