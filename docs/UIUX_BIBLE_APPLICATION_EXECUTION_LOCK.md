@@ -1,43 +1,43 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.41
+- **Version:** 1.42
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3d-practice-closeout-2026-08-21`
-- **Base:** `origin/main@05d536bfd9964532c56fdfd2c927746607eb25d5`
-- **State:** Phase 3D `/practice` outer UI complete and merged; clean `/quests`
+- **Branch:** `session/uiux-bible-learning-3d-quests-closeout-2026-08-21`
+- **Base:** `origin/main@3de9cb10ce2d46be9c7d33be19b317da7592f981`
+- **State:** Phase 3D `/quests` outer UI complete and merged; clean `/word_web`
   restart point recorded
 - **Next action:** create a fresh worktree from latest `origin/main` and audit
-  `/quests` outer UI and state matrix only; keep quest tracker, reward/evidence
-  writes, routes and arguments, the six game-owned quest engines, timing,
-  hitboxes, canvas geometry, SDK/native boundaries, and approved assets
-  unchanged; do not start `/word_web` or `/sarangbang`
+  `/word_web` outer UI and state matrix only; keep word-relation data,
+  study/quiz transitions, routes and arguments, learning/evidence behavior,
+  SDK/native boundaries, and approved assets unchanged; do not start
+  `/sarangbang`
 
 ## Current State Summary
 
-`/practice` is merged on `main@05d536bfd9964532c56fdfd2c927746607eb25d5`
-with local, CI, and two-axis review proof recorded in the phase ledger. The app
-and docs worktrees are clean, the exact app branch is preserved remotely, and
-there are no open blockers. The next independently mergeable unit is `/quests`
-outer UI only.
+`/quests` is merged on `main@3de9cb10ce2d46be9c7d33be19b317da7592f981`
+with local, exact-head CI, and two-axis review proof recorded in the phase
+ledger. The app worktree is clean, the exact app branch is preserved remotely,
+and there are no open UI-rollout blockers. The next independently mergeable
+unit is `/word_web` outer UI only.
 
 ## Important Context
 
-Start with only `AGENTS.md` and this file. Preserve quest tracking,
-reward/evidence writes, routes and arguments, the six game-owned engines,
-timing, hitboxes, canvas geometry, SDK/native boundaries, and approved assets.
-No deployment, store upload, production mutation, asset generation, new token,
-or navigation/state rewrite is authorized. `/word_web` and `/sarangbang` remain
-deferred to later sessions.
+Start with only `AGENTS.md` and this file. Preserve word-relation data,
+study/quiz transitions, routes and arguments, learning/evidence behavior,
+SDK/native boundaries, and approved assets. No deployment, store upload,
+production mutation, asset generation, new token, or navigation/state rewrite
+is authorized. `/sarangbang` remains a separate deferred unit.
 
 ## Immediate Next Steps
 
 1. Fetch latest `origin/main`, verify it contains this closeout, and create a
-   fresh Windows-native `/quests` worktree and task branch.
-2. Measure `QuestsScreen`, its current states, route/reward/evidence tests, and
-   the game-canvas boundary before deciding whether code changes are needed.
-3. If a presentation gap exists, implement only one small `/quests` outer-UI
+   fresh Windows-native `/word_web` worktree and task branch.
+2. Measure `WordWebScreen`, its outer states, study/quiz transitions,
+   route/evidence tests, and relation-data boundary before deciding whether code
+   changes are needed.
+3. If a presentation gap exists, implement only one small `/word_web` outer-UI
    unit with DE/EN and the required viewport matrix; otherwise record no-code
-   verification. Do not start `/word_web` or `/sarangbang`.
+   verification. Do not start `/sarangbang`.
 
 ## 1. Purpose
 
@@ -151,16 +151,16 @@ current ratchet:
 | Registered route cases | 68 | Every case is inventoried below |
 | `lib/screens` Dart files | 96 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 126 | Existing system; no parallel system permitted |
-| Test files | 457 | Reuse focused suites plus shared matrices |
-| Raw screen `TextStyle` | 235 (guard ≤302) | Must not increase; migrate by touched surface |
-| Raw screen `fontSize` | 258 (guards ≤95 at w800, ≤28 at w900) | Reduce through tokens, never raise ratchets |
-| Screen `BorderRadius.circular` | 94 total; 21 numeric literals (guard ≤33) | Touched code uses radius tokens |
-| Raw screen `Scaffold` calls | 47 | Many are intentional shell/immersive owners; classify before changing |
+| Test files | 453 | Reuse focused suites plus shared matrices |
+| Raw screen `TextStyle` | 232 (guard ≤302) | Must not increase; migrate by touched surface |
+| Raw screen `fontSize` | 236 (guards ≤95 at w800, ≤28 at w900) | Reduce through tokens, never raise ratchets |
+| Screen `BorderRadius.circular` | 92 total; 19 numeric literals (guard ≤33) | Touched code uses radius tokens |
+| Raw screen `Scaffold` calls | 43 | Many are intentional shell/immersive owners; classify before changing |
 | Screen `TextOverflow.ellipsis` | 0 | Locked at zero |
 | Common-appbar ellipsis | 0 | Phase 1A removed both without hiding text |
 | Screen text fields | 20 | Recall and reassessment inputs use `SoriTextField`; guard locked at ≤22 |
-| Raw screen progress indicators | 12 | Replace only where not canvas/inline progress |
-| `AppLoading` uses | 34 | Retain as the standard full-state loader |
+| Raw screen progress indicators | 17 | Replace only where not canvas/inline progress |
+| `AppLoading` uses | 35 | Retain as the standard full-state loader |
 
 Current shared coverage includes `screen_smoke_test`, `responsive_test`,
 `responsive_short_height_test`, `standard_surface_responsive_test`,
@@ -389,8 +389,9 @@ production, and deployment remain unclaimed and out of scope.
 | 3C Scenario player outer UI | merged | PR #162; main merge `f9575c1a9492bffdd2a5ac7cdbd1d5b9915d3518`; PR exact-current-head CI run 32471398286 green with 1,550 selected tests passed and the asset pipeline gate green; `/scenario` loading, error, same-id retry, and close states use the canonical `SoriStudyFrame`, `AppLoading`, and scroll-reachable `AppError`; compact wordbook and vocabulary/dialog audio actions keep localized semantics and 48dp targets; delayed loads cannot start `Analytics.lessonStarted` or `QuestAbandonTracker` after exit and tracking is admitted at most once per player instance; existing `textMuted` and Sori type roles are used with no new token; DE/EN changed states are covered directly at 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130%; 150 focused scenario/accessibility/onboarding/SRS tests, full local 4,405 tests with 14 conditional skips, analyze, format, and diff check green; Standards and Specification final review axes both reported zero remaining findings after closing pending-load SDK, duplicate-tracking, token, brace, and matrix gaps; exact-base ratchets raw screen TextStyle 246→243 and `scenario_player_screen.dart` raw TextStyle 3→0; added assets, TODO markers, and secret patterns zero; scenario id and route arguments, roleplay/quest canvas and dialog order, audio/TTS behavior, score, stars, XP, feedback, exact course evidence and writes, onboarding five-quest completion, quest rules, premium gates, SDK boundaries, and approved assets unchanged; post-merge main run 32471858735 cancelled during checkout and its Signed AAB/Play job 96740168745 had zero steps, so no build, signing, or upload ran |
 | 3C Smalltalk outer UI | merged | PR #164; main merge `8368aad8af7c3a41b2225d61f46d76056ff7501e`; PR exact-current-head CI run 32474977534 green and asset pipeline gate green; `/smalltalk` loading, retryable error, empty, category, prompt, guide, reply, and audio states use the existing Sori study/state/type/control system; category and level actions keep complete labels and 48dp targets, the selected category has a check cue, zero-count categories expose explicit disabled visual and semantic states, and inline speech actions have localized labels and 48dp targets; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; 537 focused Smalltalk/course/TTS/wordbook/responsive tests and full local 4,409 tests with 14 conditional skips green; analyze, format, and diff check clean; Standards and Specification final review axes both reported zero remaining findings after resolving selector action semantics and disabled-category cues; exact-base ratchets raw screen TextStyle 243→235, `smalltalk_screen.dart` raw TextStyle 8→0, and `FontWeight.w800` 86→85; added assets, TODO markers, and secret patterns zero; direct browsing remains history-only, course eligibility remains bound to an active typed mission and exact `assess` evidence, and phrase/reply data, CEFR/category behavior, speech-style checks, TTS/content behavior, writes, SDK boundaries, route arguments, and approved assets remain unchanged; post-merge main run 32475305857 was cancelled during checkout and its Signed AAB/Play job 96750336901 had zero steps, so no build, signing, or upload ran |
 | 3D Practice hub outer UI | merged | PR #166; main merge `05d536bfd9964532c56fdfd2c927746607eb25d5`; PR exact-current-head CI run 32478194125 green with Analyze & Build plus asset pipeline gates green; `/practice` now presents review as its only `FeaturedModuleCard` and uses the existing actionable empty-review ARB copy when nothing is due, while every expanded activity remains a secondary `ModuleCard`; narrow or 200% layouts stack complete activity cards and wide layouts retain the established paired grid; purpose sheets use existing Sori type roles, chevrons, and a local transparent Material ink owner; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; six focused Practice tests and 889 shared route/catalog/evidence/responsive/accessibility/localization tests green locally; full local 4,413 tests with 14 conditional skips, analyze, format, and diff check green; Standards and Specification final review axes both reported zero remaining findings after resolving the expanded multi-primary hierarchy; exact-base ratchets raw screen TextStyle 235→235 and `FontWeight.w800` 85→85; added assets, TODO markers, and secret patterns zero; all 21 activity destinations keep their order, routes, arguments, and navigation, while course/reward evidence, writes, SDK/native/game boundaries, and approved assets remain unchanged; post-merge main run 32478523812 was cancelled during required-check selection and its Signed AAB/Play job 96759858191 had zero steps, so no build, signing, or upload ran |
-| 3D Quests outer UI | pending | create a fresh worktree from latest `origin/main` and audit `/quests` outer UI and state matrix only; preserve quest tracker, reward/evidence writes, routes and arguments, six game-owned quest engines, timing, hitboxes, canvas geometry, SDK/native boundaries, and approved assets; do not start `/word_web` or `/sarangbang` |
-| 3D Word-web and Sarangbang | pending | after a separately merged `/quests` unit, split `/word_web` and `/sarangbang` by relation-data/evidence and custom-room/canvas boundaries |
+| 3D Quests outer UI | merged | App commits `8d4039fa85686b7ce43d5fe402e3f12b7c5a35fb`, `888861ec367ef227a96c0866f65cd2c57d0ca176`, and `b5833ef47fa2df44dca6fe4ca08af0c69078449f`; PR #168; main merge `3de9cb10ce2d46be9c7d33be19b317da7592f981`; PR exact-current-head CI run 32483615356 green with 4,429 tests passed, 2 skipped, release web build and asset pipeline gate green; `/quests` uses the shared Sori progress bar for quest and summary progress, existing Sori type roles in locked/completion states, localized DE/EN plural progress summaries, and actual localized decoration names for reward semantics; loading, retry, empty, progress/reward semantics, and the completion dialog are directly covered; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; final-head analyze, format, diff check, and seven changed-path regression tests green, with 146 focused quest/localization/semantics/game-boundary tests green after the first review fix; the pre-final-review local full suite had 4,416 passes and 14 conditional skips, while exact-final-head full proof is the CI result above; Standards and Specification final review axes both reported zero remaining findings; exact-base ratchets raw screen TextStyle 235→232, raw progress indicators 19→17, and `FontWeight.w800` 50→49; test files 452→453; added assets, TODO markers, and secret patterns zero; quest tracking, reward/evidence writes, routes and arguments, six game-owned engines, timing, hitboxes, canvas geometry, SDK/native boundaries, and approved assets unchanged; post-merge main run 32484539000 was cancelled during checkout and its Signed AAB/Play job 96778071109 had zero steps, so no build, signing, or upload ran |
+| 3D Word-web outer UI | pending | create a fresh worktree from latest `origin/main` and audit `/word_web` outer UI and state matrix only; preserve word-relation data, study/quiz transitions, routes and arguments, learning/evidence behavior, SDK/native boundaries, and approved assets; do not start `/sarangbang` |
+| 3D Sarangbang outer UI | pending | keep separate from `/word_web`; preserve custom-room composition, recommendations/course evidence, canvas boundaries, routes and approved assets |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
