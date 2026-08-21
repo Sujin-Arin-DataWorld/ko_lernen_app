@@ -291,7 +291,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
         SoriButton.outlined(
           label: t.wbTyping,
           fullWidth: true,
-          accent: SoriColors.accent,
           onTap: selected.isEmpty
               ? null
               : () => _openPage(
@@ -302,7 +301,6 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
         SoriButton.outlined(
           label: t.wbQuiz,
           fullWidth: true,
-          accent: SoriColors.accent,
           onTap: selected.length < 4
               ? null
               : () => _openPage(
@@ -358,15 +356,16 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
           )
         else ...<Widget>[
           if (_loadFailed) ...<Widget>[
-            Semantics(
-              liveRegion: true,
-              child: SoriCard(
-                variant: SoriCardVariant.compact,
-                accent: SoriColors.danger,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Row(
+            SoriCard(
+              variant: SoriCardVariant.compact,
+              accent: SoriColors.danger,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Semantics(
+                    container: true,
+                    liveRegion: true,
+                    child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Icon(
@@ -382,15 +381,24 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
                         ),
                       ],
                     ),
-                    const SizedBox(height: Spacing.md),
-                    SoriButton.outlined(
-                      label: t.btnRetry,
-                      fullWidth: true,
-                      accent: SoriColors.danger,
-                      onTap: _loadCorpus,
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  Semantics(
+                    key: const ValueKey<String>('notebook-studio-retry'),
+                    container: true,
+                    button: true,
+                    enabled: true,
+                    label: t.btnRetry,
+                    onTap: _loadCorpus,
+                    child: ExcludeSemantics(
+                      child: SoriButton.outlined(
+                        label: t.btnRetry,
+                        fullWidth: true,
+                        onTap: _loadCorpus,
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: Spacing.sm),
