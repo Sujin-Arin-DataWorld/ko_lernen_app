@@ -3627,6 +3627,9 @@ class AppL10nDe extends AppL10n {
       'Für dieses Level gibt es noch keine Sätze. Wähle ein anderes Level.';
 
   @override
+  String get clozeLevelLabel => 'Lernstufe';
+
+  @override
   String get clozeLevelAll => 'Alle';
 
   @override

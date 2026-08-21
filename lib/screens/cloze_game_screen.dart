@@ -300,15 +300,21 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
               ).meta.copyWith(color: s.textMuted),
             ),
             const SizedBox(height: Spacing.md),
-            ClozePromptCard(
-              item: item,
-              lang: lang,
-              gloss: _vocabByKo[item.answer]?.translationFor(lang),
-              picked: _picked,
-              pickedWrong: _picked != null && _picked != item.answer,
+            Flexible(
+              flex: 3,
+              child: SingleChildScrollView(
+                child: ClozePromptCard(
+                  item: item,
+                  lang: lang,
+                  gloss: _vocabByKo[item.answer]?.translationFor(lang),
+                  picked: _picked,
+                  pickedWrong: _picked != null && _picked != item.answer,
+                ),
+              ),
             ),
             const SizedBox(height: Spacing.xl),
             Expanded(
+              flex: 4,
               child: ClozeOptionsList(
                 options: options,
                 answer: item.answer,
@@ -327,18 +333,29 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
     if (widget.courseContext != null || widget.courseUnitId != null) {
       return const SizedBox.shrink();
     }
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.only(bottom: Spacing.sm),
-      child: Row(
-        children: [
-          _levelChip(t.clozeLevelAll, _level == null, () => _setLevel(null)),
-          for (final lv in _levels) ...[
-            const SizedBox(width: Spacing.sm),
-            _levelChip(lv.toUpperCase(), _level == lv, () => _setLevel(lv)),
-          ],
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(t.clozeLevelLabel, style: SoriTextTheme.of(context).label),
+        const SizedBox(height: Spacing.xs),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.only(bottom: Spacing.sm),
+          child: Row(
+            children: [
+              _levelChip(
+                t.clozeLevelAll,
+                _level == null,
+                () => _setLevel(null),
+              ),
+              for (final lv in _levels) ...[
+                const SizedBox(width: Spacing.sm),
+                _levelChip(lv.toUpperCase(), _level == lv, () => _setLevel(lv)),
+              ],
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -348,6 +365,8 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       accent: SoriColors.primary,
       selected: selected,
       variant: selected ? SoriChipVariant.filled : SoriChipVariant.soft,
+      maxLines: null,
+      minInteractiveHeight: 48,
       onTap: onTap,
     );
   }

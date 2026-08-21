@@ -1731,6 +1731,7 @@
   "clozeDesc": "The missing word in a sentence",
   "clozeInstruction": "Choose the missing word.",
   "clozeEmptyBody": "No sentences for this level yet. Pick another level.",
+  "clozeLevelLabel": "Level",
   "clozeLevelAll": "All",
   "speedMatchTitle": "Speed Match",
   "speedMatchDesc": "Match against the clock",

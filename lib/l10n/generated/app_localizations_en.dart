@@ -3613,6 +3613,9 @@ class AppL10nEn extends AppL10n {
       'No sentences for this level yet. Pick another level.';
 
   @override
+  String get clozeLevelLabel => 'Level';
+
+  @override
   String get clozeLevelAll => 'All';
 
   @override
