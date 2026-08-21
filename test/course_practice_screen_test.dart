@@ -18,6 +18,7 @@ import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -205,7 +206,7 @@ void main() {
 
     await tester.tap(find.byIcon(Icons.tune));
     await tester.pumpAndSettle();
-    final hardChip = find.widgetWithText(SoriChip, 'Schwer');
+    final hardChip = find.widgetWithText(SoriChip, 'Difficult');
     await tester.ensureVisible(hardChip);
     await tester.pumpAndSettle();
     await tester.tap(hardChip);
@@ -234,6 +235,68 @@ void main() {
     expect(tester.takeException(), isNull);
     await _disposeCourseScreen(tester);
   });
+
+  testWidgets(
+    'DE/EN 320dp 200% grammar chrome and filter follow the Sori contract',
+    (tester) async {
+      tester.view.physicalSize = const Size(320, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      expect((await tester.runAsync(DataLoader.loadGrammar))!, isNotEmpty);
+
+      for (final locale in const [Locale('de'), Locale('en')]) {
+        await tester.pumpWidget(
+          _wrap(
+            const GrammarScreen(),
+            locale: locale,
+            textScaler: const TextScaler.linear(2),
+            safeInsets: const EdgeInsets.only(top: 44, bottom: 34),
+          ),
+        );
+        await _settleCourseScreen(tester);
+
+        final screenContext = tester.element(find.byType(GrammarScreen));
+        final t = AppL10n.of(screenContext);
+        final text = SoriTextTheme.of(screenContext);
+        final counter = find.textContaining(RegExp(r'^\d+ / \d+$'));
+        expect(counter, findsOneWidget);
+        expect(
+          tester.widget<Text>(counter).style,
+          text.meta.copyWith(fontWeight: FontWeight.w700),
+        );
+
+        await tester.tap(find.byIcon(Icons.tune));
+        await tester.pumpAndSettle();
+
+        expect(find.text(t.filterLevel), findsOneWidget);
+        final dropdowns = find.byType(DropdownButtonFormField<String>);
+        expect(dropdowns, findsWidgets);
+        expect(
+          tester
+              .widget<DropdownButtonFormField<String>>(dropdowns.first)
+              .decoration
+              .labelStyle,
+          text.label,
+        );
+        expect(find.text(t.filterDifficulty), findsOneWidget);
+        expect(
+          tester.widget<Text>(find.text(t.filterDifficulty)).style,
+          text.label,
+        );
+        expect(find.widgetWithText(SoriChip, t.filterAll), findsOneWidget);
+        expect(find.widgetWithText(SoriChip, t.grammarEasy), findsOneWidget);
+        expect(find.widgetWithText(SoriChip, t.grammarHard), findsOneWidget);
+        expect(find.text('Leicht'), findsNothing);
+        expect(find.text('Schwer'), findsNothing);
+        expect(tester.takeException(), isNull);
+
+        await tester.tapAt(const Offset(8, 8));
+        await tester.pumpAndSettle();
+      }
+      await _disposeCourseScreen(tester);
+    },
+  );
 
   testWidgets('grammar library opens separate four-choice practice', (
     tester,
@@ -321,12 +384,29 @@ void main() {
   );
 }
 
-Widget _wrap(Widget child) => MaterialApp(
+Widget _wrap(
+  Widget child, {
+  Locale locale = const Locale('en'),
+  TextScaler textScaler = TextScaler.noScaling,
+  EdgeInsets safeInsets = EdgeInsets.zero,
+}) => MaterialApp(
   debugShowCheckedModeBanner: false,
   theme: AppTheme.light,
-  locale: const Locale('en'),
+  locale: locale,
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
+  builder: (context, child) {
+    final media = MediaQuery.of(context);
+    return MediaQuery(
+      data: media.copyWith(
+        padding: safeInsets,
+        viewPadding: safeInsets,
+        textScaler: textScaler,
+        disableAnimations: true,
+      ),
+      child: child!,
+    );
+  },
   home: child,
 );
 

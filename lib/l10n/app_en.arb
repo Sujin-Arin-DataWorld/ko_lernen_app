@@ -225,6 +225,7 @@
   "filterLevel": "Level",
   "filterTheme": "Topic",
   "filterType": "Type",
+  "filterDifficulty": "Difficulty",
   "filterDirection": "Front shows",
   "filterAll": "All",
   "filterDirKoDe": "🇰🇷 Korean → 🇩🇪 German",
