@@ -829,10 +829,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
             title: Text(t.settingsNotifTime),
             trailing: Text(
               _notifTimeLabel(),
-              style: const TextStyle(
-                fontWeight: FontWeight.w800,
-                color: SoriColors.primary,
-              ),
+              style: SoriTextTheme.of(
+                context,
+              ).label.copyWith(color: SoriColors.primary),
             ),
             onTap: _pickNotifTime,
           ),
@@ -977,7 +976,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     title: Text(
                       t.settingsCloudDeleteData,
-                      style: const TextStyle(color: SoriColors.danger),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).cardTitle.copyWith(color: SoriColors.danger),
                     ),
                     subtitle: Text(t.settingsCloudDeleteDataDesc),
                     // A persisted journal resumes the exact server request
@@ -1082,7 +1083,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 title: Text(
                   t.settingsReset,
-                  style: const TextStyle(color: SoriColors.danger),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).cardTitle.copyWith(color: SoriColors.danger),
                 ),
                 onTap: _confirmReset,
               ),
@@ -1097,7 +1100,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ),
                     title: Text(
                       t.settingsAccountDelete,
-                      style: const TextStyle(color: SoriColors.danger),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).cardTitle.copyWith(color: SoriColors.danger),
                     ),
                     subtitle: Text(t.settingsAccountDeleteDesc),
                     onTap:
@@ -1124,9 +1129,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
               color: SoriColors.gold,
             ),
             title: const Text('Premium (Dev-Override)'),
-            subtitle: const Text(
+            subtitle: Text(
               'Nur Debug: testet Gating/Paywall ohne RevenueCat',
-              style: TextStyle(fontSize: 12, color: SoriColors.darkTextMuted),
+              style: SoriTextTheme.of(context).cardSubtitle,
             ),
             value: Storage.devPremiumOverride,
             activeThumbColor: SoriColors.gold,
@@ -1213,9 +1218,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const SizedBox(height: 6),
             Text(
               t.settingsDataSourcesIntro,
-              style: TextStyle(
-                fontFamily: SoriFonts.sans,
-                fontSize: 13,
+              style: SoriTextTheme.of(ctx).bodySmall.copyWith(
                 color: Theme.of(
                   ctx,
                 ).colorScheme.onSurface.withValues(alpha: 0.7),
@@ -1257,7 +1260,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               padding: const EdgeInsets.all(14),
               decoration: BoxDecoration(
                 color: SoriColors.warning.withValues(alpha: 0.10),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: SoriRadius.brSm,
                 border: Border.all(
                   color: SoriColors.warning.withValues(alpha: 0.30),
                 ),
@@ -1273,12 +1276,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         color: SoriColors.warning,
                       ),
                       const SizedBox(width: 8),
-                      Text(
-                        t.settingsDataLicenseNote,
-                        style: const TextStyle(
-                          fontFamily: SoriFonts.sans,
-                          fontSize: 13,
-                          fontWeight: FontWeight.w800,
+                      Expanded(
+                        child: Text(
+                          t.settingsDataLicenseNote,
+                          style: SoriTextTheme.of(ctx).label,
                         ),
                       ),
                     ],
@@ -1286,9 +1287,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   const SizedBox(height: 8),
                   Text(
                     t.settingsDataLicenseBody,
-                    style: TextStyle(
-                      fontFamily: SoriFonts.sans,
-                      fontSize: 12.5,
+                    style: SoriTextTheme.of(ctx).caption.copyWith(
                       height: 1.5,
                       color: Theme.of(
                         ctx,
@@ -1812,7 +1811,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               const SizedBox(height: Spacing.md),
               Text(
                 warning,
-                style: const TextStyle(
+                style: SoriTextTheme.of(context).body.copyWith(
                   color: SoriColors.danger,
                   fontWeight: FontWeight.w700,
                 ),
@@ -1871,7 +1870,7 @@ class _Section extends StatelessWidget {
               height: 1.5,
               decoration: BoxDecoration(
                 color: SoriColors.gold.withValues(alpha: 0.35),
-                borderRadius: BorderRadius.circular(1),
+                borderRadius: SoriRadius.brPill,
               ),
             ),
           ),
@@ -1928,29 +1927,23 @@ class _DataSourceCard extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 12),
       child: InkWell(
         onTap: () => _copy(context),
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: SoriRadius.brMd,
         child: Container(
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
             color: surface,
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: SoriRadius.brMd,
             border: Border.all(color: onSurface.withValues(alpha: 0.12)),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
+              Wrap(
+                spacing: Spacing.sm,
+                runSpacing: Spacing.sm,
+                crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
-                  Expanded(
-                    child: Text(
-                      name,
-                      style: const TextStyle(
-                        fontFamily: SoriFonts.sans,
-                        fontSize: 14,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ),
+                  Text(name, style: SoriTextTheme.of(context).cardTitle),
                   Container(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 8,
@@ -1958,14 +1951,11 @@ class _DataSourceCard extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       color: SoriColors.primary.withValues(alpha: 0.15),
-                      borderRadius: BorderRadius.circular(6),
+                      borderRadius: SoriRadius.brSm,
                     ),
                     child: Text(
                       license,
-                      style: const TextStyle(
-                        fontFamily: SoriFonts.sans,
-                        fontSize: 10.5,
-                        fontWeight: FontWeight.w800,
+                      style: SoriTextTheme.of(context).eyebrow.copyWith(
                         color: SoriColors.primary,
                         letterSpacing: 0.2,
                       ),
@@ -1976,9 +1966,7 @@ class _DataSourceCard extends StatelessWidget {
               const SizedBox(height: 6),
               Text(
                 role,
-                style: TextStyle(
-                  fontFamily: SoriFonts.sans,
-                  fontSize: 12,
+                style: SoriTextTheme.of(context).caption.copyWith(
                   color: onSurface.withValues(alpha: 0.7),
                   height: 1.4,
                 ),
@@ -1991,10 +1979,8 @@ class _DataSourceCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       url,
-                      style: TextStyle(
-                        fontFamily: SoriFonts.sans,
-                        fontSize: 11,
-                        color: onSurface.withValues(alpha: 0.55),
+                      style: SoriTextTheme.of(context).caption.copyWith(
+                        color: onSurface.withValues(alpha: 0.7),
                       ),
                       softWrap: true,
                     ),
@@ -2005,11 +1991,9 @@ class _DataSourceCard extends StatelessWidget {
               const SizedBox(height: 4),
               Text(
                 'Attribution: $attribution',
-                style: TextStyle(
-                  fontFamily: SoriFonts.sans,
-                  fontSize: 10.5,
+                style: SoriTextTheme.of(context).caption.copyWith(
                   fontStyle: FontStyle.italic,
-                  color: onSurface.withValues(alpha: 0.5),
+                  color: onSurface.withValues(alpha: 0.7),
                 ),
               ),
             ],
