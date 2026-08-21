@@ -19,6 +19,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/page_header.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -314,6 +315,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final type = SoriTextTheme.of(context);
     final phrase = _currentPhrase;
     return SoriStandardFrame(
       appBarTitle: t.pronunciationTitle,
@@ -360,18 +362,10 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
         return ListView(
           padding: padding,
           children: [
-            Text(
-              t.pronunciationEyebrow,
-              style: const TextStyle(
-                color: SoriColors.accent,
-                fontWeight: FontWeight.w700,
-                letterSpacing: 1.1,
-              ),
-            ),
-            const SizedBox(height: Spacing.sm),
-            Text(
-              t.pronunciationIntro,
-              style: const TextStyle(fontSize: 18, height: 1.4),
+            SoriPageHeader(
+              eyebrow: t.pronunciationEyebrow,
+              title: t.pronunciationTitle,
+              body: t.pronunciationIntro,
             ),
             const SizedBox(height: Spacing.xl),
             SoriCard(
@@ -387,11 +381,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
                     child: Text(
                       phrase.ko,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 36,
-                        height: 1.2,
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: type.koDisplay.copyWith(fontSize: 36),
                     ),
                   ),
                   const SizedBox(height: Spacing.xl),
@@ -411,7 +401,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
                         label: _recording
                             ? t.pronunciationStop
                             : (_assessing
-                                  ? t.pronunciationRecording
+                                  ? t.pronunciationAssessing
                                   : t.pronunciationRecord),
                         icon: _recording
                             ? Icons.stop_circle_outlined
@@ -430,7 +420,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
                       backgroundColor: surfaces.surfaceAlt,
                     ),
                     const SizedBox(height: Spacing.xs),
-                    Text(t.pronunciationRecording),
+                    Text(t.pronunciationRecording, style: type.meta),
                   ],
                 ],
               ),
@@ -442,7 +432,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
                 child: SoriCard(
                   accent: SoriActivityColors.listening,
                   tinted: true,
-                  child: Text(_notice!, style: const TextStyle(height: 1.4)),
+                  child: Text(_notice!, style: type.body),
                 ),
               ),
             ],
@@ -471,10 +461,12 @@ class _ScorePanel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final type = SoriTextTheme.of(context);
     final accent = result.passed
         ? SoriActivityColors.completion
         : SoriActivityColors.review;
     return Semantics(
+      key: const Key('pronunciation-score-panel'),
       liveRegion: true,
       label: '${t.pronunciationScore} ${result.pronunciationScore.round()}',
       child: SoriCard(
@@ -484,22 +476,16 @@ class _ScorePanel extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(
-              t.pronunciationScore,
-              style: const TextStyle(fontWeight: FontWeight.w700),
-            ),
+            Text(t.pronunciationScore, style: type.label),
             Text(
               result.pronunciationScore.round().toString(),
-              style: TextStyle(
-                fontSize: 56,
-                fontWeight: FontWeight.w700,
-                color: accent,
-              ),
+              style: type.numeral.copyWith(fontSize: 56, color: accent),
             ),
             Text(
               result.passed
                   ? t.pronunciationScorePassed
                   : t.pronunciationScoreTryAgain,
+              style: type.body,
             ),
             const SizedBox(height: Spacing.md),
             _ScoreRow(
@@ -528,16 +514,16 @@ class _ScoreRow extends StatelessWidget {
   final double score;
 
   @override
-  Widget build(BuildContext context) => Padding(
-    padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
-    child: Row(
-      children: [
-        Expanded(child: Text(label)),
-        Text(
-          score.round().toString(),
-          style: const TextStyle(fontWeight: FontWeight.w700),
-        ),
-      ],
-    ),
-  );
+  Widget build(BuildContext context) {
+    final type = SoriTextTheme.of(context);
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
+      child: Row(
+        children: [
+          Expanded(child: Text(label, style: type.body)),
+          Text(score.round().toString(), style: type.label),
+        ],
+      ),
+    );
+  }
 }

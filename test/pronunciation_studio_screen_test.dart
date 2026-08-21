@@ -39,7 +39,9 @@ void main() {
     expect(Storage.pronunciationConsent, isFalse);
     expect(recorder.permissionRequests, 0);
     expect(find.text('Listen'), findsOneWidget);
-    expect(find.textContaining('Voice assessment is off'), findsOneWidget);
+    final notice = find.textContaining('Voice assessment is off');
+    await _scrollUntilBuilt(tester, notice);
+    expect(notice, findsOneWidget);
   });
 
   testWidgets('microphone denial does not remove basic practice controls', (
@@ -56,10 +58,9 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(recorder.permissionRequests, 1);
-    expect(
-      find.textContaining('Microphone access was not granted'),
-      findsOneWidget,
-    );
+    final notice = find.textContaining('Microphone access was not granted');
+    await _scrollUntilBuilt(tester, notice);
+    expect(notice, findsOneWidget);
     expect(find.text('Listen'), findsOneWidget);
   });
 
@@ -100,7 +101,9 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(gateway.calls, 1);
-      expect(find.textContaining('score is unavailable'), findsOneWidget);
+      final notice = find.textContaining('score is unavailable');
+      await _scrollUntilBuilt(tester, notice);
+      expect(notice, findsOneWidget);
       expect(find.text('Listen'), findsOneWidget);
     },
   );
@@ -136,7 +139,11 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text(a1.ko), findsOneWidget);
-      await tester.tap(find.text('Continue without a score'));
+      final continueAction = find.text('Continue without a score');
+      await _scrollUntilBuilt(tester, continueAction);
+      await tester.tap(continueAction);
+      await tester.pump();
+      await tester.drag(find.byType(ListView), const Offset(0, 1000));
       await tester.pump();
       expect(find.text(b1.ko), findsOneWidget);
     },
@@ -224,6 +231,18 @@ Widget _app(
 );
 
 Future<List<PronunciationPhrase>> _loadTestPhrases() async => _testPhrases;
+
+Future<void> _scrollUntilBuilt(WidgetTester tester, Finder target) async {
+  final listView = find.byType(ListView).first;
+  for (var attempt = 0; attempt < 12 && target.evaluate().isEmpty; attempt++) {
+    await tester.drag(listView, const Offset(0, -160));
+    await tester.pump();
+  }
+  if (target.evaluate().isNotEmpty) {
+    await tester.ensureVisible(target);
+    await tester.pump();
+  }
+}
 
 class _FakeRecorder implements PronunciationRecorder {
   _FakeRecorder({required this.permission, this.chunks = const <Uint8List>[]});

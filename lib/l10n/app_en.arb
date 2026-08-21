@@ -3465,6 +3465,7 @@
   "pronunciationListen": "Listen",
   "pronunciationRecord": "Record my voice",
   "pronunciationRecording": "Recording…",
+  "pronunciationAssessing": "Preparing your score…",
   "pronunciationStop": "Stop and assess",
   "pronunciationContinueWithoutScore": "Continue without a score",
   "pronunciationNextPhrase": "Next phrase",

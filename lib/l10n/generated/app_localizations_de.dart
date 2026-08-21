@@ -7573,6 +7573,9 @@ class AppL10nDe extends AppL10n {
   String get pronunciationRecording => 'Aufnahme läuft…';
 
   @override
+  String get pronunciationAssessing => 'Bewertung wird erstellt…';
+
+  @override
   String get pronunciationStop => 'Stoppen und bewerten';
 
   @override
