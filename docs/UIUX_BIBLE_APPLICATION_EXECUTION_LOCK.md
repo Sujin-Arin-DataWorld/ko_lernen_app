@@ -1,42 +1,41 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.43
+- **Version:** 1.44
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3d-word-web-closeout-2026-08-21`
-- **Base:** `origin/main@29e08680129fcd2ee9377e8859f8627246605a5d`
-- **State:** Phase 3D `/word_web` outer UI complete and merged; clean
-  `/sarangbang` restart point recorded
+- **Branch:** `session/uiux-bible-learning-3d-sarangbang-closeout-2026-08-21`
+- **Base:** `origin/main@c6c864f3fb14ed3dfaaffd7caf12fedb2791ca2e`
+- **State:** Phase 3D `/sarangbang` outer UI complete and merged; clean
+  Phase 4A `/stats` restart point recorded
 - **Next action:** create a fresh worktree from latest `origin/main` and audit
-  `/sarangbang` outer UI and state matrix only; preserve custom-room
-  composition, recommendations/course evidence, room/canvas boundaries,
-  routes and approved assets
+  `/stats` outer UI and state matrix only; preserve progress/stat aggregation,
+  chart data and semantics, routes, writes, and approved assets
 
 ## Current State Summary
 
-`/word_web` is merged on `main@29e08680129fcd2ee9377e8859f8627246605a5d`
+`/sarangbang` is merged on `main@c6c864f3fb14ed3dfaaffd7caf12fedb2791ca2e`
 with local, exact-head CI, and two-axis review proof recorded in the phase
 ledger. The app worktree is clean, the exact app branch is preserved remotely,
 and there are no open UI-rollout blockers. The next independently mergeable
-unit is `/sarangbang` outer UI only.
+unit is `/stats` outer UI only.
 
 ## Important Context
 
-Start with only `AGENTS.md` and this file. Preserve custom-room composition,
-recommendations/course evidence, room/canvas boundaries, routes, and approved
-assets. No deployment, store upload, production mutation, asset generation,
-new token, or navigation/state rewrite is authorized. `/sarangbang/furnish`
-remains a later, separate embedded-owner unit.
+Start with only `AGENTS.md` and this file. Preserve progress/stat aggregation,
+chart data and semantics, storage writes, routes, and approved assets. No
+deployment, store upload, production mutation, asset generation, new token, or
+navigation/state rewrite is authorized. Account, purchase, notification, and
+platform-owned settings remain separate high-risk units.
 
 ## Immediate Next Steps
 
 1. Fetch latest `origin/main`, verify it contains this closeout, and create a
-   fresh Windows-native `/sarangbang` worktree and task branch.
-2. Measure `SarangbangStudyScreen`, its outer states, recommendation/course
-   evidence flow, route tests, and room/canvas ownership before deciding whether
-   code changes are needed.
-3. If a presentation gap exists, implement only one small `/sarangbang`
-   outer-UI unit with DE/EN and the required viewport matrix; otherwise record
-   no-code verification. Do not include `/sarangbang/furnish`.
+   fresh Windows-native `/stats` worktree and task branch.
+2. Measure `StatsScreen`, its outer states, progress/stat aggregation, chart
+   semantics, route tests, and write boundaries before deciding whether code
+   changes are needed.
+3. If a presentation gap exists, implement only one small `/stats` outer-UI
+   unit with DE/EN and the required viewport matrix; otherwise record no-code
+   verification. Do not include settings, profile, paywall, or platform writes.
 
 ## 1. Purpose
 
@@ -390,7 +389,7 @@ production, and deployment remain unclaimed and out of scope.
 | 3D Practice hub outer UI | merged | PR #166; main merge `05d536bfd9964532c56fdfd2c927746607eb25d5`; PR exact-current-head CI run 32478194125 green with Analyze & Build plus asset pipeline gates green; `/practice` now presents review as its only `FeaturedModuleCard` and uses the existing actionable empty-review ARB copy when nothing is due, while every expanded activity remains a secondary `ModuleCard`; narrow or 200% layouts stack complete activity cards and wide layouts retain the established paired grid; purpose sheets use existing Sori type roles, chevrons, and a local transparent Material ink owner; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; six focused Practice tests and 889 shared route/catalog/evidence/responsive/accessibility/localization tests green locally; full local 4,413 tests with 14 conditional skips, analyze, format, and diff check green; Standards and Specification final review axes both reported zero remaining findings after resolving the expanded multi-primary hierarchy; exact-base ratchets raw screen TextStyle 235→235 and `FontWeight.w800` 85→85; added assets, TODO markers, and secret patterns zero; all 21 activity destinations keep their order, routes, arguments, and navigation, while course/reward evidence, writes, SDK/native/game boundaries, and approved assets remain unchanged; post-merge main run 32478523812 was cancelled during required-check selection and its Signed AAB/Play job 96759858191 had zero steps, so no build, signing, or upload ran |
 | 3D Quests outer UI | merged | App commits `8d4039fa85686b7ce43d5fe402e3f12b7c5a35fb`, `888861ec367ef227a96c0866f65cd2c57d0ca176`, and `b5833ef47fa2df44dca6fe4ca08af0c69078449f`; PR #168; main merge `3de9cb10ce2d46be9c7d33be19b317da7592f981`; PR exact-current-head CI run 32483615356 green with 4,429 tests passed, 2 skipped, release web build and asset pipeline gate green; `/quests` uses the shared Sori progress bar for quest and summary progress, existing Sori type roles in locked/completion states, localized DE/EN plural progress summaries, and actual localized decoration names for reward semantics; loading, retry, empty, progress/reward semantics, and the completion dialog are directly covered; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; final-head analyze, format, diff check, and seven changed-path regression tests green, with 146 focused quest/localization/semantics/game-boundary tests green after the first review fix; the pre-final-review local full suite had 4,416 passes and 14 conditional skips, while exact-final-head full proof is the CI result above; Standards and Specification final review axes both reported zero remaining findings; exact-base ratchets raw screen TextStyle 235→232, raw progress indicators 19→17, and `FontWeight.w800` 50→49; test files 452→453; added assets, TODO markers, and secret patterns zero; quest tracking, reward/evidence writes, routes and arguments, six game-owned engines, timing, hitboxes, canvas geometry, SDK/native boundaries, and approved assets unchanged; post-merge main run 32484539000 was cancelled during checkout and its Signed AAB/Play job 96778071109 had zero steps, so no build, signing, or upload ran |
 | 3D Word-web outer UI | merged | App commit `f458d1f17b369cb5cab1665f87f3499ef6fdf52f`; PR #170; main merge `29e08680129fcd2ee9377e8859f8627246605a5d`; PR exact-current-head CI run 32488135405 green with Analyze & Build and asset pipeline gates green; `/word_web` learned/level filters now use the existing Sori choice contract with complete labels, 48dp targets, button/selected semantics, and a visible check cue, while hub, neighbor, expression, and example pronunciation actions use localized labels and 48dp targets; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; 472 focused/shared responsive/accessibility/typography tests and full local 4,419 tests with 14 conditional skips green; analyze, format, and diff check clean; Standards and Specification final review axes both reported zero findings; exact-base ratchets raw screen TextStyle 232→232, raw progress indicators 17→17, `FontWeight.w800` 49→49, and test files 453→454; added assets, TODO markers, and secret patterns zero; word-relation data, learned/course filtering, study/quiz transitions and scoring, routes and arguments, learning/evidence behavior, SDK/native boundaries, and approved assets unchanged; post-merge main run 32488456766 cancelled after path selection and its Signed AAB/Play job 96790423784 had zero steps, so no build, signing, or upload ran |
-| 3D Sarangbang outer UI | pending | keep separate from `/word_web`; preserve custom-room composition, recommendations/course evidence, canvas boundaries, routes and approved assets |
+| 3D Sarangbang outer UI | merged | App commits `d3233b7f875572f8ff124719c2cd210cd21e89d4` and `661fba6600dc12beac9cfe37a9cc8b4152a54eaa`; PR #172; main merge `c6c864f3fb14ed3dfaaffd7caf12fedb2791ca2e`; PR exact-current-head CI run 32491286517 green with Analyze & Build and asset pipeline gates green; `/sarangbang` loading and full-read failure use the shared app states, partial Today data keeps the saved room and receipt visible while stale recommendations fail closed, and an existing saved `/review` remains the only safe learning action beside retry; unavailable copy distinguishes offline, remote-service, and local-data reasons using existing localized Sori contracts; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% directly cover the changed unavailable card and actions; 12 focused Sarangbang tests, 397 shared Today/responsive/accessibility/typography/smoke tests, and full local 4,423 tests with 14 conditional skips green; analyze, format, and diff check clean; Standards and Specification final review axes both reported zero remaining findings after preserving saved review and extending the unavailable-state matrix; exact-base ratchets raw screen TextStyle 232→232, raw screen LinearProgressIndicator 6→6, `FontWeight.w800` 49→49, and test files 454→454; added assets, TODO markers, and secret patterns zero; custom-room composition, room/canvas geometry, `/sarangbang/furnish`, recommendations/course evidence, receipt and reward writes, routes and arguments, SDK/native/game boundaries, and approved assets unchanged; post-merge main run 32491635244 cancelled during checkout and its Signed AAB/Play job 96800525143 had zero steps, so no build, signing, or upload ran |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
