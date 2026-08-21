@@ -13638,6 +13638,12 @@ abstract class AppL10n {
   /// **'Nur vorhandene Sätze, Dialoge und Wortnetze. Es kommen keine neuen Wörter dazu.'**
   String get vocabNotebookStudioCorpusHint;
 
+  /// No description provided for @vocabNotebookStudioLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorhandene Spiele laden …'**
+  String get vocabNotebookStudioLoading;
+
   /// No description provided for @vocabNotebookStudioCloze.
   ///
   /// In de, this message translates to:
