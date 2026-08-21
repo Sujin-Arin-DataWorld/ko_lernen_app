@@ -1,14 +1,14 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.29
+- **Version:** 1.30
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3b-calligraphy-closeout-2026-08-21`
-- **Base:** `origin/main@4e4fffef9cd9f4a91c19e71a63396b0ad456bc5e`
-- **State:** Phase 3B Calligraphy route outer UI merged; clean restart point recorded
-- **Next action:** create a fresh worktree from latest `origin/main` and audit
-  `/pronunciation` app-owned outer UI and SDK boundary only; preserve microphone
-  consent, SDK and OS permission boundaries, capture/assessment logic,
-  completion, routes, and approved assets
+- **Branch:** `session/uiux-bible-learning-3b-pronunciation-2026-08-21`
+- **Base:** `origin/main@b1d1de430591cb033a9bd666c23a5794fb820d5f`
+- **State:** Phase 3B Pronunciation outer UI locally green; app PR delivery pending
+- **Next action:** commit and push only the task-owned Pronunciation and execution
+  lock files, open one PR, and merge only after automatic CI is green for the
+  exact current head; cancel the exact post-merge main run before Play work and
+  verify its upload job has zero steps
 
 ## 1. Purpose
 
@@ -123,7 +123,7 @@ current ratchet:
 | `lib/screens` Dart files | 96 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 125 | Existing system; no parallel system permitted |
 | Test files | 440 | Reuse focused suites plus shared matrices |
-| Raw screen `TextStyle` | 302 (guard ≤302) | Must not increase; migrate by touched surface |
+| Raw screen `TextStyle` | 287 (guard ≤302) | Must not increase; migrate by touched surface |
 | Raw screen `fontSize` | 277 (guards ≤95 at w800, ≤28 at w900) | Reduce through tokens, never raise ratchets |
 | Numeric screen `BorderRadius.circular` | 97 (guard ≤33) | Touched code uses radius tokens |
 | Raw screen `Scaffold` calls | 52 | Many are intentional shell/immersive owners; classify before changing |
@@ -350,7 +350,8 @@ production, and deployment remain unclaimed and out of scope.
 | 3B Cloze outer UI | merged | PR #144; main merge `c3fc9fbe7cc5a82dc493458c3cf6cd95989d90a1`; PR exact-current-head CI run 32447455346 green with 4,321 tests passed and 2 skipped; `/cloze` now names the level filter in DE/EN, gives all level choices and the localized pronunciation action 48dp targets, and renders Korean/gloss text through the existing Sori type roles; long production prompts scroll inside their owned area instead of overflowing while choices remain reachable; the shared prompt's `/daily` companion layout received the same overflow boundary; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 covered; analyze clean; 263 focused Cloze/data/retry/first-attempt score/course evidence/feedback/shared daily/responsive/accessibility/smoke/typography/localization tests green; full CI exposed one previously merged Hangul width literal, replaced with the existing `SoriAdaptiveWidth.criticalActionRow` constant without changing its 280dp threshold, with the width guard plus Cloze and study-responsive battery 117/117 green; raw screen TextStyle remains 301; item data/order, answer checking, retry timing, first-attempt scoring, SRS, course evidence, completion, XP/rewards, daily seed, routes, and approved assets unchanged; post-merge main run 32447991802 cancelled during comparison-history fetch and its Signed AAB/Play job had zero steps, so no upload ran |
 | 3B Daily outer UI | merged | PR #146; main merge `75cf6b9dc41757ad51a852416b08cee5ba934fc9`; PR exact-current-head CI run 32449029136 green with 990 tests passed and the asset pipeline gate green; `/daily` now carries round progress and score in the shared Study eyebrow instead of two decorative chips, presents already-completed practice mode as a complete semantic Sori card, routes empty content to the shared Sori empty state instead of a misleading 0/0 result, gives the localized close action an explicit 48dp target, and uses the existing meta type role for its instruction; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 covered; raw screen TextStyle 301→300; analyze clean; 962 focused Daily seed/level-cap/streak/retry/first-attempt score/one-time bonus/feedback/shared prompt/study-responsive/short-height/accessibility/smoke/typography tests green; date seed, level cap, item/order/options, answer checking, retry timing, SRS, already-done detection, completion, XP/streak/best/feedback writes, routes, and approved assets unchanged; post-merge main run 32449292843 cancelled during checkout and its Signed AAB/Play job had zero steps, so no upload ran |
 | 3B Calligraphy route outer UI | merged | PR #148; main merge `4e4fffef9cd9f4a91c19e71a63396b0ad456bc5e`; PR exact-current-head CI run 32450221928 green with 1,367 tests passed and the asset pipeline gate green; `/calligraphy` now uses the shared Standard-page category, headline, and localized guide description while Home/Hanok keep the same self-owned Sori sheet intro; route and sheet share the same resolved daily character and learning widget; all six screen-local TextStyle constructors moved to the existing Sori UI/Korean-content roles; reduced motion now unlocks the guide completion action after the build frame instead of issuing a parent setState during build; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 plus fallback content covered; raw screen TextStyle 300→294 and `daily_char_sheet.dart` now has zero raw constructors; analyze clean; 1,083 Calligraphy route/storage/feedback/StrokeCanvas/Hangul writing and swipe/Hanok sheet/standard-page/responsive/short-height/accessibility/smoke/typography tests green; daily character selection, stroke data/geometry/order/replay, TTS, finish gate, feedback completion, calligraphy date persistence/export, sheet ownership, routes, and approved assets unchanged; post-merge main run 32450505667 cancelled during checkout and its Signed AAB/Play job had zero steps, so no upload ran |
-| 3B–3D remaining learning flows | pending | create a fresh worktree from latest `origin/main` and audit `/pronunciation` app-owned outer UI and SDK boundary only; preserve microphone consent, SDK and OS permission UI ownership, capture/assessment logic, completion, routes, and approved assets |
+| 3B Pronunciation outer UI | local green; delivery pending | `/pronunciation` now uses the existing Standard-page header and Sori Korean/body/meta/label/numeral type roles; capture and assessment expose distinct localized states, with an app-owned live score panel; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 with safe insets covered; raw screen TextStyle 294→287; analyze clean; 884 Pronunciation/consent/assessment/progress/SDK-boundary/localization/accessibility/smoke/responsive/typography tests green; phrase loading and cumulative level selection, consent before OS permission, microphone SDK ownership, PCM limits and 10-second capture, assessment identity/reference, 80-point pass threshold, duplicate prevention, progress writes, TTS, routes, and approved assets unchanged |
+| 3B–3D remaining learning flows | pending | after Pronunciation is merged and its exact post-merge Play-capable run is cancelled with zero upload steps, create a fresh worktree from latest `origin/main` and audit `/satz_arcade`; preserve course context, scoring and evidence, tile geometry, gestures, timing, routes, and approved assets |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |

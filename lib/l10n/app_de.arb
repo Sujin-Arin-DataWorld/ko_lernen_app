@@ -3576,6 +3576,7 @@
   "pronunciationListen": "Anhören",
   "pronunciationRecord": "Meine Stimme aufnehmen",
   "pronunciationRecording": "Aufnahme läuft…",
+  "pronunciationAssessing": "Bewertung wird erstellt…",
   "pronunciationStop": "Stoppen und bewerten",
   "pronunciationContinueWithoutScore": "Ohne Bewertung weiter",
   "pronunciationNextPhrase": "Nächster Satz",

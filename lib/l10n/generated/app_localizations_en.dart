@@ -7536,6 +7536,9 @@ class AppL10nEn extends AppL10n {
   String get pronunciationRecording => 'Recording…';
 
   @override
+  String get pronunciationAssessing => 'Preparing your score…';
+
+  @override
   String get pronunciationStop => 'Stop and assess';
 
   @override

@@ -13188,6 +13188,12 @@ abstract class AppL10n {
   /// **'Aufnahme läuft…'**
   String get pronunciationRecording;
 
+  /// No description provided for @pronunciationAssessing.
+  ///
+  /// In de, this message translates to:
+  /// **'Bewertung wird erstellt…'**
+  String get pronunciationAssessing;
+
   /// No description provided for @pronunciationStop.
   ///
   /// In de, this message translates to:
