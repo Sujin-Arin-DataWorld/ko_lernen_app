@@ -6,12 +6,11 @@ import '../models/book_page.dart';
 import '../services/custom_pack_service.dart';
 import '../services/sound_service.dart';
 import '../services/vocab_nuance_service.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/quiz_choice.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 
 /// Playful comparison of synonyms, register, and Hanja roots using only
@@ -104,13 +103,9 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
         : 'de';
     final pack = CustomPackService.getById(widget.packId);
     if (pack == null) {
-      return Scaffold(
-        appBar: SoriAppBar(
-          title: t.vocabNotebookNuanceTitle,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
-        ),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.vocabNotebookNuanceTitle,
+        child: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.help_outline,
@@ -121,13 +116,9 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
       );
     }
     if (_questions.isEmpty) {
-      return Scaffold(
-        appBar: SoriAppBar(
-          title: t.vocabNotebookNuanceTitle,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
-        ),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.vocabNotebookNuanceTitle,
+        child: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.compare_arrows_rounded,
@@ -138,42 +129,47 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
       );
     }
     if (_index >= _questions.length) {
-      return Scaffold(
-        appBar: SoriAppBar(
-          title: t.vocabNotebookNuanceTitle,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
-        ),
-        body: SafeArea(
-          child: SoriCenterClamp(
-            child: Padding(
-              padding: const EdgeInsets.all(Spacing.lg),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    t.customPackResultDone,
-                    style: SoriTextTheme.of(context).h2,
-                    textAlign: TextAlign.center,
+      final scoreLabel = t.quizScore(_score, _questions.length);
+      return SoriStudyFrame(
+        title: t.vocabNotebookNuanceTitle,
+        child: SoriAdaptiveStudyBody(
+          minHeight: 300,
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Semantics(
+                  container: true,
+                  liveRegion: true,
+                  label: '${t.customPackResultDone} $scoreLabel',
+                  excludeSemantics: true,
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        t.customPackResultDone,
+                        style: SoriTextTheme.of(context).h2,
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: Spacing.md),
+                      Text(
+                        scoreLabel,
+                        style: SoriTextTheme.of(context).body,
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
-                  const SizedBox(height: Spacing.md),
-                  Text(
-                    t.quizScore(_score, _questions.length),
-                    style: SoriTextTheme.of(context).body,
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: Spacing.lg),
-                  SoriButton.filled(
-                    label: t.customPackResultAgain,
-                    fullWidth: true,
-                    onTap: () => setState(() {
-                      _index = 0;
-                      _score = 0;
-                      _picked = null;
-                    }),
-                  ),
-                ],
-              ),
+                ),
+                const SizedBox(height: Spacing.lg),
+                SoriButton.filled(
+                  label: t.customPackResultAgain,
+                  fullWidth: true,
+                  onTap: () => setState(() {
+                    _index = 0;
+                    _score = 0;
+                    _picked = null;
+                  }),
+                ),
+              ],
             ),
           ),
         ),
@@ -181,65 +177,59 @@ class _VocabNuanceScreenState extends State<VocabNuanceScreen> {
     }
 
     final question = _questions[_index];
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.vocabNotebookNuanceTitle,
-        textScale: MediaQuery.textScalerOf(context).scale(1),
-        viewportWidth: MediaQuery.sizeOf(context).width,
-      ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Text(
-                  '${_index + 1} / ${_questions.length}',
-                  style: SoriTextTheme.of(context).caption,
-                ),
-                const SizedBox(height: Spacing.md),
-                SoriCard(
-                  variant: SoriCardVariant.hero,
-                  accent: SoriColors.goldOnLight,
-                  child: Text(
-                    question.promptFor(language),
-                    style: SoriTextTheme.of(context).h3,
-                  ),
-                ),
-                const SizedBox(height: Spacing.md),
-                ...question.options.map((option) {
-                  final selected = _picked == option.korean;
-                  final correct = option.korean == question.correctKorean;
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: Spacing.sm),
-                    child: QuizChoice(
-                      text: _optionLabel(question, option, t),
-                      isSelected: selected,
-                      revealed: _picked != null,
-                      isCorrect: correct,
-                      onSelected: _picked == null
-                          ? () => _pick(question, option.korean)
-                          : null,
-                    ),
-                  );
-                }),
-                if (_picked != null) ...<Widget>[
-                  const SizedBox(height: Spacing.sm),
-                  Text(
-                    question.explanationFor(language),
-                    style: SoriTextTheme.of(context).body,
-                  ),
-                  const SizedBox(height: Spacing.md),
-                  SoriButton.filled(
-                    label: t.btnNext,
-                    fullWidth: true,
-                    onTap: _continue,
-                  ),
-                ],
-              ],
+    return SoriStudyFrame(
+      title: t.vocabNotebookNuanceTitle,
+      eyebrow: '${_index + 1} / ${_questions.length}',
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            SoriCard(
+              variant: SoriCardVariant.hero,
+              accent: SoriColors.goldOnLight,
+              child: Text(
+                question.promptFor(language),
+                style: SoriTextTheme.of(context).h3,
+              ),
             ),
-          ),
+            const SizedBox(height: Spacing.md),
+            ...question.options.map((option) {
+              final selected = _picked == option.korean;
+              final correct = option.korean == question.correctKorean;
+              return Padding(
+                padding: const EdgeInsets.only(bottom: Spacing.sm),
+                child: QuizChoice(
+                  text: _optionLabel(question, option, t),
+                  isSelected: selected,
+                  revealed: _picked != null,
+                  isCorrect: correct,
+                  idleBorderColor: SoriColors.primary,
+                  semanticTapEnabled: true,
+                  onSelected: _picked == null
+                      ? () => _pick(question, option.korean)
+                      : null,
+                ),
+              );
+            }),
+            if (_picked != null) ...<Widget>[
+              const SizedBox(height: Spacing.sm),
+              Semantics(
+                liveRegion: true,
+                label: question.explanationFor(language),
+                excludeSemantics: true,
+                child: Text(
+                  question.explanationFor(language),
+                  style: SoriTextTheme.of(context).body,
+                ),
+              ),
+              const SizedBox(height: Spacing.md),
+              SoriButton.filled(
+                label: t.btnNext,
+                fullWidth: true,
+                onTap: _continue,
+              ),
+            ],
+          ],
         ),
       ),
     );
