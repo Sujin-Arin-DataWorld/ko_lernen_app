@@ -22,6 +22,10 @@ class SoriChip extends StatelessWidget {
   final VoidCallback? onTap;
   final double fontSize;
 
+  /// Maximum visible label lines. Interactive filters default to one compact
+  /// line; pass `null` when the full localized label must wrap at large text.
+  final int? maxLines;
+
   /// Overrides the default 12/10 horizontal padding so dense rows (six TTS
   /// speed presets) can stay on one line inside a 480dp content column.
   final double? horizontalPadding;
@@ -41,6 +45,7 @@ class SoriChip extends StatelessWidget {
     this.variant = SoriChipVariant.soft,
     this.onTap,
     this.fontSize = 12,
+    this.maxLines = 1,
     this.horizontalPadding,
     this.minInteractiveHeight,
   });
@@ -92,8 +97,9 @@ class SoriChip extends StatelessWidget {
           Flexible(
             child: Text(
               label,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
+              maxLines: maxLines,
+              overflow: maxLines == 1 ? TextOverflow.ellipsis : null,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontFamily: SoriFonts.sans,
                 color: fg,
