@@ -3630,13 +3630,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -3704,16 +3704,16 @@
                 "en": "Should I keep only these three sentences?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, wo fangen wir an?",
+                "en": "Sure, where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur diese drei Sätze behalten.",
+                "en": "Yes, keep just those three sentences."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird es hochgeladen?",
+                "en": "When will it be posted?"
               }
             ],
             "correctIndex": 0
@@ -3733,13 +3733,13 @@
                 "ko": "길게 쓰지 말고 한 일만 세 줄로 남기고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 어디부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 세 문장만 남겨 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 올라가요?"
               }
             ],
             "correctIndex": 0
@@ -3755,9 +3755,9 @@
             "sentence": "오후에 바로 올려 ___.",
             "options": [
               "두겠습니다",
-              "창문",
-              "우유",
-              "지우개"
+              "성과",
+              "세 줄",
+              "문장"
             ],
             "correctIndex": 0
           }
@@ -3817,13 +3817,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -3891,16 +3891,16 @@
                 "en": "Is this sentence enough?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich höre. Ja, bitte?",
+                "en": "I'm listening. Go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, dieser Satz reicht.",
+                "en": "Yes, that sentence is enough."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann kommt es in die Akte?",
+                "en": "When does it go into the record?"
               }
             ],
             "correctIndex": 0
@@ -3920,13 +3920,13 @@
                 "ko": "지난 시도가 안 된 이유를 한 줄로 남기고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "듣고 있어요. 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 문장이면 충분해요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 기록에 들어가요?"
               }
             ],
             "correctIndex": 0
@@ -3942,9 +3942,9 @@
             "sentence": "___은 오늘 안에 넣겠습니다.",
             "options": [
               "기록",
-              "창문",
-              "우유",
-              "지우개"
+              "실패",
+              "시도",
+              "이유"
             ],
             "correctIndex": 0
           }
@@ -4004,13 +4004,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -4078,16 +4078,16 @@
                 "en": "Should I put a copy in this envelope?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, die Kopie bitte mit hinein.",
+                "en": "Yes, put the copy in as well."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Bekomme ich einen Einlieferungsbeleg?",
+                "en": "Can I get a receipt of posting?"
               }
             ],
             "correctIndex": 0
@@ -4107,13 +4107,13 @@
                 "ko": "내용이 기록에 남게 보내고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 사본도 같이 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "접수증을 받을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -4129,9 +4129,9 @@
             "sentence": "___은 바로 드리겠습니다.",
             "options": [
               "접수증",
-              "창문",
-              "우유",
-              "지우개"
+              "내용증명",
+              "등기",
+              "기록"
             ],
             "correctIndex": 0
           }
@@ -4191,13 +4191,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -4265,16 +4265,16 @@
                 "en": "Shall this line be the boundary?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur bis zu dieser Linie.",
+                "en": "Yes, let's keep it to that line."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann bekomme ich es schriftlich?",
+                "en": "When can I get it in writing?"
               }
             ],
             "correctIndex": 0
@@ -4294,13 +4294,13 @@
                 "ko": "벽만 되돌리고 바닥은 건드리지 않았으면 해요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 선까지만 하죠."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 문장으로 받을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -4316,9 +4316,9 @@
             "sentence": "___는 내일 문장으로 보내 드리겠습니다.",
             "options": [
               "범위",
-              "창문",
-              "우유",
-              "지우개"
+              "원상복구",
+              "벽",
+              "바닥"
             ],
             "correctIndex": 0
           }
@@ -4378,13 +4378,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -4452,16 +4452,16 @@
                 "en": "Shall we look at only this page together?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, schauen wir nur diese Seite.",
+                "en": "Yes, let's check just that page."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann ist der Abgleich fertig?",
+                "en": "When will the check be finished?"
               }
             ],
             "correctIndex": 0
@@ -4481,13 +4481,13 @@
                 "ko": "이 숫자가 원문 표와 같은지 확인해 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 쪽만 같이 봐요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "대조가 언제 끝나요?"
               }
             ],
             "correctIndex": 0
@@ -4503,9 +4503,9 @@
             "sentence": "___는 한 시간 안에 끝납니다.",
             "options": [
               "대조",
-              "창문",
-              "우유",
-              "지우개"
+              "원문",
+              "숫자",
+              "표"
             ],
             "correctIndex": 0
           }
@@ -4565,13 +4565,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -4639,16 +4639,16 @@
                 "en": "Only in the internal folder?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, wo fangen wir an?",
+                "en": "Sure, where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur im internen Ordner lassen.",
+                "en": "Yes, keep it in the internal folder only."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Melden Sie sich, wenn die Prüfung durch ist?",
+                "en": "Will you tell me once the check is done?"
               }
             ],
             "correctIndex": 0
@@ -4668,13 +4668,13 @@
                 "ko": "이 초안은 아직 밖에 보내지 말아 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 어디부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 내부 폴더에만 두세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "확인이 끝나면 알려 주실 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -4690,9 +4690,9 @@
             "sentence": "___이 끝나면 바로 알려 드리겠습니다.",
             "options": [
               "확인",
-              "창문",
-              "우유",
-              "지우개"
+              "공유",
+              "보류",
+              "초안"
             ],
             "correctIndex": 0
           }
@@ -4752,13 +4752,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -4826,16 +4826,16 @@
                 "en": "Should I swap only these two boxes?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich habe Zeit. Um welchen Fall geht es?",
+                "en": "I have time. Which case is it?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur diese zwei Felder tauschen.",
+                "en": "Yes, swap just those two slots."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann sehe ich die neue Reihenfolge?",
+                "en": "When can I see the new order?"
               }
             ],
             "correctIndex": 0
@@ -4855,13 +4855,13 @@
                 "ko": "예산 안건을 맨 앞으로 옮기고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "지금 시간 괜찮아요. 어떤 건이에요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 두 칸만 바꿔 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "새 순서는 언제 볼 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -4877,9 +4877,9 @@
             "sentence": "___는 오전에 다시 올려 두겠습니다.",
             "options": [
               "순서",
-              "창문",
-              "우유",
-              "지우개"
+              "안건",
+              "예산",
+              "앞"
             ],
             "correctIndex": 0
           }
@@ -4939,13 +4939,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -5013,16 +5013,16 @@
                 "en": "Shall we wait ten more minutes?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich höre. Ja, bitte?",
+                "en": "I'm listening. Go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, warten wir zehn Minuten.",
+                "en": "Yes, let's wait ten more minutes."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie viele fehlen noch?",
+                "en": "How many more people do we need?"
               }
             ],
             "correctIndex": 0
@@ -5042,13 +5042,13 @@
                 "ko": "지금 숫자로는 의결하면 안 될 것 같아요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "듣고 있어요. 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 십 분만 더 기다리죠."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "몇 명이 더 와야 해요?"
               }
             ],
             "correctIndex": 0
@@ -5064,9 +5064,9 @@
             "sentence": "___이 오면 바로 시작하겠습니다.",
             "options": [
               "두 명",
-              "창문",
-              "우유",
-              "지우개"
+              "정족",
+              "의결",
+              "숫자"
             ],
             "correctIndex": 0
           }
@@ -5126,13 +5126,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -5200,16 +5200,16 @@
                 "en": "Shall only this one line be the core?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur diese Zeile ist Kern.",
+                "en": "Yes, keep that one line as the core."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann bekomme ich den Satz?",
+                "en": "When can I get the wording?"
               }
             ],
             "correctIndex": 0
@@ -5229,13 +5229,13 @@
                 "ko": "날짜는 양보해도 가격 상한은 못 빼요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 한 줄만 핵심으로 두죠."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "문장을 언제 받을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -5251,9 +5251,9 @@
             "sentence": "문장은 오늘 저녁에 보내 ___.",
             "options": [
               "드리겠습니다",
-              "창문",
-              "우유",
-              "지우개"
+              "핵심",
+              "조건",
+              "가격"
             ],
             "correctIndex": 0
           }
@@ -5313,13 +5313,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -5387,16 +5387,16 @@
                 "en": "Should I start the timer now?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, stellen Sie ihn jetzt.",
+                "en": "Yes, please start it now."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Was passiert, wenn die Zeit um ist?",
+                "en": "What happens when the time is up?"
               }
             ],
             "correctIndex": 0
@@ -5416,13 +5416,13 @@
                 "ko": "이 안건은 십오 분만 쓰고 다음으로 갔으면 해요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 지금 켜 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "시간이 되면 어떻게 해요?"
               }
             ],
             "correctIndex": 0
@@ -5438,9 +5438,9 @@
             "sentence": "___이 되면 바로 끊겠습니다.",
             "options": [
               "시간",
-              "창문",
-              "우유",
-              "지우개"
+              "안건",
+              "십오 분",
+              "타이머"
             ],
             "correctIndex": 0
           }
@@ -5500,13 +5500,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -5574,16 +5574,16 @@
                 "en": "Shall only the number table stay?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, wo fangen wir an?",
+                "en": "Sure, where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur die Zahlentabelle behalten.",
+                "en": "Yes, keep only the number table."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird es hochgeladen?",
+                "en": "When will it be posted?"
               }
             ],
             "correctIndex": 0
@@ -5603,13 +5603,13 @@
                 "ko": "세 쪽을 한 장으로 줄여서 보내고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 어디부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 숫자 표만 남겨 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 올라가요?"
               }
             ],
             "correctIndex": 0
@@ -5625,9 +5625,9 @@
             "sentence": "___은 내일 아침에 올리겠습니다.",
             "options": [
               "한 장",
-              "창문",
-              "우유",
-              "지우개"
+              "요약",
+              "세 쪽",
+              "표"
             ],
             "correctIndex": 0
           }
@@ -5687,13 +5687,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -5761,16 +5761,16 @@
                 "en": "Shall this sentence sit at the very top?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, bitte ganz oben einfügen.",
+                "en": "Yes, put it at the very top."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann kommt es hinein?",
+                "en": "When will it be added?"
               }
             ],
             "correctIndex": 0
@@ -5790,13 +5790,13 @@
                 "ko": "인원이 그대로라는 가정을 위에 적어 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 맨 위에 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 들어가요?"
               }
             ],
             "correctIndex": 0
@@ -5812,9 +5812,9 @@
             "sentence": "___은 오늘 안에 넣어 두겠습니다.",
             "options": [
               "가정",
-              "창문",
-              "우유",
-              "지우개"
+              "인원",
+              "문장",
+              "위"
             ],
             "correctIndex": 0
           }
@@ -5874,13 +5874,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -5948,16 +5948,16 @@
                 "en": "Should I attach only this summary?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich höre. Ja, bitte?",
+                "en": "I'm listening. Go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur die Zusammenfassung anhängen.",
+                "en": "Yes, attach the summary only."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird das zur Freigabe weitergeleitet?",
+                "en": "When will it be sent up for approval?"
               }
             ],
             "correctIndex": 0
@@ -5977,13 +5977,13 @@
                 "ko": "금액이 제 권한을 넘어서 위로 올려야 해요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "듣고 있어요. 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 요약만 붙여 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 위로 올라가요?"
               }
             ],
             "correctIndex": 0
@@ -5999,9 +5999,9 @@
             "sentence": "___은 오후에 바로 하겠습니다.",
             "options": [
               "전달",
-              "창문",
-              "우유",
-              "지우개"
+              "상위",
+              "권한",
+              "금액"
             ],
             "correctIndex": 0
           }
@@ -6061,13 +6061,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -6135,16 +6135,16 @@
                 "en": "Should I get a temporary number first?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, holen wir zuerst eine vorläufige Nummer.",
+                "en": "Yes, let's get a temporary number first."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann kommt die Nummer?",
+                "en": "When will the number come?"
               }
             ],
             "correctIndex": 0
@@ -6164,13 +6164,13 @@
                 "ko": "이 건은 번호가 생기기 전에는 공유하지 말아 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 임시 번호부터 받죠."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "번호가 언제 나와요?"
               }
             ],
             "correctIndex": 0
@@ -6186,9 +6186,9 @@
             "sentence": "번호는 ___ 안에 나옵니다.",
             "options": [
               "한 시간",
-              "창문",
-              "우유",
-              "지우개"
+              "사건",
+              "번호",
+              "공유"
             ],
             "correctIndex": 0
           }
@@ -6248,13 +6248,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -6322,16 +6322,16 @@
                 "en": "Shall this limitation line go in the footnote?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, in die Fußnote bitte.",
+                "en": "Yes, put it in the footnote."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann können Sie es einfügen?",
+                "en": "When can you add it?"
               }
             ],
             "correctIndex": 0
@@ -6351,13 +6351,13 @@
                 "ko": "표본이 작아서 전국 수치로 말하면 안 된다고 적어 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 각주에 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 넣을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -6373,9 +6373,9 @@
             "sentence": "___은 오늘 저녁에 넣겠습니다.",
             "options": [
               "문장",
-              "창문",
-              "우유",
-              "지우개"
+              "한계",
+              "표본",
+              "전국"
             ],
             "correctIndex": 0
           }
@@ -6435,13 +6435,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -6509,16 +6509,16 @@
                 "en": "Should I change only this scale?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich höre. Ja, bitte?",
+                "en": "I'm listening. Go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur diese Skala korrigieren.",
+                "en": "Yes, fix just that scale."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann sehe ich die neue Grafik?",
+                "en": "When do I see the new chart?"
               }
             ],
             "correctIndex": 0
@@ -6538,13 +6538,13 @@
                 "ko": "가로축이 날짜가 맞는지 다시 봐 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "듣고 있어요. 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 눈금만 고쳐 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "새 도표는 언제 봐요?"
               }
             ],
             "correctIndex": 0
@@ -6560,9 +6560,9 @@
             "sentence": "___는 오전에 다시 올리겠습니다.",
             "options": [
               "도표",
-              "창문",
-              "우유",
-              "지우개"
+              "가로축",
+              "세로축",
+              "날짜"
             ],
             "correctIndex": 0
           }
@@ -6622,13 +6622,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -6696,16 +6696,16 @@
                 "en": "Should I keep only these four lines?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur vier Zeilen behalten.",
+                "en": "Yes, keep only four lines."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann geht der Entwurf herum?",
+                "en": "When will the draft circulate?"
               }
             ],
             "correctIndex": 0
@@ -6725,13 +6725,13 @@
                 "ko": "이야기는 빼고 결정된 문장만 남겨 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 네 줄만 남겨 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "초안은 언제 돌아요?"
               }
             ],
             "correctIndex": 0
@@ -6747,9 +6747,9 @@
             "sentence": "___은 내일 아침에 돌리겠습니다.",
             "options": [
               "초안",
-              "창문",
-              "우유",
-              "지우개"
+              "회의",
+              "기록문",
+              "결정"
             ],
             "correctIndex": 0
           }
@@ -6809,13 +6809,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -6883,16 +6883,16 @@
                 "en": "Shall we open the file info together?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, wo fangen wir an?",
+                "en": "Sure, where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, öffnen Sie auch die Dateiinfo.",
+                "en": "Yes, please open the file details too."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann weiß ich das Datum?",
+                "en": "When will I know the date?"
               }
             ],
             "correctIndex": 0
@@ -6912,13 +6912,13 @@
                 "ko": "이 사진 날짜가 사고 당일이 맞는지 확인해 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 어디부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 파일 정보도 열어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "날짜를 언제 알 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -6934,9 +6934,9 @@
             "sentence": "___는 한 시간 안에 적어 두겠습니다.",
             "options": [
               "날짜",
-              "창문",
-              "우유",
-              "지우개"
+              "증거",
+              "사진",
+              "당일"
             ],
             "correctIndex": 0
           }
@@ -6996,13 +6996,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -7070,16 +7070,16 @@
                 "en": "Shall this caution sentence go at the top?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich habe Zeit. Um welchen Fall geht es?",
+                "en": "I have time. Which case is it?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, bitte oben einfügen.",
+                "en": "Yes, please put it at the top."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann kommt es hinein?",
+                "en": "When will it be added?"
               }
             ],
             "correctIndex": 0
@@ -7099,13 +7099,13 @@
                 "ko": "앞부분만 보여 주면 오해가 납니다. 전체를 써야 해요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "지금 시간 괜찮아요. 어떤 건이에요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 위에 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 들어가요?"
               }
             ],
             "correctIndex": 0
@@ -7121,9 +7121,9 @@
             "sentence": "문장은 오늘 안에 ___.",
             "options": [
               "넣겠습니다",
-              "창문",
-              "우유",
-              "지우개"
+              "선택",
+              "편집",
+              "전체"
             ],
             "correctIndex": 0
           }
@@ -7183,13 +7183,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -7257,16 +7257,16 @@
                 "en": "Should I post this question?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, stellen Sie diese Frage.",
+                "en": "Yes, submit that question."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird sie veröffentlicht?",
+                "en": "When will it be made public?"
               }
             ],
             "correctIndex": 0
@@ -7286,13 +7286,13 @@
                 "ko": "숫자 근거가 어디 있는지 한 문장으로 묻고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 질문으로 올려 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 공개돼요?"
               }
             ],
             "correctIndex": 0
@@ -7308,9 +7308,9 @@
             "sentence": "질의는 내일 오전에 ___됩니다.",
             "options": [
               "공개",
-              "창문",
-              "우유",
-              "지우개"
+              "질의",
+              "숫자",
+              "근거"
             ],
             "correctIndex": 0
           }
@@ -7370,13 +7370,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -7444,16 +7444,16 @@
                 "en": "Shall this alternative go on the first line?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich höre. Ja, bitte?",
+                "en": "I'm listening. Go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, in die erste Zeile.",
+                "en": "Yes, put it in the first line."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann geht es raus?",
+                "en": "When will it be sent?"
               }
             ],
             "correctIndex": 0
@@ -7473,13 +7473,13 @@
                 "ko": "그 날짜는 안 되고, 다음 주 화요일은 됩니다."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "듣고 있어요. 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 첫 줄에 써 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 보내요?"
               }
             ],
             "correctIndex": 0
@@ -7495,9 +7495,9 @@
             "sentence": "___은 오늘 저녁에 보내겠습니다.",
             "options": [
               "제안",
-              "창문",
-              "우유",
-              "지우개"
+              "대안",
+              "거절",
+              "화요일"
             ],
             "correctIndex": 0
           }
@@ -7557,13 +7557,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -7631,16 +7631,16 @@
                 "en": "Shall this name be the metric?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich höre. Ja, bitte?",
+                "en": "I'm listening. Go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nehmen wir diesen Namen.",
+                "en": "Yes, let's use that name."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird die Definition notiert?",
+                "en": "When will the definition be written?"
               }
             ],
             "correctIndex": 0
@@ -7660,13 +7660,13 @@
                 "ko": "방문 수가 아니라 완료 건수로 보고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "듣고 있어요. 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 이름으로 하죠."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "정의는 언제 적어요?"
               }
             ],
             "correctIndex": 0
@@ -7682,9 +7682,9 @@
             "sentence": "___는 내일 오전에 적어 두겠습니다.",
             "options": [
               "정의",
-              "창문",
-              "우유",
-              "지우개"
+              "지표",
+              "완료",
+              "방문"
             ],
             "correctIndex": 0
           }
@@ -7744,13 +7744,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -7818,16 +7818,16 @@
                 "en": "Shall we go tomorrow morning?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich höre. Ja, bitte?",
+                "en": "I'm listening. Go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, gehen wir morgen früh hin.",
+                "en": "Yes, let's go tomorrow morning."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann legen wir die Zeit fest?",
+                "en": "When do we set the time?"
               }
             ],
             "correctIndex": 0
@@ -7847,13 +7847,13 @@
                 "ko": "이 균열은 가서 직접 봐야 할 것 같아요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "듣고 있어요. 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 내일 오전에 가죠."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "시간은 언제 정해요?"
               }
             ],
             "correctIndex": 0
@@ -7869,9 +7869,9 @@
             "sentence": "___ 시간은 오늘 저녁에 잡겠습니다.",
             "options": [
               "방문",
-              "창문",
-              "우유",
-              "지우개"
+              "현장",
+              "균열",
+              "직접"
             ],
             "correctIndex": 0
           }
@@ -7931,13 +7931,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -8005,16 +8005,16 @@
                 "en": "Shall we look at only these two columns first?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, wo fangen wir an?",
+                "en": "Sure, where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, zuerst nur diese zwei Spalten.",
+                "en": "Yes, let's start with those two columns."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann ist es fertig?",
+                "en": "When will it be done?"
               }
             ],
             "correctIndex": 0
@@ -8034,13 +8034,13 @@
                 "ko": "이 출입 기록을 근무표와 맞춰 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 어디부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 두 열만 먼저 봐요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 끝나요?"
               }
             ],
             "correctIndex": 0
@@ -8056,9 +8056,9 @@
             "sentence": "___ 확인은 한 시간 안에 끝납니다.",
             "options": [
               "교차",
-              "창문",
-              "우유",
-              "지우개"
+              "기록",
+              "근무표",
+              "열"
             ],
             "correctIndex": 0
           }
@@ -8118,13 +8118,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -8192,16 +8192,16 @@
                 "en": "Should I use this date as the base?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nehmen Sie dieses Datum.",
+                "en": "Yes, please use that date."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann kommt die Antwort?",
+                "en": "When will the answer come?"
               }
             ],
             "correctIndex": 0
@@ -8221,13 +8221,13 @@
                 "ko": "일주일은 너무 짧아요. 이주를 미룰 수 있는지 묻고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 날짜로 써 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "답은 언제 와요?"
               }
             ],
             "correctIndex": 0
@@ -8243,9 +8243,9 @@
             "sentence": "답은 내일 오전에 ___.",
             "options": [
               "오겠습니다",
-              "창문",
-              "우유",
-              "지우개"
+              "퇴거",
+              "통보",
+              "일주일"
             ],
             "correctIndex": 0
           }
@@ -8305,13 +8305,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -8379,16 +8379,16 @@
                 "en": "Should I turn on read receipt?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, mit Lesebestätigung senden.",
+                "en": "Yes, send it with the receipt on."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann geht es raus?",
+                "en": "When will it go out?"
               }
             ],
             "correctIndex": 0
@@ -8408,13 +8408,13 @@
                 "ko": "이 안내는 읽었는지 남게 보내고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 켜서 보내 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 보내요?"
               }
             ],
             "correctIndex": 0
@@ -8430,9 +8430,9 @@
             "sentence": "___은 오후에 바로 하겠습니다.",
             "options": [
               "발송",
-              "창문",
-              "우유",
-              "지우개"
+              "읽음",
+              "확인",
+              "안내"
             ],
             "correctIndex": 0
           }
@@ -8492,13 +8492,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -8566,16 +8566,16 @@
                 "en": "Should I swap these two numbers?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Was schauen wir zuerst an?",
+                "en": "Hello. What should we look at first?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, tauschen Sie auf diese beiden Plätze.",
+                "en": "Yes, change us to those two seats."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann weiß ich Bescheid?",
+                "en": "When will I know?"
               }
             ],
             "correctIndex": 0
@@ -8595,13 +8595,13 @@
                 "ko": "아이와 떨어진 좌석을 붙여 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 어떤 것부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 두 자리로 바꿔 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 알 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -8617,9 +8617,9 @@
             "sentence": "___은 삼십 분 안에 나옵니다.",
             "options": [
               "재배정",
-              "창문",
-              "우유",
-              "지우개"
+              "좌석",
+              "아이",
+              "번호"
             ],
             "correctIndex": 0
           }
@@ -8679,13 +8679,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -8753,16 +8753,16 @@
                 "en": "Shall we read this paragraph together?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+                "en": "Welcome. Just tell me what you need."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, lesen wir es zusammen.",
+                "en": "Yes, please read it with me."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Bekomme ich das schriftlich?",
+                "en": "Can I get the explanation in writing?"
               }
             ],
             "correctIndex": 0
@@ -8782,13 +8782,13 @@
                 "ko": "문제가 나면 어느 조항을 보는지 알려 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 편하게 말씀해 주세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 같이 읽어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "설명을 글로 받을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -8804,9 +8804,9 @@
             "sentence": "설명은 오늘 안에 적어 ___.",
             "options": [
               "드리겠습니다",
-              "창문",
-              "우유",
-              "지우개"
+              "분쟁",
+              "조항",
+              "숙소"
             ],
             "correctIndex": 0
           }
@@ -8866,13 +8866,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -8940,16 +8940,16 @@
                 "en": "Should I save the route as well?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, speichern Sie die Route mit.",
+                "en": "Yes, please save the route too."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann kommt die Fallnummer?",
+                "en": "When will the case number come?"
               }
             ],
             "correctIndex": 0
@@ -8969,13 +8969,13 @@
                 "ko": "미터기가 멈춘 채로 요금이 올랐어요. 위에 전해 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 경로도 저장해 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "접수 번호는 언제 나와요?"
               }
             ],
             "correctIndex": 0
@@ -8991,9 +8991,9 @@
             "sentence": "___ 번호는 한 시간 안에 나옵니다.",
             "options": [
               "접수",
-              "창문",
-              "우유",
-              "지우개"
+              "택시",
+              "요금",
+              "미터기"
             ],
             "correctIndex": 0
           }
@@ -9053,13 +9053,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -9127,16 +9127,16 @@
                 "en": "Shall this split go on the first line of the note?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich habe Zeit. Um welchen Fall geht es?",
+                "en": "I have time. Which case is it?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, in die erste Zeile schreiben.",
+                "en": "Yes, write it in the first line."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann geht die Notiz herum?",
+                "en": "When will the note circulate?"
               }
             ],
             "correctIndex": 0
@@ -9156,13 +9156,13 @@
                 "ko": "가격이 오른다는 말은 소문이고, 고시 숫자는 그대로예요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "지금 시간 괜찮아요. 어떤 건이에요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 첫 줄에 써 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "메모는 언제 돌아요?"
               }
             ],
             "correctIndex": 0
@@ -9178,9 +9178,9 @@
             "sentence": "___는 오후에 돌려 두겠습니다.",
             "options": [
               "메모",
-              "창문",
-              "우유",
-              "지우개"
+              "소문",
+              "사실",
+              "가격"
             ],
             "correctIndex": 0
           }
@@ -9240,13 +9240,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -9314,16 +9314,16 @@
                 "en": "Shall we look at only these three items?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, wo fangen wir an?",
+                "en": "Sure, where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur diese drei Punkte.",
+                "en": "Yes, let's cover just those three items."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wo notieren wir die Reihenfolge?",
+                "en": "Where do we write the order down?"
               }
             ],
             "correctIndex": 0
@@ -9343,13 +9343,13 @@
                 "ko": "십 분만 만나서 내일 발표 순서만 정하고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 어디부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 세 항목만 봐요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "순서는 어디에 적어요?"
               }
             ],
             "correctIndex": 0
@@ -9365,9 +9365,9 @@
             "sentence": "___는 자리에서 바로 적어 두겠습니다.",
             "options": [
               "순서",
-              "창문",
-              "우유",
-              "지우개"
+              "카페",
+              "발표",
+              "십 분"
             ],
             "correctIndex": 0
           }
@@ -9427,13 +9427,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -9501,16 +9501,16 @@
                 "en": "Should I put the hold mark now?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich höre. Ja, bitte?",
+                "en": "I'm listening. Go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, setzen Sie es jetzt.",
+                "en": "Yes, please add it now."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Was tun wir, wenn die Datei kommt?",
+                "en": "What do we do when the file arrives?"
               }
             ],
             "correctIndex": 0
@@ -9530,13 +9530,13 @@
                 "ko": "파일이 오기 전에는 이 건을 확정하지 말아 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "듣고 있어요. 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 지금 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "파일이 오면 어떻게 해요?"
               }
             ],
             "correctIndex": 0
@@ -9552,9 +9552,9 @@
             "sentence": "___이 오면 바로 다시 열겠습니다.",
             "options": [
               "파일",
-              "창문",
-              "우유",
-              "지우개"
+              "보류",
+              "역",
+              "확정"
             ],
             "correctIndex": 0
           }
@@ -9614,13 +9614,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -9688,16 +9688,16 @@
                 "en": "Should I print this item again?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Was schauen wir zuerst an?",
+                "en": "Hello. What should we look at first?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, bitte neu ausdrucken.",
+                "en": "Yes, please print it again."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann bekomme ich es?",
+                "en": "When can I get it?"
               }
             ],
             "correctIndex": 0
@@ -9717,13 +9717,13 @@
                 "ko": "약 이름과 날짜가 같이 있는 영수증이 필요해요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 어떤 것부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 다시 출력해 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 받을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -9739,9 +9739,9 @@
             "sentence": "서류는 오 분 안에 ___.",
             "options": [
               "나옵니다",
-              "창문",
-              "우유",
-              "지우개"
+              "약국",
+              "영수증",
+              "약"
             ],
             "correctIndex": 0
           }
@@ -9801,13 +9801,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -9875,16 +9875,16 @@
                 "en": "Should I pass this sentence to the kitchen?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, geben Sie es der Küche weiter.",
+                "en": "Yes, please pass it to the kitchen."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wo wird die Notiz angebracht?",
+                "en": "Where do you put the note?"
               }
             ],
             "correctIndex": 0
@@ -9904,13 +9904,13 @@
                 "ko": "땅콩이 들어가면 안 된다고 메모에 적어 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 주방에 전해 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "메모를 어디에 붙여요?"
               }
             ],
             "correctIndex": 0
@@ -9926,9 +9926,9 @@
             "sentence": "___는 바로 붙이겠습니다.",
             "options": [
               "메모",
-              "창문",
-              "우유",
-              "지우개"
+              "식당",
+              "땅콩",
+              "주방"
             ],
             "correctIndex": 0
           }
@@ -9988,13 +9988,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -10062,16 +10062,16 @@
                 "en": "Should I put this risk in the notice?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nehmen Sie es in den Hinweis auf.",
+                "en": "Yes, please add it to the guidance."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird es geändert?",
+                "en": "When will it be updated?"
               }
             ],
             "correctIndex": 0
@@ -10091,13 +10091,13 @@
                 "ko": "밤에 그 골목은 어둡고 미끄러워요. 다른 길을 쓰죠."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 안내에 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 고쳐요?"
               }
             ],
             "correctIndex": 0
@@ -10113,9 +10113,9 @@
             "sentence": "___는 오늘 저녁에 고치겠습니다.",
             "options": [
               "안내",
-              "창문",
-              "우유",
-              "지우개"
+              "우회",
+              "위험",
+              "골목"
             ],
             "correctIndex": 0
           }
@@ -10175,13 +10175,13 @@
       "grammarBlock": {
         "title": {
           "ko": "V-아/어 주시기 바랍니다",
-          "de": "formelle Bitte",
-          "en": "please kindly"
+          "de": "formelle schriftliche Bitte",
+          "en": "formal written request"
         },
         "explanation": {
-          "ko": "V-아/어 주시기 바랍니다 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+          "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+          "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements."
         }
       },
       "dialog": [
@@ -10249,16 +10249,16 @@
                 "en": "Should I write the address here?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Der Nächste bitte. Kommen Sie hierher.",
+                "en": "Next, please. Come this way."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich schreibe sie hier hin.",
+                "en": "Yes, I'll write it here."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann kommt es an?",
+                "en": "When will it arrive?"
               }
             ],
             "correctIndex": 0
@@ -10278,13 +10278,13 @@
                 "ko": "이 장을 스캔해서 제 메일로 보내 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 다음 분. 이쪽으로 오세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 여기에 적을게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 도착해요?"
               }
             ],
             "correctIndex": 0
@@ -10300,9 +10300,9 @@
             "sentence": "파일은 오 분 안에 ___.",
             "options": [
               "갑니다",
-              "창문",
-              "우유",
-              "지우개"
+              "편의점",
+              "스캔",
+              "메일"
             ],
             "correctIndex": 0
           }

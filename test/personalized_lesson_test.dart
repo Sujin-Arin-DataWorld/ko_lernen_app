@@ -71,6 +71,28 @@ void main() {
     expect(deck.map((word) => word.korean), ['환원하다', '담론']);
   });
 
+  test(
+    'C1 Tageskurs excludes an overdue A1 review when C1 content exists',
+    () async {
+      await Storage.setSrsRawJson(
+        '{"안녕하세요":{"e":2.5,"i":1,"n":"2020-01-01","r":1}}',
+      );
+      final all = [
+        _v('안녕하세요', 'A1', 'Alltag'),
+        _v('환원하다', 'C1', 'Alltag'),
+        _v('담론', 'C1', 'Gesellschaft'),
+      ];
+
+      final deck = PersonalizedLessonService.buildVocabDeck(
+        all,
+        levelCode: 'C1',
+        interests: const {},
+      );
+
+      expect(deck.map((word) => word.korean), ['환원하다', '담론']);
+    },
+  );
+
   test('Interessen heben passende Themen in den Deck', () {
     final all = <Vocab>[
       for (var i = 0; i < 50; i++) _v('a$i', 'A1', 'Alltag'),

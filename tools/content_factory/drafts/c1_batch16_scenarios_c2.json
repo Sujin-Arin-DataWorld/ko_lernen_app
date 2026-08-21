@@ -1554,8 +1554,8 @@
    },
    "intro": {
     "ko": "전시 서술 편집회의에서 두 증언자의 기억이 엇갈립니다. 하나로 합치기보다 다름을 보여 주는 방법을 정해야 합니다.",
-    "de": "In der Redaktionssitzung zur Ausstellungserzählung weichen die Erinnerungen der beiden Zeugen voneinander ab. Statt sie zu einer zusammenzuführen, muss ein Weg gefunden werden, die Unterschiede zu zeigen.",
-    "en": "At the editorial meeting for the exhibition narrative, the two witnesses' memories diverge. Instead of merging them into one, a way to show the difference needs to be decided."
+    "de": "In der Redaktionssitzung zur Ausstellungserzählung gehen die Erinnerungen der beiden Zeugen auseinander. Statt sie zusammenzuführen, muss entschieden werden, wie ihre Unterschiede sichtbar werden können.",
+    "en": "At an editorial meeting on the exhibition narrative, two witnesses remember things differently. Rather than merge the accounts, you need to decide how to make their differences visible."
    },
    "vocab": [
     {
@@ -1772,12 +1772,12 @@
    "title": {
     "ko": "운율을 살리면 뜻이 흔들립니다",
     "de": "Rhythmus zu retten heißt, den Sinn zu verschieben",
-    "en": "Saving the rhythm shifts the meaning"
+    "en": "Preserving the rhythm shifts the meaning"
    },
    "intro": {
     "ko": "시 번역 원고를 검토합니다. 운율을 살리면서 원문의 뜻이 조금씩 어긋났습니다.",
-    "de": "Ein Gedichtübersetzung wird geprüft. Beim Retten des Rhythmus hat sich der Sinn des Originals leicht verschoben.",
-    "en": "A poem translation draft is under review. Saving the rhythm has quietly shifted the original's meaning."
+    "de": "Ein Übersetzungsentwurf für ein Gedicht wird geprüft. Beim Bewahren des Rhythmus hat sich der Sinn des Originals leicht verschoben.",
+    "en": "A draft translation of a poem is under review. In preserving the rhythm, the original's meaning has gradually shifted."
    },
    "vocab": [
     {
@@ -5014,13 +5014,13 @@
    "xpReward": 170,
    "title": {
     "ko": "자리에서 물러날지언정 원칙은 넘기지 않습니다",
-    "de": "Ich trete vom Amt zurück, doch die Grundsätze gebe ich nicht ab",
-    "en": "I'll step down from the role, but I won't hand over the principles"
+    "de": "Ich trete vom Amt zurück, doch die Grundsätze gebe ich nicht preis",
+    "en": "I'll step down from the role, but I won't abandon the principles"
    },
    "intro": {
     "ko": "새 대변인이 정해졌습니다. 물러나는 입장이지만 지금까지 지킨 원칙까지 흔들리게 둘 수는 없습니다.",
-    "de": "Der neue Sprecher steht fest. Auch wenn ich zurücktrete, dürfen die bisher eingehaltenen Grundsätze nicht ins Wanken geraten.",
-    "en": "The new spokesperson has been chosen. Even though I'm stepping down, the principles upheld so far can't be allowed to slip."
+    "de": "Der neue Sprecher steht fest. Auch wenn ich zurücktrete, dürfen die bisher vertretenen Grundsätze nicht aufgeweicht werden.",
+    "en": "The new spokesperson has been chosen. Although I'm stepping down, we cannot allow the principles upheld so far to be weakened."
    },
    "vocab": [
     {

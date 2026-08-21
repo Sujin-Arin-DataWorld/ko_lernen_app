@@ -106,35 +106,37 @@ void main() {
     });
   });
 
-  // 레벨 캡 — A2 사용자가 B2 문항('양극화' 등)을 데일리에서 만나지 않게.
-  group('capToLevel — user level cap', () {
+  // 레벨 선택 — C 학습자가 A1 "안녕하세요" 같은 문항을 데일리에서 만나지 않게.
+  group('capToLevel — exact user level', () {
     final mixed = [
       for (var i = 0; i < 12; i++) _it('a1_$i'),
       for (var i = 0; i < 12; i++) _it('a2_$i', level: 'a2'),
       for (var i = 0; i < 12; i++) _it('b2_$i', level: 'b2'),
     ];
 
-    test('caps pool at user level', () {
+    test('keeps only the user\'s exact level', () {
       final pool = DailyChallengeScreen.capToLevel(mixed, 'a2', 10);
-      expect(pool, hasLength(24));
-      expect(pool.every((i) => i.level == 'a1' || i.level == 'a2'), isTrue);
+      expect(pool, hasLength(12));
+      expect(pool.every((i) => i.level == 'a2'), isTrue);
     });
 
     test('no level set → full pool (onboarding not done)', () {
       expect(DailyChallengeScreen.capToLevel(mixed, null, 10), hasLength(36));
     });
 
-    test('capped pool smaller than round → falls back to full pool', () {
+    test('small exact-level pool stays level-safe', () {
       final tiny = [_it('a1_0'), _it('b2_0', level: 'b2')];
-      expect(DailyChallengeScreen.capToLevel(tiny, 'a1', 10), hasLength(2));
+      final pool = DailyChallengeScreen.capToLevel(tiny, 'a1', 10);
+      expect(pool, hasLength(1));
+      expect(pool.single.level, 'a1');
     });
 
-    test('same seed stays deterministic after capping', () {
+    test('same seed stays deterministic after exact-level selection', () {
       final pool = DailyChallengeScreen.capToLevel(mixed, 'a2', 10);
       final a = DailyChallengeScreen.pickDaily(pool, 77, 10);
       final b = DailyChallengeScreen.pickDaily(pool, 77, 10);
       expect(a.map((e) => e.answer), b.map((e) => e.answer));
-      expect(a.every((i) => i.level != 'b2'), isTrue);
+      expect(a.every((i) => i.level == 'a2'), isTrue);
     });
   });
 }

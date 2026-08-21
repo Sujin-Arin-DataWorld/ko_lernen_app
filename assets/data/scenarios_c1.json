@@ -645,13 +645,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N을/를 고려하여",
-          "de": "unter Berücksichtigung",
-          "en": "taking into account"
+          "de": "unter Berücksichtigung von",
+          "en": "taking ... into account"
         },
         "explanation": {
-          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N을/를 고려하여로 판단이나 결정에 반영할 관점을 밝힙니다.",
+          "de": "Mit N을/를 고려하여 nennst du den Gesichtspunkt, der in eine Beurteilung oder Entscheidung einfließt.",
+          "en": "Use N을/를 고려하여 to name a factor that informs a judgment or decision."
         }
       },
       "dialog": [
@@ -719,16 +719,16 @@
                 "en": "Shall this range go on the first slide?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich habe Zeit. Um welchen Fall geht es?",
+                "en": "I have time. Which case is it?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, auf die erste Folie bitte.",
+                "en": "Yes, put it on the first slide."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann werden die Zahlen erneut abgeglichen?",
+                "en": "When will the numbers be reconciled?"
               }
             ],
             "correctIndex": 0
@@ -748,13 +748,13 @@
                 "ko": "삼십에서 사십으로 말해 주세요. 서른다섯이라고 단정하지 말고요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "지금 시간 괜찮아요. 어떤 건이에요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 첫 슬라이드에 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "숫자는 언제 다시 맞춰요?"
               }
             ],
             "correctIndex": 0
@@ -770,9 +770,9 @@
             "sentence": "___는 오전에 다시 맞춰 두겠습니다.",
             "options": [
               "숫자",
-              "창문",
-              "우유",
-              "지우개"
+              "구간",
+              "예상",
+              "단정"
             ],
             "correctIndex": 0
           }
@@ -832,13 +832,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N을/를 고려하여",
-          "de": "unter Berücksichtigung",
-          "en": "taking into account"
+          "de": "unter Berücksichtigung von",
+          "en": "taking ... into account"
         },
         "explanation": {
-          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N을/를 고려하여로 판단이나 결정에 반영할 관점을 밝힙니다.",
+          "de": "Mit N을/를 고려하여 nennst du den Gesichtspunkt, der in eine Beurteilung oder Entscheidung einfließt.",
+          "en": "Use N을/를 고려하여 to name a factor that informs a judgment or decision."
         }
       },
       "dialog": [
@@ -906,16 +906,16 @@
                 "en": "Shall this limit go under the table?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, unter die Tabelle schreiben.",
+                "en": "Yes, write it under the table."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann kommt es hinein?",
+                "en": "When will it be added?"
               }
             ],
             "correctIndex": 0
@@ -935,13 +935,13 @@
                 "ko": "이 결과는 이십 대 응답이 많아서 전체를 대표하지 않아요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 표 아래에 써 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 들어가요?"
               }
             ],
             "correctIndex": 0
@@ -957,9 +957,9 @@
             "sentence": "문장은 오늘 저녁에 ___.",
             "options": [
               "넣겠습니다",
-              "창문",
-              "우유",
-              "지우개"
+              "표본",
+              "설문",
+              "이십 대"
             ],
             "correctIndex": 0
           }
@@ -1019,13 +1019,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N을/를 고려하여",
-          "de": "unter Berücksichtigung",
-          "en": "taking into account"
+          "de": "unter Berücksichtigung von",
+          "en": "taking ... into account"
         },
         "explanation": {
-          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N을/를 고려하여로 판단이나 결정에 반영할 관점을 밝힙니다.",
+          "de": "Mit N을/를 고려하여 nennst du den Gesichtspunkt, der in eine Beurteilung oder Entscheidung einfließt.",
+          "en": "Use N을/를 고려하여 to name a factor that informs a judgment or decision."
         }
       },
       "dialog": [
@@ -1093,16 +1093,16 @@
                 "en": "Shall only this number sit large?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nur diese Zahl groß.",
+                "en": "Yes, make just that number large."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird die Folie geändert?",
+                "en": "When will the slide be updated?"
               }
             ],
             "correctIndex": 0
@@ -1122,13 +1122,13 @@
                 "ko": "오늘은 대기 시간만 말하고 방문자 수는 빼 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 숫자만 크게 해 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "슬라이드는 언제 고쳐요?"
               }
             ],
             "correctIndex": 0
@@ -1144,9 +1144,9 @@
             "sentence": "___는 오전에 고치겠습니다.",
             "options": [
               "슬라이드",
-              "창문",
-              "우유",
-              "지우개"
+              "브리핑",
+              "숫자",
+              "대기 시간"
             ],
             "correctIndex": 0
           }
@@ -1206,13 +1206,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N을/를 고려하여",
-          "de": "unter Berücksichtigung",
-          "en": "taking into account"
+          "de": "unter Berücksichtigung von",
+          "en": "taking ... into account"
         },
         "explanation": {
-          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N을/를 고려하여로 판단이나 결정에 반영할 관점을 밝힙니다.",
+          "de": "Mit N을/를 고려하여 nennst du den Gesichtspunkt, der in eine Beurteilung oder Entscheidung einfließt.",
+          "en": "Use N을/를 고려하여 to name a factor that informs a judgment or decision."
         }
       },
       "dialog": [
@@ -1280,16 +1280,16 @@
                 "en": "Should I write this order in the notice?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, in den Hinweis schreiben.",
+                "en": "Yes, write it in the notice."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird der Hinweis veröffentlicht?",
+                "en": "When will the notice be posted?"
               }
             ],
             "correctIndex": 0
@@ -1309,13 +1309,13 @@
                 "ko": "설명 십 분이 끝난 뒤에만 질문을 받고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 안내에 적어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "안내는 언제 올라가요?"
               }
             ],
             "correctIndex": 0
@@ -1331,9 +1331,9 @@
             "sentence": "___는 오늘 저녁에 올리겠습니다.",
             "options": [
               "안내",
-              "창문",
-              "우유",
-              "지우개"
+              "질의",
+              "시간",
+              "설명"
             ],
             "correctIndex": 0
           }
@@ -1393,13 +1393,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N을/를 고려하여",
-          "de": "unter Berücksichtigung",
-          "en": "taking into account"
+          "de": "unter Berücksichtigung von",
+          "en": "taking ... into account"
         },
         "explanation": {
-          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N을/를 고려하여로 판단이나 결정에 반영할 관점을 밝힙니다.",
+          "de": "Mit N을/를 고려하여 nennst du den Gesichtspunkt, der in eine Beurteilung oder Entscheidung einfließt.",
+          "en": "Use N을/를 고려하여 to name a factor that informs a judgment or decision."
         }
       },
       "dialog": [
@@ -1467,16 +1467,16 @@
                 "en": "Should I change it to this sentence?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ersetzen Sie es mit diesem Satz.",
+                "en": "Yes, replace it with that sentence."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann geht es erneut heraus?",
+                "en": "When will it go out again?"
               }
             ],
             "correctIndex": 0
@@ -1496,13 +1496,13 @@
                 "ko": "‘당연히 찬성하시죠’는 답을 유도해요. 중립으로 바꿔 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 문장으로 바꿔 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 다시 돌려요?"
               }
             ],
             "correctIndex": 0
@@ -1518,9 +1518,9 @@
             "sentence": "___은 내일 아침에 다시 돌리겠습니다.",
             "options": [
               "문항",
-              "창문",
-              "우유",
-              "지우개"
+              "유도",
+              "중립",
+              "설문"
             ],
             "correctIndex": 0
           }
@@ -1580,13 +1580,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N을/를 고려하여",
-          "de": "unter Berücksichtigung",
-          "en": "taking into account"
+          "de": "unter Berücksichtigung von",
+          "en": "taking ... into account"
         },
         "explanation": {
-          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N을/를 고려하여로 판단이나 결정에 반영할 관점을 밝힙니다.",
+          "de": "Mit N을/를 고려하여 nennst du den Gesichtspunkt, der in eine Beurteilung oder Entscheidung einfließt.",
+          "en": "Use N을/를 고려하여 to name a factor that informs a judgment or decision."
         }
       },
       "dialog": [
@@ -1654,16 +1654,16 @@
                 "en": "Should I put these two numbers on the same line?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich habe Zeit. Um welchen Fall geht es?",
+                "en": "I have time. Which case is it?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, in dieselbe Zeile setzen.",
+                "en": "Yes, put them on the same line."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird die Tabelle geändert?",
+                "en": "When will the table be updated?"
               }
             ],
             "correctIndex": 0
@@ -1683,13 +1683,13 @@
                 "ko": "두 배로 늘었다는 말 옆에 열 명에서 스무 명이라고 써 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "지금 시간 괜찮아요. 어떤 건이에요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 같은 줄에 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "표는 언제 고쳐요?"
               }
             ],
             "correctIndex": 0
@@ -1705,9 +1705,9 @@
             "sentence": "___는 오전에 고치겠습니다.",
             "options": [
               "표",
-              "창문",
-              "우유",
-              "지우개"
+              "상대 위험",
+              "두 배",
+              "열 명"
             ],
             "correctIndex": 0
           }
@@ -1767,13 +1767,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N을/를 고려하여",
-          "de": "unter Berücksichtigung",
-          "en": "taking into account"
+          "de": "unter Berücksichtigung von",
+          "en": "taking ... into account"
         },
         "explanation": {
-          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N을/를 고려하여로 판단이나 결정에 반영할 관점을 밝힙니다.",
+          "de": "Mit N을/를 고려하여 nennst du den Gesichtspunkt, der in eine Beurteilung oder Entscheidung einfließt.",
+          "en": "Use N을/를 고려하여 to name a factor that informs a judgment or decision."
         }
       },
       "dialog": [
@@ -1841,16 +1841,16 @@
                 "en": "Should I put this delay on the schedule?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, in den Zeitplan aufnehmen.",
+                "en": "Yes, add it to the schedule."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird der Zugang beantragt?",
+                "en": "When will access be requested?"
               }
             ],
             "correctIndex": 0
@@ -1870,13 +1870,13 @@
                 "ko": "이 폴더는 권한이 없어서 하루가 더 걸려요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 일정에 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "권한은 언제 요청해요?"
               }
             ],
             "correctIndex": 0
@@ -1892,9 +1892,9 @@
             "sentence": "___은 내일 오전에 요청하겠습니다.",
             "options": [
               "권한",
-              "창문",
-              "우유",
-              "지우개"
+              "접근",
+              "폴더",
+              "하루"
             ],
             "correctIndex": 0
           }
@@ -1954,13 +1954,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N을/를 고려하여",
-          "de": "unter Berücksichtigung",
-          "en": "taking into account"
+          "de": "unter Berücksichtigung von",
+          "en": "taking ... into account"
         },
         "explanation": {
-          "ko": "N을/를 고려하여 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N을/를 고려하여로 판단이나 결정에 반영할 관점을 밝힙니다.",
+          "de": "Mit N을/를 고려하여 nennst du den Gesichtspunkt, der in eine Beurteilung oder Entscheidung einfließt.",
+          "en": "Use N을/를 고려하여 to name a factor that informs a judgment or decision."
         }
       },
       "dialog": [
@@ -2028,16 +2028,16 @@
                 "en": "Should I write this order on the board?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, an die Tafel schreiben.",
+                "en": "Yes, write it on the board."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird sie aufgehängt?",
+                "en": "When will it be put up?"
               }
             ],
             "correctIndex": 0
@@ -2057,13 +2057,13 @@
                 "ko": "한 사람은 삼 분으로 맞춰 주세요. 같은 사람이 두 번 말하지 말고요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 칠판에 적어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 붙여요?"
               }
             ],
             "correctIndex": 0
@@ -2079,9 +2079,9 @@
             "sentence": "___는 시작 전에 바로 붙이겠습니다.",
             "options": [
               "순서",
-              "창문",
-              "우유",
-              "지우개"
+              "발언",
+              "삼 분",
+              "칠판"
             ],
             "correctIndex": 0
           }
@@ -3186,9 +3186,9 @@
         "en": "Is fan translation volunteering"
       },
       "intro": {
-        "ko": "팬이 만든 번역과 자막을 공식 계정이 씁니다. 지속 가능한 범위와 사례를 논의합니다.",
-        "de": "Der offizielle Account nutzt Übersetzungen und Untertitel von Fans. Ihr verhandelt Umfang und Vergütung.",
-        "en": "The official account uses fan-made translations and subtitles. You negotiate scope and payment."
+        "ko": "팬이 만든 번역과 자막을 공식 계정이 씁니다. 지속 가능한 범위와 보상 방식을 논의합니다.",
+        "de": "Der offizielle Account nutzt Übersetzungen und Untertitel von Fans. Ihr besprecht einen nachhaltigen Rahmen: Umfang und Vergütung.",
+        "en": "The official account uses fan-made translations and subtitles. You discuss a sustainable arrangement: scope and compensation."
       },
       "vocab": [
         {
@@ -4705,13 +4705,13 @@
       "xpReward": 160,
       "title": {
         "ko": "끝나는 날짜를 넣읍시다",
-        "de": "Setzen wir ein Enddatum hinein",
-        "en": "Let us put an end date in"
+        "de": "Legen wir ein Enddatum fest",
+        "en": "Let's set an end date"
       },
       "intro": {
         "ko": "임시 조치가 관행이 되는 걸 자주 봤습니다. 끝을 먼저 적어 둡니다.",
-        "de": "Übergangsregeln werden oft dauerhaft. Ihr schreibt das Ende gleich mit hinein.",
-        "en": "Temporary measures often become permanent. You write the ending in from the start."
+        "de": "Übergangsmaßnahmen werden oft zur Dauerlösung. Ihr setzt deshalb von Anfang an ein Enddatum.",
+        "en": "Temporary measures often become permanent. You set an end date from the start."
       },
       "vocab": [
         {
@@ -6236,8 +6236,8 @@
       },
       "intro": {
         "ko": "익명이라 공정하다고 합니다. 무엇이 여전히 드러나는지 짚습니다.",
-        "de": "Anonym gilt als fair. Du benennst, was trotzdem sichtbar bleibt.",
-        "en": "Blind is called fair. You name what still shows through."
+        "de": "Anonymität gilt als fair. Du benennst, was trotzdem Rückschlüsse zulässt.",
+        "en": "Blind review is often seen as fair. You identify what can still make someone identifiable."
       },
       "vocab": [
         {
@@ -9069,9 +9069,9 @@
         "en": "The source line is missing"
       },
       "intro": {
-        "ko": "쓰는 것 자체는 반갑습니다. 다만 어디서 왔는지가 지워졌습니다.",
-        "de": "Die Nutzung selbst freut dich. Nur die Herkunft wurde getilgt.",
-        "en": "You are glad it is being used. It is the origin that got erased."
+        "ko": "자료를 활용하는 것 자체는 반갑습니다. 다만 그 출처가 지워졌습니다.",
+        "de": "Dass das Material genutzt wird, ist an sich erfreulich. Nur der Hinweis auf seine Herkunft wurde entfernt.",
+        "en": "You're glad the material is being used. What was erased was the indication of where it came from."
       },
       "vocab": [
         {

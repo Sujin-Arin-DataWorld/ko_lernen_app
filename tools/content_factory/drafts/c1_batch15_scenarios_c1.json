@@ -1315,13 +1315,13 @@
    "xpReward": 160,
    "title": {
     "ko": "끝나는 날짜를 넣읍시다",
-    "de": "Setzen wir ein Enddatum hinein",
-    "en": "Let us put an end date in"
+    "de": "Legen wir ein Enddatum fest",
+    "en": "Let's set an end date"
    },
    "intro": {
     "ko": "임시 조치가 관행이 되는 걸 자주 봤습니다. 끝을 먼저 적어 둡니다.",
-    "de": "Übergangsregeln werden oft dauerhaft. Ihr schreibt das Ende gleich mit hinein.",
-    "en": "Temporary measures often become permanent. You write the ending in from the start."
+    "de": "Übergangsmaßnahmen werden oft zur Dauerlösung. Ihr setzt deshalb von Anfang an ein Enddatum.",
+    "en": "Temporary measures often become permanent. You set an end date from the start."
    },
    "vocab": [
     {
@@ -2832,8 +2832,8 @@
    },
    "intro": {
     "ko": "익명이라 공정하다고 합니다. 무엇이 여전히 드러나는지 짚습니다.",
-    "de": "Anonym gilt als fair. Du benennst, was trotzdem sichtbar bleibt.",
-    "en": "Blind is called fair. You name what still shows through."
+    "de": "Anonymität gilt als fair. Du benennst, was trotzdem Rückschlüsse zulässt.",
+    "en": "Blind review is often seen as fair. You identify what can still make someone identifiable."
    },
    "vocab": [
     {
@@ -5639,9 +5639,9 @@
     "en": "The source line is missing"
    },
    "intro": {
-    "ko": "쓰는 것 자체는 반갑습니다. 다만 어디서 왔는지가 지워졌습니다.",
-    "de": "Die Nutzung selbst freut dich. Nur die Herkunft wurde getilgt.",
-    "en": "You are glad it is being used. It is the origin that got erased."
+    "ko": "자료를 활용하는 것 자체는 반갑습니다. 다만 그 출처가 지워졌습니다.",
+    "de": "Dass das Material genutzt wird, ist an sich erfreulich. Nur der Hinweis auf seine Herkunft wurde entfernt.",
+    "en": "You're glad the material is being used. What was erased was the indication of where it came from."
    },
    "vocab": [
     {

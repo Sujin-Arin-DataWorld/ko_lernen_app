@@ -510,5 +510,43 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
         self.assertEqual(2, decision["reviewRevision"])
 
 
+class SmalltalkCopyRevisionTest(unittest.TestCase):
+    def test_copy_revision_preserves_semantic_review_and_requires_native_review(
+        self,
+    ) -> None:
+        old = {
+            "phraseId": "smalltalk_a1_demo",
+            "phraseFingerprintSha256": "b" * 64,
+            "routingSource": "exactOverride",
+            "canDoSegmentId": "segment_a1_demo",
+            "canDoFingerprintSha256": "c" * 64,
+            "semanticStatus": "exactMapped",
+            "reasonCode": "explicitSemanticRoute",
+            "reviewRevision": 2,
+        }
+        decision = {
+            **old,
+            "phraseFingerprintSha256": "a" * 64,
+            "copyRevision": 1,
+            "copyReviewStatus": "nativeReviewRequired",
+            "copyRevisionLedger": builder.CONTENT_HUMANIZATION_LEDGER_REF,
+            "previousPhraseFingerprintSha256": old["phraseFingerprintSha256"],
+        }
+        previous = {
+            "coverage": {"smalltalkRoutingAudit": {"phraseDecisions": [old]}}
+        }
+        current = {
+            "coverage": {"smalltalkRoutingAudit": {"phraseDecisions": [decision]}}
+        }
+
+        builder._validate_smalltalk_review_history(
+            current,
+            previous,
+            review_approvals={},
+        )
+
+        self.assertEqual(old["reviewRevision"], decision["reviewRevision"])
+
+
 if __name__ == "__main__":
     unittest.main()

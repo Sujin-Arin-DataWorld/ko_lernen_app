@@ -9,7 +9,6 @@ import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
 import '../services/cloze_loader.dart';
 import '../services/data_loader.dart';
-import '../services/personalized_lesson_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
@@ -49,23 +48,21 @@ class DailyChallengeScreen extends StatefulWidget {
     return copy.take(count).toList();
   }
 
-  /// 사용자 레벨 이하 문항만 남긴 풀 (rein, testbar).
+  /// 사용자의 현재 레벨 문항만 남긴 풀 (rein, testbar).
   ///
-  /// 데일리는 전 레벨 풀에서 뽑혀 A2 학습자에게 B2 문항('양극화' 등)이
-  /// 일반 카드처럼 노출됐다 (2026-08-13 테스터 리포트). [levelCode] 가 없거나
-  /// (온보딩 전) 캡을 씌운 풀이 [count] 보다 작으면 전체 풀로 폴백해
-  /// 시드 결정성과 작은 fixture 를 그대로 지킨다.
+  /// 데일리는 전 레벨 풀에서 뽑혀 A2 학습자에게 B2 문항('양극화' 등)이,
+  /// 반대로 C1/C2 학습자에게 A1 문항이 일반 카드처럼 노출됐다. 레벨은
+  /// "이 수준까지"가 아니라 이 화면에서 연습할 현재 난이도다. 따라서
+  /// [levelCode]가 있으면 정확히 같은 레벨만 쓴다. 열 문항보다 적더라도
+  /// 상위 또는 하위 레벨을 섞지 않고, 가능한 만큼의 짧은 라운드를 낸다.
+  /// 온보딩 전([levelCode] == null)에만 전체 풀을 사용한다.
   static List<ClozeItem> capToLevel(
     List<ClozeItem> all,
     String? levelCode,
     int count,
   ) {
     if (levelCode == null) return all;
-    final rank = PersonalizedLessonService.levelRank(levelCode);
-    final capped = all
-        .where((i) => PersonalizedLessonService.levelRank(i.level) <= rank)
-        .toList();
-    return capped.length >= count ? capped : all;
+    return all.where((item) => item.level == levelCode).toList();
   }
 
   @override

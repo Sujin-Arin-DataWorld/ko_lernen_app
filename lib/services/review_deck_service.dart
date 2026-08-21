@@ -87,9 +87,10 @@ class ReviewDeckService {
 
   /// Builds the shared daily SRS selection for the learner's current level.
   ///
-  /// New bundled cards must match the exact CEFR level. Custom/book words are
-  /// learner-owned and remain eligible regardless of CEFR tagging. Previously
-  /// reviewed cards keep their SRS schedule across levels.
+  /// Both new and scheduled bundled cards must match the exact CEFR level.
+  /// Custom/book words are learner-owned and remain eligible regardless of
+  /// CEFR tagging. This keeps a C1/C2 learner's "today" deck from surfacing
+  /// an A1 starter merely because it has an old SRS due date.
   static TodayReviewSelection todaySelectionForLevel(
     List<Vocab> all, {
     required String? levelCode,
@@ -107,10 +108,11 @@ class ReviewDeckService {
         .map((word) => word.korean)
         .toList(growable: false);
     final newIds = Storage.todayNewIds(newCandidateIds, max: newMax);
-    final reviewIds = Storage.todayReviewIds(allIds, max: reviewMax);
+    final reviewIds = Storage.todayReviewIds(newCandidateIds, max: reviewMax);
     final goalIds = Storage.todayGoalIdsForNewPool(
       allIds: allIds,
       newCandidateIds: newCandidateIds,
+      reviewCandidateIds: newCandidateIds,
       newMax: newMax,
       reviewMax: reviewMax,
     );

@@ -36,6 +36,10 @@ PDF, OCR, 표 또는 Library 페이지 판독이 선행되는 작업은 먼저
 # 현재 자산의 빠른 실패 게이트
 python3 tools/content_factory/validate_content.py
 
+# 이미 승격된 Smalltalk 문구의 append-only revision overlay가 runtime과
+# 일치하는지 확인한다. 과거 승인 CSV를 소급 편집하지 않는다.
+python3 tools/content_factory/apply_content_humanization.py --check
+
 # source 격리, clean-room brief, live curriculum/vocab/grammar 참조 검사
 python3 tools/content_factory/validate_reference_intake.py
 

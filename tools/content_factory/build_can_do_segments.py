@@ -8,6 +8,7 @@ validated as practice provenance only; their count never creates segments.
 from __future__ import annotations
 
 import argparse
+import copy
 import csv
 import hashlib
 import json
@@ -25,6 +26,16 @@ ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "assets" / "data"
 CATALOG_PATH = DATA / "can_do_segments.json"
 AUTHORITY_PATH = DATA / "can_do_content_authorities.json"
+CONTENT_HUMANIZATION_LEDGER_PATH = (
+    ROOT
+    / "tools"
+    / "content_factory"
+    / "review"
+    / "content_humanization_20260821.json"
+)
+CONTENT_HUMANIZATION_LEDGER_REF = (
+    "tools/content_factory/review/content_humanization_20260821.json"
+)
 PUBLISHED_AT = "2026-08-16T00:00:00.000Z"
 LEVELS = ("a1", "a2", "b1", "b2", "c1", "c2")
 EXPECTED_COUNTS = {"a1": 16, "a2": 16, "b1": 18, "b2": 20, "c1": 8, "c2": 8}
@@ -1070,6 +1081,51 @@ def _json_fingerprint(value: Any) -> str:
         separators=(",", ":"),
     ).encode("utf-8")
     return hashlib.sha256(canonical).hexdigest()
+
+
+def _humanization_changes_by_id() -> dict[str, list[dict[str, Any]]]:
+    if not CONTENT_HUMANIZATION_LEDGER_PATH.exists():
+        return {}
+    ledger = _read_json(CONTENT_HUMANIZATION_LEDGER_PATH)
+    if ledger.get("scope") != "assets/data/smalltalk.json":
+        raise ValueError("content humanization ledger has an unexpected scope")
+    changes_by_id: dict[str, list[dict[str, Any]]] = {}
+    for change in ledger.get("changes", []):
+        changes_by_id.setdefault(change["id"], []).append(change)
+    return changes_by_id
+
+
+def _at_nested_field(record: dict[str, Any], field_path: str) -> tuple[dict[str, Any], str]:
+    current = record
+    parts = field_path.split(".")
+    for part in parts[:-1]:
+        nested = current.get(part)
+        if not isinstance(nested, dict):
+            raise ValueError(f"{record.get('id')}.{field_path}: missing object {part}")
+        current = nested
+    return current, parts[-1]
+
+
+def _copy_revision_metadata(row: dict[str, Any]) -> dict[str, Any] | None:
+    changes = _humanization_changes_by_id().get(row["id"])
+    if not changes:
+        return None
+    previous = copy.deepcopy(row)
+    for change in changes:
+        current_parent, current_key = _at_nested_field(row, change["field"])
+        if current_parent.get(current_key) != change["after"]:
+            raise ValueError(
+                f"{row['id']}.{change['field']}: live copy does not match "
+                "the humanization ledger"
+            )
+        previous_parent, previous_key = _at_nested_field(previous, change["field"])
+        previous_parent[previous_key] = change["before"]
+    return {
+        "copyRevision": 1,
+        "copyReviewStatus": "nativeReviewRequired",
+        "copyRevisionLedger": CONTENT_HUMANIZATION_LEDGER_REF,
+        "previousPhraseFingerprintSha256": _json_fingerprint(previous),
+    }
 
 
 A1_PRACTICE: dict[str, tuple[str, str, str]] = {
@@ -2604,6 +2660,45 @@ def _validate_smalltalk_review_history(
     used_approvals: set[str] = set()
     for phrase_id, decision in new_decisions.items():
         old = old_decisions.get(phrase_id)
+        copy_revision = decision.get("copyRevision")
+        if copy_revision is not None:
+            if copy_revision != 1:
+                raise ValueError(f"smalltalk {phrase_id!r} copy revision is invalid")
+            if old is None:
+                raise ValueError(
+                    f"copy revision cannot introduce smalltalk {phrase_id!r}"
+                )
+            if decision.get("copyReviewStatus") != "nativeReviewRequired":
+                raise ValueError(f"smalltalk {phrase_id!r} copy review gate is invalid")
+            if decision.get("copyRevisionLedger") != CONTENT_HUMANIZATION_LEDGER_REF:
+                raise ValueError(f"smalltalk {phrase_id!r} copy revision ledger is invalid")
+            previous_fingerprint = decision.get("previousPhraseFingerprintSha256")
+            if old.get("phraseFingerprintSha256") not in {
+                previous_fingerprint,
+                decision.get("phraseFingerprintSha256"),
+            }:
+                raise ValueError(
+                    f"smalltalk {phrase_id!r} copy revision does not descend "
+                    "from the published phrase"
+                )
+            ignored = {
+                "phraseFingerprintSha256",
+                "reviewRevision",
+                "copyRevision",
+                "copyReviewStatus",
+                "copyRevisionLedger",
+                "previousPhraseFingerprintSha256",
+            }
+            keys = set(old) | set(decision)
+            if any(old.get(key) != decision.get(key) for key in keys - ignored):
+                raise ValueError(
+                    f"smalltalk {phrase_id!r} copy revision changed its "
+                    "semantic route"
+                )
+            decision["reviewRevision"] = old["reviewRevision"]
+            if phrase_id in approvals:
+                used_approvals.add(phrase_id)
+            continue
         if old is not None and _same_smalltalk_decision(old, decision):
             decision["reviewRevision"] = old["reviewRevision"]
         conservative_downgrade = (
@@ -2953,20 +3048,22 @@ def _expand_ab_practice(
         else:
             semantic_status = "exactMapped"
             reason_code = "explicitSemanticRoute"
-        smalltalk_phrase_decisions.append(
-            {
-                "phraseId": phrase_id,
-                "phraseFingerprintSha256": _json_fingerprint(row),
-                "routingSource": routing_source,
-                "canDoSegmentId": f"segment_{target}",
-                "canDoFingerprintSha256": _json_fingerprint(
-                    {"title": target_title, "canDo": target_can_do}
-                ),
-                "semanticStatus": semantic_status,
-                "reasonCode": reason_code,
-                "reviewRevision": 1,
-            }
-        )
+        phrase_decision = {
+            "phraseId": phrase_id,
+            "phraseFingerprintSha256": _json_fingerprint(row),
+            "routingSource": routing_source,
+            "canDoSegmentId": f"segment_{target}",
+            "canDoFingerprintSha256": _json_fingerprint(
+                {"title": target_title, "canDo": target_can_do}
+            ),
+            "semanticStatus": semantic_status,
+            "reasonCode": reason_code,
+            "reviewRevision": 1,
+        }
+        copy_revision = _copy_revision_metadata(row)
+        if copy_revision is not None:
+            phrase_decision.update(copy_revision)
+        smalltalk_phrase_decisions.append(phrase_decision)
         add(_ref("smalltalk", phrase_id), target, expected_level=level)
         ab_smalltalk_ids.append(phrase_id)
 

@@ -18,10 +18,10 @@ SCENES: list[dict[str, Any]] = [
         "sidekick": "minsu", "emoji": "🖋️", "xpReward": 170, "backdrop": "office",
         "title": {"ko": "운율을 살리면 뜻이 흔들립니다",
                   "de": "Rhythmus zu retten heißt, den Sinn zu verschieben",
-                  "en": "Saving the rhythm shifts the meaning"},
+                  "en": "Preserving the rhythm shifts the meaning"},
         "intro": {"ko": "시 번역 원고를 검토합니다. 운율을 살리면서 원문의 뜻이 조금씩 어긋났습니다.",
-                  "de": "Ein Gedichtübersetzung wird geprüft. Beim Retten des Rhythmus hat sich der Sinn des Originals leicht verschoben.",
-                  "en": "A poem translation draft is under review. Saving the rhythm has quietly shifted the original's meaning."},
+                  "de": "Ein Übersetzungsentwurf für ein Gedicht wird geprüft. Beim Bewahren des Rhythmus hat sich der Sinn des Originals leicht verschoben.",
+                  "en": "A draft translation of a poem is under review. In preserving the rhythm, the original's meaning has gradually shifted."},
         "grammarBlock": {
             "title": {"ko": "N에 불과하다", "de": "N에 불과하다: nicht mehr als",
                       "en": "N에 불과하다: nothing more than"},

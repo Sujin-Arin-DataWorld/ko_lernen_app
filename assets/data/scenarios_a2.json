@@ -4737,12 +4737,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -4810,16 +4810,16 @@
                 "en": "Shall we look at this table together?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Was können wir für Sie tun?",
+                "en": "Welcome. What brings you in?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, schauen wir gemeinsam.",
+                "en": "Yes, let's look at it together."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Ab wann gilt es?",
+                "en": "From when does it change?"
               }
             ],
             "correctIndex": 0
@@ -4839,13 +4839,13 @@
                 "ko": "데이터를 줄이고 요금만 낮추고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 어떤 일로 오셨어요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 같이 봐요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제부터 바뀌어요?"
               }
             ],
             "correctIndex": 0
@@ -4861,9 +4861,9 @@
             "sentence": "변경은 오늘 ___에 반영됩니다.",
             "options": [
               "저녁",
-              "창문",
-              "우유",
-              "지우개"
+              "요금제",
+              "데이터",
+              "바꾸다"
             ],
             "correctIndex": 0
           }
@@ -4924,12 +4924,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -4997,16 +4997,16 @@
                 "en": "Should I set it for ten days?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, bitte zehn Tage eintragen.",
+                "en": "Yes, please put in ten days."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Geht der Antrag jetzt durch?",
+                "en": "Does the request go through now?"
               }
             ],
             "correctIndex": 0
@@ -5026,13 +5026,13 @@
                 "ko": "다음 주 독일 여행이라 로밍이 필요해요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 열흘로 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "신청이 지금 되나요?"
               }
             ],
             "correctIndex": 0
@@ -5048,9 +5048,9 @@
             "sentence": "___은 바로 접수됩니다.",
             "options": [
               "신청",
-              "창문",
-              "우유",
-              "지우개"
+              "로밍",
+              "여행",
+              "독일"
             ],
             "correctIndex": 0
           }
@@ -5111,12 +5111,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -5184,16 +5184,16 @@
                 "en": "Press this machine."
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Was können wir für Sie tun?",
+                "en": "Welcome. What brings you in?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich ziehe hier eine Nummer.",
+                "en": "Okay, I'll take a number here."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie viele sind vor mir?",
+                "en": "How many people are ahead of me?"
               }
             ],
             "correctIndex": 0
@@ -5213,13 +5213,13 @@
                 "ko": "이체하려면 번호를 어디서 뽑아요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 어떤 일로 오셨어요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 여기서 뽑을게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "앞에 몇 명 있어요?"
               }
             ],
             "correctIndex": 0
@@ -5235,9 +5235,9 @@
             "sentence": "세 번만 기다리시면 ___.",
             "options": [
               "됩니다",
-              "창문",
-              "우유",
-              "지우개"
+              "은행",
+              "대기번호",
+              "이체"
             ],
             "correctIndex": 0
           }
@@ -5298,12 +5298,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -5371,16 +5371,16 @@
                 "en": "May I see your ID?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+                "en": "Welcome. Just tell me what you need."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, hier ist mein Ausweis.",
+                "en": "Yes, here is my ID."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Ab wann gilt das höhere Limit?",
+                "en": "From when is the limit raised?"
               }
             ],
             "correctIndex": 0
@@ -5400,13 +5400,13 @@
                 "ko": "오늘 집세 내려고 한도를 올리고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 편하게 말씀해 주세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 신분증 여기 있어요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제부터 올라가요?"
               }
             ],
             "correctIndex": 0
@@ -5422,9 +5422,9 @@
             "sentence": "___는 오 분 안에 바뀝니다.",
             "options": [
               "한도",
-              "창문",
-              "우유",
-              "지우개"
+              "이체",
+              "집세",
+              "신분증"
             ],
             "correctIndex": 0
           }
@@ -5485,12 +5485,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -5558,16 +5558,16 @@
                 "en": "Should I borrow a lock at the front?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+                "en": "Welcome. Just tell me what you need."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich leihe auch ein Schloss.",
+                "en": "Yes, I'll borrow a lock too."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wo finde ich den Schrank?",
+                "en": "Where do I go for the locker?"
               }
             ],
             "correctIndex": 0
@@ -5587,13 +5587,13 @@
                 "ko": "락커 하나 맡기고 운동할게요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 편하게 말씀해 주세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 자물쇠도 빌릴게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "락커는 어디로 가면 돼요?"
               }
             ],
             "correctIndex": 0
@@ -5609,9 +5609,9 @@
             "sentence": "___는 바로 안내하겠습니다.",
             "options": [
               "락커",
-              "창문",
-              "우유",
-              "지우개"
+              "헬스장",
+              "자물쇠",
+              "맡기다"
             ],
             "correctIndex": 0
           }
@@ -5672,12 +5672,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -5745,16 +5745,16 @@
                 "en": "Shall we roll the shoulders first?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Was ist denn?",
+                "en": "What is up?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, fangen wir mit den Schultern an.",
+                "en": "Yes, let's start with the shoulders."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie viele Minuten reichen?",
+                "en": "How many minutes is enough?"
               }
             ],
             "correctIndex": 0
@@ -5774,13 +5774,13 @@
                 "ko": "바로 뛰지 말고 준비운동부터 하자."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "왜, 무슨 일이야?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "응, 어깨부터 하자."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "몇 분 하면 돼?"
               }
             ],
             "correctIndex": 0
@@ -5796,9 +5796,9 @@
             "sentence": "___만 하면 충분해.",
             "options": [
               "삼 분",
-              "창문",
-              "우유",
-              "지우개"
+              "준비운동",
+              "어깨",
+              "돌리다"
             ],
             "correctIndex": 0
           }
@@ -5859,12 +5859,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -5932,16 +5932,16 @@
                 "en": "Could you show a photo?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Der Nächste bitte. Kommen Sie hierher.",
+                "en": "Next, please. Come this way."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich zeige Ihnen das Foto.",
+                "en": "Yes, I'll show you the photo."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie lange dauert es?",
+                "en": "How long will it take?"
               }
             ],
             "correctIndex": 0
@@ -5961,13 +5961,13 @@
                 "ko": "귀 위로 조금만 잘라 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 다음 분. 이쪽으로 오세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 사진 보여 드릴게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "얼마나 걸려요?"
               }
             ],
             "correctIndex": 0
@@ -5983,9 +5983,9 @@
             "sentence": "___ 안에 끝납니다.",
             "options": [
               "이십 분",
-              "창문",
-              "우유",
-              "지우개"
+              "미용실",
+              "길이",
+              "귀"
             ],
             "correctIndex": 0
           }
@@ -6046,12 +6046,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -6119,16 +6119,16 @@
                 "en": "Should I use this brown?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+                "en": "Welcome. Just tell me what you need."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nehmen Sie dieses Braun.",
+                "en": "Yes, please use that brown."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann sieht man die Farbe?",
+                "en": "When will the color show?"
               }
             ],
             "correctIndex": 0
@@ -6148,13 +6148,13 @@
                 "ko": "지금은 너무 밝아서 한 단계만 어둡게 하고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 편하게 말씀해 주세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 갈색으로 해 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "색이 언제 나와요?"
               }
             ],
             "correctIndex": 0
@@ -6170,9 +6170,9 @@
             "sentence": "___은 사십 분 뒤에 나옵니다.",
             "options": [
               "색",
-              "창문",
-              "우유",
-              "지우개"
+              "염색",
+              "어둡다",
+              "밝다"
             ],
             "correctIndex": 0
           }
@@ -6233,12 +6233,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -6306,16 +6306,16 @@
                 "en": "Could you say the car number?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+                "en": "Welcome. Just tell me what you need."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich sage Ihnen das Kennzeichen.",
+                "en": "Yes, I'll give you the plate number."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann bekomme ich den Aufkleber?",
+                "en": "When do I get the sticker?"
               }
             ],
             "correctIndex": 0
@@ -6335,13 +6335,13 @@
                 "ko": "주차 스티커를 새로 받고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 편하게 말씀해 주세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 번호 알려 드릴게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "스티커는 언제 받아요?"
               }
             ],
             "correctIndex": 0
@@ -6357,9 +6357,9 @@
             "sentence": "___는 내일 오전에 나옵니다.",
             "options": [
               "스티커",
-              "창문",
-              "우유",
-              "지우개"
+              "주차",
+              "아파트",
+              "차 번호"
             ],
             "correctIndex": 0
           }
@@ -6420,12 +6420,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -6493,16 +6493,16 @@
                 "en": "Go to the office in the morning."
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ah, hallo. Was gibt es?",
+                "en": "Oh, hello. What can I do?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich gehe am Morgen hin.",
+                "en": "Okay, I'll go in the morning."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Bekomme ich sie dort gleich?",
+                "en": "Can I get them right away there?"
               }
             ],
             "correctIndex": 0
@@ -6522,13 +6522,13 @@
                 "ko": "음식물 봉투가 떨어졌어요. 어디서 받아요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "아, 안녕하세요. 어떤 일이세요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 오전에 가 볼게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "가면 바로 받을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -6544,9 +6544,9 @@
             "sentence": "___는 바로 드립니다.",
             "options": [
               "봉투",
-              "창문",
-              "우유",
-              "지우개"
+              "음식물",
+              "떨어지다",
+              "관리실"
             ],
             "correctIndex": 0
           }
@@ -6607,12 +6607,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -6680,16 +6680,16 @@
                 "en": "Shall we look at this cell together?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich habe Zeit. Um welchen Fall geht es?",
+                "en": "I have time. Which case is it?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich schaue gern mit.",
+                "en": "Yes, I would like to look together."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann steht der Plan fest?",
+                "en": "When is the schedule fixed?"
               }
             ],
             "correctIndex": 0
@@ -6709,13 +6709,13 @@
                 "ko": "수요일 저녁 근무가 맞는지 보고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "지금 시간 괜찮아요. 어떤 건이에요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 같이 보고 싶어요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "표는 언제 확정돼요?"
               }
             ],
             "correctIndex": 0
@@ -6731,9 +6731,9 @@
             "sentence": "표는 오늘 안에 ___됩니다.",
             "options": [
               "확정",
-              "창문",
-              "우유",
-              "지우개"
+              "근무표",
+              "수요일",
+              "저녁"
             ],
             "correctIndex": 0
           }
@@ -6794,12 +6794,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -6867,16 +6867,16 @@
                 "en": "Should I write the hours again?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich schreibe sie neu auf.",
+                "en": "Okay, I'll write them down again."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird es erneut geprüft?",
+                "en": "When will it be checked again?"
               }
             ],
             "correctIndex": 0
@@ -6896,13 +6896,13 @@
                 "ko": "지난주 야간수당이 안 들어온 것 같아요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 다시 적어 볼게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 다시 확인돼요?"
               }
             ],
             "correctIndex": 0
@@ -6918,9 +6918,9 @@
             "sentence": "___는 내일 다시 확인됩니다.",
             "options": [
               "급여",
-              "창문",
-              "우유",
-              "지우개"
+              "야간수당",
+              "지난주",
+              "근무"
             ],
             "correctIndex": 0
           }
@@ -6981,12 +6981,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -7054,16 +7054,16 @@
                 "en": "Could you say how many cards were inside?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, drei Karten waren darin.",
+                "en": "Yes, three cards were in it."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Können Sie im Fundfach nachsehen?",
+                "en": "Could you check the storage box?"
               }
             ],
             "correctIndex": 0
@@ -7083,13 +7083,13 @@
                 "ko": "검은 지갑을 이 근처에서 잃어버렸어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 세 장 들어 있었어요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "보관함을 확인해 주실 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -7105,9 +7105,9 @@
             "sentence": "___을 바로 찾아보겠습니다.",
             "options": [
               "보관함",
-              "창문",
-              "우유",
-              "지우개"
+              "지갑",
+              "잃어버리다",
+              "검은색"
             ],
             "correctIndex": 0
           }
@@ -7168,12 +7168,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -7241,16 +7241,16 @@
                 "en": "Should I write the color on paper?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, schreiben Sie blau dazu.",
+                "en": "Yes, please write down blue."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wird es gleich aufbewahrt?",
+                "en": "Will it be stored right away?"
               }
             ],
             "correctIndex": 0
@@ -7270,13 +7270,13 @@
                 "ko": "이 우산을 의자 아래에서 주었어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 파란색이라고 적어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "맡기면 바로 보관돼요?"
               }
             ],
             "correctIndex": 0
@@ -7292,9 +7292,9 @@
             "sentence": "___은 바로 됩니다.",
             "options": [
               "보관",
-              "창문",
-              "우유",
-              "지우개"
+              "우산",
+              "줍다",
+              "의자"
             ],
             "correctIndex": 0
           }
@@ -7355,12 +7355,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -7428,16 +7428,16 @@
                 "en": "Could you show this box?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, dieses Feld ist es.",
+                "en": "Yes, this box is the one."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Können Sie ihn jetzt stempeln?",
+                "en": "Could you stamp it now?"
               }
             ],
             "correctIndex": 0
@@ -7457,13 +7457,13 @@
                 "ko": "이 부스에서 스탬프 받을 수 있어요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 이 칸이에요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "지금 찍어 주실 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -7479,9 +7479,9 @@
             "sentence": "___는 바로 찍어 드립니다.",
             "options": [
               "스탬프",
-              "창문",
-              "우유",
-              "지우개"
+              "축제",
+              "부스",
+              "칸"
             ],
             "correctIndex": 0
           }
@@ -7542,12 +7542,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -7615,16 +7615,16 @@
                 "en": "Would you like to take this number?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Was schauen wir zuerst an?",
+                "en": "Hello. What should we look at first?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich nehme eine Nummer.",
+                "en": "Yes, I'll take a number."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann bin ich dran?",
+                "en": "When will it be my turn?"
               }
             ],
             "correctIndex": 0
@@ -7644,13 +7644,13 @@
                 "ko": "이 줄이 얼마나 걸려요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 어떤 것부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 번호 받을게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "제 차례가 언제 와요?"
               }
             ],
             "correctIndex": 0
@@ -7666,9 +7666,9 @@
             "sentence": "___ 안에 차례가 옵니다.",
             "options": [
               "이십 분",
-              "창문",
-              "우유",
-              "지우개"
+              "부스",
+              "줄",
+              "번호"
             ],
             "correctIndex": 0
           }
@@ -7729,12 +7729,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -7802,16 +7802,16 @@
                 "en": "Shall we look at the usage together?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Was ist denn?",
+                "en": "What is up?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, schauen wir zusammen.",
+                "en": "Yes, let's look together."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann rechnen wir noch mal nach?",
+                "en": "When shall we do the math again?"
               }
             ],
             "correctIndex": 0
@@ -7831,13 +7831,13 @@
                 "ko": "이번 달 전기세가 왜 이렇게 높지?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "왜, 무슨 일이야?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "응, 같이 보자."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 다시 계산해 볼까?"
               }
             ],
             "correctIndex": 0
@@ -7853,9 +7853,9 @@
             "sentence": "내일 아침에 다시 ___해 보자.",
             "options": [
               "계산",
-              "창문",
-              "우유",
-              "지우개"
+              "청구서",
+              "전기세",
+              "사용량"
             ],
             "correctIndex": 0
           }
@@ -7916,12 +7916,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -7989,16 +7989,16 @@
                 "en": "Should I change it to the twenty-fifth?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, bitte auf den 25. setzen.",
+                "en": "Yes, please set it to the 25th."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Ab wann gilt das?",
+                "en": "From when does it apply?"
               }
             ],
             "correctIndex": 0
@@ -8018,13 +8018,13 @@
                 "ko": "월급날 이후로 자동이체를 옮기고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 이십오 일로 해 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제부터 적용돼요?"
               }
             ],
             "correctIndex": 0
@@ -8040,9 +8040,9 @@
             "sentence": "변경은 ___부터 적용됩니다.",
             "options": [
               "다음 달",
-              "창문",
-              "우유",
-              "지우개"
+              "자동이체",
+              "월급날",
+              "날짜"
             ],
             "correctIndex": 0
           }
@@ -8103,12 +8103,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -8176,16 +8176,16 @@
                 "en": "Would Saturday at eleven work?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Was können wir für Sie tun?",
+                "en": "Welcome. What brings you in?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, diese Zeit passt.",
+                "en": "Yes, that time works."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wird es sofort umgebucht?",
+                "en": "Is it moved right away?"
               }
             ],
             "correctIndex": 0
@@ -8205,13 +8205,13 @@
                 "ko": "금요일 네 시 예약을 토요일로 바꾸고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 어떤 일로 오셨어요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 시간으로 해 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "지금 바로 옮겨져요?"
               }
             ],
             "correctIndex": 0
@@ -8227,9 +8227,9 @@
             "sentence": "___은 바로 옮겨 드립니다.",
             "options": [
               "예약",
-              "창문",
-              "우유",
-              "지우개"
+              "미용실",
+              "금요일",
+              "토요일"
             ],
             "correctIndex": 0
           }
@@ -8290,12 +8290,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -8363,16 +8363,16 @@
                 "en": "Would a mat help?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte.",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, eine Matte wäre gut.",
+                "en": "Yes, a mat would help."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Ab wann geht das?",
+                "en": "From when is that possible?"
               }
             ],
             "correctIndex": 0
@@ -8392,13 +8392,13 @@
                 "ko": "열 시 이후에는 발소리를 조금만 줄여 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 매트를 깔아 주시면 좋겠어요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제부터 가능해요?"
               }
             ],
             "correctIndex": 0
@@ -8414,9 +8414,9 @@
             "sentence": "오늘 ___부터 조심하겠습니다.",
             "options": [
               "밤",
-              "창문",
-              "우유",
-              "지우개"
+              "소음",
+              "열 시",
+              "발소리"
             ],
             "correctIndex": 0
           }
@@ -8477,12 +8477,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -8550,16 +8550,16 @@
                 "en": "Should I put this note on the desk?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Sie können mir ruhig sagen.",
+                "en": "Go ahead, tell me."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, auf dem Tisch wäre gut.",
+                "en": "Yes, on the desk would be good."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Sieht man sie morgens gleich?",
+                "en": "Will it be visible first thing?"
               }
             ],
             "correctIndex": 0
@@ -8579,13 +8579,13 @@
                 "ko": "내일 올 사람에게 이것만은 남겨 두고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 편하게 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 책상 위에 두면 좋겠어요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "아침에 바로 보일까요?"
               }
             ],
             "correctIndex": 0
@@ -8601,9 +8601,9 @@
             "sentence": "___에 바로 볼 수 있게 두겠습니다.",
             "options": [
               "아침",
-              "창문",
-              "우유",
-              "지우개"
+              "인수인계",
+              "메모",
+              "책상"
             ],
             "correctIndex": 0
           }
@@ -8664,12 +8664,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -8737,16 +8737,16 @@
                 "en": "Could you show the request number?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Was können wir für Sie tun?",
+                "en": "Welcome. What brings you in?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, hier ist die Nummer.",
+                "en": "Yes, here is the number."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Muss ich lange warten?",
+                "en": "Do I have to wait long?"
               }
             ],
             "correctIndex": 0
@@ -8766,13 +8766,13 @@
                 "ko": "지난주에 신청한 신분증을 찾으러 왔어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 어떤 일로 오셨어요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 번호 여기 있어요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "오래 기다려요?"
               }
             ],
             "correctIndex": 0
@@ -8788,9 +8788,9 @@
             "sentence": "___은 바로 드리겠습니다.",
             "options": [
               "신분증",
-              "창문",
-              "우유",
-              "지우개"
+              "찾다",
+              "지난주",
+              "접수 번호"
             ],
             "correctIndex": 0
           }
@@ -8851,12 +8851,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -8924,16 +8924,16 @@
                 "en": "Please put on this yellow vest."
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich nehme die gelbe Weste.",
+                "en": "Okay, I'll wear the yellow vest."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wo hole ich sie ab?",
+                "en": "Where do I pick it up?"
               }
             ],
             "correctIndex": 0
@@ -8953,13 +8953,13 @@
                 "ko": "오늘 쓸 조끼를 어디서 받아요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 노란 조끼 입을게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "어디에서 가져가면 돼요?"
               }
             ],
             "correctIndex": 0
@@ -8975,9 +8975,9 @@
             "sentence": "___는 바로 옆에 있습니다.",
             "options": [
               "조끼",
-              "창문",
-              "우유",
-              "지우개"
+              "봉사",
+              "노랗다",
+              "입다"
             ],
             "correctIndex": 0
           }
@@ -9038,12 +9038,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -9111,16 +9111,16 @@
                 "en": "Should I give you a warm cup?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, das warme bitte.",
+                "en": "Yes, the warm one, please."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Darf ich jetzt probieren?",
+                "en": "May I taste it now?"
               }
             ],
             "correctIndex": 0
@@ -9140,13 +9140,13 @@
                 "ko": "이 차 조금 맛봐도 될까요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 따뜻한 걸로 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "지금 맛봐도 돼요?"
               }
             ],
             "correctIndex": 0
@@ -9162,9 +9162,9 @@
             "sentence": "___은 바로 됩니다.",
             "options": [
               "시식",
-              "창문",
-              "우유",
-              "지우개"
+              "차",
+              "맛보다",
+              "따뜻하다"
             ],
             "correctIndex": 0
           }
@@ -9225,12 +9225,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -9298,16 +9298,16 @@
                 "en": "Shall we look at this box more closely?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich höre. Ja, bitte?",
+                "en": "I'm listening. Go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, bitte größer zeigen.",
+                "en": "Yes, please show it bigger."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie lange dauert das Lesen?",
+                "en": "How long does reading it take?"
               }
             ],
             "correctIndex": 0
@@ -9327,13 +9327,13 @@
                 "ko": "서명 전에 근무 시간만 같이 보고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "듣고 있어요. 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 크게 봐 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "읽는 데 얼마나 걸려요?"
               }
             ],
             "correctIndex": 0
@@ -9349,9 +9349,9 @@
             "sentence": "___만 읽으면 됩니다.",
             "options": [
               "오 분",
-              "창문",
-              "우유",
-              "지우개"
+              "근로계약",
+              "근무 시간",
+              "서명"
             ],
             "correctIndex": 0
           }
@@ -9412,12 +9412,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -9485,16 +9485,16 @@
                 "en": "Shall we use this corner for a moment?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Worum geht es?",
+                "en": "Hello. What is it about?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich stelle sie kurz dorthin.",
+                "en": "Okay, I'll leave it there briefly."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird geleert?",
+                "en": "When will it be cleared?"
               }
             ],
             "correctIndex": 0
@@ -9514,13 +9514,13 @@
                 "ko": "재활용실이 가득 차서 상자를 둘 데가 없어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무슨 일이세요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 잠시만 거기 둘게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 비워요?"
               }
             ],
             "correctIndex": 0
@@ -9536,9 +9536,9 @@
             "sentence": "___에 바로 비우겠습니다.",
             "options": [
               "오후",
-              "창문",
-              "우유",
-              "지우개"
+              "재활용실",
+              "상자",
+              "가득"
             ],
             "correctIndex": 0
           }
@@ -9599,12 +9599,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -9672,16 +9672,16 @@
                 "en": "Would you put the card on this machine?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Was schauen wir zuerst an?",
+                "en": "Hello. What should we look at first?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich lege die Karte auf.",
+                "en": "Yes, I'll put the card on."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann sehe ich den Restbetrag?",
+                "en": "When will the balance show?"
               }
             ],
             "correctIndex": 0
@@ -9701,13 +9701,13 @@
                 "ko": "카드에 돈이 얼마나 남았어요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 어떤 것부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 카드 올릴게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "잔액이 언제 보여요?"
               }
             ],
             "correctIndex": 0
@@ -9723,9 +9723,9 @@
             "sentence": "___은 바로 나옵니다.",
             "options": [
               "잔액",
-              "창문",
-              "우유",
-              "지우개"
+              "카드",
+              "기계",
+              "남다"
             ],
             "correctIndex": 0
           }
@@ -9786,12 +9786,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -9859,16 +9859,16 @@
                 "en": "Shall we move it indoors to another day?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, sag.",
+                "en": "Yeah, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, verschieben wir es.",
+                "en": "Okay, let's move it to another day."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann entscheiden wir neu?",
+                "en": "When shall we decide again?"
               }
             ],
             "correctIndex": 0
@@ -9888,13 +9888,13 @@
                 "ko": "비가 너무 와서 오늘 모임 취소하자."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "응, 말해."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "그래, 다른 날로 옮기자."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 다시 정할까?"
               }
             ],
             "correctIndex": 0
@@ -9910,9 +9910,9 @@
             "sentence": "내일 아침에 다시 ___.",
             "options": [
               "정하자",
-              "창문",
-              "우유",
-              "지우개"
+              "비",
+              "모임",
+              "취소"
             ],
             "correctIndex": 0
           }
@@ -9973,12 +9973,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -10046,16 +10046,16 @@
                 "en": "Should I write the name here?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, schreiben Sie den Namen ein.",
+                "en": "Yes, please write the name in."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann ist die Karte fertig?",
+                "en": "When will the card be ready?"
               }
             ],
             "correctIndex": 0
@@ -10075,13 +10075,13 @@
                 "ko": "오늘 오는 손님 방문증이 필요해요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 이름 적어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "카드는 언제 나와요?"
               }
             ],
             "correctIndex": 0
@@ -10097,9 +10097,9 @@
             "sentence": "___는 오 분 안에 나옵니다.",
             "options": [
               "카드",
-              "창문",
-              "우유",
-              "지우개"
+              "방문증",
+              "손님",
+              "이름"
             ],
             "correctIndex": 0
           }
@@ -10160,12 +10160,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -10233,16 +10233,16 @@
                 "en": "Should I write who will cover?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich schreibe die Vertretung dazu.",
+                "en": "Yes, I'll note the cover too."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann etwa bekomme ich Antwort?",
+                "en": "About when will I get an answer?"
               }
             ],
             "correctIndex": 0
@@ -10262,13 +10262,13 @@
                 "ko": "금요일에 병원이라 하루 쉬고 싶어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 대체 근무자도 적을게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제쯤 답을 받을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -10284,9 +10284,9 @@
             "sentence": "오후에 바로 답 ___.",
             "options": [
               "드리겠습니다",
-              "창문",
-              "우유",
-              "지우개"
+              "휴가",
+              "점장",
+              "금요일"
             ],
             "correctIndex": 0
           }
@@ -10347,12 +10347,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -10420,16 +10420,16 @@
                 "en": "Could you say the last four digits?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich sage die letzten vier Ziffern.",
+                "en": "Yes, I'll give the last four digits."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Dauert der Abgleich lange?",
+                "en": "Does the check take long?"
               }
             ],
             "correctIndex": 0
@@ -10449,13 +10449,13 @@
                 "ko": "이 라벨 번호가 제 짐 맞아요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 끝 네 자리 알려 드릴게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "확인이 오래 걸려요?"
               }
             ],
             "correctIndex": 0
@@ -10471,9 +10471,9 @@
             "sentence": "___는 바로 됩니다.",
             "options": [
               "대조",
-              "창문",
-              "우유",
-              "지우개"
+              "라벨",
+              "번호",
+              "짐"
             ],
             "correctIndex": 0
           }
@@ -10534,12 +10534,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -10607,16 +10607,16 @@
                 "en": "Count on six o'clock."
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich komme vor sechs.",
+                "en": "Okay, I'll come before six."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Schließen Sie manchmal früher?",
+                "en": "Do you sometimes close earlier?"
               }
             ],
             "correctIndex": 0
@@ -10636,13 +10636,13 @@
                 "ko": "오늘 몇 시까지 해요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 여섯 시 전에 올게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "더 일찍 닫는 날도 있어요?"
               }
             ],
             "correctIndex": 0
@@ -10658,9 +10658,9 @@
             "sentence": "___가 끝나면 더 일찍 닫습니다.",
             "options": [
               "재고",
-              "창문",
-              "우유",
-              "지우개"
+              "운영시간",
+              "여섯 시",
+              "오늘"
             ],
             "correctIndex": 0
           }
@@ -10721,12 +10721,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -10794,16 +10794,16 @@
                 "en": "Should I put the bag on the chair?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, was gibt es?",
+                "en": "Yeah, what is it?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich lege die Tasche drauf.",
+                "en": "Yes, I'll leave the bag on it."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie lange brauchst du?",
+                "en": "How long will you be?"
               }
             ],
             "correctIndex": 0
@@ -10823,13 +10823,13 @@
                 "ko": "화장실 가는 동안 이 자리 좀 맡아 줘."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "응, 무슨 일이야?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "응, 가방 올려 둘게."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "얼마나 걸려?"
               }
             ],
             "correctIndex": 0
@@ -10845,9 +10845,9 @@
             "sentence": "___이면 돌아올게.",
             "options": [
               "오 분",
-              "창문",
-              "우유",
-              "지우개"
+              "자리",
+              "맡다",
+              "가방"
             ],
             "correctIndex": 0
           }
@@ -10908,12 +10908,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -10981,16 +10981,16 @@
                 "en": "Should I put the bottle on this side?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Was ist denn?",
+                "en": "What is up?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, stellen wir sie dorthin.",
+                "en": "Yes, let's put it there."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie lange pausieren wir?",
+                "en": "How long should we rest?"
               }
             ],
             "correctIndex": 0
@@ -11010,13 +11010,13 @@
                 "ko": "한 세트 끝나고 물 한 모금만 하자."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "왜, 무슨 일이야?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "응, 그쪽에 두자."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "얼마나 쉴까?"
               }
             ],
             "correctIndex": 0
@@ -11032,9 +11032,9 @@
             "sentence": "일 분만 쉬면 다시 ___ 돼.",
             "options": [
               "하면",
-              "창문",
-              "우유",
-              "지우개"
+              "세트",
+              "물",
+              "한 모금"
             ],
             "correctIndex": 0
           }
@@ -11095,12 +11095,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -11168,16 +11168,16 @@
                 "en": "Look at this notice."
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Was schauen wir zuerst an?",
+                "en": "Hello. What should we look at first?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich lese den Hinweis.",
+                "en": "Okay, I'll read the notice."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Ab wann ist geöffnet?",
+                "en": "From what time is it open?"
               }
             ],
             "correctIndex": 0
@@ -11197,13 +11197,13 @@
                 "ko": "아침 식사는 몇 시부터예요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 어떤 것부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 안내문 볼게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "몇 시부터 열어요?"
               }
             ],
             "correctIndex": 0
@@ -11219,9 +11219,9 @@
             "sentence": "___부터 바로 열립니다.",
             "options": [
               "일곱 시",
-              "창문",
-              "우유",
-              "지우개"
+              "안내 데스크",
+              "아침",
+              "식사"
             ],
             "correctIndex": 0
           }
@@ -11282,12 +11282,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -11355,16 +11355,16 @@
                 "en": "Could you tell me the entrance?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Was können wir für Sie tun?",
+                "en": "Welcome. What brings you in?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich komme zum Haupteingang.",
+                "en": "Yes, I'll come out at the main entrance."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie lange können Sie warten?",
+                "en": "How long can you wait?"
               }
             ],
             "correctIndex": 0
@@ -11384,13 +11384,13 @@
                 "ko": "제가 나오는 데 오 분 걸려요. 기다려 주실 수 있어요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 어떤 일로 오셨어요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 정문 쪽으로 나갈게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "몇 분까지 기다려 주실 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -11406,9 +11406,9 @@
             "sentence": "___만 기다리겠습니다.",
             "options": [
               "오 분",
-              "창문",
-              "우유",
-              "지우개"
+              "택시",
+              "기다리다",
+              "입구"
             ],
             "correctIndex": 0
           }
@@ -11469,12 +11469,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -11542,16 +11542,16 @@
                 "en": "May I see your passport?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, hier ist mein Pass.",
+                "en": "Yes, here is my passport."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Ab wann kann ich sie nutzen?",
+                "en": "From when can I use it?"
               }
             ],
             "correctIndex": 0
@@ -11571,13 +11571,13 @@
                 "ko": "일주일 쓸 유심 하나 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 여권 여기 있어요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제부터 쓸 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -11593,9 +11593,9 @@
             "sentence": "개통은 ___ 안에 됩니다.",
             "options": [
               "십 분",
-              "창문",
-              "우유",
-              "지우개"
+              "공항",
+              "유심",
+              "일주일"
             ],
             "correctIndex": 0
           }
@@ -11656,12 +11656,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -11729,16 +11729,16 @@
                 "en": "Shall we look at this receipt together?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Was schauen wir zuerst an?",
+                "en": "Hello. What should we look at first?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, schauen wir zusammen.",
+                "en": "Yes, let's look together."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Was passiert mit dem fehlenden Geld?",
+                "en": "What happens with the missing money?"
               }
             ],
             "correctIndex": 0
@@ -11758,13 +11758,13 @@
                 "ko": "만 원 냈는데 거스름이 맞는지 봐 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 어떤 것부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 같이 봐요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "모자란 돈은 어떻게 돼요?"
               }
             ],
             "correctIndex": 0
@@ -11780,9 +11780,9 @@
             "sentence": "___은 바로 드리겠습니다.",
             "options": [
               "차액",
-              "창문",
-              "우유",
-              "지우개"
+              "거스름",
+              "만 원",
+              "영수증"
             ],
             "correctIndex": 0
           }
@@ -11843,12 +11843,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -11916,16 +11916,16 @@
                 "en": "Whose share should this plate be?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Der Nächste bitte. Kommen Sie hierher.",
+                "en": "Next, please. Come this way."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Diesen Teller bitte auf meine Rechnung.",
+                "en": "Please put that dish on my bill."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Können wir getrennte Rechnungen bekommen?",
+                "en": "Can we get separate bills?"
               }
             ],
             "correctIndex": 0
@@ -11945,13 +11945,13 @@
                 "ko": "오늘은 각자 계산할게요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 다음 분. 이쪽으로 오세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "그 접시는 제 몫으로 넣어 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "계산서를 따로 받을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -11967,9 +11967,9 @@
             "sentence": "___는 바로 나눠 드리겠습니다.",
             "options": [
               "계산서",
-              "창문",
-              "우유",
-              "지우개"
+              "식당",
+              "각자",
+              "계산"
             ],
             "correctIndex": 0
           }
@@ -12030,12 +12030,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -12103,16 +12103,16 @@
                 "en": "Look across the street."
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Hallo. Wo fangen wir an?",
+                "en": "Hello. Where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich gehe auf die andere Seite.",
+                "en": "Okay, I'll go to the other side."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wo ist der Zebrastreifen?",
+                "en": "Where is the crosswalk?"
               }
             ],
             "correctIndex": 0
@@ -12132,13 +12132,13 @@
                 "ko": "시청 가는 정류장이 이 쪽 맞아요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "안녕하세요. 무엇부터 도와드릴까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 건너편으로 갈게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "횡단보도가 어디에 있어요?"
               }
             ],
             "correctIndex": 0
@@ -12154,9 +12154,9 @@
             "sentence": "___는 바로 앞에 있습니다.",
             "options": [
               "횡단보도",
-              "창문",
-              "우유",
-              "지우개"
+              "정류장",
+              "시청",
+              "건너편"
             ],
             "correctIndex": 0
           }
@@ -12217,12 +12217,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -12290,16 +12290,16 @@
                 "en": "Black and white?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, schwarz-weiß bitte.",
+                "en": "Yes, black and white, please."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie lange dauert es?",
+                "en": "How long will it take?"
               }
             ],
             "correctIndex": 0
@@ -12319,13 +12319,13 @@
                 "ko": "이 장 한 장만 복사해 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 흑백으로 해 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "얼마나 걸려요?"
               }
             ],
             "correctIndex": 0
@@ -12341,9 +12341,9 @@
             "sentence": "복사는 ___이면 됩니다.",
             "options": [
               "일 분",
-              "창문",
-              "우유",
-              "지우개"
+              "편의점",
+              "복사",
+              "한 장"
             ],
             "correctIndex": 0
           }
@@ -12404,12 +12404,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -12477,16 +12477,16 @@
                 "en": "Would you like the window seat?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Was können wir für Sie tun?",
+                "en": "Welcome. What brings you in?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich setze mich ans Fenster.",
+                "en": "Okay, I'll sit by the window."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Kann ich mich jetzt hinsetzen?",
+                "en": "Can I sit down now?"
               }
             ],
             "correctIndex": 0
@@ -12506,13 +12506,13 @@
                 "ko": "콘센트 있는 자리 있어요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 어떤 일로 오셨어요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 창가로 앉을게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "지금 앉을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -12528,9 +12528,9 @@
             "sentence": "그 ___는 바로 비었습니다.",
             "options": [
               "자리",
-              "창문",
-              "우유",
-              "지우개"
+              "카페",
+              "콘센트",
+              "창가"
             ],
             "correctIndex": 0
           }
@@ -12591,12 +12591,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -12664,16 +12664,16 @@
                 "en": "Should I open the door with the night bell?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+                "en": "Welcome. Just tell me what you need."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich klingle an der Nachtglocke.",
+                "en": "Okay, I'll ring the night bell."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Ist das um diese Zeit in Ordnung?",
+                "en": "Is it okay to ring at that hour?"
               }
             ],
             "correctIndex": 0
@@ -12693,13 +12693,13 @@
                 "ko": "열한 시에 도착할 것 같아요. 그래도 들어가도 돼요?"
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 편하게 말씀해 주세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 야간 벨을 누를게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "그때 눌러도 괜찮아요?"
               }
             ],
             "correctIndex": 0
@@ -12715,9 +12715,9 @@
             "sentence": "___하시면 바로 열어 드리겠습니다.",
             "options": [
               "도착",
-              "창문",
-              "우유",
-              "지우개"
+              "호텔",
+              "늦게",
+              "열한 시"
             ],
             "correctIndex": 0
           }
@@ -12778,12 +12778,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -12851,16 +12851,16 @@
                 "en": "Would you put the card here?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Der Nächste bitte. Kommen Sie hierher.",
+                "en": "Next, please. Come this way."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Gut, ich halte sie hier auf.",
+                "en": "Okay, I'll hold it here."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie lange dauert eine neue?",
+                "en": "How long does a new one take?"
               }
             ],
             "correctIndex": 0
@@ -12880,13 +12880,13 @@
                 "ko": "출입증이 문을 안 열어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 다음 분. 이쪽으로 오세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 여기 올려 볼게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "새로 만들면 얼마나 걸려요?"
               }
             ],
             "correctIndex": 0
@@ -12902,9 +12902,9 @@
             "sentence": "___은 십 분 안에 됩니다.",
             "options": [
               "재발급",
-              "창문",
-              "우유",
-              "지우개"
+              "출입증",
+              "문",
+              "카드"
             ],
             "correctIndex": 0
           }
@@ -12965,12 +12965,12 @@
         "title": {
           "ko": "V-(으)ㄹ까요",
           "de": "Vorschlag",
-          "en": "shall we"
+          "en": "proposal"
         },
         "explanation": {
-          "ko": "V-(으)ㄹ까요 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+          "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+          "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together."
         }
       },
       "dialog": [
@@ -13038,16 +13038,16 @@
                 "en": "Could you show the hold number?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Guten Tag. Sagen Sie ruhig, was Sie brauchen.",
+                "en": "Welcome. Just tell me what you need."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, ich zeige die Nummer.",
+                "en": "Yes, I'll show the number."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Kann ich sie jetzt bekommen?",
+                "en": "Can I get it now?"
               }
             ],
             "correctIndex": 0
@@ -13067,13 +13067,13 @@
                 "ko": "오전에 맡긴 가방을 찾으러 왔어요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "어서 오세요. 편하게 말씀해 주세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 번호 보여 드릴게요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "지금 받을 수 있어요?"
               }
             ],
             "correctIndex": 0
@@ -13089,9 +13089,9 @@
             "sentence": "___은 바로 드리겠습니다.",
             "options": [
               "가방",
-              "창문",
-              "우유",
-              "지우개"
+              "보관함",
+              "오전",
+              "번호"
             ],
             "correctIndex": 0
           }

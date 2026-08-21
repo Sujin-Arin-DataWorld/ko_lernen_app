@@ -645,13 +645,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N이라고 가정하더라도",
-          "de": "selbst angenommen",
-          "en": "even assuming"
+          "de": "selbst unter der Annahme, dass",
+          "en": "even assuming that"
         },
         "explanation": {
-          "ko": "N이라고 가정하더라도 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N이라고 가정하더라도로 어떤 전제를 인정한 뒤에도 뒤의 판단이 유효함을 나타냅니다.",
+          "de": "Mit N이라고 가정하더라도 räumst du eine Annahme ein und zeigst, dass die folgende Aussage trotzdem gilt.",
+          "en": "Use N이라고 가정하더라도 to grant an assumption while showing that the following claim still holds."
         }
       },
       "dialog": [
@@ -719,16 +719,16 @@
                 "en": "Shall this premise sit above the item?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, über die Agenda setzen.",
+                "en": "Yes, put it above the agenda."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird es hochgesetzt?",
+                "en": "When will it be posted?"
               }
             ],
             "correctIndex": 0
@@ -748,13 +748,13 @@
                 "ko": "비용을 줄인다는 전제가 이미 들어가 있어요. 그걸 먼저 말해야 해요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 안건 위에 올려 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 올려요?"
               }
             ],
             "correctIndex": 0
@@ -770,9 +770,9 @@
             "sentence": "문장은 시작 전에 올려 ___.",
             "options": [
               "두겠습니다",
-              "창문",
-              "우유",
-              "지우개"
+              "전제",
+              "비용",
+              "안건"
             ],
             "correctIndex": 0
           }
@@ -832,13 +832,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N이라고 가정하더라도",
-          "de": "selbst angenommen",
-          "en": "even assuming"
+          "de": "selbst unter der Annahme, dass",
+          "en": "even assuming that"
         },
         "explanation": {
-          "ko": "N이라고 가정하더라도 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N이라고 가정하더라도로 어떤 전제를 인정한 뒤에도 뒤의 판단이 유효함을 나타냅니다.",
+          "de": "Mit N이라고 가정하더라도 räumst du eine Annahme ein und zeigst, dass die folgende Aussage trotzdem gilt.",
+          "en": "Use N이라고 가정하더라도 to grant an assumption while showing that the following claim still holds."
         }
       },
       "dialog": [
@@ -906,16 +906,16 @@
                 "en": "Should I change it to this active sentence?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, wo fangen wir an?",
+                "en": "Sure, where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, nehmen Sie diesen Satz.",
+                "en": "Yes, change it to that sentence."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird das Protokoll geändert?",
+                "en": "When will the record be fixed?"
               }
             ],
             "correctIndex": 0
@@ -935,13 +935,13 @@
                 "ko": "‘실수가 발생했다’는 누가 했는지 안 보여요. 주어를 밝혀 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 어디부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 문장으로 바꿔 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "기록은 언제 고쳐요?"
               }
             ],
             "correctIndex": 0
@@ -957,9 +957,9 @@
             "sentence": "___은 오늘 저녁에 고치겠습니다.",
             "options": [
               "기록",
-              "창문",
-              "우유",
-              "지우개"
+              "수동",
+              "주어",
+              "실수"
             ],
             "correctIndex": 0
           }
@@ -1019,13 +1019,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N이라고 가정하더라도",
-          "de": "selbst angenommen",
-          "en": "even assuming"
+          "de": "selbst unter der Annahme, dass",
+          "en": "even assuming that"
         },
         "explanation": {
-          "ko": "N이라고 가정하더라도 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N이라고 가정하더라도로 어떤 전제를 인정한 뒤에도 뒤의 판단이 유효함을 나타냅니다.",
+          "de": "Mit N이라고 가정하더라도 räumst du eine Annahme ein und zeigst, dass die folgende Aussage trotzdem gilt.",
+          "en": "Use N이라고 가정하더라도 to grant an assumption while showing that the following claim still holds."
         }
       },
       "dialog": [
@@ -1093,16 +1093,16 @@
                 "en": "Shall this boundary go on the first line of the reply?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich habe Zeit. Um welchen Fall geht es?",
+                "en": "I have time. Which case is it?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, gleich in der ersten Zeile klarstellen.",
+                "en": "Yes, state it in the first line."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann geht die Antwort raus?",
+                "en": "When will the reply be sent?"
               }
             ],
             "correctIndex": 0
@@ -1122,13 +1122,13 @@
                 "ko": "가격을 정하는 일은 제 위임 밖이에요. 위로 가야 합니다."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "지금 시간 괜찮아요. 어떤 건이에요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 첫 줄에 밝혀 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "회신은 언제 보내요?"
               }
             ],
             "correctIndex": 0
@@ -1144,9 +1144,9 @@
             "sentence": "___은 오후에 보내겠습니다.",
             "options": [
               "회신",
-              "창문",
-              "우유",
-              "지우개"
+              "위임",
+              "경계",
+              "가격"
             ],
             "correctIndex": 0
           }
@@ -1206,13 +1206,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N이라고 가정하더라도",
-          "de": "selbst angenommen",
-          "en": "even assuming"
+          "de": "selbst unter der Annahme, dass",
+          "en": "even assuming that"
         },
         "explanation": {
-          "ko": "N이라고 가정하더라도 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N이라고 가정하더라도로 어떤 전제를 인정한 뒤에도 뒤의 판단이 유효함을 나타냅니다.",
+          "de": "Mit N이라고 가정하더라도 räumst du eine Annahme ein und zeigst, dass die folgende Aussage trotzdem gilt.",
+          "en": "Use N이라고 가정하더라도 to grant an assumption while showing that the following claim still holds."
         }
       },
       "dialog": [
@@ -1280,16 +1280,16 @@
                 "en": "Should I mark this box as empty?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich habe Zeit. Um welchen Fall geht es?",
+                "en": "I have time. Which case is it?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, als Lücke markieren.",
+                "en": "Yes, mark it as blank."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann wird es markiert?",
+                "en": "When will it be marked?"
               }
             ],
             "correctIndex": 0
@@ -1309,13 +1309,13 @@
                 "ko": "삼 월 기록이 없습니다. 있다고 채우지 말고 공백이라고 쓰세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "지금 시간 괜찮아요. 어떤 건이에요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 비움으로 표시해 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 표시해요?"
               }
             ],
             "correctIndex": 0
@@ -1331,9 +1331,9 @@
             "sentence": "___는 오늘 안에 넣겠습니다.",
             "options": [
               "표시",
-              "창문",
-              "우유",
-              "지우개"
+              "기록",
+              "공백",
+              "삼 월"
             ],
             "correctIndex": 0
           }
@@ -1393,13 +1393,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N이라고 가정하더라도",
-          "de": "selbst angenommen",
-          "en": "even assuming"
+          "de": "selbst unter der Annahme, dass",
+          "en": "even assuming that"
         },
         "explanation": {
-          "ko": "N이라고 가정하더라도 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N이라고 가정하더라도로 어떤 전제를 인정한 뒤에도 뒤의 판단이 유효함을 나타냅니다.",
+          "de": "Mit N이라고 가정하더라도 räumst du eine Annahme ein und zeigst, dass die folgende Aussage trotzdem gilt.",
+          "en": "Use N이라고 가정하더라도 to grant an assumption while showing that the following claim still holds."
         }
       },
       "dialog": [
@@ -1467,16 +1467,16 @@
                 "en": "Should I pass this filing number?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, geben Sie diese Nummer weiter.",
+                "en": "Yes, pass that number along."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wie lange warte ich?",
+                "en": "How long do I wait?"
               }
             ],
             "correctIndex": 0
@@ -1496,13 +1496,13 @@
                 "ko": "자동 답만 오고 이의가 안 들어가요. 사람 창구로 연결해 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 번호로 넘겨 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "얼마나 기다려요?"
               }
             ],
             "correctIndex": 0
@@ -1518,9 +1518,9 @@
             "sentence": "사람 ___는 삼십 분 안에 연결됩니다.",
             "options": [
               "창구",
-              "창문",
-              "우유",
-              "지우개"
+              "챗봇",
+              "이의",
+              "자동"
             ],
             "correctIndex": 0
           }
@@ -1580,13 +1580,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N이라고 가정하더라도",
-          "de": "selbst angenommen",
-          "en": "even assuming"
+          "de": "selbst unter der Annahme, dass",
+          "en": "even assuming that"
         },
         "explanation": {
-          "ko": "N이라고 가정하더라도 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N이라고 가정하더라도로 어떤 전제를 인정한 뒤에도 뒤의 판단이 유효함을 나타냅니다.",
+          "de": "Mit N이라고 가정하더라도 räumst du eine Annahme ein und zeigst, dass die folgende Aussage trotzdem gilt.",
+          "en": "Use N이라고 가정하더라도 to grant an assumption while showing that the following claim still holds."
         }
       },
       "dialog": [
@@ -1654,16 +1654,16 @@
                 "en": "Should I open only this time window first?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, bitte?",
+                "en": "Yes, go ahead."
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, zuerst nur dieses Zeitfenster.",
+                "en": "Yes, let's start with that time window."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann kommt das Protokoll?",
+                "en": "When will the log arrive?"
               }
             ],
             "correctIndex": 0
@@ -1683,13 +1683,13 @@
                 "ko": "이 거절이 어떤 규칙을 썼는지 로그를 보여 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 말씀하세요."
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 그 시간대만 먼저 봐요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "로그는 언제 와요?"
               }
             ],
             "correctIndex": 0
@@ -1705,9 +1705,9 @@
             "sentence": "___는 한 시간 안에 받겠습니다.",
             "options": [
               "로그",
-              "창문",
-              "우유",
-              "지우개"
+              "추적",
+              "거절",
+              "규칙"
             ],
             "correctIndex": 0
           }
@@ -1767,13 +1767,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N이라고 가정하더라도",
-          "de": "selbst angenommen",
-          "en": "even assuming"
+          "de": "selbst unter der Annahme, dass",
+          "en": "even assuming that"
         },
         "explanation": {
-          "ko": "N이라고 가정하더라도 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N이라고 가정하더라도로 어떤 전제를 인정한 뒤에도 뒤의 판단이 유효함을 나타냅니다.",
+          "de": "Mit N이라고 가정하더라도 räumst du eine Annahme ein und zeigst, dass die folgende Aussage trotzdem gilt.",
+          "en": "Use N이라고 가정하더라도 to grant an assumption while showing that the following claim still holds."
         }
       },
       "dialog": [
@@ -1841,16 +1841,16 @@
                 "en": "Should I move this spot to the first line?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ja, wo fangen wir an?",
+                "en": "Sure, where should we start?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, in die erste Zeile verschieben.",
+                "en": "Yes, move it to the first line."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann ändert es sich?",
+                "en": "When will it change?"
               }
             ],
             "correctIndex": 0
@@ -1870,13 +1870,13 @@
                 "ko": "철회가 네 번을 눌러야 나와요. 첫 화면으로 올려 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "네, 어디부터 볼까요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 첫 줄로 옮겨 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "언제 바뀌어요?"
               }
             ],
             "correctIndex": 0
@@ -1892,9 +1892,9 @@
             "sentence": "위치는 내일 오전에 ___.",
             "options": [
               "바뀝니다",
-              "창문",
-              "우유",
-              "지우개"
+              "철회",
+              "화면",
+              "네 번"
             ],
             "correctIndex": 0
           }
@@ -1954,13 +1954,13 @@
       "grammarBlock": {
         "title": {
           "ko": "N이라고 가정하더라도",
-          "de": "selbst angenommen",
-          "en": "even assuming"
+          "de": "selbst unter der Annahme, dass",
+          "en": "even assuming that"
         },
         "explanation": {
-          "ko": "N이라고 가정하더라도 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-          "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-          "en": "Use this form to ask politely or name a condition."
+          "ko": "N이라고 가정하더라도로 어떤 전제를 인정한 뒤에도 뒤의 판단이 유효함을 나타냅니다.",
+          "de": "Mit N이라고 가정하더라도 räumst du eine Annahme ein und zeigst, dass die folgende Aussage trotzdem gilt.",
+          "en": "Use N이라고 가정하더라도 to grant an assumption while showing that the following claim still holds."
         }
       },
       "dialog": [
@@ -2028,16 +2028,16 @@
                 "en": "Should I put these three groups in the table?"
               },
               {
-                "de": "Alles ist bereits abgeschlossen.",
-                "en": "Everything is already finished."
+                "de": "Ich habe Zeit. Um welchen Fall geht es?",
+                "en": "I have time. Which case is it?"
               },
               {
-                "de": "Der Termin wurde auf nächste Woche verschoben.",
-                "en": "The appointment was moved to next week."
+                "de": "Ja, in drei Gruppen aufteilen.",
+                "en": "Yes, split it into three groups."
               },
               {
-                "de": "Es wird keine Nummer vergeben.",
-                "en": "No number will be issued."
+                "de": "Wann kommt die Tabelle?",
+                "en": "When will the table be up?"
               }
             ],
             "correctIndex": 0
@@ -2057,13 +2057,13 @@
                 "ko": "전체 평균만 보지 말고 나이대별로 나눠 주세요."
               },
               {
-                "ko": "내일로 미뤄도 괜찮아요."
+                "ko": "지금 시간 괜찮아요. 어떤 건이에요?"
               },
               {
-                "ko": "이 일은 이미 끝났습니다."
+                "ko": "네, 세 집단으로 나눠 주세요."
               },
               {
-                "ko": "번호를 바꿔 주세요."
+                "ko": "표는 언제 올라와요?"
               }
             ],
             "correctIndex": 0
@@ -2079,9 +2079,9 @@
             "sentence": "___는 내일 아침에 올리겠습니다.",
             "options": [
               "표",
-              "창문",
-              "우유",
-              "지우개"
+              "차등",
+              "평균",
+              "나이대"
             ],
             "correctIndex": 0
           }
@@ -4946,8 +4946,8 @@
       },
       "intro": {
         "ko": "전시 서술 편집회의에서 두 증언자의 기억이 엇갈립니다. 하나로 합치기보다 다름을 보여 주는 방법을 정해야 합니다.",
-        "de": "In der Redaktionssitzung zur Ausstellungserzählung weichen die Erinnerungen der beiden Zeugen voneinander ab. Statt sie zu einer zusammenzuführen, muss ein Weg gefunden werden, die Unterschiede zu zeigen.",
-        "en": "At the editorial meeting for the exhibition narrative, the two witnesses' memories diverge. Instead of merging them into one, a way to show the difference needs to be decided."
+        "de": "In der Redaktionssitzung zur Ausstellungserzählung gehen die Erinnerungen der beiden Zeugen auseinander. Statt sie zusammenzuführen, muss entschieden werden, wie ihre Unterschiede sichtbar werden können.",
+        "en": "At an editorial meeting on the exhibition narrative, two witnesses remember things differently. Rather than merge the accounts, you need to decide how to make their differences visible."
       },
       "vocab": [
         {
@@ -5166,12 +5166,12 @@
       "title": {
         "ko": "운율을 살리면 뜻이 흔들립니다",
         "de": "Rhythmus zu retten heißt, den Sinn zu verschieben",
-        "en": "Saving the rhythm shifts the meaning"
+        "en": "Preserving the rhythm shifts the meaning"
       },
       "intro": {
         "ko": "시 번역 원고를 검토합니다. 운율을 살리면서 원문의 뜻이 조금씩 어긋났습니다.",
-        "de": "Ein Gedichtübersetzung wird geprüft. Beim Retten des Rhythmus hat sich der Sinn des Originals leicht verschoben.",
-        "en": "A poem translation draft is under review. Saving the rhythm has quietly shifted the original's meaning."
+        "de": "Ein Übersetzungsentwurf für ein Gedicht wird geprüft. Beim Bewahren des Rhythmus hat sich der Sinn des Originals leicht verschoben.",
+        "en": "A draft translation of a poem is under review. In preserving the rhythm, the original's meaning has gradually shifted."
       },
       "vocab": [
         {
@@ -8438,13 +8438,13 @@
       "xpReward": 170,
       "title": {
         "ko": "자리에서 물러날지언정 원칙은 넘기지 않습니다",
-        "de": "Ich trete vom Amt zurück, doch die Grundsätze gebe ich nicht ab",
-        "en": "I'll step down from the role, but I won't hand over the principles"
+        "de": "Ich trete vom Amt zurück, doch die Grundsätze gebe ich nicht preis",
+        "en": "I'll step down from the role, but I won't abandon the principles"
       },
       "intro": {
         "ko": "새 대변인이 정해졌습니다. 물러나는 입장이지만 지금까지 지킨 원칙까지 흔들리게 둘 수는 없습니다.",
-        "de": "Der neue Sprecher steht fest. Auch wenn ich zurücktrete, dürfen die bisher eingehaltenen Grundsätze nicht ins Wanken geraten.",
-        "en": "The new spokesperson has been chosen. Even though I'm stepping down, the principles upheld so far can't be allowed to slip."
+        "de": "Der neue Sprecher steht fest. Auch wenn ich zurücktrete, dürfen die bisher vertretenen Grundsätze nicht aufgeweicht werden.",
+        "en": "The new spokesperson has been chosen. Although I'm stepping down, we cannot allow the principles upheld so far to be weakened."
       },
       "vocab": [
         {
