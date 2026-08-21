@@ -1,13 +1,13 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.10
+- **Version:** 1.11
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3a-deck-audit-2026-08-21`
-- **Base:** `origin/main@26a536c4b1658740f6d6fd013a13e755bf49d86d`
-- **State:** Phase 3A Vocab recall outer UI locally green and ready for one
-  current-head PR
-- **Next action:** push this exact head, open one PR, verify its automatic CI,
-  then merge only if that current-head run is green
+- **Branch:** `session/uiux-bible-learning-3a-recall-closeout-2026-08-21`
+- **Base:** `origin/main@5159ad64fdef37faecaed2360d3e79f9716b0564`
+- **State:** Phase 3A Vocab recall outer UI merged; clean restart boundary
+- **Next action:** create a fresh worktree from latest `origin/main` and audit
+  `/vocab/result` outer result hierarchy without changing Deck, recall-session,
+  route, or SRS contracts
 
 ## 1. Purpose
 
@@ -339,7 +339,7 @@ production, and deployment remain unclaimed and out of scope.
 | 2D Hanok tab/world boundary | merged | PR #125; main merge `e104ae213b813edd20777f0f063acf6bc9c2088c`; CI run 32433115213 green; German 320×640 at 200% Stage shortcut matrix added; approved runtime, grants, reveals, rewards, evidence, and assets unchanged |
 | Phase 2 closeout | merged | PR #126; main merge `ba6036e4c11e5affbbde758534a1be33c7f88ecc`; docs-only CI path filter correctly scheduled no run |
 | 3A Vocab catalog caption | merged | PR #127; main merge `1dc2172070be9b4d26f8dd166dc8cfacd384b7eb`; PR CI run 32434385023 green; locked hint renderer and grid measurement share the 12.5dp `caption` token; German 320×640 at 200% contract added; raw screen TextStyle 317→316; 130 local Deck geometry/gesture/flip/order/SRS tests green; Linux golden generation run 32434187771 changed only the medium/expanded Vocab baselines; post-merge run 32434973864 was cancelled before jobs and older main run 32433364094 was force-cancelled during bundle build with its Play upload step confirmed skipped |
-| 3A Vocab recall outer UI | local green | `/vocab/recall` loading/error/empty/prompt/result now share `SoriStudyFrame`; recall input uses `SoriTextField` while its editable-field key remains stable; DE/EN 320×640 at 200% input-to-result flow green; raw screen TextField 23→22; analyze clean; 144 Deck geometry/gesture/flip/order/SRS tests and 13 shared responsive tests green; awaiting one current-head PR/CI |
+| 3A Vocab recall outer UI | merged | PR #130; main merge `5159ad64fdef37faecaed2360d3e79f9716b0564`; PR current-head CI run 32436071838 green; `/vocab/recall` loading/error/empty/prompt/result share `SoriStudyFrame`; recall input uses `SoriTextField` while its editable-field key remains stable; DE/EN 320×640 at 200% input-to-result flow green; raw screen TextField 23→22; analyze clean; 144 Deck geometry/gesture/flip/order/SRS tests and 13 shared responsive tests green; post-merge main run 32436306821 cancelled before jobs, so no Play upload job was created or run |
 | 3A remaining Deck outer UI | pending | after the recall PR merges, create a fresh worktree and audit `/vocab/result` outer result hierarchy; preserve Deck, recall-session, route, and SRS contracts |
 | 3B–3D learning flows | pending | split by evidence boundary |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
