@@ -52,7 +52,13 @@ void main() {
 
       expect(find.byType(Dialog), findsOneWidget);
       expect(find.byType(ContentFeedbackCard), findsOneWidget);
-      expect(find.byType(SoriProgressBar), findsNothing);
+      expect(
+        find.descendant(
+          of: find.byType(ContentFeedbackCard),
+          matching: find.byType(SoriProgressBar),
+        ),
+        findsNothing,
+      );
       final context = tester
           .widget<ContentFeedbackCard>(find.byType(ContentFeedbackCard))
           .feedbackContext;

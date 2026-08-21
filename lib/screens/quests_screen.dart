@@ -21,6 +21,7 @@ import '../widgets/sori/reward_thumb.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -313,6 +314,12 @@ class _QuestTile extends StatelessWidget {
     final accentColor = isCompleted
         ? SoriColors.success
         : (isLocked ? s.textDim : SoriColors.info);
+    final progressPercent = (q.fraction * 100).round();
+    final progressStateLabel = isLocked
+        ? t.questsSectionSeasonalLocked
+        : (q.current > 0
+              ? t.questsSectionInProgress
+              : t.questsSectionAvailable);
 
     return Container(
       margin: const EdgeInsets.only(bottom: Spacing.sm),
@@ -371,11 +378,7 @@ class _QuestTile extends StatelessWidget {
                 ),
               const SizedBox(width: Spacing.sm),
               // 보상 미리보기 — 이 퀘스트로 언락되는 마당 장식.
-              SoriRewardThumb(
-                slug: def.decorationSlug,
-                earned: isCompleted,
-                semantic: '',
-              ),
+              SoriRewardThumb(slug: def.decorationSlug, earned: isCompleted),
             ],
           ),
           const SizedBox(height: 4),
@@ -387,21 +390,29 @@ class _QuestTile extends StatelessWidget {
           ),
           if (!isCompleted) ...[
             const SizedBox(height: Spacing.sm),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(3),
-              child: LinearProgressIndicator(
-                value: q.fraction,
-                minHeight: 6,
-                backgroundColor: s.text.withValues(alpha: 0.08),
-                valueColor: AlwaysStoppedAnimation(accentColor),
+            Semantics(
+              container: true,
+              label: '$name, $progressStateLabel',
+              value: '${q.current} / ${q.target}, $progressPercent%',
+              excludeSemantics: true,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SoriProgressBar(
+                    value: q.fraction,
+                    thickness: 6,
+                    color: accentColor,
+                    trackColor: s.text.withValues(alpha: 0.08),
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    '${q.current} / ${q.target}  ·  $progressPercent%',
+                    style: SoriTextTheme.of(
+                      context,
+                    ).meta.copyWith(color: s.textMuted),
+                  ),
+                ],
               ),
-            ),
-            const SizedBox(height: 4),
-            Text(
-              '${q.current} / ${q.target}  ·  ${(q.fraction * 100).round()}%',
-              style: SoriTextTheme.of(
-                context,
-              ).meta.copyWith(color: s.textMuted),
             ),
             const SizedBox(height: Spacing.sm),
             if (action.route != null)
@@ -422,7 +433,7 @@ class _QuestTile extends StatelessWidget {
                   Expanded(
                     child: Text(
                       actionLabel,
-                      style: const TextStyle(fontWeight: FontWeight.w700),
+                      style: SoriTextTheme.of(context).label,
                     ),
                   ),
                 ],
@@ -480,7 +491,9 @@ class _QuestSummary extends StatelessWidget {
               ),
               if (inProgress > 0)
                 Semantics(
-                  label: '$inProgress',
+                  container: true,
+                  label: '$inProgress ${t.questsSectionInProgress}',
+                  excludeSemantics: true,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -502,13 +515,14 @@ class _QuestSummary extends StatelessWidget {
             ],
           ),
           const SizedBox(height: Spacing.sm),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(4),
-            child: LinearProgressIndicator(
+          Semantics(
+            label: '$done / $total, ${t.questsSectionCompleted}',
+            value: '${(frac * 100).round()}%',
+            excludeSemantics: true,
+            child: SoriProgressBar(
               value: frac,
-              minHeight: 8,
-              backgroundColor: s.text.withValues(alpha: 0.08),
-              valueColor: const AlwaysStoppedAnimation(SoriColors.success),
+              color: SoriColors.success,
+              trackColor: s.text.withValues(alpha: 0.08),
             ),
           ),
         ],
@@ -637,16 +651,15 @@ class _QuestCompletionCelebrationState
               Text(
                 widget.questName,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
-                ),
+                style: SoriTextTheme.of(context).h2,
               ),
               const SizedBox(height: Spacing.sm),
               Text(
                 t.questsCompletionCelebration,
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 13, color: s.textMuted),
+                style: SoriTextTheme.of(
+                  context,
+                ).bodySmall.copyWith(color: s.textMuted),
               ),
               if (_phase >= 2) ...[
                 if (feedbackScope != null &&
