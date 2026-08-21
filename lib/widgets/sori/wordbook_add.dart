@@ -194,6 +194,10 @@ class _AddToWordbookButtonState extends State<AddToWordbookButton> {
             tooltip: t.wbAddTooltip,
             icon: Icon(icon),
             color: color,
+            constraints: const BoxConstraints.tightFor(
+              width: Spacing.xxxl,
+              height: Spacing.xxxl,
+            ),
             onPressed: enabled ? () => unawaited(_add(context)) : null,
           );
         }

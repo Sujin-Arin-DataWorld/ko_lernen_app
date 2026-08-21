@@ -25,6 +25,8 @@ import '../services/scene_asset_resolver.dart';
 import '../services/scenario_writing_check_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../widgets/app_error.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/mascot_preference.dart';
@@ -46,6 +48,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scenario_write_after_roleplay_card.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/wordbook_add.dart';
 import 'quest_engines/hoerverstehen_quest.dart';
@@ -129,6 +132,31 @@ class FirstCorrectAttemptGate {
     }
     _reported = true;
     return true;
+  }
+}
+
+/// Keeps delayed scenario loading from starting SDK tracking after exit, and
+/// admits the tracking side effects at most once for one screen instance.
+class ScenarioLoadLifecycleGate {
+  bool _exitRequested = false;
+  bool _lessonTrackingStarted = false;
+
+  bool get canContinue => !_exitRequested;
+
+  bool requestExit() {
+    if (_exitRequested) {
+      return false;
+    }
+    _exitRequested = true;
+    return true;
+  }
+
+  void startLessonTracking(VoidCallback startTracking) {
+    if (_exitRequested || _lessonTrackingStarted) {
+      return;
+    }
+    _lessonTrackingStarted = true;
+    startTracking();
   }
 }
 
@@ -400,12 +428,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   final Set<int> _failedQuestIndices = <int>{};
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   final FirstCorrectAttemptGate _firstCorrectGate = FirstCorrectAttemptGate();
+  final ScenarioLoadLifecycleGate _loadLifecycle = ScenarioLoadLifecycleGate();
   ScenarioFirstSuccess? _firstSuccess;
   bool _completionDelivered = false;
   bool _resultSaving = false;
   bool _resultPersisted = false;
-  bool _exitRequested = false;
   ScenarioCanDoResult? _canDoResult;
+  Object? _loadFailure;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _stageAreaKey = GlobalKey();
@@ -490,42 +519,64 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   }
 
   Future<void> _loadScenario() async {
+    try {
+      await _loadScenarioOrExit();
+    } catch (error) {
+      debugPrint('Scenario load failed for ${widget.scenarioId}: $error');
+      if (mounted && _loadLifecycle.canContinue) {
+        setState(() => _loadFailure = error);
+      }
+    }
+  }
+
+  Future<void> _loadScenarioOrExit() async {
     final providedLoader = widget.scenarioLoader;
     final s = providedLoader != null
         ? await providedLoader(widget.scenarioId)
         : await _loadScenarioFromCatalog(widget.scenarioId);
+    if (!mounted || !_loadLifecycle.canContinue) {
+      return;
+    }
     if (s != null) {
-      Analytics.lessonStarted(
-        lessonType: 'scenario',
-        lessonId: s.id,
-        level: s.level.display,
-      );
-      _abandonTracker = QuestAbandonTracker(
-        questType: 'scenario',
-        questId: s.id,
-        lastStepReached: () => 'stage_$_stage',
-      );
+      _loadLifecycle.startLessonTracking(() {
+        Analytics.lessonStarted(
+          lessonType: 'scenario',
+          lessonId: s.id,
+          level: s.level.display,
+        );
+        _abandonTracker = QuestAbandonTracker(
+          questType: 'scenario',
+          questId: s.id,
+          lastStepReached: () => 'stage_$_stage',
+        );
+      });
     }
     if (s == null) {
-      if (mounted) Navigator.pop(context);
+      _popAfterLoadExit();
       return;
     }
     final courseContext = widget.courseContext;
     final catalog = courseContext?.isFor(CurriculumContentKind.scenario) == true
         ? await CurriculumCatalog.load()
         : null;
-    if (!mounted) return;
+    if (!mounted || !_loadLifecycle.canContinue) {
+      return;
+    }
     // Premium-Gate (M4): A1-Szenarien frei, A2/B1/B2 erfordern ein Abo.
     // Deckt alle Einstiege ab (Home-CTA, Skill-Path, Szenarien-Liste).
     if (s.level != LearnerLevel.a1 && !PremiumService.isPremium) {
-      if (!mounted) return;
       final ok = await PremiumService.gate(context);
+      if (!mounted || !_loadLifecycle.canContinue) {
+        return;
+      }
       if (!ok) {
-        if (mounted) Navigator.pop(context);
+        _popAfterLoadExit();
         return;
       }
     }
-    if (!mounted) return;
+    if (!mounted || !_loadLifecycle.canContinue) {
+      return;
+    }
     final languageCode = Localizations.localeOf(context).languageCode;
     final candidateStep = catalog == null || courseContext == null
         ? null
@@ -563,11 +614,19 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     });
     if (initialStage > 0) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted && _pageCtrl.hasClients) {
+        if (mounted && _loadLifecycle.canContinue && _pageCtrl.hasClients) {
           _pageCtrl.jumpToPage(initialStage);
         }
       });
     }
+  }
+
+  Future<void> _retryLoadScenario() async {
+    if (!mounted) {
+      return;
+    }
+    setState(() => _loadFailure = null);
+    await _loadScenario();
   }
 
   Future<Scenario?> _loadScenarioFromCatalog(String scenarioId) async {
@@ -957,7 +1016,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _StageTitle(t.scenarioVocabTitle, vocabAccent),
+          _StageTitle(t.scenarioVocabTitle, ss.textMuted),
           const SizedBox(height: Spacing.lg),
           ...sc.vocab.map(
             (v) => Padding(
@@ -973,14 +1032,17 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                         Expanded(
                           child: Text(
                             v.korean,
-                            style: const TextStyle(
-                              color: vocabAccent,
-                              fontSize: 26,
-                              fontWeight: FontWeight.w800,
-                            ),
+                            style: SoriTextTheme.of(
+                              context,
+                            ).koDisplay.copyWith(color: vocabAccent),
                           ),
                         ),
                         IconButton(
+                          tooltip: t.ttsListen,
+                          constraints: const BoxConstraints.tightFor(
+                            width: Spacing.xxxl,
+                            height: Spacing.xxxl,
+                          ),
                           onPressed: () {
                             HapticFeedback.selectionClick();
                             TtsService.speak(v.korean);
@@ -1011,7 +1073,13 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                         spacing: Spacing.xs,
                         runSpacing: Spacing.xs,
                         children: v.aliases
-                            .map((a) => _MiniChip(a, vocabAccent))
+                            .map(
+                              (a) => _MiniChip(
+                                a,
+                                vocabAccent,
+                                foregroundColor: ss.textMuted,
+                              ),
+                            )
                             .toList(),
                       ),
                     ],
@@ -1021,7 +1089,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                         spacing: Spacing.xs,
                         runSpacing: Spacing.xs,
                         children: v.variants
-                            .map((vt) => _MiniChip(vt, ss.textDim))
+                            .map((vt) => _MiniChip(vt, ss.textMuted))
                             .toList(),
                       ),
                     ],
@@ -1103,6 +1171,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                             variant: SoriCardVariant.compact,
                             accent: bubbleAccent,
                             tinted: isUser,
+                            semanticLabel: '${t.ttsListen}: ${line.ko}',
                             // 스피커 아이콘뿐 아니라 **버블 전체**를 탭하면 재생.
                             // SoriCard.onTap 이 SoriPressable+버튼 시맨틱으로 감싼다.
                             onTap: () {
@@ -1125,12 +1194,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                     Expanded(
                                       child: Text(
                                         line.ko,
-                                        style: TextStyle(
-                                          color: ss.text,
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.4,
-                                        ),
+                                        style: SoriTextTheme.of(
+                                          context,
+                                        ).h3.copyWith(color: ss.text),
                                       ),
                                     ),
                                     const SizedBox(width: Spacing.sm),
@@ -1303,7 +1369,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
               final ss = SoriSurfaces.of(ctx);
               return Text(
                 AppL10n.of(context).questTypeUnsupported(spec.type.name),
-                style: TextStyle(color: ss.textMuted),
+                style: SoriTextTheme.of(
+                  ctx,
+                ).bodySmall.copyWith(color: ss.textMuted),
                 textAlign: TextAlign.center,
               );
             },
@@ -1667,10 +1735,19 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     final lang = Localizations.localeOf(context).languageCode;
 
     if (_scenario == null) {
-      const scaffold = Scaffold(
-        body: Center(child: CircularProgressIndicator()),
+      final state = SoriStudyFrame(
+        title: t.scenariosListTitle,
+        leading: _buildCloseButton(),
+        automaticallyImplyLeading: false,
+        padding: EdgeInsets.zero,
+        child: _loadFailure == null
+            ? const AppLoading()
+            : AppError(
+                message: t.scenariosLoadFailedTitle,
+                onRetry: _retryLoadScenario,
+              ),
       );
-      return _withExitScope(scaffold);
+      return _withExitScope(state);
     }
 
     final scaffold = Scaffold(
@@ -1682,11 +1759,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
         textScale: MediaQuery.textScalerOf(context).scale(1),
         viewportWidth: MediaQuery.sizeOf(context).width,
         adaptTitleAtNormalScale: true,
-        leading: IconButton(
-          tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
-          icon: const Icon(Icons.close_rounded),
-          onPressed: _requestExit,
-        ),
+        leading: _buildCloseButton(),
         automaticallyImplyLeading: false,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(12),
@@ -1767,33 +1840,44 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     return _withExitScope(scaffold);
   }
 
+  Widget _buildCloseButton() => IconButton(
+    tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
+    icon: const Icon(Icons.close_rounded),
+    onPressed: _requestExit,
+  );
+
   Widget _withExitScope(Widget child) {
     final onExit = widget.onExit;
-    if (onExit == null) {
-      return child;
-    }
     return PopScope<void>(
-      canPop: false,
+      canPop: onExit == null,
       onPopInvokedWithResult: (didPop, _) {
-        if (!didPop) {
-          _requestExit();
+        if (didPop) {
+          _loadLifecycle.requestExit();
+          return;
         }
+        _requestExit();
       },
       child: child,
     );
   }
 
   void _requestExit() {
+    if (!_loadLifecycle.requestExit()) {
+      return;
+    }
     final onExit = widget.onExit;
-    if (onExit == null) {
-      Navigator.pop(context);
+    if (onExit != null) {
+      onExit();
       return;
     }
-    if (_exitRequested) {
+    Navigator.pop(context);
+  }
+
+  void _popAfterLoadExit() {
+    if (!_loadLifecycle.requestExit()) {
       return;
     }
-    _exitRequested = true;
-    onExit();
+    Navigator.pop(context);
   }
 }
 
@@ -1945,8 +2029,9 @@ class _StageTitle extends StatelessWidget {
 class _MiniChip extends StatelessWidget {
   final String label;
   final Color color;
+  final Color? foregroundColor;
 
-  const _MiniChip(this.label, this.color);
+  const _MiniChip(this.label, this.color, {this.foregroundColor});
 
   @override
   Widget build(BuildContext context) {
@@ -1959,9 +2044,10 @@ class _MiniChip extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: SoriTextTheme.of(
-          context,
-        ).caption.copyWith(color: color, fontWeight: FontWeight.w600),
+        style: SoriTextTheme.of(context).caption.copyWith(
+          color: foregroundColor ?? color,
+          fontWeight: FontWeight.w600,
+        ),
       ),
     );
   }
