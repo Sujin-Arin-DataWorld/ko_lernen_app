@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import '../data/hangul_strokes.dart';
 import 'sori/tokens.dart';
@@ -48,6 +49,7 @@ class _StrokeCanvasState extends State<StrokeCanvas>
   late AnimationController _ctrl;
   bool _reduceMotion = false;
   bool _motionInitialized = false;
+  bool _completionNotificationScheduled = false;
 
   @override
   void initState() {
@@ -80,15 +82,38 @@ class _StrokeCanvasState extends State<StrokeCanvas>
 
   void _handleStatus(AnimationStatus status) {
     if (status == AnimationStatus.completed) {
-      widget.onCompleted?.call();
+      _notifyCompleted();
     }
+  }
+
+  void _notifyCompleted() {
+    if (widget.onCompleted == null) {
+      return;
+    }
+    if (SchedulerBinding.instance.schedulerPhase !=
+        SchedulerPhase.persistentCallbacks) {
+      widget.onCompleted?.call();
+      return;
+    }
+    // Reduced motion can complete the controller from didChangeDependencies.
+    // Notify after this build frame so a parent may safely unlock its action.
+    if (_completionNotificationScheduled) {
+      return;
+    }
+    _completionNotificationScheduled = true;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _completionNotificationScheduled = false;
+      if (mounted) {
+        widget.onCompleted?.call();
+      }
+    });
   }
 
   void _completeWithoutMotion({bool notifyIfAlreadyComplete = false}) {
     final wasComplete = _ctrl.value == 1;
     _ctrl.value = 1;
     if (wasComplete && notifyIfAlreadyComplete) {
-      widget.onCompleted?.call();
+      _notifyCompleted();
     }
   }
 
