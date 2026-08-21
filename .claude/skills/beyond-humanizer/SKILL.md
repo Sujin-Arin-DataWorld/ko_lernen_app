@@ -1,6 +1,6 @@
 ---
 name: beyond-humanizer
-description: Use when editing or reviewing Hangul Sori Korean, English, or German learner copy, translations, cultural notes, CEFR items, cloze or sentence-building tasks, ARB strings, or multilingual JSON/CSV where native naturalness and cross-cultural learning accuracy matter.
+description: Use when translating, interpreting, editing, or reviewing Hangul Sori Korean, English, or German learner content where native naturalness, discourse context, social relations, culture, and learning accuracy must survive across languages.
 ---
 
 # Beyond Humanizer

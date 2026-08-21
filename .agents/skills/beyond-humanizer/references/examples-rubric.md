@@ -74,6 +74,13 @@ LOST        약해지거나 사라진 modality·인과·문화·학습 목표
 VERDICT     accept | minimal repair | reject | flag
 ```
 
+## 독립 2단계 감사
+
+1. **Bilingual adequacy:** 원문과 PIVOT을 보며 추가·누락·관계·지시대상·직시·시제/상을 판정한다.
+2. **Target-only naturalness:** 원문을 숨기고 실제 목표어 장면에서 번역투·연어·정보 흐름을 판정한다.
+
+세 언어 세트는 마지막에 쌍별로 비교하되 영어를 독일어의 중간 정본으로 쓰지 않는다.
+
 ## MQM 확장 루브릭
 
 각 축을 1–5로 볼 수 있지만 critical error는 평균으로 상쇄하지 않는다.
@@ -89,6 +96,16 @@ VERDICT     accept | minimal repair | reject | flag
 | CEFR | 목표 레벨의 수행 기능에 적합 | 희귀어로만 난도 위장 |
 | Item | 목표 선명, 정답 유일, 오답 품질 | 복수 정답·target 소실 |
 | Data | schema와 연결 계약 보존 | 중복 key·ID, U+FFFD |
+
+한글소리 확장 오류 코드:
+
+| 코드 | 범위 | critical fail 예 |
+|---|---|---|
+| REF | 지시대상·성별·수·한정성 | 생략된 주어를 특정 인물로 창작 |
+| INDEX | 주체/객체/청자 높임과 사회적 지표성 | `-시-`를 일반 공손 표지로 설명 |
+| DEIX | 직시 중심·관점·이동 경로 | `come`을 장면 확인 없이 `오다`로 고정 |
+| TAM | 시제·상·양태·사건 경계 | 계속 거주를 종료된 과거로 번역 |
+| INT | 통역 생략·예측·수리 | 문말 술어 전 철회/승인을 확정 |
 
 최종 판정:
 
