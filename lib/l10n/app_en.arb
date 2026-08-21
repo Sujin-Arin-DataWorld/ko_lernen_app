@@ -891,6 +891,22 @@
   "questsEmptyTitle": "No quests yet",
   "questsEmptyBody": "Start a pack. Your quest progress will appear here.",
   "questsSectionInProgress": "In progress",
+  "questsInProgressCount": "{count, plural, one{1 quest in progress} other{{count} quests in progress}}",
+  "@questsInProgressCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "questsRewardSemantics": "Reward: {reward}",
+  "@questsRewardSemantics": {
+    "placeholders": {
+      "reward": {
+        "type": "String"
+      }
+    }
+  },
   "questsSectionAvailable": "Available",
   "questsSectionCompleted": "Cleared",
   "questsSectionSeasonalLocked": "Seasonal (locked)",

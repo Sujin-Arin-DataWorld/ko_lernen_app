@@ -1804,6 +1804,22 @@ class AppL10nDe extends AppL10n {
   String get questsSectionInProgress => 'Läuft';
 
   @override
+  String questsInProgressCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Quests laufen',
+      one: '1 Quest läuft',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String questsRewardSemantics(String reward) {
+    return 'Belohnung: $reward';
+  }
+
+  @override
   String get questsSectionAvailable => 'Verfügbar';
 
   @override
