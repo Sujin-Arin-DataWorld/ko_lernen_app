@@ -1,0 +1,33 @@
+[
+  {
+    "id": "l1-honorific-lenses",
+    "query": "Explain 선생님이 지금 오세요 versus 저는 지금 가요 separately for English-L1 and German-L1 A2 learners.",
+    "expected_behavior": [
+      "Distinguishes subject honorification -시- from addressee politeness -요",
+      "Does not equate -시- with German Sie or a general formal marker",
+      "Uses different explanatory anchors for English-L1 and German-L1 learners"
+    ],
+    "baseline_observation": "Passed without the skill; retain as a non-regression evaluation."
+  },
+  {
+    "id": "culture-jeong",
+    "query": "Translate and explain 처음에는 어색했지만 자주 만나면서 정이 들었어요 for English-L1 and German-L1 learners.",
+    "expected_behavior": [
+      "Reconstructs gradual attachment rather than forcing a one-word equivalent",
+      "Avoids stereotypes and encyclopedia-style explanation",
+      "Produces independently natural English and German"
+    ],
+    "baseline_observation": "Passed only after explicit constraints; the skill must make those constraints reusable."
+  },
+  {
+    "id": "authority-and-cloze-quality",
+    "query": "Translate 금액이 제 권한을 넘어서 위로 올려야 해요 without inventing roles, then repair a 맞장구 cloze with distractors 농담, 박수, 안부.",
+    "expected_behavior": [
+      "Selects an authority/process frame instead of leaving a spatial nach oben or pass it up calque",
+      "Does not invent a manager, supervisor, signer, or undocumented workflow",
+      "Detects 박수 as an alternative valid collocation",
+      "Creates plausible same-form distractors or strengthens context instead of using obviously ungrammatical options"
+    ],
+    "baseline_observation": "Failed: used nach oben/pass it up and repaired uniqueness with trivially ungrammatical distractors."
+  }
+]
