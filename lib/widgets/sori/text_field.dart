@@ -17,6 +17,7 @@ class SoriTextField extends StatelessWidget {
     this.hintText,
     this.helperText,
     this.errorText,
+    this.alignLabelWithHint,
     this.prefixIcon,
     this.suffixIcon,
     this.keyboardType,
@@ -49,6 +50,7 @@ class SoriTextField extends StatelessWidget {
   final String? hintText;
   final String? helperText;
   final String? errorText;
+  final bool? alignLabelWithHint;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
@@ -83,6 +85,7 @@ class SoriTextField extends StatelessWidget {
         hintText: hintText,
         helperText: helperText,
         errorText: errorText,
+        alignLabelWithHint: alignLabelWithHint,
         prefixIcon: prefixIcon,
         suffixIcon: suffixIcon,
       ),
