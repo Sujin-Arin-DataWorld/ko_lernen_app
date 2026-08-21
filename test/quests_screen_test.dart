@@ -53,7 +53,7 @@ void main() {
           findsOneWidget,
         );
         expect(
-          find.bySemanticsLabel('1 ${t.questsSectionInProgress}'),
+          find.bySemanticsLabel(t.questsInProgressCount(1)),
           findsOneWidget,
         );
         final rewardSemantics = tester.widgetList<Semantics>(
@@ -66,7 +66,9 @@ void main() {
           rewardSemantics.any(
             (widget) =>
                 widget.properties.label ==
-                decorName(t, definition.decorationSlug),
+                t.questsRewardSemantics(
+                  decorName(t, definition.decorationSlug),
+                ),
           ),
           isTrue,
         );

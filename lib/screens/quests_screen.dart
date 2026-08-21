@@ -378,7 +378,11 @@ class _QuestTile extends StatelessWidget {
                 ),
               const SizedBox(width: Spacing.sm),
               // 보상 미리보기 — 이 퀘스트로 언락되는 마당 장식.
-              SoriRewardThumb(slug: def.decorationSlug, earned: isCompleted),
+              SoriRewardThumb(
+                slug: def.decorationSlug,
+                earned: isCompleted,
+                semantic: t.questsRewardSemantics(name),
+              ),
             ],
           ),
           const SizedBox(height: 4),
@@ -492,7 +496,7 @@ class _QuestSummary extends StatelessWidget {
               if (inProgress > 0)
                 Semantics(
                   container: true,
-                  label: '$inProgress ${t.questsSectionInProgress}',
+                  label: t.questsInProgressCount(inProgress),
                   excludeSemantics: true,
                   child: Row(
                     mainAxisSize: MainAxisSize.min,

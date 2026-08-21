@@ -3217,6 +3217,18 @@ abstract class AppL10n {
   /// **'Läuft'**
   String get questsSectionInProgress;
 
+  /// No description provided for @questsInProgressCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 Quest läuft} other{{count} Quests laufen}}'**
+  String questsInProgressCount(int count);
+
+  /// No description provided for @questsRewardSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Belohnung: {reward}'**
+  String questsRewardSemantics(String reward);
+
   /// No description provided for @questsSectionAvailable.
   ///
   /// In de, this message translates to:

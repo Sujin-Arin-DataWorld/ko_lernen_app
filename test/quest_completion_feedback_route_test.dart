@@ -102,6 +102,82 @@ void main() {
       await tester.pump(const Duration(milliseconds: 601));
     },
   );
+
+  testWidgets(
+    'DE and EN completion dialog stays reachable at 320x640 and 200% text',
+    (tester) async {
+      const completedQuest = QuestProgress(
+        questId: 'q_jangdokdae',
+        current: 50,
+        target: 50,
+        active: true,
+        completed: true,
+        completedAtIso: null,
+      );
+      await _configureView(tester, const Size(320, 640));
+
+      for (final locale in const [Locale('de'), Locale('en')]) {
+        await tester.pumpWidget(
+          _feedbackHost(
+            QuestsScreen(
+              loadQuests: () async => const [completedQuest],
+              persistNewCompletions: (_) async {},
+            ),
+            locale: locale,
+            textScale: 2,
+            safeInsets: const EdgeInsets.only(top: 44, bottom: 34),
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 1201));
+        await tester.pump(const Duration(milliseconds: 1501));
+        await tester.pump();
+
+        final definition = kQuestById['q_jangdokdae']!;
+        final questName = locale.languageCode == 'en'
+            ? definition.name.en
+            : definition.name.de;
+        final context = tester.element(find.byType(QuestsScreen));
+        final t = AppL10n.of(context);
+
+        expect(find.byType(Dialog), findsOneWidget);
+        expect(find.text(questName), findsOneWidget);
+        expect(find.text(t.questsCompletionCelebration), findsOneWidget);
+
+        final continueFinder = find.byKey(
+          const Key('quest-completion-continue'),
+        );
+        await tester.scrollUntilVisible(
+          continueFinder,
+          160,
+          scrollable: find
+              .descendant(
+                of: find.byType(Dialog),
+                matching: find.byType(Scrollable),
+              )
+              .last,
+        );
+        expect(
+          find.byKey(const Key('quest-completion-open-gift')),
+          findsOneWidget,
+        );
+        expect(continueFinder, findsOneWidget);
+        expect(tester.takeException(), isNull);
+
+        tester.widget<SoriButton>(continueFinder).onTap!();
+        await _pumpUntilGone(tester, find.byType(Dialog));
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump(const Duration(milliseconds: 601));
+      }
+    },
+  );
+}
+
+Future<void> _configureView(WidgetTester tester, Size size) async {
+  tester.view.physicalSize = size;
+  tester.view.devicePixelRatio = 1;
+  addTearDown(tester.view.resetPhysicalSize);
+  addTearDown(tester.view.resetDevicePixelRatio);
 }
 
 Future<void> _pumpUntilGone(WidgetTester tester, Finder finder) async {
@@ -112,19 +188,35 @@ Future<void> _pumpUntilGone(WidgetTester tester, Finder finder) async {
   expect(finder, findsNothing);
 }
 
-Widget _feedbackHost(Widget child) => MaterialApp(
+Widget _feedbackHost(
+  Widget child, {
+  Locale locale = const Locale('en'),
+  double textScale = 1,
+  EdgeInsets safeInsets = EdgeInsets.zero,
+}) => MaterialApp(
   debugShowCheckedModeBanner: false,
   theme: AppTheme.light,
-  locale: const Locale('en'),
+  locale: locale,
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
-  builder: (context, routeChild) => ContentFeedbackControllerScope(
-    featureGate: const TesterFeedbackFeatureGate(enabled: true),
-    submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
-      status: ContentFeedbackSubmitStatus.accepted,
-    ),
-    resumePending: () async => const ContentFeedbackResumeResult(),
-    child: routeChild ?? const SizedBox.shrink(),
-  ),
+  builder: (context, routeChild) {
+    final media = MediaQuery.of(context);
+    return MediaQuery(
+      data: media.copyWith(
+        padding: safeInsets,
+        viewPadding: safeInsets,
+        textScaler: TextScaler.linear(textScale),
+        disableAnimations: true,
+      ),
+      child: ContentFeedbackControllerScope(
+        featureGate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, __) async => const ContentFeedbackSubmitResult(
+          status: ContentFeedbackSubmitStatus.accepted,
+        ),
+        resumePending: () async => const ContentFeedbackResumeResult(),
+        child: routeChild ?? const SizedBox.shrink(),
+      ),
+    );
+  },
   home: child,
 );

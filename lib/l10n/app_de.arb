@@ -891,6 +891,22 @@
   "questsEmptyTitle": "Noch keine Quests",
   "questsEmptyBody": "Beginne ein Paket. Dein Quest-Fortschritt erscheint dann hier.",
   "questsSectionInProgress": "Läuft",
+  "questsInProgressCount": "{count, plural, one{1 Quest läuft} other{{count} Quests laufen}}",
+  "@questsInProgressCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "questsRewardSemantics": "Belohnung: {reward}",
+  "@questsRewardSemantics": {
+    "placeholders": {
+      "reward": {
+        "type": "String"
+      }
+    }
+  },
   "questsSectionAvailable": "Verfügbar",
   "questsSectionCompleted": "Abgeschlossen",
   "questsSectionSeasonalLocked": "Saisonal (gesperrt)",
