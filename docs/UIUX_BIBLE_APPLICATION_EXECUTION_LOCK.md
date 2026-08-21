@@ -1,43 +1,44 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.45
+- **Version:** 1.46
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-4a-stats-2026-08-21`
-- **Base:** `origin/main@031a52ffd4ec837ff151176e2ff0be0d21ec3f54`
-- **State:** Phase 4A `/stats` outer UI implemented and locally verified; Jin
-  explicitly authorized Git delivery for the remaining locked rollout
-- **Next action:** stage the task-owned files, commit, push, open one PR, and
-  inspect the automatic CI run for that exact head; do not begin settings,
-  profile, or paywall in this unit
+- **Branch:** `session/uiux-bible-4a-profile-2026-08-21`
+- **Base:** `origin/main@70df05a5ec0a7de2b2fb9ed8a62bd9626fbd6a26`
+- **State:** Phase 4A `/stats` is merged; `/profile` presentation-only action
+  accessibility is implemented, locally verified, and final-reviewed
+- **Next action:** push the exact reviewed Profile head, open one PR, and
+  inspect its automatic current-head CI without beginning settings or paywall
 
 ## Current State Summary
 
-The merged execution lock is present at
-`origin/main@031a52ffd4ec837ff151176e2ff0be0d21ec3f54`. A fresh Windows-native
-worktree now contains the independently mergeable `/stats` outer-UI unit. Its
-localized weekly labels, today mapping, and per-day semantics are implemented;
-empty and populated states, protected values, read-only storage behavior, and
-the locked viewport matrix are locally verified. No commit, push, PR, CI,
-merge, deployment, build, signing, or store upload has been performed for this
-unit.
+`/stats` was delivered through PR #174 and merged to main at
+`70df05a5ec0a7de2b2fb9ed8a62bd9626fbd6a26`. A fresh Windows-native worktree
+now contains the independently mergeable `/profile` presentation unit. The
+existing identity, learning-choice, space, durable-account, and progress
+hierarchy already met the shared Sori contract; measurement found the app-bar
+settings action only 40dp and unlabeled. It now uses the existing
+DE/EN settings label and a 48dp minimum while preserving `/settings`. The full
+local suite, focused account safety battery, and locked viewport matrix are
+green. No push, PR, CI, merge, deployment, build, signing, or store upload has
+been performed for the Profile unit.
 
 ## Important Context
 
-Start with only `AGENTS.md` and this file. Preserve progress/stat aggregation,
-chart data and semantics, storage writes, routes, and approved assets. No
-deployment, store upload, production mutation, asset generation, new token, or
-navigation/state rewrite is authorized. Account, purchase, notification, and
-platform-owned settings remain separate high-risk units.
+Start with only `AGENTS.md` and this file. Preserve authentication, account
+linking, pending-operation journals, cloud backup/deletion, learning-placement
+and export writes, routes, and approved assets. No deployment, store upload,
+production mutation, asset generation, new token, or navigation/state rewrite
+is authorized. Settings, purchase, notification, and platform-owned behavior
+remain separate high-risk units.
 
 ## Immediate Next Steps
 
-1. Keep the task worktree and branch isolated through Git delivery.
-2. Stage only the `/stats`, localization, generated l10n,
-   focused test, and execution-lock files; commit and push once, then open one
-   PR without starting a duplicate exact-head CI run.
+1. Keep the Profile worktree and branch isolated through Git delivery.
+2. Push the exact final-reviewed head and open one PR without starting a
+   duplicate exact-head CI run.
 3. Merge only after the required current-head checks are green. Handle any
    release-capable post-merge run under the protocol below. Do not include or
-   begin settings, profile, paywall, account, purchase, or platform writes.
+   begin settings, paywall, account-operation, purchase, or platform writes.
 
 ## 1. Purpose
 
@@ -392,8 +393,9 @@ production, and deployment remain unclaimed and out of scope.
 | 3D Quests outer UI | merged | App commits `8d4039fa85686b7ce43d5fe402e3f12b7c5a35fb`, `888861ec367ef227a96c0866f65cd2c57d0ca176`, and `b5833ef47fa2df44dca6fe4ca08af0c69078449f`; PR #168; main merge `3de9cb10ce2d46be9c7d33be19b317da7592f981`; PR exact-current-head CI run 32483615356 green with 4,429 tests passed, 2 skipped, release web build and asset pipeline gate green; `/quests` uses the shared Sori progress bar for quest and summary progress, existing Sori type roles in locked/completion states, localized DE/EN plural progress summaries, and actual localized decoration names for reward semantics; loading, retry, empty, progress/reward semantics, and the completion dialog are directly covered; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; final-head analyze, format, diff check, and seven changed-path regression tests green, with 146 focused quest/localization/semantics/game-boundary tests green after the first review fix; the pre-final-review local full suite had 4,416 passes and 14 conditional skips, while exact-final-head full proof is the CI result above; Standards and Specification final review axes both reported zero remaining findings; exact-base ratchets raw screen TextStyle 235→232, raw progress indicators 19→17, and `FontWeight.w800` 50→49; test files 452→453; added assets, TODO markers, and secret patterns zero; quest tracking, reward/evidence writes, routes and arguments, six game-owned engines, timing, hitboxes, canvas geometry, SDK/native boundaries, and approved assets unchanged; post-merge main run 32484539000 was cancelled during checkout and its Signed AAB/Play job 96778071109 had zero steps, so no build, signing, or upload ran |
 | 3D Word-web outer UI | merged | App commit `f458d1f17b369cb5cab1665f87f3499ef6fdf52f`; PR #170; main merge `29e08680129fcd2ee9377e8859f8627246605a5d`; PR exact-current-head CI run 32488135405 green with Analyze & Build and asset pipeline gates green; `/word_web` learned/level filters now use the existing Sori choice contract with complete labels, 48dp targets, button/selected semantics, and a visible check cue, while hub, neighbor, expression, and example pronunciation actions use localized labels and 48dp targets; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; 472 focused/shared responsive/accessibility/typography tests and full local 4,419 tests with 14 conditional skips green; analyze, format, and diff check clean; Standards and Specification final review axes both reported zero findings; exact-base ratchets raw screen TextStyle 232→232, raw progress indicators 17→17, `FontWeight.w800` 49→49, and test files 453→454; added assets, TODO markers, and secret patterns zero; word-relation data, learned/course filtering, study/quiz transitions and scoring, routes and arguments, learning/evidence behavior, SDK/native boundaries, and approved assets unchanged; post-merge main run 32488456766 cancelled after path selection and its Signed AAB/Play job 96790423784 had zero steps, so no build, signing, or upload ran |
 | 3D Sarangbang outer UI | merged | App commits `d3233b7f875572f8ff124719c2cd210cd21e89d4` and `661fba6600dc12beac9cfe37a9cc8b4152a54eaa`; PR #172; main merge `c6c864f3fb14ed3dfaaffd7caf12fedb2791ca2e`; PR exact-current-head CI run 32491286517 green with Analyze & Build and asset pipeline gates green; `/sarangbang` loading and full-read failure use the shared app states, partial Today data keeps the saved room and receipt visible while stale recommendations fail closed, and an existing saved `/review` remains the only safe learning action beside retry; unavailable copy distinguishes offline, remote-service, and local-data reasons using existing localized Sori contracts; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% directly cover the changed unavailable card and actions; 12 focused Sarangbang tests, 397 shared Today/responsive/accessibility/typography/smoke tests, and full local 4,423 tests with 14 conditional skips green; analyze, format, and diff check clean; Standards and Specification final review axes both reported zero remaining findings after preserving saved review and extending the unavailable-state matrix; exact-base ratchets raw screen TextStyle 232→232, raw screen LinearProgressIndicator 6→6, `FontWeight.w800` 49→49, and test files 454→454; added assets, TODO markers, and secret patterns zero; custom-room composition, room/canvas geometry, `/sarangbang/furnish`, recommendations/course evidence, receipt and reward writes, routes and arguments, SDK/native/game boundaries, and approved assets unchanged; post-merge main run 32491635244 cancelled during checkout and its Signed AAB/Play job 96800525143 had zero steps, so no build, signing, or upload ran |
-| 4A Stats outer UI | locally verified; Git delivery authorized | On branch `session/uiux-bible-4a-stats-2026-08-21` from exact base `031a52ffd4ec837ff151176e2ff0be0d21ec3f54`; `/stats` keeps its existing empty/populated hierarchy and exact aggregation/chart-completion mapping while weekday labels, today mapping, and per-day semantics are localized in DE/EN; the empty CTA still routes to `/scenarios`; protected XP, level, streak, scenario, Vocab, Chosung, and Wordle values are asserted exactly and rendering is proven storage-read-only; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; 5 focused tests and full local 4,428 tests with 14 conditional skips green; analyze and format clean; Standards and Specification final review axes both reported zero findings; raw screen TextStyle remains 232 and test files 454→455; no new assets, tokens, secrets, or TODO markers; routes, writes, progress/stat aggregation, chart data, learning/score/evidence behavior, SDK/native/game boundaries, and approved assets unchanged; no deployment, build, signing, or upload performed |
-| 4A remaining settings/profile/paywall | pending | separate presentation from account, purchase, notification, and platform writes; do not start in the Stats unit |
+| 4A Stats outer UI | merged | App commit `56be6108607d412c64c3bde8b9cf23228b415e8a`; PR #174; main merge `70df05a5ec0a7de2b2fb9ed8a62bd9626fbd6a26`; PR exact-current-head CI run 32506434904 green with 4,440 tests passed, 2 skipped, and the asset pipeline gate green; `/stats` keeps its existing empty/populated hierarchy and exact aggregation/chart-completion mapping while weekday labels, today mapping, and per-day semantics are localized in DE/EN; the empty CTA still routes to `/scenarios`; protected XP, level, streak, scenario, Vocab, Chosung, and Wordle values are asserted exactly and rendering is proven storage-read-only; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; 5 focused tests and full local 4,428 tests with 14 conditional skips green; analyze and format clean; Standards and Specification final review axes both reported zero findings; raw screen TextStyle remains 232 and test files 454→455; no new assets, tokens, secrets, or TODO markers; routes, writes, progress/stat aggregation, chart data, learning/score/evidence behavior, SDK/native/game boundaries, and approved assets unchanged; post-merge main run 32507386111 was cancelled during checkout and its Signed AAB/Play job had zero steps, so no build, signing, or upload ran |
+| 4A Profile outer UI | locally verified and final-reviewed; Git delivery next | On branch `session/uiux-bible-4a-profile-2026-08-21` from exact base `70df05a5ec0a7de2b2fb9ed8a62bd9626fbd6a26`; `/profile` keeps its existing identity, editable-learning, learner-space, durable-account, and progress hierarchy while the app-bar settings action now exposes the existing localized DE/EN label and an explicit 48dp target instead of the measured 40dp target; the action still routes exactly to `/settings`; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; 62 focused Profile/account-transition/account-hardening tests, 64 typography/accessibility guards, the shared Profile 200% test, and full local 4,430 tests with 14 conditional skips green; analyze, format, and diff check clean; Standards and Specification final review axes reported zero remaining findings after correcting the lock's exact next action; raw screen TextStyle remains 232, `profile_screen.dart` has zero raw TextStyle and BorderRadius constructors, and test files remain 455; no new assets, localization keys, tokens, secrets, or TODO markers; authentication, provider state, account-link confirmation, pending-operation journals, cloud backup/deletion locks, sign-out, placement/export writes, routes, SDK/platform behavior, and approved assets unchanged; no deployment, build, signing, or upload performed |
+| 4A remaining settings/paywall | pending | separate presentation from account, purchase, notification, and platform writes; begin only after Profile merge |
 | 4B–4C tools/community | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
