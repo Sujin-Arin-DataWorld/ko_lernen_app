@@ -9279,7 +9279,7 @@ abstract class AppL10n {
   /// No description provided for @coachLearningPathBody.
   ///
   /// In de, this message translates to:
-  /// **'Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor'**
+  /// **'Starte beim hervorgehobenen aktuellen Schritt und arbeite dich von dort aus weiter.'**
   String get coachLearningPathBody;
 
   /// No description provided for @coachBookshelfStep1Title.

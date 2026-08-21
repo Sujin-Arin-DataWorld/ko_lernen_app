@@ -2582,7 +2582,7 @@
   "coachLegacyVocabTitle": "Karteikarte",
   "coachLegacyVocabBody": "Antippen = umdrehen · lang halten = langsam vorlesen lassen",
   "coachLearningPathTitle": "Dein Lernpfad",
-  "coachLearningPathBody": "Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor",
+  "coachLearningPathBody": "Starte beim hervorgehobenen aktuellen Schritt und arbeite dich von dort aus weiter.",
   "@_coach_c3": {
     "description": "Stage C-3 데이터/단어장 9화면 코치마크 키 (2026-06-09)"
   },

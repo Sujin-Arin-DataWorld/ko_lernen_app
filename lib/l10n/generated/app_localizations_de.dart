@@ -5338,7 +5338,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachLearningPathBody =>
-      'Starte beim orangen \"Jetzt\"-Knoten und arbeite dich Schritt für Schritt vor';
+      'Starte beim hervorgehobenen aktuellen Schritt und arbeite dich von dort aus weiter.';
 
   @override
   String get coachBookshelfStep1Title => 'Wortliste erstellen';
