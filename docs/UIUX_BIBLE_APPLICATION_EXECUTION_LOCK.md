@@ -1,13 +1,15 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.17
+- **Version:** 1.18
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3b-grammar-closeout-2026-08-21`
-- **Base:** `origin/main@8fb7b26f0909576d6e5184e0baeed442fc6c0763`
-- **State:** Phase 3B Grammar outer UI merged; clean restart boundary
-- **Next action:** create a fresh worktree from latest `origin/main` and audit
-  `/listening` browsing hierarchy/states only; preserve the scenario shelf and
-  TTS availability contracts
+- **Branch:** `session/uiux-bible-learning-3b-listening-2026-08-21`
+- **Base:** `origin/main@1c149cfebe7e1f060a5d1c6e8a9cc64bd33beecc`
+- **State:** Phase 3B Listening browsing UI locally green; awaiting
+  PR/current-head CI
+- **Next action:** commit the Listening browsing unit, open its app PR, require
+  green CI for the exact current head, merge, and cancel only that merge's
+  deploy-capable `main` run before recording final evidence in a docs-only
+  closeout
 
 ## 1. Purpose
 
@@ -343,7 +345,8 @@ production, and deployment remain unclaimed and out of scope.
 | 3A Vocab result hierarchy | merged | PR #132; main merge `a36c63f251c86acb4c58cfd97b6bc6b5f5834de5`; PR current-head CI run 32437316213 green; `/vocab/result` pack title, result heading, metrics, and XP use the existing Sori type hierarchy; metric and animated XP visuals expose stable combined semantics; DE/EN 320×640 at 200% keep stacked stats and the final CTA reachable; raw screen TextStyle 316→310 and w800 98→95; analyze clean; 183 Deck/result/feedback/responsive tests green; post-merge main run 32437547774 cancelled during path selection and its Play job had no steps, so no upload ran |
 | 3A Legacy outer UI | merged | PR #134; main merge `51409da37256cb1503474e0b1e03b720483360c3`; PR current-head CI run 32438682010 green; `/vocab/legacy` slow-play hint and listen label use existing Sori type roles; filter controls use always-visible localized form labels and Material ink ownership; DE/EN 320×640 at 200% covered; raw screen TextStyle 310→307; analyze clean; 189 Deck/result/feedback/responsive tests green; rollback route, Deck geometry, flip gate, ordering, and SRS untouched; post-merge main run 32438908214 cancelled during path selection and its Signed AAB/Play job had no steps, so no upload ran |
 | 3B Grammar outer UI | merged | PR #136; main merge `8fb7b26f0909576d6e5184e0baeed442fc6c0763`; PR current-head CI run 32439883635 green; `/grammar` checkpoint and progress copy use existing Sori type roles; filter controls have always-visible localized level/type/difficulty labels and localized DE/EN difficulty choices while stored filter values remain unchanged; DE/EN 320×640 at 200% covered; raw screen TextStyle 307→302; analyze clean; 527 Grammar/course/choice/feedback/localization/accessibility/smoke/responsive/visual-layout tests green; loaders, course context, answer/scoring logic, flip/card gestures, SRS, and activity geometry untouched; post-merge main run 32440461105 cancelled during path selection and its Signed AAB/Play job had zero steps, so no upload ran |
-| 3B–3D remaining learning flows | pending | create a fresh worktree from latest `origin/main` and audit `/listening` browsing hierarchy/states only; preserve the scenario shelf and TTS availability contracts |
+| 3B Listening browsing UI | local green | `/listening` now presents the scenario section before its start instruction, uses the existing Sori section hierarchy, exposes an always-visible localized level label, and gives every A1–C2 filter a 48dp target; DE/EN 320×640 at 200% plus 360×400, 390×844, 720×1024, and 1280×900 covered with SafeArea insets; analyze clean; 199 shelf/route/TTS/standard-state/responsive/accessibility/smoke/typography tests green; raw screen TextStyle remains 302; scenario inventory, 15-compartment shelf mapping, scroll sheet, `/listening/play` route, and TTS availability untouched; awaiting PR/current-head CI |
+| 3B–3D remaining learning flows | pending | after the Listening browsing app PR and docs closeout merge, create a fresh worktree from latest `origin/main` and audit `/listening/play` outer study hierarchy/states only; preserve player controls, audio/TTS availability, scenario dialog, and transcript reachability |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |

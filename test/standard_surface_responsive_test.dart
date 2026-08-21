@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -29,11 +31,18 @@ import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/services/word_image_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
+import 'package:ko_lernen_app/widgets/app_loading.dart';
+import 'package:ko_lernen_app/widgets/sori/chaekgado/shelf_case.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
+import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
+import 'package:ko_lernen_app/widgets/sori/section_header.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
+import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -444,22 +453,139 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('listening level filters wrap at 200% without fixed clipping', (
+  testWidgets('DE/EN listening hierarchy labels filters at 200% text', (
     tester,
   ) async {
     await _configurePhone(tester);
+    final semantics = tester.ensureSemantics();
+    for (final locale in const [Locale('de'), Locale('en')]) {
+      await tester.pumpWidget(
+        _host(
+          ListeningScreen(
+            scenariosLoader: () async => const [_scenarioFixture],
+          ),
+          locale: locale,
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 100));
+
+      final screenContext = tester.element(find.byType(ListeningScreen));
+      final t = AppL10n.of(screenContext);
+      final text = SoriTextTheme.of(screenContext);
+      final subtitle = find.text(t.listeningSubtitle);
+      final section = find.text(t.listeningSelectScenario);
+      final instruction = find.text(t.listeningPickFirst);
+      final levelLabel = find.text(t.filterLevel);
+
+      expect(tester.widget<Text>(subtitle).style, text.bodySmall);
+      expect(
+        find.widgetWithText(SoriSectionHeader, t.listeningSelectScenario),
+        findsOneWidget,
+      );
+      expect(tester.widget<Text>(section).style, text.h2);
+      expect(
+        tester
+            .getSemantics(section)
+            .getSemanticsData()
+            .flagsCollection
+            .isHeader,
+        isTrue,
+      );
+      expect(tester.widget<Text>(instruction).style, text.meta);
+      expect(levelLabel, findsOneWidget);
+      expect(tester.widget<Text>(levelLabel).style, text.label);
+      expect(
+        tester.getTopLeft(section).dy,
+        lessThan(tester.getTopLeft(instruction).dy),
+      );
+      expect(
+        tester.getTopLeft(instruction).dy,
+        lessThan(tester.getTopLeft(levelLabel).dy),
+      );
+      expect(find.text('A1'), findsWidgets);
+      expect(find.text('C2'), findsWidgets);
+      final levelChips = tester.widgetList<SoriChip>(find.byType(SoriChip));
+      expect(levelChips, hasLength(LearnerLevel.values.length));
+      expect(
+        levelChips.every((chip) => chip.minInteractiveHeight == 48),
+        isTrue,
+      );
+      final c2Chip = find.widgetWithText(SoriChip, 'C2');
+      await tester.ensureVisible(c2Chip);
+      await tester.pump();
+      await tester.tap(c2Chip);
+      await tester.pump();
+      expect(tester.widget<SoriChip>(c2Chip).selected, isTrue);
+      expect(find.byType(ChaekgadoShelfCase), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    }
+    semantics.dispose();
+  });
+
+  testWidgets('listening loading and empty states use shared surfaces', (
+    tester,
+  ) async {
+    await _configurePhone(tester);
+    final scenarios = Completer<List<Scenario>>();
     await tester.pumpWidget(
-      _host(
-        ListeningScreen(scenariosLoader: () async => const [_scenarioFixture]),
-      ),
+      _host(ListeningScreen(scenariosLoader: () => scenarios.future)),
     );
+    await tester.pump();
+    expect(find.byType(AppLoading), findsOneWidget);
+
+    scenarios.complete(const []);
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 100));
 
-    expect(find.text('A1'), findsWidgets);
-    expect(find.text('C2'), findsWidgets);
+    final t = AppL10n.of(tester.element(find.byType(ListeningScreen)));
+    expect(find.byType(SoriEmptyState), findsOneWidget);
+    expect(find.text(t.listeningEmptyTitle), findsOneWidget);
+    expect(find.text(t.listeningEmptyBody), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+    'listening shelf reflows across short, phone, tablet and desktop',
+    (tester) async {
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      for (final size in const [
+        Size(360, 400),
+        Size(390, 844),
+        Size(720, 1024),
+        Size(1280, 900),
+      ]) {
+        for (final locale in const [Locale('de'), Locale('en')]) {
+          tester.view.physicalSize = size;
+          await tester.pumpWidget(
+            _host(
+              ListeningScreen(
+                scenariosLoader: () async => const [_scenarioFixture],
+              ),
+              locale: locale,
+              textScale: size.height <= 400 ? 1 : 1.3,
+            ),
+          );
+          await tester.pump();
+          await tester.pump(const Duration(milliseconds: 100));
+
+          final screenContext = tester.element(find.byType(ListeningScreen));
+          final t = AppL10n.of(screenContext);
+          expect(find.text(t.listeningSelectScenario), findsOneWidget);
+          expect(find.text(t.filterLevel), findsOneWidget);
+          expect(find.byType(ChaekgadoShelfCase), findsOneWidget);
+          expect(
+            tester.getSize(find.byType(ChaekgadoShelfCase)).width,
+            lessThanOrEqualTo(SoriMaxWidth.hub),
+          );
+          expect(tester.takeException(), isNull);
+        }
+      }
+    },
+  );
 
   testWidgets('dojang stamps shrink inside the 320dp three-column grid', (
     tester,
@@ -527,7 +653,11 @@ Future<void> _configurePhone(WidgetTester tester) async {
   addTearDown(tester.view.resetDevicePixelRatio);
 }
 
-Widget _host(Widget child, {Locale locale = const Locale('de')}) {
+Widget _host(
+  Widget child, {
+  Locale locale = const Locale('de'),
+  double textScale = 2,
+}) {
   return MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: AppTheme.light,
@@ -541,7 +671,7 @@ Widget _host(Widget child, {Locale locale = const Locale('de')}) {
         data: media.copyWith(
           padding: safeInsets,
           viewPadding: safeInsets,
-          textScaler: const TextScaler.linear(2),
+          textScaler: TextScaler.linear(textScale),
         ),
         child: SoriTypeScale(child: appChild!),
       );
