@@ -42,23 +42,32 @@ class DailyCalligraphyRouteScreen extends StatelessWidget {
   final String? character;
 
   @override
-  Widget build(BuildContext context) => SoriStandardPage(
-    appBarTitle: AppL10n.of(context).dailyCharTitle,
-    maxWidth: SoriMaxWidth.form,
-    padding: const EdgeInsets.fromLTRB(
-      Spacing.xl,
-      Spacing.xl,
-      Spacing.xl,
-      Spacing.xxxl,
-    ),
-    children: [_DailyCharSheet(character: character)],
-  );
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final resolvedCharacter = character ?? DailyCharService.today();
+    final hasStrokes =
+        (hangulStrokes[resolvedCharacter] ?? const []).isNotEmpty;
+
+    return SoriStandardPage(
+      appBarTitle: t.dailyCharTitle,
+      eyebrow: t.soriStageActivityTitle('calligraphy'),
+      headline: t.dailyCharTitle,
+      description: hasStrokes
+          ? t.dailyCharSubtitle
+          : t.dailyCharFallbackSubtitle,
+      maxWidth: SoriMaxWidth.form,
+      children: [
+        _DailyCharSheet(character: resolvedCharacter, showIntro: false),
+      ],
+    );
+  }
 }
 
 class _DailyCharSheet extends StatefulWidget {
-  const _DailyCharSheet({this.character});
+  const _DailyCharSheet({this.character, this.showIntro = true});
 
   final String? character;
+  final bool showIntro;
 
   @override
   State<_DailyCharSheet> createState() => _DailyCharSheetState();
@@ -121,36 +130,31 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
+    final type = SoriTextTheme.of(context);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final strokes = hangulStrokes[_char] ?? [];
     final hasStrokes = strokes.isNotEmpty;
 
     // 시트 외형(둥근 상단·handle·SafeArea·키보드 inset·스크롤)은 SoriSheet 담당.
     return Column(
+      key: const Key('daily-calligraphy-content'),
       mainAxisSize: MainAxisSize.min,
       children: [
-        // Title
-        Text(
-          t.dailyCharTitle,
-          style: TextStyle(
-            fontFamily: SoriFonts.sans,
-            color: SoriColors.primary,
-            fontWeight: FontWeight.w800,
-            fontSize: 13,
-            letterSpacing: 0.5,
+        if (widget.showIntro) ...[
+          Semantics(
+            header: true,
+            child: Text(
+              t.dailyCharTitle,
+              style: type.label.copyWith(color: SoriColors.primary),
+            ),
           ),
-        ),
-        const SizedBox(height: Spacing.xs),
-        Text(
-          hasStrokes ? t.dailyCharSubtitle : t.dailyCharFallbackSubtitle,
-          style: TextStyle(
-            fontFamily: SoriFonts.sans,
-            color: s.textMuted,
-            fontSize: 12,
+          const SizedBox(height: Spacing.xs),
+          Text(
+            hasStrokes ? t.dailyCharSubtitle : t.dailyCharFallbackSubtitle,
+            style: type.caption,
           ),
-        ),
-        const SizedBox(height: Spacing.xl),
+          const SizedBox(height: Spacing.xl),
+        ],
 
         // Stroke demo (animated)
         if (hasStrokes)
@@ -182,8 +186,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
               child: Center(
                 child: Text(
                   _char,
-                  style: TextStyle(
-                    fontFamily: SoriFonts.sans,
+                  style: type.koDisplay.copyWith(
                     fontSize: 140,
                     fontWeight: FontWeight.w800,
                     color: SoriColors.primary,
@@ -200,11 +203,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
           Text(
             t.dailyCharGuideHint,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: SoriFonts.sans,
-              color: s.textDim,
-              fontSize: 11,
-            ),
+            style: type.meta,
           ),
           const SizedBox(height: Spacing.sm),
         ],
@@ -240,11 +239,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
           const SizedBox(height: Spacing.sm),
           Text(
             t.dailyCharStreak(Storage.calligraphyTotalDays),
-            style: TextStyle(
-              fontFamily: SoriFonts.sans,
-              color: s.textDim,
-              fontSize: 11,
-            ),
+            style: type.meta,
           ),
         ] else
           // Done celebration
@@ -258,12 +253,7 @@ class _DailyCharSheetState extends State<_DailyCharSheet> {
               const SizedBox(height: Spacing.sm),
               Text(
                 t.dailyCharGreatJob,
-                style: TextStyle(
-                  fontFamily: SoriFonts.sans,
-                  color: SoriColors.success,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w800,
-                ),
+                style: type.h2.copyWith(color: SoriColors.success),
               ),
               if (_feedbackCompletion.current != null &&
                   feedbackScope != null &&
