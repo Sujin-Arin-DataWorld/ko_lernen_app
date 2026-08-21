@@ -1,12 +1,12 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.6
+- **Version:** 1.7
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-stage-2d-2026-08-21`
-- **Base:** `origin/main@79c532b33117f5b23dff743e16203f8844ca2d10`
-- **State:** Phase 2D residual audit and local verification complete; PR pending
-- **Next action:** commit and push Phase 2D, open its PR, inspect the automatic
-  current-head CI run, merge only if green, then start Phase 3A from latest main
+- **Branch:** `session/uiux-bible-stage2-closeout-2026-08-21`
+- **Base:** `origin/main@e104ae213b813edd20777f0f063acf6bc9c2088c`
+- **State:** Phase 2A–2D main tabs complete and merged; clean restart boundary
+- **Next action:** create a fresh worktree from latest `origin/main` for Phase
+  3A, then audit Vocab/review/custom Deck outer UI before changing code
 
 ## 1. Purpose
 
@@ -325,7 +325,7 @@ production, and deployment remain unclaimed and out of scope.
 | 2A shell/adaptive navigation | merged | PR #122; main merge `22e7a38e4435972c634519fa62efe1eddb6f3ed1`; CI run 32430662420 green; five-tab shell verified unchanged; rail ellipsis 1→0 |
 | 2B Today + catalog | merged | PR #123; main merge `afebdd0a2a767d69e7e09e61159ed9c9ecc24b4c`; CI run 32431541123 green; 320×640 at 200% text added to Today long-copy and catalog matrices; approved runtime pixels unchanged |
 | 2C Gye tab | merged | PR #124; main merge `abe2be2bb278a257e776e0e4c2a043b2e4ed4c6f`; CI run 32432348610 green; Gye member-count and feed-title typography connected to the Sori label token; screen raw TextStyle 319→317 and w800 99→98 |
-| 2D Hanok tab/world boundary | local complete | approved Hanok tab/world UI and assets verified unchanged; Stage shortcut matrix now includes German 320×640 at 200% text; 173 Hanok/evidence/asset tests and 9 typography guards passed; analyze clean in 169.3 s; no runtime, grant, reveal, reward, or asset change; commit/PR next |
+| 2D Hanok tab/world boundary | merged | PR #125; main merge `e104ae213b813edd20777f0f063acf6bc9c2088c`; CI run 32433115213 green; German 320×640 at 200% Stage shortcut matrix added; approved runtime, grants, reveals, rewards, evidence, and assets unchanged |
 | 3A–3D learning flows | pending | split by evidence boundary |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
