@@ -4597,6 +4597,12 @@ abstract class AppL10n {
   /// **'Übe mit echten Alltagssituationen'**
   String get scenariosListSubtitle;
 
+  /// No description provided for @scenariosCardMeta.
+  ///
+  /// In de, this message translates to:
+  /// **'5 bis 7 Minuten · +{xp} XP'**
+  String scenariosCardMeta(int xp);
+
   /// No description provided for @scenariosLocked.
   ///
   /// In de, this message translates to:

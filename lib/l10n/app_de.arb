@@ -1202,6 +1202,14 @@
   "homePathDone": "Erledigt",
   "scenariosListTitle": "Szenarien",
   "scenariosListSubtitle": "Übe mit echten Alltagssituationen",
+  "scenariosCardMeta": "5 bis 7 Minuten · +{xp} XP",
+  "@scenariosCardMeta": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
   "scenariosLocked": "Erreiche {level}, um freizuschalten",
   "@scenariosLocked": {
     "placeholders": {

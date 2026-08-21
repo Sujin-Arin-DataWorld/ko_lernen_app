@@ -252,10 +252,8 @@ class _LevelSection extends StatelessWidget {
             Expanded(
               child: Text(
                 t.scenariosLevelBadge(level.display),
-                style: TextStyle(
+                style: SoriTextTheme.of(context).label.copyWith(
                   color: locked ? s.textDim : s.textMuted,
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
                   letterSpacing: 0.4,
                 ),
               ),
@@ -279,7 +277,7 @@ class _LevelSection extends StatelessWidget {
                 TextSpan(text: t.scenariosLocked(level.display)),
               ],
             ),
-            style: TextStyle(color: s.textDim, fontSize: 11),
+            style: SoriTextTheme.of(context).meta.copyWith(color: s.textDim),
           ),
         ],
         const SizedBox(height: Spacing.sm),
@@ -292,11 +290,12 @@ class _LevelSection extends StatelessWidget {
             (sc) => Padding(
               padding: const EdgeInsets.only(bottom: Spacing.sm),
               child: locked
-                  ? _LockedScenarioCard(
+                  ? _ScenarioCardBody(
                       scenario: sc,
                       accent: effectiveAccent,
                       stars: stars[sc.id] ?? 0,
                       lang: lang,
+                      locked: true,
                       onTap: () => onLockedTap(sc),
                     )
                   : _OpenScenarioCard(
@@ -352,39 +351,6 @@ class _OpenScenarioCard extends StatelessWidget {
   }
 }
 
-// ─── Locked card (SoriPressable + SnackBar) ───────────────────────────────────
-
-class _LockedScenarioCard extends StatelessWidget {
-  final Scenario scenario;
-  final Color accent;
-  final int stars;
-  final String lang;
-  final VoidCallback onTap;
-
-  const _LockedScenarioCard({
-    required this.scenario,
-    required this.accent,
-    required this.stars,
-    required this.lang,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return SoriPressable(
-      onTap: onTap,
-      haptic: SoriHaptic.selection,
-      child: _ScenarioCardBody(
-        scenario: scenario,
-        accent: accent,
-        stars: stars,
-        lang: lang,
-        locked: true,
-      ),
-    );
-  }
-}
-
 // ─── Shared card body ─────────────────────────────────────────────────────────
 
 class _ScenarioCardBody extends StatelessWidget {
@@ -406,10 +372,15 @@ class _ScenarioCardBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final title = scenario.title.pick(lang);
+    final metadata = t.scenariosCardMeta(scenario.xpReward);
+    final semanticLabel = locked
+        ? '$title. $metadata. ${t.scenariosLocked(scenario.level.display)}'
+        : '$title. $metadata';
 
-    return Opacity(
+    final card = Opacity(
       opacity: locked ? 0.5 : 1.0,
       child: Container(
         padding: const EdgeInsets.all(Spacing.lg),
@@ -443,10 +414,9 @@ class _ScenarioCardBody extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: SoriTextTheme.of(context).h3.copyWith(
-                      fontWeight: FontWeight.w800,
-                      color: locked ? s.textDim : s.text,
-                    ),
+                    style: SoriTextTheme.of(
+                      context,
+                    ).cardTitle.copyWith(color: locked ? s.textDim : s.text),
                   ),
                   const SizedBox(height: Spacing.xs),
                   Row(
@@ -459,10 +429,9 @@ class _ScenarioCardBody extends StatelessWidget {
                       const SizedBox(width: Spacing.xs),
                       Expanded(
                         child: Text(
-                          '5-7 min · +${scenario.xpReward} XP',
-                          style: TextStyle(
+                          metadata,
+                          style: SoriTextTheme.of(context).meta.copyWith(
                             color: s.textDim,
-                            fontSize: 11,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -484,6 +453,23 @@ class _ScenarioCardBody extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+
+    final callback = onTap;
+    if (callback == null) {
+      return card;
+    }
+    return Semantics(
+      label: semanticLabel,
+      button: true,
+      enabled: true,
+      excludeSemantics: true,
+      onTap: callback,
+      child: SoriPressable(
+        onTap: callback,
+        haptic: SoriHaptic.selection,
+        child: card,
       ),
     );
   }
@@ -628,11 +614,9 @@ class _LessonPathHeader extends StatelessWidget {
                   Flexible(
                     child: Text(
                       t.scenariosPathAllDone,
-                      style: TextStyle(
-                        fontSize: 12.5,
-                        color: s.text,
-                        fontWeight: FontWeight.w700,
-                      ),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).label.copyWith(color: s.text),
                     ),
                   ),
                 ],
@@ -684,9 +668,7 @@ class _LevelProgressChip extends StatelessWidget {
             ],
             Text(
               label,
-              style: TextStyle(
-                fontFamily: SoriFonts.sans,
-                fontSize: 11,
+              style: SoriTextTheme.of(context).meta.copyWith(
                 fontWeight: FontWeight.w700,
                 color: tint,
                 letterSpacing: 0.2,
@@ -713,6 +695,15 @@ class _NextRecommended extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
+    final title = scenario.title.pick(lang);
+    void openScenario() {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (_) => ScenarioPlayerScreen(scenarioId: scenario.id),
+        ),
+      );
+    }
+
     final details = Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -730,18 +721,12 @@ class _NextRecommended extends StatelessWidget {
             children: [
               Text(
                 t.scenariosPathNextLabel,
-                style: TextStyle(
-                  fontSize: 10,
-                  color: accent,
-                  fontWeight: FontWeight.w800,
-                  letterSpacing: 0.6,
-                ),
+                style: SoriTextTheme.of(
+                  context,
+                ).label.copyWith(color: accent, letterSpacing: 0.6),
               ),
               const SizedBox(height: Spacing.xs),
-              Text(
-                scenario.title.pick(lang),
-                style: SoriTextTheme.of(context).cardTitle,
-              ),
+              Text(title, style: SoriTextTheme.of(context).cardTitle),
             ],
           ),
         ),
@@ -758,11 +743,8 @@ class _NextRecommended extends StatelessWidget {
         children: [
           Text(
             t.scenariosPathStartCta,
-            style: TextStyle(
-              fontFamily: SoriFonts.sans,
-              fontSize: 12,
+            style: SoriTextTheme.of(context).label.copyWith(
               color: SoriColors.onFill(accent),
-              fontWeight: FontWeight.w800,
               letterSpacing: 0.3,
             ),
           ),
@@ -775,47 +757,47 @@ class _NextRecommended extends StatelessWidget {
         ],
       ),
     );
-    return SoriPressable(
-      onTap: () {
-        HapticFeedback.selectionClick();
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (_) => ScenarioPlayerScreen(scenarioId: scenario.id),
+    return Semantics(
+      label: '${t.scenariosPathStartCta}: $title',
+      button: true,
+      enabled: true,
+      excludeSemantics: true,
+      onTap: openScenario,
+      child: SoriPressable(
+        onTap: openScenario,
+        haptic: SoriHaptic.selection,
+        child: Container(
+          padding: const EdgeInsets.all(Spacing.md),
+          decoration: BoxDecoration(
+            color: Color.alphaBlend(accent.withValues(alpha: 0.10), s.surface),
+            borderRadius: SoriRadius.brSm,
+            border: Border.all(color: accent.withValues(alpha: 0.32), width: 1),
           ),
-        );
-      },
-      haptic: SoriHaptic.selection,
-      child: Container(
-        padding: const EdgeInsets.all(Spacing.md),
-        decoration: BoxDecoration(
-          color: Color.alphaBlend(accent.withValues(alpha: 0.10), s.surface),
-          borderRadius: SoriRadius.brSm,
-          border: Border.all(color: accent.withValues(alpha: 0.32), width: 1),
-        ),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
-            final stack =
-                constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
-                textScale >= 1.6;
-            if (stack) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
+              final stack =
+                  constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
+                  textScale >= 1.6;
+              if (stack) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    details,
+                    const SizedBox(height: Spacing.md),
+                    Align(alignment: Alignment.centerRight, child: cta),
+                  ],
+                );
+              }
+              return Row(
                 children: [
-                  details,
-                  const SizedBox(height: Spacing.md),
-                  Align(alignment: Alignment.centerRight, child: cta),
+                  Expanded(child: details),
+                  const SizedBox(width: Spacing.sm),
+                  cta,
                 ],
               );
-            }
-            return Row(
-              children: [
-                Expanded(child: details),
-                const SizedBox(width: Spacing.sm),
-                cta,
-              ],
-            );
-          },
+            },
+          ),
         ),
       ),
     );
@@ -873,22 +855,16 @@ class _EmptyLevelCard extends StatelessWidget {
               children: [
                 Text(
                   t.scenariosEmptyTitle,
-                  style: TextStyle(
-                    fontFamily: SoriFonts.sans,
-                    color: s.text,
-                    fontWeight: FontWeight.w800,
-                    fontSize: 14,
-                    letterSpacing: -0.1,
-                  ),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).cardTitle.copyWith(color: s.text),
                 ),
                 const SizedBox(height: 2),
                 Text(
                   t.scenariosEmptyBody,
-                  style: TextStyle(
-                    color: s.textMuted,
-                    fontSize: 12,
-                    height: 1.35,
-                  ),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).cardSubtitle.copyWith(color: s.textMuted),
                 ),
               ],
             ),

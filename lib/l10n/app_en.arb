@@ -1195,6 +1195,14 @@
   "homePathDone": "Done",
   "scenariosListTitle": "Scenarios",
   "scenariosListSubtitle": "Practise real-life situations",
+  "scenariosCardMeta": "5 to 7 minutes · +{xp} XP",
+  "@scenariosCardMeta": {
+    "placeholders": {
+      "xp": {
+        "type": "int"
+      }
+    }
+  },
   "scenariosLocked": "Reach {level} to unlock",
   "@scenariosLocked": {
     "placeholders": {
