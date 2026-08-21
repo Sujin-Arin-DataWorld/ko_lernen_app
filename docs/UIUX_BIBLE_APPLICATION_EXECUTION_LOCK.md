@@ -1,16 +1,15 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.38
+- **Version:** 1.39
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3c-scenarios-closeout-2026-08-21`
-- **Base:** `origin/main@189c515089dc775f54c8477353ac060818c9813e`
-- **State:** Phase 3C `/scenarios` list outer UI merged; clean `/scenario`
-  player restart point recorded
+- **Branch:** `session/uiux-bible-learning-3c-scenario-player-closeout-2026-08-21`
+- **Base:** `origin/main@f9575c1a9492bffdd2a5ac7cdbd1d5b9915d3518`
+- **State:** Phase 3C `/scenario` player outer UI merged; clean `/smalltalk`
+  restart point recorded
 - **Next action:** create a fresh worktree from latest `origin/main` and audit
-  `/scenario` player outer UI and state matrix only; preserve scenario id and
-  route arguments, roleplay/quest canvas and dialog order, audio/TTS behavior,
-  scoring, stars, XP, feedback, exact course evidence and writes, quest rules,
-  SDK boundaries, and approved assets; leave `/smalltalk` for its own later phase
+  `/smalltalk` outer UI and state matrix only; preserve course evidence,
+  speech/content behavior, writes, SDK boundaries, route arguments, and approved
+  assets; do not reopen `/scenario` or begin Phase 3D
 
 ## 1. Purpose
 
@@ -18,13 +17,13 @@ This is the sole restart document for applying the approved UI/UX Bible across
 the app. A later session starts with only:
 
 1. `AGENTS.md`
-2. `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`
-3. `docs/UIUX_NATIVE_GAME_PHASE2_EXECUTION_LOCK.md`
-4. this file
+2. this file
 
-Historical handoffs are not startup reading. Open one only when a disputed fact
-is absent from all four sources above, and add the resolved fact here before
-continuing.
+The approved Bible, `docs/HANDOFF_UI_OVERHAUL_2_2026-08-14.md`, and native/game
+boundary contract, `docs/UIUX_NATIVE_GAME_PHASE2_EXECUTION_LOCK.md`, remain
+authority references, not startup reading. Historical handoffs are never
+startup reading. Open a reference only when a disputed fact is absent from this
+file and current code/tests, then add the resolved fact here before continuing.
 
 This file is a state lock, not a new design system. It records what exists,
 what remains, the permitted boundaries, and the next independently mergeable
@@ -124,8 +123,8 @@ current ratchet:
 | Registered route cases | 68 | Every case is inventoried below |
 | `lib/screens` Dart files | 96 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 126 | Existing system; no parallel system permitted |
-| Test files | 455 | Reuse focused suites plus shared matrices |
-| Raw screen `TextStyle` | 246 (guard ≤302) | Must not increase; migrate by touched surface |
+| Test files | 456 | Reuse focused suites plus shared matrices |
+| Raw screen `TextStyle` | 243 (guard ≤302) | Must not increase; migrate by touched surface |
 | Raw screen `fontSize` | 258 (guards ≤95 at w800, ≤28 at w900) | Reduce through tokens, never raise ratchets |
 | Screen `BorderRadius.circular` | 94 total; 21 numeric literals (guard ≤33) | Touched code uses radius tokens |
 | Raw screen `Scaffold` calls | 47 | Many are intentional shell/immersive owners; classify before changing |
@@ -269,8 +268,9 @@ use it rather than reproduce it locally.
 Two non-Sori state widgets, `lib/widgets/app_loading.dart` and
 `lib/widgets/app_error.dart`, are canonical compatibility surfaces used across
 the app. Phase 1A fixes `AppError` so its animation controller does not run when
-motion is disabled. Phase 1B decides whether their public import location can
-be consolidated without churn; no duplicate replacements are allowed.
+motion is disabled. Phase 3C keeps `AppError` centered when short and makes its
+complete retry state scroll-reachable at 320×420 with 200% text. Their public
+import locations remain stable; no duplicate replacements are allowed.
 
 ## 9. Phased delivery lock
 
@@ -358,8 +358,8 @@ production, and deployment remain unclaimed and out of scope.
 | 3C Course mission outer UI | merged | PR #156; main merge `4ae8d9933d302fc5d4220a7e46f30b3bdd74501a`; PR exact-current-head CI run 32458331827 green with 4,390 tests passed, 2 skipped, and the asset pipeline gate green; `/course/mission` uses the canonical Sori page header and one primary action, while canonically completed historical missions use a localized read-only standard completion state; active graph-derived step order and completion/evidence behavior are unchanged; DE/EN 320×640 at 200% with safe insets, 360×400, 390×844, 720×1024, and 1280×900 covered; 26 focused and 807 shared tests green locally; analyze and diff check clean; exact-base ratchets raw screen TextStyle 281→281 and screen BorderRadius.circular 94→94; added assets, TODO markers, and secret patterns zero; mission plan, routes and arguments, current/read-only state, evidence writes, and approved assets unchanged; post-merge main run 32459083742 cancelled while queued and its Signed AAB/Play job had zero steps, so no build, signing, or upload ran |
 | 3C Course reassessment outer UI | merged | PR #158; main merge `a7be4e6387db9a2d482d27b56fc5719eb85b6c91`; PR exact-current-head CI run 32462887664 green with 902 selected tests passed and the asset pipeline gate green; `/course/reassessment` now uses the canonical Standard-page header, 600dp form clamp, Sori type hierarchy, progress bar, and shared text fields; loading and error states use the same width contract and remain scroll-reachable at 320×400 with 200% text; project review, structured inputs, prerequisite, oral fail-closed, result, and completion states have direct narrow/200% coverage; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 covered; 14 focused tests, full local 4,382 tests with 14 conditional skips, analyze, format, and diff check green; exact-base ratchets raw screen TextStyle 281→255, raw screen TextField 22→20, and raw screen LinearProgressIndicator 9→8; added assets, TODO markers, and secret patterns zero; typed arguments, exact productive-evidence eligibility and completion, mastery and current course position, writes, navigation, read-only behavior, and approved assets unchanged; post-merge main run 32463213316 cancelled during checkout and its Signed AAB/Play job had zero steps, so no build, signing, or upload ran |
 | 3C Scenarios list outer UI | merged | PR #160; main merge `189c515089dc775f54c8477353ac060818c9813e`; PR exact-current-head CI run 32465921674 green with 4,403 tests passed, 2 skipped, and the asset pipeline gate green; `/scenarios` keeps its approved 16:9 shelf art while residual local card/type styling moves to existing Sori roles, open and locked cards expose explicit localized button semantics, and the open card uses the existing route callback; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; 65 focused related tests, full local 4,391 tests with 14 conditional skips, analyze, format, and diff check green; Standards and Specification review axes both reported zero remaining findings after three review fixes; exact-base ratchets raw screen TextStyle 255→246 and `scenarios_list_screen.dart` raw TextStyle 10→1; added assets, TODO markers, and secret patterns zero; all six A1–C2 shards and 392 scenarios, availability/level locks, stars, recommendation, `madang(light).png`, `hanok_jongga.mp4`, route arguments, player flow, scenario evidence, audio, quest rules, writes, and approved assets unchanged; post-merge main run 32466724845 cancelled during checkout and its Signed AAB/Play job 96724843027 had zero steps, so no build, signing, or upload ran |
-| 3C Scenario player outer UI | pending | create a fresh worktree from latest `origin/main` and audit `/scenario` player outer UI and state matrix only before implementation; preserve scenario id and route arguments, roleplay/quest canvas and dialog order, audio/TTS behavior, scoring, stars, XP, feedback, exact course evidence and writes, quest rules, SDK boundaries, and approved assets |
-| 3C Smalltalk outer UI | pending | keep `/smalltalk` isolated after the scenario player phase; preserve course evidence, speech/content behavior, writes, and SDK boundaries |
+| 3C Scenario player outer UI | merged | PR #162; main merge `f9575c1a9492bffdd2a5ac7cdbd1d5b9915d3518`; PR exact-current-head CI run 32471398286 green with 1,550 selected tests passed and the asset pipeline gate green; `/scenario` loading, error, same-id retry, and close states use the canonical `SoriStudyFrame`, `AppLoading`, and scroll-reachable `AppError`; compact wordbook and vocabulary/dialog audio actions keep localized semantics and 48dp targets; delayed loads cannot start `Analytics.lessonStarted` or `QuestAbandonTracker` after exit and tracking is admitted at most once per player instance; existing `textMuted` and Sori type roles are used with no new token; DE/EN changed states are covered directly at 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130%; 150 focused scenario/accessibility/onboarding/SRS tests, full local 4,405 tests with 14 conditional skips, analyze, format, and diff check green; Standards and Specification final review axes both reported zero remaining findings after closing pending-load SDK, duplicate-tracking, token, brace, and matrix gaps; exact-base ratchets raw screen TextStyle 246→243 and `scenario_player_screen.dart` raw TextStyle 3→0; added assets, TODO markers, and secret patterns zero; scenario id and route arguments, roleplay/quest canvas and dialog order, audio/TTS behavior, score, stars, XP, feedback, exact course evidence and writes, onboarding five-quest completion, quest rules, premium gates, SDK boundaries, and approved assets unchanged; post-merge main run 32471858735 cancelled during checkout and its Signed AAB/Play job 96740168745 had zero steps, so no build, signing, or upload ran |
+| 3C Smalltalk outer UI | pending | create a fresh worktree from latest `origin/main` and audit `/smalltalk` outer UI and state matrix only; preserve course evidence, speech/content behavior, writes, SDK boundaries, route arguments, and approved assets; do not reopen `/scenario` or begin Phase 3D |
 | 3D remaining learning flows | pending | split practice, quests, word-web, and Sarangbang by reward/evidence and custom-canvas boundary |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
