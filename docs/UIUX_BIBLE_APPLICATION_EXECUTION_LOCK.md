@@ -1,40 +1,40 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.54
+- **Version:** 1.56
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-4a-paywall-2026-08-21`
-- **Base:** `origin/main@2f1c183e035cff6d29b622dbaf0ecbdc6ebb9ac5`
-- **State:** Phase 4A `/stats`, `/profile`, and `/settings` are merged; the
-  current Paywall app head is locally final-verified with both review axes at
-  zero findings
-- **Next action:** push the current exact Paywall head, open one PR, rely on its
-  automatic CI without a duplicate manual run, and merge only when green
+- **Branch:** `session/uiux-bible-4b-book-capture-2026-08-21`
+- **Base:** `origin/main@462b84dd6f1a04932312b70c806c0dd88d3de85a`
+- **State:** Phase 4A is merged; the Phase 4B shared `/book` and
+  `/vocab_notebook` capture-presentation unit is locally final-verified
+- **Next action:** commit the exact verified app and lock state, push the isolated
+  branch, open one PR, rely on automatic exact-head CI, and merge only when green
 
 ## Current State Summary
 
-`/settings` was delivered through PR #176 and merged to main at
-`2f1c183e035cff6d29b622dbaf0ecbdc6ebb9ac5`. Its corrected exact-head CI run
-32518721442 was green after the first run's three Linux-golden hairline-cap
-findings were fixed without changing baselines. Release-capable post-merge run
-32519899612 was cancelled with its Signed AAB/Play job at zero steps. A fresh
-Windows-native worktree now contains the independently mergeable `/paywall`
-presentation unit. It now owns the Offering loading/failure state, prevents an
-unavailable error before loading completes, keeps restore usable without an
-Offering, disables competing actions during purchase, gives loading and close
-actions localized semantics, and keeps the close target at 48dp. Its ordinary
-layout retains fixed actions while short-height and large-text layouts make the
-whole offer scroll-reachable. Six focused Paywall tests, 830 combined focused
-and shared tests, and the full local 4,437 tests with 14 conditional skips are
-green; analyze, format, and diff check are clean. The RevenueCat service,
-purchase, restore, entitlement, routes, and platform-owned behavior remain
-unchanged. No deployment, build, signing, or store upload has been performed
-for the Paywall unit. Its first exact-head reviews found a stale next action and
-a close icon whose hardcoded enabled color hid its disabled visual state; app
-commits `710cf7ea3a775be4a9ca18fdf0be095ebbda06e4` and
-`941433efb809968493f923f8e38005d154ba08fd` contain the implementation and
-correction. The full suite was repeated on the corrected app head with 4,437
-passes and 14 conditional skips, and both final review axes report zero
-remaining findings.
+`/paywall` was delivered through PR #177 and merged to main at
+`462b84dd6f1a04932312b70c806c0dd88d3de85a`. Its automatic exact-head CI run
+32522867344 was green for Analyze & Build and the asset pipeline gate; the PR
+Signed AAB/Play job 96899365718 was skipped with zero steps. Release-capable
+post-merge run 32523230826 was cancelled during checkout and its Signed
+AAB/Play job 96899861885 had zero steps. The isolated Phase 4B capture unit now
+uses existing Sori heading/body roles for the shared `/book` and
+`/vocab_notebook` hero, gives the inline permission/picker error a live-region
+announcement, retains one primary camera action, and keeps the gallery action on
+the existing default outlined contrast path. DE and EN cover both modes at
+320x640 at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at
+130%, including scroll reachability, actual hit testing, and button semantics.
+Six focused capture tests, 146 book/recovery/platform tests, 819 shared responsive,
+accessibility, typography, and smoke tests, and the full local 4,438 tests with
+14 conditional skips are green; analyze, format, and diff check are clean.
+Specification/Protection and Standards/Accessibility final review axes both
+reported zero remaining findings after correcting gallery contrast and testing
+the rendered live-region semantics. Exact-base ratchets are raw screen
+`TextStyle` 218->215, numeric-literal screen radii 14->14, raw screen progress
+indicators 17->17, and test files 456->456. Camera permission, picker/crop
+recovery, media leases, image quality, OCR, quota, preview arguments, routes,
+storage, privacy, SDK/platform behavior, and approved assets remain protected.
+No new asset, localization key, token, secret, or TODO marker was added. No
+deployment, build, signing, or store upload is authorized.
 
 ## Important Context
 
@@ -47,11 +47,12 @@ remain separate high-risk units.
 
 ## Immediate Next Steps
 
-1. Push the current exact Paywall head and open one independently mergeable PR.
-2. Rely on the automatic current-head checks without dispatching a duplicate
-   manual run. Merge only after they are green, then handle any release-capable
-   post-merge run under the protocol below. Do not include account-operation,
-   purchase, entitlement, notification, or platform writes.
+1. Commit and push the exact locally verified capture app and lock state, open a
+   single PR, and rely on the automatic exact-head required CI without a duplicate
+   manual workflow dispatch.
+2. Merge only after the exact PR head is green. Cancel the release-capable
+   post-main run before build/sign/upload work, verify zero Signed AAB/Play steps,
+   then start the next non-overlapping Phase 4B unit from the new `origin/main`.
 
 ## 1. Purpose
 
@@ -409,8 +410,10 @@ production, and deployment remain unclaimed and out of scope.
 | 4A Stats outer UI | merged | App commit `56be6108607d412c64c3bde8b9cf23228b415e8a`; PR #174; main merge `70df05a5ec0a7de2b2fb9ed8a62bd9626fbd6a26`; PR exact-current-head CI run 32506434904 green with 4,440 tests passed, 2 skipped, and the asset pipeline gate green; `/stats` keeps its existing empty/populated hierarchy and exact aggregation/chart-completion mapping while weekday labels, today mapping, and per-day semantics are localized in DE/EN; the empty CTA still routes to `/scenarios`; protected XP, level, streak, scenario, Vocab, Chosung, and Wordle values are asserted exactly and rendering is proven storage-read-only; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; 5 focused tests and full local 4,428 tests with 14 conditional skips green; analyze and format clean; Standards and Specification final review axes both reported zero findings; raw screen TextStyle remains 232 and test files 454→455; no new assets, tokens, secrets, or TODO markers; routes, writes, progress/stat aggregation, chart data, learning/score/evidence behavior, SDK/native/game boundaries, and approved assets unchanged; post-merge main run 32507386111 was cancelled during checkout and its Signed AAB/Play job had zero steps, so no build, signing, or upload ran |
 | 4A Profile outer UI | merged | App commit `9d43621a2d49ce44c27e5f3ccb97f421d599172b`; PR #175; main merge `3d9ad7200a0c2fa97711c5acf333b4735fe19352`; PR exact-current-head CI run 32509856558 green with 933 selected tests and the asset pipeline gate green; `/profile` keeps its existing identity, editable-learning, learner-space, durable-account, and progress hierarchy while the app-bar settings action exposes the existing localized DE/EN label and an explicit 48dp target instead of the measured 40dp target; the action still routes exactly to `/settings`; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% covered; 62 focused Profile/account-transition/account-hardening tests, 64 typography/accessibility guards, the shared Profile 200% test, and full local 4,430 tests with 14 conditional skips green; analyze, format, and diff check clean; Standards and Specification final review axes reported zero remaining findings after correcting the lock's exact next action; raw screen TextStyle remained 232, `profile_screen.dart` had zero raw TextStyle and BorderRadius constructors, and test files remained 455; no new assets, localization keys, tokens, secrets, or TODO markers; authentication, provider state, account-link confirmation, pending-operation journals, cloud backup/deletion locks, sign-out, placement/export writes, routes, SDK/platform behavior, and approved assets unchanged; post-merge main run 32510668938 was cancelled during checkout and its Signed AAB/Play job 96860818426 had zero steps, so no build, signing, or upload ran |
 | 4A Settings outer UI | merged | App commit `ddc1d7b970595cd5a5a5405b76bb552a654b6891`; PR #176; main merge `2f1c183e035cff6d29b622dbaf0ecbdc6ebb9ac5`; `/settings` keeps every existing account, pending-journal, cloud backup/deletion, consent, notification, locale, audio, companion, reset, and platform operation while its 14 local TextStyle constructors and five local numeric radii converge on existing `SoriTextTheme` and `SoriRadius` roles; data-source card headers and license notes reflow without truncation, and the full Settings list plus opened data-source sheet, long DeepL license, and close action are directly locked in both DE and EN at every 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% viewport; first exact-head CI run 32516080404 passed path selection, analyze, 1,121 tests, and the asset gate but exposed only three Settings Linux-golden diffs: compact 0.43%, medium 0.22%, and expanded 0.12%; downloaded expected, actual, isolated-diff, and masked-diff artifacts showed only four section-hairline caps changed after removing `BorderRadius.circular(1)`, so the corrected diff preserves the existing pixels with `SoriRadius.brPill` instead of changing golden baselines; corrected exact-head CI run 32518721442 passed Analyze & Build, 1,124 tests, and the asset pipeline gate, while its Signed AAB/Play job 96889450602 was skipped with zero steps; the correction had 582 combined changed-path/shared tests and exact-diff full local 4,431 tests with 14 conditional skips green, with analyze, format, and diff check clean; first-review findings for sheet reflow, the 10-combination matrix, card-title weight, and commit-state accuracy remain resolved, and final exact corrected-head Standards and Specification reviews both reported zero remaining findings; cumulative guard ratchets `FontWeight.w800` 85→80, clean-code raw screen TextStyle 235→217, and numeric-literal BorderRadius 33→24; `settings_screen.dart` has zero raw TextStyle and BorderRadius.circular constructors and test files remain 455; no new assets, localization keys, tokens, secrets, or TODO markers; routes, writes, account and purchase behavior, notification scheduling and permissions, consent, locale, SDK/platform boundaries, and approved assets unchanged; post-merge main run 32519899612 was cancelled during checkout and its Signed AAB/Play job 96889736168 had zero steps, so no build, signing, or upload ran |
-| 4A Paywall outer UI | locally final-verified; push/PR next | App commits `710cf7ea3a775be4a9ca18fdf0be095ebbda06e4` and `941433efb809968493f923f8e38005d154ba08fd` on branch `session/uiux-bible-4a-paywall-2026-08-21` from exact base `2f1c183e035cff6d29b622dbaf0ecbdc6ebb9ac5`; `/paywall` disables its purchase action until the Offering resolves instead of surfacing a premature unavailable error, converts a load failure to the existing localized unavailable state, keeps restore independent and usable during Offering loading, and disables purchase, restore, and close together during a store operation; the price loader and close action expose existing localized semantics, close keeps an explicit 48dp target, and its icon now uses distinct enabled/disabled foreground colors; ordinary layouts retain fixed actions, while short-height or large-text layouts put the full offer in one scroll surface; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% directly cover complete, hit-testable actions; six focused Paywall tests, 830 combined focused purchase/restore/SDK-boundary/responsive/short-height/accessibility/typography/smoke tests, and full local 4,437 tests with 14 conditional skips green on the exact corrected app head; first exact-head reviews found only the hidden disabled-close visual and stale next action, both corrected, and final Standards and Specification review axes reported zero remaining findings; analyze, format, and diff check clean; exact-base ratchets raw screen TextStyle 218→218, numeric-literal BorderRadius 14→14, raw screen progress indicators 17→17, and test files 455→456; `paywall_screen.dart` has zero raw TextStyle and BorderRadius.circular constructors; no new assets, localization keys, tokens, secrets, or TODO markers; RevenueCat service calls, purchase, restore, entitlement, analytics, routes and arguments, SDK/platform boundaries, and approved assets unchanged; no deployment, build, signing, or upload performed |
-| 4B–4C tools/community | pending | split platform/community writes from presentation |
+| 4A Paywall outer UI | merged | App commits `710cf7ea3a775be4a9ca18fdf0be095ebbda06e4` and `941433efb809968493f923f8e38005d154ba08fd`; documentation commit `143e34ab458587498b4390ffcf083ca87fd367d8`; PR #177; main merge `462b84dd6f1a04932312b70c806c0dd88d3de85a`; PR exact-current-head CI run 32522867344 green for Analyze & Build and the asset pipeline gate, while Signed AAB/Play job 96899365718 was skipped with zero steps; `/paywall` disables its purchase action until the Offering resolves instead of surfacing a premature unavailable error, converts a load failure to the existing localized unavailable state, keeps restore independent and usable during Offering loading, and disables purchase, restore, and close together during a store operation; the price loader and close action expose existing localized semantics, close keeps an explicit 48dp target, and its icon uses distinct enabled/disabled foreground colors; ordinary layouts retain fixed actions, while short-height or large-text layouts put the full offer in one scroll surface; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% directly cover complete, hit-testable actions; six focused Paywall tests, 830 combined focused purchase/restore/SDK-boundary/responsive/short-height/accessibility/typography/smoke tests, and full local 4,437 tests with 14 conditional skips green on the exact corrected app head; final Standards and Specification review axes reported zero remaining findings; analyze, format, and diff check clean; exact-base ratchets raw screen TextStyle 218→218, numeric-literal BorderRadius 14→14, raw screen progress indicators 17→17, and test files 455→456; `paywall_screen.dart` has zero raw TextStyle and BorderRadius.circular constructors; no new assets, localization keys, tokens, secrets, or TODO markers; RevenueCat service calls, purchase, restore, entitlement, analytics, routes and arguments, SDK/platform boundaries, and approved assets unchanged; post-merge main run 32523230826 was cancelled during checkout and its Signed AAB/Play job 96899861885 had zero steps, so no build, signing, or upload ran |
+| 4B Book/notebook capture outer UI | locally final-verified | Branch `session/uiux-bible-4b-book-capture-2026-08-21` from exact base `462b84dd6f1a04932312b70c806c0dd88d3de85a`; shared `/book` and `/vocab_notebook` hero and error presentation now use existing Sori type/state roles, the gallery action keeps the default outlined contrast path beside one primary camera action, and inline capture failure is announced as a live region; DE/EN in both modes directly cover 320x640 at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130% with scroll reachability, hit testing, and button semantics; six focused tests, 146 book/recovery/platform tests, 819 shared responsive/accessibility/typography/smoke tests, and full local 4,438 tests with 14 conditional skips green; analyze, format, and diff check clean; final Specification/Protection and Standards/Accessibility reviews both reported zero remaining findings; exact-base ratchets raw screen `TextStyle` 218->215, numeric-literal screen radii 14->14, raw screen progress indicators 17->17, and test files 456->456; no new assets, localization keys, tokens, secrets, or TODO markers; camera permission, picker/crop recovery, media leases, image quality, OCR, quota, preview arguments, routes, storage, privacy, SDK/platform behavior, and approved assets unchanged |
+| 4B remaining notebook/bookshelf/custom-pack editing | pending | split capture/OCR from preview/result and local editing |
+| 4C tools/community | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
 
