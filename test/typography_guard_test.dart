@@ -53,7 +53,8 @@ void main() {
     // 2026-08-19 재실측: 155→141.
     // 2026-08-21 Phase 2C Gye 피드 제목 토큰화: 99→98.
     // 2026-08-21 Phase 3A Vocab 결과 계층 토큰화: 98→95.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 95, 'FontWeight.w800');
+    // 2026-08-21 Phase 3C 누적 정본 재실측 + Smalltalk 시트 제목 토큰화: 86→85.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 85, 'FontWeight.w800');
   });
 
   test("하드코딩 fontFamily: ' 문자열 리터럴은 0 이다 (SoriFonts.sans 사용)", () {
@@ -100,7 +101,8 @@ void main() {
       // 2026-08-21 Phase 3A Legacy 외곽 안내·버튼·필터 토큰화: 310→307.
       // 2026-08-21 Phase 3B Grammar 외곽·체크포인트 토큰화: 307→302.
       // 2026-08-21 Phase 3B Hangul 카드 카운터 토큰화: 302→301.
-      301,
+      // 2026-08-21 Phase 3C 이전 병합분 재실측 301→243; Smalltalk 8곳 토큰화: 243→235.
+      235,
       'lib/screens/ 원시 TextStyle(',
     );
   });

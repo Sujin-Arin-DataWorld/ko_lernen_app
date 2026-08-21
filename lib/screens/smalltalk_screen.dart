@@ -37,12 +37,21 @@ import '../widgets/sori/wordbook_add.dart';
 /// Liest `assets/data/smalltalk.json` (via [SmalltalkLoader]). Tippen auf eine
 /// Karte spricht den koreanischen Satz (TTS).
 class SmalltalkScreen extends StatefulWidget {
-  const SmalltalkScreen({super.key, this.courseContext, this.phrases});
+  const SmalltalkScreen({
+    super.key,
+    this.courseContext,
+    this.phrases,
+    this.loadSmalltalk,
+  });
 
   final CoursePracticeContext? courseContext;
 
   /// Notebook studio subset. Production library play leaves this null.
   final List<SmalltalkPhrase>? phrases;
+
+  /// Deterministic loader seam for the loading and retryable-error states.
+  /// Production navigation leaves this null and keeps the canonical loader.
+  final Future<void> Function()? loadSmalltalk;
 
   @override
   State<SmalltalkScreen> createState() => _SmalltalkScreenState();
@@ -113,7 +122,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
       _loadFailed = false;
     });
     try {
-      await SmalltalkLoader.load();
+      await (widget.loadSmalltalk?.call() ?? SmalltalkLoader.load());
       final injected = widget.phrases;
       if (injected != null) {
         if (!mounted) {
@@ -283,7 +292,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
   }
 
   void _retryLoad() {
-    SmalltalkLoader.reset();
+    if (widget.loadSmalltalk == null) {
+      SmalltalkLoader.reset();
+    }
     _load();
   }
 
@@ -306,7 +317,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
               asset: 'assets/illustrations/mascot/magpie_encourage.png',
               icon: Icons.chat_bubble_outline_rounded,
               title: t.smalltalkTitle,
-              body: SmalltalkLoader.lastError ?? '',
+              body: SmalltalkLoader.lastError ?? t.smalltalkEmpty,
             )
           : _buildBody(t, s, lang),
     );
@@ -351,32 +362,43 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
               key: _categoryKey,
               color: s.surface,
               borderRadius: SoriRadius.brMd,
-              child: InkWell(
+              child: Semantics(
+                button: true,
                 onTap: () => _showCategorySheet(t, lang),
-                borderRadius: SoriRadius.brMd,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: Spacing.md,
-                    vertical: 12,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: SoriRadius.brMd,
-                    border: Border.all(color: s.border),
-                  ),
-                  child: Row(
-                    children: [
-                      Flexible(
-                        child: Text(
-                          '${current.emoji} ${current.labelFor(lang)}'
-                          ' · ${phrases.length}',
-                          style: SoriTextTheme.of(
-                            context,
-                          ).h3.copyWith(color: s.text),
+                excludeSemantics: true,
+                label:
+                    '${t.smalltalkPickCategory}: '
+                    '${current.labelFor(lang)} · ${phrases.length}',
+                child: InkWell(
+                  key: const Key('smalltalk-category-selector'),
+                  excludeFromSemantics: true,
+                  onTap: () => _showCategorySheet(t, lang),
+                  borderRadius: SoriRadius.brMd,
+                  child: Container(
+                    constraints: const BoxConstraints(minHeight: 48),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: Spacing.md,
+                      vertical: 12,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: SoriRadius.brMd,
+                      border: Border.all(color: s.border),
+                    ),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: Text(
+                            '${current.emoji} ${current.labelFor(lang)}'
+                            ' · ${phrases.length}',
+                            style: SoriTextTheme.of(
+                              context,
+                            ).h3.copyWith(color: s.text),
+                          ),
                         ),
-                      ),
-                      const Spacer(),
-                      Icon(Icons.expand_more_rounded, color: s.textMuted),
-                    ],
+                        const Spacer(),
+                        Icon(Icons.expand_more_rounded, color: s.textMuted),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -409,7 +431,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
                 ? Center(
                     child: Text(
                       t.smalltalkEmpty,
-                      style: TextStyle(color: s.textMuted),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).body.copyWith(color: s.textMuted),
                     ),
                   )
                 : Builder(
@@ -461,13 +485,23 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
       accent: SoriColors.info,
       selected: _level == lvl,
       variant: SoriChipVariant.soft,
+      minInteractiveHeight: 48,
       onTap: count == 0 ? null : () => _setLevel(lvl),
     );
   }
 
   /// 카테고리 18개 선택 바텀시트 — Wrap 그리드로 한눈에(가로 스크롤 제거).
+  void _selectCategory(BuildContext sheetContext, String categoryId) {
+    setState(() {
+      _cat = categoryId;
+      _phraseIndex = 0;
+    });
+    Navigator.pop(sheetContext);
+  }
+
   void _showCategorySheet(AppL10n t, String lang) {
     final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
     final cats = _visibleCategories;
     showSoriSheet<void>(
       context: context,
@@ -479,12 +513,7 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
             padding: const EdgeInsets.only(bottom: Spacing.md, left: 4),
             child: Text(
               t.smalltalkPickCategory,
-              style: TextStyle(
-                fontFamily: SoriFonts.sans,
-                fontSize: 16,
-                fontWeight: FontWeight.w800,
-                color: s.text,
-              ),
+              style: tt.h3.copyWith(color: s.text),
             ),
           ),
           // 지금 고른 레벨 기준 개수를 달고, 있는 주제를 앞으로 보낸다.
@@ -495,21 +524,34 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
             runSpacing: 8,
             children: [
               for (final entry in _categoriesByAvailability(cats))
-                ChoiceChip(
-                  label: Text(
-                    '${entry.key.emoji} ${entry.key.labelFor(lang)} · '
-                    '${entry.value}',
-                  ),
+                Semantics(
+                  button: true,
+                  enabled: entry.value > 0,
                   selected: entry.key.id == _cat,
-                  onSelected: entry.value == 0
+                  onTap: entry.value == 0
                       ? null
-                      : (_) {
-                          setState(() {
-                            _cat = entry.key.id;
-                            _phraseIndex = 0;
-                          });
-                          Navigator.pop(ctx);
-                        },
+                      : () => _selectCategory(ctx, entry.key.id),
+                  excludeSemantics: true,
+                  label:
+                      '${entry.key.emoji} ${entry.key.labelFor(lang)} · '
+                      '${entry.value}',
+                  child: Opacity(
+                    opacity: entry.value == 0 ? 0.46 : 1,
+                    child: SoriChip(
+                      label:
+                          '${entry.key.emoji} ${entry.key.labelFor(lang)} · '
+                          '${entry.value}',
+                      icon: entry.key.id == _cat ? Icons.check_rounded : null,
+                      accent: SoriColors.info,
+                      selected: entry.key.id == _cat,
+                      variant: SoriChipVariant.outlined,
+                      maxLines: null,
+                      minInteractiveHeight: entry.value == 0 ? null : 48,
+                      onTap: entry.value == 0
+                          ? null
+                          : () => _selectCategory(ctx, entry.key.id),
+                    ),
+                  ),
                 ),
             ],
           ),
@@ -721,13 +763,12 @@ class _PhraseCardState extends State<_PhraseCard> {
                                 ? t.courseCheckpointCorrect
                                 : t.courseCheckpointIncorrect,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: tt.label.copyWith(
                               color:
                                   _submittedRelationshipContext ==
                                       p.relationshipContext
                                   ? SoriColors.success
                                   : SoriColors.danger,
-                              fontWeight: FontWeight.w700,
                             ),
                           ),
                         ),
@@ -865,6 +906,7 @@ class _ConversationTurn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
     final foreground = textColor ?? SoriColors.primaryOnLight;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -881,46 +923,21 @@ class _ConversationTurn extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                label,
-                style: TextStyle(
-                  fontFamily: SoriFonts.sans,
-                  fontSize: 11.5,
-                  fontWeight: FontWeight.w700,
-                  color: s.textMuted,
-                ),
-              ),
+              Text(label, style: tt.label.copyWith(color: s.textMuted)),
               const SizedBox(height: 2),
-              Text(
-                turn.ko,
-                style: TextStyle(
-                  fontFamily: SoriFonts.sans,
-                  fontSize: 14.5,
-                  fontWeight: FontWeight.w700,
-                  color: foreground,
-                  height: 1.3,
-                ),
-              ),
+              Text(turn.ko, style: tt.cardTitle.copyWith(color: foreground)),
               const SizedBox(height: 2),
               Text(
                 turn.translation(lang),
-                style: TextStyle(
-                  fontFamily: SoriFonts.sans,
-                  fontSize: 12,
-                  color: s.textMuted,
-                  height: 1.3,
-                ),
+                style: tt.cardSubtitle.copyWith(color: s.textMuted),
               ),
             ],
           ),
         ),
-        InkWell(
-          onTap: () => TtsService.speak(turn.ko),
-          child: Icon(
-            Icons.volume_up_rounded,
-            color: SoriColors.primary.withValues(alpha: 0.7),
-            size: 19,
-          ),
+        _InlineSpeakButton(
+          korean: turn.ko,
+          color: SoriColors.primary.withValues(alpha: 0.7),
+          iconSize: 19,
         ),
       ],
     );
@@ -935,6 +952,7 @@ class _ReplyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(Spacing.md),
@@ -963,12 +981,8 @@ class _ReplyView extends StatelessWidget {
                     Expanded(
                       child: Text(
                         reply.ko,
-                        style: const TextStyle(
-                          fontFamily: SoriFonts.sans,
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
+                        style: tt.cardTitle.copyWith(
                           color: SoriColors.primaryOnLight,
-                          height: 1.3,
                         ),
                       ),
                     ),
@@ -977,26 +991,42 @@ class _ReplyView extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   reply.translation(lang),
-                  style: TextStyle(
-                    fontFamily: SoriFonts.sans,
-                    fontSize: 12.5,
-                    color: s.textMuted,
-                    height: 1.3,
-                  ),
+                  style: tt.caption.copyWith(color: s.textMuted),
                 ),
               ],
             ),
           ),
-          InkWell(
-            onTap: () => TtsService.speak(reply.ko),
-            child: Icon(
-              Icons.volume_up_rounded,
-              color: SoriColors.primary.withValues(alpha: 0.7),
-              size: 20,
-            ),
+          _InlineSpeakButton(
+            korean: reply.ko,
+            color: SoriColors.primary.withValues(alpha: 0.7),
           ),
         ],
       ),
+    );
+  }
+}
+
+class _InlineSpeakButton extends StatelessWidget {
+  const _InlineSpeakButton({
+    required this.korean,
+    required this.color,
+    this.iconSize = 20,
+  });
+
+  final String korean;
+  final Color color;
+  final double iconSize;
+
+  @override
+  Widget build(BuildContext context) {
+    final label = '${AppL10n.of(context).btnHoeren}: $korean';
+    return IconButton(
+      onPressed: () => TtsService.speak(korean),
+      tooltip: label,
+      constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+      iconSize: iconSize,
+      color: color,
+      icon: const Icon(Icons.volume_up_rounded),
     );
   }
 }
