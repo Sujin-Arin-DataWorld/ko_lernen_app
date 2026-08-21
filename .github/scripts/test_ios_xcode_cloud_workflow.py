@@ -27,6 +27,27 @@ class IosXcodeCloudWorkflowTest(unittest.TestCase):
             "Flutter 3.44+ must resolve every iOS plugin through CocoaPods.",
         )
 
+    def test_post_clone_installs_pinned_flutterfire_cli_for_crashlytics(self):
+        commands = [line.strip() for line in self.post_clone.splitlines()]
+        flutterfire_activate = (
+            'dart pub global activate flutterfire_cli '
+            '"${FLUTTERFIRE_CLI_VERSION}"'
+        )
+
+        self.assertIn('FLUTTERFIRE_CLI_VERSION="1.4.1"', self.post_clone)
+        self.assertIn(
+            'export PATH="${FLUTTER_HOME}/bin:${HOME}/.pub-cache/bin:${PATH}"',
+            self.post_clone,
+        )
+        self.assertLess(
+            commands.index(flutterfire_activate),
+            commands.index("flutterfire --version"),
+        )
+        self.assertLess(
+            commands.index("flutterfire --version"),
+            commands.index("flutter pub get"),
+        )
+
     def test_post_clone_prepares_rive_after_installing_pods(self):
         repository_root = 'cd "${CI_PRIMARY_REPOSITORY_PATH}"'
         pub_get = "flutter pub get"

@@ -13,17 +13,22 @@
 set -e
 
 FLUTTER_VERSION="3.44.0"
+FLUTTERFIRE_CLI_VERSION="1.4.1"
 FLUTTER_HOME="$HOME/flutter"
 
 echo "▸ Installing Flutter ${FLUTTER_VERSION}"
 if [ ! -x "${FLUTTER_HOME}/bin/flutter" ]; then
   git clone https://github.com/flutter/flutter.git --depth 1 --branch "${FLUTTER_VERSION}" "${FLUTTER_HOME}"
 fi
-export PATH="${FLUTTER_HOME}/bin:${PATH}"
+export PATH="${FLUTTER_HOME}/bin:${HOME}/.pub-cache/bin:${PATH}"
 
 flutter --version
 flutter config --no-analytics >/dev/null 2>&1 || true
 flutter precache --ios
+
+echo "▸ Installing FlutterFire CLI ${FLUTTERFIRE_CLI_VERSION}"
+dart pub global activate flutterfire_cli "${FLUTTERFIRE_CLI_VERSION}"
+flutterfire --version
 
 echo "▸ flutter pub get (generates ios/Flutter/Generated.xcconfig)"
 cd "${CI_PRIMARY_REPOSITORY_PATH}"
