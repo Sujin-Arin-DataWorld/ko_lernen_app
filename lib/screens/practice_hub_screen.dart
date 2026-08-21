@@ -162,37 +162,55 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
   }
 
   Widget _grid(BuildContext context, List<_HubItem> items) {
-    if (items.isEmpty) return const SizedBox.shrink();
-    // 에디토리얼 위계: 섹션 첫 항목 = 전폭 featured(한지), 나머지 = 2열 그리드.
-    return Column(
-      children: [
-        FeaturedModuleCard(
-          icon: items.first.icon,
-          title: items.first.title,
-          subtitle: items.first.subtitle,
-          accent: items.first.accent,
-          ribbonType: items.first.ribbonType,
-          onTap: () => Navigator.pushNamed(context, items.first.route),
-        ),
-        const SizedBox(height: Spacing.md),
-        for (int i = 1; i < items.length; i += 2) ...[
-          IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Expanded(child: _card(context, items[i])),
-                const SizedBox(width: Spacing.md),
-                Expanded(
-                  child: i + 1 < items.length
-                      ? _card(context, items[i + 1])
-                      : const SizedBox.shrink(),
-                ),
-              ],
+    if (items.isEmpty) {
+      return const SizedBox.shrink();
+    }
+    // 에디토리얼 위계: 섹션 첫 항목 = 전폭 featured(한지), 나머지는 가용
+    // 콘텐츠 폭과 OS 글자 확대가 허용할 때만 2열이다. 좁은 창·큰 글자에서는
+    // 설명을 잘게 접지 않고 한 열로 재배치한다.
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
+        final stackCards =
+            constraints.maxWidth < SoriAdaptiveWidth.shortcutRow ||
+            textScale >= 1.6;
+        return Column(
+          children: [
+            FeaturedModuleCard(
+              icon: items.first.icon,
+              title: items.first.title,
+              subtitle: items.first.subtitle,
+              accent: items.first.accent,
+              ribbonType: items.first.ribbonType,
+              onTap: () => Navigator.pushNamed(context, items.first.route),
             ),
-          ),
-          if (i + 2 < items.length) const SizedBox(height: Spacing.md),
-        ],
-      ],
+            if (items.length > 1) const SizedBox(height: Spacing.md),
+            if (stackCards)
+              for (int i = 1; i < items.length; i++) ...[
+                _card(context, items[i]),
+                if (i + 1 < items.length) const SizedBox(height: Spacing.md),
+              ]
+            else
+              for (int i = 1; i < items.length; i += 2) ...[
+                IntrinsicHeight(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Expanded(child: _card(context, items[i])),
+                      const SizedBox(width: Spacing.md),
+                      Expanded(
+                        child: i + 1 < items.length
+                            ? _card(context, items[i + 1])
+                            : const SizedBox.shrink(),
+                      ),
+                    ],
+                  ),
+                ),
+                if (i + 2 < items.length) const SizedBox(height: Spacing.md),
+              ],
+          ],
+        );
+      },
     );
   }
 
@@ -220,29 +238,36 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
       // 긴 목록은 85% 까지.
       scrollable: false,
       maxHeightFactor: 0.85,
-      builder: (sheetContext) => ListView.separated(
-        shrinkWrap: true,
-        padding: const EdgeInsets.only(bottom: Spacing.sm),
-        itemCount: items.length + 1,
-        separatorBuilder: (_, index) => index == 0
-            ? const SizedBox(height: Spacing.sm)
-            : const Divider(height: 1),
-        itemBuilder: (context, index) {
-          if (index == 0) {
-            return Text(title, style: SoriTextTheme.of(context).h3);
-          }
-          final item = items[index - 1];
-          return ListTile(
-            leading: Icon(item.icon, color: item.accent),
-            title: Text(item.title),
-            subtitle: Text(item.subtitle),
-            onTap: () {
-              Navigator.of(sheetContext).pop();
-              Navigator.of(this.context).pushNamed(item.route);
-            },
-          );
-        },
-      ),
+      builder: (sheetContext) {
+        final tt = SoriTextTheme.of(sheetContext);
+        return ListView.separated(
+          shrinkWrap: true,
+          padding: const EdgeInsets.only(bottom: Spacing.sm),
+          itemCount: items.length + 1,
+          separatorBuilder: (_, index) => index == 0
+              ? const SizedBox(height: Spacing.sm)
+              : const Divider(height: 1),
+          itemBuilder: (context, index) {
+            if (index == 0) {
+              return Text(title, style: tt.h3);
+            }
+            final item = items[index - 1];
+            return Material(
+              type: MaterialType.transparency,
+              child: ListTile(
+                leading: Icon(item.icon, color: item.accent),
+                title: Text(item.title, style: tt.cardTitle),
+                subtitle: Text(item.subtitle, style: tt.cardSubtitle),
+                trailing: const Icon(Icons.chevron_right_rounded),
+                onTap: () {
+                  Navigator.of(sheetContext).pop();
+                  Navigator.of(this.context).pushNamed(item.route);
+                },
+              ),
+            );
+          },
+        );
+      },
     );
   }
 
@@ -439,13 +464,17 @@ class _PurposeRouteList extends StatelessWidget {
     final t = AppL10n.of(context);
     return Column(
       children: [
-        _PurposeRouteCard(
+        KeyedSubtree(
           key: const ValueKey('practice-purpose-review'),
-          icon: Icons.refresh_rounded,
-          title: t.practiceDueTitle,
-          body: t.practiceDueContext(dueCount),
-          accent: SoriColors.tiger,
-          onTap: onReview,
+          child: FeaturedModuleCard(
+            icon: Icons.refresh_rounded,
+            title: t.practiceDueTitle,
+            subtitle: dueCount == 0
+                ? t.practiceDueEmpty
+                : t.practiceDueContext(dueCount),
+            accent: SoriColors.tiger,
+            onTap: onReview,
+          ),
         ),
         const SizedBox(height: Spacing.sm),
         _PurposeRouteCard(
