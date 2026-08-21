@@ -6,12 +6,14 @@ import '../models/custom_pack.dart';
 import '../services/custom_pack_corpus_resolver.dart';
 import '../services/custom_pack_service.dart';
 import '../services/vocab_nuance_service.dart';
-import '../widgets/sori/app_bar.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/section_header.dart';
+import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 import 'chosung_quiz_screen.dart';
 import 'cloze_game_screen.dart';
 import 'custom_pack_matching_screen.dart';
@@ -138,18 +140,19 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
     final t = AppL10n.of(context);
     final pack = _pack;
     if (pack == null) {
-      return Scaffold(
-        appBar: SoriAppBar(
-          title: t.vocabNotebookStudioTitle,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
-        ),
-        body: Center(
-          child: SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
-            icon: Icons.help_outline,
-            title: t.customPackNotFoundTitle,
-            body: t.customPackNotFoundBody,
+      return SoriStandardFrame(
+        appBarTitle: t.vocabNotebookStudioTitle,
+        maxWidth: SoriMaxWidth.form,
+        padding: const EdgeInsets.all(Spacing.lg),
+        builder: (context, resolvedPadding) => Padding(
+          padding: resolvedPadding,
+          child: Center(
+            child: SoriEmptyState(
+              asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+              icon: Icons.help_outline,
+              title: t.customPackNotFoundTitle,
+              body: t.customPackNotFoundBody,
+            ),
           ),
         ),
       );
@@ -168,295 +171,331 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
     ).length;
     final surfaces = SoriSurfaces.of(context);
 
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.vocabNotebookStudioTitle,
-        textScale: MediaQuery.textScalerOf(context).scale(1),
-        viewportWidth: MediaQuery.sizeOf(context).width,
-      ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: ListView(
-            padding: const EdgeInsets.all(Spacing.lg),
-            children: <Widget>[
-              Text(
-                t.vocabNotebookStudioHint,
-                style: SoriTextTheme.of(context).body,
+    return SoriStandardPage(
+      appBarTitle: t.vocabNotebookStudioTitle,
+      maxWidth: SoriMaxWidth.form,
+      children: <Widget>[
+        Text(t.vocabNotebookStudioHint, style: SoriTextTheme.of(context).body),
+        const SizedBox(height: Spacing.md),
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: SoriButton.ghost(
+                label: t.vocabNotebookStudioSelectAll,
+                onTap: () => setState(() {
+                  _kept
+                    ..clear()
+                    ..addAll(Iterable<int>.generate(pack.words.length));
+                }),
               ),
-              const SizedBox(height: Spacing.md),
-              Row(
+            ),
+            const SizedBox(width: Spacing.sm),
+            Expanded(
+              child: SoriButton.ghost(
+                label: t.vocabNotebookStudioSelectNone,
+                onTap: () {
+                  setState(() {
+                    _kept.clear();
+                  });
+                },
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: Spacing.md),
+        ...List<Widget>.generate(pack.words.length, (index) {
+          final word = pack.words[index];
+          final kept = _kept.contains(index);
+          return Padding(
+            key: ValueKey<String>('notebook-word-$index'),
+            padding: const EdgeInsets.only(bottom: Spacing.sm),
+            child: SoriCard(
+              variant: SoriCardVariant.compact,
+              accent: kept ? SoriColors.primary : SoriColors.info,
+              child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: SoriButton.ghost(
-                      label: t.vocabNotebookStudioSelectAll,
-                      onTap: () => setState(() {
-                        _kept
-                          ..clear()
-                          ..addAll(Iterable<int>.generate(pack.words.length));
-                      }),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(word.korean, style: SoriTextTheme.of(context).h3),
+                        const SizedBox(height: 2),
+                        Text(
+                          language == 'en' && word.translationEn.isNotEmpty
+                              ? word.translationEn
+                              : word.translationDe,
+                          style: SoriTextTheme.of(context).bodySmall,
+                        ),
+                      ],
                     ),
                   ),
-                  const SizedBox(width: Spacing.sm),
-                  Expanded(
-                    child: SoriButton.ghost(
-                      label: t.vocabNotebookStudioSelectNone,
-                      onTap: () {
-                        setState(() {
-                          _kept.clear();
-                        });
-                      },
+                  Semantics(
+                    key: ValueKey<String>('notebook-word-toggle-$index'),
+                    container: true,
+                    button: true,
+                    enabled: true,
+                    selected: kept,
+                    label: kept
+                        ? t.vocabNotebookDropWord
+                        : t.vocabNotebookKeepWord,
+                    onTap: () => _toggleAt(index),
+                    child: ExcludeSemantics(
+                      child: IconButton(
+                        tooltip: kept
+                            ? t.vocabNotebookDropWord
+                            : t.vocabNotebookKeepWord,
+                        constraints: const BoxConstraints(
+                          minWidth: kMinInteractiveDimension,
+                          minHeight: kMinInteractiveDimension,
+                        ),
+                        onPressed: () => _toggleAt(index),
+                        icon: Icon(
+                          kept
+                              ? Icons.check_circle_rounded
+                              : Icons.circle_outlined,
+                          color: kept ? SoriColors.primary : surfaces.textMuted,
+                        ),
+                      ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: Spacing.md),
-              ...List<Widget>.generate(pack.words.length, (index) {
-                final word = pack.words[index];
-                final kept = _kept.contains(index);
-                return Padding(
-                  key: ValueKey<String>('notebook-word-$index'),
-                  padding: const EdgeInsets.only(bottom: Spacing.sm),
-                  child: SoriCard(
-                    variant: SoriCardVariant.compact,
-                    accent: kept ? SoriColors.primary : SoriColors.info,
+            ),
+          );
+        }),
+        const SizedBox(height: Spacing.lg),
+        Semantics(
+          header: true,
+          child: SoriSectionHeader(t.vocabNotebookStudioOwnGames),
+        ),
+        SoriButton.filled(
+          label: t.wbStudyCards,
+          fullWidth: true,
+          onTap: selected.isEmpty
+              ? null
+              : () => _openPage(
+                  CustomPackPlayScreen(packId: pack.id, words: selected),
+                ),
+        ),
+        const SizedBox(height: Spacing.sm),
+        SoriButton.outlined(
+          label: t.wbMatching,
+          fullWidth: true,
+          onTap: selected.length < 2
+              ? null
+              : () => _openPage(
+                  CustomPackMatchingScreen(packId: pack.id, words: selected),
+                ),
+        ),
+        const SizedBox(height: Spacing.sm),
+        SoriButton.outlined(
+          label: t.wbTyping,
+          fullWidth: true,
+          onTap: selected.isEmpty
+              ? null
+              : () => _openPage(
+                  CustomPackTypingScreen(packId: pack.id, words: selected),
+                ),
+        ),
+        const SizedBox(height: Spacing.sm),
+        SoriButton.outlined(
+          label: t.wbQuiz,
+          fullWidth: true,
+          onTap: selected.length < 4
+              ? null
+              : () => _openPage(
+                  CustomPackQuizScreen(packId: pack.id, words: selected),
+                ),
+        ),
+        const SizedBox(height: Spacing.sm),
+        SoriButton.outlined(
+          label: t.vocabNotebookNuanceCta,
+          fullWidth: true,
+          accent: SoriColors.goldOnLight,
+          onTap: nuanceCount == 0
+              ? null
+              : () => _openPage(
+                  VocabNuanceScreen(packId: pack.id, words: selected),
+                ),
+        ),
+        const SizedBox(height: Spacing.sm),
+        SoriButton.outlined(
+          label: t.vocabNotebookStudioSpeed(ownVocab.length),
+          fullWidth: true,
+          onTap: ownVocab.length < 2
+              ? null
+              : () => _openPage(SpeedMatchScreen(items: ownVocab)),
+        ),
+        const SizedBox(height: Spacing.sm),
+        SoriButton.outlined(
+          label: t.vocabNotebookStudioChosung(ownChosung.length),
+          fullWidth: true,
+          onTap: ownChosung.isEmpty
+              ? null
+              : () => _openPage(ChosungQuizScreen(deck: ownChosung)),
+        ),
+        const SizedBox(height: Spacing.lg),
+        Semantics(
+          header: true,
+          child: SoriSectionHeader(t.vocabNotebookStudioCorpusGames),
+        ),
+        Text(
+          t.vocabNotebookStudioCorpusHint,
+          style: SoriTextTheme.of(
+            context,
+          ).caption.copyWith(color: surfaces.textMuted),
+        ),
+        const SizedBox(height: Spacing.sm),
+        if (_loading)
+          Semantics(
+            liveRegion: true,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: Spacing.lg),
+              child: AppLoading(message: t.vocabNotebookStudioLoading),
+            ),
+          )
+        else ...<Widget>[
+          if (_loadFailed) ...<Widget>[
+            SoriCard(
+              variant: SoriCardVariant.compact,
+              accent: SoriColors.danger,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Semantics(
+                    container: true,
+                    liveRegion: true,
                     child: Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                word.korean,
-                                style: SoriTextTheme.of(context).h3,
-                              ),
-                              const SizedBox(height: 2),
-                              Text(
-                                language == 'en' &&
-                                        word.translationEn.isNotEmpty
-                                    ? word.translationEn
-                                    : word.translationDe,
-                                style: SoriTextTheme.of(context).bodySmall,
-                              ),
-                            ],
-                          ),
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(
+                          Icons.sync_problem_outlined,
+                          color: SoriColors.danger,
                         ),
-                        IconButton(
-                          tooltip: kept
-                              ? t.vocabNotebookDropWord
-                              : t.vocabNotebookKeepWord,
-                          onPressed: () => _toggleAt(index),
-                          icon: Icon(
-                            kept
-                                ? Icons.check_circle_rounded
-                                : Icons.circle_outlined,
-                            color: kept
-                                ? SoriColors.primary
-                                : surfaces.textMuted,
+                        const SizedBox(width: Spacing.sm),
+                        Expanded(
+                          child: Text(
+                            t.vocabNotebookStudioLoadFailed,
+                            style: SoriTextTheme.of(context).body,
                           ),
                         ),
                       ],
                     ),
                   ),
-                );
-              }),
-              const SizedBox(height: Spacing.lg),
-              Text(
-                t.vocabNotebookStudioOwnGames,
-                style: SoriTextTheme.of(context).h3,
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton.filled(
-                label: t.wbStudyCards,
-                fullWidth: true,
-                onTap: selected.isEmpty
-                    ? null
-                    : () => _openPage(
-                        CustomPackPlayScreen(packId: pack.id, words: selected),
-                      ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton.outlined(
-                label: t.wbMatching,
-                fullWidth: true,
-                onTap: selected.length < 2
-                    ? null
-                    : () => _openPage(
-                        CustomPackMatchingScreen(
-                          packId: pack.id,
-                          words: selected,
-                        ),
-                      ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton.outlined(
-                label: t.wbTyping,
-                fullWidth: true,
-                accent: SoriColors.accent,
-                onTap: selected.isEmpty
-                    ? null
-                    : () => _openPage(
-                        CustomPackTypingScreen(
-                          packId: pack.id,
-                          words: selected,
-                        ),
-                      ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton.outlined(
-                label: t.wbQuiz,
-                fullWidth: true,
-                accent: SoriColors.accent,
-                onTap: selected.length < 4
-                    ? null
-                    : () => _openPage(
-                        CustomPackQuizScreen(packId: pack.id, words: selected),
-                      ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton.outlined(
-                label: t.vocabNotebookNuanceCta,
-                fullWidth: true,
-                accent: SoriColors.goldOnLight,
-                onTap: nuanceCount == 0
-                    ? null
-                    : () => _openPage(
-                        VocabNuanceScreen(packId: pack.id, words: selected),
-                      ),
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton.outlined(
-                label: t.vocabNotebookStudioSpeed(ownVocab.length),
-                fullWidth: true,
-                onTap: ownVocab.length < 2
-                    ? null
-                    : () => _openPage(SpeedMatchScreen(items: ownVocab)),
-              ),
-              const SizedBox(height: Spacing.sm),
-              SoriButton.outlined(
-                label: t.vocabNotebookStudioChosung(ownChosung.length),
-                fullWidth: true,
-                onTap: ownChosung.isEmpty
-                    ? null
-                    : () => _openPage(ChosungQuizScreen(deck: ownChosung)),
-              ),
-              const SizedBox(height: Spacing.lg),
-              Text(
-                t.vocabNotebookStudioCorpusGames,
-                style: SoriTextTheme.of(context).h3,
-              ),
-              const SizedBox(height: Spacing.xs),
-              Text(
-                t.vocabNotebookStudioCorpusHint,
-                style: SoriTextTheme.of(
-                  context,
-                ).caption.copyWith(color: surfaces.textMuted),
-              ),
-              const SizedBox(height: Spacing.sm),
-              if (_loading)
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: Spacing.lg),
-                  child: Center(child: CircularProgressIndicator()),
-                )
-              else ...<Widget>[
-                if (_loadFailed) ...<Widget>[
-                  Text(
-                    t.vocabNotebookStudioLoadFailed,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).body.copyWith(color: surfaces.textMuted),
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                  SoriButton.outlined(
-                    label: t.btnRetry,
-                    fullWidth: true,
-                    onTap: _loadCorpus,
-                  ),
-                  const SizedBox(height: Spacing.sm),
-                ],
-                SoriButton.outlined(
-                  label: t.vocabNotebookStudioCloze(match.cloze.length),
-                  fullWidth: true,
-                  onTap: match.cloze.isEmpty
-                      ? null
-                      : () => _openPage(ClozeGameScreen(items: match.cloze)),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton.outlined(
-                  label: t.vocabNotebookStudioSatz(match.satz.length),
-                  fullWidth: true,
-                  onTap: match.satz.isEmpty
-                      ? null
-                      : () => _openPage(SatzArcadeScreen(items: match.satz)),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton.outlined(
-                  label: t.vocabNotebookStudioSmalltalk(match.smalltalk.length),
-                  fullWidth: true,
-                  onTap: match.smalltalk.isEmpty
-                      ? null
-                      : () => _openPage(
-                          SmalltalkScreen(phrases: match.smalltalk),
-                        ),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton.outlined(
-                  label: t.vocabNotebookStudioPronunciation(
-                    match.pronunciation.length,
-                  ),
-                  fullWidth: true,
-                  onTap: match.pronunciation.isEmpty
-                      ? null
-                      : () => _openPage(
-                          PronunciationStudioScreen(
-                            phrases: match.pronunciation,
-                          ),
-                        ),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton.outlined(
-                  label: t.vocabNotebookStudioScenarios(match.scenarios.length),
-                  fullWidth: true,
-                  onTap: match.scenarios.isEmpty
-                      ? null
-                      : () => _openPage(
-                          ScenariosListScreen(
-                            loadScenarios: () async => match.scenarios,
-                            ignoreLevelLock: true,
-                          ),
-                        ),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton.outlined(
-                  label: t.vocabNotebookStudioWordWeb(match.wordWeb.length),
-                  fullWidth: true,
-                  onTap: match.wordWeb.isEmpty
-                      ? null
-                      : () => _openPage(
-                          WordWebScreen(
-                            clusterLoader: () async => match.wordWeb,
-                            seenLoader: () => {
-                              for (final cluster in match.wordWeb)
-                                cluster.sourceKo,
-                            },
-                          ),
-                        ),
-                ),
-                if (!match.hasCuratedItems &&
-                    selected.isNotEmpty &&
-                    !_loadFailed) ...<Widget>[
                   const SizedBox(height: Spacing.md),
-                  Text(
-                    t.vocabNotebookStudioNoCorpus,
-                    style: SoriTextTheme.of(
-                      context,
-                    ).caption.copyWith(color: surfaces.textMuted),
+                  Semantics(
+                    key: const ValueKey<String>('notebook-studio-retry'),
+                    container: true,
+                    button: true,
+                    enabled: true,
+                    label: t.btnRetry,
+                    onTap: _loadCorpus,
+                    child: ExcludeSemantics(
+                      child: SoriButton.outlined(
+                        label: t.btnRetry,
+                        fullWidth: true,
+                        onTap: _loadCorpus,
+                      ),
+                    ),
                   ),
                 ],
-              ],
-            ],
+              ),
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+          SoriButton.outlined(
+            label: t.vocabNotebookStudioCloze(match.cloze.length),
+            fullWidth: true,
+            onTap: match.cloze.isEmpty
+                ? null
+                : () => _openPage(ClozeGameScreen(items: match.cloze)),
           ),
-        ),
-      ),
+          const SizedBox(height: Spacing.sm),
+          SoriButton.outlined(
+            label: t.vocabNotebookStudioSatz(match.satz.length),
+            fullWidth: true,
+            onTap: match.satz.isEmpty
+                ? null
+                : () => _openPage(SatzArcadeScreen(items: match.satz)),
+          ),
+          const SizedBox(height: Spacing.sm),
+          SoriButton.outlined(
+            label: t.vocabNotebookStudioSmalltalk(match.smalltalk.length),
+            fullWidth: true,
+            onTap: match.smalltalk.isEmpty
+                ? null
+                : () => _openPage(SmalltalkScreen(phrases: match.smalltalk)),
+          ),
+          const SizedBox(height: Spacing.sm),
+          SoriButton.outlined(
+            label: t.vocabNotebookStudioPronunciation(
+              match.pronunciation.length,
+            ),
+            fullWidth: true,
+            onTap: match.pronunciation.isEmpty
+                ? null
+                : () => _openPage(
+                    PronunciationStudioScreen(phrases: match.pronunciation),
+                  ),
+          ),
+          const SizedBox(height: Spacing.sm),
+          SoriButton.outlined(
+            label: t.vocabNotebookStudioScenarios(match.scenarios.length),
+            fullWidth: true,
+            onTap: match.scenarios.isEmpty
+                ? null
+                : () => _openPage(
+                    ScenariosListScreen(
+                      loadScenarios: () async => match.scenarios,
+                      ignoreLevelLock: true,
+                    ),
+                  ),
+          ),
+          const SizedBox(height: Spacing.sm),
+          SoriButton.outlined(
+            label: t.vocabNotebookStudioWordWeb(match.wordWeb.length),
+            fullWidth: true,
+            onTap: match.wordWeb.isEmpty
+                ? null
+                : () => _openPage(
+                    WordWebScreen(
+                      clusterLoader: () async => match.wordWeb,
+                      seenLoader: () => {
+                        for (final cluster in match.wordWeb) cluster.sourceKo,
+                      },
+                    ),
+                  ),
+          ),
+          if (!match.hasCuratedItems &&
+              selected.isNotEmpty &&
+              !_loadFailed) ...<Widget>[
+            const SizedBox(height: Spacing.md),
+            Semantics(
+              liveRegion: true,
+              child: SoriCard(
+                variant: SoriCardVariant.compact,
+                accent: SoriColors.info,
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Icon(
+                      Icons.info_outline_rounded,
+                      color: SoriColors.info,
+                    ),
+                    const SizedBox(width: Spacing.sm),
+                    Expanded(
+                      child: Text(
+                        t.vocabNotebookStudioNoCorpus,
+                        style: SoriTextTheme.of(context).bodySmall,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ],
+      ],
     );
   }
 }
