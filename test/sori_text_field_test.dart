@@ -21,6 +21,7 @@ void main() {
           controller: controller,
           labelText: 'Search',
           hintText: 'Find a learning activity',
+          alignLabelWithHint: true,
           textInputAction: TextInputAction.search,
           prefixIcon: const Icon(Icons.search_rounded),
           onChanged: changes.add,
@@ -41,6 +42,7 @@ void main() {
     expect(submissions, ['Wortkette']);
     expect(field.decoration?.labelText, 'Search');
     expect(field.decoration?.hintText, 'Find a learning activity');
+    expect(field.decoration?.alignLabelWithHint, isTrue);
     expect(field.decoration?.prefixIcon, isA<Icon>());
     expect(tester.takeException(), isNull);
   });

@@ -12,12 +12,13 @@ import '../services/course_segment_catalog.dart';
 import '../services/productive_assessment_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/progress.dart';
+import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 typedef ReassessmentSnapshotLoader = Future<CourseMasterySnapshot?> Function();
 
@@ -646,71 +647,78 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
     });
   }
 
+  Widget _buildScrollableState(EdgeInsets resolvedPadding, Widget child) =>
+      LayoutBuilder(
+        builder: (context, constraints) {
+          final minHeight = (constraints.maxHeight - resolvedPadding.vertical)
+              .clamp(0.0, double.infinity)
+              .toDouble();
+          return SingleChildScrollView(
+            padding: resolvedPadding,
+            child: ConstrainedBox(
+              constraints: BoxConstraints(minHeight: minHeight),
+              child: child,
+            ),
+          );
+        },
+      );
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     if (_loading) {
-      return Scaffold(
-        appBar: SoriAppBar(
-          title: t.courseReassessmentTitle,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
+      return SoriStandardFrame(
+        appBarTitle: t.courseReassessmentTitle,
+        maxWidth: SoriMaxWidth.form,
+        builder: (context, resolvedPadding) => _buildScrollableState(
+          resolvedPadding,
+          AppLoading(message: t.courseReassessmentLoading),
         ),
-        body: AppLoading(message: t.courseReassessmentLoading),
       );
     }
     if (_loadError != null || _segment == null || _definition == null) {
-      return Scaffold(
-        appBar: SoriAppBar(
-          title: t.courseReassessmentTitle,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
+      return SoriStandardFrame(
+        appBarTitle: t.courseReassessmentTitle,
+        maxWidth: SoriMaxWidth.form,
+        builder: (context, resolvedPadding) => _buildScrollableState(
+          resolvedPadding,
+          AppError(message: t.courseReassessmentLoadError, onRetry: _load),
         ),
-        body: AppError(message: t.courseReassessmentLoadError, onRetry: _load),
       );
     }
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.courseReassessmentTitle,
-        textScale: MediaQuery.textScalerOf(context).scale(1),
-        viewportWidth: MediaQuery.sizeOf(context).width,
-      ),
-      body: SoriScreenBackground(
-        child: SoriContentClamp(
-          maxWidth: 820,
-          base: const EdgeInsets.fromLTRB(16, 12, 16, 48),
-          builder: (context, padding) => ListView(
-            padding: padding,
-            children: [
-              _buildHeader(t),
-              const SizedBox(height: Spacing.lg),
-              if (_latestResult case final result?)
-                _buildResult(t, result)
-              else if (_segmentVerified)
-                _buildComplete(t)
-              else
-                _buildAssessment(t),
-              if (_notice != null) ...[
-                const SizedBox(height: Spacing.lg),
-                Semantics(
-                  liveRegion: true,
-                  child: SoriCard(
-                    accent: SoriActivityColors.review,
-                    tinted: true,
-                    child: Text(_notice!, style: const TextStyle(height: 1.45)),
-                  ),
-                ),
-              ],
-            ],
+    final locale = Localizations.localeOf(context).languageCode;
+    final segment = _segment!;
+    return SoriStandardPage(
+      appBarTitle: t.courseReassessmentTitle,
+      maxWidth: SoriMaxWidth.form,
+      eyebrow: t.courseReassessmentEyebrow,
+      headline: segment.title.pick(locale),
+      description: segment.canDo.pick(locale),
+      children: [
+        _buildProgress(t),
+        const SizedBox(height: Spacing.lg),
+        if (_latestResult case final result?)
+          _buildResult(t, result)
+        else if (_segmentVerified)
+          _buildComplete(t)
+        else
+          _buildAssessment(t),
+        if (_notice != null) ...[
+          const SizedBox(height: Spacing.lg),
+          Semantics(
+            liveRegion: true,
+            child: SoriCard(
+              accent: SoriActivityColors.review,
+              tinted: true,
+              child: Text(_notice!, style: SoriTextTheme.of(context).body),
+            ),
           ),
-        ),
-      ),
+        ],
+      ],
     );
   }
 
-  Widget _buildHeader(AppL10n t) {
-    final locale = Localizations.localeOf(context).languageCode;
-    final segment = _segment!;
+  Widget _buildProgress(AppL10n t) {
     final projectStage = !_projectReviewComplete
         ? _requiredReviewStep?.order
         : _projectStep?.order;
@@ -720,40 +728,21 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
     final progressValue = projectStage == null
         ? (_definitionIndex + 1) / _definitions.length
         : projectStage / 4;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          t.courseReassessmentEyebrow,
-          style: const TextStyle(
-            color: SoriColors.accent,
-            fontWeight: FontWeight.w700,
-            letterSpacing: 1.05,
-          ),
+    return Semantics(
+      label: progressLabel,
+      child: ExcludeSemantics(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(progressLabel, style: SoriTextTheme.of(context).meta),
+            const SizedBox(height: Spacing.xs),
+            SoriProgressBar(
+              value: progressValue,
+              color: SoriActivityColors.speaking,
+            ),
+          ],
         ),
-        const SizedBox(height: Spacing.sm),
-        Text(
-          segment.title.pick(locale),
-          style: Theme.of(
-            context,
-          ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
-        ),
-        const SizedBox(height: Spacing.sm),
-        Text(segment.canDo.pick(locale), style: const TextStyle(height: 1.45)),
-        const SizedBox(height: Spacing.md),
-        Text(
-          progressLabel,
-          style: TextStyle(
-            color: SoriSurfaces.of(context).textDim,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        const SizedBox(height: Spacing.xs),
-        LinearProgressIndicator(
-          value: progressValue,
-          color: SoriActivityColors.speaking,
-        ),
-      ],
+      ),
     );
   }
 
@@ -785,11 +774,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         const SizedBox(height: Spacing.md),
         Text(
           t.courseReassessmentPrivacy,
-          style: TextStyle(
-            color: SoriSurfaces.of(context).textDim,
-            fontSize: 13,
-            height: 1.4,
-          ),
+          style: SoriTextTheme.of(context).bodySmall,
         ),
       ],
     );
@@ -810,14 +795,12 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
             children: [
               Text(
                 t.courseReassessmentProjectReviewTitle,
-                style: Theme.of(
-                  context,
-                ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+                style: SoriTextTheme.of(context).h2,
               ),
               const SizedBox(height: Spacing.sm),
               Text(
                 t.courseReassessmentProjectReviewBody,
-                style: const TextStyle(height: 1.45),
+                style: SoriTextTheme.of(context).body,
               ),
             ],
           ),
@@ -832,12 +815,12 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
               children: [
                 Text(
                   t.courseReassessmentSource(index + 1),
-                  style: const TextStyle(fontWeight: FontWeight.w700),
+                  style: SoriTextTheme.of(context).label,
                 ),
                 const SizedBox(height: Spacing.xs),
                 Text(
                   sources[index].text.pick(locale),
-                  style: const TextStyle(height: 1.45),
+                  style: SoriTextTheme.of(context).body,
                 ),
                 const SizedBox(height: Spacing.sm),
                 Material(
@@ -890,10 +873,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
                 if (_expandedProvenanceSourceIds.contains(sources[index].id))
                   Text(
                     sources[index].provenance.pick(locale),
-                    style: TextStyle(
-                      color: SoriSurfaces.of(context).textDim,
-                      height: 1.4,
-                    ),
+                    style: SoriTextTheme.of(context).bodySmall,
                   ),
               ],
             ),
@@ -925,22 +905,22 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         children: [
           Text(
             _modeLabel(t, definition.evidenceMode),
-            style: const TextStyle(fontWeight: FontWeight.w700),
+            style: SoriTextTheme.of(context).label,
           ),
           const SizedBox(height: Spacing.md),
           Text(
             definition.prompt.pick(locale),
-            style: const TextStyle(fontSize: 19, height: 1.45),
+            style: SoriTextTheme.of(context).h2,
           ),
           const SizedBox(height: Spacing.md),
           Text(
             t.courseReassessmentRole,
-            style: const TextStyle(fontWeight: FontWeight.w700),
+            style: SoriTextTheme.of(context).label,
           ),
           const SizedBox(height: Spacing.xs),
           Text(
             definition.roleInstruction.pick(locale),
-            style: const TextStyle(height: 1.45),
+            style: SoriTextTheme.of(context).body,
           ),
         ],
       ),
@@ -968,22 +948,19 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
             const SizedBox(height: Spacing.md),
           ],
         ],
-        TextField(
-          key: const ValueKey('course-reassessment-answer'),
+        SoriTextField(
+          fieldKey: const ValueKey('course-reassessment-answer'),
           controller: _answerController,
           minLines: rubric.requiresStructuredSubmission ? 6 : 3,
           maxLines: 12,
           maxLength: rubric.maxInputCodePoints,
           enabled: !_submitting,
-          decoration: InputDecoration(
-            labelText: t.courseReassessmentAnswer,
-            hintText: t.courseReassessmentAnswerHint,
-            alignLabelWithHint: true,
-            border: const OutlineInputBorder(),
-            helperText: t.courseReassessmentLength(
-              rubric.minInputCodePoints,
-              rubric.maxInputCodePoints,
-            ),
+          labelText: t.courseReassessmentAnswer,
+          hintText: t.courseReassessmentAnswerHint,
+          alignLabelWithHint: true,
+          helperText: t.courseReassessmentLength(
+            rubric.minInputCodePoints,
+            rubric.maxInputCodePoints,
           ),
         ),
         const SizedBox(height: Spacing.md),
@@ -1009,19 +986,16 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         children: [
           Text(
             t.courseReassessmentEvidencePoint(index),
-            style: const TextStyle(fontWeight: FontWeight.w700),
+            style: SoriTextTheme.of(context).cardTitle,
           ),
           const SizedBox(height: Spacing.sm),
-          TextField(
-            key: ValueKey('course-reassessment-slot-$slotId'),
+          SoriTextField(
+            fieldKey: ValueKey('course-reassessment-slot-$slotId'),
             controller: _slotControllers[slotId],
             minLines: 2,
             maxLines: 4,
             enabled: !_submitting,
-            decoration: InputDecoration(
-              hintText: t.courseReassessmentEvidencePointHint,
-              border: const OutlineInputBorder(),
-            ),
+            hintText: t.courseReassessmentEvidencePointHint,
           ),
           const SizedBox(height: Spacing.md),
           DropdownButtonFormField<String>(
@@ -1031,7 +1005,6 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
             itemHeight: null,
             decoration: InputDecoration(
               labelText: t.courseReassessmentSourceForPoint,
-              border: const OutlineInputBorder(),
             ),
             items: [
               for (
@@ -1059,12 +1032,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text(
-          t.courseReassessmentSources,
-          style: Theme.of(
-            context,
-          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
-        ),
+        Text(t.courseReassessmentSources, style: SoriTextTheme.of(context).h3),
         const SizedBox(height: Spacing.sm),
         for (var index = 0; index < sources.length; index++) ...[
           SoriCard(
@@ -1074,20 +1042,17 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
               children: [
                 Text(
                   t.courseReassessmentSource(index + 1),
-                  style: const TextStyle(fontWeight: FontWeight.w700),
+                  style: SoriTextTheme.of(context).label,
                 ),
                 const SizedBox(height: Spacing.xs),
                 Text(
                   sources[index].text.pick(locale),
-                  style: const TextStyle(height: 1.45),
+                  style: SoriTextTheme.of(context).body,
                 ),
                 const SizedBox(height: Spacing.xs),
                 Text(
                   sources[index].provenance.pick(locale),
-                  style: TextStyle(
-                    color: SoriSurfaces.of(context).textDim,
-                    fontSize: 13,
-                  ),
+                  style: SoriTextTheme.of(context).bodySmall,
                 ),
               ],
             ),
@@ -1109,9 +1074,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
       children: [
         Text(
           t.courseReassessmentConnectSources,
-          style: Theme.of(
-            context,
-          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+          style: SoriTextTheme.of(context).h3,
         ),
         const SizedBox(height: Spacing.sm),
         for (var index = 0; index < sources.length; index++) ...[
@@ -1124,17 +1087,17 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
               children: [
                 Text(
                   t.courseReassessmentSource(index + 1),
-                  style: const TextStyle(fontWeight: FontWeight.w700),
+                  style: SoriTextTheme.of(context).label,
                 ),
                 const SizedBox(height: Spacing.xs),
                 Text(
                   sources[index].text.pick(locale),
-                  style: const TextStyle(height: 1.45),
+                  style: SoriTextTheme.of(context).body,
                 ),
                 const SizedBox(height: Spacing.sm),
                 Text(
                   t.courseReassessmentRelationship,
-                  style: const TextStyle(fontWeight: FontWeight.w700),
+                  style: SoriTextTheme.of(context).label,
                 ),
                 for (final role in sources[index].supportedRoles)
                   CheckboxListTile(
@@ -1185,12 +1148,12 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         children: [
           Text(
             t.courseReassessmentOralUnavailableTitle,
-            style: const TextStyle(fontWeight: FontWeight.w700),
+            style: SoriTextTheme.of(context).h3,
           ),
           const SizedBox(height: Spacing.sm),
           Text(
             t.courseReassessmentOralUnavailableBody,
-            style: const TextStyle(height: 1.45),
+            style: SoriTextTheme.of(context).body,
           ),
         ],
       ),
@@ -1209,12 +1172,12 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
         children: [
           Text(
             t.courseReassessmentPrerequisiteTitle,
-            style: const TextStyle(fontWeight: FontWeight.w700),
+            style: SoriTextTheme.of(context).h3,
           ),
           const SizedBox(height: Spacing.sm),
           Text(
             t.courseReassessmentPrerequisiteBody,
-            style: const TextStyle(height: 1.45),
+            style: SoriTextTheme.of(context).body,
           ),
           const SizedBox(height: Spacing.md),
           SoriButton.outlined(
@@ -1253,9 +1216,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
                   ? t.courseReassessmentPassedTitle
                   : t.courseReassessmentTryAgainTitle,
               textAlign: TextAlign.center,
-              style: Theme.of(
-                context,
-              ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
+              style: SoriTextTheme.of(context).h1,
             ),
             const SizedBox(height: Spacing.sm),
             Text(
@@ -1265,7 +1226,7 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
                       (result.score * 100).round(),
                     ),
               textAlign: TextAlign.center,
-              style: const TextStyle(height: 1.45),
+              style: SoriTextTheme.of(context).body,
             ),
             const SizedBox(height: Spacing.lg),
             if (passed)
@@ -1309,15 +1270,13 @@ class _CourseReassessmentScreenState extends State<CourseReassessmentScreen> {
           Text(
             t.courseReassessmentCompleteTitle,
             textAlign: TextAlign.center,
-            style: Theme.of(
-              context,
-            ).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w700),
+            style: SoriTextTheme.of(context).h1,
           ),
           const SizedBox(height: Spacing.sm),
           Text(
             t.courseReassessmentCompleteBody,
             textAlign: TextAlign.center,
-            style: const TextStyle(height: 1.45),
+            style: SoriTextTheme.of(context).body,
           ),
           const SizedBox(height: Spacing.lg),
           SoriButton.filled(
