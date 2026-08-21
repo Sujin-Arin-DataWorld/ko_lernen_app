@@ -21,6 +21,7 @@ import '../widgets/sori/reward_thumb.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/mascot.dart';
+import '../widgets/sori/placed_decoration.dart' show decorName;
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/section_header.dart';
@@ -381,7 +382,9 @@ class _QuestTile extends StatelessWidget {
               SoriRewardThumb(
                 slug: def.decorationSlug,
                 earned: isCompleted,
-                semantic: t.questsRewardSemantics(name),
+                semantic: t.questsRewardSemantics(
+                  decorName(t, def.decorationSlug),
+                ),
               ),
             ],
           ),

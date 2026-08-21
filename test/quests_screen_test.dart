@@ -72,7 +72,42 @@ void main() {
           ),
           isTrue,
         );
+
+        final mismatchedDefinition = kQuestById['q_sagunja_maehwa']!;
+        final mismatchedQuestName = locale.languageCode == 'en'
+            ? mismatchedDefinition.name.en
+            : mismatchedDefinition.name.de;
+        final mismatchedRewardName = decorName(
+          t,
+          mismatchedDefinition.decorationSlug,
+        );
+        expect(mismatchedRewardName, isNot(mismatchedQuestName));
+        await tester.scrollUntilVisible(
+          find.text(mismatchedQuestName),
+          200,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.pump();
+        final mismatchedRewardThumb = find.byWidgetPredicate(
+          (widget) =>
+              widget is SoriRewardThumb &&
+              widget.slug == mismatchedDefinition.decorationSlug,
+        );
+        expect(mismatchedRewardThumb, findsOneWidget);
+        final mismatchedRewardWidget = tester.widget<SoriRewardThumb>(
+          mismatchedRewardThumb,
+        );
+        expect(
+          mismatchedRewardWidget.semantic,
+          t.questsRewardSemantics(mismatchedRewardName),
+        );
+        expect(
+          mismatchedRewardWidget.semantic,
+          isNot(t.questsRewardSemantics(mismatchedQuestName)),
+        );
         expect(tester.takeException(), isNull);
+        await tester.pumpWidget(const SizedBox.shrink());
+        await tester.pump();
       }
       semantics.dispose();
     },
@@ -162,9 +197,9 @@ const _mixedQuestStates = <QuestProgress>[
     completedAtIso: null,
   ),
   QuestProgress(
-    questId: 'q_maehwa',
+    questId: 'q_sagunja_maehwa',
     current: 0,
-    target: 30,
+    target: 20,
     active: true,
     completed: false,
     completedAtIso: null,
