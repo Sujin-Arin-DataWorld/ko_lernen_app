@@ -1785,6 +1785,7 @@
   "clozeDesc": "Das fehlende Wort im Satz",
   "clozeInstruction": "Wähle das fehlende Wort.",
   "clozeEmptyBody": "Für dieses Level gibt es noch keine Sätze. Wähle ein anderes Level.",
+  "clozeLevelLabel": "Lernstufe",
   "clozeLevelAll": "Alle",
   "speedMatchTitle": "Blitz-Paare",
   "speedMatchDesc": "Auf Zeit zuordnen",

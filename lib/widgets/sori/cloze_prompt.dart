@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../services/cloze_loader.dart';
 import '../../services/tts_service.dart';
 import 'card.dart';
@@ -113,17 +114,15 @@ class ClozePromptCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    final baseStyle = TextStyle(fontSize: 15, color: s.textMuted, height: 1.4);
-    final emphStyle = const TextStyle(
-      fontSize: 18,
+    final type = SoriTextTheme.of(context);
+    final baseStyle = type.gloss;
+    final emphStyle = type.gloss.copyWith(
       fontWeight: FontWeight.w800,
       color: SoriColors.primary,
-      height: 1.4,
     );
     final segments = splitEmphasis(item.meaning(lang), gloss);
     final slot = splitClozeSlot(item.sentenceKo, filled: picked);
-    const koStyle = TextStyle(fontSize: 26, fontWeight: FontWeight.w800);
+    final koStyle = type.koDisplay;
     // 빈칸이 비어 있을 때도 "여기가 문제다"가 보이도록 액센트를 준다 —
     // 예전에는 밑줄이 본문과 같은 색이라 어디를 채우는지 눈에 안 들어왔다.
     final Color slotColor = picked == null
@@ -168,10 +167,14 @@ class ClozePromptCard extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: Spacing.sm),
-            IconButton(
-              icon: const Icon(Icons.volume_up_rounded, size: 26),
-              tooltip: 'TTS',
-              onPressed: () => TtsService.speak(item.fullKo),
+            SizedBox.square(
+              dimension: 48,
+              child: IconButton(
+                key: const Key('cloze-prompt-speak'),
+                icon: const Icon(Icons.volume_up_rounded, size: 26),
+                tooltip: AppL10n.of(context).ttsListen,
+                onPressed: () => TtsService.speak(item.fullKo),
+              ),
             ),
           ],
         ),

@@ -261,15 +261,21 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
               style: TextStyle(fontSize: 13, color: s.textMuted),
             ),
             const SizedBox(height: Spacing.md),
-            ClozePromptCard(
-              item: item,
-              lang: lang,
-              gloss: _vocabByKo[item.answer]?.translationFor(lang),
-              picked: _picked,
-              pickedWrong: _picked != null && _picked != item.answer,
+            Flexible(
+              flex: 3,
+              child: SingleChildScrollView(
+                child: ClozePromptCard(
+                  item: item,
+                  lang: lang,
+                  gloss: _vocabByKo[item.answer]?.translationFor(lang),
+                  picked: _picked,
+                  pickedWrong: _picked != null && _picked != item.answer,
+                ),
+              ),
             ),
             const SizedBox(height: Spacing.xl),
             Expanded(
+              flex: 4,
               child: ClozeOptionsList(
                 options: options,
                 answer: item.answer,

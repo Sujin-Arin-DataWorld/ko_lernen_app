@@ -6439,6 +6439,12 @@ abstract class AppL10n {
   /// **'Für dieses Level gibt es noch keine Sätze. Wähle ein anderes Level.'**
   String get clozeEmptyBody;
 
+  /// No description provided for @clozeLevelLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernstufe'**
+  String get clozeLevelLabel;
+
   /// No description provided for @clozeLevelAll.
   ///
   /// In de, this message translates to:
