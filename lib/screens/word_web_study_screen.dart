@@ -65,6 +65,11 @@ class WordWebStudyScreen extends StatelessWidget {
                         ),
                       ),
                       IconButton(
+                        tooltip: '${t.ttsListen}: ${cluster.sourceKo}',
+                        constraints: const BoxConstraints.tightFor(
+                          width: 48,
+                          height: 48,
+                        ),
                         icon: const Icon(
                           Icons.volume_up_rounded,
                           color: SoriColors.primary,
@@ -119,6 +124,7 @@ class _NeighborBlock extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final nuance = item.nuance(lang);
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.md),
@@ -133,11 +139,15 @@ class _NeighborBlock extends StatelessWidget {
                   child: Text(item.ko, style: SoriTextTheme.of(context).h3),
                 ),
                 IconButton(
+                  tooltip: '${t.ttsListen}: ${item.ko}',
+                  constraints: const BoxConstraints.tightFor(
+                    width: 48,
+                    height: 48,
+                  ),
                   icon: const Icon(
                     Icons.volume_up_rounded,
                     color: SoriColors.primary,
                   ),
-                  visualDensity: VisualDensity.compact,
                   onPressed: () => TtsService.speak(item.ko),
                 ),
               ],
@@ -177,11 +187,15 @@ class _ExpressionBlock extends StatelessWidget {
                   child: Text(item.ko, style: SoriTextTheme.of(context).h3),
                 ),
                 IconButton(
+                  tooltip: '${t.ttsListen}: ${item.ko}',
+                  constraints: const BoxConstraints.tightFor(
+                    width: 48,
+                    height: 48,
+                  ),
                   icon: const Icon(
                     Icons.volume_up_rounded,
                     color: SoriColors.primary,
                   ),
-                  visualDensity: VisualDensity.compact,
                   onPressed: () => TtsService.speak(item.ko),
                 ),
               ],
@@ -194,12 +208,27 @@ class _ExpressionBlock extends StatelessWidget {
                 style: SoriTextTheme.of(context).label,
               ),
               const SizedBox(height: Spacing.xs),
-              GestureDetector(
-                onTap: () => TtsService.speak(item.exampleKo),
-                child: Text(
-                  item.exampleKo,
-                  style: SoriTextTheme.of(context).body,
-                ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      item.exampleKo,
+                      style: SoriTextTheme.of(context).body,
+                    ),
+                  ),
+                  IconButton(
+                    tooltip: '${t.ttsListen}: ${item.exampleKo}',
+                    constraints: const BoxConstraints.tightFor(
+                      width: 48,
+                      height: 48,
+                    ),
+                    icon: const Icon(
+                      Icons.volume_up_rounded,
+                      color: SoriColors.primary,
+                    ),
+                    onPressed: () => TtsService.speak(item.exampleKo),
+                  ),
+                ],
               ),
               if (example.isNotEmpty)
                 Text(example, style: SoriTextTheme.of(context).bodySmall),
