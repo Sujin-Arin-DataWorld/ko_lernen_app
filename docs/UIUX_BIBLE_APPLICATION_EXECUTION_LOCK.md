@@ -1,13 +1,13 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.16
+- **Version:** 1.17
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3b-grammar-2026-08-21`
-- **Base:** `origin/main@714561c33aa52266b2332c3415b4c51e16d7a568`
-- **State:** Phase 3B Grammar outer UI locally green; awaiting PR/current-head CI
-- **Next action:** commit the Grammar unit, open its app PR, require green CI for
-  the exact current head, merge, and cancel only that merge's deploy-capable
-  `main` run before recording final evidence in a docs-only closeout
+- **Branch:** `session/uiux-bible-learning-3b-grammar-closeout-2026-08-21`
+- **Base:** `origin/main@8fb7b26f0909576d6e5184e0baeed442fc6c0763`
+- **State:** Phase 3B Grammar outer UI merged; clean restart boundary
+- **Next action:** create a fresh worktree from latest `origin/main` and audit
+  `/listening` browsing hierarchy/states only; preserve the scenario shelf and
+  TTS availability contracts
 
 ## 1. Purpose
 
@@ -342,8 +342,8 @@ production, and deployment remain unclaimed and out of scope.
 | 3A Vocab recall outer UI | merged | PR #130; main merge `5159ad64fdef37faecaed2360d3e79f9716b0564`; PR current-head CI run 32436071838 green; `/vocab/recall` loading/error/empty/prompt/result share `SoriStudyFrame`; recall input uses `SoriTextField` while its editable-field key remains stable; DE/EN 320×640 at 200% input-to-result flow green; raw screen TextField 23→22; analyze clean; 144 Deck geometry/gesture/flip/order/SRS tests and 13 shared responsive tests green; post-merge main run 32436306821 cancelled before jobs, so no Play upload job was created or run |
 | 3A Vocab result hierarchy | merged | PR #132; main merge `a36c63f251c86acb4c58cfd97b6bc6b5f5834de5`; PR current-head CI run 32437316213 green; `/vocab/result` pack title, result heading, metrics, and XP use the existing Sori type hierarchy; metric and animated XP visuals expose stable combined semantics; DE/EN 320×640 at 200% keep stacked stats and the final CTA reachable; raw screen TextStyle 316→310 and w800 98→95; analyze clean; 183 Deck/result/feedback/responsive tests green; post-merge main run 32437547774 cancelled during path selection and its Play job had no steps, so no upload ran |
 | 3A Legacy outer UI | merged | PR #134; main merge `51409da37256cb1503474e0b1e03b720483360c3`; PR current-head CI run 32438682010 green; `/vocab/legacy` slow-play hint and listen label use existing Sori type roles; filter controls use always-visible localized form labels and Material ink ownership; DE/EN 320×640 at 200% covered; raw screen TextStyle 310→307; analyze clean; 189 Deck/result/feedback/responsive tests green; rollback route, Deck geometry, flip gate, ordering, and SRS untouched; post-merge main run 32438908214 cancelled during path selection and its Signed AAB/Play job had no steps, so no upload ran |
-| 3B Grammar outer UI | local green | `/grammar` checkpoint and progress copy now use existing Sori type roles; filter controls have always-visible localized level/type/difficulty labels and localized DE/EN difficulty choices while stored filter values remain unchanged; DE/EN 320×640 at 200% is covered; raw screen TextStyle 307→302; analyze clean; 527 Grammar/course/choice/feedback/localization/accessibility/smoke/responsive/visual-layout tests green; loaders, course context, answer/scoring logic, flip/card gestures, SRS, and activity geometry untouched; awaiting PR/current-head CI |
-| 3B–3D remaining learning flows | pending | after the Grammar app PR and docs closeout merge, create a fresh worktree from latest `origin/main` and audit `/listening` browsing hierarchy/states only; preserve the scenario shelf and TTS availability contracts |
+| 3B Grammar outer UI | merged | PR #136; main merge `8fb7b26f0909576d6e5184e0baeed442fc6c0763`; PR current-head CI run 32439883635 green; `/grammar` checkpoint and progress copy use existing Sori type roles; filter controls have always-visible localized level/type/difficulty labels and localized DE/EN difficulty choices while stored filter values remain unchanged; DE/EN 320×640 at 200% covered; raw screen TextStyle 307→302; analyze clean; 527 Grammar/course/choice/feedback/localization/accessibility/smoke/responsive/visual-layout tests green; loaders, course context, answer/scoring logic, flip/card gestures, SRS, and activity geometry untouched; post-merge main run 32440461105 cancelled during path selection and its Signed AAB/Play job had zero steps, so no upload ran |
+| 3B–3D remaining learning flows | pending | create a fresh worktree from latest `origin/main` and audit `/listening` browsing hierarchy/states only; preserve the scenario shelf and TTS availability contracts |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
