@@ -491,6 +491,11 @@ class _ProfileScreenState extends State<ProfileScreen>
       maxWidth: null,
       actions: [
         IconButton(
+          tooltip: t.settingsTitle,
+          constraints: const BoxConstraints(
+            minWidth: kMinInteractiveDimension,
+            minHeight: kMinInteractiveDimension,
+          ),
           icon: const Icon(Icons.settings_outlined),
           onPressed: () => Navigator.pushNamed(context, '/settings'),
         ),
