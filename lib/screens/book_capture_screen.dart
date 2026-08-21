@@ -583,6 +583,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
 
     final isNotebook = widget.captureMode == 'notebook';
     final title = isNotebook ? t.vocabNotebookTitle : t.bookCaptureTitle;
@@ -603,7 +604,7 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
       maxWidth: SoriMaxWidth.focus,
       padding: const EdgeInsets.all(Spacing.lg),
       builder: (context, padding) => SoriAdaptiveStudyBody(
-        minHeight: 640,
+        minHeight: 660,
         child: Padding(
           padding: padding,
           child: Column(
@@ -626,19 +627,13 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
               Text(
                 isNotebook ? t.vocabNotebookTitle : t.bookCaptureHero,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
-                ),
+                style: text.h2,
               ),
               const SizedBox(height: Spacing.sm),
               Text(
                 isNotebook ? t.vocabNotebookDesc : t.bookCaptureSubtitle,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 13,
-                  color: SoriSurfaces.of(context).textMuted,
-                ),
+                style: text.bodySmall,
               ),
               const Spacer(),
               if (_errorKey != null) _ErrorCard(errorKey: _errorKey!),
@@ -656,7 +651,6 @@ class _BookCaptureScreenState extends State<BookCaptureScreen> {
                 label: t.bookCaptureGallery,
                 icon: Icons.photo_library_outlined,
                 variant: SoriButtonVariant.outlined,
-                accent: SoriColors.info,
                 fullWidth: true,
                 onTap: () => _pick(ImageSource.gallery),
               ),
@@ -682,16 +676,26 @@ class _ErrorCard extends StatelessWidget {
       'ocr_error' => t.bookCaptureErrorOcr,
       _ => t.bookCaptureErrorUnknown,
     };
-    return SoriCard(
-      variant: SoriCardVariant.compact,
-      accent: SoriColors.warning,
-      tinted: true,
-      child: Row(
-        children: [
-          const Icon(Icons.warning_amber_rounded, color: SoriColors.warning),
-          const SizedBox(width: Spacing.sm),
-          Expanded(child: Text(msg, style: const TextStyle(fontSize: 13))),
-        ],
+    return Semantics(
+      liveRegion: true,
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: SoriColors.warning,
+        tinted: true,
+        child: Row(
+          children: [
+            const Icon(Icons.warning_amber_rounded, color: SoriColors.warning),
+            const SizedBox(width: Spacing.sm),
+            Expanded(
+              child: Text(
+                msg,
+                style: SoriTextTheme.of(
+                  context,
+                ).bodySmall.copyWith(color: SoriSurfaces.of(context).text),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
