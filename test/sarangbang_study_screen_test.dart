@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -10,6 +12,8 @@ import 'package:ko_lernen_app/screens/sarangbang_screen.dart';
 import 'package:ko_lernen_app/services/mission_recommender.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
+import 'package:ko_lernen_app/widgets/app_error.dart';
+import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/pending_reward_card.dart';
 import 'package:ko_lernen_app/widgets/sori/placed_decoration.dart';
@@ -271,6 +275,229 @@ void main() {
     expect(opens, 1);
     expect(preferences.getKeys(), before);
   });
+
+  testWidgets('partial Today data is retryable and never opens a stale route', (
+    tester,
+  ) async {
+    var attempts = 0;
+    var opens = 0;
+    await tester.pumpWidget(
+      _host(
+        SarangbangStudyScreen(
+          loadTodaySnapshot: () async {
+            attempts += 1;
+            if (attempts == 1) {
+              return TodayLearningSnapshot(
+                pick: const ReviewPick(dueCount: 12),
+                destination: const TodayLearningDestination(route: '/stale'),
+                availability: TodayLearningAvailability.unavailable,
+                unavailableReason: TodayLearningUnavailableReason.localData,
+                unavailableSources: const {TodayLearningSource.review},
+              );
+            }
+            return TodayLearningSnapshot(
+              pick: const ReviewPick(dueCount: 12),
+              destination: const TodayLearningDestination(route: '/review'),
+              dueCount: 12,
+            );
+          },
+          loadLearningReceipt: () async => const HanokLearningReceipt.empty(),
+          loadRoomState: () async => const SarangbangRoomState(),
+          onOpenRecommendation: (_) async => opens += 1,
+        ),
+        locale: const Locale('en'),
+        size: const Size(390, 844),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('sarangbang-today-unavailable')),
+      findsOneWidget,
+    );
+    expect(find.byKey(const ValueKey('sarangbang-open-today')), findsNothing);
+    expect(find.byKey(const ValueKey('sarangbang-saved-review')), findsNothing);
+
+    await tester.tap(
+      find.byKey(const ValueKey('sarangbang-today-unavailable-retry')),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('sarangbang-today-unavailable')),
+      findsNothing,
+    );
+    final openToday = find.byKey(const ValueKey('sarangbang-open-today'));
+    await tester.scrollUntilVisible(
+      openToday,
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.tap(openToday);
+    expect(opens, 1);
+  });
+
+  testWidgets(
+    'unavailable Today exposes saved review but not its stale route',
+    (tester) async {
+      var opens = 0;
+      await tester.pumpWidget(
+        _host(
+          SarangbangStudyScreen(
+            loadTodaySnapshot: () async => TodayLearningSnapshot(
+              pick: const ReviewPick(dueCount: 12),
+              destination: const TodayLearningDestination(route: '/stale'),
+              dueCount: 12,
+              availability: TodayLearningAvailability.unavailable,
+              unavailableReason: TodayLearningUnavailableReason.localData,
+              unavailableSources: const {TodayLearningSource.review},
+            ),
+            loadLearningReceipt: () async => const HanokLearningReceipt.empty(),
+            loadRoomState: () async => const SarangbangRoomState(),
+            onOpenRecommendation: (_) async => opens += 1,
+          ),
+          locale: const Locale('en'),
+          size: const Size(390, 844),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const ValueKey('sarangbang-open-today')), findsNothing);
+      expect(
+        find.byKey(const ValueKey('sarangbang-saved-review')),
+        findsOneWidget,
+      );
+      await tester.tap(find.byKey(const ValueKey('sarangbang-saved-review')));
+      await tester.pumpAndSettle();
+
+      expect(
+        find.byKey(const ValueKey('sarangbang-review-route')),
+        findsOneWidget,
+      );
+      expect(opens, 0);
+    },
+  );
+
+  testWidgets('loading and failed reads use canonical retry states', (
+    tester,
+  ) async {
+    final pending = Completer<TodayLearningSnapshot>();
+    var attempts = 0;
+    await tester.pumpWidget(
+      _host(
+        SarangbangStudyScreen(
+          loadTodaySnapshot: () {
+            attempts += 1;
+            if (attempts == 1) {
+              return pending.future;
+            }
+            return Future.value(
+              TodayLearningSnapshot(pick: const ReviewPick(dueCount: 3)),
+            );
+          },
+          loadLearningReceipt: () async => const HanokLearningReceipt.empty(),
+          loadRoomState: () async => const SarangbangRoomState(),
+        ),
+        locale: const Locale('de'),
+        size: const Size(320, 640),
+        textScale: 2,
+      ),
+    );
+
+    expect(find.byType(AppLoading), findsOneWidget);
+    pending.completeError(StateError('fixture failure'));
+    await tester.pump();
+    await tester.pump();
+    expect(find.byType(AppError), findsOneWidget);
+    expect(
+      find.text('Etwas ist schiefgelaufen. Bitte versuche es erneut.'),
+      findsOneWidget,
+    );
+
+    await tester.tap(find.byIcon(Icons.refresh));
+    await tester.pump();
+    await tester.pump();
+    expect(find.byType(AppError), findsNothing);
+    expect(find.byKey(const ValueKey('sarangbang-welcome')), findsOneWidget);
+  });
+
+  testWidgets('DE and EN content reflows across the locked viewport matrix', (
+    tester,
+  ) async {
+    const viewports = <({Size size, double scale})>[
+      (size: Size(320, 640), scale: 2),
+      (size: Size(360, 400), scale: 1),
+      (size: Size(390, 844), scale: 1.3),
+      (size: Size(720, 1024), scale: 1.3),
+      (size: Size(1280, 900), scale: 1.3),
+    ];
+    const receipt = HanokLearningReceipt(
+      safeSceneCount: 1,
+      safeScenesTowardNextBeam: 1,
+      plannedBeamCount: 1,
+      earnedExpressionCount: 1,
+      latestSafeScenarioId: 'restaurant_scene',
+      latestSafeExpressionKo: '안 맵게 해 주세요.',
+    );
+
+    for (final locale in const [Locale('de'), Locale('en')]) {
+      for (final viewport in viewports) {
+        tester.view.physicalSize = viewport.size;
+        tester.view.devicePixelRatio = 1;
+        await tester.pumpWidget(
+          _host(
+            SarangbangStudyScreen.preview(
+              key: ValueKey(
+                'sarangbang-${locale.languageCode}-${viewport.size.width}',
+              ),
+              todaySnapshot: TodayLearningSnapshot(
+                pick: const ReviewPick(dueCount: 12),
+                destination: const TodayLearningDestination(route: '/stale'),
+                dueCount: 12,
+                availability: TodayLearningAvailability.unavailable,
+                unavailableReason: TodayLearningUnavailableReason.localData,
+                unavailableSources: const {TodayLearningSource.review},
+              ),
+              receipt: receipt,
+            ),
+            locale: locale,
+            textScale: viewport.scale,
+            size: viewport.size,
+            safeInsets: const EdgeInsets.only(top: 44, bottom: 34),
+          ),
+        );
+
+        final retry = find.byKey(
+          const ValueKey('sarangbang-today-unavailable-retry'),
+        );
+        await tester.scrollUntilVisible(
+          retry,
+          240,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(
+          find.byKey(const ValueKey('sarangbang-saved-review')),
+          findsOneWidget,
+        );
+        expect(retry, findsOneWidget);
+        final actions = find.byKey(const ValueKey('sarangbang-return-actions'));
+        await tester.scrollUntilVisible(
+          actions,
+          240,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(
+          find.byKey(const ValueKey('sarangbang-study-room')),
+          findsOneWidget,
+        );
+        expect(find.text('안 맵게 해 주세요.'), findsOneWidget);
+        expect(actions, findsOneWidget);
+        expect(tester.takeException(), isNull);
+      }
+    }
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+  });
 }
 
 Widget _host(
@@ -283,6 +510,11 @@ Widget _host(
   locale: locale,
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
+  routes: {
+    '/review': (_) => const Scaffold(
+      body: SizedBox(key: ValueKey('sarangbang-review-route')),
+    ),
+  },
   home: MediaQuery(
     data: MediaQueryData(
       size: size,

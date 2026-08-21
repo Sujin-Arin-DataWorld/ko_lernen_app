@@ -225,7 +225,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
 
   Future<void> _openRecommendation() async {
     final snapshot = _snapshot;
-    if (snapshot == null) {
+    if (snapshot == null || snapshot.isUnavailable) {
       return;
     }
     final override = widget.onOpenRecommendation;
@@ -245,6 +245,13 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
       },
     );
     if (opened && mounted) {
+      await _load();
+    }
+  }
+
+  Future<void> _openSavedReview() async {
+    await Navigator.of(context).pushNamed('/review');
+    if (mounted) {
       await _load();
     }
   }
@@ -305,7 +312,7 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
           child: _loading
               ? const AppLoading()
               : _loadFailed
-              ? AppError(message: t.courseMissionLoadError, onRetry: _load)
+              ? AppError(message: t.loadErrorTryAgain, onRetry: _load)
               : SoriContentClamp(
                   // A room scene and the learning CTA share a tablet row.
                   // This is deliberately wider than the default reading clamp;
@@ -331,6 +338,15 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                           PendingRewardCard(
                             count: _openableBoxes,
                             onOpen: _openBojagi,
+                          ),
+                          const SizedBox(height: Spacing.lg),
+                        ],
+                        if (_snapshot?.isUnavailable ?? false) ...[
+                          _SarangbangTodayUnavailableCard(
+                            reason: _snapshot?.unavailableReason,
+                            hasSavedReview: (_snapshot?.dueCount ?? 0) > 0,
+                            onOpenSavedReview: _openSavedReview,
+                            onRetry: _load,
                           ),
                           const SizedBox(height: Spacing.lg),
                         ],
@@ -386,8 +402,9 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                         const SizedBox(height: Spacing.lg),
                         _SarangbangReturnActions(
                           canOpenToday:
-                              _snapshot?.pick != null ||
-                              _snapshot?.destination != null,
+                              !(_snapshot?.isUnavailable ?? false) &&
+                              (_snapshot?.pick != null ||
+                                  _snapshot?.destination != null),
                           onOpenToday: _openRecommendation,
                           onReturnToCourtyard: _openCourtyard,
                         ),
@@ -524,6 +541,95 @@ class _SarangbangStudyScene extends StatelessWidget {
           },
         ),
       ],
+    );
+  }
+}
+
+class _SarangbangTodayUnavailableCard extends StatelessWidget {
+  const _SarangbangTodayUnavailableCard({
+    required this.reason,
+    required this.hasSavedReview,
+    required this.onOpenSavedReview,
+    required this.onRetry,
+  });
+
+  final TodayLearningUnavailableReason? reason;
+  final bool hasSavedReview;
+  final VoidCallback onOpenSavedReview;
+  final VoidCallback onRetry;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
+    final copy = switch (reason ?? TodayLearningUnavailableReason.localData) {
+      TodayLearningUnavailableReason.offline => (
+        icon: Icons.cloud_off_outlined,
+        title: t.homeUnavailableTitle,
+        body: hasSavedReview
+            ? t.homeUnavailableDescription
+            : t.homeUnavailableDescriptionNoReview,
+        retryLabel: t.homeUnavailableRetry,
+      ),
+      TodayLearningUnavailableReason.remoteService => (
+        icon: Icons.cloud_sync_outlined,
+        title: t.homeRemoteUnavailableTitle,
+        body: hasSavedReview
+            ? t.homeRemoteUnavailableDescription
+            : t.homeRemoteUnavailableDescriptionNoReview,
+        retryLabel: t.homeUnavailableRetryGeneric,
+      ),
+      TodayLearningUnavailableReason.localData => (
+        icon: Icons.refresh_rounded,
+        title: t.homeLocalUnavailableTitle,
+        body: hasSavedReview
+            ? t.homeLocalUnavailableDescription
+            : t.homeLocalUnavailableDescriptionNoReview,
+        retryLabel: t.homeUnavailableRetryGeneric,
+      ),
+    };
+
+    return SoriCard(
+      key: const ValueKey('sarangbang-today-unavailable'),
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.gold,
+      tinted: true,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(copy.icon, color: SoriColors.gold),
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: Semantics(
+                  header: true,
+                  child: Text(copy.title, style: text.cardTitle),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: Spacing.sm),
+          Text(copy.body, style: text.bodySmall),
+          const SizedBox(height: Spacing.md),
+          if (hasSavedReview) ...[
+            SoriButton(
+              key: const ValueKey('sarangbang-saved-review'),
+              label: t.homeUnavailableCta,
+              fullWidth: true,
+              onTap: onOpenSavedReview,
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+          SoriButton.outlined(
+            key: const ValueKey('sarangbang-today-unavailable-retry'),
+            label: copy.retryLabel,
+            fullWidth: true,
+            onTap: onRetry,
+          ),
+        ],
+      ),
     );
   }
 }
