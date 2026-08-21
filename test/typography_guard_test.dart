@@ -99,7 +99,8 @@ void main() {
       // 2026-08-21 Phase 3A Vocab 결과 제목·통계·XP 토큰화: 316→310.
       // 2026-08-21 Phase 3A Legacy 외곽 안내·버튼·필터 토큰화: 310→307.
       // 2026-08-21 Phase 3B Grammar 외곽·체크포인트 토큰화: 307→302.
-      302,
+      // 2026-08-21 Phase 3B Hangul 카드 카운터 토큰화: 302→301.
+      301,
       'lib/screens/ 원시 TextStyle(',
     );
   });

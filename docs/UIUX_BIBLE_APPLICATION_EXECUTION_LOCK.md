@@ -1,14 +1,13 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.21
+- **Version:** 1.22
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3b-listening-play-closeout-2026-08-21`
-- **Base:** `origin/main@c5a71670f834e90dc6ddf0e2e0afad65e5f56d3a`
-- **State:** Phase 3B Listening player outer UI merged; clean restart point
-- **Next action:** create a fresh Windows-native worktree from latest
-  `origin/main` and audit `/hangul` app-owned outer type/actions only; preserve
-  composition, strokes, writing canvas geometry, text prefetch,
-  audio/pronunciation, and writing gates
+- **Branch:** `session/uiux-bible-learning-3b-hangul-2026-08-21`
+- **Base:** `origin/main@031af4b14bf17ddaeb33cda30aff51f81476c64d`
+- **State:** Phase 3B Hangul outer UI locally green; app PR pending
+- **Next action:** commit and push the task-owned files, open the app PR, require
+  exact-current-head green CI, merge, cancel only the exact post-merge `main`
+  run before any Play steps, then record immutable evidence here
 
 ## 1. Purpose
 
@@ -346,7 +345,8 @@ production, and deployment remain unclaimed and out of scope.
 | 3B Grammar outer UI | merged | PR #136; main merge `8fb7b26f0909576d6e5184e0baeed442fc6c0763`; PR current-head CI run 32439883635 green; `/grammar` checkpoint and progress copy use existing Sori type roles; filter controls have always-visible localized level/type/difficulty labels and localized DE/EN difficulty choices while stored filter values remain unchanged; DE/EN 320×640 at 200% covered; raw screen TextStyle 307→302; analyze clean; 527 Grammar/course/choice/feedback/localization/accessibility/smoke/responsive/visual-layout tests green; loaders, course context, answer/scoring logic, flip/card gestures, SRS, and activity geometry untouched; post-merge main run 32440461105 cancelled during path selection and its Signed AAB/Play job had zero steps, so no upload ran |
 | 3B Listening browsing UI | merged | PR #138; main merge `63aaf130ef233c80b20ca9f79b8df5741383579c`; PR current-head CI run 32441547719 green; `/listening` now presents the scenario section before its start instruction, uses the existing Sori section hierarchy, exposes an always-visible localized level label, and gives every A1–C2 filter a 48dp target; DE/EN 320×640 at 200% plus 360×400, 390×844, 720×1024, and 1280×900 covered with SafeArea insets; analyze clean; 199 shelf/route/TTS/standard-state/responsive/accessibility/smoke/typography tests green; raw screen TextStyle remains 302; scenario inventory, 15-compartment shelf mapping, scroll sheet, `/listening/play` route, and TTS availability untouched; post-merge main run 32441770710 cancelled during path selection and its Signed AAB/Play job had zero steps, so no upload ran |
 | 3B Listening player outer UI | merged | PR #140; main merge `c5a71670f834e90dc6ddf0e2e0afad65e5f56d3a`; PR current-head CI run 32442826058 green; `/listening/play` gives both visible replay targets explicit localized button semantics and a 48dp minimum target while retaining the existing Sori study frame/feed hierarchy; DE/EN completion state covered at 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 with SafeArea insets; completion still persists the scenario id and 40 XP; analyze clean; 221 shelf/route/TTS/feedback/study-responsive/accessibility/smoke/typography tests green; raw screen TextStyle remains 302; route arguments, dialog order, next/previous/flip/like/bookmark/share, TTS voice/speed, completion calculation, feedback, and transcript reachability unchanged; post-merge main run 32443029469 cancelled during path selection and its Signed AAB/Play job had zero steps, so no upload ran |
-| 3B–3D remaining learning flows | pending | create a fresh worktree from latest `origin/main` and audit `/hangul` app-owned outer type/actions only; preserve composition, strokes, writing canvas geometry, text prefetch, audio/pronunciation, and writing gates |
+| 3B Hangul outer UI | locally green | `/hangul` overview uses the existing semantic Sori section hierarchy; syllable composition remains unchanged while narrow/200% layouts wrap without clipping; card modes keep complete DE/EN labels, 48dp targets, and short-height scroll reachability; single-character deck previews now scale within both card axes; card counter uses the existing meta role; raw screen TextStyle 302→301; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 covered; analyze clean; 305 Hangul composition/data/locale/gesture/prefetch/stroke/writing/feedback/responsive/accessibility/smoke/typography tests green; composition, item pools/order, card judgments, writing canvas geometry, stroke matching/order, text prefetch, audio/pronunciation, completion gates, XP, assets, and routes unchanged |
+| 3B–3D remaining learning flows | pending | after Hangul evidence closeout, create a fresh worktree from latest `origin/main` and audit `/cloze` app-owned outer hierarchy/actions only; preserve item order, answer checking, scoring, feedback, completion, and reward logic |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |

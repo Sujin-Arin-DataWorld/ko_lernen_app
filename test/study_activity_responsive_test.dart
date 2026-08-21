@@ -38,9 +38,11 @@ import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/pressable.dart';
+import 'package:ko_lernen_app/widgets/sori/section_header.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
@@ -343,6 +345,130 @@ void main() {
         expect(tester.takeException(), isNull);
       });
     }
+  }
+
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    for (final viewport in const <({Size size, double textScale})>[
+      (size: Size(320, 640), textScale: 2),
+      (size: Size(360, 400), textScale: 1),
+      (size: Size(390, 844), textScale: 1.3),
+      (size: Size(720, 1024), textScale: 1.3),
+      (size: Size(1280, 900), textScale: 1.3),
+    ]) {
+      testWidgets('Hangul overview keeps complete section hierarchy in '
+          '${locale.languageCode} @ '
+          '${viewport.size.width.toInt()}x${viewport.size.height.toInt()} '
+          '×${viewport.textScale}', (tester) async {
+        final semantics = tester.ensureSemantics();
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        tester.view.devicePixelRatio = 1;
+        tester.view.physicalSize = viewport.size;
+
+        await tester.pumpWidget(
+          _host(
+            locale: locale,
+            textScale: viewport.textScale,
+            child: HangulScreen(textPrefetcher: (_) async {}),
+          ),
+        );
+        await tester.pump(const Duration(milliseconds: 500));
+
+        final t = AppL10n.of(tester.element(find.byType(HangulScreen)));
+        final overviewScroll = find
+            .descendant(
+              of: find.byKey(const Key('hangul-overview-scroll')),
+              matching: find.byType(Scrollable),
+            )
+            .first;
+        final headers = <Finder>[
+          find.byWidgetPredicate(
+            (widget) =>
+                widget is SoriSectionHeader &&
+                widget.title.startsWith(t.hangulConsonantsLabel),
+          ),
+          find.byWidgetPredicate(
+            (widget) =>
+                widget is SoriSectionHeader &&
+                widget.title.startsWith(t.hangulVowelsLabel),
+          ),
+          find.widgetWithText(SoriSectionHeader, t.hangulSyllableLabel),
+        ];
+
+        for (final header in headers) {
+          await tester.scrollUntilVisible(
+            header,
+            240,
+            scrollable: overviewScroll,
+          );
+          await tester.pump();
+          expect(header, findsOneWidget);
+          final title = tester.widget<SoriSectionHeader>(header).title;
+          final label = find.text(title);
+          final text = tester.widget<Text>(label);
+          expect(text.maxLines, isNull);
+          expect(text.overflow, isNull);
+          expect(
+            tester
+                .getSemantics(label)
+                .getSemanticsData()
+                .flagsCollection
+                .isHeader,
+            isTrue,
+          );
+        }
+        expect(tester.takeException(), isNull);
+        semantics.dispose();
+      });
+    }
+  }
+
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    testWidgets('Hangul card modes keep full labels and 48dp controls in '
+        '${locale.languageCode} at 200% text', (tester) async {
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(320, 640);
+
+      await tester.pumpWidget(
+        _host(
+          locale: locale,
+          textScale: 2,
+          child: HangulScreen(textPrefetcher: (_) async {}),
+        ),
+      );
+      await tester.pump(const Duration(milliseconds: 500));
+
+      final t = AppL10n.of(tester.element(find.byType(HangulScreen)));
+      await tester.tap(find.text(t.hangulTabCards));
+      await tester.pumpAndSettle();
+
+      for (final label in [
+        t.hangulChipConsonants,
+        t.hangulChipVowels,
+        t.hangulChipSyllables,
+      ]) {
+        final chip = find.widgetWithText(SoriChip, label);
+        final text = find.descendant(of: chip, matching: find.text(label));
+        expect(chip, findsOneWidget);
+        expect(tester.getSize(chip).height, greaterThanOrEqualTo(48));
+        expect(tester.widget<Text>(text).maxLines, isNull);
+        expect(tester.widget<Text>(text).overflow, isNull);
+      }
+      for (final key in const [
+        Key('hangul-cards-prev'),
+        Key('hangul-cards-speak'),
+        Key('hangul-cards-random'),
+      ]) {
+        expect(
+          tester.getSize(find.byKey(key)).height,
+          greaterThanOrEqualTo(48),
+        );
+        expect(tester.getSize(find.byKey(key)).width, greaterThanOrEqualTo(48));
+      }
+      expect(tester.takeException(), isNull);
+    });
   }
 
   testWidgets(

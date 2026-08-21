@@ -21,7 +21,9 @@ import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../data/hangul_data.dart';
@@ -282,6 +284,7 @@ class _OverviewTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return ListView(
+      key: const Key('hangul-overview-scroll'),
       padding: soriClampPadding(
         MediaQuery.sizeOf(context).width,
         base: const EdgeInsets.fromLTRB(12, 12, 12, 24),
@@ -311,18 +314,7 @@ class _SectionLabel extends StatelessWidget {
   const _SectionLabel(this.label);
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 8),
-      child: Text(
-        label,
-        style: TextStyle(
-          fontSize: 13,
-          fontWeight: FontWeight.w700,
-          color: SoriSurfaces.of(context).textMuted,
-          letterSpacing: 0.5,
-        ),
-      ),
-    );
+    return Semantics(header: true, child: SoriSectionHeader(label));
   }
 }
 
@@ -534,50 +526,91 @@ class _SyllableDemo extends StatelessWidget {
                   horizontal: 14,
                   vertical: 10,
                 ),
-                child: Row(
-                  children: [
-                    Text(
-                      e.$1,
-                      style: const TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w800,
-                        color: SoriColors.info,
-                      ),
-                    ),
-                    const SizedBox(width: 10),
-                    Text(
-                      '=',
-                      style: TextStyle(
-                        color: SoriSurfaces.of(context).textMuted,
-                      ),
-                    ),
-                    const SizedBox(width: 6),
-                    for (var i = 0; i < e.$2.length; i++) ...[
-                      Text(
-                        e.$2[i],
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                      if (i < e.$2.length - 1)
-                        Text(
-                          ' + ',
-                          style: TextStyle(
-                            color: SoriSurfaces.of(context).textDim,
+                child: Semantics(
+                  label: '${e.$1} = ${e.$2.join(' + ')}; ${e.$3}',
+                  child: ExcludeSemantics(
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final surfaces = SoriSurfaces.of(context);
+                        final accessibleLayout =
+                            MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
+                            constraints.maxWidth < 280;
+                        final syllable = Text(
+                          e.$1,
+                          style: const TextStyle(
+                            fontSize: 32,
+                            fontWeight: FontWeight.w800,
+                            color: SoriColors.info,
                           ),
-                        ),
-                    ],
-                    const Spacer(),
-                    Text(
-                      e.$3,
-                      style: const TextStyle(
-                        color: SoriColors.primary,
-                        fontWeight: FontWeight.w700,
-                        fontStyle: FontStyle.italic,
-                      ),
+                        );
+                        final romanization = Text(
+                          e.$3,
+                          style: const TextStyle(
+                            color: SoriColors.primary,
+                            fontWeight: FontWeight.w700,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        );
+                        final equals = Text(
+                          '=',
+                          style: TextStyle(color: surfaces.textMuted),
+                        );
+                        final components = <Widget>[
+                          for (var i = 0; i < e.$2.length; i++) ...[
+                            Text(
+                              e.$2[i],
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
+                            if (i < e.$2.length - 1)
+                              Text(
+                                ' + ',
+                                style: TextStyle(color: surfaces.textDim),
+                              ),
+                          ],
+                        ];
+                        final decomposition = <Widget>[
+                          equals,
+                          ...components,
+                        ];
+                        if (accessibleLayout) {
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Row(
+                                children: [
+                                  syllable,
+                                  const Spacer(),
+                                  romanization,
+                                ],
+                              ),
+                              const SizedBox(height: Spacing.xs),
+                              Wrap(
+                                alignment: WrapAlignment.center,
+                                crossAxisAlignment: WrapCrossAlignment.center,
+                                spacing: Spacing.sm,
+                                runSpacing: Spacing.xs,
+                                children: decomposition,
+                              ),
+                            ],
+                          );
+                        }
+                        return Row(
+                          children: [
+                            syllable,
+                            const SizedBox(width: 10),
+                            equals,
+                            const SizedBox(width: 6),
+                            ...components,
+                            const Spacer(),
+                            romanization,
+                          ],
+                        );
+                      },
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
@@ -604,6 +637,19 @@ class _CardsTab extends StatefulWidget {
   final Future<void> Function(String text) prefetch;
   @override
   State<_CardsTab> createState() => _CardsTabState();
+}
+
+class _HangulCardsViewport extends StatelessWidget {
+  const _HangulCardsViewport({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return SoriStudyClamp(
+      child: SoriAdaptiveStudyBody(minHeight: 560, child: child),
+    );
+  }
 }
 
 class _CardsTabState extends State<_CardsTab> {
@@ -927,7 +973,7 @@ class _CardsTabState extends State<_CardsTab> {
   Widget build(BuildContext context) {
     final c = _pool[_idx % _pool.length];
     final s = SoriSurfaces.of(context);
-    return SoriStudyClamp(
+    return _HangulCardsViewport(
       child: Padding(
         padding: const EdgeInsets.all(12),
         child: Column(
@@ -935,18 +981,23 @@ class _CardsTabState extends State<_CardsTab> {
             // Mode chips
             Wrap(
               spacing: 8,
+              runSpacing: 8,
               children: [
                 SoriChip(
                   label: AppL10n.of(context).hangulChipConsonants,
                   accent: SoriColors.primary,
                   selected: _mode == 0,
                   onTap: () => _setMode(0),
+                  maxLines: null,
+                  minInteractiveHeight: 48,
                 ),
                 SoriChip(
                   label: AppL10n.of(context).hangulChipVowels,
                   accent: SoriColors.primary,
                   selected: _mode == 1,
                   onTap: () => _setMode(1),
+                  maxLines: null,
+                  minInteractiveHeight: 48,
                 ),
                 // 좌(모름)로 모은 글자만 다시 돌아본다 — `Storage.hangulHard`
                 // 를 읽는 유일한 경로다. 모은 게 없으면 띄우지 않는다(빈 필터).
@@ -957,12 +1008,16 @@ class _CardsTabState extends State<_CardsTab> {
                     accent: SoriColors.danger,
                     selected: _hardOnly,
                     onTap: _toggleHardOnly,
+                    maxLines: null,
+                    minInteractiveHeight: 48,
                   ),
                 SoriChip(
                   label: AppL10n.of(context).hangulChipSyllables,
                   accent: SoriColors.primary,
                   selected: _mode == 2,
                   onTap: () => _setMode(2),
+                  maxLines: null,
+                  minInteractiveHeight: 48,
                 ),
               ],
             ),
@@ -970,7 +1025,9 @@ class _CardsTabState extends State<_CardsTab> {
             // Counter
             Text(
               '${_idx + 1} / ${_pool.length}',
-              style: TextStyle(color: s.textMuted, fontSize: 13),
+              style: SoriTextTheme.of(context).meta.copyWith(
+                color: s.textMuted,
+              ),
             ),
             const SizedBox(height: 8),
 
@@ -1038,7 +1095,7 @@ class _CardsTabState extends State<_CardsTab> {
               ),
             ),
             const SizedBox(height: 10),
-            // 보조 동작(이전·듣기·무작위)은 판정이 아니므로 44dp 아이콘 행으로
+            // 보조 동작(이전·듣기·무작위)은 판정이 아니므로 48dp 아이콘 행으로
             // 내린다 — legacy_vocab 의 보조 행과 같은 계층 규칙.
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -1049,8 +1106,8 @@ class _CardsTabState extends State<_CardsTab> {
                   icon: const Icon(Icons.arrow_back_rounded),
                   tooltip: AppL10n.of(context).btnPrev,
                   constraints: const BoxConstraints(
-                    minWidth: 44,
-                    minHeight: 44,
+                    minWidth: 48,
+                    minHeight: 48,
                   ),
                 ),
                 const SizedBox(width: Spacing.md),
@@ -1061,8 +1118,8 @@ class _CardsTabState extends State<_CardsTab> {
                   color: SoriColors.primary,
                   tooltip: AppL10n.of(context).btnHoeren,
                   constraints: const BoxConstraints(
-                    minWidth: 44,
-                    minHeight: 44,
+                    minWidth: 48,
+                    minHeight: 48,
                   ),
                 ),
                 const SizedBox(width: Spacing.md),
@@ -1072,8 +1129,8 @@ class _CardsTabState extends State<_CardsTab> {
                   icon: const Icon(Icons.shuffle_rounded),
                   tooltip: AppL10n.of(context).btnRandom,
                   constraints: const BoxConstraints(
-                    minWidth: 44,
-                    minHeight: 44,
+                    minWidth: 48,
+                    minHeight: 48,
                   ),
                 ),
               ],
@@ -1109,10 +1166,23 @@ class _HangulCardFace extends StatelessWidget {
       // 이미 SingleChildScrollView + ConstrainedBox(minHeight: 뷰포트높이) 로
       // 감싸므로, 이 Column 은 그 minHeight(카드 padding 만큼만 줄어든 값)를 받아
       // 여백을 균등 분배하고, 콘텐츠가 더 크면 그 스크롤뷰가 받아낸다(오버플로 0).
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: children,
-      ),
+      child: children.length == 1
+          ? LayoutBuilder(
+              builder: (context, constraints) {
+                if (!constraints.maxHeight.isFinite) {
+                  return children.single;
+                }
+                return SizedBox(
+                  width: double.infinity,
+                  height: constraints.maxHeight,
+                  child: children.single,
+                );
+              },
+            )
+          : Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: children,
+            ),
     );
   }
 }
