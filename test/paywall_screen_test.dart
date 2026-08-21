@@ -123,6 +123,20 @@ void main() {
     expect(processing.properties.enabled, isFalse);
     expect(restore.properties.enabled, isFalse);
     expect(close.properties.enabled, isFalse);
+    final closeButtonFinder = find.widgetWithIcon(
+      IconButton,
+      Icons.close_rounded,
+    );
+    final closeButton = tester.widget<IconButton>(closeButtonFinder);
+    final closeIcon = tester.widget<Icon>(
+      find.descendant(
+        of: closeButtonFinder,
+        matching: find.byIcon(Icons.close_rounded),
+      ),
+    );
+    expect(closeButton.onPressed, isNull);
+    expect(closeButton.disabledColor, isNot(closeButton.color));
+    expect(closeIcon.color, isNull);
 
     purchase.complete(PremiumPurchaseOutcome.cancelled);
     await tester.pumpAndSettle();

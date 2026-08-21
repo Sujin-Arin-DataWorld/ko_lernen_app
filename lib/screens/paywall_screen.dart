@@ -154,7 +154,9 @@ class _PaywallScreenState extends State<PaywallScreen> {
         child: IconButton(
           tooltip: t.paywallClose,
           constraints: const BoxConstraints.tightFor(width: 48, height: 48),
-          icon: Icon(Icons.close_rounded, color: s.textMuted),
+          color: s.textMuted,
+          disabledColor: s.textDim,
+          icon: const Icon(Icons.close_rounded),
           onPressed: closeOperation,
         ),
       ),
