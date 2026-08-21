@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 class SoriTextField extends StatelessWidget {
   const SoriTextField({
     super.key,
+    this.fieldKey,
     this.controller,
     this.focusNode,
     this.labelText,
@@ -40,6 +41,8 @@ class SoriTextField extends StatelessWidget {
     this.onTapOutside,
   });
 
+  /// Optional key for callers that need to address the editable field itself.
+  final Key? fieldKey;
   final TextEditingController? controller;
   final FocusNode? focusNode;
   final String? labelText;
@@ -72,6 +75,7 @@ class SoriTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      key: fieldKey,
       controller: controller,
       focusNode: focusNode,
       decoration: InputDecoration(

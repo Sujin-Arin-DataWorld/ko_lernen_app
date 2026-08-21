@@ -15,12 +15,11 @@ import '../services/vocab_recall_evidence.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
+import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -249,33 +248,23 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     if (_loading) {
-      return Scaffold(
-        appBar: SoriAppBar(
-          title: t.vocabPackRecallTitle,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
-        ),
-        body: const AppLoading(),
+      return SoriStudyFrame(
+        title: t.vocabPackRecallTitle,
+        padding: EdgeInsets.zero,
+        child: const AppLoading(),
       );
     }
     if (_error != null) {
-      return Scaffold(
-        appBar: SoriAppBar(
-          title: t.vocabPackRecallTitle,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
-        ),
-        body: AppError(message: _error!, onRetry: _load),
+      return SoriStudyFrame(
+        title: t.vocabPackRecallTitle,
+        padding: EdgeInsets.zero,
+        child: AppError(message: _error!, onRetry: _load),
       );
     }
     if (_words.isEmpty) {
-      return Scaffold(
-        appBar: SoriAppBar(
-          title: t.vocabPackRecallTitle,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
-        ),
-        body: Center(
+      return SoriStudyFrame(
+        title: t.vocabPackRecallTitle,
+        child: Center(
           child: SoriEmptyState(
             asset: 'assets/illustrations/mascot/tiger_sitting2.png',
             icon: Icons.keyboard_alt_outlined,
@@ -307,190 +296,157 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
         ? SoriColors.warning
         : SoriColors.success;
 
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.vocabPackRecallTitle,
-        textScale: MediaQuery.textScalerOf(context).scale(1),
-        viewportWidth: MediaQuery.sizeOf(context).width,
-        leading: IconButton(
-          icon: const Icon(Icons.close),
-          tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
-          onPressed: () => Navigator.of(context).maybePop(),
-        ),
-        actions: const [TtsSpeedAction()],
+    return SoriStudyFrame(
+      title: t.vocabPackRecallTitle,
+      leading: IconButton(
+        icon: const Icon(Icons.close),
+        tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
+        onPressed: () => Navigator.of(context).maybePop(),
       ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriStudyClamp(
-            child: Padding(
-              padding: const EdgeInsets.all(Spacing.lg),
-              child: LayoutBuilder(
-                builder: (context, constraints) => SingleChildScrollView(
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      minHeight: constraints.maxHeight,
+      actions: const [TtsSpeedAction()],
+      child: LayoutBuilder(
+        builder: (context, constraints) => SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: IntrinsicHeight(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Row(
+                    children: [
+                      SoriChip(
+                        label: '${_index + 1} / ${_words.length}',
+                        accent: SoriColors.accent,
+                      ),
+                      const SizedBox(width: Spacing.sm),
+                      Expanded(
+                        child: Text(t.vocabPackRecallIntro, style: tt.caption),
+                      ),
+                    ],
+                  ),
+                  const Spacer(),
+                  Text(
+                    t.vocabPackRecallPrompt,
+                    textAlign: TextAlign.center,
+                    style: tt.body.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color: s.textMuted,
                     ),
-                    child: IntrinsicHeight(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Row(
-                            children: [
-                              SoriChip(
-                                label: '${_index + 1} / ${_words.length}',
-                                accent: SoriColors.accent,
-                              ),
-                              const SizedBox(width: Spacing.sm),
-                              Expanded(
-                                child: Text(
-                                  t.vocabPackRecallIntro,
-                                  style: tt.caption,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const Spacer(),
-                          Text(
-                            t.vocabPackRecallPrompt,
-                            textAlign: TextAlign.center,
-                            style: tt.body.copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: s.textMuted,
-                            ),
-                          ),
-                          const SizedBox(height: Spacing.sm),
-                          SoriCard(
-                            variant: SoriCardVariant.hero,
-                            accent: SoriColors.accent,
-                            tinted: true,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                vertical: Spacing.xl,
-                                horizontal: Spacing.md,
-                              ),
-                              child: Text(
-                                word.translationFor(lang),
-                                textAlign: TextAlign.center,
-                                style: tt.display.copyWith(fontSize: 28),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: Spacing.xl),
-                          TextField(
-                            key: const Key('vocab-recall-input'),
-                            controller: _input,
-                            focusNode: _inputFocus,
-                            autofocus: true,
-                            enabled: !isLocked,
-                            autocorrect: false,
-                            enableSuggestions: false,
-                            textCapitalization: TextCapitalization.none,
-                            textInputAction: TextInputAction.done,
-                            textAlign: TextAlign.center,
-                            style: tt.h1,
-                            decoration: InputDecoration(
-                              labelText: t.vocabPackRecallPrompt,
-                              hintText: t.vocabPackRecallInputHint,
-                              border: const OutlineInputBorder(),
-                              disabledBorder: isLocked
-                                  ? OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                        color: feedbackColor,
-                                        width: 2,
-                                      ),
-                                    )
-                                  : null,
-                            ),
-                            onChanged: (_) => setState(() {}),
-                            onSubmitted: (_) {
-                              // ignore: discarded_futures
-                              _submit();
-                            },
-                          ),
-                          if (_hintUsed && !isLocked) ...[
-                            const SizedBox(height: Spacing.sm),
-                            Text(
-                              t.vocabPackRecallHintLabel(
-                                vocabRecallFirstSyllable(word.korean),
-                              ),
-                              key: const Key('vocab-recall-hint-label'),
-                              textAlign: TextAlign.center,
-                              style: tt.label.copyWith(
-                                color: SoriColors.warning,
-                              ),
-                            ),
-                          ],
-                          if (feedback != null) ...[
-                            const SizedBox(height: Spacing.sm),
-                            Text(
-                              _feedbackText(t, feedback),
-                              textAlign: TextAlign.center,
-                              style: tt.h3.copyWith(color: feedbackColor),
-                            ),
-                            if (answerWasShown) ...[
-                              const SizedBox(height: Spacing.xs),
-                              Text(
-                                t.vocabPackRecallAnswer(word.korean),
-                                textAlign: TextAlign.center,
-                                style: tt.h3,
-                              ),
-                            ],
-                            const SizedBox(height: Spacing.xs),
-                            TextButton.icon(
-                              onPressed: () {
-                                // ignore: discarded_futures
-                                TtsService.speak(word.korean);
-                              },
-                              icon: const Icon(Icons.volume_up_rounded),
-                              label: Text(t.vocabPackBossReplayAudio),
-                            ),
-                          ],
-                          const Spacer(),
-                          if (!isLocked) ...[
-                            Row(
-                              children: [
-                                Expanded(
-                                  child: SoriButton(
-                                    key: const Key('vocab-recall-hint'),
-                                    label: t.vocabPackRecallHintCta,
-                                    variant: SoriButtonVariant.outlined,
-                                    accent: SoriColors.warning,
-                                    onTap: _hintUsed ? null : _showHint,
-                                  ),
-                                ),
-                                const SizedBox(width: Spacing.sm),
-                                Expanded(
-                                  child: SoriButton(
-                                    key: const Key('vocab-recall-show-answer'),
-                                    label: t.vocabPackRecallShowAnswerCta,
-                                    variant: SoriButtonVariant.outlined,
-                                    accent: SoriColors.danger,
-                                    onTap: _showAnswer,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            const SizedBox(height: Spacing.sm),
-                          ],
-                          SoriButton(
-                            key: Key(
-                              isLocked
-                                  ? 'vocab-recall-next'
-                                  : 'vocab-recall-submit',
-                            ),
-                            label: isLocked ? t.btnNext : t.btnSubmit,
-                            variant: SoriButtonVariant.filled,
-                            accent: SoriColors.accent,
-                            fullWidth: true,
-                            onTap: isLocked
-                                ? _next
-                                : (_input.text.trim().isEmpty ? null : _submit),
-                          ),
-                        ],
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  SoriCard(
+                    variant: SoriCardVariant.hero,
+                    accent: SoriColors.accent,
+                    tinted: true,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                        vertical: Spacing.xl,
+                        horizontal: Spacing.md,
+                      ),
+                      child: Text(
+                        word.translationFor(lang),
+                        textAlign: TextAlign.center,
+                        style: tt.display.copyWith(fontSize: 28),
                       ),
                     ),
                   ),
-                ),
+                  const SizedBox(height: Spacing.xl),
+                  SoriTextField(
+                    fieldKey: const Key('vocab-recall-input'),
+                    controller: _input,
+                    focusNode: _inputFocus,
+                    autofocus: true,
+                    enabled: !isLocked,
+                    autocorrect: false,
+                    enableSuggestions: false,
+                    textCapitalization: TextCapitalization.none,
+                    textInputAction: TextInputAction.done,
+                    textAlign: TextAlign.center,
+                    style: tt.h1,
+                    labelText: t.vocabPackRecallPrompt,
+                    hintText: t.vocabPackRecallInputHint,
+                    onChanged: (_) => setState(() {}),
+                    onSubmitted: (_) {
+                      // ignore: discarded_futures
+                      _submit();
+                    },
+                  ),
+                  if (_hintUsed && !isLocked) ...[
+                    const SizedBox(height: Spacing.sm),
+                    Text(
+                      t.vocabPackRecallHintLabel(
+                        vocabRecallFirstSyllable(word.korean),
+                      ),
+                      key: const Key('vocab-recall-hint-label'),
+                      textAlign: TextAlign.center,
+                      style: tt.label.copyWith(color: SoriColors.warning),
+                    ),
+                  ],
+                  if (feedback != null) ...[
+                    const SizedBox(height: Spacing.sm),
+                    Text(
+                      _feedbackText(t, feedback),
+                      textAlign: TextAlign.center,
+                      style: tt.h3.copyWith(color: feedbackColor),
+                    ),
+                    if (answerWasShown) ...[
+                      const SizedBox(height: Spacing.xs),
+                      Text(
+                        t.vocabPackRecallAnswer(word.korean),
+                        textAlign: TextAlign.center,
+                        style: tt.h3,
+                      ),
+                    ],
+                    const SizedBox(height: Spacing.xs),
+                    TextButton.icon(
+                      onPressed: () {
+                        // ignore: discarded_futures
+                        TtsService.speak(word.korean);
+                      },
+                      icon: const Icon(Icons.volume_up_rounded),
+                      label: Text(t.vocabPackBossReplayAudio),
+                    ),
+                  ],
+                  const Spacer(),
+                  if (!isLocked) ...[
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SoriButton(
+                            key: const Key('vocab-recall-hint'),
+                            label: t.vocabPackRecallHintCta,
+                            variant: SoriButtonVariant.outlined,
+                            accent: SoriColors.warning,
+                            onTap: _hintUsed ? null : _showHint,
+                          ),
+                        ),
+                        const SizedBox(width: Spacing.sm),
+                        Expanded(
+                          child: SoriButton(
+                            key: const Key('vocab-recall-show-answer'),
+                            label: t.vocabPackRecallShowAnswerCta,
+                            variant: SoriButtonVariant.outlined,
+                            accent: SoriColors.danger,
+                            onTap: _showAnswer,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                  ],
+                  SoriButton(
+                    key: Key(
+                      isLocked ? 'vocab-recall-next' : 'vocab-recall-submit',
+                    ),
+                    label: isLocked ? t.btnNext : t.btnSubmit,
+                    variant: SoriButtonVariant.filled,
+                    accent: SoriColors.accent,
+                    fullWidth: true,
+                    onTap: isLocked
+                        ? _next
+                        : (_input.text.trim().isEmpty ? null : _submit),
+                  ),
+                ],
               ),
             ),
           ),
@@ -514,18 +470,14 @@ class _VocabPackRecallScreenState extends State<VocabPackRecallScreen> {
 
   Widget _buildDone(AppL10n t) {
     final tt = SoriTextTheme.of(context);
-    return Scaffold(
-      appBar: SoriAppBar(
-        automaticallyImplyLeading: false,
-        title: t.vocabPackRecallTitle,
-        textScale: MediaQuery.textScalerOf(context).scale(1),
-        viewportWidth: MediaQuery.sizeOf(context).width,
-      ),
-      body: SoriScreenBackground(
-        child: SafeArea(
-          child: SoriCenterClamp(
-            child: Padding(
-              padding: const EdgeInsets.all(Spacing.lg),
+    return SoriStudyFrame(
+      automaticallyImplyLeading: false,
+      title: t.vocabPackRecallTitle,
+      child: LayoutBuilder(
+        builder: (context, constraints) => SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraints.maxHeight),
+            child: IntrinsicHeight(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
