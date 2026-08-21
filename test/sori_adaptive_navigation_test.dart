@@ -96,13 +96,15 @@ void main() {
   // Jin 태블릿 실기기 2026-08-06: 96dp 레일에서 `Lerngruppe` 가 줄바꿈 기회가
   // 없는 합성어라 "Lerngrupp / e" 로 **글자 사이에서** 끊겼다. 예외는 안 나므로
   // 기존 "no exception" 회귀로는 못 잡는다 — 실제로 몇 줄로 그려졌는지 본다.
-  for (final scale in <double>[1.0, 1.3]) {
+  for (final scale in <double>[1.0, 1.3, 2.0]) {
     testWidgets('rail labels never wrap mid-word (×$scale)', (tester) async {
       await _pump(tester, width: 800, textScale: scale, constrainToRail: true);
 
       for (final item in items) {
         final finder = find.text(item.label);
         expect(finder, findsOneWidget, reason: item.label);
+        final text = tester.widget<Text>(finder);
+        expect(text.overflow, isNot(TextOverflow.ellipsis));
         // 한 줄이면 대략 fontSize×1.4 이내. 두 줄이면 그 2배가 된다.
         expect(
           tester.getSize(finder).height,

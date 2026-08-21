@@ -1,12 +1,12 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.2
+- **Version:** 1.3
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-foundation-1b-2026-08-21`
-- **Base:** `origin/main@6c631f088d999f25aec1fc7157fac5b34f010435`
-- **State:** Phase 1B implementation and local verification complete; PR pending
-- **Next action:** commit and push Phase 1B, open its PR, inspect the automatic
-  current-head CI run, merge only if green, then start Phase 2A from latest main
+- **Branch:** `session/uiux-bible-stage-2a-2026-08-21`
+- **Base:** `origin/main@f6077152e94ef3fa60ec9b240cecaf5068cd9a9c`
+- **State:** Phase 2A implementation and local verification complete; PR pending
+- **Next action:** commit and push Phase 2A, open its PR, inspect the automatic
+  current-head CI run, merge only if green, then start Phase 2B from latest main
 
 ## 1. Purpose
 
@@ -321,8 +321,11 @@ production, and deployment remain unclaimed and out of scope.
 | Phase 2 native/game precursor | merged | PR #116; main merge `63b62e10fc923aa91d55642c68d67dae66161178`; CI green; local analyze clean; 4,250 tests passed, 14 conditional skips |
 | 0 audit + execution lock | merged | PR #118; main merge `151c08b28a75bf909aa873996b9d495d0bf91f8b`; docs-only CI path filter correctly scheduled no run |
 | 1A common chrome/motion | merged | PR #120; main merge `6c631f088d999f25aec1fc7157fac5b34f010435`; CI run 32429108058 green; appbar ellipsis 2→0; reduced-motion error ticker stops |
-| 1B common field/state | local complete | `SoriTextField` added; Discover + Wordbook Search migrated; screen raw TextField ratchet 25→23; 3 component and 25 focused/responsive/guard tests passed; analyze clean in 86.3 s; commit/PR next |
-| 2A–2D main tabs/home | pending | start only from latest merged main |
+| 1B common field/state | merged | PR #121; main merge `f6077152e94ef3fa60ec9b240cecaf5068cd9a9c`; CI run 32429999764 green; `SoriTextField` added; screen raw TextField ratchet 25→23 |
+| 2A shell/adaptive navigation | local complete | five-tab shell structure verified unchanged; rail ellipsis 1→0; full-word scale-down tested through 200%; 21 focused and 46 shell/responsive/accessibility tests passed; analyze clean in 102.1 s; commit/PR next |
+| 2B Today + catalog | pending | start only from latest merged main |
+| 2C Gye tab | pending | follows 2B |
+| 2D Hanok tab/world boundary | pending | follows 2C |
 | 3A–3D learning flows | pending | split by evidence boundary |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
