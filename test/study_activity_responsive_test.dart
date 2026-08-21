@@ -40,6 +40,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
@@ -339,6 +340,120 @@ void main() {
 
         expect(find.byType(SoriAppBar), findsOneWidget);
         expect(find.byType(TabBarView), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      });
+    }
+  }
+
+  testWidgets(
+    'listening replay targets expose button meaning and 48dp hit areas',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      tester.view.devicePixelRatio = 1;
+      tester.view.physicalSize = const Size(390, 844);
+
+      await tester.pumpWidget(
+        _host(
+          locale: const Locale('de'),
+          textScale: 1,
+          child: const ListeningPlayScreen(scenario: _listeningScenario),
+        ),
+      );
+      await tester.pump(const Duration(milliseconds: 500));
+
+      final l10n = AppL10n.of(tester.element(find.byType(ListeningPlayScreen)));
+      final korean = _listeningScenario.dialog.single.ko;
+      final lineTarget = find.widgetWithText(SoriPressable, korean);
+      final replayTarget = find.widgetWithText(
+        SoriPressable,
+        l10n.listeningReplay,
+      );
+      final lineSemantics = find.bySemanticsLabel(
+        '${l10n.listeningReplay}: $korean',
+      );
+      final replaySemantics = find.bySemanticsLabel(l10n.listeningReplay);
+
+      expect(lineTarget, findsOneWidget);
+      expect(replayTarget, findsOneWidget);
+      expect(lineSemantics, findsOneWidget);
+      expect(replaySemantics, findsOneWidget);
+      expect(
+        tester
+            .getSemantics(lineSemantics)
+            .getSemanticsData()
+            .flagsCollection
+            .isButton,
+        isTrue,
+      );
+      expect(
+        tester
+            .getSemantics(replaySemantics)
+            .getSemanticsData()
+            .flagsCollection
+            .isButton,
+        isTrue,
+      );
+      for (final target in [lineTarget, replayTarget]) {
+        final size = tester.getSize(target);
+        expect(size.width, greaterThanOrEqualTo(48));
+        expect(size.height, greaterThanOrEqualTo(48));
+      }
+      expect(tester.takeException(), isNull);
+      semantics.dispose();
+    },
+  );
+
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    for (final viewport in const <({Size size, double textScale})>[
+      (size: Size(320, 640), textScale: 2),
+      (size: Size(360, 400), textScale: 1),
+      (size: Size(390, 844), textScale: 1.3),
+      (size: Size(720, 1024), textScale: 1.3),
+      (size: Size(1280, 900), textScale: 1.3),
+    ]) {
+      testWidgets('listening completion stays usable in '
+          '${locale.languageCode} @ '
+          '${viewport.size.width.toInt()}x${viewport.size.height.toInt()} '
+          '×${viewport.textScale}', (tester) async {
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        tester.view.devicePixelRatio = 1;
+        tester.view.physicalSize = viewport.size;
+
+        await tester.pumpWidget(
+          _host(
+            locale: locale,
+            textScale: viewport.textScale,
+            child: const ListeningPlayScreen(scenario: _listeningScenario),
+          ),
+        );
+        await tester.pump(const Duration(milliseconds: 500));
+
+        final l10n = AppL10n.of(
+          tester.element(find.byType(ListeningPlayScreen)),
+        );
+        final completeAction = find.bySemanticsLabel(
+          l10n.listeningCompleteTitle,
+        );
+        await tester.ensureVisible(completeAction);
+        await tester.tap(completeAction);
+        await _pumpUntilVisible(
+          tester,
+          find.bySemanticsLabel(l10n.listeningGotIt),
+        );
+
+        expect(find.byType(SoriContentFeed), findsNothing);
+        expect(find.text(l10n.listeningCompleteTitle), findsOneWidget);
+        expect(Storage.completedScenarios, contains(_listeningScenario.id));
+        expect(Storage.xp, 40);
+        for (final label in [l10n.listeningReplay, l10n.listeningGotIt]) {
+          final action = find.bySemanticsLabel(label);
+          expect(action, findsOneWidget);
+          await tester.ensureVisible(action);
+          expect(tester.getRect(action).size.height, greaterThanOrEqualTo(48));
+        }
         expect(tester.takeException(), isNull);
       });
     }

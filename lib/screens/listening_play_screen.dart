@@ -383,9 +383,9 @@ class _ListeningLinePage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (mascot != null) ...[mascot, const SizedBox(height: Spacing.md)],
-        SoriPressable(
+        _ListeningReplayTarget(
+          semanticsLabel: '$replayLabel: ${line.ko}',
           onTap: onReplay,
-          haptic: SoriHaptic.selection,
           child: Text(
             line.ko,
             textAlign: TextAlign.center,
@@ -397,15 +397,47 @@ class _ListeningLinePage extends StatelessWidget {
           Text(gloss, textAlign: TextAlign.center, style: tt.gloss),
         ],
         const SizedBox(height: Spacing.lg),
-        SoriPressable(
+        _ListeningReplayTarget(
+          semanticsLabel: replayLabel,
           onTap: onReplay,
-          haptic: SoriHaptic.selection,
           child: Text(
             replayLabel,
             style: tt.meta.copyWith(color: SoriColors.contentCta),
           ),
         ),
       ],
+    );
+  }
+}
+
+class _ListeningReplayTarget extends StatelessWidget {
+  const _ListeningReplayTarget({
+    required this.semanticsLabel,
+    required this.onTap,
+    required this.child,
+  });
+
+  final String semanticsLabel;
+  final VoidCallback onTap;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      enabled: true,
+      label: semanticsLabel,
+      onTap: onTap,
+      child: ExcludeSemantics(
+        child: SoriPressable(
+          onTap: onTap,
+          haptic: SoriHaptic.selection,
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+            child: Center(widthFactor: 1, heightFactor: 1, child: child),
+          ),
+        ),
+      ),
     );
   }
 }
