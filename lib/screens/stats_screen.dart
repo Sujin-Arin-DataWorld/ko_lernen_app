@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/card.dart';
@@ -15,7 +16,9 @@ import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
 
 class StatsScreen extends StatefulWidget {
-  const StatsScreen({super.key});
+  const StatsScreen({super.key, this.now});
+
+  final DateTime? now;
 
   @override
   State<StatsScreen> createState() => _StatsScreenState();
@@ -160,7 +163,10 @@ class _StatsScreenState extends State<StatsScreen>
           // §E: 섹션 구분은 전부 SoriSectionHeader — 카드 안 제목 중복 제거.
           // P1-4: G9 7일 heatmap
           SoriSectionHeader(t.statsThisWeek),
-          _StreakWeekHeatmap(streak: Storage.streakDays),
+          _StreakWeekHeatmap(
+            streak: Storage.streakDays,
+            now: widget.now ?? DateTime.now(),
+          ),
           const SizedBox(height: 16),
 
           // ── Szenario-Fortschritt (XP/Level/Badges) ──
@@ -561,13 +567,25 @@ class _XpCard extends StatelessWidget {
 // P1-4: G9 7일 heatmap
 class _StreakWeekHeatmap extends StatelessWidget {
   final int streak;
-  const _StreakWeekHeatmap({required this.streak});
+  final DateTime now;
+  const _StreakWeekHeatmap({required this.streak, required this.now});
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    final days = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
-    final today = DateTime.now().weekday % 7; // 0=Sunday, 1=Monday...
+    final locale = Localizations.localeOf(context).toString();
+    final today = now.weekday - DateTime.monday;
+
+    DateTime dayAt(int index) => now.add(Duration(days: index - today));
+    String shortWeekday(int index) {
+      final abbreviation = DateFormat.E(
+        locale,
+      ).format(dayAt(index)).replaceAll('.', '');
+      return abbreviation.length <= 2
+          ? abbreviation
+          : abbreviation.substring(0, 2);
+    }
 
     return SoriCard(
       variant: SoriCardVariant.compact,
@@ -580,52 +598,76 @@ class _StreakWeekHeatmap extends StatelessWidget {
         children: List.generate(7, (i) {
           final isToday = i == today;
           final isDone = streak > (6 - i);
-          final color = isDone
-              ? SoriColors.success
-              : isToday
-              ? SoriColors.warning
-              : s.border;
+          final status = switch ((isToday, isDone)) {
+            (true, true) => _StreakDayStatus.todayCompleted,
+            (true, false) => _StreakDayStatus.today,
+            (false, true) => _StreakDayStatus.completed,
+            (false, false) => _StreakDayStatus.pending,
+          };
+          final ({Color color, double fillAlpha, bool outline, Widget? icon})
+          visual = switch (status) {
+            _StreakDayStatus.completed || _StreakDayStatus.todayCompleted => (
+              color: SoriColors.success,
+              fillAlpha: 1,
+              outline: false,
+              icon: const Icon(
+                Icons.check_rounded,
+                size: 14,
+                color: Colors.white,
+              ),
+            ),
+            _StreakDayStatus.today => (
+              color: SoriColors.warning,
+              fillAlpha: 0.15,
+              outline: true,
+              icon: const Icon(
+                Icons.favorite_rounded,
+                size: 10,
+                color: SoriColors.warning,
+              ),
+            ),
+            _StreakDayStatus.pending => (
+              color: s.border,
+              fillAlpha: 0.15,
+              outline: false,
+              icon: null,
+            ),
+          };
 
-          return SizedBox(
-            width: 48,
-            child: Column(
-              children: [
-                Text(
-                  days[i],
-                  style: SoriTextTheme.of(
-                    context,
-                  ).caption.copyWith(color: s.textMuted),
-                ),
-                const SizedBox(height: Spacing.xs),
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: color.withValues(alpha: isDone ? 1.0 : 0.15),
-                    borderRadius: BorderRadius.circular(SoriRadius.xs),
-                    border: isToday && !isDone
-                        ? Border.all(color: color, width: 1.5)
-                        : null,
+          return Semantics(
+            container: true,
+            label: t.statsWeekDaySemantics(
+              DateFormat.EEEE(locale).format(dayAt(i)),
+              status.name,
+            ),
+            excludeSemantics: true,
+            child: SizedBox(
+              width: 48,
+              child: Column(
+                children: [
+                  Text(
+                    shortWeekday(i),
+                    style: SoriTextTheme.of(
+                      context,
+                    ).caption.copyWith(color: s.textMuted),
                   ),
-                  child: SizedBox(
-                    width: 24,
-                    height: 24,
-                    child: Center(
-                      child: isDone
-                          ? const Icon(
-                              Icons.check_rounded,
-                              size: 14,
-                              color: Colors.white,
-                            )
-                          : isToday
-                          ? const Icon(
-                              Icons.favorite_rounded,
-                              size: 10,
-                              color: SoriColors.warning,
-                            )
+                  const SizedBox(height: Spacing.xs),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: visual.color.withValues(alpha: visual.fillAlpha),
+                      borderRadius: BorderRadius.circular(SoriRadius.xs),
+                      border: visual.outline
+                          ? Border.all(color: visual.color, width: 1.5)
                           : null,
                     ),
+                    child: SizedBox(
+                      width: 24,
+                      height: 24,
+                      child: Center(child: visual.icon),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         }),
@@ -633,6 +675,8 @@ class _StreakWeekHeatmap extends StatelessWidget {
     );
   }
 }
+
+enum _StreakDayStatus { pending, completed, today, todayCompleted }
 
 class _MetricRow extends StatelessWidget {
   final String label;

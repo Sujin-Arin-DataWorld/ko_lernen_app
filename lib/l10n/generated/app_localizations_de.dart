@@ -2898,6 +2898,18 @@ class AppL10nDe extends AppL10n {
       'Noch keine. Schließ ein Szenario ab und hol dir die erste! 🚀';
 
   @override
+  String statsWeekDaySemantics(String weekday, String status) {
+    String _temp0 = intl.Intl.selectLogic(status, {
+      'todayCompleted': 'heute, geschafft',
+      'today': 'heute',
+      'completed': 'geschafft',
+      'pending': 'noch offen',
+      'other': 'noch offen',
+    });
+    return '$weekday: $_temp0';
+  }
+
+  @override
   String get homeRecommended => 'Heute empfohlen';
 
   @override
