@@ -302,11 +302,9 @@ class _GyeScreenState extends State<GyeScreen>
                   Center(
                     child: Text(
                       t.gyeMembersN(meta.memberCount),
-                      style: TextStyle(
-                        fontSize: 13,
-                        fontWeight: FontWeight.w700,
-                        color: s.textMuted,
-                      ),
+                      style: SoriTextTheme.of(
+                        context,
+                      ).label.copyWith(color: s.textMuted),
                     ),
                   ),
                   PopupMenuButton<String>(
@@ -563,10 +561,7 @@ class _GyeScreenState extends State<GyeScreen>
                               alignment: Alignment.centerLeft,
                               child: Text(
                                 t.gyeFeedTitle,
-                                style: const TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w800,
-                                ),
+                                style: SoriTextTheme.of(context).label,
                               ),
                             ),
                           ),

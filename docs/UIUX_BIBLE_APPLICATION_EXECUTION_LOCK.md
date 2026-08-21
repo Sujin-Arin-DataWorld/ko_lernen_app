@@ -1,12 +1,12 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.4
+- **Version:** 1.5
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-stage-2b-2026-08-21`
-- **Base:** `origin/main@22e7a38e4435972c634519fa62efe1eddb6f3ed1`
-- **State:** Phase 2B residual audit and local verification complete; PR pending
-- **Next action:** commit and push Phase 2B, open its PR, inspect the automatic
-  current-head CI run, merge only if green, then start Phase 2C from latest main
+- **Branch:** `session/uiux-bible-stage-2c-2026-08-21`
+- **Base:** `origin/main@afebdd0a2a767d69e7e09e61159ed9c9ecc24b4c`
+- **State:** Phase 2C residual adoption and local verification complete; PR pending
+- **Next action:** commit and push Phase 2C, open its PR, inspect the automatic
+  current-head CI run, merge only if green, then start Phase 2D from latest main
 
 ## 1. Purpose
 
@@ -323,8 +323,8 @@ production, and deployment remain unclaimed and out of scope.
 | 1A common chrome/motion | merged | PR #120; main merge `6c631f088d999f25aec1fc7157fac5b34f010435`; CI run 32429108058 green; appbar ellipsis 2→0; reduced-motion error ticker stops |
 | 1B common field/state | merged | PR #121; main merge `f6077152e94ef3fa60ec9b240cecaf5068cd9a9c`; CI run 32429999764 green; `SoriTextField` added; screen raw TextField ratchet 25→23 |
 | 2A shell/adaptive navigation | merged | PR #122; main merge `22e7a38e4435972c634519fa62efe1eddb6f3ed1`; CI run 32430662420 green; five-tab shell verified unchanged; rail ellipsis 1→0 |
-| 2B Today + catalog | local complete | approved Today/catalog pixels and behavior verified unchanged; 320×640 at 200% text added to Today long-copy and catalog matrices; Discover supporting surface verified; 66 tests passed, 2 conditional screenshot captures skipped; analyze clean in 138.9 s; commit/PR next |
-| 2C Gye tab | pending | follows 2B |
+| 2B Today + catalog | merged | PR #123; main merge `afebdd0a2a767d69e7e09e61159ed9c9ecc24b4c`; CI run 32431541123 green; 320×640 at 200% text added to Today long-copy and catalog matrices; approved runtime pixels unchanged |
+| 2C Gye tab | local complete | Gye member-count and feed-title typography connected to the existing Sori label token; screen raw TextStyle 319→317 and w800 99→98; 100 Gye and 9 typography-guard tests passed; analyze clean in 157.0 s; membership/write/data behavior unchanged; commit/PR next |
 | 2D Hanok tab/world boundary | pending | follows 2C |
 | 3A–3D learning flows | pending | split by evidence boundary |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |

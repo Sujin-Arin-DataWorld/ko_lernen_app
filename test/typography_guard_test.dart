@@ -51,7 +51,8 @@ void main() {
     // 2026-08-17 카드 면 굵기 정리: 복습·단어팩·커스텀팩·레거시 카드와
     // `soriUniformFitSize` 실측 기본값을 Bold(700) 로 → 166→155.
     // 2026-08-19 재실측: 155→141.
-    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 141, 'FontWeight.w800');
+    // 2026-08-21 Phase 2C Gye 피드 제목 토큰화: 99→98.
+    _expectAtMost(sources, RegExp(r'FontWeight\.w800'), 98, 'FontWeight.w800');
   });
 
   test("하드코딩 fontFamily: ' 문자열 리터럴은 0 이다 (SoriFonts.sans 사용)", () {
@@ -92,7 +93,8 @@ void main() {
       RegExp(r'(^|[^A-Za-z_$.])TextStyle\('),
       // 2026-08-19 재실측: 409→371 (콘텐츠 화면 색·줄바꿈 정리).
       // 2026-08-20 표준 페이지 이식: 371→359.
-      359,
+      // 2026-08-21 Phase 2C Gye 멤버 수·피드 제목 토큰화: 319→317.
+      317,
       'lib/screens/ 원시 TextStyle(',
     );
   });
