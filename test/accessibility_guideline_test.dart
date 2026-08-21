@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/screens/gye_tab_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/practice_hub_screen.dart';
+import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/screens/sori_stage/sori_stage_today_screen.dart';
 import 'package:ko_lernen_app/screens/stats_screen.dart';
@@ -21,6 +22,8 @@ import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+
+import 'support/scenario_fixtures.dart';
 
 /// Flutter 공식 접근성 가이드라인 자동 검사.
 ///
@@ -42,6 +45,7 @@ void main() {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_user_level': 'a1',
+      'kl_tut_scenarios': true,
       'kl_streak_days': 3,
       'kl_xp': 40,
     });
@@ -55,6 +59,10 @@ void main() {
     'settings': SettingsScreen.new,
     'practice hub': PracticeHubScreen.new,
     'vocab packs': VocabPacksScreen.new,
+    'scenarios list': () => ScenariosListScreen(
+      ignoreLevelLock: true,
+      loadScenarios: () async => const [scenarioAirportArrivalFixture],
+    ),
     'stats': StatsScreen.new,
     'consent': ConsentScreen.new,
     // §G (2026-08-14): 온보딩 진입 2화면 — 설문 옵션·레벨 사다리가 터치 밀집.
