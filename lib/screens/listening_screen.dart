@@ -14,6 +14,7 @@ import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/screen_coach.dart';
+import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
@@ -264,19 +265,20 @@ class _ListeningScreenState extends State<ListeningScreen>
               t.listeningSubtitle,
               style: SoriTextTheme.of(context).bodySmall,
             ),
-            const SizedBox(height: Spacing.xs),
-            Text(t.listeningPickFirst, style: SoriTextTheme.of(context).meta),
             const SizedBox(height: Spacing.lg),
-            Text(
-              t.listeningSelectScenario,
-              style: SoriTextTheme.of(context).h3,
+            Semantics(
+              header: true,
+              child: SoriSectionHeader(t.listeningSelectScenario),
             ),
-            const SizedBox(height: Spacing.sm),
+            Text(t.listeningPickFirst, style: SoriTextTheme.of(context).meta),
+            const SizedBox(height: Spacing.md),
             KeyedSubtree(
               key: _shelfKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
+                  Text(t.filterLevel, style: SoriTextTheme.of(context).label),
+                  const SizedBox(height: Spacing.sm),
                   Wrap(
                     spacing: Spacing.xs,
                     runSpacing: Spacing.xs,
@@ -287,11 +289,12 @@ class _ListeningScreenState extends State<ListeningScreen>
                           accent: SoriColors.info,
                           selected: level == _shelfLevel,
                           variant: SoriChipVariant.filled,
+                          minInteractiveHeight: 48,
                           onTap: () => setState(() => _shelfLevel = level),
                         ),
                     ],
                   ),
-                  const SizedBox(height: Spacing.sm),
+                  const SizedBox(height: Spacing.md),
                   SizedBox(
                     height: 9,
                     child: Image.asset(
