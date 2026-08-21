@@ -162,10 +162,10 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
-  testWidgets('long German reward wraps at 390dp and 200 percent text', (
+  testWidgets('long German reward wraps at 320dp and 200 percent text', (
     tester,
   ) async {
-    tester.view.physicalSize = const Size(390, 844);
+    tester.view.physicalSize = const Size(320, 640);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
@@ -176,6 +176,13 @@ void main() {
       locale: const Locale('de'),
       textScale: 2,
     );
+
+    await tester.scrollUntilVisible(
+      find.text('Verifizierter Hanok-Baufortschritt'),
+      220,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
 
     expect(find.text('Verifizierter Hanok-Baufortschritt'), findsOneWidget);
     expect(tester.takeException(), isNull);

@@ -110,6 +110,7 @@ void main() {
   });
 
   for (final size in const <Size>[
+    Size(320, 640),
     Size(390, 844),
     Size(720, 1024),
     Size(1280, 900),
