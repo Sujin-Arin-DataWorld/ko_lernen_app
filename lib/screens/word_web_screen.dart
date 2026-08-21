@@ -11,6 +11,7 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
@@ -248,16 +249,30 @@ class _WordWebScreenState extends State<WordWebScreen>
                   spacing: Spacing.md,
                   runSpacing: Spacing.xs,
                   children: [
-                    _scopeLink(
+                    SoriChip(
                       key: const ValueKey('word-web-filter-learned'),
                       label: t.wordWebLearnedFilter,
                       selected: _scope == WordWebScope.learned,
+                      icon: _scope == WordWebScope.learned
+                          ? Icons.check_rounded
+                          : null,
+                      accent: SoriColors.accent,
+                      variant: SoriChipVariant.outlined,
+                      maxLines: null,
+                      minInteractiveHeight: 48,
                       onTap: () => _setScope(WordWebScope.learned),
                     ),
-                    _scopeLink(
+                    SoriChip(
                       key: const ValueKey('word-web-filter-level'),
                       label: t.wordWebLevelFilter,
                       selected: _scope == WordWebScope.level,
+                      icon: _scope == WordWebScope.level
+                          ? Icons.check_rounded
+                          : null,
+                      accent: SoriColors.accent,
+                      variant: SoriChipVariant.outlined,
+                      maxLines: null,
+                      minInteractiveHeight: 48,
                       onTap: () => _setScope(WordWebScope.level),
                     ),
                   ],
@@ -344,38 +359,15 @@ class _WordWebScreenState extends State<WordWebScreen>
             ),
           ),
           IconButton(
+            tooltip: '${t.ttsListen}: ${cluster.sourceKo}',
+            constraints: const BoxConstraints.tightFor(width: 48, height: 48),
             icon: const Icon(
               Icons.volume_up_rounded,
               color: SoriColors.primary,
             ),
-            visualDensity: VisualDensity.compact,
             onPressed: () => TtsService.speak(cluster.sourceKo),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _scopeLink({
-    Key? key,
-    required String label,
-    required bool selected,
-    required VoidCallback onTap,
-  }) {
-    final tt = SoriTextTheme.of(context);
-    final color = selected
-        ? SoriColors.accent
-        : SoriSurfaces.of(context).textMuted;
-    return GestureDetector(
-      key: key,
-      onTap: onTap,
-      child: Text(
-        label,
-        style: (selected ? tt.label : tt.bodySmall).copyWith(
-          color: color,
-          decoration: selected ? TextDecoration.underline : TextDecoration.none,
-          decorationColor: color,
-        ),
       ),
     );
   }
