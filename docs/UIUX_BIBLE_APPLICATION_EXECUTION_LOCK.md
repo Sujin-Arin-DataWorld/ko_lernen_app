@@ -1,15 +1,15 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.33
+- **Version:** 1.34
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3b-satz-closeout-2026-08-21`
-- **Base:** `origin/main@3afc85b57886ba20e397ec393cc7db811907835b`
-- **State:** Phase 3B Satz outer UI merged; clean Phase 3C restart point recorded
-- **Next action:** create a fresh worktree from latest `origin/main` and audit
-  `/path` outer UI and evidence boundary only; preserve course graph and unlock
-  rules, selected/visible level derivation, current-node and route-argument
-  auto-scroll, coach timing, pack progress, mission navigation, routes, and
-  approved assets
+- **Branch:** `session/uiux-bible-learning-3c-path-2026-08-21`
+- **Base:** `origin/main@dbe5f62b1c491147121094cadee9fa2b387407d1`
+- **State:** Phase 3C `/path` outer UI is local green; delivery proof is pending
+- **Next action:** commit and push only the task-owned `/path`, DE/EN l10n,
+  generated l10n, test, and execution-lock files; open one app PR, accept only
+  the automatic CI run for its exact current head, merge only when green, then
+  cancel the exact post-merge main-push run and prove its Signed AAB/Play job
+  executed zero steps
 
 ## 1. Purpose
 
@@ -122,12 +122,12 @@ current ratchet:
 |---|---:|---|
 | Registered route cases | 68 | Every case is inventoried below |
 | `lib/screens` Dart files | 96 | Includes route, embedded, preview, and quest surfaces |
-| `lib/widgets/sori` Dart files | 125 | Existing system; no parallel system permitted |
-| Test files | 440 | Reuse focused suites plus shared matrices |
-| Raw screen `TextStyle` | 285 (guard ≤302) | Must not increase; migrate by touched surface |
-| Raw screen `fontSize` | 277 (guards ≤95 at w800, ≤28 at w900) | Reduce through tokens, never raise ratchets |
-| Numeric screen `BorderRadius.circular` | 97 (guard ≤33) | Touched code uses radius tokens |
-| Raw screen `Scaffold` calls | 52 | Many are intentional shell/immersive owners; classify before changing |
+| `lib/widgets/sori` Dart files | 126 | Existing system; no parallel system permitted |
+| Test files | 453 | Reuse focused suites plus shared matrices |
+| Raw screen `TextStyle` | 281 (guard ≤302) | Must not increase; migrate by touched surface |
+| Raw screen `fontSize` | 258 (guards ≤95 at w800, ≤28 at w900) | Reduce through tokens, never raise ratchets |
+| Screen `BorderRadius.circular` | 94 total; 21 numeric literals (guard ≤33) | Touched code uses radius tokens |
+| Raw screen `Scaffold` calls | 47 | Many are intentional shell/immersive owners; classify before changing |
 | Screen `TextOverflow.ellipsis` | 0 | Locked at zero |
 | Common-appbar ellipsis | 0 | Phase 1A removed both without hiding text |
 | Screen text fields | 22 | Recall input now uses `SoriTextField`; guard locked at ≤22 |
@@ -353,7 +353,8 @@ production, and deployment remain unclaimed and out of scope.
 | 3B Calligraphy route outer UI | merged | PR #148; main merge `4e4fffef9cd9f4a91c19e71a63396b0ad456bc5e`; PR exact-current-head CI run 32450221928 green with 1,367 tests passed and the asset pipeline gate green; `/calligraphy` now uses the shared Standard-page category, headline, and localized guide description while Home/Hanok keep the same self-owned Sori sheet intro; route and sheet share the same resolved daily character and learning widget; all six screen-local TextStyle constructors moved to the existing Sori UI/Korean-content roles; reduced motion now unlocks the guide completion action after the build frame instead of issuing a parent setState during build; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 plus fallback content covered; raw screen TextStyle 300→294 and `daily_char_sheet.dart` now has zero raw constructors; analyze clean; 1,083 Calligraphy route/storage/feedback/StrokeCanvas/Hangul writing and swipe/Hanok sheet/standard-page/responsive/short-height/accessibility/smoke/typography tests green; daily character selection, stroke data/geometry/order/replay, TTS, finish gate, feedback completion, calligraphy date persistence/export, sheet ownership, routes, and approved assets unchanged; post-merge main run 32450505667 cancelled during checkout and its Signed AAB/Play job had zero steps, so no upload ran |
 | 3B Pronunciation outer UI | merged | PR #150; main merge `392bbd7294f2ee25090bc3c7d45de447b584caca`; PR exact-current-head CI run 32451600340 green with 4,360 tests passed, 2 skipped, and the asset pipeline gate green; `/pronunciation` now uses the existing Standard-page header and Sori Korean/body/meta/label/numeral type roles; capture and assessment expose distinct localized states with an app-owned live score panel; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 with safe insets covered; raw screen TextStyle 294→287; analyze clean; 884 focused/local shared tests green; phrase loading and cumulative level selection, consent before OS permission, microphone SDK ownership, PCM limits and 10-second capture, assessment identity/reference, 80-point pass threshold, duplicate prevention, progress writes, TTS, routes, and approved assets unchanged; post-merge main run 32452244705 cancelled during path classification and its Signed AAB/Play job had zero steps, so no upload ran |
 | 3B Satz outer UI | merged | PR #152; main merge `3afc85b57886ba20e397ec393cc7db811907835b`; PR exact-current-head CI run 32453622116 green with 1,236 tests passed and the asset pipeline gate green; `/satz_arcade` carries round progress plus score in the shared Study eyebrow, exposes a localized 48dp close action and a visible localized level-filter name, gives every level chip a 48dp complete-text contract, and routes instructions and inline diagnostics through existing Sori type roles; the existing `SoriWordTile` 48dp contract is restored at 320dp by retaining the 3/4-column grid and applying a minimum row extent; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 covered; analyze clean; 106 focused Satz/data/order/diagnosis/mission/evidence/feedback tests and 924 shared responsive/short-height/accessibility/smoke/typography/localization tests green; raw screen TextStyle 287→285; course-scoped catalog filtering, initial mission item, tile identity/order and tap gestures, punctuation/order/particle/count diagnosis, retry/reveal timing, SRS, exact activity evidence, score/XP/best, feedback completion, TTS, routes, and approved assets unchanged; post-merge main run 32453946754 cancelled before any job step and its Signed AAB/Play job had zero steps, so no build, signing, or upload ran |
-| 3C–3D remaining learning flows | pending | create a fresh worktree from latest `origin/main` and audit `/path` outer UI and evidence boundary only before implementation |
+| 3C Path outer UI | local green | branch `session/uiux-bible-learning-3c-path-2026-08-21` from `origin/main@dbe5f62b1c491147121094cadee9fa2b387407d1`; `/path` disables its jump action when no legacy target exists, reveals a hidden legacy target before jump/route-focus scrolling, and anchors the first-visit coach to the canonical current course step when present; existing Sori roles replace four local TextStyle constructors and one local radius; the DE/EN coach copy now names the highlighted current step; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 covered; 15 new path hierarchy/route/coach/type tests, 118 focused course graph/exact evidence/read-only/76-pack tap/Hanok tests, and 825 shared responsive/short-height/accessibility/smoke/typography/localization tests green; analyze and diff check clean; exact-base ratchets raw screen TextStyle 285→281 and screen BorderRadius.circular 95→94; added assets, TODO markers, and secret patterns zero; course graph, unlock rules, selected/visible level derivation, course/pack progress, evidence writes, mission/pack navigation, route arguments, and approved assets unchanged; app PR and exact-current-head CI remain pending |
+| 3C–3D remaining learning flows | pending | after `/path` delivery and a fresh latest-main worktree, audit `/course/mission` outer UI and its evidence boundary only before implementation |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |

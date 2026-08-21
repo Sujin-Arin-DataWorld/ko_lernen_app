@@ -2514,7 +2514,7 @@
   "coachLegacyVocabTitle": "Flashcard",
   "coachLegacyVocabBody": "Tap to flip · long-press to hear it at slow speed",
   "coachLearningPathTitle": "Your learning path",
-  "coachLearningPathBody": "Start at the orange \"Now\" node and work your way forward step by step",
+  "coachLearningPathBody": "Start with the highlighted current step and work forward from there.",
   "@_coach_c3": {
     "description": "Stage C-3 data/wordbook 9 screens coach keys (2026-06-09)"
   },

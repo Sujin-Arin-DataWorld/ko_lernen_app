@@ -99,7 +99,8 @@ class LearningPathPreviewData {
 }
 
 class LearningPathScreen extends StatefulWidget {
-  const LearningPathScreen({super.key}) : previewData = null;
+  const LearningPathScreen({super.key, this.courseSnapshotLoader})
+    : previewData = null;
 
   /// Renders the production path from explicit fixture state without reading
   /// or initializing persisted course/pack progress.
@@ -109,7 +110,8 @@ class LearningPathScreen extends StatefulWidget {
     required CourseMasterySnapshot snapshot,
     String selectedLevel = 'A1',
     HanokStage stage = HanokStage.empty,
-  }) : previewData = LearningPathPreviewData(
+  }) : courseSnapshotLoader = null,
+       previewData = LearningPathPreviewData(
          courseUnits: courseUnits,
          snapshot: snapshot,
          selectedLevel: selectedLevel,
@@ -117,6 +119,7 @@ class LearningPathScreen extends StatefulWidget {
        );
 
   final LearningPathPreviewData? previewData;
+  final Future<CourseMasterySnapshot?> Function()? courseSnapshotLoader;
 
   @override
   State<LearningPathScreen> createState() => _LearningPathScreenState();
@@ -148,6 +151,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
 
   // ── 코치마크 타겟 ──
   final GlobalKey _nowNodeKey = GlobalKey();
+  final GlobalKey _currentCourseNodeKey = GlobalKey();
 
   // ── §6.2-① 자동 스크롤 ──
   /// 홈 미리보기가 넘긴 스크롤 타깃 팩 id (`/path` route arguments).
@@ -159,14 +163,19 @@ class _LearningPathScreenState extends State<LearningPathScreen>
   String get coachId => 'learningPath';
 
   @override
-  bool get coachReady => !_loading && _groups.isNotEmpty;
+  bool get coachReady =>
+      !_loading &&
+      (_currentCourseNodeKey.currentContext != null ||
+          _nowNodeKey.currentContext != null);
 
   @override
   List<SpotlightStep> buildCoachSteps(BuildContext context) {
     final t = AppL10n.of(context);
     return [
       SpotlightStep(
-        targetKey: _nowNodeKey,
+        targetKey: _currentCourseNodeKey.currentContext != null
+            ? _currentCourseNodeKey
+            : _nowNodeKey,
         title: t.coachLearningPathTitle,
         body: t.coachLearningPathBody,
         icon: Icons.play_circle_outline_rounded,
@@ -206,8 +215,11 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     final args = ModalRoute.of(context)?.settings.arguments;
     if (_focusPackId == null && args is String) {
       _focusPackId = args;
+      _showLegacyPractice = true;
     }
   }
+
+  bool get _hasLegacyTarget => _focusPackId != null || _nowPackId != null;
 
   /// §6.2-①: 진입(및 점프 버튼) 시 현재 — 또는 홈이 지정한 — 노드로 스크롤.
   /// ListView가 children 전량을 즉시 빌드하므로 ensureVisible이 안전하다.
@@ -229,6 +241,20 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       alignment: 0.35,
       duration: reduce ? Duration.zero : const Duration(milliseconds: 450),
       curve: Curves.easeOutCubic,
+    );
+  }
+
+  void _jumpToLegacyTarget() {
+    if (!_hasLegacyTarget) {
+      return;
+    }
+    if (_showLegacyPractice) {
+      _autoScrollToTarget(force: true);
+      return;
+    }
+    setState(() => _showLegacyPractice = true);
+    WidgetsBinding.instance.addPostFrameCallback(
+      (_) => _autoScrollToTarget(force: true),
     );
   }
 
@@ -281,7 +307,9 @@ class _LearningPathScreenState extends State<LearningPathScreen>
     CourseMasterySnapshot? courseSnapshot;
     try {
       courseCatalog = await CurriculumCatalog.load();
-      courseSnapshot = await CourseProgressService.shared.readForDisplay();
+      courseSnapshot =
+          await (widget.courseSnapshotLoader ??
+              CourseProgressService.shared.readForDisplay)();
     } catch (_) {
       // Existing pack path remains usable if a local curriculum asset is
       // invalid; the mission screen will surface the actionable error.
@@ -299,6 +327,13 @@ class _LearningPathScreenState extends State<LearningPathScreen>
             courseUnits: courseUnits,
             fallbackBrowseLevel: selectedLevel,
           );
+    final hasCurrentCourseTarget =
+        courseSnapshot?.currentCourseUnitId != null &&
+        courseUnits.any(
+          (unit) => unit.id == courseSnapshot?.currentCourseUnitId,
+        );
+    final revealLegacyForCoach =
+        !hasCurrentCourseTarget && now != null && !Storage.tutSeen(coachId);
     setState(() {
       _stage = stage;
       _groups
@@ -311,6 +346,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       _courseLevel = courseLevel;
       _courseUnits = courseUnits;
       _courseSnapshot = courseSnapshot;
+      _showLegacyPractice = _showLegacyPractice || revealLegacyForCoach;
       _loading = false;
     });
     WidgetsBinding.instance.addPostFrameCallback((_) => _autoScrollToTarget());
@@ -341,9 +377,10 @@ class _LearningPathScreenState extends State<LearningPathScreen>
       actions: [
         // §6.2-①: 현재 노드로 점프 (자동 스크롤과 병행).
         IconButton(
+          key: const ValueKey('path-jump-to-now'),
           tooltip: t.pathJumpToNow,
           icon: const Icon(Icons.my_location_rounded),
-          onPressed: () => _autoScrollToTarget(force: true),
+          onPressed: _hasLegacyTarget ? _jumpToLegacyTarget : null,
         ),
         const SizedBox(width: Spacing.xs),
       ],
@@ -363,6 +400,7 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                           (LearnerLevel.fromCode(_courseLevel) ??
                                   LearnerLevel.a1)
                               .code,
+                      currentNodeKey: _currentCourseNodeKey,
                       onTapUnit: (unit) async {
                         await Navigator.pushNamed(
                           context,
@@ -431,18 +469,16 @@ class _LearningPathScreenState extends State<LearningPathScreen>
                 height: 1.5,
                 decoration: BoxDecoration(
                   color: HanokLevelPalette.of(g.level).withValues(alpha: 0.28),
-                  borderRadius: BorderRadius.circular(1),
+                  borderRadius: SoriRadius.brPill,
                 ),
               ),
             ),
             const SizedBox(width: Spacing.sm),
             Text(
               t.pathLevelPacks(cleared, g.packs.length),
-              style: TextStyle(
-                fontSize: 13,
-                fontWeight: FontWeight.w600,
-                color: s.textMuted,
-              ),
+              style: SoriTextTheme.of(
+                context,
+              ).meta.copyWith(color: s.textMuted),
             ),
           ],
         ),
@@ -478,6 +514,7 @@ class _CourseMissionPath extends StatelessWidget {
     required this.snapshot,
     required this.lang,
     required this.filterLevel,
+    required this.currentNodeKey,
     required this.onTapUnit,
   });
 
@@ -487,6 +524,7 @@ class _CourseMissionPath extends StatelessWidget {
 
   /// 소문자 CEFR 코드('a1'..'c2') — 이 레벨의 미션만 렌더한다.
   final String filterLevel;
+  final GlobalKey currentNodeKey;
   final ValueChanged<CourseUnit> onTapUnit;
 
   @override
@@ -553,12 +591,17 @@ class _CourseMissionPath extends StatelessWidget {
         for (final unit in visible)
           Padding(
             padding: const EdgeInsets.only(bottom: Spacing.sm),
-            child: _CourseMissionNode(
-              key: ValueKey('path-course-row-${unit.id}'),
-              unit: unit,
-              status: _statusFor(unit),
-              lang: lang,
-              onTap: () => onTapUnit(unit),
+            child: KeyedSubtree(
+              key: unit.id == snapshot.currentCourseUnitId
+                  ? currentNodeKey
+                  : null,
+              child: _CourseMissionNode(
+                key: ValueKey('path-course-row-${unit.id}'),
+                unit: unit,
+                status: _statusFor(unit),
+                lang: lang,
+                onTap: () => onTapUnit(unit),
+              ),
             ),
           ),
         const SizedBox(height: Spacing.xs),
@@ -837,31 +880,19 @@ class _HanokHeader extends StatelessWidget {
               children: [
                 Text(
                   t.pathHanokStage(stage.ordinal + 1),
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w800,
-                    color: s.text,
-                  ),
+                  style: SoriTextTheme.of(context).h3,
                 ),
                 const SizedBox(height: 2),
                 Text(
                   t.pathHanokSub,
-                  style: TextStyle(
-                    fontSize: 13,
-                    color: s.textMuted,
-                    height: 1.4,
-                  ),
+                  style: SoriTextTheme.of(context).bodySmall,
                 ),
                 const SizedBox(height: Spacing.md),
                 SoriProgressBar(value: frac, animated: true),
                 const SizedBox(height: 6),
                 Text(
                   t.pathLevelPacks(cleared, total),
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w600,
-                    color: s.textMuted,
-                  ),
+                  style: SoriTextTheme.of(context).meta,
                 ),
                 const SizedBox(height: Spacing.md),
                 SoriButton.outlined(

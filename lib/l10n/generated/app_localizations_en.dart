@@ -5318,7 +5318,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachLearningPathBody =>
-      'Start at the orange \"Now\" node and work your way forward step by step';
+      'Start with the highlighted current step and work forward from there.';
 
   @override
   String get coachBookshelfStep1Title => 'Create a wordbook';
