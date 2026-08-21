@@ -6,13 +6,14 @@ import '../models/custom_pack.dart';
 import '../services/book_ocr_document.dart';
 import '../services/custom_pack_service.dart';
 import '../services/vocab_notebook_parser.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/responsive.dart';
+import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/window_class.dart';
 
 /// Review the exact pairs taken from a photographed vocabulary notebook,
 /// then save them as a custom pack and start playful practice.
@@ -123,180 +124,229 @@ class _VocabNotebookResultScreenState extends State<VocabNotebookResultScreen> {
     );
   }
 
+  Widget _buildActions(AppL10n t) {
+    final disabled = _selected.isEmpty || _saving;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SoriButton.filled(
+          label: t.vocabNotebookPracticeCta,
+          fullWidth: true,
+          onTap: disabled ? null : () => _saveAndPractice(t),
+        ),
+        const SizedBox(height: Spacing.sm),
+        SoriButton.outlined(
+          label: t.vocabNotebookAddPhoto,
+          fullWidth: true,
+          onTap: disabled ? null : () => _saveAndAddPhoto(t),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildResultHeader(BuildContext context, AppL10n t) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Semantics(
+          liveRegion: true,
+          child: Text(
+            t.vocabNotebookResultHint(_selected.length),
+            style: SoriTextTheme.of(context).bodySmall,
+          ),
+        ),
+        if (_existingPackId == null) ...[
+          const SizedBox(height: Spacing.md),
+          SoriTextField(
+            controller: _nameCtrl,
+            labelText: t.bookshelfCreatePackName,
+            hintText: t.vocabNotebookDefaultName,
+          ),
+        ],
+        const SizedBox(height: Spacing.md),
+      ],
+    );
+  }
+
+  Widget _buildPairCard(BuildContext context, AppL10n t, int index) {
+    final pair = _pairs[index];
+    final kept = _kept.contains(index);
+    final hanja = HanjaLexicon.lookup(pair.korean);
+    final language = Localizations.localeOf(context).languageCode == 'en'
+        ? 'en'
+        : 'de';
+    final nuance = hanja?.nuanceFor(language) ?? '';
+    final actionLabel = kept
+        ? t.vocabNotebookDropWord
+        : t.vocabNotebookKeepWord;
+    final surfaces = SoriSurfaces.of(context);
+    void toggleKept() {
+      setState(() {
+        if (kept) {
+          _kept.remove(index);
+        } else {
+          _kept.add(index);
+        }
+      });
+    }
+
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: kept ? SoriColors.primary : SoriColors.info,
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(pair.korean, style: SoriTextTheme.of(context).h3),
+                  if (hanja != null && hanja.hanja.isNotEmpty) ...[
+                    const SizedBox(height: 2),
+                    Text(
+                      hanja.hanja,
+                      style: SoriTextTheme.of(context).bodySmall.copyWith(
+                        color: surfaces.brightness == Brightness.light
+                            ? SoriColors.goldOnLight
+                            : SoriColors.gold,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ],
+                  const SizedBox(height: Spacing.xs),
+                  Text(
+                    pair.meaning,
+                    style: SoriTextTheme.of(context).bodySmall,
+                  ),
+                  if (nuance.isNotEmpty) ...[
+                    const SizedBox(height: Spacing.xs),
+                    Text(
+                      nuance,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).caption.copyWith(color: surfaces.textMuted),
+                    ),
+                  ],
+                ],
+              ),
+            ),
+            Semantics(
+              key: ValueKey('vocab-notebook-pair-toggle-$index'),
+              container: true,
+              button: true,
+              selected: kept,
+              label: actionLabel,
+              onTap: toggleKept,
+              child: ExcludeSemantics(
+                child: IconButton(
+                  tooltip: actionLabel,
+                  constraints: const BoxConstraints(
+                    minWidth: kMinInteractiveDimension,
+                    minHeight: kMinInteractiveDimension,
+                  ),
+                  onPressed: toggleKept,
+                  icon: Icon(
+                    kept ? Icons.check_circle_rounded : Icons.circle_outlined,
+                    color: kept ? SoriColors.primary : surfaces.textMuted,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     if (_pairs.isEmpty) {
-      return Scaffold(
-        appBar: SoriAppBar(
-          title: t.vocabNotebookTitle,
-          textScale: MediaQuery.textScalerOf(context).scale(1),
-          viewportWidth: MediaQuery.sizeOf(context).width,
-        ),
-        body: Center(
-          child: SoriEmptyState(
-            asset: 'assets/illustrations/book/book_error.png',
-            icon: Icons.menu_book_outlined,
-            title: t.vocabNotebookEmptyTitle,
-            body: t.vocabNotebookEmptyBody,
-            ctaLabel: t.bookPreviewRetake,
-            onCta: () => Navigator.of(context).maybePop(),
+      return SoriStandardFrame(
+        appBarTitle: t.vocabNotebookTitle,
+        maxWidth: SoriMaxWidth.form,
+        padding: const EdgeInsets.all(Spacing.lg),
+        builder: (context, resolvedPadding) => Padding(
+          padding: resolvedPadding,
+          child: Center(
+            child: SoriEmptyState(
+              asset: 'assets/illustrations/book/book_error.png',
+              icon: Icons.menu_book_outlined,
+              title: t.vocabNotebookEmptyTitle,
+              body: t.vocabNotebookEmptyBody,
+              ctaLabel: t.bookPreviewRetake,
+              onCta: () => Navigator.of(context).maybePop(),
+            ),
           ),
         ),
       );
     }
 
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: t.vocabNotebookTitle,
-        textScale: MediaQuery.textScalerOf(context).scale(1),
-        viewportWidth: MediaQuery.sizeOf(context).width,
+    final inlineActions =
+        MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
+        MediaQuery.sizeOf(context).height < 700;
+    final actions = _buildActions(t);
+
+    return SoriStandardFrame(
+      appBarTitle: t.vocabNotebookTitle,
+      maxWidth: SoriMaxWidth.prose,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.md,
+        Spacing.lg,
+        Spacing.xxl,
       ),
-      body: SafeArea(
-        child: SoriCenterClamp(
-          child: Padding(
-            padding: const EdgeInsets.all(Spacing.lg),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                Text(
-                  t.vocabNotebookResultHint(_selected.length),
-                  style: TextStyle(fontSize: 13, color: s.textMuted),
-                ),
-                const SizedBox(height: Spacing.md),
-                if (_existingPackId == null) ...<Widget>[
-                  TextField(
-                    controller: _nameCtrl,
-                    decoration: InputDecoration(
-                      labelText: t.bookshelfCreatePackName,
-                      hintText: t.vocabNotebookDefaultName,
-                      border: const OutlineInputBorder(),
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.md),
-                ],
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: _pairs.length,
-                    itemBuilder: (context, index) {
-                      final pair = _pairs[index];
-                      final kept = _kept.contains(index);
-                      final hanja = HanjaLexicon.lookup(pair.korean);
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: Spacing.sm),
-                        child: SoriCard(
-                          variant: SoriCardVariant.compact,
-                          accent: kept ? SoriColors.primary : SoriColors.info,
-                          child: Row(
-                            children: <Widget>[
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      pair.korean,
-                                      style: SoriTextTheme.of(context).h3,
-                                    ),
-                                    if (hanja != null &&
-                                        hanja.hanja.isNotEmpty) ...<Widget>[
-                                      const SizedBox(height: 2),
-                                      Text(
-                                        hanja.hanja,
-                                        style: SoriTextTheme.of(context)
-                                            .bodySmall
-                                            .copyWith(
-                                              color: SoriColors.gold,
-                                              fontWeight: FontWeight.w700,
-                                            ),
-                                      ),
-                                    ],
-                                    const SizedBox(height: Spacing.xs),
-                                    Text(
-                                      pair.meaning,
-                                      style: SoriTextTheme.of(
-                                        context,
-                                      ).bodySmall,
-                                    ),
-                                    if (hanja != null &&
-                                        hanja
-                                            .nuanceFor(
-                                              Localizations.localeOf(
-                                                        context,
-                                                      ).languageCode ==
-                                                      'en'
-                                                  ? 'en'
-                                                  : 'de',
-                                            )
-                                            .isNotEmpty) ...<Widget>[
-                                      const SizedBox(height: Spacing.xs),
-                                      Text(
-                                        hanja.nuanceFor(
-                                          Localizations.localeOf(
-                                                    context,
-                                                  ).languageCode ==
-                                                  'en'
-                                              ? 'en'
-                                              : 'de',
-                                        ),
-                                        style: SoriTextTheme.of(
-                                          context,
-                                        ).caption.copyWith(color: s.textMuted),
-                                      ),
-                                    ],
-                                  ],
-                                ),
-                              ),
-                              IconButton(
-                                tooltip: kept
-                                    ? t.vocabNotebookDropWord
-                                    : t.vocabNotebookKeepWord,
-                                onPressed: () {
-                                  setState(() {
-                                    if (kept) {
-                                      _kept.remove(index);
-                                    } else {
-                                      _kept.add(index);
-                                    }
-                                  });
-                                },
-                                icon: Icon(
-                                  kept
-                                      ? Icons.check_circle_rounded
-                                      : Icons.circle_outlined,
-                                  color: kept
-                                      ? SoriColors.primary
-                                      : s.textMuted,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-                const SizedBox(height: Spacing.md),
-                SoriButton.filled(
-                  label: t.vocabNotebookPracticeCta,
-                  fullWidth: true,
-                  onTap: _selected.isEmpty || _saving
-                      ? null
-                      : () => _saveAndPractice(t),
-                ),
-                const SizedBox(height: Spacing.sm),
-                SoriButton.outlined(
-                  label: t.vocabNotebookAddPhoto,
-                  fullWidth: true,
-                  onTap: _selected.isEmpty || _saving
-                      ? null
-                      : () => _saveAndAddPhoto(t),
-                ),
-              ],
+      builder: (context, resolvedPadding) {
+        if (inlineActions) {
+          return ListView(
+            key: const ValueKey('vocab-notebook-result-scroll'),
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            padding: resolvedPadding,
+            children: [
+              _buildResultHeader(context, t),
+              for (var index = 0; index < _pairs.length; index++)
+                _buildPairCard(context, t, index),
+              const SizedBox(height: Spacing.md),
+              actions,
+            ],
+          );
+        }
+
+        return Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                resolvedPadding.left,
+                resolvedPadding.top,
+                resolvedPadding.right,
+                0,
+              ),
+              child: _buildResultHeader(context, t),
             ),
-          ),
-        ),
-      ),
+            Expanded(
+              child: ListView.builder(
+                key: const ValueKey('vocab-notebook-result-scroll'),
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
+                padding: EdgeInsets.fromLTRB(
+                  resolvedPadding.left,
+                  0,
+                  resolvedPadding.right,
+                  resolvedPadding.bottom,
+                ),
+                itemCount: _pairs.length,
+                itemBuilder: (context, index) =>
+                    _buildPairCard(context, t, index),
+              ),
+            ),
+          ],
+        );
+      },
+      bottomNavigationBar: inlineActions
+          ? null
+          : SoriBottomActionArea(child: actions),
     );
   }
 }
