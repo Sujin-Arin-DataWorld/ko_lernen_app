@@ -1,13 +1,14 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.56
+- **Version:** 1.57
 - **Created:** 2026-08-21
 - **Branch:** `session/uiux-bible-4b-book-capture-2026-08-21`
 - **Base:** `origin/main@462b84dd6f1a04932312b70c806c0dd88d3de85a`
 - **State:** Phase 4A is merged; the Phase 4B shared `/book` and
   `/vocab_notebook` capture-presentation unit is locally final-verified
-- **Next action:** commit the exact verified app and lock state, push the isolated
-  branch, open one PR, rely on automatic exact-head CI, and merge only when green
+- **Next action:** push exact app/lock commit
+  `aa096a2b17d834c1d3d4f74d33fec4871aa72b3b`, open one PR, rely on automatic
+  exact-head CI, and merge only when green
 
 ## Current State Summary
 
@@ -47,9 +48,9 @@ remain separate high-risk units.
 
 ## Immediate Next Steps
 
-1. Commit and push the exact locally verified capture app and lock state, open a
-   single PR, and rely on the automatic exact-head required CI without a duplicate
-   manual workflow dispatch.
+1. Push exact locally verified app/lock commit
+   `aa096a2b17d834c1d3d4f74d33fec4871aa72b3b`, open a single PR, and rely on the
+   automatic exact-head required CI without a duplicate manual workflow dispatch.
 2. Merge only after the exact PR head is green. Cancel the release-capable
    post-main run before build/sign/upload work, verify zero Signed AAB/Play steps,
    then start the next non-overlapping Phase 4B unit from the new `origin/main`.
