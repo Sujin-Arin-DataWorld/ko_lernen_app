@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fail if skill-rejected DE/EN phrases re-enter shipped or factory sources."""
+"""Fail if known semantic regressions re-enter learner or factory data."""
 
 from __future__ import annotations
 
