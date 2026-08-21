@@ -6,6 +6,8 @@ import '../../models/curriculum.dart';
 import '../../services/scene_asset_resolver.dart';
 import 'button.dart';
 import 'card.dart';
+import 'empty_state.dart';
+import 'page_header.dart';
 import 'tokens.dart';
 
 typedef CourseMissionBriefOpener = Future<void> Function(ContentLink link);
@@ -38,20 +40,24 @@ class CourseMissionBriefView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          '${brief.unit.level.toUpperCase()} · ${brief.unit.title.pick(lang)}',
-          style: text.label.copyWith(color: SoriColors.primary),
+        SoriPageHeader(
+          eyebrow:
+              '${brief.unit.level.toUpperCase()} · ${brief.unit.title.pick(lang)}',
+          title: brief.unit.canDo.pick(lang),
+          body: scenario == null
+              ? null
+              : t.courseMissionBriefScene(scenario.title.pick(lang)),
+          titleStyle: text.h1,
         ),
-        const SizedBox(height: Spacing.sm),
-        Text(brief.unit.canDo.pick(lang), style: text.h1),
-        if (scenario != null) ...[
-          const SizedBox(height: Spacing.sm),
-          Text(
-            t.courseMissionBriefScene(scenario.title.pick(lang)),
-            style: text.body,
+        if (brief.isCompleted) ...[
+          const SizedBox(height: Spacing.xl),
+          SoriEmptyState(
+            icon: Icons.task_alt_rounded,
+            title: t.courseMissionCompleteTitle,
+            body: t.courseMissionCompleteBody,
+            illustrationMaxHeight: 120,
           ),
-        ],
-        if (poster != null) ...[
+        ] else if (poster != null) ...[
           const SizedBox(height: Spacing.md),
           Semantics(
             image: true,
@@ -73,37 +79,39 @@ class CourseMissionBriefView extends StatelessWidget {
             ),
           ),
         ],
-        const SizedBox(height: Spacing.sm),
-        for (final step in brief.visibleSteps)
-          _BriefStepRow(
-            step: step,
-            title: _stepTitle(step.phase, t),
-            body: _stepBody(step.phase, t),
-          ),
-        if (brief.remainingStepCount > 0) ...[
-          const SizedBox(height: Spacing.xs),
-          Text(
-            t.courseMissionBriefRemaining(brief.remainingStepCount),
-            style: text.bodySmall,
-          ),
-        ],
-        const SizedBox(height: Spacing.lg),
-        if (brief.isCurrent && firstLink != null)
-          SoriButton.filled(
-            key: const ValueKey('course-mission-primary-cta'),
-            label: _stepCta(brief.visibleSteps.first.phase, t),
-            fullWidth: true,
-            onTap: () async => openLink(firstLink),
-          )
-        else if (!brief.isCurrent)
-          Text(t.courseMissionPreviewNotice, style: text.bodySmall),
-        if (onExplain != null)
-          Center(
-            child: TextButton(
-              onPressed: onExplain,
-              child: Text(t.courseMissionBriefWhy),
+        if (!brief.isCompleted) ...[
+          const SizedBox(height: Spacing.sm),
+          for (final step in brief.visibleSteps)
+            _BriefStepRow(
+              step: step,
+              title: _stepTitle(step.phase, t),
+              body: _stepBody(step.phase, t),
             ),
-          ),
+          if (brief.remainingStepCount > 0) ...[
+            const SizedBox(height: Spacing.xs),
+            Text(
+              t.courseMissionBriefRemaining(brief.remainingStepCount),
+              style: text.bodySmall,
+            ),
+          ],
+          const SizedBox(height: Spacing.lg),
+          if (brief.isCurrent && firstLink != null)
+            SoriButton.filled(
+              key: const ValueKey('course-mission-primary-cta'),
+              label: _stepCta(brief.visibleSteps.first.phase, t),
+              fullWidth: true,
+              onTap: () async => openLink(firstLink),
+            )
+          else if (!brief.isCurrent)
+            Text(t.courseMissionPreviewNotice, style: text.bodySmall),
+          if (onExplain != null)
+            Center(
+              child: TextButton(
+                onPressed: onExplain,
+                child: Text(t.courseMissionBriefWhy),
+              ),
+            ),
+        ],
       ],
     );
   }

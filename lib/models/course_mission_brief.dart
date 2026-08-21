@@ -14,6 +14,7 @@ class CourseMissionBrief {
     required this.totalStepCount,
     required this.targetScenario,
     required this.isCurrent,
+    required this.isCompleted,
     required this.estimatedMinutesToScene,
     required this.firstLink,
   });
@@ -92,6 +93,7 @@ class CourseMissionBrief {
           ? null
           : scenarioById[scenarioLink.contentId],
       isCurrent: isCurrent,
+      isCompleted: snapshot.completedUnitIds.contains(unit.id),
       estimatedMinutesToScene: minutesToScene,
       firstLink: phases.isEmpty ? null : phases.first.representativeLink,
     );
@@ -102,6 +104,7 @@ class CourseMissionBrief {
   final int totalStepCount;
   final Scenario? targetScenario;
   final bool isCurrent;
+  final bool isCompleted;
   final int estimatedMinutesToScene;
   final ContentLink? firstLink;
 

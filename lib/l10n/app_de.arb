@@ -2816,6 +2816,8 @@
   "courseMissionTitle": "Deine nächste Mission",
   "courseMissionTitleShort": "Kursmission",
   "courseMissionLoadError": "Die Kursdaten konnten nicht geladen werden.",
+  "courseMissionCompleteTitle": "Mission abgeschlossen",
+  "courseMissionCompleteBody": "Du hast alle Lernschritte dieser Mission abgeschlossen.",
   "courseMissionNow": "jetzt",
   "courseMissionPreviewTag": "Vorschau",
   "courseMissionStartPractice": "Übung starten",

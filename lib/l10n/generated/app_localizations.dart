@@ -10422,6 +10422,18 @@ abstract class AppL10n {
   /// **'Die Kursdaten konnten nicht geladen werden.'**
   String get courseMissionLoadError;
 
+  /// No description provided for @courseMissionCompleteTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mission abgeschlossen'**
+  String get courseMissionCompleteTitle;
+
+  /// No description provided for @courseMissionCompleteBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Du hast alle Lernschritte dieser Mission abgeschlossen.'**
+  String get courseMissionCompleteBody;
+
   /// No description provided for @courseMissionNow.
   ///
   /// In de, this message translates to:
