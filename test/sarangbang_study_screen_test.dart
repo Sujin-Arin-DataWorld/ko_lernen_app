@@ -289,8 +289,7 @@ void main() {
             if (attempts == 1) {
               return TodayLearningSnapshot(
                 pick: const ReviewPick(dueCount: 12),
-                destination: const TodayLearningDestination(route: '/review'),
-                dueCount: 12,
+                destination: const TodayLearningDestination(route: '/stale'),
                 availability: TodayLearningAvailability.unavailable,
                 unavailableReason: TodayLearningUnavailableReason.localData,
                 unavailableSources: const {TodayLearningSource.review},
@@ -317,6 +316,7 @@ void main() {
       findsOneWidget,
     );
     expect(find.byKey(const ValueKey('sarangbang-open-today')), findsNothing);
+    expect(find.byKey(const ValueKey('sarangbang-saved-review')), findsNothing);
 
     await tester.tap(
       find.byKey(const ValueKey('sarangbang-today-unavailable-retry')),
@@ -336,6 +336,47 @@ void main() {
     await tester.tap(openToday);
     expect(opens, 1);
   });
+
+  testWidgets(
+    'unavailable Today exposes saved review but not its stale route',
+    (tester) async {
+      var opens = 0;
+      await tester.pumpWidget(
+        _host(
+          SarangbangStudyScreen(
+            loadTodaySnapshot: () async => TodayLearningSnapshot(
+              pick: const ReviewPick(dueCount: 12),
+              destination: const TodayLearningDestination(route: '/stale'),
+              dueCount: 12,
+              availability: TodayLearningAvailability.unavailable,
+              unavailableReason: TodayLearningUnavailableReason.localData,
+              unavailableSources: const {TodayLearningSource.review},
+            ),
+            loadLearningReceipt: () async => const HanokLearningReceipt.empty(),
+            loadRoomState: () async => const SarangbangRoomState(),
+            onOpenRecommendation: (_) async => opens += 1,
+          ),
+          locale: const Locale('en'),
+          size: const Size(390, 844),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const ValueKey('sarangbang-open-today')), findsNothing);
+      expect(
+        find.byKey(const ValueKey('sarangbang-saved-review')),
+        findsOneWidget,
+      );
+      await tester.tap(find.byKey(const ValueKey('sarangbang-saved-review')));
+      await tester.pumpAndSettle();
+
+      expect(
+        find.byKey(const ValueKey('sarangbang-review-route')),
+        findsOneWidget,
+      );
+      expect(opens, 0);
+    },
+  );
 
   testWidgets('loading and failed reads use canonical retry states', (
     tester,
@@ -411,7 +452,11 @@ void main() {
               ),
               todaySnapshot: TodayLearningSnapshot(
                 pick: const ReviewPick(dueCount: 12),
-                destination: const TodayLearningDestination(route: '/review'),
+                destination: const TodayLearningDestination(route: '/stale'),
+                dueCount: 12,
+                availability: TodayLearningAvailability.unavailable,
+                unavailableReason: TodayLearningUnavailableReason.localData,
+                unavailableSources: const {TodayLearningSource.review},
               ),
               receipt: receipt,
             ),
@@ -422,6 +467,19 @@ void main() {
           ),
         );
 
+        final retry = find.byKey(
+          const ValueKey('sarangbang-today-unavailable-retry'),
+        );
+        await tester.scrollUntilVisible(
+          retry,
+          240,
+          scrollable: find.byType(Scrollable).first,
+        );
+        expect(
+          find.byKey(const ValueKey('sarangbang-saved-review')),
+          findsOneWidget,
+        );
+        expect(retry, findsOneWidget);
         final actions = find.byKey(const ValueKey('sarangbang-return-actions'));
         await tester.scrollUntilVisible(
           actions,
@@ -452,6 +510,11 @@ Widget _host(
   locale: locale,
   supportedLocales: AppL10n.supportedLocales,
   localizationsDelegates: AppL10n.localizationsDelegates,
+  routes: {
+    '/review': (_) => const Scaffold(
+      body: SizedBox(key: ValueKey('sarangbang-review-route')),
+    ),
+  },
   home: MediaQuery(
     data: MediaQueryData(
       size: size,

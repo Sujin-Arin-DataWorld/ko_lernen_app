@@ -249,6 +249,13 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
     }
   }
 
+  Future<void> _openSavedReview() async {
+    await Navigator.of(context).pushNamed('/review');
+    if (mounted) {
+      await _load();
+    }
+  }
+
   Future<void> _openFurnish() async {
     await Navigator.of(context).pushNamed('/sarangbang/furnish');
     if (mounted) {
@@ -337,6 +344,8 @@ class _SarangbangStudyScreenState extends State<SarangbangStudyScreen> {
                         if (_snapshot?.isUnavailable ?? false) ...[
                           _SarangbangTodayUnavailableCard(
                             reason: _snapshot?.unavailableReason,
+                            hasSavedReview: (_snapshot?.dueCount ?? 0) > 0,
+                            onOpenSavedReview: _openSavedReview,
                             onRetry: _load,
                           ),
                           const SizedBox(height: Spacing.lg),
@@ -539,10 +548,14 @@ class _SarangbangStudyScene extends StatelessWidget {
 class _SarangbangTodayUnavailableCard extends StatelessWidget {
   const _SarangbangTodayUnavailableCard({
     required this.reason,
+    required this.hasSavedReview,
+    required this.onOpenSavedReview,
     required this.onRetry,
   });
 
   final TodayLearningUnavailableReason? reason;
+  final bool hasSavedReview;
+  final VoidCallback onOpenSavedReview;
   final VoidCallback onRetry;
 
   @override
@@ -553,19 +566,25 @@ class _SarangbangTodayUnavailableCard extends StatelessWidget {
       TodayLearningUnavailableReason.offline => (
         icon: Icons.cloud_off_outlined,
         title: t.homeUnavailableTitle,
-        body: t.homeUnavailableDescriptionNoReview,
+        body: hasSavedReview
+            ? t.homeUnavailableDescription
+            : t.homeUnavailableDescriptionNoReview,
         retryLabel: t.homeUnavailableRetry,
       ),
       TodayLearningUnavailableReason.remoteService => (
         icon: Icons.cloud_sync_outlined,
         title: t.homeRemoteUnavailableTitle,
-        body: t.homeRemoteUnavailableDescriptionNoReview,
+        body: hasSavedReview
+            ? t.homeRemoteUnavailableDescription
+            : t.homeRemoteUnavailableDescriptionNoReview,
         retryLabel: t.homeUnavailableRetryGeneric,
       ),
       TodayLearningUnavailableReason.localData => (
         icon: Icons.refresh_rounded,
         title: t.homeLocalUnavailableTitle,
-        body: t.homeLocalUnavailableDescriptionNoReview,
+        body: hasSavedReview
+            ? t.homeLocalUnavailableDescription
+            : t.homeLocalUnavailableDescriptionNoReview,
         retryLabel: t.homeUnavailableRetryGeneric,
       ),
     };
@@ -594,6 +613,15 @@ class _SarangbangTodayUnavailableCard extends StatelessWidget {
           const SizedBox(height: Spacing.sm),
           Text(copy.body, style: text.bodySmall),
           const SizedBox(height: Spacing.md),
+          if (hasSavedReview) ...[
+            SoriButton(
+              key: const ValueKey('sarangbang-saved-review'),
+              label: t.homeUnavailableCta,
+              fullWidth: true,
+              onTap: onOpenSavedReview,
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
           SoriButton.outlined(
             key: const ValueKey('sarangbang-today-unavailable-retry'),
             label: copy.retryLabel,
