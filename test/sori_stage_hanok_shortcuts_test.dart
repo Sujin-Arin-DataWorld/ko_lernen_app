@@ -151,6 +151,54 @@ void main() {
       '1',
     );
   });
+
+  testWidgets('Hanok Stage shortcuts stay complete at 320dp and 200%', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        builder: (context, child) => MediaQuery(
+          data: MediaQuery.of(
+            context,
+          ).copyWith(textScaler: const TextScaler.linear(2)),
+          child: child!,
+        ),
+        home: SoriStageHanokScreen(
+          worldForTesting: const ColoredBox(color: Colors.transparent),
+          loadSnapshot: () async =>
+              _snapshot(questDone: false, pendingBojagi: 1),
+        ),
+      ),
+    );
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 400));
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('hanok-shortcut-bojagi')),
+      240,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
+
+    for (final id in const ['quests', 'dojang', 'bojagi']) {
+      final tile = find.byKey(ValueKey('hanok-shortcut-$id'));
+      final label = tester.widget<Text>(
+        find.byKey(ValueKey('hanok-shortcut-label-$id')),
+      );
+      expect(tester.getSize(tile).width, greaterThanOrEqualTo(270));
+      expect(label.maxLines, isNull);
+      expect(label.overflow, isNull);
+    }
+    expect(tester.takeException(), isNull);
+  });
 }
 
 SoriStageProgressionSnapshot _snapshot({
