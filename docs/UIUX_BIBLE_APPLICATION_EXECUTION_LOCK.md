@@ -1,12 +1,14 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.7
+- **Version:** 1.8
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-stage2-closeout-2026-08-21`
-- **Base:** `origin/main@e104ae213b813edd20777f0f063acf6bc9c2088c`
-- **State:** Phase 2A–2D main tabs complete and merged; clean restart boundary
-- **Next action:** create a fresh worktree from latest `origin/main` for Phase
-  3A, then audit Vocab/review/custom Deck outer UI before changing code
+- **Branch:** `session/uiux-bible-learning-3a-2026-08-21`
+- **Base:** `origin/main@ba6036e4c11e5affbbde758534a1be33c7f88ecc`
+- **State:** Phase 3A in progress; Vocab catalog caption/measurement sub-unit
+  complete
+- **Next action:** after this sub-unit merges, create a fresh worktree from
+  latest `origin/main` and audit the Vocab/review/custom Deck outer UI without
+  changing Deck geometry, gestures, flip gates, ordering, or SRS evidence
 
 ## 1. Purpose
 
@@ -96,6 +98,9 @@ impact, and recommendation here and stop that phase before implementation.
   responsive clamps before adding local layout values.
 - Complete text must remain reachable at large text scale; wrap, scroll,
   reflow, or scale down bounded chrome instead of truncating meaning.
+- Text measured to size a catalog cell must use the same `SoriTextTheme` token
+  as the rendered text. `PackCard` locked hints and `VocabPacksScreen` grid
+  measurement are locked to `caption` so 200% text cannot outgrow stale math.
 - Every interactive target keeps a meaningful accessibility label and at least
   48 dp intent-sized affordance unless a tested game-canvas exception owns its
   hitbox.
@@ -107,9 +112,10 @@ impact, and recommendation here and stop that phase before implementation.
 - Tiger and magpie pixels are never AI-generated. Existing approved character
   assets may only be composed through their current contracts.
 
-## 5. Measured baseline
+## 5. Measured baseline and current ratchets
 
-Measured at the base commit above:
+The inventory began at Phase 0; rows updated by completed phases show their
+current ratchet:
 
 | Measure | Current state | Locked interpretation |
 |---|---:|---|
@@ -117,13 +123,13 @@ Measured at the base commit above:
 | `lib/screens` Dart files | 96 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 125 | Existing system; no parallel system permitted |
 | Test files | 440 | Reuse focused suites plus shared matrices |
-| Raw screen `TextStyle` | 320 (guard ≤359) | Must not increase; migrate by touched surface |
+| Raw screen `TextStyle` | 316 (guard ≤316) | Must not increase; migrate by touched surface |
 | Raw screen `fontSize` | 286 (guard ≤141 at w800, ≤28 at w900) | Reduce through tokens, never raise ratchets |
 | Numeric screen `BorderRadius.circular` | 97 (guard ≤33) | Touched code uses radius tokens |
 | Raw screen `Scaffold` calls | 52 | Many are intentional shell/immersive owners; classify before changing |
 | Screen `TextOverflow.ellipsis` | 0 | Locked at zero |
-| Common-appbar ellipsis | 2 | Phase 1A removes both without hiding text |
-| Screen text fields | 25 | Theme-shared but no Sori field primitive; Phase 1B |
+| Common-appbar ellipsis | 0 | Phase 1A removed both without hiding text |
+| Screen text fields | 23 | Phase 1B added `SoriTextField` and migrated two representatives |
 | Raw screen progress indicators | 12 | Replace only where not canvas/inline progress |
 | `AppLoading` uses | 34 | Retain as the standard full-state loader |
 
@@ -326,7 +332,8 @@ production, and deployment remain unclaimed and out of scope.
 | 2B Today + catalog | merged | PR #123; main merge `afebdd0a2a767d69e7e09e61159ed9c9ecc24b4c`; CI run 32431541123 green; 320×640 at 200% text added to Today long-copy and catalog matrices; approved runtime pixels unchanged |
 | 2C Gye tab | merged | PR #124; main merge `abe2be2bb278a257e776e0e4c2a043b2e4ed4c6f`; CI run 32432348610 green; Gye member-count and feed-title typography connected to the Sori label token; screen raw TextStyle 319→317 and w800 99→98 |
 | 2D Hanok tab/world boundary | merged | PR #125; main merge `e104ae213b813edd20777f0f063acf6bc9c2088c`; CI run 32433115213 green; German 320×640 at 200% Stage shortcut matrix added; approved runtime, grants, reveals, rewards, evidence, and assets unchanged |
-| 3A–3D learning flows | pending | split by evidence boundary |
+| Phase 2 closeout | merged | PR #126; main merge `ba6036e4c11e5affbbde758534a1be33c7f88ecc`; docs-only CI path filter correctly scheduled no run |
+| 3A–3D learning flows | in progress | Phase 3A Vocab catalog sub-unit: locked hint renderer and grid measurement share the 12.5dp `caption` token; German 320×640 at 200% contract added; raw screen TextStyle 317→316; 130 Deck geometry/gesture/flip/order/SRS tests plus focused responsive/premium/guard tests green; Linux golden generation run 32434187771 changed only the medium/expanded Vocab baselines; next audit Deck outer UI in a fresh worktree |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
