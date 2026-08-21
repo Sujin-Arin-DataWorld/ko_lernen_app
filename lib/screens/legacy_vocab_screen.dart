@@ -613,11 +613,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
               child: Text(
                 t.vocabSlowHint,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: SoriFonts.sans,
-                  fontSize: 10.5,
-                  color: SoriSurfaces.of(context).textDim,
-                ),
+                style: SoriTextTheme.of(
+                  context,
+                ).caption.copyWith(color: SoriSurfaces.of(context).textDim),
               ),
             ),
           ],
@@ -683,12 +681,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
               child: Text(
                 t.btnHoeren,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: SoriFonts.sans,
-                  color: SoriSurfaces.of(context).text,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 14,
-                ),
+                style: SoriTextTheme.of(context).label,
               ),
             ),
           ],
@@ -799,25 +792,28 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 AppL10n.of(ctx).filterTitle,
                 style: SoriTextTheme.of(ctx).h3,
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: Spacing.md),
               _dropdown(AppL10n.of(ctx).filterLevel, _level, _levels, (v) {
                 setLocal(() => _level = v!);
                 _level = v!;
               }),
-              const SizedBox(height: 10),
+              const SizedBox(height: Spacing.md),
               _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) {
                 setLocal(() => _topic = v!);
                 _topic = v!;
               }),
-              const SizedBox(height: 16),
-              SwitchListTile(
-                contentPadding: EdgeInsets.zero,
-                title: Text(AppL10n.of(ctx).filterDirKoDe),
-                value: _koFirst,
-                onChanged: (b) {
-                  setLocal(() => _koFirst = b);
-                  _koFirst = b;
-                },
+              const SizedBox(height: Spacing.lg),
+              Material(
+                color: Colors.transparent,
+                child: SwitchListTile(
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(AppL10n.of(ctx).filterDirKoDe),
+                  value: _koFirst,
+                  onChanged: (b) {
+                    setLocal(() => _koFirst = b);
+                    _koFirst = b;
+                  },
+                ),
               ),
               const SizedBox(height: Spacing.sm),
               SoriButton.filled(
@@ -841,25 +837,18 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     List<String> items,
     ValueChanged<String?> onChanged,
   ) {
-    final s = SoriSurfaces.of(context);
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
-      decoration: BoxDecoration(
-        color: s.bg,
-        borderRadius: BorderRadius.circular(SoriRadius.sm),
-        border: Border.all(color: s.surfaceAlt),
+    return DropdownButtonFormField<String>(
+      initialValue: value,
+      isExpanded: true,
+      itemHeight: null,
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: SoriTextTheme.of(context).label,
       ),
-      child: DropdownButton<String>(
-        value: value,
-        isExpanded: true,
-        underline: const SizedBox.shrink(),
-        dropdownColor: s.surface,
-        hint: Text(label, style: TextStyle(color: s.textMuted)),
-        items: items
-            .map((item) => DropdownMenuItem(value: item, child: Text(item)))
-            .toList(),
-        onChanged: onChanged,
-      ),
+      items: items
+          .map((item) => DropdownMenuItem(value: item, child: Text(item)))
+          .toList(),
+      onChanged: onChanged,
     );
   }
 }

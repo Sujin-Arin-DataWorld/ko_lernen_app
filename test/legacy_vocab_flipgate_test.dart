@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 /// §C-3c P0-2: 화면 레벨 플립게이트 테스트 — "앞면(flipped=false) 드래그 시
 /// SRS/wrongCount 미기록 + 카드 인덱스 불변"을 검증.
@@ -242,6 +243,77 @@ void main() {
     }
     expect(tester.takeException(), isNull);
     semantics.dispose();
+  });
+
+  testWidgets('DE/EN 320dp 200%에서 필터 라벨과 외곽 타이포가 Sori 계약을 따른다', (tester) async {
+    tester.view.physicalSize = const Size(320, 640);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    const safeInsets = EdgeInsets.only(top: 44, bottom: 34);
+
+    for (final locale in const [Locale('de'), Locale('en')]) {
+      await tester.pumpWidget(
+        MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.light,
+          locale: locale,
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          builder: (context, child) {
+            final media = MediaQuery.of(context);
+            return MediaQuery(
+              data: media.copyWith(
+                padding: safeInsets,
+                viewPadding: safeInsets,
+                textScaler: const TextScaler.linear(2),
+                disableAnimations: true,
+              ),
+              child: child!,
+            );
+          },
+          home: LegacyVocabScreen(vocabLoader: () async => testVocab),
+        ),
+      );
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
+
+      final screenContext = tester.element(find.byType(LegacyVocabScreen));
+      final t = AppL10n.of(screenContext);
+      final text = SoriTextTheme.of(screenContext);
+      final surfaces = SoriSurfaces.of(screenContext);
+      expect(tester.widget<Text>(find.text(t.btnHoeren)).style, text.label);
+      expect(
+        tester.widget<Text>(find.text(t.vocabSlowHint)).style,
+        text.caption.copyWith(color: surfaces.textDim),
+      );
+
+      await tester.tap(find.byIcon(Icons.tune));
+      await tester.pumpAndSettle();
+
+      expect(find.text(t.filterLevel), findsOneWidget);
+      expect(find.text(t.filterTheme), findsOneWidget);
+      final dropdowns = find.byType(DropdownButtonFormField<String>);
+      expect(dropdowns, findsNWidgets(2));
+      expect(
+        tester
+            .widget<DropdownButtonFormField<String>>(dropdowns.at(0))
+            .decoration
+            .labelStyle,
+        text.label,
+      );
+      expect(
+        tester
+            .widget<DropdownButtonFormField<String>>(dropdowns.at(1))
+            .decoration
+            .labelStyle,
+        text.label,
+      );
+      expect(tester.takeException(), isNull);
+
+      await tester.tapAt(const Offset(8, 8));
+      await tester.pumpAndSettle();
+    }
   });
 
   testWidgets('390x844 100% SafeArea는 정상 높이 덱을 스크롤로 바꾸지 않는다', (tester) async {
