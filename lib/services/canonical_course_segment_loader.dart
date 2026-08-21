@@ -716,6 +716,12 @@ final class _SmalltalkPhraseDecision {
     Map<String, dynamic> json,
     String path,
   ) {
+    const copyReviewKeys = {
+      'copyReviewStatus',
+      'copyRevision',
+      'copyRevisionLedger',
+      'previousPhraseFingerprintSha256',
+    };
     _requireKeys(
       json,
       required: const {
@@ -728,8 +734,28 @@ final class _SmalltalkPhraseDecision {
         'reasonCode',
         'reviewRevision',
       },
+      optional: copyReviewKeys,
       path: path,
     );
+    final presentCopyReviewKeys = json.keys.toSet().intersection(
+      copyReviewKeys,
+    );
+    if (presentCopyReviewKeys.isNotEmpty &&
+        presentCopyReviewKeys.length != copyReviewKeys.length) {
+      throw FormatException('$path: incomplete copy review metadata');
+    }
+    if (presentCopyReviewKeys.isNotEmpty) {
+      if (_string(json['copyReviewStatus'], '$path.copyReviewStatus') !=
+          'nativeReviewRequired') {
+        throw FormatException('$path.copyReviewStatus: unsupported status');
+      }
+      _positiveInt(json['copyRevision'], '$path.copyRevision');
+      _string(json['copyRevisionLedger'], '$path.copyRevisionLedger');
+      _sha256(
+        json['previousPhraseFingerprintSha256'],
+        '$path.previousPhraseFingerprintSha256',
+      );
+    }
     final routingSource = _string(json['routingSource'], '$path.routingSource');
     if (!const {
       'exactOverride',
@@ -1088,11 +1114,12 @@ void _validateInheritanceRules(Object? raw) {
 void _requireKeys(
   Map<String, dynamic> map, {
   required Set<String> required,
+  Set<String> optional = const {},
   required String path,
 }) {
   final actual = map.keys.toSet();
   final missing = required.difference(actual).toList()..sort();
-  final unknown = actual.difference(required).toList()..sort();
+  final unknown = actual.difference(required.union(optional)).toList()..sort();
   if (missing.isNotEmpty) {
     throw FormatException('$path: missing keys ${missing.join(', ')}');
   }

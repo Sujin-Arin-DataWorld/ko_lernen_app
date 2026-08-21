@@ -110,6 +110,20 @@ void main() {
 
     expect(fixture.decode, throwsFormatException);
   });
+
+  test('canonical loader rejects incomplete copy review metadata', () async {
+    final fixture = await _fixture();
+    final coverage = fixture.authorities['coverage']! as Map<String, dynamic>;
+    final audit = coverage['smalltalkRoutingAudit']! as Map<String, dynamic>;
+    final decisions = (audit['phraseDecisions']! as List)
+        .cast<Map<String, dynamic>>();
+    final decision = decisions.firstWhere(
+      (row) => row.containsKey('copyReviewStatus'),
+    );
+    decision.remove('copyRevisionLedger');
+
+    expect(fixture.decode, throwsFormatException);
+  });
 }
 
 final class _LoaderFixture {
