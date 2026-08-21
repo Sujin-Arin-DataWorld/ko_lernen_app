@@ -13,8 +13,9 @@ import '../services/personalized_lesson_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
-import '../widgets/sori/chip.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/cloze_prompt.dart';
+import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/responsive.dart';
@@ -192,7 +193,27 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     if (_loading) {
-      return SoriStudyFrame(title: t.dailyTitle, child: const AppLoading());
+      return SoriStudyFrame(
+        title: t.dailyTitle,
+        padding: EdgeInsets.zero,
+        child: const AppLoading(),
+      );
+    }
+    if (_round.isEmpty) {
+      // Defensive: cloze.json leer/fehlend → gemeinsamer leerer Zustand statt
+      // eines irreführenden 0/0-Ergebnisses.
+      return SoriStudyFrame(
+        title: t.dailyTitle,
+        padding: EdgeInsets.zero,
+        child: Center(
+          child: SoriEmptyState(
+            asset: 'assets/illustrations/mascot/magpie_encourage.png',
+            icon: Icons.today_outlined,
+            title: t.dailyTitle,
+            body: t.clozeEmptyBody,
+          ),
+        ),
+      );
     }
     // Index-only Guard (wie cloze/satz_arcade): _outcome wird erst nach den
     // async SharedPreferences-Writes gesetzt — ohne diese Reihenfolge gäbe es
@@ -201,15 +222,6 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
     // kurzen Fensters korrekt.
     if (_idx >= _round.length) {
       return _buildDone(t);
-    }
-    if (_round.isEmpty) {
-      // Defensive: cloze.json leer/fehlend → kein RangeError.
-      return SoriStudyFrame(
-        title: t.dailyTitle,
-        child: Center(
-          child: Text(t.clozeEmptyBody, textAlign: TextAlign.center),
-        ),
-      );
     }
 
     final s = SoriSurfaces.of(context);
@@ -222,8 +234,12 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
 
     return SoriStudyFrame(
       title: t.dailyTitle,
+      eyebrow:
+          '${_idx + 1} / ${_round.length} · ${t.quizScore(_score, _round.length)}',
       leading: IconButton(
         icon: const Icon(Icons.close),
+        tooltip: t.btnClose,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
         onPressed: () => Navigator.of(context).maybePop(),
       ),
       actions: const [TtsSpeedAction()],
@@ -233,32 +249,44 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             if (_alreadyDone) ...[
-              SoriChip(
+              Semantics(
+                container: true,
                 label: t.dailyAlreadyDone,
-                icon: Icons.check_circle_rounded,
-                accent: SoriColors.gold,
+                child: ExcludeSemantics(
+                  child: SoriCard(
+                    key: const Key('daily-practice-note'),
+                    variant: SoriCardVariant.compact,
+                    accent: SoriColors.gold,
+                    tinted: true,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Icon(
+                          Icons.check_circle_rounded,
+                          size: 20,
+                          color: SoriColors.gold,
+                        ),
+                        const SizedBox(width: Spacing.sm),
+                        Expanded(
+                          child: Text(
+                            t.dailyAlreadyDone,
+                            style: SoriTextTheme.of(
+                              context,
+                            ).bodySmall.copyWith(color: s.text),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
-              const SizedBox(height: Spacing.sm),
+              const SizedBox(height: Spacing.md),
             ],
-            Wrap(
-              alignment: WrapAlignment.spaceBetween,
-              spacing: Spacing.sm,
-              runSpacing: Spacing.sm,
-              children: [
-                SoriChip(
-                  label: '${_idx + 1} / ${_round.length}',
-                  accent: SoriColors.info,
-                ),
-                SoriChip(
-                  label: t.quizScore(_score, _round.length),
-                  accent: SoriColors.success,
-                ),
-              ],
-            ),
-            const SizedBox(height: Spacing.lg),
             Text(
               t.clozeInstruction,
-              style: TextStyle(fontSize: 13, color: s.textMuted),
+              style: SoriTextTheme.of(
+                context,
+              ).meta.copyWith(color: s.textMuted),
             ),
             const SizedBox(height: Spacing.md),
             Flexible(
