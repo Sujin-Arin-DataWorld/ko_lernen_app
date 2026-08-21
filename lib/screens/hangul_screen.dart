@@ -26,6 +26,7 @@ import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tts_speed_control.dart';
+import '../widgets/sori/window_class.dart';
 import '../data/hangul_data.dart';
 import '../data/hangul_strokes.dart';
 import '../services/sound_service.dart';
@@ -534,7 +535,8 @@ class _SyllableDemo extends StatelessWidget {
                         final surfaces = SoriSurfaces.of(context);
                         final accessibleLayout =
                             MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
-                            constraints.maxWidth < 280;
+                            constraints.maxWidth <
+                                SoriAdaptiveWidth.criticalActionRow;
                         final syllable = Text(
                           e.$1,
                           style: const TextStyle(
