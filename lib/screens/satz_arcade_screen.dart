@@ -230,9 +230,12 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     final item = _round[_idx];
     return SoriStudyFrame(
       title: t.satzArcadeTitle,
-      eyebrow: '${_idx + 1} / ${_round.length}',
+      eyebrow:
+          '${_idx + 1} / ${_round.length} · ${t.quizScore(_passed, _round.length)}',
       leading: IconButton(
         icon: const Icon(Icons.close),
+        tooltip: t.btnClose,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
         onPressed: () => Navigator.of(context).maybePop(),
       ),
       child: SoriAdaptiveStudyBody(
@@ -258,18 +261,29 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
     if (widget.courseContext != null || widget.courseUnitId != null) {
       return const SizedBox.shrink();
     }
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.only(bottom: Spacing.sm),
-      child: Row(
-        children: [
-          _levelChip(t.clozeLevelAll, _level == null, () => _setLevel(null)),
-          for (final lv in _levels) ...[
-            const SizedBox(width: Spacing.sm),
-            _levelChip(lv.toUpperCase(), _level == lv, () => _setLevel(lv)),
-          ],
-        ],
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(t.clozeLevelLabel, style: SoriTextTheme.of(context).label),
+        const SizedBox(height: Spacing.xs),
+        SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          padding: const EdgeInsets.only(bottom: Spacing.sm),
+          child: Row(
+            children: [
+              _levelChip(
+                t.clozeLevelAll,
+                _level == null,
+                () => _setLevel(null),
+              ),
+              for (final lv in _levels) ...[
+                const SizedBox(width: Spacing.sm),
+                _levelChip(lv.toUpperCase(), _level == lv, () => _setLevel(lv)),
+              ],
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -279,6 +293,8 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       accent: SoriColors.primary,
       selected: selected,
       variant: selected ? SoriChipVariant.filled : SoriChipVariant.soft,
+      maxLines: null,
+      minInteractiveHeight: 48,
       onTap: onTap,
     );
   }

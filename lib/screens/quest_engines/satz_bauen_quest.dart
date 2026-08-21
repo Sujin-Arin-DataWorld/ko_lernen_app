@@ -461,7 +461,9 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
         SizedBox(height: Spacing.xs),
         Text(
           t.questSatzBauenInstruction,
-          style: TextStyle(color: s.textMuted, fontSize: 14),
+          style: SoriTextTheme.of(
+            context,
+          ).bodySmall.copyWith(color: s.textMuted),
         ),
         SizedBox(height: sectionGap),
         SoriAnswerTray(
@@ -486,11 +488,9 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
           child: (_wrong && !_completed && _diag != SatzError.none)
               ? Text(
                   _diagText(t),
-                  style: const TextStyle(
-                    color: SoriColors.danger,
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).label.copyWith(color: SoriColors.danger),
                 )
               : const SizedBox.shrink(),
         ),
@@ -503,13 +503,17 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
             if (_bank.isEmpty) {
               return const SizedBox.shrink();
             }
+            const gridSpacing = 12.0;
+            final tileWidth =
+                (constraints.maxWidth - gridSpacing * (columns - 1)) / columns;
+            final tileHeight = math.max(48.0, tileWidth / 1.9);
             return GridView.count(
               crossAxisCount: columns,
-              childAspectRatio: 1.9,
+              mainAxisExtent: tileHeight,
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              mainAxisSpacing: 12,
-              crossAxisSpacing: 12,
+              mainAxisSpacing: gridSpacing,
+              crossAxisSpacing: gridSpacing,
               children: [
                 for (final tile in _bank)
                   _buildTile(tile, s, inAnswer: false, expand: true),
