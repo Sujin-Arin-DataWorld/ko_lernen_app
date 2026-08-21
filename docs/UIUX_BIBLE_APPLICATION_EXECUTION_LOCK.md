@@ -1,42 +1,43 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.64
+- **Version:** 1.66
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-4b-vocab-practice-2026-08-21`
-- **Base:** `origin/main@00060aef6b501e5a3c1e7cc3dee139f2c22ee375`
-- **State:** Phase 4B result is merged; the isolated
-  `/vocab_notebook/practice` outer-UI unit is locally final-verified
-- **Next action:** push the current clean branch head, which contains app commit
-  `211ebec0ef7b98b99afa70aeec17e63dc27fb55e`; open one PR, rely on automatic
-  exact-head CI, and merge only when green
+- **Branch:** `session/uiux-bible-4b-vocab-nuance-2026-08-22`
+- **Base:** `origin/main@f0e751ba3330a7ea504a280cddf37630a688c552`
+- **State:** the isolated `/vocab_notebook/nuance` outer-UI unit is locally
+  final-verified on app commit `43164fd591f1fd3468679740a00241a34d15b4d8`
+- **Next action:** push the clean branch head containing that app commit and
+  this exact lock, open one PR, use only automatic exact-head CI, and merge only
+  after every required check is green
 
 ## Current State Summary
 
-The isolated `/vocab_notebook/practice` unit is based exactly on current main
-`00060aef6b501e5a3c1e7cc3dee139f2c22ee375`. App commit
-`211ebec0ef7b98b99afa70aeec17e63dc27fb55e` replaces only the missing and
-populated manual Scaffold boundaries with `SoriStandardFrame` and
-`SoriStandardPage`, keeps one filled Study Cards primary, makes the other five
-study destinations outlined and the two management actions ghost, and routes
-Typing and Quiz through the default outlined contrast path. DE and EN directly
-cover 320x640 at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900
-at 130%, including scroll reachability, 48dp targets, variants, labels, button
-roles, and actual enabled/disabled semantics. Five focused tests lock missing
-packs, exact 0/1/2/3/4-word and nuance thresholds, all eight destinations and
-arguments, and post-return name/count/enablement refresh. The exact app diff has
-68 related protection tests, 834 broad responsive/accessibility/typography/
-smoke/platform tests, and the full 4,450-test suite with 14 conditional skips
-green; analyze, format, and diff check are clean. Final Specification/Protection
-and Standards/Accessibility review axes both report zero findings after closing
-the exact-threshold, refresh, rendered disabled-semantics, and outlined-border
-contrast findings. Exact-base ratchets are raw screen `TextStyle` 214->214, raw
-screen `Scaffold` 41->39, and test files 456->457. The pack lookup, word and
-nuance counts, all eight destinations and arguments, button enablement,
-post-return refresh, custom-pack writes, study/game logic, scores, evidence,
-SDK/platform behavior, and approved assets remain unchanged. No asset,
-localization key, token, secret, or TODO marker was added. Nuance and Studio
-internals are separate later units. No deployment, build, signing, or store
-upload is authorized.
+The isolated nuance worktree is based exactly on the practice merge
+`f0e751ba3330a7ea504a280cddf37630a688c552`. App commit
+`43164fd591f1fd3468679740a00241a34d15b4d8` replaces the route's four manual
+Scaffold boundaries with `SoriStudyFrame`, keeps long question feedback and
+completion content scroll-reachable, and announces feedback and final results
+as live regions. Nuance alone opts into the shared `QuizChoice` idle-border and
+app-owned semantic-tap parameters; their defaults preserve every other
+consumer's previous visual and semantics contract. Active choices expose an
+executable semantic tap and at least 3:1 boundary contrast, while revealed
+choices remove the tap action. DE/EN missing, empty, question, feedback, and
+completion states pass the locked five-viewport matrix, including normal and
+reduced motion, exact button/selected/enabled/tap semantics, 48dp actions,
+single-pick blocking, literal question order, exact scoring, and a second-round
+0/3 reset proof. Six focused tests, 121 direct related/consumer tests, 835 broad
+responsive/accessibility/platform tests, and the full local 4,455 tests with 14
+conditional skips are green; analyze, format, and diff check are clean. Final
+Specification/Protection and Standards/Accessibility reviews both report zero
+remaining findings. Exact-base ratchets are raw screen `TextStyle` 214->214,
+raw screen `Scaffold` 39->35, and test files 457->457; the nuance screen has zero
+raw Scaffold calls. No asset, localization, token, secret, or TODO change was
+added. Pack lookup, optional words override, DE/EN selection, service/lexicon
+question data and ordering, option labels, correct-answer comparison,
+single-pick gate, sound and haptic branches, exact score increment,
+continue/index/reset behavior, route arguments, storage, SDK/platform behavior,
+and approved assets remain unchanged. Studio internals are a separate later
+unit. No deployment, build, signing, or store upload is authorized or claimed.
 
 ## Important Context
 
@@ -49,11 +50,12 @@ remain separate high-risk units.
 
 ## Immediate Next Steps
 
-1. Push the current clean branch head, open one PR, and use the automatic PR
-   exact-head CI without duplicate dispatch.
-2. Merge only after the exact PR head is green. Cancel any release-capable
-   post-main run before build/sign/upload work, prove zero Signed AAB/Play
-   steps, then start the next non-overlapping Phase 4B unit from new main.
+1. Push the clean current branch head and open one PR without adding a manual
+   duplicate run; wait for automatic CI on the exact PR head.
+2. Merge only when every required check is green, verify the Signed AAB/Play
+   path ran zero steps, cancel any post-main release-capable run immediately,
+   and record the exact PR, CI jobs, merge SHA, and zero-release evidence in the
+   next isolated `/vocab_notebook/studio` unit.
 
 ## 1. Purpose
 
@@ -414,8 +416,9 @@ production, and deployment remain unclaimed and out of scope.
 | 4A Paywall outer UI | merged | App commits `710cf7ea3a775be4a9ca18fdf0be095ebbda06e4` and `941433efb809968493f923f8e38005d154ba08fd`; documentation commit `143e34ab458587498b4390ffcf083ca87fd367d8`; PR #177; main merge `462b84dd6f1a04932312b70c806c0dd88d3de85a`; PR exact-current-head CI run 32522867344 green for Analyze & Build and the asset pipeline gate, while Signed AAB/Play job 96899365718 was skipped with zero steps; `/paywall` disables its purchase action until the Offering resolves instead of surfacing a premature unavailable error, converts a load failure to the existing localized unavailable state, keeps restore independent and usable during Offering loading, and disables purchase, restore, and close together during a store operation; the price loader and close action expose existing localized semantics, close keeps an explicit 48dp target, and its icon uses distinct enabled/disabled foreground colors; ordinary layouts retain fixed actions, while short-height or large-text layouts put the full offer in one scroll surface; DE/EN 320×640 at 200%, 360×400, 390×844 at 130%, 720×1024 at 130%, and 1280×900 at 130% directly cover complete, hit-testable actions; six focused Paywall tests, 830 combined focused purchase/restore/SDK-boundary/responsive/short-height/accessibility/typography/smoke tests, and full local 4,437 tests with 14 conditional skips green on the exact corrected app head; final Standards and Specification review axes reported zero remaining findings; analyze, format, and diff check clean; exact-base ratchets raw screen TextStyle 218→218, numeric-literal BorderRadius 14→14, raw screen progress indicators 17→17, and test files 455→456; `paywall_screen.dart` has zero raw TextStyle and BorderRadius.circular constructors; no new assets, localization keys, tokens, secrets, or TODO markers; RevenueCat service calls, purchase, restore, entitlement, analytics, routes and arguments, SDK/platform boundaries, and approved assets unchanged; post-merge main run 32523230826 was cancelled during checkout and its Signed AAB/Play job 96899861885 had zero steps, so no build, signing, or upload ran |
 | 4B Book/notebook capture outer UI | merged | App commit `aa096a2b17d834c1d3d4f74d33fec4871aa72b3b`; PR #178; main merge `4754f84605a89a8ec740b87b852ef341b41b20bd`; automatic exact-head CI run 32525701965 green for Analyze & Build job 96907250581 and asset pipeline job 96907250511; Signed AAB/Play job 96907746345 skipped with zero steps; shared `/book` and `/vocab_notebook` hero and error presentation use existing Sori type/state roles, the gallery action keeps the default outlined contrast path beside one primary camera action, and inline capture failure is announced as a live region; DE/EN in both modes directly cover 320x640 at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130% with scroll reachability, hit testing, and button semantics; six focused tests, 146 book/recovery/platform tests, 819 shared responsive/accessibility/typography/smoke tests, and full local 4,438 tests with 14 conditional skips green; analyze, format, and diff check clean; final Specification/Protection and Standards/Accessibility reviews both reported zero remaining findings; exact-base ratchets raw screen `TextStyle` 218->215, numeric-literal screen radii 14->14, raw screen progress indicators 17->17, and test files 456->456; no new assets, localization keys, tokens, secrets, or TODO markers; camera permission, picker/crop recovery, media leases, image quality, OCR, quota, preview arguments, routes, storage, privacy, SDK/platform behavior, and approved assets unchanged; post-main run 32526140385 cancelled before any job was created, so no build, signing, or upload ran |
 | 4B Vocab-notebook result outer UI | merged | App commit `316bf4147dccbdbecbfab334155ba8d9cdc4b218`; documentation commit `28bb2d434970cf94aac6ce35d3844119d0ff32b8`; PR #179; main merge `00060aef6b501e5a3c1e7cc3dee139f2c22ee375`; automatic exact-head CI run 32528928325 green for Analyze & Build job 96916922496 and asset pipeline job 96916922497; Signed AAB/Play job 96918302998 skipped with zero steps; empty and populated results use `SoriStandardFrame`, the pack-name field uses `SoriTextField`, result count is a live region, short/large-text actions remain scroll-reachable, and each 48dp keep/drop control exposes localized button, selected, and executable tap semantics with its non-color cue; Hanja text uses the existing light-surface contrast token; DE/EN locked viewport matrix covered; five focused tests, 69 protection tests, and full local 4,445 tests with 14 conditional skips green; analyze, format, and diff check clean; final Specification/Protection and Standards/Accessibility reviews both reported zero findings; exact-base ratchets raw screen `TextStyle` 215->214, raw screen `Scaffold` 43->41, and test files 456->456; no new assets, localization keys, tokens, secrets, or TODO markers; OCR parsing, pair/Hanja/nuance data, decisions, custom-pack behavior, routes and arguments, storage, SDK/platform behavior, and approved assets unchanged; post-main run 32529466374 cancelled while pending and completed with no jobs, so no build, signing, or upload ran |
-| 4B Vocab-notebook practice outer UI | locally final-verified | App commit `211ebec0ef7b98b99afa70aeec17e63dc27fb55e` on branch `session/uiux-bible-4b-vocab-practice-2026-08-21` from exact current-main base `00060aef6b501e5a3c1e7cc3dee139f2c22ee375`; missing and populated states use the standard frame/page, keep one filled primary and the existing outlined/ghost hierarchy, and use the default contrast-safe outlined path for Typing and Quiz; DE/EN 320x640 at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130% directly cover scroll reachability, 48dp targets, variants, and actual label/button/enabled semantics; five focused tests lock missing packs, exact 0/1/2/3/4-word and nuance enablement, all eight routes and arguments, and post-return refresh; 68 related protection tests, 834 broad tests, and full local 4,450 tests with 14 conditional skips green; analyze, format, and diff check clean; final Specification/Protection and Standards/Accessibility reviews both zero after four first-review findings were resolved; exact-base ratchets raw screen `TextStyle` 214->214, raw screen `Scaffold` 41->39, and test files 456->457; no new assets, localization keys, tokens, secrets, or TODO markers; lookup, counts, routes/arguments, refresh, writes, study/game logic, scores/evidence, SDK/platform behavior, and approved assets unchanged |
-| 4B remaining notebook/bookshelf/custom-pack editing | pending | split practice from nuance/studio, preview/analysis, bookshelf, and local editing |
+| 4B Vocab-notebook practice outer UI | merged | App commit `211ebec0ef7b98b99afa70aeec17e63dc27fb55e`; documentation commits `656fb88df9e683aea3201ac6fc04abc2189207f2`, `797567d91666e99b6b31f01905696736775221ff`, and `08a05264ff66a14afbe8e141e543a9acda111273`; PR #180; main merge `f0e751ba3330a7ea504a280cddf37630a688c552`; automatic exact-head CI run 32531327324 green for Analyze & Build job 96923826143 and asset pipeline job 96923826253; Signed AAB/Play job 96924265065 skipped with zero steps; missing and populated states use the standard frame/page, keep one filled primary and the existing outlined/ghost hierarchy, and use the default contrast-safe outlined path for Typing and Quiz; DE/EN locked viewport matrix directly covers scroll reachability, 48dp targets, variants, and actual label/button/enabled semantics; five focused tests lock missing packs, exact 0/1/2/3/4-word and nuance enablement, all eight routes and arguments, and post-return refresh; 68 related protection tests, 834 broad tests, and full local 4,450 tests with 14 conditional skips green; analyze, format, and diff check clean; final Specification/Protection and Standards/Accessibility reviews both zero; exact-base ratchets raw screen `TextStyle` 214->214, raw screen `Scaffold` 41->39, and test files 456->457; no new assets, localization keys, tokens, secrets, or TODO markers; lookup, counts, routes/arguments, refresh, writes, study/game logic, scores/evidence, SDK/platform behavior, and approved assets unchanged; post-main run 32531620540 cancelled immediately and every release-capable job, including Signed AAB/Play 96924655782, had zero steps, so no build, signing, deployment, or upload ran |
+| 4B Vocab-notebook nuance outer UI | locally final-verified | App commit `43164fd591f1fd3468679740a00241a34d15b4d8` from exact base `f0e751ba3330a7ea504a280cddf37630a688c552`; four raw Scaffolds replaced by the shared study frame; only nuance opts into the shared choice's 3:1 idle boundary and executable app-owned semantic tap while defaults for other consumers remain unchanged; missing, empty, question, feedback, and completion states are scroll-reachable and directly locked in DE/EN at 320x640 at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130%; live feedback/result semantics, active/revealed tap actions, 48dp actions, normal/reduced motion, literal service question order, other-option blocking, exact score, and second-round reset are covered; six focused, 121 direct related/consumer, 835 broad, and full local 4,455 tests with 14 conditional skips green; analyze, format, and diff check clean; both final review axes zero; raw screen TextStyle 214->214, Scaffold 39->35, test files 457->457, added assets/localization/tokens/secrets/TODO zero; pack/words source, language selection, service/lexicon questions and order, labels, answers, one-pick gate, score, effects, continue/reset, arguments, storage, SDK/platform behavior, and approved assets protected; PR/CI/merge not yet claimed |
+| 4B remaining notebook/bookshelf/custom-pack editing | pending | split nuance from studio, preview/analysis, bookshelf, and local editing |
 | 4C tools/community | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
