@@ -165,9 +165,9 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
     if (items.isEmpty) {
       return const SizedBox.shrink();
     }
-    // 에디토리얼 위계: 섹션 첫 항목 = 전폭 featured(한지), 나머지는 가용
-    // 콘텐츠 폭과 OS 글자 확대가 허용할 때만 2열이다. 좁은 창·큰 글자에서는
-    // 설명을 잘게 접지 않고 한 열로 재배치한다.
+    // 전역 주요 행동은 위의 복습 카드 하나뿐이다. 펼친 활동은 모두 보조
+    // ModuleCard 위계로 두되 첫 항목은 전폭, 나머지는 가용 콘텐츠 폭과 OS
+    // 글자 확대가 허용할 때만 2열이다. 좁은 창·큰 글자에서는 한 열로 둔다.
     return LayoutBuilder(
       builder: (context, constraints) {
         final textScale = MediaQuery.textScalerOf(context).scale(14) / 14;
@@ -176,14 +176,7 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
             textScale >= 1.6;
         return Column(
           children: [
-            FeaturedModuleCard(
-              icon: items.first.icon,
-              title: items.first.title,
-              subtitle: items.first.subtitle,
-              accent: items.first.accent,
-              ribbonType: items.first.ribbonType,
-              onTap: () => Navigator.pushNamed(context, items.first.route),
-            ),
+            _card(context, items.first),
             if (items.length > 1) const SizedBox(height: Spacing.md),
             if (stackCards)
               for (int i = 1; i < items.length; i++) ...[

@@ -165,6 +165,7 @@ void main() {
       );
       var t = AppL10n.of(tester.element(find.byType(PracticeHubScreen)));
       await _showAllActivities(tester);
+      expect(find.byType(FeaturedModuleCard), findsOneWidget);
 
       final narrowGrammar = _moduleCardWithTitle(t.moduleGrammarTitle);
       await tester.scrollUntilVisible(
@@ -191,6 +192,7 @@ void main() {
       );
       t = AppL10n.of(tester.element(find.byType(PracticeHubScreen)));
       await _showAllActivities(tester);
+      expect(find.byType(FeaturedModuleCard), findsOneWidget);
       final wideGrammar = _moduleCardWithTitle(t.moduleGrammarTitle);
       await tester.scrollUntilVisible(
         wideGrammar,
