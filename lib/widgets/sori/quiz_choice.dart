@@ -38,6 +38,13 @@ class QuizChoice extends StatefulWidget {
   /// (단어팩 등)에서 보기 박스를 더 크게·탭하기 쉽게 만들 때만 지정.
   final double? minHeight;
 
+  /// idle 상태의 경계색 override. null이면 기존의 옅은 primary 경계를 유지한다.
+  final Color? idleBorderColor;
+
+  /// 앱 소유 semantics에 탭 action을 노출할지 여부. 기존 소비 화면의 semantics
+  /// 계약을 바꾸지 않고 접근성 경로를 단계적으로 잠글 때만 활성화한다.
+  final bool semanticTapEnabled;
+
   /// 정답을 초록으로 **드러낼지**. 오답 재시도가 허용된 게임(Lückentext·
   /// Tages-Challenge)에서는 틀린 순간 정답이 보이면 재시도가 무의미해지므로
   /// `false` 로 넘겨 **고른 오답만 빨갛게** 표시한다.
@@ -52,6 +59,8 @@ class QuizChoice extends StatefulWidget {
     this.onSelected,
     this.subtitle,
     this.minHeight,
+    this.idleBorderColor,
+    this.semanticTapEnabled = false,
     this.revealCorrect = true,
   });
 
@@ -102,7 +111,8 @@ class _QuizChoiceState extends State<QuizChoice>
 
     // ── 색 결정 (revealed 단계가 우선) ──
     Color bg = s.surface;
-    Color border = SoriColors.primary.withValues(alpha: 0.25);
+    Color border =
+        widget.idleBorderColor ?? SoriColors.primary.withValues(alpha: 0.25);
     final Color fg = s.text;
     double opacity = 1.0;
     IconData? trailing;
@@ -193,14 +203,16 @@ class _QuizChoiceState extends State<QuizChoice>
       child: tappable,
     );
 
+    final enabled = widget.onSelected != null && !widget.revealed;
     if (reduce) {
       return Semantics(
         button: true,
-        enabled: widget.onSelected != null && !widget.revealed,
+        enabled: enabled,
         selected: widget.isSelected,
         label: widget.text,
         value: semanticValue,
         hint: widget.subtitle,
+        onTap: widget.semanticTapEnabled && enabled ? _handleTap : null,
         excludeSemantics: true,
         child: reveal,
       );
@@ -208,11 +220,12 @@ class _QuizChoiceState extends State<QuizChoice>
 
     return Semantics(
       button: true,
-      enabled: widget.onSelected != null && !widget.revealed,
+      enabled: enabled,
       selected: widget.isSelected,
       label: widget.text,
       value: semanticValue,
       hint: widget.subtitle,
+      onTap: widget.semanticTapEnabled && enabled ? _handleTap : null,
       excludeSemantics: true,
       child: AnimatedBuilder(
         animation: _press,
