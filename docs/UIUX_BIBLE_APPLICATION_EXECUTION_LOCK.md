@@ -1,14 +1,14 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.8
+- **Version:** 1.9
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3a-2026-08-21`
-- **Base:** `origin/main@ba6036e4c11e5affbbde758534a1be33c7f88ecc`
-- **State:** Phase 3A in progress; Vocab catalog caption/measurement sub-unit
-  complete
-- **Next action:** after this sub-unit merges, create a fresh worktree from
-  latest `origin/main` and audit the Vocab/review/custom Deck outer UI without
-  changing Deck geometry, gestures, flip gates, ordering, or SRS evidence
+- **Branch:** `session/uiux-bible-learning-3a-closeout-2026-08-21`
+- **Base:** `origin/main@1dc2172070be9b4d26f8dd166dc8cfacd384b7eb`
+- **State:** Phase 3A Vocab catalog caption/measurement sub-unit merged; clean
+  restart boundary
+- **Next action:** create a fresh worktree from latest `origin/main` and audit
+  the Vocab/review/custom Deck outer UI without changing Deck geometry,
+  gestures, flip gates, ordering, or SRS evidence
 
 ## 1. Purpose
 
@@ -316,6 +316,12 @@ For every code phase:
    that exact head. Do not create a duplicate exact-head manual run.
 8. Merge only after required current-head checks are green. Re-read latest main
    ancestry after merge before creating the next worktree.
+9. An app-changing merge to main can automatically schedule Google Play
+   Internal Testing when `PLAY_INTERNAL_RELEASE_ENABLED` is true. If the task
+   has no store-release authority, cancel that main-push run immediately and
+   verify that `Upload to Google Play Internal Testing` is skipped. The green
+   PR current-head run remains the delivery proof; do not replace it with a
+   release-capable main run.
 
 Local green is local proof. Device behavior, store upload, SDK consoles,
 production, and deployment remain unclaimed and out of scope.
@@ -333,7 +339,9 @@ production, and deployment remain unclaimed and out of scope.
 | 2C Gye tab | merged | PR #124; main merge `abe2be2bb278a257e776e0e4c2a043b2e4ed4c6f`; CI run 32432348610 green; Gye member-count and feed-title typography connected to the Sori label token; screen raw TextStyle 319→317 and w800 99→98 |
 | 2D Hanok tab/world boundary | merged | PR #125; main merge `e104ae213b813edd20777f0f063acf6bc9c2088c`; CI run 32433115213 green; German 320×640 at 200% Stage shortcut matrix added; approved runtime, grants, reveals, rewards, evidence, and assets unchanged |
 | Phase 2 closeout | merged | PR #126; main merge `ba6036e4c11e5affbbde758534a1be33c7f88ecc`; docs-only CI path filter correctly scheduled no run |
-| 3A–3D learning flows | in progress | Phase 3A Vocab catalog sub-unit: locked hint renderer and grid measurement share the 12.5dp `caption` token; German 320×640 at 200% contract added; raw screen TextStyle 317→316; 130 Deck geometry/gesture/flip/order/SRS tests plus focused responsive/premium/guard tests green; Linux golden generation run 32434187771 changed only the medium/expanded Vocab baselines; next audit Deck outer UI in a fresh worktree |
+| 3A Vocab catalog caption | merged | PR #127; main merge `1dc2172070be9b4d26f8dd166dc8cfacd384b7eb`; PR CI run 32434385023 green; locked hint renderer and grid measurement share the 12.5dp `caption` token; German 320×640 at 200% contract added; raw screen TextStyle 317→316; 130 local Deck geometry/gesture/flip/order/SRS tests green; Linux golden generation run 32434187771 changed only the medium/expanded Vocab baselines; post-merge run 32434973864 was cancelled before jobs and older main run 32433364094 was force-cancelled during bundle build with its Play upload step confirmed skipped |
+| 3A remaining Deck outer UI | pending | create a fresh worktree; audit Vocab pack/result/recall/legacy, review, and custom-pack play chrome; preserve all Deck and SRS contracts |
+| 3B–3D learning flows | pending | split by evidence boundary |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
