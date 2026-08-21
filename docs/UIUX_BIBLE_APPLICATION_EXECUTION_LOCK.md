@@ -1,15 +1,16 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.35
+- **Version:** 1.36
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-learning-3c-path-closeout-2026-08-21`
-- **Base:** `origin/main@f9bad3458a0b0b27735f32557dd741d8b4384ad9`
-- **State:** Phase 3C `/path` outer UI merged; clean `/course/mission` restart
+- **Branch:** `session/uiux-bible-course-mission-closeout-2026-08-21`
+- **Base:** `origin/main@4ae8d9933d302fc5d4220a7e46f30b3bdd74501a`
+- **State:** Phase 3C `/course/mission` outer UI merged; clean
+  `/course/reassessment` restart
   point recorded
 - **Next action:** create a fresh worktree from latest `origin/main` and audit
-  `/course/mission` outer UI and evidence boundary only; preserve mission plan
-  derivation, current/completed/locked state, exact activity roles and route
-  arguments, read-only screen behavior, completion evidence, routes, and
+  `/course/reassessment` outer UI and evidence boundary only; preserve typed
+  reassessment arguments, exact productive-evidence eligibility and completion,
+  mastery and current course position, writes, routes, read-only behavior, and
   approved assets
 
 ## 1. Purpose
@@ -355,7 +356,8 @@ production, and deployment remain unclaimed and out of scope.
 | 3B Pronunciation outer UI | merged | PR #150; main merge `392bbd7294f2ee25090bc3c7d45de447b584caca`; PR exact-current-head CI run 32451600340 green with 4,360 tests passed, 2 skipped, and the asset pipeline gate green; `/pronunciation` now uses the existing Standard-page header and Sori Korean/body/meta/label/numeral type roles; capture and assessment expose distinct localized states with an app-owned live score panel; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 with safe insets covered; raw screen TextStyle 294→287; analyze clean; 884 focused/local shared tests green; phrase loading and cumulative level selection, consent before OS permission, microphone SDK ownership, PCM limits and 10-second capture, assessment identity/reference, 80-point pass threshold, duplicate prevention, progress writes, TTS, routes, and approved assets unchanged; post-merge main run 32452244705 cancelled during path classification and its Signed AAB/Play job had zero steps, so no upload ran |
 | 3B Satz outer UI | merged | PR #152; main merge `3afc85b57886ba20e397ec393cc7db811907835b`; PR exact-current-head CI run 32453622116 green with 1,236 tests passed and the asset pipeline gate green; `/satz_arcade` carries round progress plus score in the shared Study eyebrow, exposes a localized 48dp close action and a visible localized level-filter name, gives every level chip a 48dp complete-text contract, and routes instructions and inline diagnostics through existing Sori type roles; the existing `SoriWordTile` 48dp contract is restored at 320dp by retaining the 3/4-column grid and applying a minimum row extent; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 covered; analyze clean; 106 focused Satz/data/order/diagnosis/mission/evidence/feedback tests and 924 shared responsive/short-height/accessibility/smoke/typography/localization tests green; raw screen TextStyle 287→285; course-scoped catalog filtering, initial mission item, tile identity/order and tap gestures, punctuation/order/particle/count diagnosis, retry/reveal timing, SRS, exact activity evidence, score/XP/best, feedback completion, TTS, routes, and approved assets unchanged; post-merge main run 32453946754 cancelled before any job step and its Signed AAB/Play job had zero steps, so no build, signing, or upload ran |
 | 3C Path outer UI | merged | PR #154; main merge `f9bad3458a0b0b27735f32557dd741d8b4384ad9`; PR exact-current-head CI run 32456183621 green with 4,388 tests passed, 2 skipped, and the asset pipeline gate green; `/path` disables its jump action when no legacy target exists, reveals a hidden legacy target before jump/route-focus scrolling, and anchors the first-visit coach to the canonical current course step when present; existing Sori roles replace four local TextStyle constructors and one local radius; the DE/EN coach copy now names the highlighted current step; DE/EN 320×640 at 200%, 360×400, 390×844, 720×1024, and 1280×900 covered; 15 new path hierarchy/route/coach/type tests, 118 focused course graph/exact evidence/read-only/76-pack tap/Hanok tests, and 825 shared responsive/short-height/accessibility/smoke/typography/localization tests green locally; analyze and diff check clean; exact-base ratchets raw screen TextStyle 285→281 and screen BorderRadius.circular 95→94; added assets, TODO markers, and secret patterns zero; course graph, unlock rules, selected/visible level derivation, course/pack progress, evidence writes, mission/pack navigation, route arguments, and approved assets unchanged; post-merge main run 32456860907 cancelled during checkout and its Signed AAB/Play job had zero steps, so no build, signing, or upload ran |
-| 3C–3D remaining learning flows | pending | create a fresh worktree from latest `origin/main` and audit `/course/mission` outer UI and its evidence boundary only before implementation |
+| 3C Course mission outer UI | merged | PR #156; main merge `4ae8d9933d302fc5d4220a7e46f30b3bdd74501a`; PR exact-current-head CI run 32458331827 green with 4,390 tests passed, 2 skipped, and the asset pipeline gate green; `/course/mission` uses the canonical Sori page header and one primary action, while canonically completed historical missions use a localized read-only standard completion state; active graph-derived step order and completion/evidence behavior are unchanged; DE/EN 320×640 at 200% with safe insets, 360×400, 390×844, 720×1024, and 1280×900 covered; 26 focused and 807 shared tests green locally; analyze and diff check clean; exact-base ratchets raw screen TextStyle 281→281 and screen BorderRadius.circular 94→94; added assets, TODO markers, and secret patterns zero; mission plan, routes and arguments, current/read-only state, evidence writes, and approved assets unchanged; post-merge main run 32459083742 cancelled while queued and its Signed AAB/Play job had zero steps, so no build, signing, or upload ran |
+| 3C–3D remaining learning flows | pending | create a fresh worktree from latest `origin/main` and audit `/course/reassessment` outer UI and its evidence boundary only before implementation |
 | 4A–4C tools/settings | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
