@@ -194,7 +194,12 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     return SoriStandardFrame(
       appBarTitle: t.courseMissionTitle,
       maxWidth: SoriMaxWidth.prose,
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 48),
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.md,
+        Spacing.lg,
+        Spacing.xxxl,
+      ),
       builder: (context, resolvedPadding) => RefreshIndicator(
         onRefresh: _load,
         child: ListView(
@@ -219,7 +224,12 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
     return SoriStandardFrame(
       appBarTitle: t.courseMissionTitle,
       maxWidth: SoriMaxWidth.prose,
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 48),
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.md,
+        Spacing.lg,
+        Spacing.xxxl,
+      ),
       builder: (context, resolvedPadding) => ListView(
         padding: resolvedPadding,
         children: [

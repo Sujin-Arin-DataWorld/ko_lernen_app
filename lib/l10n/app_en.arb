@@ -2731,6 +2731,8 @@
   "courseMissionTitle": "Your next mission",
   "courseMissionTitleShort": "Course mission",
   "courseMissionLoadError": "The course data could not be loaded.",
+  "courseMissionCompleteTitle": "Mission complete",
+  "courseMissionCompleteBody": "You have completed every learning step in this mission.",
   "courseMissionNow": "now",
   "courseMissionPreviewTag": "preview",
   "courseMissionStartPractice": "Start practice",

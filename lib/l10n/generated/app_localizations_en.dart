@@ -5953,6 +5953,13 @@ class AppL10nEn extends AppL10n {
   String get courseMissionLoadError => 'The course data could not be loaded.';
 
   @override
+  String get courseMissionCompleteTitle => 'Mission complete';
+
+  @override
+  String get courseMissionCompleteBody =>
+      'You have completed every learning step in this mission.';
+
+  @override
   String get courseMissionNow => 'now';
 
   @override

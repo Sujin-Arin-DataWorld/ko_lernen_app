@@ -5983,6 +5983,13 @@ class AppL10nDe extends AppL10n {
       'Die Kursdaten konnten nicht geladen werden.';
 
   @override
+  String get courseMissionCompleteTitle => 'Mission abgeschlossen';
+
+  @override
+  String get courseMissionCompleteBody =>
+      'Du hast alle Lernschritte dieser Mission abgeschlossen.';
+
+  @override
   String get courseMissionNow => 'jetzt';
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
@@ -8,6 +9,8 @@ import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/course_mission_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
+import 'package:ko_lernen_app/widgets/sori/page_header.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 
 const _unit = CourseUnit(
@@ -203,6 +206,11 @@ void main() {
     );
 
     expect(find.text('A1 · Ordering food'), findsOneWidget);
+    expect(find.byType(SoriPageHeader), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('course-mission-primary-cta')),
+      findsOneWidget,
+    );
     expect(find.text('Your next scene: At the café'), findsOneWidget);
     expect(find.text('Hear the situation'), findsOneWidget);
     expect(find.text('Recognize the polite form'), findsOneWidget);
@@ -219,13 +227,9 @@ void main() {
     expect(opened?.id, 'listen');
   });
 
-  testWidgets('preview stays complete at 320dp and 200% with safe areas', (
+  testWidgets('completed mission uses a standard read-only completion state', (
     tester,
   ) async {
-    tester.view.physicalSize = const Size(320, 640);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
     final brief = CourseMissionBrief.from(
       unit: _unit,
       links: [
@@ -234,7 +238,8 @@ void main() {
         _link('speak', CurriculumContentKind.scenario),
       ],
       scenarios: const [_scenario],
-      isCurrent: true,
+      isCurrent: false,
+      snapshot: const CourseMasterySnapshot(completedUnitIds: ['a1_food']),
     );
     await tester.pumpWidget(
       MaterialApp(
@@ -242,31 +247,117 @@ void main() {
         locale: const Locale('en'),
         supportedLocales: AppL10n.supportedLocales,
         localizationsDelegates: AppL10n.localizationsDelegates,
-        builder: (context, child) {
-          final media = MediaQuery.of(context);
-          const safeInsets = EdgeInsets.only(top: 44, bottom: 34);
-          return MediaQuery(
-            data: media.copyWith(
-              padding: safeInsets,
-              viewPadding: safeInsets,
-              textScaler: const TextScaler.linear(2),
-            ),
-            child: child!,
-          );
-        },
         home: CourseMissionScreen.preview(brief: brief, openLink: (_) async {}),
       ),
     );
 
-    expect(find.byType(SoriStandardFrame), findsOneWidget);
-    expect(find.text('Recognize the polite form'), findsOneWidget);
-    final action = find.text('Listen now');
-    await tester.scrollUntilVisible(action, 200);
-    await tester.ensureVisible(action);
-    await tester.pump();
-
-    expect(action, findsOneWidget);
-    expect(tester.getRect(action).bottom, lessThanOrEqualTo(640 - 34));
-    expect(tester.takeException(), isNull);
+    expect(find.byType(SoriPageHeader), findsOneWidget);
+    expect(find.byType(SoriEmptyState), findsOneWidget);
+    expect(find.text('Mission complete'), findsOneWidget);
+    expect(
+      find.text('You have completed every learning step in this mission.'),
+      findsOneWidget,
+    );
+    expect(
+      find.text(
+        'You can preview this mission. Scores and progress count only when it is active.',
+      ),
+      findsNothing,
+    );
+    expect(
+      find.byKey(const ValueKey('course-mission-primary-cta')),
+      findsNothing,
+    );
   });
+
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    testWidgets(
+      '${locale.languageCode} preview keeps its full message and action across the viewport matrix',
+      (tester) async {
+        tester.view.devicePixelRatio = 1;
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        final brief = CourseMissionBrief.from(
+          unit: _unit,
+          links: [
+            _link('listen', CurriculumContentKind.vocab),
+            _link('build', CurriculumContentKind.grammar),
+            _link('speak', CurriculumContentKind.scenario),
+          ],
+          scenarios: const [_scenario],
+          isCurrent: true,
+        );
+
+        for (final viewport in const [
+          (size: Size(320, 640), textScale: 2.0),
+          (size: Size(360, 400), textScale: 1.0),
+          (size: Size(390, 844), textScale: 1.0),
+          (size: Size(720, 1024), textScale: 1.0),
+          (size: Size(1280, 900), textScale: 1.0),
+        ]) {
+          tester.view.physicalSize = viewport.size;
+          await tester.pumpWidget(
+            MaterialApp(
+              theme: AppTheme.light,
+              locale: locale,
+              supportedLocales: AppL10n.supportedLocales,
+              localizationsDelegates: AppL10n.localizationsDelegates,
+              builder: (context, child) {
+                final media = MediaQuery.of(context);
+                const safeInsets = EdgeInsets.only(top: 44, bottom: 34);
+                return MediaQuery(
+                  data: media.copyWith(
+                    padding: safeInsets,
+                    viewPadding: safeInsets,
+                    textScaler: TextScaler.linear(viewport.textScale),
+                  ),
+                  child: child!,
+                );
+              },
+              home: CourseMissionScreen.preview(
+                brief: brief,
+                openLink: (_) async {},
+              ),
+            ),
+          );
+
+          final t = AppL10n.of(
+            tester.element(find.byType(CourseMissionScreen)),
+          );
+          final headline = find.text(
+            brief.unit.canDo.pick(locale.languageCode),
+          );
+          final action = find.text(t.courseMissionBriefListenCta);
+          expect(find.byType(SoriStandardFrame), findsOneWidget);
+          expect(headline, findsOneWidget);
+          expect(
+            tester.renderObject<RenderParagraph>(headline).didExceedMaxLines,
+            isFalse,
+          );
+          await tester.scrollUntilVisible(action, 200);
+          await tester.ensureVisible(action);
+          await tester.pump();
+
+          expect(action, findsOneWidget);
+          expect(
+            tester.renderObject<RenderParagraph>(action).didExceedMaxLines,
+            isFalse,
+          );
+          expect(
+            tester
+                .getSize(
+                  find.byKey(const ValueKey('course-mission-primary-cta')),
+                )
+                .height,
+            greaterThanOrEqualTo(48),
+          );
+          expect(
+            tester.getRect(action).bottom,
+            lessThanOrEqualTo(viewport.size.height - 34),
+          );
+          expect(tester.takeException(), isNull);
+        }
+      },
+    );
+  }
 }
