@@ -107,7 +107,7 @@ class VocabPackResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final title = VocabPackService.displayLabel(packId, lang: lang);
     final motif = motifForPackId(packId);
@@ -127,13 +127,10 @@ class VocabPackResultScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 const SizedBox(height: Spacing.md),
-                Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
+                Semantics(
+                  key: const Key('vocab-result-pack-title'),
+                  header: true,
+                  child: Text(title, textAlign: TextAlign.center, style: tt.h3),
                 ),
                 const SizedBox(height: Spacing.lg),
                 // Hero: 클리어 시 호랑이+까치가 단청 도장을 함께 둘러싸는 축하,
@@ -170,10 +167,7 @@ class VocabPackResultScreen extends StatelessWidget {
                     child: Text(
                       t.vocabPackResultGeschafft,
                       textAlign: TextAlign.center,
-                      style: SoriTextTheme.of(context).h3.copyWith(
-                        color: SoriColors.success,
-                        fontWeight: FontWeight.w800,
-                      ),
+                      style: tt.h3.copyWith(color: SoriColors.success),
                     ),
                   ),
                 ],
@@ -187,17 +181,16 @@ class VocabPackResultScreen extends StatelessWidget {
                     tinted: true,
                     child: Column(
                       children: [
-                        Text(
-                          _cleared
-                              ? (justCleared
-                                    ? t.vocabPackResultCleared
-                                    : t.vocabPackResultClearedAgain)
-                              : t.vocabPackResultRetry,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.w800,
-                            color: s.text,
+                        Semantics(
+                          header: true,
+                          child: Text(
+                            _cleared
+                                ? (justCleared
+                                      ? t.vocabPackResultCleared
+                                      : t.vocabPackResultClearedAgain)
+                                : t.vocabPackResultRetry,
+                            textAlign: TextAlign.center,
+                            style: tt.h2,
                           ),
                         ),
                         const SizedBox(height: Spacing.md),
@@ -354,41 +347,46 @@ class _StatLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    final labelStyle = TextStyle(fontSize: 13, color: s.textMuted);
-    const valueStyle = TextStyle(fontSize: 14, fontWeight: FontWeight.w700);
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final textScale = MediaQuery.textScalerOf(context).scale(1);
-        final stack =
-            textScale >= 1.6 ||
-            constraints.maxWidth < SoriAdaptiveWidth.labelValueRow;
-        final labelRow = Row(
-          children: [
-            Icon(icon, size: 18, color: s.textMuted),
-            const SizedBox(width: Spacing.sm),
-            Expanded(child: Text(label, style: labelStyle)),
-          ],
-        );
-        return Padding(
-          padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
-          child: stack
-              ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    labelRow,
-                    const SizedBox(height: Spacing.xs),
-                    Text(value, textAlign: TextAlign.end, style: valueStyle),
-                  ],
-                )
-              : Row(
-                  children: [
-                    Expanded(child: labelRow),
-                    const SizedBox(width: Spacing.md),
-                    Text(value, style: valueStyle),
-                  ],
-                ),
-        );
-      },
+    final tt = SoriTextTheme.of(context);
+    return Semantics(
+      key: ValueKey<String>('vocab-result-metric-$label'),
+      container: true,
+      label: '$label: $value',
+      excludeSemantics: true,
+      child: LayoutBuilder(
+        builder: (context, constraints) {
+          final textScale = MediaQuery.textScalerOf(context).scale(1);
+          final stack =
+              textScale >= 1.6 ||
+              constraints.maxWidth < SoriAdaptiveWidth.labelValueRow;
+          final labelRow = Row(
+            children: [
+              Icon(icon, size: 18, color: s.textMuted),
+              const SizedBox(width: Spacing.sm),
+              Expanded(child: Text(label, style: tt.caption)),
+            ],
+          );
+          return Padding(
+            padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
+            child: stack
+                ? Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      labelRow,
+                      const SizedBox(height: Spacing.xs),
+                      Text(value, textAlign: TextAlign.end, style: tt.label),
+                    ],
+                  )
+                : Row(
+                    children: [
+                      Expanded(child: labelRow),
+                      const SizedBox(width: Spacing.md),
+                      Text(value, style: tt.label),
+                    ],
+                  ),
+          );
+        },
+      ),
     );
   }
 }
@@ -546,51 +544,52 @@ class _XpPayoffLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
     final reduce = SoriMotion.reduceMotion(context);
     final dur = reduce ? Duration.zero : const Duration(milliseconds: 900);
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Icon(
-                Icons.workspace_premium_outlined,
-                size: 18,
-                color: s.textMuted,
-              ),
-              const SizedBox(width: Spacing.sm),
-              Expanded(
-                child: Text(
-                  label,
-                  style: TextStyle(fontSize: 13, color: s.textMuted),
+    return Semantics(
+      key: const Key('vocab-result-xp'),
+      container: true,
+      label: '$label: +$xp XP',
+      excludeSemantics: true,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: Spacing.xs),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Icon(
+                  Icons.workspace_premium_outlined,
+                  size: 18,
+                  color: s.textMuted,
                 ),
-              ),
-              TweenAnimationBuilder<double>(
-                tween: Tween<double>(begin: reduce ? 1.0 : 0.0, end: 1.0),
-                duration: dur,
-                curve: Curves.easeOutCubic,
-                builder: (context, t, _) => Text(
-                  '+${(xp * t).round()} XP',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w800,
-                    color: SoriColors.gold,
+                const SizedBox(width: Spacing.sm),
+                Expanded(child: Text(label, style: tt.caption)),
+                TweenAnimationBuilder<double>(
+                  tween: Tween<double>(begin: reduce ? 1.0 : 0.0, end: 1.0),
+                  duration: dur,
+                  curve: Curves.easeOutCubic,
+                  builder: (context, t, _) => Text(
+                    '+${(xp * t).round()} XP',
+                    style: tt.h3.copyWith(color: SoriColors.gold),
                   ),
                 ),
+              ],
+            ),
+            const SizedBox(height: Spacing.sm),
+            TweenAnimationBuilder<double>(
+              tween: Tween<double>(begin: reduce ? 1.0 : 0.0, end: 1.0),
+              duration: dur,
+              curve: Curves.easeOutCubic,
+              builder: (context, t, _) => SoriProgressBar(
+                value: t,
+                thickness: 8,
+                color: SoriColors.gold,
               ),
-            ],
-          ),
-          const SizedBox(height: 6),
-          TweenAnimationBuilder<double>(
-            tween: Tween<double>(begin: reduce ? 1.0 : 0.0, end: 1.0),
-            duration: dur,
-            curve: Curves.easeOutCubic,
-            builder: (context, t, _) =>
-                SoriProgressBar(value: t, thickness: 8, color: SoriColors.gold),
-          ),
-        ],
+            ),
+          ],
+        ),
       ),
     );
   }

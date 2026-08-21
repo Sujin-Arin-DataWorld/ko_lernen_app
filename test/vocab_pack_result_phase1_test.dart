@@ -6,8 +6,10 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_result_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -68,6 +70,82 @@ void main() {
       expect(shouldOfferHardWordPractice(['missed-word']), isTrue);
       expect(shouldOfferHardWordPractice(['other-word']), isFalse);
       expect(shouldOfferHardWordPractice(const []), isFalse);
+    },
+  );
+
+  testWidgets(
+    'result hierarchy uses Sori type tokens and stable metric semantics',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      final t = await AppL10n.delegate.load(const Locale('en'));
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          locale: const Locale('en'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: const VocabPackResultScreen(
+            packId: 'a1_greetings_1',
+            bossAccuracy: 1,
+            bossCorrect: 2,
+            bossTotal: 2,
+            quizCorrect: 3,
+            quizTotal: 3,
+            justCleared: true,
+            nextUnlockedPackId: null,
+          ),
+        ),
+      );
+      await tester.pump(const Duration(milliseconds: 1100));
+
+      final context = tester.element(find.byType(VocabPackResultScreen));
+      final tt = SoriTextTheme.of(context);
+      final packTitle = VocabPackService.displayLabel(
+        'a1_greetings_1',
+        lang: 'en',
+      );
+      expect(tester.widget<Text>(find.text(packTitle)).style, tt.h3);
+      expect(
+        tester.widget<Text>(find.text(t.vocabPackResultCleared)).style,
+        tt.h2,
+      );
+      expect(
+        tester.widget<Text>(find.text(t.vocabPackResultBossLabel)).style,
+        tt.caption,
+      );
+      expect(tester.widget<Text>(find.text('2 / 2 (100%)')).style, tt.label);
+      expect(
+        tester.widget<Text>(find.text('+45 XP')).style,
+        tt.h3.copyWith(color: SoriColors.gold),
+      );
+      expect(
+        tester
+            .widget<Semantics>(find.byKey(const Key('vocab-result-pack-title')))
+            .properties
+            .header,
+        isTrue,
+      );
+      expect(
+        tester
+            .widget<Semantics>(
+              find.byKey(
+                ValueKey<String>(
+                  'vocab-result-metric-${t.vocabPackResultBossLabel}',
+                ),
+              ),
+            )
+            .properties
+            .label,
+        '${t.vocabPackResultBossLabel}: 2 / 2 (100%)',
+      );
+      expect(
+        tester
+            .widget<Semantics>(find.byKey(const Key('vocab-result-xp')))
+            .properties
+            .label,
+        '${t.vocabPackResultXpLabel}: +45 XP',
+      );
+      semantics.dispose();
     },
   );
 

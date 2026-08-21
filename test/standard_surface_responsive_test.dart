@@ -228,52 +228,58 @@ void main() {
     expect(find.text('Galerie'), findsOneWidget);
   });
 
-  testWidgets('vocab result stacks stats and keeps the final CTA reachable', (
-    tester,
-  ) async {
-    await _configurePhone(tester);
-    await tester.pumpWidget(
-      _host(
-        const VocabPackResultScreen(
-          packId: 'a1_greetings_1',
-          bossAccuracy: 1 / 3,
-          bossCorrect: 1,
-          bossTotal: 3,
-          quizCorrect: 2,
-          quizTotal: 4,
-          justCleared: false,
-          nextUnlockedPackId: null,
-        ),
-      ),
-    );
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 1100));
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    testWidgets(
+      '${locale.languageCode} vocab result stacks stats and keeps the final CTA reachable',
+      (tester) async {
+        await _configurePhone(tester);
+        await tester.pumpWidget(
+          _host(
+            const VocabPackResultScreen(
+              packId: 'a1_greetings_1',
+              bossAccuracy: 1 / 3,
+              bossCorrect: 1,
+              bossTotal: 3,
+              quizCorrect: 2,
+              quizTotal: 4,
+              justCleared: false,
+              nextUnlockedPackId: null,
+            ),
+            locale: locale,
+          ),
+        );
+        await tester.pump();
+        await tester.pump(const Duration(milliseconds: 1100));
 
-    final t = AppL10n.of(tester.element(find.byType(VocabPackResultScreen)));
-    final bossLabel = find.text(t.vocabPackResultBossLabel);
-    final bossValue = find.text('1 / 3 (33%)');
-    expect(find.byType(SoriStudyFrame), findsOneWidget);
-    expect(bossLabel, findsOneWidget);
-    expect(bossValue, findsOneWidget);
-    expect(
-      tester.getRect(bossValue).top,
-      greaterThanOrEqualTo(tester.getRect(bossLabel).bottom),
-    );
+        final t = AppL10n.of(
+          tester.element(find.byType(VocabPackResultScreen)),
+        );
+        final bossLabel = find.text(t.vocabPackResultBossLabel);
+        final bossValue = find.text('1 / 3 (33%)');
+        expect(find.byType(SoriStudyFrame), findsOneWidget);
+        expect(bossLabel, findsOneWidget);
+        expect(bossValue, findsOneWidget);
+        expect(
+          tester.getRect(bossValue).top,
+          greaterThanOrEqualTo(tester.getRect(bossLabel).bottom),
+        );
 
-    final finalCta = find.text(t.vocabPackResultBackToGrid);
-    await tester.scrollUntilVisible(
-      finalCta,
-      240,
-      scrollable: find.byType(Scrollable).first,
+        final finalCta = find.text(t.vocabPackResultBackToGrid);
+        await tester.scrollUntilVisible(
+          finalCta,
+          240,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.pump();
+        expect(finalCta, findsOneWidget);
+        expect(
+          tester.renderObject<RenderParagraph>(finalCta).didExceedMaxLines,
+          isFalse,
+        );
+        expect(tester.takeException(), isNull);
+      },
     );
-    await tester.pump();
-    expect(finalCta, findsOneWidget);
-    expect(
-      tester.renderObject<RenderParagraph>(finalCta).didExceedMaxLines,
-      isFalse,
-    );
-    expect(tester.takeException(), isNull);
-  });
+  }
 
   testWidgets('scenario titles and CTA stack without truncation at 200%', (
     tester,
