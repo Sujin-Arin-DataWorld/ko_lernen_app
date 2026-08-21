@@ -14,6 +14,8 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_recall_evidence.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
+import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 
 Vocab _word(int index, {bool boss = false}) => Vocab(
   id: 'recall-$index',
@@ -87,6 +89,77 @@ void main() {
       isNot(source.map((word) => word.id).toList()),
     );
   });
+
+  testWidgets(
+    'recall prompt and completion use the shared study frame and input',
+    (tester) async {
+      final pack = VocabPack(
+        id: 'a1_recall_1',
+        level: 'A1',
+        words: [_word(1, boss: true)],
+      );
+      await _pumpRecall(
+        tester,
+        pack,
+        recallSession: PackRecallSession.forPack(packId: pack.id),
+      );
+
+      expect(find.byType(SoriStudyFrame), findsOneWidget);
+      expect(find.byType(SoriTextField), findsOneWidget);
+      expect(find.byKey(const Key('vocab-recall-input')), findsOneWidget);
+
+      await _submitRecall(tester, '하나');
+      final next = find.byKey(const Key('vocab-recall-next'));
+      await tester.ensureVisible(next);
+      await tester.tap(next);
+      await tester.pump();
+
+      expect(find.byType(SoriStudyFrame), findsOneWidget);
+      expect(
+        find.byKey(const Key('vocab-recall-back-to-result')),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  for (final locale in const [Locale('de'), Locale('en')]) {
+    testWidgets(
+      '${locale.languageCode} recall remains reachable at 320×640 and 200%',
+      (tester) async {
+        addTearDown(tester.view.resetPhysicalSize);
+        addTearDown(tester.view.resetDevicePixelRatio);
+        tester.view.devicePixelRatio = 1;
+        tester.view.physicalSize = const Size(320, 640);
+        final pack = VocabPack(
+          id: 'a1_recall_1',
+          level: 'A1',
+          words: [_word(1, boss: true)],
+        );
+
+        await _pumpRecall(
+          tester,
+          pack,
+          recallSession: PackRecallSession.forPack(packId: pack.id),
+          locale: locale,
+          textScale: 2,
+        );
+
+        expect(find.byType(SoriStudyFrame), findsOneWidget);
+        expect(find.byType(SoriTextField), findsOneWidget);
+        await _submitRecall(tester, '하나');
+        final next = find.byKey(const Key('vocab-recall-next'));
+        await tester.ensureVisible(next);
+        await tester.tap(next);
+        await tester.pump();
+        final back = find.byKey(const Key('vocab-recall-back-to-result'));
+        await tester.ensureVisible(back);
+
+        expect(back, findsOneWidget);
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
 
   testWidgets(
     'pack recall asks only current-pack Boss words and credits a direct success',
@@ -459,14 +532,23 @@ Future<void> _pumpRecall(
   VocabPack pack, {
   PackRecallSession? recallSession,
   Map<String, WidgetBuilder> routes = const <String, WidgetBuilder>{},
+  Locale locale = const Locale('de'),
+  double textScale = 1,
 }) async {
   await tester.pumpWidget(
     MaterialApp(
       theme: AppTheme.light,
-      locale: const Locale('de'),
+      locale: locale,
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       routes: routes,
+      builder: (context, child) {
+        final media = MediaQuery.of(context);
+        return MediaQuery(
+          data: media.copyWith(textScaler: TextScaler.linear(textScale)),
+          child: child!,
+        );
+      },
       home: VocabPackRecallScreen(
         key: UniqueKey(),
         packId: pack.id,

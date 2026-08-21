@@ -155,10 +155,11 @@ void main() {
   });
 
   test('화면의 원시 TextField 는 더 늘지 않는다', () {
+    // 2026-08-21 Phase 3A 단어 회상 입력을 SoriTextField 로 수렴: 23→22.
     _expectAtMost(
       sources.where((s) => s.path.startsWith('lib/screens/')).toList(),
       RegExp(r'(^|[^A-Za-z_$.])TextField\('),
-      23,
+      22,
       'lib/screens/ 원시 TextField(',
     );
   });

@@ -17,6 +17,7 @@ void main() {
     await tester.pumpWidget(
       _host(
         SoriTextField(
+          fieldKey: const Key('canonical-input'),
           controller: controller,
           labelText: 'Search',
           hintText: 'Find a learning activity',
@@ -32,7 +33,9 @@ void main() {
     await tester.testTextInput.receiveAction(TextInputAction.search);
     await tester.pump();
 
-    final field = tester.widget<TextField>(find.byType(TextField));
+    final field = tester.widget<TextField>(
+      find.byKey(const Key('canonical-input')),
+    );
     expect(controller.text, 'Wortkette');
     expect(changes, contains('Wortkette'));
     expect(submissions, ['Wortkette']);
