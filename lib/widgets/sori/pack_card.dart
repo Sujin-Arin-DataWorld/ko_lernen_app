@@ -101,6 +101,7 @@ class _BottomRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final text = SoriTextTheme.of(context);
     final accent = locked ? s.text.withValues(alpha: 0.4) : SoriColors.info;
     if (locked) {
       return Row(
@@ -111,7 +112,7 @@ class _BottomRow extends StatelessWidget {
           Flexible(
             child: Text(
               AppL10n.of(context).packLockedHintShort,
-              style: TextStyle(fontSize: 11, color: accent),
+              style: text.caption.copyWith(color: accent),
             ),
           ),
         ],
