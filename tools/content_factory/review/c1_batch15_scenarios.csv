@@ -5,7 +5,7 @@ c1_conflict_interest_sponsored_talk,C1,협찬 강연은 어디까지 괜찮을�
 c1_conflict_interest_dual_role,C1,두 역할이 겹칩니다,Zwei Rollen überschneiden sich,Two roles overlap here,rights: original; shelf=c1_conflict_interest; grammar=A/V-는 한편; gap answer=한편,draft,
 c1_policy_pilot_before_rollout,C1,먼저 좁게 해 보는 건 어떻습니까,Sollten wir es nicht erst klein testen,Should we not try it narrowly first,rights: original; shelf=c1_policy; grammar=V-는 마당에; gap answer=마당에,draft,
 c1_policy_who_bears_cost,C1,부담은 누가 지게 됩니까,Wer trägt am Ende die Last,Who ends up carrying the burden,rights: original; shelf=c1_policy; grammar=N을 감안하면; gap answer=감안하면,draft,
-c1_policy_sunset_clause,C1,끝나는 날짜를 넣읍시다,Setzen wir ein Enddatum hinein,Let us put an end date in,rights: original; shelf=c1_policy; grammar=V-지 않는 한; gap answer=않는 한,draft,
+c1_policy_sunset_clause,C1,끝나는 날짜를 넣읍시다,Legen wir ein Enddatum fest,Let's set an end date,rights: original; shelf=c1_policy; grammar=V-지 않는 한; gap answer=않는 한,draft,
 c1_policy_exemption_edge,C1,예외가 넓게 읽힐 수 있습니다,Die Ausnahme lässt sich weit auslegen,The exemption can be read broadly,rights: original; shelf=c1_policy; grammar=V-(으)ㄹ 여지가 있다; gap answer=여지가,draft,
 c1_clinical_informed_consent,C1,서명 전에 확인하고 싶습니다,Vor der Unterschrift möchte ich etwas klären,I want to check before I sign,rights: original; shelf=c1_clinical; grammar=V-는 한이 있어도; gap answer=한이 있어도,draft,
 c1_clinical_second_opinion,C1,다른 의견도 들어 보고 싶습니다,Ich möchte eine zweite Meinung,I would like a second opinion,rights: original; shelf=c1_clinical; grammar=V-(으)ㄹ 여지가 있다; gap answer=여지가,draft,

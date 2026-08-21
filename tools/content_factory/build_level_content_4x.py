@@ -12,6 +12,7 @@ Batch 07/08 4x filenames stay on disk as superseded history only.
 from __future__ import annotations
 
 import csv
+import copy
 import json
 import re
 import sys
@@ -97,12 +98,45 @@ SCENARIO_UNITS = {
 }
 
 SCENARIO_GRAMMAR = {
-    "a1": ("grammar_a1_polite_request", "V-아/어 주세요", "Bitte-Form", "please do"),
-    "a2": ("grammar_a2_polite_proposal", "V-(으)ㄹ까요", "Vorschlag", "shall we"),
-    "b1": ("grammar_b1_soft_request", "V-아/어 주시면 좋겠다", "sanfte Bitte", "I would appreciate"),
-    "b2": ("grammar_b2_formal_written_request", "V-아/어 주시기 바랍니다", "formelle Bitte", "please kindly"),
-    "c1": ("grammar_c1_taking_into_account", "N을/를 고려하여", "unter Berücksichtigung", "taking into account"),
-    "c2": ("grammar_c2_even_assuming", "N이라고 가정하더라도", "selbst angenommen", "even assuming"),
+    "a1": ("grammar_a1_polite_request", "V-아/어 주세요", "höfliche Bitte", "polite request"),
+    "a2": ("grammar_a2_polite_proposal", "V-(으)ㄹ까요", "Vorschlag", "proposal"),
+    "b1": ("grammar_b1_soft_request", "V-아/어 주시면 좋겠다", "vorsichtige Bitte", "softened request"),
+    "b2": ("grammar_b2_formal_written_request", "V-아/어 주시기 바랍니다", "formelle schriftliche Bitte", "formal written request"),
+    "c1": ("grammar_c1_taking_into_account", "N을/를 고려하여", "unter Berücksichtigung von", "taking ... into account"),
+    "c2": ("grammar_c2_even_assuming", "N이라고 가정하더라도", "selbst unter der Annahme, dass", "even assuming that"),
+}
+
+SCENARIO_GRAMMAR_EXPLANATIONS = {
+    "a1": {
+        "ko": "V-아/어 주세요로 상대에게 어떤 행동을 정중하게 부탁합니다.",
+        "de": "Mit V-아/어 주세요 bittest du eine andere Person höflich, etwas zu tun.",
+        "en": "Use V-아/어 주세요 to politely ask another person to do something.",
+    },
+    "a2": {
+        "ko": "V-(으)ㄹ까요로 함께 할 일을 제안하거나 상대의 뜻을 묻습니다.",
+        "de": "Mit V-(으)ㄹ까요 machst du einen Vorschlag oder fragst, ob ihr etwas gemeinsam tun wollt.",
+        "en": "Use V-(으)ㄹ까요 to make a suggestion or ask whether to do something together.",
+    },
+    "b1": {
+        "ko": "V-아/어 주시면 좋겠다로 바라는 행동을 조심스러운 부탁으로 전합니다.",
+        "de": "Mit V-아/어 주시면 좋겠다 äußerst du einen Wunsch als zurückhaltende Bitte.",
+        "en": "Use V-아/어 주시면 좋겠다 to present a desired action as a softened request.",
+    },
+    "b2": {
+        "ko": "V-아/어 주시기 바랍니다로 안내문이나 공지에서 격식 있게 행동을 요청합니다.",
+        "de": "Mit V-아/어 주시기 바랍니다 formulierst du in Hinweisen oder Mitteilungen eine formelle Bitte.",
+        "en": "Use V-아/어 주시기 바랍니다 for a formal request in notices or written announcements.",
+    },
+    "c1": {
+        "ko": "N을/를 고려하여로 판단이나 결정에 반영할 관점을 밝힙니다.",
+        "de": "Mit N을/를 고려하여 nennst du den Gesichtspunkt, der in eine Beurteilung oder Entscheidung einfließt.",
+        "en": "Use N을/를 고려하여 to name a factor that informs a judgment or decision.",
+    },
+    "c2": {
+        "ko": "N이라고 가정하더라도로 어떤 전제를 인정한 뒤에도 뒤의 판단이 유효함을 나타냅니다.",
+        "de": "Mit N이라고 가정하더라도 räumst du eine Annahme ein und zeigst, dass die folgende Aussage trotzdem gilt.",
+        "en": "Use N이라고 가정하더라도 to grant an assumption while showing that the following claim still holds.",
+    },
 }
 
 RESERVED_SCENARIOS = {
@@ -807,15 +841,58 @@ def _gap_from_line(line_ko: str, vocab: list[str]) -> tuple[str, str, list[str]]
     for word in sorted(vocab, key=len, reverse=True):
         if word and word in line_ko:
             sentence = line_ko.replace(word, "___", 1)
-            distractors = [item for item in ("창문", "우유", "지우개", "가방") if item != word][:3]
+            distractors = [item for item in vocab if item != word][:3]
             return sentence, word, [word, *distractors]
     tokens = re.findall(r"[가-힣]{2,}", line_ko)
     if not tokens:
         raise SystemExit(f"cannot build gap from {line_ko!r}")
     word = tokens[-1]
     sentence = line_ko.replace(word, "___", 1)
-    distractors = [item for item in ("창문", "우유", "지우개", "가방") if item != word][:3]
+    distractors = [item for item in vocab if item != word][:3]
     return sentence, word, [word, *distractors]
+
+
+def _scene_distractors(
+    dialog: list[dict[str, str]],
+    *,
+    language: str,
+    correct: str,
+) -> list[str]:
+    distractors: list[str] = []
+    for index in (0, 3, 5, 7, 4, 6, 1, 2):
+        candidate = dialog[index][language]
+        if candidate == correct or candidate in distractors:
+            continue
+        distractors.append(candidate)
+        if len(distractors) == 3:
+            break
+    if len(distractors) != 3:
+        raise SystemExit(f"not enough scene-specific {language} distractors")
+    return distractors
+
+
+def _scene_distractor_turns(
+    dialog: list[dict[str, str]],
+    *,
+    correct: dict[str, str],
+) -> list[dict[str, str]]:
+    """Keep DE/EN distractors on the same authored dialogue turn."""
+
+    distractors: list[dict[str, str]] = []
+    seen: set[tuple[str, str]] = set()
+    correct_pair = (correct["de"], correct["en"])
+    for index in (0, 3, 5, 7, 4, 6, 1, 2):
+        candidate = dialog[index]
+        pair = (candidate["de"], candidate["en"])
+        if pair == correct_pair or pair in seen:
+            continue
+        seen.add(pair)
+        distractors.append({"de": pair[0], "en": pair[1]})
+        if len(distractors) == 3:
+            break
+    if len(distractors) != 3:
+        raise SystemExit("not enough scene-specific bilingual distractors")
+    return distractors
 
 
 def build_scenario(
@@ -838,6 +915,7 @@ def build_scenario(
         raise SystemExit(f"scenario id reserved: {ident}")
     unit, concepts = SCENARIO_UNITS[level]
     grammar_id, g_ko, g_de, g_en = SCENARIO_GRAMMAR[level]
+    grammar_explanation = SCENARIO_GRAMMAR_EXPLANATIONS[level]
     script = render_scene(SEEDS[ident], ident=ident)
     scene_vocab = script["vocab"] or vocab[:6]
     ask = script["dialog"][2]
@@ -863,11 +941,7 @@ def build_scenario(
         "grammarIds": [grammar_id],
         "grammarBlock": {
             "title": {"ko": g_ko, "de": g_de, "en": g_en},
-            "explanation": {
-                "ko": f"{g_ko} 형태로 상대에게 정중하게 요청하거나 조건을 밝힙니다.",
-                "de": "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
-                "en": "Use this form to ask politely or name a condition.",
-            },
+            "explanation": grammar_explanation,
         },
         "dialog": script["dialog"],
         "quests": [
@@ -879,9 +953,7 @@ def build_scenario(
                     "audioKo": ask["ko"],
                     "options": [
                         {"de": ask["de"], "en": ask["en"]},
-                        {"de": "Alles ist bereits abgeschlossen.", "en": "Everything is already finished."},
-                        {"de": "Der Termin wurde auf nächste Woche verschoben.", "en": "The appointment was moved to next week."},
-                        {"de": "Es wird keine Nummer vergeben.", "en": "No number will be issued."},
+                        *_scene_distractor_turns(script["dialog"], correct=ask),
                     ],
                     "correctIndex": 0,
                 },
@@ -895,9 +967,14 @@ def build_scenario(
                     "promptEn": need["en"],
                     "options": [
                         {"ko": need["ko"]},
-                        {"ko": "내일로 미뤄도 괜찮아요."},
-                        {"ko": "이 일은 이미 끝났습니다."},
-                        {"ko": "번호를 바꿔 주세요."},
+                        *[
+                            {"ko": text}
+                            for text in _scene_distractors(
+                                script["dialog"],
+                                language="ko",
+                                correct=need["ko"],
+                            )
+                        ],
                     ],
                     "correctIndex": 0,
                 },
@@ -912,7 +989,7 @@ def build_scenario(
                     "correctIndex": 0,
                 },
             },
-            *a1_production_quests(ident, level, script, concepts),
+            *a1_production_quests(ident, level, script, concepts, scene_vocab),
         ],
     }
 
@@ -922,6 +999,7 @@ def a1_production_quests(
     level: str,
     script: dict[str, Any],
     concepts: list[str],
+    scene_vocab: list[str],
 ) -> list[dict[str, Any]]:
     """A1 live ratchet: every A1 scenario needs a correction + output quest."""
     if level != "a1":
@@ -936,7 +1014,9 @@ def a1_production_quests(
     suffix = ask["ko"][split_at + len(particle):]
     options = [particle, *[item for item in ("을", "를", "에", "이", "는", "도") if item != particle]]
     satz = wait["ko"]
-    distractors = [word for word in ("우유", "지우개", "창문") if word not in satz]
+    distractors = [word for word in scene_vocab if word not in satz][:3]
+    if len(distractors) != 3:
+        raise SystemExit(f"{ident}: not enough scene-specific Satz distractors")
     explanations = {
         "을": (
             "을 steht nach einem Objekt mit Endkonsonant.",
@@ -984,6 +1064,48 @@ def a1_production_quests(
     ]
 
 
+def _merge_humanized_scenario_copy(
+    current: dict[str, Any], rewritten: dict[str, Any]
+) -> dict[str, Any]:
+    if current.get("id") != rewritten.get("id"):
+        raise ValueError("scenario copy merge requires the same stable ID")
+    promoted = copy.deepcopy(current)
+    for field in ("title", "explanation"):
+        promoted["grammarBlock"][field] = copy.deepcopy(
+            rewritten["grammarBlock"][field]
+        )
+
+    current_quests = promoted["quests"]
+    rewritten_quests = rewritten["quests"]
+    if [row.get("id") for row in current_quests] != [
+        row.get("id") for row in rewritten_quests
+    ]:
+        raise ValueError(f"{current['id']}: quest identity drift")
+    for existing, replacement in zip(current_quests, rewritten_quests):
+        if existing.get("type") != replacement.get("type"):
+            raise ValueError(f"{existing['id']}: quest type drift")
+        existing_data = existing["data"]
+        replacement_data = replacement["data"]
+        if "options" in replacement_data:
+            if existing_data.get("correctIndex") != replacement_data.get(
+                "correctIndex"
+            ):
+                raise ValueError(f"{existing['id']}: correct answer drift")
+            options = copy.deepcopy(existing_data["options"])
+            if len(options) != len(replacement_data["options"]):
+                raise ValueError(f"{existing['id']}: option count drift")
+            correct_index = existing_data["correctIndex"]
+            for index, option in enumerate(replacement_data["options"]):
+                if index != correct_index:
+                    options[index] = copy.deepcopy(option)
+            existing_data["options"] = options
+        if "distractors" in replacement_data:
+            existing_data["distractors"] = copy.deepcopy(
+                replacement_data["distractors"]
+            )
+    return promoted
+
+
 def rewrite_batch_10_live_copy() -> None:
     """Replace Batch 10 dialogs in draft + live by ID. Manifest stays merged."""
     catalog = scenario_catalog()
@@ -998,12 +1120,18 @@ def rewrite_batch_10_live_copy() -> None:
     by_id = {row["id"]: row for row in scenarios}
     draft_path = DRAFTS / "c1_batch10_scenarios_a1_c2.json"
     draft = json.loads(draft_path.read_text(encoding="utf-8"))
-    draft["scenarios"] = [by_id[row["id"]] for row in draft["scenarios"]]
+    draft["scenarios"] = [
+        _merge_humanized_scenario_copy(row, by_id[row["id"]])
+        for row in draft["scenarios"]
+    ]
     _write_json(draft_path, draft)
     live = scenario_store.load_root(DATA)
     live_index = {row["id"]: index for index, row in enumerate(live["scenarios"])}
     for row in scenarios:
-        live["scenarios"][live_index[row["id"]]] = row
+        current = live["scenarios"][live_index[row["id"]]]
+        live["scenarios"][live_index[row["id"]]] = (
+            _merge_humanized_scenario_copy(current, row)
+        )
     scenario_store.write_shards(live["scenarios"], DATA)
     quest_count = sum(len(row["quests"]) for row in scenarios)
     manifest_path = DRAFTS / "batch_10_4x_manifest.json"

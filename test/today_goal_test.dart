@@ -140,6 +140,24 @@ void main() {
         );
       },
     );
+
+    test(
+      'an exact-level deck can exclude an overdue lower-level review',
+      () async {
+        await Storage.setSrsRawJson(
+          '{"안녕하세요":{"e":2.5,"i":1,"n":"2020-01-01","r":1}}',
+        );
+
+        expect(
+          Storage.todayGoalIdsForNewPool(
+            allIds: ['안녕하세요', '환원하다'],
+            newCandidateIds: ['환원하다'],
+            reviewCandidateIds: ['환원하다'],
+          ),
+          ['환원하다'],
+        );
+      },
+    );
   });
 
   group('dueIds backward compat (Phase 1 SRS-UX-Patch did not break it)', () {

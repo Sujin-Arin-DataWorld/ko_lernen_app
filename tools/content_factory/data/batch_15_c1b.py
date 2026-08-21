@@ -440,8 +440,8 @@ SCENES: list[dict[str, Any]] = [
                   "de": "Auch anonyme Begutachtung verdeckt nicht alles",
                   "en": "Blind review does not hide everything"},
         "intro": {"ko": "익명이라 공정하다고 합니다. 무엇이 여전히 드러나는지 짚습니다.",
-                  "de": "Anonym gilt als fair. Du benennst, was trotzdem sichtbar bleibt.",
-                  "en": "Blind is called fair. You name what still shows through."},
+                  "de": "Anonymität gilt als fair. Du benennst, was trotzdem Rückschlüsse zulässt.",
+                  "en": "Blind review is often seen as fair. You identify what can still make someone identifiable."},
         "grammarBlock": {
             "title": {"ko": "V-(으)ㄹ 여지가 있다", "de": "V-(으)ㄹ 여지가 있다: Spielraum",
                       "en": "V-(으)ㄹ 여지가 있다: room for"},

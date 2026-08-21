@@ -199,6 +199,7 @@ class ContentValidator:
         self.validate_cloze()
         self.validate_satz(vocab)
         self.validate_smalltalk()
+        self.validate_humanization_ledger()
         self.validate_silben()
         self.validate_kkeunmari()
         self.validate_grammar_patterns()
@@ -206,6 +207,68 @@ class ContentValidator:
         self.validate_curriculum_graph()
         self.validate_audit_manifest(vocab, grammar, scenarios)
         return self.issues
+
+    def validate_humanization_ledger(self) -> None:
+        source = "content_humanization_20260821.json"
+        ledger_path = (
+            self.root
+            / "tools"
+            / "content_factory"
+            / "review"
+            / "content_humanization_20260821.json"
+        )
+        if not ledger_path.exists():
+            if self.root.resolve() == ROOT.resolve():
+                self.issue(source, "required humanization ledger is missing")
+            return
+        try:
+            ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as error:
+            self.issue(source, f"cannot load humanization ledger: {error}")
+            return
+
+        smalltalk = self.load_json("smalltalk.json")
+        if not isinstance(smalltalk, dict) or not isinstance(smalltalk.get("phrases"), list):
+            return
+        by_id = {
+            row.get("id"): row
+            for row in smalltalk["phrases"]
+            if isinstance(row, dict) and isinstance(row.get("id"), str)
+        }
+        levels: set[str] = set()
+        changes = ledger.get("changes")
+        if not isinstance(changes, list):
+            self.issue(source, "changes must be a list")
+            return
+        for index, change in enumerate(changes, start=1):
+            if not isinstance(change, dict):
+                self.issue(source, f"change {index} must be an object")
+                continue
+            record_id = change.get("id")
+            field_path = change.get("field")
+            level = change.get("level")
+            after = change.get("after")
+            if not all(isinstance(value, str) and value for value in (record_id, field_path, level, after)):
+                self.issue(source, f"change {index} has an empty required field")
+                continue
+            row = by_id.get(record_id)
+            if row is None:
+                self.issue(source, f"change {index} references missing id {record_id!r}")
+                continue
+            levels.add(level)
+            if row.get("level") != level:
+                self.issue(source, f"{record_id} level drift: {row.get('level')!r} != {level!r}")
+            current: Any = row
+            for part in field_path.split("."):
+                if not isinstance(current, dict) or part not in current:
+                    self.issue(source, f"{record_id}.{field_path} is missing")
+                    current = None
+                    break
+                current = current[part]
+            if current is not None and current != after:
+                self.issue(source, f"{record_id}.{field_path} does not match approved overlay")
+        if levels != LOWER_LEVELS:
+            self.issue(source, f"ledger must cover A1-C2, got {sorted(levels)!r}")
 
     def validate_vocab(self) -> dict[str, str]:
         name = "korean_vocab.csv"

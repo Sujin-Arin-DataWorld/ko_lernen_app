@@ -1130,7 +1130,8 @@ class Storage {
   }
 
   /// `reward_unused`를 하루 한 번만 보내기 위한 dedup 플래그(로컬 날짜, YYYY-MM-DD).
-  static String get rewardUnusedLoggedDate => _s('kl_reward_unused_logged_date');
+  static String get rewardUnusedLoggedDate =>
+      _s('kl_reward_unused_logged_date');
   static Future<void> setRewardUnusedLoggedDate(String isoDate) =>
       _ss('kl_reward_unused_logged_date', isoDate);
 
@@ -1815,18 +1816,20 @@ class Storage {
   /// Daily goal with separate pools for new and already-reviewed cards.
   ///
   /// [newCandidateIds] is normally the learner's exact CEFR level (plus
-  /// learner-owned custom words), while [allIds] remains the full reviewable
-  /// deck. This prevents a fresh C1/C2 learner from receiving the first A1
-  /// CSV rows as "today's new words" without discarding genuinely due
-  /// lower-level SRS reviews.
+  /// learner-owned custom words). [reviewCandidateIds] optionally narrows
+  /// which scheduled cards may enter the same daily deck. This lets an
+  /// exact-level learning surface keep both its new and review cards at the
+  /// learner's current CEFR level instead of reintroducing an A1 starter such
+  /// as 안녕하세요 into a C1/C2 "today" deck.
   static List<String> todayGoalIdsForNewPool({
     required Iterable<String> allIds,
     required Iterable<String> newCandidateIds,
+    Iterable<String>? reviewCandidateIds,
     int newMax = 10,
     int reviewMax = 15,
   }) {
     final fresh = todayNewIds(newCandidateIds, max: newMax);
-    final review = todayReviewIds(allIds, max: reviewMax);
+    final review = todayReviewIds(reviewCandidateIds ?? allIds, max: reviewMax);
     final seen = <String>{};
     final out = <String>[];
     for (final id in [...fresh, ...review]) {

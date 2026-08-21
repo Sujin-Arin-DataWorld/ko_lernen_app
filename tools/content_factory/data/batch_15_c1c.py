@@ -843,9 +843,9 @@ SCENES: list[dict[str, Any]] = [
         "title": {"ko": "출처가 빠졌습니다",
                   "de": "Die Quelle fehlt",
                   "en": "The source line is missing"},
-        "intro": {"ko": "쓰는 것 자체는 반갑습니다. 다만 어디서 왔는지가 지워졌습니다.",
-                  "de": "Die Nutzung selbst freut dich. Nur die Herkunft wurde getilgt.",
-                  "en": "You are glad it is being used. It is the origin that got erased."},
+        "intro": {"ko": "자료를 활용하는 것 자체는 반갑습니다. 다만 그 출처가 지워졌습니다.",
+                  "de": "Dass das Material genutzt wird, ist an sich erfreulich. Nur der Hinweis auf seine Herkunft wurde entfernt.",
+                  "en": "You're glad the material is being used. What was erased was the indication of where it came from."},
         "grammarBlock": {
             "title": {"ko": "V-지 않는 한", "de": "V-지 않는 한: solange nicht",
                       "en": "V-지 않는 한: unless"},

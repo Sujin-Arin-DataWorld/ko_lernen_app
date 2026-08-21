@@ -72,6 +72,22 @@ void main() {
       expect(selection.newCount, 2);
       expect(selection.reviewCount, 0);
     });
+
+    test('C1 today deck excludes an overdue A1 review card', () async {
+      await Storage.setSrsRawJson(
+        '{"안녕하세요":{"e":2.5,"i":1,"n":"2020-01-01","r":1}}',
+      );
+
+      final selection = ReviewDeckService.todaySelectionForLevel([
+        _v('안녕하세요', 'A1'),
+        _v('환원하다', 'C1'),
+        _v('담론', 'C1'),
+      ], levelCode: 'c1');
+
+      expect(selection.words.map((word) => word.korean), ['환원하다', '담론']);
+      expect(selection.newCount, 2);
+      expect(selection.reviewCount, 0);
+    });
   });
 
   test(

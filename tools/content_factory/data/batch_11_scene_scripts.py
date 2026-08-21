@@ -4160,9 +4160,9 @@ SCENES: list[dict[str, Any]] = [
             "en": "Is fan translation volunteering",
         },
         "intro": {
-            "ko": "팬이 만든 번역과 자막을 공식 계정이 씁니다. 지속 가능한 범위와 사례를 논의합니다.",
-            "de": "Der offizielle Account nutzt Übersetzungen und Untertitel von Fans. Ihr verhandelt Umfang und Vergütung.",
-            "en": "The official account uses fan-made translations and subtitles. You negotiate scope and payment.",
+            "ko": "팬이 만든 번역과 자막을 공식 계정이 씁니다. 지속 가능한 범위와 보상 방식을 논의합니다.",
+            "de": "Der offizielle Account nutzt Übersetzungen und Untertitel von Fans. Ihr besprecht einen nachhaltigen Rahmen: Umfang und Vergütung.",
+            "en": "The official account uses fan-made translations and subtitles. You discuss a sustainable arrangement: scope and compensation.",
         },
         "grammarBlock": {
             "title": {"ko": "V-는 마당에", "de": "V-는 마당에: da nun einmal",

@@ -86,6 +86,7 @@ class PersonalizedLessonService {
     final todayIds = Storage.todayGoalIdsForNewPool(
       allIds: eligible.map((word) => word.korean),
       newCandidateIds: newCandidates.map((word) => word.korean),
+      reviewCandidateIds: newCandidates.map((word) => word.korean),
     ).toSet();
     final pool = exact.isEmpty
         ? eligible

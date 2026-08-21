@@ -1,5 +1,25 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-21 (Codex) — A1-C2 콘텐츠 문구 정합화와 exact-level 선택
+
+**무엇을 왜.** 사용자가 C 레벨 오늘의 단어에 `안녕하세요`가 섞이고 시나리오·
+Smalltalk 게임 문구가 비어 있거나 기계적으로 보인다고 지적했다. 22개 런타임
+데이터 파일의 73,880개 텍스트 leaf를 감사하고, 진단된 문구만 PIVOT 기준으로
+정합화했다.
+
+**무엇을.** Batch 10 시나리오 174개의 레벨별 문법 설명과 장면별 오답을 고쳤고,
+Smalltalk 60개 레코드의 DE/EN 104개 필드를 append-only overlay로 갱신했다.
+A1-B2 can-do 의미 경로는 유지하면서 42개 copy fingerprint에 원어민 검수 gate를
+분리했다. 오늘·복습·개인화 어휘와 daily cloze는 선택 레벨을 정확히 지킨다.
+재생성기가 127개 시나리오의 unit/concept를 덮어쓰던 회귀도 막았다.
+
+**검증.** `validate_content`·22-surface audit·Beyond Humanizer 검사 통과.
+집중 Flutter 100개와 라우팅/대시/fingerprint 13개 통과, 전체 analyze 문제 0.
+전체 content-factory는 199개 중 기존 부채 3 failures / 20 errors로 baseline
+4 / 20보다 실패 하나가 줄었다. TTS는 dry-run만 실행했고 합성·write·upload는 0.
+
+**커밋해시.** 이 로그와 같은 작업 커밋.
+
 ### 2026-08-19 (Cursor) — 번역 스택 main CI 초록 + Play internal
 
 **무엇을 왜.** Jin이 자며 빌드 에러를 이 세션이 끝낼 것을 못 박았다.

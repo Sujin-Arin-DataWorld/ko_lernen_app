@@ -265,7 +265,7 @@
       "level": "a2",
       "kind": "question",
       "ko": "주말에 날씨 좋을까요?",
-      "de": "Ob das Wetter am Wochenende gut wird?",
+      "de": "Wird das Wetter am Wochenende wohl schön?",
       "en": "Will the weather be nice this weekend?",
       "reply": {
         "ko": "네, 맑을 것 같아요.",
@@ -394,7 +394,7 @@
       "en": "How was your day today?",
       "reply": {
         "ko": "바빴지만 괜찮았어요.",
-        "de": "Anstrengend, aber okay.",
+        "de": "Es war viel los, aber insgesamt okay.",
         "en": "Busy, but it was okay."
       },
       "relationshipContext": "peer",
@@ -766,7 +766,7 @@
       "level": "a1",
       "kind": "reaction",
       "ko": "그 드라마 재미있어요.",
-      "de": "Die Serie ist gut.",
+      "de": "Die Serie macht echt Spaß.",
       "en": "That drama is fun.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -959,7 +959,7 @@
       "level": "b2",
       "kind": "opener",
       "ko": "일할 때 음악을 들으면 집중이 더 잘되는 편이에요.",
-      "de": "Mit Musik beim Arbeiten kann ich mich eher besser konzentrieren.",
+      "de": "Mit Musik kann ich mich bei der Arbeit besser konzentrieren.",
       "en": "I tend to focus better when I listen to music while working.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -1615,7 +1615,7 @@
       "level": "b2",
       "kind": "opener",
       "ko": "미세먼지가 심한 날엔 마스크를 챙기게 되더라고요.",
-      "de": "An Tagen mit viel Feinstaub nehme ich am Ende immer eine Maske mit.",
+      "de": "An Tagen mit viel Feinstaub nehme ich immer eine Maske mit.",
       "en": "On heavy fine-dust days I always end up grabbing a mask.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -1783,8 +1783,8 @@
       },
       "reply": {
         "ko": "좋아. 전시회 보러 가고 싶어.",
-        "de": "Ja. Ich hätte Lust auf eine Ausstellung.",
-        "en": "Yeah. I'd like to go to an exhibition."
+        "de": "Ich hätte Lust auf eine Ausstellung.",
+        "en": "I'd like to go to an exhibition."
       }
     },
     {
@@ -1869,7 +1869,7 @@
       "en": "Can you handle spicy food?",
       "reply": {
         "ko": "네, 매운 거 좋아해요.",
-        "de": "Ja, ich mag scharf.",
+        "de": "Ja, ich mag scharfes Essen.",
         "en": "Yes, I love spicy food."
       },
       "relationshipContext": "peer",
@@ -2260,7 +2260,7 @@
       "level": "a1",
       "kind": "opener",
       "ko": "저 요즘 그림 그려요.",
-      "de": "Ich male.",
+      "de": "In letzter Zeit zeichne ich viel.",
       "en": "I've been drawing lately.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -2337,7 +2337,7 @@
       "level": "b2",
       "kind": "opener",
       "ko": "바쁘다는 핑계로 취미를 자꾸 미루게 되네요.",
-      "de": "Mit der Ausrede 'keine Zeit' schiebe ich meine Hobbys ständig auf.",
+      "de": "Mit der Ausrede, keine Zeit zu haben, schiebe ich meine Hobbys ständig auf.",
       "en": "I keep putting off my hobbies with the excuse of being busy.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -2596,8 +2596,8 @@
       "en": "Do you have any siblings?",
       "reply": {
         "ko": "네, 동생 한 명 있어요.",
-        "de": "Ja, eins, jünger als ich.",
-        "en": "Yes, one younger sibling."
+        "de": "Ja, ich habe ein jüngeres Geschwisterkind.",
+        "en": "Yes, I have one younger sibling."
       },
       "relationshipContext": "family",
       "safeAlternativeQuestions": [
@@ -2674,8 +2674,8 @@
       "level": "a1",
       "kind": "reaction",
       "ko": "잘 자요, 좋은 꿈 꿔요.",
-      "de": "Schlaf gut.",
-      "en": "Sleep well.",
+      "de": "Schlaf gut und träum was Schönes.",
+      "en": "Sleep well. Sweet dreams.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
@@ -2852,12 +2852,12 @@
       "level": "a2",
       "kind": "question",
       "ko": "콘서트 표 구했어요?",
-      "de": "Hast du Konzertkarten bekommen?",
-      "en": "Did you get concert tickets?",
+      "de": "Hast du eine Konzertkarte bekommen?",
+      "en": "Did you get a concert ticket?",
       "reply": {
         "ko": "네, 겨우 구했어요!",
-        "de": "Ja, gerade so!",
-        "en": "Yes, barely got one!"
+        "de": "Ja, gerade noch!",
+        "en": "Yes, I just managed to get one!"
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -2885,7 +2885,7 @@
       "en": "Which group are you listening to a lot lately?",
       "reply": {
         "ko": "요즘 이 그룹 많이 들어요.",
-        "de": "Gerade viel diese Gruppe.",
+        "de": "Im Moment höre ich diese Gruppe oft.",
         "en": "I'm listening to this group a lot."
       },
       "relationshipContext": "peer",
@@ -2939,7 +2939,7 @@
       "level": "b2",
       "kind": "opener",
       "ko": "컴백 무대 보려고 음악방송까지 챙겨 보게 되더라고요.",
-      "de": "Für die Comeback-Bühne schaue ich sogar die Musikshows.",
+      "de": "Für den Comeback-Auftritt schaue ich sogar Musiksendungen.",
       "en": "I even keep up with the music shows just to catch the comeback stage.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -3320,7 +3320,7 @@
       "reply": {
         "ko": "네, 열심히 준비했어요.",
         "de": "Ja, ich hab fleißig geübt.",
-        "en": "Yes, I prepared hard."
+        "en": "Yes, I practiced a lot."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -3348,7 +3348,7 @@
       "en": "How did you prepare your self-introduction?",
       "reply": {
         "ko": "경험 위주로 준비했어요.",
-        "de": "Hauptsächlich über meine Erfahrung.",
+        "de": "Ich habe mich vor allem auf meine Erfahrung konzentriert.",
         "en": "I focused on my experience."
       },
       "relationshipContext": "peer",
@@ -3478,7 +3478,7 @@
       "en": "What company do you want to work for?",
       "reply": {
         "ko": "IT 회사에 가고 싶어요.",
-        "de": "Zu einer IT-Firma.",
+        "de": "Bei einer IT-Firma.",
         "en": "I'd like to join an IT company."
       },
       "relationshipContext": "peer",
@@ -3807,7 +3807,7 @@
       "level": "b2",
       "kind": "opener",
       "ko": "이사하고 나니까 정리할 게 산더미예요.",
-      "de": "Nach dem Umzug gibt's einen Berg zum Aufräumen.",
+      "de": "Nach dem Umzug gibt es einen Berg von Sachen zu sortieren.",
       "en": "After moving there's a mountain of stuff to organize.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -4201,7 +4201,7 @@
       ],
       "reply": {
         "ko": "편의점에서 하세요.",
-        "de": "Im Spätkauf.",
+        "de": "In einem Convenience-Store.",
         "en": "At the convenience store."
       },
       "followUp": {
@@ -4218,7 +4218,7 @@
       "kind": "question",
       "ko": "좀 빨리 가 주세요.",
       "de": "Bitte fahren Sie etwas schneller.",
-      "en": "Can you go quickly?",
+      "en": "Could you drive a little faster, please?",
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
@@ -4434,7 +4434,7 @@
       "reply": {
         "ko": "이만 원이에요.",
         "de": "Das macht 20000 Won.",
-        "en": "They're 20000 won."
+        "en": "That comes to 20,000 won."
       },
       "followUp": {
         "turnKind": "reaction",
@@ -4589,8 +4589,8 @@
       "level": "a2",
       "kind": "opener",
       "ko": "조금 비싸요. 깎아 주세요.",
-      "de": "Das ist etwas teuer. Geben Sie mir einen Rabatt?",
-      "en": "That's a bit expensive. Please give me a discount.",
+      "de": "Das ist etwas teuer. Können Sie es etwas günstiger machen?",
+      "en": "That's a bit expensive. Could you lower the price a little?",
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
         {
@@ -4777,8 +4777,8 @@
       "level": "a1",
       "kind": "reaction",
       "ko": "지금 안 계신데요.",
-      "de": "Er ist gerade nicht da.",
-      "en": "He's not here right now.",
+      "de": "Die Person ist gerade nicht da.",
+      "en": "They're not here right now.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
@@ -4854,8 +4854,8 @@
       "level": "a2",
       "kind": "question",
       "ko": "현우 씨 좀 부탁합니다.",
-      "de": "Ist Hyunwoo da?",
-      "en": "Is Hyunwoo there?",
+      "de": "Kann ich bitte mit Hyunwoo sprechen?",
+      "en": "May I speak to Hyunwoo, please?",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
@@ -4896,8 +4896,8 @@
       ],
       "reply": {
         "ko": "편의점에서 팔아요.",
-        "de": "Die gibt es im Spätkauf.",
-        "en": "They sell them at convenience stores."
+        "de": "Wählen Sie zuerst die Landesvorwahl.",
+        "en": "Dial the country code first."
       },
       "followUp": {
         "turnKind": "reaction",
@@ -5175,8 +5175,8 @@
       ],
       "reply": {
         "ko": "네 찍습니다. 하나 둘 셋!",
-        "de": "Ja, Achtung. Eins, zwei, drei!",
-        "en": "Okay, one two three!"
+        "de": "Gern. Achtung: eins, zwei, drei!",
+        "en": "Sure. One, two, three!"
       },
       "followUp": {
         "turnKind": "reaction",
@@ -6478,7 +6478,7 @@
       "level": "b2",
       "kind": "opener",
       "ko": "온라인에서는 같은 말도 말투와 어감에 따라 전혀 다르게 받아들여질 수 있어요.",
-      "de": "Online kann derselbe Satz je nach Ton und Klangwirkung völlig unterschiedlich aufgenommen werden.",
+      "de": "Online kann dieselbe Aussage je nach Tonfall und Nuance ganz unterschiedlich ankommen.",
       "en": "Online, the same words can be received very differently depending on tone and connotation.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -7367,7 +7367,7 @@
       "level": "c1",
       "kind": "question",
       "ko": "좋은 취지의 행사가 한 번으로 끝나지 않게 하려면 무엇이 필요할까요?",
-      "de": "Was braucht eine sinnvolle Aktion, damit sie nicht nach einem Termin endet?",
+      "de": "Was braucht eine sinnvolle Aktion, damit es nicht bei einem einmaligen Termin bleibt?",
       "en": "What does a worthwhile initiative need so it does not end after one event?",
       "reply": {
         "ko": "다음 담당자와 점검 날짜를 행사 전에 정해 두어야 해요.",
@@ -7396,8 +7396,8 @@
       "level": "c1",
       "kind": "question",
       "ko": "설치비는 싼데 유지비가 높은 장비를 골라도 될까요?",
-      "de": "Das Gerät ist günstig in der Anschaffung, aber teuer im Betrieb. Sollen wir es wählen?",
-      "en": "The equipment is cheap to install but expensive to maintain. Should we choose it?",
+      "de": "Die Installation ist günstig, die laufenden Kosten sind aber hoch. Sollen wir das Gerät trotzdem wählen?",
+      "en": "Installation is cheap, but the running costs are high. Should we still choose the equipment?",
       "reply": {
         "ko": "사용 기간 전체의 비용과 고장 났을 때의 대안을 같이 비교해야 해요.",
         "de": "Wir sollten die Gesamtkosten über die Nutzungsdauer und die Alternative bei Ausfällen vergleichen.",
@@ -7716,7 +7716,7 @@
       "kind": "question",
       "ko": "어떤 상태를 문제라고 부를 권한은 누구에게 있어야 할까요?",
       "de": "Wer sollte das Recht haben, einen Zustand als Problem zu benennen?",
-      "en": "Who should have the authority to name a condition as a problem?",
+      "en": "Who should have the authority to define a situation as a problem?",
       "reply": {
         "ko": "영향을 받는 사람의 언어와 전문적인 기준이 함께 논의돼야 해요.",
         "de": "Die Sprache der Betroffenen und fachliche Kriterien müssen gemeinsam verhandelt werden.",
@@ -7865,7 +7865,7 @@
       "reply": {
         "ko": "담당자, 처리 기한, 제출할 자료와 결과를 다시 검토하는 기준이 보여야 해요.",
         "de": "Zuständige Stelle, Frist, nötige Unterlagen und Kriterien der erneuten Prüfung müssen klar sein.",
-        "en": "The responsible contact, timeline, required evidence, and review criteria should all be clear."
+        "en": "The responsible body, deadline, required documents, and criteria for review should all be clear."
       },
       "relationshipContext": "service",
       "safeAlternativeQuestions": [
@@ -8074,7 +8074,7 @@
       "kind": "question",
       "ko": "찬성 비율이 높아도 표본이 치우쳤다면 결론을 어디까지 말할 수 있을까요?",
       "de": "Wie weit dürfen wir mit der Schlussfolgerung gehen, wenn die Zustimmung hoch, die Stichprobe aber verzerrt ist?",
-      "en": "How far can we take the conclusion if approval is high but the sample is skewed?",
+      "en": "How far can we take the conclusion if support is high but the sample is skewed?",
       "reply": {
         "ko": "확인된 경향은 말하되 전체 집단의 의견으로 일반화해서는 안 됩니다.",
         "de": "Wir können die beobachtete Tendenz nennen, dürfen sie aber nicht auf die gesamte Bevölkerung verallgemeinern.",
@@ -8503,8 +8503,8 @@
       "en": "What do you prepare the most for Chuseok?",
       "reply": {
         "ko": "송편이랑 전을 제일 많이 해요.",
-        "de": "Vor allem Songpyeon und die Pfannengerichte.",
-        "en": "Mostly songpyeon and the fried dishes.",
+        "de": "Vor allem Songpyeon und Jeon.",
+        "en": "Mostly songpyeon and jeon, the pan-fried dishes.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -8533,8 +8533,8 @@
       "en": "During the ancestral rite I'll stand at the back.",
       "reply": {
         "ko": "그렇게 해요. 보고 따라 하면 돼요.",
-        "de": "Machen Sie das. Schauen Sie zu und machen Sie einfach mit.",
-        "en": "Do that. Just watch and follow along.",
+        "de": "Ja, gern. Schauen Sie erst einmal zu und machen Sie dann mit.",
+        "en": "Of course. Watch first, then follow along.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -8799,7 +8799,7 @@
       "level": "a2",
       "kind": "question",
       "ko": "귀성길에 차가 많이 막혀요?",
-      "de": "Ist auf der Heimfahrt viel Verkehr?",
+      "de": "Ist auf der Fahrt in die Heimat viel Verkehr?",
       "en": "Is the traffic bad heading home for the holiday?",
       "reply": {
         "ko": "새벽에 나가면 좀 나아요.",
@@ -8920,7 +8920,7 @@
       "kind": "question",
       "ko": "손님방에서 자면 될까요?",
       "de": "Kann ich im Gästezimmer schlafen?",
-      "en": "Should I sleep in the guest room?",
+      "en": "Can I sleep in the guest room?",
       "reply": {
         "ko": "네, 이불 새로 깔아 놨어요.",
         "de": "Ja, ich habe frische Bettwäsche hingelegt.",
@@ -8983,8 +8983,8 @@
       "en": "Are you sure you want to pack me this much?",
       "reply": {
         "ko": "가져가서 먹어요. 금방 없어져요.",
-        "de": "Nehmen Sie es mit, das ist schnell weg.",
-        "en": "Take it, it'll go fast.",
+        "de": "Nehmen Sie es mit, das ist schneller aufgegessen, als Sie denken.",
+        "en": "Take it. You'll finish it in no time.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -9073,8 +9073,8 @@
       "en": "I'll call as soon as we get there.",
       "reply": {
         "ko": "그래요. 조심히 가요.",
-        "de": "Gut. Fahren Sie vorsichtig.",
-        "en": "Okay. Travel safe.",
+        "de": "Gut. Kommen Sie sicher an.",
+        "en": "Okay. Have a safe trip.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -9223,8 +9223,8 @@
       "en": "When the work visa comes up, how much should I explain?",
       "reply": {
         "ko": "회사 이름이랑 기간 정도면 충분해요.",
-        "de": "Firmenname und Dauer reichen völlig.",
-        "en": "The company name and how long is plenty.",
+        "de": "Firmenname und Visumsdauer reichen völlig.",
+        "en": "The company name and the visa duration are enough.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -9489,8 +9489,8 @@
       "level": "b1",
       "kind": "opener",
       "ko": "다음 명절엔 제가 먼저 준비할게요.",
-      "de": "Nächstes Fest bereite ich vor.",
-      "en": "Next holiday I'll do the preparing.",
+      "de": "Beim nächsten Fest kümmere ich mich zuerst um die Vorbereitungen.",
+      "en": "Next holiday, I'll take care of the preparations first.",
       "reply": {
         "ko": "그럼 같이 해요.",
         "de": "Dann machen wir es zusammen.",
@@ -9549,8 +9549,8 @@
       "level": "b1",
       "kind": "opener",
       "ko": "못 읽었으면서 읽은 척하는 게 더 어색하더라고요.",
-      "de": "So zu tun, als hätte ich gelesen, ist am Ende unangenehmer.",
-      "en": "Pretending I'd read it turned out to be more awkward.",
+      "de": "So zu tun, als hätte ich es gelesen, war am Ende noch unangenehmer.",
+      "en": "Pretending I'd read it was even more awkward.",
       "reply": {
         "ko": "맞아요. 그냥 늦게 답해도 돼요.",
         "de": "Stimmt. Antworten Sie ruhig später.",
@@ -9939,7 +9939,7 @@
       "level": "b2",
       "kind": "question",
       "ko": "전 부치는 건 왜 늘 같은 사람이 해요?",
-      "de": "Warum macht eigentlich immer dieselbe Person die Pfannengerichte?",
+      "de": "Warum brät eigentlich immer dieselbe Person die Jeon?",
       "en": "Why is it always the same person frying the holiday pancakes?",
       "reply": {
         "ko": "듣고 보니 그러네요. 올해는 나눠 봐요.",
@@ -10119,8 +10119,8 @@
       "level": "c1",
       "kind": "question",
       "ko": "우리 며느리라는 말이 저를 가족으로 넣는 건지 자리에 묶는 건지 모르겠어요.",
-      "de": "Ich bin unsicher, ob das Wort unsere Schwiegertochter mich in die Familie holt oder mir eine Rolle zuweist.",
-      "en": "I can't tell whether calling me our daughter-in-law includes me or assigns me a role.",
+      "de": "Ich bin unsicher, ob die Bezeichnung „unsere Schwiegertochter“ mich in die Familie einbezieht oder auf eine Rolle festlegt.",
+      "en": "I can't tell whether being called “our daughter-in-law” includes me in the family or confines me to a role.",
       "reply": {
         "ko": "그 말에는 두 가지가 같이 들어 있어요.",
         "de": "In dem Wort steckt beides zugleich.",
@@ -10269,8 +10269,8 @@
       "level": "c2",
       "kind": "opener",
       "ko": "말로만 정한 건 시간이 지나면 서로 다르게 기억하더라고요.",
-      "de": "Was nur mündlich abgemacht war, erinnert später jeder anders.",
-      "en": "Whatever we settled only out loud, each of us later remembers differently.",
+      "de": "Was nur mündlich vereinbart wurde, erinnert später jeder anders.",
+      "en": "When an agreement stays verbal, people remember it differently over time.",
       "reply": {
         "ko": "그래서 적어 두자는 거군요.",
         "de": "Deshalb also aufschreiben.",
@@ -10299,12 +10299,12 @@
       "level": "c2",
       "kind": "question",
       "ko": "제 이름 대신 역할로만 불리면, 몇 년 뒤에 저는 어떻게 기억될까요?",
-      "de": "Wenn man mich nur über die Rolle anspricht und nicht beim Namen, wie werde ich in ein paar Jahren erinnert?",
+      "de": "Wenn man mich nur nach meiner Rolle bezeichnet und nicht beim Namen nennt, wie werde ich dann in ein paar Jahren erinnert?",
       "en": "If I'm only ever called by my role and not my name, how will I be remembered in a few years?",
       "reply": {
         "ko": "이름을 불러 주는 사람이 한 명은 있어야죠.",
-        "de": "Es sollte zumindest eine Person geben, die den Namen benutzt.",
-        "en": "There should be at least one person who uses your name.",
+        "de": "Wenigstens eine Person sollte Sie beim Namen nennen.",
+        "en": "At least one person should call you by your name.",
         "turnKind": "response"
       },
       "relationshipContext": "family",
@@ -10359,12 +10359,12 @@
       "level": "a1",
       "kind": "question",
       "ko": "오늘 저녁에 쓰레기 버리는 거 잊지 않으셨죠?",
-      "de": "Sie haben das Abend-Müllrausbringen nicht vergessen, oder?",
-      "en": "You did not forget to take out the evening trash, right?",
+      "de": "Sie haben nicht vergessen, heute Abend den Müll rauszubringen, oder?",
+      "en": "You haven't forgotten to take out the trash tonight, right?",
       "reply": {
         "ko": "아, 맞다. 지금 내려가서 넣을게요.",
-        "de": "Stimmt. Ich gehe jetzt runter und werfe ihn ein.",
-        "en": "Right. I will go down now and put it in."
+        "de": "Stimmt. Ich bringe ihn gleich runter.",
+        "en": "Right. I'll take it down now."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -10418,11 +10418,11 @@
       "kind": "question",
       "ko": "토요일 오전에 시장 갈 건데 같이 하실래요?",
       "de": "Ich gehe Samstagvormittag auf den Markt. Kommen Sie mit?",
-      "en": "I am going to the market Saturday morning. Want to come?",
+      "en": "I'm going to the market on Saturday morning. Would you like to come?",
       "reply": {
         "ko": "좋아요. 열 시에 입구에서 만나요.",
-        "de": "Gern. Treffen wir uns um zehn am Eingang.",
-        "en": "Good. Let's meet at ten at the entrance."
+        "de": "Gern. Treffen wir uns um zehn am Eingang?",
+        "en": "Sure. Shall we meet at the entrance at ten?"
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -10475,8 +10475,8 @@
       "level": "b1",
       "kind": "question",
       "ko": "이 초안을 오늘 안에 보려면 어디부터 고치면 될까요?",
-      "de": "Wenn wir den Entwurf heute noch sehen wollen, wo sollen wir zuerst ändern?",
-      "en": "If we want to see this draft today, where should we change first?",
+      "de": "Wenn wir den Entwurf heute noch durchsehen wollen, womit sollten wir anfangen?",
+      "en": "If we want to look over the draft today, where should we start?",
       "reply": {
         "ko": "숫자 표만 먼저 맞추고 문장은 내일 봐요.",
         "de": "Stimmen wir zuerst die Zahlentabelle ab und lesen die Sätze morgen.",
@@ -10533,12 +10533,12 @@
       "level": "b2",
       "kind": "question",
       "ko": "이 경험을 성과로 말할지, 과정으로 말할지 고민이에요.",
-      "de": "Ich überlege, ob ich diese Erfahrung als Ergebnis oder als Prozess nenne.",
-      "en": "I am deciding whether to present this experience as a result or as a process.",
+      "de": "Ich überlege, ob ich diese Erfahrung als Ergebnis oder als Prozess darstelle.",
+      "en": "I'm deciding whether to present this experience in terms of the outcome or the process.",
       "reply": {
         "ko": "결과는 한 줄, 과정은 한 사례로 나누면 분명해져요.",
-        "de": "Ein Satz Ergebnis und ein Fall Prozess machen es klar.",
-        "en": "One line of result and one case of process makes it clear."
+        "de": "Ein Satz zum Ergebnis und ein Beispiel für den Prozess machen es klarer.",
+        "en": "One sentence on the outcome and one example of the process will make it clearer."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -10566,8 +10566,8 @@
       "en": "Is now a good time to talk, or should I call again this afternoon?",
       "reply": {
         "ko": "지금은 이동 중이라 세 시에 부탁드립니다.",
-        "de": "Ich bin unterwegs, bitte um fünfzehn Uhr.",
-        "en": "I am on the move, please call at three."
+        "de": "Ich bin gerade unterwegs. Rufen Sie bitte um 15 Uhr noch einmal an.",
+        "en": "I'm on the move right now. Please call again at three."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -10620,12 +10620,12 @@
       "level": "c1",
       "kind": "question",
       "ko": "이 안내문이 위험을 과장하지 않는지 같이 읽어 볼까요?",
-      "de": "Wollen wir den Hinweis gemeinsam lesen, ob er das Risiko überzeichnet?",
+      "de": "Wollen wir gemeinsam prüfen, ob dieser Hinweis das Risiko überzeichnet?",
       "en": "Shall we read this notice together to see if it overstates the risk?",
       "reply": {
         "ko": "절대 건수를 옆에 두면 톤이 가라앉을 거예요.",
-        "de": "Mit der Absolutenzahl daneben wird der Ton ruhiger.",
-        "en": "Putting the absolute count beside it will calm the tone."
+        "de": "Wenn die absolute Zahl danebensteht, wirkt die Formulierung weniger alarmistisch.",
+        "en": "Adding the absolute count would make the wording less alarmist."
       },
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
@@ -10678,8 +10678,8 @@
       "level": "c2",
       "kind": "question",
       "ko": "이 앱이 철회를 설정 깊숙이 숨긴 것 같아서 경로를 적어 두려고요.",
-      "de": "Der Widerruf steckt tief in den Einstellungen, deshalb will ich den Weg notieren.",
-      "en": "The withdrawal seems buried in settings, so I want to write down the path.",
+      "de": "Die Möglichkeit zum Widerruf scheint tief in den Einstellungen versteckt zu sein; deshalb möchte ich den Weg dorthin festhalten.",
+      "en": "The option to withdraw seems buried deep in the settings, so I want to record how to find it.",
       "reply": {
         "ko": "스크린샷과 날짜를 같이 남기면 나중에 증명하기 쉬워요.",
         "de": "Mit Screenshot und Datum ist der Nachweis später leichter.",
@@ -10711,8 +10711,8 @@
       "en": "Did the video say how large the sample was?",
       "reply": {
         "ko": "숫자는 안 나오고 결론만 크게 나왔어요.",
-        "de": "Zahlen kamen nicht vor, nur die Schlussfolgerung war groß.",
-        "en": "No numbers came up, just a bold conclusion."
+        "de": "Es wurden keine Zahlen genannt, nur eine sehr weitreichende Schlussfolgerung.",
+        "en": "There were no numbers, just a sweeping conclusion."
       },
       "relationshipContext": "coworker",
       "safeAlternativeQuestions": [
@@ -10760,8 +10760,8 @@
       "level": "c2",
       "kind": "question",
       "ko": "자동으로 계산된 요금에 이의를 넣으면 사람이 다시 보나요?",
-      "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Rechnung Einspruch einlegt?",
-      "en": "If you appeal an automatically calculated bill, does a person review it again?",
+      "de": "Prüft ein Mensch nach, wenn man gegen eine automatisch berechnete Gebühr Einspruch einlegt?",
+      "en": "If you challenge an automatically calculated charge, does a person review it?",
       "reply": {
         "ko": "같은 시스템이 다시 돌린다고만 안내받았어요.",
         "de": "Mir wurde nur gesagt, dasselbe System rechne erneut.",
@@ -10789,8 +10789,8 @@
       "level": "c2",
       "kind": "reaction",
       "ko": "창구가 있다고 해서 구제가 되는 건 아니더라고요.",
-      "de": "Dass es eine Stelle gibt, heißt noch nicht, dass Abhilfe kommt.",
-      "en": "Having a desk to complain to doesn't mean redress follows.",
+      "de": "Nur weil es eine Anlaufstelle gibt, ist noch keine wirksame Abhilfe gewährleistet.",
+      "en": "Having an appeals channel does not guarantee an effective remedy.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
@@ -10813,11 +10813,11 @@
       "level": "c1",
       "kind": "question",
       "ko": "게임 시간 제한이 실제로 효과가 있었다는 자료 보신 적 있어요?",
-      "de": "Haben Sie Daten gesehen, dass die Zeitbegrenzung beim Spielen wirklich gewirkt hat?",
+      "de": "Haben Sie Daten gesehen, die zeigen, dass die Spielzeitbegrenzung tatsächlich wirksam war?",
       "en": "Have you seen data showing the play-time limit actually worked?",
       "reply": {
         "ko": "시간이 줄었다는 표는 봤는데 잠은 그대로였어요.",
-        "de": "Ich sah eine Tabelle mit weniger Zeit, der Schlaf blieb aber gleich.",
+        "de": "Ich habe eine Tabelle gesehen, nach der die Spielzeit sank; am Schlaf änderte sich aber nichts.",
         "en": "I saw a table with less time, but sleep stayed the same."
       },
       "relationshipContext": "coworker",
@@ -10866,8 +10866,8 @@
       "level": "c2",
       "kind": "question",
       "ko": "자동으로 계정이 정지되면 사유를 어디까지 알려 주나요?",
-      "de": "Wie viel vom Grund erfährt man, wenn ein Konto automatisch gesperrt wird?",
-      "en": "How much of the reason are you told when an account is suspended automatically?",
+      "de": "Wie ausführlich wird die Begründung mitgeteilt, wenn ein Konto automatisch gesperrt wird?",
+      "en": "How much explanation are you given when an account is suspended automatically?",
       "reply": {
         "ko": "규정 위반이라는 문장 하나가 전부였어요.",
         "de": "Ein Satz über einen Regelverstoß war alles.",
@@ -10919,11 +10919,11 @@
       "level": "c1",
       "kind": "question",
       "ko": "그 계정 번역은 몇 분이서 돌아가면서 하세요?",
-      "de": "Zu wie vielt wechseln Sie sich bei den Übersetzungen für das Konto ab?",
+      "de": "Wie viele Personen teilen sich die Übersetzungen für dieses Konto?",
       "en": "How many of you take turns on the translations for that account?",
       "reply": {
         "ko": "요즘은 사실상 두 명이 다 하고 있어요.",
-        "de": "Im Moment machen es faktisch zwei Personen allein.",
+        "de": "Im Moment erledigen praktisch zwei Personen alles.",
         "en": "Right now two people effectively do all of it."
       },
       "relationshipContext": "peer",
@@ -10948,8 +10948,8 @@
       "level": "c1",
       "kind": "reaction",
       "ko": "좋아서 하는 일이라도 양이 정해져 있어야 오래 가더라고요.",
-      "de": "Auch was man gern macht, hält nur mit festgelegtem Umfang lange.",
-      "en": "Even work you enjoy only lasts if the amount is fixed.",
+      "de": "Auch Arbeit, die man gern macht, lässt sich auf Dauer nur bewältigen, wenn der Umfang begrenzt ist.",
+      "en": "Even work you enjoy is only sustainable if the workload is capped.",
       "relationshipContext": "peer",
       "safeAlternativeQuestions": [
         {
@@ -10972,8 +10972,8 @@
       "level": "c2",
       "kind": "question",
       "ko": "그 이야기 지금은 누구 입장에서 정리돼 있는 것 같으세요?",
-      "de": "Aus wessen Sicht ist die Geschichte inzwischen erzählt, würden Sie sagen?",
-      "en": "Whose side do you think the story is told from by now?",
+      "de": "Aus wessen Perspektive wird die Geschichte inzwischen erzählt?",
+      "en": "Whose perspective do you think shapes the way the story is being told now?",
       "reply": {
         "ko": "제 쪽 이야기만 여러 번 다듬어졌더라고요.",
         "de": "Nur meine Version wurde mehrfach geglättet.",

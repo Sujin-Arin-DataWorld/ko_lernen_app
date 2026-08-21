@@ -7,6 +7,7 @@ Run with:
 
 from __future__ import annotations
 
+import copy
 import csv
 import json
 from pathlib import Path
@@ -151,6 +152,109 @@ class Batch09ReviewDraftTest(unittest.TestCase):
 
 
 class Batch10KoreanQualityTest(unittest.TestCase):
+    def test_copy_merge_preserves_routing_answers_and_audio(self) -> None:
+        current = {
+            "id": "a1_demo",
+            "level": "a1",
+            "courseUnitId": "a1_original_unit",
+            "conceptIds": ["concept_original"],
+            "shelf": "a1_daily",
+            "backdrop": "home",
+            "grammarBlock": {
+                "id": "grammar_original",
+                "title": {"ko": "old", "de": "alt", "en": "old"},
+                "explanation": {"ko": "old", "de": "alt", "en": "old"},
+            },
+            "quests": [
+                {
+                    "id": "quest_a1_demo_hear",
+                    "type": "hoerverstehen",
+                    "conceptIds": ["concept_original"],
+                    "data": {
+                        "audioKo": "그대로 듣는 문장",
+                        "options": ["정답", "옛 오답"],
+                        "correctIndex": 0,
+                    },
+                }
+            ],
+        }
+        rewritten = copy.deepcopy(current)
+        rewritten["courseUnitId"] = "a1_wrong_unit"
+        rewritten["conceptIds"] = ["concept_wrong"]
+        rewritten["grammarBlock"]["title"]["en"] = "natural title"
+        rewritten["grammarBlock"]["explanation"]["en"] = "natural explanation"
+        rewritten["quests"][0]["conceptIds"] = ["concept_wrong"]
+        rewritten["quests"][0]["data"]["options"][1] = "장면 오답"
+
+        merged = builder._merge_humanized_scenario_copy(current, rewritten)
+
+        self.assertEqual(merged["courseUnitId"], "a1_original_unit")
+        self.assertEqual(merged["conceptIds"], ["concept_original"])
+        self.assertEqual(
+            merged["quests"][0]["conceptIds"], ["concept_original"]
+        )
+        self.assertEqual(merged["quests"][0]["data"]["audioKo"], "그대로 듣는 문장")
+        self.assertEqual(merged["quests"][0]["data"]["options"], ["정답", "장면 오답"])
+        self.assertEqual(merged["grammarBlock"]["title"]["en"], "natural title")
+        self.assertEqual(
+            merged["grammarBlock"]["explanation"]["en"],
+            "natural explanation",
+        )
+
+    def test_batch_10_quests_and_grammar_are_scene_and_level_specific(self) -> None:
+        scenarios = json.loads(
+            (SCRIPT_DIR / "drafts" / "c1_batch10_scenarios_a1_c2.json").read_text(
+                encoding="utf-8"
+            )
+        )["scenarios"]
+        banned_fillers = {
+            "Alles ist bereits abgeschlossen.",
+            "Everything is already finished.",
+            "Der Termin wurde auf nächste Woche verschoben.",
+            "The appointment was moved to next week.",
+            "Es wird keine Nummer vergeben.",
+            "No number will be issued.",
+            "내일로 미뤄도 괜찮아요.",
+            "이 일은 이미 끝났습니다.",
+            "번호를 바꿔 주세요.",
+        }
+        explanations_by_level: dict[str, str] = {}
+
+        for row in scenarios:
+            explanation = row["grammarBlock"]["explanation"]
+            previous = explanations_by_level.setdefault(row["level"], explanation["de"])
+            self.assertEqual(previous, explanation["de"], row["id"])
+            self.assertNotEqual(
+                explanation["de"],
+                "Mit dieser Form bittest du höflich oder nennst eine Bedingung.",
+                row["id"],
+            )
+
+            serialized_quests = json.dumps(row["quests"], ensure_ascii=False)
+            for filler in banned_fillers:
+                self.assertNotIn(filler, serialized_quests, row["id"])
+
+            hearing = next(quest for quest in row["quests"] if quest["type"] == "hoerverstehen")
+            dialog_pairs = {(turn["de"], turn["en"]) for turn in row["dialog"]}
+            for option in hearing["data"]["options"]:
+                self.assertIn((option["de"], option["en"]), dialog_pairs, row["id"])
+
+            gap = next(quest for quest in row["quests"] if quest["type"] == "luecken")
+            scene_vocab = {item["korean"] for item in row["vocab"]}
+            self.assertTrue(
+                set(gap["data"]["options"][1:]) <= scene_vocab,
+                row["id"],
+            )
+            for quest in row["quests"]:
+                if quest["type"] == "satzBauen":
+                    self.assertTrue(
+                        set(quest["data"]["distractors"]) <= scene_vocab,
+                        row["id"],
+                    )
+
+        self.assertEqual(set(explanations_by_level), set(builder.LEVELS))
+        self.assertEqual(len(set(explanations_by_level.values())), len(builder.LEVELS))
+
     def test_batch_10_korean_has_no_latin_slug_or_object_particle_errors(self) -> None:
         from batch_10_scene_scripts import (
             GENERIC_SERVICE_SHELL,
@@ -174,17 +278,16 @@ class Batch10KoreanQualityTest(unittest.TestCase):
         self.assertEqual(len(scenarios), 174)
         for row in scenarios:
             ident = row["id"]
-            # live 는 2026-08-17 마이그레이션으로 shelf/backdrop 을 얻었고 draft 는
-            # 승인 당시 그대로다. 문장·ID 비교가 목적이므로 두 필드는 제외한다.
+            # Live routing and assessment structure can advance independently
+            # of the authored draft. Applying the draft copy to the live row
+            # must therefore be idempotent instead of replacing those fields.
             self.assertEqual(
-                row,
-                {
-                    key: value
-                    for key, value in live[ident].items()
-                    if key not in ("shelf", "backdrop")
-                },
+                builder._merge_humanized_scenario_copy(live[ident], row),
+                live[ident],
                 ident,
             )
+            self.assertIsInstance(live[ident].get("shelf"), str, ident)
+            self.assertIsInstance(live[ident].get("backdrop"), str, ident)
             for text in collect_korean_fields(row):
                 self.assertFalse(
                     LATIN_IN_KO.search(text),

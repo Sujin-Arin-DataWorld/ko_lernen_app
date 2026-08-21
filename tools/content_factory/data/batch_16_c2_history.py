@@ -264,8 +264,8 @@ SCENES: list[dict[str, Any]] = [
                   "de": "Zwei Zeugenaussagen zu einer zusammenführen",
                   "en": "Merging two testimonies into one"},
         "intro": {"ko": "전시 서술 편집회의에서 두 증언자의 기억이 엇갈립니다. 하나로 합치기보다 다름을 보여 주는 방법을 정해야 합니다.",
-                  "de": "In der Redaktionssitzung zur Ausstellungserzählung weichen die Erinnerungen der beiden Zeugen voneinander ab. Statt sie zu einer zusammenzuführen, muss ein Weg gefunden werden, die Unterschiede zu zeigen.",
-                  "en": "At the editorial meeting for the exhibition narrative, the two witnesses' memories diverge. Instead of merging them into one, a way to show the difference needs to be decided."},
+                  "de": "In der Redaktionssitzung zur Ausstellungserzählung gehen die Erinnerungen der beiden Zeugen auseinander. Statt sie zusammenzuführen, muss entschieden werden, wie ihre Unterschiede sichtbar werden können.",
+                  "en": "At an editorial meeting on the exhibition narrative, two witnesses remember things differently. Rather than merge the accounts, you need to decide how to make their differences visible."},
         "grammarBlock": {
             "title": {"ko": "N을/를 전제로", "de": "N을/를 전제로: unter der Voraussetzung von",
                       "en": "N을/를 전제로: on the premise of"},
