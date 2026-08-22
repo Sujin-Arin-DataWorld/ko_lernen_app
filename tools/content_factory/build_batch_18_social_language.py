@@ -282,7 +282,7 @@ def _write_review(root: Path, path: Path, kind: str, records: list[dict[str, Any
 def _write_packet(root: Path, records: dict[str, list[dict[str, Any]]], status: str) -> None:
     lines = [
         "# Batch 18 B2–C2 사회 언어 리뷰 패킷", "",
-        f"- 상태: `{status}`", "- 권리: original clean-room", "- Humanization: Beyond revision v2 (installed skill ref v5)",
+        f"- 상태: `{status}`", "- 권리: original clean-room", "- Humanization: Beyond Humanizer v2 (`2dde092f`)",
         "- 범위: 어휘 36, 문법 12, 스몰톡 12, 빈칸 36, 문장 배열 36", "",
         "| 종류 | B2 | C1 | C2 | 합계 |", "|---|---:|---:|---:|---:|",
     ]
@@ -368,7 +368,7 @@ def build(root: Path = ROOT) -> dict[str, int]:
             "rights": "original_clean_room", "requiresJinReview": True,
             "contentRevision": "v2",
             "humanization": {
-                "skill": "beyond-humanizer", "installedRef": "beyond-humanizer-v5-2026-08-21",
+                "skill": "beyond-humanizer", "installedRef": "beyond-humanizer-v2@2dde092f",
                 "pass": "v2_full_trilingual_review", "appliedAt": "2026-08-22",
                 "contract": "same communication event; preserve facts, roles, register, CEFR task and schema across KO/DE/EN",
             },

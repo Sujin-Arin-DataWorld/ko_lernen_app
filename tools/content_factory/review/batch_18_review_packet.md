@@ -2,7 +2,7 @@
 
 - 상태: `merged`
 - 권리: original clean-room
-- Humanization: Beyond revision v2 (installed skill ref v5)
+- Humanization: Beyond Humanizer v2 (`2dde092f`)
 - 범위: 어휘 36, 문법 12, 스몰톡 12, 빈칸 36, 문장 배열 36
 
 | 종류 | B2 | C1 | C2 | 합계 |

@@ -411,7 +411,7 @@ def build(root: Path = ROOT) -> dict[str, int]:
             "contentRevision": "v2",
             "humanization": {
                 "skill": "beyond-humanizer",
-                "installedRef": "beyond-humanizer-v5-2026-08-21",
+                "installedRef": "beyond-humanizer-v2@2dde092f",
                 "pass": "v2_full_trilingual_review",
                 "appliedAt": "2026-08-22",
                 "contract": "same communication event; preserve facts, roles, register, CEFR task and schema across KO/DE/EN",
