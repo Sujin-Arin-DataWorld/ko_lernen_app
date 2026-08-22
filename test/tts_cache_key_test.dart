@@ -5,6 +5,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/services/tts_service.dart';
 
 void main() {
+  test('auto voice policy is deterministic and honors explicit roles', () {
+    expect(TtsVoicePolicy.resolve(text: '안녕하세요'), 'male');
+    expect(TtsVoicePolicy.resolve(text: '  안녕하세요  '), 'male');
+    expect(TtsVoicePolicy.resolve(text: '감사합니다'), 'female');
+    expect(TtsVoicePolicy.resolve(text: '안녕하세요', voice: 'female'), 'female');
+    expect(TtsVoicePolicy.resolve(text: '감사합니다', voice: 'male'), 'male');
+  });
+
   test('v3 cache keys isolate newly synthesized audio from old objects', () {
     final key = TtsCacheKey.forRequest(voice: 'female', text: '안녕하세요');
 

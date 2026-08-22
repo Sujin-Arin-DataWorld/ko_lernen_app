@@ -8,6 +8,11 @@ import generate_tts  # noqa: E402
 
 
 class TtsGeneratorContractTest(unittest.TestCase):
+    def test_auto_voice_matches_dart_contract_vectors(self):
+        self.assertEqual(generate_tts.auto_voice("안녕하세요"), "male")
+        self.assertEqual(generate_tts.auto_voice("  안녕하세요  "), "male")
+        self.assertEqual(generate_tts.auto_voice("감사합니다"), "female")
+
     def test_v3_storage_key_matches_flutter_and_function_contract(self):
         self.assertEqual(generate_tts.TTS_CACHE_REVISION, "v3")
         self.assertEqual(
@@ -24,11 +29,15 @@ class TtsGeneratorContractTest(unittest.TestCase):
         import os as _os
 
         pairs = set(generate_tts.collect())
-        female = {t for (v, t) in pairs if v == "female"}
+        auto = {
+            text
+            for voice, text in pairs
+            if voice == generate_tts.auto_voice(text)
+        }
 
         root = generate_tts.ROOT
 
-        # Satz bauen: 모든 targetKo 가 여성 음성으로 수집돼야 한다.
+        # Satz bauen: 모든 targetKo 가 auto 음성으로 수집돼야 한다.
         with open(
             _os.path.join(root, "assets/data/satz_sentences.json"), encoding="utf-8"
         ) as f:
@@ -38,11 +47,11 @@ class TtsGeneratorContractTest(unittest.TestCase):
             ]
         satz_targets = [t for t in satz_targets if t]
         self.assertGreater(len(satz_targets), 100)
-        missing = [t for t in satz_targets if t not in female]
+        missing = [t for t in satz_targets if t not in auto]
         self.assertEqual(missing, [])
 
         # Pronunciation studio: every reviewed Korean reference sentence is
-        # played through the default female TTS path.
+        # played through the deterministic default auto TTS path.
         with open(
             _os.path.join(root, "assets/data/pronunciation_phrases.json"),
             encoding="utf-8",
@@ -53,8 +62,52 @@ class TtsGeneratorContractTest(unittest.TestCase):
             ]
         pronunciation_targets = [text for text in pronunciation_targets if text]
         self.assertGreaterEqual(len(pronunciation_targets), 4)
-        missing = [text for text in pronunciation_targets if text not in female]
+        missing = [text for text in pronunciation_targets if text not in auto]
         self.assertEqual(missing, [])
+
+        # Media phrase and word-web screens expose direct TTS buttons.
+        with open(
+            _os.path.join(root, "assets/data/media_phrases.json"), encoding="utf-8"
+        ) as f:
+            media_targets = [
+                (item.get("korean") or "").strip()
+                for item in json.load(f).get("phrases", [])
+            ]
+        self.assertTrue(media_targets)
+        self.assertEqual([text for text in media_targets if text not in auto], [])
+
+        with open(
+            _os.path.join(root, "assets/data/word_relations.json"), encoding="utf-8"
+        ) as f:
+            clusters = json.load(f).get("clusters", [])
+        relation_targets = []
+        for cluster in clusters:
+            relation_targets.append((cluster.get("sourceKo") or "").strip())
+            for key in ("synonyms", "antonyms", "related"):
+                relation_targets.extend(
+                    (item.get("ko") or "").strip()
+                    for item in cluster.get(key, [])
+                )
+            for item in cluster.get("expressions", []):
+                relation_targets.extend(
+                    ((item.get("ko") or "").strip(), (item.get("exampleKo") or "").strip())
+                )
+        relation_targets = [text for text in relation_targets if text]
+        self.assertTrue(relation_targets)
+        self.assertEqual([text for text in relation_targets if text not in auto], [])
+
+        with open(
+            _os.path.join(root, "assets/data/silben_puzzles.json"), encoding="utf-8"
+        ) as f:
+            silben_levels = json.load(f).get("levels", {})
+        silben_targets = [
+            (word.get("answer") or "").strip()
+            for puzzles in silben_levels.values()
+            for puzzle in puzzles
+            for word in puzzle.get("words", [])
+        ]
+        self.assertTrue(silben_targets)
+        self.assertEqual([text for text in silben_targets if text not in auto], [])
 
         # 듣기(Hören)=시나리오 대화: user=여성, NPC=남성 화자 매핑 표본 확인.
         data_dir = _os.path.join(root, "assets", "data")
@@ -77,6 +130,10 @@ class TtsGeneratorContractTest(unittest.TestCase):
             if sampled:
                 break
         self.assertTrue(sampled)
+
+        female_count = sum(1 for voice, _ in pairs if voice == "female")
+        male_count = len(pairs) - female_count
+        self.assertLessEqual(abs(female_count - male_count), len(pairs) * 0.05)
 
     def test_gcloud_calls_use_an_argument_vector_without_a_shell(self):
         with patch.object(
