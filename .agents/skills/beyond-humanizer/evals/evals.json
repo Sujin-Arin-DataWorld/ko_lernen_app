@@ -1,88 +1,379 @@
 [
   {
     "id": "l1-honorific-lenses",
+    "directions": ["ko-en", "ko-de"],
+    "phenomena": ["honorification", "addressee-politeness", "l1-transfer"],
     "query": "Explain 선생님이 지금 오세요 versus 저는 지금 가요 separately for English-L1 and German-L1 A2 learners.",
     "expected_behavior": [
       "Distinguishes subject honorification -시- from addressee politeness -요",
-      "Does not equate -시- with German Sie or a general formal marker",
       "Uses different explanatory anchors for English-L1 and German-L1 learners"
     ],
+    "forbidden_implications": [
+      "Does not equate -시- with German Sie or a general formal marker",
+      "Does not claim English or German encodes the same grammatical contrast"
+    ],
+    "accepted_variants": ["A concise two-lens explanation with natural examples"],
+    "unresolved_fields": [],
+    "severity_if_failed": "critical",
     "baseline_observation": "Passed without the skill; retain as a non-regression evaluation."
   },
   {
     "id": "culture-jeong",
+    "directions": ["ko-en", "ko-de"],
+    "phenomena": ["culture", "lexical-gap", "aspect"],
     "query": "Translate and explain 처음에는 어색했지만 자주 만나면서 정이 들었어요 for English-L1 and German-L1 learners.",
     "expected_behavior": [
       "Reconstructs gradual attachment rather than forcing a one-word equivalent",
-      "Avoids stereotypes and encyclopedia-style explanation",
       "Produces independently natural English and German"
     ],
+    "forbidden_implications": [
+      "Does not turn 정 into instant romance, affection, or a universal Korean trait",
+      "Does not replace the scene with an encyclopedia-style culture claim"
+    ],
+    "accepted_variants": ["EN grew close over time", "DE mit der Zeit ans Herz gewachsen"],
+    "unresolved_fields": ["Exact relationship between participants"],
+    "severity_if_failed": "major",
     "baseline_observation": "Passed only after explicit constraints; the skill must make those constraints reusable."
   },
   {
     "id": "authority-and-cloze-quality",
+    "directions": ["ko-en", "ko-de"],
+    "phenomena": ["institutional-authority", "metaphor", "pedagogy"],
     "query": "Translate 금액이 제 권한을 넘어서 위로 올려야 해요 without inventing roles, then repair a 맞장구 cloze with distractors 농담, 박수, 안부.",
     "expected_behavior": [
-      "Selects an authority/process frame instead of leaving a spatial nach oben or pass it up calque",
-      "Does not invent a manager, supervisor, signer, or undocumented workflow",
-      "Detects 박수 as an alternative valid collocation",
-      "Creates plausible same-form distractors or strengthens context instead of using obviously ungrammatical options"
+      "Selects an authority or approval frame instead of a spatial calque",
+      "Detects 박수 as an alternative valid collocation and repairs the item"
     ],
+    "forbidden_implications": [
+      "Does not invent a manager, supervisor, signer, or undocumented workflow",
+      "Does not create uniqueness through obviously ungrammatical distractors"
+    ],
+    "accepted_variants": ["EN requires approval at a higher authority level", "DE muss an eine höhere Entscheidungsebene weitergegeben werden"],
+    "unresolved_fields": ["Approver identity", "Organization procedure"],
+    "severity_if_failed": "critical",
     "baseline_observation": "Failed: used nach oben/pass it up and repaired uniqueness with trivially ungrammatical distractors."
   },
   {
     "id": "ko-zero-anaphora-reference",
+    "directions": ["ko-en", "ko-de"],
+    "phenomena": ["zero-anaphora", "reported-speech", "reference"],
     "query": "Translate 현우가 민지에게 자료를 보냈어요. 검토하고 연락하겠대요 into one learner-facing English and German version without preceding context.",
     "expected_behavior": [
       "Detects that the reviewer, caller, and contact target are unresolved",
-      "Does not invent gendered pronouns or assign the reported action to Minji or Hyunwoo",
-      "Uses a neutral structure, conditional alternatives, or a clear flag rather than hiding the ambiguity"
+      "Uses a neutral structure, conditional alternatives, or a clear flag"
     ],
-    "baseline_observation": "Failed: explicitly noted the ambiguity but still assigned the action to Minji and the callback target to Hyunwoo in both languages.",
-    "green_observation": "Passed: used gender-neutral and impersonal target structures, while explicitly retaining the unresolved reviewer and contact recipient."
+    "forbidden_implications": [
+      "Does not invent gendered pronouns",
+      "Does not assign the reported action to Minji or Hyunwoo"
+    ],
+    "accepted_variants": ["A neutral reported-speech version plus a short ambiguity note"],
+    "unresolved_fields": ["Reviewer", "Caller", "Contact target"],
+    "severity_if_failed": "critical",
+    "baseline_observation": "Failed: noted the ambiguity but still assigned the action to Minji and the callback target to Hyunwoo.",
+    "green_observation": "Passed in v2: retained the unresolved reviewer and contact recipient with neutral structures."
   },
   {
     "id": "en-de-to-ko-pronoun-honorific",
+    "directions": ["en-ko", "de-ko"],
+    "phenomena": ["pronoun", "honorification", "speech-level"],
     "query": "Independently translate EN Could you give this to her when you see her? I already told her. and DE Könntest du ihr das geben, wenn du sie siehst? Ich habe es ihr schon gesagt. Context: her is 팀장님; speaker and coworker use 해요체.",
     "expected_behavior": [
-      "Avoids repeated 그녀, 당신, or unnecessary possessives",
       "Uses the title and Korean-appropriate omission to track the referent",
-      "Separates respect toward 팀장님 from the addressee-facing 해요체"
+      "Separates respect toward 팀장님 from addressee-facing 해요체"
     ],
-    "baseline_observation": "Passed without the skill when the relationship and referent were explicit; retain as a non-regression evaluation.",
-    "green_observation": "Passed: both directions used 팀장님, referent-appropriate omission, honorific verbs, and 해요체 without 그녀 or 당신."
+    "forbidden_implications": [
+      "Does not repeat 그녀 or 당신",
+      "Does not change the supplied relationship or speech level"
+    ],
+    "accepted_variants": ["팀장님 뵈면 이거 전해 줄 수 있어요? 이미 말씀드렸어요."],
+    "unresolved_fields": [],
+    "severity_if_failed": "critical",
+    "baseline_observation": "Passed without the skill when relationship and referent were explicit; retain as non-regression.",
+    "green_observation": "Passed in v2 with title, omission, honorific verbs, and 해요체."
   },
   {
     "id": "come-go-continuing-state-and-relationship",
+    "directions": ["en-ko", "de-ko"],
+    "phenomena": ["deixis", "continuing-state", "relationship"],
     "query": "Translate EN I’ll come to your office tomorrow. I’ve lived in Seoul for three years. and DE Ich komme morgen in dein Büro. Ich lebe seit drei Jahren in Seoul. Scene: speaker is elsewhere, listener works at the office, and the Seoul residence continues; Korean relationship is unspecified.",
     "expected_behavior": [
-      "Uses 가다 rather than mechanically mapping come/kommen to 오다",
-      "Preserves the continuing Seoul residence",
-      "Does not silently equate your/dein with 네 plus Korean banmal; uses a minimally committed natural form and flags the missing relationship"
+      "Uses 가다 rather than mechanically mapping come or kommen to 오다",
+      "Preserves the continuing Seoul residence"
     ],
-    "baseline_observation": "Partly failed: deixis and continuing aspect were correct, but both outputs silently selected 네 and banmal despite missing Korean relationship context.",
-    "green_observation": "Passed: preserved 가다 and continuing residence, removed the unsupported possessive, and selected safe 해요체 with an uncertainty note."
+    "forbidden_implications": [
+      "Does not silently equate your or dein with 네 plus banmal",
+      "Does not imply the Seoul residence has ended"
+    ],
+    "accepted_variants": ["내일 사무실로 갈게요. 서울에서 산 지 3년 됐어요."],
+    "unresolved_fields": ["Korean relationship and exact speech level"],
+    "severity_if_failed": "critical",
+    "baseline_observation": "Partly failed: deixis and aspect were correct, but both outputs silently selected 네 and banmal.",
+    "green_observation": "Passed in v2 with 가다, continuing residence, no unsupported possessive, and safe 해요체."
   },
   {
     "id": "simultaneous-late-predicate-negation",
+    "directions": ["ko-en", "ko-de"],
+    "phenomena": ["simultaneous-interpreting", "late-predicate", "negation"],
     "query": "Interpret streamed Korean 1 이번 결정은 / 2 검토 결과를 바탕으로 / 3 철회하는 것이 아니라 / 4 다음 달까지 시행을 보류하겠습니다 into booth-ready EN and DE without retracting spoken words.",
     "expected_behavior": [
-      "Does not commit to withdrawal or implementation before the contrast and final predicate arrive",
-      "Preserves negation, contrast, postponement, and the deadline",
-      "Uses a safe frame or buffering rather than an irreversible guessed predicate"
+      "Buffers the decisive predicate until the contrast arrives",
+      "Preserves negation, postponement, and the deadline"
     ],
-    "baseline_observation": "Passed without the skill; retain as a non-regression evaluation for interpreting-mode changes.",
-    "green_observation": "Passed: buffered the decisive predicate, preserved the withdrawal negation and postponement, and avoided inventing an actor."
+    "forbidden_implications": [
+      "Does not commit to withdrawal or implementation early",
+      "Does not invent an actor or reason"
+    ],
+    "accepted_variants": ["A safe holding frame followed by not withdrawal but postponement until next month"],
+    "unresolved_fields": ["Institutional actor"],
+    "severity_if_failed": "critical",
+    "baseline_observation": "Passed without the skill; retain as an interpreting-mode non-regression.",
+    "green_observation": "Passed in v2 by buffering the predicate and preserving the contrast."
   },
   {
     "id": "de-modal-particle-context",
+    "directions": ["de-ko"],
+    "phenomena": ["modal-particle", "common-ground", "invitation"],
     "query": "Translate A friendly invitation Komm doch mal vorbei and B shared-ground reminder Du weißt doch, dass der Termin morgen ist into Korean, explaining the different functions.",
     "expected_behavior": [
-      "Does not assign one fixed Korean word or ending to doch",
       "Reconstructs invitation softening in A and shared-ground reminder in B",
-      "Uses natural Korean resources such as 한번 or -잖아요 only where the scene licenses them"
+      "Uses Korean discourse resources only where the scene licenses them"
     ],
+    "forbidden_implications": [
+      "Does not assign one fixed Korean word or ending to doch",
+      "Does not turn the invitation into a command"
+    ],
+    "accepted_variants": ["A 그럼 한번 들러요", "B 일정이 내일인 거 알잖아요"],
+    "unresolved_fields": ["Exact relationship and Korean speech level"],
+    "severity_if_failed": "major",
     "baseline_observation": "Research-derived forward evaluation; no baseline run.",
-    "green_observation": "Passed: used 그럼 한번 for the friendly invitation and -잖아요 for the shared-ground reminder, with a function-based learner note."
+    "green_observation": "Passed in v2 with function-based Korean reconstructions."
+  },
+  {
+    "id": "ko-en-layered-report-source",
+    "directions": ["ko-en"],
+    "phenomena": ["evidentiality", "report-chain", "attachment"],
+    "query": "Translate 팀에서 일정이 바뀔 수도 있다고 하던데, 아직 확정된 건 아니래요.",
+    "expected_behavior": [
+      "Keeps 팀에서 as a report source or discourse setting",
+      "Keeps both the possible change and reported non-confirmation indirect"
+    ],
+    "forbidden_implications": [
+      "Does not turn 팀에서 into ownership of the schedule",
+      "Does not present the second clause as the speaker's direct verification"
+    ],
+    "accepted_variants": ["I heard from the team that the schedule might change, but I am told it has not been confirmed yet."],
+    "unresolved_fields": ["Reporter of the second clause", "Whether both reports share a source"],
+    "severity_if_failed": "critical",
+    "baseline_observation": "Terra v2 pressure run produced the team's schedule and missed the invented ownership in self-audit.",
+    "green_observation": "Passed in five v3 pressure runs: the team remained the report source and the second report remained indirect."
+  },
+  {
+    "id": "ko-en-indirect-refusal-commitment",
+    "directions": ["ko-en"],
+    "phenomena": ["indirect-refusal", "commitment", "facework"],
+    "query": "Translate 오늘은 좀 어려울 것 같고요. 제가 다시 연락드릴게요.",
+    "expected_behavior": [
+      "Preserves a softened refusal for today",
+      "Preserves the speaker's commitment to initiate later contact"
+    ],
+    "forbidden_implications": [
+      "Does not reduce the first sentence to mere objective difficulty",
+      "Does not invent a date, channel, or guaranteed outcome"
+    ],
+    "accepted_variants": ["I don't think today will work for me. I'll get back to you."],
+    "unresolved_fields": ["Time of later contact"],
+    "severity_if_failed": "major",
+    "baseline_observation": "Forward v3 evaluation targeting force and commitment.",
+    "green_observation": "Passed the v3 matrix audit with softened refusal and speaker-initiated later contact preserved."
+  },
+  {
+    "id": "ko-en-inferential-self-regret",
+    "directions": ["ko-en"],
+    "phenomena": ["inferential", "self-directed", "regret"],
+    "query": "Translate 괜히 말했나 봐요.",
+    "expected_behavior": [
+      "Preserves the speaker's tentative retrospective inference",
+      "Preserves self-directed regret or doubt"
+    ],
+    "forbidden_implications": [
+      "Does not turn the sentence into a firm factual retraction",
+      "Does not assign blame to another person"
+    ],
+    "accepted_variants": ["Maybe I shouldn't have said anything."],
+    "unresolved_fields": ["What was said", "Consequence prompting regret"],
+    "severity_if_failed": "major",
+    "baseline_observation": "Forward v3 evaluation targeting inferential commitment.",
+    "green_observation": "Passed the v3 matrix audit with tentative self-directed regret and no blame or factual retraction."
+  },
+  {
+    "id": "en-ko-still-plan-status",
+    "directions": ["en-ko"],
+    "phenomena": ["presupposition", "still", "plan-status"],
+    "query": "Translate If you happen to see Alex, could you ask them whether they're still coming? Relationship and Alex's gender are unspecified.",
+    "expected_behavior": [
+      "Reconstructs still as continued validity of an earlier plan",
+      "Uses a safe Korean speech level and omits unsupported gender"
+    ],
+    "forbidden_implications": [
+      "Does not imply Alex is already in motion",
+      "Does not add 예정대로, a timetable, or gender"
+    ],
+    "accepted_variants": ["혹시 Alex를 보게 되면, 아직 올 계획인지 물어봐 줄 수 있어요?"],
+    "unresolved_fields": ["Relationship", "Alex's gender", "Exact type of arrival"],
+    "severity_if_failed": "critical",
+    "baseline_observation": "Earlier v2 audit overcommitted still to 예정대로; a later pressure run used 아직도, adding marked continuation coloring.",
+    "green_observation": "Passed five targeted post-refinement runs: all retained plan status, unspecified gender, and the minimally committed -줄 수 있어요 request form."
+  },
+  {
+    "id": "en-ko-could-polite-request",
+    "directions": ["en-ko"],
+    "phenomena": ["modal-force", "polite-request", "ability"],
+    "query": "Translate Could you send me the revised file when you have a moment? Relationship is unspecified.",
+    "expected_behavior": [
+      "Realizes could as a polite request rather than an ability question",
+      "Keeps the timing flexible"
+    ],
+    "forbidden_implications": [
+      "Does not demand immediate action",
+      "Does not ask about physical or technical ability"
+    ],
+    "accepted_variants": ["시간 되실 때 수정한 파일 보내 주실 수 있을까요?"],
+    "unresolved_fields": ["Relationship", "Exact deadline"],
+    "severity_if_failed": "major",
+    "baseline_observation": "Forward v3 evaluation targeting request force.",
+    "green_observation": "Passed the v3 matrix audit as a flexible polite request rather than an ability question."
+  },
+  {
+    "id": "en-ko-reported-delay-distance",
+    "directions": ["en-ko"],
+    "phenomena": ["evidentiality", "reported-information", "distance"],
+    "query": "Translate Apparently the launch has been delayed, but nothing has been officially announced.",
+    "expected_behavior": [
+      "Keeps the delay as unverified reported information",
+      "Contrasts that report with the absence of an official announcement"
+    ],
+    "forbidden_implications": [
+      "Does not state the delay as confirmed fact",
+      "Does not invent an announcer, source, or reason"
+    ],
+    "accepted_variants": ["출시가 미뤄졌다는 얘기가 있는데, 아직 공식 발표는 없어요."],
+    "unresolved_fields": ["Information source", "Delay reason", "Responsible actor"],
+    "severity_if_failed": "critical",
+    "baseline_observation": "Forward v3 evaluation targeting evidential distance.",
+    "green_observation": "Passed the v3 matrix audit with unverified report and missing official announcement kept distinct."
+  },
+  {
+    "id": "ko-de-layered-report-source",
+    "directions": ["ko-de"],
+    "phenomena": ["evidentiality", "report-chain", "attachment"],
+    "query": "Translate 팀에서 일정이 바뀔 수도 있다고 하던데, 아직 확정된 건 아니래요.",
+    "expected_behavior": [
+      "Keeps aus dem Team as a report source or discourse setting",
+      "Keeps both propositions reported rather than directly verified"
+    ],
+    "forbidden_implications": [
+      "Does not turn 팀에서 into der Zeitplan des Teams",
+      "Does not use offenbar as a substitute for an unspecified report chain without checking the shift"
+    ],
+    "accepted_variants": ["Aus dem Team hieß es, der Zeitplan könnte sich ändern; bestätigt sei das aber noch nicht."],
+    "unresolved_fields": ["Reporter of the second clause", "Whether both reports share a source"],
+    "severity_if_failed": "critical",
+    "baseline_observation": "Terra v2 pressure run produced der Zeitplan des Teams and missed the invented ownership in self-audit.",
+    "green_observation": "Passed in five v3 pressure runs with aus dem Team, Konjunktiv I reporting, and no ownership inference."
+  },
+  {
+    "id": "ko-de-initiative-meonjeo",
+    "directions": ["ko-de"],
+    "phenomena": ["initiative", "relationship", "speech-level"],
+    "query": "Translate 제가 먼저 연락드릴게요. The relationship is unspecified.",
+    "expected_behavior": [
+      "Preserves that the speaker volunteers to initiate contact",
+      "Avoids forcing du or Sie when it is unnecessary"
+    ],
+    "forbidden_implications": [
+      "Does not turn the offer into an instruction for the listener",
+      "Does not invent a deadline or channel"
+    ],
+    "accepted_variants": ["Ich melde mich zuerst."],
+    "unresolved_fields": ["Relationship", "Contact channel", "Timing"],
+    "severity_if_failed": "major",
+    "baseline_observation": "Forward v3 evaluation targeting commitment and address-form neutrality.",
+    "green_observation": "Passed the v3 matrix audit with speaker initiative and no forced du or Sie."
+  },
+  {
+    "id": "ko-de-culture-meal-check",
+    "directions": ["ko-de"],
+    "phenomena": ["culture", "phatic-care", "speech-act"],
+    "query": "Translate and explain 밥 먹었어요? in a scene where a familiar person checks on someone's wellbeing rather than requesting a meal report.",
+    "expected_behavior": [
+      "Reconstructs the scene-specific care check in natural German",
+      "Explains literal content and interactional function separately"
+    ],
+    "forbidden_implications": [
+      "Does not claim Koreans universally use it as hello",
+      "Does not force du or Sie without relationship evidence"
+    ],
+    "accepted_variants": ["Hast du schon etwas gegessen? plus a bounded scene note"],
+    "unresolved_fields": ["Relationship and address form"],
+    "severity_if_failed": "major",
+    "baseline_observation": "Forward v3 evaluation targeting culture without stereotyping.",
+    "green_observation": "Passed the v3 matrix audit with a bounded care-check note and no universal hello claim."
+  },
+  {
+    "id": "de-ko-kannst-ja-option",
+    "directions": ["de-ko"],
+    "phenomena": ["modal-particle", "optional-suggestion", "permission"],
+    "query": "Translate Du kannst ja morgen noch mal nachfragen, wenn du willst. Relationship is unspecified.",
+    "expected_behavior": [
+      "Reconstructs ja plus wenn du willst as a supportive optional suggestion",
+      "Uses a Korean speech level safe for an unspecified relationship"
+    ],
+    "forbidden_implications": [
+      "Does not turn the sentence into permission granted by an authority",
+      "Does not make the follow-up obligatory or use unsupported banmal"
+    ],
+    "accepted_variants": ["원하시면 내일 다시 한번 물어보는 건 어때요?"],
+    "unresolved_fields": ["Relationship", "Reason for asking again"],
+    "severity_if_failed": "critical",
+    "baseline_observation": "Earlier v2 audit used 물어봐도 괜찮아요, shifting the suggestion toward permission; one pressure run used 괜찮아요 and judged itself fully correct.",
+    "green_observation": "Passed in five v3 pressure runs: every output used an optional suggestion construction rather than permission."
+  },
+  {
+    "id": "de-ko-konjunktiv-reporting",
+    "directions": ["de-ko"],
+    "phenomena": ["konjunktiv-i", "reported-speech", "source"],
+    "query": "Translate Laut dem Bericht sei die Lage stabil, weitere Daten fehlten aber noch. No reporter or responsible actor is named.",
+    "expected_behavior": [
+      "Preserves report attribution and the speaker's non-endorsement",
+      "Preserves that further data are still lacking"
+    ],
+    "forbidden_implications": [
+      "Does not convert the report into the speaker's confirmed fact",
+      "Does not invent a reporter, pronoun, or responsible organization"
+    ],
+    "accepted_variants": ["보고서에 따르면 상황은 안정적이라고 하지만, 추가 자료는 아직 부족하다고 해요."],
+    "unresolved_fields": ["Report author", "Responsible actor"],
+    "severity_if_failed": "critical",
+    "baseline_observation": "Forward v3 evaluation targeting German reported-speech marking.",
+    "green_observation": "Passed the v3 matrix audit with both claims attributed to the report and no author or actor invented."
+  },
+  {
+    "id": "de-ko-erst-scalar-threshold",
+    "directions": ["de-ko"],
+    "phenomena": ["presupposition", "scalar-particle", "temporal-threshold"],
+    "query": "Translate Die Entscheidung fällt erst nächste Woche. Relationship is unspecified.",
+    "expected_behavior": [
+      "Preserves the not-before-next-week threshold",
+      "Keeps the event undecided at speech time"
+    ],
+    "forbidden_implications": [
+      "Does not translate erst as already",
+      "Does not add disappointment, blame, or an exact weekday"
+    ],
+    "accepted_variants": ["결정은 다음 주가 되어야 나요.", "결정은 다음 주에야 나요."],
+    "unresolved_fields": ["Exact decision day", "Responsible decision-maker"],
+    "severity_if_failed": "major",
+    "baseline_observation": "Forward v3 evaluation targeting scalar presupposition.",
+    "green_observation": "Passed the v3 matrix audit with the not-before-next-week threshold preserved."
   }
 ]

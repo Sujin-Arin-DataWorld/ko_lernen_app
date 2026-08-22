@@ -7,6 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]
 SCAN_ROOTS = (
+    ROOT / ".agents" / "skills" / "beyond-humanizer",
     ROOT / "assets" / "data",
     ROOT / "lib" / "l10n",
     ROOT / "tools" / "content_factory",

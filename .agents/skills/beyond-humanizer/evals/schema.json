@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Beyond Humanizer evaluation case",
+  "type": "array",
+  "minItems": 1,
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "directions",
+      "phenomena",
+      "query",
+      "expected_behavior",
+      "forbidden_implications",
+      "accepted_variants",
+      "unresolved_fields",
+      "severity_if_failed",
+      "baseline_observation"
+    ],
+    "properties": {
+      "id": {"type": "string", "minLength": 1},
+      "directions": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {"enum": ["ko-en", "en-ko", "ko-de", "de-ko"]}
+      },
+      "phenomena": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {"type": "string", "minLength": 1}
+      },
+      "query": {"type": "string", "minLength": 1},
+      "expected_behavior": {
+        "type": "array",
+        "minItems": 1,
+        "items": {"type": "string", "minLength": 1}
+      },
+      "forbidden_implications": {
+        "type": "array",
+        "minItems": 1,
+        "items": {"type": "string", "minLength": 1}
+      },
+      "accepted_variants": {
+        "type": "array",
+        "minItems": 1,
+        "items": {"type": "string", "minLength": 1}
+      },
+      "unresolved_fields": {
+        "type": "array",
+        "items": {"type": "string", "minLength": 1}
+      },
+      "severity_if_failed": {"enum": ["critical", "major", "minor"]},
+      "baseline_observation": {"type": "string", "minLength": 1},
+      "green_observation": {"type": "string", "minLength": 1}
+    },
+    "additionalProperties": true
+  }
+}

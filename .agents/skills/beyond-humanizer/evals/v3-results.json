@@ -1,0 +1,217 @@
+{
+  "version": "3.0.0",
+  "phase": "RED_GREEN",
+  "baseline_skill": "Beyond Humanizer v2",
+  "baseline_commit": "02f8eae904fdc5a61a926e74650c13966e971115",
+  "protocol": {
+    "fresh_context_runs": 6,
+    "models": ["gpt-5.6-luna", "gpt-5.6-terra", "gpt-5.6-sol"],
+    "conditions": [
+      "Current v2 skill applied without v3 reference files",
+      "One polished target per item",
+      "Deadline pressure and short self-audit",
+      "Exact outputs retained for implication analysis"
+    ],
+    "control_limit": "This is a current-v2 control, not a no-skill control: the environment must apply a matching installed skill. The second set omitted the planned v3 axis labels from its prompt."
+  },
+  "sentinel_cases": {
+    "A": "KO to EN and DE: 팀에서 일정이 바뀔 수도 있다고 하던데, 아직 확정된 건 아니래요.",
+    "B": "EN to KO: If you happen to see Alex, could you ask them whether they're still coming? Relationship and gender unspecified.",
+    "C": "DE to KO: Du kannst ja morgen noch mal nachfragen, wenn du willst. Relationship unspecified."
+  },
+  "red_runs": [
+    {
+      "id": "v2-luna-axes",
+      "model": "gpt-5.6-luna",
+      "outputs": {
+        "A_en": "I heard from the team that the schedule might change, but apparently it hasn't been finalized yet.",
+        "A_de": "Ich habe aus dem Team gehört, dass sich der Zeitplan ändern könnte, aber wie es heißt, steht er noch nicht endgültig fest.",
+        "B_ko": "혹시 Alex를 보게 되면, 아직 올 계획인지 물어봐 줄래요?",
+        "C_ko": "원하시면 내일 다시 한번 물어보는 것도 좋을 것 같아요."
+      },
+      "independent_findings": [
+        "A_en changes the second reportative layer into apparently and therefore requires an EVID warning",
+        "C preserves optional suggestion force without a permission construction"
+      ],
+      "self_audit_miss": true
+    },
+    {
+      "id": "v2-terra-axes",
+      "model": "gpt-5.6-terra",
+      "outputs": {
+        "A_en": "I heard the team's schedule might change, but apparently it hasn't been confirmed yet.",
+        "A_de": "Ich habe gehört, dass sich der Zeitplan des Teams vielleicht ändert, aber das offenbar noch nicht bestätigt wurde.",
+        "B_ko": "혹시 Alex를 보면, 아직도 올 건지 물어봐 줄 수 있어요?",
+        "C_ko": "원하면 내일 다시 한번 물어보는 것도 괜찮아요."
+      },
+      "independent_findings": [
+        "A invents team ownership in both targets and flattens the report chain",
+        "C moves the suggestion toward an acceptability or permission evaluation"
+      ],
+      "self_audit_miss": true
+    },
+    {
+      "id": "v2-sol-axes",
+      "model": "gpt-5.6-sol",
+      "outputs": {
+        "A_en": "I've heard from within the team that the schedule might change, but I've also heard that it hasn't been confirmed yet.",
+        "A_de": "Aus dem Team habe ich gehört, der Zeitplan könnte sich ändern, aber ich habe auch gehört, dass das noch nicht bestätigt ist.",
+        "B_ko": "혹시 Alex를 보게 되면, 아직 올 예정인지 물어봐 줄 수 있어요?",
+        "C_ko": "원하면 내일 다시 한번 물어보는 건 어때요?"
+      },
+      "independent_findings": [
+        "No critical sentinel implication was introduced",
+        "A leaves the relation between the two report sources unresolved"
+      ],
+      "self_audit_miss": false
+    },
+    {
+      "id": "v2-luna-pressure",
+      "model": "gpt-5.6-luna",
+      "outputs": {
+        "A_en": "I heard from the team that the schedule might change, but apparently it hasn't been confirmed yet.",
+        "A_de": "Im Team hieß es, dass sich der Zeitplan vielleicht noch ändern könnte, aber offenbar ist das noch nicht bestätigt.",
+        "B_ko": "혹시 Alex를 보게 되면, 아직 올 예정인지 물어봐 주실래요?",
+        "C_ko": "원하시면 내일 다시 한번 물어보셔도 돼요."
+      },
+      "independent_findings": [
+        "A replaces the second report layer with apparently or offenbar",
+        "C recategorizes an optional suggestion as permission"
+      ],
+      "self_audit_miss": true
+    },
+    {
+      "id": "v2-terra-pressure",
+      "model": "gpt-5.6-terra",
+      "outputs": {
+        "A_en": "I heard the schedule might change, but apparently nothing's been confirmed yet.",
+        "A_de": "Im Team heißt es, der Zeitplan könnte sich ändern, aber offenbar ist noch nichts bestätigt.",
+        "B_ko": "혹시 알렉스를 보게 되면, 아직도 올 건지 물어봐 줄 수 있어요?",
+        "C_ko": "원하면 내일 다시 한번 물어봐도 돼요."
+      },
+      "independent_findings": [
+        "A loses the explicit team-source attachment in English and flattens the second report layer",
+        "C recategorizes an optional suggestion as permission"
+      ],
+      "self_audit_miss": true
+    },
+    {
+      "id": "v2-sol-pressure",
+      "model": "gpt-5.6-sol",
+      "outputs": {
+        "A_en": "I heard from the team that the schedule might change, but apparently nothing has been confirmed yet.",
+        "A_de": "Im Team hieß es, der Zeitplan könnte sich ändern, aber fest steht wohl noch nichts.",
+        "B_ko": "혹시 알렉스를 보게 되면, 여전히 올 예정인지 물어봐 줄 수 있어요?",
+        "C_ko": "원하면 내일 다시 한 번 물어봐도 돼요."
+      },
+      "independent_findings": [
+        "A replaces the second report layer with inference or epistemic qualification",
+        "C recategorizes an optional suggestion as permission"
+      ],
+      "self_audit_miss": true
+    }
+  ],
+  "aggregate_red_findings": [
+    "Fluent targets can hide report-source attachment and report-chain changes",
+    "Model self-audit often accepts apparently, offenbar, or wohl as lossless replacements for a Korean reportative layer",
+    "German optional suggestions are repeatedly rendered as Korean permission constructions",
+    "Reference and plan-state choices around still remain context-sensitive and require an explicit presupposition ledger"
+  ],
+  "green_runs": [
+    {
+      "id": "v3-luna-1",
+      "model": "gpt-5.6-luna",
+      "outputs": {
+        "A_en": "I heard from the team that the schedule might change, but I'm told it hasn't been confirmed yet.",
+        "A_de": "Aus dem Team hieß es, der Zeitplan könnte sich ändern; bestätigt sei das aber noch nicht.",
+        "B_ko": "혹시 Alex를 보게 되면, 아직 올 건지 물어봐 줄래요?",
+        "C_ko": "원하시면 내일 다시 한번 물어보는 건 어때요?"
+      },
+      "critical_findings": [],
+      "verdict": "pass"
+    },
+    {
+      "id": "v3-terra-2",
+      "model": "gpt-5.6-terra",
+      "outputs": {
+        "A_en": "I heard from the team that the schedule might change, but I am told it has not been confirmed yet.",
+        "A_de": "Aus dem Team hieß es, der Zeitplan könnte sich ändern; bestätigt sei das aber noch nicht.",
+        "B_ko": "혹시 Alex를 보게 되면, 아직 올 건지 물어봐 줄 수 있어요?",
+        "C_ko": "원하시면 내일 다시 한 번 물어보는 건 어때요?"
+      },
+      "critical_findings": [],
+      "verdict": "pass"
+    },
+    {
+      "id": "v3-sol-3",
+      "model": "gpt-5.6-sol",
+      "outputs": {
+        "A_en": "I heard from the team that the schedule might change, but I'm told it hasn't been confirmed yet.",
+        "A_de": "Aus dem Team hieß es, der Zeitplan könnte sich ändern; bestätigt sei das aber noch nicht.",
+        "B_ko": "혹시 알렉스를 마주치게 되면, 아직 올 계획인지 물어봐 줄래요?",
+        "C_ko": "원하시면 내일 다시 한번 물어보는 건 어때요?"
+      },
+      "critical_findings": [],
+      "verdict": "pass"
+    },
+    {
+      "id": "v3-luna-4",
+      "model": "gpt-5.6-luna",
+      "outputs": {
+        "A_en": "I heard from the team that the schedule might change, but I'm told it hasn't been finalized yet.",
+        "A_de": "Aus dem Team hieß es, der Zeitplan könnte sich ändern; bestätigt sei das aber noch nicht.",
+        "B_ko": "혹시 Alex를 보게 되면, 아직 올 계획인지 물어봐 줄래요?",
+        "C_ko": "원하면 내일 다시 한번 물어보는 건 어때요?"
+      },
+      "critical_findings": [],
+      "verdict": "pass"
+    },
+    {
+      "id": "v3-terra-5",
+      "model": "gpt-5.6-terra",
+      "outputs": {
+        "A_en": "I heard from the team that the schedule might change, but I was told it hasn't been confirmed yet.",
+        "A_de": "Aus dem Team hieß es, der Zeitplan könnte sich ändern; bestätigt sei das aber noch nicht.",
+        "B_ko": "혹시 Alex를 보게 되면, 아직도 올 건지 물어봐 줄 수 있어요?",
+        "C_ko": "원하면 내일 한 번 더 물어보는 건 어때요?"
+      },
+      "critical_findings": [],
+      "noncritical_observations": [
+        "아직도 is more marked than 아직 in this isolated scene; prefer 아직 올 계획인지 when the prior plan is the intended background"
+      ],
+      "verdict": "pass_with_naturalness_note"
+    }
+  ],
+  "green_summary": {
+    "fresh_context_runs": 5,
+    "critical_sentinel_failures": 0,
+    "red_failure_removed": [
+      "No run converted the team source into ownership of the schedule",
+      "No run converted the optional German suggestion into Korean permission",
+      "All runs left Alex's gender and the relationship unspecified"
+    ]
+  },
+  "relationship_refinement": {
+    "reason": "The first GREEN set showed that a model can call -줄래요 relationship-neutral merely because it ends in 해요체; the reference now audits request endings inside the speech level and the markedness of 아직도/여전히.",
+    "fresh_context_runs": 5,
+    "outputs": [
+      "혹시 Alex를 보게 되면, 아직 올 건지 물어봐 줄 수 있어요?",
+      "혹시 알렉스를 보게 되면, 아직 올 계획인지 물어봐 줄 수 있어요?",
+      "혹시 알렉스를 만나게 되면, 아직 올 계획인지 물어봐 줄 수 있어요?",
+      "혹시 Alex를 보게 되면, 아직 올 계획인지 물어봐 줄 수 있어요?",
+      "혹시 알렉스를 보게 되면, 아직 올 계획인지 물어봐 줄 수 있어요?"
+    ],
+    "critical_failures": 0,
+    "result": "All five used the minimally committed -줄 수 있어요 request form; none used -줄래요, 아직도, 여전히, a gendered pronoun, or a motion-in-progress reading."
+  },
+  "matrix_audit": {
+    "method": "Independent read-only model audit against evals.json after applying the updated skill; v3-results.json was hidden from the auditor.",
+    "cases_passed": 20,
+    "cases_total": 20,
+    "legacy_passed": 8,
+    "legacy_total": 8,
+    "critical_findings": [],
+    "limit": "Agent-level bilingual adequacy audit only; not human native-speaker, educator, linguist, or interpreter validation."
+  },
+  "human_gate": "Not yet performed; automated and model review must not be described as linguist or native-speaker approval."
+}

@@ -36,7 +36,7 @@ python3 tools/content_factory/validate_content.py
 - 한국어 target을 바꾸면 DE/EN, cloze, satz, factory source, TTS/reference linkage를 검색해 함께 판정한다.
 - gloss만 고쳐도 같은 한국어 문장을 공유하는 파생 데이터가 있는지 찾는다.
 - 중복 JSON key는 parser가 마지막 값을 읽더라도 hard fail이다.
-- U+FFFD `�`는 데이터 손실 신호다. 같은 ID의 정상본, git history, source file로만 복구한다.
+- Unicode replacement character U+FFFD는 데이터 손실 신호다. 같은 ID의 정상본, git history, source file로만 복구한다.
 - PDF·교재 기반 작업은 교육적 신호만 일반화하고 원문 문장·ID·페이지·단원 순서를 복제하지 않는다.
 
 ## 변경 후

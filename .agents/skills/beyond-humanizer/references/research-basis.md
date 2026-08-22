@@ -18,6 +18,18 @@
   https://aclanthology.org/2025.wmt-1.7/
 - **German Modal Particles as Discourse Signals (Seemann & Scheffler, 2025)**: `ja`, `doch` 등은 담화 관계와 상호작용하며 모든 문맥에 똑같이 자연스럽지 않다.
   https://aclanthology.org/2025.dnd-16.5/
+- **Korean SAY evidentials (Ahn & Yap, 2014)**: `tako`, `tamyense`, `tanun`, `tanta` 등 SAY 계열 형식이 전언 표지와 담화적 기능으로 발달한 경로를 분석한다. 한국어 보고형을 단순 시제나 하나의 영어 부사로 축소하지 않는 근거다.
+  https://doi.org/10.1075/dia.31.3.01ahn
+- **Korean inferential `-napo-` (Kwon, 2012)**: `-나 보-`의 추론적 증거성과 발화 강도 완화 기능을 함께 분석한다. 추론 근거와 화자 확신을 명제에서 분리하는 근거다.
+  https://doi.org/10.1016/j.pragma.2012.04.007
+- **Aspectual `still` (Greenberg, 2009)**: aspectual `still`의 현재 주장과 이전에 이어진 상태에 관한 전제·accommodation을 구분한다. `still`을 단순 `아직` 치환표로 다루지 않는 근거다.
+  https://doi.org/10.1093/jos/ffn009
+- **German temporal `erst` (Grubic, SuB 20)**: `erst`의 temporal exclusive, 즉 기준점 이전을 배제하는 척도 의미를 분석한다. 한국어 `-에야/가 되어야` 후보를 전제·척도 감사하는 근거다.
+  https://ojs.ub.uni-konstanz.de/sub/index.php/sub/article/view/266
+- **IDS grammis: Konjunktiv in indirect speech**: Konjunktiv I은 간접화법의 대표 영역이지만 `dass`절에서는 Indikativ도 가능하고 화자 거리두기 해석이 달라질 수 있음을 설명한다. 장르와 구문 없이 “Konjunktiv I = 불신”으로 고정하지 않는다.
+  https://grammis.ids-mannheim.de/fragen/6829
+- **English workplace requests (Murphy & De Felice, 2019)**: 요청 화행을 문장형식과 독립적으로 주석한 영미 직장 이메일 자료에서 modal type, 부담 수준, 관계 비대칭을 함께 분석한다. `could/can`을 능력 의미로만 판정하지 않는 근거다.
+  https://doi.org/10.1515/pr-2016-0027
 - **English-speaking learners and Korean subject honorification (Jung et al., 2025)**: 영어 L1 학습자가 `-시-`를 일반 공손 표지로 과잉 해석할 수 있음을 보고한다.
   https://doi.org/10.1017/S1366728925100813
 - **Korean honorific processing (Jeong et al., 2025)**: 높임 불일치가 단순 통사 규칙보다 의미·화용 처리와 결합됨을 ERP 결과로 제시한다.

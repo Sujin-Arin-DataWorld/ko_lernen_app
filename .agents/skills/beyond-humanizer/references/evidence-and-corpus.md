@@ -43,6 +43,28 @@
 ```text
 REFERENCE | INDEXICAL_HONORIFICS | SPEECH_ACT
 DEIXIS | TENSE_ASPECT_MODALITY | INFORMATION_STRUCTURE
+EVIDENTIAL_SOURCE_CHAIN | SPEAKER_COMMITMENT | MODAL_FORCE
+PRESUPPOSITION | SCALAR_ALTERNATIVES | CULTURAL_RANGE
 ```
 
 추가로 동시·순차·대화통역에서 부정, 숫자, 늦은 술어, 화자 교대를 시험한다. 원문을 보는 정확성 평가와 목표어만 보는 자연성 평가는 별도 판정자가 수행한다.
+
+각 case는 최소한 다음을 명시한다.
+
+```text
+directions; phenomena; query; expected_behavior
+forbidden_implications; accepted_variants; unresolved_fields
+severity_if_failed; baseline_observation; green_observation
+```
+
+`accepted_variants`는 한 문장만 정답으로 만들기 위한 목록이 아니다. 기능상 같은 자연스러운 범위를 보여 준다. `forbidden_implications`는 특정 단어 금지 목록이 아니라 그 case에서 새로 생기면 안 되는 의미다.
+
+## RED→GREEN 평가 절차
+
+1. 기존 스킬로 시간 압박·단일 최종안·짧은 self-audit 조건에서 반복 실행한다.
+2. 정확한 출력과 self-audit이 놓친 함의를 함께 baseline으로 기록한다.
+3. 새 규칙을 적용한 fresh-context 실행에서 critical 금지 함의가 0인지 본다.
+4. 같은 출력에 대해 bilingual adequacy와 target-only naturalness를 분리한다.
+5. 기존 회귀 case와 네 방향 coverage를 자동 검증한다.
+
+모델 self-audit은 독립 판정이 아니다. 같은 모델이 만든 번역을 스스로 통과시킨 결과는 failure discovery 자료로 쓰되, GREEN 근거는 별도 fresh-context 검토와 가능한 인간 gate를 요구한다. 자동 통과를 “언어학자 검증 완료”로 표현하지 않는다.
