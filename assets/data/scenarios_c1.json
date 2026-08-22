@@ -9483,6 +9483,894 @@
       ],
       "shelf": "c1_attribution",
       "backdrop": "office"
+    },
+    {
+      "id": "c1_moving_rent_relief_roundtable",
+      "level": "c1",
+      "emoji": "🏙️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "public_roundtable",
+      "intent": "mediate_a_rent_relief_proposal_with_multiple_indicators",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "sidekick": "minsu",
+      "xpReward": 160,
+      "title": {
+        "ko": "평균 월세 뒤의 부담을 읽기",
+        "de": "Die Belastung hinter der Durchschnittsmiete",
+        "en": "Reading the burden behind average rent"
+      },
+      "intro": {
+        "ko": "주거비 대책 회의에서 평균값 하나에 기대지 않고 신규 계약, 소득, 에너지 부담과 대상 기준을 함께 검토합니다.",
+        "de": "In einer Runde zu Wohnkosten werden neben Durchschnittswerten auch Neuverträge, Einkommen, Energielast und Zielgruppen geprüft.",
+        "en": "At a housing-cost roundtable, you examine new leases, income, energy burden and eligibility rather than relying on one average."
+      },
+      "grammarIds": [
+        "grammar_c1_two_sides"
+      ],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "평균 월세만 보면 인상 폭이 크지 않아 보입니다.",
+          "de": "Nach der Durchschnittsmiete wirkt der Anstieg nicht besonders groß.",
+          "en": "Looking only at average rent, the increase does not seem especially large."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "하지만 새로 계약한 가구와 오래 거주한 가구의 부담이 다릅니다.",
+          "de": "Die Belastung unterscheidet sich jedoch zwischen neuen und langjährigen Mietverhältnissen.",
+          "en": "But the burden differs between households with new and long-standing leases."
+        },
+        {
+          "speaker": "user",
+          "ko": "신규 계약을 따로 보는 한편 소득 대비 주거비도 비교해야 합니다.",
+          "de": "Wir sollten Neuverträge gesondert betrachten und zugleich die Wohnkosten im Verhältnis zum Einkommen vergleichen.",
+          "en": "We should examine new leases separately while also comparing housing costs with income."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "난방비가 높은 집은 같은 월세라도 실제 부담이 더 큽니다.",
+          "de": "Bei hohen Heizkosten ist die tatsächliche Belastung trotz gleicher Kaltmiete größer.",
+          "en": "A home with high heating costs creates a greater burden even at the same base rent."
+        },
+        {
+          "speaker": "user",
+          "ko": "그렇다면 지원 기준을 월세 액수 하나로 정하면 사각지대가 생기겠군요.",
+          "de": "Dann entstehen Lücken, wenn die Förderung nur an der Miethöhe festgemacht wird.",
+          "en": "Then using rent alone as the eligibility rule will create gaps."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "소득과 총주거비를 함께 보되 신청 절차는 단순해야 합니다.",
+          "de": "Einkommen und gesamte Wohnkosten sollten gemeinsam zählen, das Verfahren muss aber einfach bleiben.",
+          "en": "Income and total housing costs should both count, but the application must remain simple."
+        },
+        {
+          "speaker": "user",
+          "ko": "효과를 평가할 지표와 행정 부담을 점검할 시점도 제안서에 넣죠.",
+          "de": "Nehmen wir auch Erfolgsindikatoren und einen Zeitpunkt zur Prüfung des Verwaltungsaufwands auf.",
+          "en": "Let's also include outcome measures and a date to review the administrative burden."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그러면 지원 규모뿐 아니라 누가 빠지는지도 확인할 수 있습니다.",
+          "de": "Dann sehen wir nicht nur den Förderumfang, sondern auch, wer durchs Raster fällt.",
+          "en": "Then we can see not only the scale of support but also who is left out."
+        }
+      ],
+      "surfaceFormIds": [],
+      "vocab": [
+        {
+          "korean": "신규 계약"
+        },
+        {
+          "korean": "중위소득"
+        },
+        {
+          "korean": "주거비 부담률"
+        },
+        {
+          "korean": "에너지 부담"
+        },
+        {
+          "korean": "지원 대상"
+        },
+        {
+          "korean": "사각지대"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는 한편",
+          "de": "A/V-(으)ㄴ/는 한편: Zwei gleichzeitig relevante Seiten",
+          "en": "A/V-(으)ㄴ/는 한편: Two concurrent sides"
+        },
+        "explanation": {
+          "ko": "판단에 필요한 서로 다른 두 측면을 동시에 제시합니다.",
+          "de": "Verbindet zwei unterschiedliche, oft kontrastierende Eigenschaften oder Entwicklungen, die beide für die Bewertung wichtig sind.",
+          "en": "Connects two different, often contrasting qualities or developments that are both relevant to the assessment."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c1_moving_rent_relief_roundtable_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "신규 계약을 따로 보는 한편 소득 대비 주거비도 비교해야 합니다.",
+            "options": [
+              {
+                "de": "Nach der Durchschnittsmiete wirkt der Anstieg nicht besonders groß.",
+                "en": "Looking only at average rent, the increase does not seem especially large."
+              },
+              {
+                "de": "Wir sollten Neuverträge gesondert betrachten und zugleich die Wohnkosten im Verhältnis zum Einkommen vergleichen.",
+                "en": "We should examine new leases separately while also comparing housing costs with income."
+              },
+              {
+                "de": "Dann entstehen Lücken, wenn die Förderung nur an der Miethöhe festgemacht wird.",
+                "en": "Then using rent alone as the eligibility rule will create gaps."
+              },
+              {
+                "de": "Nehmen wir auch Erfolgsindikatoren und einen Zeitpunkt zur Prüfung des Verwaltungsaufwands auf.",
+                "en": "Let's also include outcome measures and a date to review the administrative burden."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c1_moving_rent_relief_roundtable_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Nehmen wir auch Erfolgsindikatoren und einen Zeitpunkt zur Prüfung des Verwaltungsaufwands auf.",
+            "promptEn": "Let's also include outcome measures and a date to review the administrative burden.",
+            "options": [
+              {
+                "ko": "평균 월세만 보면 인상 폭이 크지 않아 보입니다."
+              },
+              {
+                "ko": "그렇다면 지원 기준을 월세 액수 하나로 정하면 사각지대가 생기겠군요."
+              },
+              {
+                "ko": "효과를 평가할 지표와 행정 부담을 점검할 시점도 제안서에 넣죠."
+              },
+              {
+                "ko": "신규 계약을 따로 보는 한편 소득 대비 주거비도 비교해야 합니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c1_moving_rent_relief_roundtable_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "신규 계약을 따로 ___ 소득 대비 부담도 비교해야 합니다.",
+            "options": [
+              "보는 한편",
+              "보는 마당에",
+              "본다고 해서",
+              "보기에"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_moving_rent_relief_roundtable_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "같은 월세라도 에너지 비용에 따라 실제 부담은 달라집니다.",
+            "promptDe": "Auch bei gleicher Kaltmiete verändert sich die tatsächliche Belastung mit den Energiekosten.",
+            "promptEn": "Even at the same base rent, the real burden changes with energy costs.",
+            "distractors": [
+              "평균은",
+              "충분하고"
+            ],
+            "audioKo": "같은 월세라도 에너지 비용에 따라 실제 부담은 달라집니다."
+          }
+        },
+        {
+          "id": "quest_c1_moving_rent_relief_roundtable_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "지원 효과와 신청 과정의 행정 부담을 함께 평가해야 합니다.",
+            "audioKo": "지원 효과와 신청 과정의 행정 부담을 함께 평가해야 합니다.",
+            "promptDe": "Förderwirkung und Verwaltungsaufwand des Antrags müssen gemeinsam bewertet werden.",
+            "promptEn": "The effect of support and the administrative burden of applying must be evaluated together."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "한국과 독일의 임대 제도 용어는 일대일로 대응하지 않습니다. Warmmiete, Kaltmiete, 관리비, 보증금 같은 항목은 번역만 하지 말고 실제 포함 범위를 확인합니다.",
+        "de": "Begriffe aus deutschen und koreanischen Mietsystemen sind nicht deckungsgleich. Bei Warmmiete, Kaltmiete, 관리비 und 보증금 muss der tatsächliche Umfang geklärt werden.",
+        "en": "German and Korean rental terms do not map one-to-one. For terms such as warm rent, base rent, maintenance fees and deposits, check what is actually included."
+      },
+      "shelf": "c1_policy",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_work_ai_hiring_pilot_review",
+      "level": "c1",
+      "emoji": "📊",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "project_review",
+      "intent": "evaluate_an_ai_hiring_pilot_without_overclaiming",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 160,
+      "title": {
+        "ko": "빠른 선별이 공정한 선별인가",
+        "de": "Ist schnelle Auswahl auch faire Auswahl?",
+        "en": "Is faster screening fairer screening?"
+      },
+      "intro": {
+        "ko": "채용 AI 시범 운영 결과를 검토하며 속도, 누락, 직무별 차이와 사람의 재검토를 한 보고서에 담습니다.",
+        "de": "Bei der Auswertung eines KI-Piloten im Recruiting werden Tempo, Auslassungen, Unterschiede nach Beruf und menschliche Nachprüfung gemeinsam betrachtet.",
+        "en": "Reviewing an AI hiring pilot, you put speed, missed candidates, job-specific differences and human review into one report."
+      },
+      "grammarIds": [
+        "grammar_c1_taking_into_account"
+      ],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "시범 운영에서 서류 처리 시간은 분명히 줄었습니다.",
+          "de": "Im Pilotprojekt sank die Bearbeitungszeit der Unterlagen deutlich.",
+          "en": "The pilot clearly reduced application-processing time."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그 결과만으로 도입을 확대하자는 결론을 낼 수 있을까요?",
+          "de": "Reicht dieses Ergebnis für die Empfehlung, das System auszuweiten?",
+          "en": "Is that result enough to recommend expanding the system?"
+        },
+        {
+          "speaker": "user",
+          "ko": "직무별 표본이 작다는 점을 감안하면 공정성 판단은 유보해야 합니다.",
+          "de": "Angesichts der kleinen Stichproben je Beruf sollten wir das Fairnessurteil zurückstellen.",
+          "en": "Taking the small samples by job type into account, we should defer judgment on fairness."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "특히 경력 경로가 비정형적인 지원자의 누락률을 따로 봐야 합니다.",
+          "de": "Vor allem die Auslassungsquote bei nicht linearen Lebensläufen muss gesondert geprüft werden.",
+          "en": "We especially need to examine the miss rate for applicants with non-linear careers."
+        },
+        {
+          "speaker": "user",
+          "ko": "속도 향상은 확인됐지만 기회 배분의 영향은 아직 불확실하다고 쓰죠.",
+          "de": "Schreiben wir: Der Tempogewinn ist belegt, die Wirkung auf Chancenverteilung bleibt unklar.",
+          "en": "Let's write that speed improved, but the effect on access to opportunity remains uncertain."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "사람의 재검토가 결과를 얼마나 바꿨는지도 보고서에 넣겠습니다.",
+          "de": "Ich ergänze, wie häufig die menschliche Nachprüfung das Ergebnis verändert hat.",
+          "en": "I'll add how often human review changed the result."
+        },
+        {
+          "speaker": "user",
+          "ko": "지원자가 오류를 알리고 설명을 보탤 경로도 실제로 작동하는지 확인해요.",
+          "de": "Prüfen wir auch, ob der Weg für Fehlermeldungen und ergänzende Erklärungen praktisch funktioniert.",
+          "en": "Let's also check whether applicants can actually report errors and add context."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그 조건이 충족될 때까지는 제한된 직무에서만 시험하겠습니다.",
+          "de": "Bis diese Bedingungen erfüllt sind, testen wir nur in begrenzten Berufsgruppen.",
+          "en": "Until those conditions are met, we'll test only in a limited set of roles."
+        }
+      ],
+      "surfaceFormIds": [],
+      "vocab": [
+        {
+          "korean": "시범 운영"
+        },
+        {
+          "korean": "오탐"
+        },
+        {
+          "korean": "누락"
+        },
+        {
+          "korean": "직무별 표본"
+        },
+        {
+          "korean": "검증"
+        },
+        {
+          "korean": "재검토 경로"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 감안하면",
+          "de": "N을/를 감안하면: Einschätzung unter Berücksichtigung eines Faktors",
+          "en": "N을/를 감안하면: Assessment taking a factor into account"
+        },
+        "explanation": {
+          "ko": "결론을 실제로 바꾸는 조건이나 자료를 고려 대상으로 끌어옵니다.",
+          "de": "Fordert dazu auf, einen relevanten Umstand in die folgende Einschätzung oder Entscheidung einzubeziehen.",
+          "en": "Introduces a relevant circumstance that should materially shape the following judgment or decision."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c1_work_ai_hiring_pilot_review_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "audioKo": "직무별 표본이 작다는 점을 감안하면 공정성 판단은 유보해야 합니다.",
+            "options": [
+              {
+                "de": "Im Pilotprojekt sank die Bearbeitungszeit der Unterlagen deutlich.",
+                "en": "The pilot clearly reduced application-processing time."
+              },
+              {
+                "de": "Angesichts der kleinen Stichproben je Beruf sollten wir das Fairnessurteil zurückstellen.",
+                "en": "Taking the small samples by job type into account, we should defer judgment on fairness."
+              },
+              {
+                "de": "Schreiben wir: Der Tempogewinn ist belegt, die Wirkung auf Chancenverteilung bleibt unklar.",
+                "en": "Let's write that speed improved, but the effect on access to opportunity remains uncertain."
+              },
+              {
+                "de": "Prüfen wir auch, ob der Weg für Fehlermeldungen und ergänzende Erklärungen praktisch funktioniert.",
+                "en": "Let's also check whether applicants can actually report errors and add context."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c1_work_ai_hiring_pilot_review_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "promptDe": "Prüfen wir auch, ob der Weg für Fehlermeldungen und ergänzende Erklärungen praktisch funktioniert.",
+            "promptEn": "Let's also check whether applicants can actually report errors and add context.",
+            "options": [
+              {
+                "ko": "시범 운영에서 서류 처리 시간은 분명히 줄었습니다."
+              },
+              {
+                "ko": "속도 향상은 확인됐지만 기회 배분의 영향은 아직 불확실하다고 쓰죠."
+              },
+              {
+                "ko": "지원자가 오류를 알리고 설명을 보탤 경로도 실제로 작동하는지 확인해요."
+              },
+              {
+                "ko": "직무별 표본이 작다는 점을 감안하면 공정성 판단은 유보해야 합니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c1_work_ai_hiring_pilot_review_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "sentence": "직무별 표본이 작다는 점을 ___ 결론을 유보해야 합니다.",
+            "options": [
+              "감안하면",
+              "불문하고",
+              "기대어",
+              "그치면"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_work_ai_hiring_pilot_review_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "처리 시간이 줄어든 사실과 공정성은 별도의 지표로 검증해야 합니다.",
+            "promptDe": "Kürzere Bearbeitungszeit und Fairness müssen mit getrennten Indikatoren geprüft werden.",
+            "promptEn": "Reduced processing time and fairness need separate measures.",
+            "distractors": [
+              "효율이",
+              "높으니"
+            ],
+            "audioKo": "처리 시간이 줄어든 사실과 공정성은 별도의 지표로 검증해야 합니다."
+          }
+        },
+        {
+          "id": "quest_c1_work_ai_hiring_pilot_review_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_evidence_reasoning"
+          ],
+          "data": {
+            "targetKo": "재검토가 결과를 바꾼 비율을 공개해야 절차를 평가할 수 있습니다.",
+            "audioKo": "재검토가 결과를 바꾼 비율을 공개해야 절차를 평가할 수 있습니다.",
+            "promptDe": "Erst mit der Quote geänderter Ergebnisse lässt sich das Prüfverfahren bewerten.",
+            "promptEn": "The review process can only be evaluated if the rate of changed outcomes is disclosed."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "AI 채용을 평가할 때 ‘사람보다 공정하다’ 또는 ‘기계라서 차별한다’고 먼저 단정하지 않습니다. 비교 대상, 표본, 누락 기준과 이의 절차를 함께 확인합니다.",
+        "de": "Bei KI im Recruiting wird weder ‚fairer als Menschen‘ noch ‚diskriminierend, weil maschinell‘ vorausgesetzt. Vergleich, Stichprobe, Auslassungskriterien und Einspruchsweg gehören zusammen.",
+        "en": "When evaluating AI hiring, do not assume it is fairer than humans or discriminatory simply because it is automated. Check the comparison, sample, exclusion criteria and appeal route together."
+      },
+      "shelf": "c1_policy",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_daily_migration_demography_policy_forum",
+      "level": "c1",
+      "emoji": "🧭",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "policy_forum",
+      "intent": "mediate_between_labor_shortage_and_integration_capacity",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "sidekick": "minsu",
+      "xpReward": 165,
+      "title": {
+        "ko": "인력 부족과 정착 역량을 함께 보기",
+        "de": "Fachkräftebedarf und Ankommen zusammen denken",
+        "en": "Linking labor needs with settlement capacity"
+      },
+      "intro": {
+        "ko": "저출산·고령화에 따른 인력 부족을 논의하면서 이주 확대만 제시하지 않고 언어, 주거, 돌봄과 자격 인정의 실행 역량을 묻습니다.",
+        "de": "In der Debatte über demografischen Arbeitskräftebedarf werden neben Zuwanderung auch Sprache, Wohnen, Betreuung und Anerkennungskapazitäten geprüft.",
+        "en": "Discussing labor shortages linked to demographic change, you examine language, housing, care and qualification recognition rather than presenting migration alone as the answer."
+      },
+      "grammarIds": [
+        "grammar_c1_not_necessarily"
+      ],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "인력 부족을 이유로 이주 인력을 더 받아야 한다는 제안이 나왔습니다.",
+          "de": "Es gibt den Vorschlag, wegen des Arbeitskräftemangels mehr Zuwanderung zu ermöglichen.",
+          "en": "There is a proposal to increase labor migration because of workforce shortages."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "필요성만 말하면 실제 정착 조건이 뒤로 밀릴 수 있습니다.",
+          "de": "Wenn nur der Bedarf betont wird, geraten die Bedingungen des Ankommens in den Hintergrund.",
+          "en": "If we talk only about need, the conditions for settlement can fall out of view."
+        },
+        {
+          "speaker": "user",
+          "ko": "입국 인원이 늘었다고 해서 인력 부족이 곧 해소된 것은 아닙니다.",
+          "de": "Mehr Einreisen bedeuten nicht automatisch, dass der Arbeitskräftemangel gelöst ist.",
+          "en": "More arrivals do not automatically mean the workforce shortage is solved."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "자격 인정 지연과 주거·돌봄 부족으로 경력을 못 쓰는 경우가 있으니까요.",
+          "de": "Verzögerte Anerkennung sowie Wohnungs- und Betreuungslücken verhindern oft den Einsatz vorhandener Erfahrung.",
+          "en": "Delayed recognition and shortages in housing and care can keep people from using their experience."
+        },
+        {
+          "speaker": "user",
+          "ko": "지역별 일자리와 지원 역량을 함께 표시한 단계적 계획이 필요합니다.",
+          "de": "Wir brauchen einen gestuften Plan, der regionale Stellen und Unterstützungskapazitäten zusammen ausweist.",
+          "en": "We need a phased plan that shows both regional jobs and support capacity."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "당사자에게도 필요한 정보와 장기 거주 의향을 직접 물어야 합니다.",
+          "de": "Auch die Betroffenen sollten direkt nach Informationsbedarf und langfristigen Plänen gefragt werden.",
+          "en": "We should also ask the people concerned directly what information they need and whether they plan to stay."
+        },
+        {
+          "speaker": "user",
+          "ko": "고용률뿐 아니라 자격에 맞는 일자리, 이직과 정착 지속성도 보죠.",
+          "de": "Neben der Beschäftigungsquote betrachten wir passende Arbeit, Wechsel und nachhaltiges Ankommen.",
+          "en": "Alongside employment rates, let's examine job fit, turnover and durable settlement."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그러면 숫자를 채우는 정책이 아니라 함께 사는 조건을 평가할 수 있습니다.",
+          "de": "Dann bewerten wir Bedingungen des Zusammenlebens statt bloß Zielzahlen zu füllen.",
+          "en": "Then we can evaluate the conditions for living together, not merely filling a target number."
+        }
+      ],
+      "surfaceFormIds": [],
+      "vocab": [
+        {
+          "korean": "인력 부족"
+        },
+        {
+          "korean": "고령화"
+        },
+        {
+          "korean": "정착 기반"
+        },
+        {
+          "korean": "돌봄 공백"
+        },
+        {
+          "korean": "자격 인정"
+        },
+        {
+          "korean": "지역 수용 역량"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-ㄴ/는다고 해서 N인 것은 아니다",
+          "de": "V-ㄴ/는다고 해서 N인 것은 아니다: Fehlschluss zurückweisen",
+          "en": "V-ㄴ/는다고 해서 N인 것은 아니다: Rejecting a false inference"
+        },
+        "explanation": {
+          "ko": "관찰한 사실에서 기대한 효과로 바로 넘어가는 잘못된 추론을 막습니다.",
+          "de": "Weist den Schluss von einer Beobachtung auf die erhoffte Wirkung zurück, ohne die Beobachtung selbst zu bestreiten.",
+          "en": "Rejects the leap from an observation to a hoped-for effect without denying the observation itself."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c1_daily_migration_demography_policy_forum_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "audioKo": "입국 인원이 늘었다고 해서 인력 부족이 곧 해소된 것은 아닙니다.",
+            "options": [
+              {
+                "de": "Es gibt den Vorschlag, wegen des Arbeitskräftemangels mehr Zuwanderung zu ermöglichen.",
+                "en": "There is a proposal to increase labor migration because of workforce shortages."
+              },
+              {
+                "de": "Mehr Einreisen bedeuten nicht automatisch, dass der Arbeitskräftemangel gelöst ist.",
+                "en": "More arrivals do not automatically mean the workforce shortage is solved."
+              },
+              {
+                "de": "Wir brauchen einen gestuften Plan, der regionale Stellen und Unterstützungskapazitäten zusammen ausweist.",
+                "en": "We need a phased plan that shows both regional jobs and support capacity."
+              },
+              {
+                "de": "Neben der Beschäftigungsquote betrachten wir passende Arbeit, Wechsel und nachhaltiges Ankommen.",
+                "en": "Alongside employment rates, let's examine job fit, turnover and durable settlement."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c1_daily_migration_demography_policy_forum_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "promptDe": "Neben der Beschäftigungsquote betrachten wir passende Arbeit, Wechsel und nachhaltiges Ankommen.",
+            "promptEn": "Alongside employment rates, let's examine job fit, turnover and durable settlement.",
+            "options": [
+              {
+                "ko": "인력 부족을 이유로 이주 인력을 더 받아야 한다는 제안이 나왔습니다."
+              },
+              {
+                "ko": "지역별 일자리와 지원 역량을 함께 표시한 단계적 계획이 필요합니다."
+              },
+              {
+                "ko": "고용률뿐 아니라 자격에 맞는 일자리, 이직과 정착 지속성도 보죠."
+              },
+              {
+                "ko": "입국 인원이 늘었다고 해서 인력 부족이 곧 해소된 것은 아닙니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c1_daily_migration_demography_policy_forum_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "sentence": "입국 인원이 ___ 인력 부족이 해소된 것은 아닙니다.",
+            "options": [
+              "늘었다고 해서",
+              "늘어난 한편",
+              "늘어난 마당에",
+              "늘어난 점을 감안하면"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_daily_migration_demography_policy_forum_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "자격 인정과 주거 지원이 늦으면 기존 경력을 활용하기 어렵습니다.",
+            "promptDe": "Bei später Anerkennung und Wohnhilfe lässt sich vorhandene Erfahrung schwer nutzen.",
+            "promptEn": "When recognition and housing support are delayed, existing experience is hard to use.",
+            "distractors": [
+              "필요성만",
+              "말하고"
+            ],
+            "audioKo": "자격 인정과 주거 지원이 늦으면 기존 경력을 활용하기 어렵습니다."
+          }
+        },
+        {
+          "id": "quest_c1_daily_migration_demography_policy_forum_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_inclusive_systems"
+          ],
+          "data": {
+            "targetKo": "지역별 일자리와 지원 역량을 함께 봐야 정착 계획이 현실적입니다.",
+            "audioKo": "지역별 일자리와 지원 역량을 함께 봐야 정착 계획이 현실적입니다.",
+            "promptDe": "Erst mit regionalen Stellen und Unterstützungskapazitäten wird ein Ankommensplan realistisch.",
+            "promptEn": "A settlement plan is realistic only when regional jobs and support capacity are considered together."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "‘외국인’, ‘이주민’, ‘난민’, ‘유학생’, ‘이주 노동자’는 같은 말이 아닙니다. 주제에 필요한 범주만 쓰고, 법적 지위나 체류 목적을 근거 없이 추정하지 않습니다.",
+        "de": "‚Ausländer‘, ‚Migrant‘, ‚Geflüchteter‘, ‚Studierender‘ und ‚Arbeitsmigrant‘ sind nicht austauschbar. Verwendet wird nur die sachlich nötige Kategorie; Status und Zweck werden nicht erraten.",
+        "en": "Foreigner, migrant, refugee, international student and labor migrant are not interchangeable. Use only the category relevant to the issue and never guess legal status or purpose."
+      },
+      "shelf": "c1_labor",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_kpop_platform_localization_review",
+      "level": "c1",
+      "emoji": "🌍",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "culture_project_team",
+      "intent": "rebalance_platform_reach_localization_and_fan_labor",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 165,
+      "title": {
+        "ko": "확산 뒤에 누가 번역하는가",
+        "de": "Wer übersetzt hinter der Reichweite?",
+        "en": "Who translates behind the reach?"
+      },
+      "intro": {
+        "ko": "K-컬처 프로젝트의 해외 확산을 평가하며 플랫폼 조회수, 현지 맥락, 자막 품질과 팬 노동의 지속 가능성을 조정합니다.",
+        "de": "Bei der internationalen Auswertung eines K-Kultur-Projekts werden Plattformreichweite, lokaler Kontext, Untertitelqualität und nachhaltige Fanarbeit austariert.",
+        "en": "Evaluating an international K-culture project, you balance platform reach, local context, subtitle quality and sustainable fan labor."
+      },
+      "grammarIds": [
+        "grammar_c1_given_situation"
+      ],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "짧은 영상에서 시작한 관심이 드라마와 음식 콘텐츠로 이어졌습니다.",
+          "de": "Das Interesse aus Kurzvideos ging in Serien- und Essensinhalte über.",
+          "en": "Interest that began with short videos spread into dramas and food content."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그런데 지역별 반응을 모두 같은 조회수 지표로 비교했어요.",
+          "de": "Die regionalen Reaktionen wurden jedoch alle mit derselben Aufrufzahl verglichen.",
+          "en": "But regional responses were all compared using the same view-count measure."
+        },
+        {
+          "speaker": "user",
+          "ko": "추천 알고리즘이 노출을 좌우하는 마당에 조회수만으로 선호를 단정하기 어렵습니다.",
+          "de": "Wenn Empfehlungsalgorithmen die Sichtbarkeit prägen, lässt sich Vorliebe kaum allein aus Aufrufen ableiten.",
+          "en": "Given that recommendation algorithms shape exposure, views alone cannot establish preference."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "어떤 지역에서는 팬들이 직접 자막과 맥락 설명을 붙였어요.",
+          "de": "In manchen Regionen ergänzten Fans selbst Untertitel und Kontext.",
+          "en": "In some regions, fans added subtitles and context themselves."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 기여를 무료 홍보로만 계산하면 실제 노동과 품질 책임이 사라집니다.",
+          "de": "Wer diesen Beitrag nur als kostenlose Werbung zählt, blendet Arbeit und Qualitätsverantwortung aus.",
+          "en": "Counting that contribution only as free promotion erases the labor and responsibility for quality."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "다음 배치에는 전문 번역 예산과 팬 검토 시간을 따로 잡겠습니다.",
+          "de": "Im nächsten Durchlauf plane ich Budget für Übersetzung und Zeit für Fan-Feedback getrennt ein.",
+          "en": "For the next round, I'll budget separately for professional translation and fan review time."
+        },
+        {
+          "speaker": "user",
+          "ko": "성과도 조회수, 완주율, 지역 행사 참여와 번역 부담을 나눠서 봐요.",
+          "de": "Messen wir Erfolg getrennt nach Aufrufen, Abschlussrate, lokaler Teilnahme und Übersetzungsbelastung.",
+          "en": "Let's separate views, completion, local event participation and translation burden as outcome measures."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그러면 확산의 크기와 지속 가능한 참여를 동시에 설명할 수 있겠네요.",
+          "de": "Dann können wir Reichweite und nachhaltige Beteiligung zugleich erklären.",
+          "en": "Then we can explain both the size of the reach and sustainable participation."
+        }
+      ],
+      "surfaceFormIds": [],
+      "vocab": [
+        {
+          "korean": "플랫폼 확산"
+        },
+        {
+          "korean": "추천 알고리즘"
+        },
+        {
+          "korean": "현지 맥락"
+        },
+        {
+          "korean": "자막 품질"
+        },
+        {
+          "korean": "무보수 노동"
+        },
+        {
+          "korean": "성과 지표"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-는 마당에",
+          "de": "V-는 마당에: In einer bereits laufenden Lage",
+          "en": "V-는 마당에: In an already unfolding situation"
+        },
+        "explanation": {
+          "ko": "이미 벌어지고 있는 상황을 전제로 뒤의 판단을 제시합니다.",
+          "de": "In einer bereits laufenden Lage. Die Lage ist schon da.",
+          "en": "In an already unfolding situation. The situation is already there."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c1_kpop_platform_localization_review_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "audioKo": "추천 알고리즘이 노출을 좌우하는 마당에 조회수만으로 선호를 단정하기 어렵습니다.",
+            "options": [
+              {
+                "de": "Das Interesse aus Kurzvideos ging in Serien- und Essensinhalte über.",
+                "en": "Interest that began with short videos spread into dramas and food content."
+              },
+              {
+                "de": "Wenn Empfehlungsalgorithmen die Sichtbarkeit prägen, lässt sich Vorliebe kaum allein aus Aufrufen ableiten.",
+                "en": "Given that recommendation algorithms shape exposure, views alone cannot establish preference."
+              },
+              {
+                "de": "Wer diesen Beitrag nur als kostenlose Werbung zählt, blendet Arbeit und Qualitätsverantwortung aus.",
+                "en": "Counting that contribution only as free promotion erases the labor and responsibility for quality."
+              },
+              {
+                "de": "Messen wir Erfolg getrennt nach Aufrufen, Abschlussrate, lokaler Teilnahme und Übersetzungsbelastung.",
+                "en": "Let's separate views, completion, local event participation and translation burden as outcome measures."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c1_kpop_platform_localization_review_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "promptDe": "Messen wir Erfolg getrennt nach Aufrufen, Abschlussrate, lokaler Teilnahme und Übersetzungsbelastung.",
+            "promptEn": "Let's separate views, completion, local event participation and translation burden as outcome measures.",
+            "options": [
+              {
+                "ko": "짧은 영상에서 시작한 관심이 드라마와 음식 콘텐츠로 이어졌습니다."
+              },
+              {
+                "ko": "그 기여를 무료 홍보로만 계산하면 실제 노동과 품질 책임이 사라집니다."
+              },
+              {
+                "ko": "성과도 조회수, 완주율, 지역 행사 참여와 번역 부담을 나눠서 봐요."
+              },
+              {
+                "ko": "추천 알고리즘이 노출을 좌우하는 마당에 조회수만으로 선호를 단정하기 어렵습니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c1_kpop_platform_localization_review_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "sentence": "추천 알고리즘이 노출을 ___ 조회수만으로 선호를 단정하기 어렵습니다.",
+            "options": [
+              "좌우하는 마당에",
+              "좌우한다고 해서",
+              "좌우하는 한편",
+              "좌우할지언정"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c1_kpop_platform_localization_review_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "targetKo": "팬의 자막 기여를 무료 홍보로만 계산하면 노동과 책임이 보이지 않습니다.",
+            "promptDe": "Wird Fan-Untertitelarbeit nur als kostenlose Werbung gezählt, verschwinden Arbeit und Verantwortung.",
+            "promptEn": "When fan subtitle work is counted only as free promotion, labor and responsibility disappear.",
+            "distractors": [
+              "무심코",
+              "당연히"
+            ],
+            "audioKo": "팬의 자막 기여를 무료 홍보로만 계산하면 노동과 책임이 보이지 않습니다."
+          }
+        },
+        {
+          "id": "quest_c1_kpop_platform_localization_review_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_fan_labor"
+          ],
+          "data": {
+            "targetKo": "확산의 크기와 지속 가능한 참여는 서로 다른 지표가 필요합니다.",
+            "audioKo": "확산의 크기와 지속 가능한 참여는 서로 다른 지표가 필요합니다.",
+            "promptDe": "Reichweite und nachhaltige Beteiligung brauchen unterschiedliche Kennzahlen.",
+            "promptEn": "Scale of reach and sustainable participation need different indicators."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "한류의 ‘성공’을 국가별 순위나 조회수 하나로 환원하지 않습니다. 현지 창작자와 팬의 해석, 번역 노동, 플랫폼 노출 조건을 함께 봅니다.",
+        "de": "Der ‚Erfolg‘ von Hallyu wird nicht auf Länderranglisten oder Aufrufzahlen reduziert. Lokale Interpretation, Übersetzungsarbeit und Plattformbedingungen gehören dazu.",
+        "en": "Do not reduce Hallyu's 'success' to rankings or views. Include local interpretation, translation labor and platform exposure conditions."
+      },
+      "shelf": "c1_fandom",
+      "backdrop": "office"
     }
   ]
 }

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""레벨별 15칸 서재(책가도)의 칸 정의와 live 392개 배정.
+"""레벨별 15칸 서재(책가도)의 칸 정의와 live 404개 배정.
 
 정본은 docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md 의
 §4(축 설계)와 부록 A(전수 배정)다.  단 §4.2 관심 3칸은 2026-08-17 Jin 결정으로
@@ -79,7 +79,8 @@ ALL_SHELVES: frozenset[str] = frozenset(
     f"{level}_{slug}" for level in LEVELS for slug in SHELF_SLUGS[level]
 )
 
-# 부록 A — live 392 전수 배정 (264 + 11:36 + 13:12 + 14:28 + 15:28 + 16:24).
+# 부록 A — live 404 전수 배정
+# (264 + 11:36 + 13:12 + 14:28 + 15:28 + 16:24 + 17:12).
 # 90칸 전부 재고가 있다 — 서재가 처음으로 완전히 찼다.: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
 ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_transit": (
@@ -232,6 +233,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_hiring_role_scope",
         "b2_hiring_salary_band",
         "b2_hiring_start_date",
+        "b2_job_hunting_ai_screening",
     ),
     "b2_privacy": (
         "b2_privacy_data_scope",
@@ -317,6 +319,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "b2_contract": (
         "b2_contract_clause_inquiry", "b2_signature_scope_confirmation",
         "b2_hotel_clause", "b2_vacate_short", "b2_case_id",
+        "b2_moving_rent_heating_budget",
     ),
     "b2_notice": (
         "b2_certified_mail", "b2_objection_status_request",
@@ -335,6 +338,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_public_question", "b2_public_wording_feedback",
         "b2_reading_circle_response", "b2_cafe_brief", "b2_one_pager",
         "b2_read_receipt", "b2_selective_edit", "b2_self_fail",
+        "b2_daily_migration_neighborhood_meeting",
     ),
     "b2_partner": (
         "b2_partner_dowry_joke", "b2_partner_inlaw_rotation",
@@ -352,6 +356,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "b2_fandom": (
         "b2_kpop_staff_interview", "b2_youtube_collab_pitch",
+        "b2_kpop_local_festival_program",
     ),
     "c1_briefing": (
         "c1_briefing_number", "c1_leading_item", "c1_speaking_slot",
@@ -366,6 +371,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c1_labor": (
         "c1_partner_invisible_labor", "c1_partner_guest_or_family",
+        "c1_daily_migration_demography_policy_forum",
     ),
     # C1/C2 에서는 관심 소재가 담화 기능과 겹쳐 보인다 —
     # c1_kpop_fan_labor 는 c1_labor 로, c1_gaming_playtime_policy 는
@@ -387,6 +393,8 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c1_policy_pilot_before_rollout",
         "c1_policy_sunset_clause",
         "c1_policy_who_bears_cost",
+        "c1_moving_rent_relief_roundtable",
+        "c1_work_ai_hiring_pilot_review",
     ),
     "c1_clinical": (
         "c1_clinical_data_reuse",
@@ -426,22 +434,26 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c1_fandom": (
         "c1_kpop_fan_labor", "c1_youtube_health_claims",
+        "c1_kpop_platform_localization_review",
     ),
     "c2_automation": (
         "c2_appeal_bot", "c2_automated_decision_appeal",
         "c2_daily_automation_redress",
+        "c2_work_ai_accountability_board",
     ),
     "c2_record": (
         "c2_archive_gap", "c2_trace_log",
     ),
     "c2_discourse": (
         "c2_discourse_premise", "c2_passive_hide",
+        "c2_moving_affordability_definition_hearing",
     ),
     "c2_mandate": (
         "c2_mandate_edge", "c2_withdraw_deep",
     ),
     "c2_impact": (
         "c2_uneven_impact",
+        "c2_daily_integration_metric_editorial",
     ),
     "c2_memory": (
         "c2_partner_document_the_place", "c2_partner_name_and_memory",
@@ -454,6 +466,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "c2_fandom": (
         "c2_kpop_fandom_language", "c2_youtube_algorithm_duty",
+        "c2_kpop_authenticity_platform_panel",
     ),
     "c2_ethics": (
         "c2_ethics_consent_form_scope_gap",

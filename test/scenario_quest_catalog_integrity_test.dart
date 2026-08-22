@@ -6,11 +6,11 @@ import 'package:ko_lernen_app/models/scenario.dart';
 import 'support/scenario_json.dart';
 
 void main() {
-  test('all 392 scenarios and 1629 quests satisfy the renderer contract', () {
+  test('all 404 scenarios and 1689 quests satisfy the renderer contract', () {
     final root =
         allScenarioRoot();
     final decoded = root['scenarios'] as List<dynamic>;
-    expect(decoded, hasLength(392));
+    expect(decoded, hasLength(404));
 
     const supported = {
       'hoerverstehen',
@@ -87,7 +87,7 @@ void main() {
       }
     }
 
-    expect(questCount, 1629);
+    expect(questCount, 1689);
     final countsById = {
       for (final raw in decoded.cast<Map<String, dynamic>>())
         raw['id'] as String: (raw['quests'] as List).length,

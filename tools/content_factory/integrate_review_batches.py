@@ -23,6 +23,7 @@ from __future__ import annotations
 import argparse
 import csv
 from dataclasses import dataclass
+from datetime import date
 from io import StringIO
 import json
 import os
@@ -738,9 +739,10 @@ def _promoted_ledger_text(path: Path) -> str:
     header, rows = _read_csv(path)
     if header != REVIEW_HEADER:
         raise IntegrationError(f"{path}: review header changed during integration")
+    approved_at = date.today().isoformat()
     for row in rows:
         row["상태"] = "approved"
-        row["jin_memo"] = "Jin explicit app-integration approval (2026-08-15)."
+        row["jin_memo"] = f"Jin explicit app-integration approval ({approved_at})."
     return _csv_text(header, rows)
 
 
@@ -750,12 +752,13 @@ def _promoted_manifest_text(path: Path) -> str:
     provenance = manifest.get("provenance")
     if not isinstance(provenance, dict):
         raise IntegrationError(f"{path}: provenance must be an object")
+    approved_at = date.today().isoformat()
     provenance["approval"] = {
         "authority": "Jin",
-        "approvedAt": "2026-08-15",
+        "approvedAt": approved_at,
         "scope": "all records promoted to bundled app content",
     }
-    provenance["mergedAt"] = "2026-08-15"
+    provenance["mergedAt"] = approved_at
     return _json_text(manifest)
 
 

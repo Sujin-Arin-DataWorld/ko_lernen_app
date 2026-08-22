@@ -2536,7 +2536,10 @@
     "c2_automation_redress": "c2_03_automation_redress",
     "c2_sanction_accountability": "c2_04_sanction_accountability",
     "c2_relationship_narratives": "c2_05_relationship_narratives",
-    "c2_fandom_discourse": "c2_06_fandom_discourse_power"
+    "c2_fandom_discourse": "c2_06_fandom_discourse_power",
+    "b2_2026_social_topics": "b2_06_advanced_capstone",
+    "c1_2026_social_topics": "c1_02_inclusive_sustainable_systems",
+    "c2_2026_social_topics": "c2_01_interpretation_institutions"
   },
   "contentLinks": [
     {
@@ -5796,6 +5799,114 @@
         "concept_c2_fandom_discourse"
       ],
       "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_moving_rent_heating_budget",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_job_hunting_ai_screening",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_daily_migration_neighborhood_meeting",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_kpop_local_festival_program",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_moving_rent_relief_roundtable",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_work_ai_hiring_pilot_review",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_daily_migration_demography_policy_forum",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_kpop_platform_localization_review",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_moving_affordability_definition_hearing",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_work_ai_accountability_board",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_daily_integration_metric_editorial",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_kpop_authenticity_platform_panel",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
     }
   ],
   "grammarRuleMap": {
@@ -7082,6 +7193,78 @@
       "conceptIds": [
         "concept_c2_fandom_discourse"
       ]
+    },
+    "grammar_b2_include_total_scope": {
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ]
+    },
+    "grammar_b2_verify_human_review": {
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ]
+    },
+    "grammar_b2_not_by_one_metric": {
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    "grammar_b2_instead_supplement": {
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    "grammar_c1_even_accounting_for": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "grammar_c1_while_also_consider": {
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    "grammar_c1_effect_varies_by": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "grammar_c1_excluded_in_process": {
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ]
+    },
+    "grammar_c2_take_as_premise": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "grammar_c2_definition_by_viewpoint": {
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    "grammar_c2_responsibility_remains": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "grammar_c2_cannot_reduce_to": {
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ]
     }
   },
   "smalltalkCategoryUnitMap": {
@@ -7744,6 +7927,30 @@
       "conceptIds": [
         "concept_c2_discourse_institutions"
       ]
+    },
+    "c1:moving": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c1:job_hunting": {
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    "c2:moving": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "c2:job_hunting": {
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
     }
   },
   "smalltalkCheckpointPhraseMap": {
@@ -7897,6 +8104,9 @@
     "c2:automatisierung & rechtsweg": "c2_03_automation_redress",
     "c2:sanktion & rechenschaft": "c2_04_sanction_accountability",
     "c2:narrativ & perspektive": "c2_05_relationship_narratives",
-    "c2:diskurs & macht": "c2_06_fandom_discourse_power"
+    "c2:diskurs & macht": "c2_06_fandom_discourse_power",
+    "b2:gesellschaft & alltag 2026": "b2_06_advanced_capstone",
+    "c1:gesellschaft im wandel": "c1_02_inclusive_sustainable_systems",
+    "c2:diskurs, macht & verantwortung": "c2_01_interpretation_institutions"
   }
 }

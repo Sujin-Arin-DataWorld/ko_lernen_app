@@ -93,5 +93,5 @@ vocab_c2_0211,C2,동조,Mitgehen,going along,rights: original; pack=c2_fandom_di
 vocab_c2_0212,C2,발화,Äußerung,utterance,rights: original; pack=c2_fandom_discourse_1; order=8; boss=false,approved,Jin explicit app-integration approval (2026-08-15).
 vocab_c2_0213,C2,함의,Implikation,implication,rights: original; pack=c2_fandom_discourse_1; order=9; boss=false,approved,Jin explicit app-integration approval (2026-08-15).
 vocab_c2_0214,C2,잣대,Maßstab,yardstick,rights: original; pack=c2_fandom_discourse_1; order=10; boss=true,approved,Jin explicit app-integration approval (2026-08-15).
-vocab_c2_0215,C2,호명,namentliche Benennung,calling out by name,rights: original; pack=c2_fandom_discourse_1; order=11; boss=true,approved,Jin explicit app-integration approval (2026-08-15).
+vocab_c2_0215,C2,비난,Vorwurf,criticism,rights: original; pack=c2_fandom_discourse_1; order=11; boss=true,approved,Jin explicit app-integration approval (2026-08-15); ledger synchronized to promoted draft/live text (2026-08-22).
 vocab_c2_0216,C2,우세,Übergewicht,dominance,rights: original; pack=c2_fandom_discourse_1; order=12; boss=true,approved,Jin explicit app-integration approval (2026-08-15).

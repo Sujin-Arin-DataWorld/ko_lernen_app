@@ -349,6 +349,9 @@ class VocabPackService {
     'c2_sanction_accountability': ('Sanktion und Rechenschaft', 'Sanctions and accountability'),
     'c2_relationship_narratives': ('Narrativ und Perspektive', 'Narrative and perspective'),
     'c2_fandom_discourse': ('Fandom-Sprache und Macht', 'Fandom language and power'),
+    'b2_2026_social_topics': ('Gesellschaft & Alltag 2026', 'Society & Daily Life 2026'),
+    'c1_2026_social_topics': ('Gesellschaft im Wandel', 'Society in Transition'),
+    'c2_2026_social_topics': ('Diskurs, Macht & Verantwortung', 'Discourse, Power & Responsibility'),
   };
 
   /// 레벨 내 팩 학습 순서 (위→아래). 디스플레이·잠금 순서.
@@ -567,5 +570,8 @@ class VocabPackService {
     'c2_sanction_accountability': 16,
     'c2_relationship_narratives': 17,
     'c2_fandom_discourse': 18,
+    'b2_2026_social_topics': 46,
+    'c1_2026_social_topics': 19,
+    'c2_2026_social_topics': 19,
   };
 }

@@ -264,6 +264,38 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
             if row.get("contentId") not in later_removed_ids
             and row.get("courseUnitId") not in extension_unit_ids
         ]
+        checkpoint_ids = {
+            str(content_id).removeprefix("scenario:")
+            for unit in curriculum["courseUnits"]
+            for content_id in unit.get("checkpointContentIds", [])
+            if str(content_id).startswith("scenario:")
+        }
+        checkpoint_scenarios = [
+            row for row in scenario_store.load_scenarios(data)
+            if row["id"] in checkpoint_ids
+        ]
+        self.assertEqual(
+            {row["id"] for row in checkpoint_scenarios}, checkpoint_ids,
+            "historical review fixture must retain every course checkpoint",
+        )
+        scenario_store.write_shards(checkpoint_scenarios, data)
+        curriculum["contentLinks"] = [
+            row for row in curriculum["contentLinks"]
+            if row.get("contentKind") != "scenario"
+            or row.get("contentId") in checkpoint_ids
+        ]
+        for field in (
+            "grammarRuleMap", "smalltalkCategoryUnitMap", "clozeTopicUnitMap",
+        ):
+            curriculum[field] = {
+                key: value
+                for key, value in curriculum[field].items()
+                if not (
+                    isinstance(value, dict)
+                    and value.get("courseUnitId") in extension_unit_ids
+                )
+                and not (isinstance(value, str) and value in extension_unit_ids)
+            }
         curriculum_path.write_text(
             json.dumps(curriculum, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
@@ -278,6 +310,13 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
             )
             for level in ("a1", "a2", "b1", "b2", "c1", "c2")
         }
+        for source in audit["sources"]:
+            if source["kind"] == "scenario":
+                source["count"] = len(checkpoint_scenarios)
+            elif source["kind"] == "scenarioQuest":
+                source["count"] = sum(
+                    len(row.get("quests", [])) for row in checkpoint_scenarios
+                )
         audit_path.write_text(
             json.dumps(audit, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
@@ -299,6 +338,10 @@ class Batch01PreReviewValidationTest(unittest.TestCase):
                     break
                 service_text = service_text.replace(line, "", 1)
         service.write_text(service_text, encoding="utf-8")
+        (
+            self.root
+            / "tools/content_factory/review/content_humanization_20260821.json"
+        ).unlink(missing_ok=True)
 
     def _copy_file(self, relative: str) -> None:
         source = REPO_ROOT / relative

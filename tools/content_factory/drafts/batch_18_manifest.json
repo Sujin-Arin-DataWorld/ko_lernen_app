@@ -1,0 +1,462 @@
+{
+  "version": 1,
+  "batch": "18",
+  "status": "merged",
+  "provenance": {
+    "scope": "Original B2-C2 vocabulary, grammar and short-form games for 2026 social topics.",
+    "rights": "original_clean_room",
+    "requiresJinReview": true,
+    "contentRevision": "v2",
+    "humanization": {
+      "skill": "beyond-humanizer",
+      "installedRef": "beyond-humanizer-v2@2dde092f",
+      "pass": "v2_full_trilingual_review",
+      "appliedAt": "2026-08-22",
+      "contract": "same communication event; preserve facts, roles, register, CEFR task and schema across KO/DE/EN"
+    },
+    "researchAndDesign": "docs/B2_C2_2026_HOT_TOPICS_CONTENT_TRACK.md",
+    "sourcePolicy": "Official sources informed topic selection only; all learning text and exercises are original.",
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-22",
+      "scope": "all records promoted to bundled app content"
+    },
+    "mergedAt": "2026-08-22"
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/c3_batch18_vocab_b2_c1_c2.csv",
+      "review": "tools/content_factory/review/c3_batch18_vocab.csv",
+      "count": 36,
+      "levels": {
+        "b2": 12,
+        "c1": 12,
+        "c2": 12
+      }
+    },
+    {
+      "kind": "grammar",
+      "draft": "tools/content_factory/drafts/c4_batch18_grammar_b2_c1_c2.csv",
+      "review": "tools/content_factory/review/c4_batch18_grammar.csv",
+      "count": 12,
+      "levels": {
+        "b2": 4,
+        "c1": 4,
+        "c2": 4
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/c2_batch18_smalltalk_b2_c1_c2.json",
+      "review": "tools/content_factory/review/c2_batch18_smalltalk.csv",
+      "collection": "phrases",
+      "count": 12,
+      "levels": {
+        "b2": 4,
+        "c1": 4,
+        "c2": 4
+      }
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/c2_batch18_cloze_b2_c1_c2.json",
+      "review": "tools/content_factory/review/c2_batch18_cloze.csv",
+      "collection": "items",
+      "count": 36,
+      "levels": {
+        "b2": 12,
+        "c1": 12,
+        "c2": 12
+      }
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/c2_batch18_satz_b2_c1_c2.json",
+      "review": "tools/content_factory/review/c2_batch18_satz.csv",
+      "collection": "items",
+      "count": 36,
+      "levels": {
+        "b2": 12,
+        "c1": 12,
+        "c2": 12
+      }
+    }
+  ],
+  "recordCount": 132,
+  "grammarIntents": [
+    {
+      "id": "grammar_b2_include_total_scope",
+      "level": "b2",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ]
+    },
+    {
+      "id": "grammar_b2_verify_human_review",
+      "level": "b2",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ]
+    },
+    {
+      "id": "grammar_b2_not_by_one_metric",
+      "level": "b2",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "id": "grammar_b2_instead_supplement",
+      "level": "b2",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    {
+      "id": "grammar_c1_even_accounting_for",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "id": "grammar_c1_while_also_consider",
+      "level": "c1",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "id": "grammar_c1_effect_varies_by",
+      "level": "c1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "id": "grammar_c1_excluded_in_process",
+      "level": "c1",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ]
+    },
+    {
+      "id": "grammar_c2_take_as_premise",
+      "level": "c2",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "id": "grammar_c2_definition_by_viewpoint",
+      "level": "c2",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    {
+      "id": "grammar_c2_responsibility_remains",
+      "level": "c2",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "id": "grammar_c2_cannot_reduce_to",
+      "level": "c2",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ]
+    }
+  ],
+  "vocabPacks": [
+    {
+      "packId": "b2_2026_social_topics_1",
+      "level": "b2",
+      "orderInLevel": 46,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "2026 사회·생활",
+        "de": "Gesellschaft & Alltag 2026",
+        "en": "Society & Daily Life 2026"
+      },
+      "curriculum": {
+        "courseUnitId": "b2_06_advanced_capstone",
+        "conceptIds": [
+          "concept_b2_advanced"
+        ]
+      },
+      "motif": "chilbo",
+      "motifEnum": "DancheongMotif.chilbo"
+    },
+    {
+      "packId": "c1_2026_social_topics_1",
+      "level": "c1",
+      "orderInLevel": 19,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "사회 변화와 근거",
+        "de": "Gesellschaft im Wandel",
+        "en": "Society in Transition"
+      },
+      "curriculum": {
+        "courseUnitId": "c1_02_inclusive_sustainable_systems",
+        "conceptIds": [
+          "concept_c1_inclusive_systems"
+        ]
+      },
+      "motif": "taegeuk",
+      "motifEnum": "DancheongMotif.taegeuk"
+    },
+    {
+      "packId": "c2_2026_social_topics_1",
+      "level": "c2",
+      "orderInLevel": 19,
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "담론·권력·책임",
+        "de": "Diskurs, Macht & Verantwortung",
+        "en": "Discourse, Power & Responsibility"
+      },
+      "curriculum": {
+        "courseUnitId": "c2_01_interpretation_institutions",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ]
+      },
+      "motif": "manja",
+      "motifEnum": "DancheongMotif.manja"
+    }
+  ],
+  "smalltalkCategoryMappings": [
+    {
+      "level": "b2",
+      "category": "moving",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    {
+      "level": "b2",
+      "category": "job_hunting",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ]
+    },
+    {
+      "level": "b2",
+      "category": "daily",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "level": "b2",
+      "category": "kpop",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "moving",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "job_hunting",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "daily",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "level": "c1",
+      "category": "kpop",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "moving",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "job_hunting",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "daily",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    {
+      "level": "c2",
+      "category": "kpop",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ]
+    }
+  ],
+  "clozeTopicMappings": [
+    {
+      "level": "b2",
+      "topic": "Gesellschaft & Alltag 2026",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ]
+    },
+    {
+      "level": "c1",
+      "topic": "Gesellschaft im Wandel",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    {
+      "level": "c2",
+      "topic": "Diskurs, Macht & Verantwortung",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    }
+  ],
+  "satzDependencies": [
+    {
+      "level": "b2",
+      "vocabPackId": "b2_2026_social_topics_1",
+      "count": 12
+    },
+    {
+      "level": "c1",
+      "vocabPackId": "c1_2026_social_topics_1",
+      "count": 12
+    },
+    {
+      "level": "c2",
+      "vocabPackId": "c2_2026_social_topics_1",
+      "count": 12
+    }
+  ],
+  "requiresCompleteSentenceDerivations": true,
+  "sentenceDerivationSets": [
+    {
+      "level": "b2",
+      "vocabIdRange": [
+        623,
+        634
+      ],
+      "clozeIdRange": [
+        374,
+        385
+      ],
+      "satzIdRange": [
+        532,
+        543
+      ]
+    },
+    {
+      "level": "c1",
+      "vocabIdRange": [
+        217,
+        228
+      ],
+      "clozeIdRange": [
+        233,
+        244
+      ],
+      "satzIdRange": [
+        235,
+        246
+      ]
+    },
+    {
+      "level": "c2",
+      "vocabIdRange": [
+        217,
+        228
+      ],
+      "clozeIdRange": [
+        233,
+        244
+      ],
+      "satzIdRange": [
+        235,
+        246
+      ]
+    }
+  ],
+  "nonMergeGuards": [
+    "Jin approval required before --apply",
+    "no TTS synthesis or Firebase writes",
+    "live assets and Dart pack mappings may change only through atomic review-batch integration"
+  ]
+}

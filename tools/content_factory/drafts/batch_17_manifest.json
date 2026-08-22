@@ -1,0 +1,227 @@
+{
+  "version": 1,
+  "batch": "17",
+  "status": "merged",
+  "provenance": {
+    "scope": "Original B2-C2 practice for 2026 Germany/Korea social topics: housing and living costs, work and AI, migration and demography, K-culture and platforms.",
+    "rights": "original_clean_room",
+    "requiresJinReview": true,
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-22",
+      "scope": "Batch 17 v2 full app-data integration"
+    },
+    "contentRevision": "v2",
+    "humanization": {
+      "skill": "beyond-humanizer",
+      "installedRef": "beyond-humanizer-v2@2dde092f",
+      "pass": "v2_full_trilingual_review",
+      "appliedAt": "2026-08-22",
+      "contract": "same communication event; preserve facts, roles, register, CEFR task and schema across KO/DE/EN"
+    },
+    "startingMainSha": "d71945dbe260168d7d41c77d3140a8b1d0e072bc",
+    "researchAndDesign": "docs/B2_C2_2026_HOT_TOPICS_CONTENT_TRACK.md",
+    "sourcePolicy": "Official sources inform topic selection and communicative tasks; no source wording, tables, questions, IDs or unit sequence is copied.",
+    "mergedAt": "2026-08-22"
+  },
+  "artifacts": [
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/c1_batch17_scenarios_b2_c2.json",
+      "review": "tools/content_factory/review/c1_batch17_scenarios.csv",
+      "collection": "scenarios",
+      "count": 12,
+      "levels": {
+        "b2": 4,
+        "c1": 4,
+        "c2": 4
+      }
+    },
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/c2_batch17_smalltalk_b2_c2.json",
+      "review": "tools/content_factory/review/c2_batch17_smalltalk.csv",
+      "collection": "phrases",
+      "count": 24,
+      "levels": {
+        "b2": 8,
+        "c1": 8,
+        "c2": 8
+      }
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/c2_batch17_cloze_b2_c2.json",
+      "review": "tools/content_factory/review/c2_batch17_cloze.csv",
+      "collection": "items",
+      "count": 36,
+      "levels": {
+        "b2": 12,
+        "c1": 12,
+        "c2": 12
+      }
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/c2_batch17_satz_b2_c2.json",
+      "review": "tools/content_factory/review/c2_batch17_satz.csv",
+      "collection": "items",
+      "count": 36,
+      "levels": {
+        "b2": 12,
+        "c1": 12,
+        "c2": 12
+      }
+    },
+    {
+      "kind": "pronunciation",
+      "draft": "tools/content_factory/drafts/c4_batch17_pronunciation_b2_c2.json",
+      "review": "tools/content_factory/review/c4_batch17_pronunciation.csv",
+      "collection": "phrases",
+      "count": 36,
+      "levels": {
+        "b2": 12,
+        "c1": 12,
+        "c2": 12
+      }
+    }
+  ],
+  "recordCount": 144,
+  "questCount": 60,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_moving_rent_heating_budget",
+      "courseUnitId": "b2_03_precise_requests",
+      "conceptIds": [
+        "concept_b2_precise_requests"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_job_hunting_ai_screening",
+      "courseUnitId": "b2_05_interview",
+      "conceptIds": [
+        "concept_b2_interview"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_daily_migration_neighborhood_meeting",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_kpop_local_festival_program",
+      "courseUnitId": "b2_06_advanced_capstone",
+      "conceptIds": [
+        "concept_b2_advanced"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_moving_rent_relief_roundtable",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_work_ai_hiring_pilot_review",
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_daily_migration_demography_policy_forum",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_kpop_platform_localization_review",
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_moving_affordability_definition_hearing",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_work_ai_accountability_board",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_daily_integration_metric_editorial",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_kpop_authenticity_platform_panel",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "role": "practice"
+    }
+  ],
+  "courseExposure": {
+    "scenario": "explicit_content_link",
+    "smalltalk": "existing_level_category_map",
+    "cloze": "existing_level_topic_map",
+    "satz": "existing_vocab_pack_map",
+    "pronunciation": "standalone_cumulative_through_learner_level"
+  },
+  "backdrops": {
+    "b2_moving_rent_heating_budget": "home",
+    "b2_job_hunting_ai_screening": "office",
+    "b2_daily_migration_neighborhood_meeting": "cafe",
+    "b2_kpop_local_festival_program": "cafe",
+    "c1_moving_rent_relief_roundtable": "office",
+    "c1_work_ai_hiring_pilot_review": "office",
+    "c1_daily_migration_demography_policy_forum": "office",
+    "c1_kpop_platform_localization_review": "office",
+    "c2_moving_affordability_definition_hearing": "office",
+    "c2_work_ai_accountability_board": "office",
+    "c2_daily_integration_metric_editorial": "office",
+    "c2_kpop_authenticity_platform_panel": "office"
+  },
+  "nonMergeGuards": [
+    "Jin approval required before any apply or integration command",
+    "no TTS synthesis or Firebase writes",
+    "no assets/data, lib or runtime manifest edits from this builder"
+  ]
+}

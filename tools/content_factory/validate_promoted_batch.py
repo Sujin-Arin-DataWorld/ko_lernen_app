@@ -31,6 +31,9 @@ TARGETS = {
     "scenario": (None, "scenarios"),
     "pronunciation": ("pronunciation_phrases.json", "phrases"),
 }
+# Shelf/backdrop are assigned by the live scenario graph during promotion.
+# Frozen review drafts intentionally do not duplicate that global metadata.
+SCENARIO_PROMOTION_FIELDS = frozenset(("shelf", "backdrop"))
 
 
 class PromotedBatchError(ValueError):
@@ -66,6 +69,12 @@ def _base_pack(pack_id: str) -> str:
 def _require_equal(actual: Any, expected: Any, label: str) -> None:
     if actual != expected:
         raise PromotedBatchError(f"{label}: promoted value differs from reviewed draft")
+
+
+def _promotion_projection(kind: str, row: dict[str, Any]) -> dict[str, Any]:
+    if kind != "scenario":
+        return row
+    return {key: value for key, value in row.items() if key not in SCENARIO_PROMOTION_FIELDS}
 
 
 def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, int]]:
@@ -141,7 +150,11 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
             ident = str(row.get("id") or "").strip()
             if not ident or ident not in live_by_id:
                 raise PromotedBatchError(f"{kind}: {ident!r} is missing from live assets")
-            _require_equal(live_by_id[ident], row, f"{kind}:{ident}")
+            _require_equal(
+                _promotion_projection(kind, live_by_id[ident]),
+                _promotion_projection(kind, row),
+                f"{kind}:{ident}",
+            )
             review = reviews.get(ident)
             if review is None or review.get("상태") != "approved":
                 raise PromotedBatchError(f"{kind}:{ident} is not approved")

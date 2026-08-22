@@ -1,0 +1,148 @@
+"""Original B2 records for Batch 17: practical comparison and resolution."""
+
+from __future__ import annotations
+
+from .batch_17_common import exercise as ex
+from .batch_17_common import smalltalk as st
+from .batch_17_common import tri, turn as t
+
+
+SCENES = [
+    {
+        "id": "b2_moving_rent_heating_budget",
+        "level": "b2", "theme": "housing", "topic": "Wohnen & Lebenshaltung",
+        "intent": "compare_total_housing_costs_before_applying",
+        "courseUnitId": "b2_03_precise_requests",
+        "conceptIds": ["concept_b2_precise_requests"],
+        "grammarIds": ["grammar_b2_in_light_of"],
+        "register": "polite", "speechStyle": "polite",
+        "relationshipContext": "friends", "sidekick": "jieun",
+        "emoji": "🏠", "xpReward": 140, "backdrop": "home",
+        "title": tri("월세 말고 총주거비를 봐요", "Nicht nur die Kaltmiete zählt", "Look beyond the base rent"),
+        "intro": tri(
+            "집을 보러 가기 전에 월세, 관리비, 난방비와 교통비를 한 표에 놓고 비교합니다.",
+            "Vor der Besichtigung werden Kaltmiete, Nebenkosten, Heizung und Fahrtkosten in einer Übersicht verglichen.",
+            "Before viewing a flat, you compare base rent, service charges, heating and commuting costs in one table.",
+        ),
+        "vocab": ["월세", "관리비", "난방비", "총주거비", "통근", "예산 상한"],
+        "dialog": [
+            t("user", "광고에는 월세만 나와 있어서 실제 부담을 알기 어렵네요.", "In der Anzeige steht nur die Kaltmiete, deshalb ist die tatsächliche Belastung schwer einzuschätzen.", "The listing only shows the base rent, so the real cost is hard to judge."),
+            t("jieun", "관리비와 난방비를 합치면 한 달에 얼마예요?", "Wie hoch ist die Summe aus Nebenkosten und Heizung pro Monat?", "How much are the service and heating costs together each month?"),
+            t("user", "최근 명세서에 비추어 볼 때 총주거비는 예산 상한에 가까워요.", "Im Licht der letzten Abrechnung liegt die gesamte Wohnbelastung nahe an unserer Budgetgrenze.", "In light of the latest statement, the total housing cost is close to our budget ceiling."),
+            t("jieun", "대신 회사까지 자전거로 갈 수 있어서 교통비는 줄겠어요.", "Dafür könnten Sie mit dem Rad zur Arbeit fahren und Fahrtkosten sparen.", "On the other hand, you could cycle to work and save on commuting."),
+            t("user", "재택근무가 주 이틀이라 거리보다 난방 상태가 더 중요해요.", "Da ich zwei Tage pro Woche zu Hause arbeite, ist der Zustand der Heizung wichtiger als die Entfernung.", "Since I work from home two days a week, the heating matters more than the distance."),
+            t("jieun", "그럼 중개인에게 최근 관리비 명세서와 에너지 정보를 요청해요.", "Dann bitten Sie den Makler um die letzte Nebenkostenabrechnung und die Energiedaten.", "Then ask the agent for the latest service-charge statement and energy information."),
+            t("user", "좋아요. 추가 비용까지 확인한 뒤에 지원하겠다고 쓸게요.", "Gut. Ich schreibe, dass ich mich nach Prüfung aller Zusatzkosten bewerbe.", "Good. I'll write that I'll apply after checking all additional costs."),
+            t("jieun", "총액을 기준으로 보면 싼 광고에 서두를 필요가 없겠네요.", "Wenn die Gesamtkosten zählen, müssen Sie sich von einer niedrigen Anzeige nicht drängen lassen.", "If you judge by the total, there is no need to rush because the advertised rent looks low."),
+        ],
+        "exercises": [
+            ex("최근 관리비에 비추어 볼 때 이 집은 예산을 넘습니다.", "Im Licht der letzten Nebenkosten überschreitet diese Wohnung das Budget.", "In light of the latest service charges, this flat exceeds the budget.", answer="비추어 볼 때", distractors=["계기로", "대신에", "따름이라"], satz_distractors=["광고만", "서두르면"], focus="근거 구절 뒤 의미 단위 끊기"),
+            ex("월세가 낮아도 난방비를 더하면 총주거비가 높아질 수 있어요.", "Auch bei niedriger Kaltmiete können die gesamten Wohnkosten mit der Heizung hoch sein.", "Even with low base rent, heating can make the total housing cost high.", answer="총주거비", distractors=["보증금", "통근", "중개료"], satz_distractors=["광고에는", "계약부터"], focus="조건절과 결과절의 대비"),
+            ex("계약 전에 추가 비용을 서면으로 확인해 주세요.", "Bitte lassen Sie sich die Zusatzkosten vor Vertragsabschluss schriftlich bestätigen.", "Please confirm the additional costs in writing before signing.", answer="추가 비용", distractors=["입주 날짜", "방문 시간", "가구 배치"], satz_distractors=["월세만", "서둘러"], focus="공식 요청의 문장 끝 억양"),
+        ],
+        "smalltalk": [
+            st(category="moving", kind="question", relationship="friends", ko="그 집은 월세 말고 매달 더 내는 돈이 얼마나 돼요?", de="Wie viel kommt bei der Wohnung monatlich noch zur Kaltmiete hinzu?", en="How much do you pay each month on top of the base rent?", reply=("관리비와 난방비를 합치면 생각보다 커요.", "Nebenkosten und Heizung zusammen sind höher als gedacht.", "Service charges and heating together are higher than I expected."), alternative=("최근 명세서를 볼 수 있었어요?", "Konnten Sie die letzte Abrechnung sehen?", "Were you able to see the latest statement?"), follow_up=("그럼 총액으로 다시 비교해 봐야겠네요.", "Dann sollten wir noch einmal nach Gesamtkosten vergleichen.", "Then we should compare again using the total cost.")),
+            st(category="daily", kind="reaction", relationship="friends", ko="출근 시간이 줄어도 난방비가 크면 절약이 아니겠네요.", de="Eine kürzere Fahrt ist keine Ersparnis, wenn die Heizkosten hoch sind.", en="A shorter commute is not a saving if the heating bill is high.", reply=("그래서 거리와 비용을 같이 보고 있어요.", "Deshalb betrachte ich Entfernung und Kosten zusammen.", "That's why I'm looking at distance and cost together."), alternative=("재택근무는 일주일에 며칠 해요?", "An wie vielen Tagen arbeiten Sie zu Hause?", "How many days a week do you work from home?"), follow_up=("생활 방식까지 넣어야 맞는 계산이 되겠어요.", "Erst mit dem Lebensrhythmus wird die Rechnung realistisch.", "The calculation only becomes realistic when your routine is included.")),
+        ],
+        "culturalNote": tri("독일의 주거 광고에서는 Kaltmiete와 Nebenkosten을 구분해 읽고, 한국의 월세 계약에서는 관리비에 포함되는 항목을 따로 확인하는 습관이 중요합니다.", "Bei deutschen Wohnungsanzeigen sollten Kaltmiete und Nebenkosten getrennt gelesen werden; bei koreanischen Monatsmietverträgen lohnt sich ein genauer Blick auf die in der 관리비 enthaltenen Posten.", "In German listings, distinguish base rent from service charges; in Korean monthly-rent contracts, check exactly what the maintenance fee includes."),
+    },
+    {
+        "id": "b2_job_hunting_ai_screening",
+        "level": "b2", "theme": "work_ai", "topic": "Arbeit, KI & Generation Z",
+        "intent": "ask_how_ai_screening_affects_an_application",
+        "courseUnitId": "b2_05_interview", "conceptIds": ["concept_b2_interview"],
+        "grammarIds": ["grammar_b2_not_automatic_conclusion"],
+        "register": "business", "speechStyle": "business",
+        "relationshipContext": "applicant_and_recruiter", "sidekick": "minsu",
+        "emoji": "🤖", "xpReward": 145, "backdrop": "office",
+        "title": tri("AI가 봐도 사람이 다시 보나요?", "Prüft nach der KI noch ein Mensch?", "Does a person review it after AI?"),
+        "intro": tri("온라인 채용 설명회에서 자동 선별의 역할과 지원자의 설명 기회를 구체적으로 묻습니다.", "In einer Online-Infoveranstaltung wird konkret nach der Rolle automatischer Vorauswahl und nach Erklärungsmöglichkeiten für Bewerbende gefragt.", "At an online recruitment session, you ask exactly how automated screening works and how applicants can explain their case."),
+        "vocab": ["자동 선별", "평가 기준", "사람의 재검토", "이의 제기", "직무 역량", "일과 삶의 균형"],
+        "dialog": [
+            t("user", "지원서를 먼저 자동으로 선별한다고 들었습니다.", "Ich habe gehört, dass Bewerbungen zunächst automatisch vorsortiert werden.", "I heard applications are screened automatically first."),
+            t("minsu", "네, 필수 조건과 경력 정보를 확인하는 데 활용합니다.", "Ja, das System prüft Pflichtanforderungen und Angaben zur Berufserfahrung.", "Yes, the system checks required criteria and work-experience information."),
+            t("user", "점수가 낮다고 해서 직무 역량까지 부족한 것은 아니잖아요.", "Ein niedriger Wert bedeutet doch nicht automatisch, dass auch die berufliche Kompetenz fehlt.", "A low score does not automatically mean the applicant lacks job skills."),
+            t("minsu", "맞습니다. 최종 면접 대상은 채용 담당자가 다시 검토합니다.", "Richtig. Die endgültige Interviewauswahl wird von der Personalabteilung erneut geprüft.", "Right. Recruitment staff review the final interview shortlist again."),
+            t("user", "프로젝트 경험이 정형화된 항목에 안 맞으면 어디에 설명하나요?", "Wo kann ich Projekterfahrung erläutern, die nicht in die standardisierten Felder passt?", "Where can I explain project experience that does not fit the standard fields?"),
+            t("minsu", "동기서의 추가 정보란에 맥락과 본인의 역할을 적어 주세요.", "Beschreiben Sie Kontext und eigene Rolle im Zusatzfeld des Motivationsschreibens.", "Use the additional-information field in the motivation letter to explain the context and your role."),
+            t("user", "평가 기준과 사람의 재검토 여부도 채용 페이지에 공개되나요?", "Werden auch die Bewertungskriterien und die menschliche Nachprüfung auf der Karriereseite veröffentlicht?", "Will the criteria and the human-review step also be published on the careers page?"),
+            t("minsu", "다음 공고부터 절차와 문의 창구를 함께 안내할 예정입니다.", "Ab der nächsten Ausschreibung sollen Ablauf und Kontaktstelle gemeinsam erklärt werden.", "Starting with the next posting, we plan to explain the process and contact channel together."),
+        ],
+        "exercises": [
+            ex("자동 점수가 낮다고 해서 역량이 부족한 것은 아닙니다.", "Ein niedriger automatischer Wert bedeutet nicht zwangsläufig fehlende Kompetenz.", "A low automated score does not necessarily mean a lack of ability.", answer="낮다고 해서", distractors=["낮기에", "낮은 대신", "낮다는 점에서"], satz_distractors=["기준만", "면접부터"], focus="인정과 반박의 억양 분리"),
+            ex("정형화된 항목 밖의 경험은 맥락과 역할을 함께 설명해야 합니다.", "Erfahrung außerhalb standardisierter Felder sollte mit Kontext und eigener Rolle erklärt werden.", "Experience outside standard fields should be explained with context and role.", answer="맥락과 역할", distractors=["점수와 순위", "학력과 나이", "사진과 주소"], satz_distractors=["자동으로", "삭제하면"], focus="병렬 명사구의 리듬"),
+            ex("지원자는 사람의 재검토를 요청할 수 있어야 합니다.", "Bewerbende sollten eine menschliche Nachprüfung verlangen können.", "Applicants should be able to request human review.", answer="사람의 재검토", distractors=["빠른 탈락", "비공개 순위", "자동 답장"], satz_distractors=["점수만", "기다리면"], focus="긴 목적어 뒤 호흡"),
+        ],
+        "smalltalk": [
+            st(category="job_hunting", kind="question", relationship="coworker", ko="그 회사는 AI 선별 기준을 지원자에게 알려 줘요?", de="Teilt das Unternehmen Bewerbenden die Kriterien der KI-Vorauswahl mit?", en="Does the company tell applicants the criteria used by its AI screening?", reply=("절차는 설명하지만 세부 항목은 아직 공개하지 않았어요.", "Der Ablauf wird erklärt, die Einzelkriterien aber noch nicht.", "It explains the process, but not the detailed criteria yet."), alternative=("사람이 다시 보는 단계는 있어요?", "Gibt es eine Stufe mit menschlicher Nachprüfung?", "Is there a stage with human review?"), follow_up=("문의할 수 있는 창구도 같이 확인해 봐야겠네요.", "Dann sollten wir auch nach einer Kontaktstelle suchen.", "Then we should also check whether there is a contact channel.")),
+            st(category="work_study", kind="reaction", relationship="peer", ko="안정성만큼 일과 삶의 균형을 보는 지원자도 많아졌어요.", de="Für viele Bewerbende ist die Vereinbarkeit inzwischen ebenso wichtig wie Sicherheit.", en="For many applicants, work-life balance now matters as much as stability.", reply=("그래서 면접에서 근무 방식과 성장 기회를 같이 묻더라고요.", "Deshalb fragen sie im Gespräch zugleich nach Arbeitsweise und Entwicklungschancen.", "That's why they ask about work arrangements and growth opportunities in the same interview."), alternative=("당신은 어떤 조건을 우선해요?", "Welche Bedingung ist Ihnen am wichtigsten?", "Which condition matters most to you?"), follow_up=("세대 이름보다 실제 우선순위를 듣는 게 낫겠어요.", "Besser als ein Generationsetikett sind die tatsächlichen Prioritäten.", "It is better to hear actual priorities than rely on a generation label.")),
+        ],
+        "culturalNote": tri("‘젠지’ 같은 세대 이름은 대화를 여는 단서일 수 있지만 개인의 가치관을 대신하지는 않습니다. 면접에서는 세대 일반화보다 실제 근무 조건과 우선순위를 묻습니다.", "Bezeichnungen wie Gen Z können ein Gespräch eröffnen, ersetzen aber keine individuellen Werte. Im Bewerbungsgespräch zählen konkrete Bedingungen und Prioritäten statt Generationenklischees.", "Labels such as Gen Z can open a conversation, but they do not replace individual values. Ask about actual conditions and priorities rather than generational stereotypes."),
+    },
+    {
+        "id": "b2_daily_migration_neighborhood_meeting",
+        "level": "b2", "theme": "migration_demography", "topic": "Migration, Demografie & Zusammenleben",
+        "intent": "separate_housing_pressure_from_blame_at_a_neighborhood_meeting",
+        "courseUnitId": "b2_02_professional_opinion", "conceptIds": ["concept_b2_opinion"],
+        "grammarIds": ["grammar_b2_reasoned_perspective"],
+        "register": "polite", "speechStyle": "polite",
+        "relationshipContext": "neighbors", "sidekick": "jieun",
+        "emoji": "🏘️", "xpReward": 145, "backdrop": "cafe",
+        "title": tri("집 문제를 사람 탓으로 돌리지 않기", "Wohnungsdruck ist keine Schuldfrage", "Housing pressure is not a blame game"),
+        "intro": tri("동네 모임에서 주택 부족과 새 이웃의 정착 문제를 한 원인으로 뭉뚱그리지 않고 필요한 지원을 나눠 봅니다.", "Bei einem Nachbarschaftstreffen werden Wohnungsmangel und Ankommen neuer Nachbarinnen und Nachbarn nicht zu einer einzigen Ursache vermischt.", "At a neighborhood meeting, you keep housing shortages separate from the support new neighbors need."),
+        "vocab": ["정착", "주택 공급", "언어 지원", "자격 인정", "원인", "주민 모임"],
+        "dialog": [
+            t("user", "요즘 집 구하기가 어려워진 원인을 새 이웃에게만 돌리는 말이 나와요.", "Zurzeit wird die schwierige Wohnungssuche teilweise allein neuen Nachbarn angelastet.", "Some people are blaming new neighbors alone for how hard it is to find housing."),
+            t("jieun", "주택이 부족한 건 사실이지만 원인은 하나가 아니죠.", "Wohnungsmangel ist real, hat aber nicht nur eine Ursache.", "The housing shortage is real, but it does not have just one cause."),
+            t("user", "서로 처지가 다르기에 필요한 지원도 다르게 봐야 해요.", "Da die Lebenslagen verschieden sind, müssen auch die nötigen Hilfen differenziert betrachtet werden.", "Because people's situations differ, we need to look at support needs differently."),
+            t("jieun", "새로 온 분들은 언어 수업과 행정 안내가 특히 필요하다고 했어요.", "Neu Zugezogene nannten vor allem Sprachkurse und Orientierung bei Behörden.", "New arrivals said they especially need language classes and guidance with public services."),
+            t("user", "경력이 있어도 자격이 인정되지 않아 일자리를 못 찾는 경우도 있고요.", "Manche finden trotz Berufserfahrung keine Stelle, weil ihre Qualifikation nicht anerkannt wird.", "Some cannot find work despite experience because their qualifications are not recognized."),
+            t("jieun", "그럼 주택 공급, 언어 지원, 자격 인정을 별도 안건으로 나눌까요?", "Sollen wir Wohnungsangebot, Sprachförderung und Anerkennung als getrennte Punkte behandeln?", "Should we treat housing supply, language support and recognition as separate agenda items?"),
+            t("user", "네. 책임을 한 집단에 묻기보다 해결 경로를 구체적으로 적어요.", "Ja. Statt einer Gruppe die Schuld zu geben, halten wir konkrete Lösungswege fest.", "Yes. Let's record concrete routes to solutions instead of blaming one group."),
+            t("jieun", "그러면 주민들이 각 안건에 경험과 제안을 보탤 수 있겠어요.", "Dann können die Anwohner zu jedem Punkt Erfahrungen und Vorschläge beitragen.", "Then residents can add experience and suggestions to each issue."),
+        ],
+        "exercises": [
+            ex("처지가 다르기에 필요한 지원도 같을 수 없습니다.", "Da die Lebenslagen verschieden sind, kann die nötige Unterstützung nicht identisch sein.", "Because situations differ, the support needed cannot be identical.", answer="다르기에", distractors=["다른 대신", "다르다고 해서", "다르다는 점에서"], satz_distractors=["한 집단만", "원인으로"], focus="이유와 결론의 연결"),
+            ex("주택 부족과 정착 지원은 서로 연결되지만 같은 문제는 아닙니다.", "Wohnungsmangel und Unterstützung beim Ankommen hängen zusammen, sind aber nicht dasselbe Problem.", "Housing shortages and settlement support are connected but are not the same issue.", answer="같은 문제", distractors=["같은 사람", "같은 언어", "같은 직업"], satz_distractors=["탓으로", "돌리면"], focus="대조 접속의 짧은 쉼"),
+            ex("자격 인정 절차를 알면 경력에 맞는 일자리를 찾기 쉬워집니다.", "Wer das Anerkennungsverfahren kennt, findet leichter eine Stelle passend zur Erfahrung.", "Knowing the recognition process makes it easier to find work that matches one's experience.", answer="자격 인정 절차", distractors=["주택 계약 기간", "통근 교통비", "세대별 취향"], satz_distractors=["경력은", "지우고"], focus="연속 받침과 조사 연결"),
+        ],
+        "smalltalk": [
+            st(category="daily", kind="question", relationship="neighbors", ko="새로 이사 온 분들이 가장 필요하다고 한 정보가 뭐였어요?", de="Welche Information brauchten die neu Zugezogenen am dringendsten?", en="What information did the new arrivals say they needed most?", reply=("언어 수업과 행정 업무를 어디서 시작하는지 알고 싶대요.", "Sie möchten wissen, wo Sprachkurse und Behördengänge beginnen.", "They want to know where to start with language classes and public services."), alternative=("자격 인정 상담도 안내했어요?", "Wurde auch zur Anerkennungsberatung informiert?", "Did you also share information about qualification recognition?"), follow_up=("한 장짜리 안내를 여러 언어로 만들면 좋겠네요.", "Ein einseitiger Wegweiser in mehreren Sprachen wäre hilfreich.", "A one-page guide in several languages would help.")),
+            st(category="moving", kind="reaction", relationship="neighbors", ko="집이 부족한 문제를 어느 한 집단의 탓으로만 말하면 해결이 멀어져요.", de="Wenn Wohnungsmangel nur einer Gruppe angelastet wird, rückt die Lösung weiter weg.", en="When housing shortages are blamed on one group alone, solutions move further away.", reply=("공급과 정착 지원을 나눠서 이야기해 봐요.", "Sprechen wir getrennt über Angebot und Unterstützung beim Ankommen.", "Let's discuss supply and settlement support separately."), alternative=("동네에서 바로 할 수 있는 일은 뭐예요?", "Was kann die Nachbarschaft unmittelbar tun?", "What can the neighborhood do right away?"), follow_up=("원인과 행동을 나누면 대화가 구체적이 되겠어요.", "Wenn Ursache und Handlung getrennt werden, wird das Gespräch konkreter.", "Separating causes from actions will make the discussion more concrete.")),
+        ],
+        "culturalNote": tri("이민·난민을 이야기할 때 법적 지위와 개인의 이동 이유를 한 범주로 묶지 않습니다. 모르는 지위는 추측하지 않고, 당사자가 밝힌 필요와 제도적 경로를 중심으로 말합니다.", "Bei Gesprächen über Migration und Flucht werden Rechtsstatus und individuelle Gründe nicht vermischt. Unbekannte Status werden nicht erraten; im Mittelpunkt stehen benannte Bedürfnisse und konkrete Wege.", "When discussing migration and refuge, do not collapse legal status and personal reasons into one category. Do not guess status; focus on stated needs and concrete pathways."),
+    },
+    {
+        "id": "b2_kpop_local_festival_program",
+        "level": "b2", "theme": "k_culture", "topic": "K-Kultur, Plattformen & Teilhabe",
+        "intent": "adapt_a_k_culture_event_for_local_participants",
+        "courseUnitId": "b2_06_advanced_capstone", "conceptIds": ["concept_b2_advanced"],
+        "grammarIds": ["grammar_b2_shared_merit"],
+        "register": "polite", "speechStyle": "polite",
+        "relationshipContext": "event_volunteers", "sidekick": "minsu",
+        "emoji": "🎤", "xpReward": 145, "backdrop": "cafe",
+        "title": tri("조회수보다 참여 방식부터", "Erst die Beteiligung, dann die Klicks", "Participation before views"),
+        "intro": tri("지역 K-컬처 행사에서 짧은 영상 홍보뿐 아니라 처음 온 사람도 참여할 수 있는 프로그램을 설계합니다.", "Für ein lokales K-Kultur-Festival wird neben Kurzvideo-Werbung ein Programm geplant, an dem auch Neulinge teilnehmen können.", "For a local K-culture festival, you design more than short-form promotion so newcomers can join in too."),
+        "vocab": ["현지화", "짧은 영상", "팬 자원봉사", "참여 장벽", "자막", "프로그램 구성"],
+        "dialog": [
+            t("user", "홍보 영상 조회수는 높은데 행사 신청은 기대보다 적어요.", "Das Werbevideo hat viele Aufrufe, aber weniger Anmeldungen als erwartet.", "The promo video has many views, but fewer registrations than expected."),
+            t("minsu", "처음 보는 사람에게는 프로그램 설명이 너무 팬 중심적이었어요.", "Für Neulinge war die Programmbeschreibung zu stark auf Fans zugeschnitten.", "For newcomers, the program description was too fan-centered."),
+            t("user", "음악뿐 아니라 음식과 드라마도 함께 소개한다는 점에서 입구를 넓힐 수 있어요.", "Wir können den Einstieg insofern verbreitern, als wir neben Musik auch Essen und Serien vorstellen.", "We can widen the entry point in that we introduce food and dramas as well as music."),
+            t("minsu", "초보자를 위한 자막 읽기와 쉬운 후렴 배우기도 넣을까요?", "Sollen wir Untertitel-Lesen und einen einfachen Refrain für Einsteiger anbieten?", "Should we add subtitle reading and an easy chorus for beginners?"),
+            t("user", "좋아요. 다만 통역과 진행을 팬 자원봉사에만 맡기면 부담이 커져요.", "Gut. Aber wenn Übersetzung und Moderation nur bei Fan-Freiwilligen liegen, wird die Belastung zu groß.", "Good. But if translation and hosting depend only on fan volunteers, the burden becomes too heavy."),
+            t("minsu", "예산에서 전문 통역 두 시간과 자원봉사 교대 시간을 확보해요.", "Dann planen wir zwei Stunden professionelle Sprachmittlung und Schichten für Freiwillige ein.", "Then let's budget for two hours of professional interpretation and volunteer shifts."),
+            t("user", "홍보 문구도 ‘진짜 팬만’ 대신 ‘처음이어도 환영’으로 바꾸죠.", "Ersetzen wir im Werbetext ‚nur echte Fans‘ durch ‚auch beim ersten Mal willkommen‘.", "Let's replace 'real fans only' with 'first-timers welcome' in the promo copy."),
+            t("minsu", "그러면 유행을 따라오는 사람도 오래된 팬도 자기 자리를 찾겠네요.", "Dann finden sowohl Neugierige als auch langjährige Fans ihren Platz.", "Then both curious newcomers and long-time fans can find a place."),
+        ],
+        "exercises": [
+            ex("처음 온 사람도 참여할 수 있다는 점에서 프로그램의 문턱이 낮아집니다.", "Das Programm wird insofern zugänglicher, als auch Neulinge teilnehmen können.", "The program becomes more accessible in that newcomers can participate too.", answer="있다는 점에서", distractors=["있기에", "있다고 해서", "있는 대신"], satz_distractors=["팬만", "초대하면"], focus="평가 근거를 강조하는 리듬"),
+            ex("짧은 영상의 조회수가 실제 행사 참여를 자동으로 보장하지는 않아요.", "Viele Aufrufe eines Kurzvideos garantieren nicht automatisch echte Teilnahme.", "High short-form views do not automatically guarantee participation at the event.", answer="실제 행사 참여", distractors=["영상의 길이", "노래의 후렴", "자막의 색"], satz_distractors=["조회수만", "높으면"], focus="긴 주어와 서술어의 균형"),
+            ex("팬 자원봉사자의 시간과 역할을 미리 나눠야 활동이 지속됩니다.", "Freiwillige Fanarbeit bleibt tragbar, wenn Zeit und Rollen vorher verteilt werden.", "Fan volunteering stays sustainable when time and roles are divided in advance.", answer="시간과 역할", distractors=["조회수와 순위", "음식과 음악", "자막과 화면"], satz_distractors=["혼자서", "맡기면"], focus="병렬어와 조건절 끊기"),
+        ],
+        "smalltalk": [
+            st(category="kpop", kind="question", relationship="friends", ko="그 행사는 K-pop을 처음 듣는 사람도 즐길 수 있어요?", de="Kann man das Festival auch genießen, wenn man K-Pop zum ersten Mal hört?", en="Can someone enjoy the festival if they are new to K-pop?", reply=("쉬운 후렴과 음식 코너가 있어서 팬이 아니어도 괜찮아요.", "Mit einfachem Refrain und Essensbereich geht das auch ohne Fanwissen.", "There is an easy chorus and a food area, so you don't need fan knowledge."), alternative=("프로그램에 영어 자막도 있어요?", "Gibt es im Programm auch englische Untertitel?", "Does the program also have English subtitles?"), follow_up=("처음 온 사람을 위한 안내가 있으면 같이 가고 싶네요.", "Mit einer Einführung für Neulinge würde ich gern mitkommen.", "I'd like to come if there is an introduction for newcomers.")),
+            st(category="screen", kind="reaction", relationship="event_volunteers", ko="영상이 많이 퍼져도 신청 방법이 복잡하면 사람들은 멈춰요.", de="Auch ein verbreitetes Video hilft wenig, wenn die Anmeldung kompliziert ist.", en="Even a widely shared video will not help if registration is complicated.", reply=("링크를 하나로 줄이고 필요한 정보를 먼저 보여 줘요.", "Wir reduzieren es auf einen Link und zeigen zuerst die nötigen Angaben.", "Let's use one link and show the necessary information first."), alternative=("신청 화면을 처음 보는 사람에게 시험해 봤어요?", "Wurde die Anmeldung mit Neulingen getestet?", "Did you test the registration screen with newcomers?"), follow_up=("조회수와 참여 사이의 막힌 지점을 찾을 수 있겠네요.", "So lässt sich die Hürde zwischen Aufruf und Teilnahme finden.", "That should reveal the barrier between a view and participation.")),
+        ],
+        "culturalNote": tri("K-컬처를 K-pop 하나로만 대표하지 않고 음악, 드라마, 음식, 웹툰 등 서로 다른 진입점을 인정합니다. 팬의 번역·홍보 노동을 당연한 무료 자원으로 취급하지 않습니다.", "K-Kultur wird nicht auf K-Pop reduziert; Musik, Serien, Essen und Webtoons bieten verschiedene Zugänge. Übersetzungs- und Werbearbeit von Fans gilt nicht selbstverständlich als kostenlose Ressource.", "Do not reduce K-culture to K-pop alone; music, drama, food and webtoons offer different entry points. Do not treat fan translation and promotion as automatically free labor."),
+    },
+]
