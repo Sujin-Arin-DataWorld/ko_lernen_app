@@ -151,6 +151,7 @@
   "bookshelfEmptyTitle": "No pages yet",
   "bookshelfEmptyBody": "Snap your first textbook page. Detected words will appear here.",
   "bookshelfEmptyCta": "Snap a page",
+  "bookshelfEmptyPreview": "Empty page",
   "bookshelfSectionPages": "Pages",
   "bookshelfSectionCustomPacks": "Custom packs",
   "bookshelfTileMeta": "{words, plural, one{1 word} other{{words} words}} · {grammar} grammar · {date}",
@@ -181,6 +182,12 @@
   "bookshelfCreatePackCta": "Create a custom pack from this page",
   "bookshelfCreatePackTitle": "New custom pack",
   "bookshelfCreatePackName": "Name",
+  "bookshelfDefaultPackName": "Pack {date}",
+  "@bookshelfDefaultPackName": {
+    "placeholders": {
+      "date": {}
+    }
+  },
   "bookshelfCreatePackSaved": "Pack saved.",
   "bookshelfDeletePageTitle": "Delete page?",
   "bookshelfDeletePageBody": "The page will be permanently removed.",
@@ -1709,6 +1716,7 @@
   "redeemTitle": "Import pack",
   "redeemHint": "Enter the 6-character code",
   "redeemAction": "Import",
+  "redeemLoading": "Importing pack…",
   "redeemSuccess": "Imported “{name}” ({count, plural, one{1 word} other{{count} words}})",
   "@redeemSuccess": {
     "placeholders": {

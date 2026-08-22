@@ -428,6 +428,9 @@ class AppL10nDe extends AppL10n {
   String get bookshelfEmptyCta => 'Seite einlesen';
 
   @override
+  String get bookshelfEmptyPreview => 'Leere Seite';
+
+  @override
   String get bookshelfSectionPages => 'Seiten';
 
   @override
@@ -472,6 +475,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bookshelfCreatePackName => 'Name';
+
+  @override
+  String bookshelfDefaultPackName(Object date) {
+    return 'Paket $date';
+  }
 
   @override
   String get bookshelfCreatePackSaved => 'Paket gespeichert.';
@@ -3534,6 +3542,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get redeemAction => 'Importieren';
+
+  @override
+  String get redeemLoading => 'Paket wird importiert …';
 
   @override
   String redeemSuccess(Object name, int count) {
