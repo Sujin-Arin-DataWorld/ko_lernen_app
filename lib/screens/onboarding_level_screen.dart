@@ -105,8 +105,7 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     LearnerLevel.b1: '어제 친구랑 영화 봤어요',
     LearnerLevel.b2: '회의가 길어져서 좀 늦을 것 같아요',
     LearnerLevel.c1: '확정된 사실과 현재 해석을 나눠서 설명하겠습니다',
-    LearnerLevel.c2:
-        '침묵을 동의로 간주하면 질문의 틀 자체가 참여를 제한할 수 있습니다',
+    LearnerLevel.c2: '침묵을 동의로 간주하면 질문의 틀 자체가 참여를 제한할 수 있습니다',
   };
 
   String _titleFor(AppL10n t, LearnerLevel level) => switch (level) {
@@ -144,9 +143,13 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     );
     await OnboardingFlowService.completeAfterLevelSelection();
     await Analytics.onboardingLevelSelected(level.code);
-    if (!context.mounted) return;
+    if (!context.mounted) {
+      return;
+    }
     await showAccountNudgeSheet(context);
-    if (!context.mounted) return;
+    if (!context.mounted) {
+      return;
+    }
     Navigator.pushReplacementNamed(context, '/');
   }
 
@@ -591,6 +594,7 @@ class _LevelCard extends StatelessWidget {
     // 따로 읽지 않고 "A2 · Grundkenntnisse … Schwierigkeit 2/4" 한 번에 읽는다.
     return Semantics(
       button: true,
+      enabled: true,
       onTap: onTap,
       label:
           '${level.display} · $title. $desc. '
@@ -965,6 +969,7 @@ class _CompareRow extends StatelessWidget {
 
     return Semantics(
       button: true,
+      enabled: true,
       onTap: onTap,
       label:
           '${level.display} · $title. '

@@ -100,7 +100,9 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   }
 
   Future<void> _handleSelection(MascotKind kind) async {
-    if (_isLoading) return;
+    if (_isLoading) {
+      return;
+    }
 
     // 01D stages the visible choice first. The preference is committed only
     // when the learner chooses the explicit Today CTA, so Back/Not now never
@@ -117,12 +119,16 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
 
     // 선택한 캐릭터 저장 + 전역 통지 (설정에서 바꿀 때와 같은 경로).
     await MascotPreference.set(kind);
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     setState(() => _showConfirmation = true);
   }
 
   Future<void> _proceed() async {
-    if (!mounted || _navigated) return;
+    if (!mounted || _navigated) {
+      return;
+    }
     _navigated = true;
     debugPrint(
       '[ONBOARD] Character.proceed -> '
@@ -142,14 +148,18 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     // 캐릭터 선택 직후 · 온보딩(레벨/배치) 전 → 추적 동의(쿠키배너식) 1회 요청.
     // consentAccepted 이후이므로 여기서 물으면 이후 온보딩 퍼널을 계측할 수 있다.
     await ConsentInviteSheet.maybeShow(context);
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     Navigator.of(context).pushReplacement(
       SoriTransitions.fadeScale((_) => const OnboardingLevelScreen()),
     );
   }
 
   Future<void> _skipOptional() async {
-    if (!widget.optional || _isLoading || _navigated) return;
+    if (!widget.optional || _isLoading || _navigated) {
+      return;
+    }
     _navigated = true;
     if (widget.previewMode) {
       await widget.onPreviewComplete?.call(null);
@@ -157,7 +167,9 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     }
     await MascotPreference.setNone();
     await Storage.setIntroPreviewSeen();
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     await _completeOptional();
   }
 
@@ -167,14 +179,20 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     }
     setState(() => _isLoading = true);
     if (widget.previewMode) {
-      if (!mounted) return;
+      if (!mounted) {
+        return;
+      }
       setState(() => _showConfirmation = true);
       return;
     }
     await MascotPreference.set(_selected!);
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     await Storage.setIntroPreviewSeen();
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     setState(() => _showConfirmation = true);
   }
 
@@ -216,6 +234,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   Widget _buildConfirmationScreen(BuildContext context, AppL10n t) {
     final selected = _selected!;
     final scaffoldColor = Theme.of(context).scaffoldBackgroundColor;
+    final text = SoriTextTheme.of(context);
 
     return Scaffold(
       body: SafeArea(
@@ -260,22 +279,14 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                             ? t.characterSelectedMagpie
                             : t.characterSelectedTiger,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w800,
-                          color: SoriColors.primary,
-                        ),
+                        style: text.h2.copyWith(color: SoriColors.primary),
                       ),
                       if (widget.optional) ...[
                         const SizedBox(height: Spacing.xs),
                         Text(
                           t.onboardingCompanionSelectionBody,
                           textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            fontSize: 13.5,
-                            height: 1.45,
-                            color: SoriColors.lightTextMuted,
-                          ),
+                          style: text.bodySmall,
                         ),
                       ],
                     ],
@@ -456,6 +467,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final text = SoriTextTheme.of(context);
 
     if (_showConfirmation && _selected != null) {
       return _buildConfirmationScreen(context, t);
@@ -505,21 +517,14 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                             Text(
                               t.characterSelectionTitle,
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 28,
-                                fontWeight: FontWeight.w800,
-                                height: 1.3,
-                              ),
+                              style: text.h1,
                             ),
                             // 탭 유도 한 줄 (배지/필 금지 → 본문 인라인).
                             const SizedBox(height: 8),
                             Text(
                               t.characterSelectionHint,
                               textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 13.5,
-                                color: SoriColors.lightTextMuted,
-                              ),
+                              style: text.caption,
                             ),
                           ],
                         ),
@@ -531,6 +536,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                       SoriEntrance(
                         delay: const Duration(milliseconds: 180),
                         child: _CharacterCard(
+                          key: const ValueKey('character-option-tiger'),
                           kind: MascotKind.tiger,
                           name: t.characterNameTiger,
                           roman: t.characterRomanTiger,
@@ -550,6 +556,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                       SoriEntrance(
                         delay: const Duration(milliseconds: 300),
                         child: _CharacterCard(
+                          key: const ValueKey('character-option-magpie'),
                           kind: MascotKind.magpie,
                           name: t.characterNameMagpie,
                           roman: t.characterRomanMagpie,
@@ -728,6 +735,7 @@ class _CharacterCard extends StatelessWidget {
   final VoidCallback? onTap;
 
   const _CharacterCard({
+    super.key,
     required this.kind,
     required this.name,
     required this.roman,
@@ -743,115 +751,116 @@ class _CharacterCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    final text = SoriTextTheme.of(context);
+    final duration = SoriMotion.respect(context, SoriMotion.fast);
+    return Semantics(
+      container: true,
+      button: true,
+      enabled: onTap != null,
+      selected: isSelected,
+      label: '$name. $roman. $trait. $description',
       onTap: onTap,
-      child: AnimatedScale(
-        scale: isSelected ? 1.05 : 1.0,
-        duration: const Duration(milliseconds: 200),
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border.all(
-              // cream 배경 위 흰 카드 — grey[300](1.2:1)은 사실상 안 보임.
-              color: isSelected ? accent : SoriColors.lightBorderStrong,
-              width: isSelected ? 3 : 2,
-            ),
-            borderRadius: BorderRadius.circular(SoriRadius.lg),
-            boxShadow: [
-              if (isSelected)
-                BoxShadow(
-                  color: accent.withValues(alpha: 0.22),
-                  blurRadius: 14,
-                  spreadRadius: 2,
-                )
-              else
-                BoxShadow(
-                  color: SoriColors.lightText.withValues(alpha: 0.07),
-                  blurRadius: 6,
-                  offset: const Offset(0, 2),
+      child: ExcludeSemantics(
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: onTap,
+          child: AnimatedScale(
+            scale: isSelected ? 1.05 : 1.0,
+            duration: duration,
+            child: AnimatedContainer(
+              duration: duration,
+              padding: const EdgeInsets.all(14),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(
+                  // cream 배경 위 흰 카드 — grey[300](1.2:1)은 사실상 안 보임.
+                  color: isSelected ? accent : SoriColors.lightBorderStrong,
+                  width: isSelected ? 3 : 2,
                 ),
-            ],
-          ),
-          child: Column(
-            children: [
-              // 일월 무대 + 정지 마스코트 — 카드 상시 영상은 단일 디코더
-              // lease·화이트 플래시 때문에 불가(State 상단 주석), 호흡
-              // 애니메이션도 Jin 요청("까딱이는 이미지 삭제", 2026-08-03)으로
-              // 제거. 캐릭터의 "살아있음"은 히어로 영상과 선택 순간의
-              // roar/perched 클립이 담당한다.
-              ClipRRect(
-                borderRadius: BorderRadius.circular(14),
-                child: SizedBox(
-                  height: 172,
-                  width: double.infinity,
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: [
-                      CustomPaint(
-                        painter: _SunMoonStagePainter(
-                          panel: panelColor,
-                          disc: discColor,
-                          discAtRight: discAtRight,
-                        ),
-                      ),
-                      Center(
-                        child: Mascot(
-                          kind: kind,
-                          emotion: MascotEmotion.smile,
-                          size: 148,
-                          animate: false,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                borderRadius: SoriRadius.brLg,
+                boxShadow: [
+                  if (isSelected)
+                    BoxShadow(
+                      color: accent.withValues(alpha: 0.22),
+                      blurRadius: 14,
+                      spreadRadius: 2,
+                    )
+                  else
+                    BoxShadow(
+                      color: SoriColors.lightText.withValues(alpha: 0.07),
+                      blurRadius: 6,
+                      offset: const Offset(0, 2),
+                    ),
+                ],
               ),
-              const SizedBox(height: 12),
-              Text.rich(
-                TextSpan(
-                  text: name,
-                  style: const TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w800,
-                    color: SoriColors.lightText,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: '  $roman',
-                      style: const TextStyle(
-                        fontSize: 12.5,
-                        fontWeight: FontWeight.w600,
-                        color: SoriColors.lightTextMuted,
+              child: Column(
+                children: [
+                  // 일월 무대 + 정지 마스코트 — 카드 상시 영상은 단일 디코더
+                  // lease·화이트 플래시 때문에 불가(State 상단 주석), 호흡
+                  // 애니메이션도 Jin 요청("까딱이는 이미지 삭제", 2026-08-03)으로
+                  // 제거. 캐릭터의 "살아있음"은 히어로 영상과 선택 순간의
+                  // roar/perched 클립이 담당한다.
+                  ClipRRect(
+                    borderRadius: SoriRadius.brMd,
+                    child: SizedBox(
+                      height: 172,
+                      width: double.infinity,
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          CustomPaint(
+                            painter: _SunMoonStagePainter(
+                              panel: panelColor,
+                              disc: discColor,
+                              discAtRight: discAtRight,
+                            ),
+                          ),
+                          Center(
+                            child: Mascot(
+                              kind: kind,
+                              emotion: MascotEmotion.smile,
+                              size: 148,
+                              animate: false,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-                textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 12),
+                  Text.rich(
+                    TextSpan(
+                      text: name,
+                      style: text.cardTitle,
+                      children: [
+                        TextSpan(
+                          text: '  $roman',
+                          style: text.caption.copyWith(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    trait,
+                    textAlign: TextAlign.center,
+                    style: text.label.copyWith(
+                      letterSpacing: 0.2,
+                      color: accent,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    description,
+                    textAlign: TextAlign.start,
+                    style: text.bodySmall,
+                  ),
+                ],
               ),
-              const SizedBox(height: 4),
-              Text(
-                trait,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0.2,
-                  color: accent,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                description,
-                textAlign: TextAlign.start,
-                style: const TextStyle(
-                  fontSize: 12.5,
-                  height: 1.45,
-                  color: SoriColors.lightTextMuted,
-                ),
-              ),
-            ],
+            ),
           ),
         ),
       ),

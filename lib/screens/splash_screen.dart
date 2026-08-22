@@ -23,7 +23,9 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void _navigateToNext() {
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     final hasCompleted = Storage.hasCompletedOnboarding;
     final sessionCount = Storage.sessionCount;
     final isSecondSession = sessionCount == 1;
@@ -55,12 +57,20 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center(
-        child: Image.asset(
-          'assets/icons/HanLogo.png',
-          width: MediaQuery.sizeOf(context).width * 0.7,
-          height: MediaQuery.sizeOf(context).width * 0.7,
-          fit: BoxFit.contain,
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final logoSide = constraints.biggest.shortestSide * 0.7;
+            return Center(
+              child: Image.asset(
+                'assets/icons/HanLogo.png',
+                excludeFromSemantics: true,
+                width: logoSide,
+                height: logoSide,
+                fit: BoxFit.contain,
+              ),
+            );
+          },
         ),
       ),
     );
