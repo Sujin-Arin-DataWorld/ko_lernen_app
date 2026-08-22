@@ -412,6 +412,14 @@ class AppL10nDe extends AppL10n {
   String get btnDelete => 'Löschen';
 
   @override
+  String get gameLoading => 'Spiel wird vorbereitet …';
+
+  @override
+  String gameRoundProgress(int current, int total) {
+    return 'Runde $current von $total';
+  }
+
+  @override
   String get bookshelfTitle => 'Mein Bücherregal';
 
   @override
@@ -621,6 +629,35 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get chosungAnswer => 'Antwort';
+
+  @override
+  String get chosungEmptyBody =>
+      'Für diese Lernstufe sind noch keine passenden Wörter vorbereitet.';
+
+  @override
+  String get chosungBackspace => 'Letztes Zeichen löschen';
+
+  @override
+  String chosungCorrectCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count richtige Antworten',
+      one: '1 richtige Antwort',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String chosungWrongCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count falsche Antworten',
+      one: '1 falsche Antwort',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get chosungPadHiddenNote =>
@@ -871,6 +908,10 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get screenWordleTitle => 'Silben-Rätsel';
+
+  @override
+  String get silbenEmptyBody =>
+      'Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.';
 
   @override
   String get screenHangulTitle => 'Hangul';
@@ -3378,6 +3419,10 @@ class AppL10nDe extends AppL10n {
   String get kkeunmariTitle => 'Wortkette';
 
   @override
+  String get kkeunmariEmptyBody =>
+      'Für dieses Spiel sind gerade keine Wörter vorbereitet.';
+
+  @override
   String get kkeunmariSubtitle => 'Letzte Silbe → nächstes Wort';
 
   @override
@@ -3713,6 +3758,13 @@ class AppL10nDe extends AppL10n {
   @override
   String get speedMatchInstruction =>
       'Tippe ein koreanisches Wort, dann die passende Bedeutung.';
+
+  @override
+  String get speedMatchEmptyBody =>
+      'Für diese Lernstufe gibt es noch nicht genug Wortpaare.';
+
+  @override
+  String get speedMatchAllLevels => 'Alle Lernstufen verwenden';
 
   @override
   String speedMatchScore(int count) {
@@ -4173,6 +4225,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get ttsListen => 'Aussprache';
+
+  @override
+  String ttsListenTarget(Object target) {
+    return 'Aussprache: $target';
+  }
 
   @override
   String get navProfile => 'Profil';

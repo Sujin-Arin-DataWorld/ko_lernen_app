@@ -29,9 +29,12 @@ import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/text_field.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../services/hangul_composer.dart';
+import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/empty_state.dart';
 
 // 화면 자판 배열. 자음 + 모음.
 //
@@ -78,10 +81,13 @@ const List<String> _vowelPadKeys = [
 enum _State { waiting, correct, wrong }
 
 class ChosungQuizScreen extends StatefulWidget {
-  const ChosungQuizScreen({super.key, this.deck});
+  const ChosungQuizScreen({super.key, this.deck, this.vocabLoader});
 
   /// Optional notebook / pack subset. Production library play leaves this null.
   final List<Vocab>? deck;
+
+  /// Optional deterministic seam. Production keeps [DataLoader.loadVocab].
+  final Future<List<Vocab>> Function()? vocabLoader;
 
   @override
   State<ChosungQuizScreen> createState() => _ChosungQuizScreenState();
@@ -128,6 +134,8 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   }
 
   List<Vocab> _deck = [];
+  bool _loading = true;
+  bool _loadFailed = false;
   int _idx = 0;
   int _correct = 0;
   int _wrong = 0;
@@ -191,7 +199,40 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
   Future<void> _load() async {
     _feedbackCompletion.reset();
-    final source = widget.deck ?? await DataLoader.loadVocab();
+    if (!_loading || _loadFailed) {
+      setState(() {
+        _loading = true;
+        _loadFailed = false;
+      });
+    }
+    late final List<Vocab> source;
+    try {
+      source =
+          widget.deck ?? await (widget.vocabLoader ?? DataLoader.loadVocab)();
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _loading = false;
+        _loadFailed = true;
+      });
+      return;
+    }
+    if (!mounted) {
+      return;
+    }
+    final defaultLoadFailed =
+        widget.deck == null &&
+        widget.vocabLoader == null &&
+        DataLoader.vocabError != null;
+    if (defaultLoadFailed) {
+      setState(() {
+        _loading = false;
+        _loadFailed = true;
+      });
+      return;
+    }
     final filtered =
         source
             .where(
@@ -206,9 +247,10 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
             )
             .toList()
           ..shuffle(Random());
-    if (!mounted) return;
     setState(() {
       _deck = filtered;
+      _loading = false;
+      _loadFailed = false;
       _idx = 0;
       _correct = 0;
       _wrong = 0;
@@ -220,6 +262,13 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     });
     _ctrl.clear();
     _questionStart = DateTime.now();
+  }
+
+  Future<void> _retryLoad() async {
+    if (widget.deck == null && widget.vocabLoader == null) {
+      DataLoader.resetVocab();
+    }
+    await _load();
   }
 
   Vocab get _card => _deck[_idx % _deck.length];
@@ -421,11 +470,38 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    if (_loading) {
+      return SoriStudyFrame(
+        title: t.gameChosungTitle,
+        padding: EdgeInsets.zero,
+        child: Semantics(
+          liveRegion: true,
+          label: t.gameLoading,
+          excludeSemantics: true,
+          child: AppLoading(message: t.gameLoading),
+        ),
+      );
+    }
+    if (_loadFailed) {
+      return SoriStudyFrame(
+        title: t.gameChosungTitle,
+        padding: EdgeInsets.zero,
+        child: AppError(
+          message: t.loadErrorTryAgain,
+          onRetry: _retryLoad,
+          messageLiveRegion: true,
+        ),
+      );
+    }
     if (_deck.isEmpty) {
       return SoriStudyFrame(
         title: t.gameChosungTitle,
         padding: EdgeInsets.zero,
-        child: const AppLoading(),
+        child: SoriEmptyState(
+          icon: Icons.abc_rounded,
+          title: t.gameChosungTitle,
+          body: t.chosungEmptyBody,
+        ),
       );
     }
 
@@ -491,12 +567,14 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                         selected: selected,
                         variant: SoriChipVariant.soft,
                         fontSize: 13,
-                        onTap: selected
-                            ? null
-                            : () {
-                                setState(() => _level = lvl);
-                                _load();
-                              },
+                        minInteractiveHeight: 48,
+                        onTap: () {
+                          if (selected) {
+                            return;
+                          }
+                          setState(() => _level = lvl);
+                          _load();
+                        },
                       );
                     }).toList(),
                   ),
@@ -515,10 +593,13 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                         selected: _mode == HintMode.chosungVowel,
                         variant: SoriChipVariant.soft,
                         fontSize: 12,
-                        onTap: _mode == HintMode.chosungVowel
-                            ? null
-                            : () =>
-                                  setState(() => _mode = HintMode.chosungVowel),
+                        minInteractiveHeight: 48,
+                        onTap: () {
+                          if (_mode == HintMode.chosungVowel) {
+                            return;
+                          }
+                          setState(() => _mode = HintMode.chosungVowel);
+                        },
                       ),
                       SoriChip(
                         label: AppL10n.of(context).chosungModeInitialsOnly,
@@ -527,9 +608,13 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                         selected: _mode == HintMode.chosung,
                         variant: SoriChipVariant.soft,
                         fontSize: 12,
-                        onTap: _mode == HintMode.chosung
-                            ? null
-                            : () => setState(() => _mode = HintMode.chosung),
+                        minInteractiveHeight: 48,
+                        onTap: () {
+                          if (_mode == HintMode.chosung) {
+                            return;
+                          }
+                          setState(() => _mode = HintMode.chosung);
+                        },
                       ),
                     ],
                   ),
@@ -544,15 +629,23 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                     children: [
                       SoriChip(
                         label: '$_correct',
+                        semanticLabel: t.chosungCorrectCount(_correct),
                         icon: Icons.check_rounded,
                         accent: SoriColors.success,
                       ),
                       SoriChip(
                         label: '$_wrong',
+                        semanticLabel: t.chosungWrongCount(_wrong),
                         icon: Icons.close_rounded,
                         accent: SoriColors.danger,
                       ),
-                      SoriChip(label: '$roundPos / $_roundSize'),
+                      SoriChip(
+                        label: '$roundPos / $_roundSize',
+                        semanticLabel: t.gameRoundProgress(
+                          roundPos,
+                          _roundSize,
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 14),
@@ -580,7 +673,9 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                       child: _QuizCard(
                         word: card.korean,
                         mode: _mode,
-                        german: card.german,
+                        translation: card.translationFor(
+                          Localizations.localeOf(context).languageCode,
+                        ),
                         state: _state,
                       ),
                     ),
@@ -594,12 +689,13 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                         final t = AppL10n.of(context);
                         return Column(
                           children: [
-                            TextField(
-                              key: _inputFieldKey,
+                            SoriTextField(
+                              fieldKey: _inputFieldKey,
                               controller: _ctrl,
                               focusNode: _focusNode,
                               autofocus: true,
                               textAlign: TextAlign.center,
+                              hintText: t.chosungInputHint,
                               style: const TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.w700,
@@ -661,7 +757,16 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
 
           // ── 진행 바 (하단 고정) ────────────────────────────────
           const SizedBox(height: 10),
-          SoriProgressBar(value: roundProgress, thickness: 6, animated: true),
+          Semantics(
+            label: t.gameRoundProgress(roundPos, _roundSize),
+            value: '${(roundProgress * 100).round()}%',
+            excludeSemantics: true,
+            child: SoriProgressBar(
+              value: roundProgress,
+              thickness: 6,
+              animated: true,
+            ),
+          ),
         ],
       ),
     );
@@ -713,117 +818,126 @@ class _RoundSummaryCard extends StatelessWidget {
         ? MascotEmotion.surprised
         : MascotEmotion.worry;
 
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: accent,
-      tinted: true,
-      width: double.infinity,
-      padding: const EdgeInsets.all(Spacing.xl),
-      child: Column(
-        children: [
-          CompanionBuilder(
-            builder: (context, kind) => accuracy >= 80
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Mascot(
-                        kind: kind,
-                        emotion: MascotEmotion.celebrate,
-                        size: 76,
-                        animate: true,
-                      ),
-                      const SizedBox(width: 8),
-                      const Mascot(
-                        kind: MascotKind.magpie,
-                        emotion: MascotEmotion.celebrate,
-                        size: 76,
-                        animate: true,
-                      ),
-                    ],
-                  )
-                : Mascot(
-                    kind: kind,
-                    emotion: mascotEmotion,
-                    size: 88,
-                    animate: true,
-                  ),
-            noneBuilder: (context) => Icon(
-              accuracy >= 80
-                  ? Icons.emoji_events_rounded
-                  : Icons.insights_rounded,
-              size: 82,
-              color: accent,
+    return Semantics(
+      container: true,
+      liveRegion: true,
+      label: t.chosungRoundDoneTitle,
+      child: SoriCard(
+        variant: SoriCardVariant.hero,
+        accent: accent,
+        tinted: true,
+        width: double.infinity,
+        padding: const EdgeInsets.all(Spacing.xl),
+        child: Column(
+          children: [
+            CompanionBuilder(
+              builder: (context, kind) => accuracy >= 80
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Mascot(
+                          kind: kind,
+                          emotion: MascotEmotion.celebrate,
+                          size: 76,
+                          animate: true,
+                        ),
+                        const SizedBox(width: 8),
+                        const Mascot(
+                          kind: MascotKind.magpie,
+                          emotion: MascotEmotion.celebrate,
+                          size: 76,
+                          animate: true,
+                        ),
+                      ],
+                    )
+                  : Mascot(
+                      kind: kind,
+                      emotion: mascotEmotion,
+                      size: 88,
+                      animate: true,
+                    ),
+              noneBuilder: (context) => Icon(
+                accuracy >= 80
+                    ? Icons.emoji_events_rounded
+                    : Icons.insights_rounded,
+                size: 82,
+                color: accent,
+              ),
             ),
-          ),
-          const SizedBox(height: Spacing.sm),
-          Text(
-            t.chosungRoundDoneTitle,
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w900,
-              color: accent,
-            ),
-          ),
-          const SizedBox(height: Spacing.md),
-          Wrap(
-            alignment: WrapAlignment.center,
-            spacing: Spacing.sm,
-            runSpacing: Spacing.sm,
-            children: [
-              _Stat(label: t.chosungRoundAccuracy(accuracy), color: accent),
-              _Stat(label: t.chosungRoundAvgTime(avgSec), color: s.text),
-              _Stat(label: '+$earnedXp XP', color: SoriColors.gold),
-            ],
-          ),
-          if (isNewBest) ...[
             const SizedBox(height: Spacing.sm),
-            Row(
-              mainAxisSize: MainAxisSize.min,
+            Text(
+              t.chosungRoundDoneTitle,
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w900,
+                color: accent,
+              ),
+            ),
+            const SizedBox(height: Spacing.md),
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: Spacing.sm,
+              runSpacing: Spacing.sm,
               children: [
-                const Icon(SoriGlyph.record, size: 15, color: SoriColors.gold),
-                const SizedBox(width: 5),
-                Text(
-                  t.gameNewBest,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
-                    color: SoriColors.gold,
-                  ),
-                ),
+                _Stat(label: t.chosungRoundAccuracy(accuracy), color: accent),
+                _Stat(label: t.chosungRoundAvgTime(avgSec), color: s.text),
+                _Stat(label: '+$earnedXp XP', color: SoriColors.gold),
               ],
             ),
-          ],
-          if (recommendation != null) ...[
-            const SizedBox(height: Spacing.md),
-            Text(
-              recommendation!,
-              style: TextStyle(
-                fontSize: 14,
-                color: s.textMuted,
-                fontWeight: FontWeight.w600,
+            if (isNewBest) ...[
+              const SizedBox(height: Spacing.sm),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    SoriGlyph.record,
+                    size: 15,
+                    color: SoriColors.gold,
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    t.gameNewBest,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
+                      color: SoriColors.gold,
+                    ),
+                  ),
+                ],
               ),
-              textAlign: TextAlign.center,
-            ),
-          ],
-          if (feedbackCompletion != null &&
-              feedbackScope != null &&
-              feedbackScope.featureGate.isEnabled) ...[
+            ],
+            if (recommendation != null) ...[
+              const SizedBox(height: Spacing.md),
+              Text(
+                recommendation!,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: s.textMuted,
+                  fontWeight: FontWeight.w600,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+            if (feedbackCompletion != null &&
+                feedbackScope != null &&
+                feedbackScope.featureGate.isEnabled) ...[
+              const SizedBox(height: Spacing.lg),
+              ContentFeedbackCard(
+                feedbackContext: feedbackCompletion!.context,
+                featureGate: feedbackScope.featureGate,
+                submitFeedback: feedbackScope.submitFeedback,
+                completedMissionIds: feedbackScope.completedMissionIds,
+              ),
+            ],
             const SizedBox(height: Spacing.lg),
-            ContentFeedbackCard(
-              feedbackContext: feedbackCompletion!.context,
-              featureGate: feedbackScope.featureGate,
-              submitFeedback: feedbackScope.submitFeedback,
-              completedMissionIds: feedbackScope.completedMissionIds,
+            SoriButton.filled(
+              label: t.chosungRoundContinue,
+              accent: accent,
+              fullWidth: true,
+              onTap: onContinue,
             ),
           ],
-          const SizedBox(height: Spacing.lg),
-          SoriButton.filled(
-            label: t.chosungRoundContinue,
-            accent: accent,
-            fullWidth: true,
-            onTap: onContinue,
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -883,6 +997,7 @@ class _JamoPad extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     return Column(
       children: [
         _row(_consonantPadKeys),
@@ -891,6 +1006,7 @@ class _JamoPad extends StatelessWidget {
         const SizedBox(height: Spacing.xs + 2),
         SoriChip(
           label: '⌫',
+          semanticLabel: t.chosungBackspace,
           variant: SoriChipVariant.outlined,
           accent: SoriColors.warning,
           fontSize: 16,
@@ -907,13 +1023,13 @@ class _JamoPad extends StatelessWidget {
 class _QuizCard extends StatelessWidget {
   final String word; // 정답 한국어
   final HintMode mode;
-  final String german;
+  final String translation;
   final _State state;
 
   const _QuizCard({
     required this.word,
     required this.mode,
-    required this.german,
+    required this.translation,
     required this.state,
   });
 
@@ -927,61 +1043,71 @@ class _QuizCard extends StatelessWidget {
       _State.waiting => SoriColors.primary,
     };
 
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: accent,
-      tinted: true,
-      width: double.infinity,
-      padding: const EdgeInsets.all(Spacing.xl),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          ChosungHint(
-            word: word,
-            mode: mode,
-            accent: accent,
-            vowelLabel: t.chosungSlotVowel,
-            jongsungLabel: t.chosungSlotBatchim,
-          ),
-          const SizedBox(height: 16),
-          switch (state) {
-            _State.correct => Text(
-              word,
-              style: const TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w800,
-                color: SoriColors.success,
-              ),
+    final announcement = switch (state) {
+      _State.correct => t.chosungCorrect,
+      _State.wrong => '${t.statsWrong}. ${t.chosungAnswerLabel(word)}',
+      _State.waiting => null,
+    };
+    return Semantics(
+      container: true,
+      liveRegion: announcement != null,
+      label: announcement,
+      child: SoriCard(
+        variant: SoriCardVariant.hero,
+        accent: accent,
+        tinted: true,
+        width: double.infinity,
+        padding: const EdgeInsets.all(Spacing.xl),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ChosungHint(
+              word: word,
+              mode: mode,
+              accent: accent,
+              vowelLabel: t.chosungSlotVowel,
+              jongsungLabel: t.chosungSlotBatchim,
             ),
-            _State.wrong => Column(
-              children: [
-                Text(
-                  t.chosungAnswerLabel(word),
-                  style: const TextStyle(
-                    fontSize: 19,
-                    fontWeight: FontWeight.w700,
-                    color: SoriColors.danger,
+            const SizedBox(height: 16),
+            switch (state) {
+              _State.correct => Text(
+                word,
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w800,
+                  color: SoriColors.success,
+                ),
+              ),
+              _State.wrong => Column(
+                children: [
+                  Text(
+                    t.chosungAnswerLabel(word),
+                    style: const TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.w700,
+                      color: SoriColors.danger,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  german,
-                  style: TextStyle(fontSize: 14, color: s.textMuted),
-                ),
-              ],
-            ),
-            // 뜻 항상 표시 — 글자를 떠올리는 핵심 단서.
-            _State.waiting => Text(
-              german,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-                color: s.text,
-                fontWeight: FontWeight.w700,
+                  const SizedBox(height: 4),
+                  Text(
+                    translation,
+                    style: TextStyle(fontSize: 14, color: s.textMuted),
+                  ),
+                ],
               ),
-            ),
-          },
-        ],
+              // 뜻 항상 표시 — 글자를 떠올리는 핵심 단서.
+              _State.waiting => Text(
+                translation,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                  color: s.text,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+            },
+          ],
+        ),
       ),
     );
   }

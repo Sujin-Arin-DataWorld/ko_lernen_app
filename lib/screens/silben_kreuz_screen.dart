@@ -12,10 +12,12 @@ import '../services/silben_puzzle_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
@@ -31,7 +33,10 @@ import '../widgets/sori/tts_speed_control.dart';
 /// - 힌트 = 독일어 뜻 + 독일어 예문 + 정답이 ◯로 가려진 한국어 예문
 /// - 진행: 레벨별 20퍼즐, `Storage.recordGameBest('skz_<level>')` 에 저장
 class SilbenKreuzScreen extends StatefulWidget {
-  const SilbenKreuzScreen({super.key});
+  const SilbenKreuzScreen({super.key, this.puzzleLoader});
+
+  /// Optional deterministic seam. Production keeps [SilbenPuzzleLoader.load].
+  final Future<Map<String, List<SilbenPuzzle>>> Function()? puzzleLoader;
 
   @override
   State<SilbenKreuzScreen> createState() => _SilbenKreuzScreenState();
@@ -46,6 +51,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
 
   Map<String, List<SilbenPuzzle>> _byLevel = {};
   bool _loading = true;
+  bool _loadFailed = false;
 
   String _level = 'A1';
   int _index = 0;
@@ -120,13 +126,34 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
   }
 
   Future<void> _load() async {
-    final data = await SilbenPuzzleLoader.load();
+    if (!_loading) {
+      setState(() {
+        _loading = true;
+        _loadFailed = false;
+        _puzzle = null;
+      });
+    }
+    late final Map<String, List<SilbenPuzzle>> data;
+    try {
+      data = await (widget.puzzleLoader ?? SilbenPuzzleLoader.load)();
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _loading = false;
+        _loadFailed = true;
+        _puzzle = null;
+      });
+      return;
+    }
     if (!mounted) {
       return;
     }
     setState(() {
       _byLevel = data;
       _loading = false;
+      _loadFailed = false;
     });
     final resolvedLevel = (_byLevel[_level]?.isNotEmpty ?? false)
         ? _level
@@ -135,6 +162,13 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
             orElse: () => 'A1',
           );
     _openLevel(resolvedLevel);
+  }
+
+  Future<void> _retryLoad() async {
+    if (widget.puzzleLoader == null) {
+      SilbenPuzzleLoader.reset();
+    }
+    await _load();
   }
 
   void _openLevel(String level) {
@@ -330,7 +364,24 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       return SoriStudyFrame(
         title: t.screenWordleTitle,
         padding: EdgeInsets.zero,
-        child: const AppLoading(),
+        child: Semantics(
+          liveRegion: true,
+          label: t.gameLoading,
+          excludeSemantics: true,
+          child: AppLoading(message: t.gameLoading),
+        ),
+      );
+    }
+
+    if (_loadFailed) {
+      return SoriStudyFrame(
+        title: t.screenWordleTitle,
+        padding: EdgeInsets.zero,
+        child: AppError(
+          message: t.loadErrorTryAgain,
+          onRetry: _retryLoad,
+          messageLiveRegion: true,
+        ),
       );
     }
 
@@ -344,7 +395,11 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
       child: p == null
-          ? const AppLoading()
+          ? SoriEmptyState(
+              icon: Icons.grid_off_rounded,
+              title: t.screenWordleTitle,
+              body: t.silbenEmptyBody,
+            )
           : SingleChildScrollView(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 24),
               child: Column(
@@ -378,6 +433,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 selected: l == _level,
                 label: l,
                 value: '${_solvedCount(l)}/${(_byLevel[l] ?? const []).length}',
+                onTap: () => _openLevel(l),
                 excludeSemantics: true,
                 child: GestureDetector(
                   behavior: HitTestBehavior.opaque,
@@ -386,6 +442,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                     key: ValueKey('silben-level-$l'),
                     margin: const EdgeInsets.symmetric(horizontal: 3),
                     padding: const EdgeInsets.symmetric(vertical: 8),
+                    constraints: const BoxConstraints(minHeight: 48),
                     decoration: BoxDecoration(
                       color: l == _level
                           ? SoriColors.accent.withValues(alpha: 0.16)
@@ -517,6 +574,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
       selected: selected,
       label: locked ? syllable : '${cell.$1 + 1}, ${cell.$2 + 1}',
       value: wrong ? AppL10n.of(context).statsWrong : null,
+      onTap: locked ? null : () => _onCellTap(cell),
       excludeSemantics: true,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
@@ -541,6 +599,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               button: true,
               enabled: !_tileUsed[i],
               label: p.pool[i],
+              onTap: _tileUsed[i] ? null : () => _onTileTap(i),
               excludeSemantics: true,
               child: GestureDetector(
                 behavior: HitTestBehavior.opaque,
@@ -588,11 +647,18 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
 
   Widget _clueRow(SilbenWord w, SoriSurfaces s) {
     final done = _spoken.contains(w.answer);
+    final label = done
+        ? '${w.answer} · ${w.german}. ${w.exampleDe} ${w.exampleKo}'
+        : '${w.german}. ${w.exampleDe} ${w.exampleKo}';
+    void onTap() => _onClueTap(w);
     return Semantics(
       button: true,
+      label: label,
+      onTap: onTap,
+      excludeSemantics: true,
       child: GestureDetector(
         behavior: HitTestBehavior.opaque,
-        onTap: () => _onClueTap(w),
+        onTap: onTap,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -640,31 +706,36 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
 
   Widget _solvedCard(AppL10n t) {
     final next = _nextAction;
-    return SoriCard(
-      accent: SoriColors.success,
-      tinted: true,
-      child: Column(
-        children: [
-          Text(
-            '${t.wordleResultWin} +$_xpPerPuzzle XP',
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w800,
-              color: SoriColors.success,
+    return Semantics(
+      container: true,
+      liveRegion: true,
+      label: t.wordleResultWin,
+      child: SoriCard(
+        accent: SoriColors.success,
+        tinted: true,
+        child: Column(
+          children: [
+            Text(
+              '${t.wordleResultWin} +$_xpPerPuzzle XP',
+              style: const TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w800,
+                color: SoriColors.success,
+              ),
             ),
-          ),
-          const SizedBox(height: Spacing.md),
-          if (next != null)
-            SoriButton.filled(
-              label: t.btnNext,
-              icon: Icons.arrow_forward,
-              accent: SoriColors.success,
-              onTap: next,
-              fullWidth: true,
-            )
-          else
-            const Text('🎉', style: TextStyle(fontSize: 28)),
-        ],
+            const SizedBox(height: Spacing.md),
+            if (next != null)
+              SoriButton.filled(
+                label: t.btnNext,
+                icon: Icons.arrow_forward,
+                accent: SoriColors.success,
+                onTap: next,
+                fullWidth: true,
+              )
+            else
+              const Text('🎉', style: TextStyle(fontSize: 28)),
+          ],
+        ),
       ),
     );
   }

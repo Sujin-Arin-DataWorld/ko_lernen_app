@@ -829,6 +829,18 @@ abstract class AppL10n {
   /// **'Löschen'**
   String get btnDelete;
 
+  /// No description provided for @gameLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiel wird vorbereitet …'**
+  String get gameLoading;
+
+  /// No description provided for @gameRoundProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Runde {current} von {total}'**
+  String gameRoundProgress(int current, int total);
+
   /// No description provided for @bookshelfTitle.
   ///
   /// In de, this message translates to:
@@ -1200,6 +1212,30 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Antwort'**
   String get chosungAnswer;
+
+  /// No description provided for @chosungEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für diese Lernstufe sind noch keine passenden Wörter vorbereitet.'**
+  String get chosungEmptyBody;
+
+  /// No description provided for @chosungBackspace.
+  ///
+  /// In de, this message translates to:
+  /// **'Letztes Zeichen löschen'**
+  String get chosungBackspace;
+
+  /// No description provided for @chosungCorrectCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 richtige Antwort} other{{count} richtige Antworten}}'**
+  String chosungCorrectCount(int count);
+
+  /// No description provided for @chosungWrongCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 falsche Antwort} other{{count} falsche Antworten}}'**
+  String chosungWrongCount(int count);
 
   /// No description provided for @chosungPadHiddenNote.
   ///
@@ -1650,6 +1686,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Silben-Rätsel'**
   String get screenWordleTitle;
+
+  /// No description provided for @silbenEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.'**
+  String get silbenEmptyBody;
 
   /// No description provided for @screenHangulTitle.
   ///
@@ -5989,6 +6031,12 @@ abstract class AppL10n {
   /// **'Wortkette'**
   String get kkeunmariTitle;
 
+  /// No description provided for @kkeunmariEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für dieses Spiel sind gerade keine Wörter vorbereitet.'**
+  String get kkeunmariEmptyBody;
+
   /// No description provided for @kkeunmariSubtitle.
   ///
   /// In de, this message translates to:
@@ -6558,6 +6606,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Tippe ein koreanisches Wort, dann die passende Bedeutung.'**
   String get speedMatchInstruction;
+
+  /// No description provided for @speedMatchEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Für diese Lernstufe gibt es noch nicht genug Wortpaare.'**
+  String get speedMatchEmptyBody;
+
+  /// No description provided for @speedMatchAllLevels.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Lernstufen verwenden'**
+  String get speedMatchAllLevels;
 
   /// No description provided for @speedMatchScore.
   ///
@@ -7289,6 +7349,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Aussprache'**
   String get ttsListen;
+
+  /// No description provided for @ttsListenTarget.
+  ///
+  /// In de, this message translates to:
+  /// **'Aussprache: {target}'**
+  String ttsListenTarget(Object target);
 
   /// No description provided for @navProfile.
   ///

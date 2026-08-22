@@ -143,6 +143,18 @@
   "btnApply": "Übernehmen",
   "btnPlay": "Üben",
   "btnDelete": "Löschen",
+  "gameLoading": "Spiel wird vorbereitet …",
+  "gameRoundProgress": "Runde {current} von {total}",
+  "@gameRoundProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "@_phase5_1_bookshelf": {
     "description": "Phase 5.1 (stately-rising-jongga) — Bookshelf + Custom Pack UI."
   },
@@ -248,6 +260,24 @@
   "chosungShowHint": "Hören (Tipp)",
   "chosungCorrect": "✓ Richtig!",
   "chosungAnswer": "Antwort",
+  "chosungEmptyBody": "Für diese Lernstufe sind noch keine passenden Wörter vorbereitet.",
+  "chosungBackspace": "Letztes Zeichen löschen",
+  "chosungCorrectCount": "{count, plural, one{1 richtige Antwort} other{{count} richtige Antworten}}",
+  "@chosungCorrectCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chosungWrongCount": "{count, plural, one{1 falsche Antwort} other{{count} falsche Antworten}}",
+  "@chosungWrongCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "chosungPadHiddenNote": "Ab B1 gibt es keine Tastenhilfe mehr. Tippe das Wort mit deiner koreanischen Tastatur.",
   "wordleHowTitle": "Spielanleitung",
   "wordleHowIntro": "Errate das koreanische Wort in 6 Versuchen. Die Farben geben Hinweise.",
@@ -347,6 +377,7 @@
   "screenVocabTitle": "Vokabeln",
   "screenGrammarTitle": "Grammatik",
   "screenWordleTitle": "Silben-Rätsel",
+  "silbenEmptyBody": "Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.",
   "screenHangulTitle": "Hangul",
   "filterOpenBtn": "Filter öffnen",
   "hangulTabOverview": "Übersicht",
@@ -1646,6 +1677,7 @@
   "listeningShelfSocialDating": "Dating & Beziehung",
   "listeningShelfSocialFandom": "Fandom & Videos",
   "kkeunmariTitle": "Wortkette",
+  "kkeunmariEmptyBody": "Für dieses Spiel sind gerade keine Wörter vorbereitet.",
   "kkeunmariSubtitle": "Letzte Silbe → nächstes Wort",
   "kkeunmariYourTurn": "Du bist dran",
   "kkeunmariTigerTurn": "Tiger denkt …",
@@ -1847,6 +1879,8 @@
   "speedMatchTitle": "Blitz-Paare",
   "speedMatchDesc": "Auf Zeit zuordnen",
   "speedMatchInstruction": "Tippe ein koreanisches Wort, dann die passende Bedeutung.",
+  "speedMatchEmptyBody": "Für diese Lernstufe gibt es noch nicht genug Wortpaare.",
+  "speedMatchAllLevels": "Alle Lernstufen verwenden",
   "speedMatchScore": "{count} Paare",
   "@speedMatchScore": {
     "placeholders": {
@@ -2120,6 +2154,12 @@
     }
   },
   "ttsListen": "Aussprache",
+  "ttsListenTarget": "Aussprache: {target}",
+  "@ttsListenTarget": {
+    "placeholders": {
+      "target": {}
+    }
+  },
   "@_profile": {
     "description": "Profil-Hub + Konto-Nudge (Tier 1 — 2026-06-03)."
   },
