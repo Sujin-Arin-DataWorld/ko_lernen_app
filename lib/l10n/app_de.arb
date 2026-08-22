@@ -1945,6 +1945,23 @@
   "hardWordsHardQuizCta": "Schweres Quiz: Schreibweise",
   "hardQuizTitle": "Schweres Quiz",
   "hardQuizHint": "Wähle die richtige Schreibweise.",
+  "hardQuizCorrectFeedback": "Richtig: {word}",
+  "@hardQuizCorrectFeedback": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "hardQuizWrongFeedback": "Richtig geschrieben: {word}",
+  "@hardQuizWrongFeedback": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "hardQuizFinish": "Ergebnis ansehen",
   "hardQuizDoneTitle": "Runde geschafft!",
   "hardQuizScore": "{correct}/{total} richtig",
   "@hardQuizScore": {

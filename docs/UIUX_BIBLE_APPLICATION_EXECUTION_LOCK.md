@@ -1,61 +1,64 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.76
+- **Version:** 1.77
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-5b-games-supporting-2026-08-22`
-- **Base:** `origin/main@8f6ce8941ed8fe36888aa541191ca9090ec5eddd`
-- **State:** the isolated Phase 5B custom-pack game outer-UI unit is locally
-  final-verified on app commits `c9d62c267ecd939cdc0515f17170be0b8e4f0713`
-  and `99deca3d611450193e6c02f3afe55cc246c9385e`
+- **Branch:** `session/uiux-bible-5b-grammar-choice-2026-08-22`
+- **Base:** `origin/main@949e46f6b6e096be338636d54bfe86dace5a3fbc`
+- **State:** the isolated Phase 5B grammar and hard-choice quiz unit is locally
+  final-verified on app commits `89030a3171a8b4fe3a29a5e016e5c74c24270b45`
+  and `6a9bb95e39cf9f3385437911aafbd0bc20c90294`
 - **Next action:** push the clean three-commit branch head, open one PR, use only
   automatic exact-head CI, and merge only after every required check is green
 
 ## Current State Summary
 
-The preceding Phase 5A standalone-game unit is merged as PR #194 at main merge
-`8f6ce8941ed8fe36888aa541191ca9090ec5eddd`. Its app commit is
-`541c9b10f212bbdbb642dd813a7664e229be6a7e`, its documentation commit is
-`4198df94`, and automatic exact-head CI run 32567563553 is green for Select
-required checks job 97018317904, Analyze & Build job 97018374322, and asset
-pipeline job 97018374352. Signed AAB/Play job 97019271957 was skipped with zero
-steps. Exact-merge post-main run 32567999949 was cancelled; Signed
-AAB/Play job 97019485135 had zero steps, so no build, signing, deployment, or
+The preceding Phase 5B custom-pack game unit is merged as PR #195 at main merge
+`949e46f6b6e096be338636d54bfe86dace5a3fbc`. Its app commits are
+`c9d62c267ecd939cdc0515f17170be0b8e4f0713` and
+`99deca3d611450193e6c02f3afe55cc246c9385e`; its exact PR head and documentation
+commit are `22b599ec0bde4745b3e00daf8c0c3f29d20452c8`. Automatic exact-head CI run
+32572671017 is green for Select required checks job 97030360767, asset pipeline
+job 97030399102, and Analyze & Build job 97030399116. Signed AAB/Play job
+97031018472 was skipped with zero steps. Exact-merge post-main run 32572973542
+was cancelled; Signed AAB/Play job 97031122233 and Website Cloudflare production
+job 97031121964 had zero steps, so no release build, signing, deployment, or
 upload ran. The current isolated branch starts from that exact merge.
 
-App commits `c9d62c267ecd939cdc0515f17170be0b8e4f0713` and
-`99deca3d611450193e6c02f3afe55cc246c9385e` standardize the app-owned quiz,
-matching, typing, feedback, and result presentation for `/custom_pack/quiz`,
-`/custom_pack/matching`, and `/custom_pack/typing`. Locale-correct meanings are
-fixed at round start so a mid-round locale change updates chrome without
-changing the active round, progress, or evidence; replay/restart adopts the
-current locale. Matching retains meaning-only deduplication. Its stored and
-displayed XP now use the same existing miss-adjusted round value. Reduced-
-motion Quiz retains stable feedback with an explicit localized Next action,
-while normal motion retains its 900 ms automatic advance. Typing exposes an
-app-owned disabled field state after reveal and locks the exact Korean TTS
-payload. Shared `GameOverCard` text flexes on narrow German new-best results
-without changing the result contract.
+App commits `89030a3171a8b4fe3a29a5e016e5c74c24270b45` and
+`6a9bb95e39cf9f3385437911aafbd0bc20c90294` standardize the app-owned outer UI
+for the standalone grammar-recognition and hard-word choice quizzes. Both use
+shared Sori study, type, choice, state, action, feedback, and result contracts;
+localized feedback and results are live regions. Feedback appended below lazy
+lists uses one shared motion-aware reveal helper and is proven to intersect the
+visible scroll viewport. Hard-choice true empty is distinct from loading;
+reduced motion retains feedback with an explicit localized advance/result
+action while normal motion retains the exact 850 ms automatic advance. The
+wrong-answer card retains its danger accent bar while its 17sp text uses the
+contrast-safe surface role, measured at least 4.5:1.
 
-DE/EN in-progress flows pass the locked 320x640 at 200%, 360x400, 390x844 at
-130%, 720x1024 at 130%, and 1280x900 at 130% matrices with real
-`SoriTypeScale`, safe insets, scroll reachability, fatal hit ownership, 48dp
-targets, and final `SemanticsData`. Result and replay are separately covered at
-DE 320x640 at 200% and EN 360x400; locale-switch and fallback paths are covered
-at 390x844 at 130%. Twenty-three focused and 62 combined focused/protection
-tests are green;
-the exact app-head full local run has 4,547 passed tests with 14 conditional
-skips. Analyze reports zero issues; format and diff check are clean. Final
-Specification/Protection and Standards/Accessibility reviews both report zero
-findings. Exact-base ratchets improve raw screen `TextStyle` 169->160, raw
-screen `fontSize` 184->176, `FontWeight.w800` 33->31, and raw screen fields
-3->2; `w900` remains 10, `BorderRadius.circular` remains 68 with 14 numeric
-literals, progress indicators remain 12, screen `AppLoading` calls remain 39,
-and test files increase 465->466. No asset, localization, token, secret, or TODO
-change was added. Pack source/order, quiz answers, matching and typing rules,
-timing, score/XP formulas, learning/SRS/evidence, routes and arguments, storage,
-TTS policy, SDK/platform behavior, hitboxes and game-canvas geometry,
-room/furnish canvases, and approved assets remain protected. PR, CI, and merge
-are not yet claimed for this current unit.
+DE/EN flows pass the locked 320x640 at 200%, 360x400, 390x844 at 130%,
+720x1024 at 130%, and 1280x900 at 130% matrices with real `SoriTypeScale`, safe
+insets, lazy feedback reachability, fatal hit ownership, 48dp targets,
+alpha-composited choice-boundary and feedback-text contrast, and final
+`SemanticsData`. A separate normal-motion test locks the exact 850 ms advance,
+and true empty is covered directly. Twelve focused and 143 combined
+focused/protection tests are green; the exact app-head full local run has 4,559
+passed tests with 14 conditional skips. Analyze reports zero issues; format and
+diff check are clean. Final Specification/Protection and
+Standards/Accessibility reviews both report zero remaining findings. Exact-base
+ratchets improve raw screen `TextStyle` 160->157, raw screen `fontSize`
+176->173, and progress indicators 12->11; `FontWeight.w800` remains 31, `w900`
+remains 10, raw screen fields remain 2, `BorderRadius.circular` remains 68 with
+14 numeric literals, screen `AppLoading` calls increase 39->40 through the
+standard loader, Sori Dart files increase 126->127 through the shared reveal
+helper, and test files increase 466->467. Three paired DE/EN localization keys
+were added; assets, tokens, secrets, and TODO markers remain zero. Grammar
+question generation, levels, order, answers, free-practice evidence boundary,
+grammar-hard persistence, hard-choice deck/distractor rules, wrong count, TTS,
+SRS, score and XP formulas, exact 850 ms normal timing, routes and arguments,
+storage, SDK/platform behavior, hitboxes and game-canvas geometry, room/furnish
+canvases, and approved assets remain protected. PR, CI, and merge are not yet
+claimed for this current unit.
 
 ## Important Context
 
@@ -68,14 +71,14 @@ remain separate high-risk units.
 
 ## Immediate Next Steps
 
-1. Push the clean three-commit branch head and open one PR without adding a manual
-   duplicate run; wait for automatic CI on the exact PR head.
+1. Push the clean three-commit branch head and open one PR without adding a
+   manual duplicate run; wait for automatic CI on the exact PR head.
 2. Merge only when every required check is green, verify the Signed AAB/Play
    path ran zero steps, and cancel any post-main release-capable run
    immediately.
 3. Record the exact PR, CI jobs, merge SHA, and zero-release evidence in the
-   next isolated grammar and hard-choice quiz unit created from that exact main
-   merge. The explicitly excluded room/furnish canvases remain excluded.
+   next isolated word-web study/quiz unit created from that exact main merge.
+   The explicitly excluded room/furnish canvases remain excluded.
 
 ## 1. Purpose
 
@@ -188,17 +191,17 @@ current ratchet:
 |---|---:|---|
 | Registered route cases | 69 | Every case is inventoried below |
 | `lib/screens` Dart files | 97 | Includes route, embedded, preview, and quest surfaces |
-| `lib/widgets/sori` Dart files | 126 | Existing system; no parallel system permitted |
-| Test files | 466 | Reuse focused suites plus shared matrices |
-| Raw screen `TextStyle` | 160 lexical; clean-code guard ≤217 | Must not increase; migrate by touched surface |
-| Raw screen `fontSize` | 176; `FontWeight.w800` 31 and `w900` 10 | Reduce through tokens, never raise ratchets |
+| `lib/widgets/sori` Dart files | 127 | Existing system; no parallel system permitted |
+| Test files | 467 | Reuse focused suites plus shared matrices |
+| Raw screen `TextStyle` | 157 lexical; clean-code guard ≤217 | Must not increase; migrate by touched surface |
+| Raw screen `fontSize` | 173; `FontWeight.w800` 31 and `w900` 10 | Reduce through tokens, never raise ratchets |
 | Screen `BorderRadius.circular` | 68 total; 14 numeric literals (global guard ≤24) | Touched code uses radius tokens |
 | Raw screen `Scaffold` calls | 33 | Many are intentional shell/immersive owners; classify before changing |
 | Screen `TextOverflow.ellipsis` | 0 | Locked at zero |
 | Common-appbar ellipsis | 0 | Phase 1A removed both without hiding text |
 | Screen text fields | 2 | Recall, reassessment, Gye entry, and touched game inputs use `SoriTextField`; guard locked at ≤22 |
-| Raw screen progress indicators | 12 | Replace only where not canvas/inline progress |
-| `AppLoading` call sites | 39 | Retain as the standard full-state loader |
+| Raw screen progress indicators | 11 | Replace only where not canvas/inline progress |
+| `AppLoading` call sites | 40 | Retain as the standard full-state loader |
 
 Current shared coverage includes `screen_smoke_test`, `responsive_test`,
 `responsive_short_height_test`, `standard_surface_responsive_test`,
@@ -449,8 +452,8 @@ production, and deployment remain unclaimed and out of scope.
 | 4C Media-phrase outer UI | merged | App commit `0eaddae17207f84c95fa3098ec5f1ff2ad77cd73`; documentation commit `7da0fdcc4542d39a52cea2f6267aef8035d74185`; PR #192; main merge `02f8eae904fdc5a61a926e74650c13966e971115`; automatic exact-head CI run 32562201441 green for Analyze & Build job 97005480073 and asset pipeline job 97005479992; Signed AAB/Play job 97006578856 skipped with zero steps; `/media_phrases` uses standard localized live loading/error/retry, distinguishes true empty, announces progress, gives the TTS action target-qualified semantics, and retains one filled next action with default contrast-safe outlined secondary actions; retry detects the production loader's cached failure and invalidates only the media-list and exact asset-string caches before a real second read; populated DE/EN states cover the locked five viewports with actual `SoriTypeScale`, scroll reachability, hit testing, 48dp targets, final semantics, and alpha-composited 3:1 boundaries; DE/EN loading/failure/retry/recovery and true empty cover 320x640 at 200%, a production-shaped default-loader test proves failure caching, second asset read, and recovery, and German 390x844 at 130% locks navigation/TTS semantics and exact spoken payload; five focused UIUX and 494 combined focused/protection/shared tests plus full local 4,503 tests with 14 conditional skips green; analyze zero, format and diff check clean; final review axes zero; raw screen TextStyle 169->169, fontSize 184->184, w800 33->33, w900 10->10, raw fields 5->5, numeric radii 14->14, progress indicators 14->13, AppLoading calls 38->39, and test files 463->464; five paired DE/EN localization keys added, assets/tokens/secrets/TODO zero; phrase data/order/exact-level filtering, routes/arguments, storage, learning/score/evidence, TTS policy, SDK/platform behavior, community writes, and approved assets protected; exact-merge post-main run 32562695627 was cancelled immediately and Signed AAB/Play job 97006676049 plus every release-capable downstream job had zero steps, so no build, signing, deployment, or upload ran |
 | 4C Remaining tools/community | complete in authorized scope | `/media_phrases` completes the remaining app-owned presentation route; `/hanok/anbang`, `/hanok/daecheong`, and `/sarangbang/furnish` room/canvas placement remain explicitly excluded |
 | 5A Standalone-game outer UI | merged | App commit `541c9b10f212bbdbb642dd813a7664e229be6a7e`; documentation commit `4198df94`; PR #194; main merge `8f6ce8941ed8fe36888aa541191ca9090ec5eddd`; automatic exact-head CI run 32567563553 green for Select required checks job 97018317904, Analyze & Build job 97018374322, and asset pipeline job 97018374352; Signed AAB/Play job 97019271957 skipped with zero steps; `/kkeunmari`, `/chosung`, `/wordle`, and `/speed_match` distinguish localized live loading/failure/retry from true empty, use exact loader-cache invalidation, standard fields where touched, locale-correct Chosung hints, selected/executable 48dp outer controls, target-qualified executable TTS/cell/tile/clue semantics, and live feedback/results with reduced-motion-safe next/replay actions; DE/EN populated states cover the locked five viewports with actual `SoriTypeScale`, safe insets, scroll reachability, fatal hit testing, and final semantics; production-shaped retry recovery and DE/EN real wrong/correct/round/timeout/solve/result transitions are directly tested; 20 focused and exact rebased app-head full local 4,524 tests with 14 conditional skips green; analyze zero, format and diff check clean; final review axes zero; raw screen TextStyle 169->169, fontSize 184->184, w800 33->33, w900 10->10, raw fields 5->3, numeric radii 14->14, progress indicators 13->12, AppLoading calls 39->39, and test files 464->465; eleven paired DE/EN localization keys added, assets/tokens/secrets/TODO zero; game rules, timers, scores, hitboxes/game-canvas geometry, learning/SRS/evidence, routes/arguments, storage, TTS policy, SDK/platform behavior, room/furnish canvases, and approved assets protected; exact-merge post-main run 32567999949 cancelled and Signed AAB/Play job 97019485135 had zero steps, so no build, signing, deployment, or upload ran |
-| 5B Custom-pack quiz/matching/typing outer UI | locally final-verified | App commits `c9d62c267ecd939cdc0515f17170be0b8e4f0713` and `99deca3d611450193e6c02f3afe55cc246c9385e` from exact base `8f6ce8941ed8fe36888aa541191ca9090ec5eddd`; `/custom_pack/quiz`, `/custom_pack/matching`, and `/custom_pack/typing` use shared Sori frames, type, state, action, feedback, result, and app-owned semantics; active-round meanings remain fixed across a locale switch while chrome updates and restart adopts the current locale; matching retains meaning-only deduplication and one exact miss-adjusted XP value for storage/result display; reduced-motion Quiz keeps stable feedback plus an explicit localized Next action while normal motion retains its 900 ms automatic advance; Typing locks disabled revealed-field semantics and the exact Korean TTS payload; shared German new-best results remain overflow-safe; DE/EN in-progress flows cover the locked five viewports with real `SoriTypeScale`, safe insets, scroll reachability, actual hit ownership, 48dp targets, and final `SemanticsData`; result/replay are separately covered at DE 320x640 at 200% and EN 360x400, while locale-switch/fallback paths are covered at 390x844 at 130%; 23 focused, 62 combined focused/protection, and exact app-head full local 4,547 tests with 14 conditional skips green; analyze zero, format and diff check clean; final review axes zero; raw screen TextStyle 169->160, fontSize 184->176, w800 33->31, w900 10->10, raw fields 3->2, BorderRadius.circular 68->68, numeric radii 14->14, progress indicators 12->12, AppLoading calls 39->39, and test files 465->466; assets/localization/tokens/secrets/TODO zero; pack source/order, answers, matching/typing rules, timing, score/XP formulas, learning/SRS/evidence, routes/arguments, storage, TTS policy, SDK/platform behavior, hitboxes/game-canvas geometry, room/furnish canvases, and approved assets protected; PR/CI/merge not yet claimed |
-| 5B Grammar and hard-choice quizzes | pending | shared choice/result language; preserve questions, order, scoring, evidence, and route arguments |
+| 5B Custom-pack quiz/matching/typing outer UI | merged | App commits `c9d62c267ecd939cdc0515f17170be0b8e4f0713` and `99deca3d611450193e6c02f3afe55cc246c9385e`; documentation/exact PR-head commit `22b599ec0bde4745b3e00daf8c0c3f29d20452c8`; PR #195; main merge `949e46f6b6e096be338636d54bfe86dace5a3fbc`; automatic exact-head CI run 32572671017 green for Select required checks job 97030360767, asset pipeline job 97030399102, and Analyze & Build job 97030399116; Signed AAB/Play job 97031018472 skipped with zero steps; shared Sori quiz/matching/typing, feedback, result, locale, reduced-motion, semantics, and narrow-layout contracts are locked without changing source/order, answers, rules, timing, score/XP, learning/SRS/evidence, routes/arguments, storage, TTS, SDK/platform, or game-canvas boundaries; 23 focused, 62 combined, and exact app-head full local 4,547 tests with 14 conditional skips green; analyze zero, format/diff, and final review axes zero; raw screen TextStyle 169->160, fontSize 184->176, w800 33->31, raw fields 3->2, and test files 465->466; assets/localization/tokens/secrets/TODO zero; exact-merge post-main run 32572973542 cancelled, Signed AAB/Play job 97031122233 and Website Cloudflare production job 97031121964 had zero steps, so no release build, signing, deployment, or upload ran |
+| 5B Grammar and hard-choice quizzes | locally final-verified | App commits `89030a3171a8b4fe3a29a5e016e5c74c24270b45` and `6a9bb95e39cf9f3385437911aafbd0bc20c90294` from exact base `949e46f6b6e096be338636d54bfe86dace5a3fbc`; grammar recognition and hard-word choice use shared Sori study/type/choice/state/action/feedback/result contracts, localized live feedback/results, one shared motion-aware lazy reveal helper, true empty, 48dp targets, final executable/selected semantics, and measured 3:1 choice boundaries plus 4.5:1 feedback text; reduced motion exposes explicit advance/result while normal motion retains exact 850 ms automatic advance; DE/EN cover the locked five viewports with real `SoriTypeScale`, safe insets, lazy viewport intersection, fatal hit ownership, and direct result transitions; 12 focused, 143 combined focused/protection, and exact app-head full local 4,559 tests with 14 conditional skips green; analyze zero, format/diff, and final independent review axes zero; raw screen TextStyle 160->157, fontSize 176->173, progress indicators 12->11, AppLoading 39->40 through the standard loader, Sori Dart files 126->127 through the shared helper, and test files 466->467; three paired DE/EN localization keys added, assets/tokens/secrets/TODO zero; questions, levels, order, answers, free-practice evidence boundary, grammar-hard persistence, deck/distractors, wrong count, TTS, SRS, score/XP, exact normal timing, routes/arguments, storage, SDK/platform, canvas/hitbox, room/furnish, and approved-asset boundaries protected; PR/CI/merge not yet claimed |
 | 5B Word-web study/quiz | pending | standard outer state; preserve relation logic and graph geometry |
 | 5B Quest engines and `QuestLayout` | pending | preserve Phase 2 canvas, hitbox, game-rule, timer, and native boundaries |
 | 6 full closeout | pending | no deployment |
