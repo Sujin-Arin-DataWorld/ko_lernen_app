@@ -3,6 +3,12 @@
 **상태:** 자동 회귀 통과 후 실기기 확인 대기. 이 문서는 실기기 성공을
 주장하지 않는다.
 
+> **Legacy runtime QA only / V2 합격 기준으로 사용 금지.** 아래 4:3 지도,
+> B1/B2 ratio, 독립 대청, 후원 기대값은 현재 renderer 회귀를 확인하기 위한 것이다.
+> 목표 제품과 새 QA matrix는
+> [`2026-08-20-hanok-level-proof-and-skip-recovery-design.md`](superpowers/specs/2026-08-20-hanok-level-proof-and-skip-recovery-design.md)를 따른다.
+> V2 masterplan이 cutover되면 새 device QA로 교체하고 이 문서는 Git history로만 보존한다.
+
 ## 대상 기기와 상태
 
 각 기기에서 아래 네 조합을 모두 확인한다.
