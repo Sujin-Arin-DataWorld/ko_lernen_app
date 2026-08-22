@@ -410,7 +410,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
                 Semantics(
                   button: true,
                   enabled: true,
-                  label: t.questListenTarget(_audioKo),
+                  label: t.questListenAudio,
                   excludeSemantics: true,
                   onTap: _playAudio,
                   child: GestureDetector(

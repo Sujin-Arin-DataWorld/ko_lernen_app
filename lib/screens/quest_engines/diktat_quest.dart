@@ -458,7 +458,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
               Semantics(
                 button: true,
                 enabled: true,
-                label: t.questListenTarget(_audioKo),
+                label: t.questListenAudio,
                 excludeSemantics: true,
                 onTap: _playTts,
                 child: GestureDetector(
@@ -484,7 +484,7 @@ class _DiktatQuestState extends State<DiktatQuest> {
               Semantics(
                 button: true,
                 enabled: true,
-                label: t.diktatListenSlowTarget(_audioKo),
+                label: t.diktatListenSlow,
                 excludeSemantics: true,
                 onTap: _playSlow,
                 child: GestureDetector(

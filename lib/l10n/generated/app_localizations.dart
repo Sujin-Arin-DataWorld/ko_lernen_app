@@ -9690,11 +9690,11 @@ abstract class AppL10n {
   /// **'Erneut anhören'**
   String get questReplayAudio;
 
-  /// No description provided for @questListenTarget.
+  /// No description provided for @questListenAudio.
   ///
   /// In de, this message translates to:
-  /// **'{target} anhören'**
-  String questListenTarget(String target);
+  /// **'Audio anhören'**
+  String get questListenAudio;
 
   /// No description provided for @questBuildAnswerLabel.
   ///
@@ -9720,11 +9720,11 @@ abstract class AppL10n {
   /// **'Deine koreanische Antwort'**
   String get diktatAnswerLabel;
 
-  /// No description provided for @diktatListenSlowTarget.
+  /// No description provided for @diktatListenSlow.
   ///
   /// In de, this message translates to:
-  /// **'{target} langsam anhören'**
-  String diktatListenSlowTarget(String target);
+  /// **'Audio langsam anhören'**
+  String get diktatListenSlow;
 
   /// No description provided for @diktatSpacingHint.
   ///

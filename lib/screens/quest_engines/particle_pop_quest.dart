@@ -338,7 +338,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
           Center(
             child: SoriButton.outlined(
               label: t.questReplayAudio,
-              semanticLabel: t.questListenTarget(_fullSentence),
+              semanticLabel: t.questReplayAudio,
               icon: Icons.volume_up_rounded,
               onTap: () => TtsService.speak(_fullSentence),
             ),

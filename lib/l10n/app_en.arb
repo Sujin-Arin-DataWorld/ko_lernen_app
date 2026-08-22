@@ -2688,26 +2688,12 @@
   "questSatzBauenInstruction": "Tap the words in the correct order",
   "questCheckAnswer": "Check answer",
   "questReplayAudio": "Listen again",
-  "questListenTarget": "Listen to {target}",
-  "@questListenTarget": {
-    "placeholders": {
-      "target": {
-        "type": "String"
-      }
-    }
-  },
+  "questListenAudio": "Listen to audio",
   "questBuildAnswerLabel": "Build your answer",
   "questEmptyAnswerSlot": "Empty answer slot",
   "diktatInstruction": "Listen and type what you hear",
   "diktatAnswerLabel": "Your Korean answer",
-  "diktatListenSlowTarget": "Listen slowly to {target}",
-  "@diktatListenSlowTarget": {
-    "placeholders": {
-      "target": {
-        "type": "String"
-      }
-    }
-  },
+  "diktatListenSlow": "Listen to audio slowly",
   "diktatSpacingHint": "Almost! Check the word spacing",
   "diktatShowMeaning": "Show meaning",
   "diktatSpellingHint": "Almost there. Check your spelling.",

@@ -268,13 +268,11 @@ class SoriPromptCard extends StatelessWidget {
     super.key,
     required this.sentence,
     this.onReplay,
-    this.replaySemanticLabel,
     this.compact = false,
   });
 
   final String sentence;
   final VoidCallback? onReplay;
-  final String? replaySemanticLabel;
   final bool compact;
 
   @override
@@ -282,9 +280,7 @@ class SoriPromptCard extends StatelessWidget {
     final t = AppL10n.of(context);
     final surfaces = SoriSurfaces.of(context);
     final replayable = onReplay != null;
-    final label = replayable
-        ? (replaySemanticLabel ?? '$sentence, ${t.questReplayAudio}')
-        : sentence;
+    final label = replayable ? '$sentence ${t.questReplayAudio}' : sentence;
     final fontSize = compact ? 20.0 : 22.0;
 
     return Semantics(

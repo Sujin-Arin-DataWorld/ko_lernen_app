@@ -442,9 +442,6 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
           key: const ValueKey('quest-prompt-card'),
           sentence: _prompt(langCode),
           onReplay: _audioKo.isEmpty ? null : _playTts,
-          replaySemanticLabel: _audioKo.isEmpty
-              ? null
-              : t.questListenTarget(_audioKo),
           compact: widget.compact,
         ),
         SizedBox(height: sectionGap),

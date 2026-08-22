@@ -309,8 +309,8 @@ void main() {
   }
 
   testWidgets(
-    'dictation uses localized fields and target-qualified 48dp audio and word '
-    'block semantics',
+    'dictation uses localized fields and answer-safe 48dp audio and word block '
+    'semantics',
     (tester) async {
       final semantics = tester.ensureSemantics();
       try {
@@ -322,18 +322,12 @@ void main() {
           viewport: _viewports[2],
         );
 
-        _expectButton(
-          tester,
-          find.bySemanticsLabel(t.questListenTarget('안녕 하세요')),
-          enabled: true,
-          minHeight: 84,
-        );
-        _expectButton(
-          tester,
-          find.bySemanticsLabel(t.diktatListenSlowTarget('안녕 하세요')),
-          enabled: true,
-          minHeight: 56,
-        );
+        final listen = find.bySemanticsLabel(t.questListenAudio);
+        _expectButton(tester, listen, enabled: true, minHeight: 84);
+        _expectSemanticsHides(tester, listen, const ['안녕', '하세요']);
+        final slow = find.bySemanticsLabel(t.diktatListenSlow);
+        _expectButton(tester, slow, enabled: true, minHeight: 56);
+        _expectSemanticsHides(tester, slow, const ['안녕', '하세요']);
         final field = tester.widget<SoriTextField>(find.byType(SoriTextField));
         expect(field.fieldKey, const ValueKey('diktat-answer-field'));
         expect(field.labelText, t.diktatAnswerLabel);
@@ -380,6 +374,21 @@ void main() {
       final semantics = tester.ensureSemantics();
       try {
         final t = lookupAppL10n(const Locale('en'));
+        final listening = _engines.singleWhere(
+          (engine) => engine.name == 'listening',
+        );
+        await _pumpQuest(
+          tester,
+          listening.build((_) {}, () {}, false),
+          locale: const Locale('en'),
+          viewport: _viewports[2],
+        );
+        final listeningReplay = find.bySemanticsLabel(
+          'What does this sentence mean? ${t.questReplayAudio}',
+        );
+        _expectButton(tester, listeningReplay, enabled: true, minHeight: 48);
+        _expectSemanticsHides(tester, listeningReplay, const ['안녕']);
+
         final batchim = _engines.singleWhere(
           (engine) => engine.name == 'batchim',
         );
@@ -389,12 +398,9 @@ void main() {
           locale: const Locale('en'),
           viewport: _viewports[2],
         );
-        _expectButton(
-          tester,
-          find.bySemanticsLabel(t.questListenTarget('안녕')),
-          enabled: true,
-          minHeight: 84,
-        );
+        final batchimListen = find.bySemanticsLabel(t.questListenAudio);
+        _expectButton(tester, batchimListen, enabled: true, minHeight: 84);
+        _expectSemanticsHides(tester, batchimListen, const ['안녕']);
         expect(_batchimSlot(tester).duration, Duration.zero);
         _expectAnimatedBoundaryContrast(_batchimSlot(tester));
 
@@ -407,8 +413,9 @@ void main() {
           locale: const Locale('en'),
           viewport: _viewports[2],
         );
-        final replay = find.bySemanticsLabel(t.questListenTarget('저는 학생이에요.'));
+        final replay = find.bySemanticsLabel(t.questReplayAudio);
         _expectButton(tester, replay, enabled: true, minHeight: 48);
+        _expectSemanticsHides(tester, replay, const ['저는 학생이에요']);
         expect(
           tester
               .widget<SoriButton>(
@@ -435,12 +442,11 @@ void main() {
           locale: const Locale('en'),
           viewport: _viewports[2],
         );
-        _expectButton(
-          tester,
-          find.bySemanticsLabel(t.questListenTarget('안녕 하세요')),
-          enabled: true,
-          minHeight: 48,
+        final sentencePrompt = find.bySemanticsLabel(
+          'Say hello politely. ${t.questReplayAudio}',
         );
+        _expectButton(tester, sentencePrompt, enabled: true, minHeight: 48);
+        _expectSemanticsHides(tester, sentencePrompt, const ['안녕', '하세요']);
         expect(find.byType(QuestLayout), findsOneWidget);
         _expectNoException(tester);
       } finally {
@@ -579,6 +585,17 @@ void _expectButton(
     expect(data.flagsCollection.isSelected, selected);
   }
   expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
+}
+
+void _expectSemanticsHides(
+  WidgetTester tester,
+  Finder finder,
+  Iterable<String> hiddenFragments,
+) {
+  final label = tester.getSemantics(finder).getSemanticsData().label;
+  for (final fragment in hiddenFragments) {
+    expect(label, isNot(contains(fragment)));
+  }
 }
 
 void _expectLiveRegion(WidgetTester tester, String label) {

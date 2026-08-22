@@ -159,9 +159,6 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
             key: const ValueKey('quest-audio'),
             sentence: question.isEmpty ? t.questListeningQuestion : question,
             onReplay: widget.audioEnabled ? _playTts : null,
-            replaySemanticLabel: widget.audioEnabled
-                ? t.questListenTarget(_audioKo)
-                : null,
           ),
           if (instruction.isNotEmpty) ...[
             const SizedBox(height: Spacing.xs),
