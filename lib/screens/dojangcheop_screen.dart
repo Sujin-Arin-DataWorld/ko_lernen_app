@@ -83,6 +83,8 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
                   icon: Icons.workspace_premium_outlined,
                   title: t.dojangEmptyTitle,
                   body: t.dojangEmptyBody,
+                  ctaLabel: t.dojangEmptyCta,
+                  onCta: () => Navigator.of(context).pushNamed('/vocab'),
                 ),
               ),
             )
@@ -104,11 +106,14 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        t.dojangDecorHintBody,
-                        style: SoriTextTheme.of(
-                          context,
-                        ).bodySmall.copyWith(color: s.textMuted),
+                      Semantics(
+                        container: true,
+                        child: Text(
+                          t.dojangDecorHintBody,
+                          style: SoriTextTheme.of(
+                            context,
+                          ).bodySmall.copyWith(color: s.textMuted),
+                        ),
                       ),
                       const SizedBox(height: Spacing.md),
                       SoriButton.outlined(

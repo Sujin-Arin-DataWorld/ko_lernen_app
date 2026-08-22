@@ -1334,6 +1334,9 @@ class AppL10nDe extends AppL10n {
       'Schließ Vokabelpakete ab und sammle Dancheong-Stempel.';
 
   @override
+  String get dojangEmptyCta => 'Vokabelpakete öffnen';
+
+  @override
   String dojangProgress(int earned, int total) {
     return '$earned von $total Stempeln gesammelt';
   }
@@ -6687,6 +6690,9 @@ class AppL10nDe extends AppL10n {
   String get bojagiTitle => 'Bojagi-Bündel';
 
   @override
+  String get bojagiLoading => 'Dein Bündel wird vorbereitet …';
+
+  @override
   String get bojagiOpenHint => 'Tippe auf den Knoten, um das Bündel zu öffnen.';
 
   @override
@@ -6695,6 +6701,11 @@ class AppL10nDe extends AppL10n {
   @override
   String get bojagiPickBody =>
       'Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.';
+
+  @override
+  String bojagiChooseDecoration(String name) {
+    return '$name auswählen';
+  }
 
   @override
   String get bojagiEmptyTitle => 'Kein Bündel wartet';
@@ -6722,6 +6733,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get bojagiClaimedTitle => 'Bekommen!';
+
+  @override
+  String bojagiClaimedAnnouncement(String name) {
+    return 'Bekommen: $name';
+  }
 
   @override
   String get bojagiGoToRoom => 'In der Stube aufstellen';

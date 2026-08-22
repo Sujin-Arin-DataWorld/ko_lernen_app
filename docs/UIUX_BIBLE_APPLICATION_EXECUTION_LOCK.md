@@ -1,77 +1,60 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.71
+- **Version:** 1.72
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-4c-tools-community-2026-08-22`
-- **Base:** `origin/main@fe19460338fb0361bd28856b694d6fdae6b9b20d`
-- **State:** the isolated local word-tools outer-UI unit is
+- **Branch:** `session/uiux-bible-4c-reward-tools-2026-08-22`
+- **Base:** `origin/main@6e3d3c760e53c5ad02303ebc8ed9f2927344fc4a`
+- **State:** the isolated reward-tools outer-UI unit is
   locally final-verified on app commit
-  `527840d38428943e5806bd6ef3f155b0012b4f4c`
+  `2eedc1d41fbf0e8893a36a5e4996dafdfd60e048`
 - **Next action:** push the clean two-commit branch head, open one PR, use only
   automatic exact-head CI, and merge only after every required check is green
 
 ## Current State Summary
 
-The preceding bookshelf/local custom-pack unit is merged as PR #187 at main
-merge `d0182d13589f2fdcd86e5d36bc51d8f17d2f3c8d`. Its app commit is
-`cc55fc8bb6d20844f13d37c7b671e7cd1b437c50`, its documentation commit is
-`f25538d8598d6433a74689d6ee162dec307a6014`, and automatic exact-head CI run
-32551376065 is green for Analyze & Build job 96978621718 and asset pipeline job
-96978621683. Signed AAB/Play job 96979686002 was skipped with zero steps.
-Exact-merge post-main run 32551836998 was cancelled immediately; its Signed
-AAB/Play job 96979764766 had zero steps, so no build, signing, deployment, or
+The preceding local word-tools unit is merged as PR #188 at main merge
+`6e3d3c760e53c5ad02303ebc8ed9f2927344fc4a`. Its app commit is
+`527840d38428943e5806bd6ef3f155b0012b4f4c`, its documentation commit is
+`ac7d7357c224da019ddcdc11b18410e8fce943b4`, and automatic exact-head CI run
+32554788437 is green for Analyze & Build job 96987186245 and asset pipeline job
+96987186273. Signed AAB/Play job 96988181383 was skipped with zero steps.
+Exact-merge post-main run 32555241331 was cancelled immediately; its Signed
+AAB/Play job 96988260147 had zero steps, so no build, signing, deployment, or
 upload ran.
 
-App commit `527840d38428943e5806bd6ef3f155b0012b4f4c` from exact base
-`fe19460338fb0361bd28856b694d6fdae6b9b20d` standardizes the local tools
-`/wordbook/search` and `/hard_words` without entering community writes or game
-logic. Word search uses `SoriChip` for complete wrapping POS filters, a bounded
-independently scrollable filter region, a localized semantic 48dp clear action,
-a live result count, a standard true-empty result state, locale-correct saved
-meanings, and target-qualified 48dp TTS actions. Only these filters opt into the
-existing strong surface-border token through a default-compatible `SoriChip`
-option. Hard Words distinguishes loader failure from a real empty deck, exposes
-standard live error/retry/loading recovery, presents locale-correct meanings,
-and retains one filled quiz primary plus a contrast-safe outlined study action.
+App commit `2eedc1d41fbf0e8893a36a5e4996dafdfd60e048` from exact base
+`6e3d3c760e53c5ad02303ebc8ed9f2927344fc4a` standardizes the reward-tool outer
+UI for `/dojangcheop` and `/bojagi` without changing reward acquisition,
+eligibility, queue, journal, storage, or Hanok placement. The empty Dojangcheop
+state has one localized 48dp action to the existing `/vocab` route, and the room
+CTA owns independent executable semantics instead of merging explanatory copy.
+Bojagi uses the shared live loading and error states, exposes localized retry,
+and preserves the current offer/queue across a load failure. A successful claim
+remains visible even if loading the next offer fails, so the app neither repeats
+nor guesses a reward write. Candidate selection and its independent 48dp
+cultural-help action expose separate localized semantics; candidate boundaries
+meet 3:1, and the claimed decoration is announced by name as a live result.
 
-Populated states for both tools pass DE/EN at locked 320x640 at 200%, 360x400,
-390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130%. Nine long unique POS
-filters also pass DE/EN at 320x640 at 200% and 360x400 while the result surface
-remains nonzero and reachable. Both true-empty states pass DE/EN at 320x640 at
-200%; hard-word live failure, retry/loading, recovery, and TTS pass EN at that
-viewport, while exact quiz/study destinations pass DE at 390x844 at 130%.
-Tests directly lock actual 3:1 outlined boundaries, final executable
-`SemanticsData`, 48dp targets, live states, English meanings, result/filter
-reachability, and the two unchanged destinations. Six focused UIUX tests and 99
-combined focused/protection tests are green; the exact-head full local run
-passes 4,487 tests with 14 conditional skips. Analyze reports zero issues;
-format and diff check are clean. Final Specification/Protection and
+Populated Dojangcheop and Bojagi states pass DE/EN at locked 320x640 at 200%,
+360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130%. True-empty,
+loading, failure, retry, and recovery states pass DE/EN at 320x640 at 200%; the
+post-claim next-offer failure path passes EN at 390x844 at 130%. Tests directly
+lock exact destinations, actual 3:1 candidate boundaries, final executable
+`SemanticsData`, independent 48dp actions, live states, queue preservation, and
+the retained claimed result. Five focused UIUX tests and 89 combined
+focused/protection tests are green; the exact app-head full local run passes
+4,492 tests with 14 conditional skips. Analyze reports zero issues; format and
+diff check are clean. Final Specification/Protection and
 Standards/Accessibility reviews both report zero findings. Exact-base ratchets
-are raw screen `TextStyle` 177->174, raw screen `fontSize` 190->188, raw screen
-`ChoiceChip` 3->1, and test files 460->461; numeric-literal radii remain 14,
-raw screen fields remain 9, progress indicators remain 15, and `AppLoading`
-call sites remain 37. One paired DE/EN
-localization key was added and generated localization is in sync. No asset,
-token, secret, or TODO change was added. The hard-word SRS leech/frequently-
-missed union, custom-pack loading and filtering, routes and arguments, services,
-storage, learning/score/evidence behavior, SDK/platform behavior, and approved
-assets remain protected. PR, CI, and merge are not yet claimed for this current
-unit.
-
-The exact base also contains concurrently merged content-loader PR #186 at
-`fe19460338fb0361bd28856b694d6fdae6b9b20d`. Its data, new media route, and
-paired localization additions do not touch either local word-tool screen. The
-only shared files are the paired ARB and generated localization outputs; the
-current app commit was rebased onto that exact main and `flutter gen-l10n`
-reproduces them without a diff.
-
-The exact base contains content-contract hotfix PR #184 at
-`c88b864062c4d27c8f0361370773fb091058d6af`. The latest attempt 3 of its
-post-main run 32546159504 retains green analyze, test, asset, and web gates and
-is completed/cancelled. Signed AAB/Play job 96968028509 stopped at runner-disk
-cleanup; Java, Flutter, signing setup, dependency install, signed-bundle build,
-bundle identity, artifact preservation, and Google Play upload are all skipped.
-No completed signed bundle or store upload is claimed or authorized.
+keep raw screen `TextStyle` at 174, raw screen `fontSize` at 188, raw screen
+`ChoiceChip` at 1, numeric-literal radii at 14, and raw screen fields at 9;
+progress indicators improve 15->14, `AppLoading` call sites increase 37->38,
+and test files increase 461->462. Four paired DE/EN localization keys were
+added and generated localization is in sync. No asset, token, secret, or TODO
+change was added. Routes and arguments, reward acquisition and eligibility,
+offer queue and journal, decoration storage, Hanok placement/canvas, learning,
+score, and evidence behavior, SDK/platform behavior, and approved assets remain
+protected. PR, CI, and merge are not yet claimed for this current unit.
 
 ## Important Context
 
@@ -90,7 +73,7 @@ remain separate high-risk units.
    path ran zero steps, and cancel any post-main release-capable run
    immediately.
 3. Record the exact PR, CI jobs, merge SHA, and zero-release evidence in the
-   next isolated 4C reward-tools unit created from that exact main merge.
+   next isolated remaining-4C unit created from that exact main merge.
 
 ## 1. Purpose
 
@@ -204,7 +187,7 @@ current ratchet:
 | Registered route cases | 69 | Every case is inventoried below |
 | `lib/screens` Dart files | 97 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 126 | Existing system; no parallel system permitted |
-| Test files | 461 | Reuse focused suites plus shared matrices |
+| Test files | 462 | Reuse focused suites plus shared matrices |
 | Raw screen `TextStyle` | 174 lexical; clean-code guard ≤217 | Must not increase; migrate by touched surface |
 | Raw screen `fontSize` | 188; `FontWeight.w800` 35 and `w900` 11 | Reduce through tokens, never raise ratchets |
 | Screen `BorderRadius.circular` | 68 total; 14 numeric literals (global guard ≤24) | Touched code uses radius tokens |
@@ -212,8 +195,8 @@ current ratchet:
 | Screen `TextOverflow.ellipsis` | 0 | Locked at zero |
 | Common-appbar ellipsis | 0 | Phase 1A removed both without hiding text |
 | Screen text fields | 9 | Recall and reassessment inputs use `SoriTextField`; guard locked at ≤22 |
-| Raw screen progress indicators | 15 | Replace only where not canvas/inline progress |
-| `AppLoading` call sites | 37 | Retain as the standard full-state loader |
+| Raw screen progress indicators | 14 | Replace only where not canvas/inline progress |
+| `AppLoading` call sites | 38 | Retain as the standard full-state loader |
 
 Current shared coverage includes `screen_smoke_test`, `responsive_test`,
 `responsive_short_height_test`, `standard_surface_responsive_test`,
@@ -458,8 +441,9 @@ production, and deployment remain unclaimed and out of scope.
 | 4B Book preview outer UI | merged | App commit `d58da3af1ee79720e35476b2fe125f6306ead9db`; documentation commits `ed293990` and `ea26722c`; PR #183; main merge `e59c81f4e1a51c7ea7eca90cbd65dffe06a5adcc`; automatic exact-head CI run 32540696822 green for Analyze & Build job 96950060067 and asset pipeline job 96950060124; Signed AAB/Play job 96951433483 skipped with zero steps; the OCR editor uses expanded `SoriTextField` with a localized always-visible label, existing body hierarchy and radius tokens; ordinary, warning, and severe-warning states keep usable editor height and scroll-reachable actions; Retake uses the default contrast-safe outlined boundary locked at 3:1; DE/EN textbook and notebook non-severe previews cover 320x640 at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130% with actual `SoriTypeScale` comfort composition; DE/EN severe warning at 320x640 at 200% directly proves disabled label/button/enabled semantics without tap, then an executable semantic tap only after real correction; no-warning 390x844 remains unscrolled; 46 focused and exact-head full local 4,464 tests with 14 conditional skips green; analyze, format, and diff check clean; final Specification/Protection and Standards/Accessibility reviews both zero after closing both test-evidence P2s; raw screen TextStyle 214->211, fontSize 223->220, BorderRadius.circular 87->84, raw screen text fields 19->18, test files 457->457; one paired DE/EN localization key added, assets/tokens/secrets/TODO zero; OCR document/text preprocessing, severe-correction evidence, notebook detection, routes/payloads, media-lease ownership, storage, security, SDK/platform behavior, and approved assets protected; exact-merge post-main run 32541233257 cancelled and Signed AAB/Play job 96951554736 had zero steps, so no build, signing, deployment, or upload ran |
 | 4B Book result outer UI | merged | App commit `db36b3f879f78735a828e7e49f832dbec9d7ef50`; documentation commit `1c05c8f743f5fac7e767c2294cde95d494f54050`; PR #185; main merge `48f2c4b3646e5a3385751c41e4437c9b22658efa`; automatic exact-head CI run 32547475688 green for Analyze & Build job 96968511533 and asset pipeline job 96968511564; Signed AAB/Play job 96969807054 skipped with zero steps; result, sentence, word, warning, error, and save states use existing Sori frames/components/type/radius/action contracts; localized TTS actions expose explicit 48dp executable semantics; result count, failure, blocked warning, and indeterminate save failure are live regions; saving is an announced disabled action and duplicate writes fail closed; shared `AppError` live-region behavior is opt-in and default-compatible; the create-pack controller survives route exit; English results use `translationEn`; populated DE/EN states cover the locked five-viewport matrix, blocked-warning/loading/error states cover DE/EN 320x640 at 200%, and save-pending EN plus save-unresolved DE cover 390x844 at 130%; final `SemanticsData`, reachability, routes, and payloads are asserted; 90 focused/protection and full local 4,469 tests with 14 conditional skips green; analyze zero, format and diff check clean; final Specification/Protection and Standards/Accessibility review axes zero; raw screen TextStyle 211->207, fontSize 220->216, BorderRadius.circular 84->82, raw screen text fields 18->17, progress indicators 16->16, test files 457->458; three paired DE/EN localization keys added, assets/tokens/secrets/TODO zero; OCR/security, routes/arguments, media-lease ownership, grounded study/evidence, TTS, wordbook/custom-pack behavior, storage, SDK/platform behavior, and approved assets protected; exact-merge post-main run 32548001484 cancelled immediately and Signed AAB/Play job 96969907244 had zero steps, so no build, signing, deployment, or upload ran |
 | 4B Bookshelf/local custom-pack editing outer UI | merged | App commit `cc55fc8bb6d20844f13d37c7b671e7cd1b437c50`; documentation commit `f25538d8598d6433a74689d6ee162dec307a6014`; PR #187; main merge `d0182d13589f2fdcd86e5d36bc51d8f17d2f3c8d`; automatic exact-head CI run 32551376065 green for Analyze & Build job 96978621718 and asset pipeline job 96978621683; Signed AAB/Play job 96979686002 skipped with zero steps; `/bookshelf`, `/bookshelf/page`, and `/custom_pack/edit` use existing Sori card/field/dialog/state/type/radius/action contracts; dialogs own controllers through dismissal; share/redeem expose live loading, error, retry, and success; repeated rows have one static identity and independent target-qualified 48dp action semantics; empty TTS is disabled/no-tap and valid input restores the localized value action; one filled primary and contrast-safe outlined mode actions are locked; populated DE/EN states cover the five locked viewports, missing states cover DE/EN 320x640 at 200%, and share/redeem async states cover EN 390x844 at 130%; nine focused UIUX and 165 combined focused/protection tests plus full local 4,478 tests with 14 conditional skips green; analyze zero, format and diff check clean; final Specification/Protection and Standards/Accessibility reviews zero; raw screen TextStyle 207->177, fontSize 216->190, BorderRadius.circular 82->68, raw screen text fields 17->9, progress indicators 16->14, test files 458->459; three paired DE/EN localization keys added, assets/tokens/secrets/TODO zero; exact routes/arguments, 0/1/2/4 thresholds, services, storage/account sync, media leases/recovery, game/score/evidence behavior, SDK/platform behavior, and approved assets protected; exact-merge post-main run 32551836998 cancelled immediately and Signed AAB/Play job 96979764766 had zero steps, so no build, signing, deployment, or upload ran |
-| 4C Local word-tools outer UI | locally final-verified | App commit `527840d38428943e5806bd6ef3f155b0012b4f4c` from exact base `fe19460338fb0361bd28856b694d6fdae6b9b20d`; `/wordbook/search` uses complete wrapping Sori filters in an independently bounded scroll region, localized semantic clear/TTS, live counts, standard true empty, and locale-correct meanings; `/hard_words` distinguishes loader failure from true empty and exposes live retry/loading recovery, locale-correct meanings, target-qualified TTS, and the existing one-primary action hierarchy; populated DE/EN states cover the locked five viewports, nine long filters cover DE/EN short/200% layouts, true empty covers DE/EN 320x640 at 200%, load recovery covers EN 320x640 at 200%, and exact destinations cover DE 390x844 at 130%; six focused UIUX and 99 combined focused/protection tests plus full local 4,487 tests with 14 conditional skips green; analyze zero, format and diff check clean; final Specification/Protection and Standards/Accessibility reviews zero; raw screen TextStyle 177->174, fontSize 190->188, ChoiceChip 3->1, test files 460->461, numeric radii 14->14, raw fields 9->9, progress indicators 15->15, and AppLoading calls 37->37; one paired DE/EN localization key added, assets/tokens/secrets/TODO zero; SRS leech/frequently-missed selection, custom-pack source/filtering, routes/arguments, services, storage, learning/score/evidence, SDK/platform behavior, and approved assets protected; PR/CI/merge not yet claimed |
-| 4C Remaining tools/community | pending | continue with an isolated reward-tools unit; keep platform/community writes separate from presentation |
+| 4C Local word-tools outer UI | merged | App commit `527840d38428943e5806bd6ef3f155b0012b4f4c`; documentation commit `ac7d7357c224da019ddcdc11b18410e8fce943b4`; PR #188; main merge `6e3d3c760e53c5ad02303ebc8ed9f2927344fc4a`; automatic exact-head CI run 32554788437 green for Analyze & Build job 96987186245 and asset pipeline job 96987186273; Signed AAB/Play job 96988181383 skipped with zero steps; `/wordbook/search` uses complete wrapping Sori filters in an independently bounded scroll region, localized semantic clear/TTS, live counts, standard true empty, and locale-correct meanings; `/hard_words` distinguishes loader failure from true empty and exposes live retry/loading recovery, locale-correct meanings, target-qualified TTS, and the existing one-primary action hierarchy; populated DE/EN states cover the locked five viewports, nine long filters cover DE/EN short/200% layouts, true empty covers DE/EN 320x640 at 200%, load recovery covers EN 320x640 at 200%, and exact destinations cover DE 390x844 at 130%; six focused UIUX and 99 combined focused/protection tests plus full local 4,487 tests with 14 conditional skips green; analyze zero, format and diff check clean; final Specification/Protection and Standards/Accessibility reviews zero; raw screen TextStyle 177->174, fontSize 190->188, ChoiceChip 3->1, test files 460->461, numeric radii 14->14, raw fields 9->9, progress indicators 15->15, and AppLoading calls 37->37; one paired DE/EN localization key added, assets/tokens/secrets/TODO zero; SRS leech/frequently-missed selection, custom-pack source/filtering, routes/arguments, services, storage, learning/score/evidence, SDK/platform behavior, and approved assets protected; exact-merge post-main run 32555241331 cancelled immediately and Signed AAB/Play job 96988260147 had zero steps, so no build, signing, deployment, or upload ran |
+| 4C Reward tools outer UI | locally final-verified | App commit `2eedc1d41fbf0e8893a36a5e4996dafdfd60e048` from exact base `6e3d3c760e53c5ad02303ebc8ed9f2927344fc4a`; `/dojangcheop` has a localized empty action to exact `/vocab` and separately owned room-CTA semantics; `/bojagi` uses standard live loading/error/retry, preserves the offer queue on failure, retains a successful claim when next-offer loading fails, separates candidate and cultural-help actions, locks actual 3:1 candidate boundaries, and announces the claimed name live; populated DE/EN states cover the locked five viewports, true-empty/loading/error/retry/recovery cover DE/EN 320x640 at 200%, and post-claim failure covers EN 390x844 at 130%; five focused UIUX and 89 combined focused/protection tests plus full local 4,492 tests with 14 conditional skips green; analyze zero, format and diff check clean; final Specification/Protection and Standards/Accessibility reviews zero; raw screen TextStyle 174->174, fontSize 188->188, ChoiceChip 1->1, numeric radii 14->14, raw fields 9->9, progress indicators 15->14, AppLoading calls 37->38, and test files 461->462; four paired DE/EN localization keys added, assets/tokens/secrets/TODO zero; routes/arguments, reward acquisition/eligibility/queue/journal/storage, Hanok placement/canvas, learning/score/evidence, SDK/platform behavior, and approved assets protected; PR/CI/merge not yet claimed |
+| 4C Remaining tools/community | pending | continue with the next isolated local or community presentation unit; keep platform/community writes separate from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
 
