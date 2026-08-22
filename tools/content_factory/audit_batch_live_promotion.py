@@ -11,7 +11,9 @@ gate.
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import csv
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -129,7 +131,21 @@ def _supplemental_live_records(root: Path) -> dict[str, tuple[str, list[dict[str
                 for puzzle in puzzles
             ],
         ),
+        "cultureNote": (
+            "ko",
+            _read_json(data / "culture_notes.json")["notes"],
+        ),
     }
+
+
+def _projection_fingerprint(records: list[dict[str, Any]]) -> str:
+    canonical = json.dumps(
+        records,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
 
 
 def _index_by_id(kind: str, records: list[dict[str, Any]]) -> tuple[dict[str, dict[str, Any]], list[str]]:
@@ -194,6 +210,17 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
 
         manifest_errors: list[str] = []
         missing: list[str] = []
+        projection: list[dict[str, Any]] = []
+        review_statuses: Counter[str] = Counter()
+        provenance = manifest.get("provenance")
+        provenance = provenance if isinstance(provenance, dict) else {}
+        approval = provenance.get("approval")
+        structured_approval = (
+            status == "merged"
+            and isinstance(approval, dict)
+            and str(approval.get("authority") or "").strip().casefold() == "jin"
+        )
+        legacy_promotion = bool(str(provenance.get("promotedAt") or "").strip())
         tracked = 0
         present = 0
         for artifact in manifest.get("artifacts", []):
@@ -210,6 +237,29 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
                 )
             draft_index, duplicate_errors = _index_by_id(f"{path.name}:{kind}", records)
             manifest_errors.extend(duplicate_errors)
+            review_path = root / str(artifact.get("review") or "")
+            if not review_path.is_file():
+                manifest_errors.append(
+                    f"{path.name}:{kind}: missing review ledger "
+                    f"{review_path.relative_to(root).as_posix()}"
+                )
+            else:
+                review_rows, review_errors = _read_csv(review_path)
+                manifest_errors.extend(review_errors)
+                review_index, review_duplicate_errors = _index_by_id(
+                    f"{path.name}:{kind}:review", review_rows
+                )
+                manifest_errors.extend(review_duplicate_errors)
+                if set(review_index) != set(draft_index):
+                    manifest_errors.append(
+                        f"{path.name}:{kind}: review IDs differ from draft IDs; "
+                        f"missing={sorted(set(draft_index) - set(review_index))}, "
+                        f"extra={sorted(set(review_index) - set(draft_index))}"
+                    )
+                review_statuses.update(
+                    str(row.get("상태") or "blank").strip().casefold() or "blank"
+                    for row in review_rows
+                )
             tracked += len(draft_index)
             for ident in draft_index:
                 live_record = live_indexes[kind].get(ident)
@@ -217,6 +267,7 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
                     missing.append(f"{kind}:{ident}")
                     continue
                 present += 1
+                projection.append({"kind": kind, "id": ident, "record": live_record})
                 if kind == "scenario":
                     if not str(live_record.get("shelf") or "").strip():
                         manifest_errors.append(f"{path.name}:scenario:{ident}: missing live shelf")
@@ -261,6 +312,7 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
             for key in normalized:
                 if key in live_index:
                     supplemental_present += 1
+                    projection.append({"kind": kind, "id": key, "record": live_index[key]})
                 else:
                     missing.append(f"{kind}:{key}")
         if manifest.get("supplementalRecordCount", supplemental_tracked) != supplemental_tracked:
@@ -269,20 +321,26 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
             )
         tracked += supplemental_tracked
         present += supplemental_present
+        if structured_approval and any(
+            review_status != "approved" for review_status in review_statuses
+        ):
+            manifest_errors.append(
+                f"{path.name}: modern merged approval requires all review rows approved; "
+                f"found {dict(sorted(review_statuses.items()))}"
+            )
+        if not structured_approval and not legacy_promotion:
+            manifest_errors.append(
+                f"{path.name}: live records lack structured Jin approval or legacy promotedAt evidence"
+            )
+
         if missing:
             audit_status = "not_live"
         elif manifest_errors:
             audit_status = "invalid"
-        elif status == "review_only_draft" and not (
-            isinstance(manifest.get("provenance"), dict)
-            and (
-                manifest["provenance"].get("promotedAt")
-                or manifest["provenance"].get("approval")
-            )
-        ):
-            audit_status = "live_verified_status_stale"
+        elif structured_approval:
+            audit_status = "live_verified_modern"
         else:
-            audit_status = "live_verified"
+            audit_status = "live_verified_legacy_authorized"
         tracked_total += tracked
         live_total += present
         errors.extend(manifest_errors)
@@ -296,10 +354,21 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
             "live": present,
             "missing": missing,
             "errors": manifest_errors,
+            "approvalEvidence": (
+                "structured_jin_approval"
+                if structured_approval
+                else "legacy_promoted_at"
+                if legacy_promotion
+                else "missing"
+            ),
+            "reviewStatuses": dict(sorted(review_statuses.items())),
+            "liveProjectionSha256": _projection_fingerprint(
+                sorted(projection, key=lambda row: (row["kind"], row["id"]))
+            ),
         })
 
     return {
-        "version": 1,
+        "version": 2,
         "scope": "all tools/content_factory/drafts/batch*manifest.json files",
         "trackedIds": tracked_total,
         "liveIds": live_total,
@@ -326,10 +395,17 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json", action="store_true", help="emit machine-readable JSON")
     parser.add_argument("--check", action="store_true", help="return nonzero on any active gap")
+    parser.add_argument("--output", type=Path, help="write the full JSON audit ledger")
     args = parser.parse_args()
     result = audit()
-    if args.json:
-        print(json.dumps(result, ensure_ascii=False, indent=2))
+    rendered = json.dumps(result, ensure_ascii=False, indent=2) + "\n"
+    if args.output:
+        output = args.output if args.output.is_absolute() else ROOT / args.output
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(rendered, encoding="utf-8")
+        print(f"OK: wrote batch live projection audit to {output}")
+    elif args.json:
+        print(rendered, end="")
     else:
         _print_human(result)
     return 1 if args.check and not result["ok"] else 0

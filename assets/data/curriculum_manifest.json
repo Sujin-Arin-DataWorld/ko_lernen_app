@@ -2544,7 +2544,13 @@
     "a1_repair_language": "a1_08_clarify_repair",
     "a1_payment_delivery": "a1_14_payment_delivery",
     "a2_plans_proposals": "a2_02_plans_proposals",
-    "b1_work_softening": "b1_03_work_softening"
+    "b1_work_softening": "b1_03_work_softening",
+    "a1_city_services_2026": "a1_06_transport_directions",
+    "a2_housing_search_2026": "a2_08_home_money",
+    "b1_work_entry_2026": "b1_03_work_softening",
+    "b2_housing_migration_2026": "b2_02_professional_opinion",
+    "c1_ai_culture_labor_2026": "c1_03_media_evidence_literacy",
+    "c2_demography_accountability_2026": "c2_01_interpretation_institutions"
   },
   "contentLinks": [
     {
@@ -5957,6 +5963,384 @@
         "concept_a1_payment_delivery"
       ],
       "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_city_service_route_batch20",
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "conceptIds": [
+        "concept_topic_particle"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_flat_viewing_terms_batch20",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "conceptIds": [
+        "concept_action_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_job_offer_conditions_batch20",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_rent_increase_meeting_batch20",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_ai_labeling_policy_batch20",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_automated_redress_record_batch20",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0085",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0086",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0087",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0088",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0089",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0090",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0078",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0079",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0080",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0081",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0082",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0083",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0073",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0074",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0075",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0076",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0077",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0078",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0113",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0114",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0115",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0116",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0117",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0118",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0072",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0073",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0074",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0075",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0076",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0077",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0071",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0072",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0073",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0074",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0075",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0076",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
     }
   ],
   "grammarRuleMap": {
@@ -7351,6 +7735,78 @@
       "conceptIds": [
         "concept_b1_softening"
       ]
+    },
+    "grammar_a1_service_location_question": {
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ]
+    },
+    "grammar_a1_service_request": {
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ]
+    },
+    "grammar_a2_permission_check_batch20": {
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ]
+    },
+    "grammar_a2_preference_soft_batch20": {
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ]
+    },
+    "grammar_b1_tentative_plan_batch20": {
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    "grammar_b1_conceded_context_batch20": {
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    "grammar_b2_criterion_view_batch20": {
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    "grammar_b2_considering_fact_batch20": {
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    "grammar_c1_difficult_to_conclude_batch20": {
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    "grammar_c1_burden_recipient_batch20": {
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    "grammar_c2_no_reduction_batch20": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "grammar_c2_premise_review_batch20": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
     }
   },
   "smalltalkCategoryUnitMap": {
@@ -8356,6 +8812,12 @@
     "a1:다시 묻기": "a1_08_clarify_repair",
     "a1:결제와 배달": "a1_14_payment_delivery",
     "a1:생활 종합": "a1_16_survival_capstone",
-    "a2:약속과 일정": "a2_02_plans_proposals"
+    "a2:약속과 일정": "a2_02_plans_proposals",
+    "a1:도시 생활": "a1_06_transport_directions",
+    "a2:집 구하기": "a2_08_home_money",
+    "b1:취업과 근무 조건": "b1_03_work_softening",
+    "b2:주거비와 사회 통합": "b2_02_professional_opinion",
+    "c1:ai 투명성과 문화 노동": "c1_03_media_evidence_literacy",
+    "c2:인구 담론과 제도 책임": "c2_01_interpretation_institutions"
   }
 }

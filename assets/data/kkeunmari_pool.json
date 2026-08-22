@@ -21,7 +21,7 @@
       "level": "A1",
       "german": "Ich",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -71,7 +71,7 @@
       "level": "A1",
       "german": "Ich",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -171,7 +171,7 @@
       "level": "A1",
       "german": "Wer",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -181,7 +181,7 @@
       "level": "A1",
       "german": "sehr",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -241,7 +241,7 @@
       "level": "A1",
       "german": "Arbeit",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -251,7 +251,7 @@
       "level": "A1",
       "german": "Beine",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -381,7 +381,7 @@
       "level": "A1",
       "german": "Bettler",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -391,7 +391,7 @@
       "level": "A1",
       "german": "Falls",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -441,7 +441,7 @@
       "level": "A1",
       "german": "Los geht’s",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -471,7 +471,7 @@
       "level": "A1",
       "german": "auf keinen Fall",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -541,7 +541,7 @@
       "level": "A1",
       "german": "dann",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -611,7 +611,7 @@
       "level": "A1",
       "german": "Anzahl",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -631,7 +631,7 @@
       "level": "A1",
       "german": "Völlig",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -641,7 +641,7 @@
       "level": "A1",
       "german": "während dieser Zeit",
       "topic": "",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -661,7 +661,7 @@
       "level": "A1",
       "german": "Freund/Freundin",
       "topic": "Beziehungen",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -701,7 +701,7 @@
       "level": "A2",
       "german": "alleine",
       "topic": "Alltag",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -781,7 +781,7 @@
       "level": "A1",
       "german": "Frau",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -791,7 +791,7 @@
       "level": "A1",
       "german": "Aubergine",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -821,7 +821,7 @@
       "level": "A1",
       "german": "Weißt du?",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -831,7 +831,7 @@
       "level": "A1",
       "german": "selbst",
       "topic": "",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -861,7 +861,7 @@
       "level": "A1",
       "german": "Vater (formell)",
       "topic": "Familie",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -941,7 +941,7 @@
       "level": "A1",
       "german": "Wenn man sich das ansieht",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -951,7 +951,7 @@
       "level": "A1",
       "german": "Mann",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -1031,7 +1031,7 @@
       "level": "A1",
       "german": "sehr",
       "topic": "",
-      "next_count": 9,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -1041,7 +1041,7 @@
       "level": "A1",
       "german": "nur",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -1051,7 +1051,7 @@
       "level": "A1",
       "german": "Entschuldigung",
       "topic": "",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -1101,7 +1101,7 @@
       "level": "A1",
       "german": "Ehefrau",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -1191,7 +1191,7 @@
       "level": "A1",
       "german": "Sorgen",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -1201,7 +1201,7 @@
       "level": "A1",
       "german": "Mal sehen",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -1291,7 +1291,7 @@
       "level": "A1",
       "german": "Maske",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -1321,7 +1321,7 @@
       "level": "A1",
       "german": "Kind",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -1331,7 +1331,7 @@
       "level": "A1",
       "german": "Kind",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -1381,7 +1381,7 @@
       "level": "A1",
       "german": "Patient",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -1391,7 +1391,7 @@
       "level": "A1",
       "german": "Stimmt das?",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -1451,7 +1451,7 @@
       "level": "A1",
       "german": "ein Leben lang",
       "topic": "",
-      "next_count": 11,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -1511,7 +1511,7 @@
       "level": "A1",
       "german": "George",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -1541,7 +1541,7 @@
       "level": "A1",
       "german": "Grau",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -1551,7 +1551,7 @@
       "level": "A1",
       "german": "Los geht’s",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -1611,7 +1611,7 @@
       "level": "A1",
       "german": "Hey",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -1711,7 +1711,7 @@
       "level": "A1",
       "german": "Geonji",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -1731,7 +1731,7 @@
       "level": "A1",
       "german": "Hey",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -1821,7 +1821,7 @@
       "level": "A1",
       "german": "getötet",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -1851,7 +1851,7 @@
       "level": "A1",
       "german": "J",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -1951,7 +1951,7 @@
       "level": "A1",
       "german": "Anmerkung",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -1961,7 +1961,7 @@
       "level": "A1",
       "german": "oft",
       "topic": "Alltag",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -1991,7 +1991,7 @@
       "level": "A1",
       "german": "Abgelegene Gegend",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -2091,7 +2091,7 @@
       "level": "A1",
       "german": "Wow",
       "topic": "",
-      "next_count": 9,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -2141,7 +2141,7 @@
       "level": "A1",
       "german": "Arzt",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -2291,7 +2291,7 @@
       "level": "A1",
       "german": "Maler",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -2301,7 +2301,7 @@
       "level": "A1",
       "german": "Ezi",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -2311,7 +2311,7 @@
       "level": "A1",
       "german": "Minute",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -2371,7 +2371,7 @@
       "level": "A1",
       "german": "Baby",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -2381,7 +2381,7 @@
       "level": "A1",
       "german": "Okay",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -2421,7 +2421,7 @@
       "level": "A1",
       "german": "nicht sterben",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -2431,7 +2431,7 @@
       "level": "A1",
       "german": "Doktor",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -2451,7 +2451,7 @@
       "level": "A1",
       "german": "Gott",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -2471,7 +2471,7 @@
       "level": "A1",
       "german": "Nur",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -2481,7 +2481,7 @@
       "level": "A1",
       "german": "wenn",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -2601,7 +2601,7 @@
       "level": "A1",
       "german": "Auto",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -2631,7 +2631,7 @@
       "level": "A1",
       "german": "Drogen",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -2651,7 +2651,7 @@
       "level": "A1",
       "german": "Bauch",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -2691,7 +2691,7 @@
       "level": "A1",
       "german": "Großvater",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -2701,7 +2701,7 @@
       "level": "A1",
       "german": "Ehemann",
       "topic": "Familie",
-      "next_count": 6,
+      "next_count": 7,
       "is_dead_end": false
     },
     {
@@ -2751,7 +2751,7 @@
       "level": "A1",
       "german": "Anzahl",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -2771,7 +2771,7 @@
       "level": "A1",
       "german": "Bestätigen",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -2801,7 +2801,7 @@
       "level": "A1",
       "german": "Mord",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -2831,7 +2831,7 @@
       "level": "A1",
       "german": "Katze",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -2841,7 +2841,7 @@
       "level": "A1",
       "german": "jüngerer Bruder",
       "topic": "",
-      "next_count": 11,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -2871,7 +2871,7 @@
       "level": "A1",
       "german": "wenn",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -2921,7 +2921,7 @@
       "level": "A1",
       "german": "Spiel",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -2941,7 +2941,7 @@
       "level": "A1",
       "german": "Änderung",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -3031,7 +3031,7 @@
       "level": "A1",
       "german": "der Rest",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -3071,7 +3071,7 @@
       "level": "A1",
       "german": "Unwissenheit",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -3081,7 +3081,7 @@
       "level": "A2",
       "german": "Firma / Unternehmen",
       "topic": "Beruf",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -3111,7 +3111,7 @@
       "level": "A1",
       "german": "Prüfung",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -3191,7 +3191,7 @@
       "level": "A1",
       "german": "Start",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -3201,7 +3201,7 @@
       "level": "A1",
       "german": "Wasser",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -3221,7 +3221,7 @@
       "level": "A1",
       "german": "Ray",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -3261,7 +3261,7 @@
       "level": "A1",
       "german": "Riga",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -3391,7 +3391,7 @@
       "level": "A1",
       "german": "Das Leben",
       "topic": "",
-      "next_count": 11,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -3401,7 +3401,7 @@
       "level": "A1",
       "german": "In letzter Zeit",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -3411,7 +3411,7 @@
       "level": "A1",
       "german": "Fall",
       "topic": "",
-      "next_count": 9,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -3451,7 +3451,7 @@
       "level": "A1",
       "german": "Hand",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -3591,7 +3591,7 @@
       "level": "A1",
       "german": "Der Hund",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -3631,7 +3631,7 @@
       "level": "A1",
       "german": "Verbot",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -3681,7 +3681,7 @@
       "level": "A1",
       "german": "Selbst",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -3751,7 +3751,7 @@
       "level": "A1",
       "german": "Lehrer",
       "topic": "",
-      "next_count": 11,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -3761,7 +3761,7 @@
       "level": "A1",
       "german": "Privatperson",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -3791,7 +3791,7 @@
       "level": "A1",
       "german": "Sicherheit",
       "topic": "",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -3831,7 +3831,7 @@
       "level": "A1",
       "german": "Früher",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -3871,7 +3871,7 @@
       "level": "A1",
       "german": "Bier",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -3891,7 +3891,7 @@
       "level": "A1",
       "german": "Es lebe!",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -3901,7 +3901,7 @@
       "level": "B2",
       "german": "Freiheit",
       "topic": "Gesellschaft",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -3991,7 +3991,7 @@
       "level": "A1",
       "german": "Bett",
       "topic": "Alltag",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -4071,7 +4071,7 @@
       "level": "A1",
       "german": "Scherz",
       "topic": "",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -4241,7 +4241,7 @@
       "level": "A1",
       "german": "Alter",
       "topic": "Person",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -4281,7 +4281,7 @@
       "level": "A1",
       "german": "Äh",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -4331,7 +4331,7 @@
       "level": "A1",
       "german": "jeweils",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -4371,7 +4371,7 @@
       "level": "A2",
       "german": "Nachricht (SMS)",
       "topic": "Kommunikation",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -4421,7 +4421,7 @@
       "level": "B1",
       "german": "Grund / Ursache",
       "topic": "Alltag",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -4431,7 +4431,7 @@
       "level": "A1",
       "german": "Erde",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -4451,7 +4451,7 @@
       "level": "A1",
       "german": "Wein",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -4511,7 +4511,7 @@
       "level": "A1",
       "german": "Mütze",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -4541,7 +4541,7 @@
       "level": "A1",
       "german": "Operation",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -4581,7 +4581,7 @@
       "level": "A1",
       "german": "Joy",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -4631,7 +4631,7 @@
       "level": "A1",
       "german": "Schwein",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -4691,7 +4691,7 @@
       "level": "A1",
       "german": "Weltraum",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -4711,7 +4711,7 @@
       "level": "A1",
       "german": "Regen",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -4801,7 +4801,7 @@
       "level": "A1",
       "german": "Zugang",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -4811,7 +4811,7 @@
       "level": "A1",
       "german": "Mahlzeit",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -4931,7 +4931,7 @@
       "level": "A1",
       "german": "Die Sonne",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -4991,7 +4991,7 @@
       "level": "A1",
       "german": "Beruhigung",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -5011,7 +5011,7 @@
       "level": "A1",
       "german": "Hintern",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -5081,7 +5081,7 @@
       "level": "A1",
       "german": "Hals",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -5131,7 +5131,7 @@
       "level": "A1",
       "german": "Brief",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -5231,7 +5231,7 @@
       "level": "A1",
       "german": "Kampf",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -5261,7 +5261,7 @@
       "level": "A1",
       "german": "schwul",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -5321,7 +5321,7 @@
       "level": "A1",
       "german": "essen",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -5451,7 +5451,7 @@
       "level": "A1",
       "german": "Sicherheit",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -5461,7 +5461,7 @@
       "level": "A1",
       "german": "Yang-i",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -5481,7 +5481,7 @@
       "level": "A1",
       "german": "Gefühl",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -5491,7 +5491,7 @@
       "level": "A1",
       "german": "Bequemlichkeit",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -5511,7 +5511,7 @@
       "level": "A1",
       "german": "Herr",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -5541,7 +5541,7 @@
       "level": "A1",
       "german": "Weißer",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -5581,7 +5581,7 @@
       "level": "A1",
       "german": "Umzug",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -5641,7 +5641,7 @@
       "level": "A1",
       "german": "ungefähr",
       "topic": "",
-      "next_count": 5,
+      "next_count": 6,
       "is_dead_end": false
     },
     {
@@ -5651,7 +5651,7 @@
       "level": "A1",
       "german": "Gulji",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -5701,7 +5701,7 @@
       "level": "A1",
       "german": "Vormittag",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -5801,7 +5801,7 @@
       "level": "A1",
       "german": "nicht tun",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -5891,7 +5891,7 @@
       "level": "B2",
       "german": "Forschung / Studie",
       "topic": "Wissenschaft",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -6021,7 +6021,7 @@
       "level": "A1",
       "german": "Punkt",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -6101,7 +6101,7 @@
       "level": "A1",
       "german": "zwischen / Zwischenraum",
       "topic": "Beziehungen",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -6111,7 +6111,7 @@
       "level": "A1",
       "german": "Fahren",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -6121,7 +6121,7 @@
       "level": "A1",
       "german": "Maximal",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -6161,7 +6161,7 @@
       "level": "A1",
       "german": "ein Schlag",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -6231,7 +6231,7 @@
       "level": "A1",
       "german": "Schwarze",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -6351,7 +6351,7 @@
       "level": "A1",
       "german": "Krankheit",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -6381,7 +6381,7 @@
       "level": "A1",
       "german": "Detektiv",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -6401,7 +6401,7 @@
       "level": "A1",
       "german": "Artikel",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -6441,7 +6441,7 @@
       "level": "A1",
       "german": "Hose",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -6451,7 +6451,7 @@
       "level": "A1",
       "german": "in Bearbeitung",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -6511,7 +6511,7 @@
       "level": "A1",
       "german": "Lass es sein",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -6531,7 +6531,7 @@
       "level": "A1",
       "german": "Nachricht",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -6581,7 +6581,7 @@
       "level": "A1",
       "german": "Lass uns essen",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -6631,7 +6631,7 @@
       "level": "A1",
       "german": "Jane",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -6651,7 +6651,7 @@
       "level": "A1",
       "german": "innerlich",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -6681,7 +6681,7 @@
       "level": "A1",
       "german": "Welpe",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -6691,7 +6691,7 @@
       "level": "A1",
       "german": "Medikamente",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -6751,7 +6751,7 @@
       "level": "A1",
       "german": "Das Gehirn",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -6791,7 +6791,7 @@
       "level": "A1",
       "german": "Zeitschrift",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -6981,7 +6981,7 @@
       "level": "A1",
       "german": "Umfrage",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -6991,7 +6991,7 @@
       "level": "A1",
       "german": "Stopp",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -7061,7 +7061,7 @@
       "level": "A1",
       "german": "Louis",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -7091,7 +7091,7 @@
       "level": "A1",
       "german": "Puppe",
       "topic": "",
-      "next_count": 6,
+      "next_count": 7,
       "is_dead_end": false
     },
     {
@@ -7141,7 +7141,7 @@
       "level": "A1",
       "german": "Naji",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -7151,7 +7151,7 @@
       "level": "A1",
       "german": "Hallo",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -7271,7 +7271,7 @@
       "level": "A1",
       "german": "Wunsch",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -7281,7 +7281,7 @@
       "level": "A1",
       "german": "Ian",
       "topic": "",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -7301,7 +7301,7 @@
       "level": "A1",
       "german": "Ring",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -7311,7 +7311,7 @@
       "level": "A1",
       "german": "Spieler",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -7331,7 +7331,7 @@
       "level": "A1",
       "german": "Ziga",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -7341,7 +7341,7 @@
       "level": "A1",
       "german": "Pizza",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -7351,7 +7351,7 @@
       "level": "A2",
       "german": "Urlaub / Freizeit",
       "topic": "Beruf",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -7421,7 +7421,7 @@
       "level": "A1",
       "german": "Begrüßung",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -7491,7 +7491,7 @@
       "level": "A1",
       "german": "Kriminalbeamter",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -7551,7 +7551,7 @@
       "level": "A1",
       "german": "Ach je",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -7601,7 +7601,7 @@
       "level": "A1",
       "german": "früher",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -7621,7 +7621,7 @@
       "level": "A1",
       "german": "Mimik",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -7751,7 +7751,7 @@
       "level": "A1",
       "german": "Fuß",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -7761,7 +7761,7 @@
       "level": "A1",
       "german": "Antike",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -7801,7 +7801,7 @@
       "level": "A1",
       "german": "Namji",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -7901,7 +7901,7 @@
       "level": "A1",
       "german": "Fehler",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -8011,7 +8011,7 @@
       "level": "A1",
       "german": "im Haus",
       "topic": "",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -8061,7 +8061,7 @@
       "level": "A1",
       "german": "Dank",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -8091,7 +8091,7 @@
       "level": "A1",
       "german": "Land",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -8111,7 +8111,7 @@
       "level": "A1",
       "german": "Wolf",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -8201,7 +8201,7 @@
       "level": "A1",
       "german": "Papier",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -8271,7 +8271,7 @@
       "level": "A1",
       "german": "Entscheidung",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -8381,7 +8381,7 @@
       "level": "A1",
       "german": "Warum?",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -8421,7 +8421,7 @@
       "level": "A1",
       "german": "Oh",
       "topic": "",
-      "next_count": 9,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -8451,7 +8451,7 @@
       "level": "A1",
       "german": "Zusatz",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -8571,7 +8571,7 @@
       "level": "A1",
       "german": "Militär",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -8601,7 +8601,7 @@
       "level": "A1",
       "german": "Heimweg",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -8631,7 +8631,7 @@
       "level": "A1",
       "german": "Affe",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -8641,7 +8641,7 @@
       "level": "A1",
       "german": "Roy",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -8731,7 +8731,7 @@
       "level": "A1",
       "german": "Rückseite",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -8791,7 +8791,7 @@
       "level": "A1",
       "german": "Kiste",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -8831,7 +8831,7 @@
       "level": "A1",
       "german": "Student/Schüler",
       "topic": "Person",
-      "next_count": 11,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -8931,7 +8931,7 @@
       "level": "A1",
       "german": "Das Gesetz",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -9061,7 +9061,7 @@
       "level": "A1",
       "german": "Auftreten",
       "topic": "",
-      "next_count": 11,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -9101,7 +9101,7 @@
       "level": "A1",
       "german": "Innenseiten",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -9111,7 +9111,7 @@
       "level": "A1",
       "german": "verhindern",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -9131,7 +9131,7 @@
       "level": "A1",
       "german": "Giga",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -9141,7 +9141,7 @@
       "level": "A1",
       "german": "Wayne",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -9151,7 +9151,7 @@
       "level": "A1",
       "german": "Porno",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -9221,7 +9221,7 @@
       "level": "A1",
       "german": "Madame",
       "topic": "",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -9231,7 +9231,7 @@
       "level": "A1",
       "german": "Soldat",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -9251,7 +9251,7 @@
       "level": "A1",
       "german": "Der Mund",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -9391,7 +9391,7 @@
       "level": "A1",
       "german": "Prinzessin",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -9401,7 +9401,7 @@
       "level": "A1",
       "german": "Bühne",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -9511,7 +9511,7 @@
       "level": "A1",
       "german": "Zahn",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -9561,7 +9561,7 @@
       "level": "A1",
       "german": "Ach",
       "topic": "",
-      "next_count": 9,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -9571,7 +9571,7 @@
       "level": "A1",
       "german": "jede Woche",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -9591,7 +9591,7 @@
       "level": "A1",
       "german": "Anka",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -9661,7 +9661,7 @@
       "level": "A1",
       "german": "Besitzer",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -9681,7 +9681,7 @@
       "level": "A1",
       "german": "Stopp",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -9751,7 +9751,7 @@
       "level": "A1",
       "german": "Konzentration",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -9801,7 +9801,7 @@
       "level": "A1",
       "german": "Zeit",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -9971,7 +9971,7 @@
       "level": "A1",
       "german": "Na, na",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -9991,7 +9991,7 @@
       "level": "A1",
       "german": "Erfolg",
       "topic": "",
-      "next_count": 20,
+      "next_count": 23,
       "is_dead_end": false
     },
     {
@@ -10081,7 +10081,7 @@
       "level": "A1",
       "german": "Milch",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -10161,7 +10161,7 @@
       "level": "A1",
       "german": "Einladung",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -10171,7 +10171,7 @@
       "level": "B2",
       "german": "Vertrag",
       "topic": "Beruf",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -10251,7 +10251,7 @@
       "level": "A1",
       "german": "Organisation",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -10301,7 +10301,7 @@
       "level": "A1",
       "german": "Ermittlung",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -10391,7 +10391,7 @@
       "level": "A1",
       "german": "Motorrad",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -10411,7 +10411,7 @@
       "level": "A1",
       "german": "Löwe",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -10431,7 +10431,7 @@
       "level": "A1",
       "german": "Inneres",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -10441,7 +10441,7 @@
       "level": "A1",
       "german": "Orange",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -10481,7 +10481,7 @@
       "level": "A1",
       "german": "Engel",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -10511,7 +10511,7 @@
       "level": "A1",
       "german": "Jo Ga",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -10531,7 +10531,7 @@
       "level": "A1",
       "german": "wenn man es so lässt",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -10551,7 +10551,7 @@
       "level": "A1",
       "german": "ich selbst",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -10651,7 +10651,7 @@
       "level": "A1",
       "german": "Kartoffel",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -10691,7 +10691,7 @@
       "level": "A1",
       "german": "Pi",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -10881,7 +10881,7 @@
       "level": "A1",
       "german": "Spanien",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -10921,7 +10921,7 @@
       "level": "A1",
       "german": "Energie",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -10981,7 +10981,7 @@
       "level": "A1",
       "german": "Nicht öffnen",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -11021,7 +11021,7 @@
       "level": "A1",
       "german": "Nervosität",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -11061,7 +11061,7 @@
       "level": "A1",
       "german": "Kleiner",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -11121,7 +11121,7 @@
       "level": "A1",
       "german": "Fußball",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -11211,7 +11211,7 @@
       "level": "A1",
       "german": "Wenn man schläft",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -11221,7 +11221,7 @@
       "level": "A1",
       "german": "Ain",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -11251,7 +11251,7 @@
       "level": "A1",
       "german": "Adam",
       "topic": "",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -11261,7 +11261,7 @@
       "level": "A1",
       "german": "Stuhl",
       "topic": "Alltag",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -11311,7 +11311,7 @@
       "level": "A1",
       "german": "Regie",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -11411,7 +11411,7 @@
       "level": "A1",
       "german": "Groß",
       "topic": "",
-      "next_count": 6,
+      "next_count": 7,
       "is_dead_end": false
     },
     {
@@ -11431,7 +11431,7 @@
       "level": "A1",
       "german": "bestimmt",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -11461,7 +11461,7 @@
       "level": "A1",
       "german": "Zahlen",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -11471,7 +11471,7 @@
       "level": "A1",
       "german": "Freundin",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -11591,7 +11591,7 @@
       "level": "A1",
       "german": "eine Person",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -11611,7 +11611,7 @@
       "level": "A1",
       "german": "Schatten",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -11621,7 +11621,7 @@
       "level": "A1",
       "german": "zwei",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -11641,7 +11641,7 @@
       "level": "A1",
       "german": "Künstlich",
       "topic": "",
-      "next_count": 20,
+      "next_count": 23,
       "is_dead_end": false
     },
     {
@@ -11651,7 +11651,7 @@
       "level": "A1",
       "german": "Beratung",
       "topic": "",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -11671,7 +11671,7 @@
       "level": "A1",
       "german": "Versammelt",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -11691,7 +11691,7 @@
       "level": "A1",
       "german": "Fee",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -11711,7 +11711,7 @@
       "level": "A1",
       "german": "Geschichte",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -11761,7 +11761,7 @@
       "level": "A1",
       "german": "Käfig",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -11791,7 +11791,7 @@
       "level": "A1",
       "german": "Wenn man fährt",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -11831,7 +11831,7 @@
       "level": "A1",
       "german": "Spezial",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -11881,7 +11881,7 @@
       "level": "A1",
       "german": "Aufruf",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -11901,7 +11901,7 @@
       "level": "A1",
       "german": "Spion",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -11981,7 +11981,7 @@
       "level": "A1",
       "german": "bald",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -11991,7 +11991,7 @@
       "level": "A1",
       "german": "Erwartung",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -12011,7 +12011,7 @@
       "level": "A1",
       "german": "Pass",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -12031,7 +12031,7 @@
       "level": "A1",
       "german": "Schauspieler",
       "topic": "",
-      "next_count": 9,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -12091,7 +12091,7 @@
       "level": "A1",
       "german": "Yoga",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -12121,7 +12121,7 @@
       "level": "A1",
       "german": "Genehmigung",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -12141,7 +12141,7 @@
       "level": "A1",
       "german": "Unterschrift",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -12191,7 +12191,7 @@
       "level": "A1",
       "german": "Fremde",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -12241,7 +12241,7 @@
       "level": "A1",
       "german": "Wiederholung",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -12261,7 +12261,7 @@
       "level": "A1",
       "german": "Wartung",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -12301,7 +12301,7 @@
       "level": "A1",
       "german": "Dagegen",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -12331,7 +12331,7 @@
       "level": "A1",
       "german": "Jesus",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -12351,7 +12351,7 @@
       "level": "A1",
       "german": "Einheit",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -12421,7 +12421,7 @@
       "level": "A1",
       "german": "Clay",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -12441,7 +12441,7 @@
       "level": "A1",
       "german": "See",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -12461,7 +12461,7 @@
       "level": "A1",
       "german": "Champagner",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -12491,7 +12491,7 @@
       "level": "A1",
       "german": "Flucht",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -12591,7 +12591,7 @@
       "level": "A1",
       "german": "Spiel",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -12631,7 +12631,7 @@
       "level": "A1",
       "german": "Unterstützung",
       "topic": "",
-      "next_count": 26,
+      "next_count": 27,
       "is_dead_end": false
     },
     {
@@ -12761,7 +12761,7 @@
       "level": "A1",
       "german": "Reporter",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -12861,7 +12861,7 @@
       "level": "A1",
       "german": "Chigi",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -12961,7 +12961,7 @@
       "level": "A1",
       "german": "Rache",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -13011,7 +13011,7 @@
       "level": "A1",
       "german": "Täter",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -13021,7 +13021,7 @@
       "level": "A1",
       "german": "Online",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -13041,7 +13041,7 @@
       "level": "A1",
       "german": "Elektronik",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -13101,7 +13101,7 @@
       "level": "A1",
       "german": "Stützpunkt",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -13131,7 +13131,7 @@
       "level": "A1",
       "german": "Anerkennung",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -13141,7 +13141,7 @@
       "level": "A1",
       "german": "Macht mit!",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -13391,7 +13391,7 @@
       "level": "A1",
       "german": "Kokain",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -13591,7 +13591,7 @@
       "level": "A2",
       "german": "Vorgesetzte/r",
       "topic": "Beruf",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -13681,7 +13681,7 @@
       "level": "A1",
       "german": "Seite",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -13711,7 +13711,7 @@
       "level": "A1",
       "german": "Bildschirm",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -13741,7 +13741,7 @@
       "level": "A1",
       "german": "Autor",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -13791,7 +13791,7 @@
       "level": "A1",
       "german": "Nicht",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -13811,7 +13811,7 @@
       "level": "A1",
       "german": "Genehmigung",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -13831,7 +13831,7 @@
       "level": "A1",
       "german": "Todesstrafe",
       "topic": "",
-      "next_count": 6,
+      "next_count": 7,
       "is_dead_end": false
     },
     {
@@ -13871,7 +13871,7 @@
       "level": "A1",
       "german": "Professor",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -13881,7 +13881,7 @@
       "level": "A1",
       "german": "Injektion",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -13961,7 +13961,7 @@
       "level": "A1",
       "german": "Botschafter",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -13971,7 +13971,7 @@
       "level": "A1",
       "german": "Verfallenes Haus",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -14081,7 +14081,7 @@
       "level": "A1",
       "german": "Klavier",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -14091,7 +14091,7 @@
       "level": "A1",
       "german": "Seite",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -14101,7 +14101,7 @@
       "level": "A1",
       "german": "Schuld",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -14111,7 +14111,7 @@
       "level": "A1",
       "german": "Aufladen",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -14121,7 +14121,7 @@
       "level": "A1",
       "german": "Riese",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -14131,7 +14131,7 @@
       "level": "A1",
       "german": "Nachname",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -14141,7 +14141,7 @@
       "level": "A1",
       "german": "Cowboy",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -14201,7 +14201,7 @@
       "level": "A1",
       "german": "Wut",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -14211,7 +14211,7 @@
       "level": "A1",
       "german": "Beifall",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -14221,7 +14221,7 @@
       "level": "A1",
       "german": "Baseball",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -14251,7 +14251,7 @@
       "level": "A1",
       "german": "Juan",
       "topic": "",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -14341,7 +14341,7 @@
       "level": "A1",
       "german": "Junge",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -14421,7 +14421,7 @@
       "level": "A1",
       "german": "Massage",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -14631,7 +14631,7 @@
       "level": "A1",
       "german": "Gliedmaßen",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -14651,7 +14651,7 @@
       "level": "A1",
       "german": "Clown",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -14661,7 +14661,7 @@
       "level": "A1",
       "german": "Annahme",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -14741,7 +14741,7 @@
       "level": "A1",
       "german": "Münze",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -14771,7 +14771,7 @@
       "level": "A1",
       "german": "Krawatte",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -14841,7 +14841,7 @@
       "level": "A1",
       "german": "Gift",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -14861,7 +14861,7 @@
       "level": "A1",
       "german": "Reservierung",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -14911,7 +14911,7 @@
       "level": "A1",
       "german": "Thai",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -14921,7 +14921,7 @@
       "level": "A1",
       "german": "Hawaii",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -15001,7 +15001,7 @@
       "level": "A1",
       "german": "Magu",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -15091,7 +15091,7 @@
       "level": "A2",
       "german": "Bergtempel",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -15101,7 +15101,7 @@
       "level": "A2",
       "german": "Gänseblümchen",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -15161,7 +15161,7 @@
       "level": "A2",
       "german": "Moses",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -15171,7 +15171,7 @@
       "level": "A2",
       "german": "Grundstück",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -15221,7 +15221,7 @@
       "level": "A2",
       "german": "Erwachsene",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -15241,7 +15241,7 @@
       "level": "A2",
       "german": "helfen",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -15261,7 +15261,7 @@
       "level": "A2",
       "german": "Gegner",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -15291,7 +15291,7 @@
       "level": "A2",
       "german": "Aktienkurs",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -15311,7 +15311,7 @@
       "level": "A2",
       "german": "Szene",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -15461,7 +15461,7 @@
       "level": "A2",
       "german": "Sänger",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -15551,7 +15551,7 @@
       "level": "A2",
       "german": "Spaziergang",
       "topic": "",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -15591,7 +15591,7 @@
       "level": "B1",
       "german": "Verantwortung",
       "topic": "Beruf",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -15631,7 +15631,7 @@
       "level": "A2",
       "german": "Reisepass",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -15661,7 +15661,7 @@
       "level": "A2",
       "german": "Riesig",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -15711,7 +15711,7 @@
       "level": "A2",
       "german": "Ein- und Ausgang",
       "topic": "",
-      "next_count": 8,
+      "next_count": 9,
       "is_dead_end": false
     },
     {
@@ -15891,7 +15891,7 @@
       "level": "A2",
       "german": "Aufführung",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -15981,7 +15981,7 @@
       "level": "A2",
       "german": "Schnitt",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -16041,7 +16041,7 @@
       "level": "A2",
       "german": "Militär",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -16081,7 +16081,7 @@
       "level": "A2",
       "german": "Früherer Beruf",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -16151,7 +16151,7 @@
       "level": "A2",
       "german": "Der Ball",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -16201,7 +16201,7 @@
       "level": "A2",
       "german": "Süßigkeiten",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -16251,7 +16251,7 @@
       "level": "A2",
       "german": "Startseite",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -16361,7 +16361,7 @@
       "level": "A2",
       "german": "Schlaf",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -16441,7 +16441,7 @@
       "level": "A2",
       "german": "Oh je",
       "topic": "",
-      "next_count": 9,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -16461,7 +16461,7 @@
       "level": "A2",
       "german": "Leber",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -16471,7 +16471,7 @@
       "level": "A2",
       "german": "Begnadigung",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -16511,7 +16511,7 @@
       "level": "A2",
       "german": "Wettkampf",
       "topic": "",
-      "next_count": 1,
+      "next_count": 2,
       "is_dead_end": false
     },
     {
@@ -16531,7 +16531,7 @@
       "level": "A2",
       "german": "K",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -16571,7 +16571,7 @@
       "level": "A2",
       "german": "Ausdruck",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -16591,7 +16591,7 @@
       "level": "A2",
       "german": "Gegenleistung",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -16601,7 +16601,7 @@
       "level": "A2",
       "german": "Fluch",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -16671,7 +16671,7 @@
       "level": "A2",
       "german": "Gefühl",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -16791,7 +16791,7 @@
       "level": "A2",
       "german": "Maja",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -16801,7 +16801,7 @@
       "level": "A2",
       "german": "doppelt",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -16851,7 +16851,7 @@
       "level": "A2",
       "german": "Masa",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -16911,7 +16911,7 @@
       "level": "A2",
       "german": "Gesicht",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -16981,7 +16981,7 @@
       "level": "A2",
       "german": "Prinz",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -17161,7 +17161,7 @@
       "level": "A2",
       "german": "Kuji",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -17201,7 +17201,7 @@
       "level": "A1",
       "german": "Ramen / Instant-Nudeln",
       "topic": "Essen & Trinken",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -17231,7 +17231,7 @@
       "level": "A2",
       "german": "Einleitung",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -17371,7 +17371,7 @@
       "level": "A2",
       "german": "Melissa",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -17391,7 +17391,7 @@
       "level": "A2",
       "german": "Rain",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -17441,7 +17441,7 @@
       "level": "A2",
       "german": "Reich",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -17511,7 +17511,7 @@
       "level": "A2",
       "german": "In der Regel",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -17521,7 +17521,7 @@
       "level": "A2",
       "german": "Medizinische Fakultät",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -17531,7 +17531,7 @@
       "level": "A2",
       "german": "Hyundai",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -17551,7 +17551,7 @@
       "level": "A2",
       "german": "Parfüm",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -17561,7 +17561,7 @@
       "level": "A2",
       "german": "Standort",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -17571,7 +17571,7 @@
       "level": "A2",
       "german": "Staub",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -17611,7 +17611,7 @@
       "level": "A2",
       "german": "Treffen",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -17631,7 +17631,7 @@
       "level": "A2",
       "german": "Krieger",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -17751,7 +17751,7 @@
       "level": "A2",
       "german": "Luftfahrt",
       "topic": "",
-      "next_count": 20,
+      "next_count": 23,
       "is_dead_end": false
     },
     {
@@ -17871,7 +17871,7 @@
       "level": "A2",
       "german": "Tier",
       "topic": "",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -17901,7 +17901,7 @@
       "level": "A2",
       "german": "Naht",
       "topic": "",
-      "next_count": 1,
+      "next_count": 2,
       "is_dead_end": false
     },
     {
@@ -17911,7 +17911,7 @@
       "level": "A2",
       "german": "Haltung",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -17971,7 +17971,7 @@
       "level": "A2",
       "german": "Kran",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -17981,7 +17981,7 @@
       "level": "A2",
       "german": "Rückzug",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -18201,7 +18201,7 @@
       "level": "A2",
       "german": "Gerichtssaal",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -18261,7 +18261,7 @@
       "level": "A2",
       "german": "Karotte",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -18361,7 +18361,7 @@
       "level": "A2",
       "german": "Ist das so?",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -18371,7 +18371,7 @@
       "level": "A2",
       "german": "überhaupt nicht",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -18381,7 +18381,7 @@
       "level": "A2",
       "german": "Erkennung",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -18391,7 +18391,7 @@
       "level": "B1",
       "german": "Terminplan / Zeitplan",
       "topic": "Beruf",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -18401,7 +18401,7 @@
       "level": "A2",
       "german": "Bani",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -18571,7 +18571,7 @@
       "level": "A2",
       "german": "Messe",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -18651,7 +18651,7 @@
       "level": "A2",
       "german": "Soldat",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -18681,7 +18681,7 @@
       "level": "A2",
       "german": "Backbord",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -18691,7 +18691,7 @@
       "level": "A2",
       "german": "Wasserverteilung",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -18771,7 +18771,7 @@
       "level": "A2",
       "german": "Farbe",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -18861,7 +18861,7 @@
       "level": "A2",
       "german": "usw.",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -18891,7 +18891,7 @@
       "level": "A2",
       "german": "Nebel",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -18921,7 +18921,7 @@
       "level": "A2",
       "german": "Schwarz",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -18971,7 +18971,7 @@
       "level": "A2",
       "german": "Fixieren",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -19031,7 +19031,7 @@
       "level": "A2",
       "german": "Richter",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -19101,7 +19101,7 @@
       "level": "A2",
       "german": "Laden",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -19151,7 +19151,7 @@
       "level": "A2",
       "german": "Luft",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -19201,7 +19201,7 @@
       "level": "A2",
       "german": "Bereitgestellt von",
       "topic": "",
-      "next_count": 20,
+      "next_count": 23,
       "is_dead_end": false
     },
     {
@@ -19211,7 +19211,7 @@
       "level": "B1",
       "german": "andererseits / hingegen",
       "topic": "Alltag",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -19221,7 +19221,7 @@
       "level": "A2",
       "german": "Blitz",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -19381,7 +19381,7 @@
       "level": "A2",
       "german": "Linie",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -19391,7 +19391,7 @@
       "level": "A2",
       "german": "Heroin",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -19401,7 +19401,7 @@
       "level": "A2",
       "german": "Zollfreilager",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -19441,7 +19441,7 @@
       "level": "A2",
       "german": "Vorschlag",
       "topic": "",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -19481,7 +19481,7 @@
       "level": "A2",
       "german": "Mühe",
       "topic": "",
-      "next_count": 11,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -19541,7 +19541,7 @@
       "level": "A2",
       "german": "Casino",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -19601,7 +19601,7 @@
       "level": "A2",
       "german": "Kapitel",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -19641,7 +19641,7 @@
       "level": "A2",
       "german": "gemäßigtes Klima",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -19691,7 +19691,7 @@
       "level": "A2",
       "german": "Küste",
       "topic": "",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -19701,7 +19701,7 @@
       "level": "A2",
       "german": "Rogi",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -19731,7 +19731,7 @@
       "level": "A2",
       "german": "Partikel",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -19761,7 +19761,7 @@
       "level": "A2",
       "german": "Möbel",
       "topic": "Wohnen",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -19791,7 +19791,7 @@
       "level": "A2",
       "german": "Marktpreis",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -19801,7 +19801,7 @@
       "level": "A2",
       "german": "Einbruch",
       "topic": "",
-      "next_count": 8,
+      "next_count": 9,
       "is_dead_end": false
     },
     {
@@ -19841,7 +19841,7 @@
       "level": "A2",
       "german": "Wunder",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -19881,7 +19881,7 @@
       "level": "A2",
       "german": "Ebenso",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -19891,7 +19891,7 @@
       "level": "A2",
       "german": "Belastung",
       "topic": "",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -19951,7 +19951,7 @@
       "level": "A2",
       "german": "Dürre",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -20001,7 +20001,7 @@
       "level": "A2",
       "german": "Herausforderung",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -20091,7 +20091,7 @@
       "level": "A2",
       "german": "Falle",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -20321,7 +20321,7 @@
       "level": "A2",
       "german": "Veranstaltung",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -20381,7 +20381,7 @@
       "level": "A2",
       "german": "Schnauze",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -20391,7 +20391,7 @@
       "level": "A2",
       "german": "Ausgang",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -20581,7 +20581,7 @@
       "level": "A2",
       "german": "Medellín",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -20691,7 +20691,7 @@
       "level": "A2",
       "german": "Ertragen",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -20731,7 +20731,7 @@
       "level": "A2",
       "german": "Palast",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -20781,7 +20781,7 @@
       "level": "A2",
       "german": "Eifersucht",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -20801,7 +20801,7 @@
       "level": "A2",
       "german": "Zeile",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -20831,7 +20831,7 @@
       "level": "B2",
       "german": "Investition",
       "topic": "Gesellschaft",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -20881,7 +20881,7 @@
       "level": "A2",
       "german": "Wörterbuch",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -20891,7 +20891,7 @@
       "level": "A2",
       "german": "Veröffentlichung",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -20901,7 +20901,7 @@
       "level": "A2",
       "german": "Wenn man verkauft",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -20941,7 +20941,7 @@
       "level": "A2",
       "german": "persönlich",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -21021,7 +21021,7 @@
       "level": "A2",
       "german": "Einfahrt",
       "topic": "",
-      "next_count": 8,
+      "next_count": 9,
       "is_dead_end": false
     },
     {
@@ -21031,7 +21031,7 @@
       "level": "A2",
       "german": "Hanji",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -21051,7 +21051,7 @@
       "level": "A2",
       "german": "Erkennung",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -21171,7 +21171,7 @@
       "level": "A2",
       "german": "Oben",
       "topic": "",
-      "next_count": 45,
+      "next_count": 46,
       "is_dead_end": false
     },
     {
@@ -21271,7 +21271,7 @@
       "level": "A2",
       "german": "Stein",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -21291,7 +21291,7 @@
       "level": "A2",
       "german": "Regenbogen",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -21391,7 +21391,7 @@
       "level": "A2",
       "german": "Handwerker",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -21401,7 +21401,7 @@
       "level": "A2",
       "german": "Mitternacht",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -21431,7 +21431,7 @@
       "level": "A2",
       "german": "Zwerg",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -21451,7 +21451,7 @@
       "level": "A2",
       "german": "Vorstellungsgespräch",
       "topic": "Beruf",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -21461,7 +21461,7 @@
       "level": "A2",
       "german": "Vorlage",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -21661,7 +21661,7 @@
       "level": "A2",
       "german": "Punktzahl",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -21671,7 +21671,7 @@
       "level": "A2",
       "german": "Liebhaber",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -21681,7 +21681,7 @@
       "level": "A2",
       "german": "Verband",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -21701,7 +21701,7 @@
       "level": "A2",
       "german": "Häftling",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -21761,7 +21761,7 @@
       "level": "A2",
       "german": "Gardenie",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -21821,7 +21821,7 @@
       "level": "A2",
       "german": "Neuling",
       "topic": "",
-      "next_count": 8,
+      "next_count": 9,
       "is_dead_end": false
     },
     {
@@ -21871,7 +21871,7 @@
       "level": "A2",
       "german": "Ramsey",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -22041,7 +22041,7 @@
       "level": "A2",
       "german": "San-i",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -22121,7 +22121,7 @@
       "level": "A2",
       "german": "Rosa",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -22131,7 +22131,7 @@
       "level": "A2",
       "german": "Suzy",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -22151,7 +22151,7 @@
       "level": "A2",
       "german": "Durchfall",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -22221,7 +22221,7 @@
       "level": "A2",
       "german": "Quanten",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -22251,7 +22251,7 @@
       "level": "A2",
       "german": "Drehung",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -22281,7 +22281,7 @@
       "level": "A2",
       "german": "Auf den Weg zur Arbeit",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -22371,7 +22371,7 @@
       "level": "A2",
       "german": "Das Biest",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -22421,7 +22421,7 @@
       "level": "A2",
       "german": "Jeong-i",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -22521,7 +22521,7 @@
       "level": "A2",
       "german": "Kredit",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -22621,7 +22621,7 @@
       "level": "A2",
       "german": "Neigung",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -22681,7 +22681,7 @@
       "level": "A2",
       "german": "Wärter",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -22741,7 +22741,7 @@
       "level": "A2",
       "german": "Samurai",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -22751,7 +22751,7 @@
       "level": "A2",
       "german": "Lindsay",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -22811,7 +22811,7 @@
       "level": "A2",
       "german": "Wenn ich weine",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -22831,7 +22831,7 @@
       "level": "A2",
       "german": "Alkoholkonsum",
       "topic": "",
-      "next_count": 29,
+      "next_count": 30,
       "is_dead_end": false
     },
     {
@@ -22861,7 +22861,7 @@
       "level": "A2",
       "german": "Guy",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -22941,7 +22941,7 @@
       "level": "A2",
       "german": "Lied",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -23041,7 +23041,7 @@
       "level": "A2",
       "german": "Geschäft",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -23151,7 +23151,7 @@
       "level": "A2",
       "german": "Klein",
       "topic": "",
-      "next_count": 6,
+      "next_count": 7,
       "is_dead_end": false
     },
     {
@@ -23161,7 +23161,7 @@
       "level": "A2",
       "german": "Boxen",
       "topic": "",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -23171,7 +23171,7 @@
       "level": "A2",
       "german": "Sieg",
       "topic": "",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -23261,7 +23261,7 @@
       "level": "A2",
       "german": "Heilung",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -23311,7 +23311,7 @@
       "level": "A2",
       "german": "Senioren",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -23431,7 +23431,7 @@
       "level": "A2",
       "german": "vor Ort",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -23441,7 +23441,7 @@
       "level": "A2",
       "german": "Unteroffizier",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -23591,7 +23591,7 @@
       "level": "A2",
       "german": "Vorschriften",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -23711,7 +23711,7 @@
       "level": "A2",
       "german": "Argument",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -23961,7 +23961,7 @@
       "level": "A2",
       "german": "Bevölkerung",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -24021,7 +24021,7 @@
       "level": "A2",
       "german": "Mann",
       "topic": "",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -24041,7 +24041,7 @@
       "level": "A2",
       "german": "Bibliografie",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -24061,7 +24061,7 @@
       "level": "A2",
       "german": "Enkel",
       "topic": "",
-      "next_count": 41,
+      "next_count": 42,
       "is_dead_end": false
     },
     {
@@ -24091,7 +24091,7 @@
       "level": "B1",
       "german": "Prozess / Vorgang",
       "topic": "Bildung",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -24111,7 +24111,7 @@
       "level": "A2",
       "german": "Bild",
       "topic": "",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -24121,7 +24121,7 @@
       "level": "A2",
       "german": "unterwegs",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -24141,7 +24141,7 @@
       "level": "A2",
       "german": "Lehrer",
       "topic": "",
-      "next_count": 40,
+      "next_count": 41,
       "is_dead_end": false
     },
     {
@@ -24231,7 +24231,7 @@
       "level": "A2",
       "german": "Betrüger",
       "topic": "",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -24641,7 +24641,7 @@
       "level": "A2",
       "german": "Umstände",
       "topic": "",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -24721,7 +24721,7 @@
       "level": "A2",
       "german": "Bisher",
       "topic": "",
-      "next_count": 30,
+      "next_count": 32,
       "is_dead_end": false
     },
     {
@@ -24761,7 +24761,7 @@
       "level": "A2",
       "german": "Ausgang",
       "topic": "",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -24781,7 +24781,7 @@
       "level": "A2",
       "german": "Assistent",
       "topic": "",
-      "next_count": 35,
+      "next_count": 38,
       "is_dead_end": false
     },
     {
@@ -24901,7 +24901,7 @@
       "level": "A2",
       "german": "Munition",
       "topic": "",
-      "next_count": 7,
+      "next_count": 8,
       "is_dead_end": false
     },
     {
@@ -24941,7 +24941,7 @@
       "level": "A2",
       "german": "Typ",
       "topic": "",
-      "next_count": 8,
+      "next_count": 9,
       "is_dead_end": false
     },
     {
@@ -25031,7 +25031,7 @@
       "level": "A1",
       "german": "Freund (Beziehung)",
       "topic": "Beziehungen",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -25041,7 +25041,7 @@
       "level": "A1",
       "german": "Freundin (Beziehung)",
       "topic": "Beziehungen",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -25071,7 +25071,7 @@
       "level": "A1",
       "german": "jüngerer Bruder",
       "topic": "Familie",
-      "next_count": 11,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -25081,7 +25081,7 @@
       "level": "A1",
       "german": "jüngere Schwester",
       "topic": "Familie",
-      "next_count": 11,
+      "next_count": 12,
       "is_dead_end": false
     },
     {
@@ -25261,7 +25261,7 @@
       "level": "A2",
       "german": "Rabatt / Ermäßigung",
       "topic": "Einkaufen",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -25311,7 +25311,7 @@
       "level": "B1",
       "german": "Ursache / Grund",
       "topic": "Alltag",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -25421,7 +25421,7 @@
       "level": "B2",
       "german": "Wohlfahrt / Sozialleistungen",
       "topic": "Gesellschaft",
-      "next_count": 27,
+      "next_count": 28,
       "is_dead_end": false
     },
     {
@@ -25781,7 +25781,7 @@
       "level": "B1",
       "german": "Deadline / Abgabefrist",
       "topic": "Beruf",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -25821,7 +25821,7 @@
       "level": "B1",
       "german": "Balance / Gleichgewicht",
       "topic": "Gesellschaft",
-      "next_count": 6,
+      "next_count": 7,
       "is_dead_end": false
     },
     {
@@ -25851,7 +25851,7 @@
       "level": "B1",
       "german": "Unterschied",
       "topic": "Beschreibung",
-      "next_count": 50,
+      "next_count": 51,
       "is_dead_end": false
     },
     {
@@ -25891,7 +25891,7 @@
       "level": "B1",
       "german": "Verantwortungsbewusstsein",
       "topic": "Beschreibung",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -25961,7 +25961,7 @@
       "level": "B2",
       "german": "Politik / Strategie (staatlich)",
       "topic": "Gesellschaft",
-      "next_count": 3,
+      "next_count": 4,
       "is_dead_end": false
     },
     {
@@ -26011,7 +26011,7 @@
       "level": "B2",
       "german": "Menschenrechte",
       "topic": "Gesellschaft",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -26071,7 +26071,7 @@
       "level": "B2",
       "german": "Selbstvertrauen",
       "topic": "Gefühle",
-      "next_count": 13,
+      "next_count": 14,
       "is_dead_end": false
     },
     {
@@ -26121,7 +26121,7 @@
       "level": "B2",
       "german": "Hauptfach / Studienfach",
       "topic": "Bildung",
-      "next_count": 20,
+      "next_count": 23,
       "is_dead_end": false
     },
     {
@@ -26211,7 +26211,7 @@
       "level": "A2",
       "german": "Monatsmiete",
       "topic": "Wohnen",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -26231,7 +26231,7 @@
       "level": "A2",
       "german": "Vermieter",
       "topic": "Wohnen",
-      "next_count": 28,
+      "next_count": 31,
       "is_dead_end": false
     },
     {
@@ -26281,7 +26281,7 @@
       "level": "B2",
       "german": "Ausstoß",
       "topic": "Umwelt",
-      "next_count": 10,
+      "next_count": 11,
       "is_dead_end": false
     },
     {
@@ -26431,7 +26431,7 @@
       "level": "C1",
       "german": "Recht auf Pause",
       "topic": "Partnerschaft & koreanische Familie",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -26621,7 +26621,7 @@
       "level": "C2",
       "german": "Entscheidungsrecht",
       "topic": "Partnerschaft & koreanische Familie",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -26641,7 +26641,7 @@
       "level": "C2",
       "german": "Widerrufsrecht",
       "topic": "Widerrufsrecht",
-      "next_count": 4,
+      "next_count": 5,
       "is_dead_end": false
     },
     {
@@ -26711,7 +26711,7 @@
       "level": "C2",
       "german": "Behebung",
       "topic": "Automatisierung & Rechtsweg",
-      "next_count": 18,
+      "next_count": 19,
       "is_dead_end": false
     },
     {
@@ -26813,6 +26813,486 @@
       "topic": "Sanktion & Rechenschaft",
       "next_count": 0,
       "is_dead_end": true
+    },
+    {
+      "word": "우편함",
+      "first": "우",
+      "last": "함",
+      "level": "A1",
+      "german": "Briefkasten",
+      "topic": "도시 생활",
+      "next_count": 2,
+      "is_dead_end": false
+    },
+    {
+      "word": "승강장",
+      "first": "승",
+      "last": "장",
+      "level": "A1",
+      "german": "Bahnsteig",
+      "topic": "도시 생활",
+      "next_count": 17,
+      "is_dead_end": false
+    },
+    {
+      "word": "충전기",
+      "first": "충",
+      "last": "기",
+      "level": "A1",
+      "german": "Ladegerät",
+      "topic": "도시 생활",
+      "next_count": 25,
+      "is_dead_end": false
+    },
+    {
+      "word": "대기표",
+      "first": "대",
+      "last": "표",
+      "level": "A1",
+      "german": "Wartenummer",
+      "topic": "도시 생활",
+      "next_count": 5,
+      "is_dead_end": false
+    },
+    {
+      "word": "안내판",
+      "first": "안",
+      "last": "판",
+      "level": "A1",
+      "german": "Hinweistafel",
+      "topic": "도시 생활",
+      "next_count": 5,
+      "is_dead_end": false
+    },
+    {
+      "word": "개찰구",
+      "first": "개",
+      "last": "구",
+      "level": "A1",
+      "german": "Bahnsteigsperre",
+      "topic": "도시 생활",
+      "next_count": 11,
+      "is_dead_end": false
+    },
+    {
+      "word": "우편물",
+      "first": "우",
+      "last": "물",
+      "level": "A1",
+      "german": "Postsendung",
+      "topic": "도시 생활",
+      "next_count": 5,
+      "is_dead_end": false
+    },
+    {
+      "word": "약봉지",
+      "first": "약",
+      "last": "지",
+      "level": "A1",
+      "german": "Medikamententüte",
+      "topic": "도시 생활",
+      "next_count": 28,
+      "is_dead_end": false
+    },
+    {
+      "word": "입주일",
+      "first": "입",
+      "last": "일",
+      "level": "A2",
+      "german": "Einzugstag",
+      "topic": "집 구하기",
+      "next_count": 25,
+      "is_dead_end": false
+    },
+    {
+      "word": "현관문",
+      "first": "현",
+      "last": "문",
+      "level": "A2",
+      "german": "Wohnungstür",
+      "topic": "집 구하기",
+      "next_count": 8,
+      "is_dead_end": false
+    },
+    {
+      "word": "중개료",
+      "first": "중",
+      "last": "료",
+      "level": "A2",
+      "german": "Vermittlungsgebühr",
+      "topic": "집 구하기",
+      "next_count": 0,
+      "is_dead_end": true
+    },
+    {
+      "word": "수도료",
+      "first": "수",
+      "last": "료",
+      "level": "A2",
+      "german": "Wasserkosten",
+      "topic": "집 구하기",
+      "next_count": 0,
+      "is_dead_end": true
+    },
+    {
+      "word": "전기세",
+      "first": "전",
+      "last": "세",
+      "level": "A2",
+      "german": "Stromkosten",
+      "topic": "집 구하기",
+      "next_count": 11,
+      "is_dead_end": false
+    },
+    {
+      "word": "가스비",
+      "first": "가",
+      "last": "비",
+      "level": "A2",
+      "german": "Gaskosten",
+      "topic": "집 구하기",
+      "next_count": 19,
+      "is_dead_end": false
+    },
+    {
+      "word": "세입자",
+      "first": "세",
+      "last": "자",
+      "level": "A2",
+      "german": "Mieterin oder Mieter",
+      "topic": "집 구하기",
+      "next_count": 42,
+      "is_dead_end": false
+    },
+    {
+      "word": "이삿짐",
+      "first": "이",
+      "last": "짐",
+      "level": "A2",
+      "german": "Umzugsgut",
+      "topic": "집 구하기",
+      "next_count": 1,
+      "is_dead_end": false
+    },
+    {
+      "word": "공고",
+      "first": "공",
+      "last": "고",
+      "level": "B1",
+      "german": "Ausschreibung",
+      "topic": "취업과 근무 조건",
+      "next_count": 23,
+      "is_dead_end": false
+    },
+    {
+      "word": "지원서",
+      "first": "지",
+      "last": "서",
+      "level": "B1",
+      "german": "Bewerbungsformular",
+      "topic": "취업과 근무 조건",
+      "next_count": 11,
+      "is_dead_end": false
+    },
+    {
+      "word": "직무경력",
+      "first": "직",
+      "last": "력",
+      "level": "B1",
+      "german": "einschlägige Berufserfahrung",
+      "topic": "취업과 근무 조건",
+      "next_count": 0,
+      "is_dead_end": true
+    },
+    {
+      "word": "면접관",
+      "first": "면",
+      "last": "관",
+      "level": "B1",
+      "german": "interviewende Person",
+      "topic": "취업과 근무 조건",
+      "next_count": 7,
+      "is_dead_end": false
+    },
+    {
+      "word": "근무지",
+      "first": "근",
+      "last": "지",
+      "level": "B1",
+      "german": "Arbeitsort",
+      "topic": "취업과 근무 조건",
+      "next_count": 28,
+      "is_dead_end": false
+    },
+    {
+      "word": "수습",
+      "first": "수",
+      "last": "습",
+      "level": "B1",
+      "german": "Einarbeitungsphase",
+      "topic": "취업과 근무 조건",
+      "next_count": 1,
+      "is_dead_end": false
+    },
+    {
+      "word": "인수인계",
+      "first": "인",
+      "last": "계",
+      "level": "B1",
+      "german": "Übergabe",
+      "topic": "취업과 근무 조건",
+      "next_count": 11,
+      "is_dead_end": false
+    },
+    {
+      "word": "유연근무",
+      "first": "유",
+      "last": "무",
+      "level": "B1",
+      "german": "flexible Arbeit",
+      "topic": "취업과 근무 조건",
+      "next_count": 14,
+      "is_dead_end": false
+    },
+    {
+      "word": "주거비",
+      "first": "주",
+      "last": "비",
+      "level": "B2",
+      "german": "Wohnkosten",
+      "topic": "주거비와 사회 통합",
+      "next_count": 19,
+      "is_dead_end": false
+    },
+    {
+      "word": "임대료",
+      "first": "임",
+      "last": "료",
+      "level": "B2",
+      "german": "Miete",
+      "topic": "주거비와 사회 통합",
+      "next_count": 0,
+      "is_dead_end": true
+    },
+    {
+      "word": "생활비",
+      "first": "생",
+      "last": "비",
+      "level": "B2",
+      "german": "Lebenshaltungskosten",
+      "topic": "주거비와 사회 통합",
+      "next_count": 19,
+      "is_dead_end": false
+    },
+    {
+      "word": "공공주택",
+      "first": "공",
+      "last": "택",
+      "level": "B2",
+      "german": "öffentlicher Wohnraum",
+      "topic": "주거비와 사회 통합",
+      "next_count": 1,
+      "is_dead_end": false
+    },
+    {
+      "word": "노동력",
+      "first": "노",
+      "last": "력",
+      "level": "B2",
+      "german": "Arbeitskraft",
+      "topic": "주거비와 사회 통합",
+      "next_count": 0,
+      "is_dead_end": true
+    },
+    {
+      "word": "사회통합",
+      "first": "사",
+      "last": "합",
+      "level": "B2",
+      "german": "gesellschaftliche Teilhabe",
+      "topic": "주거비와 사회 통합",
+      "next_count": 2,
+      "is_dead_end": false
+    },
+    {
+      "word": "접근장벽",
+      "first": "접",
+      "last": "벽",
+      "level": "B2",
+      "german": "Zugangshürde",
+      "topic": "주거비와 사회 통합",
+      "next_count": 0,
+      "is_dead_end": true
+    },
+    {
+      "word": "공급량",
+      "first": "공",
+      "last": "량",
+      "level": "B2",
+      "german": "Angebotsmenge",
+      "topic": "주거비와 사회 통합",
+      "next_count": 0,
+      "is_dead_end": true
+    },
+    {
+      "word": "투명성",
+      "first": "투",
+      "last": "성",
+      "level": "C1",
+      "german": "Transparenz",
+      "topic": "AI 투명성과 문화 노동",
+      "next_count": 11,
+      "is_dead_end": false
+    },
+    {
+      "word": "합성물",
+      "first": "합",
+      "last": "물",
+      "level": "C1",
+      "german": "synthetischer Inhalt",
+      "topic": "AI 투명성과 문화 노동",
+      "next_count": 5,
+      "is_dead_end": false
+    },
+    {
+      "word": "출처표시",
+      "first": "출",
+      "last": "시",
+      "level": "C1",
+      "german": "Quellenkennzeichnung",
+      "topic": "AI 투명성과 문화 노동",
+      "next_count": 35,
+      "is_dead_end": false
+    },
+    {
+      "word": "편향성",
+      "first": "편",
+      "last": "성",
+      "level": "C1",
+      "german": "Verzerrung",
+      "topic": "AI 투명성과 문화 노동",
+      "next_count": 11,
+      "is_dead_end": false
+    },
+    {
+      "word": "감독권",
+      "first": "감",
+      "last": "권",
+      "level": "C1",
+      "german": "Aufsichtsbefugnis",
+      "topic": "AI 투명성과 문화 노동",
+      "next_count": 5,
+      "is_dead_end": false
+    },
+    {
+      "word": "대표성",
+      "first": "대",
+      "last": "성",
+      "level": "C1",
+      "german": "Repräsentativität",
+      "topic": "AI 투명성과 문화 노동",
+      "next_count": 11,
+      "is_dead_end": false
+    },
+    {
+      "word": "자동판단",
+      "first": "자",
+      "last": "단",
+      "level": "C1",
+      "german": "automatisierte Entscheidung",
+      "topic": "AI 투명성과 문화 노동",
+      "next_count": 5,
+      "is_dead_end": false
+    },
+    {
+      "word": "수익배분",
+      "first": "수",
+      "last": "분",
+      "level": "C1",
+      "german": "Erlösverteilung",
+      "topic": "AI 투명성과 문화 노동",
+      "next_count": 12,
+      "is_dead_end": false
+    },
+    {
+      "word": "인구구조",
+      "first": "인",
+      "last": "조",
+      "level": "C2",
+      "german": "Bevölkerungsstruktur",
+      "topic": "인구 담론과 제도 책임",
+      "next_count": 20,
+      "is_dead_end": false
+    },
+    {
+      "word": "형평성",
+      "first": "형",
+      "last": "성",
+      "level": "C2",
+      "german": "Gerechtigkeit",
+      "topic": "인구 담론과 제도 책임",
+      "next_count": 11,
+      "is_dead_end": false
+    },
+    {
+      "word": "정책효과",
+      "first": "정",
+      "last": "과",
+      "level": "C2",
+      "german": "Politikwirkung",
+      "topic": "인구 담론과 제도 책임",
+      "next_count": 7,
+      "is_dead_end": false
+    },
+    {
+      "word": "인과추론",
+      "first": "인",
+      "last": "론",
+      "level": "C2",
+      "german": "Kausalschluss",
+      "topic": "인구 담론과 제도 책임",
+      "next_count": 0,
+      "is_dead_end": true
+    },
+    {
+      "word": "담론틀",
+      "first": "담",
+      "last": "틀",
+      "level": "C2",
+      "german": "Diskursrahmen",
+      "topic": "인구 담론과 제도 책임",
+      "next_count": 0,
+      "is_dead_end": true
+    },
+    {
+      "word": "책임소재",
+      "first": "책",
+      "last": "재",
+      "level": "C2",
+      "german": "Verantwortungszuordnung",
+      "topic": "인구 담론과 제도 책임",
+      "next_count": 10,
+      "is_dead_end": false
+    },
+    {
+      "word": "구제책",
+      "first": "구",
+      "last": "책",
+      "level": "C2",
+      "german": "Abhilfemaßnahme",
+      "topic": "인구 담론과 제도 책임",
+      "next_count": 4,
+      "is_dead_end": false
+    },
+    {
+      "word": "권력차",
+      "first": "권",
+      "last": "차",
+      "level": "C2",
+      "german": "Machtgefälle",
+      "topic": "인구 담론과 제도 책임",
+      "next_count": 14,
+      "is_dead_end": false
     }
   ]
 }

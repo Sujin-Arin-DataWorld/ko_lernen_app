@@ -10371,6 +10371,234 @@
       },
       "shelf": "c1_fandom",
       "backdrop": "office"
+    },
+    {
+      "id": "c1_ai_labeling_policy_batch20",
+      "level": "c1",
+      "emoji": "🤖",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "editorial_policy_team",
+      "intent": "test_whether_an_ai_label_is_actionable",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "AI 콘텐츠 표시 원칙을 검토해요",
+        "de": "Kennzeichnungsregeln für KI-Inhalte prüfen",
+        "en": "Reviewing AI-Content Labeling Rules"
+      },
+      "intro": {
+        "ko": "편집 회의에서 표시 문구, 인간 감독 권한, 이용자의 이의 제기 정보를 구분해 검토합니다.",
+        "de": "In einer Redaktionssitzung werden Kennzeichnung, Aufsichtsbefugnis und Informationen für Einwände getrennt geprüft.",
+        "en": "In an editorial meeting, you review labels, human authority, and appeal information separately."
+      },
+      "grammarIds": [
+        "grammar_c1_difficult_to_conclude_batch20"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "초안에는 ‘AI 활용’이라는 표시만 있습니다.",
+          "de": "Im Entwurf steht nur der Hinweis mit KI erstellt.",
+          "en": "The draft only says AI-assisted."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "짧고 눈에 띄지만 무엇이 바뀌었는지는 알 수 없네요.",
+          "de": "Das ist kurz und sichtbar, sagt aber nicht, was verändert wurde.",
+          "en": "It is short and visible, but it does not say what changed."
+        },
+        {
+          "speaker": "user",
+          "ko": "표시가 있다는 이유만으로 충분히 이해했다고 단정하기 어렵습니다.",
+          "de": "Allein aus der Kennzeichnung lässt sich schwer auf ausreichendes Verständnis schließen.",
+          "en": "A label alone is not enough to conclude that people understood."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그럼 생성 범위와 사람의 검토 단계를 함께 적을까요?",
+          "de": "Sollen wir dann Umfang der Generierung und menschliche Prüfschritte nennen?",
+          "en": "Should we include the generated portions and human review steps?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 감독자가 결과를 바꿀 권한이 있는지도 명시해야 합니다.",
+          "de": "Ja. Auch die Befugnis der Aufsicht, Ergebnisse zu ändern, sollte genannt werden.",
+          "en": "Yes. We should also state whether the reviewer can change the result."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이용자가 오류를 신고할 창구와 처리 기한도 넣겠습니다.",
+          "de": "Wir ergänzen auch Meldestelle und Bearbeitungsfrist für Fehler.",
+          "en": "We will also add where users can report errors and the response deadline."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋습니다. 문구를 공개하기 전에 이용자 테스트를 합시다.",
+          "de": "Gut. Vor Veröffentlichung sollten wir die Formulierung mit Nutzenden testen.",
+          "en": "Good. Let us test the wording with users before release."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이해 여부와 신고 경로를 실제 과제로 확인하겠습니다.",
+          "de": "Wir testen Verständnis und Meldeweg mit konkreten Aufgaben.",
+          "en": "We will test understanding and the reporting path with concrete tasks."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "합성 콘텐츠"
+        },
+        {
+          "korean": "출처 표시"
+        },
+        {
+          "korean": "인간 감독"
+        },
+        {
+          "korean": "설명 가능성"
+        },
+        {
+          "korean": "오류 신고"
+        },
+        {
+          "korean": "이용자 테스트"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-다고 단정하기 어렵다",
+          "de": "A/V-다고 단정하기 어렵다: eine Schlussfolgerung epistemisch begrenzen",
+          "en": "A/V-다고 단정하기 어렵다: limiting the certainty of a conclusion"
+        },
+        "explanation": {
+          "ko": "근거가 충분하지 않을 때 결론의 확실성을 제한합니다.",
+          "de": "Markiert, dass die vorliegenden Belege für eine eindeutige Schlussfolgerung nicht ausreichen.",
+          "en": "Signals that the available evidence is insufficient for a categorical conclusion."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c1_ai_labeling_policy_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "audioKo": "표시가 있다는 이유만으로 충분히 이해했다고 단정하기 어렵습니다.",
+            "options": [
+              {
+                "ko": "초안에는 ‘AI 활용’이라는 표시만 있습니다.",
+                "de": "Im Entwurf steht nur der Hinweis mit KI erstellt.",
+                "en": "The draft only says AI-assisted."
+              },
+              {
+                "ko": "표시가 있다는 이유만으로 충분히 이해했다고 단정하기 어렵습니다.",
+                "de": "Allein aus der Kennzeichnung lässt sich schwer auf ausreichendes Verständnis schließen.",
+                "en": "A label alone is not enough to conclude that people understood."
+              },
+              {
+                "ko": "네. 감독자가 결과를 바꿀 권한이 있는지도 명시해야 합니다.",
+                "de": "Ja. Auch die Befugnis der Aufsicht, Ergebnisse zu ändern, sollte genannt werden.",
+                "en": "Yes. We should also state whether the reviewer can change the result."
+              },
+              {
+                "ko": "좋습니다. 문구를 공개하기 전에 이용자 테스트를 합시다.",
+                "de": "Gut. Vor Veröffentlichung sollten wir die Formulierung mit Nutzenden testen.",
+                "en": "Good. Let us test the wording with users before release."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c1_ai_labeling_policy_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "promptDe": "Gut. Vor Veröffentlichung sollten wir die Formulierung mit Nutzenden testen.",
+            "promptEn": "Good. Let us test the wording with users before release.",
+            "options": [
+              {
+                "ko": "초안에는 ‘AI 활용’이라는 표시만 있습니다."
+              },
+              {
+                "ko": "네. 감독자가 결과를 바꿀 권한이 있는지도 명시해야 합니다."
+              },
+              {
+                "ko": "좋습니다. 문구를 공개하기 전에 이용자 테스트를 합시다."
+              },
+              {
+                "ko": "표시가 있다는 이유만으로 충분히 이해했다고 단정하기 어렵습니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c1_ai_labeling_policy_batch20_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "sentence": "표시가 있다고 해서 충분히 이해했다고 ___ 어렵습니다.",
+            "options": [
+              "단정하기",
+              "환원하기",
+              "배제하기",
+              "위임하기"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "A/V-다고 단정하기 어렵다 begrenzt die Sicherheit eines Schlusses und verlangt zusätzliche Evidenz.",
+            "explanationEn": "A/V-다고 단정하기 어렵다 limits certainty and calls for more evidence."
+          }
+        },
+        {
+          "id": "quest_c1_ai_labeling_policy_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "생성 범위와 사람의 검토 단계를 구분해서 알려야 합니다.",
+            "promptDe": "Umfang der Generierung und menschliche Prüfschritte müssen getrennt mitgeteilt werden.",
+            "promptEn": "The generated scope and human review steps should be disclosed separately.",
+            "distractors": [
+              "자동으로",
+              "일률적으로"
+            ],
+            "audioKo": "생성 범위와 사람의 검토 단계를 구분해서 알려야 합니다."
+          }
+        },
+        {
+          "id": "quest_c1_ai_labeling_policy_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "문구를 공개하기 전에 이용자 테스트를 합시다.",
+            "audioKo": "문구를 공개하기 전에 이용자 테스트를 합시다.",
+            "promptDe": "Vor Veröffentlichung sollten wir die Formulierung mit Nutzenden testen.",
+            "promptEn": "Let us test the wording with users before release."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "투명성은 표시의 존재만이 아니라 이용자가 무엇을 이해하고 어떤 조치를 취할 수 있는지까지 포함합니다.",
+        "de": "Transparenz umfasst nicht nur ein Label, sondern auch verständliche Informationen und nutzbare Handlungsmöglichkeiten.",
+        "en": "Transparency includes not just a label, but understandable information and actions users can take."
+      },
+      "shelf": "c1_methodology",
+      "backdrop": "office"
     }
   ]
 }

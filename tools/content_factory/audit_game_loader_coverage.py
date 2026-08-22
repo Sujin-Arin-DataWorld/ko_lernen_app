@@ -89,6 +89,12 @@ def _distribution(values: Iterable[int]) -> dict[str, int]:
     }
 
 
+def _app_call_site(root: Path, markers: Iterable[tuple[str, str]]) -> bool:
+    """Return whether every required runtime loader/entry marker is present."""
+
+    return all(marker in (root / path).read_text(encoding="utf-8") for path, marker in markers)
+
+
 class LoaderCoverageAudit:
     """Build a deterministic loader-aware coverage report."""
 
@@ -224,9 +230,31 @@ class LoaderCoverageAudit:
             )
 
         vocab_counts = Counter()
+        vocab_terms_by_level: dict[str, set[str]] = defaultdict(set)
         with self._asset("korean_vocab.csv").open(encoding="utf-8-sig", newline="") as handle:
             for row in csv.DictReader(handle):
-                vocab_counts[_level(row.get("level"))] += 1
+                level = _level(row.get("level"))
+                vocab_counts[level] += 1
+                vocab_terms_by_level[level].add(str(row.get("korean") or "").strip())
+
+        grammar_counts = Counter()
+        with self._asset("grammar.csv").open(encoding="utf-8-sig", newline="") as handle:
+            grammar_rows = list(csv.DictReader(handle))
+        for row in grammar_rows:
+            grammar_counts[_level(row.get("level"))] += 1
+
+        culture_notes = _read_json(self._asset("culture_notes.json"))["notes"]
+        culture_counts = Counter()
+        unmatched_culture_notes: list[str] = []
+        for note in culture_notes:
+            korean = str(note.get("ko") or "").strip()
+            attached_levels = [
+                level for level in LEVELS if korean in vocab_terms_by_level[level]
+            ]
+            if not attached_levels:
+                unmatched_culture_notes.append(korean)
+            for level in attached_levels:
+                culture_counts[level] += 1
 
         silben = _read_json(self._asset("silben_puzzles.json"))["levels"]
         silben_exact = {
@@ -245,13 +273,13 @@ class LoaderCoverageAudit:
         }
         media_records = _read_json(self._asset("media_phrases.json"))["phrases"]
         media_counts = Counter(_level(item.get("level")) for item in media_records)
-        media_callsite = all(
-            marker in (self.root / path).read_text(encoding="utf-8")
-            for path, marker in (
+        media_callsite = _app_call_site(
+            self.root,
+            (
                 ("lib/main.dart", "case '/media_phrases':"),
                 ("lib/models/discover_catalog.dart", "id: 'media_phrases'"),
                 ("lib/screens/practice_hub_screen.dart", "route: '/media_phrases'"),
-            )
+            ),
         )
         word_relations = _read_json(self._asset("word_relations.json"))["clusters"]
         word_relation_counts = Counter(_level(item.get("level")) for item in word_relations)
@@ -264,6 +292,25 @@ class LoaderCoverageAudit:
             "vocabDerived": {
                 "contract": "chosung_and_speed_match_derive_from_exact_level_vocab",
                 "exactPerLevel": {level: vocab_counts[level] for level in LEVELS},
+                "appCallSite": _app_call_site(
+                    self.root,
+                    (
+                        ("lib/services/data_loader.dart", "assets/data/korean_vocab.csv"),
+                        ("lib/screens/legacy_vocab_screen.dart", "DataLoader.loadVocab"),
+                    ),
+                ),
+            },
+            "grammarCards": {
+                "contract": "exact_level_grammar_library_and_choice_quiz",
+                "exactPerLevel": {level: grammar_counts[level] for level in LEVELS},
+                "appCallSite": _app_call_site(
+                    self.root,
+                    (
+                        ("lib/services/data_loader.dart", "assets/data/grammar.csv"),
+                        ("lib/screens/grammar_screen.dart", "DataLoader.loadGrammar"),
+                        ("lib/screens/grammar_choice_quiz_screen.dart", "DataLoader.loadGrammar"),
+                    ),
+                ),
             },
             "silben": {
                 "contract": "exact_level_selectable_a1_c2",
@@ -272,11 +319,25 @@ class LoaderCoverageAudit:
                     level: True
                     for level in LEVELS
                 },
+                "appCallSite": _app_call_site(
+                    self.root,
+                    (
+                        ("lib/services/silben_puzzle_loader.dart", "assets/data/silben_puzzles.json"),
+                        ("lib/main.dart", "SilbenKreuzScreen"),
+                    ),
+                ),
             },
             "kkeunmari": {
                 "contract": "cumulative_through_learner_level_with_full_pool_chain_fallback",
                 "exactPerLevel": {level: kkeunmari_counts[level] for level in LEVELS},
                 "visiblePerLearnerLevel": kkeunmari_visible,
+                "appCallSite": _app_call_site(
+                    self.root,
+                    (
+                        ("lib/services/kkeunmari_engine.dart", "assets/data/kkeunmari_pool.json"),
+                        ("lib/main.dart", "KkeunmariScreen"),
+                    ),
+                ),
             },
             "mediaPhrases": {
                 "contract": "exact_level_reachable_from_discover_and_practice_hub",
@@ -289,6 +350,10 @@ class LoaderCoverageAudit:
                     level: grammar_pattern_counts[level]
                     for level in LEVELS
                 },
+                "appCallSite": _app_call_site(
+                    self.root,
+                    (("lib/services/book_analysis_service.dart", "assets/data/grammar_patterns.json"),),
+                ),
             },
             "wordRelations": {
                 "contract": "exact_level_word_web_clusters",
@@ -296,6 +361,27 @@ class LoaderCoverageAudit:
                     level: word_relation_counts[level]
                     for level in LEVELS
                 },
+                "appCallSite": _app_call_site(
+                    self.root,
+                    (
+                        ("lib/services/word_relation_service.dart", "assets/data/word_relations.json"),
+                        ("lib/main.dart", "WordWebScreen"),
+                    ),
+                ),
+            },
+            "cultureNotes": {
+                "contract": "exact_korean_headword_join_to_live_vocab_cards",
+                "total": len(culture_notes),
+                "exactPerLevel": {level: culture_counts[level] for level in LEVELS},
+                "unmatchedHeadwords": sorted(set(unmatched_culture_notes)),
+                "appCallSite": _app_call_site(
+                    self.root,
+                    (
+                        ("lib/services/culture_notes_service.dart", "assets/data/culture_notes.json"),
+                        ("lib/widgets/sori/culture_note_card.dart", "CultureNotesService.noteFor"),
+                        ("lib/screens/legacy_vocab_screen.dart", "CultureNotesService.load"),
+                    ),
+                ),
             },
         }
 
@@ -409,6 +495,20 @@ class LoaderCoverageAudit:
                     "exactPerLevel": exact[kind],
                 }
                 for kind, records in collections.items()
+            }
+            | {
+                "vocab": {
+                    "total": sum(vocab_counts.values()),
+                    "exactPerLevel": {level: vocab_counts[level] for level in LEVELS},
+                },
+                "grammar": {
+                    "total": sum(grammar_counts.values()),
+                    "exactPerLevel": {level: grammar_counts[level] for level in LEVELS},
+                },
+                "cultureNote": {
+                    "total": len(culture_notes),
+                    "exactPerLevel": {level: culture_counts[level] for level in LEVELS},
+                },
             },
             "scenarioDetail": {
                 "dialogTurnsPerLevel": {level: scenario_dialog[level] for level in LEVELS},
@@ -463,11 +563,13 @@ def _coverage_errors(report: dict[str, Any]) -> list[str]:
             errors.append(f"pronunciation {level} has {exact[level]}, requires 8")
     other = report["libraryLoader"]["otherGames"]
     thresholds = {
+        "grammarCards": 2,
         "silben": 20,
         "kkeunmari": 20,
         "mediaPhrases": 8,
         "grammarPatterns": 2,
         "wordRelations": 4,
+        "cultureNotes": 1,
     }
     for kind, minimum in thresholds.items():
         for level, count in other[kind]["exactPerLevel"].items():
@@ -476,8 +578,14 @@ def _coverage_errors(report: dict[str, Any]) -> list[str]:
     for level, selectable in other["silben"]["selectablePerLevel"].items():
         if not selectable:
             errors.append(f"silben {level} is not selectable")
-    if not other["mediaPhrases"]["appCallSite"]:
-        errors.append("mediaPhrases has no complete app route/catalog/hub call site")
+    for kind, state in other.items():
+        if not state.get("appCallSite", True):
+            errors.append(f"{kind} has no complete runtime loader or app call site")
+    if other["cultureNotes"]["unmatchedHeadwords"]:
+        errors.append(
+            "cultureNotes has headwords absent from live vocab: "
+            f"{other['cultureNotes']['unmatchedHeadwords']}"
+        )
     return errors
 
 

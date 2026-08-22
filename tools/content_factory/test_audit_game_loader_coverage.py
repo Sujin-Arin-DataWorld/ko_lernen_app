@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression tests for loader-aware content coverage through Batch 19."""
+"""Regression tests for loader-aware content coverage through Batch 20."""
 
 from __future__ import annotations
 
@@ -17,11 +17,11 @@ class LoaderCoverageAuditTest(unittest.TestCase):
         report = LoaderCoverageAudit(ROOT).build()
 
         self.assertEqual(report["state"], "live")
-        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 49)
-        self.assertEqual(report["inventory"]["pronunciation"]["total"], 72)
+        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 50)
+        self.assertEqual(report["inventory"]["pronunciation"]["total"], 84)
         self.assertEqual(
             report["libraryLoader"]["pronunciationVisiblePerLearnerLevel"]["c2"],
-            72,
+            84,
         )
         self.assertEqual(
             report["libraryLoader"]["listeningInitial"]["c2"]["effectiveSourceLevel"],
@@ -34,13 +34,18 @@ class LoaderCoverageAuditTest(unittest.TestCase):
             0,
         )
         other = report["libraryLoader"]["otherGames"]
+        self.assertEqual(other["grammarCards"]["exactPerLevel"]["c2"], 23)
+        self.assertTrue(other["grammarCards"]["appCallSite"])
         self.assertEqual(other["silben"]["exactPerLevel"]["c1"], 20)
         self.assertTrue(other["silben"]["selectablePerLevel"]["c1"])
-        self.assertEqual(other["kkeunmari"]["exactPerLevel"]["c2"], 20)
-        self.assertEqual(other["mediaPhrases"]["exactPerLevel"]["b1"], 8)
+        self.assertEqual(other["kkeunmari"]["exactPerLevel"]["c2"], 28)
+        self.assertEqual(other["mediaPhrases"]["exactPerLevel"]["b1"], 12)
         self.assertTrue(other["mediaPhrases"]["appCallSite"])
-        self.assertEqual(other["grammarPatterns"]["exactPerLevel"]["b2"], 2)
-        self.assertEqual(other["wordRelations"]["exactPerLevel"]["c2"], 4)
+        self.assertEqual(other["grammarPatterns"]["exactPerLevel"]["b2"], 3)
+        self.assertEqual(other["wordRelations"]["exactPerLevel"]["c2"], 8)
+        self.assertEqual(other["cultureNotes"]["exactPerLevel"]["c2"], 1)
+        self.assertEqual(other["cultureNotes"]["unmatchedHeadwords"], [])
+        self.assertTrue(other["cultureNotes"]["appCallSite"])
         self.assertGreater(other["vocabDerived"]["exactPerLevel"]["c2"], 0)
         self.assertEqual(
             report["courseLoader"]["smalltalk"]["a1"]["countsByUnit"][
@@ -62,15 +67,15 @@ class LoaderCoverageAuditTest(unittest.TestCase):
 
         self.assertEqual(report["state"], "preview")
         self.assertEqual(report["inventory"], live["inventory"])
-        self.assertEqual(report["inventory"]["scenario"]["total"], 407)
-        self.assertEqual(report["inventory"]["smalltalk"]["total"], 486)
-        self.assertEqual(report["inventory"]["cloze"]["total"], 1769)
-        self.assertEqual(report["inventory"]["satz"]["total"], 2297)
-        self.assertEqual(report["inventory"]["pronunciation"]["total"], 72)
-        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 49)
+        self.assertEqual(report["inventory"]["scenario"]["total"], 413)
+        self.assertEqual(report["inventory"]["smalltalk"]["total"], 522)
+        self.assertEqual(report["inventory"]["cloze"]["total"], 1805)
+        self.assertEqual(report["inventory"]["satz"]["total"], 2333)
+        self.assertEqual(report["inventory"]["pronunciation"]["total"], 84)
+        self.assertEqual(report["inventory"]["scenario"]["exactPerLevel"]["c1"], 50)
         self.assertEqual(
             report["libraryLoader"]["pronunciationVisiblePerLearnerLevel"]["c2"],
-            72,
+            84,
         )
         self.assertEqual(
             report["libraryLoader"]["listeningInitial"]["c2"]["effectiveSourceLevel"],

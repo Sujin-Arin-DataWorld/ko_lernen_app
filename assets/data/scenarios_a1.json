@@ -20414,6 +20414,235 @@
       },
       "shelf": "a1_greet",
       "backdrop": "cafe"
+    },
+    {
+      "id": "a1_city_service_route_batch20",
+      "level": "a1",
+      "emoji": "🧭",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "station_staff",
+      "intent": "ask_for_two_locations_and_confirm_the_exit",
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "conceptIds": [
+        "concept_topic_particle"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 90,
+      "title": {
+        "ko": "우체국과 약국을 찾아요",
+        "de": "Post und Apotheke finden",
+        "en": "Finding the Post Office and Pharmacy"
+      },
+      "intro": {
+        "ko": "역 안내소에서 두 장소의 위치와 출구를 차례로 묻습니다.",
+        "de": "Am Informationsschalter fragen Sie nacheinander nach Postamt, Apotheke und Ausgang.",
+        "en": "At the station desk, you ask for the post office, pharmacy, and exit in order."
+      },
+      "grammarIds": [
+        "grammar_a1_service_location_question"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "실례합니다. 우체국은 어디에 있어요?",
+          "de": "Entschuldigung, wo ist das Postamt?",
+          "en": "Excuse me, where is the post office?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "지하철역 2번 출구 앞에 있어요.",
+          "de": "Es ist vor Ausgang 2 der U-Bahn-Station.",
+          "en": "It is in front of Exit 2 of the subway station."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 약국도 2번 출구에 있어요?",
+          "de": "Ist die Apotheke dann auch bei Ausgang 2?",
+          "en": "Is the pharmacy also near Exit 2?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "아니요. 약국은 3번 출구 옆에 있어요.",
+          "de": "Nein. Die Apotheke ist neben Ausgang 3.",
+          "en": "No. The pharmacy is next to Exit 3."
+        },
+        {
+          "speaker": "user",
+          "ko": "우체국에 먼저 가고 약국에 갈게요.",
+          "de": "Ich gehe zuerst zur Post und dann zur Apotheke.",
+          "en": "I'll go to the post office first and then the pharmacy."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "좋아요. 우체국은 여섯 시에 문을 닫아요.",
+          "de": "Gut. Das Postamt schließt um sechs Uhr.",
+          "en": "Good. The post office closes at six."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 2번 출구가 우체국이고 3번 출구가 약국이지요?",
+          "de": "Also Ausgang 2 für die Post und Ausgang 3 für die Apotheke, richtig?",
+          "en": "So Exit 2 is for the post office and Exit 3 is for the pharmacy, right?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "맞아요. 표지판도 같이 확인하세요.",
+          "de": "Genau. Achten Sie auch auf die Schilder.",
+          "en": "That is right. Check the signs too."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "우체국"
+        },
+        {
+          "korean": "약국"
+        },
+        {
+          "korean": "출구"
+        },
+        {
+          "korean": "지하철역"
+        },
+        {
+          "korean": "먼저"
+        },
+        {
+          "korean": "옆"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N은/는 어디에 있어요?",
+          "de": "N은/는 어디에 있어요?: nach einem Ort fragen",
+          "en": "N은/는 어디에 있어요?: asking where something is"
+        },
+        "explanation": {
+          "ko": "장소나 물건이 어디에 있는지 공손하게 물을 때 씁니다.",
+          "de": "Fragt höflich nach dem Standort eines Ortes oder Gegenstands.",
+          "en": "Politely asks for the location of a place or object."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_a1_city_service_route_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "audioKo": "그럼 약국도 2번 출구에 있어요?",
+            "options": [
+              {
+                "ko": "실례합니다. 우체국은 어디에 있어요?",
+                "de": "Entschuldigung, wo ist das Postamt?",
+                "en": "Excuse me, where is the post office?"
+              },
+              {
+                "ko": "그럼 약국도 2번 출구에 있어요?",
+                "de": "Ist die Apotheke dann auch bei Ausgang 2?",
+                "en": "Is the pharmacy also near Exit 2?"
+              },
+              {
+                "ko": "우체국에 먼저 가고 약국에 갈게요.",
+                "de": "Ich gehe zuerst zur Post und dann zur Apotheke.",
+                "en": "I'll go to the post office first and then the pharmacy."
+              },
+              {
+                "ko": "네, 2번 출구가 우체국이고 3번 출구가 약국이지요?",
+                "de": "Also Ausgang 2 für die Post und Ausgang 3 für die Apotheke, richtig?",
+                "en": "So Exit 2 is for the post office and Exit 3 is for the pharmacy, right?"
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_a1_city_service_route_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "promptDe": "Also Ausgang 2 für die Post und Ausgang 3 für die Apotheke, richtig?",
+            "promptEn": "So Exit 2 is for the post office and Exit 3 is for the pharmacy, right?",
+            "options": [
+              {
+                "ko": "실례합니다. 우체국은 어디에 있어요?"
+              },
+              {
+                "ko": "우체국에 먼저 가고 약국에 갈게요."
+              },
+              {
+                "ko": "네, 2번 출구가 우체국이고 3번 출구가 약국이지요?"
+              },
+              {
+                "ko": "그럼 약국도 2번 출구에 있어요?"
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_a1_city_service_route_batch20_gap",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "prefix": "우체국",
+            "suffix": " 2번 출구 앞에 있어요.",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "우체국 endet auf einen Endkonsonanten und ist hier das Gesprächsthema; deshalb steht 은.",
+            "explanationEn": "우체국 ends in a consonant and is the topic, so use 은."
+          }
+        },
+        {
+          "id": "quest_a1_city_service_route_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "targetKo": "약국은 3번 출구 옆에 있어요.",
+            "promptDe": "Die Apotheke ist neben Ausgang 3.",
+            "promptEn": "The pharmacy is next to Exit 3.",
+            "distractors": [
+              "어제",
+              "천천히"
+            ],
+            "audioKo": "약국은 3번 출구 옆에 있어요."
+          }
+        },
+        {
+          "id": "quest_a1_city_service_route_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "targetKo": "2번 출구가 우체국이고 3번 출구가 약국이지요?",
+            "audioKo": "2번 출구가 우체국이고 3번 출구가 약국이지요?",
+            "promptDe": "Ausgang 2 ist für die Post und Ausgang 3 für die Apotheke, richtig?",
+            "promptEn": "Exit 2 is for the post office and Exit 3 is for the pharmacy, right?"
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "처음 가는 장소에서는 출구 번호를 다시 말해 확인하면 길 안내의 실수를 줄일 수 있습니다.",
+        "de": "An unbekannten Orten hilft es, die Ausgangsnummer zur Bestätigung zu wiederholen.",
+        "en": "In an unfamiliar place, repeating the exit number helps confirm the directions."
+      },
+      "shelf": "a1_transit",
+      "backdrop": "station"
     }
   ]
 }

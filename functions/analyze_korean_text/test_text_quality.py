@@ -93,6 +93,19 @@ class KoreanAnalysisEndpointQualityTest(unittest.TestCase):
 
     def setUp(self):
         self.app = self.Flask(__name__)
+        # Endpoint quality tests must never reach a configured Firestore
+        # project or inherit a receipt written by an earlier local run.  Keep
+        # idempotency deterministic here; the real gate has its own contract
+        # coverage in test_security.py and test_endpoint_security.py.
+        self.receipts = mock.Mock()
+        self.receipts.claim.return_value = True
+        patcher = mock.patch.object(
+            self.endpoint,
+            "_idempotency_gate",
+            return_value=self.receipts,
+        )
+        patcher.start()
+        self.addCleanup(patcher.stop)
 
     def test_no_korean_returns_before_quota_and_language_engines(self):
         endpoint = self.endpoint

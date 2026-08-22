@@ -127,7 +127,7 @@
     {
       "id": "cluster_a1_03_topic_subject_particles_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_mart_grocery_v1",
         "seed_grammar_grammar_a1_subject_particle_v1",
@@ -143,7 +143,8 @@
         "seed_cloze_cloze_a1_0312_v1",
         "seed_cloze_cloze_a1_0313_v1",
         "seed_cloze_cloze_a1_0314_v1",
-        "seed_cloze_cloze_a1_0315_v1"
+        "seed_cloze_cloze_a1_0315_v1",
+        "seed_scenario_a1_city_service_route_batch20_v1"
       ],
       "contentReferences": [
         {
@@ -205,13 +206,17 @@
         {
           "kind": "cloze",
           "id": "cloze_a1_0315"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_city_service_route_batch20"
         }
       ]
     },
     {
       "id": "cluster_a1_04_order_request_object_v1",
       "level": "a1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_bunshik_tteokbokki_v1",
         "seed_vocab_pack_a1_food_1_v1",
@@ -236,7 +241,8 @@
         "seed_cloze_cloze_a1_0043_v1",
         "seed_cloze_cloze_a1_0044_v1",
         "seed_smalltalk_smalltalk_a1_0082_v1",
-        "seed_scenario_a1_gaming_one_more_round_v1"
+        "seed_scenario_a1_gaming_one_more_round_v1",
+        "seed_smalltalk_smalltalk_a1_0089_v1"
       ],
       "contentReferences": [
         {
@@ -334,13 +340,17 @@
         {
           "kind": "scenario",
           "id": "a1_gaming_one_more_round"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0089"
         }
       ]
     },
     {
       "id": "cluster_a1_05_numbers_time_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_numbers_1_v1",
         "seed_vocab_pack_a1_numbers_2_v1",
@@ -357,7 +367,8 @@
         "seed_scenario_a1_numbers_floor_and_room_v1",
         "seed_scenario_a1_numbers_how_many_left_v1",
         "seed_scenario_a1_numbers_open_hours_v1",
-        "seed_scenario_a1_numbers_total_price_v1"
+        "seed_scenario_a1_numbers_total_price_v1",
+        "seed_smalltalk_smalltalk_a1_0088_v1"
       ],
       "contentReferences": [
         {
@@ -423,13 +434,17 @@
         {
           "kind": "scenario",
           "id": "a1_numbers_total_price"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0088"
         }
       ]
     },
     {
       "id": "cluster_a1_06_transport_directions_v1",
       "level": "a1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_taxi_kakao_v1",
         "seed_vocab_pack_a1_position_v1",
@@ -453,7 +468,12 @@
         "seed_scenario_a1_wayfinding_exit_number_v1",
         "seed_scenario_a1_wayfinding_how_long_walk_v1",
         "seed_scenario_a1_wayfinding_sign_says_v1",
-        "seed_scenario_a1_wayfinding_this_way_right_v1"
+        "seed_scenario_a1_wayfinding_this_way_right_v1",
+        "seed_vocab_pack_a1_city_services_2026_1_v1",
+        "seed_grammar_grammar_a1_service_location_question_v1",
+        "seed_grammar_grammar_a1_service_request_v1",
+        "seed_smalltalk_smalltalk_a1_0085_v1",
+        "seed_smalltalk_smalltalk_a1_0087_v1"
       ],
       "contentReferences": [
         {
@@ -547,6 +567,26 @@
         {
           "kind": "scenario",
           "id": "a1_wayfinding_this_way_right"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_city_services_2026_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a1_service_location_question"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a1_service_request"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0085"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0087"
         }
       ]
     },
@@ -875,7 +915,7 @@
     {
       "id": "cluster_a1_10_health_safety_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_clinic_safety_v1",
         "seed_vocab_pack_a1_body_v1",
@@ -888,7 +928,8 @@
         "seed_smalltalk_smalltalk_a1_0056_v1",
         "seed_smalltalk_smalltalk_a1_0057_v1",
         "seed_smalltalk_smalltalk_a1_0058_v1",
-        "seed_vocab_pack_a1_pharmacy_ask_1_v1"
+        "seed_vocab_pack_a1_pharmacy_ask_1_v1",
+        "seed_smalltalk_smalltalk_a1_0086_v1"
       ],
       "contentReferences": [
         {
@@ -938,6 +979,10 @@
         {
           "kind": "vocabPack",
           "id": "a1_pharmacy_ask_1"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0086"
         }
       ]
     },
@@ -1208,7 +1253,7 @@
     {
       "id": "cluster_a1_12_daily_negation_v1",
       "level": "a1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_vocab_pack_a1_daily_1_v1",
         "seed_vocab_pack_a1_daily_2_v1",
@@ -1233,7 +1278,8 @@
         "seed_cloze_cloze_a1_0078_v1",
         "seed_cloze_cloze_a1_0097_v1",
         "seed_smalltalk_smalltalk_a1_0081_v1",
-        "seed_scenario_a1_youtube_shorts_last_night_v1"
+        "seed_scenario_a1_youtube_shorts_last_night_v1",
+        "seed_smalltalk_smalltalk_a1_0090_v1"
       ],
       "contentReferences": [
         {
@@ -1331,6 +1377,10 @@
         {
           "kind": "scenario",
           "id": "a1_youtube_shorts_last_night"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0090"
         }
       ]
     },
@@ -1788,7 +1838,7 @@
     {
       "id": "cluster_a2_haeyo_register_transition_v1",
       "level": "a2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_vocab_pack_a2_change_verbs_1_v1",
         "seed_vocab_pack_a2_daily_1_v1",
@@ -1821,7 +1871,8 @@
         "seed_cloze_cloze_a2_0059_v1",
         "seed_cloze_cloze_a2_0060_v1",
         "seed_cloze_cloze_a2_0061_v1",
-        "seed_scenario_a2_kpop_concert_queue_v1"
+        "seed_scenario_a2_kpop_concert_queue_v1",
+        "seed_scenario_a2_flat_viewing_terms_batch20_v1"
       ],
       "contentReferences": [
         {
@@ -1951,6 +2002,10 @@
         {
           "kind": "scenario",
           "id": "a2_kpop_concert_queue"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_flat_viewing_terms_batch20"
         }
       ]
     },
@@ -3458,7 +3513,7 @@
     {
       "id": "cluster_a2_rent_bank_transfer_v1",
       "level": "a2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_rent_bank_transfer_v1",
         "seed_vocab_pack_a2_home_1_v1",
@@ -3482,7 +3537,16 @@
         "seed_cloze_cloze_a2_0074_v1",
         "seed_cloze_cloze_a2_0075_v1",
         "seed_vocab_pack_a2_apt_rules_1_v1",
-        "seed_vocab_pack_a2_bank_counter_1_v1"
+        "seed_vocab_pack_a2_bank_counter_1_v1",
+        "seed_vocab_pack_a2_housing_search_2026_1_v1",
+        "seed_grammar_grammar_a2_permission_check_batch20_v1",
+        "seed_grammar_grammar_a2_preference_soft_batch20_v1",
+        "seed_smalltalk_smalltalk_a2_0078_v1",
+        "seed_smalltalk_smalltalk_a2_0079_v1",
+        "seed_smalltalk_smalltalk_a2_0080_v1",
+        "seed_smalltalk_smalltalk_a2_0081_v1",
+        "seed_smalltalk_smalltalk_a2_0082_v1",
+        "seed_smalltalk_smalltalk_a2_0083_v1"
       ],
       "contentReferences": [
         {
@@ -3576,13 +3640,49 @@
         {
           "kind": "vocabPack",
           "id": "a2_bank_counter_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_housing_search_2026_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_permission_check_batch20"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_preference_soft_batch20"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0078"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0079"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0080"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0081"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0082"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0083"
         }
       ]
     },
     {
       "id": "cluster_b1_plans_with_reasons_v1",
       "level": "b1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_postpone_plans_v1",
         "seed_vocab_pack_b1_city_places_1_v1",
@@ -3650,7 +3750,8 @@
         "seed_cloze_cloze_b1_0055_v1",
         "seed_vocab_pack_b1_travel_change_1_v1",
         "seed_smalltalk_smalltalk_b1_0072_v1",
-        "seed_scenario_b1_youtube_up_all_night_v1"
+        "seed_scenario_b1_youtube_up_all_night_v1",
+        "seed_scenario_b1_job_offer_conditions_batch20_v1"
       ],
       "contentReferences": [
         {
@@ -3920,6 +4021,10 @@
         {
           "kind": "scenario",
           "id": "b1_youtube_up_all_night"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_job_offer_conditions_batch20"
         }
       ]
     },
@@ -4167,7 +4272,7 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_scenario_b1_team_meeting_coordination_v1",
         "seed_vocab_pack_b1_work_v1",
@@ -4211,7 +4316,16 @@
         "seed_vocab_pack_b1_work_softening_1_v1",
         "seed_grammar_grammar_b1_reason_context_v1",
         "seed_grammar_grammar_b1_soft_request_batch19_v1",
-        "seed_scenario_b1_work_deadline_soft_request_v1"
+        "seed_scenario_b1_work_deadline_soft_request_v1",
+        "seed_vocab_pack_b1_work_entry_2026_1_v1",
+        "seed_grammar_grammar_b1_conceded_context_batch20_v1",
+        "seed_grammar_grammar_b1_tentative_plan_batch20_v1",
+        "seed_smalltalk_smalltalk_b1_0073_v1",
+        "seed_smalltalk_smalltalk_b1_0074_v1",
+        "seed_smalltalk_smalltalk_b1_0075_v1",
+        "seed_smalltalk_smalltalk_b1_0076_v1",
+        "seed_smalltalk_smalltalk_b1_0077_v1",
+        "seed_smalltalk_smalltalk_b1_0078_v1"
       ],
       "contentReferences": [
         {
@@ -4385,6 +4499,42 @@
         {
           "kind": "scenario",
           "id": "b1_work_deadline_soft_request"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_work_entry_2026_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_conceded_context_batch20"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_tentative_plan_batch20"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0073"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0074"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0075"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0076"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0077"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b1_0078"
         }
       ]
     },
@@ -5254,7 +5404,7 @@
     {
       "id": "cluster_b2_formal_meeting_opening_v1",
       "level": "b2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_business_meeting_intro_v1",
         "seed_vocab_pack_b2_communication_v1",
@@ -5264,7 +5414,8 @@
         "seed_smalltalk_smalltalk_b2_0041_v1",
         "seed_smalltalk_smalltalk_b2_0042_v1",
         "seed_smalltalk_smalltalk_b2_0100_v1",
-        "seed_scenario_b2_youtube_collab_pitch_v1"
+        "seed_scenario_b2_youtube_collab_pitch_v1",
+        "seed_scenario_b2_rent_increase_meeting_batch20_v1"
       ],
       "contentReferences": [
         {
@@ -5302,6 +5453,10 @@
         {
           "kind": "scenario",
           "id": "b2_youtube_collab_pitch"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_rent_increase_meeting_batch20"
         }
       ]
     },
@@ -5322,7 +5477,7 @@
     {
       "id": "cluster_b2_decision_criteria_v1",
       "level": "b2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_b2_decision_criteria_workshop_v1",
         "seed_vocab_pack_b2_decisions_perspectives_1_v1",
@@ -5424,7 +5579,13 @@
         "seed_smalltalk_smalltalk_b2_0112_v1",
         "seed_cloze_cloze_b2_0368_v1",
         "seed_cloze_cloze_b2_0369_v1",
-        "seed_cloze_cloze_b2_0370_v1"
+        "seed_cloze_cloze_b2_0370_v1",
+        "seed_vocab_pack_b2_housing_migration_2026_1_v1",
+        "seed_grammar_grammar_b2_considering_fact_batch20_v1",
+        "seed_grammar_grammar_b2_criterion_view_batch20_v1",
+        "seed_smalltalk_smalltalk_b2_0114_v1",
+        "seed_smalltalk_smalltalk_b2_0117_v1",
+        "seed_smalltalk_smalltalk_b2_0118_v1"
       ],
       "contentReferences": [
         {
@@ -5830,6 +5991,30 @@
         {
           "kind": "cloze",
           "id": "cloze_b2_0370"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b2_housing_migration_2026_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_considering_fact_batch20"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_criterion_view_batch20"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0114"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0117"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0118"
         }
       ]
     },
@@ -6742,7 +6927,7 @@
     {
       "id": "cluster_b2_interview_experience_v1",
       "level": "b2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_scenario_job_interview_v1",
         "seed_vocab_pack_b2_relationships_people_1_v1",
@@ -6774,7 +6959,8 @@
         "seed_smalltalk_smalltalk_b2_0110_v1",
         "seed_cloze_cloze_b2_0365_v1",
         "seed_cloze_cloze_b2_0366_v1",
-        "seed_cloze_cloze_b2_0367_v1"
+        "seed_cloze_cloze_b2_0367_v1",
+        "seed_smalltalk_smalltalk_b2_0116_v1"
       ],
       "contentReferences": [
         {
@@ -6900,6 +7086,10 @@
         {
           "kind": "cloze",
           "id": "cloze_b2_0367"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0116"
         }
       ]
     },
@@ -6985,7 +7175,7 @@
     {
       "id": "cluster_b2_formal_soft_reformulation_v1",
       "level": "b2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_grammar_grammar_b2_only_course_v1",
         "seed_vocab_pack_b2_misc_v1",
@@ -7040,7 +7230,9 @@
         "seed_smalltalk_smalltalk_b2_0109_v1",
         "seed_cloze_cloze_b2_0371_v1",
         "seed_cloze_cloze_b2_0372_v1",
-        "seed_cloze_cloze_b2_0373_v1"
+        "seed_cloze_cloze_b2_0373_v1",
+        "seed_smalltalk_smalltalk_b2_0113_v1",
+        "seed_smalltalk_smalltalk_b2_0115_v1"
       ],
       "contentReferences": [
         {
@@ -7258,13 +7450,21 @@
         {
           "kind": "cloze",
           "id": "cloze_b2_0373"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0113"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0115"
         }
       ]
     },
     {
       "id": "cluster_c1_evidence_validity_v1",
       "level": "c1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -7314,7 +7514,8 @@
         "seed_satz_satz_c1_0228_v1",
         "seed_smalltalk_smalltalk_c1_0059_v1",
         "seed_smalltalk_smalltalk_c1_0060_v1",
-        "seed_smalltalk_smalltalk_c1_0061_v1"
+        "seed_smalltalk_smalltalk_c1_0061_v1",
+        "seed_smalltalk_smalltalk_c1_0075_v1"
       ],
       "contentReferences": [
         {
@@ -7568,13 +7769,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0061"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0075"
         }
       ]
     },
     {
       "id": "cluster_c1_evidence_limits_conclusion_v1",
       "level": "c1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -7712,7 +7917,26 @@
         "seed_smalltalk_smalltalk_c1_0066_v1",
         "seed_smalltalk_smalltalk_c1_0067_v1",
         "seed_smalltalk_smalltalk_c1_0068_v1",
-        "seed_smalltalk_smalltalk_c1_0069_v1"
+        "seed_smalltalk_smalltalk_c1_0069_v1",
+        "seed_vocab_pack_c1_ai_culture_labor_2026_1_v1",
+        "seed_grammar_grammar_c1_burden_recipient_batch20_v1",
+        "seed_grammar_grammar_c1_difficult_to_conclude_batch20_v1",
+        "seed_scenario_c1_ai_labeling_policy_batch20_v1",
+        "seed_smalltalk_smalltalk_c1_0072_v1",
+        "seed_smalltalk_smalltalk_c1_0073_v1",
+        "seed_smalltalk_smalltalk_c1_0074_v1",
+        "seed_cloze_cloze_c1_0245_v1",
+        "seed_cloze_cloze_c1_0246_v1",
+        "seed_cloze_cloze_c1_0247_v1",
+        "seed_cloze_cloze_c1_0248_v1",
+        "seed_cloze_cloze_c1_0249_v1",
+        "seed_cloze_cloze_c1_0250_v1",
+        "seed_satz_satz_c1_0247_v1",
+        "seed_satz_satz_c1_0248_v1",
+        "seed_satz_satz_c1_0249_v1",
+        "seed_satz_satz_c1_0250_v1",
+        "seed_satz_satz_c1_0251_v1",
+        "seed_satz_satz_c1_0252_v1"
       ],
       "contentReferences": [
         {
@@ -8318,6 +8542,82 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0069"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_ai_culture_labor_2026_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_burden_recipient_batch20"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_difficult_to_conclude_batch20"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_ai_labeling_policy_batch20"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0072"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0073"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0074"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0245"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0246"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0247"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0248"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0249"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0250"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0247"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0248"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0249"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0250"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0251"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0252"
         }
       ]
     },
@@ -9415,7 +9715,7 @@
     {
       "id": "cluster_c1_sustainable_lifecycle_v1",
       "level": "c1",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -9464,7 +9764,9 @@
         "seed_satz_satz_c1_0233_v1",
         "seed_satz_satz_c1_0234_v1",
         "seed_smalltalk_smalltalk_c1_0053_v1",
-        "seed_smalltalk_smalltalk_c1_0054_v1"
+        "seed_smalltalk_smalltalk_c1_0054_v1",
+        "seed_smalltalk_smalltalk_c1_0076_v1",
+        "seed_smalltalk_smalltalk_c1_0077_v1"
       ],
       "contentReferences": [
         {
@@ -9722,6 +10024,14 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c1_0054"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0076"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0077"
         }
       ]
     },
@@ -11882,7 +12192,7 @@
     {
       "id": "cluster_c2_framing_responsibility_v1",
       "level": "c2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
@@ -11939,7 +12249,25 @@
         "seed_smalltalk_smalltalk_c2_0048_v1",
         "seed_smalltalk_smalltalk_c2_0049_v1",
         "seed_smalltalk_smalltalk_c2_0050_v1",
-        "seed_smalltalk_smalltalk_c2_0062_v1"
+        "seed_smalltalk_smalltalk_c2_0062_v1",
+        "seed_vocab_pack_c2_demography_accountability_2026_1_v1",
+        "seed_grammar_grammar_c2_no_reduction_batch20_v1",
+        "seed_grammar_grammar_c2_premise_review_batch20_v1",
+        "seed_smalltalk_smalltalk_c2_0073_v1",
+        "seed_smalltalk_smalltalk_c2_0074_v1",
+        "seed_smalltalk_smalltalk_c2_0076_v1",
+        "seed_cloze_cloze_c2_0245_v1",
+        "seed_cloze_cloze_c2_0246_v1",
+        "seed_cloze_cloze_c2_0247_v1",
+        "seed_cloze_cloze_c2_0248_v1",
+        "seed_cloze_cloze_c2_0249_v1",
+        "seed_cloze_cloze_c2_0250_v1",
+        "seed_satz_satz_c2_0247_v1",
+        "seed_satz_satz_c2_0248_v1",
+        "seed_satz_satz_c2_0249_v1",
+        "seed_satz_satz_c2_0250_v1",
+        "seed_satz_satz_c2_0251_v1",
+        "seed_satz_satz_c2_0252_v1"
       ],
       "contentReferences": [
         {
@@ -12221,6 +12549,78 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0062"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_demography_accountability_2026_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_no_reduction_batch20"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_premise_review_batch20"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0073"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0074"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0076"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0245"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0246"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0247"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0248"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0249"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0250"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0247"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0248"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0249"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0250"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0251"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0252"
         }
       ]
     },
@@ -12532,7 +12932,7 @@
     {
       "id": "cluster_c2_technology_traceability_appeal_v1",
       "level": "c2",
-      "revision": 7,
+      "revision": 8,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
@@ -12696,7 +13096,8 @@
         "seed_smalltalk_smalltalk_c2_0060_v1",
         "seed_smalltalk_smalltalk_c2_0061_v1",
         "seed_smalltalk_smalltalk_c2_0063_v1",
-        "seed_smalltalk_smalltalk_c2_0064_v1"
+        "seed_smalltalk_smalltalk_c2_0064_v1",
+        "seed_scenario_c2_automated_redress_record_batch20_v1"
       ],
       "contentReferences": [
         {
@@ -13414,13 +13815,17 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0064"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_automated_redress_record_batch20"
         }
       ]
     },
     {
       "id": "cluster_c2_technology_responsibility_rights_v1",
       "level": "c2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
@@ -13475,7 +13880,10 @@
         "seed_smalltalk_smalltalk_c2_0067_v1",
         "seed_smalltalk_smalltalk_c2_0068_v1",
         "seed_smalltalk_smalltalk_c2_0069_v1",
-        "seed_smalltalk_smalltalk_c2_0070_v1"
+        "seed_smalltalk_smalltalk_c2_0070_v1",
+        "seed_smalltalk_smalltalk_c2_0071_v1",
+        "seed_smalltalk_smalltalk_c2_0072_v1",
+        "seed_smalltalk_smalltalk_c2_0075_v1"
       ],
       "contentReferences": [
         {
@@ -13757,6 +14165,18 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0070"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0071"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0072"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0075"
         }
       ]
     }

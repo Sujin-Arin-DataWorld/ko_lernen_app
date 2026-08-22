@@ -21,10 +21,13 @@ PDF, OCR, 표 또는 Library 페이지 판독이 선행되는 작업은 먼저
 [`reference_intake/README.md`](reference_intake/README.md)를 따른다. source 원문은 draft로
 넘기지 않으며, `validate_reference_intake.py`가 격리 CSV와 live ID 연결을 검사한다.
 
-> **2026-08-15 live baseline.** Batch 01–04와 B2/C1/C2 Batch 05는 Jin 승인 뒤
-> `assets/data/`에 이미 승격됐다. 다음 작성 번호는 Batch 06이며 새
+> **2026-08-22 live baseline.** Batch 01–20은 승인 계보와 함께
+> `assets/data/`에 이미 승격됐다. 다음 작성 번호는 Batch 21이며 새
 > manifest/draft/review로 시작한다. 새 vocab·grammar·smalltalk·Cloze·Satz에는
 > `apply_review.py` 단독 append가 아니라 아래의 multi-asset 통합기를 사용한다.
+> `audit_batch_live_promotion.py --check`는 6,265/6,265 Batch 추적 ID와 현재
+> 라이브 투영 지문을, `audit_game_loader_coverage.py --check`는 실제 Dart
+> 로더·코스·게임 노출을 검사한다.
 
 > **신규 작성자는 먼저 [`docs/CONTENT_AUTHORING_GUIDE.md`](../../docs/CONTENT_AUTHORING_GUIDE.md)를
 > 전부 읽는다.** 이 문서는 KO/DE/EN 병기, 모든 draft 열·JSON field, Batch 01 고정
@@ -48,6 +51,11 @@ python3 tools/content_factory/audit_game_loader_coverage.py
 python3 tools/content_factory/audit_game_loader_coverage.py \
   --manifest tools/content_factory/drafts/batch_XX_manifest.json
 
+# 모든 과거 Batch의 draft/review ID, 승인 계보, 현재 live record와 보조 게임 키를
+# 확인하고 현재 투영 SHA-256 원장을 재생성한다.
+python3 tools/content_factory/audit_batch_live_promotion.py --check \
+  --output tools/content_factory/review/batch_live_projection_20260822.json
+
 # review-only batch의 schema, review projection, companion mapping, 이전 미병합
 # batch 예약, 그리고 disposable app-data overlay를 모두 검사한다. 어떤 source도 쓰지 않는다.
 python3 tools/content_factory/validate_review_batch.py \
@@ -56,7 +64,7 @@ python3 tools/content_factory/validate_review_batch.py \
 # 이미 merged 된 batch는 반대쪽 게이트를 쓴다. scenario/발음 포함
 # cross-game bundle도 여기로 검사한다. 라이브 자산과 승인 원장을 대조한다.
 python3 tools/content_factory/validate_promoted_batch.py \
-  --manifest tools/content_factory/drafts/batch_06_manifest.json
+  --manifest tools/content_factory/drafts/batch_20_manifest.json
 
 # 기본값: preview만. 파일을 쓰지 않는다.
 python3 tools/content_factory/apply_review.py \

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""레벨별 15칸 서재(책가도)의 칸 정의와 live 404개 배정.
+"""레벨별 15칸 서재(책가도)의 칸 정의와 live 413개 배정.
 
 정본은 docs/superpowers/specs/2026-08-17-hoeren-shelf-per-level-design.md 의
 §4(축 설계)와 부록 A(전수 배정)다.  단 §4.2 관심 3칸은 2026-08-17 Jin 결정으로
@@ -79,8 +79,7 @@ ALL_SHELVES: frozenset[str] = frozenset(
     f"{level}_{slug}" for level in LEVELS for slug in SHELF_SLUGS[level]
 )
 
-# 부록 A — live 404 전수 배정
-# (264 + 11:36 + 13:12 + 14:28 + 15:28 + 16:24 + 17:12).
+# 부록 A를 확장한 현재 live 413 전수 배정.
 # 90칸 전부 재고가 있다 — 서재가 처음으로 완전히 찼다.: 칸의 **존재**는 ALL_SHELVES 가, 칸의 **재고**는 이 표가 말한다.
 ASSIGNMENT: dict[str, tuple[str, ...]] = {
     "a1_transit": (
@@ -143,6 +142,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "a1_wayfinding_how_long_walk",
         "a1_wayfinding_sign_says",
         "a1_wayfinding_this_way_right",
+        "a1_city_service_route_batch20",
     ),
     "a1_friends": (
         "a1_friends_major_and_number", "a1_gaming_one_more_round",
@@ -180,7 +180,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "a2_apt": (
         "a2_apt_sticker", "a2_guest_pass", "a2_quiet_ten", "a2_recycle_box",
-        "a2_contract_read",
+        "a2_contract_read", "a2_flat_viewing_terms_batch20",
     ),
     "a2_work": (
         "a2_handover_note", "a2_manager_leave", "a2_office_badge",
@@ -279,6 +279,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b1_followup_mail", "b1_mail_cc", "b1_missing_file",
         "b1_volunteer_gap", "company_dinner_hoeshik",
         "b1_work_deadline_soft_request",
+        "b1_job_offer_conditions_batch20",
     ),
     "b1_neighbor": (
         "b1_guest_notice", "b1_laundry_turn", "b1_quiet_exam",
@@ -321,6 +322,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b2_contract_clause_inquiry", "b2_signature_scope_confirmation",
         "b2_hotel_clause", "b2_vacate_short", "b2_case_id",
         "b2_moving_rent_heating_budget",
+        "b2_rent_increase_meeting_batch20",
     ),
     "b2_notice": (
         "b2_certified_mail", "b2_objection_status_request",
@@ -396,6 +398,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c1_policy_who_bears_cost",
         "c1_moving_rent_relief_roundtable",
         "c1_work_ai_hiring_pilot_review",
+        "c1_ai_labeling_policy_batch20",
     ),
     "c1_clinical": (
         "c1_clinical_data_reuse",
@@ -441,6 +444,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "c2_appeal_bot", "c2_automated_decision_appeal",
         "c2_daily_automation_redress",
         "c2_work_ai_accountability_board",
+        "c2_automated_redress_record_batch20",
     ),
     "c2_record": (
         "c2_archive_gap", "c2_trace_log",

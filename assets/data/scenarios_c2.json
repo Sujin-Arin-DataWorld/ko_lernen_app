@@ -9526,6 +9526,234 @@
       },
       "shelf": "c2_fandom",
       "backdrop": "office"
+    },
+    {
+      "id": "c2_automated_redress_record_batch20",
+      "level": "c2",
+      "emoji": "⚖️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "independent_audit_team",
+      "intent": "audit_whether_automated_redress_is_effective",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "자동 결정의 이의 제기 기록을 감사해요",
+        "de": "Einspruchsakten automatischer Entscheidungen prüfen",
+        "en": "Auditing Appeal Records for Automated Decisions"
+      },
+      "intro": {
+        "ko": "감사팀이 통지 이해 시점, 책임 소재, 집행 정지와 재검토 권한을 분리해 기록합니다.",
+        "de": "Ein Auditteam trennt verständliche Mitteilung, Verantwortungszuordnung, aufschiebende Wirkung und Prüfbefugnis.",
+        "en": "An audit team records understandable notice, responsibility, suspension, and review authority separately."
+      },
+      "grammarIds": [
+        "grammar_c2_premise_review_batch20"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "통계에는 이의 제기 접수일만 있고 통지를 이해한 시점은 없습니다.",
+          "de": "Die Statistik enthält nur den Eingang des Einspruchs, nicht den Zeitpunkt verständlicher Mitteilung.",
+          "en": "The data records only when the appeal was filed, not when the notice became understandable."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그렇다면 기한 준수율을 그대로 비교하기 어렵습니다.",
+          "de": "Dann lässt sich die Einhaltung der Frist nicht unverändert vergleichen.",
+          "en": "Then deadline compliance cannot be compared as-is."
+        },
+        {
+          "speaker": "user",
+          "ko": "모든 통지가 이해 가능했다는 전제하에 검토하면 오류가 생깁니다.",
+          "de": "Eine Prüfung unter der Annahme, alle Mitteilungen seien verständlich gewesen, wäre fehlerhaft.",
+          "en": "Reviewing under the premise that every notice was understandable would create error."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "쉬운 말과 번역 제공 여부를 별도 변수로 추가하겠습니다.",
+          "de": "Wir ergänzen leicht verständliche Sprache und Übersetzungsangebot als eigene Variablen.",
+          "en": "We will add plain language and translation availability as separate variables."
+        },
+        {
+          "speaker": "user",
+          "ko": "자동 제재의 집행이 이의 제기 중에 멈췄는지도 확인해야 합니다.",
+          "de": "Wir müssen auch prüfen, ob die automatische Sanktion während des Einspruchs ausgesetzt wurde.",
+          "en": "We also need to check whether the automated sanction paused during the appeal."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "설계자, 운영 기관과 최종 결정자의 책임도 분리해 기록하겠습니다.",
+          "de": "Wir dokumentieren außerdem die Verantwortung von Entwicklung, Betrieb und endgültiger Entscheidung getrennt.",
+          "en": "We will also record responsibility separately for design, operation, and the final decision."
+        },
+        {
+          "speaker": "user",
+          "ko": "재검토자가 원결정을 바꿀 권한이 없으면 구제 절차라고 보기 어렵습니다.",
+          "de": "Ohne Befugnis zur Änderung der ursprünglichen Entscheidung ist das kaum ein wirksamer Rechtsbehelf.",
+          "en": "If the reviewer cannot change the original decision, it is hard to call the process effective redress."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "권한, 처리 기한과 결과 통지까지 감사 항목에 넣겠습니다.",
+          "de": "Wir nehmen Befugnis, Bearbeitungsfrist und Ergebnismitteilung in den Auditumfang auf.",
+          "en": "We will include authority, response time, and outcome notice in the audit."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "이의 제기"
+        },
+        {
+          "korean": "자동 제재"
+        },
+        {
+          "korean": "제도적 구제"
+        },
+        {
+          "korean": "책임 소재"
+        },
+        {
+          "korean": "집행 정지"
+        },
+        {
+          "korean": "재검토 권한"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N이라는 전제하에 검토하다",
+          "de": "N이라는 전제하에 검토하다: eine Prämisse offenlegen und prüfen",
+          "en": "N이라는 전제하에 검토하다: reviewing under an explicit premise"
+        },
+        "explanation": {
+          "ko": "판단이 성립하는 전제를 드러내 그 전제 자체도 검토할 수 있게 합니다.",
+          "de": "Benennt die Annahme, unter der eine Bewertung erfolgt, damit auch die Annahme selbst überprüfbar bleibt.",
+          "en": "Names the assumption under which an evaluation is made so the premise itself remains open to review."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c2_automated_redress_record_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "audioKo": "모든 통지가 이해 가능했다는 전제하에 검토하면 오류가 생깁니다.",
+            "options": [
+              {
+                "ko": "통계에는 이의 제기 접수일만 있고 통지를 이해한 시점은 없습니다.",
+                "de": "Die Statistik enthält nur den Eingang des Einspruchs, nicht den Zeitpunkt verständlicher Mitteilung.",
+                "en": "The data records only when the appeal was filed, not when the notice became understandable."
+              },
+              {
+                "ko": "모든 통지가 이해 가능했다는 전제하에 검토하면 오류가 생깁니다.",
+                "de": "Eine Prüfung unter der Annahme, alle Mitteilungen seien verständlich gewesen, wäre fehlerhaft.",
+                "en": "Reviewing under the premise that every notice was understandable would create error."
+              },
+              {
+                "ko": "자동 제재의 집행이 이의 제기 중에 멈췄는지도 확인해야 합니다.",
+                "de": "Wir müssen auch prüfen, ob die automatische Sanktion während des Einspruchs ausgesetzt wurde.",
+                "en": "We also need to check whether the automated sanction paused during the appeal."
+              },
+              {
+                "ko": "재검토자가 원결정을 바꿀 권한이 없으면 구제 절차라고 보기 어렵습니다.",
+                "de": "Ohne Befugnis zur Änderung der ursprünglichen Entscheidung ist das kaum ein wirksamer Rechtsbehelf.",
+                "en": "If the reviewer cannot change the original decision, it is hard to call the process effective redress."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c2_automated_redress_record_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "promptDe": "Ohne Befugnis zur Änderung der ursprünglichen Entscheidung ist das kaum ein wirksamer Rechtsbehelf.",
+            "promptEn": "If the reviewer cannot change the original decision, it is hard to call the process effective redress.",
+            "options": [
+              {
+                "ko": "통계에는 이의 제기 접수일만 있고 통지를 이해한 시점은 없습니다."
+              },
+              {
+                "ko": "자동 제재의 집행이 이의 제기 중에 멈췄는지도 확인해야 합니다."
+              },
+              {
+                "ko": "재검토자가 원결정을 바꿀 권한이 없으면 구제 절차라고 보기 어렵습니다."
+              },
+              {
+                "ko": "모든 통지가 이해 가능했다는 전제하에 검토하면 오류가 생깁니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c2_automated_redress_record_batch20_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "sentence": "모든 통지가 이해 가능했다는 ___ 검토하면 오류가 생깁니다.",
+            "options": [
+              "전제하에",
+              "불문하고",
+              "이유만으로",
+              "그치는"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "N이라는 전제하에 검토하다 legt die Annahme offen, unter der die Prüfung stattfindet.",
+            "explanationEn": "N이라는 전제하에 검토하다 makes the premise of the review explicit."
+          }
+        },
+        {
+          "id": "quest_c2_automated_redress_record_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "targetKo": "설계자와 운영 기관의 책임 소재를 분리해 기록해야 합니다.",
+            "promptDe": "Die Verantwortung von Entwicklung und Betrieb muss getrennt dokumentiert werden.",
+            "promptEn": "Responsibility for design and operation must be documented separately.",
+            "distractors": [
+              "형식적으로",
+              "자의적으로"
+            ],
+            "audioKo": "설계자와 운영 기관의 책임 소재를 분리해 기록해야 합니다."
+          }
+        },
+        {
+          "id": "quest_c2_automated_redress_record_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "targetKo": "권한, 처리 기한과 결과 통지까지 감사 항목에 넣겠습니다.",
+            "audioKo": "권한, 처리 기한과 결과 통지까지 감사 항목에 넣겠습니다.",
+            "promptDe": "Wir nehmen Befugnis, Bearbeitungsfrist und Ergebnismitteilung in den Auditumfang auf.",
+            "promptEn": "We will include authority, response time, and outcome notice in the audit."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "구제 절차의 존재와 실효성은 다릅니다. 이해 가능한 통지, 접근 가능성, 재검토 권한과 집행 효과를 각각 확인합니다.",
+        "de": "Existenz und Wirksamkeit eines Rechtsbehelfs sind verschieden. Verständliche Mitteilung, Zugang, Prüfbefugnis und Vollzugswirkung werden getrennt geprüft.",
+        "en": "The existence and effectiveness of redress differ. Check understandable notice, access, review authority, and enforcement effects separately."
+      },
+      "shelf": "c2_automation",
+      "backdrop": "office"
     }
   ]
 }

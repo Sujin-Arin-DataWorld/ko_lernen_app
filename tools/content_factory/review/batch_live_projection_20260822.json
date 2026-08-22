@@ -1,0 +1,350 @@
+{
+  "version": 2,
+  "scope": "all tools/content_factory/drafts/batch*manifest.json files",
+  "trackedIds": 6265,
+  "liveIds": 6265,
+  "reports": [
+    {
+      "manifest": "batch_01_manifest.json",
+      "batch": "01",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 96,
+      "live": 96,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 96
+      },
+      "liveProjectionSha256": "ffae59e5d7b2398ba7cd821e9a7adca7a9b34e672d8cd77639ba8a875fbc98bd"
+    },
+    {
+      "manifest": "batch_02_manifest.json",
+      "batch": "02",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 96,
+      "live": 96,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 96
+      },
+      "liveProjectionSha256": "8b1a58e01453f3579e54314540634390e2eacc3c12c7f95e7d20d98bd75c0d85"
+    },
+    {
+      "manifest": "batch_03_manifest.json",
+      "batch": "03",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 126,
+      "live": 126,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 126
+      },
+      "liveProjectionSha256": "ebb341eec01cefb8c54865a15e5b039a9d84c1a03bf3c0ba0e045349bc1a864c"
+    },
+    {
+      "manifest": "batch_04_manifest.json",
+      "batch": "04",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 16,
+      "live": 16,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 16
+      },
+      "liveProjectionSha256": "e79d583a7d0b120c51ff8d4273d9f25397a981f10c48ddc0fa08b9acb6477a29"
+    },
+    {
+      "manifest": "batch_05_manifest.json",
+      "batch": "05",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 504,
+      "live": 504,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 504
+      },
+      "liveProjectionSha256": "b3d8a0f5f6ad5616ab68288df2e94e33c21cb4beefec6710a8904479ccf5ab70"
+    },
+    {
+      "manifest": "batch_06_manifest.json",
+      "batch": "06",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 68,
+      "live": 68,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 68
+      },
+      "liveProjectionSha256": "0d23562d98b5396a0502f899383e7451790cd9f6ea3dbd6db305704a35eba40d"
+    },
+    {
+      "manifest": "batch_07_4x_manifest.json",
+      "batch": "07",
+      "manifestStatus": "superseded",
+      "auditStatus": "superseded",
+      "tracked": 0,
+      "live": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "manifest": "batch_07_manifest.json",
+      "batch": "07",
+      "manifestStatus": "index",
+      "auditStatus": "index",
+      "tracked": 0,
+      "live": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "manifest": "batch_07_partner_family_manifest.json",
+      "batch": "07",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 1374,
+      "live": 1374,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 1374
+      },
+      "liveProjectionSha256": "857b27c03e340dba3de509109554ebbb0604dadc54deb2723559d9e10c6cb7bb"
+    },
+    {
+      "manifest": "batch_08_4x_manifest.json",
+      "batch": "08",
+      "manifestStatus": "superseded",
+      "auditStatus": "superseded",
+      "tracked": 0,
+      "live": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "manifest": "batch_08_manifest.json",
+      "batch": "08",
+      "manifestStatus": "index",
+      "auditStatus": "index",
+      "tracked": 0,
+      "live": 0,
+      "missing": [],
+      "errors": []
+    },
+    {
+      "manifest": "batch_08_partner_family_manifest.json",
+      "batch": "08",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 28,
+      "live": 28,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 28
+      },
+      "liveProjectionSha256": "96244527659750828fe84f2196cccff161566a7baf4306e7e82eb5f9de66f558"
+    },
+    {
+      "manifest": "batch_09_4x_manifest.json",
+      "batch": "09",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 1764,
+      "live": 1764,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 1764
+      },
+      "liveProjectionSha256": "440106dd0d79024e646730d93e9e4f3f072b620fc7ef33d025db85461eb50123"
+    },
+    {
+      "manifest": "batch_10_4x_manifest.json",
+      "batch": "10",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 814,
+      "live": 814,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 814
+      },
+      "liveProjectionSha256": "77c0a2f57204be48829745b5c1e30927745af64be841cffcf9a1fa9d7ae474f3"
+    },
+    {
+      "manifest": "batch_11_manifest.json",
+      "batch": "11",
+      "manifestStatus": "review_only_draft",
+      "auditStatus": "live_verified_legacy_authorized",
+      "tracked": 36,
+      "live": 36,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "legacy_promoted_at",
+      "reviewStatuses": {
+        "draft": 36
+      },
+      "liveProjectionSha256": "a0bc29fd39756388d77cbebf4e8f285c54913b3620a1ff4ded4b39e995b09157"
+    },
+    {
+      "manifest": "batch_12_manifest.json",
+      "batch": "12",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 312,
+      "live": 312,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 312
+      },
+      "liveProjectionSha256": "8581a0d8e2b145ab3510eecdb100411e56c303c35a0dd593ee452d6c96c1452b"
+    },
+    {
+      "manifest": "batch_13_manifest.json",
+      "batch": "13",
+      "manifestStatus": "review_only_draft",
+      "auditStatus": "live_verified_legacy_authorized",
+      "tracked": 12,
+      "live": 12,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "legacy_promoted_at",
+      "reviewStatuses": {
+        "draft": 12
+      },
+      "liveProjectionSha256": "057b1bda2c16f92582989df4cff4b60ce3663bbfeb2f736a734597295c7f9175"
+    },
+    {
+      "manifest": "batch_14_manifest.json",
+      "batch": "14",
+      "manifestStatus": "review_only_draft",
+      "auditStatus": "live_verified_legacy_authorized",
+      "tracked": 28,
+      "live": 28,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "legacy_promoted_at",
+      "reviewStatuses": {
+        "draft": 28
+      },
+      "liveProjectionSha256": "2bb9894a3109c8a7836f3f240be5c0843677edce6bbda80440fa44866082d228"
+    },
+    {
+      "manifest": "batch_15_manifest.json",
+      "batch": "15",
+      "manifestStatus": "review_only_draft",
+      "auditStatus": "live_verified_legacy_authorized",
+      "tracked": 28,
+      "live": 28,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "legacy_promoted_at",
+      "reviewStatuses": {
+        "draft": 28
+      },
+      "liveProjectionSha256": "d3fb425d6f2781e379a7b248631c1c4ff86157c3cdb5c8bd2046d8567c9ab387"
+    },
+    {
+      "manifest": "batch_16_manifest.json",
+      "batch": "16",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_legacy_authorized",
+      "tracked": 24,
+      "live": 24,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "legacy_promoted_at",
+      "reviewStatuses": {
+        "approved": 24
+      },
+      "liveProjectionSha256": "2da1a1c23dc72349693bb1a55df795443cd47d708e02ec116a601557d8ab4d5d"
+    },
+    {
+      "manifest": "batch_17_manifest.json",
+      "batch": "17",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 144,
+      "live": 144,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 144
+      },
+      "liveProjectionSha256": "0d9c3ba14f56bf3db5d6e0aeecdb357ba4b2d4373fb88eb1ff0bebef14d8c7a1"
+    },
+    {
+      "manifest": "batch_18_manifest.json",
+      "batch": "18",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 132,
+      "live": 132,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 132
+      },
+      "liveProjectionSha256": "af890532c93079a30198bb41e58143085369b990e67ba55750d38ebd4bbbefef"
+    },
+    {
+      "manifest": "batch_19_manifest.json",
+      "batch": "19",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 345,
+      "live": 345,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 203
+      },
+      "liveProjectionSha256": "b383d07763e366994585de015963154bd858afb1b35575f5f7718a8db795eec4"
+    },
+    {
+      "manifest": "batch_20_manifest.json",
+      "batch": "20",
+      "manifestStatus": "merged",
+      "auditStatus": "live_verified_modern",
+      "tracked": 318,
+      "live": 318,
+      "missing": [],
+      "errors": [],
+      "approvalEvidence": "structured_jin_approval",
+      "reviewStatuses": {
+        "approved": 210
+      },
+      "liveProjectionSha256": "aac28795f58f7062d3eecfe0cc551ec3bdc83aa50cd456954706606ac5196b64"
+    }
+  ],
+  "errors": [],
+  "ok": true
+}

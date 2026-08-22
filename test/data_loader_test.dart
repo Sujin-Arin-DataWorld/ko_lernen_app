@@ -11,14 +11,20 @@ void main() {
     () async {
       final vocab = await DataLoader.loadVocab();
 
-      expect(vocab, hasLength(2348));
+      expect(vocab, hasLength(2420));
       expect(
         vocab.map((entry) => entry.packId).where((id) => id.isNotEmpty).toSet(),
-        hasLength(217),
+        hasLength(223),
       );
 
       expect(
         vocab.where((entry) => entry.packId == 'c2_2026_social_topics_1'),
+        hasLength(12),
+      );
+      expect(
+        vocab.where(
+          (entry) => entry.packId == 'c2_demography_accountability_2026_1',
+        ),
         hasLength(12),
       );
 

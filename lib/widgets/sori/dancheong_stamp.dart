@@ -268,6 +268,15 @@ DancheongMotif motifForPackId(String packId) {
     'b2_2026_social_topics' => DancheongMotif.chilbo,
     'c1_2026_social_topics' => DancheongMotif.taegeuk,
     'c2_2026_social_topics' => DancheongMotif.manja,
+    'a1_city_services' || 'a1_city_services_2026' => DancheongMotif.gwigap,
+    'a2_housing_search' || 'a2_housing_search_2026' => DancheongMotif.peony,
+    'b1_work_entry' || 'b1_work_entry_2026' => DancheongMotif.bamboo,
+    'b2_housing_migration' ||
+    'b2_housing_migration_2026' => DancheongMotif.chilbo,
+    'c1_ai_culture_labor' ||
+    'c1_ai_culture_labor_2026' => DancheongMotif.taegeuk,
+    'c2_demography_accountability' ||
+    'c2_demography_accountability_2026' => DancheongMotif.manja,
     _ => DancheongMotif.lotus,
   };
 }

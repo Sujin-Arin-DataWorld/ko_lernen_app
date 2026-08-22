@@ -49,7 +49,7 @@ class ShelfAssignmentTest(unittest.TestCase):
 
     def test_assignment_covers_the_live_corpus_exactly(self) -> None:
         live = _live_levels()
-        self.assertEqual(len(live), 407)
+        self.assertEqual(len(live), 413)
         report = check_assignment(live)
         self.assertEqual(report["dupes"], [])
         self.assertEqual(report["orphans"], [])
@@ -58,7 +58,7 @@ class ShelfAssignmentTest(unittest.TestCase):
 
     def test_assigned_shelves_are_declared_shelves(self) -> None:
         self.assertTrue(set(ASSIGNMENT).issubset(ALL_SHELVES))
-        self.assertEqual(len(SHELF_BY_ID), 407)
+        self.assertEqual(len(SHELF_BY_ID), 413)
 
     def test_interest_shelves_are_stocked_at_every_level(self) -> None:
         # 관심 3칸은 Batch 11 승격으로 전 레벨이 채워졌다.  한 레벨이라도 비면

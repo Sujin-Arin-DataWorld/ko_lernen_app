@@ -14598,6 +14598,234 @@
       },
       "shelf": "b1_team",
       "backdrop": "office"
+    },
+    {
+      "id": "b1_job_offer_conditions_batch20",
+      "level": "b1",
+      "emoji": "💼",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "candidate_recruiter",
+      "intent": "clarify_job_offer_before_accepting",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "채용 제안의 조건을 확인해요",
+        "de": "Bedingungen eines Jobangebots klären",
+        "en": "Clarifying the Terms of a Job Offer"
+      },
+      "intro": {
+        "ko": "채용 담당자에게 수습 기간, 유연 근무, 서류 일정을 이유와 함께 묻습니다.",
+        "de": "Sie fragen die Personalstelle begründet nach Probezeit, flexibler Arbeit und Unterlagenfrist.",
+        "en": "You ask the recruiter about probation, flexible work, and document deadlines while giving your reasons."
+      },
+      "grammarIds": [
+        "grammar_b1_tentative_plan_batch20"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "제안을 주셔서 감사합니다. 몇 가지 조건을 확인하고 싶습니다.",
+          "de": "Vielen Dank für das Angebot. Ich möchte einige Bedingungen klären.",
+          "en": "Thank you for the offer. I would like to clarify a few conditions."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 어떤 부분이 궁금하신가요?",
+          "de": "Gern. Welche Punkte möchten Sie klären?",
+          "en": "Of course. Which points would you like to clarify?"
+        },
+        {
+          "speaker": "user",
+          "ko": "수습 기간의 평가 기준은 어떻게 안내되나요?",
+          "de": "Wie werden die Bewertungskriterien für die Probezeit mitgeteilt?",
+          "en": "How are the probation assessment criteria communicated?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "첫 주에 목표를 정하고 한 달마다 피드백을 드립니다.",
+          "de": "In der ersten Woche vereinbaren wir Ziele und geben monatlich Feedback.",
+          "en": "We set goals in the first week and give feedback each month."
+        },
+        {
+          "speaker": "user",
+          "ko": "돌봄 일정이 있어서 주 2회 유연 근무가 가능한지도 궁금합니다.",
+          "de": "Wegen Betreuungspflichten möchte ich wissen, ob zwei flexible Arbeitstage pro Woche möglich sind.",
+          "en": "Because of care responsibilities, I would also like to know whether two flexible workdays per week are possible."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "팀 일정과 맞으면 가능합니다. 가능한 시간을 보내 주세요.",
+          "de": "Wenn es zum Teamplan passt, ist das möglich. Schicken Sie uns bitte Ihre verfügbaren Zeiten.",
+          "en": "It is possible if it fits the team schedule. Please send us your available hours."
+        },
+        {
+          "speaker": "user",
+          "ko": "조건을 서면으로 확인한 뒤에 수락할까 합니다.",
+          "de": "Ich denke darüber nach, nach schriftlicher Bestätigung der Bedingungen zuzusagen.",
+          "en": "I'm thinking of accepting after the conditions are confirmed in writing."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "오늘 안에 계약 초안과 제출 서류 목록을 보내 드리겠습니다.",
+          "de": "Ich sende Ihnen heute den Vertragsentwurf und die Unterlagenliste.",
+          "en": "I'll send the draft contract and document list today."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "채용 제안"
+        },
+        {
+          "korean": "수습 기간"
+        },
+        {
+          "korean": "평가 기준"
+        },
+        {
+          "korean": "유연 근무"
+        },
+        {
+          "korean": "돌봄 일정"
+        },
+        {
+          "korean": "계약 초안"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ까 하다",
+          "de": "V-(으)ㄹ까 하다: vorläufige Absicht",
+          "en": "V-(으)ㄹ까 하다: tentative intention"
+        },
+        "explanation": {
+          "ko": "계획이 아직 확정되지 않았음을 보이며 의견을 들을 때 씁니다.",
+          "de": "Stellt einen Plan als noch nicht endgültig dar und lässt Raum für Rückmeldung.",
+          "en": "Presents a plan as tentative and leaves room for feedback."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_b1_job_offer_conditions_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "audioKo": "수습 기간의 평가 기준은 어떻게 안내되나요?",
+            "options": [
+              {
+                "ko": "제안을 주셔서 감사합니다. 몇 가지 조건을 확인하고 싶습니다.",
+                "de": "Vielen Dank für das Angebot. Ich möchte einige Bedingungen klären.",
+                "en": "Thank you for the offer. I would like to clarify a few conditions."
+              },
+              {
+                "ko": "수습 기간의 평가 기준은 어떻게 안내되나요?",
+                "de": "Wie werden die Bewertungskriterien für die Probezeit mitgeteilt?",
+                "en": "How are the probation assessment criteria communicated?"
+              },
+              {
+                "ko": "돌봄 일정이 있어서 주 2회 유연 근무가 가능한지도 궁금합니다.",
+                "de": "Wegen Betreuungspflichten möchte ich wissen, ob zwei flexible Arbeitstage pro Woche möglich sind.",
+                "en": "Because of care responsibilities, I would also like to know whether two flexible workdays per week are possible."
+              },
+              {
+                "ko": "조건을 서면으로 확인한 뒤에 수락할까 합니다.",
+                "de": "Ich denke darüber nach, nach schriftlicher Bestätigung der Bedingungen zuzusagen.",
+                "en": "I'm thinking of accepting after the conditions are confirmed in writing."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_b1_job_offer_conditions_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "promptDe": "Ich denke darüber nach, nach schriftlicher Bestätigung der Bedingungen zuzusagen.",
+            "promptEn": "I'm thinking of accepting after the conditions are confirmed in writing.",
+            "options": [
+              {
+                "ko": "제안을 주셔서 감사합니다. 몇 가지 조건을 확인하고 싶습니다."
+              },
+              {
+                "ko": "돌봄 일정이 있어서 주 2회 유연 근무가 가능한지도 궁금합니다."
+              },
+              {
+                "ko": "조건을 서면으로 확인한 뒤에 수락할까 합니다."
+              },
+              {
+                "ko": "수습 기간의 평가 기준은 어떻게 안내되나요?"
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_b1_job_offer_conditions_batch20_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "sentence": "조건을 확인한 뒤에 수락___ 합니다.",
+            "options": [
+              "할까",
+              "하자마자",
+              "하느라고",
+              "하더라도"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "V-(으)ㄹ까 하다 stellt die Zusage als noch nicht endgültige Absicht dar.",
+            "explanationEn": "V-(으)ㄹ까 하다 presents the acceptance as a tentative intention."
+          }
+        },
+        {
+          "id": "quest_b1_job_offer_conditions_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "targetKo": "가능한 시간을 보내 주시면 팀 일정과 조율하겠습니다.",
+            "promptDe": "Wenn Sie Ihre möglichen Zeiten senden, stimme ich sie mit dem Teamplan ab.",
+            "promptEn": "If you send your available hours, I'll coordinate them with the team schedule.",
+            "distractors": [
+              "반대로",
+              "우연히"
+            ],
+            "audioKo": "가능한 시간을 보내 주시면 팀 일정과 조율하겠습니다."
+          }
+        },
+        {
+          "id": "quest_b1_job_offer_conditions_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "targetKo": "오늘 안에 계약 초안과 제출 서류 목록을 보내 드리겠습니다.",
+            "audioKo": "오늘 안에 계약 초안과 제출 서류 목록을 보내 드리겠습니다.",
+            "promptDe": "Ich sende Ihnen heute den Vertragsentwurf und die Unterlagenliste.",
+            "promptEn": "I'll send the draft contract and document list today."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "채용 대화에서 질문은 무례함이 아니라 상호 기대를 확인하는 절차가 될 수 있습니다. 확정 전에는 서면 조건을 확인합니다.",
+        "de": "Fragen im Bewerbungsprozess können gegenseitige Erwartungen klären. Vor einer Zusage sollten Bedingungen schriftlich vorliegen.",
+        "en": "Questions in recruitment can clarify mutual expectations. Check written terms before accepting."
+      },
+      "shelf": "b1_team",
+      "backdrop": "office"
     }
   ]
 }

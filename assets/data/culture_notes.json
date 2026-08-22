@@ -180,6 +180,42 @@
       "kind": "culture",
       "de": "Manche Paare tragen abgestimmte „Couple-Looks“, also ähnliche Outfits.",
       "en": "Some couples wear matching “couple looks,” meaning coordinated outfits."
+    },
+    {
+      "ko": "교통카드",
+      "kind": "culture",
+      "de": "In Korea kann eine aufgeladene Verkehrskarte oft in Bus und U-Bahn verwendet werden. Prüfe vor der Fahrt Guthaben und lokale Gültigkeit.",
+      "en": "In Korea, a topped-up transit card can often be used on buses and subways. Check the balance and local validity before traveling."
+    },
+    {
+      "ko": "보증금",
+      "kind": "culture",
+      "de": "Koreanische Mietangebote nennen Kaution und Monatsmiete häufig getrennt. Beträge, Rückzahlung und Nebenkosten gehören in den Vertrag.",
+      "en": "Korean rental listings often separate the deposit from monthly rent. Put the amounts, refund terms, and extra fees in the contract."
+    },
+    {
+      "ko": "수습 기간",
+      "kind": "culture",
+      "de": "Bei einer Probezeit lohnt es sich, Aufgaben, Bewertung, Rückmeldung und Vertragsbedingungen ausdrücklich zu klären; die konkrete Regelung hängt vom Vertrag ab.",
+      "en": "During probation, clarify duties, evaluation, feedback, and contract terms; the exact arrangement depends on the contract."
+    },
+    {
+      "ko": "이주 배경",
+      "kind": "culture",
+      "de": "Migrationsgeschichte beschreibt sehr unterschiedliche Erfahrungen. Sie sagt allein weder Sprachstand noch Unterstützungsbedarf oder Zugehörigkeit voraus.",
+      "en": "Migration background covers many different experiences. By itself, it does not determine language ability, support needs, or belonging."
+    },
+    {
+      "ko": "번역 노동",
+      "kind": "culture",
+      "de": "Fan-Übersetzungen verbreiten K-Kultur, können aber unbezahlte Arbeit enthalten. Bei Projekten sollten Einwilligung, Nennung, Kontext und Vergütung geklärt werden.",
+      "en": "Fan translations help K-culture travel, but may involve unpaid labor. Projects should clarify consent, credit, context, and compensation."
+    },
+    {
+      "ko": "위기 프레임",
+      "kind": "culture",
+      "de": "Bezeichnungen wie Krise oder Belastung lenken Aufmerksamkeit und Verantwortung. Fortgeschrittene Lernende vergleichen deshalb Akteure, Auslassungen und Alternativbegriffe.",
+      "en": "Labels such as crisis or burden direct attention and responsibility. Advanced learners therefore compare actors, omissions, and alternative terms."
     }
   ]
 }

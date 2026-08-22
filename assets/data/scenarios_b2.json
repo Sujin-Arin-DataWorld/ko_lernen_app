@@ -14235,6 +14235,234 @@
       },
       "shelf": "b2_fandom",
       "backdrop": "cafe"
+    },
+    {
+      "id": "b2_rent_increase_meeting_batch20",
+      "level": "b2",
+      "emoji": "🏘️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "tenant_representative_property_manager",
+      "intent": "open_a_formal_housing_cost_review",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "임대료 인상 설명회를 시작해요",
+        "de": "Eine Anhörung zur Mieterhöhung eröffnen",
+        "en": "Opening a Rent-Increase Meeting"
+      },
+      "intro": {
+        "ko": "세입자 대표가 관리 회사와의 설명회에서 계산 기준과 가구별 부담을 공식적으로 묻습니다.",
+        "de": "Eine Mietervertretung fragt die Hausverwaltung in einer Anhörung formell nach Berechnung und Haushaltsbelastung.",
+        "en": "A tenant representative formally asks the property manager about calculations and household burdens."
+      },
+      "grammarIds": [
+        "grammar_b2_criterion_view_batch20"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "먼저 임대료 인상 근거를 항목별로 설명해 주시기 바랍니다.",
+          "de": "Bitte erläutern Sie zunächst die Grundlage der Mieterhöhung nach einzelnen Posten.",
+          "en": "Please begin by explaining the basis for the rent increase item by item."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "주변 시세와 유지 보수 비용을 반영했습니다.",
+          "de": "Wir haben Vergleichsmieten und Instandhaltungskosten berücksichtigt.",
+          "en": "We considered local rents and maintenance costs."
+        },
+        {
+          "speaker": "user",
+          "ko": "임대료만을 기준으로 보면 실제 부담을 놓칠 수 있습니다.",
+          "de": "Wenn nur die Miete als Maßstab dient, kann die tatsächliche Belastung übersehen werden.",
+          "en": "If rent alone is the criterion, the actual burden may be missed."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "어떤 비용을 추가로 포함해야 한다고 보십니까?",
+          "de": "Welche weiteren Kosten sollten Ihrer Ansicht nach einbezogen werden?",
+          "en": "Which additional costs do you think should be included?"
+        },
+        {
+          "speaker": "user",
+          "ko": "관리비, 난방비와 가구별 소득 변화를 함께 봐야 합니다.",
+          "de": "Nebenkosten, Heizkosten und Einkommensentwicklung der Haushalte müssen gemeinsam betrachtet werden.",
+          "en": "Maintenance fees, heating costs, and household income changes need to be considered together."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "자료 범위를 확대해 다음 회의 전에 공유하겠습니다.",
+          "de": "Wir erweitern den Datenumfang und teilen die Unterlagen vor dem nächsten Termin.",
+          "en": "We will broaden the data and share it before the next meeting."
+        },
+        {
+          "speaker": "user",
+          "ko": "이의 제기 절차와 답변 기한도 서면으로 알려 주십시오.",
+          "de": "Bitte teilen Sie auch Einspruchsverfahren und Antwortfrist schriftlich mit.",
+          "en": "Please also provide the appeal process and response deadline in writing."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "회의록에 요청을 남기고 담당 부서를 지정하겠습니다.",
+          "de": "Wir halten die Bitte im Protokoll fest und benennen die zuständige Stelle.",
+          "en": "We will record the request in the minutes and name the responsible office."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "임대료"
+        },
+        {
+          "korean": "인상 근거"
+        },
+        {
+          "korean": "관리비"
+        },
+        {
+          "korean": "가구별 소득"
+        },
+        {
+          "korean": "이의 제기"
+        },
+        {
+          "korean": "회의록"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 기준으로 보면",
+          "de": "N을/를 기준으로 보면: Urteil an einen Maßstab binden",
+          "en": "N을/를 기준으로 보면: framing a judgment by a criterion"
+        },
+        "explanation": {
+          "ko": "판단에 사용한 기준을 분명히 밝혀 다른 기준과 비교할 수 있게 합니다.",
+          "de": "Macht sichtbar, nach welchem Maßstab eine Bewertung gilt.",
+          "en": "Makes the criterion behind an evaluation explicit."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_b2_rent_increase_meeting_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "audioKo": "임대료만을 기준으로 보면 실제 부담을 놓칠 수 있습니다.",
+            "options": [
+              {
+                "ko": "먼저 임대료 인상 근거를 항목별로 설명해 주시기 바랍니다.",
+                "de": "Bitte erläutern Sie zunächst die Grundlage der Mieterhöhung nach einzelnen Posten.",
+                "en": "Please begin by explaining the basis for the rent increase item by item."
+              },
+              {
+                "ko": "임대료만을 기준으로 보면 실제 부담을 놓칠 수 있습니다.",
+                "de": "Wenn nur die Miete als Maßstab dient, kann die tatsächliche Belastung übersehen werden.",
+                "en": "If rent alone is the criterion, the actual burden may be missed."
+              },
+              {
+                "ko": "관리비, 난방비와 가구별 소득 변화를 함께 봐야 합니다.",
+                "de": "Nebenkosten, Heizkosten und Einkommensentwicklung der Haushalte müssen gemeinsam betrachtet werden.",
+                "en": "Maintenance fees, heating costs, and household income changes need to be considered together."
+              },
+              {
+                "ko": "이의 제기 절차와 답변 기한도 서면으로 알려 주십시오.",
+                "de": "Bitte teilen Sie auch Einspruchsverfahren und Antwortfrist schriftlich mit.",
+                "en": "Please also provide the appeal process and response deadline in writing."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_b2_rent_increase_meeting_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "promptDe": "Bitte teilen Sie auch Einspruchsverfahren und Antwortfrist schriftlich mit.",
+            "promptEn": "Please also provide the appeal process and response deadline in writing.",
+            "options": [
+              {
+                "ko": "먼저 임대료 인상 근거를 항목별로 설명해 주시기 바랍니다."
+              },
+              {
+                "ko": "관리비, 난방비와 가구별 소득 변화를 함께 봐야 합니다."
+              },
+              {
+                "ko": "이의 제기 절차와 답변 기한도 서면으로 알려 주십시오."
+              },
+              {
+                "ko": "임대료만을 기준으로 보면 실제 부담을 놓칠 수 있습니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_b2_rent_increase_meeting_batch20_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "sentence": "임대료만을 ___ 보면 실제 부담을 놓칠 수 있습니다.",
+            "options": [
+              "기준으로",
+              "계기로",
+              "대신에",
+              "불구하고"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "N을/를 기준으로 보면 macht den verwendeten Bewertungsmaßstab ausdrücklich sichtbar.",
+            "explanationEn": "N을/를 기준으로 보면 makes the evaluation criterion explicit."
+          }
+        },
+        {
+          "id": "quest_b2_rent_increase_meeting_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "targetKo": "관리비와 소득 변화까지 포함해서 자료를 다시 검토해 주십시오.",
+            "promptDe": "Bitte prüfen Sie die Unterlagen erneut und beziehen Sie Nebenkosten und Einkommensentwicklung ein.",
+            "promptEn": "Please review the data again, including maintenance costs and income changes.",
+            "distractors": [
+              "대충",
+              "개인적으로"
+            ],
+            "audioKo": "관리비와 소득 변화까지 포함해서 자료를 다시 검토해 주십시오."
+          }
+        },
+        {
+          "id": "quest_b2_rent_increase_meeting_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "targetKo": "이의 제기 절차와 답변 기한도 서면으로 알려 주십시오.",
+            "audioKo": "이의 제기 절차와 답변 기한도 서면으로 알려 주십시오.",
+            "promptDe": "Bitte teilen Sie auch Einspruchsverfahren und Antwortfrist schriftlich mit.",
+            "promptEn": "Please also provide the appeal process and response deadline in writing."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "공식 설명회에서는 요구만 말하기보다 계산 기준, 포함 범위, 담당자와 답변 기한을 분리해 확인합니다.",
+        "de": "In formellen Anhörungen werden Berechnungsmaßstab, Umfang, Zuständigkeit und Antwortfrist getrennt geklärt.",
+        "en": "In formal meetings, clarify the calculation standard, scope, responsibility, and response deadline separately."
+      },
+      "shelf": "b2_public",
+      "backdrop": "office"
     }
   ]
 }

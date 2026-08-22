@@ -1941,6 +1941,486 @@
       "conceptIds": [],
       "context_de": "Originale Übungszeile für Medienregister und Aussprache.",
       "context_en": "Original practice line for media register and pronunciation."
+    },
+    {
+      "id": "media_113",
+      "level": "A1",
+      "korean": "약국에서 감기약을 사요.",
+      "romanization": "",
+      "german": "Ich kaufe Erkältungsmedizin in der Apotheke.",
+      "english": "I buy cold medicine at the pharmacy.",
+      "source_type": "original",
+      "source_style": "생활 안내",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_a1_0417"
+      ],
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_114",
+      "level": "A1",
+      "korean": "앱에서 환승 안내를 확인해요.",
+      "romanization": "",
+      "german": "Ich prüfe den Umstiegshinweis in der App.",
+      "english": "I check the transfer directions in the app.",
+      "source_type": "original",
+      "source_style": "생활 안내",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_a1_0420"
+      ],
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_115",
+      "level": "A1",
+      "korean": "이 가게는 현금 결제도 가능해요.",
+      "romanization": "",
+      "german": "In diesem Geschäft ist auch Barzahlung möglich.",
+      "english": "This shop also accepts cash payment.",
+      "source_type": "original",
+      "source_style": "생활 안내",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_a1_0423"
+      ],
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_116",
+      "level": "A1",
+      "korean": "출구 번호를 다시 확인해요.",
+      "romanization": "",
+      "german": "Ich prüfe die Ausgangsnummer noch einmal.",
+      "english": "I check the exit number again.",
+      "source_type": "original",
+      "source_style": "생활 안내",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_a1_0426"
+      ],
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_117",
+      "level": "A2",
+      "korean": "월세 납부일은 매달 말이에요.",
+      "romanization": "",
+      "german": "Der Zahlungstermin für die Miete ist jeweils am Monatsende.",
+      "english": "The rent payment is due at the end of each month.",
+      "source_type": "original",
+      "source_style": "집 보기 대화",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_a2_0466"
+      ],
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_118",
+      "level": "A2",
+      "korean": "수리 문제를 임대인에게 알렸어요.",
+      "romanization": "",
+      "german": "Ich habe die vermietende Person über das Reparaturproblem informiert.",
+      "english": "I told the lessor about the repair problem.",
+      "source_type": "original",
+      "source_style": "집 보기 대화",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_a2_0469"
+      ],
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_119",
+      "level": "A2",
+      "korean": "이사 날짜를 다음 토요일로 정했어요.",
+      "romanization": "",
+      "german": "Wir haben den Umzug auf nächsten Samstag gelegt.",
+      "english": "We set the moving date for next Saturday.",
+      "source_type": "original",
+      "source_style": "집 보기 대화",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_a2_0472"
+      ],
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_120",
+      "level": "A2",
+      "korean": "이 방에는 세탁기 옵션이 있어요.",
+      "romanization": "",
+      "german": "In diesem Zimmer ist eine Waschmaschine vorhanden.",
+      "english": "This room includes a washing machine.",
+      "source_type": "original",
+      "source_style": "집 보기 대화",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_a2_0475"
+      ],
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_121",
+      "level": "B1",
+      "korean": "지원 자격에 필요한 경력이 적혀 있어요.",
+      "romanization": "",
+      "german": "In den Bewerbungsvoraussetzungen steht die nötige Berufserfahrung.",
+      "english": "The required experience is listed in the eligibility requirements.",
+      "source_type": "original",
+      "source_style": "직장 인터뷰",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_b1_0469"
+      ],
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_122",
+      "level": "B1",
+      "korean": "계약 전에 급여와 휴가 같은 근무 조건을 물었어요.",
+      "romanization": "",
+      "german": "Vor Vertragsabschluss habe ich nach Arbeitsbedingungen wie Gehalt und Urlaub gefragt.",
+      "english": "Before signing, I asked about working conditions such as pay and leave.",
+      "source_type": "original",
+      "source_style": "직장 인터뷰",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_b1_0472"
+      ],
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_123",
+      "level": "B1",
+      "korean": "마감 전에 필요한 서류를 모두 제출했어요.",
+      "romanization": "",
+      "german": "Ich habe alle erforderlichen Unterlagen vor Ablauf der Frist eingereicht.",
+      "english": "I submitted all required documents before the deadline.",
+      "source_type": "original",
+      "source_style": "직장 인터뷰",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_b1_0475"
+      ],
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_124",
+      "level": "B1",
+      "korean": "돌봄 일정 때문에 유연 근무가 가능한지 물었어요.",
+      "romanization": "",
+      "german": "Wegen meiner Betreuungszeiten habe ich nach flexibler Arbeit gefragt.",
+      "english": "I asked about flexible work because of my care schedule.",
+      "source_type": "original",
+      "source_style": "직장 인터뷰",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_b1_0478"
+      ],
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_125",
+      "level": "B2",
+      "korean": "임대료 인상 통지에 계산 근거가 빠져 있었습니다.",
+      "romanization": "",
+      "german": "In der Mitteilung zur Mieterhöhung fehlte die Berechnungsgrundlage.",
+      "english": "The rent increase notice did not include the basis for the calculation.",
+      "source_type": "original",
+      "source_style": "주거 정책 토론",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_b2_0636"
+      ],
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_126",
+      "level": "B2",
+      "korean": "교통비까지 포함하니 월 생활비가 예상보다 컸습니다.",
+      "romanization": "",
+      "german": "Mit den Fahrtkosten lagen die monatlichen Lebenshaltungskosten über der Schätzung.",
+      "english": "Once transport was included, the monthly cost of living was higher than expected.",
+      "source_type": "original",
+      "source_style": "주거 정책 토론",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_b2_0639"
+      ],
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_127",
+      "level": "B2",
+      "korean": "공공 주택의 입주 기준과 대기 기간을 공개해야 합니다.",
+      "romanization": "",
+      "german": "Die Zugangskriterien und Wartezeiten für öffentlichen Wohnraum sollten veröffentlicht werden.",
+      "english": "Eligibility rules and waiting times for public housing should be public.",
+      "source_type": "original",
+      "source_style": "주거 정책 토론",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_b2_0642"
+      ],
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_128",
+      "level": "B2",
+      "korean": "사회 통합을 개인의 언어 능력만으로 평가해서는 안 됩니다.",
+      "romanization": "",
+      "german": "Gesellschaftliche Teilhabe darf nicht allein an individuellen Sprachkenntnissen gemessen werden.",
+      "english": "Social inclusion should not be judged only by an individual's language skills.",
+      "source_type": "original",
+      "source_style": "주거 정책 토론",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_b2_0645"
+      ],
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_129",
+      "level": "C1",
+      "korean": "합성 콘텐츠에는 사람이 판단할 수 있는 표시가 필요합니다.",
+      "romanization": "",
+      "german": "Synthetische Inhalte brauchen eine Kennzeichnung, die Menschen einordnen können.",
+      "english": "Synthetic content needs labeling that people can interpret.",
+      "source_type": "original",
+      "source_style": "기술·문화 팟캐스트",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_c1_0230"
+      ],
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_130",
+      "level": "C1",
+      "korean": "설명 가능성은 기술 문서의 길이가 아니라 이의 제기에 쓸 수 있는 정보로 평가해야 합니다.",
+      "romanization": "",
+      "german": "Erklärbarkeit sollte nicht an der Länge technischer Dokumente, sondern an nutzbaren Informationen für Einwände gemessen werden.",
+      "english": "Explainability should be judged by information people can use to challenge a decision, not by document length.",
+      "source_type": "original",
+      "source_style": "기술·문화 팟캐스트",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_c1_0233"
+      ],
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_131",
+      "level": "C1",
+      "korean": "자동화된 판단 뒤에도 책임 있는 담당자에게 질문할 수 있어야 합니다.",
+      "romanization": "",
+      "german": "Auch nach einer automatisierten Entscheidung muss eine verantwortliche Person ansprechbar sein.",
+      "english": "People should still be able to question an accountable person after an automated decision.",
+      "source_type": "original",
+      "source_style": "기술·문화 팟캐스트",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_c1_0236"
+      ],
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_132",
+      "level": "C1",
+      "korean": "문화적 맥락을 지우면 같은 표현도 다른 의미로 유통될 수 있습니다.",
+      "romanization": "",
+      "german": "Ohne kulturellen Kontext kann derselbe Ausdruck mit anderer Bedeutung zirkulieren.",
+      "english": "Without cultural context, the same expression can circulate with a different meaning.",
+      "source_type": "original",
+      "source_style": "기술·문화 팟캐스트",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_c1_0239"
+      ],
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_133",
+      "level": "C2",
+      "korean": "재생산 부담을 개인의 선택으로만 환원하면 돌봄과 고용 조건이 사라집니다.",
+      "romanization": "",
+      "german": "Wird reproduktive Belastung auf individuelle Entscheidungen reduziert, verschwinden Betreuungs- und Arbeitsbedingungen aus dem Blick.",
+      "english": "Reducing reproductive burden to personal choice erases care and employment conditions.",
+      "source_type": "original",
+      "source_style": "공공 정책 토론",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_c2_0230"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_134",
+      "level": "C2",
+      "korean": "두 지표가 함께 움직였다는 사실만으로 인과 추론을 확정할 수 없습니다.",
+      "romanization": "",
+      "german": "Aus der gemeinsamen Entwicklung zweier Indikatoren folgt noch kein gesicherter Kausalschluss.",
+      "english": "Two indicators moving together does not establish causal inference.",
+      "source_type": "original",
+      "source_style": "공공 정책 토론",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_c2_0233"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_135",
+      "level": "C2",
+      "korean": "오류를 발견한 뒤 실제로 접근할 수 있는 제도적 구제가 필요합니다.",
+      "romanization": "",
+      "german": "Nach Feststellung eines Fehlers braucht es einen tatsächlich zugänglichen institutionellen Rechtsbehelf.",
+      "english": "Once an error is found, people need institutional redress they can actually access.",
+      "source_type": "original",
+      "source_style": "공공 정책 토론",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_c2_0236"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
+    },
+    {
+      "id": "media_136",
+      "level": "C2",
+      "korean": "표집 편향이 확인되면 결과의 적용 범위를 축소해야 합니다.",
+      "romanization": "",
+      "german": "Wird eine Auswahlverzerrung festgestellt, muss der Geltungsbereich der Ergebnisse eingeschränkt werden.",
+      "english": "When selection bias is identified, the scope of the findings must be narrowed.",
+      "source_type": "original",
+      "source_style": "공공 정책 토론",
+      "grammar_ids": [],
+      "vocab_ids": [
+        "vocab_c2_0239"
+      ],
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "context_de": "Originale Übungszeile für Register, Hörverstehen und Aussprache.",
+      "context_en": "Original practice line for register, listening, and pronunciation."
     }
   ]
 }

@@ -337,5 +337,59 @@
     "level": "C2",
     "explanation_de": "Benennt die Annahme, auf der ein Urteil oder eine Regel beruht.",
     "explanation_en": "Names the assumption on which a judgment or rule rests."
+  },
+  {
+    "id": "g_a1_where_is_batch20",
+    "regex": "어디에 있어요",
+    "name_de": "nach einem Ort fragen",
+    "name_en": "asking where something is",
+    "level": "A1",
+    "explanation_de": "Fragt höflich nach dem Standort eines Ortes oder Gegenstands.",
+    "explanation_en": "Politely asks for the location of a place or object."
+  },
+  {
+    "id": "g_a2_permission_ok_batch20",
+    "regex": "어도 괜찮아요",
+    "name_de": "Erlaubnis vorsichtig prüfen",
+    "name_en": "checking permission gently",
+    "level": "A2",
+    "explanation_de": "Prüft, ob eine Handlung für die andere Person in Ordnung ist.",
+    "explanation_en": "Checks whether an action is acceptable to the other person."
+  },
+  {
+    "id": "g_b1_tentative_plan_batch20",
+    "regex": "[을ㄹ]까 (?:합니다|해요)",
+    "name_de": "vorläufige Absicht",
+    "name_en": "tentative intention",
+    "level": "B1",
+    "explanation_de": "Stellt einen Plan als noch nicht endgültig dar.",
+    "explanation_en": "Presents a plan as not yet final."
+  },
+  {
+    "id": "g_b2_criterion_batch20",
+    "regex": "기준으로 보면",
+    "name_de": "Urteil nach einem Maßstab",
+    "name_en": "judgment by a criterion",
+    "level": "B2",
+    "explanation_de": "Benennt den Maßstab, unter dem eine Bewertung gilt.",
+    "explanation_en": "Names the criterion under which an evaluation applies."
+  },
+  {
+    "id": "g_c1_conclusion_limit_batch20",
+    "regex": "단정하기 어렵",
+    "name_de": "Schlussfolgerung begrenzen",
+    "name_en": "limiting a conclusion",
+    "level": "C1",
+    "explanation_de": "Markiert, dass die Belege für eine eindeutige Schlussfolgerung nicht ausreichen.",
+    "explanation_en": "Signals that the evidence is insufficient for a categorical conclusion."
+  },
+  {
+    "id": "g_c2_premise_review_batch20",
+    "regex": "전제하에",
+    "name_de": "Prüfung unter einer Prämisse",
+    "name_en": "review under a premise",
+    "level": "C2",
+    "explanation_de": "Macht die Annahme sichtbar, unter der eine Prüfung erfolgt.",
+    "explanation_en": "Makes the premise of a review explicit."
   }
 ]

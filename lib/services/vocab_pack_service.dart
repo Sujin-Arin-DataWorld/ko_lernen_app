@@ -240,59 +240,182 @@ class VocabPackService {
     'b2_language_change': ('Sprache & Wandel', 'Language & Change'),
     'b1_housing_contract': ('Wohnen & Vertrag', 'Housing & Contracts'),
     'b2_formal_agreement': ('Formelle Vereinbarungen', 'Formal Agreements'),
-    'b1_work_coordination': ('Arbeitskoordination & Termine', 'Work Coordination & Schedules'),
-    'b2_formal_complaint': ('Formelle Beschwerde & Abhilfe', 'Formal Complaints & Remedies'),
-    'b2_decisions_perspectives': ('Entscheidungen & Perspektiven', 'Decisions & Perspectives'),
+    'b1_work_coordination': (
+      'Arbeitskoordination & Termine',
+      'Work Coordination & Schedules',
+    ),
+    'b2_formal_complaint': (
+      'Formelle Beschwerde & Abhilfe',
+      'Formal Complaints & Remedies',
+    ),
+    'b2_decisions_perspectives': (
+      'Entscheidungen & Perspektiven',
+      'Decisions & Perspectives',
+    ),
     'b2_reading_response': ('Lesen & Reaktionen', 'Reading & Responses'),
     'b2_language_society': ('Sprache & Gesellschaft', 'Language & Society'),
-    'b2_collaborative_feedback': ('Zusammenarbeit & Feedback', 'Collaboration & Feedback'),
+    'b2_collaborative_feedback': (
+      'Zusammenarbeit & Feedback',
+      'Collaboration & Feedback',
+    ),
     'b2_digital_judgment': ('Digitale Urteilsfähigkeit', 'Digital Judgment'),
-    'c1_accessible_participation': ('Barrierefreiheit & Teilhabe', 'Accessibility & Participation'),
+    'c1_accessible_participation': (
+      'Barrierefreiheit & Teilhabe',
+      'Accessibility & Participation',
+    ),
     'c1_evidence_reasoning': ('Forschung & Evidenz', 'Research & Evidence'),
-    'c2_institutional_mediation': ('Institutionen & Vermittlung', 'Institutions & Mediation'),
-    'c2_narrative_perspective': ('Erinnerung & Erzählperspektive', 'Memory & Narrative Perspective'),
-    'b2_shared_space_coordination': ('Gemeinsame Räume & Rücksicht', 'Shared Spaces & Consideration'),
+    'c2_institutional_mediation': (
+      'Institutionen & Vermittlung',
+      'Institutions & Mediation',
+    ),
+    'c2_narrative_perspective': (
+      'Erinnerung & Erzählperspektive',
+      'Memory & Narrative Perspective',
+    ),
+    'b2_shared_space_coordination': (
+      'Gemeinsame Räume & Rücksicht',
+      'Shared Spaces & Consideration',
+    ),
     'b2_personal_boundaries': ('Rhythmus & Grenzen', 'Rhythm & Boundaries'),
-    'c1_risk_communication': ('Risiko & öffentliche Information', 'Risk & Public Information'),
-    'c1_sustainable_tradeoffs': ('Nachhaltige Entscheidungen vor Ort', 'Sustainable Local Choices'),
-    'c2_language_framing': ('Sprache, Deutung & Macht', 'Language, Framing & Power'),
-    'c2_technology_ethics': ('Technikethik & Verantwortung', 'Technology Ethics & Accountability'),
-    'a1_partner_meet_names': ('Erste Begrüßung und Anrede', 'First greeting and address terms'),
-    'a1_partner_first_gift': ('Das erste Besuchgeschenk', 'The first visit gift'),
+    'c1_risk_communication': (
+      'Risiko & öffentliche Information',
+      'Risk & Public Information',
+    ),
+    'c1_sustainable_tradeoffs': (
+      'Nachhaltige Entscheidungen vor Ort',
+      'Sustainable Local Choices',
+    ),
+    'c2_language_framing': (
+      'Sprache, Deutung & Macht',
+      'Language, Framing & Power',
+    ),
+    'c2_technology_ethics': (
+      'Technikethik & Verantwortung',
+      'Technology Ethics & Accountability',
+    ),
+    'a1_partner_meet_names': (
+      'Erste Begrüßung und Anrede',
+      'First greeting and address terms',
+    ),
+    'a1_partner_first_gift': (
+      'Das erste Besuchgeschenk',
+      'The first visit gift',
+    ),
     'a1_partner_house_entry': ('Ins Haus kommen', 'Coming into the house'),
-    'a1_partner_table_basic': ('Der erste Familientisch', 'The first family table'),
-    'a1_partner_seollal_basic': ('Erste Schritte an Seollal', 'First steps at Seollal'),
-    'a1_partner_chuseok_basic': ('Erste Schritte an Chuseok', 'First steps at Chuseok'),
-    'a1_partner_siblings_hello': ('Geschwister zum ersten Mal', 'Meeting the siblings'),
+    'a1_partner_table_basic': (
+      'Der erste Familientisch',
+      'The first family table',
+    ),
+    'a1_partner_seollal_basic': (
+      'Erste Schritte an Seollal',
+      'First steps at Seollal',
+    ),
+    'a1_partner_chuseok_basic': (
+      'Erste Schritte an Chuseok',
+      'First steps at Chuseok',
+    ),
+    'a1_partner_siblings_hello': (
+      'Geschwister zum ersten Mal',
+      'Meeting the siblings',
+    ),
     'a1_partner_photo_thanks': ('Fotos und Dank', 'Photos and thanks'),
-    'a2_partner_dinner_talk': ('Gespräch am Abendessen', 'Talk at the family dinner'),
+    'a2_partner_dinner_talk': (
+      'Gespräch am Abendessen',
+      'Talk at the family dinner',
+    ),
     'a2_partner_seollal_day': ('Ein Seollal-Tag', 'A full Seollal day'),
     'a2_partner_chuseok_day': ('Ein Chuseok-Tag', 'A full Chuseok day'),
-    'a2_partner_sibling_tease': ('Geschwisterscherze', 'Sibling teasing and backup'),
+    'a2_partner_sibling_tease': (
+      'Geschwisterscherze',
+      'Sibling teasing and backup',
+    ),
     'a2_partner_overnight': ('Über Nacht bleiben', 'Staying overnight'),
     'a2_partner_leftover_bags': ('Eingepackte Reste', 'Leftovers packed to go'),
-    'a2_partner_hometown_trip': ('Fahrt ins Elternhaus', 'Trip to the hometown house'),
-    'a2_partner_banmal_switch': ('Zwischen Banmal und Höflichkeit', 'Between casual and honorific speech'),
-    'b1_partner_awkward_questions': ('Unangenehme Fragen parieren', 'Deflecting awkward questions'),
-    'b1_partner_job_visa': ('Arbeit und Aufenthalt erklären', 'Explaining work and stay'),
-    'b1_partner_translating': ('Das übersetzende Paar', 'The partner who interprets'),
-    'b1_partner_drink_table': ('Manieren am Trinktisch', 'Manners at the drinking table'),
-    'b1_partner_sleep_room': ('Schlafplatz und Zimmergrenze', 'Sleeping place and room boundaries'),
-    'b1_partner_after_visit': ('Nach dem Besuch ordnen', 'Debrief after the visit'),
-    'b1_partner_group_chat': ('Manieren im Familienchat', 'Family group-chat manners'),
-    'b1_partner_holiday_plan': ('Feiertagspläne abstimmen', 'Coordinating holiday plans'),
-    'b2_partner_inlaws': ('Zwischen Schwiegerfamilien', 'Between the two in-law houses'),
-    'b2_partner_marriage_talk': ('Heiratsgespräche führen', 'Handling marriage talk'),
-    'b2_partner_honorific_trap': ('Anredefallen meiden', 'Avoiding address-term traps'),
+    'a2_partner_hometown_trip': (
+      'Fahrt ins Elternhaus',
+      'Trip to the hometown house',
+    ),
+    'a2_partner_banmal_switch': (
+      'Zwischen Banmal und Höflichkeit',
+      'Between casual and honorific speech',
+    ),
+    'b1_partner_awkward_questions': (
+      'Unangenehme Fragen parieren',
+      'Deflecting awkward questions',
+    ),
+    'b1_partner_job_visa': (
+      'Arbeit und Aufenthalt erklären',
+      'Explaining work and stay',
+    ),
+    'b1_partner_translating': (
+      'Das übersetzende Paar',
+      'The partner who interprets',
+    ),
+    'b1_partner_drink_table': (
+      'Manieren am Trinktisch',
+      'Manners at the drinking table',
+    ),
+    'b1_partner_sleep_room': (
+      'Schlafplatz und Zimmergrenze',
+      'Sleeping place and room boundaries',
+    ),
+    'b1_partner_after_visit': (
+      'Nach dem Besuch ordnen',
+      'Debrief after the visit',
+    ),
+    'b1_partner_group_chat': (
+      'Manieren im Familienchat',
+      'Family group-chat manners',
+    ),
+    'b1_partner_holiday_plan': (
+      'Feiertagspläne abstimmen',
+      'Coordinating holiday plans',
+    ),
+    'b2_partner_inlaws': (
+      'Zwischen Schwiegerfamilien',
+      'Between the two in-law houses',
+    ),
+    'b2_partner_marriage_talk': (
+      'Heiratsgespräche führen',
+      'Handling marriage talk',
+    ),
+    'b2_partner_honorific_trap': (
+      'Anredefallen meiden',
+      'Avoiding address-term traps',
+    ),
     'b2_partner_ancestral_rite': ('Am Ritualtisch', 'At the ancestral rite'),
-    'b2_partner_family_money': ('Geld in der Familie', 'Money talk in the family'),
-    'b2_partner_holiday_duty': ('Feiertagsarbeit und Fairness', 'Holiday labor and fairness'),
-    'b2_partner_boundary': ('Grenzen setzen und Beziehung halten', 'Setting boundaries while keeping the bond'),
-    'b2_partner_public_intro': ('Die Familie in der Öffentlichkeit vorstellen', 'Introducing family in public'),
-    'c1_partner_family_framing': ('Rahmen der Familiensprache', 'How family language frames us'),
-    'c1_partner_holiday_labor': ('Verteilung der Festarbeit', 'How holiday labor is distributed'),
-    'c2_partner_inlaw_power': ('Macht und Sprache der Schwiegerfamilie', 'Power and language among in-laws'),
-    'c2_partner_name_memory': ('Politik von Name und Erinnerung', 'The politics of names and memory'),
+    'b2_partner_family_money': (
+      'Geld in der Familie',
+      'Money talk in the family',
+    ),
+    'b2_partner_holiday_duty': (
+      'Feiertagsarbeit und Fairness',
+      'Holiday labor and fairness',
+    ),
+    'b2_partner_boundary': (
+      'Grenzen setzen und Beziehung halten',
+      'Setting boundaries while keeping the bond',
+    ),
+    'b2_partner_public_intro': (
+      'Die Familie in der Öffentlichkeit vorstellen',
+      'Introducing family in public',
+    ),
+    'c1_partner_family_framing': (
+      'Rahmen der Familiensprache',
+      'How family language frames us',
+    ),
+    'c1_partner_holiday_labor': (
+      'Verteilung der Festarbeit',
+      'How holiday labor is distributed',
+    ),
+    'c2_partner_inlaw_power': (
+      'Macht und Sprache der Schwiegerfamilie',
+      'Power and language among in-laws',
+    ),
+    'c2_partner_name_memory': (
+      'Politik von Name und Erinnerung',
+      'The politics of names and memory',
+    ),
     'a1_post_office': ('Auf der Post', 'At the post office'),
     'a1_pharmacy_ask': ('In der Apotheke fragen', 'Asking at the pharmacy'),
     'a1_weekend_promise': ('Wochenendzusage', 'Weekend plans'),
@@ -342,16 +465,64 @@ class VocabPackService {
     'c2_withdrawal_right': ('Widerrufsrecht', 'Withdrawal right'),
     'c2_automated_harm': ('Folgen der Automatik', 'Automated harm'),
     'c1_media_evidence': ('Evidenz in den Medien', 'Evidence in the media'),
-    'c1_play_time_policy': ('Regulierung der Spielzeit', 'Play-time regulation'),
+    'c1_play_time_policy': (
+      'Regulierung der Spielzeit',
+      'Play-time regulation',
+    ),
     'c1_fan_labor': ('Fanarbeit und Belastung', 'Fan work and load'),
-    'c1_intimacy_safety': ('Sicherheit beim Kennenlernen', 'Safety when meeting people'),
-    'c2_automation_redress': ('Automatisierung und Rechtsweg', 'Automation and redress'),
-    'c2_sanction_accountability': ('Sanktion und Rechenschaft', 'Sanctions and accountability'),
-    'c2_relationship_narratives': ('Narrativ und Perspektive', 'Narrative and perspective'),
-    'c2_fandom_discourse': ('Fandom-Sprache und Macht', 'Fandom language and power'),
-    'b2_2026_social_topics': ('Gesellschaft & Alltag 2026', 'Society & Daily Life 2026'),
-    'c1_2026_social_topics': ('Gesellschaft im Wandel', 'Society in Transition'),
-    'c2_2026_social_topics': ('Diskurs, Macht & Verantwortung', 'Discourse, Power & Responsibility'),
+    'c1_intimacy_safety': (
+      'Sicherheit beim Kennenlernen',
+      'Safety when meeting people',
+    ),
+    'c2_automation_redress': (
+      'Automatisierung und Rechtsweg',
+      'Automation and redress',
+    ),
+    'c2_sanction_accountability': (
+      'Sanktion und Rechenschaft',
+      'Sanctions and accountability',
+    ),
+    'c2_relationship_narratives': (
+      'Narrativ und Perspektive',
+      'Narrative and perspective',
+    ),
+    'c2_fandom_discourse': (
+      'Fandom-Sprache und Macht',
+      'Fandom language and power',
+    ),
+    'b2_2026_social_topics': (
+      'Gesellschaft & Alltag 2026',
+      'Society & Daily Life 2026',
+    ),
+    'c1_2026_social_topics': (
+      'Gesellschaft im Wandel',
+      'Society in Transition',
+    ),
+    'c2_2026_social_topics': (
+      'Diskurs, Macht & Verantwortung',
+      'Discourse, Power & Responsibility',
+    ),
+    'a1_city_services_2026': ('Stadtwege & Service', 'City Routes & Services'),
+    'a2_housing_search_2026': (
+      'Wohnungssuche & Vertrag',
+      'Finding a Home & Contracts',
+    ),
+    'b1_work_entry_2026': (
+      'Berufseinstieg & Arbeitsbedingungen',
+      'Starting Work & Conditions',
+    ),
+    'b2_housing_migration_2026': (
+      'Wohnkosten, Migration & Teilhabe',
+      'Housing, Migration & Inclusion',
+    ),
+    'c1_ai_culture_labor_2026': (
+      'KI-Transparenz & Kulturarbeit',
+      'AI Transparency & Cultural Labor',
+    ),
+    'c2_demography_accountability_2026': (
+      'Demografie, Diskurs & Verantwortung',
+      'Demography, Discourse & Accountability',
+    ),
   };
 
   /// 레벨 내 팩 학습 순서 (위→아래). 디스플레이·잠금 순서.
@@ -573,5 +744,11 @@ class VocabPackService {
     'b2_2026_social_topics': 46,
     'c1_2026_social_topics': 19,
     'c2_2026_social_topics': 19,
+    'a1_city_services_2026': 42,
+    'a2_housing_search_2026': 49,
+    'b1_work_entry_2026': 37,
+    'b2_housing_migration_2026': 47,
+    'c1_ai_culture_labor_2026': 20,
+    'c2_demography_accountability_2026': 20,
   };
 }

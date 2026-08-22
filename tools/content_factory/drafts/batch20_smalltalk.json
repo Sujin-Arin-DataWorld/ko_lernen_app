@@ -1,0 +1,1049 @@
+{
+  "version": 1,
+  "phrases": [
+    {
+      "id": "smalltalk_a1_0085",
+      "level": "a1",
+      "category": "transport",
+      "kind": "question",
+      "ko": "우체국은 어느 출구로 나가요?",
+      "de": "Welchen Ausgang nehme ich zum Postamt?",
+      "en": "Which exit should I take for the post office?",
+      "reply": {
+        "ko": "2번 출구로 나가서 바로 건너세요.",
+        "de": "Nehmen Sie Ausgang 2 und gehen Sie direkt über die Straße.",
+        "en": "Take Exit 2 and cross the street."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0086",
+      "level": "a1",
+      "category": "hospital",
+      "kind": "question",
+      "ko": "이 근처에 약국이 있어요?",
+      "de": "Gibt es hier in der Nähe eine Apotheke?",
+      "en": "Is there a pharmacy near here?",
+      "reply": {
+        "ko": "네, 다음 건물 1층에 있어요.",
+        "de": "Ja, im Erdgeschoss des nächsten Gebäudes.",
+        "en": "Yes, it is on the ground floor of the next building."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0087",
+      "level": "a1",
+      "category": "transport",
+      "kind": "question",
+      "ko": "이 역에서 환승해요?",
+      "de": "Steige ich an dieser Station um?",
+      "en": "Do I transfer at this station?",
+      "reply": {
+        "ko": "아니요, 다음 역에서 갈아타요.",
+        "de": "Nein, Sie steigen an der nächsten Station um.",
+        "en": "No, you transfer at the next station."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0088",
+      "level": "a1",
+      "category": "shopping",
+      "kind": "question",
+      "ko": "영수증도 주세요?",
+      "de": "Bekomme ich auch einen Kassenbon?",
+      "en": "Can I have the receipt too?",
+      "reply": {
+        "ko": "네, 결제 뒤에 같이 드릴게요.",
+        "de": "Ja, ich gebe ihn Ihnen nach der Zahlung mit.",
+        "en": "Yes, I'll give it to you after payment."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0089",
+      "level": "a1",
+      "category": "phone",
+      "kind": "question",
+      "ko": "교통카드는 어디에서 충전해요?",
+      "de": "Wo lade ich die Fahrkarte auf?",
+      "en": "Where do I top up the transit card?",
+      "reply": {
+        "ko": "편의점이나 역에서 충전해요.",
+        "de": "In einem Laden oder am Bahnhof.",
+        "en": "At a local shop or at the station."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0090",
+      "level": "a1",
+      "category": "daily",
+      "kind": "question",
+      "ko": "제 순서는 언제예요?",
+      "de": "Wann bin ich an der Reihe?",
+      "en": "When is my turn?",
+      "reply": {
+        "ko": "지금 세 번째니까 조금만 기다리세요.",
+        "de": "Jetzt ist Nummer drei dran, bitte warten Sie noch kurz.",
+        "en": "It is number three now, so please wait a little."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0078",
+      "level": "a2",
+      "category": "moving",
+      "kind": "question",
+      "ko": "관리비에 인터넷도 포함돼요?",
+      "de": "Ist Internet in den Nebenkosten enthalten?",
+      "en": "Is internet included in the maintenance fee?",
+      "reply": {
+        "ko": "아니요, 인터넷은 따로 신청해야 해요.",
+        "de": "Nein, Internet müssen Sie separat anmelden.",
+        "en": "No, you need to arrange internet separately."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0079",
+      "level": "a2",
+      "category": "moving",
+      "kind": "question",
+      "ko": "계약서를 집에서 읽어 봐도 괜찮아요?",
+      "de": "Ist es in Ordnung, wenn ich den Vertrag zu Hause lese?",
+      "en": "Is it okay if I read the contract at home?",
+      "reply": {
+        "ko": "네, 내일까지 읽고 연락 주세요.",
+        "de": "Ja, lesen Sie ihn bis morgen und melden Sie sich dann.",
+        "en": "Yes, read it by tomorrow and contact me."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0080",
+      "level": "a2",
+      "category": "moving",
+      "kind": "question",
+      "ko": "반려동물과 같이 살아도 돼요?",
+      "de": "Darf ich mit einem Haustier einziehen?",
+      "en": "May I move in with a pet?",
+      "reply": {
+        "ko": "작은 동물은 가능하지만 계약서에 적어야 해요.",
+        "de": "Kleine Tiere sind möglich, müssen aber im Vertrag stehen.",
+        "en": "Small pets are allowed, but they need to be listed in the contract."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0081",
+      "level": "a2",
+      "category": "moving",
+      "kind": "question",
+      "ko": "보증금은 언제 보내요?",
+      "de": "Wann überweise ich die Kaution?",
+      "en": "When do I send the deposit?",
+      "reply": {
+        "ko": "계약서에 서명한 뒤에 보내 주세요.",
+        "de": "Bitte überweisen Sie sie nach der Vertragsunterzeichnung.",
+        "en": "Please send it after signing the contract."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0082",
+      "level": "a2",
+      "category": "moving",
+      "kind": "question",
+      "ko": "오늘 저녁에 방을 볼 수 있어요?",
+      "de": "Kann ich das Zimmer heute Abend besichtigen?",
+      "en": "Can I view the room this evening?",
+      "reply": {
+        "ko": "일곱 시는 괜찮지만 먼저 예약해 주세요.",
+        "de": "Sieben Uhr passt, aber vereinbaren Sie bitte vorher einen Termin.",
+        "en": "Seven works, but please make an appointment first."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0083",
+      "level": "a2",
+      "category": "moving",
+      "kind": "question",
+      "ko": "이사 날짜를 일주일 늦춰도 괜찮아요?",
+      "de": "Ist es in Ordnung, den Umzug um eine Woche zu verschieben?",
+      "en": "Is it okay to move the date back by one week?",
+      "reply": {
+        "ko": "네, 새 날짜를 계약서에 함께 적어요.",
+        "de": "Ja, wir tragen das neue Datum gemeinsam in den Vertrag ein.",
+        "en": "Yes, let us add the new date to the contract."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0073",
+      "level": "b1",
+      "category": "job_hunting",
+      "kind": "question",
+      "ko": "채용 공고의 지원 자격을 모두 충족해야 하나요?",
+      "de": "Muss ich alle Voraussetzungen der Stellenanzeige erfüllen?",
+      "en": "Do I need to meet every requirement in the job posting?",
+      "reply": {
+        "ko": "필수와 우대 조건을 나눠 보고 모호하면 담당자에게 문의하세요.",
+        "de": "Unterscheiden Sie Pflicht- und Wunschkriterien und fragen Sie bei Unklarheit nach.",
+        "en": "Separate required from preferred criteria and ask if anything is unclear."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0074",
+      "level": "b1",
+      "category": "interview",
+      "kind": "question",
+      "ko": "면접 일정 변경을 어떻게 정중하게 요청할까요?",
+      "de": "Wie bitte ich höflich um eine Änderung des Vorstellungstermins?",
+      "en": "How can I politely ask to change the interview time?",
+      "reply": {
+        "ko": "이유를 짧게 말하고 가능한 시간을 두세 개 제안해 보세요.",
+        "de": "Nennen Sie den Grund kurz und schlagen Sie zwei oder drei Zeiten vor.",
+        "en": "Briefly explain why and suggest two or three possible times."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0075",
+      "level": "b1",
+      "category": "job_hunting",
+      "kind": "question",
+      "ko": "체류 자격에 관한 질문은 누구에게 해야 하나요?",
+      "de": "An wen richte ich Fragen zu meinem Aufenthaltsstatus?",
+      "en": "Who should I ask about my residence status?",
+      "reply": {
+        "ko": "회사 담당자와 관할 기관에 각각 확인하는 게 안전해요.",
+        "de": "Am sichersten ist es, sowohl die zuständige Person im Unternehmen als auch die Behörde zu fragen.",
+        "en": "It is safest to check with both the company contact and the responsible authority."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0076",
+      "level": "b1",
+      "category": "work_study",
+      "kind": "question",
+      "ko": "수습 기간에는 어떤 기준으로 평가하나요?",
+      "de": "Nach welchen Kriterien werde ich in der Probezeit bewertet?",
+      "en": "What criteria are used during probation?",
+      "reply": {
+        "ko": "업무 목표와 피드백 일정을 서면으로 확인해 달라고 요청해 보세요.",
+        "de": "Bitten Sie darum, Ziele und Feedbacktermine schriftlich festzuhalten.",
+        "en": "Ask for the goals and feedback schedule in writing."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0077",
+      "level": "b1",
+      "category": "work_study",
+      "kind": "question",
+      "ko": "돌봄 때문에 유연 근무를 요청해도 될까요?",
+      "de": "Kann ich wegen Betreuungspflichten flexible Arbeitszeiten anfragen?",
+      "en": "Can I ask for flexible work because of care responsibilities?",
+      "reply": {
+        "ko": "가능한 시간과 팀에 미치는 영향을 함께 설명하면 조율하기 쉬워요.",
+        "de": "Wenn Sie mögliche Zeiten und Auswirkungen aufs Team nennen, lässt sich das leichter abstimmen.",
+        "en": "It is easier to coordinate if you explain your available hours and the effect on the team."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_b1_0078",
+      "level": "b1",
+      "category": "work_study",
+      "kind": "question",
+      "ko": "휴가 전 인수인계에는 무엇을 남겨야 할까요?",
+      "de": "Was sollte ich vor dem Urlaub für die Übergabe dokumentieren?",
+      "en": "What should I document for a handover before leave?",
+      "reply": {
+        "ko": "진행 상황, 다음 기한, 담당자와 위험 요소를 간단히 적으세요.",
+        "de": "Notieren Sie kurz Stand, nächste Frist, Zuständigkeit und Risiken.",
+        "en": "Note the status, next deadline, owner, and risks briefly."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "시간이나 조건을 다시 확인할까요?",
+          "de": "Sollen wir Zeit oder Bedingungen noch einmal prüfen?",
+          "en": "Shall we check the time or conditions again?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 필요한 정보를 메모해 둘게요.",
+        "de": "Gut. Ich notiere die nötigen Informationen.",
+        "en": "Great. I'll note the information we need."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0113",
+      "level": "b2",
+      "category": "moving",
+      "kind": "question",
+      "ko": "임대료 인상률만 보면 실제 주거 부담을 알 수 있을까요?",
+      "de": "Zeigt die Mieterhöhung allein die tatsächliche Wohnbelastung?",
+      "en": "Does the rent increase alone show the actual housing burden?",
+      "reply": {
+        "ko": "관리비와 소득 변화, 이사 비용도 함께 봐야 합니다.",
+        "de": "Auch Nebenkosten, Einkommensentwicklung und Umzugskosten müssen berücksichtigt werden.",
+        "en": "Maintenance costs, income changes, and moving costs also need to be considered."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0114",
+      "level": "b2",
+      "category": "daily",
+      "kind": "question",
+      "ko": "공공 주택 대기 기간은 지역마다 비교할 수 있나요?",
+      "de": "Lassen sich Wartezeiten für öffentlichen Wohnraum regional vergleichen?",
+      "en": "Can public-housing waiting times be compared across regions?",
+      "reply": {
+        "ko": "입주 기준과 집계 방식이 같은지 먼저 확인해야 합니다.",
+        "de": "Zuerst muss geprüft werden, ob Zugangskriterien und Erhebungsmethoden vergleichbar sind.",
+        "en": "First check whether eligibility rules and counting methods are comparable."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0115",
+      "level": "b2",
+      "category": "moving",
+      "kind": "question",
+      "ko": "공급 부족만으로 월세 상승을 설명해도 될까요?",
+      "de": "Lässt sich der Mietanstieg allein mit Angebotsmangel erklären?",
+      "en": "Can rising rent be explained by supply shortage alone?",
+      "reply": {
+        "ko": "수요 변화와 규제, 지역별 소득도 함께 검토해야 합니다.",
+        "de": "Auch Nachfrage, Regulierung und regionale Einkommen gehören in die Analyse.",
+        "en": "Demand, regulation, and regional income also need to be examined."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0116",
+      "level": "b2",
+      "category": "job_hunting",
+      "kind": "question",
+      "ko": "노동력 부족 대책이 채용 확대에만 집중돼 있나요?",
+      "de": "Konzentriert sich die Antwort auf Arbeitskräftemangel nur auf mehr Anwerbung?",
+      "en": "Does the response to labor shortages focus only on more recruitment?",
+      "reply": {
+        "ko": "근무 조건과 교육, 장기 정착 가능성도 평가해야 합니다.",
+        "de": "Auch Arbeitsbedingungen, Qualifizierung und langfristige Bleibeperspektiven müssen bewertet werden.",
+        "en": "Working conditions, training, and long-term settlement prospects also matter."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0117",
+      "level": "b2",
+      "category": "daily",
+      "kind": "question",
+      "ko": "사회 통합을 언어 시험 점수로만 평가할 수 있을까요?",
+      "de": "Lässt sich gesellschaftliche Teilhabe nur über Sprachtestergebnisse bewerten?",
+      "en": "Can social inclusion be judged only by language-test scores?",
+      "reply": {
+        "ko": "주거와 노동, 교육 참여 같은 제도적 조건도 포함해야 합니다.",
+        "de": "Institutionelle Bedingungen wie Wohnen, Arbeit und Bildung müssen einbezogen werden.",
+        "en": "Institutional conditions such as housing, work, and education must be included."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_b2_0118",
+      "level": "b2",
+      "category": "daily",
+      "kind": "question",
+      "ko": "온라인 신청이 오히려 접근 장벽이 되는 사람도 있을까요?",
+      "de": "Kann ein Online-Antrag für manche Menschen selbst zur Zugangshürde werden?",
+      "en": "Can an online application itself become an access barrier for some people?",
+      "reply": {
+        "ko": "기기와 언어, 본인 인증 조건에 따라 접근성이 달라집니다.",
+        "de": "Der Zugang hängt von Geräten, Sprache und Identitätsprüfung ab.",
+        "en": "Access varies with devices, language, and identity-verification requirements."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0072",
+      "level": "c1",
+      "category": "screen",
+      "kind": "question",
+      "ko": "AI로 만든 콘텐츠라는 표시만 있으면 충분할까요?",
+      "de": "Reicht die Kennzeichnung, dass ein Inhalt mit KI erstellt wurde?",
+      "en": "Is a label saying content was made with AI enough?",
+      "reply": {
+        "ko": "어느 부분이 바뀌었고 누가 검토했는지도 알아야 판단할 수 있습니다.",
+        "de": "Für eine Einordnung muss auch klar sein, was verändert und von wem geprüft wurde.",
+        "en": "People also need to know what changed and who reviewed it."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0073",
+      "level": "c1",
+      "category": "screen",
+      "kind": "question",
+      "ko": "인간 감독이 실제 결정권을 갖고 있나요?",
+      "de": "Hat die menschliche Aufsicht tatsächlich Entscheidungsbefugnis?",
+      "en": "Does human oversight have real decision-making authority?",
+      "reply": {
+        "ko": "자동 결과를 바꾸고 이유를 기록할 권한이 있는지 확인해야 합니다.",
+        "de": "Es ist zu prüfen, ob Ergebnisse geändert und Gründe dokumentiert werden dürfen.",
+        "en": "Check whether reviewers can change the result and document why."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0074",
+      "level": "c1",
+      "category": "screen",
+      "kind": "question",
+      "ko": "알고리즘 편향을 결과 비율만으로 찾을 수 있을까요?",
+      "de": "Lässt sich algorithmische Verzerrung allein an Ergebnisquoten erkennen?",
+      "en": "Can algorithmic bias be detected from outcome rates alone?",
+      "reply": {
+        "ko": "데이터 구성과 누락된 집단, 운영 맥락도 함께 살펴야 합니다.",
+        "de": "Auch Datenzusammensetzung, fehlende Gruppen und Einsatzkontext sind relevant.",
+        "en": "Data composition, missing groups, and deployment context also matter."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0075",
+      "level": "c1",
+      "category": "work_study",
+      "kind": "question",
+      "ko": "설명 가능성은 누구에게 설명되는지를 포함하나요?",
+      "de": "Umfasst Erklärbarkeit auch, für wen die Erklärung bestimmt ist?",
+      "en": "Does explainability include who the explanation is for?",
+      "reply": {
+        "ko": "개발자용 설명과 이용자가 이의를 제기할 때 필요한 설명은 다를 수 있습니다.",
+        "de": "Eine Erklärung für Entwickler kann sich von der für einen Einspruch benötigten unterscheiden.",
+        "en": "An explanation for developers may differ from what users need to appeal."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0076",
+      "level": "c1",
+      "category": "kpop",
+      "kind": "question",
+      "ko": "팬 번역의 무급 기여를 어떻게 기록해야 할까요?",
+      "de": "Wie sollte unbezahlte Fan-Übersetzungsarbeit dokumentiert werden?",
+      "en": "How should unpaid fan translation work be documented?",
+      "reply": {
+        "ko": "도달률뿐 아니라 시간, 동의, 출처 표시와 보상 여부를 기록해야 합니다.",
+        "de": "Neben Reichweite sollten Zeit, Einwilligung, Nennung und Vergütung erfasst werden.",
+        "en": "Record time, consent, credit, and compensation as well as reach."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0077",
+      "level": "c1",
+      "category": "kpop",
+      "kind": "question",
+      "ko": "K-컬처 현지화에서 문화적 맥락이 어디서 빠지나요?",
+      "de": "Wo geht bei der Lokalisierung von K-Kultur kultureller Kontext verloren?",
+      "en": "Where does cultural context get lost in K-culture localization?",
+      "reply": {
+        "ko": "자막 길이와 마케팅 분류, 플랫폼 추천 과정에서 의미가 단순화될 수 있습니다.",
+        "de": "Bedeutung kann durch Untertitellänge, Marketingkategorien und Plattformempfehlungen vereinfacht werden.",
+        "en": "Meaning can be simplified through subtitle limits, marketing categories, and platform recommendations."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0071",
+      "level": "c2",
+      "category": "daily",
+      "kind": "question",
+      "ko": "저출산 담론이 개인의 가치관만을 원인으로 제시하나요?",
+      "de": "Stellt der Diskurs über niedrige Geburtenraten individuelle Werte als einzige Ursache dar?",
+      "en": "Does low-birth-rate discourse present individual values as the sole cause?",
+      "reply": {
+        "ko": "주거, 고용, 돌봄과 성별 분업이 분석에서 빠졌는지 확인해야 합니다.",
+        "de": "Es ist zu prüfen, ob Wohnen, Arbeit, Betreuung und geschlechtliche Arbeitsteilung fehlen.",
+        "en": "Check whether housing, employment, care, and gendered labor are missing."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0072",
+      "level": "c2",
+      "category": "daily",
+      "kind": "question",
+      "ko": "세대 간 형평성을 비용 분담으로만 정의해도 될까요?",
+      "de": "Darf Generationengerechtigkeit nur als Kostenteilung definiert werden?",
+      "en": "Should intergenerational equity be defined only as cost sharing?",
+      "reply": {
+        "ko": "결정권과 위험 노출, 혜택이 나타나는 시점도 함께 포함해야 합니다.",
+        "de": "Auch Entscheidungsrechte, Risikoexposition und der Zeitpunkt von Vorteilen gehören dazu.",
+        "en": "Decision rights, exposure to risk, and the timing of benefits also belong in the analysis."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0073",
+      "level": "c2",
+      "category": "work_study",
+      "kind": "question",
+      "ko": "정책 효과와 단순한 시기적 동시성을 구분했나요?",
+      "de": "Wurde Politikwirkung von bloßer zeitlicher Gleichzeitigkeit getrennt?",
+      "en": "Was the policy effect separated from mere timing?",
+      "reply": {
+        "ko": "비교 집단과 다른 변화 요인을 제시해야 인과 주장을 평가할 수 있습니다.",
+        "de": "Vergleichsgruppe und andere Veränderungen sind nötig, um den Kausalschluss zu bewerten.",
+        "en": "A comparison group and other changes are needed to assess the causal claim."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0074",
+      "level": "c2",
+      "category": "screen",
+      "kind": "question",
+      "ko": "자동 제재에 이의 제기 경로가 실제로 열려 있나요?",
+      "de": "Ist bei einer automatischen Sanktion tatsächlich ein Einspruchsweg offen?",
+      "en": "Is there a real appeal path for an automated sanction?",
+      "reply": {
+        "ko": "기한, 담당 기관, 필요한 자료와 집행 정지 여부를 확인해야 합니다.",
+        "de": "Frist, zuständige Stelle, erforderliche Unterlagen und aufschiebende Wirkung müssen geklärt sein.",
+        "en": "Check the deadline, responsible body, required evidence, and whether enforcement pauses."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0075",
+      "level": "c2",
+      "category": "daily",
+      "kind": "question",
+      "ko": "담론 프레임이 책임 소재를 개인에게 옮기고 있나요?",
+      "de": "Verschiebt der diskursive Rahmen Verantwortung auf Einzelne?",
+      "en": "Does the discourse frame shift responsibility onto individuals?",
+      "reply": {
+        "ko": "문제의 이름과 행위 주체, 생략된 제도 조건을 나눠 읽어야 합니다.",
+        "de": "Problembezeichnung, handelnde Akteure und ausgelassene institutionelle Bedingungen sollten getrennt gelesen werden.",
+        "en": "Read the problem label, acting institutions, and omitted conditions separately."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0076",
+      "level": "c2",
+      "category": "work_study",
+      "kind": "question",
+      "ko": "동의가 있어도 권력 비대칭 때문에 거절하기 어려운가요?",
+      "de": "Ist eine Ablehnung trotz Einwilligungsverfahren wegen Machtasymmetrie schwierig?",
+      "en": "Can power asymmetry make refusal difficult even when consent is requested?",
+      "reply": {
+        "ko": "계약 연장과 평가, 생계에 미치는 거절 비용을 따로 확인해야 합니다.",
+        "de": "Die Kosten einer Ablehnung für Vertrag, Bewertung und Lebensunterhalt müssen gesondert geprüft werden.",
+        "en": "Examine the cost of refusal for contract renewal, evaluation, and livelihood."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인할까요?",
+          "de": "Sollen wir noch eine Bedingung für diese Einschätzung prüfen?",
+          "en": "Shall we check one more condition needed for that assessment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거의 범위와 영향을 받는 집단을 나누면 더 정확해지겠네요.",
+        "de": "Wenn wir Geltungsbereich und betroffene Gruppen trennen, wird die Aussage genauer.",
+        "en": "Separating the scope of the evidence from the affected groups will make the claim more precise."
+      }
+    }
+  ]
+}

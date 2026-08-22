@@ -1,0 +1,959 @@
+{
+  "version": 1,
+  "batch": "20",
+  "status": "merged",
+  "provenance": {
+    "rights": "original_clean_room",
+    "pdfAbstraction": "general educational signals only; no source copy, IDs, pages, tables, or unit order",
+    "researchBasis": [
+      "German Federal Statistical Office: 2026 prices, housing and employment topic signals",
+      "European Commission: AI transparency and enforcement topic signals",
+      "Statistics Korea: population, housing and demographic topic signals",
+      "Korean Ministry of Culture: 2026 cross-sector K-culture expansion topic signal"
+    ],
+    "contentRevision": "v2",
+    "humanization": {
+      "skill": "beyond-humanizer",
+      "installedRef": "beyond-humanizer-v2@2dde092f",
+      "contract": "same communication event; independent KO/DE/EN realization; CEFR function and stable IDs preserved",
+      "nativeQualityClaim": "blocked_pending_independent_review"
+    },
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-22",
+      "scope": "full A1-C2 content update, live integration, validation and main merge",
+      "memo": "Jin authorized the complete A1-C2 content update and live integration on 2026-08-22; clean-room and Beyond automated QA passed; independent native-quality review remains required before any native-quality claim."
+    }
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch20_vocab.csv",
+      "review": "tools/content_factory/review/batch20_vocab.csv",
+      "count": 72,
+      "levels": {
+        "a1": 12,
+        "a2": 12,
+        "b1": 12,
+        "b2": 12,
+        "c1": 12,
+        "c2": 12
+      }
+    },
+    {
+      "kind": "grammar",
+      "draft": "tools/content_factory/drafts/batch20_grammar.csv",
+      "review": "tools/content_factory/review/batch20_grammar.csv",
+      "count": 12,
+      "levels": {
+        "a1": 2,
+        "a2": 2,
+        "b1": 2,
+        "b2": 2,
+        "c1": 2,
+        "c2": 2
+      }
+    },
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/batch20_scenario.json",
+      "review": "tools/content_factory/review/batch20_scenario.csv",
+      "count": 6,
+      "levels": {
+        "a1": 1,
+        "a2": 1,
+        "b1": 1,
+        "b2": 1,
+        "c1": 1,
+        "c2": 1
+      },
+      "collection": "scenarios"
+    },
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/batch20_smalltalk.json",
+      "review": "tools/content_factory/review/batch20_smalltalk.csv",
+      "count": 36,
+      "levels": {
+        "a1": 6,
+        "a2": 6,
+        "b1": 6,
+        "b2": 6,
+        "c1": 6,
+        "c2": 6
+      },
+      "collection": "phrases"
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch20_cloze.json",
+      "review": "tools/content_factory/review/batch20_cloze.csv",
+      "count": 36,
+      "levels": {
+        "a1": 6,
+        "a2": 6,
+        "b1": 6,
+        "b2": 6,
+        "c1": 6,
+        "c2": 6
+      },
+      "collection": "items"
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch20_satz.json",
+      "review": "tools/content_factory/review/batch20_satz.csv",
+      "count": 36,
+      "levels": {
+        "a1": 6,
+        "a2": 6,
+        "b1": 6,
+        "b2": 6,
+        "c1": 6,
+        "c2": 6
+      },
+      "collection": "items"
+    },
+    {
+      "kind": "pronunciation",
+      "draft": "tools/content_factory/drafts/batch20_pronunciation.json",
+      "review": "tools/content_factory/review/batch20_pronunciation.csv",
+      "count": 12,
+      "levels": {
+        "a1": 2,
+        "a2": 2,
+        "b1": 2,
+        "b2": 2,
+        "c1": 2,
+        "c2": 2
+      },
+      "collection": "phrases"
+    }
+  ],
+  "recordCount": 210,
+  "questCount": 30,
+  "vocabPacks": [
+    {
+      "packId": "a1_city_services_2026_1",
+      "level": "a1",
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "도시 서비스와 이동",
+        "de": "Stadtwege & Service",
+        "en": "City Routes & Services"
+      },
+      "motif": "gwigap",
+      "orderInLevel": 42,
+      "curriculum": {
+        "courseUnitId": "a1_06_transport_directions",
+        "conceptIds": [
+          "concept_a1_directions"
+        ]
+      }
+    },
+    {
+      "packId": "a2_housing_search_2026_1",
+      "level": "a2",
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "집 구하기와 계약",
+        "de": "Wohnungssuche & Vertrag",
+        "en": "Finding a Home & Contracts"
+      },
+      "motif": "peony",
+      "orderInLevel": 49,
+      "curriculum": {
+        "courseUnitId": "a2_08_home_money",
+        "conceptIds": [
+          "concept_a2_home_money"
+        ]
+      }
+    },
+    {
+      "packId": "b1_work_entry_2026_1",
+      "level": "b1",
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "취업과 근무 조건",
+        "de": "Berufseinstieg & Arbeitsbedingungen",
+        "en": "Starting Work & Conditions"
+      },
+      "motif": "bamboo",
+      "orderInLevel": 37,
+      "curriculum": {
+        "courseUnitId": "b1_03_work_softening",
+        "conceptIds": [
+          "concept_b1_softening"
+        ]
+      }
+    },
+    {
+      "packId": "b2_housing_migration_2026_1",
+      "level": "b2",
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "주거비, 이주와 통합",
+        "de": "Wohnkosten, Migration & Teilhabe",
+        "en": "Housing, Migration & Inclusion"
+      },
+      "motif": "chilbo",
+      "orderInLevel": 47,
+      "curriculum": {
+        "courseUnitId": "b2_02_professional_opinion",
+        "conceptIds": [
+          "concept_b2_opinion"
+        ]
+      }
+    },
+    {
+      "packId": "c1_ai_culture_labor_2026_1",
+      "level": "c1",
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "AI 투명성과 문화 노동",
+        "de": "KI-Transparenz & Kulturarbeit",
+        "en": "AI Transparency & Cultural Labor"
+      },
+      "motif": "taegeuk",
+      "orderInLevel": 20,
+      "curriculum": {
+        "courseUnitId": "c1_03_media_evidence_literacy",
+        "conceptIds": [
+          "concept_c1_media_evidence"
+        ]
+      }
+    },
+    {
+      "packId": "c2_demography_accountability_2026_1",
+      "level": "c2",
+      "orderRange": [
+        1,
+        12
+      ],
+      "reviewBossOrders": [
+        10,
+        11,
+        12
+      ],
+      "displayLabel": {
+        "ko": "인구 담론과 제도 책임",
+        "de": "Demografie, Diskurs & Verantwortung",
+        "en": "Demography, Discourse & Accountability"
+      },
+      "motif": "manja",
+      "orderInLevel": 20,
+      "curriculum": {
+        "courseUnitId": "c2_01_interpretation_institutions",
+        "conceptIds": [
+          "concept_c2_discourse_institutions"
+        ]
+      }
+    }
+  ],
+  "grammarIntents": [
+    {
+      "id": "grammar_a1_service_location_question",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ]
+    },
+    {
+      "id": "grammar_a1_service_request",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ]
+    },
+    {
+      "id": "grammar_a2_permission_check_batch20",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ]
+    },
+    {
+      "id": "grammar_a2_preference_soft_batch20",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ]
+    },
+    {
+      "id": "grammar_b1_tentative_plan_batch20",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    {
+      "id": "grammar_b1_conceded_context_batch20",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    {
+      "id": "grammar_b2_criterion_view_batch20",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "id": "grammar_b2_considering_fact_batch20",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ]
+    },
+    {
+      "id": "grammar_c1_difficult_to_conclude_batch20",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    {
+      "id": "grammar_c1_burden_recipient_batch20",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    {
+      "id": "grammar_c2_no_reduction_batch20",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    {
+      "id": "grammar_c2_premise_review_batch20",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    }
+  ],
+  "clozeTopicMappings": [
+    {
+      "level": "a1",
+      "topic": "도시 생활",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "level": "a2",
+      "topic": "집 구하기",
+      "courseUnitId": "a2_08_home_money"
+    },
+    {
+      "level": "b1",
+      "topic": "취업과 근무 조건",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "level": "b2",
+      "topic": "주거비와 사회 통합",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "level": "c1",
+      "topic": "AI 투명성과 문화 노동",
+      "courseUnitId": "c1_03_media_evidence_literacy"
+    },
+    {
+      "level": "c2",
+      "topic": "인구 담론과 제도 책임",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    }
+  ],
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_city_service_route_batch20",
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "conceptIds": [
+        "concept_topic_particle"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_flat_viewing_terms_batch20",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "conceptIds": [
+        "concept_action_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_job_offer_conditions_batch20",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b2_rent_increase_meeting_batch20",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c1_ai_labeling_policy_batch20",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "c2_automated_redress_record_batch20",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0085",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0086",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0087",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0088",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0089",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0090",
+      "courseUnitId": "a1_06_transport_directions",
+      "conceptIds": [
+        "concept_a1_directions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0078",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0079",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0080",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0081",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0082",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a2_0083",
+      "courseUnitId": "a2_08_home_money",
+      "conceptIds": [
+        "concept_a2_home_money"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0073",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0074",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0075",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0076",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0077",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b1_0078",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0113",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0114",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0115",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0116",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0117",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_b2_0118",
+      "courseUnitId": "b2_02_professional_opinion",
+      "conceptIds": [
+        "concept_b2_opinion"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0072",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0073",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0074",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0075",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0076",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c1_0077",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0071",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0072",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0073",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0074",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0075",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_c2_0076",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "role": "practice"
+    }
+  ],
+  "supplementalPromotions": {
+    "mediaPhrase": 24,
+    "wordRelation": 24,
+    "grammarPattern": 6,
+    "kkeunmari": 48,
+    "cultureNote": 6
+  },
+  "supplementalArtifacts": [
+    {
+      "kind": "mediaPhrase",
+      "count": 24,
+      "keyField": "id",
+      "keys": [
+        "media_113",
+        "media_114",
+        "media_115",
+        "media_116",
+        "media_117",
+        "media_118",
+        "media_119",
+        "media_120",
+        "media_121",
+        "media_122",
+        "media_123",
+        "media_124",
+        "media_125",
+        "media_126",
+        "media_127",
+        "media_128",
+        "media_129",
+        "media_130",
+        "media_131",
+        "media_132",
+        "media_133",
+        "media_134",
+        "media_135",
+        "media_136"
+      ]
+    },
+    {
+      "kind": "wordRelation",
+      "count": 24,
+      "keyField": "id",
+      "keys": [
+        "rel_batch20_a1_01",
+        "rel_batch20_a1_02",
+        "rel_batch20_a1_03",
+        "rel_batch20_a1_04",
+        "rel_batch20_a2_01",
+        "rel_batch20_a2_02",
+        "rel_batch20_a2_03",
+        "rel_batch20_a2_04",
+        "rel_batch20_b1_01",
+        "rel_batch20_b1_02",
+        "rel_batch20_b1_03",
+        "rel_batch20_b1_04",
+        "rel_batch20_b2_01",
+        "rel_batch20_b2_02",
+        "rel_batch20_b2_03",
+        "rel_batch20_b2_04",
+        "rel_batch20_c1_01",
+        "rel_batch20_c1_02",
+        "rel_batch20_c1_03",
+        "rel_batch20_c1_04",
+        "rel_batch20_c2_01",
+        "rel_batch20_c2_02",
+        "rel_batch20_c2_03",
+        "rel_batch20_c2_04"
+      ]
+    },
+    {
+      "kind": "grammarPattern",
+      "count": 6,
+      "keyField": "id",
+      "keys": [
+        "g_a1_where_is_batch20",
+        "g_a2_permission_ok_batch20",
+        "g_b1_tentative_plan_batch20",
+        "g_b2_criterion_batch20",
+        "g_c1_conclusion_limit_batch20",
+        "g_c2_premise_review_batch20"
+      ]
+    },
+    {
+      "kind": "kkeunmari",
+      "count": 48,
+      "keyField": "word",
+      "keys": [
+        "우편함",
+        "승강장",
+        "충전기",
+        "대기표",
+        "안내판",
+        "개찰구",
+        "우편물",
+        "약봉지",
+        "입주일",
+        "현관문",
+        "중개료",
+        "수도료",
+        "전기세",
+        "가스비",
+        "세입자",
+        "이삿짐",
+        "공고",
+        "지원서",
+        "직무경력",
+        "면접관",
+        "근무지",
+        "수습",
+        "인수인계",
+        "유연근무",
+        "주거비",
+        "임대료",
+        "생활비",
+        "공공주택",
+        "노동력",
+        "사회통합",
+        "접근장벽",
+        "공급량",
+        "투명성",
+        "합성물",
+        "출처표시",
+        "편향성",
+        "감독권",
+        "대표성",
+        "자동판단",
+        "수익배분",
+        "인구구조",
+        "형평성",
+        "정책효과",
+        "인과추론",
+        "담론틀",
+        "책임소재",
+        "구제책",
+        "권력차"
+      ]
+    },
+    {
+      "kind": "cultureNote",
+      "count": 6,
+      "keyField": "ko",
+      "keys": [
+        "교통카드",
+        "보증금",
+        "수습 기간",
+        "이주 배경",
+        "번역 노동",
+        "위기 프레임"
+      ]
+    }
+  ],
+  "supplementalRecordCount": 108,
+  "courseExposure": {
+    "vocab": "new 12-card pack per CEFR level plus cards, daily word, Chosung and speed-match derivation",
+    "grammar": "exact level card, quiz distractors and curriculum grammarRuleMap",
+    "scenario": "one exact-level scenario and five quests per level with explicit contentLink",
+    "smalltalk": "six exact-level turns per level with explicit contentLink",
+    "cloze": "six exact-level items per level via topic route",
+    "satz": "six exact-level items per level via vocabulary pack route",
+    "pronunciation": "two exact-level phrases per level with cumulative learner visibility",
+    "mediaPhrase": "four exact-level phrases per level reachable from Discover and Practice Hub",
+    "wordRelation": "four exact-level word-web clusters per level",
+    "grammarPattern": "one exact-level book-analysis pattern per level and Cloud Function mirror",
+    "kkeunmari": "eight exact-level chain words per level with cumulative visibility",
+    "cultureNote": "one reviewed note per level attached to a live vocabulary card",
+    "silben": "new 2-3 syllable vocabulary enters the next deterministic crossword regeneration; existing approved 20-per-level bundle is preserved"
+  }
+}
