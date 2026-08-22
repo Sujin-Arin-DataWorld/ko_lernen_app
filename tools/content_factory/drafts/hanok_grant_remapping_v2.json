@@ -1,0 +1,574 @@
+{
+  "schemaVersion": 2,
+  "contractId": "hanok_grant_remapping_v2",
+  "status": "phase0Review",
+  "runtimeEnabled": false,
+  "sourceCatalog": {
+    "path": "tools/content_factory/drafts/hanok_grants.json",
+    "schemaVersion": 1,
+    "expectedGrantCount": 86
+  },
+  "mappingPolicy": {
+    "version": "hanok_level_mapping_v2_phase0",
+    "preserveGrantIds": true,
+    "preserveCanDoAuthority": true,
+    "preserveGrantOrder": true,
+    "assetIdsAreAssignedLater": true
+  },
+  "representationPolicy": {
+    "conceptIdsAreSemanticLabels": true,
+    "literalModernPropTransfer": false,
+    "readableTextInEstateOverview": false,
+    "periodAppropriateMaterialTranslation": true
+  },
+  "levelPolicies": [
+    {
+      "level": "a1",
+      "socketId": "hanok_socket_a1_sarangchae_build",
+      "assetPolicy": "rebuildFromApprovedGoldenMaster"
+    },
+    {
+      "level": "a2",
+      "socketId": "hanok_socket_a2_sarangbang_life",
+      "assetPolicy": "futureSocketOnly"
+    },
+    {
+      "level": "b1",
+      "socketId": "hanok_socket_b1_inner_connection",
+      "assetPolicy": "futureSocketOnly"
+    },
+    {
+      "level": "b2",
+      "socketId": "hanok_socket_b2_household_ritual",
+      "assetPolicy": "futureSocketOnly"
+    },
+    {
+      "level": "c1",
+      "socketId": "hanok_socket_c1_estate_stewardship",
+      "assetPolicy": "futureSocketOnly"
+    },
+    {
+      "level": "c2",
+      "socketId": "hanok_socket_c2_transmission",
+      "assetPolicy": "futureSocketOnly"
+    }
+  ],
+  "grantMappings": [
+    {
+      "grantId": "hanok_a1_01_site_setout",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_site_setout"
+    },
+    {
+      "grantId": "hanok_a1_02_plan_layout",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_plan_layout"
+    },
+    {
+      "grantId": "hanok_a1_03_foundation_gidan",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_foundation_gidan"
+    },
+    {
+      "grantId": "hanok_a1_04_cornerstones_choseok",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_cornerstones_choseok"
+    },
+    {
+      "grantId": "hanok_a1_05_timber_preparation",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_timber_preparation"
+    },
+    {
+      "grantId": "hanok_a1_06_columns",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_columns"
+    },
+    {
+      "grantId": "hanok_a1_07_beams_changbang",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_beams_changbang"
+    },
+    {
+      "grantId": "hanok_a1_08_purlins_sangnyang",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_purlins_sangnyang"
+    },
+    {
+      "grantId": "hanok_a1_09_rafters_roof_frame",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_rafters_roof_frame"
+    },
+    {
+      "grantId": "hanok_a1_10_roof_base",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_roof_base"
+    },
+    {
+      "grantId": "hanok_a1_11_giwa_roof",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_giwa_roof"
+    },
+    {
+      "grantId": "hanok_a1_12_wall_frame_sujang",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_wall_frame_sujang"
+    },
+    {
+      "grantId": "hanok_a1_13_earth_walls",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_earth_walls"
+    },
+    {
+      "grantId": "hanok_a1_14_ondol_maru",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_ondol_maru"
+    },
+    {
+      "grantId": "hanok_a1_15_changho_finish",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_changho_finish"
+    },
+    {
+      "grantId": "hanok_a1_16_landscape_move_in",
+      "targetStructureId": "sarangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "a1_sarangchae_landscape_move_in"
+    },
+    {
+      "grantId": "hanok_a2_haeyo_register_transition",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "a2_sarangbang_first_welcome"
+    },
+    {
+      "grantId": "hanok_a2_plans_with_friend",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "furnishing",
+      "rewardConceptId": "a2_sarangbang_shared_schedule_board"
+    },
+    {
+      "grantId": "hanok_a2_friend_birthday",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "furnishing",
+      "rewardConceptId": "a2_sarangbang_birthday_table"
+    },
+    {
+      "grantId": "hanok_a2_running_late",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "a2_sarangbang_evening_lantern"
+    },
+    {
+      "grantId": "hanok_a2_pharmacy_headache",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "furnishing",
+      "rewardConceptId": "a2_sarangbang_recovery_bedding"
+    },
+    {
+      "grantId": "hanok_a2_gym_signup",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "furnishing",
+      "rewardConceptId": "a2_sarangbang_activity_corner"
+    },
+    {
+      "grantId": "hanok_a2_feeling_sick",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "furnishing",
+      "rewardConceptId": "a2_sarangbang_warm_ondol"
+    },
+    {
+      "grantId": "hanok_a2_cafe_starbucks_basic",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "furnishing",
+      "rewardConceptId": "a2_sarangbang_tea_table"
+    },
+    {
+      "grantId": "hanok_a2_myeongdong_shopping",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "furnishing",
+      "rewardConceptId": "a2_sarangbang_storage_chest"
+    },
+    {
+      "grantId": "hanok_a2_cafe_study",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "furnishing",
+      "rewardConceptId": "a2_sarangbang_study_desk"
+    },
+    {
+      "grantId": "hanok_a2_subway_transfer",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "furnishing",
+      "rewardConceptId": "a2_sarangbang_route_map_scroll"
+    },
+    {
+      "grantId": "hanok_a2_taxi_street",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "furnishing",
+      "rewardConceptId": "a2_sarangbang_travel_bundle"
+    },
+    {
+      "grantId": "hanok_a2_subway_directions",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "venue",
+      "rewardConceptId": "a2_sarangbang_venue_access"
+    },
+    {
+      "grantId": "hanok_a2_lost_phone",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "a2_sarangbang_hearth_warmth"
+    },
+    {
+      "grantId": "hanok_a2_ktx_ticket",
+      "targetStructureId": "sarangbang",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "a2_sarangbang_lantern_light"
+    },
+    {
+      "grantId": "hanok_a2_rent_bank_transfer",
+      "targetStructureId": "sarangchae_life",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "a2_sarangchae_chimney_smoke"
+    },
+    {
+      "grantId": "hanok_b1_plans_with_reasons",
+      "targetStructureId": "inner_wall",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_inner_wall_setout"
+    },
+    {
+      "grantId": "hanok_b1_travel_experience",
+      "targetStructureId": "inner_wall",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_inner_wall_complete"
+    },
+    {
+      "grantId": "hanok_b1_relay_social_speech",
+      "targetStructureId": "middle_gate",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_middle_gate_threshold"
+    },
+    {
+      "grantId": "hanok_b1_relay_media_claim",
+      "targetStructureId": "haengrangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_haengrangchae_foundation"
+    },
+    {
+      "grantId": "hanok_b1_bank_soft_request",
+      "targetStructureId": "haengrangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_haengrangchae_frame"
+    },
+    {
+      "grantId": "hanok_b1_team_role_coordination",
+      "targetStructureId": "haengrangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_haengrangchae_roof"
+    },
+    {
+      "grantId": "hanok_b1_attendance_and_coverage",
+      "targetStructureId": "haengrangchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_haengrangchae_complete"
+    },
+    {
+      "grantId": "hanok_b1_schedule_softening",
+      "targetStructureId": "work_yard",
+      "targetRewardRole": "designOption",
+      "rewardConceptId": "b1_work_yard_schedule_board"
+    },
+    {
+      "grantId": "hanok_b1_encouragement",
+      "targetStructureId": "work_yard",
+      "targetRewardRole": "designOption",
+      "rewardConceptId": "b1_work_yard_encouragement_banner"
+    },
+    {
+      "grantId": "hanok_b1_intimate_feelings",
+      "targetStructureId": "anchae",
+      "targetRewardRole": "designOption",
+      "rewardConceptId": "b1_anchae_private_boundary"
+    },
+    {
+      "grantId": "hanok_b1_social_invitation",
+      "targetStructureId": "inner_court",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "b1_inner_court_invitation"
+    },
+    {
+      "grantId": "hanok_b1_delivery_resolution",
+      "targetStructureId": "haengrangchae",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "b1_haengrang_delivery_bay"
+    },
+    {
+      "grantId": "hanok_b1_property_damage_report",
+      "targetStructureId": "inner_wall",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "b1_inner_wall_safety_marker"
+    },
+    {
+      "grantId": "hanok_b1_housing_contract",
+      "targetStructureId": "anchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_anchae_platform"
+    },
+    {
+      "grantId": "hanok_b1_safety_health_concern",
+      "targetStructureId": "anchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_anchae_frame"
+    },
+    {
+      "grantId": "hanok_b1_relationship_conflict_repair",
+      "targetStructureId": "anchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_anchae_roof"
+    },
+    {
+      "grantId": "hanok_b1_move_in_handover",
+      "targetStructureId": "anchae",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b1_anchae_complete"
+    },
+    {
+      "grantId": "hanok_b1_life_course_narrative",
+      "targetStructureId": "anbang",
+      "targetRewardRole": "venue",
+      "rewardConceptId": "b1_anbang_venue_access"
+    },
+    {
+      "grantId": "hanok_b2_formal_meeting_opening",
+      "targetStructureId": "service_court",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "b2_service_court_opening"
+    },
+    {
+      "grantId": "hanok_b2_honorific_register_transform",
+      "targetStructureId": "household_boundary",
+      "targetRewardRole": "designOption",
+      "rewardConceptId": "b2_household_hierarchy_marker"
+    },
+    {
+      "grantId": "hanok_b2_decision_criteria",
+      "targetStructureId": "gotgan",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b2_gotgan_plan"
+    },
+    {
+      "grantId": "hanok_b2_public_wording_revision",
+      "targetStructureId": "gotgan",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b2_gotgan_platform"
+    },
+    {
+      "grantId": "hanok_b2_collaborative_feedback",
+      "targetStructureId": "gotgan",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b2_gotgan_frame"
+    },
+    {
+      "grantId": "hanok_b2_digital_source_judgment",
+      "targetStructureId": "gotgan",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b2_gotgan_complete"
+    },
+    {
+      "grantId": "hanok_b2_societal_evidence_argument",
+      "targetStructureId": "service_court",
+      "targetRewardRole": "venue",
+      "rewardConceptId": "b2_service_court_venue_access"
+    },
+    {
+      "grantId": "hanok_b2_language_social_change",
+      "targetStructureId": "jangdokdae",
+      "targetRewardRole": "designOption",
+      "rewardConceptId": "b2_jangdokdae_first_row"
+    },
+    {
+      "grantId": "hanok_b2_medical_precision",
+      "targetStructureId": "well",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b2_well_safety_edge"
+    },
+    {
+      "grantId": "hanok_b2_contract_scope",
+      "targetStructureId": "gotgan",
+      "targetRewardRole": "designOption",
+      "rewardConceptId": "b2_gotgan_storage_scope_marker"
+    },
+    {
+      "grantId": "hanok_b2_terms_deferral",
+      "targetStructureId": "household_boundary",
+      "targetRewardRole": "designOption",
+      "rewardConceptId": "b2_service_gate"
+    },
+    {
+      "grantId": "hanok_b2_environmental_tradeoff",
+      "targetStructureId": "gotgan",
+      "targetRewardRole": "credential",
+      "rewardConceptId": "b2_resource_stewardship_record"
+    },
+    {
+      "grantId": "hanok_b2_formal_complaint",
+      "targetStructureId": "service_court",
+      "targetRewardRole": "credential",
+      "rewardConceptId": "b2_household_request_board"
+    },
+    {
+      "grantId": "hanok_b2_remedy_and_appeal",
+      "targetStructureId": "household_boundary",
+      "targetRewardRole": "credential",
+      "rewardConceptId": "b2_boundary_appeal_record"
+    },
+    {
+      "grantId": "hanok_b2_shared_space_coordination",
+      "targetStructureId": "service_court",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "b2_shared_court_schedule"
+    },
+    {
+      "grantId": "hanok_b2_personal_boundaries",
+      "targetStructureId": "household_boundary",
+      "targetRewardRole": "designOption",
+      "rewardConceptId": "b2_privacy_boundary_screen"
+    },
+    {
+      "grantId": "hanok_b2_household_safety_rule",
+      "targetStructureId": "well",
+      "targetRewardRole": "ambience",
+      "rewardConceptId": "b2_household_safety_marker"
+    },
+    {
+      "grantId": "hanok_b2_interview_experience",
+      "targetStructureId": "sadang",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b2_sadang_platform"
+    },
+    {
+      "grantId": "hanok_b2_literary_cultural_response",
+      "targetStructureId": "sadang",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b2_sadang_frame_roof"
+    },
+    {
+      "grantId": "hanok_b2_formal_soft_reformulation",
+      "targetStructureId": "sadang",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "b2_sadang_complete"
+    },
+    {
+      "grantId": "hanok_c1_evidence_validity",
+      "targetStructureId": "estate_stewardship",
+      "targetRewardRole": "maintenance",
+      "rewardConceptId": "c1_roof_tile_inspection"
+    },
+    {
+      "grantId": "hanok_c1_evidence_limits_conclusion",
+      "targetStructureId": "estate_stewardship",
+      "targetRewardRole": "maintenance",
+      "rewardConceptId": "c1_drainage_channel_service"
+    },
+    {
+      "grantId": "hanok_c1_risk_uncertainty",
+      "targetStructureId": "estate_stewardship",
+      "targetRewardRole": "maintenance",
+      "rewardConceptId": "c1_courtyard_surface_repair"
+    },
+    {
+      "grantId": "hanok_c1_risk_update_correction",
+      "targetStructureId": "estate_stewardship",
+      "targetRewardRole": "maintenance",
+      "rewardConceptId": "c1_changho_weather_seal"
+    },
+    {
+      "grantId": "hanok_c1_accessibility_barrier_diagnosis",
+      "targetStructureId": "estate_stewardship",
+      "targetRewardRole": "seasonalCare",
+      "rewardConceptId": "c1_spring_maintenance_round"
+    },
+    {
+      "grantId": "hanok_c1_participatory_access_remedy",
+      "targetStructureId": "estate_stewardship",
+      "targetRewardRole": "seasonalCare",
+      "rewardConceptId": "c1_summer_drainage_round"
+    },
+    {
+      "grantId": "hanok_c1_sustainable_lifecycle",
+      "targetStructureId": "estate_stewardship",
+      "targetRewardRole": "seasonalCare",
+      "rewardConceptId": "c1_autumn_roof_round"
+    },
+    {
+      "grantId": "hanok_c1_local_tradeoff_adaptation",
+      "targetStructureId": "estate_stewardship",
+      "targetRewardRole": "seasonalCare",
+      "rewardConceptId": "c1_winter_changho_round"
+    },
+    {
+      "grantId": "hanok_c2_procedural_legitimacy",
+      "targetStructureId": "heritage_archive",
+      "targetRewardRole": "credential",
+      "rewardConceptId": "c2_heritage_charter"
+    },
+    {
+      "grantId": "hanok_c2_institutional_deliberation",
+      "targetStructureId": "seogo",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "c2_seogo_platform"
+    },
+    {
+      "grantId": "hanok_c2_narrative_perspective",
+      "targetStructureId": "seogo",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "c2_seogo_frame"
+    },
+    {
+      "grantId": "hanok_c2_interpretation_justification",
+      "targetStructureId": "seogo",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "c2_seogo_roof"
+    },
+    {
+      "grantId": "hanok_c2_framing_responsibility",
+      "targetStructureId": "seogo",
+      "targetRewardRole": "construction",
+      "rewardConceptId": "c2_seogo_complete"
+    },
+    {
+      "grantId": "hanok_c2_discourse_boundary_power",
+      "targetStructureId": "byeoldang",
+      "targetRewardRole": "venue",
+      "rewardConceptId": "c2_byeoldang_interpretation_venue"
+    },
+    {
+      "grantId": "hanok_c2_technology_traceability_appeal",
+      "targetStructureId": "literary_collection",
+      "targetRewardRole": "credential",
+      "rewardConceptId": "c2_literary_collection_register"
+    },
+    {
+      "grantId": "hanok_c2_technology_responsibility_rights",
+      "targetStructureId": "interpretation_station",
+      "targetRewardRole": "interpretation",
+      "rewardConceptId": "c2_visitor_interpretation_plaque"
+    }
+  ]
+}

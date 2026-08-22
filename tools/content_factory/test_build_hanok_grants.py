@@ -243,6 +243,20 @@ class HanokGrantGeneratorTest(unittest.TestCase):
                     / "drafts"
                     / "hanok_grants.json"
                 ),
+                "MASTERPLAN_PATH": (
+                    ROOT
+                    / "tools"
+                    / "content_factory"
+                    / "drafts"
+                    / "estate_masterplan_v2.json"
+                ),
+                "REMAPPING_PATH": (
+                    ROOT
+                    / "tools"
+                    / "content_factory"
+                    / "drafts"
+                    / "hanok_grant_remapping_v2.json"
+                ),
                 "LEDGER_PATH": (
                     ROOT
                     / "tools"
