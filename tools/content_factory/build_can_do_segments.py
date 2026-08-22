@@ -990,6 +990,142 @@ BATCH_16_SEGMENT_ROUTES: dict[tuple[str, str], str] = {
     ("scenario", "c2_representation_spokesperson_handover_concession"): "c2_discourse_boundary_power",
 }
 
+# Batch 17 (2026-08-22) — 2026 social-topic scenarios and their C1/C2
+# practice families. Keep the published segment inventory fixed and route every
+# promoted source to the closest existing discourse function.
+BATCH_17_SEGMENT_ROUTES: dict[tuple[str, str], str] = {
+    ("scenario", "c1_moving_rent_relief_roundtable"): "c1_local_tradeoff_adaptation",
+    ("scenario", "c1_work_ai_hiring_pilot_review"): "c1_evidence_validity",
+    ("scenario", "c1_daily_migration_demography_policy_forum"): "c1_local_tradeoff_adaptation",
+    ("scenario", "c1_kpop_platform_localization_review"): "c1_sustainable_lifecycle",
+    ("scenario", "c2_moving_affordability_definition_hearing"): "c2_framing_responsibility",
+    ("scenario", "c2_work_ai_accountability_board"): "c2_technology_responsibility_rights",
+    ("scenario", "c2_daily_integration_metric_editorial"): "c2_framing_responsibility",
+    ("scenario", "c2_kpop_authenticity_platform_panel"): "c2_discourse_boundary_power",
+}
+for _number in range(33, 35):
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(35, 37):
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c1_{_number:04d}")] = (
+        "c1_evidence_validity"
+    )
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c2_{_number:04d}")] = (
+        "c2_technology_responsibility_rights"
+    )
+for _number in range(37, 39):
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(39, 41):
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c1_{_number:04d}")] = (
+        "c1_sustainable_lifecycle"
+    )
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c2_{_number:04d}")] = (
+        "c2_discourse_boundary_power"
+    )
+for _number in range(221, 224):
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(224, 227):
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = (
+        "c1_evidence_validity"
+    )
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = (
+        "c2_technology_responsibility_rights"
+    )
+for _number in range(227, 230):
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(230, 233):
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = (
+        "c1_sustainable_lifecycle"
+    )
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = (
+        "c2_discourse_boundary_power"
+    )
+for _number in range(223, 226):
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(226, 229):
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = (
+        "c1_evidence_validity"
+    )
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = (
+        "c2_technology_responsibility_rights"
+    )
+for _number in range(229, 232):
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(232, 235):
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = (
+        "c1_sustainable_lifecycle"
+    )
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = (
+        "c2_discourse_boundary_power"
+    )
+
+# Batch 18 (2026-08-22) — independent follow-up practice for the same public
+# topics. These exact routes make regeneration deterministic without changing
+# any historical source assignment.
+BATCH_18_SEGMENT_ROUTES: dict[tuple[str, str], str] = {
+    ("vocabPack", "c1_2026_social_topics_1"): "c1_local_tradeoff_adaptation",
+    ("vocabPack", "c2_2026_social_topics_1"): "c2_framing_responsibility",
+    ("grammar", "grammar_c1_even_accounting_for"): "c1_local_tradeoff_adaptation",
+    ("grammar", "grammar_c1_while_also_consider"): "c1_evidence_validity",
+    ("grammar", "grammar_c1_effect_varies_by"): "c1_local_tradeoff_adaptation",
+    ("grammar", "grammar_c1_excluded_in_process"): "c1_sustainable_lifecycle",
+    ("grammar", "grammar_c2_take_as_premise"): "c2_framing_responsibility",
+    ("grammar", "grammar_c2_definition_by_viewpoint"): "c2_technology_responsibility_rights",
+    ("grammar", "grammar_c2_responsibility_remains"): "c2_framing_responsibility",
+    ("grammar", "grammar_c2_cannot_reduce_to"): "c2_discourse_boundary_power",
+    ("smalltalk", "smalltalk_c1_0041"): "c1_local_tradeoff_adaptation",
+    ("smalltalk", "smalltalk_c1_0042"): "c1_evidence_validity",
+    ("smalltalk", "smalltalk_c1_0043"): "c1_local_tradeoff_adaptation",
+    ("smalltalk", "smalltalk_c1_0044"): "c1_sustainable_lifecycle",
+    ("smalltalk", "smalltalk_c2_0041"): "c2_framing_responsibility",
+    ("smalltalk", "smalltalk_c2_0042"): "c2_technology_responsibility_rights",
+    ("smalltalk", "smalltalk_c2_0043"): "c2_framing_responsibility",
+    ("smalltalk", "smalltalk_c2_0044"): "c2_discourse_boundary_power",
+}
+for _number in range(233, 245):
+    BATCH_18_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_18_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(235, 247):
+    BATCH_18_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_18_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+
 MODE_SUFFIX = {
     "guidedProduction": "guided_production",
     "dictation": "dictation",
@@ -2448,8 +2584,8 @@ class SourceIndex:
                 _promotion_segment_key("scenario", reference.id) is not None
                 or (reference.kind, reference.id) in self.published_content_routes
                 or (
-                actual_level in ("c1", "c2")
-                and row["courseUnitId"] in C_UNIT_DEFAULT_ROUTE
+                    actual_level in ("c1", "c2")
+                    and row["courseUnitId"] in C_UNIT_DEFAULT_ROUTE
                 )
             ):
                 # 라우팅된 시나리오는 자기 코스 유닛이 아니라 붙기로 한 세그먼트를
@@ -3054,6 +3190,12 @@ def _promotion_segment_key(kind: str, content_id: str) -> str | None:
     batch_16 = BATCH_16_SEGMENT_ROUTES.get((kind, content_id))
     if batch_16 is not None:
         return batch_16
+    batch_17 = BATCH_17_SEGMENT_ROUTES.get((kind, content_id))
+    if batch_17 is not None:
+        return batch_17
+    batch_18 = BATCH_18_SEGMENT_ROUTES.get((kind, content_id))
+    if batch_18 is not None:
+        return batch_18
     return FOUR_X_SEGMENT_ROUTES.get((kind, content_id))
 
 
@@ -3258,14 +3400,15 @@ def _expand_ab_practice(
                     f"smalltalk {phrase_id!r} maps to {unit_id!r}, "
                     f"but category route {target!r} belongs to {target_parent!r}"
                 )
-            legacy_smalltalk_unit_overrides.append(
-                {
-                    "id": phrase_id,
-                    "legacyCourseUnitId": unit_id,
-                    "courseUnitId": target_parent,
-                    "canDoSegmentId": f"segment_{target}",
-                }
-            )
+            if published_route is None:
+                legacy_smalltalk_unit_overrides.append(
+                    {
+                        "id": phrase_id,
+                        "legacyCourseUnitId": unit_id,
+                        "courseUnitId": target_parent,
+                        "canDoSegmentId": f"segment_{target}",
+                    }
+                )
         target_spec = _require(spec_by_key, target, "smalltalk segment route")
         target_title, target_can_do = _segment_text(target_spec, source)
         is_best_available = (

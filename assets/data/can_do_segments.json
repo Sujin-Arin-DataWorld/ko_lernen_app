@@ -7264,7 +7264,7 @@
     {
       "id": "cluster_c1_evidence_validity_v1",
       "level": "c1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -7306,15 +7306,15 @@
         "seed_smalltalk_smalltalk_c1_0035_v1",
         "seed_smalltalk_smalltalk_c1_0036_v1",
         "seed_smalltalk_smalltalk_c1_0042_v1",
-        "seed_smalltalk_smalltalk_c1_0059_v1",
-        "seed_smalltalk_smalltalk_c1_0060_v1",
-        "seed_smalltalk_smalltalk_c1_0061_v1",
         "seed_cloze_cloze_c1_0224_v1",
         "seed_cloze_cloze_c1_0225_v1",
         "seed_cloze_cloze_c1_0226_v1",
         "seed_satz_satz_c1_0226_v1",
         "seed_satz_satz_c1_0227_v1",
-        "seed_satz_satz_c1_0228_v1"
+        "seed_satz_satz_c1_0228_v1",
+        "seed_smalltalk_smalltalk_c1_0059_v1",
+        "seed_smalltalk_smalltalk_c1_0060_v1",
+        "seed_smalltalk_smalltalk_c1_0061_v1"
       ],
       "contentReferences": [
         {
@@ -7534,18 +7534,6 @@
           "id": "smalltalk_c1_0042"
         },
         {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0059"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0060"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0061"
-        },
-        {
           "kind": "cloze",
           "id": "cloze_c1_0224"
         },
@@ -7568,6 +7556,18 @@
         {
           "kind": "satz",
           "id": "satz_c1_0228"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0059"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0060"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0061"
         }
       ]
     },
@@ -9415,7 +9415,7 @@
     {
       "id": "cluster_c1_sustainable_lifecycle_v1",
       "level": "c1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -9457,14 +9457,14 @@
         "seed_smalltalk_smalltalk_c1_0039_v1",
         "seed_smalltalk_smalltalk_c1_0040_v1",
         "seed_smalltalk_smalltalk_c1_0044_v1",
-        "seed_smalltalk_smalltalk_c1_0053_v1",
-        "seed_smalltalk_smalltalk_c1_0054_v1",
         "seed_cloze_cloze_c1_0230_v1",
         "seed_cloze_cloze_c1_0231_v1",
         "seed_cloze_cloze_c1_0232_v1",
         "seed_satz_satz_c1_0232_v1",
         "seed_satz_satz_c1_0233_v1",
-        "seed_satz_satz_c1_0234_v1"
+        "seed_satz_satz_c1_0234_v1",
+        "seed_smalltalk_smalltalk_c1_0053_v1",
+        "seed_smalltalk_smalltalk_c1_0054_v1"
       ],
       "contentReferences": [
         {
@@ -9692,14 +9692,6 @@
           "id": "smalltalk_c1_0044"
         },
         {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0053"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0054"
-        },
-        {
           "kind": "cloze",
           "id": "cloze_c1_0230"
         },
@@ -9722,13 +9714,21 @@
         {
           "kind": "satz",
           "id": "satz_c1_0234"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0053"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0054"
         }
       ]
     },
     {
       "id": "cluster_c1_local_tradeoff_adaptation_v1",
       "level": "c1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -9825,20 +9825,6 @@
         "seed_smalltalk_smalltalk_c1_0038_v1",
         "seed_smalltalk_smalltalk_c1_0041_v1",
         "seed_smalltalk_smalltalk_c1_0043_v1",
-        "seed_smalltalk_smalltalk_c1_0045_v1",
-        "seed_smalltalk_smalltalk_c1_0046_v1",
-        "seed_smalltalk_smalltalk_c1_0051_v1",
-        "seed_smalltalk_smalltalk_c1_0052_v1",
-        "seed_smalltalk_smalltalk_c1_0055_v1",
-        "seed_smalltalk_smalltalk_c1_0056_v1",
-        "seed_smalltalk_smalltalk_c1_0057_v1",
-        "seed_smalltalk_smalltalk_c1_0058_v1",
-        "seed_smalltalk_smalltalk_c1_0062_v1",
-        "seed_smalltalk_smalltalk_c1_0063_v1",
-        "seed_smalltalk_smalltalk_c1_0064_v1",
-        "seed_smalltalk_smalltalk_c1_0065_v1",
-        "seed_smalltalk_smalltalk_c1_0070_v1",
-        "seed_smalltalk_smalltalk_c1_0071_v1",
         "seed_cloze_cloze_c1_0221_v1",
         "seed_cloze_cloze_c1_0222_v1",
         "seed_cloze_cloze_c1_0223_v1",
@@ -9874,7 +9860,21 @@
         "seed_satz_satz_c1_0243_v1",
         "seed_satz_satz_c1_0244_v1",
         "seed_satz_satz_c1_0245_v1",
-        "seed_satz_satz_c1_0246_v1"
+        "seed_satz_satz_c1_0246_v1",
+        "seed_smalltalk_smalltalk_c1_0045_v1",
+        "seed_smalltalk_smalltalk_c1_0046_v1",
+        "seed_smalltalk_smalltalk_c1_0051_v1",
+        "seed_smalltalk_smalltalk_c1_0052_v1",
+        "seed_smalltalk_smalltalk_c1_0055_v1",
+        "seed_smalltalk_smalltalk_c1_0056_v1",
+        "seed_smalltalk_smalltalk_c1_0057_v1",
+        "seed_smalltalk_smalltalk_c1_0058_v1",
+        "seed_smalltalk_smalltalk_c1_0062_v1",
+        "seed_smalltalk_smalltalk_c1_0063_v1",
+        "seed_smalltalk_smalltalk_c1_0064_v1",
+        "seed_smalltalk_smalltalk_c1_0065_v1",
+        "seed_smalltalk_smalltalk_c1_0070_v1",
+        "seed_smalltalk_smalltalk_c1_0071_v1"
       ],
       "contentReferences": [
         {
@@ -10322,62 +10322,6 @@
           "id": "smalltalk_c1_0043"
         },
         {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0045"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0046"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0051"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0052"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0055"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0056"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0057"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0058"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0062"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0063"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0064"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0065"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0070"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c1_0071"
-        },
-        {
           "kind": "cloze",
           "id": "cloze_c1_0221"
         },
@@ -10520,6 +10464,62 @@
         {
           "kind": "satz",
           "id": "satz_c1_0246"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0045"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0046"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0051"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0052"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0055"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0056"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0057"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0058"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0062"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0063"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0064"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0065"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0070"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0071"
         }
       ]
     },
@@ -11882,7 +11882,7 @@
     {
       "id": "cluster_c2_framing_responsibility_v1",
       "level": "c2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
@@ -11898,11 +11898,7 @@
         "seed_smalltalk_smalltalk_c2_0037_v1",
         "seed_smalltalk_smalltalk_c2_0038_v1",
         "seed_smalltalk_smalltalk_c2_0041_v1",
-        "seed_smalltalk_smalltalk_c2_0047_v1",
-        "seed_smalltalk_smalltalk_c2_0048_v1",
-        "seed_smalltalk_smalltalk_c2_0049_v1",
-        "seed_smalltalk_smalltalk_c2_0050_v1",
-        "seed_smalltalk_smalltalk_c2_0062_v1",
+        "seed_smalltalk_smalltalk_c2_0043_v1",
         "seed_cloze_cloze_c2_0221_v1",
         "seed_cloze_cloze_c2_0222_v1",
         "seed_cloze_cloze_c2_0223_v1",
@@ -11938,7 +11934,12 @@
         "seed_satz_satz_c2_0243_v1",
         "seed_satz_satz_c2_0244_v1",
         "seed_satz_satz_c2_0245_v1",
-        "seed_satz_satz_c2_0246_v1"
+        "seed_satz_satz_c2_0246_v1",
+        "seed_smalltalk_smalltalk_c2_0047_v1",
+        "seed_smalltalk_smalltalk_c2_0048_v1",
+        "seed_smalltalk_smalltalk_c2_0049_v1",
+        "seed_smalltalk_smalltalk_c2_0050_v1",
+        "seed_smalltalk_smalltalk_c2_0062_v1"
       ],
       "contentReferences": [
         {
@@ -12055,23 +12056,7 @@
         },
         {
           "kind": "smalltalk",
-          "id": "smalltalk_c2_0047"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c2_0048"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c2_0049"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c2_0050"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c2_0062"
+          "id": "smalltalk_c2_0043"
         },
         {
           "kind": "cloze",
@@ -12216,13 +12201,33 @@
         {
           "kind": "satz",
           "id": "satz_c2_0246"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0047"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0048"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0049"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0050"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0062"
         }
       ]
     },
     {
       "id": "cluster_c2_discourse_boundary_power_v1",
       "level": "c2",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
@@ -12264,14 +12269,14 @@
         "seed_smalltalk_smalltalk_c2_0039_v1",
         "seed_smalltalk_smalltalk_c2_0040_v1",
         "seed_smalltalk_smalltalk_c2_0044_v1",
-        "seed_smalltalk_smalltalk_c2_0051_v1",
-        "seed_smalltalk_smalltalk_c2_0052_v1",
         "seed_cloze_cloze_c2_0230_v1",
         "seed_cloze_cloze_c2_0231_v1",
         "seed_cloze_cloze_c2_0232_v1",
         "seed_satz_satz_c2_0232_v1",
         "seed_satz_satz_c2_0233_v1",
-        "seed_satz_satz_c2_0234_v1"
+        "seed_satz_satz_c2_0234_v1",
+        "seed_smalltalk_smalltalk_c2_0051_v1",
+        "seed_smalltalk_smalltalk_c2_0052_v1"
       ],
       "contentReferences": [
         {
@@ -12491,14 +12496,6 @@
           "id": "smalltalk_c2_0044"
         },
         {
-          "kind": "smalltalk",
-          "id": "smalltalk_c2_0051"
-        },
-        {
-          "kind": "smalltalk",
-          "id": "smalltalk_c2_0052"
-        },
-        {
           "kind": "cloze",
           "id": "cloze_c2_0230"
         },
@@ -12521,6 +12518,14 @@
         {
           "kind": "satz",
           "id": "satz_c2_0234"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0051"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0052"
         }
       ]
     },
@@ -12687,7 +12692,6 @@
         "seed_scenario_c2_limitation_ex_officio_review_path_v1",
         "seed_scenario_c2_limitation_extension_premise_error_proof_v1",
         "seed_scenario_c2_limitation_notice_delay_appeal_window_v1",
-        "seed_smalltalk_smalltalk_c2_0042_v1",
         "seed_smalltalk_smalltalk_c2_0059_v1",
         "seed_smalltalk_smalltalk_c2_0060_v1",
         "seed_smalltalk_smalltalk_c2_0061_v1",
@@ -13393,10 +13397,6 @@
         },
         {
           "kind": "smalltalk",
-          "id": "smalltalk_c2_0042"
-        },
-        {
-          "kind": "smalltalk",
           "id": "smalltalk_c2_0059"
         },
         {
@@ -13420,7 +13420,7 @@
     {
       "id": "cluster_c2_technology_responsibility_rights_v1",
       "level": "c2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
@@ -13457,7 +13457,13 @@
         "seed_scenario_c2_work_ai_accountability_board_v1",
         "seed_smalltalk_smalltalk_c2_0035_v1",
         "seed_smalltalk_smalltalk_c2_0036_v1",
-        "seed_smalltalk_smalltalk_c2_0043_v1",
+        "seed_smalltalk_smalltalk_c2_0042_v1",
+        "seed_cloze_cloze_c2_0224_v1",
+        "seed_cloze_cloze_c2_0225_v1",
+        "seed_cloze_cloze_c2_0226_v1",
+        "seed_satz_satz_c2_0226_v1",
+        "seed_satz_satz_c2_0227_v1",
+        "seed_satz_satz_c2_0228_v1",
         "seed_smalltalk_smalltalk_c2_0045_v1",
         "seed_smalltalk_smalltalk_c2_0046_v1",
         "seed_smalltalk_smalltalk_c2_0053_v1",
@@ -13469,13 +13475,7 @@
         "seed_smalltalk_smalltalk_c2_0067_v1",
         "seed_smalltalk_smalltalk_c2_0068_v1",
         "seed_smalltalk_smalltalk_c2_0069_v1",
-        "seed_smalltalk_smalltalk_c2_0070_v1",
-        "seed_cloze_cloze_c2_0224_v1",
-        "seed_cloze_cloze_c2_0225_v1",
-        "seed_cloze_cloze_c2_0226_v1",
-        "seed_satz_satz_c2_0226_v1",
-        "seed_satz_satz_c2_0227_v1",
-        "seed_satz_satz_c2_0228_v1"
+        "seed_smalltalk_smalltalk_c2_0070_v1"
       ],
       "contentReferences": [
         {
@@ -13684,7 +13684,31 @@
         },
         {
           "kind": "smalltalk",
-          "id": "smalltalk_c2_0043"
+          "id": "smalltalk_c2_0042"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0224"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0225"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0226"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0226"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0227"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0228"
         },
         {
           "kind": "smalltalk",
@@ -13733,30 +13757,6 @@
         {
           "kind": "smalltalk",
           "id": "smalltalk_c2_0070"
-        },
-        {
-          "kind": "cloze",
-          "id": "cloze_c2_0224"
-        },
-        {
-          "kind": "cloze",
-          "id": "cloze_c2_0225"
-        },
-        {
-          "kind": "cloze",
-          "id": "cloze_c2_0226"
-        },
-        {
-          "kind": "satz",
-          "id": "satz_c2_0226"
-        },
-        {
-          "kind": "satz",
-          "id": "satz_c2_0227"
-        },
-        {
-          "kind": "satz",
-          "id": "satz_c2_0228"
         }
       ]
     }
