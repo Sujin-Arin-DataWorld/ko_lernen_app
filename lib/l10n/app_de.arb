@@ -2013,6 +2013,7 @@
   "wbViewAction": "Ansehen",
   "wbSearchTitle": "Meine Wörter",
   "wbSearchHint": "Wort oder Bedeutung suchen …",
+  "wbSearchClear": "Suche löschen",
   "wbSearchEmpty": "Keine Treffer",
   "wbSearchNoWords": "Noch keine gespeicherten Wörter. Tippe beim Lernen auf das Lesezeichen-Symbol.",
   "wbSearchCount": "{count, plural, one{1 Wort} other{{count} Wörter}}",

@@ -22,6 +22,13 @@ class SoriChip extends StatelessWidget {
   final VoidCallback? onTap;
   final double fontSize;
 
+  /// Optional idle boundary for an unselected outlined choice.
+  ///
+  /// The default preserves existing consumers. App-owned filters that need a
+  /// directly measurable 3:1 boundary can opt into the established strong
+  /// surface-border token without creating a parallel chip implementation.
+  final Color? idleBorderColor;
+
   /// Maximum visible label lines. Interactive filters default to one compact
   /// line; pass `null` when the full localized label must wrap at large text.
   final int? maxLines;
@@ -45,6 +52,7 @@ class SoriChip extends StatelessWidget {
     this.variant = SoriChipVariant.soft,
     this.onTap,
     this.fontSize = 12,
+    this.idleBorderColor,
     this.maxLines = 1,
     this.horizontalPadding,
     this.minInteractiveHeight,
@@ -70,7 +78,7 @@ class SoriChip extends StatelessWidget {
       SoriChipVariant.outlined => (
         Colors.transparent,
         selected ? color : s.text,
-        selected ? color : s.border,
+        selected ? color : (idleBorderColor ?? s.border),
       ),
     };
 

@@ -7002,6 +7002,12 @@ abstract class AppL10n {
   /// **'Wort oder Bedeutung suchen …'**
   String get wbSearchHint;
 
+  /// No description provided for @wbSearchClear.
+  ///
+  /// In de, this message translates to:
+  /// **'Suche löschen'**
+  String get wbSearchClear;
+
   /// No description provided for @wbSearchEmpty.
   ///
   /// In de, this message translates to:

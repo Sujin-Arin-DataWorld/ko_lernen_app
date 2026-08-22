@@ -1945,6 +1945,7 @@
   "wbViewAction": "View",
   "wbSearchTitle": "My words",
   "wbSearchHint": "Search word or meaning…",
+  "wbSearchClear": "Clear search",
   "wbSearchEmpty": "No matches",
   "wbSearchNoWords": "No saved words yet. Tap the bookmark icon while learning.",
   "wbSearchCount": "{count, plural, one{1 word} other{{count} words}}",

@@ -3979,6 +3979,9 @@ class AppL10nEn extends AppL10n {
   String get wbSearchHint => 'Search word or meaning…';
 
   @override
+  String get wbSearchClear => 'Clear search';
+
+  @override
   String get wbSearchEmpty => 'No matches';
 
   @override
