@@ -468,7 +468,7 @@ class SoriAnswerTile extends StatelessWidget {
                           child: Text(
                             String.fromCharCode(65 + index),
                             style: SoriTextTheme.of(context).caption.copyWith(
-                              color: selected ? accent : surfaces.textMuted,
+                              color: surfaces.text,
                               fontWeight: FontWeight.w700,
                               fontSize: 13,
                             ),

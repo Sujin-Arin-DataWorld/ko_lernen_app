@@ -331,6 +331,33 @@ void main() {
         greaterThanOrEqualTo(4.5),
       );
 
+      final answerStates = [
+        SoriAnswerState.selected,
+        SoriAnswerState.correct,
+        SoriAnswerState.wrong,
+      ];
+      await _pumpQuest(
+        tester,
+        Column(
+          children: [
+            for (final entry in answerStates.asMap().entries)
+              SoriAnswerTile(
+                key: ValueKey('contrast-answer-${entry.key}'),
+                label: 'choice-${entry.key}',
+                index: entry.key,
+                state: entry.value,
+                selected: true,
+                onTap: () {},
+              ),
+          ],
+        ),
+        locale: const Locale('en'),
+        viewport: _viewports[2],
+      );
+      for (final entry in answerStates.asMap().entries) {
+        _expectAnswerIndexContrast(tester, entry.key);
+      }
+
       final particle = _engines.singleWhere(
         (engine) => engine.name == 'particle',
       );
@@ -694,17 +721,14 @@ Future<void> _enterCorrectResponse(
       await _tapPointerOwned(tester, find.bySemanticsLabel('하세요'));
       break;
     case 'dictation':
-      final input = find.descendant(
-        of: find.byType(SoriTextField),
-        matching: find.byType(TextField),
+      final input = find.byKey(const ValueKey('diktat-answer-field'));
+      final editable = find.descendant(
+        of: input,
+        matching: find.byType(EditableText),
       );
-      expect(input, findsOneWidget);
-      await Scrollable.ensureVisible(
-        input.evaluate().single,
-        alignment: 0.5,
-        duration: Duration.zero,
-      );
-      await tester.pump();
+      _expectEditableField(tester, input, editable);
+      await _tapPointerOwned(tester, input);
+      expect(tester.testTextInput.isVisible, isTrue);
       await tester.enterText(input, '안녕 하세요');
       await tester.pump();
       break;
@@ -743,6 +767,20 @@ void _expectButton(
     expect(data.flagsCollection.isSelected, selected);
   }
   expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
+}
+
+void _expectEditableField(
+  WidgetTester tester,
+  Finder hitTarget,
+  Finder editable,
+) {
+  expect(hitTarget, findsOneWidget);
+  expect(editable, findsOneWidget);
+  final data = tester.getSemantics(editable).getSemanticsData();
+  expect(data.flagsCollection.isTextField, isTrue);
+  expect(data.flagsCollection.isReadOnly, isFalse);
+  expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
+  expect(tester.getSize(hitTarget).height, greaterThanOrEqualTo(48));
 }
 
 void _expectSemanticsHides(
@@ -791,6 +829,47 @@ void _expectTextContrast(WidgetTester tester, String label) {
   final text = tester.widget<Text>(find.text(label));
   expect(
     SoriColors.contrastRatio(text.style!.color!, SoriColors.lightBg),
+    greaterThanOrEqualTo(4.5),
+  );
+}
+
+void _expectAnswerIndexContrast(WidgetTester tester, int index) {
+  final tile = find.byKey(ValueKey('contrast-answer-$index'));
+  final outer = find.descendant(
+    of: tile,
+    matching: find.byType(AnimatedContainer),
+  );
+  expect(outer, findsOneWidget);
+  final outerDecoration =
+      tester.widget<AnimatedContainer>(outer).decoration! as BoxDecoration;
+  final outerBackground = Color.alphaBlend(
+    outerDecoration.color!,
+    SoriColors.lightBg,
+  );
+  final circle = find.descendant(
+    of: tile,
+    matching: find.byWidgetPredicate(
+      (widget) =>
+          widget is DecoratedBox &&
+          widget.decoration is BoxDecoration &&
+          (widget.decoration as BoxDecoration).shape == BoxShape.circle,
+    ),
+  );
+  expect(circle, findsOneWidget);
+  final circleDecoration =
+      tester.widget<DecoratedBox>(circle).decoration as BoxDecoration;
+  final circleBackground = Color.alphaBlend(
+    circleDecoration.color!,
+    outerBackground,
+  );
+  final letter = tester.widget<Text>(
+    find.descendant(
+      of: circle,
+      matching: find.text(String.fromCharCode(65 + index)),
+    ),
+  );
+  expect(
+    SoriColors.contrastRatio(letter.style!.color!, circleBackground),
     greaterThanOrEqualTo(4.5),
   );
 }
