@@ -1383,7 +1383,18 @@ class AppL10nEn extends AppL10n {
   String get gyeJoinCta => 'Join';
 
   @override
+  String get gyeCreatingLoading => 'Creating Gye…';
+
+  @override
+  String get gyeJoiningLoading => 'Joining Gye…';
+
+  @override
   String get gyeCreatedTitle => 'Gye created!';
+
+  @override
+  String gyeCreatedAnnouncement(Object name, Object code) {
+    return 'Gye $name was created. Entry code: $code.';
+  }
 
   @override
   String get gyeShareCode => 'Share code';

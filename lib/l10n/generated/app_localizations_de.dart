@@ -1387,7 +1387,18 @@ class AppL10nDe extends AppL10n {
   String get gyeJoinCta => 'Beitreten';
 
   @override
+  String get gyeCreatingLoading => 'Gye wird erstellt…';
+
+  @override
+  String get gyeJoiningLoading => 'Gye-Beitritt läuft…';
+
+  @override
   String get gyeCreatedTitle => 'Gye erstellt!';
+
+  @override
+  String gyeCreatedAnnouncement(Object name, Object code) {
+    return 'Gye $name wurde erstellt. Beitrittscode: $code.';
+  }
 
   @override
   String get gyeShareCode => 'Code teilen';

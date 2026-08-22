@@ -698,7 +698,16 @@
   "gyeCodeInputLabel": "6-digit code",
   "gyeCreateCta": "Create",
   "gyeJoinCta": "Join",
+  "gyeCreatingLoading": "Creating Gye…",
+  "gyeJoiningLoading": "Joining Gye…",
   "gyeCreatedTitle": "Gye created!",
+  "gyeCreatedAnnouncement": "Gye {name} was created. Entry code: {code}.",
+  "@gyeCreatedAnnouncement": {
+    "placeholders": {
+      "name": {},
+      "code": {}
+    }
+  },
   "gyeShareCode": "Share code",
   "gyeInviteTitle": "Invite friends",
   "gyeInviteBody": "Share the code with friends so they can join your gye.",

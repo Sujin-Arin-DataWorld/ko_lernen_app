@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/gye.dart';
 import '../models/gye_weekly_promise.dart';
 import '../widgets/app_loading.dart';
 import '../l10n/gye_error_text.dart';
@@ -13,16 +14,25 @@ import '../services/account/cloud_write_session.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
+typedef GyeCreateOperation =
+    Future<GyeMeta> Function({
+      required String name,
+      required String nickname,
+      required String weeklyPromiseId,
+    });
+
 /// 계 만들기 — 이름·닉네임 입력 → 6자리 코드 생성·공유. plan §7.3.
 /// (가입 후 계 마당은 Tier 3c에서 — 여기선 코드 생성·공유까지.)
 class GyeCreateScreen extends StatefulWidget {
-  const GyeCreateScreen({super.key, this.accountSessions});
+  const GyeCreateScreen({super.key, this.accountSessions, this.createGye});
 
   final ValueListenable<CloudWriteSession?>? accountSessions;
+  final GyeCreateOperation? createGye;
 
   @override
   State<GyeCreateScreen> createState() => _GyeCreateScreenState();
@@ -49,11 +59,17 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
     FocusScope.of(context).unfocus();
     setState(() => _busy = true);
     try {
-      final meta = await GyeService.createGye(
-        name: _name.text,
-        nickname: _nick.text,
-        weeklyPromiseId: _weeklyPromiseId,
-      );
+      final meta = widget.createGye == null
+          ? await GyeService.createGye(
+              name: _name.text,
+              nickname: _nick.text,
+              weeklyPromiseId: _weeklyPromiseId,
+            )
+          : await widget.createGye!(
+              name: _name.text,
+              nickname: _nick.text,
+              weeklyPromiseId: _weeklyPromiseId,
+            );
       if (!mounted) {
         return;
       }
@@ -92,33 +108,39 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
   }
 
   Widget _form(AppL10n t, bool writesAvailable) {
+    final type = SoriTextTheme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         if (!writesAvailable) ...[
-          Text(t.gyeAccountTransitionPaused, textAlign: TextAlign.center),
+          Semantics(
+            container: true,
+            liveRegion: true,
+            label: t.gyeAccountTransitionPaused,
+            child: ExcludeSemantics(
+              child: Text(
+                t.gyeAccountTransitionPaused,
+                textAlign: TextAlign.center,
+                style: type.bodySmall,
+              ),
+            ),
+          ),
           const SizedBox(height: Spacing.md),
         ],
         const SizedBox(height: Spacing.md),
-        TextField(
+        SoriTextField(
           controller: _name,
           maxLength: GyeService.maxNameLen,
           textInputAction: TextInputAction.next,
-          decoration: InputDecoration(
-            labelText: t.gyeNameLabel,
-            hintText: t.gyeNameHint,
-            border: const OutlineInputBorder(),
-          ),
+          labelText: t.gyeNameLabel,
+          hintText: t.gyeNameHint,
         ),
         const SizedBox(height: Spacing.sm),
-        TextField(
+        SoriTextField(
           controller: _nick,
           maxLength: GyeService.maxNicknameLen,
-          decoration: InputDecoration(
-            labelText: t.gyeNicknameLabel,
-            hintText: t.gyeNicknameHint,
-            border: const OutlineInputBorder(),
-          ),
+          labelText: t.gyeNicknameLabel,
+          hintText: t.gyeNicknameHint,
         ),
         const SizedBox(height: Spacing.sm),
         DropdownButtonFormField<String>(
@@ -145,7 +167,14 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
         ),
         const SizedBox(height: Spacing.lg),
         if (_busy)
-          const AppLoading()
+          Semantics(
+            container: true,
+            liveRegion: true,
+            label: t.gyeCreatingLoading,
+            child: ExcludeSemantics(
+              child: AppLoading(message: t.gyeCreatingLoading),
+            ),
+          )
         else
           SoriButton(
             label: t.gyeCreateCta,
@@ -166,45 +195,46 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
   };
 
   Widget _created(AppL10n t) {
-    final s = SoriSurfaces.of(context);
+    final type = SoriTextTheme.of(context);
     final code = _code ?? '';
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         const SizedBox(height: Spacing.lg),
-        const Icon(Icons.celebration_rounded, size: 56, color: SoriColors.gold),
-        const SizedBox(height: Spacing.md),
-        Center(
-          child: Text(
-            t.gyeCreatedTitle,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w800),
-          ),
-        ),
-        const SizedBox(height: Spacing.xs),
-        Center(
-          child: Text(_gyeName ?? '', style: TextStyle(color: s.textMuted)),
-        ),
-        const SizedBox(height: Spacing.lg),
-        SoriCard(
-          variant: SoriCardVariant.hero,
-          accent: SoriColors.primary,
-          tinted: true,
-          child: Column(
-            children: [
-              Text(
-                t.gyeCodeLabel,
-                style: TextStyle(color: s.textMuted, fontSize: 12),
-              ),
-              const SizedBox(height: 6),
-              Text(
-                code,
-                style: const TextStyle(
-                  fontSize: 34,
-                  fontWeight: FontWeight.w900,
-                  letterSpacing: 6,
+        Semantics(
+          container: true,
+          liveRegion: true,
+          label: t.gyeCreatedAnnouncement(_gyeName ?? '', code),
+          child: ExcludeSemantics(
+            child: Column(
+              children: [
+                const Icon(
+                  Icons.celebration_rounded,
+                  size: 56,
+                  color: SoriColors.gold,
                 ),
-              ),
-            ],
+                const SizedBox(height: Spacing.md),
+                Text(t.gyeCreatedTitle, style: type.h2),
+                const SizedBox(height: Spacing.xs),
+                Text(_gyeName ?? '', style: type.bodySmall),
+                const SizedBox(height: Spacing.lg),
+                SoriCard(
+                  variant: SoriCardVariant.hero,
+                  accent: SoriColors.primary,
+                  tinted: true,
+                  child: Column(
+                    children: [
+                      Text(t.gyeCodeLabel, style: type.caption),
+                      const SizedBox(height: Spacing.xs),
+                      Text(
+                        code,
+                        style: type.numeral.copyWith(letterSpacing: 6),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(height: Spacing.lg),
@@ -224,7 +254,6 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
           label: t.gyeCopyCode,
           icon: Icons.copy_rounded,
           variant: SoriButtonVariant.outlined,
-          accent: SoriColors.info,
           fullWidth: true,
           onTap: () {
             Clipboard.setData(ClipboardData(text: code));
@@ -236,7 +265,6 @@ class _GyeCreateScreenState extends State<GyeCreateScreen> {
           label: t.gyeOpenCta,
           icon: Icons.meeting_room_outlined,
           variant: SoriButtonVariant.outlined,
-          accent: SoriColors.primary,
           fullWidth: true,
           onTap: () => Navigator.of(
             context,
