@@ -41,16 +41,19 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   final math.Random _rng = math.Random();
   CustomPack? _pack;
   List<ExtractedWord> _pool = const [];
+  String _languageCode = 'de';
+  bool _roundInitialized = false;
 
   List<ExtractedWord> _round = const [];
   List<String> _leftKo = const []; // 한국어 열 (셔플)
-  List<String> _rightDe = const []; // 뜻 열 (셔플)
+  List<String> _rightMeanings = const []; // 뜻 열 (셔플)
   int? _selLeft; // 선택된 한국어 index
   final Set<String> _matched = {}; // 맞춘 한국어
   // 이번 라운드에서 한 번이라도 잘못 짝지은 단어. 이후 정답은 게임 보상은
   // 유지하지만 SRS 성공 증거로 올리지 않는다.
   final Set<String> _missedKorean = {};
   String? _wrongRight; // 방금 틀린 뜻 (빨강 플래시)
+  String? _statusMessage;
   int _misses = 0; // 라운드 내 오답 탭 수 (XP 보상에 반영)
 
   // ── 코치마크 타겟 ──
@@ -91,58 +94,87 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         ? loaded
         : loaded.copyWith(words: widget.words);
     _pack = pack;
-    if (pack != null) {
-      _pool = pack.words
-          .where((w) => w.translationDe.trim().isNotEmpty)
-          .toList();
-      if (_pool.length >= 2) _newRound();
-    }
     scheduleCoach();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_roundInitialized) {
+      return;
+    }
+    _roundInitialized = true;
+    _startRoundForLocale(Localizations.localeOf(context).languageCode);
+  }
+
+  void _startRoundForLocale(String languageCode) {
+    _languageCode = languageCode;
+    final pack = _pack;
+    if (pack == null) {
+      return;
+    }
+    _pool = pack.words
+        .where((word) => word.translationFor(languageCode).trim().isNotEmpty)
+        .toList();
+    if (_pool.length >= 2) {
+      _newRound();
+    }
   }
 
   void _newRound() {
     final shuffled = [..._pool]..shuffle(_rng);
-    // Pro Runde nur EINDEUTIGE Übersetzungen: zwei Wörter mit gleichem Gloss
-    // machten das Zuordnen mehrdeutig → Soft-Lock (beide rechten Kacheln würden
-    // beim Match einer deaktiviert). Erstes Vorkommen behalten, max. 6.
-    final seenDe = <String>{};
+    // Preserve the existing rule: one tile per distinct meaning. Apply that
+    // rule to the locale fixed for this round so the right column is clear.
+    final seenMeanings = <String>{};
     final unique = <ExtractedWord>[];
-    for (final w in shuffled) {
-      if (seenDe.add(w.translationDe.trim())) {
-        unique.add(w);
+    for (final word in shuffled) {
+      final meaning = word.translationFor(_languageCode).trim();
+      if (seenMeanings.contains(meaning)) {
+        continue;
       }
+      seenMeanings.add(meaning);
+      unique.add(word);
       if (unique.length >= 6) {
         break;
       }
     }
     _round = unique;
     _leftKo = _round.map((w) => w.korean).toList()..shuffle(_rng);
-    _rightDe = _round.map((w) => w.translationDe.trim()).toList()
-      ..shuffle(_rng);
+    _rightMeanings =
+        _round.map((word) => word.translationFor(_languageCode).trim()).toList()
+          ..shuffle(_rng);
     _matched.clear();
     _missedKorean.clear();
     _selLeft = null;
     _wrongRight = null;
+    _statusMessage = null;
     _misses = 0;
     _feedbackCompletion.reset();
   }
 
   void _tapLeft(int i) {
     final ko = _leftKo[i];
-    if (_matched.contains(ko)) return;
+    if (_matched.contains(ko)) {
+      return;
+    }
     HapticFeedback.selectionClick();
-    setState(() => _selLeft = i);
+    setState(() {
+      _selLeft = i;
+      _statusMessage = null;
+    });
     TtsService.speak(ko);
   }
 
-  void _tapRight(String de) {
-    if (_selLeft == null) return;
+  void _tapRight(String meaning) {
+    if (_selLeft == null) {
+      return;
+    }
     final ko = _leftKo[_selLeft!];
     final expected = _round
-        .firstWhere((w) => w.korean == ko)
-        .translationDe
+        .firstWhere((word) => word.korean == ko)
+        .translationFor(_languageCode)
         .trim();
-    if (de == expected) {
+    if (meaning == expected) {
       HapticFeedback.lightImpact();
       SoundService.correct();
       // Eine spätere Korrektur darf XP und den Spielfortschritt abschließen,
@@ -154,8 +186,11 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         _matched.add(ko);
         _selLeft = null;
         _wrongRight = null;
+        _statusMessage = AppL10n.of(context).statsCorrect;
       });
-      if (_roundDone) _finish();
+      if (_roundDone) {
+        _finish();
+      }
     } else {
       HapticFeedback.mediumImpact();
       SoundService.wrong();
@@ -166,9 +201,14 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         unawaited(Storage.srsReview(ko, gotIt: false));
         unawaited(Storage.incrementWrongCount(ko));
       }
-      setState(() => _wrongRight = de);
+      setState(() {
+        _wrongRight = meaning;
+        _statusMessage = AppL10n.of(context).statsWrong;
+      });
       Future.delayed(const Duration(milliseconds: 450), () {
-        if (mounted) setState(() => _wrongRight = null);
+        if (mounted) {
+          setState(() => _wrongRight = null);
+        }
       });
     }
   }
@@ -182,8 +222,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       ),
     );
     // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
-    final xp = _misses == 0 ? _round.length * 4 : _round.length * 3;
-    await recordGameResult(gameId: 'cp_matching', xp: xp);
+    await recordGameResult(gameId: 'cp_matching', xp: _roundXp);
     await Analytics.gameCompleted(
       gameType: 'matching',
       result: 'win',
@@ -199,6 +238,8 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   }
 
   bool get _roundDone => _round.isNotEmpty && _matched.length >= _round.length;
+
+  int get _roundXp => _misses == 0 ? _round.length * 4 : _round.length * 3;
 
   @override
   Widget build(BuildContext context) {
@@ -218,7 +259,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         ),
       );
     }
-    if (_pool.length < 2) {
+    if (_pool.length < 2 || _round.length < 2) {
       return SoriStudyFrame(
         title: t.wbMatching,
         child: Center(
@@ -233,10 +274,13 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
     }
 
     final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
 
     return SoriStudyFrame(
       title: t.wbMatching,
       leading: IconButton(
+        tooltip: t.btnClose,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
         icon: const Icon(Icons.close),
         onPressed: () => Navigator.of(context).maybePop(),
       ),
@@ -253,8 +297,25 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
                   children: [
                     Text(
                       t.wbMatchingHint,
-                      style: TextStyle(fontSize: 13, color: s.textMuted),
+                      style: tt.caption.copyWith(color: s.textMuted),
                     ),
+                    if (_statusMessage != null) ...[
+                      const SizedBox(height: Spacing.sm),
+                      Semantics(
+                        key: const ValueKey('custom-matching-feedback'),
+                        liveRegion: true,
+                        label: _statusMessage,
+                        child: Text(
+                          _statusMessage!,
+                          textAlign: TextAlign.center,
+                          style: tt.h3.copyWith(
+                            color: _statusMessage == t.statsCorrect
+                                ? SoriColors.primaryOnLight
+                                : SoriColors.danger,
+                          ),
+                        ),
+                      ),
+                    ],
                     const SizedBox(height: Spacing.md),
                     Expanded(
                       child: KeyedSubtree(
@@ -272,6 +333,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
                                       matched: _matched.contains(_leftKo[i]),
                                       selected: _selLeft == i,
                                       accent: SoriColors.primary,
+                                      enabled: !_matched.contains(_leftKo[i]),
                                       onTap: () => _tapLeft(i),
                                     ),
                                 ],
@@ -282,22 +344,23 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
                             Expanded(
                               child: Column(
                                 children: [
-                                  for (final de in _rightDe)
+                                  for (final meaning in _rightMeanings)
                                     _Tile(
-                                      label: de,
+                                      label: meaning,
                                       matched: _matched.any(
                                         (ko) =>
                                             _round
                                                 .firstWhere(
                                                   (w) => w.korean == ko,
                                                 )
-                                                .translationDe
+                                                .translationFor(_languageCode)
                                                 .trim() ==
-                                            de,
+                                            meaning,
                                       ),
-                                      wrong: _wrongRight == de,
+                                      wrong: _wrongRight == meaning,
                                       accent: SoriColors.accent,
-                                      onTap: () => _tapRight(de),
+                                      enabled: _selLeft != null,
+                                      onTap: () => _tapRight(meaning),
                                     ),
                                 ],
                               ),
@@ -314,29 +377,38 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   }
 
   Widget _buildDone(AppL10n t) {
-    return GameOverCard(
-      headline: t.wbMatchingDone,
-      scoreLabel: t.wbMatchingDoneBody,
-      feedbackContext: _feedbackCompletion.current?.context,
-      xpGained: _round.length * 4,
-      mascotKind: MascotKind.magpie,
-      mascotEmotion: MascotEmotion.celebrate,
-      actions: [
-        SoriButton(
-          label: t.quizAgain,
-          icon: Icons.refresh_rounded,
-          variant: SoriButtonVariant.filled,
-          accent: SoriColors.primary,
-          fullWidth: true,
-          onTap: () => setState(_newRound),
-        ),
-        SoriButton(
-          label: t.btnClose,
-          variant: SoriButtonVariant.ghost,
-          fullWidth: true,
-          onTap: () => Navigator.of(context).maybePop(),
-        ),
-      ],
+    return Semantics(
+      container: true,
+      liveRegion: true,
+      label: '${t.wbMatchingDone}. ${t.wbMatchingDoneBody}',
+      child: GameOverCard(
+        headline: t.wbMatchingDone,
+        scoreLabel: t.wbMatchingDoneBody,
+        feedbackContext: _feedbackCompletion.current?.context,
+        xpGained: _roundXp,
+        mascotKind: MascotKind.magpie,
+        mascotEmotion: MascotEmotion.celebrate,
+        actions: [
+          SoriButton(
+            label: t.quizAgain,
+            icon: Icons.refresh_rounded,
+            variant: SoriButtonVariant.filled,
+            accent: SoriColors.primary,
+            fullWidth: true,
+            onTap: () => setState(
+              () => _startRoundForLocale(
+                Localizations.localeOf(context).languageCode,
+              ),
+            ),
+          ),
+          SoriButton(
+            label: t.btnClose,
+            variant: SoriButtonVariant.ghost,
+            fullWidth: true,
+            onTap: () => Navigator.of(context).maybePop(),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -346,12 +418,14 @@ class _Tile extends StatelessWidget {
   final bool matched;
   final bool selected;
   final bool wrong;
+  final bool enabled;
   final Color accent;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   const _Tile({
     required this.label,
     required this.accent,
     required this.onTap,
+    this.enabled = true,
     this.matched = false,
     this.selected = false,
     this.wrong = false,
@@ -360,45 +434,79 @@ class _Tile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    Color border = s.border;
+    Color border = enabled
+        ? (s.brightness == Brightness.light
+              ? SoriColors.lightBorderStrong
+              : SoriColors.darkBorderStrong)
+        : s.border;
     Color bg = s.surface;
     double opacity = 1;
+    IconData? stateIcon;
+    String? semanticValue;
     if (matched) {
       opacity = 0.25;
       border = SoriColors.success;
+      stateIcon = Icons.check_circle_rounded;
+      semanticValue = AppL10n.of(context).statsCorrect;
     } else if (wrong) {
       border = SoriColors.danger;
       bg = SoriColors.danger.withValues(alpha: 0.12);
+      stateIcon = Icons.cancel_rounded;
+      semanticValue = AppL10n.of(context).statsWrong;
     } else if (selected) {
       border = accent;
       bg = accent.withValues(alpha: 0.12);
+      stateIcon = Icons.radio_button_checked_rounded;
+      semanticValue = AppL10n.of(context).questAnswerSelected;
     }
-    return Opacity(
-      opacity: opacity,
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: Spacing.sm),
-        child: Material(
-          color: bg,
-          borderRadius: BorderRadius.circular(SoriRadius.md),
-          child: InkWell(
+    final canTap = enabled && !matched && onTap != null;
+    return Semantics(
+      button: true,
+      enabled: canTap,
+      selected: selected,
+      label: label,
+      value: semanticValue,
+      onTap: canTap ? onTap : null,
+      excludeSemantics: true,
+      child: Opacity(
+        opacity: opacity,
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: Spacing.sm),
+          child: Material(
+            color: bg,
             borderRadius: BorderRadius.circular(SoriRadius.md),
-            onTap: matched ? null : onTap,
-            child: Container(
-              width: double.infinity,
-              constraints: const BoxConstraints(minHeight: 56),
-              alignment: Alignment.center,
-              padding: const EdgeInsets.symmetric(
-                horizontal: Spacing.sm,
-                vertical: Spacing.sm,
-              ),
-              decoration: BoxDecoration(
-                border: Border.all(color: border, width: 1.5),
-                borderRadius: BorderRadius.circular(SoriRadius.md),
-              ),
-              child: Text(
-                label,
-                textAlign: TextAlign.center,
-                style: const TextStyle(fontWeight: FontWeight.w700),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(SoriRadius.md),
+              onTap: canTap ? onTap : null,
+              child: Container(
+                width: double.infinity,
+                constraints: const BoxConstraints(minHeight: 56),
+                alignment: Alignment.center,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Spacing.sm,
+                  vertical: Spacing.sm,
+                ),
+                decoration: BoxDecoration(
+                  border: Border.all(color: border, width: 1.5),
+                  borderRadius: BorderRadius.circular(SoriRadius.md),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        label,
+                        textAlign: TextAlign.center,
+                        style: SoriTextTheme.of(context).label,
+                      ),
+                    ),
+                    if (stateIcon != null) ...[
+                      const SizedBox(width: Spacing.xs),
+                      Icon(stateIcon, size: 20, color: border),
+                    ],
+                  ],
+                ),
               ),
             ),
           ),

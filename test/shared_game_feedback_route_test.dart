@@ -231,6 +231,7 @@ void main() {
 
     for (final word in _packWords) {
       await tester.tap(find.text(word.korean));
+      await tester.pump();
       await tester.tap(find.text(word.translationDe));
       await tester.pump();
     }

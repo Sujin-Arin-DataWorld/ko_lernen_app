@@ -76,6 +76,14 @@ class ExtractedWord {
     this.sourceUnitId = '',
   });
 
+  /// Meaning shown for the active app locale, with the other reviewed
+  /// translation as a fail-safe for legacy or partially populated packs.
+  String translationFor(String languageCode) {
+    final preferred = languageCode == 'en' ? translationEn : translationDe;
+    final fallback = languageCode == 'en' ? translationDe : translationEn;
+    return preferred.trim().isNotEmpty ? preferred : fallback;
+  }
+
   /// 사용자가 손으로 입력하는 단어 ("나만의 단어장"). 옵션 필드는 기본 빈 값.
   factory ExtractedWord.manual({
     required String korean,

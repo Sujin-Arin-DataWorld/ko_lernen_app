@@ -28,7 +28,7 @@ import '../widgets/sori/tts_speed_control.dart';
 
 /// "나만의 단어장" 객관식 퀴즈 — 한국어를 보고 뜻 4지선다 (Quizlet/클래스카드 식).
 ///
-/// 뜻(translationDe)이 있는 단어만 출제. 최소 4개 필요.
+/// 활성 언어 뜻이 있는 단어만 출제. 최소 4개 필요.
 class CustomPackQuizScreen extends StatefulWidget {
   final String packId;
   final List<ExtractedWord>? words;
@@ -49,6 +49,8 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   List<String> _options = const [];
   String? _picked; // 선택한 답 (null = 미선택)
   GameOutcome? _outcome;
+  String _languageCode = 'de';
+  bool _roundInitialized = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
@@ -81,21 +83,41 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         ? loaded
         : loaded.copyWith(words: widget.words);
     _pack = pack;
-    if (pack != null) {
-      _pool = pack.words
-          .where((w) => w.translationDe.trim().isNotEmpty)
-          .toList();
-      _order = List<int>.generate(_pool.length, (i) => i)..shuffle(_rng);
-      if (_pool.length >= 4) {
-        _buildOptions();
-      }
-    }
     scheduleCoach();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (_roundInitialized) {
+      return;
+    }
+    _roundInitialized = true;
+    _startRoundForLocale(Localizations.localeOf(context).languageCode);
+  }
+
+  void _startRoundForLocale(String languageCode) {
+    _languageCode = languageCode;
+    final pack = _pack;
+    if (pack == null) {
+      return;
+    }
+    _pool = pack.words
+        .where((word) => word.translationFor(languageCode).trim().isNotEmpty)
+        .toList();
+    _order = List<int>.generate(_pool.length, (index) => index)..shuffle(_rng);
+    _qIdx = 0;
+    _score = 0;
+    _outcome = null;
+    _feedbackCompletion.reset();
+    if (_pool.length >= 4) {
+      _buildOptions();
+    }
   }
 
   void _buildOptions() {
     final word = _pool[_order[_qIdx]];
-    final correct = word.translationDe.trim();
+    final correct = word.translationFor(_languageCode).trim();
     // 같은 품사 오답 우선 (커스텀 단어는 레벨이 없어 품사 계층만 작동;
     // 폴백은 quiz_distractor_service.dart).
     final distractors = buildTranslationDistractors(
@@ -108,7 +130,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
         for (final w in _pool)
           DistractorCandidate(
             id: w.korean,
-            translation: w.translationDe,
+            translation: w.translationFor(_languageCode),
             pos: w.posDe,
           ),
       ],
@@ -121,9 +143,11 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   }
 
   void _pick(String option) {
-    if (_picked != null) return;
+    if (_picked != null) {
+      return;
+    }
     final word = _pool[_order[_qIdx]];
-    final correct = word.translationDe.trim();
+    final correct = word.translationFor(_languageCode).trim();
     final isRight = option == correct;
     setState(() => _picked = option);
     // A1: 퀴즈 결과를 메인 SRS 에 반영.
@@ -138,18 +162,30 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       // ignore: discarded_futures
       Storage.incrementWrongCount(word.korean);
     }
+    if (SoriMotion.reduceMotion(context)) {
+      return;
+    }
     Future.delayed(const Duration(milliseconds: 900), () {
-      if (!mounted) return;
-      setState(() {
-        _qIdx++;
-        if (_qIdx < _order.length) {
-          _buildOptions();
-        }
-      });
-      if (_qIdx >= _order.length) {
-        _finish();
+      if (!mounted) {
+        return;
+      }
+      _advance();
+    });
+  }
+
+  void _advance() {
+    if (_picked == null || _qIdx >= _order.length) {
+      return;
+    }
+    setState(() {
+      _qIdx++;
+      if (_qIdx < _order.length) {
+        _buildOptions();
       }
     });
+    if (_qIdx >= _order.length) {
+      _finish();
+    }
   }
 
   Future<void> _finish() async {
@@ -166,17 +202,15 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       xp: _score * 4,
       score: pct,
     );
-    if (mounted) setState(() => _outcome = outcome);
+    if (mounted) {
+      setState(() => _outcome = outcome);
+    }
   }
 
   void _restart() {
+    final languageCode = Localizations.localeOf(context).languageCode;
     setState(() {
-      _order = List<int>.generate(_pool.length, (i) => i)..shuffle(_rng);
-      _qIdx = 0;
-      _score = 0;
-      _outcome = null;
-      _feedbackCompletion.reset();
-      _buildOptions();
+      _startRoundForLocale(languageCode);
     });
   }
 
@@ -217,12 +251,16 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     }
 
     final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
+    final reduceMotion = SoriMotion.reduceMotion(context);
     final word = _pool[_order[_qIdx]];
-    final correct = word.translationDe.trim();
+    final correct = word.translationFor(_languageCode).trim();
 
     return SoriStudyFrame(
       title: t.wbQuiz,
       leading: IconButton(
+        tooltip: t.btnClose,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
         icon: const Icon(Icons.close),
         onPressed: () => Navigator.of(context).maybePop(),
       ),
@@ -250,7 +288,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
             const SizedBox(height: Spacing.lg),
             Text(
               t.quizQuestion,
-              style: TextStyle(fontSize: 13, color: s.textMuted),
+              style: tt.caption.copyWith(color: s.textMuted),
             ),
             const SizedBox(height: Spacing.sm),
             SoriCard(
@@ -273,13 +311,15 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
                     Text(
                       word.korean,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w800,
-                      ),
+                      style: tt.display,
                     ),
                     const SizedBox(height: Spacing.sm),
                     IconButton(
+                      tooltip: t.ttsListenTarget(word.korean),
+                      constraints: const BoxConstraints.tightFor(
+                        width: 48,
+                        height: 48,
+                      ),
                       icon: const Icon(Icons.volume_up_rounded, size: 26),
                       onPressed: () => TtsService.speak(word.korean),
                     ),
@@ -288,6 +328,23 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
               ),
             ),
             const SizedBox(height: Spacing.lg),
+            if (_picked != null) ...[
+              Semantics(
+                key: const ValueKey('custom-quiz-feedback'),
+                liveRegion: true,
+                label: _picked == correct ? t.statsCorrect : t.statsWrong,
+                child: Text(
+                  _picked == correct ? t.statsCorrect : t.statsWrong,
+                  textAlign: TextAlign.center,
+                  style: tt.h3.copyWith(
+                    color: _picked == correct
+                        ? SoriColors.primaryOnLight
+                        : SoriColors.danger,
+                  ),
+                ),
+              ),
+              const SizedBox(height: Spacing.sm),
+            ],
             // Four choices can exceed a short device viewport once the
             // prompt card is present. Keep the learning prompt visible
             // and make only the answer list scroll, rather than letting
@@ -297,19 +354,36 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
                 child: KeyedSubtree(
                   key: _optionsKey,
                   child: Column(
-                    children: _options.map((opt) {
-                      final revealed = _picked != null;
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: Spacing.sm),
-                        child: QuizChoice(
-                          text: opt,
-                          isCorrect: opt == correct,
-                          isSelected: _picked == opt,
-                          revealed: revealed,
-                          onSelected: revealed ? null : () => _pick(opt),
+                    children: [
+                      for (final option in _options)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: Spacing.sm),
+                          child: QuizChoice(
+                            text: option,
+                            isCorrect: option == correct,
+                            isSelected: _picked == option,
+                            revealed: _picked != null,
+                            minHeight: 56,
+                            idleBorderColor: SoriColors.primary,
+                            semanticTapEnabled: true,
+                            onSelected: _picked == null
+                                ? () => _pick(option)
+                                : null,
+                          ),
                         ),
-                      );
-                    }).toList(),
+                      if (_picked != null && reduceMotion)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: Spacing.sm),
+                          child: SoriButton(
+                            label: t.btnNext,
+                            icon: Icons.arrow_forward_rounded,
+                            variant: SoriButtonVariant.filled,
+                            accent: SoriColors.accent,
+                            fullWidth: true,
+                            onTap: _advance,
+                          ),
+                        ),
+                    ],
                   ),
                 ),
               ),
@@ -326,37 +400,41 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       title: t.quizResultTitle,
       automaticallyImplyLeading: false,
       padding: EdgeInsets.zero,
-      child: GameOverCard(
-        headline: t.quizResultTitle,
-        scoreLabel: t.quizScore(_score, _order.length),
-        feedbackContext: _feedbackCompletion.current?.context,
-        xpGained: _score * 4,
-        isNewBest: _outcome?.isNewBest ?? false,
-        newBestLabel: t.gameNewBest,
-        bestLabel: t.gameBestAccuracy(Storage.gameBest('cp_quiz')),
-        mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
-        mascotEmotion: pct >= 50
-            ? MascotEmotion.celebrate
-            : MascotEmotion.worry,
-        celebrate: pct >= 50,
-        actions: [
-          SoriButton(
-            label: t.quizAgain,
-            icon: Icons.refresh_rounded,
-            variant: SoriButtonVariant.filled,
-            accent: SoriColors.accent,
-            fullWidth: true,
-            onTap: _restart,
-          ),
-          SoriButton(
-            label: t.customPackResultBack,
-            icon: Icons.menu_book_outlined,
-            variant: SoriButtonVariant.outlined,
-            accent: SoriColors.primary,
-            fullWidth: true,
-            onTap: () => Navigator.of(context).maybePop(),
-          ),
-        ],
+      child: Semantics(
+        container: true,
+        liveRegion: true,
+        label: '${t.quizResultTitle}. ${t.quizScore(_score, _order.length)}',
+        child: GameOverCard(
+          headline: t.quizResultTitle,
+          scoreLabel: t.quizScore(_score, _order.length),
+          feedbackContext: _feedbackCompletion.current?.context,
+          xpGained: _score * 4,
+          isNewBest: _outcome?.isNewBest ?? false,
+          newBestLabel: t.gameNewBest,
+          bestLabel: t.gameBestAccuracy(Storage.gameBest('cp_quiz')),
+          mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
+          mascotEmotion: pct >= 50
+              ? MascotEmotion.celebrate
+              : MascotEmotion.worry,
+          celebrate: pct >= 50,
+          actions: [
+            SoriButton(
+              label: t.quizAgain,
+              icon: Icons.refresh_rounded,
+              variant: SoriButtonVariant.filled,
+              accent: SoriColors.accent,
+              fullWidth: true,
+              onTap: _restart,
+            ),
+            SoriButton(
+              label: t.customPackResultBack,
+              icon: Icons.menu_book_outlined,
+              variant: SoriButtonVariant.outlined,
+              fullWidth: true,
+              onTap: () => Navigator.of(context).maybePop(),
+            ),
+          ],
+        ),
       ),
     );
   }
