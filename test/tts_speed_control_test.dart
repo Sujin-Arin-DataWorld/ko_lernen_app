@@ -102,6 +102,34 @@ void main() {
     expect(changed, 1.25);
   });
 
+  testWidgets('48dp is opt-in and the shared default remains 44dp', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _wrap(
+        const Column(
+          children: [
+            TtsSpeedControl(key: ValueKey('default-speed')),
+            TtsSpeedControl(
+              key: ValueKey('quest-speed'),
+              minInteractiveHeight: 48,
+            ),
+          ],
+        ),
+      ),
+    );
+
+    SoriChip chipFor(String key) => tester.widget<SoriChip>(
+      find.descendant(
+        of: find.byKey(ValueKey(key)),
+        matching: find.byType(SoriChip),
+      ),
+    );
+
+    expect(chipFor('default-speed').minInteractiveHeight, 44);
+    expect(chipFor('quest-speed').minInteractiveHeight, 48);
+  });
+
   testWidgets('row mode keeps six presets on one line in a 480dp column', (
     tester,
   ) async {

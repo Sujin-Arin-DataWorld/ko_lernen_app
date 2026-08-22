@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
+import '../../widgets/sori/button.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -173,13 +174,17 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
     _report(false);
   }
 
-  Widget _buildSlot(String langCode, SoriSurfaces s) {
+  Widget _buildSlot(AppL10n t, SoriSurfaces s) {
     final hasValue = _droppedIndex != null;
     final isCorrect = hasValue && _droppedIndex == _correctIndex;
 
     Color slotColor;
     if (!hasValue) {
-      slotColor = _wrongFlash ? SoriColors.danger : s.surfaceAlt;
+      slotColor = _wrongFlash
+          ? SoriColors.danger
+          : (s.brightness == Brightness.light
+                ? SoriColors.primary
+                : SoriColors.primaryOnDark);
     } else if (isCorrect) {
       slotColor = SoriColors.success;
     } else {
@@ -191,53 +196,59 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
       onAcceptWithDetails: (details) => _onAccept(details.data),
       builder: (context, candidateData, rejectedData) {
         final isHovering = candidateData.isNotEmpty;
-        return AnimatedContainer(
-          duration: MediaQuery.disableAnimationsOf(context)
-              ? Duration.zero
-              : const Duration(milliseconds: 200),
-          width: 64,
-          height: 40,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-            border: Border.all(
-              color: isHovering ? SoriColors.info : slotColor,
-              width: 2,
+        final selectedSentence = hasValue
+            ? '$_prefix${_options[_droppedIndex!]}$_suffix'
+            : t.questEmptyAnswerSlot;
+        return Semantics(
+          label: selectedSentence,
+          liveRegion: hasValue,
+          excludeSemantics: true,
+          child: AnimatedContainer(
+            duration: MediaQuery.disableAnimationsOf(context)
+                ? Duration.zero
+                : const Duration(milliseconds: 200),
+            width: 64,
+            height: 40,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
+              border: Border.all(
+                color: isHovering ? SoriColors.info : slotColor,
+                width: 2,
+              ),
+              color: hasValue
+                  ? slotColor.withAlpha(38)
+                  : isHovering
+                  ? SoriColors.info.withAlpha(26)
+                  : Colors.transparent,
             ),
-            color: hasValue
-                ? slotColor.withAlpha(38)
-                : isHovering
-                ? SoriColors.info.withAlpha(26)
-                : Colors.transparent,
-          ),
-          child: Center(
-            child: hasValue
-                ? ScaleTransition(
-                    scale: _scaleAnim,
-                    child: Text(
-                      _options[_droppedIndex!],
-                      style: TextStyle(
-                        color: isCorrect
-                            ? SoriColors.success
-                            : SoriColors.danger,
+            child: Center(
+              child: hasValue
+                  ? ScaleTransition(
+                      scale: _scaleAnim,
+                      child: Text(
+                        _options[_droppedIndex!],
+                        style: SoriTextTheme.of(context).body.copyWith(
+                          color: s.text,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                    )
+                  : Text(
+                      '？',
+                      style: SoriTextTheme.of(context).body.copyWith(
+                        color: isHovering ? SoriColors.info : s.textDim,
                         fontSize: 18,
-                        fontWeight: FontWeight.w800,
                       ),
                     ),
-                  )
-                : Text(
-                    '？',
-                    style: TextStyle(
-                      color: isHovering ? SoriColors.info : s.textDim,
-                      fontSize: 18,
-                    ),
-                  ),
+            ),
           ),
         );
       },
     );
   }
 
-  Widget _buildSentenceRow(String langCode, SoriSurfaces s) {
+  Widget _buildSentenceRow(SoriSurfaces s) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -246,7 +257,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
           Flexible(
             child: Text(
               _prefix,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).koDisplay.copyWith(
                 color: s.text,
                 fontSize: 24,
                 fontWeight: FontWeight.w500,
@@ -254,12 +265,12 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
               overflow: TextOverflow.visible,
             ),
           ),
-        _buildSlot(langCode, s),
+        _buildSlot(AppL10n.of(context), s),
         if (_suffix.isNotEmpty)
           Flexible(
             child: Text(
               _suffix,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).koDisplay.copyWith(
                 color: s.text,
                 fontSize: 24,
                 fontWeight: FontWeight.w500,
@@ -302,7 +313,9 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
           // Hinweis
           Text(
             t.particlePopHint,
-            style: TextStyle(color: s.textMuted, fontSize: 13),
+            style: SoriTextTheme.of(
+              context,
+            ).bodySmall.copyWith(color: s.textMuted),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 20),
@@ -312,19 +325,20 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
             decoration: BoxDecoration(
               color: s.surface,
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(SoriRadius.lg),
               border: Border.all(color: s.surfaceAlt, width: 1.5),
             ),
-            child: _buildSentenceRow(langCode, s),
+            child: _buildSentenceRow(s),
           ),
           const SizedBox(height: 16),
 
           // TTS-Button für vollständige Satz
           Center(
-            child: OutlinedButton.icon(
-              onPressed: () => TtsService.speak(_fullSentence),
-              icon: const Icon(Icons.volume_up_rounded, size: 18),
-              label: const Text('▶'),
+            child: SoriButton.outlined(
+              label: t.questReplayAudio,
+              semanticLabel: t.questReplayAudio,
+              icon: Icons.volume_up_rounded,
+              onTap: () => TtsService.speak(_fullSentence),
             ),
           ),
           const SizedBox(height: 24),
@@ -336,6 +350,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
               label: entry.value,
               index: entry.key,
               state: _answerState(entry.key),
+              selected: _droppedIndex == entry.key,
               onTap: _completed ? null : () => _onAccept(entry.key),
               compact: true,
             ),

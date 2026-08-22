@@ -141,6 +141,7 @@ class _UebersetzenQuestState extends State<UebersetzenQuest> {
               label: (entry.value['ko'] as String?) ?? '',
               index: entry.key,
               state: _stateFor(entry.key),
+              selected: _selected == entry.key,
               onTap: _resolved == null ? () => _select(entry.key) : null,
             ),
             const SizedBox(height: Spacing.sm),

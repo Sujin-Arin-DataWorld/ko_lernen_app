@@ -9690,6 +9690,12 @@ abstract class AppL10n {
   /// **'Erneut anhören'**
   String get questReplayAudio;
 
+  /// No description provided for @questListenAudio.
+  ///
+  /// In de, this message translates to:
+  /// **'Audio anhören'**
+  String get questListenAudio;
+
   /// No description provided for @questBuildAnswerLabel.
   ///
   /// In de, this message translates to:
@@ -9707,6 +9713,18 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Hör zu und tippe, was du hörst'**
   String get diktatInstruction;
+
+  /// No description provided for @diktatAnswerLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine koreanische Antwort'**
+  String get diktatAnswerLabel;
+
+  /// No description provided for @diktatListenSlow.
+  ///
+  /// In de, this message translates to:
+  /// **'Audio langsam anhören'**
+  String get diktatListenSlow;
 
   /// No description provided for @diktatSpacingHint.
   ///

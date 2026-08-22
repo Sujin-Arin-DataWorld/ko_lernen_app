@@ -7,8 +7,8 @@ import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
 import '../../widgets/sori/tokens.dart';
-import '../../widgets/sori/tts_speed_control.dart';
 import 'quest_flow.dart';
+import 'quest_layout.dart';
 import 'quest_models.dart';
 
 /// Art des Fehlers beim Zusammensetzen — steuert das gezielte Feedback.
@@ -444,13 +444,6 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
           onReplay: _audioKo.isEmpty ? null : _playTts,
           compact: widget.compact,
         ),
-        if (_audioKo.isNotEmpty && widget.showSpeedControl) ...[
-          const SizedBox(height: Spacing.xs),
-          const Align(
-            alignment: Alignment.centerRight,
-            child: TtsSpeedControl(),
-          ),
-        ],
         SizedBox(height: sectionGap),
         Text(
           t.questBuildAnswerLabel,
@@ -488,9 +481,11 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
           child: (_wrong && !_completed && _diag != SatzError.none)
               ? Text(
                   _diagText(t),
-                  style: SoriTextTheme.of(
-                    context,
-                  ).label.copyWith(color: SoriColors.danger),
+                  style: SoriTextTheme.of(context).label.copyWith(
+                    color: s.brightness == Brightness.light
+                        ? SoriColors.accent
+                        : SoriColors.danger,
+                  ),
                 )
               : const SizedBox.shrink(),
         ),
@@ -533,24 +528,11 @@ class _SatzBauenQuestState extends State<SatzBauenQuest> {
       onDontKnow: widget.allowDontKnow ? _revealAnswer : null,
     );
 
-    // Keep the primary action anchored while the content above it scrolls only
-    // when it genuinely exceeds the available height. On normal phones the
-    // compact roleplay body fits without scrolling; long B2 turns and 200%
-    // text no longer push the button off-screen or overflow the viewport.
-    Widget content({required bool pinBottom}) => Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        if (pinBottom)
-          Expanded(child: SingleChildScrollView(child: exerciseBody))
-        else
-          exerciseBody,
-        SizedBox(height: sectionGap),
-        action,
-      ],
-    );
-
-    return LayoutBuilder(
-      builder: (_, c) => content(pinBottom: c.maxHeight.isFinite),
+    return QuestLayout(
+      content: exerciseBody,
+      action: action,
+      gap: sectionGap,
+      showTtsSpeed: _audioKo.isNotEmpty && widget.showSpeedControl,
     );
   }
 

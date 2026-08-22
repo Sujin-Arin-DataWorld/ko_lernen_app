@@ -67,9 +67,12 @@ class QuestLayout extends StatelessWidget {
       builder: (context, constraints) {
         final pinnedAction = action;
         final speedBar = showTtsSpeed
-            ? const Align(
-                alignment: Alignment.centerRight,
-                child: TtsSpeedControl(),
+            ? ConstrainedBox(
+                constraints: const BoxConstraints(minHeight: 48),
+                child: const Align(
+                  alignment: Alignment.centerRight,
+                  child: TtsSpeedControl(minInteractiveHeight: 48),
+                ),
               )
             : null;
 

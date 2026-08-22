@@ -171,11 +171,18 @@ void main() {
 
       final diagnostics = tester
           .widgetList<Text>(find.text(t.questDiagCount))
-          .where((text) => text.style?.color == SoriColors.danger)
+          .where((text) => text.style?.color == SoriColors.accent)
           .toList();
       expect(diagnostics, hasLength(1));
       expect(diagnostics.single.style?.fontFamily, type.label.fontFamily);
       expect(diagnostics.single.style?.fontWeight, type.label.fontWeight);
+      expect(
+        SoriColors.contrastRatio(
+          diagnostics.single.style!.color!,
+          SoriColors.lightBg,
+        ),
+        greaterThanOrEqualTo(4.5),
+      );
       expect(find.byIcon(Icons.info_outline_rounded), findsWidgets);
       expect(tester.takeException(), isNull);
     },

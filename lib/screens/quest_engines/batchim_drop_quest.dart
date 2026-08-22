@@ -116,8 +116,17 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
   /// 뒤 `_selected` 가 `_correctIndex` 로 덮이기 때문이다. 그 정답 음절을 오답
   /// 빨강으로 칠하면 학습자가 정답을 틀린 답으로 읽는다. `quest_flow.dart` 의
   /// 결과 배너와 같은 규칙을 쓴다.
-  Color get _resolvedAccent =>
-      _passed ? SoriColors.success : SoriColors.warning;
+  Color get _resolvedAccent {
+    final surfaces = SoriSurfaces.of(context);
+    if (_passed) {
+      return surfaces.brightness == Brightness.light
+          ? SoriColors.primaryOnLight
+          : SoriColors.primaryOnDark;
+    }
+    return surfaces.brightness == Brightness.light
+        ? SoriColors.goldOnLight
+        : SoriColors.warning;
+  }
 
   /// 음절에서 받침을 제거한 base 글자 반환 (예: 녕 → 녀)
   String _stripBatchim(String syllable) {
@@ -250,7 +259,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
             padding: const EdgeInsets.symmetric(horizontal: 4),
             child: Text(
               syl,
-              style: TextStyle(
+              style: SoriTextTheme.of(context).koDisplay.copyWith(
                 color: s.text,
                 fontSize: 56,
                 fontWeight: FontWeight.w900,
@@ -275,7 +284,9 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
 
     // 슬롯에 표시할 받침 텍스트
     String slotText = '？';
-    Color slotBorder = SoriColors.warning;
+    Color slotBorder = s.brightness == Brightness.light
+        ? SoriColors.goldOnLight
+        : SoriColors.warning;
     Color slotTextColor = s.textDim;
     Color? slotBg;
 
@@ -297,7 +308,7 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
           // 음절 (완성 후 합성 글자, 완성 전엔 base)
           Text(
             _completed ? displayChar : base,
-            style: TextStyle(
+            style: SoriTextTheme.of(context).koDisplay.copyWith(
               color: _completed ? _resolvedAccent : s.text,
               fontSize: 56,
               fontWeight: FontWeight.w900,
@@ -308,18 +319,20 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
           // 받침 슬롯 (완성 전에만 표시)
           if (!_completed)
             AnimatedContainer(
-              duration: const Duration(milliseconds: 150),
+              duration: MediaQuery.disableAnimationsOf(context)
+                  ? Duration.zero
+                  : const Duration(milliseconds: 150),
               width: 60,
               height: 40,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(SoriRadius.sm),
                 border: Border.all(color: slotBorder, width: 2),
                 color: slotBg,
               ),
               child: Center(
                 child: Text(
                   slotText,
-                  style: TextStyle(
+                  style: SoriTextTheme.of(context).body.copyWith(
                     color: slotTextColor,
                     fontSize: 20,
                     fontWeight: FontWeight.w800,
@@ -394,36 +407,41 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
           Center(
             child: Column(
               children: [
-                GestureDetector(
-                  onTap: () {
-                    HapticFeedback.lightImpact();
-                    TtsService.speak(_audioKo);
-                  },
-                  child: Container(
-                    width: 84,
-                    height: 84,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: SoriColors.info,
-                      boxShadow: [
-                        BoxShadow(
-                          color: SoriColors.info.withAlpha(80),
-                          blurRadius: 16,
-                          spreadRadius: 2,
-                        ),
-                      ],
-                    ),
-                    child: const Icon(
-                      Icons.volume_up_rounded,
-                      color: Colors.white,
-                      size: 36,
+                Semantics(
+                  button: true,
+                  enabled: true,
+                  label: t.questListenAudio,
+                  excludeSemantics: true,
+                  onTap: _playAudio,
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: _playAudio,
+                    child: Container(
+                      width: 84,
+                      height: 84,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: SoriColors.info,
+                        boxShadow: [
+                          BoxShadow(
+                            color: SoriColors.info.withAlpha(80),
+                            blurRadius: 16,
+                            spreadRadius: 2,
+                          ),
+                        ],
+                      ),
+                      child: const Icon(
+                        Icons.volume_up_rounded,
+                        color: Colors.white,
+                        size: 36,
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   _targetWord,
-                  style: TextStyle(
+                  style: SoriTextTheme.of(context).meta.copyWith(
                     color: s.textMuted,
                     fontSize: 13,
                     fontWeight: FontWeight.w500,
@@ -447,5 +465,10 @@ class _BatchimDropQuestState extends State<BatchimDropQuest> {
         ],
       ),
     );
+  }
+
+  void _playAudio() {
+    HapticFeedback.lightImpact();
+    TtsService.speak(_audioKo);
   }
 }

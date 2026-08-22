@@ -189,7 +189,7 @@ void main() {
       // 틀린 답으로 읽는다(2026-08-17 Jin: "틀렸다는거야 뭐야").
       expect(
         tester.widget<Text>(find.text(revealText)).style?.color,
-        SoriColors.warning,
+        SoriColors.goldOnLight,
         reason: '${entry.key}: 정답 공개 해설이 danger 로 칠해졌다',
       );
       expect(find.byKey(const ValueKey('quest-continue')), findsOneWidget);

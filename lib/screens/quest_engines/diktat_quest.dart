@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../services/sound_service.dart';
 import '../../services/tts_service.dart';
+import '../../widgets/sori/text_field.dart';
 import '../../widgets/sori/tokens.dart';
 import 'quest_flow.dart';
 import 'quest_layout.dart';
@@ -162,37 +163,68 @@ class _WordBankInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final surfaces = SoriSurfaces.of(context);
+    final strongBorder = surfaces.brightness == Brightness.light
+        ? SoriColors.lightBorderStrong
+        : SoriColors.darkBorderStrong;
     final remaining = [...availableTokens];
     for (final selected in selectedTokens) {
       remaining.remove(selected);
     }
 
-    Widget tile(String label, VoidCallback? onTap) => Material(
-      color: surfaces.surface,
-      borderRadius: BorderRadius.circular(SoriRadius.sm),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(SoriRadius.sm),
-        onTap: onTap,
-        child: Container(
-          constraints: const BoxConstraints(minHeight: 44),
-          padding: const EdgeInsets.symmetric(
-            horizontal: Spacing.md,
-            vertical: Spacing.sm,
-          ),
-          decoration: BoxDecoration(
+    Widget tile(String label, VoidCallback? onTap, {required bool selected}) =>
+        Semantics(
+          button: true,
+          enabled: onTap != null,
+          selected: selected,
+          label: selected ? '$label, ${t.questAnswerSelected}' : label,
+          excludeSemantics: true,
+          onTap: onTap,
+          child: Material(
+            color: selected ? SoriColors.primarySoft : surfaces.surface,
             borderRadius: BorderRadius.circular(SoriRadius.sm),
-            border: Border.all(color: surfaces.surfaceAlt),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(SoriRadius.sm),
+              onTap: onTap,
+              child: Container(
+                constraints: const BoxConstraints(minHeight: 48),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: Spacing.md,
+                  vertical: Spacing.sm,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(SoriRadius.sm),
+                  border: Border.all(
+                    color: selected ? SoriColors.primary : strongBorder,
+                    width: selected ? 1.5 : 1,
+                  ),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Flexible(
+                      child: Text(
+                        label,
+                        style: SoriTextTheme.of(
+                          context,
+                        ).body.copyWith(fontWeight: FontWeight.w700),
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.xs),
+                    Icon(
+                      selected
+                          ? Icons.remove_circle_outline_rounded
+                          : Icons.add_circle_outline_rounded,
+                      color: selected ? SoriColors.primary : surfaces.textMuted,
+                      size: 18,
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
-          child: Text(
-            label,
-            style: SoriTextTheme.of(
-              context,
-            ).body.copyWith(fontWeight: FontWeight.w700),
-          ),
-        ),
-      ),
-    );
+        );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -210,7 +242,11 @@ class _WordBankInput extends StatelessWidget {
             runSpacing: Spacing.xs,
             children: [
               for (final entry in selectedTokens.asMap().entries)
-                tile(entry.value, enabled ? () => onRemove(entry.key) : null),
+                tile(
+                  entry.value,
+                  enabled ? () => onRemove(entry.key) : null,
+                  selected: true,
+                ),
             ],
           ),
         ),
@@ -220,7 +256,7 @@ class _WordBankInput extends StatelessWidget {
           runSpacing: Spacing.xs,
           children: [
             for (final token in remaining)
-              tile(token, enabled ? () => onAdd(token) : null),
+              tile(token, enabled ? () => onAdd(token) : null, selected: false),
           ],
         ),
       ],
@@ -374,7 +410,9 @@ class _DiktatQuestState extends State<DiktatQuest> {
     final s = SoriSurfaces.of(context);
     final canCheck = _ctrl.text.trim().isNotEmpty;
 
-    Color fieldBorder = s.surfaceAlt;
+    Color fieldBorder = s.brightness == Brightness.light
+        ? SoriColors.primary
+        : SoriColors.primaryOnDark;
     if (_feedback == _Feedback.correct) {
       fieldBorder = SoriColors.success;
     } else if (_feedback == _Feedback.spacing ||
@@ -406,7 +444,9 @@ class _DiktatQuestState extends State<DiktatQuest> {
         children: [
           Text(
             t.diktatInstruction,
-            style: TextStyle(color: s.textMuted, fontSize: 13),
+            style: SoriTextTheme.of(
+              context,
+            ).bodySmall.copyWith(color: s.textMuted),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: Spacing.md),
@@ -415,38 +455,54 @@ class _DiktatQuestState extends State<DiktatQuest> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              GestureDetector(
+              Semantics(
+                button: true,
+                enabled: true,
+                label: t.questListenAudio,
+                excludeSemantics: true,
                 onTap: _playTts,
-                child: Container(
-                  width: 84,
-                  height: 84,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: SoriColors.info.withAlpha(26),
-                    border: Border.all(color: SoriColors.info, width: 2),
-                  ),
-                  child: const Icon(
-                    Icons.volume_up_rounded,
-                    color: SoriColors.info,
-                    size: 40,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: _playTts,
+                  child: Container(
+                    width: 84,
+                    height: 84,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: SoriColors.info.withAlpha(26),
+                      border: Border.all(color: SoriColors.info, width: 2),
+                    ),
+                    child: const Icon(
+                      Icons.volume_up_rounded,
+                      color: SoriColors.info,
+                      size: 40,
+                    ),
                   ),
                 ),
               ),
               const SizedBox(width: Spacing.lg),
-              GestureDetector(
+              Semantics(
+                button: true,
+                enabled: true,
+                label: t.diktatListenSlow,
+                excludeSemantics: true,
                 onTap: _playSlow,
-                child: Container(
-                  width: 56,
-                  height: 56,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: s.surface,
-                    border: Border.all(color: s.surfaceAlt, width: 1.5),
-                  ),
-                  child: Icon(
-                    Icons.slow_motion_video_rounded,
-                    color: s.textMuted,
-                    size: 26,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: _playSlow,
+                  child: Container(
+                    width: 56,
+                    height: 56,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: s.surface,
+                      border: Border.all(color: s.surfaceAlt, width: 1.5),
+                    ),
+                    child: Icon(
+                      Icons.slow_motion_video_rounded,
+                      color: s.textMuted,
+                      size: 26,
+                    ),
                   ),
                 ),
               ),
@@ -465,62 +521,21 @@ class _DiktatQuestState extends State<DiktatQuest> {
               onRemove: _removeToken,
             )
           else
-            TextField(
+            SoriTextField(
+              fieldKey: const ValueKey('diktat-answer-field'),
               controller: _ctrl,
+              labelText: t.diktatAnswerLabel,
+              hintText: '…',
               enabled: !_completed,
               autocorrect: false,
               enableSuggestions: false,
               textInputAction: TextInputAction.done,
               onSubmitted: (_) => _check(),
               onChanged: (_) => setState(() {}),
-              style: TextStyle(
-                color: s.text,
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-              ),
-              decoration: InputDecoration(
-                hintText: '…',
-                hintStyle: TextStyle(color: s.textDim),
-                filled: true,
-                fillColor: s.surface,
-                contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 14,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(SoriRadius.md),
-                  borderSide: BorderSide(color: fieldBorder, width: 1.8),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(SoriRadius.md),
-                  borderSide: BorderSide(color: fieldBorder, width: 2.2),
-                ),
-                disabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(SoriRadius.md),
-                  borderSide: BorderSide(color: fieldBorder, width: 1.8),
-                ),
-              ),
+              style: SoriTextTheme.of(
+                context,
+              ).body.copyWith(color: s.text, fontWeight: FontWeight.w600),
             ),
-          const SizedBox(height: Spacing.sm),
-
-          // Feedback-Zeile.
-          SizedBox(
-            height: 22,
-            child:
-                (_feedback == _Feedback.spacing ||
-                    _feedback == _Feedback.spelling)
-                ? Text(
-                    _feedback == _Feedback.spacing
-                        ? t.diktatSpacingHint
-                        : t.diktatSpellingHint,
-                    style: const TextStyle(
-                      color: SoriColors.warning,
-                      fontSize: 13,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  )
-                : const SizedBox.shrink(),
-          ),
           const SizedBox(height: Spacing.sm),
 
           // Bedeutung-Toggle (Hilfe).
@@ -537,7 +552,9 @@ class _DiktatQuestState extends State<DiktatQuest> {
               ),
               label: Text(
                 _showMeaning ? _meaning(langCode) : t.diktatShowMeaning,
-                style: TextStyle(color: s.textMuted, fontSize: 13),
+                style: SoriTextTheme.of(
+                  context,
+                ).bodySmall.copyWith(color: s.textMuted),
               ),
             ),
           ),

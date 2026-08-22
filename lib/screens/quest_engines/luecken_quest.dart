@@ -119,7 +119,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
           TextSpan(text: parts.first),
           TextSpan(
             text: answer,
-            style: TextStyle(
+            style: SoriTextTheme.of(context).h2.copyWith(
               color: _selected < 0 ? surfaces.textMuted : SoriColors.primary,
               decoration: TextDecoration.underline,
               decorationColor: SoriColors.primary,
@@ -161,6 +161,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
               label: entry.value,
               index: entry.key,
               state: _stateFor(entry.key),
+              selected: _selected == entry.key,
               onTap: _resolved == null ? () => _select(entry.key) : null,
             ),
             const SizedBox(height: Spacing.sm),

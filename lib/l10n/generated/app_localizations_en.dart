@@ -5599,6 +5599,9 @@ class AppL10nEn extends AppL10n {
   String get questReplayAudio => 'Listen again';
 
   @override
+  String get questListenAudio => 'Listen to audio';
+
+  @override
   String get questBuildAnswerLabel => 'Build your answer';
 
   @override
@@ -5606,6 +5609,12 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get diktatInstruction => 'Listen and type what you hear';
+
+  @override
+  String get diktatAnswerLabel => 'Your Korean answer';
+
+  @override
+  String get diktatListenSlow => 'Listen to audio slowly';
 
   @override
   String get diktatSpacingHint => 'Almost! Check the word spacing';
