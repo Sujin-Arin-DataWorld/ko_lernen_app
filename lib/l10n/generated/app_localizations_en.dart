@@ -1781,6 +1781,16 @@ class AppL10nEn extends AppL10n {
   String get bookResultSave => 'Save to my bookshelf';
 
   @override
+  String get bookResultSaving => 'Saving page…';
+
+  @override
+  String get bookResultSaveUnresolved => 'Save status could not be confirmed';
+
+  @override
+  String get bookResultSaveUnresolvedBody =>
+      'Check your bookshelf before trying to save this page again.';
+
+  @override
   String get bookResultSaved => 'Page saved.';
 
   @override

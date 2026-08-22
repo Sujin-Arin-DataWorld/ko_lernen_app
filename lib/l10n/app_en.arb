@@ -883,6 +883,9 @@
   "bookStudyGenericIntro": "This answer uses only the validated analysis result.",
   "bookStudyEvidenceLabel": "Evidence from this page",
   "bookResultSave": "Save to my bookshelf",
+  "bookResultSaving": "Saving page…",
+  "bookResultSaveUnresolved": "Save status could not be confirmed",
+  "bookResultSaveUnresolvedBody": "Check your bookshelf before trying to save this page again.",
   "bookResultSaved": "Page saved.",
   "bookResultBackToCapture": "Snap another page",
   "@_phase4_quests": {
