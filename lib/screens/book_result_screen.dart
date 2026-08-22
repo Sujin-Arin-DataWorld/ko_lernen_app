@@ -26,6 +26,7 @@ import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/dialog.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -42,6 +43,9 @@ typedef BookAnalyzer =
       required String text,
       required String targetLang,
     });
+
+typedef BookPageSaver =
+    Future<void> Function(BookPage page, PendingMediaLease? imageLease);
 
 enum _BookResultSaveState { idle, saving, saved, unresolved }
 
@@ -92,8 +96,14 @@ class BookResultSaveIntent {
 class BookResultScreen extends StatefulWidget {
   final Map<String, dynamic> args;
   final BookAnalyzer? analyzer;
+  final BookPageSaver? pageSaver;
 
-  const BookResultScreen({super.key, required this.args, this.analyzer});
+  const BookResultScreen({
+    super.key,
+    required this.args,
+    this.analyzer,
+    this.pageSaver,
+  });
 
   @override
   State<BookResultScreen> createState() => _BookResultScreenState();
@@ -110,6 +120,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
 
   bool get _saved => _saveIntent.isSaved;
   bool get _saving => _saveIntent.isSaving;
+  bool get _saveUnresolved => _saveIntent.isUnresolved;
   String get _text => widget.args['text'] as String? ?? '';
   String get _safeText => BookAnalysisTextPreprocessor.prepare(_text).text;
   String? get _imageLease => widget.args['imageLease'] as String?;
@@ -307,7 +318,10 @@ class _BookResultScreenState extends State<BookResultScreen> {
         analysisLanguage: res.analysisLanguage,
       );
       final lease = PendingMediaLease.tryParse(_imageLease);
-      if (lease == null) {
+      final pageSaver = widget.pageSaver;
+      if (pageSaver != null) {
+        await pageSaver(page, lease);
+      } else if (lease == null) {
         await BookshelfService.save(page);
       } else {
         await BookshelfService.saveWithPendingImage(page, lease);
@@ -369,6 +383,7 @@ class _BookResultScreenState extends State<BookResultScreen> {
             padding: padding,
             child: AppError(
               message: _error ?? 'unknown',
+              messageLiveRegion: true,
               onRetry: () => _analyze(_analysisLanguage ?? 'de'),
               asset: 'assets/illustrations/book/book_error.png',
             ),
@@ -380,7 +395,6 @@ class _BookResultScreenState extends State<BookResultScreen> {
     final r = _result!;
     final feedbackCompletion = _feedbackCompletion.current;
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
-    final s = SoriSurfaces.of(context);
     final offlineStub = r.warnings.contains('offline_stub');
     final rateLimited = r.warnings.contains('server_rate_limited');
     final credentialsUnavailable = r.warnings.contains(
@@ -447,66 +461,35 @@ class _BookResultScreenState extends State<BookResultScreen> {
               ),
               const SizedBox(height: Spacing.sm),
               Center(
-                child: Text(
-                  t.bookResultFoundN(r.words.length),
-                  style: SoriTextTheme.of(context).h3,
+                child: Semantics(
+                  header: true,
+                  liveRegion: true,
+                  child: Text(
+                    t.bookResultFoundN(r.words.length),
+                    style: SoriTextTheme.of(context).h3,
+                  ),
                 ),
               ),
               const SizedBox(height: Spacing.lg),
               if (offlineStub) ...[
-                SoriCard(
-                  variant: SoriCardVariant.compact,
-                  accent: SoriColors.warning,
-                  tinted: true,
-                  child: Row(
-                    children: [
-                      const Icon(
-                        Icons.cloud_off_outlined,
-                        color: SoriColors.warning,
-                        size: 18,
-                      ),
-                      const SizedBox(width: Spacing.sm),
-                      Expanded(
-                        child: Text(
-                          rateLimited
-                              ? t.bookResultRateLimited
-                              : credentialsUnavailable
-                              ? t.bookResultCredentialsNotice
-                              : t.bookResultOfflineNotice,
-                          style: TextStyle(fontSize: 12, color: s.textMuted),
-                        ),
-                      ),
-                    ],
-                  ),
+                _ResultNotice(
+                  icon: Icons.cloud_off_outlined,
+                  message: rateLimited
+                      ? t.bookResultRateLimited
+                      : credentialsUnavailable
+                      ? t.bookResultCredentialsNotice
+                      : t.bookResultOfflineNotice,
                 ),
                 const SizedBox(height: Spacing.md),
               ],
               if (noKoreanText || qualityFiltered || blockedResult) ...[
-                SoriCard(
-                  variant: SoriCardVariant.compact,
-                  accent: SoriColors.warning,
-                  tinted: true,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const Icon(
-                        Icons.fact_check_outlined,
-                        color: SoriColors.warning,
-                        size: 18,
-                      ),
-                      const SizedBox(width: Spacing.sm),
-                      Expanded(
-                        child: Text(
-                          noKoreanText
-                              ? t.bookResultNoKoreanNotice
-                              : translationUnavailable
-                              ? t.bookResultTranslationUnavailable
-                              : t.bookResultQualityNotice,
-                          style: TextStyle(fontSize: 12, color: s.textMuted),
-                        ),
-                      ),
-                    ],
-                  ),
+                _ResultNotice(
+                  icon: Icons.fact_check_outlined,
+                  message: noKoreanText
+                      ? t.bookResultNoKoreanNotice
+                      : translationUnavailable
+                      ? t.bookResultTranslationUnavailable
+                      : t.bookResultQualityNotice,
                 ),
                 const SizedBox(height: Spacing.md),
               ],
@@ -575,21 +558,50 @@ class _BookResultScreenState extends State<BookResultScreen> {
                   label: t.bookPreviewRetake,
                   icon: Icons.replay_outlined,
                   variant: SoriButtonVariant.outlined,
-                  accent: SoriColors.info,
                   fullWidth: true,
                   onTap: () => Navigator.of(context).popUntil(
                     (route) => route.settings.name == '/book' || route.isFirst,
                   ),
                 ),
-              ] else if (!_saved)
+              ] else if (_saveUnresolved) ...[
+                _ResultNotice(
+                  icon: Icons.sync_problem_rounded,
+                  message: t.bookResultSaveUnresolvedBody,
+                ),
+                const SizedBox(height: Spacing.sm),
                 SoriButton(
-                  label: t.bookResultSave,
-                  icon: Icons.bookmark_add_outlined,
-                  variant: SoriButtonVariant.filled,
-                  accent: SoriColors.primary,
+                  label: t.bookResultSaveUnresolved,
+                  icon: Icons.sync_problem_rounded,
+                  variant: SoriButtonVariant.outlined,
                   fullWidth: true,
-                  onTap: _save,
-                )
+                  onTap: null,
+                ),
+              ] else if (!_saved)
+                _saving
+                    ? Semantics(
+                        container: true,
+                        liveRegion: true,
+                        label: t.bookResultSaving,
+                        button: true,
+                        enabled: false,
+                        excludeSemantics: true,
+                        child: SoriButton(
+                          label: t.bookResultSaving,
+                          icon: Icons.bookmark_add_outlined,
+                          variant: SoriButtonVariant.filled,
+                          accent: SoriColors.primary,
+                          fullWidth: true,
+                          onTap: null,
+                        ),
+                      )
+                    : SoriButton(
+                        label: t.bookResultSave,
+                        icon: Icons.bookmark_add_outlined,
+                        variant: SoriButtonVariant.filled,
+                        accent: SoriColors.primary,
+                        fullWidth: true,
+                        onTap: _saveIntent.canStart ? _save : null,
+                      )
               else ...[
                 if (r.words.isNotEmpty) ...[
                   SoriButton(
@@ -606,7 +618,6 @@ class _BookResultScreenState extends State<BookResultScreen> {
                   label: t.bookResultBackToCapture,
                   icon: Icons.add_a_photo_outlined,
                   variant: SoriButtonVariant.outlined,
-                  accent: SoriColors.info,
                   fullWidth: true,
                   onTap: () => Navigator.of(
                     context,
@@ -627,31 +638,12 @@ class _BookResultScreenState extends State<BookResultScreen> {
     if (res == null || !res.isSaveable || res.words.isEmpty) {
       return;
     }
-    final controller = TextEditingController(
-      text: 'Pack ${DateTime.now().toIso8601String().substring(0, 10)}',
-    );
+    final defaultName =
+        'Pack ${DateTime.now().toIso8601String().substring(0, 10)}';
     final name = await showSoriDialog<String>(
       context: context,
-      builder: (ctx) => SoriDialog(
-        title: Text(t.bookshelfCreatePackTitle),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          decoration: InputDecoration(labelText: t.bookshelfCreatePackName),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(null),
-            child: Text(t.btnCancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
-            child: Text(t.btnConfirm),
-          ),
-        ],
-      ),
+      builder: (_) => _CreatePackNameDialog(initialName: defaultName),
     );
-    controller.dispose();
     if (name == null || name.isEmpty) return;
     // 임시 BookPage 빌드 — 저장 안 됐을 수도 있으니 ephemeral.
     final tempPage = BookPage(
@@ -692,12 +684,130 @@ class _SectionLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(4, Spacing.sm, 4, Spacing.sm),
-      child: Text(
-        label,
-        style: SoriTextTheme.of(
-          context,
-        ).bodySmall.copyWith(fontWeight: FontWeight.w800, letterSpacing: 0.4),
+      child: Semantics(
+        header: true,
+        child: Text(label, style: SoriTextTheme.of(context).label),
       ),
+    );
+  }
+}
+
+class _ResultNotice extends StatelessWidget {
+  const _ResultNotice({required this.icon, required this.message});
+
+  final IconData icon;
+  final String message;
+
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      container: true,
+      liveRegion: true,
+      label: message,
+      child: ExcludeSemantics(
+        child: SoriCard(
+          variant: SoriCardVariant.compact,
+          accent: SoriColors.warning,
+          tinted: true,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(icon, color: SoriColors.warning, size: 18),
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: Text(
+                  message,
+                  style: SoriTextTheme.of(context).bodySmall,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _BookResultListenButton extends StatelessWidget {
+  const _BookResultListenButton({required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final label = '${AppL10n.of(context).ttsListen}: $text';
+    void play() {
+      // ignore: discarded_futures
+      TtsService.speak(text);
+    }
+
+    return Semantics(
+      button: true,
+      enabled: true,
+      label: label,
+      onTap: play,
+      excludeSemantics: true,
+      child: IconButton(
+        tooltip: label,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
+        icon: const Icon(
+          Icons.volume_up_rounded,
+          size: 22,
+          color: SoriColors.primary,
+        ),
+        onPressed: play,
+      ),
+    );
+  }
+}
+
+class _CreatePackNameDialog extends StatefulWidget {
+  const _CreatePackNameDialog({required this.initialName});
+
+  final String initialName;
+
+  @override
+  State<_CreatePackNameDialog> createState() => _CreatePackNameDialogState();
+}
+
+class _CreatePackNameDialogState extends State<_CreatePackNameDialog> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(text: widget.initialName);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return SoriDialog(
+      title: Text(t.bookshelfCreatePackTitle),
+      content: SoriTextField(
+        controller: _controller,
+        autofocus: true,
+        labelText: t.bookshelfCreatePackName,
+        hintText: t.bookshelfCreatePackNameHint,
+      ),
+      actions: [
+        TextButton(
+          style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => Navigator.of(context).pop(null),
+          child: Text(t.btnCancel),
+        ),
+        FilledButton(
+          style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => Navigator.of(context).pop(_controller.text.trim()),
+          child: Text(t.btnConfirm),
+        ),
+      ],
     );
   }
 }
@@ -743,14 +853,7 @@ class _ExpressionCard extends StatelessWidget {
               result: result,
               target: GroundedBookTarget.forExpression(expression),
             ),
-            if (allowTts)
-              IconButton(
-                icon: const Icon(Icons.volume_up_rounded),
-                onPressed: () {
-                  // ignore: discarded_futures
-                  TtsService.speak(expression.korean);
-                },
-              ),
+            if (allowTts) _BookResultListenButton(text: expression.korean),
           ],
         ),
       ),
@@ -770,6 +873,10 @@ class _WordCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final meaning =
+        word.translationLanguage == 'en' && word.translationEn.isNotEmpty
+        ? word.translationEn
+        : word.translationDe;
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.sm),
       child: SoriCard(
@@ -799,14 +906,7 @@ class _WordCard extends StatelessWidget {
                     exampleDe: word.exampleDe,
                     compact: true,
                   ),
-                  IconButton(
-                    visualDensity: VisualDensity.compact,
-                    icon: const Icon(Icons.volume_up_rounded, size: 22),
-                    onPressed: () {
-                      // ignore: discarded_futures
-                      TtsService.speak(word.korean);
-                    },
-                  ),
+                  _BookResultListenButton(text: word.korean),
                 ],
               ],
             ),
@@ -817,10 +917,10 @@ class _WordCard extends StatelessWidget {
                   context,
                 ).caption.copyWith(fontStyle: FontStyle.italic),
               ),
-            if (word.translationDe.isNotEmpty) ...[
+            if (meaning.isNotEmpty) ...[
               const SizedBox(height: 4),
               Text(
-                word.translationDe,
+                meaning,
                 style: SoriTextTheme.of(
                   context,
                 ).bodySmall.copyWith(fontWeight: FontWeight.w600),
@@ -843,7 +943,7 @@ class _WordCard extends StatelessWidget {
                 padding: const EdgeInsets.all(Spacing.sm),
                 decoration: BoxDecoration(
                   color: SoriColors.primary.withValues(alpha: 0.06),
-                  borderRadius: BorderRadius.circular(SoriRadius.sm),
+                  borderRadius: SoriRadius.brSm,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -932,55 +1032,39 @@ class _SentenceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final s = SoriSurfaces.of(context);
-    return Container(
-      margin: const EdgeInsets.only(bottom: Spacing.sm),
-      padding: const EdgeInsets.all(Spacing.md),
-      decoration: BoxDecoration(
-        color: s.surface,
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-        border: Border.all(color: SoriColors.primary.withValues(alpha: 0.18)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Text(
-                  sentence.korean,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: SoriColors.primary,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Text(
+                    sentence.korean,
+                    style: SoriTextTheme.of(context).h3,
                   ),
                 ),
-              ),
-              GroundedBookAskButton(
-                result: result,
-                target: GroundedBookTarget.forSentence(sentence),
-              ),
-              if (allowTts)
-                IconButton(
-                  visualDensity: VisualDensity.compact,
-                  icon: const Icon(Icons.volume_up_rounded, size: 18),
-                  onPressed: () {
-                    // ignore: discarded_futures
-                    TtsService.speak(sentence.korean);
-                  },
+                GroundedBookAskButton(
+                  result: result,
+                  target: GroundedBookTarget.forSentence(sentence),
                 ),
-            ],
-          ),
-          if (sentence.translationDe.isNotEmpty)
-            Text(
-              sentence.translationDe,
-              style: TextStyle(
-                fontSize: 12,
-                fontStyle: FontStyle.italic,
-                color: s.textMuted,
-              ),
+                if (allowTts) _BookResultListenButton(text: sentence.korean),
+              ],
             ),
-        ],
+            if (sentence.translationDe.isNotEmpty)
+              Text(
+                sentence.translationDe,
+                style: SoriTextTheme.of(
+                  context,
+                ).bodySmall.copyWith(fontStyle: FontStyle.italic),
+              ),
+          ],
+        ),
       ),
     );
   }

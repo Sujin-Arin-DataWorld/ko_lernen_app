@@ -883,6 +883,9 @@
   "bookStudyGenericIntro": "Die Antwort stammt nur aus dem geprüften Analyseergebnis.",
   "bookStudyEvidenceLabel": "Beleg aus dieser Seite",
   "bookResultSave": "In meinem Bücherregal speichern",
+  "bookResultSaving": "Seite wird gespeichert…",
+  "bookResultSaveUnresolved": "Speicherstatus konnte nicht bestätigt werden",
+  "bookResultSaveUnresolvedBody": "Prüfe dein Bücherregal, bevor du erneut versuchst, diese Seite zu speichern.",
   "bookResultSaved": "Seite gespeichert.",
   "bookResultBackToCapture": "Weitere Seite einlesen",
   "@_phase4_quests": {

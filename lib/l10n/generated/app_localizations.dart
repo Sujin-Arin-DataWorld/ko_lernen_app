@@ -3187,6 +3187,24 @@ abstract class AppL10n {
   /// **'In meinem Bücherregal speichern'**
   String get bookResultSave;
 
+  /// No description provided for @bookResultSaving.
+  ///
+  /// In de, this message translates to:
+  /// **'Seite wird gespeichert…'**
+  String get bookResultSaving;
+
+  /// No description provided for @bookResultSaveUnresolved.
+  ///
+  /// In de, this message translates to:
+  /// **'Speicherstatus konnte nicht bestätigt werden'**
+  String get bookResultSaveUnresolved;
+
+  /// No description provided for @bookResultSaveUnresolvedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Prüfe dein Bücherregal, bevor du erneut versuchst, diese Seite zu speichern.'**
+  String get bookResultSaveUnresolvedBody;
+
   /// No description provided for @bookResultSaved.
   ///
   /// In de, this message translates to:
