@@ -17,19 +17,21 @@
 - Rebuilt can-do assets without changing the 86 published slots; all raw sources are now routed.
 - Repaired the three known base-main CI regressions: immutable ID counts, Batch 18 vocab pack route,
   and `smalltalk_b2_0101` semantic decision coverage.
-- Generated and uploaded 633 missing TTS files; verification reports 12,060 expected and 0 missing.
+- Generated and uploaded 633 initial plus 5 final copy-revision TTS files; verification reports
+  12,062 expected, 12,369 remote, and 0 missing.
 
 ## Verification completed before commit
 
 - Python content, batch, loader, can-do, Unicode, and rejected-phrase checks passed.
 - Targeted Flutter content/loader/catalog tests passed.
 - `flutter analyze` passed with no issues.
-- Full Flutter suite, feature commit/push, clean main integration, exact-head CI, and branch cleanup
-  remain the final lifecycle steps.
+- Full Flutter suite passed with exit 0 and 14 skipped.
+- Feature commit/push, clean main integration, exact-head CI, and branch cleanup remain the final
+  lifecycle steps.
 
 ## Safety and source policy
 
 - PDF material supplied generalized educational signals only; no PDF wording, tables, questions,
   IDs, page references, or unit order entered the app assets.
 - The dirty user main checkout was not modified.
-- Remote stale TTS cache entries (304) were retained; no destructive storage cleanup was performed.
+- Remote stale TTS cache entries (307) were retained; no destructive storage cleanup was performed.

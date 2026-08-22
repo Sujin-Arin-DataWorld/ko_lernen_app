@@ -95,6 +95,7 @@ DancheongMotif motifForPackId(String packId) {
     'b1_health_education' ||
     'b1_health_hospital' => DancheongMotif.cloud,
     'a1_food' ||
+    'a1_payment_delivery' ||
     'a2_food' ||
     'a2_shopping' ||
     'a2_clothing' ||
@@ -122,6 +123,8 @@ DancheongMotif motifForPackId(String packId) {
     'b2_communication' ||
     'b1_media_culture' ||
     'b1_communication_lang' ||
+    'a1_particles_in_use' ||
+    'a1_repair_language' ||
     'b2_language_grammar' => DancheongMotif.chilbo,
     'a2_home' ||
     'a1_misc' ||
@@ -136,7 +139,9 @@ DancheongMotif motifForPackId(String packId) {
     'b2_relationships_people' ||
     'b2_manners_society' ||
     'b2_honorifics' => DancheongMotif.lotus,
-    'b1_time_life' || 'b2_events_culture' => DancheongMotif.chrysanthemum,
+    'b1_time_life' ||
+    'b2_events_culture' ||
+    'a2_plans_proposals' => DancheongMotif.chrysanthemum,
     // fallback — 여기 걸리면 새 주제가 생긴 것이다. 위에 추가할 것.
     // `test/dancheong_stamp_test.dart` 의 전수 대조 테스트가 잡아준다.
     // Reviewed A1-C2 content packs using the existing motif pipeline.
@@ -218,6 +223,7 @@ DancheongMotif motifForPackId(String packId) {
     'a2_lost_found' => DancheongMotif.mountain,
     'a2_festival_booth' => DancheongMotif.lotus,
     'b1_workplace_mail' => DancheongMotif.bamboo,
+    'b1_work_softening' => DancheongMotif.bamboo,
     'b1_roommate_talk' => DancheongMotif.plum,
     'b1_insurance_claim' => DancheongMotif.cloud,
     'b1_public_office' => DancheongMotif.gwigap,

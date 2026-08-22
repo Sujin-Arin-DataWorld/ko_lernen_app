@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 from pathlib import Path
 from typing import Any
@@ -34,6 +35,9 @@ TARGETS = {
 # Shelf/backdrop are assigned by the live scenario graph during promotion.
 # Frozen review drafts intentionally do not duplicate that global metadata.
 SCENARIO_PROMOTION_FIELDS = frozenset(("shelf", "backdrop"))
+COPY_REVISION_LEDGER = Path(
+    "tools/content_factory/review/promoted_copy_revisions_20260822.json"
+)
 
 
 class PromotedBatchError(ValueError):
@@ -71,6 +75,114 @@ def _require_equal(actual: Any, expected: Any, label: str) -> None:
         raise PromotedBatchError(f"{label}: promoted value differs from reviewed draft")
 
 
+def _fingerprint(value: Any) -> str:
+    canonical = json.dumps(
+        value,
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+    return hashlib.sha256(canonical).hexdigest()
+
+
+def _copy_revisions(
+    *, root: Path, manifest_path: Path
+) -> dict[tuple[str, str], dict[str, Any]]:
+    ledger_path = root / COPY_REVISION_LEDGER
+    if not ledger_path.exists():
+        return {}
+    ledger = _json(ledger_path)
+    try:
+        manifest_relative = manifest_path.relative_to(root).as_posix()
+    except ValueError:
+        return {}
+    if manifest_relative not in ledger.get("manifests", []):
+        return {}
+    if ledger.get("schemaVersion") != 2:
+        raise PromotedBatchError("copy revision ledger schemaVersion must be 2")
+    if ledger.get("humanReviewStatus") != "required_before_native-quality-claim":
+        raise PromotedBatchError("copy revision ledger must retain the native review gate")
+    result: dict[tuple[str, str], dict[str, Any]] = {}
+    for entry in ledger.get("entries", []):
+        if not isinstance(entry, dict):
+            raise PromotedBatchError("copy revision ledger entries must be objects")
+        if entry.get("manifest") != manifest_relative:
+            continue
+        key = (str(entry.get("kind") or ""), str(entry.get("id") or ""))
+        if not all(key) or key in result:
+            raise PromotedBatchError(f"duplicate or malformed copy revision {key!r}")
+        result[key] = entry
+    return result
+
+
+def _routing_revisions(
+    *, root: Path, manifest_path: Path
+) -> dict[tuple[str, str], dict[str, Any]]:
+    ledger_path = root / COPY_REVISION_LEDGER
+    if not ledger_path.exists():
+        return {}
+    ledger = _json(ledger_path)
+    try:
+        manifest_relative = manifest_path.relative_to(root).as_posix()
+    except ValueError:
+        return {}
+    result: dict[tuple[str, str], dict[str, Any]] = {}
+    for entry in ledger.get("routingEntries", []):
+        if not isinstance(entry, dict) or entry.get("manifest") != manifest_relative:
+            continue
+        key = (str(entry.get("map") or ""), str(entry.get("id") or ""))
+        if not all(key) or key in result:
+            raise PromotedBatchError(f"duplicate or malformed routing revision {key!r}")
+        result[key] = entry
+    return result
+
+
+def _require_reviewed_routing_revision(
+    *,
+    map_name: str,
+    ident: str,
+    before: Any,
+    after: Any,
+    revisions: dict[tuple[str, str], dict[str, Any]],
+) -> bool:
+    revision = revisions.get((map_name, ident))
+    if revision is None:
+        return False
+    if revision.get("beforeSha256") != _fingerprint(before):
+        raise PromotedBatchError(f"{map_name}:{ident}: stale routing revision beforeSha256")
+    if revision.get("afterSha256") != _fingerprint(after):
+        raise PromotedBatchError(f"{map_name}:{ident}: stale routing revision afterSha256")
+    return True
+
+
+def _require_reviewed_copy_revision(
+    *,
+    kind: str,
+    ident: str,
+    draft: dict[str, Any],
+    live: dict[str, Any],
+    revisions: dict[tuple[str, str], dict[str, Any]],
+) -> bool:
+    revision = revisions.get((kind, ident))
+    if revision is None:
+        return False
+    changed_fields = sorted(
+        field for field in {*draft, *live} if draft.get(field) != live.get(field)
+    )
+    expected = {
+        "level": str(draft.get("level") or "").lower(),
+        "fields": changed_fields,
+        "beforeSha256": _fingerprint(draft),
+        "afterSha256": _fingerprint(live),
+    }
+    for field, value in expected.items():
+        if revision.get(field) != value:
+            raise PromotedBatchError(
+                f"{kind}:{ident}: stale promoted copy revision {field}"
+            )
+    return True
+
+
 def _promotion_projection(kind: str, row: dict[str, Any]) -> dict[str, Any]:
     if kind != "scenario":
         return row
@@ -90,6 +202,10 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
     if not isinstance(artifacts, list) or not artifacts:
         raise PromotedBatchError(f"{manifest_path}: artifacts must be a nonempty array")
     seen_kinds: set[str] = set()
+    revisions = _copy_revisions(root=root, manifest_path=manifest_path)
+    used_revisions: set[tuple[str, str]] = set()
+    routing_revisions = _routing_revisions(root=root, manifest_path=manifest_path)
+    used_routing_revisions: set[tuple[str, str]] = set()
     for index, artifact in enumerate(artifacts):
         if not isinstance(artifact, dict):
             raise PromotedBatchError(f"{manifest_path}: artifacts[{index}] must be an object")
@@ -150,11 +266,18 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
             ident = str(row.get("id") or "").strip()
             if not ident or ident not in live_by_id:
                 raise PromotedBatchError(f"{kind}: {ident!r} is missing from live assets")
-            _require_equal(
-                _promotion_projection(kind, live_by_id[ident]),
-                _promotion_projection(kind, row),
-                f"{kind}:{ident}",
-            )
+            live_projection = _promotion_projection(kind, live_by_id[ident])
+            draft_projection = _promotion_projection(kind, row)
+            if live_projection != draft_projection:
+                if not _require_reviewed_copy_revision(
+                    kind=kind,
+                    ident=ident,
+                    draft=draft_projection,
+                    live=live_projection,
+                    revisions=revisions,
+                ):
+                    _require_equal(live_projection, draft_projection, f"{kind}:{ident}")
+                used_revisions.add((kind, ident))
             review = reviews.get(ident)
             if review is None or review.get("상태") != "approved":
                 raise PromotedBatchError(f"{kind}:{ident} is not approved")
@@ -163,6 +286,12 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
             if not str(review.get("jin_memo") or "").strip():
                 raise PromotedBatchError(f"{kind}:{ident} lacks approval memo")
         promoted_count += len(draft_rows)
+
+    unused_revisions = set(revisions) - used_revisions
+    if unused_revisions:
+        raise PromotedBatchError(
+            f"copy revision ledger contains stale entries: {sorted(unused_revisions)[:5]}"
+        )
 
     if promoted_count != manifest.get("recordCount"):
         raise PromotedBatchError("recordCount differs from promoted artifact total")
@@ -232,20 +361,54 @@ def validate(manifest_path: Path, *, root: Path = ROOT) -> tuple[int, dict[str, 
             "courseUnitId": rule.get("courseUnitId"),
             "conceptIds": rule.get("conceptIds"),
         }
-        _require_equal(curriculum["grammarRuleMap"].get(ident), expected, f"grammar map:{ident}")
+        actual = curriculum["grammarRuleMap"].get(ident)
+        if actual != expected:
+            if not _require_reviewed_routing_revision(
+                map_name="grammarRuleMap",
+                ident=ident,
+                before=expected,
+                after=actual,
+                revisions=routing_revisions,
+            ):
+                _require_equal(actual, expected, f"grammar map:{ident}")
+            used_routing_revisions.add(("grammarRuleMap", ident))
     for rule in manifest.get("smalltalkCategoryMappings", []):
         key = f"{str(rule.get('level') or '').lower()}:{str(rule.get('category') or '').lower()}"
         expected = {
             "courseUnitId": rule.get("courseUnitId"),
             "conceptIds": rule.get("conceptIds"),
         }
-        _require_equal(curriculum["smalltalkCategoryUnitMap"].get(key), expected, f"smalltalk map:{key}")
+        actual = curriculum["smalltalkCategoryUnitMap"].get(key)
+        if actual != expected:
+            if not _require_reviewed_routing_revision(
+                map_name="smalltalkCategoryUnitMap",
+                ident=key,
+                before=expected,
+                after=actual,
+                revisions=routing_revisions,
+            ):
+                _require_equal(actual, expected, f"smalltalk map:{key}")
+            used_routing_revisions.add(("smalltalkCategoryUnitMap", key))
     for rule in manifest.get("clozeTopicMappings", []):
         key = f"{str(rule.get('level') or '').lower()}:{str(rule.get('topic') or '').lower()}"
-        _require_equal(
-            curriculum["clozeTopicUnitMap"].get(key),
-            rule.get("courseUnitId"),
-            f"cloze map:{key}",
+        expected = rule.get("courseUnitId")
+        actual = curriculum["clozeTopicUnitMap"].get(key)
+        if actual != expected:
+            if not _require_reviewed_routing_revision(
+                map_name="clozeTopicUnitMap",
+                ident=key,
+                before=expected,
+                after=actual,
+                revisions=routing_revisions,
+            ):
+                _require_equal(actual, expected, f"cloze map:{key}")
+            used_routing_revisions.add(("clozeTopicUnitMap", key))
+
+    unused_routing_revisions = set(routing_revisions) - used_routing_revisions
+    if unused_routing_revisions:
+        raise PromotedBatchError(
+            "copy revision ledger contains stale routing entries: "
+            f"{sorted(unused_routing_revisions)[:5]}"
         )
 
     issues = ContentValidator(root).validate()

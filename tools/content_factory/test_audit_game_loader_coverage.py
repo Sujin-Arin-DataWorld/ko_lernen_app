@@ -42,6 +42,18 @@ class LoaderCoverageAuditTest(unittest.TestCase):
         self.assertEqual(other["grammarPatterns"]["exactPerLevel"]["b2"], 2)
         self.assertEqual(other["wordRelations"]["exactPerLevel"]["c2"], 4)
         self.assertGreater(other["vocabDerived"]["exactPerLevel"]["c2"], 0)
+        self.assertEqual(
+            report["courseLoader"]["smalltalk"]["a1"]["countsByUnit"][
+                "a1_14_payment_delivery"
+            ],
+            2,
+        )
+        self.assertEqual(
+            report["courseLoader"]["smalltalk"]["a1"][
+                "recordDeficitToTarget"
+            ],
+            0,
+        )
         self.assertTrue(all(not ids for ids in report["unroutedIds"].values()))
 
     def test_batch_06_overlay_is_idempotent_after_live_promotion(self) -> None:

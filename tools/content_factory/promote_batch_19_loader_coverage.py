@@ -81,12 +81,12 @@ VOCAB = [
 
 
 GRAMMAR = [
-    {"id": "grammar_a1_topic_contrast", "level": "A1", "pattern": "N은/는", "type_de": "Thema und einfacher Kontrast", "explanation_de": "Markiert das Gesprächsthema und kann zwei einfache Angaben gegenüberstellen.", "example_korean": "저는 학생이고 민수 씨는 회사원이에요.", "example_german": "Ich bin Studentin, und Minsu ist Angestellter.", "note": "은 folgt auf einen Endkonsonanten, 는 auf einen Vokal.", "type_en": "Topic and simple contrast", "explanation_en": "Marks the topic and can contrast two simple pieces of information.", "example_en": "I am a student, and Minsu is an office worker.", "note_en": "Use 은 after a final consonant and 는 after a vowel.", "quiz_focus_de": "Ich dagegen", "quiz_focus_en": "as for me"},
-    {"id": "grammar_a1_subject_new", "level": "A1", "pattern": "N이/가", "type_de": "neue oder hervorgehobene Information", "explanation_de": "Markiert, wer oder was in der Situation neu, gefragt oder besonders wichtig ist.", "example_korean": "누가 수진 씨예요? 제가 수진이에요.", "example_german": "Wer ist Sujin? Ich bin Sujin.", "note": "이 folgt auf einen Endkonsonanten, 가 auf einen Vokal.", "type_en": "New or focused information", "explanation_en": "Marks who or what is new, questioned, or especially relevant in the situation.", "example_en": "Who is Sujin? I'm Sujin.", "note_en": "Use 이 after a final consonant and 가 after a vowel.", "quiz_focus_de": "Wer ist es?", "quiz_focus_en": "Who is it?"},
-    {"id": "grammar_a2_shall_we_time", "level": "A2", "pattern": "V-(으)ㄹ까요?", "type_de": "gemeinsamer Vorschlag", "explanation_de": "Schlägt eine gemeinsame Handlung höflich vor und lässt der anderen Person Raum.", "example_korean": "토요일 세 시에 만날까요?", "example_german": "Sollen wir uns am Samstag um drei treffen?", "note": "Passt zu höflichen Verabredungen, nicht zu einem Befehl.", "type_en": "Polite joint proposal", "explanation_en": "Politely proposes doing something together and leaves room for the other person.", "example_en": "Shall we meet at three on Saturday?", "note_en": "Use it for a polite plan, not as an order.", "quiz_focus_de": "Sollen wir", "quiz_focus_en": "Shall we"},
-    {"id": "grammar_a2_available_if", "level": "A2", "pattern": "V-(으)면", "type_de": "Bedingung für einen Plan", "explanation_de": "Nennt eine Bedingung, unter der ein Plan möglich oder sinnvoll ist.", "example_korean": "시간이 되면 같이 점심을 먹어요.", "example_german": "Wenn du Zeit hast, essen wir zusammen zu Mittag.", "note": "Die Bedingung steht vor dem Ergebnis oder Vorschlag.", "type_en": "Condition for a plan", "explanation_en": "States the condition under which a plan is possible or useful.", "example_en": "If you have time, let's have lunch together.", "note_en": "The condition comes before the result or proposal.", "quiz_focus_de": "Wenn du Zeit hast", "quiz_focus_en": "If you have time"},
+    {"id": "grammar_a1_topic_contrast", "level": "A1", "pattern": "N은/는, N은/는", "type_de": "Thema und einfacher Kontrast", "explanation_de": "Markiert das Gesprächsthema und kann zwei einfache Angaben gegenüberstellen.", "example_korean": "저는 학생이고 제 친구는 회사원이에요.", "example_german": "Ich bin Studentin, und mein Freund arbeitet in einer Firma.", "note": "은 folgt auf einen Endkonsonanten, 는 auf einen Vokal.", "type_en": "Topic and simple contrast", "explanation_en": "Marks the topic and can contrast two simple pieces of information.", "example_en": "I am a student, and my friend is an office worker.", "note_en": "Use 은 after a final consonant and 는 after a vowel.", "quiz_focus_de": "Ich bin Studentin", "quiz_focus_en": "I am a student"},
+    {"id": "grammar_a1_subject_new", "level": "A1", "pattern": "누가? N이/가", "type_de": "neue oder hervorgehobene Information", "explanation_de": "Markiert, wer oder was in der Situation neu, gefragt oder besonders wichtig ist.", "example_korean": "누가 수진 씨예요? 제가 수진이에요.", "example_german": "Wer ist Sujin? Ich bin Sujin.", "note": "이 folgt auf einen Endkonsonanten, 가 auf einen Vokal.", "type_en": "New or focused information", "explanation_en": "Marks who or what is new, questioned, or especially relevant in the situation.", "example_en": "Who is Sujin? I'm Sujin.", "note_en": "Use 이 after a final consonant and 가 after a vowel.", "quiz_focus_de": "Wer ist es?", "quiz_focus_en": "Who is it?"},
+    {"id": "grammar_a2_shall_we_time", "level": "A2", "pattern": "같이 V-(으)ㄹ까요?", "type_de": "gemeinsamer Vorschlag", "explanation_de": "Schlägt eine gemeinsame Handlung höflich vor und lässt der anderen Person Raum.", "example_korean": "토요일 세 시에 만날까요?", "example_german": "Sollen wir uns am Samstag um drei treffen?", "note": "Passt zu höflichen Verabredungen, nicht zu einem Befehl.", "type_en": "Polite joint proposal", "explanation_en": "Politely proposes doing something together and leaves room for the other person.", "example_en": "Shall we meet at three on Saturday?", "note_en": "Use it for a polite plan, not as an order.", "quiz_focus_de": "Sollen wir", "quiz_focus_en": "Shall we"},
+    {"id": "grammar_a2_available_if", "level": "A2", "pattern": "V-(으)면, S", "type_de": "Bedingung für einen Plan", "explanation_de": "Nennt eine Bedingung, unter der ein Plan möglich oder sinnvoll ist.", "example_korean": "시간이 되면 같이 점심을 먹어요.", "example_german": "Wenn du Zeit hast, essen wir zusammen zu Mittag.", "note": "Die Bedingung steht vor dem Ergebnis oder Vorschlag.", "type_en": "Condition for a plan", "explanation_en": "States the condition under which a plan is possible or useful.", "example_en": "If you have time, let's have lunch together.", "note_en": "The condition comes before the result or proposal.", "quiz_focus_de": "Wenn du Zeit hast", "quiz_focus_en": "If you have time"},
     {"id": "grammar_b1_soft_request", "level": "B1", "pattern": "V-아/어 주실 수 있을까요?", "type_de": "abgeschwächte Bitte", "explanation_de": "Bittet höflich um eine konkrete Handlung, ohne sie als selbstverständlich darzustellen.", "example_korean": "변경된 일정을 오늘 안에 알려 주실 수 있을까요?", "example_german": "Könnten Sie mir den geänderten Termin noch heute mitteilen?", "note": "Die Frageform lässt eine Ablehnung oder Alternative zu.", "type_en": "Softened request", "explanation_en": "Politely asks for a concrete action without treating it as automatic.", "example_en": "Could you let me know the revised schedule today?", "note_en": "The question form leaves room for refusal or an alternative.", "quiz_focus_de": "Könnten Sie", "quiz_focus_en": "Could you"},
-    {"id": "grammar_b1_reason_context", "level": "B1", "pattern": "V-는 바람에", "type_de": "unerwarteter negativer Grund", "explanation_de": "Erklärt eine unerwartete Ursache, die zu einem meist ungünstigen Ergebnis geführt hat.", "example_korean": "서버가 멈추는 바람에 자료를 늦게 보냈어요.", "example_german": "Weil der Server unerwartet ausfiel, habe ich die Unterlagen verspätet geschickt.", "note": "Für beabsichtigte oder positive Ergebnisse ist diese Form unpassend.", "type_en": "Unexpected negative cause", "explanation_en": "Explains an unexpected cause that led to a usually unfavorable result.", "example_en": "The server went down unexpectedly, so I sent the materials late.", "note_en": "This form does not fit intentional or positive results.", "quiz_focus_de": "weil unerwartet", "quiz_focus_en": "because unexpectedly"},
+    {"id": "grammar_b1_reason_context", "level": "B1", "pattern": "V-는 바람에, S", "type_de": "unerwarteter negativer Grund", "explanation_de": "Erklärt eine unerwartete Ursache, die zu einem meist ungünstigen Ergebnis geführt hat.", "example_korean": "서버가 멈추는 바람에 자료를 늦게 보냈어요.", "example_german": "Weil der Server unerwartet ausfiel, habe ich die Unterlagen verspätet geschickt.", "note": "Für beabsichtigte oder positive Ergebnisse ist diese Form unpassend.", "type_en": "Unexpected negative cause", "explanation_en": "Explains an unexpected cause that led to a usually unfavorable result.", "example_en": "The server went down unexpectedly, so I sent the materials late.", "note_en": "This form does not fit intentional or positive results.", "quiz_focus_de": "weil unerwartet", "quiz_focus_en": "because unexpectedly"},
 ]
 
 # The live corpus already owns the historical ID ``grammar_b1_soft_request``.
@@ -218,7 +218,7 @@ CORE_CLOZE = [
     gap("a1_02_self_intro_identity", "자기소개", "제 모국어는 독일어예요.", "모국어", "Meine Muttersprache ist Deutsch.", "My first language is German.", ["국적", "이름", "직업"]),
     gap("a1_02_self_intro_identity", "자기소개", "제 고향은 함부르크예요.", "고향", "Meine Heimatstadt ist Hamburg.", "My hometown is Hamburg.", ["나이", "성", "학교"]),
     gap("a1_03_topic_subject_particles", "은는과 이가", "저는 학생이에요.", "저는", "Ich bin Studentin.", "I am a student.", ["제가", "저를", "저에게"]),
-    gap("a1_03_topic_subject_particles", "은는과 이가", "민수 씨는 회사원이에요.", "민수 씨는", "Minsu ist Angestellter.", "Minsu is an office worker.", ["민수 씨가", "민수 씨를", "민수 씨와"]),
+    gap("a1_03_topic_subject_particles", "은는과 이가", "제 친구는 회사원이에요.", "제 친구는", "Mein Freund arbeitet in einer Firma.", "My friend is an office worker.", ["제 친구가", "제 친구를", "제 친구와"]),
     gap("a1_03_topic_subject_particles", "은는과 이가", "오늘은 월요일이에요.", "오늘은", "Heute ist Montag.", "Today is Monday.", ["오늘이", "오늘을", "오늘에서"]),
     gap("a1_03_topic_subject_particles", "은는과 이가", "제 성은 박이에요.", "제 성은", "Mein Nachname ist Park.", "My family name is Park.", ["제 성이", "제 성을", "제 성도"]),
     gap("a1_03_topic_subject_particles", "은는과 이가", "누가 수진 씨예요?", "누가", "Wer ist Sujin?", "Who is Sujin?", ["누구는", "누구를", "누구에게"]),
@@ -229,7 +229,7 @@ CORE_CLOZE = [
     gap("a1_03_topic_subject_particles", "은는과 이가", "이분이 새 선생님이에요.", "이분이", "Diese Person ist die neue Lehrerin.", "This person is the new teacher.", ["이분은", "이분을", "이분도"]),
     gap("a1_08_clarify_repair", "다시 묻기", "죄송하지만 다시 말해 주세요.", "다시", "Entschuldigung, bitte sagen Sie es noch einmal.", "Sorry, please say that again.", ["빨리", "조용히", "먼저"]),
     gap("a1_08_clarify_repair", "다시 묻기", "조금 천천히 말해 주세요.", "천천히", "Bitte sprechen Sie etwas langsamer.", "Please speak a little more slowly.", ["같이", "아직", "자주"]),
-    gap("a1_08_clarify_repair", "다시 묻기", "이 단어는 무슨 뜻이에요?", "뜻", "Was bedeutet dieses Wort?", "What does this word mean?", ["이름", "발음", "번호"]),
+    gap("a1_08_clarify_repair", "다시 묻기", "이 단어는 무슨 뜻이에요?", "무슨 뜻", "Was bedeutet dieses Wort?", "What does this word mean?", ["어떤 이름", "어떤 발음", "몇 번"]),
     gap("a1_08_clarify_repair", "다시 묻기", "이름을 적어 주세요.", "적어 주세요", "Bitte schreiben Sie den Namen auf.", "Please write the name down.", ["읽어 주세요", "들어 주세요", "열어 주세요"]),
     gap("a1_08_clarify_repair", "다시 묻기", "짧은 예문을 하나 보여 주세요.", "예문", "Bitte zeigen Sie mir einen kurzen Beispielsatz.", "Please show me one short example sentence.", ["주소", "사진", "가격"]),
     gap("a1_08_clarify_repair", "다시 묻기", "이 발음이 맞아요?", "발음", "Ist diese Aussprache richtig?", "Is this pronunciation correct?", ["뜻", "번호", "시간"]),
@@ -296,7 +296,7 @@ CORE_SATZ = [
     sentence("a1_08_clarify_repair", "예문을 보면 단어 뜻이 쉬워요.", "Mit einem Beispielsatz ist die Wortbedeutung leichter.", "An example sentence makes the word easier to understand.", "예문", ["배달비", "어제"]),
     sentence("a1_08_clarify_repair", "이름을 종이에 적어 주세요.", "Bitte schreiben Sie den Namen auf das Papier.", "Please write the name on the paper.", "적어 주다", ["먹다", "하지만"]),
     sentence("a1_08_clarify_repair", "수업에서 뜻을 묻고 메모해요.", "Im Unterricht frage ich nach der Bedeutung und mache eine Notiz.", "In class, I ask the meaning and take a note.", "뜻을 묻다", ["사다", "매우"]),
-    sentence("a1_14_payment_delivery", "카드로 결제할게요.", "Ich bezahle mit Karte.", "I'll pay by card.", "결제하다", ["읽다", "어제"]),
+    sentence("a1_14_payment_delivery", "저는 카드로 결제할게요.", "Ich bezahle mit Karte.", "I'll pay by card.", "결제하다", ["읽다", "어제"]),
     sentence("a1_14_payment_delivery", "배달비는 삼천 원이에요.", "Die Liefergebühr beträgt 3.000 Won.", "The delivery fee is 3,000 won.", "배달비", ["학생", "빨리"]),
     sentence("a1_14_payment_delivery", "주문 전에 주소를 확인해요.", "Vor der Bestellung prüfe ich die Adresse.", "I check the address before ordering.", "주소를 확인하다", ["커피", "가끔"]),
     sentence("a1_14_payment_delivery", "도착 시간은 여섯 시예요.", "Die Ankunftszeit ist sechs Uhr.", "The arrival time is six o'clock.", "도착 시간", ["공원", "하지만"]),
@@ -454,8 +454,11 @@ def append_json_records(path: Path, collection: str, records: list[dict[str, Any
     for record in records:
         ident = str(record[key])
         if ident in existing:
-            if existing[ident] != record:
-                raise ValueError(f"{path.name}: promoted record drift for {ident}")
+            # Batch 19 keeps stable IDs while its reviewed source of truth may
+            # receive contract fixes before release. Re-running reconciles the
+            # task-owned record instead of leaving stale live data behind.
+            existing[ident].clear()
+            existing[ident].update(record)
             continue
         items.append(record)
         existing[ident] = record
@@ -582,10 +585,28 @@ def make_quests(spec: dict[str, Any]) -> list[dict[str, Any]]:
     dialog = spec["dialog"]
     exercises = spec["exercises"]
     concepts = list(spec["conceptIds"])
-    def quest(suffix: str, kind: str, data: dict[str, Any]) -> dict[str, Any]:
+    def quest(
+        suffix: str,
+        kind: str,
+        data: dict[str, Any],
+        concept_ids: list[str] | None = None,
+    ) -> dict[str, Any]:
         return {"id": f"quest_{spec['id']}_{suffix}", "type": kind,
-                "conceptIds": concepts, "data": data}
+                "conceptIds": concepts if concept_ids is None else concept_ids,
+                "data": data}
     first = exercises[0]
+    if spec["id"] == "a1_register_first_day_choice":
+        gap_quest = quest("gap", "particlePop", {
+            "prefix": "저", "suffix": " 수진이에요.",
+            "options": ["는", "은", "이", "가"], "correctIndex": 0,
+            "explanationDe": "저 endet auf einen Vokal. Als Gesprächsthema steht deshalb 저는.",
+            "explanationEn": "저 ends in a vowel, so 저는 marks it as the topic.",
+        }, ["concept_topic_particle"])
+    else:
+        gap_quest = quest("gap", "luecken", {
+            "sentence": first[0].replace(first[3], "___", 1),
+            "options": [first[3], *first[4]], "correctIndex": 0,
+        })
     return [
         quest("hear", "hoerverstehen", {
             "audioKo": dialog[2][1],
@@ -597,10 +618,7 @@ def make_quests(spec: dict[str, Any]) -> list[dict[str, Any]]:
             "options": [{"ko": dialog[index][1]} for index in (0, 4, 6, 2)],
             "correctIndex": 2,
         }),
-        quest("gap", "luecken", {
-            "sentence": first[0].replace(first[3], "___", 1),
-            "options": [first[3], *first[4]], "correctIndex": 0,
-        }),
+        gap_quest,
         quest("build", "satzBauen", {
             "targetKo": exercises[1][0], "promptDe": exercises[1][1],
             "promptEn": exercises[1][2], "distractors": exercises[1][5],
@@ -658,6 +676,34 @@ GRAMMAR_PATTERNS = [
 ]
 
 
+RELATION_SYNONYMS = {
+    "결제하다": tri("값을 치르다", "bezahlen", "pay"),
+    "배달비": tri("배송비", "Lieferkosten", "delivery charge"),
+    "주소를 확인하다": tri("주소를 점검하다", "die Adresse überprüfen", "verify the address"),
+    "도착 시간": tri("도착 시각", "Ankunftszeit", "arrival time"),
+    "약속을 잡다": tri("만날 시간을 정하다", "eine Zeit zum Treffen vereinbaren", "arrange a time to meet"),
+    "일정을 바꾸다": tri("계획을 변경하다", "den Plan ändern", "change the plan"),
+    "시간이 되다": tri("시간이 괜찮다", "Zeit haben", "be free"),
+    "만날 곳을 정하다": tri("약속 장소를 정하다", "einen Treffpunkt festlegen", "choose a meeting place"),
+    "사정을 설명하다": tri("상황을 설명하다", "die Situation erklären", "explain the situation"),
+    "의견을 조율하다": tri("의견을 맞추다", "Positionen abstimmen", "align views"),
+    "대안을 찾다": tri("다른 방법을 찾다", "eine andere Lösung suchen", "look for another option"),
+    "미리 알리다": tri("사전에 알려 주다", "vorab Bescheid geben", "give notice in advance"),
+    "인력 부족": tri("인원 부족", "Personalmangel", "staff shortage"),
+    "현지화": tri("지역 맥락에 맞추기", "Anpassung an den lokalen Kontext", "adapting to the local context"),
+    "팬 번역": tri("팬이 만든 번역", "von Fans erstellte Übersetzung", "fan-made translation"),
+    "참여 방식": tri("참여 형태", "Form der Beteiligung", "form of participation"),
+    "돌봄 공백": tri("돌봄이 비는 시간", "Zeit ohne Betreuungsangebot", "time without available care"),
+    "추천 편향": tri("추천의 쏠림", "Verzerrung in Empfehlungen", "skew in recommendations"),
+    "무급 노동": tri("보수 없는 노동", "Arbeit ohne Bezahlung", "work without pay"),
+    "맥락 번역": tri("문맥을 살린 번역", "kontextgerechte Übersetzung", "context-sensitive translation"),
+    "범주 혼동": tri("서로 다른 범주를 섞기", "Vermischung verschiedener Kategorien", "mixing distinct categories"),
+    "문화적 진정성": tri("문화가 진짜답다는 판단", "Urteil über kulturelle Authentizität", "judgment of cultural authenticity"),
+    "문지기 담론": tri("참여 자격을 가르는 담론", "Diskurs über Teilnahmeberechtigung", "discourse that polices participation"),
+    "플랫폼 권력": tri("플랫폼의 영향력", "Einflussmacht der Plattform", "platform influence"),
+}
+
+
 def pack_base(value: str) -> str:
     parts = value.lower().split("_")
     if parts and parts[-1].isdigit():
@@ -692,11 +738,15 @@ def add_media_and_relations(root: Path, curriculum: dict[str, Any]) -> tuple[lis
     relations = []
     for level in LEVELS:
         for index, row in enumerate(by_level[level][-4:], start=1):
+            synonym = RELATION_SYNONYMS.get(row["korean"])
+            if synonym is None:
+                raise ValueError(f"missing Batch 19 word relation for {row['korean']}")
             relations.append({
                 "id": f"rel_batch19_{level}_{index:02d}",
                 "sourceKo": row["korean"], "sourceVocabId": row["id"],
                 "sourceDe": row["german"], "sourceEn": row["english"],
-                "level": level.upper(), "synonyms": [], "antonyms": [], "related": [],
+                "level": level.upper(), "synonyms": [synonym],
+                "antonyms": [], "related": [],
                 "expressions": [{
                     "ko": row["korean"], "de": row["german"], "en": row["english"],
                     "exampleKo": row["example_korean"], "exampleDe": row["example_german"],
@@ -822,6 +872,15 @@ def write_receipts(root: Path, records: dict[str, list[dict[str, Any]]],
         }
         for row in records["scenario"]
     ]
+    smalltalk_links = [
+        {
+            "contentKind": "smalltalk", "contentId": ident,
+            "courseUnitId": "a1_14_payment_delivery",
+            "conceptIds": ["concept_a1_payment_delivery"],
+            "role": "practice",
+        }
+        for ident in ("smalltalk_a1_0083", "smalltalk_a1_0084")
+    ]
     manifest = {
         "version": 1, "batch": "19", "status": "merged",
         "provenance": {
@@ -839,7 +898,7 @@ def write_receipts(root: Path, records: dict[str, list[dict[str, Any]]],
         },
         "artifacts": artifacts,
         "recordCount": sum(len(value) for value in records.values()),
-        "contentLinks": scenario_links,
+        "contentLinks": [*scenario_links, *smalltalk_links],
         "supplementalPromotions": {
             key: len(value) for key, value in extras.items()
         },
@@ -912,7 +971,7 @@ def update_curriculum(curriculum: dict[str, Any], records: dict[str, list[dict[s
         grammar_map[ident] = {"courseUnitId": unit, "conceptIds": concepts}
     checkpoint_map = curriculum.setdefault("smalltalkCheckpointPhraseMap", {})
     for ident in ("smalltalk_a1_0083", "smalltalk_a1_0084"):
-        checkpoint_map[ident] = {"courseUnitId": "a1_14_payment_delivery", "conceptIds": ["concept_a1_payment_delivery"]}
+        checkpoint_map.pop(ident, None)
     for ident in ("smalltalk_a2_0076", "smalltalk_a2_0077"):
         checkpoint_map[ident] = {"courseUnitId": "a2_02_plans_proposals", "conceptIds": ["concept_proposal_polite"]}
     advanced_category_units = {
@@ -952,6 +1011,17 @@ def update_curriculum(curriculum: dict[str, Any], records: dict[str, list[dict[s
     for row in records["scenario"]:
         link = {"contentKind": "scenario", "contentId": row["id"], "courseUnitId": row["courseUnitId"], "conceptIds": row["conceptIds"], "role": "practice"}
         key = ("scenario", row["id"], row["courseUnitId"], "practice")
+        if key not in existing:
+            links.append(link)
+            existing.add(key)
+    for ident in ("smalltalk_a1_0083", "smalltalk_a1_0084"):
+        link = {
+            "contentKind": "smalltalk", "contentId": ident,
+            "courseUnitId": "a1_14_payment_delivery",
+            "conceptIds": ["concept_a1_payment_delivery"],
+            "role": "practice",
+        }
+        key = ("smalltalk", ident, "a1_14_payment_delivery", "practice")
         if key not in existing:
             links.append(link)
             existing.add(key)
@@ -1006,13 +1076,13 @@ def promote(root: Path = ROOT) -> dict[str, int]:
         write_json(path, payload)
 
     all_scenarios = scenario_store.load_scenarios(root / "assets/data")
-    by_id = {row["id"]: row for row in all_scenarios}
+    scenario_index = {row["id"]: index for index, row in enumerate(all_scenarios)}
     for row in records["scenario"]:
-        if row["id"] in by_id and by_id[row["id"]] != row:
-            raise ValueError(f"scenario drift for {row['id']}")
-        if row["id"] not in by_id:
+        if row["id"] in scenario_index:
+            all_scenarios[scenario_index[row["id"]]] = row
+        else:
             all_scenarios.append(row)
-            by_id[row["id"]] = row
+            scenario_index[row["id"]] = len(all_scenarios) - 1
     scenario_store.write_shards(all_scenarios, root / "assets/data")
 
     curriculum_path = root / "assets/data/curriculum_manifest.json"

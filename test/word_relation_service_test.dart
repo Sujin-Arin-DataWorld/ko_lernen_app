@@ -29,9 +29,13 @@ void main() {
     final byKorean = {for (final item in vocab) item.korean: item};
 
     expect(clusters, isNotEmpty);
-    expect(clusters.length, 66);
-    expect(clusters.where((c) => c.level == 'B1'), hasLength(8));
-    expect(clusters.where((c) => c.level == 'B2'), hasLength(8));
+    expect(clusters.length, 90);
+    expect(clusters.where((c) => c.level == 'A1'), hasLength(46));
+    expect(clusters.where((c) => c.level == 'A2'), hasLength(12));
+    expect(clusters.where((c) => c.level == 'B1'), hasLength(12));
+    expect(clusters.where((c) => c.level == 'B2'), hasLength(12));
+    expect(clusters.where((c) => c.level == 'C1'), hasLength(4));
+    expect(clusters.where((c) => c.level == 'C2'), hasLength(4));
     expect(clusters.where((c) => c.synonyms.isEmpty), isEmpty);
     for (final cluster in clusters) {
       expect(cluster.hasStudyContent, isTrue, reason: cluster.id);

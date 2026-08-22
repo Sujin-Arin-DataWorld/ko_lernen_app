@@ -14492,9 +14492,9 @@
     {
       "id": "satz_b2_0285",
       "level": "b2",
-      "targetKo": "자극적인 표현은 빼고 수치를 있는 그대로 전달해요.",
-      "promptDe": "Ich lasse reißerische Formulierungen weg und gebe die Zahlen sachlich wieder.",
-      "promptEn": "I leave out sensational wording and present the figures as they are.",
+      "targetKo": "과장 표현은 빼고 수치를 있는 그대로 전달해요.",
+      "promptDe": "Ich lasse übertriebene Formulierungen weg und gebe die Zahlen sachlich wieder.",
+      "promptEn": "I leave out exaggerated wording and present the figures as they are.",
       "distractors": [
         "원문 대조",
         "선택 편집"
@@ -27924,7 +27924,7 @@
     {
       "id": "satz_a1_0323",
       "level": "a1",
-      "targetKo": "카드로 결제할게요.",
+      "targetKo": "저는 카드로 결제할게요.",
       "promptDe": "Ich bezahle mit Karte.",
       "promptEn": "I'll pay by card.",
       "vocabKo": "결제하다",

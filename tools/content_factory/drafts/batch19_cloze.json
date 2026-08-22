@@ -260,15 +260,15 @@
       "id": "cloze_a1_0307",
       "level": "a1",
       "topic": "은는과 이가",
-      "fullKo": "민수 씨는 회사원이에요.",
-      "answer": "민수 씨는",
+      "fullKo": "제 친구는 회사원이에요.",
+      "answer": "제 친구는",
       "sentenceKo": "＿＿＿ 회사원이에요.",
-      "de": "Minsu ist Angestellter.",
-      "en": "Minsu is an office worker.",
+      "de": "Mein Freund arbeitet in einer Firma.",
+      "en": "My friend is an office worker.",
       "distractors": [
-        "민수 씨가",
-        "민수 씨를",
-        "민수 씨와"
+        "제 친구가",
+        "제 친구를",
+        "제 친구와"
       ],
       "courseUnitId": "a1_03_topic_subject_particles",
       "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
@@ -448,14 +448,14 @@
       "level": "a1",
       "topic": "다시 묻기",
       "fullKo": "이 단어는 무슨 뜻이에요?",
-      "answer": "뜻",
-      "sentenceKo": "이 단어는 무슨 ＿＿＿이에요?",
+      "answer": "무슨 뜻",
+      "sentenceKo": "이 단어는 ＿＿＿이에요?",
       "de": "Was bedeutet dieses Wort?",
       "en": "What does this word mean?",
       "distractors": [
-        "이름",
-        "발음",
-        "번호"
+        "어떤 이름",
+        "어떤 발음",
+        "몇 번"
       ],
       "courseUnitId": "a1_08_clarify_repair",
       "sourceSeedId": "seed_batch19_a1_08_clarify_repair"

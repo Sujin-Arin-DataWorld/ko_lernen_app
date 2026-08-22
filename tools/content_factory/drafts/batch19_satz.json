@@ -284,7 +284,7 @@
     {
       "id": "satz_a1_0323",
       "level": "a1",
-      "targetKo": "카드로 결제할게요.",
+      "targetKo": "저는 카드로 결제할게요.",
       "promptDe": "Ich bezahle mit Karte.",
       "promptEn": "I'll pay by card.",
       "vocabKo": "결제하다",

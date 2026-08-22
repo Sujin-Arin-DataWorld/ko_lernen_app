@@ -24,6 +24,7 @@ from typing import Any
 import scenario_store
 from shelf_assignment import SHELF_BY_ID
 from validate_content import ContentValidator, LOWER_LEVELS
+from validate_promoted_batch import _copy_revisions, _require_reviewed_copy_revision
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -31,7 +32,24 @@ DEFAULT_MANIFEST = Path("tools/content_factory/drafts/batch_04_manifest.json")
 REVIEW_HEADER = ["id", "level", "ko", "de", "en", "field_notes", "상태", "jin_memo"]
 APPROVED = frozenset(("approved", "ok"))
 MANIFEST_STATUSES = frozenset(("review_only_draft", "approved", "merged"))
-SCENE_KEYS = frozenset(("airport", "cafe", "convenience", "directions", "home", "hotel", "market", "office", "pharmacy", "restaurant", "station", "taxi"))
+SCENE_KEYS = frozenset(
+    (
+        "airport",
+        "bank",
+        "cafe",
+        "convenience",
+        "directions",
+        "home",
+        "hotel",
+        "market",
+        "office",
+        "pharmacy",
+        "restaurant",
+        "salon",
+        "station",
+        "taxi",
+    )
+)
 ARTIFACTS = {
     # 시나리오는 레벨 샤드 6 개라 대상 파일이 하나가 아니다.  파일명 자리는
     # None 이고 실제 대상은 레코드의 level 에서 _shard_slices() 가 정한다.
@@ -47,15 +65,21 @@ class ScenarioIntegrationError(ValueError):
     """Raised when an approved scenario batch cannot be promoted safely."""
 
 
-# 2026-08-17 마이그레이션이 live 에만 넣은 메타데이터.  승인 당시 동결된 draft 에는
-# 없으므로 draft↔live 동등성 비교에서 제외한다 (문장·ID 는 그대로 비교된다).
-MIGRATION_ONLY_FIELDS = ("shelf", "backdrop")
+# 승격 뒤 live 학습 그래프가 관리하는 메타데이터. 승인 당시 동결된 draft의
+# 문장·ID·정답은 그대로 비교하되, 코스 재배선은 별도 정본에서 검증한다.
+LIVE_GRAPH_FIELDS = frozenset(("shelf", "backdrop", "courseUnitId", "conceptIds"))
 
 
 def without_migration_fields(record: Any) -> Any:
-    if not isinstance(record, dict):
-        return record
-    return {k: v for k, v in record.items() if k not in MIGRATION_ONLY_FIELDS}
+    if isinstance(record, dict):
+        return {
+            key: without_migration_fields(value)
+            for key, value in record.items()
+            if key not in LIVE_GRAPH_FIELDS
+        }
+    if isinstance(record, list):
+        return [without_migration_fields(value) for value in record]
+    return record
 
 
 def _shard_slices(kind: str, records: list[Any]) -> list[tuple[str, list[Any]]]:
@@ -308,6 +332,8 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
         manifest_path,
         require_approved=apply,
     )
+    revisions = _copy_revisions(root=root, manifest_path=manifest_path)
+    used_revisions: set[tuple[str, str]] = set()
     with tempfile.TemporaryDirectory(prefix="scenario-batch-integration-") as directory:
         stage = Path(directory) / "repo"
         shutil.copytree(root / "assets" / "data", stage / "assets" / "data")
@@ -353,12 +379,23 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
                 if overlap:
                     if overlap != batch_ids or manifest.get("status") != "merged":
                         raise ScenarioIntegrationError(f"{kind} draft duplicates a live ID")
-                    if any(
-                        without_migration_fields(live_by_id[str(item["id"])])
-                        != without_migration_fields(item)
-                        for item in shard_records
-                    ):
-                        raise ScenarioIntegrationError(f"merged {kind} payload no longer matches its approved draft")
+                    for item in shard_records:
+                        ident = str(item["id"])
+                        live_projection = without_migration_fields(live_by_id[ident])
+                        draft_projection = without_migration_fields(item)
+                        if live_projection == draft_projection:
+                            continue
+                        if not _require_reviewed_copy_revision(
+                            kind=kind,
+                            ident=ident,
+                            draft=draft_projection,
+                            live=live_projection,
+                            revisions=revisions,
+                        ):
+                            raise ScenarioIntegrationError(
+                                f"merged {kind} payload no longer matches its approved draft"
+                            )
+                        used_revisions.add((kind, ident))
                     already_merged = True
                     continue
                 if manifest.get("status") == "merged":
@@ -368,24 +405,52 @@ def integrate(*, root: Path = ROOT, manifest_path: Path = DEFAULT_MANIFEST, appl
                 target_path.write_text(_json_text(target_root), encoding="utf-8")
 
         if already_merged:
+            unused_revisions = set(revisions) - used_revisions
+            if unused_revisions:
+                raise ScenarioIntegrationError(
+                    "promoted copy revision ledger contains stale entries: "
+                    f"{sorted(unused_revisions)[:5]}"
+                )
             curriculum_live = _read_json(data / "curriculum_manifest.json").get("contentLinks")
             known_links = {
                 (item.get("contentKind"), item.get("contentId"), item.get("courseUnitId"), item.get("role"))
                 for item in curriculum_live or []
                 if isinstance(item, dict)
             }
-            required_links = {
-                (item.get("contentKind"), item.get("contentId"), item.get("courseUnitId"), item.get("role"))
-                for item in manifest["contentLinks"]
+            live_scenarios_by_id = {
+                str(item.get("id") or ""): item
+                for item in scenario_store.load_scenarios(root / "assets" / "data")
             }
+            required_links = set()
+            for item in records_by_kind.get("scenario", []):
+                ident = str(item["id"])
+                live_scenario = live_scenarios_by_id[ident]
+                required_links.add(
+                    (
+                        "scenario",
+                        ident,
+                        live_scenario.get("courseUnitId"),
+                        "assess",
+                    )
+                )
             if not required_links.issubset(known_links):
-                raise ScenarioIntegrationError("merged scenario batch is missing a curriculum link")
+                raise ScenarioIntegrationError(
+                    "merged scenario batch is missing a current live curriculum link"
+                )
             live_backdrops = {
                 str(record.get("id") or ""): record.get("backdrop")
                 for record in scenario_store.load_scenarios(root / "assets" / "data")
             }
-            if any(live_backdrops.get(ident) != category for ident, category in backdrops.items()):
-                raise ScenarioIntegrationError("merged scenario batch is missing a backdrop mapping")
+            invalid_backdrops = {
+                ident: live_backdrops.get(ident)
+                for ident in backdrops
+                if live_backdrops.get(ident) not in SCENE_KEYS
+            }
+            if invalid_backdrops:
+                raise ScenarioIntegrationError(
+                    "merged scenario batch has missing or invalid live backdrops: "
+                    f"{sorted(invalid_backdrops.items())[:5]}"
+                )
             issues = ContentValidator(root).validate()
             if issues:
                 detail = "\n".join(f"{issue.source}: {issue.message}" for issue in issues)

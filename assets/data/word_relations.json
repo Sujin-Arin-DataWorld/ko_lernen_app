@@ -3121,7 +3121,13 @@
       "sourceDe": "bezahlen",
       "sourceEn": "pay",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "값을 치르다",
+          "de": "bezahlen",
+          "en": "pay"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3142,7 +3148,13 @@
       "sourceDe": "Liefergebühr",
       "sourceEn": "delivery fee",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "배송비",
+          "de": "Lieferkosten",
+          "en": "delivery charge"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3163,7 +3175,13 @@
       "sourceDe": "die Adresse prüfen",
       "sourceEn": "check the address",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "주소를 점검하다",
+          "de": "die Adresse überprüfen",
+          "en": "verify the address"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3184,7 +3202,13 @@
       "sourceDe": "Ankunftszeit",
       "sourceEn": "arrival time",
       "level": "A1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "도착 시각",
+          "de": "Ankunftszeit",
+          "en": "arrival time"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3205,7 +3229,13 @@
       "sourceDe": "sich verabreden",
       "sourceEn": "make plans",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "만날 시간을 정하다",
+          "de": "eine Zeit zum Treffen vereinbaren",
+          "en": "arrange a time to meet"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3226,7 +3256,13 @@
       "sourceDe": "einen Termin ändern",
       "sourceEn": "change a schedule",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "계획을 변경하다",
+          "de": "den Plan ändern",
+          "en": "change the plan"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3247,7 +3283,13 @@
       "sourceDe": "Zeit haben",
       "sourceEn": "be available",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "시간이 괜찮다",
+          "de": "Zeit haben",
+          "en": "be free"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3268,7 +3310,13 @@
       "sourceDe": "einen Treffpunkt festlegen",
       "sourceEn": "choose a meeting place",
       "level": "A2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "약속 장소를 정하다",
+          "de": "einen Treffpunkt festlegen",
+          "en": "choose a meeting place"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3289,7 +3337,13 @@
       "sourceDe": "die Umstände erklären",
       "sourceEn": "explain the situation",
       "level": "B1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "상황을 설명하다",
+          "de": "die Situation erklären",
+          "en": "explain the situation"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3310,7 +3364,13 @@
       "sourceDe": "Meinungen abstimmen",
       "sourceEn": "align opinions",
       "level": "B1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "의견을 맞추다",
+          "de": "Positionen abstimmen",
+          "en": "align views"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3331,7 +3391,13 @@
       "sourceDe": "eine Alternative finden",
       "sourceEn": "find an alternative",
       "level": "B1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "다른 방법을 찾다",
+          "de": "eine andere Lösung suchen",
+          "en": "look for another option"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3352,7 +3418,13 @@
       "sourceDe": "vorher Bescheid geben",
       "sourceEn": "give advance notice",
       "level": "B1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "사전에 알려 주다",
+          "de": "vorab Bescheid geben",
+          "en": "give notice in advance"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3373,7 +3445,13 @@
       "sourceDe": "Personalmangel",
       "sourceEn": "labor shortage",
       "level": "B2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "인원 부족",
+          "de": "Personalmangel",
+          "en": "staff shortage"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3394,7 +3472,13 @@
       "sourceDe": "Lokalisierung",
       "sourceEn": "localization",
       "level": "B2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "지역 맥락에 맞추기",
+          "de": "Anpassung an den lokalen Kontext",
+          "en": "adapting to the local context"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3415,7 +3499,13 @@
       "sourceDe": "Fanübersetzung",
       "sourceEn": "fan translation",
       "level": "B2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "팬이 만든 번역",
+          "de": "von Fans erstellte Übersetzung",
+          "en": "fan-made translation"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3436,7 +3526,13 @@
       "sourceDe": "Form der Beteiligung",
       "sourceEn": "form of participation",
       "level": "B2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "참여 형태",
+          "de": "Form der Beteiligung",
+          "en": "form of participation"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3457,7 +3553,13 @@
       "sourceDe": "Betreuungslücke",
       "sourceEn": "care gap",
       "level": "C1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "돌봄이 비는 시간",
+          "de": "Zeit ohne Betreuungsangebot",
+          "en": "time without available care"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3478,7 +3580,13 @@
       "sourceDe": "Empfehlungsverzerrung",
       "sourceEn": "recommendation bias",
       "level": "C1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "추천의 쏠림",
+          "de": "Verzerrung in Empfehlungen",
+          "en": "skew in recommendations"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3499,7 +3607,13 @@
       "sourceDe": "unbezahlte Arbeit",
       "sourceEn": "unpaid labor",
       "level": "C1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "보수 없는 노동",
+          "de": "Arbeit ohne Bezahlung",
+          "en": "work without pay"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3520,7 +3634,13 @@
       "sourceDe": "Kontextübersetzung",
       "sourceEn": "contextual translation",
       "level": "C1",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "문맥을 살린 번역",
+          "de": "kontextgerechte Übersetzung",
+          "en": "context-sensitive translation"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3541,7 +3661,13 @@
       "sourceDe": "Kategorienvermischung",
       "sourceEn": "category confusion",
       "level": "C2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "서로 다른 범주를 섞기",
+          "de": "Vermischung verschiedener Kategorien",
+          "en": "mixing distinct categories"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3562,7 +3688,13 @@
       "sourceDe": "kulturelle Authentizität",
       "sourceEn": "cultural authenticity",
       "level": "C2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "문화가 진짜답다는 판단",
+          "de": "Urteil über kulturelle Authentizität",
+          "en": "judgment of cultural authenticity"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3583,7 +3715,13 @@
       "sourceDe": "Gatekeeping-Diskurs",
       "sourceEn": "gatekeeping discourse",
       "level": "C2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "참여 자격을 가르는 담론",
+          "de": "Diskurs über Teilnahmeberechtigung",
+          "en": "discourse that polices participation"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [
@@ -3604,7 +3742,13 @@
       "sourceDe": "Plattformmacht",
       "sourceEn": "platform power",
       "level": "C2",
-      "synonyms": [],
+      "synonyms": [
+        {
+          "ko": "플랫폼의 영향력",
+          "de": "Einflussmacht der Plattform",
+          "en": "platform influence"
+        }
+      ],
       "antonyms": [],
       "related": [],
       "expressions": [

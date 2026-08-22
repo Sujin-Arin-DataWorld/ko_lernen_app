@@ -318,31 +318,53 @@ class LoaderCoverageAudit:
             kind: defaultdict(list) for kind in COURSE_TARGETS
         }
         unrouted: dict[str, list[str]] = {kind: [] for kind in COURSE_TARGETS}
+        explicit_routes: dict[tuple[str, str], set[str]] = defaultdict(set)
+        for link in curriculum.get("contentLinks", []):
+            kind = str(link.get("contentKind") or "").strip()
+            content_id = str(link.get("contentId") or "").strip()
+            unit_id = str(link.get("courseUnitId") or "").strip()
+            if kind in COURSE_TARGETS and content_id and unit_id:
+                explicit_routes[(kind, content_id)].add(unit_id)
         vocab_routes = self._vocab_routes(curriculum)
         for kind in COURSE_TARGETS:
             for record in collections[kind]:
                 level = _level(record.get("level"))
                 record_id = str(record.get("id") or "")
-                unit_id: str | None
+                unit_ids = set(explicit_routes.get((kind, record_id), set()))
                 if kind == "scenario":
-                    unit_id = str(record.get("courseUnitId") or "").strip() or None
+                    direct = str(record.get("courseUnitId") or "").strip()
+                    if direct:
+                        unit_ids.add(direct)
                 elif kind == "smalltalk":
                     key = f"{level}:{str(record.get('category') or '').strip().lower()}"
                     checkpoint = curriculum.get("smalltalkCheckpointPhraseMap", {}).get(record_id)
-                    unit_id = _mapped_unit(checkpoint) or _mapped_unit(
-                        curriculum["smalltalkCategoryUnitMap"].get(key)
-                    )
+                    for mapped in (
+                        _mapped_unit(checkpoint),
+                        _mapped_unit(curriculum["smalltalkCategoryUnitMap"].get(key)),
+                    ):
+                        if mapped:
+                            unit_ids.add(mapped)
                 elif kind == "cloze":
                     key = f"{level}:{str(record.get('topic') or '').strip().lower()}"
-                    unit_id = _mapped_unit(curriculum["clozeTopicUnitMap"].get(key))
+                    mapped = _mapped_unit(curriculum["clozeTopicUnitMap"].get(key))
+                    if mapped:
+                        unit_ids.add(mapped)
                 else:
                     source = (level, str(record.get("vocabKo") or "").strip())
-                    unit_id = vocab_routes.get(source)
+                    mapped = vocab_routes.get(source)
+                    if mapped:
+                        unit_ids.add(mapped)
 
-                if unit_id not in units or units.get(unit_id) != level:
+                valid_units = {
+                    unit_id
+                    for unit_id in unit_ids
+                    if unit_id in units and units.get(unit_id) == level
+                }
+                if not valid_units:
                     unrouted[kind].append(record_id)
                 else:
-                    routed[kind][unit_id].append(record_id)
+                    for unit_id in valid_units:
+                        routed[kind][unit_id].append(record_id)
 
         course_loader: dict[str, dict[str, Any]] = {}
         for kind, target in COURSE_TARGETS.items():

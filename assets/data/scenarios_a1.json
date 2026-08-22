@@ -20286,9 +20286,9 @@
       ],
       "grammarBlock": {
         "title": {
-          "ko": "N은/는",
-          "de": "N은/는: Thema und einfacher Kontrast",
-          "en": "N은/는: Topic and simple contrast"
+          "ko": "N은/는, N은/는",
+          "de": "N은/는, N은/는: Thema und einfacher Kontrast",
+          "en": "N은/는, N은/는: Topic and simple contrast"
         },
         "explanation": {
           "ko": "대화의 주제를 세우거나 두 정보를 간단히 대비할 때 씁니다.",
@@ -20358,19 +20358,22 @@
         },
         {
           "id": "quest_a1_register_first_day_choice_gap",
-          "type": "luecken",
+          "type": "particlePop",
           "conceptIds": [
-            "concept_a1_register_switch"
+            "concept_topic_particle"
           ],
           "data": {
-            "sentence": "선생님께는 ___라고 인사해요.",
+            "prefix": "저",
+            "suffix": " 수진이에요.",
             "options": [
-              "안녕하세요",
-              "안녕",
-              "잘 자",
-              "고마워"
+              "는",
+              "은",
+              "이",
+              "가"
             ],
-            "correctIndex": 0
+            "correctIndex": 0,
+            "explanationDe": "저 endet auf einen Vokal. Als Gesprächsthema steht deshalb 저는.",
+            "explanationEn": "저 ends in a vowel, so 저는 marks it as the topic."
           }
         },
         {

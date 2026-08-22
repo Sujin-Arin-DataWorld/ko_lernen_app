@@ -45,8 +45,10 @@ gap-targeted 배치다. 교재 PDF는 난이도·기능·활동 구조의 일반
 - `build_can_do_segments.py --check`: no drift
 - Beyond Humanizer v2 Unicode/rejected phrase validators: passed
 - `flutter analyze`: no issues
-- targeted Flutter content/loader/UI tests: passed after count and route contract updates
-- TTS Storage: expected 12,060, missing 0, stale 304; stale cache는 삭제하지 않음
+- content-factory: 228 passed
+- full Flutter suite: exit 0, 14 skipped
+- TTS Storage: expected 12,062, remote 12,369, missing 0, stale 307; stale cache는 삭제하지 않음
+- promoted-copy ledger: Batch 09/10 frozen review와 현재 live copy·routing SHA 일치
 
 ## 파생 데이터 안정성
 

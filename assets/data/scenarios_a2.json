@@ -16262,9 +16262,9 @@
       ],
       "grammarBlock": {
         "title": {
-          "ko": "V-(으)ㄹ까요?",
-          "de": "V-(으)ㄹ까요?: gemeinsamer Vorschlag",
-          "en": "V-(으)ㄹ까요?: Polite joint proposal"
+          "ko": "같이 V-(으)ㄹ까요?",
+          "de": "같이 V-(으)ㄹ까요?: gemeinsamer Vorschlag",
+          "en": "같이 V-(으)ㄹ까요?: Polite joint proposal"
         },
         "explanation": {
           "ko": "상대의 선택 공간을 남기면서 함께 할 일을 제안할 때 씁니다.",

@@ -45,9 +45,9 @@ void main() {
       }
     });
 
-    test('all levels A1-B2', () {
+    test('all levels A1-C2', () {
       for (final p in patterns) {
-        expect(['A1', 'A2', 'B1', 'B2'], contains(p['level']),
+        expect(['A1', 'A2', 'B1', 'B2', 'C1', 'C2'], contains(p['level']),
             reason: 'bad level for ${p['id']}');
       }
     });

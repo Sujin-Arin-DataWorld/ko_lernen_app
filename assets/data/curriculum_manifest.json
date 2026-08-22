@@ -5939,6 +5939,24 @@
         "concept_b1_softening"
       ],
       "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0083",
+      "courseUnitId": "a1_14_payment_delivery",
+      "conceptIds": [
+        "concept_a1_payment_delivery"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0084",
+      "courseUnitId": "a1_14_payment_delivery",
+      "conceptIds": [
+        "concept_a1_payment_delivery"
+      ],
+      "role": "practice"
     }
   ],
   "grammarRuleMap": {
@@ -8176,18 +8194,6 @@
       "courseUnitId": "a2_02_plans_proposals",
       "conceptIds": [
         "concept_proposal_casual"
-      ]
-    },
-    "smalltalk_a1_0083": {
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
-      ]
-    },
-    "smalltalk_a1_0084": {
-      "courseUnitId": "a1_14_payment_delivery",
-      "conceptIds": [
-        "concept_a1_payment_delivery"
       ]
     },
     "smalltalk_a2_0076": {

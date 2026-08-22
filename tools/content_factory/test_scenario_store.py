@@ -81,7 +81,7 @@ class ScenarioStoreTest(unittest.TestCase):
         )
 
     def test_live_corpus_is_readable_and_complete(self) -> None:
-        self.assertEqual(len(scenario_store.load_scenarios()), 392)
+        self.assertEqual(len(scenario_store.load_scenarios()), 407)
 
 
 if __name__ == "__main__":
