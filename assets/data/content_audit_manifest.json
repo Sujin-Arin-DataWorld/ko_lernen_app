@@ -4,43 +4,43 @@
   "sources": [
     {
       "kind": "vocab",
-      "count": 2348,
+      "count": 2420,
       "source": "korean_vocab.csv",
       "requiresExplicitId": true
     },
     {
       "kind": "grammar",
-      "count": 232,
+      "count": 244,
       "source": "grammar.csv",
       "requiresExplicitId": true
     },
     {
       "kind": "scenario",
-      "count": 407,
+      "count": 413,
       "source": "scenarios",
       "requiresExplicitId": true
     },
     {
       "kind": "scenarioQuest",
-      "count": 1704,
+      "count": 1734,
       "source": "scenarios",
       "requiresExplicitId": false
     },
     {
       "kind": "smalltalk",
-      "count": 486,
+      "count": 522,
       "source": "smalltalk.json",
       "requiresExplicitId": true
     },
     {
       "kind": "cloze",
-      "count": 1769,
+      "count": 1805,
       "source": "cloze.json",
       "requiresExplicitId": true
     },
     {
       "kind": "satz",
-      "count": 2297,
+      "count": 2333,
       "source": "satz_sentences.json",
       "requiresExplicitId": true
     },
@@ -52,31 +52,31 @@
     },
     {
       "kind": "kkeunmari",
-      "count": 2680,
+      "count": 2728,
       "source": "kkeunmari_pool.json",
       "requiresExplicitId": false
     },
     {
       "kind": "grammarPattern",
-      "count": 37,
+      "count": 43,
       "source": "grammar_patterns.json",
       "requiresExplicitId": true
     },
     {
       "kind": "pronunciation",
-      "count": 72,
+      "count": 84,
       "source": "pronunciation_phrases.json",
       "requiresExplicitId": true
     },
     {
       "kind": "mediaPhrase",
-      "count": 112,
+      "count": 136,
       "source": "media_phrases.json",
       "requiresExplicitId": true
     },
     {
       "kind": "wordRelation",
-      "count": 90,
+      "count": 114,
       "source": "word_relations.json",
       "requiresExplicitId": true
     }

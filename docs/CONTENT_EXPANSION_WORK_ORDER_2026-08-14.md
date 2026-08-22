@@ -2,7 +2,10 @@
 
 > **2026-08-16 실행 정정:** 이 문서의 2026-08-14 수치와 B1/B2 한정 계획은 역사적
 > 근거로만 보존한다. 현재 live baseline은 Batch 01-05이고 C1/C2 course, vocab,
-> grammar, smalltalk, Cloze, Satzbau가 이미 존재한다. 다음 번호는 Batch 06이다.
+> **역사 문서:** 이 작업서는 2026-08-14 시점의 Batch 06 계획을 보존한다.
+> 현재 Batch 01–20은 live이고 다음 번호는 Batch 21이다. 신규 작업은
+> `CONTENT_AUTHORING_GUIDE.md`와 `tools/content_factory/README.md`의 2026-08-22
+> 정본을 따른다.
 > 현재 콘텐츠 작성 정본은 `CONTENT_AUTHORING_GUIDE.md`, source 격리 정본은
 > `CONTENT_REFERENCE_INTAKE_GUIDE.md`, 권리 정본은 `CONTENT_SOURCE_POLICY.md`다.
 > 37개 PDF와 실제 loader를 반영한 다음 생산 수량은

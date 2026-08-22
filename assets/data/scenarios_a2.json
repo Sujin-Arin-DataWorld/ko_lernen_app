@@ -16387,6 +16387,234 @@
       },
       "shelf": "a2_plan",
       "backdrop": "cafe"
+    },
+    {
+      "id": "a2_flat_viewing_terms_batch20",
+      "level": "a2",
+      "emoji": "🏠",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "prospective_tenant_landlord",
+      "intent": "ask_permission_and_clarify_housing_terms",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "conceptIds": [
+        "concept_action_polite"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 90,
+      "title": {
+        "ko": "방을 보고 조건을 확인해요",
+        "de": "Wohnung besichtigen und Bedingungen klären",
+        "en": "Viewing a Room and Checking the Terms"
+      },
+      "intro": {
+        "ko": "집주인에게 관리비, 반려동물, 계약서 확인 시간을 해요체로 묻습니다.",
+        "de": "Sie fragen die vermietende Person in höflicher 해요-Sprache nach Nebenkosten, Haustier und Prüfzeit.",
+        "en": "You use polite 해요 style to ask the landlord about fees, a pet, and time to review the contract."
+      },
+      "grammarIds": [
+        "grammar_a2_permission_check_batch20"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "관리비에 인터넷도 포함돼요?",
+          "de": "Ist Internet in den Nebenkosten enthalten?",
+          "en": "Is internet included in the maintenance fee?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "인터넷은 따로 신청해야 해요.",
+          "de": "Internet müssen Sie separat anmelden.",
+          "en": "You need to arrange internet separately."
+        },
+        {
+          "speaker": "user",
+          "ko": "작은 반려동물과 살아도 괜찮아요?",
+          "de": "Ist ein kleines Haustier in Ordnung?",
+          "en": "Is it okay to live with a small pet?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 하지만 계약서에 종류를 적어 주세요.",
+          "de": "Ja, aber tragen Sie die Tierart bitte in den Vertrag ein.",
+          "en": "Yes, but please list the type of pet in the contract."
+        },
+        {
+          "speaker": "user",
+          "ko": "계약서를 집에서 읽어 봐도 괜찮아요?",
+          "de": "Kann ich den Vertrag zu Hause in Ruhe lesen?",
+          "en": "Is it okay if I read the contract at home?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "물론이에요. 내일 저녁까지 답을 주세요.",
+          "de": "Natürlich. Geben Sie mir bitte bis morgen Abend Bescheid.",
+          "en": "Of course. Please let me know by tomorrow evening."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 보증금과 월세도 다시 확인할게요.",
+          "de": "Gut. Ich prüfe auch Kaution und Monatsmiete noch einmal.",
+          "en": "Great. I'll check the deposit and monthly rent again too."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "궁금한 조항에 표시해서 질문해 주세요.",
+          "de": "Markieren Sie unklare Klauseln und fragen Sie nach.",
+          "en": "Mark any unclear clauses and ask about them."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "관리비"
+        },
+        {
+          "korean": "인터넷"
+        },
+        {
+          "korean": "반려동물"
+        },
+        {
+          "korean": "계약서"
+        },
+        {
+          "korean": "보증금"
+        },
+        {
+          "korean": "월세"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어도 괜찮아요?",
+          "de": "V-아/어도 괜찮아요?: Erlaubnis oder Zumutbarkeit prüfen",
+          "en": "V-아/어도 괜찮아요?: checking permission or acceptability"
+        },
+        "explanation": {
+          "ko": "어떤 행동이 가능한지 상대에게 부드럽게 확인할 때 씁니다.",
+          "de": "Prüft freundlich, ob eine Handlung erlaubt oder für die andere Person in Ordnung ist.",
+          "en": "Gently checks whether an action is allowed or acceptable to the other person."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_a2_flat_viewing_terms_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_action_polite"
+          ],
+          "data": {
+            "audioKo": "작은 반려동물과 살아도 괜찮아요?",
+            "options": [
+              {
+                "ko": "관리비에 인터넷도 포함돼요?",
+                "de": "Ist Internet in den Nebenkosten enthalten?",
+                "en": "Is internet included in the maintenance fee?"
+              },
+              {
+                "ko": "작은 반려동물과 살아도 괜찮아요?",
+                "de": "Ist ein kleines Haustier in Ordnung?",
+                "en": "Is it okay to live with a small pet?"
+              },
+              {
+                "ko": "계약서를 집에서 읽어 봐도 괜찮아요?",
+                "de": "Kann ich den Vertrag zu Hause in Ruhe lesen?",
+                "en": "Is it okay if I read the contract at home?"
+              },
+              {
+                "ko": "좋아요. 보증금과 월세도 다시 확인할게요.",
+                "de": "Gut. Ich prüfe auch Kaution und Monatsmiete noch einmal.",
+                "en": "Great. I'll check the deposit and monthly rent again too."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_a2_flat_viewing_terms_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_action_polite"
+          ],
+          "data": {
+            "promptDe": "Gut. Ich prüfe auch Kaution und Monatsmiete noch einmal.",
+            "promptEn": "Great. I'll check the deposit and monthly rent again too.",
+            "options": [
+              {
+                "ko": "관리비에 인터넷도 포함돼요?"
+              },
+              {
+                "ko": "계약서를 집에서 읽어 봐도 괜찮아요?"
+              },
+              {
+                "ko": "좋아요. 보증금과 월세도 다시 확인할게요."
+              },
+              {
+                "ko": "작은 반려동물과 살아도 괜찮아요?"
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_a2_flat_viewing_terms_batch20_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_action_polite"
+          ],
+          "data": {
+            "sentence": "계약서를 집에서 읽어 봐도 ___?",
+            "options": [
+              "괜찮아요",
+              "필요해요",
+              "끝났어요",
+              "멀어요"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "V-아/어도 괜찮아요? fragt, ob die Handlung für die andere Person akzeptabel ist.",
+            "explanationEn": "V-아/어도 괜찮아요? asks whether the action is acceptable to the other person."
+          }
+        },
+        {
+          "id": "quest_a2_flat_viewing_terms_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_action_polite"
+          ],
+          "data": {
+            "targetKo": "관리비에 인터넷이 포함되어 있는지 확인해요.",
+            "promptDe": "Ich prüfe, ob Internet in den Nebenkosten enthalten ist.",
+            "promptEn": "I check whether internet is included in the maintenance fee.",
+            "distractors": [
+              "갑자기",
+              "무조건"
+            ],
+            "audioKo": "관리비에 인터넷이 포함되어 있는지 확인해요."
+          }
+        },
+        {
+          "id": "quest_a2_flat_viewing_terms_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_action_polite"
+          ],
+          "data": {
+            "targetKo": "궁금한 조항에 표시해서 질문해 주세요.",
+            "audioKo": "궁금한 조항에 표시해서 질문해 주세요.",
+            "promptDe": "Markieren Sie unklare Klauseln und fragen Sie nach.",
+            "promptEn": "Mark any unclear clauses and ask about them."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "주거 계약에서는 포함 비용과 사용 조건을 구두 설명만 듣지 말고 문서에서도 확인하는 연습이 중요합니다.",
+        "de": "Bei Wohnverträgen sollten enthaltene Kosten und Nutzungsbedingungen auch schriftlich geprüft werden.",
+        "en": "For housing contracts, practice checking included costs and conditions in writing as well as asking orally."
+      },
+      "shelf": "a2_apt",
+      "backdrop": "home"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # 레벨별 콘텐츠 DB 작성·검수 안내서
 
-> **상태:** Batch 01–10 live. 다음 미사용 번호는 **11**. 2026-08-17
+> **상태:** Batch 01–20 live. 다음 미사용 번호는 **21**. 2026-08-22
 >
 > 이 문서는 Hangul Sori의 새 학습 콘텐츠를 작성하는 사람·AI 세션·검수자가 함께 쓰는
 > 실행 매뉴얼이다. 앱 UI를 바꾸는 문서가 아니다. 코드 기준 정본은
@@ -61,6 +61,58 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
   `content_briefs.csv`와 live 앱 데이터만 본다. 상세 절차와 5개 CSV 계약은
   `CONTENT_REFERENCE_INTAKE_GUIDE.md`가 정본이다.
 
+### 0.2 현재 Batch와 앱 실데이터를 100% 동기화하는 법
+
+“manifest가 merged다” 또는 “asset에 같은 ID가 있다” 하나만으로 라이브를 증명하지
+않는다. 새 세션은 변경 전후에 다음 두 감사를 모두 실행한다.
+
+```powershell
+python tools/content_factory/audit_batch_live_promotion.py --check `
+  --output tools/content_factory/review/batch_live_projection_YYYYMMDD.json
+python tools/content_factory/audit_game_loader_coverage.py --check
+```
+
+첫 감사는 모든 활성 Batch에 대해 draft ID, review ID, 리뷰 CSV 열 무결성, 승인 계보,
+라이브 ID, 보조 콘텐츠 키를 대조하고 현재 라이브 레코드 묶음의 SHA-256 지문을 남긴다.
+시나리오는 `shelf`·`backdrop`·course `contentLink`까지 필수다. 두 번째 감사는 raw 수가
+아니라 Flutter 로더가 실제로 선택하는 레벨, 누적 폴백, 카테고리, 코스 단원과 Dart
+호출 지점을 검사한다.
+
+- `live_verified_modern`: `status: merged`, 구조화된 Jin 승인, 전 review 행 approved.
+- `live_verified_legacy_authorized`: 옛 생성기가 status/review를 draft로 보존했지만
+  `promotedAt`과 기존 승격 증거가 있는 계보. 과거 파일을 소급해 approved로 고치지 않는다.
+- `invalid` 또는 `not_live`: 병합 금지. 누락 원인을 고치고 두 감사를 다시 실행한다.
+- 승인 뒤 문구가 자연성 교정으로 바뀌었으면 과거 review를 덮어쓰지 않는다. 안정 ID와
+  현재 live projection 지문, 승인된 copy-revision ledger를 함께 남긴다.
+- `supplementalArtifacts`에는 독립 live key가 있는 media phrase, word relation,
+  grammar pattern, Kkeunmari, Silben, culture note를 기록한다. `keyField`와 `keys`의 수,
+  중복, 라이브 존재가 모두 맞아야 한다.
+
+현재 2026-08-22 정본은 Batch 01–20, 6,265/6,265 추적 ID live다. 새 Batch 21을
+만들기 전에 `BATCH_LIVE_AUDIT_2026-08-22.md`와 기계 원장을 읽고, 완료 뒤에는 같은
+감사를 새 날짜 원장으로 재생성한다.
+
+### 0.3 Beyond Humanizer v2 적용 경계
+
+Beyond Humanizer는 화려한 표현을 더하는 단계가 아니라, 같은 의사소통 사건을 실제
+상황에서 자연스럽게 들리도록 다듬는 검수 단계다. 다음 불변량을 먼저 잠근다.
+
+- stable ID, CEFR level, grammar target, 정답, 선택지 논리, 관계와 존대
+- 질문·요청·거절·동의·이의 제기 같은 발화행위
+- KO/DE/EN의 사실, 조건, 시간, 수량과 책임 주체
+- vocab pack, course unit, Can-do, loader route와 TTS 키
+
+한국어를 원문으로 삼되 독일어와 영어를 문장 구조까지 복제하지 않는다. 각 언어에서
+같은 사건을 독립적으로 자연스럽게 실현한 뒤 역번역해 의미가 같은지 확인한다. A1/A2는
+짧고 직접적인 한 가지 행동, B1/B2는 이유·조건·완곡한 이견, C1/C2는 근거 한계·프레임·
+반론·책임과 구제 절차를 다룬다. 상위 레벨이라는 이유로 문장만 길게 만들지 않는다.
+
+자동 검사와 Beyond 검수가 통과해도 “원어민 100% 품질”이라고 쓰지 않는다. 독립
+한국어·독일어 원어민 검수가 없으면 manifest와 review memo에
+`nativeQualityClaim: blocked_pending_independent_review`를 남긴다. 자동 수정이 의미,
+정답, 레벨 또는 route를 바꾸면 단순 copy edit가 아니므로 새 검수와 해당 계약의 승인이
+필요하다.
+
 ## 1. 가장 중요한 규칙 12개
 
 1. **모든 새 학습 본문에는 DE와 EN가 모두 필요하다.** 독일어는 주 학습자 언어이고,
@@ -87,9 +139,9 @@ motif/에셋 작업과 별개다. 이 가이드의 범위에는 실제 TTS 합�
 9. **커리큘럼 연결 없이 새 콘텐츠를 병합하지 않는다.** vocab pack, grammar, smalltalk,
    cloze, scenario에는 대응 `curriculum_manifest.json` mapping이 필요하다. target-local
    `apply_review.py`로 multi-file 통합을 시도하지 않고, 유형에 맞는 검증 transaction을 사용한다.
-10. **이미 live인 batch의 ID·행 수는 고정이다.** Batch 01–05는 최초 잠금이고, 06
-    (교차 게임), 파트너-가족 07/08, 4× 잔량 09/10도 live다. 이미 승인된 행을
-    추가·삭제·재번호하지 않는다. 더 많은 양은 다음 미사용 번호인 **Batch 11**을
+10. **이미 live인 batch의 ID·행 수는 고정이다.** Batch 01–20은 승인 계보와 함께
+    live다. 이미 승인된 행을 추가·삭제·재번호하지 않는다. 더 많은 양은 다음
+    미사용 번호인 **Batch 21**을
     새로 만든다.
 11. **생성 스크립트가 항상 안전한 것은 아니다.** 특히 `scripts/build_vocab_packs.py`는
     절대 실행하지 않는다. §15의 금지 목록을 따른다.
@@ -240,8 +292,8 @@ batch 작성자가 재사용할 잠금 규칙을 설명한다.
 - Batch 01의 `recordCount`만 늘리기
 
 더 풍성한 새 콘텐츠는 다음 번호의 `batch_XX_manifest.json`과 전용 `c2/c3/c4_batchXX_*`
-파일을 별도로 만든다. Batch 06, 파트너-가족 07/08, 4× 잔량 09/10은 이미 live이므로
-현재 다음 작성 번호는 **Batch 11**이다. Batch 05부터는
+파일을 별도로 만든다. Batch 01–20은 이미 live이므로 현재 다음 작성 번호는
+**Batch 21**이다. Batch 05부터는
 `validate_review_batch.py --manifest ...`를 쓴다. 이 일반
 overlay 검증기는 manifest 자체의 파일 경로·수량·level별 수량·동반 mapping·pending pack
 순번뿐 아니라, 앞 미병합 batch가 예약한 모든 ID·한국어 표제어·mapping 값을 검사한다.
@@ -981,7 +1033,7 @@ UI/Sori Stage/실제 TTS/커밋은 건드리지 말고, 콘텐츠 draft만 작�
 - 기존 ID/표제어/pack/category/curriculum을 먼저 읽어 중복과 참조 오류를 피해.
 - 새 vocab pack이면 11~12행, 연속 pack_order, 마지막 2~3 Boss, metadata와 planner를 준비해.
 - review CSV는 공통 header와 draft projection을 정확히 맞추고 모든 상태를 draft로 둬.
-- 이미 live인 Batch 01–10에는 행을 추가하지 말고, 추가 수량은 Batch 11의 독립 manifest/draft/review로 분리해.
+- 이미 live인 Batch 01–20에는 행을 추가하지 말고, 추가 수량은 Batch 21의 독립 manifest/draft/review로 분리해.
 - validate_content.py, 필요한 preflight, apply_review preview까지만 실행하고 --apply는 실행하지 마.
 - 마지막에 변경 파일, 미병합 수량, 검증 결과, Jin이 검수할 review 파일을 보고해.
 ```

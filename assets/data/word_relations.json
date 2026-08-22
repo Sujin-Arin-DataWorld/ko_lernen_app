@@ -3761,6 +3761,654 @@
           "exampleEn": "Platform power that controls both recommendation and revenue sharing changes the conditions of cultural circulation."
         }
       ]
+    },
+    {
+      "id": "rel_batch20_a1_01",
+      "sourceKo": "우체국 위치",
+      "sourceVocabId": "vocab_a1_0416",
+      "sourceDe": "Lage des Postamts",
+      "sourceEn": "post office location",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "우체국이 있는 곳",
+          "de": "Standort des Postamts",
+          "en": "where the post office is"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "우체국 위치",
+          "de": "Lage des Postamts",
+          "en": "post office location",
+          "exampleKo": "우체국 위치는 역 앞이에요.",
+          "exampleDe": "Das Postamt liegt vor dem Bahnhof.",
+          "exampleEn": "The post office is in front of the station."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_a1_02",
+      "sourceKo": "지하철역",
+      "sourceVocabId": "vocab_a1_0419",
+      "sourceDe": "U-Bahn-Station",
+      "sourceEn": "subway station",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "전철역",
+          "de": "U-Bahn-Haltestelle",
+          "en": "metro station"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "지하철역",
+          "de": "U-Bahn-Station",
+          "en": "subway station",
+          "exampleKo": "지하철역까지 걸어가요.",
+          "exampleDe": "Ich gehe zu Fuß bis zur U-Bahn-Station.",
+          "exampleEn": "I walk to the subway station."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_a1_03",
+      "sourceKo": "영수증 확인",
+      "sourceVocabId": "vocab_a1_0422",
+      "sourceDe": "Bonkontrolle",
+      "sourceEn": "receipt check",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "구매 내역 보기",
+          "de": "Kaufbeleg prüfen",
+          "en": "checking the purchase details"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "영수증 확인",
+          "de": "Bonkontrolle",
+          "en": "receipt check",
+          "exampleKo": "결제 뒤에 영수증 확인을 해요.",
+          "exampleDe": "Nach der Zahlung prüfe ich den Kassenbon.",
+          "exampleEn": "I check the receipt after paying."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_a1_04",
+      "sourceKo": "순서",
+      "sourceVocabId": "vocab_a1_0425",
+      "sourceDe": "Reihenfolge",
+      "sourceEn": "turn",
+      "level": "A1",
+      "synonyms": [
+        {
+          "ko": "차례",
+          "de": "Reihenfolge",
+          "en": "one's turn"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "순서",
+          "de": "Reihenfolge",
+          "en": "turn",
+          "exampleKo": "제 순서는 다섯 번째예요.",
+          "exampleDe": "Ich bin als Fünfte an der Reihe.",
+          "exampleEn": "My turn is fifth."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_a2_01",
+      "sourceKo": "선납금",
+      "sourceVocabId": "vocab_a2_0465",
+      "sourceDe": "Vorauszahlung",
+      "sourceEn": "advance payment",
+      "level": "A2",
+      "synonyms": [
+        {
+          "ko": "미리 내는 돈",
+          "de": "vorab gezahlter Betrag",
+          "en": "money paid in advance"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "선납금",
+          "de": "Vorauszahlung",
+          "en": "advance payment",
+          "exampleKo": "선납금이 필요한지 계약 전에 물어봤어요.",
+          "exampleDe": "Vor Vertragsabschluss habe ich gefragt, ob eine Vorauszahlung nötig ist.",
+          "exampleEn": "I asked whether an advance payment was required before signing."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_a2_02",
+      "sourceKo": "계약서 사본",
+      "sourceVocabId": "vocab_a2_0468",
+      "sourceDe": "Vertragskopie",
+      "sourceEn": "copy of the contract",
+      "level": "A2",
+      "synonyms": [
+        {
+          "ko": "계약서 복사본",
+          "de": "Kopie des Vertrags",
+          "en": "contract copy"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "계약서 사본",
+          "de": "Vertragskopie",
+          "en": "copy of the contract",
+          "exampleKo": "서명한 뒤에 계약서 사본을 받아요.",
+          "exampleDe": "Nach der Unterschrift erhalte ich eine Vertragskopie.",
+          "exampleEn": "I receive a copy of the contract after signing."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_a2_03",
+      "sourceKo": "공과금 내역",
+      "sourceVocabId": "vocab_a2_0471",
+      "sourceDe": "Versorgungskostenaufstellung",
+      "sourceEn": "utility-bill breakdown",
+      "level": "A2",
+      "synonyms": [
+        {
+          "ko": "전기·가스 비용 목록",
+          "de": "Aufstellung von Strom- und Gaskosten",
+          "en": "list of electricity and gas charges"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "공과금 내역",
+          "de": "Versorgungskostenaufstellung",
+          "en": "utility-bill breakdown",
+          "exampleKo": "공과금 내역에서 전기와 가스 요금을 확인해요.",
+          "exampleDe": "In der Kostenaufstellung prüfe ich Strom und Gas.",
+          "exampleEn": "I check electricity and gas in the utility-bill breakdown."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_a2_04",
+      "sourceKo": "방을 보다",
+      "sourceVocabId": "vocab_a2_0474",
+      "sourceDe": "ein Zimmer besichtigen",
+      "sourceEn": "view a room",
+      "level": "A2",
+      "synonyms": [
+        {
+          "ko": "집을 둘러보다",
+          "de": "eine Wohnung besichtigen",
+          "en": "inspect a home"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "방을 보다",
+          "de": "ein Zimmer besichtigen",
+          "en": "view a room",
+          "exampleKo": "오늘 저녁에 방을 보러 가요.",
+          "exampleDe": "Heute Abend besichtige ich ein Zimmer.",
+          "exampleEn": "I'm going to view a room this evening."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_b1_01",
+      "sourceKo": "채용 공고",
+      "sourceVocabId": "vocab_b1_0468",
+      "sourceDe": "Stellenanzeige",
+      "sourceEn": "job posting",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "구인 안내",
+          "de": "Stellenausschreibung",
+          "en": "vacancy notice"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "채용 공고",
+          "de": "Stellenanzeige",
+          "en": "job posting",
+          "exampleKo": "채용 공고에서 근무 시간과 업무를 확인했어요.",
+          "exampleDe": "In der Stellenanzeige habe ich Arbeitszeit und Aufgaben geprüft.",
+          "exampleEn": "I checked the hours and duties in the job posting."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_b1_02",
+      "sourceKo": "면접 일정",
+      "sourceVocabId": "vocab_b1_0471",
+      "sourceDe": "Vorstellungstermin",
+      "sourceEn": "interview schedule",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "면접 시간",
+          "de": "Zeit des Vorstellungsgesprächs",
+          "en": "interview time"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "면접 일정",
+          "de": "Vorstellungstermin",
+          "en": "interview schedule",
+          "exampleKo": "면접 일정이 바뀌어서 새 시간을 확인했어요.",
+          "exampleDe": "Der Vorstellungstermin wurde geändert, deshalb habe ich die neue Zeit bestätigt.",
+          "exampleEn": "The interview schedule changed, so I confirmed the new time."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_b1_03",
+      "sourceKo": "체류 자격",
+      "sourceVocabId": "vocab_b1_0474",
+      "sourceDe": "Aufenthaltsstatus",
+      "sourceEn": "residence status",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "머물 수 있는 자격",
+          "de": "Berechtigung zum Aufenthalt",
+          "en": "permission to stay"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "체류 자격",
+          "de": "Aufenthaltsstatus",
+          "en": "residence status",
+          "exampleKo": "담당자에게 업무와 체류 자격의 관계를 문의했어요.",
+          "exampleDe": "Ich habe die zuständige Stelle gefragt, wie die Tätigkeit mit meinem Aufenthaltsstatus zusammenhängt.",
+          "exampleEn": "I asked the responsible office how the job relates to my residence status."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_b1_04",
+      "sourceKo": "업무 인수인계",
+      "sourceVocabId": "vocab_b1_0477",
+      "sourceDe": "Arbeitsübergabe",
+      "sourceEn": "work handover",
+      "level": "B1",
+      "synonyms": [
+        {
+          "ko": "업무 넘겨주기",
+          "de": "Übergabe von Aufgaben",
+          "en": "transfer of duties"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "업무 인수인계",
+          "de": "Arbeitsübergabe",
+          "en": "work handover",
+          "exampleKo": "휴가 전에 업무 인수인계 내용을 문서로 남겼어요.",
+          "exampleDe": "Vor dem Urlaub habe ich die Arbeitsübergabe schriftlich festgehalten.",
+          "exampleEn": "I documented the work handover before taking leave."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_b2_01",
+      "sourceKo": "주거비",
+      "sourceVocabId": "vocab_b2_0635",
+      "sourceDe": "Wohnkosten",
+      "sourceEn": "housing costs",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "주택 관련 비용",
+          "de": "Kosten des Wohnens",
+          "en": "costs related to housing"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "주거비",
+          "de": "Wohnkosten",
+          "en": "housing costs",
+          "exampleKo": "주거비가 소득에서 차지하는 비중을 따로 살펴봤습니다.",
+          "exampleDe": "Wir haben den Anteil der Wohnkosten am Einkommen gesondert betrachtet.",
+          "exampleEn": "We examined the share of income spent on housing separately."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_b2_02",
+      "sourceKo": "물가 상승",
+      "sourceVocabId": "vocab_b2_0638",
+      "sourceDe": "Preisanstieg",
+      "sourceEn": "price inflation",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "가격 오름",
+          "de": "steigende Preise",
+          "en": "rising prices"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "물가 상승",
+          "de": "Preisanstieg",
+          "en": "price inflation",
+          "exampleKo": "물가 상승이 모든 가구에 같은 부담을 주는 것은 아닙니다.",
+          "exampleDe": "Preissteigerungen belasten nicht alle Haushalte gleich.",
+          "exampleEn": "Price inflation does not burden every household equally."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_b2_03",
+      "sourceKo": "공급 부족",
+      "sourceVocabId": "vocab_b2_0641",
+      "sourceDe": "Angebotsmangel",
+      "sourceEn": "supply shortage",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "물량 부족",
+          "de": "zu geringes Angebot",
+          "en": "insufficient supply"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "공급 부족",
+          "de": "Angebotsmangel",
+          "en": "supply shortage",
+          "exampleKo": "공급 부족만으로 지역별 임대료 차이를 모두 설명하기는 어렵습니다.",
+          "exampleDe": "Alle regionalen Mietunterschiede lassen sich nicht allein mit Angebotsmangel erklären.",
+          "exampleEn": "Supply shortage alone cannot explain every regional difference in rent."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_b2_04",
+      "sourceKo": "노동력 부족",
+      "sourceVocabId": "vocab_b2_0644",
+      "sourceDe": "Arbeitskräftemangel",
+      "sourceEn": "labor shortage",
+      "level": "B2",
+      "synonyms": [
+        {
+          "ko": "인력 부족",
+          "de": "Personalmangel",
+          "en": "staff shortage"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "노동력 부족",
+          "de": "Arbeitskräftemangel",
+          "en": "labor shortage",
+          "exampleKo": "노동력 부족 대책에는 채용뿐 아니라 근무 조건 개선도 포함돼야 합니다.",
+          "exampleDe": "Maßnahmen gegen Arbeitskräftemangel sollten neben Anwerbung auch bessere Arbeitsbedingungen umfassen.",
+          "exampleEn": "Responses to labor shortages should include better working conditions as well as recruitment."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_c1_01",
+      "sourceKo": "투명성 의무",
+      "sourceVocabId": "vocab_c1_0229",
+      "sourceDe": "Transparenzpflicht",
+      "sourceEn": "transparency obligation",
+      "level": "C1",
+      "synonyms": [
+        {
+          "ko": "공개 의무",
+          "de": "Pflicht zur Offenlegung",
+          "en": "duty to disclose"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "투명성 의무",
+          "de": "Transparenzpflicht",
+          "en": "transparency obligation",
+          "exampleKo": "투명성 의무가 실제 이용자의 이해로 이어지는지 점검해야 합니다.",
+          "exampleDe": "Es ist zu prüfen, ob die Transparenzpflicht tatsächlich zum Verständnis der Nutzenden beiträgt.",
+          "exampleEn": "We need to check whether the transparency obligation actually helps users understand."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_c1_02",
+      "sourceKo": "알고리즘 편향",
+      "sourceVocabId": "vocab_c1_0232",
+      "sourceDe": "algorithmische Verzerrung",
+      "sourceEn": "algorithmic bias",
+      "level": "C1",
+      "synonyms": [
+        {
+          "ko": "자동 판단의 쏠림",
+          "de": "Verzerrung automatischer Entscheidungen",
+          "en": "skew in automated decisions"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "알고리즘 편향",
+          "de": "algorithmische Verzerrung",
+          "en": "algorithmic bias",
+          "exampleKo": "알고리즘 편향은 학습 데이터와 운영 기준을 함께 봐야 드러납니다.",
+          "exampleDe": "Algorithmische Verzerrung wird erst sichtbar, wenn Trainingsdaten und Einsatzkriterien gemeinsam geprüft werden.",
+          "exampleEn": "Algorithmic bias becomes visible when training data and deployment criteria are examined together."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_c1_03",
+      "sourceKo": "데이터 대표성",
+      "sourceVocabId": "vocab_c1_0235",
+      "sourceDe": "Repräsentativität der Daten",
+      "sourceEn": "data representativeness",
+      "level": "C1",
+      "synonyms": [
+        {
+          "ko": "표본의 대표성",
+          "de": "Repräsentativität der Stichprobe",
+          "en": "sample representativeness"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "데이터 대표성",
+          "de": "Repräsentativität der Daten",
+          "en": "data representativeness",
+          "exampleKo": "데이터 대표성이 낮으면 전체 집단에 대한 결론을 제한해야 합니다.",
+          "exampleDe": "Bei geringer Repräsentativität der Daten müssen Aussagen über die Gesamtgruppe begrenzt werden.",
+          "exampleEn": "When data representativeness is low, claims about the whole population must be limited."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_c1_04",
+      "sourceKo": "번역 노동",
+      "sourceVocabId": "vocab_c1_0238",
+      "sourceDe": "Übersetzungsarbeit",
+      "sourceEn": "translation labor",
+      "level": "C1",
+      "synonyms": [
+        {
+          "ko": "번역 작업",
+          "de": "Übersetzungsarbeit",
+          "en": "translation work"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "번역 노동",
+          "de": "Übersetzungsarbeit",
+          "en": "translation labor",
+          "exampleKo": "해외 팬의 번역 노동에는 시간과 맥락 판단이 함께 들어갑니다.",
+          "exampleDe": "In die Übersetzungsarbeit internationaler Fans fließen Zeit und Kontextentscheidungen ein.",
+          "exampleEn": "International fans' translation labor involves both time and contextual judgment."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_c2_01",
+      "sourceKo": "인구 구조",
+      "sourceVocabId": "vocab_c2_0229",
+      "sourceDe": "Bevölkerungsstruktur",
+      "sourceEn": "population structure",
+      "level": "C2",
+      "synonyms": [
+        {
+          "ko": "인구 구성",
+          "de": "Zusammensetzung der Bevölkerung",
+          "en": "population composition"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "인구 구조",
+          "de": "Bevölkerungsstruktur",
+          "en": "population structure",
+          "exampleKo": "인구 구조의 변화는 출생뿐 아니라 이동과 기대수명을 함께 봐야 해석할 수 있습니다.",
+          "exampleDe": "Veränderungen der Bevölkerungsstruktur lassen sich nur unter Einbezug von Geburten, Migration und Lebenserwartung deuten.",
+          "exampleEn": "Changes in population structure require considering births, migration, and life expectancy together."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_c2_02",
+      "sourceKo": "정책 효과",
+      "sourceVocabId": "vocab_c2_0232",
+      "sourceDe": "Politikwirkung",
+      "sourceEn": "policy effect",
+      "level": "C2",
+      "synonyms": [
+        {
+          "ko": "정책의 영향",
+          "de": "Auswirkung einer Maßnahme",
+          "en": "impact of a policy"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "정책 효과",
+          "de": "Politikwirkung",
+          "en": "policy effect",
+          "exampleKo": "정책 효과를 말하려면 대상 집단과 비교 기준을 먼저 밝혀야 합니다.",
+          "exampleDe": "Wer von Politikwirkung spricht, muss Zielgruppe und Vergleichsmaßstab zuerst benennen.",
+          "exampleEn": "Claims about policy effects should first identify the target group and comparison standard."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_c2_03",
+      "sourceKo": "책임 주체",
+      "sourceVocabId": "vocab_c2_0235",
+      "sourceDe": "verantwortliche Stelle",
+      "sourceEn": "responsible actor",
+      "level": "C2",
+      "synonyms": [
+        {
+          "ko": "책임지는 사람이나 기관",
+          "de": "verantwortliche Person oder Institution",
+          "en": "person or institution responsible"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "책임 주체",
+          "de": "verantwortliche Stelle",
+          "en": "responsible actor",
+          "exampleKo": "자동화가 개입해도 설계와 운영의 책임 주체를 분리해 기록해야 합니다.",
+          "exampleDe": "Auch bei Automatisierung müssen die verantwortlichen Stellen für Entwicklung und Betrieb getrennt dokumentiert werden.",
+          "exampleEn": "Even with automation, the responsible actors for design and operation must be documented separately."
+        }
+      ]
+    },
+    {
+      "id": "rel_batch20_c2_04",
+      "sourceKo": "자동 제재",
+      "sourceVocabId": "vocab_c2_0238",
+      "sourceDe": "automatische Sanktion",
+      "sourceEn": "automated sanction",
+      "level": "C2",
+      "synonyms": [
+        {
+          "ko": "기계가 내린 제재",
+          "de": "maschinell verhängte Sanktion",
+          "en": "machine-imposed penalty"
+        }
+      ],
+      "antonyms": [],
+      "related": [],
+      "expressions": [
+        {
+          "ko": "자동 제재",
+          "de": "automatische Sanktion",
+          "en": "automated sanction",
+          "exampleKo": "자동 제재는 근거와 재검토 경로를 동시에 제시해야 합니다.",
+          "exampleDe": "Eine automatische Sanktion muss zugleich Begründung und Überprüfungsweg nennen.",
+          "exampleEn": "An automated sanction should provide both grounds and a review path."
+        }
+      ]
     }
   ]
 }

@@ -1,0 +1,1374 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "id": "a1_city_service_route_batch20",
+      "level": "a1",
+      "emoji": "🧭",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "station_staff",
+      "intent": "ask_for_two_locations_and_confirm_the_exit",
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "conceptIds": [
+        "concept_topic_particle"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 90,
+      "title": {
+        "ko": "우체국과 약국을 찾아요",
+        "de": "Post und Apotheke finden",
+        "en": "Finding the Post Office and Pharmacy"
+      },
+      "intro": {
+        "ko": "역 안내소에서 두 장소의 위치와 출구를 차례로 묻습니다.",
+        "de": "Am Informationsschalter fragen Sie nacheinander nach Postamt, Apotheke und Ausgang.",
+        "en": "At the station desk, you ask for the post office, pharmacy, and exit in order."
+      },
+      "grammarIds": [
+        "grammar_a1_service_location_question"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "실례합니다. 우체국은 어디에 있어요?",
+          "de": "Entschuldigung, wo ist das Postamt?",
+          "en": "Excuse me, where is the post office?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "지하철역 2번 출구 앞에 있어요.",
+          "de": "Es ist vor Ausgang 2 der U-Bahn-Station.",
+          "en": "It is in front of Exit 2 of the subway station."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 약국도 2번 출구에 있어요?",
+          "de": "Ist die Apotheke dann auch bei Ausgang 2?",
+          "en": "Is the pharmacy also near Exit 2?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "아니요. 약국은 3번 출구 옆에 있어요.",
+          "de": "Nein. Die Apotheke ist neben Ausgang 3.",
+          "en": "No. The pharmacy is next to Exit 3."
+        },
+        {
+          "speaker": "user",
+          "ko": "우체국에 먼저 가고 약국에 갈게요.",
+          "de": "Ich gehe zuerst zur Post und dann zur Apotheke.",
+          "en": "I'll go to the post office first and then the pharmacy."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "좋아요. 우체국은 여섯 시에 문을 닫아요.",
+          "de": "Gut. Das Postamt schließt um sechs Uhr.",
+          "en": "Good. The post office closes at six."
+        },
+        {
+          "speaker": "user",
+          "ko": "네, 2번 출구가 우체국이고 3번 출구가 약국이지요?",
+          "de": "Also Ausgang 2 für die Post und Ausgang 3 für die Apotheke, richtig?",
+          "en": "So Exit 2 is for the post office and Exit 3 is for the pharmacy, right?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "맞아요. 표지판도 같이 확인하세요.",
+          "de": "Genau. Achten Sie auch auf die Schilder.",
+          "en": "That is right. Check the signs too."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "우체국"
+        },
+        {
+          "korean": "약국"
+        },
+        {
+          "korean": "출구"
+        },
+        {
+          "korean": "지하철역"
+        },
+        {
+          "korean": "먼저"
+        },
+        {
+          "korean": "옆"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N은/는 어디에 있어요?",
+          "de": "N은/는 어디에 있어요?: nach einem Ort fragen",
+          "en": "N은/는 어디에 있어요?: asking where something is"
+        },
+        "explanation": {
+          "ko": "장소나 물건이 어디에 있는지 공손하게 물을 때 씁니다.",
+          "de": "Fragt höflich nach dem Standort eines Ortes oder Gegenstands.",
+          "en": "Politely asks for the location of a place or object."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_a1_city_service_route_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "audioKo": "그럼 약국도 2번 출구에 있어요?",
+            "options": [
+              {
+                "ko": "실례합니다. 우체국은 어디에 있어요?",
+                "de": "Entschuldigung, wo ist das Postamt?",
+                "en": "Excuse me, where is the post office?"
+              },
+              {
+                "ko": "그럼 약국도 2번 출구에 있어요?",
+                "de": "Ist die Apotheke dann auch bei Ausgang 2?",
+                "en": "Is the pharmacy also near Exit 2?"
+              },
+              {
+                "ko": "우체국에 먼저 가고 약국에 갈게요.",
+                "de": "Ich gehe zuerst zur Post und dann zur Apotheke.",
+                "en": "I'll go to the post office first and then the pharmacy."
+              },
+              {
+                "ko": "네, 2번 출구가 우체국이고 3번 출구가 약국이지요?",
+                "de": "Also Ausgang 2 für die Post und Ausgang 3 für die Apotheke, richtig?",
+                "en": "So Exit 2 is for the post office and Exit 3 is for the pharmacy, right?"
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_a1_city_service_route_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "promptDe": "Also Ausgang 2 für die Post und Ausgang 3 für die Apotheke, richtig?",
+            "promptEn": "So Exit 2 is for the post office and Exit 3 is for the pharmacy, right?",
+            "options": [
+              {
+                "ko": "실례합니다. 우체국은 어디에 있어요?"
+              },
+              {
+                "ko": "우체국에 먼저 가고 약국에 갈게요."
+              },
+              {
+                "ko": "네, 2번 출구가 우체국이고 3번 출구가 약국이지요?"
+              },
+              {
+                "ko": "그럼 약국도 2번 출구에 있어요?"
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_a1_city_service_route_batch20_gap",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "prefix": "우체국",
+            "suffix": " 2번 출구 앞에 있어요.",
+            "options": [
+              "은",
+              "는",
+              "이",
+              "가"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "우체국 endet auf einen Endkonsonanten und ist hier das Gesprächsthema; deshalb steht 은.",
+            "explanationEn": "우체국 ends in a consonant and is the topic, so use 은."
+          }
+        },
+        {
+          "id": "quest_a1_city_service_route_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "targetKo": "약국은 3번 출구 옆에 있어요.",
+            "promptDe": "Die Apotheke ist neben Ausgang 3.",
+            "promptEn": "The pharmacy is next to Exit 3.",
+            "distractors": [
+              "어제",
+              "천천히"
+            ],
+            "audioKo": "약국은 3번 출구 옆에 있어요."
+          }
+        },
+        {
+          "id": "quest_a1_city_service_route_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "targetKo": "2번 출구가 우체국이고 3번 출구가 약국이지요?",
+            "audioKo": "2번 출구가 우체국이고 3번 출구가 약국이지요?",
+            "promptDe": "Ausgang 2 ist für die Post und Ausgang 3 für die Apotheke, richtig?",
+            "promptEn": "Exit 2 is for the post office and Exit 3 is for the pharmacy, right?"
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "처음 가는 장소에서는 출구 번호를 다시 말해 확인하면 길 안내의 실수를 줄일 수 있습니다.",
+        "de": "An unbekannten Orten hilft es, die Ausgangsnummer zur Bestätigung zu wiederholen.",
+        "en": "In an unfamiliar place, repeating the exit number helps confirm the directions."
+      },
+      "shelf": "a1_transit",
+      "backdrop": "station"
+    },
+    {
+      "id": "a2_flat_viewing_terms_batch20",
+      "level": "a2",
+      "emoji": "🏠",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "prospective_tenant_landlord",
+      "intent": "ask_permission_and_clarify_housing_terms",
+      "courseUnitId": "a2_01_haeyo_transition",
+      "conceptIds": [
+        "concept_action_polite"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 90,
+      "title": {
+        "ko": "방을 보고 조건을 확인해요",
+        "de": "Wohnung besichtigen und Bedingungen klären",
+        "en": "Viewing a Room and Checking the Terms"
+      },
+      "intro": {
+        "ko": "집주인에게 관리비, 반려동물, 계약서 확인 시간을 해요체로 묻습니다.",
+        "de": "Sie fragen die vermietende Person in höflicher 해요-Sprache nach Nebenkosten, Haustier und Prüfzeit.",
+        "en": "You use polite 해요 style to ask the landlord about fees, a pet, and time to review the contract."
+      },
+      "grammarIds": [
+        "grammar_a2_permission_check_batch20"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "관리비에 인터넷도 포함돼요?",
+          "de": "Ist Internet in den Nebenkosten enthalten?",
+          "en": "Is internet included in the maintenance fee?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "인터넷은 따로 신청해야 해요.",
+          "de": "Internet müssen Sie separat anmelden.",
+          "en": "You need to arrange internet separately."
+        },
+        {
+          "speaker": "user",
+          "ko": "작은 반려동물과 살아도 괜찮아요?",
+          "de": "Ist ein kleines Haustier in Ordnung?",
+          "en": "Is it okay to live with a small pet?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 하지만 계약서에 종류를 적어 주세요.",
+          "de": "Ja, aber tragen Sie die Tierart bitte in den Vertrag ein.",
+          "en": "Yes, but please list the type of pet in the contract."
+        },
+        {
+          "speaker": "user",
+          "ko": "계약서를 집에서 읽어 봐도 괜찮아요?",
+          "de": "Kann ich den Vertrag zu Hause in Ruhe lesen?",
+          "en": "Is it okay if I read the contract at home?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "물론이에요. 내일 저녁까지 답을 주세요.",
+          "de": "Natürlich. Geben Sie mir bitte bis morgen Abend Bescheid.",
+          "en": "Of course. Please let me know by tomorrow evening."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋아요. 보증금과 월세도 다시 확인할게요.",
+          "de": "Gut. Ich prüfe auch Kaution und Monatsmiete noch einmal.",
+          "en": "Great. I'll check the deposit and monthly rent again too."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "궁금한 조항에 표시해서 질문해 주세요.",
+          "de": "Markieren Sie unklare Klauseln und fragen Sie nach.",
+          "en": "Mark any unclear clauses and ask about them."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "관리비"
+        },
+        {
+          "korean": "인터넷"
+        },
+        {
+          "korean": "반려동물"
+        },
+        {
+          "korean": "계약서"
+        },
+        {
+          "korean": "보증금"
+        },
+        {
+          "korean": "월세"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어도 괜찮아요?",
+          "de": "V-아/어도 괜찮아요?: Erlaubnis oder Zumutbarkeit prüfen",
+          "en": "V-아/어도 괜찮아요?: checking permission or acceptability"
+        },
+        "explanation": {
+          "ko": "어떤 행동이 가능한지 상대에게 부드럽게 확인할 때 씁니다.",
+          "de": "Prüft freundlich, ob eine Handlung erlaubt oder für die andere Person in Ordnung ist.",
+          "en": "Gently checks whether an action is allowed or acceptable to the other person."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_a2_flat_viewing_terms_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_action_polite"
+          ],
+          "data": {
+            "audioKo": "작은 반려동물과 살아도 괜찮아요?",
+            "options": [
+              {
+                "ko": "관리비에 인터넷도 포함돼요?",
+                "de": "Ist Internet in den Nebenkosten enthalten?",
+                "en": "Is internet included in the maintenance fee?"
+              },
+              {
+                "ko": "작은 반려동물과 살아도 괜찮아요?",
+                "de": "Ist ein kleines Haustier in Ordnung?",
+                "en": "Is it okay to live with a small pet?"
+              },
+              {
+                "ko": "계약서를 집에서 읽어 봐도 괜찮아요?",
+                "de": "Kann ich den Vertrag zu Hause in Ruhe lesen?",
+                "en": "Is it okay if I read the contract at home?"
+              },
+              {
+                "ko": "좋아요. 보증금과 월세도 다시 확인할게요.",
+                "de": "Gut. Ich prüfe auch Kaution und Monatsmiete noch einmal.",
+                "en": "Great. I'll check the deposit and monthly rent again too."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_a2_flat_viewing_terms_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_action_polite"
+          ],
+          "data": {
+            "promptDe": "Gut. Ich prüfe auch Kaution und Monatsmiete noch einmal.",
+            "promptEn": "Great. I'll check the deposit and monthly rent again too.",
+            "options": [
+              {
+                "ko": "관리비에 인터넷도 포함돼요?"
+              },
+              {
+                "ko": "계약서를 집에서 읽어 봐도 괜찮아요?"
+              },
+              {
+                "ko": "좋아요. 보증금과 월세도 다시 확인할게요."
+              },
+              {
+                "ko": "작은 반려동물과 살아도 괜찮아요?"
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_a2_flat_viewing_terms_batch20_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_action_polite"
+          ],
+          "data": {
+            "sentence": "계약서를 집에서 읽어 봐도 ___?",
+            "options": [
+              "괜찮아요",
+              "필요해요",
+              "끝났어요",
+              "멀어요"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "V-아/어도 괜찮아요? fragt, ob die Handlung für die andere Person akzeptabel ist.",
+            "explanationEn": "V-아/어도 괜찮아요? asks whether the action is acceptable to the other person."
+          }
+        },
+        {
+          "id": "quest_a2_flat_viewing_terms_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_action_polite"
+          ],
+          "data": {
+            "targetKo": "관리비에 인터넷이 포함되어 있는지 확인해요.",
+            "promptDe": "Ich prüfe, ob Internet in den Nebenkosten enthalten ist.",
+            "promptEn": "I check whether internet is included in the maintenance fee.",
+            "distractors": [
+              "갑자기",
+              "무조건"
+            ],
+            "audioKo": "관리비에 인터넷이 포함되어 있는지 확인해요."
+          }
+        },
+        {
+          "id": "quest_a2_flat_viewing_terms_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_action_polite"
+          ],
+          "data": {
+            "targetKo": "궁금한 조항에 표시해서 질문해 주세요.",
+            "audioKo": "궁금한 조항에 표시해서 질문해 주세요.",
+            "promptDe": "Markieren Sie unklare Klauseln und fragen Sie nach.",
+            "promptEn": "Mark any unclear clauses and ask about them."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "주거 계약에서는 포함 비용과 사용 조건을 구두 설명만 듣지 말고 문서에서도 확인하는 연습이 중요합니다.",
+        "de": "Bei Wohnverträgen sollten enthaltene Kosten und Nutzungsbedingungen auch schriftlich geprüft werden.",
+        "en": "For housing contracts, practice checking included costs and conditions in writing as well as asking orally."
+      },
+      "shelf": "a2_apt",
+      "backdrop": "home"
+    },
+    {
+      "id": "b1_job_offer_conditions_batch20",
+      "level": "b1",
+      "emoji": "💼",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "candidate_recruiter",
+      "intent": "clarify_job_offer_before_accepting",
+      "courseUnitId": "b1_01_experience_reasons",
+      "conceptIds": [
+        "concept_b1_reasons_experience"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "채용 제안의 조건을 확인해요",
+        "de": "Bedingungen eines Jobangebots klären",
+        "en": "Clarifying the Terms of a Job Offer"
+      },
+      "intro": {
+        "ko": "채용 담당자에게 수습 기간, 유연 근무, 서류 일정을 이유와 함께 묻습니다.",
+        "de": "Sie fragen die Personalstelle begründet nach Probezeit, flexibler Arbeit und Unterlagenfrist.",
+        "en": "You ask the recruiter about probation, flexible work, and document deadlines while giving your reasons."
+      },
+      "grammarIds": [
+        "grammar_b1_tentative_plan_batch20"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "제안을 주셔서 감사합니다. 몇 가지 조건을 확인하고 싶습니다.",
+          "de": "Vielen Dank für das Angebot. Ich möchte einige Bedingungen klären.",
+          "en": "Thank you for the offer. I would like to clarify a few conditions."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 어떤 부분이 궁금하신가요?",
+          "de": "Gern. Welche Punkte möchten Sie klären?",
+          "en": "Of course. Which points would you like to clarify?"
+        },
+        {
+          "speaker": "user",
+          "ko": "수습 기간의 평가 기준은 어떻게 안내되나요?",
+          "de": "Wie werden die Bewertungskriterien für die Probezeit mitgeteilt?",
+          "en": "How are the probation assessment criteria communicated?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "첫 주에 목표를 정하고 한 달마다 피드백을 드립니다.",
+          "de": "In der ersten Woche vereinbaren wir Ziele und geben monatlich Feedback.",
+          "en": "We set goals in the first week and give feedback each month."
+        },
+        {
+          "speaker": "user",
+          "ko": "돌봄 일정이 있어서 주 2회 유연 근무가 가능한지도 궁금합니다.",
+          "de": "Wegen Betreuungspflichten möchte ich wissen, ob zwei flexible Arbeitstage pro Woche möglich sind.",
+          "en": "Because of care responsibilities, I would also like to know whether two flexible workdays per week are possible."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "팀 일정과 맞으면 가능합니다. 가능한 시간을 보내 주세요.",
+          "de": "Wenn es zum Teamplan passt, ist das möglich. Schicken Sie uns bitte Ihre verfügbaren Zeiten.",
+          "en": "It is possible if it fits the team schedule. Please send us your available hours."
+        },
+        {
+          "speaker": "user",
+          "ko": "조건을 서면으로 확인한 뒤에 수락할까 합니다.",
+          "de": "Ich denke darüber nach, nach schriftlicher Bestätigung der Bedingungen zuzusagen.",
+          "en": "I'm thinking of accepting after the conditions are confirmed in writing."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "오늘 안에 계약 초안과 제출 서류 목록을 보내 드리겠습니다.",
+          "de": "Ich sende Ihnen heute den Vertragsentwurf und die Unterlagenliste.",
+          "en": "I'll send the draft contract and document list today."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "채용 제안"
+        },
+        {
+          "korean": "수습 기간"
+        },
+        {
+          "korean": "평가 기준"
+        },
+        {
+          "korean": "유연 근무"
+        },
+        {
+          "korean": "돌봄 일정"
+        },
+        {
+          "korean": "계약 초안"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ까 하다",
+          "de": "V-(으)ㄹ까 하다: vorläufige Absicht",
+          "en": "V-(으)ㄹ까 하다: tentative intention"
+        },
+        "explanation": {
+          "ko": "계획이 아직 확정되지 않았음을 보이며 의견을 들을 때 씁니다.",
+          "de": "Stellt einen Plan als noch nicht endgültig dar und lässt Raum für Rückmeldung.",
+          "en": "Presents a plan as tentative and leaves room for feedback."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_b1_job_offer_conditions_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "audioKo": "수습 기간의 평가 기준은 어떻게 안내되나요?",
+            "options": [
+              {
+                "ko": "제안을 주셔서 감사합니다. 몇 가지 조건을 확인하고 싶습니다.",
+                "de": "Vielen Dank für das Angebot. Ich möchte einige Bedingungen klären.",
+                "en": "Thank you for the offer. I would like to clarify a few conditions."
+              },
+              {
+                "ko": "수습 기간의 평가 기준은 어떻게 안내되나요?",
+                "de": "Wie werden die Bewertungskriterien für die Probezeit mitgeteilt?",
+                "en": "How are the probation assessment criteria communicated?"
+              },
+              {
+                "ko": "돌봄 일정이 있어서 주 2회 유연 근무가 가능한지도 궁금합니다.",
+                "de": "Wegen Betreuungspflichten möchte ich wissen, ob zwei flexible Arbeitstage pro Woche möglich sind.",
+                "en": "Because of care responsibilities, I would also like to know whether two flexible workdays per week are possible."
+              },
+              {
+                "ko": "조건을 서면으로 확인한 뒤에 수락할까 합니다.",
+                "de": "Ich denke darüber nach, nach schriftlicher Bestätigung der Bedingungen zuzusagen.",
+                "en": "I'm thinking of accepting after the conditions are confirmed in writing."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_b1_job_offer_conditions_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "promptDe": "Ich denke darüber nach, nach schriftlicher Bestätigung der Bedingungen zuzusagen.",
+            "promptEn": "I'm thinking of accepting after the conditions are confirmed in writing.",
+            "options": [
+              {
+                "ko": "제안을 주셔서 감사합니다. 몇 가지 조건을 확인하고 싶습니다."
+              },
+              {
+                "ko": "돌봄 일정이 있어서 주 2회 유연 근무가 가능한지도 궁금합니다."
+              },
+              {
+                "ko": "조건을 서면으로 확인한 뒤에 수락할까 합니다."
+              },
+              {
+                "ko": "수습 기간의 평가 기준은 어떻게 안내되나요?"
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_b1_job_offer_conditions_batch20_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "sentence": "조건을 확인한 뒤에 수락___ 합니다.",
+            "options": [
+              "할까",
+              "하자마자",
+              "하느라고",
+              "하더라도"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "V-(으)ㄹ까 하다 stellt die Zusage als noch nicht endgültige Absicht dar.",
+            "explanationEn": "V-(으)ㄹ까 하다 presents the acceptance as a tentative intention."
+          }
+        },
+        {
+          "id": "quest_b1_job_offer_conditions_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "targetKo": "가능한 시간을 보내 주시면 팀 일정과 조율하겠습니다.",
+            "promptDe": "Wenn Sie Ihre möglichen Zeiten senden, stimme ich sie mit dem Teamplan ab.",
+            "promptEn": "If you send your available hours, I'll coordinate them with the team schedule.",
+            "distractors": [
+              "반대로",
+              "우연히"
+            ],
+            "audioKo": "가능한 시간을 보내 주시면 팀 일정과 조율하겠습니다."
+          }
+        },
+        {
+          "id": "quest_b1_job_offer_conditions_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_reasons_experience"
+          ],
+          "data": {
+            "targetKo": "오늘 안에 계약 초안과 제출 서류 목록을 보내 드리겠습니다.",
+            "audioKo": "오늘 안에 계약 초안과 제출 서류 목록을 보내 드리겠습니다.",
+            "promptDe": "Ich sende Ihnen heute den Vertragsentwurf und die Unterlagenliste.",
+            "promptEn": "I'll send the draft contract and document list today."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "채용 대화에서 질문은 무례함이 아니라 상호 기대를 확인하는 절차가 될 수 있습니다. 확정 전에는 서면 조건을 확인합니다.",
+        "de": "Fragen im Bewerbungsprozess können gegenseitige Erwartungen klären. Vor einer Zusage sollten Bedingungen schriftlich vorliegen.",
+        "en": "Questions in recruitment can clarify mutual expectations. Check written terms before accepting."
+      },
+      "shelf": "b1_team",
+      "backdrop": "office"
+    },
+    {
+      "id": "b2_rent_increase_meeting_batch20",
+      "level": "b2",
+      "emoji": "🏘️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "tenant_representative_property_manager",
+      "intent": "open_a_formal_housing_cost_review",
+      "courseUnitId": "b2_01_formal_opening",
+      "conceptIds": [
+        "concept_b2_formal_opening"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "임대료 인상 설명회를 시작해요",
+        "de": "Eine Anhörung zur Mieterhöhung eröffnen",
+        "en": "Opening a Rent-Increase Meeting"
+      },
+      "intro": {
+        "ko": "세입자 대표가 관리 회사와의 설명회에서 계산 기준과 가구별 부담을 공식적으로 묻습니다.",
+        "de": "Eine Mietervertretung fragt die Hausverwaltung in einer Anhörung formell nach Berechnung und Haushaltsbelastung.",
+        "en": "A tenant representative formally asks the property manager about calculations and household burdens."
+      },
+      "grammarIds": [
+        "grammar_b2_criterion_view_batch20"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "먼저 임대료 인상 근거를 항목별로 설명해 주시기 바랍니다.",
+          "de": "Bitte erläutern Sie zunächst die Grundlage der Mieterhöhung nach einzelnen Posten.",
+          "en": "Please begin by explaining the basis for the rent increase item by item."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "주변 시세와 유지 보수 비용을 반영했습니다.",
+          "de": "Wir haben Vergleichsmieten und Instandhaltungskosten berücksichtigt.",
+          "en": "We considered local rents and maintenance costs."
+        },
+        {
+          "speaker": "user",
+          "ko": "임대료만을 기준으로 보면 실제 부담을 놓칠 수 있습니다.",
+          "de": "Wenn nur die Miete als Maßstab dient, kann die tatsächliche Belastung übersehen werden.",
+          "en": "If rent alone is the criterion, the actual burden may be missed."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "어떤 비용을 추가로 포함해야 한다고 보십니까?",
+          "de": "Welche weiteren Kosten sollten Ihrer Ansicht nach einbezogen werden?",
+          "en": "Which additional costs do you think should be included?"
+        },
+        {
+          "speaker": "user",
+          "ko": "관리비, 난방비와 가구별 소득 변화를 함께 봐야 합니다.",
+          "de": "Nebenkosten, Heizkosten und Einkommensentwicklung der Haushalte müssen gemeinsam betrachtet werden.",
+          "en": "Maintenance fees, heating costs, and household income changes need to be considered together."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "자료 범위를 확대해 다음 회의 전에 공유하겠습니다.",
+          "de": "Wir erweitern den Datenumfang und teilen die Unterlagen vor dem nächsten Termin.",
+          "en": "We will broaden the data and share it before the next meeting."
+        },
+        {
+          "speaker": "user",
+          "ko": "이의 제기 절차와 답변 기한도 서면으로 알려 주십시오.",
+          "de": "Bitte teilen Sie auch Einspruchsverfahren und Antwortfrist schriftlich mit.",
+          "en": "Please also provide the appeal process and response deadline in writing."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "회의록에 요청을 남기고 담당 부서를 지정하겠습니다.",
+          "de": "Wir halten die Bitte im Protokoll fest und benennen die zuständige Stelle.",
+          "en": "We will record the request in the minutes and name the responsible office."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "임대료"
+        },
+        {
+          "korean": "인상 근거"
+        },
+        {
+          "korean": "관리비"
+        },
+        {
+          "korean": "가구별 소득"
+        },
+        {
+          "korean": "이의 제기"
+        },
+        {
+          "korean": "회의록"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 기준으로 보면",
+          "de": "N을/를 기준으로 보면: Urteil an einen Maßstab binden",
+          "en": "N을/를 기준으로 보면: framing a judgment by a criterion"
+        },
+        "explanation": {
+          "ko": "판단에 사용한 기준을 분명히 밝혀 다른 기준과 비교할 수 있게 합니다.",
+          "de": "Macht sichtbar, nach welchem Maßstab eine Bewertung gilt.",
+          "en": "Makes the criterion behind an evaluation explicit."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_b2_rent_increase_meeting_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "audioKo": "임대료만을 기준으로 보면 실제 부담을 놓칠 수 있습니다.",
+            "options": [
+              {
+                "ko": "먼저 임대료 인상 근거를 항목별로 설명해 주시기 바랍니다.",
+                "de": "Bitte erläutern Sie zunächst die Grundlage der Mieterhöhung nach einzelnen Posten.",
+                "en": "Please begin by explaining the basis for the rent increase item by item."
+              },
+              {
+                "ko": "임대료만을 기준으로 보면 실제 부담을 놓칠 수 있습니다.",
+                "de": "Wenn nur die Miete als Maßstab dient, kann die tatsächliche Belastung übersehen werden.",
+                "en": "If rent alone is the criterion, the actual burden may be missed."
+              },
+              {
+                "ko": "관리비, 난방비와 가구별 소득 변화를 함께 봐야 합니다.",
+                "de": "Nebenkosten, Heizkosten und Einkommensentwicklung der Haushalte müssen gemeinsam betrachtet werden.",
+                "en": "Maintenance fees, heating costs, and household income changes need to be considered together."
+              },
+              {
+                "ko": "이의 제기 절차와 답변 기한도 서면으로 알려 주십시오.",
+                "de": "Bitte teilen Sie auch Einspruchsverfahren und Antwortfrist schriftlich mit.",
+                "en": "Please also provide the appeal process and response deadline in writing."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_b2_rent_increase_meeting_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "promptDe": "Bitte teilen Sie auch Einspruchsverfahren und Antwortfrist schriftlich mit.",
+            "promptEn": "Please also provide the appeal process and response deadline in writing.",
+            "options": [
+              {
+                "ko": "먼저 임대료 인상 근거를 항목별로 설명해 주시기 바랍니다."
+              },
+              {
+                "ko": "관리비, 난방비와 가구별 소득 변화를 함께 봐야 합니다."
+              },
+              {
+                "ko": "이의 제기 절차와 답변 기한도 서면으로 알려 주십시오."
+              },
+              {
+                "ko": "임대료만을 기준으로 보면 실제 부담을 놓칠 수 있습니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_b2_rent_increase_meeting_batch20_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "sentence": "임대료만을 ___ 보면 실제 부담을 놓칠 수 있습니다.",
+            "options": [
+              "기준으로",
+              "계기로",
+              "대신에",
+              "불구하고"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "N을/를 기준으로 보면 macht den verwendeten Bewertungsmaßstab ausdrücklich sichtbar.",
+            "explanationEn": "N을/를 기준으로 보면 makes the evaluation criterion explicit."
+          }
+        },
+        {
+          "id": "quest_b2_rent_increase_meeting_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "targetKo": "관리비와 소득 변화까지 포함해서 자료를 다시 검토해 주십시오.",
+            "promptDe": "Bitte prüfen Sie die Unterlagen erneut und beziehen Sie Nebenkosten und Einkommensentwicklung ein.",
+            "promptEn": "Please review the data again, including maintenance costs and income changes.",
+            "distractors": [
+              "대충",
+              "개인적으로"
+            ],
+            "audioKo": "관리비와 소득 변화까지 포함해서 자료를 다시 검토해 주십시오."
+          }
+        },
+        {
+          "id": "quest_b2_rent_increase_meeting_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b2_formal_opening"
+          ],
+          "data": {
+            "targetKo": "이의 제기 절차와 답변 기한도 서면으로 알려 주십시오.",
+            "audioKo": "이의 제기 절차와 답변 기한도 서면으로 알려 주십시오.",
+            "promptDe": "Bitte teilen Sie auch Einspruchsverfahren und Antwortfrist schriftlich mit.",
+            "promptEn": "Please also provide the appeal process and response deadline in writing."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "공식 설명회에서는 요구만 말하기보다 계산 기준, 포함 범위, 담당자와 답변 기한을 분리해 확인합니다.",
+        "de": "In formellen Anhörungen werden Berechnungsmaßstab, Umfang, Zuständigkeit und Antwortfrist getrennt geklärt.",
+        "en": "In formal meetings, clarify the calculation standard, scope, responsibility, and response deadline separately."
+      },
+      "shelf": "b2_public",
+      "backdrop": "office"
+    },
+    {
+      "id": "c1_ai_labeling_policy_batch20",
+      "level": "c1",
+      "emoji": "🤖",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "editorial_policy_team",
+      "intent": "test_whether_an_ai_label_is_actionable",
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "AI 콘텐츠 표시 원칙을 검토해요",
+        "de": "Kennzeichnungsregeln für KI-Inhalte prüfen",
+        "en": "Reviewing AI-Content Labeling Rules"
+      },
+      "intro": {
+        "ko": "편집 회의에서 표시 문구, 인간 감독 권한, 이용자의 이의 제기 정보를 구분해 검토합니다.",
+        "de": "In einer Redaktionssitzung werden Kennzeichnung, Aufsichtsbefugnis und Informationen für Einwände getrennt geprüft.",
+        "en": "In an editorial meeting, you review labels, human authority, and appeal information separately."
+      },
+      "grammarIds": [
+        "grammar_c1_difficult_to_conclude_batch20"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "초안에는 ‘AI 활용’이라는 표시만 있습니다.",
+          "de": "Im Entwurf steht nur der Hinweis mit KI erstellt.",
+          "en": "The draft only says AI-assisted."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "짧고 눈에 띄지만 무엇이 바뀌었는지는 알 수 없네요.",
+          "de": "Das ist kurz und sichtbar, sagt aber nicht, was verändert wurde.",
+          "en": "It is short and visible, but it does not say what changed."
+        },
+        {
+          "speaker": "user",
+          "ko": "표시가 있다는 이유만으로 충분히 이해했다고 단정하기 어렵습니다.",
+          "de": "Allein aus der Kennzeichnung lässt sich schwer auf ausreichendes Verständnis schließen.",
+          "en": "A label alone is not enough to conclude that people understood."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그럼 생성 범위와 사람의 검토 단계를 함께 적을까요?",
+          "de": "Sollen wir dann Umfang der Generierung und menschliche Prüfschritte nennen?",
+          "en": "Should we include the generated portions and human review steps?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 감독자가 결과를 바꿀 권한이 있는지도 명시해야 합니다.",
+          "de": "Ja. Auch die Befugnis der Aufsicht, Ergebnisse zu ändern, sollte genannt werden.",
+          "en": "Yes. We should also state whether the reviewer can change the result."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이용자가 오류를 신고할 창구와 처리 기한도 넣겠습니다.",
+          "de": "Wir ergänzen auch Meldestelle und Bearbeitungsfrist für Fehler.",
+          "en": "We will also add where users can report errors and the response deadline."
+        },
+        {
+          "speaker": "user",
+          "ko": "좋습니다. 문구를 공개하기 전에 이용자 테스트를 합시다.",
+          "de": "Gut. Vor Veröffentlichung sollten wir die Formulierung mit Nutzenden testen.",
+          "en": "Good. Let us test the wording with users before release."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "이해 여부와 신고 경로를 실제 과제로 확인하겠습니다.",
+          "de": "Wir testen Verständnis und Meldeweg mit konkreten Aufgaben.",
+          "en": "We will test understanding and the reporting path with concrete tasks."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "합성 콘텐츠"
+        },
+        {
+          "korean": "출처 표시"
+        },
+        {
+          "korean": "인간 감독"
+        },
+        {
+          "korean": "설명 가능성"
+        },
+        {
+          "korean": "오류 신고"
+        },
+        {
+          "korean": "이용자 테스트"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-다고 단정하기 어렵다",
+          "de": "A/V-다고 단정하기 어렵다: eine Schlussfolgerung epistemisch begrenzen",
+          "en": "A/V-다고 단정하기 어렵다: limiting the certainty of a conclusion"
+        },
+        "explanation": {
+          "ko": "근거가 충분하지 않을 때 결론의 확실성을 제한합니다.",
+          "de": "Markiert, dass die vorliegenden Belege für eine eindeutige Schlussfolgerung nicht ausreichen.",
+          "en": "Signals that the available evidence is insufficient for a categorical conclusion."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c1_ai_labeling_policy_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "audioKo": "표시가 있다는 이유만으로 충분히 이해했다고 단정하기 어렵습니다.",
+            "options": [
+              {
+                "ko": "초안에는 ‘AI 활용’이라는 표시만 있습니다.",
+                "de": "Im Entwurf steht nur der Hinweis mit KI erstellt.",
+                "en": "The draft only says AI-assisted."
+              },
+              {
+                "ko": "표시가 있다는 이유만으로 충분히 이해했다고 단정하기 어렵습니다.",
+                "de": "Allein aus der Kennzeichnung lässt sich schwer auf ausreichendes Verständnis schließen.",
+                "en": "A label alone is not enough to conclude that people understood."
+              },
+              {
+                "ko": "네. 감독자가 결과를 바꿀 권한이 있는지도 명시해야 합니다.",
+                "de": "Ja. Auch die Befugnis der Aufsicht, Ergebnisse zu ändern, sollte genannt werden.",
+                "en": "Yes. We should also state whether the reviewer can change the result."
+              },
+              {
+                "ko": "좋습니다. 문구를 공개하기 전에 이용자 테스트를 합시다.",
+                "de": "Gut. Vor Veröffentlichung sollten wir die Formulierung mit Nutzenden testen.",
+                "en": "Good. Let us test the wording with users before release."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c1_ai_labeling_policy_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "promptDe": "Gut. Vor Veröffentlichung sollten wir die Formulierung mit Nutzenden testen.",
+            "promptEn": "Good. Let us test the wording with users before release.",
+            "options": [
+              {
+                "ko": "초안에는 ‘AI 활용’이라는 표시만 있습니다."
+              },
+              {
+                "ko": "네. 감독자가 결과를 바꿀 권한이 있는지도 명시해야 합니다."
+              },
+              {
+                "ko": "좋습니다. 문구를 공개하기 전에 이용자 테스트를 합시다."
+              },
+              {
+                "ko": "표시가 있다는 이유만으로 충분히 이해했다고 단정하기 어렵습니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c1_ai_labeling_policy_batch20_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "sentence": "표시가 있다고 해서 충분히 이해했다고 ___ 어렵습니다.",
+            "options": [
+              "단정하기",
+              "환원하기",
+              "배제하기",
+              "위임하기"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "A/V-다고 단정하기 어렵다 begrenzt die Sicherheit eines Schlusses und verlangt zusätzliche Evidenz.",
+            "explanationEn": "A/V-다고 단정하기 어렵다 limits certainty and calls for more evidence."
+          }
+        },
+        {
+          "id": "quest_c1_ai_labeling_policy_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "생성 범위와 사람의 검토 단계를 구분해서 알려야 합니다.",
+            "promptDe": "Umfang der Generierung und menschliche Prüfschritte müssen getrennt mitgeteilt werden.",
+            "promptEn": "The generated scope and human review steps should be disclosed separately.",
+            "distractors": [
+              "자동으로",
+              "일률적으로"
+            ],
+            "audioKo": "생성 범위와 사람의 검토 단계를 구분해서 알려야 합니다."
+          }
+        },
+        {
+          "id": "quest_c1_ai_labeling_policy_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c1_media_evidence"
+          ],
+          "data": {
+            "targetKo": "문구를 공개하기 전에 이용자 테스트를 합시다.",
+            "audioKo": "문구를 공개하기 전에 이용자 테스트를 합시다.",
+            "promptDe": "Vor Veröffentlichung sollten wir die Formulierung mit Nutzenden testen.",
+            "promptEn": "Let us test the wording with users before release."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "투명성은 표시의 존재만이 아니라 이용자가 무엇을 이해하고 어떤 조치를 취할 수 있는지까지 포함합니다.",
+        "de": "Transparenz umfasst nicht nur ein Label, sondern auch verständliche Informationen und nutzbare Handlungsmöglichkeiten.",
+        "en": "Transparency includes not just a label, but understandable information and actions users can take."
+      },
+      "shelf": "c1_methodology",
+      "backdrop": "office"
+    },
+    {
+      "id": "c2_automated_redress_record_batch20",
+      "level": "c2",
+      "emoji": "⚖️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "independent_audit_team",
+      "intent": "audit_whether_automated_redress_is_effective",
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "자동 결정의 이의 제기 기록을 감사해요",
+        "de": "Einspruchsakten automatischer Entscheidungen prüfen",
+        "en": "Auditing Appeal Records for Automated Decisions"
+      },
+      "intro": {
+        "ko": "감사팀이 통지 이해 시점, 책임 소재, 집행 정지와 재검토 권한을 분리해 기록합니다.",
+        "de": "Ein Auditteam trennt verständliche Mitteilung, Verantwortungszuordnung, aufschiebende Wirkung und Prüfbefugnis.",
+        "en": "An audit team records understandable notice, responsibility, suspension, and review authority separately."
+      },
+      "grammarIds": [
+        "grammar_c2_premise_review_batch20"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "통계에는 이의 제기 접수일만 있고 통지를 이해한 시점은 없습니다.",
+          "de": "Die Statistik enthält nur den Eingang des Einspruchs, nicht den Zeitpunkt verständlicher Mitteilung.",
+          "en": "The data records only when the appeal was filed, not when the notice became understandable."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그렇다면 기한 준수율을 그대로 비교하기 어렵습니다.",
+          "de": "Dann lässt sich die Einhaltung der Frist nicht unverändert vergleichen.",
+          "en": "Then deadline compliance cannot be compared as-is."
+        },
+        {
+          "speaker": "user",
+          "ko": "모든 통지가 이해 가능했다는 전제하에 검토하면 오류가 생깁니다.",
+          "de": "Eine Prüfung unter der Annahme, alle Mitteilungen seien verständlich gewesen, wäre fehlerhaft.",
+          "en": "Reviewing under the premise that every notice was understandable would create error."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "쉬운 말과 번역 제공 여부를 별도 변수로 추가하겠습니다.",
+          "de": "Wir ergänzen leicht verständliche Sprache und Übersetzungsangebot als eigene Variablen.",
+          "en": "We will add plain language and translation availability as separate variables."
+        },
+        {
+          "speaker": "user",
+          "ko": "자동 제재의 집행이 이의 제기 중에 멈췄는지도 확인해야 합니다.",
+          "de": "Wir müssen auch prüfen, ob die automatische Sanktion während des Einspruchs ausgesetzt wurde.",
+          "en": "We also need to check whether the automated sanction paused during the appeal."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "설계자, 운영 기관과 최종 결정자의 책임도 분리해 기록하겠습니다.",
+          "de": "Wir dokumentieren außerdem die Verantwortung von Entwicklung, Betrieb und endgültiger Entscheidung getrennt.",
+          "en": "We will also record responsibility separately for design, operation, and the final decision."
+        },
+        {
+          "speaker": "user",
+          "ko": "재검토자가 원결정을 바꿀 권한이 없으면 구제 절차라고 보기 어렵습니다.",
+          "de": "Ohne Befugnis zur Änderung der ursprünglichen Entscheidung ist das kaum ein wirksamer Rechtsbehelf.",
+          "en": "If the reviewer cannot change the original decision, it is hard to call the process effective redress."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "권한, 처리 기한과 결과 통지까지 감사 항목에 넣겠습니다.",
+          "de": "Wir nehmen Befugnis, Bearbeitungsfrist und Ergebnismitteilung in den Auditumfang auf.",
+          "en": "We will include authority, response time, and outcome notice in the audit."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "이의 제기"
+        },
+        {
+          "korean": "자동 제재"
+        },
+        {
+          "korean": "제도적 구제"
+        },
+        {
+          "korean": "책임 소재"
+        },
+        {
+          "korean": "집행 정지"
+        },
+        {
+          "korean": "재검토 권한"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N이라는 전제하에 검토하다",
+          "de": "N이라는 전제하에 검토하다: eine Prämisse offenlegen und prüfen",
+          "en": "N이라는 전제하에 검토하다: reviewing under an explicit premise"
+        },
+        "explanation": {
+          "ko": "판단이 성립하는 전제를 드러내 그 전제 자체도 검토할 수 있게 합니다.",
+          "de": "Benennt die Annahme, unter der eine Bewertung erfolgt, damit auch die Annahme selbst überprüfbar bleibt.",
+          "en": "Names the assumption under which an evaluation is made so the premise itself remains open to review."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c2_automated_redress_record_batch20_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "audioKo": "모든 통지가 이해 가능했다는 전제하에 검토하면 오류가 생깁니다.",
+            "options": [
+              {
+                "ko": "통계에는 이의 제기 접수일만 있고 통지를 이해한 시점은 없습니다.",
+                "de": "Die Statistik enthält nur den Eingang des Einspruchs, nicht den Zeitpunkt verständlicher Mitteilung.",
+                "en": "The data records only when the appeal was filed, not when the notice became understandable."
+              },
+              {
+                "ko": "모든 통지가 이해 가능했다는 전제하에 검토하면 오류가 생깁니다.",
+                "de": "Eine Prüfung unter der Annahme, alle Mitteilungen seien verständlich gewesen, wäre fehlerhaft.",
+                "en": "Reviewing under the premise that every notice was understandable would create error."
+              },
+              {
+                "ko": "자동 제재의 집행이 이의 제기 중에 멈췄는지도 확인해야 합니다.",
+                "de": "Wir müssen auch prüfen, ob die automatische Sanktion während des Einspruchs ausgesetzt wurde.",
+                "en": "We also need to check whether the automated sanction paused during the appeal."
+              },
+              {
+                "ko": "재검토자가 원결정을 바꿀 권한이 없으면 구제 절차라고 보기 어렵습니다.",
+                "de": "Ohne Befugnis zur Änderung der ursprünglichen Entscheidung ist das kaum ein wirksamer Rechtsbehelf.",
+                "en": "If the reviewer cannot change the original decision, it is hard to call the process effective redress."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c2_automated_redress_record_batch20_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "promptDe": "Ohne Befugnis zur Änderung der ursprünglichen Entscheidung ist das kaum ein wirksamer Rechtsbehelf.",
+            "promptEn": "If the reviewer cannot change the original decision, it is hard to call the process effective redress.",
+            "options": [
+              {
+                "ko": "통계에는 이의 제기 접수일만 있고 통지를 이해한 시점은 없습니다."
+              },
+              {
+                "ko": "자동 제재의 집행이 이의 제기 중에 멈췄는지도 확인해야 합니다."
+              },
+              {
+                "ko": "재검토자가 원결정을 바꿀 권한이 없으면 구제 절차라고 보기 어렵습니다."
+              },
+              {
+                "ko": "모든 통지가 이해 가능했다는 전제하에 검토하면 오류가 생깁니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c2_automated_redress_record_batch20_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "sentence": "모든 통지가 이해 가능했다는 ___ 검토하면 오류가 생깁니다.",
+            "options": [
+              "전제하에",
+              "불문하고",
+              "이유만으로",
+              "그치는"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "N이라는 전제하에 검토하다 legt die Annahme offen, unter der die Prüfung stattfindet.",
+            "explanationEn": "N이라는 전제하에 검토하다 makes the premise of the review explicit."
+          }
+        },
+        {
+          "id": "quest_c2_automated_redress_record_batch20_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "targetKo": "설계자와 운영 기관의 책임 소재를 분리해 기록해야 합니다.",
+            "promptDe": "Die Verantwortung von Entwicklung und Betrieb muss getrennt dokumentiert werden.",
+            "promptEn": "Responsibility for design and operation must be documented separately.",
+            "distractors": [
+              "형식적으로",
+              "자의적으로"
+            ],
+            "audioKo": "설계자와 운영 기관의 책임 소재를 분리해 기록해야 합니다."
+          }
+        },
+        {
+          "id": "quest_c2_automated_redress_record_batch20_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_automation_redress"
+          ],
+          "data": {
+            "targetKo": "권한, 처리 기한과 결과 통지까지 감사 항목에 넣겠습니다.",
+            "audioKo": "권한, 처리 기한과 결과 통지까지 감사 항목에 넣겠습니다.",
+            "promptDe": "Wir nehmen Befugnis, Bearbeitungsfrist und Ergebnismitteilung in den Auditumfang auf.",
+            "promptEn": "We will include authority, response time, and outcome notice in the audit."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "구제 절차의 존재와 실효성은 다릅니다. 이해 가능한 통지, 접근 가능성, 재검토 권한과 집행 효과를 각각 확인합니다.",
+        "de": "Existenz und Wirksamkeit eines Rechtsbehelfs sind verschieden. Verständliche Mitteilung, Zugang, Prüfbefugnis und Vollzugswirkung werden getrennt geprüft.",
+        "en": "The existence and effectiveness of redress differ. Check understandable notice, access, review authority, and enforcement effects separately."
+      },
+      "shelf": "c2_automation",
+      "backdrop": "office"
+    }
+  ]
+}

@@ -426,6 +426,14 @@
       "level": "a1"
     },
     {
+      "id": "seed_grammar_grammar_a1_service_location_question_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_grammar_grammar_a1_service_request_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_grammar_grammar_a1_short_negation_v1",
       "level": "a1"
     },
@@ -483,6 +491,10 @@
     },
     {
       "id": "seed_scenario_a1_card_topup_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_scenario_a1_city_service_route_batch20_v1",
       "level": "a1"
     },
     {
@@ -1142,7 +1154,35 @@
       "level": "a1"
     },
     {
+      "id": "seed_smalltalk_smalltalk_a1_0085_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0086_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0087_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0088_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0089_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a1_0090_v1",
+      "level": "a1"
+    },
+    {
       "id": "seed_vocab_pack_a1_body_v1",
+      "level": "a1"
+    },
+    {
+      "id": "seed_vocab_pack_a1_city_services_2026_1_v1",
       "level": "a1"
     },
     {
@@ -1758,6 +1798,10 @@
       "level": "a2"
     },
     {
+      "id": "seed_grammar_grammar_a2_permission_check_batch20_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_grammar_grammar_a2_permission_v1",
       "level": "a2"
     },
@@ -1767,6 +1811,10 @@
     },
     {
       "id": "seed_grammar_grammar_a2_preference_question_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_grammar_grammar_a2_preference_soft_batch20_v1",
       "level": "a2"
     },
     {
@@ -1915,6 +1963,10 @@
     },
     {
       "id": "seed_scenario_a2_festival_stamp_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_scenario_a2_flat_viewing_terms_batch20_v1",
       "level": "a2"
     },
     {
@@ -2454,6 +2506,30 @@
       "level": "a2"
     },
     {
+      "id": "seed_smalltalk_smalltalk_a2_0078_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0079_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0080_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0081_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0082_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_a2_0083_v1",
+      "level": "a2"
+    },
+    {
       "id": "seed_vocab_pack_a2_apt_rules_1_v1",
       "level": "a2"
     },
@@ -2535,6 +2611,10 @@
     },
     {
       "id": "seed_vocab_pack_a2_household_1_v1",
+      "level": "a2"
+    },
+    {
+      "id": "seed_vocab_pack_a2_housing_search_2026_1_v1",
       "level": "a2"
     },
     {
@@ -2898,6 +2978,10 @@
       "level": "b1"
     },
     {
+      "id": "seed_grammar_grammar_b1_conceded_context_batch20_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_grammar_grammar_b1_consequence_v1",
       "level": "b1"
     },
@@ -3047,6 +3131,10 @@
     },
     {
       "id": "seed_grammar_grammar_b1_tendency_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_grammar_grammar_b1_tentative_plan_batch20_v1",
       "level": "b1"
     },
     {
@@ -3211,6 +3299,10 @@
     },
     {
       "id": "seed_scenario_b1_intranet_form_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_scenario_b1_job_offer_conditions_batch20_v1",
       "level": "b1"
     },
     {
@@ -3670,6 +3762,30 @@
       "level": "b1"
     },
     {
+      "id": "seed_smalltalk_smalltalk_b1_0073_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0074_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0075_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0076_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0077_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b1_0078_v1",
+      "level": "b1"
+    },
+    {
       "id": "seed_vocab_pack_b1_character_feelings_1_v1",
       "level": "b1"
     },
@@ -3827,6 +3943,10 @@
     },
     {
       "id": "seed_vocab_pack_b1_work_coordination_1_v1",
+      "level": "b1"
+    },
+    {
+      "id": "seed_vocab_pack_b1_work_entry_2026_1_v1",
       "level": "b1"
     },
     {
@@ -4158,11 +4278,19 @@
       "level": "b2"
     },
     {
+      "id": "seed_grammar_grammar_b2_considering_fact_batch20_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_grammar_grammar_b2_contrast_v1",
       "level": "b2"
     },
     {
       "id": "seed_grammar_grammar_b2_counterfactual_past_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_grammar_grammar_b2_criterion_view_batch20_v1",
       "level": "b2"
     },
     {
@@ -4599,6 +4727,10 @@
     },
     {
       "id": "seed_scenario_b2_remedy_plan_request_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_scenario_b2_rent_increase_meeting_batch20_v1",
       "level": "b2"
     },
     {
@@ -5114,6 +5246,30 @@
       "level": "b2"
     },
     {
+      "id": "seed_smalltalk_smalltalk_b2_0113_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0114_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0115_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0116_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0117_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_b2_0118_v1",
+      "level": "b2"
+    },
+    {
       "id": "seed_vocab_pack_b2_2026_social_topics_1_v1",
       "level": "b2"
     },
@@ -5175,6 +5331,10 @@
     },
     {
       "id": "seed_vocab_pack_b2_housing_dispute_1_v1",
+      "level": "b2"
+    },
+    {
+      "id": "seed_vocab_pack_b2_housing_migration_2026_1_v1",
       "level": "b2"
     },
     {
@@ -6106,7 +6266,39 @@
       "level": "c1"
     },
     {
+      "id": "seed_cloze_cloze_c1_0245_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0246_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0247_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0248_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0249_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_cloze_cloze_c1_0250_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_grammar_grammar_c1_burden_recipient_batch20_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_grammar_grammar_c1_but_not_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_grammar_grammar_c1_difficult_to_conclude_batch20_v1",
       "level": "c1"
     },
     {
@@ -6966,7 +7158,35 @@
       "level": "c1"
     },
     {
+      "id": "seed_satz_satz_c1_0247_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0248_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0249_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0250_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0251_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_satz_satz_c1_0252_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_scenario_c1_access_time_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_scenario_c1_ai_labeling_policy_batch20_v1",
       "level": "c1"
     },
     {
@@ -7382,11 +7602,39 @@
       "level": "c1"
     },
     {
+      "id": "seed_smalltalk_smalltalk_c1_0072_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0073_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0074_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0075_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0076_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c1_0077_v1",
+      "level": "c1"
+    },
+    {
       "id": "seed_vocab_pack_c1_2026_social_topics_1_v1",
       "level": "c1"
     },
     {
       "id": "seed_vocab_pack_c1_access_cost_1_v1",
+      "level": "c1"
+    },
+    {
+      "id": "seed_vocab_pack_c1_ai_culture_labor_2026_1_v1",
       "level": "c1"
     },
     {
@@ -8242,6 +8490,30 @@
       "level": "c2"
     },
     {
+      "id": "seed_cloze_cloze_c2_0245_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0246_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0247_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0248_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0249_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_cloze_cloze_c2_0250_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_grammar_grammar_c2_as_already_set_v1",
       "level": "c2"
     },
@@ -8274,7 +8546,15 @@
       "level": "c2"
     },
     {
+      "id": "seed_grammar_grammar_c2_no_reduction_batch20_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_grammar_grammar_c2_on_the_premise_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_grammar_grammar_c2_premise_review_batch20_v1",
       "level": "c2"
     },
     {
@@ -9102,6 +9382,30 @@
       "level": "c2"
     },
     {
+      "id": "seed_satz_satz_c2_0247_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0248_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0249_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0250_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0251_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_satz_satz_c2_0252_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_scenario_c2_aesthetic_dialect_subtitle_flatten_v1",
       "level": "c2"
     },
@@ -9127,6 +9431,10 @@
     },
     {
       "id": "seed_scenario_c2_automated_decision_appeal_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_scenario_c2_automated_redress_record_batch20_v1",
       "level": "c2"
     },
     {
@@ -9498,6 +9806,30 @@
       "level": "c2"
     },
     {
+      "id": "seed_smalltalk_smalltalk_c2_0071_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0072_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0073_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0074_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0075_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_smalltalk_smalltalk_c2_0076_v1",
+      "level": "c2"
+    },
+    {
       "id": "seed_vocab_pack_c2_2026_social_topics_1_v1",
       "level": "c2"
     },
@@ -9519,6 +9851,10 @@
     },
     {
       "id": "seed_vocab_pack_c2_automation_redress_1_v1",
+      "level": "c2"
+    },
+    {
+      "id": "seed_vocab_pack_c2_demography_accountability_2026_1_v1",
       "level": "c2"
     },
     {
@@ -10303,6 +10639,20 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_a1_service_location_question",
+      "level": "a1",
+      "sourceSeedId": "seed_grammar_grammar_a1_service_location_question_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a1_service_request",
+      "level": "a1",
+      "sourceSeedId": "seed_grammar_grammar_a1_service_request_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_a1_short_negation",
       "level": "a1",
       "sourceSeedId": "seed_grammar_grammar_a1_short_negation_v1",
@@ -10405,6 +10755,13 @@
       "level": "a1",
       "sourceSeedId": "seed_scenario_a1_card_topup_v1",
       "courseUnitId": "a1_16_survival_capstone"
+    },
+    {
+      "kind": "scenario",
+      "id": "a1_city_service_route_batch20",
+      "level": "a1",
+      "sourceSeedId": "seed_scenario_a1_city_service_route_batch20_v1",
+      "courseUnitId": "a1_03_topic_subject_particles"
     },
     {
       "kind": "scenario",
@@ -11555,11 +11912,60 @@
       "courseUnitId": "a1_14_payment_delivery"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0085",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0085_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0086",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0086_v1",
+      "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0087",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0087_v1",
+      "courseUnitId": "a1_06_transport_directions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0088",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0088_v1",
+      "courseUnitId": "a1_05_numbers_time"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0089",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0089_v1",
+      "courseUnitId": "a1_04_order_request_object"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a1_0090",
+      "level": "a1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a1_0090_v1",
+      "courseUnitId": "a1_12_daily_negation"
+    },
+    {
       "kind": "vocabPack",
       "id": "a1_body",
       "level": "a1",
       "sourceSeedId": "seed_vocab_pack_a1_body_v1",
       "courseUnitId": "a1_10_health_safety"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a1_city_services_2026_1",
+      "level": "a1",
+      "sourceSeedId": "seed_vocab_pack_a1_city_services_2026_1_v1",
+      "courseUnitId": "a1_06_transport_directions"
     },
     {
       "kind": "vocabPack",
@@ -12641,6 +13047,13 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_a2_permission_check_batch20",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_permission_check_batch20_v1",
+      "courseUnitId": "a2_08_home_money"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_a2_polite_proposal",
       "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a2_polite_proposal_v1",
@@ -12652,6 +13065,13 @@
       "level": "a2",
       "sourceSeedId": "seed_grammar_grammar_a2_preference_question_v1",
       "courseUnitId": "a2_02_plans_proposals"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_a2_preference_soft_batch20",
+      "level": "a2",
+      "sourceSeedId": "seed_grammar_grammar_a2_preference_soft_batch20_v1",
+      "courseUnitId": "a2_08_home_money"
     },
     {
       "kind": "grammar",
@@ -12911,6 +13331,13 @@
       "level": "a2",
       "sourceSeedId": "seed_scenario_a2_festival_stamp_v1",
       "courseUnitId": "a2_07_travel_repair"
+    },
+    {
+      "kind": "scenario",
+      "id": "a2_flat_viewing_terms_batch20",
+      "level": "a2",
+      "sourceSeedId": "seed_scenario_a2_flat_viewing_terms_batch20_v1",
+      "courseUnitId": "a2_01_haeyo_transition"
     },
     {
       "kind": "scenario",
@@ -13851,6 +14278,48 @@
       "courseUnitId": "a2_02_plans_proposals"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0078",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0078_v1",
+      "courseUnitId": "a2_08_home_money"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0079",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0079_v1",
+      "courseUnitId": "a2_08_home_money"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0080",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0080_v1",
+      "courseUnitId": "a2_08_home_money"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0081",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0081_v1",
+      "courseUnitId": "a2_08_home_money"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0082",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0082_v1",
+      "courseUnitId": "a2_08_home_money"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_a2_0083",
+      "level": "a2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_a2_0083_v1",
+      "courseUnitId": "a2_08_home_money"
+    },
+    {
       "kind": "vocabPack",
       "id": "a2_apt_rules_1",
       "level": "a2",
@@ -13995,6 +14464,13 @@
       "id": "a2_household_1",
       "level": "a2",
       "sourceSeedId": "seed_vocab_pack_a2_household_1_v1",
+      "courseUnitId": "a2_08_home_money"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "a2_housing_search_2026_1",
+      "level": "a2",
+      "sourceSeedId": "seed_vocab_pack_a2_housing_search_2026_1_v1",
       "courseUnitId": "a2_08_home_money"
     },
     {
@@ -14629,6 +15105,13 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_b1_conceded_context_batch20",
+      "level": "b1",
+      "sourceSeedId": "seed_grammar_grammar_b1_conceded_context_batch20_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_b1_consequence",
       "level": "b1",
       "sourceSeedId": "seed_grammar_grammar_b1_consequence_v1",
@@ -14892,6 +15375,13 @@
       "level": "b1",
       "sourceSeedId": "seed_grammar_grammar_b1_tendency_v1",
       "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_b1_tentative_plan_batch20",
+      "level": "b1",
+      "sourceSeedId": "seed_grammar_grammar_b1_tentative_plan_batch20_v1",
+      "courseUnitId": "b1_03_work_softening"
     },
     {
       "kind": "grammar",
@@ -15179,6 +15669,13 @@
       "level": "b1",
       "sourceSeedId": "seed_scenario_b1_intranet_form_v1",
       "courseUnitId": "b1_05_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b1_job_offer_conditions_batch20",
+      "level": "b1",
+      "sourceSeedId": "seed_scenario_b1_job_offer_conditions_batch20_v1",
+      "courseUnitId": "b1_01_experience_reasons"
     },
     {
       "kind": "scenario",
@@ -15979,6 +16476,48 @@
       "courseUnitId": "b1_01_experience_reasons"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0073",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0073_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0074",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0074_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0075",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0075_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0076",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0076_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0077",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0077_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b1_0078",
+      "level": "b1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b1_0078_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
       "kind": "vocabPack",
       "id": "b1_character_feelings_1",
       "level": "b1",
@@ -16263,6 +16802,13 @@
       "id": "b1_work_coordination_1",
       "level": "b1",
       "sourceSeedId": "seed_vocab_pack_b1_work_coordination_1_v1",
+      "courseUnitId": "b1_03_work_softening"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "b1_work_entry_2026_1",
+      "level": "b1",
+      "sourceSeedId": "seed_vocab_pack_b1_work_entry_2026_1_v1",
       "courseUnitId": "b1_03_work_softening"
     },
     {
@@ -16834,6 +17380,13 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_b2_considering_fact_batch20",
+      "level": "b2",
+      "sourceSeedId": "seed_grammar_grammar_b2_considering_fact_batch20_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_b2_contrast",
       "level": "b2",
       "sourceSeedId": "seed_grammar_grammar_b2_contrast_v1",
@@ -16845,6 +17398,13 @@
       "level": "b2",
       "sourceSeedId": "seed_grammar_grammar_b2_counterfactual_past_v1",
       "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_b2_criterion_view_batch20",
+      "level": "b2",
+      "sourceSeedId": "seed_grammar_grammar_b2_criterion_view_batch20_v1",
+      "courseUnitId": "b2_02_professional_opinion"
     },
     {
       "kind": "grammar",
@@ -17608,6 +18168,13 @@
       "level": "b2",
       "sourceSeedId": "seed_scenario_b2_remedy_plan_request_v1",
       "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "scenario",
+      "id": "b2_rent_increase_meeting_batch20",
+      "level": "b2",
+      "sourceSeedId": "seed_scenario_b2_rent_increase_meeting_batch20_v1",
+      "courseUnitId": "b2_01_formal_opening"
     },
     {
       "kind": "scenario",
@@ -18506,6 +19073,48 @@
       "courseUnitId": "b2_02_professional_opinion"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0113",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0113_v1",
+      "courseUnitId": "b2_06_advanced_capstone"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0114",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0114_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0115",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0115_v1",
+      "courseUnitId": "b2_06_advanced_capstone"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0116",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0116_v1",
+      "courseUnitId": "b2_05_interview"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0117",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0117_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_b2_0118",
+      "level": "b2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_b2_0118_v1",
+      "courseUnitId": "b2_02_professional_opinion"
+    },
+    {
       "kind": "vocabPack",
       "id": "b2_2026_social_topics_1",
       "level": "b2",
@@ -18616,6 +19225,13 @@
       "level": "b2",
       "sourceSeedId": "seed_vocab_pack_b2_housing_dispute_1_v1",
       "courseUnitId": "b2_04_complaint_resolution"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "b2_housing_migration_2026_1",
+      "level": "b2",
+      "sourceSeedId": "seed_vocab_pack_b2_housing_migration_2026_1_v1",
+      "courseUnitId": "b2_02_professional_opinion"
     },
     {
       "kind": "vocabPack",
@@ -20550,11 +21166,67 @@
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
+      "kind": "cloze",
+      "id": "cloze_c1_0245",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0245_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0246",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0246_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0247",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0247_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0248",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0248_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0249",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0249_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c1_0250",
+      "level": "c1",
+      "sourceSeedId": "seed_cloze_cloze_c1_0250_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c1_burden_recipient_batch20",
+      "level": "c1",
+      "sourceSeedId": "seed_grammar_grammar_c1_burden_recipient_batch20_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
       "kind": "grammar",
       "id": "grammar_c1_but_not",
       "level": "c1",
       "sourceSeedId": "seed_grammar_grammar_c1_but_not_v1",
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c1_difficult_to_conclude_batch20",
+      "level": "c1",
+      "sourceSeedId": "seed_grammar_grammar_c1_difficult_to_conclude_batch20_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "kind": "grammar",
@@ -22447,10 +23119,59 @@
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
+      "kind": "satz",
+      "id": "satz_c1_0247",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0247_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0248",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0248_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0249",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0249_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0250",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0250_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0251",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0251_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c1_0252",
+      "level": "c1",
+      "sourceSeedId": "seed_satz_satz_c1_0252_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
       "kind": "scenario",
       "id": "c1_access_time",
       "level": "c1",
       "sourceSeedId": "seed_scenario_c1_access_time_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "scenario",
+      "id": "c1_ai_labeling_policy_batch20",
+      "level": "c1",
+      "sourceSeedId": "seed_scenario_c1_ai_labeling_policy_batch20_v1",
       "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
@@ -23287,6 +24008,48 @@
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0072",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0072_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0073",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0073_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0074",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0074_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0075",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0075_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0076",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0076_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c1_0077",
+      "level": "c1",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c1_0077_v1",
+      "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
       "kind": "vocabPack",
       "id": "c1_2026_social_topics_1",
       "level": "c1",
@@ -23306,6 +24069,13 @@
       "level": "c1",
       "sourceSeedId": "seed_batch05_c1_accessible_participation_1_v1",
       "courseUnitId": "c1_02_inclusive_sustainable_systems"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c1_ai_culture_labor_2026_1",
+      "level": "c1",
+      "sourceSeedId": "seed_vocab_pack_c1_ai_culture_labor_2026_1_v1",
+      "courseUnitId": "c1_01_evidence_public_reasoning"
     },
     {
       "kind": "vocabPack",
@@ -25128,6 +25898,48 @@
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
+      "kind": "cloze",
+      "id": "cloze_c2_0245",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0245_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0246",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0246_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0247",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0247_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0248",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0248_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0249",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0249_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "cloze",
+      "id": "cloze_c2_0250",
+      "level": "c2",
+      "sourceSeedId": "seed_cloze_cloze_c2_0250_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
       "kind": "grammar",
       "id": "grammar_c2_as_already_set",
       "level": "c2",
@@ -25227,6 +26039,13 @@
     },
     {
       "kind": "grammar",
+      "id": "grammar_c2_no_reduction_batch20",
+      "level": "c2",
+      "sourceSeedId": "seed_grammar_grammar_c2_no_reduction_batch20_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "grammar",
       "id": "grammar_c2_nothing_more_than",
       "level": "c2",
       "sourceSeedId": "seed_batch05_c2_technology_ethics_1_v1",
@@ -25237,6 +26056,13 @@
       "id": "grammar_c2_on_the_premise",
       "level": "c2",
       "sourceSeedId": "seed_grammar_grammar_c2_on_the_premise_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "grammar",
+      "id": "grammar_c2_premise_review_batch20",
+      "level": "c2",
+      "sourceSeedId": "seed_grammar_grammar_c2_premise_review_batch20_v1",
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
@@ -27025,6 +27851,48 @@
       "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
+      "kind": "satz",
+      "id": "satz_c2_0247",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0247_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0248",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0248_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0249",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0249_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0250",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0250_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0251",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0251_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "satz",
+      "id": "satz_c2_0252",
+      "level": "c2",
+      "sourceSeedId": "seed_satz_satz_c2_0252_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
       "kind": "scenario",
       "id": "c2_aesthetic_dialect_subtitle_flatten",
       "level": "c2",
@@ -27071,6 +27939,13 @@
       "id": "c2_automated_decision_appeal",
       "level": "c2",
       "sourceSeedId": "seed_scenario_c2_automated_decision_appeal_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "scenario",
+      "id": "c2_automated_redress_record_batch20",
+      "level": "c2",
+      "sourceSeedId": "seed_scenario_c2_automated_redress_record_batch20_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
@@ -27830,6 +28705,48 @@
       "courseUnitId": "c2_02_technology_public_ethics"
     },
     {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0071",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0071_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0072",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0072_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0073",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0073_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0074",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0074_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0075",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0075_v1",
+      "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "smalltalk",
+      "id": "smalltalk_c2_0076",
+      "level": "c2",
+      "sourceSeedId": "seed_smalltalk_smalltalk_c2_0076_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
+    },
+    {
       "kind": "vocabPack",
       "id": "c2_2026_social_topics_1",
       "level": "c2",
@@ -27870,6 +28787,13 @@
       "level": "c2",
       "sourceSeedId": "seed_vocab_pack_c2_automation_redress_1_v1",
       "courseUnitId": "c2_02_technology_public_ethics"
+    },
+    {
+      "kind": "vocabPack",
+      "id": "c2_demography_accountability_2026_1",
+      "level": "c2",
+      "sourceSeedId": "seed_vocab_pack_c2_demography_accountability_2026_1_v1",
+      "courseUnitId": "c2_01_interpretation_institutions"
     },
     {
       "kind": "vocabPack",
@@ -27965,17 +28889,17 @@
   ],
   "coverage": {
     "directReferenceCounts": {
-      "vocabPack": 217,
-      "grammar": 232,
-      "smalltalk": 486,
-      "scenario": 407,
-      "cloze": 775,
-      "satz": 504,
+      "vocabPack": 223,
+      "grammar": 244,
+      "smalltalk": 522,
+      "scenario": 413,
+      "cloze": 787,
+      "satz": 516,
       "project": 8
     },
     "inheritedReferenceCounts": {
-      "cloze": 994,
-      "satz": 1793
+      "cloze": 1018,
+      "satz": 1817
     },
     "inheritedContentReferences": [
       {
@@ -30925,6 +31849,72 @@
         "level": "a1",
         "canDoSegmentId": "segment_a1_14_payment_delivery",
         "courseUnitId": "a1_14_payment_delivery"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0345",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0416",
+        "sourceVocabFingerprintSha256": "a779bc08cb365170e7da918e50421a5a034f57698192b5e46874b25f03b9c326",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0346",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0417",
+        "sourceVocabFingerprintSha256": "fc0d23eb949c6263be36da015752ef60d3af19f4523f831f66e01ef49e4c4a02",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0347",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0418",
+        "sourceVocabFingerprintSha256": "1ebce8151b777bc74ce0c5edd0d547bf34268365b265c9f9347297a3807c6529",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0348",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0419",
+        "sourceVocabFingerprintSha256": "7b79079cf9bdca20cbfe775b2161db10c5eeb34fb550f988fefc6b0cecb898bd",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0349",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0420",
+        "sourceVocabFingerprintSha256": "96f94861518b928db6785616f232648d06c398c6fc350f977d871d44564b6824",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a1_0350",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0421",
+        "sourceVocabFingerprintSha256": "6c730c14a5570de262a20fc93b7b1d3762098da9aebe56d8b189982bc5541bb9",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
       },
       {
         "kind": "satz",
@@ -34579,6 +35569,72 @@
         "courseUnitId": "a1_16_survival_capstone"
       },
       {
+        "kind": "satz",
+        "id": "satz_a1_0333",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0422",
+        "sourceVocabFingerprintSha256": "332152209bb3e04f821556b219cc61c5cd4f93e56268264e28a8027117f6a1dd",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0334",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0423",
+        "sourceVocabFingerprintSha256": "1ea56a91ce0e745db47b96ab67d4deefa98e80b3091e6699dde7d99f08211c27",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0335",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0424",
+        "sourceVocabFingerprintSha256": "5c75d9eb97be3037d776936af872f3ae84aeb138ecc94d35818ecf14b852bfff",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0336",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0425",
+        "sourceVocabFingerprintSha256": "38ec6baa3334b04953e82c60a766e1e0c535e13a70ab0025dbf83077eb02ccbe",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0337",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0426",
+        "sourceVocabFingerprintSha256": "db830b0bfba0c206fd5118ba1d945785f8b463132d2a442e67f878c64d38a021",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a1_0338",
+        "sourceKind": "vocabPack",
+        "sourceId": "a1_city_services_2026_1",
+        "sourceVocabId": "vocab_a1_0427",
+        "sourceVocabFingerprintSha256": "ba42c5bcdaf0ddc4160b1ef4dc7f122e531485d37c752e3739d71368baf93630",
+        "level": "a1",
+        "canDoSegmentId": "segment_a1_06_transport_directions",
+        "courseUnitId": "a1_06_transport_directions"
+      },
+      {
         "kind": "cloze",
         "id": "cloze_a2_0005",
         "sourceKind": "vocabPack",
@@ -36755,6 +37811,72 @@
         "level": "a2",
         "canDoSegmentId": "segment_a2_plans_with_friend",
         "courseUnitId": "a2_02_plans_proposals"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0278",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0465",
+        "sourceVocabFingerprintSha256": "55ffc35d00cbacfb6780e70d5543459a9a186225d4cf46a6379c57149a4663f2",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0279",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0466",
+        "sourceVocabFingerprintSha256": "d1ea5eee06fa78f6fd9d823efc33398f156e76f09d4cb9cbe51ce8cfaf82392c",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0280",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0467",
+        "sourceVocabFingerprintSha256": "5b5549e7a836a6ce48c6509be7bc1159a1557a5143d3a6feb33a7a6c789469cc",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0281",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0468",
+        "sourceVocabFingerprintSha256": "2272f84e265b2f8c23336d389f652f07c5746bf7acc6c87ffe703514614d057b",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0282",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0469",
+        "sourceVocabFingerprintSha256": "9ab9e02ab9bbbb8863dd105bfddc8b1e03aa3f9f7c3370f128f55891ed4032c9",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_a2_0283",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0470",
+        "sourceVocabFingerprintSha256": "ee5d18ab7068d3527983405e8b304d5077aa4611ba7d7e379ad5d4fc18cb05b3",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
       },
       {
         "kind": "satz",
@@ -41839,6 +42961,72 @@
         "courseUnitId": "a2_02_plans_proposals"
       },
       {
+        "kind": "satz",
+        "id": "satz_a2_0463",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0471",
+        "sourceVocabFingerprintSha256": "ceaa637759b59ce2bac8a1fdcc0e644eb90ed6bb1a2fd8ecd47b0621bd684711",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0464",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0472",
+        "sourceVocabFingerprintSha256": "e704a20c6be7015abacb8ae41da39577b2376beafb7c4c850944d7ab9214e6a7",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0465",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0473",
+        "sourceVocabFingerprintSha256": "be1fe87802f5188ad7c03bc8a2ebb71c17e67c8ce27cc6145b88a3dd384ce286",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0466",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0474",
+        "sourceVocabFingerprintSha256": "f75b9fb75e7e083264ea960a74edcdb49f0a142d0b622120a04b0f1c3d4c0333",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0467",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0475",
+        "sourceVocabFingerprintSha256": "f42f2f06a850b1ac58309f59f80f4218bc1195983d9545fe411720b9765739d5",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_a2_0468",
+        "sourceKind": "vocabPack",
+        "sourceId": "a2_housing_search_2026_1",
+        "sourceVocabId": "vocab_a2_0476",
+        "sourceVocabFingerprintSha256": "4a5ac57aeb6cabd122defe369a09b4c01a4d8d16c6f03bd5456dfe7de3fe305d",
+        "level": "a2",
+        "canDoSegmentId": "segment_a2_rent_bank_transfer",
+        "courseUnitId": "a2_08_home_money"
+      },
+      {
         "kind": "cloze",
         "id": "cloze_b1_0056",
         "sourceKind": "vocabPack",
@@ -44213,6 +45401,72 @@
         "level": "b1",
         "canDoSegmentId": "segment_b1_plans_with_reasons",
         "courseUnitId": "b1_01_experience_reasons"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0276",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0468",
+        "sourceVocabFingerprintSha256": "9a7501abae7fff2bc3ce7c720c84c3f2a9f1fd30063b8741f0fa14ae5627a396",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0277",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0469",
+        "sourceVocabFingerprintSha256": "72ee3b9878d5ffdd345951a70696fc183f7d522a73fb67b6eb3d2e0fcb59ea53",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0278",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0470",
+        "sourceVocabFingerprintSha256": "56a2e4c7cb7b45cf04746764adbdfbd44b374c0fa2a466b847150b19b625119c",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0279",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0471",
+        "sourceVocabFingerprintSha256": "abc55c025cc8f5a1ac5d9077f69bb29646930bb3c72500a716ebe45a01dd6982",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0280",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0472",
+        "sourceVocabFingerprintSha256": "2310a38fed78350869fee2b9f4743f1b58112ee0afcd26d356b4c07ed2c336ca",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b1_0281",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0473",
+        "sourceVocabFingerprintSha256": "65541ba5e3f8579bf729d45564dc39fcc90a7cae1343037b645b64d63f4f7460",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
       },
       {
         "kind": "satz",
@@ -49297,6 +50551,72 @@
         "courseUnitId": "b1_04_relationships"
       },
       {
+        "kind": "satz",
+        "id": "satz_b1_0469",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0474",
+        "sourceVocabFingerprintSha256": "6e1c000394b52ba7af059d010d5cc59c3ea9607abf9a2f151442cd583e6a7e89",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0470",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0475",
+        "sourceVocabFingerprintSha256": "9bec9c13ac831ed1ba5b45f85196140531cfcf82549088f7da837f62e21e63eb",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0471",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0476",
+        "sourceVocabFingerprintSha256": "016399b6cec5b5e32f7b61e31fb1db58f4af2a64311802b312d147d948b47ab6",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0472",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0477",
+        "sourceVocabFingerprintSha256": "2894d36e91b40c4297709f486cbda59d299c89c90be452909debfe4fd814b924",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0473",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0478",
+        "sourceVocabFingerprintSha256": "449ca7d5ee6c3b320777c05c808c2a13088598f97108dcdbe29fb6c9e86a9a66",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b1_0474",
+        "sourceKind": "vocabPack",
+        "sourceId": "b1_work_entry_2026_1",
+        "sourceVocabId": "vocab_b1_0479",
+        "sourceVocabFingerprintSha256": "4ae3670dd53d979aeb93e6d884e8fa98df6dd0fbdea2270319bb8698ab8c4f8e",
+        "level": "b1",
+        "canDoSegmentId": "segment_b1_team_role_coordination",
+        "courseUnitId": "b1_03_work_softening"
+      },
+      {
         "kind": "cloze",
         "id": "cloze_b2_0058",
         "sourceKind": "vocabPack",
@@ -52727,6 +54047,72 @@
         "level": "b2",
         "canDoSegmentId": "segment_b2_formal_soft_reformulation",
         "courseUnitId": "b2_06_advanced_capstone"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b2_0386",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0635",
+        "sourceVocabFingerprintSha256": "21533435a239750853ccfe9d08c61081f2b851c9ef80fbd676c0ba94bc75ec1a",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b2_0387",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0636",
+        "sourceVocabFingerprintSha256": "aa62d3ba47b154634a33157c3484d777ae72654932737d64109ad4f285d1779b",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b2_0388",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0637",
+        "sourceVocabFingerprintSha256": "54c1a625b6c13c0804f5eac1b6ebb0964c2f4f22374030007cfbb0e3ff0c78a9",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b2_0389",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0638",
+        "sourceVocabFingerprintSha256": "e2adc00c35772538240118d2363edc1a4d9b251df0a921ced9b0694f862942af",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b2_0390",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0639",
+        "sourceVocabFingerprintSha256": "aefdac60b6fa0d0e9c998294ea42fd80dc5a16eb005b2fe2f0135a599775dc9c",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "cloze",
+        "id": "cloze_b2_0391",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0640",
+        "sourceVocabFingerprintSha256": "208fc5ba5b1b67248654fb9be9976c671e8d7a13384eaa083908c678b1403afd",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
       },
       {
         "kind": "satz",
@@ -58634,6 +60020,72 @@
         "level": "b2",
         "canDoSegmentId": "segment_b2_formal_soft_reformulation",
         "courseUnitId": "b2_06_advanced_capstone"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b2_0544",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0641",
+        "sourceVocabFingerprintSha256": "6d00178d14f987d064fbc9afd51ac7fd57eccbb83d25d10170f8ad78d7ecbbaf",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b2_0545",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0642",
+        "sourceVocabFingerprintSha256": "24b347aee3266aa233b3bf03135720b60c481e919185cdc138e6278d6ca2b227",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b2_0546",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0643",
+        "sourceVocabFingerprintSha256": "e33c793cc892bf7e8c357ee2a3f2bc56100cdab5abcb0fde3f92680d40cfe62e",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b2_0547",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0644",
+        "sourceVocabFingerprintSha256": "fe82a8dcf2bd698a56777a8fab187e5e807a0f162cff6539a66d97da482579ac",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b2_0548",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0645",
+        "sourceVocabFingerprintSha256": "66ad4ee1b275c46a12b686e845a3ea76de69c1550a44e249715de3b68bb3c7f5",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
+      },
+      {
+        "kind": "satz",
+        "id": "satz_b2_0549",
+        "sourceKind": "vocabPack",
+        "sourceId": "b2_housing_migration_2026_1",
+        "sourceVocabId": "vocab_b2_0646",
+        "sourceVocabFingerprintSha256": "337640867a89aa7755477f52a067aa06dbb8c5bb105551186d685dea4209d086",
+        "level": "b2",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "courseUnitId": "b2_02_professional_opinion"
       }
     ],
     "inheritanceRules": [
@@ -59180,6 +60632,12 @@
         "smalltalk_a2_0055",
         "smalltalk_a2_0056",
         "smalltalk_a2_0057",
+        "smalltalk_a2_0078",
+        "smalltalk_a2_0079",
+        "smalltalk_a2_0080",
+        "smalltalk_a2_0081",
+        "smalltalk_a2_0082",
+        "smalltalk_a2_0083",
         "smalltalk_b1_0006",
         "smalltalk_b1_0011",
         "smalltalk_b1_0012",
@@ -59201,7 +60659,10 @@
         "smalltalk_b2_0103",
         "smalltalk_b2_0104",
         "smalltalk_b2_0109",
-        "smalltalk_b2_0110"
+        "smalltalk_b2_0110",
+        "smalltalk_b2_0113",
+        "smalltalk_b2_0115",
+        "smalltalk_b2_0116"
       ],
       "courseUnitFallbackIds": [
         "smalltalk_a1_0001",
@@ -59261,6 +60722,12 @@
         "smalltalk_a1_0064",
         "smalltalk_a1_0083",
         "smalltalk_a1_0084",
+        "smalltalk_a1_0085",
+        "smalltalk_a1_0086",
+        "smalltalk_a1_0087",
+        "smalltalk_a1_0088",
+        "smalltalk_a1_0089",
+        "smalltalk_a1_0090",
         "smalltalk_a2_0005",
         "smalltalk_a2_0010",
         "smalltalk_a2_0029",
@@ -59291,6 +60758,12 @@
         "smalltalk_b1_0030",
         "smalltalk_b1_0031",
         "smalltalk_b1_0032",
+        "smalltalk_b1_0073",
+        "smalltalk_b1_0074",
+        "smalltalk_b1_0075",
+        "smalltalk_b1_0076",
+        "smalltalk_b1_0077",
+        "smalltalk_b1_0078",
         "smalltalk_b2_0041",
         "smalltalk_b2_0042",
         "smalltalk_b2_0101",
@@ -59300,7 +60773,10 @@
         "smalltalk_b2_0107",
         "smalltalk_b2_0108",
         "smalltalk_b2_0111",
-        "smalltalk_b2_0112"
+        "smalltalk_b2_0112",
+        "smalltalk_b2_0114",
+        "smalltalk_b2_0117",
+        "smalltalk_b2_0118"
       ],
       "legacyCourseUnitOverrides": [],
       "phraseDecisions": [
@@ -60189,6 +61665,66 @@
           "reviewRevision": 1
         },
         {
+          "phraseId": "smalltalk_a1_0085",
+          "phraseFingerprintSha256": "cf974cd2f2b6d732b885e5dd13d0b576c5bb2bec192be08cfabc23410d2aca1a",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_06_transport_directions",
+          "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0086",
+          "phraseFingerprintSha256": "17e10fcfca224198cae0189c1c611e81a8716f4f40d298c2d5d2bc645de97e7e",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_10_health_safety",
+          "canDoFingerprintSha256": "dc0080c4052c51617e5a2a23b7fe0e44b4738bf557a0ea439c9a56a2a561daef",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0087",
+          "phraseFingerprintSha256": "be5c098564b6d10b4842462f37db8bd86ff0b5d7d04509dd683b316ff5a8affa",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_06_transport_directions",
+          "canDoFingerprintSha256": "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0088",
+          "phraseFingerprintSha256": "f99f21b30a114883b1dcb53ddf908ce2d0684e4990f34c141622de0f2fab9688",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_05_numbers_time",
+          "canDoFingerprintSha256": "df13f9abc50cada9e113e9b9df07596b8bb579d556caca87ceef7ce4174c1f6f",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0089",
+          "phraseFingerprintSha256": "578acf2f8cc4684af0d05e5865bade5cb2abbeefaf9f2da372a94abf0e52ba1a",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_04_order_request_object",
+          "canDoFingerprintSha256": "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a1_0090",
+          "phraseFingerprintSha256": "e0ec98c677d90ca5bfeb53226621f951f02f3a255ae347736f8cd10d80be4cb3",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_a1_12_daily_negation",
+          "canDoFingerprintSha256": "08a3b9fbaeb286dec20cb306a59f28ac2794d44462b721f560d063ebb0dbd833",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
           "phraseId": "smalltalk_a2_0001",
           "phraseFingerprintSha256": "d68f9dfa954bd5b192dbf9d19bbbac5bff6b384062b6ae6cd1c50644b961128a",
           "routingSource": "exactOverride",
@@ -61015,6 +62551,66 @@
           "reviewRevision": 1
         },
         {
+          "phraseId": "smalltalk_a2_0078",
+          "phraseFingerprintSha256": "75b5aec219c07c1c64c2d01e5adf3c2a708c5409f323853f0eb49772dd7f62cb",
+          "routingSource": "categoryFallback",
+          "canDoSegmentId": "segment_a2_rent_bank_transfer",
+          "canDoFingerprintSha256": "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0079",
+          "phraseFingerprintSha256": "a6fa27d5870ff1c4999fb2371d51750a7981648de740a787e9f795c9bfb2fb47",
+          "routingSource": "categoryFallback",
+          "canDoSegmentId": "segment_a2_rent_bank_transfer",
+          "canDoFingerprintSha256": "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0080",
+          "phraseFingerprintSha256": "c5f20249ab6a9213c28e0ca188b415809eef0c861ba89097846188fc54dcfe9e",
+          "routingSource": "categoryFallback",
+          "canDoSegmentId": "segment_a2_rent_bank_transfer",
+          "canDoFingerprintSha256": "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0081",
+          "phraseFingerprintSha256": "e8525f906dd6610ca98877fa0256920a7bd6ae086e8004c011533418661be8bf",
+          "routingSource": "categoryFallback",
+          "canDoSegmentId": "segment_a2_rent_bank_transfer",
+          "canDoFingerprintSha256": "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0082",
+          "phraseFingerprintSha256": "b51af6c8ae1aa660a600f1c8fc318ef1ba51696994d2e42ed0f9900bafa0c2d5",
+          "routingSource": "categoryFallback",
+          "canDoSegmentId": "segment_a2_rent_bank_transfer",
+          "canDoFingerprintSha256": "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_a2_0083",
+          "phraseFingerprintSha256": "7b540833d55b3c63412405759fb39b12fbba9fe55d79633d4be58a0288157d5c",
+          "routingSource": "categoryFallback",
+          "canDoSegmentId": "segment_a2_rent_bank_transfer",
+          "canDoFingerprintSha256": "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
           "phraseId": "smalltalk_b1_0001",
           "phraseFingerprintSha256": "b6f63c294e5d8fdfb10838b4ea950be095b73c10585100720272ffb843aa1cc0",
           "routingSource": "courseUnitFallback",
@@ -61762,6 +63358,66 @@
           "routingSource": "exactOverride",
           "canDoSegmentId": "segment_b1_plans_with_reasons",
           "canDoFingerprintSha256": "8b6f3c54bbfa65df74613a6a478c222e2f32a2603fb4d8acf4547a6a79443c44",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0073",
+          "phraseFingerprintSha256": "059f7baf79d87307fca40b342d7b7b1d73196d024a708f05bbc7ee8ffe1b64d2",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_team_role_coordination",
+          "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0074",
+          "phraseFingerprintSha256": "1863b0544bc45c0a2ff4b8ee82704749e36802bd65f7c6947a56a2ec21f4cabf",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_team_role_coordination",
+          "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0075",
+          "phraseFingerprintSha256": "d6f81fd25530afb5879949aa879ae8c13bc2d7e07c71c9917f30abe261e1bc0a",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_team_role_coordination",
+          "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0076",
+          "phraseFingerprintSha256": "da7465c2af96ca27c28f5be9ef1de2520f5e2a3b7fa46ca24deb7e4bcf1abf0a",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_team_role_coordination",
+          "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0077",
+          "phraseFingerprintSha256": "2da6ddd1dc89d5b817a36adb6779e93a766ec98553ebebbfad4f39b473bd870f",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_team_role_coordination",
+          "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b1_0078",
+          "phraseFingerprintSha256": "dcb5641473e107c86516cad605c1060d9be8ac22c37b8131986d2ec02ffc19bb",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b1_team_role_coordination",
+          "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
           "semanticStatus": "approved",
           "reasonCode": "topicAndFunctionMatch",
           "reviewRevision": 1
@@ -62915,6 +64571,66 @@
         {
           "phraseId": "smalltalk_b2_0112",
           "phraseFingerprintSha256": "d7c9dcfe0fb81ace2924b3c4d590b68e1dd9564f31aadda04a8b0d13f1416c2b",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_decision_criteria",
+          "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0113",
+          "phraseFingerprintSha256": "30d99981bea80abbb20e62a9a5791174a961ab4645be32388b2625aa4960c330",
+          "routingSource": "categoryFallback",
+          "canDoSegmentId": "segment_b2_formal_soft_reformulation",
+          "canDoFingerprintSha256": "9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0114",
+          "phraseFingerprintSha256": "202021b955a031c8a26b79254783a0dd0cfdd4cf536271a70cea16216bfc9132",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_decision_criteria",
+          "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0115",
+          "phraseFingerprintSha256": "525b5c363c2f1a29b0c75c6ecf9814c07967bcebc9168b99ec8dc149a5fbd268",
+          "routingSource": "categoryFallback",
+          "canDoSegmentId": "segment_b2_formal_soft_reformulation",
+          "canDoFingerprintSha256": "9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0116",
+          "phraseFingerprintSha256": "17b404a17d188de74e3b04cc5c46b8136ac2bd2d659cbabdee0505df69f0fc65",
+          "routingSource": "categoryFallback",
+          "canDoSegmentId": "segment_b2_interview_experience",
+          "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0117",
+          "phraseFingerprintSha256": "4ff0b1151de820ce984152f5f2bd9fcbe22a04111a6a1599355cdfaac27e6918",
+          "routingSource": "courseUnitFallback",
+          "canDoSegmentId": "segment_b2_decision_criteria",
+          "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+          "semanticStatus": "approved",
+          "reasonCode": "topicAndFunctionMatch",
+          "reviewRevision": 1
+        },
+        {
+          "phraseId": "smalltalk_b2_0118",
+          "phraseFingerprintSha256": "058783e1fb34ac8701ad29557dfb0bf508fa192977eb5565afd9fce547f0b986",
           "routingSource": "courseUnitFallback",
           "canDoSegmentId": "segment_b2_decision_criteria",
           "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",

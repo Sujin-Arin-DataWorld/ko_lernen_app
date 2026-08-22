@@ -2434,6 +2434,49 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
     },
 }
 
+# Batch 20 route approvals are limited to semantic Can-do placement. Jin's
+# integration approval authorizes publication, while independent native-copy
+# review remains a separate, explicitly open gate in the batch manifest.
+_BATCH20_SMALLTALK_ROUTE_APPROVALS = (
+    ("smalltalk_a1_0085", "cf974cd2f2b6d732b885e5dd13d0b576c5bb2bec192be08cfabc23410d2aca1a", "segment_a1_06_transport_directions", "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af"),
+    ("smalltalk_a1_0086", "17e10fcfca224198cae0189c1c611e81a8716f4f40d298c2d5d2bc645de97e7e", "segment_a1_10_health_safety", "dc0080c4052c51617e5a2a23b7fe0e44b4738bf557a0ea439c9a56a2a561daef"),
+    ("smalltalk_a1_0087", "be5c098564b6d10b4842462f37db8bd86ff0b5d7d04509dd683b316ff5a8affa", "segment_a1_06_transport_directions", "84cbe41abdd552c6e1ceb7c6d0dfae71827fba37798e9056e8e3a4b71ed2d7af"),
+    ("smalltalk_a1_0088", "f99f21b30a114883b1dcb53ddf908ce2d0684e4990f34c141622de0f2fab9688", "segment_a1_05_numbers_time", "df13f9abc50cada9e113e9b9df07596b8bb579d556caca87ceef7ce4174c1f6f"),
+    ("smalltalk_a1_0089", "578acf2f8cc4684af0d05e5865bade5cb2abbeefaf9f2da372a94abf0e52ba1a", "segment_a1_04_order_request_object", "a3b28672591b1c66a7c32e25f26363cd118a7340d59ddc88a5fe40a40408806f"),
+    ("smalltalk_a1_0090", "e0ec98c677d90ca5bfeb53226621f951f02f3a255ae347736f8cd10d80be4cb3", "segment_a1_12_daily_negation", "08a3b9fbaeb286dec20cb306a59f28ac2794d44462b721f560d063ebb0dbd833"),
+    ("smalltalk_a2_0078", "75b5aec219c07c1c64c2d01e5adf3c2a708c5409f323853f0eb49772dd7f62cb", "segment_a2_rent_bank_transfer", "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69"),
+    ("smalltalk_a2_0079", "a6fa27d5870ff1c4999fb2371d51750a7981648de740a787e9f795c9bfb2fb47", "segment_a2_rent_bank_transfer", "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69"),
+    ("smalltalk_a2_0080", "c5f20249ab6a9213c28e0ca188b415809eef0c861ba89097846188fc54dcfe9e", "segment_a2_rent_bank_transfer", "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69"),
+    ("smalltalk_a2_0081", "e8525f906dd6610ca98877fa0256920a7bd6ae086e8004c011533418661be8bf", "segment_a2_rent_bank_transfer", "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69"),
+    ("smalltalk_a2_0082", "b51af6c8ae1aa660a600f1c8fc318ef1ba51696994d2e42ed0f9900bafa0c2d5", "segment_a2_rent_bank_transfer", "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69"),
+    ("smalltalk_a2_0083", "7b540833d55b3c63412405759fb39b12fbba9fe55d79633d4be58a0288157d5c", "segment_a2_rent_bank_transfer", "bd096360bf10272f4ad7bba9da36bf9418a72652ae21d64c0c86aebe07cb9e69"),
+    ("smalltalk_b1_0073", "059f7baf79d87307fca40b342d7b7b1d73196d024a708f05bbc7ee8ffe1b64d2", "segment_b1_team_role_coordination", "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef"),
+    ("smalltalk_b1_0074", "1863b0544bc45c0a2ff4b8ee82704749e36802bd65f7c6947a56a2ec21f4cabf", "segment_b1_team_role_coordination", "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef"),
+    ("smalltalk_b1_0075", "d6f81fd25530afb5879949aa879ae8c13bc2d7e07c71c9917f30abe261e1bc0a", "segment_b1_team_role_coordination", "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef"),
+    ("smalltalk_b1_0076", "da7465c2af96ca27c28f5be9ef1de2520f5e2a3b7fa46ca24deb7e4bcf1abf0a", "segment_b1_team_role_coordination", "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef"),
+    ("smalltalk_b1_0077", "2da6ddd1dc89d5b817a36adb6779e93a766ec98553ebebbfad4f39b473bd870f", "segment_b1_team_role_coordination", "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef"),
+    ("smalltalk_b1_0078", "dcb5641473e107c86516cad605c1060d9be8ac22c37b8131986d2ec02ffc19bb", "segment_b1_team_role_coordination", "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef"),
+    ("smalltalk_b2_0113", "30d99981bea80abbb20e62a9a5791174a961ab4645be32388b2625aa4960c330", "segment_b2_formal_soft_reformulation", "9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945"),
+    ("smalltalk_b2_0114", "202021b955a031c8a26b79254783a0dd0cfdd4cf536271a70cea16216bfc9132", "segment_b2_decision_criteria", "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e"),
+    ("smalltalk_b2_0115", "525b5c363c2f1a29b0c75c6ecf9814c07967bcebc9168b99ec8dc149a5fbd268", "segment_b2_formal_soft_reformulation", "9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945"),
+    ("smalltalk_b2_0116", "17b404a17d188de74e3b04cc5c46b8136ac2bd2d659cbabdee0505df69f0fc65", "segment_b2_interview_experience", "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed"),
+    ("smalltalk_b2_0117", "4ff0b1151de820ce984152f5f2bd9fcbe22a04111a6a1599355cdfaac27e6918", "segment_b2_decision_criteria", "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e"),
+    ("smalltalk_b2_0118", "058783e1fb34ac8701ad29557dfb0bf508fa192977eb5565afd9fce547f0b986", "segment_b2_decision_criteria", "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e"),
+)
+SMALLTALK_REVIEW_APPROVALS.update(
+    {
+        phrase_id: {
+            "phraseFingerprintSha256": phrase_fingerprint,
+            "canDoSegmentId": segment_id,
+            "canDoFingerprintSha256": segment_fingerprint,
+            "semanticStatus": "approved",
+            "reviewRevision": 1,
+        }
+        for phrase_id, phrase_fingerprint, segment_id, segment_fingerprint
+        in _BATCH20_SMALLTALK_ROUTE_APPROVALS
+    }
+)
+
 
 SMALLTALK_CATEGORY_ROUTES: dict[tuple[str, str], str] = {
     ("a1", "partner_family"): "a1_11_titles_relationships",

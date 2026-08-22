@@ -33,11 +33,11 @@ class PromotedBatchValidationTest(unittest.TestCase):
         count, inventory = promoted.validate(REPO_ROOT / BATCH_17)
 
         self.assertEqual(144, count)
-        self.assertEqual(407, inventory["scenario"])
-        self.assertEqual(486, inventory["smalltalk"])
-        self.assertEqual(1769, inventory["cloze"])
-        self.assertEqual(2297, inventory["satz"])
-        self.assertEqual(72, inventory["pronunciation"])
+        self.assertEqual(413, inventory["scenario"])
+        self.assertEqual(522, inventory["smalltalk"])
+        self.assertEqual(1805, inventory["cloze"])
+        self.assertEqual(2333, inventory["satz"])
+        self.assertEqual(84, inventory["pronunciation"])
 
     def test_review_batch_tool_points_merged_batch_17_at_promoted_validator(self) -> None:
         with self.assertRaisesRegex(

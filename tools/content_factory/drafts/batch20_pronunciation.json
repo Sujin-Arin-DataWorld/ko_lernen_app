@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "phrases": [
+    {
+      "id": "pronunciation_a1_0009",
+      "level": "a1",
+      "ko": "우체국 위치는 역 앞이에요.",
+      "de": "Das Postamt liegt vor dem Bahnhof.",
+      "en": "The post office is in front of the station.",
+      "focus": "받침 뒤 조사와 짧은 위치 질문의 리듬",
+      "sourceSeedId": "seed_batch20_a1_city_services_2026"
+    },
+    {
+      "id": "pronunciation_a1_0010",
+      "level": "a1",
+      "ko": "결제 뒤에 영수증 확인을 해요.",
+      "de": "Nach der Zahlung prüfe ich den Kassenbon.",
+      "en": "I check the receipt after paying.",
+      "focus": "받침 뒤 조사와 짧은 위치 질문의 리듬",
+      "sourceSeedId": "seed_batch20_a1_city_services_2026"
+    },
+    {
+      "id": "pronunciation_a2_0009",
+      "level": "a2",
+      "ko": "선납금이 필요한지 계약 전에 물어봤어요.",
+      "de": "Vor Vertragsabschluss habe ich gefragt, ob eine Vorauszahlung nötig ist.",
+      "en": "I asked whether an advance payment was required before signing.",
+      "focus": "주거 복합 명사와 해요체 질문 억양",
+      "sourceSeedId": "seed_batch20_a2_housing_search_2026"
+    },
+    {
+      "id": "pronunciation_a2_0010",
+      "level": "a2",
+      "ko": "공과금 내역에서 전기와 가스 요금을 확인해요.",
+      "de": "In der Kostenaufstellung prüfe ich Strom und Gas.",
+      "en": "I check electricity and gas in the utility-bill breakdown.",
+      "focus": "주거 복합 명사와 해요체 질문 억양",
+      "sourceSeedId": "seed_batch20_a2_housing_search_2026"
+    },
+    {
+      "id": "pronunciation_b1_0009",
+      "level": "b1",
+      "ko": "채용 공고에서 근무 시간과 업무를 확인했어요.",
+      "de": "In der Stellenanzeige habe ich Arbeitszeit und Aufgaben geprüft.",
+      "en": "I checked the hours and duties in the job posting.",
+      "focus": "업무 복합 명사의 경계와 완곡한 문장 끝",
+      "sourceSeedId": "seed_batch20_b1_work_entry_2026"
+    },
+    {
+      "id": "pronunciation_b1_0010",
+      "level": "b1",
+      "ko": "담당자에게 업무와 체류 자격의 관계를 문의했어요.",
+      "de": "Ich habe die zuständige Stelle gefragt, wie die Tätigkeit mit meinem Aufenthaltsstatus zusammenhängt.",
+      "en": "I asked the responsible office how the job relates to my residence status.",
+      "focus": "업무 복합 명사의 경계와 완곡한 문장 끝",
+      "sourceSeedId": "seed_batch20_b1_work_entry_2026"
+    },
+    {
+      "id": "pronunciation_b2_0017",
+      "level": "b2",
+      "ko": "주거비가 소득에서 차지하는 비중을 따로 살펴봤습니다.",
+      "de": "Wir haben den Anteil der Wohnkosten am Einkommen gesondert betrachtet.",
+      "en": "We examined the share of income spent on housing separately.",
+      "focus": "공식 설명에서 기준과 대조를 묶는 호흡",
+      "sourceSeedId": "seed_batch20_b2_housing_migration_2026"
+    },
+    {
+      "id": "pronunciation_b2_0018",
+      "level": "b2",
+      "ko": "공급 부족만으로 지역별 임대료 차이를 모두 설명하기는 어렵습니다.",
+      "de": "Alle regionalen Mietunterschiede lassen sich nicht allein mit Angebotsmangel erklären.",
+      "en": "Supply shortage alone cannot explain every regional difference in rent.",
+      "focus": "공식 설명에서 기준과 대조를 묶는 호흡",
+      "sourceSeedId": "seed_batch20_b2_housing_migration_2026"
+    },
+    {
+      "id": "pronunciation_c1_0017",
+      "level": "c1",
+      "ko": "투명성 의무가 실제 이용자의 이해로 이어지는지 점검해야 합니다.",
+      "de": "Es ist zu prüfen, ob die Transparenzpflicht tatsächlich zum Verständnis der Nutzenden beiträgt.",
+      "en": "We need to check whether the transparency obligation actually helps users understand.",
+      "focus": "추상 명사 연쇄와 근거 제한 표현의 강세",
+      "sourceSeedId": "seed_batch20_c1_ai_culture_labor_2026"
+    },
+    {
+      "id": "pronunciation_c1_0018",
+      "level": "c1",
+      "ko": "데이터 대표성이 낮으면 전체 집단에 대한 결론을 제한해야 합니다.",
+      "de": "Bei geringer Repräsentativität der Daten müssen Aussagen über die Gesamtgruppe begrenzt werden.",
+      "en": "When data representativeness is low, claims about the whole population must be limited.",
+      "focus": "추상 명사 연쇄와 근거 제한 표현의 강세",
+      "sourceSeedId": "seed_batch20_c1_ai_culture_labor_2026"
+    },
+    {
+      "id": "pronunciation_c2_0017",
+      "level": "c2",
+      "ko": "인구 구조의 변화는 출생뿐 아니라 이동과 기대수명을 함께 봐야 해석할 수 있습니다.",
+      "de": "Veränderungen der Bevölkerungsstruktur lassen sich nur unter Einbezug von Geburten, Migration und Lebenserwartung deuten.",
+      "en": "Changes in population structure require considering births, migration, and life expectancy together.",
+      "focus": "제도 용어 연쇄와 전제·책임 구분의 문장 억양",
+      "sourceSeedId": "seed_batch20_c2_demography_accountability_2026"
+    },
+    {
+      "id": "pronunciation_c2_0018",
+      "level": "c2",
+      "ko": "자동화가 개입해도 설계와 운영의 책임 주체를 분리해 기록해야 합니다.",
+      "de": "Auch bei Automatisierung müssen die verantwortlichen Stellen für Entwicklung und Betrieb getrennt dokumentiert werden.",
+      "en": "Even with automation, the responsible actors for design and operation must be documented separately.",
+      "focus": "제도 용어 연쇄와 전제·책임 구분의 문장 억양",
+      "sourceSeedId": "seed_batch20_c2_demography_accountability_2026"
+    }
+  ]
+}
