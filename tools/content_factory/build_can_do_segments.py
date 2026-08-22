@@ -990,6 +990,142 @@ BATCH_16_SEGMENT_ROUTES: dict[tuple[str, str], str] = {
     ("scenario", "c2_representation_spokesperson_handover_concession"): "c2_discourse_boundary_power",
 }
 
+# Batch 17 (2026-08-22) — 2026 social-topic scenarios and their C1/C2
+# practice families. Keep the published segment inventory fixed and route every
+# promoted source to the closest existing discourse function.
+BATCH_17_SEGMENT_ROUTES: dict[tuple[str, str], str] = {
+    ("scenario", "c1_moving_rent_relief_roundtable"): "c1_local_tradeoff_adaptation",
+    ("scenario", "c1_work_ai_hiring_pilot_review"): "c1_evidence_validity",
+    ("scenario", "c1_daily_migration_demography_policy_forum"): "c1_local_tradeoff_adaptation",
+    ("scenario", "c1_kpop_platform_localization_review"): "c1_sustainable_lifecycle",
+    ("scenario", "c2_moving_affordability_definition_hearing"): "c2_framing_responsibility",
+    ("scenario", "c2_work_ai_accountability_board"): "c2_technology_responsibility_rights",
+    ("scenario", "c2_daily_integration_metric_editorial"): "c2_framing_responsibility",
+    ("scenario", "c2_kpop_authenticity_platform_panel"): "c2_discourse_boundary_power",
+}
+for _number in range(33, 35):
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(35, 37):
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c1_{_number:04d}")] = (
+        "c1_evidence_validity"
+    )
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c2_{_number:04d}")] = (
+        "c2_technology_responsibility_rights"
+    )
+for _number in range(37, 39):
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(39, 41):
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c1_{_number:04d}")] = (
+        "c1_sustainable_lifecycle"
+    )
+    BATCH_17_SEGMENT_ROUTES[("smalltalk", f"smalltalk_c2_{_number:04d}")] = (
+        "c2_discourse_boundary_power"
+    )
+for _number in range(221, 224):
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(224, 227):
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = (
+        "c1_evidence_validity"
+    )
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = (
+        "c2_technology_responsibility_rights"
+    )
+for _number in range(227, 230):
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(230, 233):
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = (
+        "c1_sustainable_lifecycle"
+    )
+    BATCH_17_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = (
+        "c2_discourse_boundary_power"
+    )
+for _number in range(223, 226):
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(226, 229):
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = (
+        "c1_evidence_validity"
+    )
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = (
+        "c2_technology_responsibility_rights"
+    )
+for _number in range(229, 232):
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(232, 235):
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = (
+        "c1_sustainable_lifecycle"
+    )
+    BATCH_17_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = (
+        "c2_discourse_boundary_power"
+    )
+
+# Batch 18 (2026-08-22) — independent follow-up practice for the same public
+# topics. These exact routes make regeneration deterministic without changing
+# any historical source assignment.
+BATCH_18_SEGMENT_ROUTES: dict[tuple[str, str], str] = {
+    ("vocabPack", "c1_2026_social_topics_1"): "c1_local_tradeoff_adaptation",
+    ("vocabPack", "c2_2026_social_topics_1"): "c2_framing_responsibility",
+    ("grammar", "grammar_c1_even_accounting_for"): "c1_local_tradeoff_adaptation",
+    ("grammar", "grammar_c1_while_also_consider"): "c1_evidence_validity",
+    ("grammar", "grammar_c1_effect_varies_by"): "c1_local_tradeoff_adaptation",
+    ("grammar", "grammar_c1_excluded_in_process"): "c1_sustainable_lifecycle",
+    ("grammar", "grammar_c2_take_as_premise"): "c2_framing_responsibility",
+    ("grammar", "grammar_c2_definition_by_viewpoint"): "c2_technology_responsibility_rights",
+    ("grammar", "grammar_c2_responsibility_remains"): "c2_framing_responsibility",
+    ("grammar", "grammar_c2_cannot_reduce_to"): "c2_discourse_boundary_power",
+    ("smalltalk", "smalltalk_c1_0041"): "c1_local_tradeoff_adaptation",
+    ("smalltalk", "smalltalk_c1_0042"): "c1_evidence_validity",
+    ("smalltalk", "smalltalk_c1_0043"): "c1_local_tradeoff_adaptation",
+    ("smalltalk", "smalltalk_c1_0044"): "c1_sustainable_lifecycle",
+    ("smalltalk", "smalltalk_c2_0041"): "c2_framing_responsibility",
+    ("smalltalk", "smalltalk_c2_0042"): "c2_technology_responsibility_rights",
+    ("smalltalk", "smalltalk_c2_0043"): "c2_framing_responsibility",
+    ("smalltalk", "smalltalk_c2_0044"): "c2_discourse_boundary_power",
+}
+for _number in range(233, 245):
+    BATCH_18_SEGMENT_ROUTES[("cloze", f"cloze_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_18_SEGMENT_ROUTES[("cloze", f"cloze_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+for _number in range(235, 247):
+    BATCH_18_SEGMENT_ROUTES[("satz", f"satz_c1_{_number:04d}")] = (
+        "c1_local_tradeoff_adaptation"
+    )
+    BATCH_18_SEGMENT_ROUTES[("satz", f"satz_c2_{_number:04d}")] = (
+        "c2_framing_responsibility"
+    )
+
 MODE_SUFFIX = {
     "guidedProduction": "guided_production",
     "dictation": "dictation",
@@ -2164,6 +2300,90 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "semanticStatus": "approved",
         "reviewRevision": 1,
     },
+    "smalltalk_b2_0101": {
+        "phraseFingerprintSha256": "d7cff1b0e3876aba1c100630df7e1aba50c301ac7d59c524032eecef86133a57",
+        "canDoSegmentId": "segment_b2_contract_scope",
+        "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0102": {
+        "phraseFingerprintSha256": "c6ef28052bd4d9ec4c3ba4707968b459230a3e58e2bf0b4379e35d97c4b04c59",
+        "canDoSegmentId": "segment_b2_contract_scope",
+        "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0103": {
+        "phraseFingerprintSha256": "1c1e89bd3d29921f95cd296137b8953c7de58fb0d61bf1d19cb2c4aef7b8120e",
+        "canDoSegmentId": "segment_b2_interview_experience",
+        "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0104": {
+        "phraseFingerprintSha256": "2ba99f66d948a37986e908ff6727ff6d9e8212b18a037d8b426563dc3abe32cf",
+        "canDoSegmentId": "segment_b2_interview_experience",
+        "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0105": {
+        "phraseFingerprintSha256": "43500ab946a3aa94fdcc35d262a3286eed3b97eaeca0075c6186726c1402f002",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0106": {
+        "phraseFingerprintSha256": "b4dda2b730f6be73d1defb1fc85e95d8833f58c0a4d29db5829671fb873f948e",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0107": {
+        "phraseFingerprintSha256": "b6277688bfc2e02aeaf44f47bf0e19f4ac6c4df683ca1408441fae52877d08ef",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0108": {
+        "phraseFingerprintSha256": "1bfe05e8bccc51543fd40ff97b081db9988da3bd0350002499c76c3fd46e47bc",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0109": {
+        "phraseFingerprintSha256": "20a771141e4cce40c28561b691a8afef29059cd02deaa6d63818e1fab95efa16",
+        "canDoSegmentId": "segment_b2_formal_soft_reformulation",
+        "canDoFingerprintSha256": "9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0110": {
+        "phraseFingerprintSha256": "274f419e2adebf86c9cf1d5b7de0891e0bcbb9eea6e31cea98634fd3a9fe2004",
+        "canDoSegmentId": "segment_b2_interview_experience",
+        "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0111": {
+        "phraseFingerprintSha256": "717c44469ee115b5d5ff8dc28b83e5301a46926e9fc6b3ad6c5694e346a8bd7e",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0112": {
+        "phraseFingerprintSha256": "d7c9dcfe0fb81ace2924b3c4d590b68e1dd9564f31aadda04a8b0d13f1416c2b",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
 }
 
 
@@ -2201,6 +2421,34 @@ SMALLTALK_CATEGORY_ROUTES: dict[tuple[str, str], str] = {
 class SourceIndex:
     def __init__(self) -> None:
         self.curriculum = _read_json(DATA / "curriculum_manifest.json")
+        published_catalog = _read_json(DATA / "can_do_segments.json")
+        self.published_content_routes: dict[tuple[str, str], str] = {}
+        for cluster in published_catalog.get("contentClusters", []):
+            match = re.fullmatch(r"cluster_(.+)_v\d+", str(cluster.get("id", "")))
+            if match is None:
+                continue
+            target = match.group(1)
+            for reference in cluster.get("contentReferences", []):
+                kind = reference.get("kind")
+                content_id = reference.get("id")
+                if isinstance(kind, str) and isinstance(content_id, str):
+                    self.published_content_routes[(kind, content_id)] = target
+        published_authorities = _read_json(DATA / "can_do_content_authorities.json")
+        published_decisions = (
+            published_authorities.get("coverage", {})
+            .get("smalltalkRoutingAudit", {})
+            .get("phraseDecisions", [])
+        )
+        self.published_smalltalk_routes = {
+            row["phraseId"]: {
+                "target": row["canDoSegmentId"].removeprefix("segment_"),
+                "routingSource": row.get("routingSource", "courseUnitFallback"),
+            }
+            for row in published_decisions
+            if isinstance(row, dict)
+            and isinstance(row.get("phraseId"), str)
+            and isinstance(row.get("canDoSegmentId"), str)
+        }
         self.units = {row["id"]: row for row in self.curriculum["courseUnits"]}
         self.concepts = {row["id"]: row for row in self.curriculum["concepts"]}
         self.vocab_pack_units = dict(self.curriculum["vocabPackUnitMap"])
@@ -2284,7 +2532,10 @@ class SourceIndex:
         if reference.kind == "scenario":
             row = _require(self.scenarios, reference.id, "scenario")
             actual_level = row["level"]
-            if _promotion_segment_key("scenario", reference.id) is not None:
+            if (
+                _promotion_segment_key("scenario", reference.id) is not None
+                or (reference.kind, reference.id) in self.published_content_routes
+            ):
                 # 라우팅된 시나리오는 자기 코스 유닛이 아니라 붙기로 한 세그먼트를
                 # 따른다.  Batch 12 가 만든 신규 유닛(c1_03~c1_06 등)에는 세그먼트가
                 # 없고, 모듈 첫머리의 교리대로 세그먼트를 새로 만들지도 않기 때문에
@@ -2295,7 +2546,11 @@ class SourceIndex:
                 actual_parent = row["courseUnitId"]
         elif reference.kind == "vocabPack":
             base_pack_id = re.sub(r"_\d+$", "", reference.id)
-            if _promotion_segment_key("vocabPack", reference.id) is not None:
+            mapped_parent = _require(self.vocab_pack_units, base_pack_id, "vocab pack")
+            if (
+                _promotion_segment_key("vocabPack", reference.id) is not None
+                or (reference.kind, reference.id) in self.published_content_routes
+            ):
                 # 명시적으로 라우팅된 팩은 자기 유닛이 아니라 붙기로 한 세그먼트를
                 # 따른다.  cloze·satz·grammar·smalltalk 에는 이미 있던 우회이고,
                 # 모듈 첫머리의 교리("their count never creates segments")를 지키려면
@@ -2303,7 +2558,7 @@ class SourceIndex:
                 # 않으므로 그 유닛의 팩은 기존 세그먼트에 붙는 수밖에 없다.
                 actual_parent = expected_parent
             else:
-                actual_parent = _require(self.vocab_pack_units, base_pack_id, "vocab pack")
+                actual_parent = mapped_parent
             rows = [row for row in self.vocab.values() if row["pack_id"] == reference.id]
             if not rows:
                 raise ValueError(f"vocab pack {reference.id!r} has no rows")
@@ -2318,7 +2573,9 @@ class SourceIndex:
             mapped_level = _require(self.units, mapped_parent, "grammar parent")["level"]
             if (
                 mapped_level != actual_level and reference.id in GRAMMAR_ID_ROUTES
-            ) or _promotion_segment_key("grammar", reference.id) is not None:
+            ) or _promotion_segment_key("grammar", reference.id) is not None or (
+                (reference.kind, reference.id) in self.published_content_routes
+            ):
                 # 명시적으로 라우팅된 문법은 붙기로 한 세그먼트를 따른다.
                 # 기존 조건(레벨 불일치)만으로는 같은 레벨의 신규 유닛이 기존
                 # 세그먼트에 붙는 경우를 못 덮는다 — Batch 12 가 그 첫 사례다.
@@ -2332,7 +2589,10 @@ class SourceIndex:
         elif reference.kind == "cloze":
             row = _require(self.cloze, reference.id, "cloze")
             actual_level = row["level"]
-            if _promotion_segment_key("cloze", reference.id) is not None:
+            if (
+                _promotion_segment_key("cloze", reference.id) is not None
+                or (reference.kind, reference.id) in self.published_content_routes
+            ):
                 actual_parent = expected_parent
                 validate_derived = False
             else:
@@ -2348,7 +2608,10 @@ class SourceIndex:
         elif reference.kind == "satz":
             row = _require(self.satz, reference.id, "satz")
             actual_level = row["level"]
-            if _promotion_segment_key("satz", reference.id) is not None:
+            if (
+                _promotion_segment_key("satz", reference.id) is not None
+                or (reference.kind, reference.id) in self.published_content_routes
+            ):
                 actual_parent = expected_parent
             else:
                 vocab = self._validate_satz_source(row, reference.id)
@@ -2862,6 +3125,12 @@ def _promotion_segment_key(kind: str, content_id: str) -> str | None:
     batch_16 = BATCH_16_SEGMENT_ROUTES.get((kind, content_id))
     if batch_16 is not None:
         return batch_16
+    batch_17 = BATCH_17_SEGMENT_ROUTES.get((kind, content_id))
+    if batch_17 is not None:
+        return batch_17
+    batch_18 = BATCH_18_SEGMENT_ROUTES.get((kind, content_id))
+    if batch_18 is not None:
+        return batch_18
     return FOUR_X_SEGMENT_ROUTES.get((kind, content_id))
 
 
@@ -2942,7 +3211,11 @@ def _expand_ab_practice(
             raise ValueError(f"vocab pack {pack_id!r} crosses levels")
         base_pack_id = re.sub(r"_\d+$", "", pack_id)
         unit_id = _require(source.vocab_pack_units, base_pack_id, "vocab pack")
-        target = PACK_ROUTES.get(base_pack_id, _require(UNIT_DEFAULT_ROUTE, unit_id, "unit route"))
+        target = source.published_content_routes.get(
+            ("vocabPack", pack_id)
+        ) or PACK_ROUTES.get(
+            base_pack_id, _require(UNIT_DEFAULT_ROUTE, unit_id, "unit route")
+        )
         add(_ref("vocabPack", pack_id), target, expected_level=level)
         ab_pack_ids.append(pack_id)
 
@@ -2954,7 +3227,9 @@ def _expand_ab_practice(
             if promoted_target is not None:
                 add(_ref("grammar", grammar_id), promoted_target, expected_level=level)
             continue
-        target = GRAMMAR_ID_ROUTES.get(grammar_id)
+        target = source.published_content_routes.get(("grammar", grammar_id))
+        if target is None:
+            target = GRAMMAR_ID_ROUTES.get(grammar_id)
         if target is None:
             unit_id = _require(source.grammar_units, grammar_id, "grammar mapping")
             target = _require(UNIT_DEFAULT_ROUTE, unit_id, "unit route")
@@ -2977,7 +3252,8 @@ def _expand_ab_practice(
         target = (
             next(iter(anchor))
             if anchor
-            else promoted_target
+            else source.published_content_routes.get(("scenario", scenario_id))
+            or promoted_target
             or EXTRA_SCENARIO_ROUTES.get(scenario_id)
             or UNIT_DEFAULT_ROUTE.get(str(row.get("courseUnitId") or ""))
         )
@@ -3004,34 +3280,50 @@ def _expand_ab_practice(
                 )
             continue
         unit_id = source.smalltalk_unit(row)
+        published_route = source.published_smalltalk_routes.get(phrase_id)
         target = promoted_target or SMALLTALK_ID_ROUTES.get(phrase_id)
         if target is not None:
             exact_smalltalk_override_ids.append(phrase_id)
             routing_source = "exactOverride"
         else:
-            target = SMALLTALK_CATEGORY_ROUTES.get((level, row["category"]))
-            if target is not None:
-                category_smalltalk_fallback_ids.append(phrase_id)
-                routing_source = "categoryFallback"
+            if published_route is not None:
+                target = published_route["target"]
+                routing_source = published_route["routingSource"]
+                if routing_source == "exactOverride":
+                    exact_smalltalk_override_ids.append(phrase_id)
+                elif routing_source == "categoryFallback":
+                    category_smalltalk_fallback_ids.append(phrase_id)
+                else:
+                    course_unit_smalltalk_fallback_ids.append(phrase_id)
             else:
-                target = _require(UNIT_DEFAULT_ROUTE, unit_id, "unit route")
-                course_unit_smalltalk_fallback_ids.append(phrase_id)
-                routing_source = "courseUnitFallback"
+                target = SMALLTALK_CATEGORY_ROUTES.get((level, row["category"]))
+                if target is not None:
+                    category_smalltalk_fallback_ids.append(phrase_id)
+                    routing_source = "categoryFallback"
+                else:
+                    target = _require(UNIT_DEFAULT_ROUTE, unit_id, "unit route")
+                    course_unit_smalltalk_fallback_ids.append(phrase_id)
+                    routing_source = "courseUnitFallback"
         target_parent = _require(spec_by_key, target, "smalltalk segment route").parent
         if target_parent != unit_id:
-            if phrase_id not in SMALLTALK_ID_ROUTES and promoted_target is None:
+            if (
+                phrase_id not in SMALLTALK_ID_ROUTES
+                and promoted_target is None
+                and published_route is None
+            ):
                 raise ValueError(
                     f"smalltalk {phrase_id!r} maps to {unit_id!r}, "
                     f"but category route {target!r} belongs to {target_parent!r}"
                 )
-            legacy_smalltalk_unit_overrides.append(
-                {
-                    "id": phrase_id,
-                    "legacyCourseUnitId": unit_id,
-                    "courseUnitId": target_parent,
-                    "canDoSegmentId": f"segment_{target}",
-                }
-            )
+            if published_route is None:
+                legacy_smalltalk_unit_overrides.append(
+                    {
+                        "id": phrase_id,
+                        "legacyCourseUnitId": unit_id,
+                        "courseUnitId": target_parent,
+                        "canDoSegmentId": f"segment_{target}",
+                    }
+                )
         target_spec = _require(spec_by_key, target, "smalltalk segment route")
         target_title, target_can_do = _segment_text(target_spec, source)
         is_best_available = (
@@ -3091,6 +3383,11 @@ def _expand_ab_practice(
         if ("cloze", content_id) in owners_by_reference:
             direct_override_cloze_ids.append(content_id)
             continue
+        published_target = source.published_content_routes.get(("cloze", content_id))
+        if published_target is not None:
+            add(_ref("cloze", content_id), published_target, expected_level=level)
+            direct_override_cloze_ids.append(content_id)
+            continue
         if promoted_target is not None:
             add(
                 _ref("cloze", content_id),
@@ -3148,6 +3445,10 @@ def _expand_ab_practice(
                 promoted_target,
                 expected_level=level,
             )
+            continue
+        published_target = source.published_content_routes.get(("satz", content_id))
+        if published_target is not None:
+            add(_ref("satz", content_id), published_target, expected_level=level)
             continue
         vocab = source._validate_satz_source(row, content_id)
         if ("vocabPack", vocab["pack_id"]) not in owners_by_reference:

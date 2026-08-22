@@ -24,7 +24,16 @@ void main() {
       expect(result.segments.denominatorForReleaseTrack('core_2026_v1'), 86);
       expect(result.segments.publishedSegments, hasLength(86));
       expect(result.productiveAssessments.definitions, hasLength(118));
-      expect(result.inheritedContentRoutesByKey, hasLength(2703));
+      final authority =
+          jsonDecode(
+                File(
+                  'assets/data/can_do_content_authorities.json',
+                ).readAsStringSync(),
+              )
+              as Map<String, dynamic>;
+      final coverage = authority['coverage']! as Map<String, dynamic>;
+      final inherited = coverage['inheritedContentReferences']! as List;
+      expect(result.inheritedContentRoutesByKey, hasLength(inherited.length));
       final route = result.inheritedRouteFor(
         const ContentReference(
           kind: ContentReferenceKind.cloze,
