@@ -10,10 +10,11 @@ import '../services/hangul_perturbation.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
-import '../widgets/sori/chip.dart';
+import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/study_frame.dart';
@@ -48,6 +49,8 @@ class HardChoiceQuizScreen extends StatefulWidget {
 
 class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
   final math.Random _rng = math.Random();
+  final ScrollController _questionScroll = ScrollController();
+  final GlobalKey _feedbackKey = GlobalKey();
   List<Vocab> _round = const [];
   Set<String> _blocklist = const {};
   bool _loading = true;
@@ -74,7 +77,9 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
     } catch (_) {
       /* best-effort — 덱 표제어만으로도 동작 */
     }
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     final round =
         widget.deck
             .where(
@@ -118,8 +123,12 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
           _round.map((v) => v.korean).where((k) => k != cur.korean).toList()
             ..shuffle(_rng);
       for (final k in pad) {
-        if (distractors.length >= 3) break;
-        if (!distractors.contains(k)) distractors.add(k);
+        if (distractors.length >= 3) {
+          break;
+        }
+        if (!distractors.contains(k)) {
+          distractors.add(k);
+        }
       }
     }
     final options = <String>[cur.korean, ...distractors];
@@ -129,12 +138,19 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
       _selected = -1;
       _locked = false;
     });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_questionScroll.hasClients) {
+        _questionScroll.jumpTo(0);
+      }
+    });
   }
 
   void _select(int i) {
     final cur = _current;
     final options = _options;
-    if (cur == null || options == null || _locked) return;
+    if (cur == null || options == null || _locked) {
+      return;
+    }
     final isCorrect = options[i] == cur.korean;
     setState(() {
       _selected = i;
@@ -155,19 +171,87 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
     TtsService.speak(cur.korean);
     // ignore: discarded_futures
     Storage.srsReview(cur.korean, gotIt: isCorrect);
+    _revealFeedback();
+    if (SoriMotion.reduceMotion(context)) {
+      return;
+    }
     Future.delayed(const Duration(milliseconds: 850), () {
-      if (!mounted) return;
-      if (_idx + 1 >= _round.length) {
-        Storage.addXp(_score * 2);
-        setState(() => _done = true);
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (mounted) SoriCelebration.burst(context);
-        });
+      if (!mounted) {
         return;
       }
-      setState(() => _idx++);
-      _prepare();
+      _advanceAfterFeedback();
     });
+  }
+
+  void _revealFeedback() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _bringFeedbackIntoView();
+    });
+  }
+
+  void _bringFeedbackIntoView({bool materializedEnd = false}) {
+    if (!mounted) {
+      return;
+    }
+    final feedbackContext = _feedbackKey.currentContext;
+    final duration = SoriMotion.respect(
+      context,
+      const Duration(milliseconds: 220),
+    );
+    if (feedbackContext != null) {
+      Scrollable.ensureVisible(
+        feedbackContext,
+        duration: duration,
+        curve: Curves.easeOut,
+        alignment: 0.18,
+      );
+      return;
+    }
+    if (materializedEnd || !_questionScroll.hasClients) {
+      return;
+    }
+    final end = _questionScroll.position.maxScrollExtent;
+    if (duration == Duration.zero) {
+      _questionScroll.jumpTo(end);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _bringFeedbackIntoView(materializedEnd: true);
+      });
+      return;
+    }
+    // ignore: discarded_futures
+    _questionScroll
+        .animateTo(end, duration: duration, curve: Curves.easeOut)
+        .then((_) {
+          if (mounted) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _bringFeedbackIntoView(materializedEnd: true);
+            });
+          }
+        });
+  }
+
+  void _advanceAfterFeedback() {
+    if (!_locked || _done) {
+      return;
+    }
+    if (_idx + 1 >= _round.length) {
+      Storage.addXp(_score * 2);
+      setState(() => _done = true);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          SoriCelebration.burst(context);
+        }
+      });
+      return;
+    }
+    setState(() => _idx++);
+    _prepare();
+  }
+
+  @override
+  void dispose() {
+    _questionScroll.dispose();
+    super.dispose();
   }
 
   @override
@@ -175,16 +259,21 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final lang = Localizations.localeOf(context).languageCode;
+    final progress = !_loading && !_done && _round.isNotEmpty
+        ? '${_idx + 1} / ${_round.length}'
+        : null;
 
     return SoriStudyFrame(
       title: widget.title ?? t.hardQuizTitle,
+      eyebrow: progress,
+      padding: Spacing.page,
       child: _loading
-          ? const Center(child: CircularProgressIndicator())
+          ? const Center(child: AppLoading())
+          : _round.isEmpty
+          ? _buildEmpty(t)
           : SoriAdaptiveStudyBody(
               minHeight: 380,
-              child: _done || _round.isEmpty
-                  ? _buildDone(t)
-                  : _buildQuestion(t, s, lang),
+              child: _done ? _buildDone(t) : _buildQuestion(t, s, lang),
             ),
     );
   }
@@ -192,24 +281,16 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
   Widget _buildQuestion(AppL10n t, SoriSurfaces s, String lang) {
     final cur = _current!;
     final options = _options ?? const <String>[];
+    final tt = SoriTextTheme.of(context);
+    final isCorrect = _selected >= 0 && options[_selected] == cur.korean;
+    final feedback = isCorrect
+        ? t.hardQuizCorrectFeedback(cur.korean)
+        : t.hardQuizWrongFeedback(cur.korean);
+    final reduceMotion = SoriMotion.reduceMotion(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Wrap(
-          spacing: Spacing.sm,
-          runSpacing: Spacing.sm,
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: [
-            SoriChip(
-              label: '${_idx + 1} / ${_round.length}',
-              accent: SoriColors.info,
-            ),
-            Text(
-              t.hardQuizHint,
-              style: TextStyle(fontSize: 12, color: s.textMuted),
-            ),
-          ],
-        ),
+        Text(t.hardQuizHint, style: tt.label.copyWith(color: s.textMuted)),
         const SizedBox(height: Spacing.md),
         SoriCard(
           variant: SoriCardVariant.hero,
@@ -220,53 +301,115 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
             child: Text(
               cur.translationFor(lang),
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.w700,
-                height: 1.15,
-              ),
+              style: tt.h1,
             ),
           ),
         ),
         const SizedBox(height: Spacing.lg),
         Expanded(
-          child: ListView.separated(
-            itemCount: options.length,
-            separatorBuilder: (_, __) => const SizedBox(height: Spacing.sm),
-            itemBuilder: (_, i) => QuizChoice(
-              text: options[i],
-              isCorrect: options[i] == cur.korean,
-              isSelected: _selected == i,
-              revealed: _locked,
-              minHeight: 56,
-              onSelected: _locked ? null : () => _select(i),
-            ),
+          child: ListView(
+            controller: _questionScroll,
+            children: [
+              for (var i = 0; i < options.length; i++) ...[
+                QuizChoice(
+                  text: options[i],
+                  isCorrect: options[i] == cur.korean,
+                  isSelected: _selected == i,
+                  revealed: _locked,
+                  minHeight: 56,
+                  idleBorderColor: SoriColors.primary,
+                  semanticTapEnabled: true,
+                  onSelected: _locked ? null : () => _select(i),
+                ),
+                if (i + 1 < options.length) const SizedBox(height: Spacing.sm),
+              ],
+              if (_locked) ...[
+                const SizedBox(height: Spacing.md),
+                Semantics(
+                  key: _feedbackKey,
+                  container: true,
+                  liveRegion: true,
+                  label: feedback,
+                  child: ExcludeSemantics(
+                    child: SoriCard(
+                      accent: isCorrect
+                          ? SoriColors.success
+                          : SoriColors.danger,
+                      tinted: true,
+                      child: Text(
+                        feedback,
+                        style: tt.h3.copyWith(
+                          color: isCorrect
+                              ? SoriColors.primaryOnLight
+                              : SoriColors.danger,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ],
           ),
         ),
+        if (_locked && reduceMotion) ...[
+          const SizedBox(height: Spacing.sm),
+          SoriButton.filled(
+            label: _idx + 1 >= _round.length ? t.hardQuizFinish : t.btnNext,
+            fullWidth: true,
+            onTap: _advanceAfterFeedback,
+          ),
+        ],
       ],
     );
   }
 
+  Widget _buildEmpty(AppL10n t) => Center(
+    child: SoriEmptyState(
+      asset: 'assets/illustrations/mascot/magpie_encourage.png',
+      icon: Icons.fact_check_outlined,
+      title: t.hardWordsEmptyTitle,
+      body: t.hardWordsEmptyBody,
+      ctaLabel: t.btnClose,
+      onCta: () => Navigator.of(context).maybePop(),
+    ),
+  );
+
   Widget _buildDone(AppL10n t) {
+    final tt = SoriTextTheme.of(context);
+    final score = t.hardQuizScore(_score, _round.length);
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Mascot.tiger(emotion: MascotEmotion.celebrate, size: 120),
-          const SizedBox(height: Spacing.lg),
-          Text(
-            t.hardQuizDoneTitle,
-            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
-          ),
-          const SizedBox(height: Spacing.sm),
-          Text(t.hardQuizScore(_score, _round.length)),
-          const SizedBox(height: Spacing.xl),
-          SoriButton(
-            label: t.btnClose,
-            variant: SoriButtonVariant.filled,
-            onTap: () => Navigator.of(context).maybePop(),
-          ),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Mascot.tiger(emotion: MascotEmotion.celebrate, size: 120),
+            const SizedBox(height: Spacing.lg),
+            Semantics(
+              container: true,
+              liveRegion: true,
+              label: '${t.hardQuizDoneTitle}. $score',
+              child: ExcludeSemantics(
+                child: Column(
+                  children: [
+                    Text(
+                      t.hardQuizDoneTitle,
+                      textAlign: TextAlign.center,
+                      style: tt.h1,
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    Text(score, textAlign: TextAlign.center, style: tt.h3),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: Spacing.xl),
+            SoriButton.filled(
+              label: t.btnClose,
+              fullWidth: true,
+              onTap: () => Navigator.of(context).maybePop(),
+            ),
+          ],
+        ),
       ),
     );
   }

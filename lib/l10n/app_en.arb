@@ -1877,6 +1877,23 @@
   "hardWordsHardQuizCta": "Hard quiz: spelling",
   "hardQuizTitle": "Hard quiz",
   "hardQuizHint": "Pick the correct spelling.",
+  "hardQuizCorrectFeedback": "Correct: {word}",
+  "@hardQuizCorrectFeedback": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "hardQuizWrongFeedback": "The correct spelling is: {word}",
+  "@hardQuizWrongFeedback": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "hardQuizFinish": "See result",
   "hardQuizDoneTitle": "Round complete!",
   "hardQuizScore": "{correct}/{total} correct",
   "@hardQuizScore": {

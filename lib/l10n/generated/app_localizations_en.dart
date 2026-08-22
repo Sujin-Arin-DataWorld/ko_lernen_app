@@ -3860,6 +3860,19 @@ class AppL10nEn extends AppL10n {
   String get hardQuizHint => 'Pick the correct spelling.';
 
   @override
+  String hardQuizCorrectFeedback(String word) {
+    return 'Correct: $word';
+  }
+
+  @override
+  String hardQuizWrongFeedback(String word) {
+    return 'The correct spelling is: $word';
+  }
+
+  @override
+  String get hardQuizFinish => 'See result';
+
+  @override
   String get hardQuizDoneTitle => 'Round complete!';
 
   @override

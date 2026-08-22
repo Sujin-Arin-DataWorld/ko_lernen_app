@@ -200,27 +200,52 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
 
   void _revealFeedback() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (!mounted) {
-        return;
-      }
-      final feedbackContext = _feedbackKey.currentContext;
-      if (feedbackContext == null) {
-        return;
-      }
-      final reduceMotion =
-          MediaQuery.maybeOf(context)?.disableAnimations ?? false;
-      // The explanation is appended after the options. Bring it into view
-      // immediately, so the fixed bottom action never asks a learner to
-      // continue before they have seen why their choice was right or wrong.
+      _bringFeedbackIntoView();
+    });
+  }
+
+  void _bringFeedbackIntoView({bool materializedEnd = false}) {
+    if (!mounted) {
+      return;
+    }
+    final feedbackContext = _feedbackKey.currentContext;
+    final duration = SoriMotion.respect(
+      context,
+      const Duration(milliseconds: 220),
+    );
+    if (feedbackContext != null) {
+      // The explanation is appended after the options. Bring it into view so
+      // the fixed bottom action never asks a learner to continue before they
+      // have seen why their choice was right or wrong.
       Scrollable.ensureVisible(
         feedbackContext,
-        duration: reduceMotion
-            ? Duration.zero
-            : const Duration(milliseconds: 220),
+        duration: duration,
         curve: Curves.easeOut,
         alignment: 0.18,
       );
-    });
+      return;
+    }
+    if (materializedEnd || !_questionScroll.hasClients) {
+      return;
+    }
+    final end = _questionScroll.position.maxScrollExtent;
+    if (duration == Duration.zero) {
+      _questionScroll.jumpTo(end);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _bringFeedbackIntoView(materializedEnd: true);
+      });
+      return;
+    }
+    // ignore: discarded_futures
+    _questionScroll
+        .animateTo(end, duration: duration, curve: Curves.easeOut)
+        .then((_) {
+          if (mounted) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              _bringFeedbackIntoView(materializedEnd: true);
+            });
+          }
+        });
   }
 
   void _scrollQuestionToStart() {
@@ -327,6 +352,16 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
     final languageCode = Localizations.localeOf(context).languageCode;
     final tt = SoriTextTheme.of(context);
     final s = SoriSurfaces.of(context);
+    final feedbackTitle = isCorrect
+        ? t.grammarChoiceCorrect
+        : t.grammarChoiceIncorrect(question.target.pattern);
+    final feedbackSemantics = [
+      feedbackTitle,
+      '${t.grammarChoiceKoreanExampleLabel}: '
+          '${question.target.exampleKorean}',
+      '${t.grammarChoiceExplanationLabel}: '
+          '${question.target.explanationFor(languageCode)}',
+    ].join('. ');
     final segments = splitGrammarPrompt(
       example: question.target.exampleFor(languageCode),
       focus: question.target.exampleFocusFor(languageCode),
@@ -394,43 +429,55 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
                     isSelected: selected?.id == option.id,
                     revealed: selected != null,
                     minHeight: 56,
+                    idleBorderColor: SoriColors.primary,
+                    semanticTapEnabled: true,
                     onSelected: selected == null ? () => _select(option) : null,
                   ),
                 ),
               if (selected != null) ...[
                 const SizedBox(height: Spacing.md),
-                SoriCard(
+                Semantics(
                   key: _feedbackKey,
-                  accent: isCorrect ? SoriColors.success : SoriColors.accent,
-                  tinted: true,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        isCorrect
-                            ? t.grammarChoiceCorrect
-                            : t.grammarChoiceIncorrect(question.target.pattern),
-                        style: tt.h3.copyWith(
-                          color: isCorrect
-                              ? SoriColors.primaryOnLight
-                              : SoriColors.accent,
-                        ),
+                  container: true,
+                  liveRegion: true,
+                  label: feedbackSemantics,
+                  child: ExcludeSemantics(
+                    child: SoriCard(
+                      accent: isCorrect
+                          ? SoriColors.success
+                          : SoriColors.accent,
+                      tinted: true,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            feedbackTitle,
+                            style: tt.h3.copyWith(
+                              color: isCorrect
+                                  ? SoriColors.primaryOnLight
+                                  : SoriColors.accent,
+                            ),
+                          ),
+                          const SizedBox(height: Spacing.sm),
+                          Text(
+                            t.grammarChoiceKoreanExampleLabel,
+                            style: tt.caption,
+                          ),
+                          const SizedBox(height: Spacing.xs),
+                          Text(question.target.exampleKorean, style: tt.h3),
+                          const SizedBox(height: Spacing.md),
+                          Text(
+                            t.grammarChoiceExplanationLabel,
+                            style: tt.caption,
+                          ),
+                          const SizedBox(height: Spacing.xs),
+                          Text(
+                            question.target.explanationFor(languageCode),
+                            style: tt.body,
+                          ),
+                        ],
                       ),
-                      const SizedBox(height: Spacing.sm),
-                      Text(
-                        t.grammarChoiceKoreanExampleLabel,
-                        style: tt.caption,
-                      ),
-                      const SizedBox(height: Spacing.xs),
-                      Text(question.target.exampleKorean, style: tt.h3),
-                      const SizedBox(height: Spacing.md),
-                      Text(t.grammarChoiceExplanationLabel, style: tt.caption),
-                      const SizedBox(height: Spacing.xs),
-                      Text(
-                        question.target.explanationFor(languageCode),
-                        style: tt.body,
-                      ),
-                    ],
+                    ),
                   ),
                 ),
                 const SizedBox(height: Spacing.lg),
@@ -472,22 +519,37 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
           children: [
             const Mascot.tiger(emotion: MascotEmotion.celebrate, size: 112),
             const SizedBox(height: Spacing.lg),
-            Text(
-              t.grammarChoiceDoneTitle,
-              textAlign: TextAlign.center,
-              style: tt.h1,
-            ),
-            const SizedBox(height: Spacing.sm),
-            Text(
-              t.grammarChoiceScore(_score, _round.length),
-              textAlign: TextAlign.center,
-              style: tt.h3,
-            ),
-            const SizedBox(height: Spacing.sm),
-            Text(
-              t.grammarChoicePracticeOnly,
-              textAlign: TextAlign.center,
-              style: tt.bodySmall,
+            Semantics(
+              container: true,
+              liveRegion: true,
+              label: [
+                t.grammarChoiceDoneTitle,
+                t.grammarChoiceScore(_score, _round.length),
+                t.grammarChoicePracticeOnly,
+              ].join('. '),
+              child: ExcludeSemantics(
+                child: Column(
+                  children: [
+                    Text(
+                      t.grammarChoiceDoneTitle,
+                      textAlign: TextAlign.center,
+                      style: tt.h1,
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    Text(
+                      t.grammarChoiceScore(_score, _round.length),
+                      textAlign: TextAlign.center,
+                      style: tt.h3,
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    Text(
+                      t.grammarChoicePracticeOnly,
+                      textAlign: TextAlign.center,
+                      style: tt.bodySmall,
+                    ),
+                  ],
+                ),
+              ),
             ),
             const SizedBox(height: Spacing.xl),
             SoriButton.filled(

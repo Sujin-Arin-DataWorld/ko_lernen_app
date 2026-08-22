@@ -6775,6 +6775,24 @@ abstract class AppL10n {
   /// **'Wähle die richtige Schreibweise.'**
   String get hardQuizHint;
 
+  /// No description provided for @hardQuizCorrectFeedback.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig: {word}'**
+  String hardQuizCorrectFeedback(String word);
+
+  /// No description provided for @hardQuizWrongFeedback.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig geschrieben: {word}'**
+  String hardQuizWrongFeedback(String word);
+
+  /// No description provided for @hardQuizFinish.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis ansehen'**
+  String get hardQuizFinish;
+
   /// No description provided for @hardQuizDoneTitle.
   ///
   /// In de, this message translates to:

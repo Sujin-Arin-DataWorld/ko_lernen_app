@@ -3875,6 +3875,19 @@ class AppL10nDe extends AppL10n {
   String get hardQuizHint => 'Wähle die richtige Schreibweise.';
 
   @override
+  String hardQuizCorrectFeedback(String word) {
+    return 'Richtig: $word';
+  }
+
+  @override
+  String hardQuizWrongFeedback(String word) {
+    return 'Richtig geschrieben: $word';
+  }
+
+  @override
+  String get hardQuizFinish => 'Ergebnis ansehen';
+
+  @override
   String get hardQuizDoneTitle => 'Runde geschafft!';
 
   @override
