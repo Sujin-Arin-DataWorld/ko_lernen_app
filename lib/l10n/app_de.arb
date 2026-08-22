@@ -3826,5 +3826,11 @@
   "ttsUnavailableChannelOff": "Aussprache ist stumm geschaltet. Einstellungen → Ton",
   "ttsUnavailableQuota": "Heutiges Sprachlimit erreicht. Morgen geht es weiter.",
   "ttsUnavailablePending": "Die Stimme wird gerade erzeugt. Gleich nochmal antippen.",
-  "ttsUnavailableOffline": "Aussprache nicht verfügbar. Bist du online?"
+  "ttsUnavailableOffline": "Aussprache nicht verfügbar. Bist du online?",
+  "mediaPhraseTitle": "Medien-Sätze",
+  "mediaPhraseDesc": "Übe Originalzeilen aus Interview-, Podcast-, Doku- und Debattenregistern auf deinem Niveau.",
+  "mediaPhraseContext": "Situation",
+  "mediaPhraseEmpty": "Für dein Niveau sind gerade keine Medien-Sätze verfügbar.",
+  "mediaPhrasePrevious": "Zurück",
+  "mediaPhraseNext": "Weiter"
 }

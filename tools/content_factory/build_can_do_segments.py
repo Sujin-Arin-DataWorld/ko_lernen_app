@@ -1393,6 +1393,26 @@ UNIT_DEFAULT_ROUTE: dict[str, str] = {
     "b2_06_advanced_capstone": "b2_formal_soft_reformulation",
 }
 
+# C1/C2의 공개 can-do 세그먼트 수는 고정되어 있다. 새 유닛이나 새 배치가
+# 들어와도 세그먼트를 임의로 늘리지 않고, 각 코스 유닛을 가장 가까운 기존
+# 담화 기능에 붙인다. 개별 승인 라우트가 있으면 _promotion_segment_key가 이
+# 기본값보다 우선한다. 이 표 덕분에 새 C레벨 자산이 앱에는 실렸지만 can-do
+# 근거 그래프에서는 조용히 누락되는 회귀를 막을 수 있다.
+C_UNIT_DEFAULT_ROUTE: dict[str, str] = {
+    "c1_01_evidence_public_reasoning": "c1_evidence_validity",
+    "c1_02_inclusive_sustainable_systems": "c1_local_tradeoff_adaptation",
+    "c1_03_media_evidence_literacy": "c1_evidence_limits_conclusion",
+    "c1_04_play_time_policy": "c1_risk_uncertainty",
+    "c1_05_fan_labor_sustainability": "c1_sustainable_lifecycle",
+    "c1_06_intimacy_safety_design": "c1_participatory_access_remedy",
+    "c2_01_interpretation_institutions": "c2_framing_responsibility",
+    "c2_02_technology_public_ethics": "c2_technology_responsibility_rights",
+    "c2_03_automation_redress": "c2_technology_traceability_appeal",
+    "c2_04_sanction_accountability": "c2_technology_responsibility_rights",
+    "c2_05_relationship_narratives": "c2_narrative_perspective",
+    "c2_06_fandom_discourse_power": "c2_discourse_boundary_power",
+}
+
 
 PACK_ROUTES: dict[str, str] = {
     "a2_change_verbs": "a2_haeyo_register_transition",
@@ -2164,6 +2184,118 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "semanticStatus": "approved",
         "reviewRevision": 1,
     },
+    "smalltalk_a1_0083": {
+        "phraseFingerprintSha256": "b2c01466b0c489dd274cb494eb8bee136c757aa738321f2490a01ea2fe5bff5f",
+        "canDoSegmentId": "segment_a1_14_payment_delivery",
+        "canDoFingerprintSha256": "444b749979cee85ecd385741adb78ec584ff7265df9f49f472e625f8832ebd1d",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_a1_0084": {
+        "phraseFingerprintSha256": "7e0f1d7b0fd71b43221ccbec8d40cbcfe67438db5435fbc8f32ad0648a49092f",
+        "canDoSegmentId": "segment_a1_14_payment_delivery",
+        "canDoFingerprintSha256": "444b749979cee85ecd385741adb78ec584ff7265df9f49f472e625f8832ebd1d",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_a2_0076": {
+        "phraseFingerprintSha256": "64f181f5b51375b05ba0384497c8a2cadc0a3a78b6a95ae7dfa5849b984bb629",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "canDoFingerprintSha256": "c4e7ff185459644e7e79a65868a2ebaa49a507edbd439f361fbbb29f7fe57b2f",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_a2_0077": {
+        "phraseFingerprintSha256": "f71aa47c63ef2fad2090527b24ff16021ef8f4476698cb4b9545644b9d1d930c",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "canDoFingerprintSha256": "c4e7ff185459644e7e79a65868a2ebaa49a507edbd439f361fbbb29f7fe57b2f",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0101": {
+        "phraseFingerprintSha256": "d7cff1b0e3876aba1c100630df7e1aba50c301ac7d59c524032eecef86133a57",
+        "canDoSegmentId": "segment_b2_contract_scope",
+        "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0102": {
+        "phraseFingerprintSha256": "c6ef28052bd4d9ec4c3ba4707968b459230a3e58e2bf0b4379e35d97c4b04c59",
+        "canDoSegmentId": "segment_b2_contract_scope",
+        "canDoFingerprintSha256": "1ce4a30a3a7f78b39517e0bcc2b3402f136a8b9e4aa399d45bd294366f32d41a",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0103": {
+        "phraseFingerprintSha256": "1c1e89bd3d29921f95cd296137b8953c7de58fb0d61bf1d19cb2c4aef7b8120e",
+        "canDoSegmentId": "segment_b2_interview_experience",
+        "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0104": {
+        "phraseFingerprintSha256": "2ba99f66d948a37986e908ff6727ff6d9e8212b18a037d8b426563dc3abe32cf",
+        "canDoSegmentId": "segment_b2_interview_experience",
+        "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0105": {
+        "phraseFingerprintSha256": "43500ab946a3aa94fdcc35d262a3286eed3b97eaeca0075c6186726c1402f002",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0106": {
+        "phraseFingerprintSha256": "b4dda2b730f6be73d1defb1fc85e95d8833f58c0a4d29db5829671fb873f948e",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0107": {
+        "phraseFingerprintSha256": "b6277688bfc2e02aeaf44f47bf0e19f4ac6c4df683ca1408441fae52877d08ef",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0108": {
+        "phraseFingerprintSha256": "1bfe05e8bccc51543fd40ff97b081db9988da3bd0350002499c76c3fd46e47bc",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0109": {
+        "phraseFingerprintSha256": "20a771141e4cce40c28561b691a8afef29059cd02deaa6d63818e1fab95efa16",
+        "canDoSegmentId": "segment_b2_formal_soft_reformulation",
+        "canDoFingerprintSha256": "9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0110": {
+        "phraseFingerprintSha256": "274f419e2adebf86c9cf1d5b7de0891e0bcbb9eea6e31cea98634fd3a9fe2004",
+        "canDoSegmentId": "segment_b2_interview_experience",
+        "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0111": {
+        "phraseFingerprintSha256": "717c44469ee115b5d5ff8dc28b83e5301a46926e9fc6b3ad6c5694e346a8bd7e",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_b2_0112": {
+        "phraseFingerprintSha256": "d7c9dcfe0fb81ace2924b3c4d590b68e1dd9564f31aadda04a8b0d13f1416c2b",
+        "canDoSegmentId": "segment_b2_decision_criteria",
+        "canDoFingerprintSha256": "86afe34cfdfb33dc3326ee0a7dc3c2df278c5b7207c71832340cdf78d9bef93e",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
 }
 
 
@@ -2201,6 +2333,34 @@ SMALLTALK_CATEGORY_ROUTES: dict[tuple[str, str], str] = {
 class SourceIndex:
     def __init__(self) -> None:
         self.curriculum = _read_json(DATA / "curriculum_manifest.json")
+        published_catalog = _read_json(DATA / "can_do_segments.json")
+        self.published_content_routes: dict[tuple[str, str], str] = {}
+        for cluster in published_catalog.get("contentClusters", []):
+            match = re.fullmatch(r"cluster_(.+)_v\d+", str(cluster.get("id", "")))
+            if match is None:
+                continue
+            target = match.group(1)
+            for reference in cluster.get("contentReferences", []):
+                kind = reference.get("kind")
+                content_id = reference.get("id")
+                if isinstance(kind, str) and isinstance(content_id, str):
+                    self.published_content_routes[(kind, content_id)] = target
+        published_authorities = _read_json(DATA / "can_do_content_authorities.json")
+        published_decisions = (
+            published_authorities.get("coverage", {})
+            .get("smalltalkRoutingAudit", {})
+            .get("phraseDecisions", [])
+        )
+        self.published_smalltalk_routes = {
+            row["phraseId"]: {
+                "target": row["canDoSegmentId"].removeprefix("segment_"),
+                "routingSource": row.get("routingSource", "courseUnitFallback"),
+            }
+            for row in published_decisions
+            if isinstance(row, dict)
+            and isinstance(row.get("phraseId"), str)
+            and isinstance(row.get("canDoSegmentId"), str)
+        }
         self.units = {row["id"]: row for row in self.curriculum["courseUnits"]}
         self.concepts = {row["id"]: row for row in self.curriculum["concepts"]}
         self.vocab_pack_units = dict(self.curriculum["vocabPackUnitMap"])
@@ -2284,7 +2444,14 @@ class SourceIndex:
         if reference.kind == "scenario":
             row = _require(self.scenarios, reference.id, "scenario")
             actual_level = row["level"]
-            if _promotion_segment_key("scenario", reference.id) is not None:
+            if (
+                _promotion_segment_key("scenario", reference.id) is not None
+                or (reference.kind, reference.id) in self.published_content_routes
+                or (
+                actual_level in ("c1", "c2")
+                and row["courseUnitId"] in C_UNIT_DEFAULT_ROUTE
+                )
+            ):
                 # 라우팅된 시나리오는 자기 코스 유닛이 아니라 붙기로 한 세그먼트를
                 # 따른다.  Batch 12 가 만든 신규 유닛(c1_03~c1_06 등)에는 세그먼트가
                 # 없고, 모듈 첫머리의 교리대로 세그먼트를 새로 만들지도 않기 때문에
@@ -2295,7 +2462,12 @@ class SourceIndex:
                 actual_parent = row["courseUnitId"]
         elif reference.kind == "vocabPack":
             base_pack_id = re.sub(r"_\d+$", "", reference.id)
-            if _promotion_segment_key("vocabPack", reference.id) is not None:
+            mapped_parent = _require(self.vocab_pack_units, base_pack_id, "vocab pack")
+            if (
+                _promotion_segment_key("vocabPack", reference.id) is not None
+                or (reference.kind, reference.id) in self.published_content_routes
+                or mapped_parent in C_UNIT_DEFAULT_ROUTE
+            ):
                 # 명시적으로 라우팅된 팩은 자기 유닛이 아니라 붙기로 한 세그먼트를
                 # 따른다.  cloze·satz·grammar·smalltalk 에는 이미 있던 우회이고,
                 # 모듈 첫머리의 교리("their count never creates segments")를 지키려면
@@ -2303,7 +2475,7 @@ class SourceIndex:
                 # 않으므로 그 유닛의 팩은 기존 세그먼트에 붙는 수밖에 없다.
                 actual_parent = expected_parent
             else:
-                actual_parent = _require(self.vocab_pack_units, base_pack_id, "vocab pack")
+                actual_parent = mapped_parent
             rows = [row for row in self.vocab.values() if row["pack_id"] == reference.id]
             if not rows:
                 raise ValueError(f"vocab pack {reference.id!r} has no rows")
@@ -2318,7 +2490,13 @@ class SourceIndex:
             mapped_level = _require(self.units, mapped_parent, "grammar parent")["level"]
             if (
                 mapped_level != actual_level and reference.id in GRAMMAR_ID_ROUTES
-            ) or _promotion_segment_key("grammar", reference.id) is not None:
+            ) or _promotion_segment_key("grammar", reference.id) is not None or (
+                (reference.kind, reference.id) in self.published_content_routes
+                or (
+                    actual_level in ("c1", "c2")
+                    and mapped_parent in C_UNIT_DEFAULT_ROUTE
+                )
+            ):
                 # 명시적으로 라우팅된 문법은 붙기로 한 세그먼트를 따른다.
                 # 기존 조건(레벨 불일치)만으로는 같은 레벨의 신규 유닛이 기존
                 # 세그먼트에 붙는 경우를 못 덮는다 — Batch 12 가 그 첫 사례다.
@@ -2332,7 +2510,14 @@ class SourceIndex:
         elif reference.kind == "cloze":
             row = _require(self.cloze, reference.id, "cloze")
             actual_level = row["level"]
-            if _promotion_segment_key("cloze", reference.id) is not None:
+            if (
+                _promotion_segment_key("cloze", reference.id) is not None
+                or (reference.kind, reference.id) in self.published_content_routes
+                or (
+                    actual_level in ("c1", "c2")
+                    and row.get("courseUnitId") in C_UNIT_DEFAULT_ROUTE
+                )
+            ):
                 actual_parent = expected_parent
                 validate_derived = False
             else:
@@ -2348,7 +2533,14 @@ class SourceIndex:
         elif reference.kind == "satz":
             row = _require(self.satz, reference.id, "satz")
             actual_level = row["level"]
-            if _promotion_segment_key("satz", reference.id) is not None:
+            if (
+                _promotion_segment_key("satz", reference.id) is not None
+                or (reference.kind, reference.id) in self.published_content_routes
+                or (
+                    actual_level in ("c1", "c2")
+                    and row.get("courseUnitId") in C_UNIT_DEFAULT_ROUTE
+                )
+            ):
                 actual_parent = expected_parent
             else:
                 vocab = self._validate_satz_source(row, reference.id)
@@ -2934,15 +3126,27 @@ def _expand_ab_practice(
         rows = [row for row in source.vocab.values() if row["pack_id"] == pack_id]
         level = rows[0]["level"].lower()
         if level in ("c1", "c2"):
+            if ("vocabPack", pack_id) in owners_by_reference:
+                continue
             promoted_target = _promotion_segment_key("vocabPack", pack_id)
-            if promoted_target is not None:
-                add(_ref("vocabPack", pack_id), promoted_target, expected_level=level)
+            base_pack_id = re.sub(r"_\d+$", "", pack_id)
+            unit_id = _require(source.vocab_pack_units, base_pack_id, "vocab pack")
+            target = source.published_content_routes.get(
+                ("vocabPack", pack_id)
+            ) or promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE, unit_id, "C-level unit route"
+            )
+            add(_ref("vocabPack", pack_id), target, expected_level=level)
             continue
         if {row["level"].lower() for row in rows} != {level}:
             raise ValueError(f"vocab pack {pack_id!r} crosses levels")
         base_pack_id = re.sub(r"_\d+$", "", pack_id)
         unit_id = _require(source.vocab_pack_units, base_pack_id, "vocab pack")
-        target = PACK_ROUTES.get(base_pack_id, _require(UNIT_DEFAULT_ROUTE, unit_id, "unit route"))
+        target = source.published_content_routes.get(
+            ("vocabPack", pack_id)
+        ) or PACK_ROUTES.get(
+            base_pack_id, _require(UNIT_DEFAULT_ROUTE, unit_id, "unit route")
+        )
         add(_ref("vocabPack", pack_id), target, expected_level=level)
         ab_pack_ids.append(pack_id)
 
@@ -2950,11 +3154,20 @@ def _expand_ab_practice(
     for grammar_id, row in sorted(source.grammar.items()):
         level = row["level"].lower()
         if level in ("c1", "c2"):
+            if ("grammar", grammar_id) in owners_by_reference:
+                continue
             promoted_target = _promotion_segment_key("grammar", grammar_id)
-            if promoted_target is not None:
-                add(_ref("grammar", grammar_id), promoted_target, expected_level=level)
+            unit_id = _require(source.grammar_units, grammar_id, "grammar mapping")
+            target = source.published_content_routes.get(
+                ("grammar", grammar_id)
+            ) or promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE, unit_id, "C-level unit route"
+            )
+            add(_ref("grammar", grammar_id), target, expected_level=level)
             continue
-        target = GRAMMAR_ID_ROUTES.get(grammar_id)
+        target = source.published_content_routes.get(("grammar", grammar_id))
+        if target is None:
+            target = GRAMMAR_ID_ROUTES.get(grammar_id)
         if target is None:
             unit_id = _require(source.grammar_units, grammar_id, "grammar mapping")
             target = _require(UNIT_DEFAULT_ROUTE, unit_id, "unit route")
@@ -2966,18 +3179,23 @@ def _expand_ab_practice(
         level = row["level"]
         promoted_target = _promotion_segment_key("scenario", scenario_id)
         if level in ("c1", "c2"):
-            if promoted_target is not None:
-                add(
-                    _ref("scenario", scenario_id),
-                    promoted_target,
-                    expected_level=level,
-                )
+            if ("scenario", scenario_id) in owners_by_reference:
+                continue
+            target = source.published_content_routes.get(
+                ("scenario", scenario_id)
+            ) or promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE,
+                row["courseUnitId"],
+                "C-level unit route",
+            )
+            add(_ref("scenario", scenario_id), target, expected_level=level)
             continue
         anchor = owners_by_reference.get(("scenario", scenario_id))
         target = (
             next(iter(anchor))
             if anchor
-            else promoted_target
+            else source.published_content_routes.get(("scenario", scenario_id))
+            or promoted_target
             or EXTRA_SCENARIO_ROUTES.get(scenario_id)
             or UNIT_DEFAULT_ROUTE.get(str(row.get("courseUnitId") or ""))
         )
@@ -2996,30 +3214,46 @@ def _expand_ab_practice(
         level = row["level"]
         promoted_target = _promotion_segment_key("smalltalk", phrase_id)
         if level in ("c1", "c2"):
-            if promoted_target is not None:
-                add(
-                    _ref("smalltalk", phrase_id),
-                    promoted_target,
-                    expected_level=level,
-                )
+            if ("smalltalk", phrase_id) in owners_by_reference:
+                continue
+            unit_id = source.smalltalk_unit(row)
+            target = promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE, unit_id, "C-level unit route"
+            )
+            add(_ref("smalltalk", phrase_id), target, expected_level=level)
             continue
         unit_id = source.smalltalk_unit(row)
+        published_route = source.published_smalltalk_routes.get(phrase_id)
         target = promoted_target or SMALLTALK_ID_ROUTES.get(phrase_id)
         if target is not None:
             exact_smalltalk_override_ids.append(phrase_id)
             routing_source = "exactOverride"
         else:
-            target = SMALLTALK_CATEGORY_ROUTES.get((level, row["category"]))
-            if target is not None:
-                category_smalltalk_fallback_ids.append(phrase_id)
-                routing_source = "categoryFallback"
+            if published_route is not None:
+                target = published_route["target"]
+                routing_source = published_route["routingSource"]
+                if routing_source == "exactOverride":
+                    exact_smalltalk_override_ids.append(phrase_id)
+                elif routing_source == "categoryFallback":
+                    category_smalltalk_fallback_ids.append(phrase_id)
+                else:
+                    course_unit_smalltalk_fallback_ids.append(phrase_id)
             else:
-                target = _require(UNIT_DEFAULT_ROUTE, unit_id, "unit route")
-                course_unit_smalltalk_fallback_ids.append(phrase_id)
-                routing_source = "courseUnitFallback"
+                target = SMALLTALK_CATEGORY_ROUTES.get((level, row["category"]))
+                if target is not None:
+                    category_smalltalk_fallback_ids.append(phrase_id)
+                    routing_source = "categoryFallback"
+                else:
+                    target = _require(UNIT_DEFAULT_ROUTE, unit_id, "unit route")
+                    course_unit_smalltalk_fallback_ids.append(phrase_id)
+                    routing_source = "courseUnitFallback"
         target_parent = _require(spec_by_key, target, "smalltalk segment route").parent
         if target_parent != unit_id:
-            if phrase_id not in SMALLTALK_ID_ROUTES and promoted_target is None:
+            if (
+                phrase_id not in SMALLTALK_ID_ROUTES
+                and promoted_target is None
+                and published_route is None
+            ):
                 raise ValueError(
                     f"smalltalk {phrase_id!r} maps to {unit_id!r}, "
                     f"but category route {target!r} belongs to {target_parent!r}"
@@ -3081,14 +3315,25 @@ def _expand_ab_practice(
         level = row["level"]
         promoted_target = _promotion_segment_key("cloze", content_id)
         if level in ("c1", "c2"):
-            if promoted_target is not None:
-                add(
-                    _ref("cloze", content_id),
-                    promoted_target,
-                    expected_level=level,
+            if ("cloze", content_id) in owners_by_reference:
+                continue
+            unit_id = row.get("courseUnitId")
+            if not isinstance(unit_id, str) or not unit_id:
+                topic_key = f"{level}:{row['topic'].lower()}"
+                unit_id = _require(
+                    source.cloze_topic_units, topic_key, "cloze topic mapping"
                 )
+            target = promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE, unit_id, "C-level unit route"
+            )
+            add(_ref("cloze", content_id), target, expected_level=level)
             continue
         if ("cloze", content_id) in owners_by_reference:
+            direct_override_cloze_ids.append(content_id)
+            continue
+        published_target = source.published_content_routes.get(("cloze", content_id))
+        if published_target is not None:
+            add(_ref("cloze", content_id), published_target, expected_level=level)
             direct_override_cloze_ids.append(content_id)
             continue
         if promoted_target is not None:
@@ -3135,12 +3380,19 @@ def _expand_ab_practice(
         level = row["level"]
         promoted_target = _promotion_segment_key("satz", content_id)
         if level in ("c1", "c2"):
-            if promoted_target is not None:
-                add(
-                    _ref("satz", content_id),
-                    promoted_target,
-                    expected_level=level,
+            if ("satz", content_id) in owners_by_reference:
+                continue
+            unit_id = row.get("courseUnitId")
+            if not isinstance(unit_id, str) or not unit_id:
+                vocab = source._validate_satz_source(row, content_id)
+                base_pack_id = re.sub(r"_\d+$", "", vocab["pack_id"])
+                unit_id = _require(
+                    source.vocab_pack_units, base_pack_id, "satz vocab pack"
                 )
+            target = promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE, unit_id, "C-level unit route"
+            )
+            add(_ref("satz", content_id), target, expected_level=level)
             continue
         if promoted_target is not None:
             add(
@@ -3148,6 +3400,10 @@ def _expand_ab_practice(
                 promoted_target,
                 expected_level=level,
             )
+            continue
+        published_target = source.published_content_routes.get(("satz", content_id))
+        if published_target is not None:
+            add(_ref("satz", content_id), published_target, expected_level=level)
             continue
         vocab = source._validate_satz_source(row, content_id)
         if ("vocabPack", vocab["pack_id"]) not in owners_by_reference:

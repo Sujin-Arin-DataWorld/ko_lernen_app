@@ -295,6 +295,14 @@ class _PracticeHubScreenState extends State<PracticeHubScreen>
       route: '/listening',
     ),
     _HubItem(
+      icon: Icons.subtitles_outlined,
+      title: t.mediaPhraseTitle,
+      subtitle: t.mediaPhraseDesc,
+      accent: SoriColors.primary,
+      route: '/media_phrases',
+      ribbonType: 'new',
+    ),
+    _HubItem(
       icon: Icons.photo_camera_outlined,
       title: t.homeBookCardTitle,
       subtitle: t.homeBookCardDesc,

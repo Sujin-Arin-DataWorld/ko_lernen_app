@@ -55,6 +55,12 @@ void main() {
                 ).readAsStringSync(),
               )
               as Map<String, dynamic>;
+      final mediaRoot =
+          jsonDecode(File('assets/data/media_phrases.json').readAsStringSync())
+              as Map<String, dynamic>;
+      final relationRoot =
+          jsonDecode(File('assets/data/word_relations.json').readAsStringSync())
+              as Map<String, dynamic>;
       final actual = <String, int>{
         'vocab': (await DataLoader.loadVocab()).length,
         'grammar': (await DataLoader.loadGrammar()).length,
@@ -73,6 +79,8 @@ void main() {
         'kkeunmari': (kkeunmariRoot['words'] as List<dynamic>).length,
         'grammarPattern': grammarPatterns.length,
         'pronunciation': (pronunciationRoot['phrases'] as List<dynamic>).length,
+        'mediaPhrase': (mediaRoot['phrases'] as List<dynamic>).length,
+        'wordRelation': (relationRoot['clusters'] as List<dynamic>).length,
       };
 
       expect(actual, expected);

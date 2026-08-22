@@ -8076,4 +8076,23 @@ class AppL10nEn extends AppL10n {
   @override
   String get ttsUnavailableOffline =>
       'Pronunciation unavailable. Are you online?';
+
+  @override
+  String get mediaPhraseTitle => 'Media lines';
+
+  @override
+  String get mediaPhraseDesc =>
+      'Practice original interview, podcast, documentary, and debate lines at your level.';
+
+  @override
+  String get mediaPhraseContext => 'Situation';
+
+  @override
+  String get mediaPhraseEmpty => 'There are no media lines for your level yet.';
+
+  @override
+  String get mediaPhrasePrevious => 'Previous';
+
+  @override
+  String get mediaPhraseNext => 'Next';
 }

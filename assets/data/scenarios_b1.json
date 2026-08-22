@@ -14372,6 +14372,232 @@
       ],
       "shelf": "b1_cancellation",
       "backdrop": "office"
+    },
+    {
+      "id": "b1_work_deadline_soft_request",
+      "level": "b1",
+      "emoji": "💼",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "coworkers",
+      "intent": "explain_a_delay_and_negotiate_a_revised_deadline",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "마감이 늦어질 때 먼저 말하기",
+        "de": "Eine Verzögerung früh ansprechen",
+        "en": "Raising a delay early"
+      },
+      "intro": {
+        "ko": "자료 전달이 늦어질 상황을 설명하고 가능한 새 마감을 함께 정합니다.",
+        "de": "Sie erklären eine drohende Verzögerung und vereinbaren gemeinsam eine realistische neue Frist.",
+        "en": "You explain a likely delay and agree on a realistic revised deadline."
+      },
+      "grammarIds": [
+        "grammar_b1_soft_request_batch19"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "잠깐 일정에 관해 말씀드려도 될까요?",
+          "de": "Darf ich kurz etwas zum Zeitplan ansprechen?",
+          "en": "Could I briefly raise something about the schedule?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 어떤 상황인가요?",
+          "de": "Ja, worum geht es?",
+          "en": "Yes, what's the situation?"
+        },
+        {
+          "speaker": "user",
+          "ko": "외부 자료가 늦게 오는 바람에 오늘 마감이 어려울 것 같습니다.",
+          "de": "Weil externe Unterlagen unerwartet verspätet eintreffen, wird die heutige Frist wohl schwierig.",
+          "en": "Because external materials are arriving late, today's deadline will likely be difficult."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "현재까지 끝난 부분과 남은 작업을 알려 주세요.",
+          "de": "Bitte nennen Sie den aktuellen Stand und die offenen Aufgaben.",
+          "en": "Please tell me what is complete and what remains."
+        },
+        {
+          "speaker": "user",
+          "ko": "분석은 끝났고, 출처 확인과 표 수정이 남았습니다.",
+          "de": "Die Analyse ist fertig; Quellenprüfung und Tabellenkorrektur stehen noch aus.",
+          "en": "The analysis is done; source checks and table revisions remain."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그럼 내일 오전 열한 시까지 가능할까요?",
+          "de": "Wäre morgen um elf Uhr machbar?",
+          "en": "Would eleven tomorrow morning be workable?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 변경된 마감을 팀에도 알려 주실 수 있을까요?",
+          "de": "Ja. Könnten Sie die geänderte Frist auch dem Team mitteilen?",
+          "en": "Yes. Could you also inform the team of the revised deadline?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "알겠습니다. 위험이 생기면 오늘 안에 다시 공유해 주세요.",
+          "de": "In Ordnung. Falls ein neues Risiko entsteht, geben Sie bitte noch heute Bescheid.",
+          "en": "Understood. If another risk arises, please share it today."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "사정을 설명하다"
+        },
+        {
+          "korean": "의견을 조율하다"
+        },
+        {
+          "korean": "대안을 찾다"
+        },
+        {
+          "korean": "미리 알리다"
+        },
+        {
+          "korean": "마감"
+        },
+        {
+          "korean": "남은 작업"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 주실 수 있을까요?",
+          "de": "V-아/어 주실 수 있을까요?: abgeschwächte Bitte",
+          "en": "V-아/어 주실 수 있을까요?: Softened request"
+        },
+        "explanation": {
+          "ko": "요구를 당연하게 여기지 않고 상대가 답하거나 대안을 낼 수 있게 묻습니다.",
+          "de": "Bittet höflich um eine konkrete Handlung, ohne sie als selbstverständlich darzustellen.",
+          "en": "Politely asks for a concrete action without treating it as automatic."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_b1_work_deadline_soft_request_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "audioKo": "외부 자료가 늦게 오는 바람에 오늘 마감이 어려울 것 같습니다.",
+            "options": [
+              {
+                "ko": "잠깐 일정에 관해 말씀드려도 될까요?",
+                "de": "Darf ich kurz etwas zum Zeitplan ansprechen?",
+                "en": "Could I briefly raise something about the schedule?"
+              },
+              {
+                "ko": "외부 자료가 늦게 오는 바람에 오늘 마감이 어려울 것 같습니다.",
+                "de": "Weil externe Unterlagen unerwartet verspätet eintreffen, wird die heutige Frist wohl schwierig.",
+                "en": "Because external materials are arriving late, today's deadline will likely be difficult."
+              },
+              {
+                "ko": "분석은 끝났고, 출처 확인과 표 수정이 남았습니다.",
+                "de": "Die Analyse ist fertig; Quellenprüfung und Tabellenkorrektur stehen noch aus.",
+                "en": "The analysis is done; source checks and table revisions remain."
+              },
+              {
+                "ko": "네. 변경된 마감을 팀에도 알려 주실 수 있을까요?",
+                "de": "Ja. Könnten Sie die geänderte Frist auch dem Team mitteilen?",
+                "en": "Yes. Could you also inform the team of the revised deadline?"
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_b1_work_deadline_soft_request_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "promptDe": "Ja. Könnten Sie die geänderte Frist auch dem Team mitteilen?",
+            "promptEn": "Yes. Could you also inform the team of the revised deadline?",
+            "options": [
+              {
+                "ko": "잠깐 일정에 관해 말씀드려도 될까요?"
+              },
+              {
+                "ko": "분석은 끝났고, 출처 확인과 표 수정이 남았습니다."
+              },
+              {
+                "ko": "네. 변경된 마감을 팀에도 알려 주실 수 있을까요?"
+              },
+              {
+                "ko": "외부 자료가 늦게 오는 바람에 오늘 마감이 어려울 것 같습니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_b1_work_deadline_soft_request_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "sentence": "변경된 마감을 팀에 ___?",
+            "options": [
+              "알려 주실 수 있을까요",
+              "알려 주세요",
+              "알려야 해요",
+              "알리지 마세요"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_work_deadline_soft_request_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "자료가 늦게 오는 바람에 마감이 미뤄졌어요.",
+            "promptDe": "Weil die Unterlagen unerwartet verspätet kamen, wurde die Frist verschoben.",
+            "promptEn": "The deadline moved because the materials arrived late unexpectedly.",
+            "distractors": [
+              "문제없이",
+              "일찍"
+            ],
+            "audioKo": "자료가 늦게 오는 바람에 마감이 미뤄졌어요."
+          }
+        },
+        {
+          "id": "quest_b1_work_deadline_soft_request_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "끝난 작업과 남은 작업을 나누어 설명해요.",
+            "audioKo": "끝난 작업과 남은 작업을 나누어 설명해요.",
+            "promptDe": "Ich erkläre getrennt, was fertig ist und was noch offen ist.",
+            "promptEn": "I explain separately what is done and what remains."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "직장 완곡 표현은 문제를 숨기는 말이 아니라 상대가 판단할 수 있도록 상황, 영향, 가능한 대안을 함께 제시하는 방식입니다.",
+        "de": "Abschwächung am Arbeitsplatz verschleiert kein Problem; sie verbindet Situation, Auswirkung und machbare Alternative so, dass die andere Person entscheiden kann.",
+        "en": "Workplace softening should not hide a problem; it presents the situation, impact, and a workable alternative so the other person can decide."
+      },
+      "shelf": "b1_team",
+      "backdrop": "office"
     }
   ]
 }

@@ -101,6 +101,37 @@ def _live_records(root: Path) -> dict[str, list[dict[str, Any]]]:
     return result
 
 
+def _supplemental_live_records(root: Path) -> dict[str, tuple[str, list[dict[str, Any]]]]:
+    data = root / "assets" / "data"
+    silben = _read_json(data / "silben_puzzles.json")
+    return {
+        "mediaPhrase": (
+            "id",
+            _read_json(data / "media_phrases.json")["phrases"],
+        ),
+        "wordRelation": (
+            "id",
+            _read_json(data / "word_relations.json")["clusters"],
+        ),
+        "grammarPattern": (
+            "id",
+            _read_json(data / "grammar_patterns.json"),
+        ),
+        "kkeunmari": (
+            "word",
+            _read_json(data / "kkeunmari_pool.json")["words"],
+        ),
+        "silben": (
+            "id",
+            [
+                puzzle
+                for puzzles in silben["levels"].values()
+                for puzzle in puzzles
+            ],
+        ),
+    }
+
+
 def _index_by_id(kind: str, records: list[dict[str, Any]]) -> tuple[dict[str, dict[str, Any]], list[str]]:
     index: dict[str, dict[str, Any]] = {}
     duplicates: list[str] = []
@@ -123,6 +154,16 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
     for kind, records in live.items():
         live_indexes[kind], duplicate_errors = _index_by_id(kind, records)
         errors.extend(duplicate_errors)
+    supplemental_live: dict[str, tuple[str, dict[str, dict[str, Any]]]] = {}
+    for kind, (key_field, records) in _supplemental_live_records(root).items():
+        index: dict[str, dict[str, Any]] = {}
+        for record in records:
+            key = str(record.get(key_field) or "").strip()
+            if not key or key in index:
+                errors.append(f"{kind}: blank or duplicate {key_field} {key!r}")
+            else:
+                index[key] = record
+        supplemental_live[kind] = (key_field, index)
 
     curriculum = _read_json(root / "assets" / "data" / "curriculum_manifest.json")
     scenario_links = {
@@ -184,15 +225,61 @@ def audit(root: Path = ROOT) -> dict[str, Any]:
                     if ident not in scenario_links:
                         manifest_errors.append(f"{path.name}:scenario:{ident}: missing curriculum contentLink")
 
-        if manifest.get("recordCount") != tracked:
+        core_tracked = tracked
+        if manifest.get("recordCount") != core_tracked:
             manifest_errors.append(
-                f"{path.name}: recordCount {manifest.get('recordCount')!r} != audited draft IDs {tracked}"
+                f"{path.name}: recordCount {manifest.get('recordCount')!r} != audited draft IDs {core_tracked}"
             )
+        supplemental_tracked = 0
+        supplemental_present = 0
+        for artifact in manifest.get("supplementalArtifacts", []):
+            kind = str(artifact.get("kind") or "")
+            live_spec = supplemental_live.get(kind)
+            if live_spec is None:
+                manifest_errors.append(
+                    f"{path.name}: unknown supplemental artifact kind {kind!r}"
+                )
+                continue
+            expected_field, live_index = live_spec
+            key_field = str(artifact.get("keyField") or "")
+            keys = artifact.get("keys")
+            if key_field != expected_field or not isinstance(keys, list):
+                manifest_errors.append(
+                    f"{path.name}:{kind}: invalid supplemental key contract"
+                )
+                continue
+            normalized = [str(key).strip() for key in keys]
+            if len(set(normalized)) != len(normalized) or any(not key for key in normalized):
+                manifest_errors.append(
+                    f"{path.name}:{kind}: blank or duplicate supplemental keys"
+                )
+            if artifact.get("count") != len(normalized):
+                manifest_errors.append(
+                    f"{path.name}:{kind}: supplemental count differs from keys"
+                )
+            supplemental_tracked += len(normalized)
+            for key in normalized:
+                if key in live_index:
+                    supplemental_present += 1
+                else:
+                    missing.append(f"{kind}:{key}")
+        if manifest.get("supplementalRecordCount", supplemental_tracked) != supplemental_tracked:
+            manifest_errors.append(
+                f"{path.name}: supplementalRecordCount differs from audited keys"
+            )
+        tracked += supplemental_tracked
+        present += supplemental_present
         if missing:
             audit_status = "not_live"
         elif manifest_errors:
             audit_status = "invalid"
-        elif status == "review_only_draft":
+        elif status == "review_only_draft" and not (
+            isinstance(manifest.get("provenance"), dict)
+            and (
+                manifest["provenance"].get("promotedAt")
+                or manifest["provenance"].get("approval")
+            )
+        ):
             audit_status = "live_verified_status_stale"
         else:
             audit_status = "live_verified"

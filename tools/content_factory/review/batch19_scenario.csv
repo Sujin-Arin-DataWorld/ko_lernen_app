@@ -1,0 +1,4 @@
+id,level,ko,de,en,field_notes,상태,jin_memo
+a1_register_first_day_choice,A1,처음 만난 사람에게 어떻게 말해요?,Wie spreche ich neue Menschen an?,How do I speak to someone new?,rights: original_clean_room; beyond-humanizer-v2; stable loader contract verified,approved,"Jin full A1-C2 content update and main integration authorization, 2026-08-22"
+a2_plan_weather_change,A2,비가 오면 약속을 바꿔요,Planänderung bei Regen,Changing plans if it rains,rights: original_clean_room; beyond-humanizer-v2; stable loader contract verified,approved,"Jin full A1-C2 content update and main integration authorization, 2026-08-22"
+b1_work_deadline_soft_request,B1,마감이 늦어질 때 먼저 말하기,Eine Verzögerung früh ansprechen,Raising a delay early,rights: original_clean_room; beyond-humanizer-v2; stable loader contract verified,approved,"Jin full A1-C2 content update and main integration authorization, 2026-08-22"

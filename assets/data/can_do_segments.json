@@ -4,11 +4,20 @@
     {
       "id": "cluster_a1_01_greetings_hangul_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_airport_arrival_v1",
         "seed_vocab_pack_a1_greetings_1_v1",
-        "seed_vocab_pack_a1_greetings_2_v1"
+        "seed_vocab_pack_a1_greetings_2_v1",
+        "seed_cloze_cloze_a1_0292_v1",
+        "seed_cloze_cloze_a1_0293_v1",
+        "seed_cloze_cloze_a1_0294_v1",
+        "seed_cloze_cloze_a1_0295_v1",
+        "seed_cloze_cloze_a1_0296_v1",
+        "seed_cloze_cloze_a1_0297_v1",
+        "seed_cloze_cloze_a1_0298_v1",
+        "seed_cloze_cloze_a1_0299_v1",
+        "seed_cloze_cloze_a1_0300_v1"
       ],
       "contentReferences": [
         {
@@ -22,20 +31,59 @@
         {
           "kind": "vocabPack",
           "id": "a1_greetings_2"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0292"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0293"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0294"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0295"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0296"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0297"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0298"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0299"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0300"
         }
       ]
     },
     {
       "id": "cluster_a1_02_self_intro_identity_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_introduce_yourself_v1",
         "seed_vocab_pack_a1_self_intro_v1",
         "seed_grammar_grammar_a1_copula_polite_v1",
         "seed_cloze_cloze_a1_0003_v1",
         "seed_cloze_cloze_a1_0006_v1",
-        "seed_scenario_a1_kpop_my_bias_v1"
+        "seed_scenario_a1_kpop_my_bias_v1",
+        "seed_cloze_cloze_a1_0301_v1",
+        "seed_cloze_cloze_a1_0302_v1",
+        "seed_cloze_cloze_a1_0305_v1"
       ],
       "contentReferences": [
         {
@@ -61,17 +109,41 @@
         {
           "kind": "scenario",
           "id": "a1_kpop_my_bias"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0301"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0302"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0305"
         }
       ]
     },
     {
       "id": "cluster_a1_03_topic_subject_particles_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_mart_grocery_v1",
         "seed_grammar_grammar_a1_subject_particle_v1",
-        "seed_grammar_grammar_a1_topic_particle_v1"
+        "seed_grammar_grammar_a1_topic_particle_v1",
+        "seed_vocab_pack_a1_particles_in_use_1_v1",
+        "seed_grammar_grammar_a1_subject_new_v1",
+        "seed_grammar_grammar_a1_topic_contrast_v1",
+        "seed_cloze_cloze_a1_0307_v1",
+        "seed_cloze_cloze_a1_0308_v1",
+        "seed_cloze_cloze_a1_0309_v1",
+        "seed_cloze_cloze_a1_0310_v1",
+        "seed_cloze_cloze_a1_0311_v1",
+        "seed_cloze_cloze_a1_0312_v1",
+        "seed_cloze_cloze_a1_0313_v1",
+        "seed_cloze_cloze_a1_0314_v1",
+        "seed_cloze_cloze_a1_0315_v1"
       ],
       "contentReferences": [
         {
@@ -85,6 +157,54 @@
         {
           "kind": "grammar",
           "id": "grammar_a1_topic_particle"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_particles_in_use_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a1_subject_new"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a1_topic_contrast"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0307"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0308"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0309"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0310"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0311"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0312"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0313"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0314"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0315"
         }
       ]
     },
@@ -507,7 +627,7 @@
     {
       "id": "cluster_a1_08_clarify_repair_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_clarify_repeat_v1",
         "seed_grammar_grammar_a1_which_question_v1",
@@ -515,7 +635,17 @@
         "seed_grammar_grammar_a1_come_purpose_v1",
         "seed_grammar_grammar_a1_duration_span_v1",
         "seed_grammar_grammar_a1_in_front_v1",
-        "seed_grammar_grammar_a1_spoken_dative_v1"
+        "seed_grammar_grammar_a1_spoken_dative_v1",
+        "seed_vocab_pack_a1_repair_language_1_v1",
+        "seed_cloze_cloze_a1_0316_v1",
+        "seed_cloze_cloze_a1_0317_v1",
+        "seed_cloze_cloze_a1_0318_v1",
+        "seed_cloze_cloze_a1_0319_v1",
+        "seed_cloze_cloze_a1_0320_v1",
+        "seed_cloze_cloze_a1_0321_v1",
+        "seed_cloze_cloze_a1_0322_v1",
+        "seed_cloze_cloze_a1_0323_v1",
+        "seed_cloze_cloze_a1_0324_v1"
       ],
       "contentReferences": [
         {
@@ -545,6 +675,46 @@
         {
           "kind": "grammar",
           "id": "grammar_a1_spoken_dative"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_repair_language_1"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0316"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0317"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0318"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0319"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0320"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0321"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0322"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0323"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0324"
         }
       ]
     },
@@ -1167,11 +1337,12 @@
     {
       "id": "cluster_a1_13_register_switching_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_cloze_cloze_a1_0076_v1",
         "seed_cloze_cloze_a1_0077_v1",
-        "seed_vocab_pack_a1_sorry_thanks_1_v1"
+        "seed_vocab_pack_a1_sorry_thanks_1_v1",
+        "seed_scenario_a1_register_first_day_choice_v1"
       ],
       "contentReferences": [
         {
@@ -1185,16 +1356,30 @@
         {
           "kind": "vocabPack",
           "id": "a1_sorry_thanks_1"
+        },
+        {
+          "kind": "scenario",
+          "id": "a1_register_first_day_choice"
         }
       ]
     },
     {
       "id": "cluster_a1_14_payment_delivery_v1",
       "level": "a1",
-      "revision": 1,
+      "revision": 2,
       "sourceSeedIds": [
         "seed_scenario_delivery_address_confirmation_v1",
-        "seed_scenario_convenience_store_v1"
+        "seed_scenario_convenience_store_v1",
+        "seed_vocab_pack_a1_payment_delivery_1_v1",
+        "seed_smalltalk_smalltalk_a1_0083_v1",
+        "seed_smalltalk_smalltalk_a1_0084_v1",
+        "seed_cloze_cloze_a1_0326_v1",
+        "seed_cloze_cloze_a1_0327_v1",
+        "seed_cloze_cloze_a1_0328_v1",
+        "seed_cloze_cloze_a1_0331_v1",
+        "seed_cloze_cloze_a1_0332_v1",
+        "seed_cloze_cloze_a1_0333_v1",
+        "seed_cloze_cloze_a1_0334_v1"
       ],
       "contentReferences": [
         {
@@ -1204,6 +1389,46 @@
         {
           "kind": "scenario",
           "id": "convenience_store"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a1_payment_delivery_1"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0083"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a1_0084"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0326"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0327"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0328"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0331"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0332"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0333"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0334"
         }
       ]
     },
@@ -1264,7 +1489,7 @@
     {
       "id": "cluster_a1_16_survival_capstone_v1",
       "level": "a1",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_scenario_survival_day_capstone_v1",
         "seed_vocab_pack_a1_misc_1_v1",
@@ -1313,7 +1538,17 @@
         "seed_scenario_a1_water_shop_v1",
         "seed_scenario_a1_weather_layer_v1",
         "seed_scenario_a1_weekend_rain_v1",
-        "seed_scenario_a1_whiteboard_word_v1"
+        "seed_scenario_a1_whiteboard_word_v1",
+        "seed_cloze_cloze_a1_0335_v1",
+        "seed_cloze_cloze_a1_0336_v1",
+        "seed_cloze_cloze_a1_0337_v1",
+        "seed_cloze_cloze_a1_0338_v1",
+        "seed_cloze_cloze_a1_0339_v1",
+        "seed_cloze_cloze_a1_0340_v1",
+        "seed_cloze_cloze_a1_0341_v1",
+        "seed_cloze_cloze_a1_0342_v1",
+        "seed_cloze_cloze_a1_0343_v1",
+        "seed_cloze_cloze_a1_0344_v1"
       ],
       "contentReferences": [
         {
@@ -1507,6 +1742,46 @@
         {
           "kind": "scenario",
           "id": "a1_whiteboard_word"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0335"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0336"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0337"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0338"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0339"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0340"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0341"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0342"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0343"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a1_0344"
         }
       ]
     },
@@ -1682,7 +1957,7 @@
     {
       "id": "cluster_a2_plans_with_friend_v1",
       "level": "a2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_plans_with_friend_v1",
         "seed_grammar_grammar_a2_gentle_question_v1",
@@ -1719,7 +1994,19 @@
         "seed_scenario_a2_booking_change_date_v1",
         "seed_scenario_a2_booking_extra_person_v1",
         "seed_scenario_a2_booking_no_show_fee_v1",
-        "seed_scenario_a2_booking_table_time_v1"
+        "seed_scenario_a2_booking_table_time_v1",
+        "seed_vocab_pack_a2_plans_proposals_1_v1",
+        "seed_grammar_grammar_a2_available_if_v1",
+        "seed_grammar_grammar_a2_shall_we_time_v1",
+        "seed_scenario_a2_plan_weather_change_v1",
+        "seed_smalltalk_smalltalk_a2_0076_v1",
+        "seed_smalltalk_smalltalk_a2_0077_v1",
+        "seed_cloze_cloze_a2_0268_v1",
+        "seed_cloze_cloze_a2_0273_v1",
+        "seed_cloze_cloze_a2_0274_v1",
+        "seed_cloze_cloze_a2_0275_v1",
+        "seed_cloze_cloze_a2_0276_v1",
+        "seed_cloze_cloze_a2_0277_v1"
       ],
       "contentReferences": [
         {
@@ -1865,6 +2152,54 @@
         {
           "kind": "scenario",
           "id": "a2_booking_table_time"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "a2_plans_proposals_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_available_if"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_a2_shall_we_time"
+        },
+        {
+          "kind": "scenario",
+          "id": "a2_plan_weather_change"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0076"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_a2_0077"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a2_0268"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a2_0273"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a2_0274"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a2_0275"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a2_0276"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_a2_0277"
         }
       ]
     },
@@ -3832,7 +4167,7 @@
     {
       "id": "cluster_b1_team_role_coordination_v1",
       "level": "b1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_b1_team_meeting_coordination_v1",
         "seed_vocab_pack_b1_work_v1",
@@ -3872,7 +4207,11 @@
         "seed_scenario_b1_cancellation_auto_payment_v1",
         "seed_scenario_b1_cancellation_early_penalty_v1",
         "seed_scenario_b1_cancellation_gym_membership_v1",
-        "seed_scenario_b1_cancellation_move_out_notice_v1"
+        "seed_scenario_b1_cancellation_move_out_notice_v1",
+        "seed_vocab_pack_b1_work_softening_1_v1",
+        "seed_grammar_grammar_b1_reason_context_v1",
+        "seed_grammar_grammar_b1_soft_request_batch19_v1",
+        "seed_scenario_b1_work_deadline_soft_request_v1"
       ],
       "contentReferences": [
         {
@@ -4030,6 +4369,22 @@
         {
           "kind": "scenario",
           "id": "b1_cancellation_move_out_notice"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b1_work_softening_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_reason_context"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b1_soft_request_batch19"
+        },
+        {
+          "kind": "scenario",
+          "id": "b1_work_deadline_soft_request"
         }
       ]
     },
@@ -4967,7 +5322,7 @@
     {
       "id": "cluster_b2_decision_criteria_v1",
       "level": "b2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_scenario_b2_decision_criteria_workshop_v1",
         "seed_vocab_pack_b2_decisions_perspectives_1_v1",
@@ -5058,7 +5413,18 @@
         "seed_grammar_grammar_b2_granted_limit_v1",
         "seed_grammar_grammar_b2_including_start_v1",
         "seed_grammar_grammar_b2_whether_or_not_v1",
-        "seed_scenario_b2_friends_split_the_bill_v1"
+        "seed_scenario_b2_friends_split_the_bill_v1",
+        "seed_grammar_grammar_b2_not_by_one_metric_v1",
+        "seed_scenario_b2_daily_migration_neighborhood_meeting_v1",
+        "seed_smalltalk_smalltalk_b2_0105_v1",
+        "seed_smalltalk_smalltalk_b2_0106_v1",
+        "seed_smalltalk_smalltalk_b2_0107_v1",
+        "seed_smalltalk_smalltalk_b2_0108_v1",
+        "seed_smalltalk_smalltalk_b2_0111_v1",
+        "seed_smalltalk_smalltalk_b2_0112_v1",
+        "seed_cloze_cloze_b2_0368_v1",
+        "seed_cloze_cloze_b2_0369_v1",
+        "seed_cloze_cloze_b2_0370_v1"
       ],
       "contentReferences": [
         {
@@ -5420,6 +5786,50 @@
         {
           "kind": "scenario",
           "id": "b2_friends_split_the_bill"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_not_by_one_metric"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_daily_migration_neighborhood_meeting"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0105"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0106"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0107"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0108"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0111"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0112"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0368"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0369"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0370"
         }
       ]
     },
@@ -5600,7 +6010,7 @@
     {
       "id": "cluster_b2_contract_scope_v1",
       "level": "b2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_b2_signature_scope_confirmation_v1",
         "seed_vocab_pack_b2_formal_agreement_1_v1",
@@ -5620,7 +6030,14 @@
         "seed_scenario_b2_privacy_data_scope_v1",
         "seed_scenario_b2_privacy_delete_request_v1",
         "seed_scenario_b2_privacy_retention_period_v1",
-        "seed_scenario_b2_privacy_third_party_v1"
+        "seed_scenario_b2_privacy_third_party_v1",
+        "seed_grammar_grammar_b2_include_total_scope_v1",
+        "seed_scenario_b2_moving_rent_heating_budget_v1",
+        "seed_smalltalk_smalltalk_b2_0101_v1",
+        "seed_smalltalk_smalltalk_b2_0102_v1",
+        "seed_cloze_cloze_b2_0362_v1",
+        "seed_cloze_cloze_b2_0363_v1",
+        "seed_cloze_cloze_b2_0364_v1"
       ],
       "contentReferences": [
         {
@@ -5698,6 +6115,34 @@
         {
           "kind": "scenario",
           "id": "b2_privacy_third_party"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_include_total_scope"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_moving_rent_heating_budget"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0101"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0102"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0362"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0363"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0364"
         }
       ]
     },
@@ -6297,7 +6742,7 @@
     {
       "id": "cluster_b2_interview_experience_v1",
       "level": "b2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_scenario_job_interview_v1",
         "seed_vocab_pack_b2_relationships_people_1_v1",
@@ -6321,7 +6766,15 @@
         "seed_scenario_b2_hiring_reference_consent_v1",
         "seed_scenario_b2_hiring_role_scope_v1",
         "seed_scenario_b2_hiring_salary_band_v1",
-        "seed_scenario_b2_hiring_start_date_v1"
+        "seed_scenario_b2_hiring_start_date_v1",
+        "seed_grammar_grammar_b2_verify_human_review_v1",
+        "seed_scenario_b2_job_hunting_ai_screening_v1",
+        "seed_smalltalk_smalltalk_b2_0103_v1",
+        "seed_smalltalk_smalltalk_b2_0104_v1",
+        "seed_smalltalk_smalltalk_b2_0110_v1",
+        "seed_cloze_cloze_b2_0365_v1",
+        "seed_cloze_cloze_b2_0366_v1",
+        "seed_cloze_cloze_b2_0367_v1"
       ],
       "contentReferences": [
         {
@@ -6415,6 +6868,38 @@
         {
           "kind": "scenario",
           "id": "b2_hiring_start_date"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_verify_human_review"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_job_hunting_ai_screening"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0103"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0104"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0110"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0365"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0366"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0367"
         }
       ]
     },
@@ -6500,7 +6985,7 @@
     {
       "id": "cluster_b2_formal_soft_reformulation_v1",
       "level": "b2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_grammar_grammar_b2_only_course_v1",
         "seed_vocab_pack_b2_misc_v1",
@@ -6548,7 +7033,14 @@
         "seed_smalltalk_smalltalk_b2_0097_v1",
         "seed_smalltalk_smalltalk_b2_0098_v1",
         "seed_vocab_pack_b2_policy_brief_1_v1",
-        "seed_scenario_b2_dating_moving_in_terms_v1"
+        "seed_scenario_b2_dating_moving_in_terms_v1",
+        "seed_vocab_pack_b2_2026_social_topics_1_v1",
+        "seed_grammar_grammar_b2_instead_supplement_v1",
+        "seed_scenario_b2_kpop_local_festival_program_v1",
+        "seed_smalltalk_smalltalk_b2_0109_v1",
+        "seed_cloze_cloze_b2_0371_v1",
+        "seed_cloze_cloze_b2_0372_v1",
+        "seed_cloze_cloze_b2_0373_v1"
       ],
       "contentReferences": [
         {
@@ -6738,13 +7230,41 @@
         {
           "kind": "scenario",
           "id": "b2_dating_moving_in_terms"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "b2_2026_social_topics_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_b2_instead_supplement"
+        },
+        {
+          "kind": "scenario",
+          "id": "b2_kpop_local_festival_program"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_b2_0109"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0371"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0372"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_b2_0373"
         }
       ]
     },
     {
       "id": "cluster_c1_evidence_validity_v1",
       "level": "c1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -6780,7 +7300,21 @@
         "seed_scenario_c1_conflict_interest_disclose_stake_v1",
         "seed_scenario_c1_conflict_interest_dual_role_v1",
         "seed_scenario_c1_conflict_interest_recuse_request_v1",
-        "seed_scenario_c1_conflict_interest_sponsored_talk_v1"
+        "seed_scenario_c1_conflict_interest_sponsored_talk_v1",
+        "seed_grammar_grammar_c1_while_also_consider_v1",
+        "seed_scenario_c1_work_ai_hiring_pilot_review_v1",
+        "seed_smalltalk_smalltalk_c1_0035_v1",
+        "seed_smalltalk_smalltalk_c1_0036_v1",
+        "seed_smalltalk_smalltalk_c1_0042_v1",
+        "seed_smalltalk_smalltalk_c1_0059_v1",
+        "seed_smalltalk_smalltalk_c1_0060_v1",
+        "seed_smalltalk_smalltalk_c1_0061_v1",
+        "seed_cloze_cloze_c1_0224_v1",
+        "seed_cloze_cloze_c1_0225_v1",
+        "seed_cloze_cloze_c1_0226_v1",
+        "seed_satz_satz_c1_0226_v1",
+        "seed_satz_satz_c1_0227_v1",
+        "seed_satz_satz_c1_0228_v1"
       ],
       "contentReferences": [
         {
@@ -6978,13 +7512,69 @@
         {
           "kind": "scenario",
           "id": "c1_conflict_interest_sponsored_talk"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_while_also_consider"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_work_ai_hiring_pilot_review"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0035"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0036"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0042"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0059"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0060"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0061"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0224"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0225"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0226"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0226"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0227"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0228"
         }
       ]
     },
     {
       "id": "cluster_c1_evidence_limits_conclusion_v1",
       "level": "c1",
-      "revision": 5,
+      "revision": 6,
       "sourceSeedIds": [
         "seed_batch05_c1_evidence_reasoning_1_v1",
         "seed_project_c1_evidence_v1",
@@ -7118,7 +7708,11 @@
         "seed_scenario_c1_critique_anonymous_limits_v1",
         "seed_scenario_c1_critique_metric_gaming_v1",
         "seed_scenario_c1_critique_public_wording_v1",
-        "seed_scenario_c1_critique_work_not_person_v1"
+        "seed_scenario_c1_critique_work_not_person_v1",
+        "seed_smalltalk_smalltalk_c1_0066_v1",
+        "seed_smalltalk_smalltalk_c1_0067_v1",
+        "seed_smalltalk_smalltalk_c1_0068_v1",
+        "seed_smalltalk_smalltalk_c1_0069_v1"
       ],
       "contentReferences": [
         {
@@ -7708,18 +8302,38 @@
         {
           "kind": "scenario",
           "id": "c1_critique_work_not_person"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0066"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0067"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0068"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0069"
         }
       ]
     },
     {
       "id": "cluster_c1_risk_uncertainty_v1",
       "level": "c1",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c1_risk_communication_1_v1",
         "seed_project_c1_risk_v1",
         "seed_smalltalk_smalltalk_c1_0024_v1",
-        "seed_scenario_c1_gaming_playtime_policy_v1"
+        "seed_scenario_c1_gaming_playtime_policy_v1",
+        "seed_smalltalk_smalltalk_c1_0047_v1",
+        "seed_smalltalk_smalltalk_c1_0048_v1",
+        "seed_smalltalk_smalltalk_c1_0049_v1",
+        "seed_smalltalk_smalltalk_c1_0050_v1"
       ],
       "contentReferences": [
         {
@@ -7801,6 +8415,22 @@
         {
           "kind": "scenario",
           "id": "c1_gaming_playtime_policy"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0047"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0048"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0049"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0050"
         }
       ]
     },
@@ -8785,7 +9415,7 @@
     {
       "id": "cluster_c1_sustainable_lifecycle_v1",
       "level": "c1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -8821,7 +9451,20 @@
         "seed_scenario_c1_attribution_author_order_v1",
         "seed_scenario_c1_attribution_collective_byline_v1",
         "seed_scenario_c1_attribution_reuse_without_credit_v1",
-        "seed_scenario_c1_attribution_unpaid_translation_v1"
+        "seed_scenario_c1_attribution_unpaid_translation_v1",
+        "seed_grammar_grammar_c1_excluded_in_process_v1",
+        "seed_scenario_c1_kpop_platform_localization_review_v1",
+        "seed_smalltalk_smalltalk_c1_0039_v1",
+        "seed_smalltalk_smalltalk_c1_0040_v1",
+        "seed_smalltalk_smalltalk_c1_0044_v1",
+        "seed_smalltalk_smalltalk_c1_0053_v1",
+        "seed_smalltalk_smalltalk_c1_0054_v1",
+        "seed_cloze_cloze_c1_0230_v1",
+        "seed_cloze_cloze_c1_0231_v1",
+        "seed_cloze_cloze_c1_0232_v1",
+        "seed_satz_satz_c1_0232_v1",
+        "seed_satz_satz_c1_0233_v1",
+        "seed_satz_satz_c1_0234_v1"
       ],
       "contentReferences": [
         {
@@ -9027,13 +9670,65 @@
         {
           "kind": "scenario",
           "id": "c1_attribution_unpaid_translation"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_excluded_in_process"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_kpop_platform_localization_review"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0039"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0040"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0044"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0053"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0054"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0230"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0231"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0232"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0232"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0233"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0234"
         }
       ]
     },
     {
       "id": "cluster_c1_local_tradeoff_adaptation_v1",
       "level": "c1",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c1_sustainable_tradeoffs_1_v1",
         "seed_project_c1_sustainability_v1",
@@ -9118,7 +9813,68 @@
         "seed_scenario_c1_policy_exemption_edge_v1",
         "seed_scenario_c1_policy_pilot_before_rollout_v1",
         "seed_scenario_c1_policy_sunset_clause_v1",
-        "seed_scenario_c1_policy_who_bears_cost_v1"
+        "seed_scenario_c1_policy_who_bears_cost_v1",
+        "seed_vocab_pack_c1_2026_social_topics_1_v1",
+        "seed_grammar_grammar_c1_effect_varies_by_v1",
+        "seed_grammar_grammar_c1_even_accounting_for_v1",
+        "seed_scenario_c1_daily_migration_demography_policy_forum_v1",
+        "seed_scenario_c1_moving_rent_relief_roundtable_v1",
+        "seed_smalltalk_smalltalk_c1_0033_v1",
+        "seed_smalltalk_smalltalk_c1_0034_v1",
+        "seed_smalltalk_smalltalk_c1_0037_v1",
+        "seed_smalltalk_smalltalk_c1_0038_v1",
+        "seed_smalltalk_smalltalk_c1_0041_v1",
+        "seed_smalltalk_smalltalk_c1_0043_v1",
+        "seed_smalltalk_smalltalk_c1_0045_v1",
+        "seed_smalltalk_smalltalk_c1_0046_v1",
+        "seed_smalltalk_smalltalk_c1_0051_v1",
+        "seed_smalltalk_smalltalk_c1_0052_v1",
+        "seed_smalltalk_smalltalk_c1_0055_v1",
+        "seed_smalltalk_smalltalk_c1_0056_v1",
+        "seed_smalltalk_smalltalk_c1_0057_v1",
+        "seed_smalltalk_smalltalk_c1_0058_v1",
+        "seed_smalltalk_smalltalk_c1_0062_v1",
+        "seed_smalltalk_smalltalk_c1_0063_v1",
+        "seed_smalltalk_smalltalk_c1_0064_v1",
+        "seed_smalltalk_smalltalk_c1_0065_v1",
+        "seed_smalltalk_smalltalk_c1_0070_v1",
+        "seed_smalltalk_smalltalk_c1_0071_v1",
+        "seed_cloze_cloze_c1_0221_v1",
+        "seed_cloze_cloze_c1_0222_v1",
+        "seed_cloze_cloze_c1_0223_v1",
+        "seed_cloze_cloze_c1_0227_v1",
+        "seed_cloze_cloze_c1_0228_v1",
+        "seed_cloze_cloze_c1_0229_v1",
+        "seed_cloze_cloze_c1_0233_v1",
+        "seed_cloze_cloze_c1_0234_v1",
+        "seed_cloze_cloze_c1_0235_v1",
+        "seed_cloze_cloze_c1_0236_v1",
+        "seed_cloze_cloze_c1_0237_v1",
+        "seed_cloze_cloze_c1_0238_v1",
+        "seed_cloze_cloze_c1_0239_v1",
+        "seed_cloze_cloze_c1_0240_v1",
+        "seed_cloze_cloze_c1_0241_v1",
+        "seed_cloze_cloze_c1_0242_v1",
+        "seed_cloze_cloze_c1_0243_v1",
+        "seed_cloze_cloze_c1_0244_v1",
+        "seed_satz_satz_c1_0223_v1",
+        "seed_satz_satz_c1_0224_v1",
+        "seed_satz_satz_c1_0225_v1",
+        "seed_satz_satz_c1_0229_v1",
+        "seed_satz_satz_c1_0230_v1",
+        "seed_satz_satz_c1_0231_v1",
+        "seed_satz_satz_c1_0235_v1",
+        "seed_satz_satz_c1_0236_v1",
+        "seed_satz_satz_c1_0237_v1",
+        "seed_satz_satz_c1_0238_v1",
+        "seed_satz_satz_c1_0239_v1",
+        "seed_satz_satz_c1_0240_v1",
+        "seed_satz_satz_c1_0241_v1",
+        "seed_satz_satz_c1_0242_v1",
+        "seed_satz_satz_c1_0243_v1",
+        "seed_satz_satz_c1_0244_v1",
+        "seed_satz_satz_c1_0245_v1",
+        "seed_satz_satz_c1_0246_v1"
       ],
       "contentReferences": [
         {
@@ -9520,6 +10276,250 @@
         {
           "kind": "scenario",
           "id": "c1_policy_who_bears_cost"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c1_2026_social_topics_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_effect_varies_by"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c1_even_accounting_for"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_daily_migration_demography_policy_forum"
+        },
+        {
+          "kind": "scenario",
+          "id": "c1_moving_rent_relief_roundtable"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0033"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0034"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0037"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0038"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0041"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0043"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0045"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0046"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0051"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0052"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0055"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0056"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0057"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0058"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0062"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0063"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0064"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0065"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0070"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c1_0071"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0221"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0222"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0223"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0227"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0228"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0229"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0233"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0234"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0235"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0236"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0237"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0238"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0239"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0240"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0241"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0242"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0243"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c1_0244"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0223"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0224"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0225"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0229"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0230"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0231"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0235"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0236"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0237"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0238"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0239"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0240"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0241"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0242"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0243"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0244"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0245"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c1_0246"
         }
       ]
     },
@@ -10528,7 +11528,7 @@
     {
       "id": "cluster_c2_narrative_perspective_v1",
       "level": "c2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c2_narrative_perspective_1_v1",
         "seed_project_c2_narrative_v1",
@@ -10564,7 +11564,9 @@
         "seed_scenario_c2_aesthetic_dialect_subtitle_flatten_v1",
         "seed_scenario_c2_aesthetic_poem_rhythm_meaning_loss_v1",
         "seed_scenario_c2_aesthetic_translator_editor_dispute_v1",
-        "seed_scenario_c2_aesthetic_word_without_equivalent_v1"
+        "seed_scenario_c2_aesthetic_word_without_equivalent_v1",
+        "seed_smalltalk_smalltalk_c2_0055_v1",
+        "seed_smalltalk_smalltalk_c2_0056_v1"
       ],
       "contentReferences": [
         {
@@ -10766,6 +11768,14 @@
         {
           "kind": "scenario",
           "id": "c2_aesthetic_word_without_equivalent"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0055"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0056"
         }
       ]
     },
@@ -10872,12 +11882,63 @@
     {
       "id": "cluster_c2_framing_responsibility_v1",
       "level": "c2",
-      "revision": 2,
+      "revision": 3,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
         "seed_vocab_pack_c2_framing_analysis_1_v1",
-        "seed_vocab_pack_c2_institutional_voice_1_v1"
+        "seed_vocab_pack_c2_institutional_voice_1_v1",
+        "seed_vocab_pack_c2_2026_social_topics_1_v1",
+        "seed_grammar_grammar_c2_responsibility_remains_v1",
+        "seed_grammar_grammar_c2_take_as_premise_v1",
+        "seed_scenario_c2_daily_integration_metric_editorial_v1",
+        "seed_scenario_c2_moving_affordability_definition_hearing_v1",
+        "seed_smalltalk_smalltalk_c2_0033_v1",
+        "seed_smalltalk_smalltalk_c2_0034_v1",
+        "seed_smalltalk_smalltalk_c2_0037_v1",
+        "seed_smalltalk_smalltalk_c2_0038_v1",
+        "seed_smalltalk_smalltalk_c2_0041_v1",
+        "seed_smalltalk_smalltalk_c2_0047_v1",
+        "seed_smalltalk_smalltalk_c2_0048_v1",
+        "seed_smalltalk_smalltalk_c2_0049_v1",
+        "seed_smalltalk_smalltalk_c2_0050_v1",
+        "seed_smalltalk_smalltalk_c2_0062_v1",
+        "seed_cloze_cloze_c2_0221_v1",
+        "seed_cloze_cloze_c2_0222_v1",
+        "seed_cloze_cloze_c2_0223_v1",
+        "seed_cloze_cloze_c2_0227_v1",
+        "seed_cloze_cloze_c2_0228_v1",
+        "seed_cloze_cloze_c2_0229_v1",
+        "seed_cloze_cloze_c2_0233_v1",
+        "seed_cloze_cloze_c2_0234_v1",
+        "seed_cloze_cloze_c2_0235_v1",
+        "seed_cloze_cloze_c2_0236_v1",
+        "seed_cloze_cloze_c2_0237_v1",
+        "seed_cloze_cloze_c2_0238_v1",
+        "seed_cloze_cloze_c2_0239_v1",
+        "seed_cloze_cloze_c2_0240_v1",
+        "seed_cloze_cloze_c2_0241_v1",
+        "seed_cloze_cloze_c2_0242_v1",
+        "seed_cloze_cloze_c2_0243_v1",
+        "seed_cloze_cloze_c2_0244_v1",
+        "seed_satz_satz_c2_0223_v1",
+        "seed_satz_satz_c2_0224_v1",
+        "seed_satz_satz_c2_0225_v1",
+        "seed_satz_satz_c2_0229_v1",
+        "seed_satz_satz_c2_0230_v1",
+        "seed_satz_satz_c2_0231_v1",
+        "seed_satz_satz_c2_0235_v1",
+        "seed_satz_satz_c2_0236_v1",
+        "seed_satz_satz_c2_0237_v1",
+        "seed_satz_satz_c2_0238_v1",
+        "seed_satz_satz_c2_0239_v1",
+        "seed_satz_satz_c2_0240_v1",
+        "seed_satz_satz_c2_0241_v1",
+        "seed_satz_satz_c2_0242_v1",
+        "seed_satz_satz_c2_0243_v1",
+        "seed_satz_satz_c2_0244_v1",
+        "seed_satz_satz_c2_0245_v1",
+        "seed_satz_satz_c2_0246_v1"
       ],
       "contentReferences": [
         {
@@ -10951,13 +12012,217 @@
         {
           "kind": "vocabPack",
           "id": "c2_institutional_voice_1"
+        },
+        {
+          "kind": "vocabPack",
+          "id": "c2_2026_social_topics_1"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_responsibility_remains"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_take_as_premise"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_daily_integration_metric_editorial"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_moving_affordability_definition_hearing"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0033"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0034"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0037"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0038"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0041"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0047"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0048"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0049"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0050"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0062"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0221"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0222"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0223"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0227"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0228"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0229"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0233"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0234"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0235"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0236"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0237"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0238"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0239"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0240"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0241"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0242"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0243"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0244"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0223"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0224"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0225"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0229"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0230"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0231"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0235"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0236"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0237"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0238"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0239"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0240"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0241"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0242"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0243"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0244"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0245"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0246"
         }
       ]
     },
     {
       "id": "cluster_c2_discourse_boundary_power_v1",
       "level": "c2",
-      "revision": 4,
+      "revision": 5,
       "sourceSeedIds": [
         "seed_batch05_c2_language_framing_1_v1",
         "seed_project_c2_framing_v1",
@@ -10993,7 +12258,20 @@
         "seed_scenario_c2_representation_fan_rep_mandate_defined_v1",
         "seed_scenario_c2_representation_minority_view_regardless_v1",
         "seed_scenario_c2_representation_press_quote_not_official_v1",
-        "seed_scenario_c2_representation_spokesperson_handover_concession_v1"
+        "seed_scenario_c2_representation_spokesperson_handover_concession_v1",
+        "seed_grammar_grammar_c2_cannot_reduce_to_v1",
+        "seed_scenario_c2_kpop_authenticity_platform_panel_v1",
+        "seed_smalltalk_smalltalk_c2_0039_v1",
+        "seed_smalltalk_smalltalk_c2_0040_v1",
+        "seed_smalltalk_smalltalk_c2_0044_v1",
+        "seed_smalltalk_smalltalk_c2_0051_v1",
+        "seed_smalltalk_smalltalk_c2_0052_v1",
+        "seed_cloze_cloze_c2_0230_v1",
+        "seed_cloze_cloze_c2_0231_v1",
+        "seed_cloze_cloze_c2_0232_v1",
+        "seed_satz_satz_c2_0232_v1",
+        "seed_satz_satz_c2_0233_v1",
+        "seed_satz_satz_c2_0234_v1"
       ],
       "contentReferences": [
         {
@@ -11191,13 +12469,65 @@
         {
           "kind": "scenario",
           "id": "c2_representation_spokesperson_handover_concession"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_cannot_reduce_to"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_kpop_authenticity_platform_panel"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0039"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0040"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0044"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0051"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0052"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0230"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0231"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0232"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0232"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0233"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0234"
         }
       ]
     },
     {
       "id": "cluster_c2_technology_traceability_appeal_v1",
       "level": "c2",
-      "revision": 6,
+      "revision": 7,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
@@ -11356,7 +12686,13 @@
         "seed_scenario_c2_limitation_define_accrual_date_v1",
         "seed_scenario_c2_limitation_ex_officio_review_path_v1",
         "seed_scenario_c2_limitation_extension_premise_error_proof_v1",
-        "seed_scenario_c2_limitation_notice_delay_appeal_window_v1"
+        "seed_scenario_c2_limitation_notice_delay_appeal_window_v1",
+        "seed_smalltalk_smalltalk_c2_0042_v1",
+        "seed_smalltalk_smalltalk_c2_0059_v1",
+        "seed_smalltalk_smalltalk_c2_0060_v1",
+        "seed_smalltalk_smalltalk_c2_0061_v1",
+        "seed_smalltalk_smalltalk_c2_0063_v1",
+        "seed_smalltalk_smalltalk_c2_0064_v1"
       ],
       "contentReferences": [
         {
@@ -12054,13 +13390,37 @@
         {
           "kind": "scenario",
           "id": "c2_limitation_notice_delay_appeal_window"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0042"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0059"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0060"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0061"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0063"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0064"
         }
       ]
     },
     {
       "id": "cluster_c2_technology_responsibility_rights_v1",
       "level": "c2",
-      "revision": 3,
+      "revision": 4,
       "sourceSeedIds": [
         "seed_batch05_c2_technology_ethics_1_v1",
         "seed_project_c2_technology_v1",
@@ -12092,7 +13452,30 @@
         "seed_satz_satz_c2_0195_v1",
         "seed_satz_satz_c2_0196_v1",
         "seed_satz_satz_c2_0197_v1",
-        "seed_satz_satz_c2_0198_v1"
+        "seed_satz_satz_c2_0198_v1",
+        "seed_grammar_grammar_c2_definition_by_viewpoint_v1",
+        "seed_scenario_c2_work_ai_accountability_board_v1",
+        "seed_smalltalk_smalltalk_c2_0035_v1",
+        "seed_smalltalk_smalltalk_c2_0036_v1",
+        "seed_smalltalk_smalltalk_c2_0043_v1",
+        "seed_smalltalk_smalltalk_c2_0045_v1",
+        "seed_smalltalk_smalltalk_c2_0046_v1",
+        "seed_smalltalk_smalltalk_c2_0053_v1",
+        "seed_smalltalk_smalltalk_c2_0054_v1",
+        "seed_smalltalk_smalltalk_c2_0057_v1",
+        "seed_smalltalk_smalltalk_c2_0058_v1",
+        "seed_smalltalk_smalltalk_c2_0065_v1",
+        "seed_smalltalk_smalltalk_c2_0066_v1",
+        "seed_smalltalk_smalltalk_c2_0067_v1",
+        "seed_smalltalk_smalltalk_c2_0068_v1",
+        "seed_smalltalk_smalltalk_c2_0069_v1",
+        "seed_smalltalk_smalltalk_c2_0070_v1",
+        "seed_cloze_cloze_c2_0224_v1",
+        "seed_cloze_cloze_c2_0225_v1",
+        "seed_cloze_cloze_c2_0226_v1",
+        "seed_satz_satz_c2_0226_v1",
+        "seed_satz_satz_c2_0227_v1",
+        "seed_satz_satz_c2_0228_v1"
       ],
       "contentReferences": [
         {
@@ -12282,6 +13665,98 @@
         {
           "kind": "satz",
           "id": "satz_c2_0198"
+        },
+        {
+          "kind": "grammar",
+          "id": "grammar_c2_definition_by_viewpoint"
+        },
+        {
+          "kind": "scenario",
+          "id": "c2_work_ai_accountability_board"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0035"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0036"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0043"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0045"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0046"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0053"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0054"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0057"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0058"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0065"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0066"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0067"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0068"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0069"
+        },
+        {
+          "kind": "smalltalk",
+          "id": "smalltalk_c2_0070"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0224"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0225"
+        },
+        {
+          "kind": "cloze",
+          "id": "cloze_c2_0226"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0226"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0227"
+        },
+        {
+          "kind": "satz",
+          "id": "satz_c2_0228"
         }
       ]
     }

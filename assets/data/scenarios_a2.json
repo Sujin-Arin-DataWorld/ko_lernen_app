@@ -16161,6 +16161,232 @@
       ],
       "shelf": "a2_booking",
       "backdrop": "restaurant"
+    },
+    {
+      "id": "a2_plan_weather_change",
+      "level": "a2",
+      "emoji": "📅",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "friends",
+      "intent": "propose_and_revise_a_weekend_plan",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ],
+      "sidekick": "minsu",
+      "xpReward": 105,
+      "title": {
+        "ko": "비가 오면 약속을 바꿔요",
+        "de": "Planänderung bei Regen",
+        "en": "Changing plans if it rains"
+      },
+      "intro": {
+        "ko": "친구와 주말 약속을 잡고 비가 올 때의 대안도 정합니다.",
+        "de": "Sie verabreden sich fürs Wochenende und legen eine Alternative bei Regen fest.",
+        "en": "You make weekend plans with a friend and choose a backup for rain."
+      },
+      "grammarIds": [
+        "grammar_a2_shall_we_time"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "토요일 오후에 시간이 돼요?",
+          "de": "Hast du am Samstagnachmittag Zeit?",
+          "en": "Are you free Saturday afternoon?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 세 시 이후에는 괜찮아요.",
+          "de": "Ja, nach drei passt es mir.",
+          "en": "Yes, any time after three works."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 공원에서 만날까요?",
+          "de": "Sollen wir uns dann im Park treffen?",
+          "en": "Shall we meet in the park?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "좋아요. 그런데 비 예보가 있어요.",
+          "de": "Gern. Allerdings ist Regen vorhergesagt.",
+          "en": "Sure. But rain is forecast."
+        },
+        {
+          "speaker": "user",
+          "ko": "비가 오면 역 안 카페로 바꿀까요?",
+          "de": "Sollen wir bei Regen ins Café im Bahnhof wechseln?",
+          "en": "If it rains, shall we switch to the cafe inside the station?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네. 두 시에 날씨를 보고 결정해요.",
+          "de": "Ja. Wir schauen um zwei auf das Wetter und entscheiden dann.",
+          "en": "Yes. Let's check the weather at two and decide."
+        },
+        {
+          "speaker": "user",
+          "ko": "늦으면 미리 연락할게요.",
+          "de": "Wenn ich mich verspäte, melde ich mich vorher.",
+          "en": "If I'm late, I'll contact you in advance."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "좋아요. 그럼 토요일 세 시에 봐요.",
+          "de": "Gut. Dann bis Samstag um drei.",
+          "en": "Great. See you Saturday at three."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "약속을 잡다"
+        },
+        {
+          "korean": "일정을 바꾸다"
+        },
+        {
+          "korean": "시간이 되다"
+        },
+        {
+          "korean": "만날 곳"
+        },
+        {
+          "korean": "비 예보"
+        },
+        {
+          "korean": "미리 연락하다"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-(으)ㄹ까요?",
+          "de": "V-(으)ㄹ까요?: gemeinsamer Vorschlag",
+          "en": "V-(으)ㄹ까요?: Polite joint proposal"
+        },
+        "explanation": {
+          "ko": "상대의 선택 공간을 남기면서 함께 할 일을 제안할 때 씁니다.",
+          "de": "Schlägt eine gemeinsame Handlung höflich vor und lässt der anderen Person Raum.",
+          "en": "Politely proposes doing something together and leaves room for the other person."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_a2_plan_weather_change_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_proposal_polite"
+          ],
+          "data": {
+            "audioKo": "그럼 공원에서 만날까요?",
+            "options": [
+              {
+                "ko": "토요일 오후에 시간이 돼요?",
+                "de": "Hast du am Samstagnachmittag Zeit?",
+                "en": "Are you free Saturday afternoon?"
+              },
+              {
+                "ko": "그럼 공원에서 만날까요?",
+                "de": "Sollen wir uns dann im Park treffen?",
+                "en": "Shall we meet in the park?"
+              },
+              {
+                "ko": "비가 오면 역 안 카페로 바꿀까요?",
+                "de": "Sollen wir bei Regen ins Café im Bahnhof wechseln?",
+                "en": "If it rains, shall we switch to the cafe inside the station?"
+              },
+              {
+                "ko": "늦으면 미리 연락할게요.",
+                "de": "Wenn ich mich verspäte, melde ich mich vorher.",
+                "en": "If I'm late, I'll contact you in advance."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_a2_plan_weather_change_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_proposal_polite"
+          ],
+          "data": {
+            "promptDe": "Wenn ich mich verspäte, melde ich mich vorher.",
+            "promptEn": "If I'm late, I'll contact you in advance.",
+            "options": [
+              {
+                "ko": "토요일 오후에 시간이 돼요?"
+              },
+              {
+                "ko": "비가 오면 역 안 카페로 바꿀까요?"
+              },
+              {
+                "ko": "늦으면 미리 연락할게요."
+              },
+              {
+                "ko": "그럼 공원에서 만날까요?"
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_a2_plan_weather_change_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_proposal_polite"
+          ],
+          "data": {
+            "sentence": "토요일 세 시에 ___?",
+            "options": [
+              "만날까요",
+              "만났어요",
+              "만나세요",
+              "만나지만"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_plan_weather_change_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_proposal_polite"
+          ],
+          "data": {
+            "targetKo": "비가 오면 역 안 카페로 바꿔요.",
+            "promptDe": "Wenn es regnet, wechseln wir ins Café im Bahnhof.",
+            "promptEn": "If it rains, we switch to the cafe inside the station.",
+            "distractors": [
+              "공원만",
+              "그대로"
+            ],
+            "audioKo": "비가 오면 역 안 카페로 바꿔요."
+          }
+        },
+        {
+          "id": "quest_a2_plan_weather_change_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_proposal_polite"
+          ],
+          "data": {
+            "targetKo": "늦으면 미리 연락해 주세요.",
+            "audioKo": "늦으면 미리 연락해 주세요.",
+            "promptDe": "Bitte melden Sie sich vorher, wenn Sie sich verspäten.",
+            "promptEn": "Please contact me in advance if you'll be late."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "약속을 바꿀 때는 새 시간과 장소뿐 아니라 언제 최종 결정할지도 함께 말하면 오해가 줄어듭니다.",
+        "de": "Bei Planänderungen vermeiden neue Zeit, neuer Ort und ein klarer Entscheidungszeitpunkt Missverständnisse.",
+        "en": "When plans change, state the new time and place as well as when the final decision will be made."
+      },
+      "shelf": "a2_plan",
+      "backdrop": "cafe"
     }
   ]
 }

@@ -38,7 +38,7 @@ class SilbenKreuzScreen extends StatefulWidget {
 
 class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     with ScreenCoachMixin<SilbenKreuzScreen> {
-  static const _levels = ['A1', 'A2', 'B1', 'B2'];
+  static const _levels = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
   static const _xpPerPuzzle = 30;
 
   Map<String, List<SilbenPuzzle>> _byLevel = {};

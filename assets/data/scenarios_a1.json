@@ -20185,6 +20185,232 @@
       ],
       "shelf": "a1_wayfinding",
       "backdrop": "station"
+    },
+    {
+      "id": "a1_register_first_day_choice",
+      "level": "a1",
+      "emoji": "👋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "new_classmates",
+      "intent": "choose_a_greeting_for_each_relationship",
+      "courseUnitId": "a1_13_register_switching",
+      "conceptIds": [
+        "concept_a1_register_switch"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 90,
+      "title": {
+        "ko": "처음 만난 사람에게 어떻게 말해요?",
+        "de": "Wie spreche ich neue Menschen an?",
+        "en": "How do I speak to someone new?"
+      },
+      "intro": {
+        "ko": "첫 수업에서 선생님과 새 친구에게 관계에 맞는 인사를 고릅니다.",
+        "de": "Im ersten Kurs wählen Sie passende Grüße für die Lehrerin und neue Mitschüler.",
+        "en": "In your first class, you choose greetings that fit the teacher and new classmates."
+      },
+      "grammarIds": [
+        "grammar_a1_topic_contrast"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "선생님, 안녕!",
+          "de": "Hallo, Lehrerin!",
+          "en": "Hi, teacher!"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "선생님께는 ‘안녕하세요’가 더 좋아요.",
+          "de": "Zur Lehrerin passt 안녕하세요 besser.",
+          "en": "안녕하세요 is better for the teacher."
+        },
+        {
+          "speaker": "user",
+          "ko": "안녕하세요. 저는 수진이에요.",
+          "de": "Guten Tag. Ich bin Sujin.",
+          "en": "Hello. I'm Sujin."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "좋아요. 처음 만난 친구에게도 먼저 해요체를 써요.",
+          "de": "Gut. Auch mit einer neuen Mitschülerin beginnen wir mit der höflichen 해요-Form.",
+          "en": "Good. Start with the polite 해요 style with a new classmate too."
+        },
+        {
+          "speaker": "user",
+          "ko": "민지 씨, 어느 나라에서 왔어요?",
+          "de": "Minji, aus welchem Land kommen Sie?",
+          "en": "Minji, which country are you from?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "친해진 뒤에는 서로 괜찮다고 하면 반말로 바꿀 수 있어요.",
+          "de": "Wenn Sie sich näher kennen, können beide nach Zustimmung zur informellen Form wechseln.",
+          "en": "Once you know each other better, you can switch to casual speech if both agree."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 지금은 ‘안녕하세요’라고 할게요.",
+          "de": "Dann sage ich jetzt 안녕하세요.",
+          "en": "Then I'll use 안녕하세요 for now."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네. 관계를 모르겠을 때는 공손한 말이 안전해요.",
+          "de": "Ja. Wenn die Beziehung unklar ist, ist die höfliche Form sicher.",
+          "en": "Yes. When the relationship is unclear, polite speech is safer."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "안녕하세요"
+        },
+        {
+          "korean": "안녕"
+        },
+        {
+          "korean": "선생님"
+        },
+        {
+          "korean": "친구"
+        },
+        {
+          "korean": "해요체"
+        },
+        {
+          "korean": "반말"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N은/는",
+          "de": "N은/는: Thema und einfacher Kontrast",
+          "en": "N은/는: Topic and simple contrast"
+        },
+        "explanation": {
+          "ko": "대화의 주제를 세우거나 두 정보를 간단히 대비할 때 씁니다.",
+          "de": "Markiert das Gesprächsthema und kann zwei einfache Angaben gegenüberstellen.",
+          "en": "Marks the topic and can contrast two simple pieces of information."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_a1_register_first_day_choice_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_register_switch"
+          ],
+          "data": {
+            "audioKo": "안녕하세요. 저는 수진이에요.",
+            "options": [
+              {
+                "ko": "선생님, 안녕!",
+                "de": "Hallo, Lehrerin!",
+                "en": "Hi, teacher!"
+              },
+              {
+                "ko": "안녕하세요. 저는 수진이에요.",
+                "de": "Guten Tag. Ich bin Sujin.",
+                "en": "Hello. I'm Sujin."
+              },
+              {
+                "ko": "민지 씨, 어느 나라에서 왔어요?",
+                "de": "Minji, aus welchem Land kommen Sie?",
+                "en": "Minji, which country are you from?"
+              },
+              {
+                "ko": "그럼 지금은 ‘안녕하세요’라고 할게요.",
+                "de": "Dann sage ich jetzt 안녕하세요.",
+                "en": "Then I'll use 안녕하세요 for now."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_a1_register_first_day_choice_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_register_switch"
+          ],
+          "data": {
+            "promptDe": "Dann sage ich jetzt 안녕하세요.",
+            "promptEn": "Then I'll use 안녕하세요 for now.",
+            "options": [
+              {
+                "ko": "선생님, 안녕!"
+              },
+              {
+                "ko": "민지 씨, 어느 나라에서 왔어요?"
+              },
+              {
+                "ko": "그럼 지금은 ‘안녕하세요’라고 할게요."
+              },
+              {
+                "ko": "안녕하세요. 저는 수진이에요."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_a1_register_first_day_choice_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_a1_register_switch"
+          ],
+          "data": {
+            "sentence": "선생님께는 ___라고 인사해요.",
+            "options": [
+              "안녕하세요",
+              "안녕",
+              "잘 자",
+              "고마워"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a1_register_first_day_choice_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_register_switch"
+          ],
+          "data": {
+            "targetKo": "처음 만난 친구에게도 해요체로 말해요.",
+            "promptDe": "Auch mit einer neuen Mitschülerin spreche ich zunächst höflich.",
+            "promptEn": "I use polite speech with a new classmate too.",
+            "distractors": [
+              "무조건",
+              "낮춰서"
+            ],
+            "audioKo": "처음 만난 친구에게도 해요체로 말해요."
+          }
+        },
+        {
+          "id": "quest_a1_register_first_day_choice_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_register_switch"
+          ],
+          "data": {
+            "targetKo": "관계를 모르겠을 때는 공손하게 말해요.",
+            "audioKo": "관계를 모르겠을 때는 공손하게 말해요.",
+            "promptDe": "Wenn die Beziehung unklar ist, spreche ich höflich.",
+            "promptEn": "When the relationship is unclear, I speak politely."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "한국어 말투는 나이 하나만이 아니라 처음 만났는지, 어떤 역할로 만났는지, 서로 어떤 말투에 동의했는지에 따라 달라집니다.",
+        "de": "Die koreanische Sprechweise hängt nicht nur vom Alter ab, sondern auch von erster Begegnung, Rolle und gegenseitiger Zustimmung.",
+        "en": "Korean speech style depends not only on age but also on whether people are meeting for the first time, their roles, and mutual agreement."
+      },
+      "shelf": "a1_greet",
+      "backdrop": "cafe"
     }
   ]
 }

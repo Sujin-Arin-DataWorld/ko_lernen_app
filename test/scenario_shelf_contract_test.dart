@@ -73,11 +73,11 @@ void main() {
       'station',
       'taxi',
     };
-    // Batch 17 승격까지 반영한 라이브 레벨별 수량이다 (총 404편).
+    // Batch 19 승격까지 반영한 라이브 레벨별 수량이다 (총 407편).
     const expectedCounts = <String, int>{
-      'a1': 85,
-      'a2': 80,
-      'b1': 73,
+      'a1': 86,
+      'a2': 81,
+      'b1': 74,
       'b2': 72,
       'c1': 49,
       'c2': 45,
@@ -92,7 +92,7 @@ void main() {
         final items = scenarioShardRoot(level)['scenarios'] as List;
         expect(items.length, expectedCounts[level], reason: level);
       }
-      expect(allScenarioJson().length, 404);
+      expect(allScenarioJson().length, 407);
     });
 
     test('샤드에는 자기 레벨만 들어 있다', () {

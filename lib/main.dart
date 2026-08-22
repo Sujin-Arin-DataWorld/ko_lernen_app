@@ -51,6 +51,7 @@ import 'screens/app_shell.dart';
 import 'screens/paywall_screen.dart';
 import 'screens/review_session_screen.dart';
 import 'screens/smalltalk_screen.dart';
+import 'screens/media_phrase_screen.dart';
 import 'screens/book_capture_screen.dart';
 import 'screens/book_preview_screen.dart';
 import 'screens/book_result_screen.dart';
@@ -673,7 +674,8 @@ class _KoLernenAppState extends State<KoLernenApp> {
             case '/listening/play':
               final listeningScenario = settings.arguments;
               return SoriTransitions.fadeScale(
-                (_) => listeningScenario is Scenario &&
+                (_) =>
+                    listeningScenario is Scenario &&
                         listeningScenario.dialog.isNotEmpty
                     ? ListeningPlayScreen(scenario: listeningScenario)
                     : const ListeningScreen(),
@@ -799,6 +801,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
                   );
               return SoriTransitions.fadeScale(
                 (_) => SmalltalkScreen(courseContext: smalltalkCourseContext),
+                settings: settings,
+              );
+            case '/media_phrases':
+              return SoriTransitions.fadeScale(
+                (_) => const MediaPhraseScreen(),
                 settings: settings,
               );
             case '/scenarios':

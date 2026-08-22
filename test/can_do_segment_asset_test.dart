@@ -77,9 +77,7 @@ void main() {
       final smalltalkRows = _rows(
         _json('assets/data/smalltalk.json')['phrases'],
       );
-      final scenarioRows = _rows(
-        allScenarioJson(),
-      );
+      final scenarioRows = _rows(allScenarioJson());
       final clozeRows = _rows(_json('assets/data/cloze.json')['items']);
       final satzRows = _rows(_json('assets/data/satz_sentences.json')['items']);
 
@@ -124,7 +122,7 @@ void main() {
         .toList(growable: false);
     final phrasesById = {for (final row in phrases) row['id']: row};
 
-    expect(decisions, hasLength(329));
+    expect(decisions, hasLength(phrases.length));
     expect(decisionById.keys.toSet(), {for (final row in phrases) row['id']});
     expect(audit['unresolvedAmbiguousIds'], isEmpty);
     expect(
@@ -157,7 +155,9 @@ void main() {
       'bestAvailable',
     );
     for (final decision in decisions) {
-      if (decision['routingSource'] != 'exactOverride') {
+      if (decision['semanticStatus'] == 'approved') {
+        expect(decision['reasonCode'], 'topicAndFunctionMatch');
+      } else if (decision['routingSource'] != 'exactOverride') {
         expect(decision['semanticStatus'], 'bestAvailable');
         expect(decision['reasonCode'], 'closestPublishedCoreSegment');
       }

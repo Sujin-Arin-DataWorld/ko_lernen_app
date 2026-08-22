@@ -1,0 +1,329 @@
+{
+  "version": 1,
+  "batch": "19",
+  "status": "merged",
+  "provenance": {
+    "rights": "original_clean_room",
+    "contentRevision": "v2",
+    "humanization": {
+      "skill": "beyond-humanizer",
+      "installedRef": "beyond-humanizer-v2@2dde092f",
+      "contract": "same communication event; independent DE/EN reconstruction; CEFR function and stable IDs preserved"
+    },
+    "approval": {
+      "authority": "Jin",
+      "approvedAt": "2026-08-22",
+      "memo": "Full A1-C2 content update, validation, main merge and cleanup authorized."
+    }
+  },
+  "artifacts": [
+    {
+      "kind": "vocab",
+      "draft": "tools/content_factory/drafts/batch19_vocab.csv",
+      "review": "tools/content_factory/review/batch19_vocab.csv",
+      "count": 20,
+      "levels": {
+        "a1": 12,
+        "a2": 4,
+        "b1": 4
+      }
+    },
+    {
+      "kind": "grammar",
+      "draft": "tools/content_factory/drafts/batch19_grammar.csv",
+      "review": "tools/content_factory/review/batch19_grammar.csv",
+      "count": 6,
+      "levels": {
+        "a1": 2,
+        "a2": 2,
+        "b1": 2
+      }
+    },
+    {
+      "kind": "scenario",
+      "draft": "tools/content_factory/drafts/batch19_scenario.json",
+      "review": "tools/content_factory/review/batch19_scenario.csv",
+      "count": 3,
+      "levels": {
+        "a1": 1,
+        "a2": 1,
+        "b1": 1
+      },
+      "collection": "scenarios"
+    },
+    {
+      "kind": "smalltalk",
+      "draft": "tools/content_factory/drafts/batch19_smalltalk.json",
+      "review": "tools/content_factory/review/batch19_smalltalk.csv",
+      "count": 57,
+      "levels": {
+        "a1": 2,
+        "a2": 2,
+        "c1": 27,
+        "c2": 26
+      },
+      "collection": "phrases"
+    },
+    {
+      "kind": "cloze",
+      "draft": "tools/content_factory/drafts/batch19_cloze.json",
+      "review": "tools/content_factory/review/batch19_cloze.csv",
+      "count": 63,
+      "levels": {
+        "a1": 53,
+        "a2": 10
+      },
+      "collection": "items"
+    },
+    {
+      "kind": "satz",
+      "draft": "tools/content_factory/drafts/batch19_satz.json",
+      "review": "tools/content_factory/review/batch19_satz.csv",
+      "count": 38,
+      "levels": {
+        "a1": 30,
+        "a2": 8
+      },
+      "collection": "items"
+    },
+    {
+      "kind": "pronunciation",
+      "draft": "tools/content_factory/drafts/batch19_pronunciation.json",
+      "review": "tools/content_factory/review/batch19_pronunciation.csv",
+      "count": 16,
+      "levels": {
+        "a1": 6,
+        "a2": 6,
+        "b1": 4
+      },
+      "collection": "phrases"
+    }
+  ],
+  "recordCount": 203,
+  "contentLinks": [
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_register_first_day_choice",
+      "courseUnitId": "a1_13_register_switching",
+      "conceptIds": [
+        "concept_a1_register_switch"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_plan_weather_change",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_work_deadline_soft_request",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    }
+  ],
+  "supplementalPromotions": {
+    "mediaPhrase": 32,
+    "wordRelation": 24,
+    "grammarPattern": 6,
+    "kkeunmari": 40,
+    "silben": 40
+  },
+  "supplementalArtifacts": [
+    {
+      "kind": "mediaPhrase",
+      "count": 32,
+      "keyField": "id",
+      "keys": [
+        "media_081",
+        "media_082",
+        "media_083",
+        "media_084",
+        "media_085",
+        "media_086",
+        "media_087",
+        "media_088",
+        "media_089",
+        "media_090",
+        "media_091",
+        "media_092",
+        "media_093",
+        "media_094",
+        "media_095",
+        "media_096",
+        "media_097",
+        "media_098",
+        "media_099",
+        "media_100",
+        "media_101",
+        "media_102",
+        "media_103",
+        "media_104",
+        "media_105",
+        "media_106",
+        "media_107",
+        "media_108",
+        "media_109",
+        "media_110",
+        "media_111",
+        "media_112"
+      ]
+    },
+    {
+      "kind": "wordRelation",
+      "count": 24,
+      "keyField": "id",
+      "keys": [
+        "rel_batch19_a1_01",
+        "rel_batch19_a1_02",
+        "rel_batch19_a1_03",
+        "rel_batch19_a1_04",
+        "rel_batch19_a2_01",
+        "rel_batch19_a2_02",
+        "rel_batch19_a2_03",
+        "rel_batch19_a2_04",
+        "rel_batch19_b1_01",
+        "rel_batch19_b1_02",
+        "rel_batch19_b1_03",
+        "rel_batch19_b1_04",
+        "rel_batch19_b2_01",
+        "rel_batch19_b2_02",
+        "rel_batch19_b2_03",
+        "rel_batch19_b2_04",
+        "rel_batch19_c1_01",
+        "rel_batch19_c1_02",
+        "rel_batch19_c1_03",
+        "rel_batch19_c1_04",
+        "rel_batch19_c2_01",
+        "rel_batch19_c2_02",
+        "rel_batch19_c2_03",
+        "rel_batch19_c2_04"
+      ]
+    },
+    {
+      "kind": "grammarPattern",
+      "count": 6,
+      "keyField": "id",
+      "keys": [
+        "g_b2_not_automatic",
+        "g_b2_instead_of",
+        "g_c1_in_process",
+        "g_c1_varies_by",
+        "g_c2_cannot_reduce",
+        "g_c2_premise"
+      ]
+    },
+    {
+      "kind": "kkeunmari",
+      "count": 40,
+      "keyField": "word",
+      "keys": [
+        "타자화",
+        "휴식권",
+        "표집틀",
+        "표본",
+        "일반화",
+        "상관관계",
+        "인과",
+        "편향",
+        "출처",
+        "재현성",
+        "오해석",
+        "검증",
+        "반박",
+        "인용",
+        "규제",
+        "시행",
+        "부작용",
+        "실효성",
+        "자율",
+        "완화",
+        "의사결정권",
+        "재명명",
+        "철회권",
+        "오작동",
+        "구제",
+        "소명",
+        "유예",
+        "재검토",
+        "통보",
+        "시정",
+        "입증",
+        "형식적",
+        "불복",
+        "처분",
+        "제재",
+        "적발",
+        "누적",
+        "자의적",
+        "일관성",
+        "비례"
+      ]
+    },
+    {
+      "kind": "silben",
+      "count": 40,
+      "keyField": "id",
+      "keys": [
+        "skz_c1_001",
+        "skz_c1_002",
+        "skz_c1_003",
+        "skz_c1_004",
+        "skz_c1_005",
+        "skz_c1_006",
+        "skz_c1_007",
+        "skz_c1_008",
+        "skz_c1_009",
+        "skz_c1_010",
+        "skz_c1_011",
+        "skz_c1_012",
+        "skz_c1_013",
+        "skz_c1_014",
+        "skz_c1_015",
+        "skz_c1_016",
+        "skz_c1_017",
+        "skz_c1_018",
+        "skz_c1_019",
+        "skz_c1_020",
+        "skz_c2_001",
+        "skz_c2_002",
+        "skz_c2_003",
+        "skz_c2_004",
+        "skz_c2_005",
+        "skz_c2_006",
+        "skz_c2_007",
+        "skz_c2_008",
+        "skz_c2_009",
+        "skz_c2_010",
+        "skz_c2_011",
+        "skz_c2_012",
+        "skz_c2_013",
+        "skz_c2_014",
+        "skz_c2_015",
+        "skz_c2_016",
+        "skz_c2_017",
+        "skz_c2_018",
+        "skz_c2_019",
+        "skz_c2_020"
+      ]
+    }
+  ],
+  "supplementalRecordCount": 142,
+  "courseExposure": {
+    "scenario": "explicit courseUnitId plus contentLink",
+    "smalltalk": "category map plus exact checkpoint phrase map for measured unit gaps",
+    "cloze": "level and topic map",
+    "satz": "same-level vocabulary pack map",
+    "pronunciation": "exact authored level with cumulative learner visibility",
+    "mediaPhrase": "exact-level reachable practice route",
+    "silben": "exact-level selectable A1-C2",
+    "kkeunmari": "cumulative through learner level with C1/C2 exact seeds"
+  }
+}

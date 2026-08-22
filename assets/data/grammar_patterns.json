@@ -203,7 +203,9 @@
   {
     "id": "g_conditional_seasonal",
     "regex": "다면",
-    "supersedes": ["g_conditional"],
+    "supersedes": [
+      "g_conditional"
+    ],
     "name_de": "Hypothetisch (-다면)",
     "name_en": "Hypothetical condition (-다면)",
     "level": "B1",
@@ -281,5 +283,59 @@
     "level": "A1",
     "explanation_de": "Ort des Seins / Zielort / Zeitpunkt.",
     "explanation_en": "Marks the location where something exists, a destination, or a point in time."
+  },
+  {
+    "id": "g_b2_not_automatic",
+    "regex": "다고 해서",
+    "name_de": "kein automatischer Schluss",
+    "name_en": "not an automatic conclusion",
+    "level": "B2",
+    "explanation_de": "Begrenzt einen voreiligen Schluss aus der vorherigen Aussage.",
+    "explanation_en": "Blocks an automatic conclusion from the preceding statement."
+  },
+  {
+    "id": "g_b2_instead_of",
+    "regex": "는 대신",
+    "name_de": "stattdessen abwägen",
+    "name_en": "weighing an alternative",
+    "level": "B2",
+    "explanation_de": "Stellt eine verworfene Vorgehensweise einer Alternative gegenüber.",
+    "explanation_en": "Contrasts a rejected approach with an alternative."
+  },
+  {
+    "id": "g_c1_in_process",
+    "regex": "는 과정에서",
+    "name_de": "Folge eines Verfahrens",
+    "name_en": "effect within a process",
+    "level": "C1",
+    "explanation_de": "Macht eine Folge sichtbar, die während eines Prozesses entsteht.",
+    "explanation_en": "Highlights an effect that arises during a process."
+  },
+  {
+    "id": "g_c1_varies_by",
+    "regex": "에 따라.*달라질 수",
+    "name_de": "gruppenabhängige Wirkung",
+    "name_en": "effects may vary by",
+    "level": "C1",
+    "explanation_de": "Begrenzt eine Gesamtaussage durch mögliche Unterschiede zwischen Gruppen.",
+    "explanation_en": "Qualifies an overall claim by allowing differences across groups."
+  },
+  {
+    "id": "g_c2_cannot_reduce",
+    "regex": "환원할 수 없",
+    "name_de": "nicht auf einen Faktor reduzieren",
+    "name_en": "cannot be reduced to",
+    "level": "C2",
+    "explanation_de": "Weist die Verkürzung eines komplexen Phänomens auf einen Maßstab zurück.",
+    "explanation_en": "Rejects reducing a complex phenomenon to one measure."
+  },
+  {
+    "id": "g_c2_premise",
+    "regex": "전제로 삼",
+    "name_de": "eine Prämisse offenlegen",
+    "name_en": "making a premise explicit",
+    "level": "C2",
+    "explanation_de": "Benennt die Annahme, auf der ein Urteil oder eine Regel beruht.",
+    "explanation_en": "Names the assumption on which a judgment or rule rests."
   }
 ]

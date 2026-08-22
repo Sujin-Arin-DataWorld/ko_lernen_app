@@ -275,7 +275,8 @@ python3 tools/content_factory/integrate_scenario_batch.py \
 course unit 연결과 round 부족량을 같은 계산에서 보고한다. 2026-08-16의 확정 계산과 다음
 작업량은 `CONTENT_LOADER_GAP_AND_PDF_WORK_PLAN_2026-08-16.md`가 정본이다.
 
-Batch 06–10은 live다. 다음 미사용 번호는 11이다. Batch 06 pilot의 원래 수는 레벨마다
+Batch 01–19의 manifest 추적 ID는 2026-08-22 전수 감사에서 live asset과 일치했다. 다음
+미사용 번호는 20이다. Batch 06 pilot의 원래 수는 레벨마다
 scenario 1개·scenario quest 5개·Smalltalk 2개·Cloze 4개·Satzbau 6개·pronunciation 4개였다.
 합계는 standalone record 68개와 scenario 안의 quest 20개다. 이 수는 full-bundle 회귀
 표본으로만 읽고, 다음 배치에 같은 수를 모든 seed에 반복하지 않는다. 다음 배치는 loader
