@@ -47,6 +47,30 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('SoriTextField forwards the expanded editor contract', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      _host(
+        const SizedBox(
+          height: 240,
+          child: SoriTextField(
+            labelText: 'Recognized text',
+            maxLines: null,
+            expands: true,
+            textAlignVertical: TextAlignVertical.top,
+          ),
+        ),
+      ),
+    );
+
+    final field = tester.widget<TextField>(find.byType(TextField));
+    expect(field.maxLines, isNull);
+    expect(field.expands, isTrue);
+    expect(field.textAlignVertical, TextAlignVertical.top);
+    expect(tester.takeException(), isNull);
+  });
+
   for (final copy in const <({String locale, String label, String hint})>[
     (
       locale: 'de',
