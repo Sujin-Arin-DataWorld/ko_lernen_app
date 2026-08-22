@@ -11,34 +11,57 @@ import 'package:ko_lernen_app/services/satz_loader.dart';
 
 void main() {
   test('production learning content carries explicit immutable source IDs', () {
+    final audit = _jsonObject('assets/data/content_audit_manifest.json');
+    final auditedCounts = <String, int>{
+      for (final source
+          in (audit['sources'] as List).cast<Map<String, dynamic>>())
+        source['kind'] as String: (source['count'] as num).toInt(),
+    };
+
     final vocabRows = _csvRows('assets/data/korean_vocab.csv');
-    // Batch 12 가 C1/C2 어휘 96개를 더했다 (2196 + 헤더 → 2292 + 헤더).
-    expect(vocabRows, hasLength(2293));
+    final vocabCount = auditedCounts['vocab']!;
+    expect(vocabRows, hasLength(vocabCount + 1));
     expect(vocabRows.first.last, 'id');
-    _expectRawIds(vocabRows.skip(1).map((row) => row.last.toString()), 2292);
+    _expectRawIds(
+      vocabRows.skip(1).map((row) => row.last.toString()),
+      vocabCount,
+    );
 
     final smalltalk = _jsonObject('assets/data/smalltalk.json');
     final phrases = (smalltalk['phrases'] as List).cast<Map<String, dynamic>>();
-    expect(phrases, hasLength(393));
-    _expectRawIds(phrases.map((item) => item['id']?.toString() ?? ''), 393);
+    final smalltalkCount = auditedCounts['smalltalk']!;
+    expect(phrases, hasLength(smalltalkCount));
+    _expectRawIds(
+      phrases.map((item) => item['id']?.toString() ?? ''),
+      smalltalkCount,
+    );
 
     final cloze = _jsonObject('assets/data/cloze.json');
     final clozeItems = (cloze['items'] as List).cast<Map<String, dynamic>>();
-    expect(clozeItems, hasLength(1634));
-    _expectRawIds(clozeItems.map((item) => item['id']?.toString() ?? ''), 1634);
+    final clozeCount = auditedCounts['cloze']!;
+    expect(clozeItems, hasLength(clozeCount));
+    _expectRawIds(
+      clozeItems.map((item) => item['id']?.toString() ?? ''),
+      clozeCount,
+    );
 
     final satz = _jsonObject('assets/data/satz_sentences.json');
     final satzItems = (satz['items'] as List).cast<Map<String, dynamic>>();
-    expect(satzItems, hasLength(2187));
-    _expectRawIds(satzItems.map((item) => item['id']?.toString() ?? ''), 2187);
+    final satzCount = auditedCounts['satz']!;
+    expect(satzItems, hasLength(satzCount));
+    _expectRawIds(
+      satzItems.map((item) => item['id']?.toString() ?? ''),
+      satzCount,
+    );
 
     final pronunciation = _jsonObject('assets/data/pronunciation_phrases.json');
     final pronunciationPhrases = (pronunciation['phrases'] as List)
         .cast<Map<String, dynamic>>();
-    expect(pronunciationPhrases, hasLength(20));
+    final pronunciationCount = auditedCounts['pronunciation']!;
+    expect(pronunciationPhrases, hasLength(pronunciationCount));
     _expectRawIds(
       pronunciationPhrases.map((item) => item['id']?.toString() ?? ''),
-      20,
+      pronunciationCount,
     );
   });
 
