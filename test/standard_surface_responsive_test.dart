@@ -132,16 +132,13 @@ void main() {
       find.text('zusammengesetztes koreanisches Substantiv'),
       findsNWidgets(2),
     );
-    final chip = find.descendant(
-      of: find.byType(ChoiceChip),
-      matching: find.text('zusammengesetztes koreanisches Substantiv'),
+    final chip = find.byKey(
+      const ValueKey('wordbook-pos-zusammengesetztes koreanisches Substantiv'),
     );
-    expect(
-      tester
-          .getSize(find.ancestor(of: chip, matching: find.byType(ChoiceChip)))
-          .height,
-      greaterThan(44),
-    );
+    final soriChip = tester.widget<SoriChip>(chip);
+    expect(soriChip.maxLines, isNull);
+    expect(soriChip.minInteractiveHeight, greaterThanOrEqualTo(48));
+    expect(tester.getSize(chip).height, greaterThanOrEqualTo(48));
     expect(find.text('innere Haltung und Einstellung'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });

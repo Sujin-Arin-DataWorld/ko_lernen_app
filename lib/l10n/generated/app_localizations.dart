@@ -2419,6 +2419,12 @@ abstract class AppL10n {
   /// **'Schließ Vokabelpakete ab und sammle Dancheong-Stempel.'**
   String get dojangEmptyBody;
 
+  /// No description provided for @dojangEmptyCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Vokabelpakete öffnen'**
+  String get dojangEmptyCta;
+
   /// No description provided for @dojangProgress.
   ///
   /// In de, this message translates to:
@@ -7002,6 +7008,12 @@ abstract class AppL10n {
   /// **'Wort oder Bedeutung suchen …'**
   String get wbSearchHint;
 
+  /// No description provided for @wbSearchClear.
+  ///
+  /// In de, this message translates to:
+  /// **'Suche löschen'**
+  String get wbSearchClear;
+
   /// No description provided for @wbSearchEmpty.
   ///
   /// In de, this message translates to:
@@ -11574,6 +11586,12 @@ abstract class AppL10n {
   /// **'Bojagi-Bündel'**
   String get bojagiTitle;
 
+  /// No description provided for @bojagiLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Bündel wird vorbereitet …'**
+  String get bojagiLoading;
+
   /// No description provided for @bojagiOpenHint.
   ///
   /// In de, this message translates to:
@@ -11591,6 +11609,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.'**
   String get bojagiPickBody;
+
+  /// No description provided for @bojagiChooseDecoration.
+  ///
+  /// In de, this message translates to:
+  /// **'{name} auswählen'**
+  String bojagiChooseDecoration(String name);
 
   /// No description provided for @bojagiEmptyTitle.
   ///
@@ -11639,6 +11663,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Bekommen!'**
   String get bojagiClaimedTitle;
+
+  /// No description provided for @bojagiClaimedAnnouncement.
+  ///
+  /// In de, this message translates to:
+  /// **'Bekommen: {name}'**
+  String bojagiClaimedAnnouncement(String name);
 
   /// No description provided for @bojagiGoToRoom.
   ///

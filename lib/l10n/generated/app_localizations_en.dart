@@ -1330,6 +1330,9 @@ class AppL10nEn extends AppL10n {
       'Clear vocab packs to collect dancheong stamps.';
 
   @override
+  String get dojangEmptyCta => 'Open vocabulary packs';
+
+  @override
   String dojangProgress(int earned, int total) {
     return '$earned of $total stamps collected';
   }
@@ -3977,6 +3980,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wbSearchHint => 'Search word or meaning…';
+
+  @override
+  String get wbSearchClear => 'Clear search';
 
   @override
   String get wbSearchEmpty => 'No matches';
@@ -6648,6 +6654,9 @@ class AppL10nEn extends AppL10n {
   String get bojagiTitle => 'Bojagi bundle';
 
   @override
+  String get bojagiLoading => 'Preparing your bundle…';
+
+  @override
   String get bojagiOpenHint => 'Tap the knot to open the bundle.';
 
   @override
@@ -6656,6 +6665,11 @@ class AppL10nEn extends AppL10n {
   @override
   String get bojagiPickBody =>
       'Whatever you leave stays in the pool and can turn up in a later bundle.';
+
+  @override
+  String bojagiChooseDecoration(String name) {
+    return 'Choose $name';
+  }
 
   @override
   String get bojagiEmptyTitle => 'No bundle waiting';
@@ -6682,6 +6696,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get bojagiClaimedTitle => 'Got it!';
+
+  @override
+  String bojagiClaimedAnnouncement(String name) {
+    return 'Got it: $name';
+  }
 
   @override
   String get bojagiGoToRoom => 'Place it in the room';

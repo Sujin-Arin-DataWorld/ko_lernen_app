@@ -671,6 +671,7 @@
   "dojangTitle": "Stamp Book",
   "dojangEmptyTitle": "No stamps yet",
   "dojangEmptyBody": "Clear vocab packs to collect dancheong stamps.",
+  "dojangEmptyCta": "Open vocabulary packs",
   "dojangProgress": "{earned} of {total} stamps collected",
   "@dojangProgress": {
     "placeholders": {
@@ -1945,6 +1946,7 @@
   "wbViewAction": "View",
   "wbSearchTitle": "My words",
   "wbSearchHint": "Search word or meaning…",
+  "wbSearchClear": "Clear search",
   "wbSearchEmpty": "No matches",
   "wbSearchNoWords": "No saved words yet. Tap the bookmark icon while learning.",
   "wbSearchCount": "{count, plural, one{1 word} other{{count} words}}",
@@ -3122,9 +3124,18 @@
   },
   "sarangbangHubDesc": "Continue learning in the Sarangbang.",
   "bojagiTitle": "Bojagi bundle",
+  "bojagiLoading": "Preparing your bundle…",
   "bojagiOpenHint": "Tap the knot to open the bundle.",
   "bojagiPickTitle": "Pick one",
   "bojagiPickBody": "Whatever you leave stays in the pool and can turn up in a later bundle.",
+  "bojagiChooseDecoration": "Choose {name}",
+  "@bojagiChooseDecoration": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "bojagiEmptyTitle": "No bundle waiting",
   "bojagiEmptyBody": "Finish a quest and you get a bundle for it.",
   "bojagiAllOwnedTitle": "Nothing new inside",
@@ -3133,6 +3144,14 @@
   "bojagiProblemBody": "Try again in a moment. Your bundle is not lost.",
   "bojagiRetry": "Try again",
   "bojagiClaimedTitle": "Got it!",
+  "bojagiClaimedAnnouncement": "Got it: {name}",
+  "@bojagiClaimedAnnouncement": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "bojagiGoToRoom": "Place it in the room",
   "bojagiNext": "Open the next bundle",
   "bojagiCollectionCompleteTitle": "Collection complete",

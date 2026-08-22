@@ -5,6 +5,7 @@ import '../models/vocab.dart';
 import '../services/review_deck_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -36,6 +37,7 @@ class HardWordsScreen extends StatefulWidget {
 class _HardWordsScreenState extends State<HardWordsScreen>
     with ScreenCoachMixin<HardWordsScreen> {
   bool _loading = true;
+  bool _loadFailed = false;
   List<Vocab> _hard = const [];
 
   // ── 코치마크 타겟 ──
@@ -67,8 +69,15 @@ class _HardWordsScreenState extends State<HardWordsScreen>
     scheduleCoach();
   }
 
-  Future<void> _load() async {
+  Future<void> _load({bool showLoading = false}) async {
+    if (showLoading && mounted) {
+      setState(() {
+        _loading = true;
+        _loadFailed = false;
+      });
+    }
     List<Vocab> hard = const [];
+    var loadFailed = false;
     try {
       final all =
           await (widget.deckLoader ?? ReviewDeckService.allReviewable)();
@@ -81,12 +90,13 @@ class _HardWordsScreenState extends State<HardWordsScreen>
       };
       hard = all.where((v) => ids.contains(v.korean)).toList();
     } catch (_) {
-      /* best-effort → empty */
+      loadFailed = true;
     }
     if (!mounted) return;
     setState(() {
       _hard = hard;
       _loading = false;
+      _loadFailed = loadFailed;
     });
   }
 
@@ -122,7 +132,6 @@ class _HardWordsScreenState extends State<HardWordsScreen>
           label: t.hardWordsStudyCta,
           icon: Icons.bolt_rounded,
           variant: SoriButtonVariant.outlined,
-          accent: SoriColors.danger,
           fullWidth: true,
           onTap: () async {
             await Navigator.of(context).push(
@@ -157,6 +166,13 @@ class _HardWordsScreenState extends State<HardWordsScreen>
       builder: (context, padding) {
         if (_loading) {
           return const AppLoading();
+        }
+        if (_loadFailed) {
+          return AppError(
+            message: t.loadErrorTryAgain,
+            messageLiveRegion: true,
+            onRetry: () => _load(showLoading: true),
+          );
         }
         if (_hard.isEmpty) {
           return Center(
@@ -249,6 +265,15 @@ class _HardWordTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
+    final languageCode = Localizations.localeOf(context).languageCode;
+    final translation = word.translationFor(languageCode);
+    final ttsLabel = '${t.ttsListen}: ${word.korean}';
+    void speak() {
+      // ignore: discarded_futures
+      TtsService.speak(word.korean);
+    }
+
     return SoriCard(
       accent: SoriColors.danger,
       padding: const EdgeInsets.symmetric(
@@ -262,9 +287,9 @@ class _HardWordTile extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(word.korean, style: SoriTextTheme.of(context).h3),
-                if (word.german.isNotEmpty)
+                if (translation.isNotEmpty)
                   Text(
-                    word.german,
+                    translation,
                     style: SoriTextTheme.of(
                       context,
                     ).bodySmall.copyWith(color: s.textMuted),
@@ -272,12 +297,22 @@ class _HardWordTile extends StatelessWidget {
               ],
             ),
           ),
-          IconButton(
-            icon: const Icon(
-              Icons.volume_up_rounded,
-              color: SoriColors.primary,
+          Semantics(
+            container: true,
+            button: true,
+            enabled: true,
+            label: ttsLabel,
+            onTap: speak,
+            excludeSemantics: true,
+            child: IconButton(
+              tooltip: ttsLabel,
+              constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+              icon: const Icon(
+                Icons.volume_up_rounded,
+                color: SoriColors.primary,
+              ),
+              onPressed: speak,
             ),
-            onPressed: () => TtsService.speak(word.korean),
           ),
         ],
       ),
