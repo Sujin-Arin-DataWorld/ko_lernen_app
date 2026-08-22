@@ -671,6 +671,7 @@
   "dojangTitle": "Stempelbuch",
   "dojangEmptyTitle": "Noch keine Stempel",
   "dojangEmptyBody": "Schließ Vokabelpakete ab und sammle Dancheong-Stempel.",
+  "dojangEmptyCta": "Vokabelpakete öffnen",
   "dojangProgress": "{earned} von {total} Stempeln gesammelt",
   "@dojangProgress": {
     "placeholders": {
@@ -3208,9 +3209,18 @@
   },
   "sarangbangHubDesc": "Lerne im Sarangbang weiter.",
   "bojagiTitle": "Bojagi-Bündel",
+  "bojagiLoading": "Dein Bündel wird vorbereitet …",
   "bojagiOpenHint": "Tippe auf den Knoten, um das Bündel zu öffnen.",
   "bojagiPickTitle": "Such dir eins aus",
   "bojagiPickBody": "Was du liegen lässt, bleibt im Beutel und kann in einem späteren Bündel wiederkommen.",
+  "bojagiChooseDecoration": "{name} auswählen",
+  "@bojagiChooseDecoration": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "bojagiEmptyTitle": "Kein Bündel wartet",
   "bojagiEmptyBody": "Schließe eine Quest ab. Dafür bekommst du ein Bündel.",
   "bojagiAllOwnedTitle": "Nichts Neues drin",
@@ -3219,6 +3229,14 @@
   "bojagiProblemBody": "Versuch es gleich noch einmal. Dein Bündel geht dabei nicht verloren.",
   "bojagiRetry": "Nochmal versuchen",
   "bojagiClaimedTitle": "Bekommen!",
+  "bojagiClaimedAnnouncement": "Bekommen: {name}",
+  "@bojagiClaimedAnnouncement": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
   "bojagiGoToRoom": "In der Stube aufstellen",
   "bojagiNext": "Nächstes Bündel öffnen",
   "bojagiCollectionCompleteTitle": "Sammlung vollständig",

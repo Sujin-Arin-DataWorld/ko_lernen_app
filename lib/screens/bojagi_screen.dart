@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/decoration_reward_service.dart';
+import '../widgets/app_error.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/cultural_help.dart';
 import '../widgets/sori/empty_state.dart';
@@ -22,7 +24,10 @@ const String kBojagiOpen = 'assets/illustrations/reward/reward_bojagi_open.png';
 /// 전부 [DecorationRewardService] 가 한다. 화면이 `Storage.addOwnedDecor` 를
 /// 직접 부르면 중간에 앱이 죽었을 때 큐와 보유 목록이 어긋난다.
 class BojagiScreen extends StatefulWidget {
-  const BojagiScreen({super.key});
+  const BojagiScreen({super.key, this.offerLoader});
+
+  /// 화면 상태 검증용 주입 지점. 런타임에서는 보상 서비스가 유일한 소유자다.
+  final Future<DecorationRewardOffer> Function()? offerLoader;
 
   @override
   State<BojagiScreen> createState() => _BojagiScreenState();
@@ -30,6 +35,7 @@ class BojagiScreen extends StatefulWidget {
 
 class _BojagiScreenState extends State<BojagiScreen> {
   bool _loading = true;
+  bool _loadFailed = false;
   DecorationRewardOffer? _offer;
 
   /// 매듭을 풀었는가. 후보를 바로 보여주지 않는 이유는 ADR-002 개정 그대로 —
@@ -51,55 +57,111 @@ class _BojagiScreenState extends State<BojagiScreen> {
 
   /// 중단된 수령 복구까지 [DecorationRewardService.loadNextOffer] 안에서
   /// 처리된다. 그래서 진입·재시도 모두 이 한 번의 호출로 충분하다.
+  Future<DecorationRewardOffer> _loadOffer() =>
+      widget.offerLoader?.call() ?? DecorationRewardService.loadNextOffer();
+
   Future<void> _load() async {
     setState(() {
       _loading = true;
+      _loadFailed = false;
       _claimed = null;
       _untied = false;
       _hasNext = false;
     });
-    final offer = await DecorationRewardService.loadNextOffer();
-    if (!mounted) return;
-    setState(() {
-      _offer = offer;
-      _loading = false;
-    });
+    try {
+      final offer = await _loadOffer();
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _offer = offer;
+        _loading = false;
+      });
+    } on Object {
+      _showLoadFailure();
+    }
   }
 
   Future<void> _claim(String slug) async {
-    setState(() => _loading = true);
-    final result = await DecorationRewardService.claimNextBox(slug);
-    if (!mounted) return;
+    setState(() {
+      _loading = true;
+      _loadFailed = false;
+    });
+    late final DecorationRewardClaimResult result;
+    try {
+      result = await DecorationRewardService.claimNextBox(slug);
+    } on Object {
+      _showLoadFailure();
+      return;
+    }
+    if (!mounted) {
+      return;
+    }
     if (result != DecorationRewardClaimResult.claimed) {
       // 성공이 아니면 상태를 추측하지 않는다 — 서비스에서 다시 읽는다.
       // (다른 기기에서 이미 열었거나 큐가 바뀐 경우가 여기로 온다.)
       await _load();
       return;
     }
-    // 다음 꾸러미가 있는지 확인해 "다음 꾸러미" 노출 여부를 정한다.
-    final next = await DecorationRewardService.loadNextOffer();
-    if (!mounted) return;
-    setState(() {
-      _claimed = slug;
-      _offer = next;
-      _hasNext =
-          next.state == DecorationRewardOfferState.ready ||
-          next.state == DecorationRewardOfferState.collectionComplete;
-      _loading = false;
-    });
+
+    // 수령 성공은 먼저 보존한다. 다음 꾸러미 확인이 실패하더라도 이미 받은 장식을
+    // 오류 화면 뒤에 숨기거나 다시 고르게 하지 않는다.
+    try {
+      final next = await _loadOffer();
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _claimed = slug;
+        _offer = next;
+        _hasNext =
+            next.state == DecorationRewardOfferState.ready ||
+            next.state == DecorationRewardOfferState.collectionComplete;
+        _loading = false;
+      });
+    } on Object {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _claimed = slug;
+        _hasNext = false;
+        _loading = false;
+      });
+    }
   }
 
   Future<void> _archiveCompleteCollection() async {
-    setState(() => _loading = true);
-    final result = await DecorationRewardService.archiveCompleteCollectionBox();
-    if (!mounted) return;
-    if (result != DecorationRewardClaimResult.collectionArchived) {
-      // 큐나 보유 목록이 다른 경로에서 바뀌었을 수 있으므로, 성공 외에는 화면이
-      // 상태를 추측하지 않는다.
+    setState(() {
+      _loading = true;
+      _loadFailed = false;
+    });
+    try {
+      final result =
+          await DecorationRewardService.archiveCompleteCollectionBox();
+      if (!mounted) {
+        return;
+      }
+      if (result != DecorationRewardClaimResult.collectionArchived) {
+        // 큐나 보유 목록이 다른 경로에서 바뀌었을 수 있으므로, 성공 외에는 화면이
+        // 상태를 추측하지 않는다.
+        await _load();
+        return;
+      }
       await _load();
+    } on Object {
+      _showLoadFailure();
+    }
+  }
+
+  void _showLoadFailure() {
+    if (!mounted) {
       return;
     }
-    await _load();
+    setState(() {
+      _loading = false;
+      _loadFailed = true;
+    });
   }
 
   @override
@@ -133,14 +195,28 @@ class _BojagiScreenState extends State<BojagiScreen> {
   }
 
   Widget _body(AppL10n t) {
-    if (_loading) return const CircularProgressIndicator();
+    if (_loading) {
+      return Semantics(
+        liveRegion: true,
+        label: t.bojagiLoading,
+        excludeSemantics: true,
+        child: AppLoading(message: t.bojagiLoading),
+      );
+    }
     final claimed = _claimed;
     if (claimed != null) {
       return _ClaimedView(slug: claimed, hasNext: _hasNext, onNext: _load);
     }
 
     final offer = _offer;
-    if (offer == null) return const SizedBox.shrink();
+    if (_loadFailed || offer == null) {
+      return AppError(
+        message: t.bojagiProblemBody,
+        messageLiveRegion: true,
+        retryLabel: t.bojagiRetry,
+        onRetry: _load,
+      );
+    }
 
     return switch (offer.state) {
       DecorationRewardOfferState.ready =>
@@ -195,8 +271,12 @@ class _KnotView extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Semantics(
+            container: true,
             button: true,
+            enabled: true,
             label: t.bojagiOpenHint,
+            onTap: onUntie,
+            excludeSemantics: true,
             child: SoriPressable(
               // 테스트에서 매듭만 정확히 누르기 위한 앵커.
               key: const Key('bojagi_knot'),
@@ -218,10 +298,12 @@ class _KnotView extends StatelessWidget {
             ),
           ),
           const SizedBox(height: Spacing.xl),
-          Text(
-            t.bojagiOpenHint,
-            textAlign: TextAlign.center,
-            style: text.bodySmall,
+          ExcludeSemantics(
+            child: Text(
+              t.bojagiOpenHint,
+              textAlign: TextAlign.center,
+              style: text.bodySmall,
+            ),
           ),
         ],
       ),
@@ -316,37 +398,65 @@ class _CandidateCard extends StatelessWidget {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
     final text = SoriTextTheme.of(context);
-    return Semantics(
-      button: true,
-      child: SoriPressable(
-        onTap: onTap,
-        haptic: SoriHaptic.selection,
-        child: Container(
-          padding: const EdgeInsets.all(Spacing.lg),
-          decoration: BoxDecoration(
-            color: s.surface,
-            borderRadius: SoriRadius.brMd,
-            border: Border.all(color: s.border),
-          ),
-          child: Row(
-            children: [
-              SizedBox(
-                width: 64,
-                height: 64,
-                // 장식마다 세로 비율이 달라 폭만 주면 넘친다 — 시트와 같은 규약.
-                child: FittedBox(
-                  fit: BoxFit.contain,
-                  child: SoriDecorationImage(slug: slug, size: 58),
+    final name = decorName(t, slug);
+    return Container(
+      key: ValueKey('bojagi-candidate-$slug'),
+      decoration: BoxDecoration(
+        color: s.surface,
+        borderRadius: SoriRadius.brMd,
+        border: Border.all(
+          color: s.brightness == Brightness.light
+              ? SoriColors.lightBorderStrong
+              : SoriColors.darkBorderStrong,
+          width: 1.5,
+        ),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Semantics(
+              container: true,
+              button: true,
+              enabled: true,
+              label: t.bojagiChooseDecoration(name),
+              onTap: onTap,
+              excludeSemantics: true,
+              child: SoriPressable(
+                onTap: onTap,
+                haptic: SoriHaptic.selection,
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(
+                    Spacing.lg,
+                    Spacing.lg,
+                    showCulturalHelp ? Spacing.sm : Spacing.lg,
+                    Spacing.lg,
+                  ),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: 64,
+                        height: 64,
+                        // 장식마다 세로 비율이 달라 폭만 주면 넘친다 — 시트와 같은 규약.
+                        child: FittedBox(
+                          fit: BoxFit.contain,
+                          child: SoriDecorationImage(slug: slug, size: 58),
+                        ),
+                      ),
+                      const SizedBox(width: Spacing.lg),
+                      Expanded(child: Text(name, style: text.cardTitle)),
+                      Icon(Icons.chevron_right_rounded, color: s.textDim),
+                    ],
+                  ),
                 ),
               ),
-              const SizedBox(width: Spacing.lg),
-              Expanded(child: Text(decorName(t, slug), style: text.cardTitle)),
-              if (showCulturalHelp)
-                CulturalDecorationHelpButton(decorationSlug: slug),
-              Icon(Icons.chevron_right_rounded, color: s.textDim),
-            ],
+            ),
           ),
-        ),
+          if (showCulturalHelp)
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: Spacing.sm),
+              child: CulturalDecorationHelpButton(decorationSlug: slug),
+            ),
+        ],
       ),
     );
   }
@@ -372,6 +482,7 @@ class _ClaimedView extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final text = SoriTextTheme.of(context);
+    final name = decorName(t, slug);
 
     return SoriEntrance(
       child: Padding(
@@ -392,6 +503,9 @@ class _ClaimedView extends StatelessWidget {
             const SizedBox(height: Spacing.lg),
             Semantics(
               header: true,
+              liveRegion: true,
+              label: t.bojagiClaimedAnnouncement(name),
+              excludeSemantics: true,
               child: Text(
                 t.bojagiClaimedTitle,
                 textAlign: TextAlign.center,
@@ -403,10 +517,12 @@ class _ClaimedView extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Flexible(
-                  child: Text(
-                    decorName(t, slug),
-                    textAlign: TextAlign.center,
-                    style: text.bodySmall,
+                  child: ExcludeSemantics(
+                    child: Text(
+                      name,
+                      textAlign: TextAlign.center,
+                      style: text.bodySmall,
+                    ),
                   ),
                 ),
                 CulturalDecorationHelpButton(decorationSlug: slug),

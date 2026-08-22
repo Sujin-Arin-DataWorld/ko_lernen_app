@@ -107,6 +107,7 @@ class _ResolvedCulturalHelpButton extends StatelessWidget {
     void openStory() => showCulturalTermSheet(context, entry);
     return Semantics(
       button: true,
+      enabled: true,
       label: label,
       onTap: openStory,
       excludeSemantics: true,
