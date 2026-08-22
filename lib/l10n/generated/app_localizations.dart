@@ -13836,11 +13836,41 @@ abstract class AppL10n {
   /// **'Situation'**
   String get mediaPhraseContext;
 
+  /// No description provided for @mediaPhraseLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Medien-Sätze werden geladen …'**
+  String get mediaPhraseLoading;
+
+  /// No description provided for @mediaPhraseUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Medien-Sätze konnten nicht geladen werden. Bitte versuche es erneut.'**
+  String get mediaPhraseUnavailable;
+
+  /// No description provided for @mediaPhraseEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch kein Satz für dieses Niveau'**
+  String get mediaPhraseEmptyTitle;
+
   /// No description provided for @mediaPhraseEmpty.
   ///
   /// In de, this message translates to:
   /// **'Für dein Niveau sind gerade keine Medien-Sätze verfügbar.'**
   String get mediaPhraseEmpty;
+
+  /// No description provided for @mediaPhraseProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{current} von {total}'**
+  String mediaPhraseProgress(int current, int total);
+
+  /// No description provided for @mediaPhraseListenTarget.
+  ///
+  /// In de, this message translates to:
+  /// **'{phrase} anhören'**
+  String mediaPhraseListenTarget(String phrase);
 
   /// No description provided for @mediaPhrasePrevious.
   ///

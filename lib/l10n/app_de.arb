@@ -3869,7 +3869,23 @@
   "mediaPhraseTitle": "Medien-Sätze",
   "mediaPhraseDesc": "Übe Originalzeilen aus Interview-, Podcast-, Doku- und Debattenregistern auf deinem Niveau.",
   "mediaPhraseContext": "Situation",
+  "mediaPhraseLoading": "Medien-Sätze werden geladen …",
+  "mediaPhraseUnavailable": "Die Medien-Sätze konnten nicht geladen werden. Bitte versuche es erneut.",
+  "mediaPhraseEmptyTitle": "Noch kein Satz für dieses Niveau",
   "mediaPhraseEmpty": "Für dein Niveau sind gerade keine Medien-Sätze verfügbar.",
+  "mediaPhraseProgress": "{current} von {total}",
+  "@mediaPhraseProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "mediaPhraseListenTarget": "{phrase} anhören",
+  "@mediaPhraseListenTarget": {
+    "placeholders": {
+      "phrase": {"type": "String"}
+    }
+  },
   "mediaPhrasePrevious": "Zurück",
   "mediaPhraseNext": "Weiter"
 }

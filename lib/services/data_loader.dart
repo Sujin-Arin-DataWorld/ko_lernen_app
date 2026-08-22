@@ -7,10 +7,15 @@ import '../models/grammar.dart';
 import '../models/media_phrase.dart';
 
 class DataLoader {
+  static const _mediaPhrasesAsset = 'assets/data/media_phrases.json';
+
   static List<Vocab>? _vocabs;
   static List<Grammar>? _grammars;
   static List<MediaPhrase>? _mediaPhrases;
+  static String? _mediaPhrasesError;
   static String? lastError;
+
+  static String? get mediaPhrasesError => _mediaPhrasesError;
 
   static Future<List<Vocab>> loadVocab() async {
     if (_vocabs != null) {
@@ -59,6 +64,7 @@ class DataLoader {
     _vocabs = null;
     _grammars = null;
     _mediaPhrases = null;
+    _mediaPhrasesError = null;
     lastError = null;
   }
 
@@ -66,20 +72,36 @@ class DataLoader {
   static Future<List<MediaPhrase>> loadMediaPhrases() async {
     if (_mediaPhrases != null) return _mediaPhrases!;
     try {
-      final raw =
-          await rootBundle.loadString('assets/data/media_phrases.json');
+      final raw = await rootBundle.loadString(_mediaPhrasesAsset);
       final data = json.decode(raw) as Map<String, dynamic>;
       final list = data['phrases'] as List<dynamic>;
       _mediaPhrases = list
           .map((e) => MediaPhrase.fromJson(e as Map<String, dynamic>))
           .toList();
+      _mediaPhrasesError = null;
       lastError = null;
       return _mediaPhrases!;
     } catch (e) {
-      lastError = 'Medieninhalte konnten nicht geladen werden.\n$e';
+      _mediaPhrasesError = 'Medieninhalte konnten nicht geladen werden.\n$e';
+      lastError = _mediaPhrasesError;
       _mediaPhrases = [];
       return _mediaPhrases!;
     }
+  }
+
+  /// Invalidates only the media-phrase asset cache for an explicit retry.
+  ///
+  /// Failed loads are cached as an empty list. The asset bundle also caches
+  /// its decoded string, so both layers must be evicted before a visible retry
+  /// can perform a real second read.
+  static void resetMediaPhrases() {
+    final mediaError = _mediaPhrasesError;
+    _mediaPhrases = null;
+    _mediaPhrasesError = null;
+    if (lastError == mediaError) {
+      lastError = null;
+    }
+    rootBundle.evict(_mediaPhrasesAsset);
   }
 
   /// Invalidates only the grammar asset cache for an explicit retry.

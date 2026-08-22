@@ -27,6 +27,31 @@ void main() {
     semantics.dispose();
   });
 
+  testWidgets('optional assistive label adds context without changing copy', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: SoriButton.outlined(
+            label: 'Anhören',
+            semanticLabel: '안녕하세요 anhören',
+            onTap: () {},
+          ),
+        ),
+      ),
+    );
+
+    expect(find.text('Anhören'), findsOneWidget);
+    final data = tester
+        .getSemantics(find.byType(SoriButton))
+        .getSemanticsData();
+    expect(data.label, '안녕하세요 anhören');
+    expect(data.hasAction(SemanticsAction.tap), isTrue);
+    semantics.dispose();
+  });
+
   testWidgets('primary and secondary CTAs meet the readable size contract', (
     tester,
   ) async {

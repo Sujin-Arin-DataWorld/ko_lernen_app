@@ -3766,7 +3766,23 @@
   "mediaPhraseTitle": "Media lines",
   "mediaPhraseDesc": "Practice original interview, podcast, documentary, and debate lines at your level.",
   "mediaPhraseContext": "Situation",
+  "mediaPhraseLoading": "Loading media lines…",
+  "mediaPhraseUnavailable": "The media lines could not be loaded. Please try again.",
+  "mediaPhraseEmptyTitle": "No line for this level yet",
   "mediaPhraseEmpty": "There are no media lines for your level yet.",
+  "mediaPhraseProgress": "{current} of {total}",
+  "@mediaPhraseProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "mediaPhraseListenTarget": "Listen to {phrase}",
+  "@mediaPhraseListenTarget": {
+    "placeholders": {
+      "phrase": {"type": "String"}
+    }
+  },
   "mediaPhrasePrevious": "Previous",
   "mediaPhraseNext": "Next"
 }
