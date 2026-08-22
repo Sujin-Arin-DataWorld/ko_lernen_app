@@ -1284,6 +1284,9 @@ class AppL10nDe extends AppL10n {
   String get bookPreviewTextFieldHint => 'Koreanischer Text …';
 
   @override
+  String get bookPreviewEditorLabel => 'Erkannter Text';
+
+  @override
   String get bookPreviewQualityWarning =>
       'Unsichere oder nicht unterstützte Schrift wurde entfernt. Prüfe den koreanischen Text vor der Analyse sorgfältig.';
 

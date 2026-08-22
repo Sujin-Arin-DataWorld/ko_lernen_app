@@ -1281,6 +1281,9 @@ class AppL10nEn extends AppL10n {
   String get bookPreviewTextFieldHint => 'Korean text…';
 
   @override
+  String get bookPreviewEditorLabel => 'Recognized text';
+
+  @override
   String get bookPreviewQualityWarning =>
       'Uncertain or unsupported script was removed. Check the Korean text carefully before analysis.';
 

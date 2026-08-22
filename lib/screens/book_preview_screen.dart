@@ -10,6 +10,7 @@ import '../services/vocab_notebook_parser.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -178,7 +179,6 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final blockCount = widget.args['blockCount'] as int? ?? 0;
     final qualityWarnings =
         (widget.args['qualityWarnings'] as List?)
@@ -191,7 +191,11 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
       maxWidth: SoriMaxWidth.focus,
       padding: const EdgeInsets.all(Spacing.lg),
       builder: (context, padding) => SoriAdaptiveStudyBody(
-        minHeight: 640,
+        minHeight: _hasSevereCaptureWarning
+            ? 920
+            : qualityWarnings.isEmpty
+            ? 640
+            : 800,
         child: Padding(
           padding: padding,
           child: Column(
@@ -201,7 +205,7 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
                 _useNotebookPath
                     ? t.vocabNotebookDesc
                     : t.bookPreviewHint(blockCount),
-                style: TextStyle(fontSize: 13, color: s.textMuted),
+                style: SoriTextTheme.of(context).bodySmall,
               ),
               if (qualityWarnings.isNotEmpty) ...[
                 const SizedBox(height: Spacing.sm),
@@ -209,7 +213,7 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
                   padding: const EdgeInsets.all(Spacing.sm),
                   decoration: BoxDecoration(
                     color: SoriColors.warning.withValues(alpha: 0.10),
-                    borderRadius: BorderRadius.circular(SoriRadius.sm),
+                    borderRadius: SoriRadius.brSm,
                     border: Border.all(
                       color: SoriColors.warning.withValues(alpha: 0.35),
                     ),
@@ -228,7 +232,7 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
                           _hasSevereCaptureWarning
                               ? t.bookPreviewSevereQualityWarning
                               : t.bookPreviewQualityWarning,
-                          style: TextStyle(fontSize: 12, color: s.textMuted),
+                          style: SoriTextTheme.of(context).bodySmall,
                         ),
                       ),
                     ],
@@ -239,30 +243,16 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
               _BookPreviewImage(image: _previewImage),
               const SizedBox(height: Spacing.md),
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: s.text.withValues(alpha: 0.20),
-                      width: 1,
-                    ),
-                    borderRadius: BorderRadius.circular(SoriRadius.md),
-                  ),
-                  padding: const EdgeInsets.all(Spacing.md),
-                  child: TextField(
-                    controller: _ctrl,
-                    maxLines: null,
-                    expands: true,
-                    textAlignVertical: TextAlignVertical.top,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      height: 1.5,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      hintText: t.bookPreviewTextFieldHint,
-                    ),
-                  ),
+                child: SoriTextField(
+                  controller: _ctrl,
+                  labelText: t.bookPreviewEditorLabel,
+                  hintText: t.bookPreviewTextFieldHint,
+                  alignLabelWithHint: true,
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                  expands: true,
+                  textAlignVertical: TextAlignVertical.top,
+                  style: SoriTextTheme.of(context).body,
                 ),
               ),
               const SizedBox(height: Spacing.lg),
@@ -283,7 +273,6 @@ class _BookPreviewScreenState extends State<BookPreviewScreen> {
                 label: t.bookPreviewRetake,
                 icon: Icons.replay_outlined,
                 variant: SoriButtonVariant.outlined,
-                accent: SoriColors.info,
                 fullWidth: true,
                 onTap: () => Navigator.of(context).maybePop(),
               ),
@@ -309,7 +298,7 @@ class _BookPreviewImage extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       decoration: BoxDecoration(
         color: surfaces.surfaceAlt,
-        borderRadius: BorderRadius.circular(SoriRadius.md),
+        borderRadius: SoriRadius.brMd,
         border: Border.all(color: surfaces.border),
       ),
       child: FutureBuilder<File?>(

@@ -2335,6 +2335,12 @@ abstract class AppL10n {
   /// **'Koreanischer Text …'**
   String get bookPreviewTextFieldHint;
 
+  /// No description provided for @bookPreviewEditorLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Erkannter Text'**
+  String get bookPreviewEditorLabel;
+
   /// No description provided for @bookPreviewQualityWarning.
   ///
   /// In de, this message translates to:

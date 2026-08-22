@@ -645,6 +645,7 @@
     }
   },
   "bookPreviewTextFieldHint": "Korean text…",
+  "bookPreviewEditorLabel": "Recognized text",
   "bookPreviewQualityWarning": "Uncertain or unsupported script was removed. Check the Korean text carefully before analysis.",
   "bookPreviewSevereQualityWarning": "The photo or text recognition is too uncertain. Retaking the photo is recommended. To continue anyway, first correct the OCR text yourself.",
   "bookPreviewAnalyze": "Analyze",
