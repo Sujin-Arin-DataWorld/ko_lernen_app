@@ -311,15 +311,15 @@ not disappear from phase review.
 | `SoriStageCatalogScreen` | approved custom tab | Preserve 4:3 catalog and reward flow | R/D catalog | 2B |
 | `SoriStageGyeScreen` | safe viewport + embedded Gye | Preserve chooser/membership behavior | R/D Gye | 2C |
 | `SoriStageHanokScreen` | safe viewport + shortcut tiles | Preserve approved shortcuts/assets/evidence | R/D Hanok shortcuts | 2D |
-| reward receipt sheet | Sori sheet + semantics | Keep evidence/result hierarchy | dedicated receipt | 2D |
+| `SoriStageRewardReceiptSheet` | Sori sheet + semantics | Keep evidence/result hierarchy | dedicated receipt | 2D |
 | `DiscoverScreen` | Std supporting catalog | Keep dormant/supporting surface aligned; do not add a route | R/D discover | 2B |
-| onboarding preview / placement diagnostic | custom + Std | Align step hierarchy; preserve placement decisions | R/D onboarding/placement | 5C |
-| consent / first voice success | custom | Shared action/state patterns; preserve consent/evidence | R/D consent/voice | 5C |
-| course mission path overview | embedded | Preserve graph/evidence; token polish | dedicated overview | 3C |
-| grammar/hard choice quizzes | Study | Shared result/choice language; preserve scoring | R/D choice quizzes | 5B |
-| word-web study / quiz | custom + Study | Standard outer state; preserve relation logic | D word web | 3D/5B |
-| seven quest engines + `QuestLayout` | game-owned canvas/frame | No rule/hitbox change; semantics/non-color/reduced motion | D quest + Phase 2 guards | 5B |
-| Sori Stage preview/gallery screens | diagnostic-only | Keep deterministic and aligned with production tokens | D UX preview | 6 |
+| `OnboardingPreviewScreen` / `PlacementDiagnosticScreen` | custom + Std | Align step hierarchy; preserve placement decisions | R/D onboarding/placement | 5C |
+| `ConsentScreen` / `FirstVoiceSuccessScreen` | custom | Shared action/state patterns; preserve consent/evidence | R/D consent/voice | 5C |
+| `CourseMissionPathOverview` | embedded | Preserve graph/evidence; token polish | dedicated overview | 3C |
+| `GrammarChoiceQuizScreen` / `HardChoiceQuizScreen` | Study | Shared result/choice language; preserve scoring | R/D choice quizzes | 5B |
+| `WordWebStudyScreen` / `WordWebQuizScreen` | custom + Study | Standard outer state; preserve relation logic | D word web | 3D/5B |
+| `BatchimDropQuest` / `DiktatQuest` / `HoerverstehenQuest` / `LueckenQuest` / `ParticlePopQuest` / `SatzBauenQuest` / `UebersetzenQuest` / `QuestLayout` | game-owned canvas/frame | No rule/hitbox change; semantics/non-color/reduced motion | D quest + Phase 2 guards | 5B |
+| `UxPreviewApp` / `UxPreviewGalleryScreen` / `SoriStageTodayPreviewScreen` / `SoriStageLessonPreviewScreen` / `SoriStageRewardReceiptPreviewScreen` / `SoriStageJourneyPreviewScreen` | diagnostic-only | Keep deterministic and aligned with production tokens | D UX preview | 6 |
 
 ## 8. Common-component audit
 
@@ -329,7 +329,7 @@ use it rather than reproduce it locally.
 
 | Family | Files | Audit decision |
 |---|---|---|
-| Foundations and frames | `tokens`, `type_scale`, `window_class`, `responsive`, `screen_background`, `standard_page`, `study_frame`, `app_bar`, `adaptive_navigation`, `page_header`, `section_header`, `scroll_if_needed`, `motion`, `pressable` | Retain. Phase 1A removes appbar truncation and strengthens frame/reduced-motion tests. No new token layer. |
+| Foundations and frames | `tokens`, `type_scale`, `window_class`, `responsive`, `screen_background`, `standard_page`, `study_frame`, `app_bar`, `adaptive_navigation`, `page_header`, `section_header`, `scroll_if_needed`, `lazy_scroll_reveal`, `motion`, `pressable` | Retain. Phase 1A removes appbar truncation and strengthens frame/reduced-motion tests. No new token layer. |
 | Core controls and overlays | `button`, `card`, `chip`, `badge`, `progress`, `dialog`, `sheet`, `toast`, `sori_icon`, `illustrated_card`, `sticker_image`, `sticker_picker`, `room_slot_picker` | Retain. Touched screens migrate raw equivalents; labels remain complete and semantic. |
 | State, account, and guidance | `empty_state`, `text_field`, `account_nudge`, `account_operation_ui`, `age_gate_prompt`, `consent_invite_sheet`, `external_link`, `feature_coach`, `screen_coach`, `spotlight_coach`, `diagnostics_route_observer`, `route_observer`, `tab_reselect` | Retain. `SoriTextField` is the canonical app-owned input wrapper; screens migrate incrementally without changing validation, persistence, or submit behavior. |
 | Study and evidence | `can_do_result_card`, `chosung_hint`, `cloze_prompt`, `content_feed`, `content_feedback_card`, `content_feedback_sheet`, `course_mission_brief`, `course_progress_evidence_note`, `culture_note_card`, `deck_action_bar`, `deck_coach`, `game_layout`, `game_reward`, `hub_progress_header`, `level_chip`, `mission_context_bar`, `mission_hero_card`, `module_card`, `pack_card`, `path_preview_row`, `path_trail`, `quiz_choice`, `scenario_write_after_roleplay_card`, `score_pop`, `share_slip`, `stats_top_bar`, `study_action_bar`, `study_card_face`, `swipe_card`, `swipe_rails`, `tts_speed_control`, `tts_unavailable_banner`, `week_progress`, `week_sheet`, `wordbook_add`, `ko_wrap` | Protected. Visual adoption must not bypass the evidence, flip-gate, SRS, timer, or route contracts these components encode. |
