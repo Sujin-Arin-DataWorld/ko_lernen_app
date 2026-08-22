@@ -11,8 +11,12 @@
 키 규칙(클라 tts_service.dart / CF functions/tts 와 **동일**):
     path = tts/{revision}/{voice}/{ sha1("{voice}|{text}") }.mp3
 
-voice: 'female' = ko-KR-Chirp3-HD-Zephyr     (단어·예문·user 대화 기본)
-       'male'   = ko-KR-Chirp3-HD-Enceladus  (시나리오 NPC·narrator 대화)
+voice: 'female' = ko-KR-Chirp3-HD-Zephyr
+       'male'   = ko-KR-Chirp3-HD-Enceladus
+
+시나리오 대화는 화자 역할(user=여성, NPC·narrator=남성)을 보존한다. 그 밖의
+고정·동적 학습 문구는 텍스트 SHA-1 기반의 결정적 auto 정책으로 두 음성을 거의
+같은 비율로 배정한다. 같은 문구는 앱·사전생성기에서 항상 같은 음성을 고른다.
 
 선행 조건:
   1. `gcloud auth login` (vjinny2@gmail.com) + 프로젝트 ko-lernen-app
@@ -46,6 +50,7 @@ import urllib.request
 BUCKET = "ko-lernen-app.firebasestorage.app"
 PROJECT = "ko-lernen-app"
 TTS_CACHE_REVISION = "v3"
+AUTO_VOICE_SALT = "hangul-sori-auto-voice-v1"
 
 # 클라(tts_service.dart)·CF(functions/tts)와 반드시 동일한 voice 매핑.
 # 남성은 Chirp3-HD-Enceladus 채택본. `--demo` 는 후보 재청취용.
@@ -111,6 +116,15 @@ def normalize_voice(voice):
     return "male" if voice == "male" else "female"
 
 
+def auto_voice(text):
+    """Return the stable default voice shared with Dart's TtsVoicePolicy."""
+    normalized_text = str(text).strip()
+    digest = hashlib.sha1(
+        f"{AUTO_VOICE_SALT}|{normalized_text}".encode("utf-8")
+    ).digest()
+    return "male" if digest[0] & 1 else "female"
+
+
 def cache_relative_path(voice, text):
     voice_key = normalize_voice(voice)
     normalized_text = str(text).strip()
@@ -155,10 +169,10 @@ def collect():
     SHA-1 키가 런타임과 일치한다."""
     texts = {}  # dict 로 순서 보존 dedup
 
-    def add_female(value):
+    def add_auto(value):
         t = (value or "").strip()
         if t:
-            texts[("female", t)] = None
+            texts[(auto_voice(t), t)] = None
 
     def _load_json(rel):
         with open(os.path.join(ROOT, rel), encoding="utf-8") as f:
@@ -189,13 +203,13 @@ def collect():
             )
         return rows
 
-    # 1. 단어장: 단어 + 예문 (korean, example_korean) — 여성.
+    # 1. 단어장: 단어 + 예문 (korean, example_korean) — auto 균형 음성.
     with open(
         os.path.join(ROOT, "assets/data/korean_vocab.csv"), encoding="utf-8"
     ) as f:
         for row in csv.DictReader(f):
             for col in ("korean", "example_korean"):
-                add_female(row.get(col))
+                add_auto(row.get(col))
 
     # 2. 시나리오 대화 — 화자별 음성.
     #    user=여(Zephyr), 상대 NPC·narrator=남(Enceladus).
@@ -236,7 +250,7 @@ def collect():
                 "C2",
             ):
                 for phrase in _study_phrases(row[4]):
-                    add_female(phrase)
+                    add_auto(phrase)
 
     # 4. 스몰토크 — phrases 안의 모든 ko (opener·대안질문·followUp).
     #    smalltalk_screen.dart 는 p.ko / turn.ko / reply.ko 를 발화한다. 카테고리
@@ -245,7 +259,7 @@ def collect():
         if isinstance(node, dict):
             for key, value in node.items():
                 if key == "ko" and isinstance(value, str):
-                    add_female(value)
+                    add_auto(value)
                 else:
                     _walk_ko(value)
         elif isinstance(node, list):
@@ -257,30 +271,30 @@ def collect():
     # 5. 빈칸 채우기 — cloze.json items[].fullKo (빈칸이 채워진 완성문).
     #    cloze_prompt.dart:174  TtsService.speak(item.fullKo).
     for item in _load_json("assets/data/cloze.json").get("items", []):
-        add_female(item.get("fullKo"))
+        add_auto(item.get("fullKo"))
 
     # 6. 끝말잇기 단어 풀 — kkeunmari_pool.json words[].word.
     #    kkeunmari_screen.dart  TtsService.speak(word.word).
     for word in _load_json("assets/data/kkeunmari_pool.json").get("words", []):
-        add_female(word.get("word"))
+        add_auto(word.get("word"))
 
     # 7. Satz bauen 목표문장 — satz_sentences.json items[].targetKo.
     #    satz_bauen_quest.dart _playTts → TtsService.speak(audioKo=targetKo,
-    #    기본 여성). 상당수는 단어장 예문과 겹쳐 dedup 되지만, 2026-08-12 실측
+    #    기본 auto). 상당수는 단어장 예문과 겹쳐 dedup 되지만, 2026-08-12 실측
     #    55/191 개가 CSV 예문과 문자열이 달라 캐시 미스 → OS 폴백이었다.
     for item in _load_json("assets/data/satz_sentences.json").get("items", []):
-        add_female(item.get("targetKo"))
+        add_auto(item.get("targetKo"))
 
     # (Hören/듣기 화면은 별도 소스가 없다 — listening_screen.dart 는 §2 의
     #  시나리오 대화를 같은 화자→voice 규칙(user=여, 그 외=남)으로 재생한다.)
 
-    # 8. 발음 스튜디오 — 모든 reviewed Korean reference sentence 는 기본 여성
+    # 8. 발음 스튜디오 — 모든 reviewed Korean reference sentence 는 기본 auto
     #    TTS 로 재생한다. C4 에서 레벨별로 확장될 JSON 이므로 이 수집이 없으면
     #    신규 문장이 조용히 OS TTS 폴백으로 내려간다.
     pronunciation_data = _load_json("assets/data/pronunciation_phrases.json")
     for phrase in pronunciation_data.get("phrases", []):
         if isinstance(phrase, dict):
-            add_female(phrase.get("ko"))
+            add_auto(phrase.get("ko"))
 
     # 9. 시나리오 **퀘스트 데이터**의 오디오 문자열 — §2(대화)와 별개!
     #    2026-08-11 실측: 퀘스트 발화 94개 중 76개가 미수집 → 코스 미션의
@@ -297,14 +311,14 @@ def collect():
             data = quest.get("data") or {}
             qtype = quest.get("type")
             if qtype in ("satzBauen", "batchimDrop", "hoerverstehen"):
-                add_female(data.get("audioKo"))
+                add_auto(data.get("audioKo"))
             elif qtype == "diktat":
-                add_female(data.get("audioKo") or data.get("targetKo"))
+                add_auto(data.get("audioKo") or data.get("targetKo"))
             elif qtype == "particlePop":
                 options = data.get("options") or []
                 idx = int(data.get("correctIndex") or 0)
                 if 0 <= idx < len(options):
-                    add_female(
+                    add_auto(
                         (data.get("prefix") or "")
                         + options[idx]
                         + (data.get("suffix") or "")
@@ -328,10 +342,10 @@ def collect():
     # 청취 검수에서 오인이 확인된 글자만 다른 1음절로 등록한다. 현재 비어 있다.
     stable_carriers = {}
     for i, letter in enumerate(leads):  # 자음+ㅡ (중성 index 18)
-        add_female(stable_carriers.get(
+        add_auto(stable_carriers.get(
             letter, chr(0xAC00 + (i * 21 + 18) * 28)))
     for i, letter in enumerate(vowels_j):  # ㅇ(초성 11)+모음
-        add_female(stable_carriers.get(
+        add_auto(stable_carriers.get(
             letter, chr(0xAC00 + (11 * 21 + i) * 28)))
 
     import re as _re
@@ -349,10 +363,10 @@ def collect():
         # exampleWord = 나머지 작은따옴표 문자열 중 첫 한글 단어 (로마자 제외)
         for s in strings:
             if s and all("가" <= ch <= "힣" for ch in s):
-                add_female(s)
+                add_auto(s)
                 break
         if all("가" <= ch <= "힣" for ch in letter):  # 음절 글자(가·한…)
-            add_female(letter)
+            add_auto(letter)
 
     # 2026-08-18: 낱자 "이름"(기역·니은…) 수집을 없앴다. daily_char_sheet 가
     #   자체 jamoNames 표로 이름을 읽던 걸 speakableJamo(음가)로 통일해서
@@ -366,7 +380,44 @@ def collect():
         encoding="utf-8",
     ) as f:
         for m in _re.finditer(r"korean:\s*'([^']*)'", f.read()):
-            add_female(m.group(1))
+            add_auto(m.group(1))
+
+    # 12. 미디어 표현 — media_phrase_screen.dart 가 phrase.korean 을 읽는다.
+    #     Batch 20 이전 생성기는 이 소스를 빠뜨려 스피커 버튼이 Storage miss 로
+    #     동적 합성에 의존했다.
+    for phrase in _load_json("assets/data/media_phrases.json").get("phrases", []):
+        if isinstance(phrase, dict):
+            add_auto(phrase.get("korean"))
+
+    # 13. 단어망 — 학습·퀴즈 화면이 sourceKo, 이웃 ko, 표현 ko/exampleKo 를
+    #     모두 발화한다. 화면과 같은 원문을 직접 수집해 vocab 중복 여부에
+    #     기대지 않는다.
+    for cluster in _load_json("assets/data/word_relations.json").get(
+        "clusters", []
+    ):
+        if not isinstance(cluster, dict):
+            continue
+        add_auto(cluster.get("sourceKo"))
+        for key in ("synonyms", "antonyms", "related"):
+            for item in cluster.get(key, []):
+                if isinstance(item, dict):
+                    add_auto(item.get("ko"))
+        for item in cluster.get("expressions", []):
+            if isinstance(item, dict):
+                add_auto(item.get("ko"))
+                add_auto(item.get("exampleKo"))
+
+    # 14. 음절 십자말 — silben_kreuz_screen.dart 가 정답을 읽는다. 대부분
+    #     단어장과 겹치지만 정본 화면 소스를 독립적으로 덮는다.
+    silben_levels = _load_json("assets/data/silben_puzzles.json").get("levels", {})
+    if isinstance(silben_levels, dict):
+        for puzzles in silben_levels.values():
+            for puzzle in puzzles if isinstance(puzzles, list) else []:
+                if not isinstance(puzzle, dict):
+                    continue
+                for word in puzzle.get("words", []):
+                    if isinstance(word, dict):
+                        add_auto(word.get("answer"))
 
     return list(texts.keys())
 

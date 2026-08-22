@@ -172,6 +172,28 @@ class TtsCacheKey {
   }
 }
 
+/// Stable default voice assignment shared with `tool/generate_tts.py`.
+///
+/// Explicit scenario roles still pass `female` or `male`. Every other learning
+/// utterance uses `auto`, which hashes the trimmed text so the same Korean text
+/// always resolves to the same cache namespace while the corpus stays close to
+/// a 50:50 voice split.
+class TtsVoicePolicy {
+  const TtsVoicePolicy._();
+
+  static const String autoVoice = 'auto';
+  static const String _salt = 'hangul-sori-auto-voice-v1';
+
+  static String resolve({required String text, String voice = autoVoice}) {
+    if (voice == 'female' || voice == 'male') {
+      return voice;
+    }
+    final normalizedText = text.trim();
+    final digest = sha1.convert(utf8.encode('$_salt|$normalizedText'));
+    return digest.bytes.first.isOdd ? 'male' : 'female';
+  }
+}
+
 class TtsPlaybackRates {
   const TtsPlaybackRates({required this.speechRate, required this.fileRate});
 
@@ -444,7 +466,8 @@ class _ServicePlaybackPlatform implements TtsPlaybackPlatform {
 ///
 /// 공개 인터페이스(`speak`/`speakSlow`/`stop`/`setRate`/`rate`)는 그대로라
 /// 호출 70곳을 고칠 필요가 없다.
-/// `voice`: 'female'(Chirp3-HD-Zephyr, 기본) / 'male'(Chirp3-HD-Enceladus).
+/// `voice`: 'auto'(기본·결정적 균형 배정) / 'female'(Chirp3-HD-Zephyr) /
+/// 'male'(Chirp3-HD-Enceladus).
 class TtsService {
   TtsService._();
 
@@ -513,11 +536,11 @@ class TtsService {
 
   // ── 공개 API ───────────────────────────────────────────────────────
 
-  /// 표준 속도 재생. voice: 'female'(기본) / 'male'.
+  /// 표준 속도 재생. voice: 'auto'(기본) / 'female' / 'male'.
   /// speech 채널이 꺼져 있으면(설정) 재생하지 않고 false 를 반환한다.
   static Future<bool> speak(
     String text, {
-    String voice = 'female',
+    String voice = TtsVoicePolicy.autoVoice,
     double rateMultiplier = 1.0,
   }) {
     if (AudioPolicy.instance.volumeFor(SoundChannel.speech) <= 0) {
@@ -534,9 +557,10 @@ class TtsService {
           ? 'sentence'
           : 'word',
     );
+    final resolvedVoice = TtsVoicePolicy.resolve(text: text, voice: voice);
     final result = _playbackEngine.speak(
       text: text,
-      voice: voice,
+      voice: resolvedVoice,
       baseRate: Storage.ttsRate,
       rateMultiplier: rateMultiplier,
       userMultiplier: Storage.ttsSpeed,
@@ -552,7 +576,10 @@ class TtsService {
   }
 
   /// 느리게 재생 (학습 보조). 사용자 기본 속도에 요청 배수 0.65를 곱한다.
-  static Future<bool> speakSlow(String text, {String voice = 'female'}) {
+  static Future<bool> speakSlow(
+    String text, {
+    String voice = TtsVoicePolicy.autoVoice,
+  }) {
     return speak(text, voice: voice, rateMultiplier: 0.65);
   }
 
@@ -568,7 +595,7 @@ class TtsService {
   ///
   /// 실패는 전부 삼킨다. 프리페치가 안 돼도 앱 동작은 그대로다
   /// (`DancheongBurst.preload()` 와 같은 best-effort 철학).
-  static Future<void> prefetch(String text, {String voice = 'female'}) async {
+  static Future<void> prefetch(String text, {String voice = TtsVoicePolicy.autoVoice}) async {
     final trimmed = text.trim();
     if (trimmed.isEmpty) {
       return;
@@ -581,12 +608,13 @@ class TtsService {
     // 세션 내 1회로 묶는다. Storage 에 없는 텍스트는 매번 네트워크 왕복을
     // 되풀이하고, 있는 텍스트도 mp3 전체를 다시 읽는다 — 카드를 넘길 때마다
     // ±1 이웃이 겹쳐 들어오므로 이게 금방 수십 번이 된다.
-    final key = '$voice|$trimmed';
+    final resolvedVoice = TtsVoicePolicy.resolve(text: trimmed, voice: voice);
+    final key = '$resolvedVoice|$trimmed';
     if (!_prefetchAttempted.add(key)) {
       return;
     }
     try {
-      await _resolveAudio(trimmed, voice, allowSynthesis: false);
+      await _resolveAudio(trimmed, resolvedVoice, allowSynthesis: false);
     } catch (_) {
       // 일시적 실패(시한 초과·오프라인)는 메모에서 뺀다. 예전에는 시도
       // **전에** 기록해서, 한 번 삐끗한 문자열이 그 세션 내내 봉인됐다 —
@@ -608,7 +636,7 @@ class TtsService {
   /// 지연을 만드는 셈이다.
   static Future<void> prefetchAll(
     Iterable<String> texts, {
-    String voice = 'female',
+    String voice = TtsVoicePolicy.autoVoice,
     int concurrency = 3,
   }) async {
     final queue = <String>{
@@ -994,5 +1022,4 @@ class TtsService {
       // best-effort — 다음 발화에서 다시 시도한다.
     }
   }
-
 }
