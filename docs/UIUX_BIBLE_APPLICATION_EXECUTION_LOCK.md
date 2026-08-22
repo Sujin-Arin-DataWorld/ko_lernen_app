@@ -1,53 +1,60 @@
 # UI/UX Bible Application — Execution Lock
 
-- **Version:** 1.68
+- **Version:** 1.69
 - **Created:** 2026-08-21
-- **Branch:** `session/uiux-bible-4b-book-preview-2026-08-22`
-- **Base:** `origin/main@44944f59e5156fb3bde85dc3a7cb0a42dc1510c1`
-- **State:** the isolated `/book/preview` outer-UI unit is locally
-  final-verified on app commit `d58da3af1ee79720e35476b2fe125f6306ead9db`
-- **Next action:** push the clean branch head, open one PR, use only automatic
-  exact-head CI, and merge only after every required check is green
+- **Branch:** `session/uiux-bible-4b-book-result-2026-08-22`
+- **Base:** `origin/main@c88b864062c4d27c8f0361370773fb091058d6af`
+- **State:** the isolated `/book/result` outer-UI unit is locally final-verified
+  on app commit `db36b3f879f78735a828e7e49f832dbec9d7ef50`
+- **Next action:** push the clean two-commit branch head, open one PR, use only
+  automatic exact-head CI, and merge only after every required check is green
 
 ## Current State Summary
 
-The preceding `/vocab_notebook/studio` unit is merged as PR #182 at main merge
-`fbd0f7c159af6c5ecf566d366ddf23bb38d2e9e6`. Its automatic exact-head CI run
-32537978064 is green for Analyze & Build job 96942411297 and asset pipeline job
-96942411345; Signed AAB/Play job 96943905017 was skipped with zero steps. The
-exact-merge post-main run 32538608929 was cancelled, and its Signed AAB/Play job
-96944089503 had zero steps. No build, signing, deployment, or upload ran. This
-preview worktree starts from exact `origin/main` base
-`44944f59e5156fb3bde85dc3a7cb0a42dc1510c1`, which contains that merge plus
-later unrelated documentation-only main history.
+The preceding `/book/preview` unit is merged as PR #183 at main merge
+`e59c81f4e1a51c7ea7eca90cbd65dffe06a5adcc`. Its app commit is
+`d58da3af1ee79720e35476b2fe125f6306ead9db`, documentation commits are
+`ed293990` and `ea26722c`, and automatic exact-head CI run 32540696822 is green
+for Analyze & Build job 96950060067 and asset pipeline job 96950060124. Signed
+AAB/Play job 96951433483 was skipped with zero steps. Exact-merge post-main run
+32541233257 was cancelled; its Signed AAB/Play job 96951554736 had zero steps,
+so no build, signing, deployment, or upload ran.
 
-App commit `d58da3af1ee79720e35476b2fe125f6306ead9db` moves the preview editor to
-`SoriTextField` with an always-visible localized DE/EN label, the existing Sori
-body hierarchy, token radii, and top-aligned expanded multiline behavior. The
-non-destructive Retake action uses the shared contrast-safe outlined path. Its
-rendered boundary is directly locked at 3:1 or higher. Content-height ownership
-keeps ordinary, quality-warning, and severe-warning states scroll-reachable
-without reducing the editable area to zero. No-warning 390x844 geometry remains
-unscrolled.
+App commit `db36b3f879f78735a828e7e49f832dbec9d7ef50` moves `/book/result` to the
+existing Sori frame, field, card, type, radius, and action hierarchy. Result
+count, analysis failure, blocked warning, and unresolved save failure expose
+localized live-region status. TTS actions have localized labels, explicit 48dp
+targets, and executable final semantics. Saving is a localized announced
+disabled action that blocks duplicate writes; an indeterminate failure remains
+fail-closed with a persistent warning and disabled action. The shared
+`AppError` live-region opt-in defaults off, preserving existing consumers. The
+create-pack dialog uses `SoriTextField` and state-owned controller lifetime, and
+English analysis renders `translationEn`.
 
-Textbook and notebook non-severe warning previews pass DE/EN at locked 320x640
-at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130%, with
-the test `MediaQuery` outside `SoriTypeScale` so tablet/desktop comfort scaling
-is actually composed. Severe-warning correction is directly locked in DE and
-EN at 320x640 at 200%: the guarded primary exposes no semantic tap before a
-real OCR correction and exposes an executable tap afterward. Forty-six focused
-tests and the exact-head full local 4,464 tests with 14 conditional skips are
-green; analyze, format, and diff check are clean. Final
-Specification/Protection and Standards/Accessibility reviews both report zero
-findings after closing the two test-evidence P2s. Exact-base ratchets are raw
-screen `TextStyle` 214->211, raw screen `fontSize` 223->220, screen
-`BorderRadius.circular` 87->84, raw screen text fields 19->18, and test files
-457->457. One paired DE/EN localization key was added and generated localization
-is in sync. No asset, token, secret, or TODO change was added. OCR document/text
-preprocessing, severe-correction evidence, notebook detection, routes and
-payloads, media-lease ownership, storage, security, SDK/platform behavior, and
-approved assets remain protected. No deployment, build, signing, or store
-upload is authorized or claimed.
+Populated results pass DE/EN at locked 320x640 at 200%, 360x400, 390x844 at
+130%, 720x1024 at 130%, and 1280x900 at 130%. Blocked-warning plus localized
+loading/error states pass DE/EN at 320x640 at 200%; save-pending EN and
+save-unresolved DE are directly covered at 390x844 at 130%. Tests assert final
+live `SemanticsData`, button/enabled/tap state, scroll reachability, and exact
+routes and payloads. Ninety focused/protection tests and the exact-head full
+local 4,469 tests with 14 conditional skips are green; analyze reports zero
+issues, format and diff check are clean. Final Specification/Protection and
+Standards/Accessibility reviews both report zero findings. Exact-base ratchets
+are raw screen `TextStyle` 211->207, raw screen `fontSize` 220->216, screen
+`BorderRadius.circular` 84->82, raw screen text fields 18->17, progress
+indicators 16->16, and test files 457->458. Three paired DE/EN localization keys
+were added and generated localization is in sync. No asset, token, secret, or
+TODO change was added. OCR/security, routes and arguments, media-lease
+ownership, grounded study/evidence, TTS, wordbook/custom-pack behavior, storage,
+SDK/platform behavior, and approved assets remain protected.
+
+The exact base contains content-contract hotfix PR #184 at
+`c88b864062c4d27c8f0361370773fb091058d6af`. The latest attempt 3 of its
+post-main run 32546159504 retains green analyze, test, asset, and web gates and
+is completed/cancelled. Signed AAB/Play job 96968028509 stopped at runner-disk
+cleanup; Java, Flutter, signing setup, dependency install, signed-bundle build,
+bundle identity, artifact preservation, and Google Play upload are all skipped.
+No completed signed bundle or store upload is claimed or authorized.
 
 ## Important Context
 
@@ -66,7 +73,8 @@ remain separate high-risk units.
    path ran zero steps, and cancel any post-main release-capable run
    immediately.
 3. Record the exact PR, CI jobs, merge SHA, and zero-release evidence in the
-   next isolated `/book/result` unit created from that exact main merge.
+   next isolated bookshelf/local custom-pack editing unit created from that
+   exact main merge.
 
 ## 1. Purpose
 
@@ -180,16 +188,16 @@ current ratchet:
 | Registered route cases | 68 | Every case is inventoried below |
 | `lib/screens` Dart files | 96 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 126 | Existing system; no parallel system permitted |
-| Test files | 457 | Reuse focused suites plus shared matrices |
-| Raw screen `TextStyle` | 211 lexical; clean-code guard ≤217 | Must not increase; migrate by touched surface |
-| Raw screen `fontSize` | 220; `FontWeight.w800` 44 and `w900` 13 | Reduce through tokens, never raise ratchets |
-| Screen `BorderRadius.circular` | 84 total; 14 numeric literals (global guard ≤24) | Touched code uses radius tokens |
+| Test files | 458 | Reuse focused suites plus shared matrices |
+| Raw screen `TextStyle` | 207 lexical; clean-code guard ≤217 | Must not increase; migrate by touched surface |
+| Raw screen `fontSize` | 216; `FontWeight.w800` 43 and `w900` 13 | Reduce through tokens, never raise ratchets |
+| Screen `BorderRadius.circular` | 82 total; 14 numeric literals (global guard ≤24) | Touched code uses radius tokens |
 | Raw screen `Scaffold` calls | 33 | Many are intentional shell/immersive owners; classify before changing |
 | Screen `TextOverflow.ellipsis` | 0 | Locked at zero |
 | Common-appbar ellipsis | 0 | Phase 1A removed both without hiding text |
-| Screen text fields | 18 | Recall and reassessment inputs use `SoriTextField`; guard locked at ≤22 |
+| Screen text fields | 17 | Recall and reassessment inputs use `SoriTextField`; guard locked at ≤22 |
 | Raw screen progress indicators | 16 | Replace only where not canvas/inline progress |
-| `AppLoading` uses | 37 | Retain as the standard full-state loader |
+| `AppLoading` uses | 36 | Retain as the standard full-state loader |
 
 Current shared coverage includes `screen_smoke_test`, `responsive_test`,
 `responsive_short_height_test`, `standard_surface_responsive_test`,
@@ -430,8 +438,9 @@ production, and deployment remain unclaimed and out of scope.
 | 4B Vocab-notebook practice outer UI | merged | App commit `211ebec0ef7b98b99afa70aeec17e63dc27fb55e`; documentation commits `656fb88df9e683aea3201ac6fc04abc2189207f2`, `797567d91666e99b6b31f01905696736775221ff`, and `08a05264ff66a14afbe8e141e543a9acda111273`; PR #180; main merge `f0e751ba3330a7ea504a280cddf37630a688c552`; automatic exact-head CI run 32531327324 green for Analyze & Build job 96923826143 and asset pipeline job 96923826253; Signed AAB/Play job 96924265065 skipped with zero steps; missing and populated states use the standard frame/page, keep one filled primary and the existing outlined/ghost hierarchy, and use the default contrast-safe outlined path for Typing and Quiz; DE/EN locked viewport matrix directly covers scroll reachability, 48dp targets, variants, and actual label/button/enabled semantics; five focused tests lock missing packs, exact 0/1/2/3/4-word and nuance enablement, all eight routes and arguments, and post-return refresh; 68 related protection tests, 834 broad tests, and full local 4,450 tests with 14 conditional skips green; analyze, format, and diff check clean; final Specification/Protection and Standards/Accessibility reviews both zero; exact-base ratchets raw screen `TextStyle` 214->214, raw screen `Scaffold` 41->39, and test files 456->457; no new assets, localization keys, tokens, secrets, or TODO markers; lookup, counts, routes/arguments, refresh, writes, study/game logic, scores/evidence, SDK/platform behavior, and approved assets unchanged; post-main run 32531620540 cancelled immediately and every release-capable job, including Signed AAB/Play 96924655782, had zero steps, so no build, signing, deployment, or upload ran |
 | 4B Vocab-notebook nuance outer UI | merged | App commit `43164fd591f1fd3468679740a00241a34d15b4d8`; documentation commit `28a1b49f797b26751cd82a906ae12b34270d4cc6`; PR #181; main merge `d71945dbe260168d7d41c77d3140a8b1d0e072bc`; automatic exact-head CI run 32534135586 green, with Signed AAB/Play job 96932432543 skipped with zero steps; four raw Scaffolds replaced by the shared study frame; only nuance opts into the shared choice's 3:1 idle boundary and executable app-owned semantic tap while defaults for other consumers remain unchanged; missing, empty, question, feedback, and completion states are scroll-reachable and directly locked in DE/EN at 320x640 at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130%; live feedback/result semantics, active/revealed tap actions, 48dp actions, normal/reduced motion, literal service question order, other-option blocking, exact score, and second-round reset are covered; six focused, 121 direct related/consumer, 835 broad, and full local 4,455 tests with 14 conditional skips green; analyze, format, and diff check clean; both final review axes zero; raw screen TextStyle 214->214, Scaffold 39->35, test files 457->457, added assets/localization/tokens/secrets/TODO zero; pack/words source, language selection, service/lexicon questions and order, labels, answers, one-pick gate, score, effects, continue/reset, arguments, storage, SDK/platform behavior, and approved assets protected; post-main run 32534412862 was cancelled at the exact merge head and every release-capable job, including Signed AAB/Play 96932555748, had zero steps, so no build, signing, deployment, or upload ran |
 | 4B Vocab-notebook studio outer UI | merged | App commits `6cbad309337d9cadcbd60a28e309094640d72436` and `741af21649a174a047f654b1bd03c7c60b339f0f`; documentation commits `6de510c619c0089e27101e2f8ad682a304f458ee` and `686ec350dc2a90d6e5a78cede0db2277a10957d5`; PR #182; main merge `fbd0f7c159af6c5ecf566d366ddf23bb38d2e9e6`; automatic exact-head CI run 32537978064 green for Analyze & Build job 96942411297 and asset pipeline job 96942411345; Signed AAB/Play job 96943905017 skipped with zero steps; missing and populated surfaces use the standard frame/page, loading uses the shared state, true empty is distinguished from partial failure, partial data and all own-meaning games remain safe, and retry exposes an isolated localized 48dp semantic action before replacing the entire corpus/failure snapshot; duplicate rows keep index-owned selected controls; default outlined Typing, Quiz, and Retry boundaries directly meet 3:1; the app `SoriTypeScale` is used by all focused rendering: DE/EN partial-failure/recovery and populated selection/no-corpus cover the locked five-viewport matrix, missing covers DE/EN 320x640 at 200%, and live loading plus all 13 exact destination payloads cover EN 390x844 at 130%; ten focused, 864 related/shared, and full local 4,461 tests with 14 conditional skips green; analyze, format, and diff check clean; final Specification/Protection and Standards/Accessibility reviews zero after all P2 fixes; raw screen TextStyle 214->214, Scaffold 35->33, progress indicators 17->16, test files 457->457; one paired DE/EN localization key added, assets/tokens/secrets/TODO zero; lookup, index selection, corpus restriction/partial-source contract, routes/arguments, writes, storage, SDK/platform behavior, and approved assets protected; exact-merge post-main run 32538608929 cancelled and Signed AAB/Play job 96944089503 had zero steps, so no build, signing, deployment, or upload ran |
-| 4B Book preview outer UI | locally final-verified | App commit `d58da3af1ee79720e35476b2fe125f6306ead9db` from exact base `44944f59e5156fb3bde85dc3a7cb0a42dc1510c1`; the OCR editor uses expanded `SoriTextField` with a localized always-visible label, existing body hierarchy and radius tokens; ordinary, warning, and severe-warning states keep usable editor height and scroll-reachable actions; Retake uses the default contrast-safe outlined boundary locked at 3:1; DE/EN textbook and notebook non-severe previews cover 320x640 at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130% with actual `SoriTypeScale` comfort composition; DE/EN severe warning at 320x640 at 200% directly proves disabled label/button/enabled semantics without tap, then an executable semantic tap only after real correction; no-warning 390x844 remains unscrolled; 46 focused and exact-head full local 4,464 tests with 14 conditional skips green; analyze, format, and diff check clean; final Specification/Protection and Standards/Accessibility reviews both zero after closing both test-evidence P2s; raw screen TextStyle 214->211, fontSize 223->220, BorderRadius.circular 87->84, raw screen text fields 19->18, test files 457->457; one paired DE/EN localization key added, assets/tokens/secrets/TODO zero; OCR document/text preprocessing, severe-correction evidence, notebook detection, routes/payloads, media-lease ownership, storage, security, SDK/platform behavior, and approved assets protected; PR/CI/merge not yet claimed |
-| 4B remaining book analysis/bookshelf/custom-pack editing | pending | next `/book/result`, then bookshelf and local editing |
+| 4B Book preview outer UI | merged | App commit `d58da3af1ee79720e35476b2fe125f6306ead9db`; documentation commits `ed293990` and `ea26722c`; PR #183; main merge `e59c81f4e1a51c7ea7eca90cbd65dffe06a5adcc`; automatic exact-head CI run 32540696822 green for Analyze & Build job 96950060067 and asset pipeline job 96950060124; Signed AAB/Play job 96951433483 skipped with zero steps; the OCR editor uses expanded `SoriTextField` with a localized always-visible label, existing body hierarchy and radius tokens; ordinary, warning, and severe-warning states keep usable editor height and scroll-reachable actions; Retake uses the default contrast-safe outlined boundary locked at 3:1; DE/EN textbook and notebook non-severe previews cover 320x640 at 200%, 360x400, 390x844 at 130%, 720x1024 at 130%, and 1280x900 at 130% with actual `SoriTypeScale` comfort composition; DE/EN severe warning at 320x640 at 200% directly proves disabled label/button/enabled semantics without tap, then an executable semantic tap only after real correction; no-warning 390x844 remains unscrolled; 46 focused and exact-head full local 4,464 tests with 14 conditional skips green; analyze, format, and diff check clean; final Specification/Protection and Standards/Accessibility reviews both zero after closing both test-evidence P2s; raw screen TextStyle 214->211, fontSize 223->220, BorderRadius.circular 87->84, raw screen text fields 19->18, test files 457->457; one paired DE/EN localization key added, assets/tokens/secrets/TODO zero; OCR document/text preprocessing, severe-correction evidence, notebook detection, routes/payloads, media-lease ownership, storage, security, SDK/platform behavior, and approved assets protected; exact-merge post-main run 32541233257 cancelled and Signed AAB/Play job 96951554736 had zero steps, so no build, signing, deployment, or upload ran |
+| 4B Book result outer UI | locally final-verified | App commit `db36b3f879f78735a828e7e49f832dbec9d7ef50` from exact base `c88b864062c4d27c8f0361370773fb091058d6af`; result, sentence, word, warning, error, and save states use existing Sori frames/components/type/radius/action contracts; localized TTS actions expose explicit 48dp executable semantics; result count, failure, blocked warning, and indeterminate save failure are live regions; saving is an announced disabled action and duplicate writes fail closed; shared `AppError` live-region behavior is opt-in and default-compatible; the create-pack controller survives route exit; English results use `translationEn`; populated DE/EN states cover the locked five-viewport matrix, blocked-warning/loading/error states cover DE/EN 320x640 at 200%, and save-pending EN plus save-unresolved DE cover 390x844 at 130%; final `SemanticsData`, reachability, routes, and payloads are asserted; 90 focused/protection and full local 4,469 tests with 14 conditional skips green; analyze zero, format and diff check clean; final Specification/Protection and Standards/Accessibility review axes zero; raw screen TextStyle 211->207, fontSize 220->216, BorderRadius.circular 84->82, raw screen text fields 18->17, progress indicators 16->16, test files 457->458; three paired DE/EN localization keys added, assets/tokens/secrets/TODO zero; OCR/security, routes/arguments, media-lease ownership, grounded study/evidence, TTS, wordbook/custom-pack behavior, storage, SDK/platform behavior, and approved assets protected; PR/CI/merge not yet claimed |
+| 4B Bookshelf/local custom-pack editing outer UI | pending | next isolated non-overlapping unit |
 | 4C tools/community | pending | split platform/community writes from presentation |
 | 5A–5C games/supporting | pending | preserve Phase 2 canvas and native boundaries |
 | 6 full closeout | pending | no deployment |
