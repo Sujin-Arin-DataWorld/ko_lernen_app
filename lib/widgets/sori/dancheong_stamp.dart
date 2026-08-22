@@ -258,6 +258,10 @@ DancheongMotif motifForPackId(String packId) {
     'c2_sanction_accountability' => DancheongMotif.gwigap,
     'c2_relationship_narratives' => DancheongMotif.gwigap,
     'c2_fandom_discourse' => DancheongMotif.gwigap,
+    // Reviewed A1-C2 content packs using the existing motif pipeline.
+    'b2_2026_social_topics' => DancheongMotif.chilbo,
+    'c1_2026_social_topics' => DancheongMotif.taegeuk,
+    'c2_2026_social_topics' => DancheongMotif.manja,
     _ => DancheongMotif.lotus,
   };
 }

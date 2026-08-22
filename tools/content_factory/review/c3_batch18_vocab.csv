@@ -1,0 +1,37 @@
+id,level,ko,de,en,field_notes,상태,jin_memo
+vocab_b2_0623,B2,총주거비,gesamte Wohnkosten,total housing costs,rights: original_clean_room; pack=b2_2026_social_topics_1; order=1; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0624,B2,임대료 인상,Mieterhöhung,rent increase,rights: original_clean_room; pack=b2_2026_social_topics_1; order=2; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0625,B2,주거 부담,Wohnkostenbelastung,housing-cost burden,rights: original_clean_room; pack=b2_2026_social_topics_1; order=3; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0626,B2,자동 선별,automatisierte Vorauswahl,automated screening,rights: original_clean_room; pack=b2_2026_social_topics_1; order=4; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0627,B2,사람의 재검토,menschliche Nachprüfung,human review,rights: original_clean_room; pack=b2_2026_social_topics_1; order=5; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0628,B2,채용 기준,Einstellungskriterien,hiring criteria,rights: original_clean_room; pack=b2_2026_social_topics_1; order=6; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0629,B2,정착 지원,Unterstützung beim Ankommen,settlement support,rights: original_clean_room; pack=b2_2026_social_topics_1; order=7; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0630,B2,자격 인정,Anerkennung von Qualifikationen,recognition of qualifications,rights: original_clean_room; pack=b2_2026_social_topics_1; order=8; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0631,B2,인력 부족,Personalmangel,labor shortage,rights: original_clean_room; pack=b2_2026_social_topics_1; order=9; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0632,B2,현지화,Lokalisierung,localization,rights: original_clean_room; pack=b2_2026_social_topics_1; order=10; boss=true,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0633,B2,팬 번역,Fanübersetzung,fan translation,rights: original_clean_room; pack=b2_2026_social_topics_1; order=11; boss=true,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_b2_0634,B2,참여 방식,Form der Beteiligung,form of participation,rights: original_clean_room; pack=b2_2026_social_topics_1; order=12; boss=true,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0217,C1,지표의 한계,Grenzen einer Kennzahl,limits of an indicator,rights: original_clean_room; pack=c1_2026_social_topics_1; order=1; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0218,C1,표본 구성,Zusammensetzung der Stichprobe,sample composition,rights: original_clean_room; pack=c1_2026_social_topics_1; order=2; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0219,C1,인과관계,Kausalzusammenhang,causal relationship,rights: original_clean_room; pack=c1_2026_social_topics_1; order=3; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0220,C1,분배 효과,Verteilungswirkung,distributional effect,rights: original_clean_room; pack=c1_2026_social_topics_1; order=4; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0221,C1,이해관계자,Interessengruppen,stakeholders,rights: original_clean_room; pack=c1_2026_social_topics_1; order=5; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0222,C1,보완책,Ausgleichsmaßnahme,mitigation measure,rights: original_clean_room; pack=c1_2026_social_topics_1; order=6; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0223,C1,정착 역량,Aufnahmekapazität,settlement capacity,rights: original_clean_room; pack=c1_2026_social_topics_1; order=7; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0224,C1,제도 접근성,Zugänglichkeit des Systems,system accessibility,rights: original_clean_room; pack=c1_2026_social_topics_1; order=8; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0225,C1,돌봄 공백,Betreuungslücke,care gap,rights: original_clean_room; pack=c1_2026_social_topics_1; order=9; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0226,C1,추천 편향,Empfehlungsverzerrung,recommendation bias,rights: original_clean_room; pack=c1_2026_social_topics_1; order=10; boss=true,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0227,C1,무급 노동,unbezahlte Arbeit,unpaid labor,rights: original_clean_room; pack=c1_2026_social_topics_1; order=11; boss=true,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c1_0228,C1,맥락 번역,Kontextübersetzung,contextual translation,rights: original_clean_room; pack=c1_2026_social_topics_1; order=12; boss=true,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0217,C2,담론 프레임,Diskursrahmen,discourse frame,rights: original_clean_room; pack=c2_2026_social_topics_1; order=1; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0218,C2,책임 귀속,Verantwortungszuweisung,attribution of responsibility,rights: original_clean_room; pack=c2_2026_social_topics_1; order=2; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0219,C2,숨은 전제,verdeckte Prämisse,hidden premise,rights: original_clean_room; pack=c2_2026_social_topics_1; order=3; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0220,C2,정의의 경계,Grenzen einer Definition,boundaries of a definition,rights: original_clean_room; pack=c2_2026_social_topics_1; order=4; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0221,C2,절차의 정당성,Verfahrenslegitimität,procedural legitimacy,rights: original_clean_room; pack=c2_2026_social_topics_1; order=5; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0222,C2,이의 절차,Widerspruchsverfahren,appeal process,rights: original_clean_room; pack=c2_2026_social_topics_1; order=6; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0223,C2,인력의 도구화,Instrumentalisierung von Arbeitskräften,instrumentalization of workers,rights: original_clean_room; pack=c2_2026_social_topics_1; order=7; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0224,C2,대표성,Repräsentativität,representativeness,rights: original_clean_room; pack=c2_2026_social_topics_1; order=8; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0225,C2,범주 혼동,Kategorienvermischung,category confusion,rights: original_clean_room; pack=c2_2026_social_topics_1; order=9; boss=false,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0226,C2,문화적 진정성,kulturelle Authentizität,cultural authenticity,rights: original_clean_room; pack=c2_2026_social_topics_1; order=10; boss=true,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0227,C2,문지기 담론,Gatekeeping-Diskurs,gatekeeping discourse,rights: original_clean_room; pack=c2_2026_social_topics_1; order=11; boss=true,approved,Jin explicit app-integration approval (2026-08-22).
+vocab_c2_0228,C2,플랫폼 권력,Plattformmacht,platform power,rights: original_clean_room; pack=c2_2026_social_topics_1; order=12; boss=true,approved,Jin explicit app-integration approval (2026-08-22).

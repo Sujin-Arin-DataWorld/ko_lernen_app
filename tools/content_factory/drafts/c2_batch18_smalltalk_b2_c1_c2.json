@@ -1,0 +1,354 @@
+{
+ "version": 1,
+ "_comment": "Original review-gated Batch 18 social-language content.",
+ "phrases": [
+  {
+   "id": "smalltalk_b2_0109",
+   "category": "moving",
+   "level": "b2",
+   "kind": "question",
+   "ko": "새집을 볼 때 월세 말고 어떤 비용을 먼저 물어봐요?",
+   "de": "Nach welchen Kosten fragst du bei einer neuen Wohnung zuerst, außer der Kaltmiete?",
+   "en": "Besides the base rent, which costs do you ask about first when viewing a new home?",
+   "reply": {
+    "ko": "관리비와 최근 난방비 명세를 꼭 물어봐요.",
+    "de": "Ich frage immer nach Nebenkosten und der letzten Heizkostenabrechnung.",
+    "en": "I always ask about service charges and the latest heating bill."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "총주거비를 한 달 기준으로 알려 달라고 해도 될까요?",
+     "de": "Kann ich um die gesamten monatlichen Wohnkosten bitten?",
+     "en": "Could I ask for the total monthly housing costs?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "그래야 예산 안에 드는지 제대로 비교할 수 있겠네요.",
+    "de": "So lässt sich wirklich vergleichen, ob die Wohnung ins Budget passt.",
+    "en": "That makes it possible to compare whether the place really fits the budget."
+   }
+  },
+  {
+   "id": "smalltalk_b2_0110",
+   "category": "job_hunting",
+   "level": "b2",
+   "kind": "question",
+   "ko": "AI가 지원서를 먼저 봤다면 사람의 재검토도 요청할 수 있어요?",
+   "de": "Kann man eine menschliche Nachprüfung verlangen, wenn zuerst eine KI die Bewerbung prüft?",
+   "en": "Can you request human review if AI screens the application first?",
+   "reply": {
+    "ko": "회사 안내에는 요청 창구가 있다고 적혀 있었어요.",
+    "de": "In den Unternehmenshinweisen stand, dass es dafür eine Anlaufstelle gibt.",
+    "en": "The company guidance said there was a channel for that request."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "어떤 채용 기준이 사용됐는지도 확인할 수 있어요?",
+     "de": "Kann man auch erfahren, welche Einstellungskriterien verwendet wurden?",
+     "en": "Can you also find out which hiring criteria were used?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "그 절차가 실제로 답을 주는지도 봐야겠어요.",
+    "de": "Dann sollte man auch prüfen, ob dieses Verfahren tatsächlich eine Antwort liefert.",
+    "en": "Then we should also check whether the process actually provides an answer."
+   }
+  },
+  {
+   "id": "smalltalk_b2_0111",
+   "category": "daily",
+   "level": "b2",
+   "kind": "question",
+   "ko": "새로 온 이웃에게 행정 정보는 어디서 찾는다고 알려 주면 좋을까요?",
+   "de": "Wo findet ein neuer Nachbar am besten Informationen zu Behördengängen?",
+   "en": "Where should we tell a new neighbor to find administrative information?",
+   "reply": {
+    "ko": "구청의 다국어 안내와 지역 상담소를 같이 알려 주세요.",
+    "de": "Nennen Sie sowohl die mehrsprachigen Hinweise des Bezirksamts als auch die lokale Beratungsstelle.",
+    "en": "Share both the district office's multilingual guidance and the local advice center."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "집과 자격 인정 상담도 같은 곳에서 받을 수 있어요?",
+     "de": "Gibt es dort auch Beratung zu Wohnung und Anerkennung von Qualifikationen?",
+     "en": "Can they also get advice there about housing and recognition of qualifications?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "언어 수업만 알려 주는 것보다 훨씬 도움이 되겠네요.",
+    "de": "Das hilft deutlich mehr, als nur auf einen Sprachkurs zu verweisen.",
+    "en": "That would help much more than pointing only to a language class."
+   }
+  },
+  {
+   "id": "smalltalk_b2_0112",
+   "category": "kpop",
+   "level": "b2",
+   "kind": "question",
+   "ko": "팬 번역을 행사 화면에 쓰려면 먼저 무엇을 확인해야 해요?",
+   "de": "Was muss zuerst geklärt werden, wenn eine Fanübersetzung auf der Veranstaltungsleinwand erscheinen soll?",
+   "en": "What should be checked first before using a fan translation on an event screen?",
+   "reply": {
+    "ko": "번역한 사람의 동의와 이름 표기부터 확인해야 해요.",
+    "de": "Zuerst müssen Einwilligung und Namensnennung der übersetzenden Person geklärt werden.",
+    "en": "First confirm the translator's consent and how they will be credited."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "수정이 필요할 때 누가 책임지는지도 정했어요?",
+     "de": "Ist auch geregelt, wer nötige Korrekturen verantwortet?",
+     "en": "Have you also decided who is responsible for any corrections?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "참여를 존중하면서 품질 책임도 나눌 수 있겠네요.",
+    "de": "So lassen sich Beteiligung respektieren und Qualitätsverantwortung teilen.",
+    "en": "That respects participation while sharing responsibility for quality."
+   }
+  },
+  {
+   "id": "smalltalk_c1_0041",
+   "category": "moving",
+   "level": "c1",
+   "kind": "question",
+   "ko": "평균 월세 수치에 신규 계약도 충분히 들어가 있었어요?",
+   "de": "Waren in der Durchschnittsmiete genügend Neuverträge enthalten?",
+   "en": "Did the average-rent figure include enough new leases?",
+   "reply": {
+    "ko": "표본 구성은 공개됐지만 계약 시점별 비중은 없었어요.",
+    "de": "Die Stichprobe war beschrieben, aber Anteile nach Vertragszeitpunkt fehlten.",
+    "en": "The sample composition was published, but there was no breakdown by lease date."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "소득별 주거 부담을 따로 볼 자료도 있어요?",
+     "de": "Gibt es Daten zur Wohnkostenbelastung nach Einkommen?",
+     "en": "Is there separate data on housing-cost burden by income?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "그러면 평균값의 범위를 먼저 한정해서 말해야겠네요.",
+    "de": "Dann sollte die Aussagekraft des Durchschnitts zuerst eingegrenzt werden.",
+    "en": "Then we should first limit what the average can support."
+   }
+  },
+  {
+   "id": "smalltalk_c1_0042",
+   "category": "job_hunting",
+   "level": "c1",
+   "kind": "question",
+   "ko": "자동 선별의 정확도가 높다는 말에 집단별 오류도 포함됐나요?",
+   "de": "Umfasst die angegebene Genauigkeit der automatisierten Auswahl auch Fehler nach Gruppen?",
+   "en": "Does the reported accuracy of automated screening include errors across groups?",
+   "reply": {
+    "ko": "전체 평균만 있고 경력 공백이 있는 지원자는 따로 보지 않았어요.",
+    "de": "Es gab nur einen Gesamtdurchschnitt; Bewerbende mit Erwerbsunterbrechungen wurden nicht separat betrachtet.",
+    "en": "There was only an overall average; applicants with career gaps were not examined separately."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "사람의 재검토가 결과를 얼마나 바꿨는지도 알 수 있어요?",
+     "de": "Ist bekannt, wie oft eine menschliche Nachprüfung das Ergebnis verändert hat?",
+     "en": "Do we know how often human review changed the outcome?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "효율과 분배 효과를 분리해서 평가해야겠어요.",
+    "de": "Dann müssen Effizienz und Verteilungswirkung getrennt bewertet werden.",
+    "en": "Then efficiency and distributional effects need separate evaluation."
+   }
+  },
+  {
+   "id": "smalltalk_c1_0043",
+   "category": "daily",
+   "level": "c1",
+   "kind": "question",
+   "ko": "인력 부족 대책에 지역의 정착 역량도 같이 계산됐나요?",
+   "de": "Wurde bei der Strategie gegen Personalmangel auch die regionale Aufnahmekapazität berücksichtigt?",
+   "en": "Did the labor-shortage plan also account for local settlement capacity?",
+   "reply": {
+    "ko": "채용 목표는 있는데 집과 돌봄 계획은 다음 단계로 미뤄졌어요.",
+    "de": "Es gibt Einstellungsziele, aber Wohnung und Betreuung wurden auf die nächste Phase verschoben.",
+    "en": "There are hiring targets, but housing and care were postponed to the next phase."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "당사자와 지역 기관이 계획 검토에 참여했어요?",
+     "de": "Waren Betroffene und lokale Stellen an der Prüfung des Plans beteiligt?",
+     "en": "Did affected people and local institutions participate in reviewing the plan?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "채용 숫자만으로는 지속 가능한 정착을 설명하기 어렵겠네요.",
+    "de": "Mit Einstellungszahlen allein lässt sich nachhaltiges Ankommen kaum erklären.",
+    "en": "Recruitment numbers alone cannot demonstrate sustainable settlement."
+   }
+  },
+  {
+   "id": "smalltalk_c1_0044",
+   "category": "kpop",
+   "level": "c1",
+   "kind": "question",
+   "ko": "추천 화면의 노출과 실제 선호를 어떻게 구분했어요?",
+   "de": "Wie wurden Sichtbarkeit im Empfehlungssystem und tatsächliche Vorliebe getrennt?",
+   "en": "How did you separate recommendation exposure from actual preference?",
+   "reply": {
+    "ko": "검색 유입과 완주율을 따로 보고 지역 행사 참여도 비교했어요.",
+    "de": "Wir haben Suchzugriffe und Abschlussrate getrennt betrachtet und mit lokaler Veranstaltungsteilnahme verglichen.",
+    "en": "We separated search traffic and completion rate, then compared local event participation."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "팬 번역의 무급 노동도 성과 비용에 포함했어요?",
+     "de": "Wurde unbezahlte Fanarbeit auch als Aufwand der Reichweite erfasst?",
+     "en": "Was unpaid fan labor also counted as a cost of that reach?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "확산 규모와 지속 가능한 참여가 같은 지표는 아니겠네요.",
+    "de": "Reichweite und nachhaltige Beteiligung sind also nicht dieselbe Kennzahl.",
+    "en": "Scale of reach and sustainable participation are not the same measure."
+   }
+  },
+  {
+   "id": "smalltalk_c2_0041",
+   "category": "moving",
+   "level": "c2",
+   "kind": "question",
+   "ko": "‘감당 가능한 집’은 누구의 지출 구조를 전제로 정의했나요?",
+   "de": "Wessen Ausgabenstruktur liegt der Definition von bezahlbarem Wohnraum zugrunde?",
+   "en": "Whose spending structure underlies the definition of affordable housing?",
+   "reply": {
+    "ko": "중간 소득 1인 가구를 기준으로 삼아 다른 가구 유형은 빠졌습니다.",
+    "de": "Als Maßstab diente ein Einpersonenhaushalt mit mittlerem Einkommen; andere Haushaltstypen fehlen.",
+    "en": "A middle-income single-person household was used as the benchmark, leaving out other household types."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "돌봄비와 이동비를 포함하면 정의의 경계가 달라지나요?",
+     "de": "Verschieben sich die Grenzen der Definition, wenn Betreuung und Mobilität einbezogen werden?",
+     "en": "Do the boundaries of the definition change when care and transport costs are included?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "그 숨은 전제를 드러낸 뒤 대안을 비교해야겠네요.",
+    "de": "Dann sollte diese verdeckte Prämisse offengelegt werden, bevor Alternativen verglichen werden.",
+    "en": "Then that hidden premise should be made explicit before comparing alternatives."
+   }
+  },
+  {
+   "id": "smalltalk_c2_0042",
+   "category": "job_hunting",
+   "level": "c2",
+   "kind": "question",
+   "ko": "자동 결정이 아니라 보조 도구라고 부르면 책임 귀속도 달라지나요?",
+   "de": "Ändert sich die Verantwortungszuweisung, wenn das System nur als Hilfsmittel statt als automatische Entscheidung bezeichnet wird?",
+   "en": "Does responsibility change if the system is called a support tool rather than an automated decision?",
+   "reply": {
+    "ko": "이름보다 실제로 누가 결과를 바꿀 권한이 있는지가 중요합니다.",
+    "de": "Wichtiger als die Bezeichnung ist, wer das Ergebnis tatsächlich ändern darf.",
+    "en": "What matters more than the label is who actually has authority to change the outcome."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "이의 절차가 원결정자와 독립되어 있어요?",
+     "de": "Ist das Widerspruchsverfahren von der ursprünglichen Entscheidungsstelle unabhängig?",
+     "en": "Is the appeal process independent of the original decision-maker?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "효율을 인정해도 절차의 정당성은 따로 검토해야겠네요.",
+    "de": "Auch bei anerkannter Effizienz muss die Verfahrenslegitimität separat geprüft werden.",
+    "en": "Even if efficiency is acknowledged, procedural legitimacy still needs separate review."
+   }
+  },
+  {
+   "id": "smalltalk_c2_0043",
+   "category": "daily",
+   "level": "c2",
+   "kind": "question",
+   "ko": "취업률이 높으면 통합이 성공했다는 전제가 왜 문제일까요?",
+   "de": "Warum ist die Annahme problematisch, eine hohe Beschäftigungsquote bedeute gelungene Integration?",
+   "en": "Why is the premise that a high employment rate means successful integration problematic?",
+   "reply": {
+    "ko": "권리 접근과 주거 안정, 당사자의 선택을 한 지표로 환원하기 때문입니다.",
+    "de": "Weil sie Rechtszugang, Wohnstabilität und eigene Entscheidungen auf eine Kennzahl reduziert.",
+    "en": "Because it reduces access to rights, housing stability, and personal choice to one metric."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "그 지표는 누구를 대표하고 누가 빠져 있나요?",
+     "de": "Wen repräsentiert die Kennzahl, und wer fehlt darin?",
+     "en": "Whom does the metric represent, and who is missing?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "인력의 도구화 없이 성과 기준을 다시 정의해야겠네요.",
+    "de": "Dann müssen Erfolgskriterien neu definiert werden, ohne Arbeitskräfte zu instrumentalisieren.",
+    "en": "Then the success criteria need redefining without instrumentalizing workers."
+   }
+  },
+  {
+   "id": "smalltalk_c2_0044",
+   "category": "kpop",
+   "level": "c2",
+   "kind": "question",
+   "ko": "‘진짜 팬’이라는 말은 어떤 참여를 중심에 놓고 있나요?",
+   "de": "Welche Form der Beteiligung stellt der Ausdruck echter Fan ins Zentrum?",
+   "en": "Which form of participation does the phrase real fan place at the center?",
+   "reply": {
+    "ko": "구매와 스트리밍을 기준으로 삼아 번역과 지역 활동은 주변으로 밀립니다.",
+    "de": "Kauf und Streaming gelten als Maßstab; Übersetzung und lokale Aktivitäten rücken an den Rand.",
+    "en": "Purchasing and streaming become the standard, pushing translation and local activity to the margins."
+   },
+   "relationshipContext": "coworker",
+   "safeAlternativeQuestions": [
+    {
+     "turnKind": "question",
+     "ko": "그 문지기 담론에서 플랫폼의 이익은 보이나요?",
+     "de": "Wird in diesem Gatekeeping-Diskurs das Interesse der Plattform sichtbar?",
+     "en": "Does that gatekeeping discourse make the platform's interest visible?"
+    }
+   ],
+   "followUp": {
+    "turnKind": "reaction",
+    "ko": "문화적 진정성을 하나의 소비 방식으로 환원하면 안 되겠네요.",
+    "de": "Kulturelle Authentizität darf also nicht auf eine Konsumform reduziert werden.",
+    "en": "Cultural authenticity should not be reduced to one form of consumption."
+   }
+  }
+ ]
+}

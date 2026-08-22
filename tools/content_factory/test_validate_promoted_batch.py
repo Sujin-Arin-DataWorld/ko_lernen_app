@@ -25,30 +25,30 @@ import validate_promoted_batch as promoted
 import scenario_store
 
 
-BATCH_06 = Path("tools/content_factory/drafts/batch_06_manifest.json")
+BATCH_17 = Path("tools/content_factory/drafts/batch_17_manifest.json")
 
 
 class PromotedBatchValidationTest(unittest.TestCase):
-    def test_merged_batch_06_matches_live_assets(self) -> None:
-        count, inventory = promoted.validate(REPO_ROOT / BATCH_06)
+    def test_merged_batch_17_matches_live_assets(self) -> None:
+        count, inventory = promoted.validate(REPO_ROOT / BATCH_17)
 
-        self.assertEqual(68, count)
-        self.assertEqual(62, inventory["scenario"])
-        self.assertEqual(293, inventory["smalltalk"])
-        self.assertEqual(530, inventory["cloze"])
-        self.assertEqual(443, inventory["satz"])
-        self.assertEqual(20, inventory["pronunciation"])
+        self.assertEqual(144, count)
+        self.assertEqual(404, inventory["scenario"])
+        self.assertEqual(429, inventory["smalltalk"])
+        self.assertEqual(1706, inventory["cloze"])
+        self.assertEqual(2259, inventory["satz"])
+        self.assertEqual(56, inventory["pronunciation"])
 
-    def test_review_batch_tool_points_merged_batch_06_at_promoted_validator(self) -> None:
+    def test_review_batch_tool_points_merged_batch_17_at_promoted_validator(self) -> None:
         with self.assertRaisesRegex(
             review_batch.BatchValidationError,
             r"status is merged; use tools/content_factory/validate_promoted_batch.py",
         ):
-            review_batch.validate_review_batch(manifest_path=BATCH_06)
+            review_batch.validate_review_batch(manifest_path=BATCH_17)
 
     def test_rejects_review_only_status(self) -> None:
         root = self._copy_tree()
-        path = root / BATCH_06
+        path = root / BATCH_17
         manifest = json.loads(path.read_text(encoding="utf-8"))
         manifest["status"] = "review_only_draft"
         path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -58,7 +58,7 @@ class PromotedBatchValidationTest(unittest.TestCase):
 
     def test_rejects_unknown_artifact_kind(self) -> None:
         root = self._copy_tree()
-        path = root / BATCH_06
+        path = root / BATCH_17
         manifest = json.loads(path.read_text(encoding="utf-8"))
         manifest["artifacts"][0]["kind"] = "puzzle"
         path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -73,15 +73,15 @@ class PromotedBatchValidationTest(unittest.TestCase):
         payload["scenarios"] = [
             row
             for row in payload["scenarios"]
-            if row.get("id") != "b1_repair_visit_followup"
+            if row.get("id") != "c1_kpop_platform_localization_review"
         ]
         scenario_store.write_shards(payload["scenarios"], data_dir)
 
         with self.assertRaisesRegex(
             promoted.PromotedBatchError,
-            "b1_repair_visit_followup",
+            "c1_kpop_platform_localization_review",
         ):
-            promoted.validate(root / BATCH_06, root=root)
+            promoted.validate(root / BATCH_17, root=root)
 
     def _copy_tree(self) -> Path:
         temporary_directory = tempfile.TemporaryDirectory()

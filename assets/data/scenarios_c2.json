@@ -8638,6 +8638,894 @@
       ],
       "shelf": "c2_representation",
       "backdrop": "office"
+    },
+    {
+      "id": "c2_moving_affordability_definition_hearing",
+      "level": "c2",
+      "emoji": "🏛️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "public_hearing",
+      "intent": "redefine_affordability_in_a_public_housing_statement",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 180,
+      "title": {
+        "ko": "‘감당 가능한 집’의 기준을 묻다",
+        "de": "Was heißt ‚bezahlbares Wohnen‘?",
+        "en": "What counts as affordable housing?"
+      },
+      "intro": {
+        "ko": "공청회 자료의 ‘월세 안정’이라는 표현이 누구의 어떤 비용을 가리는지 짚고, 감당 가능성의 정의와 지표를 다시 씁니다.",
+        "de": "In einer Anhörung wird geprüft, wessen Kosten die Formulierung ‚stabile Mieten‘ verdeckt; Definition und Kennzahlen von Bezahlbarkeit werden neu gefasst.",
+        "en": "At a public hearing, you expose whose costs are hidden by the phrase 'stable rents' and rewrite the definition and measures of affordability."
+      },
+      "grammarIds": [
+        "grammar_c2_defined_as"
+      ],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "보고서는 평균 월세가 안정됐다고 결론짓지만 신규 계약 호가는 별도입니다.",
+          "de": "Der Bericht erklärt die Durchschnittsmiete für stabil, behandelt Angebotsmieten neuer Verträge aber getrennt.",
+          "en": "The report concludes that average rent is stable, but asking rents for new leases are a separate matter."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "‘안정’이라는 말이 기존 계약자의 평균을 전체 시장처럼 보이게 하는군요.",
+          "de": "Das Wort ‚stabil‘ lässt den Durchschnitt bestehender Verträge wie den gesamten Markt erscheinen.",
+          "en": "The word 'stable' makes the average for existing tenants look like the whole market."
+        },
+        {
+          "speaker": "user",
+          "ko": "감당 가능한 주거라 함은 총주거비가 소득과 기본생활을 압박하지 않는 상태를 뜻해야 합니다.",
+          "de": "Bezahlbares Wohnen sollte als Zustand definiert werden, in dem die gesamten Wohnkosten Einkommen und Grundbedarf nicht verdrängen.",
+          "en": "Affordable housing should mean a condition in which total housing costs do not crowd out income needed for basic life."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그 정의라면 월세뿐 아니라 에너지 비용과 퇴거 위험도 들어갑니다.",
+          "de": "Dann gehören neben Miete auch Energiekosten und Verdrängungsrisiko in die Definition.",
+          "en": "That definition includes energy costs and displacement risk as well as rent."
+        },
+        {
+          "speaker": "user",
+          "ko": "맞습니다. 평균 하나가 아니라 소득 구간별 부담의 분포를 공개해야 합니다.",
+          "de": "Genau. Statt nur eines Mittels muss die Belastungsverteilung nach Einkommensgruppen veröffentlicht werden.",
+          "en": "Exactly. We need the distribution of burden by income group, not a single average."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "정책 문구도 ‘가격 안정’에서 ‘부담과 퇴거 위험 완화’로 바꾸겠습니다.",
+          "de": "Ich ändere die Formulierung von ‚Preisstabilität‘ zu ‚Entlastung und geringeres Verdrängungsrisiko‘.",
+          "en": "I'll change the policy wording from 'price stability' to 'lower burden and displacement risk.'"
+        },
+        {
+          "speaker": "user",
+          "ko": "다만 어떤 기준선을 썼는지와 지역 차이는 각주가 아니라 본문에 넣어야 합니다.",
+          "de": "Schwelle und regionale Unterschiede gehören jedoch in den Haupttext, nicht in eine Fußnote.",
+          "en": "But the threshold used and regional differences belong in the main text, not a footnote."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그러면 ‘감당 가능’이라는 결론이 측정 방식과 함께 읽히겠네요.",
+          "de": "Dann wird das Urteil ‚bezahlbar‘ zusammen mit seiner Messweise lesbar.",
+          "en": "Then the conclusion 'affordable' can be read together with how it was measured."
+        }
+      ],
+      "surfaceFormIds": [],
+      "vocab": [
+        {
+          "korean": "감당 가능성"
+        },
+        {
+          "korean": "기존 계약"
+        },
+        {
+          "korean": "호가"
+        },
+        {
+          "korean": "퇴거 위험"
+        },
+        {
+          "korean": "정책 문구"
+        },
+        {
+          "korean": "분포"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N이라 함은",
+          "de": "N이라 함은: Institutionelle Definition",
+          "en": "N이라 함은: Institutional definition"
+        },
+        "explanation": {
+          "ko": "논쟁의 핵심 용어가 어디까지를 가리키는지 제도적으로 정의합니다.",
+          "de": "Institutionelle Definition. Definiert einen Amtsbegriff.",
+          "en": "Institutional definition. Defines an official term."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c2_moving_affordability_definition_hearing_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "audioKo": "감당 가능한 주거라 함은 총주거비가 소득과 기본생활을 압박하지 않는 상태를 뜻해야 합니다.",
+            "options": [
+              {
+                "de": "Der Bericht erklärt die Durchschnittsmiete für stabil, behandelt Angebotsmieten neuer Verträge aber getrennt.",
+                "en": "The report concludes that average rent is stable, but asking rents for new leases are a separate matter."
+              },
+              {
+                "de": "Bezahlbares Wohnen sollte als Zustand definiert werden, in dem die gesamten Wohnkosten Einkommen und Grundbedarf nicht verdrängen.",
+                "en": "Affordable housing should mean a condition in which total housing costs do not crowd out income needed for basic life."
+              },
+              {
+                "de": "Genau. Statt nur eines Mittels muss die Belastungsverteilung nach Einkommensgruppen veröffentlicht werden.",
+                "en": "Exactly. We need the distribution of burden by income group, not a single average."
+              },
+              {
+                "de": "Schwelle und regionale Unterschiede gehören jedoch in den Haupttext, nicht in eine Fußnote.",
+                "en": "But the threshold used and regional differences belong in the main text, not a footnote."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c2_moving_affordability_definition_hearing_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "promptDe": "Schwelle und regionale Unterschiede gehören jedoch in den Haupttext, nicht in eine Fußnote.",
+            "promptEn": "But the threshold used and regional differences belong in the main text, not a footnote.",
+            "options": [
+              {
+                "ko": "보고서는 평균 월세가 안정됐다고 결론짓지만 신규 계약 호가는 별도입니다."
+              },
+              {
+                "ko": "맞습니다. 평균 하나가 아니라 소득 구간별 부담의 분포를 공개해야 합니다."
+              },
+              {
+                "ko": "다만 어떤 기준선을 썼는지와 지역 차이는 각주가 아니라 본문에 넣어야 합니다."
+              },
+              {
+                "ko": "감당 가능한 주거라 함은 총주거비가 소득과 기본생활을 압박하지 않는 상태를 뜻해야 합니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c2_moving_affordability_definition_hearing_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "sentence": "감당 가능한 ___ 기본생활을 압박하지 않는 상태를 뜻합니다.",
+            "options": [
+              "주거라 함은",
+              "주거에 불과하면",
+              "주거를 전제로",
+              "주거라고 치더라도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_moving_affordability_definition_hearing_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "targetKo": "기존 계약의 평균은 새로 집을 구하는 사람의 호가를 대신하지 못합니다.",
+            "promptDe": "Der Durchschnitt bestehender Verträge ersetzt nicht die Angebotsmieten für Wohnungssuchende.",
+            "promptEn": "The average for existing leases cannot stand in for asking rents faced by home seekers.",
+            "distractors": [
+              "안정이라는",
+              "말만"
+            ],
+            "audioKo": "기존 계약의 평균은 새로 집을 구하는 사람의 호가를 대신하지 못합니다."
+          }
+        },
+        {
+          "id": "quest_c2_moving_affordability_definition_hearing_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "targetKo": "소득 구간별 부담의 분포를 공개해야 평균이 가리는 차이가 드러납니다.",
+            "audioKo": "소득 구간별 부담의 분포를 공개해야 평균이 가리는 차이가 드러납니다.",
+            "promptDe": "Erst die Belastungsverteilung nach Einkommen zeigt, welche Unterschiede der Mittelwert verdeckt.",
+            "promptEn": "Publishing the burden distribution by income reveals differences hidden by the average."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "정책어를 번역할 때 사전적 대응어보다 측정 범위를 먼저 확인합니다. ‘bezahlbar’와 ‘감당 가능’이 같은 지표를 뜻한다고 가정하지 않습니다.",
+        "de": "Bei politischen Begriffen wird vor der Wörterbuchentsprechung der Messbereich geprüft. ‚Bezahlbar‘ und ‚감당 가능‘ werden nicht automatisch als dieselbe Kennzahl behandelt.",
+        "en": "When translating policy terms, check the measurement scope before choosing a dictionary equivalent. Do not assume 'bezahlbar' and 'affordable' refer to the same indicator."
+      },
+      "shelf": "c2_discourse",
+      "backdrop": "office"
+    },
+    {
+      "id": "c2_work_ai_accountability_board",
+      "level": "c2",
+      "emoji": "⚙️",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "governance_board",
+      "intent": "assign_accountability_for_ai_assisted_hiring_decisions",
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ],
+      "sidekick": "minsu",
+      "xpReward": 185,
+      "title": {
+        "ko": "효율을 인정해도 책임은 남는다",
+        "de": "Effizienz entbindet nicht von Verantwortung",
+        "en": "Efficiency does not remove responsibility"
+      },
+      "intro": {
+        "ko": "채용 AI 운영위원회에서 높은 평균 정확도를 인정하더라도 설명, 이의 제기, 사람의 결정권과 공급업체 책임을 계약에 명시합니다.",
+        "de": "Im Aufsichtsgremium für Recruiting-KI werden trotz hoher Durchschnittsgenauigkeit Erklärung, Einspruch, menschliche Entscheidungshoheit und Anbieterpflichten vertraglich festgelegt.",
+        "en": "On an AI hiring governance board, you define explanation, appeal, human authority and vendor responsibility even if average accuracy is high."
+      },
+      "grammarIds": [
+        "grammar_c2_even_assuming"
+      ],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "공급업체는 평균 정확도가 높으니 사람의 검토를 줄이자고 제안했습니다.",
+          "de": "Der Anbieter schlägt wegen hoher Durchschnittsgenauigkeit weniger menschliche Prüfung vor.",
+          "en": "The vendor proposes reducing human review because average accuracy is high."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "처리 속도는 좋아지겠지만 책임 주체가 더 흐려질 수 있습니다.",
+          "de": "Das erhöht das Tempo, kann aber die Verantwortlichkeit weiter verwischen.",
+          "en": "That may increase speed, but it can blur accountability further."
+        },
+        {
+          "speaker": "user",
+          "ko": "평균 정확도가 높다고 치더라도 탈락 사유를 설명할 경로는 보장해야 합니다.",
+          "de": "Selbst bei hoher Durchschnittsgenauigkeit muss ein Weg zur Erklärung von Ablehnungen garantiert sein.",
+          "en": "Even assuming high average accuracy, there must be a route to explain rejections."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "회사는 모델을 몰라서 답할 수 없고, 공급업체는 최종 결정자가 아니라고 합니다.",
+          "de": "Das Unternehmen verweist auf fehlende Modellkenntnis, der Anbieter darauf, nicht final zu entscheiden.",
+          "en": "The company says it lacks model knowledge, while the vendor says it is not the final decision-maker."
+        },
+        {
+          "speaker": "user",
+          "ko": "그 분업이 책임의 공백이 되지 않도록 역할별 답변 기한을 계약에 넣죠.",
+          "de": "Damit diese Arbeitsteilung keine Verantwortungslücke schafft, setzen wir Antwortfristen je Rolle in den Vertrag.",
+          "en": "Let's put response deadlines for each role into the contract so the division of labor does not create an accountability gap."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "사람의 검토자는 자동 결과를 뒤집을 권한과 근거 기록 의무를 갖게 하겠습니다.",
+          "de": "Menschliche Prüfende erhalten die Befugnis zur Abweichung und eine Pflicht zur Begründungsdokumentation.",
+          "en": "Human reviewers will have authority to override the automated result and a duty to record their reasons."
+        },
+        {
+          "speaker": "user",
+          "ko": "오류가 반복될 때 중단 기준과 영향을 받은 지원자에게 알릴 절차도 필요합니다.",
+          "de": "Wir brauchen zudem Abschaltkriterien bei wiederholten Fehlern und ein Verfahren zur Benachrichtigung Betroffener.",
+          "en": "We also need shutdown criteria for repeated errors and a process to notify affected applicants."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "효율 지표와 권리 보호 지표를 같은 대시보드에서 공개하겠습니다.",
+          "de": "Wir veröffentlichen Effizienz- und Rechtsschutzkennzahlen im selben Dashboard.",
+          "en": "We'll publish efficiency and rights-protection measures on the same dashboard."
+        }
+      ],
+      "surfaceFormIds": [],
+      "vocab": [
+        {
+          "korean": "평균 정확도"
+        },
+        {
+          "korean": "설명 가능성"
+        },
+        {
+          "korean": "결정권"
+        },
+        {
+          "korean": "책임 소재"
+        },
+        {
+          "korean": "공급업체"
+        },
+        {
+          "korean": "구제 절차"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "A/V-(으)ㄴ/는다고 치더라도",
+          "de": "A/V-(으)ㄴ/는다고 치더라도: Weitgehende hypothetische Konzession",
+          "en": "A/V-(으)ㄴ/는다고 치더라도: Far-reaching hypothetical concession"
+        },
+        "explanation": {
+          "ko": "상대의 강한 가정을 잠정적으로 인정해도 유지되는 원칙을 제시합니다.",
+          "de": "Akzeptiert eine Annahme vorläufig für die Argumentation und zeigt, dass die folgende Schlussfolgerung selbst dann bestehen bleibt.",
+          "en": "Temporarily grants an assumption for the sake of argument and shows that the following conclusion still holds."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c2_work_ai_accountability_board_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "audioKo": "평균 정확도가 높다고 치더라도 탈락 사유를 설명할 경로는 보장해야 합니다.",
+            "options": [
+              {
+                "de": "Der Anbieter schlägt wegen hoher Durchschnittsgenauigkeit weniger menschliche Prüfung vor.",
+                "en": "The vendor proposes reducing human review because average accuracy is high."
+              },
+              {
+                "de": "Selbst bei hoher Durchschnittsgenauigkeit muss ein Weg zur Erklärung von Ablehnungen garantiert sein.",
+                "en": "Even assuming high average accuracy, there must be a route to explain rejections."
+              },
+              {
+                "de": "Damit diese Arbeitsteilung keine Verantwortungslücke schafft, setzen wir Antwortfristen je Rolle in den Vertrag.",
+                "en": "Let's put response deadlines for each role into the contract so the division of labor does not create an accountability gap."
+              },
+              {
+                "de": "Wir brauchen zudem Abschaltkriterien bei wiederholten Fehlern und ein Verfahren zur Benachrichtigung Betroffener.",
+                "en": "We also need shutdown criteria for repeated errors and a process to notify affected applicants."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c2_work_ai_accountability_board_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "promptDe": "Wir brauchen zudem Abschaltkriterien bei wiederholten Fehlern und ein Verfahren zur Benachrichtigung Betroffener.",
+            "promptEn": "We also need shutdown criteria for repeated errors and a process to notify affected applicants.",
+            "options": [
+              {
+                "ko": "공급업체는 평균 정확도가 높으니 사람의 검토를 줄이자고 제안했습니다."
+              },
+              {
+                "ko": "그 분업이 책임의 공백이 되지 않도록 역할별 답변 기한을 계약에 넣죠."
+              },
+              {
+                "ko": "오류가 반복될 때 중단 기준과 영향을 받은 지원자에게 알릴 절차도 필요합니다."
+              },
+              {
+                "ko": "평균 정확도가 높다고 치더라도 탈락 사유를 설명할 경로는 보장해야 합니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c2_work_ai_accountability_board_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "sentence": "평균 정확도가 ___ 이의 제기 경로는 보장해야 합니다.",
+            "options": [
+              "높다고 치더라도",
+              "높다 함은",
+              "높음을 전제로",
+              "높기에 망정이지"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_work_ai_accountability_board_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "targetKo": "회사와 공급업체의 분업이 책임의 공백이 되어서는 안 됩니다.",
+            "promptDe": "Die Arbeitsteilung zwischen Unternehmen und Anbieter darf keine Verantwortungslücke schaffen.",
+            "promptEn": "The division of labor between company and vendor must not create an accountability gap.",
+            "distractors": [
+              "서로에게",
+              "미루면"
+            ],
+            "audioKo": "회사와 공급업체의 분업이 책임의 공백이 되어서는 안 됩니다."
+          }
+        },
+        {
+          "id": "quest_c2_work_ai_accountability_board_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_accountable_systems"
+          ],
+          "data": {
+            "targetKo": "사람의 검토자는 자동 결과를 뒤집은 근거를 기록해야 합니다.",
+            "audioKo": "사람의 검토자는 자동 결과를 뒤집은 근거를 기록해야 합니다.",
+            "promptDe": "Menschliche Prüfende müssen die Begründung für eine Abweichung vom automatischen Ergebnis dokumentieren.",
+            "promptEn": "Human reviewers must record why they overrode an automated result."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "AI 규제·채용 절차는 국가와 기관마다 다릅니다. 콘텐츠는 특정 권리를 보장한다고 단정하지 않고, 공개 기준·담당자·이의 경로·기한을 확인하는 언어를 훈련합니다.",
+        "de": "KI-Regeln und Recruitingverfahren unterscheiden sich nach Staat und Institution. Der Inhalt behauptet kein bestimmtes Recht, sondern trainiert Fragen nach Kriterien, Zuständigkeit, Einspruchsweg und Frist.",
+        "en": "AI rules and hiring procedures vary by country and institution. The content does not promise a specific right; it practices asking about criteria, responsibility, appeal routes and deadlines."
+      },
+      "shelf": "c2_automation",
+      "backdrop": "office"
+    },
+    {
+      "id": "c2_daily_integration_metric_editorial",
+      "level": "c2",
+      "emoji": "📰",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "editorial_meeting",
+      "intent": "challenge_a_narrow_definition_of_integration",
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 185,
+      "title": {
+        "ko": "취업률 하나가 통합을 대신할 때",
+        "de": "Wenn Beschäftigung für Integration stehen soll",
+        "en": "When employment is made to stand for integration"
+      },
+      "intro": {
+        "ko": "이민·저출산 특집 기사에서 취업률 하나를 ‘통합 성공’으로 부르는 프레임을 분석하고, 주체·권리·지속성을 포함하도록 문장을 고칩니다.",
+        "de": "In einem Dossier zu Migration und Demografie wird das Framing von Beschäftigung als ‚gelungene Integration‘ analysiert und um Handlungsmacht, Rechte und Dauer ergänzt.",
+        "en": "Editing a feature on migration and demographic change, you challenge employment as the sole marker of 'successful integration' and add agency, rights and durability."
+      },
+      "grammarIds": [
+        "grammar_c2_nothing_more_than"
+      ],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "초안은 취업률이 오르면 통합이 성공한 것이라고 단정합니다.",
+          "de": "Der Entwurf setzt eine höhere Beschäftigungsquote mit gelungener Integration gleich.",
+          "en": "The draft equates a higher employment rate with successful integration."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "인력 부족을 메웠다는 국가의 관점만 남고 당사자의 삶은 보이지 않네요.",
+          "de": "Damit bleibt nur die staatliche Perspektive auf Personallücken; das Leben der Betroffenen verschwindet.",
+          "en": "That leaves only the state's view of filling labor gaps; the lives of the people concerned disappear."
+        },
+        {
+          "speaker": "user",
+          "ko": "취업률 하나는 노동시장 편입의 일부 지표에 불과합니다.",
+          "de": "Die Beschäftigungsquote ist nichts weiter als ein Teilindikator der Arbeitsmarktteilhabe.",
+          "en": "Employment rate is nothing more than one partial measure of labor-market participation."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "자격에 맞는 일인지, 체류 안정성과 지역 참여가 있는지도 물어야 합니다.",
+          "de": "Wir müssen auch nach passender Arbeit, Aufenthaltssicherheit und lokaler Teilhabe fragen.",
+          "en": "We also need to ask about job fit, stability of residence and local participation."
+        },
+        {
+          "speaker": "user",
+          "ko": "기사의 주어도 ‘정부가 배치했다’보다 사람들이 어디를 선택했는지 드러내죠.",
+          "de": "Auch das Subjekt sollte zeigen, was Menschen wählten, statt nur, wohin die Regierung sie vermittelte.",
+          "en": "The sentence subject should show what people chose, not only where the government placed them."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "난민, 유학생, 노동 이주자를 한 집단으로 묶은 표도 나눠야겠어요.",
+          "de": "Auch die Tabelle muss Geflüchtete, Studierende und Arbeitsmigranten getrennt ausweisen.",
+          "en": "We should also separate refugees, students and labor migrants in the table."
+        },
+        {
+          "speaker": "user",
+          "ko": "각 범주의 법적 조건이 다른 만큼 비교 가능성과 한계를 명시합시다.",
+          "de": "Da die rechtlichen Bedingungen verschieden sind, nennen wir Vergleichbarkeit und Grenzen ausdrücklich.",
+          "en": "Since the legal conditions differ, let's state comparability and limits explicitly."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그렇게 고치면 사람을 결핍을 채우는 숫자로만 쓰지 않게 됩니다.",
+          "de": "So werden Menschen nicht nur als Zahlen zum Füllen eines Mangels dargestellt.",
+          "en": "That revision stops us from portraying people merely as numbers filling a shortage."
+        }
+      ],
+      "surfaceFormIds": [],
+      "vocab": [
+        {
+          "korean": "통합 지표"
+        },
+        {
+          "korean": "노동시장 편입"
+        },
+        {
+          "korean": "대표성"
+        },
+        {
+          "korean": "정책 대상화"
+        },
+        {
+          "korean": "장기 정착"
+        },
+        {
+          "korean": "서사 프레임"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N에 불과하다",
+          "de": "N에 불과하다: Reduktion auf einen begrenzten Status",
+          "en": "N에 불과하다: Reduction to a limited status"
+        },
+        "explanation": {
+          "ko": "권위적으로 보이는 수치나 개념의 실제 범위를 제한해 평가합니다.",
+          "de": "Stellt klar, dass etwas trotz eines größeren Eindrucks nur den genannten begrenzten Wert oder Status besitzt.",
+          "en": "Clarifies that something has only the limited status named, despite appearing more authoritative."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c2_daily_integration_metric_editorial_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "audioKo": "취업률 하나는 노동시장 편입의 일부 지표에 불과합니다.",
+            "options": [
+              {
+                "de": "Der Entwurf setzt eine höhere Beschäftigungsquote mit gelungener Integration gleich.",
+                "en": "The draft equates a higher employment rate with successful integration."
+              },
+              {
+                "de": "Die Beschäftigungsquote ist nichts weiter als ein Teilindikator der Arbeitsmarktteilhabe.",
+                "en": "Employment rate is nothing more than one partial measure of labor-market participation."
+              },
+              {
+                "de": "Auch das Subjekt sollte zeigen, was Menschen wählten, statt nur, wohin die Regierung sie vermittelte.",
+                "en": "The sentence subject should show what people chose, not only where the government placed them."
+              },
+              {
+                "de": "Da die rechtlichen Bedingungen verschieden sind, nennen wir Vergleichbarkeit und Grenzen ausdrücklich.",
+                "en": "Since the legal conditions differ, let's state comparability and limits explicitly."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c2_daily_integration_metric_editorial_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "promptDe": "Da die rechtlichen Bedingungen verschieden sind, nennen wir Vergleichbarkeit und Grenzen ausdrücklich.",
+            "promptEn": "Since the legal conditions differ, let's state comparability and limits explicitly.",
+            "options": [
+              {
+                "ko": "초안은 취업률이 오르면 통합이 성공한 것이라고 단정합니다."
+              },
+              {
+                "ko": "기사의 주어도 ‘정부가 배치했다’보다 사람들이 어디를 선택했는지 드러내죠."
+              },
+              {
+                "ko": "각 범주의 법적 조건이 다른 만큼 비교 가능성과 한계를 명시합시다."
+              },
+              {
+                "ko": "취업률 하나는 노동시장 편입의 일부 지표에 불과합니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c2_daily_integration_metric_editorial_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "sentence": "취업률 하나는 노동시장 편입의 일부 ___.",
+            "options": [
+              "지표에 불과합니다",
+              "지표라 함은",
+              "지표를 전제로",
+              "지표라고 치더라도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_daily_integration_metric_editorial_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "targetKo": "서로 다른 법적 조건의 집단을 한 표에서 비교하면 한계를 밝혀야 합니다.",
+            "promptDe": "Wer Gruppen mit unterschiedlichen Rechtsbedingungen in einer Tabelle vergleicht, muss die Grenzen nennen.",
+            "promptEn": "If groups with different legal conditions are compared in one table, the limits must be stated.",
+            "distractors": [
+              "모두를",
+              "묶고"
+            ],
+            "audioKo": "서로 다른 법적 조건의 집단을 한 표에서 비교하면 한계를 밝혀야 합니다."
+          }
+        },
+        {
+          "id": "quest_c2_daily_integration_metric_editorial_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_discourse_institutions"
+          ],
+          "data": {
+            "targetKo": "정책의 성과를 말할 때 당사자의 선택과 장기 정착도 주어로 세워야 합니다.",
+            "audioKo": "정책의 성과를 말할 때 당사자의 선택과 장기 정착도 주어로 세워야 합니다.",
+            "promptDe": "Bei politischen Erfolgen müssen auch Entscheidungen und langfristiges Ankommen der Betroffenen zum Subjekt werden.",
+            "promptEn": "When describing policy success, the choices and long-term settlement of the people concerned must also become the subject."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "이주·난민 보도에서는 집단명보다 문장의 주어와 행위자를 살핍니다. 누가 선택하고 누가 평가하며 누가 말할 기회를 갖는지 드러내면 대상화가 줄어듭니다.",
+        "de": "In Berichten über Migration und Flucht zählen nicht nur Gruppenbegriffe, sondern Subjekt und Handlungsträger: Wer entscheidet, bewertet und sprechen kann, sollte sichtbar werden.",
+        "en": "In reporting on migration and refuge, inspect the subject and actor, not only group labels. Making clear who chooses, evaluates and gets to speak reduces objectification."
+      },
+      "shelf": "c2_impact",
+      "backdrop": "office"
+    },
+    {
+      "id": "c2_kpop_authenticity_platform_panel",
+      "level": "c2",
+      "emoji": "🎬",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "conference_panel",
+      "intent": "reframe_authenticity_in_a_cross_cultural_panel",
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ],
+      "sidekick": "minsu",
+      "xpReward": 185,
+      "title": {
+        "ko": "‘진짜 K-컬처’를 누가 정하는가",
+        "de": "Wer bestimmt die ‚echte K-Kultur‘?",
+        "en": "Who defines 'real K-culture'?"
+      },
+      "intro": {
+        "ko": "국제 문화 포럼에서 ‘진짜 팬’과 ‘한국적 진정성’이라는 표현이 만드는 경계를 분석하고, 상호 번역과 창작자 권리를 전제로 논의를 다시 엽니다.",
+        "de": "Auf einem internationalen Kulturforum werden die Grenzen von ‚echten Fans‘ und ‚koreanischer Authentizität‘ analysiert und unter der Voraussetzung wechselseitiger Übersetzung neu verhandelt.",
+        "en": "At an international culture forum, you examine the boundaries created by 'real fans' and 'Korean authenticity,' then reopen the debate on the premise of mutual translation and creator rights."
+      },
+      "grammarIds": [
+        "grammar_c2_on_the_premise"
+      ],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "발제문은 해외 재해석이 늘수록 K-컬처의 진정성이 약해진다고 봅니다.",
+          "de": "Der Vortrag behauptet, internationale Neuinterpretation schwäche die Authentizität der K-Kultur.",
+          "en": "The paper argues that international reinterpretation weakens the authenticity of K-culture."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 말은 원본을 지킬 권한이 누구에게 있는지 이미 정해 둔 셈입니다.",
+          "de": "Damit wird bereits vorausgesetzt, wer das Recht hat, das Original zu bewahren.",
+          "en": "That wording already assumes who has the authority to preserve the original."
+        },
+        {
+          "speaker": "user",
+          "ko": "상호 번역을 전제로 한다면 현지 재해석도 일방적 소비가 아니라 응답이 될 수 있습니다.",
+          "de": "Unter der Voraussetzung wechselseitiger Übersetzung kann lokale Neuinterpretation eine Antwort statt einseitigen Konsums sein.",
+          "en": "On the premise of mutual translation, local reinterpretation can be a response rather than one-way consumption."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "다만 플랫폼이 잘 팔리는 형태만 밀면 그 응답도 특정 틀로 좁아집니다.",
+          "de": "Wenn Plattformen nur gut verkäufliche Formen fördern, wird auch diese Antwort in ein Raster gedrängt.",
+          "en": "But when platforms promote only marketable forms, that response is narrowed into a particular mold."
+        },
+        {
+          "speaker": "user",
+          "ko": "그러니 진정성 논쟁과 별개로 추천 권력과 수익 배분을 물어야 합니다.",
+          "de": "Deshalb müssen neben Authentizität auch Empfehlungsmacht und Erlösverteilung verhandelt werden.",
+          "en": "So alongside authenticity, we need to question recommendation power and revenue distribution."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "‘진짜 팬’이라는 표현도 비용과 언어 능력으로 참여 자격을 나누곤 합니다.",
+          "de": "Auch der Ausdruck ‚echter Fan‘ verteilt Zugehörigkeit oft nach Geld und Sprachvermögen.",
+          "en": "The phrase 'real fan' also tends to assign belonging based on money and language ability."
+        },
+        {
+          "speaker": "user",
+          "ko": "패널 질문을 ‘누가 더 순수한가’에서 ‘누가 조건을 정하고 이익을 얻는가’로 바꾸죠.",
+          "de": "Ändern wir die Leitfrage von ‚Wer ist reiner?‘ zu ‚Wer setzt Bedingungen und wer profitiert?‘.",
+          "en": "Let's change the panel question from 'Who is more authentic?' to 'Who sets the conditions and who benefits?'"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "그 질문이라면 창작자, 팬, 번역자와 플랫폼의 관계가 함께 보이겠습니다.",
+          "de": "Diese Frage macht die Beziehungen zwischen Kreativen, Fans, Übersetzenden und Plattformen sichtbar.",
+          "en": "That question makes the relationships among creators, fans, translators and platforms visible."
+        }
+      ],
+      "surfaceFormIds": [],
+      "vocab": [
+        {
+          "korean": "진정성"
+        },
+        {
+          "korean": "문화적 문지기"
+        },
+        {
+          "korean": "상호 번역"
+        },
+        {
+          "korean": "플랫폼 권력"
+        },
+        {
+          "korean": "창작자 권리"
+        },
+        {
+          "korean": "현지 재해석"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N을/를 전제로",
+          "de": "N을/를 전제로: Unter einer gesetzten Bedingung",
+          "en": "N을/를 전제로: On a stated premise"
+        },
+        "explanation": {
+          "ko": "양보할 수 없는 조건을 앞세워 결정이나 논의의 범위를 정합니다.",
+          "de": "Unter einer gesetzten Bedingung. Die Bedingung ist nicht verhandelbar.",
+          "en": "On a stated premise. The condition is not optional."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_c2_kpop_authenticity_platform_panel_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_c2_fandom_discourse"
+          ],
+          "data": {
+            "audioKo": "상호 번역을 전제로 한다면 현지 재해석도 일방적 소비가 아니라 응답이 될 수 있습니다.",
+            "options": [
+              {
+                "de": "Der Vortrag behauptet, internationale Neuinterpretation schwäche die Authentizität der K-Kultur.",
+                "en": "The paper argues that international reinterpretation weakens the authenticity of K-culture."
+              },
+              {
+                "de": "Unter der Voraussetzung wechselseitiger Übersetzung kann lokale Neuinterpretation eine Antwort statt einseitigen Konsums sein.",
+                "en": "On the premise of mutual translation, local reinterpretation can be a response rather than one-way consumption."
+              },
+              {
+                "de": "Deshalb müssen neben Authentizität auch Empfehlungsmacht und Erlösverteilung verhandelt werden.",
+                "en": "So alongside authenticity, we need to question recommendation power and revenue distribution."
+              },
+              {
+                "de": "Ändern wir die Leitfrage von ‚Wer ist reiner?‘ zu ‚Wer setzt Bedingungen und wer profitiert?‘.",
+                "en": "Let's change the panel question from 'Who is more authentic?' to 'Who sets the conditions and who benefits?'"
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_c2_kpop_authenticity_platform_panel_tr",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_c2_fandom_discourse"
+          ],
+          "data": {
+            "promptDe": "Ändern wir die Leitfrage von ‚Wer ist reiner?‘ zu ‚Wer setzt Bedingungen und wer profitiert?‘.",
+            "promptEn": "Let's change the panel question from 'Who is more authentic?' to 'Who sets the conditions and who benefits?'",
+            "options": [
+              {
+                "ko": "발제문은 해외 재해석이 늘수록 K-컬처의 진정성이 약해진다고 봅니다."
+              },
+              {
+                "ko": "그러니 진정성 논쟁과 별개로 추천 권력과 수익 배분을 물어야 합니다."
+              },
+              {
+                "ko": "패널 질문을 ‘누가 더 순수한가’에서 ‘누가 조건을 정하고 이익을 얻는가’로 바꾸죠."
+              },
+              {
+                "ko": "상호 번역을 전제로 한다면 현지 재해석도 일방적 소비가 아니라 응답이 될 수 있습니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_c2_kpop_authenticity_platform_panel_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_c2_fandom_discourse"
+          ],
+          "data": {
+            "sentence": "상호 ___ 현지 재해석의 의미를 논의해야 합니다.",
+            "options": [
+              "번역을 전제로",
+              "번역에 불과해",
+              "번역이라 함은",
+              "번역이라고 치더라도"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_c2_kpop_authenticity_platform_panel_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_c2_fandom_discourse"
+          ],
+          "data": {
+            "targetKo": "‘진짜 팬’이라는 말은 비용과 언어 능력을 참여 자격처럼 만들 수 있습니다.",
+            "promptDe": "Der Ausdruck ‚echter Fan‘ kann Geld und Sprachvermögen zu Zugangsvoraussetzungen machen.",
+            "promptEn": "The phrase 'real fan' can turn money and language ability into conditions for belonging.",
+            "distractors": [
+              "누구나",
+              "같다고"
+            ],
+            "audioKo": "‘진짜 팬’이라는 말은 비용과 언어 능력을 참여 자격처럼 만들 수 있습니다."
+          }
+        },
+        {
+          "id": "quest_c2_kpop_authenticity_platform_panel_dict",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_c2_fandom_discourse"
+          ],
+          "data": {
+            "targetKo": "추천 권력과 수익 배분을 묻지 않으면 진정성 논쟁은 관계를 가립니다.",
+            "audioKo": "추천 권력과 수익 배분을 묻지 않으면 진정성 논쟁은 관계를 가립니다.",
+            "promptDe": "Ohne Fragen nach Empfehlungsmacht und Erlösverteilung verdeckt die Authentizitätsdebatte die Beziehungen.",
+            "promptEn": "Without questions about recommendation power and revenue distribution, the authenticity debate hides the relationships."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "‘진짜 한국적’이라는 말은 설명이 아니라 경계를 만드는 평가가 될 수 있습니다. 누가 그 기준을 세우고 누가 배제되는지 묻되, 창작자의 권리 역시 지우지 않습니다.",
+        "de": "‚Echt koreanisch‘ kann weniger Beschreibung als Grenzziehung sein. Gefragt wird, wer den Maßstab setzt und wen er ausschließt, ohne Rechte der Kreativen auszublenden.",
+        "en": "'Truly Korean' can function less as description than as a boundary. Ask who sets the standard and who is excluded without erasing creator rights."
+      },
+      "shelf": "c2_fandom",
+      "backdrop": "office"
     }
   ]
 }

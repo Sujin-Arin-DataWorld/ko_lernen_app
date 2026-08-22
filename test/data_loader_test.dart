@@ -11,10 +11,15 @@ void main() {
     () async {
       final vocab = await DataLoader.loadVocab();
 
-      expect(vocab, hasLength(2292));
+      expect(vocab, hasLength(2328));
       expect(
         vocab.map((entry) => entry.packId).where((id) => id.isNotEmpty).toSet(),
-        hasLength(209),
+        hasLength(212),
+      );
+
+      expect(
+        vocab.where((entry) => entry.packId == 'c2_2026_social_topics_1'),
+        hasLength(12),
       );
 
       final yes = vocab.singleWhere((entry) => entry.korean == '네');

@@ -1,0 +1,762 @@
+{
+ "version": 1,
+ "_comment": "Review-only Batch 17 B2-C2 social-topic cloze.",
+ "items": [
+  {
+   "id": "cloze_b2_0362",
+   "level": "b2",
+   "sentenceKo": "최근 관리비에 ＿＿＿ 이 집은 예산을 넘습니다.",
+   "answer": "비추어 볼 때",
+   "fullKo": "최근 관리비에 비추어 볼 때 이 집은 예산을 넘습니다.",
+   "de": "Im Licht der letzten Nebenkosten überschreitet diese Wohnung das Budget.",
+   "en": "In light of the latest service charges, this flat exceeds the budget.",
+   "distractors": [
+    "계기로",
+    "대신에",
+    "따름이라"
+   ],
+   "topic": "Formelle Vereinbarungen",
+   "sourceSeedId": "seed_batch17_b2_housing",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "canonicalScenarioId": "b2_moving_rent_heating_budget"
+  },
+  {
+   "id": "cloze_b2_0363",
+   "level": "b2",
+   "sentenceKo": "월세가 낮아도 난방비를 더하면 ＿＿＿가 높아질 수 있어요.",
+   "answer": "총주거비",
+   "fullKo": "월세가 낮아도 난방비를 더하면 총주거비가 높아질 수 있어요.",
+   "de": "Auch bei niedriger Kaltmiete können die gesamten Wohnkosten mit der Heizung hoch sein.",
+   "en": "Even with low base rent, heating can make the total housing cost high.",
+   "distractors": [
+    "보증금",
+    "통근",
+    "중개료"
+   ],
+   "topic": "Formelle Vereinbarungen",
+   "sourceSeedId": "seed_batch17_b2_housing",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "canonicalScenarioId": "b2_moving_rent_heating_budget"
+  },
+  {
+   "id": "cloze_b2_0364",
+   "level": "b2",
+   "sentenceKo": "계약 전에 ＿＿＿을 서면으로 확인해 주세요.",
+   "answer": "추가 비용",
+   "fullKo": "계약 전에 추가 비용을 서면으로 확인해 주세요.",
+   "de": "Bitte lassen Sie sich die Zusatzkosten vor Vertragsabschluss schriftlich bestätigen.",
+   "en": "Please confirm the additional costs in writing before signing.",
+   "distractors": [
+    "입주 날짜",
+    "방문 시간",
+    "가구 배치"
+   ],
+   "topic": "Formelle Vereinbarungen",
+   "sourceSeedId": "seed_batch17_b2_housing",
+   "courseUnitId": "b2_03_precise_requests",
+   "conceptIds": [
+    "concept_b2_precise_requests"
+   ],
+   "canonicalScenarioId": "b2_moving_rent_heating_budget"
+  },
+  {
+   "id": "cloze_b2_0365",
+   "level": "b2",
+   "sentenceKo": "자동 점수가 ＿＿＿ 역량이 부족한 것은 아닙니다.",
+   "answer": "낮다고 해서",
+   "fullKo": "자동 점수가 낮다고 해서 역량이 부족한 것은 아닙니다.",
+   "de": "Ein niedriger automatischer Wert bedeutet nicht zwangsläufig fehlende Kompetenz.",
+   "en": "A low automated score does not necessarily mean a lack of ability.",
+   "distractors": [
+    "낮기에",
+    "낮은 대신",
+    "낮다는 점에서"
+   ],
+   "topic": "Beruf",
+   "sourceSeedId": "seed_batch17_b2_work_ai",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "canonicalScenarioId": "b2_job_hunting_ai_screening"
+  },
+  {
+   "id": "cloze_b2_0366",
+   "level": "b2",
+   "sentenceKo": "정형화된 항목 밖의 경험은 ＿＿＿을 함께 설명해야 합니다.",
+   "answer": "맥락과 역할",
+   "fullKo": "정형화된 항목 밖의 경험은 맥락과 역할을 함께 설명해야 합니다.",
+   "de": "Erfahrung außerhalb standardisierter Felder sollte mit Kontext und eigener Rolle erklärt werden.",
+   "en": "Experience outside standard fields should be explained with context and role.",
+   "distractors": [
+    "점수와 순위",
+    "학력과 나이",
+    "사진과 주소"
+   ],
+   "topic": "Beruf",
+   "sourceSeedId": "seed_batch17_b2_work_ai",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "canonicalScenarioId": "b2_job_hunting_ai_screening"
+  },
+  {
+   "id": "cloze_b2_0367",
+   "level": "b2",
+   "sentenceKo": "지원자는 ＿＿＿를 요청할 수 있어야 합니다.",
+   "answer": "사람의 재검토",
+   "fullKo": "지원자는 사람의 재검토를 요청할 수 있어야 합니다.",
+   "de": "Bewerbende sollten eine menschliche Nachprüfung verlangen können.",
+   "en": "Applicants should be able to request human review.",
+   "distractors": [
+    "빠른 탈락",
+    "비공개 순위",
+    "자동 답장"
+   ],
+   "topic": "Beruf",
+   "sourceSeedId": "seed_batch17_b2_work_ai",
+   "courseUnitId": "b2_05_interview",
+   "conceptIds": [
+    "concept_b2_interview"
+   ],
+   "canonicalScenarioId": "b2_job_hunting_ai_screening"
+  },
+  {
+   "id": "cloze_b2_0368",
+   "level": "b2",
+   "sentenceKo": "처지가 ＿＿＿ 필요한 지원도 같을 수 없습니다.",
+   "answer": "다르기에",
+   "fullKo": "처지가 다르기에 필요한 지원도 같을 수 없습니다.",
+   "de": "Da die Lebenslagen verschieden sind, kann die nötige Unterstützung nicht identisch sein.",
+   "en": "Because situations differ, the support needed cannot be identical.",
+   "distractors": [
+    "다른 대신",
+    "다르다고 해서",
+    "다르다는 점에서"
+   ],
+   "topic": "Gesellschaft",
+   "sourceSeedId": "seed_batch17_b2_migration_demography",
+   "courseUnitId": "b2_02_professional_opinion",
+   "conceptIds": [
+    "concept_b2_opinion"
+   ],
+   "canonicalScenarioId": "b2_daily_migration_neighborhood_meeting"
+  },
+  {
+   "id": "cloze_b2_0369",
+   "level": "b2",
+   "sentenceKo": "주택 부족과 정착 지원은 서로 연결되지만 ＿＿＿는 아닙니다.",
+   "answer": "같은 문제",
+   "fullKo": "주택 부족과 정착 지원은 서로 연결되지만 같은 문제는 아닙니다.",
+   "de": "Wohnungsmangel und Unterstützung beim Ankommen hängen zusammen, sind aber nicht dasselbe Problem.",
+   "en": "Housing shortages and settlement support are connected but are not the same issue.",
+   "distractors": [
+    "같은 사람",
+    "같은 언어",
+    "같은 직업"
+   ],
+   "topic": "Gesellschaft",
+   "sourceSeedId": "seed_batch17_b2_migration_demography",
+   "courseUnitId": "b2_02_professional_opinion",
+   "conceptIds": [
+    "concept_b2_opinion"
+   ],
+   "canonicalScenarioId": "b2_daily_migration_neighborhood_meeting"
+  },
+  {
+   "id": "cloze_b2_0370",
+   "level": "b2",
+   "sentenceKo": "＿＿＿를 알면 경력에 맞는 일자리를 찾기 쉬워집니다.",
+   "answer": "자격 인정 절차",
+   "fullKo": "자격 인정 절차를 알면 경력에 맞는 일자리를 찾기 쉬워집니다.",
+   "de": "Wer das Anerkennungsverfahren kennt, findet leichter eine Stelle passend zur Erfahrung.",
+   "en": "Knowing the recognition process makes it easier to find work that matches one's experience.",
+   "distractors": [
+    "주택 계약 기간",
+    "통근 교통비",
+    "세대별 취향"
+   ],
+   "topic": "Gesellschaft",
+   "sourceSeedId": "seed_batch17_b2_migration_demography",
+   "courseUnitId": "b2_02_professional_opinion",
+   "conceptIds": [
+    "concept_b2_opinion"
+   ],
+   "canonicalScenarioId": "b2_daily_migration_neighborhood_meeting"
+  },
+  {
+   "id": "cloze_b2_0371",
+   "level": "b2",
+   "sentenceKo": "처음 온 사람도 참여할 수 ＿＿＿ 프로그램의 문턱이 낮아집니다.",
+   "answer": "있다는 점에서",
+   "fullKo": "처음 온 사람도 참여할 수 있다는 점에서 프로그램의 문턱이 낮아집니다.",
+   "de": "Das Programm wird insofern zugänglicher, als auch Neulinge teilnehmen können.",
+   "en": "The program becomes more accessible in that newcomers can participate too.",
+   "distractors": [
+    "있기에",
+    "있다고 해서",
+    "있는 대신"
+   ],
+   "topic": "Lesen & Reaktionen",
+   "sourceSeedId": "seed_batch17_b2_k_culture",
+   "courseUnitId": "b2_06_advanced_capstone",
+   "conceptIds": [
+    "concept_b2_advanced"
+   ],
+   "canonicalScenarioId": "b2_kpop_local_festival_program"
+  },
+  {
+   "id": "cloze_b2_0372",
+   "level": "b2",
+   "sentenceKo": "짧은 영상의 조회수가 ＿＿＿를 자동으로 보장하지는 않아요.",
+   "answer": "실제 행사 참여",
+   "fullKo": "짧은 영상의 조회수가 실제 행사 참여를 자동으로 보장하지는 않아요.",
+   "de": "Viele Aufrufe eines Kurzvideos garantieren nicht automatisch echte Teilnahme.",
+   "en": "High short-form views do not automatically guarantee participation at the event.",
+   "distractors": [
+    "영상의 길이",
+    "노래의 후렴",
+    "자막의 색"
+   ],
+   "topic": "Lesen & Reaktionen",
+   "sourceSeedId": "seed_batch17_b2_k_culture",
+   "courseUnitId": "b2_06_advanced_capstone",
+   "conceptIds": [
+    "concept_b2_advanced"
+   ],
+   "canonicalScenarioId": "b2_kpop_local_festival_program"
+  },
+  {
+   "id": "cloze_b2_0373",
+   "level": "b2",
+   "sentenceKo": "팬 자원봉사자의 ＿＿＿을 미리 나눠야 활동이 지속됩니다.",
+   "answer": "시간과 역할",
+   "fullKo": "팬 자원봉사자의 시간과 역할을 미리 나눠야 활동이 지속됩니다.",
+   "de": "Freiwillige Fanarbeit bleibt tragbar, wenn Zeit und Rollen vorher verteilt werden.",
+   "en": "Fan volunteering stays sustainable when time and roles are divided in advance.",
+   "distractors": [
+    "조회수와 순위",
+    "음식과 음악",
+    "자막과 화면"
+   ],
+   "topic": "Lesen & Reaktionen",
+   "sourceSeedId": "seed_batch17_b2_k_culture",
+   "courseUnitId": "b2_06_advanced_capstone",
+   "conceptIds": [
+    "concept_b2_advanced"
+   ],
+   "canonicalScenarioId": "b2_kpop_local_festival_program"
+  },
+  {
+   "id": "cloze_c1_0221",
+   "level": "c1",
+   "sentenceKo": "신규 계약을 따로 ＿＿＿ 소득 대비 부담도 비교해야 합니다.",
+   "answer": "보는 한편",
+   "fullKo": "신규 계약을 따로 보는 한편 소득 대비 부담도 비교해야 합니다.",
+   "de": "Neuverträge sind gesondert zu betrachten, während zugleich die Belastung im Verhältnis zum Einkommen verglichen werden muss.",
+   "en": "We should examine new leases separately while also comparing the burden with income.",
+   "distractors": [
+    "보는 마당에",
+    "본다고 해서",
+    "보기에"
+   ],
+   "topic": "Zugänglichkeit & Teilhabe",
+   "sourceSeedId": "seed_batch17_c1_housing",
+   "courseUnitId": "c1_02_inclusive_sustainable_systems",
+   "conceptIds": [
+    "concept_c1_inclusive_systems"
+   ],
+   "canonicalScenarioId": "c1_moving_rent_relief_roundtable"
+  },
+  {
+   "id": "cloze_c1_0222",
+   "level": "c1",
+   "sentenceKo": "같은 월세라도 에너지 비용에 따라 ＿＿＿은 달라집니다.",
+   "answer": "실제 부담",
+   "fullKo": "같은 월세라도 에너지 비용에 따라 실제 부담은 달라집니다.",
+   "de": "Auch bei gleicher Kaltmiete verändert sich die tatsächliche Belastung mit den Energiekosten.",
+   "en": "Even at the same base rent, the real burden changes with energy costs.",
+   "distractors": [
+    "계약 기간",
+    "방의 방향",
+    "입주 순서"
+   ],
+   "topic": "Zugänglichkeit & Teilhabe",
+   "sourceSeedId": "seed_batch17_c1_housing",
+   "courseUnitId": "c1_02_inclusive_sustainable_systems",
+   "conceptIds": [
+    "concept_c1_inclusive_systems"
+   ],
+   "canonicalScenarioId": "c1_moving_rent_relief_roundtable"
+  },
+  {
+   "id": "cloze_c1_0223",
+   "level": "c1",
+   "sentenceKo": "지원 효과와 신청 과정의 ＿＿＿을 함께 평가해야 합니다.",
+   "answer": "행정 부담",
+   "fullKo": "지원 효과와 신청 과정의 행정 부담을 함께 평가해야 합니다.",
+   "de": "Förderwirkung und Verwaltungsaufwand des Antrags müssen gemeinsam bewertet werden.",
+   "en": "The effect of support and the administrative burden of applying must be evaluated together.",
+   "distractors": [
+    "홍보 문구",
+    "통근 거리",
+    "가구 배치"
+   ],
+   "topic": "Zugänglichkeit & Teilhabe",
+   "sourceSeedId": "seed_batch17_c1_housing",
+   "courseUnitId": "c1_02_inclusive_sustainable_systems",
+   "conceptIds": [
+    "concept_c1_inclusive_systems"
+   ],
+   "canonicalScenarioId": "c1_moving_rent_relief_roundtable"
+  },
+  {
+   "id": "cloze_c1_0224",
+   "level": "c1",
+   "sentenceKo": "직무별 표본이 작다는 점을 ＿＿＿ 결론을 유보해야 합니다.",
+   "answer": "감안하면",
+   "fullKo": "직무별 표본이 작다는 점을 감안하면 결론을 유보해야 합니다.",
+   "de": "Angesichts der kleinen Stichproben je Beruf sollte das Urteil zurückgestellt werden.",
+   "en": "Taking the small samples by job type into account, the conclusion should be deferred.",
+   "distractors": [
+    "불문하고",
+    "기대어",
+    "그치면"
+   ],
+   "topic": "Forschung & Evidenz",
+   "sourceSeedId": "seed_batch17_c1_work_ai",
+   "courseUnitId": "c1_01_evidence_public_reasoning",
+   "conceptIds": [
+    "concept_c1_evidence_reasoning"
+   ],
+   "canonicalScenarioId": "c1_work_ai_hiring_pilot_review"
+  },
+  {
+   "id": "cloze_c1_0225",
+   "level": "c1",
+   "sentenceKo": "처리 시간이 줄어든 사실과 공정성은 ＿＿＿로 검증해야 합니다.",
+   "answer": "별도의 지표",
+   "fullKo": "처리 시간이 줄어든 사실과 공정성은 별도의 지표로 검증해야 합니다.",
+   "de": "Kürzere Bearbeitungszeit und Fairness müssen mit getrennten Indikatoren geprüft werden.",
+   "en": "Reduced processing time and fairness need separate measures.",
+   "distractors": [
+    "같은 순위",
+    "단일 점수",
+    "빠른 답장"
+   ],
+   "topic": "Forschung & Evidenz",
+   "sourceSeedId": "seed_batch17_c1_work_ai",
+   "courseUnitId": "c1_01_evidence_public_reasoning",
+   "conceptIds": [
+    "concept_c1_evidence_reasoning"
+   ],
+   "canonicalScenarioId": "c1_work_ai_hiring_pilot_review"
+  },
+  {
+   "id": "cloze_c1_0226",
+   "level": "c1",
+   "sentenceKo": "재검토가 ＿＿＿을 공개해야 절차를 평가할 수 있습니다.",
+   "answer": "결과를 바꾼 비율",
+   "fullKo": "재검토가 결과를 바꾼 비율을 공개해야 절차를 평가할 수 있습니다.",
+   "de": "Erst mit der Quote geänderter Ergebnisse lässt sich das Prüfverfahren bewerten.",
+   "en": "The review process can only be evaluated if the rate of changed outcomes is disclosed.",
+   "distractors": [
+    "지원자의 나이",
+    "면접실 위치",
+    "공고의 길이"
+   ],
+   "topic": "Forschung & Evidenz",
+   "sourceSeedId": "seed_batch17_c1_work_ai",
+   "courseUnitId": "c1_01_evidence_public_reasoning",
+   "conceptIds": [
+    "concept_c1_evidence_reasoning"
+   ],
+   "canonicalScenarioId": "c1_work_ai_hiring_pilot_review"
+  },
+  {
+   "id": "cloze_c1_0227",
+   "level": "c1",
+   "sentenceKo": "입국 인원이 ＿＿＿ 인력 부족이 해소된 것은 아닙니다.",
+   "answer": "늘었다고 해서",
+   "fullKo": "입국 인원이 늘었다고 해서 인력 부족이 해소된 것은 아닙니다.",
+   "de": "Mehr Einreisen bedeuten nicht automatisch, dass der Arbeitskräftemangel gelöst ist.",
+   "en": "More arrivals do not automatically mean the workforce shortage is solved.",
+   "distractors": [
+    "늘어난 한편",
+    "늘어난 마당에",
+    "늘어난 점을 감안하면"
+   ],
+   "topic": "Nachhaltige Entscheidungen vor Ort",
+   "sourceSeedId": "seed_batch17_c1_migration_demography",
+   "courseUnitId": "c1_02_inclusive_sustainable_systems",
+   "conceptIds": [
+    "concept_c1_inclusive_systems"
+   ],
+   "canonicalScenarioId": "c1_daily_migration_demography_policy_forum"
+  },
+  {
+   "id": "cloze_c1_0228",
+   "level": "c1",
+   "sentenceKo": "자격 인정과 주거 지원이 늦으면 ＿＿＿을 활용하기 어렵습니다.",
+   "answer": "기존 경력",
+   "fullKo": "자격 인정과 주거 지원이 늦으면 기존 경력을 활용하기 어렵습니다.",
+   "de": "Bei später Anerkennung und Wohnhilfe lässt sich vorhandene Erfahrung schwer nutzen.",
+   "en": "When recognition and housing support are delayed, existing experience is hard to use.",
+   "distractors": [
+    "입국 통계",
+    "세대 이름",
+    "광고 문구"
+   ],
+   "topic": "Nachhaltige Entscheidungen vor Ort",
+   "sourceSeedId": "seed_batch17_c1_migration_demography",
+   "courseUnitId": "c1_02_inclusive_sustainable_systems",
+   "conceptIds": [
+    "concept_c1_inclusive_systems"
+   ],
+   "canonicalScenarioId": "c1_daily_migration_demography_policy_forum"
+  },
+  {
+   "id": "cloze_c1_0229",
+   "level": "c1",
+   "sentenceKo": "지역별 일자리와 ＿＿＿을 함께 봐야 정착 계획이 현실적입니다.",
+   "answer": "지원 역량",
+   "fullKo": "지역별 일자리와 지원 역량을 함께 봐야 정착 계획이 현실적입니다.",
+   "de": "Erst mit regionalen Stellen und Unterstützungskapazitäten wird ein Ankommensplan realistisch.",
+   "en": "A settlement plan is realistic only when regional jobs and support capacity are considered together.",
+   "distractors": [
+    "공연 순서",
+    "월세 광고",
+    "면접 점수"
+   ],
+   "topic": "Nachhaltige Entscheidungen vor Ort",
+   "sourceSeedId": "seed_batch17_c1_migration_demography",
+   "courseUnitId": "c1_02_inclusive_sustainable_systems",
+   "conceptIds": [
+    "concept_c1_inclusive_systems"
+   ],
+   "canonicalScenarioId": "c1_daily_migration_demography_policy_forum"
+  },
+  {
+   "id": "cloze_c1_0230",
+   "level": "c1",
+   "sentenceKo": "추천 알고리즘이 노출을 ＿＿＿ 조회수만으로 선호를 단정하기 어렵습니다.",
+   "answer": "좌우하는 마당에",
+   "fullKo": "추천 알고리즘이 노출을 좌우하는 마당에 조회수만으로 선호를 단정하기 어렵습니다.",
+   "de": "Da Empfehlungsalgorithmen die Sichtbarkeit prägen, lässt sich Vorliebe nicht aus Aufrufen allein ableiten.",
+   "en": "Given that recommendation algorithms shape exposure, views alone cannot establish preference.",
+   "distractors": [
+    "좌우한다고 해서",
+    "좌우하는 한편",
+    "좌우할지언정"
+   ],
+   "topic": "Fanarbeit & Belastung",
+   "sourceSeedId": "seed_batch17_c1_k_culture",
+   "courseUnitId": "c1_05_fan_labor_sustainability",
+   "conceptIds": [
+    "concept_c1_fan_labor"
+   ],
+   "canonicalScenarioId": "c1_kpop_platform_localization_review"
+  },
+  {
+   "id": "cloze_c1_0231",
+   "level": "c1",
+   "sentenceKo": "팬의 자막 기여를 무료 홍보로만 계산하면 ＿＿＿이 보이지 않습니다.",
+   "answer": "노동과 책임",
+   "fullKo": "팬의 자막 기여를 무료 홍보로만 계산하면 노동과 책임이 보이지 않습니다.",
+   "de": "Wird Fan-Untertitelarbeit nur als kostenlose Werbung gezählt, verschwinden Arbeit und Verantwortung.",
+   "en": "When fan subtitle work is counted only as free promotion, labor and responsibility disappear.",
+   "distractors": [
+    "조회수와 순위",
+    "노래와 음식",
+    "화면과 색상"
+   ],
+   "topic": "Fanarbeit & Belastung",
+   "sourceSeedId": "seed_batch17_c1_k_culture",
+   "courseUnitId": "c1_05_fan_labor_sustainability",
+   "conceptIds": [
+    "concept_c1_fan_labor"
+   ],
+   "canonicalScenarioId": "c1_kpop_platform_localization_review"
+  },
+  {
+   "id": "cloze_c1_0232",
+   "level": "c1",
+   "sentenceKo": "확산의 크기와 지속 가능한 참여는 ＿＿＿가 필요합니다.",
+   "answer": "서로 다른 지표",
+   "fullKo": "확산의 크기와 지속 가능한 참여는 서로 다른 지표가 필요합니다.",
+   "de": "Reichweite und nachhaltige Beteiligung brauchen unterschiedliche Kennzahlen.",
+   "en": "Scale of reach and sustainable participation need different indicators.",
+   "distractors": [
+    "하나의 순위",
+    "같은 자막",
+    "짧은 후렴"
+   ],
+   "topic": "Fanarbeit & Belastung",
+   "sourceSeedId": "seed_batch17_c1_k_culture",
+   "courseUnitId": "c1_05_fan_labor_sustainability",
+   "conceptIds": [
+    "concept_c1_fan_labor"
+   ],
+   "canonicalScenarioId": "c1_kpop_platform_localization_review"
+  },
+  {
+   "id": "cloze_c2_0221",
+   "level": "c2",
+   "sentenceKo": "감당 가능한 ＿＿＿ 기본생활을 압박하지 않는 상태를 뜻합니다.",
+   "answer": "주거라 함은",
+   "fullKo": "감당 가능한 주거라 함은 기본생활을 압박하지 않는 상태를 뜻합니다.",
+   "de": "Bezahlbares Wohnen ist als Zustand definiert, der den Grundbedarf nicht verdrängt.",
+   "en": "Affordable housing is defined as a condition that does not crowd out basic needs.",
+   "distractors": [
+    "주거에 불과하면",
+    "주거를 전제로",
+    "주거라고 치더라도"
+   ],
+   "topic": "Framinganalyse",
+   "sourceSeedId": "seed_batch17_c2_housing",
+   "courseUnitId": "c2_01_interpretation_institutions",
+   "conceptIds": [
+    "concept_c2_discourse_institutions"
+   ],
+   "canonicalScenarioId": "c2_moving_affordability_definition_hearing"
+  },
+  {
+   "id": "cloze_c2_0222",
+   "level": "c2",
+   "sentenceKo": "기존 계약의 평균은 ＿＿＿의 호가를 대신하지 못합니다.",
+   "answer": "새로 집을 구하는 사람",
+   "fullKo": "기존 계약의 평균은 새로 집을 구하는 사람의 호가를 대신하지 못합니다.",
+   "de": "Der Durchschnitt bestehender Verträge ersetzt nicht die Angebotsmieten für Wohnungssuchende.",
+   "en": "The average for existing leases cannot stand in for asking rents faced by home seekers.",
+   "distractors": [
+    "오래 거주한 사람",
+    "정책을 쓴 사람",
+    "에너지를 공급한 사람"
+   ],
+   "topic": "Framinganalyse",
+   "sourceSeedId": "seed_batch17_c2_housing",
+   "courseUnitId": "c2_01_interpretation_institutions",
+   "conceptIds": [
+    "concept_c2_discourse_institutions"
+   ],
+   "canonicalScenarioId": "c2_moving_affordability_definition_hearing"
+  },
+  {
+   "id": "cloze_c2_0223",
+   "level": "c2",
+   "sentenceKo": "소득 구간별 ＿＿＿를 공개해야 평균이 가리는 차이가 드러납니다.",
+   "answer": "부담의 분포",
+   "fullKo": "소득 구간별 부담의 분포를 공개해야 평균이 가리는 차이가 드러납니다.",
+   "de": "Erst die Belastungsverteilung nach Einkommen zeigt, welche Unterschiede der Mittelwert verdeckt.",
+   "en": "Publishing the burden distribution by income reveals differences hidden by the average.",
+   "distractors": [
+    "광고의 색상",
+    "계약의 글꼴",
+    "회의의 순서"
+   ],
+   "topic": "Framinganalyse",
+   "sourceSeedId": "seed_batch17_c2_housing",
+   "courseUnitId": "c2_01_interpretation_institutions",
+   "conceptIds": [
+    "concept_c2_discourse_institutions"
+   ],
+   "canonicalScenarioId": "c2_moving_affordability_definition_hearing"
+  },
+  {
+   "id": "cloze_c2_0224",
+   "level": "c2",
+   "sentenceKo": "평균 정확도가 ＿＿＿ 이의 제기 경로는 보장해야 합니다.",
+   "answer": "높다고 치더라도",
+   "fullKo": "평균 정확도가 높다고 치더라도 이의 제기 경로는 보장해야 합니다.",
+   "de": "Selbst unter der Annahme hoher Durchschnittsgenauigkeit muss ein Einspruchsweg bestehen.",
+   "en": "Even assuming high average accuracy, an appeal route must be guaranteed.",
+   "distractors": [
+    "높다 함은",
+    "높음을 전제로",
+    "높기에 망정이지"
+   ],
+   "topic": "Technikethik & Verantwortung",
+   "sourceSeedId": "seed_batch17_c2_work_ai",
+   "courseUnitId": "c2_02_technology_public_ethics",
+   "conceptIds": [
+    "concept_c2_accountable_systems"
+   ],
+   "canonicalScenarioId": "c2_work_ai_accountability_board"
+  },
+  {
+   "id": "cloze_c2_0225",
+   "level": "c2",
+   "sentenceKo": "회사와 공급업체의 분업이 ＿＿＿이 되어서는 안 됩니다.",
+   "answer": "책임의 공백",
+   "fullKo": "회사와 공급업체의 분업이 책임의 공백이 되어서는 안 됩니다.",
+   "de": "Die Arbeitsteilung zwischen Unternehmen und Anbieter darf keine Verantwortungslücke schaffen.",
+   "en": "The division of labor between company and vendor must not create an accountability gap.",
+   "distractors": [
+    "속도의 향상",
+    "광고의 효과",
+    "면접의 순서"
+   ],
+   "topic": "Technikethik & Verantwortung",
+   "sourceSeedId": "seed_batch17_c2_work_ai",
+   "courseUnitId": "c2_02_technology_public_ethics",
+   "conceptIds": [
+    "concept_c2_accountable_systems"
+   ],
+   "canonicalScenarioId": "c2_work_ai_accountability_board"
+  },
+  {
+   "id": "cloze_c2_0226",
+   "level": "c2",
+   "sentenceKo": "사람의 검토자는 자동 결과를 ＿＿＿를 기록해야 합니다.",
+   "answer": "뒤집은 근거",
+   "fullKo": "사람의 검토자는 자동 결과를 뒤집은 근거를 기록해야 합니다.",
+   "de": "Menschliche Prüfende müssen die Begründung für eine Abweichung vom automatischen Ergebnis dokumentieren.",
+   "en": "Human reviewers must record why they overrode an automated result.",
+   "distractors": [
+    "받은 점수",
+    "지원한 날짜",
+    "공고의 제목"
+   ],
+   "topic": "Technikethik & Verantwortung",
+   "sourceSeedId": "seed_batch17_c2_work_ai",
+   "courseUnitId": "c2_02_technology_public_ethics",
+   "conceptIds": [
+    "concept_c2_accountable_systems"
+   ],
+   "canonicalScenarioId": "c2_work_ai_accountability_board"
+  },
+  {
+   "id": "cloze_c2_0227",
+   "level": "c2",
+   "sentenceKo": "취업률 하나는 노동시장 편입의 일부 ＿＿＿.",
+   "answer": "지표에 불과합니다",
+   "fullKo": "취업률 하나는 노동시장 편입의 일부 지표에 불과합니다.",
+   "de": "Die Beschäftigungsquote ist nichts weiter als ein Teilindikator der Arbeitsmarktteilhabe.",
+   "en": "Employment rate is nothing more than one partial measure of labor-market participation.",
+   "distractors": [
+    "지표라 함은",
+    "지표를 전제로",
+    "지표라고 치더라도"
+   ],
+   "topic": "Sprache, Deutung & Macht",
+   "sourceSeedId": "seed_batch17_c2_migration_demography",
+   "courseUnitId": "c2_01_interpretation_institutions",
+   "conceptIds": [
+    "concept_c2_discourse_institutions"
+   ],
+   "canonicalScenarioId": "c2_daily_integration_metric_editorial"
+  },
+  {
+   "id": "cloze_c2_0228",
+   "level": "c2",
+   "sentenceKo": "서로 다른 법적 조건의 집단을 한 표에서 비교하면 ＿＿＿ 밝혀야 합니다.",
+   "answer": "한계를",
+   "fullKo": "서로 다른 법적 조건의 집단을 한 표에서 비교하면 한계를 밝혀야 합니다.",
+   "de": "Wer Gruppen mit unterschiedlichen Rechtsbedingungen in einer Tabelle vergleicht, muss die Grenzen nennen.",
+   "en": "If groups with different legal conditions are compared in one table, the limits must be stated.",
+   "distractors": [
+    "순위를",
+    "국적을",
+    "세대를"
+   ],
+   "topic": "Sprache, Deutung & Macht",
+   "sourceSeedId": "seed_batch17_c2_migration_demography",
+   "courseUnitId": "c2_01_interpretation_institutions",
+   "conceptIds": [
+    "concept_c2_discourse_institutions"
+   ],
+   "canonicalScenarioId": "c2_daily_integration_metric_editorial"
+  },
+  {
+   "id": "cloze_c2_0229",
+   "level": "c2",
+   "sentenceKo": "정책의 성과를 말할 때 ＿＿＿과 장기 정착도 주어로 세워야 합니다.",
+   "answer": "당사자의 선택",
+   "fullKo": "정책의 성과를 말할 때 당사자의 선택과 장기 정착도 주어로 세워야 합니다.",
+   "de": "Bei politischen Erfolgen müssen auch Entscheidungen und langfristiges Ankommen der Betroffenen zum Subjekt werden.",
+   "en": "When describing policy success, the choices and long-term settlement of the people concerned must also become the subject.",
+   "distractors": [
+    "정부의 홍보",
+    "기업의 점수",
+    "기사의 제목"
+   ],
+   "topic": "Sprache, Deutung & Macht",
+   "sourceSeedId": "seed_batch17_c2_migration_demography",
+   "courseUnitId": "c2_01_interpretation_institutions",
+   "conceptIds": [
+    "concept_c2_discourse_institutions"
+   ],
+   "canonicalScenarioId": "c2_daily_integration_metric_editorial"
+  },
+  {
+   "id": "cloze_c2_0230",
+   "level": "c2",
+   "sentenceKo": "상호 ＿＿＿ 현지 재해석의 의미를 논의해야 합니다.",
+   "answer": "번역을 전제로",
+   "fullKo": "상호 번역을 전제로 현지 재해석의 의미를 논의해야 합니다.",
+   "de": "Lokale Neuinterpretation sollte unter der Voraussetzung wechselseitiger Übersetzung diskutiert werden.",
+   "en": "Local reinterpretation should be discussed on the premise of mutual translation.",
+   "distractors": [
+    "번역에 불과해",
+    "번역이라 함은",
+    "번역이라고 치더라도"
+   ],
+   "topic": "Diskurs & Macht",
+   "sourceSeedId": "seed_batch17_c2_k_culture",
+   "courseUnitId": "c2_06_fandom_discourse_power",
+   "conceptIds": [
+    "concept_c2_fandom_discourse"
+   ],
+   "canonicalScenarioId": "c2_kpop_authenticity_platform_panel"
+  },
+  {
+   "id": "cloze_c2_0231",
+   "level": "c2",
+   "sentenceKo": "‘진짜 팬’이라는 말은 비용과 언어 능력을 ＿＿＿처럼 만들 수 있습니다.",
+   "answer": "참여 자격",
+   "fullKo": "‘진짜 팬’이라는 말은 비용과 언어 능력을 참여 자격처럼 만들 수 있습니다.",
+   "de": "Der Ausdruck ‚echter Fan‘ kann Geld und Sprachvermögen zu Zugangsvoraussetzungen machen.",
+   "en": "The phrase 'real fan' can turn money and language ability into conditions for belonging.",
+   "distractors": [
+    "노래 제목",
+    "영상 길이",
+    "공연 순서"
+   ],
+   "topic": "Diskurs & Macht",
+   "sourceSeedId": "seed_batch17_c2_k_culture",
+   "courseUnitId": "c2_06_fandom_discourse_power",
+   "conceptIds": [
+    "concept_c2_fandom_discourse"
+   ],
+   "canonicalScenarioId": "c2_kpop_authenticity_platform_panel"
+  },
+  {
+   "id": "cloze_c2_0232",
+   "level": "c2",
+   "sentenceKo": "＿＿＿과 수익 배분을 묻지 않으면 진정성 논쟁은 관계를 가립니다.",
+   "answer": "추천 권력",
+   "fullKo": "추천 권력과 수익 배분을 묻지 않으면 진정성 논쟁은 관계를 가립니다.",
+   "de": "Ohne Fragen nach Empfehlungsmacht und Erlösverteilung verdeckt die Authentizitätsdebatte die Beziehungen.",
+   "en": "Without questions about recommendation power and revenue distribution, the authenticity debate hides the relationships.",
+   "distractors": [
+    "후렴 반복",
+    "자막 속도",
+    "의상 색상"
+   ],
+   "topic": "Diskurs & Macht",
+   "sourceSeedId": "seed_batch17_c2_k_culture",
+   "courseUnitId": "c2_06_fandom_discourse_power",
+   "conceptIds": [
+    "concept_c2_fandom_discourse"
+   ],
+   "canonicalScenarioId": "c2_kpop_authenticity_platform_panel"
+  }
+ ]
+}

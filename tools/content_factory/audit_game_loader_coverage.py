@@ -118,6 +118,7 @@ class LoaderCoverageAudit:
         if not manifest_path.is_absolute():
             manifest_path = self.root / manifest_path
         manifest = _read_json(manifest_path)
+        already_merged = manifest.get("status") == "merged"
         for artifact in manifest.get("artifacts", []):
             kind = str(artifact.get("kind") or "")
             if kind not in result:
@@ -134,6 +135,12 @@ class LoaderCoverageAudit:
                 if existing is None:
                     result[kind].append(record)
                     live_by_id[ident] = record
+                    continue
+                # A merged manifest is an ancestry/ID receipt, not a frozen
+                # second copy of learner text. Approved post-promotion copy
+                # edits may make its historical draft differ from the current
+                # live record; loader coverage must keep the live record.
+                if already_merged:
                     continue
                 if existing != record:
                     raise ValueError(

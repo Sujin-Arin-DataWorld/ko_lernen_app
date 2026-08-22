@@ -252,6 +252,42 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
         curriculum["concepts"] = [
             row for row in curriculum["concepts"] if row["id"] not in extension_concept_ids
         ]
+        # This suite exercises only the five-artifact review integrator.  Its
+        # historical pre-review fixture must not retain later scenario graphs
+        # whose grammar and curriculum extensions are deliberately rewound.
+        # Scenario promotion has a separate transactional test suite.
+        checkpoint_ids = {
+            str(content_id).removeprefix("scenario:")
+            for unit in curriculum["courseUnits"]
+            for content_id in unit.get("checkpointContentIds", [])
+            if str(content_id).startswith("scenario:")
+        }
+        checkpoint_scenarios = [
+            row for row in scenario_store.load_scenarios(data)
+            if row["id"] in checkpoint_ids
+        ]
+        self.assertEqual(
+            {row["id"] for row in checkpoint_scenarios},
+            checkpoint_ids,
+            "historical C0 fixture must retain every course checkpoint scenario",
+        )
+        scenario_store.write_shards(checkpoint_scenarios, data)
+        curriculum["contentLinks"] = [
+            row for row in curriculum["contentLinks"]
+            if row.get("contentKind") != "scenario"
+        ]
+        for field in (
+            "grammarRuleMap", "smalltalkCategoryUnitMap", "clozeTopicUnitMap",
+        ):
+            curriculum[field] = {
+                key: value
+                for key, value in curriculum[field].items()
+                if not (
+                    isinstance(value, dict)
+                    and value.get("courseUnitId") in extension_unit_ids
+                )
+                and not (isinstance(value, str) and value in extension_unit_ids)
+            }
         smalltalk_path = data / "smalltalk.json"
         smalltalk_document = json.loads(smalltalk_path.read_text(encoding="utf-8"))
         remaining_smalltalk = []
@@ -300,6 +336,12 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
         for source in audit["sources"]:
             if source["kind"] == "smalltalk":
                 source["count"] = len(remaining_smalltalk)
+            elif source["kind"] == "scenario":
+                source["count"] = len(checkpoint_scenarios)
+            elif source["kind"] == "scenarioQuest":
+                source["count"] = sum(
+                    len(row.get("quests", [])) for row in checkpoint_scenarios
+                )
         audit_path.write_text(
             json.dumps(audit, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
@@ -321,6 +363,15 @@ class IntegrateReviewBatchesTest(unittest.TestCase):
                     break
                 service_text = service_text.replace(line, "", 1)
         service.write_text(service_text, encoding="utf-8")
+
+        # The 2026-08-21 humanization ledger describes the shipped post-C0
+        # corpus.  This fixture intentionally rewinds that corpus to the
+        # Batch 01-03 review boundary, so retaining the later audit overlay
+        # would create references to rows that the fixture just removed.
+        (
+            self.root
+            / "tools/content_factory/review/content_humanization_20260821.json"
+        ).unlink(missing_ok=True)
 
     def test_preview_is_read_only_and_reports_full_batch_counts(self) -> None:
         before = self._snapshot()
