@@ -1,13 +1,9 @@
 ---
 name: beyond-humanizer
-description: Audit and rewrite Hangul Sori KO↔DE/EN learner copy so naturalness never invents roles, process, or authority. Use for vocab, cloze, satz, scenarios, smalltalk, factory sources, and any Korean–German/English translation QA.
+description: Use when translating, interpreting, editing, or reviewing Hangul Sori Korean, English, or German learner content where native naturalness, discourse context, social relations, culture, and learning accuracy must survive across languages.
 ---
 
 # Beyond Humanizer
 
-Naturalness is not enough. Watch whether **who, what, why, by what authority, to whom, by what process** changed.
-
-> 암시된 기능은 풀어 쓸 수 있다. 암시되지 않은 조직 구조는 창작하지 않는다.
-
-Follow the operational copy in `.cursor/skills/beyond-humanizer/SKILL.md`.
-Same workflow, accepted regressions, Jin locks, and scripts.
+The canonical cross-platform skill is `.agents/skills/beyond-humanizer/SKILL.md`.
+Read that file completely and follow its routing to the relevant references and scripts.

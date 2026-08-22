@@ -3652,6 +3652,7 @@
   "vocabNotebookStudioOwnGames": "With your meanings",
   "vocabNotebookStudioCorpusGames": "With our sentences",
   "vocabNotebookStudioCorpusHint": "Only sentences, dialogues and word webs we already have. No new vocabulary is added.",
+  "vocabNotebookStudioLoading": "Loading available games…",
   "vocabNotebookStudioCloze": "{count, plural, one{Cloze · 1 sentence} other{Cloze · {count} sentences}}",
   "@vocabNotebookStudioCloze": {
     "placeholders": {

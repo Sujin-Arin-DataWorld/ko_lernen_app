@@ -7996,6 +7996,9 @@ class AppL10nDe extends AppL10n {
       'Nur vorhandene Sätze, Dialoge und Wortnetze. Es kommen keine neuen Wörter dazu.';
 
   @override
+  String get vocabNotebookStudioLoading => 'Vorhandene Spiele laden …';
+
+  @override
   String vocabNotebookStudioCloze(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,

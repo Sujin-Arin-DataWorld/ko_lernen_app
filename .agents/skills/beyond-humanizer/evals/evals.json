@@ -1,0 +1,88 @@
+[
+  {
+    "id": "l1-honorific-lenses",
+    "query": "Explain 선생님이 지금 오세요 versus 저는 지금 가요 separately for English-L1 and German-L1 A2 learners.",
+    "expected_behavior": [
+      "Distinguishes subject honorification -시- from addressee politeness -요",
+      "Does not equate -시- with German Sie or a general formal marker",
+      "Uses different explanatory anchors for English-L1 and German-L1 learners"
+    ],
+    "baseline_observation": "Passed without the skill; retain as a non-regression evaluation."
+  },
+  {
+    "id": "culture-jeong",
+    "query": "Translate and explain 처음에는 어색했지만 자주 만나면서 정이 들었어요 for English-L1 and German-L1 learners.",
+    "expected_behavior": [
+      "Reconstructs gradual attachment rather than forcing a one-word equivalent",
+      "Avoids stereotypes and encyclopedia-style explanation",
+      "Produces independently natural English and German"
+    ],
+    "baseline_observation": "Passed only after explicit constraints; the skill must make those constraints reusable."
+  },
+  {
+    "id": "authority-and-cloze-quality",
+    "query": "Translate 금액이 제 권한을 넘어서 위로 올려야 해요 without inventing roles, then repair a 맞장구 cloze with distractors 농담, 박수, 안부.",
+    "expected_behavior": [
+      "Selects an authority/process frame instead of leaving a spatial nach oben or pass it up calque",
+      "Does not invent a manager, supervisor, signer, or undocumented workflow",
+      "Detects 박수 as an alternative valid collocation",
+      "Creates plausible same-form distractors or strengthens context instead of using obviously ungrammatical options"
+    ],
+    "baseline_observation": "Failed: used nach oben/pass it up and repaired uniqueness with trivially ungrammatical distractors."
+  },
+  {
+    "id": "ko-zero-anaphora-reference",
+    "query": "Translate 현우가 민지에게 자료를 보냈어요. 검토하고 연락하겠대요 into one learner-facing English and German version without preceding context.",
+    "expected_behavior": [
+      "Detects that the reviewer, caller, and contact target are unresolved",
+      "Does not invent gendered pronouns or assign the reported action to Minji or Hyunwoo",
+      "Uses a neutral structure, conditional alternatives, or a clear flag rather than hiding the ambiguity"
+    ],
+    "baseline_observation": "Failed: explicitly noted the ambiguity but still assigned the action to Minji and the callback target to Hyunwoo in both languages.",
+    "green_observation": "Passed: used gender-neutral and impersonal target structures, while explicitly retaining the unresolved reviewer and contact recipient."
+  },
+  {
+    "id": "en-de-to-ko-pronoun-honorific",
+    "query": "Independently translate EN Could you give this to her when you see her? I already told her. and DE Könntest du ihr das geben, wenn du sie siehst? Ich habe es ihr schon gesagt. Context: her is 팀장님; speaker and coworker use 해요체.",
+    "expected_behavior": [
+      "Avoids repeated 그녀, 당신, or unnecessary possessives",
+      "Uses the title and Korean-appropriate omission to track the referent",
+      "Separates respect toward 팀장님 from the addressee-facing 해요체"
+    ],
+    "baseline_observation": "Passed without the skill when the relationship and referent were explicit; retain as a non-regression evaluation.",
+    "green_observation": "Passed: both directions used 팀장님, referent-appropriate omission, honorific verbs, and 해요체 without 그녀 or 당신."
+  },
+  {
+    "id": "come-go-continuing-state-and-relationship",
+    "query": "Translate EN I’ll come to your office tomorrow. I’ve lived in Seoul for three years. and DE Ich komme morgen in dein Büro. Ich lebe seit drei Jahren in Seoul. Scene: speaker is elsewhere, listener works at the office, and the Seoul residence continues; Korean relationship is unspecified.",
+    "expected_behavior": [
+      "Uses 가다 rather than mechanically mapping come/kommen to 오다",
+      "Preserves the continuing Seoul residence",
+      "Does not silently equate your/dein with 네 plus Korean banmal; uses a minimally committed natural form and flags the missing relationship"
+    ],
+    "baseline_observation": "Partly failed: deixis and continuing aspect were correct, but both outputs silently selected 네 and banmal despite missing Korean relationship context.",
+    "green_observation": "Passed: preserved 가다 and continuing residence, removed the unsupported possessive, and selected safe 해요체 with an uncertainty note."
+  },
+  {
+    "id": "simultaneous-late-predicate-negation",
+    "query": "Interpret streamed Korean 1 이번 결정은 / 2 검토 결과를 바탕으로 / 3 철회하는 것이 아니라 / 4 다음 달까지 시행을 보류하겠습니다 into booth-ready EN and DE without retracting spoken words.",
+    "expected_behavior": [
+      "Does not commit to withdrawal or implementation before the contrast and final predicate arrive",
+      "Preserves negation, contrast, postponement, and the deadline",
+      "Uses a safe frame or buffering rather than an irreversible guessed predicate"
+    ],
+    "baseline_observation": "Passed without the skill; retain as a non-regression evaluation for interpreting-mode changes.",
+    "green_observation": "Passed: buffered the decisive predicate, preserved the withdrawal negation and postponement, and avoided inventing an actor."
+  },
+  {
+    "id": "de-modal-particle-context",
+    "query": "Translate A friendly invitation Komm doch mal vorbei and B shared-ground reminder Du weißt doch, dass der Termin morgen ist into Korean, explaining the different functions.",
+    "expected_behavior": [
+      "Does not assign one fixed Korean word or ending to doch",
+      "Reconstructs invitation softening in A and shared-ground reminder in B",
+      "Uses natural Korean resources such as 한번 or -잖아요 only where the scene licenses them"
+    ],
+    "baseline_observation": "Research-derived forward evaluation; no baseline run.",
+    "green_observation": "Passed: used 그럼 한번 for the friendly invitation and -잖아요 for the shared-ground reminder, with a function-based learner note."
+  }
+]

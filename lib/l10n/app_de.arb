@@ -3755,6 +3755,7 @@
   "vocabNotebookStudioOwnGames": "Mit deinen Bedeutungen",
   "vocabNotebookStudioCorpusGames": "Mit unseren Sätzen",
   "vocabNotebookStudioCorpusHint": "Nur vorhandene Sätze, Dialoge und Wortnetze. Es kommen keine neuen Wörter dazu.",
+  "vocabNotebookStudioLoading": "Vorhandene Spiele laden …",
   "vocabNotebookStudioCloze": "{count, plural, one{Lückensatz · 1 Satz} other{Lückensatz · {count} Sätze}}",
   "@vocabNotebookStudioCloze": {
     "placeholders": {

@@ -7960,6 +7960,9 @@ class AppL10nEn extends AppL10n {
       'Only sentences, dialogues and word webs we already have. No new vocabulary is added.';
 
   @override
+  String get vocabNotebookStudioLoading => 'Loading available games…';
+
+  @override
   String vocabNotebookStudioCloze(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
