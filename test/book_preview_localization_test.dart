@@ -7,7 +7,10 @@ import 'package:ko_lernen_app/screens/book_capture_screen.dart';
 import 'package:ko_lernen_app/screens/book_preview_screen.dart';
 import 'package:ko_lernen_app/services/book_capture_image_quality.dart';
 import 'package:ko_lernen_app/services/snap_ocr_service.dart';
+import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/text_field.dart';
+import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 void main() {
   test('book capture keeps picker and crop JPEG quality at 100', () {
@@ -69,29 +72,29 @@ void main() {
     expect((arguments['imageQuality'] as Map)['laplacianVariance'], 4);
   });
 
-  testWidgets('book preview text field hint follows the app locale', (
+  testWidgets('book preview editor label and hint follow the app locale', (
     tester,
   ) async {
-    const expectations = <(Locale, String)>[
-      (Locale('de'), 'Koreanischer Text …'),
-      (Locale('en'), 'Korean text…'),
+    const expectations = <(Locale, String, String)>[
+      (Locale('de'), 'Erkannter Text', 'Koreanischer Text …'),
+      (Locale('en'), 'Recognized text', 'Korean text…'),
     ];
 
     for (final entry in expectations) {
       await tester.pumpWidget(
-        MaterialApp(
+        _previewApp(
           locale: entry.$1,
-          supportedLocales: AppL10n.supportedLocales,
-          localizationsDelegates: AppL10n.localizationsDelegates,
-          home: const BookPreviewScreen(
-            args: <String, dynamic>{'text': '', 'blockCount': 0},
-          ),
+          args: const <String, dynamic>{'text': '', 'blockCount': 0},
         ),
       );
       await tester.pump();
 
+      expect(find.byType(SoriTextField), findsOneWidget);
       final field = tester.widget<TextField>(find.byType(TextField));
-      expect(field.decoration?.hintText, entry.$2);
+      expect(field.decoration?.labelText, entry.$2);
+      expect(field.decoration?.hintText, entry.$3);
+      expect(field.expands, isTrue);
+      expect(field.textAlignVertical, TextAlignVertical.top);
     }
   });
 
@@ -315,9 +318,11 @@ Widget _previewApp({
   Locale locale = const Locale('en'),
 }) {
   return MaterialApp(
+    theme: AppTheme.light,
     locale: locale,
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
+    builder: (context, child) => SoriTypeScale(child: child!),
     home: BookPreviewScreen(args: args, imageResolver: imageResolver),
     onGenerateRoute: (settings) {
       onRoute?.call(settings);

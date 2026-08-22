@@ -645,6 +645,7 @@
     }
   },
   "bookPreviewTextFieldHint": "Koreanischer Text …",
+  "bookPreviewEditorLabel": "Erkannter Text",
   "bookPreviewQualityWarning": "Unsichere oder nicht unterstützte Schrift wurde entfernt. Prüfe den koreanischen Text vor der Analyse sorgfältig.",
   "bookPreviewSevereQualityWarning": "Die Aufnahme oder Texterkennung ist zu unsicher. Nimm das Foto am besten neu auf. Wenn du trotzdem fortfahren möchtest, korrigiere zuerst selbst den OCR-Text.",
   "bookPreviewAnalyze": "Analysieren",

@@ -35,6 +35,8 @@ class SoriTextField extends StatelessWidget {
     this.maxLength,
     this.maxLines = 1,
     this.minLines,
+    this.expands = false,
+    this.textAlignVertical,
     this.onChanged,
     this.onSubmitted,
     this.onEditingComplete,
@@ -68,6 +70,8 @@ class SoriTextField extends StatelessWidget {
   final int? maxLength;
   final int? maxLines;
   final int? minLines;
+  final bool expands;
+  final TextAlignVertical? textAlignVertical;
   final ValueChanged<String>? onChanged;
   final ValueChanged<String>? onSubmitted;
   final VoidCallback? onEditingComplete;
@@ -104,6 +108,8 @@ class SoriTextField extends StatelessWidget {
       maxLength: maxLength,
       maxLines: maxLines,
       minLines: minLines,
+      expands: expands,
+      textAlignVertical: textAlignVertical,
       onChanged: onChanged,
       onSubmitted: onSubmitted,
       onEditingComplete: onEditingComplete,
