@@ -2002,6 +2002,23 @@
   "wordWebQuizHintAntonym": "Was ist das Gegenteil?",
   "wordWebQuizHintRelated": "Was gehört dazu?",
   "wordWebQuizHintExpression": "Welche Wendung passt zur Bedeutung?",
+  "wordWebQuizCorrectFeedback": "Richtig: {word}",
+  "@wordWebQuizCorrectFeedback": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "wordWebQuizWrongFeedback": "Dazu passt: {word}",
+  "@wordWebQuizWrongFeedback": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "wordWebQuizFinish": "Ergebnis ansehen",
   "wordWebQuizDoneTitle": "Runde geschafft!",
   "wordWebQuizEmptyTitle": "Noch keine Runde",
   "wordWebQuizEmptyBody": "Für diese Wörter reichen die Vergleichswörter noch nicht. Schau dir zuerst die Karten an oder lerne ein paar Wörter dazu.",

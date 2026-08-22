@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/word_relation.dart';
 import '../services/tts_service.dart';
-import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/card.dart';
-import '../widgets/sori/responsive.dart';
-import '../widgets/sori/screen_background.dart';
 import '../widgets/sori/section_header.dart';
+import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -22,95 +20,84 @@ class WordWebStudyScreen extends StatelessWidget {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
 
-    return Scaffold(
-      appBar: SoriAppBar(
-        title: cluster.sourceKo,
-        textScale: MediaQuery.textScalerOf(context).scale(1),
-        viewportWidth: MediaQuery.sizeOf(context).width,
-        actions: const [TtsSpeedAction()],
+    return SoriStudyFrame(
+      title: cluster.sourceKo,
+      actions: const [TtsSpeedAction()],
+      particles: true,
+      padding: const EdgeInsets.fromLTRB(
+        Spacing.lg,
+        Spacing.md,
+        Spacing.lg,
+        Spacing.xl,
       ),
-      body: SoriScreenBackground(
-        particles: true,
-        child: SafeArea(
-          child: SoriContentClamp(
-            base: const EdgeInsets.fromLTRB(
-              Spacing.lg,
-              Spacing.md,
-              Spacing.lg,
-              Spacing.xl,
-            ),
-            builder: (context, padding) => ListView(
-              padding: padding,
+      child: ListView(
+        children: [
+          SoriCard(
+            variant: SoriCardVariant.hero,
+            accent: SoriColors.accent,
+            tinted: true,
+            child: Row(
               children: [
-                SoriCard(
-                  variant: SoriCardVariant.hero,
-                  accent: SoriColors.accent,
-                  tinted: true,
-                  child: Row(
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              cluster.sourceKo,
-                              style: SoriTextTheme.of(context).display,
-                            ),
-                            if (cluster.sourceGloss(lang).isNotEmpty)
-                              Text(
-                                cluster.sourceGloss(lang),
-                                style: SoriTextTheme.of(context).bodySmall,
-                              ),
-                          ],
-                        ),
+                      Text(
+                        cluster.sourceKo,
+                        style: SoriTextTheme.of(context).display,
                       ),
-                      IconButton(
-                        tooltip: '${t.ttsListen}: ${cluster.sourceKo}',
-                        constraints: const BoxConstraints.tightFor(
-                          width: 48,
-                          height: 48,
+                      if (cluster.sourceGloss(lang).isNotEmpty)
+                        Text(
+                          cluster.sourceGloss(lang),
+                          style: SoriTextTheme.of(context).bodySmall,
                         ),
-                        icon: const Icon(
-                          Icons.volume_up_rounded,
-                          color: SoriColors.primary,
-                        ),
-                        onPressed: () => TtsService.speak(cluster.sourceKo),
-                      ),
                     ],
                   ),
                 ),
-                if (cluster.synonyms.isNotEmpty) ...[
-                  const SizedBox(height: Spacing.lg),
-                  SoriSectionHeader(t.wordWebSynonymSection),
-                  ...cluster.synonyms.map(
-                    (item) => _NeighborBlock(item: item, lang: lang),
+                IconButton(
+                  tooltip: '${t.ttsListen}: ${cluster.sourceKo}',
+                  constraints: const BoxConstraints.tightFor(
+                    width: 48,
+                    height: 48,
                   ),
-                ],
-                if (cluster.antonyms.isNotEmpty) ...[
-                  const SizedBox(height: Spacing.lg),
-                  SoriSectionHeader(t.wordWebAntonymSection),
-                  ...cluster.antonyms.map(
-                    (item) => _NeighborBlock(item: item, lang: lang),
+                  icon: const Icon(
+                    Icons.volume_up_rounded,
+                    color: SoriColors.primary,
                   ),
-                ],
-                if (cluster.related.isNotEmpty) ...[
-                  const SizedBox(height: Spacing.lg),
-                  SoriSectionHeader(t.wordWebRelatedSection),
-                  ...cluster.related.map(
-                    (item) => _NeighborBlock(item: item, lang: lang),
-                  ),
-                ],
-                if (cluster.expressions.isNotEmpty) ...[
-                  const SizedBox(height: Spacing.lg),
-                  SoriSectionHeader(t.wordWebExpressionSection),
-                  ...cluster.expressions.map(
-                    (item) => _ExpressionBlock(item: item, lang: lang),
-                  ),
-                ],
+                  onPressed: () => TtsService.speak(cluster.sourceKo),
+                ),
               ],
             ),
           ),
-        ),
+          if (cluster.synonyms.isNotEmpty) ...[
+            const SizedBox(height: Spacing.lg),
+            SoriSectionHeader(t.wordWebSynonymSection),
+            ...cluster.synonyms.map(
+              (item) => _NeighborBlock(item: item, lang: lang),
+            ),
+          ],
+          if (cluster.antonyms.isNotEmpty) ...[
+            const SizedBox(height: Spacing.lg),
+            SoriSectionHeader(t.wordWebAntonymSection),
+            ...cluster.antonyms.map(
+              (item) => _NeighborBlock(item: item, lang: lang),
+            ),
+          ],
+          if (cluster.related.isNotEmpty) ...[
+            const SizedBox(height: Spacing.lg),
+            SoriSectionHeader(t.wordWebRelatedSection),
+            ...cluster.related.map(
+              (item) => _NeighborBlock(item: item, lang: lang),
+            ),
+          ],
+          if (cluster.expressions.isNotEmpty) ...[
+            const SizedBox(height: Spacing.lg),
+            SoriSectionHeader(t.wordWebExpressionSection),
+            ...cluster.expressions.map(
+              (item) => _ExpressionBlock(item: item, lang: lang),
+            ),
+          ],
+        ],
       ),
     );
   }

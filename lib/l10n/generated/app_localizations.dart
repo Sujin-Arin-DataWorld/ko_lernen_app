@@ -6931,6 +6931,24 @@ abstract class AppL10n {
   /// **'Welche Wendung passt zur Bedeutung?'**
   String get wordWebQuizHintExpression;
 
+  /// No description provided for @wordWebQuizCorrectFeedback.
+  ///
+  /// In de, this message translates to:
+  /// **'Richtig: {word}'**
+  String wordWebQuizCorrectFeedback(String word);
+
+  /// No description provided for @wordWebQuizWrongFeedback.
+  ///
+  /// In de, this message translates to:
+  /// **'Dazu passt: {word}'**
+  String wordWebQuizWrongFeedback(String word);
+
+  /// No description provided for @wordWebQuizFinish.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnis ansehen'**
+  String get wordWebQuizFinish;
+
   /// No description provided for @wordWebQuizDoneTitle.
   ///
   /// In de, this message translates to:

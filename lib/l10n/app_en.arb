@@ -1934,6 +1934,23 @@
   "wordWebQuizHintAntonym": "What is the opposite?",
   "wordWebQuizHintRelated": "What belongs with it?",
   "wordWebQuizHintExpression": "Which expression matches the meaning?",
+  "wordWebQuizCorrectFeedback": "Correct: {word}",
+  "@wordWebQuizCorrectFeedback": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "wordWebQuizWrongFeedback": "The matching answer is: {word}",
+  "@wordWebQuizWrongFeedback": {
+    "placeholders": {
+      "word": {
+        "type": "String"
+      }
+    }
+  },
+  "wordWebQuizFinish": "See result",
   "wordWebQuizDoneTitle": "Round complete!",
   "wordWebQuizEmptyTitle": "No round yet",
   "wordWebQuizEmptyBody": "There are not enough comparison words for this set yet. Study the cards first, or learn a few more words.",

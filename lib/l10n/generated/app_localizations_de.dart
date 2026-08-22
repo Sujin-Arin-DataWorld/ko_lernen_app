@@ -3970,6 +3970,19 @@ class AppL10nDe extends AppL10n {
   String get wordWebQuizHintExpression => 'Welche Wendung passt zur Bedeutung?';
 
   @override
+  String wordWebQuizCorrectFeedback(String word) {
+    return 'Richtig: $word';
+  }
+
+  @override
+  String wordWebQuizWrongFeedback(String word) {
+    return 'Dazu passt: $word';
+  }
+
+  @override
+  String get wordWebQuizFinish => 'Ergebnis ansehen';
+
+  @override
   String get wordWebQuizDoneTitle => 'Runde geschafft!';
 
   @override
