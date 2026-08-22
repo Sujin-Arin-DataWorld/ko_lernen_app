@@ -228,9 +228,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
                       child: Text(
                         _options[_droppedIndex!],
                         style: SoriTextTheme.of(context).body.copyWith(
-                          color: isCorrect
-                              ? SoriColors.success
-                              : SoriColors.danger,
+                          color: s.text,
                           fontSize: 18,
                           fontWeight: FontWeight.w800,
                         ),
@@ -352,6 +350,7 @@ class _ParticlePopQuestState extends State<ParticlePopQuest>
               label: entry.value,
               index: entry.key,
               state: _answerState(entry.key),
+              selected: _droppedIndex == entry.key,
               onTap: _completed ? null : () => _onAccept(entry.key),
               compact: true,
             ),

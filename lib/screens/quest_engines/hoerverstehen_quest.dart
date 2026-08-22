@@ -178,6 +178,7 @@ class _HoerverstehenQuestState extends State<HoerverstehenQuest> {
                   : (entry.value['de'] as String? ?? ''),
               index: entry.key,
               state: _stateFor(entry.key),
+              selected: _selected == entry.key,
               onTap: _resolved == null ? () => _select(entry.key) : null,
             ),
             const SizedBox(height: Spacing.sm),

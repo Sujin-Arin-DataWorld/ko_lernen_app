@@ -159,18 +159,14 @@ class SoriWordTile extends StatelessWidget {
       SoriWordTileState.correct => (
         SoriColors.success,
         SoriColors.success.withAlpha(32),
-        surfaces.brightness == Brightness.light
-            ? SoriColors.primaryOnLight
-            : SoriColors.primaryOnDark,
+        surfaces.text,
         Icons.check_circle_rounded,
         t.questCorrect,
       ),
       SoriWordTileState.wrong => (
         SoriColors.danger,
         SoriColors.danger.withAlpha(32),
-        surfaces.brightness == Brightness.light
-            ? SoriColors.accent
-            : SoriColors.danger,
+        surfaces.text,
         Icons.cancel_rounded,
         t.questWrong,
       ),
@@ -380,6 +376,7 @@ class SoriAnswerTile extends StatelessWidget {
     required this.label,
     required this.index,
     required this.state,
+    required this.selected,
     required this.onTap,
     this.compact = false,
   });
@@ -387,6 +384,7 @@ class SoriAnswerTile extends StatelessWidget {
   final String label;
   final int index;
   final SoriAnswerState state;
+  final bool selected;
   final VoidCallback? onTap;
   final bool compact;
 
@@ -418,7 +416,7 @@ class SoriAnswerTile extends StatelessWidget {
         t.questWrong,
       ),
     };
-    final selected = state != SoriAnswerState.idle;
+    final emphasized = state != SoriAnswerState.idle;
 
     return Semantics(
       button: true,
@@ -432,15 +430,15 @@ class SoriAnswerTile extends StatelessWidget {
         haptic: null,
         pressScale: 0.98,
         child: AnimatedScale(
-          scale: selected ? 0.99 : 1,
+          scale: emphasized ? 0.99 : 1,
           duration: duration,
           child: AnimatedContainer(
             duration: duration,
             decoration: BoxDecoration(
-              color: selected ? accent.withAlpha(24) : surfaces.surface,
+              color: emphasized ? accent.withAlpha(24) : surfaces.surface,
               borderRadius: BorderRadius.circular(SoriRadius.md),
-              border: Border.all(color: accent, width: selected ? 2 : 1.5),
-              boxShadow: selected
+              border: Border.all(color: accent, width: emphasized ? 2 : 1.5),
+              boxShadow: emphasized
                   ? [
                       BoxShadow(
                         color: accent.withValues(alpha: 0.1),
@@ -464,7 +462,7 @@ class SoriAnswerTile extends StatelessWidget {
                       child: DecoratedBox(
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: accent.withAlpha(selected ? 36 : 18),
+                          color: accent.withAlpha(emphasized ? 36 : 18),
                         ),
                         child: Center(
                           child: Text(
@@ -484,7 +482,7 @@ class SoriAnswerTile extends StatelessWidget {
                         label,
                         style: SoriTextTheme.of(context).body.copyWith(
                           color: surfaces.text,
-                          fontWeight: selected
+                          fontWeight: emphasized
                               ? FontWeight.w700
                               : FontWeight.w500,
                         ),

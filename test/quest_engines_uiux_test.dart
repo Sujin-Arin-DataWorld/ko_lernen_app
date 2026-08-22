@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/screens/quest_engines/diktat_quest.dart';
 import 'package:ko_lernen_app/screens/quest_engines/hoerverstehen_quest.dart';
 import 'package:ko_lernen_app/screens/quest_engines/luecken_quest.dart';
 import 'package:ko_lernen_app/screens/quest_engines/particle_pop_quest.dart';
+import 'package:ko_lernen_app/screens/quest_engines/quest_flow.dart';
 import 'package:ko_lernen_app/screens/quest_engines/quest_layout.dart';
 import 'package:ko_lernen_app/screens/quest_engines/quest_models.dart';
 import 'package:ko_lernen_app/screens/quest_engines/satz_bauen_quest.dart';
@@ -180,15 +181,17 @@ void main() {
   for (final locale in const [Locale('de'), Locale('en')]) {
     for (final viewport in _viewports) {
       testWidgets('${locale.languageCode} ${viewport.size.width.toInt()}x'
-          '${viewport.size.height.toInt()} ${viewport.textScale}x keeps all '
-          'quest engines reachable in the locked matrix', (tester) async {
+          '${viewport.size.height.toInt()} ${viewport.textScale}x completes '
+          'all quest engines in the locked matrix', (tester) async {
         final semantics = tester.ensureSemantics();
         try {
           final t = lookupAppL10n(locale);
           for (final engine in _engines) {
+            final results = <QuestResult>[];
+            var continueCalls = 0;
             await _pumpQuest(
               tester,
-              engine.build((_) {}, () {}, true),
+              engine.build(results.add, () => continueCalls++, true),
               locale: locale,
               viewport: viewport,
             );
@@ -228,6 +231,21 @@ void main() {
               );
               expect(field.labelText, t.diktatAnswerLabel);
             }
+
+            await _enterCorrectResponse(tester, engine.name);
+            _expectButton(tester, submit, enabled: true, minHeight: 48);
+            await _tapPointerOwned(tester, submit);
+            expect(results, hasLength(1), reason: engine.name);
+            expect(results.single.passed, isTrue, reason: engine.name);
+            _expectLiveRegion(
+              tester,
+              _correctResultLabel(engine.name, locale, t),
+            );
+
+            final next = find.bySemanticsLabel(t.questNext);
+            _expectButton(tester, next, enabled: true, minHeight: 48);
+            await _tapPointerOwned(tester, next);
+            expect(continueCalls, 1, reason: engine.name);
             _expectNoException(tester, reason: engine.name);
           }
         } finally {
@@ -236,6 +254,99 @@ void main() {
       });
     }
   }
+
+  testWidgets(
+    'revealed correct answer keeps exactly one selected choice semantic',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      try {
+        final t = lookupAppL10n(const Locale('en'));
+        await _pumpQuest(
+          tester,
+          _engines.first.build((_) {}, () {}, false),
+          locale: const Locale('en'),
+          viewport: _viewports[2],
+        );
+
+        final wrong = find.bySemanticsLabel('Thanks');
+        await _tapPointerOwned(tester, wrong);
+        final submit = find.bySemanticsLabel(t.questCheckAnswer);
+        await _tapPointerOwned(tester, submit);
+        await _tapPointerOwned(tester, submit);
+
+        final revealedWrong = find.bySemanticsLabel('Thanks, ${t.questWrong}');
+        final revealedCorrect = find.bySemanticsLabel(
+          'Hello, ${t.questCorrect}',
+        );
+        _expectButton(
+          tester,
+          revealedWrong,
+          enabled: false,
+          selected: ui.Tristate.isFalse,
+          minHeight: 48,
+        );
+        _expectButton(
+          tester,
+          revealedCorrect,
+          enabled: false,
+          selected: ui.Tristate.isTrue,
+          minHeight: 48,
+        );
+        final selectedCount = [revealedWrong, revealedCorrect]
+            .map((finder) => tester.getSemantics(finder).getSemanticsData())
+            .where(
+              (data) => data.flagsCollection.isSelected == ui.Tristate.isTrue,
+            )
+            .length;
+        expect(selectedCount, 1);
+        _expectNoException(tester);
+      } finally {
+        semantics.dispose();
+      }
+    },
+  );
+
+  testWidgets(
+    'wrong word tiles and particle slot text meet composited 4.5 contrast',
+    (tester) async {
+      await _pumpQuest(
+        tester,
+        SoriWordTile(label: '감사', state: SoriWordTileState.wrong, onTap: () {}),
+        locale: const Locale('en'),
+        viewport: _viewports[2],
+      );
+      final wordTile = find.byType(SoriWordTile);
+      final wordText = tester.widget<Text>(
+        find.descendant(of: wordTile, matching: find.text('감사')),
+      );
+      final wordMaterial = tester.widget<Material>(
+        find.descendant(of: wordTile, matching: find.byType(Material)),
+      );
+      final wordBackground = Color.alphaBlend(
+        wordMaterial.color!,
+        SoriColors.lightBg,
+      );
+      expect(
+        SoriColors.contrastRatio(wordText.style!.color!, wordBackground),
+        greaterThanOrEqualTo(4.5),
+      );
+
+      final particle = _engines.singleWhere(
+        (engine) => engine.name == 'particle',
+      );
+      await _pumpQuest(
+        tester,
+        particle.build((_) {}, () {}, false),
+        locale: const Locale('en'),
+        viewport: _viewports[2],
+      );
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-1')));
+      _expectParticleSlotTextContrast(tester, '가');
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
+      _expectParticleSlotTextContrast(tester, '는');
+      _expectNoException(tester);
+    },
+  );
 
   for (final locale in const [Locale('de'), Locale('en')]) {
     testWidgets(
@@ -566,6 +677,53 @@ Future<void> _pumpQuest(
   await tester.pump();
 }
 
+Future<void> _enterCorrectResponse(
+  WidgetTester tester,
+  String engineName,
+) async {
+  switch (engineName) {
+    case 'listening':
+    case 'translation':
+    case 'cloze':
+    case 'particle':
+    case 'batchim':
+      await _tapPointerOwned(tester, find.byKey(const ValueKey('answer-0')));
+      break;
+    case 'sentence':
+      await _tapPointerOwned(tester, find.bySemanticsLabel('안녕'));
+      await _tapPointerOwned(tester, find.bySemanticsLabel('하세요'));
+      break;
+    case 'dictation':
+      final input = find.descendant(
+        of: find.byType(SoriTextField),
+        matching: find.byType(TextField),
+      );
+      expect(input, findsOneWidget);
+      await Scrollable.ensureVisible(
+        input.evaluate().single,
+        alignment: 0.5,
+        duration: Duration.zero,
+      );
+      await tester.pump();
+      await tester.enterText(input, '안녕 하세요');
+      await tester.pump();
+      break;
+    default:
+      fail('Unknown quest engine: $engineName');
+  }
+}
+
+String _correctResultLabel(String engineName, Locale locale, AppL10n t) =>
+    switch (engineName) {
+      'batchim' =>
+        locale.languageCode == 'de' ? '녕 endet mit ㅇ.' : '녕 ends with ㅇ.',
+      'particle' =>
+        locale.languageCode == 'de'
+            ? 'Nach einem Vokal steht 는.'
+            : 'Use 는 after a vowel.',
+      _ => t.questCorrect,
+    };
+
 void _expectButton(
   WidgetTester tester,
   Finder finder, {
@@ -637,6 +795,23 @@ void _expectTextContrast(WidgetTester tester, String label) {
   );
 }
 
+void _expectParticleSlotTextContrast(WidgetTester tester, String label) {
+  final slot = _particleSlotFinder();
+  final container = tester.widget<AnimatedContainer>(slot);
+  final decoration = container.decoration! as BoxDecoration;
+  final background = Color.alphaBlend(
+    decoration.color!,
+    SoriColors.lightSurface,
+  );
+  final text = tester.widget<Text>(
+    find.descendant(of: slot, matching: find.text(label)),
+  );
+  expect(
+    SoriColors.contrastRatio(text.style!.color!, background),
+    greaterThanOrEqualTo(4.5),
+  );
+}
+
 void _expectVisibleInView(WidgetTester tester, Finder finder, Size viewport) {
   final rect = tester.getRect(finder);
   expect(rect.width, greaterThan(0));
@@ -702,13 +877,15 @@ AnimatedContainer _batchimSlot(WidgetTester tester) => tester
           widget.constraints?.maxHeight == 40,
     );
 
-AnimatedContainer _particleSlot(WidgetTester tester) => tester
-    .widgetList<AnimatedContainer>(find.byType(AnimatedContainer))
-    .singleWhere(
-      (widget) =>
-          widget.constraints?.maxWidth == 64 &&
-          widget.constraints?.maxHeight == 40,
-    );
+Finder _particleSlotFinder() => find.byWidgetPredicate(
+  (widget) =>
+      widget is AnimatedContainer &&
+      widget.constraints?.maxWidth == 64 &&
+      widget.constraints?.maxHeight == 40,
+);
+
+AnimatedContainer _particleSlot(WidgetTester tester) =>
+    tester.widget<AnimatedContainer>(_particleSlotFinder());
 
 void _expectNoException(WidgetTester tester, {String? reason}) {
   expect(tester.takeException(), isNull, reason: reason);
