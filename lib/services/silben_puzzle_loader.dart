@@ -8,6 +8,7 @@ import '../models/silben_puzzle.dart';
 class SilbenPuzzleLoader {
   SilbenPuzzleLoader._();
 
+  static const _puzzlesAsset = 'assets/data/silben_puzzles.json';
   static Map<String, List<SilbenPuzzle>>? _cache;
 
   /// 레벨(A1/A2/B1/B2) → 퍼즐 목록. 항목 단위 try/catch: 깨진 퍼즐 1개가
@@ -16,7 +17,7 @@ class SilbenPuzzleLoader {
     if (_cache != null) {
       return _cache!;
     }
-    final raw = await rootBundle.loadString('assets/data/silben_puzzles.json');
+    final raw = await rootBundle.loadString(_puzzlesAsset);
     final json = jsonDecode(raw) as Map<String, dynamic>;
     final levels = json['levels'] as Map<String, dynamic>? ?? {};
     final out = <String, List<SilbenPuzzle>>{};
@@ -33,5 +34,11 @@ class SilbenPuzzleLoader {
     }
     _cache = out;
     return out;
+  }
+
+  /// Invalidates only the syllable-puzzle bundle for a visible retry.
+  static void reset() {
+    _cache = null;
+    rootBundle.evict(_puzzlesAsset);
   }
 }

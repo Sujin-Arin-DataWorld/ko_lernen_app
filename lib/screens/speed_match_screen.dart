@@ -10,6 +10,8 @@ import '../models/vocab.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
+import '../widgets/app_error.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
@@ -30,7 +32,10 @@ class SpeedMatchScreen extends StatefulWidget {
   /// Optional test fixture; production loads the curated vocabulary set.
   final List<Vocab>? items;
 
-  const SpeedMatchScreen({super.key, this.items});
+  /// Optional deterministic seam. Production keeps [DataLoader.loadVocab].
+  final Future<List<Vocab>> Function()? vocabLoader;
+
+  const SpeedMatchScreen({super.key, this.items, this.vocabLoader});
 
   @override
   State<SpeedMatchScreen> createState() => _SpeedMatchScreenState();
@@ -45,6 +50,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
   final Random _rng = Random();
   List<Vocab> _all = const [];
   bool _loading = true;
+  bool _loadFailed = false;
   String? _level;
 
   final List<Vocab> _pool = []; // verbleibender Vorrat (gemischt)
@@ -121,10 +127,41 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
   }
 
   Future<void> _load() async {
-    final all = widget.items != null
-        ? await Future<List<Vocab>>.value(widget.items!)
-        : await DataLoader.loadVocab();
-    if (!mounted) return;
+    if (!_loading) {
+      setState(() {
+        _loading = true;
+        _loadFailed = false;
+      });
+    }
+    late final List<Vocab> all;
+    try {
+      all = widget.items != null
+          ? await Future<List<Vocab>>.value(widget.items!)
+          : await (widget.vocabLoader ?? DataLoader.loadVocab)();
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _loading = false;
+        _loadFailed = true;
+      });
+      return;
+    }
+    if (!mounted) {
+      return;
+    }
+    final defaultLoadFailed =
+        widget.items == null &&
+        widget.vocabLoader == null &&
+        DataLoader.vocabError != null;
+    if (defaultLoadFailed) {
+      setState(() {
+        _loading = false;
+        _loadFailed = true;
+      });
+      return;
+    }
     final lang = Localizations.localeOf(context).languageCode;
     // Nach koreanischem Wort dedupen → kein Homograph-Doppel (removeWhere würde
     // sonst beide Kacheln entfernen). Erstes Vorkommen gewinnt.
@@ -144,8 +181,16 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       _all = usable;
       _level = widget.items == null ? start : null;
       _loading = false;
+      _loadFailed = false;
     });
     _startRound();
+  }
+
+  Future<void> _retryLoad() async {
+    if (widget.items == null && widget.vocabLoader == null) {
+      DataLoader.resetVocab();
+    }
+    await _load();
   }
 
   List<Vocab> _filtered() {
@@ -279,10 +324,28 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       return SoriStudyFrame(
         title: t.speedMatchTitle,
         padding: EdgeInsets.zero,
-        child: const Center(child: CircularProgressIndicator()),
+        child: Semantics(
+          liveRegion: true,
+          label: t.gameLoading,
+          excludeSemantics: true,
+          child: AppLoading(message: t.gameLoading),
+        ),
+      );
+    }
+    if (_loadFailed) {
+      return SoriStudyFrame(
+        title: t.speedMatchTitle,
+        padding: EdgeInsets.zero,
+        child: AppError(
+          message: t.loadErrorTryAgain,
+          onRetry: _retryLoad,
+          messageLiveRegion: true,
+        ),
       );
     }
     if (!_running && _outcome == null && _active.length < 2) {
+      final canUseAllLevels =
+          widget.items == null && _level != null && _all.length >= 2;
       return SoriStudyFrame(
         title: t.speedMatchTitle,
         child: Center(
@@ -290,7 +353,9 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
             asset: 'assets/illustrations/mascot/magpie_encourage.png',
             icon: Icons.bolt_rounded,
             title: t.speedMatchTitle,
-            body: t.clozeEmptyBody,
+            body: t.speedMatchEmptyBody,
+            ctaLabel: canUseAllLevels ? t.speedMatchAllLevels : null,
+            onCta: canUseAllLevels ? () => _setLevel(null) : null,
           ),
         ),
       );
@@ -359,6 +424,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
                 if (_combo >= 2)
                   SoriChip(
                     label: compact ? '×$_combo' : t.comboPop(_combo),
+                    semanticLabel: t.comboPop(_combo),
                     icon: SoriGlyph.streak,
                     accent: SoriColors.tiger,
                     variant: SoriChipVariant.filled,
@@ -517,6 +583,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       selected: selected,
       variant: selected ? SoriChipVariant.filled : SoriChipVariant.soft,
       onTap: onTap,
+      minInteractiveHeight: 48,
     );
   }
 
@@ -525,34 +592,39 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       automaticallyImplyLeading: false,
       title: t.speedMatchTitle,
       padding: EdgeInsets.zero,
-      child: SoriCenterClamp(
-        child: GameOverCard(
-          headline: t.quizResultTitle,
-          scoreLabel: t.speedMatchScore(_score),
-          feedbackContext: _feedbackCompletion.current?.context,
-          xpGained: _score * 3,
-          isNewBest: _outcome?.isNewBest ?? false,
-          newBestLabel: t.gameNewBest,
-          bestLabel: t.speedMatchBest(Storage.gameBest('speed_match')),
-          mascotKind: MascotKind.magpie,
-          mascotEmotion: MascotEmotion.celebrate,
-          celebrate: _score > 0,
-          actions: [
-            SoriButton(
-              label: t.quizAgain,
-              icon: Icons.refresh_rounded,
-              variant: SoriButtonVariant.filled,
-              accent: SoriColors.tiger,
-              fullWidth: true,
-              onTap: _startRound,
-            ),
-            SoriButton(
-              label: t.btnClose,
-              variant: SoriButtonVariant.ghost,
-              fullWidth: true,
-              onTap: () => Navigator.of(context).maybePop(),
-            ),
-          ],
+      child: Semantics(
+        container: true,
+        liveRegion: true,
+        label: t.quizResultTitle,
+        child: SoriCenterClamp(
+          child: GameOverCard(
+            headline: t.quizResultTitle,
+            scoreLabel: t.speedMatchScore(_score),
+            feedbackContext: _feedbackCompletion.current?.context,
+            xpGained: _score * 3,
+            isNewBest: _outcome?.isNewBest ?? false,
+            newBestLabel: t.gameNewBest,
+            bestLabel: t.speedMatchBest(Storage.gameBest('speed_match')),
+            mascotKind: MascotKind.magpie,
+            mascotEmotion: MascotEmotion.celebrate,
+            celebrate: _score > 0,
+            actions: [
+              SoriButton(
+                label: t.quizAgain,
+                icon: Icons.refresh_rounded,
+                variant: SoriButtonVariant.filled,
+                accent: SoriColors.tiger,
+                fullWidth: true,
+                onTap: _startRound,
+              ),
+              SoriButton(
+                label: t.btnClose,
+                variant: SoriButtonVariant.ghost,
+                fullWidth: true,
+                onTap: () => Navigator.of(context).maybePop(),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -599,6 +671,7 @@ class _MatchTile extends StatelessWidget {
       selected: selected,
       label: label,
       value: wrong ? t.statsWrong : null,
+      onTap: onTap,
       excludeSemantics: true,
       child: Padding(
         padding: const EdgeInsets.only(bottom: Spacing.sm),

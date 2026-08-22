@@ -7,14 +7,17 @@ import '../models/grammar.dart';
 import '../models/media_phrase.dart';
 
 class DataLoader {
+  static const _vocabAsset = 'assets/data/korean_vocab.csv';
   static const _mediaPhrasesAsset = 'assets/data/media_phrases.json';
 
   static List<Vocab>? _vocabs;
   static List<Grammar>? _grammars;
   static List<MediaPhrase>? _mediaPhrases;
+  static String? _vocabError;
   static String? _mediaPhrasesError;
   static String? lastError;
 
+  static String? get vocabError => _vocabError;
   static String? get mediaPhrasesError => _mediaPhrasesError;
 
   static Future<List<Vocab>> loadVocab() async {
@@ -22,17 +25,19 @@ class DataLoader {
       return _vocabs!;
     }
     try {
-      final raw = await rootBundle.loadString('assets/data/korean_vocab.csv');
+      final raw = await rootBundle.loadString(_vocabAsset);
       final rows = _parseCsv(raw);
       _vocabs = rows
           .skip(1)
           .where((r) => r.length >= 8)
           .map(Vocab.fromRow)
           .toList();
+      _vocabError = null;
       lastError = null;
       return _vocabs!;
     } catch (e) {
-      lastError = 'Vokabeln konnten nicht geladen werden.\n$e';
+      _vocabError = 'Vokabeln konnten nicht geladen werden.\n$e';
+      lastError = _vocabError;
       _vocabs = [];
       return _vocabs!;
     }
@@ -64,8 +69,23 @@ class DataLoader {
     _vocabs = null;
     _grammars = null;
     _mediaPhrases = null;
+    _vocabError = null;
     _mediaPhrasesError = null;
     lastError = null;
+  }
+
+  /// Invalidates only the vocabulary asset cache for an explicit retry.
+  ///
+  /// A failed load is cached as an empty list. Keep grammar and media caches
+  /// intact while allowing a visible retry to perform a real second read.
+  static void resetVocab() {
+    final vocabError = _vocabError;
+    _vocabs = null;
+    _vocabError = null;
+    if (lastError == vocabError) {
+      lastError = null;
+    }
+    rootBundle.evict(_vocabAsset);
   }
 
   /// K-Pop / K-Drama / 힙합 영감 구절 로더.

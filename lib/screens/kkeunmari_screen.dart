@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
@@ -33,6 +34,7 @@ import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -49,7 +51,10 @@ enum _PendingTurnAction { none, deadEnd, tigerMove }
 /// 호랑이 차례: 자동으로 다음 단어 선택 → 호랑이가 단어 없으면 사용자 승.
 /// dead_end 단어가 나오면 그 차례 종료 (다음 차례 응답 못 함).
 class KkeunmariScreen extends StatefulWidget {
-  const KkeunmariScreen({super.key});
+  const KkeunmariScreen({super.key, this.poolLoader});
+
+  /// Optional deterministic seam. Production keeps [KkeunmariEngine.load].
+  final Future<List<KkeunmariWord>> Function()? poolLoader;
 
   @override
   State<KkeunmariScreen> createState() => _KkeunmariScreenState();
@@ -60,6 +65,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   static const _turnSeconds = 30;
 
   bool _loading = true;
+  bool _loadFailed = false;
   List<KkeunmariWord> _chain = [];
   final Set<String> _used = {};
   Set<String> _vocabKeys = {}; // M1: nur diese Wörter speisen das SRS
@@ -163,15 +169,48 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
   }
 
   Future<void> _start() async {
+    if (!_loading || _loadFailed) {
+      setState(() {
+        _loading = true;
+        _loadFailed = false;
+      });
+    }
     _roundGeneration++;
     _feedbackCompletion.reset();
     _cancelPendingTurnAction();
     _maxLevel = learnerLevelForStoredCode(Storage.userLevelCode);
-    await KkeunmariEngine.load();
-    if (!mounted) return;
+    try {
+      final poolLoader = widget.poolLoader;
+      if (poolLoader == null) {
+        await KkeunmariEngine.load();
+      } else {
+        KkeunmariEngine.setPoolForTesting(await poolLoader());
+      }
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      setState(() {
+        _loading = false;
+        _loadFailed = true;
+      });
+      return;
+    }
+    if (!mounted) {
+      return;
+    }
+    final defaultLoadFailed =
+        widget.poolLoader == null && KkeunmariEngine.lastError != null;
+    if (defaultLoadFailed) {
+      setState(() {
+        _loading = false;
+        _loadFailed = true;
+      });
+      return;
+    }
     // M1: Vokabel-Keys laden → nur Kkeunmari-Wörter, die echte Vokabeln sind,
     // speisen das SRS (best-effort; Spiel läuft auch ohne).
-    if (_vocabKeys.isEmpty) {
+    if (widget.poolLoader == null && _vocabKeys.isEmpty) {
       try {
         final vocab = await DataLoader.loadVocab();
         if (!mounted) return;
@@ -206,6 +245,13 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
     Future.delayed(const Duration(milliseconds: 200), () {
       if (mounted) TtsService.speak(start.word);
     });
+  }
+
+  Future<void> _retryLoad() async {
+    if (widget.poolLoader == null) {
+      KkeunmariEngine.reset();
+    }
+    await _start();
   }
 
   void _startTimer() {
@@ -501,7 +547,24 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
       return SoriStudyFrame(
         title: t.kkeunmariTitle,
         padding: EdgeInsets.zero,
-        child: const AppLoading(),
+        child: Semantics(
+          liveRegion: true,
+          label: t.gameLoading,
+          excludeSemantics: true,
+          child: AppLoading(message: t.gameLoading),
+        ),
+      );
+    }
+
+    if (_loadFailed) {
+      return SoriStudyFrame(
+        title: t.kkeunmariTitle,
+        padding: EdgeInsets.zero,
+        child: AppError(
+          message: t.loadErrorTryAgain,
+          onRetry: _retryLoad,
+          messageLiveRegion: true,
+        ),
       );
     }
 
@@ -512,7 +575,7 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
           asset: 'assets/illustrations/mascot/magpie_encourage.png',
           icon: Icons.link_off_rounded,
           title: t.kkeunmariTitle,
-          body: KkeunmariEngine.lastError ?? 'Pool leer.',
+          body: t.kkeunmariEmptyBody,
         ),
       );
     }
@@ -597,14 +660,14 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(height: Spacing.sm),
-                  TextField(
-                    key: _inputFieldKey,
+                  SoriTextField(
+                    fieldKey: _inputFieldKey,
                     controller: _ctrl,
                     focusNode: _focusNode,
                     autofocus: true,
                     enabled: !_dictionaryChecking,
                     textAlign: TextAlign.center,
-                    decoration: InputDecoration(hintText: t.kkeunmariInputHint),
+                    hintText: t.kkeunmariInputHint,
                     style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.w800,
@@ -613,13 +676,16 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                   ),
                   if (_errorMsg.isNotEmpty) ...[
                     const SizedBox(height: Spacing.xs),
-                    Text(
-                      _errorMsg,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        color: SoriColors.danger,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
+                    Semantics(
+                      liveRegion: true,
+                      child: Text(
+                        _errorMsg,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          color: SoriColors.danger,
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ],
@@ -842,7 +908,9 @@ class _LastWordCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
     final chars = word.word.split('');
+    void onListen() => unawaited(TtsService.speak(word.word));
     return SoriCard(
       variant: SoriCardVariant.hero,
       accent: SoriColors.accent,
@@ -909,15 +977,21 @@ class _LastWordCard extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-          SoriPressable(
-            onTap: () => TtsService.speak(word.word),
-            haptic: SoriHaptic.selection,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4),
-              child: Icon(
-                Icons.volume_up_rounded,
-                color: SoriColors.accent.withValues(alpha: 0.7),
-                size: 22,
+          Semantics(
+            button: true,
+            label: t.ttsListenTarget(word.word),
+            onTap: onListen,
+            excludeSemantics: true,
+            child: SoriPressable(
+              onTap: onListen,
+              haptic: SoriHaptic.selection,
+              child: SizedBox.square(
+                dimension: 48,
+                child: Icon(
+                  Icons.volume_up_rounded,
+                  color: SoriColors.accent.withValues(alpha: 0.7),
+                  size: 22,
+                ),
               ),
             ),
           ),
@@ -963,102 +1037,111 @@ class _ResultCard extends StatelessWidget {
       _End.none => '',
     };
 
-    return SoriCard(
-      variant: SoriCardVariant.hero,
-      accent: color,
-      tinted: true,
-      width: double.infinity,
-      child: Column(
-        children: [
-          Mascot(
-            kind: won ? MascotKind.magpie : MascotKind.tiger,
-            emotion: won ? MascotEmotion.celebrate : MascotEmotion.worry,
-            size: 88,
-            animate: true,
-          ),
-          const SizedBox(height: Spacing.md),
-          Text(
-            t.kkeunmariResultTitle,
-            style: TextStyle(
-              color: color,
-              fontSize: 22,
-              fontWeight: FontWeight.w900,
+    return Semantics(
+      container: true,
+      liveRegion: true,
+      label: '${t.kkeunmariResultTitle}. $reasonLabel',
+      child: SoriCard(
+        variant: SoriCardVariant.hero,
+        accent: color,
+        tinted: true,
+        width: double.infinity,
+        child: Column(
+          children: [
+            Mascot(
+              kind: won ? MascotKind.magpie : MascotKind.tiger,
+              emotion: won ? MascotEmotion.celebrate : MascotEmotion.worry,
+              size: 88,
+              animate: true,
             ),
-          ),
-          const SizedBox(height: Spacing.xs),
-          Text(
-            reasonLabel,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: s.textMuted,
-              fontSize: 14,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-          const SizedBox(height: Spacing.md),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SoriChip(
-                label: t.kkeunmariChainLength(chainLength),
-                accent: SoriColors.accent,
+            const SizedBox(height: Spacing.md),
+            Text(
+              t.kkeunmariResultTitle,
+              style: TextStyle(
+                color: color,
+                fontSize: 22,
+                fontWeight: FontWeight.w900,
               ),
-              const SizedBox(width: Spacing.sm),
-              SoriBadge.xp(xpEarned, size: 24),
-            ],
-          ),
-          if (isNewBest) ...[
-            const SizedBox(height: Spacing.sm),
+            ),
+            const SizedBox(height: Spacing.xs),
+            Text(
+              reasonLabel,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: s.textMuted,
+                fontSize: 14,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            const SizedBox(height: Spacing.md),
             Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(SoriGlyph.record, size: 15, color: SoriColors.gold),
-                const SizedBox(width: 5),
-                Text(
-                  t.gameNewBest,
-                  style: const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
+                SoriChip(
+                  label: t.kkeunmariChainLength(chainLength),
+                  accent: SoriColors.accent,
+                ),
+                const SizedBox(width: Spacing.sm),
+                SoriBadge.xp(xpEarned, size: 24),
+              ],
+            ),
+            if (isNewBest) ...[
+              const SizedBox(height: Spacing.sm),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    SoriGlyph.record,
+                    size: 15,
                     color: SoriColors.gold,
+                  ),
+                  const SizedBox(width: 5),
+                  Text(
+                    t.gameNewBest,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w800,
+                      color: SoriColors.gold,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+            if (feedbackCompletion != null &&
+                feedbackScope != null &&
+                feedbackScope.featureGate.isEnabled) ...[
+              const SizedBox(height: Spacing.lg),
+              ContentFeedbackCard(
+                feedbackContext: feedbackCompletion!.context,
+                featureGate: feedbackScope.featureGate,
+                submitFeedback: feedbackScope.submitFeedback,
+                completedMissionIds: feedbackScope.completedMissionIds,
+              ),
+            ],
+            const SizedBox(height: Spacing.lg),
+            Row(
+              children: [
+                Expanded(
+                  child: SoriButton.outlined(
+                    label: t.kkeunmariBackHome,
+                    fullWidth: true,
+                    onTap: onHome,
+                  ),
+                ),
+                const SizedBox(width: Spacing.sm),
+                Expanded(
+                  child: SoriButton.filled(
+                    label: t.kkeunmariPlayAgain,
+                    icon: Icons.refresh_rounded,
+                    accent: color,
+                    fullWidth: true,
+                    onTap: onAgain,
                   ),
                 ),
               ],
             ),
           ],
-          if (feedbackCompletion != null &&
-              feedbackScope != null &&
-              feedbackScope.featureGate.isEnabled) ...[
-            const SizedBox(height: Spacing.lg),
-            ContentFeedbackCard(
-              feedbackContext: feedbackCompletion!.context,
-              featureGate: feedbackScope.featureGate,
-              submitFeedback: feedbackScope.submitFeedback,
-              completedMissionIds: feedbackScope.completedMissionIds,
-            ),
-          ],
-          const SizedBox(height: Spacing.lg),
-          Row(
-            children: [
-              Expanded(
-                child: SoriButton.outlined(
-                  label: t.kkeunmariBackHome,
-                  fullWidth: true,
-                  onTap: onHome,
-                ),
-              ),
-              const SizedBox(width: Spacing.sm),
-              Expanded(
-                child: SoriButton.filled(
-                  label: t.kkeunmariPlayAgain,
-                  icon: Icons.refresh_rounded,
-                  accent: color,
-                  fullWidth: true,
-                  onTap: onAgain,
-                ),
-              ),
-            ],
-          ),
-        ],
+        ),
       ),
     );
   }

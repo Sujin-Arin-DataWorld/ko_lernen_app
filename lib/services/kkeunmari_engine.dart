@@ -64,6 +64,7 @@ class KkeunmariWord {
 }
 
 class KkeunmariEngine {
+  static const _poolAsset = 'assets/data/kkeunmari_pool.json';
   static List<KkeunmariWord>? _cached;
   static final _rng = Random();
   static String? lastError;
@@ -71,9 +72,7 @@ class KkeunmariEngine {
   static Future<List<KkeunmariWord>> load() async {
     if (_cached != null) return _cached!;
     try {
-      final raw = await rootBundle.loadString(
-        'assets/data/kkeunmari_pool.json',
-      );
+      final raw = await rootBundle.loadString(_poolAsset);
       final j = jsonDecode(raw) as Map<String, dynamic>;
       final list = (j['words'] as List? ?? const [])
           .whereType<Map<String, dynamic>>()
@@ -97,6 +96,13 @@ class KkeunmariEngine {
   static void setPoolForTesting(List<KkeunmariWord> words) {
     _cached = List<KkeunmariWord>.unmodifiable(words);
     lastError = null;
+  }
+
+  /// Invalidates only the word-chain pool for an explicit visible retry.
+  static void reset() {
+    _cached = null;
+    lastError = null;
+    rootBundle.evict(_poolAsset);
   }
 
   static List<KkeunmariWord> _cumulativePool(LearnerLevel? maxLevel) {
@@ -292,10 +298,5 @@ class KkeunmariEngine {
     if (w == null) return (false, 'not_in_pool', null);
     if (usedWords.contains(w.word)) return (false, 'already_used', w);
     return (true, 'ok', w);
-  }
-
-  static void reset() {
-    _cached = null;
-    lastError = null;
   }
 }

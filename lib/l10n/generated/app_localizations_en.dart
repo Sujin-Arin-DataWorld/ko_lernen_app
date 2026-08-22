@@ -412,6 +412,14 @@ class AppL10nEn extends AppL10n {
   String get btnDelete => 'Delete';
 
   @override
+  String get gameLoading => 'Preparing game…';
+
+  @override
+  String gameRoundProgress(int current, int total) {
+    return 'Round $current of $total';
+  }
+
+  @override
   String get bookshelfTitle => 'My bookshelf';
 
   @override
@@ -621,6 +629,35 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get chosungAnswer => 'Answer';
+
+  @override
+  String get chosungEmptyBody =>
+      'No suitable words are ready for this learning level yet.';
+
+  @override
+  String get chosungBackspace => 'Delete last character';
+
+  @override
+  String chosungCorrectCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count correct answers',
+      one: '1 correct answer',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String chosungWrongCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count wrong answers',
+      one: '1 wrong answer',
+    );
+    return '$_temp0';
+  }
 
   @override
   String get chosungPadHiddenNote =>
@@ -868,6 +905,10 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get screenWordleTitle => 'Syllable Puzzle';
+
+  @override
+  String get silbenEmptyBody =>
+      'No syllable puzzles are ready for your learning level yet.';
 
   @override
   String get screenHangulTitle => 'Hangul';
@@ -3364,6 +3405,10 @@ class AppL10nEn extends AppL10n {
   String get kkeunmariTitle => 'Word Chain';
 
   @override
+  String get kkeunmariEmptyBody =>
+      'No words are ready for this game right now.';
+
+  @override
   String get kkeunmariSubtitle => 'Last syllable → next word';
 
   @override
@@ -3697,6 +3742,13 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get speedMatchInstruction => 'Tap a Korean word, then its meaning.';
+
+  @override
+  String get speedMatchEmptyBody =>
+      'There are not enough word pairs for this learning level yet.';
+
+  @override
+  String get speedMatchAllLevels => 'Use all learning levels';
 
   @override
   String speedMatchScore(int count) {
@@ -4157,6 +4209,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get ttsListen => 'Pronunciation';
+
+  @override
+  String ttsListenTarget(Object target) {
+    return 'Pronunciation: $target';
+  }
 
   @override
   String get navProfile => 'Profile';

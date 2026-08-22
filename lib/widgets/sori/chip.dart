@@ -15,6 +15,7 @@ enum SoriChipVariant { soft, filled, outlined }
 /// ```
 class SoriChip extends StatelessWidget {
   final String label;
+  final String? semanticLabel;
   final IconData? icon;
   final Color? accent; // 모드별 색
   final bool selected; // choice mode
@@ -46,6 +47,7 @@ class SoriChip extends StatelessWidget {
   const SoriChip({
     super.key,
     required this.label,
+    this.semanticLabel,
     this.icon,
     this.accent,
     this.selected = false,
@@ -122,6 +124,7 @@ class SoriChip extends StatelessWidget {
     );
 
     final minimumHeight = minInteractiveHeight;
+    final hasSemanticOverride = semanticLabel != null;
     final content = onTap != null && minimumHeight != null
         ? IntrinsicWidth(
             child: ConstrainedBox(
@@ -132,12 +135,18 @@ class SoriChip extends StatelessWidget {
         : chip;
 
     if (onTap == null) {
-      return Semantics(label: label, child: content);
+      return Semantics(
+        label: semanticLabel ?? label,
+        excludeSemantics: hasSemanticOverride,
+        child: content,
+      );
     }
     return Semantics(
       button: true,
-      label: label,
+      label: semanticLabel ?? label,
       selected: selected,
+      onTap: hasSemanticOverride ? onTap : null,
+      excludeSemantics: hasSemanticOverride,
       child: SoriPressable(onTap: onTap, child: content),
     );
   }

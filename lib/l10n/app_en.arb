@@ -143,6 +143,18 @@
   "btnApply": "Apply",
   "btnPlay": "Play",
   "btnDelete": "Delete",
+  "gameLoading": "Preparing game…",
+  "gameRoundProgress": "Round {current} of {total}",
+  "@gameRoundProgress": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
   "@_phase5_1_bookshelf": {
     "description": "Phase 5.1 (stately-rising-jongga) — Bookshelf + Custom Pack UI."
   },
@@ -248,6 +260,24 @@
   "chosungShowHint": "Listen (hint)",
   "chosungCorrect": "✓ Correct!",
   "chosungAnswer": "Answer",
+  "chosungEmptyBody": "No suitable words are ready for this learning level yet.",
+  "chosungBackspace": "Delete last character",
+  "chosungCorrectCount": "{count, plural, one{1 correct answer} other{{count} correct answers}}",
+  "@chosungCorrectCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "chosungWrongCount": "{count, plural, one{1 wrong answer} other{{count} wrong answers}}",
+  "@chosungWrongCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "chosungPadHiddenNote": "From B1 onwards, there is no key helper. Type the word with your Korean keyboard.",
   "wordleHowTitle": "How to play",
   "wordleHowIntro": "Guess the Korean word in 6 tries. The colors give clues.",
@@ -347,6 +377,7 @@
   "screenVocabTitle": "Vocabulary",
   "screenGrammarTitle": "Grammar",
   "screenWordleTitle": "Syllable Puzzle",
+  "silbenEmptyBody": "No syllable puzzles are ready for your learning level yet.",
   "screenHangulTitle": "Hangul",
   "filterOpenBtn": "Open filter",
   "hangulTabOverview": "Overview",
@@ -1606,6 +1637,7 @@
   "listeningShelfSocialDating": "Dating & relationships",
   "listeningShelfSocialFandom": "Fandom & videos",
   "kkeunmariTitle": "Word Chain",
+  "kkeunmariEmptyBody": "No words are ready for this game right now.",
   "kkeunmariSubtitle": "Last syllable → next word",
   "kkeunmariYourTurn": "Your turn",
   "kkeunmariTigerTurn": "Tiger thinking…",
@@ -1793,6 +1825,8 @@
   "speedMatchTitle": "Speed Match",
   "speedMatchDesc": "Match against the clock",
   "speedMatchInstruction": "Tap a Korean word, then its meaning.",
+  "speedMatchEmptyBody": "There are not enough word pairs for this learning level yet.",
+  "speedMatchAllLevels": "Use all learning levels",
   "speedMatchScore": "{count} pairs",
   "speedMatchBest": "Best: {count} pairs",
   "dailyTitle": "Daily Challenge",
@@ -2052,6 +2086,12 @@
     }
   },
   "ttsListen": "Pronunciation",
+  "ttsListenTarget": "Pronunciation: {target}",
+  "@ttsListenTarget": {
+    "placeholders": {
+      "target": {}
+    }
+  },
   "@_profile": {
     "description": "Profile hub + account nudge (Tier 1 — 2026-06-03)."
   },
