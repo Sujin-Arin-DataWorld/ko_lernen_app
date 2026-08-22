@@ -698,7 +698,16 @@
   "gyeCodeInputLabel": "6-stelliger Code",
   "gyeCreateCta": "Erstellen",
   "gyeJoinCta": "Beitreten",
+  "gyeCreatingLoading": "Gye wird erstellt…",
+  "gyeJoiningLoading": "Gye-Beitritt läuft…",
   "gyeCreatedTitle": "Gye erstellt!",
+  "gyeCreatedAnnouncement": "Gye {name} wurde erstellt. Beitrittscode: {code}.",
+  "@gyeCreatedAnnouncement": {
+    "placeholders": {
+      "name": {},
+      "code": {}
+    }
+  },
   "gyeShareCode": "Code teilen",
   "gyeInviteTitle": "Lade Freunde ein",
   "gyeInviteBody": "Teile den Code mit Freunden, damit sie deinem Gye beitreten können.",

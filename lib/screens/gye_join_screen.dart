@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/gye.dart';
 import '../widgets/app_loading.dart';
 import '../l10n/gye_error_text.dart';
 import '../services/analytics_service.dart';
@@ -9,16 +10,21 @@ import '../services/gye_service.dart';
 import '../services/account/cloud_write_session.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
+typedef GyeJoinOperation =
+    Future<GyeMeta> Function({required String code, required String nickname});
+
 /// 계 입장 — 6자리 코드 + 닉네임 → 가입 검증. plan §7.3.
 /// (가입 성공 시 계 마당은 Tier 3c — 여기선 확인 후 pop.)
 class GyeJoinScreen extends StatefulWidget {
-  const GyeJoinScreen({super.key, this.accountSessions});
+  const GyeJoinScreen({super.key, this.accountSessions, this.joinGye});
 
   final ValueListenable<CloudWriteSession?>? accountSessions;
+  final GyeJoinOperation? joinGye;
 
   @override
   State<GyeJoinScreen> createState() => _GyeJoinScreenState();
@@ -42,10 +48,9 @@ class _GyeJoinScreenState extends State<GyeJoinScreen> {
     FocusScope.of(context).unfocus();
     setState(() => _busy = true);
     try {
-      final meta = await GyeService.joinGye(
-        code: _code.text,
-        nickname: _nick.text,
-      );
+      final meta = widget.joinGye == null
+          ? await GyeService.joinGye(code: _code.text, nickname: _nick.text)
+          : await widget.joinGye!(code: _code.text, nickname: _nick.text);
       await Analytics.gyeJoined();
       if (!mounted) {
         return;
@@ -66,6 +71,7 @@ class _GyeJoinScreenState extends State<GyeJoinScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    final type = SoriTextTheme.of(context);
     return ValueListenableBuilder<CloudWriteSession?>(
       valueListenable:
           widget.accountSessions ?? cloudWriteSessionController.changes,
@@ -74,38 +80,46 @@ class _GyeJoinScreenState extends State<GyeJoinScreen> {
         maxWidth: SoriMaxWidth.form,
         children: [
           if (session?.mode != CloudWriteMode.ready) ...[
-            Text(t.gyeAccountTransitionPaused, textAlign: TextAlign.center),
+            Semantics(
+              container: true,
+              liveRegion: true,
+              label: t.gyeAccountTransitionPaused,
+              child: ExcludeSemantics(
+                child: Text(
+                  t.gyeAccountTransitionPaused,
+                  textAlign: TextAlign.center,
+                  style: type.bodySmall,
+                ),
+              ),
+            ),
             const SizedBox(height: Spacing.md),
           ],
           const SizedBox(height: Spacing.md),
-          TextField(
+          SoriTextField(
             controller: _code,
             maxLength: GyeService.codeLength,
             textCapitalization: TextCapitalization.characters,
             textInputAction: TextInputAction.next,
-            decoration: InputDecoration(
-              labelText: t.gyeCodeInputLabel,
-              border: const OutlineInputBorder(),
-            ),
-            style: const TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w800,
-              letterSpacing: 4,
-            ),
+            labelText: t.gyeCodeInputLabel,
+            style: type.h2.copyWith(letterSpacing: 4),
           ),
           const SizedBox(height: Spacing.sm),
-          TextField(
+          SoriTextField(
             controller: _nick,
             maxLength: GyeService.maxNicknameLen,
-            decoration: InputDecoration(
-              labelText: t.gyeNicknameLabel,
-              hintText: t.gyeNicknameHint,
-              border: const OutlineInputBorder(),
-            ),
+            labelText: t.gyeNicknameLabel,
+            hintText: t.gyeNicknameHint,
           ),
           const SizedBox(height: Spacing.lg),
           if (_busy)
-            const AppLoading()
+            Semantics(
+              container: true,
+              liveRegion: true,
+              label: t.gyeJoiningLoading,
+              child: ExcludeSemantics(
+                child: AppLoading(message: t.gyeJoiningLoading),
+              ),
+            )
           else
             SoriButton(
               label: t.gyeJoinCta,

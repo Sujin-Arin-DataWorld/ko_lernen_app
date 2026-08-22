@@ -2521,11 +2521,29 @@ abstract class AppL10n {
   /// **'Beitreten'**
   String get gyeJoinCta;
 
+  /// No description provided for @gyeCreatingLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye wird erstellt…'**
+  String get gyeCreatingLoading;
+
+  /// No description provided for @gyeJoiningLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye-Beitritt läuft…'**
+  String get gyeJoiningLoading;
+
   /// No description provided for @gyeCreatedTitle.
   ///
   /// In de, this message translates to:
   /// **'Gye erstellt!'**
   String get gyeCreatedTitle;
+
+  /// No description provided for @gyeCreatedAnnouncement.
+  ///
+  /// In de, this message translates to:
+  /// **'Gye {name} wurde erstellt. Beitrittscode: {code}.'**
+  String gyeCreatedAnnouncement(Object name, Object code);
 
   /// No description provided for @gyeShareCode.
   ///
