@@ -159,14 +159,18 @@ class SoriWordTile extends StatelessWidget {
       SoriWordTileState.correct => (
         SoriColors.success,
         SoriColors.success.withAlpha(32),
-        SoriColors.success,
+        surfaces.brightness == Brightness.light
+            ? SoriColors.primaryOnLight
+            : SoriColors.primaryOnDark,
         Icons.check_circle_rounded,
         t.questCorrect,
       ),
       SoriWordTileState.wrong => (
         SoriColors.danger,
         SoriColors.danger.withAlpha(32),
-        SoriColors.danger,
+        surfaces.brightness == Brightness.light
+            ? SoriColors.accent
+            : SoriColors.danger,
         Icons.cancel_rounded,
         t.questWrong,
       ),
@@ -187,6 +191,8 @@ class SoriWordTile extends StatelessWidget {
       enabled: onTap != null,
       selected: state == SoriWordTileState.selected,
       label: status.isEmpty ? label : '$label, $status',
+      excludeSemantics: true,
+      onTap: onTap,
       child: SoriPressable(
         onTap: onTap,
         haptic: null,
@@ -231,7 +237,7 @@ class SoriWordTile extends StatelessWidget {
                         label,
                         maxLines: 1,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: SoriTextTheme.of(context).body.copyWith(
                           color: foreground,
                           fontSize: (compact ? 16 : 18) * scale,
                           fontWeight: FontWeight.w700,
@@ -262,11 +268,13 @@ class SoriPromptCard extends StatelessWidget {
     super.key,
     required this.sentence,
     this.onReplay,
+    this.replaySemanticLabel,
     this.compact = false,
   });
 
   final String sentence;
   final VoidCallback? onReplay;
+  final String? replaySemanticLabel;
   final bool compact;
 
   @override
@@ -274,12 +282,17 @@ class SoriPromptCard extends StatelessWidget {
     final t = AppL10n.of(context);
     final surfaces = SoriSurfaces.of(context);
     final replayable = onReplay != null;
-    final label = replayable ? '$sentence, ${t.questReplayAudio}' : sentence;
+    final label = replayable
+        ? (replaySemanticLabel ?? '$sentence, ${t.questReplayAudio}')
+        : sentence;
     final fontSize = compact ? 20.0 : 22.0;
 
     return Semantics(
       button: replayable,
+      enabled: replayable ? true : null,
       label: label,
+      excludeSemantics: true,
+      onTap: onReplay,
       child: SoriPressable(
         onTap: onReplay,
         haptic: null,
@@ -385,11 +398,14 @@ class SoriAnswerTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final surfaces = SoriSurfaces.of(context);
+    final idleBorder = surfaces.brightness == Brightness.light
+        ? SoriColors.lightBorderStrong
+        : SoriColors.darkBorderStrong;
     final duration = MediaQuery.disableAnimationsOf(context)
         ? Duration.zero
         : const Duration(milliseconds: 200);
     final (accent, icon, status) = switch (state) {
-      SoriAnswerState.idle => (surfaces.surfaceAlt, null, ''),
+      SoriAnswerState.idle => (idleBorder, null, ''),
       SoriAnswerState.selected => (
         SoriColors.primary,
         Icons.check_circle_outline_rounded,
@@ -413,6 +429,8 @@ class SoriAnswerTile extends StatelessWidget {
       selected: selected,
       enabled: onTap != null,
       label: status.isEmpty ? label : '$label, $status',
+      excludeSemantics: true,
+      onTap: onTap,
       child: SoriPressable(
         onTap: onTap,
         haptic: null,
@@ -455,7 +473,7 @@ class SoriAnswerTile extends StatelessWidget {
                         child: Center(
                           child: Text(
                             String.fromCharCode(65 + index),
-                            style: TextStyle(
+                            style: SoriTextTheme.of(context).caption.copyWith(
                               color: selected ? accent : surfaces.textMuted,
                               fontWeight: FontWeight.w700,
                               fontSize: 13,
@@ -519,17 +537,23 @@ class ScenarioQuestAction extends StatelessWidget {
     final t = AppL10n.of(context);
     final result = resolved;
     if (result == null) {
+      final warningForeground =
+          SoriSurfaces.of(context).brightness == Brightness.light
+          ? SoriColors.goldOnLight
+          : SoriColors.warning;
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (pendingHint?.trim().isNotEmpty == true) ...[
             Semantics(
               liveRegion: true,
+              label: pendingHint,
+              excludeSemantics: true,
               child: Row(
                 children: [
-                  const Icon(
+                  Icon(
                     Icons.info_outline_rounded,
-                    color: SoriColors.warning,
+                    color: warningForeground,
                     size: 20,
                   ),
                   const SizedBox(width: Spacing.xs),
@@ -538,7 +562,7 @@ class ScenarioQuestAction extends StatelessWidget {
                       pendingHint!,
                       style: SoriTextTheme.of(
                         context,
-                      ).bodySmall.copyWith(color: SoriColors.warning),
+                      ).bodySmall.copyWith(color: warningForeground),
                     ),
                   ),
                 ],
@@ -571,12 +595,24 @@ class ScenarioQuestAction extends StatelessWidget {
     // 읽는다(2026-08-17 Jin: "틀렸다는거야 뭐야"). 오답 순간의 피드백은 각 엔진의
     // 200ms 빨간 플래시와 `SoundService.wrong()` 이 이미 전달하므로, 여기서는
     // 중립적인 황색을 쓴다. 채점 결과(`passed`, XP·SRS)는 그대로다.
-    final accent = result ? SoriColors.success : SoriColors.warning;
+    final surfaces = SoriSurfaces.of(context);
+    final accent = result
+        ? (surfaces.brightness == Brightness.light
+              ? SoriColors.primaryOnLight
+              : SoriColors.primaryOnDark)
+        : (surfaces.brightness == Brightness.light
+              ? SoriColors.goldOnLight
+              : SoriColors.warning);
+    final resolvedMessage = hint?.trim().isNotEmpty == true
+        ? hint!
+        : (result ? t.questCorrect : t.questAnswerRevealed);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Semantics(
           liveRegion: true,
+          label: resolvedMessage,
+          excludeSemantics: true,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -589,9 +625,7 @@ class ScenarioQuestAction extends StatelessWidget {
               const SizedBox(width: Spacing.sm),
               Expanded(
                 child: Text(
-                  hint?.trim().isNotEmpty == true
-                      ? hint!
-                      : (result ? t.questCorrect : t.questAnswerRevealed),
+                  resolvedMessage,
                   style: SoriTextTheme.of(
                     context,
                   ).bodySmall.copyWith(color: accent),

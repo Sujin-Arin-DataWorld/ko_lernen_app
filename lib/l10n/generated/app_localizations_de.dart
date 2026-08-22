@@ -5621,6 +5621,11 @@ class AppL10nDe extends AppL10n {
   String get questReplayAudio => 'Erneut anhören';
 
   @override
+  String questListenTarget(String target) {
+    return '$target anhören';
+  }
+
+  @override
   String get questBuildAnswerLabel => 'Deine Antwort bauen';
 
   @override
@@ -5628,6 +5633,14 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get diktatInstruction => 'Hör zu und tippe, was du hörst';
+
+  @override
+  String get diktatAnswerLabel => 'Deine koreanische Antwort';
+
+  @override
+  String diktatListenSlowTarget(String target) {
+    return '$target langsam anhören';
+  }
 
   @override
   String get diktatSpacingHint => 'Fast! Achte auf die Wortabstände';

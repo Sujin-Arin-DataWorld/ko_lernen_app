@@ -119,7 +119,7 @@ class _LueckenQuestState extends State<LueckenQuest> {
           TextSpan(text: parts.first),
           TextSpan(
             text: answer,
-            style: TextStyle(
+            style: SoriTextTheme.of(context).h2.copyWith(
               color: _selected < 0 ? surfaces.textMuted : SoriColors.primary,
               decoration: TextDecoration.underline,
               decorationColor: SoriColors.primary,

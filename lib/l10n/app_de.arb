@@ -2756,9 +2756,26 @@
   "questSatzBauenInstruction": "Tippe die Wörter in der richtigen Reihenfolge an",
   "questCheckAnswer": "Antwort prüfen",
   "questReplayAudio": "Erneut anhören",
+  "questListenTarget": "{target} anhören",
+  "@questListenTarget": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
   "questBuildAnswerLabel": "Deine Antwort bauen",
   "questEmptyAnswerSlot": "Leerer Antwortplatz",
   "diktatInstruction": "Hör zu und tippe, was du hörst",
+  "diktatAnswerLabel": "Deine koreanische Antwort",
+  "diktatListenSlowTarget": "{target} langsam anhören",
+  "@diktatListenSlowTarget": {
+    "placeholders": {
+      "target": {
+        "type": "String"
+      }
+    }
+  },
   "diktatSpacingHint": "Fast! Achte auf die Wortabstände",
   "diktatShowMeaning": "Bedeutung zeigen",
   "diktatSpellingHint": "Fast richtig. Achte auf die Schreibweise.",

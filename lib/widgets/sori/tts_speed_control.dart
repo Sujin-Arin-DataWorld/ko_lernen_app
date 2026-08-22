@@ -34,14 +34,19 @@ class TtsSpeedAction extends StatelessWidget {
 class TtsSpeedControl extends StatelessWidget {
   final TtsSpeedControlMode mode;
 
+  /// Minimum height for every speed action. Existing dense callers retain
+  /// 44dp; learning/quest surfaces can opt into the 48dp outer-UI contract.
+  final double minInteractiveHeight;
+
   /// 값 변경 직후 호출 (설정 화면의 '안녕하세요' 미리듣기 등).
   final ValueChanged<double>? onChanged;
 
   const TtsSpeedControl({
     super.key,
     this.mode = TtsSpeedControlMode.compact,
+    this.minInteractiveHeight = 44,
     this.onChanged,
-  });
+  }) : assert(minInteractiveHeight >= 44);
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +66,7 @@ class TtsSpeedControl extends StatelessWidget {
   String _fmt(double v) {
     // 1.0 → '1', 0.75 → '0.75' (독일어권도 소수점 표기는 ×배속 관례를 따른다).
     final s = v.toStringAsFixed(2);
-    return s
-        .replaceFirst(RegExp(r'0+$'), '')
-        .replaceFirst(RegExp(r'\.$'), '');
+    return s.replaceFirst(RegExp(r'0+$'), '').replaceFirst(RegExp(r'\.$'), '');
   }
 
   Widget _buildRow(BuildContext context, double speed) {
@@ -94,7 +97,7 @@ class TtsSpeedControl extends StatelessWidget {
                 selected: (speed - preset).abs() < 0.01,
                 fontSize: 11,
                 horizontalPadding: 7,
-                minInteractiveHeight: 44,
+                minInteractiveHeight: minInteractiveHeight,
                 onTap: () {
                   // ignore: discarded_futures
                   TtsService.setSpeed(preset);
@@ -113,7 +116,7 @@ class TtsSpeedControl extends StatelessWidget {
       icon: Icons.speed_rounded,
       label: t.ttsSpeedChip(_fmt(speed)),
       accent: SoriColors.info,
-      minInteractiveHeight: 44,
+      minInteractiveHeight: minInteractiveHeight,
       onTap: () {
         // ignore: discarded_futures
         showSoriSheet<void>(
@@ -139,6 +142,7 @@ class TtsSpeedControl extends StatelessWidget {
                 const SizedBox(height: Spacing.md),
                 TtsSpeedControl(
                   mode: TtsSpeedControlMode.row,
+                  minInteractiveHeight: minInteractiveHeight,
                   onChanged: onChanged,
                 ),
               ],
