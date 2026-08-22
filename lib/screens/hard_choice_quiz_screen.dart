@@ -15,6 +15,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/lazy_scroll_reveal.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/study_frame.dart';
@@ -184,50 +185,12 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
   }
 
   void _revealFeedback() {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _bringFeedbackIntoView();
-    });
-  }
-
-  void _bringFeedbackIntoView({bool materializedEnd = false}) {
-    if (!mounted) {
-      return;
-    }
-    final feedbackContext = _feedbackKey.currentContext;
-    final duration = SoriMotion.respect(
-      context,
-      const Duration(milliseconds: 220),
+    revealLazyScrollTarget(
+      context: context,
+      controller: _questionScroll,
+      targetKey: _feedbackKey,
+      isMounted: () => mounted,
     );
-    if (feedbackContext != null) {
-      Scrollable.ensureVisible(
-        feedbackContext,
-        duration: duration,
-        curve: Curves.easeOut,
-        alignment: 0.18,
-      );
-      return;
-    }
-    if (materializedEnd || !_questionScroll.hasClients) {
-      return;
-    }
-    final end = _questionScroll.position.maxScrollExtent;
-    if (duration == Duration.zero) {
-      _questionScroll.jumpTo(end);
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        _bringFeedbackIntoView(materializedEnd: true);
-      });
-      return;
-    }
-    // ignore: discarded_futures
-    _questionScroll
-        .animateTo(end, duration: duration, curve: Curves.easeOut)
-        .then((_) {
-          if (mounted) {
-            WidgetsBinding.instance.addPostFrameCallback((_) {
-              _bringFeedbackIntoView(materializedEnd: true);
-            });
-          }
-        });
   }
 
   void _advanceAfterFeedback() {
@@ -336,14 +299,7 @@ class _HardChoiceQuizScreenState extends State<HardChoiceQuizScreen> {
                           ? SoriColors.success
                           : SoriColors.danger,
                       tinted: true,
-                      child: Text(
-                        feedback,
-                        style: tt.h3.copyWith(
-                          color: isCorrect
-                              ? SoriColors.primaryOnLight
-                              : SoriColors.danger,
-                        ),
-                      ),
+                      child: Text(feedback, style: tt.h3),
                     ),
                   ),
                 ),

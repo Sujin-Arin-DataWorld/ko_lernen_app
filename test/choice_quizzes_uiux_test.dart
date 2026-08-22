@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/screens/hard_choice_quiz_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/quiz_choice.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
@@ -110,7 +111,11 @@ void main() {
             '${t.grammarChoiceExplanationLabel}: '
                 '${grammarTarget.explanationFor(locale.languageCode)}',
           ].join('. ');
-          await _expectLiveRegion(tester, grammarFeedback);
+          await _expectLiveRegion(
+            tester,
+            grammarFeedback,
+            expectVisibleInScrollable: true,
+          );
           await _ensureChoiceVisible(tester, grammarSelection.text);
           final selectedGrammar = tester
               .getSemantics(find.bySemanticsLabel(grammarSelection.text))
@@ -189,7 +194,14 @@ void main() {
           final hardFeedback = hardSelection.isCorrect
               ? t.hardQuizCorrectFeedback(_hardWord.korean)
               : t.hardQuizWrongFeedback(_hardWord.korean);
-          await _expectLiveRegion(tester, hardFeedback);
+          await _expectLiveRegion(
+            tester,
+            hardFeedback,
+            expectVisibleInScrollable: true,
+          );
+          if (!hardSelection.isCorrect) {
+            _expectTextContrastOnCard(tester, hardFeedback);
+          }
           await _ensureChoiceVisible(tester, hardSelection.text);
           final selectedHard = tester
               .getSemantics(find.bySemanticsLabel(hardSelection.text))
@@ -408,7 +420,33 @@ void _expectBoundaryContrast(WidgetTester tester, Finder control) {
   );
 }
 
-Future<void> _expectLiveRegion(WidgetTester tester, String label) async {
+void _expectTextContrastOnCard(WidgetTester tester, String text) {
+  final textFinder = find.text(text);
+  expect(textFinder, findsOneWidget);
+  final cardFinder = find.ancestor(
+    of: textFinder,
+    matching: find.byType(SoriCard),
+  );
+  expect(cardFinder, findsOneWidget);
+  final renderedText = tester.widget<Text>(textFinder);
+  final card = tester.widget<SoriCard>(cardFinder);
+  final foreground = renderedText.style!.color!;
+  final background = SoriCard.resolvedBackground(
+    tester.element(cardFinder),
+    accent: card.accent,
+    tinted: card.tinted,
+  );
+  expect(
+    SoriColors.contrastRatio(foreground, background),
+    greaterThanOrEqualTo(4.5),
+  );
+}
+
+Future<void> _expectLiveRegion(
+  WidgetTester tester,
+  String label, {
+  bool expectVisibleInScrollable = false,
+}) async {
   final finder = find.byWidgetPredicate(
     (widget) =>
         widget is Semantics &&
@@ -416,7 +454,9 @@ Future<void> _expectLiveRegion(WidgetTester tester, String label) async {
         widget.properties.label == label,
   );
   for (var attempt = 0; attempt < 8; attempt++) {
-    if (finder.evaluate().isNotEmpty) {
+    if (finder.evaluate().isNotEmpty &&
+        (!expectVisibleInScrollable ||
+            _intersectsScrollableViewport(tester, finder))) {
       break;
     }
     await tester.pump();
@@ -434,6 +474,27 @@ Future<void> _expectLiveRegion(WidgetTester tester, String label) async {
   final data = tester.getSemantics(finder).getSemanticsData();
   expect(data.label, label);
   expect(data.flagsCollection.isLiveRegion, isTrue);
+  if (expectVisibleInScrollable) {
+    expect(
+      _intersectsScrollableViewport(tester, finder),
+      isTrue,
+      reason: 'The announced feedback must intersect its visible viewport.',
+    );
+  }
+}
+
+bool _intersectsScrollableViewport(WidgetTester tester, Finder target) {
+  final scrollable = find.ancestor(
+    of: target,
+    matching: find.byType(Scrollable),
+  );
+  if (scrollable.evaluate().isEmpty) {
+    return false;
+  }
+  final targetRect = tester.getRect(target);
+  final viewportRect = tester.getRect(scrollable.first);
+  final intersection = targetRect.intersect(viewportRect);
+  return intersection.width > 0 && intersection.height > 0;
 }
 
 Future<void> _expectPointerOwned(WidgetTester tester, Finder finder) async {
