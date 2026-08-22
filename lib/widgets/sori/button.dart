@@ -23,6 +23,10 @@ class SoriButton extends StatelessWidget {
   /// instead of ellipsizing the label.
   final int? maxLines;
   final String label;
+
+  /// Optional assistive label when the visible action needs extra context.
+  /// Defaults to [label], preserving every existing caller.
+  final String? semanticLabel;
   final IconData? icon;
 
   /// 라벨 **뒤**에 붙는 아이콘. 방향성이 있는 액션("Weiter →")에서 다음 단계로
@@ -38,6 +42,7 @@ class SoriButton extends StatelessWidget {
   const SoriButton({
     super.key,
     required this.label,
+    this.semanticLabel,
     this.icon,
     this.trailingIcon,
     this.onTap,
@@ -52,6 +57,7 @@ class SoriButton extends StatelessWidget {
   const SoriButton.filled({
     super.key,
     required this.label,
+    this.semanticLabel,
     this.icon,
     this.trailingIcon,
     this.onTap,
@@ -66,6 +72,7 @@ class SoriButton extends StatelessWidget {
   const SoriButton.outlined({
     super.key,
     required this.label,
+    this.semanticLabel,
     this.icon,
     this.trailingIcon,
     this.onTap,
@@ -80,6 +87,7 @@ class SoriButton extends StatelessWidget {
   const SoriButton.ghost({
     super.key,
     required this.label,
+    this.semanticLabel,
     this.icon,
     this.trailingIcon,
     this.onTap,
@@ -241,7 +249,7 @@ class SoriButton extends StatelessWidget {
       return Semantics(
         button: true,
         enabled: false,
-        label: label,
+        label: semanticLabel ?? label,
         child: wrapped,
       );
     }
@@ -249,7 +257,7 @@ class SoriButton extends StatelessWidget {
     return Semantics(
       button: true,
       enabled: true,
-      label: label,
+      label: semanticLabel ?? label,
       child: SoriPressable(
         onTap: onTap,
         haptic: variant == SoriButtonVariant.filled

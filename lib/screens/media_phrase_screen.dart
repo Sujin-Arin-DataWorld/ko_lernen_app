@@ -6,8 +6,11 @@ import '../models/media_phrase.dart';
 import '../services/data_loader.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../widgets/app_error.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
@@ -25,9 +28,10 @@ List<MediaPhrase> mediaPhrasesForLevel(
 }
 
 class MediaPhraseScreen extends StatefulWidget {
-  const MediaPhraseScreen({super.key, this.loader});
+  const MediaPhraseScreen({super.key, this.loader, this.speaker});
 
   final Future<List<MediaPhrase>> Function()? loader;
+  final Future<bool> Function(String text)? speaker;
 
   @override
   State<MediaPhraseScreen> createState() => _MediaPhraseScreenState();
@@ -45,14 +49,27 @@ class _MediaPhraseScreenState extends State<MediaPhraseScreen> {
     _load();
   }
 
-  Future<void> _load() async {
+  Future<void> _load({bool showLoading = false}) async {
+    if (showLoading) {
+      setState(() {
+        _loading = true;
+        _failed = false;
+      });
+    }
     try {
+      final usesProductionLoader = widget.loader == null;
       final all = await (widget.loader ?? DataLoader.loadMediaPhrases)();
       if (!mounted) return;
+      final failed =
+          usesProductionLoader &&
+          all.isEmpty &&
+          DataLoader.mediaPhrasesError != null;
       setState(() {
-        _phrases = mediaPhrasesForLevel(all, Storage.userLevelCode);
+        _phrases = failed
+            ? const <MediaPhrase>[]
+            : mediaPhrasesForLevel(all, Storage.userLevelCode);
         _loading = false;
-        _failed = false;
+        _failed = failed;
         _index = 0;
       });
     } catch (_) {
@@ -75,16 +92,34 @@ class _MediaPhraseScreenState extends State<MediaPhraseScreen> {
       maxWidth: SoriMaxWidth.prose,
       children: [
         if (_loading)
-          const Center(child: CircularProgressIndicator())
-        else if (_failed || _phrases.isEmpty)
-          SoriCard(
-            child: Column(
-              children: [
-                Text(t.mediaPhraseEmpty),
-                const SizedBox(height: Spacing.md),
-                SoriButton.outlined(label: t.btnRetry, onTap: _load),
-              ],
+          Semantics(
+            liveRegion: true,
+            label: t.mediaPhraseLoading,
+            excludeSemantics: true,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: Spacing.xxl),
+              child: AppLoading(message: t.mediaPhraseLoading),
             ),
+          )
+        else if (_failed)
+          AppError(
+            message: t.mediaPhraseUnavailable,
+            messageLiveRegion: true,
+            onRetry: () {
+              if (widget.loader == null) {
+                DataLoader.resetMediaPhrases();
+              }
+              _load(showLoading: true);
+            },
+          )
+        else if (_phrases.isEmpty)
+          SoriEmptyState(
+            icon: Icons.library_music_outlined,
+            title: t.mediaPhraseEmptyTitle,
+            body: t.mediaPhraseEmpty,
+            ctaLabel: t.btnClose,
+            onCta: () => Navigator.of(context).maybePop(),
+            illustrationMaxHeight: 120,
           )
         else
           _phraseCard(context, _phrases[_index]),
@@ -99,6 +134,7 @@ class _MediaPhraseScreenState extends State<MediaPhraseScreen> {
     return Column(
       children: [
         SoriCard(
+          key: ValueKey('media-phrase-card-${phrase.id}'),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
@@ -110,7 +146,17 @@ class _MediaPhraseScreenState extends State<MediaPhraseScreen> {
                       style: text.label.copyWith(color: SoriColors.primary),
                     ),
                   ),
-                  Text('${_index + 1} / ${_phrases.length}', style: text.label),
+                  Semantics(
+                    key: const ValueKey('media-phrase-progress'),
+                    container: true,
+                    liveRegion: true,
+                    label: t.mediaPhraseProgress(_index + 1, _phrases.length),
+                    excludeSemantics: true,
+                    child: Text(
+                      '${_index + 1} / ${_phrases.length}',
+                      style: text.label,
+                    ),
+                  ),
                 ],
               ),
               const SizedBox(height: Spacing.lg),
@@ -127,9 +173,14 @@ class _MediaPhraseScreenState extends State<MediaPhraseScreen> {
               Text(phrase.context(language), style: text.cardSubtitle),
               const SizedBox(height: Spacing.lg),
               SoriButton.outlined(
+                key: const ValueKey('media-phrase-listen'),
                 label: t.pronunciationListen,
+                semanticLabel: t.mediaPhraseListenTarget(phrase.korean),
                 icon: Icons.volume_up_rounded,
-                onTap: () => TtsService.speak(phrase.korean),
+                fullWidth: true,
+                onTap: () {
+                  (widget.speaker ?? TtsService.speak)(phrase.korean);
+                },
               ),
             ],
           ),
@@ -139,6 +190,7 @@ class _MediaPhraseScreenState extends State<MediaPhraseScreen> {
           children: [
             Expanded(
               child: SoriButton.outlined(
+                key: const ValueKey('media-phrase-previous'),
                 label: t.mediaPhrasePrevious,
                 onTap: _index == 0 ? null : () => setState(() => _index -= 1),
               ),
@@ -146,6 +198,7 @@ class _MediaPhraseScreenState extends State<MediaPhraseScreen> {
             const SizedBox(width: Spacing.md),
             Expanded(
               child: SoriButton.filled(
+                key: const ValueKey('media-phrase-next'),
                 label: t.mediaPhraseNext,
                 onTap: _index + 1 >= _phrases.length
                     ? null

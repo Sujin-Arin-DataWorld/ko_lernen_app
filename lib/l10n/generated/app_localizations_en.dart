@@ -8139,7 +8139,27 @@ class AppL10nEn extends AppL10n {
   String get mediaPhraseContext => 'Situation';
 
   @override
+  String get mediaPhraseLoading => 'Loading media lines…';
+
+  @override
+  String get mediaPhraseUnavailable =>
+      'The media lines could not be loaded. Please try again.';
+
+  @override
+  String get mediaPhraseEmptyTitle => 'No line for this level yet';
+
+  @override
   String get mediaPhraseEmpty => 'There are no media lines for your level yet.';
+
+  @override
+  String mediaPhraseProgress(int current, int total) {
+    return '$current of $total';
+  }
+
+  @override
+  String mediaPhraseListenTarget(String phrase) {
+    return 'Listen to $phrase';
+  }
 
   @override
   String get mediaPhrasePrevious => 'Previous';
