@@ -21,6 +21,7 @@ import '../widgets/sori/mascot.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 
@@ -41,6 +42,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   CustomPack? _pack;
   List<ExtractedWord> _pool = const [];
   List<int> _order = const [];
+  String _languageCode = 'de';
   int _idx = 0;
   int _score = 0;
   bool? _correct; // null = 미제출
@@ -84,17 +86,36 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
         ? loaded
         : loaded.copyWith(words: widget.words);
     _pack = pack;
-    if (pack != null) {
-      _pool = pack.words
-          .where(
-            (w) =>
-                w.korean.trim().isNotEmpty && w.translationDe.trim().isNotEmpty,
-          )
-          .toList();
-      _order = List<int>.generate(_pool.length, (i) => i)
-        ..shuffle(math.Random());
-    }
     scheduleCoach();
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final languageCode = Localizations.localeOf(context).languageCode;
+    if (_languageCode == languageCode && _order.isNotEmpty) {
+      return;
+    }
+    _languageCode = languageCode;
+    final pack = _pack;
+    if (pack == null) {
+      return;
+    }
+    _pool = pack.words
+        .where(
+          (word) =>
+              word.korean.trim().isNotEmpty &&
+              word.translationFor(languageCode).trim().isNotEmpty,
+        )
+        .toList();
+    _order = List<int>.generate(_pool.length, (index) => index)
+      ..shuffle(math.Random());
+    _idx = 0;
+    _score = 0;
+    _correct = null;
+    _outcome = null;
+    _feedbackCompletion.reset();
+    _input.clear();
   }
 
   @override
@@ -107,7 +128,9 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   String _norm(String s) => s.replaceAll(' ', '').trim();
 
   void _submit() {
-    if (_correct != null) return;
+    if (_correct != null) {
+      return;
+    }
     final word = _pool[_order[_idx]];
     final ok = _norm(_input.text) == _norm(word.korean);
     Storage.srsReview(word.korean, gotIt: ok); // A1 연동
@@ -117,7 +140,9 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     }
     setState(() {
       _correct = ok;
-      if (ok) _score++;
+      if (ok) {
+        _score++;
+      }
     });
     if (ok) {
       SoundService.correct();
@@ -158,7 +183,9 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
       score: pct,
     );
     _abandonTracker.markCompleted();
-    if (mounted) setState(() => _outcome = outcome);
+    if (mounted) {
+      setState(() => _outcome = outcome);
+    }
   }
 
   @override
@@ -195,13 +222,15 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
       return _buildDone(t);
     }
 
-    final s = SoriSurfaces.of(context);
+    final tt = SoriTextTheme.of(context);
     final word = _pool[_order[_idx]];
     final revealed = _correct != null;
 
     return SoriStudyFrame(
       title: t.wbTyping,
       leading: IconButton(
+        tooltip: t.btnClose,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
         icon: const Icon(Icons.close),
         onPressed: () => Navigator.of(context).maybePop(),
       ),
@@ -227,11 +256,6 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
               ],
             ),
             const SizedBox(height: Spacing.lg),
-            Text(
-              t.wbTypingPrompt,
-              style: TextStyle(fontSize: 13, color: s.textMuted),
-            ),
-            const SizedBox(height: Spacing.sm),
             SoriCard(
               variant: SoriCardVariant.hero,
               accent: SoriColors.accent,
@@ -239,57 +263,57 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
                 child: Text(
-                  word.translationDe,
+                  word.translationFor(_languageCode),
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w800,
-                  ),
+                  style: tt.h1,
                 ),
               ),
             ),
             const SizedBox(height: Spacing.lg),
-            TextField(
-              key: _inputKey,
+            SoriTextField(
+              fieldKey: _inputKey,
               controller: _input,
               autofocus: true,
               enabled: !revealed,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
-              decoration: InputDecoration(
-                hintText: t.wbTypingHint,
-                border: const OutlineInputBorder(),
-                enabledBorder: revealed
-                    ? OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: _correct!
-                              ? SoriColors.success
-                              : SoriColors.danger,
-                          width: 2,
-                        ),
-                      )
-                    : null,
-              ),
+              style: tt.h2,
+              labelText: t.wbTypingPrompt,
+              hintText: t.wbTypingHint,
               onSubmitted: (_) => _submit(),
             ),
-            if (revealed && !_correct!) ...[
+            if (revealed) ...[
               const SizedBox(height: Spacing.sm),
-              Text(
-                t.wbTypingAnswer(word.korean),
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                  color: SoriColors.danger,
+              Semantics(
+                key: const ValueKey('custom-typing-feedback'),
+                liveRegion: true,
+                label: _correct!
+                    ? t.statsCorrect
+                    : '${t.statsWrong}. ${t.wbTypingAnswer(word.korean)}',
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      _correct!
+                          ? Icons.check_circle_rounded
+                          : Icons.cancel_rounded,
+                      color: _correct! ? SoriColors.success : SoriColors.danger,
+                    ),
+                    const SizedBox(width: Spacing.xs),
+                    Flexible(
+                      child: Text(
+                        _correct!
+                            ? t.statsCorrect
+                            : t.wbTypingAnswer(word.korean),
+                        textAlign: TextAlign.center,
+                        style: tt.h3.copyWith(
+                          color: _correct!
+                              ? SoriColors.primaryOnLight
+                              : SoriColors.danger,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-            if (revealed && _correct!) ...[
-              const SizedBox(height: Spacing.sm),
-              Text(
-                '✓',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 28, color: SoriColors.success),
               ),
             ],
             const Spacer(),
@@ -312,46 +336,50 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
       title: t.quizResultTitle,
       automaticallyImplyLeading: false,
       padding: EdgeInsets.zero,
-      child: GameOverCard(
-        headline: t.quizResultTitle,
-        scoreLabel: t.quizScore(_score, _order.length),
-        feedbackContext: _feedbackCompletion.current?.context,
-        xpGained: _score * 5,
-        isNewBest: _outcome?.isNewBest ?? false,
-        newBestLabel: t.gameNewBest,
-        bestLabel: t.gameBestAccuracy(Storage.gameBest('cp_typing')),
-        mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
-        mascotEmotion: pct >= 50
-            ? MascotEmotion.celebrate
-            : MascotEmotion.worry,
-        celebrate: pct >= 50,
-        actions: [
-          SoriButton(
-            label: t.quizAgain,
-            icon: Icons.refresh_rounded,
-            variant: SoriButtonVariant.filled,
-            accent: SoriColors.accent,
-            fullWidth: true,
-            onTap: () => setState(() {
-              _order = List<int>.generate(_pool.length, (i) => i)
-                ..shuffle(math.Random());
-              _idx = 0;
-              _score = 0;
-              _correct = null;
-              _outcome = null;
-              _feedbackCompletion.reset();
-              _input.clear();
-            }),
-          ),
-          SoriButton(
-            label: t.customPackResultBack,
-            icon: Icons.menu_book_outlined,
-            variant: SoriButtonVariant.outlined,
-            accent: SoriColors.primary,
-            fullWidth: true,
-            onTap: () => Navigator.of(context).maybePop(),
-          ),
-        ],
+      child: Semantics(
+        container: true,
+        liveRegion: true,
+        label: '${t.quizResultTitle}. ${t.quizScore(_score, _order.length)}',
+        child: GameOverCard(
+          headline: t.quizResultTitle,
+          scoreLabel: t.quizScore(_score, _order.length),
+          feedbackContext: _feedbackCompletion.current?.context,
+          xpGained: _score * 5,
+          isNewBest: _outcome?.isNewBest ?? false,
+          newBestLabel: t.gameNewBest,
+          bestLabel: t.gameBestAccuracy(Storage.gameBest('cp_typing')),
+          mascotKind: pct >= 50 ? MascotKind.magpie : MascotKind.tiger,
+          mascotEmotion: pct >= 50
+              ? MascotEmotion.celebrate
+              : MascotEmotion.worry,
+          celebrate: pct >= 50,
+          actions: [
+            SoriButton(
+              label: t.quizAgain,
+              icon: Icons.refresh_rounded,
+              variant: SoriButtonVariant.filled,
+              accent: SoriColors.accent,
+              fullWidth: true,
+              onTap: () => setState(() {
+                _order = List<int>.generate(_pool.length, (i) => i)
+                  ..shuffle(math.Random());
+                _idx = 0;
+                _score = 0;
+                _correct = null;
+                _outcome = null;
+                _feedbackCompletion.reset();
+                _input.clear();
+              }),
+            ),
+            SoriButton(
+              label: t.customPackResultBack,
+              icon: Icons.menu_book_outlined,
+              variant: SoriButtonVariant.outlined,
+              fullWidth: true,
+              onTap: () => Navigator.of(context).maybePop(),
+            ),
+          ],
+        ),
       ),
     );
   }
