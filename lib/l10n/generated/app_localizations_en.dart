@@ -3956,6 +3956,19 @@ class AppL10nEn extends AppL10n {
       'Which expression matches the meaning?';
 
   @override
+  String wordWebQuizCorrectFeedback(String word) {
+    return 'Correct: $word';
+  }
+
+  @override
+  String wordWebQuizWrongFeedback(String word) {
+    return 'The matching answer is: $word';
+  }
+
+  @override
+  String get wordWebQuizFinish => 'See result';
+
+  @override
   String get wordWebQuizDoneTitle => 'Round complete!';
 
   @override

@@ -10,6 +10,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/lazy_scroll_reveal.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/quiz_choice.dart';
 import '../widgets/sori/study_frame.dart';
@@ -36,6 +37,8 @@ class WordWebQuizScreen extends StatefulWidget {
 }
 
 class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
+  final ScrollController _questionScroll = ScrollController();
+  final GlobalKey _feedbackKey = GlobalKey();
   late final List<WordRelationQuizItem> _items;
   int _idx = 0;
   int _score = 0;
@@ -89,39 +92,76 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
       SoundService.wrong();
     }
     TtsService.speak(cur.answerKo);
+    _revealFeedback();
+    if (SoriMotion.reduceMotion(context)) {
+      return;
+    }
     Future<void>.delayed(const Duration(milliseconds: 850), () {
       if (!mounted) {
         return;
       }
-      if (_idx + 1 >= _items.length) {
-        setState(() => _done = true);
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          if (mounted) {
-            SoriCelebration.burst(context);
-          }
-        });
-        return;
-      }
-      setState(() {
-        _idx++;
-        _selected = -1;
-        _locked = false;
-      });
+      _advanceAfterFeedback();
     });
+  }
+
+  void _revealFeedback() {
+    revealLazyScrollTarget(
+      context: context,
+      controller: _questionScroll,
+      targetKey: _feedbackKey,
+      isMounted: () => mounted,
+    );
+  }
+
+  void _advanceAfterFeedback() {
+    if (!_locked || _done) {
+      return;
+    }
+    if (_idx + 1 >= _items.length) {
+      setState(() => _done = true);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          SoriCelebration.burst(context);
+        }
+      });
+      return;
+    }
+    setState(() {
+      _idx++;
+      _selected = -1;
+      _locked = false;
+    });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_questionScroll.hasClients) {
+        _questionScroll.jumpTo(0);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _questionScroll.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
+    final progress = !_done && _items.isNotEmpty
+        ? '${_idx + 1} / ${_items.length}'
+        : null;
 
     return SoriStudyFrame(
       title: t.wordWebQuizTitle,
+      eyebrow: progress,
+      padding: Spacing.page,
       child: _items.isEmpty
           ? _buildEmpty(t)
-          : _done
-          ? _buildDone(t)
-          : _buildQuestion(t, lang),
+          : SoriAdaptiveStudyBody(
+              minHeight: 480,
+              child: _done ? _buildDone(t) : _buildQuestion(t, lang),
+            ),
     );
   }
 
@@ -130,24 +170,16 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
     final prompt = cur.kind == WordRelationKind.expression
         ? cur.promptGloss(lang)
         : cur.sourceKo;
+    final tt = SoriTextTheme.of(context);
+    final isCorrect = _selected >= 0 && cur.options[_selected] == cur.answerKo;
+    final feedback = isCorrect
+        ? t.wordWebQuizCorrectFeedback(cur.answerKo)
+        : t.wordWebQuizWrongFeedback(cur.answerKo);
+    final reduceMotion = SoriMotion.reduceMotion(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
-          children: [
-            Text(
-              '${_idx + 1} / ${_items.length}',
-              style: SoriTextTheme.of(context).caption,
-            ),
-            const SizedBox(width: Spacing.sm),
-            Expanded(
-              child: Text(
-                _hint(t, cur),
-                style: SoriTextTheme.of(context).caption,
-              ),
-            ),
-          ],
-        ),
+        Text(_hint(t, cur), style: tt.label),
         const SizedBox(height: Spacing.md),
         SoriCard(
           variant: SoriCardVariant.hero,
@@ -155,27 +187,58 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
           tinted: true,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
-            child: Text(
-              prompt,
-              textAlign: TextAlign.center,
-              style: SoriTextTheme.of(context).display,
-            ),
+            child: Text(prompt, textAlign: TextAlign.center, style: tt.display),
           ),
         ),
         const SizedBox(height: Spacing.lg),
         Expanded(
-          child: ListView.separated(
-            itemCount: cur.options.length,
-            separatorBuilder: (_, __) => const SizedBox(height: Spacing.sm),
-            itemBuilder: (_, i) => QuizChoice(
-              key: ValueKey('word-web-option-${cur.options[i]}'),
-              text: cur.options[i],
-              isCorrect: cur.options[i] == cur.answerKo,
-              isSelected: _selected == i,
-              revealed: _locked,
-              minHeight: 56,
-              onSelected: _locked ? null : () => _select(i),
-            ),
+          child: ListView(
+            controller: _questionScroll,
+            children: [
+              for (var i = 0; i < cur.options.length; i++) ...[
+                QuizChoice(
+                  key: ValueKey('word-web-option-${cur.options[i]}'),
+                  text: cur.options[i],
+                  isCorrect: cur.options[i] == cur.answerKo,
+                  isSelected: _selected == i,
+                  revealed: _locked,
+                  minHeight: 56,
+                  idleBorderColor: SoriColors.primary,
+                  semanticTapEnabled: true,
+                  onSelected: _locked ? null : () => _select(i),
+                ),
+                if (i + 1 < cur.options.length)
+                  const SizedBox(height: Spacing.sm),
+              ],
+              if (_locked) ...[
+                const SizedBox(height: Spacing.md),
+                Semantics(
+                  key: _feedbackKey,
+                  container: true,
+                  liveRegion: true,
+                  label: feedback,
+                  child: ExcludeSemantics(
+                    child: SoriCard(
+                      accent: isCorrect
+                          ? SoriColors.success
+                          : SoriColors.danger,
+                      tinted: true,
+                      child: Text(feedback, style: tt.h3),
+                    ),
+                  ),
+                ),
+                if (reduceMotion) ...[
+                  const SizedBox(height: Spacing.sm),
+                  SoriButton.filled(
+                    label: _idx + 1 >= _items.length
+                        ? t.wordWebQuizFinish
+                        : t.btnNext,
+                    fullWidth: true,
+                    onTap: _advanceAfterFeedback,
+                  ),
+                ],
+              ],
+            ],
           ),
         ),
       ],
@@ -196,22 +259,41 @@ class _WordWebQuizScreenState extends State<WordWebQuizScreen> {
   }
 
   Widget _buildDone(AppL10n t) {
+    final tt = SoriTextTheme.of(context);
+    final score = t.wordWebQuizScore(_score, _items.length);
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Mascot.tiger(emotion: MascotEmotion.celebrate, size: 120),
-          const SizedBox(height: Spacing.lg),
-          Text(t.wordWebQuizDoneTitle, style: SoriTextTheme.of(context).h2),
-          const SizedBox(height: Spacing.sm),
-          Text(t.wordWebQuizScore(_score, _items.length)),
-          const SizedBox(height: Spacing.xl),
-          SoriButton(
-            label: t.btnClose,
-            variant: SoriButtonVariant.filled,
-            onTap: () => Navigator.of(context).maybePop(),
-          ),
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Mascot.tiger(emotion: MascotEmotion.celebrate, size: 120),
+            const SizedBox(height: Spacing.lg),
+            Semantics(
+              container: true,
+              liveRegion: true,
+              label: '${t.wordWebQuizDoneTitle}. $score',
+              child: ExcludeSemantics(
+                child: Column(
+                  children: [
+                    Text(
+                      t.wordWebQuizDoneTitle,
+                      textAlign: TextAlign.center,
+                      style: tt.h1,
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    Text(score, textAlign: TextAlign.center, style: tt.h3),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: Spacing.xl),
+            SoriButton.filled(
+              label: t.btnClose,
+              fullWidth: true,
+              onTap: () => Navigator.of(context).maybePop(),
+            ),
+          ],
+        ),
       ),
     );
   }
