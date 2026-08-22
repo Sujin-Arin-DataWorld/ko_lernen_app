@@ -41,7 +41,12 @@ const _gatewayAlign = Alignment(0.0, 0.10);
 /// - 0.50–0.92  카메라 push-in: 대문이 커지며 통과, 마당이 확대
 /// - 0.80–1.00  대문 페이드아웃 → 마당만 → 홈으로 handoff
 class IntroGateScreen extends StatefulWidget {
-  const IntroGateScreen({super.key});
+  const IntroGateScreen({super.key, this.deferVideoLeaseForTesting = false});
+
+  /// Keeps the real video presentation in its pending state without touching
+  /// a platform decoder. Production callers retain the default lease path.
+  @visibleForTesting
+  final bool deferVideoLeaseForTesting;
 
   @override
   State<IntroGateScreen> createState() => _IntroGateScreenState();
@@ -54,12 +59,13 @@ class _IntroGateScreenState extends State<IntroGateScreen>
   bool _reduceMotion = false;
 
   /// 영상 인트로 모드 — 실패 시 코드 연출로 즉시 폴백.
-  bool _videoMode = TigerStageVideo.videoReady;
+  late bool _videoMode;
   bool _codeStarted = false;
 
   @override
   void initState() {
     super.initState();
+    _videoMode = TigerStageVideo.videoReady;
     final firstRun = !Storage.introSeen;
     // 첫 실행은 인상 깊게, 재실행은 답답하지 않게.
     _ctrl =
@@ -67,19 +73,27 @@ class _IntroGateScreenState extends State<IntroGateScreen>
           vsync: this,
           duration: Duration(milliseconds: firstRun ? 3900 : 2300),
         )..addStatusListener((s) {
-          if (s == AnimationStatus.completed) _finish();
+          if (s == AnimationStatus.completed) {
+            _finish();
+          }
         });
-    if (!_videoMode) _startCodeScene();
+    if (!_videoMode) {
+      _startCodeScene();
+    }
   }
 
   void _startCodeScene() {
-    if (_codeStarted) return;
+    if (_codeStarted) {
+      return;
+    }
     _codeStarted = true;
     _ctrl.forward();
   }
 
   void _fallbackToCodeScene() {
-    if (!mounted || _navigated) return;
+    if (!mounted || _navigated) {
+      return;
+    }
     setState(() => _videoMode = false);
     _startCodeScene();
   }
@@ -94,7 +108,9 @@ class _IntroGateScreenState extends State<IntroGateScreen>
       _ctrl.duration = const Duration(milliseconds: 900);
       _videoMode = false;
     }
-    if (!_videoMode) _startCodeScene();
+    if (!_videoMode) {
+      _startCodeScene();
+    }
   }
 
   @override
@@ -104,16 +120,20 @@ class _IntroGateScreenState extends State<IntroGateScreen>
   }
 
   void _skip() {
-    if (_navigated || !_ctrl.isAnimating) return;
+    if (_navigated || !_ctrl.isAnimating) {
+      return;
+    }
     _ctrl.animateTo(
       1.0,
-      duration: const Duration(milliseconds: 520),
+      duration: SoriMotion.respect(context, const Duration(milliseconds: 520)),
       curve: Curves.easeOut,
     );
   }
 
   void _finish() {
-    if (_navigated || !mounted) return;
+    if (_navigated || !mounted) {
+      return;
+    }
     _navigated = true;
     Storage.setIntroSeen();
     final Widget next;
@@ -132,20 +152,37 @@ class _IntroGateScreenState extends State<IntroGateScreen>
 
   @override
   Widget build(BuildContext context) {
+    final skipLabel = AppL10n.of(context).introSkipHint;
     // 인트로는 항상 따뜻한 낮 — "환영"의 톤.
     return Theme(
       data: ThemeData(brightness: Brightness.light),
       child: Scaffold(
         backgroundColor: HanokColors.hanjiCream,
         body: _videoMode
-            ? _IntroVideo(onDone: _finish, onFallback: _fallbackToCodeScene)
-            : GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: _skip,
-                child: LayoutBuilder(
-                  builder: (context, c) => AnimatedBuilder(
-                    animation: _ctrl,
-                    builder: (_, __) => _scene(Size(c.maxWidth, c.maxHeight)),
+            ? _IntroVideo(
+                semanticLabel: skipLabel,
+                onDone: _finish,
+                onFallback: _fallbackToCodeScene,
+                deferLeaseForTesting: widget.deferVideoLeaseForTesting,
+              )
+            : Semantics(
+                key: const ValueKey('intro-skip'),
+                container: true,
+                button: true,
+                enabled: _ctrl.isAnimating,
+                label: skipLabel,
+                onTap: _ctrl.isAnimating ? _skip : null,
+                child: ExcludeSemantics(
+                  child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: _skip,
+                    child: LayoutBuilder(
+                      builder: (context, c) => AnimatedBuilder(
+                        animation: _ctrl,
+                        builder: (_, __) =>
+                            _scene(Size(c.maxWidth, c.maxHeight)),
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -241,19 +278,21 @@ class _IntroGateScreenState extends State<IntroGateScreen>
         // ── 6. 건너뛰기 힌트 ───────────────────────────────────────────────
         if (skipO > 0.01)
           Positioned(
-            bottom: 30,
+            bottom: 0,
             left: 0,
             right: 0,
-            child: Opacity(
-              opacity: skipO,
-              child: Text(
-                AppL10n.of(context).introSkipHint,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontFamily: SoriFonts.sans,
-                  fontSize: 12,
-                  color: HanokColors.hwangtoDark,
-                  letterSpacing: 0.3,
+            child: SafeArea(
+              top: false,
+              minimum: const EdgeInsets.only(bottom: 30),
+              child: Opacity(
+                opacity: skipO,
+                child: Text(
+                  AppL10n.of(context).introSkipHint,
+                  textAlign: TextAlign.center,
+                  style: SoriTextTheme.of(context).caption.copyWith(
+                    color: HanokColors.hwangtoDark,
+                    letterSpacing: 0.3,
+                  ),
                 ),
               ),
             ),
@@ -269,7 +308,9 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     required Alignment alignment,
   }) {
     final o = _unit(opacity);
-    if (o <= 0.01) return const SizedBox.shrink();
+    if (o <= 0.01) {
+      return const SizedBox.shrink();
+    }
     return Opacity(
       opacity: o,
       child: Transform.scale(
@@ -303,7 +344,9 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     required Widget child,
   }) {
     final o = _unit(opacity);
-    if (o <= 0.01) return const SizedBox.shrink();
+    if (o <= 0.01) {
+      return const SizedBox.shrink();
+    }
     return Opacity(
       opacity: o,
       child: Transform.scale(
@@ -360,10 +403,17 @@ double _unit(double value) => value.clamp(0.0, 1.0).toDouble();
 // 탭 = 즉시 완료. 초기화 실패 = 코드 연출 폴백. build-in 페이드로 시작.
 // ════════════════════════════════════════════════════════════════════════
 class _IntroVideo extends StatefulWidget {
+  final String semanticLabel;
   final VoidCallback onDone;
   final VoidCallback onFallback;
+  final bool deferLeaseForTesting;
 
-  const _IntroVideo({required this.onDone, required this.onFallback});
+  const _IntroVideo({
+    required this.semanticLabel,
+    required this.onDone,
+    required this.onFallback,
+    required this.deferLeaseForTesting,
+  });
 
   @override
   State<_IntroVideo> createState() => _IntroVideoState();
@@ -372,13 +422,16 @@ class _IntroVideo extends StatefulWidget {
 class _IntroVideoState extends State<_IntroVideo> {
   VideoPlayerController? _video;
   VideoLeaseRequest<VideoPlayerController>? _lease;
-  late final VideoLeaseEligibilityBinding _eligibility;
+  VideoLeaseEligibilityBinding? _eligibility;
   bool _ready = false;
   bool _done = false;
 
   @override
   void initState() {
     super.initState();
+    if (widget.deferLeaseForTesting) {
+      return;
+    }
     _eligibility = VideoLeaseEligibilityBinding(onChanged: _syncEligibility);
     _lease = soriVideoLease.register(
       asset: _introVideoAsset,
@@ -395,16 +448,21 @@ class _IntroVideoState extends State<_IntroVideo> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _eligibility.attach(context);
+    final eligibility = _eligibility;
+    if (eligibility == null) {
+      return;
+    }
+    eligibility.attach(context);
     _syncEligibility();
   }
 
   void _syncEligibility() {
-    if (!mounted) {
+    final eligibility = _eligibility;
+    if (!mounted || eligibility == null) {
       return;
     }
     _lease?.setEligible(
-      _eligibility.isEligible(context, videoReady: TigerStageVideo.videoReady),
+      eligibility.isEligible(context, videoReady: TigerStageVideo.videoReady),
     );
   }
 
@@ -434,18 +492,24 @@ class _IntroVideoState extends State<_IntroVideo> {
 
   void _onTick() {
     final video = _video;
-    if (video == null || _done) return;
+    if (video == null || _done) {
+      return;
+    }
     final v = video.value;
     final ended =
         v.isInitialized &&
         v.duration > Duration.zero &&
         !v.isPlaying &&
         v.position >= v.duration - const Duration(milliseconds: 100);
-    if (ended) _complete();
+    if (ended) {
+      _complete();
+    }
   }
 
   void _complete() {
-    if (_done) return;
+    if (_done) {
+      return;
+    }
     _done = true;
     _lease?.setEligible(false);
     widget.onDone();
@@ -454,7 +518,7 @@ class _IntroVideoState extends State<_IntroVideo> {
   @override
   void dispose() {
     _video?.removeListener(_onTick);
-    _eligibility.disposeBinding();
+    _eligibility?.disposeBinding();
     final lease = _lease;
     _lease = null;
     if (lease != null) {
@@ -466,24 +530,39 @@ class _IntroVideoState extends State<_IntroVideo> {
   @override
   Widget build(BuildContext context) {
     final video = _video;
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: _complete, // 탭 = skip (기존 인트로와 동일한 어포던스)
-      child: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 250),
-        child: !_ready || video == null
-            ? const ColoredBox(color: HanokColors.hanjiCream)
-            : SizedBox.expand(
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  clipBehavior: Clip.hardEdge,
-                  child: SizedBox(
-                    width: video.value.size.width,
-                    height: video.value.size.height,
-                    child: VideoPlayer(video),
-                  ),
-                ),
+    return Semantics(
+      key: const ValueKey('intro-video-skip'),
+      container: true,
+      button: true,
+      enabled: !_done,
+      label: widget.semanticLabel,
+      onTap: _done ? null : _complete,
+      child: ExcludeSemantics(
+        child: SizedBox.expand(
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: _complete, // 탭 = skip (기존 인트로와 동일한 어포던스)
+            child: AnimatedSwitcher(
+              duration: SoriMotion.respect(
+                context,
+                const Duration(milliseconds: 250),
               ),
+              child: !_ready || video == null
+                  ? const ColoredBox(color: HanokColors.hanjiCream)
+                  : SizedBox.expand(
+                      child: FittedBox(
+                        fit: BoxFit.cover,
+                        clipBehavior: Clip.hardEdge,
+                        child: SizedBox(
+                          width: video.value.size.width,
+                          height: video.value.size.height,
+                          child: VideoPlayer(video),
+                        ),
+                      ),
+                    ),
+            ),
+          ),
+        ),
       ),
     );
   }

@@ -266,7 +266,9 @@ class _SoriCardState extends State<SoriCard> {
 
     return Semantics(
       button: true,
+      enabled: true,
       label: widget.semanticLabel,
+      selected: widget.selectable ? widget.selected : null,
       child: SoriPressable(
         onTap: widget.onTap,
         onLongPress: widget.onLongPress,
@@ -276,7 +278,9 @@ class _SoriCardState extends State<SoriCard> {
             ? 0.97
             : 0.96,
         onPressedChanged: (pressed) {
-          if (!mounted) return;
+          if (!mounted) {
+            return;
+          }
           setState(() => _pressed = pressed);
         },
         child: card,

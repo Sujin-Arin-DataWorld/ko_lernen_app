@@ -49,11 +49,15 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
   Future<void> _advance() async {
     if (_page < _total - 1) {
       HapticFeedback.selectionClick();
-      await _controller.animateToPage(
-        _page + 1,
-        duration: const Duration(milliseconds: 360),
-        curve: Curves.easeInOut,
-      );
+      if (SoriMotion.reduceMotion(context)) {
+        _controller.jumpToPage(_page + 1);
+      } else {
+        await _controller.animateToPage(
+          _page + 1,
+          duration: const Duration(milliseconds: 360),
+          curve: Curves.easeInOut,
+        );
+      }
     } else {
       await _done();
     }
@@ -75,7 +79,9 @@ class _OnboardingPreviewScreenState extends State<OnboardingPreviewScreen> {
   Future<void> _skip() async {
     HapticFeedback.selectionClick();
     await Storage.setIntroPreviewSeen();
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     Navigator.of(context).pop();
   }
 
@@ -432,7 +438,10 @@ class _DotIndicator extends StatelessWidget {
       children: List.generate(total, (i) {
         final isActive = i == current;
         return AnimatedContainer(
-          duration: const Duration(milliseconds: 260),
+          duration: SoriMotion.respect(
+            context,
+            const Duration(milliseconds: 260),
+          ),
           curve: Curves.easeOut,
           margin: const EdgeInsets.symmetric(horizontal: 4),
           width: isActive ? 20 : 8,
