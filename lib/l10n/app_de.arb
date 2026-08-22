@@ -151,6 +151,7 @@
   "bookshelfEmptyTitle": "Noch keine Seite",
   "bookshelfEmptyBody": "Fotografiere deine erste Lehrbuchseite. Erkannte Wörter erscheinen dann hier.",
   "bookshelfEmptyCta": "Seite einlesen",
+  "bookshelfEmptyPreview": "Leere Seite",
   "bookshelfSectionPages": "Seiten",
   "bookshelfSectionCustomPacks": "Eigene Pakete",
   "bookshelfTileMeta": "{words, plural, one{1 Wort} other{{words} Wörter}} · {grammar} Grammatik · {date}",
@@ -181,6 +182,12 @@
   "bookshelfCreatePackCta": "Eigenes Paket aus dieser Seite",
   "bookshelfCreatePackTitle": "Neues eigenes Paket",
   "bookshelfCreatePackName": "Name",
+  "bookshelfDefaultPackName": "Paket {date}",
+  "@bookshelfDefaultPackName": {
+    "placeholders": {
+      "date": {}
+    }
+  },
   "bookshelfCreatePackSaved": "Paket gespeichert.",
   "bookshelfDeletePageTitle": "Seite löschen?",
   "bookshelfDeletePageBody": "Die Seite wird endgültig entfernt.",
@@ -1749,6 +1756,7 @@
   "redeemTitle": "Paket importieren",
   "redeemHint": "6-stelligen Code eingeben",
   "redeemAction": "Importieren",
+  "redeemLoading": "Paket wird importiert …",
   "redeemSuccess": "„{name}“ importiert ({count, plural, one{1 Wort} other{{count} Wörter}})",
   "@redeemSuccess": {
     "placeholders": {

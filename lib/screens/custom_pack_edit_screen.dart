@@ -15,12 +15,14 @@ import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../services/word_image_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
@@ -167,10 +169,12 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
           content: Text(t.wbDeleteWordBody),
           actions: [
             TextButton(
+              style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
               onPressed: () => Navigator.of(ctx).pop(false),
               child: Text(t.btnCancel),
             ),
             FilledButton.tonal(
+              style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
               onPressed: () => Navigator.of(ctx).pop(true),
               child: Text(t.btnDelete),
             ),
@@ -200,31 +204,9 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
     if (_wordDeleteInFlight) return;
     final pack = _pack;
     if (pack == null) return;
-    final t = AppL10n.of(context);
-    final controller = TextEditingController(text: pack.name);
     final name = await showSoriDialog<String>(
       context: context,
-      builder: (ctx) => SoriDialog(
-        title: Text(t.wbRenameTitle),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          decoration: InputDecoration(
-            labelText: t.wbRenameLabel,
-            border: const OutlineInputBorder(),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(),
-            child: Text(t.btnCancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
-            child: Text(t.btnConfirm),
-          ),
-        ],
-      ),
+      builder: (_) => _RenamePackDialog(initialName: pack.name),
     );
     if (name != null && name.isNotEmpty) {
       await CustomPackService.rename(pack.id, name);
@@ -240,45 +222,10 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
     final language = Localizations.localeOf(context).languageCode == 'en'
         ? 'en'
         : 'de';
-    final controller = TextEditingController();
     final raw = await showSoriDialog<String>(
       context: context,
-      builder: (ctx) => SoriDialog(
-        title: Text(t.csvImportTitle),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              t.csvImportHint,
-              style: const TextStyle(fontSize: 12.5, height: 1.4),
-            ),
-            const SizedBox(height: 10),
-            TextField(
-              controller: controller,
-              autofocus: true,
-              minLines: 4,
-              maxLines: 10,
-              decoration: InputDecoration(
-                hintText: AppL10n.of(context).customPackCsvHint,
-                border: const OutlineInputBorder(),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(),
-            child: Text(t.btnCancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.of(ctx).pop(controller.text),
-            child: Text(t.csvImportButton),
-          ),
-        ],
-      ),
+      builder: (_) => const _ImportCsvDialog(),
     );
-    controller.dispose();
     if (raw == null || raw.trim().isEmpty) return;
 
     final words = parseCustomPackCsvWords(raw, translationLanguage: language);
@@ -297,7 +244,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final pack = _pack;
 
     if (pack == null) {
@@ -379,8 +325,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                             width: itemWidth,
                             child: SoriButton(
                               label: t.wbStudyCards,
-                              variant: SoriButtonVariant.filled,
-                              accent: SoriColors.primary,
+                              variant: SoriButtonVariant.outlined,
                               onTap: words.isEmpty
                                   ? null
                                   : () => Navigator.of(context).pushNamed(
@@ -394,7 +339,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                             child: SoriButton(
                               label: t.wbMatching,
                               variant: SoriButtonVariant.outlined,
-                              accent: SoriColors.primary,
                               onTap: words.length < 2
                                   ? null
                                   : () => Navigator.of(context).pushNamed(
@@ -408,7 +352,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                             child: SoriButton(
                               label: t.wbTyping,
                               variant: SoriButtonVariant.outlined,
-                              accent: SoriColors.accent,
                               onTap: words.isEmpty
                                   ? null
                                   : () => Navigator.of(context).pushNamed(
@@ -422,7 +365,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                             child: SoriButton(
                               label: t.wbQuiz,
                               variant: SoriButtonVariant.outlined,
-                              accent: SoriColors.accent,
                               onTap: words.length < 4
                                   ? null
                                   : () => Navigator.of(context).pushNamed(
@@ -439,7 +381,6 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                   SoriButton(
                     label: t.vocabNotebookNuanceCta,
                     variant: SoriButtonVariant.outlined,
-                    accent: SoriColors.goldOnLight,
                     fullWidth: true,
                     onTap: words.length < 2
                         ? null
@@ -451,8 +392,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                   const SizedBox(height: Spacing.sm),
                   SoriButton(
                     label: t.vocabNotebookStudioCta,
-                    variant: SoriButtonVariant.filled,
-                    accent: SoriColors.goldOnLight,
+                    variant: SoriButtonVariant.outlined,
                     fullWidth: true,
                     onTap: words.isEmpty
                         ? null
@@ -482,7 +422,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                 alignment: Alignment.centerLeft,
                 child: Text(
                   t.quizNeedMore,
-                  style: TextStyle(fontSize: 11, color: s.textDim),
+                  style: SoriTextTheme.of(context).meta,
                 ),
               ),
             ),
@@ -512,6 +452,7 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
                 ),
                 child: _WordTile(
                   word: words[i],
+                  meaning: words[i].translationDe,
                   onTap: () => _addOrEdit(index: i),
                   onSpeak: () => _speakKorean(words[i].korean),
                   onDelete: () => _deleteWord(i),
@@ -526,11 +467,13 @@ class _CustomPackEditScreenState extends State<CustomPackEditScreen>
 
 class _WordTile extends StatelessWidget {
   final ExtractedWord word;
+  final String meaning;
   final VoidCallback onTap;
   final VoidCallback onSpeak;
   final VoidCallback onDelete;
   const _WordTile({
     required this.word,
+    required this.meaning,
     required this.onTap,
     required this.onSpeak,
     required this.onDelete,
@@ -538,66 +481,202 @@ class _WordTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    return Material(
-      color: s.surface,
-      borderRadius: BorderRadius.circular(SoriRadius.md),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: Spacing.md,
-            vertical: Spacing.sm,
-          ),
-          decoration: BoxDecoration(
-            border: Border.all(color: s.border),
-            borderRadius: BorderRadius.circular(SoriRadius.md),
-          ),
-          child: Row(
-            children: [
-              if (word.imagePath.isNotEmpty) ...[
-                ManagedMediaImage(
-                  reference: word.imagePath,
-                  width: 44,
-                  height: 44,
-                  borderRadius: BorderRadius.circular(SoriRadius.sm),
-                ),
-                const SizedBox(width: Spacing.md),
-              ],
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      word.korean,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w800,
-                        fontSize: 16,
-                      ),
-                    ),
-                    if (word.translationDe.isNotEmpty)
-                      Text(
-                        word.translationDe,
-                        style: TextStyle(fontSize: 13, color: s.textMuted),
-                      ),
-                  ],
-                ),
+    final editLabel = '${t.wbEditWordTitle}: ${word.korean}';
+    final deleteLabel = '${t.btnDelete}: ${word.korean}';
+    return SoriCard(
+      variant: SoriCardVariant.compact,
+      accent: SoriColors.primary,
+      child: Row(
+        children: [
+          if (word.imagePath.isNotEmpty) ...[
+            ManagedMediaImage(
+              reference: word.imagePath,
+              width: 44,
+              height: 44,
+              borderRadius: SoriRadius.brSm,
+            ),
+            const SizedBox(width: Spacing.md),
+          ],
+          Expanded(
+            child: Semantics(
+              container: true,
+              label: meaning.isEmpty ? word.korean : '${word.korean}. $meaning',
+              excludeSemantics: true,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(word.korean, style: SoriTextTheme.of(context).cardTitle),
+                  if (meaning.isNotEmpty)
+                    Text(meaning, style: SoriTextTheme.of(context).bodySmall),
+                ],
               ),
-              IconButton(
-                icon: Icon(Icons.volume_up_rounded, color: SoriColors.primary),
-                visualDensity: VisualDensity.compact,
-                onPressed: onSpeak,
-              ),
-              IconButton(
-                icon: Icon(Icons.delete_outline, color: s.textDim),
-                visualDensity: VisualDensity.compact,
-                onPressed: onDelete,
-              ),
-            ],
+            ),
           ),
-        ),
+          Semantics(
+            container: true,
+            button: true,
+            enabled: true,
+            label: editLabel,
+            onTap: onTap,
+            excludeSemantics: true,
+            child: IconButton(
+              tooltip: editLabel,
+              constraints: const BoxConstraints.tightFor(width: 48, height: 48),
+              icon: Icon(Icons.edit_outlined, color: SoriColors.primary),
+              onPressed: onTap,
+            ),
+          ),
+          _CustomPackListenButton(text: word.korean, onSpeak: onSpeak),
+          Semantics(
+            container: true,
+            button: true,
+            enabled: true,
+            label: deleteLabel,
+            onTap: onDelete,
+            excludeSemantics: true,
+            child: IconButton(
+              tooltip: deleteLabel,
+              constraints: const BoxConstraints.tightFor(width: 48, height: 48),
+              icon: Icon(Icons.delete_outline, color: s.textDim),
+              onPressed: onDelete,
+            ),
+          ),
+        ],
       ),
+    );
+  }
+}
+
+class _CustomPackListenButton extends StatelessWidget {
+  const _CustomPackListenButton({required this.text, required this.onSpeak});
+
+  final String text;
+  final VoidCallback? onSpeak;
+
+  @override
+  Widget build(BuildContext context) {
+    final listen = AppL10n.of(context).ttsListen;
+    final label = text.isEmpty ? listen : '$listen: $text';
+    final enabled = onSpeak != null;
+    final s = SoriSurfaces.of(context);
+    return Semantics(
+      container: true,
+      button: true,
+      enabled: enabled,
+      label: label,
+      onTap: onSpeak,
+      excludeSemantics: true,
+      child: IconButton(
+        tooltip: label,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
+        icon: const Icon(Icons.volume_up_rounded, size: 22),
+        color: enabled ? SoriColors.primary : s.textDim,
+        onPressed: onSpeak,
+      ),
+    );
+  }
+}
+
+class _RenamePackDialog extends StatefulWidget {
+  const _RenamePackDialog({required this.initialName});
+
+  final String initialName;
+
+  @override
+  State<_RenamePackDialog> createState() => _RenamePackDialogState();
+}
+
+class _RenamePackDialogState extends State<_RenamePackDialog> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(text: widget.initialName);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return SoriDialog(
+      title: Text(t.wbRenameTitle),
+      content: SoriTextField(
+        controller: _controller,
+        autofocus: true,
+        labelText: t.wbRenameLabel,
+      ),
+      actions: [
+        TextButton(
+          style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(t.btnCancel),
+        ),
+        FilledButton(
+          style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => Navigator.of(context).pop(_controller.text.trim()),
+          child: Text(t.btnConfirm),
+        ),
+      ],
+    );
+  }
+}
+
+class _ImportCsvDialog extends StatefulWidget {
+  const _ImportCsvDialog();
+
+  @override
+  State<_ImportCsvDialog> createState() => _ImportCsvDialogState();
+}
+
+class _ImportCsvDialogState extends State<_ImportCsvDialog> {
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return SoriDialog(
+      title: Text(t.csvImportTitle),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(t.csvImportHint, style: SoriTextTheme.of(context).bodySmall),
+          const SizedBox(height: Spacing.sm),
+          SoriTextField(
+            controller: _controller,
+            autofocus: true,
+            minLines: 4,
+            maxLines: 10,
+            hintText: t.customPackCsvHint,
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(t.btnCancel),
+        ),
+        FilledButton(
+          style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => Navigator.of(context).pop(_controller.text),
+          child: Text(t.csvImportButton),
+        ),
+      ],
     );
   }
 }
@@ -876,6 +955,7 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
+    final koreanForSpeech = sanitizeCustomPackKoreanWord(_korean.text);
 
     // 시트 외형(둥근 상단·handle·키보드 inset·maxHeight·스크롤)은 SoriSheet 담당.
     return Column(
@@ -884,74 +964,77 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
       children: [
         Text(
           widget.existing == null ? t.wbAddWord : t.wbEditWordTitle,
-          style: const TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+          style: SoriTextTheme.of(context).h3,
         ),
         const SizedBox(height: 16),
-        TextField(
+        SoriTextField(
           controller: _korean,
           autofocus: widget.existing == null,
-          decoration: InputDecoration(
-            labelText: t.wbFieldKorean,
-            border: const OutlineInputBorder(),
-            suffixIcon: IconButton(
-              icon: Icon(Icons.volume_up_rounded, color: SoriColors.primary),
-              onPressed: () {
-                final safe = sanitizeCustomPackKoreanWord(_korean.text);
-                if (safe.isNotEmpty) {
-                  TtsService.speak(safe);
-                }
-              },
-            ),
+          labelText: t.wbFieldKorean,
+          onChanged: (_) => setState(() {}),
+          suffixIcon: _CustomPackListenButton(
+            text: koreanForSpeech,
+            onSpeak: koreanForSpeech.isEmpty
+                ? null
+                : () {
+                    // ignore: discarded_futures
+                    TtsService.speak(koreanForSpeech);
+                  },
           ),
         ),
         const SizedBox(height: 8),
         // 자동 채우기 버튼
         Align(
           alignment: Alignment.centerLeft,
-          child: TextButton.icon(
-            onPressed: _autoLoading ? null : _autoFill,
-            icon: _autoLoading
-                ? const SizedBox(
-                    width: 16,
-                    height: 16,
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  )
-                : const Icon(Icons.auto_awesome, size: 18),
-            label: Text(_autoLoading ? t.wbAutoFillRunning : t.wbAutoFill),
+          child: Semantics(
+            liveRegion: _autoLoading,
+            child: SoriButton(
+              label: _autoLoading ? t.wbAutoFillRunning : t.wbAutoFill,
+              icon: _autoLoading ? null : Icons.auto_awesome,
+              variant: SoriButtonVariant.ghost,
+              size: SoriButtonSize.md,
+              onTap: _autoLoading ? null : _autoFill,
+            ),
           ),
         ),
         if (_autoNote != null)
           Padding(
             padding: const EdgeInsets.only(bottom: 6),
-            child: Text(
-              _autoNote!,
-              style: TextStyle(fontSize: 12, color: SoriColors.accent),
+            child: Semantics(
+              liveRegion: true,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Icon(
+                    Icons.info_outline_rounded,
+                    size: 20,
+                    color: SoriColors.danger,
+                  ),
+                  const SizedBox(width: Spacing.xs),
+                  Expanded(
+                    child: Text(
+                      _autoNote!,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).bodySmall.copyWith(color: SoriColors.danger),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         const SizedBox(height: 4),
-        TextField(
-          controller: _meaning,
-          decoration: InputDecoration(
-            labelText: t.wbFieldMeaning,
-            border: const OutlineInputBorder(),
-          ),
-        ),
+        SoriTextField(controller: _meaning, labelText: t.wbFieldMeaning),
         if (_definitionKo.isNotEmpty) ...[
           const SizedBox(height: 6),
-          Text(
-            _definitionKo,
-            style: TextStyle(fontSize: 12, color: s.textMuted),
-          ),
+          Text(_definitionKo, style: SoriTextTheme.of(context).bodySmall),
         ],
         const SizedBox(height: 12),
-        TextField(
+        SoriTextField(
           controller: _example,
           minLines: 1,
           maxLines: 3,
-          decoration: InputDecoration(
-            labelText: t.wbFieldExample,
-            border: const OutlineInputBorder(),
-          ),
+          labelText: t.wbFieldExample,
         ),
         const SizedBox(height: 14),
         // ── 사진 첨부 ──
@@ -959,7 +1042,7 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
           children: [
             if (_pendingPreview != null)
               ClipRRect(
-                borderRadius: BorderRadius.circular(SoriRadius.sm),
+                borderRadius: SoriRadius.brSm,
                 child: Image.file(
                   _pendingPreview!,
                   width: 56,
@@ -976,7 +1059,7 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
                 reference: _imagePath,
                 width: 56,
                 height: 56,
-                borderRadius: BorderRadius.circular(SoriRadius.sm),
+                borderRadius: SoriRadius.brSm,
               )
             else
               Container(
@@ -984,7 +1067,7 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
                 height: 56,
                 decoration: BoxDecoration(
                   color: s.border.withValues(alpha: 0.4),
-                  borderRadius: BorderRadius.circular(SoriRadius.sm),
+                  borderRadius: SoriRadius.brSm,
                 ),
                 child: Icon(Icons.image_outlined, color: s.textDim),
               ),
@@ -994,25 +1077,32 @@ class _WordEditorSheetState extends State<_WordEditorSheet> {
                 spacing: 6,
                 runSpacing: 6,
                 children: [
-                  TextButton.icon(
-                    onPressed: _photoBusy
+                  SoriButton(
+                    label: t.wbPhotoCamera,
+                    icon: Icons.photo_camera_outlined,
+                    variant: SoriButtonVariant.ghost,
+                    size: SoriButtonSize.md,
+                    onTap: _photoBusy
                         ? null
                         : () => _pickImage(ImageSource.camera),
-                    icon: const Icon(Icons.photo_camera_outlined, size: 18),
-                    label: Text(t.wbPhotoCamera),
                   ),
-                  TextButton.icon(
-                    onPressed: _photoBusy
+                  SoriButton(
+                    label: t.wbPhotoGallery,
+                    icon: Icons.photo_library_outlined,
+                    variant: SoriButtonVariant.ghost,
+                    size: SoriButtonSize.md,
+                    onTap: _photoBusy
                         ? null
                         : () => _pickImage(ImageSource.gallery),
-                    icon: const Icon(Icons.photo_library_outlined, size: 18),
-                    label: Text(t.wbPhotoGallery),
                   ),
                   if (_imagePath.isNotEmpty || _pendingPreview != null)
-                    TextButton.icon(
-                      onPressed: _removeImage,
-                      icon: const Icon(Icons.delete_outline, size: 18),
-                      label: Text(t.wbPhotoRemove),
+                    SoriButton(
+                      label: t.wbPhotoRemove,
+                      icon: Icons.delete_outline,
+                      variant: SoriButtonVariant.ghost,
+                      size: SoriButtonSize.md,
+                      destructive: true,
+                      onTap: _removeImage,
                     ),
                 ],
               ),

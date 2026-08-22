@@ -428,6 +428,9 @@ class AppL10nEn extends AppL10n {
   String get bookshelfEmptyCta => 'Snap a page';
 
   @override
+  String get bookshelfEmptyPreview => 'Empty page';
+
+  @override
   String get bookshelfSectionPages => 'Pages';
 
   @override
@@ -472,6 +475,11 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get bookshelfCreatePackName => 'Name';
+
+  @override
+  String bookshelfDefaultPackName(Object date) {
+    return 'Pack $date';
+  }
 
   @override
   String get bookshelfCreatePackSaved => 'Pack saved.';
@@ -3520,6 +3528,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get redeemAction => 'Import';
+
+  @override
+  String get redeemLoading => 'Importing pack…';
 
   @override
   String redeemSuccess(Object name, int count) {

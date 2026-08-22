@@ -6,9 +6,11 @@ import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
@@ -47,10 +49,12 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
         content: Text(t.bookshelfDeletePageBody),
         actions: [
           TextButton(
+            style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
             onPressed: () => Navigator.of(ctx).pop(false),
             child: Text(t.btnCancel),
           ),
           FilledButton.tonal(
+            style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
             onPressed: () => Navigator.of(ctx).pop(true),
             child: Text(t.btnDelete),
           ),
@@ -67,34 +71,15 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
     final page = _page;
     if (page == null) return;
     final t = AppL10n.of(context);
-    final controller = TextEditingController(
-      text: page.note.isNotEmpty
-          ? page.note
-          : 'Pack ${page.capturedAtIso.length >= 10 ? page.capturedAtIso.substring(0, 10) : ''}',
-    );
+    final date = page.capturedAtIso.length >= 10
+        ? page.capturedAtIso.substring(0, 10)
+        : '';
+    final initialName = page.note.isNotEmpty
+        ? page.note
+        : t.bookshelfDefaultPackName(date).trim();
     final name = await showSoriDialog<String>(
       context: context,
-      builder: (ctx) => SoriDialog(
-        title: Text(t.bookshelfCreatePackTitle),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          decoration: InputDecoration(
-            labelText: t.bookshelfCreatePackName,
-            hintText: t.bookshelfCreatePackNameHint,
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(null),
-            child: Text(t.btnCancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
-            child: Text(t.btnConfirm),
-          ),
-        ],
-      ),
+      builder: (_) => _CreatePagePackDialog(initialName: initialName),
     );
     if (name == null || name.isEmpty) return;
     final pack = await CustomPackService.createFromPage(page: page, name: name);
@@ -130,8 +115,10 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
     }
 
     final page = _page!;
-    final s = SoriSurfaces.of(context);
     final hasWords = page.words.isNotEmpty;
+    final extractedText = page.extractedText.isEmpty
+        ? t.bookshelfEmptyPreview
+        : page.extractedText;
 
     return SoriStandardPage(
       appBarTitle: t.bookshelfPageTitle,
@@ -152,17 +139,11 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
       ),
       children: [
         // 추출 원문 미리보기
-        Container(
-          padding: const EdgeInsets.all(Spacing.md),
-          decoration: BoxDecoration(
-            color: SoriColors.info.withValues(alpha: 0.06),
-            borderRadius: SoriRadius.brMd,
-            border: Border.all(color: SoriColors.info.withValues(alpha: 0.20)),
-          ),
-          child: Text(
-            page.extractedText,
-            style: const TextStyle(fontSize: 14, height: 1.5),
-          ),
+        SoriCard(
+          variant: SoriCardVariant.compact,
+          accent: SoriColors.info,
+          tinted: true,
+          child: Text(extractedText, style: SoriTextTheme.of(context).body),
         ),
         const SizedBox(height: Spacing.lg),
 
@@ -180,13 +161,13 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
 
         if (page.words.isNotEmpty) ...[
           _SectionLabel(label: t.bookResultSectionWords),
-          ...page.words.map((w) => _MiniWordRow(word: w, s: s)),
+          ...page.words.map((w) => _MiniWordRow(word: w)),
           const SizedBox(height: Spacing.lg),
         ],
 
         if (page.grammar.isNotEmpty) ...[
           _SectionLabel(label: t.bookResultSectionGrammar),
-          ...page.grammar.map((g) => _MiniGrammarRow(hit: g, s: s)),
+          ...page.grammar.map((g) => _MiniGrammarRow(hit: g)),
           const SizedBox(height: Spacing.lg),
         ],
 
@@ -194,7 +175,7 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
           _SectionLabel(label: t.bookResultSectionSentences),
           ...page.sentences
               .take(10)
-              .map((sent) => _MiniSentenceRow(sentence: sent, s: s)),
+              .map((sent) => _MiniSentenceRow(sentence: sent)),
         ],
       ],
     );
@@ -208,22 +189,14 @@ class _SectionLabel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(4, Spacing.sm, 4, Spacing.sm),
-      child: Text(
-        label,
-        style: const TextStyle(
-          fontSize: 13,
-          fontWeight: FontWeight.w800,
-          letterSpacing: 0.4,
-        ),
-      ),
+      child: Text(label, style: SoriTextTheme.of(context).label),
     );
   }
 }
 
 class _MiniWordRow extends StatelessWidget {
   final ExtractedWord word;
-  final SoriSurfaces s;
-  const _MiniWordRow({required this.word, required this.s});
+  const _MiniWordRow({required this.word});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -231,31 +204,19 @@ class _MiniWordRow extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: RichText(
-              text: TextSpan(
-                style: TextStyle(fontSize: 14, color: s.text),
-                children: [
-                  TextSpan(
-                    text: word.korean,
-                    style: const TextStyle(fontWeight: FontWeight.w800),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(word.korean, style: SoriTextTheme.of(context).cardTitle),
+                if (word.translationDe.isNotEmpty)
+                  Text(
+                    word.translationDe,
+                    style: SoriTextTheme.of(context).bodySmall,
                   ),
-                  if (word.translationDe.isNotEmpty)
-                    TextSpan(
-                      text: '  ${word.translationDe}',
-                      style: TextStyle(color: s.textMuted),
-                    ),
-                ],
-              ),
+              ],
             ),
           ),
-          IconButton(
-            visualDensity: VisualDensity.compact,
-            icon: const Icon(Icons.volume_up_rounded, size: 18),
-            onPressed: () {
-              // ignore: discarded_futures
-              TtsService.speak(word.korean);
-            },
-          ),
+          _BookshelfListenButton(text: word.korean),
         ],
       ),
     );
@@ -264,8 +225,7 @@ class _MiniWordRow extends StatelessWidget {
 
 class _MiniGrammarRow extends StatelessWidget {
   final GrammarHit hit;
-  final SoriSurfaces s;
-  const _MiniGrammarRow({required this.hit, required this.s});
+  const _MiniGrammarRow({required this.hit});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -273,18 +233,13 @@ class _MiniGrammarRow extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            hit.nameDe,
-            style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 13),
-          ),
+          Text(hit.nameDe, style: SoriTextTheme.of(context).cardTitle),
           if (hit.matchedText.isNotEmpty)
             Text(
               '"${hit.matchedText}"',
-              style: TextStyle(
-                fontSize: 12,
-                color: s.textMuted,
-                fontStyle: FontStyle.italic,
-              ),
+              style: SoriTextTheme.of(
+                context,
+              ).bodySmall.copyWith(fontStyle: FontStyle.italic),
             ),
         ],
       ),
@@ -294,8 +249,7 @@ class _MiniGrammarRow extends StatelessWidget {
 
 class _MiniSentenceRow extends StatelessWidget {
   final TranslatedSentence sentence;
-  final SoriSurfaces s;
-  const _MiniSentenceRow({required this.sentence, required this.s});
+  const _MiniSentenceRow({required this.sentence});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -309,33 +263,106 @@ class _MiniSentenceRow extends StatelessWidget {
               children: [
                 Text(
                   sentence.korean,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: SoriTextTheme.of(context).cardTitle,
                 ),
                 if (sentence.translationDe.isNotEmpty)
                   Text(
                     sentence.translationDe,
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: s.textMuted,
-                      fontStyle: FontStyle.italic,
-                    ),
+                    style: SoriTextTheme.of(
+                      context,
+                    ).bodySmall.copyWith(fontStyle: FontStyle.italic),
                   ),
               ],
             ),
           ),
-          IconButton(
-            visualDensity: VisualDensity.compact,
-            icon: const Icon(Icons.volume_up_rounded, size: 18),
-            onPressed: () {
-              // ignore: discarded_futures
-              TtsService.speak(sentence.korean);
-            },
-          ),
+          _BookshelfListenButton(text: sentence.korean),
         ],
       ),
+    );
+  }
+}
+
+class _BookshelfListenButton extends StatelessWidget {
+  const _BookshelfListenButton({required this.text});
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final label = '${AppL10n.of(context).ttsListen}: $text';
+    void play() {
+      // ignore: discarded_futures
+      TtsService.speak(text);
+    }
+
+    return Semantics(
+      container: true,
+      button: true,
+      enabled: true,
+      label: label,
+      onTap: play,
+      excludeSemantics: true,
+      child: IconButton(
+        tooltip: label,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
+        icon: const Icon(
+          Icons.volume_up_rounded,
+          size: 22,
+          color: SoriColors.primary,
+        ),
+        onPressed: play,
+      ),
+    );
+  }
+}
+
+class _CreatePagePackDialog extends StatefulWidget {
+  const _CreatePagePackDialog({required this.initialName});
+
+  final String initialName;
+
+  @override
+  State<_CreatePagePackDialog> createState() => _CreatePagePackDialogState();
+}
+
+class _CreatePagePackDialogState extends State<_CreatePagePackDialog> {
+  late final TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(text: widget.initialName);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return SoriDialog(
+      title: Text(t.bookshelfCreatePackTitle),
+      content: SoriTextField(
+        controller: _controller,
+        autofocus: true,
+        labelText: t.bookshelfCreatePackName,
+        hintText: t.bookshelfCreatePackNameHint,
+      ),
+      actions: [
+        TextButton(
+          style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => Navigator.of(context).pop(null),
+          child: Text(t.btnCancel),
+        ),
+        FilledButton(
+          style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => Navigator.of(context).pop(_controller.text.trim()),
+          child: Text(t.btnConfirm),
+        ),
+      ],
     );
   }
 }
