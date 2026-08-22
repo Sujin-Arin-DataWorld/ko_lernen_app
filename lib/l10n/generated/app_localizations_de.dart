@@ -1788,6 +1788,17 @@ class AppL10nDe extends AppL10n {
   String get bookResultSave => 'In meinem Bücherregal speichern';
 
   @override
+  String get bookResultSaving => 'Seite wird gespeichert…';
+
+  @override
+  String get bookResultSaveUnresolved =>
+      'Speicherstatus konnte nicht bestätigt werden';
+
+  @override
+  String get bookResultSaveUnresolvedBody =>
+      'Prüfe dein Bücherregal, bevor du erneut versuchst, diese Seite zu speichern.';
+
+  @override
   String get bookResultSaved => 'Seite gespeichert.';
 
   @override

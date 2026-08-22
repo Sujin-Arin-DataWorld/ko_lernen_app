@@ -25,6 +25,7 @@ class AppError extends StatelessWidget {
   final VoidCallback? onRetry;
   final IconData icon;
   final String? retryLabel;
+  final bool messageLiveRegion;
 
   /// 옵션 일러스트 — 주어지면 아이콘 대신 PNG(없으면/실패 시 아이콘).
   final String? asset;
@@ -35,6 +36,7 @@ class AppError extends StatelessWidget {
     this.onRetry,
     this.icon = Icons.error_outline,
     this.retryLabel,
+    this.messageLiveRegion = false,
     this.asset = kTaegoErrorAsset,
   });
 
@@ -74,11 +76,21 @@ class AppError extends StatelessWidget {
                           : Icon(icon, size: 56, color: SoriColors.danger),
                     ),
                     const SizedBox(height: Spacing.md),
-                    Text(
-                      message,
-                      textAlign: TextAlign.center,
-                      style: SoriTextTheme.of(context).body,
-                    ),
+                    if (messageLiveRegion)
+                      Semantics(
+                        liveRegion: true,
+                        child: Text(
+                          message,
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(context).body,
+                        ),
+                      )
+                    else
+                      Text(
+                        message,
+                        textAlign: TextAlign.center,
+                        style: SoriTextTheme.of(context).body,
+                      ),
                     if (onRetry != null) ...[
                       const SizedBox(height: Spacing.lg),
                       SoriButton.filled(
