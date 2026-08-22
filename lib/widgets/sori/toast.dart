@@ -21,6 +21,7 @@ ScaffoldFeatureController<SnackBar, SnackBarClosedReason>? showSoriToast(
   String message, {
   SoriToastTone tone = SoriToastTone.error,
   Duration duration = const Duration(milliseconds: 1200),
+  bool liveRegion = false,
 }) {
   final messenger = ScaffoldMessenger.maybeOf(context);
   if (messenger == null) {
@@ -29,7 +30,15 @@ ScaffoldFeatureController<SnackBar, SnackBarClosedReason>? showSoriToast(
   messenger.removeCurrentSnackBar();
   return messenger.showSnackBar(
     SnackBar(
-      content: Text(message),
+      content: liveRegion
+          ? Semantics(
+              container: true,
+              liveRegion: true,
+              label: message,
+              excludeSemantics: true,
+              child: Text(message),
+            )
+          : Text(message),
       duration: duration,
       behavior: SnackBarBehavior.floating,
       showCloseIcon: tone == SoriToastTone.neutral,
@@ -56,6 +65,7 @@ void soriNotice(
     message,
     tone: SoriToastTone.neutral,
     duration: duration,
+    liveRegion: true,
   );
 }
 

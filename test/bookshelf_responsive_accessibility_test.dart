@@ -66,11 +66,12 @@ void main() {
     await tester.pump();
 
     final nameText = tester.widget<Text>(name);
+    final t = lookupAppL10n(const Locale('de'));
     expect(nameText.maxLines, isNull);
     expect(nameText.overflow, isNull);
-    expect(find.byTooltip('Bearbeiten'), findsOneWidget);
-    expect(find.byTooltip('Teilen'), findsOneWidget);
-    expect(find.byTooltip('Löschen'), findsOneWidget);
+    expect(find.byTooltip('${t.wbEditTooltip}: $packName'), findsOneWidget);
+    expect(find.byTooltip('${t.shareTooltip}: $packName'), findsOneWidget);
+    expect(find.byTooltip('${t.btnDelete}: $packName'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 }

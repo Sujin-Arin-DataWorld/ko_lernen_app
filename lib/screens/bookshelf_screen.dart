@@ -8,7 +8,10 @@ import '../models/custom_pack.dart';
 import '../services/bookshelf_service.dart';
 import '../services/custom_pack_service.dart';
 import '../services/shared_pack_service.dart';
+import '../widgets/app_error.dart';
+import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/dialog.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
@@ -17,9 +20,13 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/text_field.dart';
 import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
+
+typedef SharePackCodeGenerator = Future<String> Function(CustomPack pack);
+typedef SharedPackRedeemer = Future<CustomPack> Function(String code);
 
 /// Phase 5.1 (stately-rising-jongga) — 내 책장 (Bookshelf) 목록.
 ///
@@ -29,7 +36,14 @@ import '../widgets/sori/window_class.dart';
 ///
 /// 빈 책장 → SoriEmptyState + "사진 찍기" CTA → /book.
 class BookshelfScreen extends StatefulWidget {
-  const BookshelfScreen({super.key});
+  const BookshelfScreen({
+    super.key,
+    this.shareCodeGenerator,
+    this.sharedPackRedeemer,
+  });
+
+  final SharePackCodeGenerator? shareCodeGenerator;
+  final SharedPackRedeemer? sharedPackRedeemer;
 
   @override
   State<BookshelfScreen> createState() => _BookshelfScreenState();
@@ -91,7 +105,8 @@ class _BookshelfScreenState extends State<BookshelfScreen>
   Future<void> _sharePack(CustomPack pack) async {
     await showSoriSheet<void>(
       context: context,
-      builder: (_) => _SharePackSheet(pack: pack),
+      builder: (_) =>
+          _SharePackSheet(pack: pack, generateCode: widget.shareCodeGenerator),
     );
   }
 
@@ -99,7 +114,7 @@ class _BookshelfScreenState extends State<BookshelfScreen>
   Future<void> _openRedeem() async {
     final imported = await showSoriDialog<CustomPack>(
       context: context,
-      builder: (_) => const _RedeemDialog(),
+      builder: (_) => _RedeemDialog(redeem: widget.sharedPackRedeemer),
     );
     if (imported == null || !mounted) return;
     _reload();
@@ -112,32 +127,9 @@ class _BookshelfScreenState extends State<BookshelfScreen>
 
   /// 빈 "나만의 단어장" 생성 → 이름 입력 → 편집 화면으로 이동.
   Future<void> _createWordbook() async {
-    final t = AppL10n.of(context);
-    final controller = TextEditingController();
     final name = await showSoriDialog<String>(
       context: context,
-      builder: (ctx) => SoriDialog(
-        title: Text(t.createWordbookTitle),
-        content: TextField(
-          controller: controller,
-          autofocus: true,
-          decoration: InputDecoration(
-            labelText: t.wbRenameLabel,
-            hintText: t.createWordbookHint,
-            border: const OutlineInputBorder(),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(ctx).pop(),
-            child: Text(t.btnCancel),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.of(ctx).pop(controller.text.trim()),
-            child: Text(t.btnConfirm),
-          ),
-        ],
-      ),
+      builder: (_) => const _CreateWordbookDialog(),
     );
     if (name == null || name.isEmpty || !mounted) return;
     final pack = await CustomPackService.createEmpty(name: name);
@@ -265,14 +257,7 @@ class _SectionHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(4, Spacing.sm, 4, Spacing.sm),
-      child: Text(
-        label,
-        style: const TextStyle(
-          fontSize: 13,
-          fontWeight: FontWeight.w800,
-          letterSpacing: 0.4,
-        ),
-      ),
+      child: Text(label, style: SoriTextTheme.of(context).label),
     );
   }
 }
@@ -285,7 +270,6 @@ class _PageTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final dateLabel = page.capturedAtIso.length >= 10
         ? page.capturedAtIso.substring(0, 10)
         : '';
@@ -293,19 +277,20 @@ class _PageTile extends StatelessWidget {
         ? '${page.extractedText.substring(0, 60)}…'
         : page.extractedText;
 
-    return Material(
-      color: s.surface,
-      borderRadius: BorderRadius.circular(SoriRadius.md),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(SoriRadius.md),
+    final title = preview.isEmpty ? t.bookshelfEmptyPreview : preview;
+    final meta = t.bookshelfTileMeta(
+      page.words.length,
+      page.grammar.length,
+      dateLabel,
+    );
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: SoriColors.info,
         onTap: onTap,
-        child: Container(
-          margin: const EdgeInsets.only(bottom: Spacing.sm),
-          padding: const EdgeInsets.all(Spacing.md),
-          decoration: BoxDecoration(
-            border: Border.all(color: SoriColors.info.withValues(alpha: 0.25)),
-            borderRadius: BorderRadius.circular(SoriRadius.md),
-          ),
+        semanticLabel: '$title. $meta',
+        child: ExcludeSemantics(
           child: Row(
             children: [
               Icon(Icons.article_outlined, size: 22, color: SoriColors.info),
@@ -314,26 +299,16 @@ class _PageTile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      preview.isEmpty ? '(leer)' : preview,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 14,
-                      ),
-                    ),
+                    Text(title, style: SoriTextTheme.of(context).cardTitle),
                     const SizedBox(height: 2),
-                    Text(
-                      t.bookshelfTileMeta(
-                        page.words.length,
-                        page.grammar.length,
-                        dateLabel,
-                      ),
-                      style: TextStyle(fontSize: 11, color: s.textMuted),
-                    ),
+                    Text(meta, style: SoriTextTheme.of(context).cardSubtitle),
                   ],
                 ),
               ),
-              Icon(Icons.chevron_right, color: s.textDim),
+              Icon(
+                Icons.chevron_right,
+                color: SoriSurfaces.of(context).textDim,
+              ),
             ],
           ),
         ),
@@ -360,27 +335,28 @@ class _CustomPackTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final s = SoriSurfaces.of(context);
-    return Material(
-      color: SoriColors.primary.withValues(alpha: 0.06),
-      borderRadius: BorderRadius.circular(SoriRadius.md),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-        onTap: onTap,
-        child: Container(
-          margin: const EdgeInsets.only(bottom: Spacing.sm),
-          padding: const EdgeInsets.all(Spacing.md),
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: SoriColors.primary.withValues(alpha: 0.35),
-            ),
-            borderRadius: BorderRadius.circular(SoriRadius.md),
-          ),
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              final stackActions =
-                  MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
-                  constraints.maxWidth < SoriAdaptiveWidth.labelValueRow;
-              final identity = Row(
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriCard(
+        variant: SoriCardVariant.compact,
+        accent: SoriColors.primary,
+        tinted: true,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            final stackActions =
+                MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
+                constraints.maxWidth < SoriAdaptiveWidth.labelValueRow;
+            final identityLabel =
+                '${pack.displayName()}. ${t.bookshelfPackMeta(pack.totalWords)}';
+            final playLabel = '${t.btnPlay}: ${pack.displayName()}';
+            final editLabel = '${t.wbEditTooltip}: ${pack.displayName()}';
+            final shareLabel = '${t.shareTooltip}: ${pack.displayName()}';
+            final deleteLabel = '${t.btnDelete}: ${pack.displayName()}';
+            final identity = Semantics(
+              container: true,
+              label: identityLabel,
+              excludeSemantics: true,
+              child: Row(
                 children: [
                   Icon(Icons.style_outlined, color: SoriColors.primary),
                   const SizedBox(width: Spacing.md),
@@ -390,76 +366,114 @@ class _CustomPackTile extends StatelessWidget {
                       children: [
                         Text(
                           pack.displayName(),
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w800,
-                            fontSize: 14,
-                          ),
+                          style: SoriTextTheme.of(context).cardTitle,
                         ),
                         Text(
                           t.bookshelfPackMeta(pack.totalWords),
-                          style: TextStyle(fontSize: 11, color: s.textMuted),
+                          style: SoriTextTheme.of(context).cardSubtitle,
                         ),
                       ],
                     ),
                   ),
                 ],
-              );
-              final actions = <Widget>[
-                SoriButton(
+              ),
+            );
+            final actions = <Widget>[
+              Semantics(
+                container: true,
+                button: true,
+                enabled: true,
+                label: playLabel,
+                onTap: onTap,
+                excludeSemantics: true,
+                child: SoriButton(
                   label: t.btnPlay,
                   variant: SoriButtonVariant.ghost,
-                  size: SoriButtonSize.sm,
+                  size: SoriButtonSize.md,
                   accent: SoriColors.primary,
                   onTap: onTap,
                 ),
-                IconButton(
+              ),
+              Semantics(
+                container: true,
+                button: true,
+                enabled: true,
+                label: editLabel,
+                onTap: onEdit,
+                excludeSemantics: true,
+                child: IconButton(
                   icon: Icon(Icons.edit_outlined, color: SoriColors.primary),
-                  tooltip: t.wbEditTooltip,
-                  visualDensity: VisualDensity.compact,
+                  tooltip: editLabel,
+                  constraints: const BoxConstraints.tightFor(
+                    width: 48,
+                    height: 48,
+                  ),
                   onPressed: onEdit,
                 ),
-                IconButton(
+              ),
+              Semantics(
+                container: true,
+                button: true,
+                enabled: true,
+                label: shareLabel,
+                onTap: onShare,
+                excludeSemantics: true,
+                child: IconButton(
                   icon: Icon(
                     Icons.ios_share_rounded,
                     color: SoriColors.primary,
                   ),
-                  tooltip: t.shareTooltip,
-                  visualDensity: VisualDensity.compact,
+                  tooltip: shareLabel,
+                  constraints: const BoxConstraints.tightFor(
+                    width: 48,
+                    height: 48,
+                  ),
                   onPressed: onShare,
                 ),
-                IconButton(
+              ),
+              Semantics(
+                container: true,
+                button: true,
+                enabled: true,
+                label: deleteLabel,
+                onTap: () => _confirmDelete(context),
+                excludeSemantics: true,
+                child: IconButton(
                   icon: Icon(Icons.delete_outline, color: s.textDim),
-                  tooltip: t.btnDelete,
-                  visualDensity: VisualDensity.compact,
+                  tooltip: deleteLabel,
+                  constraints: const BoxConstraints.tightFor(
+                    width: 48,
+                    height: 48,
+                  ),
                   onPressed: () => _confirmDelete(context),
                 ),
-              ];
-              if (stackActions) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    identity,
-                    const SizedBox(height: Spacing.sm),
-                    Align(
-                      alignment: AlignmentDirectional.centerEnd,
-                      child: Wrap(
-                        spacing: Spacing.xs,
-                        runSpacing: Spacing.xs,
-                        alignment: WrapAlignment.end,
-                        children: actions,
-                      ),
-                    ),
-                  ],
-                );
-              }
-              return Row(
+              ),
+            ];
+            if (stackActions) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(child: identity),
-                  ...actions,
+                  identity,
+                  const SizedBox(height: Spacing.sm),
+                  Align(
+                    alignment: AlignmentDirectional.centerEnd,
+                    child: Wrap(
+                      spacing: Spacing.xs,
+                      runSpacing: Spacing.xs,
+                      alignment: WrapAlignment.end,
+                      children: actions,
+                    ),
+                  ),
                 ],
               );
-            },
-          ),
+            }
+            return Row(
+              children: [
+                Expanded(child: identity),
+                ...actions,
+              ],
+            );
+          },
         ),
       ),
     );
@@ -474,10 +488,12 @@ class _CustomPackTile extends StatelessWidget {
         content: Text(t.bookshelfDeletePackBody(pack.displayName())),
         actions: [
           TextButton(
+            style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
             onPressed: () => Navigator.of(ctx).pop(false),
             child: Text(t.btnCancel),
           ),
           FilledButton.tonal(
+            style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
             onPressed: () => Navigator.of(ctx).pop(true),
             child: Text(t.btnDelete),
           ),
@@ -493,7 +509,8 @@ class _CustomPackTile extends StatelessWidget {
 // ════════════════════════════════════════════════════════════════════════
 class _SharePackSheet extends StatefulWidget {
   final CustomPack pack;
-  const _SharePackSheet({required this.pack});
+  final SharePackCodeGenerator? generateCode;
+  const _SharePackSheet({required this.pack, this.generateCode});
 
   @override
   State<_SharePackSheet> createState() => _SharePackSheetState();
@@ -511,8 +528,17 @@ class _SharePackSheetState extends State<_SharePackSheet> {
   }
 
   Future<void> _generate() async {
+    if (!_loading || _error != null) {
+      setState(() {
+        _code = null;
+        _error = null;
+        _loading = true;
+      });
+    }
     try {
-      final code = await SharedPackService.sharePack(widget.pack);
+      final code =
+          await (widget.generateCode?.call(widget.pack) ??
+              SharedPackService.sharePack(widget.pack));
       if (!mounted) return;
       setState(() {
         _code = code;
@@ -536,46 +562,52 @@ class _SharePackSheetState extends State<_SharePackSheet> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final code = _code;
 
     Widget body;
     if (_loading) {
-      body = Padding(
-        padding: const EdgeInsets.symmetric(vertical: 28),
-        child: Column(
-          children: [
-            const CircularProgressIndicator(color: SoriColors.primary),
-            const SizedBox(height: 14),
-            Text(
-              t.shareGenerating,
-              style: TextStyle(fontFamily: SoriFonts.sans, color: s.textMuted),
-            ),
-          ],
+      body = Semantics(
+        liveRegion: true,
+        label: t.shareGenerating,
+        excludeSemantics: true,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: Spacing.lg),
+          child: AppLoading(message: t.shareGenerating),
         ),
       );
     } else if (code == null) {
       final msg = _error == SharedPackError.empty ? t.shareEmpty : t.shareError;
-      body = Padding(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        child: Column(
-          children: [
-            Icon(Icons.cloud_off_outlined, color: s.textMuted, size: 32),
-            const SizedBox(height: 12),
-            Text(
-              msg,
-              textAlign: TextAlign.center,
-              style: TextStyle(fontFamily: SoriFonts.sans, color: s.text),
-            ),
-            const SizedBox(height: 16),
-            SoriButton(
-              label: t.btnClose,
-              variant: SoriButtonVariant.ghost,
-              onTap: () => Navigator.of(context).pop(),
-            ),
-          ],
-        ),
-      );
+      body = _error == SharedPackError.empty
+          ? Column(
+              children: [
+                SizedBox(
+                  height: 220,
+                  child: AppError(
+                    message: msg,
+                    messageLiveRegion: true,
+                    asset: null,
+                    icon: Icons.info_outline_rounded,
+                  ),
+                ),
+                SoriButton(
+                  label: t.btnClose,
+                  variant: SoriButtonVariant.ghost,
+                  size: SoriButtonSize.md,
+                  fullWidth: true,
+                  onTap: () => Navigator.of(context).pop(),
+                ),
+              ],
+            )
+          : SizedBox(
+              height: 280,
+              child: AppError(
+                message: msg,
+                messageLiveRegion: true,
+                asset: null,
+                icon: Icons.cloud_off_outlined,
+                onRetry: _generate,
+              ),
+            );
     } else {
       body = Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -583,33 +615,27 @@ class _SharePackSheetState extends State<_SharePackSheet> {
           Text(
             t.shareCodeLabel,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: SoriFonts.sans,
-              fontSize: 11,
-              fontWeight: FontWeight.w700,
-              letterSpacing: 0.5,
-              color: s.textMuted,
-            ),
+            style: SoriTextTheme.of(context).label,
           ),
           const SizedBox(height: 8),
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            decoration: BoxDecoration(
-              color: SoriColors.primary.withValues(alpha: 0.10),
-              borderRadius: BorderRadius.circular(SoriRadius.md),
-              border: Border.all(
-                color: SoriColors.primary.withValues(alpha: 0.35),
-              ),
-            ),
-            child: Text(
-              code,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontFamily: SoriFonts.sans,
-                fontSize: 34,
-                fontWeight: FontWeight.w900,
-                letterSpacing: 8,
-                color: SoriColors.primary,
+          Semantics(
+            container: true,
+            liveRegion: true,
+            label: '${t.shareCodeLabel}: $code',
+            excludeSemantics: true,
+            child: ExcludeSemantics(
+              child: SoriCard(
+                variant: SoriCardVariant.compact,
+                accent: SoriColors.primary,
+                tinted: true,
+                child: Text(
+                  code,
+                  textAlign: TextAlign.center,
+                  style: SoriTextTheme.of(context).numeral.copyWith(
+                    letterSpacing: 8,
+                    color: SoriColors.primary,
+                  ),
+                ),
               ),
             ),
           ),
@@ -617,45 +643,43 @@ class _SharePackSheetState extends State<_SharePackSheet> {
           Text(
             t.shareExpiryNote,
             textAlign: TextAlign.center,
-            style: TextStyle(
-              fontFamily: SoriFonts.sans,
-              fontSize: 11,
-              color: s.textDim,
-            ),
+            style: SoriTextTheme.of(context).caption,
           ),
           const SizedBox(height: 16),
-          Row(
+          Column(
             children: [
-              Expanded(
-                child: SoriButton(
-                  label: t.shareCopyCode,
-                  variant: SoriButtonVariant.ghost,
-                  accent: SoriColors.primary,
-                  onTap: () async {
-                    await Clipboard.setData(ClipboardData(text: code));
-                    if (context.mounted) {
-                      soriNotice(context, t.shareCodeCopied);
-                    }
-                  },
-                ),
+              SoriButton(
+                label: t.shareCopyCode,
+                icon: Icons.copy_rounded,
+                variant: SoriButtonVariant.ghost,
+                size: SoriButtonSize.md,
+                accent: SoriColors.primary,
+                fullWidth: true,
+                onTap: () async {
+                  await Clipboard.setData(ClipboardData(text: code));
+                  if (context.mounted) {
+                    soriNotice(context, t.shareCodeCopied);
+                  }
+                },
               ),
-              const SizedBox(width: 10),
-              Expanded(
-                child: SoriButton(
-                  label: t.shareViaApp,
-                  accent: SoriColors.primary,
-                  onTap: () async {
-                    await SharePlus.instance.share(
-                      ShareParams(
-                        text: t.sharePackBody(
-                          widget.pack.displayName(),
-                          widget.pack.totalWords,
-                          code,
-                        ),
+              const SizedBox(height: Spacing.sm),
+              SoriButton(
+                label: t.shareViaApp,
+                icon: Icons.ios_share_rounded,
+                size: SoriButtonSize.md,
+                accent: SoriColors.primary,
+                fullWidth: true,
+                onTap: () async {
+                  await SharePlus.instance.share(
+                    ShareParams(
+                      text: t.sharePackBody(
+                        widget.pack.displayName(),
+                        widget.pack.totalWords,
+                        code,
                       ),
-                    );
-                  },
-                ),
+                    ),
+                  );
+                },
               ),
             ],
           ),
@@ -667,23 +691,12 @@ class _SharePackSheetState extends State<_SharePackSheet> {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
-          t.shareTitle,
-          style: const TextStyle(
-            fontFamily: SoriFonts.sans,
-            fontSize: 17,
-            fontWeight: FontWeight.w800,
-          ),
-        ),
+        Text(t.shareTitle, style: SoriTextTheme.of(context).h3),
         const SizedBox(height: 2),
         Text(
           widget.pack.displayName(),
           textAlign: TextAlign.center,
-          style: TextStyle(
-            fontFamily: SoriFonts.sans,
-            fontSize: 12.5,
-            color: s.textMuted,
-          ),
+          style: SoriTextTheme.of(context).bodySmall,
         ),
         const SizedBox(height: 18),
         body,
@@ -696,7 +709,9 @@ class _SharePackSheetState extends State<_SharePackSheet> {
 // 코드 입력 다이얼로그 — 친구 코드로 팩 가져오기 (Phase 5.2)
 // ════════════════════════════════════════════════════════════════════════
 class _RedeemDialog extends StatefulWidget {
-  const _RedeemDialog();
+  const _RedeemDialog({this.redeem});
+
+  final SharedPackRedeemer? redeem;
 
   @override
   State<_RedeemDialog> createState() => _RedeemDialogState();
@@ -721,7 +736,9 @@ class _RedeemDialogState extends State<_RedeemDialog> {
       _errorText = null;
     });
     try {
-      final pack = await SharedPackService.redeem(_controller.text);
+      final pack =
+          await (widget.redeem?.call(_controller.text) ??
+              SharedPackService.redeem(_controller.text));
       if (!mounted) return;
       Navigator.of(context).pop(pack);
     } on SharedPackException catch (e) {
@@ -752,46 +769,87 @@ class _RedeemDialogState extends State<_RedeemDialog> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            t.redeemHint,
-            style: const TextStyle(fontFamily: SoriFonts.sans, fontSize: 12.5),
-          ),
-          const SizedBox(height: 14),
-          TextField(
-            controller: _controller,
-            autofocus: true,
-            enabled: !_loading,
-            textAlign: TextAlign.center,
-            textCapitalization: TextCapitalization.characters,
-            maxLength: 6,
-            style: const TextStyle(
-              fontFamily: SoriFonts.sans,
-              fontSize: 26,
-              fontWeight: FontWeight.w900,
-              letterSpacing: 8,
-            ),
-            decoration: InputDecoration(
+          Semantics(
+            liveRegion: _errorText != null,
+            child: SoriTextField(
+              controller: _controller,
+              autofocus: true,
+              enabled: !_loading,
+              labelText: t.redeemHint,
+              textAlign: TextAlign.center,
+              textCapitalization: TextCapitalization.characters,
+              maxLength: 6,
               counterText: '',
               errorText: _errorText,
-              border: const OutlineInputBorder(),
+              style: SoriTextTheme.of(context).h1.copyWith(letterSpacing: 8),
             ),
           ),
         ],
       ),
       actions: [
         TextButton(
+          style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
           onPressed: _loading ? null : () => Navigator.of(context).pop(),
           child: Text(t.btnCancel),
         ),
         FilledButton(
+          style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
           onPressed: _loading ? null : _submit,
           child: _loading
-              ? const SizedBox(
-                  width: 18,
-                  height: 18,
-                  child: CircularProgressIndicator(strokeWidth: 2),
+              ? Semantics(
+                  liveRegion: true,
+                  label: t.redeemLoading,
+                  excludeSemantics: true,
+                  child: const SizedBox(
+                    width: 18,
+                    height: 18,
+                    child: CircularProgressIndicator(strokeWidth: 2),
+                  ),
                 )
               : Text(t.redeemAction),
+        ),
+      ],
+    );
+  }
+}
+
+class _CreateWordbookDialog extends StatefulWidget {
+  const _CreateWordbookDialog();
+
+  @override
+  State<_CreateWordbookDialog> createState() => _CreateWordbookDialogState();
+}
+
+class _CreateWordbookDialogState extends State<_CreateWordbookDialog> {
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    return SoriDialog(
+      title: Text(t.createWordbookTitle),
+      content: SoriTextField(
+        controller: _controller,
+        autofocus: true,
+        labelText: t.wbRenameLabel,
+        hintText: t.createWordbookHint,
+      ),
+      actions: [
+        TextButton(
+          style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => Navigator.of(context).pop(),
+          child: Text(t.btnCancel),
+        ),
+        FilledButton(
+          style: FilledButton.styleFrom(minimumSize: const Size(48, 48)),
+          onPressed: () => Navigator.of(context).pop(_controller.text.trim()),
+          child: Text(t.btnConfirm),
         ),
       ],
     );

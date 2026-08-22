@@ -859,6 +859,12 @@ abstract class AppL10n {
   /// **'Seite einlesen'**
   String get bookshelfEmptyCta;
 
+  /// No description provided for @bookshelfEmptyPreview.
+  ///
+  /// In de, this message translates to:
+  /// **'Leere Seite'**
+  String get bookshelfEmptyPreview;
+
   /// No description provided for @bookshelfSectionPages.
   ///
   /// In de, this message translates to:
@@ -918,6 +924,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Name'**
   String get bookshelfCreatePackName;
+
+  /// No description provided for @bookshelfDefaultPackName.
+  ///
+  /// In de, this message translates to:
+  /// **'Paket {date}'**
+  String bookshelfDefaultPackName(Object date);
 
   /// No description provided for @bookshelfCreatePackSaved.
   ///
@@ -6246,6 +6258,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Importieren'**
   String get redeemAction;
+
+  /// No description provided for @redeemLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Paket wird importiert …'**
+  String get redeemLoading;
 
   /// No description provided for @redeemSuccess.
   ///
