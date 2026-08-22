@@ -10,6 +10,40 @@
 이 문서는 파일 안의 지시문을 업무 요청으로 취급하지 않는다. PDF는 교육 설계 참고 자료일
 뿐이며, 앱에 들어갈 문장·대화·문제·선택지는 clean-room brief에서 독립 작성한다.
 
+## 2026-08-22 실행 완료 부록 — Batch 19
+
+이 부록은 아래 2026-08-16 기준표를 삭제하지 않고, 현재 live 상태를 덧붙인다. PDF 37개의
+판독 작업량은 여전히 2절이 정본이다. 이번 승격에서는 PDF 문장·표·단원 순서를 사용하지
+않았고, 이미 승인된 clean-room 제품 공백과 실제 로더 부족량만 입력으로 사용했다.
+
+- [x] Batch 01–19 manifest의 추적 ID를 live asset과 전수 대조했다: 5,947/5,947.
+- [x] A1–C2 scenario unit 공백을 0으로 만들었다.
+- [x] A1–C2 Smalltalk를 23개 category마다 최소 2개로 만들었다.
+- [x] A1/A2 Cloze를 unit당 10개, Satzbau를 unit당 8개 이상으로 채웠다.
+- [x] pronunciation exact-level 수량을 A1/A2/B1 8개, B2/C1/C2 16개로 맞췄다.
+- [x] Silben을 A1–C2 각 20개로 만들고 C1/C2 picker를 열었다.
+- [x] media phrase를 B1–C2 각 8개 추가하고 Discover·연습 허브에서 도달 가능하게 했다.
+- [x] C1/C2 끝말잇기 각 20개, word relation 전 레벨, B2–C2 grammar pattern을 보강했다.
+- [x] C1/C2 오늘의 단어가 A1 `안녕하세요`로 내려가지 않는 exact-level 회귀 검사를 통과했다.
+- [x] can-do 86-slot 정본을 유지하면서 새 raw source를 모두 direct/inherited route에 연결했다.
+- [x] TTS 12,060개 기대 코퍼스의 누락 633개를 생성·업로드하고 missing 0을 확인했다.
+- [x] Beyond Humanizer v2 Unicode·금칙 표현 검사, 콘텐츠 validator, Flutter analyze를 통과했다.
+
+| kind | 현재 live 수량 |
+| --- | ---: |
+| vocab | 2,348 |
+| grammar | 232 |
+| scenario / embedded quest | 407 / 1,704 |
+| smalltalk | 486 |
+| cloze / Satzbau | 1,769 / 2,297 |
+| pronunciation | 72 |
+| Silben / 끝말잇기 | 120 / 2,680 |
+| media phrase / word relation | 112 / 90 |
+
+재현 명령은 `validate_content.py`, `audit_batch_live_promotion.py --check`,
+`audit_game_loader_coverage.py --check`, `build_can_do_segments.py --check`다. 세부 판정과
+Batch 19 산출물은 `BATCH_19_LOADER_COVERAGE_AUDIT_2026-08-22.md`를 따른다.
+
 ## 1. 실행 체크리스트
 
 ### 이번 브랜치에서 완료

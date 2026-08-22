@@ -1,9 +1,9 @@
 {
   "meta": {
-    "total": 1706,
+    "total": 1769,
     "perLevel": {
-      "a1": 291,
-      "a2": 267,
+      "a1": 344,
+      "a2": 277,
       "b1": 275,
       "b2": 385,
       "c1": 244,
@@ -19346,10 +19346,10 @@
       "id": "cloze_b2_0299",
       "level": "b2",
       "sentenceKo": "＿＿＿은 빼고 수치를 있는 그대로 전달해요.",
-      "answer": "자극적인 표현",
-      "fullKo": "자극적인 표현은 빼고 수치를 있는 그대로 전달해요.",
-      "de": "Ich lasse reißerische Formulierungen weg und gebe die Zahlen sachlich wieder.",
-      "en": "I leave out sensational wording and present the figures as they are.",
+      "answer": "과장 표현",
+      "fullKo": "과장 표현은 빼고 수치를 있는 그대로 전달해요.",
+      "de": "Ich lasse übertriebene Formulierungen weg und gebe die Zahlen sachlich wieder.",
+      "en": "I leave out exaggerated wording and present the figures as they are.",
       "distractors": [
         "원문 대조",
         "선택 편집",
@@ -26082,6 +26082,1077 @@
       "conceptIds": [
         "concept_c2_discourse_institutions"
       ]
+    },
+    {
+      "id": "cloze_a1_0292",
+      "level": "a1",
+      "topic": "첫인사",
+      "fullKo": "아침에 선생님께 안녕하세요라고 인사해요.",
+      "answer": "안녕하세요",
+      "sentenceKo": "아침에 선생님께 ＿＿＿라고 인사해요.",
+      "de": "Am Morgen begrüße ich die Lehrerin höflich.",
+      "en": "I greet the teacher politely in the morning.",
+      "distractors": [
+        "안녕",
+        "고마워",
+        "잘 자"
+      ],
+      "courseUnitId": "a1_01_greetings_hangul",
+      "sourceSeedId": "seed_batch19_a1_01_greetings_hangul"
+    },
+    {
+      "id": "cloze_a1_0293",
+      "level": "a1",
+      "topic": "첫인사",
+      "fullKo": "친구를 만나서 반가워라고 말해요.",
+      "answer": "반가워",
+      "sentenceKo": "친구를 만나서 ＿＿＿라고 말해요.",
+      "de": "Ich sage einem Freund, dass ich mich freue, ihn zu sehen.",
+      "en": "I tell a friend I'm glad to see them.",
+      "distractors": [
+        "죄송해",
+        "안녕히",
+        "감사해"
+      ],
+      "courseUnitId": "a1_01_greetings_hangul",
+      "sourceSeedId": "seed_batch19_a1_01_greetings_hangul"
+    },
+    {
+      "id": "cloze_a1_0294",
+      "level": "a1",
+      "topic": "첫인사",
+      "fullKo": "처음 만난 분께 처음 뵙겠습니다라고 해요.",
+      "answer": "처음 뵙겠습니다",
+      "sentenceKo": "처음 만난 분께 ＿＿＿라고 해요.",
+      "de": "Bei der ersten Begegnung sage ich höflich, dass ich mich freue.",
+      "en": "At a first meeting, I use a formal greeting.",
+      "distractors": [
+        "잘 먹겠습니다",
+        "다녀오겠습니다",
+        "수고했습니다"
+      ],
+      "courseUnitId": "a1_01_greetings_hangul",
+      "sourceSeedId": "seed_batch19_a1_01_greetings_hangul"
+    },
+    {
+      "id": "cloze_a1_0295",
+      "level": "a1",
+      "topic": "첫인사",
+      "fullKo": "집에 가는 친구에게 잘 가라고 말해요.",
+      "answer": "잘 가",
+      "sentenceKo": "집에 가는 친구에게 ＿＿＿라고 말해요.",
+      "de": "Zu einem Freund, der geht, sage ich: Mach's gut.",
+      "en": "I say take care to a friend who is leaving.",
+      "distractors": [
+        "어서 와",
+        "잘 먹어",
+        "괜찮아"
+      ],
+      "courseUnitId": "a1_01_greetings_hangul",
+      "sourceSeedId": "seed_batch19_a1_01_greetings_hangul"
+    },
+    {
+      "id": "cloze_a1_0296",
+      "level": "a1",
+      "topic": "첫인사",
+      "fullKo": "가게를 나가는 손님께 안녕히 가세요라고 해요.",
+      "answer": "안녕히 가세요",
+      "sentenceKo": "가게를 나가는 손님께 ＿＿＿라고 해요.",
+      "de": "Zu einem Gast, der geht, sage ich höflich auf Wiedersehen.",
+      "en": "I politely say goodbye to a guest who is leaving.",
+      "distractors": [
+        "안녕히 계세요",
+        "다녀오세요",
+        "어서 오세요"
+      ],
+      "courseUnitId": "a1_01_greetings_hangul",
+      "sourceSeedId": "seed_batch19_a1_01_greetings_hangul"
+    },
+    {
+      "id": "cloze_a1_0297",
+      "level": "a1",
+      "topic": "첫인사",
+      "fullKo": "제가 먼저 나갈 때 안녕히 계세요라고 말해요.",
+      "answer": "안녕히 계세요",
+      "sentenceKo": "제가 먼저 나갈 때 ＿＿＿라고 말해요.",
+      "de": "Wenn ich zuerst gehe, verabschiede ich mich von der Person, die bleibt.",
+      "en": "When I leave first, I say goodbye to the person staying.",
+      "distractors": [
+        "안녕히 가세요",
+        "어서 오세요",
+        "잘 다녀오세요"
+      ],
+      "courseUnitId": "a1_01_greetings_hangul",
+      "sourceSeedId": "seed_batch19_a1_01_greetings_hangul"
+    },
+    {
+      "id": "cloze_a1_0298",
+      "level": "a1",
+      "topic": "첫인사",
+      "fullKo": "손님이 들어오면 어서 오세요라고 인사해요.",
+      "answer": "어서 오세요",
+      "sentenceKo": "손님이 들어오면 ＿＿＿라고 인사해요.",
+      "de": "Wenn ein Gast hereinkommt, heiße ich ihn willkommen.",
+      "en": "When a guest enters, I welcome them.",
+      "distractors": [
+        "다녀오세요",
+        "안녕히 계세요",
+        "잘 부탁해요"
+      ],
+      "courseUnitId": "a1_01_greetings_hangul",
+      "sourceSeedId": "seed_batch19_a1_01_greetings_hangul"
+    },
+    {
+      "id": "cloze_a1_0299",
+      "level": "a1",
+      "topic": "첫인사",
+      "fullKo": "도움을 받은 뒤 감사합니다라고 말해요.",
+      "answer": "감사합니다",
+      "sentenceKo": "도움을 받은 뒤 ＿＿＿라고 말해요.",
+      "de": "Nach der Hilfe bedanke ich mich höflich.",
+      "en": "After receiving help, I say thank you politely.",
+      "distractors": [
+        "죄송합니다",
+        "괜찮습니다",
+        "축하합니다"
+      ],
+      "courseUnitId": "a1_01_greetings_hangul",
+      "sourceSeedId": "seed_batch19_a1_01_greetings_hangul"
+    },
+    {
+      "id": "cloze_a1_0300",
+      "level": "a1",
+      "topic": "첫인사",
+      "fullKo": "약속에 늦어서 죄송합니다라고 말해요.",
+      "answer": "죄송합니다",
+      "sentenceKo": "약속에 늦어서 ＿＿＿라고 말해요.",
+      "de": "Weil ich zu spät bin, entschuldige ich mich höflich.",
+      "en": "Because I'm late, I apologize politely.",
+      "distractors": [
+        "감사합니다",
+        "반갑습니다",
+        "축하합니다"
+      ],
+      "courseUnitId": "a1_01_greetings_hangul",
+      "sourceSeedId": "seed_batch19_a1_01_greetings_hangul"
+    },
+    {
+      "id": "cloze_a1_0301",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "제 이름은 수진이에요.",
+      "answer": "이름",
+      "sentenceKo": "제 ＿＿＿은 수진이에요.",
+      "de": "Mein Name ist Sujin.",
+      "en": "My name is Sujin.",
+      "distractors": [
+        "나이",
+        "학교",
+        "나라"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity",
+      "sourceSeedId": "seed_batch19_a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0302",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "저는 한국어 학생이에요.",
+      "answer": "학생",
+      "sentenceKo": "저는 한국어 ＿＿＿이에요.",
+      "de": "Ich bin Koreanischlernende.",
+      "en": "I am a Korean learner.",
+      "distractors": [
+        "선생님",
+        "친구",
+        "회사"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity",
+      "sourceSeedId": "seed_batch19_a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0303",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "제 국적은 독일이에요.",
+      "answer": "국적",
+      "sentenceKo": "제 ＿＿＿은 독일이에요.",
+      "de": "Meine Staatsangehörigkeit ist deutsch.",
+      "en": "My nationality is German.",
+      "distractors": [
+        "고향",
+        "성",
+        "모국어"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity",
+      "sourceSeedId": "seed_batch19_a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0304",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "제 모국어는 독일어예요.",
+      "answer": "모국어",
+      "sentenceKo": "제 ＿＿＿는 독일어예요.",
+      "de": "Meine Muttersprache ist Deutsch.",
+      "en": "My first language is German.",
+      "distractors": [
+        "국적",
+        "이름",
+        "직업"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity",
+      "sourceSeedId": "seed_batch19_a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0305",
+      "level": "a1",
+      "topic": "자기소개",
+      "fullKo": "제 고향은 함부르크예요.",
+      "answer": "고향",
+      "sentenceKo": "제 ＿＿＿은 함부르크예요.",
+      "de": "Meine Heimatstadt ist Hamburg.",
+      "en": "My hometown is Hamburg.",
+      "distractors": [
+        "나이",
+        "성",
+        "학교"
+      ],
+      "courseUnitId": "a1_02_self_intro_identity",
+      "sourceSeedId": "seed_batch19_a1_02_self_intro_identity"
+    },
+    {
+      "id": "cloze_a1_0306",
+      "level": "a1",
+      "topic": "은는과 이가",
+      "fullKo": "저는 학생이에요.",
+      "answer": "저는",
+      "sentenceKo": "＿＿＿ 학생이에요.",
+      "de": "Ich bin Studentin.",
+      "en": "I am a student.",
+      "distractors": [
+        "제가",
+        "저를",
+        "저에게"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
+    },
+    {
+      "id": "cloze_a1_0307",
+      "level": "a1",
+      "topic": "은는과 이가",
+      "fullKo": "제 친구는 회사원이에요.",
+      "answer": "제 친구는",
+      "sentenceKo": "＿＿＿ 회사원이에요.",
+      "de": "Mein Freund arbeitet in einer Firma.",
+      "en": "My friend is an office worker.",
+      "distractors": [
+        "제 친구가",
+        "제 친구를",
+        "제 친구와"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
+    },
+    {
+      "id": "cloze_a1_0308",
+      "level": "a1",
+      "topic": "은는과 이가",
+      "fullKo": "오늘은 월요일이에요.",
+      "answer": "오늘은",
+      "sentenceKo": "＿＿＿ 월요일이에요.",
+      "de": "Heute ist Montag.",
+      "en": "Today is Monday.",
+      "distractors": [
+        "오늘이",
+        "오늘을",
+        "오늘에서"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
+    },
+    {
+      "id": "cloze_a1_0309",
+      "level": "a1",
+      "topic": "은는과 이가",
+      "fullKo": "제 성은 박이에요.",
+      "answer": "제 성은",
+      "sentenceKo": "＿＿＿ 박이에요.",
+      "de": "Mein Nachname ist Park.",
+      "en": "My family name is Park.",
+      "distractors": [
+        "제 성이",
+        "제 성을",
+        "제 성도"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
+    },
+    {
+      "id": "cloze_a1_0310",
+      "level": "a1",
+      "topic": "은는과 이가",
+      "fullKo": "누가 수진 씨예요?",
+      "answer": "누가",
+      "sentenceKo": "＿＿＿ 수진 씨예요?",
+      "de": "Wer ist Sujin?",
+      "en": "Who is Sujin?",
+      "distractors": [
+        "누구는",
+        "누구를",
+        "누구에게"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
+    },
+    {
+      "id": "cloze_a1_0311",
+      "level": "a1",
+      "topic": "은는과 이가",
+      "fullKo": "제가 수진이에요.",
+      "answer": "제가",
+      "sentenceKo": "＿＿＿ 수진이에요.",
+      "de": "Ich bin Sujin.",
+      "en": "I'm Sujin.",
+      "distractors": [
+        "저는",
+        "저를",
+        "저도"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
+    },
+    {
+      "id": "cloze_a1_0312",
+      "level": "a1",
+      "topic": "은는과 이가",
+      "fullKo": "비가 와요.",
+      "answer": "비가",
+      "sentenceKo": "＿＿＿ 와요.",
+      "de": "Es regnet.",
+      "en": "It is raining.",
+      "distractors": [
+        "비는",
+        "비를",
+        "비와"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
+    },
+    {
+      "id": "cloze_a1_0313",
+      "level": "a1",
+      "topic": "은는과 이가",
+      "fullKo": "책이 책상 위에 있어요.",
+      "answer": "책이",
+      "sentenceKo": "＿＿＿ 책상 위에 있어요.",
+      "de": "Das Buch liegt auf dem Schreibtisch.",
+      "en": "The book is on the desk.",
+      "distractors": [
+        "책은",
+        "책을",
+        "책에"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
+    },
+    {
+      "id": "cloze_a1_0314",
+      "level": "a1",
+      "topic": "은는과 이가",
+      "fullKo": "커피는 좋아하지만 차는 안 마셔요.",
+      "answer": "커피는",
+      "sentenceKo": "＿＿＿ 좋아하지만 차는 안 마셔요.",
+      "de": "Kaffee mag ich, aber Tee trinke ich nicht.",
+      "en": "I like coffee, but I don't drink tea.",
+      "distractors": [
+        "커피가",
+        "커피를",
+        "커피와"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
+    },
+    {
+      "id": "cloze_a1_0315",
+      "level": "a1",
+      "topic": "은는과 이가",
+      "fullKo": "이분이 새 선생님이에요.",
+      "answer": "이분이",
+      "sentenceKo": "＿＿＿ 새 선생님이에요.",
+      "de": "Diese Person ist die neue Lehrerin.",
+      "en": "This person is the new teacher.",
+      "distractors": [
+        "이분은",
+        "이분을",
+        "이분도"
+      ],
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "sourceSeedId": "seed_batch19_a1_03_topic_subject_particles"
+    },
+    {
+      "id": "cloze_a1_0316",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "죄송하지만 다시 말해 주세요.",
+      "answer": "다시",
+      "sentenceKo": "죄송하지만 ＿＿＿ 말해 주세요.",
+      "de": "Entschuldigung, bitte sagen Sie es noch einmal.",
+      "en": "Sorry, please say that again.",
+      "distractors": [
+        "빨리",
+        "조용히",
+        "먼저"
+      ],
+      "courseUnitId": "a1_08_clarify_repair",
+      "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0317",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "조금 천천히 말해 주세요.",
+      "answer": "천천히",
+      "sentenceKo": "조금 ＿＿＿ 말해 주세요.",
+      "de": "Bitte sprechen Sie etwas langsamer.",
+      "en": "Please speak a little more slowly.",
+      "distractors": [
+        "같이",
+        "아직",
+        "자주"
+      ],
+      "courseUnitId": "a1_08_clarify_repair",
+      "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0318",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "이 단어는 무슨 뜻이에요?",
+      "answer": "무슨 뜻",
+      "sentenceKo": "이 단어는 ＿＿＿이에요?",
+      "de": "Was bedeutet dieses Wort?",
+      "en": "What does this word mean?",
+      "distractors": [
+        "어떤 이름",
+        "어떤 발음",
+        "몇 번"
+      ],
+      "courseUnitId": "a1_08_clarify_repair",
+      "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0319",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "이름을 적어 주세요.",
+      "answer": "적어 주세요",
+      "sentenceKo": "이름을 ＿＿＿.",
+      "de": "Bitte schreiben Sie den Namen auf.",
+      "en": "Please write the name down.",
+      "distractors": [
+        "읽어 주세요",
+        "들어 주세요",
+        "열어 주세요"
+      ],
+      "courseUnitId": "a1_08_clarify_repair",
+      "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0320",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "짧은 예문을 하나 보여 주세요.",
+      "answer": "예문",
+      "sentenceKo": "짧은 ＿＿＿을 하나 보여 주세요.",
+      "de": "Bitte zeigen Sie mir einen kurzen Beispielsatz.",
+      "en": "Please show me one short example sentence.",
+      "distractors": [
+        "주소",
+        "사진",
+        "가격"
+      ],
+      "courseUnitId": "a1_08_clarify_repair",
+      "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0321",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "이 발음이 맞아요?",
+      "answer": "발음",
+      "sentenceKo": "이 ＿＿＿이 맞아요?",
+      "de": "Ist diese Aussprache richtig?",
+      "en": "Is this pronunciation correct?",
+      "distractors": [
+        "뜻",
+        "번호",
+        "시간"
+      ],
+      "courseUnitId": "a1_08_clarify_repair",
+      "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0322",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "여기에서 기다리면 돼요?",
+      "answer": "여기에서",
+      "sentenceKo": "＿＿＿ 기다리면 돼요?",
+      "de": "Soll ich hier warten?",
+      "en": "Should I wait here?",
+      "distractors": [
+        "어제부터",
+        "친구하고",
+        "세 개를"
+      ],
+      "courseUnitId": "a1_08_clarify_repair",
+      "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0323",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "제가 맞게 들었어요?",
+      "answer": "맞게",
+      "sentenceKo": "제가 ＿＿＿ 들었어요?",
+      "de": "Habe ich das richtig gehört?",
+      "en": "Did I hear that correctly?",
+      "distractors": [
+        "늦게",
+        "작게",
+        "길게"
+      ],
+      "courseUnitId": "a1_08_clarify_repair",
+      "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0324",
+      "level": "a1",
+      "topic": "다시 묻기",
+      "fullKo": "주소를 한 번 더 확인해 주세요.",
+      "answer": "확인해 주세요",
+      "sentenceKo": "주소를 한 번 더 ＿＿＿.",
+      "de": "Bitte prüfen Sie die Adresse noch einmal.",
+      "en": "Please check the address once more.",
+      "distractors": [
+        "주문해 주세요",
+        "출발해 주세요",
+        "닫아 주세요"
+      ],
+      "courseUnitId": "a1_08_clarify_repair",
+      "sourceSeedId": "seed_batch19_a1_08_clarify_repair"
+    },
+    {
+      "id": "cloze_a1_0325",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "카드로 결제할게요.",
+      "answer": "결제할게요",
+      "sentenceKo": "카드로 ＿＿＿.",
+      "de": "Ich bezahle mit Karte.",
+      "en": "I'll pay by card.",
+      "distractors": [
+        "배달할게요",
+        "취소할게요",
+        "출발할게요"
+      ],
+      "courseUnitId": "a1_14_payment_delivery",
+      "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0326",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "현금도 받아요?",
+      "answer": "현금",
+      "sentenceKo": "＿＿＿도 받아요?",
+      "de": "Akzeptieren Sie auch Bargeld?",
+      "en": "Do you also accept cash?",
+      "distractors": [
+        "주소",
+        "영수증",
+        "쿠폰"
+      ],
+      "courseUnitId": "a1_14_payment_delivery",
+      "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0327",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "영수증을 주세요.",
+      "answer": "영수증",
+      "sentenceKo": "＿＿＿을 주세요.",
+      "de": "Bitte geben Sie mir den Kassenbon.",
+      "en": "Please give me the receipt.",
+      "distractors": [
+        "메뉴",
+        "주소",
+        "가방"
+      ],
+      "courseUnitId": "a1_14_payment_delivery",
+      "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0328",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "배달비는 얼마예요?",
+      "answer": "배달비",
+      "sentenceKo": "＿＿＿는 얼마예요?",
+      "de": "Wie hoch ist die Liefergebühr?",
+      "en": "How much is the delivery fee?",
+      "distractors": [
+        "도착 시간",
+        "전화번호",
+        "주문 번호"
+      ],
+      "courseUnitId": "a1_14_payment_delivery",
+      "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0329",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "주문 전에 주소를 확인해요.",
+      "answer": "주소",
+      "sentenceKo": "주문 전에 ＿＿＿를 확인해요.",
+      "de": "Vor der Bestellung prüfe ich die Adresse.",
+      "en": "I check the address before ordering.",
+      "distractors": [
+        "가격",
+        "메뉴",
+        "날씨"
+      ],
+      "courseUnitId": "a1_14_payment_delivery",
+      "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0330",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "도착 시간은 여섯 시예요.",
+      "answer": "도착 시간",
+      "sentenceKo": "＿＿＿은 여섯 시예요.",
+      "de": "Die Ankunftszeit ist sechs Uhr.",
+      "en": "The arrival time is six o'clock.",
+      "distractors": [
+        "결제 방법",
+        "주문 수량",
+        "가게 이름"
+      ],
+      "courseUnitId": "a1_14_payment_delivery",
+      "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0331",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "문 앞에 놓아 주세요.",
+      "answer": "문 앞에",
+      "sentenceKo": "＿＿＿ 놓아 주세요.",
+      "de": "Bitte stellen Sie es vor die Tür.",
+      "en": "Please leave it at the door.",
+      "distractors": [
+        "역 안에",
+        "책상에서",
+        "친구하고"
+      ],
+      "courseUnitId": "a1_14_payment_delivery",
+      "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0332",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "주문 번호를 다시 말해 주세요.",
+      "answer": "주문 번호",
+      "sentenceKo": "＿＿＿를 다시 말해 주세요.",
+      "de": "Bitte sagen Sie die Bestellnummer noch einmal.",
+      "en": "Please say the order number again.",
+      "distractors": [
+        "배달비",
+        "도착 시간",
+        "카드 이름"
+      ],
+      "courseUnitId": "a1_14_payment_delivery",
+      "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0333",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "이 쿠폰을 사용할 수 있어요?",
+      "answer": "쿠폰",
+      "sentenceKo": "이 ＿＿＿을 사용할 수 있어요?",
+      "de": "Kann ich diesen Gutschein verwenden?",
+      "en": "Can I use this coupon?",
+      "distractors": [
+        "주소",
+        "봉투",
+        "영수증"
+      ],
+      "courseUnitId": "a1_14_payment_delivery",
+      "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0334",
+      "level": "a1",
+      "topic": "결제와 배달",
+      "fullKo": "결제가 안 돼요.",
+      "answer": "안 돼요",
+      "sentenceKo": "결제가 ＿＿＿.",
+      "de": "Die Zahlung funktioniert nicht.",
+      "en": "The payment isn't going through.",
+      "distractors": [
+        "맛있어요",
+        "도착해요",
+        "필요해요"
+      ],
+      "courseUnitId": "a1_14_payment_delivery",
+      "sourceSeedId": "seed_batch19_a1_14_payment_delivery"
+    },
+    {
+      "id": "cloze_a1_0335",
+      "level": "a1",
+      "topic": "생활 종합",
+      "fullKo": "도서관에서 한국어 책을 읽어요.",
+      "answer": "읽어요",
+      "sentenceKo": "도서관에서 한국어 책을 ＿＿＿.",
+      "de": "Ich lese ein koreanisches Buch in der Bibliothek.",
+      "en": "I read a Korean book at the library.",
+      "distractors": [
+        "마셔요",
+        "사요",
+        "들어요"
+      ],
+      "courseUnitId": "a1_16_survival_capstone",
+      "sourceSeedId": "seed_batch19_a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0336",
+      "level": "a1",
+      "topic": "생활 종합",
+      "fullKo": "공원에서 친구를 만나요.",
+      "answer": "공원",
+      "sentenceKo": "＿＿＿에서 친구를 만나요.",
+      "de": "Ich treffe einen Freund im Park.",
+      "en": "I meet a friend in the park.",
+      "distractors": [
+        "학교",
+        "나라",
+        "핸드폰"
+      ],
+      "courseUnitId": "a1_16_survival_capstone",
+      "sourceSeedId": "seed_batch19_a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0337",
+      "level": "a1",
+      "topic": "생활 종합",
+      "fullKo": "저는 한국 음악을 좋아해요.",
+      "answer": "좋아해요",
+      "sentenceKo": "저는 한국 음악을 ＿＿＿.",
+      "de": "Ich mag koreanische Musik.",
+      "en": "I like Korean music.",
+      "distractors": [
+        "싫어해요",
+        "일해요",
+        "비싸요"
+      ],
+      "courseUnitId": "a1_16_survival_capstone",
+      "sourceSeedId": "seed_batch19_a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0338",
+      "level": "a1",
+      "topic": "생활 종합",
+      "fullKo": "이 가방은 너무 비싸요.",
+      "answer": "비싸요",
+      "sentenceKo": "이 가방은 너무 ＿＿＿.",
+      "de": "Diese Tasche ist zu teuer.",
+      "en": "This bag is too expensive.",
+      "distractors": [
+        "싸요",
+        "좋아요",
+        "작아요"
+      ],
+      "courseUnitId": "a1_16_survival_capstone",
+      "sourceSeedId": "seed_batch19_a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0339",
+      "level": "a1",
+      "topic": "생활 종합",
+      "fullKo": "서점에서 책을 사요.",
+      "answer": "사요",
+      "sentenceKo": "서점에서 책을 ＿＿＿.",
+      "de": "Ich kaufe ein Buch in der Buchhandlung.",
+      "en": "I buy a book at the bookstore.",
+      "distractors": [
+        "봐요",
+        "들어요",
+        "써요"
+      ],
+      "courseUnitId": "a1_16_survival_capstone",
+      "sourceSeedId": "seed_batch19_a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0340",
+      "level": "a1",
+      "topic": "생활 종합",
+      "fullKo": "수업에서 한국어를 들어요.",
+      "answer": "들어요",
+      "sentenceKo": "수업에서 한국어를 ＿＿＿.",
+      "de": "Im Unterricht höre ich Koreanisch.",
+      "en": "I listen to Korean in class.",
+      "distractors": [
+        "읽어요",
+        "사요",
+        "일해요"
+      ],
+      "courseUnitId": "a1_16_survival_capstone",
+      "sourceSeedId": "seed_batch19_a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0341",
+      "level": "a1",
+      "topic": "생활 종합",
+      "fullKo": "친구에게 메시지를 써요.",
+      "answer": "써요",
+      "sentenceKo": "친구에게 메시지를 ＿＿＿.",
+      "de": "Ich schreibe einem Freund eine Nachricht.",
+      "en": "I write a message to a friend.",
+      "distractors": [
+        "봐요",
+        "사요",
+        "들어요"
+      ],
+      "courseUnitId": "a1_16_survival_capstone",
+      "sourceSeedId": "seed_batch19_a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0342",
+      "level": "a1",
+      "topic": "생활 종합",
+      "fullKo": "저는 카페에서 일해요.",
+      "answer": "일해요",
+      "sentenceKo": "저는 카페에서 ＿＿＿.",
+      "de": "Ich arbeite in einem Café.",
+      "en": "I work at a cafe.",
+      "distractors": [
+        "읽어요",
+        "좋아해요",
+        "사랑해요"
+      ],
+      "courseUnitId": "a1_16_survival_capstone",
+      "sourceSeedId": "seed_batch19_a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0343",
+      "level": "a1",
+      "topic": "생활 종합",
+      "fullKo": "이 책은 싸고 재미있어요.",
+      "answer": "싸고",
+      "sentenceKo": "이 책은 ＿＿＿ 재미있어요.",
+      "de": "Dieses Buch ist günstig und interessant.",
+      "en": "This book is inexpensive and interesting.",
+      "distractors": [
+        "비싸고",
+        "싫고",
+        "아프고"
+      ],
+      "courseUnitId": "a1_16_survival_capstone",
+      "sourceSeedId": "seed_batch19_a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a1_0344",
+      "level": "a1",
+      "topic": "생활 종합",
+      "fullKo": "시험 전에 친구가 화이팅이라고 말해요.",
+      "answer": "화이팅",
+      "sentenceKo": "시험 전에 친구가 ＿＿＿이라고 말해요.",
+      "de": "Vor der Prüfung feuert mich ein Freund an.",
+      "en": "Before the test, a friend cheers me on.",
+      "distractors": [
+        "안녕히",
+        "죄송해",
+        "어서 와"
+      ],
+      "courseUnitId": "a1_16_survival_capstone",
+      "sourceSeedId": "seed_batch19_a1_16_survival_capstone"
+    },
+    {
+      "id": "cloze_a2_0268",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "토요일에 같이 만날까요?",
+      "answer": "만날까요",
+      "sentenceKo": "토요일에 같이 ＿＿＿?",
+      "de": "Sollen wir uns am Samstag treffen?",
+      "en": "Shall we meet on Saturday?",
+      "distractors": [
+        "만났어요",
+        "만나지만",
+        "만나세요"
+      ],
+      "courseUnitId": "a2_02_plans_proposals",
+      "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0269",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "금요일 저녁으로 약속을 잡았어요.",
+      "answer": "약속을 잡았어요",
+      "sentenceKo": "금요일 저녁으로 ＿＿＿.",
+      "de": "Wir haben uns für Freitagabend verabredet.",
+      "en": "We made plans for Friday evening.",
+      "distractors": [
+        "주소를 적었어요",
+        "결제를 했어요",
+        "사진을 찍었어요"
+      ],
+      "courseUnitId": "a2_02_plans_proposals",
+      "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0270",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "비가 와서 일정을 바꿨어요.",
+      "answer": "일정을 바꿨어요",
+      "sentenceKo": "비가 와서 ＿＿＿.",
+      "de": "Wegen des Regens haben wir den Termin geändert.",
+      "en": "We changed the schedule because it rained.",
+      "distractors": [
+        "약속을 지켰어요",
+        "장소를 찾았어요",
+        "시간을 물었어요"
+      ],
+      "courseUnitId": "a2_02_plans_proposals",
+      "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0271",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "토요일 오후에 시간이 돼요.",
+      "answer": "시간이 돼요",
+      "sentenceKo": "토요일 오후에 ＿＿＿.",
+      "de": "Am Samstagnachmittag habe ich Zeit.",
+      "en": "I'm available on Saturday afternoon.",
+      "distractors": [
+        "비가 와요",
+        "집이 멀어요",
+        "가격이 싸요"
+      ],
+      "courseUnitId": "a2_02_plans_proposals",
+      "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0272",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "역 앞을 만날 곳으로 정했어요.",
+      "answer": "만날 곳",
+      "sentenceKo": "역 앞을 ＿＿＿으로 정했어요.",
+      "de": "Wir haben den Bahnhofsvorplatz als Treffpunkt gewählt.",
+      "en": "We chose the front of the station as our meeting place.",
+      "distractors": [
+        "먹을 것",
+        "살 물건",
+        "읽을 책"
+      ],
+      "courseUnitId": "a2_02_plans_proposals",
+      "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0273",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "시간이 되면 같이 점심을 먹어요.",
+      "answer": "되면",
+      "sentenceKo": "시간이 ＿＿＿ 같이 점심을 먹어요.",
+      "de": "Wenn du Zeit hast, essen wir zusammen zu Mittag.",
+      "en": "If you have time, let's have lunch together.",
+      "distractors": [
+        "되지만",
+        "되려고",
+        "되거나"
+      ],
+      "courseUnitId": "a2_02_plans_proposals",
+      "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0274",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "몇 시가 편해요?",
+      "answer": "편해요",
+      "sentenceKo": "몇 시가 ＿＿＿?",
+      "de": "Welche Uhrzeit passt dir?",
+      "en": "What time works for you?",
+      "distractors": [
+        "멀어요",
+        "비싸요",
+        "매워요"
+      ],
+      "courseUnitId": "a2_02_plans_proposals",
+      "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0275",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "약속 시간보다 십 분 일찍 갈게요.",
+      "answer": "일찍",
+      "sentenceKo": "약속 시간보다 십 분 ＿＿＿ 갈게요.",
+      "de": "Ich komme zehn Minuten vor der vereinbarten Zeit.",
+      "en": "I'll arrive ten minutes before our meeting time.",
+      "distractors": [
+        "늦게",
+        "자주",
+        "아직"
+      ],
+      "courseUnitId": "a2_02_plans_proposals",
+      "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0276",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "급한 일이 생기면 미리 연락해 주세요.",
+      "answer": "미리",
+      "sentenceKo": "급한 일이 생기면 ＿＿＿ 연락해 주세요.",
+      "de": "Bitte melden Sie sich vorher, wenn etwas Dringendes dazwischenkommt.",
+      "en": "Please contact me in advance if something urgent comes up.",
+      "distractors": [
+        "갑자기",
+        "가끔",
+        "천천히"
+      ],
+      "courseUnitId": "a2_02_plans_proposals",
+      "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
+    },
+    {
+      "id": "cloze_a2_0277",
+      "level": "a2",
+      "topic": "약속과 일정",
+      "fullKo": "이번 주가 어려우면 다음 주는 어때요?",
+      "answer": "다음 주",
+      "sentenceKo": "이번 주가 어려우면 ＿＿＿는 어때요?",
+      "de": "Wenn diese Woche schwierig ist, wie wäre es nächste Woche?",
+      "en": "If this week is difficult, how about next week?",
+      "distractors": [
+        "지난주",
+        "매일",
+        "지금까지"
+      ],
+      "courseUnitId": "a2_02_plans_proposals",
+      "sourceSeedId": "seed_batch19_a2_02_plans_proposals"
     }
   ]
 }

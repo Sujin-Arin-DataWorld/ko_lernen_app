@@ -15,9 +15,9 @@ void main() {
     json = jsonDecode(raw) as Map<String, dynamic>;
   });
 
-  test('레벨 4개 × 퍼즐 20개, id 전역 유일', () {
+  test('레벨 6개 × 퍼즐 20개, id 전역 유일', () {
     final levels = json['levels'] as Map<String, dynamic>;
-    expect(levels.keys.toSet(), {'A1', 'A2', 'B1', 'B2'});
+    expect(levels.keys.toSet(), {'A1', 'A2', 'B1', 'B2', 'C1', 'C2'});
     final ids = <String>{};
     for (final entry in levels.entries) {
       final list = entry.value as List;

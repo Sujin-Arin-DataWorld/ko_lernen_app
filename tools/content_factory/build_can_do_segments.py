@@ -1529,6 +1529,26 @@ UNIT_DEFAULT_ROUTE: dict[str, str] = {
     "b2_06_advanced_capstone": "b2_formal_soft_reformulation",
 }
 
+# C1/C2의 공개 can-do 세그먼트 수는 고정되어 있다. 새 유닛이나 새 배치가
+# 들어와도 세그먼트를 임의로 늘리지 않고, 각 코스 유닛을 가장 가까운 기존
+# 담화 기능에 붙인다. 개별 승인 라우트가 있으면 _promotion_segment_key가 이
+# 기본값보다 우선한다. 이 표 덕분에 새 C레벨 자산이 앱에는 실렸지만 can-do
+# 근거 그래프에서는 조용히 누락되는 회귀를 막을 수 있다.
+C_UNIT_DEFAULT_ROUTE: dict[str, str] = {
+    "c1_01_evidence_public_reasoning": "c1_evidence_validity",
+    "c1_02_inclusive_sustainable_systems": "c1_local_tradeoff_adaptation",
+    "c1_03_media_evidence_literacy": "c1_evidence_limits_conclusion",
+    "c1_04_play_time_policy": "c1_risk_uncertainty",
+    "c1_05_fan_labor_sustainability": "c1_sustainable_lifecycle",
+    "c1_06_intimacy_safety_design": "c1_participatory_access_remedy",
+    "c2_01_interpretation_institutions": "c2_framing_responsibility",
+    "c2_02_technology_public_ethics": "c2_technology_responsibility_rights",
+    "c2_03_automation_redress": "c2_technology_traceability_appeal",
+    "c2_04_sanction_accountability": "c2_technology_responsibility_rights",
+    "c2_05_relationship_narratives": "c2_narrative_perspective",
+    "c2_06_fandom_discourse_power": "c2_discourse_boundary_power",
+}
+
 
 PACK_ROUTES: dict[str, str] = {
     "a2_change_verbs": "a2_haeyo_register_transition",
@@ -1867,14 +1887,14 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 2,
     },
     'smalltalk_a1_0075': {
-        "phraseFingerprintSha256": '851f3a46766df0120fac40277706d0c6ad505fe9282fd0996a01a3e02ded536b',
+        "phraseFingerprintSha256": 'e76087d22c9d74d65f1e2b317dd6528c22fc09784c77f2313af2c70105c957dd',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
         "reviewRevision": 2,
     },
     'smalltalk_a1_0076': {
-        "phraseFingerprintSha256": '78bbc7de43319517bb2d8ac16fe11c4a73b28ea6841476a2d567b2b670016f45',
+        "phraseFingerprintSha256": 'b4fcdd8751af3e5f98982b7fe04006f2f61f0d255873813f00de240b7bb0ce56',
         "canDoSegmentId": 'segment_a1_11_titles_relationships',
         "canDoFingerprintSha256": 'f6d0a3c31f9c18c1e0c20ea5f6d9c72a6ce0dd5df4f17d2591a0db0813f7044b',
         "semanticStatus": "approved",
@@ -1937,7 +1957,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 2,
     },
     'smalltalk_a2_0062': {
-        "phraseFingerprintSha256": '7d32de42fab5307f1b4230468a535fd224e208422f5c5960e6610977610a2b24',
+        "phraseFingerprintSha256": 'd5e8e61399b5d3b5eda941c56ccff8a7af7f890023065d34d769e497933b9cff',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
@@ -1965,7 +1985,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 2,
     },
     'smalltalk_a2_0066': {
-        "phraseFingerprintSha256": '2fb1315d0b91dc73643b7d7fecedcef8ddbd4765acceee0ed31dc031aee0efed',
+        "phraseFingerprintSha256": 'eb9491cafc31ef5766b412d1ee39ae296b758bc3666070d2bb86f228d6985d70',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
@@ -1979,7 +1999,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 2,
     },
     'smalltalk_a2_0068': {
-        "phraseFingerprintSha256": '0f8583a34547c9d3b871ce2ada40a742b5d06c5ba56d6decc29b518a1c399254',
+        "phraseFingerprintSha256": 'c842410a36208ced07c63e2de38e926c2ec63cb96c9d358b5745dff897118abf',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
@@ -2000,7 +2020,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 2,
     },
     'smalltalk_a2_0071': {
-        "phraseFingerprintSha256": '333b40ad3f00d0a0f2d474e2c74f027ffc6101bf97a20d123f16b742d4c8f88a',
+        "phraseFingerprintSha256": 'aad3be4e2d162ad8efcb92e7d70720c0f00c29e48a39b8ddbe214ae5172dc9b3',
         "canDoSegmentId": 'segment_a2_running_late',
         "canDoFingerprintSha256": 'fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27',
         "semanticStatus": "approved",
@@ -2035,7 +2055,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 2,
     },
     'smalltalk_b1_0057': {
-        "phraseFingerprintSha256": '185a55fc77a578aab6f31336e97286bdb84a69ae2f7051b3e8d941216f4162ee',
+        "phraseFingerprintSha256": 'e8df150a7ada11a78c0181c6e5b900263e0d369d3ca6ff1cff0718da62781a03',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
@@ -2098,7 +2118,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 2,
     },
     'smalltalk_b1_0066': {
-        "phraseFingerprintSha256": '9cfb5ca82dc64988b6f2c6d63d283baebdf46e67c6ec97bca2cbd59b9c952b84',
+        "phraseFingerprintSha256": '9813e919d49707f1ebbea4568f784f3136309a0db7596ac94267c45e519cbedc',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
@@ -2112,7 +2132,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 2,
     },
     'smalltalk_b1_0068': {
-        "phraseFingerprintSha256": 'cbe438a9b993df4521f7b3ab5b0dd7dfb756744da647fb0f7501476c346e3c28',
+        "phraseFingerprintSha256": 'f9b8800d62a6d4bf7aad7657a464051171348c8217f2a7a70d08c545702cf74a',
         "canDoSegmentId": 'segment_b1_intimate_feelings',
         "canDoFingerprintSha256": '6a2de13eba2679e09f9041d6d71f4fcb0cb150227cc8841c7a67d62188355651',
         "semanticStatus": "approved",
@@ -2203,7 +2223,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 2,
     },
     'smalltalk_b2_0093': {
-        "phraseFingerprintSha256": '2c7edbf5cd466857343e73f1d54ce4931af4f9b4622ffb1b1ef809df5aa27f1f',
+        "phraseFingerprintSha256": 'f1e08c8acd4109adcb039a312c748e0ff0cd41a249eb8db9dcb684abc481de2b',
         "canDoSegmentId": 'segment_b2_formal_soft_reformulation',
         "canDoFingerprintSha256": '9bcd683d7f248cd6a1b627e5558bf83b7e24faf804ea1306cd8bd0f6ad611945',
         "semanticStatus": "approved",
@@ -2245,7 +2265,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 2,
     },
     "smalltalk_a1_0081": {
-        "phraseFingerprintSha256": "2ecc74ecdef9b3a4b8bddbb053fa827aa86711eec05d884041a024bdeb9a8e0a",
+        "phraseFingerprintSha256": "6210610af78fe92b870c3e75443e9c5a72d685eaa55797eb0d893c5c2537a516",
         "canDoSegmentId": "segment_a1_12_daily_negation",
         "canDoFingerprintSha256": "08a3b9fbaeb286dec20cb306a59f28ac2794d44462b721f560d063ebb0dbd833",
         "semanticStatus": "approved",
@@ -2259,7 +2279,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 1,
     },
     "smalltalk_a2_0074": {
-        "phraseFingerprintSha256": "f021f82bf5eb34a069ea09d7808deaaacbd13a469f74722ca566f7e38b49c3c9",
+        "phraseFingerprintSha256": "b3de808e994ff2436088c3ae6cb7a5e988e43d06a77b59f4e17256d4be0048d1",
         "canDoSegmentId": "segment_a2_running_late",
         "canDoFingerprintSha256": "fab074a96029136b9d59a3ccd4c02ead17286ae529287fb398a9bcbf20cd6a27",
         "semanticStatus": "approved",
@@ -2273,7 +2293,7 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 1,
     },
     "smalltalk_b1_0071": {
-        "phraseFingerprintSha256": "b18f90a5c2afc29f1a804289128efbc4da4bebcdbc0c9be7fb8148edf8e67096",
+        "phraseFingerprintSha256": "2822c744ccb233b933afb8b71f421319e5593f1e90b327496fd58ccffb4ca375",
         "canDoSegmentId": "segment_b1_team_role_coordination",
         "canDoFingerprintSha256": "204c1167f432f8c59ac93c44c99bb1caee6adb27e735597f716f8a451e853eef",
         "semanticStatus": "approved",
@@ -2287,16 +2307,44 @@ SMALLTALK_REVIEW_APPROVALS: dict[str, dict[str, Any]] = {
         "reviewRevision": 1,
     },
     "smalltalk_b2_0099": {
-        "phraseFingerprintSha256": "3ff8f68da244ee4060af12e8b80dc4d68c28002c9d04955c303e1718c86b1581",
+        "phraseFingerprintSha256": "2d11ae068efebbe51eac02e76c2ab336259ec30467d1d50c564d25098fe46504",
         "canDoSegmentId": "segment_b2_interview_experience",
         "canDoFingerprintSha256": "1b445adc7abafd5b53eb64b460f014e1fa7d76995e947a26a367accf958adeed",
         "semanticStatus": "approved",
         "reviewRevision": 1,
     },
     "smalltalk_b2_0100": {
-        "phraseFingerprintSha256": "45816876650acbe091f6863bbb5ab03efd804c7c62dde968ce339bf0e367232b",
+        "phraseFingerprintSha256": "8dc8c5191e3c2bfa272ceb0459c39ab934d1ba303f83a3ddeb63efe89fc40bda",
         "canDoSegmentId": "segment_b2_formal_meeting_opening",
         "canDoFingerprintSha256": "b417e1d6ef394b21a40debf5ba9964ffd31fc3a2698733a8a6fe9258c5721fda",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_a1_0083": {
+        "phraseFingerprintSha256": "b2c01466b0c489dd274cb494eb8bee136c757aa738321f2490a01ea2fe5bff5f",
+        "canDoSegmentId": "segment_a1_14_payment_delivery",
+        "canDoFingerprintSha256": "444b749979cee85ecd385741adb78ec584ff7265df9f49f472e625f8832ebd1d",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_a1_0084": {
+        "phraseFingerprintSha256": "7e0f1d7b0fd71b43221ccbec8d40cbcfe67438db5435fbc8f32ad0648a49092f",
+        "canDoSegmentId": "segment_a1_14_payment_delivery",
+        "canDoFingerprintSha256": "444b749979cee85ecd385741adb78ec584ff7265df9f49f472e625f8832ebd1d",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_a2_0076": {
+        "phraseFingerprintSha256": "64f181f5b51375b05ba0384497c8a2cadc0a3a78b6a95ae7dfa5849b984bb629",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "canDoFingerprintSha256": "c4e7ff185459644e7e79a65868a2ebaa49a507edbd439f361fbbb29f7fe57b2f",
+        "semanticStatus": "approved",
+        "reviewRevision": 1,
+    },
+    "smalltalk_a2_0077": {
+        "phraseFingerprintSha256": "f71aa47c63ef2fad2090527b24ff16021ef8f4476698cb4b9545644b9d1d930c",
+        "canDoSegmentId": "segment_a2_plans_with_friend",
+        "canDoFingerprintSha256": "c4e7ff185459644e7e79a65868a2ebaa49a507edbd439f361fbbb29f7fe57b2f",
         "semanticStatus": "approved",
         "reviewRevision": 1,
     },
@@ -2535,6 +2583,10 @@ class SourceIndex:
             if (
                 _promotion_segment_key("scenario", reference.id) is not None
                 or (reference.kind, reference.id) in self.published_content_routes
+                or (
+                    actual_level in ("c1", "c2")
+                    and row["courseUnitId"] in C_UNIT_DEFAULT_ROUTE
+                )
             ):
                 # 라우팅된 시나리오는 자기 코스 유닛이 아니라 붙기로 한 세그먼트를
                 # 따른다.  Batch 12 가 만든 신규 유닛(c1_03~c1_06 등)에는 세그먼트가
@@ -2550,6 +2602,7 @@ class SourceIndex:
             if (
                 _promotion_segment_key("vocabPack", reference.id) is not None
                 or (reference.kind, reference.id) in self.published_content_routes
+                or mapped_parent in C_UNIT_DEFAULT_ROUTE
             ):
                 # 명시적으로 라우팅된 팩은 자기 유닛이 아니라 붙기로 한 세그먼트를
                 # 따른다.  cloze·satz·grammar·smalltalk 에는 이미 있던 우회이고,
@@ -2575,6 +2628,10 @@ class SourceIndex:
                 mapped_level != actual_level and reference.id in GRAMMAR_ID_ROUTES
             ) or _promotion_segment_key("grammar", reference.id) is not None or (
                 (reference.kind, reference.id) in self.published_content_routes
+                or (
+                    actual_level in ("c1", "c2")
+                    and mapped_parent in C_UNIT_DEFAULT_ROUTE
+                )
             ):
                 # 명시적으로 라우팅된 문법은 붙기로 한 세그먼트를 따른다.
                 # 기존 조건(레벨 불일치)만으로는 같은 레벨의 신규 유닛이 기존
@@ -2592,6 +2649,10 @@ class SourceIndex:
             if (
                 _promotion_segment_key("cloze", reference.id) is not None
                 or (reference.kind, reference.id) in self.published_content_routes
+                or (
+                    actual_level in ("c1", "c2")
+                    and row.get("courseUnitId") in C_UNIT_DEFAULT_ROUTE
+                )
             ):
                 actual_parent = expected_parent
                 validate_derived = False
@@ -2611,6 +2672,10 @@ class SourceIndex:
             if (
                 _promotion_segment_key("satz", reference.id) is not None
                 or (reference.kind, reference.id) in self.published_content_routes
+                or (
+                    actual_level in ("c1", "c2")
+                    and row.get("courseUnitId") in C_UNIT_DEFAULT_ROUTE
+                )
             ):
                 actual_parent = expected_parent
             else:
@@ -3203,9 +3268,17 @@ def _expand_ab_practice(
         rows = [row for row in source.vocab.values() if row["pack_id"] == pack_id]
         level = rows[0]["level"].lower()
         if level in ("c1", "c2"):
+            if ("vocabPack", pack_id) in owners_by_reference:
+                continue
             promoted_target = _promotion_segment_key("vocabPack", pack_id)
-            if promoted_target is not None:
-                add(_ref("vocabPack", pack_id), promoted_target, expected_level=level)
+            base_pack_id = re.sub(r"_\d+$", "", pack_id)
+            unit_id = _require(source.vocab_pack_units, base_pack_id, "vocab pack")
+            target = source.published_content_routes.get(
+                ("vocabPack", pack_id)
+            ) or promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE, unit_id, "C-level unit route"
+            )
+            add(_ref("vocabPack", pack_id), target, expected_level=level)
             continue
         if {row["level"].lower() for row in rows} != {level}:
             raise ValueError(f"vocab pack {pack_id!r} crosses levels")
@@ -3223,9 +3296,16 @@ def _expand_ab_practice(
     for grammar_id, row in sorted(source.grammar.items()):
         level = row["level"].lower()
         if level in ("c1", "c2"):
+            if ("grammar", grammar_id) in owners_by_reference:
+                continue
             promoted_target = _promotion_segment_key("grammar", grammar_id)
-            if promoted_target is not None:
-                add(_ref("grammar", grammar_id), promoted_target, expected_level=level)
+            unit_id = _require(source.grammar_units, grammar_id, "grammar mapping")
+            target = source.published_content_routes.get(
+                ("grammar", grammar_id)
+            ) or promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE, unit_id, "C-level unit route"
+            )
+            add(_ref("grammar", grammar_id), target, expected_level=level)
             continue
         target = source.published_content_routes.get(("grammar", grammar_id))
         if target is None:
@@ -3241,12 +3321,16 @@ def _expand_ab_practice(
         level = row["level"]
         promoted_target = _promotion_segment_key("scenario", scenario_id)
         if level in ("c1", "c2"):
-            if promoted_target is not None:
-                add(
-                    _ref("scenario", scenario_id),
-                    promoted_target,
-                    expected_level=level,
-                )
+            if ("scenario", scenario_id) in owners_by_reference:
+                continue
+            target = source.published_content_routes.get(
+                ("scenario", scenario_id)
+            ) or promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE,
+                row["courseUnitId"],
+                "C-level unit route",
+            )
+            add(_ref("scenario", scenario_id), target, expected_level=level)
             continue
         anchor = owners_by_reference.get(("scenario", scenario_id))
         target = (
@@ -3272,12 +3356,13 @@ def _expand_ab_practice(
         level = row["level"]
         promoted_target = _promotion_segment_key("smalltalk", phrase_id)
         if level in ("c1", "c2"):
-            if promoted_target is not None:
-                add(
-                    _ref("smalltalk", phrase_id),
-                    promoted_target,
-                    expected_level=level,
-                )
+            if ("smalltalk", phrase_id) in owners_by_reference:
+                continue
+            unit_id = source.smalltalk_unit(row)
+            target = promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE, unit_id, "C-level unit route"
+            )
+            add(_ref("smalltalk", phrase_id), target, expected_level=level)
             continue
         unit_id = source.smalltalk_unit(row)
         published_route = source.published_smalltalk_routes.get(phrase_id)
@@ -3373,12 +3458,18 @@ def _expand_ab_practice(
         level = row["level"]
         promoted_target = _promotion_segment_key("cloze", content_id)
         if level in ("c1", "c2"):
-            if promoted_target is not None:
-                add(
-                    _ref("cloze", content_id),
-                    promoted_target,
-                    expected_level=level,
+            if ("cloze", content_id) in owners_by_reference:
+                continue
+            unit_id = row.get("courseUnitId")
+            if not isinstance(unit_id, str) or not unit_id:
+                topic_key = f"{level}:{row['topic'].lower()}"
+                unit_id = _require(
+                    source.cloze_topic_units, topic_key, "cloze topic mapping"
                 )
+            target = promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE, unit_id, "C-level unit route"
+            )
+            add(_ref("cloze", content_id), target, expected_level=level)
             continue
         if ("cloze", content_id) in owners_by_reference:
             direct_override_cloze_ids.append(content_id)
@@ -3432,12 +3523,19 @@ def _expand_ab_practice(
         level = row["level"]
         promoted_target = _promotion_segment_key("satz", content_id)
         if level in ("c1", "c2"):
-            if promoted_target is not None:
-                add(
-                    _ref("satz", content_id),
-                    promoted_target,
-                    expected_level=level,
+            if ("satz", content_id) in owners_by_reference:
+                continue
+            unit_id = row.get("courseUnitId")
+            if not isinstance(unit_id, str) or not unit_id:
+                vocab = source._validate_satz_source(row, content_id)
+                base_pack_id = re.sub(r"_\d+$", "", vocab["pack_id"])
+                unit_id = _require(
+                    source.vocab_pack_units, base_pack_id, "satz vocab pack"
                 )
+            target = promoted_target or _require(
+                C_UNIT_DEFAULT_ROUTE, unit_id, "C-level unit route"
+            )
+            add(_ref("satz", content_id), target, expected_level=level)
             continue
         if promoted_target is not None:
             add(

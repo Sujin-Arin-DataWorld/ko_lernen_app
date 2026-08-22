@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../l10n/generated/app_localizations.dart';
+import '../models/learner_level.dart';
 import '../models/silben_puzzle.dart';
 import '../services/learner_level_selection.dart';
 import '../services/silben_puzzle_loader.dart';
@@ -38,7 +39,9 @@ class SilbenKreuzScreen extends StatefulWidget {
 
 class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     with ScreenCoachMixin<SilbenKreuzScreen> {
-  static const _levels = ['A1', 'A2', 'B1', 'B2'];
+  static final _levels = LearnerLevel.values
+      .map((level) => level.display)
+      .toList(growable: false);
   static const _xpPerPuzzle = 30;
 
   Map<String, List<SilbenPuzzle>> _byLevel = {};

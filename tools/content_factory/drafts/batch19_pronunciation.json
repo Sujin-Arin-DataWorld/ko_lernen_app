@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "phrases": [
+    {
+      "id": "pronunciation_a1_0003",
+      "level": "a1",
+      "ko": "제 국적은 독일이에요.",
+      "de": "Meine Staatsangehörigkeit ist deutsch.",
+      "en": "My nationality is German.",
+      "focus": "국적은의 받침과 조사 연결",
+      "sourceSeedId": "seed_batch19_a1_coverage"
+    },
+    {
+      "id": "pronunciation_a1_0004",
+      "level": "a1",
+      "ko": "제 모국어는 독일어예요.",
+      "de": "Meine Muttersprache ist Deutsch.",
+      "en": "My first language is German.",
+      "focus": "모국어는의 모음 연결",
+      "sourceSeedId": "seed_batch19_a1_coverage"
+    },
+    {
+      "id": "pronunciation_a1_0005",
+      "level": "a1",
+      "ko": "이 단어 발음을 다시 들려주세요.",
+      "de": "Bitte spielen Sie die Aussprache noch einmal ab.",
+      "en": "Please play the pronunciation again.",
+      "focus": "발음을의 연음",
+      "sourceSeedId": "seed_batch19_a1_coverage"
+    },
+    {
+      "id": "pronunciation_a1_0006",
+      "level": "a1",
+      "ko": "주소를 천천히 적어 주세요.",
+      "de": "Bitte schreiben Sie die Adresse langsam auf.",
+      "en": "Please write the address down slowly.",
+      "focus": "천천히의 호흡과 요청 억양",
+      "sourceSeedId": "seed_batch19_a1_coverage"
+    },
+    {
+      "id": "pronunciation_a1_0007",
+      "level": "a1",
+      "ko": "카드로 결제할게요.",
+      "de": "Ich bezahle mit Karte.",
+      "en": "I'll pay by card.",
+      "focus": "결제할게요의 된소리와 약속 억양",
+      "sourceSeedId": "seed_batch19_a1_coverage"
+    },
+    {
+      "id": "pronunciation_a1_0008",
+      "level": "a1",
+      "ko": "도착 시간은 여섯 시예요.",
+      "de": "Die Ankunftszeit ist sechs Uhr.",
+      "en": "The arrival time is six o'clock.",
+      "focus": "도착 시간의 받침과 단위 끊기",
+      "sourceSeedId": "seed_batch19_a1_coverage"
+    },
+    {
+      "id": "pronunciation_a2_0003",
+      "level": "a2",
+      "ko": "토요일 세 시에 만날까요?",
+      "de": "Sollen wir uns am Samstag um drei treffen?",
+      "en": "Shall we meet at three on Saturday?",
+      "focus": "제안 의문문의 올라가는 억양",
+      "sourceSeedId": "seed_batch19_a2_coverage"
+    },
+    {
+      "id": "pronunciation_a2_0004",
+      "level": "a2",
+      "ko": "비가 오면 일정을 바꿔요.",
+      "de": "Wenn es regnet, ändern wir den Termin.",
+      "en": "If it rains, we change the schedule.",
+      "focus": "조건절 뒤 짧은 쉼",
+      "sourceSeedId": "seed_batch19_a2_coverage"
+    },
+    {
+      "id": "pronunciation_a2_0005",
+      "level": "a2",
+      "ko": "금요일 저녁으로 약속을 잡았어요.",
+      "de": "Wir haben uns für Freitagabend verabredet.",
+      "en": "We made plans for Friday evening.",
+      "focus": "약속을의 연음",
+      "sourceSeedId": "seed_batch19_a2_coverage"
+    },
+    {
+      "id": "pronunciation_a2_0006",
+      "level": "a2",
+      "ko": "몇 시가 편해요?",
+      "de": "Welche Uhrzeit passt dir?",
+      "en": "What time works for you?",
+      "focus": "편해요의 자연스러운 축약",
+      "sourceSeedId": "seed_batch19_a2_coverage"
+    },
+    {
+      "id": "pronunciation_a2_0007",
+      "level": "a2",
+      "ko": "역 앞을 만날 곳으로 정했어요.",
+      "de": "Wir haben den Bahnhofsvorplatz als Treffpunkt gewählt.",
+      "en": "We chose the front of the station as our meeting place.",
+      "focus": "만날 곳의 ㄹ 받침 연결",
+      "sourceSeedId": "seed_batch19_a2_coverage"
+    },
+    {
+      "id": "pronunciation_a2_0008",
+      "level": "a2",
+      "ko": "늦으면 미리 연락해 주세요.",
+      "de": "Bitte melden Sie sich vorher, wenn Sie sich verspäten.",
+      "en": "Please contact me in advance if you'll be late.",
+      "focus": "늦으면의 받침 발음",
+      "sourceSeedId": "seed_batch19_a2_coverage"
+    },
+    {
+      "id": "pronunciation_b1_0005",
+      "level": "b1",
+      "ko": "변경된 일정을 오늘 안에 알려 주실 수 있을까요?",
+      "de": "Könnten Sie mir den geänderten Termin noch heute mitteilen?",
+      "en": "Could you let me know the revised schedule today?",
+      "focus": "긴 완곡 요청의 의미 단위 끊기",
+      "sourceSeedId": "seed_batch19_b1_coverage"
+    },
+    {
+      "id": "pronunciation_b1_0006",
+      "level": "b1",
+      "ko": "마감이 늦어지는 사정을 먼저 설명했어요.",
+      "de": "Ich habe zuerst erklärt, warum sich die Abgabe verzögert.",
+      "en": "I first explained why the deadline would be missed.",
+      "focus": "사정을의 연음",
+      "sourceSeedId": "seed_batch19_b1_coverage"
+    },
+    {
+      "id": "pronunciation_b1_0007",
+      "level": "b1",
+      "ko": "회의에서 서로 다른 의견을 조율했어요.",
+      "de": "In der Besprechung haben wir unterschiedliche Meinungen abgestimmt.",
+      "en": "We aligned different opinions in the meeting.",
+      "focus": "의견을 조율하다의 모음 연결",
+      "sourceSeedId": "seed_batch19_b1_coverage"
+    },
+    {
+      "id": "pronunciation_b1_0008",
+      "level": "b1",
+      "ko": "일정이 바뀌면 미리 알려 주세요.",
+      "de": "Bitte geben Sie vorher Bescheid, wenn sich der Termin ändert.",
+      "en": "Please let me know in advance if the schedule changes.",
+      "focus": "조건절과 요청절의 억양 대비",
+      "sourceSeedId": "seed_batch19_b1_coverage"
+    }
+  ]
+}

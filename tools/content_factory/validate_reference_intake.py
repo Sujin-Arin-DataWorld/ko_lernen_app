@@ -239,12 +239,23 @@ class ReferenceIntakeValidator:
         }
         source = "content sources"
 
-        def add(kind: str, record: object, label: str) -> None:
+        def add(
+            kind: str,
+            record: object,
+            label: str,
+            *,
+            allow_identical_live_copy: bool = False,
+        ) -> None:
             if not isinstance(record, dict) or not isinstance(record.get("id"), str):
                 self.issue(source, f"{label}: malformed {kind} record")
                 return
             ident = record["id"]
             if ident in available[kind]:
+                # Draft manifests may remain review_only_draft after their IDs
+                # have been promoted. The live record is the available copy;
+                # frozen draft copy drift is checked by promotion ledgers.
+                if allow_identical_live_copy:
+                    return
                 self.issue(source, f"{label}: duplicate available {kind} {ident!r}")
             available[kind][ident] = record
 
@@ -288,7 +299,12 @@ class ReferenceIntakeValidator:
                     draft = json.loads(draft_path.read_text(encoding="utf-8"))
                     collection = specs[str(kind)][1]
                     for record in draft.get(collection, []):
-                        add(str(kind), record, draft_path.name)
+                        add(
+                            str(kind),
+                            record,
+                            draft_path.name,
+                            allow_identical_live_copy=True,
+                        )
         except (OSError, json.JSONDecodeError) as error:
             self.issue(source, f"cannot read content sources: {error}")
         return available

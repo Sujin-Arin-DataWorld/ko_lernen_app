@@ -1,0 +1,686 @@
+{
+  "version": 1,
+  "scenarios": [
+    {
+      "id": "a1_register_first_day_choice",
+      "level": "a1",
+      "emoji": "👋",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "new_classmates",
+      "intent": "choose_a_greeting_for_each_relationship",
+      "courseUnitId": "a1_13_register_switching",
+      "conceptIds": [
+        "concept_a1_register_switch"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 90,
+      "title": {
+        "ko": "처음 만난 사람에게 어떻게 말해요?",
+        "de": "Wie spreche ich neue Menschen an?",
+        "en": "How do I speak to someone new?"
+      },
+      "intro": {
+        "ko": "첫 수업에서 선생님과 새 친구에게 관계에 맞는 인사를 고릅니다.",
+        "de": "Im ersten Kurs wählen Sie passende Grüße für die Lehrerin und neue Mitschüler.",
+        "en": "In your first class, you choose greetings that fit the teacher and new classmates."
+      },
+      "grammarIds": [
+        "grammar_a1_topic_contrast"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "선생님, 안녕!",
+          "de": "Hallo, Lehrerin!",
+          "en": "Hi, teacher!"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "선생님께는 ‘안녕하세요’가 더 좋아요.",
+          "de": "Zur Lehrerin passt 안녕하세요 besser.",
+          "en": "안녕하세요 is better for the teacher."
+        },
+        {
+          "speaker": "user",
+          "ko": "안녕하세요. 저는 수진이에요.",
+          "de": "Guten Tag. Ich bin Sujin.",
+          "en": "Hello. I'm Sujin."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "좋아요. 처음 만난 친구에게도 먼저 해요체를 써요.",
+          "de": "Gut. Auch mit einer neuen Mitschülerin beginnen wir mit der höflichen 해요-Form.",
+          "en": "Good. Start with the polite 해요 style with a new classmate too."
+        },
+        {
+          "speaker": "user",
+          "ko": "민지 씨, 어느 나라에서 왔어요?",
+          "de": "Minji, aus welchem Land kommen Sie?",
+          "en": "Minji, which country are you from?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "친해진 뒤에는 서로 괜찮다고 하면 반말로 바꿀 수 있어요.",
+          "de": "Wenn Sie sich näher kennen, können beide nach Zustimmung zur informellen Form wechseln.",
+          "en": "Once you know each other better, you can switch to casual speech if both agree."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 지금은 ‘안녕하세요’라고 할게요.",
+          "de": "Dann sage ich jetzt 안녕하세요.",
+          "en": "Then I'll use 안녕하세요 for now."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네. 관계를 모르겠을 때는 공손한 말이 안전해요.",
+          "de": "Ja. Wenn die Beziehung unklar ist, ist die höfliche Form sicher.",
+          "en": "Yes. When the relationship is unclear, polite speech is safer."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "안녕하세요"
+        },
+        {
+          "korean": "안녕"
+        },
+        {
+          "korean": "선생님"
+        },
+        {
+          "korean": "친구"
+        },
+        {
+          "korean": "해요체"
+        },
+        {
+          "korean": "반말"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "N은/는, N은/는",
+          "de": "N은/는, N은/는: Thema und einfacher Kontrast",
+          "en": "N은/는, N은/는: Topic and simple contrast"
+        },
+        "explanation": {
+          "ko": "대화의 주제를 세우거나 두 정보를 간단히 대비할 때 씁니다.",
+          "de": "Markiert das Gesprächsthema und kann zwei einfache Angaben gegenüberstellen.",
+          "en": "Marks the topic and can contrast two simple pieces of information."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_a1_register_first_day_choice_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_a1_register_switch"
+          ],
+          "data": {
+            "audioKo": "안녕하세요. 저는 수진이에요.",
+            "options": [
+              {
+                "ko": "선생님, 안녕!",
+                "de": "Hallo, Lehrerin!",
+                "en": "Hi, teacher!"
+              },
+              {
+                "ko": "안녕하세요. 저는 수진이에요.",
+                "de": "Guten Tag. Ich bin Sujin.",
+                "en": "Hello. I'm Sujin."
+              },
+              {
+                "ko": "민지 씨, 어느 나라에서 왔어요?",
+                "de": "Minji, aus welchem Land kommen Sie?",
+                "en": "Minji, which country are you from?"
+              },
+              {
+                "ko": "그럼 지금은 ‘안녕하세요’라고 할게요.",
+                "de": "Dann sage ich jetzt 안녕하세요.",
+                "en": "Then I'll use 안녕하세요 for now."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_a1_register_first_day_choice_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_a1_register_switch"
+          ],
+          "data": {
+            "promptDe": "Dann sage ich jetzt 안녕하세요.",
+            "promptEn": "Then I'll use 안녕하세요 for now.",
+            "options": [
+              {
+                "ko": "선생님, 안녕!"
+              },
+              {
+                "ko": "민지 씨, 어느 나라에서 왔어요?"
+              },
+              {
+                "ko": "그럼 지금은 ‘안녕하세요’라고 할게요."
+              },
+              {
+                "ko": "안녕하세요. 저는 수진이에요."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_a1_register_first_day_choice_gap",
+          "type": "particlePop",
+          "conceptIds": [
+            "concept_topic_particle"
+          ],
+          "data": {
+            "prefix": "저",
+            "suffix": " 수진이에요.",
+            "options": [
+              "는",
+              "은",
+              "이",
+              "가"
+            ],
+            "correctIndex": 0,
+            "explanationDe": "저 endet auf einen Vokal. Als Gesprächsthema steht deshalb 저는.",
+            "explanationEn": "저 ends in a vowel, so 저는 marks it as the topic."
+          }
+        },
+        {
+          "id": "quest_a1_register_first_day_choice_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_a1_register_switch"
+          ],
+          "data": {
+            "targetKo": "처음 만난 친구에게도 해요체로 말해요.",
+            "promptDe": "Auch mit einer neuen Mitschülerin spreche ich zunächst höflich.",
+            "promptEn": "I use polite speech with a new classmate too.",
+            "distractors": [
+              "무조건",
+              "낮춰서"
+            ],
+            "audioKo": "처음 만난 친구에게도 해요체로 말해요."
+          }
+        },
+        {
+          "id": "quest_a1_register_first_day_choice_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_a1_register_switch"
+          ],
+          "data": {
+            "targetKo": "관계를 모르겠을 때는 공손하게 말해요.",
+            "audioKo": "관계를 모르겠을 때는 공손하게 말해요.",
+            "promptDe": "Wenn die Beziehung unklar ist, spreche ich höflich.",
+            "promptEn": "When the relationship is unclear, I speak politely."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "한국어 말투는 나이 하나만이 아니라 처음 만났는지, 어떤 역할로 만났는지, 서로 어떤 말투에 동의했는지에 따라 달라집니다.",
+        "de": "Die koreanische Sprechweise hängt nicht nur vom Alter ab, sondern auch von erster Begegnung, Rolle und gegenseitiger Zustimmung.",
+        "en": "Korean speech style depends not only on age but also on whether people are meeting for the first time, their roles, and mutual agreement."
+      },
+      "shelf": "a1_greet",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "a2_plan_weather_change",
+      "level": "a2",
+      "emoji": "📅",
+      "register": "polite",
+      "speechStyle": "polite",
+      "relationshipContext": "friends",
+      "intent": "propose_and_revise_a_weekend_plan",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ],
+      "sidekick": "minsu",
+      "xpReward": 105,
+      "title": {
+        "ko": "비가 오면 약속을 바꿔요",
+        "de": "Planänderung bei Regen",
+        "en": "Changing plans if it rains"
+      },
+      "intro": {
+        "ko": "친구와 주말 약속을 잡고 비가 올 때의 대안도 정합니다.",
+        "de": "Sie verabreden sich fürs Wochenende und legen eine Alternative bei Regen fest.",
+        "en": "You make weekend plans with a friend and choose a backup for rain."
+      },
+      "grammarIds": [
+        "grammar_a2_shall_we_time"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "토요일 오후에 시간이 돼요?",
+          "de": "Hast du am Samstagnachmittag Zeit?",
+          "en": "Are you free Saturday afternoon?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네, 세 시 이후에는 괜찮아요.",
+          "de": "Ja, nach drei passt es mir.",
+          "en": "Yes, any time after three works."
+        },
+        {
+          "speaker": "user",
+          "ko": "그럼 공원에서 만날까요?",
+          "de": "Sollen wir uns dann im Park treffen?",
+          "en": "Shall we meet in the park?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "좋아요. 그런데 비 예보가 있어요.",
+          "de": "Gern. Allerdings ist Regen vorhergesagt.",
+          "en": "Sure. But rain is forecast."
+        },
+        {
+          "speaker": "user",
+          "ko": "비가 오면 역 안 카페로 바꿀까요?",
+          "de": "Sollen wir bei Regen ins Café im Bahnhof wechseln?",
+          "en": "If it rains, shall we switch to the cafe inside the station?"
+        },
+        {
+          "speaker": "minsu",
+          "ko": "네. 두 시에 날씨를 보고 결정해요.",
+          "de": "Ja. Wir schauen um zwei auf das Wetter und entscheiden dann.",
+          "en": "Yes. Let's check the weather at two and decide."
+        },
+        {
+          "speaker": "user",
+          "ko": "늦으면 미리 연락할게요.",
+          "de": "Wenn ich mich verspäte, melde ich mich vorher.",
+          "en": "If I'm late, I'll contact you in advance."
+        },
+        {
+          "speaker": "minsu",
+          "ko": "좋아요. 그럼 토요일 세 시에 봐요.",
+          "de": "Gut. Dann bis Samstag um drei.",
+          "en": "Great. See you Saturday at three."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "약속을 잡다"
+        },
+        {
+          "korean": "일정을 바꾸다"
+        },
+        {
+          "korean": "시간이 되다"
+        },
+        {
+          "korean": "만날 곳"
+        },
+        {
+          "korean": "비 예보"
+        },
+        {
+          "korean": "미리 연락하다"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "같이 V-(으)ㄹ까요?",
+          "de": "같이 V-(으)ㄹ까요?: gemeinsamer Vorschlag",
+          "en": "같이 V-(으)ㄹ까요?: Polite joint proposal"
+        },
+        "explanation": {
+          "ko": "상대의 선택 공간을 남기면서 함께 할 일을 제안할 때 씁니다.",
+          "de": "Schlägt eine gemeinsame Handlung höflich vor und lässt der anderen Person Raum.",
+          "en": "Politely proposes doing something together and leaves room for the other person."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_a2_plan_weather_change_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_proposal_polite"
+          ],
+          "data": {
+            "audioKo": "그럼 공원에서 만날까요?",
+            "options": [
+              {
+                "ko": "토요일 오후에 시간이 돼요?",
+                "de": "Hast du am Samstagnachmittag Zeit?",
+                "en": "Are you free Saturday afternoon?"
+              },
+              {
+                "ko": "그럼 공원에서 만날까요?",
+                "de": "Sollen wir uns dann im Park treffen?",
+                "en": "Shall we meet in the park?"
+              },
+              {
+                "ko": "비가 오면 역 안 카페로 바꿀까요?",
+                "de": "Sollen wir bei Regen ins Café im Bahnhof wechseln?",
+                "en": "If it rains, shall we switch to the cafe inside the station?"
+              },
+              {
+                "ko": "늦으면 미리 연락할게요.",
+                "de": "Wenn ich mich verspäte, melde ich mich vorher.",
+                "en": "If I'm late, I'll contact you in advance."
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_a2_plan_weather_change_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_proposal_polite"
+          ],
+          "data": {
+            "promptDe": "Wenn ich mich verspäte, melde ich mich vorher.",
+            "promptEn": "If I'm late, I'll contact you in advance.",
+            "options": [
+              {
+                "ko": "토요일 오후에 시간이 돼요?"
+              },
+              {
+                "ko": "비가 오면 역 안 카페로 바꿀까요?"
+              },
+              {
+                "ko": "늦으면 미리 연락할게요."
+              },
+              {
+                "ko": "그럼 공원에서 만날까요?"
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_a2_plan_weather_change_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_proposal_polite"
+          ],
+          "data": {
+            "sentence": "토요일 세 시에 ___?",
+            "options": [
+              "만날까요",
+              "만났어요",
+              "만나세요",
+              "만나지만"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_a2_plan_weather_change_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_proposal_polite"
+          ],
+          "data": {
+            "targetKo": "비가 오면 역 안 카페로 바꿔요.",
+            "promptDe": "Wenn es regnet, wechseln wir ins Café im Bahnhof.",
+            "promptEn": "If it rains, we switch to the cafe inside the station.",
+            "distractors": [
+              "공원만",
+              "그대로"
+            ],
+            "audioKo": "비가 오면 역 안 카페로 바꿔요."
+          }
+        },
+        {
+          "id": "quest_a2_plan_weather_change_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_proposal_polite"
+          ],
+          "data": {
+            "targetKo": "늦으면 미리 연락해 주세요.",
+            "audioKo": "늦으면 미리 연락해 주세요.",
+            "promptDe": "Bitte melden Sie sich vorher, wenn Sie sich verspäten.",
+            "promptEn": "Please contact me in advance if you'll be late."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "약속을 바꿀 때는 새 시간과 장소뿐 아니라 언제 최종 결정할지도 함께 말하면 오해가 줄어듭니다.",
+        "de": "Bei Planänderungen vermeiden neue Zeit, neuer Ort und ein klarer Entscheidungszeitpunkt Missverständnisse.",
+        "en": "When plans change, state the new time and place as well as when the final decision will be made."
+      },
+      "shelf": "a2_plan",
+      "backdrop": "cafe"
+    },
+    {
+      "id": "b1_work_deadline_soft_request",
+      "level": "b1",
+      "emoji": "💼",
+      "register": "business",
+      "speechStyle": "business",
+      "relationshipContext": "coworkers",
+      "intent": "explain_a_delay_and_negotiate_a_revised_deadline",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "sidekick": "jieun",
+      "xpReward": 120,
+      "title": {
+        "ko": "마감이 늦어질 때 먼저 말하기",
+        "de": "Eine Verzögerung früh ansprechen",
+        "en": "Raising a delay early"
+      },
+      "intro": {
+        "ko": "자료 전달이 늦어질 상황을 설명하고 가능한 새 마감을 함께 정합니다.",
+        "de": "Sie erklären eine drohende Verzögerung und vereinbaren gemeinsam eine realistische neue Frist.",
+        "en": "You explain a likely delay and agree on a realistic revised deadline."
+      },
+      "grammarIds": [
+        "grammar_b1_soft_request_batch19"
+      ],
+      "surfaceFormIds": [],
+      "dialog": [
+        {
+          "speaker": "user",
+          "ko": "잠깐 일정에 관해 말씀드려도 될까요?",
+          "de": "Darf ich kurz etwas zum Zeitplan ansprechen?",
+          "en": "Could I briefly raise something about the schedule?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "네, 어떤 상황인가요?",
+          "de": "Ja, worum geht es?",
+          "en": "Yes, what's the situation?"
+        },
+        {
+          "speaker": "user",
+          "ko": "외부 자료가 늦게 오는 바람에 오늘 마감이 어려울 것 같습니다.",
+          "de": "Weil externe Unterlagen unerwartet verspätet eintreffen, wird die heutige Frist wohl schwierig.",
+          "en": "Because external materials are arriving late, today's deadline will likely be difficult."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "현재까지 끝난 부분과 남은 작업을 알려 주세요.",
+          "de": "Bitte nennen Sie den aktuellen Stand und die offenen Aufgaben.",
+          "en": "Please tell me what is complete and what remains."
+        },
+        {
+          "speaker": "user",
+          "ko": "분석은 끝났고, 출처 확인과 표 수정이 남았습니다.",
+          "de": "Die Analyse ist fertig; Quellenprüfung und Tabellenkorrektur stehen noch aus.",
+          "en": "The analysis is done; source checks and table revisions remain."
+        },
+        {
+          "speaker": "jieun",
+          "ko": "그럼 내일 오전 열한 시까지 가능할까요?",
+          "de": "Wäre morgen um elf Uhr machbar?",
+          "en": "Would eleven tomorrow morning be workable?"
+        },
+        {
+          "speaker": "user",
+          "ko": "네. 변경된 마감을 팀에도 알려 주실 수 있을까요?",
+          "de": "Ja. Könnten Sie die geänderte Frist auch dem Team mitteilen?",
+          "en": "Yes. Could you also inform the team of the revised deadline?"
+        },
+        {
+          "speaker": "jieun",
+          "ko": "알겠습니다. 위험이 생기면 오늘 안에 다시 공유해 주세요.",
+          "de": "In Ordnung. Falls ein neues Risiko entsteht, geben Sie bitte noch heute Bescheid.",
+          "en": "Understood. If another risk arises, please share it today."
+        }
+      ],
+      "vocab": [
+        {
+          "korean": "사정을 설명하다"
+        },
+        {
+          "korean": "의견을 조율하다"
+        },
+        {
+          "korean": "대안을 찾다"
+        },
+        {
+          "korean": "미리 알리다"
+        },
+        {
+          "korean": "마감"
+        },
+        {
+          "korean": "남은 작업"
+        }
+      ],
+      "grammarBlock": {
+        "title": {
+          "ko": "V-아/어 주실 수 있을까요?",
+          "de": "V-아/어 주실 수 있을까요?: abgeschwächte Bitte",
+          "en": "V-아/어 주실 수 있을까요?: Softened request"
+        },
+        "explanation": {
+          "ko": "요구를 당연하게 여기지 않고 상대가 답하거나 대안을 낼 수 있게 묻습니다.",
+          "de": "Bittet höflich um eine konkrete Handlung, ohne sie als selbstverständlich darzustellen.",
+          "en": "Politely asks for a concrete action without treating it as automatic."
+        }
+      },
+      "quests": [
+        {
+          "id": "quest_b1_work_deadline_soft_request_hear",
+          "type": "hoerverstehen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "audioKo": "외부 자료가 늦게 오는 바람에 오늘 마감이 어려울 것 같습니다.",
+            "options": [
+              {
+                "ko": "잠깐 일정에 관해 말씀드려도 될까요?",
+                "de": "Darf ich kurz etwas zum Zeitplan ansprechen?",
+                "en": "Could I briefly raise something about the schedule?"
+              },
+              {
+                "ko": "외부 자료가 늦게 오는 바람에 오늘 마감이 어려울 것 같습니다.",
+                "de": "Weil externe Unterlagen unerwartet verspätet eintreffen, wird die heutige Frist wohl schwierig.",
+                "en": "Because external materials are arriving late, today's deadline will likely be difficult."
+              },
+              {
+                "ko": "분석은 끝났고, 출처 확인과 표 수정이 남았습니다.",
+                "de": "Die Analyse ist fertig; Quellenprüfung und Tabellenkorrektur stehen noch aus.",
+                "en": "The analysis is done; source checks and table revisions remain."
+              },
+              {
+                "ko": "네. 변경된 마감을 팀에도 알려 주실 수 있을까요?",
+                "de": "Ja. Könnten Sie die geänderte Frist auch dem Team mitteilen?",
+                "en": "Yes. Could you also inform the team of the revised deadline?"
+              }
+            ],
+            "correctIndex": 1
+          }
+        },
+        {
+          "id": "quest_b1_work_deadline_soft_request_translate",
+          "type": "uebersetzen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "promptDe": "Ja. Könnten Sie die geänderte Frist auch dem Team mitteilen?",
+            "promptEn": "Yes. Could you also inform the team of the revised deadline?",
+            "options": [
+              {
+                "ko": "잠깐 일정에 관해 말씀드려도 될까요?"
+              },
+              {
+                "ko": "분석은 끝났고, 출처 확인과 표 수정이 남았습니다."
+              },
+              {
+                "ko": "네. 변경된 마감을 팀에도 알려 주실 수 있을까요?"
+              },
+              {
+                "ko": "외부 자료가 늦게 오는 바람에 오늘 마감이 어려울 것 같습니다."
+              }
+            ],
+            "correctIndex": 2
+          }
+        },
+        {
+          "id": "quest_b1_work_deadline_soft_request_gap",
+          "type": "luecken",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "sentence": "변경된 마감을 팀에 ___?",
+            "options": [
+              "알려 주실 수 있을까요",
+              "알려 주세요",
+              "알려야 해요",
+              "알리지 마세요"
+            ],
+            "correctIndex": 0
+          }
+        },
+        {
+          "id": "quest_b1_work_deadline_soft_request_build",
+          "type": "satzBauen",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "자료가 늦게 오는 바람에 마감이 미뤄졌어요.",
+            "promptDe": "Weil die Unterlagen unerwartet verspätet kamen, wurde die Frist verschoben.",
+            "promptEn": "The deadline moved because the materials arrived late unexpectedly.",
+            "distractors": [
+              "문제없이",
+              "일찍"
+            ],
+            "audioKo": "자료가 늦게 오는 바람에 마감이 미뤄졌어요."
+          }
+        },
+        {
+          "id": "quest_b1_work_deadline_soft_request_dictation",
+          "type": "diktat",
+          "conceptIds": [
+            "concept_b1_softening"
+          ],
+          "data": {
+            "targetKo": "끝난 작업과 남은 작업을 나누어 설명해요.",
+            "audioKo": "끝난 작업과 남은 작업을 나누어 설명해요.",
+            "promptDe": "Ich erkläre getrennt, was fertig ist und was noch offen ist.",
+            "promptEn": "I explain separately what is done and what remains."
+          }
+        }
+      ],
+      "culturalNote": {
+        "ko": "직장 완곡 표현은 문제를 숨기는 말이 아니라 상대가 판단할 수 있도록 상황, 영향, 가능한 대안을 함께 제시하는 방식입니다.",
+        "de": "Abschwächung am Arbeitsplatz verschleiert kein Problem; sie verbindet Situation, Auswirkung und machbare Alternative so, dass die andere Person entscheiden kann.",
+        "en": "Workplace softening should not hide a problem; it presents the situation, impact, and a workable alternative so the other person can decide."
+      },
+      "shelf": "b1_team",
+      "backdrop": "office"
+    }
+  ]
+}

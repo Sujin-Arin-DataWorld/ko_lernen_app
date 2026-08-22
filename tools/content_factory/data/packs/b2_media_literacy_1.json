@@ -17,7 +17,7 @@
     ["익명 제보", "anonyme Meldung", "anonymous tip", "Ausdruck", "Expression", "익명 제보는 다른 출처와 겹치는지 봐요.", "Bei einer anonymen Meldung prüfe ich Überschneidungen mit anderen Quellen.", "With an anonymous tip I check overlap with other sources."],
     ["알고리즘 추천", "Empfehlungslogik", "feed ranking", "Ausdruck", "Expression", "알고리즘 추천만 보면 같은 의견만 보여요.", "Folgt man nur der Empfehlungslogik, sieht man dieselben Meinungen.", "If you follow only feed ranking, you see the same views."],
     ["사실 확인", "Faktenprüfung", "fact check", "Ausdruck", "Expression", "공유 전에 사실 확인 한 줄을 남겨 둬요.", "Vor dem Teilen lasse ich eine Zeile Faktenprüfung stehen.", "Before sharing I leave one line of fact check."],
-    ["과장 표현", "Übertreibung", "loaded wording", "Ausdruck", "Expression", "자극적인 표현은 빼고 수치를 있는 그대로 전달해요.", "Ich lasse reißerische Formulierungen weg und gebe die Zahlen sachlich wieder.", "I leave out sensational wording and present the figures as they are."],
+    ["과장 표현", "Übertreibung", "loaded wording", "Ausdruck", "Expression", "과장 표현은 빼고 수치를 있는 그대로 전달해요.", "Ich lasse übertriebene Formulierungen weg und gebe die Zahlen sachlich wieder.", "I leave out exaggerated wording and present the figures as they are."],
     ["출처 계층", "Quellenlage", "source layer", "Ausdruck", "Expression", "출처 계층이 2차면 1차를 찾아요.", "Ist die Quellenlage sekundär, suche ich das Original.", "If the source layer is secondary, I look for the primary."],
     ["공유 보류", "Teilestopp", "hold before sharing", "Ausdruck", "Expression", "화가 날수록 공유 보류를 십 분 해요.", "Je ärgerlicher ich bin, desto länger lasse ich den Teilestopp von zehn Minuten.", "The angrier I am, the more I use a ten-minute hold before sharing."]
   ]

@@ -3734,5 +3734,11 @@
   "ttsUnavailableChannelOff": "Pronunciation is muted. Settings → Sound",
   "ttsUnavailableQuota": "Daily voice limit reached. It resets tomorrow.",
   "ttsUnavailablePending": "The voice is being generated. Tap again in a moment.",
-  "ttsUnavailableOffline": "Pronunciation unavailable. Are you online?"
+  "ttsUnavailableOffline": "Pronunciation unavailable. Are you online?",
+  "mediaPhraseTitle": "Media lines",
+  "mediaPhraseDesc": "Practice original interview, podcast, documentary, and debate lines at your level.",
+  "mediaPhraseContext": "Situation",
+  "mediaPhraseEmpty": "There are no media lines for your level yet.",
+  "mediaPhrasePrevious": "Previous",
+  "mediaPhraseNext": "Next"
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/widgets/sori/ko_wrap.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
@@ -61,8 +62,13 @@ void main() {
     // 쪼갰는데(그래서 `find.text('접근성을')` 이 맞았다), 그 구조가 줄간격·
     // maxLines·텍스트 선택을 죽이고 TalkBack 이 문장을 단어 단위로 읽게 만들어
     // 단일 문단으로 바꿨다. 파인더도 같은 형태를 써야 한다.
-    expect(find.textContaining(soriJoinEojeol('접근성을')), findsOneWidget);
-    expect(find.textContaining(soriJoinEojeol('확인할까요?')), findsOneWidget);
+    final c1Chip = tester.widget<SoriChip>(
+      find.byWidgetPredicate(
+        (widget) => widget is SoriChip && widget.label.startsWith('C1 ·'),
+      ),
+    );
+    expect(c1Chip.selected, isTrue);
+    expect(find.byKey(const Key('smalltalk-ko')), findsOneWidget);
     expect(find.textContaining(soriJoinEojeol('날씨 좋네요.')), findsNothing);
     expect(find.text('Listen'), findsNothing);
     expect(find.byKey(const Key('smalltalk-speak')), findsOneWidget);

@@ -33,8 +33,8 @@ class MigrationPlanTest(unittest.TestCase):
         self.assertEqual(report["wrong_level"], [])
         self.assertEqual(report["missing_backdrop"], [])
         self.assertEqual(report["unknown_backdrop"], [])
-        # 264(마이그레이션 당시) + 36(2026-08-18 Batch 11 승격).
-        self.assertEqual(len(migrated), 392)
+        # 264(마이그레이션 당시)에서 Batch 11-19 승격분까지 누적됐다.
+        self.assertEqual(len(migrated), 407)
 
     def test_every_scenario_gets_both_fields(self) -> None:
         migrated, _ = migrate.plan_migration(self.scenarios, self.baseline)

@@ -110,7 +110,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "introduce_yourself", "first_class_meeting",
         "titles_relationship_distance", "a1_sorry_late", "a1_excuse_pass",
         "a1_late_text", "phone_messenger_reply", "a1_cancel_walk",
-        "a1_weekend_rain",
+        "a1_weekend_rain", "a1_register_first_day_choice",
     ),
     "a1_repeat": (
         "a1_ask_again", "a1_slow_speech", "clarify_repeat",
@@ -188,7 +188,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
     ),
     "a2_plan": (
         "a2_hours_six", "a2_rain_cancel", "friend_birthday",
-        "plans_with_friend", "running_late",
+        "plans_with_friend", "running_late", "a2_plan_weather_change",
     ),
     "a2_partner": (
         "a2_partner_banmal_slip", "a2_partner_group_chat_join",
@@ -278,6 +278,7 @@ ASSIGNMENT: dict[str, tuple[str, ...]] = {
         "b1_reschedule_request", "b1_attendance_followup",
         "b1_followup_mail", "b1_mail_cc", "b1_missing_file",
         "b1_volunteer_gap", "company_dinner_hoeshik",
+        "b1_work_deadline_soft_request",
     ),
     "b1_neighbor": (
         "b1_guest_notice", "b1_laundry_turn", "b1_quiet_exam",

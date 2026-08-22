@@ -279,10 +279,14 @@ class CanDoSegmentGeneratorTest(unittest.TestCase):
                 self.segment_by_reference[("smalltalk", phrase_id)],
             )
             if decision["routingSource"] != "exactOverride":
-                self.assertEqual("bestAvailable", decision["semanticStatus"])
-                self.assertEqual(
-                    "closestPublishedCoreSegment", decision["reasonCode"]
-                )
+                if phrase_id in builder.SMALLTALK_REVIEW_APPROVALS:
+                    self.assertEqual("approved", decision["semanticStatus"])
+                    self.assertEqual("topicAndFunctionMatch", decision["reasonCode"])
+                else:
+                    self.assertEqual("bestAvailable", decision["semanticStatus"])
+                    self.assertEqual(
+                        "closestPublishedCoreSegment", decision["reasonCode"]
+                    )
 
         self.assertEqual(
             "bestAvailable", decisions["smalltalk_b1_0012"]["semanticStatus"]

@@ -245,6 +245,16 @@ class LoaderCoverageAudit:
         }
         media_records = _read_json(self._asset("media_phrases.json"))["phrases"]
         media_counts = Counter(_level(item.get("level")) for item in media_records)
+        media_callsite = all(
+            marker in (self.root / path).read_text(encoding="utf-8")
+            for path, marker in (
+                ("lib/main.dart", "case '/media_phrases':"),
+                ("lib/models/discover_catalog.dart", "id: 'media_phrases'"),
+                ("lib/screens/practice_hub_screen.dart", "route: '/media_phrases'"),
+            )
+        )
+        word_relations = _read_json(self._asset("word_relations.json"))["clusters"]
+        word_relation_counts = Counter(_level(item.get("level")) for item in word_relations)
         grammar_patterns = _read_json_value(self._asset("grammar_patterns.json"))
         if not isinstance(grammar_patterns, list):
             raise ValueError("grammar_patterns.json must contain an array")
@@ -256,10 +266,10 @@ class LoaderCoverageAudit:
                 "exactPerLevel": {level: vocab_counts[level] for level in LEVELS},
             },
             "silben": {
-                "contract": "exact_level_but_screen_picker_is_hard_limited_to_a1_b2",
+                "contract": "exact_level_selectable_a1_c2",
                 "exactPerLevel": silben_exact,
                 "selectablePerLevel": {
-                    level: level in {"a1", "a2", "b1", "b2"}
+                    level: True
                     for level in LEVELS
                 },
             },
@@ -269,13 +279,21 @@ class LoaderCoverageAudit:
                 "visiblePerLearnerLevel": kkeunmari_visible,
             },
             "mediaPhrases": {
-                "contract": "asset_loader_exists_but_has_no_app_call_site",
+                "contract": "exact_level_reachable_from_discover_and_practice_hub",
                 "exactPerLevel": {level: media_counts[level] for level in LEVELS},
+                "appCallSite": media_callsite,
             },
             "grammarPatterns": {
                 "contract": "book_analysis_regex_support_not_a_standalone_game",
                 "exactPerLevel": {
                     level: grammar_pattern_counts[level]
+                    for level in LEVELS
+                },
+            },
+            "wordRelations": {
+                "contract": "exact_level_word_web_clusters",
+                "exactPerLevel": {
+                    level: word_relation_counts[level]
                     for level in LEVELS
                 },
             },
@@ -300,28 +318,53 @@ class LoaderCoverageAudit:
             kind: defaultdict(list) for kind in COURSE_TARGETS
         }
         unrouted: dict[str, list[str]] = {kind: [] for kind in COURSE_TARGETS}
+        explicit_routes: dict[tuple[str, str], set[str]] = defaultdict(set)
+        for link in curriculum.get("contentLinks", []):
+            kind = str(link.get("contentKind") or "").strip()
+            content_id = str(link.get("contentId") or "").strip()
+            unit_id = str(link.get("courseUnitId") or "").strip()
+            if kind in COURSE_TARGETS and content_id and unit_id:
+                explicit_routes[(kind, content_id)].add(unit_id)
         vocab_routes = self._vocab_routes(curriculum)
         for kind in COURSE_TARGETS:
             for record in collections[kind]:
                 level = _level(record.get("level"))
-                unit_id: str | None
+                record_id = str(record.get("id") or "")
+                unit_ids = set(explicit_routes.get((kind, record_id), set()))
                 if kind == "scenario":
-                    unit_id = str(record.get("courseUnitId") or "").strip() or None
+                    direct = str(record.get("courseUnitId") or "").strip()
+                    if direct:
+                        unit_ids.add(direct)
                 elif kind == "smalltalk":
                     key = f"{level}:{str(record.get('category') or '').strip().lower()}"
-                    unit_id = _mapped_unit(curriculum["smalltalkCategoryUnitMap"].get(key))
+                    checkpoint = curriculum.get("smalltalkCheckpointPhraseMap", {}).get(record_id)
+                    for mapped in (
+                        _mapped_unit(checkpoint),
+                        _mapped_unit(curriculum["smalltalkCategoryUnitMap"].get(key)),
+                    ):
+                        if mapped:
+                            unit_ids.add(mapped)
                 elif kind == "cloze":
                     key = f"{level}:{str(record.get('topic') or '').strip().lower()}"
-                    unit_id = _mapped_unit(curriculum["clozeTopicUnitMap"].get(key))
+                    mapped = _mapped_unit(curriculum["clozeTopicUnitMap"].get(key))
+                    if mapped:
+                        unit_ids.add(mapped)
                 else:
                     source = (level, str(record.get("vocabKo") or "").strip())
-                    unit_id = vocab_routes.get(source)
+                    mapped = vocab_routes.get(source)
+                    if mapped:
+                        unit_ids.add(mapped)
 
-                record_id = str(record.get("id") or "")
-                if unit_id not in units or units.get(unit_id) != level:
+                valid_units = {
+                    unit_id
+                    for unit_id in unit_ids
+                    if unit_id in units and units.get(unit_id) == level
+                }
+                if not valid_units:
                     unrouted[kind].append(record_id)
                 else:
-                    routed[kind][unit_id].append(record_id)
+                    for unit_id in valid_units:
+                        routed[kind][unit_id].append(record_id)
 
         course_loader: dict[str, dict[str, Any]] = {}
         for kind, target in COURSE_TARGETS.items():
@@ -391,12 +434,58 @@ def _parser() -> argparse.ArgumentParser:
         help="Optional review-only manifest overlaid in memory",
     )
     parser.add_argument("--output", type=Path, help="Optional JSON output path")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="return nonzero when a loader or minimum-coverage contract fails",
+    )
     return parser
+
+
+def _coverage_errors(report: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    for kind, levels in report["courseLoader"].items():
+        for level, state in levels.items():
+            if state["recordDeficitToTarget"]:
+                errors.append(
+                    f"course {kind} {level} deficit {state['recordDeficitToTarget']}"
+                )
+    categories = report["libraryLoader"]["smalltalkCategoryCoverage"]
+    for level, state in categories.items():
+        if state["recordDeficitToTwoPerCategory"]:
+            errors.append(
+                f"smalltalk {level} category deficit "
+                f"{state['recordDeficitToTwoPerCategory']}"
+            )
+    exact = report["inventory"]["pronunciation"]["exactPerLevel"]
+    for level in LEVELS:
+        if exact[level] < 8:
+            errors.append(f"pronunciation {level} has {exact[level]}, requires 8")
+    other = report["libraryLoader"]["otherGames"]
+    thresholds = {
+        "silben": 20,
+        "kkeunmari": 20,
+        "mediaPhrases": 8,
+        "grammarPatterns": 2,
+        "wordRelations": 4,
+    }
+    for kind, minimum in thresholds.items():
+        for level, count in other[kind]["exactPerLevel"].items():
+            if count < minimum:
+                errors.append(f"{kind} {level} has {count}, requires {minimum}")
+    for level, selectable in other["silben"]["selectablePerLevel"].items():
+        if not selectable:
+            errors.append(f"silben {level} is not selectable")
+    if not other["mediaPhrases"]["appCallSite"]:
+        errors.append("mediaPhrases has no complete app route/catalog/hub call site")
+    return errors
 
 
 def main() -> int:
     args = _parser().parse_args()
     report = LoaderCoverageAudit(args.root, args.manifest).build()
+    errors = _coverage_errors(report)
+    report["coverageErrors"] = errors
     rendered = json.dumps(report, ensure_ascii=False, indent=2) + "\n"
     if args.output:
         args.output.parent.mkdir(parents=True, exist_ok=True)
@@ -404,7 +493,7 @@ def main() -> int:
         print(f"OK: wrote loader coverage report to {args.output}")
     else:
         print(rendered, end="")
-    return 0
+    return 1 if args.check and errors else 0
 
 
 if __name__ == "__main__":

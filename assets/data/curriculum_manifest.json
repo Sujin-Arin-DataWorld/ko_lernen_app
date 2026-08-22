@@ -2539,7 +2539,12 @@
     "c2_fandom_discourse": "c2_06_fandom_discourse_power",
     "b2_2026_social_topics": "b2_06_advanced_capstone",
     "c1_2026_social_topics": "c1_02_inclusive_sustainable_systems",
-    "c2_2026_social_topics": "c2_01_interpretation_institutions"
+    "c2_2026_social_topics": "c2_01_interpretation_institutions",
+    "a1_particles_in_use": "a1_03_topic_subject_particles",
+    "a1_repair_language": "a1_08_clarify_repair",
+    "a1_payment_delivery": "a1_14_payment_delivery",
+    "a2_plans_proposals": "a2_02_plans_proposals",
+    "b1_work_softening": "b1_03_work_softening"
   },
   "contentLinks": [
     {
@@ -5907,6 +5912,51 @@
         "concept_c2_fandom_discourse"
       ],
       "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a1_register_first_day_choice",
+      "courseUnitId": "a1_13_register_switching",
+      "conceptIds": [
+        "concept_a1_register_switch"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "a2_plan_weather_change",
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "scenario",
+      "contentId": "b1_work_deadline_soft_request",
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0083",
+      "courseUnitId": "a1_14_payment_delivery",
+      "conceptIds": [
+        "concept_a1_payment_delivery"
+      ],
+      "role": "practice"
+    },
+    {
+      "contentKind": "smalltalk",
+      "contentId": "smalltalk_a1_0084",
+      "courseUnitId": "a1_14_payment_delivery",
+      "conceptIds": [
+        "concept_a1_payment_delivery"
+      ],
+      "role": "practice"
     }
   ],
   "grammarRuleMap": {
@@ -7265,6 +7315,42 @@
       "conceptIds": [
         "concept_c2_fandom_discourse"
       ]
+    },
+    "grammar_a1_topic_contrast": {
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "conceptIds": [
+        "concept_topic_particle"
+      ]
+    },
+    "grammar_a1_subject_new": {
+      "courseUnitId": "a1_03_topic_subject_particles",
+      "conceptIds": [
+        "concept_subject_particle"
+      ]
+    },
+    "grammar_a2_shall_we_time": {
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ]
+    },
+    "grammar_a2_available_if": {
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ]
+    },
+    "grammar_b1_soft_request_batch19": {
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
+    },
+    "grammar_b1_reason_context": {
+      "courseUnitId": "b1_03_work_softening",
+      "conceptIds": [
+        "concept_b1_softening"
+      ]
     }
   },
   "smalltalkCategoryUnitMap": {
@@ -7947,9 +8033,153 @@
       ]
     },
     "c2:job_hunting": {
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
+    },
+    "c1:weather": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c1:mood": {
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ]
+    },
+    "c1:weekend": {
+      "courseUnitId": "c1_04_play_time_policy",
+      "conceptIds": [
+        "concept_c1_play_time_policy"
+      ]
+    },
+    "c1:food": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c1:music": {
+      "courseUnitId": "c1_05_fan_labor_sustainability",
+      "conceptIds": [
+        "concept_c1_fan_labor"
+      ]
+    },
+    "c1:travel": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c1:family": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c1:interview": {
+      "courseUnitId": "c1_01_evidence_public_reasoning",
+      "conceptIds": [
+        "concept_c1_evidence_reasoning"
+      ]
+    },
+    "c1:hospital": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c1:shopping": {
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    "c1:phone": {
+      "courseUnitId": "c1_03_media_evidence_literacy",
+      "conceptIds": [
+        "concept_c1_media_evidence"
+      ]
+    },
+    "c1:emergency": {
+      "courseUnitId": "c1_02_inclusive_sustainable_systems",
+      "conceptIds": [
+        "concept_c1_inclusive_systems"
+      ]
+    },
+    "c2:weather": {
       "courseUnitId": "c2_02_technology_public_ethics",
       "conceptIds": [
         "concept_c2_accountable_systems"
+      ]
+    },
+    "c2:weekend": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "c2:food": {
+      "courseUnitId": "c2_01_interpretation_institutions",
+      "conceptIds": [
+        "concept_c2_discourse_institutions"
+      ]
+    },
+    "c2:music": {
+      "courseUnitId": "c2_06_fandom_discourse_power",
+      "conceptIds": [
+        "concept_c2_fandom_discourse"
+      ]
+    },
+    "c2:travel": {
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    "c2:family": {
+      "courseUnitId": "c2_05_relationship_narratives",
+      "conceptIds": [
+        "concept_c2_relationship_narratives"
+      ]
+    },
+    "c2:health": {
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    "c2:interview": {
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
+    },
+    "c2:hospital": {
+      "courseUnitId": "c2_03_automation_redress",
+      "conceptIds": [
+        "concept_c2_automation_redress"
+      ]
+    },
+    "c2:transport": {
+      "courseUnitId": "c2_02_technology_public_ethics",
+      "conceptIds": [
+        "concept_c2_accountable_systems"
+      ]
+    },
+    "c2:shopping": {
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
+      ]
+    },
+    "c2:emergency": {
+      "courseUnitId": "c2_04_sanction_accountability",
+      "conceptIds": [
+        "concept_c2_sanction_accountability"
       ]
     }
   },
@@ -7964,6 +8194,18 @@
       "courseUnitId": "a2_02_plans_proposals",
       "conceptIds": [
         "concept_proposal_casual"
+      ]
+    },
+    "smalltalk_a2_0076": {
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
+      ]
+    },
+    "smalltalk_a2_0077": {
+      "courseUnitId": "a2_02_plans_proposals",
+      "conceptIds": [
+        "concept_proposal_polite"
       ]
     }
   },
@@ -8107,6 +8349,13 @@
     "c2:diskurs & macht": "c2_06_fandom_discourse_power",
     "b2:gesellschaft & alltag 2026": "b2_06_advanced_capstone",
     "c1:gesellschaft im wandel": "c1_02_inclusive_sustainable_systems",
-    "c2:diskurs, macht & verantwortung": "c2_01_interpretation_institutions"
+    "c2:diskurs, macht & verantwortung": "c2_01_interpretation_institutions",
+    "a1:첫인사": "a1_01_greetings_hangul",
+    "a1:자기소개": "a1_02_self_intro_identity",
+    "a1:은는과 이가": "a1_03_topic_subject_particles",
+    "a1:다시 묻기": "a1_08_clarify_repair",
+    "a1:결제와 배달": "a1_14_payment_delivery",
+    "a1:생활 종합": "a1_16_survival_capstone",
+    "a2:약속과 일정": "a2_02_plans_proposals"
   }
 }

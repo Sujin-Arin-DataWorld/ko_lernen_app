@@ -31,7 +31,7 @@ DATA = ROOT / "assets" / "data"
 
 LOWER_LEVELS = frozenset(("a1", "a2", "b1", "b2", "c1", "c2"))
 UPPER_LEVELS = frozenset(level.upper() for level in LOWER_LEVELS)
-SILBEN_REQUIRED_LEVELS = frozenset(("A1", "A2", "B1", "B2"))
+SILBEN_REQUIRED_LEVELS = frozenset(("A1", "A2", "B1", "B2", "C1", "C2"))
 SCENARIO_STYLES = frozenset(("polite", "casual", "business", "intimate"))
 # `assets/illustrations/scenes/{key}.png` 가 번들에 실제로 있는 12 종.
 SCENARIO_BACKDROP_KEYS = frozenset(
@@ -121,6 +121,8 @@ REQUIRED_MANIFEST_KINDS = frozenset(
         "kkeunmari",
         "grammarPattern",
         "pronunciation",
+        "mediaPhrase",
+        "wordRelation",
     )
 )
 
@@ -137,6 +139,8 @@ MANIFEST_SOURCE_FILES = {
     "kkeunmari": "kkeunmari_pool.json",
     "grammarPattern": "grammar_patterns.json",
     "pronunciation": "pronunciation_phrases.json",
+    "mediaPhrase": "media_phrases.json",
+    "wordRelation": "word_relations.json",
 }
 
 
@@ -204,6 +208,8 @@ class ContentValidator:
         self.validate_kkeunmari()
         self.validate_grammar_patterns()
         self.validate_pronunciation()
+        self.validate_media_phrases()
+        self.validate_word_relations()
         self.validate_curriculum_graph()
         self.validate_audit_manifest(vocab, grammar, scenarios)
         return self.issues
@@ -1004,6 +1010,65 @@ class ContentValidator:
                 if not self._is_nonempty_string(item.get(field)):
                     self.issue(name, f"{ident} {field} must be a nonempty string")
 
+    def validate_media_phrases(self) -> None:
+        name = "media_phrases.json"
+        root = self.load_json(name)
+        items = root.get("phrases") if isinstance(root, dict) else None
+        if not isinstance(items, list):
+            self.issue(name, "root must contain a phrases array")
+            return
+        seen: set[str] = set()
+        for index, item in enumerate(items):
+            if not isinstance(item, dict):
+                self.issue(name, f"phrase {index} is not an object")
+                continue
+            ident = str(item.get("id") or "").strip()
+            if not re.fullmatch(r"media_\d+", ident):
+                self.issue(name, f"invalid id {ident!r}")
+            if ident in seen:
+                self.issue(name, f"duplicate id {ident!r}")
+            seen.add(ident)
+            level = str(item.get("level") or "").strip().lower()
+            if level not in LOWER_LEVELS:
+                self.issue(name, f"{ident} level must be an A1-C2 string")
+            for field in (
+                "korean", "german", "english", "source_type", "source_style",
+                "context_de", "context_en",
+            ):
+                if not self._is_nonempty_string(item.get(field)):
+                    self.issue(name, f"{ident} {field} must be a nonempty string")
+            for field in ("grammar_ids", "vocab_ids", "conceptIds"):
+                if not isinstance(item.get(field), list):
+                    self.issue(name, f"{ident} {field} must be an array")
+
+    def validate_word_relations(self) -> None:
+        name = "word_relations.json"
+        root = self.load_json(name)
+        items = root.get("clusters") if isinstance(root, dict) else None
+        if not isinstance(items, list):
+            self.issue(name, "root must contain a clusters array")
+            return
+        seen: set[str] = set()
+        for index, item in enumerate(items):
+            if not isinstance(item, dict):
+                self.issue(name, f"cluster {index} is not an object")
+                continue
+            ident = str(item.get("id") or "").strip()
+            if not ident:
+                self.issue(name, f"cluster {index} needs an id")
+            if ident in seen:
+                self.issue(name, f"duplicate id {ident!r}")
+            seen.add(ident)
+            level = str(item.get("level") or "").strip().lower()
+            if level not in LOWER_LEVELS:
+                self.issue(name, f"{ident} level must be an A1-C2 string")
+            for field in ("sourceKo", "sourceVocabId", "sourceDe", "sourceEn"):
+                if not self._is_nonempty_string(item.get(field)):
+                    self.issue(name, f"{ident} {field} must be a nonempty string")
+            for field in ("synonyms", "antonyms", "related", "expressions"):
+                if not isinstance(item.get(field), list):
+                    self.issue(name, f"{ident} {field} must be an array")
+
     def validate_curriculum_graph(self) -> None:
         """Fail closed when a reviewed source item has no curriculum route.
 
@@ -1544,6 +1609,8 @@ class ContentValidator:
         kkeunmari = self.load_json("kkeunmari_pool.json")
         patterns = self.load_json("grammar_patterns.json")
         pronunciation = self.load_json("pronunciation_phrases.json")
+        media = self.load_json("media_phrases.json")
+        relations = self.load_json("word_relations.json")
         silben_levels = silben.get("levels", {}) if isinstance(silben, dict) else {}
         return {
             "vocab": vocab_count,
@@ -1557,6 +1624,8 @@ class ContentValidator:
             "kkeunmari": len(kkeunmari.get("words", [])) if isinstance(kkeunmari, dict) else 0,
             "grammarPattern": len(patterns) if isinstance(patterns, list) else 0,
             "pronunciation": len(pronunciation.get("phrases", [])) if isinstance(pronunciation, dict) else 0,
+            "mediaPhrase": len(media.get("phrases", [])) if isinstance(media, dict) else 0,
+            "wordRelation": len(relations.get("clusters", [])) if isinstance(relations, dict) else 0,
         }
 
     def _validate_game_items(self, name: str, items: Any, *, kind: str) -> None:

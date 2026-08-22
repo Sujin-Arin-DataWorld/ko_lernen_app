@@ -185,7 +185,18 @@ class LanguageAwareGrammarTest(unittest.TestCase):
         )
         self.assertEqual(function_path.read_bytes(), asset_path.read_bytes())
         patterns = json.loads(function_path.read_text(encoding="utf-8"))
-        self.assertEqual(len(patterns), 31)
+        pattern_ids = [pattern["id"] for pattern in patterns]
+        self.assertEqual(len(pattern_ids), len(set(pattern_ids)))
+        self.assertTrue(
+            {
+                "g_b2_not_automatic",
+                "g_b2_instead_of",
+                "g_c1_in_process",
+                "g_c1_varies_by",
+                "g_c2_cannot_reduce",
+                "g_c2_premise",
+            }.issubset(pattern_ids)
+        )
         for pattern in patterns:
             self.assertTrue(pattern["name_en"].strip(), pattern["id"])
             self.assertTrue(pattern["explanation_en"].strip(), pattern["id"])

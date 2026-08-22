@@ -1,5 +1,27 @@
 # SESSION_LOG — ko_lernen_app (Hangul Sori)
 
+### 2026-08-22 (Codex) — Batch 19 A1-C2 로더 공백 폐쇄와 승격 정본 복구
+
+**무엇을 왜.** 레벨만 높은데 오늘의 단어에 A1 인사가 나오고, 시나리오·Smalltalk·
+문장 만들기·보조 게임의 실제 로더가 비어 보이는 문제를 raw 수량이 아니라 화면과
+코스 단원별 loader 기준으로 다시 계산했다. PDF에서는 난이도·기능·활동 구조의 일반
+신호만 취하고 문장·표·문제·선택지·단원 순서는 가져오지 않았다.
+
+**무엇을.** Beyond Humanizer v2 기준의 original clean-room Batch 19를 승격했다.
+표준 203개와 supplemental 142개, 총 345개를 추가하고 A1-C2 모든 scenario,
+smalltalk, cloze, Satzbau, pronunciation, Silben, media phrase, word relation 경로를
+실제 앱 loader에 연결했다. 과거 review 원장은 동결한 채 post-promotion copy와
+curriculum 재배선을 SHA 원장으로 고정했고, 현재 live 시나리오·단원 링크·14종
+backdrop이 서로 정확히 맞는지 검증한다. C1/C2 오늘 덱은 exact level을 유지한다.
+
+**검증.** content manifest 5,947/5,947 live, loader coverage error 0,
+content-factory 228개 통과, Beyond Humanizer Unicode·금칙 표현 검사 통과,
+`flutter analyze` 문제 0, 전체 `flutter test` exit 0(14 skipped). TTS는 12,062개
+정본 중 신규 누락 5개만 합성·업로드해 missing 0을 확인했고 stale 307개는 삭제하지
+않았다.
+
+**커밋해시.** 이 로그와 같은 작업 브랜치 커밋.
+
 ### 2026-08-21 (Codex) — A1-C2 콘텐츠 문구 정합화와 exact-level 선택
 
 **무엇을 왜.** 사용자가 C 레벨 오늘의 단어에 `안녕하세요`가 섞이고 시나리오·

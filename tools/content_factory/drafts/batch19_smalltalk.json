@@ -1,0 +1,1658 @@
+{
+  "version": 1,
+  "phrases": [
+    {
+      "id": "smalltalk_a1_0083",
+      "level": "a1",
+      "category": "shopping",
+      "kind": "question",
+      "ko": "배달비도 카드로 결제해요?",
+      "de": "Bezahle ich die Liefergebühr auch mit Karte?",
+      "en": "Do I also pay the delivery fee by card?",
+      "reply": {
+        "ko": "네, 주문 금액과 같이 결제해요.",
+        "de": "Ja, sie wird zusammen mit der Bestellung bezahlt.",
+        "en": "Yes, it is paid together with the order."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 그럼 시간과 장소를 다시 확인해요.",
+        "de": "Gut. Dann prüfen wir Zeit und Ort noch einmal.",
+        "en": "Great. Then let's check the time and place again."
+      }
+    },
+    {
+      "id": "smalltalk_a1_0084",
+      "level": "a1",
+      "category": "shopping",
+      "kind": "question",
+      "ko": "도착 시간은 어디에서 봐요?",
+      "de": "Wo sehe ich die Ankunftszeit?",
+      "en": "Where can I see the arrival time?",
+      "reply": {
+        "ko": "주문 화면 아래에 나와요.",
+        "de": "Sie steht unten auf der Bestellseite.",
+        "en": "It is shown at the bottom of the order screen."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 그럼 시간과 장소를 다시 확인해요.",
+        "de": "Gut. Dann prüfen wir Zeit und Ort noch einmal.",
+        "en": "Great. Then let's check the time and place again."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0076",
+      "level": "a2",
+      "category": "weekend",
+      "kind": "question",
+      "ko": "토요일 오후에 시간이 되면 만날까요?",
+      "de": "Sollen wir uns am Samstagnachmittag treffen, wenn du Zeit hast?",
+      "en": "Shall we meet Saturday afternoon if you're free?",
+      "reply": {
+        "ko": "좋아요. 세 시 이후가 편해요.",
+        "de": "Gern. Nach drei passt es mir.",
+        "en": "Sure. Any time after three works for me."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 그럼 시간과 장소를 다시 확인해요.",
+        "de": "Gut. Dann prüfen wir Zeit und Ort noch einmal.",
+        "en": "Great. Then let's check the time and place again."
+      }
+    },
+    {
+      "id": "smalltalk_a2_0077",
+      "level": "a2",
+      "category": "weekend",
+      "kind": "question",
+      "ko": "비가 오면 약속 장소를 바꿀까요?",
+      "de": "Sollen wir den Treffpunkt ändern, wenn es regnet?",
+      "en": "Shall we change the meeting place if it rains?",
+      "reply": {
+        "ko": "네, 역 안 카페로 정해요.",
+        "de": "Ja, nehmen wir das Café im Bahnhof.",
+        "en": "Yes, let's choose the cafe inside the station."
+      },
+      "relationshipContext": "peer",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "좋아요. 그럼 시간과 장소를 다시 확인해요.",
+        "de": "Gut. Dann prüfen wir Zeit und Ort noch einmal.",
+        "en": "Great. Then let's check the time and place again."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0045",
+      "level": "c1",
+      "category": "weather",
+      "kind": "question",
+      "ko": "폭염 대책의 효과를 평균 기온만으로 판단해도 될까요?",
+      "de": "Reicht die Durchschnittstemperatur aus, um die Wirkung von Hitzeschutzmaßnahmen zu beurteilen?",
+      "en": "Is average temperature enough to judge whether heat protections work?",
+      "reply": {
+        "ko": "그늘 접근성과 야간 최저기온도 함께 봐야 해요.",
+        "de": "Auch der Zugang zu Schatten und die nächtliche Tiefsttemperatur müssen berücksichtigt werden.",
+        "en": "Access to shade and nighttime lows also need to be considered."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0046",
+      "level": "c1",
+      "category": "weather",
+      "kind": "question",
+      "ko": "집중호우 경보가 모든 주민에게 같은 방식으로 전달됐나요?",
+      "de": "Wurde die Starkregenwarnung allen Einwohnern auf dieselbe Weise zugänglich gemacht?",
+      "en": "Was the heavy-rain warning made accessible to all residents in the same way?",
+      "reply": {
+        "ko": "문자 외에 쉬운 말과 여러 언어의 안내가 있었는지 확인해야 해요.",
+        "de": "Wir sollten prüfen, ob es neben SMS auch leicht verständliche und mehrsprachige Hinweise gab.",
+        "en": "We should check whether there were plain-language and multilingual notices beyond text alerts."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0047",
+      "level": "c1",
+      "category": "mood",
+      "kind": "question",
+      "ko": "번아웃 설문에서 업무량과 통제감을 따로 물었나요?",
+      "de": "Wurden Arbeitsmenge und Handlungsspielraum in der Burn-out-Befragung getrennt erfasst?",
+      "en": "Did the burnout survey ask separately about workload and control?",
+      "reply": {
+        "ko": "총점만 보면 서로 다른 원인이 가려질 수 있어요.",
+        "de": "Ein Gesamtwert kann unterschiedliche Ursachen verdecken.",
+        "en": "A single total score can hide different causes."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0048",
+      "level": "c1",
+      "category": "mood",
+      "kind": "question",
+      "ko": "‘회복탄력성’이 개인에게만 책임을 돌리는 말로 쓰이지 않았나요?",
+      "de": "Wurde Resilienz so verwendet, dass die Verantwortung nur beim Einzelnen liegt?",
+      "en": "Was resilience used in a way that places responsibility only on individuals?",
+      "reply": {
+        "ko": "근무 조건과 지원 체계도 같은 분석에 넣어야 해요.",
+        "de": "Arbeitsbedingungen und Unterstützungssysteme gehören in dieselbe Analyse.",
+        "en": "Working conditions and support systems belong in the same analysis."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0049",
+      "level": "c1",
+      "category": "weekend",
+      "kind": "question",
+      "ko": "주말 행사의 무료 입장이 실제 접근성을 보장하나요?",
+      "de": "Garantiert freier Eintritt tatsächlich den Zugang zur Wochenendveranstaltung?",
+      "en": "Does free admission actually guarantee access to the weekend event?",
+      "reply": {
+        "ko": "교통비와 돌봄 시간, 예약 방식도 참여를 좌우해요.",
+        "de": "Fahrtkosten, Betreuungszeiten und das Buchungssystem beeinflussen die Teilnahme ebenfalls.",
+        "en": "Transport costs, care time, and the booking system also shape participation."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0050",
+      "level": "c1",
+      "category": "weekend",
+      "kind": "question",
+      "ko": "공공 공간의 주말 이용률은 누구의 생활 패턴을 반영하나요?",
+      "de": "Wessen Lebensrhythmus bildet die Wochenendnutzung öffentlicher Räume ab?",
+      "en": "Whose routine is reflected in weekend use of public spaces?",
+      "reply": {
+        "ko": "교대 근무자와 돌봄 노동자의 이용 조건을 따로 볼 필요가 있어요.",
+        "de": "Die Bedingungen für Schichtarbeitende und Sorgearbeitende sollten separat betrachtet werden.",
+        "en": "We need to examine conditions for shift workers and caregivers separately."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0051",
+      "level": "c1",
+      "category": "food",
+      "kind": "question",
+      "ko": "외식 물가 지수에 배달비와 최소 주문 금액도 포함됐나요?",
+      "de": "Enthält der Preisindex für Restaurantessen auch Liefergebühren und Mindestbestellwerte?",
+      "en": "Does the eating-out price index include delivery fees and minimum orders?",
+      "reply": {
+        "ko": "소비자가 실제로 내는 총액과 메뉴 가격은 다를 수 있어요.",
+        "de": "Der tatsächlich gezahlte Gesamtbetrag kann vom Menüpreis abweichen.",
+        "en": "The total people pay can differ from the menu price."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0052",
+      "level": "c1",
+      "category": "food",
+      "kind": "question",
+      "ko": "지역 음식의 ‘전통성’을 누가 정의했는지 자료에 나와 있나요?",
+      "de": "Geht aus dem Material hervor, wer die Tradition eines regionalen Gerichts definiert hat?",
+      "en": "Does the material say who defined the authenticity of the regional dish?",
+      "reply": {
+        "ko": "조리하는 사람과 지역 주민의 설명이 함께 있는지 봐야 해요.",
+        "de": "Wir sollten prüfen, ob sowohl Kochende als auch Anwohnende zu Wort kommen.",
+        "en": "We should check whether cooks and local residents are both represented."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0053",
+      "level": "c1",
+      "category": "music",
+      "kind": "question",
+      "ko": "스트리밍 순위가 실제 청취 취향을 얼마나 보여 주나요?",
+      "de": "Wie gut bildet ein Streaming-Ranking tatsächliche Hörvorlieben ab?",
+      "en": "How well does a streaming chart reflect actual listening preferences?",
+      "reply": {
+        "ko": "추천 노출과 반복 재생의 영향을 분리해야 해요.",
+        "de": "Der Einfluss von Empfehlungssichtbarkeit und Wiederholungen muss getrennt werden.",
+        "en": "We need to separate recommendation exposure from repeat plays."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0054",
+      "level": "c1",
+      "category": "music",
+      "kind": "question",
+      "ko": "해외 팬의 번역 노동이 캠페인 성과에 포함됐나요?",
+      "de": "Wurde die Übersetzungsarbeit internationaler Fans als Teil der Kampagnenleistung erfasst?",
+      "en": "Was international fans' translation work counted as part of the campaign's results?",
+      "reply": {
+        "ko": "도달률만 세지 말고 시간과 보상도 기록해야 해요.",
+        "de": "Neben der Reichweite sollten auch Zeitaufwand und Vergütung dokumentiert werden.",
+        "en": "Time and compensation should be recorded alongside reach."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0055",
+      "level": "c1",
+      "category": "travel",
+      "kind": "question",
+      "ko": "관광객 수가 늘었다는 사실만으로 지역 경제 효과를 말할 수 있을까요?",
+      "de": "Lässt sich aus mehr Gästen allein auf einen lokalen Wirtschaftseffekt schließen?",
+      "en": "Can more visitors alone establish a local economic benefit?",
+      "reply": {
+        "ko": "체류 기간과 지역 업체에 남은 지출을 함께 봐야 해요.",
+        "de": "Aufenthaltsdauer und Ausgaben bei lokalen Betrieben müssen mitbetrachtet werden.",
+        "en": "We need to consider length of stay and spending retained by local businesses."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0056",
+      "level": "c1",
+      "category": "travel",
+      "kind": "question",
+      "ko": "혼잡 대책이 주민의 이동권을 제한하지 않는지도 검토했나요?",
+      "de": "Wurde geprüft, ob die Maßnahmen gegen Überfüllung die Mobilität der Anwohnenden einschränken?",
+      "en": "Did the review check whether crowd-control measures restrict residents' mobility?",
+      "reply": {
+        "ko": "관광 동선과 생활 동선을 구분한 자료가 필요해요.",
+        "de": "Dafür braucht es getrennte Daten zu touristischen und alltäglichen Wegen.",
+        "en": "That requires separate data on tourist routes and everyday travel."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0057",
+      "level": "c1",
+      "category": "family",
+      "kind": "question",
+      "ko": "돌봄 지원의 이용률이 낮은 이유를 신청자에게 물었나요?",
+      "de": "Wurden Antragstellende gefragt, warum die Betreuungsleistung wenig genutzt wird?",
+      "en": "Were applicants asked why the care support has low uptake?",
+      "reply": {
+        "ko": "자격 부족인지 정보 부족인지 구분해야 해요.",
+        "de": "Es muss zwischen fehlender Berechtigung und fehlender Information unterschieden werden.",
+        "en": "We need to distinguish ineligibility from lack of information."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0058",
+      "level": "c1",
+      "category": "family",
+      "kind": "question",
+      "ko": "저출생 논의에서 주거와 노동 시간의 영향도 함께 다뤘나요?",
+      "de": "Wurden in der Debatte über niedrige Geburtenzahlen auch Wohnen und Arbeitszeiten berücksichtigt?",
+      "en": "Did the low-birth-rate discussion also address housing and working hours?",
+      "reply": {
+        "ko": "개인의 선택만 강조하면 제도적 조건이 보이지 않아요.",
+        "de": "Wenn nur individuelle Entscheidungen betont werden, bleiben institutionelle Bedingungen unsichtbar.",
+        "en": "Focusing only on individual choices hides institutional conditions."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0059",
+      "level": "c1",
+      "category": "interview",
+      "kind": "question",
+      "ko": "면접 평가표의 ‘문화 적합성’은 어떤 행동으로 측정하나요?",
+      "de": "An welchen Verhaltensweisen wird kulturelle Passung im Interviewbogen gemessen?",
+      "en": "What behaviors does the interview rubric use to measure cultural fit?",
+      "reply": {
+        "ko": "모호한 인상 대신 관찰 가능한 기준이 필요해요.",
+        "de": "Statt diffuser Eindrücke braucht es beobachtbare Kriterien.",
+        "en": "We need observable criteria rather than vague impressions."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0060",
+      "level": "c1",
+      "category": "interview",
+      "kind": "question",
+      "ko": "AI 면접 점수의 집단별 오류율도 공개됐나요?",
+      "de": "Wurden auch die Fehlerquoten des KI-Interviews nach Gruppen veröffentlicht?",
+      "en": "Were the AI interview's error rates across groups published?",
+      "reply": {
+        "ko": "전체 정확도만으로는 불이익이 어디에 집중되는지 알 수 없어요.",
+        "de": "Eine Gesamtgenauigkeit zeigt nicht, wo Nachteile konzentriert sind.",
+        "en": "Overall accuracy does not show where harms are concentrated."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0061",
+      "level": "c1",
+      "category": "job_hunting",
+      "kind": "question",
+      "ko": "경력 공백을 자동 선별이 어떻게 해석하는지 확인할 수 있나요?",
+      "de": "Lässt sich nachvollziehen, wie die automatische Vorauswahl Erwerbslücken deutet?",
+      "en": "Can applicants see how automated screening interprets career gaps?",
+      "reply": {
+        "ko": "지원자가 맥락을 설명하고 재검토를 요청할 통로가 필요해요.",
+        "de": "Bewerbende brauchen einen Weg, Kontext zu erklären und eine Nachprüfung zu verlangen.",
+        "en": "Applicants need a way to explain context and request review."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0062",
+      "level": "c1",
+      "category": "moving",
+      "kind": "question",
+      "ko": "평균 월세 자료에 신규 계약이 충분히 포함됐나요?",
+      "de": "Enthalten die Durchschnittsmieten genügend Neuverträge?",
+      "en": "Do the average-rent data include enough new leases?",
+      "reply": {
+        "ko": "계약 시점과 지역별 표본 구성을 확인해야 해요.",
+        "de": "Vertragszeitpunkt und regionale Stichprobenzusammensetzung müssen geprüft werden.",
+        "en": "We need to check lease timing and regional sample composition."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0063",
+      "level": "c1",
+      "category": "hospital",
+      "kind": "question",
+      "ko": "예약 대기 시간은 진료과별로 따로 공개됐나요?",
+      "de": "Wurden Wartezeiten getrennt nach Fachgebiet veröffentlicht?",
+      "en": "Were wait times published separately by specialty?",
+      "reply": {
+        "ko": "평균 하나로는 긴급도와 지역 차이가 가려져요.",
+        "de": "Ein einziger Durchschnitt verdeckt Dringlichkeit und regionale Unterschiede.",
+        "en": "One average hides urgency and regional differences."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0064",
+      "level": "c1",
+      "category": "hospital",
+      "kind": "question",
+      "ko": "디지털 예약만 제공하면 누구의 접근이 어려워질까요?",
+      "de": "Wessen Zugang wird erschwert, wenn Termine nur digital vergeben werden?",
+      "en": "Whose access becomes harder when appointments are digital-only?",
+      "reply": {
+        "ko": "전화와 현장 지원이 필요한 집단을 확인해야 해요.",
+        "de": "Wir sollten ermitteln, wer Telefon- oder Vor-Ort-Unterstützung benötigt.",
+        "en": "We should identify who needs phone or in-person support."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0065",
+      "level": "c1",
+      "category": "transport",
+      "kind": "question",
+      "ko": "정시율 개선이 환승이 잦은 승객에게도 체감됐나요?",
+      "de": "Kam die bessere Pünktlichkeit auch bei Fahrgästen mit vielen Umstiegen an?",
+      "en": "Did improved punctuality benefit passengers with many transfers?",
+      "reply": {
+        "ko": "노선 평균뿐 아니라 끊어진 연결도 분석해야 해요.",
+        "de": "Neben Linienmittelwerten müssen auch verpasste Anschlüsse analysiert werden.",
+        "en": "Missed connections need analysis alongside route averages."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0066",
+      "level": "c1",
+      "category": "shopping",
+      "kind": "question",
+      "ko": "친환경 표시의 기준과 검증 기관이 공개돼 있나요?",
+      "de": "Sind Kriterien und Prüfstelle des Umweltsiegels offengelegt?",
+      "en": "Are the criteria and verifier behind the environmental label public?",
+      "reply": {
+        "ko": "문구보다 측정 범위와 갱신 주기를 확인해야 해요.",
+        "de": "Wichtiger als der Slogan sind Messumfang und Aktualisierungsrhythmus.",
+        "en": "The measurement scope and update cycle matter more than the slogan."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0067",
+      "level": "c1",
+      "category": "shopping",
+      "kind": "question",
+      "ko": "할인율이 기준 가격을 어떻게 정했는지 설명하나요?",
+      "de": "Wird erklärt, wie der Referenzpreis für den Rabatt festgelegt wurde?",
+      "en": "Does it explain how the reference price for the discount was set?",
+      "reply": {
+        "ko": "비교 기간이 짧으면 할인 폭이 과장될 수 있어요.",
+        "de": "Bei einem kurzen Vergleichszeitraum kann der Rabatt übertrieben wirken.",
+        "en": "A short comparison window can exaggerate the discount."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0068",
+      "level": "c1",
+      "category": "phone",
+      "kind": "question",
+      "ko": "요금제 추천이 사용량보다 판매 수수료의 영향을 받지는 않나요?",
+      "de": "Wird die Tarifempfehlung eher vom Verbrauch oder von Verkaufsprovisionen beeinflusst?",
+      "en": "Is the plan recommendation driven by usage or sales commissions?",
+      "reply": {
+        "ko": "추천 근거와 이해관계를 함께 공개해야 해요.",
+        "de": "Empfehlungsgrundlage und Interessenkonflikte sollten gemeinsam offengelegt werden.",
+        "en": "The basis for the recommendation and any conflicts should be disclosed together."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0069",
+      "level": "c1",
+      "category": "phone",
+      "kind": "question",
+      "ko": "상담 녹음의 보관 기간과 삭제 절차를 안내받았나요?",
+      "de": "Wurden Aufbewahrungsdauer und Löschverfahren der Gesprächsaufzeichnung erklärt?",
+      "en": "Were you told how long the call recording is kept and how it can be deleted?",
+      "reply": {
+        "ko": "동의 전에 목적과 선택권을 알 수 있어야 해요.",
+        "de": "Zweck und Wahlmöglichkeiten müssen vor der Einwilligung verständlich sein.",
+        "en": "Purpose and choices should be clear before consent."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0070",
+      "level": "c1",
+      "category": "emergency",
+      "kind": "question",
+      "ko": "재난 대피 안내가 이동이 어려운 사람도 고려했나요?",
+      "de": "Berücksichtigt der Evakuierungsplan auch Menschen mit eingeschränkter Mobilität?",
+      "en": "Does the evacuation guidance include people with limited mobility?",
+      "reply": {
+        "ko": "경로뿐 아니라 지원 인력과 연락 방식도 필요해요.",
+        "de": "Neben Wegen braucht es Personal und erreichbare Kontaktwege.",
+        "en": "Routes, support staff, and accessible contact methods are all needed."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c1_0071",
+      "level": "c1",
+      "category": "emergency",
+      "kind": "question",
+      "ko": "오경보를 줄이는 것과 경보를 늦추는 위험을 함께 평가했나요?",
+      "de": "Wurden weniger Fehlalarme und das Risiko später Warnungen gemeinsam bewertet?",
+      "en": "Did the evaluation weigh fewer false alarms against the risk of delayed warnings?",
+      "reply": {
+        "ko": "두 오류의 피해가 같다고 가정하면 안 돼요.",
+        "de": "Die Schäden beider Fehlerarten dürfen nicht als gleich angenommen werden.",
+        "en": "We should not assume both kinds of error cause equal harm."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 판단에 필요한 조건을 하나 더 확인해 볼까요?",
+          "de": "Sollen wir noch eine Bedingung prüfen, die für dieses Urteil nötig ist?",
+          "en": "Shall we check one more condition needed for that judgment?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0045",
+      "level": "c2",
+      "category": "weather",
+      "kind": "question",
+      "ko": "‘기후 적응 성공’이라는 표현은 어떤 손실을 정상 범위로 두나요?",
+      "de": "Welche Verluste gelten im Ausdruck erfolgreiche Klimaanpassung als normal?",
+      "en": "Which losses are treated as normal in the phrase successful climate adaptation?",
+      "reply": {
+        "ko": "성과 정의에 재산 피해만 있고 건강과 이주 비용은 빠져 있어요.",
+        "de": "Die Erfolgsdefinition erfasst Sachschäden, nicht aber Gesundheit und Verdrängungskosten.",
+        "en": "The success definition includes property damage but omits health and displacement costs."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0046",
+      "level": "c2",
+      "category": "weather",
+      "kind": "question",
+      "ko": "위험 지도의 경계가 바뀌면 보상 책임도 함께 바뀌나요?",
+      "de": "Ändert sich mit den Grenzen der Risikokarte auch die Entschädigungsverantwortung?",
+      "en": "When risk-map boundaries change, does responsibility for compensation change too?",
+      "reply": {
+        "ko": "기술적 재분류와 법적 책임을 분리해 검토해야 해요.",
+        "de": "Technische Neuklassifizierung und rechtliche Verantwortung müssen getrennt geprüft werden.",
+        "en": "Technical reclassification and legal responsibility need separate review."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0047",
+      "level": "c2",
+      "category": "weekend",
+      "kind": "question",
+      "ko": "‘자율적 주말 노동’이라는 말에서 거절 비용은 보이나요?",
+      "de": "Wird im Ausdruck freiwillige Wochenendarbeit der Preis einer Ablehnung sichtbar?",
+      "en": "Does the phrase voluntary weekend work reveal the cost of refusing?",
+      "reply": {
+        "ko": "승진과 계약 연장의 압박이 있으면 선택의 의미가 달라져요.",
+        "de": "Druck durch Beförderung oder Vertragsverlängerung verändert die Bedeutung der Wahl.",
+        "en": "Pressure tied to promotion or contract renewal changes what choice means."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0048",
+      "level": "c2",
+      "category": "weekend",
+      "kind": "question",
+      "ko": "도시의 야간 경제 전략은 소음 비용을 누구에게 넘기나요?",
+      "de": "Auf wen verlagert die Strategie für die Nachtökonomie die Lärmkosten?",
+      "en": "Onto whom does the night-economy strategy shift noise costs?",
+      "reply": {
+        "ko": "매출 수혜자와 생활 부담을 지는 주민이 다를 수 있어요.",
+        "de": "Von den Einnahmen profitieren womöglich andere als diejenigen, die die Belastung tragen.",
+        "en": "Those who benefit from revenue may differ from residents carrying the burden."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0049",
+      "level": "c2",
+      "category": "food",
+      "kind": "question",
+      "ko": "‘합리적 가격’은 누구의 소득과 시간 비용을 전제로 하나요?",
+      "de": "Wessen Einkommen und Zeitkosten setzt ein angemessener Preis voraus?",
+      "en": "Whose income and time costs does an affordable price assume?",
+      "reply": {
+        "ko": "소비자 가격만 보면 배달 노동과 조리 노동이 지워질 수 있어요.",
+        "de": "Ein Blick nur auf Verbraucherpreise kann Liefer- und Küchenarbeit unsichtbar machen.",
+        "en": "Looking only at consumer prices can erase delivery and kitchen labor."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0050",
+      "level": "c2",
+      "category": "food",
+      "kind": "question",
+      "ko": "지역 음식의 표준화가 다양성을 보존한다는 주장은 성립하나요?",
+      "de": "Trägt die Behauptung, Standardisierung bewahre die Vielfalt regionaler Küche?",
+      "en": "Does the claim that standardization preserves regional food diversity hold up?",
+      "reply": {
+        "ko": "유통은 쉬워져도 지역별 변형과 주체는 주변화될 수 있어요.",
+        "de": "Der Vertrieb wird leichter, während lokale Varianten und Akteure an den Rand geraten können.",
+        "en": "Distribution may get easier while local variants and actors are marginalized."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0051",
+      "level": "c2",
+      "category": "music",
+      "kind": "question",
+      "ko": "플랫폼이 ‘발견 가능성’을 제공한다는 말은 추천 권력을 가리지 않나요?",
+      "de": "Verdeckt das Versprechen von Entdeckbarkeit die Empfehlungsmacht der Plattform?",
+      "en": "Does the promise of discoverability hide the platform's recommendation power?",
+      "reply": {
+        "ko": "노출 조건과 수익 배분을 함께 보지 않으면 관계가 지워져요.",
+        "de": "Ohne Sichtbarkeitsbedingungen und Erlösverteilung verschwinden die Machtbeziehungen.",
+        "en": "Power relations disappear unless exposure rules and revenue sharing are examined together."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0052",
+      "level": "c2",
+      "category": "music",
+      "kind": "question",
+      "ko": "‘진정한 팬덤’이라는 기준은 어떤 참여를 배제하나요?",
+      "de": "Welche Beteiligungsformen schließt der Maßstab eines echten Fandoms aus?",
+      "en": "Which forms of participation does the standard of real fandom exclude?",
+      "reply": {
+        "ko": "구매와 스트리밍만 중심에 두면 번역과 지역 활동이 밀려나요.",
+        "de": "Wenn Kauf und Streaming im Zentrum stehen, geraten Übersetzung und lokale Arbeit an den Rand.",
+        "en": "Centering purchases and streams pushes translation and local work aside."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0053",
+      "level": "c2",
+      "category": "travel",
+      "kind": "question",
+      "ko": "관광지의 ‘수용력’은 주민의 생활권을 포함해 정의됐나요?",
+      "de": "Wurde touristische Tragfähigkeit unter Einbeziehung des Lebensraums der Bewohner definiert?",
+      "en": "Was tourism capacity defined to include residents' living space?",
+      "reply": {
+        "ko": "방문객 안전만으로 정의하면 일상 이동과 임대료 영향이 빠져요.",
+        "de": "Eine Definition nur über Besuchersicherheit lässt Alltag und Mietfolgen aus.",
+        "en": "A definition based only on visitor safety omits daily mobility and rent effects."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0054",
+      "level": "c2",
+      "category": "travel",
+      "kind": "question",
+      "ko": "탄소 상쇄가 이동 감축을 대신할 수 있다는 전제는 타당한가요?",
+      "de": "Ist die Prämisse tragfähig, Kompensation könne weniger Verkehr ersetzen?",
+      "en": "Is the premise that offsets can replace travel reduction defensible?",
+      "reply": {
+        "ko": "상쇄의 불확실성과 실제 감축의 시점을 구분해야 해요.",
+        "de": "Unsicherheit der Kompensation und Zeitpunkt realer Minderung müssen getrennt werden.",
+        "en": "We need to distinguish offset uncertainty from the timing of real reductions."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0055",
+      "level": "c2",
+      "category": "family",
+      "kind": "question",
+      "ko": "저출생을 ‘국가 경쟁력 위기’로만 부르면 누구의 삶이 수단이 되나요?",
+      "de": "Wessen Leben wird zum Mittel, wenn niedrige Geburtenzahlen nur als Wettbewerbsrisiko gelten?",
+      "en": "Whose lives become instruments when low birth rates are framed only as a competitiveness crisis?",
+      "reply": {
+        "ko": "당사자의 선택과 돌봄 조건이 정책 목표 뒤로 밀릴 수 있어요.",
+        "de": "Eigene Entscheidungen und Sorgebedingungen können hinter Staatszielen verschwinden.",
+        "en": "People's choices and care conditions can be pushed behind state goals."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0056",
+      "level": "c2",
+      "category": "family",
+      "kind": "question",
+      "ko": "돌봄을 가족 책임으로 규정하는 순간 공공 책임은 어떻게 바뀌나요?",
+      "de": "Wie verändert sich öffentliche Verantwortung, sobald Sorge als Familienpflicht definiert wird?",
+      "en": "How does public responsibility change when care is defined as a family duty?",
+      "reply": {
+        "ko": "지원 부족이 사적 희생으로 재명명될 위험이 있어요.",
+        "de": "Fehlende Unterstützung droht als privates Opfer umbenannt zu werden.",
+        "en": "A lack of support risks being renamed as private sacrifice."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0057",
+      "level": "c2",
+      "category": "health",
+      "kind": "question",
+      "ko": "건강 앱의 ‘위험군’ 분류는 누가 이의를 제기할 수 있나요?",
+      "de": "Wer kann der Risikogruppen-Einstufung einer Gesundheits-App widersprechen?",
+      "en": "Who can challenge a health app's high-risk classification?",
+      "reply": {
+        "ko": "분류 근거와 수정 권한, 불이익 중지 절차가 필요해요.",
+        "de": "Es braucht Begründung, Korrekturbefugnis und ein Verfahren zum Aussetzen von Nachteilen.",
+        "en": "There must be reasons, correction authority, and a process to suspend adverse effects."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0058",
+      "level": "c2",
+      "category": "health",
+      "kind": "question",
+      "ko": "예방 정책의 비용 효율성은 누구의 고통을 비용으로 계산하나요?",
+      "de": "Wessen Belastung wird in der Kosteneffizienz von Prävention als Kosten erfasst?",
+      "en": "Whose suffering is counted as a cost in preventive-policy efficiency?",
+      "reply": {
+        "ko": "평균 비용만으로는 취약 집단의 집중된 피해를 설명할 수 없어요.",
+        "de": "Durchschnittskosten erklären keine konzentrierten Schäden bei vulnerablen Gruppen.",
+        "en": "Average costs cannot explain concentrated harms among vulnerable groups."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0059",
+      "level": "c2",
+      "category": "interview",
+      "kind": "question",
+      "ko": "‘잠재력’이라는 면접 기준은 평가자의 닮음 편향을 숨기지 않나요?",
+      "de": "Verdeckt das Interviewkriterium Potenzial eine Ähnlichkeitsverzerrung der Bewertenden?",
+      "en": "Does the interview criterion potential hide evaluators' similarity bias?",
+      "reply": {
+        "ko": "관찰 근거와 반증 가능성을 남기지 않으면 자의적 판단이 돼요.",
+        "de": "Ohne Beobachtungsgrundlage und Widerlegbarkeit wird das Urteil willkürlich.",
+        "en": "Without observable evidence and room for disconfirmation, the judgment becomes arbitrary."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0060",
+      "level": "c2",
+      "category": "interview",
+      "kind": "question",
+      "ko": "자동 점수를 ‘참고’라고 부르면 책임이 줄어드나요?",
+      "de": "Verringert die Bezeichnung als bloßer Hinweis die Verantwortung für einen automatischen Wert?",
+      "en": "Does calling an automated score advisory reduce responsibility?",
+      "reply": {
+        "ko": "실제로 결과를 바꿀 권한이 누구에게 있는지가 더 중요해요.",
+        "de": "Entscheidend ist, wer das Ergebnis tatsächlich ändern darf.",
+        "en": "What matters is who actually has authority to change the outcome."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0061",
+      "level": "c2",
+      "category": "job_hunting",
+      "kind": "question",
+      "ko": "이의 절차가 원래 결정을 내린 부서와 독립돼 있나요?",
+      "de": "Ist das Widerspruchsverfahren von der ursprünglich entscheidenden Stelle unabhängig?",
+      "en": "Is the appeal process independent of the original decision-maker?",
+      "reply": {
+        "ko": "같은 기준과 책임 구조라면 재검토가 형식에 그칠 수 있어요.",
+        "de": "Bei denselben Kriterien und Verantwortlichkeiten kann die Nachprüfung bloß formal bleiben.",
+        "en": "With the same criteria and accountability structure, review may be merely formal."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0062",
+      "level": "c2",
+      "category": "moving",
+      "kind": "question",
+      "ko": "‘감당 가능한 월세’는 어떤 가구의 지출 구조를 표준으로 삼나요?",
+      "de": "Welche Haushaltsausgaben gelten als Standard für eine bezahlbare Miete?",
+      "en": "Whose household spending pattern defines affordable rent?",
+      "reply": {
+        "ko": "돌봄비와 이동비가 빠지면 같은 소득도 다르게 보일 수 있어요.",
+        "de": "Ohne Sorge- und Mobilitätskosten kann dasselbe Einkommen ganz anders erscheinen.",
+        "en": "The same income can look very different when care and transport costs are omitted."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0063",
+      "level": "c2",
+      "category": "hospital",
+      "kind": "question",
+      "ko": "진료 우선순위 알고리즘의 오류 책임은 병원과 공급자 중 누구에게 있나요?",
+      "de": "Wer trägt Fehlerverantwortung beim Triage-Algorithmus: Klinik oder Anbieter?",
+      "en": "Who is accountable for errors in a triage algorithm: the hospital or the vendor?",
+      "reply": {
+        "ko": "업무 위임과 최종 결정 권한을 구분해 기록해야 해요.",
+        "de": "Delegation und endgültige Entscheidungsbefugnis müssen getrennt dokumentiert werden.",
+        "en": "Delegation and final decision authority need separate documentation."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0064",
+      "level": "c2",
+      "category": "hospital",
+      "kind": "question",
+      "ko": "환자 동의가 치료를 포기하지 않고도 철회 가능한가요?",
+      "de": "Kann die Einwilligung widerrufen werden, ohne auf Behandlung verzichten zu müssen?",
+      "en": "Can consent be withdrawn without giving up treatment?",
+      "reply": {
+        "ko": "거절의 불이익이 크면 동의의 자발성을 다시 봐야 해요.",
+        "de": "Bei hohen Nachteilen einer Ablehnung muss die Freiwilligkeit neu geprüft werden.",
+        "en": "If refusal carries major harm, the voluntariness of consent needs reexamination."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0065",
+      "level": "c2",
+      "category": "transport",
+      "kind": "question",
+      "ko": "혼잡 요금은 이동 선택권이 적은 사람에게 어떤 부담을 넘기나요?",
+      "de": "Welche Last verlagert eine Staugebühr auf Menschen mit wenig Mobilitätswahl?",
+      "en": "What burden does congestion pricing shift to people with few transport choices?",
+      "reply": {
+        "ko": "대체 교통의 접근성이 없으면 가격 신호가 제재처럼 작동해요.",
+        "de": "Ohne zugängliche Alternativen wirkt das Preissignal wie eine Sanktion.",
+        "en": "Without accessible alternatives, the price signal functions like a penalty."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0066",
+      "level": "c2",
+      "category": "transport",
+      "kind": "question",
+      "ko": "자율주행의 ‘안전 개선’은 어떤 비교 기준에서 나온 말인가요?",
+      "de": "Auf welchem Vergleichsmaßstab beruht die Aussage mehr Sicherheit durch autonomes Fahren?",
+      "en": "What comparison standard supports the claim that autonomous driving improves safety?",
+      "reply": {
+        "ko": "평균 사고율과 예외 상황의 책임을 같은 문장에 섞으면 안 돼요.",
+        "de": "Durchschnittliche Unfallrate und Verantwortung im Ausnahmefall dürfen nicht vermischt werden.",
+        "en": "Average crash rates and accountability in exceptional cases should not be conflated."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0067",
+      "level": "c2",
+      "category": "shopping",
+      "kind": "question",
+      "ko": "개인화 가격을 ‘맞춤 혜택’이라 부르면 차별 가능성이 사라지나요?",
+      "de": "Verschwindet Diskriminierung, wenn personalisierte Preise individuelle Vorteile heißen?",
+      "en": "Does discrimination disappear when personalized pricing is called a tailored benefit?",
+      "reply": {
+        "ko": "명칭과 무관하게 누가 더 비싸게 사는지 검증해야 해요.",
+        "de": "Unabhängig vom Namen muss geprüft werden, wer mehr bezahlt.",
+        "en": "Regardless of the label, we need to test who pays more."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0068",
+      "level": "c2",
+      "category": "shopping",
+      "kind": "question",
+      "ko": "구독 해지를 어렵게 만든 설계는 어디까지 소비자 선택인가요?",
+      "de": "Inwiefern ist eine durch Design erschwerte Kündigung noch Verbraucherwahl?",
+      "en": "How far is a cancellation made difficult by design still consumer choice?",
+      "reply": {
+        "ko": "정보 제공과 조작적 마찰을 구분하는 기준이 필요해요.",
+        "de": "Es braucht einen Maßstab zwischen Information und manipulativer Reibung.",
+        "en": "We need a standard that distinguishes information from manipulative friction."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0069",
+      "level": "c2",
+      "category": "emergency",
+      "kind": "question",
+      "ko": "비상 권한의 종료 조건이 없으면 예외가 어떻게 상시 제도가 되나요?",
+      "de": "Wie wird eine Ausnahme zur Dauereinrichtung, wenn Notstandsbefugnisse kein Endkriterium haben?",
+      "en": "How does an exception become permanent when emergency powers lack an end condition?",
+      "reply": {
+        "ko": "기간뿐 아니라 연장 권한과 사후 심사도 명문화해야 해요.",
+        "de": "Neben der Dauer müssen Verlängerungsbefugnis und nachträgliche Kontrolle geregelt sein.",
+        "en": "Duration, extension authority, and retrospective review all need explicit rules."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    },
+    {
+      "id": "smalltalk_c2_0070",
+      "level": "c2",
+      "category": "emergency",
+      "kind": "question",
+      "ko": "자동 경보가 틀렸을 때 누가 설명하고 피해를 시정하나요?",
+      "de": "Wer erklärt und behebt Schäden, wenn ein automatischer Alarm falsch liegt?",
+      "en": "Who explains and remedies harm when an automated alert is wrong?",
+      "reply": {
+        "ko": "공급자와 운영 기관 사이의 책임 공백을 막아야 해요.",
+        "de": "Eine Verantwortungslücke zwischen Anbieter und Betreiber muss verhindert werden.",
+        "en": "There must be no accountability gap between the vendor and operating institution."
+      },
+      "relationshipContext": "coworker",
+      "safeAlternativeQuestions": [
+        {
+          "turnKind": "question",
+          "ko": "그 기준에서 빠진 관점은 무엇일까요?",
+          "de": "Welche Perspektive fehlt in diesem Maßstab?",
+          "en": "Which perspective is missing from that standard?"
+        }
+      ],
+      "followUp": {
+        "turnKind": "reaction",
+        "ko": "근거와 적용 범위를 나누면 더 정확하게 말할 수 있겠네요.",
+        "de": "Wenn wir Beleg und Geltungsbereich trennen, können wir genauer formulieren.",
+        "en": "Separating the evidence from its scope will make the claim more precise."
+      }
+    }
+  ]
+}

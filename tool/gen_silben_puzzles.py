@@ -28,7 +28,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 VOCAB = os.path.join(ROOT, "assets", "data", "korean_vocab.csv")
 OUT = os.path.join(ROOT, "assets", "data", "silben_puzzles.json")
 
-LEVELS = ["A1", "A2", "B1", "B2"]
+LEVELS = ["A1", "A2", "B1", "B2", "C1", "C2"]
 PUZZLES_PER_LEVEL = 20
 WORDS_PER_PUZZLE = (3, 4)  # min, max
 MAX_WORD_USES = 3  # 레벨 내 단어 재사용 상한
@@ -155,6 +155,11 @@ def normalize(grid, placed):
 def main():
     rng = random.Random(SEED)
     by_level = load_words()
+    preserve_existing = "--preserve-existing" in sys.argv
+    existing_levels = {}
+    if preserve_existing and os.path.isfile(OUT):
+        with open(OUT, encoding="utf-8") as handle:
+            existing_levels = json.load(handle).get("levels", {})
     out = {"version": 1,
            "_comment": "Silben-Kreuz 퍼즐 — tool/gen_silben_puzzles.py 가 생성. "
                        "직접 편집 금지, 스크립트 재실행으로 갱신.",
@@ -162,14 +167,21 @@ def main():
     all_ids = set()
 
     for level in LEVELS:
+        existing = existing_levels.get(level)
+        if preserve_existing and isinstance(existing, list) and len(existing) == PUZZLES_PER_LEVEL:
+            out["levels"][level] = existing
+            all_ids.update(puzzle["id"] for puzzle in existing)
+            print(f"{level}: {len(existing)} Rätsel (기존 승인 퍼즐 보존)")
+            continue
         words = by_level[level]
         usage = {w["answer"]: 0 for w in words}
         puzzles = []
         attempts = 0
-        while len(puzzles) < PUZZLES_PER_LEVEL and attempts < 400:
+        while len(puzzles) < PUZZLES_PER_LEVEL and attempts < 2400:
             attempts += 1
+            use_limit = MAX_WORD_USES if attempts < 1200 else MAX_WORD_USES + 2
             built = build_puzzle(rng, [w for w in words
-                                       if usage[w["answer"]] < MAX_WORD_USES],
+                                       if usage[w["answer"]] < use_limit],
                                  usage)
             if built is None:
                 continue
@@ -201,6 +213,10 @@ def main():
                 } for p in placed],
                 "pool": tiles,
             })
+        if len(puzzles) != PUZZLES_PER_LEVEL:
+            raise RuntimeError(
+                f"{level}: expected {PUZZLES_PER_LEVEL} puzzles, got {len(puzzles)}"
+            )
         # 검증: 좌표 정합 + 풀 충분성
         for pz in puzzles:
             cells = {}

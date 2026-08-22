@@ -112,8 +112,8 @@ class Batch09ReviewDraftTest(unittest.TestCase):
             )
         promoted_count, inventory = validate_promoted_batch(BATCH_09_MANIFEST)
         self.assertEqual(promoted_count, 1764)
-        # Batch 12 가 C1/C2 어휘 96개를 더했다 (2196 → 2292).
-        self.assertEqual(inventory["vocab"], 2292)
+        # Batch 12 이후 Batch 18-19까지 추가된 live 어휘를 함께 센다.
+        self.assertEqual(inventory["vocab"], 2348)
         self.assertEqual(len(manifest["vocabPacks"]), 48)
 
     def test_review_ledgers_are_original_drafts(self) -> None:

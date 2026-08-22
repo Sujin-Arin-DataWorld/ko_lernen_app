@@ -4003,6 +4003,1901 @@
      "활"
     ]
    }
+  ],
+  "C1": [
+   {
+    "id": "skz_c1_001",
+    "rows": 3,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "부작용",
+      "german": "Nebenwirkung",
+      "exampleKo": "규제의 ◯◯◯을 함께 적어야 판단이 공정합니다.",
+      "exampleDe": "Nur wenn die Nebenwirkungen mitnotiert werden, ist das Urteil fair."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "과부하",
+      "german": "Überlastung",
+      "exampleKo": "행사 직전에 ◯◯◯가 한쪽으로 몰립니다.",
+      "exampleDe": "Kurz vor dem Event ballt sich die Überlastung auf einer Seite."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "역효과",
+      "german": "Gegeneffekt",
+      "exampleKo": "밤에 몰아서 하는 ◯◯◯가 보고됐습니다.",
+      "exampleDe": "Ein Gegeneffekt mit nächtlichem Nachholen wurde berichtet."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 4,
+      "answer": "인용",
+      "german": "Zitat",
+      "exampleKo": "◯◯을 할 때는 논문 번호를 함께 적습니다.",
+      "exampleDe": "Beim Zitieren notieren wir die Studiennummer mit."
+     }
+    ],
+    "pool": [
+     "인",
+     "용",
+     "역",
+     "임",
+     "완",
+     "작",
+     "하",
+     "부",
+     "과",
+     "효",
+     "력"
+    ]
+   },
+   {
+    "id": "skz_c1_002",
+    "rows": 4,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "완화",
+      "german": "Lockerung",
+      "exampleKo": "◯◯ 이후 이용시간이 어떻게 달라졌는지 봅니다.",
+      "exampleDe": "Wir sehen uns an, wie sich die Spielzeit nach der Lockerung verändert hat."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "일반화",
+      "german": "Verallgemeinerung",
+      "exampleKo": "성급한 ◯◯◯는 오해를 만듭니다.",
+      "exampleDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 0,
+      "answer": "완충",
+      "german": "Puffer",
+      "exampleKo": "차단 전에 ◯◯ 단계를 하나 두면 오해가 줄어듭니다.",
+      "exampleDe": "Eine Pufferstufe vor der Sperrung verringert Missverständnisse."
+     }
+    ],
+    "pool": [
+     "증",
+     "력",
+     "상",
+     "완",
+     "충",
+     "화",
+     "일",
+     "반"
+    ]
+   },
+   {
+    "id": "skz_c1_003",
+    "rows": 4,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "자발성",
+      "german": "Freiwilligkeit",
+      "exampleKo": "◯◯◯을 이유로 부담을 늘리면 안 됩니다.",
+      "exampleDe": "Mit Freiwilligkeit zu begründen, dass die Last steigt, geht nicht."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 3,
+      "answer": "성과물",
+      "german": "Arbeitsergebnis",
+      "exampleKo": "◯◯◯의 권리를 누가 갖는지 정해 두지 않았습니다.",
+      "exampleDe": "Wem die Rechte am Arbeitsergebnis gehören, wurde nie festgelegt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "타자화",
+      "german": "Othering",
+      "exampleKo": "◯◯◯가 웃음을 타고 와서 바로 지적하기 어려웠어요.",
+      "exampleDe": "Othering kam auf einem Lachen und war schwer sofort zu benennen."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "완화",
+      "german": "Lockerung",
+      "exampleKo": "◯◯ 이후 이용시간이 어떻게 달라졌는지 봅니다.",
+      "exampleDe": "Wir sehen uns an, wie sich die Spielzeit nach der Lockerung verändert hat."
+     }
+    ],
+    "pool": [
+     "자",
+     "과",
+     "타",
+     "진",
+     "발",
+     "틀",
+     "물",
+     "화",
+     "완",
+     "휴",
+     "성"
+    ]
+   },
+   {
+    "id": "skz_c1_004",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "지속성",
+      "german": "Nachhaltigkeit",
+      "exampleKo": "◯◯◯을 기준으로 삼으면 일의 양부터 줄여야 합니다.",
+      "exampleDe": "Nimmt man Nachhaltigkeit als Maßstab, muss zuerst die Menge sinken."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 0,
+      "answer": "지표",
+      "german": "Kennzahl",
+      "exampleKo": "◯◯를 하나만 쓰면 그림이 좁아집니다.",
+      "exampleDe": "Wird nur eine Kennzahl verwendet, wird das Bild eng."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "재현성",
+      "german": "Reproduzierbarkeit",
+      "exampleKo": "◯◯◯이 확인되기 전에는 결과가 잠정적입니다.",
+      "exampleDe": "Vor bestätigter Reproduzierbarkeit bleibt das Ergebnis vorläufig."
+     }
+    ],
+    "pool": [
+     "표",
+     "지",
+     "속",
+     "산",
+     "재",
+     "성",
+     "화",
+     "석",
+     "현"
+    ]
+   },
+   {
+    "id": "skz_c1_005",
+    "rows": 4,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 2,
+      "answer": "인과",
+      "german": "Kausalität",
+      "exampleKo": "◯◯를 말하려면 시간 순서가 분명해야 합니다.",
+      "exampleDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 3,
+      "answer": "역효과",
+      "german": "Gegeneffekt",
+      "exampleKo": "밤에 몰아서 하는 ◯◯◯가 보고됐습니다.",
+      "exampleDe": "Ein Gegeneffekt mit nächtlichem Nachholen wurde berichtet."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 2,
+      "answer": "인용",
+      "german": "Zitat",
+      "exampleKo": "◯◯을 할 때는 논문 번호를 함께 적습니다.",
+      "exampleDe": "Beim Zitieren notieren wir die Studiennummer mit."
+     },
+     {
+      "dir": "h",
+      "row": 3,
+      "col": 0,
+      "answer": "부작용",
+      "german": "Nebenwirkung",
+      "exampleKo": "규제의 ◯◯◯을 함께 적어야 판단이 공정합니다.",
+      "exampleDe": "Nur wenn die Nebenwirkungen mitnotiert werden, ist das Urteil fair."
+     }
+    ],
+    "pool": [
+     "인",
+     "용",
+     "과",
+     "력",
+     "효",
+     "역",
+     "작",
+     "물",
+     "성",
+     "부"
+    ]
+   },
+   {
+    "id": "skz_c1_006",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "동원",
+      "german": "Mobilisierung",
+      "exampleKo": "투표 기간의 ◯◯이 끝나면 사람들이 사라집니다.",
+      "exampleDe": "Endet die Mobilisierung der Abstimmungsphase, verschwinden die Leute."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "신원",
+      "german": "Identität",
+      "exampleKo": "◯◯ 확인을 강제하면 쓰기 어려워하는 사람이 생깁니다.",
+      "exampleDe": "Erzwungene Identitätsprüfung schreckt manche von der Nutzung ab."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "신고",
+      "german": "Meldung",
+      "exampleKo": "◯◯ 처리 기한을 화면에 적어 두면 신뢰가 생깁니다.",
+      "exampleDe": "Steht die Bearbeitungsfrist für Meldungen auf dem Bildschirm, entsteht Vertrauen."
+     }
+    ],
+    "pool": [
+     "소",
+     "원",
+     "시",
+     "발",
+     "동",
+     "고",
+     "신"
+    ]
+   },
+   {
+    "id": "skz_c1_007",
+    "rows": 3,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "경위",
+      "german": "Hergang",
+      "exampleKo": "신고서에 ◯◯를 시간 순서로 적게 합니다.",
+      "exampleDe": "Im Meldeformular soll der Hergang in zeitlicher Reihenfolge stehen."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "경계",
+      "german": "Grenze",
+      "exampleKo": "서로의 ◯◯를 먼저 말해 두면 갈등이 줄어듭니다.",
+      "exampleDe": "Werden die eigenen Grenzen vorab benannt, sinkt das Konfliktrisiko."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "수위",
+      "german": "Grad",
+      "exampleKo": "표현의 ◯◯를 단계로 나눠 두면 판단이 빨라집니다.",
+      "exampleDe": "Wird der Grad einer Äußerung in Stufen geteilt, geht die Entscheidung schneller."
+     }
+    ],
+    "pool": [
+     "위",
+     "임",
+     "수",
+     "계",
+     "경",
+     "노",
+     "단"
+    ]
+   },
+   {
+    "id": "skz_c1_008",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "실효성",
+      "german": "Wirksamkeit",
+      "exampleKo": "◯◯◯을 따지려면 비교 집단이 필요합니다.",
+      "exampleDe": "Um die Wirksamkeit zu beurteilen, braucht es eine Vergleichsgruppe."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "성과물",
+      "german": "Arbeitsergebnis",
+      "exampleKo": "◯◯◯의 권리를 누가 갖는지 정해 두지 않았습니다.",
+      "exampleDe": "Wem die Rechte am Arbeitsergebnis gehören, wurde nie festgelegt."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "과장",
+      "german": "Übertreibung",
+      "exampleKo": "제목의 ◯◯이 본문 내용과 어긋납니다.",
+      "exampleDe": "Die Übertreibung im Titel passt nicht zum Text."
+     }
+    ],
+    "pool": [
+     "물",
+     "산",
+     "장",
+     "효",
+     "작",
+     "성",
+     "실",
+     "과",
+     "헌"
+    ]
+   },
+   {
+    "id": "skz_c1_009",
+    "rows": 2,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "임계치",
+      "german": "Schwellenwert",
+      "exampleKo": "◯◯◯를 낮추면 억울한 정지가 늘어납니다.",
+      "exampleDe": "Wird der Schwellenwert gesenkt, häufen sich ungerechte Sperren."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "위임",
+      "german": "Delegation",
+      "exampleKo": "◯◯ 없이 한 사람이 계정을 다 맡고 있습니다.",
+      "exampleDe": "Ohne Delegation betreut eine Person alle Konten."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "경위",
+      "german": "Hergang",
+      "exampleKo": "신고서에 ◯◯를 시간 순서로 적게 합니다.",
+      "exampleDe": "Im Meldeformular soll der Hergang in zeitlicher Reihenfolge stehen."
+     }
+    ],
+    "pool": [
+     "경",
+     "상",
+     "임",
+     "집",
+     "위",
+     "석",
+     "계",
+     "치"
+    ]
+   },
+   {
+    "id": "skz_c1_010",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "자율",
+      "german": "Selbstregulierung",
+      "exampleKo": "◯◯에 맡기는 방안도 같은 기준으로 재 봅니다.",
+      "exampleDe": "Auch der Weg über Selbstregulierung wird am selben Maßstab gemessen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "자발성",
+      "german": "Freiwilligkeit",
+      "exampleKo": "◯◯◯을 이유로 부담을 늘리면 안 됩니다.",
+      "exampleDe": "Mit Freiwilligkeit zu begründen, dass die Last steigt, geht nicht."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "실효성",
+      "german": "Wirksamkeit",
+      "exampleKo": "◯◯◯을 따지려면 비교 집단이 필요합니다.",
+      "exampleDe": "Um die Wirksamkeit zu beurteilen, braucht es eine Vergleichsgruppe."
+     }
+    ],
+    "pool": [
+     "효",
+     "자",
+     "석",
+     "발",
+     "담",
+     "성",
+     "율",
+     "실",
+     "신"
+    ]
+   },
+   {
+    "id": "skz_c1_011",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "반박",
+      "german": "Einwand",
+      "exampleKo": "제조사의 ◯◯에도 표본 문제는 남습니다.",
+      "exampleDe": "Trotz des Einwands des Herstellers bleibt das Stichprobenproblem."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "일반화",
+      "german": "Verallgemeinerung",
+      "exampleKo": "성급한 ◯◯◯는 오해를 만듭니다.",
+      "exampleDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "완화",
+      "german": "Lockerung",
+      "exampleKo": "◯◯ 이후 이용시간이 어떻게 달라졌는지 봅니다.",
+      "exampleDe": "Wir sehen uns an, wie sich die Spielzeit nach der Lockerung verändert hat."
+     }
+    ],
+    "pool": [
+     "일",
+     "증",
+     "화",
+     "박",
+     "작",
+     "완",
+     "반",
+     "성"
+    ]
+   },
+   {
+    "id": "skz_c1_012",
+    "rows": 4,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "위임",
+      "german": "Delegation",
+      "exampleKo": "◯◯ 없이 한 사람이 계정을 다 맡고 있습니다.",
+      "exampleDe": "Ohne Delegation betreut eine Person alle Konten."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "수위",
+      "german": "Grad",
+      "exampleKo": "표현의 ◯◯를 단계로 나눠 두면 판단이 빨라집니다.",
+      "exampleDe": "Wird der Grad einer Äußerung in Stufen geteilt, geht die Entscheidung schneller."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "무보수",
+      "german": "unbezahlte Arbeit",
+      "exampleKo": "번역은 오래전부터 ◯◯◯로 돌아갔습니다.",
+      "exampleDe": "Die Übersetzung lief seit Langem als unbezahlte Arbeit."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 3,
+      "answer": "임계치",
+      "german": "Schwellenwert",
+      "exampleKo": "◯◯◯를 낮추면 억울한 정지가 늘어납니다.",
+      "exampleDe": "Wird der Schwellenwert gesenkt, häufen sich ungerechte Sperren."
+     }
+    ],
+    "pool": [
+     "책",
+     "동",
+     "치",
+     "위",
+     "임",
+     "보",
+     "수",
+     "계",
+     "무",
+     "재"
+    ]
+   },
+   {
+    "id": "skz_c1_013",
+    "rows": 4,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "인과",
+      "german": "Kausalität",
+      "exampleKo": "◯◯를 말하려면 시간 순서가 분명해야 합니다.",
+      "exampleDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "역효과",
+      "german": "Gegeneffekt",
+      "exampleKo": "밤에 몰아서 하는 ◯◯◯가 보고됐습니다.",
+      "exampleDe": "Ein Gegeneffekt mit nächtlichem Nachholen wurde berichtet."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 0,
+      "answer": "인용",
+      "german": "Zitat",
+      "exampleKo": "◯◯을 할 때는 논문 번호를 함께 적습니다.",
+      "exampleDe": "Beim Zitieren notieren wir die Studiennummer mit."
+     }
+    ],
+    "pool": [
+     "과",
+     "경",
+     "대",
+     "효",
+     "물",
+     "역",
+     "인",
+     "용"
+    ]
+   },
+   {
+    "id": "skz_c1_014",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "신원",
+      "german": "Identität",
+      "exampleKo": "◯◯ 확인을 강제하면 쓰기 어려워하는 사람이 생깁니다.",
+      "exampleDe": "Erzwungene Identitätsprüfung schreckt manche von der Nutzung ab."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "동원",
+      "german": "Mobilisierung",
+      "exampleKo": "투표 기간의 ◯◯이 끝나면 사람들이 사라집니다.",
+      "exampleDe": "Endet die Mobilisierung der Abstimmungsphase, verschwinden die Leute."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "신고",
+      "german": "Meldung",
+      "exampleKo": "◯◯ 처리 기한을 화면에 적어 두면 신뢰가 생깁니다.",
+      "exampleDe": "Steht die Bearbeitungsfrist für Meldungen auf dem Bildschirm, entsteht Vertrauen."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "권고",
+      "german": "Empfehlung",
+      "exampleKo": "강제 대신 ◯◯로 두면 지키는 비율이 떨어집니다.",
+      "exampleDe": "Als Empfehlung statt als Pflicht sinkt die Befolgungsquote."
+     }
+    ],
+    "pool": [
+     "동",
+     "속",
+     "익",
+     "고",
+     "계",
+     "신",
+     "권",
+     "원"
+    ]
+   },
+   {
+    "id": "skz_c1_015",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "과부하",
+      "german": "Überlastung",
+      "exampleKo": "행사 직전에 ◯◯◯가 한쪽으로 몰립니다.",
+      "exampleDe": "Kurz vor dem Event ballt sich die Überlastung auf einer Seite."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "부작용",
+      "german": "Nebenwirkung",
+      "exampleKo": "규제의 ◯◯◯을 함께 적어야 판단이 공정합니다.",
+      "exampleDe": "Nur wenn die Nebenwirkungen mitnotiert werden, ist das Urteil fair."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "인과",
+      "german": "Kausalität",
+      "exampleKo": "◯◯를 말하려면 시간 순서가 분명해야 합니다.",
+      "exampleDe": "Für Kausalität muss die zeitliche Reihenfolge klar sein."
+     }
+    ],
+    "pool": [
+     "인",
+     "제",
+     "용",
+     "과",
+     "하",
+     "부",
+     "작",
+     "경",
+     "분"
+    ]
+   },
+   {
+    "id": "skz_c1_016",
+    "rows": 5,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 1,
+      "answer": "타자화",
+      "german": "Othering",
+      "exampleKo": "◯◯◯가 웃음을 타고 와서 바로 지적하기 어려웠어요.",
+      "exampleDe": "Othering kam auf einem Lachen und war schwer sofort zu benennen."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 2,
+      "answer": "자발성",
+      "german": "Freiwilligkeit",
+      "exampleKo": "◯◯◯을 이유로 부담을 늘리면 안 됩니다.",
+      "exampleDe": "Mit Freiwilligkeit zu begründen, dass die Last steigt, geht nicht."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 3,
+      "answer": "일반화",
+      "german": "Verallgemeinerung",
+      "exampleKo": "성급한 ◯◯◯는 오해를 만듭니다.",
+      "exampleDe": "Eine vorschnelle Verallgemeinerung erzeugt Missverständnisse."
+     },
+     {
+      "dir": "h",
+      "row": 4,
+      "col": 0,
+      "answer": "지속성",
+      "german": "Nachhaltigkeit",
+      "exampleKo": "◯◯◯을 기준으로 삼으면 일의 양부터 줄여야 합니다.",
+      "exampleDe": "Nimmt man Nachhaltigkeit als Maßstab, muss zuerst die Menge sinken."
+     }
+    ],
+    "pool": [
+     "발",
+     "타",
+     "반",
+     "화",
+     "성",
+     "력",
+     "자",
+     "익",
+     "지",
+     "과",
+     "속",
+     "일"
+    ]
+   },
+   {
+    "id": "skz_c1_017",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "권고",
+      "german": "Empfehlung",
+      "exampleKo": "강제 대신 ◯◯로 두면 지키는 비율이 떨어집니다.",
+      "exampleDe": "Als Empfehlung statt als Pflicht sinkt die Befolgungsquote."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "신고",
+      "german": "Meldung",
+      "exampleKo": "◯◯ 처리 기한을 화면에 적어 두면 신뢰가 생깁니다.",
+      "exampleDe": "Steht die Bearbeitungsfrist für Meldungen auf dem Bildschirm, entsteht Vertrauen."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "신원",
+      "german": "Identität",
+      "exampleKo": "◯◯ 확인을 강제하면 쓰기 어려워하는 사람이 생깁니다.",
+      "exampleDe": "Erzwungene Identitätsprüfung schreckt manche von der Nutzung ab."
+     }
+    ],
+    "pool": [
+     "원",
+     "고",
+     "권",
+     "성",
+     "역",
+     "신",
+     "증"
+    ]
+   },
+   {
+    "id": "skz_c1_018",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "지표",
+      "german": "Kennzahl",
+      "exampleKo": "◯◯를 하나만 쓰면 그림이 좁아집니다.",
+      "exampleDe": "Wird nur eine Kennzahl verwendet, wird das Bild eng."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "지속성",
+      "german": "Nachhaltigkeit",
+      "exampleKo": "◯◯◯을 기준으로 삼으면 일의 양부터 줄여야 합니다.",
+      "exampleDe": "Nimmt man Nachhaltigkeit als Maßstab, muss zuerst die Menge sinken."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "실효성",
+      "german": "Wirksamkeit",
+      "exampleKo": "◯◯◯을 따지려면 비교 집단이 필요합니다.",
+      "exampleDe": "Um die Wirksamkeit zu beurteilen, braucht es eine Vergleichsgruppe."
+     }
+    ],
+    "pool": [
+     "한",
+     "별",
+     "진",
+     "실",
+     "속",
+     "표",
+     "지",
+     "효",
+     "성"
+    ]
+   },
+   {
+    "id": "skz_c1_019",
+    "rows": 3,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "재현성",
+      "german": "Reproduzierbarkeit",
+      "exampleKo": "◯◯◯이 확인되기 전에는 결과가 잠정적입니다.",
+      "exampleDe": "Vor bestätigter Reproduzierbarkeit bleibt das Ergebnis vorläufig."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "성과물",
+      "german": "Arbeitsergebnis",
+      "exampleKo": "◯◯◯의 권리를 누가 갖는지 정해 두지 않았습니다.",
+      "exampleDe": "Wem die Rechte am Arbeitsergebnis gehören, wurde nie festgelegt."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "과부하",
+      "german": "Überlastung",
+      "exampleKo": "행사 직전에 ◯◯◯가 한쪽으로 몰립니다.",
+      "exampleDe": "Kurz vor dem Event ballt sich die Überlastung auf einer Seite."
+     }
+    ],
+    "pool": [
+     "물",
+     "현",
+     "용",
+     "하",
+     "선",
+     "과",
+     "재",
+     "성",
+     "오",
+     "부"
+    ]
+   },
+   {
+    "id": "skz_c1_020",
+    "rows": 2,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "무보수",
+      "german": "unbezahlte Arbeit",
+      "exampleKo": "번역은 오래전부터 ◯◯◯로 돌아갔습니다.",
+      "exampleDe": "Die Übersetzung lief seit Langem als unbezahlte Arbeit."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "수위",
+      "german": "Grad",
+      "exampleKo": "표현의 ◯◯를 단계로 나눠 두면 판단이 빨라집니다.",
+      "exampleDe": "Wird der Grad einer Äußerung in Stufen geteilt, geht die Entscheidung schneller."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "위임",
+      "german": "Delegation",
+      "exampleKo": "◯◯ 없이 한 사람이 계정을 다 맡고 있습니다.",
+      "exampleDe": "Ohne Delegation betreut eine Person alle Konten."
+     }
+    ],
+    "pool": [
+     "소",
+     "수",
+     "위",
+     "임",
+     "보",
+     "무",
+     "효",
+     "장"
+    ]
+   }
+  ],
+  "C2": [
+   {
+    "id": "skz_c2_001",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "정당화",
+      "german": "Rechtfertigung",
+      "exampleKo": "규모를 근거로 삼는 ◯◯◯는 오래가지 못합니다.",
+      "exampleDe": "Eine Rechtfertigung über die schiere Größe hält nicht lange."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "발화",
+      "german": "Äußerung",
+      "exampleKo": "같은 ◯◯라도 누가 했느냐로 무게가 달라집니다.",
+      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "단정",
+      "german": "kategorisches Urteil",
+      "exampleKo": "한 장면만 보고 ◯◯을 내리기는 이릅니다.",
+      "exampleDe": "Nach nur einer Szene ein kategorisches Urteil zu fällen, ist verfrüht."
+     }
+    ],
+    "pool": [
+     "탐",
+     "단",
+     "발",
+     "화",
+     "정",
+     "당",
+     "누",
+     "증"
+    ]
+   },
+   {
+    "id": "skz_c2_002",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "화자",
+      "german": "Erzählstimme",
+      "exampleKo": "◯◯가 누구인지에 따라 같은 장면이 달라집니다.",
+      "exampleDe": "Je nach Erzählstimme sieht dieselbe Szene anders aus."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 1,
+      "answer": "자의적",
+      "german": "willkürlich",
+      "exampleKo": "◯◯◯인 판단이 끼어들 여지를 줄여야 합니다.",
+      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "발화",
+      "german": "Äußerung",
+      "exampleKo": "같은 ◯◯라도 누가 했느냐로 무게가 달라집니다.",
+      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders."
+     },
+     {
+      "dir": "h",
+      "row": 3,
+      "col": 1,
+      "answer": "적발",
+      "german": "Aufdeckung",
+      "exampleKo": "◯◯ 기준이 공개되지 않아 다툼이 생깁니다.",
+      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit."
+     }
+    ],
+    "pool": [
+     "의",
+     "적",
+     "자",
+     "입",
+     "화",
+     "발",
+     "발",
+     "결",
+     "량"
+    ]
+   },
+   {
+    "id": "skz_c2_003",
+    "rows": 2,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "이상화",
+      "german": "Idealisierung",
+      "exampleKo": "초반의 ◯◯◯가 나중 판단을 어렵게 합니다.",
+      "exampleDe": "Die frühe Idealisierung erschwert das spätere Urteil."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "화자",
+      "german": "Erzählstimme",
+      "exampleKo": "◯◯가 누구인지에 따라 같은 장면이 달라집니다.",
+      "exampleDe": "Je nach Erzählstimme sieht dieselbe Szene anders aus."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 2,
+      "answer": "자의적",
+      "german": "willkürlich",
+      "exampleKo": "◯◯◯인 판단이 끼어들 여지를 줄여야 합니다.",
+      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden."
+     }
+    ],
+    "pool": [
+     "관",
+     "전",
+     "적",
+     "이",
+     "의",
+     "개",
+     "화",
+     "상",
+     "자"
+    ]
+   },
+   {
+    "id": "skz_c2_004",
+    "rows": 2,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "재검토",
+      "german": "Neuprüfung",
+      "exampleKo": "같은 시스템이 ◯◯◯를 맡으면 형식에 불과합니다.",
+      "exampleDe": "Prüft dasselbe System erneut, bleibt es eine Formalie."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "제재",
+      "german": "Sanktion",
+      "exampleKo": "◯◯ 근거를 사후에 붙이는 관행이 문제입니다.",
+      "exampleDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "구제",
+      "german": "Abhilfe",
+      "exampleKo": "◯◯ 절차가 접수 확인에 그치면 실효가 없습니다.",
+      "exampleDe": "Bleibt das Abhilfeverfahren bei einer Eingangsbestätigung, wirkt es nicht."
+     }
+    ],
+    "pool": [
+     "량",
+     "재",
+     "검",
+     "유",
+     "제",
+     "구",
+     "토",
+     "위"
+    ]
+   },
+   {
+    "id": "skz_c2_005",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "재구성",
+      "german": "Rekonstruktion",
+      "exampleKo": "기억의 ◯◯◯은 감정 상태를 따라갑니다.",
+      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "일관성",
+      "german": "Konsistenz",
+      "exampleKo": "같은 행위에 다른 결과가 나오면 ◯◯◯이 깨집니다.",
+      "exampleDe": "Führt dieselbe Handlung zu anderen Ergebnissen, bricht die Konsistenz."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 1,
+      "answer": "구제",
+      "german": "Abhilfe",
+      "exampleKo": "◯◯ 절차가 접수 확인에 그치면 실효가 없습니다.",
+      "exampleDe": "Bleibt das Abhilfeverfahren bei einer Eingangsbestätigung, wirkt es nicht."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "제재",
+      "german": "Sanktion",
+      "exampleKo": "◯◯ 근거를 사후에 붙이는 관행이 문제입니다.",
+      "exampleDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen."
+     }
+    ],
+    "pool": [
+     "일",
+     "구",
+     "재",
+     "발",
+     "성",
+     "명",
+     "제",
+     "관",
+     "철",
+     "제"
+    ]
+   },
+   {
+    "id": "skz_c2_006",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "오작동",
+      "german": "Fehlfunktion",
+      "exampleKo": "검침기 ◯◯◯으로 요금이 세 배 청구됐습니다.",
+      "exampleDe": "Wegen einer Fehlfunktion des Zählers wurde der dreifache Betrag berechnet."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "오탐",
+      "german": "Fehlalarm",
+      "exampleKo": "◯◯이 났을 때 되돌리는 절차가 없습니다.",
+      "exampleDe": "Für den Fall eines Fehlalarms fehlt ein Verfahren zur Rücknahme."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "동조",
+      "german": "Mitgehen",
+      "exampleKo": "반박이 없는 자리에서는 ◯◯가 의견처럼 보입니다.",
+      "exampleDe": "Wo kein Widerspruch fällt, sieht Mitgehen wie eine Meinung aus."
+     }
+    ],
+    "pool": [
+     "조",
+     "작",
+     "제",
+     "동",
+     "인",
+     "탐",
+     "표",
+     "오"
+    ]
+   },
+   {
+    "id": "skz_c2_007",
+    "rows": 3,
+    "cols": 5,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "개연성",
+      "german": "Plausibilität",
+      "exampleKo": "이야기의 ◯◯◯과 사실 여부는 다른 문제입니다.",
+      "exampleDe": "Die Plausibilität der Geschichte und ihre Faktenlage sind zweierlei."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "재구성",
+      "german": "Rekonstruktion",
+      "exampleKo": "기억의 ◯◯◯은 감정 상태를 따라갑니다.",
+      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "재명명",
+      "german": "Umbenennung",
+      "exampleKo": "◯◯◯이 부담을 덜어 주면 누구의 부담인지 물어요.",
+      "exampleDe": "Mildert die Umbenennung die Last, frage ich, wessen Last das war."
+     }
+    ],
+    "pool": [
+     "성",
+     "명",
+     "세",
+     "구",
+     "계",
+     "통",
+     "연",
+     "재",
+     "명",
+     "개"
+    ]
+   },
+   {
+    "id": "skz_c2_008",
+    "rows": 2,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "해제",
+      "german": "Aufhebung",
+      "exampleKo": "◯◯ 조건을 미리 적어야 예측이 가능합니다.",
+      "exampleDe": "Die Bedingungen der Aufhebung müssen vorab feststehen, damit es vorhersehbar bleibt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "제재",
+      "german": "Sanktion",
+      "exampleKo": "◯◯ 근거를 사후에 붙이는 관행이 문제입니다.",
+      "exampleDe": "Problematisch ist die Praxis, die Grundlage der Sanktion nachträglich zu ergänzen."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "재검토",
+      "german": "Neuprüfung",
+      "exampleKo": "같은 시스템이 ◯◯◯를 맡으면 형식에 불과합니다.",
+      "exampleDe": "Prüft dasselbe System erneut, bleibt es eine Formalie."
+     }
+    ],
+    "pool": [
+     "조",
+     "재",
+     "입",
+     "검",
+     "전",
+     "해",
+     "토",
+     "제"
+    ]
+   },
+   {
+    "id": "skz_c2_009",
+    "rows": 3,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "시정",
+      "german": "Behebung",
+      "exampleKo": "◯◯ 기한을 정하지 않으면 재발을 막지 못합니다.",
+      "exampleDe": "Ohne Frist zur Behebung lässt sich eine Wiederholung nicht verhindern."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "정당화",
+      "german": "Rechtfertigung",
+      "exampleKo": "규모를 근거로 삼는 ◯◯◯는 오래가지 못합니다.",
+      "exampleDe": "Eine Rechtfertigung über die schiere Größe hält nicht lange."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "미화",
+      "german": "Beschönigung",
+      "exampleKo": "지난 관계의 ◯◯는 다음 선택을 흐립니다.",
+      "exampleDe": "Die Beschönigung der alten Beziehung trübt die nächste Wahl."
+     }
+    ],
+    "pool": [
+     "난",
+     "위",
+     "정",
+     "당",
+     "미",
+     "화",
+     "구",
+     "시"
+    ]
+   },
+   {
+    "id": "skz_c2_010",
+    "rows": 2,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "누적",
+      "german": "Kumulierung",
+      "exampleKo": "경미한 위반의 ◯◯을 중대한 위반과 같이 다룹니다.",
+      "exampleDe": "Die Kumulierung leichter Verstöße wird wie ein schwerer behandelt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "적발",
+      "german": "Aufdeckung",
+      "exampleKo": "◯◯ 기준이 공개되지 않아 다툼이 생깁니다.",
+      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 1,
+      "answer": "발화",
+      "german": "Äußerung",
+      "exampleKo": "같은 ◯◯라도 누가 했느냐로 무게가 달라집니다.",
+      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders."
+     }
+    ],
+    "pool": [
+     "자",
+     "발",
+     "적",
+     "의",
+     "화",
+     "누",
+     "일"
+    ]
+   },
+   {
+    "id": "skz_c2_011",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "형식적",
+      "german": "bloß formal",
+      "exampleKo": "◯◯◯인 이의 창구는 신뢰를 깎습니다.",
+      "exampleDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 0,
+      "answer": "전형",
+      "german": "Typisierung",
+      "exampleKo": "◯◯에 맞추면 사람이 납작해집니다.",
+      "exampleDe": "Wer in eine Typisierung gepresst wird, wird flach."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 2,
+      "answer": "적발",
+      "german": "Aufdeckung",
+      "exampleKo": "◯◯ 기준이 공개되지 않아 다툼이 생깁니다.",
+      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit."
+     }
+    ],
+    "pool": [
+     "발",
+     "식",
+     "적",
+     "결",
+     "전",
+     "시",
+     "형",
+     "유"
+    ]
+   },
+   {
+    "id": "skz_c2_012",
+    "rows": 4,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "소명",
+      "german": "Stellungnahme",
+      "exampleKo": "◯◯ 기회를 주지 않은 결정은 다시 봐야 합니다.",
+      "exampleDe": "Eine Entscheidung ohne Gelegenheit zur Stellungnahme muss neu geprüft werden."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 0,
+      "answer": "소급",
+      "german": "Rückwirkung",
+      "exampleKo": "새 기준을 ◯◯ 적용하면 신뢰가 무너집니다.",
+      "exampleDe": "Wird der neue Maßstab mit Rückwirkung angewandt, bricht das Vertrauen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "재명명",
+      "german": "Umbenennung",
+      "exampleKo": "◯◯◯이 부담을 덜어 주면 누구의 부담인지 물어요.",
+      "exampleDe": "Mildert die Umbenennung die Last, frage ich, wessen Last das war."
+     }
+    ],
+    "pool": [
+     "재",
+     "명",
+     "소",
+     "급",
+     "유",
+     "미",
+     "개",
+     "명"
+    ]
+   },
+   {
+    "id": "skz_c2_013",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "잣대",
+      "german": "Maßstab",
+      "exampleKo": "안팎에 다른 ◯◯를 대면 설득력이 사라집니다.",
+      "exampleDe": "Wer nach innen und außen verschiedene Maßstäbe anlegt, verliert an Überzeugungskraft."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "대표성",
+      "german": "Repräsentativität",
+      "exampleKo": "한 단체의 발언을 모든 이주민의 의견으로 읽기 전에 ◯◯◯을 물어야 합니다.",
+      "exampleDe": "Bevor die Aussage eines Verbands als Meinung aller Zugewanderten gilt, muss seine Repräsentativität geprüft werden."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "일관성",
+      "german": "Konsistenz",
+      "exampleKo": "같은 행위에 다른 결과가 나오면 ◯◯◯이 깨집니다.",
+      "exampleDe": "Führt dieselbe Handlung zu anderen Ergebnissen, bricht die Konsistenz."
+     }
+    ],
+    "pool": [
+     "변",
+     "일",
+     "대",
+     "표",
+     "권",
+     "성",
+     "잣",
+     "관",
+     "식"
+    ]
+   },
+   {
+    "id": "skz_c2_014",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "형식적",
+      "german": "bloß formal",
+      "exampleKo": "◯◯◯인 이의 창구는 신뢰를 깎습니다.",
+      "exampleDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "전형",
+      "german": "Typisierung",
+      "exampleKo": "◯◯에 맞추면 사람이 납작해집니다.",
+      "exampleDe": "Wer in eine Typisierung gepresst wird, wird flach."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "자의적",
+      "german": "willkürlich",
+      "exampleKo": "◯◯◯인 판단이 끼어들 여지를 줄여야 합니다.",
+      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "화자",
+      "german": "Erzählstimme",
+      "exampleKo": "◯◯가 누구인지에 따라 같은 장면이 달라집니다.",
+      "exampleDe": "Je nach Erzählstimme sieht dieselbe Szene anders aus."
+     }
+    ],
+    "pool": [
+     "의",
+     "형",
+     "전",
+     "비",
+     "화",
+     "식",
+     "각",
+     "관",
+     "적",
+     "자"
+    ]
+   },
+   {
+    "id": "skz_c2_015",
+    "rows": 4,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "소급",
+      "german": "Rückwirkung",
+      "exampleKo": "새 기준을 ◯◯ 적용하면 신뢰가 무너집니다.",
+      "exampleDe": "Wird der neue Maßstab mit Rückwirkung angewandt, bricht das Vertrauen."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "소명",
+      "german": "Stellungnahme",
+      "exampleKo": "◯◯ 기회를 주지 않은 결정은 다시 봐야 합니다.",
+      "exampleDe": "Eine Entscheidung ohne Gelegenheit zur Stellungnahme muss neu geprüft werden."
+     },
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "재명명",
+      "german": "Umbenennung",
+      "exampleKo": "◯◯◯이 부담을 덜어 주면 누구의 부담인지 물어요.",
+      "exampleDe": "Mildert die Umbenennung die Last, frage ich, wessen Last das war."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "재구성",
+      "german": "Rekonstruktion",
+      "exampleKo": "기억의 ◯◯◯은 감정 상태를 따라갑니다.",
+      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage."
+     }
+    ],
+    "pool": [
+     "상",
+     "재",
+     "례",
+     "명",
+     "구",
+     "소",
+     "시",
+     "명",
+     "성",
+     "급"
+    ]
+   },
+   {
+    "id": "skz_c2_016",
+    "rows": 3,
+    "cols": 2,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "누적",
+      "german": "Kumulierung",
+      "exampleKo": "경미한 위반의 ◯◯을 중대한 위반과 같이 다룹니다.",
+      "exampleDe": "Die Kumulierung leichter Verstöße wird wie ein schwerer behandelt."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "형식적",
+      "german": "bloß formal",
+      "exampleKo": "◯◯◯인 이의 창구는 신뢰를 깎습니다.",
+      "exampleDe": "Ein bloß formaler Beschwerdeweg kostet Vertrauen."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 0,
+      "answer": "전형",
+      "german": "Typisierung",
+      "exampleKo": "◯◯에 맞추면 사람이 납작해집니다.",
+      "exampleDe": "Wer in eine Typisierung gepresst wird, wird flach."
+     }
+    ],
+    "pool": [
+     "적",
+     "식",
+     "분",
+     "색",
+     "예",
+     "누",
+     "형",
+     "전"
+    ]
+   },
+   {
+    "id": "skz_c2_017",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "이상화",
+      "german": "Idealisierung",
+      "exampleKo": "초반의 ◯◯◯가 나중 판단을 어렵게 합니다.",
+      "exampleDe": "Die frühe Idealisierung erschwert das spätere Urteil."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "정당화",
+      "german": "Rechtfertigung",
+      "exampleKo": "규모를 근거로 삼는 ◯◯◯는 오래가지 못합니다.",
+      "exampleDe": "Eine Rechtfertigung über die schiere Größe hält nicht lange."
+     },
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 1,
+      "answer": "단정",
+      "german": "kategorisches Urteil",
+      "exampleKo": "한 장면만 보고 ◯◯을 내리기는 이릅니다.",
+      "exampleDe": "Nach nur einer Szene ein kategorisches Urteil zu fällen, ist verfrüht."
+     }
+    ],
+    "pool": [
+     "당",
+     "화",
+     "단",
+     "결",
+     "난",
+     "정",
+     "예",
+     "상",
+     "이"
+    ]
+   },
+   {
+    "id": "skz_c2_018",
+    "rows": 3,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "대표성",
+      "german": "Repräsentativität",
+      "exampleKo": "한 단체의 발언을 모든 이주민의 의견으로 읽기 전에 ◯◯◯을 물어야 합니다.",
+      "exampleDe": "Bevor die Aussage eines Verbands als Meinung aller Zugewanderten gilt, muss seine Repräsentativität geprüft werden."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "개연성",
+      "german": "Plausibilität",
+      "exampleKo": "이야기의 ◯◯◯과 사실 여부는 다른 문제입니다.",
+      "exampleDe": "Die Plausibilität der Geschichte und ihre Faktenlage sind zweierlei."
+     },
+     {
+      "dir": "v",
+      "row": 1,
+      "col": 0,
+      "answer": "잣대",
+      "german": "Maßstab",
+      "exampleKo": "안팎에 다른 ◯◯를 대면 설득력이 사라집니다.",
+      "exampleDe": "Wer nach innen und außen verschiedene Maßstäbe anlegt, verliert an Überzeugungskraft."
+     }
+    ],
+    "pool": [
+     "대",
+     "인",
+     "표",
+     "잣",
+     "성",
+     "투",
+     "정",
+     "연",
+     "개"
+    ]
+   },
+   {
+    "id": "skz_c2_019",
+    "rows": 3,
+    "cols": 4,
+    "words": [
+     {
+      "dir": "h",
+      "row": 0,
+      "col": 2,
+      "answer": "재량",
+      "german": "Ermessen",
+      "exampleKo": "운영자 ◯◯이 넓을수록 기준을 더 적어야 합니다.",
+      "exampleDe": "Je weiter das Ermessen der Betreibenden reicht, desto mehr Kriterien braucht es."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 2,
+      "answer": "재구성",
+      "german": "Rekonstruktion",
+      "exampleKo": "기억의 ◯◯◯은 감정 상태를 따라갑니다.",
+      "exampleDe": "Die Rekonstruktion der Erinnerung folgt der Gefühlslage."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 0,
+      "answer": "대표성",
+      "german": "Repräsentativität",
+      "exampleKo": "한 단체의 발언을 모든 이주민의 의견으로 읽기 전에 ◯◯◯을 물어야 합니다.",
+      "exampleDe": "Bevor die Aussage eines Verbands als Meinung aller Zugewanderten gilt, muss seine Repräsentativität geprüft werden."
+     }
+    ],
+    "pool": [
+     "재",
+     "정",
+     "인",
+     "량",
+     "표",
+     "성",
+     "구",
+     "대",
+     "연"
+    ]
+   },
+   {
+    "id": "skz_c2_020",
+    "rows": 4,
+    "cols": 3,
+    "words": [
+     {
+      "dir": "h",
+      "row": 1,
+      "col": 0,
+      "answer": "함의",
+      "german": "Implikation",
+      "exampleKo": "짧은 문장의 ◯◯를 두고 며칠씩 다툽니다.",
+      "exampleDe": "Über die Implikation eines kurzen Satzes wird tagelang gestritten."
+     },
+     {
+      "dir": "v",
+      "row": 0,
+      "col": 1,
+      "answer": "자의적",
+      "german": "willkürlich",
+      "exampleKo": "◯◯◯인 판단이 끼어들 여지를 줄여야 합니다.",
+      "exampleDe": "Der Spielraum für willkürliche Entscheidungen muss kleiner werden."
+     },
+     {
+      "dir": "h",
+      "row": 2,
+      "col": 1,
+      "answer": "적발",
+      "german": "Aufdeckung",
+      "exampleKo": "◯◯ 기준이 공개되지 않아 다툼이 생깁니다.",
+      "exampleDe": "Weil die Kriterien der Aufdeckung nicht offenliegen, entsteht Streit."
+     },
+     {
+      "dir": "v",
+      "row": 2,
+      "col": 2,
+      "answer": "발화",
+      "german": "Äußerung",
+      "exampleKo": "같은 ◯◯라도 누가 했느냐로 무게가 달라집니다.",
+      "exampleDe": "Dieselbe Äußerung wiegt je nach sprechender Person anders."
+     }
+    ],
+    "pool": [
+     "화",
+     "발",
+     "급",
+     "적",
+     "사",
+     "의",
+     "형",
+     "자",
+     "함"
+    ]
+   }
   ]
  }
 }

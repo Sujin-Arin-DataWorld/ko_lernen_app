@@ -13769,6 +13769,42 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Aussprache nicht verfügbar. Bist du online?'**
   String get ttsUnavailableOffline;
+
+  /// No description provided for @mediaPhraseTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Medien-Sätze'**
+  String get mediaPhraseTitle;
+
+  /// No description provided for @mediaPhraseDesc.
+  ///
+  /// In de, this message translates to:
+  /// **'Übe Originalzeilen aus Interview-, Podcast-, Doku- und Debattenregistern auf deinem Niveau.'**
+  String get mediaPhraseDesc;
+
+  /// No description provided for @mediaPhraseContext.
+  ///
+  /// In de, this message translates to:
+  /// **'Situation'**
+  String get mediaPhraseContext;
+
+  /// No description provided for @mediaPhraseEmpty.
+  ///
+  /// In de, this message translates to:
+  /// **'Für dein Niveau sind gerade keine Medien-Sätze verfügbar.'**
+  String get mediaPhraseEmpty;
+
+  /// No description provided for @mediaPhrasePrevious.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück'**
+  String get mediaPhrasePrevious;
+
+  /// No description provided for @mediaPhraseNext.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get mediaPhraseNext;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

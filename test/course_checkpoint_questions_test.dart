@@ -132,15 +132,31 @@ void main() {
       );
       expect(
         assessments.keys,
-        containsAll(<String>['smalltalk_a2_0015', 'smalltalk_a2_0022']),
+        containsAll(<String>[
+          'smalltalk_a2_0015',
+          'smalltalk_a2_0022',
+          'smalltalk_a2_0076',
+          'smalltalk_a2_0077',
+        ]),
       );
       expect(
-        assessments.values.every(
-          (link) =>
-              link.role == ContentLinkRole.assess &&
-              link.conceptIds.length == 1 &&
-              link.conceptIds.single == 'concept_proposal_casual',
-        ),
+        assessments['smalltalk_a2_0015']!.conceptIds,
+        ['concept_proposal_casual'],
+      );
+      expect(
+        assessments['smalltalk_a2_0022']!.conceptIds,
+        ['concept_proposal_casual'],
+      );
+      expect(
+        assessments['smalltalk_a2_0076']!.conceptIds,
+        ['concept_proposal_polite'],
+      );
+      expect(
+        assessments['smalltalk_a2_0077']!.conceptIds,
+        ['concept_proposal_polite'],
+      );
+      expect(
+        assessments.values.every((link) => link.role == ContentLinkRole.assess),
         isTrue,
       );
     },
