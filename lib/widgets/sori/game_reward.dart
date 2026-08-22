@@ -16,12 +16,20 @@ import 'tokens.dart';
 /// 아이콘 + 라벨 한 줄 (🏆/🔥 이모지 대체 — 시맨틱 아이콘).
 Widget _iconLine(IconData icon, String text, Color color) => Row(
   mainAxisSize: MainAxisSize.min,
+  mainAxisAlignment: MainAxisAlignment.center,
   children: [
     Icon(icon, size: 16, color: color),
     const SizedBox(width: 5),
-    Text(
-      text,
-      style: TextStyle(fontSize: 14, fontWeight: FontWeight.w800, color: color),
+    Flexible(
+      child: Text(
+        text,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.w800,
+          color: color,
+        ),
+      ),
     ),
   ],
 );

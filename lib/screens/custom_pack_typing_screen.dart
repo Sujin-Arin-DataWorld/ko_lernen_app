@@ -30,7 +30,13 @@ import '../widgets/sori/tts_speed_control.dart';
 class CustomPackTypingScreen extends StatefulWidget {
   final String packId;
   final List<ExtractedWord>? words;
-  const CustomPackTypingScreen({super.key, required this.packId, this.words});
+  final ValueChanged<String>? speaker;
+  const CustomPackTypingScreen({
+    super.key,
+    required this.packId,
+    this.words,
+    this.speaker,
+  });
 
   @override
   State<CustomPackTypingScreen> createState() => _CustomPackTypingScreenState();
@@ -43,6 +49,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   List<ExtractedWord> _pool = const [];
   List<int> _order = const [];
   String _languageCode = 'de';
+  bool _roundInitialized = false;
   int _idx = 0;
   int _score = 0;
   bool? _correct; // null = 미제출
@@ -92,10 +99,14 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final languageCode = Localizations.localeOf(context).languageCode;
-    if (_languageCode == languageCode && _order.isNotEmpty) {
+    if (_roundInitialized) {
       return;
     }
+    _roundInitialized = true;
+    _startRoundForLocale(Localizations.localeOf(context).languageCode);
+  }
+
+  void _startRoundForLocale(String languageCode) {
     _languageCode = languageCode;
     final pack = _pack;
     if (pack == null) {
@@ -149,7 +160,12 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     } else {
       SoundService.wrong();
     }
-    TtsService.speak(word.korean);
+    final speaker = widget.speaker;
+    if (speaker != null) {
+      speaker(word.korean);
+    } else {
+      TtsService.speak(word.korean);
+    }
   }
 
   void _next() {
@@ -161,6 +177,13 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     if (_idx >= _order.length) {
       _finish();
     }
+  }
+
+  void _restart() {
+    final languageCode = Localizations.localeOf(context).languageCode;
+    setState(() {
+      _startRoundForLocale(languageCode);
+    });
   }
 
   Future<void> _finish() async {
@@ -270,16 +293,20 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
               ),
             ),
             const SizedBox(height: Spacing.lg),
-            SoriTextField(
-              fieldKey: _inputKey,
-              controller: _input,
-              autofocus: true,
+            Semantics(
+              key: const ValueKey('custom-typing-field-state'),
               enabled: !revealed,
-              textAlign: TextAlign.center,
-              style: tt.h2,
-              labelText: t.wbTypingPrompt,
-              hintText: t.wbTypingHint,
-              onSubmitted: (_) => _submit(),
+              child: SoriTextField(
+                fieldKey: _inputKey,
+                controller: _input,
+                autofocus: true,
+                enabled: !revealed,
+                textAlign: TextAlign.center,
+                style: tt.h2,
+                labelText: t.wbTypingPrompt,
+                hintText: t.wbTypingHint,
+                onSubmitted: (_) => _submit(),
+              ),
             ),
             if (revealed) ...[
               const SizedBox(height: Spacing.sm),
@@ -360,16 +387,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
               variant: SoriButtonVariant.filled,
               accent: SoriColors.accent,
               fullWidth: true,
-              onTap: () => setState(() {
-                _order = List<int>.generate(_pool.length, (i) => i)
-                  ..shuffle(math.Random());
-                _idx = 0;
-                _score = 0;
-                _correct = null;
-                _outcome = null;
-                _feedbackCompletion.reset();
-                _input.clear();
-              }),
+              onTap: _restart,
             ),
             SoriButton(
               label: t.customPackResultBack,

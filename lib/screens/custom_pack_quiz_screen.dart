@@ -28,7 +28,7 @@ import '../widgets/sori/tts_speed_control.dart';
 
 /// "나만의 단어장" 객관식 퀴즈 — 한국어를 보고 뜻 4지선다 (Quizlet/클래스카드 식).
 ///
-/// 뜻(translationDe)이 있는 단어만 출제. 최소 4개 필요.
+/// 활성 언어 뜻이 있는 단어만 출제. 최소 4개 필요.
 class CustomPackQuizScreen extends StatefulWidget {
   final String packId;
   final List<ExtractedWord>? words;
@@ -50,6 +50,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   String? _picked; // 선택한 답 (null = 미선택)
   GameOutcome? _outcome;
   String _languageCode = 'de';
+  bool _roundInitialized = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
 
   // ── 코치마크 타겟 ──
@@ -88,10 +89,14 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final languageCode = Localizations.localeOf(context).languageCode;
-    if (_languageCode == languageCode && _order.isNotEmpty) {
+    if (_roundInitialized) {
       return;
     }
+    _roundInitialized = true;
+    _startRoundForLocale(Localizations.localeOf(context).languageCode);
+  }
+
+  void _startRoundForLocale(String languageCode) {
     _languageCode = languageCode;
     final pack = _pack;
     if (pack == null) {
@@ -157,20 +162,30 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
       // ignore: discarded_futures
       Storage.incrementWrongCount(word.korean);
     }
+    if (SoriMotion.reduceMotion(context)) {
+      return;
+    }
     Future.delayed(const Duration(milliseconds: 900), () {
       if (!mounted) {
         return;
       }
-      setState(() {
-        _qIdx++;
-        if (_qIdx < _order.length) {
-          _buildOptions();
-        }
-      });
-      if (_qIdx >= _order.length) {
-        _finish();
+      _advance();
+    });
+  }
+
+  void _advance() {
+    if (_picked == null || _qIdx >= _order.length) {
+      return;
+    }
+    setState(() {
+      _qIdx++;
+      if (_qIdx < _order.length) {
+        _buildOptions();
       }
     });
+    if (_qIdx >= _order.length) {
+      _finish();
+    }
   }
 
   Future<void> _finish() async {
@@ -193,13 +208,9 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
   }
 
   void _restart() {
+    final languageCode = Localizations.localeOf(context).languageCode;
     setState(() {
-      _order = List<int>.generate(_pool.length, (i) => i)..shuffle(_rng);
-      _qIdx = 0;
-      _score = 0;
-      _outcome = null;
-      _feedbackCompletion.reset();
-      _buildOptions();
+      _startRoundForLocale(languageCode);
     });
   }
 
@@ -241,6 +252,7 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
 
     final s = SoriSurfaces.of(context);
     final tt = SoriTextTheme.of(context);
+    final reduceMotion = SoriMotion.reduceMotion(context);
     final word = _pool[_order[_qIdx]];
     final correct = word.translationFor(_languageCode).trim();
 
@@ -342,22 +354,36 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
                 child: KeyedSubtree(
                   key: _optionsKey,
                   child: Column(
-                    children: _options.map((opt) {
-                      final revealed = _picked != null;
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: Spacing.sm),
-                        child: QuizChoice(
-                          text: opt,
-                          isCorrect: opt == correct,
-                          isSelected: _picked == opt,
-                          revealed: revealed,
-                          minHeight: 56,
-                          idleBorderColor: SoriColors.primary,
-                          semanticTapEnabled: true,
-                          onSelected: revealed ? null : () => _pick(opt),
+                    children: [
+                      for (final option in _options)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: Spacing.sm),
+                          child: QuizChoice(
+                            text: option,
+                            isCorrect: option == correct,
+                            isSelected: _picked == option,
+                            revealed: _picked != null,
+                            minHeight: 56,
+                            idleBorderColor: SoriColors.primary,
+                            semanticTapEnabled: true,
+                            onSelected: _picked == null
+                                ? () => _pick(option)
+                                : null,
+                          ),
                         ),
-                      );
-                    }).toList(),
+                      if (_picked != null && reduceMotion)
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: Spacing.sm),
+                          child: SoriButton(
+                            label: t.btnNext,
+                            icon: Icons.arrow_forward_rounded,
+                            variant: SoriButtonVariant.filled,
+                            accent: SoriColors.accent,
+                            fullWidth: true,
+                            onTap: _advance,
+                          ),
+                        ),
+                    ],
                   ),
                 ),
               ),

@@ -42,6 +42,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   CustomPack? _pack;
   List<ExtractedWord> _pool = const [];
   String _languageCode = 'de';
+  bool _roundInitialized = false;
 
   List<ExtractedWord> _round = const [];
   List<String> _leftKo = const []; // 한국어 열 (셔플)
@@ -99,10 +100,14 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    final languageCode = Localizations.localeOf(context).languageCode;
-    if (_languageCode == languageCode && _round.isNotEmpty) {
+    if (_roundInitialized) {
       return;
     }
+    _roundInitialized = true;
+    _startRoundForLocale(Localizations.localeOf(context).languageCode);
+  }
+
+  void _startRoundForLocale(String languageCode) {
     _languageCode = languageCode;
     final pack = _pack;
     if (pack == null) {
@@ -118,17 +123,15 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
 
   void _newRound() {
     final shuffled = [..._pool]..shuffle(_rng);
-    // Keep both columns unambiguous in the active locale. Duplicate Korean
-    // labels or meanings would otherwise disable more than one tile at once.
-    final seenKorean = <String>{};
+    // Preserve the existing rule: one tile per distinct meaning. Apply that
+    // rule to the locale fixed for this round so the right column is clear.
     final seenMeanings = <String>{};
     final unique = <ExtractedWord>[];
     for (final word in shuffled) {
       final meaning = word.translationFor(_languageCode).trim();
-      if (seenKorean.contains(word.korean) || seenMeanings.contains(meaning)) {
+      if (seenMeanings.contains(meaning)) {
         continue;
       }
-      seenKorean.add(word.korean);
       seenMeanings.add(meaning);
       unique.add(word);
       if (unique.length >= 6) {
@@ -219,8 +222,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
       ),
     );
     // Fehlerfreie Runde → voller XP, sonst kleiner Abschlag (Aufwand spiegeln).
-    final xp = _misses == 0 ? _round.length * 4 : _round.length * 3;
-    await recordGameResult(gameId: 'cp_matching', xp: xp);
+    await recordGameResult(gameId: 'cp_matching', xp: _roundXp);
     await Analytics.gameCompleted(
       gameType: 'matching',
       result: 'win',
@@ -236,6 +238,8 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
   }
 
   bool get _roundDone => _round.isNotEmpty && _matched.length >= _round.length;
+
+  int get _roundXp => _misses == 0 ? _round.length * 4 : _round.length * 3;
 
   @override
   Widget build(BuildContext context) {
@@ -381,7 +385,7 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         headline: t.wbMatchingDone,
         scoreLabel: t.wbMatchingDoneBody,
         feedbackContext: _feedbackCompletion.current?.context,
-        xpGained: _round.length * 4,
+        xpGained: _roundXp,
         mascotKind: MascotKind.magpie,
         mascotEmotion: MascotEmotion.celebrate,
         actions: [
@@ -391,7 +395,11 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
             variant: SoriButtonVariant.filled,
             accent: SoriColors.primary,
             fullWidth: true,
-            onTap: () => setState(_newRound),
+            onTap: () => setState(
+              () => _startRoundForLocale(
+                Localizations.localeOf(context).languageCode,
+              ),
+            ),
           ),
           SoriButton(
             label: t.btnClose,
