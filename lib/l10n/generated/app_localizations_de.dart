@@ -3994,6 +3994,9 @@ class AppL10nDe extends AppL10n {
   String get wbSearchHint => 'Wort oder Bedeutung suchen …';
 
   @override
+  String get wbSearchClear => 'Suche löschen';
+
+  @override
   String get wbSearchEmpty => 'Keine Treffer';
 
   @override

@@ -5,6 +5,7 @@ import '../models/book_page.dart';
 import '../services/custom_pack_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/text_field.dart';
@@ -46,6 +47,11 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
     setState(() => _all = words);
   }
 
+  void _clearQuery() {
+    _ctrl.clear();
+    setState(() => _query = '');
+  }
+
   List<String> get _posOptions {
     final set = <String>{};
     for (final w in _all) {
@@ -75,9 +81,11 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
-    final s = SoriSurfaces.of(context);
     final results = _filtered;
     final posOptions = _posOptions;
+    final filterMaxHeight = MediaQuery.sizeOf(context).height < 700
+        ? 112.0
+        : 160.0;
 
     return SoriStandardFrame(
       appBarTitle: t.wbSearchTitle,
@@ -115,46 +123,86 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
                     prefixIcon: const Icon(Icons.search_rounded),
                     suffixIcon: _query.isEmpty
                         ? null
-                        : IconButton(
-                            tooltip: MaterialLocalizations.of(
-                              context,
-                            ).deleteButtonTooltip,
-                            icon: const Icon(Icons.clear_rounded),
-                            onPressed: () {
-                              _ctrl.clear();
-                              setState(() => _query = '');
-                            },
+                        : Semantics(
+                            container: true,
+                            button: true,
+                            enabled: true,
+                            label: t.wbSearchClear,
+                            onTap: _clearQuery,
+                            excludeSemantics: true,
+                            child: IconButton(
+                              tooltip: t.wbSearchClear,
+                              constraints: const BoxConstraints(
+                                minWidth: 48,
+                                minHeight: 48,
+                              ),
+                              icon: const Icon(Icons.clear_rounded),
+                              onPressed: _clearQuery,
+                            ),
                           ),
                   ),
                 ),
                 if (posOptions.isNotEmpty)
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(minHeight: 44),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.symmetric(
-                        horizontal: pagePadding.left,
-                      ),
-                      child: Row(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: Spacing.xs),
-                            child: ChoiceChip(
-                              label: Text(t.wbPosAll),
-                              selected: _pos == null,
-                              onSelected: (_) => setState(() => _pos = null),
-                            ),
-                          ),
-                          for (final p in posOptions)
-                            Padding(
-                              padding: const EdgeInsets.only(right: Spacing.xs),
-                              child: ChoiceChip(
-                                label: Text(p),
-                                selected: _pos == p,
-                                onSelected: (_) => setState(() => _pos = p),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: pagePadding.left),
+                    child: LayoutBuilder(
+                      builder: (context, constraints) => ConstrainedBox(
+                        constraints: BoxConstraints(maxHeight: filterMaxHeight),
+                        child: SingleChildScrollView(
+                          key: const ValueKey('wordbook-pos-filter-scroll'),
+                          primary: false,
+                          child: Wrap(
+                            spacing: Spacing.xs,
+                            runSpacing: Spacing.xs,
+                            children: [
+                              ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  maxWidth: constraints.maxWidth,
+                                ),
+                                child: SoriChip(
+                                  key: const ValueKey('wordbook-pos-all'),
+                                  label: t.wbPosAll,
+                                  selected: _pos == null,
+                                  icon: _pos == null
+                                      ? Icons.check_rounded
+                                      : null,
+                                  variant: SoriChipVariant.outlined,
+                                  idleBorderColor:
+                                      Theme.of(context).brightness ==
+                                          Brightness.light
+                                      ? SoriColors.lightBorderStrong
+                                      : SoriColors.darkBorderStrong,
+                                  maxLines: null,
+                                  minInteractiveHeight: 48,
+                                  onTap: () => setState(() => _pos = null),
+                                ),
                               ),
-                            ),
-                        ],
+                              for (final p in posOptions)
+                                ConstrainedBox(
+                                  constraints: BoxConstraints(
+                                    maxWidth: constraints.maxWidth,
+                                  ),
+                                  child: SoriChip(
+                                    key: ValueKey('wordbook-pos-$p'),
+                                    label: p,
+                                    selected: _pos == p,
+                                    icon: _pos == p
+                                        ? Icons.check_rounded
+                                        : null,
+                                    variant: SoriChipVariant.outlined,
+                                    idleBorderColor:
+                                        Theme.of(context).brightness ==
+                                            Brightness.light
+                                        ? SoriColors.lightBorderStrong
+                                        : SoriColors.darkBorderStrong,
+                                    maxLines: null,
+                                    minInteractiveHeight: 48,
+                                    onTap: () => setState(() => _pos = p),
+                                  ),
+                                ),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -167,21 +215,26 @@ class _WordbookSearchScreenState extends State<WordbookSearchScreen> {
                   ),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(
-                      t.wbSearchCount(results.length),
-                      style: SoriTextTheme.of(
-                        context,
-                      ).caption.copyWith(fontWeight: FontWeight.w600),
+                    child: Semantics(
+                      container: true,
+                      liveRegion: true,
+                      label: t.wbSearchCount(results.length),
+                      excludeSemantics: true,
+                      child: Text(
+                        t.wbSearchCount(results.length),
+                        style: SoriTextTheme.of(
+                          context,
+                        ).caption.copyWith(fontWeight: FontWeight.w600),
+                      ),
                     ),
                   ),
                 ),
                 Expanded(
                   child: results.isEmpty
-                      ? Center(
-                          child: Text(
-                            t.wbSearchEmpty,
-                            style: TextStyle(color: s.textMuted),
-                          ),
+                      ? SoriEmptyState(
+                          icon: Icons.search_off_rounded,
+                          title: t.wbSearchEmpty,
+                          illustrationMaxHeight: 120,
                         )
                       : ListView.separated(
                           keyboardDismissBehavior:
@@ -211,9 +264,23 @@ class _WordRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    final meaning = word.translationDe.isNotEmpty
+    final t = AppL10n.of(context);
+    final languageCode = Localizations.localeOf(context).languageCode;
+    final preferredMeaning = languageCode == 'en'
+        ? word.translationEn
+        : word.translationDe;
+    final fallbackMeaning = languageCode == 'en'
         ? word.translationDe
         : word.translationEn;
+    final meaning = preferredMeaning.isNotEmpty
+        ? preferredMeaning
+        : fallbackMeaning;
+    final ttsLabel = '${t.ttsListen}: ${word.korean}';
+    void speak() {
+      // ignore: discarded_futures
+      TtsService.speak(word.korean);
+    }
+
     return SoriCard(
       variant: SoriCardVariant.base,
       child: LayoutBuilder(
@@ -256,25 +323,42 @@ class _WordRow extends StatelessWidget {
                       const SizedBox(height: Spacing.xs),
                       Text(
                         meaning,
-                        style: TextStyle(fontSize: 13, color: s.textMuted),
+                        style: SoriTextTheme.of(
+                          context,
+                        ).bodySmall.copyWith(color: s.textMuted),
                       ),
                     ],
                     if (word.definitionKo.isNotEmpty) ...[
                       const SizedBox(height: Spacing.xs),
                       Text(
                         word.definitionKo,
-                        style: TextStyle(fontSize: 12, color: s.textDim),
+                        style: SoriTextTheme.of(
+                          context,
+                        ).caption.copyWith(color: s.textDim),
                       ),
                     ],
                   ],
                 ),
               ),
-              IconButton(
-                icon: Icon(
-                  Icons.volume_up_rounded,
-                  color: SoriColors.primary.withValues(alpha: 0.75),
+              Semantics(
+                container: true,
+                button: true,
+                enabled: true,
+                label: ttsLabel,
+                onTap: speak,
+                excludeSemantics: true,
+                child: IconButton(
+                  tooltip: ttsLabel,
+                  constraints: const BoxConstraints(
+                    minWidth: 48,
+                    minHeight: 48,
+                  ),
+                  icon: Icon(
+                    Icons.volume_up_rounded,
+                    color: SoriColors.primary.withValues(alpha: 0.75),
+                  ),
+                  onPressed: speak,
                 ),
-                onPressed: () => TtsService.speak(word.korean),
               ),
             ],
           );
@@ -300,21 +384,10 @@ class _PartOfSpeech extends StatelessWidget {
   final String label;
 
   @override
-  Widget build(BuildContext context) => Container(
-    padding: const EdgeInsets.symmetric(
-      horizontal: Spacing.sm,
-      vertical: Spacing.xs,
-    ),
-    decoration: BoxDecoration(
-      color: SoriColors.primary.withValues(alpha: 0.12),
-      borderRadius: SoriRadius.brPill,
-    ),
-    child: Text(
-      label,
-      style: SoriTextTheme.of(context).caption.copyWith(
-        fontWeight: FontWeight.w700,
-        color: SoriColors.primaryOnLight,
-      ),
-    ),
+  Widget build(BuildContext context) => SoriChip(
+    label: label,
+    maxLines: null,
+    accent: SoriColors.primary,
+    variant: SoriChipVariant.soft,
   );
 }
