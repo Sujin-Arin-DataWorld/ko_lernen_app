@@ -6,9 +6,8 @@
 - **Base:** `origin/main@44944f59e5156fb3bde85dc3a7cb0a42dc1510c1`
 - **State:** the isolated `/book/preview` outer-UI unit is locally
   final-verified on app commit `d58da3af1ee79720e35476b2fe125f6306ead9db`
-- **Next action:** commit this exact lock, push the clean branch head, open one
-  PR, use only automatic exact-head CI, and merge only after every required
-  check is green
+- **Next action:** push the clean branch head, open one PR, use only automatic
+  exact-head CI, and merge only after every required check is green
 
 ## Current State Summary
 
@@ -61,9 +60,8 @@ remain separate high-risk units.
 
 ## Immediate Next Steps
 
-1. Commit this exact lock, push the clean current branch head, and open one PR
-   without adding a manual duplicate run; wait for automatic CI on the exact PR
-   head.
+1. Push the clean current branch head and open one PR without adding a manual
+   duplicate run; wait for automatic CI on the exact PR head.
 2. Merge only when every required check is green, verify the Signed AAB/Play
    path ran zero steps, and cancel any post-main release-capable run
    immediately.
