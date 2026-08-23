@@ -25,27 +25,7 @@
             "type": "command",
             "command": "bash \"$(git rev-parse --show-toplevel 2>/dev/null)/tool/check_session_worktree.sh\" 2>/dev/null || true",
             "timeout": 10,
-            "statusMessage": "\uc6cc\ud0b9\ud2b8\ub9ac \uaca9\ub9ac \ud655\uc778"
-          }
-        ]
-      }
-    ],
-    "PreToolUse": [
-      {
-        "matcher": "Bash|Grep",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "C:/Users/vjinn/.local/bin/graphify.EXE hook-guard search"
-          }
-        ]
-      },
-      {
-        "matcher": "Read|Glob",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "C:/Users/vjinn/.local/bin/graphify.EXE hook-guard read"
+            "statusMessage": "워킹트리 격리 확인"
           }
         ]
       }
