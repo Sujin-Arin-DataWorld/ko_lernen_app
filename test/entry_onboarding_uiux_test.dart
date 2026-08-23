@@ -323,11 +323,7 @@ void main() {
     final t = lookupAppL10n(const Locale('en'));
     await _pumpEntry(
       tester,
-      OnboardingStartScreen.preview(
-        startNewLearner: (_) async {},
-        openFirstScene: (_, __) async {},
-        openPlacement: () async {},
-      ),
+      OnboardingStartScreen.preview(openPlacement: () async {}),
       locale: const Locale('en'),
       viewport: (size: const Size(390, 844), textScale: 1.3),
     );
@@ -560,11 +556,7 @@ List<_EntryFixture> _fixtures(AppL10n t) => [
   ),
   (
     name: 'onboarding start',
-    build: () => OnboardingStartScreen.preview(
-      startNewLearner: (_) async {},
-      openFirstScene: (_, __) async {},
-      openPlacement: () async {},
-    ),
+    build: () => OnboardingStartScreen.preview(openPlacement: () async {}),
     anchor: (_) => find.text(t.onboardingStartTitle),
     action: (_) => find.bySemanticsLabel(t.onboardingStartPrimary),
     safeVisual: null,

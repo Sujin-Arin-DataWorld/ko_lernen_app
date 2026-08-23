@@ -5,17 +5,28 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/data/learner_motivation.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/onboarding_first_scene.dart';
-import 'package:ko_lernen_app/screens/first_voice_success_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/consent_invite_sheet.dart';
+import 'package:ko_lernen_app/widgets/sori/tiger_video.dart'
+    show TigerStageVideo;
 import 'package:ko_lernen_app/widgets/sori/card.dart';
 
 void main() {
   setUp(() async {
     Storage.resetForTesting();
-    SharedPreferences.setMockInitialValues({'kl_consent_accepted': true});
+    ConsentInviteSheet.resetForTesting();
+    // 히어로 영상과 앰비언트 입자는 위젯 테스트에서 살아 있는 타이머를 남긴다.
+    TigerStageVideo.videoReady = false;
+    SharedPreferences.setMockInitialValues({
+      'kl_consent_accepted': true,
+      // 추적 동의 시트는 별도 테스트에서 잠근다. 여기서는 레벨 화면까지의
+      // 라우트 계약만 본다.
+      'kl_consent_invite_shown': true,
+    });
     await Storage.init();
   });
 
@@ -43,35 +54,25 @@ void main() {
     expect(find.text('Start my first scene'), findsOneWidget);
   });
 
-  testWidgets(
-    'opens the selected purpose scene directly without an account interruption',
-    (tester) async {
-      final observer = _RouteObserver();
-      await tester.pumpWidget(
-        _host(
-          observer: observer,
-          screen: OnboardingStartScreen(startNewLearner: (_) async {}),
-        ),
-      );
+  testWidgets('opens level selection before the first scene', (tester) async {
+    final observer = _RouteObserver();
+    await tester.pumpWidget(_host(observer: observer));
 
-      final cta = find.text('Start my first scene');
-      await tester.ensureVisible(cta);
-      await tester.tap(cta);
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 500));
+    final cta = find.text('Start my first scene');
+    await tester.ensureVisible(cta);
+    await tester.tap(cta);
+    await tester.pump();
+    // SoriEntrance 의 520ms 진입 타이머까지 흘려보낸다.
+    await tester.pump(const Duration(seconds: 1));
 
-      expect(observer.routeNames, contains('/scenario'));
-      expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
-      final player = tester.widget<ScenarioPlayerScreen>(
-        find.byType(ScenarioPlayerScreen),
-      );
-      expect(player.mode, ScenarioPlayerMode.onboardingFirstScene);
-      expect(player.courseContext, isNull);
-      expect(find.byType(BottomSheet), findsNothing);
-    },
-  );
+    // 2026-08-23: 레벨 선택이 필수 경로로 돌아왔다. 시작 화면은 더 이상
+    // 장면을 직접 열지 않고, 배치를 끝낸 레벨 화면이 동행 선택으로 넘긴다.
+    expect(find.byType(OnboardingLevelScreen), findsOneWidget);
+    expect(find.byType(ScenarioPlayerScreen), findsNothing);
+    expect(observer.routeNames, isNot(contains('/scenario')));
+  });
 
-  testWidgets('each purpose resolves to its own first real-life scene', (
+  testWidgets('persists the chosen purpose for the later first scene', (
     tester,
   ) async {
     const cases = <String, String>{
@@ -81,15 +82,14 @@ void main() {
     };
 
     for (final entry in cases.entries) {
-      OnboardingFirstScene? opened;
-      await tester.pumpWidget(
-        _host(
-          screen: OnboardingStartScreen(
-            startNewLearner: (_) async {},
-            openFirstScene: (context, scene) async => opened = scene,
-          ),
-        ),
-      );
+      Storage.resetForTesting();
+      ConsentInviteSheet.resetForTesting();
+      SharedPreferences.setMockInitialValues({
+        'kl_consent_accepted': true,
+        'kl_consent_invite_shown': true,
+      });
+      await Storage.init();
+      await tester.pumpWidget(_host());
       await tester.pump();
       if (entry.key != 'Getting around Korea') {
         // §G 히어로 헤더로 하단 옵션이 초기 뷰포트 밖일 수 있다.
@@ -101,58 +101,18 @@ void main() {
       await tester.ensureVisible(cta);
       await tester.tap(cta);
       await tester.pump();
+      await tester.pump(const Duration(seconds: 1));
 
-      expect(opened?.scenarioId, entry.value, reason: entry.key);
+      // 장면은 나중에 열리므로, 시작 화면이 남겨야 하는 것은 목적 그 자체다.
+      final motivation = learnerMotivationFromId(Storage.motivation);
+      expect(motivation, isNotNull, reason: entry.key);
+      expect(
+        OnboardingFirstScene.forMotivation(motivation!).scenarioId,
+        entry.value,
+        reason: entry.key,
+      );
       await tester.pumpWidget(const SizedBox.shrink());
     }
-  });
-
-  testWidgets('success screen opens only from the completed scene summary', (
-    tester,
-  ) async {
-    await tester.pumpWidget(
-      _host(
-        screen: OnboardingStartScreen(
-          initialMotivation: LearnerMotivation.loved,
-          startNewLearner: (_) async {},
-        ),
-      ),
-    );
-
-    final cta = find.text('Start my first scene');
-    await tester.ensureVisible(cta);
-    await tester.tap(cta);
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 500));
-
-    final player = tester.widget<ScenarioPlayerScreen>(
-      find.byType(ScenarioPlayerScreen),
-    );
-    final callback = player.onCompleted;
-    expect(callback, isNotNull);
-    await callback!(
-      const ScenarioCompletionSummary(
-        firstSuccess: ScenarioFirstSuccess(
-          phrase: '저는 레나예요.',
-          kind: ScenarioFirstSuccessKind.completion,
-        ),
-        passed: 7,
-        total: 7,
-      ),
-    );
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 1000));
-
-    expect(tester.takeException(), isNull);
-    expect(find.byType(FirstVoiceSuccessScreen), findsOneWidget);
-    final success = tester.widget<FirstVoiceSuccessScreen>(
-      find.byType(FirstVoiceSuccessScreen),
-    );
-    expect(success.phrase, '저는 레나예요.');
-    expect(success.canDo, 'Build your sentence');
-    expect(success.completedTasks, 7);
-    expect(success.totalTasks, 7);
-    expect(find.text('안녕하세요.'), findsNothing);
   });
 }
 
@@ -168,6 +128,11 @@ Widget _host({NavigatorObserver? observer, OnboardingStartScreen? screen}) =>
         builder: (_) => const SizedBox.shrink(),
       ),
       home: screen ?? const OnboardingStartScreen(),
+      builder: (context, child) => MediaQuery(
+        // 모션을 끄면 레벨 화면의 벚꽃 입자 루프가 타이머를 남기지 않는다.
+        data: MediaQuery.of(context).copyWith(disableAnimations: true),
+        child: child ?? const SizedBox.shrink(),
+      ),
     );
 
 SoriCard _cardFor(WidgetTester tester, String text) => tester.widget<SoriCard>(

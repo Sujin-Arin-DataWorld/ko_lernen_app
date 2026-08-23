@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../motion/transitions.dart';
 import '../services/analytics_service.dart';
+import '../services/onboarding_journey.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/character_clip.dart';
@@ -18,7 +19,6 @@ import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
 import 'consent_screen.dart';
-import 'onboarding_level_screen.dart';
 
 // 일월(日月) 무대 팔레트 — ASSET_GENERATION_BIBLE §1.3 의 일러스트 전용 hex.
 // (UI 토큰과 의도적으로 분리 — 카드 안 "무대"는 일러스트 세계의 색을 쓴다.)
@@ -132,7 +132,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
     _navigated = true;
     debugPrint(
       '[ONBOARD] Character.proceed -> '
-      '${Storage.consentAccepted ? "OnboardingLevelScreen" : "ConsentScreen"} '
+      '${Storage.consentAccepted ? "FirstScene" : "ConsentScreen"} '
       '(consentAccepted=${Storage.consentAccepted} '
       'userLevelCode=${Storage.userLevelCode})',
     );
@@ -145,15 +145,13 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
       );
       return;
     }
-    // 캐릭터 선택 직후 · 온보딩(레벨/배치) 전 → 추적 동의(쿠키배너식) 1회 요청.
-    // consentAccepted 이후이므로 여기서 물으면 이후 온보딩 퍼널을 계측할 수 있다.
+    // 시작 화면에서 이미 한 번 물었다 — maybeShow 는 1회성이라 여기서는
+    // 그때 건너뛴 경우(시트 미표시 기기)를 위한 안전망으로만 남는다.
     await ConsentInviteSheet.maybeShow(context);
     if (!mounted) {
       return;
     }
-    Navigator.of(context).pushReplacement(
-      SoriTransitions.fadeScale((_) => const OnboardingLevelScreen()),
-    );
+    await openOnboardingFirstScene(context);
   }
 
   Future<void> _skipOptional() async {
@@ -255,7 +253,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                         key: ValueKey<String>(
                           'character-confirmation-${selected.name}',
                         ),
-                        asset: CharacterClips.chooseFor(selected),
+                        asset: CharacterClips.greetFor(selected),
                         size: (constraints.maxWidth - 48)
                             .clamp(260.0, 480.0)
                             .toDouble(),
