@@ -143,29 +143,6 @@ const Map<LearnerLevel, List<ChaekgadoSlot>> kChaekgadoSlots = {
 String chaekgadoShelfId(LearnerLevel level, String slug) =>
     '${level.code}_$slug';
 
-/// 칸을 열었을 때 두루마리 머리에 놓을 카드 그림. 미번들 키(C1/C2 대부분)는
-/// 조용히 404 → 위젯의 errorBuilder 폴백으로 떨어진다 — 화면이 아트보다
-/// 먼저 배포되는 것을 전제한 계약(docs/LISTENING_CARD_ART_SPEC.md).
-String chaekgadoCardAsset(String imageKey) =>
-    'assets/illustrations/listening/$imageKey.webp';
-
-/// 서재 목재·소품 — 90칸 공용. 칸별 자산이 아니라 이 4종을 순환한다.
-const List<String> kChaekgadoProps = [
-  'assets/illustrations/chaekgado/chaekgado_prop_vase.png',
-  'assets/illustrations/chaekgado/chaekgado_prop_brushpot.png',
-  'assets/illustrations/chaekgado/chaekgado_prop_bowl.png',
-  'assets/illustrations/chaekgado/chaekgado_prop_scroll.png',
-];
-
-const String kChaekgadoPillarAsset =
-    'assets/illustrations/chaekgado/chaekgado_pillar.png';
-const String kChaekgadoPlankAsset =
-    'assets/illustrations/chaekgado/chaekgado_plank.png';
-const String kChaekgadoRodAsset =
-    'assets/illustrations/chaekgado/chaekgado_rod.png';
-const String kChaekgadoDancheongBandAsset =
-    'assets/illustrations/chaekgado/chaekgado_dancheong_band.png';
-
 /// 칸 이름표 — ARB 가 정본, 여기는 `imageKey` → getter 매핑만 한다.
 /// 표시명 원문은 `docs/LISTENING_CARD_ART_SPEC.md` 의 "표시명 (DE)" 열.
 String chaekgadoSlotLabel(AppL10n t, String imageKey) => switch (imageKey) {

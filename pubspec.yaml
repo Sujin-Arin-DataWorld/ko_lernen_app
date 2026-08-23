@@ -179,9 +179,17 @@ flutter:
     - assets/illustrations/deck/
     # 듣기 카드 일러스트 — 규약: listening/{Key}.webp (Key = docs/LISTENING_CARD_ART_SPEC.md).
     # 없으면 SoriIllustratedCard 의 errorBuilder 가 폴백을 그린다.
-    - assets/illustrations/listening/
     # 책가도 서재 목재·소품 — 108칸(6레벨×12칸+ 확장 여유) 공용, 칸별 아트 아님.
-    - assets/illustrations/chaekgado/
+    # Approved Chaekgado listening system. Flutter does not recurse through
+    # asset directories, so every runtime leaf directory is explicit.
+    - assets/hangul_sori_chaekgado_asset_pack_v1/bookcase/slices/backplate/
+    - assets/hangul_sori_chaekgado_asset_pack_v1/bookcase/slices/frame/
+    - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_top.png
+    - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_body_tile.png
+    - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_bottom.png
+    - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_short_card.png
+    - assets/hangul_sori_chaekgado_asset_pack_v1/books/transparent/
+    - assets/hangul_sori_chaekgado_asset_pack_v1/categories/transparent/
     - assets/stickers/
     - assets/sfx/
     - assets/rive/

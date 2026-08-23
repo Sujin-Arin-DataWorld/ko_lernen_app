@@ -30,9 +30,7 @@ void main() {
     // 듣기 카드는 chaekgadoCardAsset() 이 `{imageKey}.webp` 를 조립한다
     // (imageKey 는 lib/data/chaekgado_shelf.dart 의 리터럴 표, 파일명이
     // 소스에 그대로 안 나타난다).
-    'assets/illustrations/listening/': 'assets/illustrations/listening/',
     // 책가도 목재·소품도 상수로 조립 — kChaekgadoPillarAsset 등.
-    'assets/illustrations/chaekgado/': 'assets/illustrations/chaekgado/',
   };
 
   /// 파일명이 런타임에 조립되는 **개별 파일**. 폴더째 면제할 수 없는 자리다 —
@@ -84,7 +82,8 @@ void main() {
       expect(
         libSource.contains(evidence),
         isTrue,
-        reason: '$dir 를 동적 조립 폴더로 면제했는데 lib/ 에 "$evidence" 가 '
+        reason:
+            '$dir 를 동적 조립 폴더로 면제했는데 lib/ 에 "$evidence" 가 '
             '없습니다 — 렌더 코드가 사라졌다면 폴더째 고아입니다',
       );
     });
@@ -100,7 +99,8 @@ void main() {
       expect(
         libSource.contains(evidence),
         isTrue,
-        reason: '$path 를 동적 조립으로 면제했는데 lib/ 에 "$evidence" 가 '
+        reason:
+            '$path 를 동적 조립으로 면제했는데 lib/ 에 "$evidence" 가 '
             '없습니다 — 읽는 코드가 사라졌다면 그 파일은 고아입니다',
       );
     });
@@ -133,7 +133,8 @@ void main() {
     expect(
       orphans,
       isEmpty,
-      reason: '이 파일들은 AAB 에 들어가는데 lib/ 어디서도 안 부릅니다.\n'
+      reason:
+          '이 파일들은 AAB 에 들어가는데 lib/ 어디서도 안 부릅니다.\n'
           '셋 중 하나를 하세요 — ① 실제로 배선한다, '
           '② assets_unused/pending_review/ 로 격리하고 README 에 사유·복원조건을 '
           '적는다, ③ 런타임 조립이면 dynamicDirs 에 조립 근거와 함께 등록한다.\n'
