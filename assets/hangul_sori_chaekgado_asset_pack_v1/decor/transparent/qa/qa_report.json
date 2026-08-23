@@ -1,0 +1,146 @@
+[
+  {
+    "file": "01_cg_prop_fruit_soban.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visiblePixels": 424280,
+    "touchesCanvas": false
+  },
+  {
+    "file": "02_cg_prop_teacups_tray_celadon.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visiblePixels": 244220,
+    "touchesCanvas": false
+  },
+  {
+    "file": "03_cg_prop_sealbox_seal.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visiblePixels": 404557,
+    "touchesCanvas": false
+  },
+  {
+    "file": "04_cg_prop_brushpot_brushes.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visiblePixels": 241628,
+    "touchesCanvas": false
+  },
+  {
+    "file": "05_cg_prop_cheongja_maebyeong.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visiblePixels": 263633,
+    "touchesCanvas": false
+  },
+  {
+    "file": "06_cg_prop_cheongja_hyangno.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visiblePixels": 325789,
+    "touchesCanvas": false
+  },
+  {
+    "file": "07_cg_prop_teacups_tray_baekja.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visiblePixels": 269841,
+    "touchesCanvas": false
+  },
+  {
+    "file": "08_cg_prop_tiger_woodcarving_from_official_source.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visiblePixels": 394690,
+    "touchesCanvas": false
+  },
+  {
+    "file": "09_cg_prop_magpie_woodcarving_from_official_source.png",
+    "size": [
+      1024,
+      1024
+    ],
+    "mode": "RGBA",
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "visiblePixels": 310560,
+    "touchesCanvas": false
+  }
+]

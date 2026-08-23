@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "bookcaseVisibleBounds": {
+    "left": 151,
+    "top": 47,
+    "right": 1091,
+    "bottom": 1205
+  },
+  "slots": [
+    {
+      "id": "slot_01",
+      "x": 234,
+      "y": 144,
+      "width": 360,
+      "height": 156,
+      "column": 0,
+      "row": 0
+    },
+    {
+      "id": "slot_02",
+      "x": 650,
+      "y": 144,
+      "width": 355,
+      "height": 156,
+      "column": 1,
+      "row": 0
+    },
+    {
+      "id": "slot_03",
+      "x": 234,
+      "y": 352,
+      "width": 360,
+      "height": 150,
+      "column": 0,
+      "row": 1
+    },
+    {
+      "id": "slot_04",
+      "x": 650,
+      "y": 352,
+      "width": 355,
+      "height": 150,
+      "column": 1,
+      "row": 1
+    },
+    {
+      "id": "slot_05",
+      "x": 238,
+      "y": 553,
+      "width": 356,
+      "height": 148,
+      "column": 0,
+      "row": 2
+    },
+    {
+      "id": "slot_06",
+      "x": 654,
+      "y": 552,
+      "width": 351,
+      "height": 149,
+      "column": 1,
+      "row": 2
+    },
+    {
+      "id": "slot_07",
+      "x": 245,
+      "y": 753,
+      "width": 349,
+      "height": 145,
+      "column": 0,
+      "row": 3
+    },
+    {
+      "id": "slot_08",
+      "x": 653,
+      "y": 755,
+      "width": 352,
+      "height": 143,
+      "column": 1,
+      "row": 3
+    },
+    {
+      "id": "slot_09",
+      "x": 245,
+      "y": 952,
+      "width": 349,
+      "height": 127,
+      "column": 0,
+      "row": 4
+    },
+    {
+      "id": "slot_10",
+      "x": 670,
+      "y": 954,
+      "width": 335,
+      "height": 124,
+      "column": 1,
+      "row": 4
+    }
+  ],
+  "modularSlices": {
+    "top": {
+      "sourceRect": [
+        0,
+        47,
+        1254,
+        341
+      ],
+      "height": 294
+    },
+    "middle": {
+      "sourceRect": [
+        0,
+        341,
+        1254,
+        540
+      ],
+      "height": 199,
+      "repeatable": true
+    },
+    "bottom": {
+      "sourceRect": [
+        0,
+        939,
+        1254,
+        1205
+      ],
+      "height": 266
+    },
+    "assemblyNote": "Use top + N middle rows + bottom. Render backplate below content and frame above content."
+  }
+}

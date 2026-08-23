@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "family": "hangul_sori_chaekgado_props_9_v2",
+  "assets": [
+    {
+      "file": "01_cg_prop_fruit_soban.png",
+      "labelKo": "1. 과일 소반",
+      "master": {
+        "path": "master_1024/01_cg_prop_fruit_soban.png",
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "99e50028b12a596e3cbc6053f88eb1f25af19c4c4ae6c8071667a53ad9e089a3",
+        "alphaBbox": [
+          82,
+          174,
+          942,
+          890
+        ]
+      },
+      "runtime": {
+        "path": "runtime_512/01_cg_prop_fruit_soban.png",
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "sha256": "199dd2afe803f6d13192bf5af77c23d6893d36f976c492cffa6fd35521373a8f"
+      },
+      "source": "GPT Image generated sheet, isolated and normalized"
+    },
+    {
+      "file": "02_cg_prop_teacups_tray_celadon.png",
+      "labelKo": "2. 청자 찻잔 두 개와 쟁반",
+      "master": {
+        "path": "master_1024/02_cg_prop_teacups_tray_celadon.png",
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "2c6bfbb6df5e67ee45afae44b43139387657558837f440bc745a37cdf5161ae4",
+        "alphaBbox": [
+          87,
+          328,
+          936,
+          736
+        ]
+      },
+      "runtime": {
+        "path": "runtime_512/02_cg_prop_teacups_tray_celadon.png",
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "sha256": "b2d698c70dfba49b7fa79373be92a9d882142eb77636fe4ae9c8194eddc1854e"
+      },
+      "source": "GPT Image generated sheet, isolated and normalized"
+    },
+    {
+      "file": "03_cg_prop_sealbox_seal.png",
+      "labelKo": "3. 인장함과 인장",
+      "master": {
+        "path": "master_1024/03_cg_prop_sealbox_seal.png",
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "2bb33a8a11cb72878252e0a58707f18101cc5d92f01e3412d8da553c4a4b45e1",
+        "alphaBbox": [
+          82,
+          188,
+          942,
+          875
+        ]
+      },
+      "runtime": {
+        "path": "runtime_512/03_cg_prop_sealbox_seal.png",
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "sha256": "ea719e5cd41d2bd7c294191fa2a274fcb8b2432fddd0943a06fad490960cc369"
+      },
+      "source": "GPT Image generated sheet, isolated and normalized"
+    },
+    {
+      "file": "04_cg_prop_brushpot_brushes.png",
+      "labelKo": "4. 붓통과 붓",
+      "master": {
+        "path": "master_1024/04_cg_prop_brushpot_brushes.png",
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "3b92d1f6336fb92308b2e6bc85f61faa1619a5de08e8cc890c12f83ca09636a1",
+        "alphaBbox": [
+          121,
+          102,
+          901,
+          941
+        ]
+      },
+      "runtime": {
+        "path": "runtime_512/04_cg_prop_brushpot_brushes.png",
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "sha256": "0fab8e4b60cba5ab238af4f407b4a269a26b0584cc93e75b8c5e7f12b705a289"
+      },
+      "source": "GPT Image generated sheet, isolated and normalized"
+    },
+    {
+      "file": "05_cg_prop_cheongja_maebyeong.png",
+      "labelKo": "5. 청자 매병",
+      "master": {
+        "path": "master_1024/05_cg_prop_cheongja_maebyeong.png",
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "d81741117ce4813764815a98ff73eb97a8e19af4c649e0dc2bc329fe2d5cb2d0",
+        "alphaBbox": [
+          273,
+          123,
+          750,
+          901
+        ]
+      },
+      "runtime": {
+        "path": "runtime_512/05_cg_prop_cheongja_maebyeong.png",
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "sha256": "bd619f45f03ded6267b6828eb9e3c2fe62d68026a05a0e7c05e487914fa9c3d1"
+      },
+      "source": "GPT Image generated sheet, isolated and normalized"
+    },
+    {
+      "file": "06_cg_prop_cheongja_hyangno.png",
+      "labelKo": "6. 청자 향로",
+      "master": {
+        "path": "master_1024/06_cg_prop_cheongja_hyangno.png",
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "0a115c9e8ea98c2b7749715327d2747d5851559dba3ff61fe9f812976752bb8d",
+        "alphaBbox": [
+          132,
+          133,
+          892,
+          910
+        ]
+      },
+      "runtime": {
+        "path": "runtime_512/06_cg_prop_cheongja_hyangno.png",
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "sha256": "73645989e2418433fab3babca4635538bd1cbb97cee78dcdd7791c6923632819"
+      },
+      "source": "GPT Image generated sheet, isolated and normalized"
+    },
+    {
+      "file": "07_cg_prop_teacups_tray_baekja.png",
+      "labelKo": "7. 백자 찻잔 두 개와 쟁반",
+      "master": {
+        "path": "master_1024/07_cg_prop_teacups_tray_baekja.png",
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "7c784de0687e8853876ea775fea00b56e306f9580f8532d145ad6586421a7c84",
+        "alphaBbox": [
+          87,
+          323,
+          936,
+          741
+        ]
+      },
+      "runtime": {
+        "path": "runtime_512/07_cg_prop_teacups_tray_baekja.png",
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "sha256": "8e9b37ff1f61176eea180e80458a62dfa307904366b4a563004433bb33ac5e87"
+      },
+      "source": "GPT Image generated sheet, isolated and normalized"
+    },
+    {
+      "file": "08_cg_prop_tiger_woodcarving_from_official_source.png",
+      "labelKo": "8. 공식 호랑이 기반 목제 장식",
+      "master": {
+        "path": "master_1024/08_cg_prop_tiger_woodcarving_from_official_source.png",
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "960b31f08d45cf8da77a1c0c40e556e3a13dbdf55043408fece3f6e810dbf475",
+        "alphaBbox": [
+          87,
+          155,
+          927,
+          876
+        ]
+      },
+      "runtime": {
+        "path": "runtime_512/08_cg_prop_tiger_woodcarving_from_official_source.png",
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "sha256": "9ee304abb0035ae2f525a6e17c6df45572ec3d61d5c3ea90d57feaba3f641134"
+      },
+      "source": "Official source tiger_sit.png; pixel-preserving wood finish and plinth only; no character regeneration"
+    },
+    {
+      "file": "09_cg_prop_magpie_woodcarving_from_official_source.png",
+      "labelKo": "9. 공식 까치 기반 목제 장식",
+      "master": {
+        "path": "master_1024/09_cg_prop_magpie_woodcarving_from_official_source.png",
+        "width": 1024,
+        "height": 1024,
+        "mode": "RGBA",
+        "sha256": "cdfb85e15d445ea3438ac6d1711be5c829cd46320345ef975669eaa09b2e9bf7",
+        "alphaBbox": [
+          127,
+          38,
+          887,
+          897
+        ]
+      },
+      "runtime": {
+        "path": "runtime_512/09_cg_prop_magpie_woodcarving_from_official_source.png",
+        "width": 512,
+        "height": 512,
+        "mode": "RGBA",
+        "sha256": "23e5f46f5d8c928f6963d51ea71e5e1b03440c3509295f46e0efa9bc9a22d322"
+      },
+      "source": "Official source magpie_wave.png; pixel-preserving wood finish and plinth only; no character regeneration"
+    }
+  ],
+  "officialCharacterSources": {
+    "tiger": {
+      "file": "tiger_sit.png",
+      "sha256": "98dfc3db108749865a76825f6f64dbb844f1621571da92cccaf7906e53f54f99"
+    },
+    "magpie": {
+      "file": "magpie_wave.png",
+      "sha256": "cb6643c1724ead58d2685ff90a47d3916369c02e5e8caf3754ec938eb65016dd"
+    }
+  }
+}
