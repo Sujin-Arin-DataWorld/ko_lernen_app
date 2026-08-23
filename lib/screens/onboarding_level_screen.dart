@@ -14,13 +14,14 @@ import '../widgets/sori/motion.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tiger_video.dart' show TigerStageVideo;
-import '../widgets/sori/account_nudge.dart';
+import '../motion/transitions.dart';
 import '../models/scenario.dart';
 import '../services/analytics_service.dart';
 import '../services/course_progress_service.dart';
 import '../services/onboarding_flow_service.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../widgets/sori/responsive.dart';
+import 'character_selection_screen.dart';
 import 'placement_diagnostic_screen.dart';
 
 /// Erstes-Launch Onboarding — Nutzer wählt CEFR-Level.
@@ -146,11 +147,12 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
     if (!context.mounted) {
       return;
     }
-    await showAccountNudgeSheet(context);
-    if (!context.mounted) {
-      return;
-    }
-    Navigator.pushReplacementNamed(context, '/');
+    // 배치가 끝난 뒤 동행을 고른다. 첫 장면에서 이미 캐릭터가 피드백에 쓰이므로
+    // 순서를 뒤집으면 5과제 내내 "내 동행이 누구인지 모르는" 상태가 된다
+    // (2026-08-23, Jin). 계정 넛지는 첫 성공 뒤로 옮겼다.
+    Navigator.of(context).pushReplacement(
+      SoriTransitions.fadeScale((_) => const CharacterSelectionScreen()),
+    );
   }
 
   Future<void> _skip(BuildContext context) async {

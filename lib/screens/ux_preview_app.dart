@@ -59,8 +59,6 @@ class UxPreviewRegistry {
     '01A' => ConsentScreen.preview(onPreviewAccepted: _ignore),
     '01B' => OnboardingStartScreen.preview(
       initialMotivation: LearnerMotivation.travel,
-      startNewLearner: (_) async {},
-      openFirstScene: (_, __) async {},
       openPlacement: () async {},
     ),
     '01C' => FirstVoiceSuccessScreen(

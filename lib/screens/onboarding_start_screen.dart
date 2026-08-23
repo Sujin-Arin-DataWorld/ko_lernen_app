@@ -7,54 +7,32 @@ import '../data/learner_motivation.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/onboarding_first_scene.dart';
 import '../motion/transitions.dart';
-import '../services/course_progress_service.dart';
-import '../services/onboarding_flow_service.dart';
 import '../services/analytics_service.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
+import '../widgets/sori/consent_invite_sheet.dart';
 import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/tokens.dart';
-import 'app_shell.dart';
-import 'first_voice_success_screen.dart';
 import 'onboarding_level_screen.dart';
-import 'scenario_player_screen.dart';
-
-typedef OnboardingFirstSceneOpener =
-    Future<void> Function(BuildContext context, OnboardingFirstScene scene);
 
 /// The first post-consent choice: a learner names one life purpose and either
 /// starts the A1 listening path or intentionally opens the existing placement
 /// flow. It has no demo completion and never writes course evidence.
 class OnboardingStartScreen extends StatefulWidget {
-  const OnboardingStartScreen({
-    super.key,
-    this.startNewLearner,
-    this.openFirstScene,
-    this.initialMotivation,
-  }) : openPlacement = null,
-       previewMode = false;
+  const OnboardingStartScreen({super.key, this.initialMotivation})
+    : openPlacement = null,
+      previewMode = false;
 
   /// Production onboarding rendered with explicit, storage-free actions.
   /// Both the new-learner and placement branches are intercepted so an
   /// exploratory Gallery tap cannot initialize or alter course placement.
   const OnboardingStartScreen.preview({
     super.key,
-    required this.startNewLearner,
-    required this.openFirstScene,
     required this.openPlacement,
     this.initialMotivation = LearnerMotivation.travel,
   }) : previewMode = true;
-
-  /// Lets the first-scene navigation contract be verified without loading the
-  /// full curriculum catalog in a widget test. Production uses the built-in
-  /// initializer below.
-  final Future<void> Function(LearnerMotivation motivation)? startNewLearner;
-
-  /// Storage-free route seam for widget tests and the UX gallery. Production
-  /// opens the mapped [ScenarioPlayerScreen] directly.
-  final OnboardingFirstSceneOpener? openFirstScene;
 
   /// Optional preview state; omitting it preserves the stored production
   /// motivation behavior.
@@ -91,99 +69,36 @@ class _OnboardingStartScreenState extends State<OnboardingStartScreen> {
     }
     HapticFeedback.mediumImpact();
 
-    if (!_startsNew) {
-      if (widget.previewMode) {
-        await widget.openPlacement?.call();
-        return;
-      }
-      await Storage.setMotivation(_motivation.id);
-      await Storage.setMotivationAsked();
-      if (!mounted) {
-        return;
-      }
-      await Navigator.of(context).push<void>(
-        MaterialPageRoute<void>(builder: (_) => const OnboardingLevelScreen()),
-      );
+    if (widget.previewMode) {
+      await widget.openPlacement?.call();
       return;
     }
 
     setState(() => _submitting = true);
     try {
-      await (widget.startNewLearner ?? _initializeNewLearner)(_motivation);
+      await Storage.setMotivation(_motivation.id);
+      await Storage.setMotivationAsked();
       if (!mounted) {
         return;
       }
-      final firstScene = OnboardingFirstScene.forMotivation(_motivation);
-      await (widget.openFirstScene ?? _openFirstScene)(context, firstScene);
+      // 추적 동의는 온보딩 퍼널(레벨·진단·동행·첫 장면) **앞**에서 1회 묻는다.
+      // 예전에는 동행 선택 뒤에 물어 레벨/진단 단계가 계측 밖에 있었다.
+      await ConsentInviteSheet.maybeShow(context);
+      if (!mounted) {
+        return;
+      }
+      // 두 시작점 모두 레벨 화면을 거친다. "처음 시작"은 첫 카드(A1)를 한 번
+      // 누르면 끝나고, "이미 배운 적 있음"은 같은 화면에서 8문항 진단으로 갈
+      // 수 있다 (2026-08-23, Jin — 2026-08-10 의 자동 A1 배치는 레벨을 고른
+      // 기억을 남기지 않아 되돌린다).
+      await Navigator.of(context).push<void>(
+        SoriTransitions.fadeScale<void>((_) => const OnboardingLevelScreen()),
+      );
     } finally {
       if (mounted) {
         setState(() => _submitting = false);
       }
     }
-  }
-
-  Future<void> _openFirstScene(
-    BuildContext context,
-    OnboardingFirstScene scene,
-  ) async {
-    final navigator = Navigator.of(context);
-    unawaited(
-      navigator.pushReplacement<void, void>(
-        SoriTransitions.fadeScale<void>(
-          (_) => ScenarioPlayerScreen(
-            scenarioId: scene.scenarioId,
-            mode: ScenarioPlayerMode.onboardingFirstScene,
-            onExit: () {
-              if (!navigator.mounted) {
-                return;
-              }
-              navigator.pushAndRemoveUntil(
-                SoriTransitions.fadeScale((_) => const AppShell()),
-                (route) => false,
-              );
-            },
-            onCompleted: (summary) {
-              if (!navigator.mounted) {
-                return;
-              }
-              final t = AppL10n.of(navigator.context);
-              final success = summary.firstSuccess;
-              Analytics.tutorialStep(stepNumber: 3, stepName: 'first_success');
-              unawaited(
-                navigator.pushReplacement<void, void>(
-                  SoriTransitions.fadeScale<void>(
-                    (_) => FirstVoiceSuccessScreen(
-                      canDo: success?.kind == ScenarioFirstSuccessKind.listening
-                          ? t.moduleListenDesc
-                          : t.courseMissionBriefBuildTitle,
-                      phrase: success?.phrase,
-                      completedTasks: summary.passed,
-                      totalTasks: summary.total,
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
-          settings: RouteSettings(
-            name: '/scenario',
-            arguments: scene.scenarioId,
-          ),
-        ),
-      ),
-    );
-  }
-
-  Future<void> _initializeNewLearner(LearnerMotivation motivation) async {
-    // Keep the established placement order. This creates the existing active
-    // A1 course context; it does not create assess or mastery evidence.
-    await CourseProgressService.shared.initializeForPlacement(
-      'a1',
-      syncBrowseLevel: true,
-    );
-    await OnboardingFlowService.completeAfterLevelSelection(
-      motivation: motivation,
-    );
   }
 
   @override
