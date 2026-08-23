@@ -187,7 +187,7 @@ flutter:
     # asset directories, so every runtime leaf directory is explicit.
     # bookcase/slices/{backplate,frame}/ 는 2026-08-23 에 번들에서 빠졌다 —
     # 나무를 CustomPainter 로 그리면서 프레임 PNG 6장이 고아가 됐고,
-    # assets_unused/pending_review/ 로 격리했다.
+    # 격리 폴더(pending_review)로 옮겼다.
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_top.png
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_body_tile.png
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_bottom.png
