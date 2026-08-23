@@ -161,3 +161,11 @@ re 2/
 .mvn/
 # Added by code-review-graph
 .code-review-graph/
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
