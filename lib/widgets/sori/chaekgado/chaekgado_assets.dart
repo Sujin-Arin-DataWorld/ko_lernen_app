@@ -7,18 +7,16 @@ library;
 
 const String _chaekgadoAssetRoot = 'assets/hangul_sori_chaekgado_asset_pack_v1';
 
-const String kChaekgadoBackplateTop =
-    '$_chaekgadoAssetRoot/bookcase/slices/backplate/chaekgado_backplate_top.png';
-const String kChaekgadoBackplateMiddle =
-    '$_chaekgadoAssetRoot/bookcase/slices/backplate/chaekgado_backplate_middle.png';
-const String kChaekgadoBackplateBottom =
-    '$_chaekgadoAssetRoot/bookcase/slices/backplate/chaekgado_backplate_bottom.png';
-const String kChaekgadoFrameTop =
-    '$_chaekgadoAssetRoot/bookcase/slices/frame/chaekgado_frame_top.png';
-const String kChaekgadoFrameMiddle =
-    '$_chaekgadoAssetRoot/bookcase/slices/frame/chaekgado_frame_middle.png';
-const String kChaekgadoFrameBottom =
-    '$_chaekgadoAssetRoot/bookcase/slices/frame/chaekgado_frame_bottom.png';
+/// 듣기 카드 아트 — `assets/illustrations/listening/{imageKey}.webp`.
+///
+/// 칸 = 정물 한 점(08-19 §3-①). 같은 50여 장이 선반 칸과 두루마리 머리에
+/// 같이 쓰인다. imageKey 정본은 `lib/data/chaekgado_shelf.dart` 의
+/// `ChaekgadoSlot.imageKey` (= `docs/LISTENING_CARD_ART_SPEC.md` 의 키).
+/// 파일이 없는 키는 부르는 쪽 `errorBuilder` 가 비네트→책더미로 내려간다.
+const String kListeningCardArtDir = 'assets/illustrations/listening/';
+
+String chaekgadoCardAsset(String imageKey) =>
+    '$kListeningCardArtDir$imageKey.webp';
 
 const String kHoerenScrollTop =
     '$_chaekgadoAssetRoot/scroll/hoeren_scroll_top.png';

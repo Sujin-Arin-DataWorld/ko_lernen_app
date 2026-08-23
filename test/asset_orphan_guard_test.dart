@@ -28,9 +28,10 @@ void main() {
     // 도장은 획득 id 로 `stamp_*.png` 를 조립한다.
     'assets/illustrations/stamps/': 'illustrations/stamps/',
     // 듣기 카드는 chaekgadoCardAsset() 이 `{imageKey}.webp` 를 조립한다
-    // (imageKey 는 lib/data/chaekgado_shelf.dart 의 리터럴 표, 파일명이
-    // 소스에 그대로 안 나타난다).
-    // 책가도 목재·소품도 상수로 조립 — kChaekgadoPillarAsset 등.
+    // (imageKey 는 lib/data/chaekgado_shelf.dart 의 리터럴 표라 stem 검사에는
+    // 걸리지만, C1/C2 처럼 아직 그림이 없는 키와 남는 파일이 섞이는 폴더라
+    // 폴더째 조립으로 면제한다 — 2026-08-23 선반 재작성으로 번들 진입).
+    'assets/illustrations/listening/': 'illustrations/listening/',
   };
 
   /// 파일명이 런타임에 조립되는 **개별 파일**. 폴더째 면제할 수 없는 자리다 —

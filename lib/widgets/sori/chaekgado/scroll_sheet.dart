@@ -7,6 +7,11 @@ import 'scroll_palette.dart';
 
 const Duration kChaekgadoUnrollDuration = Duration(milliseconds: 320);
 
+/// 시트가 쓰는 화면 높이의 최대 비율. 0.62 였을 때는 844 폰에서 일러스트를
+/// 포함한 4~5번째 항목이 시각적으로 잘렸다. 위 축이 화면 안에 남고 목록은 시트
+/// 안에서 스크롤되므로 0.86 까지 열어도 두루마리가 화면을 삼키지 않는다.
+const double kChaekgadoSheetMaxFraction = 0.86;
+
 /// 두루마리를 풀어 시나리오를 고르게 한다. 고른 값을 돌려주고, 바깥을 누르면
 /// null 을 돌려준다.
 ///
@@ -18,8 +23,11 @@ const Duration kChaekgadoUnrollDuration = Duration(milliseconds: 320);
 /// 2. **폭을 안 잃는다.** 가로로 펼치는 책은 페이지가 화면 절반이라 독일어
 ///    제목(`Snack zum Mitnehmen`)이 잘린다.
 ///
-/// 애니메이션은 3D 원근이 필요 없다. 위 축은 고정이고 한지가 [SizeTransition]
-/// 으로 아래로 자라며, 아래 축은 같은 [Column] 에 있어 저절로 내려간다.
+/// 두루마리는 **널판 밑에서 풀린다** — 화면 아래에 붙은 전폭 시트가 위로
+/// 올라온다([kChaekgadoUnrollDuration], `disableAnimations` 면 즉시 제자리).
+/// 위 축은 화면 안에 고정된 채 목록만 시트 안에서 스크롤되므로 항목이 몇 개든
+/// 시각적으로 잘리지 않는다. 화면 위쪽에 떠 있던 예전 다이얼로그는 4~5번째
+/// 항목에서 잘렸고 배리어 너머로 선반이 비쳐 세계가 깨졌다.
 ///
 /// 색은 [SoriScrollPalette] — 공유 이미지의 두루마리([ShareSlipRenderer])와
 /// 같은 종이·축·마구리를 쓴다.
@@ -29,6 +37,9 @@ Future<T?> showChaekgadoScroll<T>({
   required String subtitle,
   required List<Widget> items,
   Widget? illustration,
+  // [footnote] 는 시트 바닥 꼬리말이었다. 선반 순번(`2/15`)을 학습 진행으로
+  // 오독하게 만들어 2026-08-23 에 화면에서 걷어냈고, 그리는 코드도 raw 9px
+  // TextStyle 이라 같이 지웠다. 호출부 계약을 깨지 않으려고 인자만 남는다.
   String? footnote,
 }) {
   return showSoriGeneralDialog<T>(
@@ -57,8 +68,8 @@ Future<T?> showChaekgadoScroll<T>({
   );
 }
 
-/// 풀린 두루마리 본체. 테스트와 프리뷰가 [unroll] 을 직접 물려 중간 프레임을
-/// 세울 수 있게 애니메이션을 주입받는다.
+/// 화면 아래 널판 밑에서 풀린 두루마리 본체. 테스트와 프리뷰가 [unroll] 을
+/// 직접 물려 중간 프레임을 세울 수 있게 애니메이션을 주입받는다.
 class ChaekgadoScroll extends StatelessWidget {
   const ChaekgadoScroll({
     super.key,
@@ -75,54 +86,45 @@ class ChaekgadoScroll extends StatelessWidget {
   final String subtitle;
   final List<Widget> items;
   final Widget? illustration;
+
+  /// 더는 그려지지 않는다 — [showChaekgadoScroll] 의 같은 인자 설명을 보라.
   final String? footnote;
 
   @override
   Widget build(BuildContext context) {
-    final maxSheet = MediaQuery.sizeOf(context).height * 0.62;
+    final media = MediaQuery.of(context);
+    final maxSheet = media.size.height * kChaekgadoSheetMaxFraction;
     final preferredSheet =
         194.0 + items.length * 52 + (illustration == null ? 0 : 126);
     final sheetHeight = preferredSheet.clamp(260.0, maxSheet).toDouble();
 
-    return SafeArea(
-      child: Align(
-        alignment: Alignment.topCenter,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(
-            Spacing.xl,
-            Spacing.xxl,
-            Spacing.xl,
-            Spacing.lg,
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // ClipRect 가 없으면 자라는 중에 한지가 축 위로 삐져나온다.
-              ClipRect(
-                child: SizeTransition(
-                  sizeFactor: unroll,
-                  axis: Axis.vertical,
-                  // 위 축에 붙어 아래로 자란다 — 아래 축은 같은 Column 이라
-                  // 그만큼 저절로 내려간다. 이게 "풀린다"의 전부다.
-                  alignment: Alignment.topCenter,
-                  child: SizedBox(
-                    width: MediaQuery.sizeOf(context).width - Spacing.xl * 2,
-                    height: sheetHeight,
-                    child: SoriScrollFrame(
-                      child: _Sheet(
-                        title: title,
-                        subtitle: subtitle,
-                        items: items,
-                        illustration: illustration,
-                        footnote: footnote,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+    // 전폭 — 좌우 인셋 0. 두루마리는 선반 널판만큼 넓게 풀린다.
+    final sheet = SizedBox(
+      width: double.infinity,
+      height: sheetHeight,
+      child: SoriScrollFrame(
+        child: _Sheet(
+          title: title,
+          subtitle: subtitle,
+          items: items,
+          illustration: illustration,
         ),
+      ),
+    );
+
+    return SafeArea(
+      top: false,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: media.disableAnimations
+            ? sheet
+            : SlideTransition(
+                position: Tween<Offset>(
+                  begin: const Offset(0, 1),
+                  end: Offset.zero,
+                ).animate(unroll),
+                child: sheet,
+              ),
       ),
     );
   }
@@ -178,6 +180,17 @@ class SoriScrollFrame extends StatelessWidget {
   }
 }
 
+/// `hoeren_scroll_short_card.png` 1152×960 실측 (2026-08-23 검수):
+/// 축 띠 상단 y≤134(14.0%) · 하단 y≥834(13.1%), 종이 x112–1032(좌 9.7%/우 10.4%).
+///
+/// 인셋을 절대 dp 로 clamp 하면(구 `Spacing.lg`/`Spacing.xxl` 상한) 카드가 커질수록
+/// 에셋의 **비례**를 못 따라가 글자가 축 띠와 종이 밖으로 밀려났다. 그래서 상한을
+/// 없애고 비례 × 카드 크기로 잡는다 — 하한 [Spacing.sm] 만 남긴다(아주 작은
+/// 카드에서 인셋이 0 이 되는 것 방지).
+const double kScrollRodTopFraction = 0.145; // 실측 14.0% + 여유
+const double kScrollRodBottomFraction = 0.135; // 실측 13.1% + 여유
+const double kScrollPaperSideFraction = 0.105; // 실측 9.7%/10.4% 중 큰 쪽
+
 /// Fixed-ratio lesson card from the same scroll set. Unlike [SoriScrollFrame]
 /// it is intentionally used only where a single listening line fits on one
 /// compact card.
@@ -190,20 +203,26 @@ class SoriShortScrollCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final horizontalInset = (constraints.maxWidth * 0.08)
-            .clamp(Spacing.sm, Spacing.lg)
+        final horizontalInset =
+            (constraints.maxWidth * kScrollPaperSideFraction)
+                .clamp(Spacing.sm, double.infinity)
+                .toDouble();
+        final topInset = (constraints.maxHeight * kScrollRodTopFraction)
+            .clamp(Spacing.sm, double.infinity)
             .toDouble();
-        final verticalInset = (constraints.maxHeight * 0.18)
-            .clamp(Spacing.sm, Spacing.xxl)
+        final bottomInset = (constraints.maxHeight * kScrollRodBottomFraction)
+            .clamp(Spacing.sm, double.infinity)
             .toDouble();
         return Stack(
           fit: StackFit.expand,
           children: [
             Image.asset(kHoerenScrollShortCard, fit: BoxFit.fill),
             Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: horizontalInset,
-                vertical: verticalInset,
+              padding: EdgeInsets.fromLTRB(
+                horizontalInset,
+                topInset,
+                horizontalInset,
+                bottomInset,
               ),
               child: child,
             ),
@@ -220,14 +239,12 @@ class _Sheet extends StatelessWidget {
     required this.subtitle,
     required this.items,
     required this.illustration,
-    required this.footnote,
   });
 
   final String title;
   final String subtitle;
   final List<Widget> items;
   final Widget? illustration;
-  final String? footnote;
 
   @override
   Widget build(BuildContext context) {
@@ -292,18 +309,6 @@ class _Sheet extends StatelessWidget {
                   children: items,
                 ),
               ),
-              if (footnote != null)
-                Padding(
-                  padding: const EdgeInsets.only(bottom: Spacing.sm + 1),
-                  child: Text(
-                    footnote!,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 9,
-                      color: SoriScrollPalette.footnote,
-                    ),
-                  ),
-                ),
             ],
           ),
           // 축 아래 그림자 — 한지가 말려 있던 자리.

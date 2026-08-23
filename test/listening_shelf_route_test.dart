@@ -48,9 +48,15 @@ Widget _app(Widget home) => MaterialApp(
   home: home,
 );
 
+/// 칸 위에 찍히는 건 **짧은 이름**(`shortLabel`)이다 — 긴 이름은 스크린리더와
+/// 두루마리 머리글이 쓴다(2026-08-23 선반 재작성). 그래서 finder 는 짧은 쪽이다.
+///
 /// 15칸이라 아래쪽 칸은 뷰포트 밖에 있다. 먼저 보이게 한 뒤 누른다.
 /// `pumpAndSettle` 은 쓰지 않는다 — 이 화면에는 TTS 덕킹·마스코트 타이머가 상시로
 /// 돌아 절대 정지 상태에 도달하지 않는다.
+///
+/// 두루마리는 2026-08-23 부터 화면 아래에 붙는 전폭 시트다(P3). 슬라이드가
+/// 끝날 때까지 pump 해야 항목 좌표가 최종값이 된다.
 Future<void> _openCompartment(WidgetTester tester, String label) async {
   final target = find.text(label);
   await tester.ensureVisible(target);
@@ -135,7 +141,13 @@ void main() {
     );
     expect(friends.count, 2);
 
-    await _openCompartment(tester, friends.label);
+    await _openCompartment(tester, friends.shortLabel);
+
+    // 시트는 화면 아래에 전폭으로 붙는다 — 위쪽에 뜬 부유 다이얼로그가 아니다.
+    final sheet = tester.getRect(find.byType(SoriScrollFrame));
+    expect(sheet.bottom, moreOrLessEquals(844, epsilon: 1));
+    expect(sheet.left, moreOrLessEquals(0, epsilon: 0.5));
+    expect(sheet.width, moreOrLessEquals(390, epsilon: 0.5));
 
     final items = tester
         .widgetList<ChaekgadoScrollItem>(find.byType(ChaekgadoScrollItem))
@@ -165,7 +177,7 @@ void main() {
     );
     final label = shelfCase.compartments
         .firstWhere((c) => c.slug == 'friends')
-        .label;
+        .shortLabel;
 
     await _openCompartment(tester, label);
     await tester.tap(find.text('Wochenende'));

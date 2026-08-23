@@ -35,8 +35,8 @@ import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/chaekgado/shelf_case.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
-import 'package:ko_lernen_app/widgets/sori/section_header.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
@@ -470,35 +470,20 @@ void main() {
       final screenContext = tester.element(find.byType(ListeningScreen));
       final t = AppL10n.of(screenContext);
       final text = SoriTextTheme.of(screenContext);
-      final subtitle = find.text(t.listeningSubtitle);
-      final section = find.text(t.listeningSelectScenario);
-      final instruction = find.text(t.listeningPickFirst);
       final levelLabel = find.text(t.filterLevel);
 
-      expect(tester.widget<Text>(subtitle).style, text.bodySmall);
-      expect(
-        find.widgetWithText(SoriSectionHeader, t.listeningSelectScenario),
-        findsOneWidget,
-      );
-      expect(tester.widget<Text>(section).style, text.h2);
-      expect(
-        tester
-            .getSemantics(section)
-            .getSemanticsData()
-            .flagsCollection
-            .isHeader,
-        isTrue,
-      );
-      expect(tester.widget<Text>(instruction).style, text.meta);
+      // 히어로·부제·섹션헤더는 2026-08-23 에 제거됐다 (Hören 새 단장 P1).
+      // AppBar 제목이 화면 이름을 이미 말하므로 선반이 첫 화면 요소다.
+      expect(find.byType(HanokHeader), findsNothing);
+      expect(find.text(t.listeningSubtitle), findsNothing);
+      expect(find.text(t.listeningSelectScenario), findsNothing);
+      expect(find.text(t.listeningPickFirst), findsNothing);
+
       expect(levelLabel, findsOneWidget);
       expect(tester.widget<Text>(levelLabel).style, text.label);
       expect(
-        tester.getTopLeft(section).dy,
-        lessThan(tester.getTopLeft(instruction).dy),
-      );
-      expect(
-        tester.getTopLeft(instruction).dy,
-        lessThan(tester.getTopLeft(levelLabel).dy),
+        tester.getTopLeft(levelLabel).dy,
+        lessThan(tester.getTopLeft(find.byType(ChaekgadoShelfCase)).dy),
       );
       expect(find.text('A1'), findsWidgets);
       expect(find.text('C2'), findsWidgets);
@@ -571,7 +556,6 @@ void main() {
 
           final screenContext = tester.element(find.byType(ListeningScreen));
           final t = AppL10n.of(screenContext);
-          expect(find.text(t.listeningSelectScenario), findsOneWidget);
           expect(find.text(t.filterLevel), findsOneWidget);
           expect(find.byType(ChaekgadoShelfCase), findsOneWidget);
           expect(

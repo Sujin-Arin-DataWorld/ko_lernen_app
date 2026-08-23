@@ -69,6 +69,9 @@ APK에 들어간 적조차 없음. 코드 참조도 0. 순수 레포 보관물.
 | `pending_review/tiger_magpie_play.mp4` | `assets/video/character/` | 1.1MB | 호랑이·까치가 함께 노는 클립. `CharacterClips` 상수(전부 리터럴 문자열)에 없어 어떤 화면도 재생하지 않는다 | 이 클립을 쓸 자리를 정하고 `CharacterClips` 에 상수를 추가할 때 |
 | `pending_review/magpie_right_walking_flying.mp4` | `assets/video/character/` | 2.0MB | **새 양방향 가드가 첫 실행에서 찾아냈다.** 인벤토리는 "홈 인사가 이걸 쓴다"고 적었지만 `5927ae6`(클립 재배선·통합) 이후 `lib/` 참조가 0 이다 — 문서가 낡았던 것 | 홈 인사 연출을 되살릴 때. 같은 역할의 현행 클립을 먼저 확인할 것 |
 
+> **2026-08-23 추가 (2)**: `listening_hero.png` · `listening_hero.mp4` (Hören 히어로 제거).
+> 사유·복원조건은 `pending_review/README.md` 참조.
+
 합계 **6.2MB** 가 AAB 에서 빠진다. AAB 기기별 다운로드가 190MB/200MB 라
 여유가 10MB 뿐이었으므로 무시할 크기가 아니다.
 

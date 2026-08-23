@@ -182,7 +182,6 @@ class AudioPolicy extends ChangeNotifier {
   static const Map<String, double> _ambienceGain = {
     'assets/video/loops/hanok_construction.mp4': 0.095,
     'assets/video/loops/kkeunmari_hero.mp4': 0.226,
-    'assets/video/loops/listening_hero.mp4': 0.462,
     'assets/video/loops/hanok_jongga.mp4': 0.575,
     'assets/video/loops/welcome-hero.mp4': 0.596,
     // study_scholar(−40.0)·study_classroom(−45.8)·porch(−48.6) → 1.0 클램프
