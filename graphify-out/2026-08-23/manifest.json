@@ -10914,9 +10914,9 @@
     "semantic_hash": ""
   },
   "docs/UIUX_BIBLE_APPLICATION_EXECUTION_LOCK.md": {
-    "mtime": 1787426762.6058135,
-    "seen": 1787476137.9789164,
-    "ast_hash": "07b65c416148d382f8cfcde2a26d960a",
+    "mtime": 1787482620.2576013,
+    "seen": 1787482851.3261375,
+    "ast_hash": "c7d7dc6e4f25a93d144c3d97fda27cca",
     "semantic_hash": ""
   },
   "docs/UIUX_DUOLINGO_GAP_AND_PLAN.md": {
@@ -11472,9 +11472,9 @@
     "semantic_hash": ""
   },
   "pubspec.yaml": {
-    "mtime": 1787265158.9457214,
-    "seen": 1787476137.9790318,
-    "ast_hash": "5b0f776f76352d36f346dfe47a60ce8a",
+    "mtime": 1787482620.2709002,
+    "seen": 1787482851.3497195,
+    "ast_hash": "c38f4af27572e5c7ffd200dd3ae7784b",
     "semantic_hash": ""
   },
   "scripts/cache/README.md": {
@@ -17210,13 +17210,25 @@
   "assets/data/can_do_content_authorities.json": {
     "mtime": 1787426762.5132267,
     "seen": 1787482733.5666203,
-    "ast_hash": "80c13465d85817d6e5033100ae7154bb",
-    "semantic_hash": "80c13465d85817d6e5033100ae7154bb"
+    "ast_hash": "",
+    "semantic_hash": ""
   },
   "tools/content_factory/drafts/c1_batch08_scenarios_a1_c2.json": {
     "mtime": 1787223014.4486563,
     "seen": 1787482734.0754094,
-    "ast_hash": "53c7a62c7cb7f5f8de548b30d3023209",
-    "semantic_hash": "53c7a62c7cb7f5f8de548b30d3023209"
+    "ast_hash": "",
+    "semantic_hash": ""
+  },
+  "lib/widgets/sori/chaekgado/chaekgado_assets.dart": {
+    "mtime": 1787482620.2654226,
+    "seen": 1787482851.0512965,
+    "ast_hash": "2c9cfce90b2301c92bd5b00099a007ed",
+    "semantic_hash": ""
+  },
+  ".claude/handoffs/2026-08-23-113437-chaekgado-runtime-assets.md": {
+    "mtime": 1787482620.2553718,
+    "seen": 1787482851.2862976,
+    "ast_hash": "31eb4886853a03c32a52b8b031103d12",
+    "semantic_hash": ""
   }
 }
