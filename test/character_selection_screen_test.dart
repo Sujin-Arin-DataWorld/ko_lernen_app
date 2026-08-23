@@ -93,13 +93,13 @@ void main() {
     await tester.pump();
 
     // videoReady=false인 테스트에서는 정적 폴백이 보이지만, 화면 계약은
-    // 첫 인사 원샷(tiger_greet_pawflash)이고 실제 영상 완료 콜백과 같은
-    // 경로로 진행한다. 2026-08-23: 확정 제스처(tiger_choose)에서 인사 클립으로
-    // 되돌렸다 — 디코더는 여전히 1개라 2026-08-05 의 텍스처 교대 결함과 무관.
+    // tiger_choose 원샷이고 실제 영상 완료 콜백과 같은 경로로 진행한다.
+    // 2026-08-23 Jin: 실기기에서 확인한 "호랑이가 포효하며 맞아주는" 연출이
+    // 바로 이 tiger_choose 다. greet_pawflash 로 바꾸지 말 것.
     final player = tester.widget<CharacterClipPlayer>(
       find.byType(CharacterClipPlayer),
     );
-    expect(player.asset, CharacterClips.tigerGreetPawflash);
+    expect(player.asset, CharacterClips.tigerChoose);
     expect(player.loop, isFalse);
     expect(find.text('Du hast Taego ausgewählt.'), findsOneWidget);
     expect(find.text('Tipp deinen Lernfreund an'), findsNothing);

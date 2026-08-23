@@ -72,7 +72,9 @@ class CharacterClips {
   static const String tigerBob = '$_base/tiger_walking_front.mp4'; // 게임 대기 바운스
   static const String tigerStretch = '$_base/tiger_stretch.mp4'; // 세션 완료
   static const String tigerThinking = '$_base/tiger_thinking.mp4'; // 퀴즈 생각
-  static const String tigerChoose = '$_base/tiger_choose.mp4'; // 선택 확정 목례
+  // 2026-08-23 Jin(실기기): 이 클립의 실제 내용은 **포효하며 맞아주는** 연출이다.
+  // 캐릭터 선택 확정 연출은 이것이 정본 — greetFor 로 바꾸지 말 것.
+  static const String tigerChoose = '$_base/tiger_choose.mp4';
   static const String tigerGreetPawflash =
       '$_base/tiger_greet_pawflash.mp4'; // 첫 인사 — 앞발 번쩍
 
