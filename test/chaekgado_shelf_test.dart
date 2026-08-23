@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:ko_lernen_app/widgets/sori/chaekgado/chaekgado_assets.dart';
 import 'package:ko_lernen_app/widgets/sori/chaekgado/scroll_sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/chaekgado/shelf_case.dart';
 
@@ -26,15 +29,29 @@ void main() {
   ];
 
   group('ChaekgadoShelfCase', () {
+    test('uses the approved variable-height bookcase asset family', () {
+      for (final asset in [
+        kChaekgadoBackplateTop,
+        kChaekgadoBackplateMiddle,
+        kChaekgadoBackplateBottom,
+        kChaekgadoFrameTop,
+        kChaekgadoFrameMiddle,
+        kChaekgadoFrameBottom,
+        ...kChaekgadoBookClusters,
+      ]) {
+        expect(File(asset).existsSync(), isTrue, reason: '$asset is missing');
+      }
+      expect(
+        chaekgadoCategoryVignetteAsset('transit'),
+        endsWith('vignette_01_transport.png'),
+      );
+      expect(chaekgadoCategoryVignetteAsset('briefing'), isNull);
+    });
+
     testWidgets('칸 수가 달라도 전부 그려진다 (12·18·24)', (tester) async {
       for (final n in [12, 18, 24]) {
         await tester.pumpWidget(
-          host(
-            ChaekgadoShelfCase(
-              compartments: cells(n),
-              onOpen: (_) {},
-            ),
-          ),
+          host(ChaekgadoShelfCase(compartments: cells(n), onOpen: (_) {})),
         );
         await tester.pumpAndSettle();
 
@@ -122,18 +139,26 @@ void main() {
       await tester.pump(kChaekgadoUnrollDuration ~/ 2);
       final mid = tester.getSize(find.byType(ChaekgadoScroll));
       final midSheet = tester
-          .getSize(find.descendant(
-            of: find.byType(ChaekgadoScroll),
-            matching: find.byType(ClipRect),
-          ).first)
+          .getSize(
+            find
+                .descendant(
+                  of: find.byType(ChaekgadoScroll),
+                  matching: find.byType(ClipRect),
+                )
+                .first,
+          )
           .height;
 
       await tester.pumpAndSettle();
       final endSheet = tester
-          .getSize(find.descendant(
-            of: find.byType(ChaekgadoScroll),
-            matching: find.byType(ClipRect),
-          ).first)
+          .getSize(
+            find
+                .descendant(
+                  of: find.byType(ChaekgadoScroll),
+                  matching: find.byType(ClipRect),
+                )
+                .first,
+          )
           .height;
 
       expect(mid.height, greaterThan(0));

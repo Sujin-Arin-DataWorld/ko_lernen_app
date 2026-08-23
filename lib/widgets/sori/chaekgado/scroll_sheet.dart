@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../data/chaekgado_shelf.dart';
 import '../dialog.dart';
 import '../tokens.dart';
+import 'chaekgado_assets.dart';
 import 'scroll_palette.dart';
 
 const Duration kChaekgadoUnrollDuration = Duration(milliseconds: 320);
@@ -80,6 +80,9 @@ class ChaekgadoScroll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final maxSheet = MediaQuery.sizeOf(context).height * 0.62;
+    final preferredSheet =
+        194.0 + items.length * 52 + (illustration == null ? 0 : 126);
+    final sheetHeight = preferredSheet.clamp(260.0, maxSheet).toDouble();
 
     return SafeArea(
       child: Align(
@@ -94,7 +97,6 @@ class ChaekgadoScroll extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const _Rod(),
               // ClipRect 가 없으면 자라는 중에 한지가 축 위로 삐져나온다.
               ClipRect(
                 child: SizeTransition(
@@ -103,19 +105,21 @@ class ChaekgadoScroll extends StatelessWidget {
                   // 위 축에 붙어 아래로 자란다 — 아래 축은 같은 Column 이라
                   // 그만큼 저절로 내려간다. 이게 "풀린다"의 전부다.
                   alignment: Alignment.topCenter,
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(maxHeight: maxSheet),
-                    child: _Sheet(
-                      title: title,
-                      subtitle: subtitle,
-                      items: items,
-                      illustration: illustration,
-                      footnote: footnote,
+                  child: SizedBox(
+                    width: MediaQuery.sizeOf(context).width - Spacing.xl * 2,
+                    height: sheetHeight,
+                    child: SoriScrollFrame(
+                      child: _Sheet(
+                        title: title,
+                        subtitle: subtitle,
+                        items: items,
+                        illustration: illustration,
+                        footnote: footnote,
+                      ),
                     ),
                   ),
                 ),
               ),
-              const _Rod(),
             ],
           ),
         ),
@@ -125,76 +129,87 @@ class ChaekgadoScroll extends StatelessWidget {
 }
 
 /// 축(軸) — 양끝에 금색 마구리.
-class _Rod extends StatelessWidget {
-  const _Rod();
+/// Three-slice scroll frame shared by a variable-length category sheet and
+/// the short listening card. Only the parchment body is stretched.
+class SoriScrollFrame extends StatelessWidget {
+  const SoriScrollFrame({super.key, required this.child});
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 13,
-      child: ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(7)),
-        child: Image.asset(
-          kChaekgadoRodAsset,
-          fit: BoxFit.fill,
-          errorBuilder: (_, _, _) => const _RodFallback(),
-        ),
-      ),
-    );
-  }
-}
-
-class _RodFallback extends StatelessWidget {
-  const _RodFallback();
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 13,
-      child: Stack(
-        clipBehavior: Clip.none,
-        children: [
-          Positioned.fill(
-            child: DecoratedBox(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(7)),
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [
-                    SoriScrollPalette.rodTop,
-                    SoriScrollPalette.rodMid,
-                    SoriScrollPalette.rodBottom,
-                  ],
-                  stops: [0, 0.58, 1],
-                ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = constraints.maxWidth;
+        final capHeight = width / 8;
+        return Stack(
+          children: [
+            Positioned.fill(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  SizedBox(
+                    height: capHeight,
+                    child: Image.asset(kHoerenScrollTop, fit: BoxFit.fill),
+                  ),
+                  Expanded(
+                    child: Image.asset(kHoerenScrollBody, fit: BoxFit.fill),
+                  ),
+                  SizedBox(
+                    height: capHeight,
+                    child: Image.asset(kHoerenScrollBottom, fit: BoxFit.fill),
+                  ),
+                ],
               ),
             ),
-          ),
-          const Positioned(left: -5, top: 1, child: _RodCap()),
-          const Positioned(right: -5, top: 1, child: _RodCap()),
-        ],
-      ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(
+                width * 0.08,
+                capHeight * 0.78,
+                width * 0.08,
+                capHeight * 0.78,
+              ),
+              child: child,
+            ),
+          ],
+        );
+      },
     );
   }
 }
 
-class _RodCap extends StatelessWidget {
-  const _RodCap();
+/// Fixed-ratio lesson card from the same scroll set. Unlike [SoriScrollFrame]
+/// it is intentionally used only where a single listening line fits on one
+/// compact card.
+class SoriShortScrollCard extends StatelessWidget {
+  const SoriShortScrollCard({super.key, required this.child});
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 7,
-      height: 11,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(3)),
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [SoriScrollPalette.capTop, SoriScrollPalette.capBottom],
-        ),
-      ),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final horizontalInset = (constraints.maxWidth * 0.08)
+            .clamp(Spacing.sm, Spacing.lg)
+            .toDouble();
+        final verticalInset = (constraints.maxHeight * 0.18)
+            .clamp(Spacing.sm, Spacing.xxl)
+            .toDouble();
+        return Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.asset(kHoerenScrollShortCard, fit: BoxFit.fill),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: horizontalInset,
+                vertical: verticalInset,
+              ),
+              child: child,
+            ),
+          ],
+        );
+      },
     );
   }
 }
@@ -217,7 +232,7 @@ class _Sheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: SoriScrollPalette.paper,
+      color: Colors.transparent,
       child: Stack(
         children: [
           Column(
@@ -262,10 +277,7 @@ class _Sheet extends StatelessWidget {
                   ),
                   child: ClipRRect(
                     borderRadius: const BorderRadius.all(Radius.circular(3)),
-                    child: AspectRatio(
-                      aspectRatio: 16 / 10,
-                      child: illustration,
-                    ),
+                    child: SizedBox(height: 128, child: illustration),
                   ),
                 ),
               Flexible(

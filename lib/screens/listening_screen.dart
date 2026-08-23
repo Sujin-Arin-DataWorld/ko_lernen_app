@@ -8,6 +8,7 @@ import '../services/learner_level_selection.dart';
 import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../widgets/app_loading.dart';
+import '../widgets/sori/chaekgado/chaekgado_assets.dart';
 import '../widgets/sori/chaekgado/scroll_sheet.dart';
 import '../widgets/sori/chaekgado/shelf_case.dart';
 import '../widgets/sori/chip.dart';
@@ -163,6 +164,11 @@ class _ListeningScreenState extends State<ListeningScreen>
     final matching = _scenariosForSlug(compartment.slug);
     final done = Storage.completedScenarios.toSet();
     final lang = Localizations.localeOf(context).languageCode;
+    final slots = kChaekgadoSlots[_shelfLevel] ?? const [];
+    final slotIndex = slots.indexOf(slot);
+    final illustrationAsset =
+        chaekgadoCategoryVignetteAsset(slot.slug) ??
+        chaekgadoBookClusterAsset(slotIndex < 0 ? 0 : slotIndex);
     HapticFeedback.selectionClick();
 
     final picked = await showChaekgadoScroll<Scenario>(
@@ -171,16 +177,10 @@ class _ListeningScreenState extends State<ListeningScreen>
       subtitle: matching.isEmpty
           ? t.listeningShelfEmpty
           : t.listeningShelfScenarioCount(matching.length),
-      footnote: t.listeningProgress(
-        (kChaekgadoSlots[_shelfLevel] ?? const []).indexWhere(
-              (s) => s.slug == compartment.slug,
-            ) +
-            1,
-        (kChaekgadoSlots[_shelfLevel] ?? const []).length,
-      ),
+      footnote: t.listeningProgress(slotIndex + 1, slots.length),
       illustration: Image.asset(
-        chaekgadoCardAsset(slot.imageKey),
-        fit: BoxFit.cover,
+        illustrationAsset,
+        fit: BoxFit.contain,
         errorBuilder: (_, _, _) =>
             const ColoredBox(color: SoriColors.lightSurfaceAlt),
       ),
@@ -293,16 +293,6 @@ class _ListeningScreenState extends State<ListeningScreen>
                           onTap: () => setState(() => _shelfLevel = level),
                         ),
                     ],
-                  ),
-                  const SizedBox(height: Spacing.md),
-                  SizedBox(
-                    height: 9,
-                    child: Image.asset(
-                      kChaekgadoDancheongBandAsset,
-                      fit: BoxFit.cover,
-                      errorBuilder: (_, _, _) =>
-                          const ColoredBox(color: SoriColors.contentCta),
-                    ),
                   ),
                   ClipRRect(
                     borderRadius: SoriRadius.brMd,

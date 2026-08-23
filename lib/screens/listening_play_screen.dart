@@ -14,6 +14,7 @@ import '../services/tts_service.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/character_clip.dart';
+import '../widgets/sori/chaekgado/scroll_sheet.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/mascot.dart';
@@ -373,39 +374,58 @@ class _ListeningLinePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final tt = SoriTextTheme.of(context);
     final gloss = line.pick(lang);
-    final mascot = Mascot.forSpeaker(
-      line.speaker,
-      size: 56,
-      emotion: MascotEmotion.smile,
-      animate: false,
-    );
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        if (mascot != null) ...[mascot, const SizedBox(height: Spacing.md)],
-        _ListeningReplayTarget(
-          semanticsLabel: '$replayLabel: ${line.ko}',
-          onTap: onReplay,
-          child: Text(
-            line.ko,
-            textAlign: TextAlign.center,
-            style: tt.koDisplay,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final cardWidth = (constraints.maxWidth * 0.9).toDouble();
+        final cardHeight = (constraints.maxHeight * 0.34).toDouble();
+        return Center(
+          child: SizedBox(
+            width: cardWidth,
+            height: cardHeight,
+            child: SoriShortScrollCard(
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: SizedBox(
+                  width: 280,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      _ListeningReplayTarget(
+                        semanticsLabel: '$replayLabel: ${line.ko}',
+                        onTap: onReplay,
+                        child: Text(
+                          line.ko,
+                          textAlign: TextAlign.center,
+                          style: tt.koDisplay,
+                        ),
+                      ),
+                      if (showGloss &&
+                          gloss.isNotEmpty &&
+                          gloss != line.ko) ...[
+                        const SizedBox(height: Spacing.md),
+                        Text(
+                          gloss,
+                          textAlign: TextAlign.center,
+                          style: tt.gloss,
+                        ),
+                      ],
+                      const SizedBox(height: Spacing.sm),
+                      _ListeningReplayTarget(
+                        semanticsLabel: replayLabel,
+                        onTap: onReplay,
+                        child: Text(
+                          replayLabel,
+                          style: tt.meta.copyWith(color: SoriColors.contentCta),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           ),
-        ),
-        if (showGloss && gloss.isNotEmpty && gloss != line.ko) ...[
-          const SizedBox(height: Spacing.md),
-          Text(gloss, textAlign: TextAlign.center, style: tt.gloss),
-        ],
-        const SizedBox(height: Spacing.lg),
-        _ListeningReplayTarget(
-          semanticsLabel: replayLabel,
-          onTap: onReplay,
-          child: Text(
-            replayLabel,
-            style: tt.meta.copyWith(color: SoriColors.contentCta),
-          ),
-        ),
-      ],
+        );
+      },
     );
   }
 }
