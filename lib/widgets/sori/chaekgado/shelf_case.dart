@@ -236,56 +236,63 @@ class _Compartment extends StatelessWidget {
         behavior: HitTestBehavior.opaque,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(5, 4, 5, 3),
-          child: Opacity(
-            opacity: stocked ? 1 : 0.62,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Text(
-                  data.label,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
-                    fontSize: 7,
-                    height: 1.1,
-                    fontWeight: FontWeight.w700,
-                    color: Color(0xFF312116),
-                  ),
-                ),
-                if (stocked) ...[
-                  const SizedBox(height: 2),
-                  ClipRRect(
-                    borderRadius: const BorderRadius.all(Radius.circular(2)),
-                    child: SizedBox(
-                      height: 2,
-                      child: LinearProgressIndicator(
-                        value: data.progress.clamp(0, 1),
-                        backgroundColor: const Color(0x55FFF3D0),
-                        valueColor: const AlwaysStoppedAnimation(
-                          SoriColors.primary,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-                Expanded(
-                  child: _CellInterior(
-                    slug: data.slug,
-                    assetIndex: assetIndex,
-                    locked: !stocked,
-                  ),
-                ),
-                if (!stocked && emptyLabel != null)
+          // 칸 높이는 책가도 원화 비율이 정하므로 텍스트 배율을 따라 늘 수 없다.
+          // 접근성 라벨은 위 Semantics 가 전체 문자열을 전달하고, 그림 안의
+          // 미니 라벨만 stats_top_bar 와 같은 1.4 배 상한을 둔다(200% 대응).
+          child: MediaQuery.withClampedTextScaling(
+            maxScaleFactor: 1.4,
+            child: Opacity(
+              opacity: stocked ? 1 : 0.62,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
                   Text(
-                    emptyLabel!,
+                    data.label,
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
-                      fontSize: 6,
-                      color: Color(0xFF624A35),
+                      fontSize: 7,
+                      height: 1.1,
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF312116),
                     ),
                   ),
-              ],
+                  if (stocked) ...[
+                    const SizedBox(height: 2),
+                    ClipRRect(
+                      borderRadius: const BorderRadius.all(Radius.circular(2)),
+                      child: SizedBox(
+                        height: 2,
+                        child: LinearProgressIndicator(
+                          value: data.progress.clamp(0, 1),
+                          backgroundColor: const Color(0x55FFF3D0),
+                          valueColor: const AlwaysStoppedAnimation(
+                            SoriColors.primary,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                  Expanded(
+                    child: _CellInterior(
+                      slug: data.slug,
+                      assetIndex: assetIndex,
+                      locked: !stocked,
+                    ),
+                  ),
+                  if (!stocked && emptyLabel != null)
+                    Text(
+                      emptyLabel!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 6,
+                        height: 1.1,
+                        color: Color(0xFF624A35),
+                      ),
+                    ),
+                ],
+              ),
             ),
           ),
         ),
