@@ -1,0 +1,6 @@
+# graphify 대상 제외 — 2026-08-23 Jin 승인 (실수로 /graphify --update를 돌려도 이미지 885장·문서 수백 개가 잡히지 않게)
+# gitignore 규격. .gitignore와 병합되며 제외만 가능(재포함 불가).
+assets/
+assets_unused/
+.agents/
+.claude/skills/

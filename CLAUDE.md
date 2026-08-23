@@ -2,9 +2,10 @@
 
 이 프로젝트의 상시 지침·파일 맵·규칙·지속 메모리는 저장소 루트의 **`AGENTS.md`** 에 있다.
 
-**세션 시작:** `AGENTS.md`(간결) + `.claude/handoffs/` 최신 파일 하나.
-`docs/SESSION_LOG.md`는 자동으로 읽거나 매 변경에 쓰지 않는다. 세션이 끝나면
-`.claude/skills/session-handoff`로 짧은 인수인계를 남긴다.
+**세션 시작:** `AGENTS.md`(간결) + `graphify query "<질문>"`.
+**세션 종료:** `graphify update .` 로 그래프를 갱신한다 (2026-08-23, Jin).
+변경사항을 수기 문서로 남기지 않는다 — 이유·이력은 `git log`/PR 본문, 구조는 graphify.
+`docs/SESSION_LOG.md`와 `.claude/handoffs/`는 과거 검색용 — 자동 로드·신규 작성 금지.
 
 ## graphify
 

@@ -19,11 +19,11 @@
 > **경고를 보면 반드시 직접 옮겨갈 것.** 메인 체크아웃은 Jin 것이다.
 > 끝나면 `git worktree remove <경로>`.
 >
-> **⛔ 세션 기록 (2026-08-19 교체):** 변경마다 `docs/SESSION_LOG.md`에 쓰지 않는다.
-> 이유는 커밋 메시지와 PR 본문. 세션이 끝나거나 에이전트를 넘길 때는
-> `.claude/skills/session-handoff` 로 `.claude/handoffs/`에 **짧은 인수인계 하나**
-> (지금 상태 · 다음 한 일 · 읽지 말 것). 다음 세션은 이 파일 + 아래 게이트만 읽는다.
-> SESSION_LOG/ARCHIVE는 과거 검색용 — 자동 로드 금지.
+> **⛔ 세션 기록 (2026-08-23 교체 — graphify 북엔드):** 변경사항을 수기 문서로
+> 적지 않는다. **세션 시작 = `graphify query "<질문>"`, 세션 종료 = `graphify update .`.**
+> 이유·이력은 커밋 메시지와 PR 본문이, 구조는 그래프(`graphify-out/`)가 갖는다.
+> 다음 세션은 이 파일 + 그래프만 읽는다.
+> SESSION_LOG/ARCHIVE와 `.claude/handoffs/`는 과거 검색용 — 자동 로드 금지, 신규 작성 금지.
 > **⛔ 커밋/푸시는 Jin이 명시적으로 요청할 때만.** 여러 AI 세션(Codex·Claude 등)이 동시에 돌 수 있으니 본인이 만진 파일만 골라 스테이징.
 > **⛔ 개발 환경 = 단일 맥 (2026-08-13 확정).** 모든 개발이 맥 한 대로 통합됐다(Jin이 맥에서 Android 빌드도 가능함을 확인). 아래는 **전부 무효 — 어떤 세션도 이걸 전제로 대기/분담하지 말 것:**
 > - ~~"Windows=UI/Android · Mac=데이터/iOS" 기계별 분담~~
@@ -34,8 +34,8 @@
 ---
 
 
-> **⛔ 세션 시작 시 이 AGENTS.md(간결)와 `.claude/handoffs/` 최신 파일 하나만 읽는다 — 예외 없음.**
-> `docs/SESSION_LOG.md`는 자동으로 읽지 않는다. 전역 운영 원칙은 `~/.claude/CLAUDE.md` 참조.
+> **⛔ 세션 시작 시 이 AGENTS.md(간결)와 graphify 그래프만 읽는다 — 예외 없음.**
+> `docs/SESSION_LOG.md`와 `.claude/handoffs/`는 자동으로 읽지 않는다. 전역 운영 원칙은 `~/.claude/CLAUDE.md` 참조.
 > **작업 게이트가 열리거나 닫히면** 아래 "현재 진행 중인 작업"만 고친다. 완료 항목은 체크리스트에 남기지 말고 지운다.
 > **비주얼 에셋 작업 전** `docs/ASSET_GENERATION_BIBLE.md` **하나만** 읽으면 됨 — 스타일 가이드·디자인 토큰·한옥/장식/도장/스티커/마스코트 프롬프트를 모두 흡수한 자급자족 AI 생성 바이블 (스타일명 **"Faceted Minhwa (모던 면 분할 민화)"**). 일러스트/아이콘/마케팅 자산 신규 제작·이터레이션 시 이 파일을 프롬프트 소스로 사용. (구 `HANGUL_SORI_STYLE_GUIDE.md`·`HANGUL_SORI_DESIGN_TOKENS.md`·`stately-rising-jongga-assets.md`는 상세 레퍼런스로만.)
 > **⛔ 정정(2026-08-18): 한옥/장식 계열은 위 문장이 stale하다.** 실제 우선순위는 `docs/assets/STYLE_LOCK.json` **>** `docs/HANOK_ASSET_INVENTORY_2026-08-17.md` **>** BIBLE — BIBLE §1.3 팔레트는 실측보다 밝고, §3.5는 마당 전용 규약이라 실내(F-A)엔 안 맞는다. 리더: `tool/style_lock.py`.
@@ -72,7 +72,7 @@ Firebase 프로젝트: `ko-lernen-app`
 | 새 기능·설계 요구사항을 캐물어 다듬기 | `grill-me` (ADR·용어집까지 남길 땐 `grill-with-docs`) |
 | 코드베이스 구조 개선점 스캔 | `improve-codebase-architecture` |
 | 브랜치·PR·작업분 리뷰 (표준 vs 스펙 2축 병렬) | `code-review` |
-| 세션 종료·에이전트 전환 | `session-handoff` (`.claude/handoffs/` 한 장, 의무) |
+| 세션 종료·에이전트 전환 | `graphify update .` (그래프 갱신, 의무 — 수기 handoff 폐지) |
 | `flutter analyze` 경고 정리 · `dart fix` | `dart-run-static-analysis` |
 | 런타임 에러·스택트레이스 수정 | `dart-fix-runtime-errors` |
 | 순수 Dart 로직 유닛 테스트 | `dart-add-unit-test` |
@@ -385,20 +385,23 @@ flutter run -d <android-id>   # 안드로이드
 - [ ] **#100 태블릿 골든 (CI)**: #96 Wanted Sans 이후 medium/expanded 6장이 깨졌다.
   `cursor/fix-tablet-goldens-4772`가 하니스에 `SoriTypeScale`을 넣고 Linux 기준선을 갱신 중.
 
-## 세션 기록 — handoff (SESSION_LOG 의무 폐지)
+## 세션 기록 — graphify 북엔드 (수기 handoff 폐지)
 
-> **변경마다 `docs/SESSION_LOG.md`에 쓰지 않는다** (2026-08-19, Jin).
-> 그 파일은 여러 에이전트가 맨 위에 붙여 merge conflict의 주원인이었고, 세션마다
-> ~5만 토큰을 삼켰다.
+> **변경사항을 수기 문서로 적지 않는다** (2026-08-23, Jin).
+> `docs/SESSION_LOG.md`는 여러 에이전트가 맨 위에 붙여 merge conflict의 주원인이었고
+> 세션마다 ~5만 토큰을 삼켰다(2026-08-19 폐지). 뒤이은 `.claude/handoffs/` 수기
+> 인수인계도 같은 이유로 폐지하고, 그래프가 기록 매체를 대신한다.
 >
-> - **세션 시작:** 이 AGENTS(게이트) + `.claude/handoffs/`에서 가장 최근 파일 하나.
-> - **세션 종료 / 에이전트 전환 / "저장하고 멈춰":**
->   `python .claude/skills/session-handoff/scripts/create_handoff.py <슬러그>`
->   후 빈칸을 채운다. 한 장: 지금 상태 · 다음 한 일 · 읽지 말 것 · 브랜치/SHA.
->   이미 있는 계획·PR·커밋은 경로만 적는다.
-> - **이력:** `git log`, PR 본문. `docs/SESSION_LOG.md`와
->   `docs/SESSION_LOG_ARCHIVE.md`는 과거 검색용 — 자동 로드 금지, Jin이 일기
->   요청할 때만 적는다. 로테이션이 필요하면 `python tool/rotate_session_log.py --apply`.
+> - **세션 시작:** 이 AGENTS(게이트) + `graphify query "<질문>"`.
+>   넓은 탐색은 `graphify-out/wiki/index.md`, 관계 추적은 `graphify path "<A>" "<B>"`,
+>   특정 개념은 `graphify explain "<개념>"`.
+> - **세션 종료 / 에이전트 전환 / "저장하고 멈춰":** `graphify update .`
+>   (AST 전용, API 비용 없음). 이걸로 세션을 닫는다.
+> - **이력·이유:** `git log`와 PR 본문. graphify는 "지금 코드가 어떤 구조인가"만
+>   저장하고 "왜 바꿨는가"는 저장하지 않는다 — 그러니 **커밋 메시지에 이유를 남긴다.**
+> - **과거 자료:** `docs/SESSION_LOG.md`·`docs/SESSION_LOG_ARCHIVE.md`·
+>   `.claude/handoffs/`는 검색용으로만 보존 — 자동 로드 금지, 신규 작성 금지.
+>   Jin이 일기를 요청할 때만 예외. 로테이션은 `python tool/rotate_session_log.py --apply`.
 
 ## PR·CI 규칙 (AI 에이전트 필수)
 
@@ -525,3 +528,4 @@ Rules:
 - If graphify-out/wiki/index.md exists, use it for broad navigation instead of raw source browsing.
 - Read graphify-out/GRAPH_REPORT.md only for broad architecture review or when query/path/explain do not surface enough context.
 - After modifying code, run `graphify update .` to keep the graph current (AST-only, no API cost).
+- **세션 북엔드 (2026-08-23, Jin):** 세션 **시작**은 `graphify query`로 오리엔테이션, 세션 **종료**는 `graphify update .`로 저장. 수기 handoff·SESSION_LOG는 쓰지 않는다. 상세는 위 "세션 기록 — graphify 북엔드".
