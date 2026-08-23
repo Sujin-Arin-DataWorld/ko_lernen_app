@@ -253,7 +253,7 @@ class _CharacterSelectionScreenState extends State<CharacterSelectionScreen> {
                         key: ValueKey<String>(
                           'character-confirmation-${selected.name}',
                         ),
-                        asset: CharacterClips.greetFor(selected),
+                        asset: CharacterClips.chooseFor(selected),
                         size: (constraints.maxWidth - 48)
                             .clamp(260.0, 480.0)
                             .toDouble(),

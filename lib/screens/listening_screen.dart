@@ -13,9 +13,7 @@ import '../widgets/sori/chaekgado/scroll_sheet.dart';
 import '../widgets/sori/chaekgado/shelf_case.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/screen_coach.dart';
-import '../widgets/sori/section_header.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
@@ -130,7 +128,10 @@ class _ListeningScreenState extends State<ListeningScreen>
           final doneCount = matching.where((s) => done.contains(s.id)).length;
           return ChaekgadoCompartment(
             slug: slot.slug,
+            // 긴 이름은 스크린리더·두루마리 머리글, 짧은 이름이 칸 위에 찍힌다.
             label: chaekgadoSlotLabel(t, slot.imageKey),
+            shortLabel: chaekgadoSlotShortLabel(t, slot.imageKey),
+            imageKey: slot.imageKey,
             count: matching.length,
             progress: matching.isEmpty ? 0 : doneCount / matching.length,
           );
@@ -153,6 +154,35 @@ class _ListeningScreenState extends State<ListeningScreen>
     }
   }
 
+  /// 두루마리 머리 그림 = 칸에 놓인 것과 **같은 카드 아트**. 시트가 선반에서
+  /// 뽑혀 나온 물건으로 읽히려면 두 곳이 같은 그림이어야 한다.
+  ///
+  /// 아직 아트가 없는 키(C1/C2 다수)는 칸과 같은 폴백 사다리를 탄다 —
+  /// 카테고리 비네트 → 책더미 → 표면색 면.
+  Widget _scrollIllustration(ChaekgadoSlot slot, int slotIndex) {
+    final cluster = chaekgadoBookClusterAsset(slotIndex < 0 ? 0 : slotIndex);
+    final vignette = chaekgadoCategoryVignetteAsset(slot.slug);
+    final clusterImage = Image.asset(
+      cluster,
+      fit: BoxFit.contain,
+      errorBuilder: (_, _, _) =>
+          const ColoredBox(color: SoriColors.lightSurfaceAlt),
+    );
+    return Image.asset(
+      chaekgadoCardAsset(slot.imageKey),
+      fit: BoxFit.cover,
+      // 아트 세이프가 12~88% 라 세로 중앙보다 살짝 위를 본다(칸과 같은 값).
+      alignment: const Alignment(0, -0.1),
+      errorBuilder: (_, _, _) => vignette == null
+          ? clusterImage
+          : Image.asset(
+              vignette,
+              fit: BoxFit.contain,
+              errorBuilder: (_, _, _) => clusterImage,
+            ),
+    );
+  }
+
   Future<void> _openShelfCompartment(
     BuildContext context,
     AppL10n t,
@@ -166,9 +196,6 @@ class _ListeningScreenState extends State<ListeningScreen>
     final lang = Localizations.localeOf(context).languageCode;
     final slots = kChaekgadoSlots[_shelfLevel] ?? const [];
     final slotIndex = slots.indexOf(slot);
-    final illustrationAsset =
-        chaekgadoCategoryVignetteAsset(slot.slug) ??
-        chaekgadoBookClusterAsset(slotIndex < 0 ? 0 : slotIndex);
     HapticFeedback.selectionClick();
 
     final picked = await showChaekgadoScroll<Scenario>(
@@ -177,13 +204,7 @@ class _ListeningScreenState extends State<ListeningScreen>
       subtitle: matching.isEmpty
           ? t.listeningShelfEmpty
           : t.listeningShelfScenarioCount(matching.length),
-      footnote: t.listeningProgress(slotIndex + 1, slots.length),
-      illustration: Image.asset(
-        illustrationAsset,
-        fit: BoxFit.contain,
-        errorBuilder: (_, _, _) =>
-            const ColoredBox(color: SoriColors.lightSurfaceAlt),
-      ),
+      illustration: _scrollIllustration(slot, slotIndex),
       items: [
         for (var i = 0; i < matching.length; i++)
           ChaekgadoScrollItem(
@@ -254,24 +275,6 @@ class _ListeningScreenState extends State<ListeningScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const HanokHeader(
-              asset: 'assets/illustrations/hanok/listening_hero.png',
-              fallbackIcon: Icons.headphones_outlined,
-              fallbackTint: SoriColors.info,
-              aspectRatio: 10 / 3,
-            ),
-            const SizedBox(height: Spacing.md),
-            Text(
-              t.listeningSubtitle,
-              style: SoriTextTheme.of(context).bodySmall,
-            ),
-            const SizedBox(height: Spacing.lg),
-            Semantics(
-              header: true,
-              child: SoriSectionHeader(t.listeningSelectScenario),
-            ),
-            Text(t.listeningPickFirst, style: SoriTextTheme.of(context).meta),
-            const SizedBox(height: Spacing.md),
             KeyedSubtree(
               key: _shelfKey,
               child: Column(

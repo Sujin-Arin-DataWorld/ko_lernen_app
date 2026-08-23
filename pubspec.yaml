@@ -178,12 +178,16 @@ flutter:
     # Sori Deck 2.0 액션 아이콘 (§R-3 커스텀 드롭 전에는 Material 폴백)
     - assets/illustrations/deck/
     # 듣기 카드 일러스트 — 규약: listening/{Key}.webp (Key = docs/LISTENING_CARD_ART_SPEC.md).
-    # 없으면 SoriIllustratedCard 의 errorBuilder 가 폴백을 그린다.
-    # 책가도 서재 목재·소품 — 108칸(6레벨×12칸+ 확장 여유) 공용, 칸별 아트 아님.
+    # 2026-08-23 Hören 새 단장: 이 52장이 선반 칸의 정물(08-19 §3-①)이 되면서
+    # 처음으로 번들에 들어간다. 파일이 없는 키는 errorBuilder 가 비네트→책더미로
+    # 내려가므로, 아트가 빠져도 화면은 정상 배포된다.
+    - assets/illustrations/listening/
+    # 책가도 서재 소품 — 6레벨 공용, 칸별 아트 아님.
     # Approved Chaekgado listening system. Flutter does not recurse through
     # asset directories, so every runtime leaf directory is explicit.
-    - assets/hangul_sori_chaekgado_asset_pack_v1/bookcase/slices/backplate/
-    - assets/hangul_sori_chaekgado_asset_pack_v1/bookcase/slices/frame/
+    # bookcase/slices/{backplate,frame}/ 는 2026-08-23 에 번들에서 빠졌다 —
+    # 나무를 CustomPainter 로 그리면서 프레임 PNG 6장이 고아가 됐고,
+    # 격리 폴더(pending_review)로 옮겼다.
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_top.png
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_body_tile.png
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_bottom.png
