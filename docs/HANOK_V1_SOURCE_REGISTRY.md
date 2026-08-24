@@ -38,6 +38,30 @@ recolor: forbidden
 생성 모델의 reference 업로드를 금지한다. 주제 색인으로만 사용하고 건축 사실은
 위 공공기관 자료에서 독립적으로 확인한다.
 
+## 일두고택 현장 사진 묶음 (Jin 제공 2026-08-24)
+
+`ildu_site_photos_jin_2026` — 유튜브 캡처(이음한옥 / 박석문 한옥컨설턴트)와 사진 다수.
+위 `reference_only_user_supplied` 경계를 **그대로** 적용한다. BBANANA를 포함한 어떤
+생성 모델에도 업로드하지 않았고, 앞으로도 하지 않는다.
+
+여기서 읽어 로스터에 등재한 사실 — 전부 중립 문장으로 재기술했다:
+
+| 사실 | 등재 위치 | 교차확인 |
+|---|---|---|
+| 안채 좌우 마루 끝 처리가 다르다 | `ildu_anchae.kan.note` | 보고서 보방향 좌 3,800 / 우 4,525㎜ (`measured`) |
+| 사랑채 배면 기단이 낮다 | `ildu_sarangchae.rearPodiumMm` | 보고서 p61 배면 245㎜ (`measured`). ⚠ 사랑채는 우물에 면하지 않는다 — 안마당 노출 여부는 도면으로 확정 |
+| 시렁 — 처마 밑 대나무 장대에 광주리 보관 | `ildu_anchae.elements` | 사진만 (`documented`) |
+| 대청 배면 판문 | `ildu_anchae.elements` | 사진만 (`documented`) |
+| 아궁이가 마당 쪽으로 노출 | `ildu_anchae.elements` | 사진만 (`documented`) |
+| 우물에 안채·아래채·**곳간채**가 면한다 | `ildu_umul.adjacentBuildings` | 사진만, 방위는 미확정 |
+| 곳간채 옆이 바로 중문채 | `ildu_gokganchae.adjacentBuildings` | 사진만 |
+| 곳간채는 판벽 지배, 안채·아래채는 회벽 지배 | `ildu_gokganchae.materialNote` | 로스터 기존 기술과 일치 |
+| 굴뚝(원통 석조)이 독립해 선다 | `ildu_jungmunganchae.elements` | 사진만, 귀속 채 미정 |
+| 중문 통과 시 레벨 변화 | `ildu_jungmunganchae.levelChangeNote` | 사진만, 방향 미확정 |
+
+**사진에 찍힌 현대 설비는 고증 대상이 아니다** — 소화기, 흰 소화배관, 안내판, 전선,
+조명기구. 생성 프롬프트의 NOT 목록에 상시 명시한다(모델이 부재로 오독한 전례 있음).
+
 ## 프로젝트 소유 자산의 도메인 경계
 
 - `assets/illustrations/gye/**`와 `assets/video/gye/**`는 Gye 런타임에서 계속
