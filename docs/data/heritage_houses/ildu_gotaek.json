@@ -1,0 +1,2490 @@
+{
+  "schemaVersion": 1,
+  "houseId": "ildu_gotaek",
+  "names": {
+    "ko": "함양 일두고택",
+    "hanja": "咸陽 一蠹古宅",
+    "romanization": "Hamyang Ildu Gotaek",
+    "de": "Ildu-Anwesen in Hamyang",
+    "en": "Ildu Historic House, Hamyang"
+  },
+  "designation": {
+    "system": "kr_national_folklore_cultural_heritage",
+    "systemLabel": {
+      "ko": "국가민속문화유산",
+      "de": "Nationales volkskundliches Kulturerbe (Korea)",
+      "en": "National Folklore Cultural Heritage of Korea"
+    },
+    "designatedOn": "1984-01-14",
+    "designatedAreaSqm": 4905,
+    "designatedParcels": 9,
+    "siteAreaSqm": 9917,
+    "address": {
+      "ko": "경상남도 함양군 지곡면 개평길 50-13",
+      "de": "50-13 Gaepyeong-gil, Jigok-myeon, Hamyang-gun, Gyeongsangnam-do",
+      "en": "50-13 Gaepyeong-gil, Jigok-myeon, Hamyang-gun, Gyeongsangnam-do"
+    },
+    "coordinates": {
+      "latitude": 35.5663018643141,
+      "longitude": 127.768314438492
+    },
+    "renamedOn": "2007-01-29",
+    "formerNames": [
+      {
+        "ko": "함양정병호가옥",
+        "hanja": "咸陽鄭炳鎬家屋",
+        "untilDate": "2007-01-29",
+        "note": {
+          "ko": "지정 당시 건물주 이름을 딴 명칭이었다.",
+          "de": "Benannt nach dem damaligen Eigentümer.",
+          "en": "Named after the owner at the time of designation."
+        },
+        "sourceIds": [
+          "khs_portal_ildu",
+          "hamyang_gun_guide"
+        ]
+      }
+    ],
+    "numberingNote": {
+      "ko": "2021년 지정번호 제도 폐지, 2024년 종목 명칭 변경. '국가민속문화재 제186호'는 옛 표기다.",
+      "de": "Die Nummerierung entfiel 2021, die Kategorie wurde 2024 umbenannt. Nr. 186 ist veraltet.",
+      "en": "Designation numbers were abolished in 2021 and the category renamed in 2024. 'No. 186' is obsolete."
+    },
+    "sourceIds": [
+      "khs_portal_ildu"
+    ],
+    "reportSiteAreaSqm": 4770,
+    "reportFloorAreaSqm": 467.76,
+    "areaNote": {
+      "ko": "국가유산청 지정면적 4,905㎡와 기록화보고서 대지면적 4,770㎡가 다르다. 보고서는 연면적 467.76㎡를 함께 기재한다.",
+      "de": "Ausgewiesene Fläche (4.905 m²) und Grundstücksfläche im Bericht (4.770 m²) weichen ab.",
+      "en": "Designated area (4,905 m²) differs from the report site area (4,770 m²)."
+    }
+  },
+  "person": {
+    "ko": "일두 정여창 (1450~1504)",
+    "hanja": "一蠹 鄭汝昌",
+    "de": "Jeong Yeo-chang (1450–1504), neokonfuzianischer Gelehrter",
+    "en": "Jeong Yeo-chang (1450–1504), Neo-Confucian scholar",
+    "note": {
+      "ko": "조선 5현의 한 사람. 이 집은 그의 생가터에 후손들이 중건했다.",
+      "de": "Einer der fünf Weisen Joseons. Nachfahren errichteten das Haus auf seinem Geburtsgrund neu.",
+      "en": "One of Joseon's Five Sages. Descendants rebuilt the house on his birth site."
+    },
+    "sourceIds": [
+      "khs_portal_ildu",
+      "hamyang_gun_guide"
+    ]
+  },
+  "chronology": [
+    {
+      "eventId": "anchae_jungchang_1690",
+      "year": 1690,
+      "scope": "ildu_anchae",
+      "label": {
+        "ko": "안채 중창",
+        "de": "Anchae wiedererrichtet",
+        "en": "Anchae rebuilt"
+      },
+      "evidenceGrade": "documented",
+      "sourceIds": [
+        "grandculture_hamyang_ildu",
+        "khs_portal_ildu"
+      ]
+    },
+    {
+      "eventId": "sarangchae_1843",
+      "year": 1843,
+      "scope": "ildu_sarangchae",
+      "label": {
+        "ko": "사랑채 건립",
+        "de": "Sarangchae errichtet",
+        "en": "Sarangchae built"
+      },
+      "evidenceGrade": "documented",
+      "sourceIds": [
+        "grandculture_hamyang_ildu",
+        "khs_portal_ildu"
+      ]
+    }
+  ],
+  "dongCountClaims": [
+    {
+      "claimId": "khs_itemized_10",
+      "value": 10,
+      "scope": "itemized_by_source",
+      "reconciliation": "conflict",
+      "label": {
+        "ko": "국가유산청 관리 목록 기준 10동",
+        "de": "10 Gebäude laut Verwaltungsliste der Korea Heritage Service",
+        "en": "10 buildings per the Korea Heritage Service management list"
+      },
+      "note": {
+        "ko": "관리 목록은 문(門)과 조경 요소를 동으로 세지 않는다. 항목별 열거는 재확인이 필요하다.",
+        "de": "Tore und Gartenelemente zählen dort nicht als Gebäude. Die Einzelliste ist noch zu prüfen.",
+        "en": "Gates and landscape elements are not counted there. The itemisation still needs verification."
+      },
+      "verification": "pending",
+      "sourceIds": [
+        "khs_digital_ildu"
+      ]
+    },
+    {
+      "claimId": "hamyang_extant_12",
+      "value": 12,
+      "scope": "extant",
+      "reconciliation": "complete",
+      "label": {
+        "ko": "현존 12동",
+        "de": "12 erhaltene Gebäude",
+        "en": "12 surviving buildings"
+      },
+      "identifiedRows": 12,
+      "unidentifiedRows": 0,
+      "sourceIds": [
+        "hamyang_gun_guide"
+      ]
+    },
+    {
+      "claimId": "hamyang_original_17",
+      "value": 17,
+      "scope": "original",
+      "reconciliation": "partial",
+      "label": {
+        "ko": "당초 17동",
+        "de": "ursprünglich 17 Gebäude",
+        "en": "17 buildings originally"
+      },
+      "identifiedRows": 16,
+      "unidentifiedRows": 1,
+      "note": {
+        "ko": "17동을 낱낱이 열거한 공개 출처는 아직 없다. 16동까지 특정했고 한 동은 미상으로 둔다.",
+        "de": "Keine öffentliche Quelle listet alle 17 auf. 16 sind bestimmt, eines bleibt offen.",
+        "en": "No public source itemises all 17. Sixteen are identified; one is left unresolved."
+      },
+      "sourceIds": [
+        "hamyang_gun_guide"
+      ]
+    },
+    {
+      "claimId": "cha_2007_twelve",
+      "value": 12,
+      "kind": "extant",
+      "sourceIds": [
+        "cha_2007_record"
+      ],
+      "itemization": {
+        "buildings": 12,
+        "hyeopmun": 4,
+        "walls": true
+      },
+      "note": {
+        "ko": "보고서 p31 '안채와 사랑채를 포함하여 12동의 건물과, 4개의 협문과 담장'. 문을 동으로 세지 않는 우리 규약과 일치한다.",
+        "de": "Bericht S. 31: zwölf Gebäude plus vier Nebentore und Mauern.",
+        "en": "Survey p.31: twelve buildings plus four side gates and walls."
+      }
+    }
+  ],
+  "rosterHypothesis": {
+    "id": "ildu_17_v1",
+    "status": "unverified",
+    "authoredOn": "2026-08-23",
+    "verifiedBy": null,
+    "basis": {
+      "ko": "국가유산청 설명문·함양군 안내문·백과사전·문화대전의 교집합에 신영도 기록을 더해 구성했다.",
+      "de": "Zusammengesetzt aus übereinstimmenden Angaben der Quellen plus dem Sinyeongdo-Plan.",
+      "en": "Assembled from where the public sources agree, plus the Sinyeongdo plan drawing."
+    },
+    "alternates": [
+      {
+        "ko": "행랑채 좌·우를 2동으로 세는 계수",
+        "de": "Haengrangchae links/rechts als zwei Gebäude gezählt",
+        "en": "Counting the west and east Haengrangchae as two buildings"
+      },
+      {
+        "ko": "문 3개를 동으로 세는 계수",
+        "de": "Die drei Tore als Gebäude gezählt",
+        "en": "Counting the three gates as buildings"
+      }
+    ]
+  },
+  "renderHierarchyNote": {
+    "ko": "groundBand·podiumBeoldae는 실측 표고가 아니라 건축 위계에서 파생한 렌더 값이다. 기단 벌대가 문헌으로 확인된 경우에만 measuredPodium이 true다.",
+    "de": "groundBand und podiumBeoldae sind aus der Rangordnung abgeleitete Renderwerte, keine gemessenen Höhen.",
+    "en": "groundBand and podiumBeoldae are render values derived from architectural rank, not measured elevations."
+  },
+  "spatialPrinciples": [
+    {
+      "principleId": "east_west_parallel",
+      "label": {
+        "ko": "동서축 병렬 배치",
+        "de": "Ost-West-Parallelanlage",
+        "en": "East-west parallel layout"
+      },
+      "note": {
+        "ko": "안채 영역이 서쪽, 사랑채 영역이 동쪽에 나란히 놓인다. 경북의 폐쇄적 ㅁ자 뜰집과 대비되는 남부 개방형이다.",
+        "de": "Anchae im Westen, Sarangchae im Osten, nebeneinander — die offene Südform, nicht der geschlossene Hof.",
+        "en": "Anchae west, Sarangchae east, side by side — the open southern type, not the closed courtyard type."
+      },
+      "cefrLevel": "b1",
+      "sourceIds": [
+        "encykorea_ildu",
+        "hamyang_gun_guide"
+      ]
+    },
+    {
+      "principleId": "jeonchak_hugwan",
+      "label": {
+        "ko": "전착후관 前窄後寬",
+        "de": "Enger Eingang, weites Inneres",
+        "en": "Narrow entry, broad interior"
+      },
+      "note": {
+        "ko": "진입부는 좁고 안으로 들수록 넓어진다. 마당 폭이 남에서 북으로 커진다.",
+        "de": "Der Zugang ist eng, das Innere weitet sich nach Norden.",
+        "en": "The approach is narrow and the interior widens toward the north."
+      },
+      "cefrLevel": "b1",
+      "sourceIds": [
+        "sinyeongdo_reference"
+      ]
+    },
+    {
+      "principleId": "four_gate_ascent",
+      "label": {
+        "ko": "문 넷과 지반 상승",
+        "de": "Vier Tore, steigendes Gelände",
+        "en": "Four gates, rising ground"
+      },
+      "note": {
+        "ko": "솟을대문 → 일각문 → 중문 → 사당문을 지날 때마다 지반이 오르고 공간이 사적으로 깊어진다.",
+        "de": "Mit jedem der vier Tore steigt das Gelände und der Raum wird privater.",
+        "en": "At each of the four gates the ground rises and the space grows more private."
+      },
+      "cefrLevel": "b1",
+      "sourceIds": [
+        "khs_portal_ildu",
+        "hamyang_gun_guide"
+      ]
+    },
+    {
+      "principleId": "gidan_hierarchy",
+      "label": {
+        "ko": "기단 높이가 곧 위계",
+        "de": "Sockelhöhe als Rangordnung",
+        "en": "Podium height as hierarchy"
+      },
+      "note": {
+        "ko": "채의 격이 높을수록 기단이 높다. 사랑채는 높직한 댓돌 위에 서고 문간채는 지면에 가깝다.",
+        "de": "Je höher der Rang, desto höher der Sockel. Das Sarangchae steht hoch, das Torhaus fast ebenerdig.",
+        "en": "The higher the rank, the higher the podium. The Sarangchae stands high; the gatehouse sits near the ground."
+      },
+      "cefrLevel": "b1",
+      "sourceIds": [
+        "hamyang_gun_guide",
+        "grandculture_hamyang_ildu"
+      ]
+    },
+    {
+      "principleId": "no_dancheong_gasajehan",
+      "label": {
+        "ko": "살림집 단청 금지",
+        "de": "Kein Dancheong am Wohnhaus",
+        "en": "No dancheong on a dwelling"
+      },
+      "note": {
+        "ko": "가사제한에 따라 사대부 살림집에는 단청을 올리지 않는다. 이 집에 단청은 없다.",
+        "de": "Sumptuargesetze verboten Dancheong an Wohnhäusern. Dieses Haus hat keines.",
+        "en": "Sumptuary law barred dancheong on dwellings. This house has none."
+      },
+      "cefrLevel": "c1",
+      "sourceIds": [
+        "hamyang_gun_guide"
+      ]
+    }
+  ],
+  "buildings": [
+    {
+      "buildingId": "ildu_sarangchae",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "사랑채",
+        "hanja": "舍廊채",
+        "romanization": "Sarangchae",
+        "de": "Sarangchae — Männerflügel",
+        "en": "Sarangchae — men's quarters"
+      },
+      "type": "momchae",
+      "hierarchyRank": 1,
+      "groundBand": 2,
+      "podiumBeoldae": 4,
+      "measuredPodium": true,
+      "kan": {
+        "front": 6,
+        "side": null,
+        "note": {
+          "ko": "좌측면 2칸, 우측면 4칸(배면 벽장 제외). ㄱ자형이라 측면이 좌우 다름",
+          "de": "Linke Seite 2 Kan, rechte Seite 4 Kan (ohne den rückwärtigen Wandschrank). Der ㄱ-förmige Grundriss macht die beiden Seiten ungleich.",
+          "en": "Two kan on the left side, four on the right (rear closet excluded). The ㄱ-shaped plan makes the two sides unequal."
+        },
+        "measuredSourceId": "cha_2007_record",
+        "verbatim": "문화재청 기록화보고서(2007) 「Ⅱ. 연혁 및 배치」 건물개요표: ① 안채 - 정면 8칸, 측면 2칸 79.84㎡ / ② 사랑채 - 정면 6칸, 좌측면 2칸, 우측면 4칸 88.40㎡ / ③ 사당 - 정면 3칸, 측면 1칸 반 28.39㎡ / ④ 별당 - 정면 4칸, 측면 1칸 반 46.51㎡ / ⑤ 아래채 - 정면 3칸, 측면 1칸 32.04㎡ / ⑥ 대문채 - 정면 5칸, 측면 1칸 34.01㎡ / ⑦ 중문채 - 정면 8칸, 측면 1칸 반 29.47㎡ / ⑧ 광채 - 정면 5칸, 측면 2칸 53.63㎡ / ⑨ 곳간채 - 정면 6칸, 측면 1칸 42.86㎡ / ⑩ 안곳간채 - 정면 4칸, 측면 1칸 25.27㎡"
+      },
+      "planForm": "giyeok",
+      "roofForm": "paljak_hotcheoma",
+      "structure": "oryangga",
+      "orientation": "southeast",
+      "planYaw": -20,
+      "planYawEvidence": "보고서 p38 '남동향'. 실각 약 45°를 정면 6칸 리듬·문헌세가 편액 가독을 위해 20°로 축약(스타일화). Jin 각도 승인 2026-08-24.",
+      "use": {
+        "ko": "바깥주인이 머물며 손님을 맞고 글을 읽던 채.",
+        "de": "Wohn-, Empfangs- und Studierraum des Hausherrn.",
+        "en": "The master's quarters for living, receiving guests and study."
+      },
+      "story": {
+        "ko": "대문을 들어서 비스듬히 가면 처음 만나는 채다. 높직한 댓돌 위에 ㄱ자로 앉고 누마루가 앞으로 나와 있다.",
+        "de": "Das erste Gebäude nach dem Tor: L-förmig auf hohem Sockel, mit vorspringendem Nummaru.",
+        "en": "The first building past the gate: L-shaped on a high podium, its Nummaru thrust forward."
+      },
+      "elements": [
+        {
+          "elementId": "ildu_nummaru",
+          "names": {
+            "ko": "누마루 (내루)",
+            "hanja": "內樓",
+            "de": "Nummaru — erhöhter Holzsaal",
+            "en": "Nummaru — raised open floor"
+          },
+          "evidenceGrade": "measured",
+          "sourceIds": [
+            "khs_portal_ildu",
+            "encykorea_ildu",
+            "hamyang_gun_guide"
+          ]
+        },
+        {
+          "elementId": "ildu_hwalju",
+          "names": {
+            "ko": "활주",
+            "hanja": "活柱",
+            "de": "Hwalju — Stütze des Dachvorsprungs",
+            "en": "Hwalju — eave-supporting post"
+          },
+          "evidenceGrade": "measured",
+          "sourceIds": [
+            "encykorea_ildu",
+            "hamyang_gun_guide"
+          ]
+        },
+        {
+          "elementId": "ildu_seokju_choseok",
+          "names": {
+            "ko": "석주 초석",
+            "hanja": "石柱 礎石",
+            "de": "Schlanker Steinpfeiler als Säulenbasis",
+            "en": "Slender stone pier used as a column base"
+          },
+          "evidenceGrade": "measured",
+          "sourceIds": [
+            "encykorea_ildu",
+            "hamyang_gun_guide"
+          ]
+        }
+      ],
+      "plaques": [
+        {
+          "plaqueId": "munheonsega",
+          "ko": "문헌세가",
+          "hanja": "文獻世家",
+          "carrier": "hyeonpan",
+          "meaning": {
+            "ko": "문헌공의 후손이 사는 집",
+            "de": "Haus der Nachfahren des Munheon-gong",
+            "en": "House of the descendants of Munheon-gong"
+          },
+          "evidenceGrade": "measured",
+          "sourceIds": [
+            "encykorea_ildu",
+            "hamyang_gun_guide"
+          ]
+        },
+        {
+          "plaqueId": "chunghyojeolui",
+          "ko": "충효절의",
+          "hanja": "忠孝節義",
+          "carrier": "paper_calligraphy",
+          "meaning": {
+            "ko": "충과 효, 절개와 의리",
+            "de": "Treue, Kindespflicht, Standhaftigkeit, Rechtschaffenheit",
+            "en": "Loyalty, filial duty, integrity, righteousness"
+          },
+          "evidenceGrade": "documented",
+          "evidenceNote": {
+            "ko": "편액이 아니라 방문 위에 붙인 종이 글씨로 전한다.",
+            "de": "Überliefert als Papierkalligraphie über der Tür, nicht als Holztafel.",
+            "en": "Recorded as paper calligraphy above the door, not a wooden board."
+          },
+          "sourceIds": [
+            "hamyang_gun_guide"
+          ]
+        },
+        {
+          "plaqueId": "baekseicheongpung",
+          "ko": "백세청풍",
+          "hanja": "百世淸風",
+          "carrier": "hyeonpan",
+          "meaning": {
+            "ko": "대대로 맑은 기풍을 잇는다",
+            "de": "Über Generationen ein reiner Geist",
+            "en": "A clear spirit carried through the generations"
+          },
+          "evidenceGrade": "measured",
+          "sourceIds": [
+            "encykorea_ildu",
+            "hamyang_gun_guide",
+            "cha_2007_record"
+          ],
+          "dimensionsMm": {
+            "width": 2377,
+            "height": 814,
+            "depth": 18,
+            "source": "cha_2007_record p80"
+          }
+        },
+        {
+          "plaqueId": "takcheongjae",
+          "ko": "탁청재",
+          "hanja": "濯淸齋",
+          "carrier": "hyeonpan",
+          "location": "nummaru_ceiling_corner",
+          "meaning": {
+            "ko": "탁한 마음을 깨끗이 씻는 집",
+            "de": "Haus, in dem der trübe Sinn rein gewaschen wird",
+            "en": "The house where a clouded mind is washed clean"
+          },
+          "evidenceGrade": "documented",
+          "sourceIds": [
+            "hamyang_gun_guide",
+            "cha_2007_record"
+          ],
+          "dimensionsMm": {
+            "width": 756,
+            "height": 373,
+            "depth": 18,
+            "source": "cha_2007_record p80"
+          },
+          "evidenceNote": {
+            "ko": "보고서 표기는 濯淸齊이고 독음도 '탁청재'(p38)와 '탁청제'(p80)가 섞인다. 통용 표기 濯淸齋를 쓰되 차이를 여기 기록한다.",
+            "de": "Der Bericht schreibt 濯淸齊 und liest die Tafel an zwei Stellen unterschiedlich; das Roster führt die gebräuchliche Schreibung 濯淸齋.",
+            "en": "The report writes 濯淸齊 and reads the name two different ways; the roster keeps the common spelling 濯淸齋 and records the divergence here."
+          }
+        }
+      ],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "칸수·기단·부재 전부 2007 기록화보고서 실측. 기단은 정면 세벌대 1,200㎜에 이중 316·삼중(댓돌) 330이 얹히고, 누마루 밑은 한벌대 410, 배면은 245다. 경사지라 단일 벌대 수로 환원되지 않으므로 4는 렌더값이다.",
+        "de": "Maße aus der Bauaufnahme 2007. Podium vorn 1.200 mm in drei Lagen, Stufen 316 und 330, unter dem Numaru 410, hinten 245. Am Hang keine einzelne Lagenzahl — 4 ist ein Renderwert.",
+        "en": "From the 2007 survey. Front podium 1,200 mm in three courses, tiers of 316 and 330, 410 under the numaru, 245 at the rear. On a slope no single count fits; 4 is a render value."
+      },
+      "sourceIds": [
+        "cha_2007_record",
+        "khs_portal_ildu",
+        "hamyang_gun_guide",
+        "encykorea_ildu",
+        "grandculture_hamyang_ildu"
+      ],
+      "expectedCefrLevel": "a1",
+      "opensZone": "sarangbang",
+      "opensSurface": "sarangbang",
+      "floorAreaSqm": 88.4,
+      "rearPodiumMm": 245,
+      "dualFaceNote": "정면 기단 1,200㎜ / 배면 245㎜(한벌대). 보고서 p61: '배면은 안채와 같은 영역에 있으므로 안채와 같이 한 벌대로 처리하였다.' 같은 건물이 사랑마당 쪽에서는 위압적이고 안마당 쪽에서는 낮게 엎드린다. 배치도에서 배면이 안마당에 노출되므로 단일 스프라이트로는 이 이중성을 담을 수 없다 — 배면 스프라이트 필요 여부 미결.",
+      "measuredPodiumMm": 1200,
+      "measuredPodiumSource": "p61 정면 세벌대"
+    },
+    {
+      "buildingId": "ildu_anchae",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "안채",
+        "hanja": "안채",
+        "romanization": "Anchae",
+        "de": "Anchae — Frauenflügel",
+        "en": "Anchae — women's quarters"
+      },
+      "type": "momchae",
+      "hierarchyRank": 2,
+      "groundBand": 3,
+      "podiumBeoldae": 1,
+      "measuredPodium": true,
+      "kan": {
+        "front": 8,
+        "side": 2.0,
+        "note": {
+          "ko": "정면 8칸 × 측면 2칸(전후퇴). 보방향이 좌 3,800㎜ / 우 4,525㎜로 우측이 725㎜ 깊어, 좌우 마루 끝 처리가 서로 다르다.",
+          "de": "Front 8 Kan × Seite 2 Kan. Die rechte Tiefe misst 4.525 mm gegenüber 3.800 mm links (+725 mm), daher enden die Holzdielen beidseitig unterschiedlich.",
+          "en": "Eight front kan by two side kan. The right depth is 4,525 mm against 3,800 mm on the left (+725 mm), so the veranda ends are finished differently on each side."
+        },
+        "measuredSourceId": "cha_2007_record",
+        "verbatim": "문화재청 기록화보고서(2007) 「Ⅱ. 연혁 및 배치」 건물개요표: ① 안채 - 정면 8칸, 측면 2칸 79.84㎡ / ② 사랑채 - 정면 6칸, 좌측면 2칸, 우측면 4칸 88.40㎡ / ③ 사당 - 정면 3칸, 측면 1칸 반 28.39㎡ / ④ 별당 - 정면 4칸, 측면 1칸 반 46.51㎡ / ⑤ 아래채 - 정면 3칸, 측면 1칸 32.04㎡ / ⑥ 대문채 - 정면 5칸, 측면 1칸 34.01㎡ / ⑦ 중문채 - 정면 8칸, 측면 1칸 반 29.47㎡ / ⑧ 광채 - 정면 5칸, 측면 2칸 53.63㎡ / ⑨ 곳간채 - 정면 6칸, 측면 1칸 42.86㎡ / ⑩ 안곳간채 - 정면 4칸, 측면 1칸 25.27㎡"
+      },
+      "planForm": "il_ja",
+      "roofForm": "paljak_hotcheoma",
+      "structure": "oryangga",
+      "orientation": "southwest",
+      "planYaw": 20,
+      "planYawEvidence": "보고서 p39~40 '남서향'. 사랑채와 반대로 틀어 내외 구분을 시각화. 실각 축약은 사랑채와 동일 규칙.",
+      "use": {
+        "ko": "안주인이 주관하는 살림의 중심. 여성의 공간이다.",
+        "de": "Zentrum des Haushalts unter der Hausherrin; der Frauenbereich.",
+        "en": "The centre of the household, run by the mistress; the women's domain."
+      },
+      "story": {
+        "ko": "중문을 지나야 나온다. 가운데 넓은 대청을 두고 양쪽에 온돌방을 놓아 여름과 겨울을 한 채에 담았다.",
+        "de": "Erst hinter dem Jungmun. Ein weiter Daecheong in der Mitte, Ondol-Räume beidseits — Sommer und Winter unter einem Dach.",
+        "en": "Reached only past the Jungmun. A wide Daecheong at the centre with ondol rooms either side — summer and winter in one building."
+      },
+      "elements": [
+        {
+          "elementId": "ildu_daecheong",
+          "names": {
+            "ko": "대청",
+            "hanja": "大廳",
+            "de": "Daecheong — offene Holzdiele",
+            "en": "Daecheong — open wooden hall"
+          },
+          "evidenceGrade": "measured",
+          "sourceIds": [
+            "grandculture_hamyang_ildu"
+          ]
+        },
+        {
+          "elementId": "ildu_buyeok",
+          "names": {
+            "ko": "부엌",
+            "hanja": "부엌",
+            "de": "Küche mit Ondol-Feuerung",
+            "en": "Kitchen with ondol firebox"
+          },
+          "evidenceGrade": "measured",
+          "sourceIds": [
+            "grandculture_hamyang_ildu"
+          ]
+        },
+        {
+          "elementId": "ildu_anchae_siryeong",
+          "names": {
+            "ko": "시렁",
+            "hanja": "시렁",
+            "de": "Siryeong — Bambusstangen als Ablage unter der Traufe",
+            "en": "Siryeong — bamboo poles slung under the eave as a storage rack"
+          },
+          "evidenceGrade": "documented",
+          "sourceIds": [
+            "ildu_site_photos_jin_2026"
+          ]
+        },
+        {
+          "elementId": "ildu_anchae_daecheong_panmun",
+          "names": {
+            "ko": "대청 배면 판문",
+            "hanja": "板門",
+            "de": "Bretttüren an der Rückseite des Daecheong",
+            "en": "Plank doors at the rear of the daecheong"
+          },
+          "evidenceGrade": "documented",
+          "sourceIds": [
+            "ildu_site_photos_jin_2026"
+          ]
+        },
+        {
+          "elementId": "ildu_anchae_agungi",
+          "names": {
+            "ko": "아궁이",
+            "hanja": "아궁이",
+            "de": "Agungi — Ondol-Feuerloch unter der Diele",
+            "en": "Agungi — ondol firebox opening beneath the floor"
+          },
+          "evidenceGrade": "documented",
+          "sourceIds": [
+            "ildu_site_photos_jin_2026"
+          ]
+        },
+        {
+          "elementId": "ildu_anchae_mureum",
+          "names": {
+            "ko": "머름",
+            "hanja": "遠音",
+            "de": "Mureum — erhöhte Brüstungsfüllung unter dem Fenster",
+            "en": "Mureum — raised sill panel below the window"
+          },
+          "evidenceGrade": "documented",
+          "sourceIds": [
+            "ildu_site_photos_jin_2026"
+          ]
+        },
+        {
+          "elementId": "ildu_anchae_hamsil_agungi",
+          "names": {
+            "ko": "함실아궁이",
+            "hanja": "函室아궁이",
+            "de": "Hamsil-Agungi — reine Heizfeuerung ohne Kochstelle",
+            "en": "Hamsil agungi — a heating-only firebox with no cooking hearth"
+          },
+          "evidenceGrade": "documented",
+          "sourceIds": [
+            "ildu_site_photos_jin_2026"
+          ]
+        }
+      ],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "정면 8칸·측면 1.5칸·홑처마 팔작·평면 구성은 문화대전이 명시한다. 개방적 분할은 함양군 안내문이 경북 폐쇄형과 대비해 기술한다.",
+        "de": "Maße und Grundriss aus Grandculture; die offene Gliederung beschreibt der Hamyang-gun-Text im Kontrast zum geschlossenen Typ.",
+        "en": "Dimensions and plan from Grandculture; the open division is described by the Hamyang-gun guide in contrast to the closed type."
+      },
+      "sourceIds": [
+        "cha_2007_record",
+        "khs_portal_ildu",
+        "hamyang_gun_guide",
+        "grandculture_hamyang_ildu",
+        "ildu_site_photos_jin_2026"
+      ],
+      "expectedCefrLevel": "b1",
+      "opensZone": "anchae",
+      "opensSurface": "anbang",
+      "floorAreaSqm": 79.84,
+      "podiumNote": "자연석 한벌대. 동측 330 / 서측 140, 평균 235㎜ (보고서 p?, 3-2 실측). 사랑채 1,200㎜와 정반대로 낮다 — 기단 높이가 곧 위계다.",
+      "materialNote": "안 영역은 회벽(흰 미장)이 지배적 — 사랑채가 창호·목부재로 화면을 채우는 것과 대비된다. 기둥 전부 각기둥·평주(원기둥 없음), 도리는 전부 납도리. 툇마루가 정면을 따라 연속하고 그 밑 자연석 초석이 노출된다. 난간·누마루·활주 없음. 시각 확인: Jin 제공 안마당 사진 2026-08-24 (reference_only_user_supplied).",
+      "sightlineNote": "머름대는 마당에서 일하는 하인의 눈높이보다 높게 잡혀, 문을 열어두어도 방 안이 보이지 않는다. 청판에 풍혈(구멍)을 내지 않은 것도 같은 이유다 — 위계가 높이가 아니라 시선으로 표현된 사례.",
+      "measuredPodiumMm": 235,
+      "measuredPodiumSource": "p45 평균, 동 330 / 서 140"
+    },
+    {
+      "buildingId": "ildu_sadang",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "사당 (가묘)",
+        "hanja": "祠堂 家廟",
+        "romanization": "Sadang",
+        "de": "Sadang — Ahnenschrein",
+        "en": "Sadang — ancestral shrine"
+      },
+      "type": "jehyang",
+      "hierarchyRank": 0,
+      "groundBand": 5,
+      "podiumBeoldae": 1,
+      "measuredPodium": true,
+      "kan": {
+        "front": 3,
+        "side": 1.5,
+        "note": null,
+        "measuredSourceId": "cha_2007_record",
+        "verbatim": "문화재청 기록화보고서(2007) 「Ⅱ. 연혁 및 배치」 건물개요표: ① 안채 - 정면 8칸, 측면 2칸 79.84㎡ / ② 사랑채 - 정면 6칸, 좌측면 2칸, 우측면 4칸 88.40㎡ / ③ 사당 - 정면 3칸, 측면 1칸 반 28.39㎡ / ④ 별당 - 정면 4칸, 측면 1칸 반 46.51㎡ / ⑤ 아래채 - 정면 3칸, 측면 1칸 32.04㎡ / ⑥ 대문채 - 정면 5칸, 측면 1칸 34.01㎡ / ⑦ 중문채 - 정면 8칸, 측면 1칸 반 29.47㎡ / ⑧ 광채 - 정면 5칸, 측면 2칸 53.63㎡ / ⑨ 곳간채 - 정면 6칸, 측면 1칸 42.86㎡ / ⑩ 안곳간채 - 정면 4칸, 측면 1칸 25.27㎡"
+      },
+      "planForm": "il_ja",
+      "roofForm": "matbae_gyeopcheoma",
+      "structure": "samryangga",
+      "orientation": "southwest",
+      "planYaw": 0,
+      "use": {
+        "ko": "조상의 신주를 모시는 가묘. 감을 설치해 4대조를 봉안한다(보고서 p92). 함양군 안내문은 정여창의 영정 봉안을 기록한다 — 두 진술을 병기한다.",
+        "de": "Ahnenschrein mit den Geistertafeln von vier Generationen in einem Schrein (Bericht S. 92); der Kreis Hamyang nennt zudem ein Porträt von Jeong Yeo-chang.",
+        "en": "The ancestral shrine, holding the spirit tablets of four generations in a niche (survey p.92); the county guide additionally records a portrait of Jeong Yeo-chang."
+      },
+      "story": {
+        "ko": "안채 뒤 따로 쌓은 담장 안, 집에서 가장 깊고 가장 높은 자리에 있다. 모든 채가 선 뒤에야 오른다.",
+        "de": "Hinter dem Anchae in eigener Mauer, am höchsten und tiefsten Punkt des Anwesens.",
+        "en": "Behind the Anchae inside its own wall, at the deepest and highest point of the estate."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "규모·지붕·구조 전부 2007 기록화보고서 p92·p94 실측. 3칸 × 1칸 반, 전면 퇴칸, 맞배에 부연 있는 겹처마, 3량가(가운데 열은 고주). 겹처마는 이 집에서 사당뿐이다.",
+        "de": "Bauaufnahme 2007 (S. 92, 94): drei mal anderthalb Kan, Satteldach mit doppelter Traufe, Drei-Pfetten-Gebinde. Nur der Schrein trägt hier doppelte Traufe.",
+        "en": "Dimensions, roof and frame from the 2007 survey (pp. 92, 94): three by one-and-a-half kan, gabled with double eaves, three-purlin frame. The shrine alone carries double eaves."
+      },
+      "sourceIds": [
+        "cha_2007_record",
+        "khs_portal_ildu",
+        "hamyang_gun_guide"
+      ],
+      "expectedCefrLevel": "c1",
+      "opensZone": "sadang",
+      "opensSurface": null,
+      "floorAreaSqm": 28.39,
+      "measuredPodiumMm": 290,
+      "measuredPodiumSource": "p92 장대석 한벌대 270×310",
+      "materialNote": "이 집에서 부연이 있는 겹처마는 사당뿐이다(p94). 다른 채에 겹처마를 그리면 위계가 무너진다. 장대석 한벌대 기단 270×310, 전면 퇴칸을 둔 3칸 맞배, 3량가(가운데 열은 고주 — '무고주' 아님)."
+    },
+    {
+      "buildingId": "ildu_araechae",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "아래채 (아랫방채·고방)",
+        "hanja": "아래채",
+        "romanization": "Araechae",
+        "de": "Araechae — Nebenflügel",
+        "en": "Araechae — lower wing"
+      },
+      "type": "busokchae",
+      "hierarchyRank": 6,
+      "groundBand": 3,
+      "podiumBeoldae": 1,
+      "measuredPodium": true,
+      "kan": {
+        "front": 3,
+        "side": 1.5,
+        "note": {
+          "ko": "정면 3칸 주칸 2,370 / 2,430 / 2,670 — 어칸이 아니라 우측 온돌방을 1尺 넓게 잡았다. 측면은 p89 실측편 1칸 반, p17·p40 은 1칸으로 충돌한다.",
+          "de": "Drei Front-Kan (2.370 / 2.430 / 2.670 mm) — nicht die Mitte, sondern der rechte beheizte Raum ist breiter. Seitentiefe: 1,5 Kan laut Bauaufnahme, 1 Kan laut Übersichtstabelle.",
+          "en": "Three front kan (2,370 / 2,430 / 2,670 mm) — the widest is not the centre but the right heated room. Side depth: 1.5 kan in the survey, 1 kan in the summary table."
+        },
+        "measuredSourceId": "cha_2007_record",
+        "verbatim": "문화재청 기록화보고서(2007) 「Ⅱ. 연혁 및 배치」 건물개요표: ① 안채 - 정면 8칸, 측면 2칸 79.84㎡ / ② 사랑채 - 정면 6칸, 좌측면 2칸, 우측면 4칸 88.40㎡ / ③ 사당 - 정면 3칸, 측면 1칸 반 28.39㎡ / ④ 별당 - 정면 4칸, 측면 1칸 반 46.51㎡ / ⑤ 아래채 - 정면 3칸, 측면 1칸 32.04㎡ / ⑥ 대문채 - 정면 5칸, 측면 1칸 34.01㎡ / ⑦ 중문채 - 정면 8칸, 측면 1칸 반 29.47㎡ / ⑧ 광채 - 정면 5칸, 측면 2칸 53.63㎡ / ⑨ 곳간채 - 정면 6칸, 측면 1칸 42.86㎡ / ⑩ 안곳간채 - 정면 4칸, 측면 1칸 25.27㎡"
+      },
+      "planForm": "il_ja",
+      "roofForm": "matbae",
+      "structure": "mugoju_samnyangga",
+      "orientation": "east",
+      "planYaw": 0,
+      "use": {
+        "ko": "내별당. 안주인의 손님이 묵고, 출가한 딸이 해산하던 채다.",
+        "de": "Inneres Nebenhaus — Gästezimmer der Hausherrin und Wochenbett verheirateter Töchter.",
+        "en": "The inner detached quarters — guest lodging for the mistress and childbed for married daughters."
+      },
+      "story": {
+        "ko": "안마당에 면해 있으나 안채와 쓰임이 다르다. 손님과 딸을 위한 자리라 살림의 중심에서 한 발 물러나 있다.",
+        "de": "Am Innenhof gelegen, doch anders genutzt als das Anchae — einen Schritt abseits vom Zentrum des Haushalts.",
+        "en": "On the inner court yet used differently from the Anchae — one step aside from the centre of the household."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "규모·구조·재료 전부 2007 기록화보고서 p89·p96 실측. 용도는 p96 '앞서 언급한 아래채가 내별당에 속하며' 에 따른다.",
+        "de": "Maße, Konstruktion und Material vollständig aus der Bauaufnahme 2007 (S. 89, 96).",
+        "en": "Dimensions, structure and materials all from the 2007 survey report (pp. 89, 96)."
+      },
+      "sourceIds": [
+        "cha_2007_record",
+        "khs_portal_ildu",
+        "hamyang_gun_guide"
+      ],
+      "expectedCefrLevel": "b1",
+      "opensZone": null,
+      "opensSurface": null,
+      "floorAreaSqm": 32.04,
+      "materialNote": "한벌대 자연석 기단. 각기둥 180×180 만 쓰고 모두 평주 — 원기둥 없음. 무고주 3량가(대량 180×240). 맞배 + 홑처마, 박공 두께 45 × 너비 630, 목기연 80×120. 회벽 80㎜. 대청 사분합들문 정면 1,980×1,340.",
+      "measuredPodiumMm": null,
+      "measuredPodiumSource": "p89 한벌대(수치 미기재)"
+    },
+    {
+      "buildingId": "ildu_ansarangchae",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "안사랑채",
+        "hanja": "안舍廊채",
+        "romanization": "Ansarangchae",
+        "de": "Ansarangchae — innerer Rückzugsflügel",
+        "en": "Ansarangchae — inner retirement wing"
+      },
+      "type": "busokchae",
+      "hierarchyRank": 4,
+      "groundBand": 4,
+      "podiumBeoldae": 2,
+      "measuredPodium": false,
+      "kan": {
+        "front": 4,
+        "side": null,
+        "note": {
+          "ko": "정면 4칸 내외",
+          "de": "etwa 4 Joch Front",
+          "en": "roughly 4 bays at the front"
+        }
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": "south",
+      "planYaw": 0,
+      "use": {
+        "ko": "은퇴한 노부부와 집안 여성 어른이 따로 쓰던 채.",
+        "de": "Wohnbereich der zurückgezogenen Alten und der älteren Frauen des Hauses.",
+        "en": "Quarters for the retired elders and the senior women of the household."
+      },
+      "story": {
+        "ko": "안채 뒤편에 있어 살림에서 한 걸음 물러난 자리다. 안채보다 지반이 높다.",
+        "de": "Hinter dem Anchae, einen Schritt vom Haushaltsbetrieb entfernt und höher gelegen.",
+        "en": "Behind the Anchae, a step removed from the working household and set higher."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "국가유산청 설명문이 '안채 뒤쪽으로는 별당과 안사랑채'라고 기록한다. 칸수는 답사 기록이라 등급을 올리지 않았다.",
+        "de": "KHS nennt Byeoldang und Ansarangchae hinter dem Anchae. Die Jochzahl stammt aus einem Besuchsbericht.",
+        "en": "KHS records 'Byeoldang and Ansarangchae behind the Anchae'. The bay count comes from a visit report."
+      },
+      "sourceIds": [
+        "khs_portal_ildu",
+        "hamyang_gun_guide"
+      ],
+      "expectedCefrLevel": "b2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_byeoldang",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "별당채",
+        "hanja": "別堂채",
+        "romanization": "Byeoldangchae",
+        "de": "Byeoldang — abseits stehender Flügel",
+        "en": "Byeoldang — detached retreat wing"
+      },
+      "type": "busokchae",
+      "hierarchyRank": 5,
+      "groundBand": 4,
+      "podiumBeoldae": 2,
+      "measuredPodium": false,
+      "kan": {
+        "front": 4,
+        "side": 1.5,
+        "note": null,
+        "measuredSourceId": "cha_2007_record",
+        "verbatim": "문화재청 기록화보고서(2007) 「Ⅱ. 연혁 및 배치」 건물개요표: ① 안채 - 정면 8칸, 측면 2칸 79.84㎡ / ② 사랑채 - 정면 6칸, 좌측면 2칸, 우측면 4칸 88.40㎡ / ③ 사당 - 정면 3칸, 측면 1칸 반 28.39㎡ / ④ 별당 - 정면 4칸, 측면 1칸 반 46.51㎡ / ⑤ 아래채 - 정면 3칸, 측면 1칸 32.04㎡ / ⑥ 대문채 - 정면 5칸, 측면 1칸 34.01㎡ / ⑦ 중문채 - 정면 8칸, 측면 1칸 반 29.47㎡ / ⑧ 광채 - 정면 5칸, 측면 2칸 53.63㎡ / ⑨ 곳간채 - 정면 6칸, 측면 1칸 42.86㎡ / ⑩ 안곳간채 - 정면 4칸, 측면 1칸 25.27㎡"
+      },
+      "planForm": null,
+      "roofForm": "paljak_hotcheoma",
+      "structure": "samryangga",
+      "orientation": "south",
+      "planYaw": 0,
+      "use": {
+        "ko": "독서와 휴식, 손님의 유숙을 위한 별채.",
+        "de": "Für Lektüre, Ruhe und die Unterbringung von Gästen.",
+        "en": "For reading, rest, and lodging guests."
+      },
+      "story": {
+        "ko": "안채 뒤편 별당과 안사랑채가 나란히 놓여 집의 안쪽에 조용한 켜를 하나 더 만든다.",
+        "de": "Neben dem Ansarangchae hinter dem Anchae — eine weitere stille Schicht im Inneren.",
+        "en": "Beside the Ansarangchae behind the Anchae, adding one more quiet layer inside the house."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "규모·지붕 2007 기록화보고서 p96·p98 실측 — 전면 퇴칸을 둔 4칸 팔작, 주칸 2,730㎜, 홑처마, 3량가. 국가유산청·함양군 안내문도 '별당'을 명시한다.",
+        "de": "Maße und Dach aus der Bauaufnahme 2007 (S. 96, 98): vier Kan mit Vorhalle, Walm-Giebel-Dach, Jochweite 2.730 mm, einfache Traufe, Drei-Pfetten-Gebinde.",
+        "en": "Dimensions and roof from the 2007 survey (pp. 96, 98): four kan with a front porch bay, hipped-and-gabled, 2,730 mm bay width, single eaves, three-purlin frame."
+      },
+      "sourceIds": [
+        "cha_2007_record",
+        "khs_portal_ildu",
+        "hamyang_gun_guide"
+      ],
+      "expectedCefrLevel": "c1",
+      "opensZone": null,
+      "opensSurface": null,
+      "floorAreaSqm": 46.51
+    },
+    {
+      "buildingId": "ildu_gokganchae",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "곳간채 (곡간)",
+        "hanja": "庫間채",
+        "romanization": "Gotganchae",
+        "de": "Gotganchae — Speicherflügel",
+        "en": "Gotganchae — storehouse wing"
+      },
+      "type": "changgochae",
+      "hierarchyRank": 8,
+      "groundBand": 1,
+      "podiumBeoldae": 1,
+      "measuredPodium": false,
+      "kan": {
+        "front": 6,
+        "side": 1.0,
+        "note": null,
+        "measuredSourceId": "cha_2007_record",
+        "verbatim": "문화재청 기록화보고서(2007) 「Ⅱ. 연혁 및 배치」 건물개요표: ① 안채 - 정면 8칸, 측면 2칸 79.84㎡ / ② 사랑채 - 정면 6칸, 좌측면 2칸, 우측면 4칸 88.40㎡ / ③ 사당 - 정면 3칸, 측면 1칸 반 28.39㎡ / ④ 별당 - 정면 4칸, 측면 1칸 반 46.51㎡ / ⑤ 아래채 - 정면 3칸, 측면 1칸 32.04㎡ / ⑥ 대문채 - 정면 5칸, 측면 1칸 34.01㎡ / ⑦ 중문채 - 정면 8칸, 측면 1칸 반 29.47㎡ / ⑧ 광채 - 정면 5칸, 측면 2칸 53.63㎡ / ⑨ 곳간채 - 정면 6칸, 측면 1칸 42.86㎡ / ⑩ 안곳간채 - 정면 4칸, 측면 1칸 25.27㎡"
+      },
+      "planForm": "il_ja",
+      "roofForm": "matbae",
+      "structure": null,
+      "orientation": "north",
+      "planYaw": 0,
+      "use": {
+        "ko": "곡식과 세간을 갈무리하던 판벽 창고.",
+        "de": "Bretterverschalter Speicher für Getreide und Hausrat.",
+        "en": "A plank-walled store for grain and household goods."
+      },
+      "story": {
+        "ko": "벽 전체를 널로 짜 습기를 피했다. 몸채와 달리 맞배지붕이라 격이 한 단 낮다.",
+        "de": "Ganz aus Brettern gegen Feuchtigkeit, mit Satteldach — im Rang unter den Wohnflügeln.",
+        "en": "Boarded throughout against damp, with a gabled roof — a rank below the living wings."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "국가유산청 관리 목록과 신영도가 함께 기록한다. 판벽·맞배는 현장 사진으로 확인되나 실측 기록은 없다.",
+        "de": "In der KHS-Liste und im Sinyeongdo verzeichnet; Bretterwand und Satteldach nur fotografisch belegt.",
+        "en": "Recorded in the KHS list and the Sinyeongdo; the plank wall and gabled roof are only photographically attested."
+      },
+      "sourceIds": [
+        "cha_2007_record",
+        "khs_digital_ildu",
+        "sinyeongdo_reference",
+        "ildu_site_photos_jin_2026"
+      ],
+      "expectedCefrLevel": "b2",
+      "opensZone": null,
+      "opensSurface": null,
+      "floorAreaSqm": 42.86,
+      "adjacentBuildings": [
+        "ildu_jungmunganchae"
+      ],
+      "materialNote": "어두운 세로 판벽이 벽면 전체를 덮는다. 회벽이 거의 없어 안채·아래채(흰 회벽 지배)와 정면으로 대비된다. 재료가 용도를 말한다 — 사람이 사는 채는 회벽+창호, 곡식을 두는 채는 판벽+널문. 스프라이트 프롬프트에서 이 대비를 명시할 것."
+    },
+    {
+      "buildingId": "ildu_angotganchae",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "안곳간채",
+        "hanja": "안庫間채",
+        "romanization": "Angotganchae",
+        "de": "Angotganchae — innerer Speicher",
+        "en": "Angotganchae — inner storehouse"
+      },
+      "type": "changgochae",
+      "hierarchyRank": 9,
+      "groundBand": 3,
+      "podiumBeoldae": 1,
+      "measuredPodium": false,
+      "kan": {
+        "front": 4,
+        "side": 1.0,
+        "note": null,
+        "measuredSourceId": "cha_2007_record",
+        "verbatim": "문화재청 기록화보고서(2007) 「Ⅱ. 연혁 및 배치」 건물개요표: ① 안채 - 정면 8칸, 측면 2칸 79.84㎡ / ② 사랑채 - 정면 6칸, 좌측면 2칸, 우측면 4칸 88.40㎡ / ③ 사당 - 정면 3칸, 측면 1칸 반 28.39㎡ / ④ 별당 - 정면 4칸, 측면 1칸 반 46.51㎡ / ⑤ 아래채 - 정면 3칸, 측면 1칸 32.04㎡ / ⑥ 대문채 - 정면 5칸, 측면 1칸 34.01㎡ / ⑦ 중문채 - 정면 8칸, 측면 1칸 반 29.47㎡ / ⑧ 광채 - 정면 5칸, 측면 2칸 53.63㎡ / ⑨ 곳간채 - 정면 6칸, 측면 1칸 42.86㎡ / ⑩ 안곳간채 - 정면 4칸, 측면 1칸 25.27㎡"
+      },
+      "planForm": "il_ja",
+      "roofForm": "matbae",
+      "structure": null,
+      "orientation": "south",
+      "planYaw": 0,
+      "use": {
+        "ko": "안채 살림에 딸린 곳간. 안주인이 직접 관리했다.",
+        "de": "Der Speicher des Anchae, von der Hausherrin selbst verwaltet.",
+        "en": "The Anchae's own store, managed by the mistress herself."
+      },
+      "story": {
+        "ko": "바깥 곳간과 달리 안마당 안쪽에 있어 남자 손님의 동선이 닿지 않는다.",
+        "de": "Anders als der äußere Speicher liegt er im Innenhof, außerhalb der Gästewege.",
+        "en": "Unlike the outer store it sits inside the inner courtyard, off the guests' route."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "국가유산청 관리 목록에 '안곳간채'로 오르나 규모·형태 기록이 없다.",
+        "de": "In der KHS-Liste geführt, jedoch ohne Angaben zu Größe und Form.",
+        "en": "Listed by KHS but with no recorded size or form."
+      },
+      "sourceIds": [
+        "cha_2007_record",
+        "khs_digital_ildu"
+      ],
+      "expectedCefrLevel": "b2",
+      "opensZone": null,
+      "opensSurface": null,
+      "floorAreaSqm": 25.27
+    },
+    {
+      "buildingId": "ildu_gwangchae",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "광채",
+        "hanja": "광채",
+        "romanization": "Gwangchae",
+        "de": "Gwangchae — Geräte- und Getreidespeicher",
+        "en": "Gwangchae — tool and grain store"
+      },
+      "type": "changgochae",
+      "hierarchyRank": 10,
+      "groundBand": 1,
+      "podiumBeoldae": 1,
+      "measuredPodium": false,
+      "kan": {
+        "front": 5,
+        "side": 2.0,
+        "note": null,
+        "measuredSourceId": "cha_2007_record",
+        "verbatim": "문화재청 기록화보고서(2007) 「Ⅱ. 연혁 및 배치」 건물개요표: ① 안채 - 정면 8칸, 측면 2칸 79.84㎡ / ② 사랑채 - 정면 6칸, 좌측면 2칸, 우측면 4칸 88.40㎡ / ③ 사당 - 정면 3칸, 측면 1칸 반 28.39㎡ / ④ 별당 - 정면 4칸, 측면 1칸 반 46.51㎡ / ⑤ 아래채 - 정면 3칸, 측면 1칸 32.04㎡ / ⑥ 대문채 - 정면 5칸, 측면 1칸 34.01㎡ / ⑦ 중문채 - 정면 8칸, 측면 1칸 반 29.47㎡ / ⑧ 광채 - 정면 5칸, 측면 2칸 53.63㎡ / ⑨ 곳간채 - 정면 6칸, 측면 1칸 42.86㎡ / ⑩ 안곳간채 - 정면 4칸, 측면 1칸 25.27㎡"
+      },
+      "planForm": "il_ja",
+      "roofForm": "ujingak",
+      "structure": null,
+      "orientation": "south",
+      "planYaw": 0,
+      "use": {
+        "ko": "농구와 곡식을 두던 창고채.",
+        "de": "Speicher für Ackergerät und Getreide.",
+        "en": "A store for farm tools and grain."
+      },
+      "story": {
+        "ko": "안채 북쪽에 길게 앉아 살림 영역의 뒤를 막는다.",
+        "de": "Lang gestreckt nördlich des Anchae, den Wirtschaftsbereich nach hinten abschließend.",
+        "en": "Set long to the north of the Anchae, closing the service area at the back."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "2007 기록화보고서 p40·p94 실측 — 5칸 우진각지붕. 로스터가 맞배로 적어 두었던 것을 2026-08-24 정정했다. 국가유산청 관리 목록과 신영도에도 오른다.",
+        "de": "Bauaufnahme 2007 (S. 40, 94): fünf Kan, vollständiges Walmdach. Der zuvor im Roster eingetragene Satteldach-Wert wurde am 24.08.2026 korrigiert.",
+        "en": "2007 survey (pp. 40, 94): five kan under a fully hipped roof. The roster's earlier gabled value was corrected on 2026-08-24."
+      },
+      "sourceIds": [
+        "cha_2007_record",
+        "khs_digital_ildu",
+        "sinyeongdo_reference"
+      ],
+      "expectedCefrLevel": "b2",
+      "opensZone": null,
+      "opensSurface": null,
+      "floorAreaSqm": 53.63
+    },
+    {
+      "buildingId": "ildu_jungmunganchae",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "중문간채",
+        "hanja": "中門間채",
+        "romanization": "Jungmunganchae",
+        "de": "Jungmunganchae — inneres Torhaus",
+        "en": "Jungmunganchae — inner gate wing"
+      },
+      "type": "munchae",
+      "hierarchyRank": 7,
+      "groundBand": 2,
+      "podiumBeoldae": 1,
+      "measuredPodium": false,
+      "kan": {
+        "front": 5,
+        "side": 1.5,
+        "note": {
+          "ko": "p83 실측편이 주칸 5개(2,100 / 3,050 / 2,330 / 1,830 / 1,930)를 개별 실측해 열거하므로 5칸을 채택한다. p17 건물현황만 8칸으로 적는다.",
+          "de": "Die Bauaufnahme (S. 83) misst fünf einzelne Joche und wird übernommen; nur die Übersichtstabelle nennt acht.",
+          "en": "The survey (p.83) measures five individual bays and is adopted; only the summary table says eight."
+        },
+        "measuredSourceId": "cha_2007_record",
+        "verbatim": "문화재청 기록화보고서(2007) 「Ⅱ. 연혁 및 배치」 건물개요표: ① 안채 - 정면 8칸, 측면 2칸 79.84㎡ / ② 사랑채 - 정면 6칸, 좌측면 2칸, 우측면 4칸 88.40㎡ / ③ 사당 - 정면 3칸, 측면 1칸 반 28.39㎡ / ④ 별당 - 정면 4칸, 측면 1칸 반 46.51㎡ / ⑤ 아래채 - 정면 3칸, 측면 1칸 32.04㎡ / ⑥ 대문채 - 정면 5칸, 측면 1칸 34.01㎡ / ⑦ 중문채 - 정면 8칸, 측면 1칸 반 29.47㎡ / ⑧ 광채 - 정면 5칸, 측면 2칸 53.63㎡ / ⑨ 곳간채 - 정면 6칸, 측면 1칸 42.86㎡ / ⑩ 안곳간채 - 정면 4칸, 측면 1칸 25.27㎡"
+      },
+      "planForm": "il_ja",
+      "roofForm": "matbae",
+      "structure": "samryangga",
+      "orientation": "east",
+      "planYaw": 0,
+      "use": {
+        "ko": "안 영역으로 드는 마지막 관문이자 딸린 방을 둔 채.",
+        "de": "Letzte Schwelle zum Frauenbereich, mit angeschlossenen Kammern.",
+        "en": "The last threshold into the inner domain, with rooms attached."
+      },
+      "story": {
+        "ko": "일각문을 지나 사랑채 옆을 따라 북으로 가면 다시 이 문을 통과해야 안채가 나온다.",
+        "de": "Nach dem Ilgakmun und entlang des Sarangchae führt erst dieses Tor zum Anchae.",
+        "en": "Past the Ilgakmun and along the Sarangchae, only this gate finally opens onto the Anchae."
+      },
+      "elements": [
+        {
+          "elementId": "ildu_gulttuk",
+          "names": {
+            "ko": "굴뚝",
+            "hanja": "굴뚝",
+            "de": "Freistehender Rundschornstein aus Stein",
+            "en": "Free-standing round stone chimney"
+          },
+          "evidenceGrade": "documented",
+          "sourceIds": [
+            "ildu_site_photos_jin_2026"
+          ]
+        }
+      ],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "정면 칸수는 p83 실측편의 5칸을 채택한다. 기단은 벌대쌓기가 아니라 자연석 5단 층지어쌓기로 지면보다 900㎜ 높다 — 이 집에서 가장 높은 축에 든다. groundBand 2가 이 높이와 맞는지 재검토 대상.",
+        "de": "Fünf Front-Kan laut Bauaufnahme (S. 83). Kein Lagenmauerwerk, sondern fünf geschichtete Natursteinreihen, 900 mm über Grund. groundBand 2 ist zu prüfen.",
+        "en": "Five front kan per the survey (p.83). Not coursed masonry but five stacked stone tiers, 900 mm above ground — among the highest here. The groundBand value of 2 needs review."
+      },
+      "sourceIds": [
+        "cha_2007_record",
+        "hamyang_gun_guide",
+        "khs_digital_ildu",
+        "ildu_site_photos_jin_2026"
+      ],
+      "expectedCefrLevel": "b1",
+      "opensZone": null,
+      "opensSurface": null,
+      "floorAreaSqm": 29.47,
+      "levelChangeNote": "중문 너머로 석축과 낮은 지면이 보인다 — 중문 통과가 평지 이동이 아니라 단 차이를 넘는 일이다. groundBand 설계의 직접 증거. 오르는지 내리는지는 촬영 방향 미상이라 확정하지 않는다.",
+      "materialNote": "정면 가운데에 중문이 뚫려 있고 좌우 벽 성격이 다르다 — 한쪽은 회벽+창호, 다른 쪽은 판벽. 문짝은 두꺼운 널문, 문지방이 높다. 기단은 낮다(안 영역 계열).",
+      "measuredPodiumMm": 900,
+      "measuredPodiumSource": "p85 자연석 5단, GL +900"
+    },
+    {
+      "buildingId": "ildu_munganchae",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "문간채 (대문채)",
+        "hanja": "門間채",
+        "romanization": "Munganchae",
+        "de": "Munganchae — Torhaus",
+        "en": "Munganchae — gatehouse wing"
+      },
+      "type": "munchae",
+      "hierarchyRank": 11,
+      "groundBand": 0,
+      "podiumBeoldae": 0,
+      "measuredPodium": true,
+      "kan": {
+        "front": 5,
+        "side": 1.0,
+        "note": {
+          "ko": "솟을삼문을 중앙 칸으로 두고 양쪽에 문간방",
+          "de": "Erhöhtes Mitteltor, beidseits Torkammern",
+          "en": "Raised central gate with gate rooms either side"
+        },
+        "measuredSourceId": "cha_2007_record",
+        "verbatim": "문화재청 기록화보고서(2007) 「Ⅱ. 연혁 및 배치」 건물개요표: ① 안채 - 정면 8칸, 측면 2칸 79.84㎡ / ② 사랑채 - 정면 6칸, 좌측면 2칸, 우측면 4칸 88.40㎡ / ③ 사당 - 정면 3칸, 측면 1칸 반 28.39㎡ / ④ 별당 - 정면 4칸, 측면 1칸 반 46.51㎡ / ⑤ 아래채 - 정면 3칸, 측면 1칸 32.04㎡ / ⑥ 대문채 - 정면 5칸, 측면 1칸 34.01㎡ / ⑦ 중문채 - 정면 8칸, 측면 1칸 반 29.47㎡ / ⑧ 광채 - 정면 5칸, 측면 2칸 53.63㎡ / ⑨ 곳간채 - 정면 6칸, 측면 1칸 42.86㎡ / ⑩ 안곳간채 - 정면 4칸, 측면 1칸 25.27㎡"
+      },
+      "planForm": "il_ja",
+      "roofForm": "matbae",
+      "structure": null,
+      "orientation": "east",
+      "planYaw": 0,
+      "use": {
+        "ko": "집의 얼굴이자 유일한 진입구. 문간방에 수직하는 이가 들었다.",
+        "de": "Gesicht und einziger Zugang des Hauses; in den Kammern wohnte die Wache.",
+        "en": "The face of the house and its only entrance; the gate rooms housed the watch."
+      },
+      "story": {
+        "ko": "솟을대문 상부에 충·효 정려 편액이 걸려 가문의 표방을 바깥으로 내건다.",
+        "de": "Über dem erhöhten Tor hängen die Ehrentafeln für Treue und Kindespflicht.",
+        "en": "Above the raised gate hang the honour plaques for loyalty and filial duty."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "솟을대문과 정려 게시는 국가유산청·함양군·문화대전이 모두 기록한다. 정려 개수는 출처가 갈려 별도 claim으로 둔다.",
+        "de": "Tor und Ehrentafeln sind mehrfach belegt; die Anzahl der Tafeln ist strittig und separat erfasst.",
+        "en": "The gate and the honour plaques are attested by several sources; their count is disputed and recorded separately."
+      },
+      "sourceIds": [
+        "cha_2007_record",
+        "khs_portal_ildu",
+        "hamyang_gun_guide",
+        "grandculture_hamyang_ildu"
+      ],
+      "expectedCefrLevel": "a2",
+      "opensZone": null,
+      "opensSurface": null,
+      "floorAreaSqm": 34.01
+    },
+    {
+      "buildingId": "ildu_haengrangchae",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "행랑채",
+        "hanja": "行廊채",
+        "romanization": "Haengrangchae",
+        "de": "Haengrangchae — Dienstbotenflügel",
+        "en": "Haengrangchae — servants' wing"
+      },
+      "type": "busokchae",
+      "hierarchyRank": 12,
+      "groundBand": 0,
+      "podiumBeoldae": 0,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": "il_ja",
+      "roofForm": null,
+      "structure": null,
+      "orientation": "north",
+      "planYaw": 0,
+      "use": {
+        "ko": "일하는 사람들이 머물던 채. 대문채에 잇대어 바깥 경계를 이룬다.",
+        "de": "Unterkunft der Bediensteten, an das Torhaus angeschlossen und die Außengrenze bildend.",
+        "en": "Quarters for the working household, joined to the gatehouse and forming the outer edge."
+      },
+      "story": {
+        "ko": "담장과 한 몸으로 이어져 바깥마당의 남쪽 켜를 만든다.",
+        "de": "Mit der Mauer verschmolzen bildet er die südliche Schicht des Vorhofs.",
+        "en": "Continuous with the wall, it makes the southern layer of the outer yard."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "신영도와 답사 기록에 나타난다. 국가유산청 관리 목록에는 별도 항목으로 오르지 않아 계수 차이의 원인 중 하나다.",
+        "de": "Im Sinyeongdo und in Besuchsberichten belegt; in der KHS-Liste nicht eigens geführt — eine Ursache der Zähldifferenz.",
+        "en": "Attested in the Sinyeongdo and visit reports; not itemised by KHS, which is one cause of the count discrepancy."
+      },
+      "sourceIds": [
+        "sinyeongdo_reference"
+      ],
+      "expectedCefrLevel": "a2",
+      "opensZone": "haengrangchae",
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_byeolmyo",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "lost",
+      "buildable": true,
+      "names": {
+        "ko": "별묘",
+        "hanja": "別廟",
+        "romanization": "Byeolmyo",
+        "de": "Byeolmyo — gesonderter Ahnenschrein",
+        "en": "Byeolmyo — separate ancestral shrine"
+      },
+      "type": "jehyang",
+      "hierarchyRank": 3,
+      "groundBand": 5,
+      "podiumBeoldae": 2,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": "south",
+      "planYaw": 0,
+      "use": {
+        "ko": "본 사당과 별도로 둔 사당으로 전한다.",
+        "de": "Überliefert als zweiter, vom Hauptschrein getrennter Schrein.",
+        "en": "Recorded as a second shrine kept apart from the main one."
+      },
+      "story": {
+        "ko": "신영도에는 후원 쪽에 그려져 있으나 지금은 남아 있지 않다.",
+        "de": "Im Sinyeongdo im hinteren Bereich eingezeichnet, heute nicht mehr vorhanden.",
+        "en": "Drawn toward the rear in the Sinyeongdo; it no longer stands."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "신영도에만 표기된다. 도면은 사용자 제공 자료라 독립 검증 전까지 등급을 올리지 않는다.",
+        "de": "Nur im Sinyeongdo verzeichnet; der Plan ist nutzerseitig beigesteuert und noch nicht unabhängig geprüft.",
+        "en": "Recorded only in the Sinyeongdo; that drawing is user-supplied and not yet independently verified."
+      },
+      "verification": "unverified",
+      "sourceIds": [
+        "sinyeongdo_reference"
+      ],
+      "expectedCefrLevel": "c2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_bakkatjip",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "lost",
+      "buildable": true,
+      "names": {
+        "ko": "바깥집 (가밥집)",
+        "hanja": "바깥집",
+        "romanization": "Bakkatjip",
+        "de": "Bakkatjip — äußeres Nebenhaus",
+        "en": "Bakkatjip — outer subsidiary house"
+      },
+      "type": "busokchae",
+      "hierarchyRank": 13,
+      "groundBand": 4,
+      "podiumBeoldae": 1,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": "south",
+      "planYaw": 0,
+      "use": {
+        "ko": "후원 쪽에 딸린 부속 살림채로 전한다.",
+        "de": "Überliefert als Wirtschaftsgebäude im hinteren Bereich.",
+        "en": "Recorded as a subsidiary household building toward the rear."
+      },
+      "story": {
+        "ko": "신영도에 광채 북쪽으로 길게 그려져 있다. 현재는 확인되지 않는다.",
+        "de": "Im Sinyeongdo nördlich des Gwangchae lang eingezeichnet; heute nicht auffindbar.",
+        "en": "Drawn long to the north of the Gwangchae in the Sinyeongdo; not present today."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "신영도에만 표기된다. 도면은 사용자 제공 자료라 독립 검증 전까지 등급을 올리지 않는다.",
+        "de": "Nur im Sinyeongdo verzeichnet; noch nicht unabhängig geprüft.",
+        "en": "Recorded only in the Sinyeongdo; not yet independently verified."
+      },
+      "verification": "unverified",
+      "sourceIds": [
+        "sinyeongdo_reference"
+      ],
+      "expectedCefrLevel": "c2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_garapjip",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "lost",
+      "buildable": true,
+      "names": {
+        "ko": "가랍집",
+        "hanja": "가랍집",
+        "romanization": "Garapjip",
+        "de": "Garapjip — Gesindehaus",
+        "en": "Garapjip — retainers' house"
+      },
+      "type": "busokchae",
+      "hierarchyRank": 14,
+      "groundBand": 2,
+      "podiumBeoldae": 0,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": "south",
+      "planYaw": 0,
+      "use": {
+        "ko": "집에 딸려 일하던 이들이 살던 작은 집으로 전한다.",
+        "de": "Überliefert als kleines Haus der zum Anwesen gehörenden Bediensteten.",
+        "en": "Recorded as a small house for the retainers attached to the estate."
+      },
+      "story": {
+        "ko": "신영도에 사랑채 북쪽으로 작게 그려져 있다. 큰 집에 딸린 살림의 흔적이다.",
+        "de": "Im Sinyeongdo klein nördlich des Sarangchae — eine Spur des Haushalts um das große Haus.",
+        "en": "Drawn small to the north of the Sarangchae in the Sinyeongdo — a trace of the household around the great house."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "신영도에만 표기된다. 도면은 사용자 제공 자료라 독립 검증 전까지 등급을 올리지 않는다.",
+        "de": "Nur im Sinyeongdo verzeichnet; noch nicht unabhängig geprüft.",
+        "en": "Recorded only in the Sinyeongdo; not yet independently verified."
+      },
+      "verification": "unverified",
+      "sourceIds": [
+        "sinyeongdo_reference"
+      ],
+      "expectedCefrLevel": "c2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_naesa",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "lost",
+      "buildable": true,
+      "names": {
+        "ko": "내사",
+        "hanja": "內舍",
+        "romanization": "Naesa",
+        "de": "Naesa — inneres Nebengebäude",
+        "en": "Naesa — inner subsidiary building"
+      },
+      "type": "busokchae",
+      "hierarchyRank": 15,
+      "groundBand": 3,
+      "podiumBeoldae": 1,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": "east",
+      "planYaw": 0,
+      "use": {
+        "ko": "안 영역 남서쪽에 딸린 부속채로 전한다.",
+        "de": "Überliefert als Nebengebäude im Südwesten des Innenbereichs.",
+        "en": "Recorded as a subsidiary building at the south-west of the inner domain."
+      },
+      "story": {
+        "ko": "신영도에 안마당 남서쪽으로 표기되어 있으나 용도는 분명하지 않다.",
+        "de": "Im Sinyeongdo südwestlich des Innenhofs vermerkt; die Nutzung bleibt unklar.",
+        "en": "Marked south-west of the inner courtyard in the Sinyeongdo; its use is unclear."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "신영도에만 표기되고 용도 기록이 없다. 도면은 사용자 제공 자료다.",
+        "de": "Nur im Sinyeongdo, ohne Nutzungsangabe; der Plan ist nutzerseitig beigesteuert.",
+        "en": "Only in the Sinyeongdo, with no recorded use; the drawing is user-supplied."
+      },
+      "verification": "unverified",
+      "sourceIds": [
+        "sinyeongdo_reference"
+      ],
+      "expectedCefrLevel": "c2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_unidentified_17",
+      "dongClass": "dong",
+      "countsTowardOriginalDong": true,
+      "survival": "unidentified",
+      "buildable": false,
+      "names": {
+        "ko": "미상 — 열일곱 번째 동",
+        "hanja": null,
+        "romanization": null,
+        "de": "Unbekannt — das siebzehnte Gebäude",
+        "en": "Unidentified — the seventeenth building"
+      },
+      "type": null,
+      "hierarchyRank": null,
+      "groundBand": null,
+      "podiumBeoldae": null,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "use": {
+        "ko": "무엇이었는지 아직 밝혀지지 않았다.",
+        "de": "Wozu es diente, ist bis heute unbekannt.",
+        "en": "What it was has not yet been established."
+      },
+      "story": {
+        "ko": "이 집은 당초 17동이었다고 전한다. 열여섯 동까지는 특정했고, 마지막 한 동은 아직 아무도 모른다.",
+        "de": "Überliefert sind 17 Gebäude. Sechzehn sind bestimmt; das letzte kennt bis heute niemand.",
+        "en": "Seventeen buildings are recorded. Sixteen are identified; the last one no one yet knows."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "unresolved",
+      "evidenceNote": {
+        "ko": "17동을 낱낱이 열거한 공개 출처가 없다. 실루엣이나 그럴듯한 추정으로 채우지 않고 빈 터로 남긴다.",
+        "de": "Keine öffentliche Quelle listet alle 17 auf. Der Platz bleibt leer — keine Silhouette, keine Vermutung.",
+        "en": "No public source itemises all 17. The plot stays empty — no silhouette, no plausible guess."
+      },
+      "verification": "open_question",
+      "sourceIds": [
+        "hamyang_gun_guide"
+      ],
+      "expectedCefrLevel": "c2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_gate_sotdaeulmun",
+      "dongClass": "gate",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "솟을대문 (솟을삼문)",
+        "hanja": "솟을大門",
+        "romanization": "Sotdaeulmun",
+        "de": "Sotdaeulmun — erhöhtes Haupttor",
+        "en": "Sotdaeulmun — raised main gate"
+      },
+      "type": "munchae",
+      "hierarchyRank": null,
+      "groundBand": 0,
+      "podiumBeoldae": 0,
+      "measuredPodium": true,
+      "kan": {
+        "front": 3,
+        "side": null,
+        "note": {
+          "ko": "문간채의 중앙 칸이 한 단 솟는다",
+          "de": "Das Mitteljoch des Torhauses ist erhöht",
+          "en": "The gatehouse's central bay is raised a step"
+        }
+      },
+      "planForm": null,
+      "roofForm": "matbae",
+      "structure": null,
+      "orientation": "east",
+      "planYaw": 0,
+      "use": {
+        "ko": "집의 유일한 정문이자 정려 편액을 거는 자리.",
+        "de": "Einziges Haupttor und Ort der Ehrentafeln.",
+        "en": "The only main entrance and the place where the honour plaques hang."
+      },
+      "story": {
+        "ko": "가운데 칸만 높여 격을 드러낸다. 대문을 들어서면 길이 둘로 갈린다.",
+        "de": "Nur das Mitteljoch ist erhöht. Hinter dem Tor teilt sich der Weg in zwei.",
+        "en": "Only the centre bay rises. Past the gate the path splits in two."
+      },
+      "elements": [
+        {
+          "elementId": "ildu_jeongryeo",
+          "names": {
+            "ko": "충·효 정려 편액",
+            "hanja": "旌閭 扁額",
+            "de": "Ehrentafeln für Treue und Kindespflicht",
+            "en": "Honour plaques for loyalty and filial duty"
+          },
+          "evidenceGrade": "documented",
+          "disputedClaimId": "jeongryeo_count",
+          "evidenceNote": {
+            "ko": "개수가 출처마다 다르다. jeongryeo_count claim을 따른다.",
+            "de": "Die Anzahl variiert je nach Quelle; siehe jeongryeo_count.",
+            "en": "The count varies by source; see jeongryeo_count."
+          },
+          "sourceIds": [
+            "khs_portal_ildu",
+            "hamyang_gun_guide",
+            "grandculture_hamyang_ildu"
+          ]
+        }
+      ],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": null,
+      "sourceIds": [
+        "khs_portal_ildu",
+        "hamyang_gun_guide",
+        "grandculture_hamyang_ildu"
+      ],
+      "expectedCefrLevel": "a2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_gate_ilgakmun",
+      "dongClass": "gate",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "협문 (일각문)",
+        "hanja": "夾門",
+        "de": "Hyeopmun — schmales Nebentor in der Mauer",
+        "en": "Hyeopmun — narrow side gate set in a wall"
+      },
+      "type": "munchae",
+      "hierarchyRank": null,
+      "groundBand": 2,
+      "podiumBeoldae": 0,
+      "measuredPodium": false,
+      "kan": {
+        "front": 1,
+        "side": null,
+        "note": {
+          "ko": "보고서는 '일각문'이 아니라 '협문'이라 부르며 4개가 있다고 적는다(p31). 로스터는 1행으로만 대표한다 — 위치별 4행 분리는 도면 확인 후.",
+          "de": "Der Bericht nennt vier solcher Tore (S. 31) und verwendet den Begriff Hyeopmun, nicht Ilgakmun. Das Roster führt vorerst nur eine Zeile.",
+          "en": "The survey records four such gates (p.31) and calls them hyeopmun, not ilgakmun. The roster carries a single representative row for now."
+        }
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": "east",
+      "planYaw": 0,
+      "use": {
+        "ko": "대문에서 직진해 안 영역으로 향하는 첫 문.",
+        "de": "Erstes Tor auf dem geraden Weg vom Haupttor ins Innere.",
+        "en": "The first gate on the straight route from the main gate toward the inner domain."
+      },
+      "story": {
+        "ko": "대문을 들어서 곧바로 가면 이 문이 있고, 비스듬히 가면 사랑채가 나온다. 여기서 남녀의 길이 갈린다.",
+        "de": "Geradeaus dieses Tor, schräg das Sarangchae — hier trennen sich die Wege.",
+        "en": "Straight ahead this gate, obliquely the Sarangchae — here the two routes part."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "규모·구조 실측 없음. 보고서는 개수(4)와 위치만 적는다 — 사랑채·곳간채 사이, 별당과 안마당 사이 등. 형태는 사진으로만 확인된다.",
+        "de": "Keine Bauaufnahme. Der Bericht nennt nur Anzahl (vier) und Lage; die Form ist allein durch Fotos belegt.",
+        "en": "No measured survey. The report gives only the count (four) and locations; the form is evidenced by photographs alone."
+      },
+      "sourceIds": [
+        "khs_portal_ildu",
+        "hamyang_gun_guide"
+      ],
+      "expectedCefrLevel": "a2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_gate_sadangmun",
+      "dongClass": "gate",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "사당문",
+        "hanja": "祠堂門",
+        "romanization": "Sadangmun",
+        "de": "Sadangmun — Schreintor",
+        "en": "Sadangmun — shrine gate"
+      },
+      "type": "munchae",
+      "hierarchyRank": null,
+      "groundBand": 5,
+      "podiumBeoldae": 0,
+      "measuredPodium": false,
+      "kan": {
+        "front": 1,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": "south",
+      "planYaw": 0,
+      "use": {
+        "ko": "사당 일곽으로 드는 유일한 문. 붉은 칠에 태극 문양을 그렸다.",
+        "de": "Einziger Zugang zum Schreinbezirk, rot gefasst mit Taegeuk-Zeichen.",
+        "en": "The only way into the shrine enclosure, red-painted with a taegeuk motif."
+      },
+      "story": {
+        "ko": "집에서 유일하게 색을 쓴 자리다. 단청이 금지된 살림집에서 제향 공간만 예외를 얻는다.",
+        "de": "Die einzige farbige Stelle des Hauses — nur der Ritualbereich darf, was dem Wohnhaus verboten ist.",
+        "en": "The only coloured element in the house — only the ritual space is allowed what the dwelling is not."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "현장 사진으로 확인된다. 실측 기록은 없다.",
+        "de": "Fotografisch belegt, ohne Vermessungsnachweis.",
+        "en": "Photographically attested; no measured record."
+      },
+      "sourceIds": [
+        "khs_portal_ildu"
+      ],
+      "expectedCefrLevel": "c1",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_seokgasan",
+      "dongClass": "siteElement",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "석가산 (삼봉형)",
+        "hanja": "石假山",
+        "romanization": "Seokgasan",
+        "de": "Seokgasan — künstlicher Steinberg",
+        "en": "Seokgasan — artificial rock mountain"
+      },
+      "type": "johyeong",
+      "hierarchyRank": null,
+      "groundBand": 1,
+      "podiumBeoldae": null,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "use": {
+        "ko": "사랑채 누마루에서 바라보도록 사랑마당에 꾸민 인공산.",
+        "de": "Künstlicher Berg im Hof, angelegt für den Blick vom Nummaru.",
+        "en": "An artificial mountain in the courtyard, laid out to be seen from the Nummaru."
+      },
+      "story": {
+        "ko": "돌과 나무를 법도에 따라 세 봉우리로 앉혔다. 지금은 옛 모습 그대로는 볼 수 없다.",
+        "de": "Steine und Bäume nach strenger Ordnung zu drei Gipfeln gesetzt; der Urzustand ist verloren.",
+        "en": "Stone and planting set to three peaks by strict rule; the original state is no longer visible."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "measured",
+      "evidenceNote": {
+        "ko": "국가유산청 설명문이 인공산을, 백과사전이 삼봉형 조산을 기록한다. 국가유산청은 원래의 옛 모습을 그대로 볼 수 없다고 명시한다.",
+        "de": "KHS nennt den künstlichen Berg, die Enzyklopädie die Dreigipfelform; KHS vermerkt den Verlust des Urzustands.",
+        "en": "KHS records the artificial mountain, the encyclopedia its three-peak form; KHS notes the original state is lost."
+      },
+      "sourceIds": [
+        "khs_portal_ildu",
+        "encykorea_ildu"
+      ],
+      "expectedCefrLevel": "a2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_umul",
+      "dongClass": "siteElement",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "우물",
+        "hanja": "우물",
+        "romanization": "Umul",
+        "de": "Brunnen",
+        "en": "Well"
+      },
+      "type": "johyeong",
+      "hierarchyRank": null,
+      "groundBand": 3,
+      "podiumBeoldae": null,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "use": {
+        "ko": "안마당의 물자리. 살림의 하루가 여기서 시작한다.",
+        "de": "Wasserstelle im Innenhof, wo der Haushaltstag beginnt.",
+        "en": "The water point in the inner courtyard where the household's day begins."
+      },
+      "story": {
+        "ko": "막돌을 둥글게 쌓고 널로 덮었다. 안채와 아래채 사이 마당 한가운데 있다.",
+        "de": "Rund aus Bruchstein gemauert und mit Bohlen gedeckt, mitten im Hof.",
+        "en": "Built round in rubble stone and covered with planks, at the centre of the yard."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "현장 사진과 신영도로 확인된다. 실측 기록은 없다.",
+        "de": "Durch Fotos und den Sinyeongdo belegt, ohne Vermessung.",
+        "en": "Attested by photographs and the Sinyeongdo; no measured record."
+      },
+      "sourceIds": [
+        "sinyeongdo_reference",
+        "ildu_site_photos_jin_2026"
+      ],
+      "expectedCefrLevel": "b1",
+      "opensZone": null,
+      "opensSurface": null,
+      "adjacentBuildings": [
+        "ildu_anchae",
+        "ildu_araechae",
+        "ildu_gokganchae"
+      ],
+      "adjacencyNote": "안마당의 허브. 우물에 안채·아래채·곳간채가 면한다(Jin 확인 2026-08-24). 사랑채는 우물에 면하지 않는다. 방위는 사진에서 확정하지 않는다 — 좌/우가 촬영 위치에 따라 뒤집힌다."
+    },
+    {
+      "buildingId": "ildu_jangdokdae",
+      "dongClass": "siteElement",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "장독대",
+        "hanja": "醬독대",
+        "romanization": "Jangdokdae",
+        "de": "Jangdokdae — Terrasse der Sojatöpfe",
+        "en": "Jangdokdae — soy-jar terrace"
+      },
+      "type": "johyeong",
+      "hierarchyRank": null,
+      "groundBand": 3,
+      "podiumBeoldae": 1,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": "south",
+      "planYaw": 0,
+      "use": {
+        "ko": "장을 담근 독을 볕에 두는 자리.",
+        "de": "Sonnenplatz für die Töpfe mit fermentierten Pasten.",
+        "en": "The sunlit stand for jars of fermented paste."
+      },
+      "story": {
+        "ko": "안마당 한쪽 볕 잘 드는 곳을 한 단 높여 앉힌다. 살림의 곳간이 밖에 나와 있는 셈이다.",
+        "de": "Eine erhöhte, sonnige Ecke des Innenhofs — der Vorratsraum im Freien.",
+        "en": "A raised sunny corner of the inner yard — the pantry, kept outdoors."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "신영도와 현장 사진으로 확인된다.",
+        "de": "Durch Sinyeongdo und Fotos belegt.",
+        "en": "Attested by the Sinyeongdo and photographs."
+      },
+      "sourceIds": [
+        "sinyeongdo_reference"
+      ],
+      "expectedCefrLevel": "b1",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_chaejeon",
+      "dongClass": "siteElement",
+      "countsTowardOriginalDong": false,
+      "survival": "lost",
+      "buildable": true,
+      "names": {
+        "ko": "채전 (텃밭)",
+        "hanja": "菜田",
+        "romanization": "Chaejeon",
+        "de": "Chaejeon — Gemüsegarten",
+        "en": "Chaejeon — kitchen garden"
+      },
+      "type": "johyeong",
+      "hierarchyRank": null,
+      "groundBand": 3,
+      "podiumBeoldae": null,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "use": {
+        "ko": "집 서쪽에 두던 텃밭.",
+        "de": "Gemüsegarten an der Westseite des Anwesens.",
+        "en": "The kitchen garden on the west side of the estate."
+      },
+      "story": {
+        "ko": "신영도에는 고추·무·상추까지 작물 이름이 적혀 있다. 도면이 살림의 하루를 기록한 셈이다.",
+        "de": "Der Sinyeongdo verzeichnet sogar die Feldfrüchte — ein Plan, der den Alltag festhält.",
+        "en": "The Sinyeongdo even names the crops — a drawing that records daily life."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "신영도에만 표기된다. 도면은 사용자 제공 자료다.",
+        "de": "Nur im Sinyeongdo; der Plan ist nutzerseitig beigesteuert.",
+        "en": "Only in the Sinyeongdo; the drawing is user-supplied."
+      },
+      "verification": "unverified",
+      "sourceIds": [
+        "sinyeongdo_reference"
+      ],
+      "expectedCefrLevel": "c2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_chusumadang",
+      "dongClass": "siteElement",
+      "countsTowardOriginalDong": false,
+      "survival": "lost",
+      "buildable": true,
+      "names": {
+        "ko": "추수마당",
+        "hanja": "秋收마당",
+        "romanization": "Chusumadang",
+        "de": "Chusumadang — Dreschplatz",
+        "en": "Chusumadang — threshing yard"
+      },
+      "type": "johyeong",
+      "hierarchyRank": null,
+      "groundBand": 5,
+      "podiumBeoldae": null,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "use": {
+        "ko": "거둔 곡식을 널어 말리고 타작하던 바깥마당.",
+        "de": "Außenplatz zum Trocknen und Dreschen der Ernte.",
+        "en": "The outer yard for drying and threshing the harvest."
+      },
+      "story": {
+        "ko": "담장 밖 북동쪽으로 따로 담을 내어 두었다. 집이 농사와 이어져 있었다는 흔적이다.",
+        "de": "Nordöstlich außerhalb der Mauer eigens ummauert — eine Spur der Landwirtschaft.",
+        "en": "Walled separately outside to the north-east — a trace of the farming the house lived from."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "신영도에만 표기된다. 도면은 사용자 제공 자료다.",
+        "de": "Nur im Sinyeongdo; der Plan ist nutzerseitig beigesteuert.",
+        "en": "Only in the Sinyeongdo; the drawing is user-supplied."
+      },
+      "verification": "unverified",
+      "sourceIds": [
+        "sinyeongdo_reference"
+      ],
+      "expectedCefrLevel": "c2",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_damjang",
+      "dongClass": "siteElement",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "토석담장",
+        "hanja": "土石담장",
+        "romanization": "Toseok Damjang",
+        "de": "Toseok-Damjang — Lehm-Stein-Mauer",
+        "en": "Toseok Damjang — earth-and-stone wall"
+      },
+      "type": "johyeong",
+      "hierarchyRank": null,
+      "groundBand": 0,
+      "podiumBeoldae": null,
+      "measuredPodium": false,
+      "kan": {
+        "front": null,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": "giwa_capped",
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "use": {
+        "ko": "부지와 각 영역을 나누는 담. 사당은 별도의 담을 두른다.",
+        "de": "Trennt Grundstück und Bereiche; der Schrein hat eine eigene Mauer.",
+        "en": "Divides the site and its domains; the shrine has a wall of its own."
+      },
+      "story": {
+        "ko": "하부는 막돌 허튼층, 상부는 흙, 위에 기와를 얹었다. 한옥에서 담은 장식이 아니라 위계의 도구다.",
+        "de": "Unten Bruchstein, oben Lehm, mit Ziegeln gedeckt. Die Mauer ist Ordnungsmittel, kein Schmuck.",
+        "en": "Rubble below, earth above, capped with tile. In a hanok the wall is an instrument of hierarchy, not ornament."
+      },
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": {
+        "ko": "현장 사진으로 확인된다. 축조 기법의 실측 기록은 없다.",
+        "de": "Fotografisch belegt; keine Vermessung der Bauweise.",
+        "en": "Photographically attested; no measured record of the construction technique."
+      },
+      "sourceIds": [
+        "khs_portal_ildu"
+      ],
+      "expectedCefrLevel": "onboarding",
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_gate_hyeopmun",
+      "dongClass": "gate",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "협문",
+        "hanja": "夾門",
+        "romanization": null,
+        "de": "Hyeopmun — schmales Nebentor zwischen zwei Höfen",
+        "en": "Hyeopmun — narrow side gate linking two courts"
+      },
+      "type": "munchae",
+      "hierarchyRank": null,
+      "groundBand": 3,
+      "podiumBeoldae": 0,
+      "measuredPodium": false,
+      "kan": {
+        "front": 1,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "use": {
+        "ko": "안사랑채에서 안채로 건너가는 좁은 문. 격식을 차리지 않고 다니는 길이다.",
+        "de": "Schmaler Durchgang vom Ansarangchae zum Anchae — der informelle Weg.",
+        "en": "A narrow passage from the Ansarangchae to the Anchae — the informal route."
+      },
+      "story": null,
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": null,
+      "sourceIds": [
+        "ildu_site_photos_jin_2026"
+      ],
+      "expectedCefrLevel": null,
+      "opensZone": null,
+      "opensSurface": null,
+      "levelChangeNote": "문 앞에 자연석 계단이 놓여 채와 채 사이에 단 차이가 있다(사진)."
+    },
+    {
+      "buildingId": "ildu_cheukgan_an",
+      "dongClass": "service",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "안채 측간",
+        "hanja": "厠間",
+        "romanization": null,
+        "de": "Cheukgan des Anchae — Abort der Frauen",
+        "en": "Anchae privy — the women's outhouse"
+      },
+      "type": "munchae",
+      "hierarchyRank": null,
+      "groundBand": 3,
+      "podiumBeoldae": 0,
+      "measuredPodium": false,
+      "kan": {
+        "front": 1,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": "ujingak",
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "use": {
+        "ko": "안곳간 뒤 별도 담장 안에 한 칸으로 지었다. 우진각 지붕. 담장 문이 열려도 안이 보이지 않도록 입구에서 먼 쪽을 향한다.",
+        "de": "Ein Kan hinter dem Speicher, in eigener Mauer, Walmdach; vom Eingang abgewandt.",
+        "en": "One kan behind the storehouse inside its own wall, hipped roof, turned away from the entrance."
+      },
+      "story": null,
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": null,
+      "sourceIds": [
+        "ildu_site_photos_jin_2026"
+      ],
+      "expectedCefrLevel": null,
+      "opensZone": null,
+      "opensSurface": null
+    },
+    {
+      "buildingId": "ildu_cheukgan_sarang",
+      "dongClass": "service",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "names": {
+        "ko": "사랑채 측간",
+        "hanja": "厠間",
+        "romanization": null,
+        "de": "Cheukgan des Sarangchae — Abort der Männer",
+        "en": "Sarangchae privy — the men's outhouse"
+      },
+      "type": "munchae",
+      "hierarchyRank": null,
+      "groundBand": 2,
+      "podiumBeoldae": 0,
+      "measuredPodium": false,
+      "kan": {
+        "front": 2,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "use": {
+        "ko": "두 칸. 최근에 복원되었다.",
+        "de": "Zwei Kan, in jüngerer Zeit rekonstruiert.",
+        "en": "Two kan, reconstructed in recent times."
+      },
+      "story": null,
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "evidenceNote": null,
+      "sourceIds": [
+        "ildu_site_photos_jin_2026"
+      ],
+      "expectedCefrLevel": null,
+      "opensZone": null,
+      "opensSurface": null,
+      "restorationNote": "최근 복원 — 원형 부재 아님. 렌더 등급 판단 시 이 사실을 반영할 것."
+    }
+  ],
+  "disputedClaims": [
+    {
+      "claimId": "jeongryeo_count",
+      "subject": "ildu_jeongryeo",
+      "label": {
+        "ko": "정려 편액 개수",
+        "de": "Anzahl der Ehrentafeln",
+        "en": "Number of honour plaques"
+      },
+      "positions": [
+        {
+          "value": 4,
+          "sourceIds": [
+            "khs_portal_ildu"
+          ],
+          "wording": {
+            "ko": "문패가 4개나 걸려 있다",
+            "de": "vier Tafeln",
+            "en": "four plaques"
+          }
+        },
+        {
+          "value": 5,
+          "sourceIds": [
+            "hamyang_gun_guide",
+            "grandculture_hamyang_ildu"
+          ],
+          "wording": {
+            "ko": "정려 편액 5점 / 정려 5기",
+            "de": "fünf Tafeln",
+            "en": "five plaques"
+          }
+        }
+      ],
+      "renderClaimValue": 5,
+      "renderClaimNote": {
+        "ko": "현장 안내 기준인 5점으로 그린다. 상세 화면에는 두 주장을 함께 보인다.",
+        "de": "Dargestellt werden fünf gemäß der Beschilderung vor Ort; im Detail werden beide Angaben gezeigt.",
+        "en": "Drawn as five per the on-site signage; the detail sheet shows both claims."
+      },
+      "resolution": "unresolved"
+    },
+    {
+      "claimId": "anchae_front_kan",
+      "subject": "ildu_anchae",
+      "label": {
+        "ko": "안채 정면 칸수",
+        "de": "Front-Kan des Anchae",
+        "en": "Anchae front kan count"
+      },
+      "positions": [
+        {
+          "value": 8,
+          "sourceIds": [
+            "cha_2007_record"
+          ],
+          "wording": {
+            "ko": "정면 8칸, 측면 2칸 79.84㎡ (건물개요표)",
+            "de": "acht Kan (Gebäudetabelle)",
+            "en": "eight kan (building schedule)"
+          }
+        },
+        {
+          "value": 7,
+          "sourceIds": [
+            "ildu_site_photos_jin_2026"
+          ],
+          "wording": {
+            "ko": "정면 일곱 칸 측면 한 칸의 5량 집",
+            "de": "sieben Kan (Beschreibungstext)",
+            "en": "seven kan (descriptive text)"
+          }
+        }
+      ],
+      "resolution": {
+        "ko": "미해결. 실측 주칸은 여덟이나 양 끝 1,440·1,450 을 반칸으로 보면 수가 줄어든다 — 사랑채 7칸/6칸과 같은 계수 방식 차이다. 로스터는 실측 8을 쓰고 분쟁을 병기한다.",
+        "de": "Ungelöst; das Roster folgt der Bauaufnahme (acht) und führt den Widerspruch mit.",
+        "en": "Unresolved; the roster follows the survey (eight) and carries the conflict alongside."
+      },
+      "measuredBays": [
+        1440,
+        2545,
+        2570,
+        2580,
+        2410,
+        2555,
+        2545,
+        1450
+      ]
+    },
+    {
+      "claimId": "site_area",
+      "status": "unresolved",
+      "claims": [
+        {
+          "value": "9917",
+          "unit": "sqm",
+          "sourceIds": [
+            "hamyang_gun_guide"
+          ],
+          "note": {
+            "ko": "3,000여 평",
+            "de": "ca. 3.000 Pyeong",
+            "en": "about 3,000 pyeong"
+          }
+        },
+        {
+          "value": "4770",
+          "unit": "sqm",
+          "sourceIds": [
+            "cha_2007_record"
+          ],
+          "note": {
+            "ko": "보고서 p31 '대지의 면적은 4,770㎡'",
+            "de": "Bericht S. 31",
+            "en": "Survey p.31"
+          }
+        }
+      ],
+      "note": {
+        "ko": "2배 이상 차이난다. 지정구역과 소유대지의 차이일 수 있다 — 국가유산청 문의 항목에 추가할 것.",
+        "de": "Mehr als doppelte Abweichung; möglicherweise Schutzzone gegenüber Grundstück.",
+        "en": "A more than twofold gap; possibly the protected zone versus the owned lot."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "cha_2007_record",
+      "classification": "public",
+      "title": {
+        "ko": "韓國의 전통가옥 — 중요민속자료(제186호) 기록화보고서 咸陽 一蠹古宅",
+        "de": "Dokumentationsbericht Hamyang Ildu-Gotaek (Koreanische traditionelle Wohnhäuser 23)",
+        "en": "Records of Korean Traditional Houses 23 — Hamyang Ildu Gotaek documentation report"
+      },
+      "publisher": "문화재청 (현 국가유산청)",
+      "year": 2007,
+      "pages": 315,
+      "surveyor": "(주)옛터건축사사무소",
+      "leadEngineer": "이원길",
+      "surveyPeriod": "2007-06 ~ 2007-12",
+      "url": "https://www.heritage.go.kr/heri/cul/linkSelectEbookDetail.do?nttId=1548&bbsId=BBSMSTR_1021",
+      "pdfUrl": "http://116.67.83.213/NEW_PDF/일두고택기록화사업보고서.pdf",
+      "drawingUrlPattern": "https://www.heritage.go.kr/heri/cul/chartImgHeritage.do?file_seq={2828586..2828800}",
+      "drawingCount": 215,
+      "loginRequired": false,
+      "accessedOn": "2026-08-24",
+      "usage": "fact_check_only_no_text_reuse",
+      "note": {
+        "ko": "실측도면 215장 포함. 국가유산청 간행물 게시판에서 로그인 없이 전문 PDF 공개. 이 로스터의 칸수·면적은 이 보고서 건물개요표 기준.",
+        "de": "Enthält 215 Vermessungszeichnungen; Volltext-PDF ohne Login verfügbar.",
+        "en": "Contains 215 measured drawings; full-text PDF available without login."
+      }
+    },
+    {
+      "sourceId": "khs_portal_ildu",
+      "classification": "public",
+      "title": {
+        "ko": "국가유산청 국가유산포털 — 함양 일두고택",
+        "de": "Korea Heritage Service — Nationales Kulturerbe-Portal",
+        "en": "Korea Heritage Service — National Heritage Portal"
+      },
+      "publisher": "국가유산청",
+      "url": "https://www.heritage.go.kr/heri/cul/culSelectDetail.do?ccbaCpno=1483801860000",
+      "accessedOn": "2026-08-23",
+      "usage": "fact_check_only_no_text_reuse",
+      "note": {
+        "ko": "설명 원문은 공개 API SearchKindOpenapiDt.do 로 취득.",
+        "de": "Beschreibungstext über die offene API abgerufen.",
+        "en": "Description text retrieved via the open API."
+      }
+    },
+    {
+      "sourceId": "khs_digital_ildu",
+      "classification": "public",
+      "title": {
+        "ko": "국가유산청 디지털 국가유산 — 함양 일두고택",
+        "de": "Korea Heritage Service — Digitales Kulturerbe",
+        "en": "Korea Heritage Service — Digital Heritage"
+      },
+      "publisher": "국가유산청",
+      "url": "https://digital.khs.go.kr/heri/heriDetail.do?ctptNo=1483801860000",
+      "accessedOn": "2026-08-23",
+      "usage": "fact_check_only_no_text_reuse"
+    },
+    {
+      "sourceId": "hamyang_gun_guide",
+      "classification": "public",
+      "title": {
+        "ko": "함양군 문화관광 — 일두고택 안내",
+        "de": "Landkreis Hamyang — Tourismusinformation",
+        "en": "Hamyang County — visitor information"
+      },
+      "publisher": "함양군",
+      "url": "https://www.hamyang.go.kr/tour/index.do",
+      "accessedOn": "2026-08-23",
+      "usage": "fact_check_only_no_text_reuse"
+    },
+    {
+      "sourceId": "encykorea_ildu",
+      "classification": "public",
+      "title": {
+        "ko": "한국민족문화대백과사전 — 함양 일두고택",
+        "de": "Enzyklopädie der koreanischen Kultur",
+        "en": "Encyclopedia of Korean Culture"
+      },
+      "publisher": "한국학중앙연구원",
+      "url": "https://encykorea.aks.ac.kr/Article/E0062205",
+      "accessedOn": "2026-08-23",
+      "usage": "fact_check_only_no_text_reuse"
+    },
+    {
+      "sourceId": "grandculture_hamyang_ildu",
+      "classification": "public",
+      "title": {
+        "ko": "디지털함양문화대전 — 함양 일두고택",
+        "de": "Digitale Kulturenzyklopädie Hamyang",
+        "en": "Digital Encyclopedia of Hamyang Culture"
+      },
+      "publisher": "한국학중앙연구원",
+      "url": "https://www.grandculture.net/hamyang/toc/GC07201180",
+      "accessedOn": "2026-08-23",
+      "usage": "fact_check_only_no_text_reuse"
+    },
+    {
+      "sourceId": "sinyeongdo_reference",
+      "classification": "reference_only_user_supplied",
+      "title": {
+        "ko": "신영도(新營圖) 배치 도면 — 사용자 제공",
+        "de": "Sinyeongdo-Lageplan — nutzerseitig beigesteuert",
+        "en": "Sinyeongdo layout drawing — user supplied"
+      },
+      "publisher": null,
+      "url": null,
+      "accessedOn": "2026-08-23",
+      "usage": "fact_check_only_no_text_reuse",
+      "runtime": "not_shipped",
+      "modelInput": "forbidden",
+      "note": {
+        "ko": "복사·트레이스·리컬러 금지. 여기서 확인한 사실은 중립 brief 로 옮긴 뒤 독자 작성한다. 공개 출처로 재확인되기 전까지 이 출처만 가진 행은 verification: unverified 다.",
+        "de": "Kopieren, Nachzeichnen und Umfärben verboten; Fakten nur als neutrales Briefing übernehmen.",
+        "en": "No copying, tracing or recolouring; facts may only be carried over as a neutral brief."
+      }
+    },
+    {
+      "sourceId": "ildu_site_photos_jin_2026",
+      "classification": "reference_only_user_supplied",
+      "title": {
+        "ko": "현장 사진 묶음 — 사용자 제공 (유튜브 캡처 및 사진)",
+        "de": "Vor-Ort-Fotos — nutzerseitig beigesteuert",
+        "en": "On-site photo set — user supplied"
+      },
+      "publisher": null,
+      "url": null,
+      "accessedOn": "2026-08-24",
+      "usage": "fact_check_only_no_text_reuse",
+      "runtime": "not_shipped",
+      "modelInput": "forbidden",
+      "note": {
+        "ko": "복사·트레이스·리컬러 금지. 사진에서 읽은 사실은 중립 문장으로 재기술해 등재한다. 사진에 찍힌 현대 설비(소화기·배관·안내판)는 고증 대상이 아니다.",
+        "de": "Kopieren, Nachzeichnen, Umfärben verboten; moderne Einbauten auf den Fotos sind kein Baubestand.",
+        "en": "No copying, tracing or recolouring; modern fittings visible in the photos are not historic fabric."
+      }
+    }
+  ],
+  "exclusions": [
+    {
+      "id": "ildu_hongbogwan",
+      "label": {
+        "ko": "일두 홍보관",
+        "de": "Ildu-Informationszentrum",
+        "en": "Ildu interpretive centre"
+      },
+      "reason": {
+        "ko": "현대 건물. 배치 안내도에 표기되나 고증 재현 대상이 아니다. 로스터·스프라이트·배치도 어디에도 넣지 않는다.",
+        "de": "Modernes Gebäude, kein Bestandteil der Rekonstruktion.",
+        "en": "A modern building; not part of the historic reconstruction."
+      }
+    }
+  ]
+}
