@@ -66,12 +66,18 @@ class PersonalHanokMap extends StatelessWidget {
       aspectRatio: 4 / 3,
       child: LayoutBuilder(
         builder: (context, constraints) {
-          // 레이어 PNG(최대 1536px)를 맵 표시 폭으로만 디코드 — 시각 동일, 디코드
-          // 메모리·시간 절감(full-res 과다 디코드 방지).
+          // 레이어 PNG 를 맵 표시 폭으로만 디코드하되, 마스터 캔버스와 디코드
+          // 메모리 예산 둘 다로 상한을 건다. 예산 상한이 없으면 큰 화면·높은
+          // dpr 에서 8 레이어가 runtimeLimits.decodedMemoryMaxBytes 를 넘긴다
+          // (태블릿 620dp·dpr2 에서 35.2 MiB, 캡 32 MiB).
+          // 리빌 중에는 억제된 레이어를 리빌 위젯이 따로 그리므로 그 몫까지
+          // 예산에 넣는다.
           final w = constraints.maxWidth;
-          final cacheW = w.isFinite && w > 0
-              ? (w * MediaQuery.devicePixelRatioOf(context)).round()
-              : null;
+          final cacheW = personalHanokDecodeCacheWidth(
+            displayWidth: w,
+            devicePixelRatio: MediaQuery.devicePixelRatioOf(context),
+            layerCount: layers.length + suppressedMilestones.length,
+          );
           return ClipRRect(
             borderRadius: SoriRadius.brLg,
             child: Stack(

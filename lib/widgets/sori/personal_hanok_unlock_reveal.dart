@@ -209,6 +209,14 @@ class _RevealMap extends StatelessWidget {
                   child: Image.asset(
                     assetPath,
                     fit: BoxFit.cover,
+                    // 맵이 이 레이어를 억제하고 리빌이 대신 그린다. 맵과 같은
+                    // 예산으로 상한을 걸지 않으면 이 한 장만 항상 풀 해상도
+                    // (1536×1152×4 = 7.08 MB)로 디코드된다.
+                    cacheWidth: personalHanokDecodeCacheWidth(
+                      displayWidth: constraints.maxWidth,
+                      devicePixelRatio: MediaQuery.devicePixelRatioOf(context),
+                      layerCount: kPersonalHanokLayers.length,
+                    ),
                     errorBuilder: (_, __, ___) => const SizedBox.expand(),
                   ),
                 ),
