@@ -119,6 +119,35 @@ class LeavesAirbornePosesAlone(unittest.TestCase):
                         f"그림자 없는 프레임을 {changed:.2%} 나 고쳤다")
 
 
+def load_frames(clip: Path, indexes: list[int]) -> dict[int, np.ndarray]:
+    """지정한 프레임만 디코드한다.
+
+    `compose_home_hero_hanji.load_rgb_frames` 는 클립 **전체**를 메모리에 올린다.
+    `magpie_choose` 는 169프레임 × 960×960×3 = 467MB 다. 테스트가 그렇게 읽자 CI 의
+    `Asset pipeline gates`(timeout 10분)가 그 스텝에서 멈춰 취소됐다. 필요한 세 장만
+    뽑으면 1초면 된다.
+    """
+    import subprocess
+
+    from check_clip_matte import find_ffmpeg
+    from check_home_hero_matte import find_ffprobe
+    from compose_home_hero_hanji import probe_wh
+
+    width, height = probe_wh(clip, find_ffprobe())
+    picked = "+".join(f"eq(n\\,{i})" for i in indexes)
+    raw = subprocess.run(
+        [find_ffmpeg(), "-v", "error", "-i", str(clip),
+         "-vf", f"select='{picked}'", "-vsync", "0",
+         "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+        capture_output=True, check=True,
+    ).stdout
+    size = width * height * 3
+    frames = np.frombuffer(raw, np.uint8)[: (len(raw) // size) * size]
+    frames = frames.reshape(-1, height, width, 3)
+    return {index: frames[slot] for slot, index in enumerate(indexes)
+            if slot < len(frames)}
+
+
 class RealFrameIfAvailable(unittest.TestCase):
     """실제 클립이 있으면 합성 프레임이 못 잡는 포즈까지 확인한다.
 
@@ -148,21 +177,13 @@ class RealFrameIfAvailable(unittest.TestCase):
         (총 2,707px), 8배 확대에서 계단형 노치가 보였다. 실루엣 *내부* 만
         지키는 보호로는 못 막는다 — 그 무늬는 배경과 이어져 있다.
         """
-        from check_clip_matte import find_ffmpeg
-        from check_home_hero_matte import find_ffprobe
-        from compose_home_hero_hanji import load_rgb_frames, probe_wh
         from whiten_clip_matte import _core_of, dilate_n
 
         root = Path(__file__).resolve().parent.parent
         clip = root / "assets" / "video" / "character" / "magpie_bob2.mp4"
         if not clip.is_file():
             self.skipTest("magpie_bob2.mp4 없음")
-        width, height = probe_wh(clip, find_ffprobe())
-        frames = load_rgb_frames(clip, find_ffmpeg(), width, height)
-        for index in (0, 40, 117):
-            if index >= len(frames):
-                continue
-            source = frames[index]
+        for index, source in load_frames(clip, [0, 40, 117]).items():
             treated = whiten_frame(source)
             changed = (
                 np.abs(source.astype(np.int16) - treated.astype(np.int16))
@@ -174,17 +195,8 @@ class RealFrameIfAvailable(unittest.TestCase):
                              f"f{index}: 외곽선 4px 이내 {bitten}px 가 변경됐다")
 
     def test_protected_body_untouched_across_poses(self):
-        from check_clip_matte import find_ffmpeg
-        from check_home_hero_matte import find_ffprobe
-        from compose_home_hero_hanji import load_rgb_frames, probe_wh
-
-        width, height = probe_wh(self.clip, find_ffprobe())
-        frames = load_rgb_frames(self.clip, find_ffmpeg(), width, height)
         # 정면 대기 · 대각선 이동 · 날개 편 자세 — 서로 다른 실패 모드를 낸다.
-        for index in (40, 120, 155):
-            if index >= len(frames):
-                continue
-            source = frames[index]
+        for index, source in load_frames(self.clip, [40, 120, 155]).items():
             treated = whiten_frame(source)
             touched = (
                 (source != treated).any(axis=2) & protected_body(source)
