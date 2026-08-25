@@ -981,6 +981,70 @@
           "openings": "WD01 대청 4분합 2320×1900(창1520+머름380) / WD02 방 쌍여닫이 1220×1190 / WD04 방-3 외짝 710×1265 / WW01 부엌 살창 1330×330 / WW02 다락 배면 1230×600"
         }
       }
+    },
+    "F-D-share": {
+      "label": "공유·마케팅 표면 — F-A 화풍 그대로, 카메라만 정면 평면(족자·현판 등 벽에 걸리는 납작한 물건)",
+      "dirs": [
+        "assets/illustrations/share/"
+      ],
+      "membersNote": "F-A 와 화풍·팔레트는 같지만 **등록처가 다르다** — 이건 방에 놓는 장식이 아니라 앱 밖으로 나가는 이미지의 부품이라 kAvailableDecorations 에 들어가지 않는다. 그래서 F-A 멤버로 넣지 않고 family 를 나눴다.",
+      "members": [
+        "share_scroll"
+      ],
+      "anchors": [
+        "assets/illustrations/chaekgado/chaekgado_prop_scroll.png"
+      ],
+      "palette": {
+        "note": "F-A 실측 팔레트를 그대로 쓴다 — 같은 세트로 읽혀야 하므로 여기서 값을 갈라놓지 않는다. 값의 정본은 families['F-A'].palette."
+      },
+      "camera": {
+        "view": "single object, FLAT and STRAIGHT FROM THE FRONT, no perspective, no tilt — 벽에 걸린 납작한 물건이라 F-A 의 three-quarter 규약이 안 맞는다(그게 이 family 를 나눈 유일한 이유다)",
+        "light": "soft light from the upper left, gentle self-shading on facets only",
+        "shadow": "NO cast shadow, NO ground — 코드가 벽과 그림자를 따로 그린다"
+      },
+      "promptSkeleton": "Create a NEW illustration in exactly the same illustrated-set style as the reference image (a Korean scholar's-room object set: LOW-POLY FACETED planes — every surface is broken into flat angular colour facets like folded paper, NO drawn outlines, matte finish, subtle hanji paper grain visible inside the facets, warm walnut wood with dark lacquer and small muted dancheong accents), but with this subject instead:\n\n{SUBJECT}\n\nDo not redraw the object that appears in the reference image; the reference is for style, palette and lighting only.\n\nCAMERA AND LIGHT: exactly one object, seen FLAT AND STRAIGHT FROM THE FRONT with no perspective and no tilt, as if pinned flat against the picture plane; soft light from the upper left; gentle self-shading on the facets only; NO cast shadow, NO shadow on the ground, NO floor, NO wall, NO room, NO horizon line.\n\nCOMPOSITION RULES: the object is centred in the frame with an even margin of clear green on every side; it is a complete, self-contained cutout with crisp edges; nothing is cropped by the frame; one object only, no variants, no extra props.\n\nBACKGROUND: flat pure #00FF00 chroma-key green everywhere outside the object, no gradient, no vignette, no shadow on the green.\n\nIMPORTANT COLOR: keep exactly the reference palette — wood #A2663A #8F5130 #844A2D with facet shadows #633720 #5A3623 #3B271B, dark lacquer #2C221D #211914, aged hanji ivory #DBBC8D #C6AE8B, dancheong gold #BD924C, deep muted teal #274A3F, dark brick red #6A2316, stone grey #8B8478. Do NOT brighten, do NOT desaturate, do NOT use bright teal or bright red; matte only, no gloss.\n\nABSOLUTELY AVOID: black or dark outlines, line art, watercolour wash, soft painterly blending, gradients inside a facet, cast shadow, drop shadow, ground plane, room interior, white canvas, cute style, glossy 3D render, photorealism, sepia, people, hands, animals, readable text, letters, digits, hangul or hanja on any surface, extra objects, multiple variants of the object.\n\nIMPORTANT: match the geometric faceted style, color palette, paper grain texture, and overall mood of the attached reference image exactly. This must look like part of the same illustrated set.",
+      "promptSkeletonSource": "families['F-A'].promptSkeleton 에서 CAMERA AND LIGHT 문단만 정면 평면으로 교체한 것. 나머지 문단(배경·팔레트·금지목록)은 글자 그대로 같다.",
+      "modelRouting": [
+        {
+          "model": "GPT Image 2",
+          "allowed": true,
+          "when": "전 품목 — faceted 오브젝트 정식 경로",
+          "evidence": "A2_SARANGBANG_FURNISHING_2026-08-17.md §2 (F-A 와 같은 근거, 화풍이 같으므로 라우팅도 같다)"
+        },
+        {
+          "model": "Seedream V4.5",
+          "allowed": false,
+          "when": "쓰지 말 것 — 그림자·매끈한 렌더·밝은 청록",
+          "evidence": "A2_SARANGBANG_FURNISHING_2026-08-17.md §2"
+        }
+      ],
+      "postProcess": [
+        "tool/cut_single_object.py --expect-parts 1",
+        "tool/check_decoration_cutouts.py (컷아웃 공통 게이트 — true alpha · #00FF00 잔여 0 · green rim)"
+      ],
+      "gates": {
+        "satMean": [
+          0.2,
+          0.8
+        ],
+        "valMean": [
+          0.25,
+          0.86
+        ],
+        "neonMax": 0.04,
+        "note": "F-A 범위를 물려받되 valMean 상한만 0.86 으로 넓혔다 — 실측(share_scroll 1호, 2026-08-19) 0.832. 이 family 는 화면의 60% 이상이 빈 상아색 한지라 F-A 가구보다 밝은 게 정상이다(SoriScrollPalette.paper #FFFDF6 자체가 거의 흰색). 목재·마구리 비중이 F-A 처럼 크면 이 상한을 좁혀도 된다 — 다음 멤버 승격 시 재측정할 것.",
+        "measured": {
+          "satMean": 0.4678,
+          "valMean": 0.8322,
+          "neonMax": 0.0082
+        },
+        "measuredAt": "1 file (share_scroll), 2026-08-19"
+      },
+      "registration": [
+        "pubspec.yaml: assets/illustrations/share/",
+        "lib/widgets/sori/share_slip.dart: kShareScrollAsset",
+        "decoration 계열 등록(kAvailableDecorations·ARB decorName)은 하지 않는다 — 장식이 아니다"
+      ]
     }
   }
 }

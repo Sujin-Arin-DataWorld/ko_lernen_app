@@ -1,0 +1,64 @@
+{
+ "source": "/Users/sujinpark/Developer/ko_lernen_app-p7-scroll/assets_unused/pending_review/asset_recipe/share_scroll/share_scroll_raw.png",
+ "sourceSha256": "62b008ffb924de2c82883d3dec2bf4ebd30f3d7e74688f2c8ce43098a59093ca",
+ "out": "/Users/sujinpark/Developer/ko_lernen_app-p7-scroll/assets_unused/pending_review/asset_recipe/share_scroll/share_scroll_cut.png",
+ "outSha256": "76b99ce3a4c5f42d46468ea69f38f763a3d17c23ac58e7d6bb86253d258ed06e",
+ "sourceSize": [
+  1440,
+  2560
+ ],
+ "outSize": [
+  1351,
+  2391
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   40,
+   78,
+   1391,
+   2469
+  ]
+ ],
+ "visiblePixels": 2783400,
+ "coveragePct": 86.17,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    4.2,
+    248.7,
+    8.4
+   ],
+   "greenness": 240.3
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    3.1,
+    248.6,
+    7.8
+   ],
+   "greenness": 240.8
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    3.3,
+    248.6,
+    7.3
+   ],
+   "greenness": 241.3
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    2.5,
+    247.7,
+    6.8
+   ],
+   "greenness": 241.0
+  }
+ ],
+ "pillow": "10.4.0"
+}
