@@ -148,7 +148,7 @@ class _VocabNotebookStudioScreenState extends State<VocabNotebookStudioScreen> {
           padding: resolvedPadding,
           child: Center(
             child: SoriEmptyState(
-              asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+              asset: 'assets/illustrations/mascot/tiger_front.png',
               icon: Icons.help_outline,
               title: t.customPackNotFoundTitle,
               body: t.customPackNotFoundBody,

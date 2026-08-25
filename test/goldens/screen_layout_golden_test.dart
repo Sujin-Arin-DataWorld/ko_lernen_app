@@ -141,7 +141,7 @@ void main() {
                   ),
                   precacheImage(
                     const AssetImage(
-                      'assets/illustrations/mascot/tiger_sitting2.png',
+                      'assets/illustrations/mascot/tiger_front.png',
                     ),
                     context,
                   ),
