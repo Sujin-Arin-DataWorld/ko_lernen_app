@@ -3163,6 +3163,18 @@ class AppL10nEn extends AppL10n {
       'Once scenarios are available, you can listen to them here.';
 
   @override
+  String listeningLevelDrawer(String level, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Level $level, $count scenarios',
+      one: 'Level $level, 1 scenario',
+      zero: 'Level $level, not stocked yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get listeningShelfEmpty => 'not stocked yet';
 
   @override
