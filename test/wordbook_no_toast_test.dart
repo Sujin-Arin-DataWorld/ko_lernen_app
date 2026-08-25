@@ -84,7 +84,7 @@ void main() {
   test('책갈피를 쓰는 피드 화면은 담김 판정 키를 넘긴다', () {
     const screens = {
       'review_session_screen': 'bookmarkKey:',
-      'listening_play_screen': 'bookmarkKey:',
+      'listening_play_screen': 'AddToWordbookButton',
       'vocab_pack_screen': 'bookmarkKey:',
       'grammar_screen': 'bookmarked:',
       'smalltalk_screen': 'bookmarked:',

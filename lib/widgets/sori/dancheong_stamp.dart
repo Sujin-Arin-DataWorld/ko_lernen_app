@@ -62,35 +62,77 @@ enum DancheongMotif {
   // 홑겹 평면 금꽃 / moran = 청·금 겹꽃 + 잎), 주제도 갈라 둔다 — peony 는
   // 돈, moran 은 사람 관계. 한쪽을 지우면 저장된 earnedStamps 가 깨진다.
   moran, // 관계·사교·예의 — lotus/gwigap/peony 에서 분리 (모란 = 부귀)
+  //  ── 생활문화 시리즈 ──
+  munbangsau, // 교육·언어·읽기·연구·근거 판단
+  bok, // 가족·명절·축하·사회 행사
+  crane, // 건강·병원·삶의 가치·생애
+  wadang, // 집·주거·생활 안전·도시 공공생활
+  yeopjeon, // 돈·은행·결제·주거 비용
+  soban, // 음식·식당·가족 식사·환대
 }
 
-String dancheongMotifName(AppL10n t, DancheongMotif motif) => switch (motif) {
-  DancheongMotif.lotus => t.stampMotifLotus,
-  DancheongMotif.chrysanthemum => t.stampMotifChrysanthemum,
-  DancheongMotif.plum => t.stampMotifPlum,
-  DancheongMotif.bamboo => t.stampMotifBamboo,
-  DancheongMotif.cloud => t.stampMotifCloud,
-  DancheongMotif.octagon => t.stampMotifOctagon,
-  DancheongMotif.mountain => t.stampMotifMountain,
-  DancheongMotif.manja => t.stampMotifManja,
-  DancheongMotif.vine => t.stampMotifVine,
-  DancheongMotif.chilbo => t.stampMotifChilbo,
-  DancheongMotif.gwigap => t.stampMotifGwigap,
-  DancheongMotif.wave => t.stampMotifWave,
-  DancheongMotif.taegeuk => t.stampMotifTaegeuk,
-  DancheongMotif.peony => t.stampMotifPeony,
-  DancheongMotif.changsal => t.stampMotifChangsal,
-  DancheongMotif.suryeon => t.stampMotifSuryeon,
-  DancheongMotif.noemun => t.stampMotifNoemun,
-  DancheongMotif.mugunghwa => t.stampMotifMugunghwa,
-  DancheongMotif.moran => t.stampMotifMoran,
-};
+enum StampSeries { dancheong, livingCulture }
+
+/// 도장첩·결과·경로·사랑방이 공유하는 단일 도장 메타데이터 계약.
+class StampMotifSpec {
+  const StampMotifSpec(this.motif);
+
+  final DancheongMotif motif;
+
+  String get slug => motif.name;
+  String get assetPath => 'assets/illustrations/stamps/stamp_${motif.name}.png';
+  StampSeries get series => switch (motif) {
+    DancheongMotif.munbangsau ||
+    DancheongMotif.bok ||
+    DancheongMotif.crane ||
+    DancheongMotif.wadang ||
+    DancheongMotif.yeopjeon ||
+    DancheongMotif.soban => StampSeries.livingCulture,
+    _ => StampSeries.dancheong,
+  };
+
+  String localizedName(AppL10n t) => switch (motif) {
+    DancheongMotif.lotus => t.stampMotifLotus,
+    DancheongMotif.chrysanthemum => t.stampMotifChrysanthemum,
+    DancheongMotif.plum => t.stampMotifPlum,
+    DancheongMotif.bamboo => t.stampMotifBamboo,
+    DancheongMotif.cloud => t.stampMotifCloud,
+    DancheongMotif.octagon => t.stampMotifOctagon,
+    DancheongMotif.mountain => t.stampMotifMountain,
+    DancheongMotif.manja => t.stampMotifManja,
+    DancheongMotif.vine => t.stampMotifVine,
+    DancheongMotif.chilbo => t.stampMotifChilbo,
+    DancheongMotif.gwigap => t.stampMotifGwigap,
+    DancheongMotif.wave => t.stampMotifWave,
+    DancheongMotif.taegeuk => t.stampMotifTaegeuk,
+    DancheongMotif.peony => t.stampMotifPeony,
+    DancheongMotif.changsal => t.stampMotifChangsal,
+    DancheongMotif.suryeon => t.stampMotifSuryeon,
+    DancheongMotif.noemun => t.stampMotifNoemun,
+    DancheongMotif.mugunghwa => t.stampMotifMugunghwa,
+    DancheongMotif.moran => t.stampMotifMoran,
+    DancheongMotif.munbangsau => t.stampMotifMunbangsau,
+    DancheongMotif.bok => t.stampMotifBok,
+    DancheongMotif.crane => t.stampMotifCrane,
+    DancheongMotif.wadang => t.stampMotifWadang,
+    DancheongMotif.yeopjeon => t.stampMotifYeopjeon,
+    DancheongMotif.soban => t.stampMotifSoban,
+  };
+}
+
+extension DancheongMotifSpecX on DancheongMotif {
+  StampMotifSpec get spec => StampMotifSpec(this);
+}
+
+String dancheongMotifName(AppL10n t, DancheongMotif motif) =>
+    motif.spec.localizedName(t);
 
 /// Pack-ID → Motif Mapping. Konsistent über alle Phasen.
 DancheongMotif motifForPackId(String packId) {
   final base = _baseOf(packId);
   return switch (base) {
-    'a1_greetings' || 'a1_self_intro' || 'a1_family' => DancheongMotif.lotus,
+    'a1_greetings' || 'a1_self_intro' => DancheongMotif.lotus,
+    'a1_family' => DancheongMotif.bok,
     'a1_time' || 'a1_numbers' => DancheongMotif.chrysanthemum,
     'a1_descriptions' ||
     'a2_descriptions' ||
@@ -100,26 +142,26 @@ DancheongMotif motifForPackId(String packId) {
     'b1_character_feelings' ||
     'b1_descriptions_adj' => DancheongMotif.plum,
     'a2_work' ||
-    'a2_education' ||
     'b1_work' ||
     'b2_work' ||
-    'b2_education' ||
     'b1_work_career' ||
-    'a2_people_jobs' ||
-    'a2_school_uni' => DancheongMotif.bamboo,
+    'a2_people_jobs' => DancheongMotif.bamboo,
+    'a2_education' ||
+    'b2_education' ||
+    'a2_school_uni' => DancheongMotif.munbangsau,
     'a2_weather' => DancheongMotif.cloud,
     // ── 2026-08-25: 수련 = 몸·건강·돌봄 (cloud 에서 분리) ──
     'a2_health_misc' ||
     'b1_health_education' ||
-    'b1_health_hospital' => DancheongMotif.suryeon,
+    'b1_health_hospital' => DancheongMotif.crane,
     'a1_food' ||
-    'a1_payment_delivery' ||
     'a2_food' ||
+    'a2_restaurant' ||
+    'a2_food_more' => DancheongMotif.soban,
+    'a1_payment_delivery' => DancheongMotif.yeopjeon,
     'a2_shopping' ||
     'a2_clothing' ||
-    'a2_wearing_verbs' ||
-    'a2_restaurant' ||
-    'a2_food_more' => DancheongMotif.octagon,
+    'a2_wearing_verbs' => DancheongMotif.octagon,
     'a1_transport' ||
     'a2_transport' ||
     'b1_travel_transport' ||
@@ -148,19 +190,21 @@ DancheongMotif motifForPackId(String packId) {
     // ── 2026-08-25: 창살 = 집·주거·공간 (gwigap 에서 분리) ──
     'a2_home' ||
     'a2_household' ||
-    'b2_household_practical' => DancheongMotif.changsal,
-    'b2_environment' || 'a2_nature' => DancheongMotif.wave,
+    'b2_household_practical' => DancheongMotif.wadang,
+    'b2_environment' => DancheongMotif.wave,
+    'a2_nature' => DancheongMotif.suryeon,
     'b2_thinking' || 'b2_abstract_concepts' => DancheongMotif.taegeuk,
-    'a2_money' || 'b1_money_bank' => DancheongMotif.peony,
+    'a2_money' || 'b1_money_bank' => DancheongMotif.yeopjeon,
     // ── 2026-08-11 확장 팩 (TOPIK-Kuratierung) ──
     // ── 2026-08-25: 모란 = 관계·사교·예의 (lotus 에서 분리) ──
-    'b1_social_events' ||
+    'b1_social_events' => DancheongMotif.bok,
     'b2_relationships_people' ||
     'b2_manners_society' ||
     'b2_honorifics' => DancheongMotif.moran,
-    'b1_time_life' || 'a2_plans_proposals' => DancheongMotif.chrysanthemum,
+    'b1_time_life' => DancheongMotif.crane,
+    'a2_plans_proposals' => DancheongMotif.chrysanthemum,
     // ── 2026-08-25: 무궁화 = 명절·의례·전통 ──
-    'b2_events_culture' => DancheongMotif.mugunghwa,
+    'b2_events_culture' => DancheongMotif.bok,
     // fallback — 여기 걸리면 새 주제가 생긴 것이다. 위에 추가할 것.
     // `test/dancheong_stamp_test.dart` 의 전수 대조 테스트가 잡아준다.
     // Reviewed A1-C2 content packs using the existing motif pipeline.
@@ -169,16 +213,16 @@ DancheongMotif motifForPackId(String packId) {
     'b1_work_coordination' => DancheongMotif.bamboo,
     'b2_formal_complaint' => DancheongMotif.noemun,
     'b2_decisions_perspectives' => DancheongMotif.taegeuk,
-    'b2_reading_response' => DancheongMotif.chrysanthemum,
+    'b2_reading_response' => DancheongMotif.munbangsau,
     'b2_language_society' => DancheongMotif.chilbo,
-    'b2_life_values' => DancheongMotif.taegeuk,
+    'b2_life_values' => DancheongMotif.crane,
     'b2_literature_emotion' => DancheongMotif.chrysanthemum,
     'b2_language_change' => DancheongMotif.chilbo,
     // Reviewed A1-C2 content packs using the existing motif pipeline.
     'b2_collaborative_feedback' => DancheongMotif.bamboo,
     'b2_digital_judgment' => DancheongMotif.chilbo,
     'c1_accessible_participation' => DancheongMotif.noemun,
-    'c1_evidence_reasoning' => DancheongMotif.taegeuk,
+    'c1_evidence_reasoning' => DancheongMotif.munbangsau,
     'c2_institutional_mediation' => DancheongMotif.noemun,
     'c2_narrative_perspective' => DancheongMotif.chrysanthemum,
     'b2_shared_space_coordination' => DancheongMotif.changsal,
@@ -191,60 +235,60 @@ DancheongMotif motifForPackId(String packId) {
     'a1_partner_meet_names' => DancheongMotif.lotus,
     'a1_partner_first_gift' => DancheongMotif.peony,
     'a1_partner_house_entry' => DancheongMotif.changsal,
-    'a1_partner_table_basic' => DancheongMotif.octagon,
-    'a1_partner_seollal_basic' => DancheongMotif.mugunghwa,
-    'a1_partner_chuseok_basic' => DancheongMotif.mugunghwa,
+    'a1_partner_table_basic' => DancheongMotif.soban,
+    'a1_partner_seollal_basic' => DancheongMotif.bok,
+    'a1_partner_chuseok_basic' => DancheongMotif.bok,
     'a1_partner_siblings_hello' => DancheongMotif.lotus,
     'a1_partner_photo_thanks' => DancheongMotif.plum,
-    'a2_partner_dinner_talk' => DancheongMotif.octagon,
-    'a2_partner_seollal_day' => DancheongMotif.mugunghwa,
-    'a2_partner_chuseok_day' => DancheongMotif.mugunghwa,
+    'a2_partner_dinner_talk' => DancheongMotif.soban,
+    'a2_partner_seollal_day' => DancheongMotif.bok,
+    'a2_partner_chuseok_day' => DancheongMotif.bok,
     'a2_partner_sibling_tease' => DancheongMotif.plum,
     'a2_partner_overnight' => DancheongMotif.changsal,
-    'a2_partner_leftover_bags' => DancheongMotif.octagon,
+    'a2_partner_leftover_bags' => DancheongMotif.soban,
     'a2_partner_hometown_trip' => DancheongMotif.mountain,
     'a2_partner_banmal_switch' => DancheongMotif.plum,
     'b1_partner_awkward_questions' => DancheongMotif.plum,
     'b1_partner_job_visa' => DancheongMotif.bamboo,
     'b1_partner_translating' => DancheongMotif.chilbo,
-    'b1_partner_drink_table' => DancheongMotif.octagon,
+    'b1_partner_drink_table' => DancheongMotif.soban,
     'b1_partner_sleep_room' => DancheongMotif.changsal,
     'b1_partner_after_visit' => DancheongMotif.vine,
     'b1_partner_group_chat' => DancheongMotif.chilbo,
-    'b1_partner_holiday_plan' => DancheongMotif.mugunghwa,
-    'b2_partner_inlaws' => DancheongMotif.lotus,
+    'b1_partner_holiday_plan' => DancheongMotif.bok,
+    'b2_partner_inlaws' => DancheongMotif.bok,
     'b2_partner_marriage_talk' => DancheongMotif.moran,
     'b2_partner_honorific_trap' => DancheongMotif.taegeuk,
     'b2_partner_ancestral_rite' => DancheongMotif.mugunghwa,
-    'b2_partner_family_money' => DancheongMotif.peony,
-    'b2_partner_holiday_duty' => DancheongMotif.mugunghwa,
+    'b2_partner_family_money' => DancheongMotif.yeopjeon,
+    'b2_partner_holiday_duty' => DancheongMotif.bok,
     'b2_partner_boundary' => DancheongMotif.mountain,
     'b2_partner_public_intro' => DancheongMotif.bamboo,
     'c1_partner_family_framing' => DancheongMotif.taegeuk,
-    'c1_partner_holiday_labor' => DancheongMotif.mugunghwa,
+    'c1_partner_holiday_labor' => DancheongMotif.bok,
     'c2_partner_inlaw_power' => DancheongMotif.manja,
     'c2_partner_name_memory' => DancheongMotif.peony,
     // Reviewed A1-C2 content packs using the existing motif pipeline.
     'a1_post_office' => DancheongMotif.noemun,
-    'a1_pharmacy_ask' => DancheongMotif.suryeon,
+    'a1_pharmacy_ask' => DancheongMotif.crane,
     'a1_weekend_promise' => DancheongMotif.vine,
     'a1_neighbors_hall' => DancheongMotif.lotus,
-    'a1_school_supplies' => DancheongMotif.bamboo,
+    'a1_school_supplies' => DancheongMotif.munbangsau,
     'a1_subway_card' => DancheongMotif.mountain,
     'a1_weather_layer' => DancheongMotif.cloud,
     'a1_sorry_thanks' => DancheongMotif.plum,
     'a2_phone_plan' => DancheongMotif.chilbo,
-    'a2_bank_counter' => DancheongMotif.peony,
-    'a2_gym_class' => DancheongMotif.suryeon,
+    'a2_bank_counter' => DancheongMotif.yeopjeon,
+    'a2_gym_class' => DancheongMotif.crane,
     'a2_salon_visit' => DancheongMotif.octagon,
-    'a2_apt_rules' => DancheongMotif.changsal,
+    'a2_apt_rules' => DancheongMotif.wadang,
     'a2_part_time' => DancheongMotif.bamboo,
     'a2_lost_found' => DancheongMotif.mountain,
-    'a2_festival_booth' => DancheongMotif.mugunghwa,
+    'a2_festival_booth' => DancheongMotif.bok,
     'b1_workplace_mail' => DancheongMotif.bamboo,
     'b1_work_softening' => DancheongMotif.bamboo,
     'b1_roommate_talk' => DancheongMotif.plum,
-    'b1_insurance_claim' => DancheongMotif.suryeon,
+    'b1_insurance_claim' => DancheongMotif.crane,
     'b1_public_office' => DancheongMotif.noemun,
     'b1_volunteer_shift' => DancheongMotif.vine,
     'b1_parent_school' => DancheongMotif.lotus,
@@ -257,12 +301,12 @@ DancheongMotif motifForPackId(String packId) {
     'b2_team_negotiation' => DancheongMotif.bamboo,
     'b2_policy_brief' => DancheongMotif.noemun,
     'b2_customer_escalation' => DancheongMotif.wave,
-    'b2_research_summary' => DancheongMotif.chrysanthemum,
-    'c1_evidence_caveat' => DancheongMotif.taegeuk,
+    'b2_research_summary' => DancheongMotif.munbangsau,
+    'c1_evidence_caveat' => DancheongMotif.munbangsau,
     'c1_public_briefing' => DancheongMotif.noemun,
     'c1_survey_design' => DancheongMotif.chilbo,
     'c1_risk_wording' => DancheongMotif.cloud,
-    'c1_access_cost' => DancheongMotif.gwigap,
+    'c1_access_cost' => DancheongMotif.yeopjeon,
     'c1_participation_design' => DancheongMotif.lotus,
     'c1_local_tradeoff' => DancheongMotif.wave,
     'c1_maintenance_burden' => DancheongMotif.vine,
@@ -278,7 +322,7 @@ DancheongMotif motifForPackId(String packId) {
     'c1_media_evidence' => DancheongMotif.gwigap,
     'c1_play_time_policy' => DancheongMotif.gwigap,
     'c1_fan_labor' => DancheongMotif.gwigap,
-    'c1_intimacy_safety' => DancheongMotif.suryeon,
+    'c1_intimacy_safety' => DancheongMotif.crane,
     'c2_automation_redress' => DancheongMotif.noemun,
     'c2_sanction_accountability' => DancheongMotif.noemun,
     'c2_relationship_narratives' => DancheongMotif.moran,
@@ -395,8 +439,6 @@ class _DancheongStampState extends State<DancheongStamp>
   /// (`geometric_octagon` → `octagon` 이 마지막 예외였다). 덕분에
   /// `test/dancheong_stamp_test.dart` 가 "모든 문양에 PNG 가 있다" 를
   /// enum 전수로 검사할 수 있다 — 새 문양을 추가하고 그림을 빠뜨리면 터진다.
-  static String _assetSlug(DancheongMotif m) => 'stamp_${m.name}';
-
   @override
   Widget build(BuildContext context) {
     // PNG 자산 우선; 없으면(로드 실패) 기존 절차적 CustomPainter로 fallback.
@@ -414,7 +456,7 @@ class _DancheongStampState extends State<DancheongStamp>
         .round()
         .clamp(1, 1254);
     Widget stamp = Image.asset(
-      'assets/illustrations/stamps/${_assetSlug(widget.motif)}.png',
+      widget.motif.spec.assetPath,
       width: widget.size,
       height: widget.size,
       fit: BoxFit.contain,
@@ -501,6 +543,7 @@ class _StampPainter extends CustomPainter {
         _drawPlum(canvas, cx, cy, innerR, motifPaint, accentPaint);
         break;
       case DancheongMotif.bamboo:
+      case DancheongMotif.munbangsau:
         _drawBamboo(canvas, cx, cy, innerR, tealPaint, motifPaint);
         break;
       case DancheongMotif.cloud:
@@ -510,6 +553,7 @@ class _StampPainter extends CustomPainter {
         _drawOctagon(canvas, cx, cy, innerR, motifPaint, accentPaint);
         break;
       case DancheongMotif.mountain:
+      case DancheongMotif.crane:
         _drawMountain(canvas, cx, cy, innerR, motifPaint, tealPaint);
         break;
       case DancheongMotif.manja:
@@ -518,6 +562,7 @@ class _StampPainter extends CustomPainter {
       // 하나씩 더 쓰는 건 여기서 얻는 값에 비해 유지비가 크다.
       case DancheongMotif.taegeuk: // 삼태극 ≈ 바람개비
       case DancheongMotif.noemun: // 뇌문 ≈ 만자 (꺾인 띠)
+      case DancheongMotif.wadang:
         _drawManja(canvas, cx, cy, innerR, motifPaint);
         break;
       case DancheongMotif.wave:
@@ -527,11 +572,14 @@ class _StampPainter extends CustomPainter {
       case DancheongMotif.chilbo:
       case DancheongMotif.changsal: // 창살 ≈ 기하 격자
       case DancheongMotif.gwigap: // 칠보·귀갑 ≈ 기하 격자
+      case DancheongMotif.yeopjeon:
         _drawOctagon(canvas, cx, cy, innerR, motifPaint, accentPaint);
         break;
       case DancheongMotif.peony:
       case DancheongMotif.moran:
       case DancheongMotif.suryeon: // 모란·수련 ≈ 겹꽃
+      case DancheongMotif.bok:
+      case DancheongMotif.soban:
         _drawLotus(canvas, cx, cy, innerR, motifPaint, accentPaint);
         break;
       case DancheongMotif.mugunghwa: // 무궁화 ≈ 다섯 장 꽃

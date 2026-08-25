@@ -41,4 +41,30 @@ void main() {
     expect(find.text('free-room-editor'), findsOneWidget);
     semantics.dispose();
   });
+
+  testWidgets(
+    'album exposes both named series and locked living-culture stamps',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      await tester.pumpWidget(
+        MaterialApp(
+          locale: const Locale('en'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: const DojangcheopScreen(),
+        ),
+      );
+      await tester.pump();
+
+      expect(find.text('Dancheong patterns'), findsOneWidget);
+      expect(find.text('Korean everyday culture'), findsOneWidget);
+      expect(find.text('Soban table'), findsOneWidget);
+      expect(
+        find.bySemanticsLabel('Soban table, not collected yet'),
+        findsOneWidget,
+      );
+
+      semantics.dispose();
+    },
+  );
 }

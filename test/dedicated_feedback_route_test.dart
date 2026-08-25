@@ -231,21 +231,22 @@ void main() {
     'listening feedback appears only after completing the selected session',
     (tester) async {
       await tester.pumpWidget(
-        _app(ListeningPlayScreen(scenario: _listeningScenario)),
+        _app(
+          ListeningPlayScreen(
+            scenario: _listeningScenario,
+            speechPlayer: (text, {required voice}) async => true,
+            stopPlayer: () async {},
+          ),
+        ),
       );
       await tester.pump();
-      await tester.pump();
-      // 플레이어에 들어오면 첫 대사를 자동 재생한다. 그 끝에
-      // AudioPolicy 가 200ms 덕킹 복원 타이머를 건다 — 흘려보내지 않으면
-      // "pending timer" 로 실패한다. 기능이 아니라 정리 문제다.
-      await tester.pump(const Duration(milliseconds: 300));
       expect(find.byType(ContentFeedbackCard), findsNothing);
 
-      await _tapText(tester, 'Geschafft!');
+      await _tapText(tester, 'Dialog anhören');
+      await tester.pump();
       await tester.pump();
 
       _expectFeedback(tester, type: 'listening');
-      await tester.pump(const Duration(milliseconds: 300));
     },
   );
 

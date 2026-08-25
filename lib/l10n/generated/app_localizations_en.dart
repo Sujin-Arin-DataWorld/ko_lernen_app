@@ -1379,6 +1379,25 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String get dojangSeriesDancheongTitle => 'Dancheong patterns';
+
+  @override
+  String get dojangSeriesDancheongBody =>
+      'Traditional color and ornament motifs from the existing collection.';
+
+  @override
+  String get dojangSeriesLivingCultureTitle => 'Korean everyday culture';
+
+  @override
+  String get dojangSeriesLivingCultureBody =>
+      'Objects, symbols, and auspicious motifs from learning, home, food, and daily life.';
+
+  @override
+  String dojangReconciled(int count) {
+    return 'We found $count new stamps in your completed packs.';
+  }
+
+  @override
   String get gyeEntryTitle => 'Study Gye';
 
   @override
@@ -3131,6 +3150,64 @@ class AppL10nEn extends AppL10n {
   String get listeningReplay => 'Replay';
 
   @override
+  String get listeningDialogueStart => 'Listen to the dialogue';
+
+  @override
+  String get listeningSceneIntro => 'Scene';
+
+  @override
+  String get listeningParticipants => 'Speakers';
+
+  @override
+  String listeningLineCount(int n) {
+    return '$n lines';
+  }
+
+  @override
+  String get listeningPause => 'Pause';
+
+  @override
+  String get listeningResume => 'Resume listening';
+
+  @override
+  String get listeningShowTranslation => 'Show translation';
+
+  @override
+  String get listeningHideTranslation => 'Hide translation';
+
+  @override
+  String get listeningNarrator => 'Narrator';
+
+  @override
+  String get listeningSpeakerYou => 'You';
+
+  @override
+  String get listeningReviewTitle => 'Review line by line';
+
+  @override
+  String get listeningReviewBody =>
+      'Replay individual lines and open translations only when you need them.';
+
+  @override
+  String get listeningReviewCta => 'Review line by line';
+
+  @override
+  String get listeningBackToScroll => 'Back to the scroll';
+
+  @override
+  String get listeningNextStory => 'Next story';
+
+  @override
+  String get listeningTtsFailedTitle => 'This line could not be played.';
+
+  @override
+  String get listeningTtsFailedBody =>
+      'Try again or keep learning from the Korean text.';
+
+  @override
+  String get listeningRetry => 'Try again';
+
+  @override
   String get listeningGotIt => 'Got it';
 
   @override
@@ -3180,11 +3257,6 @@ class AppL10nEn extends AppL10n {
   @override
   String listeningShelfScenarioCount(int n) {
     return '$n scenarios';
-  }
-
-  @override
-  String listeningLineCount(int n) {
-    return '$n lines';
   }
 
   @override
@@ -5782,7 +5854,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachDojangBody =>
-      'Complete vocabulary packs to unlock all 19 Dancheong stamp designs';
+      'Complete vocabulary packs to unlock all 25 stamps';
 
   @override
   String get coachGyeStep1Title => 'Weekly goal';
@@ -7714,6 +7786,24 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get stampMotifMoran => 'Moran dancheong';
+
+  @override
+  String get stampMotifMunbangsau => 'Four Treasures of the Study';
+
+  @override
+  String get stampMotifBok => 'Bok fortune character (福)';
+
+  @override
+  String get stampMotifCrane => 'Flying crane';
+
+  @override
+  String get stampMotifWadang => 'Smiling roof tile';
+
+  @override
+  String get stampMotifYeopjeon => 'Three yeopjeon coins';
+
+  @override
+  String get stampMotifSoban => 'Soban table';
 
   @override
   String get gyeDedicationTitle => 'Shared exhibition';

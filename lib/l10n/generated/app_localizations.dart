@@ -2473,6 +2473,36 @@ abstract class AppL10n {
   /// **'{earned} von {total} Stempeln gesammelt'**
   String dojangProgress(int earned, int total);
 
+  /// No description provided for @dojangSeriesDancheongTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Dancheong-Muster'**
+  String get dojangSeriesDancheongTitle;
+
+  /// No description provided for @dojangSeriesDancheongBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Traditionelle Farb- und Ornamentmotive aus der bisherigen Sammlung.'**
+  String get dojangSeriesDancheongBody;
+
+  /// No description provided for @dojangSeriesLivingCultureTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Koreanische Alltagskultur'**
+  String get dojangSeriesLivingCultureTitle;
+
+  /// No description provided for @dojangSeriesLivingCultureBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Gegenstände, Zeichen und Glücksmotive aus Lernen, Wohnen, Essen und Alltag.'**
+  String get dojangSeriesLivingCultureBody;
+
+  /// No description provided for @dojangReconciled.
+  ///
+  /// In de, this message translates to:
+  /// **'In deinen Abschlüssen wurden {count} neue Stempel gefunden.'**
+  String dojangReconciled(int count);
+
   /// No description provided for @gyeEntryTitle.
   ///
   /// In de, this message translates to:
@@ -5503,6 +5533,114 @@ abstract class AppL10n {
   /// **'Wiederholen'**
   String get listeningReplay;
 
+  /// No description provided for @listeningDialogueStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Dialog anhören'**
+  String get listeningDialogueStart;
+
+  /// No description provided for @listeningSceneIntro.
+  ///
+  /// In de, this message translates to:
+  /// **'Szene'**
+  String get listeningSceneIntro;
+
+  /// No description provided for @listeningParticipants.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprechende'**
+  String get listeningParticipants;
+
+  /// No description provided for @listeningLineCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} Zeilen'**
+  String listeningLineCount(int n);
+
+  /// No description provided for @listeningPause.
+  ///
+  /// In de, this message translates to:
+  /// **'Pause'**
+  String get listeningPause;
+
+  /// No description provided for @listeningResume.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterhören'**
+  String get listeningResume;
+
+  /// No description provided for @listeningShowTranslation.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzung zeigen'**
+  String get listeningShowTranslation;
+
+  /// No description provided for @listeningHideTranslation.
+  ///
+  /// In de, this message translates to:
+  /// **'Übersetzung ausblenden'**
+  String get listeningHideTranslation;
+
+  /// No description provided for @listeningNarrator.
+  ///
+  /// In de, this message translates to:
+  /// **'Erzählstimme'**
+  String get listeningNarrator;
+
+  /// No description provided for @listeningSpeakerYou.
+  ///
+  /// In de, this message translates to:
+  /// **'Du'**
+  String get listeningSpeakerYou;
+
+  /// No description provided for @listeningReviewTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeile für Zeile wiederholen'**
+  String get listeningReviewTitle;
+
+  /// No description provided for @listeningReviewBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Hör einzelne Zeilen erneut und öffne die Übersetzung nur bei Bedarf.'**
+  String get listeningReviewBody;
+
+  /// No description provided for @listeningReviewCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeile für Zeile wiederholen'**
+  String get listeningReviewCta;
+
+  /// No description provided for @listeningBackToScroll.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück zur Schriftrolle'**
+  String get listeningBackToScroll;
+
+  /// No description provided for @listeningNextStory.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächste Geschichte'**
+  String get listeningNextStory;
+
+  /// No description provided for @listeningTtsFailedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Zeile konnte nicht abgespielt werden.'**
+  String get listeningTtsFailedTitle;
+
+  /// No description provided for @listeningTtsFailedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Versuch es erneut oder lerne mit dem koreanischen Text weiter.'**
+  String get listeningTtsFailedBody;
+
+  /// No description provided for @listeningRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut versuchen'**
+  String get listeningRetry;
+
   /// No description provided for @listeningGotIt.
   ///
   /// In de, this message translates to:
@@ -5574,12 +5712,6 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{n} Szenarien'**
   String listeningShelfScenarioCount(int n);
-
-  /// No description provided for @listeningLineCount.
-  ///
-  /// In de, this message translates to:
-  /// **'{n} Zeilen'**
-  String listeningLineCount(int n);
 
   /// No description provided for @listeningShelfA1Transit.
   ///
@@ -10053,7 +10185,7 @@ abstract class AppL10n {
   /// No description provided for @coachDojangBody.
   ///
   /// In de, this message translates to:
-  /// **'Schließe Vokabelpacks ab, um alle 19 Dancheong-Muster freizuschalten'**
+  /// **'Schließe Vokabelpacks ab, um alle 25 Stempel freizuschalten'**
   String get coachDojangBody;
 
   /// No description provided for @coachGyeStep1Title.
@@ -13457,6 +13589,42 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Moran-Dancheong'**
   String get stampMotifMoran;
+
+  /// No description provided for @stampMotifMunbangsau.
+  ///
+  /// In de, this message translates to:
+  /// **'Vier Schätze des Studierzimmers'**
+  String get stampMotifMunbangsau;
+
+  /// No description provided for @stampMotifBok.
+  ///
+  /// In de, this message translates to:
+  /// **'Glückszeichen Bok (福)'**
+  String get stampMotifBok;
+
+  /// No description provided for @stampMotifCrane.
+  ///
+  /// In de, this message translates to:
+  /// **'Fliegender Kranich'**
+  String get stampMotifCrane;
+
+  /// No description provided for @stampMotifWadang.
+  ///
+  /// In de, this message translates to:
+  /// **'Lächelnder Dachziegel'**
+  String get stampMotifWadang;
+
+  /// No description provided for @stampMotifYeopjeon.
+  ///
+  /// In de, this message translates to:
+  /// **'Drei Yeopjeon-Münzen'**
+  String get stampMotifYeopjeon;
+
+  /// No description provided for @stampMotifSoban.
+  ///
+  /// In de, this message translates to:
+  /// **'Soban-Tisch'**
+  String get stampMotifSoban;
 
   /// No description provided for @gyeDedicationTitle.
   ///

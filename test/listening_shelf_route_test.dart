@@ -34,9 +34,7 @@ Scenario _scenario({
   intro: const LocalizedText(ko: '', de: 'Intro', en: 'Intro'),
   vocab: const [],
   grammarIds: const [],
-  dialog: [
-    DialogLine(speaker: 'jieun', ko: '$title 한국어', de: 'de', en: 'en'),
-  ],
+  dialog: [DialogLine(speaker: 'jieun', ko: '$title 한국어', de: 'de', en: 'en')],
   quests: const [],
 );
 
@@ -63,7 +61,9 @@ Future<void> _openCompartment(WidgetTester tester, String label) async {
   await tester.pump();
   await tester.tap(target);
   await tester.pump();
-  await tester.pump(kChaekgadoUnrollDuration + const Duration(milliseconds: 100));
+  await tester.pump(
+    kChaekgadoUnrollDuration + const Duration(milliseconds: 100),
+  );
 }
 
 void main() {
@@ -124,7 +124,11 @@ void main() {
           scenariosLoader: () async => [
             _scenario(id: 'f1', shelf: 'a1_friends', title: 'Zusammen zocken'),
             _scenario(id: 'f2', shelf: 'a1_friends', title: 'Wochenende'),
-            _scenario(id: 'd1', shelf: 'a1_dating', title: 'Wie nenne ich dich'),
+            _scenario(
+              id: 'd1',
+              shelf: 'a1_dating',
+              title: 'Wie nenne ich dich',
+            ),
           ],
         ),
       ),
@@ -182,11 +186,14 @@ void main() {
     await _openCompartment(tester, label);
     await tester.tap(find.text('Wochenende'));
     await tester.pump();
-    await tester.pump(kChaekgadoUnrollDuration + const Duration(milliseconds: 100));
+    await tester.pump(
+      kChaekgadoUnrollDuration + const Duration(milliseconds: 100),
+    );
 
     // 재생은 별도 라우트다 — 두루마리가 닫히기만 하고 선택이 버려지면 실패.
     expect(find.byType(ListeningPlayScreen), findsOneWidget);
-    expect(find.text('Wochenende 한국어'), findsOneWidget);
+    expect(find.text('Dialog anhören'), findsOneWidget);
+    expect(find.text('Wochenende 한국어'), findsNothing);
     expect(find.byType(ChaekgadoScrollItem), findsNothing);
     expect(
       find.descendant(

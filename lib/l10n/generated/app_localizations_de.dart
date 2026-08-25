@@ -1383,6 +1383,25 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
+  String get dojangSeriesDancheongTitle => 'Dancheong-Muster';
+
+  @override
+  String get dojangSeriesDancheongBody =>
+      'Traditionelle Farb- und Ornamentmotive aus der bisherigen Sammlung.';
+
+  @override
+  String get dojangSeriesLivingCultureTitle => 'Koreanische Alltagskultur';
+
+  @override
+  String get dojangSeriesLivingCultureBody =>
+      'Gegenstände, Zeichen und Glücksmotive aus Lernen, Wohnen, Essen und Alltag.';
+
+  @override
+  String dojangReconciled(int count) {
+    return 'In deinen Abschlüssen wurden $count neue Stempel gefunden.';
+  }
+
+  @override
   String get gyeEntryTitle => 'Lern-Gye';
 
   @override
@@ -3145,6 +3164,65 @@ class AppL10nDe extends AppL10n {
   String get listeningReplay => 'Wiederholen';
 
   @override
+  String get listeningDialogueStart => 'Dialog anhören';
+
+  @override
+  String get listeningSceneIntro => 'Szene';
+
+  @override
+  String get listeningParticipants => 'Sprechende';
+
+  @override
+  String listeningLineCount(int n) {
+    return '$n Zeilen';
+  }
+
+  @override
+  String get listeningPause => 'Pause';
+
+  @override
+  String get listeningResume => 'Weiterhören';
+
+  @override
+  String get listeningShowTranslation => 'Übersetzung zeigen';
+
+  @override
+  String get listeningHideTranslation => 'Übersetzung ausblenden';
+
+  @override
+  String get listeningNarrator => 'Erzählstimme';
+
+  @override
+  String get listeningSpeakerYou => 'Du';
+
+  @override
+  String get listeningReviewTitle => 'Zeile für Zeile wiederholen';
+
+  @override
+  String get listeningReviewBody =>
+      'Hör einzelne Zeilen erneut und öffne die Übersetzung nur bei Bedarf.';
+
+  @override
+  String get listeningReviewCta => 'Zeile für Zeile wiederholen';
+
+  @override
+  String get listeningBackToScroll => 'Zurück zur Schriftrolle';
+
+  @override
+  String get listeningNextStory => 'Nächste Geschichte';
+
+  @override
+  String get listeningTtsFailedTitle =>
+      'Diese Zeile konnte nicht abgespielt werden.';
+
+  @override
+  String get listeningTtsFailedBody =>
+      'Versuch es erneut oder lerne mit dem koreanischen Text weiter.';
+
+  @override
+  String get listeningRetry => 'Erneut versuchen';
+
+  @override
   String get listeningGotIt => 'Verstanden';
 
   @override
@@ -3194,11 +3272,6 @@ class AppL10nDe extends AppL10n {
   @override
   String listeningShelfScenarioCount(int n) {
     return '$n Szenarien';
-  }
-
-  @override
-  String listeningLineCount(int n) {
-    return '$n Zeilen';
   }
 
   @override
@@ -5803,7 +5876,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachDojangBody =>
-      'Schließe Vokabelpacks ab, um alle 19 Dancheong-Muster freizuschalten';
+      'Schließe Vokabelpacks ab, um alle 25 Stempel freizuschalten';
 
   @override
   String get coachGyeStep1Title => 'Wochenziel';
@@ -7751,6 +7824,24 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get stampMotifMoran => 'Moran-Dancheong';
+
+  @override
+  String get stampMotifMunbangsau => 'Vier Schätze des Studierzimmers';
+
+  @override
+  String get stampMotifBok => 'Glückszeichen Bok (福)';
+
+  @override
+  String get stampMotifCrane => 'Fliegender Kranich';
+
+  @override
+  String get stampMotifWadang => 'Lächelnder Dachziegel';
+
+  @override
+  String get stampMotifYeopjeon => 'Drei Yeopjeon-Münzen';
+
+  @override
+  String get stampMotifSoban => 'Soban-Tisch';
 
   @override
   String get gyeDedicationTitle => 'Gemeinsame Ausstellung';

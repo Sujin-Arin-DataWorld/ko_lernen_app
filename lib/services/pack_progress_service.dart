@@ -6,6 +6,7 @@ import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'firestore_progress_service.dart';
 import 'storage_service.dart';
+import 'stamp_entitlement_reconciler.dart';
 import 'vocab_pack_service.dart';
 
 class PackCatalogEntry {
@@ -381,13 +382,17 @@ class PackProgressService {
     if (uid == null) {
       return CloudWriteResult.blocked;
     }
-    return pullTypedFromCloudWithSession(
+    final result = await pullTypedFromCloudWithSession(
       sessions: cloudWriteSessionController,
       uid: uid,
       loadRemote: () => FirestoreProgressService.loadAllTyped(uid: uid),
       loadLocal: getAll,
       persistLocal: Storage.setManyPackProgressJson,
     );
+    if (result == CloudWriteResult.completed) {
+      await StampEntitlementReconciler.reconcile(progress: getAll());
+    }
+    return result;
   }
 
   static Future<CloudWriteResult> pullTypedFromCloudWithSession({

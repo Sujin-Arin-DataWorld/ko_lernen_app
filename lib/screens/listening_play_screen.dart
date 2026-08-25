@@ -1,37 +1,50 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../controllers/listening_playback_controller.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
 import '../services/analytics_service.dart';
 import '../services/content_share_service.dart';
-import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../services/quest_abandon_tracker.dart';
+import '../services/scenario_loader.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
 import '../widgets/sori/badge.dart';
 import '../widgets/sori/button.dart';
+import '../widgets/sori/card.dart';
 import '../widgets/sori/character_clip.dart';
-import '../widgets/sori/chaekgado/scroll_sheet.dart';
 import '../widgets/sori/content_feedback_card.dart';
-import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/pressable.dart';
-import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
 
-/// One-line listening player. The chaekgado shelf stays on `/listening`.
+Future<bool> _speakWithTts(String text, {required String voice}) =>
+    TtsService.speak(text, voice: voice);
+
+Future<void> _stopTts() => TtsService.stop();
+
+/// 책가도에서 고른 한 장면을 시작 전 소개·자동 대화극·줄별 복습으로 재생한다.
 class ListeningPlayScreen extends StatefulWidget {
-  const ListeningPlayScreen({super.key, required this.scenario});
+  const ListeningPlayScreen({
+    super.key,
+    required this.scenario,
+    this.speechPlayer = _speakWithTts,
+    this.stopPlayer = _stopTts,
+  });
 
   final Scenario scenario;
+  final ListeningSpeak speechPlayer;
+  final ListeningStop stopPlayer;
 
   static Widget fromRouteArgs(Object? arguments) {
     if (arguments is Scenario && arguments.dialog.isNotEmpty) {
@@ -45,32 +58,25 @@ class ListeningPlayScreen extends StatefulWidget {
 }
 
 class _ListeningPlayScreenState extends State<ListeningPlayScreen>
-    with ScreenCoachMixin<ListeningPlayScreen> {
-  int _step = 0;
-  bool _completed = false;
-  bool _showGloss = false;
+    with WidgetsBindingObserver, ScreenCoachMixin<ListeningPlayScreen> {
+  late final ListeningPlaybackController _playback;
   final ListeningFeedbackCompletionState _feedbackCompletion =
       ListeningFeedbackCompletionState();
+  final ScrollController _scrollController = ScrollController();
   QuestAbandonTracker? _abandonTracker;
+  bool _completionPersisted = false;
   final GlobalKey _speedKey = GlobalKey();
-  final GlobalKey _lineKey = GlobalKey();
+  final GlobalKey _conversationKey = GlobalKey();
 
   Scenario get _scenario => widget.scenario;
-
-  DialogLine get _line => _scenario.dialog[_step];
-
-  /// 덱 공유 폰트 실측의 입력 — 시나리오 전체 대사를 어절로 쪼갠 목록.
-  /// 줄마다 다시 만들면 값이 흔들릴 수 있어 한 번만 만든다.
-  late final List<String> _deckWords = _scenario.dialog
-      .expand((line) => line.ko.split(' '))
-      .where((word) => word.trim().isNotEmpty)
-      .toList(growable: false);
 
   @override
   String get coachId => 'listening_play';
 
   @override
-  bool get coachReady => !_completed && _scenario.dialog.isNotEmpty;
+  bool get coachReady =>
+      _playback.phase != ListeningPlaybackPhase.intro &&
+      _playback.phase != ListeningPlaybackPhase.complete;
 
   @override
   List<SpotlightStep> buildCoachSteps(BuildContext context) {
@@ -83,7 +89,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
         icon: Icons.speed_rounded,
       ),
       SpotlightStep(
-        targetKey: _lineKey,
+        targetKey: _conversationKey,
         title: t.coachListeningStep3Title,
         body: t.coachListeningStep3Body,
         icon: Icons.headphones_rounded,
@@ -94,6 +100,13 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    _playback = ListeningPlaybackController(
+      lines: _scenario.dialog,
+      speak: widget.speechPlayer,
+      stop: widget.stopPlayer,
+      onCompleted: _finish,
+    )..addListener(_onPlaybackChanged);
     Analytics.lessonStarted(
       lessonType: 'listening',
       lessonId: _scenario.id,
@@ -102,62 +115,55 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     _abandonTracker = QuestAbandonTracker(
       questType: 'listening',
       questId: _scenario.id,
-      lastStepReached: () => 'line_$_step',
+      lastStepReached: () => 'line_${_playback.currentIndex}',
     );
-    scheduleCoach();
-    _speakCurrent();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) {
+      unawaited(_playback.stopForLifecycle());
+    }
+  }
+
+  void _onPlaybackChanged() {
+    if (!mounted) {
+      return;
+    }
+    setState(() {});
+    if (_playback.phase == ListeningPlaybackPhase.autoplay) {
+      WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToLatest());
+    }
+  }
+
+  void _scrollToLatest() {
+    if (!mounted || !_scrollController.hasClients) {
+      return;
+    }
+    final target = _scrollController.position.maxScrollExtent;
+    if (MediaQuery.maybeOf(context)?.disableAnimations ?? false) {
+      _scrollController.jumpTo(target);
+    } else {
+      _scrollController.animateTo(
+        target,
+        duration: const Duration(milliseconds: 260),
+        curve: Curves.easeOut,
+      );
+    }
   }
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _playback.removeListener(_onPlaybackChanged);
+    _playback.dispose();
+    _scrollController.dispose();
     _abandonTracker?.dispose();
-    TtsService.stop();
     super.dispose();
   }
 
-  Future<void> _speakCurrent() async {
-    if (_completed || _step >= _scenario.dialog.length) {
-      return;
-    }
-    final line = _scenario.dialog[_step];
-    if (line.speaker == 'narrator' || line.ko.isEmpty) {
-      return;
-    }
-    await TtsService.speak(
-      line.ko,
-      voice: line.speaker == 'user' ? 'female' : 'male',
-    );
-  }
-
-  void _goTo(int next) {
-    if (next < 0 || next >= _scenario.dialog.length) {
-      return;
-    }
-    HapticFeedback.selectionClick();
-    setState(() {
-      _step = next;
-      _showGloss = false;
-    });
-    _speakCurrent();
-  }
-
-  void _next() {
-    if (_step >= _scenario.dialog.length - 1) {
-      _finish();
-      return;
-    }
-    _goTo(_step + 1);
-  }
-
-  void _prev() {
-    if (_step == 0) {
-      return;
-    }
-    _goTo(_step - 1);
-  }
-
   Future<void> _finish() async {
-    if (_completed) {
+    if (_completionPersisted) {
       return;
     }
     Analytics.lessonCompleted(
@@ -167,7 +173,6 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     );
     _abandonTracker?.markCompleted();
     final lang = Localizations.localeOf(context).languageCode;
-    HapticFeedback.heavyImpact();
     final earned = (_scenario.dialog.length * 8).clamp(40, 120);
     final completion = await _feedbackCompletion.finish(
       persistXp: () async {
@@ -185,53 +190,53 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     if (!mounted || completion == null) {
       return;
     }
-    setState(() => _completed = true);
+    _completionPersisted = true;
+    HapticFeedback.heavyImpact();
+    setState(() {});
   }
 
-  void _restart() {
-    HapticFeedback.selectionClick();
-    setState(() {
-      _step = 0;
-      _completed = false;
-      _showGloss = false;
-      _feedbackCompletion.reset();
-    });
-    _speakCurrent();
-  }
-
-  Future<void> _likeCurrent() async {
+  Future<void> _likeLine(int index) async {
     await LikedContentService.toggle(
       kind: LikedContentService.listening,
-      id: '${_scenario.id}:$_step',
+      id: '${_scenario.id}:$index',
     );
     if (mounted) {
       setState(() {});
     }
   }
 
-  Future<void> _bookmarkCurrent() async {
-    final lang = Localizations.localeOf(context).languageCode;
-    final gloss = _line.pick(lang);
-    await addToWordbook(
-      context,
-      korean: _line.ko,
-      translationDe: lang == 'en' ? _line.de : gloss,
-      translationEn: _line.en,
-      translationLanguage: lang,
-      source: 'listening',
-    );
-  }
-
-  Future<void> _shareCurrent() async {
+  Future<void> _shareLine(int index) async {
     final t = AppL10n.of(context);
+    final line = _scenario.dialog[index];
     final lang = Localizations.localeOf(context).languageCode;
     final outcome = await ContentShareService.shareStory(
-      korean: _line.ko,
-      gloss: _line.pick(lang),
+      korean: line.ko,
+      gloss: line.pick(lang),
     );
     if (outcome == ShareOutcome.failed && mounted) {
       soriToast(context, t.shareError);
     }
+  }
+
+  Future<void> _openNextStory() async {
+    final scenarios = (await ScenarioLoader.load())
+        .where((item) => item.dialog.isNotEmpty)
+        .toList(growable: false);
+    if (!mounted || scenarios.isEmpty) {
+      return;
+    }
+    final sameShelf = scenarios
+        .where((item) => item.shelf == _scenario.shelf)
+        .toList(growable: false);
+    final candidates = sameShelf.length > 1 ? sameShelf : scenarios;
+    final current = candidates.indexWhere((item) => item.id == _scenario.id);
+    final next = candidates[(current + 1) % candidates.length];
+    await Navigator.of(context).pushReplacement(
+      MaterialPageRoute<void>(
+        settings: const RouteSettings(name: '/listening/play'),
+        builder: (_) => ListeningPlayScreen(scenario: next),
+      ),
+    );
   }
 
   @override
@@ -239,14 +244,14 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
     final title = _scenario.title.pick(lang);
+    final progress = _playback.phase == ListeningPlaybackPhase.intro
+        ? t.listeningLineCount(_scenario.dialog.length)
+        : t.listeningProgress(_playback.revealedCount, _scenario.dialog.length);
     return SoriStudyFrame(
       title: title.isEmpty ? t.listeningTitle : title,
-      eyebrow: t.listeningProgress(
-        _completed ? _scenario.dialog.length : _step + 1,
-        _scenario.dialog.length,
-      ),
+      eyebrow: progress,
       actions: [KeyedSubtree(key: _speedKey, child: const TtsSpeedAction())],
-      particles: true,
+      particles: _playback.phase == ListeningPlaybackPhase.complete,
       padding: const EdgeInsets.fromLTRB(
         Spacing.lg,
         Spacing.sm,
@@ -255,39 +260,166 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
       ),
       child: SoriAdaptiveStudyBody(
         minHeight: 520,
-        child: _completed ? _buildComplete(t) : _buildFeed(t, lang),
+        child: switch (_playback.phase) {
+          ListeningPlaybackPhase.intro => _buildIntro(t, lang),
+          ListeningPlaybackPhase.complete => _buildComplete(t),
+          _ => _buildConversation(t, lang),
+        },
       ),
     );
   }
 
-  Widget _buildFeed(AppL10n t, String lang) {
-    final last = _step >= _scenario.dialog.length - 1;
-    return SoriContentFeed(
-      judgmentsEnabled: true,
-      onNext: _next,
-      onPrevious: _step > 0 ? _prev : null,
-      onLike: _likeCurrent,
-      onBookmark: _line.ko.isEmpty ? null : _bookmarkCurrent,
-      bookmarkKey: _line.ko,
-      onShare: _shareCurrent,
-      onFlip: () => setState(() => _showGloss = !_showGloss),
-      liked: LikedContentService.isLiked(
-        kind: LikedContentService.listening,
-        id: '${_scenario.id}:$_step',
-      ),
-      showBookmark: _line.ko.isNotEmpty,
-      knowLabel: last ? t.listeningCompleteTitle : t.listeningNext,
-      child: KeyedSubtree(
-        key: _lineKey,
-        child: _ListeningLinePage(
-          line: _line,
-          deckWords: _deckWords,
-          showGloss: _showGloss,
-          lang: lang,
-          replayLabel: t.listeningReplay,
-          onReplay: _speakCurrent,
+  Widget _buildIntro(AppL10n t, String lang) {
+    final intro = _scenario.intro.pick(lang);
+    final speakers = <String>{
+      for (final line in _scenario.dialog)
+        if (line.speaker != 'narrator') _speakerName(t, line.speaker),
+    }.join(', ');
+    return Column(
+      children: [
+        Expanded(
+          child: SingleChildScrollView(
+            child: SoriCard(
+              variant: SoriCardVariant.base,
+              child: Column(
+                children: [
+                  const Mascot(
+                    kind: MascotKind.tiger,
+                    emotion: MascotEmotion.smile,
+                    size: 88,
+                  ),
+                  const SizedBox(height: Spacing.md),
+                  Text(
+                    t.listeningSceneIntro,
+                    style: SoriTextTheme.of(
+                      context,
+                    ).meta.copyWith(color: SoriColors.contentCta),
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  if (intro.isNotEmpty)
+                    Text(
+                      intro,
+                      textAlign: TextAlign.center,
+                      style: SoriTextTheme.of(context).body,
+                    ),
+                  const SizedBox(height: Spacing.lg),
+                  _IntroFact(
+                    icon: Icons.people_outline_rounded,
+                    label: t.listeningParticipants,
+                    value: speakers,
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  _IntroFact(
+                    icon: Icons.format_list_numbered_rounded,
+                    label: t.listeningTitle,
+                    value: t.listeningLineCount(_scenario.dialog.length),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
-      ),
+        const SizedBox(height: Spacing.md),
+        SoriButton.filled(
+          key: const ValueKey('listening-dialogue-start'),
+          label: t.listeningDialogueStart,
+          icon: Icons.play_arrow_rounded,
+          accent: SoriColors.contentCta,
+          fullWidth: true,
+          onTap: () {
+            _playback.start();
+            scheduleCoach();
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _buildConversation(AppL10n t, String lang) {
+    final review = _playback.phase == ListeningPlaybackPhase.review;
+    return Column(
+      key: _conversationKey,
+      children: [
+        Expanded(
+          child: ListView(
+            controller: _scrollController,
+            padding: const EdgeInsets.symmetric(vertical: Spacing.sm),
+            children: [
+              if (review) ...[
+                Text(
+                  t.listeningReviewTitle,
+                  textAlign: TextAlign.center,
+                  style: SoriTextTheme.of(context).h3,
+                ),
+                const SizedBox(height: Spacing.xs),
+                Text(
+                  t.listeningReviewBody,
+                  textAlign: TextAlign.center,
+                  style: SoriTextTheme.of(context).bodySmall,
+                ),
+                const SizedBox(height: Spacing.md),
+              ],
+              if (_playback.ttsFailed) ...[
+                _TtsFailureCard(
+                  title: t.listeningTtsFailedTitle,
+                  body: t.listeningTtsFailedBody,
+                  retryLabel: t.listeningRetry,
+                  onRetry: _playback.retryCurrent,
+                ),
+                const SizedBox(height: Spacing.sm),
+              ],
+              for (var index = 0; index < _playback.revealedCount; index++)
+                _DialogueBubble(
+                  line: _scenario.dialog[index],
+                  speakerName: _speakerName(t, _scenario.dialog[index].speaker),
+                  gloss: _scenario.dialog[index].pick(lang),
+                  current: index == _playback.currentIndex,
+                  review: review,
+                  translationExpanded: _playback.expandedTranslations.contains(
+                    index,
+                  ),
+                  showTranslationLabel: t.listeningShowTranslation,
+                  hideTranslationLabel: t.listeningHideTranslation,
+                  translationLanguage: lang,
+                  replayLabel: t.listeningReplay,
+                  likeLabel: t.contentActionLike,
+                  shareLabel: t.shareTooltip,
+                  liked: LikedContentService.isLiked(
+                    kind: LikedContentService.listening,
+                    id: '${_scenario.id}:$index',
+                  ),
+                  onTranslation: () => _playback.toggleTranslation(index),
+                  onReplay: () => _playback.replayLine(index),
+                  onLike: () => _likeLine(index),
+                  onShare: () => _shareLine(index),
+                ),
+            ],
+          ),
+        ),
+        const SizedBox(height: Spacing.sm),
+        if (_playback.phase == ListeningPlaybackPhase.autoplay)
+          SoriButton.outlined(
+            label: t.listeningPause,
+            icon: Icons.pause_rounded,
+            fullWidth: true,
+            onTap: _playback.pause,
+          )
+        else if (_playback.phase == ListeningPlaybackPhase.paused)
+          SoriButton.filled(
+            label: t.listeningResume,
+            icon: Icons.play_arrow_rounded,
+            accent: SoriColors.contentCta,
+            fullWidth: true,
+            onTap: _playback.resume,
+          )
+        else
+          SoriButton.outlined(
+            label: t.listeningBackToScroll,
+            icon: Icons.arrow_back_rounded,
+            fullWidth: true,
+            onTap: () => Navigator.of(context).pop(),
+          ),
+      ],
     );
   }
 
@@ -295,259 +427,364 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     final surfaces = SoriSurfaces.of(context);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
     final xp = (_scenario.dialog.length * 8).clamp(40, 120);
-    return Column(
-      children: [
-        Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CharacterClipPlayer(
-                asset: CharacterClips.magpieCelebrate,
-                size: 104,
-                blendColor: surfaces.bg,
-                fallbackKind: MascotKind.magpie,
-                fallbackEmotion: MascotEmotion.celebrate,
-              ),
-              const SizedBox(height: Spacing.md),
-              Text(
-                t.listeningCompleteTitle,
-                style: SoriTextTheme.of(
-                  context,
-                ).h2.copyWith(color: SoriColors.contentCta),
-              ),
-              const SizedBox(height: Spacing.sm),
-              Text(
-                t.listeningCompleteBody(_scenario.dialog.length, xp),
-                textAlign: TextAlign.center,
-                style: SoriTextTheme.of(context).body,
-              ),
-              const SizedBox(height: Spacing.md),
-              SoriBadge.xp(xp, size: 28),
-              if (feedbackScope != null &&
-                  feedbackScope.featureGate.isEnabled &&
-                  _feedbackCompletion.current != null) ...[
-                const SizedBox(height: Spacing.lg),
-                ContentFeedbackCard(
-                  feedbackContext: _feedbackCompletion.current!.context,
-                  featureGate: feedbackScope.featureGate,
-                  submitFeedback: feedbackScope.submitFeedback,
-                  mascotKind: MascotKind.magpie,
-                  completedMissionIds: feedbackScope.completedMissionIds,
-                ),
-              ],
-            ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          CharacterClipPlayer(
+            asset: CharacterClips.magpieCelebrate,
+            size: 104,
+            blendColor: surfaces.bg,
+            fallbackKind: MascotKind.magpie,
+            fallbackEmotion: MascotEmotion.celebrate,
           ),
-        ),
-        Row(
-          children: [
-            Expanded(
-              child: SoriButton.outlined(
-                label: t.listeningReplay,
-                icon: Icons.replay_rounded,
-                fullWidth: true,
-                onTap: _restart,
-              ),
-            ),
-            const SizedBox(width: Spacing.sm),
-            Expanded(
-              child: SoriButton.filled(
-                label: t.listeningGotIt,
-                accent: SoriColors.contentCta,
-                fullWidth: true,
-                onTap: () => Navigator.pop(context),
-              ),
+          const SizedBox(height: Spacing.md),
+          Text(
+            t.listeningCompleteTitle,
+            style: SoriTextTheme.of(
+              context,
+            ).h2.copyWith(color: SoriColors.contentCta),
+          ),
+          const SizedBox(height: Spacing.sm),
+          Text(
+            t.listeningCompleteBody(_scenario.dialog.length, xp),
+            textAlign: TextAlign.center,
+            style: SoriTextTheme.of(context).body,
+          ),
+          const SizedBox(height: Spacing.md),
+          SoriBadge.xp(xp, size: 28),
+          if (feedbackScope != null &&
+              feedbackScope.featureGate.isEnabled &&
+              _feedbackCompletion.current != null) ...[
+            const SizedBox(height: Spacing.lg),
+            ContentFeedbackCard(
+              feedbackContext: _feedbackCompletion.current!.context,
+              featureGate: feedbackScope.featureGate,
+              submitFeedback: feedbackScope.submitFeedback,
+              mascotKind: MascotKind.magpie,
+              completedMissionIds: feedbackScope.completedMissionIds,
             ),
           ],
+          const SizedBox(height: Spacing.xl),
+          SoriButton.filled(
+            label: t.listeningReviewCta,
+            icon: Icons.format_list_bulleted_rounded,
+            accent: SoriColors.contentCta,
+            fullWidth: true,
+            onTap: _playback.enterReview,
+          ),
+          const SizedBox(height: Spacing.sm),
+          Row(
+            children: [
+              Expanded(
+                child: SoriButton.outlined(
+                  label: t.listeningNextStory,
+                  icon: Icons.skip_next_rounded,
+                  fullWidth: true,
+                  onTap: _openNextStory,
+                ),
+              ),
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: SoriButton.outlined(
+                  label: t.listeningBackToScroll,
+                  icon: Icons.arrow_back_rounded,
+                  fullWidth: true,
+                  onTap: () => Navigator.of(context).pop(),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _speakerName(AppL10n t, String speaker) {
+    if (speaker == 'user') {
+      return t.listeningSpeakerYou;
+    }
+    if (speaker == 'narrator') {
+      return t.listeningNarrator;
+    }
+    final trimmed = speaker.trim();
+    if (trimmed.isEmpty) {
+      return t.listeningNarrator;
+    }
+    return '${trimmed[0].toUpperCase()}${trimmed.substring(1)}';
+  }
+}
+
+class _IntroFact extends StatelessWidget {
+  const _IntroFact({
+    required this.icon,
+    required this.label,
+    required this.value,
+  });
+
+  final IconData icon;
+  final String label;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(icon, color: SoriColors.contentCta),
+        const SizedBox(width: Spacing.sm),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(label, style: SoriTextTheme.of(context).meta),
+              Text(value, style: SoriTextTheme.of(context).body),
+            ],
+          ),
         ),
       ],
     );
   }
 }
 
-/// 재생 꼬리표/한국어 줄이 쓰는 최소 탭 타깃. 실측(카드 높이 계산)과 렌더가
-/// 같은 값을 봐야 안전망 FittedBox 가 개입하지 않는다.
-const double _kReplayTapTarget = 48;
-
-/// 한 줄짜리 두루마리 카드. **크기를 정하는 건 콘텐츠지 화면 비율이 아니다.**
-///
-/// 예전에는 `cardHeight = maxHeight * 0.34` 고정이라 짧은 줄에서는 카드 안이
-/// 텅 비고 긴 줄에서는 글자가 축 띠 밖으로 밀려났다(2026-08-23 진단 B1/B2).
-/// 지금은 ① 덱 전체가 공유하는 한 폰트 크기를 [soriUniformFitSize] 로 먼저 잡고,
-/// ② 그 크기로 이 줄의 실제 콘텐츠 높이를 TextPainter 로 실측한 뒤,
-/// ③ 종이 비율(위/아래 축 띠)을 되돌려 카드 높이를 만든다.
-class _ListeningLinePage extends StatelessWidget {
-  const _ListeningLinePage({
+class _DialogueBubble extends StatelessWidget {
+  const _DialogueBubble({
     required this.line,
-    required this.deckWords,
-    required this.showGloss,
-    required this.lang,
+    required this.speakerName,
+    required this.gloss,
+    required this.current,
+    required this.review,
+    required this.translationExpanded,
+    required this.showTranslationLabel,
+    required this.hideTranslationLabel,
+    required this.translationLanguage,
     required this.replayLabel,
+    required this.likeLabel,
+    required this.shareLabel,
+    required this.liked,
+    required this.onTranslation,
     required this.onReplay,
+    required this.onLike,
+    required this.onShare,
   });
 
   final DialogLine line;
-
-  /// 시나리오 **전체 대사의 어절 목록**. [soriUniformFitSize] 는 `maxLines: 1`
-  /// 실측이라 문장 통째가 아니라 최장 *어절*이 한 줄에 들어가는 크기를 잡는다 —
-  /// 나머지 줄바꿈은 어절 단위 wrap 이 처리한다. 덱 내내 한 값이라 카드를
-  /// 넘겨도 글자 크기가 요동치지 않는다.
-  final List<String> deckWords;
-
-  final bool showGloss;
-  final String lang;
+  final String speakerName;
+  final String gloss;
+  final bool current;
+  final bool review;
+  final bool translationExpanded;
+  final String showTranslationLabel;
+  final String hideTranslationLabel;
+  final String translationLanguage;
   final String replayLabel;
-  final VoidCallback onReplay;
-
-  double _measure(
-    BuildContext context,
-    String text,
-    TextStyle style,
-    double maxWidth,
-  ) {
-    final painter = TextPainter(
-      text: TextSpan(text: text, style: style),
-      textDirection: Directionality.of(context),
-      textAlign: TextAlign.center,
-      textScaler: MediaQuery.textScalerOf(context),
-    )..layout(maxWidth: maxWidth);
-    final height = painter.height;
-    painter.dispose();
-    return height;
-  }
+  final String likeLabel;
+  final String shareLabel;
+  final bool liked;
+  final Future<void> Function() onTranslation;
+  final Future<void> Function() onReplay;
+  final Future<void> Function() onLike;
+  final Future<void> Function() onShare;
 
   @override
   Widget build(BuildContext context) {
-    final tt = SoriTextTheme.of(context);
-    final gloss = line.pick(lang);
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final cardWidth = (constraints.maxWidth * 0.9).toDouble();
-        // 종이 내폭 — 축 띠/종이 여백은 에셋 비례 상수가 정본이다.
-        final paperWidth = cardWidth * (1 - 2 * kScrollPaperSideFraction);
-        final koStyle = tt.koDisplay.copyWith(
-          fontSize: soriUniformFitSize(
-            context,
-            texts: deckWords,
-            maxWidth: paperWidth,
-            cap: 28,
-            min: 22,
-            letterSpacing: tt.koDisplay.letterSpacing ?? 0,
-            lineHeight: tt.koDisplay.height ?? 1.0,
-          ),
-        );
-        final glossStyle = tt.gloss;
-        final metaStyle = tt.meta.copyWith(color: SoriColors.contentCta);
-        final showsGloss = showGloss && gloss.isNotEmpty && gloss != line.ko;
-
-        // 두 줄 다 `_ListeningReplayTarget` 안이라 48dp 탭 타깃이 바닥이다 —
-        // 이걸 빼먹으면 실측이 모자라 FittedBox 가 주도해 버린다.
-        var contentHeight = _measure(
-          context,
-          line.ko,
-          koStyle,
-          paperWidth,
-        ).clamp(_kReplayTapTarget, double.infinity).toDouble();
-        if (showsGloss) {
-          contentHeight +=
-              Spacing.md + _measure(context, gloss, glossStyle, paperWidth);
-        }
-        contentHeight +=
-            Spacing.sm +
-            _measure(
-              context,
-              replayLabel,
-              metaStyle,
-              paperWidth,
-            ).clamp(_kReplayTapTarget, double.infinity).toDouble();
-
-        final maxHeight = constraints.maxHeight.isFinite
-            ? constraints.maxHeight
-            : 520.0;
-        final cardHeight =
-            (contentHeight /
-                    (1 - kScrollRodTopFraction - kScrollRodBottomFraction))
-                .clamp(200.0, maxHeight * 0.72)
-                .toDouble();
-
-        return Center(
-          child: SizedBox(
-            width: cardWidth,
-            height: cardHeight,
-            child: SoriShortScrollCard(
-              // FittedBox 는 **안전망으로만** 남는다 — 크기는 위의 균일값이
-              // 정하고, 카드가 상한(0.72)에 걸린 극단에서만 미세 축소로 잘림을
-              // 받아낸다. 폭은 종이 내폭 그대로라 어절 줄바꿈이 살아 있다.
-              child: FittedBox(
-                fit: BoxFit.scaleDown,
-                child: SizedBox(
-                  width: paperWidth,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      _ListeningReplayTarget(
-                        semanticsLabel: '$replayLabel: ${line.ko}',
-                        onTap: onReplay,
-                        child: Text(
-                          line.ko,
-                          textAlign: TextAlign.center,
-                          style: koStyle,
-                        ),
-                      ),
-                      if (showsGloss) ...[
-                        const SizedBox(height: Spacing.md),
-                        Text(
-                          gloss,
-                          textAlign: TextAlign.center,
-                          style: glossStyle,
-                        ),
-                      ],
-                      const SizedBox(height: Spacing.sm),
-                      _ListeningReplayTarget(
-                        semanticsLabel: replayLabel,
-                        onTap: onReplay,
-                        child: Text(replayLabel, style: metaStyle),
-                      ),
-                    ],
+    final narrator = line.speaker == 'narrator';
+    final user = line.speaker == 'user';
+    final surfaces = SoriSurfaces.of(context);
+    final borderColor = current ? SoriColors.contentCta : surfaces.border;
+    final bubble = Semantics(
+      container: true,
+      liveRegion: current,
+      label: '$speakerName: ${line.ko}',
+      child: Container(
+        constraints: BoxConstraints(
+          maxWidth: narrator
+              ? MediaQuery.sizeOf(context).width * 0.84
+              : MediaQuery.sizeOf(context).width * 0.78,
+        ),
+        padding: const EdgeInsets.all(Spacing.md),
+        decoration: BoxDecoration(
+          color: narrator ? surfaces.surfaceAlt : surfaces.surface,
+          borderRadius: BorderRadius.circular(narrator ? 12 : 20),
+          border: Border.all(color: borderColor, width: current ? 2 : 1),
+        ),
+        child: Column(
+          crossAxisAlignment: narrator
+              ? CrossAxisAlignment.center
+              : CrossAxisAlignment.start,
+          children: [
+            if (!narrator)
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _NeutralAvatar(name: speakerName),
+                  const SizedBox(width: Spacing.xs),
+                  Flexible(
+                    child: Text(
+                      speakerName,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).meta.copyWith(color: SoriColors.contentCta),
+                    ),
+                  ),
+                ],
+              )
+            else
+              Text(
+                speakerName,
+                style: SoriTextTheme.of(
+                  context,
+                ).meta.copyWith(color: surfaces.textMuted),
+              ),
+            const SizedBox(height: Spacing.xs),
+            Text(
+              line.ko,
+              textAlign: narrator ? TextAlign.center : TextAlign.start,
+              style: SoriTextTheme.of(
+                context,
+              ).koDisplay.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
+            if (translationExpanded &&
+                gloss.isNotEmpty &&
+                gloss != line.ko) ...[
+              const SizedBox(height: Spacing.sm),
+              Text(gloss, style: SoriTextTheme.of(context).gloss),
+            ],
+            const SizedBox(height: Spacing.xs),
+            Wrap(
+              spacing: Spacing.xs,
+              runSpacing: Spacing.xs,
+              children: [
+                TextButton.icon(
+                  onPressed: onReplay,
+                  icon: const Icon(Icons.volume_up_outlined),
+                  label: Text(replayLabel),
+                ),
+                TextButton.icon(
+                  onPressed: onTranslation,
+                  icon: Icon(
+                    translationExpanded
+                        ? Icons.translate_rounded
+                        : Icons.translate_outlined,
+                  ),
+                  label: Text(
+                    translationExpanded
+                        ? hideTranslationLabel
+                        : showTranslationLabel,
                   ),
                 ),
-              ),
+                if (review)
+                  IconButton(
+                    tooltip: likeLabel,
+                    onPressed: onLike,
+                    icon: Icon(liked ? Icons.favorite : Icons.favorite_border),
+                  ),
+                if (review && line.ko.isNotEmpty)
+                  AddToWordbookButton(
+                    korean: line.ko,
+                    translationDe: line.de,
+                    translationEn: line.en,
+                    translationLanguage: translationLanguage,
+                    compact: true,
+                    coachEnabled: false,
+                  ),
+                if (review)
+                  IconButton(
+                    tooltip: shareLabel,
+                    onPressed: onShare,
+                    icon: const Icon(Icons.share_outlined),
+                  ),
+              ],
             ),
-          ),
-        );
-      },
+          ],
+        ),
+      ),
+    );
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.md),
+      child: Align(
+        alignment: narrator
+            ? Alignment.center
+            : user
+            ? Alignment.centerRight
+            : Alignment.centerLeft,
+        child: bubble,
+      ),
     );
   }
 }
 
-class _ListeningReplayTarget extends StatelessWidget {
-  const _ListeningReplayTarget({
-    required this.semanticsLabel,
-    required this.onTap,
-    required this.child,
+class _NeutralAvatar extends StatelessWidget {
+  const _NeutralAvatar({required this.name});
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    final initial = name.trim().isEmpty ? '?' : name.trim()[0].toUpperCase();
+    return Semantics(
+      excludeSemantics: true,
+      child: Container(
+        width: 32,
+        height: 32,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: SoriColors.contentCta.withValues(alpha: 0.12),
+        ),
+        child: Text(
+          initial,
+          style: SoriTextTheme.of(
+            context,
+          ).meta.copyWith(color: SoriColors.contentCta),
+        ),
+      ),
+    );
+  }
+}
+
+class _TtsFailureCard extends StatelessWidget {
+  const _TtsFailureCard({
+    required this.title,
+    required this.body,
+    required this.retryLabel,
+    required this.onRetry,
   });
 
-  final String semanticsLabel;
-  final VoidCallback onTap;
-  final Widget child;
+  final String title;
+  final String body;
+  final String retryLabel;
+  final Future<void> Function() onRetry;
 
   @override
   Widget build(BuildContext context) {
     return Semantics(
-      button: true,
-      enabled: true,
-      label: semanticsLabel,
-      onTap: onTap,
-      child: ExcludeSemantics(
-        child: SoriPressable(
-          onTap: onTap,
-          haptic: SoriHaptic.selection,
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(
-              minWidth: _kReplayTapTarget,
-              minHeight: _kReplayTapTarget,
+      container: true,
+      liveRegion: true,
+      child: SoriCard(
+        variant: SoriCardVariant.base,
+        accent: SoriColors.danger,
+        tinted: true,
+        child: Row(
+          children: [
+            const Icon(Icons.volume_off_outlined, color: SoriColors.danger),
+            const SizedBox(width: Spacing.sm),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: SoriTextTheme.of(
+                      context,
+                    ).body.copyWith(fontWeight: FontWeight.w700),
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  Text(body, style: SoriTextTheme.of(context).bodySmall),
+                ],
+              ),
             ),
-            child: Center(widthFactor: 1, heightFactor: 1, child: child),
-          ),
+            TextButton(onPressed: onRetry, child: Text(retryLabel)),
+          ],
         ),
       ),
     );

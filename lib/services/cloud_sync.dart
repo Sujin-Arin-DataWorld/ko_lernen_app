@@ -15,6 +15,7 @@ import 'firestore_progress_service.dart';
 import 'hanok_state_service.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
+import 'stamp_entitlement_reconciler.dart';
 
 /// 1-Weg-Sync: Storage (lokal) ↔ Firestore (Cloud, `users/{uid}`).
 ///
@@ -820,7 +821,12 @@ class CloudSync {
           expectedSession: expectedSession,
           loadRemote: () => FirestoreProgressService.loadAllTyped(uid: uid),
           loadLocal: PackProgressService.getAll,
-          persistLocal: Storage.setManyPackProgressJson,
+          persistLocal: (progress) async {
+            await Storage.setManyPackProgressJson(progress);
+            await StampEntitlementReconciler.reconcile(
+              progress: PackProgressService.getAll(),
+            );
+          },
         );
       },
     );

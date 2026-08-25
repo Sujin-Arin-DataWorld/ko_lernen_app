@@ -714,6 +714,18 @@
       }
     }
   },
+  "dojangSeriesDancheongTitle": "Dancheong patterns",
+  "dojangSeriesDancheongBody": "Traditional color and ornament motifs from the existing collection.",
+  "dojangSeriesLivingCultureTitle": "Korean everyday culture",
+  "dojangSeriesLivingCultureBody": "Objects, symbols, and auspicious motifs from learning, home, food, and daily life.",
+  "dojangReconciled": "We found {count} new stamps in your completed packs.",
+  "@dojangReconciled": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "gyeEntryTitle": "Study Gye",
   "gyeEntryDesc": "Build a hanok together",
   "gyeChooserTitle": "Gye (study group)",
@@ -1515,6 +1527,31 @@
   "listeningSubtitleBoth": "Both",
   "listeningSubtitleOff": "Off",
   "listeningReplay": "Replay",
+  "listeningDialogueStart": "Listen to the dialogue",
+  "listeningSceneIntro": "Scene",
+  "listeningParticipants": "Speakers",
+  "listeningLineCount": "{count, plural, =1{1 line} other{{count} lines}}",
+  "@listeningLineCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningPause": "Pause",
+  "listeningResume": "Resume listening",
+  "listeningShowTranslation": "Show translation",
+  "listeningHideTranslation": "Hide translation",
+  "listeningNarrator": "Narrator",
+  "listeningSpeakerYou": "You",
+  "listeningReviewTitle": "Review line by line",
+  "listeningReviewBody": "Replay individual lines and open translations only when you need them.",
+  "listeningReviewCta": "Review line by line",
+  "listeningBackToScroll": "Back to the scroll",
+  "listeningNextStory": "Next story",
+  "listeningTtsFailedTitle": "This line could not be played.",
+  "listeningTtsFailedBody": "Try again or keep learning from the Korean text.",
+  "listeningRetry": "Try again",
   "listeningGotIt": "Got it",
   "listeningPrev": "Back",
   "listeningNext": "Next",
@@ -2755,7 +2792,7 @@
   "coachHardWordsTitle": "Stubborn words",
   "coachHardWordsBody": "Words you keep forgetting appear here, ready for focused practice.",
   "coachDojangTitle": "Collect Dancheong stamps",
-  "coachDojangBody": "Complete vocabulary packs to unlock all 19 Dancheong stamp designs",
+  "coachDojangBody": "Complete vocabulary packs to unlock all 25 stamps",
   "@_coach_c4": {
     "description": "Stage C-4 social/other 5-screen coach keys (2026-06-09)"
   },
@@ -3610,6 +3647,12 @@
   "stampMotifNoemun": "Noemun dancheong",
   "stampMotifMugunghwa": "Mugunghwa dancheong",
   "stampMotifMoran": "Moran dancheong",
+  "stampMotifMunbangsau": "Four Treasures of the Study",
+  "stampMotifBok": "Bok fortune character (福)",
+  "stampMotifCrane": "Flying crane",
+  "stampMotifWadang": "Smiling roof tile",
+  "stampMotifYeopjeon": "Three yeopjeon coins",
+  "stampMotifSoban": "Soban table",
   "@_gye_dedication": {
     "description": "P4b shared Gye exhibition. This is a cosmetic display only; personal ownership remains unchanged."
   },

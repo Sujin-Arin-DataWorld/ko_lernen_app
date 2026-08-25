@@ -38,10 +38,10 @@ import 'package:ko_lernen_app/services/smalltalk_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
-import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/section_header.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
@@ -472,7 +472,7 @@ void main() {
   }
 
   testWidgets(
-    'listening replay targets expose button meaning and 48dp hit areas',
+    'listening bubble actions expose button meaning and 48dp hit areas',
     (tester) async {
       final semantics = tester.ensureSemantics();
       addTearDown(tester.view.resetPhysicalSize);
@@ -484,44 +484,32 @@ void main() {
         _host(
           locale: const Locale('de'),
           textScale: 1,
-          child: const ListeningPlayScreen(scenario: _listeningScenario),
+          child: ListeningPlayScreen(
+            scenario: _listeningScenario,
+            speechPlayer: (text, {required voice}) async => false,
+            stopPlayer: () async {},
+          ),
         ),
       );
       await tester.pump(const Duration(milliseconds: 500));
 
       final l10n = AppL10n.of(tester.element(find.byType(ListeningPlayScreen)));
-      final korean = _listeningScenario.dialog.single.ko;
-      final lineTarget = find.widgetWithText(SoriPressable, korean);
-      final replayTarget = find.widgetWithText(
-        SoriPressable,
-        l10n.listeningReplay,
+      await tester.ensureVisible(find.text(l10n.listeningDialogueStart));
+      await tester.tap(find.text(l10n.listeningDialogueStart));
+      await tester.pump();
+      await tester.scrollUntilVisible(
+        find.text(l10n.listeningReplay),
+        120,
+        scrollable: find.byType(Scrollable).last,
       );
-      final lineSemantics = find.bySemanticsLabel(
-        '${l10n.listeningReplay}: $korean',
+      final replayTarget = find.bySemanticsLabel(l10n.listeningReplay);
+      final translationTarget = find.bySemanticsLabel(
+        l10n.listeningShowTranslation,
       );
-      final replaySemantics = find.bySemanticsLabel(l10n.listeningReplay);
 
-      expect(lineTarget, findsOneWidget);
       expect(replayTarget, findsOneWidget);
-      expect(lineSemantics, findsOneWidget);
-      expect(replaySemantics, findsOneWidget);
-      expect(
-        tester
-            .getSemantics(lineSemantics)
-            .getSemanticsData()
-            .flagsCollection
-            .isButton,
-        isTrue,
-      );
-      expect(
-        tester
-            .getSemantics(replaySemantics)
-            .getSemanticsData()
-            .flagsCollection
-            .isButton,
-        isTrue,
-      );
-      for (final target in [lineTarget, replayTarget]) {
+      expect(translationTarget, findsOneWidget);
+      for (final target in [replayTarget, translationTarget]) {
         final size = tester.getSize(target);
         expect(size.width, greaterThanOrEqualTo(48));
         expect(size.height, greaterThanOrEqualTo(48));
@@ -552,7 +540,11 @@ void main() {
           _host(
             locale: locale,
             textScale: viewport.textScale,
-            child: const ListeningPlayScreen(scenario: _listeningScenario),
+            child: ListeningPlayScreen(
+              scenario: _listeningScenario,
+              speechPlayer: (text, {required voice}) async => true,
+              stopPlayer: () async {},
+            ),
           ),
         );
         await tester.pump(const Duration(milliseconds: 500));
@@ -560,22 +552,24 @@ void main() {
         final l10n = AppL10n.of(
           tester.element(find.byType(ListeningPlayScreen)),
         );
-        final completeAction = find.bySemanticsLabel(
-          l10n.listeningCompleteTitle,
-        );
-        await tester.ensureVisible(completeAction);
-        await tester.tap(completeAction);
-        await _pumpUntilVisible(
-          tester,
-          find.bySemanticsLabel(l10n.listeningGotIt),
-        );
+        await tester.ensureVisible(find.text(l10n.listeningDialogueStart));
+        await tester.tap(find.text(l10n.listeningDialogueStart));
+        await tester.pump();
+        await tester.pump();
+        await _pumpUntilVisible(tester, find.text(l10n.listeningReviewCta));
 
         expect(find.byType(SoriContentFeed), findsNothing);
         expect(find.text(l10n.listeningCompleteTitle), findsOneWidget);
         expect(Storage.completedScenarios, contains(_listeningScenario.id));
         expect(Storage.xp, 40);
-        for (final label in [l10n.listeningReplay, l10n.listeningGotIt]) {
-          final action = find.bySemanticsLabel(label);
+        for (final label in [
+          l10n.listeningReviewCta,
+          l10n.listeningBackToScroll,
+        ]) {
+          final action = find.ancestor(
+            of: find.text(label),
+            matching: find.byType(SoriButton),
+          );
           expect(action, findsOneWidget);
           await tester.ensureVisible(action);
           expect(tester.getRect(action).size.height, greaterThanOrEqualTo(48));
@@ -630,9 +624,10 @@ Finder? _readyFinderFor(String activity) {
   return switch (activity) {
     'initial consonant quiz' || 'word chain' => find.byType(HanokHeader),
     'syllable crossword' => find.byKey(const ValueKey('silben-level-A1')),
-    'listening player' ||
-    'review session' ||
-    'small talk' => find.byType(SoriContentFeed),
+    'listening player' => find.byKey(
+      const ValueKey('listening-dialogue-start'),
+    ),
+    'review session' || 'small talk' => find.byType(SoriContentFeed),
     'grammar deck' => find.byKey(const ValueKey('grammar-filter-row')),
     _ => null,
   };

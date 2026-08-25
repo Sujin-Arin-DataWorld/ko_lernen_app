@@ -9,6 +9,24 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 
 void main() {
+  test('도장 카탈로그는 기존 19종과 생활문화 6종을 고유 spec으로 제공한다', () {
+    final specs = DancheongMotif.values.map((motif) => motif.spec).toList();
+
+    expect(
+      specs.where((spec) => spec.series == StampSeries.dancheong),
+      hasLength(19),
+    );
+    expect(
+      specs.where((spec) => spec.series == StampSeries.livingCulture),
+      hasLength(6),
+    );
+    expect(specs.map((spec) => spec.slug).toSet(), hasLength(specs.length));
+    expect(
+      specs.map((spec) => spec.assetPath).toSet(),
+      hasLength(specs.length),
+    );
+  });
+
   test('도장 안내 문구의 개수가 실제 카탈로그와 일치한다', () async {
     final en = await AppL10n.delegate.load(const Locale('en'));
     final de = await AppL10n.delegate.load(const Locale('de'));
@@ -18,11 +36,11 @@ void main() {
   });
 
   group('motifForPackId', () {
-    test('greetings/family/intro → lotus', () {
+    test('greetings/intro → lotus, family → bok', () {
       expect(motifForPackId('a1_greetings_1'), DancheongMotif.lotus);
       expect(motifForPackId('a1_greetings_2'), DancheongMotif.lotus);
       expect(motifForPackId('a1_self_intro'), DancheongMotif.lotus);
-      expect(motifForPackId('a1_family'), DancheongMotif.lotus);
+      expect(motifForPackId('a1_family'), DancheongMotif.bok);
     });
 
     test('time/numbers → chrysanthemum', () {
@@ -38,12 +56,12 @@ void main() {
       expect(motifForPackId('b1_emotions_relations'), DancheongMotif.plum);
     });
 
-    test('work/education → bamboo', () {
+    test('work → bamboo, education → munbangsau', () {
       expect(motifForPackId('a2_work'), DancheongMotif.bamboo);
-      expect(motifForPackId('a2_education'), DancheongMotif.bamboo);
+      expect(motifForPackId('a2_education'), DancheongMotif.munbangsau);
       expect(motifForPackId('b1_work'), DancheongMotif.bamboo);
       expect(motifForPackId('b2_work'), DancheongMotif.bamboo);
-      expect(motifForPackId('b2_education'), DancheongMotif.bamboo);
+      expect(motifForPackId('b2_education'), DancheongMotif.munbangsau);
     });
 
     test('weather → cloud (2026-08-25: 건강은 suryeon 으로 분리)', () {
@@ -51,9 +69,9 @@ void main() {
       expect(motifForPackId('a1_weather_layer'), DancheongMotif.cloud);
     });
 
-    test('food/shopping → octagon', () {
-      expect(motifForPackId('a1_food'), DancheongMotif.octagon);
-      expect(motifForPackId('a2_food'), DancheongMotif.octagon);
+    test('food → soban, shopping → octagon', () {
+      expect(motifForPackId('a1_food'), DancheongMotif.soban);
+      expect(motifForPackId('a2_food'), DancheongMotif.soban);
       expect(motifForPackId('a2_shopping'), DancheongMotif.octagon);
     });
 
@@ -71,19 +89,19 @@ void main() {
     // ── 2026-08-25 신설 4종 ──
     // 새 문양은 "PNG 만 넣고 배선은 안 한" 상태로 조용히 죽기 쉽다.
     // 각 문양마다 실제로 도달하는 팩이 있는지 여기서 못 박는다.
-    test('집·주거 → changsal', () {
-      expect(motifForPackId('a2_home'), DancheongMotif.changsal);
-      expect(motifForPackId('a2_household'), DancheongMotif.changsal);
+    test('집·주거 안전 → wadang, 계약·분쟁 → changsal', () {
+      expect(motifForPackId('a2_home'), DancheongMotif.wadang);
+      expect(motifForPackId('a2_household'), DancheongMotif.wadang);
       expect(motifForPackId('b1_housing_contract'), DancheongMotif.changsal);
       expect(motifForPackId('b2_housing_dispute'), DancheongMotif.changsal);
       expect(motifForPackId('a2_housing_search_2026'), DancheongMotif.changsal);
     });
 
-    test('몸·건강·돌봄 → suryeon', () {
-      expect(motifForPackId('a2_health_misc'), DancheongMotif.suryeon);
-      expect(motifForPackId('b1_health_education'), DancheongMotif.suryeon);
-      expect(motifForPackId('b1_health_hospital'), DancheongMotif.suryeon);
-      expect(motifForPackId('a1_pharmacy_ask'), DancheongMotif.suryeon);
+    test('몸·건강·돌봄 → crane', () {
+      expect(motifForPackId('a2_health_misc'), DancheongMotif.crane);
+      expect(motifForPackId('b1_health_education'), DancheongMotif.crane);
+      expect(motifForPackId('b1_health_hospital'), DancheongMotif.crane);
+      expect(motifForPackId('a1_pharmacy_ask'), DancheongMotif.crane);
     });
 
     test('제도·행정·공공 절차 → noemun', () {
@@ -94,24 +112,18 @@ void main() {
       expect(motifForPackId('c2_institutional_voice'), DancheongMotif.noemun);
     });
 
-    test('명절·의례·전통 → mugunghwa', () {
-      expect(
-        motifForPackId('a1_partner_seollal_basic'),
-        DancheongMotif.mugunghwa,
-      );
-      expect(
-        motifForPackId('a2_partner_chuseok_day'),
-        DancheongMotif.mugunghwa,
-      );
+    test('명절·축하 → bok, 의례 → mugunghwa', () {
+      expect(motifForPackId('a1_partner_seollal_basic'), DancheongMotif.bok);
+      expect(motifForPackId('a2_partner_chuseok_day'), DancheongMotif.bok);
       expect(
         motifForPackId('b2_partner_ancestral_rite'),
         DancheongMotif.mugunghwa,
       );
-      expect(motifForPackId('b2_events_culture'), DancheongMotif.mugunghwa);
+      expect(motifForPackId('b2_events_culture'), DancheongMotif.bok);
     });
 
-    test('관계·사교·예의 → moran', () {
-      expect(motifForPackId('b1_social_events'), DancheongMotif.moran);
+    test('축하 행사는 bok, 관계·예의 → moran', () {
+      expect(motifForPackId('b1_social_events'), DancheongMotif.bok);
       expect(motifForPackId('b2_manners_society'), DancheongMotif.moran);
       expect(motifForPackId('b2_honorifics'), DancheongMotif.moran);
       expect(motifForPackId('b2_partner_marriage_talk'), DancheongMotif.moran);

@@ -714,6 +714,18 @@
       }
     }
   },
+  "dojangSeriesDancheongTitle": "Dancheong-Muster",
+  "dojangSeriesDancheongBody": "Traditionelle Farb- und Ornamentmotive aus der bisherigen Sammlung.",
+  "dojangSeriesLivingCultureTitle": "Koreanische Alltagskultur",
+  "dojangSeriesLivingCultureBody": "Gegenstände, Zeichen und Glücksmotive aus Lernen, Wohnen, Essen und Alltag.",
+  "dojangReconciled": "In deinen Abschlüssen wurden {count} neue Stempel gefunden.",
+  "@dojangReconciled": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "gyeEntryTitle": "Lern-Gye",
   "gyeEntryDesc": "Gemeinsam ein Hanok bauen",
   "gyeChooserTitle": "Gye (Lerngruppe)",
@@ -1555,6 +1567,31 @@
   "listeningSubtitleBoth": "Beides",
   "listeningSubtitleOff": "Aus",
   "listeningReplay": "Wiederholen",
+  "listeningDialogueStart": "Dialog anhören",
+  "listeningSceneIntro": "Szene",
+  "listeningParticipants": "Sprechende",
+  "listeningLineCount": "{count, plural, =1{1 Zeile} other{{count} Zeilen}}",
+  "@listeningLineCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningPause": "Pause",
+  "listeningResume": "Weiterhören",
+  "listeningShowTranslation": "Übersetzung zeigen",
+  "listeningHideTranslation": "Übersetzung ausblenden",
+  "listeningNarrator": "Erzählstimme",
+  "listeningSpeakerYou": "Du",
+  "listeningReviewTitle": "Zeile für Zeile wiederholen",
+  "listeningReviewBody": "Hör einzelne Zeilen erneut und öffne die Übersetzung nur bei Bedarf.",
+  "listeningReviewCta": "Zeile für Zeile wiederholen",
+  "listeningBackToScroll": "Zurück zur Schriftrolle",
+  "listeningNextStory": "Nächste Geschichte",
+  "listeningTtsFailedTitle": "Diese Zeile konnte nicht abgespielt werden.",
+  "listeningTtsFailedBody": "Versuch es erneut oder lerne mit dem koreanischen Text weiter.",
+  "listeningRetry": "Erneut versuchen",
   "listeningGotIt": "Verstanden",
   "listeningPrev": "Zurück",
   "listeningNext": "Weiter",
@@ -2824,7 +2861,7 @@
   "coachHardWordsTitle": "Hartnäckige Wörter",
   "coachHardWordsBody": "Hier findest du Wörter, die dir noch schwerfallen. Du kannst sie gezielt wiederholen.",
   "coachDojangTitle": "Dancheong-Stempel sammeln",
-  "coachDojangBody": "Schließe Vokabelpacks ab, um alle 19 Dancheong-Muster freizuschalten",
+  "coachDojangBody": "Schließe Vokabelpacks ab, um alle 25 Stempel freizuschalten",
   "@_coach_c4": {
     "description": "Stage C-4 사회/기타 5화면 코치마크 키 (2026-06-09)"
   },
@@ -3696,6 +3733,12 @@
   "stampMotifNoemun": "Noemun-Dancheong",
   "stampMotifMugunghwa": "Mugunghwa-Dancheong",
   "stampMotifMoran": "Moran-Dancheong",
+  "stampMotifMunbangsau": "Vier Schätze des Studierzimmers",
+  "stampMotifBok": "Glückszeichen Bok (福)",
+  "stampMotifCrane": "Fliegender Kranich",
+  "stampMotifWadang": "Lächelnder Dachziegel",
+  "stampMotifYeopjeon": "Drei Yeopjeon-Münzen",
+  "stampMotifSoban": "Soban-Tisch",
   "@_gye_dedication": {
     "description": "P4b gemeinsame Gye-Ausstellung. Nur eine kosmetische Anzeige; privates Eigentum bleibt unverändert."
   },

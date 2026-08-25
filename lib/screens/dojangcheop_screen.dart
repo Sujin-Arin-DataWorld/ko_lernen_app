@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../services/analytics_service.dart';
+import '../services/pack_progress_service.dart';
+import '../services/stamp_entitlement_reconciler.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
@@ -13,9 +15,10 @@ import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/toast.dart';
 import '../widgets/sori/window_class.dart';
 
-/// 도장첩 — 팩 클리어로 획득한 단청 도장 컬렉션 (19 motif).
+/// 도장첩 — 팩 클리어로 획득한 단청·생활문화 도장 컬렉션.
 ///
 /// 획득 = 풀컬러 도장(PNG). 미획득 = 흐릿 + 자물쇠. 0개면 빈 상태.
 /// 획득 영속: `Storage.earnedStamps`(`DancheongMotif.name` slug).
@@ -55,6 +58,27 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
     super.initState();
     scheduleCoach();
     Analytics.featureUsed('dojangcheop');
+    _reconcileEntitlements();
+  }
+
+  Future<void> _reconcileEntitlements() async {
+    final result = await StampEntitlementReconciler.reconcile(
+      progress: PackProgressService.getAll(),
+    );
+    if (!mounted) {
+      return;
+    }
+    if (result.addedCount > 0) {
+      setState(() {});
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) {
+          soriToast(
+            context,
+            AppL10n.of(context).dojangReconciled(result.addedCount),
+          );
+        }
+      });
+    }
   }
 
   @override
@@ -64,6 +88,12 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
     final earned = Storage.earnedStamps.toSet();
     const motifs = DancheongMotif.values;
     final got = motifs.where((m) => earned.contains(m.name)).length;
+    final dancheong = motifs
+        .where((motif) => motif.spec.series == StampSeries.dancheong)
+        .toList(growable: false);
+    final livingCulture = motifs
+        .where((motif) => motif.spec.series == StampSeries.livingCulture)
+        .toList(growable: false);
 
     return SoriStandardFrame(
       appBarTitle: t.dojangTitle,
@@ -74,81 +104,157 @@ class _DojangcheopScreenState extends State<DojangcheopScreen>
         Spacing.lg,
         Spacing.xxl,
       ),
-      builder: (context, padding) => got == 0
-          ? Center(
-              child: Padding(
-                padding: padding,
-                child: SoriEmptyState(
-                  asset: 'assets/illustrations/mascot/magpie_encourage.png',
-                  icon: Icons.workspace_premium_outlined,
-                  title: t.dojangEmptyTitle,
-                  body: t.dojangEmptyBody,
-                  ctaLabel: t.dojangEmptyCta,
-                  onCta: () => Navigator.of(context).pushNamed('/vocab'),
-                ),
+      builder: (context, padding) => ListView(
+        padding: padding,
+        children: [
+          SoriPageHeader(
+            title: t.dojangTitle,
+            body: t.dojangProgress(got, motifs.length),
+            titleStyle: SoriTextTheme.of(context).cultureTitle,
+          ),
+          if (got == 0) ...[
+            const SizedBox(height: Spacing.lg),
+            Semantics(
+              container: true,
+              explicitChildNodes: true,
+              child: SoriEmptyState(
+                asset: 'assets/illustrations/mascot/magpie_encourage.png',
+                icon: Icons.workspace_premium_outlined,
+                title: t.dojangEmptyTitle,
+                body: t.dojangEmptyBody,
+                ctaLabel: t.dojangEmptyCta,
+                onCta: () => Navigator.of(context).pushNamed('/vocab'),
               ),
-            )
-          : ListView(
-              padding: padding,
-              children: [
-                SoriPageHeader(
-                  title: t.dojangTitle,
-                  body: t.dojangProgress(got, motifs.length),
-                  titleStyle: SoriTextTheme.of(context).cultureTitle,
-                ),
-                const SizedBox(height: Spacing.lg),
-                // 도장은 이 컬렉션에 남으면서 개인 방에도 한 번 배치할 수
-                // 있다. 획득 상태와 방 배치는 서로 다른 투영이다.
-                SoriCard(
-                  variant: SoriCardVariant.base,
-                  accent: SoriColors.info,
-                  tinted: true,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Semantics(
-                        container: true,
-                        child: Text(
-                          t.dojangDecorHintBody,
-                          style: SoriTextTheme.of(
-                            context,
-                          ).bodySmall.copyWith(color: s.textMuted),
-                        ),
-                      ),
-                      const SizedBox(height: Spacing.md),
-                      SoriButton.outlined(
-                        label: t.dojangDecorHintCta,
-                        fullWidth: true,
-                        onTap: () => Navigator.of(
-                          context,
-                        ).pushNamed('/sarangbang/furnish'),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: Spacing.lg),
-                LayoutBuilder(
-                  builder: (context, c) => GridView.count(
-                    key: _gridKey,
-                    crossAxisCount: soriGridColumns(
-                      c.maxWidth,
-                      target: 110,
-                      min: 3,
-                      max: 6,
-                      outerPadding: 0,
+            ),
+          ],
+          if (got > 0) ...[
+            const SizedBox(height: Spacing.lg),
+            // 도장은 이 컬렉션에 남으면서 개인 방에도 한 번 배치할 수
+            // 있다. 획득 상태와 방 배치는 서로 다른 투영이다.
+            SoriCard(
+              variant: SoriCardVariant.base,
+              accent: SoriColors.info,
+              tinted: true,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Semantics(
+                    container: true,
+                    child: Text(
+                      t.dojangDecorHintBody,
+                      style: SoriTextTheme.of(
+                        context,
+                      ).bodySmall.copyWith(color: s.textMuted),
                     ),
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    mainAxisSpacing: Spacing.lg,
-                    crossAxisSpacing: Spacing.lg,
-                    children: [
-                      for (final m in motifs)
-                        _StampCell(motif: m, earned: earned.contains(m.name)),
-                    ],
                   ),
+                  const SizedBox(height: Spacing.md),
+                  SoriButton.outlined(
+                    label: t.dojangDecorHintCta,
+                    fullWidth: true,
+                    onTap: () =>
+                        Navigator.of(context).pushNamed('/sarangbang/furnish'),
+                  ),
+                ],
+              ),
+            ),
+          ],
+          const SizedBox(height: Spacing.lg),
+          KeyedSubtree(
+            key: _gridKey,
+            child: Column(
+              children: [
+                _StampSeriesSection(
+                  title: t.dojangSeriesDancheongTitle,
+                  body: t.dojangSeriesDancheongBody,
+                  motifs: dancheong,
+                  earned: earned,
+                ),
+                const SizedBox(height: Spacing.lg),
+                _StampSeriesSection(
+                  title: t.dojangSeriesLivingCultureTitle,
+                  body: t.dojangSeriesLivingCultureBody,
+                  motifs: livingCulture,
+                  earned: earned,
                 ),
               ],
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _StampSeriesSection extends StatelessWidget {
+  const _StampSeriesSection({
+    required this.title,
+    required this.body,
+    required this.motifs,
+    required this.earned,
+  });
+
+  final String title;
+  final String body;
+  final List<DancheongMotif> motifs;
+  final Set<String> earned;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final surfaces = SoriSurfaces.of(context);
+    final got = motifs.where((motif) => earned.contains(motif.name)).length;
+    return SoriCard(
+      variant: SoriCardVariant.base,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(title, style: SoriTextTheme.of(context).h3),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            body,
+            style: SoriTextTheme.of(
+              context,
+            ).bodySmall.copyWith(color: surfaces.textMuted),
+          ),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            t.dojangProgress(got, motifs.length),
+            style: SoriTextTheme.of(
+              context,
+            ).meta.copyWith(color: SoriColors.contentCta),
+          ),
+          const SizedBox(height: Spacing.md),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final columns = soriGridColumns(
+                constraints.maxWidth,
+                target: 118,
+                min: 3,
+                max: 6,
+                outerPadding: 0,
+              );
+              return GridView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: motifs.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: columns,
+                  childAspectRatio: 0.78,
+                  mainAxisSpacing: Spacing.md,
+                  crossAxisSpacing: Spacing.md,
+                ),
+                itemBuilder: (context, index) {
+                  final motif = motifs[index];
+                  return _StampCell(
+                    motif: motif,
+                    earned: earned.contains(motif.name),
+                  );
+                },
+              );
+            },
+          ),
+        ],
+      ),
     );
   }
 }
@@ -166,26 +272,44 @@ class _StampCell extends StatelessWidget {
       builder: (context, constraints) {
         final size = constraints.maxWidth.clamp(64.0, 96.0).toDouble();
         return Semantics(
+          container: true,
           image: true,
           label: earned ? t.dojangStampEarned(name) : t.dojangStampLocked(name),
           excludeSemantics: true,
-          child: Center(
-            child: earned
-                ? DancheongStamp(motif: motif, size: size, stamped: true)
-                : Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Opacity(
-                        opacity: 0.20,
-                        child: DancheongStamp(motif: motif, size: size),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Flexible(
+                child: earned
+                    ? DancheongStamp(motif: motif, size: size, stamped: true)
+                    : Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Opacity(
+                            opacity: 0.20,
+                            child: DancheongStamp(motif: motif, size: size),
+                          ),
+                          Icon(
+                            Icons.lock_outline_rounded,
+                            size: size * 0.27,
+                            color: SoriSurfaces.of(context).textDim,
+                          ),
+                        ],
                       ),
-                      Icon(
-                        Icons.lock_outline_rounded,
-                        size: size * 0.27,
-                        color: SoriSurfaces.of(context).textDim,
-                      ),
-                    ],
-                  ),
+              ),
+              const SizedBox(height: Spacing.xs),
+              Text(
+                name,
+                textAlign: TextAlign.center,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: SoriTextTheme.of(context).meta.copyWith(
+                  color: earned
+                      ? SoriSurfaces.of(context).text
+                      : SoriSurfaces.of(context).textDim,
+                ),
+              ),
+            ],
           ),
         );
       },
