@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused\\pending_review\\personal_hanok_v3\\hyeopmun_try03_blueprint_colored.png",
+ "sourceSha256": "07793784343b58fce3755e367bb773627dd26bf9723193fbc9b27fc87f580b45",
+ "out": "assets_unused\\pending_review\\personal_hanok_v3\\qa\\hyeopmun_try03_cut.png",
+ "outSha256": "3a6e3141f0f9c763067d40a867cf94082df04f119ba275c037b6e67645153884",
+ "sourceSize": [
+  1680,
+  2512
+ ],
+ "outSize": [
+  1568,
+  2021
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   57,
+   228,
+   1625,
+   2249
+  ]
+ ],
+ "visiblePixels": 2229199,
+ "coveragePct": 70.35,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    11.0,
+    246.6,
+    0.8
+   ],
+   "greenness": 235.5
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    11.0,
+    245.3,
+    4.1
+   ],
+   "greenness": 234.3
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    9.9,
+    245.2,
+    1.4
+   ],
+   "greenness": 235.3
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    9.1,
+    247.7,
+    2.3
+   ],
+   "greenness": 238.6
+  }
+ ],
+ "pillow": "11.3.0"
+}

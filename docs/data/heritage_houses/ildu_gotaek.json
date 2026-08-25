@@ -703,9 +703,9 @@
         "en": "The ancestral shrine, holding the spirit tablets of four generations in a niche (survey p.92); the county guide additionally records a portrait of Jeong Yeo-chang."
       },
       "story": {
-        "ko": "안채 뒤 따로 쌓은 담장 안, 집에서 가장 깊고 가장 높은 자리에 있다. 모든 채가 선 뒤에야 오른다.",
-        "de": "Hinter dem Anchae in eigener Mauer, am höchsten und tiefsten Punkt des Anwesens.",
-        "en": "Behind the Anchae inside its own wall, at the deepest and highest point of the estate."
+        "ko": "산 사람의 채는 색을 쓸 수 없지만 조상을 모시는 채는 쓸 수 있다. 집에서 단청과 겹처마를 함께 가진 곳은 여기 하나뿐이다.",
+        "de": "Den Wohnflügeln ist Farbe verwehrt, dem Ahnenschrein nicht — nur hier treffen Buntmalerei und doppelte Traufe zusammen.",
+        "en": "Colour is barred from the wings where people live, but not from the hall that holds the ancestors — only here do polychrome and double eaves meet."
       },
       "elements": [],
       "plaques": [],
@@ -726,7 +726,29 @@
       "floorAreaSqm": 28.39,
       "measuredPodiumMm": 290,
       "measuredPodiumSource": "p92 장대석 한벌대 270×310",
-      "materialNote": "이 집에서 부연이 있는 겹처마는 사당뿐이다(p94). 다른 채에 겹처마를 그리면 위계가 무너진다. 장대석 한벌대 기단 270×310, 전면 퇴칸을 둔 3칸 맞배, 3량가(가운데 열은 고주 — '무고주' 아님)."
+      "materialNote": "이 집에서 단청이 있는 유일한 채다. 공포·살미·창방·평방·서까래 마구리까지 오채로 칠했고 기둥은 석간주 주칠, 창호는 청록이다. 살림채의 단청 금지(가사제한)는 사람이 사는 채에만 걸리며 제향 공간은 예외다. 겹처마도 이 채뿐이다.",
+      "measuredPlan": {
+        "source": "2007 기록화보고서 사당 평면도",
+        "frontMm": [
+          2150,
+          2450,
+          2160
+        ],
+        "frontTotalMm": 6760,
+        "sideMm": 4200,
+        "areaSqm": 28.39,
+        "eaveOverhangMm": {
+          "side": 800,
+          "frontRear": 870
+        },
+        "columnDiaMm": 240,
+        "postMm": [
+          230,
+          230
+        ],
+        "plasterThkMm": 87,
+        "podium": "장대석 270×270 치석, 한벌대. 실내 흙바닥 FL+230 / 기단 상단 FL+310"
+      }
     },
     {
       "buildingId": "ildu_araechae",
@@ -776,9 +798,9 @@
       "plaques": [],
       "evidenceGrade": "measured",
       "evidenceNote": {
-        "ko": "규모·구조·재료 전부 2007 기록화보고서 p89·p96 실측. 용도는 p96 '앞서 언급한 아래채가 내별당에 속하며' 에 따른다.",
-        "de": "Maße, Konstruktion und Material vollständig aus der Bauaufnahme 2007 (S. 89, 96).",
-        "en": "Dimensions, structure and materials all from the 2007 survey report (pp. 89, 96)."
+        "ko": "2007 기록화보고서 평면도·정면도 실측. 정면 3칸 7,500㎜(2430·2400·2670), 측면 4,000㎜(방 2820 + 툇마루 1180). 지붕은 용마루·내림마루만 있고 추녀마루가 없어 맞배로 확정된다. 기단은 자연석.",
+        "de": "Bauaufnahme 2007 (Grundriss und Ansicht): drei Joche, 7.500 mm Front, 4.000 mm Tiefe (Raum 2.820 + Veranda 1.180). Nur First- und Gratziegel, keine Walmgrate — also Satteldach. Sockel aus Naturstein.",
+        "en": "2007 survey (plan and elevation): three bays, 7,500 mm front, 4,000 mm depth (room 2,820 + veranda 1,180). Ridge and gable-edge tiling only, no hip ridges — so a plain gable. Natural-stone base."
       },
       "sourceIds": [
         "cha_2007_record",
@@ -789,9 +811,29 @@
       "opensZone": null,
       "opensSurface": null,
       "floorAreaSqm": 32.04,
-      "materialNote": "한벌대 자연석 기단. 각기둥 180×180 만 쓰고 모두 평주 — 원기둥 없음. 무고주 3량가(대량 180×240). 맞배 + 홑처마, 박공 두께 45 × 너비 630, 목기연 80×120. 회벽 80㎜. 대청 사분합들문 정면 1,980×1,340.",
+      "materialNote": "살림채라 판벽이 아니라 회벽 + 창호다. 전면 전체에 툇마루가 끊기지 않고 이어지며 마루 밑은 트여 있고 짧은 동바리가 자연석 위에 선다. 좌측 한 칸만 널문이고 나머지 두 칸은 종이 바른 살문이다.",
       "measuredPodiumMm": null,
-      "measuredPodiumSource": "p89 한벌대(수치 미기재)"
+      "measuredPodiumSource": "p89 한벌대(수치 미기재)",
+      "measuredPlan": {
+        "source": "2007 기록화보고서 「아래채 평면도·정면도」 (Jin 제공 2026-08-24). 복제·트레이스·모델입력 금지 — 수치만 재기술.",
+        "frontMm": [
+          2430,
+          2400,
+          2670
+        ],
+        "frontTotalMm": 7500,
+        "sideMm": 4000,
+        "sideBreakdown": "방 깊이 2820 + 전면 툇마루 1180 = 4000. 측면 1칸 반의 실체가 이것이다.",
+        "eaveOverhangMm": {
+          "left": 370,
+          "right": 750,
+          "frontRear": 900
+        },
+        "members": "각주 180×190 / 주선·문선 80×130 / 벽선 80×90 / 청판 THK50 / 장귀틀 200×150 / 동귀틀 150×120 / 하방 150×120 / 디딤돌 990×330×180",
+        "podium": "자연석 기단 — 장대석이 아니라 다듬지 않은 자연석이다.",
+        "rooms": "좌측 마루방 1 + 우측 온돌방 2",
+        "roofMembers": "용마루 기와 학고·부고 9단 / 내림마루 기와 학고·부고 5단 / 한식기와 중침태형. 추녀마루가 없고 내림마루만 있으므로 맞배가 도면으로 확정된다."
+      }
     },
     {
       "buildingId": "ildu_ansarangchae",
@@ -813,64 +855,6 @@
       "measuredPodium": false,
       "kan": {
         "front": 4,
-        "side": null,
-        "note": {
-          "ko": "정면 4칸 내외",
-          "de": "etwa 4 Joch Front",
-          "en": "roughly 4 bays at the front"
-        }
-      },
-      "planForm": null,
-      "roofForm": null,
-      "structure": null,
-      "orientation": "south",
-      "planYaw": 0,
-      "use": {
-        "ko": "은퇴한 노부부와 집안 여성 어른이 따로 쓰던 채.",
-        "de": "Wohnbereich der zurückgezogenen Alten und der älteren Frauen des Hauses.",
-        "en": "Quarters for the retired elders and the senior women of the household."
-      },
-      "story": {
-        "ko": "안채 뒤편에 있어 살림에서 한 걸음 물러난 자리다. 안채보다 지반이 높다.",
-        "de": "Hinter dem Anchae, einen Schritt vom Haushaltsbetrieb entfernt und höher gelegen.",
-        "en": "Behind the Anchae, a step removed from the working household and set higher."
-      },
-      "elements": [],
-      "plaques": [],
-      "evidenceGrade": "measured",
-      "evidenceNote": {
-        "ko": "국가유산청 설명문이 '안채 뒤쪽으로는 별당과 안사랑채'라고 기록한다. 칸수는 답사 기록이라 등급을 올리지 않았다.",
-        "de": "KHS nennt Byeoldang und Ansarangchae hinter dem Anchae. Die Jochzahl stammt aus einem Besuchsbericht.",
-        "en": "KHS records 'Byeoldang and Ansarangchae behind the Anchae'. The bay count comes from a visit report."
-      },
-      "sourceIds": [
-        "khs_portal_ildu",
-        "hamyang_gun_guide"
-      ],
-      "expectedCefrLevel": "b2",
-      "opensZone": null,
-      "opensSurface": null
-    },
-    {
-      "buildingId": "ildu_byeoldang",
-      "dongClass": "dong",
-      "countsTowardOriginalDong": true,
-      "survival": "extant",
-      "buildable": true,
-      "names": {
-        "ko": "별당채",
-        "hanja": "別堂채",
-        "romanization": "Byeoldangchae",
-        "de": "Byeoldang — abseits stehender Flügel",
-        "en": "Byeoldang — detached retreat wing"
-      },
-      "type": "busokchae",
-      "hierarchyRank": 5,
-      "groundBand": 4,
-      "podiumBeoldae": 2,
-      "measuredPodium": false,
-      "kan": {
-        "front": 4,
         "side": 1.5,
         "note": null,
         "measuredSourceId": "cha_2007_record",
@@ -882,22 +866,26 @@
       "orientation": "south",
       "planYaw": 0,
       "use": {
-        "ko": "독서와 휴식, 손님의 유숙을 위한 별채.",
-        "de": "Für Lektüre, Ruhe und die Unterbringung von Gästen.",
-        "en": "For reading, rest, and lodging guests."
+        "ko": "은퇴한 노부부와 집안 여성 어른이 따로 쓰던 채. 부엌·다락·방 셋·대청을 갖춘 완결된 살림 별채로 손님의 유숙에도 쓰였다.",
+        "de": "Wohnflügel der zurückgezogenen Alten und der älteren Frauen — vollständig mit Küche, Speicherboden, drei Zimmern und Halle; auch für Gäste.",
+        "en": "Quarters for the retired elders and senior women — a complete wing with kitchen, loft, three rooms and a hall; also used to lodge guests."
       },
       "story": {
-        "ko": "안채 뒤편 별당과 안사랑채가 나란히 놓여 집의 안쪽에 조용한 켜를 하나 더 만든다.",
-        "de": "Neben dem Ansarangchae hinter dem Anchae — eine weitere stille Schicht im Inneren.",
-        "en": "Beside the Ansarangchae behind the Anchae, adding one more quiet layer inside the house."
+        "ko": "안채 뒤편에 있어 살림에서 한 걸음 물러난 자리다. 안채보다 지반이 높아 집의 안쪽에 조용한 켜를 하나 더 만든다.",
+        "de": "Hinter dem Anchae, einen Schritt vom Haushaltsbetrieb entfernt und höher gelegen — eine stille Schicht im Inneren.",
+        "en": "Behind the Anchae, a step removed and set higher — one more quiet layer inside the house."
       },
       "elements": [],
       "plaques": [],
       "evidenceGrade": "measured",
       "evidenceNote": {
-        "ko": "규모·지붕 2007 기록화보고서 p96·p98 실측 — 전면 퇴칸을 둔 4칸 팔작, 주칸 2,730㎜, 홑처마, 3량가. 국가유산청·함양군 안내문도 '별당'을 명시한다.",
-        "de": "Maße und Dach aus der Bauaufnahme 2007 (S. 96, 98): vier Kan mit Vorhalle, Walm-Giebel-Dach, Jochweite 2.730 mm, einfache Traufe, Drei-Pfetten-Gebinde.",
-        "en": "Dimensions and roof from the 2007 survey (pp. 96, 98): four kan with a front porch bay, hipped-and-gabled, 2,730 mm bay width, single eaves, three-purlin frame."
+        "ko": "Jin 확정 2026-08-25: 이 채는 안사랑채이며 '별당' 명칭은 폐기한다. 2007 기록화 도면 10장(p96·p98 실측 포함)은 전부 「별당」 표제이나 같은 건물의 실측이다 — 전면 퇴칸 4칸 팔작, 주칸 2,730㎜, 홑처마, 3량가. 국가유산청·함양군이 별당·안사랑채를 별개 2동으로 기록하는 것은 구 기록으로 병기만 한다. 일두고택 v3 정본(완성본_최종)이 우선한다.",
+        "de": "Jin-Entscheid 2026-08-25: Dieses Gebäude ist das Ansarangchae; der Name Byeoldang wird verworfen. Alle Blätter von 2007 tragen den Titel Byeoldang, vermessen aber dasselbe Gebäude.",
+        "en": "Jin ruling 2026-08-25: this building is the Ansarangchae; the name Byeoldang is discarded. Every 2007 sheet is titled Byeoldang but surveys this same building."
+      },
+      "formerLabel": {
+        "ko": "별당 / 별당채 (2007 기록화 표제·안내문 표기 — 폐기)",
+        "hanja": "別堂"
       },
       "sourceIds": [
         "cha_2007_record",
@@ -907,7 +895,22 @@
       "expectedCefrLevel": "c1",
       "opensZone": null,
       "opensSurface": null,
-      "floorAreaSqm": 46.51
+      "floorAreaSqm": 46.51,
+      "measuredPlan": {
+        "source": "2007 기록화사업 도면 10장 (표제 「별당」 — 이 채(안사랑채)의 실측이다. 평면·정면·배면·좌우측면·종횡단면·지붕·천정·창호도·창호부호도). Jin 제공 2026-08-24.",
+        "frontMm": [
+          2730,
+          2730,
+          2730,
+          2730
+        ],
+        "frontTotalMm": 10920,
+        "sideMm": 4260,
+        "areaSqm": 46.52,
+        "roofMembers": "용마루기와 5단 / 내림마루 3단 / 귀마루 3단 / 한식기와 중와 B형",
+        "facade": "전면 기둥열 개방, 벽면이 툇마루 깊이만큼 후퇴. 좌1칸(부엌방)만 벽이 전면 — 회벽+외짝문 710. 2·3칸 머름 위 쌍여닫이 1220, 4칸 대청 4분합 2320(머름판 380). 우측 끝 쪽마루 돌출. 와편굴뚝 530×430 별동.",
+        "members": "각주 200×200 / 자연석 주초 780×600 / 추녀 180×210 / 대량 210×270 / 연목 Ø150(말구 135) / 디딤돌 900×430"
+      }
     },
     {
       "buildingId": "ildu_gokganchae",
@@ -953,9 +956,9 @@
       "plaques": [],
       "evidenceGrade": "measured",
       "evidenceNote": {
-        "ko": "국가유산청 관리 목록과 신영도가 함께 기록한다. 판벽·맞배는 현장 사진으로 확인되나 실측 기록은 없다.",
-        "de": "In der KHS-Liste und im Sinyeongdo verzeichnet; Bretterwand und Satteldach nur fotografisch belegt.",
-        "en": "Recorded in the KHS list and the Sinyeongdo; the plank wall and gabled roof are only photographically attested."
+        "ko": "칸수는 2007 기록화보고서 건물개요표(정면 6칸·측면 1칸·42.86㎡). 2026-08-24 팔작으로 바꾸었다가 되돌렸다 — 근거로 삼은 사진이 실측도면과 대조 결과 광채였다. 지붕 형태는 여전히 실측 문장이 없다.",
+        "de": "Kan-Zahl aus der Bauaufnahme 2007. Eine Änderung auf Walmgiebel wurde zurückgenommen: die zugrunde gelegten Fotos zeigen das Gwangchae, nicht dieses Gebäude. Zur Dachform fehlt weiterhin ein Vermessungsbeleg.",
+        "en": "Bay count from the 2007 survey. A change to hip-and-gable was reverted — the photographs it rested on turned out to show the Gwangchae. The roof form still has no measured statement."
       },
       "sourceIds": [
         "cha_2007_record",
@@ -1073,9 +1076,9 @@
       "plaques": [],
       "evidenceGrade": "measured",
       "evidenceNote": {
-        "ko": "2007 기록화보고서 p40·p94 실측 — 5칸 우진각지붕. 로스터가 맞배로 적어 두었던 것을 2026-08-24 정정했다. 국가유산청 관리 목록과 신영도에도 오른다.",
-        "de": "Bauaufnahme 2007 (S. 40, 94): fünf Kan, vollständiges Walmdach. Der zuvor im Roster eingetragene Satteldach-Wert wurde am 24.08.2026 korrigiert.",
-        "en": "2007 survey (pp. 40, 94): five kan under a fully hipped roof. The roster's earlier gabled value was corrected on 2026-08-24."
+        "ko": "2007 기록화보고서 p40·p94 실측 — 5칸 우진각지붕. 배면도로 용마루·귀마루 구성과 화면 분수까지 확보했다(measuredElevation). 살창은 2·4번째 칸에 있다.",
+        "de": "Bauaufnahme 2007 (S. 40, 94): fünf Kan, Walmdach. Die Rückansicht liefert Grat- und Firstaufbau sowie die Bildproportionen; die Gitterfenster sitzen im 2. und 4. Joch.",
+        "en": "2007 survey (pp. 40, 94): five kan, fully hipped. The rear elevation supplies the ridge and hip construction and the screen proportions; the barred windows sit in bays 2 and 4."
       },
       "sourceIds": [
         "cha_2007_record",
@@ -1085,7 +1088,24 @@
       "expectedCefrLevel": "b2",
       "opensZone": null,
       "opensSurface": null,
-      "floorAreaSqm": 53.63
+      "floorAreaSqm": 53.63,
+      "measuredElevation": {
+        "source": "문화재청 2007 기록화보고서 「광채 배면도」 (Jin 제공 2026-08-24)",
+        "note": "도면을 복제·트레이스하지 않는다. 화면 분수만 읽어 재기술한 값이다.",
+        "heightBands": {
+          "53-100": "지붕 — 전체 높이의 47%. 이 집 창고채에서 지붕이 가장 큰 띠다.",
+          "39-53": "상부 회벽 띠 (14%). 살창 2개가 이 띠 안에 앉는다.",
+          "3-39": "판벽 (36%).",
+          "0-3": "초석·기단."
+        },
+        "ratios": {
+          "ridgeToEaveWidth": "용마루 : 처마선 = 1 : 2.5",
+          "eaveOverhang": "처마 내밀기 = 벽 높이의 0.6배, 좌우 각각 ≈ 한 칸 폭",
+          "spriteAspect": "전체 폭 : 전체 높이 = 2.2 : 1",
+          "angok": "처마선이 양 끝에서 전체 높이의 약 7%만큼 치켜올라간다. 용마루도 양 끝이 살짝 들린다."
+        },
+        "members": "용마루 = 학고·부고 위 적새 5단 / 귀마루 = 학고·부고 위 적새 3단 / 한식기와(중침태형). 귀마루가 있고 합각이 없으므로 우진각이 도면으로 확정된다."
+      }
     },
     {
       "buildingId": "ildu_jungmunganchae",
@@ -1166,7 +1186,11 @@
       "levelChangeNote": "중문 너머로 석축과 낮은 지면이 보인다 — 중문 통과가 평지 이동이 아니라 단 차이를 넘는 일이다. groundBand 설계의 직접 증거. 오르는지 내리는지는 촬영 방향 미상이라 확정하지 않는다.",
       "materialNote": "정면 가운데에 중문이 뚫려 있고 좌우 벽 성격이 다르다 — 한쪽은 회벽+창호, 다른 쪽은 판벽. 문짝은 두꺼운 널문, 문지방이 높다. 기단은 낮다(안 영역 계열).",
       "measuredPodiumMm": 900,
-      "measuredPodiumSource": "p85 자연석 5단, GL +900"
+      "measuredPodiumSource": "p85 자연석 5단, GL +900",
+      "positionNote": "Jin 판정 2026-08-24: 사랑채 긴 몸채의 기준도 왼쪽 끝이 중문으로 이어진다. 중문은 협문과 같은 일각문 형식이되 한 치수 크고 처마를 깊게 뺀다.",
+      "adjacentBuildings": [
+        "ildu_sarangchae"
+      ]
     },
     {
       "buildingId": "ildu_munganchae",
@@ -1663,9 +1687,9 @@
       "orientation": "east",
       "planYaw": 0,
       "use": {
-        "ko": "대문에서 직진해 안 영역으로 향하는 첫 문.",
-        "de": "Erstes Tor auf dem geraden Weg vom Haupttor ins Innere.",
-        "en": "The first gate on the straight route from the main gate toward the inner domain."
+        "ko": "사랑채 긴 몸채의 한쪽 끝(배치 기준도 오른쪽)에 붙은 작은 문. 반대쪽 끝의 중문과 같은 형식이나 한 치수 작다.",
+        "de": "Kleines Tor am einen Ende des langen Sarangchae-Flügels — gleiche Form wie das Jungmun am anderen Ende, nur eine Nummer kleiner.",
+        "en": "A small gate at one end of the long sarangchae wing — same form as the jungmun at the other end, one size smaller."
       },
       "story": {
         "ko": "대문을 들어서 곧바로 가면 이 문이 있고, 비스듬히 가면 사랑채가 나온다. 여기서 남녀의 길이 갈린다.",
@@ -1681,12 +1705,15 @@
         "en": "No measured survey. The report gives only the count (four) and locations; the form is evidenced by photographs alone."
       },
       "sourceIds": [
-        "khs_portal_ildu",
-        "hamyang_gun_guide"
+        "hamyang_gun_guide",
+        "jin_2026_master_plan",
+        "khs_portal_ildu"
       ],
       "expectedCefrLevel": "a2",
       "opensZone": null,
-      "opensSurface": null
+      "opensSurface": null,
+      "positionNote": "Jin 판정 2026-08-24 (배치 기준도): 사랑채 몸채 양 끝에 문이 하나씩 — 기준도 왼쪽 끝은 중문(안채마당 진입), 오른쪽 끝은 협문. 방위 대신 기준도 좌/우로 기술한다.",
+      "spriteReuseGroup": "hyeopmun_shared"
     },
     {
       "buildingId": "ildu_gate_sadangmun",
@@ -1722,9 +1749,9 @@
         "en": "The only way into the shrine enclosure, red-painted with a taegeuk motif."
       },
       "story": {
-        "ko": "집에서 유일하게 색을 쓴 자리다. 단청이 금지된 살림집에서 제향 공간만 예외를 얻는다.",
-        "de": "Die einzige farbige Stelle des Hauses — nur der Ritualbereich darf, was dem Wohnhaus verboten ist.",
-        "en": "The only coloured element in the house — only the ritual space is allowed what the dwelling is not."
+        "ko": "붉은 문짝 한가운데 태극을 그렸다. 사당과 이 문만 색을 쓴다 — 색이 곧 성역의 경계다.",
+        "de": "Ein Taegeuk mitten auf dem roten Türblatt. Nur Schrein und Tor tragen Farbe — sie markiert die Grenze des heiligen Bezirks.",
+        "en": "A taegeuk across the red leaves. Only the shrine and this gate carry colour — colour is where the sacred precinct begins."
       },
       "elements": [],
       "plaques": [],
@@ -1739,7 +1766,8 @@
       ],
       "expectedCefrLevel": "c1",
       "opensZone": null,
-      "opensSurface": null
+      "opensSurface": null,
+      "spriteReuseGroup": "sadangmun_unique"
     },
     {
       "buildingId": "ildu_seokgasan",
@@ -2106,14 +2134,19 @@
       "elements": [],
       "plaques": [],
       "evidenceGrade": "documented",
-      "evidenceNote": null,
+      "evidenceNote": {
+        "ko": "실측 기록 없음. 사용자 제공 사진으로만 확인된다.",
+        "de": "Keine Bauaufnahme; nur durch Nutzerfotos belegt.",
+        "en": "No measured record; evidenced only by user photos."
+      },
       "sourceIds": [
         "ildu_site_photos_jin_2026"
       ],
       "expectedCefrLevel": null,
       "opensZone": null,
       "opensSurface": null,
-      "levelChangeNote": "문 앞에 자연석 계단이 놓여 채와 채 사이에 단 차이가 있다(사진)."
+      "levelChangeNote": "문 앞에 자연석 계단이 놓여 채와 채 사이에 단 차이가 있다(사진).",
+      "spriteReuseGroup": "hyeopmun_shared"
     },
     {
       "buildingId": "ildu_cheukgan_an",
@@ -2152,7 +2185,11 @@
       "elements": [],
       "plaques": [],
       "evidenceGrade": "documented",
-      "evidenceNote": null,
+      "evidenceNote": {
+        "ko": "실측 기록 없음. 사용자 제공 사진으로만 확인된다.",
+        "de": "Keine Bauaufnahme; nur durch Nutzerfotos belegt.",
+        "en": "No measured record; evidenced only by user photos."
+      },
       "sourceIds": [
         "ildu_site_photos_jin_2026"
       ],
@@ -2197,7 +2234,11 @@
       "elements": [],
       "plaques": [],
       "evidenceGrade": "documented",
-      "evidenceNote": null,
+      "evidenceNote": {
+        "ko": "실측 기록 없음. 사진으로 확인되며, 최근 복원된 부분이다.",
+        "de": "Keine Bauaufnahme; fotografisch belegt und jüngst rekonstruiert.",
+        "en": "No measured record; photographically attested and recently reconstructed."
+      },
       "sourceIds": [
         "ildu_site_photos_jin_2026"
       ],
@@ -2205,6 +2246,153 @@
       "opensZone": null,
       "opensSurface": null,
       "restorationNote": "최근 복원 — 원형 부재 아님. 렌더 등급 판단 시 이 사실을 반영할 것."
+    },
+    {
+      "dongClass": "gate",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "type": "munchae",
+      "hierarchyRank": null,
+      "podiumBeoldae": 0,
+      "measuredPodium": false,
+      "kan": {
+        "front": 1,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "story": null,
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "sourceIds": [
+        "ildu_site_photos_jin_2026",
+        "jin_2026_master_plan"
+      ],
+      "expectedCefrLevel": null,
+      "opensZone": null,
+      "opensSurface": null,
+      "buildingId": "ildu_gate_hongyemun",
+      "names": {
+        "ko": "돌담 홍예문",
+        "hanja": "虹霓門",
+        "de": "Hongyemun — Bogenöffnung in der Steinmauer",
+        "en": "Hongyemun — arched opening in the stone wall"
+      },
+      "groundBand": 4,
+      "use": {
+        "ko": "별당 영역에서 담장을 지나 바깥으로 나가는 작은 문. 목조 문틀 없이 돌담에 무지개(홍예) 모양으로 낸 개구부다.",
+        "de": "Kleiner Ausgang vom Byeoldang-Bereich nach draußen — eine bogenförmige Öffnung direkt in der Steinmauer, ohne Holzrahmen.",
+        "en": "A small way out of the byeoldang area — a rainbow-shaped opening cut straight into the stone wall, with no timber frame."
+      },
+      "evidenceNote": {
+        "ko": "실측 기록 없음. 사용자 제공 사진과 배치 기준도로만 확인된다.",
+        "de": "Keine Bauaufnahme; nur durch Nutzerfotos und die Lageplan-Collage belegt.",
+        "en": "No measured record; evidenced only by user photos and the placement collage."
+      }
+    },
+    {
+      "dongClass": "gate",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "type": "munchae",
+      "hierarchyRank": null,
+      "podiumBeoldae": 0,
+      "measuredPodium": false,
+      "kan": {
+        "front": 1,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "story": null,
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "sourceIds": [
+        "ildu_site_photos_jin_2026",
+        "jin_2026_master_plan"
+      ],
+      "expectedCefrLevel": null,
+      "opensZone": null,
+      "opensSurface": null,
+      "buildingId": "ildu_gate_jjokmun_cheukgan",
+      "names": {
+        "ko": "쪽문 (측간 출입)",
+        "hanja": null,
+        "de": "Jjokmun — Seitentürchen zum Abort",
+        "en": "Jjokmun — small side door to the privy"
+      },
+      "groundBand": 3,
+      "use": {
+        "ko": "아래채 옆 담장에 난 작은 문. 담 밖의 측간으로 나가는 지름길이다.",
+        "de": "Kleine Tür in der Mauer neben dem Araechae — der kurze Weg zum Abort außerhalb.",
+        "en": "A small door in the wall beside the araechae — the short way to the privy outside."
+      },
+      "evidenceNote": {
+        "ko": "실측 기록 없음. 배치 기준도와 사용자 제공 사진으로만 확인된다.",
+        "de": "Keine Bauaufnahme; nur durch Collage und Nutzerfotos belegt.",
+        "en": "No measured record; evidenced only by the collage and user photos."
+      }
+    },
+    {
+      "dongClass": "service",
+      "countsTowardOriginalDong": false,
+      "survival": "extant",
+      "buildable": true,
+      "type": "munchae",
+      "hierarchyRank": null,
+      "podiumBeoldae": 0,
+      "measuredPodium": false,
+      "kan": {
+        "front": 1,
+        "side": null,
+        "note": null
+      },
+      "planForm": null,
+      "roofForm": null,
+      "structure": null,
+      "orientation": null,
+      "planYaw": 0,
+      "story": null,
+      "elements": [],
+      "plaques": [],
+      "evidenceGrade": "documented",
+      "sourceIds": [
+        "ildu_site_photos_jin_2026",
+        "jin_2026_master_plan"
+      ],
+      "expectedCefrLevel": null,
+      "opensZone": null,
+      "opensSurface": null,
+      "buildingId": "ildu_cheukgan_bakkat",
+      "names": {
+        "ko": "바깥 측간",
+        "hanja": "厠間",
+        "de": "Äußerer Abort — jenseits der Mauer",
+        "en": "Outer privy — beyond the wall"
+      },
+      "groundBand": 3,
+      "use": {
+        "ko": "아래채 옆 쪽문 밖, 담장 바깥에 한 칸으로 서 있다. 살림 마당과 냄새를 담 하나로 갈라놓은 배치다.",
+        "de": "Ein Kan außerhalb der Mauer, hinter dem Türchen beim Araechae — eine Mauer trennt Hofleben und Geruch.",
+        "en": "One kan outside the wall, past the little door by the araechae — a single wall parts the yard from the smell."
+      },
+      "evidenceNote": {
+        "ko": "실측 기록 없음. 배치 기준도와 사용자 제공 사진으로만 확인된다.",
+        "de": "Keine Bauaufnahme; nur durch Collage und Nutzerfotos belegt.",
+        "en": "No measured record; evidenced only by the collage and user photos."
+      }
     }
   ],
   "disputedClaims": [
@@ -2469,6 +2657,26 @@
         "ko": "복사·트레이스·리컬러 금지. 사진에서 읽은 사실은 중립 문장으로 재기술해 등재한다. 사진에 찍힌 현대 설비(소화기·배관·안내판)는 고증 대상이 아니다.",
         "de": "Kopieren, Nachzeichnen, Umfärben verboten; moderne Einbauten auf den Fotos sind kein Baubestand.",
         "en": "No copying, tracing or recolouring; modern fittings visible in the photos are not historic fabric."
+      }
+    },
+    {
+      "sourceId": "jin_2026_master_plan",
+      "classification": "reference_only_user_supplied",
+      "title": {
+        "ko": "일두고택 완성본_최종 — Jin 작성 배치 기준도",
+        "de": "Jins finale Lageplan-Collage des Ildu-Anwesens",
+        "en": "Jin's final placement master collage of the Ildu estate"
+      },
+      "publisher": null,
+      "url": null,
+      "accessedOn": "2026-08-24",
+      "usage": "fact_check_only_no_text_reuse",
+      "runtime": "not_shipped",
+      "modelInput": "forbidden",
+      "note": {
+        "ko": "실측 배치도 위에 채별 사진·스프라이트를 얹은 합성본. 채·문·마당의 상대 위치는 이 그림을 정본으로 삼는다. 제3자 사진 포함 — 복사·모델 입력 금지.",
+        "de": "Collage aus Fotos über dem Vermessungsplan; maßgeblich für alle Lagebeziehungen. Enthält Fremdfotos — kein Kopieren, keine Modelleingabe.",
+        "en": "Collage of photos over the survey plan; authoritative for all placement relations. Contains third-party photos — no copying, no model input."
       }
     }
   ],

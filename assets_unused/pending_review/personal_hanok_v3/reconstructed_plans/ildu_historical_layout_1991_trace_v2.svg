@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1800" viewBox="0 0 2400 1800" role="img" aria-labelledby="title desc">
+  <title id="title">정여창고택 역사 전체배치도 원도면 좌표 추적 v2</title>
+  <desc id="desc">신용기 1991 석사논문 p.36의 배치도를 1999년 논문 그림 1에서 재인용한 저해상도 사본에 맞춰 다시 추적한 검토용 벡터 도면. 현재 2007년 배치도와 혼합하지 않았다.</desc>
+  <defs>
+    <pattern id="paper" width="44" height="44" patternUnits="userSpaceOnUse">
+      <rect width="44" height="44" fill="#fbf8f0"/>
+      <path d="M3 11l15-4m8 22l15-3M10 38l12 2" stroke="#d8d0c0" stroke-width="0.8" opacity="0.26"/>
+    </pattern>
+    <pattern id="field" width="11" height="11" patternUnits="userSpaceOnUse" patternTransform="rotate(18)">
+      <path d="M0 5.5h11" stroke="#73846c" stroke-width="0.8" opacity="0.48"/>
+    </pattern>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto-start-reverse">
+      <path d="M0 0l10 5-10 5z" fill="#a2473e"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="4.4" markerHeight="4.4" orient="auto-start-reverse">
+      <path d="M0 0l10 5-10 5z" fill="#254b3f"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#15211e" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      text{font-family:'Noto Sans KR','Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#17211e}
+      .title{font-size:54px;font-weight:800;letter-spacing:-1.4px}
+      .subtitle{font-size:24px;font-weight:500;fill:#4d5752}
+      .section{font-size:30px;font-weight:800}
+      .bodyText{font-size:23px;fill:#38433f}
+      .note{font-size:20px;fill:#59635e}
+      .legend{font-size:25px;font-weight:650}
+      .legendSmall{font-size:21px;fill:#4d5752}
+
+      /* plan styles are defined in source-coordinate units and scaled 2.65x */
+      .siteFill{fill:#f0e7d3;stroke:none}
+      .wall{fill:none;stroke:#2b312f;stroke-width:4.8;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+      .wallSoft{fill:none;stroke:#6e756f;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:7 6;vector-effect:non-scaling-stroke}
+      .footprint{fill:#d9d2c2;stroke:#161d1b;stroke-width:3.2;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+      .footprintInner{fill:#f8f4e9;stroke:#161d1b;stroke-width:2.1;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+      .partition{fill:none;stroke:#505955;stroke-width:1.9;vector-effect:non-scaling-stroke}
+      .uncertain{fill:#f4ecdc;stroke:#8f594e;stroke-width:2.7;stroke-dasharray:6 5;vector-effect:non-scaling-stroke}
+      .court{fill:#e5d7bb;stroke:#b88e4c;stroke-width:2;stroke-dasharray:5 4;vector-effect:non-scaling-stroke}
+      .garden{fill:#d6dec1;stroke:#758568;stroke-width:1.8;vector-effect:non-scaling-stroke}
+      .tree{fill:#6f8065;stroke:#254b3f;stroke-width:1.4;vector-effect:non-scaling-stroke}
+      .planLabel{font-size:9px;font-weight:800;paint-order:stroke;stroke:#fbf8f0;stroke-width:3.6px;stroke-linejoin:round}
+      .planSub{font-size:7px;font-weight:650;fill:#4d5752;paint-order:stroke;stroke:#fbf8f0;stroke-width:3px;stroke-linejoin:round}
+      .badge{fill:#17211e;stroke:#fbf8f0;stroke-width:2.4;vector-effect:non-scaling-stroke}
+      .badgeUnused{fill:#8f594e;stroke:#fbf8f0;stroke-width:2.4;vector-effect:non-scaling-stroke}
+      .badgeText{font-size:7.5px;font-weight:900;fill:#fff;text-anchor:middle;dominant-baseline:middle}
+      .flow{fill:none;stroke:#a2473e;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:7 6;marker-end:url(#arrowRed);vector-effect:non-scaling-stroke}
+      .vDot{fill:#a2473e;stroke:#fff;stroke-width:2.4;vector-effect:non-scaling-stroke}
+      .vText{font-size:5.4px;font-weight:900;fill:#fff;text-anchor:middle;dominant-baseline:middle}
+      .slope{fill:none;stroke:#254b3f;stroke-width:2.2;stroke-dasharray:8 6;marker-end:url(#arrowGreen);vector-effect:non-scaling-stroke}
+    </style>
+  </defs>
+
+  <rect width="2400" height="1800" fill="url(#paper)"/>
+  <text id="title" class="title" x="90" y="75">정여창고택 역사 전체배치도 — 원도면 좌표 재추적</text>
+  <text class="subtitle" x="92" y="125">1991 신용기 석사논문 p.36 → 1999 논문 그림 1 재인용본 기준 · 현황(2007) 배치와 분리</text>
+
+  <g id="plan-card" transform="translate(60 175)" filter="url(#shadow)">
+    <rect x="0" y="0" width="1530" height="1450" rx="5" fill="#fffdf8" stroke="#17211e" stroke-width="3"/>
+    <text class="section" x="44" y="54">역사 배치 평면</text>
+    <text class="note" x="44" y="88">저해상도 원도면에서 확인되는 경계·동 배치·마당 관계만 정리</text>
+
+    <!-- Local coordinates are the paper figure's pixels minus (150,150), preserving its near-square aspect. -->
+    <g id="historical-plan" transform="translate(65 145) scale(2.65)">
+      <!-- Entire historical precinct: outer agricultural/harvest areas plus the developed residential core. -->
+      <path class="siteFill" d="M18 105L34 96L66 86L96 95L244 95C281 87 311 69 344 39C370 15 414 5 441 16C451 20 458 31 463 45C436 79 402 110 378 144C363 165 357 194 356 224L356 300L342 335L349 398L331 404L150 404L149 278L103 271L57 254L43 202Z"/>
+
+      <!-- 12 vegetable plot and 14 harvest yard are spaces, not numbered extant buildings. -->
+      <path d="M20 108L66 88L96 97L244 97L244 159L204 181L104 182L58 165Z" fill="url(#field)"/>
+      <path d="M245 97C282 87 312 69 344 39C369 16 412 7 440 17C451 21 458 32 462 45C433 81 402 109 378 145C366 162 359 181 357 201L281 174L245 155Z" fill="#eadfc6"/>
+
+      <!-- Outer boundary. The gap at the lower east edge is the historical entrance sector. -->
+      <path class="wall" d="M18 105L34 96L66 86L96 95L244 95C281 87 311 69 344 39C370 15 414 5 441 16C451 20 458 31 463 45C436 79 402 110 378 144C363 165 357 194 356 224L356 300"/>
+      <path class="wall" d="M342 335L349 398L331 404L150 404L149 278L103 271L57 254L43 202L18 105"/>
+
+      <!-- Core enclosure and visible internal wall lines. Blurred or lost junctions remain dashed. -->
+      <path class="wall" d="M151 96L151 161L143 176L150 186"/>
+      <path class="wall" d="M151 161L221 161M245 161L355 161"/>
+      <path class="wall" d="M150 186L150 257L151 267L150 404"/>
+      <path class="wall" d="M355 161L355 300M349 398L331 404"/>
+      <path class="wallSoft" d="M150 207L171 207M270 207L355 207"/>
+      <path class="wallSoft" d="M150 254L180 254M250 254L354 254"/>
+      <path class="wallSoft" d="M150 300L155 300M245 300L338 300"/>
+      <path class="wallSoft" d="M150 300L150 404M236 300L236 404"/>
+
+      <!-- Historical-unused zone 13: several residual outlines are visible, but the scan does not support one exact footprint. -->
+      <path class="uncertain" d="M158 101H350V158H158Z"/>
+      <path class="uncertain" d="M164 108H190V151H164ZM229 115H243V150H229ZM296 104H346V131H296Z"/>
+      <path class="partition" d="M300 133H359V141H300M343 141V151"/>
+
+      <!-- 5 shrine -->
+      <g id="b5">
+        <path class="footprint" d="M165 162H208V199H165Z"/>
+        <path class="footprintInner" d="M171 169H202V192H171Z"/>
+        <path class="partition" d="M181 169V192M192 169V192"/>
+        <circle class="badge" cx="160" cy="167" r="7"/><text class="badgeText" x="160" y="167">5</text>
+        <text class="planLabel" x="186" y="158" text-anchor="middle">사당</text>
+      </g>
+
+      <!-- 9 service/gwangchae -->
+      <g id="b9">
+        <path class="footprint" d="M222 162H270V199H222Z"/>
+        <path class="footprintInner" d="M228 168H264V193H228Z"/>
+        <path class="partition" d="M246 168V193"/>
+        <circle class="badge" cx="217" cy="167" r="7"/><text class="badgeText" x="217" y="167">9</text>
+        <text class="planLabel" x="246" y="158" text-anchor="middle">광채</text>
+      </g>
+
+      <!-- 4 ansarangchae, using the period name printed in the source. -->
+      <g id="b4">
+        <path class="footprint" d="M297 164H350V199H297Z"/>
+        <path class="footprintInner" d="M303 170H344V193H303Z"/>
+        <path class="partition" d="M316 170V193M330 170V193"/>
+        <circle class="badge" cx="340" cy="169" r="7"/><text class="badgeText" x="340" y="169">4</text>
+        <text class="planLabel" x="324" y="158" text-anchor="middle">안사랑채</text>
+      </g>
+
+      <!-- 1 anchae -->
+      <g id="b1">
+        <path class="footprint" d="M155 207H270V250H155Z"/>
+        <path class="footprintInner" d="M162 214H263V243H162Z"/>
+        <path class="partition" d="M180 214V243M200 214V243M225 214V243M246 214V243"/>
+        <circle class="badge" cx="150" cy="213" r="7"/><text class="badgeText" x="150" y="213">1</text>
+        <text class="planLabel" x="212" y="202" text-anchor="middle">안채</text>
+      </g>
+
+      <!-- 3 araechae, west side of the inner court. -->
+      <g id="b3">
+        <path class="footprint" d="M145 252H180V299H145Z"/>
+        <path class="footprintInner" d="M151 258H174V293H151Z"/>
+        <path class="partition" d="M151 274H174"/>
+        <circle class="badge" cx="140" cy="257" r="7"/><text class="badgeText" x="140" y="257">3</text>
+        <text class="planLabel" x="136" y="281" text-anchor="end">아래채</text>
+      </g>
+
+      <!-- 2 sarangchae: the scan shows a vertical wing with a short lower return. -->
+      <g id="b2">
+        <path class="footprint" d="M254 206H286V280H310V303H250V276H254Z"/>
+        <path class="footprintInner" d="M260 213H280V273H304V297H257V270H260Z"/>
+        <path class="partition" d="M260 232H280M260 252H280M280 278V297M270 278V297"/>
+        <circle class="badge" cx="291" cy="213" r="7"/><text class="badgeText" x="291" y="213">2</text>
+        <text class="planLabel" x="294" y="242">사랑채</text>
+      </g>
+
+      <!-- 7 inner storehouse -->
+      <g id="b7">
+        <path class="footprint" d="M150 300H240V327H150Z"/>
+        <path class="footprintInner" d="M156 306H234V321H156Z"/>
+        <path class="partition" d="M174 306V321M195 306V321M216 306V321"/>
+        <circle class="badge" cx="145" cy="305" r="7"/><text class="badgeText" x="145" y="305">7</text>
+        <text class="planLabel" x="195" y="296" text-anchor="middle">안곳간채</text>
+      </g>
+
+      <!-- 8 outer storehouse -->
+      <g id="b8">
+        <path class="footprint" d="M239 321H318V346H239Z"/>
+        <path class="footprintInner" d="M245 327H312V340H245Z"/>
+        <path class="partition" d="M262 327V340M280 327V340M297 327V340"/>
+        <circle class="badge" cx="234" cy="326" r="7"/><text class="badgeText" x="234" y="326">8</text>
+        <text class="planLabel" x="279" y="316" text-anchor="middle">바깥곳간채</text>
+      </g>
+
+      <!-- 10/11 toilets -->
+      <g id="b10">
+        <path class="footprint" d="M150 339H178V367H150Z"/>
+        <path class="footprintInner" d="M155 344H173V362H155Z"/>
+        <circle class="badge" cx="145" cy="344" r="7"/><text class="badgeText" x="145" y="344">10</text>
+        <text class="planSub" x="164" y="378" text-anchor="middle">내측</text>
+      </g>
+      <g id="b11">
+        <path class="footprint" d="M294 367H323V397H294Z"/>
+        <path class="footprintInner" d="M300 373H317V391H300Z"/>
+        <circle class="badge" cx="328" cy="372" r="7"/><text class="badgeText" x="328" y="372">11</text>
+        <text class="planSub" x="309" y="408" text-anchor="middle">외측</text>
+      </g>
+
+      <!-- 6 historical gatehouse along the old east-side approach. -->
+      <g id="b6" transform="rotate(12 337 346)">
+        <path class="footprint" d="M322 306H350V388H322Z"/>
+        <path class="footprintInner" d="M328 312H344V382H328Z"/>
+        <path d="M327 337H345V357H327Z" fill="#fffdf8" stroke="#161d1b" stroke-width="2" vector-effect="non-scaling-stroke"/>
+        <path class="partition" d="M328 330H344M328 364H344"/>
+        <circle class="badge" cx="354" cy="314" r="7"/><text class="badgeText" x="354" y="314">6</text>
+      </g>
+      <text class="planLabel" x="363" y="353" transform="rotate(12 363 353)">문간채</text>
+
+      <!-- Courtyards and garden buffers: only their relative position is asserted. -->
+      <path class="court" d="M181 252H250V295H181Z"/>
+      <text class="planSub" x="216" y="277" text-anchor="middle">안마당</text>
+      <path class="court" d="M287 253H337V314L312 318H287Z"/>
+      <text class="planSub" x="314" y="289" text-anchor="middle">사랑마당</text>
+      <path class="court" d="M250 274H270V306H250Z"/>
+      <text class="planSub" x="260" y="270" text-anchor="middle">중문마당</text>
+      <path class="garden" d="M248 202H350V253H248Z" opacity="0.82"/>
+      <text class="planSub" x="299" y="230" text-anchor="middle">보조공간</text>
+
+      <!-- Tree buffers visible in the source scan. -->
+      <g opacity="0.88">
+        <circle class="tree" cx="274" cy="209" r="7"/><circle class="tree" cx="291" cy="207" r="9"/>
+        <circle class="tree" cx="307" cy="212" r="7"/><circle class="tree" cx="322" cy="207" r="8"/>
+        <circle class="tree" cx="336" cy="213" r="7"/><circle class="tree" cx="348" cy="203" r="9"/>
+        <circle class="tree" cx="343" cy="228" r="8"/><circle class="tree" cx="344" cy="251" r="8"/>
+        <circle class="tree" cx="337" cy="282" r="7"/><circle class="tree" cx="301" cy="309" r="7"/>
+        <circle class="tree" cx="156" cy="385" r="7"/><circle class="tree" cx="176" cy="395" r="8"/>
+        <circle class="tree" cx="211" cy="386" r="6"/><circle class="tree" cx="250" cy="391" r="7"/>
+      </g>
+
+      <!-- 12, 13, and 14 are area labels from the source. -->
+      <circle class="badge" cx="72" cy="124" r="7"/><text class="badgeText" x="72" y="124">12</text>
+      <text class="planLabel" x="84" y="127">채전</text>
+      <circle class="badgeUnused" cx="205" cy="119" r="7"/><text class="badgeText" x="205" y="119">13</text>
+      <text class="planLabel" x="217" y="122">하인집 터</text>
+      <text class="planSub" x="217" y="132">당시 미사용</text>
+      <circle class="badgeUnused" cx="283" cy="99" r="7"/><text class="badgeText" x="283" y="99">14</text>
+      <text class="planLabel" x="296" y="102">추수마당</text>
+      <text class="planSub" x="296" y="112">당시 미사용</text>
+
+      <!-- Historical visual-sequence analysis, deliberately dashed and separate from surveyed geometry. -->
+      <path class="flow" d="M404 372C379 365 360 354 343 344"/>
+      <path class="flow" d="M333 333C320 315 310 302 300 292"/>
+      <path class="flow" d="M294 286C282 283 272 282 262 284"/>
+      <path class="flow" d="M256 282C245 276 234 268 221 260"/>
+      <path class="flow" d="M226 253C242 240 259 230 281 224"/>
+      <g>
+        <circle class="vDot" cx="404" cy="372" r="6"/><text class="vText" x="404" y="372">V1</text>
+        <circle class="vDot" cx="343" cy="344" r="6"/><text class="vText" x="343" y="344">V2</text>
+        <circle class="vDot" cx="300" cy="292" r="6"/><text class="vText" x="300" y="292">V3</text>
+        <circle class="vDot" cx="262" cy="284" r="6"/><text class="vText" x="262" y="284">V4</text>
+        <circle class="vDot" cx="221" cy="260" r="6"/><text class="vText" x="221" y="260">V5</text>
+        <circle class="vDot" cx="281" cy="224" r="6"/><text class="vText" x="281" y="224">V6</text>
+      </g>
+
+      <!-- Front-low to rear-high is an interpretive terrain direction; no numeric grade is claimed. -->
+      <path class="slope" d="M402 397C326 360 255 296 196 205C160 150 128 118 98 101"/>
+      <text class="planLabel" x="404" y="413">전저</text>
+      <text class="planLabel" x="82" y="96">후고</text>
+
+      <path d="M25 378H85" stroke="#17211e" stroke-width="2.2" vector-effect="non-scaling-stroke"/>
+      <path d="M25 374V382M55 374V382M85 374V382" stroke="#17211e" stroke-width="2.2" vector-effect="non-scaling-stroke"/>
+      <text class="planSub" x="55" y="392" text-anchor="middle">상대척도만 표시</text>
+      <path d="M25 335V300M25 300l-5 11m5-11l5 11" stroke="#17211e" stroke-width="2" fill="none" vector-effect="non-scaling-stroke"/>
+      <text class="planLabel" x="25" y="292" text-anchor="middle">N</text>
+    </g>
+  </g>
+
+  <g id="legend-panel" transform="translate(1650 188)">
+    <text class="section" x="0" y="26">원문 범례</text>
+    <line x1="0" y1="48" x2="660" y2="48" stroke="#17211e" stroke-width="2"/>
+    <g class="legend">
+      <text x="0" y="94">1. 안채</text><text x="315" y="94">8. 바깥곳간채</text>
+      <text x="0" y="138">2. 사랑채</text><text x="315" y="138">9. 광채</text>
+      <text x="0" y="182">3. 아래채</text><text x="315" y="182">10. 내측</text>
+      <text x="0" y="226">4. 안사랑채</text><text x="315" y="226">11. 외측</text>
+      <text x="0" y="270">5. 사당</text><text x="315" y="270">12. 채전</text>
+      <text x="0" y="314">6. 문간채</text><text x="315" y="314">13. 하인집</text>
+      <text x="0" y="358">7. 안곳간채</text><text x="315" y="358">14. 추수마당</text>
+    </g>
+    <rect x="0" y="394" width="660" height="73" fill="#f3e6df" stroke="#8f594e" stroke-width="2"/>
+    <text class="legendSmall" x="20" y="424">원문 주기: “13, 14 현재 쓰이지 않는 공간”</text>
+    <text class="legendSmall" x="20" y="453">따라서 두 번호는 현존 건물 수에 합산하지 않음</text>
+
+    <text class="section" x="0" y="530">시지각 분석 레이어</text>
+    <line x1="0" y1="550" x2="660" y2="550" stroke="#17211e" stroke-width="2"/>
+    <path d="M5 590H105" stroke="#a2473e" stroke-width="7" stroke-dasharray="14 10" marker-end="url(#arrowRed)"/>
+    <text class="bodyText" x="135" y="598">V1→V6 역사 진입·시지각 흐름</text>
+    <path d="M5 642H105" stroke="#254b3f" stroke-width="6" stroke-dasharray="14 10" marker-end="url(#arrowGreen)"/>
+    <text class="bodyText" x="135" y="650">전저→후고: 지형 해석 방향</text>
+    <text class="note" x="0" y="699">※ 경사율 수치는 원문에 없어 표기하지 않음.</text>
+    <text class="note" x="0" y="735">※ 현재 관람객 진입 위치와 다른 역사 동선임.</text>
+
+    <text class="section" x="0" y="814">정확도 경계</text>
+    <line x1="0" y1="834" x2="660" y2="834" stroke="#17211e" stroke-width="2"/>
+    <text class="bodyText" x="0" y="882">확정</text>
+    <text class="note" x="112" y="882">번호·명칭·상대적 배치·외곽 형상</text>
+    <text class="bodyText" x="0" y="926">개략</text>
+    <text class="note" x="112" y="926">벽 접속부·방 칸막이·수목 위치</text>
+    <text class="bodyText" x="0" y="970">미확정</text>
+    <text class="note" x="112" y="970">실측 길이·면적·정확한 경사율</text>
+
+    <rect x="0" y="1020" width="660" height="270" rx="4" fill="#edf1ea" stroke="#254b3f" stroke-width="2"/>
+    <text class="section" x="25" y="1064">이번 재작성 원칙</text>
+    <text class="bodyText" x="25" y="1110">• 1991/1999 역사 도면만 추적</text>
+    <text class="bodyText" x="25" y="1150">• 2007 현황 10동 배치와 합성하지 않음</text>
+    <text class="bodyText" x="25" y="1190">• 흐린 선은 점선으로 남김</text>
+    <text class="bodyText" x="25" y="1230">• 안사랑채를 별당으로 자동 치환하지 않음</text>
+    <text class="note" x="25" y="1265">검토용 추적도 · 실측/CAD 도면 아님</text>
+  </g>
+
+  <g transform="translate(90 1690)">
+    <line x1="0" y1="0" x2="2220" y2="0" stroke="#8e958f" stroke-width="2"/>
+    <text class="note" x="0" y="42">근거: 1999년 논문 「정여창고택의 시지각특성에 의한 공간분석」 그림 1(신용기 1991 석사논문 p.36 재인용)</text>
+    <text class="note" x="0" y="76">상태: assets_unused / pending_review — 사용자 검토 전 런타임·카탈로그·Firebase 미반영</text>
+  </g>
+</svg>

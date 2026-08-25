@@ -254,6 +254,7 @@
     },
     "F-C-estate": {
       "label": "개인 한옥 지도 — 건물/조경 (1536x1152 고정 캔버스)",
+      "deprecated": "Jin 2026-08-25 정본 선언('기존은 다 폐지해'): 이 패밀리는 legacy 봉인 — 신규 생성·앵커·스타일 참조 금지, 런타임 유지보수만 허용. F-D-ildoo(일두고택)가 유일한 개인 한옥 정본이며, v3 컷오버 시 이 패밀리 자산은 제거 예정. v2 시각 등가 보장 요건도 함께 폐기(전면 대체 컷오버).",
       "dirs": [
         "assets/illustrations/personal_hanok_v2/map/structures/",
         "assets/illustrations/personal_hanok_v2/map/landscape/",
@@ -345,6 +346,7 @@
     },
     "F-C-a1states": {
       "label": "A1 16단계 — 결정론 합성, 사람이 그리지 않음",
+      "successorNote": "Jin 2026-08-25 정본 선언에서 유일하게 존속하는 구 계보 — ILDU_A1C2_PROGRESSION_LOCK 의 A1 구간이 이 17상태를 '문간채'로 재명명해 그대로 재사용한다(promotion-immutable 유지).",
       "dirs": [
         "assets/illustrations/personal_hanok_v2/a1/states/"
       ],
@@ -439,11 +441,14 @@
     "F-D-ildoo": {
       "label": "함양 일두고택 고증 재현 — 누적 증축 (세로 1152x2048 런타임 / 2304x4096 생성)",
       "note": "F-C-estate로 흡수 불가: 캔버스·앵커·프로토콜·대상이 전부 다르다. F-C-estate는 허구 종가의 완성 건물을 역방향 편집(KEEP/REMOVE/ADD)하고, 여기는 실존 고택을 빈 터에서부터 순방향 누적 증축한다. 계약: docs/assets/HANOK_V2_ART_DIRECTION_LOCK.md v2.0.0. 로스터: docs/data/heritage_houses/ildu_gotaek.json.",
-      "styleStatement": "Hangul Sori uses a Korean heritage-inspired 2.5D mobile-game illustration system. It combines stylized hand-painted hanok architectural sprites in an elevated three-quarter oblique view with faceted paper-cut object vignettes and semi-realistic faceted mascot art.\n\nArchitecture prioritizes believable Korean construction, precise giwa roof rhythm, warm timber, hanji plaster, stone foundations, selective ink-like linework, matte materials, and restrained painterly facets.\n\nProps and UI vignettes use stronger angular polygonal facets, subtle hanji paper grain, compact silhouettes, and muted traditional Korean colors.\n\nUse minhwa-inspired color and decorative vocabulary, but do not imitate literal traditional minhwa paintings. This is premium contemporary Korean game art, not watercolor, anime, Pixar, or literal low-poly 3D.",
-      "styleStatementSource": "Jin 구술 확정 2026-08-23. 이 패밀리의 스타일 SSoT — promptSkeleton 은 이 문장의 건축 레지스터를 따른다.",
+      "styleStatement": "Hangul Sori uses a Korean heritage-inspired 2.5D mobile-game illustration system. Each asset class has its own canonical register:\n\n- Hanok architecture — stylized hand-painted 2.5D architectural sprite art: believable Korean construction first; precise giwa roof rhythm, warm timber, hanji plaster, stone foundations, selective ink-like linework, matte materials, restrained painterly facets (never triangulated geometry).\n- Camera — elevated three-quarter oblique game view.\n- Props and lesson vignettes (teacup, brush pot, book chest, UI vignettes) — faceted paper-cut vignette illustration: stronger angular polygonal facets, subtle hanji paper grain, compact silhouettes, muted traditional Korean colors.\n- Characters (tiger and magpie) — faceted semi-realistic character illustration: faceted planes with lively, believable expression and anatomy.\n- Mountains, sky, backgrounds — atmospheric faceted painterly environment art.\n- Korean identity — minhwa-inspired palette and decorative vocabulary, never literal minhwa painting.\n\nAll classes share one palette: ink-charcoal giwa, warm walnut timber, hanji cream, muted deep teal, dark brick red, restrained gold accents.\n\nThis is premium contemporary Korean game art, not watercolor, anime, Pixar, or literal low-poly 3D.",
+      "styleStatementSource": "Jin 구술 확정 2026-08-23; 자산군별 레지스터 표 확장 Jin 승인 2026-08-25. 이 패밀리의 스타일 SSoT — promptSkeleton 은 이 문장의 건축 레지스터를 따른다. 구도·배치는 placementReference(완성본_최종.png)가 별도 정본이며 이 문장 개정은 구도·위치를 바꾸지 않는다.",
       "registers": {
-        "architecture": "이 패밀리 전체(건물·문·담·석가산·지형 타일). hand-painted, believable construction, 정밀한 기와 리듬, selective ink-like linework 허용, restrained painterly facets. LOW-POLY 문구 사용 금지 — 소품 레지스터와 혼동하면 종이접기 삼각분할로 흐른다(site_base try01 실패 원인).",
-        "propsVignette": "소품·UI 비네트 전용(F-A 계열) — stronger angular polygonal facets. 이 패밀리에는 적용하지 않는다."
+        "architecture": "정식 명칭: stylized hand-painted 2.5D architectural sprite art. 이 패밀리 전체(건물·문·담·석가산·지형 타일). hand-painted, believable construction, 정밀한 기와 리듬, selective ink-like linework 허용, restrained painterly facets. 우선순위: 구조·재질 우선, 면분할은 절제. LOW-POLY 문구 사용 금지 — 소품 레지스터와 혼동하면 종이접기 삼각분할로 흐른다(site_base try01 실패 원인).",
+        "propsVignette": "정식 명칭: faceted paper-cut vignette illustration. 소품·UI 비네트 전용(F-A 계열) — stronger angular polygonal facets, 한지 질감 우선. 이 패밀리에는 적용하지 않는다.",
+        "camera": "정식 명칭: elevated three-quarter oblique game view. 전 자산군 공통 표현이되, 이 패밀리(고택 배치도)에서는 camera 블록의 정면 얕은 부감(10~15°) 수치가 이 표현의 정본 해석이다.",
+        "characters": "정식 명칭: faceted semi-realistic character illustration. 호랑이·까치 마스코트 전용 — 면분할 + 생동감 있는 표정과 해부. 이 패밀리에는 적용하지 않는다.",
+        "environment": "정식 명칭: atmospheric faceted painterly environment art. 산·하늘·원경 배경 전용. 이 패밀리에는 적용하지 않는다."
       },
       "dirs": [
         "assets/illustrations/personal_hanok_v3/map/",
@@ -459,9 +464,36 @@
         "gate_sadangmun",
         "sadang"
       ],
-      "membersNote": "v1 범위 = 위 7채 + site_base(8 생성). 로스터의 나머지 buildable 행(행랑채·아래채·별당채·안사랑채·곳간채·안곳간채·광채·석가산·우물·장독대·담장·멸실 4동)은 승격될 때마다 이 배열에 추가한다. ildu_unidentified_17은 buildable:false 이므로 영원히 멤버가 되지 않는다.",
-      "anchors": [],
-      "anchorsNote": "승인된 일두고택 마스터가 아직 없다. site_base 승인 시 첫 앵커로 등재한다. v1.0.0 락의 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 이 패밀리의 앵커가 아니며 생성 입력으로 쓰지 않는다. assets_unused/한옥후보/ 의 후보 이미지는 reference_only_user_supplied(modelInput: forbidden) — 서면 브리프의 근거로만 쓰고 모델에 넣지 않는다.",
+      "membersNote": "v1 범위 = 위 7채 + site_base(8 생성). 로스터의 나머지 buildable 행(행랑채·아래채·안사랑채(구 표제 '별당' — 명칭 폐기, Jin 2026-08-25)·곳간채·안곳간채·광채·석가산·우물·장독대·담장·멸실 4동)은 승격될 때마다 이 배열에 추가한다. ildu_unidentified_17은 buildable:false 이므로 영원히 멤버가 되지 않는다.",
+      "anchors": [
+        "assets_unused/pending_review/personal_hanok_v3/sarangchae_try07_edit.png",
+        "assets_unused/pending_review/personal_hanok_v3/sotdaeulmun_approved_jin_20260824.png",
+        "assets_unused/pending_review/personal_hanok_v3/jungmunganchae_try06_final_openmaru.png",
+        "assets_unused/pending_review/personal_hanok_v3/안채_final.png",
+        "assets_unused/pending_review/personal_hanok_v3/qa/hyeopmun_try03_cut.png"
+      ],
+      "anchorsNote": "Jin 정본 선언 2026-08-25 — personal_hanok_v3 의 승인 스프라이트가 이 패밀리의 앵커다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. assets_unused/한옥후보/ 의 후보 이미지는 reference_only_user_supplied(modelInput: forbidden) — 서면 브리프의 근거로만 쓰고 모델에 넣지 않는다.",
+      "canonSprites": {
+        "note": "Jin 정본 선언 2026-08-25 기준 채별 정본 파일(assets_unused/pending_review/personal_hanok_v3/). 시리즈가 여럿인 채는 최신·실측 정합본을 기본 정본으로 두고 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체.",
+        "sotdaeulmun": "sotdaeulmun_approved_jin_20260824.png",
+        "sarangchae": "sarangchae_try07_edit.png",
+        "jungmunganchae": "jungmunganchae_try06_final_openmaru.png (배면: 중문 뒷쪽.png)",
+        "anchae": "안채_final.png",
+        "anchae_gokganchae": "안채곳간채.png",
+        "gokganchae": "gokganchae_try02_5kan.png",
+        "changgo_gwangchae": "changgo_try04_lowlong.png",
+        "araechae": "araechae_try04_oblique.png (지정 대기 — try03_lattice 병존)",
+        "sadang": "sadang_try03_oblique.png (지정 대기 — try02_oneroof 병존)",
+        "sadangmun": "sadangmun_try02_small.png",
+        "ansarangchae": "byeoldang_try02_colonnade.png (파일명의 byeoldang 은 구 표제 — 채명은 안사랑채, '별당' 폐기. 전면 개방 기둥열이 실측 정합; byeoldang_ansarang_try01 병존, 지정 대기)",
+        "hyeopmun_shared": "qa/hyeopmun_try03_cut.png (원본 hyeopmun_try03_blueprint_colored.png)",
+        "jungmun": "qa/jungmun_try01_derived_cut.png (협문 컷에서 계단 제거 파생)",
+        "hongyemun": "안사랑채-외부 출입문.png",
+        "gulttuk": "굴뚝.png",
+        "cheukgan": "화장실.png",
+        "hyeonpan_boards": "hyeonpan_board_baekse_cheongpung_try01.png / hyeonpan_board_takcheongjae_try01.png (+ 글씨 레이어 hyeonpan_calligraphy_*_v1.png)",
+        "retired": "retired/ 하위 = 폐지 확정본(협문 try01 PBR, hyeopmun_try02_measured, sarangchae_try06_lowleft). sarangchae_try05 는 try07 의 비율 출처라 보존."
+      },
       "camera": {
         "canvas": {
           "width": 2412,
@@ -509,7 +541,7 @@
               150,
               700
             ],
-            "label": "후원 켜 — 별당채·안사랑채·광채·곳간채·후문"
+            "label": "후원 켜 — 안사랑채·광채·곳간채·후문 ('별당' 명칭 폐기, Jin 2026-08-25. 곳간채·광채의 실제 자리는 완성본_최종이 정본 — 2007 배치도는 광채 북·곳간채 남으로 그린다, 참고만)"
           },
           "5": {
             "yRange": [
@@ -630,7 +662,23 @@
           "각도 도구는 고증을 못 고친다 — 씨네앵글이 try05의 愛敬堂 환각을 그대로 이월시켰다. 환각·오류는 반드시 베이스 생성 단계에서 잡고 그 뒤에 각도를 돌린다.",
           "참고사진을 확인용으로만 쓰고 프롬프트는 보고서 수치로 씀 (문간채 try01: 6개 특징 동시 이탈) → photoFirstRule. 사진이 있으면 위→아래로 읽은 순서가 프롬프트 순서다.",
           "솟을대문 양옆 행랑 지붕을 낮게 그려 사이에 초록 공백이 뜸 (문간채 try01·try02) → 행랑 용마루가 솟을대문 처마 밑면까지 올라와 거의 맞닿아야 한다. heightBandMethod 71% 선.",
-          "돌담을 낮게 그림 (문간채 try01·try02: 45%) → 사진 실측 34%(전체) / 벽 높이의 63%. 돌담이 회벽보다 확실히 크다."
+          "돌담을 낮게 그림 (문간채 try01·try02: 45%) → 사진 실측 34%(전체) / 벽 높이의 63%. 돌담이 회벽보다 확실히 크다.",
+          "막새 원판에 국화·연화 문양을 새겨 사찰·궁궐 등급으로 올라감 (협문 try01) → 살림집 막새는 무늬 없는 민무늬다. 'plain undecorated round tile-ends, no chrysanthemum, no lotus, no stamped pattern' 를 명시.",
+          "수키와를 거대한 원통 통나무로 그려 개수가 줄고 장난감처럼 보임 (협문 try01) → 'convex roof tiles are slender half-round, 20~26 courses across the front' 처럼 개수로 묶는다.",
+          "용마루 앙곡을 좌우 대칭 급커브로 그려 중국 누각처럼 됨 (협문 try01) → 일두고택 문은 완만하다. '용마루는 거의 수평, 양 끝에서만 살짝 들린다' 로 약화.",
+          "STYLE 블록을 길게 써도 PBR 3D 렌더로 나옴 (협문 try01: 나뭇결 사진텍스처·앰비언트오클루전) → 금지어 나열만으로는 부족. 'flat hand-painted illustration, NOT a 3D render, no photographic wood texture, no ambient occlusion' 를 STYLE 블록 첫 문장에 놓는다.",
+          "valMean 게이트 미달 (협문 try01: 0.308 < 0.34) → 프롬프트에 'overall mid-tone, avoid deep shadow; the sprite must read light enough to sit on a pale courtyard' 를 LIGHT 블록에 추가.",
+          "앙곡(처마 치켜올림)을 '양 끝에서 올라간다'로 지시하면 무시하고 수평 직선으로 그림 (광채 try03: 좌·중·우 처마끝 y가 완전 동일) → 곡선의 모양 자체를 지시한다. '처마 아랫변은 완만한 위로 볼록한 호(웃는 입 모양)다. 중앙이 가장 낮고 양 끝 귀에서 전체 높이의 7%만큼 올라간다.'",
+          "용마루 길이를 비(1:2.5)로 지시하면 너무 짧게 그림 (광채 try03: 1:3.8) → 화면 절대 분수로 지시한다. '용마루는 스프라이트 전체 폭의 가운데 40%를 차지한다 — 폭이 100이면 30에서 70까지.'",
+          "지붕 높이 비중을 34%로 잡으면 창고채가 '집처럼' 보임 (광채 try02, Jin 지적 '너무 집같잖아') → 광채 실측 배면도는 지붕이 전체 높이의 47%다. 창고채는 지붕이 벽보다 크다.",
+          "사진만으로 지붕형태를 판정하면 채를 오인할 수 있다 (2026-08-24: 곳간채 사진이라 받은 것이 실은 광채 배면도와 일치) → 칸수·창 위치 같은 셀 수 있는 지표를 보고서 실측표와 먼저 대조한 뒤 지붕을 판정한다.",
+          "살림채의 한 칸을 널문으로 그려 창고처럼 보임 (아래채 try02, Jin 지적 '지금 그린건 창고같잖아') → 아래채는 세 칸 전부 창살문이다. 좌측 마루방 칸은 종이 없는 맨 살문, 나머지 두 칸은 종이 바른 살문. 널문은 곳간채·광채 전용이다.",
+          "회벽을 문 좌우에 넓은 덩어리로 넣으면 벽이 지배해 살림채가 창고로 읽힘 (아래채 try02) → 회벽은 문 위 좁은 띠(전체 높이의 8%)와 기둥 옆 실 정도만. 창살이 정면의 지배 질감이어야 한다.",
+          "맞배인데 용마루를 처마보다 짧게 그려 사다리꼴이 됨 (아래채 try02 0.53 / try03 0.14) → 맞배는 용마루 길이 = 처마 길이다. '용마루는 처마선의 90% 이상' 을 숫자로 걸고, 그래도 안 되면 '지붕은 직사각형 띠, 위로 갈수록 좁아지지 않는다' 를 FORBIDDEN 에 넣는다. 우진각(광채)과 맞배(아래채)의 구분은 배치도에서 채를 알아보는 1차 단서다.",
+          "겹처마를 2층 지붕으로 오해 (사당 try01: 궁궐 전각이 됨) → '지붕 하나, 용마루 하나, 처마 하나. 겹처마는 한 처마에 서까래 마구리가 두 줄인 것이지 지붕이 둘인 게 아니다' 를 프롬프트 맨 앞에 놓는다.",
+          "문 스프라이트가 커 보이는 진짜 원인은 문짝이 아니라 돌계단 부재 (사당문 try01) → 협문 실측: 아래 25%가 거친 돌 3단이고 그 위에 문이 앉는다. 계단을 넣으면 문이 저절로 작아진다. 개구부는 세로 슬롯이 아니라 거의 정사각(1:1.05).",
+          "문이 커 보이는 원인을 문짝에서 찾지 말 것 — 기단·계단의 유무가 지배한다 (사당문 try01, 중문). 협문은 돌계단 25% 위에 앉고 중문은 평지에 선다. 같은 몸체라도 계단을 넣으면 작아 보이고 빼면 커 보인다. 문 스프라이트는 항상 담장 높이와의 비(1.6:1)로 검산한다.",
+          "도면 여러 장 중 평면도·창호도만 읽고 정면도를 건너뛴 채 정면을 조립함 (별당 try01: 대청 4분합을 전면 기둥열에 붙여 개방 툇마루가 소멸, Jin 지적) → photoFirstRule은 도면에도 적용된다. 정면도가 있으면 정면도를 위→아래로 읽은 것이 프롬프트 본문이고, 평면도·창호도는 그 위에 얹는 보조값이다. 정면도 없이 평면도만으로 입면을 조립하지 않는다."
         ],
         "verifyAfterGeneration": [
           "칸수를 실제로 세어 로스터 kan.front 와 일치하는지",
@@ -736,10 +784,12 @@
         ],
         "neonMax": 0.03,
         "dancheongMax": 0.005,
-        "dancheongMaxSpec": "지붕·처마·공포 영역(스프라이트 상단 40%)에서 HSV saturation > 0.55 이고 hue 가 적색대(0-20, 340-360) 또는 청록·군청대(170-260) 에 드는 픽셀의 비율. 0.005 초과 시 하드 실패. 가사제한(살림집 단청 금지)을 희망이 아니라 검사로 만든다. 예외: gate_sadangmun 은 주칠 태극 문양이 문헌으로 확인되므로 이 게이트에서 제외한다.",
+        "dancheongMaxSpec": "지붕·처마·공포 영역(스프라이트 상단 40%)에서 HSV saturation > 0.55 이고 hue 가 적색대(0-20, 340-360) 또는 청록·군청대(170-260) 에 드는 픽셀의 비율. 0.005 초과 시 하드 실패. 가사제한(살림집 단청 금지)을 희망이 아니라 검사로 만든다. 예외 2건: gate_sadangmun(주칠 + 태극 문양)과 sadang(제향 공간이라 공포·창방·서까래에 오채 단청이 실재한다. Jin 제공 현장사진 2026-08-24로 확인). 살림채는 예외 없음 — 가사제한은 사람이 사는 채에만 걸린다.",
         "dancheongMaxExemptMembers": [
-          "gate_sadangmun"
+          "gate_sadangmun",
+          "sadang"
         ],
+        "plaqueBoardException": "편액 판(hyeonpan_board_*)은 F-D 멤버가 아니라 런타임 합성 오버레이 자산이다. 밝은 한지빛 바탕(먹 글씨와의 대비)이 설계 의도라 건물용 valMean 상한 0.7을 적용하지 않는다 — 편액 전용 참고 범위: satMean 0.3~0.6, valMean 0.6~0.9, neonMax 0.03. 실측(2026-08-25, try01 컷 2종): sat 0.487/0.504, val 0.789/0.778, neon 0.0. Jin 승인 2026-08-25('이대로 진행'). 글씨 레이어(hyeonpan_calligraphy_*)는 도면에서 결정론 추출한 먹획 알파이며 게이트 대상이 아니다.",
         "measured": null,
         "measuredAt": "pending — 첫 3회 승격 후 실측해 satMean/valMean 을 좁힌다",
         "provisionalFrom": "F-C-estate 실측값에서 채도 하한만 0.24 -> 0.18 로 낮춤. 단청이 없는 집이라 더 낮게 나오는 것이 정상이다."
@@ -759,7 +809,7 @@
           "buildings": [
             "사랑채",
             "안채",
-            "별당채"
+            "안사랑채"
           ]
         },
         "matbae": {
@@ -822,6 +872,113 @@
         "mugoju_oryangga": {
           "ko": "무고주 5량가",
           "prompt": "five purlins with no interior column."
+        }
+      },
+      "placementReference": {
+        "file": "assets_unused/pending_review/personal_hanok_v3/일두고택 완성본_최종.png",
+        "author": "Jin",
+        "date": "2026-08-24",
+        "sourceId": "jin_2026_master_plan",
+        "rule": "모든 채·문·마당·조경의 상대 위치는 이 합성본을 정본으로 한다. 스프라이트 배치 판단이 로스터 문장과 충돌하면 이 그림이 이긴다. 제3자 사진이 포함되어 있으므로 이 파일 자체는 모델 입력·출하 금지 — 위치 사실만 읽는다.",
+        "canonDecree": "Jin 2026-08-25: '지금 내가 만든 완성본이랑 에셋이 정본이다. 기존은 다 폐지해.' — 정본 범위를 위치에서 아트 전체로 확대한다. 이 합성본과 personal_hanok_v3 의 승인 스프라이트가 일두고택 아트의 유일 정본이며, 기존 계보(v1.0.0 허구 종가 앵커, F-C-estate 자산, 레거시 12-stage 아트)는 일두고택 작업에서 전부 폐지 — 앵커·스타일 참조·신규 생성 입력 어느 용도로도 쓰지 않는다. 같은 날 추가 확정: '고증 96퍼센트 맞춘거니까 그냥 내가 만든 final이 법이야' — 고증 문헌·로스터·도면과 final 이 충돌하면 final 이 이긴다. 문헌 값은 도감 주석으로만 쓴다.",
+        "caveat": "2026-08-25 개정: 구 판타지 데코(정자·연못·홍예교·석등)는 Jin이 합성본에서 직접 지웠다(베이지 마스킹 부위) — 남은 배치가 정본이다. 지워진 자리는 F-D 고증 요소(석가산·우물·장독대·옛터 표석)로 채운다. 합성본 위 사당·사당문 단청은 고증 실재(dancheongMaxExemptMembers 2건)라 유지.",
+        "unrelatedFolderWarning": "Jin 확인 2026-08-25('다른거니까 이걸로하라니까'): assets_unused/한옥후보/ 의 일두고택_완성도_final.png(2412x2622, 사진 콜라주 라벨링 스케치)는 이 정본과 무관한 별개 자료다 — placementReference 로 쓰지 않는다. 정본은 오직 이 파일(personal_hanok_v3/일두고택 완성본_최종.png)."
+      },
+      "gateSpritePlan": {
+        "sharedSprite": "협문 1종을 3개 위치에 재사용 — 사랑채 동단(안채 진입)·안사랑채↔안채·안사랑채/사당 서측. spriteReuseGroup=hyeopmun_shared",
+        "separate": [
+          "사당문 — 붉은 칠 + 태극 문양, 전용 1종 (spriteReuseGroup=sadangmun_unique)",
+          "돌담 홍예문 — 목조 지붕 없는 돌담 개구부, 전용 1종",
+          "쪽문(측간 출입) — 판문 1짝 소형, 전용 1종"
+        ],
+        "rationale": "Jin 2026-08-24: 사당문(태극문양) 빼고 생김새가 비슷해 돌려쓰기 가능. 보고서의 「4개의 협문」(p31)과 정합.",
+        "sharedKit": "두 문은 같은 부재 키트: 손도끼 다듬은 회갈색 각주 2본(사선 가새 부착, 넓적한 자연석 초석), 목재 문지방(중앙을 낮게 팜), 두꺼운 세로널 판문, 2단 인방, 인방 위 노출 서까래, 맞배 기와지붕(강한 앙곡·흰 막새 원판·양끝 큰 망와), 양옆 토석담이 기둥 중간~인방 아래에서 맞닿음.",
+        "heightBands": {
+          "hyeopmun_gateRelative": "0-4% 문지방 / 0-60% 기둥 / 55% 개구부 상단 / 55-67% 인방·구조부 / 67-92% 기와면 / 92-100% 용마루·망와. 개구부 폭:기둥높이 ≈ 1:1.6",
+          "jungmun_gateRelative": "계단 없음. 0-4% 목재 문지방 / 4-62% 기둥과 문짝(개구부 상단 62%) / 62-71% 인방·목부재 띠 / 71-100% 지붕(전체의 29%). 지면은 납작한 판석 포장.",
+          "sizeRule": "정정 2026-08-24 (Jin 제공 중문 현장사진 측정). 협문과 중문은 몸체 비례가 사실상 같다. 차이는 단 하나 — 협문은 거친 돌계단 3단(전체 높이의 25%) 위에 앉고, 중문은 계단 없이 평지 위에 바로 선다. 따라서 중문 스프라이트는 협문 스프라이트에서 돌계단 띠를 빼고 지면에서 시작한다. 그 결과 중문이 협문보다 전체 높이가 낮게 보이는 것이 정상이다. 앞서 적었던 \"중문 = 협문의 1.15배\" 는 폐기한다 — 사진 측정과 맞지 않는다.",
+          "source": "중문 사진 3장·협문 3D스캔 정지화면·중문 현장사진(담장 공유 뷰) 격자 측정, 2026-08-24",
+          "wallRelation": "중문 전체 높이 : 인접 토석담 높이 = 1.6 : 1. 담장 갓기와 상단이 중문 개구부 상단(인방 밑면)과 같은 높이로 맞물린다 — 담 위로 솟는 것은 지붕뿐이다. 배치도에서 문과 담을 이어 붙일 때 이 선을 맞춘다."
+        },
+        "approvedReference": {
+          "sprite": "assets_unused/pending_review/personal_hanok_v3/hyeopmun_try03_blueprint_colored.png",
+          "cut": "assets_unused/pending_review/personal_hanok_v3/qa/hyeopmun_try03_cut.png",
+          "approvedBy": "Jin",
+          "approvedAt": "2026-08-25",
+          "generation": "GPT Image 2, 2K, 2:3, 2.7cr — 1993 보수공사 협문 상세도 실측 기반 신규 생성 (도면은 모델 미입력, 수치 재기술만)",
+          "gatesMeasured": "sat 0.377 / val 0.400 / neon 0.0 — F-D 게이트 전 항목 통과. try01의 valMean 미달(0.308)은 LIGHT 블록 mid-tone 지시로 해결",
+          "knownDeviations": "계단 비중 ~20%(도면 16%), 개구부가 도면(1:1.37)보다 약간 세로형 — Jin 승인으로 수용",
+          "jungmunDerivation": "중문은 이 컷에서 돌계단 띠를 제거해 파생한다(sizeRule). 파생본: qa/jungmun_try01_derived_cut.png"
+        },
+        "note": "1993 보수공사 「협문 상세도」 실측 판독(2026-08-25): 스프라이트 총높이 = 몸체 2,340(지면→용마루) + 자연석 계단 450 = 2,790. 밴드(아래부터): 0-16% 자연석 디딤돌 계단 3단(폭 1,300→1,000 위로 좁아짐) / 16-21% 초석 150 + 중앙을 낮춘 목재 문지방 / 21-72% 각기둥 120×150 2본과 두꺼운 세로널 판문 2짝(개구부 1,020×1,400, 폭:높이 1:1.37) / 72-80% 인방 2단·인방 위 노출 서까래 마구리 / 80-100% 맞배 홑처마 기와지붕(각서까래 45×45, 처마 좌우 내밈 각 510 → 지붕 전폭 2,040 = 몸체 폭 1,440의 1.42배, 용마루 거의 수평·양끝 망와). 사진 관측 기반 '계단 25%'는 도면 실측 16%로 대체한다. 도면 자체는 복제·트레이스·모델입력 금지 — 수치만 재기술."
+      },
+      "measuredElevations": {
+        "gwangchae": {
+          "source": "문화재청 2007 기록화보고서 「광채 배면도」 (Jin 제공 2026-08-24). 도면 복제·트레이스·모델입력 금지 — 화면 분수만 재기술.",
+          "bands": {
+            "53-100": "지붕 47%",
+            "39-53": "회벽 띠 14% (살창 2·4번째 칸)",
+            "3-39": "판벽 36%",
+            "0-3": "초석"
+          },
+          "ridgeSpan": "용마루 = 스프라이트 전체 폭의 가운데 40%",
+          "eaveOverhang": "처마 내밀기 = 벽 높이의 0.6배 ≈ 한 칸 폭",
+          "angok": "처마 아랫변은 위로 볼록한 호. 귀에서 전체 높이의 +7%",
+          "aspect": "전체 폭 : 높이 = 2.2 : 1",
+          "members": "용마루 학고·부고 위 적새 5단 / 귀마루 적새 3단 / 한식기와 중침태형",
+          "appliesTo": "창고채 계열(광채·곳간채·안곳간채)의 기본 비례. 칸수·지붕형태는 채마다 다르니 로스터 값을 따른다."
+        },
+        "sadang": {
+          "source": "문화재청 2007 기록화보고서 「사당 평면도」 (Jin 제공 2026-08-24). 복제·트레이스·모델입력 금지 — 수치만 재기술.",
+          "plan": {
+            "front": "정면 3칸 = 2150 + 2450 + 2160 = 6760㎜ (가운데 칸이 가장 넓다)",
+            "side": "측면 4200㎜ (1칸 반) = 2940 + 1260",
+            "area": "6.76 × 4.2 = 28.39㎡ — 보고서 실측표와 일치",
+            "eaveOverhang": "측면 800㎜ / 정면·배면 870㎜",
+            "members": "원주 Ø240 자연석 주초 / 각주 230×230 석간주 / 한식회벽 T87 / 장대석 기단석 270×270 치석 / 화강석 디딤돌 300×160×810",
+            "levels": "실내 흙바닥 FL+230, 기단 상단 FL+310, 외부 FL±0"
+          },
+          "bands": {
+            "60-100": "지붕 40% — 겹처마",
+            "49-60": "단청 공포·창방 띠 11%",
+            "6-49": "기둥·창호 43%",
+            "0-6": "장대석 한벌대 기단 6%"
+          },
+          "dancheong": "공포·살미·창방·평방·서까래 마구리까지 오채 단청. 기둥은 석간주 주칠. 창호는 청록. 이 집에서 단청이 있는 곳은 사당과 사당문뿐이다."
+        },
+        "araechae": {
+          "source": "2007 기록화보고서 「아래채 평면도·정면도」 (Jin 제공 2026-08-24). 복제·트레이스·모델입력 금지 — 수치만 재기술.",
+          "plan": {
+            "front": "정면 3칸 = 2430 + 2400 + 2670 = 7500㎜",
+            "side": "4000㎜ = 방 2820 + 전면 툇마루 1180. 「측면 1칸 반」의 실체.",
+            "eaveOverhang": "좌 370 / 우 750 / 전후 900㎜",
+            "members": "각주 180×190 / 주선·문선 80×130 / 벽선 80×90 / 청판 THK50 / 장귀틀 200×150 / 동귀틀 150×120 / 하방 150×120 / 디딤돌 990×330×180",
+            "podium": "자연석 기단 — 사당의 장대석과 대비된다",
+            "rooms": "좌 마루방 1 + 우 온돌방 2"
+          },
+          "bands": {
+            "50-100": "지붕 50%",
+            "42-50": "문 위 회벽 띠 8%",
+            "13-42": "창살문 29%",
+            "5-13": "툇마루 8%",
+            "0-5": "자연석 기단 5%"
+          },
+          "roofMembers": "용마루 기와 학고·부고 9단 / 내림마루 기와 학고·부고 5단 / 한식기와 중침태형. 추녀마루가 없어 맞배로 확정.",
+          "facade": "세 칸 전부 창살문. 좌측 마루방 칸은 종이 없는 맨 살문(어두운 목재 격자), 중·우 온돌방 칸은 종이 바른 살문. 툇마루가 전면을 끊김 없이 지나가고 마루 밑은 트여 짧은 동바리가 자연석 위에 선다."
+        },
+        "ansarangchae": {
+          "source": "2007 기록화사업 「별당 정면도·평면도·창호도」 (Jin 제공 2026-08-24). 복제·트레이스·모델입력 금지 — 수치만 재기술. Jin 확정 2026-08-25: 이 채는 안사랑채, '별당' 명칭 폐기(도면 표제만 별당).",
+          "plan": "정면 4칸 × 2,730 = 10,920 / 측면 4,260(= 방 2,610 + 툇 1,650) / 46.52㎡",
+          "roof": "팔작 홑처마 — 용마루기와 5단 / 내림마루 3단 / 귀마루 3단 / 한식기와 중와 B형",
+          "bands": {
+            "48-100": "지붕 52%",
+            "15-48": "개방 전면 기둥열과 후퇴한 벽·창호 33%",
+            "8-15": "툇마루 띠 7%",
+            "0-8": "기단 8%"
+          },
+          "aspect": "W/H ≈ 3.0 (처마 포함)",
+          "facadeStructure": "전면 기둥열이 벽 없이 서고 벽면 전체가 툇마루 깊이만큼 뒤로 물러난다. 좌1칸(부엌방)만 벽이 전면까지 나와 회벽+외짝문(710). 2·3칸은 후퇴면에 머름 위 쌍여닫이(1,220), 4칸(대청)은 후퇴면 전체 4분합(2,320, 하부 머름판 380). 툇마루 하부는 동바리+X가새가 보이고, 우측 끝에서 쪽마루가 벽선 밖으로 살짝 돌출한다.",
+          "openings": "WD01 대청 4분합 2320×1900(창1520+머름380) / WD02 방 쌍여닫이 1220×1190 / WD04 방-3 외짝 710×1265 / WW01 부엌 살창 1330×330 / WW02 다락 배면 1230×600"
         }
       }
     }

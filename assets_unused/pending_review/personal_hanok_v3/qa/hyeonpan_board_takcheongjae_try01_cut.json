@@ -1,0 +1,64 @@
+{
+ "source": "assets_unused\\pending_review\\personal_hanok_v3\\hyeonpan_board_takcheongjae_try01.png",
+ "sourceSha256": "169622d7262364f6669af2af4ae1894a1b359b4733e53d8cb0f2d11b2b97650b",
+ "out": "assets_unused\\pending_review\\personal_hanok_v3\\qa\\hyeonpan_board_takcheongjae_try01_cut.png",
+ "outSha256": "17dbb7c77a33125e0be579b442eab13d36f717a1924d3c8d1db060fd03e4f861",
+ "sourceSize": [
+  1536,
+  1024
+ ],
+ "outSize": [
+  1368,
+  600
+ ],
+ "parts": 1,
+ "partBoxes": [
+  [
+   84,
+   196,
+   1452,
+   796
+  ]
+ ],
+ "visiblePixels": 820758,
+ "coveragePct": 99.99,
+ "corners": [
+  {
+   "corner": "topLeft",
+   "meanRgb": [
+    2.7,
+    249.4,
+    5.0
+   ],
+   "greenness": 244.3
+  },
+  {
+   "corner": "topRight",
+   "meanRgb": [
+    2.7,
+    249.7,
+    5.5
+   ],
+   "greenness": 244.2
+  },
+  {
+   "corner": "bottomLeft",
+   "meanRgb": [
+    2.2,
+    249.7,
+    5.2
+   ],
+   "greenness": 244.5
+  },
+  {
+   "corner": "bottomRight",
+   "meanRgb": [
+    2.3,
+    249.5,
+    5.0
+   ],
+   "greenness": 244.5
+  }
+ ],
+ "pillow": "11.3.0"
+}
