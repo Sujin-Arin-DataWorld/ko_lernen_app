@@ -19,6 +19,7 @@ import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
+import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
@@ -57,6 +58,13 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   Scenario get _scenario => widget.scenario;
 
   DialogLine get _line => _scenario.dialog[_step];
+
+  /// 덱 공유 폰트 실측의 입력 — 시나리오 전체 대사를 어절로 쪼갠 목록.
+  /// 줄마다 다시 만들면 값이 흔들릴 수 있어 한 번만 만든다.
+  late final List<String> _deckWords = _scenario.dialog
+      .expand((line) => line.ko.split(' '))
+      .where((word) => word.trim().isNotEmpty)
+      .toList(growable: false);
 
   @override
   String get coachId => 'listening_play';
@@ -273,6 +281,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
         key: _lineKey,
         child: _ListeningLinePage(
           line: _line,
+          deckWords: _deckWords,
           showGloss: _showGloss,
           lang: lang,
           replayLabel: t.listeningReplay,
@@ -355,9 +364,21 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   }
 }
 
+/// 재생 꼬리표/한국어 줄이 쓰는 최소 탭 타깃. 실측(카드 높이 계산)과 렌더가
+/// 같은 값을 봐야 안전망 FittedBox 가 개입하지 않는다.
+const double _kReplayTapTarget = 48;
+
+/// 한 줄짜리 두루마리 카드. **크기를 정하는 건 콘텐츠지 화면 비율이 아니다.**
+///
+/// 예전에는 `cardHeight = maxHeight * 0.34` 고정이라 짧은 줄에서는 카드 안이
+/// 텅 비고 긴 줄에서는 글자가 축 띠 밖으로 밀려났다(2026-08-23 진단 B1/B2).
+/// 지금은 ① 덱 전체가 공유하는 한 폰트 크기를 [soriUniformFitSize] 로 먼저 잡고,
+/// ② 그 크기로 이 줄의 실제 콘텐츠 높이를 TextPainter 로 실측한 뒤,
+/// ③ 종이 비율(위/아래 축 띠)을 되돌려 카드 높이를 만든다.
 class _ListeningLinePage extends StatelessWidget {
   const _ListeningLinePage({
     required this.line,
+    required this.deckWords,
     required this.showGloss,
     required this.lang,
     required this.replayLabel,
@@ -365,10 +386,34 @@ class _ListeningLinePage extends StatelessWidget {
   });
 
   final DialogLine line;
+
+  /// 시나리오 **전체 대사의 어절 목록**. [soriUniformFitSize] 는 `maxLines: 1`
+  /// 실측이라 문장 통째가 아니라 최장 *어절*이 한 줄에 들어가는 크기를 잡는다 —
+  /// 나머지 줄바꿈은 어절 단위 wrap 이 처리한다. 덱 내내 한 값이라 카드를
+  /// 넘겨도 글자 크기가 요동치지 않는다.
+  final List<String> deckWords;
+
   final bool showGloss;
   final String lang;
   final String replayLabel;
   final VoidCallback onReplay;
+
+  double _measure(
+    BuildContext context,
+    String text,
+    TextStyle style,
+    double maxWidth,
+  ) {
+    final painter = TextPainter(
+      text: TextSpan(text: text, style: style),
+      textDirection: Directionality.of(context),
+      textAlign: TextAlign.center,
+      textScaler: MediaQuery.textScalerOf(context),
+    )..layout(maxWidth: maxWidth);
+    final height = painter.height;
+    painter.dispose();
+    return height;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -377,16 +422,65 @@ class _ListeningLinePage extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         final cardWidth = (constraints.maxWidth * 0.9).toDouble();
-        final cardHeight = (constraints.maxHeight * 0.34).toDouble();
+        // 종이 내폭 — 축 띠/종이 여백은 에셋 비례 상수가 정본이다.
+        final paperWidth = cardWidth * (1 - 2 * kScrollPaperSideFraction);
+        final koStyle = tt.koDisplay.copyWith(
+          fontSize: soriUniformFitSize(
+            context,
+            texts: deckWords,
+            maxWidth: paperWidth,
+            cap: 28,
+            min: 22,
+            letterSpacing: tt.koDisplay.letterSpacing ?? 0,
+            lineHeight: tt.koDisplay.height ?? 1.0,
+          ),
+        );
+        final glossStyle = tt.gloss;
+        final metaStyle = tt.meta.copyWith(color: SoriColors.contentCta);
+        final showsGloss = showGloss && gloss.isNotEmpty && gloss != line.ko;
+
+        // 두 줄 다 `_ListeningReplayTarget` 안이라 48dp 탭 타깃이 바닥이다 —
+        // 이걸 빼먹으면 실측이 모자라 FittedBox 가 주도해 버린다.
+        var contentHeight = _measure(
+          context,
+          line.ko,
+          koStyle,
+          paperWidth,
+        ).clamp(_kReplayTapTarget, double.infinity).toDouble();
+        if (showsGloss) {
+          contentHeight +=
+              Spacing.md + _measure(context, gloss, glossStyle, paperWidth);
+        }
+        contentHeight +=
+            Spacing.sm +
+            _measure(
+              context,
+              replayLabel,
+              metaStyle,
+              paperWidth,
+            ).clamp(_kReplayTapTarget, double.infinity).toDouble();
+
+        final maxHeight = constraints.maxHeight.isFinite
+            ? constraints.maxHeight
+            : 520.0;
+        final cardHeight =
+            (contentHeight /
+                    (1 - kScrollRodTopFraction - kScrollRodBottomFraction))
+                .clamp(200.0, maxHeight * 0.72)
+                .toDouble();
+
         return Center(
           child: SizedBox(
             width: cardWidth,
             height: cardHeight,
             child: SoriShortScrollCard(
+              // FittedBox 는 **안전망으로만** 남는다 — 크기는 위의 균일값이
+              // 정하고, 카드가 상한(0.72)에 걸린 극단에서만 미세 축소로 잘림을
+              // 받아낸다. 폭은 종이 내폭 그대로라 어절 줄바꿈이 살아 있다.
               child: FittedBox(
                 fit: BoxFit.scaleDown,
                 child: SizedBox(
-                  width: 280,
+                  width: paperWidth,
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -396,27 +490,22 @@ class _ListeningLinePage extends StatelessWidget {
                         child: Text(
                           line.ko,
                           textAlign: TextAlign.center,
-                          style: tt.koDisplay,
+                          style: koStyle,
                         ),
                       ),
-                      if (showGloss &&
-                          gloss.isNotEmpty &&
-                          gloss != line.ko) ...[
+                      if (showsGloss) ...[
                         const SizedBox(height: Spacing.md),
                         Text(
                           gloss,
                           textAlign: TextAlign.center,
-                          style: tt.gloss,
+                          style: glossStyle,
                         ),
                       ],
                       const SizedBox(height: Spacing.sm),
                       _ListeningReplayTarget(
                         semanticsLabel: replayLabel,
                         onTap: onReplay,
-                        child: Text(
-                          replayLabel,
-                          style: tt.meta.copyWith(color: SoriColors.contentCta),
-                        ),
+                        child: Text(replayLabel, style: metaStyle),
                       ),
                     ],
                   ),
@@ -453,7 +542,10 @@ class _ListeningReplayTarget extends StatelessWidget {
           onTap: onTap,
           haptic: SoriHaptic.selection,
           child: ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 48, minHeight: 48),
+            constraints: const BoxConstraints(
+              minWidth: _kReplayTapTarget,
+              minHeight: _kReplayTapTarget,
+            ),
             child: Center(widthFactor: 1, heightFactor: 1, child: child),
           ),
         ),

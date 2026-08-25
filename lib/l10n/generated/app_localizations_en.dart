@@ -3402,6 +3402,231 @@ class AppL10nEn extends AppL10n {
   String get listeningShelfSocialFandom => 'Fandom & videos';
 
   @override
+  String get listeningShelfShortA1Transit => 'Buses & trains';
+
+  @override
+  String get listeningShelfShortA1Arrival => 'Arrival';
+
+  @override
+  String get listeningShelfShortA1Counter => 'Shops & counters';
+
+  @override
+  String get listeningShelfShortA1Cafe => 'Café & snacks';
+
+  @override
+  String get listeningShelfShortA1Home => 'At home';
+
+  @override
+  String get listeningShelfShortA1Greeting => 'Greetings';
+
+  @override
+  String get listeningShelfShortA1Repair => 'Asking again';
+
+  @override
+  String get listeningShelfShortA1Health => 'Pharmacy';
+
+  @override
+  String get listeningShelfShortA1Family => 'First visit';
+
+  @override
+  String get listeningShelfShortA1Numbers => 'Numbers & time';
+
+  @override
+  String get listeningShelfShortA1Phone => 'Calls';
+
+  @override
+  String get listeningShelfShortA1Wayfinding => 'Directions';
+
+  @override
+  String get listeningShelfShortA2Travel => 'Travelling';
+
+  @override
+  String get listeningShelfShortA2Bank => 'Bank & phone';
+
+  @override
+  String get listeningShelfShortA2Shopping => 'Shopping';
+
+  @override
+  String get listeningShelfShortA2Cafe => 'Restaurant';
+
+  @override
+  String get listeningShelfShortA2Body => 'Doctor & sport';
+
+  @override
+  String get listeningShelfShortA2Neighbourhood => 'Neighbourhood';
+
+  @override
+  String get listeningShelfShortA2Work => 'At work';
+
+  @override
+  String get listeningShelfShortA2Plans => 'Making plans';
+
+  @override
+  String get listeningShelfShortA2Family => 'Holidays';
+
+  @override
+  String get listeningShelfShortA2Delivery => 'Deliveries';
+
+  @override
+  String get listeningShelfShortA2Enrolment => 'Enrolment';
+
+  @override
+  String get listeningShelfShortA2Booking => 'Bookings';
+
+  @override
+  String get listeningShelfShortB1Repairs => 'Repairs';
+
+  @override
+  String get listeningShelfShortB1Refund => 'Warranty';
+
+  @override
+  String get listeningShelfShortB1Receipts => 'Receipts';
+
+  @override
+  String get listeningShelfShortB1Delay => 'Delays';
+
+  @override
+  String get listeningShelfShortB1Paperwork => 'Paperwork';
+
+  @override
+  String get listeningShelfShortB1Team => 'Handover';
+
+  @override
+  String get listeningShelfShortB1Neighbours => 'Neighbours';
+
+  @override
+  String get listeningShelfShortB1Feelings => 'Feelings';
+
+  @override
+  String get listeningShelfShortB1Family => 'Closeness & distance';
+
+  @override
+  String get listeningShelfShortB1Insurance => 'Insurance';
+
+  @override
+  String get listeningShelfShortB1Incident => 'Accidents';
+
+  @override
+  String get listeningShelfShortB1Cancellation => 'Cancelling';
+
+  @override
+  String get listeningShelfShortB2Meetings => 'Meetings';
+
+  @override
+  String get listeningShelfShortB2Evidence => 'Figures & evidence';
+
+  @override
+  String get listeningShelfShortB2Negotiation => 'Negotiations';
+
+  @override
+  String get listeningShelfShortB2Contracts => 'Contracts';
+
+  @override
+  String get listeningShelfShortB2Notices => 'Objections';
+
+  @override
+  String get listeningShelfShortB2Escalation => 'Escalation';
+
+  @override
+  String get listeningShelfShortB2Medical => 'Medicine';
+
+  @override
+  String get listeningShelfShortB2Public => 'In public';
+
+  @override
+  String get listeningShelfShortB2Family => 'Boundaries';
+
+  @override
+  String get listeningShelfShortB2Hiring => 'Hiring';
+
+  @override
+  String get listeningShelfShortB2Authorities => 'Authorities';
+
+  @override
+  String get listeningShelfShortB2Privacy => 'Data privacy';
+
+  @override
+  String get listeningShelfShortC1Briefing => 'Right to speak';
+
+  @override
+  String get listeningShelfShortC1Uncertainty => 'Uncertainty';
+
+  @override
+  String get listeningShelfShortC1Access => 'Access rights';
+
+  @override
+  String get listeningShelfShortC1InvisibleLabor => 'Invisible labour';
+
+  @override
+  String get listeningShelfShortC1Conflict => 'Bias';
+
+  @override
+  String get listeningShelfShortC1Policy => 'Interpretation';
+
+  @override
+  String get listeningShelfShortC1Consent => 'Consent';
+
+  @override
+  String get listeningShelfShortC1Critique => 'Art criticism';
+
+  @override
+  String get listeningShelfShortC1Mediation => 'Mediation';
+
+  @override
+  String get listeningShelfShortC1Methodology => 'Methodology';
+
+  @override
+  String get listeningShelfShortC1Facework => 'Saving face';
+
+  @override
+  String get listeningShelfShortC1Attribution => 'Citing sources';
+
+  @override
+  String get listeningShelfShortC2Automation => 'Automation';
+
+  @override
+  String get listeningShelfShortC2Records => 'Record gaps';
+
+  @override
+  String get listeningShelfShortC2Discourse => 'Assumptions';
+
+  @override
+  String get listeningShelfShortC2Authority => 'Mandates';
+
+  @override
+  String get listeningShelfShortC2Impact => 'Unequal impact';
+
+  @override
+  String get listeningShelfShortC2Memory => 'Remembrance';
+
+  @override
+  String get listeningShelfShortC2Ethics => 'Research ethics';
+
+  @override
+  String get listeningShelfShortC2History => 'Reconciliation';
+
+  @override
+  String get listeningShelfShortC2Translation => 'Aesthetics';
+
+  @override
+  String get listeningShelfShortC2Limitation => 'Time limits';
+
+  @override
+  String get listeningShelfShortC2Jurisdiction => 'Jurisdiction';
+
+  @override
+  String get listeningShelfShortC2Representation => 'Representation';
+
+  @override
+  String get listeningShelfShortSocialFriends => 'Friends';
+
+  @override
+  String get listeningShelfShortSocialDating => 'Dating';
+
+  @override
+  String get listeningShelfShortSocialFandom => 'Fandom';
+
+  @override
   String get kkeunmariTitle => 'Word Chain';
 
   @override

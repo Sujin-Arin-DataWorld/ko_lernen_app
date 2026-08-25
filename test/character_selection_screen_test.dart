@@ -94,6 +94,8 @@ void main() {
 
     // videoReady=false인 테스트에서는 정적 폴백이 보이지만, 화면 계약은
     // tiger_choose 원샷이고 실제 영상 완료 콜백과 같은 경로로 진행한다.
+    // 2026-08-23 Jin: 실기기에서 확인한 "호랑이가 포효하며 맞아주는" 연출이
+    // 바로 이 tiger_choose 다. greet_pawflash 로 바꾸지 말 것.
     final player = tester.widget<CharacterClipPlayer>(
       find.byType(CharacterClipPlayer),
     );

@@ -6025,6 +6025,456 @@ abstract class AppL10n {
   /// **'Fandom & Videos'**
   String get listeningShelfSocialFandom;
 
+  /// No description provided for @listeningShelfShortA1Transit.
+  ///
+  /// In de, this message translates to:
+  /// **'Bus & Bahn'**
+  String get listeningShelfShortA1Transit;
+
+  /// No description provided for @listeningShelfShortA1Arrival.
+  ///
+  /// In de, this message translates to:
+  /// **'Ankunft'**
+  String get listeningShelfShortA1Arrival;
+
+  /// No description provided for @listeningShelfShortA1Counter.
+  ///
+  /// In de, this message translates to:
+  /// **'Läden & Schalter'**
+  String get listeningShelfShortA1Counter;
+
+  /// No description provided for @listeningShelfShortA1Cafe.
+  ///
+  /// In de, this message translates to:
+  /// **'Café & Imbiss'**
+  String get listeningShelfShortA1Cafe;
+
+  /// No description provided for @listeningShelfShortA1Home.
+  ///
+  /// In de, this message translates to:
+  /// **'Zuhause'**
+  String get listeningShelfShortA1Home;
+
+  /// No description provided for @listeningShelfShortA1Greeting.
+  ///
+  /// In de, this message translates to:
+  /// **'Begrüßung'**
+  String get listeningShelfShortA1Greeting;
+
+  /// No description provided for @listeningShelfShortA1Repair.
+  ///
+  /// In de, this message translates to:
+  /// **'Nachfragen'**
+  String get listeningShelfShortA1Repair;
+
+  /// No description provided for @listeningShelfShortA1Health.
+  ///
+  /// In de, this message translates to:
+  /// **'Apotheke'**
+  String get listeningShelfShortA1Health;
+
+  /// No description provided for @listeningShelfShortA1Family.
+  ///
+  /// In de, this message translates to:
+  /// **'Erster Besuch'**
+  String get listeningShelfShortA1Family;
+
+  /// No description provided for @listeningShelfShortA1Numbers.
+  ///
+  /// In de, this message translates to:
+  /// **'Zahlen & Uhrzeit'**
+  String get listeningShelfShortA1Numbers;
+
+  /// No description provided for @listeningShelfShortA1Phone.
+  ///
+  /// In de, this message translates to:
+  /// **'Anrufe'**
+  String get listeningShelfShortA1Phone;
+
+  /// No description provided for @listeningShelfShortA1Wayfinding.
+  ///
+  /// In de, this message translates to:
+  /// **'Wege & Schilder'**
+  String get listeningShelfShortA1Wayfinding;
+
+  /// No description provided for @listeningShelfShortA2Travel.
+  ///
+  /// In de, this message translates to:
+  /// **'Unterwegs'**
+  String get listeningShelfShortA2Travel;
+
+  /// No description provided for @listeningShelfShortA2Bank.
+  ///
+  /// In de, this message translates to:
+  /// **'Bank & Handy'**
+  String get listeningShelfShortA2Bank;
+
+  /// No description provided for @listeningShelfShortA2Shopping.
+  ///
+  /// In de, this message translates to:
+  /// **'Einkauf'**
+  String get listeningShelfShortA2Shopping;
+
+  /// No description provided for @listeningShelfShortA2Cafe.
+  ///
+  /// In de, this message translates to:
+  /// **'Restaurant'**
+  String get listeningShelfShortA2Cafe;
+
+  /// No description provided for @listeningShelfShortA2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Arzt & Sport'**
+  String get listeningShelfShortA2Body;
+
+  /// No description provided for @listeningShelfShortA2Neighbourhood.
+  ///
+  /// In de, this message translates to:
+  /// **'Nachbarschaft'**
+  String get listeningShelfShortA2Neighbourhood;
+
+  /// No description provided for @listeningShelfShortA2Work.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Job'**
+  String get listeningShelfShortA2Work;
+
+  /// No description provided for @listeningShelfShortA2Plans.
+  ///
+  /// In de, this message translates to:
+  /// **'Verabredungen'**
+  String get listeningShelfShortA2Plans;
+
+  /// No description provided for @listeningShelfShortA2Family.
+  ///
+  /// In de, this message translates to:
+  /// **'Feiertage'**
+  String get listeningShelfShortA2Family;
+
+  /// No description provided for @listeningShelfShortA2Delivery.
+  ///
+  /// In de, this message translates to:
+  /// **'Lieferung'**
+  String get listeningShelfShortA2Delivery;
+
+  /// No description provided for @listeningShelfShortA2Enrolment.
+  ///
+  /// In de, this message translates to:
+  /// **'Anmeldung'**
+  String get listeningShelfShortA2Enrolment;
+
+  /// No description provided for @listeningShelfShortA2Booking.
+  ///
+  /// In de, this message translates to:
+  /// **'Buchungen'**
+  String get listeningShelfShortA2Booking;
+
+  /// No description provided for @listeningShelfShortB1Repairs.
+  ///
+  /// In de, this message translates to:
+  /// **'Reparaturen'**
+  String get listeningShelfShortB1Repairs;
+
+  /// No description provided for @listeningShelfShortB1Refund.
+  ///
+  /// In de, this message translates to:
+  /// **'Garantie'**
+  String get listeningShelfShortB1Refund;
+
+  /// No description provided for @listeningShelfShortB1Receipts.
+  ///
+  /// In de, this message translates to:
+  /// **'Belege'**
+  String get listeningShelfShortB1Receipts;
+
+  /// No description provided for @listeningShelfShortB1Delay.
+  ///
+  /// In de, this message translates to:
+  /// **'Verspätung'**
+  String get listeningShelfShortB1Delay;
+
+  /// No description provided for @listeningShelfShortB1Paperwork.
+  ///
+  /// In de, this message translates to:
+  /// **'Unterlagen'**
+  String get listeningShelfShortB1Paperwork;
+
+  /// No description provided for @listeningShelfShortB1Team.
+  ///
+  /// In de, this message translates to:
+  /// **'Übergabe'**
+  String get listeningShelfShortB1Team;
+
+  /// No description provided for @listeningShelfShortB1Neighbours.
+  ///
+  /// In de, this message translates to:
+  /// **'Nachbarn'**
+  String get listeningShelfShortB1Neighbours;
+
+  /// No description provided for @listeningShelfShortB1Feelings.
+  ///
+  /// In de, this message translates to:
+  /// **'Gefühle'**
+  String get listeningShelfShortB1Feelings;
+
+  /// No description provided for @listeningShelfShortB1Family.
+  ///
+  /// In de, this message translates to:
+  /// **'Nähe & Distanz'**
+  String get listeningShelfShortB1Family;
+
+  /// No description provided for @listeningShelfShortB1Insurance.
+  ///
+  /// In de, this message translates to:
+  /// **'Versicherung'**
+  String get listeningShelfShortB1Insurance;
+
+  /// No description provided for @listeningShelfShortB1Incident.
+  ///
+  /// In de, this message translates to:
+  /// **'Unfälle'**
+  String get listeningShelfShortB1Incident;
+
+  /// No description provided for @listeningShelfShortB1Cancellation.
+  ///
+  /// In de, this message translates to:
+  /// **'Kündigung'**
+  String get listeningShelfShortB1Cancellation;
+
+  /// No description provided for @listeningShelfShortB2Meetings.
+  ///
+  /// In de, this message translates to:
+  /// **'Besprechungen'**
+  String get listeningShelfShortB2Meetings;
+
+  /// No description provided for @listeningShelfShortB2Evidence.
+  ///
+  /// In de, this message translates to:
+  /// **'Zahlen & Belege'**
+  String get listeningShelfShortB2Evidence;
+
+  /// No description provided for @listeningShelfShortB2Negotiation.
+  ///
+  /// In de, this message translates to:
+  /// **'Verhandlungen'**
+  String get listeningShelfShortB2Negotiation;
+
+  /// No description provided for @listeningShelfShortB2Contracts.
+  ///
+  /// In de, this message translates to:
+  /// **'Verträge'**
+  String get listeningShelfShortB2Contracts;
+
+  /// No description provided for @listeningShelfShortB2Notices.
+  ///
+  /// In de, this message translates to:
+  /// **'Widerspruch'**
+  String get listeningShelfShortB2Notices;
+
+  /// No description provided for @listeningShelfShortB2Escalation.
+  ///
+  /// In de, this message translates to:
+  /// **'Eskalation'**
+  String get listeningShelfShortB2Escalation;
+
+  /// No description provided for @listeningShelfShortB2Medical.
+  ///
+  /// In de, this message translates to:
+  /// **'Medizin'**
+  String get listeningShelfShortB2Medical;
+
+  /// No description provided for @listeningShelfShortB2Public.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffentlichkeit'**
+  String get listeningShelfShortB2Public;
+
+  /// No description provided for @listeningShelfShortB2Family.
+  ///
+  /// In de, this message translates to:
+  /// **'Grenzen'**
+  String get listeningShelfShortB2Family;
+
+  /// No description provided for @listeningShelfShortB2Hiring.
+  ///
+  /// In de, this message translates to:
+  /// **'Einstellung'**
+  String get listeningShelfShortB2Hiring;
+
+  /// No description provided for @listeningShelfShortB2Authorities.
+  ///
+  /// In de, this message translates to:
+  /// **'Behörden'**
+  String get listeningShelfShortB2Authorities;
+
+  /// No description provided for @listeningShelfShortB2Privacy.
+  ///
+  /// In de, this message translates to:
+  /// **'Datenschutz'**
+  String get listeningShelfShortB2Privacy;
+
+  /// No description provided for @listeningShelfShortC1Briefing.
+  ///
+  /// In de, this message translates to:
+  /// **'Rederecht'**
+  String get listeningShelfShortC1Briefing;
+
+  /// No description provided for @listeningShelfShortC1Uncertainty.
+  ///
+  /// In de, this message translates to:
+  /// **'Unsicherheit'**
+  String get listeningShelfShortC1Uncertainty;
+
+  /// No description provided for @listeningShelfShortC1Access.
+  ///
+  /// In de, this message translates to:
+  /// **'Zugriffsrechte'**
+  String get listeningShelfShortC1Access;
+
+  /// No description provided for @listeningShelfShortC1InvisibleLabor.
+  ///
+  /// In de, this message translates to:
+  /// **'Unsichtbare Arbeit'**
+  String get listeningShelfShortC1InvisibleLabor;
+
+  /// No description provided for @listeningShelfShortC1Conflict.
+  ///
+  /// In de, this message translates to:
+  /// **'Befangenheit'**
+  String get listeningShelfShortC1Conflict;
+
+  /// No description provided for @listeningShelfShortC1Policy.
+  ///
+  /// In de, this message translates to:
+  /// **'Auslegung'**
+  String get listeningShelfShortC1Policy;
+
+  /// No description provided for @listeningShelfShortC1Consent.
+  ///
+  /// In de, this message translates to:
+  /// **'Einwilligung'**
+  String get listeningShelfShortC1Consent;
+
+  /// No description provided for @listeningShelfShortC1Critique.
+  ///
+  /// In de, this message translates to:
+  /// **'Kunstkritik'**
+  String get listeningShelfShortC1Critique;
+
+  /// No description provided for @listeningShelfShortC1Mediation.
+  ///
+  /// In de, this message translates to:
+  /// **'Vermittlung'**
+  String get listeningShelfShortC1Mediation;
+
+  /// No description provided for @listeningShelfShortC1Methodology.
+  ///
+  /// In de, this message translates to:
+  /// **'Methodik'**
+  String get listeningShelfShortC1Methodology;
+
+  /// No description provided for @listeningShelfShortC1Facework.
+  ///
+  /// In de, this message translates to:
+  /// **'Gesicht wahren'**
+  String get listeningShelfShortC1Facework;
+
+  /// No description provided for @listeningShelfShortC1Attribution.
+  ///
+  /// In de, this message translates to:
+  /// **'Zitate & Quellen'**
+  String get listeningShelfShortC1Attribution;
+
+  /// No description provided for @listeningShelfShortC2Automation.
+  ///
+  /// In de, this message translates to:
+  /// **'Automatisierung'**
+  String get listeningShelfShortC2Automation;
+
+  /// No description provided for @listeningShelfShortC2Records.
+  ///
+  /// In de, this message translates to:
+  /// **'Aktenlücken'**
+  String get listeningShelfShortC2Records;
+
+  /// No description provided for @listeningShelfShortC2Discourse.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorannahmen'**
+  String get listeningShelfShortC2Discourse;
+
+  /// No description provided for @listeningShelfShortC2Authority.
+  ///
+  /// In de, this message translates to:
+  /// **'Vollmacht'**
+  String get listeningShelfShortC2Authority;
+
+  /// No description provided for @listeningShelfShortC2Impact.
+  ///
+  /// In de, this message translates to:
+  /// **'Auswirkungen'**
+  String get listeningShelfShortC2Impact;
+
+  /// No description provided for @listeningShelfShortC2Memory.
+  ///
+  /// In de, this message translates to:
+  /// **'Erinnerung'**
+  String get listeningShelfShortC2Memory;
+
+  /// No description provided for @listeningShelfShortC2Ethics.
+  ///
+  /// In de, this message translates to:
+  /// **'Forschungsethik'**
+  String get listeningShelfShortC2Ethics;
+
+  /// No description provided for @listeningShelfShortC2History.
+  ///
+  /// In de, this message translates to:
+  /// **'Versöhnung'**
+  String get listeningShelfShortC2History;
+
+  /// No description provided for @listeningShelfShortC2Translation.
+  ///
+  /// In de, this message translates to:
+  /// **'Ästhetik'**
+  String get listeningShelfShortC2Translation;
+
+  /// No description provided for @listeningShelfShortC2Limitation.
+  ///
+  /// In de, this message translates to:
+  /// **'Verjährung'**
+  String get listeningShelfShortC2Limitation;
+
+  /// No description provided for @listeningShelfShortC2Jurisdiction.
+  ///
+  /// In de, this message translates to:
+  /// **'Zuständigkeit'**
+  String get listeningShelfShortC2Jurisdiction;
+
+  /// No description provided for @listeningShelfShortC2Representation.
+  ///
+  /// In de, this message translates to:
+  /// **'Repräsentation'**
+  String get listeningShelfShortC2Representation;
+
+  /// No description provided for @listeningShelfShortSocialFriends.
+  ///
+  /// In de, this message translates to:
+  /// **'Freunde'**
+  String get listeningShelfShortSocialFriends;
+
+  /// No description provided for @listeningShelfShortSocialDating.
+  ///
+  /// In de, this message translates to:
+  /// **'Dating'**
+  String get listeningShelfShortSocialDating;
+
+  /// No description provided for @listeningShelfShortSocialFandom.
+  ///
+  /// In de, this message translates to:
+  /// **'Fandom'**
+  String get listeningShelfShortSocialFandom;
+
   /// No description provided for @kkeunmariTitle.
   ///
   /// In de, this message translates to:

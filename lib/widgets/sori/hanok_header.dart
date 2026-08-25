@@ -18,7 +18,7 @@ import 'video_lease.dart';
 /// 루프 영상(`assets/video/loops/<이름>.mp4`)이 존재하면 png 포스터 위로
 /// 페이드인해 무음 루프 재생한다. 영상이 없거나(대부분의 헤더),
 /// `!TigerStageVideo.videoReady`, reduce-motion이면 — 기존 정적 png 그대로.
-/// 콜사이트 변경 0: `listening_hero.png` → `loops/listening_hero.mp4` 자동 유도.
+/// 콜사이트 변경 0: `porch.png` → `loops/porch.mp4` 자동 유도.
 ///
 /// ```dart
 /// HanokHeader(asset: 'assets/illustrations/hanok/study_scholar.png',
@@ -76,7 +76,6 @@ class HanokHeader extends StatelessWidget {
     'hanok_construction',
     'hanok_jongga',
     'kkeunmari_hero',
-    'listening_hero',
     'porch',
     'scene_cafe',
     'scene_directions',
@@ -89,8 +88,8 @@ class HanokHeader extends StatelessWidget {
     'welcome-hero',
   };
 
-  /// 'assets/illustrations/hanok/listening_hero.png'
-  ///   → 'assets/video/loops/listening_hero.mp4'
+  /// 'assets/illustrations/hanok/porch.png'
+  ///   → 'assets/video/loops/porch.mp4'
   ///
   /// 짝이 되는 루프가 [kLoopAssets] 에 없으면 **null** — 없는 파일로
   /// 플레이어를 만들지 않는다.

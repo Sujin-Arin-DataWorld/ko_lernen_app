@@ -3,6 +3,23 @@ import '../models/personal_hanok.dart';
 /// The only asset root the personal estate is allowed to use.
 const kPersonalHanokAssetRoot = 'assets/illustrations/personal_hanok_v2/';
 
+/// The fixed master canvas every estate art layer is authored on.
+///
+/// Pinned by `docs/PERSONAL_HANOK_CANONICAL_ASSET_CONTRACT.md` and
+/// `tool/check_personal_hanok_assets.py`'s `CANVAS`.
+const int kPersonalHanokCanvasWidth = 1536;
+const int kPersonalHanokCanvasHeight = 1152;
+
+/// Runtime-wide decoded-image ceiling.
+///
+/// Source: `docs/assets/HANOK_V1_ASSET_PROVENANCE.json` ->
+/// `runtimeLimits.decodedMemoryMaxBytes`. It sits as a **sibling** of
+/// `a1ConstructionStates`, not inside it, so it governs the estate map too —
+/// which had no enforcement at all until this budget existed.
+const int kPersonalHanokDecodedMemoryMaxBytes = 33554432;
+
+const int _kPersonalHanokBytesPerPixel = 4;
+
 /// A fixed-canvas art layer. The renderer chooses it solely from the pure
 /// [PersonalHanokProjection]; this metadata never owns progress or storage.
 class PersonalHanokMapLayer {
@@ -277,5 +294,95 @@ PersonalHanokMapLayer layerForMilestone(PersonalHanokMilestone milestone) {
 PersonalHanokZoneDefinition zoneFor(PersonalHanokZone zone) {
   return kPersonalHanokZones.firstWhere(
     (definition) => definition.zone == zone,
+  );
+}
+
+/// Decoded bytes for [layerCount] estate layers decoded at [cacheWidth].
+///
+/// Every layer shares the one master canvas, so a layer's decoded height is
+/// its decoded width scaled by the canvas aspect. `cacheWidth` null means the
+/// asset decodes at its native canvas width.
+int personalHanokResidentBytes({
+  required int layerCount,
+  int? cacheWidth,
+}) {
+  if (layerCount <= 0) {
+    return 0;
+  }
+  final width = (cacheWidth == null || cacheWidth > kPersonalHanokCanvasWidth)
+      ? kPersonalHanokCanvasWidth
+      : (cacheWidth < 1 ? 1 : cacheWidth);
+  final height =
+      (width * kPersonalHanokCanvasHeight / kPersonalHanokCanvasWidth).round();
+  return layerCount * width * (height < 1 ? 1 : height) *
+      _kPersonalHanokBytesPerPixel;
+}
+
+/// The widest decode that keeps [layerCount] simultaneously painted layers
+/// inside [kPersonalHanokDecodedMemoryMaxBytes].
+///
+/// **Why this is not just a clamp to the canvas width.** The estate paints
+/// every unlocked layer at once. Eight full-canvas RGBA layers are
+/// 8 × 1536 × 1152 × 4 = 56.6 MiB, so clamping to the canvas still leaves the
+/// map at 1.7× the runtime ceiling. The bound has to come from the budget.
+int personalHanokDecodeBudgetWidth(int layerCount) {
+  if (layerCount <= 0) {
+    return kPersonalHanokCanvasWidth;
+  }
+  var width = kPersonalHanokCanvasWidth;
+  while (width > 1 &&
+      personalHanokResidentBytes(layerCount: layerCount, cacheWidth: width) >
+          kPersonalHanokDecodedMemoryMaxBytes) {
+    width -= 1;
+  }
+  return width;
+}
+
+/// Decode width for one estate layer: the display request, capped by both the
+/// master canvas and the decoded-memory budget.
+///
+/// Mirrors `a1HanokDecodeCacheWidth` in
+/// `lib/data/a1_hanok_construction_catalog.dart`, which is the same guard for
+/// the A1 map. The estate map had no equivalent.
+int personalHanokDecodeCacheWidth({
+  required double displayWidth,
+  required double devicePixelRatio,
+  required int layerCount,
+}) {
+  final budget = personalHanokDecodeBudgetWidth(layerCount);
+  if (!displayWidth.isFinite ||
+      displayWidth <= 0 ||
+      !devicePixelRatio.isFinite ||
+      devicePixelRatio <= 0) {
+    return budget;
+  }
+  final hinted = (displayWidth * devicePixelRatio).round();
+  if (hinted < 1) {
+    return 1;
+  }
+  if (hinted > budget) {
+    return budget;
+  }
+  return hinted;
+}
+
+/// Worst-case resident bytes for the fully built estate.
+///
+/// The peak is every catalog layer painted at once. During a reveal the map
+/// suppresses one milestone and the reveal widget paints that same layer
+/// itself, so the total never exceeds the catalog size.
+int personalHanokWorstCaseResidentBytes({
+  required double displayWidth,
+  required double devicePixelRatio,
+}) {
+  final peakLayers = kPersonalHanokLayers.length;
+  final cacheWidth = personalHanokDecodeCacheWidth(
+    displayWidth: displayWidth,
+    devicePixelRatio: devicePixelRatio,
+    layerCount: peakLayers,
+  );
+  return personalHanokResidentBytes(
+    layerCount: peakLayers,
+    cacheWidth: cacheWidth,
   );
 }

@@ -436,6 +436,21 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   ScenarioCanDoResult? _canDoResult;
   Object? _loadFailure;
 
+  // Wie viel Höhe das Szenen-Poster an den Quest-Inhalt abgibt.
+  //
+  // Das Poster nimmt sonst bis zu 24 % der Höhe ein; Hörverstehen mit vier
+  // Antworten passte dann nicht mehr über die Falz — die letzten Optionen
+  // wurden am Scroll-Rand hart angeschnitten (Jin 2026-08-23, Screenshot
+  // "Einreise am Flughafen"). Statt das Poster überall statisch zu
+  // verkleinern, gibt es genau den gemessenen Überlauf ab (bis hinunter zur
+  // Kleinformat-Höhe [_questPosterMinHeight]). Monoton pro Szenario-Besuch,
+  // damit Poster-Höhe und Scroll-Viewport nicht gegeneinander oszillieren.
+  double _questPosterConcession = 0;
+
+  /// Untergrenze beim Abgeben: die Höhe, die kleine Geräte (< 650 dp) ohnehin
+  /// schon als reguläres Poster bekommen.
+  static const double _questPosterMinHeight = 96;
+
   // ── 코치마크 타겟 ──
   final GlobalKey _stageAreaKey = GlobalKey();
   final GlobalKey _nextBtnKey = GlobalKey();
@@ -1398,9 +1413,15 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     );
     final media = MediaQuery.of(context);
     final textScale = media.textScaler.scale(1);
-    final posterHeight = scenarioPosterHeight(
+    final basePosterHeight = scenarioPosterHeight(
       viewportHeight: media.size.height,
       textScale: textScale,
+    );
+    // Poster gibt gemessenen Quest-Überlauf ab (siehe _questPosterConcession).
+    final posterFloor = math.min(_questPosterMinHeight, basePosterHeight);
+    final posterHeight = (basePosterHeight - _questPosterConcession).clamp(
+      posterFloor,
+      basePosterHeight,
     );
     return Padding(
       padding: pad,
@@ -1417,7 +1438,11 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                 borderRadius: const BorderRadius.vertical(
                   bottom: Radius.circular(SoriRadius.lg),
                 ),
-                child: SizedBox(
+                child: AnimatedContainer(
+                  duration: MediaQuery.disableAnimationsOf(context)
+                      ? Duration.zero
+                      : const Duration(milliseconds: 180),
+                  curve: Curves.easeOut,
                   width: double.infinity,
                   height: posterHeight,
                   child: Image.asset(
@@ -1439,10 +1464,45 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
             ),
           ),
           const SizedBox(height: Spacing.xs),
-          Expanded(child: questWidget),
+          Expanded(
+            child: NotificationListener<ScrollMetricsNotification>(
+              onNotification: _absorbQuestOverflowIntoPoster,
+              child: questWidget,
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  /// Misst den vertikalen Überlauf der Quest-Scrollbereiche und lässt das
+  /// Poster genau diesen Betrag abgeben. Nur wachsend (nie zurück), sonst
+  /// würden Poster-Höhe und Scroll-Viewport sich gegenseitig aufschaukeln.
+  bool _absorbQuestOverflowIntoPoster(ScrollMetricsNotification notification) {
+    // Nur die äußeren Scrollbereiche von QuestLayout (Inhalt + Aktionskarte);
+    // tiefere/horizontale Scroller (Wortbank u. Ä.) sagen nichts über die Falz.
+    if (notification.depth != 0) {
+      return false;
+    }
+    final metrics = notification.metrics;
+    if (metrics.axis != Axis.vertical || !metrics.hasContentDimensions) {
+      return false;
+    }
+    final overflow = metrics.maxScrollExtent;
+    if (overflow <= 1 || !mounted) {
+      return false;
+    }
+    final media = MediaQuery.of(context);
+    final base = scenarioPosterHeight(
+      viewportHeight: media.size.height,
+      textScale: media.textScaler.scale(1),
+    );
+    final maxConcession = base - math.min(_questPosterMinHeight, base);
+    final next = math.min(_questPosterConcession + overflow, maxConcession);
+    if (next > _questPosterConcession + 0.5) {
+      setState(() => _questPosterConcession = next);
+    }
+    return false;
   }
 
   String _questTypeLabel(QuestType type, AppL10n t) => switch (type) {
