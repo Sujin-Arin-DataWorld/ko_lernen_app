@@ -427,7 +427,12 @@ void main() {
     );
     await tester.tap(find.byKey(const ValueKey('room-inventory-tab-stamp')));
     await tester.pumpAndSettle();
-    expect(find.byType(DancheongStamp), findsNWidgets(14));
+    // 씨앗이 `DancheongMotif.values` 전수라 기대값도 enum 에서 끌어온다 —
+    // 문양을 늘릴 때마다 상수를 고치러 오지 않도록.
+    expect(
+      find.byType(DancheongStamp),
+      findsNWidgets(DancheongMotif.values.length),
+    );
   });
 
   testWidgets(

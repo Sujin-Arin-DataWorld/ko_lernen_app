@@ -2755,7 +2755,7 @@
   "coachHardWordsTitle": "Stubborn words",
   "coachHardWordsBody": "Words you keep forgetting appear here, ready for focused practice.",
   "coachDojangTitle": "Collect Dancheong stamps",
-  "coachDojangBody": "Complete vocabulary packs to unlock all 14 Dancheong stamp designs",
+  "coachDojangBody": "Complete vocabulary packs to unlock all 19 Dancheong stamp designs",
   "@_coach_c4": {
     "description": "Stage C-4 social/other 5-screen coach keys (2026-06-09)"
   },
@@ -3605,6 +3605,11 @@
   "stampMotifWave": "Wave dancheong",
   "stampMotifTaegeuk": "Taegeuk dancheong",
   "stampMotifPeony": "Peony dancheong",
+  "stampMotifChangsal": "Lattice dancheong",
+  "stampMotifSuryeon": "Water lily dancheong",
+  "stampMotifNoemun": "Noemun dancheong",
+  "stampMotifMugunghwa": "Mugunghwa dancheong",
+  "stampMotifMoran": "Moran dancheong",
   "@_gye_dedication": {
     "description": "P4b shared Gye exhibition. This is a cosmetic display only; personal ownership remains unchanged."
   },

@@ -5782,7 +5782,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachDojangBody =>
-      'Complete vocabulary packs to unlock all 14 Dancheong stamp designs';
+      'Complete vocabulary packs to unlock all 19 Dancheong stamp designs';
 
   @override
   String get coachGyeStep1Title => 'Weekly goal';
@@ -7699,6 +7699,21 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get stampMotifPeony => 'Peony dancheong';
+
+  @override
+  String get stampMotifChangsal => 'Lattice dancheong';
+
+  @override
+  String get stampMotifSuryeon => 'Water lily dancheong';
+
+  @override
+  String get stampMotifNoemun => 'Noemun dancheong';
+
+  @override
+  String get stampMotifMugunghwa => 'Mugunghwa dancheong';
+
+  @override
+  String get stampMotifMoran => 'Moran dancheong';
 
   @override
   String get gyeDedicationTitle => 'Shared exhibition';

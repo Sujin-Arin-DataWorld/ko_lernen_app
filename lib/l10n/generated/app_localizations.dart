@@ -10053,7 +10053,7 @@ abstract class AppL10n {
   /// No description provided for @coachDojangBody.
   ///
   /// In de, this message translates to:
-  /// **'Schließe Vokabelpacks ab, um alle 14 Dancheong-Muster freizuschalten'**
+  /// **'Schließe Vokabelpacks ab, um alle 19 Dancheong-Muster freizuschalten'**
   String get coachDojangBody;
 
   /// No description provided for @coachGyeStep1Title.
@@ -13427,6 +13427,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Pfingstrosen-Dancheong'**
   String get stampMotifPeony;
+
+  /// No description provided for @stampMotifChangsal.
+  ///
+  /// In de, this message translates to:
+  /// **'Fenstergitter-Dancheong'**
+  String get stampMotifChangsal;
+
+  /// No description provided for @stampMotifSuryeon.
+  ///
+  /// In de, this message translates to:
+  /// **'Seerosen-Dancheong'**
+  String get stampMotifSuryeon;
+
+  /// No description provided for @stampMotifNoemun.
+  ///
+  /// In de, this message translates to:
+  /// **'Noemun-Dancheong'**
+  String get stampMotifNoemun;
+
+  /// No description provided for @stampMotifMugunghwa.
+  ///
+  /// In de, this message translates to:
+  /// **'Mugunghwa-Dancheong'**
+  String get stampMotifMugunghwa;
+
+  /// No description provided for @stampMotifMoran.
+  ///
+  /// In de, this message translates to:
+  /// **'Moran-Dancheong'**
+  String get stampMotifMoran;
 
   /// No description provided for @gyeDedicationTitle.
   ///

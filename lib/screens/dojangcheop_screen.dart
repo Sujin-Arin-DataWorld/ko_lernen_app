@@ -15,7 +15,7 @@ import '../widgets/sori/standard_page.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
-/// 도장첩 — 팩 클리어로 획득한 단청 도장 컬렉션 (14 motif).
+/// 도장첩 — 팩 클리어로 획득한 단청 도장 컬렉션 (19 motif).
 ///
 /// 획득 = 풀컬러 도장(PNG). 미획득 = 흐릿 + 자물쇠. 0개면 빈 상태.
 /// 획득 영속: `Storage.earnedStamps`(`DancheongMotif.name` slug).
