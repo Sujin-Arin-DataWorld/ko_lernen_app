@@ -9,7 +9,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/widgets/sori/dancheong_stamp.dart';
 
 void main() {
-  test('도장 안내 문구가 실제 14종 카탈로그와 일치한다', () async {
+  test('도장 안내 문구의 개수가 실제 카탈로그와 일치한다', () async {
     final en = await AppL10n.delegate.load(const Locale('en'));
     final de = await AppL10n.delegate.load(const Locale('de'));
 
@@ -46,10 +46,9 @@ void main() {
       expect(motifForPackId('b2_education'), DancheongMotif.bamboo);
     });
 
-    test('weather/health/misc → cloud', () {
+    test('weather → cloud (2026-08-25: 건강은 suryeon 으로 분리)', () {
       expect(motifForPackId('a2_weather'), DancheongMotif.cloud);
-      expect(motifForPackId('a2_health_misc'), DancheongMotif.cloud);
-      expect(motifForPackId('b1_health_education'), DancheongMotif.cloud);
+      expect(motifForPackId('a1_weather_layer'), DancheongMotif.cloud);
     });
 
     test('food/shopping → octagon', () {
@@ -67,6 +66,55 @@ void main() {
       expect(motifForPackId('a1_body'), DancheongMotif.manja);
       expect(motifForPackId('a1_colors'), DancheongMotif.manja);
       expect(motifForPackId('a1_position'), DancheongMotif.manja);
+    });
+
+    // ── 2026-08-25 신설 4종 ──
+    // 새 문양은 "PNG 만 넣고 배선은 안 한" 상태로 조용히 죽기 쉽다.
+    // 각 문양마다 실제로 도달하는 팩이 있는지 여기서 못 박는다.
+    test('집·주거 → changsal', () {
+      expect(motifForPackId('a2_home'), DancheongMotif.changsal);
+      expect(motifForPackId('a2_household'), DancheongMotif.changsal);
+      expect(motifForPackId('b1_housing_contract'), DancheongMotif.changsal);
+      expect(motifForPackId('b2_housing_dispute'), DancheongMotif.changsal);
+      expect(motifForPackId('a2_housing_search_2026'), DancheongMotif.changsal);
+    });
+
+    test('몸·건강·돌봄 → suryeon', () {
+      expect(motifForPackId('a2_health_misc'), DancheongMotif.suryeon);
+      expect(motifForPackId('b1_health_education'), DancheongMotif.suryeon);
+      expect(motifForPackId('b1_health_hospital'), DancheongMotif.suryeon);
+      expect(motifForPackId('a1_pharmacy_ask'), DancheongMotif.suryeon);
+    });
+
+    test('제도·행정·공공 절차 → noemun', () {
+      expect(motifForPackId('b1_public_office'), DancheongMotif.noemun);
+      expect(motifForPackId('a1_post_office'), DancheongMotif.noemun);
+      expect(motifForPackId('a1_city_services_2026'), DancheongMotif.noemun);
+      expect(motifForPackId('b2_civic_meeting'), DancheongMotif.noemun);
+      expect(motifForPackId('c2_institutional_voice'), DancheongMotif.noemun);
+    });
+
+    test('명절·의례·전통 → mugunghwa', () {
+      expect(
+        motifForPackId('a1_partner_seollal_basic'),
+        DancheongMotif.mugunghwa,
+      );
+      expect(
+        motifForPackId('a2_partner_chuseok_day'),
+        DancheongMotif.mugunghwa,
+      );
+      expect(
+        motifForPackId('b2_partner_ancestral_rite'),
+        DancheongMotif.mugunghwa,
+      );
+      expect(motifForPackId('b2_events_culture'), DancheongMotif.mugunghwa);
+    });
+
+    test('관계·사교·예의 → moran', () {
+      expect(motifForPackId('b1_social_events'), DancheongMotif.moran);
+      expect(motifForPackId('b2_manners_society'), DancheongMotif.moran);
+      expect(motifForPackId('b2_honorifics'), DancheongMotif.moran);
+      expect(motifForPackId('b2_partner_marriage_talk'), DancheongMotif.moran);
     });
 
     test('unknown pack → fallback lotus', () {
@@ -143,6 +191,23 @@ void main() {
         reason:
             '이 주제들은 `_ => lotus` 로 떨어져 도장이 전부 연꽃이 됩니다. '
             'motifForPackId 의 switch 에 추가하세요',
+      );
+    });
+
+    test('모든 문양이 실제로 도달 가능하다 — 죽은 문양이 없다', () {
+      final manifest =
+          jsonDecode(
+                File('assets/data/curriculum_manifest.json').readAsStringSync(),
+              )
+              as Map<String, dynamic>;
+      final packs = manifest['vocabPackUnitMap'] as Map<String, dynamic>;
+      final reached = packs.keys.map(motifForPackId).toSet();
+      expect(
+        DancheongMotif.values.toSet().difference(reached),
+        isEmpty,
+        reason:
+            '이 문양은 어떤 팩에서도 나오지 않아 도장첩에서 영원히 잠깁니다. '
+            'motifForPackId 에 주제를 배정하세요',
       );
     });
 
