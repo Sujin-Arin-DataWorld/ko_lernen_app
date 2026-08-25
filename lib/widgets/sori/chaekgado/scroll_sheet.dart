@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../data/chaekgado_shelf.dart';
+import '../responsive.dart';
 import '../tokens.dart';
 
 /// 두루마리 — 서재의 칸을 눌렀을 때 세로로 풀리는 시나리오 목록.
@@ -89,8 +90,11 @@ class ChaekgadoScroll extends StatelessWidget {
     final maxSheet = MediaQuery.sizeOf(context).height * 0.62;
 
     return SafeArea(
-      child: Align(
-        alignment: Alignment.topCenter,
+      // 태블릿·웹처럼 뷰포트가 넓으면 SoriCenterClamp 이 480 로 폭을 묶는다
+      // (폰에서는 480 을 못 넘으니 시각 변화 0). 이게 없으면 _Sheet 안의
+      // AspectRatio(16/10) 일러스트가 화면 폭 그대로 키를 키워, maxSheet 로
+      // 잡아 둔 높이 예산을 뚫고 RenderFlex 오버플로우가 난다.
+      child: SoriCenterClamp(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(
             Spacing.xl,
