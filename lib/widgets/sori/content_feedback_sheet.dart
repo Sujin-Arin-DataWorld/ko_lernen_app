@@ -186,16 +186,31 @@ class _ContentFeedbackSheetState extends State<ContentFeedbackSheet> {
           : _experienceSignal != null &&
                 _experienceFocus != null &&
                 _experienceFocuses.contains(_experienceFocus),
-    FeedbackCategory.bug =>
-      _issueArea != null &&
-          _expectedOutcomeController.text.trim().isNotEmpty &&
-          _actualOutcomeController.text.trim().isNotEmpty &&
-          _expectedOutcomeController.text.length <= 500 &&
-          _actualOutcomeController.text.length <= 500 &&
-          _bugFrequency != null &&
-          _bugImpact != null,
+    // draft.validate()·서버 validatePayload 와 같은 규칙: 구조화 필드를
+    // 하나도 안 건드렸으면 메시지만으로 보낼 수 있고(메시지-온리 버그 신고),
+    // 하나라도 건드렸으면 전부 채워야 한다. 예전엔 시트만 전부를 요구해
+    // 모델·서버가 허용하는 메시지-온리 신고가 UI에서 막혀 있었다.
+    FeedbackCategory.bug => _canSubmitBug,
     FeedbackCategory.other => _messageController.text.trim().isNotEmpty,
   };
+
+  bool get _canSubmitBug {
+    final structuredTouched =
+        _expectedOutcomeController.text.trim().isNotEmpty ||
+        _actualOutcomeController.text.trim().isNotEmpty ||
+        _bugFrequency != null ||
+        _bugImpact != null;
+    if (!structuredTouched) {
+      return _messageController.text.trim().isNotEmpty;
+    }
+    return _issueArea != null &&
+        _expectedOutcomeController.text.trim().isNotEmpty &&
+        _actualOutcomeController.text.trim().isNotEmpty &&
+        _expectedOutcomeController.text.length <= 500 &&
+        _actualOutcomeController.text.length <= 500 &&
+        _bugFrequency != null &&
+        _bugImpact != null;
+  }
 
   Widget _pulseSignalFields(AppL10n l10n) {
     if (_isLearningContext) {
