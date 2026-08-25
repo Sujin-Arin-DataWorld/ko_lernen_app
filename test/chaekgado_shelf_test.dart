@@ -342,6 +342,36 @@ void main() {
       expect(sheet.contains(tester.getRect(find.text('S11')).center), isTrue);
     });
 
+    testWidgets('일러스트가 있어도 넓은 뷰포트에서 오버플로우가 안 난다', (tester) async {
+      // 기본 테스트 뷰포트(800×600)는 태블릿/웹처럼 넓다 — 폭을 안 묶으면
+      // illustration 의 AspectRatio(16/10) 가 폭 그대로 키를 키워 maxSheet
+      // 높이 예산을 뚫는다(2026-08-19 실기기 스크린샷으로 재현된 버그).
+      await tester.pumpWidget(
+        host(
+          Builder(
+            builder: (context) => TextButton(
+              onPressed: () => showChaekgadoScroll<void>(
+                context: context,
+                title: 'Getting on & off',
+                subtitle: '9 Szenarien',
+                illustration: Container(color: Colors.red),
+                items: [
+                  for (var i = 0; i < 9; i++)
+                    ChaekgadoScrollItem(ordinal: '${i + 1}', title: 'S$i'),
+                ],
+              ),
+              child: const Text('open'),
+            ),
+          ),
+        ),
+      );
+
+      await tester.tap(find.text('open'));
+      await tester.pumpAndSettle();
+
+      expect(tester.takeException(), isNull);
+    });
+
     testWidgets('시나리오를 고르면 그 값이 돌아온다', (tester) async {
       String? picked;
       await tester.pumpWidget(
