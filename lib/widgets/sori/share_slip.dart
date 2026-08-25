@@ -107,16 +107,18 @@ class ShareSlipLayout {
   static const double _scrollAspect = 785 / 1330;
 
   /// 그 PNG 안에서 **상아색 종이 칸**이 차지하는 자리(전체 이미지 대비 비율).
-  /// 실측 2026-08-19: 가로는 알파 바운딩으로 x 90~695, 세로는 중앙 열의
-  /// 밝기 전이(짙은 축 → 밝은 종이)로 y 116~1221, 둘 다 785×1330 **전체**
-  /// 기준이다(3% 투명 패딩 포함 — 이걸 가시 영역 기준으로 재면 꼬리말이
-  /// 아래 축 위로 내려앉는다).
+  /// 실측 2026-08-25 (현행 785×1330 PNG 기준):
+  /// - 가로: 행 스캔에서 밝은(휘도>0.72) 픽셀이 과반인 열 x 91~694.
+  /// - 세로 top: 중앙 열의 밝기 전이(짙은 축·배접 → 밝은 종이) y 212.
+  /// - 세로 bottom: 밝은 행 과반 경계 y 1222.
+  /// 이전 값(top 0.0872 등)은 재생성 전 PNG 실측이라 상단이 짙은 축 위로
+  /// 올라가 있었다 — 그 상태로는 마진·꼬리말 픽셀 테스트가 전부 깨진다.
   ///
   /// 두루마리 PNG 를 다시 생성하면 이 네 값과 [_scrollAspect] 를 다시 재야
   /// 한다. 재는 법은 `docs/assets/recipes/cutout-fd-share-scroll.json` 참고.
-  static const double _paperFracLeft = 0.1146;
-  static const double _paperFracRight = 0.8854;
-  static const double _paperFracTop = 0.0872;
+  static const double _paperFracLeft = 0.1159;
+  static const double _paperFracRight = 0.8841;
+  static const double _paperFracTop = 0.1594;
   static const double _paperFracBottom = 0.9188;
 
   /// 그림 전체가 1080 폭 기준으로 잡혀 있다. 다른 크기로 렌더해도 같은 비율이

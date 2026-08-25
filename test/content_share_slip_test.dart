@@ -1,11 +1,31 @@
+import 'dart:io';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show FontLoader;
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:ko_lernen_app/widgets/sori/share_slip.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
+
+/// ⛔ 실제 폰트를 안 실으면 `flutter test` 는 모든 글자를 같은 폭의 사각형으로
+/// 그린다 — 꼬리말 사각형 띠가 textColumn 을 넘어 마진 검사를 깨고, 크기
+/// 이분 탐색도 실기기와 다르게 돈다 (`chaekgado_shelf_test.dart` 와 같은 이유).
+Future<void> _loadRealFonts() async {
+  final loader = FontLoader('WantedSans');
+  for (final path in const [
+    'assets/fonts/WantedSans/WantedSans-Regular.otf',
+    'assets/fonts/WantedSans/WantedSans-Medium.otf',
+    'assets/fonts/WantedSans/WantedSans-SemiBold.otf',
+    'assets/fonts/WantedSans/WantedSans-Bold.otf',
+    'assets/fonts/WantedSans/WantedSans-ExtraBold.otf',
+  ]) {
+    final bytes = File(path).readAsBytesSync();
+    loader.addFont(Future.value(ByteData.view(bytes.buffer)));
+  }
+  await loader.load();
+}
 
 /// 픽셀을 읽을 수 있게 디코드해 둔 렌더 결과.
 class _Slip {
@@ -52,9 +72,13 @@ class _Slip {
 
   /// [rect] 안에서 먹이 있는 **가로 띠**의 개수. 글이 몇 줄로 앉았는지를
   /// 글자 자체를 못 읽는 자리에서 세는 방법이다.
-  int inkBandsIn(Rect rect, double threshold) {
+  ///
+  /// [mergeGap] 미만의 밝은 행은 같은 띠의 일부로 잇는다 — `잘`처럼 자모가
+  /// 세로로 조합된 음절 하나가 줄 전체일 때, ㅈㅏ 와 ㄹ 사이의 2~3px 틈이
+  /// 줄 경계로 세지면 안 된다. 실제 줄 간격은 1080 기준 35px 를 넘는다.
+  int inkBandsIn(Rect rect, double threshold, {int mergeGap = 16}) {
     var bands = 0;
-    var inBand = false;
+    var gapRun = 1 << 20;
     for (var y = rect.top.ceil(); y < rect.bottom.floor(); y++) {
       var hasInk = false;
       for (var x = rect.left.ceil(); x < rect.right.floor(); x += 2) {
@@ -63,8 +87,12 @@ class _Slip {
           break;
         }
       }
-      if (hasInk && !inBand) bands++;
-      inBand = hasInk;
+      if (hasInk) {
+        if (gapRun >= mergeGap) bands++;
+        gapRun = 0;
+      } else {
+        gapRun++;
+      }
     }
     return bands;
   }
@@ -74,10 +102,13 @@ class _Slip {
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+  setUpAll(_loadRealFonts);
 
-  // 종이(#FFFDF6)·배접(#E5DCC4) 은 둘 다 휘도 0.75 위다. 먹(#1A1F1D) 은 0.02.
-  // 0.45 는 그 사이 어디를 잡아도 되는 문턱이라, 글자 한 획만 들어와도 걸린다.
-  const inkThreshold = 0.45;
+  // 실제 에셋의 황갈 종이는 **선형** 휘도(computeLuminance)로 바닥이 0.30,
+  // 그레인 최저치가 0.32~0.37이다 (2026-08-25 PIL 선형 실측 — 절차형 폴백의
+  // 상아색 #FFFDF6(0.75+)과 전혀 다르다). 먹(78% 알파)은 코어가 0.06, 안티
+  // 에일리어싱 중간값도 0.17 아래라, 0.25 가 그 사이의 안전한 문턱이다.
+  const inkThreshold = 0.25;
 
   test('두루마리는 9:16이고 검정 외곽선이 없다', () async {
     final slip = await _Slip.render(korean: '안녕하세요', gloss: 'Guten Tag');
@@ -122,11 +153,21 @@ void main() {
     final slip = await _Slip.render(korean: '안녕하세요', gloss: 'Guten Tag');
     final l = ShareSlipLayout.of(ShareSlipRenderer.storySize);
 
-    // 두루마리 바깥은 전부 벽이어야 한다. 벽은 종이보다 어둡다 — 그래야
-    // 족자가 배경에서 떠오른다(값 사다리: 벽 < 종이).
+    // 두루마리 바깥은 전부 벽이어야 한다. 황갈 종이(선형 0.5~0.6)는 벽과
+    // 밝기가 비슷해서 예전 "벽 < 종이" 값 사다리는 못 쓴다 — 이 에셋에서
+    // 족자를 벽에서 띄우는 건 짙은 축(선형 <0.25)과 그림자다. 그래서
+    // (1) 벽은 밝고, (2) 두루마리 위쪽엔 짙은 축이 실제로 그려져 있는지 본다.
     final wall = slip.at(6, slip.image.height ~/ 2);
-    final paper = slip.at(l.paper.center.dx.round(), l.paper.top.round() + 40);
-    expect(wall.computeLuminance(), lessThan(paper.computeLuminance()));
+    expect(wall.computeLuminance(), greaterThan(0.5));
+    final rodProbe = Rect.fromCenter(
+      center: Offset(
+        l.scrollImageRect.center.dx,
+        l.scrollImageRect.top + l.scrollImageRect.height * 0.045,
+      ),
+      width: 200,
+      height: 30,
+    );
+    expect(slip.darkestIn(rodProbe), lessThan(0.25));
 
     // 축·마구리까지 포함한 에셋 전체를 그릴 자리도 좌우상하에 여백이 남는다.
     expect(l.scrollImageRect.left, greaterThan(0));
