@@ -10890,9 +10890,9 @@
     "semantic_hash": ""
   },
   "docs/data/heritage_houses/ildu_gotaek.json": {
-    "mtime": 1787601597.1662896,
-    "seen": 1787604526.903997,
-    "ast_hash": "1d220d62ff80dc48056baae9362eb0b2",
+    "mtime": 1787618082.781841,
+    "seen": 1787618344.302907,
+    "ast_hash": "a0718534d9fa17455454f3053f8344d2",
     "semantic_hash": ""
   },
   "docs/data/heritage_houses/ildu_gotaek_measured.json": {
@@ -10914,9 +10914,15 @@
     "semantic_hash": ""
   },
   "docs/data/heritage_houses/_sprite_spec_2026-08-24.md": {
-    "mtime": 1787604536.4910283,
-    "seen": 1787604771.918964,
-    "ast_hash": "7915b697dc3c8d238d0f6a16c8c0058a",
+    "mtime": 1787610226.64866,
+    "seen": 1787616714.200836,
+    "ast_hash": "62bb09daafb0e21c1010b689088ecd12",
+    "semantic_hash": ""
+  },
+  "docs/data/heritage_houses/_spatial_analysis_paper_notes_1999.md": {
+    "mtime": 1787616285.334623,
+    "seen": 1787616714.200832,
+    "ast_hash": "de9a6ec2c79cb490297311ad080123df",
     "semantic_hash": ""
   }
 }
