@@ -263,8 +263,13 @@ class ContentFeedbackDraft {
     if (issueArea != null) 'issueArea': issueArea!.wireName,
     if (contentSignal != null) 'contentSignal': contentSignal!.wireName,
     if (contentFocus != null) 'contentFocus': contentFocus!.wireName,
-    if (expectedOutcome != null) 'expectedOutcome': expectedOutcome,
-    if (actualOutcome != null) 'actualOutcome': actualOutcome,
+    // 빈 문자열은 필드 자체를 생략한다 — 서버 optionalString 은 minLength 1
+    // 이라, 시트가 안 채운 컨트롤러의 '' 를 그대로 실으면 페이로드 전체가
+    // invalid-argument 로 거부된다 (2026-08-25 테스터 제출 실패의 원인).
+    if (expectedOutcome != null && expectedOutcome!.trim().isNotEmpty)
+      'expectedOutcome': expectedOutcome,
+    if (actualOutcome != null && actualOutcome!.trim().isNotEmpty)
+      'actualOutcome': actualOutcome,
     if (bugFrequency != null) 'bugFrequency': bugFrequency!.wireName,
     if (bugImpact != null) 'bugImpact': bugImpact!.wireName,
     if (experienceSignal != null)

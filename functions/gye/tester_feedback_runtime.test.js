@@ -338,7 +338,7 @@ test("rejects invalid enums, bounds, and category-specific combinations", async 
     ["blank content ID", { contentId: " " }],
     ["long content ID", { contentId: "c".repeat(129) }],
     ["long content label", { contentLabel: "c".repeat(121) }],
-    ["invalid level", { level: "C1" }],
+    ["invalid level", { level: "D1" }],
     ["long score summary", { scoreSummary: "s".repeat(65) }],
     ["invalid category", { category: "praise" }],
     ["long message", { message: "m".repeat(1001) }],
@@ -443,6 +443,20 @@ test("accepts the 1000-character message boundary and structured content feedbac
     callableRequest(structured),
   );
   assert.equal(contentResult.accepted, true);
+});
+
+test("accepts C1 and C2 levels — scenarios_c1/c2.json 콘텐츠가 실제로 보내는 값", async () => {
+  for (const level of ["C1", "C2"]) {
+    const harness = createHarness();
+    const result = await harness.handlers.submitTesterFeedback(
+      callableRequest(payload({
+        feedbackId: `feedback-${level}`,
+        completionId: `completion-${level}`,
+        level,
+      })),
+    );
+    assert.equal(result.accepted, true);
+  }
 });
 
 test("accepts Book Result experience feedback without a passport mission", async () => {

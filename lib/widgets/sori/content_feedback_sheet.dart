@@ -588,10 +588,16 @@ class _ContentFeedbackSheetState extends State<ContentFeedbackSheet> {
       contentFocus: _category == FeedbackCategory.content && _isLearningContext
           ? _contentFocus
           : null,
-      expectedOutcome: _category == FeedbackCategory.bug
+      // 비어 있으면 null — '' 를 넘기면 draft 는 통과해도 서버가
+      // optionalString(minLength 1) 로 페이로드 전체를 거부한다.
+      expectedOutcome:
+          _category == FeedbackCategory.bug &&
+              _expectedOutcomeController.text.trim().isNotEmpty
           ? _expectedOutcomeController.text
           : null,
-      actualOutcome: _category == FeedbackCategory.bug
+      actualOutcome:
+          _category == FeedbackCategory.bug &&
+              _actualOutcomeController.text.trim().isNotEmpty
           ? _actualOutcomeController.text
           : null,
       bugFrequency: _category == FeedbackCategory.bug ? _bugFrequency : null,
