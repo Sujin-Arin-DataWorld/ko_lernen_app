@@ -574,7 +574,7 @@ class _BrushStrokePainter extends CustomPainter {
 
 /// 완료 도장 — 문양은 slug 해시로 고른다(같은 칸은 언제나 같은 문양).
 /// 팝은 180ms scale 1.15→1, `disableAnimations` 면 정적이다.
-/// 그림은 정본 [DancheongStamp] 재사용 — 14 장 PNG 와 페인터 폴백이 딸려온다.
+/// 그림은 정본 [DancheongStamp] 재사용 — 19 장 PNG 와 페인터 폴백이 딸려온다.
 class _CompletionStamp extends StatelessWidget {
   const _CompletionStamp({required this.slug});
 

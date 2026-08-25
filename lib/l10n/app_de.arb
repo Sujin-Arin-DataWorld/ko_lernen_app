@@ -2824,7 +2824,7 @@
   "coachHardWordsTitle": "Hartnäckige Wörter",
   "coachHardWordsBody": "Hier findest du Wörter, die dir noch schwerfallen. Du kannst sie gezielt wiederholen.",
   "coachDojangTitle": "Dancheong-Stempel sammeln",
-  "coachDojangBody": "Schließe Vokabelpacks ab, um alle 14 Dancheong-Muster freizuschalten",
+  "coachDojangBody": "Schließe Vokabelpacks ab, um alle 19 Dancheong-Muster freizuschalten",
   "@_coach_c4": {
     "description": "Stage C-4 사회/기타 5화면 코치마크 키 (2026-06-09)"
   },
@@ -3691,6 +3691,11 @@
   "stampMotifWave": "Wellen-Dancheong",
   "stampMotifTaegeuk": "Taegeuk-Dancheong",
   "stampMotifPeony": "Pfingstrosen-Dancheong",
+  "stampMotifChangsal": "Fenstergitter-Dancheong",
+  "stampMotifSuryeon": "Seerosen-Dancheong",
+  "stampMotifNoemun": "Noemun-Dancheong",
+  "stampMotifMugunghwa": "Mugunghwa-Dancheong",
+  "stampMotifMoran": "Moran-Dancheong",
   "@_gye_dedication": {
     "description": "P4b gemeinsame Gye-Ausstellung. Nur eine kosmetische Anzeige; privates Eigentum bleibt unverändert."
   },

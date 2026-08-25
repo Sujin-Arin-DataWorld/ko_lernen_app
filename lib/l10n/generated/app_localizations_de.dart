@@ -5803,7 +5803,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get coachDojangBody =>
-      'Schließe Vokabelpacks ab, um alle 14 Dancheong-Muster freizuschalten';
+      'Schließe Vokabelpacks ab, um alle 19 Dancheong-Muster freizuschalten';
 
   @override
   String get coachGyeStep1Title => 'Wochenziel';
@@ -7736,6 +7736,21 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get stampMotifPeony => 'Pfingstrosen-Dancheong';
+
+  @override
+  String get stampMotifChangsal => 'Fenstergitter-Dancheong';
+
+  @override
+  String get stampMotifSuryeon => 'Seerosen-Dancheong';
+
+  @override
+  String get stampMotifNoemun => 'Noemun-Dancheong';
+
+  @override
+  String get stampMotifMugunghwa => 'Mugunghwa-Dancheong';
+
+  @override
+  String get stampMotifMoran => 'Moran-Dancheong';
 
   @override
   String get gyeDedicationTitle => 'Gemeinsame Ausstellung';
