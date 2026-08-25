@@ -415,7 +415,6 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
         else
           SoriButton.outlined(
             label: t.listeningBackToScroll,
-            icon: Icons.arrow_back_rounded,
             fullWidth: true,
             onTap: () => Navigator.of(context).pop(),
           ),
@@ -467,7 +466,6 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
           const SizedBox(height: Spacing.xl),
           SoriButton.filled(
             label: t.listeningReviewCta,
-            icon: Icons.format_list_bulleted_rounded,
             accent: SoriColors.contentCta,
             fullWidth: true,
             onTap: _playback.enterReview,
@@ -478,7 +476,6 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
               Expanded(
                 child: SoriButton.outlined(
                   label: t.listeningNextStory,
-                  icon: Icons.skip_next_rounded,
                   fullWidth: true,
                   onTap: _openNextStory,
                 ),
@@ -487,7 +484,6 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
               Expanded(
                 child: SoriButton.outlined(
                   label: t.listeningBackToScroll,
-                  icon: Icons.arrow_back_rounded,
                   fullWidth: true,
                   onTap: () => Navigator.of(context).pop(),
                 ),

@@ -301,8 +301,6 @@ class _StampCell extends StatelessWidget {
               Text(
                 name,
                 textAlign: TextAlign.center,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
                 style: SoriTextTheme.of(context).meta.copyWith(
                   color: earned
                       ? SoriSurfaces.of(context).text
