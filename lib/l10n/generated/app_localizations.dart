@@ -5557,6 +5557,12 @@ abstract class AppL10n {
   /// **'Sobald Szenarien verfügbar sind, kannst du sie hier anhören.'**
   String get listeningEmptyBody;
 
+  /// Screen reader label for one level drawer under the listening shelf.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, =0{Level {level}, noch nicht bestückt} =1{Level {level}, 1 Szenario} other{Level {level}, {count} Szenarien}}'**
+  String listeningLevelDrawer(String level, int count);
+
   /// No description provided for @listeningShelfEmpty.
   ///
   /// In de, this message translates to:

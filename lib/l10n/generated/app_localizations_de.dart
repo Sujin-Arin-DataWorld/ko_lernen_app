@@ -3177,6 +3177,18 @@ class AppL10nDe extends AppL10n {
       'Sobald Szenarien verfügbar sind, kannst du sie hier anhören.';
 
   @override
+  String listeningLevelDrawer(String level, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Level $level, $count Szenarien',
+      one: 'Level $level, 1 Szenario',
+      zero: 'Level $level, noch nicht bestückt',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get listeningShelfEmpty => 'noch nicht bestückt';
 
   @override

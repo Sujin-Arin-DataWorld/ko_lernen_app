@@ -26,7 +26,14 @@ class StyleLockLoaderTest(unittest.TestCase):
         self.assertIn("generationFacts", lock)
         self.assertEqual(
             set(lock["families"]),
-            {"F-A", "F-B", "F-C-estate", "F-C-a1states"},
+            {
+                "F-A",
+                "F-B",
+                "F-C-estate",
+                "F-C-a1states",
+                "F-D-ildoo",
+                "F-D-share",
+            },
         )
         for name, family in lock["families"].items():
             for field in style_lock.REQUIRED_FAMILY_FIELDS:
@@ -81,14 +88,22 @@ class StyleLockLoaderTest(unittest.TestCase):
         self.assertGreaterEqual(gates["valMean"][1], measured["valMean"][1])
         self.assertGreaterEqual(gates["neonMax"], measured["neonMax"])
 
-    def test_all_four_families_headroom_contains_their_measured_range(self) -> None:
+    def test_every_measured_family_headroom_contains_its_measured_range(self) -> None:
         lock = style_lock.load_style_lock()
         for name in lock["families"]:
             gates = style_lock.gates_for_family(lock, name)
             measured = gates["measured"]
             with self.subTest(family=name):
-                self.assertLessEqual(gates["satMean"][0], measured["satMean"][0])
-                self.assertGreaterEqual(gates["satMean"][1], measured["satMean"][1])
+                if measured is None:
+                    # 게이트를 측정보다 먼저 선언한 가족(F-D-ildoo): 아직
+                    # 승격된 아트가 없어 measured 가 채워지기 전이다.
+                    continue
+                # measured 는 가족 전체 실측이면 [min, max] 범위, 단일 이미지
+                # 실측(F-D-share)이면 스칼라 — 둘 다 게이트 범위 안이어야 한다.
+                sat = measured["satMean"]
+                sat_lo, sat_hi = (sat, sat) if isinstance(sat, (int, float)) else sat
+                self.assertLessEqual(gates["satMean"][0], sat_lo)
+                self.assertGreaterEqual(gates["satMean"][1], sat_hi)
                 self.assertGreaterEqual(gates["neonMax"], measured["neonMax"])
 
     def test_f_a_denies_seedream_and_allows_gpt_image_2(self) -> None:
@@ -109,7 +124,17 @@ class StyleLockLoaderTest(unittest.TestCase):
 
     def test_all_member_dirs_exist_on_disk(self) -> None:
         lock = style_lock.load_style_lock()
+        # placeholders 를 선언한 가족(F-D-ildoo)은 승격 전이라 dirs 가 아직
+        # 디스크에 없을 수 있다 — 정식 멤버가 승격되는 순간부터 검사 대상.
+        planned_dirs = {
+            d
+            for family in lock["families"].values()
+            if "placeholders" in family
+            for d in family["dirs"]
+        }
         for path in style_lock.all_member_dirs(lock):
+            if path in planned_dirs and not (ROOT / path).is_dir():
+                continue
             self.assertTrue(
                 (ROOT / path).is_dir(), f"{path} declared in STYLE_LOCK.json but missing"
             )

@@ -338,9 +338,14 @@ ContentFeedbackClientFailure _safeFailureForFirebaseCode(String code) {
       ContentFeedbackFailureCategory.invalidRequest,
       retryable: false,
     ),
+    // retryable: 서비스가 uid 비어 있으면 호출 전에 이미 실패시키므로, 여기까지
+    // 와서 'unauthenticated' 를 받는 건 실질적으로 App Check 거부다(enforceAppCheck
+    // 콜러블은 토큰 부재를 이 코드로 돌려준다). 활성화가 일시 실패한 세션에서
+    // non-retryable 로 두면 아웃박스가 유효한 피드백을 영구 폐기한다 — 큐를
+    // 보존했다가 App Check 가 회복된 다음 실행에서 다시 보낸다.
     'unauthenticated' => const ContentFeedbackClientFailure(
       ContentFeedbackFailureCategory.authenticationRequired,
-      retryable: false,
+      retryable: true,
     ),
     'permission-denied' => const ContentFeedbackClientFailure(
       ContentFeedbackFailureCategory.permissionDenied,

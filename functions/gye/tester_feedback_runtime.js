@@ -145,7 +145,10 @@ const EXPERIENCE_FOCUSES_BY_TYPE = new Map([
     "timing", "visuals", "reward", "message", "frequency", "other",
   ])],
 ]);
-const LEVELS = new Set(["A1", "A2", "B1", "B2"]);
+// 클라이언트 허용값(lib/models/content_feedback.dart)과 반드시 일치해야 한다.
+// C1/C2 는 scenarios_c1.json·scenarios_c2.json 콘텐츠가 실제로 보낸다 —
+// 여기 빠져 있던 동안 C1/C2 피드백 제출이 전부 invalid-argument 로 죽었다.
+const LEVELS = new Set(["A1", "A2", "B1", "B2", "C1", "C2"]);
 const PLATFORMS = new Set(["android", "ios"]);
 const LOCALES = new Set(["de", "en"]);
 

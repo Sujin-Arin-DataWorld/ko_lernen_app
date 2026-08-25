@@ -223,6 +223,51 @@ void main() {
     expect(find.byKey(const Key('feedback-category-content')), findsNothing);
   });
 
+  testWidgets('메시지-온리 버그 신고를 보낼 수 있다 — 구조화 필드 없이도', (
+    tester,
+  ) async {
+    // draft.validate()·서버 validatePayload 는 처음부터 메시지-온리 버그를
+    // 허용했는데 시트 _canSubmit 만 구조화 전부를 요구해 UI에서 막혀 있었다.
+    ContentFeedbackDraft? submitted;
+    await tester.pumpWidget(
+      _host(
+        gate: const TesterFeedbackFeatureGate(enabled: true),
+        submitFeedback: (_, draft) async {
+          submitted = draft;
+          return const ContentFeedbackSubmitResult(
+            status: ContentFeedbackSubmitStatus.pending,
+          );
+        },
+      ),
+    );
+    await _openSheet(tester);
+
+    await tester.tap(find.byKey(const Key('feedback-category-bug')));
+    await tester.pump();
+
+    await tester.ensureVisible(find.byKey(const Key('feedback-message')));
+    await tester.enterText(
+      find.byKey(const Key('feedback-message')),
+      'The audio stopped after the first line.',
+    );
+    await tester.pump();
+    expect(
+      tester.widget<SoriButton>(find.byKey(const Key('feedback-submit'))).onTap,
+      isNotNull,
+    );
+    await _tapVisible(tester, const Key('feedback-submit'));
+    await tester.pumpAndSettle();
+
+    expect(submitted?.category, FeedbackCategory.bug);
+    expect(submitted?.message, 'The audio stopped after the first line.');
+    // 빈 컨트롤러의 '' 가 와이어로 새면 서버 optionalString(minLength 1)이
+    // 페이로드 전체를 거부한다 — null 로 남는 것까지가 계약이다.
+    expect(submitted?.expectedOutcome, isNull);
+    expect(submitted?.actualOutcome, isNull);
+    expect(submitted?.bugFrequency, isNull);
+    expect(submitted?.bugImpact, isNull);
+  });
+
   testWidgets('bug feedback rejects an incomplete structured form', (
     tester,
   ) async {

@@ -304,7 +304,18 @@ Future<void> _recordStartupDiagnostics(DataMigrationResult? migration) async {
 Future<void> _startCloudServices() async {
   final coordinator = AppStartupCoordinator(
     initializeFirebase: _initFirebase,
-    initializeAppCheck: FirebaseAppCheckInitializer.production().initialize,
+    // App Check activate 실패는 여기서 삼킨다: 이게 던지면 coordinator.start()
+    // 전체가 중단돼 익명 로그인·아웃박스·프리미엄·푸시까지 다 죽는다.
+    // 활성화 실패 시 보호된 callable 만 개별적으로 거부되는 편이
+    // (서버 enforceAppCheck) 클라우드 스택 전멸보다 낫다.
+    initializeAppCheck: () async {
+      try {
+        await FirebaseAppCheckInitializer.production().initialize();
+      } catch (error) {
+        AccountFailureDiagnostics.log('startup.appCheckSkipped', error);
+        debugPrint('App Check activation failed; continuing without it.');
+      }
+    },
     ensureSignedIn: AuthService.ensureSignedIn,
     currentUserId: () => AuthService.current?.uid,
     restorePendingAccountState: AuthService.restorePendingAccountState,

@@ -1,0 +1,27 @@
+{
+  "recipeId": "cutout-fd-share-scroll",
+  "kind": "cutout",
+  "family": "F-D-share",
+  "targetSlug": "share_scroll",
+  "model": "GPT Image 2",
+  "resolution": "2K",
+  "aspectRatio": "9:16",
+  "referenceImages": [
+    "assets/illustrations/chaekgado/chaekgado_prop_scroll.png"
+  ],
+  "assembleFromFamily": true,
+  "promptTemplate": "{SUBJECT}",
+  "promptVars": {
+    "SUBJECT": "a traditional Korean hanging scroll (족자) shown fully unrolled and seen straight from the front, flat against the picture plane, filling the tall frame from top to bottom. From top to bottom it has: a dark lacquered wooden roller bar across the top with an octagonal gold end cap sticking out past each side; a narrow band of pale ivory silk mounting; a large EMPTY sheet of warm ivory hanji paper taking up the middle two thirds, with visible paper fibre texture and NOTHING drawn or written on it; a wider band of the same ivory silk mounting below it; and a second identical dark lacquered roller bar with octagonal gold end caps across the bottom. The paper panel must be completely blank and evenly lit."
+  },
+  "subjectGuards": [
+    "the hanji paper panel is COMPLETELY EMPTY — no calligraphy, no painting, no seal, no border pattern, no watermark, no smudge inside the paper area",
+    "shown FLAT and FRONTAL, not in three-quarter view and not rolled up — this scroll hangs on a wall, it is not the rolled prop in the reference",
+    "exactly two roller bars (top and bottom), each with one octagonal gold end cap on the left and one on the right, the caps overhanging the paper width",
+    "the scroll is straight and rectangular — no curling corners, no waving silk, no perspective tilt",
+    "no hanger cord, no tassels, no wall, no hook"
+  ],
+  "expectedCreditsPerCall": 4,
+  "outputPath": "assets_unused/pending_review/asset_recipe/share_scroll/share_scroll_raw.png",
+  "note": "P7 공유 이미지(ShareSlipRenderer)의 두루마리 바탕. 컷아웃으로 뽑아 코드가 벽 위에 얹고 종이 칸에 글씨를 그린다 — 글자가 매번 달라서 글씨까지 구운 PNG 는 못 쓴다. 참조는 chaekgado_prop_scroll.png(화풍·팔레트·조명 전용, 말린 형태를 베끼지 말 것)."
+}

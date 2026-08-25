@@ -47,6 +47,35 @@ void main() {
       expect(draft.validate().isValid, isTrue);
     });
 
+    test('빈 outcome 문자열은 와이어에 싣지 않는다 — 서버 optionalString(minLength 1)이 '
+        '빈 문자열을 받으면 페이로드 전체를 거부한다', () {
+      // 시트는 bug 카테고리에서 TextEditingController.text 를 그대로 넘기므로
+      // 구조화 필드를 안 채운 메시지-온리 버그 신고가 정확히 이 모양이 된다.
+      const draft = ContentFeedbackDraft(
+        category: FeedbackCategory.bug,
+        message: 'The audio stopped.',
+        expectedOutcome: '',
+        actualOutcome: '',
+      );
+
+      expect(draft.validate().isValid, isTrue);
+      final wire = draft.toWire();
+      expect(wire.containsKey('expectedOutcome'), isFalse);
+      expect(wire.containsKey('actualOutcome'), isFalse);
+    });
+
+    test('공백뿐인 outcome 문자열도 와이어에서 생략된다', () {
+      const draft = ContentFeedbackDraft(
+        category: FeedbackCategory.bug,
+        message: 'The audio stopped.',
+        expectedOutcome: '   ',
+        actualOutcome: '\n',
+      );
+
+      expect(draft.toWire().containsKey('expectedOutcome'), isFalse);
+      expect(draft.toWire().containsKey('actualOutcome'), isFalse);
+    });
+
     test('rejects a bug report without a message', () {
       const draft = ContentFeedbackDraft(category: FeedbackCategory.bug);
 

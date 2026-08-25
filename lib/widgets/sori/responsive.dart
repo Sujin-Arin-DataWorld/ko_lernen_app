@@ -46,6 +46,10 @@ double soriStudyContentMaxWidth(double width) =>
 /// a `SingleChildScrollView` fallback so the rare overflow scrolls instead of
 /// clipping. **Only for focus/hero content** — never for chrome (buttons, nav,
 /// list rows, chips), whose sizes are tuned and must not scale to fill.
+///
+/// Returns a raw px value used directly as a `TextStyle.fontSize` at call
+/// sites — SoriTypeScale 의 TextScaler 가 한 번 더 곱한다 — Phase 4 에서
+/// 호출부 정리.
 double soriFillSize(double h, double frac, double min, double max) =>
     (h * frac).clamp(min, max).toDouble();
 
@@ -64,6 +68,9 @@ double soriFillSize(double h, double frac, double min, double max) =>
 /// 0.45 는 Jin 이 "이 크기가 좋다"고 한 (1) 상태 — 배너가 있는 레이아웃의 카드
 /// 높이 비율에 맞춘 값이다. 조정할 일이 생기면 이 상수 하나만 건드리면 되고,
 /// `test/vocab_pack_typography_test.dart` 가 (1)과 (2)가 같은지 지킨다.
+///
+/// 이 높이에서 파생된 fontSize(예: [soriFillSize])는 SoriTypeScale 의
+/// TextScaler 가 한 번 더 곱한다 — Phase 4 에서 호출부 정리.
 double soriStudyTypeScaleHeight(BuildContext context) =>
     (MediaQuery.sizeOf(context).height * 0.45).clamp(280.0, 520.0).toDouble();
 

@@ -1348,6 +1348,40 @@ void main() {
 
   group('ContentFeedbackCallableClient', () {
     test(
+      'unauthenticated 거부는 재시도 가능으로 남는다 — App Check 일시 실패가 '
+      '큐를 파괴하면 안 된다',
+      () async {
+        // 서비스는 uid 가 비어 있으면 호출 전에 실패시키므로, 콜러블에서
+        // 돌아오는 'unauthenticated' 는 실질적으로 App Check 거부다.
+        // non-retryable 이면 아웃박스가 유효한 피드백을 영구 폐기한다.
+        final client = ContentFeedbackCallableClient(({
+          required callableName,
+          required payload,
+          required callableOptions,
+        }) async {
+          throw FirebaseFunctionsException(
+            message: 'missing app check token',
+            code: 'unauthenticated',
+          );
+        });
+
+        try {
+          await client.submit(
+            pendingItem('feedback-appcheck').submission,
+            expectedOwnerUid: 'account-a',
+          );
+          fail('unauthenticated must surface as a client failure');
+        } on ContentFeedbackClientFailure catch (failure) {
+          expect(
+            failure.category,
+            ContentFeedbackFailureCategory.authenticationRequired,
+          );
+          expect(failure.retryable, isTrue);
+        }
+      },
+    );
+
+    test(
       'uses the protected callable and limited-use App Check token',
       () async {
         String? name;

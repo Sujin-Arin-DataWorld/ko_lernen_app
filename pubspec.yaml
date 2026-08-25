@@ -194,6 +194,8 @@ flutter:
     - assets/hangul_sori_chaekgado_asset_pack_v1/scroll/hoeren_scroll_short_card.png
     - assets/hangul_sori_chaekgado_asset_pack_v1/books/transparent/
     - assets/hangul_sori_chaekgado_asset_pack_v1/categories/transparent/
+    # 공유 이미지 두루마리 소재 — ShareSlipRenderer. F-D-share (STYLE_LOCK.json).
+    - assets/illustrations/share/
     - assets/stickers/
     - assets/sfx/
     - assets/rive/
