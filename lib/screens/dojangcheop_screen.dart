@@ -233,13 +233,38 @@ class _StampSeriesSection extends StatelessWidget {
                 max: 6,
                 outerPadding: 0,
               );
+              final cellWidth =
+                  (constraints.maxWidth - Spacing.md * (columns - 1)) / columns;
+              final stampSize = cellWidth.clamp(64.0, 96.0).toDouble();
+              final nameStyle = SoriTextTheme.of(context).meta;
+              final textScaler = MediaQuery.textScalerOf(context);
+              final textDirection = Directionality.of(context);
+              final locale = Localizations.localeOf(context);
+              final maxNameHeight = motifs.fold<double>(0, (height, motif) {
+                final painter = TextPainter(
+                  text: TextSpan(
+                    text: dancheongMotifName(t, motif),
+                    style: nameStyle,
+                  ),
+                  textAlign: TextAlign.center,
+                  textDirection: textDirection,
+                  textScaler: textScaler,
+                  locale: locale,
+                )..layout(maxWidth: cellWidth);
+                return painter.height > height ? painter.height : height;
+              });
+              final naturalCellHeight =
+                  stampSize + Spacing.xs + maxNameHeight + 1;
+              final legacyCellHeight = cellWidth / 0.78;
               return GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: motifs.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: columns,
-                  childAspectRatio: 0.78,
+                  mainAxisExtent: naturalCellHeight > legacyCellHeight
+                      ? naturalCellHeight
+                      : legacyCellHeight,
                   mainAxisSpacing: Spacing.md,
                   crossAxisSpacing: Spacing.md,
                 ),
