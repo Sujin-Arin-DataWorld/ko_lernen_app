@@ -276,7 +276,7 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
 
   Widget _buildLoadFailure(AppL10n t) => Center(
     child: SoriEmptyState(
-      asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+      asset: 'assets/illustrations/mascot/tiger_front.png',
       icon: Icons.error_outline_rounded,
       title: t.grammarChoiceUnavailableTitle,
       body: _loadError,

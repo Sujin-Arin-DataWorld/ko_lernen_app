@@ -10,6 +10,11 @@ import 'tokens.dart';
 /// widget. Callers keep using [Mascot.tiger], [Mascot.magpie], and
 /// [Mascot.forSpeaker], while this widget selects the right pose internally.
 class Mascot extends StatefulWidget {
+  /// 호랑이 마스코트 정지 한 장. **잠금 자산** — 바꾸려면
+  /// `test/mascot_asset_lock_test.dart` 를 먼저 고쳐야 한다(Jin 2026-08-25).
+  static const String kTigerAsset =
+      'assets/illustrations/mascot/tiger_front.png';
+
   final MascotKind kind;
   final MascotEmotion emotion;
   final double size;
@@ -91,10 +96,16 @@ class Mascot extends StatefulWidget {
 // TickerProviderStateMixin (nicht Single): _motion kann beim Umschalten von
 // widget.animate (true→false→true) mehrfach neu erstellt werden.
 class _MascotState extends State<Mascot> with TickerProviderStateMixin {
-  // Jin 2026-08-06: 호랑이는 감정·프레임 구분 없이 tiger_sitting2 정지 한 장으로
-  // 통일(옛 tiger_* 포즈 PNG 전량 폐지). 까치는 기존 포즈 시스템 유지.
-  static const _tigerSitting2 =
-      'assets/illustrations/mascot/tiger_sitting2.png';
+  // Jin 2026-08-06: 호랑이는 감정·프레임 구분 없이 정지 한 장으로 통일
+  // (옛 tiger_* 포즈 PNG 전량 폐지). 까치는 기존 포즈 시스템 유지.
+  //
+  // Jin 2026-08-25: 단일 포즈 규칙은 그대로 두고 **어느 한 장이냐만** 바꿨다.
+  // 옛 `tiger_sitting2.png` 는 누워서 정면을 보는 자세라 정지 상태에서 축 처져
+  // 보였다 — 같은 그림인 `tiger_sitting2.mp4` 는 움직이니 괜찮았지만 마스코트는
+  // 항상 멈춰 있다. 새 `tiger_front.png` 는 정본 페어 아트
+  // `magpie_tiger_together.png` 속 호랑이와 같은 태고 저폴리 캐논·같은 서 있는
+  // 자세다. 화풍이 아니라 자세만 바꿨다.
+  static const _tigerAsset = Mascot.kTigerAsset;
 
   static const _magpieWingUp = 'assets/illustrations/mascot/magpie_wingup.png';
   static const _magpieWingDown =
@@ -143,7 +154,7 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
   /// no ticker → static pose. Called from didChangeDependencies + didUpdateWidget
   /// so both widget.animate flips and MediaQuery changes are honoured.
   void _syncMotion() {
-    // 호랑이는 정지(tiger_sitting2 한 장) → 티커 불필요. 까치만 애니메이션.
+    // 호랑이는 정지 한 장 → 티커 불필요. 까치만 애니메이션.
     final wantMotion =
         widget.animate && _isMagpie && !SoriMotion.reduceMotion(context);
     if (wantMotion && _motion == null) {
@@ -200,8 +211,8 @@ class _MascotState extends State<Mascot> with TickerProviderStateMixin {
       }
     }
 
-    // 호랑이는 감정·애니메이션 무관 정지 한 장(Jin 2026-08-06).
-    return _tigerSitting2;
+    // 호랑이는 감정·애니메이션 무관 정지 한 장(Jin 2026-08-06, 자산 교체 08-25).
+    return _tigerAsset;
   }
 
   String get _semanticsLabel {

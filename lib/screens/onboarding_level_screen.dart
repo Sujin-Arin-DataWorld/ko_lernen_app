@@ -53,6 +53,18 @@ import 'placement_diagnostic_screen.dart';
 /// 사계 단청 색띠 · 벚꽃 입자([AmbientParticles]). 인트로 솟을대문과의 연속성은
 /// 사진이 아니라 **히어로 영상 속 마당 풍경 + 떨어지는 꽃잎**이 잇는다.
 class OnboardingLevelScreen extends StatefulWidget {
+  /// 히어로 포스터(영상 준비 전 자리를 지키는 정지 그림). **잠금 자산** —
+  /// 바꾸려면 `test/mascot_asset_lock_test.dart` 를 먼저 고쳐야 한다.
+  ///
+  /// Jin 2026-08-25: 옛 `hanok/welcome-hero.png` 를 폐기하고 정본 페어 아트
+  /// `magpie_tiger_together.png` 로 고정했다. 옛 포스터는 16:9 영상과 프레이밍이
+  /// 달라 contain 슬롯에서 호랑이가 영상 밖으로 삐져나와 "작은 호랑이"가 겹쳐
+  /// 보였다(Jin 2026-08-05 기록). 새 포스터는 정사각이라 정사각 슬롯과 맞고,
+  /// 마스코트 호랑이([Mascot.kTigerAsset])와 같은 캐논이라 화면 간 인물이 흔들리지
+  /// 않는다.
+  static const String kHeroPoster =
+      'assets/illustrations/mascot/magpie_tiger_together.png';
+
   const OnboardingLevelScreen({super.key});
 
   @override
@@ -83,8 +95,9 @@ class _OnboardingLevelScreenState extends State<OnboardingLevelScreen> {
   /// ① SoriPosterLoop fit을 contain으로(레터박스가 _heroBackdrop과 같은
   /// 색이라 안 보임, 대신 피사체 축소) ② `eda4c37^`의 정사각 원본 복원.
   static const String _heroVideo = 'assets/video/loops/welcome-hero.mp4';
-  static const String _heroPoster =
-      'assets/illustrations/hanok/welcome-hero.png';
+
+  /// 포스터는 [OnboardingLevelScreen.kHeroPoster] 에 잠겨 있다.
+  static const String _heroPoster = OnboardingLevelScreen.kHeroPoster;
 
   /// 히어로 영상 배경의 실측 가장자리 색 — 페이지 상단을 이 색으로 깔아 영상
   /// 사각형의 이음매를 눈에 보이지 않게 한다. 현재 파일(구 hero2) 실측

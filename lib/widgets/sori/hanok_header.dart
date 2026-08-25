@@ -328,10 +328,10 @@ class _SoriPosterLoopState extends State<SoriPosterLoop> {
     return Stack(
       fit: StackFit.expand,
       children: [
-        // 영상이 준비되면 포스터를 내린다. 영상(welcome_hero2)과 포스터
-        // (welcome-hero.png)는 프레이밍이 달라, contain 슬롯(레벨 화면 히어로)
-        // 에서 둘을 겹치면 포스터 호랑이가 영상 위/옆으로 삐져나와 "작은 호랑이"
-        // 가 겹쳐 보였다(Jin 2026-08-05). 준비 전에는 포스터가 자리를 지킨다.
+        // 영상이 준비되면 포스터를 내린다. 겹쳐 두면 프레이밍이 다른 포스터
+        // 호랑이가 영상 위/옆으로 삐져나와 "작은 호랑이"가 겹쳐 보였다
+        // (Jin 2026-08-05, 옛 welcome-hero 포스터 시절). 준비 전에는 포스터가
+        // 자리를 지킨다.
         // cover 슬롯(HanokHeader 배너)에서는 포스터가 어차피 완전히 가려져
         // 있었으므로 시각 변화 없음.
         if (!showVideo) widget.poster,

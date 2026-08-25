@@ -57,6 +57,41 @@ INSET = 1
 # 모서리도 한두 번은 걸릴 수 있으므로 다수결로 판정한다.
 MIN_WHITE_RATIO = 0.75
 
+# ── 안쪽 바닥 그림자 게이트 (2026-08-25) ─────────────────────────────────
+# 모서리 검사만으로는 **구워진 접지 그림자**를 절대 못 잡는다. 그림자는 화면
+# 안쪽에 있어서 네 모서리는 늘 순백으로 통과한다. 조이(까치) 클립 전량이 이
+# 상태로 몇 달을 통과했고, 캐릭터 선택 화면에 회색 얼룩으로 남았다.
+#
+# multiply 블렌드는 **순백만** 배경색에 정확히 얹는다. 200/255 짜리 그림자는
+# `0.78 × 배경색`, 즉 주변보다 22% 어두운 판으로 살아남는다. 런타임 설정으로는
+# 못 지운다 — 픽셀을 고쳐야 한다(`tool/whiten_clip_matte.py`).
+FLOOR_GRID = 192
+# 클립별 예산. **절대 임계 하나로는 못 가른다** — 실측상 처리본 최댓값(20.0%)과
+# 미처리 클립(21.0%)이 겹친다. 그래서 클립마다 "검수해서 통과시킨 값"을 여기
+# 적어 두고, 그 값을 넘으면 실패시킨다. 예산을 올리려면 이 파일을 고쳐야 하고,
+# 그 수정이 리뷰에 남는다 — 그게 잠금이다.
+#
+# 값은 `python tool/check_clip_matte.py` 가 찍는 실측치에 여유를 더한 것이다.
+# 새 클립은 여기 없으면 DEFAULT_FLOOR_GREY_BUDGET 을 쓴다.
+# 아래 값들은 **승인이 아니라 기록**이다. 2026-08-25 실측이고, 조이(까치) 클립 전량과
+# `tiger_choose` 에 바닥 그림자가 구워져 있다는 사실을 못 박아 둔 것이다. 자동 편집으로는
+# 그림자와 옅은 깃털을 안전하게 분리할 수 없다고 판정났다(시도·기각 이력은
+# `tool/whiten_clip_matte.py` 주석). 해결은 자산 재렌더이고, 그때 이 값을 내리면 된다.
+# 지금 이 게이트의 역할은 **더 나빠지는 것을 막는 것**이다.
+FLOOR_GREY_BUDGET: dict[str, float] = {
+    "magpie_bob.mp4": 0.69,
+    "magpie_bob2.mp4": 0.70,
+    "magpie_celebrate.mp4": 0.12,
+    "magpie_choose.mp4": 0.53,
+    "magpie_flight.mp4": 0.18,
+    "magpie_walking_front.mp4": 0.23,
+    "tiger_choose.mp4": 0.25,
+}
+# 목록에 없는 클립의 기본 예산. 깨끗한 호랑이 클립이 0.5~1.4% 라 넉넉하다.
+DEFAULT_FLOOR_GREY_BUDGET = 0.06
+# 예산 대비 허용 오차. 재인코딩·측정 격자 차이로 몇 % 는 흔들린다.
+FLOOR_GREY_TOLERANCE = 0.03
+
 
 def die(msg: str) -> None:
     print(f"오류: {msg}", file=sys.stderr)
@@ -90,6 +125,38 @@ def corners(frame: bytes):
     return out
 
 
+def floor_grey(path: Path, ffmpeg: str) -> float:
+    """프레임 하단의 회색 잔여 최대 비율. 구워진 접지 그림자 탐지용."""
+    proc = subprocess.run(
+        [ffmpeg, "-v", "error", "-i", str(path),
+         "-vf", f"scale={FLOOR_GRID}:{FLOOR_GRID}", "-f", "rawvideo",
+         "-pix_fmt", "rgb24", "-"],
+        capture_output=True, timeout=180,
+    )
+    size = FLOOR_GRID * FLOOR_GRID * 3
+    raw = proc.stdout
+    if proc.returncode != 0 or len(raw) < size:
+        return 0.0
+    start = int(FLOOR_GRID * 0.58)
+    worst = 0.0
+    for k in range(len(raw) // size):
+        frame = raw[k * size:(k + 1) * size]
+        grey = total = 0
+        for y in range(start, FLOOR_GRID):
+            row = y * FLOOR_GRID * 3
+            for x in range(FLOOR_GRID):
+                o = row + x * 3
+                r, g, b = frame[o], frame[o + 1], frame[o + 2]
+                total += 1
+                lo, hi = min(r, g, b), max(r, g, b)
+                luma = 0.2126 * r + 0.7152 * g + 0.0722 * b
+                if lo < WHITE_MIN and luma >= 115 and (hi - lo) <= 30:
+                    grey += 1
+        if total:
+            worst = max(worst, grey / total)
+    return worst
+
+
 def check(path: Path, ffmpeg: str) -> dict:
     base = {"path": path.name, "bytes": path.stat().st_size}
     try:
@@ -115,7 +182,10 @@ def check(path: Path, ffmpeg: str) -> dict:
 
     white = [c for c in samples if all(v >= WHITE_MIN for v in c)]
     ratio = len(white) / len(samples)
-    ok = ratio >= MIN_WHITE_RATIO
+    grey = floor_grey(path, ffmpeg)
+    budget = FLOOR_GREY_BUDGET.get(path.name, DEFAULT_FLOOR_GREY_BUDGET)
+    limit = budget + FLOOR_GREY_TOLERANCE
+    ok = ratio >= MIN_WHITE_RATIO and grey <= limit
 
     # 대표 배경색 = 흰색이 아닌 샘플의 최빈값 (오탐 한두 개에 안 휘둘리게).
     non_white = [c for c in samples if not all(v >= WHITE_MIN for v in c)]
@@ -123,6 +193,9 @@ def check(path: Path, ffmpeg: str) -> dict:
 
     if ok:
         reason = ""
+    elif ratio >= MIN_WHITE_RATIO:
+        reason = (f"바닥 그림자 {grey:.1%} > 예산 {budget:.1%}+여유 {FLOOR_GREY_TOLERANCE:.0%} — "
+                  "python tool/whiten_clip_matte.py --clip " + path.name)
     elif matte[0] > 150 and matte[2] > 150 and matte[1] < min(matte[0], matte[2]) - 30:
         reason = "자홍(magenta) 배경 — 흰 매트로 재출력 필요"
     elif sum(matte) < 300:
@@ -131,7 +204,9 @@ def check(path: Path, ffmpeg: str) -> dict:
         reason = "배경이 순백이 아님"
 
     return {**base, "ok": ok, "matte": "#%02X%02X%02X" % matte,
-            "white_ratio": round(ratio, 3), "frames_sampled": n, "reason": reason}
+            "white_ratio": round(ratio, 3), "floor_grey": round(grey, 3),
+            "floor_grey_budget": round(budget, 3),
+            "frames_sampled": n, "reason": reason}
 
 
 def main() -> int:
@@ -148,12 +223,13 @@ def main() -> int:
     results = [check(p, ffmpeg) for p in clips]
 
     width = max(len(r["path"]) for r in results)
-    print(f"  {'클립':<{width}}  {'배경':<9} {'흰비율':>6} {'프레임':>6}  판정")
-    print("  " + "─" * (width + 48))
+    print(f"  {'클립':<{width}}  {'배경':<9} {'흰비율':>6} {'바닥회색':>8} {'프레임':>6}  판정")
+    print("  " + "─" * (width + 58))
     for r in results:
         mark = "OK" if r["ok"] else "✗ " + r["reason"]
         print(f"  {r['path']:<{width}}  {r['matte'] or '-':<9} "
-              f"{r['white_ratio'] * 100:5.0f}% {r['frames_sampled']:>6}  {mark}")
+              f"{r['white_ratio'] * 100:5.0f}% {r['floor_grey'] * 100:7.1f}% "
+              f"{r['frames_sampled']:>6}  {mark}")
 
     bad = [r for r in results if not r["ok"]]
     print()
@@ -166,6 +242,8 @@ def main() -> int:
                     "note": "tool/check_clip_matte.py 가 생성한다. 직접 고치지 말 것. "
                             "클립을 추가·교체하면 이 스크립트를 다시 돌릴 것.",
                     "white_min": WHITE_MIN,
+                    "floor_grey_tolerance": FLOOR_GREY_TOLERANCE,
+                    "default_floor_grey_budget": DEFAULT_FLOOR_GREY_BUDGET,
                     "clips": results,
                 },
                 ensure_ascii=False, indent=2,

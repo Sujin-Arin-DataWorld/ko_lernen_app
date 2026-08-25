@@ -1,6 +1,8 @@
 {
   "note": "tool/check_clip_matte.py 가 생성한다. 직접 고치지 말 것. 클립을 추가·교체하면 이 스크립트를 다시 돌릴 것.",
   "white_min": 248,
+  "floor_grey_tolerance": 0.03,
+  "default_floor_grey_budget": 0.06,
   "clips": [
     {
       "path": "magpie_bob.mp4",
@@ -8,6 +10,8 @@
       "ok": true,
       "matte": "#EFEFEF",
       "white_ratio": 0.95,
+      "floor_grey": 0.69,
+      "floor_grey_budget": 0.69,
       "frames_sampled": 169,
       "reason": ""
     },
@@ -17,6 +21,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.693,
+      "floor_grey_budget": 0.7,
       "frames_sampled": 121,
       "reason": ""
     },
@@ -26,6 +32,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.113,
+      "floor_grey_budget": 0.12,
       "frames_sampled": 97,
       "reason": ""
     },
@@ -35,6 +43,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.525,
+      "floor_grey_budget": 0.53,
       "frames_sampled": 169,
       "reason": ""
     },
@@ -44,6 +54,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.172,
+      "floor_grey_budget": 0.18,
       "frames_sampled": 97,
       "reason": ""
     },
@@ -53,6 +65,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.04,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 97,
       "reason": ""
     },
@@ -62,6 +76,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.221,
+      "floor_grey_budget": 0.23,
       "frames_sampled": 113,
       "reason": ""
     },
@@ -71,6 +87,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.065,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 97,
       "reason": ""
     },
@@ -80,6 +98,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.014,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 97,
       "reason": ""
     },
@@ -89,6 +109,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.242,
+      "floor_grey_budget": 0.25,
       "frames_sampled": 121,
       "reason": ""
     },
@@ -98,6 +120,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.037,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 97,
       "reason": ""
     },
@@ -107,6 +131,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.017,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 121,
       "reason": ""
     },
@@ -116,6 +142,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.027,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 121,
       "reason": ""
     },
@@ -125,6 +153,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.021,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 97,
       "reason": ""
     },
@@ -134,6 +164,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.018,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 121,
       "reason": ""
     },
@@ -143,6 +175,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.015,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 97,
       "reason": ""
     },
@@ -152,6 +186,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.02,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 240,
       "reason": ""
     },
@@ -161,6 +197,8 @@
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
+      "floor_grey": 0.018,
+      "floor_grey_budget": 0.06,
       "frames_sampled": 138,
       "reason": ""
     }

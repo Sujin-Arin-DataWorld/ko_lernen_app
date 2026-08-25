@@ -13,7 +13,7 @@ import 'sori/tokens.dart';
 /// 정지 PNG 다. 캐릭터 **클립**(`tiger_walking_front.mp4` 등)은 오류·로딩에
 /// 쓰지 않는다 — 디코더 예산 규정.
 const String kTaegoErrorAsset =
-    'assets/illustrations/mascot/tiger_sitting2.png';
+    'assets/illustrations/mascot/tiger_front.png';
 
 /// 오류 상태 — 부드럽게 등장하고, 일러스트가 잔잔히 호흡한다.
 ///

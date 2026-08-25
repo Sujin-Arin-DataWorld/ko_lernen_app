@@ -830,7 +830,7 @@ class _EmptyLevelCard extends StatelessWidget {
             width: 56,
             height: 56,
             child: Image.asset(
-              'assets/illustrations/mascot/tiger_sitting2.png',
+              'assets/illustrations/mascot/tiger_front.png',
               fit: BoxFit.contain,
               filterQuality: FilterQuality.medium,
               errorBuilder: (_, __, ___) => Container(

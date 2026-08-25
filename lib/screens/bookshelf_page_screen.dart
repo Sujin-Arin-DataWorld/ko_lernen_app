@@ -105,7 +105,7 @@ class _BookshelfPageScreenState extends State<BookshelfPageScreen> {
         maxWidth: SoriMaxWidth.prose,
         children: [
           SoriEmptyState(
-            asset: 'assets/illustrations/mascot/tiger_sitting2.png',
+            asset: 'assets/illustrations/mascot/tiger_front.png',
             icon: Icons.help_outline,
             title: t.bookshelfPageNotFoundTitle,
             body: t.bookshelfPageNotFoundBody,
