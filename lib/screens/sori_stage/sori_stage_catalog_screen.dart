@@ -320,6 +320,33 @@ class _ActivityGridCard extends StatelessWidget {
   }
 }
 
+/// §W2-Task5: `_cellAspectRatio` 는 그리드 엔트리 전체 타이틀·풋터를
+/// `TextPainter.layout()` 으로 실측한다 — 셀 폭·텍스트 스케일·로케일·문자열
+/// 목록이 그대로면 매 build() 마다 다시 잴 필요가 없다. 이 키가 같으면
+/// 이전 결과를 재사용한다.
+String cellAspectRatioCacheKey({
+  required double cellWidth,
+  required double textScale,
+  required String locale,
+  required Iterable<String> titles,
+  required Iterable<String> footerLabels,
+}) {
+  final buffer = StringBuffer()
+    ..write(cellWidth.toStringAsFixed(2))
+    ..write('|')
+    ..write(textScale.toStringAsFixed(3))
+    ..write('|')
+    ..write(locale)
+    ..write('|')
+    ..writeAll(titles, '')
+    ..write('|')
+    ..writeAll(footerLabels, '');
+  return buffer.toString();
+}
+
+String? _cellAspectRatioCacheKey;
+double? _cellAspectRatioCacheValue;
+
 /// Grid ratio derived from the 4:3 image plus the measured localized title and
 /// status footer. Every string remains available while cards in a row keep the
 /// same height.
@@ -335,6 +362,18 @@ double _cellAspectRatio(
   final scaler = MediaQuery.textScalerOf(context);
   final direction = Directionality.of(context);
   final locale = Localizations.localeOf(context);
+  final textScale = scaler.scale(14) / 14;
+  final cacheKey = cellAspectRatioCacheKey(
+    cellWidth: cellWidth,
+    textScale: textScale,
+    locale: locale.toLanguageTag(),
+    titles: titles,
+    footerLabels: footerLabels,
+  );
+  if (cacheKey == _cellAspectRatioCacheKey &&
+      _cellAspectRatioCacheValue != null) {
+    return _cellAspectRatioCacheValue!;
+  }
   final tt = SoriTextTheme.of(context);
   final titleStyle = tt.cardTitle;
   final footerStyle = tt.cardSubtitle;
@@ -366,7 +405,10 @@ double _cellAspectRatio(
       Spacing.xs +
       footer +
       layoutAllowance;
-  return cellWidth / height;
+  final ratio = cellWidth / height;
+  _cellAspectRatioCacheKey = cacheKey;
+  _cellAspectRatioCacheValue = ratio;
+  return ratio;
 }
 
 double _maxMeasuredTextHeight({
