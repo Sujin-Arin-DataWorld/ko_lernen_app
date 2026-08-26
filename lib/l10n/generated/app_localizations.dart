@@ -9807,7 +9807,7 @@ abstract class AppL10n {
   /// No description provided for @coachChosungStep1Title.
   ///
   /// In de, this message translates to:
-  /// **'Silben-Puzzle'**
+  /// **'Rate mit Anlauten'**
   String get coachChosungStep1Title;
 
   /// No description provided for @coachChosungStep1Body.

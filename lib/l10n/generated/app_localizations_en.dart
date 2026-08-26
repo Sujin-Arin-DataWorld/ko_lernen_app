@@ -5640,7 +5640,7 @@ class AppL10nEn extends AppL10n {
   String get settingsMadeWith => 'Made with ❤ in Germany';
 
   @override
-  String get coachChosungStep1Title => 'Syllable puzzle';
+  String get coachChosungStep1Title => 'Guess from the first sounds';
 
   @override
   String get coachChosungStep1Body =>

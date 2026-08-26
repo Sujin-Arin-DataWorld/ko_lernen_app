@@ -2736,7 +2736,7 @@
   "@_coach_c1": {
     "description": "Stage C-1 game 4-screen coach keys (2026-06-09)"
   },
-  "coachChosungStep1Title": "Syllable puzzle",
+  "coachChosungStep1Title": "Guess from the first sounds",
   "coachChosungStep1Body": "Fill in the dotted slots to complete the word",
   "coachChosungStep2Title": "Level & difficulty",
   "coachChosungStep2Body": "Choose a level from A1 to C2 and decide whether to show vowels",

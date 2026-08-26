@@ -5662,7 +5662,7 @@ class AppL10nDe extends AppL10n {
   String get settingsMadeWith => 'Mit ❤ in Deutschland gemacht';
 
   @override
-  String get coachChosungStep1Title => 'Silben-Puzzle';
+  String get coachChosungStep1Title => 'Rate mit Anlauten';
 
   @override
   String get coachChosungStep1Body =>

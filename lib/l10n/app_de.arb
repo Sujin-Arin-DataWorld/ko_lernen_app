@@ -2805,7 +2805,7 @@
   "@_coach_c1": {
     "description": "Stage C-1 게임 4화면 코치마크 키 (2026-06-09)"
   },
-  "coachChosungStep1Title": "Silben-Puzzle",
+  "coachChosungStep1Title": "Rate mit Anlauten",
   "coachChosungStep1Body": "Füll die gepunkteten Felder aus und vervollständige das Wort",
   "coachChosungStep2Title": "Niveau & Schwierigkeit",
   "coachChosungStep2Body": "Wähle dein Level von A1 bis C2 und ob Vokale angezeigt werden",
