@@ -35,7 +35,7 @@ MANIFEST_JSON = REPO / "assets/data/curriculum_manifest.json"
 REPORT_MD = REPO / "docs/data/vocab_level_report.md"
 SUSPECTS_CSV = REPO / "tool/vocab_level_suspects.csv"
 
-LEVEL_RANK = {"A1": 0, "A2": 1, "B1": 2, "B2": 3}
+LEVEL_RANK = {"A1": 0, "A2": 1, "B1": 2, "B2": 3, "C1": 4, "C2": 5}
 HIGH_TOPICS = {
     "Gesellschaft",
     "Politik",
@@ -144,7 +144,7 @@ def write_report(rows: list[dict[str, str]]) -> None:
         f"**총 단어**: {len(rows)}",
         "",
     ]
-    for level in ["A1", "A2", "B1", "B2"]:
+    for level in ["A1", "A2", "B1", "B2", "C1", "C2"]:
         packs = by_level.get(level, {})
         n = sum(len(v) for v in packs.values())
         lines.append(f"## {level} — {n} 단어, {len(packs)} 팩")

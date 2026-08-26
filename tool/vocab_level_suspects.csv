@@ -1,5 +1,5 @@
 id,korean,german,level,pack_id,topic,pos_de,reasons,blocked
-vocab_a1_0014,선생님,Lehrer/in,A1,a1_self_intro,Person,Nomen,sino3_low,
+vocab_a1_0014,선생님,Lehrer/in,A1,a1_self_intro,Person,Nomen,sino3_low,satz_ref
 vocab_a1_0016,남자친구,Freund (Beziehung),A1,a1_family_1,Beziehungen,Nomen,sino3_low,
 vocab_a1_0017,여자친구,Freundin (Beziehung),A1,a1_family_1,Beziehungen,Nomen,sino3_low,
 vocab_a1_0026,핸드폰,Handy,A1,a1_misc_1,Technologie,Nomen,sino3_low+below_topic,
@@ -7,15 +7,15 @@ vocab_a1_0028,지하철,U-Bahn,A1,a1_transport,Verkehr,Nomen,sino3_low,
 vocab_a1_0032,아버지,Vater (formell),A1,a1_family_1,Familie,Nomen,sino3_low,satz_ref
 vocab_a1_0033,어머니,Mutter (formell),A1,a1_family_1,Familie,Nomen,sino3_low,
 vocab_a1_0040,남동생,jüngerer Bruder,A1,a1_family_2,Familie,Nomen,sino3_low,
-vocab_a1_0041,여동생,jüngere Schwester,A1,a1_family_2,Familie,Nomen,sino3_low,
-vocab_a1_0053,빨간색,rot,A1,a1_colors,Farben,Nomen,sino3_low,
-vocab_a1_0054,파란색,blau,A1,a1_colors,Farben,Nomen,sino3_low,
-vocab_a1_0055,초록색,grün,A1,a1_colors,Farben,Nomen,sino3_low,
-vocab_a1_0056,노란색,gelb,A1,a1_colors,Farben,Nomen,sino3_low,
+vocab_a1_0041,여동생,jüngere Schwester,A1,a1_family_2,Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0053,빨간색,rot,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
+vocab_a1_0054,파란색,blau,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
+vocab_a1_0055,초록색,grün,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
+vocab_a1_0056,노란색,gelb,A1,a1_colors,Farben,Nomen,sino3_low,satz_ref
 vocab_a1_0058,검은색,schwarz,A1,a1_colors,Farben,Nomen,sino3_low,
 vocab_a1_0068,화장실,Toilette / Badezimmer,A1,a1_daily_1,Alltag,Nomen,sino3_low,
-vocab_a1_0069,편의점,Convenience Store,A1,a1_daily_1,Alltag,Nomen,sino3_low,
-vocab_a1_0071,도서관,Bibliothek,A1,a1_misc_1,Bildung,Nomen,sino3_low,
+vocab_a1_0069,편의점,Spätkauf / Mini-Markt,A1,a1_daily_1,Alltag,Nomen,sino3_low,
+vocab_a1_0071,도서관,Bibliothek,A1,a1_misc_1,Bildung,Nomen,sino3_low,satz_ref
 vocab_a1_0103,말하다,sprechen / sagen,A1,a1_misc_2,Kommunikation,Verb,below_topic,
 vocab_a1_0115,좋다,gut / schön,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
 vocab_a1_0116,크다,groß,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
@@ -27,65 +27,270 @@ vocab_a1_0125,어렵다,schwierig / schwer,A1,a1_descriptions,Beschreibung,Adjek
 vocab_a1_0126,쉽다,einfach / leicht,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
 vocab_a1_0128,길다,lang,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
 vocab_a1_0129,짧다,kurz,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,
-vocab_a2_0016,비행기,Flugzeug,A2,a2_transport,Verkehr,Nomen,sino3_low,
-vocab_a2_0027,자전거,Fahrrad,A2,a2_transport,Verkehr,Nomen,sino3_low,
-vocab_a2_0028,전화,Telefon / Anruf,A2,a2_health_misc_1,Kommunikation,Nomen,below_topic,
-vocab_a2_0029,문자,Nachricht (SMS),A2,a2_health_misc_1,Kommunikation,Nomen,below_topic,
-vocab_a2_0030,인터넷,Internet,A2,a2_health_misc_2,Technologie,Nomen,sino3_low,
-vocab_a2_0031,컴퓨터,Computer,A2,a2_health_misc_2,Technologie,Nomen,sino3_low,
-vocab_a2_0037,영수증,Quittung / Kassenbon,A2,a2_shopping_1,Einkaufen,Nomen,sino3_low,
-vocab_a2_0043,전화하다,anrufen,A2,a2_health_misc_2,Kommunikation,Verb,below_topic,
-vocab_a2_0053,보내다,schicken / senden,A2,a2_health_misc_2,Kommunikation,Verb,below_topic,
-vocab_a1_0158,월요일,Montag,A1,a1_time_2,Zeit,Nomen,sino3_low,
+vocab_a2_0016,비행기,Flugzeug,A2,a2_transport,Verkehr,Nomen,sino3_low,satz_ref
+vocab_a2_0027,자전거,Fahrrad,A2,a2_transport,Verkehr,Nomen,sino3_low,satz_ref
+vocab_a2_0028,전화,Telefon / Anruf,A2,a2_health_misc_1,Kommunikation,Nomen,below_topic,satz_ref
+vocab_a2_0029,문자,Nachricht (SMS),A2,a2_health_misc_1,Kommunikation,Nomen,below_topic,satz_ref
+vocab_a2_0030,인터넷,Internet,A2,a2_health_misc_2,Technologie,Nomen,sino3_low,satz_ref
+vocab_a2_0031,컴퓨터,Computer,A2,a2_health_misc_2,Technologie,Nomen,sino3_low,satz_ref
+vocab_a2_0037,영수증,Quittung / Kassenbon,A2,a2_shopping_1,Einkaufen,Nomen,sino3_low,satz_ref
+vocab_a2_0043,전화하다,anrufen,A2,a2_health_misc_2,Kommunikation,Verb,below_topic,satz_ref
+vocab_a2_0053,보내다,schicken / senden,A2,a2_health_misc_2,Kommunikation,Verb,below_topic,satz_ref
+vocab_a1_0158,월요일,Montag,A1,a1_time_2,Zeit,Nomen,sino3_low,satz_ref
 vocab_a1_0159,화요일,Dienstag,A1,a1_time_2,Zeit,Nomen,sino3_low,
-vocab_a1_0160,수요일,Mittwoch,A1,a1_time_3,Zeit,Nomen,sino3_low,
-vocab_a1_0161,목요일,Donnerstag,A1,a1_time_3,Zeit,Nomen,sino3_low,
+vocab_a1_0160,수요일,Mittwoch,A1,a1_time_3,Zeit,Nomen,sino3_low,satz_ref
+vocab_a1_0161,목요일,Donnerstag,A1,a1_time_3,Zeit,Nomen,sino3_low,satz_ref
 vocab_a1_0162,금요일,Freitag,A1,a1_time_3,Zeit,Nomen,sino3_low,satz_ref
 vocab_a1_0163,토요일,Samstag,A1,a1_time_3,Zeit,Nomen,sino3_low,
 vocab_a1_0164,일요일,Sonntag,A1,a1_time_3,Zeit,Nomen,sino3_low,satz_ref
-vocab_a1_0176,화이팅,Du schaffst das! / Viel Erfolg!,A1,a1_misc_2,Motivation,Ausdruck,below_topic,
+vocab_a1_0176,화이팅,Du schaffst das! / Viel Erfolg!,A1,a1_misc_2,Motivation,Ausdruck,below_topic,satz_ref
 vocab_a1_0186,오른쪽,rechts,A1,a1_position,Position,Nomen,sino3_low,satz_ref
-vocab_a1_0197,새,neu (attributiv),A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
+vocab_a1_0197,새,neu,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
 vocab_a1_0198,다른,andere/r/s,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
 vocab_a1_0199,같은,gleich / dasselbe,A1,a1_descriptions,Beschreibung,Adjektiv,below_topic,satz_ref
+vocab_a2_0088,메뉴판,Speisekarte,A2,a2_food_1,Essen & Trinken,Nomen,sino3_low,satz_ref
 vocab_a2_0097,사이즈,Größe,A2,a2_shopping_1,Einkaufen,Nomen,sino3_low,satz_ref
-vocab_a2_0107,신호등,Ampel,A2,a2_transport,Verkehr,Nomen,sino3_low,
-vocab_a2_0108,횡단보도,Zebrastreifen,A2,a2_transport,Verkehr,Nomen,sino3_low,
+vocab_a2_0107,신호등,Ampel,A2,a2_transport,Verkehr,Nomen,sino3_low,satz_ref
+vocab_a2_0108,횡단보도,Zebrastreifen,A2,a2_transport,Verkehr,Nomen,sino3_low,satz_ref
 vocab_a2_0109,교차로,Kreuzung,A2,a2_transport,Verkehr,Nomen,sino3_low,satz_ref
-vocab_a2_0136,분홍색,rosa,A2,a2_descriptions_2,Farben,Nomen,sino3_low,
-vocab_a2_0137,보라색,lila / violett,A2,a2_descriptions_2,Farben,Nomen,sino3_low,
+vocab_a2_0136,분홍색,rosa,A2,a2_descriptions_2,Farben,Nomen,sino3_low,satz_ref
+vocab_a2_0137,보라색,lila / violett,A2,a2_descriptions_2,Farben,Nomen,sino3_low,satz_ref
 vocab_a2_0140,주황색,orange,A2,a2_descriptions_2,Farben,Nomen,sino3_low,satz_ref
 vocab_a2_0143,냉장고,Kühlschrank,A2,a2_home_1,Wohnen,Nomen,sino3_low,satz_ref
-vocab_a2_0144,세탁기,Waschmaschine,A2,a2_home_1,Wohnen,Nomen,sino3_low,
-vocab_a2_0145,청소기,Staubsauger,A2,a2_home_1,Wohnen,Nomen,sino3_low,
-vocab_a2_0149,보증금,Kaution,A2,a2_home_1,Wohnen,Nomen,sino3_low,
-vocab_a2_0150,집주인,Vermieter,A2,a2_home_1,Wohnen,Nomen,sino3_low,
-vocab_a2_0157,수수료,Gebühr,A2,a2_money_1,Geld,Nomen,sino3_low,
-vocab_a2_0163,원피스,Kleid,A2,a2_clothing_1,Kleidung,Nomen,sino3_low,
-vocab_a2_0168,목도리,Schal,A2,a2_clothing_1,Kleidung,Nomen,sino3_low,
-vocab_a2_0170,귀걸이,Ohrringe,A2,a2_clothing_1,Kleidung,Nomen,sino3_low,
-vocab_a2_0171,넥타이,Krawatte,A2,a2_clothing_1,Kleidung,Nomen,sino3_low,
-vocab_a2_0183,슬리퍼,Hausschuhe,A2,a2_wearing_verbs_1,Anziehen & Accessoires,Nomen,sino3_low,
-vocab_a2_0184,스타킹,Strumpfhose,A2,a2_wearing_verbs_1,Anziehen & Accessoires,Nomen,sino3_low,
-vocab_a2_0188,젓가락,Stäbchen,A2,a2_restaurant_1,Im Restaurant,Nomen,sino3_low,
-vocab_a2_0189,숟가락,Löffel,A2,a2_restaurant_1,Im Restaurant,Nomen,sino3_low,
-vocab_a2_0190,계산서,Rechnung,A2,a2_restaurant_1,Im Restaurant,Nomen,sino3_low,
-vocab_a2_0191,차림표,Speisekarte,A2,a2_restaurant_1,Im Restaurant,Nomen,sino3_low,
-vocab_a2_0208,옷걸이,Kleiderbügel,A2,a2_household_1,Haushalt & Zimmer,Nomen,sino3_low,
-vocab_a2_0213,쇠고기,Rindfleisch,A2,a2_food_more_1,Essen & Zutaten,Nomen,sino3_low,
-vocab_a2_0214,돼지고기,Schweinefleisch,A2,a2_food_more_1,Essen & Zutaten,Nomen,sino3_low,
-vocab_a2_0215,불고기,Bulgogi,A2,a2_food_more_1,Essen & Zutaten,Nomen,sino3_low,
-vocab_a2_0216,비빔밥,Bibimbap,A2,a2_food_more_1,Essen & Zutaten,Nomen,sino3_low,
-vocab_a2_0220,밀가루,Mehl,A2,a2_food_more_1,Essen & Zutaten,Nomen,sino3_low,
-vocab_a2_0224,물고기,Fisch,A2,a2_nature_1,Natur & Draußen,Nomen,sino3_low,
-vocab_a2_0230,눈사람,Schneemann,A2,a2_nature_1,Natur & Draußen,Nomen,sino3_low,
-vocab_a2_0231,눈싸움,Schneeballschlacht,A2,a2_nature_1,Natur & Draußen,Nomen,sino3_low,
+vocab_a2_0144,세탁기,Waschmaschine,A2,a2_home_1,Wohnen,Nomen,sino3_low,satz_ref
+vocab_a2_0145,청소기,Staubsauger,A2,a2_home_1,Wohnen,Nomen,sino3_low,satz_ref
+vocab_a2_0149,보증금,Kaution,A2,a2_home_1,Wohnen,Nomen,sino3_low,satz_ref
+vocab_a2_0150,집주인,Vermieter,A2,a2_home_1,Wohnen,Nomen,sino3_low,satz_ref
+vocab_a2_0157,수수료,Gebühr,A2,a2_money_1,Geld,Nomen,sino3_low,satz_ref
+vocab_a2_0163,원피스,Kleid,A2,a2_clothing_1,Kleidung,Nomen,sino3_low,satz_ref
+vocab_a2_0168,목도리,Schal,A2,a2_clothing_1,Kleidung,Nomen,sino3_low,satz_ref
+vocab_a2_0170,귀걸이,Ohrringe,A2,a2_clothing_1,Kleidung,Nomen,sino3_low,satz_ref
+vocab_a2_0171,넥타이,Krawatte,A2,a2_clothing_1,Kleidung,Nomen,sino3_low,satz_ref
+vocab_a2_0183,슬리퍼,Hausschuhe,A2,a2_wearing_verbs_1,Anziehen & Accessoires,Nomen,sino3_low,satz_ref
+vocab_a2_0184,스타킹,Strumpfhose,A2,a2_wearing_verbs_1,Anziehen & Accessoires,Nomen,sino3_low,satz_ref
+vocab_a2_0188,젓가락,Stäbchen,A2,a2_restaurant_1,Im Restaurant,Nomen,sino3_low,satz_ref
+vocab_a2_0189,숟가락,Löffel,A2,a2_restaurant_1,Im Restaurant,Nomen,sino3_low,satz_ref
+vocab_a2_0190,계산서,Rechnung,A2,a2_restaurant_1,Im Restaurant,Nomen,sino3_low,satz_ref
+vocab_a2_0191,차림표,Speisekarte,A2,a2_restaurant_1,Im Restaurant,Nomen,sino3_low,satz_ref
+vocab_a2_0208,옷걸이,Kleiderbügel,A2,a2_household_1,Haushalt & Zimmer,Nomen,sino3_low,satz_ref
+vocab_a2_0213,쇠고기,Rindfleisch,A2,a2_food_more_1,Essen & Zutaten,Nomen,sino3_low,satz_ref
+vocab_a2_0214,돼지고기,Schweinefleisch,A2,a2_food_more_1,Essen & Zutaten,Nomen,sino3_low,satz_ref
+vocab_a2_0215,불고기,Bulgogi,A2,a2_food_more_1,Essen & Zutaten,Nomen,sino3_low,satz_ref
+vocab_a2_0216,비빔밥,Bibimbap,A2,a2_food_more_1,Essen & Zutaten,Nomen,sino3_low,satz_ref
+vocab_a2_0220,밀가루,Mehl,A2,a2_food_more_1,Essen & Zutaten,Nomen,sino3_low,satz_ref
+vocab_a2_0224,물고기,Fisch,A2,a2_nature_1,Natur & Draußen,Nomen,sino3_low,satz_ref
+vocab_a2_0230,눈사람,Schneemann,A2,a2_nature_1,Natur & Draußen,Nomen,sino3_low,satz_ref
+vocab_a2_0231,눈싸움,Schneeballschlacht,A2,a2_nature_1,Natur & Draußen,Nomen,sino3_low,satz_ref
 vocab_a2_0234,변호사,Anwalt,A2,a2_people_jobs_1,Menschen & Berufe,Nomen,sino3_low,
-vocab_a2_0239,아저씨,Onkel (Anrede),A2,a2_people_jobs_1,Menschen & Berufe,Nomen,sino3_low,
-vocab_a2_0240,아주머니,Tante (Anrede),A2,a2_people_jobs_1,Menschen & Berufe,Nomen,sino3_low,
-vocab_a2_0246,교과서,Lehrbuch,A2,a2_school_uni_1,Schule & Uni,Nomen,sino3_low,
-vocab_a2_0249,대학교,Universität,A2,a2_school_uni_1,Schule & Uni,Nomen,sino3_low,
+vocab_a2_0239,아저씨,Onkel (Anrede),A2,a2_people_jobs_1,Menschen & Berufe,Nomen,sino3_low,satz_ref
+vocab_a2_0240,아주머니,Tante (Anrede),A2,a2_people_jobs_1,Menschen & Berufe,Nomen,sino3_low,satz_ref
+vocab_a2_0246,교과서,Lehrbuch,A2,a2_school_uni_1,Schule & Uni,Nomen,sino3_low,satz_ref
+vocab_a2_0249,대학교,Universität,A2,a2_school_uni_1,Schule & Uni,Nomen,sino3_low,satz_ref
 vocab_a2_0250,대학생,Student,A2,a2_school_uni_1,Schule & Uni,Nomen,sino3_low,
 vocab_a2_0251,고등학생,Oberschüler,A2,a2_school_uni_1,Schule & Uni,Nomen,sino3_low,
-vocab_a2_0252,중학생,Mittelschüler,A2,a2_school_uni_1,Schule & Uni,Nomen,sino3_low,
-vocab_a2_0256,유학생,Auslandsstudent,A2,a2_school_uni_1,Schule & Uni,Nomen,sino3_low,
+vocab_a2_0252,중학생,Mittelschüler,A2,a2_school_uni_1,Schule & Uni,Nomen,sino3_low,satz_ref
+vocab_a2_0256,유학생,Auslandsstudent,A2,a2_school_uni_1,Schule & Uni,Nomen,sino3_low,satz_ref
+vocab_a1_0214,장인어른,Schwiegervater (Vater der Ehefrau),A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0215,장모님,Schwiegermutter (Mutter der Ehefrau),A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0216,시아버지,Schwiegervater (Vater des Ehemanns),A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0217,시어머니,Schwiegermutter (Mutter des Ehemanns),A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0219,높임말,Höflichkeitsform,A1,a1_partner_meet_names_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0224,과일 바구니,Obstkorb,A1,a1_partner_first_gift_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0225,건강식품,Gesundheitsprodukt,A1,a1_partner_first_gift_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0232,백화점 상품권,Kaufhausgutschein,A1,a1_partner_first_gift_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0233,꽃다발,Blumenstrauß,A1,a1_partner_first_gift_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0235,감사 인사,Dankesgruß,A1,a1_partner_first_gift_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0237,손님 슬리퍼,Gästeslipper,A1,a1_partner_house_entry_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0240,아랫목,der warme Platz am Boden,A1,a1_partner_house_entry_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0244,손 씻기,Händewaschen,A1,a1_partner_house_entry_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0245,화장실 문,Toilettentür,A1,a1_partner_house_entry_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0250,밑반찬,Beilagen,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0256,젓가락질,Stäbchenhaltung,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0257,앞접시,Extrateller,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0259,설거지,Abwasch,A1,a1_partner_table_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0263,세뱃돈,Neujahrsgeld,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0269,차례상,Ahnentisch,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0270,세뱃돈 봉투,Umschlag für das Neujahrsgeld,A1,a1_partner_seollal_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0279,햇과일,Obst der neuen Ernte,A1,a1_partner_chuseok_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0280,한가위,"Hangawi, anderer Name für Chuseok",A1,a1_partner_chuseok_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0281,송편 잎,Kiefernnadeln auf Songpyeon,A1,a1_partner_chuseok_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0282,명절 증후군,Feiertagsstress,A1,a1_partner_chuseok_basic_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0286,시누이,"Schwägerin, Schwester des Mannes",A1,a1_partner_siblings_hello_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0287,시동생,"Schwager, jüngerer Bruder des Mannes",A1,a1_partner_siblings_hello_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0295,단체 사진,Gruppenfoto,A1,a1_partner_siblings_hello_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0296,인증샷,Foto fürs Netz,A1,a1_partner_photo_thanks_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0297,가족 앨범,Familienalbum,A1,a1_partner_photo_thanks_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0304,이모티콘,Emoticon,A1,a1_partner_photo_thanks_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0306,사진 전송,Fotos senden,A1,a1_partner_photo_thanks_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0274,소개팅,Blind Date,A2,a2_partner_dinner_talk_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0276,통역 부탁,um Übersetzung bitten,A2,a2_partner_dinner_talk_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0277,자기소개,kurze Vorstellung,A2,a2_partner_dinner_talk_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0279,음식 취향,Essensvorlieben,A2,a2_partner_dinner_talk_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0284,한복 대여,Hanbok-Verleih,A2,a2_partner_seollal_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0285,세배 순서,Reihenfolge der Verbeugung,A2,a2_partner_seollal_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0286,복주머니,Glücksbeutel,A2,a2_partner_seollal_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0287,설날 인사말,Neujahrsgruß,A2,a2_partner_seollal_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0288,세배 영상,Video der Verbeugung,A2,a2_partner_seollal_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0289,명절 음식,Festtagsessen,A2,a2_partner_seollal_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0291,세배 연습,Verbeugungsübung,A2,a2_partner_seollal_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0292,새해 목표,Neujahrsvorsatz,A2,a2_partner_seollal_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0293,귀성길,Heimreiseverkehr,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0294,송편 맛,Geschmack der Songpyeon,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0295,보름달,Vollmond,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0296,성묘 옷,Kleidung für den Grabbesuch,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0297,벌초 장갑,Handschuhe zum Jäten,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0298,차례 음식,Speisen für das Ritual,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0299,송편 만들기,Songpyeon herstellen,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0300,명절 인사,schöne Feiertage,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0301,고향집,Elternhaus in der Heimat,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0302,친척 방문,Verwandtenbesuch,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0303,송편 점,Songpyeon-Orakel,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0304,추석 연휴,Chuseok-Ferien,A2,a2_partner_chuseok_day_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0310,맞장구,zustimmendes Mitgehen,A2,a2_partner_sibling_tease_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0314,단톡방,Familienchat,A2,a2_partner_sibling_tease_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0315,남은 반찬,übrig gebliebene Beilagen,A2,a2_partner_sibling_tease_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0317,손님방,Gästezimmer,A2,a2_partner_overnight_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0319,세면 도구,Waschzeug,A2,a2_partner_overnight_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0320,아침 인사,Guten Morgen sagen,A2,a2_partner_overnight_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0322,화장실 줄,Schlange vor der Toilette,A2,a2_partner_overnight_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0324,코골이,Schnarchen,A2,a2_partner_overnight_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0325,아침밥,Frühstück,A2,a2_partner_overnight_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0326,손님 수건,Gästehandtuch,A2,a2_partner_overnight_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0327,문 닫기,die Tür schließen,A2,a2_partner_overnight_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0330,밀폐 용기,Frischhaltedose,A2,a2_partner_leftover_bags_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0331,김치 국물,Kimchi-Saft,A2,a2_partner_leftover_bags_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0332,냉동실,Gefrierfach,A2,a2_partner_leftover_bags_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0333,보자기,Bojagi-Tuch,A2,a2_partner_leftover_bags_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0334,비닐봉지,Plastiktüte,A2,a2_partner_leftover_bags_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0336,냉동 보관,Tiefkühllagerung,A2,a2_partner_leftover_bags_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0340,반찬 봉투,Beilagenbeutel,A2,a2_partner_leftover_bags_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0341,고속버스,Fernbus,A2,a2_partner_hometown_trip_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0342,휴게소,Raststätte,A2,a2_partner_hometown_trip_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0343,명절 기차,Festtagszug,A2,a2_partner_hometown_trip_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0344,좌석 배정,Sitzzuweisung,A2,a2_partner_hometown_trip_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0346,도착 인사,"Hallo, wir sind da",A2,a2_partner_hometown_trip_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0347,친척 집,Verwandtenhaus,A2,a2_partner_hometown_trip_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0348,마을 버스,Dorfbus,A2,a2_partner_hometown_trip_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0349,집 마당,Hof des Hauses,A2,a2_partner_hometown_trip_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0351,돌아가는 길,der Rückweg,A2,a2_partner_hometown_trip_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0352,안부 전화,Ankunftsanruf,A2,a2_partner_hometown_trip_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0353,반말 전환,Wechsel ins Vertraute,A2,a2_partner_banmal_switch_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0355,말실수,Versprecher,A2,a2_partner_banmal_switch_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0356,호칭 연습,Anredeübung,A2,a2_partner_banmal_switch_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0359,존댓말 버릇,Höflichkeitsgewohnheit,A2,a2_partner_banmal_switch_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0360,나이 확인,nach dem Alter fragen,A2,a2_partner_banmal_switch_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0361,서로 존댓말,gegenseitige Höflichkeit,A2,a2_partner_banmal_switch_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0363,존댓말 실수,Höflichkeitsfehler,A2,a2_partner_banmal_switch_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a2_0364,반말 연습,Banmal-Übung,A2,a2_partner_banmal_switch_1,Partnerschaft & koreanische Familie,Nomen,sino3_low,satz_ref
+vocab_a1_0311,우편함,Briefkasten,A1,a1_post_office_1,Postamt,Nomen,sino3_low,satz_ref
+vocab_a1_0315,보내는 사람,Absender,A1,a1_post_office_1,Postamt,Nomen,sino3_low,satz_ref
+vocab_a1_0316,받는 사람,Empfänger,A1,a1_post_office_1,Postamt,Nomen,sino3_low,satz_ref
+vocab_a1_0318,포장지,Packpapier,A1,a1_post_office_1,Postamt,Nomen,sino3_low,satz_ref
+vocab_a1_0321,마스크,Maske,A1,a1_pharmacy_ask_1,Apotheke,Nomen,sino3_low,satz_ref
+vocab_a1_0322,계산대,Kasse,A1,a1_pharmacy_ask_1,Apotheke,Nomen,sino3_low,satz_ref
+vocab_a1_0324,일회용 밴드,Pflaster,A1,a1_pharmacy_ask_1,Apotheke,Nomen,sino3_low,satz_ref
+vocab_a1_0325,체온계,Fieberthermometer,A1,a1_pharmacy_ask_1,Apotheke,Nomen,sino3_low,satz_ref
+vocab_a1_0326,가글액,Mundspülung,A1,a1_pharmacy_ask_1,Apotheke,Nomen,sino3_low,satz_ref
+vocab_a1_0327,비타민제,Vitaminpräparat,A1,a1_pharmacy_ask_1,Apotheke,Nomen,sino3_low,satz_ref
+vocab_a1_0328,알레르기,Allergie,A1,a1_pharmacy_ask_1,Apotheke,Nomen,sino3_low,satz_ref
+vocab_a1_0331,제산제,Antazidum,A1,a1_pharmacy_ask_1,Apotheke,Nomen,sino3_low,satz_ref
+vocab_a1_0344,초인종,Klingel,A1,a1_neighbors_hall_1,Nachbarschaft,Nomen,sino3_low,satz_ref
+vocab_a1_0346,이웃집,Nachbarwohnung,A1,a1_neighbors_hall_1,Nachbarschaft,Nomen,sino3_low,satz_ref
+vocab_a1_0348,분리배출,getrennte Entsorgung,A1,a1_neighbors_hall_1,Nachbarschaft,Nomen,sino3_low,satz_ref
+vocab_a1_0350,공동현관,Hauseingang,A1,a1_neighbors_hall_1,Nachbarschaft,Nomen,sino3_low,satz_ref
+vocab_a1_0351,층간소음,Lärm durch die Decke,A1,a1_neighbors_hall_1,Nachbarschaft,Nomen,sino3_low,satz_ref
+vocab_a1_0352,택배함,Paketkasten,A1,a1_neighbors_hall_1,Nachbarschaft,Nomen,sino3_low,satz_ref
+vocab_a1_0353,공지문,Aushang,A1,a1_neighbors_hall_1,Nachbarschaft,Nomen,sino3_low,satz_ref
+vocab_a1_0354,무단주차,unerlaubtes Parken,A1,a1_neighbors_hall_1,Nachbarschaft,Nomen,sino3_low,satz_ref
+vocab_a1_0357,지우개,Radiergummi,A1,a1_school_supplies_1,Schultasche,Nomen,sino3_low,satz_ref
+vocab_a1_0360,색연필,Buntstift,A1,a1_school_supplies_1,Schultasche,Nomen,sino3_low,satz_ref
+vocab_a1_0361,연습장,Schreibheft,A1,a1_school_supplies_1,Schultasche,Nomen,sino3_low,satz_ref
+vocab_a1_0362,준비물,Sachen für den Unterricht,A1,a1_school_supplies_1,Schultasche,Nomen,sino3_low,satz_ref
+vocab_a1_0364,화이트보드,Whiteboard,A1,a1_school_supplies_1,Schultasche,Nomen,sino3_low,satz_ref
+vocab_a1_0365,자리표,Platzkarte,A1,a1_school_supplies_1,Schultasche,Nomen,sino3_low,satz_ref
+vocab_a1_0370,승강장,Bahnsteig,A1,a1_subway_card_1,U-Bahnkarte,Nomen,sino3_low,satz_ref
+vocab_a1_0374,정기권,Zeitkarte,A1,a1_subway_card_1,U-Bahnkarte,Nomen,sino3_low,satz_ref
+vocab_a1_0375,개찰구,Sperre,A1,a1_subway_card_1,U-Bahnkarte,Nomen,sino3_low,satz_ref
+vocab_a1_0376,노선도,Linienplan,A1,a1_subway_card_1,U-Bahnkarte,Nomen,sino3_low,satz_ref
+vocab_a1_0381,미세먼지,Feinstaub,A1,a1_weather_layer_1,Wetterschicht,Nomen,sino3_low,satz_ref
+vocab_a1_0382,일기예보,Wetterbericht,A1,a1_weather_layer_1,Wetterschicht,Nomen,sino3_low,satz_ref
+vocab_a1_0386,일교차,Temperaturunterschied,A1,a1_weather_layer_1,Wetterschicht,Nomen,sino3_low,satz_ref
+vocab_a1_0390,소나기,Schauer,A1,a1_weather_layer_1,Wetterschicht,Nomen,sino3_low,satz_ref
+vocab_a2_0365,요금제,Tarif,A2,a2_phone_plan_1,Handytarif,Nomen,sino3_low,satz_ref
+vocab_a2_0366,데이터량,Datenvolumen,A2,a2_phone_plan_1,Handytarif,Nomen,sino3_low,satz_ref
+vocab_a2_0369,위약금,Vertragsstrafe,A2,a2_phone_plan_1,Handytarif,Nomen,sino3_low,satz_ref
+vocab_a2_0371,부가서비스,Zusatzdienst,A2,a2_phone_plan_1,Handytarif,Nomen,sino3_low,satz_ref
+vocab_a2_0372,청구서,Rechnung,A2,a2_phone_plan_1,Handytarif,Nomen,sino3_low,satz_ref
+vocab_a2_0373,자동이체,Lastschrift,A2,a2_phone_plan_1,Handytarif,Nomen,sino3_low,satz_ref
+vocab_a2_0374,고객센터,Kundencenter,A2,a2_phone_plan_1,Handytarif,Nomen,sino3_low,satz_ref
+vocab_a2_0378,인증서,Zertifikat,A2,a2_bank_counter_1,Bankschalter,Nomen,sino3_low,satz_ref
+vocab_a2_0379,보안카드,Sicherheitskarte,A2,a2_bank_counter_1,Bankschalter,Nomen,sino3_low,satz_ref
+vocab_a2_0380,대기번호,Wartenummer,A2,a2_bank_counter_1,Bankschalter,Nomen,sino3_low,satz_ref
+vocab_a2_0382,창구직원,Schalterkraft,A2,a2_bank_counter_1,Bankschalter,Nomen,sino3_low,satz_ref
+vocab_a2_0383,통장정리,Kontoauszug,A2,a2_bank_counter_1,Bankschalter,Nomen,sino3_low,satz_ref
+vocab_a2_0389,헬스장,Fitnessstudio,A2,a2_gym_class_1,Fitnesskurs,Nomen,sino3_low,satz_ref
+vocab_a2_0390,운동복,Sportkleidung,A2,a2_gym_class_1,Fitnesskurs,Nomen,sino3_low,satz_ref
+vocab_a2_0391,러닝머신,Laufband,A2,a2_gym_class_1,Fitnesskurs,Nomen,sino3_low,satz_ref
+vocab_a2_0392,스트레칭,Dehnung,A2,a2_gym_class_1,Fitnesskurs,Nomen,sino3_low,satz_ref
+vocab_a2_0395,트레이너,Trainer,A2,a2_gym_class_1,Fitnesskurs,Nomen,sino3_low,satz_ref
+vocab_a2_0397,회원권,Mitgliedschaft,A2,a2_gym_class_1,Fitnesskurs,Nomen,sino3_low,satz_ref
+vocab_a2_0398,준비운동,Aufwärmen,A2,a2_gym_class_1,Fitnesskurs,Nomen,sino3_low,satz_ref
+vocab_a2_0400,유산소,Ausdauer,A2,a2_gym_class_1,Fitnesskurs,Nomen,sino3_low,satz_ref
+vocab_a2_0401,미용실,Friseursalon,A2,a2_salon_visit_1,Friseursalon,Nomen,sino3_low,satz_ref
+vocab_a2_0405,앞머리,Pony,A2,a2_salon_visit_1,Friseursalon,Nomen,sino3_low,satz_ref
+vocab_a2_0406,드라이,Föhnen,A2,a2_salon_visit_1,Friseursalon,Nomen,sino3_low,satz_ref
+vocab_a2_0407,스타일리스트,Stylist,A2,a2_salon_visit_1,Friseursalon,Nomen,sino3_low,satz_ref
+vocab_a2_0408,예약금,Anzahlung,A2,a2_salon_visit_1,Friseursalon,Nomen,sino3_low,satz_ref
+vocab_a2_0410,트리트먼트,Kur,A2,a2_salon_visit_1,Friseursalon,Nomen,sino3_low,satz_ref
+vocab_a2_0411,옆머리,Seitenhaar,A2,a2_salon_visit_1,Friseursalon,Nomen,sino3_low,satz_ref
+vocab_a2_0413,관리사무소,Hausverwaltung,A2,a2_apt_rules_1,Hausordnung,Nomen,sino3_low,satz_ref
+vocab_a2_0414,입주민,Bewohner,A2,a2_apt_rules_1,Hausordnung,Nomen,sino3_low,satz_ref
+vocab_a2_0415,주차스티커,Parkaufkleber,A2,a2_apt_rules_1,Hausordnung,Nomen,sino3_low,satz_ref
+vocab_a2_0417,야간소음,Nachtlärm,A2,a2_apt_rules_1,Hausordnung,Nomen,sino3_low,satz_ref
+vocab_a2_0418,현관문,Wohnungstür,A2,a2_apt_rules_1,Hausordnung,Nomen,sino3_low,satz_ref
+vocab_a2_0419,방문증,Besucherausweis,A2,a2_apt_rules_1,Hausordnung,Nomen,sino3_low,satz_ref
+vocab_a2_0420,재활용실,Wertstoffraum,A2,a2_apt_rules_1,Hausordnung,Nomen,sino3_low,satz_ref
+vocab_a2_0421,대형폐기,Sperrmüll,A2,a2_apt_rules_1,Hausordnung,Nomen,sino3_low,satz_ref
+vocab_a2_0426,근무표,Dienstplan,A2,a2_part_time_1,Nebenjob,Nomen,sino3_low,satz_ref
+vocab_a2_0427,야간수당,Nachtzuschlag,A2,a2_part_time_1,Nebenjob,Nomen,sino3_low,satz_ref
+vocab_a2_0428,휴게시간,Pause,A2,a2_part_time_1,Nebenjob,Nomen,sino3_low,satz_ref
+vocab_a2_0429,인수인계,Übergabe,A2,a2_part_time_1,Nebenjob,Nomen,sino3_low,satz_ref
+vocab_a2_0430,알바생,Aushilfe,A2,a2_part_time_1,Nebenjob,Nomen,sino3_low,satz_ref
+vocab_a2_0431,주휴수당,Wochenruhegeld,A2,a2_part_time_1,Nebenjob,Nomen,sino3_low,satz_ref
+vocab_a2_0432,근로계약,Arbeitsvertrag,A2,a2_part_time_1,Nebenjob,Nomen,sino3_low,satz_ref
+vocab_a2_0437,분실물,Fundsache,A2,a2_lost_found_1,Fundsachen,Nomen,sino3_low,satz_ref
+vocab_a2_0439,보관함,Aufbewahrung,A2,a2_lost_found_1,Fundsachen,Nomen,sino3_low,satz_ref
+vocab_a2_0440,신분증,Ausweis,A2,a2_lost_found_1,Fundsachen,Nomen,sino3_low,satz_ref
+vocab_a2_0443,안내데스크,Infoschalter,A2,a2_lost_found_1,Fundsachen,Nomen,sino3_low,satz_ref
+vocab_a2_0444,소지품,Habseligkeiten,A2,a2_lost_found_1,Fundsachen,Nomen,sino3_low,satz_ref
+vocab_a2_0446,수령인,Abholer,A2,a2_lost_found_1,Fundsachen,Nomen,sino3_low,satz_ref
+vocab_a2_0447,보관기간,Aufbewahrungsfrist,A2,a2_lost_found_1,Fundsachen,Nomen,sino3_low,satz_ref
+vocab_a2_0448,확인서,Bestätigung,A2,a2_lost_found_1,Fundsachen,Nomen,sino3_low,satz_ref
+vocab_a2_0453,안내원,Betreuer,A2,a2_festival_booth_1,Feststand,Nomen,sino3_low,satz_ref
+vocab_a2_0454,무료시식,Kostprobe,A2,a2_festival_booth_1,Feststand,Nomen,sino3_low,satz_ref
+vocab_a2_0455,홍보물,Flyer,A2,a2_festival_booth_1,Feststand,Nomen,sino3_low,satz_ref
+vocab_a2_0456,스탬프,Stempel,A2,a2_festival_booth_1,Feststand,Nomen,sino3_low,satz_ref
+vocab_a2_0457,운영시간,Öffnungszeit,A2,a2_festival_booth_1,Feststand,Nomen,sino3_low,satz_ref
+vocab_a2_0458,현장접수,Vor-Ort-Anmeldung,A2,a2_festival_booth_1,Feststand,Nomen,sino3_low,satz_ref
+vocab_a2_0459,자원봉사자,Ehrenamtliche,A2,a2_festival_booth_1,Feststand,Nomen,sino3_low,satz_ref
+vocab_a2_0460,체험권,Mitmachkarte,A2,a2_festival_booth_1,Feststand,Nomen,sino3_low,satz_ref
+vocab_a1_0405,모국어,Muttersprache,A1,a1_particles_in_use_1,자기소개,Nomen,sino3_low,satz_ref
+vocab_a1_0413,배달비,Liefergebühr,A1,a1_payment_delivery_1,결제와 배달,Nomen,sino3_low,satz_ref
+vocab_a1_0415,도착 시간,Ankunftszeit,A1,a1_payment_delivery_1,결제와 배달,Nomen,sino3_low,satz_ref
+vocab_a1_0416,우체국 위치,Lage des Postamts,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,
+vocab_a1_0418,정류장,Haltestelle,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,
+vocab_a1_0419,지하철역,U-Bahn-Station,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,
+vocab_a1_0420,환승 안내,Umstiegshinweis,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,
+vocab_a1_0421,교통카드 잔액,Fahrkartenguthaben,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,
+vocab_a1_0422,영수증 확인,Bonkontrolle,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,satz_ref
+vocab_a1_0423,현금 결제,Barzahlung,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,satz_ref
+vocab_a1_0426,출구 번호,Ausgangsnummer,A1,a1_city_services_2026_1,도시 생활,Nomen,sino3_low,satz_ref
+vocab_a2_0465,선납금,Vorauszahlung,A2,a2_housing_search_2026_1,집 구하기,Nomen,sino3_low,
+vocab_a2_0466,납부일,Zahlungstermin,A2,a2_housing_search_2026_1,집 구하기,Nomen,sino3_low,
+vocab_a2_0467,관리비 내역,Aufstellung der Nebenkosten,A2,a2_housing_search_2026_1,집 구하기,Nomen,sino3_low,
+vocab_a2_0468,계약서 사본,Vertragskopie,A2,a2_housing_search_2026_1,집 구하기,Nomen,sino3_low,
+vocab_a2_0469,임대인,vermietende Person,A2,a2_housing_search_2026_1,집 구하기,Nomen,sino3_low,
+vocab_a2_0470,부동산 중개,Immobilienvermittlung,A2,a2_housing_search_2026_1,집 구하기,Nomen,sino3_low,
+vocab_a2_0471,공과금 내역,Versorgungskostenaufstellung,A2,a2_housing_search_2026_1,집 구하기,Nomen,sino3_low,satz_ref
+vocab_a2_0472,이사 날짜,Umzugstermin,A2,a2_housing_search_2026_1,집 구하기,Nomen,sino3_low,satz_ref
+vocab_a2_0476,반려동물,Haustier,A2,a2_housing_search_2026_1,집 구하기,Nomen,sino3_low,satz_ref
