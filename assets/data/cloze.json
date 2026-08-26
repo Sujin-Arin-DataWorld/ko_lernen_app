@@ -8110,14 +8110,14 @@
     {
       "id": "cloze_a1_0104",
       "level": "a1",
-      "sentenceKo": "＿＿＿께서 현관까지 나오셨어요.",
+      "sentenceKo": "남편 집에 가니까 ＿＿＿께서 현관까지 나오셨어요.",
       "answer": "시아버지",
-      "fullKo": "시아버지께서 현관까지 나오셨어요.",
-      "de": "Mein Schwiegervater kam bis zur Wohnungstür.",
-      "en": "My father-in-law came all the way to the door.",
+      "fullKo": "남편 집에 가니까 시아버지께서 현관까지 나오셨어요.",
+      "de": "Als wir bei der Familie meines Mannes ankamen, kam mein Schwiegervater bis zur Tür.",
+      "en": "When we arrived at my husband's family's home, my father-in-law came out to the door.",
       "distractors": [
-        "햇과일",
-        "현관",
+        "장인어른",
+        "장모님",
         "형부"
       ],
       "topic": "Partnerschaft & koreanische Familie"
@@ -8860,15 +8860,15 @@
     {
       "id": "cloze_a1_0154",
       "level": "a1",
-      "sentenceKo": "＿＿＿는 타이밍을 놓쳐서 한 박자 늦었어요.",
-      "answer": "절하",
+      "sentenceKo": "＿＿＿ 타이밍을 놓쳐서 한 박자 늦었어요.",
+      "answer": "절하는",
       "fullKo": "절하는 타이밍을 놓쳐서 한 박자 늦었어요.",
       "de": "Ich verpasste den richtigen Moment und verbeugte mich einen Takt zu spät.",
       "en": "I missed the timing and bowed one beat late.",
       "distractors": [
-        "친해",
-        "성함을 묻",
-        "세배 드리"
+        "요리하는",
+        "청소하는",
+        "포장하는"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -9430,15 +9430,15 @@
     {
       "id": "cloze_a1_0192",
       "level": "a1",
-      "sentenceKo": "＿＿＿은 절하는 토끼로 골랐어요.",
+      "sentenceKo": "＿＿＿은 절하는 토끼로 했어요.",
       "answer": "이모티콘",
-      "fullKo": "이모티콘은 절하는 토끼로 골랐어요.",
-      "de": "Als Emoticon wählte ich das sich verbeugende Kaninchen.",
-      "en": "I chose the bowing-rabbit sticker.",
+      "fullKo": "이모티콘은 절하는 토끼로 했어요.",
+      "de": "Als Sticker habe ich das verbeugende Häschen genommen.",
+      "en": "For the sticker, I went with the bowing rabbit.",
       "distractors": [
-        "햇과일",
+        "달력",
         "현관",
-        "형부"
+        "소포"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12250,11 +12250,11 @@
     {
       "id": "cloze_b1_0172",
       "level": "b1",
-      "sentenceKo": "＿＿＿이 나자 현우가 어머니께 먼저 전화했어요.",
+      "sentenceKo": "＿＿＿이 생겨서 현우가 어머니께 먼저 전화드렸어요.",
       "answer": "일정 충돌",
-      "fullKo": "일정 충돌이 나자 현우가 어머니께 먼저 전화했어요.",
-      "de": "Beim Terminkonflikt rief Hyunwoo zuerst die Mutter an.",
-      "en": "When a schedule clash appeared, Hyunwoo called his mother first.",
+      "fullKo": "일정 충돌이 생겨서 현우가 어머니께 먼저 전화드렸어요.",
+      "de": "Wegen einer Terminüberschneidung rief Hyunwoo zuerst seine Mutter an.",
+      "en": "When schedules clashed, Hyunwoo called his mother first.",
       "distractors": [
         "명절 예산",
         "방 배정",
@@ -15175,14 +15175,14 @@
     {
       "id": "cloze_a1_0239",
       "level": "a1",
-      "sentenceKo": "밤에는 ＿＿＿을 조심해요.",
+      "sentenceKo": "밤에는 ＿＿＿이 나지 않게 조심해야 돼요.",
       "answer": "층간소음",
-      "fullKo": "밤에는 층간소음을 조심해요.",
-      "de": "Bitte etwas leiser. Wegen der Nachbarn unten.",
-      "en": "Keep it down a bit. The neighbors downstairs can hear.",
+      "fullKo": "밤에는 층간소음이 나지 않게 조심해야 돼요.",
+      "de": "Nachts sind wir leise, damit die Nachbarn unten nichts hören.",
+      "en": "At night we keep quiet so the neighbors below don't hear us.",
       "distractors": [
         "초인종",
-        "복도",
+        "택배함",
         "이웃집"
       ],
       "topic": "Nachbarschaft"

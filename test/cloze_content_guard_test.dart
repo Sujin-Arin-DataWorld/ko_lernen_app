@@ -335,10 +335,9 @@ const int knownUnsyncedCap = 318; // 2026-08-26 실측 고정
 
 // 가드③(distractor 위생) 기존 실패 17건 — 전부 오답 후보 문자열이 원 문장
 // (sentenceKo, 빈칸 채워지기 전) 부분 문자열로 그대로 노출됨(EXPOSED_IN_SENTENCE).
-// cloze_a1_0104(현관)는 Task 2 시드 5건 중 하나로, Task 2가 고치면 이
-// allowlist 에서 제거하고 캡을 16으로 낮춘다.
+// cloze_a1_0104(현관)는 Task 2 시드 5건 중 하나로, Task 2에서 distractor를
+// 교체(현관→장모님)해 이 allowlist 에서 제거하고 캡을 16으로 낮췄다.
 const Set<String> knownDistractorIds = {
-  'cloze_a1_0104',
   'cloze_a1_0159',
   'cloze_a1_0200',
   'cloze_a1_0244',
@@ -356,7 +355,7 @@ const Set<String> knownDistractorIds = {
   'cloze_c2_0135',
   'cloze_c2_0159',
 };
-const int knownDistractorCap = 17; // 2026-08-26 실측 고정
+const int knownDistractorCap = 16; // 2026-08-26 실측 고정 (Task 2: cloze_a1_0104 제거)
 
 List<List<String>> parseCsv(String text) {
   final rows = <List<String>>[];
