@@ -346,7 +346,10 @@ class _OpenScenarioCard extends StatelessWidget {
         locked: false,
         onTap: openContainer,
       ),
-      openBuilder: (ctx, _) => ScenarioPlayerScreen(scenarioId: scenario.id),
+      openBuilder: (ctx, _) => ScenarioPlayerScreen(
+        scenarioId: scenario.id,
+        levelHint: scenario.level,
+      ),
     );
   }
 }
@@ -699,7 +702,10 @@ class _NextRecommended extends StatelessWidget {
     void openScenario() {
       Navigator.of(context).push(
         MaterialPageRoute(
-          builder: (_) => ScenarioPlayerScreen(scenarioId: scenario.id),
+          builder: (_) => ScenarioPlayerScreen(
+            scenarioId: scenario.id,
+            levelHint: scenario.level,
+          ),
         ),
       );
     }
