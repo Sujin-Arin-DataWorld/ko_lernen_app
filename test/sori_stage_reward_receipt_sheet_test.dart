@@ -36,6 +36,46 @@ void main() {
       findsOneWidget,
     );
   });
+
+  testWidgets('receipt sheet closes via close button', (tester) async {
+    const receipt = RewardReceipt(
+      activityId: 'course',
+      receiptId: 'receipt-1',
+      items: <RewardReceiptItem>[
+        RewardReceiptItem(
+          kind: SoriRewardKind.xp,
+          amount: 20,
+          label: SoriLocalizedCopy(de: 'Lern-XP', en: 'Learning XP'),
+        ),
+      ],
+    );
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('en'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: Scaffold(
+          body: Builder(
+            builder: (context) => ElevatedButton(
+              onPressed: () => showSoriStageRewardReceipt(context, receipt),
+              child: const Text('open'),
+            ),
+          ),
+        ),
+      ),
+    );
+
+    await tester.tap(find.text('open'));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(SoriStageRewardReceiptSheet), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('receipt-close')));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(SoriStageRewardReceiptSheet), findsNothing);
+  });
 }
 
 Widget _app(Widget home) => MaterialApp(
