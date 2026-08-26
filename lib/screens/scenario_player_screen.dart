@@ -2376,7 +2376,7 @@ class _RollenspielDoneCard extends StatelessWidget {
             children: [
               const Icon(
                 key: ValueKey('roleplay_done_none'),
-                Icons.task_alt_rounded,
+                Icons.check_circle_rounded,
                 size: 56,
                 color: SoriColors.success,
               ),

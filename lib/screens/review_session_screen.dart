@@ -323,7 +323,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   Widget _buildEmpty(AppL10n t) => SoriEmptyState(
     asset: 'assets/illustrations/mascot/magpie_celebrate.png',
-    icon: Icons.task_alt_rounded,
+    icon: Icons.celebration_rounded,
     title: t.reviewEmptyTitle,
     body: t.reviewEmptyBody,
     ctaLabel: t.btnClose,
@@ -357,7 +357,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                     fallbackEmotion: MascotEmotion.celebrate,
                   ),
                   noneBuilder: (context) => const Icon(
-                    Icons.task_alt_rounded,
+                    Icons.celebration_rounded,
                     size: 104,
                     color: SoriColors.success,
                   ),

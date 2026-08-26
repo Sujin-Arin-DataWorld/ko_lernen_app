@@ -9,7 +9,6 @@ import 'package:ko_lernen_app/data/hangul_strokes.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
-import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
@@ -19,8 +18,6 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
-import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
-import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
 
@@ -275,150 +272,6 @@ void main() {
 
     await tester.pumpWidget(const SizedBox.shrink());
   });
-
-  testWidgets('grammar finish requires a meaningful study interaction', (
-    tester,
-  ) async {
-    await _setLargeView(tester);
-    await tester.pumpWidget(_wrap(const GrammarScreen()));
-    await _pumpUntil(tester, find.byType(FlipCard));
-
-    var finish = tester.widget<IconButton>(
-      find.byKey(const Key('grammar-finish-session')),
-    );
-    expect(finish.onPressed, isNull);
-    expect(find.byType(ContentFeedbackCard), findsNothing);
-
-    await tester.tap(find.byType(FlipCard));
-    await tester.pump();
-    finish = tester.widget<IconButton>(
-      find.byKey(const Key('grammar-finish-session')),
-    );
-    expect(finish.onPressed, isNotNull);
-
-    await tester.tap(find.byKey(const Key('grammar-finish-session')));
-    await tester.pump(const Duration(milliseconds: 500));
-    final card = tester.widget<ContentFeedbackCard>(
-      find.byType(ContentFeedbackCard),
-    );
-    expect(card.feedbackContext.contentType, 'grammar_session');
-    expect(card.feedbackContext.scoreSummary, 'seen:1');
-
-    final firstCompletionId = card.feedbackContext.completionId;
-    await _closeFeedbackResult(tester);
-    finish = tester.widget<IconButton>(
-      find.byKey(const Key('grammar-finish-session')),
-    );
-    expect(finish.onPressed, isNull);
-    expect(find.byType(ContentFeedbackCard), findsNothing);
-
-    // 판정 CTA 는 없앴다 — "이 카드를 이해했다"는 이제 오른쪽 스와이프다.
-    tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onNext!();
-    await tester.pump();
-    finish = tester.widget<IconButton>(
-      find.byKey(const Key('grammar-finish-session')),
-    );
-    expect(finish.onPressed, isNotNull);
-    await tester.tap(find.byKey(const Key('grammar-finish-session')));
-    await tester.pump(const Duration(milliseconds: 500));
-    final secondCard = tester.widget<ContentFeedbackCard>(
-      find.byType(ContentFeedbackCard),
-    );
-    expect(secondCard.feedbackContext.completionId, isNot(firstCompletionId));
-  });
-
-  testWidgets('grammar level filter resets the current study interaction set', (
-    tester,
-  ) async {
-    await _setLargeView(tester);
-    await tester.pumpWidget(_wrap(const GrammarScreen()));
-    await _pumpUntil(tester, find.byType(FlipCard));
-
-    await tester.tap(find.byType(FlipCard));
-    await tester.pump();
-    expect(
-      tester
-          .widget<IconButton>(find.byKey(const Key('grammar-finish-session')))
-          .onPressed,
-      isNotNull,
-    );
-
-    // 개수 라벨(`A2 · 46`) + 앞쪽 CTA 때문에 A2 칩이 가로 ListView 오른쪽
-    // 클립 끝에 붙고, `ensureVisible`+`tap` 은 탭 좌표가 히트 영역을 벗어나
-    // 세션이 안 리셋됐다 (CI Analyze 1실패). Key 로 칩과 필터행을 찾고
-    // (#89), scrollUntilVisible + pumpAndSettle 로 정착시킨 뒤 실제로 탭해
-    // (#91) 필터 변경→세션 리셋 계약을 히트 테스트까지 포함해 고정한다.
-    final a2Filter = find.byKey(const Key('grammar-level-A2'));
-    expect(a2Filter, findsOneWidget);
-    await tester.scrollUntilVisible(
-      a2Filter,
-      120,
-      scrollable: find.descendant(
-        of: find.byKey(const Key('grammar-filter-row')),
-        matching: find.byType(Scrollable),
-      ),
-    );
-    await tester.pumpAndSettle();
-    await tester.tap(a2Filter);
-    await tester.pumpAndSettle();
-
-    expect(
-      tester
-          .widget<IconButton>(find.byKey(const Key('grammar-finish-session')))
-          .onPressed,
-      isNull,
-    );
-
-    await tester.tap(find.byType(FlipCard));
-    await tester.pump();
-    await tester.tap(find.byKey(const Key('grammar-finish-session')));
-    await tester.pump(const Duration(milliseconds: 500));
-    final card = tester.widget<ContentFeedbackCard>(
-      find.byType(ContentFeedbackCard),
-    );
-    expect(card.feedbackContext.contentId, contains('grammar:A2:'));
-    expect(card.feedbackContext.scoreSummary, 'seen:1');
-  });
-
-  testWidgets(
-    'dismissing staged grammar filters preserves the active session',
-    (tester) async {
-      await _setLargeView(tester);
-      await tester.pumpWidget(_wrap(const GrammarScreen()));
-      await _pumpUntil(tester, find.byType(FlipCard));
-
-      await tester.tap(find.byType(FlipCard));
-      await tester.pump();
-      await tester.tap(find.byIcon(Icons.tune));
-      await tester.pumpAndSettle();
-
-      await tester.tap(find.byType(DropdownButton<String>).first);
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('A2').last);
-      await tester.pumpAndSettle();
-      await tester.binding.handlePopRoute();
-      await tester.pumpAndSettle();
-
-      final a1Filter = tester.widget<SoriChip>(
-        find.byKey(const Key('grammar-level-A1')),
-      );
-      expect(a1Filter.selected, isTrue);
-      expect(
-        tester
-            .widget<IconButton>(find.byKey(const Key('grammar-finish-session')))
-            .onPressed,
-        isNotNull,
-      );
-
-      await tester.tap(find.byKey(const Key('grammar-finish-session')));
-      await tester.pump(const Duration(milliseconds: 500));
-      final card = tester.widget<ContentFeedbackCard>(
-        find.byType(ContentFeedbackCard),
-      );
-      expect(card.feedbackContext.contentId, contains('grammar:A1:'));
-      expect(card.feedbackContext.scoreSummary, 'seen:1');
-    },
-  );
 
   testWidgets('same-index Hangul random does not enable finish', (
     tester,

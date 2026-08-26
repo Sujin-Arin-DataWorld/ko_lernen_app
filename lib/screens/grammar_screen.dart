@@ -729,16 +729,6 @@ class _GrammarScreenState extends State<GrammarScreen>
       title: t.screenGrammarTitle,
       actions: [
         IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
-        // 세션 종료(테스터 피드백 수집)는 하단에서 앱바로 올렸다. 하단은
-        // 판정 2버튼만 남기지만, 182장짜리 둘러보기 덱에서는 "마지막 카드"에
-        // 도달할 일이 없어 자동 종료만으로는 피드백 경로가 사라진다.
-        // 의미 있는 학습(카드를 한 장이라도 본 뒤)에만 켜지는 계약은 그대로다.
-        IconButton(
-          key: const Key('grammar-finish-session'),
-          tooltip: t.testerFeedbackCompleteGrammar,
-          icon: const Icon(Icons.task_alt_rounded),
-          onPressed: _sessionSeen.isEmpty ? null : _finishSession,
-        ),
         const TtsSpeedAction(),
       ],
       padding: EdgeInsets.zero,
