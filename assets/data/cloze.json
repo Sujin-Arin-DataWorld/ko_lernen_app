@@ -8110,11 +8110,11 @@
     {
       "id": "cloze_a1_0104",
       "level": "a1",
-      "sentenceKo": "남편 집에 가니까 ＿＿＿께서 현관까지 나오셨어요.",
+      "sentenceKo": "남편 집에 가니까 ＿＿＿께서 환하게 반겨주셨어요.",
       "answer": "시아버지",
-      "fullKo": "남편 집에 가니까 시아버지께서 현관까지 나오셨어요.",
-      "de": "Als wir bei der Familie meines Mannes ankamen, kam mein Schwiegervater bis zur Tür.",
-      "en": "When we arrived at my husband's family's home, my father-in-law came out to the door.",
+      "fullKo": "남편 집에 가니까 시아버지께서 환하게 반겨주셨어요.",
+      "de": "Als wir bei der Familie meines Mannes ankamen, hat mein Schwiegervater uns herzlich begrüßt.",
+      "en": "When we arrived at my husband's family's home, my father-in-law gave us a warm welcome.",
       "distractors": [
         "장인어른",
         "장모님",

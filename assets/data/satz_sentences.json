@@ -5504,9 +5504,9 @@
     {
       "id": "satz_a1_0068",
       "level": "a1",
-      "targetKo": "남편 집에 가니까 시아버지께서 현관까지 나오셨어요.",
-      "promptDe": "Als wir bei der Familie meines Mannes ankamen, kam mein Schwiegervater bis zur Tür.",
-      "promptEn": "When we arrived at my husband's family's home, my father-in-law came out to the door.",
+      "targetKo": "남편 집에 가니까 시아버지께서 환하게 반겨주셨어요.",
+      "promptDe": "Als wir bei der Familie meines Mannes ankamen, hat mein Schwiegervater uns herzlich begrüßt.",
+      "promptEn": "When we arrived at my husband's family's home, my father-in-law gave us a warm welcome.",
       "distractors": [
         "신발을",
         "신발이"
