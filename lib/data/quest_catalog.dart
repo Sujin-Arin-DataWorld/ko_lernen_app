@@ -248,8 +248,8 @@ const List<QuestDefinition> kQuestCatalog = [
     type: QuestType.seasonal,
     name: (de: 'Seollal-Yutspiel (윷놀이)', en: 'Lunar New Year Yutnori'),
     description: (
-      de: 'Spiele 5 Chosung-Quiz-Runden während Seollal.',
-      en: 'Play 5 chosung quiz rounds during Lunar New Year.',
+      de: 'Spiele 5 Anlaut-Quiz-Runden während Seollal.',
+      en: 'Play 5 first-sound quiz rounds during Lunar New Year.',
     ),
     target: 5,
     source: QuestSource.yutChosung,
