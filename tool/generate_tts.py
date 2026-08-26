@@ -416,8 +416,15 @@ def collect():
                 if not isinstance(puzzle, dict):
                     continue
                 for word in puzzle.get("words", []):
-                    if isinstance(word, dict):
-                        add_auto(word.get("answer"))
+                    if not isinstance(word, dict):
+                        continue
+                    answer = word.get("answer")
+                    add_auto(answer)
+                    # silben_kreuz_screen 은 정답 확정 시
+                    # "{answer}. {◯복원 예문}" 을 발화한다 (SilbenWord.exampleKoSpoken).
+                    example = word.get("exampleKo") or ""
+                    if answer and example:
+                        add_auto(f"{answer}. {re.sub('◯+', answer, example)}")
 
     return list(texts.keys())
 
