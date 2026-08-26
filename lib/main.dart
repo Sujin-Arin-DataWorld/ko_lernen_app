@@ -27,6 +27,7 @@ import 'services/palette_service.dart';
 import 'services/pack_session_srs_ledger.dart';
 import 'services/premium_service.dart';
 import 'services/scene_asset_resolver.dart';
+import 'services/splash_gate.dart';
 import 'services/notification_service.dart';
 import 'services/privacy_consent_service.dart';
 import 'services/push_service.dart';
@@ -204,14 +205,14 @@ Future<void> _startProductionApplication(
   // (계약: test/dancheong_burst_preload_contract_test.dart 가 이 순서를 고정한다.)
   await DancheongBurst.preload();
 
-  // 2026-08-19: 위 두 단계(에셋 매니페스트 + 축하 스프라이트 디코딩)만 첫
-  // 프레임 전에 끝내면 된다는 게 기존 계약이었다. 그런데 마이그레이션·미디어
-  // 정리·크롭/피커 복구·오디오 세션까지 **전부** runApp() 앞에서 순차 await
-  // 되고 있었던 게 "로고가 뜨기까지" 체감 지연(내부테스트 리포트: 3초+)의
-  // 실제 원인이었다 — 특히 BookImageService.initialize() 는 저장된 책 이미지가
-  // 쌓일수록 디렉터리 스캔+해시 비용이 커진다. 이것들은 스플래시 로고와 아무
-  // 관계가 없으므로 Firebase/Ads/Notification 과 같은 방식으로 화면 뒤
-  // 백그라운드로 미룬다 — 스플래시가 최소 2초 떠 있는 동안 끝난다.
+  // 2026-08-19(원 결정) + 2026-08-26(W2 갱신): 에셋 매니페스트(§SceneAssetResolver)
+  // + 축하 스프라이트 디코딩(§DancheongBurst)만 첫 프레임 전에 끝내면 된다.
+  // 마이그레이션·오디오 컨텍스트는 첫 프레임 뒤로 미루되, splash_screen.dart
+  // 가 SplashGate.ready 로 그 완료를 기다린다(최소 600ms~상한 1500ms) — 예전
+  // "스플래시가 고정 2초 떠 있으니 그 안에 끝난다"는 가정과 달리, 이제
+  // 스플래시 표시 시간 자체가 이 작업의 완료 여부에 (상한 내에서) 반응한다.
+  // BookImageService.initialize()/크롭·피커 복구는 SplashGate 와 무관하게
+  // 계속 게이트 밖에서 지연 실행된다 — 스플래시 로고와 관계가 없다.
   runner(const KoLernenApp());
 
   unawaited(_finishStartupInBackground());
@@ -242,6 +243,9 @@ Future<void> _finishStartupInBackground() async {
   }
   // SFX 전역 오디오 세션: 타 앱 음악과 mix + 무음 스위치 존중 (ADR-002 §5-3).
   await AudioPolicy.instance.applyPlatformAudioContext();
+  // §W2-Task6: 스플래시가 기다리는 두 단계(마이그레이션+오디오 컨텍스트)가
+  // 여기서 끝난다 — BookImageService 이후 단계들은 게이트와 무관.
+  SplashGate.markReady();
   try {
     await BookImageService.initialize();
   } catch (error) {
