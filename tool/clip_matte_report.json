@@ -6,24 +6,24 @@
   "clips": [
     {
       "path": "magpie_bob.mp4",
-      "bytes": 1596062,
+      "bytes": 4407850,
       "ok": true,
-      "matte": "#EFEFEF",
-      "white_ratio": 0.95,
-      "floor_grey": 0.69,
+      "matte": "#FFFFFF",
+      "white_ratio": 1.0,
+      "floor_grey": 0.044,
       "floor_grey_budget": 0.69,
-      "frames_sampled": 169,
+      "frames_sampled": 211,
       "reason": ""
     },
     {
       "path": "magpie_bob2.mp4",
-      "bytes": 692917,
+      "bytes": 1538750,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "floor_grey": 0.693,
+      "floor_grey": 0.017,
       "floor_grey_budget": 0.7,
-      "frames_sampled": 121,
+      "frames_sampled": 151,
       "reason": ""
     },
     {
@@ -39,13 +39,13 @@
     },
     {
       "path": "magpie_choose.mp4",
-      "bytes": 1415444,
+      "bytes": 3594573,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "floor_grey": 0.525,
+      "floor_grey": 0.027,
       "floor_grey_budget": 0.53,
-      "frames_sampled": 169,
+      "frames_sampled": 211,
       "reason": ""
     },
     {
@@ -72,13 +72,13 @@
     },
     {
       "path": "magpie_walking_front.mp4",
-      "bytes": 387083,
+      "bytes": 2163294,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "floor_grey": 0.221,
+      "floor_grey": 0.044,
       "floor_grey_budget": 0.23,
-      "frames_sampled": 113,
+      "frames_sampled": 150,
       "reason": ""
     },
     {
@@ -105,13 +105,13 @@
     },
     {
       "path": "tiger_choose.mp4",
-      "bytes": 1238934,
+      "bytes": 3795845,
       "ok": true,
       "matte": "#FFFFFF",
       "white_ratio": 1.0,
-      "floor_grey": 0.242,
+      "floor_grey": 0.241,
       "floor_grey_budget": 0.25,
-      "frames_sampled": 121,
+      "frames_sampled": 118,
       "reason": ""
     },
     {
