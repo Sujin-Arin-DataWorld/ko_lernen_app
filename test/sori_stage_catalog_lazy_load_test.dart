@@ -87,4 +87,58 @@ void main() {
       expect(calls, 1);
     },
   );
+
+  testWidgets(
+    '비활성화 후 재활성화하면 재활성화마다 정확히 1회씩 로드한다 '
+    '(재활성화 계약 — 3회 이상 금지)',
+    (tester) async {
+      var calls = 0;
+      var active = false;
+      await tester.pumpWidget(
+        StatefulBuilder(
+          builder: (context, setState) => MaterialApp(
+            locale: const Locale('en'),
+            supportedLocales: AppL10n.supportedLocales,
+            localizationsDelegates: AppL10n.localizationsDelegates,
+            home: Column(
+              children: [
+                TextButton(
+                  onPressed: () => setState(() => active = true),
+                  child: const Text('activate'),
+                ),
+                TextButton(
+                  onPressed: () => setState(() => active = false),
+                  child: const Text('deactivate'),
+                ),
+                Expanded(
+                  child: SoriStageCatalogScreen(
+                    tab: SoriStageTab.games,
+                    active: active,
+                    loadSnapshot: () async {
+                      calls++;
+                      return _snapshot();
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(calls, 0);
+
+      await tester.tap(find.text('activate'));
+      await tester.pumpAndSettle();
+      expect(calls, 1);
+
+      await tester.tap(find.text('deactivate'));
+      await tester.pumpAndSettle();
+      expect(calls, 1);
+
+      await tester.tap(find.text('activate'));
+      await tester.pumpAndSettle();
+      expect(calls, 2);
+    },
+  );
 }
