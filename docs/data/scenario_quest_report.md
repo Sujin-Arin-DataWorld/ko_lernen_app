@@ -44,11 +44,17 @@
 
 0건 — 스캔된 모든 퀘스트 타입이 지원 목록(batchimDrop, diktat, hoerverstehen, luecken, particlePop, satzBauen, uebersetzen) 안에 있음.
 
+## 데이터 결함 (broken payload)
+
+payload 필드가 하나라도 비어 있어(`None`/`""` — 예: `sentence` 는 있는데 `correctIndex` 가 선택지 범위 밖이라 정답 선택지를 못 뽑음) 중복 비교에서 제외된 퀘스트. 중복과는 별개의 데이터 결함이지만, 판정 불가(None) 인 성분끼리 우연히 뭉쳐 가짜 중복으로 오탐되는 걸 막으려면 애초에 비교 풀에서 빼야 해서 여기 개별로 남긴다(집계만 하고 묻지 않음 — 조용한 누락 방지).
+
+0건.
+
 ## 요약
 
 - 스캔한 시나리오: **413개** (샤드 6개: scenarios_a1.json, scenarios_a2.json, scenarios_b1.json, scenarios_b2.json, scenarios_c1.json, scenarios_c2.json)
 - 스캔한 퀘스트: **1734개**
-- 빈 payload 로 비교 제외된 퀘스트: **0개** (data 누락 또는 correctIndex 가 선택지 범위 밖 — 중복과는 별개의 데이터 결함이라 이 리포트에서는 세기만 하고 나열하지 않음)
+- 데이터 결함(payload 필드 누락)으로 비교 제외된 퀘스트: **0개** (아래 "데이터 결함" 절에 개별 나열)
 - 미지원 퀘스트 타입으로 제외된 퀘스트: **0개**
 - 중복 그룹: **0개** (중복 퀘스트 인스턴스 합계 0개)
 

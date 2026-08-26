@@ -25,10 +25,18 @@ Bau satz 중복되는거 있는지 확인해줘")가 직접적인 동기다 — 
 `options[correctIndex]` 로 뽑는 "정답 선택지"만 쓰고 오답(distractor) 선택지는
 비교 대상에서 뺀다 — 같은 문제를 오답 순서만 바꿔 재배치한 카피는 여전히
 "같은 퀘스트"이고, 반대로 정답이 다르면 문제 의도 자체가 다르므로 중복이
-아니다. payload 의 모든 구성요소가 비어 있으면(예: `data` 자체가 없거나
-`correctIndex` 가 선택지 범위 밖) 그 퀘스트는 비교에서 제외한다 — 빈 payload
-끼리 우연히 뭉쳐 "중복"으로 오탐되는 것을 막기 위함이다(그런 항목은 그 자체로
-별도의 데이터 결함이지만 이 스크립트의 범위인 "중복 검출"과는 다른 문제).
+아니다. payload 의 구성요소 중 **하나라도** 비어 있으면(예: `data` 자체가
+없거나, `sentence`/`audioKo` 등 텍스트 필드가 비었거나, `correctIndex` 가
+선택지 범위 밖이라 정답 선택지를 못 뽑음) 그 퀘스트는 비교에서 제외하고
+`broken_payload` 진단 버킷에 (시나리오 id, 퀘스트 index, 사유) 로 기록한다
+— 리포트 "데이터 결함" 절에 개별로 나열되므로 조용히 흡수되지 않는다.
+
+⚠️ 반드시 "구성요소 전부가 비어 있을 때"가 아니라 "**하나라도** 비어 있을
+때" 제외해야 한다: 예를 들어 `sentence` 는 같고 `correctIndex` 만 서로 다르게
+망가진(둘 다 범위 밖이라 정답 선택지가 둘 다 None) 두 `luecken` 퀘스트가
+있으면, "정답 선택지" 성분만 비교하면 `(sentence, None) == (sentence, None)`
+으로 우연히 일치해 실제로는 서로 무관한 두 결함 항목이 "중복"으로 오탐된다
+— None 은 "값이 같다"가 아니라 "판정 불가"이므로 비교 자체에서 빼야 한다.
 
 새 퀘스트 타입이 추가되면(이 7종 밖) payload 키가 없어 비교에서 조용히
 빠지지 않도록, 미지원 타입은 별도로 세어 리포트 "미지원 퀘스트 타입" 절에
@@ -97,55 +105,81 @@ def correct_option_payload(
     return option_payload(options[index])
 
 
-# 퀘스트 타입 → (data) -> payload 튜플. 튜플 원소가 전부 falsy(빈 문자열/None)면
-# quest_signature() 가 "비교 대상 아님" 으로 처리한다.
-_SIGNATURE_BUILDERS = {
-    "hoerverstehen": lambda data: (
-        normalize_text(data.get("audioKo")),
-        correct_option_payload(data),
+def _field(key: str):
+    """`data[key]` 를 `normalize_text` 로 뽑는 필드 추출기. label 은 호출측이
+    붙인다(필드 이름 그대로가 사람이 읽는 label 이기도 해서 여기선 그냥
+    `key` 를 재사용)."""
+    return lambda data: normalize_text(data.get(key))
+
+
+# 퀘스트 타입 → `(label, extractor)` 리스트. `extractor(data)` 가 payload 성분
+# 하나를 뽑는다. label 은 `broken_payload` 진단 사유 문자열에 그대로 쓰인다.
+# 이 spec 하나가 서명 튜플 구성과 "어느 필드가 비었는지" 진단의 유일한
+# 출처다 — 둘을 따로 유지하면 언젠가 서로 어긋난다(이번 라운드의 버그가
+# 정확히 그 케이스: 서명 계산과 "비교 대상 제외" 판정이 다른 기준을 썼다).
+_SIGNATURE_SPECS = {
+    "hoerverstehen": (
+        ("audioKo", _field("audioKo")),
+        ("정답 선택지", correct_option_payload),
     ),
-    "luecken": lambda data: (
-        normalize_text(data.get("sentence")),
-        correct_option_payload(data),
+    "luecken": (
+        ("sentence", _field("sentence")),
+        ("정답 선택지", correct_option_payload),
     ),
-    "uebersetzen": lambda data: (
-        normalize_text(data.get("promptDe")),
-        normalize_text(data.get("promptEn")),
-        correct_option_payload(data),
+    "uebersetzen": (
+        ("promptDe", _field("promptDe")),
+        ("promptEn", _field("promptEn")),
+        ("정답 선택지(ko)", correct_option_payload),
     ),
-    "satzBauen": lambda data: (normalize_text(data.get("targetKo")),),
-    "diktat": lambda data: (normalize_text(data.get("targetKo")),),
-    "particlePop": lambda data: (
-        normalize_text(data.get("prefix")),
-        normalize_text(data.get("suffix")),
-        correct_option_payload(data),
+    "satzBauen": (("targetKo", _field("targetKo")),),
+    "diktat": (("targetKo", _field("targetKo")),),
+    "particlePop": (
+        ("prefix", _field("prefix")),
+        ("suffix", _field("suffix")),
+        ("정답 선택지", correct_option_payload),
     ),
-    "batchimDrop": lambda data: (
-        normalize_text(data.get("audioKo")),
-        normalize_text(data.get("targetWord")),
-        data.get("targetSyllableIndex"),
-        correct_option_payload(data),
+    "batchimDrop": (
+        ("audioKo", _field("audioKo")),
+        ("targetWord", _field("targetWord")),
+        ("targetSyllableIndex", lambda data: data.get("targetSyllableIndex")),
+        ("정답 선택지", correct_option_payload),
     ),
 }
 
-SUPPORTED_QUEST_TYPES = tuple(sorted(_SIGNATURE_BUILDERS))
+SUPPORTED_QUEST_TYPES = tuple(sorted(_SIGNATURE_SPECS))
+
+
+def quest_signature_fields(quest_type: Optional[str], data: dict) -> Optional[list]:
+    """`(quest_type, data)` 의 `[(label, value), ...]` 필드 목록.
+
+    `quest_type` 이 `_SIGNATURE_SPECS` 밖(미지원 타입)이면 None. 지원 타입이면
+    필드가 비어 있어도(값이 `None`/`""`) 그대로 목록에 넣는다 — "비어 있는
+    필드가 있다"는 판단은 호출측(`quest_signature`/`scan_all`)이 값이 아니라
+    label 로 구체적으로 하도록 원 데이터를 그대로 넘긴다.
+    """
+    spec = _SIGNATURE_SPECS.get(quest_type or "")
+    if spec is None:
+        return None
+    data = data or {}
+    return [(label, extractor(data)) for label, extractor in spec]
 
 
 def quest_signature(quest_type: Optional[str], data: dict) -> Optional[tuple]:
     """`(quest_type, data)` 의 prompt/정답 payload 서명.
 
-    None 을 돌려주는 두 경우 — 호출측은 둘 다 "이 퀘스트는 비교에서 제외"로
-    다뤄야 하지만 리포트에서는 구분해서 센다(미지원 타입 vs 빈 payload):
-      - `quest_type` 이 `_SIGNATURE_BUILDERS` 밖(미지원 타입)
-      - payload 튜플의 모든 원소가 비어 있음(빈 데이터)
+    None 을 돌려주는 경우 전부 "이 퀘스트는 중복 비교에서 제외" 인데, 이유가
+    두 가지라 호출측이 구분해서 세고 싶다면 `quest_signature_fields` 를 직접
+    써서 label 별로 비교해야 한다(이 함수는 이유를 구분하지 않는다):
+      - `quest_type` 이 `_SIGNATURE_SPECS` 밖(미지원 타입)
+      - payload 필드 중 **하나라도** 비어 있음(`None`/`""`) — 데이터 결함,
+        `broken_payload` 진단 대상(§ 모듈 docstring 경고 참고)
     """
-    builder = _SIGNATURE_BUILDERS.get(quest_type or "")
-    if builder is None:
+    fields = quest_signature_fields(quest_type, data)
+    if fields is None:
         return None
-    signature = builder(data or {})
-    if all((part is None or part == "") for part in signature):
+    if any(value is None or value == "" for _, value in fields):
         return None
-    return signature
+    return tuple(value for _, value in fields)
 
 
 def format_signature(signature: Iterable) -> str:
@@ -167,6 +201,21 @@ class DuplicateGroup:
     quest_type: str
     quest_ids: tuple
     signature: tuple
+
+
+@dataclass(frozen=True)
+class BrokenPayload:
+    """payload 필드가 하나라도 비어(`None`/`""`) 중복 비교에서 제외된 퀘스트
+    1건. 침묵하는 누락을 막기 위해 개별로 리포트에 나열한다(집계만 하지
+    않음)."""
+
+    shard: str
+    scenario_id: str
+    level: str
+    quest_type: str
+    quest_id: str
+    quest_index: int
+    reason: str
 
 
 # ---------------------------------------------------------------------------
@@ -191,12 +240,12 @@ def scan_all() -> tuple:
     """전체 샤드를 스캔해 `(groups, diagnostics)` 를 돌려준다.
 
     `groups` 는 결정적으로 정렬된 `DuplicateGroup` 리스트. `diagnostics` 는
-    `{"unsupported_types": Counter, "skipped_empty_payload": int,
-    "scenarios_scanned": int, "quests_scanned": int}`.
+    `{"unsupported_types": Counter, "broken_payloads": list[BrokenPayload]
+    (결정적 정렬), "scenarios_scanned": int, "quests_scanned": int}`.
     """
     groups = []
     unsupported_types = Counter()
-    skipped_empty_payload = 0
+    broken_payloads = []
     scenarios_scanned = 0
     quests_scanned = 0
 
@@ -215,14 +264,33 @@ def scan_all() -> tuple:
                 quest_id = quest.get("id") or f"quest[{qi:02d}]"
                 qdata = quest.get("data") or {}
 
-                signature = quest_signature(quest_type, qdata)
-                if signature is None:
-                    if (quest_type or "") not in _SIGNATURE_BUILDERS:
-                        unsupported_types[quest_type or "(없음)"] += 1
-                    else:
-                        skipped_empty_payload += 1
+                fields = quest_signature_fields(quest_type, qdata)
+                if fields is None:
+                    unsupported_types[quest_type or "(없음)"] += 1
                     continue
 
+                empty_labels = [
+                    label for label, value in fields if value is None or value == ""
+                ]
+                if empty_labels:
+                    # 하나라도 비었으면 통째로 비교 제외 — "전부 비었을 때만
+                    # 제외"하면 서로 다른 이유로 망가진 두 퀘스트가 우연히
+                    # 같은 (None 포함) 서명으로 뭉쳐 가짜 중복이 된다(이번
+                    # 라운드에서 잡힌 버그, 아래 verify 스크립트로 재현 확인).
+                    broken_payloads.append(
+                        BrokenPayload(
+                            shard=shard,
+                            scenario_id=sc_id,
+                            level=level,
+                            quest_type=quest_type,
+                            quest_id=quest_id,
+                            quest_index=qi,
+                            reason="빈 값: " + ", ".join(empty_labels),
+                        )
+                    )
+                    continue
+
+                signature = tuple(value for _, value in fields)
                 by_signature[(quest_type, signature)].append(quest_id)
 
             for (quest_type, signature), quest_ids in by_signature.items():
@@ -241,9 +309,12 @@ def scan_all() -> tuple:
     groups.sort(
         key=lambda g: (g.shard, g.scenario_id, g.quest_type, g.quest_ids)
     )
+    broken_payloads.sort(
+        key=lambda b: (b.shard, b.scenario_id, b.quest_index, b.quest_id)
+    )
     diagnostics = {
         "unsupported_types": unsupported_types,
-        "skipped_empty_payload": skipped_empty_payload,
+        "broken_payloads": broken_payloads,
         "scenarios_scanned": scenarios_scanned,
         "quests_scanned": quests_scanned,
     }
@@ -337,7 +408,7 @@ def render_report(groups: list, diagnostics: dict) -> str:
     else:
         lines.append(
             "아래 타입은 판정 키가 없어 중복 비교에서 제외됐다 — 새 퀘스트"
-            " 타입이 추가된 것일 수 있으니 이 스크립트의 `_SIGNATURE_BUILDERS`"
+            " 타입이 추가된 것일 수 있으니 이 스크립트의 `_SIGNATURE_SPECS`"
             " 확장이 필요하다."
         )
         lines.append("")
@@ -345,6 +416,34 @@ def render_report(groups: list, diagnostics: dict) -> str:
         lines.append("|---|---|")
         for qtype in sorted(unsupported):
             lines.append(f"| {_escape_cell(qtype)} | {unsupported[qtype]} |")
+        lines.append("")
+
+    broken_payloads = diagnostics["broken_payloads"]
+    lines.append("## 데이터 결함 (broken payload)")
+    lines.append("")
+    lines.append(
+        "payload 필드가 하나라도 비어 있어(`None`/`\"\"` — 예: `sentence` 는"
+        " 있는데 `correctIndex` 가 선택지 범위 밖이라 정답 선택지를 못 뽑음)"
+        " 중복 비교에서 제외된 퀘스트. 중복과는 별개의 데이터 결함이지만,"
+        " 판정 불가(None) 인 성분끼리 우연히 뭉쳐 가짜 중복으로 오탐되는 걸"
+        " 막으려면 애초에 비교 풀에서 빼야 해서 여기 개별로 남긴다(집계만"
+        " 하고 묻지 않음 — 조용한 누락 방지)."
+    )
+    lines.append("")
+    if not broken_payloads:
+        lines.append("0건.")
+        lines.append("")
+    else:
+        lines.append(f"{len(broken_payloads)}건.")
+        lines.append("")
+        lines.append("| 샤드 | 시나리오 id | 레벨 | 퀘스트 타입 | 퀘스트 id | 퀘스트 index | 사유 |")
+        lines.append("|---|---|---|---|---|---|---|")
+        for b in broken_payloads:
+            lines.append(
+                f"| {b.shard} | {_escape_cell(b.scenario_id)} | {_escape_cell(b.level)} |"
+                f" {b.quest_type} | {_escape_cell(b.quest_id)} | {b.quest_index} |"
+                f" {_escape_cell(b.reason)} |"
+            )
         lines.append("")
 
     lines.append("## 요약")
@@ -355,9 +454,8 @@ def render_report(groups: list, diagnostics: dict) -> str:
     )
     lines.append(f"- 스캔한 퀘스트: **{diagnostics['quests_scanned']}개**")
     lines.append(
-        f"- 빈 payload 로 비교 제외된 퀘스트: **{diagnostics['skipped_empty_payload']}개**"
-        " (data 누락 또는 correctIndex 가 선택지 범위 밖 — 중복과는 별개의"
-        " 데이터 결함이라 이 리포트에서는 세기만 하고 나열하지 않음)"
+        f"- 데이터 결함(payload 필드 누락)으로 비교 제외된 퀘스트:"
+        f" **{len(broken_payloads)}개** (아래 \"데이터 결함\" 절에 개별 나열)"
     )
     lines.append(f"- 미지원 퀘스트 타입으로 제외된 퀘스트: **{sum(unsupported.values())}개**")
     lines.append(f"- 중복 그룹: **{total}개** (중복 퀘스트 인스턴스 합계 {total_instances}개)")

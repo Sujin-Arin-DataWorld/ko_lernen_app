@@ -107,6 +107,14 @@ def resolve_loop(scenario_id: str, backdrop: str, loop_files: frozenset) -> tupl
       - `("none_fallback", None)` — backdrop 은 있지만 그 카테고리 루프
         파일이 아직 없음(포스터만 사용 — 설계상 정상, 통계용)
       - `("none", None)` — backdrop 도 없음
+
+    (참고) Dart 쪽 `loopAsset` 은 실제로는 `!_loaded || _assets.isEmpty` 일
+    때(매니페스트 로딩이 아직 안 됐거나 실패한 초기 구동 시점) 존재 확인을
+    건너뛰고 카테고리 경로를 낙관적으로 반환한다. 이 함수는 그 분기를
+    재현하지 않는다 — 이 스크립트는 매니페스트가 아니라 `assets/` 실제
+    파일을 직접 읽는 정적 감사라 "로딩 전" 상태 자체가 없고, 항상 로딩이
+    끝난 뒤의 `_loaded=True` 상태에 해당하기 때문이다(초기 구동 엣지 케이스
+    라 정적 감사와는 무관).
     """
     dedicated = dedicated_loop_name(scenario_id)
     if dedicated in loop_files:
