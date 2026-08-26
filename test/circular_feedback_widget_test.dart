@@ -9,6 +9,7 @@ import 'package:ko_lernen_app/data/hangul_strokes.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/screens/chosung_quiz_screen.dart';
 import 'package:ko_lernen_app/screens/daily_char_sheet.dart';
+import 'package:ko_lernen_app/screens/grammar_screen.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/screens/kkeunmari_screen.dart';
 import 'package:ko_lernen_app/services/content_feedback_service.dart';
@@ -18,6 +19,8 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/stroke_canvas.dart';
 
@@ -272,6 +275,129 @@ void main() {
 
     await tester.pumpWidget(const SizedBox.shrink());
   });
+
+  // 2026-08-26: Task 8 (cbc88819) removed the manual
+  // `grammar-finish-session` icon button — SRS 판정의 마지막 카드가 곧 세션
+  // 종료다(grammar_screen.dart:363-366 `_judge` 참고), 별도 버튼이 필요
+  // 없어졌다. 그 버튼을 관통해 확인하던 두 계약(레벨 필터 변경 시 세션 리셋 /
+  // 시트 취소 시 세션·칩 보존)은 여전히 살아있는 행동이라 남은 표면으로
+  // 다시 고정한다:
+  //   - `_sessionSeen` 은 `_finishSession` 의 `seen:N` 페이로드로만 관측되고,
+  //     그 경로는 이제 오직 "마지막 카드 판정"뿐이다 — 그래서 아래 두 테스트는
+  //     `SoriContentFeed.onSkip`/`onNext` 콜백을 직접 호출해 덱 끝까지
+  //     이동한 뒤 자동 종료를 받는다(버튼이 있던 시절처럼 아무 때나 종료를
+  //     부를 수 없다).
+  //   - 칩 보존은 그대로 `SoriChip.selected` 로 직접 관측된다(버튼과 무관).
+  testWidgets('grammar level filter resets the study session set', (
+    tester,
+  ) async {
+    await _setLargeView(tester);
+    await tester.pumpWidget(_wrap(const GrammarScreen()));
+    await _pumpUntil(tester, find.byType(FlipCard));
+
+    // Seed a session before switching levels — this must not survive the
+    // filter change below.
+    await tester.tap(find.byType(FlipCard));
+    await tester.pump();
+
+    // A1 이 초기 레벨이므로(SharedPreferences 'kl_user_level': 'a1'), A2 로
+    // 갈아타 실제로 다른 덱이 되는지 및 그 카드 수를 데이터에서 직접 구한다 —
+    // 카드 수를 하드코딩하지 않기 위함.
+    final allGrammar = await DataLoader.loadGrammar();
+    final a2Count = allGrammar.where((g) => g.level == 'A2').length;
+    expect(a2Count, greaterThan(1));
+
+    final a2Filter = find.byKey(const Key('grammar-level-A2'));
+    expect(a2Filter, findsOneWidget);
+    // 개수 라벨(`A2 · 46`) + 앞쪽 CTA 때문에 A2 칩이 가로 ListView 오른쪽
+    // 클립 끝에 붙는다(#89/#91의 원인과 동일) — scrollUntilVisible 로 먼저
+    // 정착시킨 뒤 탭한다.
+    await tester.scrollUntilVisible(
+      a2Filter,
+      120,
+      scrollable: find.descendant(
+        of: find.byKey(const Key('grammar-filter-row')),
+        matching: find.byType(Scrollable),
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(a2Filter);
+    await tester.pumpAndSettle();
+
+    // Skip through every card but the last — `_skipCurrent` never touches
+    // `_sessionSeen` (only `_judge`/`_onFlip` do), so this stays a clean
+    // probe of the filter-triggered reset.
+    for (var i = 0; i < a2Count - 1; i++) {
+      tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onSkip!();
+      await tester.pump();
+    }
+
+    // Judging the last card is now the *only* remaining path to
+    // `_finishSession` (grammar_screen.dart:363-366).
+    tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onNext!();
+    await tester.pump(const Duration(milliseconds: 500));
+
+    final card = tester.widget<ContentFeedbackCard>(
+      find.byType(ContentFeedbackCard),
+    );
+    expect(card.feedbackContext.contentId, contains('grammar:A2:'));
+    // If `_sessionSeen.clear()` (grammar_screen.dart:272) had not run on the
+    // level switch, the pre-switch flip would leak into this session and
+    // this would read 'seen:2' instead.
+    expect(card.feedbackContext.scoreSummary, 'seen:1');
+  });
+
+  testWidgets(
+    'dismissing staged grammar filters preserves the active session and level chip',
+    (tester) async {
+      await _setLargeView(tester);
+      await tester.pumpWidget(_wrap(const GrammarScreen()));
+      await _pumpUntil(tester, find.byType(FlipCard));
+
+      await tester.tap(find.byType(FlipCard));
+      await tester.pump();
+      await tester.tap(find.byIcon(Icons.tune));
+      await tester.pumpAndSettle();
+
+      // Stage a level change to A2 inside the sheet, then dismiss via system
+      // back instead of "Apply" — the staged value must never reach
+      // `_level`/`_applyFilters`.
+      await tester.tap(find.byType(DropdownButton<String>).first);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('A2').last);
+      await tester.pumpAndSettle();
+      await tester.binding.handlePopRoute();
+      await tester.pumpAndSettle();
+
+      final a1Filter = tester.widget<SoriChip>(
+        find.byKey(const Key('grammar-level-A1')),
+      );
+      expect(a1Filter.selected, isTrue);
+
+      final allGrammar = await DataLoader.loadGrammar();
+      final a1Count = allGrammar.where((g) => g.level == 'A1').length;
+      expect(a1Count, greaterThan(1));
+
+      // Skip to the last card of the *still-A1* deck without judging, then
+      // judge it once. If dismissing the sheet had cleared `_sessionSeen`
+      // (as "Apply" does), only this final judgment would be counted and
+      // the payload below would read 'seen:1' instead of 'seen:2'.
+      for (var i = 0; i < a1Count - 1; i++) {
+        tester
+            .widget<SoriContentFeed>(find.byType(SoriContentFeed))
+            .onSkip!();
+        await tester.pump();
+      }
+      tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onNext!();
+      await tester.pump(const Duration(milliseconds: 500));
+
+      final card = tester.widget<ContentFeedbackCard>(
+        find.byType(ContentFeedbackCard),
+      );
+      expect(card.feedbackContext.contentId, contains('grammar:A1:'));
+      expect(card.feedbackContext.scoreSummary, 'seen:2');
+    },
+  );
 
   testWidgets('same-index Hangul random does not enable finish', (
     tester,
