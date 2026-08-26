@@ -235,7 +235,9 @@ class _SoriCardState extends State<SoriCard> {
           : Clip.none;
       body = _interactive
           ? AnimatedContainer(
-              duration: SoriMotion.fast,
+              duration: MediaQuery.disableAnimationsOf(context)
+                  ? Duration.zero
+                  : SoriMotion.fast,
               curve: Curves.easeOut,
               clipBehavior: clip,
               decoration: decoration,
