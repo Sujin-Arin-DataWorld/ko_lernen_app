@@ -52,7 +52,7 @@ class CourseMissionBriefView extends StatelessWidget {
         if (brief.isCompleted) ...[
           const SizedBox(height: Spacing.xl),
           SoriEmptyState(
-            icon: Icons.task_alt_rounded,
+            icon: Icons.celebration_rounded,
             title: t.courseMissionCompleteTitle,
             body: t.courseMissionCompleteBody,
             illustrationMaxHeight: 120,

@@ -124,7 +124,7 @@ abstract class AppL10n {
   /// No description provided for @paywallBenefit3.
   ///
   /// In de, this message translates to:
-  /// **'Unbegrenzte Wiederholungen (SRS)'**
+  /// **'Unbegrenzte Wiederholungen'**
   String get paywallBenefit3;
 
   /// No description provided for @paywallBenefit4.
@@ -1672,7 +1672,7 @@ abstract class AppL10n {
   /// No description provided for @screenVocabTitle.
   ///
   /// In de, this message translates to:
-  /// **'Vokabeln'**
+  /// **'Karteikarten'**
   String get screenVocabTitle;
 
   /// No description provided for @screenGrammarTitle.
@@ -5488,7 +5488,7 @@ abstract class AppL10n {
   /// No description provided for @vocabModeFavorites.
   ///
   /// In de, this message translates to:
-  /// **'Favoriten'**
+  /// **'Gemerkt'**
   String get vocabModeFavorites;
 
   /// No description provided for @vocabFavoritesBadge.
@@ -5512,7 +5512,7 @@ abstract class AppL10n {
   /// No description provided for @vocabEmptyFavorites.
   ///
   /// In de, this message translates to:
-  /// **'Noch keine Favoriten\nMarkiere schwierige Wörter mit dem Stern'**
+  /// **'Noch nichts gemerkt\nTippe auf das Lesezeichen, um Wörter zu speichern.'**
   String get vocabEmptyFavorites;
 
   /// No description provided for @listeningTitle.
@@ -7444,13 +7444,13 @@ abstract class AppL10n {
   /// No description provided for @wordWebTitle.
   ///
   /// In de, this message translates to:
-  /// **'Wortnetz'**
+  /// **'Nuancen & Gegenteile'**
   String get wordWebTitle;
 
   /// No description provided for @wordWebHubDesc.
   ///
   /// In de, this message translates to:
-  /// **'Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast'**
+  /// **'Synonyme, Gegenteile und Wendungen zu deinen Wörtern'**
   String get wordWebHubDesc;
 
   /// No description provided for @wordWebSubtitle.
@@ -7480,7 +7480,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebLoadErrorBody.
   ///
   /// In de, this message translates to:
-  /// **'Die Wortnetz-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand. Versuch es noch einmal.'**
+  /// **'Die Nuancen-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand. Versuch es noch einmal.'**
   String get wordWebLoadErrorBody;
 
   /// No description provided for @wordWebBrowseLevelCta.
@@ -7540,7 +7540,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebQuizTitle.
   ///
   /// In de, this message translates to:
-  /// **'Wortnetz-Übung'**
+  /// **'Nuancen-Übung'**
   String get wordWebQuizTitle;
 
   /// No description provided for @wordWebQuizHintSynonym.
@@ -7629,7 +7629,7 @@ abstract class AppL10n {
   /// No description provided for @wordWebCoachTitle.
   ///
   /// In de, this message translates to:
-  /// **'Dein Wortnetz'**
+  /// **'Deine Nuancen & Gegenteile'**
   String get wordWebCoachTitle;
 
   /// No description provided for @wordWebCoachBody.
@@ -9807,7 +9807,7 @@ abstract class AppL10n {
   /// No description provided for @coachChosungStep1Title.
   ///
   /// In de, this message translates to:
-  /// **'Silben-Puzzle'**
+  /// **'Rate mit Anlauten'**
   String get coachChosungStep1Title;
 
   /// No description provided for @coachChosungStep1Body.
@@ -10173,7 +10173,7 @@ abstract class AppL10n {
   /// No description provided for @coachCpPlayBody.
   ///
   /// In de, this message translates to:
-  /// **'Antippen = Karte umdrehen · \"Gewusst\" = Wort zum SRS-System hinzufügen'**
+  /// **'Antippen = Karte umdrehen · \"Gewusst\" = Wort zum Wiederholen hinzufügen'**
   String get coachCpPlayBody;
 
   /// No description provided for @coachCpQuizTitle.
@@ -14307,13 +14307,13 @@ abstract class AppL10n {
   /// No description provided for @soriStageActivityTitle.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} word_web{Wortnetz} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
+  /// **'{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}'**
   String soriStageActivityTitle(String activityId);
 
   /// No description provided for @soriStageActivityDescription.
   ///
   /// In de, this message translates to:
-  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
+  /// **'{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Jeden Tag ein Schriftzeichen entdecken.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Wörter genau im richtigen Moment auffrischen.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu deinen Wörtern.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}'**
   String soriStageActivityDescription(String activityId);
 
   /// No description provided for @soriStageCatalogCopy.
@@ -14325,7 +14325,7 @@ abstract class AppL10n {
   /// No description provided for @questActionLabel.
   ///
   /// In de, this message translates to:
-  /// **'{actionKey, select, openQuests{Quests öffnen} openVocabulary{Wortpakete öffnen} openScenarios{Alltagsszenen öffnen} practicePronunciation{Aussprache üben} playKkeunmari{Kkeunmari spielen} openHangul{Hangul öffnen} openCalligraphy{Kalligrafie öffnen} openToday{Heutige Mission öffnen} openGye{Gye öffnen} playChosung{Chosung spielen} other{Öffnen}}}'**
+  /// **'{actionKey, select, openQuests{Quests öffnen} openVocabulary{Wortpakete öffnen} openScenarios{Alltagsszenen öffnen} practicePronunciation{Aussprache üben} playKkeunmari{Kkeunmari spielen} openHangul{Hangul öffnen} openCalligraphy{Buchstabe des Tages öffnen} openToday{Heutige Mission öffnen} openGye{Gye öffnen} playChosung{Anlaut-Quiz spielen} other{Öffnen}}}'**
   String questActionLabel(String actionKey);
 
   /// No description provided for @questSeasonOpens.
@@ -14517,7 +14517,7 @@ abstract class AppL10n {
   /// No description provided for @vocabNotebookStudioHint.
   ///
   /// In de, this message translates to:
-  /// **'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, Dialogen und Wortnetzen, die wir dafür schon haben.'**
+  /// **'Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, Dialogen und Nuancen-Übungen, die wir dafür schon haben.'**
   String get vocabNotebookStudioHint;
 
   /// No description provided for @vocabNotebookStudioSelectAll.
@@ -14547,7 +14547,7 @@ abstract class AppL10n {
   /// No description provided for @vocabNotebookStudioCorpusHint.
   ///
   /// In de, this message translates to:
-  /// **'Nur vorhandene Sätze, Dialoge und Wortnetze. Es kommen keine neuen Wörter dazu.'**
+  /// **'Nur vorhandene Sätze, Dialoge und Nuancen-Übungen. Es kommen keine neuen Wörter dazu.'**
   String get vocabNotebookStudioCorpusHint;
 
   /// No description provided for @vocabNotebookStudioLoading.
@@ -14559,7 +14559,7 @@ abstract class AppL10n {
   /// No description provided for @vocabNotebookStudioCloze.
   ///
   /// In de, this message translates to:
-  /// **'{count, plural, one{Lückensatz · 1 Satz} other{Lückensatz · {count} Sätze}}'**
+  /// **'{count, plural, one{Lückentext · 1 Satz} other{Lückentext · {count} Sätze}}'**
   String vocabNotebookStudioCloze(int count);
 
   /// No description provided for @vocabNotebookStudioSatz.
@@ -14571,13 +14571,13 @@ abstract class AppL10n {
   /// No description provided for @vocabNotebookStudioSpeed.
   ///
   /// In de, this message translates to:
-  /// **'{count, plural, one{Speed Match · 1 Wort} other{Speed Match · {count} Wörter}}'**
+  /// **'{count, plural, one{Blitz-Paare · 1 Wort} other{Blitz-Paare · {count} Wörter}}'**
   String vocabNotebookStudioSpeed(int count);
 
   /// No description provided for @vocabNotebookStudioChosung.
   ///
   /// In de, this message translates to:
-  /// **'{count, plural, one{Chosung · 1 Wort} other{Chosung · {count} Wörter}}'**
+  /// **'{count, plural, one{Anlaut-Quiz · 1 Wort} other{Anlaut-Quiz · {count} Wörter}}'**
   String vocabNotebookStudioChosung(int count);
 
   /// No description provided for @vocabNotebookStudioNoCorpus.
@@ -14613,7 +14613,7 @@ abstract class AppL10n {
   /// No description provided for @vocabNotebookStudioWordWeb.
   ///
   /// In de, this message translates to:
-  /// **'{count, plural, one{Wortnetz · 1 Wort} other{Wortnetz · {count} Wörter}}'**
+  /// **'{count, plural, one{Nuancen & Gegenteile · 1 Wort} other{Nuancen & Gegenteile · {count} Wörter}}'**
   String vocabNotebookStudioWordWeb(int count);
 
   /// No description provided for @ttsUnavailableChannelOff.

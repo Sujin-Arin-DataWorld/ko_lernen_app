@@ -5504,9 +5504,9 @@
     {
       "id": "satz_a1_0068",
       "level": "a1",
-      "targetKo": "시아버지께서 현관까지 나오셨어요.",
-      "promptDe": "Mein Schwiegervater kam bis zur Wohnungstür.",
-      "promptEn": "My father-in-law came all the way to the door.",
+      "targetKo": "남편 집에 가니까 시아버지께서 환하게 반겨주셨어요.",
+      "promptDe": "Als wir bei der Familie meines Mannes ankamen, hat mein Schwiegervater uns herzlich begrüßt.",
+      "promptEn": "When we arrived at my husband's family's home, my father-in-law gave us a warm welcome.",
       "distractors": [
         "신발을",
         "신발이"
@@ -6560,9 +6560,9 @@
     {
       "id": "satz_a1_0156",
       "level": "a1",
-      "targetKo": "이모티콘은 절하는 토끼로 골랐어요.",
-      "promptDe": "Als Emoticon wählte ich das sich verbeugende Kaninchen.",
-      "promptEn": "I chose the bowing-rabbit sticker.",
+      "targetKo": "이모티콘은 절하는 토끼로 했어요.",
+      "promptDe": "Als Sticker habe ich das verbeugende Häschen genommen.",
+      "promptEn": "For the sticker, I went with the bowing rabbit.",
       "distractors": [
         "하니",
         "하니까"
@@ -8816,9 +8816,9 @@
     {
       "id": "satz_b1_0168",
       "level": "b1",
-      "targetKo": "일정 충돌이 나자 현우가 어머니께 먼저 전화했어요.",
-      "promptDe": "Beim Terminkonflikt rief Hyunwoo zuerst die Mutter an.",
-      "promptEn": "When a schedule clash appeared, Hyunwoo called his mother first.",
+      "targetKo": "일정 충돌이 생겨서 현우가 어머니께 먼저 전화드렸어요.",
+      "promptDe": "Wegen einer Terminüberschneidung rief Hyunwoo zuerst seine Mutter an.",
+      "promptEn": "When schedules clashed, Hyunwoo called his mother first.",
       "distractors": [
         "안전했어요",
         "안정적으로"
@@ -11156,9 +11156,9 @@
     {
       "id": "satz_a1_0203",
       "level": "a1",
-      "targetKo": "밤에는 층간소음을 조심해요.",
-      "promptDe": "Bitte etwas leiser. Wegen der Nachbarn unten.",
-      "promptEn": "Keep it down a bit. The neighbors downstairs can hear.",
+      "targetKo": "밤에는 층간소음이 나지 않게 조심해야 돼요.",
+      "promptDe": "Nachts sind wir leise, damit die Nachbarn unten nichts hören.",
+      "promptEn": "At night we keep quiet so the neighbors below don't hear us.",
       "distractors": [
         "초인종",
         "복도"

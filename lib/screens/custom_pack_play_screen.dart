@@ -368,7 +368,7 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
                   animate: true,
                 ),
                 noneBuilder: (context) => const Icon(
-                  Icons.task_alt_rounded,
+                  Icons.celebration_rounded,
                   size: 88,
                   color: SoriColors.success,
                 ),

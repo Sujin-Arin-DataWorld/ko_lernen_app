@@ -4,7 +4,7 @@
   "paywallSubtitle": "Koreanisch lernen, wann du willst.",
   "paywallBenefit1": "Alle Vokabel-Pakete (A2 · B1 · B2)",
   "paywallBenefit2": "Alle Gesprächs-Szenarien",
-  "paywallBenefit3": "Unbegrenzte Wiederholungen (SRS)",
+  "paywallBenefit3": "Unbegrenzte Wiederholungen",
   "paywallBenefit4": "Dein persönlicher KI-Kurs mit neuen Inhalten jeden Tag",
   "paywallBenefit5": "Buchschnappschuss ohne Tageslimit",
   "paywallPriceFallback": "5 € / Monat",
@@ -374,7 +374,7 @@
   "statsStreakShieldHint": "Schützt einen verpassten Tag.",
   "statsWordleWins": "Silben-Rätsel-Siege",
   "statsWordleStreak": "Silben-Rätsel-Streak",
-  "screenVocabTitle": "Vokabeln",
+  "screenVocabTitle": "Karteikarten",
   "screenGrammarTitle": "Grammatik",
   "screenWordleTitle": "Silben-Rätsel",
   "silbenEmptyBody": "Für deine Lernstufe sind noch keine Silben-Rätsel vorbereitet.",
@@ -1558,7 +1558,7 @@
     }
   },
   "dailyCharGreatJob": "Super!",
-  "vocabModeFavorites": "Favoriten",
+  "vocabModeFavorites": "Gemerkt",
   "vocabFavoritesBadge": "{n}",
   "@vocabFavoritesBadge": {
     "placeholders": {
@@ -1569,7 +1569,7 @@
   },
   "vocabHearExample": "Beispiel hören",
   "vocabSlowHint": "Lang drücken: langsam",
-  "vocabEmptyFavorites": "Noch keine Favoriten\nMarkiere schwierige Wörter mit dem Stern",
+  "vocabEmptyFavorites": "Noch nichts gemerkt\nTippe auf das Lesezeichen, um Wörter zu speichern.",
   "listeningTitle": "Hören",
   "listeningSubtitle": "Hör ein Szenario in natürlichem Tempo",
   "listeningSelectScenario": "Szenario wählen",
@@ -2119,8 +2119,8 @@
       }
     }
   },
-  "wordWebTitle": "Wortnetz",
-  "wordWebHubDesc": "Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast",
+  "wordWebTitle": "Nuancen & Gegenteile",
+  "wordWebHubDesc": "Synonyme, Gegenteile und Wendungen zu deinen Wörtern",
   "wordWebSubtitle": "{count, plural, one{1 Wort mit Nachbarn} other{{count} Wörter mit Nachbarn}}",
   "@wordWebSubtitle": {
     "placeholders": {
@@ -2132,7 +2132,7 @@
   "wordWebEmptyTitle": "Noch kein Netz",
   "wordWebEmptyBody": "Lerne Wörter in einem Paket, im Kurs oder in einem Spiel. Dann erscheinen hier Nachbarn, Gegenteile und Wendungen zu genau diesen Wörtern.",
   "wordWebLoadErrorTitle": "Netz nicht geladen",
-  "wordWebLoadErrorBody": "Die Wortnetz-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand. Versuch es noch einmal.",
+  "wordWebLoadErrorBody": "Die Nuancen-Datei konnte nicht gelesen werden. Das ist kein leerer Lernstand. Versuch es noch einmal.",
   "wordWebBrowseLevelCta": "Wörter auf meinem Niveau ansehen",
   "wordWebOpenVocabCta": "Wortpakete öffnen",
   "wordWebQuizCta": "Diese Wörter üben",
@@ -2142,7 +2142,7 @@
   "wordWebAntonymSection": "Gegenteile",
   "wordWebRelatedSection": "Verwandte Wörter",
   "wordWebExpressionSection": "Wendungen",
-  "wordWebQuizTitle": "Wortnetz-Übung",
+  "wordWebQuizTitle": "Nuancen-Übung",
   "wordWebQuizHintSynonym": "Welches Wort liegt nah dabei?",
   "wordWebQuizHintAntonym": "Was ist das Gegenteil?",
   "wordWebQuizHintRelated": "Was gehört dazu?",
@@ -2196,7 +2196,7 @@
     }
   },
   "wordWebExampleLabel": "Im Satz",
-  "wordWebCoachTitle": "Dein Wortnetz",
+  "wordWebCoachTitle": "Deine Nuancen & Gegenteile",
   "wordWebCoachBody": "Tippe ein Wort aus deinem Lernstand. Das Netz zeigt Nachbarn, Gegenteile und eine Wendung, unabhängig von Hanja und Nuance im Vokabelheft.",
   "wbMatching": "Paare finden",
   "wbMatchingHint": "Tippe auf ein koreanisches Wort, dann auf seine Bedeutung.",
@@ -2805,7 +2805,7 @@
   "@_coach_c1": {
     "description": "Stage C-1 게임 4화면 코치마크 키 (2026-06-09)"
   },
-  "coachChosungStep1Title": "Silben-Puzzle",
+  "coachChosungStep1Title": "Rate mit Anlauten",
   "coachChosungStep1Body": "Füll die gepunkteten Felder aus und vervollständige das Wort",
   "coachChosungStep2Title": "Niveau & Schwierigkeit",
   "coachChosungStep2Body": "Wähle dein Level von A1 bis C2 und ob Vokale angezeigt werden",
@@ -2872,7 +2872,7 @@
   "coachCpEditStep2Title": "4 Lernmodi",
   "coachCpEditStep2Body": "Karten · Zuordnen · Schreiben · Quiz. Wähle den Modus, der zu dir passt.",
   "coachCpPlayTitle": "Karteikarten lernen",
-  "coachCpPlayBody": "Antippen = Karte umdrehen · \"Gewusst\" = Wort zum SRS-System hinzufügen",
+  "coachCpPlayBody": "Antippen = Karte umdrehen · \"Gewusst\" = Wort zum Wiederholen hinzufügen",
   "coachCpQuizTitle": "Bedeutung erraten",
   "coachCpQuizBody": "Wähle die richtige Bedeutung. Dein Ergebnis wird für die Wiederholung gespeichert.",
   "coachCpMatchingTitle": "Paare zuordnen",
@@ -3914,7 +3914,7 @@
   "soriStageBrandLabel": "SORI STAGE",
   "soriStageActivityInProgress": "In Arbeit",
   "soriStageActivityCompleted": "Abgeschlossen",
-  "soriStageActivityTitle": "{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Kalligrafie} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{SRS-Wiederholung} hard_words{Schwierige Wörter} word_web{Wortnetz} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Chosung-Quiz} syllable_cross{Silben-Kreuz} cloze{Lückensatz} speed_match{Speed Match} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}",
+  "soriStageActivityTitle": "{activityId, select, course{Kurs} hangul{Hangul} calligraphy{Buchstabe des Tages} pronunciation{Aussprache} vocab_packs{Wortpakete} srs{Wiederholen} hard_words{Schwierige Wörter} word_web{Nuancen & Gegenteile} grammar{Grammatik} listening{Hören} scenarios{Alltagsszenen} smalltalk{Small Talk} book_capture{Buch fotografieren} vocab_notebook{Vokabelheft} bookshelf{Bücherregal} word_search{Wortsuche} daily_game{Tageschallenge} chosung{Anlaut-Quiz} syllable_cross{Silben-Rätsel} cloze{Lückentext} speed_match{Blitz-Paare} sentence_arcade{Satz-Arcade} kkeunmari{Kkeunmari} custom_quiz{Eigenes Quiz} custom_matching{Eigenes Matching} custom_typing{Eigenes Tippen} other{Lernaktivität}}}",
   "@soriStageActivityTitle": {
     "placeholders": {
       "activityId": {
@@ -3922,7 +3922,7 @@
       }
     }
   },
-  "soriStageActivityDescription": "{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Einen Buchstaben bewusst schreiben.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Fällige Wörter im richtigen Moment stärken.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Nachbarn, Gegenteile und Wendungen zu Wörtern, die du schon gelernt hast.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}",
+  "soriStageActivityDescription": "{activityId, select, course{Dein geführter Weg durch echte Situationen.} hangul{Silben bauen und sicher lesen.} calligraphy{Jeden Tag ein Schriftzeichen entdecken.} pronunciation{Hören, nachsprechen und auf Wunsch bewerten.} vocab_packs{Wörter nach Alltagsthema lernen.} srs{Wörter genau im richtigen Moment auffrischen.} hard_words{Gezielt an deinen Stolperwörtern arbeiten.} word_web{Synonyme, Gegenteile und Wendungen zu deinen Wörtern.} grammar{Muster verstehen und direkt anwenden.} listening{Kurze natürliche Sätze sicher erkennen.} scenarios{Café, Verkehr und Gespräche üben.} smalltalk{Kurze Gespräche flüssig verbinden.} book_capture{Wörter aus deinem Material übernehmen.} vocab_notebook{Dein Heft fotografieren und genau diese Wörter üben.} bookshelf{Eigene Seiten und Wortlisten verwalten.} word_search{Ein Wort und seine Lernwege finden.} daily_game{Ein kurzer Mix für heute.} chosung{Wörter an ihren Anfangslauten erkennen.} syllable_cross{Silben kombinieren und Wörter finden.} cloze{Das passende Wort im Satz abrufen.} speed_match{Bedeutungen schnell und sicher verbinden.} sentence_arcade{Sätze unter Zeitdruck richtig bauen.} kkeunmari{Eine Wortkette gegen den Tiger spielen.} custom_quiz{Ein Wortpaket im Bücherregal auswählen.} custom_matching{Deine Wörter als Paare festigen.} custom_typing{Deine Wörter aktiv aus dem Gedächtnis holen.} other{Weiterlernen.}}}",
   "@soriStageActivityDescription": {
     "placeholders": {
       "activityId": {
@@ -3938,7 +3938,7 @@
       }
     }
   },
-  "questActionLabel": "{actionKey, select, openQuests{Quests öffnen} openVocabulary{Wortpakete öffnen} openScenarios{Alltagsszenen öffnen} practicePronunciation{Aussprache üben} playKkeunmari{Kkeunmari spielen} openHangul{Hangul öffnen} openCalligraphy{Kalligrafie öffnen} openToday{Heutige Mission öffnen} openGye{Gye öffnen} playChosung{Chosung spielen} other{Öffnen}}}",
+  "questActionLabel": "{actionKey, select, openQuests{Quests öffnen} openVocabulary{Wortpakete öffnen} openScenarios{Alltagsszenen öffnen} practicePronunciation{Aussprache üben} playKkeunmari{Kkeunmari spielen} openHangul{Hangul öffnen} openCalligraphy{Buchstabe des Tages öffnen} openToday{Heutige Mission öffnen} openGye{Gye öffnen} playChosung{Anlaut-Quiz spielen} other{Öffnen}}}",
   "@questActionLabel": {
     "placeholders": {
       "actionKey": {
@@ -4022,14 +4022,14 @@
   "vocabNotebookNoHanja": "kein Hanja",
   "vocabNotebookStudioCta": "Spiel aus diesen Wörtern bauen",
   "vocabNotebookStudioTitle": "Mein Wortspiel",
-  "vocabNotebookStudioHint": "Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, Dialogen und Wortnetzen, die wir dafür schon haben.",
+  "vocabNotebookStudioHint": "Wähl die Wörter aus deinem Heft. Danach spielst du nur mit denen, und mit Sätzen, Dialogen und Nuancen-Übungen, die wir dafür schon haben.",
   "vocabNotebookStudioSelectAll": "Alle nehmen",
   "vocabNotebookStudioSelectNone": "Keine",
   "vocabNotebookStudioOwnGames": "Mit deinen Bedeutungen",
   "vocabNotebookStudioCorpusGames": "Mit unseren Sätzen",
-  "vocabNotebookStudioCorpusHint": "Nur vorhandene Sätze, Dialoge und Wortnetze. Es kommen keine neuen Wörter dazu.",
+  "vocabNotebookStudioCorpusHint": "Nur vorhandene Sätze, Dialoge und Nuancen-Übungen. Es kommen keine neuen Wörter dazu.",
   "vocabNotebookStudioLoading": "Vorhandene Spiele laden …",
-  "vocabNotebookStudioCloze": "{count, plural, one{Lückensatz · 1 Satz} other{Lückensatz · {count} Sätze}}",
+  "vocabNotebookStudioCloze": "{count, plural, one{Lückentext · 1 Satz} other{Lückentext · {count} Sätze}}",
   "@vocabNotebookStudioCloze": {
     "placeholders": {
       "count": {
@@ -4045,7 +4045,7 @@
       }
     }
   },
-  "vocabNotebookStudioSpeed": "{count, plural, one{Speed Match · 1 Wort} other{Speed Match · {count} Wörter}}",
+  "vocabNotebookStudioSpeed": "{count, plural, one{Blitz-Paare · 1 Wort} other{Blitz-Paare · {count} Wörter}}",
   "@vocabNotebookStudioSpeed": {
     "placeholders": {
       "count": {
@@ -4053,7 +4053,7 @@
       }
     }
   },
-  "vocabNotebookStudioChosung": "{count, plural, one{Chosung · 1 Wort} other{Chosung · {count} Wörter}}",
+  "vocabNotebookStudioChosung": "{count, plural, one{Anlaut-Quiz · 1 Wort} other{Anlaut-Quiz · {count} Wörter}}",
   "@vocabNotebookStudioChosung": {
     "placeholders": {
       "count": {
@@ -4087,7 +4087,7 @@
       }
     }
   },
-  "vocabNotebookStudioWordWeb": "{count, plural, one{Wortnetz · 1 Wort} other{Wortnetz · {count} Wörter}}",
+  "vocabNotebookStudioWordWeb": "{count, plural, one{Nuancen & Gegenteile · 1 Wort} other{Nuancen & Gegenteile · {count} Wörter}}",
   "@vocabNotebookStudioWordWeb": {
     "placeholders": {
       "count": {

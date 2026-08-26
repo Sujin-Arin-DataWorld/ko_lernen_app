@@ -24,6 +24,11 @@ class SilbenWord {
 
   bool get isHorizontal => dir == 'h';
 
+  /// exampleKo 의 ◯ 마스킹을 정답으로 복원한 발화용 문장.
+  /// tool/generate_tts.py 의 silben 수집 규칙과 동일해야 TTS 캐시가 맞는다.
+  String get exampleKoSpoken =>
+      exampleKo.isEmpty ? '' : exampleKo.replaceAll(RegExp('◯+'), answer);
+
   /// 이 단어가 차지하는 칸 좌표들 (배치 순서).
   List<(int, int)> get cells => [
     for (var j = 0; j < answer.length; j++)

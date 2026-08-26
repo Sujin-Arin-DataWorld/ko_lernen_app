@@ -52,6 +52,7 @@ IconData soriActivityIcon(String name) => switch (name) {
   'camera' => Icons.document_scanner_outlined,
   'bookshelf' => Icons.auto_stories_outlined,
   'search' => Icons.search_rounded,
+  'hub' => Icons.hub_rounded,
   'sun' => Icons.wb_sunny_outlined,
   'chosung' => Icons.text_fields_rounded,
   'grid' => Icons.grid_view_rounded,

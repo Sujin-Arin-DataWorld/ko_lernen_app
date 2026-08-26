@@ -27,13 +27,25 @@ class SoriStageRewardReceiptSheet extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                t.soriStageReceiptEyebrow,
-                style: const TextStyle(
-                  color: SoriColors.accent,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 1.1,
-                ),
+              Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      t.soriStageReceiptEyebrow,
+                      style: const TextStyle(
+                        color: SoriColors.accent,
+                        fontWeight: FontWeight.w700,
+                        letterSpacing: 1.1,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    key: const Key('receipt-close'),
+                    tooltip: t.btnClose,
+                    onPressed: () => Navigator.pop(context),
+                    icon: const Icon(Icons.close_rounded),
+                  ),
+                ],
               ),
               const SizedBox(height: Spacing.xs),
               Text(

@@ -294,7 +294,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
         if (w.cells.every(_locked.contains)) {
           _spoken.add(w.answer);
           SoundService.correct();
-          TtsService.speak(w.answer);
+          TtsService.speak(
+            w.exampleKo.isEmpty ? w.answer : '${w.answer}. ${w.exampleKoSpoken}',
+          );
         }
       }
       if (_locked.length == _solution.length) {

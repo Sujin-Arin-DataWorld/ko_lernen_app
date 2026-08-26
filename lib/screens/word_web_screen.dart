@@ -224,9 +224,9 @@ class _WordWebScreenState extends State<WordWebScreen>
     return Padding(
       padding: const EdgeInsets.fromLTRB(
         Spacing.lg,
-        Spacing.md,
-        Spacing.lg,
         Spacing.sm,
+        Spacing.lg,
+        Spacing.xs,
       ),
       child: Row(
         children: [

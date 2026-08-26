@@ -184,7 +184,7 @@ class SoriStageRewardReceiptPreviewScreen extends StatelessWidget {
                 detail: t.soriStagePreviewCopy('completedMission'),
               ),
               _ReceiptLine(
-                icon: Icons.task_alt_rounded,
+                icon: Icons.checklist_rounded,
                 title: t.soriStagePreviewCopy('questEarned'),
                 detail: t.soriStagePreviewCopy('scenarioProgress'),
               ),

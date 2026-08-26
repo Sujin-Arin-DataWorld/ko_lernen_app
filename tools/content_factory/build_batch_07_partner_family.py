@@ -17,10 +17,12 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+sys.path.insert(0, str(ROOT / "tool"))
 
 from lexicon import FAMILY_PACKS
 from lexicon.rr import romanize
 from validate_content import GRAMMAR_HEADER, VOCAB_HEADER
+import audit_content_naturalness as naturalness_audit
 
 DRAFTS = ROOT / "tools" / "content_factory" / "drafts"
 REVIEW = ROOT / "tools" / "content_factory" / "review"
@@ -174,21 +176,6 @@ GRAMMAR_ROWS = [
 ]
 
 
-def _hangul_runs(text: str) -> list[str]:
-    runs: list[str] = []
-    current: list[str] = []
-    for char in text:
-        if "\uac00" <= char <= "\ud7a3":
-            current.append(char)
-            continue
-        if current:
-            runs.append("".join(current))
-            current = []
-    if current:
-        runs.append("".join(current))
-    return runs
-
-
 def pick_answer(head: str, sentence: str) -> str:
     candidates = [head, head.replace(" ", "")]
     for ending in ("하다", "되다", "이다", "다"):
@@ -204,17 +191,35 @@ def pick_answer(head: str, sentence: str) -> str:
     for item in sorted(ordered, key=len, reverse=True):
         if item in sentence:
             return item
-        for length in range(len(item), 1, -1):
-            stem = item[:length]
-            if stem in sentence:
-                return stem
-    head_hangul = "".join(char for char in head if "\uac00" <= char <= "\ud7a3")
-    if head_hangul:
-        seed = head_hangul[:2] if len(head_hangul) >= 2 else head_hangul[0]
-        for run in _hangul_runs(sentence):
-            if seed in run or run.startswith(head_hangul[0]):
-                return run
-    raise ValueError(f"headword {head!r} not visible in {sentence!r}")
+    raise ValueError(
+        f"headword {head!r} not visible in {sentence!r} — "
+        "예문을 표제어가 그대로 보이게 고쳐라 (조각 답 생성 금지)"
+    )
+
+
+def _naturalness_gate(
+    item_id: str, full_ko: str, answer: str, vocab_headwords: set[str]
+) -> None:
+    """생성 직후 dangling_stem·answer_repeat 게이트 — 히트 시 즉시 중단.
+
+    `tool/audit_content_naturalness.py` 의 결정적 마커 함수를 그대로
+    재사용한다(임포트는 파일 상단 `sys.path.insert(0, str(ROOT / "tool"))`
+    참고). pick_answer 가 (브리프 지시대로) 정확 매치만 반환하도록 폴백을
+    잃었어도, `다` 어미 제거 스템(예: "절하다"→"절하")처럼 여전히 후보로
+    남는 절단 형태는 여기서 잡는다 — vocab_headwords 에 이 배치가 새로
+    쓰는 표제어(FAMILY_PACKS)를 포함시켜야 "절하"+"다"="절하다"(바로 이
+    배치가 생성 중인 표제어) 자기 참조 케이스가 검출된다.
+    """
+    if naturalness_audit.check_dangling_stem(answer, vocab_headwords):
+        raise ValueError(
+            f"{item_id}: naturalness gate — dangling_stem "
+            f"(answer={answer!r} looks like a truncated 하다/되다 stem)"
+        )
+    if naturalness_audit.check_answer_repeat(full_ko, answer):
+        raise ValueError(
+            f"{item_id}: naturalness gate — answer_repeat "
+            f"(answer={answer!r} appears 2+ times in fullKo={full_ko!r})"
+        )
 
 
 def cloze_distractors(answer: str, index: int) -> list[str]:
@@ -345,6 +350,11 @@ def build() -> None:
     derivation_sets: list[dict[str, Any]] = []
     counters = {key: 0 for key in NEXT_VOCAB}
     level_first = {key: None for key in NEXT_VOCAB}
+    # dangling_stem 게이트용 — 이 배치가 새로 쓰는 표제어 전부(아직
+    # korean_vocab.csv 에 없다, 이 build() 가 끝나야 write_csv 된다).
+    vocab_headwords = {
+        word["korean"] for pack in FAMILY_PACKS for word in pack["words"]
+    }
 
     for pack in FAMILY_PACKS:
         level = pack["level"]
@@ -383,6 +393,7 @@ def build() -> None:
             example_de = word["example_german"]
             example_en = word["example_english"]
             answer = pick_answer(word["korean"], example_ko)
+            _naturalness_gate(cloze_id, example_ko, answer, vocab_headwords)
             vocab_rows.append(
                 {
                     "korean": word["korean"],

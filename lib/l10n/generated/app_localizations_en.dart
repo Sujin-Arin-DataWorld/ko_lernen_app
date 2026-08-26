@@ -21,7 +21,7 @@ class AppL10nEn extends AppL10n {
   String get paywallBenefit2 => 'All conversation scenarios';
 
   @override
-  String get paywallBenefit3 => 'Unlimited reviews (SRS)';
+  String get paywallBenefit3 => 'Unlimited reviews';
 
   @override
   String get paywallBenefit4 =>
@@ -325,13 +325,13 @@ class AppL10nEn extends AppL10n {
   String get moduleListenDesc => 'Hear and understand sentences';
 
   @override
-  String get gameChosungTitle => 'Initial Quiz';
+  String get gameChosungTitle => 'First-sound quiz';
 
   @override
   String get gameChosungDesc => 'Guess the word from its initial consonants';
 
   @override
-  String get gameWordleTitle => 'Syllable Puzzle';
+  String get gameWordleTitle => 'Syllable puzzle';
 
   @override
   String get gameWordleDesc => '2-3 syllables · 6 tries';
@@ -349,10 +349,10 @@ class AppL10nEn extends AppL10n {
   String get navHangul => 'Hangul';
 
   @override
-  String get navChosung => 'Initial Quiz';
+  String get navChosung => 'First-sound quiz';
 
   @override
-  String get navWordle => 'Syllable Puzzle';
+  String get navWordle => 'Syllable puzzle';
 
   @override
   String get navSettings => 'Settings';
@@ -892,19 +892,19 @@ class AppL10nEn extends AppL10n {
   String get statsStreakShieldHint => 'Shields one missed day.';
 
   @override
-  String get statsWordleWins => 'Syllable Puzzle wins';
+  String get statsWordleWins => 'Syllable puzzle wins';
 
   @override
-  String get statsWordleStreak => 'Syllable Puzzle streak';
+  String get statsWordleStreak => 'Syllable puzzle streak';
 
   @override
-  String get screenVocabTitle => 'Vocabulary';
+  String get screenVocabTitle => 'Flashcards';
 
   @override
   String get screenGrammarTitle => 'Grammar';
 
   @override
-  String get screenWordleTitle => 'Syllable Puzzle';
+  String get screenWordleTitle => 'Syllable puzzle';
 
   @override
   String get silbenEmptyBody =>
@@ -3093,7 +3093,7 @@ class AppL10nEn extends AppL10n {
   String get settingsThemeDark => 'Dark';
 
   @override
-  String get dailyCharTitle => 'Letter of the day';
+  String get dailyCharTitle => 'Character of the day';
 
   @override
   String get dailyCharSubtitle => 'Watch the stroke-order guide';
@@ -3125,7 +3125,7 @@ class AppL10nEn extends AppL10n {
   String get dailyCharGreatJob => 'Great job!';
 
   @override
-  String get vocabModeFavorites => 'Favorites';
+  String get vocabModeFavorites => 'Saved';
 
   @override
   String vocabFavoritesBadge(int n) {
@@ -3140,7 +3140,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get vocabEmptyFavorites =>
-      'No favorites yet\nTap the star on hard words';
+      'Nothing saved yet\nTap the bookmark to save words.';
 
   @override
   String get listeningTitle => 'Listening';
@@ -4059,7 +4059,7 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get clozeTitle => 'Fill in the Blank';
+  String get clozeTitle => 'Fill the gap';
 
   @override
   String get clozeDesc => 'The missing word in a sentence';
@@ -4078,7 +4078,7 @@ class AppL10nEn extends AppL10n {
   String get clozeLevelAll => 'All';
 
   @override
-  String get speedMatchTitle => 'Speed Match';
+  String get speedMatchTitle => 'Speed pairs';
 
   @override
   String get speedMatchDesc => 'Match against the clock';
@@ -4224,11 +4224,11 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
-  String get wordWebTitle => 'Word web';
+  String get wordWebTitle => 'Nuances & opposites';
 
   @override
   String get wordWebHubDesc =>
-      'Neighbors, opposites, and expressions for words you have already studied';
+      'Synonyms, opposites and expressions for your words';
 
   @override
   String wordWebSubtitle(int count) {
@@ -4253,7 +4253,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get wordWebLoadErrorBody =>
-      'The word-web file could not be read. This is not an empty study history. Try again.';
+      'The nuances file could not be read. This is not an empty study history. Try again.';
 
   @override
   String get wordWebBrowseLevelCta => 'Browse words at my level';
@@ -4283,7 +4283,7 @@ class AppL10nEn extends AppL10n {
   String get wordWebExpressionSection => 'Expressions';
 
   @override
-  String get wordWebQuizTitle => 'Word-web practice';
+  String get wordWebQuizTitle => 'Nuances practice';
 
   @override
   String get wordWebQuizHintSynonym => 'Which word sits close to it?';
@@ -4340,7 +4340,7 @@ class AppL10nEn extends AppL10n {
   String get wordWebExampleLabel => 'In a sentence';
 
   @override
-  String get wordWebCoachTitle => 'Your word web';
+  String get wordWebCoachTitle => 'Your nuances & opposites';
 
   @override
   String get wordWebCoachBody =>
@@ -5640,7 +5640,7 @@ class AppL10nEn extends AppL10n {
   String get settingsMadeWith => 'Made with ❤ in Germany';
 
   @override
-  String get coachChosungStep1Title => 'Syllable puzzle';
+  String get coachChosungStep1Title => 'Guess from the first sounds';
 
   @override
   String get coachChosungStep1Body =>
@@ -5853,7 +5853,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get coachCpPlayBody =>
-      'Tap to flip · \"Got it\" adds the word to the SRS review system';
+      'Tap to flip · \"Got it\" adds the word to review';
 
   @override
   String get coachCpQuizTitle => 'Guess the meaning';
@@ -8195,12 +8195,12 @@ class AppL10nEn extends AppL10n {
     String _temp0 = intl.Intl.selectLogic(activityId, {
       'course': 'Course',
       'hangul': 'Hangul',
-      'calligraphy': 'Calligraphy',
+      'calligraphy': 'Character of the day',
       'pronunciation': 'Pronunciation',
       'vocab_packs': 'Vocabulary packs',
-      'srs': 'SRS review',
+      'srs': 'Review',
       'hard_words': 'Hard words',
-      'word_web': 'Word web',
+      'word_web': 'Nuances & opposites',
       'grammar': 'Grammar',
       'listening': 'Listening',
       'scenarios': 'Real-life scenarios',
@@ -8210,10 +8210,10 @@ class AppL10nEn extends AppL10n {
       'bookshelf': 'Bookshelf',
       'word_search': 'Word search',
       'daily_game': 'Daily challenge',
-      'chosung': 'Chosung quiz',
-      'syllable_cross': 'Syllable cross',
-      'cloze': 'Cloze',
-      'speed_match': 'Speed Match',
+      'chosung': 'First-sound quiz',
+      'syllable_cross': 'Syllable puzzle',
+      'cloze': 'Fill the gap',
+      'speed_match': 'Speed pairs',
       'sentence_arcade': 'Sentence arcade',
       'kkeunmari': 'Kkeunmari',
       'custom_quiz': 'Custom quiz',
@@ -8229,13 +8229,12 @@ class AppL10nEn extends AppL10n {
     String _temp0 = intl.Intl.selectLogic(activityId, {
       'course': 'Your guided path through real situations.',
       'hangul': 'Build syllables and read with confidence.',
-      'calligraphy': 'Write one character with intention.',
+      'calligraphy': 'Discover one character every day.',
       'pronunciation': 'Listen, repeat, and optionally assess.',
       'vocab_packs': 'Learn words by everyday topic.',
-      'srs': 'Strengthen due words at the right moment.',
+      'srs': 'Refresh words at just the right moment.',
       'hard_words': 'Focus on the words that trip you up.',
-      'word_web':
-          'Neighbors, opposites, and expressions for words you have already studied.',
+      'word_web': 'Synonyms, opposites and expressions for your words.',
       'grammar': 'Understand patterns and use them right away.',
       'listening': 'Recognize short natural phrases.',
       'scenarios': 'Practice cafés, transport, and conversations.',
@@ -8290,10 +8289,10 @@ class AppL10nEn extends AppL10n {
       'practicePronunciation': 'Practice pronunciation',
       'playKkeunmari': 'Play Kkeunmari',
       'openHangul': 'Open Hangul',
-      'openCalligraphy': 'Open calligraphy',
+      'openCalligraphy': 'Open Character of the day',
       'openToday': 'Open today\'s mission',
       'openGye': 'Open Gye',
-      'playChosung': 'Play Chosung',
+      'playChosung': 'Play First-sound quiz',
       'other': 'Open',
     });
     return '$_temp0';
@@ -8463,7 +8462,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get vocabNotebookStudioHint =>
-      'Pick the words from your notebook. You then play only those, plus sentences, dialogues and word webs we already have for them.';
+      'Pick the words from your notebook. You then play only those, plus sentences, dialogues and nuance exercises we already have for them.';
 
   @override
   String get vocabNotebookStudioSelectAll => 'Take all';
@@ -8479,7 +8478,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get vocabNotebookStudioCorpusHint =>
-      'Only sentences, dialogues and word webs we already have. No new vocabulary is added.';
+      'Only sentences, dialogues and nuance exercises we already have. No new vocabulary is added.';
 
   @override
   String get vocabNotebookStudioLoading => 'Loading available games…';
@@ -8489,8 +8488,8 @@ class AppL10nEn extends AppL10n {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Cloze · $count sentences',
-      one: 'Cloze · 1 sentence',
+      other: 'Fill the gap · $count sentences',
+      one: 'Fill the gap · 1 sentence',
     );
     return '$_temp0';
   }
@@ -8511,8 +8510,8 @@ class AppL10nEn extends AppL10n {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Speed Match · $count words',
-      one: 'Speed Match · 1 word',
+      other: 'Speed pairs · $count words',
+      one: 'Speed pairs · 1 word',
     );
     return '$_temp0';
   }
@@ -8522,8 +8521,8 @@ class AppL10nEn extends AppL10n {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Chosung · $count words',
-      one: 'Chosung · 1 word',
+      other: 'First-sound quiz · $count words',
+      one: 'First-sound quiz · 1 word',
     );
     return '$_temp0';
   }
@@ -8574,8 +8573,8 @@ class AppL10nEn extends AppL10n {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Word web · $count words',
-      one: 'Word web · 1 word',
+      other: 'Nuances & opposites · $count words',
+      one: 'Nuances & opposites · 1 word',
     );
     return '$_temp0';
   }
