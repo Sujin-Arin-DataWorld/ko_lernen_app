@@ -199,9 +199,9 @@ void main() {
             noCorpus:
                 'Für diese Wörter haben wir noch keinen fertigen Satz. Spiel oben mit deinen eigenen Bedeutungen.',
             retry: 'Erneut versuchen',
-            speed: 'Speed Match · 2 Wörter',
-            clozeOne: 'Lückensatz · 1 Satz',
-            clozeZero: 'Lückensatz · 0 Sätze',
+            speed: 'Blitz-Paare · 2 Wörter',
+            clozeOne: 'Lückentext · 1 Satz',
+            clozeZero: 'Lückentext · 0 Sätze',
             satzOne: 'Satz bauen · 1 Satz',
           ),
           (
@@ -211,9 +211,9 @@ void main() {
             noCorpus:
                 'We do not have a ready sentence for these words yet. Use your own meanings above.',
             retry: 'Try again',
-            speed: 'Speed Match · 2 words',
-            clozeOne: 'Cloze · 1 sentence',
-            clozeZero: 'Cloze · 0 sentences',
+            speed: 'Speed pairs · 2 words',
+            clozeOne: 'Fill the gap · 1 sentence',
+            clozeZero: 'Fill the gap · 0 sentences',
             satzOne: 'Build a sentence · 1 sentence',
           ),
         ];
@@ -647,7 +647,7 @@ void main() {
     final speed = await _openStudioDestination<SpeedMatchScreen>(
       tester,
       key: 'speed',
-      label: 'Speed Match · 4 words',
+      label: 'Speed pairs · 4 words',
     );
     expect(speed.items!.map((item) => item.korean), _selectedKorean);
     expect(speed.items!.map((item) => item.german), <String>[
@@ -660,7 +660,7 @@ void main() {
     final chosung = await _openStudioDestination<ChosungQuizScreen>(
       tester,
       key: 'chosung',
-      label: 'Chosung · 4 words',
+      label: 'First-sound quiz · 4 words',
     );
     expect(chosung.deck!.map((item) => item.korean), _selectedKorean);
   });
@@ -675,7 +675,7 @@ void main() {
     final cloze = await _openStudioDestination<ClozeGameScreen>(
       tester,
       key: 'cloze',
-      label: 'Cloze · 1 sentence',
+      label: 'Fill the gap · 1 sentence',
       match: _corpusMatch,
     );
     expect(cloze.items, <ClozeItem>[_cloze]);
@@ -717,7 +717,7 @@ void main() {
     final wordWeb = await _openStudioDestination<WordWebScreen>(
       tester,
       key: 'word-web',
-      label: 'Word web · 1 word',
+      label: 'Nuances & opposites · 1 word',
       match: _corpusMatch,
     );
     expect(await wordWeb.clusterLoader!(), <WordRelationCluster>[_wordWeb]);
