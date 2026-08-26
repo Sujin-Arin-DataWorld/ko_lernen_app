@@ -9085,15 +9085,15 @@
     {
       "id": "cloze_a1_0169",
       "level": "a1",
-      "sentenceKo": "＿＿＿은 떼고 먹으라고 손짓하셨어요.",
-      "answer": "송편 잎",
-      "fullKo": "송편 잎은 떼고 먹으라고 손짓하셨어요.",
-      "de": "Sie deuteten an, die Kiefernnadeln vor dem Essen abzuziehen.",
-      "en": "They gestured that I should pull the pine needles off before eating.",
+      "sentenceKo": "이건 ＿＿＿ 떼고 먹어요.",
+      "answer": "잎을",
+      "fullKo": "이건 잎을 떼고 먹어요.",
+      "de": "Bei diesem hier zieht man das Blatt ab, bevor man es isst.",
+      "en": "With this one, you pull off the leaf before eating it.",
       "distractors": [
-        "손 씻기",
-        "손님 슬리퍼",
-        "송편"
+        "송편을",
+        "귀성을",
+        "명절 증후군을"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -9250,15 +9250,15 @@
     {
       "id": "cloze_a1_0180",
       "level": "a1",
-      "sentenceKo": "＿＿＿ 하고 소개해 주셔서 악수를 할지 고민했어요.",
-      "answer": "동생이에요",
-      "fullKo": "동생이에요 하고 소개해 주셔서 악수를 할지 고민했어요.",
-      "de": "Sie stellten ihn als jüngeren Bruder vor, und ich überlegte, ob ich die Hand gebe.",
-      "en": "They introduced him as the younger brother, and I wondered whether to shake hands.",
+      "sentenceKo": "남편이 ＿＿＿을 소개했어요. 악수를 해도 될까요?",
+      "answer": "동생",
+      "fullKo": "남편이 동생을 소개했어요. 악수를 해도 될까요?",
+      "de": "Mein Mann hat mir seinen jüngeren Bruder vorgestellt. Darf ich ihm die Hand geben?",
+      "en": "My husband introduced me to his younger brother. Is it okay to shake his hand?",
       "distractors": [
-        "성함을 묻다",
-        "세배 드리다",
-        "송편 빚다"
+        "처남",
+        "매형",
+        "사촌"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11740,15 +11740,15 @@
     {
       "id": "cloze_b1_0138",
       "level": "b1",
-      "sentenceKo": "＿＿＿ 길을 미리 물어 발을 부딪치지 않았어요.",
-      "answer": "새벽 화장실",
-      "fullKo": "새벽 화장실 길을 미리 물어 발을 부딪치지 않았어요.",
-      "de": "Ich hatte vorher nach dem Weg zur Toilette gefragt und stieß nachts nirgends an.",
-      "en": "I had asked in advance about the way to the bathroom, so I did not bump into anything at night.",
+      "sentenceKo": "가족들이 깰까 봐 ＿＿＿ 걸었어요.",
+      "answer": "발소리를 죽이고",
+      "fullKo": "가족들이 깰까 봐 발소리를 죽이고 걸었어요.",
+      "de": "Weil ich Angst hatte, die Familie zu wecken, bin ich mit gedämpften Schritten gegangen.",
+      "en": "Worried I might wake the family, I walked while muffling my footsteps.",
       "distractors": [
-        "직장 분위기",
-        "체류 기간",
-        "취업 비자"
+        "불을 끄고",
+        "문을 잠그고",
+        "숨을 참고"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -11770,15 +11770,15 @@
     {
       "id": "cloze_b1_0140",
       "level": "b1",
-      "sentenceKo": "＿＿＿를 치우니 공간이 바로 거실이 됐어요.",
-      "answer": "아침 이부자리",
-      "fullKo": "아침 이부자리를 치우니 공간이 바로 거실이 됐어요.",
-      "de": "Als das Bettzeug weggeräumt war, war der Raum wieder ein Wohnzimmer.",
-      "en": "Once the bedding was put away, the room was a living room again.",
+      "sentenceKo": "＿＿＿ 낮에는 거실로 쓰고, 밤에는 침실로 써요.",
+      "answer": "이 방은",
+      "fullKo": "이 방은 낮에는 거실로 쓰고, 밤에는 침실로 써요.",
+      "de": "Dieses Zimmer wird tagsüber als Wohnzimmer und nachts als Schlafzimmer genutzt.",
+      "en": "This room is used as the living room during the day and as the bedroom at night.",
       "distractors": [
-        "퇴사",
-        "폭음",
-        "한국어 능력"
+        "그 집은",
+        "옆방은",
+        "다락은"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12415,15 +12415,15 @@
     {
       "id": "cloze_b2_0173",
       "level": "b2",
-      "sentenceKo": "＿＿＿이 과해서 자리가 오히려 불편했어요.",
-      "answer": "사위 대접",
-      "fullKo": "사위 대접이 과해서 자리가 오히려 불편했어요.",
-      "de": "Die Schwiegersohnbehandlung war so fürsorglich, dass der Platz unbequem wurde.",
-      "en": "The son-in-law treatment was so extra that the seat felt awkward.",
+      "sentenceKo": "장모님이 너무 잘 ＿＿＿ 오히려 조금 부담스러웠어요.",
+      "answer": "챙겨주셔서",
+      "fullKo": "장모님이 너무 잘 챙겨주셔서 오히려 조금 부담스러웠어요.",
+      "de": "Meine Schwiegermutter hat sich so gut um mich gekümmert, dass es mir fast schon unangenehm war.",
+      "en": "My mother-in-law took such good care of me that it started to feel like a bit too much.",
       "distractors": [
-        "공식 소개",
-        "관계 말",
-        "단체 인사"
+        "도와주셔서",
+        "대접해주셔서",
+        "알려주셔서"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12520,15 +12520,15 @@
     {
       "id": "cloze_b2_0180",
       "level": "b2",
-      "sentenceKo": "＿＿＿은 시간보다 성의로 보여 주려 했어요.",
-      "answer": "양가 공평",
-      "fullKo": "양가 공평은 시간보다 성의로 보여 주려 했어요.",
-      "de": "Fairness zwischen den Häusern wollte ich eher durch Sorgfalt als durch Stunden zeigen.",
-      "en": "I tried to show fairness between houses through care more than hours.",
+      "sentenceKo": "명절에는 양쪽 부모님께 똑같이 ＿＿＿.",
+      "answer": "용돈을 챙겨 드렸어요",
+      "fullKo": "명절에는 양쪽 부모님께 똑같이 용돈을 챙겨 드렸어요.",
+      "de": "An den Feiertagen habe ich beiden Elternpaaren gleichermaßen Taschengeld gegeben.",
+      "en": "During the holidays, I gave both sets of parents the same amount of pocket money.",
       "distractors": [
-        "제사 역할",
-        "제사 음식 배치",
-        "제사상"
+        "선물을 준비했어요",
+        "안부를 전했어요",
+        "시간을 보냈어요"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12580,15 +12580,15 @@
     {
       "id": "cloze_b2_0184",
       "level": "b2",
-      "sentenceKo": "＿＿＿이 나와서 현우가 바로 화제를 접었어요.",
-      "answer": "지참금 농담",
-      "fullKo": "지참금 농담이 나와서 현우가 바로 화제를 접었어요.",
-      "de": "Ein Mitgiftwitz kam, und Hyunwoo beendete das Thema sofort.",
-      "en": "A dowry joke appeared, and Hyunwoo closed the topic at once.",
+      "sentenceKo": "＿＿＿ 이야기가 나와서 남편이 재빨리 화제를 돌렸어요.",
+      "answer": "결혼 준비 비용",
+      "fullKo": "결혼 준비 비용 이야기가 나와서 남편이 재빨리 화제를 돌렸어요.",
+      "de": "Als das Thema Hochzeitsvorbereitungskosten aufkam, hat mein Mann schnell das Gespräch gewechselt.",
+      "en": "When the topic of wedding preparation costs came up, my husband quickly changed the subject.",
       "distractors": [
-        "처가",
-        "처가살이",
-        "축문"
+        "시댁 흉",
+        "전 여자친구",
+        "회사 스트레스"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12610,15 +12610,15 @@
     {
       "id": "cloze_b2_0186",
       "level": "b2",
-      "sentenceKo": "＿＿＿ 안건을 세 줄로 줄여 갔어요.",
-      "answer": "양가 회의",
-      "fullKo": "양가 회의 안건을 세 줄로 줄여 갔어요.",
-      "de": "Die Sitzung beider Familien kürzte ich auf drei Punkte.",
-      "en": "I cut the both-families meeting agenda to three lines.",
+      "sentenceKo": "이번 명절에 양쪽 부모님 댁을 언제 방문할지 남편과 ＿＿＿.",
+      "answer": "일정을 조율했어요",
+      "fullKo": "이번 명절에 양쪽 부모님 댁을 언제 방문할지 남편과 일정을 조율했어요.",
+      "de": "Für dieses Fest habe ich mit meinem Mann abgestimmt, wann wir zu welchen Eltern gehen.",
+      "en": "For this holiday, my husband and I worked out the schedule for when to visit each side of the family.",
       "distractors": [
-        "호칭 메모",
-        "호칭 정정",
-        "호칭 질문"
+        "상의를 했어요",
+        "계획을 세웠어요",
+        "날짜를 정했어요"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12730,15 +12730,15 @@
     {
       "id": "cloze_b2_0194",
       "level": "b2",
-      "sentenceKo": "＿＿＿를 표로 그리니 실수가 줄었어요.",
-      "answer": "호칭 체계",
-      "fullKo": "호칭 체계를 표로 그리니 실수가 줄었어요.",
-      "de": "Das Anredesystem als Tabelle zu zeichnen verringerte Fehler.",
-      "en": "Drawing the address-term system as a table reduced slips.",
+      "sentenceKo": "한국은 시댁 ＿＿＿ 너무 복잡해서 따로 메모장에 적어뒀어요.",
+      "answer": "식구들 호칭이",
+      "fullKo": "한국은 시댁 식구들 호칭이 너무 복잡해서 따로 메모장에 적어뒀어요.",
+      "de": "In Korea sind die Anredeformen für die Familie meines Mannes so kompliziert, dass ich sie mir extra in einem Notizheft aufgeschrieben habe.",
+      "en": "In Korea, the address terms for my husband's family are so complicated that I wrote them down separately in a notebook.",
       "distractors": [
-        "돈 농담",
-        "며느리 역할",
-        "명절 노동"
+        "집안 문화가",
+        "가족 규칙이",
+        "인사 예절이"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12790,15 +12790,15 @@
     {
       "id": "cloze_b2_0198",
       "level": "b2",
-      "sentenceKo": "＿＿＿은 작게, 그리고 바로 했어요.",
-      "answer": "호칭 정정",
-      "fullKo": "호칭 정정은 작게, 그리고 바로 했어요.",
-      "de": "Die Anredekorektur machte ich leise und sofort.",
-      "en": "I made the address-term correction quietly and at once.",
+      "sentenceKo": "가족들 호칭을 틀릴 때마다 남편이 바로 ＿＿＿.",
+      "answer": "고쳐줬어요",
+      "fullKo": "가족들 호칭을 틀릴 때마다 남편이 바로 고쳐줬어요.",
+      "de": "Jedes Mal, wenn ich die Anrede innerhalb der Familie falsch benutzte, hat mein Mann sie sofort richtiggestellt.",
+      "en": "Every time I got a family address term wrong, my husband corrected it right away.",
       "distractors": [
-        "상견례",
-        "생활비 분담",
-        "서로의 속도"
+        "알려줬어요",
+        "웃어줬어요",
+        "넘어갔어요"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -12850,15 +12850,15 @@
     {
       "id": "cloze_b2_0202",
       "level": "b2",
-      "sentenceKo": "＿＿＿이라고 부르는 순간 현우 얼굴이 멈췄어요.",
-      "answer": "잘못된 형",
-      "fullKo": "잘못된 형이라고 부르는 순간 현우 얼굴이 멈췄어요.",
-      "de": "Im Moment des falschen hyeong blieb Hyunwoos Gesicht stehen.",
-      "en": "The moment I used the wrong hyeong, Hyunwoo's face froze.",
+      "sentenceKo": "아주버님을 무심코 ＿＿＿ 분위기가 어색해졌어요.",
+      "answer": "'형'이라고 불렀다가",
+      "fullKo": "아주버님을 무심코 '형'이라고 불렀다가 분위기가 어색해졌어요.",
+      "de": "Ich habe meinen Schwager aus Versehen Hyung genannt, und die Stimmung wurde für einen Moment unangenehm.",
+      "en": "I accidentally called my husband's older brother hyung, and the mood turned a bit awkward.",
       "distractors": [
-        "제사 음식 배치",
-        "제사상",
-        "조상님"
+        "'오빠'라고 불렀다가",
+        "'삼촌'이라고 불렀다가",
+        "'아저씨'라고 불렀다가"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -13015,15 +13015,15 @@
     {
       "id": "cloze_b2_0213",
       "level": "b2",
-      "sentenceKo": "＿＿＿이 없으면 조용히 서는 게 도움이었어요.",
-      "answer": "제사 역할",
-      "fullKo": "제사 역할이 없으면 조용히 서는 게 도움이었어요.",
-      "de": "Ohne Ritualaufgabe half ruhiges Stehen.",
-      "en": "With no rite role, standing quietly helped.",
+      "sentenceKo": "＿＿＿, 제가 먼저 할 수 있는 일을 찾아서 도왔어요.",
+      "answer": "명절 음식을 준비할 때",
+      "fullKo": "명절 음식을 준비할 때, 제가 먼저 할 수 있는 일을 찾아서 도왔어요.",
+      "de": "Bei der Vorbereitung des Feiertagsessens habe ich mir selbst eine Aufgabe gesucht, die ich zuerst übernehmen konnte, und mitgeholfen.",
+      "en": "When it was time to prepare the holiday food, I looked for something I could do first and pitched in.",
       "distractors": [
-        "타협안",
-        "하객 명단",
-        "호칭 공개"
+        "집안일을 나눌 때",
+        "상을 차릴 때",
+        "손님을 맞을 때"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },
@@ -13060,15 +13060,15 @@
     {
       "id": "cloze_b2_0216",
       "level": "b2",
-      "sentenceKo": "＿＿＿를 건드리지 말라고 눈짓하셨어요.",
-      "answer": "제사 음식 배치",
-      "fullKo": "제사 음식 배치를 건드리지 말라고 눈짓하셨어요.",
-      "de": "Die Anordnung der Ritualspeisen nicht zu berühren zeigte ein Blick.",
-      "en": "A look said not to touch the arrangement of rite food.",
+      "sentenceKo": "오랜만에 시댁 식구들이 ＿＿＿ 식사를 했어요.",
+      "answer": "다 같이 모여서",
+      "fullKo": "오랜만에 시댁 식구들이 다 같이 모여서 식사를 했어요.",
+      "de": "Nach langer Zeit ist die ganze Familie meines Mannes zusammengekommen, und wir haben gemeinsam gegessen.",
+      "en": "After a long time, my husband's whole family got together and we all had a meal.",
       "distractors": [
-        "제사 역할",
-        "제사상",
-        "조상님"
+        "둘러앉아서",
+        "줄을 서서",
+        "나뉘어서"
       ],
       "topic": "Partnerschaft & koreanische Familie"
     },

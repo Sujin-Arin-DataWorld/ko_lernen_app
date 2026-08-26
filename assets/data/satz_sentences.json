@@ -6284,14 +6284,14 @@
     {
       "id": "satz_a1_0133",
       "level": "a1",
-      "targetKo": "송편 잎은 떼고 먹으라고 손짓하셨어요.",
-      "promptDe": "Sie deuteten an, die Kiefernnadeln vor dem Essen abzuziehen.",
-      "promptEn": "They gestured that I should pull the pine needles off before eating.",
+      "targetKo": "이건 잎을 떼고 먹어요.",
+      "promptDe": "Bei diesem hier zieht man das Blatt ab, bevor man es isst.",
+      "promptEn": "With this one, you pull off the leaf before eating it.",
       "distractors": [
         "처제가",
         "초인종을"
       ],
-      "vocabKo": "송편 잎"
+      "vocabKo": "솔잎"
     },
     {
       "id": "satz_a1_0134",
@@ -6416,9 +6416,9 @@
     {
       "id": "satz_a1_0144",
       "level": "a1",
-      "targetKo": "동생이에요 하고 소개해 주셔서 악수를 할지 고민했어요.",
-      "promptDe": "Sie stellten ihn als jüngeren Bruder vor, und ich überlegte, ob ich die Hand gebe.",
-      "promptEn": "They introduced him as the younger brother, and I wondered whether to shake hands.",
+      "targetKo": "남편이 동생을 소개했어요. 악수를 해도 될까요?",
+      "promptDe": "Mein Mann hat mir seinen jüngeren Bruder vorgestellt. Darf ich ihm die Hand geben?",
+      "promptEn": "My husband introduced me to his younger brother. Is it okay to shake his hand?",
       "distractors": [
         "처음",
         "처음에는"
@@ -8408,14 +8408,14 @@
     {
       "id": "satz_b1_0134",
       "level": "b1",
-      "targetKo": "새벽 화장실 길을 미리 물어 발을 부딪치지 않았어요.",
-      "promptDe": "Ich hatte vorher nach dem Weg zur Toilette gefragt und stieß nachts nirgends an.",
-      "promptEn": "I had asked in advance about the way to the bathroom, so I did not bump into anything at night.",
+      "targetKo": "가족들이 깰까 봐 발소리를 죽이고 걸었어요.",
+      "promptDe": "Weil ich Angst hatte, die Familie zu wecken, bin ich mit gedämpften Schritten gegangen.",
+      "promptEn": "Worried I might wake the family, I walked while muffling my footsteps.",
       "distractors": [
         "벌었어요",
         "범위만"
       ],
-      "vocabKo": "새벽 화장실"
+      "vocabKo": "발소리를 죽이다"
     },
     {
       "id": "satz_b1_0135",
@@ -8432,14 +8432,14 @@
     {
       "id": "satz_b1_0136",
       "level": "b1",
-      "targetKo": "아침 이부자리를 치우니 공간이 바로 거실이 됐어요.",
-      "promptDe": "Als das Bettzeug weggeräumt war, war der Raum wieder ein Wohnzimmer.",
-      "promptEn": "Once the bedding was put away, the room was a living room again.",
+      "targetKo": "이 방은 낮에는 거실로 쓰고, 밤에는 침실로 써요.",
+      "promptDe": "Dieses Zimmer wird tagsüber als Wohnzimmer und nachts als Schlafzimmer genutzt.",
+      "promptEn": "This room is used as the living room during the day and as the bedroom at night.",
       "distractors": [
         "나가기",
         "나누는"
       ],
-      "vocabKo": "아침 이부자리"
+      "vocabKo": "다용도 공간"
     },
     {
       "id": "satz_b1_0137",
@@ -8948,14 +8948,14 @@
     {
       "id": "satz_b2_0159",
       "level": "b2",
-      "targetKo": "사위 대접이 과해서 자리가 오히려 불편했어요.",
-      "promptDe": "Die Schwiegersohnbehandlung war so fürsorglich, dass der Platz unbequem wurde.",
-      "promptEn": "The son-in-law treatment was so extra that the seat felt awkward.",
+      "targetKo": "장모님이 너무 잘 챙겨주셔서 오히려 조금 부담스러웠어요.",
+      "promptDe": "Meine Schwiegermutter hat sich so gut um mich gekümmert, dass es mir fast schon unangenehm war.",
+      "promptEn": "My mother-in-law took such good care of me that it started to feel like a bit too much.",
       "distractors": [
         "숫자를",
         "쉬셨어요"
       ],
-      "vocabKo": "사위 대접"
+      "vocabKo": "사위 사랑"
     },
     {
       "id": "satz_b2_0160",
@@ -9032,14 +9032,14 @@
     {
       "id": "satz_b2_0166",
       "level": "b2",
-      "targetKo": "양가 공평은 시간보다 성의로 보여 주려 했어요.",
-      "promptDe": "Fairness zwischen den Häusern wollte ich eher durch Sorgfalt als durch Stunden zeigen.",
-      "promptEn": "I tried to show fairness between houses through care more than hours.",
+      "targetKo": "명절에는 양쪽 부모님께 똑같이 용돈을 챙겨 드렸어요.",
+      "promptDe": "An den Feiertagen habe ich beiden Elternpaaren gleichermaßen Taschengeld gegeben.",
+      "promptEn": "During the holidays, I gave both sets of parents the same amount of pocket money.",
       "distractors": [
         "시어머니",
         "시월드는"
       ],
-      "vocabKo": "양가 공평"
+      "vocabKo": "양가 부모님 챙기기"
     },
     {
       "id": "satz_b2_0167",
@@ -9080,14 +9080,14 @@
     {
       "id": "satz_b2_0170",
       "level": "b2",
-      "targetKo": "지참금 농담이 나와서 현우가 바로 화제를 접었어요.",
-      "promptDe": "Ein Mitgiftwitz kam, und Hyunwoo beendete das Thema sofort.",
-      "promptEn": "A dowry joke appeared, and Hyunwoo closed the topic at once.",
+      "targetKo": "결혼 준비 비용 이야기가 나와서 남편이 재빨리 화제를 돌렸어요.",
+      "promptDe": "Als das Thema Hochzeitsvorbereitungskosten aufkam, hat mein Mann schnell das Gespräch gewechselt.",
+      "promptEn": "When the topic of wedding preparation costs came up, my husband quickly changed the subject.",
       "distractors": [
         "넘겼어요",
         "넘기지"
       ],
-      "vocabKo": "지참금 농담"
+      "vocabKo": "결혼 준비 비용"
     },
     {
       "id": "satz_b2_0171",
@@ -9104,14 +9104,14 @@
     {
       "id": "satz_b2_0172",
       "level": "b2",
-      "targetKo": "양가 회의 안건을 세 줄로 줄여 갔어요.",
-      "promptDe": "Die Sitzung beider Familien kürzte ich auf drei Punkte.",
-      "promptEn": "I cut the both-families meeting agenda to three lines.",
+      "targetKo": "이번 명절에 양쪽 부모님 댁을 언제 방문할지 남편과 일정을 조율했어요.",
+      "promptDe": "Für dieses Fest habe ich mit meinem Mann abgestimmt, wann wir zu welchen Eltern gehen.",
+      "promptEn": "For this holiday, my husband and I worked out the schedule for when to visit each side of the family.",
       "distractors": [
         "아버지가",
         "아이"
       ],
-      "vocabKo": "양가 회의"
+      "vocabKo": "명절 일정 조율"
     },
     {
       "id": "satz_b2_0173",
@@ -9200,14 +9200,14 @@
     {
       "id": "satz_b2_0180",
       "level": "b2",
-      "targetKo": "호칭 체계를 표로 그리니 실수가 줄었어요.",
-      "promptDe": "Das Anredesystem als Tabelle zu zeichnen verringerte Fehler.",
-      "promptEn": "Drawing the address-term system as a table reduced slips.",
+      "targetKo": "한국은 시댁 식구들 호칭이 너무 복잡해서 따로 메모장에 적어뒀어요.",
+      "promptDe": "In Korea sind die Anredeformen für die Familie meines Mannes so kompliziert, dass ich sie mir extra in einem Notizheft aufgeschrieben habe.",
+      "promptEn": "In Korea, the address terms for my husband's family are so complicated that I wrote them down separately in a notebook.",
       "distractors": [
         "짧은",
         "쪽에"
       ],
-      "vocabKo": "호칭 체계"
+      "vocabKo": "가족 호칭"
     },
     {
       "id": "satz_b2_0181",
@@ -9248,14 +9248,14 @@
     {
       "id": "satz_b2_0184",
       "level": "b2",
-      "targetKo": "호칭 정정은 작게, 그리고 바로 했어요.",
-      "promptDe": "Die Anredekorektur machte ich leise und sofort.",
-      "promptEn": "I made the address-term correction quietly and at once.",
+      "targetKo": "가족들 호칭을 틀릴 때마다 남편이 바로 고쳐줬어요.",
+      "promptDe": "Jedes Mal, wenn ich die Anrede innerhalb der Familie falsch benutzte, hat mein Mann sie sofort richtiggestellt.",
+      "promptEn": "Every time I got a family address term wrong, my husband corrected it right away.",
       "distractors": [
         "지참금",
         "지키니"
       ],
-      "vocabKo": "호칭 정정"
+      "vocabKo": "호칭을 바로잡다"
     },
     {
       "id": "satz_b2_0185",
@@ -9296,14 +9296,14 @@
     {
       "id": "satz_b2_0188",
       "level": "b2",
-      "targetKo": "잘못된 형이라고 부르는 순간 현우 얼굴이 멈췄어요.",
-      "promptDe": "Im Moment des falschen hyeong blieb Hyunwoos Gesicht stehen.",
-      "promptEn": "The moment I used the wrong hyeong, Hyunwoo's face froze.",
+      "targetKo": "아주버님을 무심코 '형'이라고 불렀다가 분위기가 어색해졌어요.",
+      "promptDe": "Ich habe meinen Schwager aus Versehen Hyung genannt, und die Stimmung wurde für einen Moment unangenehm.",
+      "promptEn": "I accidentally called my husband's older brother hyung, and the mood turned a bit awkward.",
       "distractors": [
         "했어요",
         "허리가"
       ],
-      "vocabKo": "잘못된 형"
+      "vocabKo": "호칭을 잘못 부르다"
     },
     {
       "id": "satz_b2_0189",
@@ -9428,14 +9428,14 @@
     {
       "id": "satz_b2_0199",
       "level": "b2",
-      "targetKo": "제사 역할이 없으면 조용히 서는 게 도움이었어요.",
-      "promptDe": "Ohne Ritualaufgabe half ruhiges Stehen.",
-      "promptEn": "With no rite role, standing quietly helped.",
+      "targetKo": "명절 음식을 준비할 때, 제가 먼저 할 수 있는 일을 찾아서 도왔어요.",
+      "promptDe": "Bei der Vorbereitung des Feiertagsessens habe ich mir selbst eine Aufgabe gesucht, die ich zuerst übernehmen konnte, und mitgeholfen.",
+      "promptEn": "When it was time to prepare the holiday food, I looked for something I could do first and pitched in.",
       "distractors": [
         "조상님께",
         "존중한다고"
       ],
-      "vocabKo": "제사 역할"
+      "vocabKo": "명절 음식 준비"
     },
     {
       "id": "satz_b2_0200",
@@ -9464,14 +9464,14 @@
     {
       "id": "satz_b2_0202",
       "level": "b2",
-      "targetKo": "제사 음식 배치를 건드리지 말라고 눈짓하셨어요.",
-      "promptDe": "Die Anordnung der Ritualspeisen nicht zu berühren zeigte ein Blick.",
-      "promptEn": "A look said not to touch the arrangement of rite food.",
+      "targetKo": "오랜만에 시댁 식구들이 다 같이 모여서 식사를 했어요.",
+      "promptDe": "Nach langer Zeit ist die ganze Familie meines Mannes zusammengekommen, und wir haben gemeinsam gegessen.",
+      "promptEn": "After a long time, my husband's whole family got together and we all had a meal.",
       "distractors": [
         "명절",
         "명절에"
       ],
-      "vocabKo": "제사 음식 배치"
+      "vocabKo": "가족 모임"
     },
     {
       "id": "satz_b2_0203",
