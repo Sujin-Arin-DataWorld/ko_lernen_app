@@ -94,7 +94,7 @@ EOF
 
 **왜 `today` 필드를 아예 안 읽는가:** `SoriStageRewardReceiptService.compare()`(`lib/services/sori_stage_reward_receipt_service.dart:40-123`)는 `before.today`/`after.today`/`todayReward` 를 단 한 번도 참조하지 않는다 — xp·stampCount·quests·hanok.unlocked.length·pendingBojagiCount·gameBests·gyeLanternCount 만 비교한다. 기존 `capture()`(:15-38)의 `before = await loadSnapshot()` 가 매번 `TodayLearningSnapshotLoader.load()`(`ScenarioLoader.load()` 전체 6샤드 + `CurriculumCatalog.load()` + `ReviewDeckService.allReviewable()` + 네트워크 연결성 체크를 포함)까지 기다린 뒤에야 `openActivity()`(라우트 push)가 실행됐다 — 이것이 마스터 플랜이 진단한 "6.6MB JSON/CSV 파싱" 지연의 실체다. 새 설계는 이 미사용 필드를 아예 계산하지 않는다.
 
-- [ ] **Step 1: 실패하는 테스트부터 — 기존 `capture()` 테스트 2건을 새 시그니처로 재작성 + Completer 레이스 테스트 추가.** `test/sori_stage_reward_receipt_service_test.dart` 의 120-146번 줄(기존 두 `capture` 테스트)을 아래로 교체하고, 파일 상단 import 에 `dart:async` 를 추가한다:
+- [ ] **Step 1: 실패하는 테스트부터 — 기존 `capture()` 테스트 2건을 새 시그니처로 재작성 + Completer 레이스 테스트 추가.** `test/sori_stage_reward_receipt_service_test.dart` 의 121-146번 줄(기존 두 `capture` 테스트)을 아래로 교체하고, 파일 상단 import 에 `dart:async` 를 추가한다:
 
 ```dart
 import 'dart:async';
@@ -1550,7 +1550,7 @@ EOF
       // 보장 못 한다). 리터럴 세미콜론 문장을 통째로 찾지 않아 병렬화
       // 리팩터에도 안전하다.
       final awaited = RegExp(
-        r'await\s+(?:Future\.wait\(\s*\[[\s\S]*?' +
+        r'await\s+(?:Future\.wait(?:<[\s\S]*?>)?\(\s*\[[\s\S]*?' +
             RegExp.escape(call) +
             r'|' +
             RegExp.escape(call) +
@@ -1594,7 +1594,7 @@ EOF
       );
 
       final awaited = RegExp(
-        r'await\s+(?:Future\.wait\(\s*\[[\s\S]*?' +
+        r'await\s+(?:Future\.wait(?:<[\s\S]*?>)?\(\s*\[[\s\S]*?' +
             RegExp.escape(call) +
             r'|' +
             RegExp.escape(call) +
@@ -1613,7 +1613,7 @@ EOF
   );
 ```
 
-- [ ] **Step 4: 재작성 후에도 GREEN 확인(리팩터 전 코드 기준)** — `flutter test test/scene_asset_resolver_test.dart test/dancheong_burst_preload_contract_test.dart`. 현재 `lib/main.dart` 는 아직 `await SceneAssetResolver.load();`/`await DancheongBurst.preload();` 단독 문장 그대로이므로, 새 정규식도 이 형태를 `await X()` 케이스로 매치해 여전히 통과해야 한다.
+- [ ] **Step 4: 재작성 후에도 GREEN 확인(리팩터 전 코드 기준)** — `flutter test test/scene_asset_resolver_test.dart test/dancheong_burst_preload_contract_test.dart`. 현재 `lib/main.dart` 는 아직 `await SceneAssetResolver.load();`/`await DancheongBurst.preload();` 단독 문장 그대로이므로, 새 정규식도 이 형태를 `await X()` 케이스로 매치해 여전히 통과해야 한다. `Future\.wait(?:<[\s\S]*?>)?\(` 부분은 `Future.wait<void>(`(Task 9가 실제로 쓰는 제네릭 표기)와 `Future.wait(`(제네릭 없는 표기) 둘 다 매치한다는 점을 이 정규식을 눈으로 다시 읽어 확인한다 — `<[\s\S]*?>` 가 옵셔널(`?`)이라 제네릭이 없어도, `<void>`가 있어도 매치된다.
 
 - [ ] **Step 5: `flutter analyze` 0** 확인.
 
@@ -1677,7 +1677,7 @@ EOF
   ]);
 ```
 
-- [ ] **Step 3: GREEN 확인** — `flutter test test/scene_asset_resolver_test.dart test/dancheong_burst_preload_contract_test.dart`
+- [ ] **Step 3: GREEN 확인** — `flutter test test/scene_asset_resolver_test.dart test/dancheong_burst_preload_contract_test.dart`. 이 GREEN 은 Task 8에서 재작성한 `awaited` 정규식이 여기서 실제로 쓴 `await Future.wait<void>([...])`(제네릭 인자 `<void>` 포함)와 매치하기 때문이다 — 두 테스트 파일의 정규식은 `Future\.wait(?:<[\s\S]*?>)?\(` 형태라 `Future.wait<void>(` 와 `Future.wait(` 둘 다 매치함을 확인했다.
 
 - [ ] **Step 4: 전체 스모크** — `flutter test test/main_test.dart` 또는 `grep -rl "launchKoLernenApp\|_startProductionApplication" test/` 로 관련 테스트를 찾아 실행. main.dart 관련 다른 테스트(예: UX 프리뷰 게이트)가 있으면 함께 확인.
 
@@ -1900,5 +1900,5 @@ EOF
 - **스펙 정정 1건(투명 기록):** 마스터 플랜 "P4-④ silben_kreuz_screen `_cellAspectRatio`" 는 실제로는 `sori_stage_catalog_screen.dart` 에만 존재(전수 grep 확인) — Task 5에 정정 사유를 명시하고 실제 위치로 대상을 바꿨다.
 - **플레이스홀더 스캔:** "TBD"는 `docs/data/coldstart_benchmark.md`(Task 1) 표 안에만 있고 — 이는 실기기 접근이 없는 이 세션이 채울 수 없는 실측값이라고 명시적으로 문서화한 것이지, 코드/테스트 스텝의 미완성이 아니다. 코드·테스트 스텝은 전부 실행 가능한 실제 코드를 포함한다.
 - **시그니처 일관성:** `SoriStageLocalBeforeFields`/`SoriStageNetworkBeforeFields`(Task 2 정의) → `SoriStageProgressionService.captureLocalBeforeFields`/`loadNetworkBeforeFields`(같은 Task, 같은 타입 사용) → `SoriStageRewardReceiptService.capture()` 옵션널 파라미터(같은 Task, 같은 타입) 까지 동일 이름·타입으로 통일 확인. `ScenarioLoader._parseShard`(Task 7)의 반환 타입 `(List<Scenario>, int)` 이 `load()`/`loadLevel()` 양쪽 호출부와 일치. `SplashGate.ready`/`markReady()`(Task 6)가 `SplashScreen` 의 `readyGate` 훅과 `main.dart` 배선 양쪽에서 같은 이름으로 쓰임.
-- **실행 순서:** Task 1(계측 문서, 독립) → Task 2/3/4/5/6(P4, 파일 교집합 없음 — 병렬 가능) → Task 7(P5, 독립) → Task 8(가드 재작성, **Task 9보다 반드시 먼저**) → Task 9(병렬화, Task 8 의존) → Task 10(P5 Android, 독립, PIL 확인됨 v11.3.0). Task 8→9 순서를 어기면 Task 9 커밋 시 두 계약 테스트가 실패한다.
+- **실행 순서:** Task 1(계측 문서, 독립) → Task 2/4/6 병렬 가능; Task 3→5 는 같은 파일이므로 순차 필수(Task 3 커밋 후 Task 5 착수, Task 5 의 줄 번호 주석은 Task 3 적용 후 재확인) → Task 7(P5, 독립) → Task 8(가드 재작성, **Task 9보다 반드시 먼저**) → Task 9(병렬화, Task 8 의존) → Task 10(P5 Android, 독립, PIL 확인됨 v11.3.0). Task 8→9 순서를 어기면 Task 9 커밋 시 두 계약 테스트가 실패한다.
 - **계약 무변경 확인:** `learn_session_queue`/`course_mastery`/`audio_policy_guard`/`typography_guard`/`arb_l10n_guard` 대상 파일(각각 `lib/services/learn_session_queue.dart`, `lib/services/course_mastery_service.dart`, 오디오/타이포/l10n 관련 파일) 중 이 웨이브가 수정하는 파일과 교집합 없음 — 이 플랜이 만지는 파일은 `sori_stage_*`, `storage_service.dart`(scenarioStars/completedScenarios 만), `scenario_loader.dart`, `scenario_player_screen.dart`/`scenarios_list_screen.dart`(open 경로만), `splash_screen.dart`/`splash_gate.dart`, `main.dart`(pre-runApp 구간만), Android `styles.xml`/`pubspec.yaml`(스플래시 설정만) 뿐이다.
