@@ -31,7 +31,7 @@ class SoriStageCatalogScreen extends StatefulWidget {
 }
 
 class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
-  Future<SoriStageProgressionSnapshot>? _progress;
+  late Future<SoriStageProgressionSnapshot> _progress;
 
   Future<SoriStageProgressionSnapshot> _load() =>
       (widget.loadSnapshot ?? SoriStageProgressionService.load)();
@@ -39,9 +39,7 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
   @override
   void initState() {
     super.initState();
-    if (widget.active) {
-      _progress = _load();
-    }
+    _progress = _load();
   }
 
   @override
