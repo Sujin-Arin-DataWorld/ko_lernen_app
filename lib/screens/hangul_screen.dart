@@ -14,8 +14,7 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/dialog.dart';
-import '../services/content_share_service.dart';
-import '../widgets/sori/toast.dart';
+import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/responsive.dart';
@@ -810,14 +809,11 @@ class _CardsTabState extends State<_CardsTab> {
 
   Future<void> _shareCurrent() async {
     final c = _pool[_idx % _pool.length];
-    final t = AppL10n.of(context);
-    final outcome = await ContentShareService.shareStory(
+    await shareContentStoryWithRecovery(
+      context: context,
       korean: c.letter,
       gloss: c.romanization,
     );
-    if (outcome == ShareOutcome.failed && mounted) {
-      soriToast(context, t.shareError);
-    }
   }
 
   void _setMode(int m) {

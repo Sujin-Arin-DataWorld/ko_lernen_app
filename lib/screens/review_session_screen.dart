@@ -20,8 +20,7 @@ import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
-import '../services/content_share_service.dart';
-import '../widgets/sori/toast.dart';
+import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
@@ -206,15 +205,12 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     if (_loading || _done || _deck.isEmpty) {
       return;
     }
-    final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    final outcome = await ContentShareService.shareStory(
+    await shareContentStoryWithRecovery(
+      context: context,
       korean: _card.korean,
       gloss: _card.translationFor(lang),
     );
-    if (outcome == ShareOutcome.failed && mounted) {
-      soriToast(context, t.shareError);
-    }
   }
 
   /// ↓ 스킵 (§P2-2) — 현재 카드를 덱 맨 뒤로 + 앞면 리셋. SRS 기록 없음.

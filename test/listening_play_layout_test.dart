@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/listening_play_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 const _firstKo = '오늘 저녁에 친구들이랑 홍대에서 만나서 노래해요';
@@ -57,6 +58,21 @@ Widget _app(Widget home, {double textScale = 1}) => MaterialApp(
   ),
   home: home,
 );
+
+Future<void> _pumpUntil(WidgetTester tester, bool Function() condition) async {
+  for (var attempt = 0; attempt < 30; attempt++) {
+    if (condition()) {
+      return;
+    }
+    await tester.runAsync(() => Future<void>.delayed(Duration.zero));
+    await tester.pump(const Duration(milliseconds: 10));
+  }
+  expect(
+    condition(),
+    isTrue,
+    reason: 'Expected async UI state did not settle.',
+  );
+}
 
 void main() {
   setUp(() async {
@@ -142,6 +158,66 @@ void main() {
     expect(find.text(t.listeningRetry), findsOneWidget);
   });
 
+  testWidgets('current bubble alone has blue and gold outlines', (
+    tester,
+  ) async {
+    final pending = <Completer<bool>>[];
+    await tester.pumpWidget(
+      _app(
+        ListeningPlayScreen(
+          scenario: _scenario(),
+          speechPlayer: (text, {required voice}) {
+            final completer = Completer<bool>();
+            pending.add(completer);
+            return completer.future;
+          },
+          stopPlayer: () async {},
+        ),
+      ),
+    );
+    await tester.pump();
+    final t = AppL10n.of(tester.element(find.byType(ListeningPlayScreen)));
+
+    await tester.tap(find.text(t.listeningDialogueStart));
+    await tester.pump();
+
+    Set<Color> borderColors(String text) => tester
+        .widgetList<Container>(
+          find.ancestor(of: find.text(text), matching: find.byType(Container)),
+        )
+        .map((container) => container.decoration)
+        .whereType<BoxDecoration>()
+        .map((decoration) => decoration.border)
+        .whereType<Border>()
+        .map((border) => border.top.color)
+        .toSet();
+
+    expect(
+      borderColors(_firstKo),
+      containsAll({
+        SoriColors.listeningCurrentOutline,
+        SoriColors.listeningCurrentInnerOutline,
+      }),
+    );
+
+    pending.first.complete(true);
+    await tester.pump();
+    expect(
+      borderColors(_firstKo),
+      isNot(contains(SoriColors.listeningCurrentOutline)),
+    );
+    expect(
+      borderColors(_secondKo),
+      containsAll({
+        SoriColors.listeningCurrentOutline,
+        SoriColors.listeningCurrentInnerOutline,
+      }),
+    );
+
+    pending.last.complete(false);
+    await tester.pump();
+  });
+
   testWidgets('completion grants once and review exposes every line', (
     tester,
   ) async {
@@ -161,6 +237,10 @@ void main() {
     await tester.tap(find.text(t.listeningDialogueStart));
     await tester.pump();
     await tester.pump();
+    await _pumpUntil(
+      tester,
+      () => Storage.completedScenarios.contains('play_layout'),
+    );
 
     expect(find.text(t.listeningCompleteTitle), findsOneWidget);
     expect(Storage.completedScenarios, contains('play_layout'));
@@ -175,5 +255,62 @@ void main() {
     await tester.pump();
     expect(Storage.xp, 40);
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('screen re-entry completes without granting XP again', (
+    tester,
+  ) async {
+    Future<void> finish() async {
+      await tester.ensureVisible(find.text('Dialog anhören'));
+      await tester.tap(find.text('Dialog anhören'));
+      await tester.pump();
+      await tester.pump();
+      await _pumpUntil(
+        tester,
+        () => find.text('Geschafft!').evaluate().isNotEmpty,
+      );
+    }
+
+    await tester.pumpWidget(
+      _app(
+        ListeningPlayScreen(
+          scenario: _scenario(),
+          speechPlayer: (text, {required voice}) async => true,
+          stopPlayer: () async {},
+        ),
+      ),
+    );
+    await tester.pump();
+    await finish();
+    await _pumpUntil(tester, () => Storage.xp == 40);
+    expect(Storage.xp, 40);
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await tester.pump();
+    await tester.pumpWidget(
+      _app(
+        ListeningPlayScreen(
+          scenario: _scenario(),
+          speechPlayer: (text, {required voice}) async => true,
+          stopPlayer: () async {},
+        ),
+      ),
+    );
+    await tester.pump();
+    final t = AppL10n.of(tester.element(find.byType(ListeningPlayScreen)));
+    await finish();
+    await _pumpUntil(
+      tester,
+      () => find
+          .text(t.listeningCompleteReplayBody(_scenario().dialog.length))
+          .evaluate()
+          .isNotEmpty,
+    );
+
+    expect(Storage.xp, 40);
+    expect(
+      find.text(t.listeningCompleteReplayBody(_scenario().dialog.length)),
+      findsOneWidget,
+    );
   });
 }

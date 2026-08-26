@@ -557,6 +557,10 @@ void main() {
         await tester.pump();
         await tester.pump();
         await _pumpUntilVisible(tester, find.text(l10n.listeningReviewCta));
+        await _pumpUntilCondition(
+          tester,
+          () => Storage.completedScenarios.contains(_listeningScenario.id),
+        );
 
         expect(find.byType(SoriContentFeed), findsNothing);
         expect(find.text(l10n.listeningCompleteTitle), findsOneWidget);
@@ -642,6 +646,21 @@ Future<void> _pumpUntilVisible(
     if (finder.evaluate().isNotEmpty) return;
     await tester.pump(const Duration(milliseconds: 100));
   }
+}
+
+Future<void> _pumpUntilCondition(
+  WidgetTester tester,
+  bool Function() condition, {
+  int attempts = 40,
+}) async {
+  for (var attempt = 0; attempt < attempts; attempt++) {
+    if (condition()) {
+      return;
+    }
+    await tester.runAsync(() => Future<void>.delayed(Duration.zero));
+    await tester.pump(const Duration(milliseconds: 100));
+  }
+  expect(condition(), isTrue, reason: 'Expected async state did not settle.');
 }
 
 Widget _host({

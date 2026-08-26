@@ -104,6 +104,7 @@ abstract final class DataMigrationService {
     'kl_course_mastery_v1',
     'kl_onboarding_completed',
     'kl_xp',
+    Storage.listeningRewardLedgerPreferenceKey,
   ];
 
   static DataMigrationResult? _lastResult;

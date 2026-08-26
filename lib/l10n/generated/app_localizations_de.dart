@@ -2038,6 +2038,30 @@ class AppL10nDe extends AppL10n {
   String get contentActionBookmark => 'Merken';
 
   @override
+  String contentShareBody(String korean, String gloss) {
+    return '$korean\n$gloss\nhangul-sori.com';
+  }
+
+  @override
+  String get contentShareFailedTitle => 'Das Bild konnte nicht geteilt werden';
+
+  @override
+  String get contentShareFailedBody =>
+      'Versuche es erneut oder kopiere stattdessen den Text.';
+
+  @override
+  String get contentShareRetry => 'Erneut versuchen';
+
+  @override
+  String get contentShareCopyText => 'Text kopieren';
+
+  @override
+  String get contentShareCopied => 'Text kopiert';
+
+  @override
+  String get contentShareCopyFailed => 'Der Text konnte nicht kopiert werden.';
+
+  @override
   String get deckFlipFirstHint => 'Erst antippen und umdrehen';
 
   @override
@@ -3242,6 +3266,17 @@ class AppL10nDe extends AppL10n {
   @override
   String listeningCompleteBody(int n, int xp) {
     return '$n Zeilen gehört · +$xp XP';
+  }
+
+  @override
+  String listeningCompleteReplayBody(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Zeilen gehört · Belohnung bereits erhalten',
+      one: '1 Zeile gehört · Belohnung bereits erhalten',
+    );
+    return '$_temp0';
   }
 
   @override

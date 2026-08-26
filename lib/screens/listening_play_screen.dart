@@ -8,7 +8,6 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
 import '../models/scenario.dart';
 import '../services/analytics_service.dart';
-import '../services/content_share_service.dart';
 import '../services/liked_content_service.dart';
 import '../services/quest_abandon_tracker.dart';
 import '../services/scenario_loader.dart';
@@ -19,11 +18,11 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/content_share_recovery.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
-import '../widgets/sori/toast.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/tts_speed_control.dart';
 import '../widgets/sori/wordbook_add.dart';
@@ -65,6 +64,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   final ScrollController _scrollController = ScrollController();
   QuestAbandonTracker? _abandonTracker;
   bool _completionPersisted = false;
+  int _completionXp = 0;
   final GlobalKey _speedKey = GlobalKey();
   final GlobalKey _conversationKey = GlobalKey();
 
@@ -176,8 +176,13 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
     final earned = (_scenario.dialog.length * 8).clamp(40, 120);
     final completion = await _feedbackCompletion.finish(
       persistXp: () async {
-        await Storage.addXp(earned);
-        await Storage.addCompletedScenario(_scenario.id);
+        final claim = await Storage.claimListeningCompletionReward(
+          scenarioId: _scenario.id,
+          earnedXp: earned,
+        );
+        _completionXp = claim == ListeningRewardClaimResult.awarded
+            ? earned
+            : 0;
       },
       create: () => FeedbackCompletion.listening(
         scenarioId: _scenario.id,
@@ -206,16 +211,13 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   }
 
   Future<void> _shareLine(int index) async {
-    final t = AppL10n.of(context);
     final line = _scenario.dialog[index];
     final lang = Localizations.localeOf(context).languageCode;
-    final outcome = await ContentShareService.shareStory(
+    await shareContentStoryWithRecovery(
+      context: context,
       korean: line.ko,
       gloss: line.pick(lang),
     );
-    if (outcome == ShareOutcome.failed && mounted) {
-      soriToast(context, t.shareError);
-    }
   }
 
   Future<void> _openNextStory() async {
@@ -425,7 +427,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
   Widget _buildComplete(AppL10n t) {
     final surfaces = SoriSurfaces.of(context);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
-    final xp = (_scenario.dialog.length * 8).clamp(40, 120);
+    final xp = _completionXp;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -445,12 +447,14 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
           ),
           const SizedBox(height: Spacing.sm),
           Text(
-            t.listeningCompleteBody(_scenario.dialog.length, xp),
+            xp > 0
+                ? t.listeningCompleteBody(_scenario.dialog.length, xp)
+                : t.listeningCompleteReplayBody(_scenario.dialog.length),
             textAlign: TextAlign.center,
             style: SoriTextTheme.of(context).body,
           ),
           const SizedBox(height: Spacing.md),
-          SoriBadge.xp(xp, size: 28),
+          if (xp > 0) SoriBadge.xp(xp, size: 28),
           if (feedbackScope != null &&
               feedbackScope.featureGate.isEnabled &&
               _feedbackCompletion.current != null) ...[
@@ -586,114 +590,131 @@ class _DialogueBubble extends StatelessWidget {
     final narrator = line.speaker == 'narrator';
     final user = line.speaker == 'user';
     final surfaces = SoriSurfaces.of(context);
-    final borderColor = current ? SoriColors.contentCta : surfaces.border;
+    final bubbleRadius = BorderRadius.circular(narrator ? 12 : 20);
+    final bubbleSurface = Container(
+      constraints: BoxConstraints(
+        maxWidth: narrator
+            ? MediaQuery.sizeOf(context).width * 0.84
+            : MediaQuery.sizeOf(context).width * 0.78,
+      ),
+      padding: const EdgeInsets.all(Spacing.md),
+      decoration: BoxDecoration(
+        color: narrator ? surfaces.surfaceAlt : surfaces.surface,
+        borderRadius: bubbleRadius,
+        border: Border.all(
+          color: current
+              ? SoriColors.listeningCurrentInnerOutline
+              : surfaces.border,
+          width: current ? 1.5 : 1,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: narrator
+            ? CrossAxisAlignment.center
+            : CrossAxisAlignment.start,
+        children: [
+          if (!narrator)
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                _NeutralAvatar(name: speakerName),
+                const SizedBox(width: Spacing.xs),
+                Flexible(
+                  child: Text(
+                    speakerName,
+                    style: SoriTextTheme.of(
+                      context,
+                    ).meta.copyWith(color: SoriColors.contentCta),
+                  ),
+                ),
+              ],
+            )
+          else
+            Text(
+              speakerName,
+              style: SoriTextTheme.of(
+                context,
+              ).meta.copyWith(color: surfaces.textMuted),
+            ),
+          const SizedBox(height: Spacing.xs),
+          Text(
+            line.ko,
+            textAlign: narrator ? TextAlign.center : TextAlign.start,
+            style: SoriTextTheme.of(
+              context,
+            ).koDisplay.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+          ),
+          if (translationExpanded && gloss.isNotEmpty && gloss != line.ko) ...[
+            const SizedBox(height: Spacing.sm),
+            Text(gloss, style: SoriTextTheme.of(context).gloss),
+          ],
+          const SizedBox(height: Spacing.xs),
+          Wrap(
+            spacing: Spacing.xs,
+            runSpacing: Spacing.xs,
+            children: [
+              TextButton.icon(
+                onPressed: onReplay,
+                icon: const Icon(Icons.volume_up_outlined),
+                label: Text(replayLabel),
+              ),
+              TextButton.icon(
+                onPressed: onTranslation,
+                icon: Icon(
+                  translationExpanded
+                      ? Icons.translate_rounded
+                      : Icons.translate_outlined,
+                ),
+                label: Text(
+                  translationExpanded
+                      ? hideTranslationLabel
+                      : showTranslationLabel,
+                ),
+              ),
+              if (review)
+                IconButton(
+                  tooltip: likeLabel,
+                  onPressed: onLike,
+                  icon: Icon(liked ? Icons.favorite : Icons.favorite_border),
+                ),
+              if (review && line.ko.isNotEmpty)
+                AddToWordbookButton(
+                  korean: line.ko,
+                  translationDe: line.de,
+                  translationEn: line.en,
+                  translationLanguage: translationLanguage,
+                  compact: true,
+                  coachEnabled: false,
+                ),
+              if (review)
+                IconButton(
+                  tooltip: shareLabel,
+                  onPressed: onShare,
+                  icon: const Icon(Icons.share_outlined),
+                ),
+            ],
+          ),
+        ],
+      ),
+    );
+    final framedBubble = current
+        ? Container(
+            padding: const EdgeInsets.all(2),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(narrator ? 14 : 22),
+              border: Border.all(
+                color: SoriColors.listeningCurrentOutline,
+                width: 2,
+              ),
+            ),
+            child: bubbleSurface,
+          )
+        : bubbleSurface;
     final bubble = Semantics(
       container: true,
       liveRegion: current,
       label: '$speakerName: ${line.ko}',
-      child: Container(
-        constraints: BoxConstraints(
-          maxWidth: narrator
-              ? MediaQuery.sizeOf(context).width * 0.84
-              : MediaQuery.sizeOf(context).width * 0.78,
-        ),
-        padding: const EdgeInsets.all(Spacing.md),
-        decoration: BoxDecoration(
-          color: narrator ? surfaces.surfaceAlt : surfaces.surface,
-          borderRadius: BorderRadius.circular(narrator ? 12 : 20),
-          border: Border.all(color: borderColor, width: current ? 2 : 1),
-        ),
-        child: Column(
-          crossAxisAlignment: narrator
-              ? CrossAxisAlignment.center
-              : CrossAxisAlignment.start,
-          children: [
-            if (!narrator)
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _NeutralAvatar(name: speakerName),
-                  const SizedBox(width: Spacing.xs),
-                  Flexible(
-                    child: Text(
-                      speakerName,
-                      style: SoriTextTheme.of(
-                        context,
-                      ).meta.copyWith(color: SoriColors.contentCta),
-                    ),
-                  ),
-                ],
-              )
-            else
-              Text(
-                speakerName,
-                style: SoriTextTheme.of(
-                  context,
-                ).meta.copyWith(color: surfaces.textMuted),
-              ),
-            const SizedBox(height: Spacing.xs),
-            Text(
-              line.ko,
-              textAlign: narrator ? TextAlign.center : TextAlign.start,
-              style: SoriTextTheme.of(
-                context,
-              ).koDisplay.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
-            ),
-            if (translationExpanded &&
-                gloss.isNotEmpty &&
-                gloss != line.ko) ...[
-              const SizedBox(height: Spacing.sm),
-              Text(gloss, style: SoriTextTheme.of(context).gloss),
-            ],
-            const SizedBox(height: Spacing.xs),
-            Wrap(
-              spacing: Spacing.xs,
-              runSpacing: Spacing.xs,
-              children: [
-                TextButton.icon(
-                  onPressed: onReplay,
-                  icon: const Icon(Icons.volume_up_outlined),
-                  label: Text(replayLabel),
-                ),
-                TextButton.icon(
-                  onPressed: onTranslation,
-                  icon: Icon(
-                    translationExpanded
-                        ? Icons.translate_rounded
-                        : Icons.translate_outlined,
-                  ),
-                  label: Text(
-                    translationExpanded
-                        ? hideTranslationLabel
-                        : showTranslationLabel,
-                  ),
-                ),
-                if (review)
-                  IconButton(
-                    tooltip: likeLabel,
-                    onPressed: onLike,
-                    icon: Icon(liked ? Icons.favorite : Icons.favorite_border),
-                  ),
-                if (review && line.ko.isNotEmpty)
-                  AddToWordbookButton(
-                    korean: line.ko,
-                    translationDe: line.de,
-                    translationEn: line.en,
-                    translationLanguage: translationLanguage,
-                    compact: true,
-                    coachEnabled: false,
-                  ),
-                if (review)
-                  IconButton(
-                    tooltip: shareLabel,
-                    onPressed: onShare,
-                    icon: const Icon(Icons.share_outlined),
-                  ),
-              ],
-            ),
-          ],
-        ),
-      ),
+      child: framedBubble,
     );
     return Padding(
       padding: const EdgeInsets.only(bottom: Spacing.md),
