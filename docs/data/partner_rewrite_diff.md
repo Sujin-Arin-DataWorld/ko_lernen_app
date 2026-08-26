@@ -5,11 +5,12 @@
 
 ## 표제어 교체 (63건)
 
-### 1. cloze_a1_0169 (a1)
+### 1. cloze_a1_0169 (a1) ✅ Jin 확정 적용 (2026-08-26) — 표제어는 초안과 동일(솔잎), 문장은 Jin이 새로 확정
 - 표제어: 송편 잎 → **솔잎** (Kiefernnadel / pine needle)
 - 문장: 송편 잎은 떼고 먹으라고 손짓하셨어요.
-  → **솔잎은 떼고 드시라고 손짓하셨어요.**
-- DE: Sie deuteten mit der Hand an, die Kiefernnadel abzuziehen, bevor ich esse. / EN: They gestured for me to pull off the pine needle before eating.
+  → **솔잎은 떼고 드시라고 손짓하셨어요.** — (구)초안, 미적용
+- DE: Sie deuteten mit der Hand an, die Kiefernnadel abzuziehen, bevor ich esse. / EN: They gestured for me to pull off the pine needle before eating. — (구)초안, 미적용
+- 최종 적용: 문장 "이건 잎을 떼고 먹어요." (표제어 솔잎이 문장에 안 보여 cloze 빈칸은 핵심어절 "잎"으로 처리)
 
 ### 2. cloze_a2_0110 (a2)
 - 표제어: 송편 점 → **소원을 빌다** (sich etwas wünschen beim Vollmond / making a wish)
@@ -65,17 +66,19 @@
   → **가족들이랑 여행갈 때는 동선을 잘 짜야 덜 피곤해요.**
 - DE: Ich hatte vorher nach dem Wegverlauf im Haus gefragt und stieß nachts nirgends an. / EN: I had asked about the house's layout in advance, so I didn't bump into anything at night.
 
-### 11. cloze_b1_0138_v2 (b1)
-- 표제어: 새벽 화장실 → ** ??? ** (die Schritte dämpfen / to tread quietly, to muffle one's footsteps)
+### 11. cloze_b1_0138_v2 (b1) ✅ Jin 확정 적용 (2026-08-26) — 실제 cloze_id는 cloze_b1_0138 (v1/v2는 이 초안 문서 안의 두 후보안 구분용, 실데이터엔 버전 분기 없음). 표제어는 v2 초안대로 **발소리를 죽이다** 로 확정, 문장은 Jin이 새로 확정
+- 표제어: 새벽 화장실 → **발소리를 죽이다** (die Schritte dämpfen / to tread quietly, to muffle one's footsteps)
 - 문장: 새벽 화장실 길을 미리 물어 발을 부딪치지 않았어요.
-  → **현우네 아빠가 현우한테 발소리 좀 ㅈ.**
-- DE: Ich bin beim leisen Auftreten fast gegen die Tür gestoßen. / EN: I almost bumped into the door while tiptoeing quietly.
+  → **현우네 아빠가 현우한테 발소리 좀 ㅈ.** — (구)초안(원본 문서 자체가 절단된 상태), 미적용
+- DE: Ich bin beim leisen Auftreten fast gegen die Tür gestoßen. / EN: I almost bumped into the door while tiptoeing quietly. — (구)초안, 미적용
+- 최종 적용: 문장 "가족들이 깰까 봐 발소리를 죽이고 걸었어요."
 
-### 12. cloze_b1_0140_v1 (b1)
+### 12. cloze_b1_0140_v1 (b1) ✅ Jin 확정 적용 (2026-08-26) — 실제 cloze_id는 cloze_b1_0140 (v1/v2는 이 초안 문서 안의 두 후보안 구분용). 표제어는 v1 초안대로 **다용도 공간** 으로 확정, 문장은 Jin이 새로 확정
 - 표제어: 아침 이부자리 → **다용도 공간** (Mehrzweckraum / multi-purpose space)
 - 문장: 아침 이부자리를 치우니 공간이 바로 거실이 됐어요.
-  → **다용도 공간이라더니, 정말 온갖 물건들이 다 있어서 구경하고 싶었어요**
-- DE: Das Zimmer war ein Mehrzweckraum, deshalb wurde es morgens schnell wieder zum Wohnzimmer. / EN: That room was a multi-purpose space, so it quickly turned back into a living room each morning.
+  → **다용도 공간이라더니, 정말 온갖 물건들이 다 있어서 구경하고 싶었어요** — (구)초안, 미적용
+- DE: Das Zimmer war ein Mehrzweckraum, deshalb wurde es morgens schnell wieder zum Wohnzimmer. / EN: That room was a multi-purpose space, so it quickly turned back into a living room each morning. — (구)초안, 미적용
+- 최종 적용: 문장 "이 방은 낮에는 거실로 쓰고, 밤에는 침실로 써요." (표제어가 문장에 안 보여 cloze 빈칸은 "이 방은"으로 처리)
 
 ### 13. cloze_b1_0140_v2 (b1)
 - 표제어: 아침 이부자리 → **잠버릇** (die Schlafgewohnheit / sleeping habit)
@@ -119,11 +122,12 @@
   → **며느리 노릇을 기대하는 게 불편해요.**
 - DE: Den Blick, der Schwiegertochter-Pflichten erwartete, las Hyunwoo zuerst. / EN: Hyunwoo was the first to notice the look that expected me to play the daughter-in-law role.
 
-### 20. cloze_b2_0173 (b2)
+### 20. cloze_b2_0173 (b2) ✅ Jin 확정 적용 (2026-08-26) — 표제어는 초안과 동일(사위 사랑), 문장은 Jin이 새로 확정
 - 표제어: 사위 대접 → **사위 사랑** (die Zuneigung zum Schwiegersohn / fondness for a son-in-law)
 - 문장: 사위 대접이 과해서 자리가 오히려 불편했어요.
-  → **사위 사랑은 장모래요! 우리 장모님 최고에요!**
-- DE: Weil die Zuneigung zum Schwiegersohn überschwänglich war, wurde der Platz eher unangenehm. / EN: Because the fondness for the son-in-law was overflowing, the seat felt awkward instead.
+  → **사위 사랑은 장모래요! 우리 장모님 최고에요!** — (구)초안, 미적용
+- DE: Weil die Zuneigung zum Schwiegersohn überschwänglich war, wurde der Platz eher unangenehm. / EN: Because the fondness for the son-in-law was overflowing, the seat felt awkward instead. — (구)초안, 미적용
+- 최종 적용: 문장 "장모님이 너무 잘 챙겨주셔서 오히려 조금 부담스러웠어요." (표제어가 문장에 안 보여 cloze 빈칸은 "챙겨주셔서"로 처리)
 
 ### 21. cloze_b2_0174 (b2)
 - 표제어: 양가 눈치 → **양쪽을 챙기다** (an beide Seiten denken / to make sure to cover both sides)
@@ -149,47 +153,54 @@
   → **삼촌한테도 안부 인사 전해주세요.**
 - DE: Ein Gruß nach dem Wohlergehen zu geben war ein sichererer Einstieg als über das Wetter zu reden. / EN: Offering a greeting about how someone was doing was a safer opener than talking about the weather.
 
-### 25. cloze_b2_0180 (b2)
-- 표제어: 양가 공평 → **성의를 보이다** (Aufrichtigkeit zeigen / to show sincerity, effort)
+### 25. cloze_b2_0180 (b2) ✅ Jin 확정 적용 (2026-08-26) — 표제어 최종 **양가 부모님 챙기기** (아래 초안 "성의를 보이다"/문장 미적용)
+- 표제어: 양가 공평 → **성의를 보이다** (Aufrichtigkeit zeigen / to show sincerity, effort) — (구)초안, 미적용
 - 문장: 양가 공평은 시간보다 성의로 보여 주려 했어요.
-  → **남의 집에 가는데 빈손으로 갈 수는 없지! 작은 성의 표시라도 하자. 케이크 사갈까?**
-- DE: Anstatt genau die Zeit abzugleichen, wollte ich Aufrichtigkeit zeigen. / EN: Rather than matching the hours exactly, I tried to show sincerity.
+  → **남의 집에 가는데 빈손으로 갈 수는 없지! 작은 성의 표시라도 하자. 케이크 사갈까?** — (구)초안, 미적용
+- DE: Anstatt genau die Zeit abzugleichen, wollte ich Aufrichtigkeit zeigen. / EN: Rather than matching the hours exactly, I tried to show sincerity. — (구)초안, 미적용
+- 최종 적용: 표제어 **양가 부모님 챙기기**, 문장 "명절에는 양쪽 부모님께 똑같이 용돈을 챙겨 드렸어요."
 
-### 26. cloze_b2_0184 (b2)
-- 표제어: 지참금 농담 → **뼈 있는 농담** (ein Witz mit Hintersinn / a joke with a hidden barb)
+### 26. cloze_b2_0184 (b2) ✅ Jin 확정 적용 (2026-08-26) — 표제어 최종 **결혼 준비 비용** (아래 초안 "뼈 있는 농담"/문장 미적용)
+- 표제어: 지참금 농담 → **뼈 있는 농담** (ein Witz mit Hintersinn / a joke with a hidden barb) — (구)초안, 미적용
 - 문장: 지참금 농담이 나와서 현우가 바로 화제를 접었어요.
-  → **뼈 있는 농담이 때로는 훈계보다 강한 법이지.**
-- DE: Ein Witz mit Hintersinn kam auf, und Hyunwoo beendete das Thema sofort. / EN: A joke with a hidden barb came up, and Hyunwoo closed the topic right away.
+  → **뼈 있는 농담이 때로는 훈계보다 강한 법이지.** — (구)초안, 미적용
+- DE: Ein Witz mit Hintersinn kam auf, und Hyunwoo beendete das Thema sofort. / EN: A joke with a hidden barb came up, and Hyunwoo closed the topic right away. — (구)초안, 미적용
+- 최종 적용: 표제어 **결혼 준비 비용**, 문장 "결혼 준비 비용 이야기가 나와서 남편이 재빨리 화제를 돌렸어요."
 
-### 27. cloze_b2_0186 (b2)
-- 표제어: 양가 회의 → **일정을 조율하다** (Termine abstimmen / to coordinate schedules)
+### 27. cloze_b2_0186 (b2) ✅ Jin 확정 적용 (2026-08-26) — 표제어 최종 **명절 일정 조율** (아래 초안 "일정을 조율하다"/문장 미적용)
+- 표제어: 양가 회의 → **일정을 조율하다** (Termine abstimmen / to coordinate schedules) — (구)초안, 미적용
 - 문장: 양가 회의 안건을 세 줄로 줄여 갔어요.
-  → **일정을 조율하다 보니 안건이 세 줄로 줄었어요.**
-- DE: Weil wir die Termine immer wieder abstimmten, schrumpfte die Tagesordnung auf drei Zeilen. / EN: As we kept coordinating the schedule, the agenda shrank to three lines.
+  → **일정을 조율하다 보니 안건이 세 줄로 줄었어요.** — (구)초안, 미적용
+- DE: Weil wir die Termine immer wieder abstimmten, schrumpfte die Tagesordnung auf drei Zeilen. / EN: As we kept coordinating the schedule, the agenda shrank to three lines. — (구)초안, 미적용
+- 최종 적용: 표제어 **명절 일정 조율**, 문장 "이번 명절에 양쪽 부모님 댁을 언제 방문할지 남편과 일정을 조율했어요."
 
-### 28. cloze_b2_0194 (b2)
+### 28. cloze_b2_0194 (b2) ✅ Jin 확정 적용 (2026-08-26) — 표제어는 초안과 동일(가족 호칭), 문장은 Jin이 새로 확정
 - 표제어: 호칭 체계 → **가족 호칭** (die Verwandtschaftsanrede / family address terms)
 - 문장: 호칭 체계를 표로 그리니 실수가 줄었어요.
-  → **한국에서는 친척들끼리 이름보다 호칭으로 불러요. 이모, 고모, 큰이모,작은 이모.**
-- DE: Die Verwandtschaftsanrede als Tabelle zu zeichnen verringerte Fehler. / EN: Drawing the family address terms as a table reduced mistakes.
+  → **한국에서는 친척들끼리 이름보다 호칭으로 불러요. 이모, 고모, 큰이모,작은 이모.** — (구)초안, 미적용
+- DE: Die Verwandtschaftsanrede als Tabelle zu zeichnen verringerte Fehler. / EN: Drawing the family address terms as a table reduced mistakes. — (구)초안, 미적용
+- 최종 적용: 문장 "한국은 시댁 식구들 호칭이 너무 복잡해서 따로 메모장에 적어뒀어요."
 
-### 29. cloze_b2_0198 (b2)
+### 29. cloze_b2_0198 (b2) ✅ Jin 확정 적용 (2026-08-26) — 표제어는 초안과 동일(호칭을 바로잡다), 문장은 Jin이 새로 확정 (아래 "→ 한국에"는 diff.md 원본 자체가 절단된 상태였음)
 - 표제어: 호칭 정정 → **호칭을 바로잡다** (die Anrede richtigstellen / to correct an address term)
 - 문장: 호칭 정정은 작게, 그리고 바로 했어요.
   → **한국에**
-- DE: Die Anrede richtigzustellen machte ich leise und sofort. / EN: Correcting the address term, I did it quietly and right away.
+- DE: Die Anrede richtigzustellen machte ich leise und sofort. / EN: Correcting the address term, I did it quietly and right away. — (구)초안, 미적용
+- 최종 적용: 문장 "가족들 호칭을 틀릴 때마다 남편이 바로 고쳐줬어요."
 
-### 30. cloze_b2_0202 (b2)
+### 30. cloze_b2_0202 (b2) ✅ Jin 확정 적용 (2026-08-26) — 표제어는 초안과 동일(호칭을 잘못 부르다), 문장은 Jin이 새로 확정
 - 표제어: 잘못된 형 → **호칭을 잘못 부르다** (jemanden mit der falschen Anrede rufen / to use the wrong address term for someone)
 - 문장: 잘못된 형이라고 부르는 순간 현우 얼굴이 멈췄어요.
-  → **누나, 오빠 이런 호칭이 귀엽게 들려요**
-- DE: In dem Moment, in dem ich die Anrede falsch benutzte, blieb Hyunwoos Gesicht wie erstarrt. / EN: The moment I used the wrong address term, Hyunwoo's face froze.
+  → **누나, 오빠 이런 호칭이 귀엽게 들려요** — (구)초안, 미적용
+- DE: In dem Moment, in dem ich die Anrede falsch benutzte, blieb Hyunwoos Gesicht wie erstarrt. / EN: The moment I used the wrong address term, Hyunwoo's face froze. — (구)초안, 미적용
+- 최종 적용: 문장 "아주버님을 무심코 '형'이라고 불렀다가 분위기가 어색해졌어요."
 
-### 31. cloze_b2_0213 (b2)
-- 표제어: 제사 역할 → **성묘** (der Grabbesuch (Ahnenbesuch) / visiting the ancestral grave)
+### 31. cloze_b2_0213 (b2) ✅ Jin 확정 적용 (2026-08-26) — 아래 초안(성묘) 대신 Jin이 최종 확정한 표제어 **명절 음식 준비** 로 적용됨 (레벨도 Jin 지시서상 b1로 언급됐으나 실데이터는 b2뿐이라 b2로 적용, 리포트 UNRESOLVED 아님/불일치 각주만)
+- 표제어: 제사 역할 → **성묘** (der Grabbesuch (Ahnenbesuch) / visiting the ancestral grave) — (구)초안, 미적용
 - 문장: 제사 역할이 없으면 조용히 서는 게 도움이었어요.
-  → **추석 아침에 시댁 식구들과 함께 성묘를 다녀왔어요.**
-- DE: Am Chuseok-Morgen bin ich mit der Familie meines Mannes zum Ahnengrab gefahren. / EN: On Chuseok morning, I went with my husband's family to visit the ancestral grave.
+  → **추석 아침에 시댁 식구들과 함께 성묘를 다녀왔어요.** — (구)초안, 미적용
+- DE: Am Chuseok-Morgen bin ich mit der Familie meines Mannes zum Ahnengrab gefahren. / EN: On Chuseok morning, I went with my husband's family to visit the ancestral grave. — (구)초안, 미적용
+- 최종 적용: 표제어 **명절 음식 준비**, 문장 "명절 음식을 준비할 때, 제가 먼저 할 수 있는 일을 찾아서 도왔어요."
 
 ### 32. cloze_b2_0214 (b2)
 - 표제어: 차례 순서 → **지방을 태우다** (das Ahnentäfelchen verbrennen / to burn the paper spirit tablet (after the rite))
@@ -197,8 +208,8 @@
   → **차례가 끝나고 아버님이 마당에서 지방을 태우는 걸 처음 봤어요.**
 - DE: Nachdem der Ahnenritus vorbei war, sah ich zum ersten Mal, wie mein Schwiegervater im Hof das Ahnentäfelchen verbrannte. / EN: After the rite ended, I saw for the first time how father-in-law burned the spirit tablet in the yard.
 
-### 33. cloze_b2_0216 (b2)
-- 표제어: 제사 음식 배치 → **제사를 지내다** (das Ahnenritual abhalten / to perform the ancestral memorial rite)
+### 33. cloze_b2_0216 (b2) ✅ Jin 확정 적용 (2026-08-26) — 아래 초안(제사를 지내다) 대신 Jin이 명절 일정 조율/제사 지내다 등을 재검토하며 최종 확정한 표제어 **가족 모임** 으로 적용됨
+- 표제어: 제사 음식 배치 → **제사를 지내다** (das Ahnenritual abhalten / to perform the ancestral memorial rite) — (구)초안, 미적용
 - 문장: 제사 음식 배치를 건드리지 말라고 눈짓하셨어요.
   → **결혼하고 나서야 시댁이 왜 일 년에 두 번씩 제사를 지내는지 이해하게 됐어요.**
 - DE: Erst nachdem ich geheiratet hatte, habe ich verstanden, warum die Familie meines Mannes zweimal im Jahr das Ahnenritual abhält. / EN: It was only after I got married that I came to understand why my husband's family performs the ancestral rite twice a year.
@@ -391,11 +402,12 @@
   → **가게에서 포장을 예쁘게 부탁드렸어요.**
 - DE: Im Laden bat ich um eine schöne Geschenkverpackung. / EN: At the store I asked for nice gift wrapping.
 
-### 65. cloze_a1_0180 (a1)
+### 65. cloze_a1_0180 (a1) ✅ Jin 확정 적용 (2026-08-26) — 표제어 유지, 문장은 Jin이 새로 확정 (아래 "→ 동생."은 diff.md 원본 자체가 절단된 상태였음)
 - 표제어: 동생이에요 (유지)
 - 문장: 동생이에요 하고 소개해 주셔서 악수를 할지 고민했어요.
   → **동생.**
-- DE: Meine Frau stellte ihn mir vor: "Das ist mein jüngerer Bruder", und ich überlegte, ob ich die Hand geben soll. / EN: My wife introduced him to me saying, "This is my younger brother," and I wondered whether to shake hands.
+- DE: Meine Frau stellte ihn mir vor: "Das ist mein jüngerer Bruder", und ich überlegte, ob ich die Hand geben soll. / EN: My wife introduced him to me saying, "This is my younger brother," and I wondered whether to shake hands. — (구)초안, 미적용
+- 최종 적용: 문장 "남편이 동생을 소개했어요. 악수를 해도 될까요?" (표제어 "동생이에요"가 문장에 안 보여 cloze 빈칸은 "동생"으로 처리)
 
 ### 66. cloze_a1_0194 (a1)
 - 표제어: 사진 전송 (유지)
