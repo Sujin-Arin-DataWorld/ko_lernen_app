@@ -469,16 +469,16 @@
         "assets_unused/pending_review/personal_hanok_v3/sarangchae_try07_edit.png",
         "assets_unused/pending_review/personal_hanok_v3/sotdaeulmun_approved_jin_20260824.png",
         "assets_unused/pending_review/personal_hanok_v3/jungmunganchae_try06_final_openmaru.png",
-        "assets_unused/pending_review/personal_hanok_v3/안채_final.png",
+        "assets_unused/pending_review/personal_hanok_v3/anchae_final.png",
         "assets_unused/pending_review/personal_hanok_v3/qa/hyeopmun_try03_cut.png"
       ],
-      "anchorsNote": "Jin 정본 선언 2026-08-25 — personal_hanok_v3 의 승인 스프라이트가 이 패밀리의 앵커다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. assets_unused/한옥후보/ 의 후보 이미지는 reference_only_user_supplied(modelInput: forbidden) — 서면 브리프의 근거로만 쓰고 모델에 넣지 않는다.",
+      "anchorsNote": "Jin 정본 선언 2026-08-25 — personal_hanok_v3 의 승인 스프라이트가 이 패밀리의 앵커다. v1.0.0 허구 종가 앵커(estate_v2_complete_structure_trial_01.png 등)는 폐지 — 앵커·생성 입력 금지. 구 후보는 main에서 제거하고 archive/hanok-pre-v3-20260826 브랜치에 보존했다.",
       "canonSprites": {
         "note": "Jin 정본 선언 2026-08-25 기준 채별 정본 파일(assets_unused/pending_review/personal_hanok_v3/). 시리즈가 여럿인 채는 최신·실측 정합본을 기본 정본으로 두고 '(지정 대기)'를 표기 — Jin이 다른 판을 지정하면 교체.",
         "sotdaeulmun": "sotdaeulmun_approved_jin_20260824.png",
         "sarangchae": "sarangchae_try07_edit.png",
         "jungmunganchae": "jungmunganchae_try06_final_openmaru.png (배면: 중문 뒷쪽.png)",
-        "anchae": "안채_final.png",
+        "anchae": "anchae_final.png",
         "anchae_gokganchae": "안채곳간채.png",
         "gokganchae": "gokganchae_try02_5kan.png",
         "changgo_gwangchae": "changgo_try04_lowlong.png",
@@ -882,7 +882,7 @@
         "rule": "모든 채·문·마당·조경의 상대 위치는 이 합성본을 정본으로 한다. 스프라이트 배치 판단이 로스터 문장과 충돌하면 이 그림이 이긴다. 제3자 사진이 포함되어 있으므로 이 파일 자체는 모델 입력·출하 금지 — 위치 사실만 읽는다.",
         "canonDecree": "Jin 2026-08-25: '지금 내가 만든 완성본이랑 에셋이 정본이다. 기존은 다 폐지해.' — 정본 범위를 위치에서 아트 전체로 확대한다. 이 합성본과 personal_hanok_v3 의 승인 스프라이트가 일두고택 아트의 유일 정본이며, 기존 계보(v1.0.0 허구 종가 앵커, F-C-estate 자산, 레거시 12-stage 아트)는 일두고택 작업에서 전부 폐지 — 앵커·스타일 참조·신규 생성 입력 어느 용도로도 쓰지 않는다. 같은 날 추가 확정: '고증 96퍼센트 맞춘거니까 그냥 내가 만든 final이 법이야' — 고증 문헌·로스터·도면과 final 이 충돌하면 final 이 이긴다. 문헌 값은 도감 주석으로만 쓴다.",
         "caveat": "2026-08-25 개정: 구 판타지 데코(정자·연못·홍예교·석등)는 Jin이 합성본에서 직접 지웠다(베이지 마스킹 부위) — 남은 배치가 정본이다. 지워진 자리는 F-D 고증 요소(석가산·우물·장독대·옛터 표석)로 채운다. 합성본 위 사당·사당문 단청은 고증 실재(dancheongMaxExemptMembers 2건)라 유지.",
-        "unrelatedFolderWarning": "Jin 확인 2026-08-25('다른거니까 이걸로하라니까'): assets_unused/한옥후보/ 의 일두고택_완성도_final.png(2412x2622, 사진 콜라주 라벨링 스케치)는 이 정본과 무관한 별개 자료다 — placementReference 로 쓰지 않는다. 정본은 오직 이 파일(personal_hanok_v3/일두고택 완성본_최종.png)."
+        "unrelatedFolderWarning": "Jin 확인 2026-08-25('다른거니까 이걸로하라니까'): 구 assets_unused/한옥후보/ 의 일두고택_완성도_final.png(2412x2622, 사진 콜라주 라벨링 스케치)는 이 정본과 무관한 별개 자료다. 해당 폴더는 main에서 제거되어 archive/hanok-pre-v3-20260826 에만 보존된다. 정본은 오직 personal_hanok_v3/일두고택 완성본_최종.png 이다."
       },
       "gateSpritePlan": {
         "sharedSprite": "협문 1종을 3개 위치에 재사용 — 사랑채 동단(안채 진입)·안사랑채↔안채·안사랑채/사당 서측. spriteReuseGroup=hyeopmun_shared",

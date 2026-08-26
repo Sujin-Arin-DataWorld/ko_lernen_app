@@ -24,13 +24,13 @@ Unchanged from v1.0.0: the camera discipline, the Faceted Minhwa rendering law, 
 
 | Role | File | SHA-256 |
 |---|---|---|
-| Complete-estate composition/style anchor | *pending — 일두고택 마스터 승인 시 기재* | — |
+| Complete-estate composition/style anchor | `assets_unused/pending_review/personal_hanok_v3/일두고택 완성본_최종.png` | `A5F8013109A48BCA52CF5E27CD4A4473024B4510EDB54CCF057047A0D6F3690D` |
 | Empty-estate camera/ground anchor | *pending* | — |
-| Current cumulative-state anchor | *pending* | — |
+| Current cumulative-state anchor | `assets_unused/pending_review/personal_hanok_v3/일두고택 완성본_최종.png` | `A5F8013109A48BCA52CF5E27CD4A4473024B4510EDB54CCF057047A0D6F3690D` |
 
-> v1.0.0's anchors (`estate_v2_complete_structure_trial_01.png`, `estate_00_empty_site.png`, `boundary_03_sotdaeulmun.png`) described the retired fictional jongga. They are **not** valid anchors for this lock and must not be used as generation input. They remain on disk as history.
+> v1.0.0's anchors (`estate_v2_complete_structure_trial_01.png`, `estate_00_empty_site.png`, `boundary_03_sotdaeulmun.png`) described the retired fictional jongga. They are **not** valid anchors for this lock and must not be used as generation input. They remain recoverable on the remote `archive/hanok-pre-v3-20260826` branch.
 >
-> Until the first 일두고택 master is approved, generation runs against candidate references under `assets_unused/한옥후보/`, which are classified `reference_only_user_supplied` by `docs/HANOK_V1_SOURCE_REGISTRY.md` — **fact-check only, `modelInput: forbidden`**. A candidate may inform a written brief; it may never be fed to a model, traced, or recoloured.
+> The pre-V3 candidate folder was removed from main after the V3 master was approved. Historical candidates are archive-only and must never be fed to a model, traced, or recoloured.
 
 ## 2. Non-negotiable image contract
 
