@@ -1,5 +1,7 @@
 import '../models/quest.dart';
 import '../models/sori_stage_progression.dart';
+import 'sori_stage_progression_service.dart';
+import 'today_learning_snapshot.dart';
 
 /// Compares two read-only progression snapshots after an activity returns.
 ///
@@ -16,16 +18,43 @@ abstract final class SoriStageRewardReceiptService {
     required String activityId,
     required Future<SoriStageProgressionSnapshot> Function() loadSnapshot,
     required Future<void> Function() openActivity,
+    SoriStageLocalBeforeFields Function()? captureLocalBefore,
+    Future<SoriStageNetworkBeforeFields> Function()? loadNetworkBefore,
   }) async {
-    SoriStageProgressionSnapshot? before;
+    final captureLocal =
+        captureLocalBefore ?? SoriStageProgressionService.captureLocalBeforeFields;
+    final loadNetwork =
+        loadNetworkBefore ?? SoriStageProgressionService.loadNetworkBeforeFields;
+
+    SoriStageLocalBeforeFields local;
+    Future<SoriStageNetworkBeforeFields> networkFuture;
     try {
-      before = await loadSnapshot();
+      // §검수#7: 로컬 필드는 openActivity() 호출 바로 앞, 같은 동기 실행
+      // 구간 안에서 읽는다 — 사이에 await 이 없어 다른 코드가 끼어들 여지가
+      // 없다. 네트워크 조회는 여기서 "시작만" 하고 기다리지 않는다.
+      local = captureLocal();
+      networkFuture = loadNetwork();
     } catch (_) {
       await openActivity();
       return null;
     }
+
     await openActivity();
+
     try {
+      final network = await networkFuture;
+      final before = SoriStageProgressionSnapshot(
+        today: const TodayLearningSnapshot(pick: null),
+        hanok: network.hanok,
+        quests: network.quests,
+        pendingBojagiCount: local.pendingBojagiCount,
+        stampCount: local.stamps,
+        xp: local.xp,
+        streakDays: local.streakDays,
+        todayReward: null,
+        gameBests: local.gameBests,
+        gyeLanternCount: network.gyeLanternCount,
+      );
       final receipt = compare(
         activityId: activityId,
         before: before,

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/models/quest.dart';
@@ -118,13 +120,35 @@ void main() {
     },
   );
 
+  SoriStageNetworkBeforeFields networkFields({
+    List<QuestProgress> quests = const [],
+    int gyeLanternCount = 0,
+  }) => (
+    quests: quests,
+    hanok: PersonalHanokProjection.from(
+      const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
+    ),
+    gyeLanternCount: gyeLanternCount,
+  );
+
+  SoriStageLocalBeforeFields localFields({int xp = 0}) => (
+    xp: xp,
+    stamps: 0,
+    streakDays: 0,
+    pendingBojagiCount: 0,
+    gameBests: const <String, int>{},
+  );
+
   test(
-    'capture never blocks learning when the before snapshot fails',
+    'capture never blocks learning when local field capture fails (검수#7 fail-open)',
     () async {
       var opened = false;
       final receipt = await SoriStageRewardReceiptService.capture(
         activityId: 'course',
-        loadSnapshot: () => throw StateError('local snapshot unavailable'),
+        captureLocalBefore: () =>
+            throw StateError('local snapshot unavailable'),
+        loadNetworkBefore: () async => networkFields(),
+        loadSnapshot: () async => _snapshot(xp: 0),
         openActivity: () async => opened = true,
       );
 
@@ -134,16 +158,58 @@ void main() {
   );
 
   test('capture compares state only after the activity returns', () async {
-    var state = _snapshot(xp: 2);
     final receipt = await SoriStageRewardReceiptService.capture(
       activityId: 'review',
-      loadSnapshot: () async => state,
-      openActivity: () async => state = _snapshot(xp: 14),
+      captureLocalBefore: () => localFields(xp: 2),
+      loadNetworkBefore: () async => networkFields(),
+      openActivity: () async {},
+      loadSnapshot: () async => _snapshot(xp: 14),
     );
 
     expect(receipt, isNotNull);
     expect(receipt!.items.single.amount, 12);
   });
+
+  test(
+    'local fields are captured synchronously before openActivity(); network '
+    'fields are awaited only after the activity returns (검수#7 race, '
+    'Completer 기반 — 기존 () async => state 고정 테스트는 이 순서를 못 잡았다)',
+    () async {
+      final events = <String>[];
+      final networkCompleter = Completer<SoriStageNetworkBeforeFields>();
+
+      final receiptFuture = SoriStageRewardReceiptService.capture(
+        activityId: 'course',
+        captureLocalBefore: () {
+          events.add('local-captured');
+          return localFields(xp: 10);
+        },
+        loadNetworkBefore: () {
+          events.add('network-started');
+          return networkCompleter.future;
+        },
+        openActivity: () async {
+          events.add('activity-opened');
+        },
+        loadSnapshot: () async {
+          events.add('after-loaded');
+          return _snapshot(xp: 30);
+        },
+      );
+
+      // openActivity() 는 이미 실행됐고 network future 는 아직 안 끝났다 —
+      // capture() 가 완료를 기다리지 않고 "병행" 시작했다는 증거.
+      await Future<void>.delayed(Duration.zero);
+      expect(events, ['local-captured', 'network-started', 'activity-opened']);
+
+      networkCompleter.complete(networkFields());
+      final receipt = await receiptFuture;
+
+      expect(events.last, 'after-loaded');
+      expect(receipt, isNotNull);
+      expect(receipt!.items.single.amount, 20);
+    },
+  );
 }
 
 SoriStageProgressionSnapshot _snapshot({
