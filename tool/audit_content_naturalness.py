@@ -511,10 +511,21 @@ def scan_scenarios() -> Iterator[Hit]:
                             yield Hit(source, item_id, marker, text)
                     continue  # prefix/suffix 는 _walk_quest_ko 규약 밖이라 중복 스캔 없음
 
+                # 리뷰 라운드 1 Important: satzBauen/diktat 류는 targetKo 와
+                # audioKo 가 같은 문장을 그대로 반복해서 담는 경우가 흔하다
+                # (예: audioKo = targetKo 그대로 복사, TTS 재생용). 필드명이
+                # 달라 _walk_quest_ko 는 둘 다 별개 항목으로 yield 하므로,
+                # 같은 퀘스트 안에서 이미 나온 문자열과 완전히 같으면 두 번째
+                # 이후는 건너뛴다 — 같은 마커 히트가 같은 문장으로 두 번 실려
+                # Task 12 LLM 심사가 같은 후보를 중복 처리하는 걸 막는다.
+                # (JSON 필드 순서상 targetKo 가 audioKo 보다 먼저 나와 보통
+                # targetKo 쪽이 남고 audioKo 쪽이 스킵된다.)
+                seen_texts = set()
                 for path, text in _walk_quest_ko(qdata):
                     text = text.strip()
-                    if not text:
+                    if not text or text in seen_texts:
                         continue
+                    seen_texts.add(text)
                     item_id = f"{sc_id}#{quest_id}.{path}"
                     for marker in check_generic_markers(text, level):
                         yield Hit(source, item_id, marker, text)
@@ -598,13 +609,17 @@ Task 2(커밋 `55b703cc`/`1a2c67eb`/`2a235db5`)가 이미 고친 시드 5건은 
   범위 밖이다. formality_mix 는 `습니다`/`ㅂ니다` 계열 vs `요` **종결형
   혼재**만 잡도록 설계돼 있어 이 사례처럼 같은 종결형(`-요`) 안에서 존대
   대상이 달라지는 결함은 검출하지 못한다 — 마찬가지로 Task 12 심사 대상.
-  **다만 이 항목은 이번 스캔에서 별도로 여전히 살아있는 결함 1건이 새로
-  잡혔다**: distractor `방문 순서`(받침 없는 "서"로 끝남)가 빈칸 뒤 조사
+  **다만 이 항목은 이번 스캔이 별도로 살아있는 결함 1건을 새로 찾아냈다**:
+  당시 distractor `방문 순서`(받침 없는 "서"로 끝남)가 빈칸 뒤 조사
   `이`(받침 필요)와 불합치 — Task 2 는 이 세 distractor 를 "형태 가능·
   문맥 불가 충족"으로 판단해 그대로 뒀지만 받침 정합은 별도로 검토되지
-  않았다. 즉 이 마커는 "교정 전" 회고용일 뿐 아니라 **Task 2 가 놓친
-  현재진행형 결함**도 실제로 찾아냈다 — 아래 cloze.json 섹션의
-  `cloze_b1_0172 | particle_mismatch` 행 참고.
+  않았었다. 즉 이 마커는 "교정 전" 회고용일 뿐 아니라 **Task 2 가 놓친
+  결함**도 실제로 찾아냈다 — 이 리포트 최초 발행 직후 커밋 `319db213`
+  (`fix(content): cloze_b1_0172 distractor 조사 정합 — 방문 순서 교체`,
+  Task 3 가 아닌 별도 세션이 이 리포트를 보고 바로 반영)으로 이미 교정돼
+  `방문 순서`→`명절 당번`(받침 있음)이 됐다 — 그래서 이 코퍼스를 다시
+  스캔하면 더는 particle_mismatch 로 잡히지 않는다. 프리필터→즉시 수정
+  이라는 의도된 순환이 실제로 작동한 사례로 남겨둔다.
 
 결론: 8개 마커 중 정량적(받침·문자열·길이) 판정이 가능한 절하·이모티콘·
 층간소음 3건은 재현 가능하게 잡히고(그리고 일정충돌도 별도 결함으로
@@ -631,6 +646,18 @@ LLM 심사"라는 2단 구조가 의도한 분업이다.
   없이 formal→casual 로 튀는 경우(예: `smalltalk_b1_0043#followUp`
   `알겠습니다. 바로 가 볼게요.`)는 진짜 후보로 보인다 — 두 패턴이 문자열
   수준에서는 구분 불가능해 마커 하나로 합쳐 냈다.
+
+### 알려진 커버리지 공백 (리뷰 라운드 1 Minor)
+
+- **particle_mismatch 가 시나리오 `luecken` 퀘스트의 fill-in 옵션까지
+  확장되지 않는다.** `luecken` 퀘스트(`data.sentence`+`data.options`)는
+  cloze 와 거의 동형이다 — 빈칸 뒤 조사와 각 옵션의 받침 유무를 대조하는
+  게 원리상 가능하지만, 이번 스캔은 `sentence` 필드를 공통 5종 마커로만
+  검사하고 `options`(정답+오답 조사/어미 후보)는 검사하지 않는다. 마커
+  8종 중 가장 값진 발견을 낸 것이 particle_mismatch(835건, cloze 항목의
+  46%)라는 점을 감안하면, 같은 구조의 `luecken` 도 비슷한 비율로 결함을
+  숨기고 있을 가능성이 있다 — Task 12/13 에서 우선순위 있게 다룰 후보로
+  남겨둔다(이번 태스크 범위 밖, 별도 확장 필요).
 """
 
 

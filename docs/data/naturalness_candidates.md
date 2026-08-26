@@ -6,7 +6,7 @@
 
 ## cloze.json
 
-860건.
+859건.
 
 | id | 마커 | 문장 |
 |---|---|---|
@@ -361,7 +361,6 @@
 | cloze_b1_0168 | particle_mismatch | ＿＿＿을 하루씩 나누는 표가 필요했어요. (distractor: 불 끄기, 사진 올리기) |
 | cloze_b1_0170 | particle_mismatch | ＿＿＿가 끼어서 기차표를 다시 샀어요. (distractor: 실수 목록, 야근) |
 | cloze_b1_0171 | particle_mismatch | ＿＿＿는 나이 많은 집부터라고 적혀 있었어요. (distractor: 다음 방문) |
-| cloze_b1_0172 | particle_mismatch | ＿＿＿이 생겨서 현우가 어머니께 먼저 전화드렸어요. (distractor: 방문 순서) |
 | cloze_b1_0176 | particle_mismatch | ＿＿＿을 넘기지 않으려고 과일만 골랐어요. (distractor: 일정표 공유) |
 | cloze_b1_0177 | particle_mismatch | ＿＿＿을 피해 새벽 차를 탔어요. (distractor: 직장 분위기, 취업 비자) |
 | cloze_b1_0178 | particle_mismatch | ＿＿＿를 하니 양쪽 잔소리가 줄었어요. (distractor: 종교 질문, 체류 기간) |
@@ -911,7 +910,7 @@
 
 ## scenarios_*.json
 
-233건.
+231건.
 
 | id | 마커 | 문장 |
 |---|---|---|
@@ -995,7 +994,6 @@
 | a2_shift_table#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
 | a2_taxi_wait#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
 | a2_volunteer_vest#dialog[07] | formality_mix | 감사합니다. 수고하세요. |
-| airport_arrival#quest_airport_arrival_04.audioKo | formality_mix | 안녕하세요. 처음 뵙겠습니다. |
 | airport_arrival#quest_airport_arrival_04.targetKo | formality_mix | 안녕하세요. 처음 뵙겠습니다. |
 | b1_bill_split#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
 | b1_cafe_invoice#dialog[04] | formality_mix | 알겠습니다. 잠시만 기다려 주세요. |
@@ -1096,7 +1094,6 @@
 | c2_mandate_edge#dialog[01] | formality_mix | 가격을 정하는 일은 제 위임 밖이에요. 위로 가야 합니다. |
 | c2_mandate_edge#dialog[07] | formality_mix | 네, 그렇게 할게요. 감사합니다. |
 | c2_mandate_edge#quest_c2_mandate_edge_tr.options[0].ko | formality_mix | 가격을 정하는 일은 제 위임 밖이에요. 위로 가야 합니다. |
-| c2_moving_affordability_definition_hearing#quest_c2_moving_affordability_definition_hearing_dict.audioKo | josa_dup | 소득 구간별 부담의 분포를 공개해야 평균이 가리는 차이가 드러납니다. |
 | c2_moving_affordability_definition_hearing#quest_c2_moving_affordability_definition_hearing_dict.targetKo | josa_dup | 소득 구간별 부담의 분포를 공개해야 평균이 가리는 차이가 드러납니다. |
 | c2_passive_hide#dialog[07] | formality_mix | 네, 알겠어요. 고맙습니다. |
 | c2_representation_press_quote_not_official#dialog[01] | formality_mix | 저도 봤습니다. 인용 표시도 없더군요. |
@@ -1174,26 +1171,26 @@
 
 ## 요약
 
-- 총 후보: **1122건** (대상 파일 7개 전부 스캔, 후보 있는 파일 6개)
+- 총 후보: **1119건** (대상 파일 7개 전부 스캔, 후보 있는 파일 6개)
 
 ### 파일별 건수
 
-- cloze.json: 860건
+- cloze.json: 859건
 - grammar.csv: 0건
 - korean_vocab.csv: 10건
 - satz_sentences.json: 10건
-- scenarios_*.json: 233건
+- scenarios_*.json: 231건
 - silben_puzzles.json: 3건
 - smalltalk.json: 6건
 
 ### 마커별 건수
 
 - dangling_stem: 16건
-- particle_mismatch: 835건
+- particle_mismatch: 834건
 - passive_pileup: 0건
 - e_daehae: 0건
-- josa_dup: 37건
-- formality_mix: 226건
+- josa_dup: 36건
+- formality_mix: 225건
 - level_length: 8건
 - answer_repeat: 0건
 
@@ -1227,13 +1224,17 @@ Task 2(커밋 `55b703cc`/`1a2c67eb`/`2a235db5`)가 이미 고친 시드 5건은 
   범위 밖이다. formality_mix 는 `습니다`/`ㅂ니다` 계열 vs `요` **종결형
   혼재**만 잡도록 설계돼 있어 이 사례처럼 같은 종결형(`-요`) 안에서 존대
   대상이 달라지는 결함은 검출하지 못한다 — 마찬가지로 Task 12 심사 대상.
-  **다만 이 항목은 이번 스캔에서 별도로 여전히 살아있는 결함 1건이 새로
-  잡혔다**: distractor `방문 순서`(받침 없는 "서"로 끝남)가 빈칸 뒤 조사
+  **다만 이 항목은 이번 스캔이 별도로 살아있는 결함 1건을 새로 찾아냈다**:
+  당시 distractor `방문 순서`(받침 없는 "서"로 끝남)가 빈칸 뒤 조사
   `이`(받침 필요)와 불합치 — Task 2 는 이 세 distractor 를 "형태 가능·
   문맥 불가 충족"으로 판단해 그대로 뒀지만 받침 정합은 별도로 검토되지
-  않았다. 즉 이 마커는 "교정 전" 회고용일 뿐 아니라 **Task 2 가 놓친
-  현재진행형 결함**도 실제로 찾아냈다 — 아래 cloze.json 섹션의
-  `cloze_b1_0172 | particle_mismatch` 행 참고.
+  않았었다. 즉 이 마커는 "교정 전" 회고용일 뿐 아니라 **Task 2 가 놓친
+  결함**도 실제로 찾아냈다 — 이 리포트 최초 발행 직후 커밋 `319db213`
+  (`fix(content): cloze_b1_0172 distractor 조사 정합 — 방문 순서 교체`,
+  Task 3 가 아닌 별도 세션이 이 리포트를 보고 바로 반영)으로 이미 교정돼
+  `방문 순서`→`명절 당번`(받침 있음)이 됐다 — 그래서 이 코퍼스를 다시
+  스캔하면 더는 particle_mismatch 로 잡히지 않는다. 프리필터→즉시 수정
+  이라는 의도된 순환이 실제로 작동한 사례로 남겨둔다.
 
 결론: 8개 마커 중 정량적(받침·문자열·길이) 판정이 가능한 절하·이모티콘·
 층간소음 3건은 재현 가능하게 잡히고(그리고 일정충돌도 별도 결함으로
@@ -1260,4 +1261,16 @@ LLM 심사"라는 2단 구조가 의도한 분업이다.
   없이 formal→casual 로 튀는 경우(예: `smalltalk_b1_0043#followUp`
   `알겠습니다. 바로 가 볼게요.`)는 진짜 후보로 보인다 — 두 패턴이 문자열
   수준에서는 구분 불가능해 마커 하나로 합쳐 냈다.
+
+### 알려진 커버리지 공백 (리뷰 라운드 1 Minor)
+
+- **particle_mismatch 가 시나리오 `luecken` 퀘스트의 fill-in 옵션까지
+  확장되지 않는다.** `luecken` 퀘스트(`data.sentence`+`data.options`)는
+  cloze 와 거의 동형이다 — 빈칸 뒤 조사와 각 옵션의 받침 유무를 대조하는
+  게 원리상 가능하지만, 이번 스캔은 `sentence` 필드를 공통 5종 마커로만
+  검사하고 `options`(정답+오답 조사/어미 후보)는 검사하지 않는다. 마커
+  8종 중 가장 값진 발견을 낸 것이 particle_mismatch(835건, cloze 항목의
+  46%)라는 점을 감안하면, 같은 구조의 `luecken` 도 비슷한 비율로 결함을
+  숨기고 있을 가능성이 있다 — Task 12/13 에서 우선순위 있게 다룰 후보로
+  남겨둔다(이번 태스크 범위 밖, 별도 확장 필요).
 
