@@ -59,7 +59,7 @@ void main() {
     expect(code, isNot(contains('shareStoryText')));
   });
 
-  test('여섯 개 호출 화면이 실패를 사용자에게 보여준다', () {
+  test('여섯 개 호출 화면이 명시적 복구 UI를 사용한다', () {
     const screens = [
       'hangul_screen',
       'review_session_screen',
@@ -72,19 +72,21 @@ void main() {
       final s = File('lib/screens/$screen.dart').readAsStringSync();
       expect(
         s,
-        contains('ContentShareService.shareStory('),
-        reason: '$screen 이 공유를 호출하지 않는다',
+        contains('shareContentStoryWithRecovery('),
+        reason: '$screen 이 복구 가능한 공유 흐름을 호출하지 않는다',
       );
+      expect(s, isNot(contains('caption:')), reason: '$screen 이 아직 캡션을 넘긴다');
       expect(
         s,
-        isNot(contains('caption:')),
-        reason: '$screen 이 아직 캡션을 넘긴다',
-      );
-      expect(
-        s,
-        contains('ShareOutcome.failed'),
-        reason: '$screen 이 공유 실패를 조용히 넘긴다',
+        isNot(contains('ContentShareService.shareStory(')),
+        reason: '$screen 이 복구 UI를 우회해 서비스를 직접 호출한다',
       );
     }
+  });
+
+  test('문법 카드는 공유 액션을 계속 숨긴다', () {
+    final grammar = File('lib/screens/grammar_screen.dart').readAsStringSync();
+    expect(grammar, contains('showShare: false'));
+    expect(grammar, isNot(contains('shareContentStoryWithRecovery(')));
   });
 }

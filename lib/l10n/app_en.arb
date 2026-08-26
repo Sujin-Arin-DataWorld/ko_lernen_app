@@ -1021,6 +1021,19 @@
   "contentActionLike": "Like",
   "contentActionShare": "Share",
   "contentActionBookmark": "Save",
+  "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
+  "@contentShareBody": {
+    "placeholders": {
+      "korean": {"type": "String"},
+      "gloss": {"type": "String"}
+    }
+  },
+  "contentShareFailedTitle": "The image could not be shared",
+  "contentShareFailedBody": "Try again or copy the text instead.",
+  "contentShareRetry": "Try again",
+  "contentShareCopyText": "Copy text",
+  "contentShareCopied": "Text copied",
+  "contentShareCopyFailed": "The text could not be copied.",
   "deckFlipFirstHint": "Tap the card to flip it first",
   "coachSoriDeckTitle": "Swipe to the next card",
   "coachSoriDeckBody": "Swipe up or down for the next card. ? flips, the heart likes for later, the bookmark adds to your wordbook.",
@@ -1574,6 +1587,14 @@
         "type": "int"
       },
       "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningCompleteReplayBody": "{n, plural, =1{Heard 1 line · Reward already collected} other{Heard {n} lines · Reward already collected}}",
+  "@listeningCompleteReplayBody": {
+    "placeholders": {
+      "n": {
         "type": "int"
       }
     }

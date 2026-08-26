@@ -17,8 +17,7 @@ import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
-import '../services/content_share_service.dart';
-import '../widgets/sori/toast.dart';
+import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/empty_state.dart';
@@ -163,14 +162,11 @@ class _CustomPackPlayScreenState extends State<CustomPackPlayScreen>
       return;
     }
     final w = pack.words[_idx];
-    final t = AppL10n.of(context);
-    final outcome = await ContentShareService.shareStory(
+    await shareContentStoryWithRecovery(
+      context: context,
       korean: w.korean,
       gloss: w.translationDe,
     );
-    if (outcome == ShareOutcome.failed && mounted) {
-      soriToast(context, t.shareError);
-    }
   }
 
   void _advance() {

@@ -1028,6 +1028,19 @@
   "contentActionLike": "Gefällt mir",
   "contentActionShare": "Teilen",
   "contentActionBookmark": "Merken",
+  "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
+  "@contentShareBody": {
+    "placeholders": {
+      "korean": {"type": "String"},
+      "gloss": {"type": "String"}
+    }
+  },
+  "contentShareFailedTitle": "Das Bild konnte nicht geteilt werden",
+  "contentShareFailedBody": "Versuche es erneut oder kopiere stattdessen den Text.",
+  "contentShareRetry": "Erneut versuchen",
+  "contentShareCopyText": "Text kopieren",
+  "contentShareCopied": "Text kopiert",
+  "contentShareCopyFailed": "Der Text konnte nicht kopiert werden.",
   "deckFlipFirstHint": "Erst antippen und umdrehen",
   "coachSoriDeckTitle": "Karte weiterwischen",
   "coachSoriDeckBody": "Wische nach oben oder unten zur nächsten Karte. ? dreht um, Herz merkt für später, Lesezeichen legt ins Wörterbuch.",
@@ -1614,6 +1627,14 @@
         "type": "int"
       },
       "xp": {
+        "type": "int"
+      }
+    }
+  },
+  "listeningCompleteReplayBody": "{n, plural, =1{1 Zeile gehört · Belohnung bereits erhalten} other{{n} Zeilen gehört · Belohnung bereits erhalten}}",
+  "@listeningCompleteReplayBody": {
+    "placeholders": {
+      "n": {
         "type": "int"
       }
     }

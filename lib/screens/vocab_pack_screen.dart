@@ -37,7 +37,7 @@ import '../widgets/sori/feature_coach.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/quiz_choice.dart';
-import '../services/content_share_service.dart';
+import '../widgets/sori/content_share_recovery.dart';
 import '../widgets/sori/toast.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/responsive.dart';
@@ -451,15 +451,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     if (cur == null) {
       return;
     }
-    final t = AppL10n.of(context);
     final lang = Localizations.localeOf(context).languageCode;
-    final outcome = await ContentShareService.shareStory(
+    await shareContentStoryWithRecovery(
+      context: context,
       korean: cur.korean,
       gloss: cur.translationFor(lang),
     );
-    if (outcome == ShareOutcome.failed && mounted) {
-      soriToast(context, t.shareError);
-    }
   }
 
   /// ↓ 스킵 (§P2-2) — **기록 없는 미루기**. SRS/오답/ledger 금지 대상이 아닌

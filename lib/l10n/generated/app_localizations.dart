@@ -3577,6 +3577,48 @@ abstract class AppL10n {
   /// **'Merken'**
   String get contentActionBookmark;
 
+  /// No description provided for @contentShareBody.
+  ///
+  /// In de, this message translates to:
+  /// **'{korean}\n{gloss}\nhangul-sori.com'**
+  String contentShareBody(String korean, String gloss);
+
+  /// No description provided for @contentShareFailedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Bild konnte nicht geteilt werden'**
+  String get contentShareFailedTitle;
+
+  /// No description provided for @contentShareFailedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Versuche es erneut oder kopiere stattdessen den Text.'**
+  String get contentShareFailedBody;
+
+  /// No description provided for @contentShareRetry.
+  ///
+  /// In de, this message translates to:
+  /// **'Erneut versuchen'**
+  String get contentShareRetry;
+
+  /// No description provided for @contentShareCopyText.
+  ///
+  /// In de, this message translates to:
+  /// **'Text kopieren'**
+  String get contentShareCopyText;
+
+  /// No description provided for @contentShareCopied.
+  ///
+  /// In de, this message translates to:
+  /// **'Text kopiert'**
+  String get contentShareCopied;
+
+  /// No description provided for @contentShareCopyFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Text konnte nicht kopiert werden.'**
+  String get contentShareCopyFailed;
+
   /// No description provided for @deckFlipFirstHint.
   ///
   /// In de, this message translates to:
@@ -5676,6 +5718,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{n} Zeilen gehört · +{xp} XP'**
   String listeningCompleteBody(int n, int xp);
+
+  /// No description provided for @listeningCompleteReplayBody.
+  ///
+  /// In de, this message translates to:
+  /// **'{n, plural, =1{1 Zeile gehört · Belohnung bereits erhalten} other{{n} Zeilen gehört · Belohnung bereits erhalten}}'**
+  String listeningCompleteReplayBody(int n);
 
   /// No description provided for @listeningPickFirst.
   ///

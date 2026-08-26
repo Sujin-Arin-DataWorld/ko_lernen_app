@@ -2030,6 +2030,29 @@ class AppL10nEn extends AppL10n {
   String get contentActionBookmark => 'Save';
 
   @override
+  String contentShareBody(String korean, String gloss) {
+    return '$korean\n$gloss\nhangul-sori.com';
+  }
+
+  @override
+  String get contentShareFailedTitle => 'The image could not be shared';
+
+  @override
+  String get contentShareFailedBody => 'Try again or copy the text instead.';
+
+  @override
+  String get contentShareRetry => 'Try again';
+
+  @override
+  String get contentShareCopyText => 'Copy text';
+
+  @override
+  String get contentShareCopied => 'Text copied';
+
+  @override
+  String get contentShareCopyFailed => 'The text could not be copied.';
+
+  @override
   String get deckFlipFirstHint => 'Tap the card to flip it first';
 
   @override
@@ -3227,6 +3250,17 @@ class AppL10nEn extends AppL10n {
   @override
   String listeningCompleteBody(int n, int xp) {
     return 'Heard $n lines · +$xp XP';
+  }
+
+  @override
+  String listeningCompleteReplayBody(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'Heard $n lines · Reward already collected',
+      one: 'Heard 1 line · Reward already collected',
+    );
+    return '$_temp0';
   }
 
   @override

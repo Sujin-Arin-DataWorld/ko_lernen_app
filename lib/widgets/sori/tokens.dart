@@ -171,6 +171,11 @@ class SoriColors {
   /// filled button. Level chips keep [info]; XP/streak keep [gold].
   static const Color contentCta = primary;
 
+  /// Current listening line only: approved 청 + 금 double outline.
+  /// These do not replace the global teal content CTA.
+  static const Color listeningCurrentOutline = info;
+  static const Color listeningCurrentInnerOutline = gold;
+
   /// Text/icon on [contentCta]. White — not a new pigment.
   static const Color contentCtaOn = Color(0xFFFFFFFF);
 

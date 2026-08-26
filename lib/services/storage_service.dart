@@ -23,6 +23,89 @@ enum MasteryState {
   strong,
 }
 
+/// Result of claiming the one-time reward for a listening scenario.
+enum ListeningRewardClaimResult { awarded, alreadyClaimed }
+
+class _ListeningRewardClaim {
+  const _ListeningRewardClaim({required this.earnedXp, required this.earnedOn});
+
+  final int earnedXp;
+  final String earnedOn;
+
+  factory _ListeningRewardClaim.fromJson(Object? value) {
+    if (value is! Map<String, dynamic>) {
+      throw const FormatException('Listening reward claim must be an object.');
+    }
+    final earnedXp = value['xp'];
+    final earnedOn = value['earnedOn'];
+    if (earnedXp is! int || earnedXp <= 0) {
+      throw const FormatException('Listening reward XP must be positive.');
+    }
+    if (earnedOn is! String ||
+        !RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch(earnedOn)) {
+      throw const FormatException('Listening reward date is invalid.');
+    }
+    return _ListeningRewardClaim(earnedXp: earnedXp, earnedOn: earnedOn);
+  }
+
+  Map<String, Object> toJson() => {'xp': earnedXp, 'earnedOn': earnedOn};
+}
+
+/// One durable value is both the listening-claim record and the XP authority.
+/// A crash can therefore never leave "XP written, claim missing" or the
+/// inverse. `kl_xp` remains a best-effort compatibility mirror for old builds.
+class _XpRewardLedger {
+  const _XpRewardLedger({required this.totalXp, required this.claims});
+
+  static const int schemaVersion = 1;
+
+  final int totalXp;
+  final Map<String, _ListeningRewardClaim> claims;
+
+  factory _XpRewardLedger.decode(String raw) {
+    final value = jsonDecode(raw);
+    if (value is! Map<String, dynamic> ||
+        value['version'] != schemaVersion ||
+        value['totalXp'] is! int ||
+        (value['totalXp'] as int) < 0 ||
+        value['listeningClaims'] is! Map<String, dynamic>) {
+      throw const FormatException('XP reward ledger is invalid.');
+    }
+    final claims = <String, _ListeningRewardClaim>{};
+    for (final entry
+        in (value['listeningClaims'] as Map<String, dynamic>).entries) {
+      if (entry.key.trim().isEmpty) {
+        throw const FormatException('Listening reward ID is empty.');
+      }
+      claims[entry.key] = _ListeningRewardClaim.fromJson(entry.value);
+    }
+    return _XpRewardLedger(
+      totalXp: value['totalXp'] as int,
+      claims: Map.unmodifiable(claims),
+    );
+  }
+
+  String encode() {
+    final orderedClaims = claims.entries.toList()
+      ..sort((a, b) => a.key.compareTo(b.key));
+    return jsonEncode({
+      'version': schemaVersion,
+      'totalXp': totalXp,
+      'listeningClaims': {
+        for (final entry in orderedClaims) entry.key: entry.value.toJson(),
+      },
+    });
+  }
+
+  _XpRewardLedger copyWith({
+    int? totalXp,
+    Map<String, _ListeningRewardClaim>? claims,
+  }) => _XpRewardLedger(
+    totalXp: totalXp ?? this.totalXp,
+    claims: Map.unmodifiable(claims ?? this.claims),
+  );
+}
+
 abstract interface class PreferenceRemovalStore {
   Set<String> getKeys();
   bool containsKey(String key);
@@ -331,11 +414,16 @@ class Storage {
   static const String _cropRecoveryMarkerKey = 'kl_crop_recovery_marker_v1';
   static const String _recoveredBookLeaseKey = 'kl_recovered_book_lease';
   static const String _recoveredWordLeaseKey = 'kl_recovered_word_lease';
+  static const String listeningRewardLedgerPreferenceKey =
+      'kl_xp_reward_ledger_v1';
 
   static SharedPreferences? _prefs;
   static Future<void> _recoveredBookMutation = Future<void>.value();
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
+  static Future<void> _xpRewardMutation = Future<void>.value();
+  static int _xpRewardMutationCount = 0;
+  static final Set<String> _pendingListeningRewardClaims = <String>{};
   static final Set<String> _unknownStrictKeys = <String>{};
   static String? _courseMasteryCache;
   static int _tutorialResetRevision = 0;
@@ -359,6 +447,9 @@ class Storage {
     _recoveredBookMutation = Future<void>.value();
     _recoveredWordMutation = Future<void>.value();
     _pronunciationProgressMutation = Future<void>.value();
+    _xpRewardMutation = Future<void>.value();
+    _xpRewardMutationCount = 0;
+    _pendingListeningRewardClaims.clear();
     MediaMutationLock.resetForTesting();
     _unknownStrictKeys.clear();
     _courseMasteryCache = null;
@@ -385,6 +476,83 @@ class Storage {
 
   static Future<void> _si(String k, int v) async => _prefs?.setInt(k, v);
   static Future<void> _ss(String k, String v) async => _prefs?.setString(k, v);
+
+  static Future<T> _enqueueXpRewardMutation<T>(Future<T> Function() mutation) {
+    // SharedPreferences updates its in-memory cache when a setter is invoked,
+    // before its returned Future completes. Existing game screens rely on that
+    // visibility because several legacy XP calls are intentionally
+    // fire-and-forget. Start an idle queue eagerly to preserve that contract;
+    // only later mutations wait for the current tail.
+    final startsImmediately = _xpRewardMutationCount == 0;
+    _xpRewardMutationCount++;
+
+    late final Future<T> result;
+    if (startsImmediately) {
+      try {
+        result = mutation();
+      } on Object catch (error, stackTrace) {
+        result = Future<T>.error(error, stackTrace);
+      }
+    } else {
+      result = _xpRewardMutation.then<T>((_) => mutation());
+    }
+    _xpRewardMutation = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    result.then<void>(
+      (_) => _xpRewardMutationCount--,
+      onError: (Object _, StackTrace __) => _xpRewardMutationCount--,
+    );
+    return result;
+  }
+
+  static _XpRewardLedger? _readXpRewardLedger({required bool strict}) {
+    final raw = _s(listeningRewardLedgerPreferenceKey);
+    if (raw.isEmpty) {
+      return null;
+    }
+    try {
+      return _XpRewardLedger.decode(raw);
+    } on Object catch (error) {
+      if (strict) {
+        throw PreferenceWriteException(
+          listeningRewardLedgerPreferenceKey,
+          cause: error,
+        );
+      }
+      return null;
+    }
+  }
+
+  static int _effectiveXpTotal(_XpRewardLedger ledger) {
+    final compatibilityMirror = _i('kl_xp');
+    return compatibilityMirror > ledger.totalXp
+        ? compatibilityMirror
+        : ledger.totalXp;
+  }
+
+  static Future<void> _persistXpRewardLedger(_XpRewardLedger ledger) async {
+    await _ssStrict(listeningRewardLedgerPreferenceKey, ledger.encode());
+    // The ledger above is the commit point. This mirror is only for an older
+    // app build that does not understand the ledger yet.
+    try {
+      await _si('kl_xp', ledger.totalXp);
+    } on Object catch (error) {
+      debugPrint('Storage: XP compatibility mirror failed: $error');
+    }
+  }
+
+  static Future<void> _mirrorListeningCompletion(String id) async {
+    try {
+      await addCompletedScenario(id);
+    } on Object catch (error) {
+      // The canonical ledger claim still makes completedScenarios contain the
+      // ID. A later completion can repair this old-format mirror.
+      debugPrint('Storage: listening completion mirror failed: $error');
+    }
+  }
+
   static Future<void> _ssStrict(
     String key,
     String value, {
@@ -2264,22 +2432,122 @@ class Storage {
   }
 
   /// XP-Gesamtpunkte. Level = (xp / 100) + 1.
-  static int get xp => _i('kl_xp');
+  static int get xp {
+    final ledger = _readXpRewardLedger(strict: false);
+    return ledger == null ? _i('kl_xp') : _effectiveXpTotal(ledger);
+  }
+
   static int get xpLevel => (xp ~/ 100) + 1;
   static int get xpToNext => 100 - (xp % 100);
-  static Future<void> setXp(int value) => _si('kl_xp', value);
-  static Future<void> addXp(int amount) async {
-    await _si('kl_xp', xp + amount);
-    await _bumpXpToday(amount);
+  static Future<void> setXp(int value) {
+    if (value < 0) {
+      throw ArgumentError.value(value, 'value', 'XP cannot be negative.');
+    }
+    return _enqueueXpRewardMutation(() async {
+      final ledger = _readXpRewardLedger(strict: true);
+      if (ledger == null) {
+        await _si('kl_xp', value);
+        return;
+      }
+      await _persistXpRewardLedger(ledger.copyWith(totalXp: value));
+    });
+  }
+
+  static Future<void> addXp(int amount) {
+    return _enqueueXpRewardMutation(() async {
+      final ledger = _readXpRewardLedger(strict: true);
+      if (ledger == null) {
+        final updated = _i('kl_xp') + amount;
+        if (updated < 0) {
+          throw ArgumentError.value(amount, 'amount', 'XP cannot be negative.');
+        }
+        await _si('kl_xp', updated);
+      } else {
+        final updated = _effectiveXpTotal(ledger) + amount;
+        if (updated < 0) {
+          throw ArgumentError.value(amount, 'amount', 'XP cannot be negative.');
+        }
+        await _persistXpRewardLedger(ledger.copyWith(totalXp: updated));
+      }
+      await _bumpXpToday(amount);
+    });
+  }
+
+  /// Claims the first-completion listening reward exactly once.
+  ///
+  /// The in-memory reservation happens before the first await, preventing two
+  /// callbacks in the same isolate from entering the durable mutation. All XP
+  /// writes share one queue so different scenario claims cannot overwrite each
+  /// other after an await. Existing `kl_completed_scenarios` entries are
+  /// intentionally treated as already rewarded; there is no retroactive XP.
+  static Future<ListeningRewardClaimResult> claimListeningCompletionReward({
+    required String scenarioId,
+    required int earnedXp,
+    DateTime? now,
+  }) {
+    final id = scenarioId.trim();
+    if (id.isEmpty) {
+      throw ArgumentError.value(scenarioId, 'scenarioId', 'ID is empty.');
+    }
+    if (earnedXp <= 0) {
+      throw ArgumentError.value(
+        earnedXp,
+        'earnedXp',
+        'Reward XP must be positive.',
+      );
+    }
+    if (_pendingListeningRewardClaims.contains(id) ||
+        completedScenarios.contains(id)) {
+      return Future.value(ListeningRewardClaimResult.alreadyClaimed);
+    }
+
+    _pendingListeningRewardClaims.add(id);
+    final result = _enqueueXpRewardMutation(() async {
+      final persistedCompleted = _l('kl_completed_scenarios');
+      if (persistedCompleted.contains(id)) {
+        return ListeningRewardClaimResult.alreadyClaimed;
+      }
+
+      final current =
+          _readXpRewardLedger(strict: true) ??
+          _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
+      if (current.claims.containsKey(id)) {
+        await _mirrorListeningCompletion(id);
+        return ListeningRewardClaimResult.alreadyClaimed;
+      }
+
+      final claims = Map<String, _ListeningRewardClaim>.from(current.claims)
+        ..[id] = _ListeningRewardClaim(
+          earnedXp: earnedXp,
+          earnedOn: _isoOf(now ?? DateTime.now()),
+        );
+      final updated = current.copyWith(
+        totalXp: _effectiveXpTotal(current) + earnedXp,
+        claims: claims,
+      );
+      await _persistXpRewardLedger(updated);
+      await _mirrorListeningCompletion(id);
+      return ListeningRewardClaimResult.awarded;
+    });
+    return result.whenComplete(() {
+      _pendingListeningRewardClaims.remove(id);
+    });
   }
 
   // ───────── Tagesziel (일일 목표 진행 — 리텐션 모멘텀) ─────────
   /// 오늘 획득한 XP(자정 리셋). 저장 날짜가 오늘이 아니면 0.
-  static int get xpToday => xpTodayValue(
-    _s('kl_xp_today_date'),
-    _i('kl_xp_today_raw'),
-    _isoOf(DateTime.now()),
-  );
+  static int get xpToday {
+    final today = _isoOf(DateTime.now());
+    final ordinaryXp = xpTodayValue(
+      _s('kl_xp_today_date'),
+      _i('kl_xp_today_raw'),
+      today,
+    );
+    final listeningXp = _readXpRewardLedger(strict: false)?.claims.values
+        .where((claim) => claim.earnedOn == today)
+        .fold<int>(0, (total, claim) => total + claim.earnedXp);
+    return ordinaryXp + (listeningXp ?? 0);
+  }
 
   /// 순수 함수(테스트 대상) — 저장 날짜가 오늘이면 raw, 아니면 0(자정 리셋).
   @visibleForTesting
@@ -2388,9 +2656,22 @@ class Storage {
     }
   }
 
-  static List<String> get completedScenarios => _l('kl_completed_scenarios');
+  static List<String> get completedScenarios {
+    final completed = _l('kl_completed_scenarios');
+    final claims = _readXpRewardLedger(strict: false)?.claims.keys;
+    if (claims == null) {
+      return completed;
+    }
+    for (final id in claims) {
+      if (!completed.contains(id)) {
+        completed.add(id);
+      }
+    }
+    return completed;
+  }
+
   static Future<void> addCompletedScenario(String id) async {
-    final list = completedScenarios;
+    final list = _l('kl_completed_scenarios');
     if (!list.contains(id)) {
       list.add(id);
       await _sl('kl_completed_scenarios', list);
