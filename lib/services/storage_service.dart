@@ -2516,6 +2516,12 @@ class Storage {
           _readXpRewardLedger(strict: true) ??
           _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
       if (current.claims.containsKey(id)) {
+        // §W2-Task4 fix round 1: 무조건 무효화 — 원장에는 이미 클레임이 있으므로
+        // completedScenarios(원장 머지)는 지금 당장 이 id 를 반영해야 한다.
+        // _mirrorListeningCompletion 이 (아래 try/catch 로) 로컬 리스트 쓰기
+        // 실패를 삼켜도, 캐시 자체를 지우면 다음 읽기가 원장에서 다시 머지해
+        // 자가치유한다 — 캐시 이전 코드의 동작을 복원한다.
+        _completedScenariosCache = null;
         await _mirrorListeningCompletion(id);
         return ListeningRewardClaimResult.alreadyClaimed;
       }
@@ -2530,6 +2536,9 @@ class Storage {
         claims: claims,
       );
       await _persistXpRewardLedger(updated);
+      // §W2-Task4 fix round 1: 위와 동일한 이유 — 원장 클레임이 막 저장됐으므로
+      // completedScenarios 캐시를 mirror 결과와 무관하게 무효화한다.
+      _completedScenariosCache = null;
       await _mirrorListeningCompletion(id);
       return ListeningRewardClaimResult.awarded;
     });
