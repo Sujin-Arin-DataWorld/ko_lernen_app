@@ -9,12 +9,13 @@ import 'tokens.dart';
 /// `TtsSpeedAction`)만 담는다. **본문 위에 이 행을 두 번 쌓지 않는다** —
 /// `chrome_stack_guard_test.dart`가 화면당 Wrap+칩 중복 적층을 잡는다.
 ///
-/// 시각 높이는 [SoriLayout.chromeRowHeight](44dp)로 고정. leading/trailing
-/// 아이콘 슬롯은 [SoriLayout.chromeRowTouchHeight](48dp)를 [OverflowBox]로
-/// 확보한다 — 이 행에는 가로 스크롤 뷰포트가 없어 오버플로가 잘리지 않는다
-/// (`SoriLevelFilterBar`처럼 가로 `ListView` 안에서는 이 기법을 쓰지 않는다
-/// — `Viewport`의 기본 clipBehavior가 오버플로를 도로 잘라 터치 영역을
-/// 줄이기 때문. 검수#5 참조).
+/// 레이아웃 높이는 [SoriLayout.chromeRowTouchHeight](48dp)로 고정한다 —
+/// leading/trailing 아이콘의 실제 터치 영역과 같은 값이어야 한다.
+/// Flutter 는 히트테스트를 조상의 실제 크기에서 끊으므로, 이 행 자신이
+/// 44dp 라면 안쪽에서 48dp 를 아무리 그려도 위/아래 2dp 는 절대 눌리지
+/// 않는다(검수#13 이 speakable.dart 에서 고친 것과 같은 버그, finding
+/// 10). 아이콘의 시각 크기(44dp)는 `_ChromeSlot` 안에서 `Center` 로
+/// 배치한다.
 class SoriChromeRow extends StatelessWidget {
   const SoriChromeRow({
     super.key,
@@ -38,7 +39,7 @@ class SoriChromeRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: SoriLayout.chromeRowHeight,
+      height: SoriLayout.chromeRowTouchHeight,
       child: Row(
         children: [
           if (onFilterTap != null)
@@ -74,20 +75,21 @@ class _ChromeSlot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
-    return SizedBox(
-      width: SoriLayout.chromeRowHeight,
-      height: SoriLayout.chromeRowHeight,
-      child: OverflowBox(
-        minWidth: SoriLayout.chromeRowTouchHeight,
-        maxWidth: SoriLayout.chromeRowTouchHeight,
-        minHeight: SoriLayout.chromeRowTouchHeight,
-        maxHeight: SoriLayout.chromeRowTouchHeight,
-        child: Semantics(
-          button: true,
-          label: semanticLabel,
-          child: ExcludeSemantics(
-            child: SoriPressable(
-              onTap: onTap,
+    // SoriPressable 을 48dp SizedBox 로 직접 감싼다 — speakable.dart 의
+    // SoriSpeechIndicator 와 같은 패턴(검수#13). OverflowBox 트릭을 쓰지
+    // 않는다: 그 트릭은 조상이 44dp 인 채로 남아 있을 때만 필요했는데,
+    // 이제 SoriChromeRow 자신이 48dp 이므로 불필요하고, 여전히 조상이
+    // 44dp 라고 착각하게 만드는 코드 냄새다.
+    return Semantics(
+      button: true,
+      label: semanticLabel,
+      child: ExcludeSemantics(
+        child: SoriPressable(
+          onTap: onTap,
+          child: SizedBox(
+            width: SoriLayout.chromeRowTouchHeight,
+            height: SoriLayout.chromeRowTouchHeight,
+            child: Center(
               child: Icon(icon, size: 22, color: s.text),
             ),
           ),
