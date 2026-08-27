@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../models/quest.dart';
 import '../models/sori_stage_progression.dart';
 import 'sori_stage_progression_service.dart';
@@ -34,6 +36,14 @@ abstract final class SoriStageRewardReceiptService {
       // 없다. 네트워크 조회는 여기서 "시작만" 하고 기다리지 않는다.
       local = captureLocal();
       networkFuture = loadNetwork();
+      // §정리#1: openActivity() 가 돌아올 때까지(수 분 뒤일 수 있음) 이
+      // future 는 여기서 await 되지 않는다 — 그 사이 실패하면 아무도 안 듣는
+      // 채로 Dart 가 루트 존에 미청취 비동기 에러를 보고한다. 지금 바로
+      // no-op 리스너를 붙여 "청취됨" 상태로 만든다 — Future 는 리스너를
+      // 여러 개 가질 수 있어, 실제 값/에러는 그대로 networkFuture 에 남고
+      // 아래 await 지점에서 기존과 동일하게 catch 돼 fail-open(null) 으로
+      // 이어진다(동작 불변).
+      unawaited(networkFuture.then<void>((_) {}, onError: (_) {}));
     } catch (_) {
       await openActivity();
       return null;

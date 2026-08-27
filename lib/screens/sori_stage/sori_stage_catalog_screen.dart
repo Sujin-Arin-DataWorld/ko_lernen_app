@@ -344,8 +344,14 @@ String cellAspectRatioCacheKey({
   return buffer.toString();
 }
 
-String? _cellAspectRatioCacheKey;
-double? _cellAspectRatioCacheValue;
+// §정리#3: 이전엔 단일 엔트리(마지막 키 1개)였다 — Learn/Games 두 탭이 한
+// 셸 패스 안에서 서로 다른 키로 번갈아 rebuild 되면 서로를 매번 몰아내
+// 캐시가 무의미해졌다. 탭 개수만큼(여유 포함) 담을 수 있는 작은 맵으로
+// 바꾸고, 꽉 차면 가장 먼저 넣은(오래된) 항목부터 버린다(삽입 순서 = Map
+// 순회 순서라 별도 타임스탬프 없이 `keys.first` 로 충분). 동작(캐시 키
+// 계산·반환값)은 그대로다.
+const int _cellAspectRatioCacheCapacity = 4;
+final Map<String, double> _cellAspectRatioCache = <String, double>{};
 
 /// Grid ratio derived from the 4:3 image plus the measured localized title and
 /// status footer. Every string remains available while cards in a row keep the
@@ -370,9 +376,9 @@ double _cellAspectRatio(
     titles: titles,
     footerLabels: footerLabels,
   );
-  if (cacheKey == _cellAspectRatioCacheKey &&
-      _cellAspectRatioCacheValue != null) {
-    return _cellAspectRatioCacheValue!;
+  final cached = _cellAspectRatioCache[cacheKey];
+  if (cached != null) {
+    return cached;
   }
   final tt = SoriTextTheme.of(context);
   final titleStyle = tt.cardTitle;
@@ -406,8 +412,10 @@ double _cellAspectRatio(
       footer +
       layoutAllowance;
   final ratio = cellWidth / height;
-  _cellAspectRatioCacheKey = cacheKey;
-  _cellAspectRatioCacheValue = ratio;
+  if (_cellAspectRatioCache.length >= _cellAspectRatioCacheCapacity) {
+    _cellAspectRatioCache.remove(_cellAspectRatioCache.keys.first);
+  }
+  _cellAspectRatioCache[cacheKey] = ratio;
   return ratio;
 }
 

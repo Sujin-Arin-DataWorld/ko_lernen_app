@@ -244,10 +244,16 @@ Future<void> _finishStartupInBackground() async {
     }
   }
   // SFX 전역 오디오 세션: 타 앱 음악과 mix + 무음 스위치 존중 (ADR-002 §5-3).
-  await AudioPolicy.instance.applyPlatformAudioContext();
-  // §W2-Task6: 스플래시가 기다리는 두 단계(마이그레이션+오디오 컨텍스트)가
-  // 여기서 끝난다 — BookImageService 이후 단계들은 게이트와 무관.
-  SplashGate.markReady();
+  // §정리#2: applyPlatformAudioContext() 는 (기존과 동일하게) 가드되지 않는다
+  // — 여기서 던지면 finally 가 markReady() 를 보장해, 스플래시가 예외로
+  // 상한 1500ms 를 다 채우고 나서야 넘어가는 일이 없다.
+  try {
+    await AudioPolicy.instance.applyPlatformAudioContext();
+  } finally {
+    // §W2-Task6: 스플래시가 기다리는 두 단계(마이그레이션+오디오 컨텍스트)가
+    // 여기서 끝난다 — BookImageService 이후 단계들은 게이트와 무관.
+    SplashGate.markReady();
+  }
   try {
     await BookImageService.initialize();
   } catch (error) {
@@ -567,7 +573,8 @@ class _KoLernenAppState extends State<KoLernenApp> {
             ),
           ),
         ),
-        // 로고 스플래시(2초) → 솟을대문 인트로 → 온보딩/홈
+        // 로고 스플래시(최소 600ms~상한 1500ms, SplashGate 완료에 반응) →
+        // 솟을대문 인트로 → 온보딩/홈
         // 모든 화면 전환은 SoriTransitions (fade + 깊이 scale-in) — "상자 슬라이드" 탈피.
         initialRoute: '/splash',
         onGenerateRoute: (settings) {
