@@ -2972,7 +2972,11 @@ class Storage {
 
   static Future<void> setScenarioStars(String id, int stars) async {
     final current = scenarioStars;
-    if ((current[id] ?? 0) < stars) {
+    final alreadyRecorded = current.containsKey(id);
+    // 0성 최초 완료도 반드시 기록돼야 한다 — 완료 여부(=키 존재) 자체가
+    // 코스 체크포인트 "0/2→1/2" 판정의 입력이다(지시서 4.15). 이후 재도전은
+    // 여전히 단조 증가만 허용(더 낮은 점수로 덮어쓰지 않음).
+    if (!alreadyRecorded || (current[id] ?? 0) < stars) {
       final updated = Map<String, int>.of(current)..[id] = stars;
       _scenarioStarsCache = Map<String, int>.unmodifiable(updated);
       await _ss('kl_scenario_stars', jsonEncode(updated));

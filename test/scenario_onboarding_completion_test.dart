@@ -160,9 +160,8 @@ void main() {
     );
   }
 
-  testWidgets('airport dont-know completion writes no mastery, stars, or XP', (
-    tester,
-  ) async {
+  testWidgets('airport dont-know completion writes no mastery or XP, '
+      'but records first-attempt 0 stars (T7: 0성 최초 기록 허용)', (tester) async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_tut_scenario': true,
@@ -206,7 +205,9 @@ void main() {
     expect(checkpoints.single.score, 0);
     expect(checkpoints.single.hasCourseContext, isFalse);
     expect(Storage.xp, 0);
-    expect(Storage.scenarioStars['airport_arrival'], isNull);
+    // T7(지시서 4.15): 0성 완료도 최초 1회는 기록된다 — 완료 여부(키 존재)가
+    // 코스 체크포인트 "0/2→1/2" 판정의 입력이라 더 이상 null 로 빠지면 안 된다.
+    expect(Storage.scenarioStars['airport_arrival'], 0);
     expect(Storage.completedScenarios, contains('airport_arrival'));
   });
 }
