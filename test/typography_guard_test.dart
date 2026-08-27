@@ -200,6 +200,35 @@ void main() {
       reason: '아이콘 달린 SoriButton 이 71개를 넘었다 (실제 $total).\n${_report(perFile)}',
     );
   });
+
+  test('원시 TextStyle( 안의 fontSize 리터럴은 더 늘지 않는다', () {
+    // §18 typography_guard 확장. SoriChip/SoriButton 처럼 자체 fontSize
+    // 파라미터를 받는 컴포넌트는 세지 않는다 — TextStyle( 호출의 괄호 짝
+    // 범위 **안**의 fontSize: 만 대상이다(무분별한 `fontSize: *[0-9]` 전체
+    // 검색은 컴포넌트 파라미터까지 오염시켜 실제보다 부풀려진다).
+    var total = 0;
+    final perFile = <String, int>{};
+    for (final s in sources.where((s) => s.path.startsWith('lib/screens/'))) {
+      var count = 0;
+      for (final span in _callSpans(s.clean, 'TextStyle')) {
+        final body = s.clean.substring(span.start, span.end);
+        count += RegExp(r'fontSize\s*:').allMatches(body).length;
+      }
+      if (count > 0) {
+        total += count;
+        perFile[s.path] = count;
+      }
+    }
+    // 기준선 2026-08-27 첫 실행 실측: 115곳 / 15파일. 그 뒤로는 하향만.
+    const ceiling = 115;
+    expect(
+      total,
+      lessThanOrEqualTo(ceiling),
+      reason:
+          'lib/screens/ 원시 TextStyle( 안 fontSize 리터럴이 늘었다 '
+          '(실제 $total).\n${_report(perFile)}',
+    );
+  });
 }
 
 /// 원본과 인덱스가 1:1 대응하는, 문자열·주석이 공백으로 지워진 사본을 함께 든다.
