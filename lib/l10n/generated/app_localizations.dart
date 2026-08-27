@@ -3601,6 +3601,48 @@ abstract class AppL10n {
   /// **'Merken'**
   String get contentActionBookmark;
 
+  /// No description provided for @contentActionBookmarkSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Gemerkt'**
+  String get contentActionBookmarkSaved;
+
+  /// No description provided for @contentActionBookmarkUnsaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht gemerkt'**
+  String get contentActionBookmarkUnsaved;
+
+  /// No description provided for @contentActionLikeLiked.
+  ///
+  /// In de, this message translates to:
+  /// **'Gelikt'**
+  String get contentActionLikeLiked;
+
+  /// No description provided for @contentActionLikeNotLiked.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht gelikt'**
+  String get contentActionLikeNotLiked;
+
+  /// No description provided for @speechIndicatorLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorlesen'**
+  String get speechIndicatorLabel;
+
+  /// No description provided for @speechIndicatorSpeaking.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird vorgelesen'**
+  String get speechIndicatorSpeaking;
+
+  /// No description provided for @speechIndicatorIdle.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht aktiv'**
+  String get speechIndicatorIdle;
+
   /// No description provided for @contentShareBody.
   ///
   /// In de, this message translates to:
@@ -8663,6 +8705,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Schwierig'**
   String get grammarHard;
+
+  /// No description provided for @grammarPreviousCard.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorherige Karte'**
+  String get grammarPreviousCard;
 
   /// No description provided for @grammarChoiceCta.
   ///
@@ -16433,6 +16481,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Start-Anleitung geschlossen. Als Nächstes kommt dein heutiges Lernen.'**
   String get todayGuideDismissedStatus;
+
+  /// No description provided for @homeActionLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Startseite'**
+  String get homeActionLabel;
+
+  /// No description provided for @homeActionConfirmTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Runde verlassen?'**
+  String get homeActionConfirmTitle;
+
+  /// No description provided for @homeActionConfirmBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt in dieser Runde geht verloren, wenn du jetzt zur Startseite gehst.'**
+  String get homeActionConfirmBody;
+
+  /// No description provided for @homeActionConfirmLeave.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Startseite'**
+  String get homeActionConfirmLeave;
+
+  /// No description provided for @homeActionConfirmStay.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterspielen'**
+  String get homeActionConfirmStay;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

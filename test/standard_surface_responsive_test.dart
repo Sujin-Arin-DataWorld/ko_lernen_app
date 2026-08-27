@@ -36,6 +36,7 @@ import 'package:ko_lernen_app/widgets/sori/chaekgado/shelf_case.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
+import 'package:ko_lernen_app/widgets/sori/level_filter_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
 import 'package:ko_lernen_app/widgets/sori/standard_page.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
@@ -485,17 +486,49 @@ void main() {
         tester.getTopLeft(levelLabel).dy,
         lessThan(tester.getTopLeft(find.byType(ChaekgadoShelfCase)).dy),
       );
-      expect(find.text('A1'), findsWidgets);
-      expect(find.text('C2'), findsWidgets);
-      final levelChips = tester.widgetList<SoriChip>(find.byType(SoriChip));
-      expect(levelChips, hasLength(LearnerLevel.values.length));
-      expect(
-        levelChips.every((chip) => chip.minInteractiveHeight == 48),
-        isTrue,
+      // SoriLevelFilterBar의 가로 ListView는 320dp/200%에서 6칩을 동시에
+      // 마운트하지 못한다(뷰포트 폭 기준 가상화 — cacheExtent 무관, 실측
+      // 2026-08-27). find.byType(SoriChip) 단일 스냅샷 대신 스크롤 위치를
+      // 처음부터 끝까지 훑으며 만난 칩을 누적한다(제스처 드래그는 좌표가
+      // 프레임 사이 밀릴 수 있어 ScrollPosition을 직접 이동시킨다) — 검수#5
+      // 계약 ①③ 값(48 / 6개)은 그대로, 새 위젯 트리에 맞춰 확인 방식만
+      // 바꾼다. DE/EN 두 로케일을 도는 바깥 루프가 같은 키 없는 서브트리를
+      // 재사용해 스크롤 위치가 넘어올 수 있으므로 매번 0으로 되감는다.
+      final levelBar = find.byType(SoriLevelFilterBar);
+      final barScrollable = find.descendant(
+        of: levelBar,
+        matching: find.byType(Scrollable),
       );
-      final c2Chip = find.widgetWithText(SoriChip, 'C2');
-      await tester.ensureVisible(c2Chip);
+      final scrollState = tester.state<ScrollableState>(barScrollable);
+      final seenLabels = <String>{};
+      void collectVisibleLevelChips() {
+        for (final chip in tester.widgetList<SoriChip>(
+          find.descendant(of: levelBar, matching: find.byType(SoriChip)),
+        )) {
+          expect(chip.minInteractiveHeight, 48);
+          seenLabels.add(chip.label);
+        }
+      }
+
+      scrollState.position.jumpTo(0);
       await tester.pump();
+      collectVisibleLevelChips();
+      final maxExtent = scrollState.position.maxScrollExtent;
+      for (var offset = 80.0; offset < maxExtent; offset += 80.0) {
+        scrollState.position.jumpTo(offset);
+        await tester.pump();
+        collectVisibleLevelChips();
+      }
+      scrollState.position.jumpTo(maxExtent);
+      await tester.pump();
+      collectVisibleLevelChips();
+      expect(seenLabels, hasLength(LearnerLevel.values.length));
+
+      final c2Chip = find.descendant(
+        of: levelBar,
+        matching: find.widgetWithText(SoriChip, 'C2'),
+      );
+      expect(c2Chip, findsOneWidget);
       await tester.tap(c2Chip);
       await tester.pump();
       expect(tester.widget<SoriChip>(c2Chip).selected, isTrue);

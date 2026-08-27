@@ -133,9 +133,9 @@ void main() {
           .replaceAll(r'\', '/')
           .replaceFirst(RegExp(r'\.dart$'), '');
     }).toList();
-    expect(actual, hasLength(129));
+    expect(actual, hasLength(133));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(129));
+    expect(listed, hasLength(133));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

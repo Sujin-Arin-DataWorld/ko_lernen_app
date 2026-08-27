@@ -1032,6 +1032,13 @@
   "contentActionLike": "Gefällt mir",
   "contentActionShare": "Teilen",
   "contentActionBookmark": "Merken",
+  "contentActionBookmarkSaved": "Gemerkt",
+  "contentActionBookmarkUnsaved": "Nicht gemerkt",
+  "contentActionLikeLiked": "Gelikt",
+  "contentActionLikeNotLiked": "Nicht gelikt",
+  "speechIndicatorLabel": "Vorlesen",
+  "speechIndicatorSpeaking": "Wird vorgelesen",
+  "speechIndicatorIdle": "Nicht aktiv",
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {
@@ -2484,6 +2491,7 @@
   },
   "grammarEasy": "Verstanden",
   "grammarHard": "Schwierig",
+  "grammarPreviousCard": "Vorherige Karte",
   "grammarChoiceCta": "Mit Beispielen üben",
   "grammarChoiceTitle": "Grammatik üben",
   "grammarChoiceEyebrow": "Satz erkennen",
@@ -4508,5 +4516,10 @@
   },
   "todayGuideOpenHub": "Vollständige App-Anleitung öffnen",
   "todayGuideDismiss": "Start-Anleitung schließen",
-  "todayGuideDismissedStatus": "Start-Anleitung geschlossen. Als Nächstes kommt dein heutiges Lernen."
+  "todayGuideDismissedStatus": "Start-Anleitung geschlossen. Als Nächstes kommt dein heutiges Lernen.",
+  "homeActionLabel": "Zur Startseite",
+  "homeActionConfirmTitle": "Runde verlassen?",
+  "homeActionConfirmBody": "Dein Fortschritt in dieser Runde geht verloren, wenn du jetzt zur Startseite gehst.",
+  "homeActionConfirmLeave": "Zur Startseite",
+  "homeActionConfirmStay": "Weiterspielen"
 }

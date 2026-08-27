@@ -2052,6 +2052,27 @@ class AppL10nDe extends AppL10n {
   String get contentActionBookmark => 'Merken';
 
   @override
+  String get contentActionBookmarkSaved => 'Gemerkt';
+
+  @override
+  String get contentActionBookmarkUnsaved => 'Nicht gemerkt';
+
+  @override
+  String get contentActionLikeLiked => 'Gelikt';
+
+  @override
+  String get contentActionLikeNotLiked => 'Nicht gelikt';
+
+  @override
+  String get speechIndicatorLabel => 'Vorlesen';
+
+  @override
+  String get speechIndicatorSpeaking => 'Wird vorgelesen';
+
+  @override
+  String get speechIndicatorIdle => 'Nicht aktiv';
+
+  @override
   String contentShareBody(String korean, String gloss) {
     return '$korean\n$gloss\nhangul-sori.com';
   }
@@ -4974,6 +4995,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarHard => 'Schwierig';
+
+  @override
+  String get grammarPreviousCard => 'Vorherige Karte';
 
   @override
   String get grammarChoiceCta => 'Mit Beispielen üben';
@@ -9705,4 +9729,20 @@ class AppL10nDe extends AppL10n {
   @override
   String get todayGuideDismissedStatus =>
       'Start-Anleitung geschlossen. Als Nächstes kommt dein heutiges Lernen.';
+
+  @override
+  String get homeActionLabel => 'Zur Startseite';
+
+  @override
+  String get homeActionConfirmTitle => 'Runde verlassen?';
+
+  @override
+  String get homeActionConfirmBody =>
+      'Dein Fortschritt in dieser Runde geht verloren, wenn du jetzt zur Startseite gehst.';
+
+  @override
+  String get homeActionConfirmLeave => 'Zur Startseite';
+
+  @override
+  String get homeActionConfirmStay => 'Weiterspielen';
 }

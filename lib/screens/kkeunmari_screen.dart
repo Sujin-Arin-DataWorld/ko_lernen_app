@@ -26,6 +26,7 @@ import '../widgets/sori/character_clip.dart';
 import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/home_action.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/progress.dart';
@@ -582,9 +583,17 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
 
     return SoriStudyFrame(
       title: t.kkeunmariTitle,
-      leading: IconButton(
-        icon: const Icon(Icons.arrow_back_ios_new, size: 20),
-        onPressed: () => Navigator.pop(context),
+      leading: SoriHomeAction(
+        // `_remaining` resets to `_turnSeconds` both at a brand-new round
+        // (`_start`, :240) and at the start of every later user turn
+        // (`_tigerMove` → `_startTimer`, :478) — not only once. Gating on
+        // that alone would also flag `_end` (dead_end/tiger_stuck already
+        // resolved, timer just left mid-value) as "round active" and pop an
+        // unneeded leave-confirmation over an already-shown result card.
+        // `_end == _End.none` is the existing round-lifecycle boolean that
+        // closes that gap.
+        isRoundActive: () =>
+            _end == _End.none && _remaining > 0 && _remaining < _turnSeconds,
       ),
       actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,

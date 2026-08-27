@@ -1025,6 +1025,13 @@
   "contentActionLike": "Like",
   "contentActionShare": "Share",
   "contentActionBookmark": "Save",
+  "contentActionBookmarkSaved": "Saved",
+  "contentActionBookmarkUnsaved": "Not saved",
+  "contentActionLikeLiked": "Liked",
+  "contentActionLikeNotLiked": "Not liked",
+  "speechIndicatorLabel": "Read aloud",
+  "speechIndicatorSpeaking": "Playing",
+  "speechIndicatorIdle": "Not playing",
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {
@@ -2415,6 +2422,7 @@
   },
   "grammarEasy": "Got it",
   "grammarHard": "Difficult",
+  "grammarPreviousCard": "Previous card",
   "grammarChoiceCta": "Practice with examples",
   "grammarChoiceTitle": "Grammar practice",
   "grammarChoiceEyebrow": "Recognize the sentence",
@@ -4404,5 +4412,10 @@
   },
   "todayGuideOpenHub": "Open the full app guide",
   "todayGuideDismiss": "Close the start guide",
-  "todayGuideDismissedStatus": "Start guide closed. Your Today learning is next."
+  "todayGuideDismissedStatus": "Start guide closed. Your Today learning is next.",
+  "homeActionLabel": "Go to home",
+  "homeActionConfirmTitle": "Leave this round?",
+  "homeActionConfirmBody": "Your progress in this round will be lost if you go to the home screen now.",
+  "homeActionConfirmLeave": "Go home",
+  "homeActionConfirmStay": "Keep playing"
 }

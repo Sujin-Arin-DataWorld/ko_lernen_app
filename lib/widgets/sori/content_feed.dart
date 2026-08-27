@@ -11,6 +11,10 @@ import 'like_burst.dart';
 import 'pressable.dart';
 import 'tokens.dart';
 
+/// 카드 전환 물리 경로. `legacy` 가 기본 — 화면이 명시적으로 옵트인해야
+/// `snap` 이 켜진다(검수#1 롤백 경로).
+enum FeedPhysics { legacy, snap }
+
 /// Vertical content feed. Replaces the four-way Tinder deck on live screens.
 ///
 /// - Vertical fling only. Horizontal drags are ignored (system back wins).
@@ -23,6 +27,7 @@ class SoriContentFeed extends StatefulWidget {
     super.key,
     required this.child,
     this.underlay,
+    this.topAccessory, // NEW
     this.flipHintTrigger,
     this.judgmentsEnabled = true,
     this.onBlockedJudgment,
@@ -49,10 +54,16 @@ class SoriContentFeed extends StatefulWidget {
     this.likeLabel,
     this.shareLabel,
     this.bookmarkLabel,
+    this.physics = FeedPhysics.legacy,
   });
 
   final Widget child;
   final Widget? underlay;
+
+  /// 카드 좌상단에 얹는 보조 컨트롤 — `SoriSpeechIndicator` 전용 자리.
+  /// 배경 더블탭 Listener 의 **형제**로 얹히므로 이 위젯을 탭해도 좋아요
+  /// 더블탭 카운터가 같이 올라가지 않는다(검수#13①).
+  final Widget? topAccessory;
   final ValueNotifier<int>? flipHintTrigger;
   final bool judgmentsEnabled;
   final VoidCallback? onBlockedJudgment;
@@ -87,11 +98,17 @@ class SoriContentFeed extends StatefulWidget {
   final String? shareLabel;
   final String? bookmarkLabel;
 
+  /// 카드 전환 물리. **기본 legacy**(기존 0.35 감쇠+즉시 리셋) — `snap`은
+  /// 화면 단위로 옵트인한다(검수#1). legacy 삭제는 W5 실기기 QA 통과 후
+  /// 별도 PR.
+  final FeedPhysics physics;
+
   @override
   State<SoriContentFeed> createState() => _SoriContentFeedState();
 }
 
-class _SoriContentFeedState extends State<SoriContentFeed> {
+class _SoriContentFeedState extends State<SoriContentFeed>
+    with SingleTickerProviderStateMixin {
   // 판정 커밋 임계값. 2026-08-19 에 64/700 에서 올렸다.
   //
   // 왜: 세로 드래그를 감지하는 GestureDetector 가 카드 전체를 덮고 있어서,
@@ -101,17 +118,31 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
   // 자연스러운 흔들림 범위 안이다.
   static const double _commitPx = 88;
   static const double _commitVelocity = 850;
+  static const double _snapOverscrollCap = _commitPx + 48; // 검수#1 오버스크롤 핸드오프
 
   double _dy = 0;
   int _tapCount = 0;
   Timer? _tapReset;
   Timer? _burstHide;
   bool _burst = false;
+  late final AnimationController _snapCtrl;
+  Tween<double>? _snapTween;
+
+  @override
+  void initState() {
+    super.initState();
+    _snapCtrl = AnimationController(vsync: this)
+      ..addListener(() {
+        final tween = _snapTween;
+        if (tween != null) setState(() => _dy = tween.evaluate(_snapCtrl));
+      });
+  }
 
   @override
   void dispose() {
     _tapReset?.cancel();
     _burstHide?.cancel();
+    _snapCtrl.dispose();
     super.dispose();
   }
 
@@ -163,10 +194,32 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
     if (!_canFling) {
       return;
     }
-    setState(() => _dy += details.delta.dy);
+    final next = _dy + details.delta.dy;
+    if (widget.physics == FeedPhysics.snap) {
+      // 갈 곳이 없는 방향으로 더 당겨도 88+48px 에서 단단하게 멈춘다 —
+      // 안쪽 스크롤 가능한 콘텐츠가 있다면 그 지점부터는 이 제스처가
+      // 더는 화면을 끌지 않으므로 사실상 안쪽 제스처에 양보한다(검수#1).
+      final hasNext = next < 0
+          ? widget.onNext != null
+          : widget.onPrevious != null;
+      final cap = hasNext ? double.infinity : _snapOverscrollCap;
+      setState(() => _dy = next.clamp(-cap, cap));
+      return;
+    }
+    setState(() => _dy = next);
   }
 
   void _onVerticalDragEnd(DragEndDetails details) {
+    if (widget.physics == FeedPhysics.snap && _snapCtrl.isAnimating) {
+      // 스냅 퇴장 애니메이션이 아직 재생 중인데 또 다른 드래그가 끝났다
+      // (빠른 연속 플링) — 재진입을 허용하면 같은 컨트롤러가 중간에
+      // 재시작돼 콜백/햅틱이 중복 발화할 수 있다(리뷰 Minor, 저비용
+      // 방어 가드). legacy 는 `_snapCtrl` 을 절대 애니메이션시키지 않으므로
+      // (`_commit` 의 legacy 분기는 `forward()` 를 호출하지 않는다)
+      // `_snapCtrl.isAnimating` 은 legacy 물리에서 항상 false — 이 가드는
+      // legacy 동작에 전혀 영향을 주지 않는다.
+      return;
+    }
     final velocity = details.velocity.pixelsPerSecond.dy;
     final committed = _dy.abs() > _commitPx || velocity.abs() > _commitVelocity;
     if (!committed) {
@@ -176,23 +229,58 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
     HapticFeedback.selectionClick();
     if (!widget.judgmentsEnabled) {
       if (widget.onSkip != null && widget.skipEnabled) {
-        widget.onSkip!();
+        _commit(velocity, widget.onSkip!);
       } else {
         widget.onBlockedJudgment?.call();
+        _springBack();
       }
-      _springBack();
       return;
     }
     if (_dy < 0 || velocity < 0) {
-      widget.onNext?.call();
+      _commit(velocity, widget.onNext);
     } else if (widget.onPrevious != null) {
-      widget.onPrevious!();
+      _commit(velocity, widget.onPrevious);
     } else if (widget.onSkip != null && widget.skipEnabled) {
-      widget.onSkip!();
+      _commit(velocity, widget.onSkip);
     } else {
-      widget.onNext?.call();
+      _commit(velocity, widget.onNext);
     }
-    _springBack();
+  }
+
+  /// legacy: 기존과 100% 동일 — 콜백 실행 후 즉시 `_dy=0`(텔레포트).
+  /// snap: `AnimationController`로 120-220ms 스냅 아웃 후 콜백, 리듀스모션은
+  /// legacy와 동일하게 즉시 전환(검수 요구 "reduce-motion 즉시 전환").
+  void _commit(double velocity, VoidCallback? action) {
+    if (widget.physics == FeedPhysics.legacy ||
+        SoriMotion.reduceMotion(context)) {
+      action?.call();
+      _springBack();
+      return;
+    }
+    final viewportHeight = MediaQuery.sizeOf(context).height;
+    final direction = _dy < 0 ? -1.0 : 1.0;
+    final exitOffset = direction * viewportHeight;
+    final speed = velocity.abs().clamp(_commitVelocity, 3000.0);
+    final t = (speed - _commitVelocity) / (3000.0 - _commitVelocity);
+    final minMs = SoriMotion.deckExitMin.inMilliseconds;
+    final maxMs = SoriMotion.deckExitMax.inMilliseconds;
+    _snapCtrl.duration = Duration(
+      milliseconds: (maxMs - (maxMs - minMs) * t).round(),
+    );
+    _snapTween = Tween<double>(begin: _dy, end: exitOffset);
+    _snapCtrl.forward(from: 0).whenComplete(() {
+      if (!mounted) return;
+      action?.call();
+      _snapTween = null;
+      // _snapCtrl 자체도 0 으로 되돌린다 — .forward() 는 1.0 에서 끝나므로,
+      // 값을 안 지우면 다음 build() 의 underlayOpacity 가 그 잔여 1.0 을
+      // 계속 읽어 언더레이가 완전 불투명(1.0)에 고정된 채 다음 완전한
+      // 드래그 커밋 전까지 안 풀린다(리뷰 Important).
+      setState(() {
+        _dy = 0;
+        _snapCtrl.value = 0;
+      });
+    });
   }
 
   VoidCallback? _gated(VoidCallback? action) {
@@ -209,7 +297,14 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final reduce = SoriMotion.reduceMotion(context);
-    final offset = reduce ? 0.0 : _dy * 0.35;
+    final offset = reduce
+        ? 0.0
+        : widget.physics == FeedPhysics.snap
+        ? _dy // 1:1 추적 — 감쇠 없음
+        : _dy * 0.35; // legacy 그대로
+    final underlayOpacity = widget.physics == FeedPhysics.snap && !reduce
+        ? (0.18 + 0.82 * _snapCtrl.value)
+        : 0.18;
     return Column(
       children: [
         Expanded(
@@ -217,7 +312,12 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
             fit: StackFit.passthrough,
             children: [
               if (widget.underlay != null)
-                Opacity(opacity: 0.18, child: widget.underlay),
+                Opacity(opacity: underlayOpacity, child: widget.underlay),
+              // 카드 배경 — 더블탭(좋아요)+세로 드래그 판정은 이 레이어
+              // 하나뿐이다. topAccessory(스피치 인디케이터)는 이 아래
+              // Stack 형제로 얹히므로, 그 작은 사각형을 탭하면 Flutter
+              // 히트테스트가 거기서 멈추고 이 Listener 는 그 포인터를
+              // 아예 보지 않는다(검수#13①).
               Listener(
                 onPointerUp: _onPointerUp,
                 child: GestureDetector(
@@ -230,6 +330,12 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
                   ),
                 ),
               ),
+              if (widget.topAccessory != null)
+                Positioned(
+                  top: Spacing.sm,
+                  left: Spacing.sm,
+                  child: widget.topAccessory!,
+                ),
               if (widget.flipHintTrigger != null)
                 Positioned(
                   top: Spacing.sm,
@@ -358,14 +464,28 @@ class SoriContentActions extends StatelessWidget {
                   onTap: onShare,
                 ),
               if (showLike)
-                _Stamp(
-                  name: 'like',
-                  label: likeLabel,
-                  icon: liked
-                      ? Icons.favorite_rounded
-                      : Icons.favorite_border_rounded,
-                  color: liked ? SoriColors.like : s.text,
-                  onTap: onLike,
+                // like 는 bookmark 와 달리 저장소 스트림이 없어 감쌀
+                // ValueListenableBuilder 가 없다 — 대신 Builder 로 자체
+                // context 를 얻어 AppL10n.of 를 이 가지가 실제로 그려질
+                // 때만(=showLike 일 때만) 부른다. 최상단에서 무조건 호출하면
+                // 로케일 델리게이트가 없는 좁은 위젯 테스트(judgment 라벨
+                // 레이아웃만 보는 것들)에서 판정과 무관하게 죽는다.
+                Builder(
+                  builder: (context) {
+                    final t = AppL10n.of(context);
+                    return _Stamp(
+                      name: 'like',
+                      label: likeLabel,
+                      value: liked
+                          ? t.contentActionLikeLiked
+                          : t.contentActionLikeNotLiked,
+                      icon: liked
+                          ? Icons.favorite_rounded
+                          : Icons.favorite_border_rounded,
+                      color: liked ? SoriColors.like : s.text,
+                      onTap: onLike,
+                    );
+                  },
                 ),
               if (showBookmark)
                 // 담긴 상태는 저장소가 직접 말한다. 예전에는 저장 성공을
@@ -378,13 +498,17 @@ class SoriContentActions extends StatelessWidget {
                     final saved =
                         bookmarked ||
                         (key != null && CustomPackService.containsKorean(key));
+                    final t = AppL10n.of(context);
                     return _Stamp(
                       name: 'save',
                       label: bookmarkLabel,
+                      value: saved
+                          ? t.contentActionBookmarkSaved
+                          : t.contentActionBookmarkUnsaved,
                       icon: saved
                           ? Icons.bookmark_rounded
                           : Icons.bookmark_border_rounded,
-                      color: saved ? SoriColors.like : s.text,
+                      color: s.text,
                       onTap: onBookmark,
                     );
                   },
@@ -461,6 +585,7 @@ class _Stamp extends StatelessWidget {
   const _Stamp({
     required this.name,
     required this.label,
+    this.value,
     required this.icon,
     required this.color,
     required this.onTap,
@@ -468,6 +593,13 @@ class _Stamp extends StatelessWidget {
 
   final String name;
   final String label;
+
+  /// 상태별 안내(예: 담김/안 담김, 좋아요/안 좋아요). null 이면 라벨만
+  /// 읽힌다 — flip/share 는 지금까지처럼 상태 없이 동작명만. 북마크·좋아요는
+  /// 값을 넘겨 상태를 함께 읽어준다(북마크: 지시서 1.24 검수 finding #1.
+  /// 좋아요는 그때 비대칭으로 남았다가 접근성 후속수정으로 마저 맞춘다 —
+  /// 전엔 좋아요 라벨만으로 스크린 리더가 찜/안 찜을 구분 못 했다).
+  final String? value;
   final IconData icon;
   final Color color;
   final VoidCallback? onTap;
@@ -478,6 +610,7 @@ class _Stamp extends StatelessWidget {
       button: true,
       enabled: onTap != null,
       label: label,
+      value: value,
       onTap: onTap,
       child: ExcludeSemantics(
         child: SoriPressable(
@@ -485,8 +618,8 @@ class _Stamp extends StatelessWidget {
           haptic: SoriHaptic.selection,
           child: Container(
             key: deckActionKey(name),
-            width: 44,
-            height: 44,
+            width: 48,
+            height: 48,
             alignment: Alignment.center,
             child: Icon(icon, size: 22, color: color),
           ),

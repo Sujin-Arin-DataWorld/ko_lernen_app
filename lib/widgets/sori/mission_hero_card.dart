@@ -88,7 +88,7 @@ class MissionHeroUnavailable {
 /// **MissionHeroCard** — 홈 블록 3 "오늘의 미션 히어로" (계획 §6.1·§10.1).
 ///
 /// "다음 것 1개"만 보여주는 단일 CTA 카드: 좌측 진행 링(56dp `primary`) +
-/// 레벨 칩(`HanokLevelPalette` 사계 4색) + 제목(h3, 2줄 허용) + 메타 1줄 +
+/// 레벨 칩(`HanokLevelPalette` 여섯 색) + 제목(h3, 2줄 허용) + 메타 1줄 +
 /// filled CTA(`tiger` 채움 — `SoriButton`이 `onFill` 먹 라벨과 `fillOutline`
 /// 테두리를 자동 보장, 높이 52).
 ///

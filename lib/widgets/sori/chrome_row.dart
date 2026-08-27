@@ -1,0 +1,98 @@
+import 'package:flutter/material.dart';
+
+import 'pressable.dart';
+import 'tokens.dart';
+
+/// **SoriChromeRow** — §17 앱바 아래 단 하나의 크롬 행.
+///
+/// leading 필터 아이콘 + center 진행 메타 + trailing 컨트롤 1개(보통
+/// `TtsSpeedAction`)만 담는다. **본문 위에 이 행을 두 번 쌓지 않는다** —
+/// `chrome_stack_guard_test.dart`가 화면당 Wrap+칩 중복 적층을 잡는다.
+///
+/// 시각 높이는 [SoriLayout.chromeRowHeight](44dp)로 고정. leading/trailing
+/// 아이콘 슬롯은 [SoriLayout.chromeRowTouchHeight](48dp)를 [OverflowBox]로
+/// 확보한다 — 이 행에는 가로 스크롤 뷰포트가 없어 오버플로가 잘리지 않는다
+/// (`SoriLevelFilterBar`처럼 가로 `ListView` 안에서는 이 기법을 쓰지 않는다
+/// — `Viewport`의 기본 clipBehavior가 오버플로를 도로 잘라 터치 영역을
+/// 줄이기 때문. 검수#5 참조).
+class SoriChromeRow extends StatelessWidget {
+  const SoriChromeRow({
+    super.key,
+    this.onFilterTap,
+    this.filterSemanticLabel,
+    this.meta,
+    this.trailing,
+  });
+
+  /// 탭하면 필터 시트를 여는 콜백(예: `showSoriFilterSheet`). null이면
+  /// leading 아이콘 자체를 숨긴다.
+  final VoidCallback? onFilterTap;
+  final String? filterSemanticLabel;
+
+  /// 가운데 진행 메타 — 보통 `Text('3 / 12', style: tt.meta)`.
+  final Widget? meta;
+
+  /// 오른쪽 단일 컨트롤 — 보통 `TtsSpeedAction`. 두 번째 컨트롤을 넣지 않는다.
+  final Widget? trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: SoriLayout.chromeRowHeight,
+      child: Row(
+        children: [
+          if (onFilterTap != null)
+            _ChromeSlot(
+              icon: Icons.tune_rounded,
+              semanticLabel: filterSemanticLabel ?? '',
+              onTap: onFilterTap!,
+            )
+          else
+            const SizedBox(width: Spacing.sm),
+          Expanded(child: Center(child: meta ?? const SizedBox.shrink())),
+          if (trailing != null)
+            trailing!
+          else
+            const SizedBox(width: Spacing.sm),
+        ],
+      ),
+    );
+  }
+}
+
+class _ChromeSlot extends StatelessWidget {
+  const _ChromeSlot({
+    required this.icon,
+    required this.semanticLabel,
+    required this.onTap,
+  });
+
+  final IconData icon;
+  final String semanticLabel;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = SoriSurfaces.of(context);
+    return SizedBox(
+      width: SoriLayout.chromeRowHeight,
+      height: SoriLayout.chromeRowHeight,
+      child: OverflowBox(
+        minWidth: SoriLayout.chromeRowTouchHeight,
+        maxWidth: SoriLayout.chromeRowTouchHeight,
+        minHeight: SoriLayout.chromeRowTouchHeight,
+        maxHeight: SoriLayout.chromeRowTouchHeight,
+        child: Semantics(
+          button: true,
+          label: semanticLabel,
+          child: ExcludeSemantics(
+            child: SoriPressable(
+              onTap: onTap,
+              child: Icon(icon, size: 22, color: s.text),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}

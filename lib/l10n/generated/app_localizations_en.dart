@@ -2044,6 +2044,27 @@ class AppL10nEn extends AppL10n {
   String get contentActionBookmark => 'Save';
 
   @override
+  String get contentActionBookmarkSaved => 'Saved';
+
+  @override
+  String get contentActionBookmarkUnsaved => 'Not saved';
+
+  @override
+  String get contentActionLikeLiked => 'Liked';
+
+  @override
+  String get contentActionLikeNotLiked => 'Not liked';
+
+  @override
+  String get speechIndicatorLabel => 'Read aloud';
+
+  @override
+  String get speechIndicatorSpeaking => 'Playing';
+
+  @override
+  String get speechIndicatorIdle => 'Not playing';
+
+  @override
   String contentShareBody(String korean, String gloss) {
     return '$korean\n$gloss\nhangul-sori.com';
   }
@@ -4954,6 +4975,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get grammarHard => 'Difficult';
+
+  @override
+  String get grammarPreviousCard => 'Previous card';
 
   @override
   String get grammarChoiceCta => 'Practice with examples';
@@ -9664,4 +9688,20 @@ class AppL10nEn extends AppL10n {
   @override
   String get todayGuideDismissedStatus =>
       'Start guide closed. Your Today learning is next.';
+
+  @override
+  String get homeActionLabel => 'Go to home';
+
+  @override
+  String get homeActionConfirmTitle => 'Leave this round?';
+
+  @override
+  String get homeActionConfirmBody =>
+      'Your progress in this round will be lost if you go to the home screen now.';
+
+  @override
+  String get homeActionConfirmLeave => 'Go home';
+
+  @override
+  String get homeActionConfirmStay => 'Keep playing';
 }
