@@ -145,6 +145,30 @@ class SoriLayout {
   }
 }
 
+/// **SoriGaps** — §16 간격 리듬 문법. 전부 기존 [Spacing] 별칭이다(신규
+/// hex/px 없음) — 용도별 이름을 붙여 `spacing: 10` 같은 그리드 밖 리터럴이
+/// 왜 필요 없는지 화면마다 스스로 답하게 한다.
+class SoriGaps {
+  SoriGaps._();
+
+  /// 선택지 사이(지시서 4.10) — cloze/quiz 선택지 리스트.
+  static const double optionGap = Spacing.md; // 12
+  /// 카드 사이 — 목록·피드의 카드 간격.
+  static const double cardGap = Spacing.lg; // 16
+  /// 섹션 사이 — 화면 안 큰 블록 간격.
+  static const double sectionGap = Spacing.xl; // 24
+  /// 질문 본문 → 선택지 블록(지시서 4.8).
+  static const double questionToOptions = Spacing.xl; // 24
+  /// 폼 라벨 → 입력 필드.
+  static const double labelToField = Spacing.sm; // 8
+  /// 크롬(앱바/필터 행) → 본문.
+  static const double chromeToContent = Spacing.lg; // 16
+  /// 제목 → 본문 텍스트.
+  static const double headingToBody = Spacing.sm; // 8
+  /// 문단 사이.
+  static const double paragraphGap = Spacing.md; // 12
+}
+
 /// Returns the small, device-width-driven visual enlargement used above the
 /// large-phone breakpoint. This deliberately does not read [TextScaler] —
 /// [SoriTypeScale] is the single place that multiplies it into the ambient
