@@ -69,16 +69,14 @@ class SoriSpeech {
   }
 
   // ⚠️ speakImpl(...)/prefetchImpl(...) 뒤의 .then/.whenComplete 는 반드시
-  // (1) 중간 변수로 한 번 끊고 (2) 콜백을 `=> expr` 화살표가 아니라
-  // `{ return expr; }` 블록 바디로 쓸 것. 실측(2026-08-27, 검수#13 보강
-  // fix 1) — 함수-타입 필드 호출 뒤에 `.then((_) => false)`/
-  // `.whenComplete(() => _inFlight.remove(key))` 처럼 화살표 콜백을 한
-  // 문으로 이어 붙이면, `speak()`↔`prefetch()` 교차 합류 경로에서 그
-  // Future 가 완료되지 않고 영원히 pending 으로 남는다(공유 in-flight 맵을
-  // 거쳐 다른 함수의 `.then` 이 그 결과를 기다릴 때만 재현 — 단독 호출이나
-  // 단순 `dart run` 반복 실행으로는 재현되기도, 안 되기도 했다). 아래
-  // 형태(중간 변수 + 블록 바디)로 바꾸자 같은 조건에서 항상, 즉시
-  // 해소됐다 — Dart 3.12.2 stable 에서 확인. 되돌리지 말 것.
+  // (1) 중간 변수로 한 번 끊고 (2) 콜백을 블록 바디로 쓸 것.
+  // 관찰(2026-08-27, 검수#13): 함수-타입 필드 호출 뒤에 `.then((_) => false)`/
+  // `.whenComplete(() => _inFlight.remove(key))` 처럼 콜백을 한 문으로 이어 붙이면,
+  // `speak()`↔`prefetch()` 교차 합류 경로에서 그 Future 가 완료되지 않고 영원히
+  // pending 으로 남는 현상이 보고됐다(공유 in-flight 맵을 거쳐 다른 함수의 `.then`이
+  // 그 결과를 기다릴 때만 재현, 단독 호출로는 재현 안 됨). 원인은 특정되지 않았으나,
+  // 아래 형태(중간 변수 + 블록 바디)로 바꾸면 항상 해소되므로, 인라인 체인 방식으로
+  // 리팩터링할 때는 재검증이 필요하다.
   static Future<bool> _startSpeak(String key, String text, String voice) {
     final resolved = speakImpl(text, voice);
     final future = resolved.whenComplete(() {

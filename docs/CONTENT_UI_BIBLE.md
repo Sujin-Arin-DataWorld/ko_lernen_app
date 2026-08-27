@@ -322,7 +322,7 @@ SRS(앎/모름)는 `/review` 전용으로 남긴다. 숏폼 열람에 채점 버
 safeTop
   chromeRow     ≤ 48dp
   body          = 나머지. FittedBox가 아니라 역할 스케일(koDisplay→한 단계 다운)
-  likeHotspot   = 장 전체 (더블탭) + 우하단 44dp 아이콘
+  likeHotspot   = 장 전체 (더블탭) + 우하단 48dp 아이콘
 safeBottom      시스템 제스처와 겹치지 않음
 ```
 
@@ -454,7 +454,7 @@ ui-ux-pro-max `favorites bookmark` 검색은 칩 리플로우만 나와 매칭 �
 
 벤치마크가 하트와 책갈피를 한 줄에 둔 이유는 이것이다. 우리가 어제 계획에서 “더블탭 = 저장”으로 합치면 공부 아카이브와 놀이 덱이 다시 섞인다.
 
-접근성: 하트·보관·`?`·공유는 각각 44dp + 독일어 라벨 (`Gefällt mir` / `Merken` / `Umdrehen` / `Teilen`). 제스처만으로 닫지 않는다.
+접근성: 하트·보관·`?`·공유는 각각 48dp + 독일어 라벨 (`Gefällt mir` / `Merken` / `Umdrehen` / `Teilen`). 제스처만으로 닫지 않는다.
 
 ---
 

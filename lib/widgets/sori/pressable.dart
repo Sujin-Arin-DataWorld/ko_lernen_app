@@ -6,8 +6,8 @@ import 'tokens.dart';
 /// **SoriPressable** — "통통튀는" 핵심 컴포넌트.
 ///
 /// 모든 tap-able 요소(카드/버튼/칩)를 감싸면 자동으로:
-/// - tap-down → scale 0.96 (200ms ease-out)
-/// - tap-up   → scale 1.0 (300ms elasticOut spring)
+/// - tap-down → scale 0.96 (150ms SoriMotion.fast)
+/// - tap-up   → scale 1.0 (250ms SoriMotion.medium elasticOut spring)
 /// - haptic feedback (default: selectionClick)
 ///
 /// onTap이 null이면 애니메이션 비활성 (display-only 상태).

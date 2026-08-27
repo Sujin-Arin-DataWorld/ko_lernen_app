@@ -94,9 +94,9 @@ class HanokColors {
   static const Color madangGroundDark = Color(0xFF15201A);
 }
 
-/// **레벨 사다리 팔레트 (사계 단청)** — CEFR 4단계를 봄·여름·가을·겨울
-/// 단청 4색으로 매핑한다. 온보딩 레벨 선택 화면과 이후 레벨 배지가 공유하는
-/// 단일 소스.
+/// **레벨 사다리 팔레트 (단청 여섯 색)** — CEFR 6단계(A1~C2)를 단청 여섯 색
+/// (청·황·적·청금·자·진자)으로 매핑한다. 온보딩 레벨 선택 화면과 이후 레벨
+/// 배지가 공유하는 단일 소스.
 ///
 /// **왜 [SoriColors]를 그대로 못 쓰는가 (2026-07-31 감사)**
 /// 기존 온보딩은 A1=`SoriColors.success`, A2=`SoriColors.primary`를 썼는데

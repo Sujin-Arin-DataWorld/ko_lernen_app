@@ -606,7 +606,7 @@ class _LevelCard extends StatelessWidget {
     final rank = HanokLevelPalette.rankOf(level.code);
 
     // 카드 전체를 하나의 접근성 노드로 합친다 — 스크린리더가 배지·점·화살표를
-    // 따로 읽지 않고 "A2 · Grundkenntnisse … Schwierigkeit 2/4" 한 번에 읽는다.
+    // 따로 읽지 않고 "A2 · Grundkenntnisse … Schwierigkeit 2/6" 한 번에 읽는다.
     return Semantics(
       button: true,
       enabled: true,
@@ -729,9 +729,9 @@ class _LevelBadge extends StatelessWidget {
   }
 }
 
-/// 난이도 서열을 **색이 아닌 형태**로 전달하는 채움 도트 (rank/4).
+/// 난이도 서열을 **색이 아닌 형태**로 전달하는 채움 도트 (rank/6).
 ///
-/// [HanokLevelPalette]의 사계 4색은 상호 명도 대비가 1.02~1.34:1이라 색각
+/// [HanokLevelPalette]의 여섯 색은 상호 명도 대비가 1.02~2.02:1이라 색각
 /// 이상 사용자에겐 서열이 보이지 않는다. 이 도트가 그 정보를 대신 전달한다.
 class _RankDots extends StatelessWidget {
   final int rank;
