@@ -226,4 +226,50 @@ void main() {
       semantics.dispose();
     },
   );
+
+  testWidgets('snap physics: revealed fling still calls onNext after animation', (
+    tester,
+  ) async {
+    var next = 0;
+    await tester.pumpWidget(
+      wrap(
+        SoriContentFeed(
+          physics: FeedPhysics.snap,
+          judgmentsEnabled: true,
+          onNext: () => next++,
+          knowLabel: 'Gewusst!',
+          child: const SizedBox.expand(child: Text('한국말')),
+        ),
+      ),
+    );
+    await tester.fling(find.text('한국말'), const Offset(0, -400), 1200);
+    await tester.pumpAndSettle();
+    expect(next, 1);
+  });
+
+  testWidgets('snap physics + reduce motion: commits instantly (no lingering animation)', (
+    tester,
+  ) async {
+    var next = 0;
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: MediaQuery(
+          data: const MediaQueryData(size: Size(400, 800), disableAnimations: true),
+          child: Scaffold(
+            body: SoriContentFeed(
+              physics: FeedPhysics.snap,
+              onNext: () => next++,
+              child: const SizedBox.expand(child: Text('한국말')),
+            ),
+          ),
+        ),
+      ),
+    );
+    await tester.fling(find.text('한국말'), const Offset(0, -400), 1200);
+    await tester.pump();
+    expect(next, 1); // 애니메이션 없이 즉시
+  });
 }

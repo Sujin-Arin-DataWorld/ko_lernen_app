@@ -11,6 +11,10 @@ import 'like_burst.dart';
 import 'pressable.dart';
 import 'tokens.dart';
 
+/// 카드 전환 물리 경로. `legacy` 가 기본 — 화면이 명시적으로 옵트인해야
+/// `snap` 이 켜진다(검수#1 롤백 경로).
+enum FeedPhysics { legacy, snap }
+
 /// Vertical content feed. Replaces the four-way Tinder deck on live screens.
 ///
 /// - Vertical fling only. Horizontal drags are ignored (system back wins).
@@ -50,6 +54,7 @@ class SoriContentFeed extends StatefulWidget {
     this.likeLabel,
     this.shareLabel,
     this.bookmarkLabel,
+    this.physics = FeedPhysics.legacy,
   });
 
   final Widget child;
@@ -93,11 +98,17 @@ class SoriContentFeed extends StatefulWidget {
   final String? shareLabel;
   final String? bookmarkLabel;
 
+  /// 카드 전환 물리. **기본 legacy**(기존 0.35 감쇠+즉시 리셋) — `snap`은
+  /// 화면 단위로 옵트인한다(검수#1). legacy 삭제는 W5 실기기 QA 통과 후
+  /// 별도 PR.
+  final FeedPhysics physics;
+
   @override
   State<SoriContentFeed> createState() => _SoriContentFeedState();
 }
 
-class _SoriContentFeedState extends State<SoriContentFeed> {
+class _SoriContentFeedState extends State<SoriContentFeed>
+    with SingleTickerProviderStateMixin {
   // 판정 커밋 임계값. 2026-08-19 에 64/700 에서 올렸다.
   //
   // 왜: 세로 드래그를 감지하는 GestureDetector 가 카드 전체를 덮고 있어서,
@@ -107,17 +118,31 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
   // 자연스러운 흔들림 범위 안이다.
   static const double _commitPx = 88;
   static const double _commitVelocity = 850;
+  static const double _snapOverscrollCap = _commitPx + 48; // 검수#1 오버스크롤 핸드오프
 
   double _dy = 0;
   int _tapCount = 0;
   Timer? _tapReset;
   Timer? _burstHide;
   bool _burst = false;
+  late final AnimationController _snapCtrl;
+  Tween<double>? _snapTween;
+
+  @override
+  void initState() {
+    super.initState();
+    _snapCtrl = AnimationController(vsync: this)
+      ..addListener(() {
+        final tween = _snapTween;
+        if (tween != null) setState(() => _dy = tween.evaluate(_snapCtrl));
+      });
+  }
 
   @override
   void dispose() {
     _tapReset?.cancel();
     _burstHide?.cancel();
+    _snapCtrl.dispose();
     super.dispose();
   }
 
@@ -169,7 +194,19 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
     if (!_canFling) {
       return;
     }
-    setState(() => _dy += details.delta.dy);
+    final next = _dy + details.delta.dy;
+    if (widget.physics == FeedPhysics.snap) {
+      // 갈 곳이 없는 방향으로 더 당겨도 88+48px 에서 단단하게 멈춘다 —
+      // 안쪽 스크롤 가능한 콘텐츠가 있다면 그 지점부터는 이 제스처가
+      // 더는 화면을 끌지 않으므로 사실상 안쪽 제스처에 양보한다(검수#1).
+      final hasNext = next < 0
+          ? widget.onNext != null
+          : widget.onPrevious != null;
+      final cap = hasNext ? double.infinity : _snapOverscrollCap;
+      setState(() => _dy = next.clamp(-cap, cap));
+      return;
+    }
+    setState(() => _dy = next);
   }
 
   void _onVerticalDragEnd(DragEndDetails details) {
@@ -182,23 +219,51 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
     HapticFeedback.selectionClick();
     if (!widget.judgmentsEnabled) {
       if (widget.onSkip != null && widget.skipEnabled) {
-        widget.onSkip!();
+        _commit(velocity, widget.onSkip!);
       } else {
         widget.onBlockedJudgment?.call();
+        _springBack();
       }
-      _springBack();
       return;
     }
     if (_dy < 0 || velocity < 0) {
-      widget.onNext?.call();
+      _commit(velocity, widget.onNext);
     } else if (widget.onPrevious != null) {
-      widget.onPrevious!();
+      _commit(velocity, widget.onPrevious);
     } else if (widget.onSkip != null && widget.skipEnabled) {
-      widget.onSkip!();
+      _commit(velocity, widget.onSkip);
     } else {
-      widget.onNext?.call();
+      _commit(velocity, widget.onNext);
     }
-    _springBack();
+  }
+
+  /// legacy: 기존과 100% 동일 — 콜백 실행 후 즉시 `_dy=0`(텔레포트).
+  /// snap: `AnimationController`로 120-220ms 스냅 아웃 후 콜백, 리듀스모션은
+  /// legacy와 동일하게 즉시 전환(검수 요구 "reduce-motion 즉시 전환").
+  void _commit(double velocity, VoidCallback? action) {
+    if (widget.physics == FeedPhysics.legacy ||
+        SoriMotion.reduceMotion(context)) {
+      action?.call();
+      _springBack();
+      return;
+    }
+    final viewportHeight = MediaQuery.sizeOf(context).height;
+    final direction = _dy < 0 ? -1.0 : 1.0;
+    final exitOffset = direction * viewportHeight;
+    final speed = velocity.abs().clamp(_commitVelocity, 3000.0);
+    final t = (speed - _commitVelocity) / (3000.0 - _commitVelocity);
+    final minMs = SoriMotion.deckExitMin.inMilliseconds;
+    final maxMs = SoriMotion.deckExitMax.inMilliseconds;
+    _snapCtrl.duration = Duration(
+      milliseconds: (maxMs - (maxMs - minMs) * t).round(),
+    );
+    _snapTween = Tween<double>(begin: _dy, end: exitOffset);
+    _snapCtrl.forward(from: 0).whenComplete(() {
+      if (!mounted) return;
+      action?.call();
+      _snapTween = null;
+      setState(() => _dy = 0);
+    });
   }
 
   VoidCallback? _gated(VoidCallback? action) {
@@ -215,7 +280,14 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final reduce = SoriMotion.reduceMotion(context);
-    final offset = reduce ? 0.0 : _dy * 0.35;
+    final offset = reduce
+        ? 0.0
+        : widget.physics == FeedPhysics.snap
+        ? _dy // 1:1 추적 — 감쇠 없음
+        : _dy * 0.35; // legacy 그대로
+    final underlayOpacity = widget.physics == FeedPhysics.snap && !reduce
+        ? (0.18 + 0.82 * _snapCtrl.value)
+        : 0.18;
     return Column(
       children: [
         Expanded(
@@ -223,7 +295,7 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
             fit: StackFit.passthrough,
             children: [
               if (widget.underlay != null)
-                Opacity(opacity: 0.18, child: widget.underlay),
+                Opacity(opacity: underlayOpacity, child: widget.underlay),
               // 카드 배경 — 더블탭(좋아요)+세로 드래그 판정은 이 레이어
               // 하나뿐이다. topAccessory(스피치 인디케이터)는 이 아래
               // Stack 형제로 얹히므로, 그 작은 사각형을 탭하면 Flutter
