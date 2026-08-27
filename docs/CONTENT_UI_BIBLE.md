@@ -560,3 +560,23 @@ ui-ux-pro-max `favorites bookmark` 검색은 칩 리플로우만 나와 매칭 �
 허용, 학습 화면 4곳은 §19 이행 대기 그랜드파더(늘리기 금지).
 `sori_layout_hero_fit_test.dart` — `heroFit`이 좁은 화면에서 비율을 지키며
 폭을 줄이는지, 이미 예산 안에 들어오는 화면은 그대로 두는지 고정한다.
+
+---
+
+## §16. 간격 리듬 문법
+
+`SoriGaps`(`tokens.dart`) — 전부 기존 `Spacing` 별칭, 신규 hex/px 없음.
+
+| 이름 | 값 | 용도 |
+|---|---|---|
+| `optionGap` | 12 | 선택지 사이(4.10) |
+| `cardGap` | 16 | 카드 사이 |
+| `sectionGap` | 24 | 섹션 사이 |
+| `questionToOptions` | 24 | 질문 → 선택지(4.8) |
+| `labelToField` | 8 | 폼 라벨 → 입력 |
+| `chromeToContent` | 16 | 크롬 → 본문 |
+| `headingToBody` | 8 | 제목 → 본문 |
+| `paragraphGap` | 12 | 문단 사이 |
+
+그리드 밖(0/4/8/12/16/24/32/48 이외) 숫자 리터럴은 신규 0 —
+`spacing_literal_guard_test.dart`가 강제한다(기준선 181, 하향만).
