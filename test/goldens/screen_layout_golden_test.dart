@@ -156,7 +156,14 @@ void main() {
               await tester.runAsync(() async {
                 await Future.wait([
                   for (final provider in imageProviders)
-                    precacheImage(provider, context),
+                    precacheImage(
+                      provider,
+                      context,
+                      // Pack artwork is optional by SoriIllustratedCard's
+                      // contract. Let its errorBuilder settle on the fallback
+                      // while still awaiting every bundled image decode.
+                      onError: (_, _) {},
+                    ),
                 ]);
               });
               await tester.pump();
