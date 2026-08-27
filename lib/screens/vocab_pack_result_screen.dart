@@ -313,17 +313,17 @@ class VocabPackResultScreen extends StatelessWidget {
                     icon: Icons.grid_view_rounded,
                     variant: SoriButtonVariant.outlined,
                     accent: SoriColors.info,
-                    onTap: () {
-                      if (courseContext != null) {
-                        // 코스 미션에서 진입 — /vocab 이 스택에 없을 수
-                        // 있으므로 popUntil 대신 정확히 1단계만 되돌아간다.
-                        Navigator.of(context).pop();
-                      } else {
-                        Navigator.of(context).popUntil(
-                          (r) => r.settings.name == '/vocab' || r.isFirst,
-                        );
-                      }
-                    },
+                    // VocabPackScreen 은 항상 pushReplacementNamed 로
+                    // '/vocab/result' 에 도달한다 — 즉 이 결과 화면은 그
+                    // 스택 위치를 그대로 물려받는다. 그러므로 진입 경로
+                    // (그리드 '/vocab', 코스 미션, 홈 "계속하기" 카드,
+                    // '/path' 학습 경로 등)에 상관없이 정확히 1단계
+                    // pop 하면 항상 그 진입 화면으로 돌아간다. 이름 기반
+                    // popUntil('/vocab' || isFirst) 은 '/vocab' 이 스택에
+                    // 없는 진입 경로(코스 미션, '/path')에서 isFirst 까지
+                    // 밀려나 잘못된 화면(Home)에 도착했다 — 아래에 아무것도
+                    // 없으면 pop() 은 안전한 no-op.
+                    onTap: () => Navigator.of(context).pop(),
                   ),
                 ),
               ],
