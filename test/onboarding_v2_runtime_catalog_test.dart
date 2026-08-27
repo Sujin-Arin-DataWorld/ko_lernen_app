@@ -209,10 +209,34 @@ void main() {
     );
     expect(find.text('Preview · In preparation'), findsOneWidget);
     expect(
-      find.textContaining('No heritage artwork is used here'),
+      find.textContaining('only artwork already approved for the app'),
       findsOneWidget,
     );
-    expect(find.byType(Image), findsNothing);
+    final imageAssets = tester
+        .widgetList<Image>(find.byType(Image))
+        .map((image) => image.image)
+        .whereType<AssetImage>()
+        .map((image) => image.assetName)
+        .toList(growable: false);
+    expect(
+      imageAssets,
+      contains(
+        'assets/illustrations/personal_hanok_v2/a1/states/'
+        '16_landscape_move_in.webp',
+      ),
+    );
+    expect(
+      imageAssets,
+      containsAll(const [
+        'assets/illustrations/stamps/stamp_taegeuk.png',
+        'assets/illustrations/stamps/stamp_plum.png',
+        'assets/illustrations/stamps/stamp_mountain.png',
+      ]),
+    );
+    expect(
+      imageAssets.where((asset) => asset.contains('personal_hanok_v3')),
+      isEmpty,
+    );
 
     final sources = find.byKey(
       const ValueKey('onboarding-v2-heritage-sources'),

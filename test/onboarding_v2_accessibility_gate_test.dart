@@ -38,6 +38,8 @@ void main() {
               ],
               deepContentKey: switch (pageIndex) {
                 0 => const ValueKey('onboarding-v2-curriculum-sources'),
+                2 => const ValueKey('onboarding-v2-story-status'),
+                3 => const ValueKey('onboarding-v2-reward-catalog'),
                 4 => const ValueKey('onboarding-v2-heritage-sources'),
                 _ => const ValueKey('onboarding-v2-story-hero'),
               },
@@ -51,7 +53,9 @@ void main() {
           (
             name: 'setup empty',
             footerActionKeys: const [ValueKey('onboarding-v2-setup-continue')],
-            deepContentKey: const ValueKey('onboarding-v2-level-prompt'),
+            deepContentKey: const ValueKey(
+              'onboarding-v2-purpose-${OnboardingV2Ids.purposeKContent}',
+            ),
             build: (copy) => OnboardingSetupScreen(
               copy: copy,
               selectedPurposeId: null,
@@ -79,7 +83,9 @@ void main() {
             footerActionKeys: const [
               ValueKey('onboarding-v2-companion-continue'),
             ],
-            deepContentKey: const ValueKey('onboarding-v2-companion-joy'),
+            deepContentKey: const ValueKey(
+              'onboarding-v2-companion-equal-learning-note',
+            ),
             build: (copy) => OnboardingCompanionScreen(
               copy: copy,
               selectedCompanionId: null,
@@ -92,7 +98,9 @@ void main() {
             footerActionKeys: const [
               ValueKey('onboarding-v2-companion-continue'),
             ],
-            deepContentKey: const ValueKey('onboarding-v2-companion-joy'),
+            deepContentKey: const ValueKey(
+              'onboarding-v2-companion-equal-learning-note',
+            ),
             build: (copy) => OnboardingCompanionScreen(
               copy: copy,
               selectedCompanionId: OnboardingV2Ids.companionJoy,
@@ -106,7 +114,9 @@ void main() {
               ValueKey('onboarding-v2-confirmation-start'),
               ValueKey('onboarding-v2-confirmation-change'),
             ],
-            deepContentKey: const ValueKey('onboarding-v2-confirmation-hero'),
+            deepContentKey: const ValueKey(
+              'onboarding-v2-confirmation-details',
+            ),
             build: (copy) => OnboardingCompanionConfirmationScreen(
               copy: copy,
               companionId: OnboardingV2Ids.companionTaego,
@@ -120,7 +130,9 @@ void main() {
               ValueKey('onboarding-v2-confirmation-start'),
               ValueKey('onboarding-v2-confirmation-change'),
             ],
-            deepContentKey: const ValueKey('onboarding-v2-confirmation-hero'),
+            deepContentKey: const ValueKey(
+              'onboarding-v2-confirmation-details',
+            ),
             build: (copy) => OnboardingCompanionConfirmationScreen(
               copy: copy,
               companionId: OnboardingV2Ids.companionJoy,
@@ -273,7 +285,7 @@ void main() {
           _germanApp(
             (context) => OnboardingSetupScreen(
               copy: onboardingV2Copy(AppL10n.of(context)),
-              selectedPurposeId: null,
+              selectedPurposeId: OnboardingV2Ids.purposeLifeTravel,
               selectedLevelCode: null,
               onPurposeChanged: (_) {},
               onLevelChanged: (_) {},
@@ -370,9 +382,9 @@ void main() {
 
         expect(
           tester
-              .widget<AnimatedSwitcher>(find.byType(AnimatedSwitcher))
-              .duration,
-          Duration.zero,
+              .widgetList<AnimatedSwitcher>(find.byType(AnimatedSwitcher))
+              .map((switcher) => switcher.duration),
+          everyElement(Duration.zero),
         );
         _expectHeader(
           tester,

@@ -42,8 +42,14 @@ void main() {
     expect(en.navigation.progress(2, 5), 'Page 2 of 5');
     expect(de.storyPages.last.statusLabel, contains('In Vorbereitung'));
     expect(en.storyPages.last.statusLabel, contains('In preparation'));
-    expect(en.storyPages.first.body, contains('EU analysis service'));
-    expect(de.storyPages.first.body, contains('Analysedienst in der EU'));
+    expect(
+      en.storyPages.first.highlights[3].body,
+      contains('EU analysis service'),
+    );
+    expect(
+      de.storyPages.first.highlights[3].body,
+      contains('Analysedienst in der EU'),
+    );
     expect(
       en.storyPages.first.curriculumEvidenceCopy!.claim,
       contains('CEFR performance goals'),
