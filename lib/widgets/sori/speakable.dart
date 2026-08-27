@@ -44,12 +44,19 @@ class SoriSpeech {
   static Future<void> Function(String text, String voice) prefetchImpl =
       (text, voice) => TtsService.prefetch(text, voice: voice);
 
+  /// 실제 정지 호출 지점 — 위 두 훅과 같은 이유. [SoriSpeechIndicator] 가
+  /// 재생 중 탭=정지(WCAG 4.1.2)를 실제 TtsService/플랫폼 채널 없이
+  /// 검증할 수 있게 한다.
+  @visibleForTesting
+  static Future<void> Function() stopImpl = () => TtsService.stop();
+
   /// 테스트 간 격리 — in-flight 맵과 훅을 진짜 구현으로 되돌린다.
   @visibleForTesting
   static void resetForTesting() {
     _inFlight.clear();
     speakImpl = (text, voice) => TtsService.speak(text, voice: voice);
     prefetchImpl = (text, voice) => TtsService.prefetch(text, voice: voice);
+    stopImpl = () => TtsService.stop();
   }
 
   static Future<bool> speak(String text, {String? voice}) {
@@ -109,7 +116,7 @@ class SoriSpeech {
     return future;
   }
 
-  static Future<void> stop() => TtsService.stop();
+  static Future<void> stop() => stopImpl();
 }
 
 /// **SoriSpeakable** — 탭=재생 카드 래퍼. **플립 카드에는 쓰지 않는다** —
@@ -160,40 +167,56 @@ class SoriSpeechIndicator extends StatelessWidget {
     final t = AppL10n.of(context);
     return ValueListenableBuilder<bool>(
       valueListenable: TtsService.speaking,
-      builder: (context, speaking, _) => Semantics(
-        button: true,
-        label: t.speechIndicatorLabel,
-        value: speaking ? t.speechIndicatorSpeaking : t.speechIndicatorIdle,
-        onTap: () => SoriSpeech.speak(text, voice: voice),
-        child: ExcludeSemantics(
-          child: SoriPressable(
-            onTap: () => SoriSpeech.speak(text, voice: voice),
-            child: SizedBox(
-              width: SoriLayout.chromeRowTouchHeight,
-              height: SoriLayout.chromeRowTouchHeight,
-              child: Center(
-                child: SizedBox(
-                  width: 44,
-                  height: 44,
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: s.surface.withValues(alpha: 0.85),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(
-                      speaking
-                          ? Icons.graphic_eq_rounded
-                          : Icons.volume_up_rounded,
-                      size: 18,
-                      color: SoriColors.contentCta,
+      builder: (context, speaking, _) {
+        // 재생 중엔 탭이 재생을 다시 걸지 않고 멈춘다. 예전엔 둘 다
+        // speak() 뿐이라, 재생 중 탭이 이미 진행 중인 요청에 합류만 하고
+        // 끝나는 사실상 아무 일도 안 하는 조작이었다 — 그런데도 값(value)은
+        // "재생 중"이라는, 대응하는 조작이 있는 것처럼 들리는 상태를
+        // 알렸다(WCAG 4.1.2). 두 onTap 이 반드시 같은 분기를 타야 하므로
+        // 한 곳에 묶는다 — 따로 적으면 이 버그가 재발한다.
+        void handleTap() {
+          if (speaking) {
+            SoriSpeech.stop();
+          } else {
+            SoriSpeech.speak(text, voice: voice);
+          }
+        }
+
+        return Semantics(
+          button: true,
+          label: t.speechIndicatorLabel,
+          value: speaking ? t.speechIndicatorSpeaking : t.speechIndicatorIdle,
+          onTap: handleTap,
+          child: ExcludeSemantics(
+            child: SoriPressable(
+              onTap: handleTap,
+              child: SizedBox(
+                width: SoriLayout.chromeRowTouchHeight,
+                height: SoriLayout.chromeRowTouchHeight,
+                child: Center(
+                  child: SizedBox(
+                    width: 44,
+                    height: 44,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: s.surface.withValues(alpha: 0.85),
+                        shape: BoxShape.circle,
+                      ),
+                      child: Icon(
+                        speaking
+                            ? Icons.graphic_eq_rounded
+                            : Icons.volume_up_rounded,
+                        size: 18,
+                        color: SoriColors.contentCta,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

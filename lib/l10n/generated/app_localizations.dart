@@ -3589,6 +3589,18 @@ abstract class AppL10n {
   /// **'Nicht gemerkt'**
   String get contentActionBookmarkUnsaved;
 
+  /// No description provided for @contentActionLikeLiked.
+  ///
+  /// In de, this message translates to:
+  /// **'Gelikt'**
+  String get contentActionLikeLiked;
+
+  /// No description provided for @contentActionLikeNotLiked.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht gelikt'**
+  String get contentActionLikeNotLiked;
+
   /// No description provided for @speechIndicatorLabel.
   ///
   /// In de, this message translates to:
@@ -8669,6 +8681,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Schwierig'**
   String get grammarHard;
+
+  /// No description provided for @grammarPreviousCard.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorherige Karte'**
+  String get grammarPreviousCard;
 
   /// No description provided for @grammarChoiceCta.
   ///

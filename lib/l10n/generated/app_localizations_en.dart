@@ -2036,6 +2036,12 @@ class AppL10nEn extends AppL10n {
   String get contentActionBookmarkUnsaved => 'Not saved';
 
   @override
+  String get contentActionLikeLiked => 'Liked';
+
+  @override
+  String get contentActionLikeNotLiked => 'Not liked';
+
+  @override
   String get speechIndicatorLabel => 'Read aloud';
 
   @override
@@ -4955,6 +4961,9 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get grammarHard => 'Difficult';
+
+  @override
+  String get grammarPreviousCard => 'Previous card';
 
   @override
   String get grammarChoiceCta => 'Practice with examples';

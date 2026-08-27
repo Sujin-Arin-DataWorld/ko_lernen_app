@@ -464,14 +464,28 @@ class SoriContentActions extends StatelessWidget {
                   onTap: onShare,
                 ),
               if (showLike)
-                _Stamp(
-                  name: 'like',
-                  label: likeLabel,
-                  icon: liked
-                      ? Icons.favorite_rounded
-                      : Icons.favorite_border_rounded,
-                  color: liked ? SoriColors.like : s.text,
-                  onTap: onLike,
+                // like 는 bookmark 와 달리 저장소 스트림이 없어 감쌀
+                // ValueListenableBuilder 가 없다 — 대신 Builder 로 자체
+                // context 를 얻어 AppL10n.of 를 이 가지가 실제로 그려질
+                // 때만(=showLike 일 때만) 부른다. 최상단에서 무조건 호출하면
+                // 로케일 델리게이트가 없는 좁은 위젯 테스트(judgment 라벨
+                // 레이아웃만 보는 것들)에서 판정과 무관하게 죽는다.
+                Builder(
+                  builder: (context) {
+                    final t = AppL10n.of(context);
+                    return _Stamp(
+                      name: 'like',
+                      label: likeLabel,
+                      value: liked
+                          ? t.contentActionLikeLiked
+                          : t.contentActionLikeNotLiked,
+                      icon: liked
+                          ? Icons.favorite_rounded
+                          : Icons.favorite_border_rounded,
+                      color: liked ? SoriColors.like : s.text,
+                      onTap: onLike,
+                    );
+                  },
                 ),
               if (showBookmark)
                 // 담긴 상태는 저장소가 직접 말한다. 예전에는 저장 성공을
@@ -580,9 +594,11 @@ class _Stamp extends StatelessWidget {
   final String name;
   final String label;
 
-  /// 상태별 안내(예: 담김/안 담김). null 이면 라벨만 읽힌다 — flip/share/like
-  /// 는 지금까지처럼 상태 없이 동작명만. 북마크만 값을 넘겨 상태를 함께
-  /// 읽어준다(지시서 1.24 검수 finding #1).
+  /// 상태별 안내(예: 담김/안 담김, 좋아요/안 좋아요). null 이면 라벨만
+  /// 읽힌다 — flip/share 는 지금까지처럼 상태 없이 동작명만. 북마크·좋아요는
+  /// 값을 넘겨 상태를 함께 읽어준다(북마크: 지시서 1.24 검수 finding #1.
+  /// 좋아요는 그때 비대칭으로 남았다가 접근성 후속수정으로 마저 맞춘다 —
+  /// 전엔 좋아요 라벨만으로 스크린 리더가 찜/안 찜을 구분 못 했다).
   final String? value;
   final IconData icon;
   final Color color;

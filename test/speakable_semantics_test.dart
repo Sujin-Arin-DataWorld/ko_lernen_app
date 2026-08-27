@@ -27,10 +27,12 @@ void main() {
 
   setUp(() {
     TtsService.speaking.value = false;
+    SoriSpeech.resetForTesting();
   });
 
   tearDown(() {
     TtsService.speaking.value = false;
+    SoriSpeech.resetForTesting();
   });
 
   testWidgets('버튼 role + 이름을 노출하고, 대기 상태에서 idle 값을 읽어준다', (
@@ -65,5 +67,43 @@ void main() {
     expect(data.value, t.speechIndicatorSpeaking);
     expect(data.value, isNot(t.speechIndicatorIdle));
     semantics.dispose();
+  });
+
+  testWidgets('탭 — 대기 중엔 speak, 재생 중엔 stop을 부른다 (WCAG 4.1.2, 접근성 후속수정 A4)', (
+    tester,
+  ) async {
+    // 예전엔 Semantics.onTap 도 SoriPressable.onTap 도 무조건 speak() 였다
+    // — 재생 중 탭은 이미 진행 중인 요청에 합류만 하는 조작 불가능한
+    // no-op 인데, value 는 "재생 중"이라는 대응 조작이 있는 것처럼 들리는
+    // 상태를 알렸다. speakImpl/stopImpl 가짜로 실제 TtsService/플랫폼
+    // 채널 없이 분기를 고정한다.
+    final speakCalls = <String>[];
+    var stopCalls = 0;
+    SoriSpeech.speakImpl = (text, voice) async {
+      speakCalls.add(text);
+      return true;
+    };
+    SoriSpeech.stopImpl = () async {
+      stopCalls++;
+    };
+
+    await tester.pumpWidget(host());
+
+    await tester.tap(find.byType(SoriSpeechIndicator));
+    await tester.pump();
+    expect(speakCalls, ['학교'], reason: '대기 중 탭은 재생을 걸어야 한다');
+    expect(stopCalls, 0);
+
+    TtsService.speaking.value = true;
+    await tester.pump();
+
+    await tester.tap(find.byType(SoriSpeechIndicator));
+    await tester.pump();
+    expect(stopCalls, 1, reason: '재생 중 탭은 정지를 불러야 한다');
+    expect(
+      speakCalls,
+      ['학교'],
+      reason: '재생 중 탭이 speak 를 다시 걸면 안 된다 — 조작 불가능한 상태가 재발한다',
+    );
   });
 }

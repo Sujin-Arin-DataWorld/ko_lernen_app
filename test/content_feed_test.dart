@@ -228,6 +228,53 @@ void main() {
     },
   );
 
+  testWidgets(
+    'like stamp announces liked state, not just the static action name',
+    (tester) async {
+      // 접근성 후속수정 A2 — 북마크 스탬프는 지시서 1.24 검수에서 value 를
+      // 받았는데(위 테스트) 좋아요는 그때 비대칭으로 남았다. 라벨("Gefällt
+      // mir")만으로는 스크린 리더가 찜/안 찜을 구분 못 했다.
+      final semantics = tester.ensureSemantics();
+      final t = await AppL10n.delegate.load(const Locale('de'));
+
+      await tester.pumpWidget(
+        wrap(
+          SoriContentFeed(
+            onLike: () {},
+            liked: false,
+            child: const SizedBox.expand(child: Text('한국말')),
+          ),
+        ),
+      );
+      final notLiked = tester
+          .getSemantics(find.bySemanticsLabel(t.contentActionLike))
+          .getSemanticsData();
+      expect(notLiked.label, t.contentActionLike, reason: '동작명은 그대로 유지');
+      expect(notLiked.value, t.contentActionLikeNotLiked);
+
+      await tester.pumpWidget(
+        wrap(
+          SoriContentFeed(
+            onLike: () {},
+            liked: true,
+            child: const SizedBox.expand(child: Text('한국말')),
+          ),
+        ),
+      );
+      final liked = tester
+          .getSemantics(find.bySemanticsLabel(t.contentActionLike))
+          .getSemanticsData();
+      expect(liked.value, t.contentActionLikeLiked);
+      expect(
+        liked.value,
+        isNot(notLiked.value),
+        reason: '좋아요 전/후 안내가 달라야 한다 — 라벨이 같아도 값이 상태를 말해야 함',
+      );
+
+      semantics.dispose();
+    },
+  );
+
   testWidgets('snap physics: revealed fling still calls onNext after animation', (
     tester,
   ) async {

@@ -2044,6 +2044,12 @@ class AppL10nDe extends AppL10n {
   String get contentActionBookmarkUnsaved => 'Nicht gemerkt';
 
   @override
+  String get contentActionLikeLiked => 'Gelikt';
+
+  @override
+  String get contentActionLikeNotLiked => 'Nicht gelikt';
+
+  @override
   String get speechIndicatorLabel => 'Vorlesen';
 
   @override
@@ -4975,6 +4981,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarHard => 'Schwierig';
+
+  @override
+  String get grammarPreviousCard => 'Vorherige Karte';
 
   @override
   String get grammarChoiceCta => 'Mit Beispielen üben';

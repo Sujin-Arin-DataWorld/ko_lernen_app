@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -156,6 +157,51 @@ void main() {
 
     expect(position(tester), startsWith('1 / '));
   });
+
+  testWidgets(
+    '이전 카드 대체수단(WCAG 2.5.1 커스텀 시맨틱 액션)은 idx>0 에서만 노출된다 (접근성 후속수정 A3)',
+    (tester) async {
+      // onPrevious(아래 플링)는 easy/hard/save/skip 과 같은
+      // customSemanticsActions 목록에 있었는데, 그 목록 자체엔 처음부터
+      // 빠져 있었다 — 스와이프를 쓸 수 없는 사용자는 카드를 되돌릴 방법이
+      // TalkBack/VoiceOver 메뉴에 아예 없었다.
+      await tester.pumpWidget(_wrap(const GrammarScreen()));
+      await _settle(tester);
+
+      Map<CustomSemanticsAction, VoidCallback> customActions() {
+        final matches = tester
+            .widgetList<Semantics>(find.byType(Semantics))
+            .where(
+              (w) =>
+                  w.properties.customSemanticsActions != null &&
+                  w.properties.customSemanticsActions!.isNotEmpty,
+            )
+            .toList();
+        expect(
+          matches,
+          hasLength(1),
+          reason: '커스텀 시맨틱 액션 컨테이너는 카드 영역에 하나뿐이어야 한다',
+        );
+        return matches.single.properties.customSemanticsActions!;
+      }
+
+      final t = AppL10n.of(tester.element(find.byType(GrammarScreen)));
+
+      expect(
+        customActions().keys.map((a) => a.label),
+        isNot(contains(t.grammarPreviousCard)),
+        reason: '첫 카드(idx=0)에는 되돌아갈 곳이 없다 — 대체수단도 노출되면 안 된다',
+      );
+
+      await skipForward(tester, 1);
+
+      expect(
+        customActions().keys.map((a) => a.label),
+        contains(t.grammarPreviousCard),
+        reason: 'idx>0 이면 스와이프와 동등한 대체수단(커스텀 액션)도 열려야 한다',
+      );
+    },
+  );
 }
 
 Widget _wrap(Widget child) => MaterialApp(
