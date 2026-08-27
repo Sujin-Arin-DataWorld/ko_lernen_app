@@ -149,4 +149,34 @@ void main() {
     expect(q.current, 'b');
     expect(q.peekNext, 'c');
   });
+
+  // ── currentIsRepeat (지시서 1.1 보강 — 재출제 칩) ─────────────────────
+
+  test('첫 서빙은 재출제가 아니다', () {
+    final q = _q(['a', 'b', 'c']);
+    expect(q.currentIsRepeat, isFalse);
+  });
+
+  test('markUnknown 이후 재삽입된 카드가 다시 나오면 재출제다', () {
+    final q = _q(['a', 'b', 'c', 'd', 'e']);
+    q.markUnknown(); // a 재삽입 → b,c,d,a,e. 지금 current 는 b(최초 서빙).
+    expect(q.currentIsRepeat, isFalse);
+    q.markKnown(); // b 제거 → c,d,a,e
+    q.markKnown(); // c 제거 → d,a,e
+    q.markKnown(); // d 제거 → a,e — a 가 다시 current
+    expect(q.currentIsRepeat, isTrue);
+  });
+
+  test('defer 로 재배치된 카드도 재출제로 표시된다', () {
+    final q = _q(['a', 'b']);
+    q.defer(); // a 재삽입 → [b, a]
+    expect(q.currentIsRepeat, isFalse); // 지금 current = b, 최초 서빙
+    q.markKnown(); // b 제거 → [a]
+    expect(q.currentIsRepeat, isTrue); // a 는 이미 한 번 서빙됨
+  });
+
+  test('큐가 비면 currentIsRepeat 은 false', () {
+    final q = _q([]);
+    expect(q.currentIsRepeat, isFalse);
+  });
 }
