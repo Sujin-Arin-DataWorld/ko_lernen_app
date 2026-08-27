@@ -343,12 +343,18 @@ class OnboardingCompanionCopy {
 @immutable
 class OnboardingV2Copy {
   const OnboardingV2Copy({
+    required this.brandLatin,
+    required this.brandKorean,
+    required this.syllableGa,
     required this.navigation,
     required this.storyPages,
     required this.setup,
     required this.companion,
   });
 
+  final String brandLatin;
+  final String brandKorean;
+  final String syllableGa;
   final OnboardingNavigationCopy navigation;
   final List<OnboardingStoryPageSpec> storyPages;
   final OnboardingSetupCopy setup;

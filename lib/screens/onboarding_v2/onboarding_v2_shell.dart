@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/tokens.dart';
+import '../../widgets/sori/window_class.dart';
 
 /// Opens an onboarding-owned modal and returns keyboard focus to the control
 /// that opened it after the route has closed.
@@ -28,6 +29,8 @@ class OnboardingV2PageShell extends StatelessWidget {
     super.key,
     required this.body,
     required this.footer,
+    required this.brandLatin,
+    required this.brandKorean,
     this.bodyKey,
     this.bodyScrollController,
     this.stage,
@@ -41,6 +44,8 @@ class OnboardingV2PageShell extends StatelessWidget {
 
   final Widget body;
   final Widget footer;
+  final String brandLatin;
+  final String brandKorean;
   final Key? bodyKey;
   final ScrollController? bodyScrollController;
   final Widget? stage;
@@ -68,7 +73,7 @@ class OnboardingV2PageShell extends StatelessWidget {
       body: SafeArea(
         child: LayoutBuilder(
           builder: (context, constraints) {
-            final framed = constraints.maxWidth >= 960;
+            final framed = constraints.maxWidth >= SoriMaxWidth.world;
             final outerPadding = framed ? Spacing.xl : 0.0;
             final radius = framed ? 28.0 : 0.0;
             return Padding(
@@ -90,6 +95,8 @@ class OnboardingV2PageShell extends StatelessWidget {
                       child: Column(
                         children: [
                           _JourneyHeader(
+                            brandLatin: brandLatin,
+                            brandKorean: brandKorean,
                             currentStep: currentStep!,
                             totalSteps: totalSteps,
                             progressLabel: progressLabel,
@@ -180,11 +187,15 @@ class _SimpleOnboardingFrame extends StatelessWidget {
 
 class _JourneyHeader extends StatelessWidget {
   const _JourneyHeader({
+    required this.brandLatin,
+    required this.brandKorean,
     required this.currentStep,
     required this.totalSteps,
     required this.progressLabel,
   });
 
+  final String brandLatin;
+  final String brandKorean;
   final int currentStep;
   final int totalSteps;
   final String? progressLabel;
@@ -203,7 +214,7 @@ class _JourneyHeader extends StatelessWidget {
           Spacing.lg,
           Spacing.sm,
           Spacing.lg,
-          7,
+          Spacing.sm,
         ),
         child: Row(
           children: [
@@ -228,14 +239,12 @@ class _JourneyHeader extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Hangeul Sori',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                    brandLatin,
                     style: text.label.copyWith(color: surfaces.text),
                   ),
-                  const SizedBox(height: 2),
+                  const SizedBox(height: Spacing.xs),
                   Text(
-                    '한글소리',
+                    brandKorean,
                     locale: const Locale('ko'),
                     style: text.meta.copyWith(letterSpacing: 1.1),
                   ),
@@ -313,7 +322,7 @@ class _ProgressRail extends StatelessWidget {
                           : surfaces.border,
                     ),
                   ),
-                  if (index < totalSteps) const SizedBox(width: 6),
+                  if (index < totalSteps) const SizedBox(width: Spacing.sm),
                 ],
               ],
             ),
@@ -592,7 +601,7 @@ class OnboardingV2Heading extends StatelessWidget {
               title,
               style: text.h1.copyWith(
                 color: surfaces.text,
-                fontFamily: 'MaruBuri',
+                fontFamily: SoriFonts.culture,
                 height: 1.12,
               ),
             ),

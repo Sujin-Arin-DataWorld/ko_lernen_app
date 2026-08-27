@@ -3,6 +3,7 @@ import 'package:flutter/semantics.dart'
     show AttributedString, LocaleStringAttribute;
 
 import '../../widgets/sori/mascot.dart';
+import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_presentation.dart';
 
@@ -105,21 +106,17 @@ class OnboardingSetupStage extends StatelessWidget {
                         choosingLevel ? '2 / 2' : '1 / 2',
                         style: SoriTextTheme.of(context).meta,
                       ),
-                      const SizedBox(height: 2),
+                      const SizedBox(height: Spacing.xs),
                       Text(
                         choosingLevel ? copy.levelHeading : copy.purposeHeading,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
                         style: SoriTextTheme.of(
                           context,
-                        ).h2.copyWith(fontFamily: 'MaruBuri'),
+                        ).h2.copyWith(fontFamily: SoriFonts.culture),
                       ),
                       if (choosingLevel && selectedPurposeTitle != null) ...[
-                        const SizedBox(height: 2),
+                        const SizedBox(height: Spacing.xs),
                         Text(
                           selectedPurposeTitle!,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                           style: SoriTextTheme.of(context).meta,
                         ),
                       ],
@@ -237,7 +234,7 @@ class OnboardingConfirmationStage extends StatelessWidget {
                           text: companion.name,
                           style: SoriTextTheme.of(context).h2.copyWith(
                             color: Colors.white,
-                            fontFamily: 'MaruBuri',
+                            fontFamily: SoriFonts.culture,
                           ),
                         ),
                         TextSpan(
@@ -348,11 +345,9 @@ class _StudyStage extends StatelessWidget {
                 ),
                 child: Text(
                   page.highlights[2].title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
                   style: SoriTextTheme.of(context).h3.copyWith(
                     color: SoriColors.lightText,
-                    fontFamily: 'MaruBuri',
+                    fontFamily: SoriFonts.culture,
                   ),
                 ),
               ),
@@ -393,7 +388,7 @@ class _MemoryStage extends StatelessWidget {
                 boxShadow: SoriElevation.high,
               ),
               child: Padding(
-                padding: const EdgeInsets.all(7),
+                padding: const EdgeInsets.all(Spacing.sm),
                 child: Image.asset(
                   'assets/illustrations/activities/srs.webp',
                   fit: BoxFit.cover,
@@ -539,8 +534,6 @@ class _StageCaption extends StatelessWidget {
       children: [
         Text(
           eyebrow.toUpperCase(),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
           style: SoriTextTheme.of(context).meta.copyWith(
             color: accent,
             fontWeight: FontWeight.w800,
@@ -550,11 +543,9 @@ class _StageCaption extends StatelessWidget {
         const SizedBox(height: Spacing.xs),
         Text(
           title,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
           style: SoriTextTheme.of(context).h2.copyWith(
             color: Colors.white,
-            fontFamily: 'MaruBuri',
+            fontFamily: SoriFonts.culture,
             shadows: const [Shadow(color: Color(0x99000000), blurRadius: 14)],
           ),
         ),
@@ -589,7 +580,7 @@ class _CompanionStageChoice extends StatelessWidget {
       excludeSemantics: true,
       child: Material(
         color: _isJoy ? const Color(0xFFE7EEEA) : const Color(0xFFF3E6DA),
-        child: InkWell(
+        child: SoriPressable(
           key: ValueKey('onboarding-v2-companion-${companion.id}'),
           onTap: onTap,
           child: LayoutBuilder(
@@ -649,7 +640,7 @@ class _CompanionStageChoice extends StatelessWidget {
                                 text: companion.name,
                                 style: SoriTextTheme.of(context).h3.copyWith(
                                   color: Colors.white,
-                                  fontFamily: 'MaruBuri',
+                                  fontFamily: SoriFonts.culture,
                                 ),
                               ),
                               TextSpan(
@@ -662,8 +653,6 @@ class _CompanionStageChoice extends StatelessWidget {
                             ],
                           ),
                           textAlign: TextAlign.center,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ),
@@ -678,7 +667,7 @@ class _CompanionStageChoice extends StatelessWidget {
                             boxShadow: SoriElevation.medium,
                           ),
                           child: const Padding(
-                            padding: EdgeInsets.all(5),
+                            padding: EdgeInsets.all(Spacing.xs),
                             child: Icon(
                               Icons.check_rounded,
                               size: 18,

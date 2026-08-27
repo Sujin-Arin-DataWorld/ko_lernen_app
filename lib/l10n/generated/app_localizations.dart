@@ -14790,6 +14790,24 @@ abstract class AppL10n {
   /// **'Weiter'**
   String get mediaPhraseNext;
 
+  /// No description provided for @onboardingV2BrandLatin.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangeul Sori'**
+  String get onboardingV2BrandLatin;
+
+  /// No description provided for @onboardingV2BrandKorean.
+  ///
+  /// In de, this message translates to:
+  /// **'한글소리'**
+  String get onboardingV2BrandKorean;
+
+  /// No description provided for @onboardingV2SyllableGa.
+  ///
+  /// In de, this message translates to:
+  /// **'가'**
+  String get onboardingV2SyllableGa;
+
   /// No description provided for @onboardingV2Back.
   ///
   /// In de, this message translates to:

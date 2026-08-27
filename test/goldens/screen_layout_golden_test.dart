@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
@@ -127,6 +128,29 @@ void main() {
 
             await tester.pumpWidget(_wrap(screen.value()));
             await tester.pump();
+            if (screen.key == 'vocab_packs') {
+              await tester.runAsync(() async {
+                final context = tester.element(find.byType(VocabPacksScreen));
+                await precacheImage(
+                  const AssetImage(
+                    'assets/illustrations/hanok/study_classroom.png',
+                  ),
+                  context,
+                );
+              });
+              await tester.pump();
+              final context = tester.element(find.byType(VocabPacksScreen));
+              final heroImage = tester.widget<Image>(
+                find.descendant(
+                  of: find.byType(HanokHeader),
+                  matching: find.byType(Image),
+                ),
+              );
+              await tester.runAsync(
+                () => precacheImage(heroImage.image, context),
+              );
+              await tester.pump();
+            }
             if (screen.key == 'sori_today') {
               await tester.runAsync(() async {
                 final context = tester.element(
