@@ -210,6 +210,16 @@ class _SoriContentFeedState extends State<SoriContentFeed>
   }
 
   void _onVerticalDragEnd(DragEndDetails details) {
+    if (widget.physics == FeedPhysics.snap && _snapCtrl.isAnimating) {
+      // 스냅 퇴장 애니메이션이 아직 재생 중인데 또 다른 드래그가 끝났다
+      // (빠른 연속 플링) — 재진입을 허용하면 같은 컨트롤러가 중간에
+      // 재시작돼 콜백/햅틱이 중복 발화할 수 있다(리뷰 Minor, 저비용
+      // 방어 가드). legacy 는 `_snapCtrl` 을 절대 애니메이션시키지 않으므로
+      // (`_commit` 의 legacy 분기는 `forward()` 를 호출하지 않는다)
+      // `_snapCtrl.isAnimating` 은 legacy 물리에서 항상 false — 이 가드는
+      // legacy 동작에 전혀 영향을 주지 않는다.
+      return;
+    }
     final velocity = details.velocity.pixelsPerSecond.dy;
     final committed = _dy.abs() > _commitPx || velocity.abs() > _commitVelocity;
     if (!committed) {
@@ -262,7 +272,14 @@ class _SoriContentFeedState extends State<SoriContentFeed>
       if (!mounted) return;
       action?.call();
       _snapTween = null;
-      setState(() => _dy = 0);
+      // _snapCtrl 자체도 0 으로 되돌린다 — .forward() 는 1.0 에서 끝나므로,
+      // 값을 안 지우면 다음 build() 의 underlayOpacity 가 그 잔여 1.0 을
+      // 계속 읽어 언더레이가 완전 불투명(1.0)에 고정된 채 다음 완전한
+      // 드래그 커밋 전까지 안 풀린다(리뷰 Important).
+      setState(() {
+        _dy = 0;
+        _snapCtrl.value = 0;
+      });
     });
   }
 
