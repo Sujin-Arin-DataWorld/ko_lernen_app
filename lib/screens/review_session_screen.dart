@@ -249,6 +249,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       _flipped = false;
       _cardRevealed = false;
     });
+    // Skip 도 카드 전환이다 — _idx 자체는 안 바뀌지만 _deck 재정렬로
+    // _card(=_deck[_idx])가 가리키는 카드는 바뀐다. _answer() 의 else
+    // 분기와 같은 자리(reorder 완료 뒤, _card 로 새 카드를 읽음)에서
+    // 동일하게 발동한다 — fix round 1, 검수 finding #1.
+    _speech.playOnEnter(_card.korean);
   }
 
   void _toggleFlip() {
