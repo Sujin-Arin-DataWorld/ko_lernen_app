@@ -8719,6 +8719,15 @@ class AppL10nDe extends AppL10n {
   String get mediaPhraseNext => 'Weiter';
 
   @override
+  String get onboardingV2BrandLatin => 'Hangeul Sori';
+
+  @override
+  String get onboardingV2BrandKorean => '한글소리';
+
+  @override
+  String get onboardingV2SyllableGa => '가';
+
+  @override
   String get onboardingV2Back => 'Zurück';
 
   @override

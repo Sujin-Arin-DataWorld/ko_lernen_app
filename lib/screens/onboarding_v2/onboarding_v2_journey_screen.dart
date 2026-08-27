@@ -490,6 +490,8 @@ class _LoadFailure extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     return OnboardingV2PageShell(
+      brandLatin: t.onboardingV2BrandLatin,
+      brandKorean: t.onboardingV2BrandKorean,
       bodyKey: const ValueKey('onboarding-v2-load-failure-scroll'),
       body: Center(
         child: Column(

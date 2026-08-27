@@ -11,6 +11,7 @@ import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
 import '../../widgets/sori/chip.dart';
 import '../../widgets/sori/external_link.dart';
+import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_presentation.dart';
@@ -95,6 +96,8 @@ class _OnboardingStoryScreenState extends State<OnboardingStoryScreen> {
     final progress = copy.navigation.progress(pageIndex + 1, 7);
 
     return OnboardingV2PageShell(
+      brandLatin: copy.brandLatin,
+      brandKorean: copy.brandKorean,
       currentStep: pageIndex + 1,
       totalSteps: 7,
       progressLabel: progress,
@@ -123,6 +126,7 @@ class _OnboardingStoryScreenState extends State<OnboardingStoryScreen> {
             _StoryInteraction(
               page: page,
               setup: copy.setup,
+              syllableGa: copy.syllableGa,
               jamoStage: _jamoStage,
               onAdvanceJamo: () {
                 if (_jamoStage < 2) {
@@ -214,6 +218,7 @@ class _StoryInteraction extends StatelessWidget {
   const _StoryInteraction({
     required this.page,
     required this.setup,
+    required this.syllableGa,
     required this.jamoStage,
     required this.onAdvanceJamo,
     required this.cardFlipped,
@@ -227,6 +232,7 @@ class _StoryInteraction extends StatelessWidget {
 
   final OnboardingStoryPageSpec page;
   final OnboardingSetupCopy setup;
+  final String syllableGa;
   final int jamoStage;
   final VoidCallback onAdvanceJamo;
   final bool cardFlipped;
@@ -247,6 +253,7 @@ class _StoryInteraction extends StatelessWidget {
       ),
       OnboardingStoryVisualKind.learn => _JamoComposer(
         page: page,
+        syllableGa: syllableGa,
         stage: jamoStage,
         onTap: onAdvanceJamo,
       ),
@@ -254,6 +261,7 @@ class _StoryInteraction extends StatelessWidget {
         page: page,
         flipped: cardFlipped,
         onTap: onToggleCard,
+        korean: setup.levels.first.exampleKorean,
         translation: setup.levels.first.exampleTranslation,
       ),
       OnboardingStoryVisualKind.gamesAndRewards => _QuestPreview(
@@ -301,11 +309,9 @@ class _LearningPathPreview extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(level.code, style: SoriTextTheme.of(context).h3),
-                        const SizedBox(height: 2),
+                        const SizedBox(height: Spacing.xs),
                         Text(
                           level.name,
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
                           textAlign: TextAlign.center,
                           style: SoriTextTheme.of(context).meta,
                         ),
@@ -325,7 +331,10 @@ class _LearningPathPreview extends StatelessWidget {
                               color: SoriColors.gold,
                               shape: BoxShape.circle,
                             ),
-                            child: SizedBox(width: 6, height: 6),
+                            child: SizedBox(
+                              width: Spacing.sm,
+                              height: Spacing.sm,
+                            ),
                           ),
                         ],
                       ),
@@ -357,11 +366,13 @@ class _LearningPathPreview extends StatelessWidget {
 class _JamoComposer extends StatelessWidget {
   const _JamoComposer({
     required this.page,
+    required this.syllableGa,
     required this.stage,
     required this.onTap,
   });
 
   final OnboardingStoryPageSpec page;
+  final String syllableGa;
   final int stage;
   final VoidCallback onTap;
 
@@ -382,9 +393,8 @@ class _JamoComposer extends StatelessWidget {
           borderRadius: SoriRadius.brMd,
           side: BorderSide(color: surfaces.border),
         ),
-        child: InkWell(
+        child: SoriPressable(
           onTap: onTap,
-          borderRadius: SoriRadius.brMd,
           child: Padding(
             padding: const EdgeInsets.all(Spacing.md),
             child: Column(
@@ -415,7 +425,7 @@ class _JamoComposer extends StatelessWidget {
                     ),
                     Expanded(
                       child: _JamoTile(
-                        korean: complete ? '가' : '?',
+                        korean: complete ? syllableGa : '?',
                         romanization: complete ? 'ga' : '',
                         active: complete,
                         result: true,
@@ -437,7 +447,8 @@ class _JamoComposer extends StatelessWidget {
                     Expanded(
                       child: Text(
                         complete
-                            ? '${page.highlights[2].title} · 가 · ga'
+                            ? '${page.highlights[2].title} · '
+                                  '$syllableGa · ga'
                             : page.highlights[stage].body,
                         style: SoriTextTheme.of(context).bodySmall,
                       ),
@@ -515,12 +526,14 @@ class _FlipReviewPreview extends StatelessWidget {
     required this.page,
     required this.flipped,
     required this.onTap,
+    required this.korean,
     required this.translation,
   });
 
   final OnboardingStoryPageSpec page;
   final bool flipped;
   final VoidCallback onTap;
+  final String korean;
   final String translation;
 
   @override
@@ -543,9 +556,8 @@ class _FlipReviewPreview extends StatelessWidget {
                 color: flipped ? SoriColors.gold : SoriColors.primary,
               ),
             ),
-            child: InkWell(
+            child: SoriPressable(
               onTap: onTap,
-              borderRadius: SoriRadius.brMd,
               child: AnimatedSwitcher(
                 duration: SoriMotion.respect(
                   context,
@@ -579,14 +591,14 @@ class _FlipReviewPreview extends StatelessWidget {
                         ),
                         const SizedBox(height: Spacing.sm),
                         Text(
-                          flipped ? translation : '안녕하세요',
+                          flipped ? translation : korean,
                           locale: flipped ? null : const Locale('ko'),
                           textAlign: TextAlign.center,
                           style: SoriTextTheme.of(context).koDisplay,
                         ),
                         const SizedBox(height: Spacing.sm),
                         Text(
-                          flipped ? '안녕하세요' : page.highlights[0].body,
+                          flipped ? korean : page.highlights[0].body,
                           locale: flipped ? const Locale('ko') : null,
                           textAlign: TextAlign.center,
                           style: SoriTextTheme.of(context).meta,
@@ -677,13 +689,8 @@ class _MemoryMeaning extends StatelessWidget {
             Icon(icon, size: 19, color: accent),
             const SizedBox(height: Spacing.xs),
             Text(highlight.title, style: SoriTextTheme.of(context).meta),
-            const SizedBox(height: 2),
-            Text(
-              highlight.body,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-              style: SoriTextTheme.of(context).bodySmall,
-            ),
+            const SizedBox(height: Spacing.xs),
+            Text(highlight.body, style: SoriTextTheme.of(context).bodySmall),
           ],
         ),
       ),
@@ -722,9 +729,8 @@ class _QuestPreview extends StatelessWidget {
               borderRadius: SoriRadius.brMd,
               side: BorderSide(color: surfaces.border),
             ),
-            child: InkWell(
+            child: SoriPressable(
               onTap: onTap,
-              borderRadius: SoriRadius.brMd,
               child: Padding(
                 padding: const EdgeInsets.all(Spacing.md),
                 child: Row(
@@ -757,7 +763,7 @@ class _QuestPreview extends StatelessWidget {
                             page.highlights.first.title,
                             style: SoriTextTheme.of(context).meta,
                           ),
-                          const SizedBox(height: 2),
+                          const SizedBox(height: Spacing.xs),
                           Text(
                             page.highlights.first.body,
                             style: SoriTextTheme.of(context).cardTitle,
@@ -922,15 +928,10 @@ class _ChapterRow extends StatelessWidget {
                   locale: const Locale('ko'),
                   style: SoriTextTheme.of(
                     context,
-                  ).cardTitle.copyWith(fontFamily: 'MaruBuri'),
+                  ).cardTitle.copyWith(fontFamily: SoriFonts.culture),
                 ),
-                const SizedBox(height: 2),
-                Text(
-                  '$latin · $status',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: SoriTextTheme.of(context).meta,
-                ),
+                const SizedBox(height: Spacing.xs),
+                Text('$latin · $status', style: SoriTextTheme.of(context).meta),
               ],
             ),
           ),

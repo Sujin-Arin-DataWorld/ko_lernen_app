@@ -641,6 +641,9 @@ class _CompanionHarnessState extends State<_CompanionHarness> {
 }
 
 OnboardingV2Copy _copy() => OnboardingV2Copy(
+  brandLatin: 'Hangeul Sori',
+  brandKorean: '한글소리',
+  syllableGa: '가',
   navigation: const OnboardingNavigationCopy(
     back: 'Back',
     next: 'Next',

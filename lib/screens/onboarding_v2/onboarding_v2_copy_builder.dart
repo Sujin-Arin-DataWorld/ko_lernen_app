@@ -11,6 +11,9 @@ import 'onboarding_v2_presentation.dart';
 /// contract.
 abstract final class OnboardingV2CopyBuilder {
   static OnboardingV2Copy fromLocalizations(AppL10n t) => OnboardingV2Copy(
+    brandLatin: t.onboardingV2BrandLatin,
+    brandKorean: t.onboardingV2BrandKorean,
+    syllableGa: t.onboardingV2SyllableGa,
     navigation: OnboardingNavigationCopy(
       back: t.onboardingV2Back,
       next: t.onboardingV2Next,

@@ -33,6 +33,8 @@ class OnboardingCompanionScreen extends StatelessWidget {
         : companionCopy.companion(selectedCompanionId!);
     final progress = copy.navigation.progress(7, 7);
     return OnboardingV2PageShell(
+      brandLatin: copy.brandLatin,
+      brandKorean: copy.brandKorean,
       currentStep: 7,
       totalSteps: 7,
       progressLabel: progress,
@@ -229,6 +231,8 @@ class _OnboardingCompanionConfirmationScreenState
           );
 
     return OnboardingV2PageShell(
+      brandLatin: widget.copy.brandLatin,
+      brandKorean: widget.copy.brandKorean,
       currentStep: 7,
       totalSteps: 7,
       progressLabel: progress,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/sori/button.dart';
 import '../../widgets/sori/card.dart';
+import '../../widgets/sori/pressable.dart';
 import '../../widgets/sori/responsive.dart';
 import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
@@ -117,6 +118,8 @@ class _OnboardingSetupScreenState extends State<OnboardingSetupScreen> {
     final progress = copy.navigation.progress(6, 7);
 
     return OnboardingV2PageShell(
+      brandLatin: copy.brandLatin,
+      brandKorean: copy.brandKorean,
       currentStep: 6,
       totalSteps: 7,
       progressLabel: progress,
@@ -319,7 +322,7 @@ class _PurposeTile extends StatelessWidget {
       excludeSemantics: true,
       child: Material(
         color: Colors.transparent,
-        child: InkWell(
+        child: SoriPressable(
           key: ValueKey('onboarding-v2-purpose-${purpose.id}'),
           onTap: onTap,
           child: Container(
@@ -347,13 +350,8 @@ class _PurposeTile extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(purpose.title, style: text.cardTitle),
-                      const SizedBox(height: 2),
-                      Text(
-                        purpose.body,
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: text.cardSubtitle,
-                      ),
+                      const SizedBox(height: Spacing.xs),
+                      Text(purpose.body, style: text.cardSubtitle),
                     ],
                   ),
                 ),
