@@ -472,6 +472,25 @@ class FirstRunCoordinator {
     });
   }
 
+  /// Reopens the final explanatory page without discarding setup drafts.
+  ///
+  /// The seven-step presentation exposes a real Back action on step six. The
+  /// purpose and level remain drafts only, so returning to the story never
+  /// changes course placement, mastery, rewards, or legacy completion state.
+  Future<OnboardingJourneyState> returnToStoryFromSetup() {
+    return _serialized(() async {
+      final state = await _requirePhase(OnboardingPhase.setup);
+      final next = state.copyWith(
+        phase: OnboardingPhase.story,
+        storyPage: StoryPageId.heritageJourney,
+        commitStage: OnboardingCommitStage.none,
+        updatedAt: _now(),
+      );
+      await _repository.save(next);
+      return next;
+    });
+  }
+
   Future<OnboardingJourneyState> saveCompanionDraft(
     OnboardingCompanion companion,
   ) {

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart'
-    show AttributedString, LocaleStringAttribute;
 
 import '../../widgets/sori/button.dart';
-import '../../widgets/sori/card.dart';
 import '../../widgets/sori/mascot.dart';
 import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
+import 'onboarding_v2_stage.dart';
 
 class OnboardingCompanionScreen extends StatelessWidget {
   const OnboardingCompanionScreen({
@@ -16,19 +14,36 @@ class OnboardingCompanionScreen extends StatelessWidget {
     required this.selectedCompanionId,
     required this.onCompanionChanged,
     required this.onContinue,
+    this.onBack,
   });
 
   final OnboardingV2Copy copy;
   final String? selectedCompanionId;
   final ValueChanged<String> onCompanionChanged;
   final ValueChanged<String> onContinue;
+  final VoidCallback? onBack;
 
   @override
   Widget build(BuildContext context) {
     assert(copy.companion.companions.length == 2);
     final companionCopy = copy.companion;
     final text = SoriTextTheme.of(context);
+    final selected = selectedCompanionId == null
+        ? null
+        : companionCopy.companion(selectedCompanionId!);
+    final progress = copy.navigation.progress(7, 7);
     return OnboardingV2PageShell(
+      currentStep: 7,
+      totalSteps: 7,
+      progressLabel: progress,
+      stageKey: ValueKey(
+        'onboarding-v2-companion-stage-${selectedCompanionId ?? 'empty'}',
+      ),
+      stage: OnboardingCompanionStage(
+        companions: companionCopy.companions,
+        selectedCompanionId: selectedCompanionId,
+        onCompanionChanged: onCompanionChanged,
+      ),
       bodyKey: const ValueKey('onboarding-v2-companion-scroll'),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,185 +52,107 @@ class OnboardingCompanionScreen extends StatelessWidget {
             eyebrow: companionCopy.eyebrow,
             title: companionCopy.title,
             body: companionCopy.body,
+            announcementLabel: '$progress. ${companionCopy.title}',
           ),
-          const SizedBox(height: Spacing.lg),
-          SoriCard(
-            accent: SoriColors.highlight,
-            tinted: true,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Icon(Icons.balance_rounded, color: SoriColors.highlight),
-                const SizedBox(width: Spacing.md),
-                Expanded(
-                  child: Text(
-                    companionCopy.equalLearningNote,
-                    style: text.bodySmall,
+          if (selected != null) ...[
+            const SizedBox(height: Spacing.lg),
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: Spacing.md),
+              decoration: BoxDecoration(
+                border: Border.symmetric(
+                  horizontal: BorderSide(
+                    color: SoriSurfaces.of(context).border,
                   ),
                 ),
-              ],
+              ),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Icon(
+                    selected.id == OnboardingV2Ids.companionJoy
+                        ? Icons.auto_awesome_rounded
+                        : Icons.route_rounded,
+                    color: selected.id == OnboardingV2Ids.companionTaego
+                        ? SoriColors.tigerOnLight
+                        : SoriColors.primary,
+                  ),
+                  const SizedBox(width: Spacing.md),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(selected.rhythm, style: text.cardTitle),
+                        const SizedBox(height: Spacing.xs),
+                        Text(selected.body, style: text.cardSubtitle),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: Spacing.xl),
-          for (final companion in companionCopy.companions) ...[
-            _CompanionTile(
-              companion: companion,
-              selected: companion.id == selectedCompanionId,
-              onTap: () => onCompanionChanged(companion.id),
-            ),
-            if (companion != companionCopy.companions.last)
-              const SizedBox(height: Spacing.md),
           ],
-        ],
-      ),
-      footer: SoriButton.filled(
-        key: const ValueKey('onboarding-v2-companion-continue'),
-        label: companionCopy.continueAction,
-        trailingIcon: Icons.arrow_forward_rounded,
-        fullWidth: true,
-        onTap: selectedCompanionId == null
-            ? null
-            : () => onContinue(selectedCompanionId!),
-      ),
-    );
-  }
-}
-
-class _CompanionTile extends StatelessWidget {
-  const _CompanionTile({
-    required this.companion,
-    required this.selected,
-    required this.onTap,
-  });
-
-  final OnboardingCompanionSpec companion;
-  final bool selected;
-  final VoidCallback onTap;
-
-  MascotKind get _kind => companion.id == OnboardingV2Ids.companionJoy
-      ? MascotKind.magpie
-      : MascotKind.tiger;
-
-  Color get _accent => companion.id == OnboardingV2Ids.companionJoy
-      ? SoriColors.primary
-      : SoriColors.tigerOnLight;
-
-  @override
-  Widget build(BuildContext context) {
-    final text = SoriTextTheme.of(context);
-    final portrait = DecoratedBox(
-      decoration: BoxDecoration(
-        color: _accent.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(SoriRadius.md),
-      ),
-      child: SizedBox(
-        width: 112,
-        height: 112,
-        child: Center(
-          child: Mascot(
-            kind: _kind,
-            emotion: MascotEmotion.smile,
-            size: 100,
-            animate: false,
-          ),
-        ),
-      ),
-    );
-    final details = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text.rich(
-          TextSpan(
-            text: companion.name,
-            style: text.h3,
+          const SizedBox(height: Spacing.md),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextSpan(
-                text: '  ${companion.koreanName}',
-                locale: const Locale('ko'),
-                style: text.cardSubtitle,
+              const Icon(
+                Icons.balance_rounded,
+                size: 20,
+                color: SoriColors.highlight,
+              ),
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: Text(
+                  key: const ValueKey(
+                    'onboarding-v2-companion-equal-learning-note',
+                  ),
+                  companionCopy.equalLearningNote,
+                  style: text.bodySmall,
+                ),
               ),
             ],
           ),
-        ),
-        const SizedBox(height: Spacing.xs),
-        Text(companion.rhythm, style: text.label.copyWith(color: _accent)),
-        const SizedBox(height: Spacing.sm),
-        Text(companion.body, style: text.bodySmall),
-      ],
-    );
-    final selectionIcon = Icon(
-      selected
-          ? Icons.check_circle_rounded
-          : Icons.radio_button_unchecked_rounded,
-      color: selected ? _accent : SoriSurfaces.of(context).textDim,
-    );
-    return Semantics(
-      key: ValueKey('onboarding-v2-companion-semantics-${companion.id}'),
-      button: true,
-      enabled: true,
-      selected: selected,
-      attributedLabel: _companionSemanticLabel(companion),
-      onTap: onTap,
-      excludeSemantics: true,
-      child: SoriCard(
-        key: ValueKey('onboarding-v2-companion-${companion.id}'),
-        variant: SoriCardVariant.hero,
-        selectable: true,
-        selected: selected,
-        onTap: onTap,
-        child: ExcludeSemantics(
-          child: LayoutBuilder(
-            builder: (context, constraints) {
-              if (constraints.maxWidth < SoriBreakpoints.contentActionStack) {
-                return Column(
-                  children: [
-                    portrait,
-                    const SizedBox(height: Spacing.md),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Expanded(child: details),
-                        const SizedBox(width: Spacing.sm),
-                        selectionIcon,
-                      ],
-                    ),
-                  ],
-                );
-              }
-              return Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  portrait,
-                  const SizedBox(width: Spacing.lg),
-                  Expanded(child: details),
-                  const SizedBox(width: Spacing.sm),
-                  selectionIcon,
-                ],
-              );
-            },
-          ),
-        ),
+        ],
+      ),
+      footer: LayoutBuilder(
+        builder: (context, constraints) {
+          final back = SoriButton.outlined(
+            key: const ValueKey('onboarding-v2-companion-back'),
+            label: copy.navigation.back,
+            fullWidth: true,
+            maxLines: 1,
+            onTap: onBack,
+          );
+          final next = SoriButton.filled(
+            key: const ValueKey('onboarding-v2-companion-continue'),
+            label: companionCopy.continueAction,
+            trailingIcon: Icons.arrow_forward_rounded,
+            fullWidth: true,
+            maxLines: 1,
+            onTap: selectedCompanionId == null
+                ? null
+                : () => onContinue(selectedCompanionId!),
+          );
+          if (constraints.maxWidth < SoriBreakpoints.contentActionStack) {
+            return Column(
+              children: [
+                next,
+                const SizedBox(height: Spacing.sm),
+                back,
+              ],
+            );
+          }
+          return Row(
+            children: [
+              Expanded(flex: 4, child: back),
+              const SizedBox(width: Spacing.md),
+              Expanded(flex: 6, child: next),
+            ],
+          );
+        },
       ),
     );
   }
-}
-
-AttributedString _companionSemanticLabel(OnboardingCompanionSpec companion) {
-  final prefix = '${companion.name}. ';
-  final label =
-      '$prefix${companion.koreanName}. ${companion.rhythm}. ${companion.body}';
-  return AttributedString(
-    label,
-    attributes: [
-      LocaleStringAttribute(
-        locale: const Locale('ko'),
-        range: TextRange(
-          start: prefix.length,
-          end: prefix.length + companion.koreanName.length,
-        ),
-      ),
-    ],
-  );
 }
 
 typedef CompanionPreviewBuilder =
@@ -281,8 +218,26 @@ class _OnboardingCompanionConfirmationScreenState
         : SoriColors.tigerOnLight;
     final showPreview =
         widget.previewBuilder != null && !SoriMotion.reduceMotion(context);
+    final progress = widget.copy.navigation.progress(7, 7);
+    final preview = showPreview
+        ? widget.previewBuilder!(context, companion.id)
+        : Mascot(
+            kind: kind,
+            emotion: MascotEmotion.smile,
+            size: 220,
+            animate: false,
+          );
 
     return OnboardingV2PageShell(
+      currentStep: 7,
+      totalSteps: 7,
+      progressLabel: progress,
+      stageKey: ValueKey('onboarding-v2-confirmation-stage-${companion.id}'),
+      stage: OnboardingConfirmationStage(
+        key: const ValueKey('onboarding-v2-confirmation-hero'),
+        companion: companion,
+        preview: preview,
+      ),
       bodyKey: const ValueKey('onboarding-v2-confirmation-scroll'),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -307,52 +262,36 @@ class _OnboardingCompanionConfirmationScreenState
           ),
           const SizedBox(height: Spacing.md),
           Text(companionCopy.confirmationBody, style: text.body),
-          const SizedBox(height: Spacing.xl),
-          ExcludeSemantics(
-            child: SoriCard(
-              key: const ValueKey('onboarding-v2-confirmation-hero'),
-              variant: SoriCardVariant.hero,
-              accent: accent,
-              tinted: true,
-              padding: EdgeInsets.zero,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(SoriRadius.lg),
-                child: AspectRatio(
-                  aspectRatio: 4 / 3,
-                  child: Stack(
-                    fit: StackFit.expand,
+          const SizedBox(height: Spacing.lg),
+          Container(
+            key: const ValueKey('onboarding-v2-confirmation-details'),
+            padding: const EdgeInsets.symmetric(vertical: Spacing.md),
+            decoration: BoxDecoration(
+              border: Border.symmetric(
+                horizontal: BorderSide(color: SoriSurfaces.of(context).border),
+              ),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Icon(
+                  kind == MascotKind.magpie
+                      ? Icons.auto_awesome_rounded
+                      : Icons.route_rounded,
+                  color: accent,
+                ),
+                const SizedBox(width: Spacing.md),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ColoredBox(color: accent.withValues(alpha: 0.08)),
-                      if (showPreview)
-                        IgnorePointer(
-                          child: widget.previewBuilder!(context, companion.id),
-                        ),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Padding(
-                          padding: const EdgeInsets.all(Spacing.lg),
-                          child: DecoratedBox(
-                            decoration: BoxDecoration(
-                              color: SoriCard.resolvedBackground(context),
-                              shape: BoxShape.circle,
-                              boxShadow: SoriElevation.low,
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(Spacing.sm),
-                              child: Mascot(
-                                kind: kind,
-                                emotion: MascotEmotion.smile,
-                                size: 104,
-                                animate: false,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                      Text(companion.rhythm, style: text.cardTitle),
+                      const SizedBox(height: Spacing.xs),
+                      Text(companion.body, style: text.cardSubtitle),
                     ],
                   ),
                 ),
-              ),
+              ],
             ),
           ),
         ],
@@ -365,14 +304,16 @@ class _OnboardingCompanionConfirmationScreenState
             label: companionCopy.startAction,
             trailingIcon: Icons.arrow_forward_rounded,
             fullWidth: true,
+            maxLines: 1,
             onTap: widget.onStart,
           ),
           const SizedBox(height: Spacing.xs),
-          TextButton(
+          SoriButton.ghost(
             key: const ValueKey('onboarding-v2-confirmation-change'),
-            style: TextButton.styleFrom(minimumSize: const Size(48, 48)),
-            onPressed: widget.onChange,
-            child: Text(companionCopy.changeAction),
+            label: companionCopy.changeAction,
+            fullWidth: true,
+            maxLines: 1,
+            onTap: widget.onChange,
           ),
         ],
       ),

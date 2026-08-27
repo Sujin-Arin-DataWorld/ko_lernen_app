@@ -467,6 +467,45 @@ void main() {
   );
 
   test(
+    'setup back reopens the final story page without discarding drafts',
+    () async {
+      final repository = _MemoryJourneyRepository(
+        OnboardingJourneyState.initial(now).copyWith(
+          phase: OnboardingPhase.setup,
+          storyPage: StoryPageId.heritageJourney,
+          purposeDraft: OnboardingPurpose.kContent,
+          levelDraft: LearnerLevel.b2,
+          updatedAt: now,
+        ),
+      );
+      final gateway = _CommitGateway();
+      final instance = coordinator(
+        repository: repository,
+        legacy: _LegacyReader(
+          const LegacyOnboardingSnapshot(
+            consentAccepted: true,
+            hasCompletedOnboarding: false,
+          ),
+        ),
+        gateway: gateway,
+      );
+
+      final returned = await instance.returnToStoryFromSetup();
+
+      expect(returned.phase, OnboardingPhase.story);
+      expect(returned.storyPage, StoryPageId.heritageJourney);
+      expect(returned.purposeDraft, OnboardingPurpose.kContent);
+      expect(returned.levelDraft, LearnerLevel.b2);
+      expect(returned.commitStage, OnboardingCommitStage.none);
+      expect(gateway.purposeWrites, 0);
+      expect(gateway.placementWrites, 0);
+      expect(gateway.browseWrites, 0);
+      expect(gateway.companionWrites, 0);
+      expect(gateway.completionWrites, 0);
+    },
+  );
+
+  test(
     'commit retries incomplete writes without repeating verified stages',
     () async {
       final repository = _MemoryJourneyRepository(

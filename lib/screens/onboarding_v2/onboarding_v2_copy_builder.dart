@@ -25,6 +25,7 @@ abstract final class OnboardingV2CopyBuilder {
         body: t.onboardingV2Story1Body,
         heroSemanticLabel: t.onboardingV2Story1HeroSemantics,
         visualKind: OnboardingStoryVisualKind.personalCurriculum,
+        statusLabel: t.onboardingV2Story1Status,
         curriculumEvidenceCopy: OnboardingCurriculumEvidenceCopy(
           claim: t.onboardingV2Story1CurriculumClaim,
           sourcesAction: t.onboardingV2Story1CurriculumSourcesAction,

@@ -15,13 +15,14 @@ import '../../widgets/sori/sheet.dart';
 import '../../widgets/sori/tokens.dart';
 import 'onboarding_v2_presentation.dart';
 import 'onboarding_v2_shell.dart';
+import 'onboarding_v2_stage.dart';
 
 /// Mandatory five-page product story.
 ///
 /// [pageIndex] is coordinator-driven rather than owned by this widget. This
 /// makes a restored persisted page render directly without replaying earlier
 /// pages or mutating service data during a preview.
-class OnboardingStoryScreen extends StatelessWidget {
+class OnboardingStoryScreen extends StatefulWidget {
   const OnboardingStoryScreen({
     super.key,
     required this.copy,
@@ -47,21 +48,58 @@ class OnboardingStoryScreen extends StatelessWidget {
   heritageCatalogProjector;
 
   @override
+  State<OnboardingStoryScreen> createState() => _OnboardingStoryScreenState();
+}
+
+class _OnboardingStoryScreenState extends State<OnboardingStoryScreen> {
+  int _jamoStage = 0;
+  bool _cardFlipped = false;
+  bool _questComplete = false;
+
+  @override
+  void didUpdateWidget(covariant OnboardingStoryScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.pageIndex != widget.pageIndex) {
+      _jamoStage = 0;
+      _cardFlipped = false;
+      _questComplete = false;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final copy = widget.copy;
+    final pageIndex = widget.pageIndex;
     assert(copy.storyPages.length == 5);
     assert(pageIndex < copy.storyPages.length);
     final page = copy.storyPages[pageIndex];
     final isLast = pageIndex == copy.storyPages.length - 1;
     final curriculumEvidence = page.curriculumEvidenceCopy == null
         ? null
-        : (curriculumEvidenceProjector ??
+        : (widget.curriculumEvidenceProjector ??
               () => OnboardingCurriculumEvidenceProjector.project())();
+    final rewardProjection = page.rewardCatalogCopy == null
+        ? null
+        : (widget.rewardCatalogProjector ??
+                  () => OnboardingStoryCatalogProjector.projectRewards())()
+              .projection;
+    final heritageProjection = page.heritageCatalogCopy == null
+        ? null
+        : (widget.heritageCatalogProjector ??
+                  () => OnboardingStoryCatalogProjector.projectIlduGotaek())()
+              .projection;
     final duration = SoriMotion.respect(
       context,
       const Duration(milliseconds: 220),
     );
+    final progress = copy.navigation.progress(pageIndex + 1, 7);
 
     return OnboardingV2PageShell(
+      currentStep: pageIndex + 1,
+      totalSteps: 7,
+      progressLabel: progress,
+      stageKey: ValueKey('onboarding-v2-stage-${page.id}-$_questComplete'),
+      stage: OnboardingStoryStage(page: page, questComplete: _questComplete),
       // A different scroll identity per mandatory page prevents a long page
       // from handing its old offset to the next explanation.
       bodyKey: ValueKey('onboarding-v2-story-scroll-${page.id}'),
@@ -79,231 +117,860 @@ class OnboardingStoryScreen extends StatelessWidget {
               eyebrow: page.eyebrow,
               title: page.title,
               body: page.body,
-              announcementLabel:
-                  '${copy.navigation.progress(pageIndex + 1, copy.storyPages.length)}. ${page.title}',
+              announcementLabel: '$progress. ${page.title}',
             ),
             const SizedBox(height: Spacing.xl),
-            _StoryHero(
+            _StoryInteraction(
               page: page,
+              setup: copy.setup,
+              jamoStage: _jamoStage,
+              onAdvanceJamo: () {
+                if (_jamoStage < 2) {
+                  setState(() => _jamoStage += 1);
+                }
+              },
+              cardFlipped: _cardFlipped,
+              onToggleCard: () {
+                setState(() => _cardFlipped = !_cardFlipped);
+              },
+              questComplete: _questComplete,
+              onCompleteQuest: () {
+                if (!_questComplete) {
+                  setState(() => _questComplete = true);
+                }
+              },
               curriculumEvidence: curriculumEvidence,
-              rewardCatalogProjector: rewardCatalogProjector,
-              heritageCatalogProjector: heritageCatalogProjector,
+              rewardProjection: rewardProjection,
+              heritageProjection: heritageProjection,
             ),
           ],
         ),
       ),
-      footer: Column(
-        mainAxisSize: MainAxisSize.min,
+      footer: _StoryFooter(
+        backLabel: copy.navigation.back,
+        nextLabel: isLast ? copy.navigation.finishStory : copy.navigation.next,
+        onBack: pageIndex == 0 ? null : () => widget.onPrevious(page.id),
+        onNext: () => widget.onContinue(page.id),
+      ),
+    );
+  }
+}
+
+class _StoryFooter extends StatelessWidget {
+  const _StoryFooter({
+    required this.backLabel,
+    required this.nextLabel,
+    required this.onBack,
+    required this.onNext,
+  });
+
+  final String backLabel;
+  final String nextLabel;
+  final VoidCallback? onBack;
+  final VoidCallback onNext;
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final back = SoriButton.outlined(
+          key: const ValueKey('onboarding-v2-story-back'),
+          label: backLabel,
+          fullWidth: true,
+          maxLines: 1,
+          onTap: onBack,
+        );
+        final next = SoriButton.filled(
+          key: const ValueKey('onboarding-v2-story-next'),
+          label: nextLabel,
+          trailingIcon: Icons.arrow_forward_rounded,
+          fullWidth: true,
+          maxLines: 1,
+          onTap: onNext,
+        );
+        if (constraints.maxWidth < SoriBreakpoints.contentActionStack) {
+          return Column(
+            children: [
+              next,
+              const SizedBox(height: Spacing.sm),
+              back,
+            ],
+          );
+        }
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(flex: 4, child: back),
+            const SizedBox(width: Spacing.md),
+            Expanded(flex: 6, child: next),
+          ],
+        );
+      },
+    );
+  }
+}
+
+class _StoryInteraction extends StatelessWidget {
+  const _StoryInteraction({
+    required this.page,
+    required this.setup,
+    required this.jamoStage,
+    required this.onAdvanceJamo,
+    required this.cardFlipped,
+    required this.onToggleCard,
+    required this.questComplete,
+    required this.onCompleteQuest,
+    required this.curriculumEvidence,
+    required this.rewardProjection,
+    required this.heritageProjection,
+  });
+
+  final OnboardingStoryPageSpec page;
+  final OnboardingSetupCopy setup;
+  final int jamoStage;
+  final VoidCallback onAdvanceJamo;
+  final bool cardFlipped;
+  final VoidCallback onToggleCard;
+  final bool questComplete;
+  final VoidCallback onCompleteQuest;
+  final OnboardingCurriculumEvidenceProjection? curriculumEvidence;
+  final OnboardingRewardCatalogProjection? rewardProjection;
+  final OnboardingHeritageCatalogProjection? heritageProjection;
+
+  @override
+  Widget build(BuildContext context) {
+    return switch (page.visualKind) {
+      OnboardingStoryVisualKind.personalCurriculum => _LearningPathPreview(
+        page: page,
+        setup: setup,
+        curriculumEvidence: curriculumEvidence,
+      ),
+      OnboardingStoryVisualKind.learn => _JamoComposer(
+        page: page,
+        stage: jamoStage,
+        onTap: onAdvanceJamo,
+      ),
+      OnboardingStoryVisualKind.saveAndReview => _FlipReviewPreview(
+        page: page,
+        flipped: cardFlipped,
+        onTap: onToggleCard,
+        translation: setup.levels.first.exampleTranslation,
+      ),
+      OnboardingStoryVisualKind.gamesAndRewards => _QuestPreview(
+        page: page,
+        complete: questComplete,
+        onTap: onCompleteQuest,
+        projection: rewardProjection,
+      ),
+      OnboardingStoryVisualKind.heritageJourney => _HeritageJourneyPreview(
+        page: page,
+        projection: heritageProjection,
+      ),
+    };
+  }
+}
+
+class _LearningPathPreview extends StatelessWidget {
+  const _LearningPathPreview({
+    required this.page,
+    required this.setup,
+    required this.curriculumEvidence,
+  });
+
+  final OnboardingStoryPageSpec page;
+  final OnboardingSetupCopy setup;
+  final OnboardingCurriculumEvidenceProjection? curriculumEvidence;
+
+  @override
+  Widget build(BuildContext context) {
+    final levels = [setup.levels.first, setup.levels[1], setup.levels.last];
+    final surfaces = SoriSurfaces.of(context);
+    return Semantics(
+      key: const ValueKey('onboarding-v2-story-hero'),
+      container: true,
+      label: page.heroSemanticLabel,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Semantics(
-            label: copy.navigation.progress(
-              pageIndex + 1,
-              copy.storyPages.length,
-            ),
-            child: ExcludeSemantics(
-              child: Text(
-                copy.navigation.progress(pageIndex + 1, copy.storyPages.length),
-                key: const ValueKey('onboarding-v2-story-progress'),
-                style: SoriTextTheme.of(context).meta,
-              ),
-            ),
-          ),
-          const SizedBox(height: Spacing.sm),
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final back = SoriButton.outlined(
-                key: const ValueKey('onboarding-v2-story-back'),
-                label: copy.navigation.back,
-                fullWidth: true,
-                onTap: pageIndex == 0 ? null : () => onPrevious(page.id),
-              );
-              final next = SoriButton.filled(
-                key: const ValueKey('onboarding-v2-story-next'),
-                label: isLast
-                    ? copy.navigation.finishStory
-                    : copy.navigation.next,
-                trailingIcon: Icons.arrow_forward_rounded,
-                fullWidth: true,
-                onTap: () => onContinue(page.id),
-              );
-              if (constraints.maxWidth < SoriBreakpoints.contentActionStack) {
-                return Column(
-                  children: [
-                    next,
-                    const SizedBox(height: Spacing.sm),
-                    back,
+          ExcludeSemantics(
+            child: Row(
+              children: [
+                for (final (index, level) in levels.indexed) ...[
+                  Expanded(
+                    flex: 3,
+                    child: Column(
+                      children: [
+                        Text(level.code, style: SoriTextTheme.of(context).h3),
+                        const SizedBox(height: 2),
+                        Text(
+                          level.name,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(context).meta,
+                        ),
+                      ],
+                    ),
+                  ),
+                  if (index < levels.length - 1) ...[
+                    const SizedBox(width: Spacing.sm),
+                    Expanded(
+                      flex: 2,
+                      child: Stack(
+                        alignment: Alignment.centerRight,
+                        children: [
+                          Divider(color: surfaces.border),
+                          const DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: SoriColors.gold,
+                              shape: BoxShape.circle,
+                            ),
+                            child: SizedBox(width: 6, height: 6),
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.sm),
                   ],
-                );
-              }
-              return Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(child: back),
-                  const SizedBox(width: Spacing.md),
-                  Expanded(child: next),
                 ],
-              );
-            },
+              ],
+            ),
           ),
+          if (page.statusLabel != null) ...[
+            const SizedBox(height: Spacing.md),
+            _StatusNote(label: page.statusLabel!, accent: SoriColors.primary),
+          ],
+          if (curriculumEvidence != null) ...[
+            const SizedBox(height: Spacing.lg),
+            _CurriculumEvidencePreview(
+              copy: page.curriculumEvidenceCopy!,
+              projection: curriculumEvidence!,
+              accent: SoriColors.primary,
+            ),
+          ],
         ],
       ),
     );
   }
 }
 
-class _StoryHero extends StatelessWidget {
-  const _StoryHero({
+class _JamoComposer extends StatelessWidget {
+  const _JamoComposer({
     required this.page,
-    required this.curriculumEvidence,
-    required this.rewardCatalogProjector,
-    required this.heritageCatalogProjector,
+    required this.stage,
+    required this.onTap,
   });
 
   final OnboardingStoryPageSpec page;
-  final OnboardingCurriculumEvidenceProjection? curriculumEvidence;
-  final OnboardingCatalogProjectionResult<OnboardingRewardCatalogProjection>
-  Function()?
-  rewardCatalogProjector;
-  final OnboardingCatalogProjectionResult<OnboardingHeritageCatalogProjection>
-  Function()?
-  heritageCatalogProjector;
-
-  Color get _accent => switch (page.visualKind) {
-    OnboardingStoryVisualKind.personalCurriculum => SoriColors.primary,
-    OnboardingStoryVisualKind.learn => SoriColors.accent,
-    OnboardingStoryVisualKind.saveAndReview => SoriColors.like,
-    OnboardingStoryVisualKind.gamesAndRewards => SoriColors.goldOnLight,
-    OnboardingStoryVisualKind.heritageJourney => SoriColors.primaryDark,
-  };
-
-  IconData get _heroIcon => switch (page.visualKind) {
-    OnboardingStoryVisualKind.personalCurriculum => Icons.auto_stories_outlined,
-    OnboardingStoryVisualKind.learn => Icons.school_outlined,
-    OnboardingStoryVisualKind.saveAndReview => Icons.bookmarks_outlined,
-    OnboardingStoryVisualKind.gamesAndRewards =>
-      Icons.workspace_premium_outlined,
-    OnboardingStoryVisualKind.heritageJourney => Icons.roofing_outlined,
-  };
+  final int stage;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    final text = SoriTextTheme.of(context);
-    final rewardProjectionResult = page.rewardCatalogCopy == null
-        ? null
-        : (rewardCatalogProjector ??
-              () => OnboardingStoryCatalogProjector.projectRewards())();
-    final heritageProjectionResult = page.heritageCatalogCopy == null
-        ? null
-        : (heritageCatalogProjector ??
-              () => OnboardingStoryCatalogProjector.projectIlduGotaek())();
-    final rewardProjection = rewardProjectionResult?.projection;
-    final heritageProjection = heritageProjectionResult?.projection;
-    final heritageUnavailable =
-        page.heritageCatalogCopy != null && heritageProjection == null;
-    final heroSemanticLabel = heritageUnavailable
-        ? '${page.title}. ${page.heritageCatalogCopy!.inPreparationLabel}'
-        : page.heroSemanticLabel;
-    final statusLabel = heritageUnavailable
-        ? page.heritageCatalogCopy!.inPreparationLabel
-        : page.statusLabel;
+    final surfaces = SoriSurfaces.of(context);
+    final activeFirst = stage >= 1;
+    final complete = stage >= 2;
     return Semantics(
-      container: true,
-      child: SoriCard(
-        key: const ValueKey('onboarding-v2-story-hero'),
-        variant: SoriCardVariant.hero,
-        accent: _accent,
-        tinted: true,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Center(
-              child: Semantics(
-                image: true,
-                label: heroSemanticLabel,
-                child: ExcludeSemantics(
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: _accent.withValues(alpha: 0.12),
-                      shape: BoxShape.circle,
+      key: const ValueKey('onboarding-v2-story-hero'),
+      button: true,
+      label: page.heroSemanticLabel,
+      onTap: onTap,
+      excludeSemantics: true,
+      child: Material(
+        color: surfaces.bg,
+        shape: RoundedRectangleBorder(
+          borderRadius: SoriRadius.brMd,
+          side: BorderSide(color: surfaces.border),
+        ),
+        child: InkWell(
+          onTap: onTap,
+          borderRadius: SoriRadius.brMd,
+          child: Padding(
+            padding: const EdgeInsets.all(Spacing.md),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: _JamoTile(
+                        korean: 'ㄱ',
+                        romanization: 'g',
+                        active: activeFirst,
+                      ),
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(Spacing.xl),
-                      child: Icon(_heroIcon, size: 72, color: _accent),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: Spacing.xs),
+                      child: Text('+'),
+                    ),
+                    Expanded(
+                      child: _JamoTile(
+                        korean: 'ㅏ',
+                        romanization: 'a',
+                        active: complete,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: Spacing.xs),
+                      child: Text('='),
+                    ),
+                    Expanded(
+                      child: _JamoTile(
+                        korean: complete ? '가' : '?',
+                        romanization: complete ? 'ga' : '',
+                        active: complete,
+                        result: true,
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: Spacing.md),
+                Row(
+                  children: [
+                    Icon(
+                      complete
+                          ? Icons.volume_up_rounded
+                          : Icons.touch_app_outlined,
+                      size: 20,
+                      color: complete ? SoriColors.primary : surfaces.textMuted,
+                    ),
+                    const SizedBox(width: Spacing.sm),
+                    Expanded(
+                      child: Text(
+                        complete
+                            ? '${page.highlights[2].title} · 가 · ga'
+                            : page.highlights[stage].body,
+                        style: SoriTextTheme.of(context).bodySmall,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _JamoTile extends StatelessWidget {
+  const _JamoTile({
+    required this.korean,
+    required this.romanization,
+    required this.active,
+    this.result = false,
+  });
+
+  final String korean;
+  final String romanization;
+  final bool active;
+  final bool result;
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    final fill = result && active
+        ? SoriColors.primaryDark
+        : active
+        ? SoriColors.primarySoft
+        : SoriCard.resolvedBackground(context);
+    final foreground = result && active
+        ? Colors.white
+        : active
+        ? SoriColors.primaryDark
+        : surfaces.textMuted;
+    return AnimatedContainer(
+      duration: SoriMotion.respect(context, const Duration(milliseconds: 220)),
+      constraints: const BoxConstraints(minHeight: 66),
+      decoration: BoxDecoration(
+        color: fill,
+        borderRadius: SoriRadius.brSm,
+        border: Border.all(
+          color: active ? SoriColors.primary : surfaces.border,
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            korean,
+            locale: const Locale('ko'),
+            style: SoriTextTheme.of(
+              context,
+            ).koDisplay.copyWith(color: foreground, fontSize: 27),
+          ),
+          if (romanization.isNotEmpty)
+            Text(
+              romanization,
+              style: SoriTextTheme.of(context).meta.copyWith(color: foreground),
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FlipReviewPreview extends StatelessWidget {
+  const _FlipReviewPreview({
+    required this.page,
+    required this.flipped,
+    required this.onTap,
+    required this.translation,
+  });
+
+  final OnboardingStoryPageSpec page;
+  final bool flipped;
+  final VoidCallback onTap;
+  final String translation;
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Semantics(
+          key: const ValueKey('onboarding-v2-story-hero'),
+          button: true,
+          label: page.heroSemanticLabel,
+          onTap: onTap,
+          excludeSemantics: true,
+          child: Material(
+            color: surfaces.bg,
+            shape: RoundedRectangleBorder(
+              borderRadius: SoriRadius.brMd,
+              side: BorderSide(
+                color: flipped ? SoriColors.gold : SoriColors.primary,
+              ),
+            ),
+            child: InkWell(
+              onTap: onTap,
+              borderRadius: SoriRadius.brMd,
+              child: AnimatedSwitcher(
+                duration: SoriMotion.respect(
+                  context,
+                  const Duration(milliseconds: 360),
+                ),
+                transitionBuilder: (child, animation) => FadeTransition(
+                  opacity: animation,
+                  child: ScaleTransition(
+                    scale: Tween(begin: 0.96, end: 1.0).animate(animation),
+                    child: child,
+                  ),
+                ),
+                child: ConstrainedBox(
+                  key: ValueKey(flipped),
+                  constraints: const BoxConstraints(minHeight: 132),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: Spacing.md,
+                      vertical: Spacing.lg,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          flipped ? page.highlights[0].title : page.eyebrow,
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(
+                            context,
+                          ).meta.copyWith(color: SoriColors.accent),
+                        ),
+                        const SizedBox(height: Spacing.sm),
+                        Text(
+                          flipped ? translation : '안녕하세요',
+                          locale: flipped ? null : const Locale('ko'),
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(context).koDisplay,
+                        ),
+                        const SizedBox(height: Spacing.sm),
+                        Text(
+                          flipped ? '안녕하세요' : page.highlights[0].body,
+                          locale: flipped ? const Locale('ko') : null,
+                          textAlign: TextAlign.center,
+                          style: SoriTextTheme.of(context).meta,
+                        ),
+                      ],
                     ),
                   ),
                 ),
               ),
             ),
-            if (statusLabel != null) ...[
-              const SizedBox(height: Spacing.lg),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  ExcludeSemantics(
-                    child: Icon(
-                      Icons.info_outline_rounded,
-                      size: 20,
-                      color: _accent,
-                    ),
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  Expanded(
-                    child: Text(
-                      statusLabel,
-                      key: const ValueKey('onboarding-v2-story-status'),
-                      style: text.label.copyWith(color: _accent),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-            const SizedBox(height: Spacing.lg),
-            LayoutBuilder(
-              builder: (context, constraints) {
-                final itemWidth = (constraints.maxWidth - Spacing.md) / 2;
-                return Wrap(
-                  spacing: Spacing.md,
-                  runSpacing: Spacing.md,
+          ),
+        ),
+        const SizedBox(height: Spacing.lg),
+        Row(
+          children: [
+            for (final (index, days) in const ['1', '3', '7', '30'].indexed)
+              Expanded(
+                child: Column(
                   children: [
-                    for (final highlight in page.highlights)
-                      SizedBox(
-                        width: itemWidth,
-                        child: _StoryHighlightTile(
-                          highlight: highlight,
-                          accent: _accent,
-                        ),
-                      ),
+                    Container(
+                      height: 3,
+                      color: index == 0 ? SoriColors.primary : surfaces.border,
+                    ),
+                    const SizedBox(height: Spacing.sm),
+                    Text(days, style: SoriTextTheme.of(context).meta),
                   ],
-                );
-              },
+                ),
+              ),
+          ],
+        ),
+        if (page.highlights.length >= 4) ...[
+          const SizedBox(height: Spacing.lg),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: _MemoryMeaning(
+                  icon: Icons.favorite_outline_rounded,
+                  highlight: page.highlights[2],
+                  accent: SoriColors.tigerOnLight,
+                ),
+              ),
+              const SizedBox(width: Spacing.sm),
+              Expanded(
+                child: _MemoryMeaning(
+                  icon: Icons.bookmark_outline_rounded,
+                  highlight: page.highlights[3],
+                  accent: SoriColors.primaryDark,
+                ),
+              ),
+            ],
+          ),
+        ],
+        if (page.statusLabel != null) ...[
+          const SizedBox(height: Spacing.lg),
+          _StatusNote(label: page.statusLabel!, accent: SoriColors.accent),
+        ],
+      ],
+    );
+  }
+}
+
+class _MemoryMeaning extends StatelessWidget {
+  const _MemoryMeaning({
+    required this.icon,
+    required this.highlight,
+    required this.accent,
+  });
+
+  final IconData icon;
+  final OnboardingStoryHighlight highlight;
+  final Color accent;
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: surfaces.bg,
+        borderRadius: SoriRadius.brSm,
+        border: Border.all(color: surfaces.border),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(Spacing.sm),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(icon, size: 19, color: accent),
+            const SizedBox(height: Spacing.xs),
+            Text(highlight.title, style: SoriTextTheme.of(context).meta),
+            const SizedBox(height: 2),
+            Text(
+              highlight.body,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+              style: SoriTextTheme.of(context).bodySmall,
             ),
-            if (curriculumEvidence != null) ...[
-              const SizedBox(height: Spacing.xl),
-              _CurriculumEvidencePreview(
-                copy: page.curriculumEvidenceCopy!,
-                projection: curriculumEvidence!,
-                accent: _accent,
-              ),
-            ],
-            if (rewardProjection != null) ...[
-              const SizedBox(height: Spacing.xl),
-              _RewardCatalogPreview(
-                copy: page.rewardCatalogCopy!,
-                projection: rewardProjection,
-                accent: _accent,
-              ),
-            ],
-            if (heritageProjection != null) ...[
-              const SizedBox(height: Spacing.xl),
-              _HeritageCatalogPreview(
-                copy: page.heritageCatalogCopy!,
-                projection: heritageProjection,
-                accent: _accent,
-              ),
-            ],
           ],
         ),
       ),
+    );
+  }
+}
+
+class _QuestPreview extends StatelessWidget {
+  const _QuestPreview({
+    required this.page,
+    required this.complete,
+    required this.onTap,
+    required this.projection,
+  });
+
+  final OnboardingStoryPageSpec page;
+  final bool complete;
+  final VoidCallback onTap;
+  final OnboardingRewardCatalogProjection? projection;
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Semantics(
+          key: const ValueKey('onboarding-v2-story-hero'),
+          button: true,
+          label: page.heroSemanticLabel,
+          onTap: onTap,
+          excludeSemantics: true,
+          child: Material(
+            color: surfaces.bg,
+            shape: RoundedRectangleBorder(
+              borderRadius: SoriRadius.brMd,
+              side: BorderSide(color: surfaces.border),
+            ),
+            child: InkWell(
+              onTap: onTap,
+              borderRadius: SoriRadius.brMd,
+              child: Padding(
+                padding: const EdgeInsets.all(Spacing.md),
+                child: Row(
+                  children: [
+                    DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: complete
+                            ? SoriColors.primary
+                            : SoriColors.gold.withValues(alpha: 0.18),
+                        borderRadius: SoriRadius.brSm,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(Spacing.md),
+                        child: Icon(
+                          complete
+                              ? Icons.check_rounded
+                              : Icons.emoji_events_rounded,
+                          color: complete
+                              ? Colors.white
+                              : SoriColors.goldOnLight,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.md),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            page.highlights.first.title,
+                            style: SoriTextTheme.of(context).meta,
+                          ),
+                          const SizedBox(height: 2),
+                          Text(
+                            page.highlights.first.body,
+                            style: SoriTextTheme.of(context).cardTitle,
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: Spacing.sm),
+                    Text(
+                      complete ? '+25 XP' : '25 XP',
+                      style: SoriTextTheme.of(
+                        context,
+                      ).label.copyWith(color: SoriColors.accent),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: Spacing.md),
+        Semantics(
+          key: const ValueKey('onboarding-v2-quest-xp-progress'),
+          value: complete ? '100' : '68',
+          child: ExcludeSemantics(
+            child: ClipRRect(
+              borderRadius: SoriRadius.brPill,
+              child: LinearProgressIndicator(
+                value: complete ? 1 : 0.68,
+                minHeight: 7,
+                color: SoriColors.primary,
+                backgroundColor: surfaces.border,
+              ),
+            ),
+          ),
+        ),
+        if (page.statusLabel != null) ...[
+          const SizedBox(height: Spacing.md),
+          _StatusNote(label: page.statusLabel!, accent: SoriColors.goldOnLight),
+        ],
+        if (projection != null) ...[
+          const SizedBox(height: Spacing.lg),
+          _RewardCatalogPreview(
+            copy: page.rewardCatalogCopy!,
+            projection: projection!,
+            accent: SoriColors.goldOnLight,
+          ),
+        ],
+      ],
+    );
+  }
+}
+
+class _HeritageJourneyPreview extends StatelessWidget {
+  const _HeritageJourneyPreview({required this.page, required this.projection});
+
+  final OnboardingStoryPageSpec page;
+  final OnboardingHeritageCatalogProjection? projection;
+
+  static const _chapters = [
+    ('솟을대문', 'Sotdaeulmun', 'assets/illustrations/stamps/stamp_taegeuk.png'),
+    ('사랑채', 'Sarangchae', 'assets/illustrations/stamps/stamp_plum.png'),
+    ('안채', 'Anchae', 'assets/illustrations/stamps/stamp_mountain.png'),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    final heritageCopy = page.heritageCatalogCopy;
+    final fallbackStatus = page.statusLabel ?? page.title;
+    return Semantics(
+      key: const ValueKey('onboarding-v2-story-hero'),
+      container: true,
+      label: projection == null || heritageCopy == null
+          ? '${page.title}. $fallbackStatus'
+          : page.heroSemanticLabel,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ExcludeSemantics(
+            child: DecoratedBox(
+              decoration: BoxDecoration(
+                border: Border(top: BorderSide(color: surfaces.border)),
+              ),
+              child: Column(
+                children: [
+                  for (final (index, chapter) in _chapters.indexed)
+                    _ChapterRow(
+                      korean: chapter.$1,
+                      latin: chapter.$2,
+                      status: page.highlights[index].title,
+                      stampAsset: chapter.$3,
+                      current: index == 0,
+                      trailing: index == 0 ? heritageCopy?.previewLabel : null,
+                    ),
+                ],
+              ),
+            ),
+          ),
+          const SizedBox(height: Spacing.lg),
+          if (projection != null && heritageCopy != null)
+            _HeritageCatalogPreview(
+              copy: heritageCopy,
+              projection: projection!,
+              accent: SoriColors.primaryDark,
+            )
+          else
+            _StatusNote(
+              label: heritageCopy?.inPreparationLabel ?? fallbackStatus,
+              accent: SoriColors.primaryDark,
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ChapterRow extends StatelessWidget {
+  const _ChapterRow({
+    required this.korean,
+    required this.latin,
+    required this.status,
+    required this.stampAsset,
+    required this.current,
+    required this.trailing,
+  });
+
+  final String korean;
+  final String latin;
+  final String status;
+  final String stampAsset;
+  final bool current;
+  final String? trailing;
+
+  @override
+  Widget build(BuildContext context) {
+    final surfaces = SoriSurfaces.of(context);
+    return Container(
+      constraints: const BoxConstraints(minHeight: 62),
+      decoration: BoxDecoration(
+        border: Border(bottom: BorderSide(color: surfaces.border)),
+      ),
+      child: Row(
+        children: [
+          Opacity(
+            opacity: current ? 1 : 0.48,
+            child: Image.asset(
+              stampAsset,
+              width: 40,
+              height: 40,
+              fit: BoxFit.contain,
+            ),
+          ),
+          const SizedBox(width: Spacing.md),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  korean,
+                  locale: const Locale('ko'),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).cardTitle.copyWith(fontFamily: 'MaruBuri'),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  '$latin · $status',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: SoriTextTheme.of(context).meta,
+                ),
+              ],
+            ),
+          ),
+          if (trailing != null) ...[
+            const SizedBox(width: Spacing.sm),
+            Text(
+              trailing!,
+              style: SoriTextTheme.of(context).meta.copyWith(
+                color: SoriColors.accent,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _StatusNote extends StatelessWidget {
+  const _StatusNote({required this.label, required this.accent});
+
+  final String label;
+  final Color accent;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(Icons.info_outline_rounded, size: 19, color: accent),
+        const SizedBox(width: Spacing.sm),
+        Expanded(
+          child: Text(
+            label,
+            key: const ValueKey('onboarding-v2-story-status'),
+            style: SoriTextTheme.of(context).bodySmall.copyWith(color: accent),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -514,6 +1181,7 @@ class _RewardCatalogPreview extends StatelessWidget {
     final text = SoriTextTheme.of(context);
     final languageCode = Localizations.localeOf(context).languageCode;
     return Semantics(
+      key: const ValueKey('onboarding-v2-reward-catalog'),
       container: true,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -827,25 +1495,3 @@ String _licenseLabel(
   HeritageUseAuthority.separatelyApproved => copy.licenseSeparatelyApproved,
   HeritageUseAuthority.unknown => license.displayName,
 };
-
-class _StoryHighlightTile extends StatelessWidget {
-  const _StoryHighlightTile({required this.highlight, required this.accent});
-
-  final OnboardingStoryHighlight highlight;
-  final Color accent;
-
-  @override
-  Widget build(BuildContext context) {
-    final text = SoriTextTheme.of(context);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        ExcludeSemantics(child: Icon(highlight.icon, size: 28, color: accent)),
-        const SizedBox(height: Spacing.sm),
-        Text(highlight.title, style: text.cardTitle),
-        const SizedBox(height: Spacing.xs),
-        Text(highlight.body, style: text.cardSubtitle),
-      ],
-    );
-  }
-}

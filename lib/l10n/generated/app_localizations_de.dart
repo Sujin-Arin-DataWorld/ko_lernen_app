@@ -8737,18 +8737,22 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get onboardingV2Story1Eyebrow => 'Zwei Wege, ein Lernort';
+  String get onboardingV2Story1Eyebrow => 'Dein Lernweg';
 
   @override
-  String get onboardingV2Story1Title => 'Dein Lernweg und dein eigenes Buch';
+  String get onboardingV2Story1Title => 'Vom Buchstaben\nbis zum Gespräch';
 
   @override
   String get onboardingV2Story1Body =>
-      'Gehe Schritt für Schritt von A1 bis C2. Die Texterkennung einer fotografierten Buchseite läuft auf deinem Gerät. Erst wenn du Analysieren wählst, kann der erkannte Text zur Auswertung an einen Analysedienst in der EU gesendet werden.';
+      'Hangeul Sori verbindet Schrift, Klang und echte Situationen zu einem klaren Lernweg.';
+
+  @override
+  String get onboardingV2Story1Status =>
+      'Diese Vorschau legt dein Level noch nicht fest.';
 
   @override
   String get onboardingV2Story1HeroSemantics =>
-      'Vorschau auf den Stufenweg A1 bis C2 und die Analyse einer selbst fotografierten Buchseite.';
+      'Vorschau auf den Lernweg von den ersten Buchstaben bis zu Gesprächen auf Stufe C2.';
 
   @override
   String get onboardingV2Story1Item1Title => 'Stufenweg A1 bis C2';
@@ -8822,18 +8826,18 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story1CurriculumSourcesClose => 'Quellen schließen';
 
   @override
-  String get onboardingV2Story2Eyebrow => 'Lernen';
+  String get onboardingV2Story2Eyebrow => 'Klang und Schrift';
 
   @override
-  String get onboardingV2Story2Title => 'Vom ersten Zeichen bis zum Gespräch';
+  String get onboardingV2Story2Title => 'Koreanisch wird sichtbar.';
 
   @override
   String get onboardingV2Story2Body =>
-      'Lernen verbindet Hangeul, Schreiben, Hören, Aussprache und Szenarien. Du entscheidest selbst, wann du Kamera, Mikrofon oder Ton verwendest.';
+      'Baue Silben, höre ihre Aussprache und verwende sie direkt in kurzen Sätzen.';
 
   @override
   String get onboardingV2Story2HeroSemantics =>
-      'Vorschau auf Hangeul, Schreibübungen, Hör- und Aussprachetraining sowie Szenarien nach Level.';
+      'Interaktive Vorschau: Die Zeichen Giyeok und A werden zur Silbe ga zusammengesetzt.';
 
   @override
   String get onboardingV2Story2Item1Title => 'Hangeul';
@@ -8864,14 +8868,14 @@ class AppL10nDe extends AppL10n {
       'Alltagssituationen und Kategorien passend zum gewählten Level öffnen.';
 
   @override
-  String get onboardingV2Story3Eyebrow => 'Karten und Gedächtnis';
+  String get onboardingV2Story3Eyebrow => 'Wiederholen';
 
   @override
-  String get onboardingV2Story3Title => 'Merke dir, was dir wichtig ist';
+  String get onboardingV2Story3Title => 'Was du lernst, bleibt.';
 
   @override
   String get onboardingV2Story3Body =>
-      'Tippe Karten an, um sie zu wenden, und wische zur nächsten. Herz und Lesezeichen haben dabei bewusst verschiedene Aufgaben.';
+      'Kurze Wiederholungen erscheinen dann, wenn dein Gedächtnis sie wirklich braucht.';
 
   @override
   String get onboardingV2Story3HeroSemantics =>
@@ -8911,14 +8915,14 @@ class AppL10nDe extends AppL10n {
       'Jetzt verfügbar: Favoriten, gespeicherte Inhalte und heute fällige unterstützte Wörter sind getrennte Ansichten in der Lernsammlung. Die aktuelle Wiederholung unterstützt nur Wörter; Grammatik, Sätze, Ausdrücke und Hangeul bleiben ohne vorgetäuschte Wiederholungsaktion gespeichert.';
 
   @override
-  String get onboardingV2Story4Eyebrow => 'Spielen und Belohnungen';
+  String get onboardingV2Story4Eyebrow => 'Motivation';
 
   @override
-  String get onboardingV2Story4Title => 'Üben, ausprobieren, Fortschritt sehen';
+  String get onboardingV2Story4Title => 'Üben darf sich gut anfühlen.';
 
   @override
   String get onboardingV2Story4Body =>
-      'In Spielen wendest du Gelerntes an. Hinweise, XP, persönliche Bestwerte und Quests machen sichtbar, was du getan hast. Sie ersetzen keinen Lernerfolg.';
+      'Quests und persönliche Bestwerte machen Fortschritt sichtbar, ohne dein Lernen zu bestimmen.';
 
   @override
   String get onboardingV2Story4HeroSemantics =>
@@ -8943,11 +8947,10 @@ class AppL10nDe extends AppL10n {
   }
 
   @override
-  String get onboardingV2Story4Item1Title => 'Spielhinweise';
+  String get onboardingV2Story4Item1Title => 'Beispiel-Quest';
 
   @override
-  String get onboardingV2Story4Item1Body =>
-      'Kurze Hilfen bringen dich wieder in die Übung.';
+  String get onboardingV2Story4Item1Body => 'Drei Silben lesen';
 
   @override
   String get onboardingV2Story4Item2Title => 'XP & persönliche Bestwerte';
@@ -8974,11 +8977,11 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2Story5Eyebrow => 'Kulturerbe-Reise';
 
   @override
-  String get onboardingV2Story5Title => 'Stempelbuch, Bojagi und dein Hanok';
+  String get onboardingV2Story5Title => 'Mit jedem Kapitel wächst dein Hanok.';
 
   @override
   String get onboardingV2Story5Body =>
-      'Deine langfristige Reise führt vom Stempelbuch über Bojagi und Accessoires zum Gestalten von Räumen und historischen Häusern. Das erste Kapitel wird noch vorbereitet.';
+      'Stempel, Bojagi und Räume verbinden deinen Lernfortschritt mit einer langfristigen Kulturerbe-Reise.';
 
   @override
   String get onboardingV2Story5HeroSemantics =>
@@ -8989,21 +8992,21 @@ class AppL10nDe extends AppL10n {
       'Erste Reise · Ildu Gotaek · In Vorbereitung';
 
   @override
-  String get onboardingV2Story5Item1Title => 'Stempelbuch';
+  String get onboardingV2Story5Item1Title => 'Ankommen';
 
   @override
   String get onboardingV2Story5Item1Body =>
       'Hier siehst du gesammelte Stempel und offene Stationen.';
 
   @override
-  String get onboardingV2Story5Item2Title => 'Bojagi öffnen';
+  String get onboardingV2Story5Item2Title => 'Lernen';
 
   @override
   String get onboardingV2Story5Item2Body =>
       'Ausgewiesene Belohnungen können Accessoires enthalten.';
 
   @override
-  String get onboardingV2Story5Item3Title => 'Räume gestalten';
+  String get onboardingV2Story5Item3Title => 'Vertiefen';
 
   @override
   String get onboardingV2Story5Item3Body =>
@@ -9024,7 +9027,7 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get onboardingV2Story5AssetReviewNote =>
-      'Bis Nutzungsrechte für die App und visuelle Prüfung freigegeben sind, wird hier keine Kulturerbe-Grafik verwendet.';
+      'Diese Vorschau verwendet nur Grafiken, die bereits für die App freigegeben sind. Historische Bezeichnungen und Quellen bleiben klar belegt.';
 
   @override
   String get onboardingV2Story5SourcesAction => 'Quellen und Angaben';
@@ -9093,18 +9096,17 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2SetupEyebrow => 'Dein persönlicher Start';
 
   @override
-  String get onboardingV2SetupTitle =>
-      'Wofür lernst du, und wo steigst du ein?';
+  String get onboardingV2SetupTitle => 'Dein Ziel und dein Startpunkt';
 
   @override
   String get onboardingV2SetupBody =>
       'Dein Ziel ändert nur die Reihenfolge von Einstiegstipps und Empfehlungen. Schwierigkeit, Inhalte, Fortschritt und Belohnungen bleiben gleich.';
 
   @override
-  String get onboardingV2SetupPurposeHeading => '1. Wähle dein Ziel';
+  String get onboardingV2SetupPurposeHeading => 'Wofür lernst du?';
 
   @override
-  String get onboardingV2SetupLevelHeading => '2. Wähle deinen Startpunkt';
+  String get onboardingV2SetupLevelHeading => 'Wo startest du?';
 
   @override
   String get onboardingV2SetupLevelHelp =>
@@ -9190,11 +9192,11 @@ class AppL10nDe extends AppL10n {
   String get onboardingV2CompanionEyebrow => 'Dein Lernfreund';
 
   @override
-  String get onboardingV2CompanionTitle => 'Wer begleitet dich?';
+  String get onboardingV2CompanionTitle => 'Wer lernt mit dir?';
 
   @override
   String get onboardingV2CompanionBody =>
-      'Wähle Taego oder Joy. Die Wahl ist für den ersten Start erforderlich; später kannst du den Lernfreund wechseln oder seine Anzeige ausschalten.';
+      'Wähle Taego oder Joy. Beide begleiten denselben Lernweg; nur Ton und Rhythmus ihrer Hinweise unterscheiden sich. Du kannst später wechseln.';
 
   @override
   String get onboardingV2CompanionEqualNote =>

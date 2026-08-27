@@ -14823,25 +14823,31 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story1Eyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Zwei Wege, ein Lernort'**
+  /// **'Dein Lernweg'**
   String get onboardingV2Story1Eyebrow;
 
   /// No description provided for @onboardingV2Story1Title.
   ///
   /// In de, this message translates to:
-  /// **'Dein Lernweg und dein eigenes Buch'**
+  /// **'Vom Buchstaben\nbis zum Gespräch'**
   String get onboardingV2Story1Title;
 
   /// No description provided for @onboardingV2Story1Body.
   ///
   /// In de, this message translates to:
-  /// **'Gehe Schritt für Schritt von A1 bis C2. Die Texterkennung einer fotografierten Buchseite läuft auf deinem Gerät. Erst wenn du Analysieren wählst, kann der erkannte Text zur Auswertung an einen Analysedienst in der EU gesendet werden.'**
+  /// **'Hangeul Sori verbindet Schrift, Klang und echte Situationen zu einem klaren Lernweg.'**
   String get onboardingV2Story1Body;
+
+  /// No description provided for @onboardingV2Story1Status.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Vorschau legt dein Level noch nicht fest.'**
+  String get onboardingV2Story1Status;
 
   /// No description provided for @onboardingV2Story1HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau auf den Stufenweg A1 bis C2 und die Analyse einer selbst fotografierten Buchseite.'**
+  /// **'Vorschau auf den Lernweg von den ersten Buchstaben bis zu Gesprächen auf Stufe C2.'**
   String get onboardingV2Story1HeroSemantics;
 
   /// No description provided for @onboardingV2Story1Item1Title.
@@ -14967,25 +14973,25 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story2Eyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Lernen'**
+  /// **'Klang und Schrift'**
   String get onboardingV2Story2Eyebrow;
 
   /// No description provided for @onboardingV2Story2Title.
   ///
   /// In de, this message translates to:
-  /// **'Vom ersten Zeichen bis zum Gespräch'**
+  /// **'Koreanisch wird sichtbar.'**
   String get onboardingV2Story2Title;
 
   /// No description provided for @onboardingV2Story2Body.
   ///
   /// In de, this message translates to:
-  /// **'Lernen verbindet Hangeul, Schreiben, Hören, Aussprache und Szenarien. Du entscheidest selbst, wann du Kamera, Mikrofon oder Ton verwendest.'**
+  /// **'Baue Silben, höre ihre Aussprache und verwende sie direkt in kurzen Sätzen.'**
   String get onboardingV2Story2Body;
 
   /// No description provided for @onboardingV2Story2HeroSemantics.
   ///
   /// In de, this message translates to:
-  /// **'Vorschau auf Hangeul, Schreibübungen, Hör- und Aussprachetraining sowie Szenarien nach Level.'**
+  /// **'Interaktive Vorschau: Die Zeichen Giyeok und A werden zur Silbe ga zusammengesetzt.'**
   String get onboardingV2Story2HeroSemantics;
 
   /// No description provided for @onboardingV2Story2Item1Title.
@@ -15039,19 +15045,19 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story3Eyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Karten und Gedächtnis'**
+  /// **'Wiederholen'**
   String get onboardingV2Story3Eyebrow;
 
   /// No description provided for @onboardingV2Story3Title.
   ///
   /// In de, this message translates to:
-  /// **'Merke dir, was dir wichtig ist'**
+  /// **'Was du lernst, bleibt.'**
   String get onboardingV2Story3Title;
 
   /// No description provided for @onboardingV2Story3Body.
   ///
   /// In de, this message translates to:
-  /// **'Tippe Karten an, um sie zu wenden, und wische zur nächsten. Herz und Lesezeichen haben dabei bewusst verschiedene Aufgaben.'**
+  /// **'Kurze Wiederholungen erscheinen dann, wenn dein Gedächtnis sie wirklich braucht.'**
   String get onboardingV2Story3Body;
 
   /// No description provided for @onboardingV2Story3HeroSemantics.
@@ -15117,19 +15123,19 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story4Eyebrow.
   ///
   /// In de, this message translates to:
-  /// **'Spielen und Belohnungen'**
+  /// **'Motivation'**
   String get onboardingV2Story4Eyebrow;
 
   /// No description provided for @onboardingV2Story4Title.
   ///
   /// In de, this message translates to:
-  /// **'Üben, ausprobieren, Fortschritt sehen'**
+  /// **'Üben darf sich gut anfühlen.'**
   String get onboardingV2Story4Title;
 
   /// No description provided for @onboardingV2Story4Body.
   ///
   /// In de, this message translates to:
-  /// **'In Spielen wendest du Gelerntes an. Hinweise, XP, persönliche Bestwerte und Quests machen sichtbar, was du getan hast. Sie ersetzen keinen Lernerfolg.'**
+  /// **'Quests und persönliche Bestwerte machen Fortschritt sichtbar, ohne dein Lernen zu bestimmen.'**
   String get onboardingV2Story4Body;
 
   /// No description provided for @onboardingV2Story4HeroSemantics.
@@ -15165,13 +15171,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story4Item1Title.
   ///
   /// In de, this message translates to:
-  /// **'Spielhinweise'**
+  /// **'Beispiel-Quest'**
   String get onboardingV2Story4Item1Title;
 
   /// No description provided for @onboardingV2Story4Item1Body.
   ///
   /// In de, this message translates to:
-  /// **'Kurze Hilfen bringen dich wieder in die Übung.'**
+  /// **'Drei Silben lesen'**
   String get onboardingV2Story4Item1Body;
 
   /// No description provided for @onboardingV2Story4Item2Title.
@@ -15219,13 +15225,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5Title.
   ///
   /// In de, this message translates to:
-  /// **'Stempelbuch, Bojagi und dein Hanok'**
+  /// **'Mit jedem Kapitel wächst dein Hanok.'**
   String get onboardingV2Story5Title;
 
   /// No description provided for @onboardingV2Story5Body.
   ///
   /// In de, this message translates to:
-  /// **'Deine langfristige Reise führt vom Stempelbuch über Bojagi und Accessoires zum Gestalten von Räumen und historischen Häusern. Das erste Kapitel wird noch vorbereitet.'**
+  /// **'Stempel, Bojagi und Räume verbinden deinen Lernfortschritt mit einer langfristigen Kulturerbe-Reise.'**
   String get onboardingV2Story5Body;
 
   /// No description provided for @onboardingV2Story5HeroSemantics.
@@ -15243,7 +15249,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5Item1Title.
   ///
   /// In de, this message translates to:
-  /// **'Stempelbuch'**
+  /// **'Ankommen'**
   String get onboardingV2Story5Item1Title;
 
   /// No description provided for @onboardingV2Story5Item1Body.
@@ -15255,7 +15261,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5Item2Title.
   ///
   /// In de, this message translates to:
-  /// **'Bojagi öffnen'**
+  /// **'Lernen'**
   String get onboardingV2Story5Item2Title;
 
   /// No description provided for @onboardingV2Story5Item2Body.
@@ -15267,7 +15273,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5Item3Title.
   ///
   /// In de, this message translates to:
-  /// **'Räume gestalten'**
+  /// **'Vertiefen'**
   String get onboardingV2Story5Item3Title;
 
   /// No description provided for @onboardingV2Story5Item3Body.
@@ -15303,7 +15309,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2Story5AssetReviewNote.
   ///
   /// In de, this message translates to:
-  /// **'Bis Nutzungsrechte für die App und visuelle Prüfung freigegeben sind, wird hier keine Kulturerbe-Grafik verwendet.'**
+  /// **'Diese Vorschau verwendet nur Grafiken, die bereits für die App freigegeben sind. Historische Bezeichnungen und Quellen bleiben klar belegt.'**
   String get onboardingV2Story5AssetReviewNote;
 
   /// No description provided for @onboardingV2Story5SourcesAction.
@@ -15423,7 +15429,7 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2SetupTitle.
   ///
   /// In de, this message translates to:
-  /// **'Wofür lernst du, und wo steigst du ein?'**
+  /// **'Dein Ziel und dein Startpunkt'**
   String get onboardingV2SetupTitle;
 
   /// No description provided for @onboardingV2SetupBody.
@@ -15435,13 +15441,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2SetupPurposeHeading.
   ///
   /// In de, this message translates to:
-  /// **'1. Wähle dein Ziel'**
+  /// **'Wofür lernst du?'**
   String get onboardingV2SetupPurposeHeading;
 
   /// No description provided for @onboardingV2SetupLevelHeading.
   ///
   /// In de, this message translates to:
-  /// **'2. Wähle deinen Startpunkt'**
+  /// **'Wo startest du?'**
   String get onboardingV2SetupLevelHeading;
 
   /// No description provided for @onboardingV2SetupLevelHelp.
@@ -15597,13 +15603,13 @@ abstract class AppL10n {
   /// No description provided for @onboardingV2CompanionTitle.
   ///
   /// In de, this message translates to:
-  /// **'Wer begleitet dich?'**
+  /// **'Wer lernt mit dir?'**
   String get onboardingV2CompanionTitle;
 
   /// No description provided for @onboardingV2CompanionBody.
   ///
   /// In de, this message translates to:
-  /// **'Wähle Taego oder Joy. Die Wahl ist für den ersten Start erforderlich; später kannst du den Lernfreund wechseln oder seine Anzeige ausschalten.'**
+  /// **'Wähle Taego oder Joy. Beide begleiten denselben Lernweg; nur Ton und Rhythmus ihrer Hinweise unterscheiden sich. Du kannst später wechseln.'**
   String get onboardingV2CompanionBody;
 
   /// No description provided for @onboardingV2CompanionEqualNote.

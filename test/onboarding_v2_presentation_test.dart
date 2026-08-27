@@ -34,12 +34,20 @@ void main() {
     );
 
     expect(find.text('Play and rewards'), findsOneWidget);
-    expect(find.text('Page 4 of 5'), findsOneWidget);
+    expect(
+      tester
+          .getSemantics(
+            find.byKey(const ValueKey('onboarding-v2-story-progress')),
+          )
+          .getSemanticsData()
+          .label,
+      'Page 4 of 7',
+    );
     expect(find.text('Reward examples — nothing is granted here'), findsOne);
     expect(find.textContaining('Skip'), findsNothing);
     expect(find.byKey(const ValueKey('onboarding-v2-story-hero')), findsOne);
     final heading = tester
-        .getSemantics(find.bySemanticsLabel('Page 4 of 5. Play and rewards'))
+        .getSemantics(find.bySemanticsLabel('Page 4 of 7. Play and rewards'))
         .getSemanticsData();
     expect(heading.flagsCollection.isHeader, isTrue);
     expect(heading.flagsCollection.isLiveRegion, isFalse);
@@ -57,7 +65,8 @@ void main() {
     final highlightSemantics = tester
         .getSemantics(find.text('Game hints'))
         .getSemanticsData();
-    expect(highlightSemantics.label, contains('Game hints'));
+    expect(highlightSemantics.label, contains('Play and rewards preview'));
+    expect(highlightSemantics.flagsCollection.isButton, isTrue);
 
     await tester.tap(find.byKey(const ValueKey('onboarding-v2-story-back')));
     expect(previousPage, OnboardingV2Ids.storyGamesAndRewards);
@@ -82,7 +91,7 @@ void main() {
     );
 
     expect(find.text('Heart = favorite'), findsOneWidget);
-    expect(find.text('Bookmark = review'), findsOneWidget);
+    expect(find.text('Bookmark = save for learning'), findsOneWidget);
     expect(find.textContaining('without adding a review task'), findsOneWidget);
     expect(find.textContaining('Netflix'), findsNothing);
     expect(find.textContaining('AI-generated'), findsNothing);
@@ -135,12 +144,16 @@ void main() {
 
     expect(_button(tester, 'onboarding-v2-setup-continue').onTap, isNull);
 
-    await tester.tap(
-      find.byKey(
-        const ValueKey(
-          'onboarding-v2-purpose-${OnboardingV2Ids.purposeKContent}',
-        ),
+    final purpose = find.byKey(
+      const ValueKey(
+        'onboarding-v2-purpose-${OnboardingV2Ids.purposeKContent}',
       ),
+    );
+    await tester.ensureVisible(purpose);
+    await tester.tap(purpose);
+    await tester.pump();
+    await tester.tap(
+      find.byKey(const ValueKey('onboarding-v2-setup-continue')),
     );
     await tester.pump();
     await tester.ensureVisible(
@@ -177,6 +190,19 @@ void main() {
     await tester.pumpWidget(
       _host(_SetupHarness(copy: _copy(), onSubmitted: (_) {}), textScale: 2),
     );
+
+    final purpose = find.byKey(
+      const ValueKey(
+        'onboarding-v2-purpose-${OnboardingV2Ids.purposeLifeTravel}',
+      ),
+    );
+    await tester.ensureVisible(purpose);
+    await tester.tap(purpose);
+    await tester.pump();
+    await tester.tap(
+      find.byKey(const ValueKey('onboarding-v2-setup-continue')),
+    );
+    await tester.pump();
 
     final compare = find.byKey(const ValueKey('onboarding-v2-level-compare'));
     await tester.ensureVisible(compare);
@@ -640,9 +666,11 @@ OnboardingV2Copy _copy() => OnboardingV2Copy(
       id: OnboardingV2Ids.storySaveAndReview,
       title: 'Keep what matters to you',
       kind: OnboardingStoryVisualKind.saveAndReview,
-      firstTitle: 'Heart = favorite',
-      firstBody: 'Keep something you like without adding a review task.',
-      secondTitle: 'Bookmark = review',
+      firstTitle: 'Turn a card over',
+      secondTitle: 'Swipe onward',
+      thirdTitle: 'Heart = favorite',
+      thirdBody: 'Keep something you like without adding a review task.',
+      fourthTitle: 'Bookmark = save for learning',
     ),
     _story(
       id: OnboardingV2Ids.storyGamesAndRewards,
@@ -744,6 +772,9 @@ OnboardingStoryPageSpec _story({
   required String firstTitle,
   required String secondTitle,
   String firstBody = 'A truthful preview.',
+  String thirdTitle = 'More context',
+  String thirdBody = 'No permission is requested here.',
+  String fourthTitle = 'Your choice',
   String? status,
 }) => OnboardingStoryPageSpec(
   id: id,
@@ -764,13 +795,13 @@ OnboardingStoryPageSpec _story({
       body: 'A truthful preview.',
       icon: Icons.looks_two_outlined,
     ),
-    const OnboardingStoryHighlight(
-      title: 'More context',
-      body: 'No permission is requested here.',
+    OnboardingStoryHighlight(
+      title: thirdTitle,
+      body: thirdBody,
       icon: Icons.info_outline_rounded,
     ),
-    const OnboardingStoryHighlight(
-      title: 'Your choice',
+    OnboardingStoryHighlight(
+      title: fourthTitle,
       body: 'Nothing is changed by this preview.',
       icon: Icons.touch_app_outlined,
     ),

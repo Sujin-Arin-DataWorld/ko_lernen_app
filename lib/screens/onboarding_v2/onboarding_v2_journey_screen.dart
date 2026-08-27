@@ -362,6 +362,14 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
         onContinue: (_) {
           unawaited(_runTransition(_coordinator.continueFromSetup));
         },
+        onBack: () {
+          unawaited(
+            _runTransition(
+              _coordinator.returnToStoryFromSetup,
+              storyExit: OnboardingStoryExit.previous,
+            ),
+          );
+        },
       ),
       OnboardingPhase.companion => OnboardingCompanionScreen(
         copy: copy,
@@ -388,6 +396,7 @@ class _OnboardingV2JourneyScreenState extends State<OnboardingV2JourneyScreen> {
             unawaited(_runTransition(_coordinator.continueFromCompanion));
           }
         },
+        onBack: () => unawaited(_runTransition(_coordinator.returnToSetup)),
       ),
       OnboardingPhase.confirmation ||
       OnboardingPhase.committing => OnboardingCompanionConfirmationScreen(
