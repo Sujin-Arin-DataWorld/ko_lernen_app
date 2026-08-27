@@ -116,6 +116,16 @@ void main() {
     // 않으므로, courseContext 없이 ScenarioPlayerScreen 을 여는 각
     // testWidgets 는 실행 순서와 무관하게 이 호출로 매번 새로 시작한다.
     CourseProgressService.shared.resetForTesting();
+    // activeScenarioCheckpointContext 는 CurriculumCatalog.load()도 무조건
+    // 거친다. 여기서 미리 데워두지 않으면 이 테스트의 콜드 compute() 호출이
+    // FakeAsync 존 안에서 절대 응답하지 않는 채로 고아가 되어 이 테스트
+    // 자신은 (그 결과를 기다리지 않으므로) 통과하지만, 같은 파일의 다음
+    // testWidgets 가 CurriculumCatalog.load()를 다시 호출할 때 그 미해결
+    // 콜드 로드와 경합해 함께 멈춘다 — "saves once..." 테스트에서 실제로
+    // 관찰됨(T8 후속 조사). runAsync로 감싸 미리 완전히 해결해 둔다.
+    await tester.runAsync(() async {
+      await CurriculumCatalog.load();
+    });
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,

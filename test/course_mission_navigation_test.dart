@@ -10,6 +10,7 @@ import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/course_mission_navigation.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 
@@ -264,6 +265,29 @@ void main() {
         );
       },
     );
+
+    // Flutter 전문 리뷰 요구사항(T8 후속): 이 유도는 배경 강화일 뿐이다 —
+    // 손상된/레거시 로컬 스냅샷(FormatException)처럼 안에서 무엇이 던져지든
+    // 시나리오 재생 자체를 막아선 안 된다. 실패하면 그냥 null(= 이전 동작)로
+    // 내려간다.
+    test('내부에서 예외가 나도 던지지 않고 null로 안전하게 내려간다', () async {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({
+        'kl_course_mastery_v2': 'not valid json {{{',
+      });
+      await Storage.init();
+      CourseProgressService.shared.resetForTesting();
+      addTearDown(Storage.resetForTesting);
+      addTearDown(CourseProgressService.shared.resetForTesting);
+
+      final context = await activeScenarioCheckpointContext(
+        'airport_arrival',
+        catalog: _miniCheckpointCatalog(),
+      );
+
+      expect(context, isNull);
+    });
   });
 }
 

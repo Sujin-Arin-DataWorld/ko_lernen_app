@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart' show debugPrint;
+
 import '../models/course_mastery.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
@@ -226,6 +228,12 @@ Future<CourseMissionDestination?> directDestinationForCourseLink(
 /// 술어를 그대로 미러링해 "이 시나리오가 활성 유닛의 선언된 체크포인트 링크와
 /// 정확히 일치하는가"만 판정한다. 실제 courseEligible 부여는 여전히 그 서비스
 /// 내부에서만 일어난다(계약 동결: course_mastery_test.dart:400-440).
+///
+/// 순수 배경 강화(best-effort enhancement)다 — 리스트/추천/반복 진입은 이
+/// 호출이 생기기 전엔 코스 저장소를 전혀 몰랐다. 손상되었거나 레거시인 로컬
+/// 스냅샷(`readForReconciliation`의 `FormatException`)처럼 여기서 무엇이
+/// 실패하든 실제 시나리오 재생을 막아선 안 된다 — 실패하면 그냥
+/// courseContext 없이(= 이전 동작과 동일하게) 진행한다.
 Future<CoursePracticeContext?> activeScenarioCheckpointContext(
   String scenarioId, {
   CurriculumCatalog? catalog,
@@ -235,34 +243,42 @@ Future<CoursePracticeContext?> activeScenarioCheckpointContext(
   if (normalizedScenarioId.isEmpty) {
     return null;
   }
-  final resolvedCatalog = catalog ?? await CurriculumCatalog.load();
-  if (resolvedCatalog.validationIssues.isNotEmpty) {
-    return null;
-  }
-  final resolvedSnapshot =
-      snapshot ?? await CourseProgressService.shared.readForDisplay();
-  final activeUnitId = resolvedSnapshot?.currentCourseUnitId;
-  if (activeUnitId == null) {
-    return null;
-  }
-  final activeUnit = resolvedCatalog.courseUnitFor(activeUnitId);
-  if (activeUnit == null) {
-    return null;
-  }
-  final links = resolvedCatalog.linksForContent(
-    CurriculumContentKind.scenario,
-    normalizedScenarioId,
-  );
-  ContentLink? match;
-  for (final link in links) {
-    if (link.courseUnitId == activeUnit.id &&
-        activeUnit.checkpointContentIds.contains(link.contentKey) &&
-        link.exactlyAssesses(activeUnit)) {
-      match = link;
-      break;
+  try {
+    final resolvedCatalog = catalog ?? await CurriculumCatalog.load();
+    if (resolvedCatalog.validationIssues.isNotEmpty) {
+      return null;
     }
+    final resolvedSnapshot =
+        snapshot ?? await CourseProgressService.shared.readForDisplay();
+    final activeUnitId = resolvedSnapshot?.currentCourseUnitId;
+    if (activeUnitId == null) {
+      return null;
+    }
+    final activeUnit = resolvedCatalog.courseUnitFor(activeUnitId);
+    if (activeUnit == null) {
+      return null;
+    }
+    final links = resolvedCatalog.linksForContent(
+      CurriculumContentKind.scenario,
+      normalizedScenarioId,
+    );
+    ContentLink? match;
+    for (final link in links) {
+      if (link.courseUnitId == activeUnit.id &&
+          activeUnit.checkpointContentIds.contains(link.contentKey) &&
+          link.exactlyAssesses(activeUnit)) {
+        match = link;
+        break;
+      }
+    }
+    return match == null ? null : CoursePracticeContext.fromLink(match);
+  } catch (error) {
+    debugPrint(
+      'activeScenarioCheckpointContext($normalizedScenarioId) failed, '
+      'continuing without a derived courseContext: $error',
+    );
+    return null;
   }
-  return match == null ? null : CoursePracticeContext.fromLink(match);
 }
 
 String _requiredReassessmentId(String value, String field) {
