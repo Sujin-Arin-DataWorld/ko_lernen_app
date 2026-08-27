@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/main.dart';
+import 'package:ko_lernen_app/features/onboarding_v2/first_run_runtime.dart';
 import 'package:ko_lernen_app/models/book_page.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
@@ -80,20 +81,31 @@ void main() {
     savedToPackId: null,
   );
 
-  /// 앱을 띄우고 스플래시(2초)를 통과시킨다. **호출 총량은 위 상한을 지킬 것.**
+  /// 앱을 띄우고 테스트 전용 0초 스플래시를 통과시킨다.
+  /// **호출 총량은 위 상한을 지킬 것.**
   Future<void> launch(WidgetTester tester, {required Size size}) async {
     tester.view.physicalSize = size;
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(const KoLernenApp());
+    await tester.pumpWidget(
+      KoLernenApp(
+        splashDisplayDuration: Duration.zero,
+        firstRunCoordinator: FirstRunRuntime.createCoordinator(),
+      ),
+    );
     await tester.pump();
     expect(find.byType(SplashScreen), findsOneWidget);
 
-    await tester.pump(const Duration(seconds: 2));
-    await tester.pump(const Duration(milliseconds: 400));
-    await tester.pump(const Duration(milliseconds: 1200));
+    for (
+      var frame = 0;
+      frame < 20 && find.byType(SplashScreen).evaluate().isNotEmpty;
+      frame++
+    ) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    await tester.pump(const Duration(milliseconds: 300));
   }
 
   Future<void> teardownApp(WidgetTester tester) async {
@@ -119,6 +131,7 @@ void main() {
       ) async {
         // Firebase 는 이 테스트에서 초기화되지 않는다 = "클라우드 미구성 기기".
         await freshInstall({
+          'kl_consent_accepted': true,
           'kl_onboarding_completed': true,
           'kl_session_count': 5,
           'kl_user_level': 'a1',
@@ -145,6 +158,7 @@ void main() {
   group('손상된 로컬 데이터로 시작해도 앱이 뜬다', () {
     testWidgets('SRS blob 이 깨져 있어도 홈까지 간다 [launch 5/6]', (tester) async {
       await freshInstall({
+        'kl_consent_accepted': true,
         'kl_onboarding_completed': true,
         'kl_session_count': 5,
         'kl_srs_v1': '{"사과": {"e": 2.5,',
@@ -158,6 +172,7 @@ void main() {
 
     testWidgets('팩 진행도가 깨져 있어도 홈까지 간다 [launch 6/6]', (tester) async {
       await freshInstall({
+        'kl_consent_accepted': true,
         'kl_onboarding_completed': true,
         'kl_session_count': 5,
         'kl_pack_progress_v1': 'not json at all',

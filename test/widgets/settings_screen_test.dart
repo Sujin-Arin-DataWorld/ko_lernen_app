@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/placement_diagnostic_screen.dart';
 import 'package:ko_lernen_app/screens/settings_screen.dart';
 import 'package:ko_lernen_app/services/account/cloud_backup_deletion.dart';
 import 'package:ko_lernen_app/services/account/cloud_restore_result.dart';
@@ -13,10 +14,15 @@ import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/account/account_transition_coordinator.dart';
 import 'package:ko_lernen_app/services/account/account_ui_operations.dart';
 import 'package:ko_lernen_app/services/auth_service.dart';
+import 'package:ko_lernen_app/services/audio_policy.dart';
 import 'package:ko_lernen_app/services/cloud_sync.dart';
 import 'package:ko_lernen_app/services/app_version_service.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
+import 'package:ko_lernen_app/services/placement_diagnostic.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot.dart';
 import 'package:ko_lernen_app/widgets/sori/mascot_preference.dart';
 
@@ -65,6 +71,211 @@ void main() {
     expect(rect.bottom, lessThan(700));
   });
 
+  testWidgets('typed guide destinations scroll and move keyboard focus', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 700);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    const destinations = [
+      (
+        focus: SettingsInitialFocus.courseStart,
+        debugLabel: 'settings-course-start',
+      ),
+      (
+        focus: SettingsInitialFocus.browseLevel,
+        debugLabel: 'settings-browse-level',
+      ),
+      (focus: SettingsInitialFocus.companion, debugLabel: 'settings-companion'),
+      (
+        focus: SettingsInitialFocus.voiceSpeed,
+        debugLabel: 'settings-voice-speed',
+      ),
+      (focus: SettingsInitialFocus.guide, debugLabel: 'settings-guide'),
+    ];
+
+    for (final destination in destinations) {
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            key: ValueKey(destination.debugLabel),
+            account: _guest,
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+            appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+            initialFocus: destination.focus,
+          ),
+        ),
+      );
+      for (var frame = 0; frame < 30; frame++) {
+        await tester.pump(const Duration(milliseconds: 100));
+      }
+
+      expect(
+        FocusManager.instance.primaryFocus?.debugLabel,
+        destination.debugLabel,
+        reason: destination.focus.name,
+      );
+
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+    }
+  });
+
+  testWidgets('typed focus scroll settles immediately with reduced motion', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 700);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrapForLocale(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+          appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+          initialFocus: SettingsInitialFocus.guide,
+        ),
+        locale: const Locale('de'),
+        disableAnimations: true,
+      ),
+    );
+    // The lazy Settings list still needs frames to build the distant target,
+    // but reduced motion must not need elapsed animation time to settle there.
+    for (var frame = 0; frame < 30; frame++) {
+      await tester.pump();
+    }
+
+    expect(FocusManager.instance.primaryFocus?.debugLabel, 'settings-guide');
+    final scrollable = tester.state<ScrollableState>(
+      find.byType(Scrollable).first,
+    );
+    expect(scrollable.position.isScrollingNotifier.value, isFalse);
+  });
+
+  testWidgets(
+    'level recheck applies all eight answers to course start and browse level',
+    (tester) async {
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({});
+      await Storage.init();
+      addTearDown(Storage.resetForTesting);
+      await AudioPolicy.instance.setChannelOn(SoundChannel.speech, false);
+
+      await tester.runAsync(() async {
+        await CourseProgressService.shared.initializeForPlacement(
+          'a1',
+          syncBrowseLevel: false,
+        );
+      });
+      await Storage.setBrowseLevelCode('a2');
+
+      tester.view.physicalSize = const Size(400, 800);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      await tester.pumpWidget(
+        _wrap(
+          SettingsScreen(
+            account: _guest,
+            accountOperations: _SettingsAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+            appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final recheck = find.text('Mein Level neu einschätzen');
+      await _ensureSettingsActionVisible(tester, recheck);
+      await tester.tap(recheck);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(PlacementDiagnosticScreen), findsOneWidget);
+      expect(find.text('Frage 1 von 8'), findsOneWidget);
+
+      for (
+        var questionIndex = 0;
+        questionIndex < placementDiagnosticQuestions.length;
+        questionIndex++
+      ) {
+        final question = find.byKey(
+          ValueKey('placement-question-$questionIndex'),
+        );
+        expect(question, findsOneWidget);
+        final choice = find.text(
+          placementDiagnosticQuestions[questionIndex].choicesDe.first,
+        );
+        await _centerInCurrentScrollable(tester, choice);
+        await tester.tap(choice);
+        await tester.pump();
+
+        final actionLabel =
+            questionIndex + 1 == placementDiagnosticQuestions.length
+            ? 'Empfehlung ansehen'
+            : 'Weiter';
+        final action = find.widgetWithText(SoriButton, actionLabel);
+        await _centerInCurrentScrollable(tester, action);
+        await tester.tap(action);
+        await tester.pump();
+      }
+
+      expect(find.byKey(const ValueKey('placement-result')), findsOneWidget);
+      final applyRecommendation = find.widgetWithText(
+        SoriButton,
+        'Mit B2 starten',
+      );
+      await _centerInCurrentScrollable(tester, applyRecommendation);
+      await tester.tap(applyRecommendation);
+      for (
+        var frame = 0;
+        frame < 60 &&
+            find.byType(PlacementDiagnosticScreen).evaluate().isNotEmpty;
+        frame++
+      ) {
+        await tester.runAsync(
+          () => Future<void>.delayed(const Duration(milliseconds: 10)),
+        );
+        await tester.pump(const Duration(milliseconds: 100));
+      }
+      await tester.pumpAndSettle();
+
+      expect(find.byType(PlacementDiagnosticScreen), findsNothing);
+      expect(Storage.placementTaken, isTrue);
+      expect(Storage.dedicatedCoursePlacementLevelCode, 'b2');
+      expect(Storage.browseLevelCode, 'b2');
+      final courseUnitId = Storage.courseUnitId;
+      expect(courseUnitId, isNotNull);
+      final catalog = await CurriculumCatalog.load();
+      expect(catalog.courseUnitFor(courseUnitId!)?.level, 'b2');
+
+      final settingsScroll = tester.state<ScrollableState>(
+        find.byType(Scrollable).first,
+      );
+      settingsScroll.position.jumpTo(settingsScroll.position.minScrollExtent);
+      await tester.pump();
+      final courseStart = find.text('Startpunkt im Kurs');
+      await _ensureSettingsActionVisible(tester, courseStart);
+      final courseTile = tester.widget<ListTile>(
+        find.ancestor(of: courseStart, matching: find.byType(ListTile)),
+      );
+      expect((courseTile.subtitle! as Text).data, startsWith('B2 ·'));
+      final browseTile = tester.widget<ListTile>(
+        find.ancestor(
+          of: find.text('Stufe zum Stöbern'),
+          matching: find.byType(ListTile),
+        ),
+      );
+      expect((browseTile.subtitle! as Text).data, startsWith('B2 ·'));
+    },
+  );
+
   testWidgets('settings shows the injected runtime release version', (
     tester,
   ) async {
@@ -89,6 +300,48 @@ void main() {
     await _ensureSettingsActionVisible(tester, version);
 
     expect(version, findsOneWidget);
+  });
+
+  testWidgets('founder story is available from About, not first-run setup', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(400, 1000);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      _wrapForLocale(
+        SettingsScreen(
+          account: _guest,
+          accountOperations: _SettingsAccountOperations(),
+          cloudDataDeletionJournalState: cloudJournalState,
+          appVersionReader: const _FixedAppVersionReader('2.0.5 (11)'),
+        ),
+        locale: const Locale('de'),
+        textScaler: const TextScaler.linear(2),
+      ),
+    );
+    await tester.pump();
+
+    final story = find.text('Warum Hangul Sori entstand');
+    await _ensureSettingsActionVisible(tester, story);
+    await tester.tap(story);
+    await tester.pumpAndSettle();
+
+    expect(
+      find.textContaining('Koreanischlernen soll Klang, Schrift'),
+      findsOneWidget,
+    );
+    expect(
+      MediaQuery.textScalerOf(
+        tester.element(
+          find.textContaining('Koreanischlernen soll Klang, Schrift'),
+        ),
+      ).scale(1),
+      2,
+    );
+    expect(find.textContaining('Sujin Park · Gründerin'), findsOneWidget);
   });
 
   testWidgets('settings retains a neutral version when the reader fails', (
@@ -999,14 +1252,15 @@ void main() {
     },
   );
 
-  testWidgets('settings exposes no-companion state and allows a later choice', (
+  testWidgets('settings hides presentation without losing companion identity', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(400, 1000);
     tester.view.devicePixelRatio = 1;
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
-    await MascotPreference.setNone();
+    await MascotPreference.set(MascotKind.magpie);
+    await MascotPreference.setVisible(false);
     addTearDown(() => MascotPreference.set(MascotKind.tiger));
 
     await tester.pumpWidget(
@@ -1020,16 +1274,20 @@ void main() {
     );
     await tester.pump();
 
-    final noCompanion = find.text('Keine Lernbegleitung');
-    await _ensureSettingsActionVisible(tester, noCompanion);
-    expect(noCompanion, findsOneWidget);
-    await tester.tap(noCompanion);
-    await tester.pumpAndSettle();
-    await tester.tap(find.text('태고'));
+    final visibility = find.text('Lernfreund anzeigen');
+    await _ensureSettingsActionVisible(tester, visibility);
+    final visibilityTile = tester.widget<SwitchListTile>(
+      find.ancestor(of: visibility, matching: find.byType(SwitchListTile)),
+    );
+    expect(visibilityTile.value, isFalse);
+    expect(MascotPreference.chosenKind, MascotKind.magpie);
+    expect(MascotPreference.selectedKind, isNull);
+
+    await tester.tap(visibility);
     await tester.pumpAndSettle();
 
-    expect(MascotPreference.selectedKind, MascotKind.tiger);
-    expect(find.text('태고'), findsOneWidget);
+    expect(MascotPreference.chosenKind, MascotKind.magpie);
+    expect(MascotPreference.selectedKind, MascotKind.magpie);
   });
 
   testWidgets(
@@ -1304,6 +1562,7 @@ Widget _wrapForLocale(
   Widget child, {
   required Locale locale,
   TextScaler textScaler = TextScaler.noScaling,
+  bool disableAnimations = false,
 }) {
   return MaterialApp(
     theme: AppTheme.light,
@@ -1311,7 +1570,9 @@ Widget _wrapForLocale(
     supportedLocales: AppL10n.supportedLocales,
     localizationsDelegates: AppL10n.localizationsDelegates,
     builder: (context, appChild) => MediaQuery(
-      data: MediaQuery.of(context).copyWith(textScaler: textScaler),
+      data: MediaQuery.of(
+        context,
+      ).copyWith(textScaler: textScaler, disableAnimations: disableAnimations),
       child: appChild!,
     ),
     home: child,
@@ -1329,6 +1590,23 @@ Future<void> _ensureSettingsActionVisible(
     scrollable: find.byType(Scrollable).first,
   );
   await tester.ensureVisible(finder);
+  await tester.pump();
+}
+
+Future<void> _centerInCurrentScrollable(
+  WidgetTester tester,
+  Finder target,
+) async {
+  await tester.scrollUntilVisible(
+    target,
+    220,
+    scrollable: find.byType(Scrollable).first,
+  );
+  await Scrollable.ensureVisible(
+    tester.element(target),
+    alignment: 0.5,
+    duration: Duration.zero,
+  );
   await tester.pump();
 }
 

@@ -6,6 +6,7 @@ import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 
 import '../models/feedback_completion.dart';
+import '../models/guide_contract.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/card.dart';
@@ -41,10 +42,12 @@ import '../l10n/generated/app_localizations.dart';
 class HangulScreen extends StatefulWidget {
   const HangulScreen({
     super.key,
+    this.initialTarget = HangulTarget.overview,
     this.cardsRandom,
     this.speechPlayer,
     this.textPrefetcher,
   });
+  final HangulTarget initialTarget;
   final math.Random? cardsRandom;
   final Future<bool> Function(String text)? speechPlayer;
 
@@ -85,7 +88,8 @@ class _HangulScreenState extends State<HangulScreen>
   @override
   void initState() {
     super.initState();
-    _tabs = TabController(length: 3, vsync: this);
+    _tabIndex = widget.initialTarget.index;
+    _tabs = TabController(length: 3, initialIndex: _tabIndex, vsync: this);
     _tabs.addListener(() {
       if (_tabs.index != _tabIndex) setState(() => _tabIndex = _tabs.index);
     });
@@ -572,10 +576,7 @@ class _SyllableDemo extends StatelessWidget {
                               ),
                           ],
                         ];
-                        final decomposition = <Widget>[
-                          equals,
-                          ...components,
-                        ];
+                        final decomposition = <Widget>[equals, ...components];
                         if (accessibleLayout) {
                           return Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1023,9 +1024,9 @@ class _CardsTabState extends State<_CardsTab> {
             // Counter
             Text(
               '${_idx + 1} / ${_pool.length}',
-              style: SoriTextTheme.of(context).meta.copyWith(
-                color: s.textMuted,
-              ),
+              style: SoriTextTheme.of(
+                context,
+              ).meta.copyWith(color: s.textMuted),
             ),
             const SizedBox(height: 8),
 
@@ -1661,8 +1662,7 @@ class _WriteTabState extends State<_WriteTab> {
                                 strokes: strokes,
                                 size: canvasSize,
                                 color: SoriColors.contentCta,
-                                highlightIndex:
-                                    _letterDone || strokes.isEmpty
+                                highlightIndex: _letterDone || strokes.isEmpty
                                     ? null
                                     : _acceptedStrokes,
                               ),

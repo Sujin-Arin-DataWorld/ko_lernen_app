@@ -176,9 +176,10 @@ class CharacterClips {
 
   /// 클립 → 동반 효과음(`assets/sfx/*.mp3`).
   ///
-  /// **캐릭터 mp4에는 오디오 트랙이 없다** — 소스가 크로마키 합성이라 출력
-  /// 단계에서 소리가 실리지 않았다. 그래서 포효·짹짹은 영상이 아니라 이
-  /// 별도 mp3로 재생한다(볼륨·설정 제어가 쉽다는 이점도 있다).
+  /// 캐릭터 MP4의 내장 트랙은 제품 음성 계약이 아니다. 일부 소스에는 AAC
+  /// 트랙이 남아 있을 수 있지만 [CharacterClipPlayer]가 준비 단계에서 항상
+  /// 음소거한다. 승인된 포효·짹짹만 별도 MP3와 companion 채널 정책으로
+  /// 재생한다(볼륨·설정 제어가 쉽다는 이점도 있다).
   /// 파일이 없으면 SoundService 와 같은 철학으로 조용히 무음.
   ///
   /// 매핑이 없는 클립(대기 루프·생각 중 등)은 null — 상시 루프에까지 소리를
@@ -260,6 +261,12 @@ abstract final class CharacterClipFallbackPolicy {
   }) => videoUnavailable || failed || clipRetired || staticFallbackRequested;
 }
 
+/// Explicit native failures surfaced by [CharacterClipPlayer].
+///
+/// Callers receive only this closed reason, never platform error text or an
+/// asset path. Normal loading and elapsed time are deliberately not failures.
+enum CharacterClipFailureReason { initialization, playback }
+
 /// **CharacterClipPlayer** — 캐릭터 클립 범용 재생 위젯.
 ///
 /// [TigerGreetClip]의 패턴을 모든 클립·양 캐릭터로 일반화한 것:
@@ -328,6 +335,7 @@ class CharacterClipPlayer extends StatefulWidget {
       !TigerStageVideo.videoReady ||
       Theme.of(context).brightness == Brightness.dark;
   final VoidCallback? onCompleted;
+  final ValueChanged<CharacterClipFailureReason>? onFailure;
   final Duration fallbackCompleteAfter;
   final String? sfxAsset;
 
@@ -342,6 +350,7 @@ class CharacterClipPlayer extends StatefulWidget {
     this.fallbackEmotion = MascotEmotion.smile,
     this.staticFallback = true,
     this.onCompleted,
+    this.onFailure,
     this.fallbackCompleteAfter = const Duration(milliseconds: 1200),
     this.sfxAsset,
   });
@@ -359,6 +368,7 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   bool _ready = false;
   bool _failed = false;
   bool _sfxStarted = false;
+  final Set<CharacterClipFailureReason> _reportedFailures = {};
 
   /// **원샷 클립이 끝나 텍스처를 반납했다.** 마지막 포즈를 정적으로 이어받지
   /// 않으면 자리가 통째로 사라진다(프로필 호랑이가 걸어 들어온 뒤 사라지던
@@ -480,8 +490,16 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
         _failed = false;
       });
     }
-    unawaited(video.play());
+    unawaited(_startPlayback(video));
     unawaited(_playSfxOnce());
+  }
+
+  Future<void> _startPlayback(VideoPlayerController video) async {
+    try {
+      await video.play();
+    } catch (_) {
+      _reportFailure(CharacterClipFailureReason.playback);
+    }
   }
 
   void _onRevoked() {
@@ -507,9 +525,16 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
   }
 
   void _onFailed(Object _, StackTrace __) {
+    _reportFailure(CharacterClipFailureReason.initialization);
+  }
+
+  void _reportFailure(CharacterClipFailureReason reason) {
     _failed = true;
     if (mounted) {
       setState(() {});
+    }
+    if (_reportedFailures.add(reason)) {
+      widget.onFailure?.call(reason);
     }
     unawaited(_playSfxOnce());
     _completion?.fallbackNeeded();
@@ -520,6 +545,11 @@ class _CharacterClipPlayerState extends State<CharacterClipPlayer> {
     final completion = _completion;
     if (video == null || completion == null) return;
     final v = video.value;
+    if (v.hasError) {
+      video.removeListener(_onTick);
+      _reportFailure(CharacterClipFailureReason.playback);
+      return;
+    }
     if (completion.completeFromPlayback(
       isInitialized: v.isInitialized,
       duration: v.duration,

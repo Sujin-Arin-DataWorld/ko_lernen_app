@@ -161,6 +161,36 @@ void main() {
   });
 
   test(
+    'CloudSync concrete seam rejects a backup prepared across local reset',
+    () async {
+      SharedPreferences.setMockInitialValues(<String, Object>{'kl_xp': 42});
+      Storage.resetForTesting();
+      await Storage.init();
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final preparationStarted = Completer<void>();
+      final preparationMayFinish = Completer<void>();
+      var writes = 0;
+
+      final result = CloudSync.backupWithSession(
+        sessions: sessions,
+        uid: 'uid-a',
+        prepare: () async {
+          preparationStarted.complete();
+          await preparationMayFinish.future;
+        },
+        write: () async => writes++,
+      );
+      await preparationStarted.future;
+      await Storage.resetAll();
+      preparationMayFinish.complete();
+
+      expect(await result, CloudWriteResult.stale);
+      expect(writes, 0);
+      expect(Storage.xp, 0);
+    },
+  );
+
+  test(
     'stale CloudWriteSession stops before course restore persistence',
     () async {
       const local =

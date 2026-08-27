@@ -7,6 +7,9 @@ import 'package:flutter/services.dart';
 
 import 'theme.dart';
 import 'config/ux_preview_feature.dart';
+import 'features/guide/guide_runtime.dart';
+import 'features/onboarding_v2/first_run_coordinator.dart';
+import 'features/onboarding_v2/onboarding_rollout_service.dart';
 import 'motion/transitions.dart';
 import 'services/analytics_service.dart';
 import 'services/data_migration_service.dart';
@@ -41,14 +44,11 @@ import 'services/app_startup_coordinator.dart';
 import 'services/course_mission_navigation.dart';
 import 'l10n/generated/app_localizations.dart';
 import 'models/curriculum.dart';
+import 'models/guide_contract.dart';
 import 'models/personal_room.dart';
 import 'models/scenario.dart';
 import 'screens/splash_screen.dart';
-import 'screens/quick_onboarding_screen.dart';
-import 'screens/character_selection_screen.dart';
 import 'screens/daily_char_sheet.dart';
-import 'screens/intro_gate_screen.dart';
-import 'screens/app_shell.dart';
 import 'screens/paywall_screen.dart';
 import 'screens/review_session_screen.dart';
 import 'screens/smalltalk_screen.dart';
@@ -102,8 +102,8 @@ import 'screens/sarangbang_screen.dart';
 import 'screens/settings_screen.dart';
 import 'screens/hangul_screen.dart';
 import 'screens/stats_screen.dart';
-import 'screens/onboarding_level_screen.dart';
-import 'screens/onboarding_start_screen.dart';
+import 'screens/study_library_screen.dart';
+import 'screens/onboarding_v2/onboarding_v2_journey_screen.dart';
 import 'screens/course_mission_screen.dart';
 import 'screens/course_reassessment_screen.dart';
 import 'screens/profile_screen.dart';
@@ -224,6 +224,10 @@ Future<void> _startProductionApplication(
 /// 로고가 이미 화면에 떠 있는 동안 진행된다. 순서는 기존 의존성(마이그레이션
 /// → 스트릭, Storage.init() 이후)만 유지하면 되고 실패해도 앱은 이미 떠 있다.
 Future<void> _finishStartupInBackground() async {
+  // Start cloud and the onboarding kill switch immediately behind the first
+  // frame; local reconciliation below must not delay the remote release gate.
+  unawaited(_startCloudServices());
+
   // 로컬 스키마 점검 — Storage.init() 직후, 어떤 학습 데이터에 손대기 전에.
   // 로컬 전용이라 빠르고 네트워크를 타지 않는다. 실패해도 앱은 뜨며, 그 경우
   // 학습 데이터 쓰기만 잠긴다(DataMigrationService 가 처리).
@@ -274,10 +278,6 @@ Future<void> _finishStartupInBackground() async {
     debugPrint('Android picker recovery skipped: $error');
   }
 
-  // Firebase, anonymous auth, RevenueCat, and optional FCM are ordered in the
-  // background so cloud startup never delays runApp().
-  unawaited(_startCloudServices());
-
   // AdMob best-effort initialisieren (im Hintergrund)
   // ignore: discarded_futures, unawaited_futures
   _initAds();
@@ -315,7 +315,13 @@ Future<void> _recordStartupDiagnostics(DataMigrationResult? migration) async {
 
 Future<void> _startCloudServices() async {
   final coordinator = AppStartupCoordinator(
-    initializeFirebase: _initFirebase,
+    initializeFirebase: () async {
+      final available = await _initFirebase();
+      if (available) {
+        await OnboardingRolloutService.fetchAndApply();
+      }
+      return available;
+    },
     // App Check activate 실패는 여기서 삼킨다: 이게 던지면 coordinator.start()
     // 전체가 중단돼 익명 로그인·아웃박스·프리미엄·푸시까지 다 죽는다.
     // 활성화 실패 시 보호된 callable 만 개별적으로 거부되는 편이
@@ -513,7 +519,16 @@ class _ContentFeedbackLifecycleObserverState
 }
 
 class KoLernenApp extends StatefulWidget {
-  const KoLernenApp({super.key});
+  const KoLernenApp({
+    super.key,
+    this.splashDisplayDuration,
+    this.firstRunCoordinator,
+  });
+
+  /// Test seam for deterministic whole-app startup tests. Production uses the
+  /// bounded SplashGate timing when this is null.
+  final Duration? splashDisplayDuration;
+  final FirstRunCoordinator? firstRunCoordinator;
 
   @override
   State<KoLernenApp> createState() => _KoLernenAppState();
@@ -574,44 +589,74 @@ class _KoLernenAppState extends State<KoLernenApp> {
           ),
         ),
         // 로고 스플래시(최소 600ms~상한 1500ms, SplashGate 완료에 반응) →
-        // 솟을대문 인트로 → 온보딩/홈
+        // 동의/V2 설명·설정·동행 → 솟을대문 1회 → Today.
+        // 기존 완료 사용자는 V2를 건너뛰고 바로 셸로 들어간다.
         // 모든 화면 전환은 SoriTransitions (fade + 깊이 scale-in) — "상자 슬라이드" 탈피.
         initialRoute: '/splash',
         onGenerateRoute: (settings) {
           switch (settings.name) {
             case '/splash':
               return SoriTransitions.fadeScale(
-                (_) => const SplashScreen(),
+                (_) => SplashScreen(
+                  displayDuration: widget.splashDisplayDuration,
+                  firstRunCoordinator: widget.firstRunCoordinator,
+                ),
                 settings: settings,
               );
             case '/quick_onboarding':
               return SoriTransitions.fadeScale(
-                (_) => const QuickOnboardingScreen(),
+                (_) => OnboardingV2JourneyScreen(
+                  firstRunCoordinator: widget.firstRunCoordinator,
+                ),
                 settings: settings,
               );
             case '/character_selection':
               return SoriTransitions.fadeScale(
-                (_) => const CharacterSelectionScreen(),
+                (_) => OnboardingV2JourneyScreen(
+                  firstRunCoordinator: widget.firstRunCoordinator,
+                ),
                 settings: settings,
               );
             case '/intro':
               return SoriTransitions.fadeScale(
-                (_) => const IntroGateScreen(),
+                // A direct/deep-linked intro must still pass through the V2
+                // coordinator. It renders the gate only for a journal that is
+                // actually at the gate phase, so this compatibility route can
+                // never bypass consent, story, setup, or companion selection.
+                (_) => OnboardingV2JourneyScreen(
+                  firstRunCoordinator: widget.firstRunCoordinator,
+                ),
                 settings: settings,
               );
             case '/':
               return SoriTransitions.fadeScale(
-                (_) => const AppShell(),
+                // Root deep links must not bypass first-run consent or an
+                // interrupted V2 journey. Completed users resolve straight to
+                // AppShell through the same coordinator.
+                (_) => OnboardingV2JourneyScreen(
+                  firstRunCoordinator: widget.firstRunCoordinator,
+                ),
                 settings: settings,
               );
             case '/onboarding':
               return SoriTransitions.fadeScale(
-                (_) => const OnboardingLevelScreen(),
+                (_) => OnboardingV2JourneyScreen(
+                  firstRunCoordinator: widget.firstRunCoordinator,
+                ),
+                settings: settings,
+              );
+            case '/onboarding/legacy-level':
+              return SoriTransitions.fadeScale(
+                (_) => OnboardingV2JourneyScreen(
+                  firstRunCoordinator: widget.firstRunCoordinator,
+                ),
                 settings: settings,
               );
             case '/onboarding/start':
               return SoriTransitions.fadeScale(
-                (_) => const OnboardingStartScreen(),
+                (_) => OnboardingV2JourneyScreen(
+                  firstRunCoordinator: widget.firstRunCoordinator,
+                ),
                 settings: settings,
               );
             case '/vocab':
@@ -711,8 +756,13 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 settings: settings,
               );
             case '/hangul':
+              final destination = settings.arguments;
               return SoriTransitions.fadeScale(
-                (_) => const HangulScreen(),
+                (_) => HangulScreen(
+                  initialTarget: destination is HangulTargetDestination
+                      ? destination.target
+                      : HangulTarget.overview,
+                ),
                 settings: settings,
               );
             case '/chosung':
@@ -795,6 +845,16 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 ),
                 settings: settings,
               );
+            case '/guide':
+              return SoriTransitions.fadeScale(
+                (_) => const GuideHubRouteScreen(),
+                settings: settings,
+              );
+            case '/study-library':
+              return SoriTransitions.fadeScale(
+                (_) => const StudyLibraryScreen(),
+                settings: settings,
+              );
             case '/stats':
               return SoriTransitions.fadeScale(
                 (_) => const StatsScreen(),
@@ -834,7 +894,8 @@ class _KoLernenAppState extends State<KoLernenApp> {
               );
             case '/scenarios':
               return SoriTransitions.fadeScale(
-                (_) => const ScenariosListScreen(),
+                (_) =>
+                    ScenariosListScreen.fromRouteArguments(settings.arguments),
                 settings: settings,
               );
             case '/quests':
@@ -1066,7 +1127,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
               );
             default:
               return SoriTransitions.fadeScale(
-                (_) => const AppShell(),
+                // Fail closed for malformed/old deep links during first run.
+                // The journey resolver remains the single entry authority.
+                (_) => OnboardingV2JourneyScreen(
+                  firstRunCoordinator: widget.firstRunCoordinator,
+                ),
                 settings: settings,
               );
           }

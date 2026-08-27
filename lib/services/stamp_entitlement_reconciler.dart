@@ -26,6 +26,7 @@ class StampEntitlementReconciler {
     Iterable<String>? existingSlugs,
     Future<void> Function(String slug)? persistSlug,
     bool? progressIsQuarantined,
+    void Function()? beforeWrite,
   }) async {
     final quarantined =
         progressIsQuarantined ?? Storage.packProgressIsQuarantined;
@@ -44,6 +45,7 @@ class StampEntitlementReconciler {
       final slug = motifForPackId(item.packId).spec.slug;
       if (earned.add(slug)) {
         added.add(slug);
+        beforeWrite?.call();
         await (persistSlug ?? Storage.addEarnedStamp)(slug);
       }
     }

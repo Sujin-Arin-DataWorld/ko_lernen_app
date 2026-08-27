@@ -13,6 +13,7 @@ import 'cloud_sync_service.dart';
 import 'course_progress_service.dart';
 import 'firestore_progress_service.dart';
 import 'hanok_state_service.dart';
+import 'local_data_lifetime.dart';
 import 'pack_progress_service.dart';
 import 'storage_service.dart';
 import 'stamp_entitlement_reconciler.dart';
@@ -138,17 +139,32 @@ class CloudSync {
     await backupWithResult();
   }
 
-  static Future<CloudWriteResult> backupWithResult() {
+  static Future<CloudWriteResult> backupWithResult({
+    LocalDataLifetimeLease? localDataLifetime,
+  }) {
+    // Capture at public-operation admission, before the account gate can wait.
+    // A reset during that wait must cancel the old lifetime's upload.
+    final lifetime = localDataLifetime ?? LocalDataLifetime.capture();
     return AuthService.runCloudBackupDeletionAdmission(
-      onAdmitted: _backupWithResultAfterCloudBackupAdmission,
-      onBlocked: () async => CloudWriteResult.blocked,
+      onAdmitted: () =>
+          _backupWithResultAfterCloudBackupAdmission(localLifetime: lifetime),
+      onBlocked: () async => lifetime.isCurrent
+          ? CloudWriteResult.blocked
+          : CloudWriteResult.stale,
     );
   }
 
-  static Future<CloudWriteResult>
-  _backupWithResultAfterCloudBackupAdmission() async {
+  static Future<CloudWriteResult> _backupWithResultAfterCloudBackupAdmission({
+    required LocalDataLifetimeLease localLifetime,
+  }) async {
+    if (!localLifetime.isCurrent) {
+      return CloudWriteResult.stale;
+    }
     final override = _backupWithResultForTesting;
-    if (override != null) return override();
+    if (override != null) {
+      final result = await override();
+      return localLifetime.isCurrent ? result : CloudWriteResult.stale;
+    }
     final uid = AuthService.cloudBackupUid;
     if (uid == null) {
       return CloudWriteResult.blocked;
@@ -167,6 +183,7 @@ class CloudSync {
           ..['reconciliation_payload_hash'] = FieldValue.delete();
       },
       write: () => ref!.set(payload!, SetOptions(merge: true)),
+      localDataLifetime: localLifetime,
     );
   }
 
@@ -176,10 +193,27 @@ class CloudSync {
     required String uid,
     required Future<void> Function() prepare,
     required Future<void> Function() write,
-  }) {
-    return CloudWriteFence(
-      sessions,
-    ).run(uid: uid, prepare: prepare, action: write);
+    LocalDataLifetimeLease? localDataLifetime,
+  }) async {
+    final lifetime = localDataLifetime ?? LocalDataLifetime.capture();
+    try {
+      final result = await CloudWriteFence(sessions).run(
+        uid: uid,
+        prepare: () async {
+          lifetime.assertCurrent();
+          await prepare();
+          lifetime.assertCurrent();
+        },
+        action: () async {
+          lifetime.assertCurrent();
+          await write();
+          lifetime.assertCurrent();
+        },
+      );
+      return lifetime.isCurrent ? result : CloudWriteResult.stale;
+    } on StaleLocalDataLifetimeException {
+      return CloudWriteResult.stale;
+    }
   }
 
   /// Payload → lokale Werte (additiv / max-merge). Testbar ohne Firestore.
@@ -203,9 +237,18 @@ class CloudSync {
     })?
     hanokStateMerger,
   }) {
+    final localLifetime = LocalDataLifetime.capture();
+    void assertWritable() {
+      localLifetime.assertCurrent();
+      beforeWrite?.call();
+      // Keep a reset triggered by an injected/session guard from slipping
+      // between that guard and the actual local mutation.
+      localLifetime.assertCurrent();
+    }
+
     return _applyRestorePayload(
       data,
-      beforeWrite: beforeWrite,
+      beforeWrite: assertWritable,
       courseGenerationReader: courseGenerationReader,
       courseSnapshotMerger: courseSnapshotMerger,
       hanokGenerationReader: hanokGenerationReader,
@@ -219,7 +262,14 @@ class CloudSync {
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
   }) async {
-    sessions.assertCurrent(session);
+    final localLifetime = LocalDataLifetime.capture();
+    void assertWritable() {
+      localLifetime.assertCurrent();
+      sessions.assertCurrent(session);
+      localLifetime.assertCurrent();
+    }
+
+    assertWritable();
     if (session.mode != CloudWriteMode.reconciling) {
       throw StateError(
         'Validated legacy restore requires a reconciling session.',
@@ -230,20 +280,21 @@ class CloudSync {
     }
     await _applyRestorePayload(
       data,
-      beforeWrite: () => sessions.assertCurrent(session),
+      beforeWrite: assertWritable,
       validateLegacyBookshelfRestore: (restoredJson) {
-        sessions.assertCurrent(session);
+        assertWritable();
         BookshelfService.validateParentOnlyLegacyRestore(restoredJson);
       },
       onValidatedLegacyBookshelfRestored: (restoredJson) async {
-        sessions.assertCurrent(session);
+        assertWritable();
         await BookshelfService.recordValidatedParentOnlyLegacyRestore(
           uid: uid,
           restoredJson: restoredJson,
           session: session,
           sessions: sessions,
+          localDataLifetime: localLifetime,
         );
-        sessions.assertCurrent(session);
+        assertWritable();
       },
     );
   }
@@ -773,28 +824,48 @@ class CloudSync {
   static Future<bool> restore() async =>
       (await restoreWithResult()) == CloudRestoreResult.completed;
 
-  static Future<CloudRestoreResult> restoreWithResult() async {
+  static Future<CloudRestoreResult> restoreWithResult({
+    LocalDataLifetimeLease? localDataLifetime,
+  }) async {
+    // Capture before the account-admission lane can wait. A reset during that
+    // wait must not let the admitted restore join the new empty lifetime.
+    final lifetime = localDataLifetime ?? LocalDataLifetime.capture();
     try {
       return await AuthService.runCloudBackupDeletionAdmission(
-        onAdmitted: _restoreWithResultAfterCloudBackupAdmission,
-        onBlocked: () async => CloudRestoreResult.blocked,
+        onAdmitted: () => _restoreWithResultAfterCloudBackupAdmission(
+          localDataLifetime: lifetime,
+        ),
+        onBlocked: () async => lifetime.isCurrent
+            ? CloudRestoreResult.blocked
+            : CloudRestoreResult.stale,
       );
     } catch (_) {
-      return CloudRestoreResult.blocked;
+      return lifetime.isCurrent
+          ? CloudRestoreResult.blocked
+          : CloudRestoreResult.stale;
     }
   }
 
   static Future<CloudRestoreResult>
-  _restoreWithResultAfterCloudBackupAdmission() async {
+  _restoreWithResultAfterCloudBackupAdmission({
+    required LocalDataLifetimeLease localDataLifetime,
+  }) async {
+    if (!localDataLifetime.isCurrent) {
+      return CloudRestoreResult.stale;
+    }
     final typedOverride = _restoreWithResultForTesting;
-    if (typedOverride != null) return typedOverride();
+    if (typedOverride != null) {
+      final result = await typedOverride();
+      return localDataLifetime.isCurrent ? result : CloudRestoreResult.stale;
+    }
     final legacyOverride = _restoreForTesting;
     if (legacyOverride != null) {
       // Compatibility for old boolean test callers: `false` historically
       // represented a non-restored backup, which maps to the old no-data UI.
-      return (await legacyOverride())
+      final result = (await legacyOverride())
           ? CloudRestoreResult.completed
           : CloudRestoreResult.empty;
+      return localDataLifetime.isCurrent ? result : CloudRestoreResult.stale;
     }
     final uid = AuthService.cloudBackupUid;
     if (uid == null) return CloudRestoreResult.blocked;
@@ -805,13 +876,21 @@ class CloudSync {
       applyAccount: (data, beforeWrite) {
         final accountData = Map<String, dynamic>.from(data)
           ..remove('bookshelf_json');
-        return applyRestorePayload(accountData, beforeWrite: beforeWrite);
+        return applyRestorePayload(
+          accountData,
+          beforeWrite: () {
+            localDataLifetime.assertCurrent();
+            beforeWrite();
+            localDataLifetime.assertCurrent();
+          },
+        );
       },
       restoreBookshelf: (expectedSession) {
         return BookshelfService.restoreRemoteForSessionWithResult(
           uid: uid,
           expectedSession: expectedSession,
           sessions: cloudWriteSessionController,
+          localDataLifetime: localDataLifetime,
         );
       },
       restorePacks: (expectedSession) {
@@ -819,16 +898,22 @@ class CloudSync {
           sessions: cloudWriteSessionController,
           uid: uid,
           expectedSession: expectedSession,
+          localDataLifetime: localDataLifetime,
           loadRemote: () => FirestoreProgressService.loadAllTyped(uid: uid),
           loadLocal: PackProgressService.getAll,
           persistLocal: (progress) async {
+            localDataLifetime.assertCurrent();
             await Storage.setManyPackProgressJson(progress);
+            localDataLifetime.assertCurrent();
             await StampEntitlementReconciler.reconcile(
               progress: PackProgressService.getAll(),
+              beforeWrite: localDataLifetime.assertCurrent,
             );
+            localDataLifetime.assertCurrent();
           },
         );
       },
+      localDataLifetime: localDataLifetime,
     );
   }
 
@@ -908,23 +993,40 @@ class CloudSync {
       CloudWriteSession expectedSession,
     )
     restorePacks,
+    LocalDataLifetimeLease? localDataLifetime,
   }) async {
+    final localLifetime = localDataLifetime ?? LocalDataLifetime.capture();
     final fence = CloudWriteFence(sessions);
     final expectedSession = fence.readySnapshot(uid);
     if (expectedSession == null) return CloudRestoreResult.blocked;
+    CloudWriteResult verifyCurrent() {
+      final sessionResult = fence.verify(expectedSession, uid: uid);
+      if (sessionResult != CloudWriteResult.completed) {
+        return sessionResult;
+      }
+      return localLifetime.isCurrent
+          ? CloudWriteResult.completed
+          : CloudWriteResult.stale;
+    }
+
     try {
+      final initial = verifyCurrent();
+      if (initial != CloudWriteResult.completed) {
+        return _restoreResultForWrite(initial);
+      }
       final remote = await readAccount();
-      final afterRead = fence.verify(expectedSession, uid: uid);
+      final afterRead = verifyCurrent();
       if (afterRead != CloudWriteResult.completed) {
         return _restoreResultForWrite(afterRead);
       }
       var hasRootBackup = false;
       if (remote.state == CloudReadState.present && remote.value != null) {
-        await applyAccount(
-          remote.value!,
-          () => sessions.assertCurrent(expectedSession),
-        );
-        final afterAccount = fence.verify(expectedSession, uid: uid);
+        await applyAccount(remote.value!, () {
+          localLifetime.assertCurrent();
+          sessions.assertCurrent(expectedSession);
+          localLifetime.assertCurrent();
+        });
+        final afterAccount = verifyCurrent();
         if (afterAccount != CloudWriteResult.completed) {
           return _restoreResultForWrite(afterAccount);
         }
@@ -934,15 +1036,23 @@ class CloudSync {
       } else if (remote.state != CloudReadState.absent) {
         return CloudRestoreResult.blocked;
       }
+      final beforeBookshelf = verifyCurrent();
+      if (beforeBookshelf != CloudWriteResult.completed) {
+        return _restoreResultForWrite(beforeBookshelf);
+      }
       final bookshelf = await restoreBookshelf(expectedSession);
       if (bookshelf.status != CloudWriteResult.completed) {
         return _restoreResultForWrite(bookshelf.status);
+      }
+      final beforePacks = verifyCurrent();
+      if (beforePacks != CloudWriteResult.completed) {
+        return _restoreResultForWrite(beforePacks);
       }
       final packs = await restorePacks(expectedSession);
       if (packs.status != CloudWriteResult.completed) {
         return _restoreResultForWrite(packs.status);
       }
-      final afterComponents = fence.verify(expectedSession, uid: uid);
+      final afterComponents = verifyCurrent();
       if (afterComponents != CloudWriteResult.completed) {
         return _restoreResultForWrite(afterComponents);
       }
@@ -950,7 +1060,7 @@ class CloudSync {
           ? CloudRestoreResult.completed
           : CloudRestoreResult.empty;
     } catch (_) {
-      final current = fence.verify(expectedSession, uid: uid);
+      final current = verifyCurrent();
       return _restoreResultForWrite(
         current == CloudWriteResult.completed
             ? CloudWriteResult.blocked

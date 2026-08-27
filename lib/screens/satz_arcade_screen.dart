@@ -4,6 +4,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/course_practice_context.dart';
 import '../models/feedback_completion.dart';
 import '../models/curriculum.dart';
+import '../services/analytics_service.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/satz_loader.dart';
@@ -111,6 +112,10 @@ class _SatzArcadeScreenState extends State<SatzArcadeScreen> {
       _loading = false;
     });
     _newRound();
+    if (_round.isNotEmpty) {
+      // ignore: discarded_futures
+      Analytics.gameStarted(gameType: 'satz_arcade', level: _level);
+    }
   }
 
   void _newRound() {

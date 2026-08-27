@@ -174,7 +174,7 @@ void main() {
     );
   });
 
-  test('아이콘 달린 SoriButton 은 더 늘지 않는다', () {
+  test('아이콘 달린 SoriButton 은 V2 명시 예외 외에 더 늘지 않는다', () {
     // 기준선 2026-07-31: 114 span 중 74곳.
     // (114 = 실제 콜사이트 110 + button.dart 안의 생성자 선언 4)
     // 목표 ~14 — 미디어 컨트롤·플랫폼 마크·아이콘 단독 버튼만 남긴다.
@@ -194,10 +194,30 @@ void main() {
         }
       }
     }
+
+    // Onboarding V2 공개 UI에서 의미가 있는 출처/복원 동작만 명시적으로
+    // 예외 처리한다. 파일별 정확한 개수를 잠금으로써 같은 파일의 장식 아이콘
+    // 추가나 기존 화면의 증가가 기준선 상향으로 숨지 못하게 한다.
+    const onboardingV2Exceptions = <String, int>{
+      'lib/features/guide/guide_runtime.dart': 1,
+    };
+    for (final entry in onboardingV2Exceptions.entries) {
+      expect(
+        perFile[entry.key],
+        entry.value,
+        reason: '${entry.key} 아이콘 SoriButton 예외 개수가 바뀌었다',
+      );
+    }
+    final exceptionTotal = onboardingV2Exceptions.values.fold<int>(
+      0,
+      (sum, count) => sum + count,
+    );
     expect(
-      total,
+      total - exceptionTotal,
       lessThanOrEqualTo(71),
-      reason: '아이콘 달린 SoriButton 이 71개를 넘었다 (실제 $total).\n${_report(perFile)}',
+      reason:
+          'V2 명시 예외를 제외한 아이콘 SoriButton 이 71개를 '
+          '넘었다 (전체 $total, 예외 $exceptionTotal).\n${_report(perFile)}',
     );
   });
 }

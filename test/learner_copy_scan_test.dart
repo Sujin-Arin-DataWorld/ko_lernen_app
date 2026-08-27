@@ -36,6 +36,16 @@ const _generatorFiles = <String>[
   'tools/content_factory/data/batch_16_c2_aesthetic.py',
 ];
 
+// Onboarding V2 deliberately avoids third-party streaming brands. Keep both
+// the shipped copy and its source generator aligned so regeneration cannot
+// silently restore a removed brand mention.
+const _brandFreeFiles = <String>[
+  'assets/data/smalltalk.json',
+  'tools/content_factory/build_smalltalk.py',
+  'lib/l10n/app_de.arb',
+  'lib/l10n/app_en.arb',
+];
+
 final _textbookNames = <RegExp>[
   RegExp('민수'),
   RegExp(r'\bMinsu\b'),
@@ -129,6 +139,17 @@ final _spokenIAm = RegExp(r'\bI am\b');
 final _spokenIWill = RegExp(r'\bI will\b');
 
 void main() {
+  test('learner-facing copy carries no Netflix mention', () {
+    final hits = <String>[];
+    final forbidden = RegExp('netflix|넷플릭스', caseSensitive: false);
+    for (final path in _brandFreeFiles) {
+      for (final match in forbidden.allMatches(File(path).readAsStringSync())) {
+        hits.add('$path: ${match.group(0)}');
+      }
+    }
+    expect(hits, isEmpty, reason: hits.join('\n'));
+  });
+
   test('shipped learner copy keeps textbook names and calques out', () {
     final hits = <String>[];
     for (final path in _shippedLearnerFiles) {
@@ -187,17 +208,19 @@ void main() {
   });
 
   test('scenario dialogue does not use uncontracted I am / I will', () {
-    final root =
-        allScenarioRoot();
+    final root = allScenarioRoot();
     final hits = <String>[];
-    for (final scenario in (root['scenarios'] as List).cast<Map<String, dynamic>>()) {
+    for (final scenario
+        in (root['scenarios'] as List).cast<Map<String, dynamic>>()) {
       final id = scenario['id'] as String? ?? 'unknown';
       for (final line
-          in ((scenario['dialog'] as List?) ?? const []).cast<Map<String, dynamic>>()) {
+          in ((scenario['dialog'] as List?) ?? const [])
+              .cast<Map<String, dynamic>>()) {
         _collectSpoken(hits, '$id.dialog', line['en']);
       }
       for (final quest
-          in ((scenario['quests'] as List?) ?? const []).cast<Map<String, dynamic>>()) {
+          in ((scenario['quests'] as List?) ?? const [])
+              .cast<Map<String, dynamic>>()) {
         final data = quest['data'];
         if (data is! Map<String, dynamic>) {
           continue;
@@ -221,8 +244,7 @@ void main() {
   // 현우로 굳힌 뒤 NPC 가 민수→현우로 개명되며 생긴 2026-08-17 회귀.
   // 3인칭 언급(`현우 씨가 늦는대요`)은 정상이므로 자기소개 형태만 막는다.
   test('learner lines never introduce themselves with the NPC name', () {
-    final root =
-        allScenarioRoot();
+    final root = allScenarioRoot();
     final selfIntro = RegExp(r'(저는|나는|제 이름은|이름이)\s*현우');
     final hits = <String>[];
     for (final scenario

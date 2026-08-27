@@ -9,6 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 void main() {
   setUp(() async {
     Storage.resetForTesting();
+    AppShell.requestedStageTab.value = -1;
     SharedPreferences.setMockInitialValues(<String, Object>{
       'kl_tut_home_tour': true,
     });
@@ -25,9 +26,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(
-      _app(const AppShell()),
-    );
+    await tester.pumpWidget(_app(const AppShell()));
     await tester.pump();
 
     expect(find.byType(SoriStageShell), findsOneWidget);
@@ -45,9 +44,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(
-      _app(const AppShell()),
-    );
+    await tester.pumpWidget(_app(const AppShell()));
     await tester.pump();
 
     expect(find.byType(NavigationRail), findsOneWidget);
@@ -62,9 +59,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(
-      _app(const AppShell()),
-    );
+    await tester.pumpWidget(_app(const AppShell()));
     await tester.pump();
     await tester.tap(find.text('Games').last);
     await tester.pump();
@@ -78,6 +73,31 @@ void main() {
     expect(
       tester.widget<NavigationBar>(find.byType(NavigationBar)).selectedIndex,
       0,
+    );
+  });
+
+  testWidgets('typed stage-tab request opens Games and consumes the intent', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(390, 844);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(_app(const AppShell()));
+    await tester.pump();
+
+    AppShell.openStageTab(2);
+    await tester.pump();
+
+    expect(
+      tester.widget<NavigationBar>(find.byType(NavigationBar)).selectedIndex,
+      2,
+    );
+    expect(
+      AppShell.requestedStageTab.value,
+      -1,
+      reason: 'Typed guide intents must be consumed exactly once by the shell.',
     );
   });
 }

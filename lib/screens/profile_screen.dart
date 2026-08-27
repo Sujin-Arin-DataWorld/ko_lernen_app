@@ -31,6 +31,9 @@ import '../widgets/sori/account_operation_ui.dart';
 import '../l10n/generated/app_localizations.dart';
 import 'settings_screen.dart';
 
+typedef ProfilePlacementInitializer =
+    Future<void> Function(String levelCode, {required bool syncBrowseLevel});
+
 String _providerLabel(AppL10n t, AuthProviderState providers) {
   if (providers.isGoogleLinked && providers.isAppleLinked) {
     return t.authProviderGoogleAndApple;
@@ -103,7 +106,7 @@ class ProfileScreen extends StatefulWidget {
   final Future<CloudWriteResult> Function()? cloudDataDeletion;
   final Future<List<GyeMeta>> Function()? loadGyeMetas;
   final Future<void> Function()? exportLearningData;
-  final Future<void> Function(String levelCode)? initializePlacement;
+  final ProfilePlacementInitializer? initializePlacement;
   final bool previewMode;
   final LearnerMotivation? previewMotivation;
   final LearnerLevel? previewLevel;
@@ -323,11 +326,11 @@ class _ProfileScreenState extends State<ProfileScreen>
     try {
       final initializePlacement = widget.initializePlacement;
       if (initializePlacement != null) {
-        await initializePlacement(selected.code);
+        await initializePlacement(selected.code, syncBrowseLevel: false);
       } else {
         await CourseProgressService.shared.initializeForPlacement(
           selected.code,
-          syncBrowseLevel: true,
+          syncBrowseLevel: false,
         );
       }
     } catch (error, stackTrace) {
@@ -348,13 +351,9 @@ class _ProfileScreenState extends State<ProfileScreen>
       return;
     }
     final t = AppL10n.of(context);
-    final current = MascotPreference.preference.value;
-    const options = <CompanionPreference>[
-      CompanionPreference.tiger,
-      CompanionPreference.magpie,
-      CompanionPreference.none,
-    ];
-    final selected = await showSoriDialog<CompanionPreference>(
+    final current = MascotPreference.chosenKind;
+    const options = <MascotKind>[MascotKind.tiger, MascotKind.magpie];
+    final selected = await showSoriDialog<MascotKind>(
       context: context,
       builder: (dialogContext) => SoriSimpleDialog(
         title: Text(t.characterSelectionTitle),
@@ -364,29 +363,23 @@ class _ProfileScreenState extends State<ProfileScreen>
               onPressed: () => Navigator.of(dialogContext).pop(option),
               child: Row(
                 children: [
-                  if (MascotPreference.mascotKindFor(option) case final kind?)
-                    Mascot(kind: kind, size: 42)
-                  else
-                    const SizedBox.square(
-                      dimension: 42,
-                      child: Icon(Icons.person_outline_rounded),
-                    ),
+                  Mascot(kind: option, size: 42),
                   const SizedBox(width: Spacing.md),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(switch (option) {
-                          CompanionPreference.none => t.companionNoneName,
-                          CompanionPreference.tiger => t.characterNameTiger,
-                          CompanionPreference.magpie => t.characterRomanMagpie,
-                        }),
-                        Text(switch (option) {
-                          CompanionPreference.none =>
-                            t.companionNoneDescription,
-                          CompanionPreference.tiger => t.characterTraitTiger,
-                          CompanionPreference.magpie => t.characterTraitMagpie,
-                        }, style: SoriTextTheme.of(context).caption),
+                        Text(
+                          option == MascotKind.magpie
+                              ? t.characterRomanMagpie
+                              : t.characterNameTiger,
+                        ),
+                        Text(
+                          option == MascotKind.magpie
+                              ? t.characterTraitMagpie
+                              : t.characterTraitTiger,
+                          style: SoriTextTheme.of(context).caption,
+                        ),
                       ],
                     ),
                   ),
@@ -402,12 +395,7 @@ class _ProfileScreenState extends State<ProfileScreen>
       ),
     );
     if (selected != null && selected != current) {
-      final kind = MascotPreference.mascotKindFor(selected);
-      if (kind == null) {
-        await MascotPreference.setNone();
-      } else {
-        await MascotPreference.set(kind);
-      }
+      await MascotPreference.setChosen(selected);
     }
   }
 
@@ -482,7 +470,9 @@ class _ProfileScreenState extends State<ProfileScreen>
     final providerLabel = _providerLabel(t, providers);
     final name = account.displayName;
     final motivation =
-        widget.previewMotivation ?? learnerMotivationFromId(Storage.motivation);
+        (widget.previewMotivation ??
+                learnerMotivationFromId(Storage.motivation))
+            ?.v2Canonical;
 
     return SoriStandardFrame(
       appBarTitle: t.profileTitle,
@@ -595,7 +585,7 @@ class _ProfileScreenState extends State<ProfileScreen>
                   key: const ValueKey('profile-learning-goal'),
                   icon: motivation?.icon ?? Icons.flag_outlined,
                   label: t.profileLearningGoal,
-                  value: motivation?.label(t) ?? t.profileLearningGoalNotSet,
+                  value: motivation?.v2Label(t) ?? t.profileLearningGoalNotSet,
                   onTap: _changeMotivation,
                 ),
                 const Divider(height: 1),
@@ -624,23 +614,17 @@ class _ProfileScreenState extends State<ProfileScreen>
                     onTap: _changeCompanion,
                   )
                 else
-                  ValueListenableBuilder<CompanionPreference>(
-                    valueListenable: MascotPreference.preference,
-                    builder: (context, preference, _) => _ProfileSettingTile(
+                  ValueListenableBuilder<MascotKind>(
+                    valueListenable: MascotPreference.kind,
+                    builder: (context, kind, _) => _ProfileSettingTile(
                       key: const ValueKey('profile-learning-companion'),
-                      icon: switch (preference) {
-                        CompanionPreference.none =>
-                          Icons.person_outline_rounded,
-                        CompanionPreference.tiger => Icons.pets_outlined,
-                        CompanionPreference.magpie =>
-                          Icons.flutter_dash_rounded,
-                      },
+                      icon: kind == MascotKind.magpie
+                          ? Icons.flutter_dash_rounded
+                          : Icons.pets_outlined,
                       label: t.profileLearningCompanion,
-                      value: switch (preference) {
-                        CompanionPreference.none => t.companionNoneName,
-                        CompanionPreference.tiger => t.characterNameTiger,
-                        CompanionPreference.magpie => t.characterRomanMagpie,
-                      },
+                      value: kind == MascotKind.magpie
+                          ? t.characterRomanMagpie
+                          : t.characterNameTiger,
                       onTap: _changeCompanion,
                     ),
                   ),

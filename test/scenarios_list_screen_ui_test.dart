@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/guide_contract.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
@@ -119,6 +120,110 @@ void main() {
     semantics.dispose();
   });
 
+  test('named-route boundary accepts only ScenarioBrowseDestination', () {
+    const destination = ScenarioBrowseDestination(
+      level: LearnerLevel.b1,
+      shelfId: 'b1_team',
+    );
+
+    expect(
+      ScenariosListScreen.fromRouteArguments(destination).browseDestination,
+      same(destination),
+    );
+    expect(
+      ScenariosListScreen.fromRouteArguments(null).browseDestination,
+      isNull,
+    );
+    expect(
+      ScenariosListScreen.fromRouteArguments({
+        'level': 'b1',
+        'shelfId': 'b1_team',
+      }).browseDestination,
+      isNull,
+    );
+    expect(
+      ScenariosListScreen.fromRouteArguments('b1_team').browseDestination,
+      isNull,
+    );
+  });
+
+  testWidgets(
+    'typed browse shows only the exact shelf without applying course locks or writes',
+    (tester) async {
+      final preferences = await SharedPreferences.getInstance();
+      final before = <String, Object?>{
+        for (final key in preferences.getKeys()) key: preferences.get(key),
+      };
+
+      await _pumpScenarios(
+        tester,
+        size: const Size(390, 844),
+        textScale: 1.0,
+        ignoreLevelLock: false,
+        browseDestination: const ScenarioBrowseDestination(
+          level: LearnerLevel.b1,
+          shelfId: 'b1_team',
+        ),
+        scenarios: const [_b1Scenario, _b1OtherShelfScenario, _a1Scenario],
+      );
+
+      await _scrollTo(tester, find.text(_b1Scenario.title.de));
+      expect(find.text(_b1Scenario.title.de), findsOneWidget);
+      expect(find.text(_b1OtherShelfScenario.title.de), findsNothing);
+      expect(find.text(_a1Scenario.title.de), findsNothing);
+      expect(find.text('Erreiche B1, um freizuschalten'), findsNothing);
+      expect(find.text('Dein Pfad'), findsNothing);
+      expect(Storage.userLevelCode, 'a1');
+      expect(Storage.xp, 0);
+      expect(Storage.scenarioStars, isEmpty);
+      expect(Storage.courseMasteryRawJson, isEmpty);
+
+      final after = <String, Object?>{
+        for (final key in preferences.getKeys()) key: preferences.get(key),
+      };
+      expect(after, before);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets('typed browse fails closed for an unknown shelf', (tester) async {
+    await _pumpScenarios(
+      tester,
+      size: const Size(390, 844),
+      textScale: 1.0,
+      browseDestination: const ScenarioBrowseDestination(
+        level: LearnerLevel.b1,
+        shelfId: 'b1_not_real',
+      ),
+      scenarios: const [_b1Scenario],
+    );
+
+    expect(find.text('Bald verfügbar'), findsOneWidget);
+    expect(find.text('Neue Szenarien folgen bald.'), findsOneWidget);
+    expect(find.text(_b1Scenario.title.de), findsNothing);
+    expect(find.text('Dein Pfad'), findsNothing);
+  });
+
+  testWidgets('typed browse fails closed for a known unstocked shelf', (
+    tester,
+  ) async {
+    await _pumpScenarios(
+      tester,
+      size: const Size(390, 844),
+      textScale: 1.0,
+      browseDestination: const ScenarioBrowseDestination(
+        level: LearnerLevel.b1,
+        shelfId: 'b1_team',
+      ),
+      scenarios: const [_b1OtherShelfScenario, _a1Scenario],
+    );
+
+    expect(find.text('Bald verfügbar'), findsOneWidget);
+    expect(find.text('Neue Szenarien folgen bald.'), findsOneWidget);
+    expect(find.text(_b1OtherShelfScenario.title.de), findsNothing);
+    expect(find.text(_a1Scenario.title.de), findsNothing);
+  });
+
   testWidgets('catalog remains reachable across the required viewport matrix', (
     tester,
   ) async {
@@ -152,6 +257,7 @@ Future<void> _pumpScenarios(
   required List<Scenario> scenarios,
   Locale locale = const Locale('de'),
   bool ignoreLevelLock = true,
+  ScenarioBrowseDestination? browseDestination,
 }) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -177,6 +283,7 @@ Future<void> _pumpScenarios(
       home: ScenariosListScreen(
         ignoreLevelLock: ignoreLevelLock,
         loadScenarios: () async => scenarios,
+        browseDestination: browseDestination,
       ),
     ),
   );
@@ -211,5 +318,42 @@ const _b1Scenario = Scenario(
   grammarIds: [],
   dialog: [],
   quests: [],
+  shelf: 'b1_team',
   xpReward: 180,
+);
+
+const _b1OtherShelfScenario = Scenario(
+  id: 'repair_request',
+  level: LearnerLevel.b1,
+  emoji: '🔧',
+  register: Register.polite,
+  title: LocalizedText(
+    ko: '수리 요청',
+    de: 'Reparatur anfragen',
+    en: 'Requesting a repair',
+  ),
+  intro: LocalizedText(ko: '', de: '', en: ''),
+  vocab: [],
+  grammarIds: [],
+  dialog: [],
+  quests: [],
+  shelf: 'b1_repair',
+);
+
+const _a1Scenario = Scenario(
+  id: 'restaurant_order',
+  level: LearnerLevel.a1,
+  emoji: '🍚',
+  register: Register.polite,
+  title: LocalizedText(
+    ko: '식당 주문',
+    de: 'Im Restaurant bestellen',
+    en: 'Ordering at a restaurant',
+  ),
+  intro: LocalizedText(ko: '', de: '', en: ''),
+  vocab: [],
+  grammarIds: [],
+  dialog: [],
+  quests: [],
+  shelf: 'a1_eat',
 );

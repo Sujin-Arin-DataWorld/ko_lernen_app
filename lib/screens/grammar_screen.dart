@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 
+import '../features/study_library/study_library_models.dart';
 import '../motion/transitions.dart';
 import '../models/course_practice_context.dart';
 import '../models/course_mission_step_plan.dart';
@@ -373,25 +376,30 @@ class _GrammarScreenState extends State<GrammarScreen>
     _next();
   }
 
-  /// 내 단어장에 저장(↑). 문법 카드는 패턴이 표제어이고 뜻풀이가 번역,
-  /// 예문은 예문 슬롯으로 들어간다 — 단어 카드와 같은 저장 계약을 쓴다.
+  /// 내 저장에 담기(↑). Study Library에는 문법 타입을 보존하고, 기존 게임
+  /// 연결을 위해서만 같은 내용을 빠른저장 팩에 호환 미러로 남긴다.
   void _saveCurrent() {
     final g = _current;
     if (g == null) return;
-    // ignore: discarded_futures
-    addToWordbook(
+    unawaited(_saveGrammar(g));
+  }
+
+  Future<void> _saveGrammar(Grammar grammar) async {
+    await addTypedBookmarkWithWordbookMirror(
       context,
-      korean: g.pattern,
-      translationDe: g.explanationDe,
-      translationEn: g.explanationEn,
+      itemType: StudyLibraryItemType.grammar,
+      itemId: grammar.pattern,
+      korean: grammar.pattern,
+      translationDe: grammar.explanationDe,
+      translationEn: grammar.explanationEn,
       translationLanguage: Localizations.localeOf(context).languageCode,
-      posDe: g.typeDe,
-      exampleKorean: g.exampleKorean,
-      exampleDe: g.exampleGerman,
+      posDe: grammar.typeDe,
+      exampleKorean: grammar.exampleKorean,
+      exampleDe: grammar.exampleGerman,
+      sourceUnitId: grammar.id,
+      source: 'grammar',
     );
-    if (mounted) {
-      setState(() {});
-    }
+    if (mounted) setState(() {});
   }
 
   Future<void> _likeCurrent() async {

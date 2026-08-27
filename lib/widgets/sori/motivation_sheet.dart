@@ -47,7 +47,7 @@ class _MotivationSheetBody extends StatelessWidget {
         const SizedBox(height: 4),
         Text(t.motivationSheetSubtitle, style: tt.bodySmall),
         const SizedBox(height: Spacing.lg),
-        for (final m in LearnerMotivation.values) ...[
+        for (final m in v2LearnerMotivationChoices) ...[
           _MotivationRow(m: m),
           const SizedBox(height: Spacing.sm),
         ],
@@ -85,7 +85,7 @@ class _MotivationRow extends StatelessWidget {
           const SizedBox(width: Spacing.md),
           Expanded(
             child: Text(
-              m.label(t),
+              m.v2Label(t),
               style: TextStyle(
                 fontFamily: SoriFonts.sans,
                 fontSize: 15,

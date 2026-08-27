@@ -242,6 +242,49 @@ void main() {
   );
 
   test(
+    'typed restore admitted before local reset cannot repopulate wiped data',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      final loaded = Completer<CloudReadResult<Map<String, dynamic>>>();
+      var restoredComponents = 0;
+
+      final result = CloudSync.restoreWithSessionResult(
+        sessions: sessions,
+        uid: 'durable',
+        readAccount: () => loaded.future,
+        applyAccount: (data, beforeWrite) =>
+            CloudSync.applyRestorePayload(data, beforeWrite: beforeWrite),
+        restoreBookshelf: (_) async {
+          restoredComponents += 1;
+          return const CloudRestoreComponentResult(
+            status: CloudWriteResult.completed,
+            hasRemoteData: false,
+          );
+        },
+        restorePacks: (_) async {
+          restoredComponents += 1;
+          return const CloudRestoreComponentResult(
+            status: CloudWriteResult.completed,
+            hasRemoteData: false,
+          );
+        },
+      );
+      await Future<void>.delayed(Duration.zero);
+
+      await Storage.resetAll();
+      loaded.complete(
+        const CloudReadResult<Map<String, dynamic>>.present({
+          'progress': {'xp': 99},
+        }),
+      );
+
+      expect(await result, CloudRestoreResult.stale);
+      expect(Storage.xp, 0);
+      expect(restoredComponents, 0);
+    },
+  );
+
+  test(
     'typed restore fails closed when a restore component throws unexpectedly',
     () async {
       final sessions = CloudWriteSessionController()..acquire('durable');
@@ -326,6 +369,76 @@ void main() {
       });
 
       expect(await CloudSync.restoreWithResult(), CloudRestoreResult.blocked);
+    },
+  );
+
+  test(
+    'public restore keeps its local lifetime while admission is pending',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      final journalStore = _DelayedClearCloudBackupDeletionJournalStore();
+      var restoreCalls = 0;
+      AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+        CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable',
+          journalStore: journalStore,
+          gateway: const _UnusedCloudBackupDeletionGateway(),
+        ),
+      );
+      CloudSync.overrideOperationsForTesting(
+        restoreWithResult: () async {
+          restoreCalls += 1;
+          return CloudRestoreResult.completed;
+        },
+      );
+      addTearDown(() {
+        CloudSync.resetOperationsForTesting();
+        AuthService.resetCloudBackupDeletionForTesting();
+      });
+
+      final result = CloudSync.restoreWithResult();
+      await journalStore.readStarted.future;
+      await Storage.resetAll();
+      journalStore.allowRead.complete();
+
+      expect(await result, CloudRestoreResult.stale);
+      expect(restoreCalls, 0);
+    },
+  );
+
+  test(
+    'public backup keeps its local lifetime while admission is pending',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('durable');
+      final journalStore = _DelayedClearCloudBackupDeletionJournalStore();
+      var backupCalls = 0;
+      AuthService.overrideCloudBackupDeletionCoordinatorForTesting(
+        CloudBackupDeletionCoordinator(
+          sessions: sessions,
+          currentUid: () => 'durable',
+          journalStore: journalStore,
+          gateway: const _UnusedCloudBackupDeletionGateway(),
+        ),
+      );
+      CloudSync.overrideOperationsForTesting(
+        backupWithResult: () async {
+          backupCalls += 1;
+          return CloudWriteResult.completed;
+        },
+      );
+      addTearDown(() {
+        CloudSync.resetOperationsForTesting();
+        AuthService.resetCloudBackupDeletionForTesting();
+      });
+
+      final result = CloudSync.backupWithResult();
+      await journalStore.readStarted.future;
+      await Storage.resetAll();
+      journalStore.allowRead.complete();
+
+      expect(await result, CloudWriteResult.stale);
+      expect(backupCalls, 0);
     },
   );
 
@@ -1316,6 +1429,30 @@ class _ClearCloudBackupDeletionJournalStore
 
   @override
   Future<CloudBackupDeletionJournal?> read() async => null;
+
+  @override
+  Future<void> write(CloudBackupDeletionJournal journal) async {
+    throw UnsupportedError('not used by a restore admission');
+  }
+}
+
+class _DelayedClearCloudBackupDeletionJournalStore
+    implements CloudBackupDeletionJournalStore {
+  final Completer<void> readStarted = Completer<void>();
+  final Completer<void> allowRead = Completer<void>();
+
+  @override
+  Future<bool> clearIfCurrent(CloudBackupDeletionJournal expected) async =>
+      false;
+
+  @override
+  Future<CloudBackupDeletionJournal?> read() async {
+    if (!readStarted.isCompleted) {
+      readStarted.complete();
+    }
+    await allowRead.future;
+    return null;
+  }
 
   @override
   Future<void> write(CloudBackupDeletionJournal journal) async {

@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
+import '../services/analytics_service.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
@@ -184,6 +185,9 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       _loadFailed = false;
     });
     _startRound();
+    if (_running) {
+      unawaited(Analytics.gameStarted(gameType: 'speed_match', level: _level));
+    }
   }
 
   Future<void> _retryLoad() async {

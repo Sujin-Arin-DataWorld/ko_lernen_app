@@ -32,8 +32,9 @@ class ConsentInviteSheet {
   }
 
   /// Zeigt das Sheet genau einmal, wenn: Consent-Gate beim Start akzeptiert,
-  /// noch nicht gefragt, noch nicht zugestimmt und kein selbst-angegebener
-  /// Minderjähriger (DSGVO Art. 8 — von unter 16 nie Einwilligung einholen).
+  /// noch nicht gefragt, noch nicht zugestimmt und die lokale
+  /// Altersselbstauskunft die Einwilligungsfähigkeit positiv bestätigt hat.
+  /// Unbekanntes Alter scheitert ebenso geschlossen wie unter 16.
   static Future<void> maybeShow(BuildContext context) async {
     if (_shownThisSession) {
       return;
@@ -47,7 +48,7 @@ class ConsentInviteSheet {
     if (Storage.analyticsConsent || Storage.crashConsent) {
       return;
     }
-    if (AgeGateService.isUnderMinAge) {
+    if (!AgeGateService.isGyeAllowed) {
       return;
     }
     _shownThisSession = true;

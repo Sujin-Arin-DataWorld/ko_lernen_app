@@ -4,8 +4,16 @@ import 'package:integration_test/integration_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/main.dart';
+import 'package:ko_lernen_app/features/onboarding_v2/first_run_coordinator.dart';
+import 'package:ko_lernen_app/features/onboarding_v2/onboarding_app_adapters.dart';
+import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_repository.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
-import 'package:ko_lernen_app/screens/quick_onboarding_screen.dart';
+import 'package:ko_lernen_app/screens/consent_screen.dart';
+import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_companion_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_setup_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_story_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_journey_screen.dart';
 import 'package:ko_lernen_app/screens/splash_screen.dart';
 import 'package:ko_lernen_app/services/data_migration_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -14,9 +22,10 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 ///
 /// ⚠️ **CI 에서 돌지 않는다.** GitHub Actions 러너에는 기기가 없다. CI 회귀
 /// 그물은 `test/e2e/app_flows_e2e_test.dart`(같은 흐름의 위젯 버전)가 담당하고,
-/// 이 파일은 위젯 테스트가 **원리적으로 볼 수 없는 것**을 본다:
-/// 실제 플랫폼 채널, 실제 SharedPreferences 디스크 I/O, 실제 프로세스 재시작
-/// 직후의 상태, 실제 렌더러 성능.
+/// 이 파일은 실기기 렌더러와 미디어 플러그인을 포함한 전체 화면 흐름을
+/// 확인한다. 단, 테스트 격리를 위해 SharedPreferences mock backend를 쓰므로
+/// 실제 디스크 I/O나 OS process-death 복구의 증거로 간주하면 안 된다. 그 두
+/// 항목은 전용 QA 빌드의 수동 체크리스트에서 별도로 확인한다.
 ///
 /// ## 실행법
 ///
@@ -44,22 +53,124 @@ void main() {
     await Storage.init();
   });
 
-  Future<void> launch(WidgetTester tester) async {
-    await tester.pumpWidget(const KoLernenApp());
+  FirstRunCoordinator fullV2Coordinator() => FirstRunCoordinator(
+    repository: SharedPreferencesOnboardingJourneyRepository(),
+    legacyStateReader: const StorageLegacyOnboardingStateReader(),
+    commitGateway: StorageOnboardingCommitGateway(),
+  );
+
+  Future<void> launch(
+    WidgetTester tester, {
+    FirstRunCoordinator? firstRunCoordinator,
+    Duration splashDuration = const Duration(seconds: 2),
+  }) async {
+    await tester.pumpWidget(
+      KoLernenApp(
+        splashDisplayDuration: splashDuration,
+        firstRunCoordinator: firstRunCoordinator,
+      ),
+    );
     await tester.pump();
-    await tester.pump(const Duration(seconds: 3));
+    await tester.pump(splashDuration + const Duration(seconds: 1));
     await tester.pump(const Duration(milliseconds: 1200));
   }
 
-  testWidgets('cold start — 신규 사용자가 온보딩에 도달한다', (tester) async {
+  Future<void> pumpUntilFound(
+    WidgetTester tester,
+    Finder finder, {
+    int attempts = 60,
+  }) async {
+    for (var attempt = 0; attempt < attempts; attempt++) {
+      if (finder.evaluate().isNotEmpty) return;
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    expect(finder, findsWidgets);
+  }
+
+  Future<void> tapKey(WidgetTester tester, String key) async {
+    final finder = find.byKey(ValueKey(key));
+    await pumpUntilFound(tester, finder);
+    await tester.ensureVisible(finder);
+    await tester.pump();
+    await tester.tap(finder);
+    await tester.pump(const Duration(milliseconds: 250));
+  }
+
+  testWidgets('cold start — 신규 사용자가 법적 동의에 도달한다', (tester) async {
     await launch(tester);
     expect(find.byType(SplashScreen), findsNothing);
-    expect(find.byType(QuickOnboardingScreen), findsOneWidget);
+    expect(find.byType(ConsentScreen), findsOneWidget);
+  });
+
+  testWidgets('신규 V2 전체 흐름 — 5장부터 Today까지 도달한다', (tester) async {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({'kl_consent_accepted': true});
+    await Storage.init();
+    final coordinator = fullV2Coordinator();
+
+    await launch(
+      tester,
+      firstRunCoordinator: coordinator,
+      splashDuration: Duration.zero,
+    );
+    await pumpUntilFound(tester, find.byType(OnboardingStoryScreen));
+    expect(find.byType(OnboardingV2JourneyScreen), findsOneWidget);
+
+    const storyPageIds = [
+      'personalCurriculum',
+      'learn',
+      'saveAndReview',
+      'gamesAndRewards',
+      'heritageJourney',
+    ];
+    for (final pageId in storyPageIds) {
+      await pumpUntilFound(tester, find.byKey(ValueKey(pageId)));
+      await tapKey(tester, 'onboarding-v2-story-next');
+    }
+
+    await pumpUntilFound(tester, find.byType(OnboardingSetupScreen));
+    await tapKey(tester, 'onboarding-v2-purpose-lifeTravel');
+    await tapKey(tester, 'onboarding-v2-level-A1');
+    await pumpUntilFound(
+      tester,
+      find.byKey(const ValueKey('onboarding-v2-selected-level')),
+    );
+    await tapKey(tester, 'onboarding-v2-setup-continue');
+
+    await pumpUntilFound(tester, find.byType(OnboardingCompanionScreen));
+    await tapKey(tester, 'onboarding-v2-companion-taego');
+    await tapKey(tester, 'onboarding-v2-companion-continue');
+
+    await pumpUntilFound(
+      tester,
+      find.byType(OnboardingCompanionConfirmationScreen),
+    );
+    await tapKey(tester, 'onboarding-v2-confirmation-start');
+
+    await pumpUntilFound(tester, find.byType(IntroGateScreen));
+    final videoSkip = find.byKey(const ValueKey('intro-video-skip'));
+    final staticSkip = find.byKey(const ValueKey('intro-skip'));
+    for (var attempt = 0; attempt < 60; attempt++) {
+      if (videoSkip.evaluate().isNotEmpty || staticSkip.evaluate().isNotEmpty) {
+        break;
+      }
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    final skip = videoSkip.evaluate().isNotEmpty ? videoSkip : staticSkip;
+    expect(skip, findsOneWidget);
+    await tester.tap(skip);
+    await pumpUntilFound(tester, find.byType(AppShell));
+
+    expect(Storage.hasCompletedOnboarding, isTrue);
+    expect(Storage.userLevelCode, 'a1');
+    expect(Storage.motivation, 'travel');
+    expect(Storage.explicitSelectedCompanion, 'tiger');
   });
 
   testWidgets('cold start — 기존 사용자가 홈에 도달한다', (tester) async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
+      'kl_consent_accepted': true,
       'kl_onboarding_completed': true,
       'kl_session_count': 5,
     });
@@ -69,22 +180,25 @@ void main() {
     expect(find.byType(AppShell), findsOneWidget);
   });
 
-  testWidgets('실제 저장소에 학습 진도가 남는다', (tester) async {
+  testWidgets('격리된 preferences backend에 학습 진도가 남는다', (tester) async {
     Storage.resetForTesting();
-    SharedPreferences.setMockInitialValues({'kl_onboarding_completed': true});
+    SharedPreferences.setMockInitialValues({
+      'kl_consent_accepted': true,
+      'kl_onboarding_completed': true,
+    });
     await Storage.init();
     await launch(tester);
 
     await Storage.srsReview('사과', gotIt: true);
 
-    // 플랫폼 채널을 실제로 거쳐 다시 읽는다 — 위젯 테스트의 mock 으로는
-    // 검증할 수 없는 구간이다.
+    // 같은 격리 backend에서 reload 뒤에도 직렬화 결과가 유지되는지만 본다.
+    // 실제 디스크·process-death 내구성은 이 테스트의 범위가 아니다.
     final prefs = await SharedPreferences.getInstance();
     await prefs.reload();
     expect(prefs.getString('kl_srs_v1'), contains('사과'));
   });
 
-  testWidgets('마이그레이션이 실제 저장소에서 도장을 찍는다', (tester) async {
+  testWidgets('마이그레이션이 격리된 backend에 버전을 기록한다', (tester) async {
     final prefs = await SharedPreferences.getInstance();
     final result = await DataMigrationService.run(preferences: prefs);
 
@@ -100,6 +214,7 @@ void main() {
   testWidgets('회전해도 앱이 살아 있다', (tester) async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
+      'kl_consent_accepted': true,
       'kl_onboarding_completed': true,
       'kl_session_count': 5,
     });

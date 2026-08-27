@@ -233,12 +233,23 @@ class PrivacyConsentController {
 class PrivacyConsentService {
   PrivacyConsentService._();
 
+  /// Notifies live app shells when analytics becomes legally available.
+  ///
+  /// First-run deliberately asks for analytics only after the learner has
+  /// built some trust. The onboarding completion marker therefore stays
+  /// pending at the first home frame and is retried when this value becomes
+  /// true. It never flips true for an unknown-age user or a self-attested
+  /// minor.
+  static final ValueNotifier<bool> analyticsEnabled = ValueNotifier<bool>(
+    false,
+  );
+
   static final PrivacyConsentController _controller = PrivacyConsentController(
-    // DSGVO Art. 8: selbst-angegebene Unter-16 haben nie eine wirksame
-    // Einwilligung → Erhebung bleibt aus, egal was gespeichert ist.
+    // DSGVO Art. 8: only a positively passed local age gate can make optional
+    // collection effective. Unknown age fails closed just like under-16.
     analyticsConsent: () =>
-        Storage.analyticsConsent && !AgeGateService.isUnderMinAge,
-    crashConsent: () => Storage.crashConsent && !AgeGateService.isUnderMinAge,
+        Storage.analyticsConsent && AgeGateService.isGyeAllowed,
+    crashConsent: () => Storage.crashConsent && AgeGateService.isGyeAllowed,
     persistAnalyticsConsent: Storage.setAnalyticsConsent,
     persistCrashConsent: Storage.setCrashConsent,
     analyticsClient: const FirebaseAnalyticsConsentClient(),
@@ -246,19 +257,22 @@ class PrivacyConsentService {
     presentFlutterError: FlutterError.presentError,
   );
 
-  static Future<void> applyStored() {
-    return _controller.applyStored();
+  static Future<void> applyStored() async {
+    await _controller.applyStored();
+    analyticsEnabled.value =
+        Storage.analyticsConsent && AgeGateService.isGyeAllowed;
   }
 
-  static Future<void> setAnalytics(bool enabled, {bool persist = true}) {
-    // Selbst-angegebene Unter-16 nie aktivieren, egal was die UI sendet;
-    // dann bewusst false persistieren (nachweisbar aus).
-    final allowed = enabled && !AgeGateService.isUnderMinAge;
-    return _controller.setAnalytics(allowed, persist: persist);
+  static Future<void> setAnalytics(bool enabled, {bool persist = true}) async {
+    // Unknown age and self-attested minors can never activate collection;
+    // persist false so the disabled state remains provable.
+    final allowed = enabled && AgeGateService.isGyeAllowed;
+    await _controller.setAnalytics(allowed, persist: persist);
+    analyticsEnabled.value = allowed;
   }
 
   static Future<void> setCrash(bool enabled, {bool persist = true}) {
-    final allowed = enabled && !AgeGateService.isUnderMinAge;
+    final allowed = enabled && AgeGateService.isGyeAllowed;
     if (kIsWeb) {
       if (persist) {
         return Storage.setCrashConsent(allowed);

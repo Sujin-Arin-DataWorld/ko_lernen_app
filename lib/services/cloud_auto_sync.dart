@@ -5,6 +5,7 @@ import 'account/cloud_restore_result.dart';
 import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'cloud_sync.dart';
+import 'local_data_lifetime.dart';
 
 /// Best-effort automatic Google/Apple cloud sync at app start.
 ///
@@ -29,23 +30,41 @@ class CloudAutoSync {
     DateTime Function()? now,
     SharedPreferences? preferences,
   }) async {
+    final localLifetime = LocalDataLifetime.capture();
     try {
       final uid = (currentUid ?? (() => AuthService.cloudBackupUid))();
       if (uid == null || uid.trim().isEmpty) {
         return false;
       }
       final prefs = preferences ?? await SharedPreferences.getInstance();
+      if (!localLifetime.isCurrent) {
+        return false;
+      }
       final today = _dayStamp((now ?? DateTime.now)());
       if (prefs.getString(lastAutoSyncDayPreferenceKey) == today) {
         return false;
       }
-      await (restore ?? CloudSync.restoreWithResult)();
-      final backupResult = await (backup ?? CloudSync.backupWithResult)();
-      if (backupResult != CloudWriteResult.completed) {
+      final restoreResult =
+          await (restore ??
+              () => CloudSync.restoreWithResult(
+                localDataLifetime: localLifetime,
+              ))();
+      if (restoreResult == CloudRestoreResult.blocked ||
+          restoreResult == CloudRestoreResult.stale ||
+          !localLifetime.isCurrent) {
         return false;
       }
-      await prefs.setString(lastAutoSyncDayPreferenceKey, today);
-      return true;
+      final backupResult =
+          await (backup ??
+              () => CloudSync.backupWithResult(
+                localDataLifetime: localLifetime,
+              ))();
+      if (backupResult != CloudWriteResult.completed ||
+          !localLifetime.isCurrent) {
+        return false;
+      }
+      final marked = await prefs.setString(lastAutoSyncDayPreferenceKey, today);
+      return marked && localLifetime.isCurrent;
     } catch (error) {
       AccountFailureDiagnostics.log('autoSync.failed', error);
       return false;

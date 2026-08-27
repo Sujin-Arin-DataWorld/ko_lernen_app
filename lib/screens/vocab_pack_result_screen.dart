@@ -12,6 +12,7 @@ import '../widgets/sori/mascot_preference.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/consent_invite_sheet.dart';
 import '../widgets/sori/dancheong_stamp.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
@@ -113,7 +114,7 @@ class VocabPackResultScreen extends StatelessWidget {
     final motif = motifForPackId(packId);
     final feedbackScope = ContentFeedbackControllerScope.maybeOf(context);
 
-    return SoriStudyFrame(
+    final result = SoriStudyFrame(
       title: t.vocabPackResultTitle,
       automaticallyImplyLeading: false,
       // 짧은 결과 콘텐츠가 태블릿 상단에 쏠려 아래가 텅 비지 않도록,
@@ -324,6 +325,13 @@ class VocabPackResultScreen extends StatelessWidget {
         ),
       ),
     );
+    // The V2 journey itself never asks for tracking. Reuse the existing
+    // explicit, default-off invitation only after a verified first pack clear;
+    // failures, abandoned attempts, and repeat clears never trigger it.
+    if (_cleared && justCleared) {
+      return ConsentInviteTrigger(child: result);
+    }
+    return result;
   }
 
   int _xpAwarded() {

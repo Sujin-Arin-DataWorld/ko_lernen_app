@@ -2,11 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../features/study_library/study_library_models.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/course_practice_context.dart';
 import '../models/course_mission_step_plan.dart';
 import '../models/curriculum.dart';
 import '../models/smalltalk.dart';
+import '../services/analytics_service.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_checkpoint_questions.dart';
 import '../services/curriculum_catalog.dart';
@@ -140,6 +142,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
           _cat = cats.isNotEmpty ? cats.first.id : '';
           _loading = false;
         });
+        if (injected.isNotEmpty && cats.isNotEmpty) {
+          unawaited(Analytics.lessonStarted(lessonType: 'smalltalk'));
+        }
         return;
       }
       // The legacy loader contains its own asset errors to keep direct browse
@@ -200,6 +205,12 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
             : (initialCats.isNotEmpty ? initialCats.first.id : '');
         _loading = false;
       });
+      final hasVisiblePhrase = initialCats.any(
+        (category) => _phraseCount(level: _level, category: category.id) > 0,
+      );
+      if (hasVisiblePhrase) {
+        unawaited(Analytics.lessonStarted(lessonType: 'smalltalk'));
+      }
     } catch (_) {
       if (!mounted) return;
       setState(() {
@@ -601,6 +612,22 @@ class _PhraseCardState extends State<_PhraseCard> {
       widget.assessmentLink?.role == ContentLinkRole.assess &&
       widget.assessmentLink?.conceptIds.length == 1;
 
+  Future<void> _savePhrase() async {
+    final phrase = widget.p;
+    await addTypedBookmarkWithWordbookMirror(
+      context,
+      itemType: StudyLibraryItemType.sentence,
+      itemId: phrase.id,
+      korean: phrase.ko,
+      translationDe: phrase.de,
+      translationEn: phrase.en,
+      translationLanguage: widget.lang,
+      sourceUnitId: phrase.id,
+      source: 'smalltalk',
+    );
+    if (mounted) setState(() {});
+  }
+
   Future<void> _submitRelationshipCheck(
     SmalltalkRelationshipContext selectedContext,
   ) async {
@@ -653,18 +680,7 @@ class _PhraseCardState extends State<_PhraseCard> {
       onLike: widget.onLike,
       liked: widget.liked,
       bookmarked: CustomPackService.containsKorean(p.ko),
-      onBookmark: () {
-        unawaited(
-          addToWordbook(
-            context,
-            korean: p.ko,
-            translationDe: p.de,
-            translationEn: p.en,
-            translationLanguage: lang,
-          ),
-        );
-        setState(() {});
-      },
+      onBookmark: () => unawaited(_savePhrase()),
       onFlip: () =>
           setState(() => _showConversationGuide = !_showConversationGuide),
       child: KeyedSubtree(

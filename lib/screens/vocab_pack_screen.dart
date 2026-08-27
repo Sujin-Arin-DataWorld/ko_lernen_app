@@ -151,6 +151,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   bool _loading = true;
   String? _error;
   VocabPack? _pack;
+  bool _learningStartRecorded = false;
   List<VocabPack> _siblingPacks = [];
   CourseMissionStep? _missionStep;
   String? _missionTitle;
@@ -300,6 +301,14 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                 .courseUnitFor(packCourseContext.courseUnitId)
                 ?.title
                 .pick(languageCode);
+      if (!_learningStartRecorded) {
+        _learningStartRecorded = true;
+        Analytics.lessonStarted(
+          lessonType: 'vocab',
+          lessonId: pack.id,
+          level: pack.level.toUpperCase(),
+        );
+      }
       setState(() {
         _pack = pack;
         _siblingPacks = siblings;

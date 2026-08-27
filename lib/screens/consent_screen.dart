@@ -3,17 +3,18 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../features/onboarding_v2/first_run_coordinator.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/external_link.dart';
 import '../widgets/sori/page_header.dart';
 import '../widgets/sori/responsive.dart';
+import '../widgets/sori/toast.dart';
 import '../motion/transitions.dart';
 import '../services/storage_service.dart';
 import '../l10n/generated/app_localizations.dart';
-import 'app_shell.dart';
-import 'onboarding_start_screen.dart';
+import 'onboarding_v2/onboarding_v2_journey_screen.dart';
 
 const _privacyUrl = 'https://hangul-sori.com/privacy';
 const _termsUrl = 'https://hangul-sori.com/terms';
@@ -26,51 +27,58 @@ const _termsUrl = 'https://hangul-sori.com/terms';
 /// erhoben (Hard-Gate standardmäßig aus). Die Tracking-Einwilligung wird
 /// stattdessen kontextbezogen nach dem ersten Erfolg über
 /// `ConsentInviteSheet` erfragt. „Weiter“ startet ohne jede Kopplung.
-/// Nach Zustimmung geht es zur Level-Auswahl — oder direkt nach Hause, falls
-/// das Level schon gewählt wurde.
+/// Nach der Zustimmung entscheidet ausschließlich der V2-Koordinator über
+/// Story, Setup, Migration oder den direkten Einstieg für Bestandslernende.
 class ConsentScreen extends StatefulWidget {
-  const ConsentScreen({super.key}) : onPreviewAccepted = null;
+  const ConsentScreen({super.key, this.firstRunCoordinator})
+    : onPreviewAccepted = null;
 
   /// Renders the production consent surface without granting consent or
   /// changing analytics/crash preferences. Used by the UX Gallery and tests.
-  const ConsentScreen.preview({super.key, required this.onPreviewAccepted});
+  const ConsentScreen.preview({super.key, required this.onPreviewAccepted})
+    : firstRunCoordinator = null;
 
   final FutureOr<void> Function()? onPreviewAccepted;
+  final FirstRunCoordinator? firstRunCoordinator;
 
   @override
   State<ConsentScreen> createState() => _ConsentScreenState();
 }
 
 class _ConsentScreenState extends State<ConsentScreen> {
-  Future<void> _accept(BuildContext context) async {
+  bool _saving = false;
+
+  Future<void> _accept() async {
+    if (_saving) return;
+    setState(() => _saving = true);
     HapticFeedback.mediumImpact();
     final previewAccepted = widget.onPreviewAccepted;
     if (previewAccepted != null) {
-      await previewAccepted();
+      try {
+        await previewAccepted();
+      } finally {
+        if (mounted) setState(() => _saving = false);
+      }
       return;
     }
-    await Storage.setConsentAccepted();
-    if (!context.mounted) {
+    try {
+      await Storage.setConsentAccepted();
+    } on Object {
+      if (mounted) {
+        setState(() => _saving = false);
+        soriToast(context, AppL10n.of(context).loadErrorTryAgain);
+      }
       return;
     }
-    // Consent no longer forces a product-preview carousel. The first action
-    // after consent is a conscious purpose/start-point choice; older users
-    // who already have a level remain eligible to enter Home immediately.
-    final Widget next;
-    if (Storage.userLevelCode == null) {
-      next = const OnboardingStartScreen();
-    } else {
-      next = const AppShell();
+    if (!mounted) {
+      return;
     }
-    debugPrint(
-      '[ONBOARD] Consent.accept -> ${next.runtimeType} '
-      '(userLevelCode=${Storage.userLevelCode} '
-      'browseLevelCode=${Storage.browseLevelCode} '
-      'onboardingCompleted=${Storage.hasCompletedOnboarding})',
+    final next = OnboardingV2JourneyScreen(
+      firstRunCoordinator: widget.firstRunCoordinator,
     );
     Navigator.of(
       context,
-    ).pushReplacement(SoriTransitions.fadeScale((_) => next));
+    ).pushReplacement(SoriTransitions.firstRun(context, (_) => next));
   }
 
   @override
@@ -141,7 +149,7 @@ class _ConsentScreenState extends State<ConsentScreen> {
                         SoriButton.filled(
                           label: t.consentContinueCta,
                           fullWidth: true,
-                          onTap: () => _accept(context),
+                          onTap: _saving ? null : _accept,
                         ),
                         const SizedBox(height: 10),
                         Text(

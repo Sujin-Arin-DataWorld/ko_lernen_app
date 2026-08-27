@@ -1,15 +1,20 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/services/account/cloud_restore_result.dart';
 import 'package:ko_lernen_app/services/account/cloud_write_session.dart';
 import 'package:ko_lernen_app/services/cloud_auto_sync.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  setUp(() {
+  setUp(() async {
     SharedPreferences.setMockInitialValues(<String, Object>{});
+    Storage.resetForTesting();
+    await Storage.init();
   });
 
   test('runs restore-merge then backup once for a durable account', () async {
@@ -89,23 +94,74 @@ void main() {
     expect(events, hasLength(4));
   });
 
-  test('a blocked backup does not consume the daily slot', () async {
-    final preferences = await SharedPreferences.getInstance();
+  for (final restoreResult in <CloudRestoreResult>[
+    CloudRestoreResult.blocked,
+    CloudRestoreResult.stale,
+  ]) {
+    test(
+      '$restoreResult aborts before backup and does not consume the day',
+      () async {
+        final events = <String>[];
+        final preferences = await SharedPreferences.getInstance();
 
-    final ran = await CloudAutoSync.runStartupSync(
-      currentUid: () => 'durable-uid',
-      restore: () async => CloudRestoreResult.blocked,
-      backup: () async => CloudWriteResult.blocked,
-      now: () => DateTime(2026, 8, 10, 9),
-      preferences: preferences,
-    );
+        final ran = await CloudAutoSync.runStartupSync(
+          currentUid: () => 'durable-uid',
+          restore: () async {
+            events.add('restore');
+            return restoreResult;
+          },
+          backup: () async {
+            events.add('backup');
+            return CloudWriteResult.completed;
+          },
+          now: () => DateTime(2026, 8, 10, 9),
+          preferences: preferences,
+        );
 
-    expect(ran, isFalse);
-    expect(
-      preferences.getString(CloudAutoSync.lastAutoSyncDayPreferenceKey),
-      isNull,
+        expect(ran, isFalse);
+        expect(events, <String>['restore']);
+        expect(
+          preferences.getString(CloudAutoSync.lastAutoSyncDayPreferenceKey),
+          isNull,
+        );
+      },
     );
-  });
+  }
+
+  test(
+    'local reset during restore cancels backup and the daily marker',
+    () async {
+      final restoreStarted = Completer<void>();
+      final restoreMayFinish = Completer<void>();
+      var backupCalls = 0;
+      final preferences = await SharedPreferences.getInstance();
+
+      final run = CloudAutoSync.runStartupSync(
+        currentUid: () => 'durable-uid',
+        restore: () async {
+          restoreStarted.complete();
+          await restoreMayFinish.future;
+          return CloudRestoreResult.completed;
+        },
+        backup: () async {
+          backupCalls += 1;
+          return CloudWriteResult.completed;
+        },
+        now: () => DateTime(2026, 8, 10, 9),
+        preferences: preferences,
+      );
+      await restoreStarted.future;
+      await Storage.resetAll();
+      restoreMayFinish.complete();
+
+      expect(await run, isFalse);
+      expect(backupCalls, 0);
+      expect(
+        preferences.getString(CloudAutoSync.lastAutoSyncDayPreferenceKey),
+        isNull,
+      );
+    },
+  );
 
   test('never throws when restore or backup throw', () async {
     final preferences = await SharedPreferences.getInstance();

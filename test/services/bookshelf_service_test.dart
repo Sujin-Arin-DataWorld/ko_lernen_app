@@ -263,6 +263,47 @@ void main() {
       expect(BookshelfService.getById('book-a'), isNull);
     },
   );
+
+  test(
+    'manual bookshelf restore cannot persist when its remote read finishes after local reset',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final expectedSession = sessions.current!;
+      final manifest = Completer<BookshelfGenerationManifest?>();
+      final repository = _DelayedManifestRepository(manifest.future)
+        ..generations['generation-a'] = {
+          'book-a': BookshelfGenerationRecord.live(
+            id: 'book-a',
+            revision: 1,
+            portable: const {
+              'note': 'must-not-repopulate-reset-data',
+              'words': <Object>[],
+              'grammar': <Object>[],
+              'sentences': <Object>[],
+            },
+          ).toJson(),
+        };
+
+      final result = BookshelfService.restoreRemoteForSessionWithResult(
+        uid: 'uid-a',
+        expectedSession: expectedSession,
+        sessions: sessions,
+        repository: repository,
+      );
+      await Future<void>.delayed(Duration.zero);
+      await Storage.resetAll();
+      manifest.complete(
+        BookshelfGenerationManifest(
+          generationId: 'generation-a',
+          revision: 1,
+          recordIds: {'book-a'},
+        ),
+      );
+
+      expect((await result).status, CloudWriteResult.stale);
+      expect(BookshelfService.getById('book-a'), isNull);
+    },
+  );
 }
 
 class _MemoryRepository implements BookshelfGenerationRepository {

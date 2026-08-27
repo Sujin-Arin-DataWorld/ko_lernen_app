@@ -759,6 +759,66 @@ void main() {
       expect(find.text('Konto und Daten gelöscht'), findsNothing);
     });
 
+    testWidgets('successful deletion restarts at the legal first-run gate', (
+      tester,
+    ) async {
+      tester.view.physicalSize = const Size(400, 1000);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      SharedPreferences.setMockInitialValues({});
+      await Storage.init();
+      final cloudJournalState = ValueNotifier(
+        CloudBackupDeletionJournalState.clear,
+      );
+      addTearDown(cloudJournalState.dispose);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          routes: {
+            '/splash': (_) => const Scaffold(
+              body: Center(
+                child: Text(
+                  'legal-first-run-gate',
+                  key: ValueKey('legal-first-run-gate'),
+                ),
+              ),
+            ),
+          },
+          home: SettingsScreen(
+            accountDeletionWorkflow: AccountDeletionWorkflow(
+              _FakeAccountCleanupOperations(<String>[]),
+            ),
+            accountOperations: const _AlwaysReadyAccountOperations(),
+            cloudDataDeletionJournalState: cloudJournalState,
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final deleteTile = find.text('Konto und alle Daten löschen');
+      await tester.scrollUntilVisible(
+        deleteTile,
+        300,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.ensureVisible(deleteTile);
+      await tester.tap(deleteTile);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Löschen').last);
+      await tester.pumpAndSettle();
+
+      expect(
+        find.byKey(const ValueKey('legal-first-run-gate')),
+        findsOneWidget,
+      );
+    });
+
     testWidgets('launcher false result shows localized management failure', (
       tester,
     ) async {

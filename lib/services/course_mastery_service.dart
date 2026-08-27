@@ -237,33 +237,78 @@ class CourseMasteryService {
   Future<CourseMasterySnapshot> initializeForPlacement(
     String levelCode, {
     bool syncBrowseLevel = false,
+    bool preserveHistory = false,
+    String? expectedGeneration,
   }) async {
     _ensureCatalogUsable();
+    if (expectedGeneration != null &&
+        Storage.courseMasterySnapshotRawJson != expectedGeneration) {
+      throw const LocalReconciliationGenerationConflict();
+    }
     final level = _normalizeLevel(levelCode);
-    final startingUnit = _orderedUnits
-        .where((unit) => unit.level == level)
-        .cast<CourseUnit?>()
-        .firstWhere(
-          (unit) => unit != null,
-          orElse: () => throw FormatException(
-            'Curriculum has no starting course unit for level $level.',
-          ),
-        )!;
+    final previous =
+        preserveHistory &&
+            (Storage.courseMasterySnapshotRawJson.trim().isNotEmpty ||
+                Storage.legacyCourseMasteryRawJson.trim().isNotEmpty)
+        ? readForDisplay() ?? const CourseMasterySnapshot.empty()
+        : const CourseMasterySnapshot.empty();
     final targetRank = _levelRank(level);
+    final completed = preserveHistory
+        ? List<String>.of(previous.completedUnitIds)
+        : <String>[];
+    final completedSet = completed.toSet();
     final bypassed = _orderedUnits
-        .where((unit) => _levelRank(unit.level) < targetRank)
+        .where(
+          (unit) =>
+              _levelRank(unit.level) < targetRank &&
+              !completedSet.contains(unit.id),
+        )
         .map((unit) => unit.id)
         .toList(growable: false);
+    final resolved = <String>{...completed, ...bypassed};
+    final startingUnit = _orderedUnits
+        .where(
+          (unit) =>
+              _levelRank(unit.level) >= targetRank &&
+              !resolved.contains(unit.id) &&
+              unit.prerequisiteUnitIds.every(resolved.contains),
+        )
+        .cast<CourseUnit?>()
+        .firstWhere((unit) => unit != null, orElse: () => null);
+    if (startingUnit == null &&
+        !_orderedUnits.every((unit) => resolved.contains(unit.id))) {
+      throw FormatException(
+        'Curriculum has no reachable starting course unit for level $level.',
+      );
+    }
 
     final nextSnapshot = CourseMasterySnapshot(
       placementLevel: level,
-      currentCourseUnitId: startingUnit.id,
+      currentCourseUnitId: startingUnit?.id,
+      completedUnitIds: completed,
       bypassedPrerequisiteUnitIds: bypassed,
+      evidence: preserveHistory ? previous.evidence : const [],
+      scenarioCheckpoints: preserveHistory
+          ? previous.scenarioCheckpoints
+          : const [],
+      productiveEvidence: preserveHistory
+          ? previous.productiveEvidence
+          : const [],
+      productiveProjectStepEvidence: preserveHistory
+          ? previous.productiveProjectStepEvidence
+          : const [],
     );
     await _persistSnapshot(
       nextSnapshot,
       mirrorLegacyUserLevel: true,
       browseLevelCode: syncBrowseLevel ? level : null,
+      assertCurrentWrite: expectedGeneration == null
+          ? null
+          : () {
+              if (Storage.courseMasterySnapshotRawJson != expectedGeneration) {
+                throw const LocalReconciliationGenerationConflict();
+              }
+            },
     );
     _snapshot = nextSnapshot;
     _loaded = true;
@@ -1512,7 +1557,11 @@ class CourseMasteryService {
         );
       }
       final expected = _orderedUnits
-          .where((unit) => _levelRank(unit.level) < _levelRank(placement))
+          .where(
+            (unit) =>
+                _levelRank(unit.level) < _levelRank(placement) &&
+                !completed.contains(unit.id),
+          )
           .map((unit) => unit.id)
           .toSet();
       if (bypassed.length != expected.length ||

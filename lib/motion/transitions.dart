@@ -13,11 +13,22 @@ class SoriTransitions {
     WidgetBuilder builder, {
     RouteSettings? settings,
     Duration duration = const Duration(milliseconds: 420),
+    Duration reverseDuration = const Duration(milliseconds: 280),
+    bool? reduceMotion,
   }) {
+    final shouldReduceMotion =
+        reduceMotion ??
+        WidgetsBinding
+            .instance
+            .platformDispatcher
+            .accessibilityFeatures
+            .disableAnimations;
     return PageRouteBuilder<T>(
       settings: settings,
-      transitionDuration: duration,
-      reverseTransitionDuration: const Duration(milliseconds: 280),
+      transitionDuration: shouldReduceMotion ? Duration.zero : duration,
+      reverseTransitionDuration: shouldReduceMotion
+          ? Duration.zero
+          : reverseDuration,
       pageBuilder: (ctx, _, __) => builder(ctx),
       transitionsBuilder: (_, anim, __, child) {
         final curved = CurvedAnimation(
@@ -35,6 +46,25 @@ class SoriTransitions {
           ),
         );
       },
+    );
+  }
+
+  /// First-run surfaces use the product's short transition contract and
+  /// become instantaneous when the platform requests reduced motion.
+  static Route<T> firstRun<T>(
+    BuildContext context,
+    WidgetBuilder builder, {
+    RouteSettings? settings,
+  }) {
+    return fadeScale<T>(
+      builder,
+      settings: settings,
+      duration: const Duration(milliseconds: 220),
+      reverseDuration: const Duration(milliseconds: 200),
+      // Keep the route-local MediaQuery decision explicit. The general route
+      // helper falls back to the platform accessibility feature when callers
+      // do not already have a BuildContext.
+      reduceMotion: MediaQuery.disableAnimationsOf(context),
     );
   }
 }

@@ -818,9 +818,9 @@
       "category": "screen",
       "level": "b1",
       "kind": "question",
-      "ko": "넷플릭스에 볼 만한 거 있어요?",
-      "de": "Gibt's auf Netflix etwas Sehenswertes?",
-      "en": "Is there anything worth watching on Netflix?",
+      "ko": "요즘 볼 만한 드라마 있어요?",
+      "de": "Gibt's gerade eine sehenswerte Serie?",
+      "en": "Is there a good series to watch these days?",
       "reply": {
         "ko": "요즘 이거 인기 많아요.",
         "de": "Das hier ist gerade beliebt.",

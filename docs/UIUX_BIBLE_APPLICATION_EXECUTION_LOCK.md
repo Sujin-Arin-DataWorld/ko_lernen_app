@@ -235,12 +235,13 @@ listed dependency.
 | Route | Screen / current owner | Bible target | Protected dependency | Verification | Risk / phase |
 |---|---|---|---|---|---|
 | `/splash` | `SplashScreen` / Custom | Keep cinematic entry; only scale/safe-area polish | startup timing and routing | D onboarding flow | M / 5C |
-| `/quick_onboarding` | `QuickOnboardingScreen` / embedded flow | Keep short single-action sequence; unify type/actions | onboarding service/storage | D quick onboarding | H / 5C |
-| `/character_selection` | `CharacterSelectionScreen` / Custom | Keep approved character composition; normalize cards/actions | companion persistence, no character generation | R/S/D character | H / 5C |
-| `/intro` | `IntroGateScreen` / Custom | Keep gate cinematic and complete labels | startup/onboarding route decision | S/D onboarding | H / 5C |
+| `/quick_onboarding` | `OnboardingV2JourneyScreen` / Custom | Preserve this legacy URL only as a compatibility alias into the V2 coordinator; never revive the obsolete auto-advancing intro | V2 migration and resumable first-run state | R/S/D onboarding migration | H / 5C |
+| `/character_selection` | `OnboardingV2JourneyScreen` / Custom | Preserve this legacy URL only as a compatibility alias into the V2 coordinator; keep companion choice inside the resumable V2 journal | V2 migration and companion persistence | R/S/D onboarding migration | H / 5C |
+| `/intro` | `OnboardingV2JourneyScreen` → phase-gated `IntroGateScreen` / Custom | Keep gate cinematic and complete labels without allowing a direct-route first-run bypass | V2 journal and startup/onboarding route decision | S/D onboarding | H / 5C |
 | `/` | `AppShell` → `SoriStageShell` / Custom | Preserve five tabs; verify adaptive rail/bottom chrome | tab state, reselect, route observer | R/S/G/D stage shell | H / 2A |
-| `/onboarding` | `OnboardingLevelScreen` / Custom | Keep immersive composition; align hierarchy and large text | placement/onboarding decisions | R/S/D onboarding | H / 5C |
-| `/onboarding/start` | `OnboardingStartScreen` / Custom | Normalize step actions and scroll reachability | onboarding flow state | R/D onboarding start | M / 5C |
+| `/onboarding` | `OnboardingV2JourneyScreen` / Custom | Keep the resumable five-page story, setup, companion, confirmation, and safe rollout sequence coherent | first-run journal, migration, placement, companion, rollout | R/S/D onboarding V2 | H / 5C |
+| `/onboarding/legacy-level` | `OnboardingV2JourneyScreen` / Custom | Preserve this legacy URL only as a compatibility alias into the V2 coordinator; never revive the forced first-run quiz | V2 migration and resumable setup | R/S/D onboarding migration | H / 5C |
+| `/onboarding/start` | `OnboardingV2JourneyScreen` / Custom | Preserve this legacy URL only as a compatibility alias into the V2 coordinator | V2 migration and resumable setup | R/S/D onboarding migration | H / 5C |
 | `/vocab` | `VocabPacksScreen` / Custom | Retain approved 4:3 catalog; move residual chrome to shared rules | course context, pack loading/premium | R/S/G/D vocab packs | H / 3A |
 | `/vocab/pack` | `VocabPackScreen` / Study | Preserve Deck geometry/gestures; token polish only | SRS ledger, learn queue, flip gate | R/D deck battery | H / 3A |
 | `/vocab/result` | `VocabPackResultScreen` / Study | Standard result hierarchy and reduced-motion reward | result/clear evidence | D vocab result | H / 3A |
@@ -262,6 +263,8 @@ listed dependency.
 | `/pronunciation` | `PronunciationStudioScreen` / Std | Normalize capture states and feedback hierarchy | microphone consent/SDK boundary | R/D pronunciation | H / 3B |
 | `/satz_arcade` | `SatzArcadeScreen` / Study | Preserve tile geometry/evidence; shared study chrome | course context and scoring | R/D Satz | H / 3B |
 | `/settings` | `SettingsScreen` / Std | Tokenize dense sections/forms without changing operations | account, consent, notification, locale | R/S/G/D settings | H / 4A |
+| `/guide` | `GuideHubRouteScreen` / `GuideHubScreen` | Keep topic availability truthful and every live destination reachable; preserve checklist progress separately | guide progress, typed destinations, feature availability | R/S/D guide hub | H / 5C |
+| `/study-library` | `StudyLibraryScreen` / Std | Keep hearts separate from saved review items and preserve word/grammar/sentence types | liked content, bookmarks, review queue | R/S/D study library | H / 5C |
 | `/stats` | `StatsScreen` / Std | Standardize cards, empty state, chart semantics | progress/stat aggregation | R/S/D stats | M / 4A |
 | `/profile` | `ProfileScreen` / Std | Standardize identity/action hierarchy | auth, sync, account linking | R/D profile | H / 4A |
 | `/paywall` | `PaywallScreen` / Custom | Keep branded offer; normalize action/error/accessibility states | RevenueCat and entitlement | R/D purchase contracts | H / 4A |
@@ -319,6 +322,10 @@ not disappear from phase review.
 | `DiscoverScreen` | Std supporting catalog | Keep dormant/supporting surface aligned; do not add a route | R/D discover | 2B |
 | `OnboardingPreviewScreen` / `PlacementDiagnosticScreen` | custom + Std | Align step hierarchy; preserve placement decisions | R/D onboarding/placement | 5C |
 | `ConsentScreen` / `FirstVoiceSuccessScreen` | custom | Shared action/state patterns; preserve consent/evidence | R/D consent/voice | 5C |
+| `QuickOnboardingScreen` / `CharacterSelectionScreen` / `OnboardingLevelScreen` / `OnboardingStartScreen` | dormant legacy and compatibility owners | Keep unreachable as independent steps from the V2 first-run route; compatibility entries must resolve into the resumable V2 coordinator and must not reconnect the forced scenario chain | D onboarding compatibility | 5C |
+| `OnboardingStoryScreen` / `OnboardingSetupScreen` / `OnboardingCompanionScreen` / `OnboardingCompanionConfirmationScreen` / `OnboardingV2PageShell` | Onboarding V2 embedded owners | Preserve mandatory page progress, draft-only choices, non-blocking companion confirmation, and fixed reachable actions | R/S/D onboarding V2 | 5C |
+| `GuideHubScreen` | guide module owner embedded by `GuideHubRouteScreen` | Preserve truthful live/preview/coming-soon states and typed destinations | R/S/D guide hub | 5C |
+| `GuideTopicDetailRouteScreen` / `GuideTopicDetailScreen` | guide topic route and presentation owners | Preserve topic-specific truth, progress, and typed actions without route-string content | R/S/D guide topic | 5C |
 | `CourseMissionPathOverview` | embedded | Preserve graph/evidence; token polish | dedicated overview | 3C |
 | `GrammarChoiceQuizScreen` / `HardChoiceQuizScreen` | Study | Shared result/choice language; preserve scoring | R/D choice quizzes | 5B |
 | `WordWebStudyScreen` / `WordWebQuizScreen` | custom + Study | Standard outer state; preserve relation logic | D word web | 3D/5B |
