@@ -45,11 +45,40 @@ void main() {
   group('SceneAssetResolver — convention-first with category fallback', () {
     test('main waits for the manifest before the first app frame', () {
       final source = File('lib/main.dart').readAsStringSync();
-      final resolverLoad = source.indexOf('await SceneAssetResolver.load();');
-      final productionRunner = source.indexOf('runner(const KoLernenApp());');
+      final runnerMatch = RegExp(
+        r'runner\(\s*const\s+KoLernenApp\(\)\s*\)',
+      ).firstMatch(source);
+      expect(
+        runnerMatch,
+        isNotNull,
+        reason: 'lib/main.dart 에서 KoLernenApp 을 띄우는 지점을 찾지 못했다.',
+      );
+      final beforeRunner = source.substring(0, runnerMatch!.start);
 
-      expect(resolverLoad, greaterThanOrEqualTo(0));
-      expect(productionRunner, greaterThan(resolverLoad));
+      const call = 'SceneAssetResolver.load()';
+      expect(
+        beforeRunner.contains(call),
+        isTrue,
+        reason: '$call 호출이 runner(const KoLernenApp()) 이전에 있어야 한다.',
+      );
+
+      // §W2-Task8 (검수#11): "runner 이전 await 존재" 계약 — 단독
+      // await 문이든 Future.wait([...]) 병렬 실행이든, 이 호출이 반드시
+      // await 로 다스려져야 한다(fire-and-forget 이면 첫 프레임 전 완료를
+      // 보장 못 한다). 리터럴 세미콜론 문장을 통째로 찾지 않아 병렬화
+      // 리팩터에도 안전하다.
+      final awaited = RegExp(
+        r'await\s+(?:Future\.wait(?:<[\s\S]*?>)?\(\s*\[[\s\S]*?' +
+            RegExp.escape(call) +
+            r'|' +
+            RegExp.escape(call) +
+            r')',
+      ).hasMatch(beforeRunner);
+      expect(
+        awaited,
+        isTrue,
+        reason: '$call 는 await 되어야 한다(직접 또는 Future.wait 안에서).',
+      );
     });
 
     test('no manifest loaded → category poster + loop', () {
