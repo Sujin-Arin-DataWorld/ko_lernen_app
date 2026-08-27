@@ -204,6 +204,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   // §P2-5 플립 게이트 힌트 칩 트리거 — 저항 드래그/판정 버튼 탭당 1펄스.
   final ValueNotifier<int> _flipHintTrigger = ValueNotifier<int>(0);
+  // AppBar 단어장 버튼(quiz/boss)의 스포트라이트 코치 게이팅용 — 팩 진입
+  // 3단계 모달 코치가 먼저 끝나야 전역 단어장 코치가 뒤이어 뜬다.
+  late bool _featureCoachComplete;
   late final QuestAbandonTracker _abandonTracker;
 
   @override
@@ -216,6 +219,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   @override
   void initState() {
     super.initState();
+    _featureCoachComplete = Storage.tutVocabPackSeen;
     _abandonTracker = QuestAbandonTracker(
       questType: 'vocab_pack',
       questId: widget.packId,
@@ -230,6 +234,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       if (!Storage.tutVocabPackSeen) {
         await showFeatureCoachSheet(context, FeatureCoach.vocabPack);
         await Storage.setTutVocabPackSeen();
+        if (mounted) {
+          setState(() => _featureCoachComplete = true);
+        }
       }
     });
   }
@@ -851,7 +858,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     final pack = _pack!;
     final lang = Localizations.localeOf(context).languageCode;
     final title = VocabPackService.displayLabel(pack.id, lang: lang);
-    // 현재 보고 있는 단어(학습/퀴즈/보스)를 바로 내 단어장에 담기.
+    // 현재 보고 있는 단어를 바로 내 단어장에 담기. Learn 단계는 피드 북마크
+    // 스탬프(지시서 1.24)가 이미 커버하므로 여기선 quiz/boss 만 —
+    // `_currentQuiz` 는 learn 단계에서 항상 null 이라 자연히 게이팅된다.
+    // quiz/boss 는 `SoriContentFeed`(=스탬프)를 쓰지 않아 이 버튼이 그 단계의
+    // 유일한 저장 수단이다.
+    final Vocab? addable = _currentQuiz;
 
     return SoriStudyFrame(
       title: title,
@@ -859,7 +871,23 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         icon: const Icon(Icons.close),
         onPressed: () => Navigator.of(context).maybePop(),
       ),
-      actions: const [TtsSpeedAction()],
+      actions: [
+        if (addable != null)
+          AddToWordbookButton(
+            korean: addable.korean,
+            translationDe: addable.german,
+            translationEn: addable.english,
+            romanization: addable.romanization,
+            posDe: addable.posDe,
+            exampleKorean: addable.exampleKorean,
+            exampleDe: addable.exampleGerman,
+            compact: true,
+            // The pack's modal three-step coach owns first admission. Queue
+            // the global wordbook spotlight until that sheet has closed.
+            coachEnabled: _featureCoachComplete,
+          ),
+        const TtsSpeedAction(),
+      ],
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
       child: Column(
         children: [

@@ -2036,6 +2036,15 @@ class AppL10nEn extends AppL10n {
   String get contentActionBookmarkUnsaved => 'Not saved';
 
   @override
+  String get speechIndicatorLabel => 'Read aloud';
+
+  @override
+  String get speechIndicatorSpeaking => 'Playing';
+
+  @override
+  String get speechIndicatorIdle => 'Not playing';
+
+  @override
   String contentShareBody(String korean, String gloss) {
     return '$korean\n$gloss\nhangul-sori.com';
   }

@@ -52,8 +52,8 @@ class SoriHomeAction extends StatelessWidget {
         child: SoriPressable(
           onTap: () => _leave(context),
           child: const SizedBox(
-            width: 44,
-            height: 44,
+            width: SoriLayout.chromeRowTouchHeight,
+            height: SoriLayout.chromeRowTouchHeight,
             child: Icon(Icons.home_rounded),
           ),
         ),

@@ -1030,6 +1030,9 @@
   "contentActionBookmark": "Merken",
   "contentActionBookmarkSaved": "Gemerkt",
   "contentActionBookmarkUnsaved": "Nicht gemerkt",
+  "speechIndicatorLabel": "Vorlesen",
+  "speechIndicatorSpeaking": "Wird vorgelesen",
+  "speechIndicatorIdle": "Nicht aktiv",
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {

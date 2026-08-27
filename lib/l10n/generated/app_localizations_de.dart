@@ -2044,6 +2044,15 @@ class AppL10nDe extends AppL10n {
   String get contentActionBookmarkUnsaved => 'Nicht gemerkt';
 
   @override
+  String get speechIndicatorLabel => 'Vorlesen';
+
+  @override
+  String get speechIndicatorSpeaking => 'Wird vorgelesen';
+
+  @override
+  String get speechIndicatorIdle => 'Nicht aktiv';
+
+  @override
   String contentShareBody(String korean, String gloss) {
     return '$korean\n$gloss\nhangul-sori.com';
   }

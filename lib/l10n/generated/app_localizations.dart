@@ -3589,6 +3589,24 @@ abstract class AppL10n {
   /// **'Nicht gemerkt'**
   String get contentActionBookmarkUnsaved;
 
+  /// No description provided for @speechIndicatorLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorlesen'**
+  String get speechIndicatorLabel;
+
+  /// No description provided for @speechIndicatorSpeaking.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird vorgelesen'**
+  String get speechIndicatorSpeaking;
+
+  /// No description provided for @speechIndicatorIdle.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht aktiv'**
+  String get speechIndicatorIdle;
+
   /// No description provided for @contentShareBody.
   ///
   /// In de, this message translates to:

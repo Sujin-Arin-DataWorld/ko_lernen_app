@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../l10n/generated/app_localizations.dart';
 import '../../services/tts_service.dart';
 import 'pressable.dart';
 import 'route_observer.dart';
@@ -156,26 +157,37 @@ class SoriSpeechIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = SoriSurfaces.of(context);
+    final t = AppL10n.of(context);
     return ValueListenableBuilder<bool>(
       valueListenable: TtsService.speaking,
-      builder: (context, speaking, _) => SoriPressable(
+      builder: (context, speaking, _) => Semantics(
+        button: true,
+        label: t.speechIndicatorLabel,
+        value: speaking ? t.speechIndicatorSpeaking : t.speechIndicatorIdle,
         onTap: () => SoriSpeech.speak(text, voice: voice),
-        child: SizedBox(
-          width: SoriLayout.chromeRowTouchHeight,
-          height: SoriLayout.chromeRowTouchHeight,
-          child: Center(
+        child: ExcludeSemantics(
+          child: SoriPressable(
+            onTap: () => SoriSpeech.speak(text, voice: voice),
             child: SizedBox(
-              width: 44,
-              height: 44,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: s.surface.withValues(alpha: 0.85),
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(
-                  speaking ? Icons.graphic_eq_rounded : Icons.volume_up_rounded,
-                  size: 18,
-                  color: SoriColors.contentCta,
+              width: SoriLayout.chromeRowTouchHeight,
+              height: SoriLayout.chromeRowTouchHeight,
+              child: Center(
+                child: SizedBox(
+                  width: 44,
+                  height: 44,
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: s.surface.withValues(alpha: 0.85),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(
+                      speaking
+                          ? Icons.graphic_eq_rounded
+                          : Icons.volume_up_rounded,
+                      size: 18,
+                      color: SoriColors.contentCta,
+                    ),
+                  ),
                 ),
               ),
             ),

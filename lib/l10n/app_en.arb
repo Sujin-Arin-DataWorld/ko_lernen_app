@@ -1023,6 +1023,9 @@
   "contentActionBookmark": "Save",
   "contentActionBookmarkSaved": "Saved",
   "contentActionBookmarkUnsaved": "Not saved",
+  "speechIndicatorLabel": "Read aloud",
+  "speechIndicatorSpeaking": "Playing",
+  "speechIndicatorIdle": "Not playing",
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {
