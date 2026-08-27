@@ -146,12 +146,23 @@ class _SoriPressableState extends State<SoriPressable>
     return Focus(
       canRequestFocus: enabled,
       onKeyEvent: (_, event) {
-        if (widget.onTap == null || event is! KeyDownEvent) {
+        if (!enabled || event is! KeyDownEvent) {
           return KeyEventResult.ignored;
         }
         if (event.logicalKey == LogicalKeyboardKey.enter ||
             event.logicalKey == LogicalKeyboardKey.space) {
-          _onTap();
+          // finding 8: onTap 이 없으면(= onLongPress 만 있는 위젯) 예전엔
+          // 여기서 그냥 무시했다 — 그런데 canRequestFocus 는 enabled(둘 중
+          // 하나만 있어도 true) 라서 그런 위젯도 Tab 포커스는 받는다.
+          // 키보드엔 "누르고 있기"에 대응하는 제스처가 없으므로, 유일한
+          // 액션인 onLongPress 를 Enter/Space 의 활성화 대상으로 쓴다.
+          if (widget.onTap != null) {
+            _onTap();
+          } else if (widget.onLongPress != null) {
+            _onLongPress();
+          } else {
+            return KeyEventResult.ignored;
+          }
           return KeyEventResult.handled;
         }
         return KeyEventResult.ignored;
