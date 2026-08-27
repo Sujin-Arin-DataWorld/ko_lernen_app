@@ -1025,6 +1025,11 @@
   "hanokStageJongga": "Jongga vollendet",
   "vocabPackPlayTitle": "Paket-Übung",
   "vocabPackLearnHint": "Tippen zum Umdrehen",
+  "vocabPackLearnRepeatSuffix": " · +{n, plural, one{1 Wdh.} other{{n} Wdh.}}",
+  "@vocabPackLearnRepeatSuffix": {
+    "description": "Learn stage counter suffix for re-served (missed) cards",
+    "placeholders": {"n": {"type": "int"}}
+  },
   "vocabPackDontKnow": "Weiß ich nicht",
   "vocabPackGotIt": "Gewusst",
   "deckActionSave": "Merken",

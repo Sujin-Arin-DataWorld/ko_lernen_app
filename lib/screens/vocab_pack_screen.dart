@@ -173,6 +173,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   // 인덱스가 함께 바뀌면 FlipCard가 다음 카드 내용 위로 reverse 애니메이션을
   // 돌려 뒷면(뜻)이 먼저 보인다. 새 key로 State를 새로 만들면 항상 앞면 시작.
   int _learnServe = 0;
+  // 이 세션에서 재출제로 다시 나온 카드 수 — "3/9 · +2 Wdh." 표시용
+  // (지시서 검수#21: 별도 칩이 아니라 숫자에 병기).
+  int _learnRepeatCount = 0;
 
   // Stage 2 (quiz) + Stage 3 (boss) state
   int _qIdx = 0;
@@ -212,6 +215,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   @override
   void dispose() {
+    _persistLearnProgress();
     _abandonTracker.dispose();
     _flipHintTrigger.dispose();
     super.dispose();
@@ -402,6 +406,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       _flipped = false;
       _learnCardRevealed = false;
       _learnServe++;
+      if (_learnQueue?.currentIsRepeat ?? false) {
+        _learnRepeatCount++;
+      }
     });
     if (_learnQueue?.isDone ?? true) {
       // Stage 1 끝 — 모든 current-pack 단어를 Learn에서 의도적으로 노출한 뒤
@@ -410,6 +417,18 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       PackProgressService.recordWordLearned(pack);
       _enterQuiz();
     }
+  }
+
+  /// Learn 단계를 완주하지 않고 이탈해도 그때까지 본 단어 수를 영속화한다
+  /// (지시서 1.1 "3/9 멈춤" — 완주해야만 recordWordLearned 가 불렸던 것을
+  /// 이탈 시에도 flush). wordsLearnedIn 은 vokSeenIds 교집합으로 유도하므로
+  /// 여러 번 불러도 멱등 — 세션당 완주 시 1회(_advanceLearn) + 이탈 시 1회
+  /// (dispose) = 최대 2회.
+  void _persistLearnProgress() {
+    final pack = _pack;
+    if (pack == null) return;
+    // ignore: discarded_futures
+    PackProgressService.recordWordLearned(pack);
   }
 
   void _toggleLearnFlip() {
@@ -939,8 +958,10 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           children: [
             SoriChip(
               // 분모 = 고유 단어 수(고정). 재출제 중에는 분자가 유지된다.
+              // +N Wdh. = 이 세션에서 재출제로 다시 나온 카드 수(지시서 검수#21).
               label:
-                  '${_learnQueue?.servedPosition ?? 1} / ${_learnQueue?.uniqueTotal ?? _learnWords.length}',
+                  '${_learnQueue?.servedPosition ?? 1} / ${_learnQueue?.uniqueTotal ?? _learnWords.length}'
+                  '${_learnRepeatCount > 0 ? t.vocabPackLearnRepeatSuffix(_learnRepeatCount) : ''}',
               accent: SoriColors.info,
             ),
             const SizedBox(width: Spacing.sm),

@@ -129,7 +129,9 @@ void main() {
     await _revealAndTapButton(tester, t.vocabPackGotIt);
     await _settle(tester);
     expect(find.text('재단어1'), findsOneWidget);
-    expect(find.text('4 / 4'), findsOneWidget);
+    // 재단어1은 세션 초반 "몰라요"로 이미 한 번 서빙된 재출제 카드라
+    // "+1 Wdh." 접미사가 병기된다 (지시서 1.1 / T2 카운터).
+    expect(find.text('4 / 4 · +1 Wdh.'), findsOneWidget);
 
     // 재출제에서 알아요 → Learn 종료, 퀴즈 진입 (Learn 버튼 소멸).
     await _revealAndTapButton(tester, t.vocabPackGotIt);

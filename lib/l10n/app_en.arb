@@ -1018,6 +1018,11 @@
   "hanokStageJongga": "Jongga complete",
   "vocabPackPlayTitle": "Pack practice",
   "vocabPackLearnHint": "Tap to flip",
+  "vocabPackLearnRepeatSuffix": " · +{n, plural, one{1 repeat} other{{n} repeats}}",
+  "@vocabPackLearnRepeatSuffix": {
+    "description": "Learn stage counter suffix for re-served (missed) cards",
+    "placeholders": {"n": {"type": "int"}}
+  },
   "vocabPackDontKnow": "Don't know",
   "vocabPackGotIt": "Got it",
   "deckActionSave": "Save",

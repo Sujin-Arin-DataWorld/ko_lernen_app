@@ -3559,6 +3559,12 @@ abstract class AppL10n {
   /// **'Tippen zum Umdrehen'**
   String get vocabPackLearnHint;
 
+  /// Learn stage counter suffix for re-served (missed) cards
+  ///
+  /// In de, this message translates to:
+  /// **' · +{n, plural, one{1 Wdh.} other{{n} Wdh.}}'**
+  String vocabPackLearnRepeatSuffix(int n);
+
   /// No description provided for @vocabPackDontKnow.
   ///
   /// In de, this message translates to:

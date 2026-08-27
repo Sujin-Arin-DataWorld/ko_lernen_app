@@ -2023,6 +2023,17 @@ class AppL10nEn extends AppL10n {
   String get vocabPackLearnHint => 'Tap to flip';
 
   @override
+  String vocabPackLearnRepeatSuffix(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n repeats',
+      one: '1 repeat',
+    );
+    return ' · +$_temp0';
+  }
+
+  @override
   String get vocabPackDontKnow => 'Don\'t know';
 
   @override

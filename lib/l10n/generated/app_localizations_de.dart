@@ -2031,6 +2031,17 @@ class AppL10nDe extends AppL10n {
   String get vocabPackLearnHint => 'Tippen zum Umdrehen';
 
   @override
+  String vocabPackLearnRepeatSuffix(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Wdh.',
+      one: '1 Wdh.',
+    );
+    return ' · +$_temp0';
+  }
+
+  @override
   String get vocabPackDontKnow => 'Weiß ich nicht';
 
   @override
