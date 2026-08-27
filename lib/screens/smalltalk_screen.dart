@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 
 import '../features/study_library/study_library_models.dart';
 import '../l10n/generated/app_localizations.dart';
@@ -642,7 +643,19 @@ class _PhraseCardState extends State<_PhraseCard> {
     final hasReply = p.reply != null;
     final relationshipQuestion = SmalltalkRelationshipCheckpoint.forPhrase(p);
 
-    return SoriContentFeed(
+    return Semantics(
+      // finding 9: SoriContentFeed 의 onNext/onPrevious 는 세로 스와이프
+      // 전용이다 — grammar_screen.dart:861-885 와 같은 패턴으로 스크린
+      // 리더 전용 대체 액션을 얹는다. 화면엔 아무것도 그리지 않는다.
+      container: true,
+      customSemanticsActions: <CustomSemanticsAction, VoidCallback>{
+        if (widget.onPrevious != null)
+          CustomSemanticsAction(label: t.smalltalkPreviousPhrase):
+              widget.onPrevious!,
+        if (widget.onNext != null)
+          CustomSemanticsAction(label: t.smalltalkNextPhrase): widget.onNext!,
+      },
+      child: SoriContentFeed(
       judgmentsEnabled: true,
       skipEnabled: false,
       showShare: false,
@@ -791,6 +804,7 @@ class _PhraseCardState extends State<_PhraseCard> {
             );
           },
         ),
+      ),
       ),
     );
   }
