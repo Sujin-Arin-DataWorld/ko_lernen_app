@@ -1028,6 +1028,8 @@
   "contentActionLike": "Gefällt mir",
   "contentActionShare": "Teilen",
   "contentActionBookmark": "Merken",
+  "contentActionBookmarkSaved": "Gemerkt",
+  "contentActionBookmarkUnsaved": "Nicht gemerkt",
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {

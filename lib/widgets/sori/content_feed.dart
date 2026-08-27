@@ -378,9 +378,13 @@ class SoriContentActions extends StatelessWidget {
                     final saved =
                         bookmarked ||
                         (key != null && CustomPackService.containsKorean(key));
+                    final t = AppL10n.of(context);
                     return _Stamp(
                       name: 'save',
                       label: bookmarkLabel,
+                      value: saved
+                          ? t.contentActionBookmarkSaved
+                          : t.contentActionBookmarkUnsaved,
                       icon: saved
                           ? Icons.bookmark_rounded
                           : Icons.bookmark_border_rounded,
@@ -461,6 +465,7 @@ class _Stamp extends StatelessWidget {
   const _Stamp({
     required this.name,
     required this.label,
+    this.value,
     required this.icon,
     required this.color,
     required this.onTap,
@@ -468,6 +473,11 @@ class _Stamp extends StatelessWidget {
 
   final String name;
   final String label;
+
+  /// 상태별 안내(예: 담김/안 담김). null 이면 라벨만 읽힌다 — flip/share/like
+  /// 는 지금까지처럼 상태 없이 동작명만. 북마크만 값을 넘겨 상태를 함께
+  /// 읽어준다(지시서 1.24 검수 finding #1).
+  final String? value;
   final IconData icon;
   final Color color;
   final VoidCallback? onTap;
@@ -478,6 +488,7 @@ class _Stamp extends StatelessWidget {
       button: true,
       enabled: onTap != null,
       label: label,
+      value: value,
       onTap: onTap,
       child: ExcludeSemantics(
         child: SoriPressable(

@@ -1021,6 +1021,8 @@
   "contentActionLike": "Like",
   "contentActionShare": "Share",
   "contentActionBookmark": "Save",
+  "contentActionBookmarkSaved": "Saved",
+  "contentActionBookmarkUnsaved": "Not saved",
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {

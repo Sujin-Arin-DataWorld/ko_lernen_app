@@ -3577,6 +3577,18 @@ abstract class AppL10n {
   /// **'Merken'**
   String get contentActionBookmark;
 
+  /// No description provided for @contentActionBookmarkSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Gemerkt'**
+  String get contentActionBookmarkSaved;
+
+  /// No description provided for @contentActionBookmarkUnsaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht gemerkt'**
+  String get contentActionBookmarkUnsaved;
+
   /// No description provided for @contentShareBody.
   ///
   /// In de, this message translates to:

@@ -2038,6 +2038,12 @@ class AppL10nDe extends AppL10n {
   String get contentActionBookmark => 'Merken';
 
   @override
+  String get contentActionBookmarkSaved => 'Gemerkt';
+
+  @override
+  String get contentActionBookmarkUnsaved => 'Nicht gemerkt';
+
+  @override
   String contentShareBody(String korean, String gloss) {
     return '$korean\n$gloss\nhangul-sori.com';
   }

@@ -179,4 +179,51 @@ void main() {
     final icon = tester.widget<Icon>(find.byIcon(Icons.bookmark_rounded));
     expect(icon.color, isNot(SoriColors.like));
   });
+
+  testWidgets(
+    'bookmark stamp announces saved state, not just the static action name',
+    (tester) async {
+      // 지시서 1.24 검수 finding #1: AppBar 중복 버튼을 지우며 이 스탬프를
+      // 유일한 a11y 타깃으로 승격했으니, 담김 여부가 안내에 반영돼야 한다 —
+      // 라벨("Merken")만으로는 스크린 리더가 담긴 것과 안 담긴 것을 구분 못했다.
+      final semantics = tester.ensureSemantics();
+      final t = await AppL10n.delegate.load(const Locale('de'));
+
+      await tester.pumpWidget(
+        wrap(
+          SoriContentFeed(
+            onBookmark: () {},
+            bookmarked: false,
+            child: const SizedBox.expand(child: Text('한국말')),
+          ),
+        ),
+      );
+      final unsaved = tester
+          .getSemantics(find.bySemanticsLabel(t.contentActionBookmark))
+          .getSemanticsData();
+      expect(unsaved.label, t.contentActionBookmark, reason: '동작명은 그대로 유지');
+      expect(unsaved.value, t.contentActionBookmarkUnsaved);
+
+      await tester.pumpWidget(
+        wrap(
+          SoriContentFeed(
+            onBookmark: () {},
+            bookmarked: true,
+            child: const SizedBox.expand(child: Text('한국말')),
+          ),
+        ),
+      );
+      final saved = tester
+          .getSemantics(find.bySemanticsLabel(t.contentActionBookmark))
+          .getSemanticsData();
+      expect(saved.value, t.contentActionBookmarkSaved);
+      expect(
+        saved.value,
+        isNot(unsaved.value),
+        reason: '담김 전/후 안내가 달라야 한다 — 라벨이 같아도 값이 상태를 말해야 함',
+      );
+
+      semantics.dispose();
+    },
+  );
 }

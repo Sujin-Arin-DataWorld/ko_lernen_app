@@ -2030,6 +2030,12 @@ class AppL10nEn extends AppL10n {
   String get contentActionBookmark => 'Save';
 
   @override
+  String get contentActionBookmarkSaved => 'Saved';
+
+  @override
+  String get contentActionBookmarkUnsaved => 'Not saved';
+
+  @override
   String contentShareBody(String korean, String gloss) {
     return '$korean\n$gloss\nhangul-sori.com';
   }
