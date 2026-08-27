@@ -25,7 +25,7 @@
 
 1. `lib/widgets/sori/tokens.dart`: **T1 → T2** (T1이 `SoriLayout`, T2가 `SoriGaps` 추가 — 같은 파일 다른 클래스라도 diff 충돌 방지 위해 순차)
 2. `docs/CONTENT_UI_BIBLE.md`: **T1 → T2 → T3 → T4 → T5 → T8** (전부 이 문서에 절만 증보/한 줄 수정 — 병렬 편집 시 항상 충돌)
-3. `lib/widgets/sori/content_feed.dart`: **T8 → T12 → T14** (T8 북마크 색 한 줄 → T12 인디케이터 슬롯+더블탭 재스코프 → T14 물리 재작성. 역순 금지 — T14가 가장 큰 재작성이라 마지막)
+3. `lib/widgets/sori/content_feed.dart`: **T8 → T9 → T12 → T14** (T8 북마크 색 한 줄 → T9 `_Stamp` 44→48dp 승격 → T12 인디케이터 슬롯+더블탭 재스코프 → T14 물리 재작성. 역순 금지 — T14가 가장 큰 재작성이라 마지막)
 4. `lib/screens/review_session_screen.dart`: **T9 → T13** (T9가 중복 AppBar 액션 제거 → T13이 SoriSpeakable 배선)
 5. `lib/widgets/sori/hanok_tokens.dart`: T6만 수정. T7은 T6이 만든 `HanokLevelPalette.c1/c2`를 **읽기만** 하므로 파일 충돌은 없지만 T6 완료 후 시작할 것(값이 없으면 컴파일 실패).
 6. T3(`SoriChromeRow`+`SoriButton.loading`)과 T7(`SoriLevelFilterBar`)은 서로 다른 파일이라 병렬 가능하지만, 이 문서의 번호 순서(T3가 먼저)를 권장 — `SoriLayout.chromeRowHeight` 토큰(T1)을 T7도 재사용한다.
@@ -820,7 +820,7 @@ String _blankStringsAndComments(String src) {
   });
 ```
 
-- [ ] **Step 2: 실행 → ceiling 확정** — `flutter test test/typography_guard_test.dart`. 출력된 `total`을 `ceiling` 상수에 정확히 대입(최초 값이므로 어떤 수든 그게 기준선). 재실행 GREEN 확인. 기존 8개 테스트 전부 GREEN 유지 확인(새 테스트가 파일 안 헬퍼를 공유만 하고 기존 로직을 건드리지 않았는지).
+- [ ] **Step 2: 실행 → ceiling 확정** — `flutter test test/typography_guard_test.dart`. 출력된 `total`을 `ceiling` 상수에 정확히 대입(최초 값이므로 어떤 수든 그게 기준선). 재실행 GREEN 확인. 기존 9개 테스트(w900/w800/fontFamily 리터럴/화면 원시 TextStyle/BorderRadius.circular 리터럴/화면 원시 AppBar/ellipsis 금지/화면 원시 TextField/아이콘 SoriButton) 전부 GREEN 유지 확인(새 테스트가 파일 안 헬퍼를 공유만 하고 기존 로직을 건드리지 않았는지).
 - [ ] **Step 3: `flutter analyze` 0** 확인 후 커밋 — `git commit -m "test(typography-guard): fontSize 원시 리터럴 래칫 추가 (UIUX 바이블 §18)"`
 - [ ] **Step 4: `CONTENT_UI_BIBLE.md` §18 증보**:
 
@@ -963,6 +963,15 @@ String _blankStringsAndComments(String src) {
 /// | C2 자 | `#4A3D63` | 9.82:1 ✅ | 9.10:1 ✅ |
 ```
 
+클래스 dartdoc 상단의 경고 문장도 4색 기준 그대로 남아 있으면 거짓말이 된다 — `hanok_tokens.dart:117-119` 원문 "⚠️ **색만으로 서열을 전달하지 말 것.** 네 색의 상호 명도 대비는 1.02~1.34:1로, 색각 이상 사용자에게는 서열이 보이지 않는다. 반드시 [rankOf]가 주는 채움 도트(1~4개) 같은 **비색상 신호**를 함께 쓴다."를 6색 실측으로 재계산해 교체(WCAG 상대휘도 기준 재계산: 최솟값은 여전히 a1↔a2 쌍 ≈1.02:1로 불변, 최댓값은 a2↔c2 쌍 ≈2.02:1로 확대 — 인접 레벨(a1/a2, b1/b2 등)은 여전히 1.0~1.4:1 대역이라 도트 없이는 구분이 안 되는 결론 자체는 그대로다):
+
+```dart
+/// ⚠️ **색만으로 서열을 전달하지 말 것.** 여섯 색의 상호 명도 대비는
+/// 1.02~2.02:1로, 색각 이상 사용자에게는(특히 인접 레벨끼리는 1.0~1.4:1대라)
+/// 서열이 보이지 않는다. 반드시 [rankOf]가 주는 채움 도트(1~6개) 같은
+/// **비색상 신호**를 함께 쓴다.
+```
+
 - [ ] **Step 2: 온보딩 화면은 코드 변경 없음 확인** — `_RankDots`(`onboarding_level_screen.dart:736-769`)는 `for (var i = 1; i <= HanokLevelPalette.rankCount; i++)`로 이미 상수를 동적으로 읽는다. `_LevelCard`(:605-616)·`_CompareRow`(:982-991)의 Semantics 라벨도 `HanokLevelPalette.rankCount`를 보간한다. `grep -n "rankCount\|rankOf" lib/screens/onboarding_level_screen.dart`로 재확인만 하고 **이 파일은 수정하지 않는다**.
 - [ ] **Step 3: 골든 테스트에 C1/C2 추가** — `test/goldens/design_components_golden_test.dart:109-121`의 `Row` children을 확장:
 
@@ -1007,7 +1016,7 @@ String _blankStringsAndComments(String src) {
 - Produces: `SoriLevelFilterBar({selected, onChanged, allLabel, countFor})` + `static String resolveStartLevel()`(검수#5 "시작 레벨 소스 3종 단일화" — `Storage`의 3개 게터/세터 자체는 **읽기만**, 병합하지 않음).
 - Consumes: Task 6의 `HanokLevelPalette.c1/c2`.
 
-- [ ] **Step 1: 계약 테스트 베이스라인 확인(TDD 선행)** — `flutter test test/standard_surface_responsive_test.dart test/smalltalk_screen_ui_test.dart`로 현재 GREEN을 기록해 둔다. 이관 뒤 재실행해서 실패하면 (a) 값 계약(`minInteractiveHeight==48`, 라벨 `'C1 · '` 형식, `hasLength(LearnerLevel.values.length)`)은 **절대 안 바꾸고** (b) 셀렉터만 `find.descendant(of: find.byType(SoriLevelFilterBar), matching: find.byType(SoriChip))`처럼 새 위젯 트리에 맞게 좁힌다.
+- [ ] **Step 1: 계약 테스트를 먼저 읽고 단언을 설계 입력으로 못박는다(TDD 선행)** — `SoriLevelFilterBar`를 짜기 **전에** `test/standard_surface_responsive_test.dart:486-497`와 `test/smalltalk_screen_ui_test.dart:184-202`를 읽고 고정 계약 3가지를 못박는다: ① 각 레벨 칩의 `minInteractiveHeight == 48` ② 칩 라벨이 `'C1 · '`처럼 `'{표시} · {개수}'` 포맷(가운뎃점 앞뒤 공백 포함) ③ 렌더되는 레벨 칩 개수가 `LearnerLevel.values.length`(6)와 정확히 일치. 이 세 값이 Step 2 컴포넌트 설계의 **입력**이다 — 먼저 구현하고 나서 우연히 맞는지 확인하는 순서가 아니라, 이 값을 만족하도록 처음부터 짠다. `flutter test test/standard_surface_responsive_test.dart test/smalltalk_screen_ui_test.dart`로 현재 GREEN도 함께 기록해 둔다(이관 뒤 회귀 비교용). 이관 뒤 재실행해서 실패하면 (a) 위 세 계약값은 **절대 안 바꾸고** (b) 셀렉터만 `find.descendant(of: find.byType(SoriLevelFilterBar), matching: find.byType(SoriChip))`처럼 새 위젯 트리에 맞게 좁힌다.
 
 - [ ] **Step 2: `SoriLevelFilterBar` 작성**:
 
@@ -1184,7 +1193,7 @@ class _SoriLevelFilterBarState extends State<SoriLevelFilterBar> {
 
 `_levelChip`(:481-491)과 그 dartdoc 주석은 삭제(더 이상 호출되지 않음). `_setLevel`은 기존 그대로 유지(시그니처 `void _setLevel(String? lvl)`인지 확인 — `onChanged: (lvl) => _setLevel(lvl)` 대신 `onChanged: _setLevel`로 직접 넘겨도 되면 그렇게 축약).
 
-- [ ] **Step 4: listening_screen.dart 이관** — `:283-299`의 `Wrap(...)` 블록을 교체:
+- [ ] **Step 4: listening_screen.dart 이관** — `:283-299`의 `Wrap(...)` 블록을 교체. **의도된 시각 변경 1건**: 이 화면의 기존 칩은 `SoriChipVariant.filled`(진한 채움, :294)였는데 `SoriLevelFilterBar`는 내부적으로 `SoriChipVariant.soft`(옅은 틴트, smalltalk 기존 관례와 동일)만 쓴다. variant를 파라미터로 열어 두면 "13곳 통일"이 다시 13개의 옵션으로 쪼개지므로 — **soft로 강제 통일하고, filled는 레벨 필터에서 은퇴시키는 쪽으로 결정한다.** 이 화면의 관련 골든/스크린샷이 있으면 톤 변화를 함께 확인:
 
 ```dart
                   Text(t.filterLevel, style: SoriTextTheme.of(context).label),
@@ -1265,34 +1274,82 @@ class _SoriLevelFilterBarState extends State<SoriLevelFilterBar> {
 
 ---
 
-### Task 9: 중복 AppBar 북마크 제거 — review/vocab_pack (지시서 1.24)
+### Task 9: 피드 북마크 스탬프 48dp 승격 + 중복 AppBar 북마크 제거 — review/vocab_pack (지시서 1.24, 검수 (a)(b)(c) 반영)
 
 **Files:**
-- Modify: `lib/screens/review_session_screen.dart:290-303` (AppBar `actions`에서 `AddToWordbookButton` 제거)
-- Modify: `lib/screens/vocab_pack_screen.dart:870-885` (동일 + import 정리)
+- Modify: `lib/widgets/sori/content_feed.dart:486-493` (`_Stamp` 터치 타깃 44→48dp)
+- Modify: `lib/screens/review_session_screen.dart:170-171,290-304` (AppBar `actions`에서 `AddToWordbookButton` 제거 + 이제 사실과 다른 "접근성 정본" 주석 삭제. **import `:34`는 유지** — 근거 Step 3)
+- Modify: `lib/screens/vocab_pack_screen.dart:860-862,870-886` (동일 + 미사용 `addable` 지역 변수 삭제. **import `:48`는 유지** — 근거 Step 4)
 
 **Interfaces:**
-- Consumes: 두 화면 모두 `SoriContentFeed(onBookmark: _saveCurrent, bookmarkKey: ...)`를 이미 배선(review:538-539, vocab_pack:956-957) — 피드 하단 북마크 스탬프가 이미 동작하므로 AppBar 쪽은 순수 중복.
+- Consumes: 두 화면 모두 `SoriContentFeed(onBookmark: _saveCurrent, bookmarkKey: ...)`를 이미 배선(review:538-539, vocab_pack:956-957) — 피드 하단 북마크 스탬프가 이미 같은 동작을 한다. **단 지금은 그 스탬프가 44dp라 ≥48dp 터치 타깃 기준에 미달** — 검수 (a)(b): 지우기 전에 먼저 올린다. 중복 UI를 접근성 크러치로 남겨 두지 않는다(지시서 1.24는 중복 자체의 제거를 요구한다).
 
-- [ ] **Step 1: review_session_screen.dart 수정** — `:290-303`의 `actions:` 리스트에서 `AddToWordbookButton(...)` 블록(주석 "오늘의 복습 카드를 바로 내 단어장에 담기" 포함)을 삭제, `TtsSpeedAction()`만 남긴다:
+- [ ] **Step 1: 피드 스탬프가 진짜 a11y 타깃인지 증거로 검증** — `content_feed.dart:475-497`의 `_Stamp` 전체 인용:
+
+```dart
+  @override
+  Widget build(BuildContext context) {
+    return Semantics(
+      button: true,
+      enabled: onTap != null,
+      label: label,
+      onTap: onTap,
+      child: ExcludeSemantics(
+        child: SoriPressable(
+          onTap: onTap,
+          haptic: SoriHaptic.selection,
+          child: Container(
+            key: deckActionKey(name),
+            width: 44,
+            height: 44,
+            alignment: Alignment.center,
+            child: Icon(icon, size: 22, color: color),
+          ),
+        ),
+      ),
+    );
+  }
+```
+
+판정: `Semantics(button: true, label: label, onTap: onTap)` — **라벨·역할은 충족**. `width: 44, height: 44` — **터치 타깃 44dp, ≥48dp 기준 미달**. 검수 (b) 규칙대로: 삭제보다 먼저 이 스탬프를 48dp로 올린다.
+
+- [ ] **Step 2: `_Stamp`를 48dp로 승격** — `content_feed.dart`의 해당 `Container(...)`를:
+
+```dart
+          child: Container(
+            key: deckActionKey(name),
+            width: 48,
+            height: 48,
+            alignment: Alignment.center,
+            child: Icon(icon, size: 22, color: color),
+          ),
+```
+
+`_Stamp`를 쓰는 4개 아이콘(flip/share/like/bookmark) 전부에 균일 적용 — 북마크만 커지는 비대칭을 피한다. 사전 확인: `grep -n "44" test/content_feed_test.dart test/smalltalk_screen_ui_test.dart test/deck_action_bar_test.dart` — 전부 `Size(390, 844)` 류의 무관한 뷰포트 리터럴만 걸리고 `_Stamp` 크기를 44로 못박은 어서션은 없다(`deck_action_bar_test.dart`는 애초 `_Stamp`를 참조하지 않는 별개 위젯 `SoriDeckActionBar`의 테스트). `flutter test test/content_feed_test.dart` GREEN(기존 6개 전부) 확인.
+
+- [ ] **Step 3: review_session_screen.dart 수정** — `:290-304`의 `actions:` 리스트에서 `AddToWordbookButton(...)` 블록을 삭제, `TtsSpeedAction()`만 남긴다:
 
 ```dart
       actions: const [TtsSpeedAction()],
 ```
 
-이 파일의 `AddToWordbookButton` 참조가 다른 곳(카드 내부)에 1곳 더 있으므로(`grep -c` 결과 2) import는 그대로 둔다.
+`:170-171`의 이제 사실과 다른 주석("AppBar 의 [AddToWordbookButton] 이 접근성 정본이고 ↑ 는 같은 동작의 가속 경로")도 함께 삭제 — Step 2로 그 역할이 피드 스탬프로 넘어갔다.
 
-- [ ] **Step 2: vocab_pack_screen.dart 수정** — `:870-885`의 `actions:`에서 동일하게 `AddToWordbookButton(...)` 블록을 삭제:
+**`:34`의 `import '../widgets/sori/wordbook_add.dart';`는 그대로 둔다 — 삭제하면 `flutter analyze` 경고가 아니라 컴파일 에러가 난다.** 실측(`grep -n "addToWordbook\|AddToWordbookButton" lib/screens/review_session_screen.dart`): `:170`(주석, 삭제 대상) · `:178`(`addToWordbook(` **함수** 호출, 삭제 대상 아님) · `:293`(`AddToWordbookButton(` **위젯**, 삭제 대상). `_saveCurrent()`(:172-189 — `SoriContentFeed(onBookmark:)`가 실제로 부르는 콜백, 즉 Step 2로 승격한 피드 스탬프의 핸들러 그 자체)가 같은 파일의 `addToWordbook(...)` 함수를 :178에서 호출한다. 위젯 클래스 참조는 0이 되지만 함수 참조가 남아 import는 여전히 쓰인다 — `AGENTS.md` 파일맵도 `wordbook_add.dart`를 review 화면을 포함한 6개 호출처의 소스로 명시한다. (검수 요구 (c)는 "미사용 import 삭제"였으나, `addToWordbook()` 함수 호출을 반영하지 못한 전제였다 — 여기서 정정한다. 삭제 대상은 :170-171 주석뿐이다.)
+
+- [ ] **Step 4: vocab_pack_screen.dart 수정** — `:870-886`의 `actions:`에서 동일하게 `AddToWordbookButton(...)` 블록을 삭제:
 
 ```dart
       actions: const [TtsSpeedAction()],
 ```
 
-이 파일은 `AddToWordbookButton`이 이 1곳뿐이었으므로(`grep -c` 결과 1) `lib/screens/vocab_pack_screen.dart:48`의 `import '../widgets/sori/wordbook_add.dart';`도 함께 삭제(안 그러면 `flutter analyze`가 unused_import를 잡는다). `addable`/`_currentLearn`/`_currentQuiz` 지역 변수가 이 삭제로 미사용이 되면 함께 정리.
+`:860-862`의 `final Vocab? addable = _stage == _Stage.learn ? _currentLearn : _currentQuiz;`는 그 위젯 조건문(`if (addable != null)`)에만 쓰였으므로 이 삭제로 미사용이 된다 — **함께 삭제**. `_currentLearn`/`_currentQuiz` 자체는 `_saveCurrent()`(:416-435)와 다른 곳에서 계속 쓰이므로 그대로 둔다.
 
-- [ ] **Step 3: 검증** — `grep -c "AddToWordbookButton" lib/screens/vocab_pack_screen.dart`가 0인지 확인. `flutter analyze` 0(특히 unused_import/unused_local_variable).
-- [ ] **Step 4: 회귀 테스트** — `flutter test` 중 review_session/vocab_pack 관련 위젯 테스트(`grep -rl "ReviewSessionScreen\|VocabPackScreen" test/` 로 찾은 파일) GREEN. AppBar에 `AddToWordbookButton`을 `find`하던 기존 테스트가 있으면 그 부분만 삭제(카드 내부의 남은 버튼 어서션은 유지).
-- [ ] **Step 5: 커밵** — `git commit -m "fix(ui): review/vocab_pack AppBar 중복 북마크 버튼 제거 — 피드 하단 스탬프가 이미 대체 (지시서 1.24)"`
+**`:48`의 import도 그대로 둔다 — 같은 이유.** 실측(`grep -n "addToWordbook\|AddToWordbookButton" lib/screens/vocab_pack_screen.dart`): `:422`(`addToWordbook(` 함수 호출, `_saveCurrent()` 안 — 삭제 대상 아님) · `:872`(`AddToWordbookButton(` 위젯, 삭제 대상). **이 태스크의 최초 초안은 "vocab_pack_screen.dart는 위젯이 유일한 참조라 import를 지운다"고 썼는데, 그 초안도 같은 :422 함수 호출을 놓친 오류였다 — 정정한다.**
+
+- [ ] **Step 5: 검증** — `grep -n "AddToWordbookButton" lib/screens/review_session_screen.dart lib/screens/vocab_pack_screen.dart`가 둘 다 0건인지 확인(위젯 클래스 참조 — 함수 `addToWordbook(` 호출은 각 파일에 1건씩 남아야 정상, 그게 그대로 남아 있는지도 확인). `flutter analyze` 0 — 특히 unused_import가 뜬다면 위 근거가 어딘가 틀렸다는 신호이니 재조사할 것.
+- [ ] **Step 6: 회귀 테스트** — `flutter test` 중 review_session/vocab_pack/content_feed 관련 위젯 테스트 전체 GREEN. AppBar에서 `AddToWordbookButton`을 `find`하던 기존 테스트가 있으면 그 부분만 삭제(카드 내부·피드 스탬프 어서션은 유지).
+- [ ] **Step 7: 커밋** — `git commit -m "fix(a11y): 피드 북마크 스탬프 48dp 승격 후 AppBar 중복 버튼 제거 — review/vocab_pack (지시서 1.24)"`
 
 ---
 
@@ -2209,11 +2266,11 @@ class _SoriContentFeedState extends State<SoriContentFeed>
 2. 오디오 전역화 — speakable.dart 4개 컴포넌트 T12, 검수#13 다섯 항목 전부 반영(①더블탭 재스코프 T12 Step1 ②soriRouteObserver+stop T12 Step2 `ContentSpeechController` ③150-250ms 디바운스 T12 Step2 `playOnEnter` ④세대 토큰 `_generation` ⑤`SoriSpeech` 공유 in-flight 맵). 가드 T11(RED)→T12(GREEN) TDD 순서. 표면 1곳(review_session) T13, 나머지 6곳 W5 명시.
 3. 레벨 필터바 — 검수#5(44/48, 계약 테스트 2종 우선 재실행) T7, 검수#8(색+서열 동시, 온보딩 골든 재기준) T6. 시작 레벨 단일화는 읽기전용 판정 함수로, Storage 3게터는 불가침. 2곳(smalltalk+listening) 이관, 11곳 W5.
 4. 피드 물리 — 검수#1(이중 경로, legacy 기본) T14. 감쇠 1:1, AnimationController 120-220ms, 언더레이 오퍼시티 램프, 오버스크롤 핸드오프(48px 소프트 캡으로 명시적으로 스코프 축소 — 아래 참고), reduce-motion 즉시, 88px/850 유지. 검수#17(히스토리+양방향 이전, 필터 위치 보존) T15.
-5. 홈 이스케이프 해치 + 하트/보관 분리 — SoriHomeAction T10(kkeunmari 배선, 나머지 W5), 북마크 색 분리+바이블 §12 T8, 중복 AppBar 제거 T9.
+5. 홈 이스케이프 해치 + 하트/보관 분리 — SoriHomeAction T10(kkeunmari 배선, 나머지 W5), 북마크 색 분리+바이블 §12 T8, 피드 스탬프 48dp 승격 후 중복 AppBar 제거 T9(검수 재검토로 두 화면 모두 `wordbook_add.dart` import는 실제로는 유지가 맞다고 정정 — Task 9 참조).
 
 **플레이스홀더 점검:** 모든 신규 파일에 실제 동작하는 Dart 코드 작성(TBD 없음). 가드 4종의 숫자 상한만 "첫 실행 실측값으로 교체"로 열어뒀는데, 이는 `typography_guard_test.dart`의 기존 관례(각 test에 "기준선 YYYY-MM-DD: N곳" 주석 누적)와 W1 플랜 Task 1의 `knownUnsyncedCap`(첫 실행 후 실측값으로 고정) 선례를 그대로 따른 것 — 코드/로직은 완성돼 있고 숫자만 실측을 기다린다.
 
-**시그니처 일관성 확인:** `SoriContentFeed`에 Task 12(`topAccessory`)와 Task 14(`physics`)가 각각 새 named 파라미터를 추가하는데 둘 다 옵션+기본값이라 서로 충돌하지 않음(Step에서 순서 T8→T12→T14 강제). `SoriStudyFrame(hero:)`·`SoriButton(loading:)`도 전부 옵션 파라미터로 기존 콜러 트리 불변 확인.
+**시그니처 일관성 확인:** `SoriContentFeed`에 Task 12(`topAccessory`)와 Task 14(`physics`)가 각각 새 named 파라미터를 추가하는데 둘 다 옵션+기본값이라 서로 충돌하지 않음(Step에서 순서 T8→T9→T12→T14 강제 — T9가 `_Stamp` 44→48dp 승격으로 이 파일 세 번째 접점에 추가됨). `SoriStudyFrame(hero:)`·`SoriButton(loading:)`도 전부 옵션 파라미터로 기존 콜러 트리 불변 확인.
 
 **자기검수 중 발견해 수정한 것 3건:**
 1. `SoriLevelFilterBar`를 처음에는 `SoriChromeRow`와 같은 `OverflowBox`(44dp 시각/48dp 터치) 기법으로 설계했으나, 가로 `ListView`(`Viewport`) 안에서는 기본 `clipBehavior`가 오버플로를 도로 잘라 터치 영역이 44로 줄어드는 것을 확인 — 스캐폴딩 높이를 48로 통일하고 "44dp 시각"은 칩 자체의 얇은 필 형태로 만족하는 쪽으로 변경(Task 7·Task 3 dartdoc에 근거 명시).
@@ -2222,9 +2279,15 @@ class _SoriContentFeedState extends State<SoriContentFeed>
 
 **정직하게 축소 고지:** 검수#1의 "오버스크롤 48px 핸드오프"는 전체 중첩 스크롤 제스처 아레나 조정이 아니라, 갈 곳 없는 방향으로 88+48px 이상 당겨지지 않게 막는 소프트 캡으로 구현 범위를 좁혔다(Task 14 Step 2 dartdoc/주석에 명시). 실기기에서 안쪽 스크롤 콘텐츠와의 완전한 제스처 중재가 더 필요하면 W5 실기기 QA 이후 별도 보강.
 
-**W5로 명시 이월한 항목:**
-- 오디오: 나머지 6개 표면(vocab_pack/legacy_vocab/custom_pack_play/hangul/grammar/smalltalk) + 비플립 표면(quest/cloze/scenario) 전체, `level_filter_guard`(레벨바 채택률이 낮은 지금은 래칫이 무의미해 이관 완료 후 신설).
-- 레벨바: 나머지 11곳(chosung/cloze/speed_match/grammar 등), §19 이행표 자체(화면별 크롬 축소).
-- 피드 물리: `snap`을 실제 화면 기본값으로 전환 + legacy 코드 삭제(실기기 QA 게이트 통과 후 별도 PR).
-- 홈 이스케이프 해치: kkeunmari 외 나머지 화면(scenario_player 등 이미 자체 close 버튼이 있는 화면은 그 버튼과의 관계를 화면별로 개별 검토 필요).
-- hero_placement_guard 4곳(chosung/hangul/legacy_vocab/kkeunmari) 실제 히어로 제거.
+---
+
+## W5 필수 이행 목록 (계약)
+
+W3/W5 분할(인프라는 W3, 기계적 롤아웃은 W5)은 **승인된 설계이지 임의 유예가 아니다.** 전체 계획(W1-W6)은 이미 "계획 전체 완주, W5까지" 승인을 받았다 — 아래 항목은 W5 플랜이 **반드시 명시 태스크로 포함**해야 하는 계약이며, 재승인을 기다리는 항목이 아니다.
+
+1. **레벨 필터바 잔여 이관 + `level_filter_guard`** — 13곳 중 W3에서 이관한 2곳(smalltalk/listening)을 뺀 나머지 11곳(chosung_quiz/cloze/speed_match/grammar 등, 마스터플랜 "13곳 이관" 대상) 전부를 `SoriLevelFilterBar`로 이관. `level_filter_guard`는 이관이 대부분 끝나야 래칫이 의미가 있으므로 W3에 만들지 않았다 — 그 사실 자체가 W5에서 이관과 함께(또는 직후) 반드시 신설해야 한다는 뜻이지, 영구 보류의 근거가 아니다.
+2. **오디오 표면 잔여 롤아웃** — speakable.dart 7단계 롤아웃 중 W3에서 배선한 1곳(review_session)을 뺀 나머지 6개 플립 표면(vocab_pack/legacy_vocab/custom_pack_play/hangul/grammar/smalltalk) + 비플립 표면(quest/cloze/scenario) 전체.
+3. **`/review` onPrevious 배선(재출제 동적 덱 검증 포함)** — grammar_screen과 같은 아래 플링=이전 카드를 review_session_screen.dart에도 배선한다. **다만 review 덱은 grammar 와 달리 SRS 재출제로 세션 도중 동적으로 재구성된다**(오답 카드가 뒤로 재삽입돼 순서가 바뀐다) — grammar_screen.dart의 "현재 항목 id를 새 목록에서 다시 찾는" 패턴을 그대로 복붙하면, 재출제 직후의 "이전"이 사용자가 실제로 본 카드와 다를 위험이 있다. W5 태스크는 이 재출제 상호작용을 먼저 재현·검증한 뒤(예: 단순 `idx--`로 충분한지, 아니면 실제로 본 카드의 별도 이력이 필요한지 확인) 구현 방식을 정한다.
+4. **`FeedPhysics.snap` 기본 전환 + legacy 삭제** — 실기기 QA 게이트(콜드스타트·10분 세션 ANR 0·4방향 손맛 등, 마스터플랜 "검증" 항목) 통과 후 화면 단위로 `physics: FeedPhysics.snap`을 기본값으로 승격하고, legacy 분기를 삭제하는 별도 PR.
+5. **홈 이스케이프 해치 잔여 화면** — kkeunmari 외 전체. `scenario_player_screen.dart`처럼 이미 자체 `leading`(`_buildCloseButton()` 등)이 있는 화면은 그 버튼을 `SoriHomeAction`으로 대체할지 병존시킬지 화면별로 판정해 기록한다.
+6. **`hero_placement_guard` 유예 4화면의 실제 히어로 제거(§19)** — chosung_quiz_screen/hangul_screen/legacy_vocab_screen/kkeunmari_screen에서 `HanokHeader`를 제거하고 그랜드파더 allowlist를 4→0으로 좁힌다.
