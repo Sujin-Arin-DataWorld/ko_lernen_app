@@ -39,6 +39,11 @@ class SoriButton extends StatelessWidget {
   final bool fullWidth;
   final bool destructive; // danger color 강제
 
+  /// true면 탭을 막고 라벨 자리에 회전 인디케이터를 보인다 — 비동기 액션
+  /// 중복 탭 방지용. 색·배경은 평소 활성 스타일 그대로다(회색 disabled와
+  /// 구분 — "처리 중"이지 "못 누름"이 아니다).
+  final bool loading;
+
   const SoriButton({
     super.key,
     required this.label,
@@ -52,6 +57,7 @@ class SoriButton extends StatelessWidget {
     this.fullWidth = false,
     this.destructive = false,
     this.maxLines,
+    this.loading = false,
   }) : assert(maxLines == null || maxLines > 0);
 
   const SoriButton.filled({
@@ -66,6 +72,7 @@ class SoriButton extends StatelessWidget {
     this.fullWidth = false,
     this.destructive = false,
     this.maxLines,
+    this.loading = false,
   }) : variant = SoriButtonVariant.filled,
        assert(maxLines == null || maxLines > 0);
 
@@ -81,6 +88,7 @@ class SoriButton extends StatelessWidget {
     this.fullWidth = false,
     this.destructive = false,
     this.maxLines,
+    this.loading = false,
   }) : variant = SoriButtonVariant.outlined,
        assert(maxLines == null || maxLines > 0);
 
@@ -96,6 +104,7 @@ class SoriButton extends StatelessWidget {
     this.fullWidth = false,
     this.destructive = false,
     this.maxLines,
+    this.loading = false,
   }) : variant = SoriButtonVariant.ghost,
        assert(maxLines == null || maxLines > 0);
 
@@ -177,54 +186,64 @@ class SoriButton extends StatelessWidget {
       ),
     };
 
-    final content = Row(
-      mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        if (icon != null) ...[
-          Icon(icon, size: visualFontSize + 3 * comfortScale, color: fg),
-          SizedBox(width: Spacing.sm * comfortScale),
-        ],
-        Flexible(
-          // 좁은 폭에서 라벨을 잘라내지(ellipsis) 않고 살짝 축소해 전체 단어를
-          // 보존한다(단일 라인 한정). 독일어처럼 긴 라벨이 고정폭 버튼(균등 1/3
-          // nav 행 등)에서 "Zurü…"로 잘리던 문제를 근본 해결 — 여유 있으면
-          // scaleDown 이 자연 크기를 그대로 두므로 기존 버튼은 시각 불변.
-          child: () {
-            final text = ExcludeSemantics(
-              child: Text(
-                label,
-                maxLines: maxLines,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: SoriFonts.sans,
-                  color: fg,
-                  fontWeight: FontWeight.w700,
-                  fontSize: visualFontSize,
-                  letterSpacing: -0.2,
-                  height: 1.2,
-                ),
+    final content = loading
+        ? SizedBox(
+            width: visualFontSize,
+            height: visualFontSize,
+            child: CircularProgressIndicator(
+              strokeWidth: 2,
+              valueColor: AlwaysStoppedAnimation<Color>(fg),
+            ),
+          )
+        : Row(
+            mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (icon != null) ...[
+                Icon(icon, size: visualFontSize + 3 * comfortScale, color: fg),
+                SizedBox(width: Spacing.sm * comfortScale),
+              ],
+              Flexible(
+                // 좁은 폭에서 라벨을 잘라내지(ellipsis) 않고 살짝 축소해 전체
+                // 단어를 보존한다(단일 라인 한정). 독일어처럼 긴 라벨이
+                // 고정폭 버튼(균등 1/3 nav 행 등)에서 "Zurü…"로 잘리던 문제를
+                // 근본 해결 — 여유 있으면 scaleDown 이 자연 크기를 그대로
+                // 두므로 기존 버튼은 시각 불변.
+                child: () {
+                  final text = ExcludeSemantics(
+                    child: Text(
+                      label,
+                      maxLines: maxLines,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontFamily: SoriFonts.sans,
+                        color: fg,
+                        fontWeight: FontWeight.w700,
+                        fontSize: visualFontSize,
+                        letterSpacing: -0.2,
+                        height: 1.2,
+                      ),
+                    ),
+                  );
+                  return maxLines == 1
+                      ? FittedBox(
+                          fit: BoxFit.scaleDown,
+                          alignment: Alignment.center,
+                          child: text,
+                        )
+                      : text;
+                }(),
               ),
-            );
-            return maxLines == 1
-                ? FittedBox(
-                    fit: BoxFit.scaleDown,
-                    alignment: Alignment.center,
-                    child: text,
-                  )
-                : text;
-          }(),
-        ),
-        if (trailingIcon != null) ...[
-          SizedBox(width: Spacing.sm * comfortScale),
-          Icon(
-            trailingIcon,
-            size: visualFontSize + 3 * comfortScale,
-            color: fg,
-          ),
-        ],
-      ],
-    );
+              if (trailingIcon != null) ...[
+                SizedBox(width: Spacing.sm * comfortScale),
+                Icon(
+                  trailingIcon,
+                  size: visualFontSize + 3 * comfortScale,
+                  color: fg,
+                ),
+              ],
+            ],
+          );
 
     final box = Container(
       constraints: BoxConstraints(minHeight: visualHeight),
@@ -259,7 +278,7 @@ class SoriButton extends StatelessWidget {
       enabled: true,
       label: semanticLabel ?? label,
       child: SoriPressable(
-        onTap: onTap,
+        onTap: loading ? null : onTap,
         haptic: variant == SoriButtonVariant.filled
             ? SoriHaptic.light
             : SoriHaptic.selection,

@@ -580,3 +580,19 @@ ui-ux-pro-max `favorites bookmark` 검색은 칩 리플로우만 나와 매칭 �
 
 그리드 밖(0/4/8/12/16/24/32/48 이외) 숫자 리터럴은 신규 0 —
 `spacing_literal_guard_test.dart`가 강제한다(기준선 181, 하향만).
+
+---
+
+## §17. 타입·컨트롤·상태
+
+- **역할 스케일** — `SoriTextTheme` 정본. 인터랙티브 라벨 ≥13, 선택지 타일
+  ≥16(지시서 4.12).
+- **`SoriChromeRow`(`widgets/sori/chrome_row.dart`)** — 앱바 아래 단 1줄:
+  leading 필터 아이콘(탭 → 필터 시트, 레벨 필 전부를 시트 안으로) · center
+  진행 메타 · trailing TTS 배속 1개. **Wrap 칩 줄 스택 금지** —
+  `chrome_stack_guard_test.dart`가 화면당 1블록으로 강제한다.
+- **상태** — `SoriPressable`(0.96 스케일, tap-down 150ms ease-out / tap-up
+  250ms elasticOut)이 모든 탭 요소의 정본 눌림 상태다(추가 코드 변경 없음 —
+  기존 구현이 이미 이 스펙과 일치, §17이 문서로 고정). `SoriButton(loading:)`
+  신설 — 비동기 액션 중 탭 차단+회전 인디케이터, 색은 평소 활성 스타일 유지.
+  `InkWell` 리플 신규 금지(`chrome_stack_guard_test.dart` 래칫).
