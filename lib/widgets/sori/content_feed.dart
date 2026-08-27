@@ -23,6 +23,7 @@ class SoriContentFeed extends StatefulWidget {
     super.key,
     required this.child,
     this.underlay,
+    this.topAccessory, // NEW
     this.flipHintTrigger,
     this.judgmentsEnabled = true,
     this.onBlockedJudgment,
@@ -53,6 +54,11 @@ class SoriContentFeed extends StatefulWidget {
 
   final Widget child;
   final Widget? underlay;
+
+  /// 카드 좌상단에 얹는 보조 컨트롤 — `SoriSpeechIndicator` 전용 자리.
+  /// 배경 더블탭 Listener 의 **형제**로 얹히므로 이 위젯을 탭해도 좋아요
+  /// 더블탭 카운터가 같이 올라가지 않는다(검수#13①).
+  final Widget? topAccessory;
   final ValueNotifier<int>? flipHintTrigger;
   final bool judgmentsEnabled;
   final VoidCallback? onBlockedJudgment;
@@ -218,6 +224,11 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
             children: [
               if (widget.underlay != null)
                 Opacity(opacity: 0.18, child: widget.underlay),
+              // 카드 배경 — 더블탭(좋아요)+세로 드래그 판정은 이 레이어
+              // 하나뿐이다. topAccessory(스피치 인디케이터)는 이 아래
+              // Stack 형제로 얹히므로, 그 작은 사각형을 탭하면 Flutter
+              // 히트테스트가 거기서 멈추고 이 Listener 는 그 포인터를
+              // 아예 보지 않는다(검수#13①).
               Listener(
                 onPointerUp: _onPointerUp,
                 child: GestureDetector(
@@ -230,6 +241,12 @@ class _SoriContentFeedState extends State<SoriContentFeed> {
                   ),
                 ),
               ),
+              if (widget.topAccessory != null)
+                Positioned(
+                  top: Spacing.sm,
+                  left: Spacing.sm,
+                  child: widget.topAccessory!,
+                ),
               if (widget.flipHintTrigger != null)
                 Positioned(
                   top: Spacing.sm,
