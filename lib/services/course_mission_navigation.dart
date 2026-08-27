@@ -1,6 +1,9 @@
+import '../models/course_mastery.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 import '../models/vocab_pack.dart';
+import 'course_progress_service.dart';
+import 'curriculum_catalog.dart';
 import 'vocab_pack_service.dart';
 
 const String courseReassessmentRoute = '/course/reassessment';
@@ -213,6 +216,53 @@ Future<CourseMissionDestination?> directDestinationForCourseLink(
       courseContext: CoursePracticeContext.fromLink(link),
     ),
   );
+}
+
+/// 실행 진입 지점(시나리오 리스트/추천/반복)에서 컨텍스트 없이 열린 시나리오가
+/// 지금 활성 코스 유닛의 체크포인트라면, 그 컨텍스트를 자동으로 유도한다.
+///
+/// **course_mastery_service.dart 의 courseEligible 판정 로직은 여기서
+/// 절대 복제하지 않는다** — `recordScenarioCheckpoint` 내부의 activeCheckpoint
+/// 술어를 그대로 미러링해 "이 시나리오가 활성 유닛의 선언된 체크포인트 링크와
+/// 정확히 일치하는가"만 판정한다. 실제 courseEligible 부여는 여전히 그 서비스
+/// 내부에서만 일어난다(계약 동결: course_mastery_test.dart:398-425).
+Future<CoursePracticeContext?> activeScenarioCheckpointContext(
+  String scenarioId, {
+  CurriculumCatalog? catalog,
+  CourseMasterySnapshot? snapshot,
+}) async {
+  final normalizedScenarioId = scenarioId.trim();
+  if (normalizedScenarioId.isEmpty) {
+    return null;
+  }
+  final resolvedCatalog = catalog ?? await CurriculumCatalog.load();
+  if (resolvedCatalog.validationIssues.isNotEmpty) {
+    return null;
+  }
+  final resolvedSnapshot =
+      snapshot ?? await CourseProgressService.shared.readForDisplay();
+  final activeUnitId = resolvedSnapshot?.currentCourseUnitId;
+  if (activeUnitId == null) {
+    return null;
+  }
+  final activeUnit = resolvedCatalog.courseUnitFor(activeUnitId);
+  if (activeUnit == null) {
+    return null;
+  }
+  final links = resolvedCatalog.linksForContent(
+    CurriculumContentKind.scenario,
+    normalizedScenarioId,
+  );
+  ContentLink? match;
+  for (final link in links) {
+    if (link.courseUnitId == activeUnit.id &&
+        activeUnit.checkpointContentIds.contains(link.contentKey) &&
+        link.exactlyAssesses(activeUnit)) {
+      match = link;
+      break;
+    }
+  }
+  return match == null ? null : CoursePracticeContext.fromLink(match);
 }
 
 String _requiredReassessmentId(String value, String field) {
