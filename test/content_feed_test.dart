@@ -5,6 +5,7 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -161,5 +162,21 @@ void main() {
       expect(text.overflow, isNull);
     }
     expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('bookmark stamp stays ink-colored even when saved (not accent)', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      wrap(
+        SoriContentFeed(
+          onBookmark: () {},
+          bookmarked: true,
+          child: const SizedBox.expand(child: Text('한국말')),
+        ),
+      ),
+    );
+    final icon = tester.widget<Icon>(find.byIcon(Icons.bookmark_rounded));
+    expect(icon.color, isNot(SoriColors.like));
   });
 }

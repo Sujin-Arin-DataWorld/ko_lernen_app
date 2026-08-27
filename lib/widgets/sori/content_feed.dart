@@ -384,7 +384,7 @@ class SoriContentActions extends StatelessWidget {
                       icon: saved
                           ? Icons.bookmark_rounded
                           : Icons.bookmark_border_rounded,
-                      color: saved ? SoriColors.like : s.text,
+                      color: s.text,
                       onTap: onBookmark,
                     );
                   },
