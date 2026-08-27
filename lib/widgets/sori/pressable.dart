@@ -156,12 +156,13 @@ class _SoriPressableState extends State<SoriPressable>
           // 하나만 있어도 true) 라서 그런 위젯도 Tab 포커스는 받는다.
           // 키보드엔 "누르고 있기"에 대응하는 제스처가 없으므로, 유일한
           // 액션인 onLongPress 를 Enter/Space 의 활성화 대상으로 쓴다.
+          // (post-review) 위에서 이미 `!enabled` 면 리턴했으므로 여기 온
+          // 시점엔 onTap/onLongPress 중 하나는 반드시 non-null 이다 —
+          // 셋 다 null 인 else 가지는 죽은 코드였다.
           if (widget.onTap != null) {
             _onTap();
-          } else if (widget.onLongPress != null) {
-            _onLongPress();
           } else {
-            return KeyEventResult.ignored;
+            _onLongPress();
           }
           return KeyEventResult.handled;
         }

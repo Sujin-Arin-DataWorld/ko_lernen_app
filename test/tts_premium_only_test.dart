@@ -147,6 +147,68 @@ void main() {
       );
     });
 
+    test(
+      '재생 단계 실패(해석은 성공)는 errorReporter 만 타고 onResolutionFailed 는 안 탄다 (post-review)',
+      () async {
+        final generalErrors = <String>[];
+        final resolutionErrors = <String>[];
+        final engine = TtsPlaybackEngine(
+          resolveAudio: (text, voice) async =>
+              const TtsAudio.path('/tmp/ok.mp3'),
+          platform: const _ThrowingStartPlatform(),
+          errorReporter: generalErrors.add,
+          onResolutionFailed: resolutionErrors.add,
+        );
+
+        expect(
+          await engine.speak(text: 'x', voice: 'female', baseRate: 0.42),
+          isFalse,
+        );
+        expect(
+          generalErrors,
+          isNotEmpty,
+          reason: '재생 기전 실패도 진단용 lastError 로그는 여전히 남아야 한다',
+        );
+        expect(
+          resolutionErrors,
+          isEmpty,
+          reason:
+              '해석(_resolveAudio)은 성공했다 — 여기서 onResolutionFailed 가 '
+              '불리면 TtsService.unavailable 이 offline 으로 채워져, '
+              'Android 오디오 라우팅류 재생 실패를 "오프라인이세요?" 로 '
+              '오표시한다(리뷰에서 지적된 회귀)',
+        );
+      },
+    );
+
+    test(
+      '해석 실패는 errorReporter 와 onResolutionFailed 를 둘 다 태운다 (post-review)',
+      () async {
+        final generalErrors = <String>[];
+        final resolutionErrors = <String>[];
+        final engine = TtsPlaybackEngine(
+          resolveAudio: (text, voice) async =>
+              throw const FormatException('해석 중 예기치 못한 오류'),
+          platform: const _RecordingPlatform(),
+          errorReporter: generalErrors.add,
+          onResolutionFailed: resolutionErrors.add,
+        );
+
+        expect(
+          await engine.speak(text: 'x', voice: 'female', baseRate: 0.42),
+          isFalse,
+        );
+        expect(generalErrors, isNotEmpty);
+        expect(
+          resolutionErrors,
+          isNotEmpty,
+          reason:
+              '해석 실패(재생할 오디오를 아예 못 구함)는 unavailable 배너를 '
+              '채워야 하는 유일한 계열이다 — onResolutionFailed 가 안 불리면 '
+              'finding 1b 가 고치려던 "이유 없는 무음"이 되돌아온다',
+        );
+      },
+    );
   });
 
   test('TtsAudio 는 경로 또는 바이트 중 하나만 갖는다', () {
@@ -165,6 +227,23 @@ class _RecordingPlatform implements TtsPlaybackPlatform {
   Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate) async {
     started.add(audio.path ?? 'bytes');
     return null;
+  }
+
+  @override
+  Future<void> stop() async {}
+}
+
+/// post-review 헬퍼 — 해석(resolveAudio)은 성공했는데 재생 기전(플랫폼)이
+/// 실패하는 경우를 재현한다. `TtsPlaybackEngine.speak()` 안 `startAudio`
+/// 호출을 감싸는 catch(~:362-366, "TTS audio playback start failed")를
+/// 태워, errorReporter 는 불리지만 onResolutionFailed 는 불리지 않아야
+/// 한다는 것을 확인하는 데 쓴다.
+class _ThrowingStartPlatform implements TtsPlaybackPlatform {
+  const _ThrowingStartPlatform();
+
+  @override
+  Future<TtsPlaybackSession?> startAudio(TtsAudio audio, double rate) async {
+    throw StateError('platform start failed');
   }
 
   @override
