@@ -19,6 +19,9 @@ void main() {
       final subscriptionRunbook = await File(
         'docs/store/subscription-setup-runbook.md',
       ).readAsString();
+      final closedWorkflow = await File(
+        '.github/workflows/play_closed.yml',
+      ).readAsString();
 
       final testerGuideAab = _fencedBuildBlockAfter(
         betaGuide,
@@ -45,14 +48,30 @@ void main() {
         'Production subscription AAB (feedback disabled)',
       );
 
-      for (final command in [testerGuideAab, testerAab, sessionTesterAab]) {
+      for (final command in [testerGuideAab, testerAab]) {
         expect(command, contains('--dart-define=ENABLE_TESTER_FEEDBACK=true'));
-        expect(command, contains('--dart-define=BETA_UNLOCK_ALL=true'));
+        expect(command, isNot(contains('BETA_UNLOCK_ALL')));
         expect(command, isNot(contains('/Users/')));
       }
+      expect(
+        sessionTesterAab,
+        contains('--dart-define=ENABLE_TESTER_FEEDBACK=true'),
+      );
+      expect(sessionTesterAab, contains('--dart-define=BETA_UNLOCK_ALL=true'));
+      expect(sessionTesterAab, isNot(contains('/Users/')));
       for (final command in [testerGuideAab, testerAab]) {
         expect(command, contains(r'--dart-define=GIT_COMMIT="$release_sha"'));
       }
+      expect(
+        closedWorkflow,
+        contains('--dart-define=ENABLE_TESTER_FEEDBACK=true'),
+      );
+      expect(closedWorkflow, isNot(contains('BETA_UNLOCK_ALL')));
+      expect(
+        closedWorkflow,
+        contains(r'--dart-define=GIT_COMMIT=${{ github.sha }}'),
+      );
+      expect(closedWorkflow, contains('tracks: alpha'));
       expect(
         subscriptionProductionAab,
         contains('--dart-define=BETA_UNLOCK_ALL=false'),
@@ -81,8 +100,11 @@ void main() {
       expect(checklist, contains(r'test -z "$(git status --porcelain)"'));
       expect(
         checklist,
-        contains('BETA_UNLOCK_ALL=true는 beta의 premium entitlement만 연다.'),
+        contains(
+          'BETA_UNLOCK_ALL=true는 **내부 테스트 전용** premium entitlement override다.',
+        ),
       );
+      expect(checklist, contains('Closed Testing 후보에는 주입하지 않는다.'));
       expect(checklist, contains('SoriContentFeed wrapper'));
       expect(checklist, contains('App Check 보호 경로를 거쳐 accepted/delivered 상태'));
       expect(checklist, contains('10명 이상이 opt-in하고 실제 핵심 흐름을'));

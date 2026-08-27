@@ -6114,9 +6114,9 @@
     "semantic_hash": ""
   },
   "test/tester_build_release_contract_test.dart": {
-    "mtime": 1787865504.8426006,
-    "seen": 1787866610.6482916,
-    "ast_hash": "bc491118cbdb0a11228a665c2a95e80e",
+    "mtime": 1787868862.9051108,
+    "seen": 1787869126.5036983,
+    "ast_hash": "b41110af624adc16049f45ee8de49635",
     "semantic_hash": ""
   },
   "test/tiger_video_test.dart": {
@@ -8796,9 +8796,9 @@
     "semantic_hash": ""
   },
   "BETA_INSTALL_GUIDE.md": {
-    "mtime": 1787865494.7161746,
-    "seen": 1787866610.6497443,
-    "ast_hash": "ecbd95eabdc77e89d1d7fa3a84bfcbb8",
+    "mtime": 1787868855.53537,
+    "seen": 1787869126.8255312,
+    "ast_hash": "e471a27ffae2e8338f11473d196bfa7e",
     "semantic_hash": ""
   },
   "CLAUDE.md": {
