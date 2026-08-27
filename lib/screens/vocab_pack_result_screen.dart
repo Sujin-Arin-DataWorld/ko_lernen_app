@@ -116,7 +116,6 @@ class VocabPackResultScreen extends StatelessWidget {
 
     final result = SoriStudyFrame(
       title: t.vocabPackResultTitle,
-      automaticallyImplyLeading: false,
       // 짧은 결과 콘텐츠가 태블릿 상단에 쏠려 아래가 텅 비지 않도록,
       // 세로 중앙 정렬 + 넘치면 스크롤(작은 폰·큰 글자 안전). 폰 무변화.
       child: LayoutBuilder(
@@ -314,9 +313,17 @@ class VocabPackResultScreen extends StatelessWidget {
                     icon: Icons.grid_view_rounded,
                     variant: SoriButtonVariant.outlined,
                     accent: SoriColors.info,
-                    onTap: () => Navigator.of(
-                      context,
-                    ).popUntil((r) => r.settings.name == '/vocab' || r.isFirst),
+                    onTap: () {
+                      if (courseContext != null) {
+                        // 코스 미션에서 진입 — /vocab 이 스택에 없을 수
+                        // 있으므로 popUntil 대신 정확히 1단계만 되돌아간다.
+                        Navigator.of(context).pop();
+                      } else {
+                        Navigator.of(context).popUntil(
+                          (r) => r.settings.name == '/vocab' || r.isFirst,
+                        );
+                      }
+                    },
                   ),
                 ),
               ],
