@@ -23,6 +23,7 @@ import '../services/custom_pack_service.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/ko_wrap.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
@@ -405,25 +406,11 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
             ),
           ),
           if (!_isInjected)
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-              child: Row(
-                children: [
-                  _levelChip(t.filterAll, null),
-                  for (final lvl in const [
-                    'a1',
-                    'a2',
-                    'b1',
-                    'b2',
-                    'c1',
-                    'c2',
-                  ]) ...[
-                    const SizedBox(width: 6),
-                    _levelChip(lvl.toUpperCase(), lvl),
-                  ],
-                ],
-              ),
+            SoriLevelFilterBar(
+              selected: _level,
+              onChanged: _setLevel,
+              allLabel: t.filterAll,
+              countFor: (lvl) => _phraseCount(level: lvl),
             ),
           const SizedBox(height: Spacing.sm),
           Expanded(
@@ -472,21 +459,6 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
           ),
         ],
       ),
-    );
-  }
-
-  /// 레벨 칩은 그 레벨의 문장 수를 달고 나온다. 0 이면 탭을 막는다 —
-  /// 눌러 봐야 빈 화면이고, 그게 "레벨별 배치가 없다"로 읽힌다.
-  /// 칩 색은 콘텐츠 UI 개편의 단일 accent(`info`)를 따른다.
-  Widget _levelChip(String label, String? lvl) {
-    final count = _phraseCount(level: lvl);
-    return SoriChip(
-      label: '$label · $count',
-      accent: SoriColors.info,
-      selected: _level == lvl,
-      variant: SoriChipVariant.soft,
-      minInteractiveHeight: 48,
-      onTap: count == 0 ? null : () => _setLevel(lvl),
     );
   }
 

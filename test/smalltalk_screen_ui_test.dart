@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/deck_action_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
+import 'package:ko_lernen_app/widgets/sori/level_filter_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/sheet.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
@@ -195,12 +196,37 @@ void main() {
         );
       }
 
+      // SoriLevelFilterBar의 가로 ListView는 320dp/200%에서 C1을 뷰포트
+      // 밖에 둔다(가상화 — 검수#5 계약 값은 그대로, 확인 전 스크롤만 추가).
+      // 제스처 드래그 대신 ScrollPosition을 직접 옮긴다. maxScrollExtent는
+      // 아직 안 지어본 칩(특히 개수 자릿수가 큰 '전체' 칩)의 폭을 추정치로
+      // 잡아 실측과 어긋난다 — 한 번에 그 값으로 점프하면 과도하게 넘어가
+      // 버리므로, 매 스텝 다시 읽은 현재 maxScrollExtent로 clamp하며
+      // 조금씩 전진한다.
+      final barScrollable = find.descendant(
+        of: find.byType(SoriLevelFilterBar),
+        matching: find.byType(Scrollable),
+      );
+      final scrollState = tester.state<ScrollableState>(barScrollable);
       final c1Level = find.byWidgetPredicate(
         (widget) => widget is SoriChip && widget.label.startsWith('C1 ·'),
       );
+      for (var i = 0; i < 30 && c1Level.evaluate().isEmpty; i++) {
+        final next = (scrollState.position.pixels + 80).clamp(
+          0.0,
+          scrollState.position.maxScrollExtent,
+        );
+        scrollState.position.jumpTo(next);
+        await tester.pump();
+      }
       expect(c1Level, findsOneWidget);
       tester.widget<SoriChip>(c1Level).onTap!();
       await tester.pump();
+      // 선택 변경으로 SoriLevelFilterBar가 새로 골라진 칩을 중앙으로 자동
+      // 스크롤한다(_ensureVisible, SoriMotion.fast=150ms). 그 애니메이션이
+      // 끝나기 전에 아래 카테고리 셀렉터를 탭하면(진행 중인 프레임 사이에서
+      // 레이아웃이 밀려) 좌표가 어긋난다 — pumpAndSettle로 다 가라앉힌다.
+      await tester.pumpAndSettle();
 
       await tester.tap(find.byKey(const Key('smalltalk-category-selector')));
       await tester.pump(const Duration(milliseconds: 300));
