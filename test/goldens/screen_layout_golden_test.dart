@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
@@ -139,21 +140,14 @@ void main() {
               });
               await tester.pump();
               final context = tester.element(find.byType(VocabPacksScreen));
-              final imageProviders = tester
-                  .widgetList<Image>(
-                    find.descendant(
-                      of: find.byType(VocabPacksScreen),
-                      matching: find.byType(Image),
-                    ),
-                  )
-                  .map((image) => image.image)
-                  .toList(growable: false);
-              expect(imageProviders, isNotEmpty);
+              final heroImage = tester.widget<Image>(
+                find.descendant(
+                  of: find.byType(HanokHeader),
+                  matching: find.byType(Image),
+                ),
+              );
               await tester.runAsync(
-                () => Future.wait([
-                  for (final provider in imageProviders)
-                    precacheImage(provider, context),
-                ]),
+                () => precacheImage(heroImage.image, context),
               );
               await tester.pump();
             }
