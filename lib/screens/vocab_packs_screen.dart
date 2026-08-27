@@ -98,6 +98,17 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     });
     try {
       final packs = await PackProgressService.loadLevelView(_level);
+      // 지시서 검수#21 표준팩 소급 복구: vokSeenIds 는 이미 정직하게 쌓였는데
+      // PackProgress.wordsLearned 만 어긋난(과거 "3/9 멈춤") 팩을 여기서
+      // 재동기화한다. wordsLearnedIn 은 순수 유도값이라 매번 다시 불러도
+      // 안전하고, 값이 같으면 recordWordLearned 자체가 사실상 no-op merge.
+      for (final entry in packs) {
+        final derived = PackProgressService.wordsLearnedIn(entry.pack);
+        if (derived != entry.progress.wordsLearned) {
+          // ignore: discarded_futures
+          PackProgressService.recordWordLearned(entry.pack);
+        }
+      }
       final courseUnitId = _courseUnitId;
       final catalog = courseUnitId == null
           ? null
