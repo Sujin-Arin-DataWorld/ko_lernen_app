@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 
+import '../features/study_library/study_library_models.dart';
 import '../motion/transitions.dart';
 import '../models/course_practice_context.dart';
 import '../models/course_mission_step_plan.dart';
@@ -256,6 +259,9 @@ class _GrammarScreenState extends State<GrammarScreen>
   }
 
   void _applyFilters() {
+    final currentId = _filtered.isEmpty || _idx >= _filtered.length
+        ? null
+        : _filtered[_idx].id;
     setState(() {
       // 레벨을 바꾸면 그 레벨에 없는 유형이 남아 있을 수 있다. 남겨 두면
       // 결과가 0 장이 되고 드롭다운 value 도 항목 밖이라 터진다.
@@ -267,7 +273,14 @@ class _GrammarScreenState extends State<GrammarScreen>
         type: _type,
         difficulty: _difficulty,
       );
-      _idx = 0;
+      // 검수#17: 필터를 바꿔도 지금 보던 카드가 새 목록에 남아 있으면 그
+      // 자리를 지킨다. 예전엔 무조건 0으로 되돌려 "필터를 바꿨더니 임의의
+      // 카드로 튄다"는 체감을 낳았다 — 새 목록에 없을 때만(레벨을 바꿔
+      // 그 카드가 진짜 사라진 경우) 0으로 되돌린다.
+      final keepIdx = currentId == null
+          ? -1
+          : _filtered.indexWhere((g) => g.id == currentId);
+      _idx = keepIdx >= 0 ? keepIdx : 0;
       _flipped = false;
       _sessionSeen.clear();
       _feedbackCompletion.reset();
@@ -340,6 +353,18 @@ class _GrammarScreenState extends State<GrammarScreen>
     _persistIdx();
   }
 
+  /// `onPrevious`(아래 플링, 검수#17 배선)와 그 접근성 대체수단(WCAG
+  /// 2.5.1 커스텀 시맨틱 액션)이 공유하는 몸통 — 제스처와 대체수단이 정확히
+  /// 같은 게이트·동작을 내야 한다. `_prev()`와 달리 감싸지 않는다(끝에서
+  /// 처음으로 안 돌아간다) — 두 호출부 모두 `_idx > 0` 일 때만 이 메서드를
+  /// 넘긴다.
+  void _goToPreviousCard() {
+    setState(() {
+      _idx--;
+      _flipped = false;
+    });
+  }
+
   /// 판정 = SRS 마킹 **+ 전진**. 단어장·복습 덱(`SoriSwipeCard`)과 같은 계약이라
   /// 스와이프와 하단 버튼이 정확히 같은 일을 한다 — 제스처를 모르거나 정밀
   /// 터치가 필요한 사용자를 위해 버튼이 제스처의 완전한 대체 수단이어야 한다.
@@ -373,25 +398,30 @@ class _GrammarScreenState extends State<GrammarScreen>
     _next();
   }
 
-  /// 내 단어장에 저장(↑). 문법 카드는 패턴이 표제어이고 뜻풀이가 번역,
-  /// 예문은 예문 슬롯으로 들어간다 — 단어 카드와 같은 저장 계약을 쓴다.
+  /// 내 저장에 담기(↑). Study Library에는 문법 타입을 보존하고, 기존 게임
+  /// 연결을 위해서만 같은 내용을 빠른저장 팩에 호환 미러로 남긴다.
   void _saveCurrent() {
     final g = _current;
     if (g == null) return;
-    // ignore: discarded_futures
-    addToWordbook(
+    unawaited(_saveGrammar(g));
+  }
+
+  Future<void> _saveGrammar(Grammar grammar) async {
+    await addTypedBookmarkWithWordbookMirror(
       context,
-      korean: g.pattern,
-      translationDe: g.explanationDe,
-      translationEn: g.explanationEn,
+      itemType: StudyLibraryItemType.grammar,
+      itemId: grammar.pattern,
+      korean: grammar.pattern,
+      translationDe: grammar.explanationDe,
+      translationEn: grammar.explanationEn,
       translationLanguage: Localizations.localeOf(context).languageCode,
-      posDe: g.typeDe,
-      exampleKorean: g.exampleKorean,
-      exampleDe: g.exampleGerman,
+      posDe: grammar.typeDe,
+      exampleKorean: grammar.exampleKorean,
+      exampleDe: grammar.exampleGerman,
+      sourceUnitId: grammar.id,
+      source: 'grammar',
     );
-    if (mounted) {
-      setState(() {});
-    }
+    if (mounted) setState(() {});
   }
 
   Future<void> _likeCurrent() async {
@@ -822,8 +852,12 @@ class _GrammarScreenState extends State<GrammarScreen>
                             // 가리므로 판정 자체를 막는다.
                             // 제스처 대체 수단(WCAG 2.2 §2.5.1). 화면에는
                             // 아무것도 그리지 않지만 TalkBack/VoiceOver 에는
-                            // 네 동작이 메뉴로 노출된다 — 스와이프를 쓸 수
-                            // 없는 사용자가 하단 버튼 없이도 판정할 수 있다.
+                            // 다섯 동작(이해함/어려움/저장/건너뛰기/이전
+                            // 카드)이 메뉴로 노출된다 — 스와이프를 쓸 수
+                            // 없는 사용자가 하단 버튼 없이도 판정·이동할 수
+                            // 있다. onPrevious 는 처음엔 이 목록에서
+                            // 빠졌었다 — 아래 플링만 대체수단이 없는 채로
+                            // 남았던 것을 접근성 후속수정으로 마저 채운다.
                             return Semantics(
                               container: true,
                               customSemanticsActions:
@@ -844,12 +878,19 @@ class _GrammarScreenState extends State<GrammarScreen>
                                     if (_canNavigateDeck)
                                       CustomSemanticsAction(label: t.btnSkip):
                                           _skipCurrent,
+                                    if (_idx > 0)
+                                      CustomSemanticsAction(
+                                        label: t.grammarPreviousCard,
+                                      ): _goToPreviousCard,
                                   },
                               child: SoriContentFeed(
                                 judgmentsEnabled: allowJudging && _flipped,
                                 onBlockedJudgment: allowJudging ? () {} : null,
                                 onNext: allowJudging
                                     ? () => _judge(understood: true)
+                                    : null,
+                                onPrevious: _idx > 0
+                                    ? _goToPreviousCard
                                     : null,
                                 onHard: allowJudging
                                     ? () => _judge(understood: false)

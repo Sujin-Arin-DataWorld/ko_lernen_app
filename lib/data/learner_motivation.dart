@@ -9,9 +9,42 @@ import '../l10n/generated/app_localizations.dart';
 /// 그 이유에 맞춘 격려로 개인화한다(Duolingo "왜 배우는가" 플레이북).
 enum LearnerMotivation { kpop, kdrama, travel, culture, loved, career, curious }
 
+/// The four V2 choices. Legacy values remain readable but are never offered
+/// again by current purpose pickers.
+const v2LearnerMotivationChoices = <LearnerMotivation>[
+  LearnerMotivation.travel,
+  LearnerMotivation.culture,
+  LearnerMotivation.career,
+  LearnerMotivation.kdrama,
+];
+
 extension LearnerMotivationX on LearnerMotivation {
   /// storage id (= enum name). 'kpop' 등.
   String get id => name;
+
+  /// Collapses the former seven-choice model into the four V2 recommendation
+  /// groups without changing difficulty, progress, or rewards.
+  LearnerMotivation get v2Canonical => switch (this) {
+    LearnerMotivation.travel => LearnerMotivation.travel,
+    LearnerMotivation.culture ||
+    LearnerMotivation.loved ||
+    LearnerMotivation.curious => LearnerMotivation.culture,
+    LearnerMotivation.career => LearnerMotivation.career,
+    LearnerMotivation.kpop ||
+    LearnerMotivation.kdrama => LearnerMotivation.kdrama,
+  };
+
+  String v2Label(AppL10n t) => switch (v2Canonical) {
+    LearnerMotivation.travel => t.onboardingV2PurposeLifeTravelTitle,
+    LearnerMotivation.culture => t.onboardingV2PurposePeopleCultureTitle,
+    LearnerMotivation.career => t.onboardingV2PurposeStudyWorkTitle,
+    LearnerMotivation.kdrama => t.onboardingV2PurposeKContentTitle,
+    LearnerMotivation.kpop ||
+    LearnerMotivation.loved ||
+    LearnerMotivation.curious => throw StateError(
+      'Legacy motivations are normalized before display.',
+    ),
+  };
 
   IconData get icon => switch (this) {
     LearnerMotivation.kpop => Icons.music_note_rounded,

@@ -1,8 +1,12 @@
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 
+import '../features/onboarding_v2/first_run_coordinator.dart';
+import '../features/onboarding_v2/first_run_runtime.dart';
+import '../services/analytics_service.dart';
 import '../services/audio_policy.dart';
 import '../services/storage_service.dart';
 import '../widgets/sori/hanok_tokens.dart';
@@ -12,8 +16,6 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/video_lease.dart';
 import '../motion/transitions.dart';
 import 'app_shell.dart';
-import 'onboarding_start_screen.dart';
-import 'consent_screen.dart';
 import '../l10n/generated/app_localizations.dart';
 
 const _courtyardAsset = 'assets/illustrations/hanok/gate_final.png';
@@ -41,12 +43,25 @@ const _gatewayAlign = Alignment(0.0, 0.10);
 /// - 0.50–0.92  카메라 push-in: 대문이 커지며 통과, 마당이 확대
 /// - 0.80–1.00  대문 페이드아웃 → 마당만 → 홈으로 handoff
 class IntroGateScreen extends StatefulWidget {
-  const IntroGateScreen({super.key, this.deferVideoLeaseForTesting = false});
+  const IntroGateScreen({
+    super.key,
+    this.deferVideoLeaseForTesting = false,
+    this.firstRunCoordinator,
+    this.persistIntroSeenForTesting,
+  });
 
   /// Keeps the real video presentation in its pending state without touching
   /// a platform decoder. Production callers retain the default lease path.
   @visibleForTesting
   final bool deferVideoLeaseForTesting;
+
+  /// Test seam. Production uses the shared serialized runtime coordinator.
+  final FirstRunCoordinator? firstRunCoordinator;
+
+  /// Failure seam for proving that a legacy preference write can never trap
+  /// the learner on decorative media. Production uses [Storage.setIntroSeen].
+  @visibleForTesting
+  final Future<void> Function()? persistIntroSeenForTesting;
 
   @override
   State<IntroGateScreen> createState() => _IntroGateScreenState();
@@ -57,6 +72,10 @@ class _IntroGateScreenState extends State<IntroGateScreen>
   late final AnimationController _ctrl;
   bool _navigated = false;
   bool _reduceMotion = false;
+  bool _gateReady = false;
+  bool _skipRequested = false;
+  bool _fallbackActive = false;
+  OnboardingGateResult? _gateResult;
 
   /// 영상 인트로 모드 — 실패 시 코드 연출로 즉시 폴백.
   late bool _videoMode;
@@ -74,10 +93,38 @@ class _IntroGateScreenState extends State<IntroGateScreen>
           duration: Duration(milliseconds: firstRun ? 3900 : 2300),
         )..addStatusListener((s) {
           if (s == AnimationStatus.completed) {
-            _finish();
+            _finish(
+              _fallbackActive
+                  ? OnboardingGateResult.fallback
+                  : _skipRequested
+                  ? OnboardingGateResult.skipped
+                  : OnboardingGateResult.completed,
+            );
           }
         });
-    if (!_videoMode) {
+    // Persist attempted before the decoder or code animation can start. If
+    // the process dies after this boundary, resolveEntry resumes at Today.
+    unawaited(_prepareGate());
+  }
+
+  Future<void> _prepareGate() async {
+    try {
+      await (widget.firstRunCoordinator ?? FirstRunRuntime.coordinator)
+          .markGateAttempted();
+    } catch (_) {
+      // Never play unjournaled decorative media. A transient repository error
+      // gets one best-effort consume below; a legacy direct `/intro` without a
+      // V2 state also proceeds to the shell instead of becoming a dead end.
+      _finish(OnboardingGateResult.error);
+      return;
+    }
+    if (!mounted || _navigated) {
+      return;
+    }
+    setState(() => _gateReady = true);
+    if (_reduceMotion) {
+      _finish(OnboardingGateResult.completed);
+    } else if (!_videoMode) {
       _startCodeScene();
     }
   }
@@ -94,6 +141,7 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     if (!mounted || _navigated) {
       return;
     }
+    _fallbackActive = true;
     setState(() => _videoMode = false);
     _startCodeScene();
   }
@@ -105,10 +153,15 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     final reduce = MediaQuery.maybeOf(context)?.disableAnimations ?? false;
     if (reduce && !_reduceMotion) {
       _reduceMotion = true;
+      _ctrl.stop();
       _ctrl.duration = const Duration(milliseconds: 900);
       _videoMode = false;
+      if (_gateReady) {
+        _finish(OnboardingGateResult.completed);
+        return;
+      }
     }
-    if (!_videoMode) {
+    if (_gateReady && !_videoMode && !_reduceMotion) {
       _startCodeScene();
     }
   }
@@ -123,31 +176,55 @@ class _IntroGateScreenState extends State<IntroGateScreen>
     if (_navigated || !_ctrl.isAnimating) {
       return;
     }
+    _skipRequested = true;
     _ctrl.animateTo(
       1.0,
-      duration: SoriMotion.respect(context, const Duration(milliseconds: 520)),
+      duration: SoriMotion.respect(context, const Duration(milliseconds: 220)),
       curve: Curves.easeOut,
     );
   }
 
-  void _finish() {
+  void _finish(OnboardingGateResult result) {
     if (_navigated || !mounted) {
       return;
     }
     _navigated = true;
-    Storage.setIntroSeen();
-    final Widget next;
-    final hasCompleted = Storage.hasCompletedOnboarding;
-    if (!hasCompleted && !Storage.consentAccepted) {
-      next = const ConsentScreen();
-    } else if (!hasCompleted && Storage.userLevelCode == null) {
-      next = const OnboardingStartScreen();
-    } else {
-      next = const AppShell();
+    _gateResult = result;
+    unawaited(_completeGateAndNavigate());
+  }
+
+  Future<void> _completeGateAndNavigate() async {
+    var consumeFailed = false;
+    try {
+      await (widget.firstRunCoordinator ?? FirstRunRuntime.coordinator)
+          .consumeGate();
+    } catch (_) {
+      consumeFailed = true;
+      // The attempted marker already makes V2 crash recovery safe. A storage
+      // failure must not trap the learner on decorative media.
     }
-    Navigator.of(
-      context,
-    ).pushReplacement(SoriTransitions.fadeScale((_) => next));
+    try {
+      await (widget.persistIntroSeenForTesting?.call() ??
+          Storage.setIntroSeen());
+    } catch (_) {
+      // This compatibility flag only shortens old direct intro entries. The
+      // V2 attempted/consumed journal is authoritative, and decorative media
+      // must never block normal navigation when this secondary write fails.
+    }
+    unawaited(
+      Analytics.onboardingGateResult(
+        consumeFailed ? OnboardingGateResult.error : _gateResult!,
+      ),
+    );
+    if (!mounted) {
+      return;
+    }
+    Navigator.of(context).pushReplacement(
+      SoriTransitions.firstRun(
+        context,
+        (_) => AppShell(firstRunCoordinator: widget.firstRunCoordinator),
+      ),
+    );
   }
 
   @override
@@ -158,31 +235,32 @@ class _IntroGateScreenState extends State<IntroGateScreen>
       data: ThemeData(brightness: Brightness.light),
       child: Scaffold(
         backgroundColor: HanokColors.hanjiCream,
-        body: _videoMode
+        body: !_gateReady
+            ? _PendingGateSkip(
+                semanticLabel: skipLabel,
+                videoMode: _videoMode,
+                onSkip: () => _finish(OnboardingGateResult.skipped),
+              )
+            : _videoMode
             ? _IntroVideo(
                 semanticLabel: skipLabel,
-                onDone: _finish,
+                onDone: (skipped) => _finish(
+                  skipped
+                      ? OnboardingGateResult.skipped
+                      : OnboardingGateResult.completed,
+                ),
                 onFallback: _fallbackToCodeScene,
                 deferLeaseForTesting: widget.deferVideoLeaseForTesting,
               )
-            : Semantics(
-                key: const ValueKey('intro-skip'),
-                container: true,
-                button: true,
+            : _IntroSkipSurface(
+                semanticKey: const ValueKey('intro-skip'),
+                semanticLabel: skipLabel,
                 enabled: _ctrl.isAnimating,
-                label: skipLabel,
-                onTap: _ctrl.isAnimating ? _skip : null,
-                child: ExcludeSemantics(
-                  child: GestureDetector(
-                    behavior: HitTestBehavior.opaque,
-                    onTap: _skip,
-                    child: LayoutBuilder(
-                      builder: (context, c) => AnimatedBuilder(
-                        animation: _ctrl,
-                        builder: (_, __) =>
-                            _scene(Size(c.maxWidth, c.maxHeight)),
-                      ),
-                    ),
+                onSkip: _skip,
+                child: LayoutBuilder(
+                  builder: (context, c) => AnimatedBuilder(
+                    animation: _ctrl,
+                    builder: (_, __) => _scene(Size(c.maxWidth, c.maxHeight)),
                   ),
                 ),
               ),
@@ -398,13 +476,125 @@ class _IntroGateScreenState extends State<IntroGateScreen>
 
 double _unit(double value) => value.clamp(0.0, 1.0).toDouble();
 
+const Map<ShortcutActivator, Intent> _introSkipShortcuts = {
+  SingleActivator(LogicalKeyboardKey.enter): ActivateIntent(),
+  SingleActivator(LogicalKeyboardKey.space): ActivateIntent(),
+  SingleActivator(LogicalKeyboardKey.escape): ActivateIntent(),
+};
+
+/// One operable surface for every decorative gate state. The whole scene may
+/// still be tapped, while keyboard users get the same Enter/Space/Escape path
+/// and a two-tone focus edge that remains visible over light or moving media.
+class _IntroSkipSurface extends StatefulWidget {
+  const _IntroSkipSurface({
+    required this.semanticKey,
+    required this.semanticLabel,
+    required this.enabled,
+    required this.onSkip,
+    required this.child,
+  });
+
+  final Key semanticKey;
+  final String semanticLabel;
+  final bool enabled;
+  final VoidCallback onSkip;
+  final Widget child;
+
+  @override
+  State<_IntroSkipSurface> createState() => _IntroSkipSurfaceState();
+}
+
+class _IntroSkipSurfaceState extends State<_IntroSkipSurface> {
+  final FocusNode _focusNode = FocusNode(debugLabel: 'intro-gate-skip-surface');
+  bool _showFocusHighlight = false;
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
+  }
+
+  void _activate() {
+    if (widget.enabled) {
+      widget.onSkip();
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final child = Stack(
+      fit: StackFit.passthrough,
+      children: [
+        widget.child,
+        if (_showFocusHighlight)
+          Positioned.fill(
+            child: IgnorePointer(
+              child: DecoratedBox(
+                position: DecorationPosition.foreground,
+                decoration: BoxDecoration(
+                  border: Border.all(color: HanokColors.hanjiCream, width: 5),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(2),
+                  child: DecoratedBox(
+                    position: DecorationPosition.foreground,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: SoriColors.primaryDark,
+                        width: 3,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+      ],
+    );
+    return FocusableActionDetector(
+      focusNode: _focusNode,
+      autofocus: widget.enabled,
+      enabled: widget.enabled,
+      shortcuts: _introSkipShortcuts,
+      actions: <Type, Action<Intent>>{
+        ActivateIntent: CallbackAction<ActivateIntent>(
+          onInvoke: (_) {
+            _activate();
+            return null;
+          },
+        ),
+      },
+      onShowFocusHighlight: (show) {
+        if (_showFocusHighlight != show) {
+          setState(() => _showFocusHighlight = show);
+        }
+      },
+      child: Semantics(
+        key: widget.semanticKey,
+        container: true,
+        button: true,
+        enabled: widget.enabled,
+        label: widget.semanticLabel,
+        onTap: widget.enabled ? _activate : null,
+        child: ExcludeSemantics(
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: widget.enabled ? _activate : null,
+            child: child,
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 // ════════════════════════════════════════════════════════════════════════
 // 영상 인트로 — 대문이 열리며 마당으로 들어가는 8초 시네마틱 (무음).
 // 탭 = 즉시 완료. 초기화 실패 = 코드 연출 폴백. build-in 페이드로 시작.
 // ════════════════════════════════════════════════════════════════════════
 class _IntroVideo extends StatefulWidget {
   final String semanticLabel;
-  final VoidCallback onDone;
+  final ValueChanged<bool> onDone;
   final VoidCallback onFallback;
   final bool deferLeaseForTesting;
 
@@ -502,17 +692,17 @@ class _IntroVideoState extends State<_IntroVideo> {
         !v.isPlaying &&
         v.position >= v.duration - const Duration(milliseconds: 100);
     if (ended) {
-      _complete();
+      _complete(skipped: false);
     }
   }
 
-  void _complete() {
+  void _complete({required bool skipped}) {
     if (_done) {
       return;
     }
     _done = true;
     _lease?.setEligible(false);
-    widget.onDone();
+    widget.onDone(skipped);
   }
 
   @override
@@ -530,39 +720,59 @@ class _IntroVideoState extends State<_IntroVideo> {
   @override
   Widget build(BuildContext context) {
     final video = _video;
-    return Semantics(
-      key: const ValueKey('intro-video-skip'),
-      container: true,
-      button: true,
+    return _IntroSkipSurface(
+      semanticKey: const ValueKey('intro-video-skip'),
+      semanticLabel: widget.semanticLabel,
       enabled: !_done,
-      label: widget.semanticLabel,
-      onTap: _done ? null : _complete,
-      child: ExcludeSemantics(
-        child: SizedBox.expand(
-          child: GestureDetector(
-            behavior: HitTestBehavior.opaque,
-            onTap: _complete, // 탭 = skip (기존 인트로와 동일한 어포던스)
-            child: AnimatedSwitcher(
-              duration: SoriMotion.respect(
-                context,
-                const Duration(milliseconds: 250),
-              ),
-              child: !_ready || video == null
-                  ? const ColoredBox(color: HanokColors.hanjiCream)
-                  : SizedBox.expand(
-                      child: FittedBox(
-                        fit: BoxFit.cover,
-                        clipBehavior: Clip.hardEdge,
-                        child: SizedBox(
-                          width: video.value.size.width,
-                          height: video.value.size.height,
-                          child: VideoPlayer(video),
-                        ),
-                      ),
-                    ),
-            ),
+      onSkip: () => _complete(skipped: true),
+      child: SizedBox.expand(
+        child: AnimatedSwitcher(
+          duration: SoriMotion.respect(
+            context,
+            const Duration(milliseconds: 250),
           ),
+          child: !_ready || video == null
+              ? const ColoredBox(color: HanokColors.hanjiCream)
+              : SizedBox.expand(
+                  child: FittedBox(
+                    fit: BoxFit.cover,
+                    clipBehavior: Clip.hardEdge,
+                    child: SizedBox(
+                      width: video.value.size.width,
+                      height: video.value.size.height,
+                      child: VideoPlayer(video),
+                    ),
+                  ),
+                ),
         ),
+      ),
+    );
+  }
+}
+
+/// The attempted marker is still being persisted, so media remains stopped.
+/// The learner may nevertheless skip immediately; coordinator serialization
+/// ensures consume runs only after the attempted write finishes.
+class _PendingGateSkip extends StatelessWidget {
+  const _PendingGateSkip({
+    required this.semanticLabel,
+    required this.videoMode,
+    required this.onSkip,
+  });
+
+  final String semanticLabel;
+  final bool videoMode;
+  final VoidCallback onSkip;
+
+  @override
+  Widget build(BuildContext context) {
+    return _IntroSkipSurface(
+      semanticKey: ValueKey(videoMode ? 'intro-video-skip' : 'intro-skip'),
+      semanticLabel: semanticLabel,
+      enabled: true,
+      onSkip: onSkip,
+      child: const SizedBox.expand(
+        child: ColoredBox(color: HanokColors.hanjiCream),
       ),
     );
   }

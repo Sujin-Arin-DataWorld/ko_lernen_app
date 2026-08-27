@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(69));
+    expect(registered, hasLength(72));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(69));
+    expect(documented, hasLength(72));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -80,7 +80,11 @@ void main() {
         .toSet();
     final seen = <String>{};
 
-    for (final source in _dartFiles(Directory('lib/screens'))) {
+    final publicSurfaceSources = <File>[
+      ..._dartFiles(Directory('lib/screens')),
+      ..._dartFiles(Directory('lib/features/guide')),
+    ];
+    for (final source in publicSurfaceSources) {
       final contents = source.readAsStringSync();
       for (final match in RegExp(
         r'^(?:(?:abstract|base|final|interface|sealed)\s+)*class\s+'
@@ -92,8 +96,8 @@ void main() {
       }
     }
 
-    expect(seen, hasLength(97));
-    expect(documented, hasLength(97));
+    expect(seen, hasLength(108));
+    expect(documented, hasLength(108));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });
@@ -129,9 +133,9 @@ void main() {
           .replaceAll(r'\', '/')
           .replaceFirst(RegExp(r'\.dart$'), '');
     }).toList();
-    expect(actual, hasLength(129));
+    expect(actual, hasLength(133));
     expect(actual.toSet(), hasLength(actual.length));
-    expect(listed, hasLength(129));
+    expect(listed, hasLength(133));
     expect(listed.toSet(), hasLength(listed.length));
 
     actual.sort();

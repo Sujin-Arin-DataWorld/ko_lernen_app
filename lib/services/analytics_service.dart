@@ -3,9 +3,40 @@ import 'dart:async';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/widgets.dart';
 
+import '../features/onboarding_v2/onboarding_journey_state.dart';
+import '../models/guide_contract.dart';
+import '../models/learner_level.dart';
 import 'age_gate_service.dart';
 import 'locale_service.dart';
 import 'storage_service.dart';
+
+/// Why a learner left a mandatory onboarding story page. The closed enum is
+/// intentionally separate from navigation route names so analytics can never
+/// receive an arbitrary string.
+enum OnboardingStoryExit { continued, previous, dropped }
+
+enum OnboardingFlowVariant { full, minimalSafe }
+
+enum OnboardingGateResult { completed, skipped, error, fallback }
+
+/// The first broad learning surface observed after analytics consent became
+/// effective in this local app-data lifetime. These are deliberately
+/// product-area buckets, never route names, content IDs, answers, or learner
+/// text.
+enum ConsentedFirstLearningAction {
+  course,
+  hangul,
+  scenario,
+  vocabulary,
+  grammar,
+  listeningPronunciation,
+  game,
+  personalBook,
+}
+
+enum GuideEntryAnalyticsSurface { todayChecklist, guideHub }
+
+enum GuideTodayCardAction { dismissed, restored }
 
 /// Delivery channel for analytics events, kept separate from Firebase's static
 /// plugin APIs so routing stays deterministically testable and so the app never
@@ -90,22 +121,98 @@ class AnalyticsController {
   }
 }
 
+/// Durable, consent-aware deduplication for the first observed learning action.
+/// It deliberately keeps no pre-consent queue and persists only a one-bit claim
+/// marker, never an analytics payload.
+class ConsentedFirstLearningActionTracker {
+  ConsentedFirstLearningActionTracker({
+    required this.canCollect,
+    required this.hasCompletedOnboarding,
+    required this.readPurpose,
+    required this.claimDurably,
+    required this.record,
+  });
+
+  final bool Function() canCollect;
+  final bool Function() hasCompletedOnboarding;
+  final OnboardingPurpose? Function() readPurpose;
+  final Future<bool> Function() claimDurably;
+  final Future<void> Function(
+    ConsentedFirstLearningAction action,
+    OnboardingPurpose? purpose,
+  )
+  record;
+
+  bool _reserved = false;
+
+  @visibleForTesting
+  bool get hasReserved => _reserved;
+
+  @visibleForTesting
+  void resetInMemory() => _reserved = false;
+
+  Future<void> observe(ConsentedFirstLearningAction action) async {
+    // Crucially, neither the in-memory reservation nor durable marker is
+    // touched while collection is barred. A later opt-in observes only a later
+    // action; nothing is replayed.
+    if (_reserved || !hasCompletedOnboarding() || !canCollect()) {
+      return;
+    }
+    // Reserve synchronously before the first await so concurrent observations
+    // in this isolate cannot race for the claim.
+    _reserved = true;
+    try {
+      if (!await claimDurably()) {
+        return;
+      }
+      await record(action, readPurpose());
+    } catch (error) {
+      // Analytics and its durable marker must never break a learning flow. A
+      // known failed write can be retried after a fresh app start; an unknown
+      // write outcome remains fail-closed for this process.
+      debugPrint('Analytics: first learning action skipped — $error');
+    }
+  }
+}
+
 /// App-wide analytics facade. Event names, parameters and user-property names
 /// are GA4-safe (snake_case, ≤ 40 chars — user props ≤ 24 chars, no reserved
 /// `firebase_`/`google_`/`ga_` prefix) and carry NO personal data — only short
 /// IDs, level codes, enums and bucketed counters. Never pass free text, OCR'd
 /// words, pack titles, emails or precise identifiers.
 ///
-/// Consent is age-aware: for self-attested under-16 users no event, screen view
-/// or user property is ever sent, even if a stored flag says otherwise
-/// (DSGVO Art. 8 — no valid consent without parental authorisation).
+/// Consent is age-aware: until eligibility is positively established, no event,
+/// screen view or user property is ever sent, even if a stored flag says
+/// otherwise (DSGVO Art. 8 — no valid consent without parental authorisation).
 class Analytics {
   Analytics._();
 
-  /// Effective consent: the stored opt-in AND the user is not a self-attested
-  /// minor. Mirrors the gate [PrivacyConsentService] applies to the SDK itself.
+  static final ConsentedFirstLearningActionTracker
+  _consentedFirstLearningActionTracker = ConsentedFirstLearningActionTracker(
+    canCollect: () => canCollect,
+    hasCompletedOnboarding: () => Storage.hasCompletedOnboarding,
+    readPurpose: () => OnboardingPurpose.fromCode(Storage.motivation),
+    claimDurably: Storage.claimConsentedFirstLearningAction,
+    record: _sendConsentedFirstLearningAction,
+  );
+
+  @visibleForTesting
+  static void resetConsentedFirstLearningActionForTesting() {
+    _consentedFirstLearningActionTracker.resetInMemory();
+  }
+
+  /// Effective consent: the stored opt-in AND the conservative local age gate
+  /// has positively established eligibility. Unknown age fails closed; it is
+  /// never treated as adult. Mirrors [PrivacyConsentService].
   static bool _consentActive() =>
-      Storage.analyticsConsent && !AgeGateService.isUnderMinAge;
+      Storage.analyticsConsent && AgeGateService.isGyeAllowed;
+
+  /// Whether best-effort product analytics may be attempted right now.
+  ///
+  /// Callers that persist an at-most-once delivery marker use this before
+  /// consuming the marker. The actual client still repeats the same consent
+  /// check immediately before every SDK call, so revocation always wins.
+  static bool get canCollect => _consentActive();
 
   static final AnalyticsController _controller = AnalyticsController(
     hasConsent: _consentActive,
@@ -130,7 +237,9 @@ class Analytics {
   /// learner is without collecting anything identifying.
   static Future<void> syncUserProperties() async {
     final level = Storage.userLevelCode;
+    final purpose = OnboardingPurpose.fromCode(Storage.motivation);
     await setUserProperty('learner_level', level?.toUpperCase());
+    await setUserProperty('learning_purpose', purpose?.code);
     await setUserProperty('ui_language', localeNotifier.value?.languageCode);
     await setUserProperty(
       'notif_opt_in',
@@ -160,6 +269,11 @@ class Analytics {
     required int accuracyPct,
     required bool firstClear,
   }) {
+    unawaited(
+      _recordConsentedFirstLearningAction(
+        ConsentedFirstLearningAction.vocabulary,
+      ),
+    );
     return logEvent(
       'pack_completed',
       parameters: {
@@ -190,6 +304,11 @@ class Analytics {
     required String warningBucket,
     String ocrQuality = 'unmeasured',
   }) {
+    unawaited(
+      _recordConsentedFirstLearningAction(
+        ConsentedFirstLearningAction.personalBook,
+      ),
+    );
     return logEvent(
       'book_capture_analyzed',
       parameters: bookCaptureAnalysisParameters(
@@ -228,6 +347,11 @@ class Analytics {
   /// A custom word pack was created. [source] is `from_page` (from a captured
   /// book page) or `empty` (blank manual pack).
   static Future<void> customPackCreated(String source) {
+    unawaited(
+      _recordConsentedFirstLearningAction(
+        ConsentedFirstLearningAction.personalBook,
+      ),
+    );
     return logEvent('custom_pack_created', parameters: {'source': source});
   }
 
@@ -254,14 +378,377 @@ class Analytics {
   static Future<void> onboardingCompleted({
     required String entryLevel,
     required bool hasPlacement,
+    OnboardingPurpose? purpose,
   }) {
     return logEvent(
       'onboarding_completed',
-      parameters: {
-        'entry_level': entryLevel.toUpperCase(),
-        'has_placement': hasPlacement ? 1 : 0,
-      },
+      parameters: onboardingCompletedParameters(
+        entryLevel: entryLevel,
+        hasPlacement: hasPlacement,
+        purpose: purpose,
+      ),
     );
+  }
+
+  static Map<String, Object> onboardingCompletedParameters({
+    required String entryLevel,
+    required bool hasPlacement,
+    OnboardingPurpose? purpose,
+  }) => {
+    'entry_level': entryLevel.toUpperCase(),
+    'has_placement': hasPlacement ? 1 : 0,
+    if (purpose != null) 'purpose': purpose.code,
+  };
+
+  /// A mandatory product-story page became visible. [page] is a closed enum;
+  /// no localized copy or route name is sent.
+  static Future<void> onboardingStoryReached(StoryPageId page) {
+    return logEvent(
+      'onboarding_story_reached',
+      parameters: onboardingStoryReachedParameters(page),
+    );
+  }
+
+  static Map<String, Object> onboardingStoryReachedParameters(
+    StoryPageId page,
+  ) => {'page': _storyPageValue(page)};
+
+  /// Records bucketed active time when the learner actually leaves a story
+  /// page. `dropped` includes route disposal/app exit; exact timestamps are
+  /// deliberately never sent.
+  static Future<void> onboardingStoryDwell({
+    required StoryPageId page,
+    required Duration duration,
+    required OnboardingStoryExit exit,
+  }) {
+    return logEvent(
+      'onboarding_story_dwell',
+      parameters: onboardingStoryDwellParameters(
+        page: page,
+        duration: duration,
+        exit: exit,
+      ),
+    );
+  }
+
+  static Map<String, Object> onboardingStoryDwellParameters({
+    required StoryPageId page,
+    required Duration duration,
+    required OnboardingStoryExit exit,
+  }) => {
+    'page': _storyPageValue(page),
+    'duration_bucket': _storyDwellBucket(duration),
+    'exit': exit.name,
+  };
+
+  static Future<void> onboardingPurposeSelectedV2(OnboardingPurpose purpose) {
+    return _onboardingSelection(onboardingPurposeSelectionParameters(purpose));
+  }
+
+  static Map<String, Object> onboardingPurposeSelectionParameters(
+    OnboardingPurpose purpose,
+  ) => {'kind': 'purpose', 'value': purpose.code};
+
+  static Future<void> onboardingLevelSelectedV2(LearnerLevel level) {
+    return _onboardingSelection(onboardingLevelSelectionParameters(level));
+  }
+
+  static Map<String, Object> onboardingLevelSelectionParameters(
+    LearnerLevel level,
+  ) => {'kind': 'level', 'value': level.code.toUpperCase()};
+
+  static Future<void> onboardingCompanionSelectedV2(
+    OnboardingCompanion companion,
+  ) {
+    return _onboardingSelection(
+      onboardingCompanionSelectionParameters(companion),
+    );
+  }
+
+  static Map<String, Object> onboardingCompanionSelectionParameters(
+    OnboardingCompanion companion,
+  ) => {'kind': 'companion', 'value': companion.name};
+
+  static Future<void> _onboardingSelection(Map<String, Object> parameters) {
+    return logEvent('onboarding_selection', parameters: parameters);
+  }
+
+  /// An explicit decoder failure in the decorative companion confirmation
+  /// preview. The CTA remains independent from media, and raw errors, device
+  /// details, and asset paths are intentionally discarded.
+  static Future<void> onboardingCompanionPreviewFailed(
+    OnboardingCompanionPreviewFailure failure,
+  ) {
+    return logEvent(
+      'onboarding_companion_preview_fail',
+      parameters: onboardingCompanionPreviewFailureParameters(failure),
+    );
+  }
+
+  static Map<String, Object> onboardingCompanionPreviewFailureParameters(
+    OnboardingCompanionPreviewFailure failure,
+  ) => {'reason': failure.name};
+
+  /// Active time in the V2 journey widget, measured only at a successful
+  /// commit boundary. A resumed session starts a new bucket rather than
+  /// persisting a precise timestamp.
+  static Future<void> onboardingTotalDuration({
+    required Duration duration,
+    required OnboardingFlowVariant flow,
+  }) {
+    return logEvent(
+      'onboarding_duration',
+      parameters: onboardingDurationParameters(duration: duration, flow: flow),
+    );
+  }
+
+  static Map<String, Object> onboardingDurationParameters({
+    required Duration duration,
+    required OnboardingFlowVariant flow,
+  }) => {
+    'duration_bucket': _onboardingDurationBucket(duration),
+    'flow': switch (flow) {
+      OnboardingFlowVariant.full => 'full',
+      OnboardingFlowVariant.minimalSafe => 'minimal_safe',
+    },
+  };
+
+  /// One terminal outcome per gate presentation. Video initialization errors
+  /// that successfully continue via the code scene are reported as
+  /// [OnboardingGateResult.fallback], while journal failures are `error`.
+  static Future<void> onboardingGateResult(OnboardingGateResult result) {
+    return logEvent(
+      'onboarding_gate_result',
+      parameters: onboardingGateResultParameters(result),
+    );
+  }
+
+  static Map<String, Object> onboardingGateResultParameters(
+    OnboardingGateResult result,
+  ) => {'result': result.name};
+
+  /// Sends the already-durably-claimed first broad learning action. Keeping
+  /// this private prevents callers from bypassing the once-only tracker.
+  static Future<void> _sendConsentedFirstLearningAction(
+    ConsentedFirstLearningAction action,
+    OnboardingPurpose? purpose,
+  ) {
+    return logEvent(
+      'consented_first_learning_action',
+      parameters: consentedFirstLearningActionParameters(action, purpose),
+    );
+  }
+
+  static Map<String, Object> consentedFirstLearningActionParameters(
+    ConsentedFirstLearningAction action,
+    OnboardingPurpose? purpose,
+  ) => {
+    'action': switch (action) {
+      ConsentedFirstLearningAction.course => 'course',
+      ConsentedFirstLearningAction.hangul => 'hangul',
+      ConsentedFirstLearningAction.scenario => 'scenario',
+      ConsentedFirstLearningAction.vocabulary => 'vocabulary',
+      ConsentedFirstLearningAction.grammar => 'grammar',
+      ConsentedFirstLearningAction.listeningPronunciation =>
+        'listening_pronunciation',
+      ConsentedFirstLearningAction.game => 'game',
+      ConsentedFirstLearningAction.personalBook => 'personal_book',
+    },
+    'purpose': purpose?.code ?? 'unknown',
+  };
+
+  static Future<void> _recordConsentedFirstLearningAction(
+    ConsentedFirstLearningAction action,
+  ) => _consentedFirstLearningActionTracker.observe(action);
+
+  /// Records a successful learning-surface start through a closed product-area
+  /// enum. Screen implementations must never pass route names or learner data.
+  static Future<void> learningActionStarted(
+    ConsentedFirstLearningAction action,
+  ) => _recordConsentedFirstLearningAction(action);
+
+  static Future<void> guideTopicOpened({
+    required GuideAnalyticsSurface topic,
+    required GuideEntryAnalyticsSurface entrySurface,
+    required GuideTopicOpenState openState,
+  }) {
+    return logEvent(
+      guideTopicOpenedEventName,
+      parameters: guideTopicOpenedParameters(
+        topic: topic,
+        entrySurface: entrySurface,
+        openState: openState,
+      ),
+    );
+  }
+
+  static const String guideHubOpenedEventName = 'guide_hub_opened';
+  static const String guideTopicOpenedEventName = 'guide_topic_opened';
+
+  static Future<void> guideHubOpened() {
+    return logEvent(
+      guideHubOpenedEventName,
+      parameters: guideHubOpenedParameters(),
+    );
+  }
+
+  static Map<String, Object> guideHubOpenedParameters() => {
+    'surface': 'guide_hub',
+  };
+
+  static Map<String, Object> guideTopicOpenedParameters({
+    required GuideAnalyticsSurface topic,
+    required GuideEntryAnalyticsSurface entrySurface,
+    required GuideTopicOpenState openState,
+  }) => {
+    ...guideTopicParameters(topic: topic, entrySurface: entrySurface),
+    'open_state': switch (openState) {
+      GuideTopicOpenState.firstOpen => 'first_open',
+      GuideTopicOpenState.reopen => 'reopen',
+    },
+  };
+
+  static const String guideTopicClosedEventName = 'guide_topic_closed';
+
+  static Future<void> guideTopicClosed({
+    required GuideAnalyticsSurface topic,
+    required GuideEntryAnalyticsSurface entrySurface,
+  }) {
+    return logEvent(
+      guideTopicClosedEventName,
+      parameters: guideTopicParameters(
+        topic: topic,
+        entrySurface: entrySurface,
+      ),
+    );
+  }
+
+  static Future<void> guideTopicCompleted({
+    required GuideAnalyticsSurface topic,
+    required GuideEntryAnalyticsSurface entrySurface,
+  }) {
+    return logEvent(
+      'guide_topic_completed',
+      parameters: guideTopicParameters(
+        topic: topic,
+        entrySurface: entrySurface,
+      ),
+    );
+  }
+
+  static Map<String, Object> guideTopicParameters({
+    required GuideAnalyticsSurface topic,
+    required GuideEntryAnalyticsSurface entrySurface,
+  }) => {
+    // Keep the pre-V2 `surface` key for dashboard continuity. Its value is a
+    // closed topic identity; `entry_surface` says where the action happened.
+    'surface': topic.name,
+    'entry_surface': switch (entrySurface) {
+      GuideEntryAnalyticsSurface.todayChecklist => 'today_checklist',
+      GuideEntryAnalyticsSurface.guideHub => 'guide_hub',
+    },
+  };
+
+  static Future<void> guideTodayCardAction(GuideTodayCardAction action) {
+    return logEvent(
+      'guide_today_card_action',
+      parameters: guideTodayCardActionParameters(action),
+    );
+  }
+
+  static Map<String, Object> guideTodayCardActionParameters(
+    GuideTodayCardAction action,
+  ) => {'action': action.name};
+
+  static const String guideRoutingFailedEventName = 'guide_routing_failed';
+
+  static Future<void> guideRoutingFailed({
+    required GuideAnalyticsSurface topic,
+    required GuideEntryAnalyticsSurface entrySurface,
+    required GuideRoutingAction action,
+    required GuideRoutingFailureReason reason,
+  }) {
+    return logEvent(
+      guideRoutingFailedEventName,
+      parameters: guideRoutingFailureParameters(
+        topic: topic,
+        entrySurface: entrySurface,
+        action: action,
+        reason: reason,
+      ),
+    );
+  }
+
+  static Map<String, Object> guideRoutingFailureParameters({
+    required GuideAnalyticsSurface topic,
+    required GuideEntryAnalyticsSurface entrySurface,
+    required GuideRoutingAction action,
+    required GuideRoutingFailureReason reason,
+  }) => {
+    ...guideTopicParameters(topic: topic, entrySurface: entrySurface),
+    'action': switch (action) {
+      GuideRoutingAction.topic => 'topic',
+      GuideRoutingAction.courseStart => 'course_start',
+      GuideRoutingAction.browseLevel => 'browse_level',
+      GuideRoutingAction.hangulOverview => 'hangul_overview',
+      GuideRoutingAction.hangulCards => 'hangul_cards',
+      GuideRoutingAction.hangulWrite => 'hangul_write',
+      GuideRoutingAction.learnStage => 'learn_stage',
+      GuideRoutingAction.captureTextbook => 'capture_textbook',
+      GuideRoutingAction.studyLibrary => 'study_library',
+      GuideRoutingAction.gamesStage => 'games_stage',
+      GuideRoutingAction.hanokStage => 'hanok_stage',
+      GuideRoutingAction.companion => 'companion',
+      GuideRoutingAction.voiceSpeed => 'voice_speed',
+      GuideRoutingAction.guideSettings => 'guide_settings',
+      GuideRoutingAction.scenarioCategory => 'scenario_category',
+    },
+    'reason': switch (reason) {
+      GuideRoutingFailureReason.unavailable => 'unavailable',
+      GuideRoutingFailureReason.consent => 'consent',
+      GuideRoutingFailureReason.invalidDestination => 'invalid_destination',
+      GuideRoutingFailureReason.navigation => 'navigation',
+      GuideRoutingFailureReason.rollback => 'rollback',
+    },
+  };
+
+  static String _storyPageValue(StoryPageId page) => switch (page) {
+    StoryPageId.personalCurriculum => 'personal_curriculum',
+    StoryPageId.learn => 'learn',
+    StoryPageId.saveAndReview => 'save_and_review',
+    StoryPageId.gamesAndRewards => 'games_and_rewards',
+    StoryPageId.heritageJourney => 'heritage_journey',
+  };
+
+  static String _storyDwellBucket(Duration duration) {
+    final seconds = duration.inSeconds;
+    if (seconds < 3) {
+      return 'under_3s';
+    }
+    if (seconds < 10) {
+      return '3_9s';
+    }
+    if (seconds < 30) {
+      return '10_29s';
+    }
+    return '30s_plus';
+  }
+
+  static String _onboardingDurationBucket(Duration duration) {
+    final seconds = duration.inSeconds;
+    if (seconds < 30) {
+      return 'under_30s';
+    }
+    if (seconds < 60) {
+      return '30_59s';
+    }
+    if (seconds < 180) {
+      return '1_2m';
+    }
+    if (seconds < 300) {
+      return '3_4m';
+    }
+    return '5m_plus';
   }
 
   /// Placement diagnostic finished.
@@ -286,6 +773,10 @@ class Analytics {
     String? lessonId,
     String? level,
   }) {
+    final firstAction = firstLearningActionForLessonType(lessonType);
+    if (firstAction != null) {
+      unawaited(_recordConsentedFirstLearningAction(firstAction));
+    }
     return logEvent(
       'lesson_started',
       parameters: {
@@ -295,6 +786,23 @@ class Analytics {
       },
     );
   }
+
+  /// Maps bounded lesson-type identifiers to the closed first-action buckets.
+  /// Unknown values never flow into first-action analytics.
+  @visibleForTesting
+  static ConsentedFirstLearningAction? firstLearningActionForLessonType(
+    String lessonType,
+  ) => switch (lessonType) {
+    'course' => ConsentedFirstLearningAction.course,
+    'hangul' => ConsentedFirstLearningAction.hangul,
+    'scenario' || 'smalltalk' => ConsentedFirstLearningAction.scenario,
+    'vocab' => ConsentedFirstLearningAction.vocabulary,
+    'grammar' => ConsentedFirstLearningAction.grammar,
+    'listening' ||
+    'pronunciation' ||
+    'media_phrase' => ConsentedFirstLearningAction.listeningPronunciation,
+    _ => null,
+  };
 
   /// A lesson was finished.
   static Future<void> lessonCompleted({
@@ -349,6 +857,9 @@ class Analytics {
 
   /// A minigame began. [gameType]: chosung/wordle/kkeunmari/matching/typing.
   static Future<void> gameStarted({required String gameType, String? level}) {
+    unawaited(
+      _recordConsentedFirstLearningAction(ConsentedFirstLearningAction.game),
+    );
     return logEvent(
       'game_started',
       parameters: {

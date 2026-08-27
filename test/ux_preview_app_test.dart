@@ -401,7 +401,7 @@ void main() {
     await tester.pumpWidget(const UxPreviewApp(initialPanelId: '06A'));
     await tester.pump();
 
-    expect(find.text('Reise nach Korea'), findsWidgets);
+    expect(find.text('Alltag & Reisen'), findsWidgets);
     expect(find.textContaining('A1'), findsWidgets);
     expect(find.text('Keine Lernbegleitung'), findsOneWidget);
   });
@@ -507,6 +507,14 @@ void main() {
     await tester.pumpWidget(const UxPreviewApp(initialPanelId: '06B'));
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 150));
+
+    final savedReview = find.byKey(const ValueKey('sori-today-saved-review'));
+    await tester.scrollUntilVisible(
+      savedReview,
+      280,
+      scrollable: find.byType(Scrollable).first,
+    );
+    await tester.pump();
 
     expect(find.text('Gespeicherte Wörter wiederholen'), findsOneWidget);
     expect(find.text('Erneut verbinden'), findsOneWidget);

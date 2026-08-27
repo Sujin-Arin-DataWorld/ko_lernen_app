@@ -800,13 +800,16 @@ class BookshelfParentOnlyLegacyApprovalWorkflow {
     required String uid,
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
+    void Function()? beforeWrite,
   }) async {
     if (session.mode != CloudWriteMode.reconciling) {
       throw StateError(
         'Parent-only legacy approval requires a reconciling session.',
       );
     }
+    beforeWrite?.call();
     sessions.assertCurrent(session);
+    beforeWrite?.call();
     if (session.uid != uid) {
       throw StateError('Validated bookshelf restore UID does not match.');
     }
@@ -814,12 +817,14 @@ class BookshelfParentOnlyLegacyApprovalWorkflow {
       uid,
       allowParentOnlyLegacy: true,
       beforeWrite: () {
+        beforeWrite?.call();
         if (session.mode != CloudWriteMode.reconciling) {
           throw StateError(
             'Parent-only legacy approval requires a reconciling session.',
           );
         }
         sessions.assertCurrent(session);
+        beforeWrite?.call();
       },
     );
   }

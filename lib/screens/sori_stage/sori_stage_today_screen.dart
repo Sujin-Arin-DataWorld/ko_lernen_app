@@ -5,6 +5,7 @@ import '../../data/learner_motivation.dart';
 import '../../data/milestone.dart';
 import '../../data/quest_catalog.dart';
 import '../../data/sori_activity_catalog.dart';
+import '../../features/guide/today_guide_section.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/feedback_completion.dart';
 import '../../models/quest.dart';
@@ -387,7 +388,6 @@ class _SoriStageTodayScreenState extends State<SoriStageTodayScreen> {
             t,
             streak: Storage.streakDays,
             xp: Storage.xp,
-            motivation: learnerMotivationFromId(Storage.motivation),
             kind: kind,
           ),
           phase: _phase,
@@ -493,6 +493,8 @@ class _TodayContent extends StatelessWidget {
           children: [
             header,
             const SizedBox(height: Spacing.sm),
+            const TodayGuideChecklistSection(),
+            const SizedBox(height: Spacing.lg),
             _TodayMissionStage(
               key: missionTourKey,
               snapshot: snapshot,

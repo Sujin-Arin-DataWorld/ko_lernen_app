@@ -2,6 +2,8 @@ import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../features/scenarios/scenario_browse_query.dart';
+import '../models/guide_contract.dart';
 import '../models/scenario.dart';
 import '../services/scenario_loader.dart';
 import '../services/scene_asset_resolver.dart';
@@ -35,11 +37,27 @@ class ScenariosListScreen extends StatefulWidget {
   /// Notebook studio keeps matching scenes playable regardless of CEFR lock.
   final bool ignoreLevelLock;
 
+  /// Optional guide/library browse intent. Unlike course placement, this only
+  /// narrows the catalog to one exact level + shelf and never changes learner
+  /// progress.
+  final ScenarioBrowseDestination? browseDestination;
+
   const ScenariosListScreen({
     super.key,
     this.loadScenarios,
     this.ignoreLevelLock = false,
+    this.browseDestination,
   });
+
+  /// Named-route boundary: only the typed guide destination is interpreted.
+  /// Legacy callers with no arguments (or unrelated arguments) keep the
+  /// generic catalog behavior.
+  factory ScenariosListScreen.fromRouteArguments(Object? arguments) =>
+      ScenariosListScreen(
+        browseDestination: arguments is ScenarioBrowseDestination
+            ? arguments
+            : null,
+      );
 
   @override
   State<ScenariosListScreen> createState() => _ScenariosListScreenState();
@@ -50,6 +68,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
   List<Scenario> _all = [];
   bool _loading = true;
   bool _loadFailed = false;
+  ScenarioBrowseQueryStatus? _browseStatus;
 
   // ── 코치마크 타겟 ──
   final GlobalKey _pathHeaderKey = GlobalKey();
@@ -59,7 +78,11 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
 
   // 시나리오 로드 완료 후에만 발화 (타겟 위젯이 데이터 필요).
   @override
-  bool get coachReady => !_loading && !_loadFailed && _all.isNotEmpty;
+  bool get coachReady =>
+      widget.browseDestination == null &&
+      !_loading &&
+      !_loadFailed &&
+      _all.isNotEmpty;
 
   @override
   List<SpotlightStep> buildCoachSteps(BuildContext context) {
@@ -86,10 +109,20 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
       _loading = true;
       _loadFailed = false;
     });
-    final list = await (widget.loadScenarios?.call() ?? ScenarioLoader.load());
+    final destination = widget.browseDestination;
+    final list = await switch ((widget.loadScenarios, destination)) {
+      (final loader?, _) => loader(),
+      (null, ScenarioBrowseDestination(:final level)) =>
+        ScenarioLoader.loadLevel(level),
+      (null, null) => ScenarioLoader.load(),
+    };
     if (!mounted) return;
+    final browseResult = destination == null
+        ? null
+        : ScenarioBrowseQuery.resolve(destination: destination, corpus: list);
     setState(() {
-      _all = list;
+      _all = browseResult?.scenarios ?? list;
+      _browseStatus = browseResult?.status;
       _loading = false;
       _loadFailed = list.isEmpty && ScenarioLoader.lastError != null;
     });
@@ -99,7 +132,9 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
       LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
 
   bool _isLocked(LearnerLevel level) =>
-      !widget.ignoreLevelLock && level.rank > _userLevel.rank;
+      widget.browseDestination == null &&
+      !widget.ignoreLevelLock &&
+      level.rank > _userLevel.rank;
 
   /// Level별 accent 컬러 매핑
   Color _levelColor(LearnerLevel level) {
@@ -150,6 +185,22 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
         ],
       );
     }
+    if (widget.browseDestination != null &&
+        _browseStatus != ScenarioBrowseQueryStatus.ready) {
+      return SoriStandardPage(
+        appBarTitle: t.scenariosListTitle,
+        maxWidth: SoriMaxWidth.hub,
+        children: [
+          SoriEmptyState(
+            asset: 'assets/illustrations/mascot/tiger_front.png',
+            icon: Icons.bedtime_outlined,
+            title: t.scenariosEmptyTitle,
+            body: t.scenariosEmptyBody,
+            accent: SoriColors.primary,
+          ),
+        ],
+      );
+    }
 
     final stars = Storage.scenarioStars;
     final lang = Localizations.localeOf(context).languageCode;
@@ -162,6 +213,10 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
       children: [
         // 모듈 헤더 — 16:9 원본 영상과 같은 비율을 유지한다.
         // 마당 포스터 위로 종가 앰비언트 루프(굴뚝 연기·감 흔들림) 페이드인.
+        // §15: 좁은 화면에서 heroMaxShare/heroMaxHeight 예산을 넘으면
+        // `SoriLayout.heroFit`(HanokHeader 내부)이 16:9를 깨지 않고 폭을
+        // 줄여 중앙 정렬한다 — 크롭하거나 0dp로 사라지지 않는다(컨트롤러
+        // 룰링 2026-08-27). aspectRatio는 아래 그대로 전달만 하면 된다.
         const HanokHeader(
           asset: 'assets/illustrations/hanok/madang(light).png',
           fallbackIcon: Icons.travel_explore_outlined,
@@ -170,18 +225,20 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
         ),
         const SizedBox(height: Spacing.xl),
 
-        // Lesson Path header (Phase 3 — visible lesson path)
-        KeyedSubtree(
-          key: _pathHeaderKey,
-          child: _LessonPathHeader(
-            all: _all,
-            userLevel: _userLevel,
-            stars: stars,
-            lang: lang,
-            levelColor: _levelColor,
+        if (widget.browseDestination == null) ...[
+          // Lesson Path header (Phase 3 — visible lesson path)
+          KeyedSubtree(
+            key: _pathHeaderKey,
+            child: _LessonPathHeader(
+              all: _all,
+              userLevel: _userLevel,
+              stars: stars,
+              lang: lang,
+              levelColor: _levelColor,
+            ),
           ),
-        ),
-        const SizedBox(height: Spacing.lg),
+          const SizedBox(height: Spacing.lg),
+        ],
 
         // Per-Level Sections
         for (final level in LearnerLevel.values.where(

@@ -11,8 +11,8 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/chaekgado/chaekgado_assets.dart';
 import '../widgets/sori/chaekgado/scroll_sheet.dart';
 import '../widgets/sori/chaekgado/shelf_case.dart';
-import '../widgets/sori/chip.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/standard_page.dart';
@@ -66,7 +66,9 @@ class _ListeningScreenState extends State<ListeningScreen>
     with ScreenCoachMixin<ListeningScreen> {
   List<Scenario> _scenarios = const [];
   bool _loading = true;
-  LearnerLevel _shelfLevel = LearnerLevel.a1;
+  LearnerLevel _shelfLevel =
+      LearnerLevel.fromCode(SoriLevelFilterBar.resolveStartLevel()) ??
+      LearnerLevel.a1;
   final GlobalKey _shelfKey = GlobalKey();
 
   @override
@@ -282,20 +284,12 @@ class _ListeningScreenState extends State<ListeningScreen>
                 children: [
                   Text(t.filterLevel, style: SoriTextTheme.of(context).label),
                   const SizedBox(height: Spacing.sm),
-                  Wrap(
-                    spacing: Spacing.xs,
-                    runSpacing: Spacing.xs,
-                    children: [
-                      for (final level in LearnerLevel.values)
-                        SoriChip(
-                          label: level.display,
-                          accent: SoriColors.info,
-                          selected: level == _shelfLevel,
-                          variant: SoriChipVariant.filled,
-                          minInteractiveHeight: 48,
-                          onTap: () => setState(() => _shelfLevel = level),
-                        ),
-                    ],
+                  SoriLevelFilterBar(
+                    selected: _shelfLevel.code,
+                    onChanged: (code) => setState(
+                      () => _shelfLevel =
+                          LearnerLevel.fromCode(code) ?? LearnerLevel.a1,
+                    ),
                   ),
                   ClipRRect(
                     borderRadius: SoriRadius.brMd,

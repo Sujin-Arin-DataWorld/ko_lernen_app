@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/guide_contract.dart';
 import 'package:ko_lernen_app/screens/hangul_screen.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,30 +23,49 @@ void main() {
   // 2026-08-18: 예전엔 ㅃ 이 예시어 '빵' 을 읽었다. 테스터(Amor)가 "낱자를
   // 누르면 순수 음가가 아니라 예시어가 나온다"고 지적해 1음절 음가로 되돌렸다.
   // 1음절 계약 자체는 test/jamo_speech_test.dart 가 전수로 지킨다.
-  testWidgets('overview jamo tap immediately speaks its single-syllable sound', (
+  testWidgets(
+    'overview jamo tap immediately speaks its single-syllable sound',
+    (tester) async {
+      final spoken = <String>[];
+      await tester.pumpWidget(
+        _host(
+          HangulScreen(
+            speechPlayer: (text) async {
+              spoken.add(text);
+              return true;
+            },
+          ),
+        ),
+      );
+      await tester.pump();
+
+      final target = find.byKey(const ValueKey('hangul-overview-ㅃ'));
+      await tester.ensureVisible(target);
+      await tester.pump();
+      await tester.tap(target);
+      await tester.pump();
+
+      expect(spoken, ['쁘']);
+      expect(find.text('ㅃ'), findsWidgets);
+    },
+  );
+
+  testWidgets('typed guide destination opens the requested Hangeul tab', (
     tester,
   ) async {
-    final spoken = <String>[];
     await tester.pumpWidget(
       _host(
         HangulScreen(
-          speechPlayer: (text) async {
-            spoken.add(text);
-            return true;
-          },
+          initialTarget: HangulTarget.write,
+          textPrefetcher: (_) async {},
         ),
       ),
     );
     await tester.pump();
 
-    final target = find.byKey(const ValueKey('hangul-overview-ㅃ'));
-    await tester.ensureVisible(target);
-    await tester.pump();
-    await tester.tap(target);
-    await tester.pump();
-
-    expect(spoken, ['쁘']);
-    expect(find.text('ㅃ'), findsWidgets);
+    final tabBar = tester.widget<TabBar>(find.byType(TabBar));
+    expect(tabBar.controller?.index, HangulTarget.write.index);
+    expect(find.byKey(const Key('hangul-practice-canvas')), findsOneWidget);
   });
 
   testWidgets('writing canvas owns drags, paints immediately, and includes ㄴ', (

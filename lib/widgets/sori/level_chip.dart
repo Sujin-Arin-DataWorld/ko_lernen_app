@@ -5,8 +5,8 @@ import 'tokens.dart';
 
 /// **SoriLevelChip** — 레벨 표기의 단일 문법 (§4.4-2 색 수렴).
 ///
-/// 사계 단청 4색(`HanokLevelPalette`) 채움 + 흰 라벨 — 팔레트 4색 전부
-/// 흰 글씨 AA(4.86:1+) 확보(hanok_tokens 주석 준거). 미션 히어로(§10.1)와
+/// 단청 여섯 색(`HanokLevelPalette`) 채움 + 흰 라벨 — 팔레트 여섯 색 전부
+/// 흰 글씨 AA(4.50:1+) 확보(hanok_tokens 주석 준거). 미션 히어로(§10.1)와
 /// `/path` 챕터 헤더(§6.2-②)가 같은 칩을 쓴다.
 class SoriLevelChip extends StatelessWidget {
   /// 'A1'…'B2' — 표기 그대로 라벨이 된다.

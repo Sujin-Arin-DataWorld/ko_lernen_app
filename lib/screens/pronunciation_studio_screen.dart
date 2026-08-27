@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/pronunciation_phrase.dart';
+import '../services/analytics_service.dart';
 import '../services/learner_level_selection.dart';
 import '../services/pronunciation_assessment_client.dart';
 import '../services/pronunciation_phrase_loader.dart';
@@ -63,6 +64,7 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
   bool _loadFailed = false;
   bool _recording = false;
   bool _assessing = false;
+  bool _learningStartRecorded = false;
   String? _recordingReferenceText;
   String? _notice;
   PronunciationAssessmentResult? _result;
@@ -115,6 +117,13 @@ class _PronunciationStudioScreenState extends State<PronunciationStudioScreen> {
           usesBundledAsset && PronunciationPhraseLoader.lastError != null;
       if (!mounted) {
         return;
+      }
+      if (visiblePhrases.isNotEmpty && !_learningStartRecorded) {
+        _learningStartRecorded = true;
+        Analytics.lessonStarted(
+          lessonType: 'pronunciation',
+          level: learnerLevelForStoredCode(Storage.userLevelCode).display,
+        );
       }
       setState(() {
         _phrases = visiblePhrases;

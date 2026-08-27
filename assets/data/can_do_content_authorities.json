@@ -62666,13 +62666,13 @@
         },
         {
           "phraseId": "smalltalk_b1_0006",
-          "phraseFingerprintSha256": "0d81779454ac9c72f09d364a9eb2b8012b0268c878229507304af42b8460b26e",
+          "phraseFingerprintSha256": "806eb7309dc3deece952650c0b3a22554d784723995b1237b9d51bcdcc441562",
           "routingSource": "categoryFallback",
           "canDoSegmentId": "segment_b1_relay_media_claim",
           "canDoFingerprintSha256": "513cdec2b725f43de77b233f455a919478cb0120569a8fe8a28b764508247d36",
           "semanticStatus": "bestAvailable",
           "reasonCode": "closestPublishedCoreSegment",
-          "reviewRevision": 1
+          "reviewRevision": 2
         },
         {
           "phraseId": "smalltalk_b1_0007",

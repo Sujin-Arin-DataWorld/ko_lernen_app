@@ -220,6 +220,43 @@ void main() {
       expect((await result).status, CloudWriteResult.stale);
     },
   );
+
+  test(
+    'typed pack restore cannot persist when its remote read finishes after local reset',
+    () async {
+      final sessions = CloudWriteSessionController()..acquire('uid-a');
+      final session = sessions.current!;
+      final remote = Completer<CloudReadResult<FirestorePackSnapshot>>();
+      var persistCalls = 0;
+
+      final result = PackProgressService.pullTypedFromCloudWithSessionResult(
+        sessions: sessions,
+        uid: 'uid-a',
+        expectedSession: session,
+        loadRemote: () => remote.future,
+        loadLocal: PackProgressService.getAll,
+        persistLocal: (progress) async {
+          persistCalls += 1;
+          await Storage.setManyPackProgressJson(progress);
+        },
+      );
+      await Future<void>.delayed(Duration.zero);
+      await Storage.resetAll();
+      remote.complete(
+        CloudReadResult.present(
+          FirestorePackSnapshot(
+            progress: {'pack-a': _progress(wordsLearned: 4)},
+            revisions: const {'pack-a': 1},
+            membershipRevision: 1,
+          ),
+        ),
+      );
+
+      expect((await result).status, CloudWriteResult.stale);
+      expect(persistCalls, 0);
+      expect(PackProgressService.getAll(), isEmpty);
+    },
+  );
 }
 
 PackProgress _progress({

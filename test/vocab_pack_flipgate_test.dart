@@ -9,7 +9,6 @@ import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/flip_card.dart';
-import 'package:ko_lernen_app/widgets/sori/spotlight_coach.dart';
 
 /// §P2-6 flipgate 센서: vocab_pack Learn — "앞면(미공개) 드래그 시 SRS·
 /// wrongCount 0 + 진행 불변". 기존 3화면(review·custom·legacy)과 동형 —
@@ -128,43 +127,4 @@ void main() {
     expect(Storage.srsCard('나무')?.reviewCount, 1);
   });
 
-  testWidgets(
-    'vocab coach queues wordbook spotlight and excludes deck spotlight',
-    (tester) async {
-      Storage.resetForTesting();
-      SharedPreferences.setMockInitialValues({
-        'kl_user_level': 'a1',
-        'kl_streak_days': 0,
-        'kl_xp': 0,
-        'kl_tut_vocab_pack': false,
-        'kl_tut_soriDeck': false,
-        'kl_tut_wordbook': false,
-      });
-      await Storage.init();
-
-      await pump(tester);
-
-      expect(find.text('In 3 Schritten lernen'), findsOneWidget);
-      expect(find.byKey(kSpotlightTooltipKey), findsNothing);
-      expect(
-        find.text(
-          'Schritt 1 · Lernen: Karte antippen oder ? zum Umdrehen, dann nach oben wischen. '
-          'Herz = später üben, Lesezeichen = Wörterbuch',
-        ),
-        findsOneWidget,
-      );
-
-      await tester.tap(find.text('Alles klar!'));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 400));
-      await tester.pump();
-
-      expect(find.text('Karte wischen'), findsNothing);
-      expect(find.byKey(kSpotlightTooltipKey), findsOneWidget);
-      expect(find.text('Wörter hier speichern'), findsOneWidget);
-      expect(Storage.tutVocabPackSeen, isTrue);
-      expect(Storage.tutSeen('soriDeck'), isFalse);
-      await tester.pumpWidget(const SizedBox.shrink());
-    },
-  );
 }

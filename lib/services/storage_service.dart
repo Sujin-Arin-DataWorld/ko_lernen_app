@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'account/account_transition_journal.dart';
 import '../models/learner_level.dart';
 import '../models/personal_room.dart';
+import 'local_data_lifetime.dart';
 import 'media_mutation_lock.dart';
 
 /// Mastery-Status eines Vokabel-/Lerneintrags. Aus SRS-Daten abgeleitet,
@@ -127,6 +128,18 @@ abstract interface class PreferenceStringStore {
   Future<bool> remove(String key);
 }
 
+/// Injectable boolean preference boundary used by strict onboarding commits.
+///
+/// SharedPreferences updates its in-memory cache before the platform write is
+/// known to have succeeded. Keeping this boundary separate lets tests model a
+/// rejected or indeterminate platform write instead of trusting that cache.
+abstract interface class PreferenceBoolStore {
+  bool containsKey(String key);
+  bool? getBool(String key);
+  Future<void> reload();
+  Future<bool> setBool(String key, bool value);
+}
+
 class PreferenceWriteException implements Exception {
   const PreferenceWriteException(this.key, {this.cause});
 
@@ -169,6 +182,35 @@ class _StringPreferenceState {
   @override
   bool operator ==(Object other) =>
       other is _StringPreferenceState &&
+      other.isPresent == isPresent &&
+      other.value == value;
+
+  @override
+  int get hashCode => Object.hash(isPresent, value);
+}
+
+class _BoolPreferenceState {
+  const _BoolPreferenceState._({required this.isPresent, this.value});
+
+  const _BoolPreferenceState.absent() : isPresent = false, value = null;
+
+  final bool isPresent;
+  final bool? value;
+
+  static _BoolPreferenceState read(PreferenceBoolStore store, String key) {
+    if (!store.containsKey(key)) {
+      return const _BoolPreferenceState.absent();
+    }
+    final value = store.getBool(key);
+    if (value == null) {
+      throw StateError('Preference $key is not a bool.');
+    }
+    return _BoolPreferenceState._(isPresent: true, value: value);
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      other is _BoolPreferenceState &&
       other.isPresent == isPresent &&
       other.value == value;
 
@@ -297,6 +339,25 @@ class _SharedPreferenceStringStore implements PreferenceStringStore {
       preferences.setString(key, value);
 }
 
+class _SharedPreferenceBoolStore implements PreferenceBoolStore {
+  const _SharedPreferenceBoolStore(this.preferences);
+
+  final SharedPreferences preferences;
+
+  @override
+  bool containsKey(String key) => preferences.containsKey(key);
+
+  @override
+  bool? getBool(String key) => preferences.getBool(key);
+
+  @override
+  Future<void> reload() => preferences.reload();
+
+  @override
+  Future<bool> setBool(String key, bool value) =>
+      preferences.setBool(key, value);
+}
+
 /// Spaced Repetition card state.
 /// Felder kurz benannt, damit JSON klein bleibt (viele tausend Vokabeln möglich).
 class SrsCard {
@@ -416,12 +477,17 @@ class Storage {
   static const String _recoveredWordLeaseKey = 'kl_recovered_word_lease';
   static const String listeningRewardLedgerPreferenceKey =
       'kl_xp_reward_ledger_v1';
+  static const String consentedFirstLearningActionClaimPreferenceKey =
+      'kl_consented_first_learning_action_claim_v1';
+  static const String _consentedFirstLearningActionClaimValue = 'claimed';
 
   static SharedPreferences? _prefs;
   static Future<void> _recoveredBookMutation = Future<void>.value();
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
   static Future<void> _xpRewardMutation = Future<void>.value();
+  static Future<void> _consentedFirstLearningActionClaimMutation =
+      Future<void>.value();
   static int _xpRewardMutationCount = 0;
   static final Set<String> _pendingListeningRewardClaims = <String>{};
   static final Set<String> _unknownStrictKeys = <String>{};
@@ -448,6 +514,7 @@ class Storage {
     _recoveredWordMutation = Future<void>.value();
     _pronunciationProgressMutation = Future<void>.value();
     _xpRewardMutation = Future<void>.value();
+    _consentedFirstLearningActionClaimMutation = Future<void>.value();
     _xpRewardMutationCount = 0;
     _pendingListeningRewardClaims.clear();
     MediaMutationLock.resetForTesting();
@@ -594,6 +661,97 @@ class Storage {
     }
     _unknownStrictKeys.add(key);
     throw PreferenceOutcomeUnknownException(key, cause: failure);
+  }
+
+  static Future<void> _sbStrict(
+    String key,
+    bool value, {
+    PreferenceBoolStore? preferences,
+  }) async {
+    final store =
+        preferences ??
+        (_prefs == null ? null : _SharedPreferenceBoolStore(_prefs!));
+    if (store == null) {
+      throw PreferenceWriteException(key);
+    }
+    final before = await _prepareBoolMutation(store, key);
+    Object? failure;
+    var wrote = false;
+    try {
+      wrote = await store.setBool(key, value);
+    } on Object catch (error) {
+      failure = error;
+    }
+    if (wrote) {
+      return;
+    }
+    final after = await _reloadBoolState(store, key, operationFailure: failure);
+    if (after.isPresent && after.value == value) {
+      return;
+    }
+    if (after == before) {
+      throw PreferenceWriteException(key, cause: failure);
+    }
+    _unknownStrictKeys.add(key);
+    throw PreferenceOutcomeUnknownException(key, cause: failure);
+  }
+
+  static Future<_BoolPreferenceState> _prepareBoolMutation(
+    PreferenceBoolStore store,
+    String key,
+  ) async {
+    if (_unknownStrictKeys.contains(key)) {
+      await _refreshUnknownBoolKeys(store, [key]);
+      // As with strict string writes, the caller must explicitly retry after
+      // the indeterminate cache has been refreshed.
+      throw PreferenceWriteException(key);
+    }
+    try {
+      return _BoolPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
+  static Future<void> _refreshUnknownBoolKeys(
+    PreferenceBoolStore store,
+    Iterable<String> keys,
+  ) async {
+    final unknown = keys
+        .where(_unknownStrictKeys.contains)
+        .toSet()
+        .toList(growable: false);
+    if (unknown.isEmpty) {
+      return;
+    }
+    try {
+      await store.reload();
+      for (final key in unknown) {
+        _BoolPreferenceState.read(store, key);
+      }
+      _unknownStrictKeys.removeAll(unknown);
+    } on Object catch (error) {
+      _unknownStrictKeys.addAll(unknown);
+      throw PreferenceOutcomeUnknownException(unknown.first, cause: error);
+    }
+  }
+
+  static Future<_BoolPreferenceState> _reloadBoolState(
+    PreferenceBoolStore store,
+    String key, {
+    Object? operationFailure,
+  }) async {
+    try {
+      await store.reload();
+      return _BoolPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(
+        key,
+        cause: operationFailure ?? error,
+      );
+    }
   }
 
   static Future<_StringPreferenceState> _prepareStringMutation(
@@ -965,6 +1123,44 @@ class Storage {
   static bool get hasCompletedOnboarding => _b('kl_onboarding_completed');
   static Future<void> setHasCompletedOnboarding(bool v) =>
       _sb('kl_onboarding_completed', v);
+  static Future<void> setHasCompletedOnboardingStrict(
+    bool v, {
+    PreferenceBoolStore? preferences,
+  }) => _sbStrict('kl_onboarding_completed', v, preferences: preferences);
+
+  /// Whether this local app-data lifetime has already consumed the one allowed
+  /// attempt to report a consented first learning action.
+  ///
+  /// The marker deliberately contains no action, purpose, route, or payload.
+  /// Any non-empty value fails closed so a malformed future/legacy value cannot
+  /// cause a duplicate analytics attempt.
+  static bool get hasClaimedConsentedFirstLearningAction =>
+      _s(consentedFirstLearningActionClaimPreferenceKey).isNotEmpty;
+
+  /// Durably claims the one local attempt to report a first learning action.
+  ///
+  /// Callers must check effective analytics consent before invoking this. The
+  /// strict write is the commit point and happens before analytics delivery, so
+  /// process death cannot turn one observed action into multiple send attempts.
+  /// Calls within one isolate are serialized to keep the read/write claim
+  /// atomic with respect to other callers of this method.
+  static Future<bool> claimConsentedFirstLearningAction() {
+    final result = _consentedFirstLearningActionClaimMutation.then((_) async {
+      if (hasClaimedConsentedFirstLearningAction) {
+        return false;
+      }
+      await _ssStrict(
+        consentedFirstLearningActionClaimPreferenceKey,
+        _consentedFirstLearningActionClaimValue,
+      );
+      return true;
+    });
+    _consentedFirstLearningActionClaimMutation = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    return result;
+  }
 
   static int get sessionCount => _i('kl_session_count');
   static Future<void> setSessionCount(int v) => _si('kl_session_count', v);
@@ -973,6 +1169,10 @@ class Storage {
       _s('kl_last_activity_time'); // ISO 8601 datetime
   static Future<void> setLastActivityTime(String v) =>
       _ss('kl_last_activity_time', v);
+  static Future<void> setLastActivityTimeStrict(
+    String v, {
+    PreferenceStringStore? preferences,
+  }) => _ssStrict('kl_last_activity_time', v, preferences: preferences);
 
   static int get dailyGoalMinutes => _i('kl_daily_goal_minutes');
   static Future<void> setDailyGoal(int minutes) =>
@@ -982,10 +1182,17 @@ class Storage {
   /// 학습 이유 id (LearnerMotivation.name). 빈 문자열 = 미설정.
   static String get motivation => _s('kl_motivation');
   static Future<void> setMotivation(String id) => _ss('kl_motivation', id);
+  static Future<void> setMotivationStrict(
+    String id, {
+    PreferenceStringStore? preferences,
+  }) => _ssStrict('kl_motivation', id, preferences: preferences);
 
   /// 동기 시트를 이미 물었나(1회 노출 가드).
   static bool get motivationAsked => _b('kl_motivation_asked');
   static Future<void> setMotivationAsked() => _sb('kl_motivation_asked', true);
+  static Future<void> setMotivationAskedStrict({
+    PreferenceBoolStore? preferences,
+  }) => _sbStrict('kl_motivation_asked', true, preferences: preferences);
 
   // ───────── Tageskurs 전용 카드 주 1회 가드 (디자인 Q2) ─────────
   /// 전용 카드를 노출한 ISO 주('2026-W32'). 같은 주엔 홈 카드 숨김 —
@@ -1011,10 +1218,85 @@ class Storage {
     }
   }
 
+  static const String selectedCompanionPreferenceKey =
+      'kl_selected_companion_v1';
+  static const String companionVisiblePreferenceKey = 'kl_companion_visible_v1';
+
   static String get preferredMascot =>
-      _s('kl_preferred_mascot'); // 'tiger', 'magpie', or explicit 'none'
+      _s('kl_preferred_mascot'); // Legacy mirror: tiger, magpie, or none.
   static Future<void> setPreferredMascot(String mascot) =>
       _ss('kl_preferred_mascot', mascot);
+  static Future<void> setPreferredMascotStrict(
+    String mascot, {
+    PreferenceStringStore? preferences,
+  }) => _ssStrict('kl_preferred_mascot', mascot, preferences: preferences);
+
+  /// Explicit V2 identity only. Unlike [selectedCompanion], this never turns a
+  /// missing key or a legacy `none` value into an implicit Taego selection.
+  static String? get explicitSelectedCompanion {
+    final selected = _s(selectedCompanionPreferenceKey);
+    return selected == 'tiger' || selected == 'magpie' ? selected : null;
+  }
+
+  /// The learner's durable Taego/Joy choice, independent from presentation.
+  ///
+  /// Legacy installs only have [preferredMascot]. An explicit legacy `none`
+  /// means "hidden" rather than "no chosen identity" in V2, so Taego is the
+  /// safe migration fallback until the learner chooses again.
+  static String get selectedCompanion {
+    final selected = explicitSelectedCompanion;
+    if (selected != null) {
+      return selected;
+    }
+    final legacy = preferredMascot;
+    return legacy == 'magpie' ? 'magpie' : 'tiger';
+  }
+
+  static Future<void> setSelectedCompanion(String companion) {
+    if (companion != 'tiger' && companion != 'magpie') {
+      throw ArgumentError.value(
+        companion,
+        'companion',
+        'must be tiger or magpie',
+      );
+    }
+    return _ss(selectedCompanionPreferenceKey, companion);
+  }
+
+  static Future<void> setSelectedCompanionStrict(
+    String companion, {
+    PreferenceStringStore? preferences,
+  }) {
+    if (companion != 'tiger' && companion != 'magpie') {
+      throw ArgumentError.value(
+        companion,
+        'companion',
+        'must be tiger or magpie',
+      );
+    }
+    return _ssStrict(
+      selectedCompanionPreferenceKey,
+      companion,
+      preferences: preferences,
+    );
+  }
+
+  /// Whether the selected companion is rendered on personal companion slots.
+  /// Missing V2 state preserves the legacy `none` behavior during migration.
+  static bool get companionVisible =>
+      _prefs?.getBool(companionVisiblePreferenceKey) ??
+      preferredMascot != 'none';
+
+  static Future<void> setCompanionVisible(bool visible) =>
+      _sb(companionVisiblePreferenceKey, visible);
+  static Future<void> setCompanionVisibleStrict(
+    bool visible, {
+    PreferenceBoolStore? preferences,
+  }) => _sbStrict(
+    companionVisiblePreferenceKey,
+    visible,
+    preferences: preferences,
+  );
 
   // ───────── App / Streak ─────────
   static String get lastOpenDate => _s('kl_last_open_date'); // 'YYYY-MM-DD'
@@ -1637,8 +1919,8 @@ class Storage {
   /// DSGVO/ToS-Einwilligung beim ersten Start akzeptiert? (Consent-Gate)
   static bool get consentAccepted =>
       _prefs?.getBool('kl_consent_accepted') ?? false;
-  static Future<void> setConsentAccepted() async =>
-      _prefs?.setBool('kl_consent_accepted', true);
+  static Future<void> setConsentAccepted({PreferenceBoolStore? preferences}) =>
+      _sbStrict('kl_consent_accepted', true, preferences: preferences);
 
   /// Opt-in: anonyme Nutzungsstatistiken (Firebase Analytics).
   /// Default **false** — Erhebung erst nach expliziter Einwilligung
@@ -2270,6 +2552,18 @@ class Storage {
   static Future<void> setBrowseLevelCode(String code) async {
     final normalized = _requiredLearnerLevelCode(code);
     await _ss(browseLevelPreferenceKey, normalized);
+  }
+
+  static Future<void> setBrowseLevelCodeStrict(
+    String code, {
+    PreferenceStringStore? preferences,
+  }) async {
+    final normalized = _requiredLearnerLevelCode(code);
+    await _ssStrict(
+      browseLevelPreferenceKey,
+      normalized,
+      preferences: preferences,
+    );
   }
 
   static Future<void> setCourseUnitId(String unitId) async {
@@ -2982,6 +3276,22 @@ class Storage {
     PreferenceStringStore? preferences,
   }) => _ssStrict('kl_bookshelf_v1', json, preferences: preferences);
 
+  // ── Typed study bookmarks ─────────────────────────────────────────
+  // Owned by TypedStudyBookmarkStore. Storage intentionally exposes only the
+  // raw blob so schema validation and fail-closed migration stay in one place.
+  static const String typedStudyBookmarksPreferenceKey =
+      'kl_typed_study_bookmarks_v1';
+  static String get typedStudyBookmarksRawJson =>
+      _s(typedStudyBookmarksPreferenceKey);
+  static Future<void> setTypedStudyBookmarksRawJson(
+    String json, {
+    PreferenceStringStore? preferences,
+  }) => _ssStrict(
+    typedStudyBookmarksPreferenceKey,
+    json,
+    preferences: preferences,
+  );
+
   static String get pickerRecoveryMarkerJson => _s(_pickerRecoveryMarkerKey);
   static String get cropRecoveryMarkerJson => _s(_cropRecoveryMarkerKey);
   static String get recoveredBookLease => _s(_recoveredBookLeaseKey);
@@ -3363,15 +3673,22 @@ class Storage {
       store,
       allowJournalPreservingReset: true,
     );
-    final keys = store.getKeys();
-    for (final k in keys) {
-      if (k.startsWith('kl_') &&
-          !_durableAccountJournalPreferenceKeys.contains(k)) {
-        await store.remove(k);
+    // Invalidate admitted remote restores before the first deletion. A late
+    // remote response must belong to the old data lifetime and fail closed.
+    LocalDataLifetime.invalidate();
+    try {
+      final keys = store.getKeys();
+      for (final k in keys) {
+        if (k.startsWith('kl_') &&
+            !_durableAccountJournalPreferenceKeys.contains(k)) {
+          await store.remove(k);
+        }
       }
+    } finally {
+      // Account/local deletion must never leave a removed course graph or
+      // wrong-answer history reachable through optimistic in-memory mirrors.
+      resetCachesAfterExternalWrite();
     }
-    _invalidateSrsCache();
-    _invalidatePackCache();
   }
 
   /// Account-deletion reset that verifies every app-owned preference removal.
@@ -3390,6 +3707,10 @@ class Storage {
       allowAccountDeletionCheckpoint:
           canonicalizeAccountDeletionCheckpoint != null,
     );
+    // This is deliberately synchronous and precedes checkpoint
+    // canonicalization as well as preference removal. Even a partially
+    // failing strict reset must never leave an old restore lease writable.
+    LocalDataLifetime.invalidate();
     final failedKeys = <String>[];
     final causes = <Object>[];
     final canonicalCheckpointKeys = <String>[];
@@ -3448,8 +3769,7 @@ class Storage {
         }
       }
     } finally {
-      _invalidateSrsCache();
-      _invalidatePackCache();
+      resetCachesAfterExternalWrite();
     }
 
     if (failedKeys.isNotEmpty) {

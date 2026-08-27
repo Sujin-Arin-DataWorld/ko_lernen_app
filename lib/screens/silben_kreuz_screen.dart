@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/learner_level.dart';
 import '../models/silben_puzzle.dart';
+import '../services/analytics_service.dart';
 import '../services/learner_level_selection.dart';
 import '../services/silben_puzzle_loader.dart';
 import '../services/sound_service.dart';
@@ -162,6 +163,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
             orElse: () => 'A1',
           );
     _openLevel(resolvedLevel);
+    if (_puzzle != null) {
+      unawaited(Analytics.gameStarted(gameType: 'silben_kreuz', level: _level));
+    }
   }
 
   Future<void> _retryLoad() async {

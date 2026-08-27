@@ -27,6 +27,7 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scroll_if_needed.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
@@ -81,6 +82,22 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   int _reviewed = 0;
   bool _done = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  final _speech = ContentSpeechController();
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route != null) _speech.subscribe(route);
+  }
+
+  @override
+  void deactivate() {
+    // 프레임 지연은 ContentSpeechController.deactivate() 안으로 옮겼다
+    // (검수#13 보강 fix 2) — 이 화면은 그냥 부르기만 하면 된다.
+    _speech.deactivate();
+    super.deactivate();
+  }
 
   // ── 코치마크 타겟 ──
   final GlobalKey _cardKey = GlobalKey();
@@ -114,7 +131,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   @override
   void initState() {
     super.initState();
-    _load();
+    _load().then((_) {
+      if (mounted && _deck.isNotEmpty) {
+        _speech.playOnEnter(_card.korean);
+      }
+    });
     scheduleCoach();
     // K-Culture 노트 로드 후 카드 반영.
     CultureNotesService.load().then((_) {
@@ -163,12 +184,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   @override
   void dispose() {
+    _speech.dispose();
     _flipHintTrigger.dispose();
     super.dispose();
   }
 
-  /// ↑ 저장 (§P2-2) — AppBar 의 [AddToWordbookButton] 이 접근성 정본이고
-  /// ↑ 는 같은 동작의 가속 경로. SRS/오답 접근 금지, 전진 없음.
   void _saveCurrent() {
     if (_loading || _done || _deck.isEmpty) {
       return;
@@ -229,6 +249,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       _flipped = false;
       _cardRevealed = false;
     });
+    // Skip 도 카드 전환이다 — _idx 자체는 안 바뀌지만 _deck 재정렬로
+    // _card(=_deck[_idx])가 가리키는 카드는 바뀐다. _answer() 의 else
+    // 분기와 같은 자리(reorder 완료 뒤, _card 로 새 카드를 읽음)에서
+    // 동일하게 발동한다 — fix round 1, 검수 finding #1.
+    _speech.playOnEnter(_card.korean);
   }
 
   void _toggleFlip() {
@@ -277,6 +302,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         _flipped = false;
         _cardRevealed = false;
       });
+      _speech.playOnEnter(_card.korean);
+      _speech.prefetchNeighbors([
+        if (_idx + 1 < _deck.length) _deck[_idx + 1].korean,
+      ]);
     }
   }
 
@@ -287,21 +316,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
     return SoriStudyFrame(
       title: widget.title ?? t.reviewTitle,
-      actions: [
-        // 오늘의 복습 카드를 바로 내 단어장에 담기 (item 11).
-        if (!_loading && _deck.isNotEmpty && !_done)
-          AddToWordbookButton(
-            korean: _card.korean,
-            translationDe: _card.german,
-            translationEn: _card.english,
-            romanization: _card.romanization,
-            posDe: _card.posDe,
-            exampleKorean: _card.exampleKorean,
-            exampleDe: _card.exampleGerman,
-            compact: true,
-          ),
-        const TtsSpeedAction(),
-      ],
+      actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
       // ⚠️ 완료 화면에서는 한지 결을 끈다. `_HanjiPainter` 는 반지름 48~163px
       // 짜리 따뜻한 구름 얼룩(#D4C496 @0.075)을 최대 40개 뿌려 배경을
@@ -537,6 +552,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                   onLike: _likeCurrent,
                   onBookmark: _saveCurrent,
                   bookmarkKey: _card.korean,
+                  topAccessory: SoriSpeechIndicator(text: _card.korean),
                   onShare: _shareCurrent,
                   onFlip: _toggleFlip,
                   liked: LikedContentService.isLiked(

@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,6 +8,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../widgets/app_loading.dart';
 import '../models/feedback_completion.dart';
 import '../models/vocab.dart';
+import '../services/analytics_service.dart';
 import '../services/cloze_loader.dart';
 import '../services/data_loader.dart';
 import '../services/sound_service.dart';
@@ -113,6 +115,14 @@ class _DailyChallengeScreenState extends State<DailyChallengeScreen> {
       _alreadyDone = Storage.dailyChallengeDoneToday();
       _loading = false;
     });
+    if (_round.isNotEmpty) {
+      unawaited(
+        Analytics.gameStarted(
+          gameType: 'daily',
+          level: Storage.placementLevelCode,
+        ),
+      );
+    }
   }
 
   void _pick(ClozeItem item, String option) {

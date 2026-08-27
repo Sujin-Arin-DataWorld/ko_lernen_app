@@ -68,7 +68,7 @@ P = [
     # ── screen ──
     ("screen", "a1", "reaction", "그 드라마 재미있어요.", "Die Serie ist gut.", "That drama is fun."),
     ("screen", "a2", "question", "요즘 무슨 드라마 봐요?", "Welche Serie schaust du gerade?", "What drama are you watching these days?"),
-    ("screen", "b1", "question", "넷플릭스에 볼 만한 거 있어요?", "Gibt's auf Netflix etwas Sehenswertes?", "Is there anything worth watching on Netflix?"),
+    ("screen", "b1", "question", "요즘 볼 만한 드라마 있어요?", "Gibt's gerade eine sehenswerte Serie?", "Is there a good series to watch these days?"),
     ("screen", "b2", "question", "요즘 통 볼 만한 게 없던데, 혹시 추천해 줄 거 있어요?", "In letzter Zeit gibt's kaum etwas Gutes — hast du vielleicht eine Empfehlung?", "There's been nothing good to watch lately — got any recommendations?"),
     # ── music ──
     ("music", "a1", "reaction", "이 노래 좋아요.", "Das Lied ist schön.", "I like this song."),
@@ -219,7 +219,7 @@ REPLIES = {
     "요즘 맛있게 먹은 음식 있어요?": ("어제 먹은 파스타가 맛있었어요.", "Die Pasta gestern war lecker.", "The pasta I had yesterday was great."),
     "커피 마셨어요?": ("네, 아침에 한 잔 마셨어요.", "Ja, morgens eine Tasse.", "Yes, I had a cup this morning."),
     "요즘 무슨 드라마 봐요?": ("요즘 한국 드라마 보고 있어요.", "Gerade eine koreanische Serie.", "I'm watching a Korean drama these days."),
-    "넷플릭스에 볼 만한 거 있어요?": ("요즘 이거 인기 많아요.", "Das hier ist gerade beliebt.", "This one's popular right now."),
+    "요즘 볼 만한 드라마 있어요?": ("요즘 이거 인기 많아요.", "Das hier ist gerade beliebt.", "This one's popular right now."),
     "요즘 통 볼 만한 게 없던데, 혹시 추천해 줄 거 있어요?": ("이 드라마 한번 봐 보세요.", "Probier mal diese Serie.", "Try this drama."),
     "무슨 음악 좋아해요?": ("케이팝이랑 발라드 좋아해요.", "K-Pop und Balladen.", "I like K-pop and ballads."),
     "즐겨 듣는 음악 장르가 있으세요?": ("주로 재즈를 들어요.", "Hauptsächlich Jazz.", "Mostly jazz."),

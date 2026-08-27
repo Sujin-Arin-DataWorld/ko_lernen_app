@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../../features/study_library/study_library.dart';
 import '../../l10n/generated/app_localizations.dart';
 import '../../models/book_page.dart';
 import '../../services/analytics_service.dart';
@@ -34,9 +35,40 @@ Future<WordbookAddResult> addToWordbook(
   String exampleDe = '',
   String definitionKo = '',
   String source = 'manual',
-}) async {
+}) {
   final t = AppL10n.of(context);
+  return _addToWordbook(
+    t: t,
+    onFailure: () {
+      if (context.mounted) soriToast(context, t.wbAddFailed);
+    },
+    korean: korean,
+    translationDe: translationDe,
+    translationEn: translationEn,
+    translationLanguage: translationLanguage,
+    romanization: romanization,
+    posDe: posDe,
+    exampleKorean: exampleKorean,
+    exampleDe: exampleDe,
+    definitionKo: definitionKo,
+    source: source,
+  );
+}
 
+Future<WordbookAddResult> _addToWordbook({
+  required AppL10n t,
+  required VoidCallback onFailure,
+  required String korean,
+  required String translationDe,
+  required String translationEn,
+  required String translationLanguage,
+  required String romanization,
+  required String posDe,
+  required String exampleKorean,
+  required String exampleDe,
+  required String definitionKo,
+  required String source,
+}) async {
   final res = await CustomPackService.quickAdd(
     defaultPackName: t.wbQuickPackName,
     word: ExtractedWord.manual(
@@ -56,10 +88,79 @@ Future<WordbookAddResult> addToWordbook(
     Analytics.wordbookAdded(source: source);
   }
 
-  if (res == WordbookAddResult.failed && context.mounted) {
-    soriToast(context, t.wbAddFailed);
-  }
+  if (res == WordbookAddResult.failed) onFailure();
   return res;
+}
+
+/// Saves a non-word item without flattening its public Study Library shape.
+///
+/// The typed bookmark is the canonical user-facing save. The existing quick
+/// CustomPack write remains as a compatibility mirror so vocabulary games and
+/// legacy word-pack flows keep working. The mirror is attempted only after the
+/// canonical write succeeds; a corrupt or future-version typed store therefore
+/// cannot silently create another fake word.
+Future<WordbookAddResult> addTypedBookmarkWithWordbookMirror(
+  BuildContext context, {
+  required StudyLibraryItemType itemType,
+  required String itemId,
+  required String korean,
+  required String translationDe,
+  String translationEn = '',
+  String translationLanguage = 'de',
+  String romanization = '',
+  String posDe = '',
+  String exampleKorean = '',
+  String exampleDe = '',
+  String definitionKo = '',
+  String sourceUnitId = '',
+  String source = 'manual',
+}) async {
+  final t = AppL10n.of(context);
+  void showFailure() {
+    if (context.mounted) soriToast(context, t.wbAddFailed);
+  }
+
+  if (itemType == StudyLibraryItemType.word) {
+    showFailure();
+    return WordbookAddResult.failed;
+  }
+  final preferredTranslation = translationLanguage == 'en'
+      ? (translationEn.trim().isNotEmpty ? translationEn : translationDe)
+      : (translationDe.trim().isNotEmpty ? translationDe : translationEn);
+
+  try {
+    final mutation = await TypedStudyBookmarkStore.production().upsert(
+      TypedStudyBookmark(
+        key: StudyItemKey(type: itemType, id: itemId),
+        primaryText: korean,
+        secondaryText: preferredTranslation,
+        sourceUnitId: sourceUnitId,
+      ),
+    );
+    if (mutation == TypedStudyBookmarkMutationResult.blockedCorrupt ||
+        mutation == TypedStudyBookmarkMutationResult.blockedFutureVersion) {
+      showFailure();
+      return WordbookAddResult.failed;
+    }
+  } on Object {
+    showFailure();
+    return WordbookAddResult.failed;
+  }
+
+  return _addToWordbook(
+    t: t,
+    onFailure: showFailure,
+    korean: korean,
+    translationDe: translationDe,
+    translationEn: translationEn,
+    translationLanguage: translationLanguage,
+    romanization: romanization,
+    posDe: posDe,
+    exampleKorean: exampleKorean,
+    exampleDe: exampleDe,
+    definitionKo: definitionKo,
+    source: source,
+  );
 }
 
 /// Wiederverwendbarer "Zur Wortliste"-Button (Lesezeichen-Icon).

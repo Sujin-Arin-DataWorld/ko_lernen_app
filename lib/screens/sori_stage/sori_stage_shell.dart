@@ -11,9 +11,14 @@ import 'sori_stage_hanok_screen.dart';
 import 'sori_stage_today_screen.dart';
 
 class SoriStageShell extends StatefulWidget {
-  const SoriStageShell({super.key, required this.replayHomeTour});
+  const SoriStageShell({
+    super.key,
+    required this.replayHomeTour,
+    this.requestedTab,
+  });
 
   final ValueListenable<int> replayHomeTour;
+  final ValueNotifier<int>? requestedTab;
 
   @override
   State<SoriStageShell> createState() => _SoriStageShellState();
@@ -27,6 +32,8 @@ class _SoriStageShellState extends State<SoriStageShell> {
   void initState() {
     super.initState();
     widget.replayHomeTour.addListener(_onReplayRequested);
+    widget.requestedTab?.addListener(_onTabRequested);
+    WidgetsBinding.instance.addPostFrameCallback((_) => _onTabRequested());
   }
 
   @override
@@ -36,11 +43,16 @@ class _SoriStageShellState extends State<SoriStageShell> {
       oldWidget.replayHomeTour.removeListener(_onReplayRequested);
       widget.replayHomeTour.addListener(_onReplayRequested);
     }
+    if (oldWidget.requestedTab != widget.requestedTab) {
+      oldWidget.requestedTab?.removeListener(_onTabRequested);
+      widget.requestedTab?.addListener(_onTabRequested);
+    }
   }
 
   @override
   void dispose() {
     widget.replayHomeTour.removeListener(_onReplayRequested);
+    widget.requestedTab?.removeListener(_onTabRequested);
     for (final controller in _scrollControllers) {
       controller.dispose();
     }
@@ -52,6 +64,19 @@ class _SoriStageShellState extends State<SoriStageShell> {
       return;
     }
     setState(() => _index = 0);
+  }
+
+  void _onTabRequested() {
+    final notifier = widget.requestedTab;
+    if (!mounted || notifier == null) {
+      return;
+    }
+    final requested = notifier.value;
+    if (requested < 0 || requested >= _scrollControllers.length) {
+      return;
+    }
+    setState(() => _index = requested);
+    notifier.value = -1;
   }
 
   void _select(int index) {

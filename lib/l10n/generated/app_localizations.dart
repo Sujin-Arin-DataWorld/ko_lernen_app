@@ -1507,6 +1507,30 @@ abstract class AppL10n {
   /// **'Über die App'**
   String get settingsAbout;
 
+  /// No description provided for @settingsOriginStoryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Warum Hangul Sori entstand'**
+  String get settingsOriginStoryTitle;
+
+  /// No description provided for @settingsOriginStorySubtitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Idee hinter der App'**
+  String get settingsOriginStorySubtitle;
+
+  /// No description provided for @settingsOriginStoryBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Gründerin Sujin Park hat Hangul Sori aus einem praktischen Gedanken heraus entwickelt: Koreanischlernen soll Klang, Schrift, Alltagssituationen und die Bücher verbinden, mit denen du bereits lernst. Die App führt diese Teile in einem Lernweg zusammen, von den Hangul-Grundlagen über stufengerechte Szenarien bis zu Aussprache und Wiederholung.'**
+  String get settingsOriginStoryBody;
+
+  /// No description provided for @settingsOriginStoryFounder.
+  ///
+  /// In de, this message translates to:
+  /// **'Sujin Park · Gründerin von Hangul Sori'**
+  String get settingsOriginStoryFounder;
+
   /// No description provided for @settingsVersion.
   ///
   /// In de, this message translates to:
@@ -3576,6 +3600,48 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Merken'**
   String get contentActionBookmark;
+
+  /// No description provided for @contentActionBookmarkSaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Gemerkt'**
+  String get contentActionBookmarkSaved;
+
+  /// No description provided for @contentActionBookmarkUnsaved.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht gemerkt'**
+  String get contentActionBookmarkUnsaved;
+
+  /// No description provided for @contentActionLikeLiked.
+  ///
+  /// In de, this message translates to:
+  /// **'Gelikt'**
+  String get contentActionLikeLiked;
+
+  /// No description provided for @contentActionLikeNotLiked.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht gelikt'**
+  String get contentActionLikeNotLiked;
+
+  /// No description provided for @speechIndicatorLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorlesen'**
+  String get speechIndicatorLabel;
+
+  /// No description provided for @speechIndicatorSpeaking.
+  ///
+  /// In de, this message translates to:
+  /// **'Wird vorgelesen'**
+  String get speechIndicatorSpeaking;
+
+  /// No description provided for @speechIndicatorIdle.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht aktiv'**
+  String get speechIndicatorIdle;
 
   /// No description provided for @contentShareBody.
   ///
@@ -8639,6 +8705,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Schwierig'**
   String get grammarHard;
+
+  /// No description provided for @grammarPreviousCard.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorherige Karte'**
+  String get grammarPreviousCard;
 
   /// No description provided for @grammarChoiceCta.
   ///
@@ -14705,6 +14777,1740 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Weiter'**
   String get mediaPhraseNext;
+
+  /// No description provided for @onboardingV2Back.
+  ///
+  /// In de, this message translates to:
+  /// **'Zurück'**
+  String get onboardingV2Back;
+
+  /// No description provided for @onboardingV2Next.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiter'**
+  String get onboardingV2Next;
+
+  /// No description provided for @onboardingV2Loading.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Anleitung wird vorbereitet …'**
+  String get onboardingV2Loading;
+
+  /// No description provided for @onboardingV2Saving.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Auswahl wird gespeichert …'**
+  String get onboardingV2Saving;
+
+  /// No description provided for @onboardingV2CourseHistoryConflict.
+  ///
+  /// In de, this message translates to:
+  /// **'Zu diesem Kursstart gibt es bereits Lernfortschritt. Behalte zum Abschließen der Einrichtung die aktuelle Stufe; später kannst du den Kurs in den Einstellungen ausdrücklich neu starten.'**
+  String get onboardingV2CourseHistoryConflict;
+
+  /// No description provided for @onboardingV2StoryFinish.
+  ///
+  /// In de, this message translates to:
+  /// **'Meinen Start auswählen'**
+  String get onboardingV2StoryFinish;
+
+  /// No description provided for @onboardingV2StoryProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'Seite {current} von {total}'**
+  String onboardingV2StoryProgress(int current, int total);
+
+  /// No description provided for @onboardingV2Story1Eyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Zwei Wege, ein Lernort'**
+  String get onboardingV2Story1Eyebrow;
+
+  /// No description provided for @onboardingV2Story1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernweg und dein eigenes Buch'**
+  String get onboardingV2Story1Title;
+
+  /// No description provided for @onboardingV2Story1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Gehe Schritt für Schritt von A1 bis C2. Die Texterkennung einer fotografierten Buchseite läuft auf deinem Gerät. Erst wenn du Analysieren wählst, kann der erkannte Text zur Auswertung an einen Analysedienst in der EU gesendet werden.'**
+  String get onboardingV2Story1Body;
+
+  /// No description provided for @onboardingV2Story1HeroSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau auf den Stufenweg A1 bis C2 und die Analyse einer selbst fotografierten Buchseite.'**
+  String get onboardingV2Story1HeroSemantics;
+
+  /// No description provided for @onboardingV2Story1Item1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Stufenweg A1 bis C2'**
+  String get onboardingV2Story1Item1Title;
+
+  /// No description provided for @onboardingV2Story1Item1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernziele und Alltagsszenen bauen aufeinander auf.'**
+  String get onboardingV2Story1Item1Body;
+
+  /// No description provided for @onboardingV2Story1Item2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Buch fotografieren'**
+  String get onboardingV2Story1Item2Title;
+
+  /// No description provided for @onboardingV2Story1Item2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Seite wird erst erfasst, wenn du die Kamera selbst öffnest.'**
+  String get onboardingV2Story1Item2Body;
+
+  /// No description provided for @onboardingV2Story1Item3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Text auf dem Gerät erkennen'**
+  String get onboardingV2Story1Item3Title;
+
+  /// No description provided for @onboardingV2Story1Item3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Texterkennung der Aufnahme läuft auf deinem Gerät. Diese Anleitung fragt nicht nach Kamerazugriff.'**
+  String get onboardingV2Story1Item3Body;
+
+  /// No description provided for @onboardingV2Story1Item4Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Ergebnisse nach Typ'**
+  String get onboardingV2Story1Item4Title;
+
+  /// No description provided for @onboardingV2Story1Item4Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Wählst du Analysieren, kann der erkannte Text an einen Analysedienst in der EU gesendet und nach Wörtern, Ausdrücken, Grammatik und Sätzen aufbereitet werden.'**
+  String get onboardingV2Story1Item4Body;
+
+  /// No description provided for @onboardingV2Story1CurriculumClaim.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein stufenweises Curriculum, das sich an den CEFR-Handlungszielen und am Koreanischen Standardcurriculum des National Institute of Korean Language orientiert.'**
+  String get onboardingV2Story1CurriculumClaim;
+
+  /// No description provided for @onboardingV2Story1CurriculumSourcesAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Curriculum-Grundlage und Quellen'**
+  String get onboardingV2Story1CurriculumSourcesAction;
+
+  /// No description provided for @onboardingV2Story1CurriculumSourcesTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Grundlage des Stufencurriculums'**
+  String get onboardingV2Story1CurriculumSourcesTitle;
+
+  /// No description provided for @onboardingV2Story1CurriculumSourcesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die aktuelle Zuordnung ist teilweise. Diese offiziellen Quellen dienen als Orientierung für den Lernweg; sie behaupten weder eine Zertifizierung noch eine vollständige Prüfungsabdeckung.'**
+  String get onboardingV2Story1CurriculumSourcesBody;
+
+  /// No description provided for @onboardingV2Story1CurriculumCefrAuthority.
+  ///
+  /// In de, this message translates to:
+  /// **'Europarat · CEFR'**
+  String get onboardingV2Story1CurriculumCefrAuthority;
+
+  /// No description provided for @onboardingV2Story1CurriculumNiklAuthority.
+  ///
+  /// In de, this message translates to:
+  /// **'National Institute of Korean Language'**
+  String get onboardingV2Story1CurriculumNiklAuthority;
+
+  /// No description provided for @onboardingV2Story1CurriculumDocument.
+  ///
+  /// In de, this message translates to:
+  /// **'Offizielles Dokument'**
+  String get onboardingV2Story1CurriculumDocument;
+
+  /// No description provided for @onboardingV2Story1CurriculumVersion.
+  ///
+  /// In de, this message translates to:
+  /// **'Version'**
+  String get onboardingV2Story1CurriculumVersion;
+
+  /// No description provided for @onboardingV2Story1CurriculumCheckedAt.
+  ///
+  /// In de, this message translates to:
+  /// **'Quelle geprüft am'**
+  String get onboardingV2Story1CurriculumCheckedAt;
+
+  /// No description provided for @onboardingV2Story1CurriculumUrl.
+  ///
+  /// In de, this message translates to:
+  /// **'URL'**
+  String get onboardingV2Story1CurriculumUrl;
+
+  /// Barrierefreie Beschriftung zum Öffnen einer offiziellen Curriculum-Quelle.
+  ///
+  /// In de, this message translates to:
+  /// **'Quelle öffnen: {sourceTitle}'**
+  String onboardingV2Story1CurriculumOpenSource(String sourceTitle);
+
+  /// No description provided for @onboardingV2Story1CurriculumSourcesClose.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellen schließen'**
+  String get onboardingV2Story1CurriculumSourcesClose;
+
+  /// No description provided for @onboardingV2Story2Eyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen'**
+  String get onboardingV2Story2Eyebrow;
+
+  /// No description provided for @onboardingV2Story2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Vom ersten Zeichen bis zum Gespräch'**
+  String get onboardingV2Story2Title;
+
+  /// No description provided for @onboardingV2Story2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen verbindet Hangeul, Schreiben, Hören, Aussprache und Szenarien. Du entscheidest selbst, wann du Kamera, Mikrofon oder Ton verwendest.'**
+  String get onboardingV2Story2Body;
+
+  /// No description provided for @onboardingV2Story2HeroSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau auf Hangeul, Schreibübungen, Hör- und Aussprachetraining sowie Szenarien nach Level.'**
+  String get onboardingV2Story2HeroSemantics;
+
+  /// No description provided for @onboardingV2Story2Item1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangeul'**
+  String get onboardingV2Story2Item1Title;
+
+  /// No description provided for @onboardingV2Story2Item1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Konsonanten und Vokale erkennen und zusammensetzen.'**
+  String get onboardingV2Story2Item1Body;
+
+  /// No description provided for @onboardingV2Story2Item2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreiben'**
+  String get onboardingV2Story2Item2Title;
+
+  /// No description provided for @onboardingV2Story2Item2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Zeichen nachfahren und anschließend selbst schreiben.'**
+  String get onboardingV2Story2Item2Body;
+
+  /// No description provided for @onboardingV2Story2Item3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Hören & Aussprache'**
+  String get onboardingV2Story2Item3Title;
+
+  /// No description provided for @onboardingV2Story2Item3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispiele anhören und die eigene Aufnahme gezielt vergleichen.'**
+  String get onboardingV2Story2Item3Body;
+
+  /// No description provided for @onboardingV2Story2Item4Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Szenarien nach Level'**
+  String get onboardingV2Story2Item4Title;
+
+  /// No description provided for @onboardingV2Story2Item4Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Alltagssituationen und Kategorien passend zum gewählten Level öffnen.'**
+  String get onboardingV2Story2Item4Body;
+
+  /// No description provided for @onboardingV2Story3Eyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Karten und Gedächtnis'**
+  String get onboardingV2Story3Eyebrow;
+
+  /// No description provided for @onboardingV2Story3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Merke dir, was dir wichtig ist'**
+  String get onboardingV2Story3Title;
+
+  /// No description provided for @onboardingV2Story3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe Karten an, um sie zu wenden, und wische zur nächsten. Herz und Lesezeichen haben dabei bewusst verschiedene Aufgaben.'**
+  String get onboardingV2Story3Body;
+
+  /// No description provided for @onboardingV2Story3HeroSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau auf Kartensteuerung, Favoriten, gespeicherte Inhalte mit erhaltenem Inhaltstyp und die heutige Wiederholung unterstützter Wörter.'**
+  String get onboardingV2Story3HeroSemantics;
+
+  /// No description provided for @onboardingV2Story3Item1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Karte wenden'**
+  String get onboardingV2Story3Item1Title;
+
+  /// No description provided for @onboardingV2Story3Item1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Antippen zeigt die andere Kartenseite.'**
+  String get onboardingV2Story3Item1Body;
+
+  /// No description provided for @onboardingV2Story3Item2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterwischen'**
+  String get onboardingV2Story3Item2Title;
+
+  /// No description provided for @onboardingV2Story3Item2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Wischgeste bewegt dich durch den Stapel.'**
+  String get onboardingV2Story3Item2Body;
+
+  /// No description provided for @onboardingV2Story3Item3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Herz = Favorit'**
+  String get onboardingV2Story3Item3Title;
+
+  /// No description provided for @onboardingV2Story3Item3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Du merkst dir etwas ohne neue Wiederholungsaufgabe.'**
+  String get onboardingV2Story3Item3Body;
+
+  /// No description provided for @onboardingV2Story3Item4Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesezeichen = zum Lernen speichern'**
+  String get onboardingV2Story3Item4Title;
+
+  /// No description provided for @onboardingV2Story3Item4Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Auf unterstützten Wortkarten speichert das Lesezeichen das Wort in einem Wortpaket. Andere unterstützte gespeicherte Inhalte behalten in der Lernsammlung ihren echten Typ.'**
+  String get onboardingV2Story3Item4Body;
+
+  /// No description provided for @onboardingV2Story3Status.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt verfügbar: Favoriten, gespeicherte Inhalte und heute fällige unterstützte Wörter sind getrennte Ansichten in der Lernsammlung. Die aktuelle Wiederholung unterstützt nur Wörter; Grammatik, Sätze, Ausdrücke und Hangeul bleiben ohne vorgetäuschte Wiederholungsaktion gespeichert.'**
+  String get onboardingV2Story3Status;
+
+  /// No description provided for @onboardingV2Story4Eyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Spielen und Belohnungen'**
+  String get onboardingV2Story4Eyebrow;
+
+  /// No description provided for @onboardingV2Story4Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben, ausprobieren, Fortschritt sehen'**
+  String get onboardingV2Story4Title;
+
+  /// No description provided for @onboardingV2Story4Body.
+  ///
+  /// In de, this message translates to:
+  /// **'In Spielen wendest du Gelerntes an. Hinweise, XP, persönliche Bestwerte und Quests machen sichtbar, was du getan hast. Sie ersetzen keinen Lernerfolg.'**
+  String get onboardingV2Story4Body;
+
+  /// No description provided for @onboardingV2Story4HeroSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau auf Spiele, Hinweise, XP, persönliche Bestwerte, Quests und mögliche Sammelbelohnungen.'**
+  String get onboardingV2Story4HeroSemantics;
+
+  /// No description provided for @onboardingV2Story4Status.
+  ///
+  /// In de, this message translates to:
+  /// **'Belohnungsbeispiele: Hier wird nichts gutgeschrieben'**
+  String get onboardingV2Story4Status;
+
+  /// No description provided for @onboardingV2Story4CatalogTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mögliche Belohnungen aktueller Aktivitäten'**
+  String get onboardingV2Story4CatalogTitle;
+
+  /// Erklärt, dass die Belohnungsbeispiele im Onboarding schreibgeschützt aus dem aktuellen Aktivitätskatalog stammen.
+  ///
+  /// In de, this message translates to:
+  /// **'Schreibgeschützte Beispiele aus {count} aktuellen Aktivitäten. Beim Ansehen dieser Seite wird nichts gutgeschrieben oder verändert.'**
+  String onboardingV2Story4CatalogBody(int count);
+
+  /// Barrierefreie Beschriftung einer möglichen Belohnung aus dem Aktivitätskatalog.
+  ///
+  /// In de, this message translates to:
+  /// **'Mögliche Belohnung: {reward}'**
+  String onboardingV2Story4PossibleReward(String reward);
+
+  /// No description provided for @onboardingV2Story4Item1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Spielhinweise'**
+  String get onboardingV2Story4Item1Title;
+
+  /// No description provided for @onboardingV2Story4Item1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurze Hilfen bringen dich wieder in die Übung.'**
+  String get onboardingV2Story4Item1Body;
+
+  /// No description provided for @onboardingV2Story4Item2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'XP & persönliche Bestwerte'**
+  String get onboardingV2Story4Item2Title;
+
+  /// No description provided for @onboardingV2Story4Item2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Sie halten deine Aktivität und eigene Entwicklung fest.'**
+  String get onboardingV2Story4Item2Body;
+
+  /// No description provided for @onboardingV2Story4Item3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Quests & Stempel'**
+  String get onboardingV2Story4Item3Title;
+
+  /// No description provided for @onboardingV2Story4Item3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur ausgewiesene Aktivitäten können diese Belohnungen enthalten.'**
+  String get onboardingV2Story4Item3Body;
+
+  /// No description provided for @onboardingV2Story4Item4Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Bojagi & Accessoires'**
+  String get onboardingV2Story4Item4Title;
+
+  /// No description provided for @onboardingV2Story4Item4Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Sammelobjekte werden später zum Gestalten verwendet.'**
+  String get onboardingV2Story4Item4Body;
+
+  /// No description provided for @onboardingV2Story5Eyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Kulturerbe-Reise'**
+  String get onboardingV2Story5Eyebrow;
+
+  /// No description provided for @onboardingV2Story5Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempelbuch, Bojagi und dein Hanok'**
+  String get onboardingV2Story5Title;
+
+  /// No description provided for @onboardingV2Story5Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine langfristige Reise führt vom Stempelbuch über Bojagi und Accessoires zum Gestalten von Räumen und historischen Häusern. Das erste Kapitel wird noch vorbereitet.'**
+  String get onboardingV2Story5Body;
+
+  /// No description provided for @onboardingV2Story5HeroSemantics.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau auf die künftige Kulturerbe-Reise mit Stempelbuch, Bojagi, Dekorationen und dem ersten Kapitel Ildu Gotaek.'**
+  String get onboardingV2Story5HeroSemantics;
+
+  /// No description provided for @onboardingV2Story5Status.
+  ///
+  /// In de, this message translates to:
+  /// **'Erste Reise · Ildu Gotaek · In Vorbereitung'**
+  String get onboardingV2Story5Status;
+
+  /// No description provided for @onboardingV2Story5Item1Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempelbuch'**
+  String get onboardingV2Story5Item1Title;
+
+  /// No description provided for @onboardingV2Story5Item1Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier siehst du gesammelte Stempel und offene Stationen.'**
+  String get onboardingV2Story5Item1Body;
+
+  /// No description provided for @onboardingV2Story5Item2Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Bojagi öffnen'**
+  String get onboardingV2Story5Item2Title;
+
+  /// No description provided for @onboardingV2Story5Item2Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausgewiesene Belohnungen können Accessoires enthalten.'**
+  String get onboardingV2Story5Item2Body;
+
+  /// No description provided for @onboardingV2Story5Item3Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Räume gestalten'**
+  String get onboardingV2Story5Item3Title;
+
+  /// No description provided for @onboardingV2Story5Item3Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Erhaltene Accessoires werden an dafür vorgesehenen Orten eingesetzt.'**
+  String get onboardingV2Story5Item3Body;
+
+  /// No description provided for @onboardingV2Story5Item4Title.
+  ///
+  /// In de, this message translates to:
+  /// **'Weitere Kapitel'**
+  String get onboardingV2Story5Item4Title;
+
+  /// No description provided for @onboardingV2Story5Item4Body.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Reise ist erweiterbar; Zahl und Reihenfolge stehen noch nicht fest.'**
+  String get onboardingV2Story5Item4Body;
+
+  /// No description provided for @onboardingV2Story5PreviewLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau'**
+  String get onboardingV2Story5PreviewLabel;
+
+  /// No description provided for @onboardingV2Story5InPreparationLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'In Vorbereitung'**
+  String get onboardingV2Story5InPreparationLabel;
+
+  /// No description provided for @onboardingV2Story5AssetReviewNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Bis Nutzungsrechte für die App und visuelle Prüfung freigegeben sind, wird hier keine Kulturerbe-Grafik verwendet.'**
+  String get onboardingV2Story5AssetReviewNote;
+
+  /// No description provided for @onboardingV2Story5SourcesAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellen und Angaben'**
+  String get onboardingV2Story5SourcesAction;
+
+  /// Titel des Quellenblatts zur Kulturerbe-Vorschau.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellen zu {estateName}'**
+  String onboardingV2Story5SourcesTitle(String estateName);
+
+  /// No description provided for @onboardingV2Story5SourcesBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Quellen belegen den Namen und den kulturellen Kontext der Vorschau, darunter die Verbindung des Ildu Gotaek zum Gelehrten Jeong Yeo-chang und seine Nutzung als Drehort. Ihr aktueller Registerstatus erlaubt nur das Zitieren; weitergehende Nutzungsrechte werden nicht zugesichert.'**
+  String get onboardingV2Story5SourcesBody;
+
+  /// No description provided for @onboardingV2Story5SourceInstitution.
+  ///
+  /// In de, this message translates to:
+  /// **'Institution'**
+  String get onboardingV2Story5SourceInstitution;
+
+  /// No description provided for @onboardingV2Story5SourceYear.
+  ///
+  /// In de, this message translates to:
+  /// **'Jahr'**
+  String get onboardingV2Story5SourceYear;
+
+  /// Jahr der Kulturerbe-Quelle mit der Grundlage dieses Jahres im Register.
+  ///
+  /// In de, this message translates to:
+  /// **'{year} ({basis})'**
+  String onboardingV2Story5SourceYearValue(int year, String basis);
+
+  /// No description provided for @onboardingV2Story5SourceYearPublished.
+  ///
+  /// In de, this message translates to:
+  /// **'veröffentlicht'**
+  String get onboardingV2Story5SourceYearPublished;
+
+  /// No description provided for @onboardingV2Story5SourceYearUpdated.
+  ///
+  /// In de, this message translates to:
+  /// **'aktualisiert'**
+  String get onboardingV2Story5SourceYearUpdated;
+
+  /// No description provided for @onboardingV2Story5SourceYearAccessed.
+  ///
+  /// In de, this message translates to:
+  /// **'abgerufen'**
+  String get onboardingV2Story5SourceYearAccessed;
+
+  /// No description provided for @onboardingV2Story5SourceTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellentitel'**
+  String get onboardingV2Story5SourceTitle;
+
+  /// No description provided for @onboardingV2Story5SourceAuthor.
+  ///
+  /// In de, this message translates to:
+  /// **'Urheber'**
+  String get onboardingV2Story5SourceAuthor;
+
+  /// No description provided for @onboardingV2Story5SourceLicense.
+  ///
+  /// In de, this message translates to:
+  /// **'Lizenzstatus'**
+  String get onboardingV2Story5SourceLicense;
+
+  /// No description provided for @onboardingV2Story5SourceLicenseKoglType1.
+  ///
+  /// In de, this message translates to:
+  /// **'KOGL Typ 1'**
+  String get onboardingV2Story5SourceLicenseKoglType1;
+
+  /// No description provided for @onboardingV2Story5SourceLicenseCitationOnly.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur Zitat; weitergehende Nutzungsrechte nicht zugesichert'**
+  String get onboardingV2Story5SourceLicenseCitationOnly;
+
+  /// No description provided for @onboardingV2Story5SourceLicenseSeparatelyApproved.
+  ///
+  /// In de, this message translates to:
+  /// **'Nutzung separat freigegeben'**
+  String get onboardingV2Story5SourceLicenseSeparatelyApproved;
+
+  /// No description provided for @onboardingV2Story5SourceUrl.
+  ///
+  /// In de, this message translates to:
+  /// **'URL'**
+  String get onboardingV2Story5SourceUrl;
+
+  /// Beschriftung der Schaltfläche, die eine Kulturerbe-Quelle im Browser öffnet.
+  ///
+  /// In de, this message translates to:
+  /// **'Quelle öffnen: {sourceTitle}'**
+  String onboardingV2Story5OpenSource(String sourceTitle);
+
+  /// No description provided for @onboardingV2Story5SourcesClose.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellen schließen'**
+  String get onboardingV2Story5SourcesClose;
+
+  /// No description provided for @onboardingV2SetupEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein persönlicher Start'**
+  String get onboardingV2SetupEyebrow;
+
+  /// No description provided for @onboardingV2SetupTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wofür lernst du, und wo steigst du ein?'**
+  String get onboardingV2SetupTitle;
+
+  /// No description provided for @onboardingV2SetupBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Ziel ändert nur die Reihenfolge von Einstiegstipps und Empfehlungen. Schwierigkeit, Inhalte, Fortschritt und Belohnungen bleiben gleich.'**
+  String get onboardingV2SetupBody;
+
+  /// No description provided for @onboardingV2SetupPurposeHeading.
+  ///
+  /// In de, this message translates to:
+  /// **'1. Wähle dein Ziel'**
+  String get onboardingV2SetupPurposeHeading;
+
+  /// No description provided for @onboardingV2SetupLevelHeading.
+  ///
+  /// In de, this message translates to:
+  /// **'2. Wähle deinen Startpunkt'**
+  String get onboardingV2SetupLevelHeading;
+
+  /// No description provided for @onboardingV2SetupLevelHelp.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle den Startpunkt, der am besten zu dem passt, was du schon kannst. Du kannst ihn später in den Einstellungen ändern.'**
+  String get onboardingV2SetupLevelHelp;
+
+  /// No description provided for @onboardingV2SetupSelectLevelPrompt.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle ein Level, um ein echtes Beispiel und die Lernziele zu sehen.'**
+  String get onboardingV2SetupSelectLevelPrompt;
+
+  /// No description provided for @onboardingV2SetupExampleLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Beispiel auf diesem Level'**
+  String get onboardingV2SetupExampleLabel;
+
+  /// No description provided for @onboardingV2SetupCanDoLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Das kannst du ungefähr schon'**
+  String get onboardingV2SetupCanDoLabel;
+
+  /// No description provided for @onboardingV2SetupLearnHereLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Damit beginnst du hier'**
+  String get onboardingV2SetupLearnHereLabel;
+
+  /// No description provided for @onboardingV2SetupCompareAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Level vergleichen'**
+  String get onboardingV2SetupCompareAction;
+
+  /// No description provided for @onboardingV2SetupCompareTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Welcher Startpunkt passt?'**
+  String get onboardingV2SetupCompareTitle;
+
+  /// No description provided for @onboardingV2SetupCompareBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die direkte Auswahl ist dein Lernstart, kein Nachweis deiner Kenntnisse. Deinen Kurs-Startpunkt und dein Level zum Stöbern kannst du später getrennt ändern.'**
+  String get onboardingV2SetupCompareBody;
+
+  /// No description provided for @onboardingV2SetupCompareClose.
+  ///
+  /// In de, this message translates to:
+  /// **'Vergleich schließen'**
+  String get onboardingV2SetupCompareClose;
+
+  /// No description provided for @onboardingV2SetupContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Auswahl übernehmen'**
+  String get onboardingV2SetupContinue;
+
+  /// No description provided for @onboardingV2LevelA1ExampleKo.
+  ///
+  /// In de, this message translates to:
+  /// **'안녕하세요.'**
+  String get onboardingV2LevelA1ExampleKo;
+
+  /// No description provided for @onboardingV2LevelA2ExampleKo.
+  ///
+  /// In de, this message translates to:
+  /// **'아메리카노 한 잔 주세요.'**
+  String get onboardingV2LevelA2ExampleKo;
+
+  /// No description provided for @onboardingV2LevelB1ExampleKo.
+  ///
+  /// In de, this message translates to:
+  /// **'어제 친구와 영화를 봤어요.'**
+  String get onboardingV2LevelB1ExampleKo;
+
+  /// No description provided for @onboardingV2LevelB2ExampleKo.
+  ///
+  /// In de, this message translates to:
+  /// **'회의가 길어져서 조금 늦을 것 같아요.'**
+  String get onboardingV2LevelB2ExampleKo;
+
+  /// No description provided for @onboardingV2LevelC1ExampleKo.
+  ///
+  /// In de, this message translates to:
+  /// **'확인된 사실과 현재의 해석을 나누어 설명하겠습니다.'**
+  String get onboardingV2LevelC1ExampleKo;
+
+  /// No description provided for @onboardingV2LevelC2ExampleKo.
+  ///
+  /// In de, this message translates to:
+  /// **'침묵을 동의로 보면 질문의 틀만으로도 참여를 제한할 수 있습니다.'**
+  String get onboardingV2LevelC2ExampleKo;
+
+  /// No description provided for @onboardingV2PurposeLifeTravelTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Alltag & Reisen'**
+  String get onboardingV2PurposeLifeTravelTitle;
+
+  /// No description provided for @onboardingV2PurposeLifeTravelBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestellen, Wege finden und tägliche Situationen meistern'**
+  String get onboardingV2PurposeLifeTravelBody;
+
+  /// No description provided for @onboardingV2PurposePeopleCultureTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Menschen & Kultur'**
+  String get onboardingV2PurposePeopleCultureTitle;
+
+  /// No description provided for @onboardingV2PurposePeopleCultureBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespräche, Beziehungen und kulturelle Zusammenhänge'**
+  String get onboardingV2PurposePeopleCultureBody;
+
+  /// No description provided for @onboardingV2PurposeStudyWorkTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Studium & Beruf'**
+  String get onboardingV2PurposeStudyWorkTitle;
+
+  /// No description provided for @onboardingV2PurposeStudyWorkBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Im Kurs, an der Hochschule und bei der Arbeit sicher handeln'**
+  String get onboardingV2PurposeStudyWorkBody;
+
+  /// No description provided for @onboardingV2PurposeKContentTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'K-Content'**
+  String get onboardingV2PurposeKContentTitle;
+
+  /// No description provided for @onboardingV2PurposeKContentBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Musik, Serien, Filme, Podcasts und Interviews besser verstehen'**
+  String get onboardingV2PurposeKContentBody;
+
+  /// No description provided for @onboardingV2CompanionEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernfreund'**
+  String get onboardingV2CompanionEyebrow;
+
+  /// No description provided for @onboardingV2CompanionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wer begleitet dich?'**
+  String get onboardingV2CompanionTitle;
+
+  /// No description provided for @onboardingV2CompanionBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Wähle Taego oder Joy. Die Wahl ist für den ersten Start erforderlich; später kannst du den Lernfreund wechseln oder seine Anzeige ausschalten.'**
+  String get onboardingV2CompanionBody;
+
+  /// No description provided for @onboardingV2CompanionEqualNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Inhalte, Antworten, Hinweisstärke, XP, Fortschritt und Belohnungen sind bei beiden gleich.'**
+  String get onboardingV2CompanionEqualNote;
+
+  /// No description provided for @onboardingV2CompanionContinue.
+  ///
+  /// In de, this message translates to:
+  /// **'Auswahl bestätigen'**
+  String get onboardingV2CompanionContinue;
+
+  /// No description provided for @onboardingV2CompanionTaegoRhythm.
+  ///
+  /// In de, this message translates to:
+  /// **'Ruhig und Schritt für Schritt'**
+  String get onboardingV2CompanionTaegoRhythm;
+
+  /// No description provided for @onboardingV2CompanionTaegoBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Ordnet dieselben Hinweise in eine klare Reihenfolge und zeigt dir den nächsten sinnvollen Schritt.'**
+  String get onboardingV2CompanionTaegoBody;
+
+  /// No description provided for @onboardingV2CompanionTaegoSelected.
+  ///
+  /// In de, this message translates to:
+  /// **'Taego wurde ausgewählt.'**
+  String get onboardingV2CompanionTaegoSelected;
+
+  /// No description provided for @onboardingV2CompanionJoyRhythm.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurz und direkt ins Üben'**
+  String get onboardingV2CompanionJoyRhythm;
+
+  /// No description provided for @onboardingV2CompanionJoyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Gibt dieselben Hinweise als kurze Anstöße und feiert deinen nächsten Versuch.'**
+  String get onboardingV2CompanionJoyBody;
+
+  /// No description provided for @onboardingV2CompanionJoySelected.
+  ///
+  /// In de, this message translates to:
+  /// **'Joy wurde ausgewählt.'**
+  String get onboardingV2CompanionJoySelected;
+
+  /// No description provided for @onboardingV2ConfirmationEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Bereit für den Start'**
+  String get onboardingV2ConfirmationEyebrow;
+
+  /// No description provided for @onboardingV2ConfirmationBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Begrüßungsvideo ist nur eine Vorstellung. Du kannst jederzeit weitergehen, auch wenn es nicht lädt.'**
+  String get onboardingV2ConfirmationBody;
+
+  /// No description provided for @onboardingV2ConfirmationStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Gemeinsam starten'**
+  String get onboardingV2ConfirmationStart;
+
+  /// No description provided for @onboardingV2ConfirmationChange.
+  ///
+  /// In de, this message translates to:
+  /// **'Anderen Lernfreund wählen'**
+  String get onboardingV2ConfirmationChange;
+
+  /// No description provided for @settingsLearningLevelsSection.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernstufen'**
+  String get settingsLearningLevelsSection;
+
+  /// No description provided for @settingsCourseStartTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Startpunkt im Kurs'**
+  String get settingsCourseStartTitle;
+
+  /// No description provided for @settingsCourseStartDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Legt fest, wo dein fortlaufender Kurs beginnt. Eine neue Wahl ersetzt den aktuellen Kurspfad; frühere Einheiten gelten dadurch weder als beherrscht noch erhältst du XP oder Belohnungen.'**
+  String get settingsCourseStartDescription;
+
+  /// No description provided for @settingsBrowseLevelTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Stufe zum Stöbern'**
+  String get settingsBrowseLevelTitle;
+
+  /// No description provided for @settingsBrowseLevelDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Filtert nur Bibliotheken und Szenarien. Dein Kursfortschritt bleibt unverändert.'**
+  String get settingsBrowseLevelDescription;
+
+  /// No description provided for @settingsRecheckLevelTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Level neu einschätzen'**
+  String get settingsRecheckLevelTitle;
+
+  /// No description provided for @settingsRecheckLevelDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Mache freiwillig einen Test mit acht Aufgaben. Das Ergebnis ist eine Empfehlung; den Startpunkt wählst weiterhin du.'**
+  String get settingsRecheckLevelDescription;
+
+  /// No description provided for @settingsCompanionVisibleTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernfreund anzeigen'**
+  String get settingsCompanionVisibleTitle;
+
+  /// No description provided for @settingsCompanionVisibleDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Blende deinen Lernfreund ein oder aus, ohne die gewählte Figur zu ändern.'**
+  String get settingsCompanionVisibleDescription;
+
+  /// No description provided for @settingsGuideSection.
+  ///
+  /// In de, this message translates to:
+  /// **'App-Anleitung'**
+  String get settingsGuideSection;
+
+  /// No description provided for @settingsGuideTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Sori-Anleitung öffnen'**
+  String get settingsGuideTitle;
+
+  /// No description provided for @settingsGuideDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieh jederzeit nach, wie Lernen, Spiele, gespeicherte Inhalte, Belohnungen, dein Buch und wichtige Einstellungen funktionieren.'**
+  String get settingsGuideDescription;
+
+  /// No description provided for @settingsCourseStartConfirmTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Startpunkt im Kurs ändern?'**
+  String get settingsCourseStartConfirmTitle;
+
+  /// No description provided for @settingsCourseStartConfirmDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein fortlaufender Kurs startet bei {level} neu und ersetzt den bisherigen Kursfortschritt. Andere Übungsdaten, XP, Belohnungen und Sammlungen bleiben erhalten; frühere Einheiten gelten nicht als abgeschlossen.'**
+  String settingsCourseStartConfirmDescription(String level);
+
+  /// No description provided for @settingsCourseStartConfirmAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Startpunkt ändern'**
+  String get settingsCourseStartConfirmAction;
+
+  /// No description provided for @guideHubAppBarTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'App-Anleitung'**
+  String get guideHubAppBarTitle;
+
+  /// No description provided for @guideHubEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Sicher loslegen'**
+  String get guideHubEyebrow;
+
+  /// No description provided for @guideHubTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Finde jede wichtige Funktion'**
+  String get guideHubTitle;
+
+  /// No description provided for @guideHubDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Öffne ein Thema genau dann, wenn du es brauchst. Vorschauen und angekündigte Funktionen werden klar gekennzeichnet und verhalten sich nie wie fertige Funktionen.'**
+  String get guideHubDescription;
+
+  /// No description provided for @guideCompletedLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Abgeschlossen'**
+  String get guideCompletedLabel;
+
+  /// No description provided for @guideRestoreTodayCard.
+  ///
+  /// In de, this message translates to:
+  /// **'Start-Anleitung wieder auf Heute anzeigen'**
+  String get guideRestoreTodayCard;
+
+  /// No description provided for @guideTodayCardRestoredStatus.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Start-Anleitung wird wieder auf Heute angezeigt.'**
+  String get guideTodayCardRestoredStatus;
+
+  /// No description provided for @guidePreferenceWriteFailed.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Einstellung der Anleitung konnte nicht gespeichert werden. Es wurde nichts geändert. Bitte versuche es erneut.'**
+  String get guidePreferenceWriteFailed;
+
+  /// No description provided for @guideFeatureNotAvailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieses Thema ist als Vorschau oder angekündigte Funktion markiert und lässt sich noch nicht als fertige Funktion öffnen.'**
+  String get guideFeatureNotAvailable;
+
+  /// No description provided for @guideAvailabilityLive.
+  ///
+  /// In de, this message translates to:
+  /// **'Jetzt verfügbar'**
+  String get guideAvailabilityLive;
+
+  /// No description provided for @guideAvailabilityPreview.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau'**
+  String get guideAvailabilityPreview;
+
+  /// No description provided for @guideAvailabilityComingSoon.
+  ///
+  /// In de, this message translates to:
+  /// **'In Vorbereitung'**
+  String get guideAvailabilityComingSoon;
+
+  /// No description provided for @guideAvailabilityUnavailable.
+  ///
+  /// In de, this message translates to:
+  /// **'Nicht verfügbar'**
+  String get guideAvailabilityUnavailable;
+
+  /// No description provided for @guideOpenAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Anleitung ansehen'**
+  String get guideOpenAction;
+
+  /// No description provided for @guidePreviewAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorschau ansehen'**
+  String get guidePreviewAction;
+
+  /// No description provided for @guideDetailsAction.
+  ///
+  /// In de, this message translates to:
+  /// **'Status ansehen'**
+  String get guideDetailsAction;
+
+  /// No description provided for @guideModuleEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Thema im Überblick'**
+  String get guideModuleEyebrow;
+
+  /// No description provided for @guideModuleStepsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Das solltest du zuerst wissen'**
+  String get guideModuleStepsTitle;
+
+  /// No description provided for @guideModuleActionsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Einen Bereich öffnen'**
+  String get guideModuleActionsTitle;
+
+  /// No description provided for @guideModulePassiveNotice.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Erklärung fragt nicht nach Kamera- oder Mikrofonzugriff, spielt kein Audio ab, verändert keinen Lernfortschritt und vergibt keine Belohnungen.'**
+  String get guideModulePassiveNotice;
+
+  /// No description provided for @guideScenarioCategoryCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{count, plural, one{1 Szenario} other{{count} Szenarien}}'**
+  String guideScenarioCategoryCount(int count);
+
+  /// No description provided for @guideModulePersonalizedStartStep1.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Lernziel ändert die Reihenfolge der Empfehlungen und dieser Startliste. Schwierigkeit, XP und Belohnungen bleiben gleich.'**
+  String get guideModulePersonalizedStartStep1;
+
+  /// No description provided for @guideModulePersonalizedStartStep2.
+  ///
+  /// In de, this message translates to:
+  /// **'Der Kurs-Startpunkt setzt nach deiner Bestätigung fest, wo dein Kurs beginnt. Die Stufe zum Stöbern filtert nur Bibliotheken und Szenarien.'**
+  String get guideModulePersonalizedStartStep2;
+
+  /// No description provided for @guideModuleLearnStep1.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangeul-Übersicht, Karten und Schreiben sind getrennte Reiter. Öffne nur die Übung, die du gerade brauchst.'**
+  String get guideModuleLearnStep1;
+
+  /// No description provided for @guideModuleLearnStep2.
+  ///
+  /// In de, this message translates to:
+  /// **'Unter Lernen findest du außerdem Hören, Aussprache und Szenarien nach Level. Kategorien stammen aus dem aktuellen Katalog; diese Anleitung erfindet keine Zuordnung.'**
+  String get guideModuleLearnStep2;
+
+  /// No description provided for @guideModuleLearnStep3.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Zielbereich kann seinen eigenen kontextbezogenen Hinweis einblenden. Die Anleitung schickt dich nie automatisch durch mehrere Bereiche und setzt bereits abgeschlossene Hinweise nicht zurück.'**
+  String get guideModuleLearnStep3;
+
+  /// No description provided for @guideModuleMyBookStep1.
+  ///
+  /// In de, this message translates to:
+  /// **'Kamera oder Galerie wählst du erst nach dem Öffnen der Aufnahme. Die Texterkennung läuft auf deinem Gerät; vor der Analyse prüfst du den erkannten koreanischen Text.'**
+  String get guideModuleMyBookStep1;
+
+  /// No description provided for @guideModuleMyBookStep2.
+  ///
+  /// In de, this message translates to:
+  /// **'Wenn du Analysieren wählst, kann der erkannte Text an einen Analysedienst in der EU gesendet werden. Das fotografierte Bild bleibt auf deinem Gerät.'**
+  String get guideModuleMyBookStep2;
+
+  /// No description provided for @guideModuleMyBookStep3.
+  ///
+  /// In de, this message translates to:
+  /// **'Unterstützte Seitenergebnisse, Wörter, Ausdrücke, Grammatik und Sätze lassen sich mit den heutigen Werkzeugen speichern. Diese Anleitung verspricht und erzeugt keine neuen KI-Übungen.'**
+  String get guideModuleMyBookStep3;
+
+  /// No description provided for @guideModuleCardsStep1.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe auf eine Lernkarte, um sie umzudrehen. Wische, um zur nächsten Karte zu wechseln.'**
+  String get guideModuleCardsStep1;
+
+  /// No description provided for @guideModuleCardsStep2.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Herz ist ein unverbindlicher Favorit und startet nie die verteilte Wiederholung. Ein Lesezeichen speichert unterstützte Inhalte in deiner Lernsammlung.'**
+  String get guideModuleCardsStep2;
+
+  /// No description provided for @guideModuleCardsStep3.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Lernsammlung trennt Favoriten, Gespeichertes und heute Fälliges. Der direkte Wiederholungsweg unterstützt derzeit fällige Wörter; andere gespeicherte Typen bleiben sichtbar und werden nicht als Wortwiederholung ausgegeben.'**
+  String get guideModuleCardsStep3;
+
+  /// No description provided for @guideModuleGamesStep1.
+  ///
+  /// In de, this message translates to:
+  /// **'Hinweise helfen während eines Spiels. Ihre Nutzung zählt aber nicht als selbstständiger Abruf oder als Beherrschung.'**
+  String get guideModuleGamesStep1;
+
+  /// No description provided for @guideModuleGamesStep2.
+  ///
+  /// In de, this message translates to:
+  /// **'XP, persönliche Rekorde und Quest-Fortschritt entstehen nur durch unterstützte abgeschlossene Aktivitäten. Das Ansehen dieser Anleitung vergibt nichts.'**
+  String get guideModuleGamesStep2;
+
+  /// No description provided for @guideModuleGamesStep3.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel können mit Bojagi und Dekorationen verbunden sein. Im Hanok-Bereich siehst du das derzeit verfügbare Stempelbuch, Inventar und die Raumgestaltung.'**
+  String get guideModuleGamesStep3;
+
+  /// No description provided for @guideModuleSettingsStep1.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurs-Startpunkt und Stufe zum Stöbern sind getrennte Einstellungen: Die eine ändert den Kurs nach Bestätigung, die andere nur Inhaltsfilter.'**
+  String get guideModuleSettingsStep1;
+
+  /// No description provided for @guideModuleSettingsStep2.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausgewählte Figur und Figurenanzeige sind getrennt. Du kannst Taego oder Joy behalten und die Figur auf dem Bildschirm ausblenden.'**
+  String get guideModuleSettingsStep2;
+
+  /// No description provided for @guideModuleSettingsStep3.
+  ///
+  /// In de, this message translates to:
+  /// **'Lege das allgemeine Sprechtempo in den Einstellungen fest. Unterstützte Audioseiten haben zusätzlich einen Geschwindigkeits-Chip; die App-Anleitung kannst du jederzeit in den Einstellungen erneut öffnen.'**
+  String get guideModuleSettingsStep3;
+
+  /// No description provided for @guideModuleActionCourseStart.
+  ///
+  /// In de, this message translates to:
+  /// **'Kurs-Startpunkt'**
+  String get guideModuleActionCourseStart;
+
+  /// No description provided for @guideModuleActionBrowseLevel.
+  ///
+  /// In de, this message translates to:
+  /// **'Stufe zum Stöbern'**
+  String get guideModuleActionBrowseLevel;
+
+  /// No description provided for @guideModuleActionHangulOverview.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangeul-Übersicht'**
+  String get guideModuleActionHangulOverview;
+
+  /// No description provided for @guideModuleActionHangulCards.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangeul-Karten'**
+  String get guideModuleActionHangulCards;
+
+  /// No description provided for @guideModuleActionHangulWrite.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangeul schreiben üben'**
+  String get guideModuleActionHangulWrite;
+
+  /// No description provided for @guideModuleActionLearnStage.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen öffnen'**
+  String get guideModuleActionLearnStage;
+
+  /// No description provided for @guideModuleActionCaptureTextbook.
+  ///
+  /// In de, this message translates to:
+  /// **'Lehrbuchseite aufnehmen'**
+  String get guideModuleActionCaptureTextbook;
+
+  /// No description provided for @guideModuleActionStudyLibrary.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernsammlung öffnen'**
+  String get guideModuleActionStudyLibrary;
+
+  /// No description provided for @guideModuleActionGamesStage.
+  ///
+  /// In de, this message translates to:
+  /// **'Spiele öffnen'**
+  String get guideModuleActionGamesStage;
+
+  /// No description provided for @guideModuleActionHanokStage.
+  ///
+  /// In de, this message translates to:
+  /// **'Stempel und Dekoration öffnen'**
+  String get guideModuleActionHanokStage;
+
+  /// No description provided for @guideModuleActionCompanion.
+  ///
+  /// In de, this message translates to:
+  /// **'Figur und Anzeige'**
+  String get guideModuleActionCompanion;
+
+  /// No description provided for @guideModuleActionVoiceSpeed.
+  ///
+  /// In de, this message translates to:
+  /// **'Sprechtempo'**
+  String get guideModuleActionVoiceSpeed;
+
+  /// No description provided for @guideModuleActionGuideSettings.
+  ///
+  /// In de, this message translates to:
+  /// **'App-Anleitung in den Einstellungen'**
+  String get guideModuleActionGuideSettings;
+
+  /// No description provided for @guideTopicPersonalizedStartTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Start, der zu mir passt'**
+  String get guideTopicPersonalizedStartTitle;
+
+  /// No description provided for @guideTopicPersonalizedStartDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Erfahre, wie dein Ziel die Startliste und Empfehlungen sortiert und warum Kurs-Startpunkt und Stufe zum Stöbern verschieden sind.'**
+  String get guideTopicPersonalizedStartDescription;
+
+  /// No description provided for @guideTopicLearnTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernen'**
+  String get guideTopicLearnTitle;
+
+  /// No description provided for @guideTopicLearnDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Finde Hangeul-Zeichen, Schreiben, Hören, Aussprache sowie Szenarien und Kategorien für dein Level.'**
+  String get guideTopicLearnDescription;
+
+  /// No description provided for @guideTopicMyBookTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Buch'**
+  String get guideTopicMyBookTitle;
+
+  /// No description provided for @guideTopicMyBookDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Fotografiere freiwillig eine Seite. Die Texterkennung läuft auf deinem Gerät. Wählst du Analysieren, kann der erkannte Text an einen Analysedienst in der EU gesendet werden. Unterstützte Ergebnisse kannst du anschließend speichern. Diese Anleitung fragt nicht nach Kamerazugriff.'**
+  String get guideTopicMyBookDescription;
+
+  /// No description provided for @guideTopicCardsAndMemoryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Karten und Gedächtnis'**
+  String get guideTopicCardsAndMemoryTitle;
+
+  /// No description provided for @guideTopicCardsAndMemoryDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe zum Wenden und wische weiter. Ein Herz ist ein unverbindlicher Favorit und startet keine Wiederholung. Ein Lesezeichen hält unterstützte Inhalte in deiner Lernsammlung fest. Dort findest du Favoriten, gespeicherte Wörter, Grammatik, Sätze, Ausdrücke und Hangeul sowie unterstützte Wörter, die zur Wiederholung fällig sind.'**
+  String get guideTopicCardsAndMemoryDescription;
+
+  /// No description provided for @guideTopicGamesAndRewardsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Spielen und Belohnungen'**
+  String get guideTopicGamesAndRewardsTitle;
+
+  /// No description provided for @guideTopicGamesAndRewardsDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Sieh, wie Hinweise, XP, persönliche Rekorde, Quests, Stempel, Bojagi, Accessoires und Raumgestaltung mit echten Lernaktivitäten zusammenhängen.'**
+  String get guideTopicGamesAndRewardsDescription;
+
+  /// No description provided for @guideTopicSettingsTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Meine Einstellungen'**
+  String get guideTopicSettingsTitle;
+
+  /// No description provided for @guideTopicSettingsDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Ändere Kurs-Startpunkt, Stufe zum Stöbern, Figur, Figurenanzeige und Sprechtempo in den Einstellungen. Auf unterstützten Audioseiten kannst du das Tempo außerdem direkt über den Geschwindigkeits-Chip ändern oder diese Anleitung erneut öffnen.'**
+  String get guideTopicSettingsDescription;
+
+  /// No description provided for @studyLibraryAppBarTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernsammlung'**
+  String get studyLibraryAppBarTitle;
+
+  /// No description provided for @studyLibraryEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'FAVORITEN & GESPEICHERT'**
+  String get studyLibraryEyebrow;
+
+  /// No description provided for @studyLibraryTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Alles, was du behalten möchtest'**
+  String get studyLibraryTitle;
+
+  /// No description provided for @studyLibraryDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Favoriten und gespeicherte Lerninhalte bleiben getrennt. So entscheidest du, was nur interessant ist und was in deine Lernsammlung gehört.'**
+  String get studyLibraryDescription;
+
+  /// No description provided for @studyLibraryRefresh.
+  ///
+  /// In de, this message translates to:
+  /// **'Lernsammlung aktualisieren'**
+  String get studyLibraryRefresh;
+
+  /// No description provided for @studyLibraryHeartMeaningTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Herz = Favorit'**
+  String get studyLibraryHeartMeaningTitle;
+
+  /// No description provided for @studyLibraryHeartMeaningBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Herz hält etwas griffbereit. Es fügt den Inhalt niemals automatisch zur Wiederholung hinzu.'**
+  String get studyLibraryHeartMeaningBody;
+
+  /// No description provided for @studyLibraryBookmarkMeaningTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesezeichen = zum Lernen gespeichert'**
+  String get studyLibraryBookmarkMeaningTitle;
+
+  /// No description provided for @studyLibraryBookmarkMeaningBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Inhalte behalten ihren echten Typ: Wort, Grammatik, Satz, Ausdruck oder Hangeul.'**
+  String get studyLibraryBookmarkMeaningBody;
+
+  /// No description provided for @studyLibraryFavoritesTab.
+  ///
+  /// In de, this message translates to:
+  /// **'Favoriten'**
+  String get studyLibraryFavoritesTab;
+
+  /// No description provided for @studyLibrarySavedTab.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeichert'**
+  String get studyLibrarySavedTab;
+
+  /// No description provided for @studyLibraryDueTab.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute fällig'**
+  String get studyLibraryDueTab;
+
+  /// No description provided for @studyLibraryViewSelectorLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Ansicht der Lernsammlung wählen'**
+  String get studyLibraryViewSelectorLabel;
+
+  /// No description provided for @studyLibraryViewChoice.
+  ///
+  /// In de, this message translates to:
+  /// **'{view}, {count, plural, one{1 Eintrag} other{{count} Einträge}}'**
+  String studyLibraryViewChoice(String view, int count);
+
+  /// No description provided for @studyLibraryViewSelected.
+  ///
+  /// In de, this message translates to:
+  /// **'{view}. {count, plural, one{1 Eintrag angezeigt} other{{count} Einträge angezeigt}}'**
+  String studyLibraryViewSelected(String view, int count);
+
+  /// No description provided for @studyLibraryFavoritesDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Ein Herz ist ein unverbindlicher Favorit. Favoriten starten von allein keine Wiederholung.'**
+  String get studyLibraryFavoritesDescription;
+
+  /// No description provided for @studyLibrarySavedDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeicherte Wörter, Grammatik, Sätze, Ausdrücke und Hangeul behalten ihren eigenen Inhaltstyp.'**
+  String get studyLibrarySavedDescription;
+
+  /// No description provided for @studyLibraryDueDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Hier erscheinen nur gespeicherte Wörter, die die aktuelle Wort-Wiederholung sicher unterstützt. Andere Inhalte bleiben gespeichert, bis eine passende Übungsform verfügbar ist.'**
+  String get studyLibraryDueDescription;
+
+  /// No description provided for @studyLibraryFavoriteStatus.
+  ///
+  /// In de, this message translates to:
+  /// **'Favorit'**
+  String get studyLibraryFavoriteStatus;
+
+  /// No description provided for @studyLibrarySavedStatus.
+  ///
+  /// In de, this message translates to:
+  /// **'Gespeichert'**
+  String get studyLibrarySavedStatus;
+
+  /// No description provided for @studyLibraryDueStatus.
+  ///
+  /// In de, this message translates to:
+  /// **'Fällig'**
+  String get studyLibraryDueStatus;
+
+  /// No description provided for @studyLibraryTypeWord.
+  ///
+  /// In de, this message translates to:
+  /// **'Wort'**
+  String get studyLibraryTypeWord;
+
+  /// No description provided for @studyLibraryTypeGrammar.
+  ///
+  /// In de, this message translates to:
+  /// **'Grammatik'**
+  String get studyLibraryTypeGrammar;
+
+  /// No description provided for @studyLibraryTypeSentence.
+  ///
+  /// In de, this message translates to:
+  /// **'Satz'**
+  String get studyLibraryTypeSentence;
+
+  /// No description provided for @studyLibraryTypeExpression.
+  ///
+  /// In de, this message translates to:
+  /// **'Ausdruck'**
+  String get studyLibraryTypeExpression;
+
+  /// No description provided for @studyLibraryTypeHangul.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangeul'**
+  String get studyLibraryTypeHangul;
+
+  /// No description provided for @studyLibraryLoading.
+  ///
+  /// In de, this message translates to:
+  /// **'Deine Lernsammlung wird geladen …'**
+  String get studyLibraryLoading;
+
+  /// No description provided for @studyLibraryLoadErrorTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Lernsammlung konnte nicht geladen werden'**
+  String get studyLibraryLoadErrorTitle;
+
+  /// No description provided for @studyLibraryLoadErrorBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Es wurde nichts verändert. Versuch noch einmal, deine lokalen Favoriten und gespeicherten Inhalte zu laden.'**
+  String get studyLibraryLoadErrorBody;
+
+  /// No description provided for @studyLibraryFavoritesEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch keine Favoriten'**
+  String get studyLibraryFavoritesEmptyTitle;
+
+  /// No description provided for @studyLibraryFavoritesEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Tippe bei unterstützten Inhalten auf ein Herz, um sie hier ohne zusätzliche Wiederholungen griffbereit zu halten.'**
+  String get studyLibraryFavoritesEmptyBody;
+
+  /// No description provided for @studyLibrarySavedEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nichts gespeichert'**
+  String get studyLibrarySavedEmptyTitle;
+
+  /// No description provided for @studyLibrarySavedEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesezeichen, deine Wortpakete und unterstützte Inhalte aus deinem Buch erscheinen hier mit ihrem echten Inhaltstyp.'**
+  String get studyLibrarySavedEmptyBody;
+
+  /// No description provided for @studyLibraryDueEmptyTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Für heute ist alles erledigt'**
+  String get studyLibraryDueEmptyTitle;
+
+  /// No description provided for @studyLibraryDueEmptyBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Keine unterstützten gespeicherten Wörter sind fällig. Grammatik, Sätze, Ausdrücke und Hangeul bleiben sicher gespeichert, ohne als Wörter ausgegeben zu werden.'**
+  String get studyLibraryDueEmptyBody;
+
+  /// No description provided for @studyLibraryUnresolvedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Quellinhalt nicht verfügbar'**
+  String get studyLibraryUnresolvedTitle;
+
+  /// No description provided for @studyLibraryUnresolvedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dieser Favorit bleibt erhalten, aber sein ursprünglicher Inhalt ({id}) kann derzeit nicht angezeigt werden.'**
+  String studyLibraryUnresolvedBody(String id);
+
+  /// No description provided for @studyLibraryBookmarkUnavailableTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Einige gespeicherte Lesezeichen sind nicht verfügbar'**
+  String get studyLibraryBookmarkUnavailableTitle;
+
+  /// No description provided for @studyLibraryBookmarkCorruptBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Lesezeichendaten konnten nicht gelesen werden und blieben unverändert. Änderungen an Lesezeichen sind gesperrt; Favoriten und andere lokale Quellen werden weiterhin angezeigt.'**
+  String get studyLibraryBookmarkCorruptBody;
+
+  /// No description provided for @studyLibraryBookmarkFutureBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Diese Lesezeichen wurden von einer neueren App-Version geschrieben und blieben unverändert. Änderungen an Lesezeichen sind gesperrt; Favoriten und andere lokale Quellen werden weiterhin angezeigt.'**
+  String get studyLibraryBookmarkFutureBody;
+
+  /// No description provided for @studyLibrarySaveBookmark.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesezeichen speichern'**
+  String get studyLibrarySaveBookmark;
+
+  /// No description provided for @studyLibraryRemoveBookmark.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesezeichen entfernen'**
+  String get studyLibraryRemoveBookmark;
+
+  /// No description provided for @studyLibrarySaveBookmarkFor.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesezeichen für {title} speichern'**
+  String studyLibrarySaveBookmarkFor(String title);
+
+  /// No description provided for @studyLibraryRemoveBookmarkFor.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur das Lesezeichen für {title} entfernen'**
+  String studyLibraryRemoveBookmarkFor(String title);
+
+  /// No description provided for @studyLibraryBookmarkSavedStatus.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesezeichen gespeichert. Dein Herz und alle Quellsammlungen bleiben unverändert.'**
+  String get studyLibraryBookmarkSavedStatus;
+
+  /// No description provided for @studyLibraryBookmarkRemovedStatus.
+  ///
+  /// In de, this message translates to:
+  /// **'Lesezeichen entfernt. Dein Herz, Bücherregal, deine Wortpakete und der Wiederholungsverlauf bleiben unverändert.'**
+  String get studyLibraryBookmarkRemovedStatus;
+
+  /// No description provided for @studyLibraryBookmarkWriteBlocked.
+  ///
+  /// In de, this message translates to:
+  /// **'Solange die Lesezeichendaten nicht verfügbar sind, können Lesezeichen nicht geändert werden. Nichts wurde überschrieben.'**
+  String get studyLibraryBookmarkWriteBlocked;
+
+  /// No description provided for @studyLibraryBookmarkWriteError.
+  ///
+  /// In de, this message translates to:
+  /// **'Das Lesezeichen konnte nicht geändert werden. Deine vorhandenen Lerndaten wurden nicht verändert.'**
+  String get studyLibraryBookmarkWriteError;
+
+  /// No description provided for @studyLibraryStartWordReview.
+  ///
+  /// In de, this message translates to:
+  /// **'Heutige Wort-Wiederholung öffnen'**
+  String get studyLibraryStartWordReview;
+
+  /// No description provided for @studyLibraryReviewScopeNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Dadurch öffnet sich der bestehende Wort-Wiederholungsstapel. Gespeicherte Grammatik, Sätze, Ausdrücke und Hangeul werden nicht als Wörter ausgegeben.'**
+  String get studyLibraryReviewScopeNote;
+
+  /// No description provided for @todayGuideTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Hangul-Sori-Start-Anleitung'**
+  String get todayGuideTitle;
+
+  /// No description provided for @todayGuideDescription.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Anleitungsthemen sind passend zu deinem Lernziel sortiert, damit du mit dem Wichtigsten beginnen kannst.'**
+  String get todayGuideDescription;
+
+  /// No description provided for @todayGuideProgress.
+  ///
+  /// In de, this message translates to:
+  /// **'{completed} von {total} Themen abgeschlossen'**
+  String todayGuideProgress(int completed, int total);
+
+  /// No description provided for @todayGuideOpenHub.
+  ///
+  /// In de, this message translates to:
+  /// **'Vollständige App-Anleitung öffnen'**
+  String get todayGuideOpenHub;
+
+  /// No description provided for @todayGuideDismiss.
+  ///
+  /// In de, this message translates to:
+  /// **'Start-Anleitung schließen'**
+  String get todayGuideDismiss;
+
+  /// No description provided for @todayGuideDismissedStatus.
+  ///
+  /// In de, this message translates to:
+  /// **'Start-Anleitung geschlossen. Als Nächstes kommt dein heutiges Lernen.'**
+  String get todayGuideDismissedStatus;
+
+  /// No description provided for @homeActionLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Startseite'**
+  String get homeActionLabel;
+
+  /// No description provided for @homeActionConfirmTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Runde verlassen?'**
+  String get homeActionConfirmTitle;
+
+  /// No description provided for @homeActionConfirmBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt in dieser Runde geht verloren, wenn du jetzt zur Startseite gehst.'**
+  String get homeActionConfirmBody;
+
+  /// No description provided for @homeActionConfirmLeave.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Startseite'**
+  String get homeActionConfirmLeave;
+
+  /// No description provided for @homeActionConfirmStay.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterspielen'**
+  String get homeActionConfirmStay;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

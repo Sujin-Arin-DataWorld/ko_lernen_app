@@ -37,12 +37,15 @@ void main() {
       'lib/screens/cloze_game_screen.dart',
       'lib/screens/placement_diagnostic_screen.dart',
       'lib/screens/satz_arcade_screen.dart',
-      'lib/screens/smalltalk_screen.dart',
       'lib/screens/speed_match_screen.dart',
     };
     // smalltalk_screen.dart 는 2026-08-19 에 레벨 칩을 'A1'…'C2' 하드코딩에서
     // 소문자 코드 + toUpperCase() 로 바꾸면서 이 목록에서 빠졌다. 래칫은
     // 줄어드는 방향만 허용한다 — 다시 넣지 말 것.
+    // 2026-08-27: smalltalk_screen.dart 는 SoriLevelFilterBar(§17/검수#5)로
+    // 이관되며 그 소문자 'a1'..'c2' 리스트 자체가 사라져 auditedLowercaseLegacy
+    // 에서도 빠졌다 — LearnerLevel.values 가 유일한 레벨 소스가 됐다(같은
+    // 방향의 감소). 다시 넣지 말 것.
     const auditedUppercaseLegacy = {
       'lib/models/content_feedback.dart',
       'lib/screens/review_session_screen.dart',

@@ -7,6 +7,7 @@ import '../models/feedback_completion.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
 import '../models/vocab.dart';
+import '../services/analytics_service.dart';
 import '../services/cloze_loader.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/curriculum_catalog.dart';
@@ -132,6 +133,10 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
       _loading = false;
     });
     _newRound();
+    if (_round.isNotEmpty) {
+      // ignore: discarded_futures
+      Analytics.gameStarted(gameType: 'cloze', level: _level);
+    }
   }
 
   void _newRound() {

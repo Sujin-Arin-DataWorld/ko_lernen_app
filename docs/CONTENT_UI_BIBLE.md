@@ -322,7 +322,7 @@ SRS(앎/모름)는 `/review` 전용으로 남긴다. 숏폼 열람에 채점 버
 safeTop
   chromeRow     ≤ 48dp
   body          = 나머지. FittedBox가 아니라 역할 스케일(koDisplay→한 단계 다운)
-  likeHotspot   = 장 전체 (더블탭) + 우하단 44dp 아이콘
+  likeHotspot   = 장 전체 (더블탭) + 우하단 48dp 아이콘
 safeBottom      시스템 제스처와 겹치지 않음
 ```
 
@@ -448,13 +448,13 @@ ui-ux-pro-max `favorites bookmark` 검색은 칩 리플로우만 나와 매칭 �
 | 제스처 | 더블탭 + 아이콘 | 아이콘만 (실수 방지. 더블탭과 안 겹침) |
 | 데이터 | `LikedContentService` | `quickAdd` / 단어장 / 기존 즐겨찾기 통합 |
 | 어디로 가나 | 놀이 스튜디오 — 좋아요만으로 게임 | 책장·검색·복습·내보내기 |
-| 피드백 | 큰 하트 한 번. 토스트 없음 | 책갈피가 석간주로 채워짐. 토스트 없음 |
+| 피드백 | 큰 하트 한 번. 토스트 없음 | 책갈피가 먹(s.text)으로 채워짐. 토스트 없음 |
 | 공개 | 비공개 감정 | 비공개 아카이브. 공유와 무관 |
 | 기존 코드 | 신규 | `wordbook_add.dart` + `Storage.vokFavorites`를 이 아이콘으로 흡수 |
 
 벤치마크가 하트와 책갈피를 한 줄에 둔 이유는 이것이다. 우리가 어제 계획에서 “더블탭 = 저장”으로 합치면 공부 아카이브와 놀이 덱이 다시 섞인다.
 
-접근성: 하트·보관·`?`·공유는 각각 44dp + 독일어 라벨 (`Gefällt mir` / `Merken` / `Umdrehen` / `Teilen`). 제스처만으로 닫지 않는다.
+접근성: 하트·보관·`?`·공유는 각각 48dp + 독일어 라벨 (`Gefällt mir` / `Merken` / `Umdrehen` / `Teilen`). 제스처만으로 닫지 않는다.
 
 ---
 
@@ -529,3 +529,109 @@ ui-ux-pro-max `favorites bookmark` 검색은 칩 리플로우만 나와 매칭 �
 5. 공유 이미지가 앱 스크린샷이 아니다.
 
 이 다섯이 아니면 리디자인이 아니라 스킨이다.
+
+---
+
+## §15. 기기 적응 레이아웃 계약 (UIUX 바이블 2.0)
+
+`SoriLayout`(`tokens.dart`)이 정본.
+
+- **heroMaxShare 0.22** — 히어로 배너 높이 상한, 화면 높이의 22%. **전
+  뷰포트에 상시** 적용한다(구 `_askBelowHeight` 700dp 게이트 삭제 — 360×640
+  세로 폰도 배너가 화면의 51%를 먹던 실측 버그의 원인이었다).
+- **heroMaxHeight 200dp** — 절대 상한. 태블릿 등 22%가 200dp를 넘는 화면에서
+  한 번 더 막는다.
+- **heroCollapsedHeight 96dp** — `SoriStudyFrame(hero:)` 슬롯 전용 고정 높이.
+- **플레이 화면(SoriStudyFrame) 히어로 0dp** — `hero` 슬롯에 아무것도 안
+  넘기면 자리 자체가 없다. 히어로는 "고르는" 화면(허브·카탈로그) 전용이다.
+- **크롬 행 44/48dp** — `chromeRowHeight`(시각) / `chromeRowTouchHeight`
+  (터치 타깃, WCAG 2.5.5). `SoriChromeRow`(§17)·`SoriLevelFilterBar`(검수#5)가
+  이 두 값을 공유한다.
+- **비율 고정 히어로는 폭으로 맞춘다 — 자르지 않는다.** 비율(aspectRatio)은
+  콘텐츠 계약(포스터·루프 원본 프레이밍 보존), 높이 예산은 레이아웃 계약 —
+  둘은 동시에 성립해야 한다. 자연 높이가 예산을 넘을 때 높이만 줄이면 비율이
+  깨져 크롭·찌그러짐이 생기거나(구현 방식에 따라) 통째로 0dp가 된다
+  (`scenarios_list_screen`의 16:9 종가 히어로가 360×780에서 사라지던 회귀 —
+  컨트롤러 룰링 2026-08-27). `SoriLayout.heroFit()`이 그 대신 높이를 예산까지
+  줄이고 **폭도 같은 비율로** 줄여(중앙 정렬) 비율을 지킨 채 작아진다.
+  `HanokHeader`가 내부적으로 쓴다 — 호출부는 `aspectRatio`만 넘기면 된다.
+
+강제: `hero_placement_guard_test.dart` — HanokHeader는 고르는 화면 7곳만
+허용, 학습 화면 4곳은 §19 이행 대기 그랜드파더(늘리기 금지).
+`sori_layout_hero_fit_test.dart` — `heroFit`이 좁은 화면에서 비율을 지키며
+폭을 줄이는지, 이미 예산 안에 들어오는 화면은 그대로 두는지 고정한다.
+
+---
+
+## §16. 간격 리듬 문법
+
+`SoriGaps`(`tokens.dart`) — 전부 기존 `Spacing` 별칭, 신규 hex/px 없음.
+
+| 이름 | 값 | 용도 |
+|---|---|---|
+| `optionGap` | 12 | 선택지 사이(4.10) |
+| `cardGap` | 16 | 카드 사이 |
+| `sectionGap` | 24 | 섹션 사이 |
+| `questionToOptions` | 24 | 질문 → 선택지(4.8) |
+| `labelToField` | 8 | 폼 라벨 → 입력 |
+| `chromeToContent` | 16 | 크롬 → 본문 |
+| `headingToBody` | 8 | 제목 → 본문 |
+| `paragraphGap` | 12 | 문단 사이 |
+
+그리드 밖(0/4/8/12/16/24/32/48 이외) 숫자 리터럴은 신규 0 —
+`spacing_literal_guard_test.dart`가 강제한다(기준선 181, 하향만).
+
+---
+
+## §17. 타입·컨트롤·상태
+
+- **역할 스케일** — `SoriTextTheme` 정본. 인터랙티브 라벨 ≥13, 선택지 타일
+  ≥16(지시서 4.12).
+- **`SoriChromeRow`(`widgets/sori/chrome_row.dart`)** — 앱바 아래 단 1줄:
+  leading 필터 아이콘(탭 → 필터 시트, 레벨 필 전부를 시트 안으로) · center
+  진행 메타 · trailing TTS 배속 1개. **Wrap 칩 줄 스택 금지** —
+  `chrome_stack_guard_test.dart`가 화면당 1블록으로 강제한다.
+- **상태** — `SoriPressable`(0.96 스케일, tap-down 150ms ease-out / tap-up
+  250ms elasticOut)이 모든 탭 요소의 정본 눌림 상태다(추가 코드 변경 없음 —
+  기존 구현이 이미 이 스펙과 일치, §17이 문서로 고정). `SoriButton(loading:)`
+  신설 — 비동기 액션 중 탭 차단+회전 인디케이터, 색은 평소 활성 스타일 유지.
+  `InkWell` 리플 신규 금지(`chrome_stack_guard_test.dart` 래칫).
+
+---
+
+## §18. 강제 장치
+
+문서가 아니라 컴포넌트·가드가 지킨다.
+
+- `SoriStudyFrame(hero:)` — 유일한 히어로 경로. §15 클램프(96dp)가 내장돼
+  있어 콜러가 얼마나 큰 위젯을 넘기든 화면 예산을 못 넘는다.
+- `SoriChromeRow` — 유일한 필터/진행 크롬 컨테이너.
+- **가드 4종**(전부 `test/`, typography_guard와 같은 "실측 기준선 → 하향만"
+  문법):
+  1. `hero_placement_guard_test.dart` — HanokHeader는 고르는 화면 7곳 또는
+     §19 이행 대기 4곳(chosung/hangul/legacy_vocab/kkeunmari)에서만.
+  2. `chrome_stack_guard_test.dart` — 화면당 Wrap+칩 블록 ≤1(chosung_quiz·
+     hangul·legacy_vocab·scenario_player 4곳만 §19 이행 전 그랜드파더) +
+     InkWell 리플 신규 0.
+  3. `spacing_literal_guard_test.dart` — 그리드 밖 간격 리터럴 신규 0(하향
+     래칫).
+  4. `typography_guard_test.dart` — 기존 9개 래칫 + 신규 "원시 TextStyle(
+     안 fontSize 리터럴" 래칫.
+
+---
+
+## §20. 거버넌스 — 바이블 판정 기록
+
+새 UI 불일치를 발견하면: **판정**(미적용/바이블 부재/바이블 결함) → 근거
+절 인용 → 조치 → 가드 갱신, 순으로 이 표에 한 줄 추가한다. "바이블 결함"
+판정만 §15-§19 자체를 고친다 — "미적용"은 화면을 고치고 바이블은 그대로
+둔다.
+
+| 사례 | 판정 | 근거/조치 | 가드 |
+|---|---|---|---|
+| 2.3 Anlaut-Quiz 크롬 4단 적층 | 바이블 부재 | §15(히어로 예산)·§17.2(크롬 행 단일화) 신설로 해소 | `hero_placement_guard`·`chrome_stack_guard` |
+| 4.8 질문→선택지 간격 임의값 | 바이블 부재 | §16 `questionToOptions` 신설 | `spacing_literal_guard` |
+| 4.10 선택지 사이 간격 임의값 | 바이블 부재 | §16 `optionGap` 신설 | `spacing_literal_guard` |
+
+**웨이브 배선:** §15-§18(토큰·컴포넌트·가드)은 W3 첫 태스크로 랜딩. §19
+이행표(화면별 실제 적용)는 W5. 이 §20 거버넌스 절차는 W3부터 상시.

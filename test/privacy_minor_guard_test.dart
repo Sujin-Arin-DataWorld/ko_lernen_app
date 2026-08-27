@@ -10,9 +10,13 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   setUp(() async {
+    Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
+    PrivacyConsentService.analyticsEnabled.value = false;
   });
+
+  tearDown(Storage.resetForTesting);
 
   test('under-16 cannot enable analytics or crash collection', () async {
     await Storage.setBirthYear(DateTime.now().year - 12); // 12 years old
@@ -22,6 +26,18 @@ void main() {
 
     expect(Storage.analyticsConsent, isFalse);
     expect(Storage.crashConsent, isFalse);
+    expect(PrivacyConsentService.analyticsEnabled.value, isFalse);
+  });
+
+  test('unknown age cannot enable analytics or crash collection', () async {
+    expect(Storage.birthYear, 0);
+
+    await PrivacyConsentService.setAnalytics(true);
+    await PrivacyConsentService.setCrash(true);
+
+    expect(Storage.analyticsConsent, isFalse);
+    expect(Storage.crashConsent, isFalse);
+    expect(PrivacyConsentService.analyticsEnabled.value, isFalse);
   });
 
   test('16+ can enable analytics collection', () async {
@@ -30,5 +46,6 @@ void main() {
     await PrivacyConsentService.setAnalytics(true);
 
     expect(Storage.analyticsConsent, isTrue);
+    expect(PrivacyConsentService.analyticsEnabled.value, isTrue);
   });
 }

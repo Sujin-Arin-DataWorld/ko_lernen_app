@@ -31,6 +31,27 @@ void main() {
       expect(learnerMotivationFromId(null), isNull);
       expect(learnerMotivationFromId('bogus'), isNull);
     });
+
+    test('V2 offers four purposes and normalizes all legacy values', () {
+      expect(v2LearnerMotivationChoices, const [
+        LearnerMotivation.travel,
+        LearnerMotivation.culture,
+        LearnerMotivation.career,
+        LearnerMotivation.kdrama,
+      ]);
+      expect(LearnerMotivation.loved.v2Canonical, LearnerMotivation.culture);
+      expect(LearnerMotivation.curious.v2Canonical, LearnerMotivation.culture);
+      expect(LearnerMotivation.kpop.v2Canonical, LearnerMotivation.kdrama);
+      expect(
+        v2LearnerMotivationChoices.map((choice) => choice.v2Label(AppL10nEn())),
+        const [
+          'Everyday life & travel',
+          'People & culture',
+          'Study & work',
+          'K-content',
+        ],
+      );
+    });
   });
 
   group('Storage motivation', () {

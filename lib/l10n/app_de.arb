@@ -337,6 +337,10 @@
   "settingsReset": "Alle Daten zurücksetzen",
   "settingsResetConfirm": "Wirklich alle Lernfortschritte löschen? Das lässt sich nicht rückgängig machen.",
   "settingsAbout": "Über die App",
+  "settingsOriginStoryTitle": "Warum Hangul Sori entstand",
+  "settingsOriginStorySubtitle": "Die Idee hinter der App",
+  "settingsOriginStoryBody": "Gründerin Sujin Park hat Hangul Sori aus einem praktischen Gedanken heraus entwickelt: Koreanischlernen soll Klang, Schrift, Alltagssituationen und die Bücher verbinden, mit denen du bereits lernst. Die App führt diese Teile in einem Lernweg zusammen, von den Hangul-Grundlagen über stufengerechte Szenarien bis zu Aussprache und Wiederholung.",
+  "settingsOriginStoryFounder": "Sujin Park · Gründerin von Hangul Sori",
   "settingsVersion": "Version {v}",
   "@settingsVersion": {
     "placeholders": {
@@ -1028,6 +1032,13 @@
   "contentActionLike": "Gefällt mir",
   "contentActionShare": "Teilen",
   "contentActionBookmark": "Merken",
+  "contentActionBookmarkSaved": "Gemerkt",
+  "contentActionBookmarkUnsaved": "Nicht gemerkt",
+  "contentActionLikeLiked": "Gelikt",
+  "contentActionLikeNotLiked": "Nicht gelikt",
+  "speechIndicatorLabel": "Vorlesen",
+  "speechIndicatorSpeaking": "Wird vorgelesen",
+  "speechIndicatorIdle": "Nicht aktiv",
   "contentShareBody": "{korean}\n{gloss}\nhangul-sori.com",
   "@contentShareBody": {
     "placeholders": {
@@ -2480,6 +2491,7 @@
   },
   "grammarEasy": "Verstanden",
   "grammarHard": "Schwierig",
+  "grammarPreviousCard": "Vorherige Karte",
   "grammarChoiceCta": "Mit Beispielen üben",
   "grammarChoiceTitle": "Grammatik üben",
   "grammarChoiceEyebrow": "Satz erkennen",
@@ -4120,5 +4132,394 @@
     }
   },
   "mediaPhrasePrevious": "Zurück",
-  "mediaPhraseNext": "Weiter"
+  "mediaPhraseNext": "Weiter",
+  "onboardingV2Back": "Zurück",
+  "onboardingV2Next": "Weiter",
+  "onboardingV2Loading": "Deine Anleitung wird vorbereitet …",
+  "onboardingV2Saving": "Deine Auswahl wird gespeichert …",
+  "onboardingV2CourseHistoryConflict": "Zu diesem Kursstart gibt es bereits Lernfortschritt. Behalte zum Abschließen der Einrichtung die aktuelle Stufe; später kannst du den Kurs in den Einstellungen ausdrücklich neu starten.",
+  "onboardingV2StoryFinish": "Meinen Start auswählen",
+  "onboardingV2StoryProgress": "Seite {current} von {total}",
+  "@onboardingV2StoryProgress": {
+    "placeholders": {
+      "current": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "onboardingV2Story1Eyebrow": "Zwei Wege, ein Lernort",
+  "onboardingV2Story1Title": "Dein Lernweg und dein eigenes Buch",
+  "onboardingV2Story1Body": "Gehe Schritt für Schritt von A1 bis C2. Die Texterkennung einer fotografierten Buchseite läuft auf deinem Gerät. Erst wenn du Analysieren wählst, kann der erkannte Text zur Auswertung an einen Analysedienst in der EU gesendet werden.",
+  "onboardingV2Story1HeroSemantics": "Vorschau auf den Stufenweg A1 bis C2 und die Analyse einer selbst fotografierten Buchseite.",
+  "onboardingV2Story1Item1Title": "Stufenweg A1 bis C2",
+  "onboardingV2Story1Item1Body": "Lernziele und Alltagsszenen bauen aufeinander auf.",
+  "onboardingV2Story1Item2Title": "Dein Buch fotografieren",
+  "onboardingV2Story1Item2Body": "Eine Seite wird erst erfasst, wenn du die Kamera selbst öffnest.",
+  "onboardingV2Story1Item3Title": "Text auf dem Gerät erkennen",
+  "onboardingV2Story1Item3Body": "Die Texterkennung der Aufnahme läuft auf deinem Gerät. Diese Anleitung fragt nicht nach Kamerazugriff.",
+  "onboardingV2Story1Item4Title": "Ergebnisse nach Typ",
+  "onboardingV2Story1Item4Body": "Wählst du Analysieren, kann der erkannte Text an einen Analysedienst in der EU gesendet und nach Wörtern, Ausdrücken, Grammatik und Sätzen aufbereitet werden.",
+  "onboardingV2Story1CurriculumClaim": "Ein stufenweises Curriculum, das sich an den CEFR-Handlungszielen und am Koreanischen Standardcurriculum des National Institute of Korean Language orientiert.",
+  "onboardingV2Story1CurriculumSourcesAction": "Curriculum-Grundlage und Quellen",
+  "onboardingV2Story1CurriculumSourcesTitle": "Grundlage des Stufencurriculums",
+  "onboardingV2Story1CurriculumSourcesBody": "Die aktuelle Zuordnung ist teilweise. Diese offiziellen Quellen dienen als Orientierung für den Lernweg; sie behaupten weder eine Zertifizierung noch eine vollständige Prüfungsabdeckung.",
+  "onboardingV2Story1CurriculumCefrAuthority": "Europarat · CEFR",
+  "onboardingV2Story1CurriculumNiklAuthority": "National Institute of Korean Language",
+  "onboardingV2Story1CurriculumDocument": "Offizielles Dokument",
+  "onboardingV2Story1CurriculumVersion": "Version",
+  "onboardingV2Story1CurriculumCheckedAt": "Quelle geprüft am",
+  "onboardingV2Story1CurriculumUrl": "URL",
+  "onboardingV2Story1CurriculumOpenSource": "Quelle öffnen: {sourceTitle}",
+  "@onboardingV2Story1CurriculumOpenSource": {
+    "description": "Barrierefreie Beschriftung zum Öffnen einer offiziellen Curriculum-Quelle.",
+    "placeholders": {
+      "sourceTitle": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardingV2Story1CurriculumSourcesClose": "Quellen schließen",
+  "onboardingV2Story2Eyebrow": "Lernen",
+  "onboardingV2Story2Title": "Vom ersten Zeichen bis zum Gespräch",
+  "onboardingV2Story2Body": "Lernen verbindet Hangeul, Schreiben, Hören, Aussprache und Szenarien. Du entscheidest selbst, wann du Kamera, Mikrofon oder Ton verwendest.",
+  "onboardingV2Story2HeroSemantics": "Vorschau auf Hangeul, Schreibübungen, Hör- und Aussprachetraining sowie Szenarien nach Level.",
+  "onboardingV2Story2Item1Title": "Hangeul",
+  "onboardingV2Story2Item1Body": "Konsonanten und Vokale erkennen und zusammensetzen.",
+  "onboardingV2Story2Item2Title": "Schreiben",
+  "onboardingV2Story2Item2Body": "Zeichen nachfahren und anschließend selbst schreiben.",
+  "onboardingV2Story2Item3Title": "Hören & Aussprache",
+  "onboardingV2Story2Item3Body": "Beispiele anhören und die eigene Aufnahme gezielt vergleichen.",
+  "onboardingV2Story2Item4Title": "Szenarien nach Level",
+  "onboardingV2Story2Item4Body": "Alltagssituationen und Kategorien passend zum gewählten Level öffnen.",
+  "onboardingV2Story3Eyebrow": "Karten und Gedächtnis",
+  "onboardingV2Story3Title": "Merke dir, was dir wichtig ist",
+  "onboardingV2Story3Body": "Tippe Karten an, um sie zu wenden, und wische zur nächsten. Herz und Lesezeichen haben dabei bewusst verschiedene Aufgaben.",
+  "onboardingV2Story3HeroSemantics": "Vorschau auf Kartensteuerung, Favoriten, gespeicherte Inhalte mit erhaltenem Inhaltstyp und die heutige Wiederholung unterstützter Wörter.",
+  "onboardingV2Story3Item1Title": "Karte wenden",
+  "onboardingV2Story3Item1Body": "Antippen zeigt die andere Kartenseite.",
+  "onboardingV2Story3Item2Title": "Weiterwischen",
+  "onboardingV2Story3Item2Body": "Eine Wischgeste bewegt dich durch den Stapel.",
+  "onboardingV2Story3Item3Title": "Herz = Favorit",
+  "onboardingV2Story3Item3Body": "Du merkst dir etwas ohne neue Wiederholungsaufgabe.",
+  "onboardingV2Story3Item4Title": "Lesezeichen = zum Lernen speichern",
+  "onboardingV2Story3Item4Body": "Auf unterstützten Wortkarten speichert das Lesezeichen das Wort in einem Wortpaket. Andere unterstützte gespeicherte Inhalte behalten in der Lernsammlung ihren echten Typ.",
+  "onboardingV2Story3Status": "Jetzt verfügbar: Favoriten, gespeicherte Inhalte und heute fällige unterstützte Wörter sind getrennte Ansichten in der Lernsammlung. Die aktuelle Wiederholung unterstützt nur Wörter; Grammatik, Sätze, Ausdrücke und Hangeul bleiben ohne vorgetäuschte Wiederholungsaktion gespeichert.",
+  "onboardingV2Story4Eyebrow": "Spielen und Belohnungen",
+  "onboardingV2Story4Title": "Üben, ausprobieren, Fortschritt sehen",
+  "onboardingV2Story4Body": "In Spielen wendest du Gelerntes an. Hinweise, XP, persönliche Bestwerte und Quests machen sichtbar, was du getan hast. Sie ersetzen keinen Lernerfolg.",
+  "onboardingV2Story4HeroSemantics": "Vorschau auf Spiele, Hinweise, XP, persönliche Bestwerte, Quests und mögliche Sammelbelohnungen.",
+  "onboardingV2Story4Status": "Belohnungsbeispiele: Hier wird nichts gutgeschrieben",
+  "onboardingV2Story4CatalogTitle": "Mögliche Belohnungen aktueller Aktivitäten",
+  "onboardingV2Story4CatalogBody": "Schreibgeschützte Beispiele aus {count} aktuellen Aktivitäten. Beim Ansehen dieser Seite wird nichts gutgeschrieben oder verändert.",
+  "@onboardingV2Story4CatalogBody": {
+    "description": "Erklärt, dass die Belohnungsbeispiele im Onboarding schreibgeschützt aus dem aktuellen Aktivitätskatalog stammen.",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "onboardingV2Story4PossibleReward": "Mögliche Belohnung: {reward}",
+  "@onboardingV2Story4PossibleReward": {
+    "description": "Barrierefreie Beschriftung einer möglichen Belohnung aus dem Aktivitätskatalog.",
+    "placeholders": {
+      "reward": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardingV2Story4Item1Title": "Spielhinweise",
+  "onboardingV2Story4Item1Body": "Kurze Hilfen bringen dich wieder in die Übung.",
+  "onboardingV2Story4Item2Title": "XP & persönliche Bestwerte",
+  "onboardingV2Story4Item2Body": "Sie halten deine Aktivität und eigene Entwicklung fest.",
+  "onboardingV2Story4Item3Title": "Quests & Stempel",
+  "onboardingV2Story4Item3Body": "Nur ausgewiesene Aktivitäten können diese Belohnungen enthalten.",
+  "onboardingV2Story4Item4Title": "Bojagi & Accessoires",
+  "onboardingV2Story4Item4Body": "Sammelobjekte werden später zum Gestalten verwendet.",
+  "onboardingV2Story5Eyebrow": "Kulturerbe-Reise",
+  "onboardingV2Story5Title": "Stempelbuch, Bojagi und dein Hanok",
+  "onboardingV2Story5Body": "Deine langfristige Reise führt vom Stempelbuch über Bojagi und Accessoires zum Gestalten von Räumen und historischen Häusern. Das erste Kapitel wird noch vorbereitet.",
+  "onboardingV2Story5HeroSemantics": "Vorschau auf die künftige Kulturerbe-Reise mit Stempelbuch, Bojagi, Dekorationen und dem ersten Kapitel Ildu Gotaek.",
+  "onboardingV2Story5Status": "Erste Reise · Ildu Gotaek · In Vorbereitung",
+  "onboardingV2Story5Item1Title": "Stempelbuch",
+  "onboardingV2Story5Item1Body": "Hier siehst du gesammelte Stempel und offene Stationen.",
+  "onboardingV2Story5Item2Title": "Bojagi öffnen",
+  "onboardingV2Story5Item2Body": "Ausgewiesene Belohnungen können Accessoires enthalten.",
+  "onboardingV2Story5Item3Title": "Räume gestalten",
+  "onboardingV2Story5Item3Body": "Erhaltene Accessoires werden an dafür vorgesehenen Orten eingesetzt.",
+  "onboardingV2Story5Item4Title": "Weitere Kapitel",
+  "onboardingV2Story5Item4Body": "Die Reise ist erweiterbar; Zahl und Reihenfolge stehen noch nicht fest.",
+  "onboardingV2Story5PreviewLabel": "Vorschau",
+  "onboardingV2Story5InPreparationLabel": "In Vorbereitung",
+  "onboardingV2Story5AssetReviewNote": "Bis Nutzungsrechte für die App und visuelle Prüfung freigegeben sind, wird hier keine Kulturerbe-Grafik verwendet.",
+  "onboardingV2Story5SourcesAction": "Quellen und Angaben",
+  "onboardingV2Story5SourcesTitle": "Quellen zu {estateName}",
+  "@onboardingV2Story5SourcesTitle": {
+    "description": "Titel des Quellenblatts zur Kulturerbe-Vorschau.",
+    "placeholders": {
+      "estateName": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardingV2Story5SourcesBody": "Diese Quellen belegen den Namen und den kulturellen Kontext der Vorschau, darunter die Verbindung des Ildu Gotaek zum Gelehrten Jeong Yeo-chang und seine Nutzung als Drehort. Ihr aktueller Registerstatus erlaubt nur das Zitieren; weitergehende Nutzungsrechte werden nicht zugesichert.",
+  "onboardingV2Story5SourceInstitution": "Institution",
+  "onboardingV2Story5SourceYear": "Jahr",
+  "onboardingV2Story5SourceYearValue": "{year} ({basis})",
+  "@onboardingV2Story5SourceYearValue": {
+    "description": "Jahr der Kulturerbe-Quelle mit der Grundlage dieses Jahres im Register.",
+    "placeholders": {
+      "year": {
+        "type": "int"
+      },
+      "basis": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardingV2Story5SourceYearPublished": "veröffentlicht",
+  "onboardingV2Story5SourceYearUpdated": "aktualisiert",
+  "onboardingV2Story5SourceYearAccessed": "abgerufen",
+  "onboardingV2Story5SourceTitle": "Quellentitel",
+  "onboardingV2Story5SourceAuthor": "Urheber",
+  "onboardingV2Story5SourceLicense": "Lizenzstatus",
+  "onboardingV2Story5SourceLicenseKoglType1": "KOGL Typ 1",
+  "onboardingV2Story5SourceLicenseCitationOnly": "Nur Zitat; weitergehende Nutzungsrechte nicht zugesichert",
+  "onboardingV2Story5SourceLicenseSeparatelyApproved": "Nutzung separat freigegeben",
+  "onboardingV2Story5SourceUrl": "URL",
+  "onboardingV2Story5OpenSource": "Quelle öffnen: {sourceTitle}",
+  "@onboardingV2Story5OpenSource": {
+    "description": "Beschriftung der Schaltfläche, die eine Kulturerbe-Quelle im Browser öffnet.",
+    "placeholders": {
+      "sourceTitle": {
+        "type": "String"
+      }
+    }
+  },
+  "onboardingV2Story5SourcesClose": "Quellen schließen",
+  "onboardingV2SetupEyebrow": "Dein persönlicher Start",
+  "onboardingV2SetupTitle": "Wofür lernst du, und wo steigst du ein?",
+  "onboardingV2SetupBody": "Dein Ziel ändert nur die Reihenfolge von Einstiegstipps und Empfehlungen. Schwierigkeit, Inhalte, Fortschritt und Belohnungen bleiben gleich.",
+  "onboardingV2SetupPurposeHeading": "1. Wähle dein Ziel",
+  "onboardingV2SetupLevelHeading": "2. Wähle deinen Startpunkt",
+  "onboardingV2SetupLevelHelp": "Wähle den Startpunkt, der am besten zu dem passt, was du schon kannst. Du kannst ihn später in den Einstellungen ändern.",
+  "onboardingV2SetupSelectLevelPrompt": "Wähle ein Level, um ein echtes Beispiel und die Lernziele zu sehen.",
+  "onboardingV2SetupExampleLabel": "Beispiel auf diesem Level",
+  "onboardingV2SetupCanDoLabel": "Das kannst du ungefähr schon",
+  "onboardingV2SetupLearnHereLabel": "Damit beginnst du hier",
+  "onboardingV2SetupCompareAction": "Level vergleichen",
+  "onboardingV2SetupCompareTitle": "Welcher Startpunkt passt?",
+  "onboardingV2SetupCompareBody": "Die direkte Auswahl ist dein Lernstart, kein Nachweis deiner Kenntnisse. Deinen Kurs-Startpunkt und dein Level zum Stöbern kannst du später getrennt ändern.",
+  "onboardingV2SetupCompareClose": "Vergleich schließen",
+  "onboardingV2SetupContinue": "Auswahl übernehmen",
+  "onboardingV2LevelA1ExampleKo": "안녕하세요.",
+  "onboardingV2LevelA2ExampleKo": "아메리카노 한 잔 주세요.",
+  "onboardingV2LevelB1ExampleKo": "어제 친구와 영화를 봤어요.",
+  "onboardingV2LevelB2ExampleKo": "회의가 길어져서 조금 늦을 것 같아요.",
+  "onboardingV2LevelC1ExampleKo": "확인된 사실과 현재의 해석을 나누어 설명하겠습니다.",
+  "onboardingV2LevelC2ExampleKo": "침묵을 동의로 보면 질문의 틀만으로도 참여를 제한할 수 있습니다.",
+  "onboardingV2PurposeLifeTravelTitle": "Alltag & Reisen",
+  "onboardingV2PurposeLifeTravelBody": "Bestellen, Wege finden und tägliche Situationen meistern",
+  "onboardingV2PurposePeopleCultureTitle": "Menschen & Kultur",
+  "onboardingV2PurposePeopleCultureBody": "Gespräche, Beziehungen und kulturelle Zusammenhänge",
+  "onboardingV2PurposeStudyWorkTitle": "Studium & Beruf",
+  "onboardingV2PurposeStudyWorkBody": "Im Kurs, an der Hochschule und bei der Arbeit sicher handeln",
+  "onboardingV2PurposeKContentTitle": "K-Content",
+  "onboardingV2PurposeKContentBody": "Musik, Serien, Filme, Podcasts und Interviews besser verstehen",
+  "onboardingV2CompanionEyebrow": "Dein Lernfreund",
+  "onboardingV2CompanionTitle": "Wer begleitet dich?",
+  "onboardingV2CompanionBody": "Wähle Taego oder Joy. Die Wahl ist für den ersten Start erforderlich; später kannst du den Lernfreund wechseln oder seine Anzeige ausschalten.",
+  "onboardingV2CompanionEqualNote": "Inhalte, Antworten, Hinweisstärke, XP, Fortschritt und Belohnungen sind bei beiden gleich.",
+  "onboardingV2CompanionContinue": "Auswahl bestätigen",
+  "onboardingV2CompanionTaegoRhythm": "Ruhig und Schritt für Schritt",
+  "onboardingV2CompanionTaegoBody": "Ordnet dieselben Hinweise in eine klare Reihenfolge und zeigt dir den nächsten sinnvollen Schritt.",
+  "onboardingV2CompanionTaegoSelected": "Taego wurde ausgewählt.",
+  "onboardingV2CompanionJoyRhythm": "Kurz und direkt ins Üben",
+  "onboardingV2CompanionJoyBody": "Gibt dieselben Hinweise als kurze Anstöße und feiert deinen nächsten Versuch.",
+  "onboardingV2CompanionJoySelected": "Joy wurde ausgewählt.",
+  "onboardingV2ConfirmationEyebrow": "Bereit für den Start",
+  "onboardingV2ConfirmationBody": "Das Begrüßungsvideo ist nur eine Vorstellung. Du kannst jederzeit weitergehen, auch wenn es nicht lädt.",
+  "onboardingV2ConfirmationStart": "Gemeinsam starten",
+  "onboardingV2ConfirmationChange": "Anderen Lernfreund wählen",
+  "settingsLearningLevelsSection": "Lernstufen",
+  "settingsCourseStartTitle": "Startpunkt im Kurs",
+  "settingsCourseStartDescription": "Legt fest, wo dein fortlaufender Kurs beginnt. Eine neue Wahl ersetzt den aktuellen Kurspfad; frühere Einheiten gelten dadurch weder als beherrscht noch erhältst du XP oder Belohnungen.",
+  "settingsBrowseLevelTitle": "Stufe zum Stöbern",
+  "settingsBrowseLevelDescription": "Filtert nur Bibliotheken und Szenarien. Dein Kursfortschritt bleibt unverändert.",
+  "settingsRecheckLevelTitle": "Mein Level neu einschätzen",
+  "settingsRecheckLevelDescription": "Mache freiwillig einen Test mit acht Aufgaben. Das Ergebnis ist eine Empfehlung; den Startpunkt wählst weiterhin du.",
+  "settingsCompanionVisibleTitle": "Lernfreund anzeigen",
+  "settingsCompanionVisibleDescription": "Blende deinen Lernfreund ein oder aus, ohne die gewählte Figur zu ändern.",
+  "settingsGuideSection": "App-Anleitung",
+  "settingsGuideTitle": "Hangul-Sori-Anleitung öffnen",
+  "settingsGuideDescription": "Sieh jederzeit nach, wie Lernen, Spiele, gespeicherte Inhalte, Belohnungen, dein Buch und wichtige Einstellungen funktionieren.",
+  "settingsCourseStartConfirmTitle": "Startpunkt im Kurs ändern?",
+  "settingsCourseStartConfirmDescription": "Dein fortlaufender Kurs startet bei {level} neu und ersetzt den bisherigen Kursfortschritt. Andere Übungsdaten, XP, Belohnungen und Sammlungen bleiben erhalten; frühere Einheiten gelten nicht als abgeschlossen.",
+  "@settingsCourseStartConfirmDescription": {
+    "placeholders": {
+      "level": {"type": "String"}
+    }
+  },
+  "settingsCourseStartConfirmAction": "Startpunkt ändern",
+  "guideHubAppBarTitle": "App-Anleitung",
+  "guideHubEyebrow": "Sicher loslegen",
+  "guideHubTitle": "Finde jede wichtige Funktion",
+  "guideHubDescription": "Öffne ein Thema genau dann, wenn du es brauchst. Vorschauen und angekündigte Funktionen werden klar gekennzeichnet und verhalten sich nie wie fertige Funktionen.",
+  "guideCompletedLabel": "Abgeschlossen",
+  "guideRestoreTodayCard": "Start-Anleitung wieder auf Heute anzeigen",
+  "guideTodayCardRestoredStatus": "Die Start-Anleitung wird wieder auf Heute angezeigt.",
+  "guidePreferenceWriteFailed": "Die Einstellung der Anleitung konnte nicht gespeichert werden. Es wurde nichts geändert. Bitte versuche es erneut.",
+  "guideFeatureNotAvailable": "Dieses Thema ist als Vorschau oder angekündigte Funktion markiert und lässt sich noch nicht als fertige Funktion öffnen.",
+  "guideAvailabilityLive": "Jetzt verfügbar",
+  "guideAvailabilityPreview": "Vorschau",
+  "guideAvailabilityComingSoon": "In Vorbereitung",
+  "guideAvailabilityUnavailable": "Nicht verfügbar",
+  "guideOpenAction": "Anleitung ansehen",
+  "guidePreviewAction": "Vorschau ansehen",
+  "guideDetailsAction": "Status ansehen",
+  "guideModuleEyebrow": "Thema im Überblick",
+  "guideModuleStepsTitle": "Das solltest du zuerst wissen",
+  "guideModuleActionsTitle": "Einen Bereich öffnen",
+  "guideModulePassiveNotice": "Diese Erklärung fragt nicht nach Kamera- oder Mikrofonzugriff, spielt kein Audio ab, verändert keinen Lernfortschritt und vergibt keine Belohnungen.",
+  "guideScenarioCategoryCount": "{count, plural, one{1 Szenario} other{{count} Szenarien}}",
+  "@guideScenarioCategoryCount": {
+    "placeholders": {
+      "count": {"type": "int"}
+    }
+  },
+  "guideModulePersonalizedStartStep1": "Dein Lernziel ändert die Reihenfolge der Empfehlungen und dieser Startliste. Schwierigkeit, XP und Belohnungen bleiben gleich.",
+  "guideModulePersonalizedStartStep2": "Der Kurs-Startpunkt setzt nach deiner Bestätigung fest, wo dein Kurs beginnt. Die Stufe zum Stöbern filtert nur Bibliotheken und Szenarien.",
+  "guideModuleLearnStep1": "Hangeul-Übersicht, Karten und Schreiben sind getrennte Reiter. Öffne nur die Übung, die du gerade brauchst.",
+  "guideModuleLearnStep2": "Unter Lernen findest du außerdem Hören, Aussprache und Szenarien nach Level. Kategorien stammen aus dem aktuellen Katalog; diese Anleitung erfindet keine Zuordnung.",
+  "guideModuleLearnStep3": "Ein Zielbereich kann seinen eigenen kontextbezogenen Hinweis einblenden. Die Anleitung schickt dich nie automatisch durch mehrere Bereiche und setzt bereits abgeschlossene Hinweise nicht zurück.",
+  "guideModuleMyBookStep1": "Kamera oder Galerie wählst du erst nach dem Öffnen der Aufnahme. Die Texterkennung läuft auf deinem Gerät; vor der Analyse prüfst du den erkannten koreanischen Text.",
+  "guideModuleMyBookStep2": "Wenn du Analysieren wählst, kann der erkannte Text an einen Analysedienst in der EU gesendet werden. Das fotografierte Bild bleibt auf deinem Gerät.",
+  "guideModuleMyBookStep3": "Unterstützte Seitenergebnisse, Wörter, Ausdrücke, Grammatik und Sätze lassen sich mit den heutigen Werkzeugen speichern. Diese Anleitung verspricht und erzeugt keine neuen KI-Übungen.",
+  "guideModuleCardsStep1": "Tippe auf eine Lernkarte, um sie umzudrehen. Wische, um zur nächsten Karte zu wechseln.",
+  "guideModuleCardsStep2": "Ein Herz ist ein unverbindlicher Favorit und startet nie die verteilte Wiederholung. Ein Lesezeichen speichert unterstützte Inhalte in deiner Lernsammlung.",
+  "guideModuleCardsStep3": "Die Lernsammlung trennt Favoriten, Gespeichertes und heute Fälliges. Der direkte Wiederholungsweg unterstützt derzeit fällige Wörter; andere gespeicherte Typen bleiben sichtbar und werden nicht als Wortwiederholung ausgegeben.",
+  "guideModuleGamesStep1": "Hinweise helfen während eines Spiels. Ihre Nutzung zählt aber nicht als selbstständiger Abruf oder als Beherrschung.",
+  "guideModuleGamesStep2": "XP, persönliche Rekorde und Quest-Fortschritt entstehen nur durch unterstützte abgeschlossene Aktivitäten. Das Ansehen dieser Anleitung vergibt nichts.",
+  "guideModuleGamesStep3": "Stempel können mit Bojagi und Dekorationen verbunden sein. Im Hanok-Bereich siehst du das derzeit verfügbare Stempelbuch, Inventar und die Raumgestaltung.",
+  "guideModuleSettingsStep1": "Kurs-Startpunkt und Stufe zum Stöbern sind getrennte Einstellungen: Die eine ändert den Kurs nach Bestätigung, die andere nur Inhaltsfilter.",
+  "guideModuleSettingsStep2": "Ausgewählte Figur und Figurenanzeige sind getrennt. Du kannst Taego oder Joy behalten und die Figur auf dem Bildschirm ausblenden.",
+  "guideModuleSettingsStep3": "Lege das allgemeine Sprechtempo in den Einstellungen fest. Unterstützte Audioseiten haben zusätzlich einen Geschwindigkeits-Chip; die App-Anleitung kannst du jederzeit in den Einstellungen erneut öffnen.",
+  "guideModuleActionCourseStart": "Kurs-Startpunkt",
+  "guideModuleActionBrowseLevel": "Stufe zum Stöbern",
+  "guideModuleActionHangulOverview": "Hangeul-Übersicht",
+  "guideModuleActionHangulCards": "Hangeul-Karten",
+  "guideModuleActionHangulWrite": "Hangeul schreiben üben",
+  "guideModuleActionLearnStage": "Lernen öffnen",
+  "guideModuleActionCaptureTextbook": "Lehrbuchseite aufnehmen",
+  "guideModuleActionStudyLibrary": "Lernsammlung öffnen",
+  "guideModuleActionGamesStage": "Spiele öffnen",
+  "guideModuleActionHanokStage": "Stempel und Dekoration öffnen",
+  "guideModuleActionCompanion": "Figur und Anzeige",
+  "guideModuleActionVoiceSpeed": "Sprechtempo",
+  "guideModuleActionGuideSettings": "App-Anleitung in den Einstellungen",
+  "guideTopicPersonalizedStartTitle": "Ein Start, der zu mir passt",
+  "guideTopicPersonalizedStartDescription": "Erfahre, wie dein Ziel die Startliste und Empfehlungen sortiert und warum Kurs-Startpunkt und Stufe zum Stöbern verschieden sind.",
+  "guideTopicLearnTitle": "Lernen",
+  "guideTopicLearnDescription": "Finde Hangeul-Zeichen, Schreiben, Hören, Aussprache sowie Szenarien und Kategorien für dein Level.",
+  "guideTopicMyBookTitle": "Mein Buch",
+  "guideTopicMyBookDescription": "Fotografiere freiwillig eine Seite. Die Texterkennung läuft auf deinem Gerät. Wählst du Analysieren, kann der erkannte Text an einen Analysedienst in der EU gesendet werden. Unterstützte Ergebnisse kannst du anschließend speichern. Diese Anleitung fragt nicht nach Kamerazugriff.",
+  "guideTopicCardsAndMemoryTitle": "Karten und Gedächtnis",
+  "guideTopicCardsAndMemoryDescription": "Tippe zum Wenden und wische weiter. Ein Herz ist ein unverbindlicher Favorit und startet keine Wiederholung. Ein Lesezeichen hält unterstützte Inhalte in deiner Lernsammlung fest. Dort findest du Favoriten, gespeicherte Wörter, Grammatik, Sätze, Ausdrücke und Hangeul sowie unterstützte Wörter, die zur Wiederholung fällig sind.",
+  "guideTopicGamesAndRewardsTitle": "Spielen und Belohnungen",
+  "guideTopicGamesAndRewardsDescription": "Sieh, wie Hinweise, XP, persönliche Rekorde, Quests, Stempel, Bojagi, Accessoires und Raumgestaltung mit echten Lernaktivitäten zusammenhängen.",
+  "guideTopicSettingsTitle": "Meine Einstellungen",
+  "guideTopicSettingsDescription": "Ändere Kurs-Startpunkt, Stufe zum Stöbern, Figur, Figurenanzeige und Sprechtempo in den Einstellungen. Auf unterstützten Audioseiten kannst du das Tempo außerdem direkt über den Geschwindigkeits-Chip ändern oder diese Anleitung erneut öffnen.",
+  "studyLibraryAppBarTitle": "Lernsammlung",
+  "studyLibraryEyebrow": "FAVORITEN & GESPEICHERT",
+  "studyLibraryTitle": "Alles, was du behalten möchtest",
+  "studyLibraryDescription": "Favoriten und gespeicherte Lerninhalte bleiben getrennt. So entscheidest du, was nur interessant ist und was in deine Lernsammlung gehört.",
+  "studyLibraryRefresh": "Lernsammlung aktualisieren",
+  "studyLibraryHeartMeaningTitle": "Herz = Favorit",
+  "studyLibraryHeartMeaningBody": "Ein Herz hält etwas griffbereit. Es fügt den Inhalt niemals automatisch zur Wiederholung hinzu.",
+  "studyLibraryBookmarkMeaningTitle": "Lesezeichen = zum Lernen gespeichert",
+  "studyLibraryBookmarkMeaningBody": "Gespeicherte Inhalte behalten ihren echten Typ: Wort, Grammatik, Satz, Ausdruck oder Hangeul.",
+  "studyLibraryFavoritesTab": "Favoriten",
+  "studyLibrarySavedTab": "Gespeichert",
+  "studyLibraryDueTab": "Heute fällig",
+  "studyLibraryViewSelectorLabel": "Ansicht der Lernsammlung wählen",
+  "studyLibraryViewChoice": "{view}, {count, plural, one{1 Eintrag} other{{count} Einträge}}",
+  "@studyLibraryViewChoice": {
+    "placeholders": {
+      "view": {"type": "String"},
+      "count": {"type": "int"}
+    }
+  },
+  "studyLibraryViewSelected": "{view}. {count, plural, one{1 Eintrag angezeigt} other{{count} Einträge angezeigt}}",
+  "@studyLibraryViewSelected": {
+    "placeholders": {
+      "view": {"type": "String"},
+      "count": {"type": "int"}
+    }
+  },
+  "studyLibraryFavoritesDescription": "Ein Herz ist ein unverbindlicher Favorit. Favoriten starten von allein keine Wiederholung.",
+  "studyLibrarySavedDescription": "Gespeicherte Wörter, Grammatik, Sätze, Ausdrücke und Hangeul behalten ihren eigenen Inhaltstyp.",
+  "studyLibraryDueDescription": "Hier erscheinen nur gespeicherte Wörter, die die aktuelle Wort-Wiederholung sicher unterstützt. Andere Inhalte bleiben gespeichert, bis eine passende Übungsform verfügbar ist.",
+  "studyLibraryFavoriteStatus": "Favorit",
+  "studyLibrarySavedStatus": "Gespeichert",
+  "studyLibraryDueStatus": "Fällig",
+  "studyLibraryTypeWord": "Wort",
+  "studyLibraryTypeGrammar": "Grammatik",
+  "studyLibraryTypeSentence": "Satz",
+  "studyLibraryTypeExpression": "Ausdruck",
+  "studyLibraryTypeHangul": "Hangeul",
+  "studyLibraryLoading": "Deine Lernsammlung wird geladen …",
+  "studyLibraryLoadErrorTitle": "Die Lernsammlung konnte nicht geladen werden",
+  "studyLibraryLoadErrorBody": "Es wurde nichts verändert. Versuch noch einmal, deine lokalen Favoriten und gespeicherten Inhalte zu laden.",
+  "studyLibraryFavoritesEmptyTitle": "Noch keine Favoriten",
+  "studyLibraryFavoritesEmptyBody": "Tippe bei unterstützten Inhalten auf ein Herz, um sie hier ohne zusätzliche Wiederholungen griffbereit zu halten.",
+  "studyLibrarySavedEmptyTitle": "Noch nichts gespeichert",
+  "studyLibrarySavedEmptyBody": "Lesezeichen, deine Wortpakete und unterstützte Inhalte aus deinem Buch erscheinen hier mit ihrem echten Inhaltstyp.",
+  "studyLibraryDueEmptyTitle": "Für heute ist alles erledigt",
+  "studyLibraryDueEmptyBody": "Keine unterstützten gespeicherten Wörter sind fällig. Grammatik, Sätze, Ausdrücke und Hangeul bleiben sicher gespeichert, ohne als Wörter ausgegeben zu werden.",
+  "studyLibraryUnresolvedTitle": "Quellinhalt nicht verfügbar",
+  "studyLibraryUnresolvedBody": "Dieser Favorit bleibt erhalten, aber sein ursprünglicher Inhalt ({id}) kann derzeit nicht angezeigt werden.",
+  "@studyLibraryUnresolvedBody": {
+    "placeholders": {
+      "id": {"type": "String"}
+    }
+  },
+  "studyLibraryBookmarkUnavailableTitle": "Einige gespeicherte Lesezeichen sind nicht verfügbar",
+  "studyLibraryBookmarkCorruptBody": "Die Lesezeichendaten konnten nicht gelesen werden und blieben unverändert. Änderungen an Lesezeichen sind gesperrt; Favoriten und andere lokale Quellen werden weiterhin angezeigt.",
+  "studyLibraryBookmarkFutureBody": "Diese Lesezeichen wurden von einer neueren App-Version geschrieben und blieben unverändert. Änderungen an Lesezeichen sind gesperrt; Favoriten und andere lokale Quellen werden weiterhin angezeigt.",
+  "studyLibrarySaveBookmark": "Lesezeichen speichern",
+  "studyLibraryRemoveBookmark": "Lesezeichen entfernen",
+  "studyLibrarySaveBookmarkFor": "Lesezeichen für {title} speichern",
+  "@studyLibrarySaveBookmarkFor": {
+    "placeholders": {
+      "title": {"type": "String"}
+    }
+  },
+  "studyLibraryRemoveBookmarkFor": "Nur das Lesezeichen für {title} entfernen",
+  "@studyLibraryRemoveBookmarkFor": {
+    "placeholders": {
+      "title": {"type": "String"}
+    }
+  },
+  "studyLibraryBookmarkSavedStatus": "Lesezeichen gespeichert. Dein Herz und alle Quellsammlungen bleiben unverändert.",
+  "studyLibraryBookmarkRemovedStatus": "Lesezeichen entfernt. Dein Herz, Bücherregal, deine Wortpakete und der Wiederholungsverlauf bleiben unverändert.",
+  "studyLibraryBookmarkWriteBlocked": "Solange die Lesezeichendaten nicht verfügbar sind, können Lesezeichen nicht geändert werden. Nichts wurde überschrieben.",
+  "studyLibraryBookmarkWriteError": "Das Lesezeichen konnte nicht geändert werden. Deine vorhandenen Lerndaten wurden nicht verändert.",
+  "studyLibraryStartWordReview": "Heutige Wort-Wiederholung öffnen",
+  "studyLibraryReviewScopeNote": "Dadurch öffnet sich der bestehende Wort-Wiederholungsstapel. Gespeicherte Grammatik, Sätze, Ausdrücke und Hangeul werden nicht als Wörter ausgegeben.",
+  "todayGuideTitle": "Hangul-Sori-Start-Anleitung",
+  "todayGuideDescription": "Die Anleitungsthemen sind passend zu deinem Lernziel sortiert, damit du mit dem Wichtigsten beginnen kannst.",
+  "todayGuideProgress": "{completed} von {total} Themen abgeschlossen",
+  "@todayGuideProgress": {
+    "placeholders": {
+      "completed": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "todayGuideOpenHub": "Vollständige App-Anleitung öffnen",
+  "todayGuideDismiss": "Start-Anleitung schließen",
+  "todayGuideDismissedStatus": "Start-Anleitung geschlossen. Als Nächstes kommt dein heutiges Lernen.",
+  "homeActionLabel": "Zur Startseite",
+  "homeActionConfirmTitle": "Runde verlassen?",
+  "homeActionConfirmBody": "Dein Fortschritt in dieser Runde geht verloren, wenn du jetzt zur Startseite gehst.",
+  "homeActionConfirmLeave": "Zur Startseite",
+  "homeActionConfirmStay": "Weiterspielen"
 }

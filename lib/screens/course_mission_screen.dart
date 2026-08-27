@@ -5,6 +5,7 @@ import '../models/course_mission_brief.dart';
 import '../models/course_mastery.dart';
 import '../models/curriculum.dart';
 import '../models/scenario.dart';
+import '../services/analytics_service.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/onboarding_companion_service.dart';
 import '../services/course_progress_service.dart';
@@ -56,6 +57,7 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
   List<Scenario> _scenarios = const [];
   Object? _error;
   bool _loading = true;
+  bool _learningStartRecorded = false;
 
   @override
   void initState() {
@@ -84,6 +86,14 @@ class _CourseMissionScreenState extends State<CourseMissionScreen> {
         throw const FormatException('No current course mission exists.');
       }
       if (!mounted) return;
+      if (!_learningStartRecorded) {
+        _learningStartRecorded = true;
+        Analytics.lessonStarted(
+          lessonType: 'course',
+          lessonId: unit.id,
+          level: unit.level,
+        );
+      }
       setState(() {
         _catalog = catalog;
         _snapshot = snapshot ?? const CourseMasterySnapshot.empty();

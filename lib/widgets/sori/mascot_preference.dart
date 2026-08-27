@@ -61,34 +61,71 @@ class MascotPreference {
 
   /// `main()` 부팅 시 1회 — `Storage.init()` **이후**에 호출할 것.
   static void load() {
-    final stored = decode(Storage.preferredMascot);
-    preference.value = stored;
-    final selected = mascotKindFor(stored);
-    if (selected != null) {
-      kind.value = selected;
-    }
+    final selected = parse(Storage.selectedCompanion);
+    kind.value = selected;
+    preference.value = Storage.companionVisible
+        ? _preferenceFor(selected)
+        : CompanionPreference.none;
   }
 
   /// 선택 저장 + 전역 통지. 캐릭터 선택 화면과 설정 화면이 둘 다 이걸 쓴다.
   static Future<void> set(MascotKind value) async {
     final canonical = parse(encode(value));
     kind.value = canonical;
-    preference.value = canonical == MascotKind.magpie
-        ? CompanionPreference.magpie
-        : CompanionPreference.tiger;
-    await Storage.setPreferredMascot(encode(canonical));
+    preference.value = _preferenceFor(canonical);
+    final encoded = encode(canonical);
+    await Storage.setSelectedCompanion(encoded);
+    await Storage.setCompanionVisible(true);
+    await Storage.setPreferredMascot(encoded);
   }
 
-  /// Persists an explicit no-companion choice without inventing a replacement
-  /// mascot. Learning routes and progress remain unchanged.
+  /// Changes Taego/Joy identity without changing whether the companion is
+  /// currently shown. Settings uses this so character and presentation remain
+  /// independent controls; onboarding uses [set] to select and show.
+  static Future<void> setChosen(MascotKind value) async {
+    final canonical = parse(encode(value));
+    final visible = Storage.companionVisible;
+    kind.value = canonical;
+    preference.value = visible
+        ? _preferenceFor(canonical)
+        : CompanionPreference.none;
+    final encoded = encode(canonical);
+    await Storage.setSelectedCompanion(encoded);
+    await Storage.setPreferredMascot(visible ? encoded : 'none');
+  }
+
+  /// Hides personal companion presentation without deleting the Taego/Joy
+  /// selection. Learning routes and progress remain unchanged.
   static Future<void> setNone() async {
     preference.value = CompanionPreference.none;
+    await Storage.setCompanionVisible(false);
+    // Keep the legacy mirror for older builds that only understand `none`.
     await Storage.setPreferredMascot('none');
   }
 
+  /// Changes presentation only. The durable companion identity remains
+  /// available through [chosenKind] while hidden.
+  static Future<void> setVisible(bool visible) async {
+    await Storage.setCompanionVisible(visible);
+    final selected = chosenKind;
+    preference.value = visible
+        ? _preferenceFor(selected)
+        : CompanionPreference.none;
+    await Storage.setPreferredMascot(visible ? encode(selected) : 'none');
+  }
+
+  static CompanionPreference _preferenceFor(MascotKind value) =>
+      value == MascotKind.magpie
+      ? CompanionPreference.magpie
+      : CompanionPreference.tiger;
+
+  /// Companion currently rendered by personal companion slots.
   static MascotKind? get selectedKind => mascotKindFor(preference.value);
 
   static bool get hasCompanion => selectedKind != null;
+
+  /// Durable Taego/Joy identity, even while companion presentation is hidden.
+  static MascotKind get chosenKind => kind.value;
 
   /// 리빌드가 필요 없는 곳(콜백 내부 1회 조회 등)에서만.
   /// 위젯 build 안에서는 쓰지 말 것 — 변경이 반영되지 않는다.

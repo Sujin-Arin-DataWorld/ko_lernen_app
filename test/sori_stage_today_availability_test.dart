@@ -14,6 +14,7 @@ import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/home_hero.dart';
 
 /// The Stage shell must keep [TodayLearningSnapshot]'s availability contract:
 /// a partial recommendation is never displayed or recorded as a fresh Today
@@ -34,6 +35,11 @@ void main() {
     final t = await AppL10n.delegate.load(const Locale('en'));
 
     await _pumpToday(tester, loadSnapshot: () async => _readySnapshot());
+    await tester.scrollUntilVisible(
+      find.widgetWithText(SoriButton, t.soriStageMissionStart),
+      300,
+    );
+    await tester.pumpAndSettle();
 
     expect(
       find.byKey(const ValueKey('sori-today-unavailable-mission')),
@@ -45,6 +51,30 @@ void main() {
     );
     expect(find.text('${t.soriStagePossibleReward}:'), findsOneWidget);
     expect(find.text('Learning XP'), findsOneWidget);
+  });
+
+  testWidgets('purpose never changes the Today companion message', (
+    tester,
+  ) async {
+    final t = await AppL10n.delegate.load(const Locale('en'));
+    await Storage.setStreakDays(1);
+    await Storage.setXp(40);
+
+    await Storage.setMotivation('travel');
+    await _pumpToday(tester, loadSnapshot: () async => _readySnapshot());
+    final travelBubble = tester
+        .widget<SoriCharacterHero>(find.byType(SoriCharacterHero))
+        .bubble;
+
+    await tester.pumpWidget(const SizedBox.shrink());
+    await Storage.setMotivation('kdrama');
+    await _pumpToday(tester, loadSnapshot: () async => _readySnapshot());
+    final contentBubble = tester
+        .widget<SoriCharacterHero>(find.byType(SoriCharacterHero))
+        .bubble;
+
+    expect(travelBubble, t.homeTigerBubbleResume);
+    expect(contentBubble, travelBubble);
   });
 
   testWidgets('ready snapshot still allows an explicitly replayed home tour', (

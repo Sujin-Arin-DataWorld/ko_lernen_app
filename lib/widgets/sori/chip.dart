@@ -124,7 +124,6 @@ class SoriChip extends StatelessWidget {
     );
 
     final minimumHeight = minInteractiveHeight;
-    final hasSemanticOverride = semanticLabel != null;
     final content = onTap != null && minimumHeight != null
         ? IntrinsicWidth(
             child: ConstrainedBox(
@@ -134,20 +133,27 @@ class SoriChip extends StatelessWidget {
           )
         : chip;
 
+    // majority 패턴(_Stamp content_feed.dart:593-599, _ChromeSlot,
+    // SoriHomeAction, _DeckActionButton) — 명시적 Semantics(onTap:) +
+    // 전용 ExcludeSemantics 로 내부 Text 의 자동 라벨을 지운다. semanticLabel
+    // 이 없는(=대다수) 칩도 예외 없이 이 패턴을 타야 한다: 예전엔 override가
+    // 없으면 excludeSemantics 도 꺼져(내부 Text 가 라벨을 한 번 더 냄) onTap
+    // 도 null 로 떨궈(탭 시맨틱 액션 자체가 사라짐) SoriLevelFilterBar 의
+    // 모든 칩이 이중 안내 + 탭 불가 상태였다.
     if (onTap == null) {
       return Semantics(
         label: semanticLabel ?? label,
-        excludeSemantics: hasSemanticOverride,
-        child: content,
+        child: ExcludeSemantics(child: content),
       );
     }
     return Semantics(
       button: true,
       label: semanticLabel ?? label,
       selected: selected,
-      onTap: hasSemanticOverride ? onTap : null,
-      excludeSemantics: hasSemanticOverride,
-      child: SoriPressable(onTap: onTap, child: content),
+      onTap: onTap,
+      child: ExcludeSemantics(
+        child: SoriPressable(onTap: onTap, child: content),
+      ),
     );
   }
 }

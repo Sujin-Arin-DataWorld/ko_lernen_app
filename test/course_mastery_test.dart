@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -9,6 +10,7 @@ import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/models/grammar.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
+import 'package:ko_lernen_app/services/account/reconciliation_errors.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
@@ -646,6 +648,115 @@ void main() {
       expect(snapshot.completedUnitIds, contains('a1_01_greetings_hangul'));
     },
   );
+
+  test(
+    'local wipe drops the app-scoped course service and deleted graph',
+    () async {
+      var serviceLoads = 0;
+      final catalog = _catalog();
+      final progress = CourseProgressService(() async {
+        serviceLoads++;
+        return CourseMasteryService(catalog);
+      });
+      await progress.initializeForPlacement('a1');
+      expect(serviceLoads, 1);
+      expect(Storage.courseMasterySnapshotRawJson, isNotEmpty);
+
+      await progress.runLocalStorageWipeBarrier(Storage.resetAll);
+      final afterWipe = await progress.readForDisplay();
+
+      expect(serviceLoads, 2);
+      expect(Storage.courseMasterySnapshotRawJson, isEmpty);
+      expect(afterWipe, isNull);
+    },
+  );
+
+  test(
+    'local wipe barrier drains an admitted write before deleting the graph',
+    () async {
+      var serviceLoads = 0;
+      var wipeStarted = false;
+      final loaderEntered = Completer<void>();
+      final releaseLoader = Completer<void>();
+      final catalog = _catalog();
+      final progress = CourseProgressService(() async {
+        serviceLoads++;
+        if (serviceLoads == 1) {
+          loaderEntered.complete();
+          await releaseLoader.future;
+        }
+        return CourseMasteryService(catalog);
+      });
+
+      final admittedWrite = progress.initializeForPlacement('a2');
+      await loaderEntered.future;
+      final wipe = progress.runLocalStorageWipeBarrier(() async {
+        wipeStarted = true;
+        await Storage.resetAll();
+      });
+      await Future<void>.delayed(Duration.zero);
+      expect(wipeStarted, isFalse);
+
+      releaseLoader.complete();
+      await admittedWrite;
+      await wipe;
+
+      expect(wipeStarted, isTrue);
+      expect(Storage.courseMasterySnapshotRawJson, isEmpty);
+      expect(await progress.readForDisplay(), isNull);
+      expect(serviceLoads, 2);
+    },
+  );
+
+  test(
+    'onboarding placement preserves valid historical course completion',
+    () async {
+      final service = CourseMasteryService(_catalog());
+      await service.applyReconciledSnapshot(
+        const CourseMasterySnapshot(
+          completedUnitIds: ['a1_01_greetings_hangul'],
+        ),
+        expectedGeneration: null,
+      );
+      final generation = Storage.courseMasterySnapshotRawJson;
+
+      final placed = await service.initializeForPlacement(
+        'a2',
+        preserveHistory: true,
+        expectedGeneration: generation,
+      );
+
+      expect(placed.placementLevel, 'a2');
+      expect(placed.completedUnitIds, contains('a1_01_greetings_hangul'));
+      expect(
+        placed.bypassedPrerequisiteUnitIds,
+        isNot(contains('a1_01_greetings_hangul')),
+      );
+      expect(placed.currentCourseUnitId, startsWith('a2_'));
+    },
+  );
+
+  test('onboarding placement rejects a stale course generation', () async {
+    final progress = CourseProgressService(
+      () async => CourseMasteryService(_catalog()),
+    );
+    await progress.initializeForPlacement('a1');
+    final capture = await progress.captureForPlacementVerification();
+    await progress.initializeForPlacement('a2');
+    final durableAfterNewerWrite = Storage.courseMasterySnapshotRawJson;
+
+    await expectLater(
+      progress.initializeForPlacement(
+        'b1',
+        preserveHistory: true,
+        expectedGeneration: capture.canonicalGeneration,
+      ),
+      throwsA(isA<LocalReconciliationGenerationConflict>()),
+    );
+
+    expect(Storage.courseMasterySnapshotRawJson, durableAfterNewerWrite);
+    expect(Storage.dedicatedCoursePlacementLevelCode, 'a2');
+  });
 
   test(
     'exactly 70 percent concept evidence and scenario score unlock',

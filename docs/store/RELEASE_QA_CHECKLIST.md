@@ -25,6 +25,72 @@
 
 ---
 
+## Onboarding V2 Android/iOS beta acceptance
+
+자동 테스트가 상태 머신과 레이아웃 계약을 검증하더라도 실제 디코더, OS process-death,
+권한 시트, TalkBack/VoiceOver, Remote Config 콘솔은 기기에서 확인해야 한다. 아래 항목은
+신규 설치 사용자에게 V2를 켜기 전의 별도 출시 게이트다.
+
+### 신규 설치와 중단 복구
+
+- [ ] 새 설치에서 `법적 동의 → 필수 설명 5장 → 목적+레벨 → Taego/Joy → 선택 영상+확인
+  → 솟을대문 → Today` 순서로 도달한다.
+- [ ] 첫 실행 중 강제 진단 문제, 첫 성공 화면, 시나리오 완료, XP·배지·보상 지급이 한 번도
+  발생하지 않는다.
+- [ ] 설명 1~5장, 목적+레벨, 캐릭터, 확인/커밋에서 각각 앱을 강제 종료해도 정확한 단계로
+  복구되며 선택이나 보상이 중복되지 않는다.
+- [ ] 솟을대문 재생 중 앱을 종료하면 다음 실행은 Today로 가며 영상을 반복하지 않는다.
+- [ ] 기존 완료 사용자는 강제 재온보딩 없이 Today로 가고 `새 앱 가이드`만 선택적으로 본다.
+- [ ] 레거시 partial 사용자(`userLevelCode`만 존재)는 홈으로 우회하지 않고 V2 setup에서
+  기존 값을 확인한 뒤 완료한다.
+
+### 화면, 접근성, 영상 실패
+
+- [ ] 320×640·시스템 글자 200%·독일어에서 5장, 목적+레벨, 캐릭터, 확인 화면의 본문을
+  끝까지 스크롤할 수 있고 고정 CTA가 가려지지 않는다.
+- [ ] 일반 대형폰과 태블릿, 세로/가로, 100%·130%·200% 글자에서 같은 흐름을 완료한다.
+- [ ] TalkBack/VoiceOver 포커스가 시각 순서와 맞고, 캐릭터 확인 제목과 저장 실패 안내가
+  한 번만 낭독되며 초점이 사라지거나 갇히지 않는다.
+- [ ] Reduce Motion에서 설명 전환과 대문 연출이 정적으로 대체되고 진행은 막히지 않는다.
+- [ ] Taego/Joy MP4가 Android와 iOS에서 각각 재생되며, 초기화 실패·stall·decoder 오류를
+  강제로 만들어도 정적 이미지와 `함께 시작하기`로 진행한다.
+- [ ] 솟을대문 영상은 자연 완료와 탭 skip 모두 Today로 한 번만 이동하고, 저사양 기기에서
+  디코더가 실패해도 정적 폴백으로 진행한다.
+
+### 권한, 개인정보, 실제 기능 연결
+
+- [ ] 필수 설명 5장만 보는 동안 카메라·사진·마이크·알림 권한 시트, TTS, 녹음, OCR,
+  분석 서버 호출이 발생하지 않는다.
+- [ ] `내 책`에서 카메라/갤러리 → crop → 온디바이스 OCR → preview → 사용자가 선택한 분석
+  → 근거형 질문까지 완료하며, OCR 텍스트의 EU 분석 서버 전송 가능성을 분석 전에 알린다.
+- [ ] 발음 평가 전에 별도 동의, 마이크 권한, 음성 전송 안내가 나타나며 거부 후 대체 경로가
+  유지된다.
+- [ ] 하트는 찜에만 나타나고 복습 큐를 바꾸지 않으며, 북마크는 실제 저장 대상에 나타난다.
+  단어·문법·문장 타입이 학습 보관함에서 보존되고 오늘 복습은 지원되는 단어만 제시한다.
+- [ ] 목적별 시작 가이드 순서만 달라지고 동일 레벨의 난이도·콘텐츠·XP·보상은 바뀌지 않는다.
+- [ ] 설정에서 코스 시작점과 둘러보기 레벨, 캐릭터와 동행자 표시, 음성 속도, 앱 가이드,
+  `레벨 다시 확인` 8문항을 각각 독립적으로 열고 변경할 수 있다.
+
+### Rollout, 분석, 복구 스위치
+
+- [ ] Remote Config의 신규 설치 beta 대상을 실제 콘솔에서 확인하고, 기존 사용자가 대상에
+  포함되지 않음을 확인한다.
+- [ ] `minimal`/kill switch에서 `동의 → 목적+레벨 → 캐릭터 → 홈`으로 진행하며 강제 문제
+  흐름으로 돌아가지 않는다. 잘못된 값·fetch timeout에서도 앱이 멈추지 않는다.
+- [ ] 동의 전과 연령 게이트 전에는 온보딩 분석 이벤트가 기록되지 않는다.
+- [ ] 실제 Analytics DebugView에서 완료 이벤트가 AppShell 첫 정상 프레임에 한 번만 기록되고,
+  이벤트에 책 텍스트·문장·녹음·정답·단어가 들어가지 않는다.
+- [ ] 오프라인, 느린 저장소, background/restore에서 무반응 버튼이나 중복 커밋 없이 재시도
+  안내가 보인다.
+
+실기기 자동 흐름은 각 플랫폼에서 profile로 실행한다:
+
+```bash
+flutter test integration_test/app_flows_test.dart -d <기기ID> --profile
+```
+
+---
+
 ## 0. 자동화된 것 (사람이 다시 하지 않아도 되는 것)
 
 CI(`.github/workflows/ci.yml`)가 push/PR마다 강제한다. **아래가 빨간불이면 수동 검증을 시작하지 말 것.**
@@ -40,6 +106,8 @@ CI(`.github/workflows/ci.yml`)가 push/PR마다 강제한다. **아래가 빨간
 | 배치 픽셀 | 4화면 × compact/medium/expanded 골든 | `test/goldens/screen_layout_golden_test.dart` |
 | 접근성 | 터치 영역·대비·라벨 (6화면 × 5조건) | `test/accessibility_guideline_test.dart` |
 | 핵심 흐름 | 시작 분기·재시작 진도 유지·손상 데이터·초기화 | `test/e2e/app_flows_e2e_test.dart` |
+| Onboarding V2 | 5장·24 목적/레벨 조합·2 캐릭터·중단 복구·멱등 커밋·kill switch·320×640/200% | `test/features/onboarding_v2/`, `test/onboarding_v2_accessibility_gate_test.dart` |
+| 앱 가이드·보관함 | typed destination·찜/저장/복습 분리·DE/EN 스크롤·설정 저장 실패 복구 | `test/features/guide/`, `test/features/study_library/` |
 | 영상 디코더 | 동시 1개 상한·회수/복귀·실패 복구 | `test/video_lease_contract_test.dart`, `test/sori_video_lease_test.dart` |
 | 학습 데이터 복구 | SRS·팩 진행도 손상 격리, 덮어쓰기 금지 | `test/learning_data_recovery_test.dart` |
 | 스키마 | 멱등·롤백·다운그레이드 fail-closed | `test/data_migration_test.dart` |

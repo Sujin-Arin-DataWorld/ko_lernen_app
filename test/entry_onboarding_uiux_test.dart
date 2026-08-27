@@ -1,11 +1,18 @@
+import 'dart:async';
 import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart' show ValueListenable, ValueNotifier;
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/features/onboarding_v2/first_run_coordinator.dart';
+import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_repository.dart';
+import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/screens/character_selection_screen.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
@@ -14,6 +21,7 @@ import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_level_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_preview_screen.dart';
 import 'package:ko_lernen_app/screens/onboarding_start_screen.dart';
+import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_journey_screen.dart';
 import 'package:ko_lernen_app/screens/placement_diagnostic_screen.dart';
 import 'package:ko_lernen_app/screens/quick_onboarding_screen.dart';
 import 'package:ko_lernen_app/screens/splash_screen.dart';
@@ -137,6 +145,95 @@ void main() {
     semantics.dispose();
   });
 
+  testWidgets('V2 loading state exposes one localized live status', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final blocker = Completer<void>();
+    final repository = _MemoryJourneyRepository()..nextLoadBlocker = blocker;
+
+    await _pumpEntry(
+      tester,
+      OnboardingV2JourneyScreen(
+        firstRunCoordinator: _coordinator(repository: repository),
+      ),
+      locale: const Locale('en'),
+      viewport: const (size: Size(390, 844), textScale: 1),
+    );
+
+    expect(find.text('Preparing your guide…'), findsOneWidget);
+    expect(find.bySemanticsLabel('Preparing your guide…'), findsOneWidget);
+    final status = tester.widget<Semantics>(
+      find.byWidgetPredicate(
+        (widget) =>
+            widget is Semantics &&
+            widget.properties.label == 'Preparing your guide…',
+      ),
+    );
+    expect(status.properties.liveRegion, isTrue);
+
+    blocker.complete();
+    await tester.pumpAndSettle();
+    semantics.dispose();
+  });
+
+  testWidgets(
+    'V2 load failure announces the error and retry recovers into the story',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      final t = lookupAppL10n(const Locale('en'));
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      final repository = _MemoryJourneyRepository()..failNextLoad = true;
+
+      await _pumpEntry(
+        tester,
+        OnboardingV2JourneyScreen(
+          firstRunCoordinator: _coordinator(repository: repository),
+        ),
+        locale: const Locale('en'),
+        viewport: const (size: Size(320, 640), textScale: 2),
+      );
+      await _pumpUntilFound(
+        tester,
+        find.byKey(const ValueKey('onboarding-v2-load-error')),
+      );
+
+      final error = find.byKey(const ValueKey('onboarding-v2-load-error'));
+      final errorWidget = tester.widget<Semantics>(error);
+      final errorData = tester.getSemantics(error).getSemanticsData();
+      expect(errorData.label, t.loadErrorTryAgain);
+      expect(errorData.flagsCollection.isHeader, isTrue);
+      expect(errorWidget.properties.liveRegion, isTrue);
+      expect(
+        FocusManager.instance.primaryFocus?.debugLabel,
+        'onboarding-v2-load-error-heading',
+      );
+
+      final retry = find.byKey(const ValueKey('onboarding-v2-load-retry'));
+      _expectAction(tester, retry, minHeight: 48);
+      expect(tester.getSemantics(retry).getSemanticsData().label, t.btnRetry);
+
+      await _tapPointerOwned(tester, retry);
+      await _pumpUntilFound(
+        tester,
+        find.byKey(const ValueKey('onboarding-v2-story-title')),
+      );
+
+      expect(error, findsNothing);
+      expect(
+        find.byKey(const ValueKey('onboarding-v2-story-title')),
+        findsOneWidget,
+      );
+      expect(repository.state?.phase, OnboardingPhase.story);
+      expect(tester.takeException(), isNull);
+      await _disposeEntry(tester);
+      semantics.dispose();
+    },
+  );
+
   testWidgets('SoriCard exposes selected without changing default semantics', (
     tester,
   ) async {
@@ -231,89 +328,204 @@ void main() {
     semantics.dispose();
   });
 
-  testWidgets('splash preserves the complete startup destination table', (
+  testWidgets('splash resolves fresh and legacy V2 destinations', (
     tester,
   ) async {
-    final cases = <({Map<String, Object> preferences, Type destination})>[
-      (preferences: const {}, destination: ConsentScreen),
+    final cases = <({LegacyOnboardingSnapshot legacy, Type destination})>[
       (
-        preferences: const {'kl_consent_accepted': true},
-        destination: OnboardingStartScreen,
+        legacy: const LegacyOnboardingSnapshot(
+          consentAccepted: false,
+          hasCompletedOnboarding: false,
+        ),
+        destination: ConsentScreen,
       ),
       (
-        preferences: const {
-          'kl_onboarding_completed': true,
-          'kl_session_count': 1,
-          'kl_user_level': 'a1',
-        },
-        destination: IntroGateScreen,
+        legacy: const LegacyOnboardingSnapshot(
+          consentAccepted: true,
+          hasCompletedOnboarding: false,
+        ),
+        destination: OnboardingV2JourneyScreen,
       ),
       (
-        preferences: const {
-          'kl_onboarding_completed': true,
-          'kl_session_count': 5,
-          'kl_user_level': 'a1',
-        },
+        legacy: const LegacyOnboardingSnapshot(
+          consentAccepted: true,
+          hasCompletedOnboarding: true,
+          userLevel: LearnerLevel.a1,
+        ),
         destination: AppShell,
       ),
     ];
 
     for (final entry in cases) {
-      Storage.resetForTesting();
-      SharedPreferences.setMockInitialValues(entry.preferences);
-      await Storage.init();
+      final coordinator = _coordinator(legacy: entry.legacy);
       await _pumpEntry(
         tester,
-        const SplashScreen(),
+        SplashScreen(
+          firstRunCoordinator: coordinator,
+          displayDuration: Duration.zero,
+        ),
         locale: const Locale('en'),
         viewport: (size: const Size(390, 844), textScale: 1.3),
       );
-      expect(find.byType(SplashScreen), findsOneWidget);
 
-      await tester.pump(const Duration(seconds: 2));
-      await tester.pump();
+      await _pumpUntilFound(tester, find.byType(entry.destination));
       expect(find.byType(entry.destination), findsOneWidget);
       expect(tester.takeException(), isNull);
       await _disposeEntry(tester);
     }
   });
 
-  testWidgets('intro preserves the complete post-gate destination table', (
+  testWidgets('normal-motion gate skip consumes V2 gate and opens AppShell', (
     tester,
   ) async {
-    final cases = <({Map<String, Object> preferences, Type destination})>[
-      (preferences: const {}, destination: ConsentScreen),
-      (
-        preferences: const {'kl_consent_accepted': true},
-        destination: OnboardingStartScreen,
-      ),
-      (
-        preferences: const {
-          'kl_consent_accepted': true,
-          'kl_onboarding_completed': true,
-          'kl_user_level': 'a1',
-        },
-        destination: AppShell,
-      ),
-    ];
+    final repository = _MemoryJourneyRepository(_gateState());
+    final coordinator = _coordinator(repository: repository);
+    await _pumpEntry(
+      tester,
+      IntroGateScreen(firstRunCoordinator: coordinator),
+      locale: const Locale('en'),
+      viewport: (size: const Size(390, 844), textScale: 1.3),
+      disableAnimations: false,
+    );
+    await _pumpUntilFound(tester, find.byKey(const ValueKey('intro-skip')));
 
-    for (final entry in cases) {
-      Storage.resetForTesting();
-      SharedPreferences.setMockInitialValues(entry.preferences);
-      await Storage.init();
-      await _pumpEntry(
-        tester,
-        const IntroGateScreen(),
-        locale: const Locale('en'),
-        viewport: (size: const Size(390, 844), textScale: 1.3),
-      );
+    await _tapPointerOwned(tester, find.byKey(const ValueKey('intro-skip')));
+    await _pumpUntilFound(tester, find.byType(AppShell));
 
-      await _tapPointerOwned(tester, find.byKey(const ValueKey('intro-skip')));
-      await tester.pump();
-      expect(find.byType(entry.destination), findsOneWidget);
-      expect(tester.takeException(), isNull);
-      await _disposeEntry(tester);
-    }
+    expect(find.byType(AppShell), findsOneWidget);
+    expect(repository.state!.phase, OnboardingPhase.complete);
+    expect(repository.state!.gateIntroAttempted, isTrue);
+    expect(repository.state!.gateIntroConsumed, isTrue);
+    expect(tester.takeException(), isNull);
+    await _disposeEntry(tester);
+  });
+
+  testWidgets(
+    'gate skip surface accepts Enter Space and Escape across presentation states',
+    (tester) async {
+      final cases =
+          <
+            ({
+              String name,
+              LogicalKeyboardKey key,
+              bool videoReady,
+              bool blockAttempt,
+              ValueKey<String> surfaceKey,
+            })
+          >[
+            (
+              name: 'code scene',
+              key: LogicalKeyboardKey.enter,
+              videoReady: false,
+              blockAttempt: false,
+              surfaceKey: const ValueKey('intro-skip'),
+            ),
+            (
+              name: 'video pending',
+              key: LogicalKeyboardKey.space,
+              videoReady: true,
+              blockAttempt: false,
+              surfaceKey: const ValueKey('intro-video-skip'),
+            ),
+            (
+              name: 'attempt journal pending',
+              key: LogicalKeyboardKey.escape,
+              videoReady: false,
+              blockAttempt: true,
+              surfaceKey: const ValueKey('intro-skip'),
+            ),
+          ];
+
+      for (final entry in cases) {
+        TigerStageVideo.videoReady = entry.videoReady;
+        final repository = _MemoryJourneyRepository(_gateState());
+        final attemptBlocker = entry.blockAttempt ? Completer<void>() : null;
+        repository.nextSaveBlocker = attemptBlocker;
+        final coordinator = _coordinator(repository: repository);
+
+        await _pumpEntry(
+          tester,
+          IntroGateScreen(
+            deferVideoLeaseForTesting: entry.videoReady,
+            firstRunCoordinator: coordinator,
+          ),
+          locale: const Locale('en'),
+          viewport: (size: const Size(390, 844), textScale: 1.3),
+          disableAnimations: false,
+        );
+        await _pumpUntilFound(tester, find.byKey(entry.surfaceKey));
+
+        expect(
+          tester.binding.focusManager.primaryFocus?.debugLabel,
+          'intro-gate-skip-surface',
+          reason: entry.name,
+        );
+        await tester.sendKeyEvent(entry.key);
+        await tester.pump();
+
+        if (attemptBlocker != null && !attemptBlocker.isCompleted) {
+          attemptBlocker.complete();
+        }
+        await _pumpUntilFound(tester, find.byType(AppShell));
+
+        expect(find.byType(AppShell), findsOneWidget, reason: entry.name);
+        expect(repository.state!.phase, OnboardingPhase.complete);
+        expect(repository.state!.gateIntroConsumed, isTrue);
+        expect(tester.takeException(), isNull, reason: entry.name);
+        await _disposeEntry(tester);
+      }
+      TigerStageVideo.videoReady = false;
+    },
+  );
+
+  testWidgets('legacy introSeen write failure still opens AppShell', (
+    tester,
+  ) async {
+    final repository = _MemoryJourneyRepository(_gateState());
+    final coordinator = _coordinator(repository: repository);
+    await _pumpEntry(
+      tester,
+      IntroGateScreen(
+        firstRunCoordinator: coordinator,
+        persistIntroSeenForTesting: () =>
+            Future<void>.error(StateError('simulated preference failure')),
+      ),
+      locale: const Locale('en'),
+      viewport: (size: const Size(390, 844), textScale: 1.3),
+      disableAnimations: false,
+    );
+    await _pumpUntilFound(tester, find.byKey(const ValueKey('intro-skip')));
+
+    await _tapPointerOwned(tester, find.byKey(const ValueKey('intro-skip')));
+    await _pumpUntilFound(tester, find.byType(AppShell));
+
+    expect(find.byType(AppShell), findsOneWidget);
+    expect(repository.state!.phase, OnboardingPhase.complete);
+    expect(tester.takeException(), isNull);
+    await _disposeEntry(tester);
+  });
+
+  testWidgets('failed attempted journal skips unjournaled gate media', (
+    tester,
+  ) async {
+    final repository = _MemoryJourneyRepository(_gateState())
+      ..failNextSave = true;
+    final coordinator = _coordinator(repository: repository);
+    await _pumpEntry(
+      tester,
+      IntroGateScreen(firstRunCoordinator: coordinator),
+      locale: const Locale('en'),
+      viewport: (size: const Size(390, 844), textScale: 1.3),
+      disableAnimations: false,
+    );
+
+    await _pumpUntilFound(tester, find.byType(AppShell));
+
+    expect(find.byType(AppShell), findsOneWidget);
+    expect(repository.state!.phase, OnboardingPhase.complete);
+    expect(repository.state!.gateIntroConsumed, isTrue);
+    expect(tester.takeException(), isNull);
+    await _disposeEntry(tester);
   });
 
   testWidgets('onboarding choices announce their selected transition', (
@@ -379,29 +591,70 @@ void main() {
     },
   );
 
+  testWidgets('reduce-motion gate automatically consumes and opens AppShell', (
+    tester,
+  ) async {
+    final repository = _MemoryJourneyRepository(_gateState());
+    final coordinator = _coordinator(repository: repository);
+    await _pumpEntry(
+      tester,
+      IntroGateScreen(firstRunCoordinator: coordinator),
+      locale: const Locale('en'),
+      viewport: (size: const Size(390, 844), textScale: 1.3),
+    );
+
+    await _pumpUntilFound(tester, find.byType(AppShell));
+    expect(find.byType(AppShell), findsOneWidget);
+    expect(repository.state!.phase, OnboardingPhase.complete);
+    expect(repository.state!.gateIntroConsumed, isTrue);
+    expect(tester.takeException(), isNull);
+    await _disposeEntry(tester);
+  });
+
   testWidgets(
-    'intro skip is localized, actionable, and immediate when reduced',
+    'runtime reduce-motion change immediately stops video and consumes gate',
     (tester) async {
-      final semantics = tester.ensureSemantics();
-      final t = lookupAppL10n(const Locale('en'));
+      final disableAnimations = ValueNotifier<bool>(false);
+      addTearDown(disableAnimations.dispose);
+      addTearDown(() => TigerStageVideo.videoReady = false);
+      TigerStageVideo.videoReady = true;
+      final repository = _MemoryJourneyRepository(_gateState());
+      final coordinator = _coordinator(repository: repository);
+
       await _pumpEntry(
         tester,
-        const IntroGateScreen(),
+        IntroGateScreen(
+          deferVideoLeaseForTesting: true,
+          firstRunCoordinator: coordinator,
+        ),
         locale: const Locale('en'),
         viewport: (size: const Size(390, 844), textScale: 1.3),
+        disableAnimations: false,
+        disableAnimationsListenable: disableAnimations,
       );
+      await _pumpUntilFound(
+        tester,
+        find.byKey(const ValueKey('intro-video-skip')),
+      );
+      expect(find.byKey(const ValueKey('intro-video-skip')), findsOneWidget);
 
-      final skip = find.byKey(const ValueKey('intro-skip'));
-      final data = tester.getSemantics(skip).getSemanticsData();
-      expect(data.label, t.introSkipHint);
-      _expectAction(tester, skip, minHeight: 48);
-
-      await _tapPointerOwned(tester, skip);
+      final consumeBlocker = Completer<void>();
+      repository.nextSaveBlocker = consumeBlocker;
+      disableAnimations.value = true;
       await tester.pump();
-      expect(find.byType(OnboardingStartScreen), findsOneWidget);
+
+      expect(find.byKey(const ValueKey('intro-video-skip')), findsNothing);
+      expect(find.byKey(const ValueKey('intro-skip')), findsOneWidget);
+      expect(find.byType(AppShell), findsNothing);
+
+      consumeBlocker.complete();
+      await _pumpUntilFound(tester, find.byType(AppShell));
+
+      expect(find.byType(AppShell), findsOneWidget);
+      expect(repository.state?.phase, OnboardingPhase.complete);
+      expect(repository.state?.gateIntroConsumed, isTrue);
       expect(tester.takeException(), isNull);
       await _disposeEntry(tester);
-      semantics.dispose();
     },
   );
 
@@ -411,9 +664,14 @@ void main() {
     final semantics = tester.ensureSemantics();
     final t = lookupAppL10n(const Locale('de'));
     TigerStageVideo.videoReady = true;
+    final repository = _MemoryJourneyRepository(_gateState());
+    final coordinator = _coordinator(repository: repository);
     await _pumpEntry(
       tester,
-      const IntroGateScreen(deferVideoLeaseForTesting: true),
+      IntroGateScreen(
+        deferVideoLeaseForTesting: true,
+        firstRunCoordinator: coordinator,
+      ),
       locale: const Locale('de'),
       viewport: (size: const Size(390, 844), textScale: 1.3),
       disableAnimations: false,
@@ -426,8 +684,10 @@ void main() {
     _expectPointerOwned(tester, skip);
 
     await _tapPointerOwned(tester, skip);
-    await tester.pump();
-    expect(find.byType(OnboardingStartScreen), findsOneWidget);
+    await _pumpUntilFound(tester, find.byType(AppShell));
+    expect(find.byType(AppShell), findsOneWidget);
+    expect(repository.state!.phase, OnboardingPhase.complete);
+    expect(repository.state!.gateIntroConsumed, isTrue);
     expect(tester.takeException(), isNull);
     TigerStageVideo.videoReady = false;
     await _disposeEntry(tester);
@@ -615,15 +875,6 @@ List<_EntryFixture> _fixtures(AppL10n t) => [
     actionUsesSafeArea: false,
     actionMayExceedViewport: false,
   ),
-  (
-    name: 'intro gate',
-    build: () => const IntroGateScreen(),
-    anchor: (_) => find.byKey(const ValueKey('intro-skip')),
-    action: (_) => find.byKey(const ValueKey('intro-skip')),
-    safeVisual: (_) => find.text(t.introSkipHint),
-    actionUsesSafeArea: false,
-    actionMayExceedViewport: false,
-  ),
 ];
 
 Future<void> _pumpEntry(
@@ -632,6 +883,7 @@ Future<void> _pumpEntry(
   required Locale locale,
   required ({Size size, double textScale}) viewport,
   bool disableAnimations = true,
+  ValueListenable<bool>? disableAnimationsListenable,
 }) async {
   tester.view.physicalSize = viewport.size;
   tester.view.devicePixelRatio = 1;
@@ -640,6 +892,7 @@ Future<void> _pumpEntry(
       locale: locale,
       viewport: viewport,
       disableAnimations: disableAnimations,
+      disableAnimationsListenable: disableAnimationsListenable,
       child: child,
     ),
   );
@@ -654,6 +907,7 @@ Widget _host({
     textScale: 1,
   ),
   bool disableAnimations = true,
+  ValueListenable<bool>? disableAnimationsListenable,
 }) => MaterialApp(
   key: UniqueKey(),
   debugShowCheckedModeBanner: false,
@@ -663,14 +917,24 @@ Widget _host({
   localizationsDelegates: AppL10n.localizationsDelegates,
   builder: (context, appChild) {
     final media = MediaQuery.of(context);
-    return MediaQuery(
+    Widget withMediaQuery(bool animationsDisabled) => MediaQuery(
       data: media.copyWith(
         padding: _safeInsets,
         viewPadding: _safeInsets,
         textScaler: TextScaler.linear(viewport.textScale),
-        disableAnimations: disableAnimations,
+        disableAnimations: animationsDisabled,
       ),
       child: SoriTypeScale(child: appChild!),
+    );
+
+    final listenable = disableAnimationsListenable;
+    if (listenable == null) {
+      return withMediaQuery(disableAnimations);
+    }
+    return ValueListenableBuilder<bool>(
+      valueListenable: listenable,
+      builder: (context, animationsDisabled, child) =>
+          withMediaQuery(animationsDisabled),
     );
   },
   home: child,
@@ -679,6 +943,134 @@ Widget _host({
 Future<void> _disposeEntry(WidgetTester tester) async {
   await tester.pumpWidget(const SizedBox.shrink());
   await tester.pump(const Duration(seconds: 4));
+}
+
+Future<void> _pumpUntilFound(WidgetTester tester, Finder finder) async {
+  for (var attempt = 0; attempt < 100 && finder.evaluate().isEmpty; attempt++) {
+    await tester.pump(const Duration(milliseconds: 100));
+  }
+}
+
+FirstRunCoordinator _coordinator({
+  _MemoryJourneyRepository? repository,
+  LegacyOnboardingSnapshot legacy = const LegacyOnboardingSnapshot(
+    consentAccepted: true,
+    hasCompletedOnboarding: false,
+  ),
+}) {
+  return FirstRunCoordinator(
+    repository: repository ?? _MemoryJourneyRepository(),
+    legacyStateReader: _LegacyReader(legacy),
+    commitGateway: _CommitGateway(),
+    clock: () => DateTime.utc(2026, 8, 26, 12),
+  );
+}
+
+OnboardingJourneyState _gateState() {
+  return OnboardingJourneyState.initial(DateTime.utc(2026, 8, 26, 12)).copyWith(
+    phase: OnboardingPhase.gate,
+    storyPage: StoryPageId.heritageJourney,
+    purposeDraft: OnboardingPurpose.dailyTravel,
+    levelDraft: LearnerLevel.a1,
+    companionDraft: OnboardingCompanion.taego,
+    commitStage: OnboardingCommitStage.completed,
+  );
+}
+
+class _MemoryJourneyRepository implements OnboardingJourneyRepository {
+  _MemoryJourneyRepository([this.state]);
+
+  OnboardingJourneyState? state;
+  bool failNextLoad = false;
+  bool failNextSave = false;
+  Completer<void>? nextLoadBlocker;
+  Completer<void>? nextSaveBlocker;
+
+  @override
+  Future<void> clear() async {
+    state = null;
+  }
+
+  @override
+  Future<OnboardingJourneyState?> load() async {
+    final blocker = nextLoadBlocker;
+    nextLoadBlocker = null;
+    if (blocker != null) {
+      await blocker.future;
+    }
+    if (failNextLoad) {
+      failNextLoad = false;
+      throw StateError('simulated journey read failure');
+    }
+    return state;
+  }
+
+  @override
+  Future<void> save(
+    OnboardingJourneyState state, {
+    void Function()? assertCurrentWrite,
+  }) async {
+    final blocker = nextSaveBlocker;
+    nextSaveBlocker = null;
+    if (blocker != null) {
+      await blocker.future;
+    }
+    if (failNextSave) {
+      failNextSave = false;
+      throw StateError('simulated journey write failure');
+    }
+    assertCurrentWrite?.call();
+    this.state = state;
+  }
+}
+
+class _LegacyReader implements LegacyOnboardingStateReader {
+  _LegacyReader(this.snapshot);
+
+  final LegacyOnboardingSnapshot snapshot;
+
+  @override
+  Future<LegacyOnboardingSnapshot> read() async => snapshot;
+}
+
+class _CommitGateway implements OnboardingCommitGateway {
+  @override
+  Future<bool> hasConsent() async => true;
+
+  @override
+  Future<void> initializePlacement(
+    LearnerLevel level, {
+    String? expectedGeneration,
+  }) async {}
+
+  @override
+  Future<bool> isLegacyOnboardingComplete() async => true;
+
+  @override
+  Future<void> markLegacyOnboardingComplete() async {}
+
+  @override
+  Future<OnboardingCompanion?> readCompanion() async => null;
+
+  @override
+  Future<OnboardingPlacementSnapshot> readPlacement() async {
+    return const OnboardingPlacementSnapshot(
+      placementLevel: null,
+      browseLevel: null,
+    );
+  }
+
+  @override
+  Future<OnboardingPurpose?> readPurpose() async => null;
+
+  @override
+  Future<void> saveCompanion(OnboardingCompanion companion) async {}
+
+  @override
+  Future<void> savePurpose(OnboardingPurpose purpose) async {}
+
+  @override
+  Future<void> synchronizeBrowseLevel(LearnerLevel level) async {}
 }
 
 Future<void> _centerInScrollable(WidgetTester tester, Finder finder) async {

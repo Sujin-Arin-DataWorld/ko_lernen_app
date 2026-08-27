@@ -5,6 +5,7 @@ import 'account/cloud_restore_result.dart';
 import 'account/cloud_write_session.dart';
 import 'auth_service.dart';
 import 'firestore_progress_service.dart';
+import 'local_data_lifetime.dart';
 import 'storage_service.dart';
 import 'stamp_entitlement_reconciler.dart';
 import 'vocab_pack_service.dart';
@@ -382,15 +383,27 @@ class PackProgressService {
     if (uid == null) {
       return CloudWriteResult.blocked;
     }
+    final localLifetime = LocalDataLifetime.capture();
     final result = await pullTypedFromCloudWithSession(
       sessions: cloudWriteSessionController,
       uid: uid,
+      localDataLifetime: localLifetime,
       loadRemote: () => FirestoreProgressService.loadAllTyped(uid: uid),
       loadLocal: getAll,
       persistLocal: Storage.setManyPackProgressJson,
     );
     if (result == CloudWriteResult.completed) {
-      await StampEntitlementReconciler.reconcile(progress: getAll());
+      if (!localLifetime.isCurrent) {
+        return CloudWriteResult.stale;
+      }
+      try {
+        await StampEntitlementReconciler.reconcile(
+          progress: getAll(),
+          beforeWrite: localLifetime.assertCurrent,
+        );
+      } on StaleLocalDataLifetimeException {
+        return CloudWriteResult.stale;
+      }
     }
     return result;
   }
@@ -403,6 +416,7 @@ class PackProgressService {
     required Map<String, PackProgress> Function() loadLocal,
     required Future<void> Function(Map<String, Map<String, dynamic>> progress)
     persistLocal,
+    LocalDataLifetimeLease? localDataLifetime,
   }) async {
     final fence = CloudWriteFence(sessions);
     final expectedSession = fence.readySnapshot(uid);
@@ -413,6 +427,7 @@ class PackProgressService {
       sessions: sessions,
       uid: uid,
       expectedSession: expectedSession,
+      localDataLifetime: localDataLifetime,
       loadRemote: loadRemote,
       loadLocal: loadLocal,
       persistLocal: persistLocal,
@@ -431,15 +446,27 @@ class PackProgressService {
     required Map<String, PackProgress> Function() loadLocal,
     required Future<void> Function(Map<String, Map<String, dynamic>> progress)
     persistLocal,
+    LocalDataLifetimeLease? localDataLifetime,
   }) async {
+    final lifetime = localDataLifetime ?? LocalDataLifetime.capture();
     final fence = CloudWriteFence(sessions);
-    final initial = fence.verify(expectedSession, uid: uid);
+    CloudWriteResult verifyCurrent() {
+      final sessionResult = fence.verify(expectedSession, uid: uid);
+      if (sessionResult != CloudWriteResult.completed) {
+        return sessionResult;
+      }
+      return lifetime.isCurrent
+          ? CloudWriteResult.completed
+          : CloudWriteResult.stale;
+    }
+
+    final initial = verifyCurrent();
     if (initial != CloudWriteResult.completed) {
       return CloudRestoreComponentResult(status: initial, hasRemoteData: false);
     }
     try {
       final result = await loadRemote();
-      final afterRead = fence.verify(expectedSession, uid: uid);
+      final afterRead = verifyCurrent();
       if (afterRead != CloudWriteResult.completed) {
         return CloudRestoreComponentResult(
           status: afterRead,
@@ -465,7 +492,7 @@ class PackProgressService {
         for (final entry in localBefore.entries)
           if (!remote.containsKey(entry.key)) entry.key: entry.value.toJson(),
       };
-      final beforeWrite = fence.verify(expectedSession, uid: uid);
+      final beforeWrite = verifyCurrent();
       if (beforeWrite != CloudWriteResult.completed) {
         return CloudRestoreComponentResult(
           status: beforeWrite,
@@ -473,14 +500,14 @@ class PackProgressService {
         );
       }
       await persistLocal(merged);
-      final completed = fence.verify(expectedSession, uid: uid);
+      final completed = verifyCurrent();
       return CloudRestoreComponentResult(
         status: completed,
         hasRemoteData:
             completed == CloudWriteResult.completed && remote.isNotEmpty,
       );
     } catch (_) {
-      final current = fence.verify(expectedSession, uid: uid);
+      final current = verifyCurrent();
       return CloudRestoreComponentResult(
         status: current == CloudWriteResult.completed
             ? CloudWriteResult.blocked
@@ -498,12 +525,16 @@ class PackProgressService {
     required Future<void> Function(Map<String, Map<String, dynamic>> progress)
     persistLocal,
   }) async {
+    final localLifetime = LocalDataLifetime.capture();
     final fence = CloudWriteFence(sessions);
     final snapshot = fence.readySnapshot(uid);
     if (snapshot == null) {
       return CloudWriteResult.blocked;
     }
     final remote = await loadRemote();
+    if (!localLifetime.isCurrent) {
+      return CloudWriteResult.stale;
+    }
     if (remote.isEmpty) {
       return fence.verify(snapshot, uid: uid);
     }
@@ -522,8 +553,17 @@ class PackProgressService {
     if (result != CloudWriteResult.completed) {
       return result;
     }
+    if (!localLifetime.isCurrent) {
+      return CloudWriteResult.stale;
+    }
     await persistLocal(merged);
-    return fence.verify(snapshot, uid: uid);
+    final completed = fence.verify(snapshot, uid: uid);
+    if (completed != CloudWriteResult.completed) {
+      return completed;
+    }
+    return localLifetime.isCurrent
+        ? CloudWriteResult.completed
+        : CloudWriteResult.stale;
   }
 
   /// Lokal → Firestore (Batch). Idempotent.

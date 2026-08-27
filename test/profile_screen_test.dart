@@ -144,7 +144,8 @@ void main() {
               textScaler: TextScaler.linear(1.3),
             ),
             child: ProfileScreen(
-              initializePlacement: (_) async => initializeCalls++,
+              initializePlacement: (_, {required syncBrowseLevel}) async =>
+                  initializeCalls++,
               enableCoach: false,
             ),
           ),
@@ -180,7 +181,7 @@ void main() {
   );
 
   testWidgets(
-    'Profile start point updates canonical placement, current mission, and legacy level together',
+    'Profile start point updates canonical placement without changing the browse level',
     (tester) async {
       tester.view.physicalSize = const Size(400, 900);
       tester.view.devicePixelRatio = 1;
@@ -195,23 +196,26 @@ void main() {
       await Storage.setCourseMasteryStateAtomically(
         canonicalSnapshotJson: existingSnapshot,
         placementLevelCode: 'a1',
-        browseLevelCode: 'a1',
+        browseLevelCode: 'b1',
         currentCourseUnitId: 'a1_02_self_intro_identity',
         mirrorLegacyUserLevel: true,
       );
+      bool? requestedBrowseSync;
 
       await tester.pumpWidget(
         _wrap(
           ProfileScreen(
-            initializePlacement: (levelCode) async {
+            initializePlacement: (levelCode, {required syncBrowseLevel}) async {
+              requestedBrowseSync = syncBrowseLevel;
               await Storage.setCourseMasteryStateAtomically(
                 canonicalSnapshotJson:
                     '{"version":2,"placementLevel":"$levelCode",'
                     '"currentCourseUnitId":"a2_01_polite_daily",'
-                    '"completedUnitIds":[],"bypassedPrerequisiteUnitIds":[],'
+                    '"completedUnitIds":[],'
+                    '"bypassedPrerequisiteUnitIds":[],'
                     '"evidence":[],"scenarioCheckpoints":[]}',
                 placementLevelCode: levelCode,
-                browseLevelCode: levelCode,
+                browseLevelCode: syncBrowseLevel ? levelCode : null,
                 currentCourseUnitId: 'a2_01_polite_daily',
                 mirrorLegacyUserLevel: true,
               );
@@ -225,9 +229,10 @@ void main() {
       await _chooseProfileLevel(tester, 'A2 · Grundkenntnisse');
       await tester.pump();
 
+      expect(requestedBrowseSync, isFalse);
       expect(Storage.userLevelCode, 'a2');
       expect(Storage.dedicatedCoursePlacementLevelCode, 'a2');
-      expect(Storage.browseLevelCode, 'a2');
+      expect(Storage.browseLevelCode, 'b1');
       expect(Storage.courseUnitId, startsWith('a2_'));
       expect(
         Storage.courseMasterySnapshotRawJson,
@@ -291,7 +296,7 @@ void main() {
       await tester.pumpWidget(
         _wrap(
           ProfileScreen(
-            initializePlacement: (levelCode) async {
+            initializePlacement: (levelCode, {required syncBrowseLevel}) async {
               attemptedLevel = levelCode;
               throw const PreferenceWriteException(
                 Storage.courseUnitPreferenceKey,
@@ -365,7 +370,7 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.text('Reise nach Korea'), findsWidgets);
+      expect(find.text('Alltag & Reisen'), findsWidgets);
       expect(find.text('B1 · Mittelstufe'), findsWidgets);
       expect(find.text('Joy'), findsOneWidget);
       (await _tile(tester, 'profile-learning-goal')).onTap!();
@@ -622,49 +627,67 @@ void main() {
     await tester.pump();
   });
 
-  testWidgets('no-companion profile stays empty and can choose a buddy later', (
-    tester,
-  ) async {
-    tester.view.physicalSize = const Size(400, 900);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
-    await MascotPreference.setNone();
-    addTearDown(() => MascotPreference.set(MascotKind.tiger));
+  testWidgets(
+    'hidden companion keeps its identity hidden while Profile changes it',
+    (tester) async {
+      tester.view.physicalSize = const Size(400, 900);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await MascotPreference.set(MascotKind.magpie);
+      await MascotPreference.setVisible(false);
+      addTearDown(() => MascotPreference.set(MascotKind.tiger));
 
-    await tester.pumpWidget(_wrap(const ProfileScreen()));
-    await tester.pump();
+      await tester.pumpWidget(_wrap(const ProfileScreen()));
+      await tester.pump();
 
-    expect(find.byKey(const ValueKey('profile_avatar_none')), findsOneWidget);
-    expect(find.text('Keine Lernbegleitung'), findsOneWidget);
-    expect(find.byType(CharacterClipPlayer), findsNothing);
+      expect(find.byKey(const ValueKey('profile_avatar_none')), findsOneWidget);
+      expect(find.text('Joy'), findsOneWidget);
+      expect(find.byType(CharacterClipPlayer), findsNothing);
+      expect(MascotPreference.chosenKind, MascotKind.magpie);
+      expect(MascotPreference.selectedKind, isNull);
 
-    final noCompanion = find.text('Keine Lernbegleitung');
-    final companionTile = tester.widget<ListTile>(
-      find.ancestor(of: noCompanion, matching: find.byType(ListTile)),
-    );
-    companionTile.onTap!();
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
-    expect(find.text('태고'), findsOneWidget);
-    expect(find.text('Joy'), findsOneWidget);
-    final joyOption = tester.widget<SimpleDialogOption>(
-      find.ancestor(
-        of: find.text('Joy'),
-        matching: find.byType(SimpleDialogOption),
-      ),
-    );
-    joyOption.onPressed!();
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 300));
+      final companionTile = await _tile(tester, 'profile-learning-companion');
+      companionTile.onTap!();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
+      expect(find.text('태고'), findsOneWidget);
+      expect(find.text('Joy'), findsWidgets);
+      expect(
+        find.descendant(
+          of: find.byType(SimpleDialog),
+          matching: find.text('Keine Lernbegleitung'),
+        ),
+        findsNothing,
+      );
+      expect(
+        find.descendant(
+          of: find.byType(SimpleDialog),
+          matching: find.byType(SimpleDialogOption),
+        ),
+        findsNWidgets(2),
+      );
+      final taegoOption = tester.widget<SimpleDialogOption>(
+        find.ancestor(
+          of: find.text('태고'),
+          matching: find.byType(SimpleDialogOption),
+        ),
+      );
+      taegoOption.onPressed!();
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 300));
 
-    expect(MascotPreference.selectedKind, MascotKind.magpie);
-    expect(find.text('Joy'), findsOneWidget);
-    expect(find.byType(CharacterClipPlayer), findsOneWidget);
+      expect(MascotPreference.chosenKind, MascotKind.tiger);
+      expect(MascotPreference.selectedKind, isNull);
+      expect(Storage.selectedCompanion, 'tiger');
+      expect(Storage.companionVisible, isFalse);
+      expect(find.text('태고'), findsOneWidget);
+      expect(MascotPreference.preference.value, CompanionPreference.none);
 
-    await tester.pumpWidget(const SizedBox.shrink());
-    await tester.pump();
-  });
+      await tester.pumpWidget(const SizedBox.shrink());
+      await tester.pump();
+    },
+  );
 
   testWidgets('pending cloud deletion disables connected-account sign out', (
     tester,

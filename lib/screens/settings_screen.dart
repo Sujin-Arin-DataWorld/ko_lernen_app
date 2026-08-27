@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -41,9 +43,12 @@ import '../services/account/cloud_write_session.dart';
 import 'app_shell.dart';
 import '../services/cloud_sync.dart';
 import '../services/content_feedback_service.dart';
+import '../services/course_progress_service.dart';
 import '../models/scenario.dart';
 import '../l10n/generated/app_localizations.dart';
+import '../motion/transitions.dart';
 import '../widgets/sori/account_operation_ui.dart';
+import 'placement_diagnostic_screen.dart';
 
 abstract interface class AccountDeletionCleanupOperations {
   Future<void> deleteRemoteAccount();
@@ -101,14 +106,18 @@ class AccountDeletionCleanupAdapter
     deleteRemote: () => AuthService.deleteAccount(
       closeFeedback: feedbackOutbox.closeAndDiscard,
     ),
-    resetStorage: () => Storage.resetAllStrict(
-      canonicalizeAccountDeletionCheckpoint:
-          AuthService.canonicalizeCompletedDeletionCheckpoint,
+    resetStorage: () => CourseProgressService.shared.runLocalStorageWipeBarrier(
+      () => Storage.resetAllStrict(
+        canonicalizeAccountDeletionCheckpoint:
+            AuthService.canonicalizeCompletedDeletionCheckpoint,
+      ),
     ),
     disablePush: pushService.disableStrict,
     deleteImages: WordImageService.deleteAllStrict,
     clearTts: TtsService.clearCacheStrict,
-    resetMemory: DataLoader.reset,
+    resetMemory: () {
+      DataLoader.reset();
+    },
   );
 
   final Future<void> Function() _deleteRemote;
@@ -308,7 +317,15 @@ class SubscriptionManagementLauncher {
   }
 }
 
-enum SettingsInitialFocus { account, accountDeletion }
+enum SettingsInitialFocus {
+  courseStart,
+  browseLevel,
+  companion,
+  voiceSpeed,
+  guide,
+  account,
+  accountDeletion,
+}
 
 abstract interface class NotificationSettingsOperations {
   Future<bool> requestPermission();
@@ -398,8 +415,26 @@ class _SettingsScreenState extends State<SettingsScreen> {
   String _appVersion = '-';
   DateTime? _lastBackupAt;
   final ScrollController _scrollController = ScrollController();
+  final GlobalKey _courseStartKey = GlobalKey();
+  final GlobalKey _browseLevelKey = GlobalKey();
+  final GlobalKey _companionKey = GlobalKey();
+  final GlobalKey _voiceSpeedKey = GlobalKey();
+  final GlobalKey _guideKey = GlobalKey();
   final GlobalKey _accountSectionKey = GlobalKey();
   final GlobalKey _accountDeletionKey = GlobalKey();
+  final FocusNode _courseStartFocusNode = FocusNode(
+    debugLabel: 'settings-course-start',
+  );
+  final FocusNode _browseLevelFocusNode = FocusNode(
+    debugLabel: 'settings-browse-level',
+  );
+  final FocusNode _companionFocusNode = FocusNode(
+    debugLabel: 'settings-companion',
+  );
+  final FocusNode _voiceSpeedFocusNode = FocusNode(
+    debugLabel: 'settings-voice-speed',
+  );
+  final FocusNode _guideFocusNode = FocusNode(debugLabel: 'settings-guide');
 
   AppVersionReader get _appVersionReader =>
       widget.appVersionReader ?? const PackageAppVersionReader();
@@ -458,36 +493,75 @@ class _SettingsScreenState extends State<SettingsScreen> {
     }
     if (widget.initialFocus != null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        _seekInitialFocus();
+        unawaited(_seekInitialFocus());
       });
     }
   }
 
-  void _seekInitialFocus([int attempt = 0]) {
+  FocusNode? _focusNodeFor(SettingsInitialFocus focus) => switch (focus) {
+    SettingsInitialFocus.courseStart => _courseStartFocusNode,
+    SettingsInitialFocus.browseLevel => _browseLevelFocusNode,
+    SettingsInitialFocus.companion => _companionFocusNode,
+    SettingsInitialFocus.voiceSpeed => _voiceSpeedFocusNode,
+    SettingsInitialFocus.guide => _guideFocusNode,
+    SettingsInitialFocus.account ||
+    SettingsInitialFocus.accountDeletion => null,
+  };
+
+  Future<void> _seekInitialFocus([int attempt = 0]) async {
     if (!mounted || widget.initialFocus == null) return;
-    final key = widget.initialFocus == SettingsInitialFocus.account
-        ? _accountSectionKey
-        : _accountDeletionKey;
+    final focus = widget.initialFocus!;
+    final key = switch (focus) {
+      SettingsInitialFocus.courseStart => _courseStartKey,
+      SettingsInitialFocus.browseLevel => _browseLevelKey,
+      SettingsInitialFocus.companion => _companionKey,
+      SettingsInitialFocus.voiceSpeed => _voiceSpeedKey,
+      SettingsInitialFocus.guide => _guideKey,
+      SettingsInitialFocus.account => _accountSectionKey,
+      SettingsInitialFocus.accountDeletion => _accountDeletionKey,
+    };
     final targetContext = key.currentContext;
     if (targetContext != null) {
-      Scrollable.ensureVisible(
+      await Scrollable.ensureVisible(
         targetContext,
         alignment: 0.12,
-        duration: const Duration(milliseconds: 220),
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : const Duration(milliseconds: 220),
         curve: Curves.easeOutCubic,
       );
+      if (mounted && widget.initialFocus == focus) {
+        _focusNodeFor(focus)?.requestFocus();
+      }
       return;
     }
-    if (attempt >= 12 || !_scrollController.hasClients) return;
-    _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+    if (attempt >= 64 || !_scrollController.hasClients) return;
+    final position = _scrollController.position;
+    final nextOffset = attempt == 0
+        ? position.minScrollExtent
+        : (position.pixels + position.viewportDimension * 0.72)
+              .clamp(position.minScrollExtent, position.maxScrollExtent)
+              .toDouble();
+    if (attempt > 0 && (nextOffset - position.pixels).abs() < 0.5) {
+      return;
+    }
+    // Settings uses a lazy scrolling list, so a typed destination can have no
+    // BuildContext until its region is built. Scan forward with overlapping
+    // viewports instead of relying on fragile hard-coded content fractions.
+    _scrollController.jumpTo(nextOffset);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _seekInitialFocus(attempt + 1);
+      unawaited(_seekInitialFocus(attempt + 1));
     });
   }
 
   @override
   void dispose() {
     _scrollController.dispose();
+    _courseStartFocusNode.dispose();
+    _browseLevelFocusNode.dispose();
+    _companionFocusNode.dispose();
+    _voiceSpeedFocusNode.dispose();
+    _guideFocusNode.dispose();
     super.dispose();
   }
 
@@ -734,20 +808,49 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ),
         ),
 
-        // ── Lernlevel ──
-        _Section(label: t.settingsUserLevel),
+        // Course placement and browsing filters are intentionally independent.
+        _Section(label: t.settingsLearningLevelsSection),
         ListTile(
-          leading: const Icon(Icons.school_outlined, color: SoriColors.primary),
-          title: Text(_levelDisplay(t)),
+          key: _courseStartKey,
+          focusNode: _courseStartFocusNode,
+          leading: const Icon(Icons.route_outlined, color: SoriColors.primary),
+          title: Text(t.settingsCourseStartTitle),
           subtitle: Text(
-            t.settingsUserLevelChange,
+            '${_courseStartLevelDisplay(t)}\n${t.settingsCourseStartDescription}',
             style: SoriTextTheme.of(context).caption,
           ),
-          trailing: const Icon(
-            Icons.chevron_right,
-            color: SoriColors.darkTextMuted,
+          isThreeLine: true,
+          trailing: const Icon(Icons.chevron_right),
+          onTap: _showCourseStartDialog,
+        ),
+        ListTile(
+          key: _browseLevelKey,
+          focusNode: _browseLevelFocusNode,
+          leading: const Icon(
+            Icons.explore_outlined,
+            color: SoriColors.primary,
           ),
-          onTap: _showLevelDialog,
+          title: Text(t.settingsBrowseLevelTitle),
+          subtitle: Text(
+            '${_browseLevelDisplay(t)}\n${t.settingsBrowseLevelDescription}',
+            style: SoriTextTheme.of(context).caption,
+          ),
+          isThreeLine: true,
+          trailing: const Icon(Icons.chevron_right),
+          onTap: _showBrowseLevelDialog,
+        ),
+        ListTile(
+          leading: const Icon(
+            Icons.fact_check_outlined,
+            color: SoriColors.primary,
+          ),
+          title: Text(t.settingsRecheckLevelTitle),
+          subtitle: Text(
+            t.settingsRecheckLevelDescription,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: _openPlacementDiagnostic,
         ),
 
         // ── Lernbegleiter (캐릭터) ──
@@ -755,34 +858,56 @@ class _SettingsScreenState extends State<SettingsScreen> {
         // 진입점이 앱 전체에 0개라 온보딩에서 한 번 고르면 영원히 못 바꿨다.
         // 여기서 바꾸면 MascotPreference 통지로 홈·게임이 즉시 따라온다.
         _Section(label: t.characterSelectionTitle),
-        ValueListenableBuilder<CompanionPreference>(
-          valueListenable: MascotPreference.preference,
-          builder: (context, preference, _) {
-            final kind = MascotPreference.mascotKindFor(preference);
+        ListenableBuilder(
+          listenable: Listenable.merge([
+            MascotPreference.kind,
+            MascotPreference.preference,
+          ]),
+          builder: (context, _) {
+            final kind = MascotPreference.chosenKind;
             return ListTile(
-              leading: kind == null
-                  ? const SizedBox.square(
-                      dimension: 34,
-                      child: Icon(Icons.person_outline_rounded),
-                    )
-                  : Mascot(kind: kind, size: 34),
-              title: Text(switch (preference) {
-                CompanionPreference.none => t.companionNoneName,
-                CompanionPreference.tiger => t.characterNameTiger,
-                CompanionPreference.magpie => t.characterRomanMagpie,
-              }),
-              subtitle: Text(switch (preference) {
-                CompanionPreference.none => t.companionNoneDescription,
-                CompanionPreference.tiger => t.characterTraitTiger,
-                CompanionPreference.magpie => t.characterTraitMagpie,
-              }, style: SoriTextTheme.of(context).caption),
+              key: _companionKey,
+              focusNode: _companionFocusNode,
+              leading: Mascot(kind: kind, size: 34),
+              title: Text(
+                kind == MascotKind.magpie
+                    ? t.characterRomanMagpie
+                    : t.characterNameTiger,
+              ),
+              subtitle: Text(
+                kind == MascotKind.magpie
+                    ? t.characterTraitMagpie
+                    : t.characterTraitTiger,
+                style: SoriTextTheme.of(context).caption,
+              ),
               trailing: const Icon(
                 Icons.chevron_right,
                 color: SoriColors.lightTextMuted,
               ),
-              onTap: () => _showMascotDialog(preference),
+              onTap: () => _showMascotDialog(kind),
             );
           },
+        ),
+        ValueListenableBuilder<CompanionPreference>(
+          valueListenable: MascotPreference.preference,
+          builder: (context, preference, _) => SwitchListTile(
+            secondary: const Icon(
+              Icons.visibility_outlined,
+              color: SoriColors.primary,
+            ),
+            title: Text(t.settingsCompanionVisibleTitle),
+            subtitle: Text(
+              t.settingsCompanionVisibleDescription,
+              style: SoriTextTheme.of(context).caption,
+            ),
+            value: preference != CompanionPreference.none,
+            onChanged: (visible) async {
+              await MascotPreference.setVisible(visible);
+              if (mounted) {
+                setState(() {});
+              }
+            },
+          ),
         ),
 
         // ── Ton (ADR-002 §7) — AudioPolicy 단일 진실원천 ──
@@ -792,15 +917,32 @@ class _SettingsScreenState extends State<SettingsScreen> {
         // ── TTS Speed ── 전역 배수 프리셋 (엔진 base rate 는 저장값 유지).
         // 구 0.1–1.0 슬라이더는 mp3 배속 의미가 불투명했다 — 이제 모든
         // 학습 화면과 같은 0.5×–1.5× 프리셋 컨트롤을 공유한다.
-        _Section(label: t.settingsTtsRate),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-          child: TtsSpeedControl(
-            mode: TtsSpeedControlMode.row,
-            onChanged: (_) {
-              // ignore: discarded_futures
-              TtsService.speak('안녕하세요');
-            },
+        Focus(
+          key: _voiceSpeedKey,
+          focusNode: _voiceSpeedFocusNode,
+          child: Semantics(
+            container: true,
+            focusable: true,
+            label: t.settingsTtsRate,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _Section(label: t.settingsTtsRate),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 8,
+                  ),
+                  child: TtsSpeedControl(
+                    mode: TtsSpeedControlMode.row,
+                    onChanged: (_) {
+                      // ignore: discarded_futures
+                      TtsService.speak('안녕하세요');
+                    },
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
 
@@ -1009,6 +1151,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
         //  토글만 지우면 기존 기기에 kl_ads_enabled=true 가 남아 향후 광고를
         //  도입할 때 기본 ON 이 된다.)
 
+        // Permanent app guide. Dismissing the Today checklist never removes
+        // this route.
+        _Section(label: t.settingsGuideSection),
+        ListTile(
+          key: _guideKey,
+          focusNode: _guideFocusNode,
+          leading: const Icon(Icons.map_outlined, color: SoriColors.primary),
+          title: Text(t.settingsGuideTitle),
+          subtitle: Text(
+            t.settingsGuideDescription,
+            style: SoriTextTheme.of(context).caption,
+          ),
+          trailing: const Icon(Icons.chevron_right),
+          onTap: () => Navigator.of(context).pushNamed('/guide'),
+        ),
+
         // ── 안내 다시 보기 ──
         _Section(label: t.settingsTutorialResetSection),
         ListTile(
@@ -1150,6 +1308,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
           subtitle: Text(t.settingsMadeWith),
         ),
         ListTile(
+          leading: const Icon(Icons.auto_stories_outlined),
+          title: Text(t.settingsOriginStoryTitle),
+          subtitle: Text(t.settingsOriginStorySubtitle),
+          trailing: const Icon(Icons.chevron_right_rounded),
+          onTap: _showOriginStory,
+        ),
+        ListTile(
           leading: const Icon(Icons.privacy_tip_outlined),
           title: Text(t.settingsPrivacyTitle),
           subtitle: Text(t.settingsPrivacySubtitle),
@@ -1195,6 +1360,43 @@ class _SettingsScreenState extends State<SettingsScreen> {
           onTap: _showDataSources,
         ),
       ],
+    );
+  }
+
+  void _showOriginStory() {
+    final t = AppL10n.of(context);
+    showSoriSheet<void>(
+      context: context,
+      maxTextScaleFactor: 2.0,
+      builder: (ctx) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Semantics(
+            header: true,
+            child: Text(
+              t.settingsOriginStoryTitle,
+              style: SoriTextTheme.of(ctx).h2,
+            ),
+          ),
+          const SizedBox(height: Spacing.md),
+          Text(t.settingsOriginStoryBody, style: SoriTextTheme.of(ctx).body),
+          const SizedBox(height: Spacing.md),
+          Text(
+            t.settingsOriginStoryFounder,
+            style: SoriTextTheme.of(ctx).bodySmall.copyWith(
+              color: Theme.of(ctx).colorScheme.onSurfaceVariant,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: Spacing.lg),
+          SoriButton.outlined(
+            label: MaterialLocalizations.of(ctx).closeButtonLabel,
+            fullWidth: true,
+            onTap: () => Navigator.of(ctx).pop(),
+          ),
+        ],
+      ),
     );
   }
 
@@ -1330,8 +1532,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     await openExternalUrl(context, url);
   }
 
-  String _levelDisplay(AppL10n t) {
-    final lvl = LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
+  String _levelLabel(AppL10n t, LearnerLevel lvl) {
     final name = switch (lvl) {
       LearnerLevel.a1 => t.onboardingLevelA1,
       LearnerLevel.a2 => t.onboardingLevelA2,
@@ -1343,16 +1544,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
     return '${lvl.display} · $name';
   }
 
+  String _courseStartLevelDisplay(AppL10n t) {
+    final level =
+        LearnerLevel.fromCode(Storage.dedicatedCoursePlacementLevelCode) ??
+        LearnerLevel.fromCode(Storage.userLevelCode) ??
+        LearnerLevel.a1;
+    return _levelLabel(t, level);
+  }
+
+  String _browseLevelDisplay(AppL10n t) {
+    final level =
+        LearnerLevel.fromCode(Storage.browseLevelCode) ??
+        LearnerLevel.fromCode(Storage.userLevelCode) ??
+        LearnerLevel.a1;
+    return _levelLabel(t, level);
+  }
+
   /// 학습 동반 캐릭터 변경. 저장은 [MascotPreference.set] 하나로 통일 —
   /// 온보딩 선택 화면과 완전히 같은 경로라 두 곳이 어긋날 수 없다.
-  Future<void> _showMascotDialog(CompanionPreference current) async {
+  Future<void> _showMascotDialog(MascotKind current) async {
     final t = AppL10n.of(context);
-    const options = <CompanionPreference>[
-      CompanionPreference.tiger,
-      CompanionPreference.magpie,
-      CompanionPreference.none,
-    ];
-    final picked = await showSoriDialog<CompanionPreference>(
+    const options = <MascotKind>[MascotKind.tiger, MascotKind.magpie];
+    final picked = await showSoriDialog<MascotKind>(
       context: context,
       builder: (ctx) => SoriSimpleDialog(
         title: Text(t.characterSelectionTitle),
@@ -1364,31 +1577,24 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 4),
                 child: Row(
                   children: [
-                    if (MascotPreference.mascotKindFor(option) case final kind?)
-                      Mascot(kind: kind, size: 44)
-                    else
-                      const SizedBox.square(
-                        dimension: 44,
-                        child: Icon(Icons.person_outline_rounded),
-                      ),
+                    Mascot(kind: option, size: 44),
                     const SizedBox(width: Spacing.md),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(switch (option) {
-                            CompanionPreference.none => t.companionNoneName,
-                            CompanionPreference.tiger => t.characterNameTiger,
-                            CompanionPreference.magpie =>
-                              t.characterRomanMagpie,
-                          }, style: SoriTextTheme.of(ctx).cardTitle),
-                          Text(switch (option) {
-                            CompanionPreference.none =>
-                              t.companionNoneDescription,
-                            CompanionPreference.tiger => t.characterTraitTiger,
-                            CompanionPreference.magpie =>
-                              t.characterTraitMagpie,
-                          }, style: SoriTextTheme.of(ctx).caption),
+                          Text(
+                            option == MascotKind.magpie
+                                ? t.characterRomanMagpie
+                                : t.characterNameTiger,
+                            style: SoriTextTheme.of(ctx).cardTitle,
+                          ),
+                          Text(
+                            option == MascotKind.magpie
+                                ? t.characterTraitMagpie
+                                : t.characterTraitTiger,
+                            style: SoriTextTheme.of(ctx).caption,
+                          ),
                         ],
                       ),
                     ),
@@ -1405,70 +1611,125 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
     );
     if (picked != null && picked != current) {
-      final kind = MascotPreference.mascotKindFor(picked);
-      if (kind == null) {
-        await MascotPreference.setNone();
-      } else {
-        await MascotPreference.set(kind);
-      }
+      await MascotPreference.setChosen(picked);
     }
   }
 
-  void _showLevelDialog() {
+  Future<LearnerLevel?> _pickLevel({
+    required String title,
+    required LearnerLevel current,
+  }) {
+    final t = AppL10n.of(context);
+    return showSoriDialog<LearnerLevel>(
+      context: context,
+      builder: (ctx) => SoriSimpleDialog(
+        title: Text(title),
+        children: [
+          for (final level in LearnerLevel.values)
+            SimpleDialogOption(
+              onPressed: () => Navigator.of(ctx).pop(level),
+              child: Row(
+                children: [
+                  Expanded(child: Text(_levelLabel(t, level))),
+                  if (level == current)
+                    const Icon(
+                      Icons.check_circle_rounded,
+                      color: SoriColors.primary,
+                    ),
+                ],
+              ),
+            ),
+        ],
+      ),
+    );
+  }
+
+  Future<void> _showCourseStartDialog() async {
     final t = AppL10n.of(context);
     final current =
-        LearnerLevel.fromCode(Storage.userLevelCode) ?? LearnerLevel.a1;
-    String nameFor(LearnerLevel lvl) => switch (lvl) {
-      LearnerLevel.a1 => t.onboardingLevelA1,
-      LearnerLevel.a2 => t.onboardingLevelA2,
-      LearnerLevel.b1 => t.onboardingLevelB1,
-      LearnerLevel.b2 => t.onboardingLevelB2,
-      LearnerLevel.c1 => t.onboardingLevelC1,
-      LearnerLevel.c2 => t.onboardingLevelC2,
-    };
-
-    showSoriDialog<void>(
+        LearnerLevel.fromCode(Storage.dedicatedCoursePlacementLevelCode) ??
+        LearnerLevel.fromCode(Storage.userLevelCode) ??
+        LearnerLevel.a1;
+    final picked = await _pickLevel(
+      title: t.settingsCourseStartTitle,
+      current: current,
+    );
+    if (!mounted || picked == null || picked == current) {
+      return;
+    }
+    final confirmed = await showSoriDialog<bool>(
       context: context,
       builder: (ctx) => SoriDialog(
-        backgroundColor: SoriSurfaces.of(context).surface,
-        title: Text(t.settingsUserLevel),
-        content: RadioGroup<LearnerLevel>(
-          groupValue: current,
-          onChanged: (v) async {
-            if (v == null) return;
-            final nav = Navigator.of(ctx);
-            await Storage.setUserLevelCode(v.code);
-            // 라이브러리 필터도 같이 옮긴다. Cloze·문장 만들기·단어팩·학습 경로는
-            // `browseLevelCode ?? placementLevelCode` 를 읽으므로, 이 줄이 없으면
-            // 온보딩이 browse 를 한 번이라도 저장한 뒤에는 설정에서 레벨을 바꿔도
-            // 그 화면들이 옛 레벨에 묶인 채로 남는다.
-            // 순차 코스 배치(`kl_placement_level_v1`)는 CourseMastery 증거·클라우드
-            // 조정과 묶여 있어 여기서 덮어쓰지 않는다.
-            await Storage.setBrowseLevelCode(v.code);
-            HapticFeedback.selectionClick();
-            if (!mounted) return;
-            nav.pop();
-            setState(() {});
-          },
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: LearnerLevel.values.map((lvl) {
-              return RadioListTile<LearnerLevel>(
-                title: Text('${lvl.display} · ${nameFor(lvl)}'),
-                value: lvl,
-                activeColor: SoriColors.primary,
-              );
-            }).toList(),
-          ),
-        ),
+        title: Text(t.settingsCourseStartConfirmTitle),
+        content: Text(t.settingsCourseStartConfirmDescription(picked.display)),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(ctx),
+            onPressed: () => Navigator.of(ctx).pop(false),
             child: Text(t.btnCancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(ctx).pop(true),
+            child: Text(t.settingsCourseStartConfirmAction),
           ),
         ],
       ),
     );
+    if (confirmed != true) {
+      return;
+    }
+    await CourseProgressService.shared.initializeForPlacement(
+      picked.code,
+      syncBrowseLevel: false,
+    );
+    if (mounted) {
+      HapticFeedback.selectionClick();
+      setState(() {});
+    }
+  }
+
+  Future<void> _showBrowseLevelDialog() async {
+    final t = AppL10n.of(context);
+    final current =
+        LearnerLevel.fromCode(Storage.browseLevelCode) ??
+        LearnerLevel.fromCode(Storage.userLevelCode) ??
+        LearnerLevel.a1;
+    final picked = await _pickLevel(
+      title: t.settingsBrowseLevelTitle,
+      current: current,
+    );
+    if (picked == null || picked == current) {
+      return;
+    }
+    await Storage.setBrowseLevelCode(picked.code);
+    if (mounted) {
+      HapticFeedback.selectionClick();
+      setState(() {});
+    }
+  }
+
+  Future<void> _openPlacementDiagnostic() async {
+    await Navigator.of(context).push<void>(
+      SoriTransitions.fadeScale(
+        (_) => PlacementDiagnosticScreen(
+          onChooseLevel: (levelCode) async {
+            await CourseProgressService.shared.initializeForPlacement(
+              levelCode,
+              // A diagnostic result is the one Settings action that moves both
+              // the sequential course and the library filter. Commit both in
+              // the course writer so a rejected preference write cannot leave
+              // the learner split across two levels.
+              syncBrowseLevel: true,
+            );
+            if (mounted) {
+              Navigator.of(context).pop();
+            }
+          },
+        ),
+      ),
+    );
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   Future<void> _onBackupTap() async {
@@ -1560,7 +1821,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
         t.settingsAccountDeleteSuccess,
         duration: const Duration(seconds: 3),
       );
-      rootNav.pushNamedAndRemoveUntil('/intro', (route) => false);
+      // Local cleanup removes consent and the V2 journal. Restart through the
+      // single first-run resolver so account deletion can never bypass the
+      // legal gate or enter AppShell with an empty identity.
+      rootNav.pushNamedAndRemoveUntil('/splash', (route) => false);
     } on AccountDeletionFailure catch (failure) {
       // 원인 리스트는 예외에 실려 오는데 지금까지 **한 번도 기록되지 않았다**.
       // UI 문구는 그대로 두고 로그에만 남긴다(redaction 은 진단 유틸이 보장).
@@ -1710,18 +1974,25 @@ class _SettingsScreenState extends State<SettingsScreen> {
               final dialogNav = Navigator.of(ctx);
               final rootNav = Navigator.of(context);
               try {
-                await (widget.resetAllData?.call() ?? Storage.resetAll());
+                final injectedReset = widget.resetAllData;
+                if (injectedReset != null) {
+                  // Test/embedding adapters own their own serialization.
+                  await injectedReset();
+                } else {
+                  await CourseProgressService.shared.runLocalStorageWipeBarrier(
+                    Storage.resetAll,
+                  );
+                }
                 await WordImageService.deleteAll();
                 await TtsService.clearCache();
                 DataLoader.reset();
                 if (!mounted || !ctx.mounted) return;
                 dialogNav.pop();
-                rootNav.popUntil((r) => r.isFirst);
                 HapticFeedback.heavyImpact();
-                if (_cloudDataDeletionJournalState.value !=
-                    CloudBackupDeletionJournalState.clear) {
-                  soriNotice(context, t.settingsResetDoneJournalKept);
-                }
+                // A complete local reset removes consent and the V2 journal.
+                // Always restart through the single first-run resolver instead
+                // of leaving an unconsented AppShell alive in memory.
+                rootNav.pushNamedAndRemoveUntil('/splash', (route) => false);
               } on CloudBackupDeletionResetBlockedException {
                 if (!mounted) return;
                 if (ctx.mounted) {

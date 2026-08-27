@@ -12,6 +12,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/card.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/ko_wrap.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -63,32 +64,60 @@ void main() {
     },
   );
 
-  testWidgets('scenarios reserves a 16 by 9 slot for the 16 by 9 jongga loop', (
-    tester,
-  ) async {
-    tester.view.physicalSize = const Size(360, 780);
-    tester.view.devicePixelRatio = 1;
-    addTearDown(tester.view.resetPhysicalSize);
-    addTearDown(tester.view.resetDevicePixelRatio);
+  testWidgets(
+    'scenarios keeps the 16 by 9 jongga loop undistorted and within the height budget',
+    (tester) async {
+      const viewportSize = Size(360, 780);
+      tester.view.physicalSize = viewportSize;
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
 
-    await tester.pumpWidget(
-      _wrap(
-        ScenariosListScreen(
-          loadScenarios: () async => const [_scenarioFixture],
+      await tester.pumpWidget(
+        _wrap(
+          ScenariosListScreen(
+            loadScenarios: () async => const [_scenarioFixture],
+          ),
         ),
-      ),
-    );
-    await tester.pump();
-    await tester.pump();
+      );
+      await tester.pump();
+      await tester.pump();
 
-    final header = find.byType(HanokHeader);
-    expect(header, findsOneWidget);
-    expect(ScenariosListScreen.heroAspectRatio, closeTo(16 / 9, 0.0001));
+      final header = find.byType(HanokHeader);
+      expect(header, findsOneWidget);
+      expect(ScenariosListScreen.heroAspectRatio, closeTo(16 / 9, 0.0001));
 
-    final headerSize = tester.getSize(header);
-    expect(headerSize.width / headerSize.height, closeTo(16 / 9, 0.0001));
-    expect(tester.takeException(), isNull);
-  });
+      // `HanokHeader` sits in `SoriStandardPage`'s `ListView`, which gives it
+      // a *tight* cross-axis constraint — its own outer RenderObject (what
+      // `tester.getSize(header)` used to measure) can only ever report that
+      // fixed slot width, never a narrower one, no matter what renders
+      // inside: any wrapper's `performLayout` finishes with
+      // `size = constraints.constrain(...)`, which clamps back to the tight
+      // slot regardless of the child's real size. W3 §15's
+      // `SoriLayout.heroFit` keeps the 16:9 ratio by shrinking *width*
+      // (centered) when the natural height exceeds the hero budget — so the
+      // ratio now lives on the media node, not the outer slot. Measure the
+      // `AspectRatio` node directly instead.
+      final media = find.descendant(
+        of: header,
+        matching: find.byType(AspectRatio),
+      );
+      expect(media, findsOneWidget);
+
+      final mediaSize = tester.getSize(media);
+      expect(mediaSize.width / mediaSize.height, closeTo(16 / 9, 0.0001));
+
+      // Both §15 contracts, pinned together: ratio preserved (above) AND
+      // the media never exceeds the heroMaxShare/heroMaxHeight budget.
+      final shareBudget = viewportSize.height * SoriLayout.heroMaxShare;
+      final budget = shareBudget < SoriLayout.heroMaxHeight
+          ? shareBudget
+          : SoriLayout.heroMaxHeight;
+      expect(mediaSize.height, lessThanOrEqualTo(budget + 0.5));
+
+      expect(tester.takeException(), isNull);
+    },
+  );
 }
 
 const _scenarioFixture = Scenario(

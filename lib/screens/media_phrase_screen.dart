@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../l10n/generated/app_localizations.dart';
 import '../models/learner_level.dart';
 import '../models/media_phrase.dart';
+import '../services/analytics_service.dart';
 import '../services/data_loader.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
@@ -72,6 +75,9 @@ class _MediaPhraseScreenState extends State<MediaPhraseScreen> {
         _failed = failed;
         _index = 0;
       });
+      if (_phrases.isNotEmpty) {
+        unawaited(Analytics.lessonStarted(lessonType: 'media_phrase'));
+      }
     } catch (_) {
       if (!mounted) return;
       setState(() {

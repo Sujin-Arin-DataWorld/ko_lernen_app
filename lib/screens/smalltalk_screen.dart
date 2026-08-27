@@ -2,11 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../features/study_library/study_library_models.dart';
 import '../l10n/generated/app_localizations.dart';
 import '../models/course_practice_context.dart';
 import '../models/course_mission_step_plan.dart';
 import '../models/curriculum.dart';
 import '../models/smalltalk.dart';
+import '../services/analytics_service.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_checkpoint_questions.dart';
 import '../services/curriculum_catalog.dart';
@@ -23,6 +25,7 @@ import '../services/custom_pack_service.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/ko_wrap.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/sheet.dart';
@@ -140,6 +143,9 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
           _cat = cats.isNotEmpty ? cats.first.id : '';
           _loading = false;
         });
+        if (injected.isNotEmpty && cats.isNotEmpty) {
+          unawaited(Analytics.lessonStarted(lessonType: 'smalltalk'));
+        }
         return;
       }
       // The legacy loader contains its own asset errors to keep direct browse
@@ -200,6 +206,12 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
             : (initialCats.isNotEmpty ? initialCats.first.id : '');
         _loading = false;
       });
+      final hasVisiblePhrase = initialCats.any(
+        (category) => _phraseCount(level: _level, category: category.id) > 0,
+      );
+      if (hasVisiblePhrase) {
+        unawaited(Analytics.lessonStarted(lessonType: 'smalltalk'));
+      }
     } catch (_) {
       if (!mounted) return;
       setState(() {
@@ -405,25 +417,11 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
             ),
           ),
           if (!_isInjected)
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: Spacing.lg),
-              child: Row(
-                children: [
-                  _levelChip(t.filterAll, null),
-                  for (final lvl in const [
-                    'a1',
-                    'a2',
-                    'b1',
-                    'b2',
-                    'c1',
-                    'c2',
-                  ]) ...[
-                    const SizedBox(width: 6),
-                    _levelChip(lvl.toUpperCase(), lvl),
-                  ],
-                ],
-              ),
+            SoriLevelFilterBar(
+              selected: _level,
+              onChanged: _setLevel,
+              allLabel: t.filterAll,
+              countFor: (lvl) => _phraseCount(level: lvl),
             ),
           const SizedBox(height: Spacing.sm),
           Expanded(
@@ -472,21 +470,6 @@ class _SmalltalkScreenState extends State<SmalltalkScreen>
           ),
         ],
       ),
-    );
-  }
-
-  /// 레벨 칩은 그 레벨의 문장 수를 달고 나온다. 0 이면 탭을 막는다 —
-  /// 눌러 봐야 빈 화면이고, 그게 "레벨별 배치가 없다"로 읽힌다.
-  /// 칩 색은 콘텐츠 UI 개편의 단일 accent(`info`)를 따른다.
-  Widget _levelChip(String label, String? lvl) {
-    final count = _phraseCount(level: lvl);
-    return SoriChip(
-      label: '$label · $count',
-      accent: SoriColors.info,
-      selected: _level == lvl,
-      variant: SoriChipVariant.soft,
-      minInteractiveHeight: 48,
-      onTap: count == 0 ? null : () => _setLevel(lvl),
     );
   }
 
@@ -601,6 +584,22 @@ class _PhraseCardState extends State<_PhraseCard> {
       widget.assessmentLink?.role == ContentLinkRole.assess &&
       widget.assessmentLink?.conceptIds.length == 1;
 
+  Future<void> _savePhrase() async {
+    final phrase = widget.p;
+    await addTypedBookmarkWithWordbookMirror(
+      context,
+      itemType: StudyLibraryItemType.sentence,
+      itemId: phrase.id,
+      korean: phrase.ko,
+      translationDe: phrase.de,
+      translationEn: phrase.en,
+      translationLanguage: widget.lang,
+      sourceUnitId: phrase.id,
+      source: 'smalltalk',
+    );
+    if (mounted) setState(() {});
+  }
+
   Future<void> _submitRelationshipCheck(
     SmalltalkRelationshipContext selectedContext,
   ) async {
@@ -653,18 +652,7 @@ class _PhraseCardState extends State<_PhraseCard> {
       onLike: widget.onLike,
       liked: widget.liked,
       bookmarked: CustomPackService.containsKorean(p.ko),
-      onBookmark: () {
-        unawaited(
-          addToWordbook(
-            context,
-            korean: p.ko,
-            translationDe: p.de,
-            translationEn: p.en,
-            translationLanguage: lang,
-          ),
-        );
-        setState(() {});
-      },
+      onBookmark: () => unawaited(_savePhrase()),
       onFlip: () =>
           setState(() => _showConversationGuide = !_showConversationGuide),
       child: KeyedSubtree(

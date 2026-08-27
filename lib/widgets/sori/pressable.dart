@@ -6,8 +6,8 @@ import 'tokens.dart';
 /// **SoriPressable** — "통통튀는" 핵심 컴포넌트.
 ///
 /// 모든 tap-able 요소(카드/버튼/칩)를 감싸면 자동으로:
-/// - tap-down → scale 0.96 (200ms ease-out)
-/// - tap-up   → scale 1.0 (300ms elasticOut spring)
+/// - tap-down → scale 0.96 (150ms SoriMotion.fast)
+/// - tap-up   → scale 1.0 (250ms SoriMotion.medium elasticOut spring)
 /// - haptic feedback (default: selectionClick)
 ///
 /// onTap이 null이면 애니메이션 비활성 (display-only 상태).
@@ -138,9 +138,24 @@ class _SoriPressableState extends State<SoriPressable>
   @override
   Widget build(BuildContext context) {
     final enabled = widget.onTap != null || widget.onLongPress != null;
+    final surfaces = SoriSurfaces.of(context);
+    final focusRingColor = surfaces.brightness == Brightness.light
+        ? SoriColors.primaryDark
+        : SoriColors.darkPrimary;
 
     return Focus(
       canRequestFocus: enabled,
+      onKeyEvent: (_, event) {
+        if (widget.onTap == null || event is! KeyDownEvent) {
+          return KeyEventResult.ignored;
+        }
+        if (event.logicalKey == LogicalKeyboardKey.enter ||
+            event.logicalKey == LogicalKeyboardKey.space) {
+          _onTap();
+          return KeyEventResult.handled;
+        }
+        return KeyEventResult.ignored;
+      },
       child: Builder(
         builder: (ctx) {
           final focused = Focus.of(ctx).hasFocus;
@@ -181,9 +196,10 @@ class _SoriPressableState extends State<SoriPressable>
                                 SoriRadius.md,
                               ),
                               border: Border.all(
-                                color: SoriColors.primary.withValues(
-                                  alpha: 0.55,
-                                ),
+                                // Opaque surface-aware tokens keep the
+                                // keyboard indicator above WCAG's 3:1
+                                // non-text contrast floor.
+                                color: focusRingColor,
                                 width: 2,
                               ),
                             ),

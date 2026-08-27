@@ -23,6 +23,7 @@ class SoriStudyFrame extends StatelessWidget {
     this.particles = false,
     this.noiseAlpha = 0.11,
     this.bottomNavigationBar,
+    this.hero,
   });
 
   final String title;
@@ -35,6 +36,13 @@ class SoriStudyFrame extends StatelessWidget {
   final bool particles;
   final double noiseAlpha;
   final Widget? bottomNavigationBar;
+
+  /// §15 계약: 플레이 화면은 전체 히어로 예산(200dp/22%)을 받지 않는다.
+  /// 넘겨진 위젯은 항상 [SoriLayout.heroCollapsedHeight](96dp)로 고정
+  /// 클램프된다 — 안의 내용이 더 크더라도 잘리거나 눌린다. null(기본값)이면
+  /// 자리 자체가 없다(0dp) — `hero_placement_guard_test.dart` 가 지키는
+  /// "플레이 화면 히어로 0dp"의 유일한 예외 경로가 이 슬롯이다.
+  final Widget? hero;
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +62,18 @@ class SoriStudyFrame extends StatelessWidget {
         child: SafeArea(
           top: false,
           child: SoriStudyClamp(
-            child: Padding(padding: padding, child: child),
+            child: hero == null
+                ? Padding(padding: padding, child: child)
+                : Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      SizedBox(
+                        height: SoriLayout.heroCollapsedHeight,
+                        child: ClipRect(child: hero!),
+                      ),
+                      Expanded(child: Padding(padding: padding, child: child)),
+                    ],
+                  ),
           ),
         ),
       ),

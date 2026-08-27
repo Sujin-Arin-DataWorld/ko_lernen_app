@@ -12,6 +12,7 @@ import 'account/cloud_write_session.dart';
 import 'account/media_cleanup_gate.dart';
 import 'auth_service.dart';
 import 'book_image_service.dart';
+import 'local_data_lifetime.dart';
 import 'media_mutation_lock.dart';
 import 'media_workflow.dart';
 import 'storage_service.dart';
@@ -324,13 +325,21 @@ class BookshelfService {
     required String restoredJson,
     required CloudWriteSession session,
     required CloudWriteSessionController sessions,
+    LocalDataLifetimeLease? localDataLifetime,
   }) async {
+    final lifetime = localDataLifetime ?? LocalDataLifetime.capture();
+    void assertWritable() {
+      lifetime.assertCurrent();
+      sessions.assertCurrent(session);
+      lifetime.assertCurrent();
+    }
+
     if (session.mode != CloudWriteMode.reconciling) {
       throw StateError(
         'Parent-only legacy approval requires a reconciling session.',
       );
     }
-    sessions.assertCurrent(session);
+    assertWritable();
     if (session.uid != uid) {
       throw StateError('Validated bookshelf restore UID does not match.');
     }
@@ -338,9 +347,12 @@ class BookshelfService {
       throw StateError('Validated bookshelf restore no longer matches local.');
     }
     validateParentOnlyLegacyRestore(restoredJson);
-    await BookshelfParentOnlyLegacyApprovalWorkflow(
-      _productionSyncQueue,
-    ).run(uid: uid, session: session, sessions: sessions);
+    await BookshelfParentOnlyLegacyApprovalWorkflow(_productionSyncQueue).run(
+      uid: uid,
+      session: session,
+      sessions: sessions,
+      beforeWrite: lifetime.assertCurrent,
+    );
   }
 
   static void validateParentOnlyLegacyRestore(String restoredJson) {
@@ -492,6 +504,7 @@ class BookshelfService {
     required CloudWriteSession expectedSession,
     required CloudWriteSessionController sessions,
     BookshelfGenerationRepository? repository,
+    LocalDataLifetimeLease? localDataLifetime,
   }) async {
     final db = _db;
     final selectedRepository =
@@ -503,8 +516,19 @@ class BookshelfService {
         hasRemoteData: false,
       );
     }
+    final lifetime = localDataLifetime ?? LocalDataLifetime.capture();
     final fence = CloudWriteFence(sessions);
-    final initial = fence.verify(expectedSession, uid: uid);
+    CloudWriteResult verifyCurrent() {
+      final sessionResult = fence.verify(expectedSession, uid: uid);
+      if (sessionResult != CloudWriteResult.completed) {
+        return sessionResult;
+      }
+      return lifetime.isCurrent
+          ? CloudWriteResult.completed
+          : CloudWriteResult.stale;
+    }
+
+    final initial = verifyCurrent();
     if (initial != CloudWriteResult.completed) {
       return CloudRestoreComponentResult(status: initial, hasRemoteData: false);
     }
@@ -513,7 +537,7 @@ class BookshelfService {
         uid: uid,
         repository: selectedRepository,
       );
-      final afterRead = fence.verify(expectedSession, uid: uid);
+      final afterRead = verifyCurrent();
       if (afterRead != CloudWriteResult.completed) {
         return CloudRestoreComponentResult(
           status: afterRead,
@@ -532,15 +556,21 @@ class BookshelfService {
           () => BookPage.fromPortableJson(entry.key, entry.value).toLocalJson(),
         );
       }
-      sessions.assertCurrent(expectedSession);
+      final beforeWrite = verifyCurrent();
+      if (beforeWrite != CloudWriteResult.completed) {
+        return CloudRestoreComponentResult(
+          status: beforeWrite,
+          hasRemoteData: false,
+        );
+      }
       await _writeRawStrict(local);
-      final completed = fence.verify(expectedSession, uid: uid);
+      final completed = verifyCurrent();
       return CloudRestoreComponentResult(
         status: completed,
         hasRemoteData: completed == CloudWriteResult.completed && hasRemoteData,
       );
     } catch (_) {
-      final current = fence.verify(expectedSession, uid: uid);
+      final current = verifyCurrent();
       return CloudRestoreComponentResult(
         status: current == CloudWriteResult.completed
             ? CloudWriteResult.blocked
@@ -554,10 +584,12 @@ class BookshelfService {
     required String uid,
     required BookshelfGenerationRepository repository,
   }) async {
+    final localLifetime = LocalDataLifetime.capture();
     final snapshot = await readRemoteWithRepository(
       uid: uid,
       repository: repository,
     );
+    localLifetime.assertCurrent();
     final local = Map<String, dynamic>.from(_readRaw());
     for (final id in snapshot.tombstoneIds) {
       local.remove(id);
@@ -568,7 +600,9 @@ class BookshelfService {
         () => BookPage.fromPortableJson(entry.key, entry.value).toLocalJson(),
       );
     }
+    localLifetime.assertCurrent();
     await _writeRawStrict(local);
+    localLifetime.assertCurrent();
     return true;
   }
 

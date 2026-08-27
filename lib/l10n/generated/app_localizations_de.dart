@@ -811,6 +811,20 @@ class AppL10nDe extends AppL10n {
   String get settingsAbout => 'Über die App';
 
   @override
+  String get settingsOriginStoryTitle => 'Warum Hangul Sori entstand';
+
+  @override
+  String get settingsOriginStorySubtitle => 'Die Idee hinter der App';
+
+  @override
+  String get settingsOriginStoryBody =>
+      'Gründerin Sujin Park hat Hangul Sori aus einem praktischen Gedanken heraus entwickelt: Koreanischlernen soll Klang, Schrift, Alltagssituationen und die Bücher verbinden, mit denen du bereits lernst. Die App führt diese Teile in einem Lernweg zusammen, von den Hangul-Grundlagen über stufengerechte Szenarien bis zu Aussprache und Wiederholung.';
+
+  @override
+  String get settingsOriginStoryFounder =>
+      'Sujin Park · Gründerin von Hangul Sori';
+
+  @override
   String settingsVersion(Object v) {
     return 'Version $v';
   }
@@ -2036,6 +2050,27 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get contentActionBookmark => 'Merken';
+
+  @override
+  String get contentActionBookmarkSaved => 'Gemerkt';
+
+  @override
+  String get contentActionBookmarkUnsaved => 'Nicht gemerkt';
+
+  @override
+  String get contentActionLikeLiked => 'Gelikt';
+
+  @override
+  String get contentActionLikeNotLiked => 'Nicht gelikt';
+
+  @override
+  String get speechIndicatorLabel => 'Vorlesen';
+
+  @override
+  String get speechIndicatorSpeaking => 'Wird vorgelesen';
+
+  @override
+  String get speechIndicatorIdle => 'Nicht aktiv';
 
   @override
   String contentShareBody(String korean, String gloss) {
@@ -4960,6 +4995,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarHard => 'Schwierig';
+
+  @override
+  String get grammarPreviousCard => 'Vorherige Karte';
 
   @override
   String get grammarChoiceCta => 'Mit Beispielen üben';
@@ -8673,4 +8711,1038 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get mediaPhraseNext => 'Weiter';
+
+  @override
+  String get onboardingV2Back => 'Zurück';
+
+  @override
+  String get onboardingV2Next => 'Weiter';
+
+  @override
+  String get onboardingV2Loading => 'Deine Anleitung wird vorbereitet …';
+
+  @override
+  String get onboardingV2Saving => 'Deine Auswahl wird gespeichert …';
+
+  @override
+  String get onboardingV2CourseHistoryConflict =>
+      'Zu diesem Kursstart gibt es bereits Lernfortschritt. Behalte zum Abschließen der Einrichtung die aktuelle Stufe; später kannst du den Kurs in den Einstellungen ausdrücklich neu starten.';
+
+  @override
+  String get onboardingV2StoryFinish => 'Meinen Start auswählen';
+
+  @override
+  String onboardingV2StoryProgress(int current, int total) {
+    return 'Seite $current von $total';
+  }
+
+  @override
+  String get onboardingV2Story1Eyebrow => 'Zwei Wege, ein Lernort';
+
+  @override
+  String get onboardingV2Story1Title => 'Dein Lernweg und dein eigenes Buch';
+
+  @override
+  String get onboardingV2Story1Body =>
+      'Gehe Schritt für Schritt von A1 bis C2. Die Texterkennung einer fotografierten Buchseite läuft auf deinem Gerät. Erst wenn du Analysieren wählst, kann der erkannte Text zur Auswertung an einen Analysedienst in der EU gesendet werden.';
+
+  @override
+  String get onboardingV2Story1HeroSemantics =>
+      'Vorschau auf den Stufenweg A1 bis C2 und die Analyse einer selbst fotografierten Buchseite.';
+
+  @override
+  String get onboardingV2Story1Item1Title => 'Stufenweg A1 bis C2';
+
+  @override
+  String get onboardingV2Story1Item1Body =>
+      'Lernziele und Alltagsszenen bauen aufeinander auf.';
+
+  @override
+  String get onboardingV2Story1Item2Title => 'Dein Buch fotografieren';
+
+  @override
+  String get onboardingV2Story1Item2Body =>
+      'Eine Seite wird erst erfasst, wenn du die Kamera selbst öffnest.';
+
+  @override
+  String get onboardingV2Story1Item3Title => 'Text auf dem Gerät erkennen';
+
+  @override
+  String get onboardingV2Story1Item3Body =>
+      'Die Texterkennung der Aufnahme läuft auf deinem Gerät. Diese Anleitung fragt nicht nach Kamerazugriff.';
+
+  @override
+  String get onboardingV2Story1Item4Title => 'Ergebnisse nach Typ';
+
+  @override
+  String get onboardingV2Story1Item4Body =>
+      'Wählst du Analysieren, kann der erkannte Text an einen Analysedienst in der EU gesendet und nach Wörtern, Ausdrücken, Grammatik und Sätzen aufbereitet werden.';
+
+  @override
+  String get onboardingV2Story1CurriculumClaim =>
+      'Ein stufenweises Curriculum, das sich an den CEFR-Handlungszielen und am Koreanischen Standardcurriculum des National Institute of Korean Language orientiert.';
+
+  @override
+  String get onboardingV2Story1CurriculumSourcesAction =>
+      'Curriculum-Grundlage und Quellen';
+
+  @override
+  String get onboardingV2Story1CurriculumSourcesTitle =>
+      'Grundlage des Stufencurriculums';
+
+  @override
+  String get onboardingV2Story1CurriculumSourcesBody =>
+      'Die aktuelle Zuordnung ist teilweise. Diese offiziellen Quellen dienen als Orientierung für den Lernweg; sie behaupten weder eine Zertifizierung noch eine vollständige Prüfungsabdeckung.';
+
+  @override
+  String get onboardingV2Story1CurriculumCefrAuthority => 'Europarat · CEFR';
+
+  @override
+  String get onboardingV2Story1CurriculumNiklAuthority =>
+      'National Institute of Korean Language';
+
+  @override
+  String get onboardingV2Story1CurriculumDocument => 'Offizielles Dokument';
+
+  @override
+  String get onboardingV2Story1CurriculumVersion => 'Version';
+
+  @override
+  String get onboardingV2Story1CurriculumCheckedAt => 'Quelle geprüft am';
+
+  @override
+  String get onboardingV2Story1CurriculumUrl => 'URL';
+
+  @override
+  String onboardingV2Story1CurriculumOpenSource(String sourceTitle) {
+    return 'Quelle öffnen: $sourceTitle';
+  }
+
+  @override
+  String get onboardingV2Story1CurriculumSourcesClose => 'Quellen schließen';
+
+  @override
+  String get onboardingV2Story2Eyebrow => 'Lernen';
+
+  @override
+  String get onboardingV2Story2Title => 'Vom ersten Zeichen bis zum Gespräch';
+
+  @override
+  String get onboardingV2Story2Body =>
+      'Lernen verbindet Hangeul, Schreiben, Hören, Aussprache und Szenarien. Du entscheidest selbst, wann du Kamera, Mikrofon oder Ton verwendest.';
+
+  @override
+  String get onboardingV2Story2HeroSemantics =>
+      'Vorschau auf Hangeul, Schreibübungen, Hör- und Aussprachetraining sowie Szenarien nach Level.';
+
+  @override
+  String get onboardingV2Story2Item1Title => 'Hangeul';
+
+  @override
+  String get onboardingV2Story2Item1Body =>
+      'Konsonanten und Vokale erkennen und zusammensetzen.';
+
+  @override
+  String get onboardingV2Story2Item2Title => 'Schreiben';
+
+  @override
+  String get onboardingV2Story2Item2Body =>
+      'Zeichen nachfahren und anschließend selbst schreiben.';
+
+  @override
+  String get onboardingV2Story2Item3Title => 'Hören & Aussprache';
+
+  @override
+  String get onboardingV2Story2Item3Body =>
+      'Beispiele anhören und die eigene Aufnahme gezielt vergleichen.';
+
+  @override
+  String get onboardingV2Story2Item4Title => 'Szenarien nach Level';
+
+  @override
+  String get onboardingV2Story2Item4Body =>
+      'Alltagssituationen und Kategorien passend zum gewählten Level öffnen.';
+
+  @override
+  String get onboardingV2Story3Eyebrow => 'Karten und Gedächtnis';
+
+  @override
+  String get onboardingV2Story3Title => 'Merke dir, was dir wichtig ist';
+
+  @override
+  String get onboardingV2Story3Body =>
+      'Tippe Karten an, um sie zu wenden, und wische zur nächsten. Herz und Lesezeichen haben dabei bewusst verschiedene Aufgaben.';
+
+  @override
+  String get onboardingV2Story3HeroSemantics =>
+      'Vorschau auf Kartensteuerung, Favoriten, gespeicherte Inhalte mit erhaltenem Inhaltstyp und die heutige Wiederholung unterstützter Wörter.';
+
+  @override
+  String get onboardingV2Story3Item1Title => 'Karte wenden';
+
+  @override
+  String get onboardingV2Story3Item1Body =>
+      'Antippen zeigt die andere Kartenseite.';
+
+  @override
+  String get onboardingV2Story3Item2Title => 'Weiterwischen';
+
+  @override
+  String get onboardingV2Story3Item2Body =>
+      'Eine Wischgeste bewegt dich durch den Stapel.';
+
+  @override
+  String get onboardingV2Story3Item3Title => 'Herz = Favorit';
+
+  @override
+  String get onboardingV2Story3Item3Body =>
+      'Du merkst dir etwas ohne neue Wiederholungsaufgabe.';
+
+  @override
+  String get onboardingV2Story3Item4Title =>
+      'Lesezeichen = zum Lernen speichern';
+
+  @override
+  String get onboardingV2Story3Item4Body =>
+      'Auf unterstützten Wortkarten speichert das Lesezeichen das Wort in einem Wortpaket. Andere unterstützte gespeicherte Inhalte behalten in der Lernsammlung ihren echten Typ.';
+
+  @override
+  String get onboardingV2Story3Status =>
+      'Jetzt verfügbar: Favoriten, gespeicherte Inhalte und heute fällige unterstützte Wörter sind getrennte Ansichten in der Lernsammlung. Die aktuelle Wiederholung unterstützt nur Wörter; Grammatik, Sätze, Ausdrücke und Hangeul bleiben ohne vorgetäuschte Wiederholungsaktion gespeichert.';
+
+  @override
+  String get onboardingV2Story4Eyebrow => 'Spielen und Belohnungen';
+
+  @override
+  String get onboardingV2Story4Title => 'Üben, ausprobieren, Fortschritt sehen';
+
+  @override
+  String get onboardingV2Story4Body =>
+      'In Spielen wendest du Gelerntes an. Hinweise, XP, persönliche Bestwerte und Quests machen sichtbar, was du getan hast. Sie ersetzen keinen Lernerfolg.';
+
+  @override
+  String get onboardingV2Story4HeroSemantics =>
+      'Vorschau auf Spiele, Hinweise, XP, persönliche Bestwerte, Quests und mögliche Sammelbelohnungen.';
+
+  @override
+  String get onboardingV2Story4Status =>
+      'Belohnungsbeispiele: Hier wird nichts gutgeschrieben';
+
+  @override
+  String get onboardingV2Story4CatalogTitle =>
+      'Mögliche Belohnungen aktueller Aktivitäten';
+
+  @override
+  String onboardingV2Story4CatalogBody(int count) {
+    return 'Schreibgeschützte Beispiele aus $count aktuellen Aktivitäten. Beim Ansehen dieser Seite wird nichts gutgeschrieben oder verändert.';
+  }
+
+  @override
+  String onboardingV2Story4PossibleReward(String reward) {
+    return 'Mögliche Belohnung: $reward';
+  }
+
+  @override
+  String get onboardingV2Story4Item1Title => 'Spielhinweise';
+
+  @override
+  String get onboardingV2Story4Item1Body =>
+      'Kurze Hilfen bringen dich wieder in die Übung.';
+
+  @override
+  String get onboardingV2Story4Item2Title => 'XP & persönliche Bestwerte';
+
+  @override
+  String get onboardingV2Story4Item2Body =>
+      'Sie halten deine Aktivität und eigene Entwicklung fest.';
+
+  @override
+  String get onboardingV2Story4Item3Title => 'Quests & Stempel';
+
+  @override
+  String get onboardingV2Story4Item3Body =>
+      'Nur ausgewiesene Aktivitäten können diese Belohnungen enthalten.';
+
+  @override
+  String get onboardingV2Story4Item4Title => 'Bojagi & Accessoires';
+
+  @override
+  String get onboardingV2Story4Item4Body =>
+      'Sammelobjekte werden später zum Gestalten verwendet.';
+
+  @override
+  String get onboardingV2Story5Eyebrow => 'Kulturerbe-Reise';
+
+  @override
+  String get onboardingV2Story5Title => 'Stempelbuch, Bojagi und dein Hanok';
+
+  @override
+  String get onboardingV2Story5Body =>
+      'Deine langfristige Reise führt vom Stempelbuch über Bojagi und Accessoires zum Gestalten von Räumen und historischen Häusern. Das erste Kapitel wird noch vorbereitet.';
+
+  @override
+  String get onboardingV2Story5HeroSemantics =>
+      'Vorschau auf die künftige Kulturerbe-Reise mit Stempelbuch, Bojagi, Dekorationen und dem ersten Kapitel Ildu Gotaek.';
+
+  @override
+  String get onboardingV2Story5Status =>
+      'Erste Reise · Ildu Gotaek · In Vorbereitung';
+
+  @override
+  String get onboardingV2Story5Item1Title => 'Stempelbuch';
+
+  @override
+  String get onboardingV2Story5Item1Body =>
+      'Hier siehst du gesammelte Stempel und offene Stationen.';
+
+  @override
+  String get onboardingV2Story5Item2Title => 'Bojagi öffnen';
+
+  @override
+  String get onboardingV2Story5Item2Body =>
+      'Ausgewiesene Belohnungen können Accessoires enthalten.';
+
+  @override
+  String get onboardingV2Story5Item3Title => 'Räume gestalten';
+
+  @override
+  String get onboardingV2Story5Item3Body =>
+      'Erhaltene Accessoires werden an dafür vorgesehenen Orten eingesetzt.';
+
+  @override
+  String get onboardingV2Story5Item4Title => 'Weitere Kapitel';
+
+  @override
+  String get onboardingV2Story5Item4Body =>
+      'Die Reise ist erweiterbar; Zahl und Reihenfolge stehen noch nicht fest.';
+
+  @override
+  String get onboardingV2Story5PreviewLabel => 'Vorschau';
+
+  @override
+  String get onboardingV2Story5InPreparationLabel => 'In Vorbereitung';
+
+  @override
+  String get onboardingV2Story5AssetReviewNote =>
+      'Bis Nutzungsrechte für die App und visuelle Prüfung freigegeben sind, wird hier keine Kulturerbe-Grafik verwendet.';
+
+  @override
+  String get onboardingV2Story5SourcesAction => 'Quellen und Angaben';
+
+  @override
+  String onboardingV2Story5SourcesTitle(String estateName) {
+    return 'Quellen zu $estateName';
+  }
+
+  @override
+  String get onboardingV2Story5SourcesBody =>
+      'Diese Quellen belegen den Namen und den kulturellen Kontext der Vorschau, darunter die Verbindung des Ildu Gotaek zum Gelehrten Jeong Yeo-chang und seine Nutzung als Drehort. Ihr aktueller Registerstatus erlaubt nur das Zitieren; weitergehende Nutzungsrechte werden nicht zugesichert.';
+
+  @override
+  String get onboardingV2Story5SourceInstitution => 'Institution';
+
+  @override
+  String get onboardingV2Story5SourceYear => 'Jahr';
+
+  @override
+  String onboardingV2Story5SourceYearValue(int year, String basis) {
+    return '$year ($basis)';
+  }
+
+  @override
+  String get onboardingV2Story5SourceYearPublished => 'veröffentlicht';
+
+  @override
+  String get onboardingV2Story5SourceYearUpdated => 'aktualisiert';
+
+  @override
+  String get onboardingV2Story5SourceYearAccessed => 'abgerufen';
+
+  @override
+  String get onboardingV2Story5SourceTitle => 'Quellentitel';
+
+  @override
+  String get onboardingV2Story5SourceAuthor => 'Urheber';
+
+  @override
+  String get onboardingV2Story5SourceLicense => 'Lizenzstatus';
+
+  @override
+  String get onboardingV2Story5SourceLicenseKoglType1 => 'KOGL Typ 1';
+
+  @override
+  String get onboardingV2Story5SourceLicenseCitationOnly =>
+      'Nur Zitat; weitergehende Nutzungsrechte nicht zugesichert';
+
+  @override
+  String get onboardingV2Story5SourceLicenseSeparatelyApproved =>
+      'Nutzung separat freigegeben';
+
+  @override
+  String get onboardingV2Story5SourceUrl => 'URL';
+
+  @override
+  String onboardingV2Story5OpenSource(String sourceTitle) {
+    return 'Quelle öffnen: $sourceTitle';
+  }
+
+  @override
+  String get onboardingV2Story5SourcesClose => 'Quellen schließen';
+
+  @override
+  String get onboardingV2SetupEyebrow => 'Dein persönlicher Start';
+
+  @override
+  String get onboardingV2SetupTitle =>
+      'Wofür lernst du, und wo steigst du ein?';
+
+  @override
+  String get onboardingV2SetupBody =>
+      'Dein Ziel ändert nur die Reihenfolge von Einstiegstipps und Empfehlungen. Schwierigkeit, Inhalte, Fortschritt und Belohnungen bleiben gleich.';
+
+  @override
+  String get onboardingV2SetupPurposeHeading => '1. Wähle dein Ziel';
+
+  @override
+  String get onboardingV2SetupLevelHeading => '2. Wähle deinen Startpunkt';
+
+  @override
+  String get onboardingV2SetupLevelHelp =>
+      'Wähle den Startpunkt, der am besten zu dem passt, was du schon kannst. Du kannst ihn später in den Einstellungen ändern.';
+
+  @override
+  String get onboardingV2SetupSelectLevelPrompt =>
+      'Wähle ein Level, um ein echtes Beispiel und die Lernziele zu sehen.';
+
+  @override
+  String get onboardingV2SetupExampleLabel => 'Beispiel auf diesem Level';
+
+  @override
+  String get onboardingV2SetupCanDoLabel => 'Das kannst du ungefähr schon';
+
+  @override
+  String get onboardingV2SetupLearnHereLabel => 'Damit beginnst du hier';
+
+  @override
+  String get onboardingV2SetupCompareAction => 'Level vergleichen';
+
+  @override
+  String get onboardingV2SetupCompareTitle => 'Welcher Startpunkt passt?';
+
+  @override
+  String get onboardingV2SetupCompareBody =>
+      'Die direkte Auswahl ist dein Lernstart, kein Nachweis deiner Kenntnisse. Deinen Kurs-Startpunkt und dein Level zum Stöbern kannst du später getrennt ändern.';
+
+  @override
+  String get onboardingV2SetupCompareClose => 'Vergleich schließen';
+
+  @override
+  String get onboardingV2SetupContinue => 'Auswahl übernehmen';
+
+  @override
+  String get onboardingV2LevelA1ExampleKo => '안녕하세요.';
+
+  @override
+  String get onboardingV2LevelA2ExampleKo => '아메리카노 한 잔 주세요.';
+
+  @override
+  String get onboardingV2LevelB1ExampleKo => '어제 친구와 영화를 봤어요.';
+
+  @override
+  String get onboardingV2LevelB2ExampleKo => '회의가 길어져서 조금 늦을 것 같아요.';
+
+  @override
+  String get onboardingV2LevelC1ExampleKo => '확인된 사실과 현재의 해석을 나누어 설명하겠습니다.';
+
+  @override
+  String get onboardingV2LevelC2ExampleKo =>
+      '침묵을 동의로 보면 질문의 틀만으로도 참여를 제한할 수 있습니다.';
+
+  @override
+  String get onboardingV2PurposeLifeTravelTitle => 'Alltag & Reisen';
+
+  @override
+  String get onboardingV2PurposeLifeTravelBody =>
+      'Bestellen, Wege finden und tägliche Situationen meistern';
+
+  @override
+  String get onboardingV2PurposePeopleCultureTitle => 'Menschen & Kultur';
+
+  @override
+  String get onboardingV2PurposePeopleCultureBody =>
+      'Gespräche, Beziehungen und kulturelle Zusammenhänge';
+
+  @override
+  String get onboardingV2PurposeStudyWorkTitle => 'Studium & Beruf';
+
+  @override
+  String get onboardingV2PurposeStudyWorkBody =>
+      'Im Kurs, an der Hochschule und bei der Arbeit sicher handeln';
+
+  @override
+  String get onboardingV2PurposeKContentTitle => 'K-Content';
+
+  @override
+  String get onboardingV2PurposeKContentBody =>
+      'Musik, Serien, Filme, Podcasts und Interviews besser verstehen';
+
+  @override
+  String get onboardingV2CompanionEyebrow => 'Dein Lernfreund';
+
+  @override
+  String get onboardingV2CompanionTitle => 'Wer begleitet dich?';
+
+  @override
+  String get onboardingV2CompanionBody =>
+      'Wähle Taego oder Joy. Die Wahl ist für den ersten Start erforderlich; später kannst du den Lernfreund wechseln oder seine Anzeige ausschalten.';
+
+  @override
+  String get onboardingV2CompanionEqualNote =>
+      'Inhalte, Antworten, Hinweisstärke, XP, Fortschritt und Belohnungen sind bei beiden gleich.';
+
+  @override
+  String get onboardingV2CompanionContinue => 'Auswahl bestätigen';
+
+  @override
+  String get onboardingV2CompanionTaegoRhythm =>
+      'Ruhig und Schritt für Schritt';
+
+  @override
+  String get onboardingV2CompanionTaegoBody =>
+      'Ordnet dieselben Hinweise in eine klare Reihenfolge und zeigt dir den nächsten sinnvollen Schritt.';
+
+  @override
+  String get onboardingV2CompanionTaegoSelected => 'Taego wurde ausgewählt.';
+
+  @override
+  String get onboardingV2CompanionJoyRhythm => 'Kurz und direkt ins Üben';
+
+  @override
+  String get onboardingV2CompanionJoyBody =>
+      'Gibt dieselben Hinweise als kurze Anstöße und feiert deinen nächsten Versuch.';
+
+  @override
+  String get onboardingV2CompanionJoySelected => 'Joy wurde ausgewählt.';
+
+  @override
+  String get onboardingV2ConfirmationEyebrow => 'Bereit für den Start';
+
+  @override
+  String get onboardingV2ConfirmationBody =>
+      'Das Begrüßungsvideo ist nur eine Vorstellung. Du kannst jederzeit weitergehen, auch wenn es nicht lädt.';
+
+  @override
+  String get onboardingV2ConfirmationStart => 'Gemeinsam starten';
+
+  @override
+  String get onboardingV2ConfirmationChange => 'Anderen Lernfreund wählen';
+
+  @override
+  String get settingsLearningLevelsSection => 'Lernstufen';
+
+  @override
+  String get settingsCourseStartTitle => 'Startpunkt im Kurs';
+
+  @override
+  String get settingsCourseStartDescription =>
+      'Legt fest, wo dein fortlaufender Kurs beginnt. Eine neue Wahl ersetzt den aktuellen Kurspfad; frühere Einheiten gelten dadurch weder als beherrscht noch erhältst du XP oder Belohnungen.';
+
+  @override
+  String get settingsBrowseLevelTitle => 'Stufe zum Stöbern';
+
+  @override
+  String get settingsBrowseLevelDescription =>
+      'Filtert nur Bibliotheken und Szenarien. Dein Kursfortschritt bleibt unverändert.';
+
+  @override
+  String get settingsRecheckLevelTitle => 'Mein Level neu einschätzen';
+
+  @override
+  String get settingsRecheckLevelDescription =>
+      'Mache freiwillig einen Test mit acht Aufgaben. Das Ergebnis ist eine Empfehlung; den Startpunkt wählst weiterhin du.';
+
+  @override
+  String get settingsCompanionVisibleTitle => 'Lernfreund anzeigen';
+
+  @override
+  String get settingsCompanionVisibleDescription =>
+      'Blende deinen Lernfreund ein oder aus, ohne die gewählte Figur zu ändern.';
+
+  @override
+  String get settingsGuideSection => 'App-Anleitung';
+
+  @override
+  String get settingsGuideTitle => 'Hangul-Sori-Anleitung öffnen';
+
+  @override
+  String get settingsGuideDescription =>
+      'Sieh jederzeit nach, wie Lernen, Spiele, gespeicherte Inhalte, Belohnungen, dein Buch und wichtige Einstellungen funktionieren.';
+
+  @override
+  String get settingsCourseStartConfirmTitle => 'Startpunkt im Kurs ändern?';
+
+  @override
+  String settingsCourseStartConfirmDescription(String level) {
+    return 'Dein fortlaufender Kurs startet bei $level neu und ersetzt den bisherigen Kursfortschritt. Andere Übungsdaten, XP, Belohnungen und Sammlungen bleiben erhalten; frühere Einheiten gelten nicht als abgeschlossen.';
+  }
+
+  @override
+  String get settingsCourseStartConfirmAction => 'Startpunkt ändern';
+
+  @override
+  String get guideHubAppBarTitle => 'App-Anleitung';
+
+  @override
+  String get guideHubEyebrow => 'Sicher loslegen';
+
+  @override
+  String get guideHubTitle => 'Finde jede wichtige Funktion';
+
+  @override
+  String get guideHubDescription =>
+      'Öffne ein Thema genau dann, wenn du es brauchst. Vorschauen und angekündigte Funktionen werden klar gekennzeichnet und verhalten sich nie wie fertige Funktionen.';
+
+  @override
+  String get guideCompletedLabel => 'Abgeschlossen';
+
+  @override
+  String get guideRestoreTodayCard =>
+      'Start-Anleitung wieder auf Heute anzeigen';
+
+  @override
+  String get guideTodayCardRestoredStatus =>
+      'Die Start-Anleitung wird wieder auf Heute angezeigt.';
+
+  @override
+  String get guidePreferenceWriteFailed =>
+      'Die Einstellung der Anleitung konnte nicht gespeichert werden. Es wurde nichts geändert. Bitte versuche es erneut.';
+
+  @override
+  String get guideFeatureNotAvailable =>
+      'Dieses Thema ist als Vorschau oder angekündigte Funktion markiert und lässt sich noch nicht als fertige Funktion öffnen.';
+
+  @override
+  String get guideAvailabilityLive => 'Jetzt verfügbar';
+
+  @override
+  String get guideAvailabilityPreview => 'Vorschau';
+
+  @override
+  String get guideAvailabilityComingSoon => 'In Vorbereitung';
+
+  @override
+  String get guideAvailabilityUnavailable => 'Nicht verfügbar';
+
+  @override
+  String get guideOpenAction => 'Anleitung ansehen';
+
+  @override
+  String get guidePreviewAction => 'Vorschau ansehen';
+
+  @override
+  String get guideDetailsAction => 'Status ansehen';
+
+  @override
+  String get guideModuleEyebrow => 'Thema im Überblick';
+
+  @override
+  String get guideModuleStepsTitle => 'Das solltest du zuerst wissen';
+
+  @override
+  String get guideModuleActionsTitle => 'Einen Bereich öffnen';
+
+  @override
+  String get guideModulePassiveNotice =>
+      'Diese Erklärung fragt nicht nach Kamera- oder Mikrofonzugriff, spielt kein Audio ab, verändert keinen Lernfortschritt und vergibt keine Belohnungen.';
+
+  @override
+  String guideScenarioCategoryCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Szenarien',
+      one: '1 Szenario',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get guideModulePersonalizedStartStep1 =>
+      'Dein Lernziel ändert die Reihenfolge der Empfehlungen und dieser Startliste. Schwierigkeit, XP und Belohnungen bleiben gleich.';
+
+  @override
+  String get guideModulePersonalizedStartStep2 =>
+      'Der Kurs-Startpunkt setzt nach deiner Bestätigung fest, wo dein Kurs beginnt. Die Stufe zum Stöbern filtert nur Bibliotheken und Szenarien.';
+
+  @override
+  String get guideModuleLearnStep1 =>
+      'Hangeul-Übersicht, Karten und Schreiben sind getrennte Reiter. Öffne nur die Übung, die du gerade brauchst.';
+
+  @override
+  String get guideModuleLearnStep2 =>
+      'Unter Lernen findest du außerdem Hören, Aussprache und Szenarien nach Level. Kategorien stammen aus dem aktuellen Katalog; diese Anleitung erfindet keine Zuordnung.';
+
+  @override
+  String get guideModuleLearnStep3 =>
+      'Ein Zielbereich kann seinen eigenen kontextbezogenen Hinweis einblenden. Die Anleitung schickt dich nie automatisch durch mehrere Bereiche und setzt bereits abgeschlossene Hinweise nicht zurück.';
+
+  @override
+  String get guideModuleMyBookStep1 =>
+      'Kamera oder Galerie wählst du erst nach dem Öffnen der Aufnahme. Die Texterkennung läuft auf deinem Gerät; vor der Analyse prüfst du den erkannten koreanischen Text.';
+
+  @override
+  String get guideModuleMyBookStep2 =>
+      'Wenn du Analysieren wählst, kann der erkannte Text an einen Analysedienst in der EU gesendet werden. Das fotografierte Bild bleibt auf deinem Gerät.';
+
+  @override
+  String get guideModuleMyBookStep3 =>
+      'Unterstützte Seitenergebnisse, Wörter, Ausdrücke, Grammatik und Sätze lassen sich mit den heutigen Werkzeugen speichern. Diese Anleitung verspricht und erzeugt keine neuen KI-Übungen.';
+
+  @override
+  String get guideModuleCardsStep1 =>
+      'Tippe auf eine Lernkarte, um sie umzudrehen. Wische, um zur nächsten Karte zu wechseln.';
+
+  @override
+  String get guideModuleCardsStep2 =>
+      'Ein Herz ist ein unverbindlicher Favorit und startet nie die verteilte Wiederholung. Ein Lesezeichen speichert unterstützte Inhalte in deiner Lernsammlung.';
+
+  @override
+  String get guideModuleCardsStep3 =>
+      'Die Lernsammlung trennt Favoriten, Gespeichertes und heute Fälliges. Der direkte Wiederholungsweg unterstützt derzeit fällige Wörter; andere gespeicherte Typen bleiben sichtbar und werden nicht als Wortwiederholung ausgegeben.';
+
+  @override
+  String get guideModuleGamesStep1 =>
+      'Hinweise helfen während eines Spiels. Ihre Nutzung zählt aber nicht als selbstständiger Abruf oder als Beherrschung.';
+
+  @override
+  String get guideModuleGamesStep2 =>
+      'XP, persönliche Rekorde und Quest-Fortschritt entstehen nur durch unterstützte abgeschlossene Aktivitäten. Das Ansehen dieser Anleitung vergibt nichts.';
+
+  @override
+  String get guideModuleGamesStep3 =>
+      'Stempel können mit Bojagi und Dekorationen verbunden sein. Im Hanok-Bereich siehst du das derzeit verfügbare Stempelbuch, Inventar und die Raumgestaltung.';
+
+  @override
+  String get guideModuleSettingsStep1 =>
+      'Kurs-Startpunkt und Stufe zum Stöbern sind getrennte Einstellungen: Die eine ändert den Kurs nach Bestätigung, die andere nur Inhaltsfilter.';
+
+  @override
+  String get guideModuleSettingsStep2 =>
+      'Ausgewählte Figur und Figurenanzeige sind getrennt. Du kannst Taego oder Joy behalten und die Figur auf dem Bildschirm ausblenden.';
+
+  @override
+  String get guideModuleSettingsStep3 =>
+      'Lege das allgemeine Sprechtempo in den Einstellungen fest. Unterstützte Audioseiten haben zusätzlich einen Geschwindigkeits-Chip; die App-Anleitung kannst du jederzeit in den Einstellungen erneut öffnen.';
+
+  @override
+  String get guideModuleActionCourseStart => 'Kurs-Startpunkt';
+
+  @override
+  String get guideModuleActionBrowseLevel => 'Stufe zum Stöbern';
+
+  @override
+  String get guideModuleActionHangulOverview => 'Hangeul-Übersicht';
+
+  @override
+  String get guideModuleActionHangulCards => 'Hangeul-Karten';
+
+  @override
+  String get guideModuleActionHangulWrite => 'Hangeul schreiben üben';
+
+  @override
+  String get guideModuleActionLearnStage => 'Lernen öffnen';
+
+  @override
+  String get guideModuleActionCaptureTextbook => 'Lehrbuchseite aufnehmen';
+
+  @override
+  String get guideModuleActionStudyLibrary => 'Lernsammlung öffnen';
+
+  @override
+  String get guideModuleActionGamesStage => 'Spiele öffnen';
+
+  @override
+  String get guideModuleActionHanokStage => 'Stempel und Dekoration öffnen';
+
+  @override
+  String get guideModuleActionCompanion => 'Figur und Anzeige';
+
+  @override
+  String get guideModuleActionVoiceSpeed => 'Sprechtempo';
+
+  @override
+  String get guideModuleActionGuideSettings =>
+      'App-Anleitung in den Einstellungen';
+
+  @override
+  String get guideTopicPersonalizedStartTitle => 'Ein Start, der zu mir passt';
+
+  @override
+  String get guideTopicPersonalizedStartDescription =>
+      'Erfahre, wie dein Ziel die Startliste und Empfehlungen sortiert und warum Kurs-Startpunkt und Stufe zum Stöbern verschieden sind.';
+
+  @override
+  String get guideTopicLearnTitle => 'Lernen';
+
+  @override
+  String get guideTopicLearnDescription =>
+      'Finde Hangeul-Zeichen, Schreiben, Hören, Aussprache sowie Szenarien und Kategorien für dein Level.';
+
+  @override
+  String get guideTopicMyBookTitle => 'Mein Buch';
+
+  @override
+  String get guideTopicMyBookDescription =>
+      'Fotografiere freiwillig eine Seite. Die Texterkennung läuft auf deinem Gerät. Wählst du Analysieren, kann der erkannte Text an einen Analysedienst in der EU gesendet werden. Unterstützte Ergebnisse kannst du anschließend speichern. Diese Anleitung fragt nicht nach Kamerazugriff.';
+
+  @override
+  String get guideTopicCardsAndMemoryTitle => 'Karten und Gedächtnis';
+
+  @override
+  String get guideTopicCardsAndMemoryDescription =>
+      'Tippe zum Wenden und wische weiter. Ein Herz ist ein unverbindlicher Favorit und startet keine Wiederholung. Ein Lesezeichen hält unterstützte Inhalte in deiner Lernsammlung fest. Dort findest du Favoriten, gespeicherte Wörter, Grammatik, Sätze, Ausdrücke und Hangeul sowie unterstützte Wörter, die zur Wiederholung fällig sind.';
+
+  @override
+  String get guideTopicGamesAndRewardsTitle => 'Spielen und Belohnungen';
+
+  @override
+  String get guideTopicGamesAndRewardsDescription =>
+      'Sieh, wie Hinweise, XP, persönliche Rekorde, Quests, Stempel, Bojagi, Accessoires und Raumgestaltung mit echten Lernaktivitäten zusammenhängen.';
+
+  @override
+  String get guideTopicSettingsTitle => 'Meine Einstellungen';
+
+  @override
+  String get guideTopicSettingsDescription =>
+      'Ändere Kurs-Startpunkt, Stufe zum Stöbern, Figur, Figurenanzeige und Sprechtempo in den Einstellungen. Auf unterstützten Audioseiten kannst du das Tempo außerdem direkt über den Geschwindigkeits-Chip ändern oder diese Anleitung erneut öffnen.';
+
+  @override
+  String get studyLibraryAppBarTitle => 'Lernsammlung';
+
+  @override
+  String get studyLibraryEyebrow => 'FAVORITEN & GESPEICHERT';
+
+  @override
+  String get studyLibraryTitle => 'Alles, was du behalten möchtest';
+
+  @override
+  String get studyLibraryDescription =>
+      'Favoriten und gespeicherte Lerninhalte bleiben getrennt. So entscheidest du, was nur interessant ist und was in deine Lernsammlung gehört.';
+
+  @override
+  String get studyLibraryRefresh => 'Lernsammlung aktualisieren';
+
+  @override
+  String get studyLibraryHeartMeaningTitle => 'Herz = Favorit';
+
+  @override
+  String get studyLibraryHeartMeaningBody =>
+      'Ein Herz hält etwas griffbereit. Es fügt den Inhalt niemals automatisch zur Wiederholung hinzu.';
+
+  @override
+  String get studyLibraryBookmarkMeaningTitle =>
+      'Lesezeichen = zum Lernen gespeichert';
+
+  @override
+  String get studyLibraryBookmarkMeaningBody =>
+      'Gespeicherte Inhalte behalten ihren echten Typ: Wort, Grammatik, Satz, Ausdruck oder Hangeul.';
+
+  @override
+  String get studyLibraryFavoritesTab => 'Favoriten';
+
+  @override
+  String get studyLibrarySavedTab => 'Gespeichert';
+
+  @override
+  String get studyLibraryDueTab => 'Heute fällig';
+
+  @override
+  String get studyLibraryViewSelectorLabel => 'Ansicht der Lernsammlung wählen';
+
+  @override
+  String studyLibraryViewChoice(String view, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Einträge',
+      one: '1 Eintrag',
+    );
+    return '$view, $_temp0';
+  }
+
+  @override
+  String studyLibraryViewSelected(String view, int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count Einträge angezeigt',
+      one: '1 Eintrag angezeigt',
+    );
+    return '$view. $_temp0';
+  }
+
+  @override
+  String get studyLibraryFavoritesDescription =>
+      'Ein Herz ist ein unverbindlicher Favorit. Favoriten starten von allein keine Wiederholung.';
+
+  @override
+  String get studyLibrarySavedDescription =>
+      'Gespeicherte Wörter, Grammatik, Sätze, Ausdrücke und Hangeul behalten ihren eigenen Inhaltstyp.';
+
+  @override
+  String get studyLibraryDueDescription =>
+      'Hier erscheinen nur gespeicherte Wörter, die die aktuelle Wort-Wiederholung sicher unterstützt. Andere Inhalte bleiben gespeichert, bis eine passende Übungsform verfügbar ist.';
+
+  @override
+  String get studyLibraryFavoriteStatus => 'Favorit';
+
+  @override
+  String get studyLibrarySavedStatus => 'Gespeichert';
+
+  @override
+  String get studyLibraryDueStatus => 'Fällig';
+
+  @override
+  String get studyLibraryTypeWord => 'Wort';
+
+  @override
+  String get studyLibraryTypeGrammar => 'Grammatik';
+
+  @override
+  String get studyLibraryTypeSentence => 'Satz';
+
+  @override
+  String get studyLibraryTypeExpression => 'Ausdruck';
+
+  @override
+  String get studyLibraryTypeHangul => 'Hangeul';
+
+  @override
+  String get studyLibraryLoading => 'Deine Lernsammlung wird geladen …';
+
+  @override
+  String get studyLibraryLoadErrorTitle =>
+      'Die Lernsammlung konnte nicht geladen werden';
+
+  @override
+  String get studyLibraryLoadErrorBody =>
+      'Es wurde nichts verändert. Versuch noch einmal, deine lokalen Favoriten und gespeicherten Inhalte zu laden.';
+
+  @override
+  String get studyLibraryFavoritesEmptyTitle => 'Noch keine Favoriten';
+
+  @override
+  String get studyLibraryFavoritesEmptyBody =>
+      'Tippe bei unterstützten Inhalten auf ein Herz, um sie hier ohne zusätzliche Wiederholungen griffbereit zu halten.';
+
+  @override
+  String get studyLibrarySavedEmptyTitle => 'Noch nichts gespeichert';
+
+  @override
+  String get studyLibrarySavedEmptyBody =>
+      'Lesezeichen, deine Wortpakete und unterstützte Inhalte aus deinem Buch erscheinen hier mit ihrem echten Inhaltstyp.';
+
+  @override
+  String get studyLibraryDueEmptyTitle => 'Für heute ist alles erledigt';
+
+  @override
+  String get studyLibraryDueEmptyBody =>
+      'Keine unterstützten gespeicherten Wörter sind fällig. Grammatik, Sätze, Ausdrücke und Hangeul bleiben sicher gespeichert, ohne als Wörter ausgegeben zu werden.';
+
+  @override
+  String get studyLibraryUnresolvedTitle => 'Quellinhalt nicht verfügbar';
+
+  @override
+  String studyLibraryUnresolvedBody(String id) {
+    return 'Dieser Favorit bleibt erhalten, aber sein ursprünglicher Inhalt ($id) kann derzeit nicht angezeigt werden.';
+  }
+
+  @override
+  String get studyLibraryBookmarkUnavailableTitle =>
+      'Einige gespeicherte Lesezeichen sind nicht verfügbar';
+
+  @override
+  String get studyLibraryBookmarkCorruptBody =>
+      'Die Lesezeichendaten konnten nicht gelesen werden und blieben unverändert. Änderungen an Lesezeichen sind gesperrt; Favoriten und andere lokale Quellen werden weiterhin angezeigt.';
+
+  @override
+  String get studyLibraryBookmarkFutureBody =>
+      'Diese Lesezeichen wurden von einer neueren App-Version geschrieben und blieben unverändert. Änderungen an Lesezeichen sind gesperrt; Favoriten und andere lokale Quellen werden weiterhin angezeigt.';
+
+  @override
+  String get studyLibrarySaveBookmark => 'Lesezeichen speichern';
+
+  @override
+  String get studyLibraryRemoveBookmark => 'Lesezeichen entfernen';
+
+  @override
+  String studyLibrarySaveBookmarkFor(String title) {
+    return 'Lesezeichen für $title speichern';
+  }
+
+  @override
+  String studyLibraryRemoveBookmarkFor(String title) {
+    return 'Nur das Lesezeichen für $title entfernen';
+  }
+
+  @override
+  String get studyLibraryBookmarkSavedStatus =>
+      'Lesezeichen gespeichert. Dein Herz und alle Quellsammlungen bleiben unverändert.';
+
+  @override
+  String get studyLibraryBookmarkRemovedStatus =>
+      'Lesezeichen entfernt. Dein Herz, Bücherregal, deine Wortpakete und der Wiederholungsverlauf bleiben unverändert.';
+
+  @override
+  String get studyLibraryBookmarkWriteBlocked =>
+      'Solange die Lesezeichendaten nicht verfügbar sind, können Lesezeichen nicht geändert werden. Nichts wurde überschrieben.';
+
+  @override
+  String get studyLibraryBookmarkWriteError =>
+      'Das Lesezeichen konnte nicht geändert werden. Deine vorhandenen Lerndaten wurden nicht verändert.';
+
+  @override
+  String get studyLibraryStartWordReview => 'Heutige Wort-Wiederholung öffnen';
+
+  @override
+  String get studyLibraryReviewScopeNote =>
+      'Dadurch öffnet sich der bestehende Wort-Wiederholungsstapel. Gespeicherte Grammatik, Sätze, Ausdrücke und Hangeul werden nicht als Wörter ausgegeben.';
+
+  @override
+  String get todayGuideTitle => 'Hangul-Sori-Start-Anleitung';
+
+  @override
+  String get todayGuideDescription =>
+      'Die Anleitungsthemen sind passend zu deinem Lernziel sortiert, damit du mit dem Wichtigsten beginnen kannst.';
+
+  @override
+  String todayGuideProgress(int completed, int total) {
+    return '$completed von $total Themen abgeschlossen';
+  }
+
+  @override
+  String get todayGuideOpenHub => 'Vollständige App-Anleitung öffnen';
+
+  @override
+  String get todayGuideDismiss => 'Start-Anleitung schließen';
+
+  @override
+  String get todayGuideDismissedStatus =>
+      'Start-Anleitung geschlossen. Als Nächstes kommt dein heutiges Lernen.';
+
+  @override
+  String get homeActionLabel => 'Zur Startseite';
+
+  @override
+  String get homeActionConfirmTitle => 'Runde verlassen?';
+
+  @override
+  String get homeActionConfirmBody =>
+      'Dein Fortschritt in dieser Runde geht verloren, wenn du jetzt zur Startseite gehst.';
+
+  @override
+  String get homeActionConfirmLeave => 'Zur Startseite';
+
+  @override
+  String get homeActionConfirmStay => 'Weiterspielen';
 }

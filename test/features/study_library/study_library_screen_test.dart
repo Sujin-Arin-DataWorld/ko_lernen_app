@@ -1,0 +1,513 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:ko_lernen_app/features/study_library/study_library.dart';
+import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/screens/study_library_screen.dart';
+import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/button.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
+
+void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  testWidgets('keeps favorites, saved types, and due words separate', (
+    tester,
+  ) async {
+    final repository = _libraryRepository();
+    final bookmarkStorage = _MemoryBookmarkStorage();
+    await tester.pumpWidget(
+      _app(
+        StudyLibraryScreen(
+          repository: repository,
+          bookmarkStore: bookmarkStorage.store,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('좋다'), findsOneWidget);
+    expect(find.text('학교'), findsNothing);
+    await tester.scrollUntilVisible(find.text('-고 있다'), 240);
+    expect(find.text('-고 있다'), findsOneWidget);
+
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('study-library-view-saved')),
+      -240,
+    );
+    await tester.tap(find.byKey(const ValueKey('study-library-view-saved')));
+    await tester.pump();
+
+    for (final entry in const <String, String>{
+      '학교': 'Word',
+      '-아/어야 하다': 'Grammar',
+      '학교에 가요.': 'Sentence',
+      '잘 부탁드립니다': 'Expression',
+      'ㅏ': 'Hangeul',
+    }.entries) {
+      await tester.scrollUntilVisible(find.text(entry.key), 240);
+      expect(find.text(entry.key), findsOneWidget);
+      expect(find.text(entry.value), findsWidgets);
+    }
+
+    await tester.scrollUntilVisible(
+      find.byKey(const ValueKey('study-library-view-due')),
+      -240,
+    );
+    await tester.tap(find.byKey(const ValueKey('study-library-view-due')));
+    await tester.pump();
+
+    await tester.scrollUntilVisible(find.text('학교'), 240);
+    expect(find.text('학교'), findsOneWidget);
+    expect(find.text('좋다'), findsNothing);
+    expect(find.text('-아/어야 하다'), findsNothing);
+    expect(find.text('학교에 가요.'), findsNothing);
+  });
+
+  testWidgets('opens only the existing supported word review from Due', (
+    tester,
+  ) async {
+    final bookmarkStorage = _MemoryBookmarkStorage();
+    await tester.pumpWidget(
+      _app(
+        StudyLibraryScreen(
+          repository: _libraryRepository(),
+          bookmarkStore: bookmarkStorage.store,
+        ),
+        routes: {
+          '/review': (_) => const Scaffold(
+            body: SizedBox(key: ValueKey('existing-word-review')),
+          ),
+        },
+      ),
+    );
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const ValueKey('study-library-view-due')));
+    await tester.pump();
+
+    final action = find.byKey(
+      const ValueKey('study-library-start-word-review'),
+    );
+    await tester.scrollUntilVisible(action, 240);
+    expect(tester.getSize(action).height, greaterThanOrEqualTo(48));
+    await tester.tap(action);
+    await tester.pumpAndSettle();
+
+    expect(find.byKey(const ValueKey('existing-word-review')), findsOneWidget);
+  });
+
+  testWidgets(
+    'saved type filters keep grammar and sentences out of the word deck',
+    (tester) async {
+      final bookmarkStorage = _MemoryBookmarkStorage();
+      await tester.pumpWidget(
+        _app(
+          StudyLibraryScreen(
+            repository: _libraryRepository(),
+            bookmarkStore: bookmarkStorage.store,
+          ),
+          routes: <String, WidgetBuilder>{
+            '/grammar': (_) => const Scaffold(
+              body: SizedBox(key: ValueKey('grammar-practice-route')),
+            ),
+            '/smalltalk': (_) => const Scaffold(
+              body: SizedBox(key: ValueKey('sentence-practice-route')),
+            ),
+          },
+        ),
+      );
+      await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const ValueKey('study-library-view-saved')));
+      await tester.pump();
+
+      final grammarFilter = find.byKey(
+        const ValueKey('study-library-type-grammar'),
+      );
+      await tester.scrollUntilVisible(grammarFilter, 200);
+      await tester.tap(grammarFilter);
+      await tester.pump();
+
+      expect(find.text('-아/어야 하다'), findsOneWidget);
+      expect(find.text('학교'), findsNothing);
+      expect(find.text('학교에 가요.'), findsNothing);
+      expect(
+        find.byKey(const ValueKey('study-library-start-word-review')),
+        findsNothing,
+      );
+      final grammarAction = find.byKey(
+        const ValueKey('study-library-open-grammar-practice'),
+      );
+      await tester.scrollUntilVisible(grammarAction, 200);
+      expect(tester.getSize(grammarAction).height, greaterThanOrEqualTo(48));
+      await tester.tap(grammarAction);
+      await tester.pumpAndSettle();
+      expect(
+        find.byKey(const ValueKey('grammar-practice-route')),
+        findsOneWidget,
+      );
+
+      Navigator.of(
+        tester.element(find.byKey(const ValueKey('grammar-practice-route'))),
+      ).pop();
+      await tester.pumpAndSettle();
+      final sentenceFilter = find.byKey(
+        const ValueKey('study-library-type-sentence'),
+      );
+      await tester.scrollUntilVisible(sentenceFilter, 200);
+      await tester.tap(sentenceFilter);
+      await tester.pump();
+
+      expect(find.text('학교에 가요.'), findsOneWidget);
+      expect(find.text('-아/어야 하다'), findsNothing);
+      final sentenceAction = find.byKey(
+        const ValueKey('study-library-open-sentence-practice'),
+      );
+      await tester.scrollUntilVisible(sentenceAction, 200);
+      await tester.tap(sentenceAction);
+      await tester.pumpAndSettle();
+      expect(
+        find.byKey(const ValueKey('sentence-practice-route')),
+        findsOneWidget,
+      );
+    },
+  );
+
+  testWidgets('reports quarantined bookmarks without hiding other sources', (
+    tester,
+  ) async {
+    final grammar = StudyItemKey(
+      type: StudyLibraryItemType.grammar,
+      id: 'grammar-liked',
+    );
+    final bookmarkStorage = _MemoryBookmarkStorage(
+      raw: '{"version":999,"items":[]}',
+    );
+    final repository = StudyLibraryRepository(
+      likedReader: _LikedReader([
+        _record(
+          grammar,
+          StudyLibraryOrigin.liked,
+          'grammar|grammar-liked',
+          primary: '-(으)ㄴ 적이 있다',
+        ),
+      ]),
+      customPackReader: const _CustomReader([]),
+      bookshelfReader: const _BookshelfReader([]),
+      srsReader: const _SrsReader([]),
+      bookmarkReader: ProductionStudyLibraryBookmarkReader(
+        bookmarkStorage.store,
+      ),
+    );
+
+    await tester.pumpWidget(
+      _app(
+        StudyLibraryScreen(
+          repository: repository,
+          bookmarkStore: bookmarkStorage.store,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Some saved bookmarks are unavailable'), findsOneWidget);
+    expect(find.textContaining('newer app version'), findsOneWidget);
+    await tester.scrollUntilVisible(find.text('-(으)ㄴ 적이 있다'), 240);
+    expect(find.text('-(으)ㄴ 적이 있다'), findsOneWidget);
+    final action = find.byKey(
+      ValueKey('study-library-bookmark-action-${grammar.encoded}'),
+    );
+    await tester.scrollUntilVisible(action, 160);
+    expect(tester.widget<SoriButton>(action).onTap, isNull);
+  });
+
+  testWidgets(
+    'typed save and remove preserve the heart and every source repository',
+    (tester) async {
+      final key = StudyItemKey(
+        type: StudyLibraryItemType.grammar,
+        id: 'liked-grammar',
+      );
+      final likedRecords = <StudyLibrarySourceRecord>[
+        _record(
+          key,
+          StudyLibraryOrigin.liked,
+          'grammar|liked-grammar',
+          primary: '-고 싶다',
+        ),
+      ];
+      final bookshelfRecords = <StudyLibrarySourceRecord>[
+        _record(
+          key,
+          StudyLibraryOrigin.bookshelf,
+          'page-1:grammar:0',
+          primary: '-고 싶다',
+          secondary: 'want to do',
+        ),
+      ];
+      final bookmarkStorage = _MemoryBookmarkStorage();
+      final repository = StudyLibraryRepository(
+        likedReader: _LikedReader(likedRecords),
+        customPackReader: const _CustomReader([]),
+        bookshelfReader: _BookshelfReader(bookshelfRecords),
+        srsReader: const _SrsReader([]),
+        bookmarkReader: ProductionStudyLibraryBookmarkReader(
+          bookmarkStorage.store,
+        ),
+      );
+
+      await tester.pumpWidget(
+        _app(
+          StudyLibraryScreen(
+            repository: repository,
+            bookmarkStore: bookmarkStorage.store,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final action = find.byKey(
+        ValueKey('study-library-bookmark-action-${key.encoded}'),
+      );
+      await tester.scrollUntilVisible(action, 200);
+      await tester.drag(find.byType(ListView), const Offset(0, -160));
+      await tester.pump();
+      expect(find.text('Save bookmark'), findsOneWidget);
+      await tester.tap(action);
+      await tester.pumpAndSettle();
+
+      expect(bookmarkStorage.store.read().bookmarks.single.key, key);
+      expect(bookmarkStorage.writeCount, 1);
+      await tester.scrollUntilVisible(action, 160);
+      await tester.drag(find.byType(ListView), const Offset(0, -160));
+      await tester.pump();
+      expect(find.text('Remove bookmark'), findsOneWidget);
+      expect(find.text('Favorite'), findsOneWidget);
+
+      await tester.tap(action);
+      await tester.pumpAndSettle();
+
+      expect(bookmarkStorage.store.read().bookmarks, isEmpty);
+      expect(bookmarkStorage.writeCount, 2);
+      expect(
+        likedRecords.single.sources.single.origin,
+        StudyLibraryOrigin.liked,
+      );
+      expect(
+        bookshelfRecords.single.sources.single.origin,
+        StudyLibraryOrigin.bookshelf,
+      );
+      final after = await repository.load();
+      final entry = after.entries.single;
+      expect(entry.isLiked, isTrue);
+      expect(entry.isSaved, isTrue);
+      expect(entry.origins, contains(StudyLibraryOrigin.bookshelf));
+      expect(entry.origins, isNot(contains(StudyLibraryOrigin.typedBookmark)));
+    },
+  );
+
+  testWidgets('German UI reflows at 320x640 and 200 percent text', (
+    tester,
+  ) async {
+    tester.view.devicePixelRatio = 1;
+    tester.view.physicalSize = const Size(320, 640);
+    addTearDown(() {
+      tester.view.resetDevicePixelRatio();
+      tester.view.resetPhysicalSize();
+    });
+
+    final bookmarkStorage = _MemoryBookmarkStorage();
+    await tester.pumpWidget(
+      _app(
+        StudyLibraryScreen(
+          repository: _libraryRepository(),
+          bookmarkStore: bookmarkStorage.store,
+        ),
+        locale: const Locale('de'),
+        textScale: 2,
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(tester.takeException(), isNull);
+    for (final view in StudyLibraryView.values) {
+      final control = find.byKey(ValueKey('study-library-view-${view.name}'));
+      await tester.scrollUntilVisible(control, 160);
+      expect(control, findsOneWidget);
+      expect(tester.getSize(control).height, greaterThanOrEqualTo(48));
+    }
+    tester
+        .widget<SoriChip>(
+          find.byKey(const ValueKey('study-library-view-saved')),
+        )
+        .onTap!();
+    await tester.pump();
+    for (final type in StudyLibraryItemType.values) {
+      final control = find.byKey(ValueKey('study-library-type-${type.name}'));
+      await tester.scrollUntilVisible(control, 160);
+      expect(tester.getSize(control).height, greaterThanOrEqualTo(48));
+    }
+    expect(tester.takeException(), isNull);
+  });
+}
+
+Widget _app(
+  Widget home, {
+  Locale locale = const Locale('en'),
+  double textScale = 1,
+  Map<String, WidgetBuilder> routes = const <String, WidgetBuilder>{},
+}) => MaterialApp(
+  theme: AppTheme.light,
+  locale: locale,
+  supportedLocales: AppL10n.supportedLocales,
+  localizationsDelegates: AppL10n.localizationsDelegates,
+  routes: routes,
+  builder: (context, child) => MediaQuery(
+    data: MediaQuery.of(
+      context,
+    ).copyWith(textScaler: TextScaler.linear(textScale)),
+    child: child ?? const SizedBox.shrink(),
+  ),
+  home: home,
+);
+
+StudyLibraryRepository _libraryRepository() {
+  final likedGrammar = StudyItemKey(
+    type: StudyLibraryItemType.grammar,
+    id: 'liked-progressive',
+  );
+  final heartOnlyWord = StudyItemKey(type: StudyLibraryItemType.word, id: '좋다');
+  final savedWord = StudyItemKey(type: StudyLibraryItemType.word, id: '학교');
+  return StudyLibraryRepository(
+    likedReader: _LikedReader([
+      _record(
+        likedGrammar,
+        StudyLibraryOrigin.liked,
+        'grammar|liked-progressive',
+        primary: '-고 있다',
+      ),
+      _record(
+        heartOnlyWord,
+        StudyLibraryOrigin.liked,
+        'vocab|좋다',
+        primary: '좋다',
+      ),
+    ]),
+    customPackReader: const _CustomReader([]),
+    bookshelfReader: const _BookshelfReader([]),
+    srsReader: _SrsReader([
+      StudyLibrarySrsRecord(key: savedWord, reviewCount: 3, isDue: true),
+      StudyLibrarySrsRecord(key: heartOnlyWord, reviewCount: 4, isDue: true),
+    ]),
+    bookmarkReader: _BookmarkReader([
+      _record(
+        savedWord,
+        StudyLibraryOrigin.typedBookmark,
+        'unit-word',
+        primary: '학교',
+        secondary: 'school',
+      ),
+      _record(
+        StudyItemKey(type: StudyLibraryItemType.grammar, id: 'must-grammar'),
+        StudyLibraryOrigin.typedBookmark,
+        'unit-grammar',
+        primary: '-아/어야 하다',
+      ),
+      _record(
+        StudyItemKey(
+          type: StudyLibraryItemType.sentence,
+          id: 'school-sentence',
+        ),
+        StudyLibraryOrigin.typedBookmark,
+        'unit-sentence',
+        primary: '학교에 가요.',
+      ),
+      _record(
+        StudyItemKey(
+          type: StudyLibraryItemType.expression,
+          id: 'greeting-expression',
+        ),
+        StudyLibraryOrigin.typedBookmark,
+        'unit-expression',
+        primary: '잘 부탁드립니다',
+      ),
+      _record(
+        StudyItemKey(type: StudyLibraryItemType.hangul, id: 'vowel-a'),
+        StudyLibraryOrigin.typedBookmark,
+        'unit-hangul',
+        primary: 'ㅏ',
+      ),
+    ]),
+  );
+}
+
+StudyLibrarySourceRecord _record(
+  StudyItemKey key,
+  StudyLibraryOrigin origin,
+  String sourceId, {
+  String? primary,
+  String? secondary,
+}) => StudyLibrarySourceRecord(
+  key: key,
+  primaryText: primary,
+  secondaryText: secondary,
+  sources: [StudyLibrarySource(origin: origin, sourceId: sourceId)],
+);
+
+final class _LikedReader implements StudyLibraryLikedReader {
+  const _LikedReader(this.records);
+  final List<StudyLibrarySourceRecord> records;
+
+  @override
+  Future<List<StudyLibrarySourceRecord>> readLiked() async => records;
+}
+
+final class _CustomReader implements StudyLibraryCustomPackReader {
+  const _CustomReader(this.records);
+  final List<StudyLibrarySourceRecord> records;
+
+  @override
+  Future<List<StudyLibrarySourceRecord>> readCustomPackItems() async => records;
+}
+
+final class _BookshelfReader implements StudyLibraryBookshelfReader {
+  const _BookshelfReader(this.records);
+  final List<StudyLibrarySourceRecord> records;
+
+  @override
+  Future<List<StudyLibrarySourceRecord>> readBookshelfItems() async => records;
+}
+
+final class _SrsReader implements StudyLibrarySrsReader {
+  const _SrsReader(this.records);
+  final List<StudyLibrarySrsRecord> records;
+
+  @override
+  Future<List<StudyLibrarySrsRecord>> readSrsRecords() async => records;
+}
+
+final class _BookmarkReader implements StudyLibraryBookmarkReader {
+  const _BookmarkReader(this.records);
+
+  final List<StudyLibrarySourceRecord> records;
+
+  @override
+  Future<StudyLibraryBookmarkSourceSnapshot> readBookmarks() async =>
+      StudyLibraryBookmarkSourceSnapshot(
+        records: records,
+        health: StudyLibraryBookmarkHealth.healthy,
+      );
+}
+
+final class _MemoryBookmarkStorage {
+  _MemoryBookmarkStorage({this.raw = ''});
+
+  String raw;
+  int writeCount = 0;
+
+  late final TypedStudyBookmarkStore store = TypedStudyBookmarkStore(
+    readRaw: () => raw,
+    writeRaw: (value) async {
+      raw = value;
+      writeCount++;
+    },
+  );
+}
