@@ -318,9 +318,14 @@ class TtsPlaybackEngine {
         ).then<_TtsResolution>(
           (audio) => _TtsResolution(audio: audio),
           onError: (Object error, _) {
-            if (error is TtsSynthesisBlocked) {
-              errorReporter?.call(error.message);
-            }
+            // TtsSynthesisBlocked 는 사유 문자열이 이미 사람이 읽을 말이다.
+            // 그 외 예외(finding 1b — 예전엔 여기서 조용히 버려졌다)도
+            // errorReporter 로 보내야 lastError/unavailable 이 갱신된다.
+            errorReporter?.call(
+              error is TtsSynthesisBlocked
+                  ? error.message
+                  : 'TTS resolution failed: $error',
+            );
             return const _TtsResolution(audio: null);
           },
         );
@@ -502,7 +507,16 @@ class TtsService {
     resolveAudio: _resolveAudio,
     platform: const _ServicePlaybackPlatform(),
     completionTimeout: _playTimeout,
-    errorReporter: (message) => lastError = message,
+    errorReporter: (message) {
+      lastError = message;
+      // _resolveAudio 의 각 티어가 이미 구체적 사유(quota/offline/...)로
+      // unavailable 을 채웠다면 여기서 일반 사유로 덮어쓰지 않는다 —
+      // 아직 비어 있을 때만(finding 1b 가 다루는, 어떤 티어도 사유를
+      // 남기지 않은 새 예외 종류) 최소한 배너가 뜨도록 채운다.
+      if (unavailable.value == null) {
+        _reportUnavailable(TtsUnavailableReason.offline);
+      }
+    },
   );
 
   /// 웹 전용 메모리 캐시 — 파일시스템이 없어 1단을 여기에 둔다.
@@ -757,6 +771,10 @@ class TtsService {
         }
       } on TimeoutException {
         // 디스크가 막혔다 — Storage 로 넘어간다.
+      } catch (_) {
+        // FileSystemException 등 그 외 I/O 실패(권한·손상 매체 등) —
+        // 여기서 던지면 _resolveAudio 전체가 throw 해 Storage/CF 폴백을
+        // 건너뛴다(finding 1a). Storage 로 넘어간다.
       }
     } else {
       final cached = _memoryCache[key.localFileName];
