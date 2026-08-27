@@ -455,6 +455,8 @@ class Storage {
     _courseMasteryCache = null;
     _wrongCountCache = null;
     _learningWritesLockReason = null;
+    _scenarioStarsCache = null;
+    _completedScenariosCache = null;
   }
 
   /// 이 클래스를 거치지 않고 `SharedPreferences` 가 직접 수정된 뒤 캐시를 버린다.
@@ -466,6 +468,8 @@ class Storage {
     _invalidatePackCache();
     _courseMasteryCache = null;
     _wrongCountCache = null;
+    _scenarioStarsCache = null;
+    _completedScenariosCache = null;
   }
 
   // ───────── Generic helpers ─────────
@@ -2512,6 +2516,12 @@ class Storage {
           _readXpRewardLedger(strict: true) ??
           _XpRewardLedger(totalXp: _i('kl_xp'), claims: const {});
       if (current.claims.containsKey(id)) {
+        // §W2-Task4 fix round 1: 무조건 무효화 — 원장에는 이미 클레임이 있으므로
+        // completedScenarios(원장 머지)는 지금 당장 이 id 를 반영해야 한다.
+        // _mirrorListeningCompletion 이 (아래 try/catch 로) 로컬 리스트 쓰기
+        // 실패를 삼켜도, 캐시 자체를 지우면 다음 읽기가 원장에서 다시 머지해
+        // 자가치유한다 — 캐시 이전 코드의 동작을 복원한다.
+        _completedScenariosCache = null;
         await _mirrorListeningCompletion(id);
         return ListeningRewardClaimResult.alreadyClaimed;
       }
@@ -2526,6 +2536,9 @@ class Storage {
         claims: claims,
       );
       await _persistXpRewardLedger(updated);
+      // §W2-Task4 fix round 1: 위와 동일한 이유 — 원장 클레임이 막 저장됐으므로
+      // completedScenarios 캐시를 mirror 결과와 무관하게 무효화한다.
+      _completedScenariosCache = null;
       await _mirrorListeningCompletion(id);
       return ListeningRewardClaimResult.awarded;
     });
@@ -2637,37 +2650,66 @@ class Storage {
   static Future<void> setLastGyeLevel(int v) => _si('kl_gye_level', v);
 
   /// Sterne pro Szenario (0–3). Speichert nur Verbesserungen.
+  /// §W2-Task4: 빌드 경로(scenarios_list_screen.dart)에서 재호출되므로
+  /// in-memory 캐시 — 쓰기 시점(setScenarioStars)에만 무효화된다.
+  static Map<String, int>? _scenarioStarsCache;
+
   static Map<String, int> get scenarioStars {
-    final raw = _s('kl_scenario_stars');
-    if (raw.isEmpty) return {};
-    try {
-      final m = jsonDecode(raw) as Map<String, dynamic>;
-      return m.map((k, v) => MapEntry(k, (v as num).toInt()));
-    } catch (_) {
-      return {};
+    final cached = _scenarioStarsCache;
+    if (cached != null) {
+      return cached;
     }
+    final raw = _s('kl_scenario_stars');
+    Map<String, int> parsed;
+    if (raw.isEmpty) {
+      parsed = const {};
+    } else {
+      try {
+        final m = jsonDecode(raw) as Map<String, dynamic>;
+        parsed = m.map((k, v) => MapEntry(k, (v as num).toInt()));
+      } catch (_) {
+        parsed = const {};
+      }
+    }
+    final unmodifiable = Map<String, int>.unmodifiable(parsed);
+    _scenarioStarsCache = unmodifiable;
+    return unmodifiable;
   }
 
   static Future<void> setScenarioStars(String id, int stars) async {
-    final m = scenarioStars;
-    if ((m[id] ?? 0) < stars) {
-      m[id] = stars;
-      await _ss('kl_scenario_stars', jsonEncode(m));
+    final current = scenarioStars;
+    if ((current[id] ?? 0) < stars) {
+      final updated = Map<String, int>.of(current)..[id] = stars;
+      _scenarioStarsCache = Map<String, int>.unmodifiable(updated);
+      await _ss('kl_scenario_stars', jsonEncode(updated));
     }
   }
 
+  /// §W2-Task4: `completedScenarios` 는 로컬 리스트 + XP 보상 원장의 클레임
+  /// id 를 병합한다 — 원장 디코드(`_readXpRewardLedger`)가 실제 파싱 비용이라
+  /// 결과를 캐싱한다. `addCompletedScenario` 가 무효화한다. 원장 자체가
+  /// 다른 경로(예: 리스닝 보상 클레임)로 바뀌는 경우는 이 캐시 범위 밖이라
+  /// 다음 프로세스 시작 전까지 반영이 늦을 수 있다 — 기존에도 클레임은
+  /// `addCompletedScenario` 를 함께 호출하는 경로로만 완료 표시를 남겼다.
+  static List<String>? _completedScenariosCache;
+
   static List<String> get completedScenarios {
+    final cached = _completedScenariosCache;
+    if (cached != null) {
+      return cached;
+    }
     final completed = _l('kl_completed_scenarios');
     final claims = _readXpRewardLedger(strict: false)?.claims.keys;
-    if (claims == null) {
-      return completed;
-    }
-    for (final id in claims) {
-      if (!completed.contains(id)) {
-        completed.add(id);
+    if (claims != null) {
+      for (final id in claims) {
+        if (!completed.contains(id)) {
+          completed.add(id);
+        }
       }
     }
-    return completed;
+    final unmodifiable = List<String>.unmodifiable(completed);
+    _completedScenariosCache = unmodifiable;
+    return unmodifiable;
   }
 
   static Future<void> addCompletedScenario(String id) async {
@@ -2675,6 +2717,7 @@ class Storage {
     if (!list.contains(id)) {
       list.add(id);
       await _sl('kl_completed_scenarios', list);
+      _completedScenariosCache = null;
     }
   }
 

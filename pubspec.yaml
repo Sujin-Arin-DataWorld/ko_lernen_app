@@ -255,5 +255,9 @@ flutter_native_splash:
   android_gravity: center
   ios_content_mode: center
   android_12:
-    image: assets/icons/HanLogo.png
+    # native_splash_src/ 는 pubspec assets: 목록에 없는 하위 폴더 — 이 파일은
+    # flutter_native_splash:create 생성 입력일 뿐 Flutter 런타임은 로드하지
+    # 않는다(test/asset_orphan_guard_test.dart 참고). AAB 에 중복 번들되지
+    # 않도록 assets/icons/ 직속이 아닌 하위 폴더에 둔다.
+    image: assets/icons/native_splash_src/HanLogo_android12_safe.png
     color: "#FAF6EC"

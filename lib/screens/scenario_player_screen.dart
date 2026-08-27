@@ -374,6 +374,10 @@ class ScenarioPlayerPreviewFixture {
 
 class ScenarioPlayerScreen extends StatefulWidget {
   final String scenarioId;
+
+  /// §W2-Task7: 알고 있으면 `ScenarioLoader.findById` 가 이 레벨 샤드부터
+  /// 찾도록 힌트를 준다 — 없으면 전체 순회(정확성은 동일, 최적화만 없음).
+  final LearnerLevel? levelHint;
   final CoursePracticeContext? courseContext;
   final Future<Scenario?> Function(String scenarioId)? scenarioLoader;
   final ScenarioResultPersister? resultPersister;
@@ -385,6 +389,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
   const ScenarioPlayerScreen({
     super.key,
     required this.scenarioId,
+    this.levelHint,
     this.courseContext,
     this.scenarioLoader,
     this.resultPersister,
@@ -398,6 +403,7 @@ class ScenarioPlayerScreen extends StatefulWidget {
     required ScenarioPlayerPreviewFixture fixture,
     this.onExit,
   }) : scenarioId = fixture.scenario.id,
+       levelHint = null,
        courseContext = null,
        scenarioLoader = null,
        resultPersister = null,
@@ -644,10 +650,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
     await _loadScenario();
   }
 
-  Future<Scenario?> _loadScenarioFromCatalog(String scenarioId) async {
-    await ScenarioLoader.load();
-    return ScenarioLoader.byId(scenarioId);
-  }
+  Future<Scenario?> _loadScenarioFromCatalog(String scenarioId) =>
+      ScenarioLoader.findById(scenarioId, preferredLevel: widget.levelHint);
 
   // ─── Backdrop-Map ──────────────────────────────────────────────────────────
 

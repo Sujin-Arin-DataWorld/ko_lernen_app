@@ -31,7 +31,7 @@ class SoriStageCatalogScreen extends StatefulWidget {
 }
 
 class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
-  late Future<SoriStageProgressionSnapshot> _progress;
+  Future<SoriStageProgressionSnapshot>? _progress;
 
   Future<SoriStageProgressionSnapshot> _load() =>
       (widget.loadSnapshot ?? SoriStageProgressionService.load)();
@@ -39,7 +39,9 @@ class _SoriStageCatalogScreenState extends State<SoriStageCatalogScreen> {
   @override
   void initState() {
     super.initState();
-    _progress = _load();
+    if (widget.active) {
+      _progress = _load();
+    }
   }
 
   @override
@@ -318,6 +320,39 @@ class _ActivityGridCard extends StatelessWidget {
   }
 }
 
+/// §W2-Task5: `_cellAspectRatio` 는 그리드 엔트리 전체 타이틀·풋터를
+/// `TextPainter.layout()` 으로 실측한다 — 셀 폭·텍스트 스케일·로케일·문자열
+/// 목록이 그대로면 매 build() 마다 다시 잴 필요가 없다. 이 키가 같으면
+/// 이전 결과를 재사용한다.
+String cellAspectRatioCacheKey({
+  required double cellWidth,
+  required double textScale,
+  required String locale,
+  required Iterable<String> titles,
+  required Iterable<String> footerLabels,
+}) {
+  final buffer = StringBuffer()
+    ..write(cellWidth.toStringAsFixed(2))
+    ..write('|')
+    ..write(textScale.toStringAsFixed(3))
+    ..write('|')
+    ..write(locale)
+    ..write('|')
+    ..writeAll(titles, '')
+    ..write('|')
+    ..writeAll(footerLabels, '');
+  return buffer.toString();
+}
+
+// §정리#3: 이전엔 단일 엔트리(마지막 키 1개)였다 — Learn/Games 두 탭이 한
+// 셸 패스 안에서 서로 다른 키로 번갈아 rebuild 되면 서로를 매번 몰아내
+// 캐시가 무의미해졌다. 탭 개수만큼(여유 포함) 담을 수 있는 작은 맵으로
+// 바꾸고, 꽉 차면 가장 먼저 넣은(오래된) 항목부터 버린다(삽입 순서 = Map
+// 순회 순서라 별도 타임스탬프 없이 `keys.first` 로 충분). 동작(캐시 키
+// 계산·반환값)은 그대로다.
+const int _cellAspectRatioCacheCapacity = 4;
+final Map<String, double> _cellAspectRatioCache = <String, double>{};
+
 /// Grid ratio derived from the 4:3 image plus the measured localized title and
 /// status footer. Every string remains available while cards in a row keep the
 /// same height.
@@ -333,6 +368,18 @@ double _cellAspectRatio(
   final scaler = MediaQuery.textScalerOf(context);
   final direction = Directionality.of(context);
   final locale = Localizations.localeOf(context);
+  final textScale = scaler.scale(14) / 14;
+  final cacheKey = cellAspectRatioCacheKey(
+    cellWidth: cellWidth,
+    textScale: textScale,
+    locale: locale.toLanguageTag(),
+    titles: titles,
+    footerLabels: footerLabels,
+  );
+  final cached = _cellAspectRatioCache[cacheKey];
+  if (cached != null) {
+    return cached;
+  }
   final tt = SoriTextTheme.of(context);
   final titleStyle = tt.cardTitle;
   final footerStyle = tt.cardSubtitle;
@@ -364,7 +411,12 @@ double _cellAspectRatio(
       Spacing.xs +
       footer +
       layoutAllowance;
-  return cellWidth / height;
+  final ratio = cellWidth / height;
+  if (_cellAspectRatioCache.length >= _cellAspectRatioCacheCapacity) {
+    _cellAspectRatioCache.remove(_cellAspectRatioCache.keys.first);
+  }
+  _cellAspectRatioCache[cacheKey] = ratio;
+  return ratio;
 }
 
 double _maxMeasuredTextHeight({

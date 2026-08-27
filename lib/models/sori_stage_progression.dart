@@ -219,3 +219,24 @@ class SoriStageProgressionSnapshot {
     return List.unmodifiable(candidates.take(3));
   }
 }
+
+/// §W2-Task2 (검수#7): 리시트 "before" 캡처 중 `openActivity()` 직전에
+/// **동기로** 읽어야 하는 로컬 필드만 모은 값. `Storage`/
+/// `DecorationRewardService` 게터는 전부 동기(SharedPreferences 는
+/// `Storage.init()` 이후 인메모리)라 await 없이 즉시 구할 수 있다.
+typedef SoriStageLocalBeforeFields = ({
+  int xp,
+  int stamps,
+  int streakDays,
+  int pendingBojagiCount,
+  Map<String, int> gameBests,
+});
+
+/// 네트워크/로컬-비동기 계산이 필요한 "before" 필드(quests·hanok·gye
+/// 라운턴). `openActivity()` 와 **병행** 실행되고, 활동에서 돌아온 뒤에만
+/// await 된다 — 라우트 전환을 절대 막지 않는다.
+typedef SoriStageNetworkBeforeFields = ({
+  List<QuestProgress> quests,
+  PersonalHanokProjection hanok,
+  int gyeLanternCount,
+});

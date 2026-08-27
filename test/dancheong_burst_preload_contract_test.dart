@@ -11,35 +11,47 @@ import 'package:flutter_test/flutter_test.dart';
 // 가 사라졌다. 호출 **형태**를 문자열로 고정하면 이렇게 리팩터마다 깨지므로,
 // 실앱을 띄우는 지점을 형태와 무관하게 찾아 순서만 검증한다.
 void main() {
-  test('burst sheets finish preloading before the first app frame', () {
-    final source = File('lib/main.dart').readAsStringSync();
+  test(
+    'burst sheets finish preloading before the first app frame '
+    '(runner 이전 await 존재 계약 — 병렬화 리팩터에 안전)',
+    () {
+      final source = File('lib/main.dart').readAsStringSync();
 
-    final preload = source.indexOf('await DancheongBurst.preload();');
-    expect(
-      preload,
-      greaterThanOrEqualTo(0),
-      reason:
-          'lib/main.dart 가 DancheongBurst.preload() 를 await 해야 한다. '
-          'await 를 떼면 첫 축하가 절차적 폴백으로 떨어진다.',
-    );
+      final launch = RegExp(
+        r'(runApp|runner)\(\s*const\s+KoLernenApp\(\)\s*\)',
+      ).firstMatch(source);
+      expect(
+        launch,
+        isNotNull,
+        reason: 'lib/main.dart 에서 KoLernenApp 을 띄우는 지점을 찾지 못했다.',
+      );
+      final beforeLaunch = source.substring(0, launch!.start);
 
-    // 실앱(KoLernenApp)을 띄우는 지점 — runApp 직접 호출이든 runner 주입이든.
-    final launch = RegExp(
-      r'(runApp|runner)\(\s*const\s+KoLernenApp\(\)\s*\)',
-    ).firstMatch(source);
-    expect(
-      launch,
-      isNotNull,
-      reason: 'lib/main.dart 에서 KoLernenApp 을 띄우는 지점을 찾지 못했다.',
-    );
+      const call = 'DancheongBurst.preload()';
+      expect(
+        beforeLaunch.contains(call),
+        isTrue,
+        reason:
+            '$call 호출이 실앱 실행(runApp/runner) 이전에 있어야 한다. '
+            '없으면 첫 축하가 절차적 폴백으로 떨어진다.',
+      );
 
-    expect(
-      launch!.start,
-      greaterThan(preload),
-      reason: '프리로드 await 가 실앱 실행보다 뒤에 있으면 계약이 깨진다.',
-    );
+      final awaited = RegExp(
+        r'await\s+(?:Future\.wait(?:<[\s\S]*?>)?\(\s*\[[\s\S]*?' +
+            RegExp.escape(call) +
+            r'|' +
+            RegExp.escape(call) +
+            r')',
+      ).hasMatch(beforeLaunch);
+      expect(
+        awaited,
+        isTrue,
+        reason: '$call 는 await 되어야 한다(직접 또는 Future.wait 안에서).',
+      );
 
-    // UxPreviewApp 조기 반환 경로는 프리로드 앞에 있어도 된다(디버그 갤러리).
-    // 그 경로까지 순서를 강제하면 갤러리 기동이 불필요하게 느려진다.
-  });
+      // UxPreviewApp 조기 반환 경로는 프리로드 앞에 있어도 된다(디버그
+      // 갤러리). 그 경로까지 순서를 강제하면 갤러리 기동이 불필요하게
+      // 느려진다.
+    },
+  );
 }

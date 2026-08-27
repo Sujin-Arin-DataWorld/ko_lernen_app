@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import '../data/sori_activity_catalog.dart';
 import '../models/course_mastery.dart';
 import '../models/personal_hanok.dart';
@@ -151,18 +153,34 @@ abstract final class SoriStageProgressionService {
     'custom_typing': Storage.gameBest('cp_typing'),
   });
 
-  static Future<int> _loadGyeLanternCount() async {
-    try {
-      final metas = await GyeService.myGyeMetas();
-      var total = 0;
-      for (final meta in metas) {
-        total += meta.weeklyPromiseSchemaVersion == 1
-            ? meta.weeklyPromiseProgress
-            : meta.weeklyGoalProgress;
-      }
-      return total;
-    } catch (_) {
-      return 0;
-    }
+  static Future<int> _loadGyeLanternCount() =>
+      GyeService.refreshGyeLanternCache();
+
+  /// §W2-Task2: 리시트 "before" 의 동기 로컬 절반. `capture()` 가
+  /// `openActivity()` 바로 앞의 같은 동기 실행 구간에서 호출한다.
+  static SoriStageLocalBeforeFields captureLocalBeforeFields() => (
+    xp: Storage.xp,
+    stamps: Storage.earnedStamps.length,
+    streakDays: Storage.streakDays,
+    pendingBojagiCount: DecorationRewardService.openableBoxCount(),
+    gameBests: _loadGameBests(),
+  );
+
+  /// §W2-Task2: 리시트 "before" 의 네트워크/비동기 절반. `openActivity()`
+  /// 와 병행 실행된다 — quests·hanok 은 로컬(메모이즈된 asset) 계산이라
+  /// 그대로 await 하고, gye 라운턴만 순수 네트워크라 캐시값을 즉시 쓰고
+  /// 새로고침은 기다리지 않는다(남는 노출 위험: 다른 기기에서 막 늘어난
+  /// 라운턴은 이번 영수증에 늦게 반영될 수 있다 — 실제 저장된 보상에는
+  /// 영향 없음, 영수증 표시만 한 박자 늦을 수 있다).
+  static Future<SoriStageNetworkBeforeFields> loadNetworkBeforeFields() async {
+    final hanokFuture = HanokStructureProjectionService.loadCurrent();
+    final questsFuture = QuestTracker.computeAll();
+    final gyeLanternBefore = GyeService.cachedGyeLanternCount;
+    unawaited(GyeService.refreshGyeLanternCache());
+    return (
+      quests: await questsFuture,
+      hanok: await hanokFuture,
+      gyeLanternCount: gyeLanternBefore,
+    );
   }
 }

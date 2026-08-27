@@ -671,6 +671,31 @@ class GyeService {
     );
   }
 
+  /// §W2-Task2: gye 라운턴 합계의 최근값 — 리시트 "before" 캡처가 매번
+  /// Firestore 왕복을 기다리지 않도록 하는 캐시. 성공한 새로고침에서만
+  /// 갱신되고, 실패해도 마지막 값을 유지한다(fail-open).
+  static int _cachedGyeLanternCount = 0;
+
+  static int get cachedGyeLanternCount => _cachedGyeLanternCount;
+
+  /// [cachedGyeLanternCount] 를 Firestore 최신값으로 갱신한다. await 없이
+  /// (`unawaited`) 호출해도 안전 — 실패는 조용히 삼키고 이전 값을 지킨다.
+  static Future<int> refreshGyeLanternCache() async {
+    try {
+      final metas = await myGyeMetas();
+      var total = 0;
+      for (final meta in metas) {
+        total += meta.weeklyPromiseSchemaVersion == 1
+            ? meta.weeklyPromiseProgress
+            : meta.weeklyGoalProgress;
+      }
+      _cachedGyeLanternCount = total;
+      return total;
+    } catch (_) {
+      return _cachedGyeLanternCount;
+    }
+  }
+
   /// 내가 속한 계 메타 목록 (입장 후 다시 들어가기용).
   static Future<List<GyeMeta>> myGyeMetas() async {
     final uid = AuthService.current?.uid;
