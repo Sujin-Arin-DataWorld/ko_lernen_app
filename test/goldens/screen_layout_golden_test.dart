@@ -127,6 +127,18 @@ void main() {
 
             await tester.pumpWidget(_wrap(screen.value()));
             await tester.pump();
+            if (screen.key == 'vocab_packs') {
+              await tester.runAsync(() async {
+                final context = tester.element(find.byType(VocabPacksScreen));
+                await precacheImage(
+                  const AssetImage(
+                    'assets/illustrations/hanok/study_classroom.png',
+                  ),
+                  context,
+                );
+              });
+              await tester.pump();
+            }
             if (screen.key == 'sori_today') {
               await tester.runAsync(() async {
                 final context = tester.element(
