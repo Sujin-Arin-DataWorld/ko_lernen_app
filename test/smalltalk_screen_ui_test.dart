@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/learner_level.dart';
 import 'package:ko_lernen_app/models/smalltalk.dart';
 import 'package:ko_lernen_app/screens/smalltalk_screen.dart';
 import 'package:ko_lernen_app/services/smalltalk_loader.dart';
@@ -182,25 +183,12 @@ void main() {
       );
       await _pumpUntilVisible(tester, find.byType(SoriContentFeed));
 
-      final levelChips = find.byWidgetPredicate(
-        (widget) => widget is SoriChip && widget.onTap != null,
-      );
-      for (final element in levelChips.evaluate()) {
-        expect(
-          tester
-              .getSize(
-                find.byElementPredicate((candidate) => candidate == element),
-              )
-              .height,
-          greaterThanOrEqualTo(48),
-        );
-      }
-
-      // SoriLevelFilterBar의 가로 ListView는 320dp/200%에서 C1을 뷰포트
-      // 밖에 둔다(가상화 — 검수#5 계약 값은 그대로, 확인 전 스크롤만 추가).
-      // 제스처 드래그 대신 ScrollPosition을 직접 옮긴다. maxScrollExtent는
-      // 아직 안 지어본 칩(특히 개수 자릿수가 큰 '전체' 칩)의 폭을 추정치로
-      // 잡아 실측과 어긋난다 — 한 번에 그 값으로 점프하면 과도하게 넘어가
+      // SoriLevelFilterBar의 가로 ListView는 320dp/200%에서 7칩(전체+레벨
+      // 6개)을 동시에 마운트하지 못한다(뷰포트 폭 기준 가상화 — 검수#5
+      // 계약 값은 그대로, 확인 방식만 스크롤 스윕으로 바꾼다). 제스처
+      // 드래그 대신 ScrollPosition을 직접 옮긴다 — maxScrollExtent는 아직
+      // 안 지어본 칩(특히 개수 자릿수가 큰 '전체' 칩)의 폭을 추정치로 잡아
+      // 실측과 어긋난다 — 한 번에 그 값으로 점프하면 과도하게 넘어가
       // 버리므로, 매 스텝 다시 읽은 현재 maxScrollExtent로 clamp하며
       // 조금씩 전진한다.
       final barScrollable = find.descendant(
@@ -208,6 +196,57 @@ void main() {
         matching: find.byType(Scrollable),
       );
       final scrollState = tester.state<ScrollableState>(barScrollable);
+
+      Iterable<Element> tappableChipElements() => find
+          .descendant(
+            of: find.byType(SoriLevelFilterBar),
+            matching: find.byWidgetPredicate(
+              (widget) => widget is SoriChip && widget.onTap != null,
+            ),
+          )
+          .evaluate();
+
+      // 스냅샷 한 번이 아니라 스크롤 전 구간을 훑으며 만난 칩을 라벨로
+      // 누적한다 — 그래야 마운트된 서브셋만 우연히 통과하는 vacuous sweep이
+      // 되지 않는다. 끝에서 개수 하한(7 = 전체 1 + 레벨 6, level_filter_bar
+      // .dart:95-98의 아이템 빌더와 smalltalk.json 실측 레벨별 카운트가
+      // 모두 0보다 커 7개 전부 탭 가능함을 확인함)을 단언해 칩이 빠져도
+      // 실패하게 만든다.
+      final seenLabels = <String>{};
+      void sweepHeights() {
+        for (final element in tappableChipElements()) {
+          final chip = element.widget as SoriChip;
+          expect(
+            tester
+                .getSize(
+                  find.byElementPredicate((candidate) => candidate == element),
+                )
+                .height,
+            greaterThanOrEqualTo(48),
+          );
+          expect(chip.minInteractiveHeight, 48);
+          seenLabels.add(chip.label);
+        }
+      }
+
+      scrollState.position.jumpTo(0);
+      await tester.pump();
+      sweepHeights();
+      for (
+        var i = 0;
+        i < 30 && scrollState.position.pixels < scrollState.position.maxScrollExtent;
+        i++
+      ) {
+        final sweepNext = (scrollState.position.pixels + 80).clamp(
+          0.0,
+          scrollState.position.maxScrollExtent,
+        );
+        scrollState.position.jumpTo(sweepNext);
+        await tester.pump();
+        sweepHeights();
+      }
+      expect(seenLabels, hasLength(LearnerLevel.values.length + 1));
+
       final c1Level = find.byWidgetPredicate(
         (widget) => widget is SoriChip && widget.label.startsWith('C1 ·'),
       );
