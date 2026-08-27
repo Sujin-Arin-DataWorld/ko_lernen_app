@@ -7,6 +7,7 @@ import 'package:ko_lernen_app/main.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/first_run_coordinator.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_app_adapters.dart';
 import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_repository.dart';
+import 'package:ko_lernen_app/features/onboarding_v2/onboarding_journey_state.dart';
 import 'package:ko_lernen_app/screens/app_shell.dart';
 import 'package:ko_lernen_app/screens/consent_screen.dart';
 import 'package:ko_lernen_app/screens/intro_gate_screen.dart';
@@ -17,6 +18,24 @@ import 'package:ko_lernen_app/screens/onboarding_v2/onboarding_v2_journey_screen
 import 'package:ko_lernen_app/screens/splash_screen.dart';
 import 'package:ko_lernen_app/services/data_migration_service.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
+import 'package:ko_lernen_app/widgets/sori/tiger_video.dart';
+
+final class _RecordingJourneyEventSink implements OnboardingJourneyEventSink {
+  final List<OnboardingCompanionPreviewFailure> previewFailures = [];
+
+  @override
+  bool get canRecordOnboardingStarted => false;
+
+  @override
+  Future<void> recordOnboardingStarted() async {}
+
+  @override
+  Future<void> recordCompanionPreviewFailure(
+    OnboardingCompanionPreviewFailure failure,
+  ) async {
+    previewFailures.add(failure);
+  }
+}
 
 /// 실기기·에뮬레이터 전용 통합 테스트.
 ///
@@ -49,14 +68,23 @@ void main() {
     Storage.resetForTesting();
     DataMigrationService.resetForTesting();
     Storage.unlockLearningWrites();
+    TigerStageVideo.videoReady = true;
     SharedPreferences.setMockInitialValues({});
     await Storage.init();
   });
 
-  FirstRunCoordinator fullV2Coordinator() => FirstRunCoordinator(
+  tearDown(() {
+    TigerStageVideo.videoReady = false;
+  });
+
+  FirstRunCoordinator fullV2Coordinator({
+    OnboardingJourneyEventSink journeyEventSink =
+        const NoopOnboardingJourneyEventSink(),
+  }) => FirstRunCoordinator(
     repository: SharedPreferencesOnboardingJourneyRepository(),
     legacyStateReader: const StorageLegacyOnboardingStateReader(),
     commitGateway: StorageOnboardingCommitGateway(),
+    journeyEventSink: journeyEventSink,
   );
 
   Future<void> launch(
@@ -106,7 +134,8 @@ void main() {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({'kl_consent_accepted': true});
     await Storage.init();
-    final coordinator = fullV2Coordinator();
+    final journeyEvents = _RecordingJourneyEventSink();
+    final coordinator = fullV2Coordinator(journeyEventSink: journeyEvents);
 
     await launch(
       tester,
@@ -145,26 +174,24 @@ void main() {
       tester,
       find.byType(OnboardingCompanionConfirmationScreen),
     );
+    await Future<void>.delayed(const Duration(seconds: 6));
+    await tester.pump();
+    expect(
+      find.byKey(const ValueKey('onboarding-v2-confirmation-start')),
+      findsOneWidget,
+    );
     await tapKey(tester, 'onboarding-v2-confirmation-start');
 
     await pumpUntilFound(tester, find.byType(IntroGateScreen));
-    final videoSkip = find.byKey(const ValueKey('intro-video-skip'));
-    final staticSkip = find.byKey(const ValueKey('intro-skip'));
-    for (var attempt = 0; attempt < 60; attempt++) {
-      if (videoSkip.evaluate().isNotEmpty || staticSkip.evaluate().isNotEmpty) {
-        break;
-      }
-      await tester.pump(const Duration(milliseconds: 100));
-    }
-    final skip = videoSkip.evaluate().isNotEmpty ? videoSkip : staticSkip;
-    expect(skip, findsOneWidget);
-    await tester.tap(skip);
+    await Future<void>.delayed(const Duration(seconds: 10));
+    await tester.pump();
     await pumpUntilFound(tester, find.byType(AppShell));
 
     expect(Storage.hasCompletedOnboarding, isTrue);
     expect(Storage.userLevelCode, 'a1');
     expect(Storage.motivation, 'travel');
     expect(Storage.explicitSelectedCompanion, 'tiger');
+    expect(journeyEvents.previewFailures, isEmpty);
   });
 
   testWidgets('cold start — 기존 사용자가 홈에 도달한다', (tester) async {
