@@ -965,11 +965,20 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
               accent: SoriColors.info,
             ),
             const SizedBox(width: Spacing.sm),
-            Text(
-              t.vocabPackLearnHint,
-              style: TextStyle(
-                fontSize: 12,
-                color: SoriSurfaces.of(context).textMuted,
+            // 힌트가 먼저 접힌다 — 칩(숫자)이 사용자에게 필요한 정보이고
+            // 힌트는 보조 텍스트다. 칩은 폭 제한 없이 항상 온전히 그려지고,
+            // 힌트만 Flexible 로 남는 폭에 맞춰 줄바꿈(320-360dp 오버플로 방지 —
+            // Task 2 가 라벨을 최대 ~20자로 늘려 표면화됨). ellipsis 는 쓰지
+            // 않는다 — 화면 콘텐츠를 말줄임으로 숨기지 않는다는 프로젝트
+            // 불변식(typography_guard_test.dart) 위반이라 줄바꿈으로 대신
+            // 전체를 보여준다.
+            Flexible(
+              child: Text(
+                t.vocabPackLearnHint,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: SoriSurfaces.of(context).textMuted,
+                ),
               ),
             ),
           ],
@@ -1082,9 +1091,17 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
           children: [
             SoriChip(label: '${_qIdx + 1} / $total', accent: SoriColors.info),
             const SizedBox(width: Spacing.sm),
-            Text(
-              _stage == _Stage.boss ? t.vocabPackBossHint : t.vocabPackQuizHint,
-              style: TextStyle(fontSize: 12, color: s.textMuted),
+            // Learn 카운터 행과 같은 규칙(task_a40bf2a2 — 선행 결함, 같은 파일·
+            // 같은 결함 클래스라 한 태스크로 묶어 처리): 칩은 폭 제한 없이
+            // 온전히, 힌트만 Flexible 로 좁은 화면에서 줄바꿈(ellipsis 로
+            // 콘텐츠를 숨기지 않는다는 typography_guard_test.dart 불변식 유지).
+            Flexible(
+              child: Text(
+                _stage == _Stage.boss
+                    ? t.vocabPackBossHint
+                    : t.vocabPackQuizHint,
+                style: TextStyle(fontSize: 12, color: s.textMuted),
+              ),
             ),
           ],
         ),

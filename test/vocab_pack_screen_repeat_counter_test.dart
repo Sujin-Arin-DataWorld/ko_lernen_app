@@ -109,4 +109,41 @@ void main() {
     expect(find.textContaining('· +1'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('같은 세션에서 재출제가 두 번 겹치면 카운터가 "+2" 까지 누적된다 (Task 2 리뷰 Minor)', (
+    tester,
+  ) async {
+    // 4단어 팩. 1번째 카드를 두 번 몰라서 재출제 이벤트를 두 번 겹치게
+    // 만든다: 1차 몰라요 후 나머지 3장을 다 맞히면 큐가 [1] 하나만 남은
+    // 채로 재서빙된다(1번째 재출제 이벤트, +1). 그 상태에서 다시 몰라요를
+    // 누르면 큐가 비었다가 즉시 같은 카드가 재삽입되어 재서빙된다(2번째
+    // 재출제 이벤트, +2) — maxMisses=3 이라 misses=2 는 아직 졸업이 아니다.
+    final pack = VocabPack(
+      id: 'a1_rc_2',
+      level: 'A1',
+      words: [_word(1), _word(2), _word(3), _word(4)],
+    );
+    final t = await _pump(tester, pack);
+
+    await _revealAndTapButton(tester, t.vocabPackDontKnow);
+    await _settle(tester);
+    await _revealAndTapButton(tester, t.vocabPackGotIt);
+    await _settle(tester);
+    await _revealAndTapButton(tester, t.vocabPackGotIt);
+    await _settle(tester);
+    await _revealAndTapButton(tester, t.vocabPackGotIt);
+    await _settle(tester);
+
+    expect(find.text('반복단어1'), findsOneWidget);
+    expect(find.textContaining('· +1'), findsOneWidget);
+
+    // 큐에 1번 카드 하나만 남은 상태에서 다시 "몰라요" → 즉시 같은 자리에
+    // 재삽입되어 다시 서빙된다(2번째 재출제 이벤트).
+    await _revealAndTapButton(tester, t.vocabPackDontKnow);
+    await _settle(tester);
+
+    expect(find.text('반복단어1'), findsOneWidget);
+    expect(find.textContaining('· +2'), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  });
 }
