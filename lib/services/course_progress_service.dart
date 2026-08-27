@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart' show visibleForTesting;
+
 import '../models/course_mastery.dart';
 import '../models/course_practice_context.dart';
 import '../models/curriculum.dart';
@@ -61,6 +63,24 @@ class CourseProgressService {
   final Future<CourseMasteryService> Function() _serviceLoader;
   Future<CourseMasteryService>? _serviceFuture;
   Future<void> _tail = Future<void>.value();
+
+  /// Test-only: drops the cached service and its serialization queue so the
+  /// next call rebuilds both from scratch in the caller's current Zone.
+  ///
+  /// `flutter_test` gives every `testWidgets` its own Zone. A `Future` chain
+  /// created while resolving/serializing in one test's Zone (here: `_tail`,
+  /// `_serviceFuture`) never delivers its continuation to a `.then()`/`await`
+  /// registered from a *different* test's Zone — every [CourseProgressService]
+  /// method funnels through this same `_tail` queue, so a second `testWidgets`
+  /// in the same file that touches [shared] after an earlier one already did
+  /// hangs forever with no thrown error. Bypasses the queue directly (no
+  /// `_serializedOperation` call) since a call through it would itself be
+  /// stuck behind the stale `_tail`. Never call from production code.
+  @visibleForTesting
+  void resetForTesting() {
+    _serviceFuture = null;
+    _tail = Future<void>.value();
+  }
 
   Future<CourseMasteryService> _service() =>
       _serviceFuture ??= _serviceLoader();

@@ -8,6 +8,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/app_error.dart';
@@ -77,6 +79,19 @@ void main() {
   testWidgets(
     'load failure stays in the player and retries the same scenario',
     (tester) async {
+      // _load()가 이제 항상 activeScenarioCheckpointContext(→
+      // CourseProgressService.shared, CurriculumCatalog.load())를 거친다
+      // (T8, 지시서 4.15) — 첫 시도는 실패하지만 재시도가 성공하면 그
+      // 시점부터는 이 경로를 탄다. 그 서비스의 직렬화 큐는 testWidgets
+      // 마다 새로 생기는 Zone 을 넘나들면 응답하지 않으므로 이 테스트
+      // 자신의 Zone 안에서 새로 시작하고, CurriculumCatalog.load()는
+      // ScenarioLoader.load()의 compute() 격리를 거치므로 runAsync로
+      // 감싸 미리 예열한다(scenario_mission_context_test.dart와 동일
+      // 패턴).
+      CourseProgressService.shared.resetForTesting();
+      await tester.runAsync(() async {
+        await CurriculumCatalog.load();
+      });
       for (final locale in const [Locale('de'), Locale('en')]) {
         var attempts = 0;
         final isGerman = locale.languageCode == 'de';

@@ -225,7 +225,7 @@ Future<CourseMissionDestination?> directDestinationForCourseLink(
 /// 절대 복제하지 않는다** — `recordScenarioCheckpoint` 내부의 activeCheckpoint
 /// 술어를 그대로 미러링해 "이 시나리오가 활성 유닛의 선언된 체크포인트 링크와
 /// 정확히 일치하는가"만 판정한다. 실제 courseEligible 부여는 여전히 그 서비스
-/// 내부에서만 일어난다(계약 동결: course_mastery_test.dart:398-425).
+/// 내부에서만 일어난다(계약 동결: course_mastery_test.dart:400-440).
 Future<CoursePracticeContext?> activeScenarioCheckpointContext(
   String scenarioId, {
   CurriculumCatalog? catalog,

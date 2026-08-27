@@ -167,12 +167,20 @@ void main() {
       addTearDown(Storage.resetForTesting);
       await AudioPolicy.instance.setChannelOn(SoundChannel.speech, false);
 
+      // CourseProgressService.shared 는 runAsync 존이 아니라 이 테스트 자신의
+      // Zone 안에서 사용해야 한다 — runAsync(실제 Zone) 안에서 그 서비스의
+      // 직렬화 큐를 생성한 뒤 밖(FakeAsync 존, 이 위젯의 리빌드 등)에서
+      // 다시 쓰면 응답이 오지 않는다(다른 테스트 파일들에서 재현·확인됨).
+      // CurriculumCatalog.load()만 runAsync로 예열해 compute() 격리 문제를
+      // 피하고, 실제 배치 호출은 밖에서 한다.
       await tester.runAsync(() async {
-        await CourseProgressService.shared.initializeForPlacement(
-          'a1',
-          syncBrowseLevel: false,
-        );
+        await CurriculumCatalog.load();
       });
+      CourseProgressService.shared.resetForTesting();
+      await CourseProgressService.shared.initializeForPlacement(
+        'a1',
+        syncBrowseLevel: false,
+      );
       await Storage.setBrowseLevelCode('a2');
 
       tester.view.physicalSize = const Size(400, 800);

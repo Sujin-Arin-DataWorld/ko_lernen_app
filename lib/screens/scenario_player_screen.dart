@@ -15,6 +15,7 @@ import '../models/personal_hanok.dart';
 import '../models/scenario.dart';
 import '../models/scenario_can_do_result.dart';
 import '../services/course_activity_reporter.dart';
+import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
 import '../services/hanok_stage_service.dart';
 import '../services/premium_service.dart';
@@ -420,6 +421,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
   Scenario? _scenario;
   CourseMissionStep? _missionStep;
   String? _missionTitle;
+  CoursePracticeContext? _effectiveCourseContext;
   List<ScenarioStage> _plan = const [];
   int _stage = 0;
   QuestAbandonTracker? _abandonTracker;
@@ -576,7 +578,9 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       _popAfterLoadExit();
       return;
     }
-    final courseContext = widget.courseContext;
+    final courseContext =
+        widget.courseContext ??
+        await activeScenarioCheckpointContext(widget.scenarioId);
     final catalog = courseContext?.isFor(CurriculumContentKind.scenario) == true
         ? await CurriculumCatalog.load()
         : null;
@@ -629,6 +633,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       _scenario = s;
       _missionStep = missionStep;
       _missionTitle = missionTitle;
+      _effectiveCourseContext = courseContext;
       _plan = plan;
       _stage = initialStage;
       _questReady = initialStage == 0;
@@ -854,7 +859,7 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
       s.id,
       passed: _passedCount,
       total: s.quests.length,
-      courseContext: widget.courseContext,
+      courseContext: _effectiveCourseContext,
     );
 
     // Erster Abschluss → Badge

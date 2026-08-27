@@ -8,6 +8,8 @@ import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/services/course_activity_reporter.dart';
 import 'package:ko_lernen_app/services/course_mastery_service.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 
@@ -80,6 +82,21 @@ void main() {
       // days, while the failed target must stay due soon with one extra review.
       await Storage.srsReview(_failedTarget, gotIt: true);
       await Storage.srsReview(_passivelyShownWord, gotIt: true);
+
+      // 이 테스트 자신의 Zone 안에서 CourseProgressService.shared 를 새로
+      // 시작한다 — 다른 courseContext-없는 testWidgets 가 먼저 실행되면
+      // 그 서비스의 직렬화 큐가 다른 Zone 에 묶여 응답하지 않게 된다.
+      CourseProgressService.shared.resetForTesting();
+      // _load()가 이제 항상 activeScenarioCheckpointContext(→
+      // CurriculumCatalog.load())를 시도한다(T8, 지시서 4.15). 그 안의
+      // ScenarioLoader.load()는 compute() 격리를 쓰므로 위젯 내부에서
+      // 콜드로 처음 호출되면 FakeAsync 존에서 영원히 응답하지 않는다 —
+      // runAsync로 감싸 미리 예열한다(scenario_mission_context_test.dart와
+      // 동일 패턴). 이 시나리오는 아무 코스 유닛도 활성화하지 않으므로
+      // 유도 결과는 여전히 null(courseContext 없는 기존 동작 그대로).
+      await tester.runAsync(() async {
+        await CurriculumCatalog.load();
+      });
 
       await tester.pumpWidget(
         MaterialApp(
