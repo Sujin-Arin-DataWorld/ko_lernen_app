@@ -4440,9 +4440,9 @@
     "semantic_hash": ""
   },
   "test/goldens/screen_layout_golden_test.dart": {
-    "mtime": 1787865504.5770538,
-    "seen": 1787866610.6470547,
-    "ast_hash": "1c07ee91c5aebd6f9882ffdaa17f7b00",
+    "mtime": 1787870593.183606,
+    "seen": 1787870790.179981,
+    "ast_hash": "9916967b7e672a0e17c8e97957880190",
     "semantic_hash": ""
   },
   "test/grammar_choice_quiz_screen_test.dart": {
@@ -10674,9 +10674,9 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_compact.png": {
-    "mtime": 1787865504.559072,
-    "seen": 1787866610.6505537,
-    "ast_hash": "d400b005a02bb818429d291cd5b8be36",
+    "mtime": 1787870593.1796062,
+    "seen": 1787870790.5078936,
+    "ast_hash": "ed5e1274e77798c07b9f010f959d8290",
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_expanded.png": {
@@ -10686,9 +10686,9 @@
     "semantic_hash": ""
   },
   "test/goldens/baselines/screen_vocab_packs_medium.png": {
-    "mtime": 1787865504.5701847,
-    "seen": 1787866610.6505575,
-    "ast_hash": "0f1d04dc9b18c689ecd32e8239cd690b",
+    "mtime": 1787870593.1826065,
+    "seen": 1787870790.5081575,
+    "ast_hash": "5c8dec1fb06c366c785baddd53627ade",
     "semantic_hash": ""
   },
   "test/goldens/baselines/sori_card_v2.png": {
@@ -11817,6 +11817,12 @@
     "mtime": 1787866307.3696673,
     "seen": 1787866610.6497056,
     "ast_hash": "06164d98e81e7892e65e458a4b872625",
+    "semantic_hash": ""
+  },
+  "docs/HANDOFF-2026-08-27-waves.md": {
+    "mtime": 1787870592.3730009,
+    "seen": 1787870790.4258437,
+    "ast_hash": "c9061b10a15e82cfb5795185edfca370",
     "semantic_hash": ""
   }
 }
