@@ -27,6 +27,7 @@ import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/scroll_if_needed.dart';
+import '../widgets/sori/speakable.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
 import '../widgets/sori/tokens.dart';
@@ -81,6 +82,28 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   int _reviewed = 0;
   bool _done = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
+  final _speech = ContentSpeechController();
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final route = ModalRoute.of(context);
+    if (route != null) _speech.subscribe(route);
+  }
+
+  @override
+  void deactivate() {
+    // 다음 프레임으로 미룬다 — deactivate() 는 화면 트리 전체가 교체될 때처럼
+    // build 진행 중에도 불릴 수 있는데, ContentSpeechController.deactivate()
+    // 가 부르는 TtsService.stop() 은 전역 ValueNotifier(speaking) 을 동기적으로
+    // 뒤집어 그걸 구독 중인 SoriSpeechIndicator 의 ValueListenableBuilder 가
+    // build 중 setState 를 시도하게 만든다 (setState() or markNeedsBuild()
+    // called during build). addPostFrameCallback 으로 이번 build 가 끝난
+    // 뒤로만 미루면 사용자 체감(화면 전환 시 즉시 정지)은 그대로이면서 이
+    // 크래시가 없다.
+    WidgetsBinding.instance.addPostFrameCallback((_) => _speech.deactivate());
+    super.deactivate();
+  }
 
   // ── 코치마크 타겟 ──
   final GlobalKey _cardKey = GlobalKey();
@@ -114,7 +137,11 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   @override
   void initState() {
     super.initState();
-    _load();
+    _load().then((_) {
+      if (mounted && _deck.isNotEmpty) {
+        _speech.playOnEnter(_card.korean);
+      }
+    });
     scheduleCoach();
     // K-Culture 노트 로드 후 카드 반영.
     CultureNotesService.load().then((_) {
@@ -163,6 +190,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   @override
   void dispose() {
+    _speech.dispose();
     _flipHintTrigger.dispose();
     super.dispose();
   }
@@ -275,6 +303,10 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
         _flipped = false;
         _cardRevealed = false;
       });
+      _speech.playOnEnter(_card.korean);
+      _speech.prefetchNeighbors([
+        if (_idx + 1 < _deck.length) _deck[_idx + 1].korean,
+      ]);
     }
   }
 
@@ -521,6 +553,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
                   onLike: _likeCurrent,
                   onBookmark: _saveCurrent,
                   bookmarkKey: _card.korean,
+                  topAccessory: SoriSpeechIndicator(text: _card.korean),
                   onShare: _shareCurrent,
                   onFlip: _toggleFlip,
                   liked: LikedContentService.isLiked(
