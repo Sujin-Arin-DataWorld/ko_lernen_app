@@ -21,7 +21,8 @@
   - `/review` 라우트 고정 테스트 15곳(`accessibility_guideline_test.dart`, `discover_screen_test.dart`, `goldens/screen_layout_golden_test.dart`, `gye_weekly_promise_navigation_test.dart`, `milestone_feedback_widget_test.dart`, `sarangbang_recommendation_test.dart`, `sarangbang_study_screen_test.dart`, `sori_stage_adaptive_chrome_test.dart`, `sori_stage_hanok_shortcuts_test.dart`, `sori_stage_today_availability_test.dart`, `sori_stage_today_matte_test.dart`, `sori_stage_visual_evidence_test.dart`, `today_learning_navigation_test.dart`, `today_learning_snapshot_test.dart`, `ux_preview_app_test.dart`) — `main.dart`의 `case '/review':` 블록(현재 `ReviewSessionScreen(feedbackContentId: 'today_review')`)과 `dedicated_feedback_completion_test.dart:363`의 `'today_review'` 상수를 변경 금지.
 - arb 수정은 `app_de.arb`+`app_en.arb` **동시** + `flutter gen-l10n` 실행.
 - **신규 스토리지 키는 백업 화이트리스트 필수**: `kl_study_log_v1_*`, `kl_gram_plan_v1`을 도입하는 태스크(Task 10, 15)는 같은 웨이브 안에서 Task 18이 `cloud_sync.dart`/`learning_data_export_service.dart`에 등록하기 전까지 "미등록 신규 키" 상태로 남는다 — Task 18 없이 웨이브를 종료하지 않는다.
-- 파일 교집합 있는 태스크는 순차 필수: `storage_service.dart`(Task 7→10→15→18, 이 순서 고정 — Task 18 Step 5가 `appendStudyLogEntryForRestore` 추가로 이 파일을 한 번 더 만진다), `scenario_player_screen.dart`(Task 8→10, 이 순서 고정).
+- 파일 교집합 있는 태스크는 순차 필수: `storage_service.dart`(Task 7→10→15→18, 이 순서 고정 — Task 18 Step 5가 `appendStudyLogEntryForRestore` 추가로 이 파일을 한 번 더 만진다), `scenario_player_screen.dart`(Task 8→10, 이 순서 고정), `lib/l10n/app_de.arb`+`app_en.arb`(Task 2→5→12→16→17, 이 순서 고정 — 각 태스크는 자기 키 앵커 옆에만 삽입하지만 같은 두 파일을 반복해서 여니 diff 충돌을 피하려면 이 순서를 지킨다), `lib/main.dart`(Task 12→17, 이 순서 고정).
+- **Task 16↔17 런타임 크래시 경고**: Task 16 Step 7의 완료 시트는 `/grammar_choice_quiz`로 `pushNamed`한다. 그 라우트는 Task 17 Step 8이 등록하기 전까지 `main.dart`에 존재하지 않고, 이 앱에는 `onUnknownRoute`가 없어 미등록 라우트 push는 즉시 런타임 예외가 된다 — **Task 17 없이 웨이브를 종료하지 않는다**(Task 16만 랜딩된 중간 상태에서 완료 시트의 "Üben" CTA를 누르면 크래시).
 - 서브에이전트 금지 — 각 태스크는 담당 세션이 직접 구현한다.
 
 ---
@@ -357,11 +358,12 @@
     final pack = CustomPack(
       id: 'cp1',
       name: 'Test',
+      sourcePageId: 'page1',
       words: [
-        ExtractedWord(korean: '안녕', translationDe: 'Hallo'),
-        ExtractedWord(korean: '감사', translationDe: 'Danke'),
+        ExtractedWord.manual(korean: '안녕', translationDe: 'Hallo'),
+        ExtractedWord.manual(korean: '감사', translationDe: 'Danke'),
       ],
-      createdAt: DateTime.now(),
+      createdAtIso: DateTime.now().toUtc().toIso8601String(),
     );
     expect(CustomPackService.learnedWordCount(pack), 0);
     await Storage.addVokSeen('안녕');
@@ -369,7 +371,7 @@
   });
 ```
 
-(`CustomPack`/`ExtractedWord` 생성자 필수 필드는 `lib/models/custom_pack.dart`/`lib/models/book_page.dart`를 확인해 맞춘다.)
+(`CustomPack`은 다섯 필드가 전부 `required`— `sourcePageId`까지 채워야 컴파일된다(`lib/models/custom_pack.dart:27-33`). 단어는 손입력 팩 전용 팩토리 `ExtractedWord.manual(korean:, translationDe:, ...)`를 쓴다(`lib/models/book_page.dart:88-99`) — 기본 `const ExtractedWord(...)` 생성자는 `savedToPackId` 등 이 최소 픽스처에 없는 required 필드가 더 있어 그대로 쓰면 컴파일 에러다.)
 - [ ] **Step 2: 실행 → FAIL 확인** (메서드 미정의).
 - [ ] **Step 3: 구현** — `lib/services/custom_pack_service.dart`에 (이미 `storage_service.dart` import됨):
 
@@ -1064,6 +1066,11 @@ import '../widgets/sori/tokens.dart';
 /// `/review/hub` — SRS 원장 브라우즈 허브. `/review`(ReviewSessionScreen)는
 /// 순수 플레이어로 유지되고(라우트 고정 15곳), 여기서는 오늘 학습 목록을
 /// 훑어보거나 달력으로 과거 날짜를 재학습한다(검수#2/#14/#25).
+///
+/// 검수#25 "항목 다중선택 칩"은 **기능 요구**(여러 단어를 골라 한 세션으로
+/// 묶어 복습)이지 위젯 스펙이 아니다 — 여기서는 `CheckboxListTile` 리스트로
+/// 구현한다(목록 항목이 이미 카드형 세로 리스트라 칩 Wrap 을 얹으면 오히려
+/// §12 "iOS풍 배지/칩 지양" 취향과 충돌한다).
 class ReviewHubScreen extends StatefulWidget {
   const ReviewHubScreen({super.key});
 
@@ -1772,9 +1779,11 @@ void main() {
   "grammarPlanCompletionBody": "Mit Beispielen üben?",
   "grammarPlanCompletionCta": "Üben",
   "grammarPlanCompletionSkip": "Später",
+  "grammarPlanFinishedTitle": "Alle Muster dieser Stufe geschafft!",
+  "grammarPlanFinishedRestartCta": "Neu starten",
 ```
 
-(en: `"How many patterns per day?"` / `"{n} per day"` / `"Let's go"` / `"Day {day} of {total}"` / `"Day done!"` / `"Practice with examples?"` / `"Practice"` / `"Later"`.) → `flutter gen-l10n`.
+(en: `"How many patterns per day?"` / `"{n} per day"` / `"Let's go"` / `"Day {day} of {total}"` / `"Day done!"` / `"Practice with examples?"` / `"Practice"` / `"Later"` / `"You've finished every pattern in this level!"` / `"Start over"`.) → `flutter gen-l10n`.
 - [ ] **Step 4: 상태 필드 + 로드 로직.** `_GrammarScreenState`에 필드 추가(:69-70 부근):
 
 ```dart
@@ -1856,6 +1865,48 @@ void main() {
 ```
 
 (`showSoriSheet`의 실제 시그니처는 이 파일이 이미 쓰는 다른 바텀시트 호출부를 그대로 따르고, `key:` 파라미터가 없으면 `builder` 최상위 위젯에 `KeyedSubtree(key: ...)`로 감싼다.)
+- [ ] **Step 5b: 진입점 재배선 + 자동 표시.** Step 5가 만든 `_openLevelChrome()`/`_showPlanOnboardingSheet()`는 아직 아무 데서도 호출되지 않는다 — Step 1의 첫 테스트("탭 없이 시트가 이미 떠 있음")를 통과시키려면 두 가지가 더 필요하다: ① 기존 진입점을 `_showFilterSheet` 대신 `_openLevelChrome`으로 재배선, ② `_load()` 완료 시 플랜이 없으면 **자동으로** 온보딩 시트를 띄운다(사용자가 필터 아이콘을 탭할 때까지 기다리지 않는다).
+
+  `filterOpenBtn` CTA(:698-699)를 교체:
+
+```dart
+            ctaLabel: _isCoursePractice ? null : t.filterOpenBtn,
+            onCta: _isCoursePractice ? null : _openLevelChrome,
+```
+
+  앱바 필터 아이콘(:731)을 교체:
+
+```dart
+        IconButton(icon: const Icon(Icons.tune), onPressed: _openLevelChrome),
+```
+
+  `_load()`의 `setState` 블록(Step 4가 `_plans = plans;`를 추가한 그 블록)이 끝난 직후, `try` 블록을 벗어나기 전에 자동 표시 체크를 추가:
+
+```dart
+      setState(() {
+        _all = g;
+        _plans = plans;
+        _courseContentIds = courseContentIds;
+        _courseAssessmentLinks = courseAssessmentLinks;
+        _missionStep = missionStep;
+        _missionTitle = missionTitle;
+        _level = useLevel;
+        _filtered = useLevel == 'Alle'
+            ? available
+            : available.where((x) => x.level == useLevel).toList();
+        _loading = false;
+        _loadFailed = g.isEmpty && DataLoader.lastError != null;
+        if (_idx >= _filtered.length) _idx = 0;
+      });
+      if (!mounted) return;
+      if (!_isCoursePractice && _plans[_userLevelForPlan] == null) {
+        // ignore: discarded_futures
+        _showPlanOnboardingSheet();
+      }
+    } catch (error) {
+```
+
+  (`} catch (error) {`는 기존 `_load()`의 그 지점 그대로 — 추가되는 두 줄은 `try` 블록의 마지막 코드로만 삽입된다.)
 - [ ] **Step 6: 일 헤더가 필터 크롬 대체.** 필터 행(:756-… `Key('grammar-filter-row')`)을 감싸는 조건 분기 추가 — `_activePlan != null`이면 필터 행 대신 헤더+일 점 렌더:
 
 ```dart
@@ -1897,6 +1948,62 @@ void main() {
 ```
 
 (기존 필터 `Row(key: const Key('grammar-filter-row'), ...)` 서브트리는 그대로 이동시키고, `_filtered`는 플랜 모드일 때 `_computeFiltered`가 아니라 `GrammarPlanService.todaysSlice`로 채운다 — `_applyFilters()`와 별개로 `_applyPlanSlice()` 신설해 플랜 로드/일 완료 시점에 호출.)
+- [ ] **Step 6b: 플랜 완주 상태.** `GrammarPlanService.todaysSlice`가 빈 리스트를 반환하는 경우는 두 가지다 — ① 아직 로드 전(`_activePlan == null`, Step 5/5b가 처리) ② **레벨의 모든 큐레이션 행을 이미 다 서빙**(완주, Task 14 테스트 `todaysSlice 는 큐레이션 소진 시 빈 리스트를 반환한다`가 보장하는 그 케이스). ②를 Step 6의 "Tag N von M" 헤더로 그대로 렌더하면 `completedDays + 1`이 `totalDays`를 넘어 "Tag 9 von 8" 같은 어색한 숫자가 나온다 — 완주 전용 헤더+CTA로 대체한다. 게터 추가:
+
+```dart
+  bool get _planFinished {
+    final plan = _activePlan;
+    if (plan == null) return false;
+    final curated = GrammarPlanService.curatedRowsForLevel(
+      _all,
+      plan.level.toUpperCase(),
+    );
+    return GrammarPlanService.todaysSlice(
+      curatedRows: curated,
+      plan: plan,
+    ).isEmpty;
+  }
+```
+
+Step 6의 조건 분기를 `_planFinished` 우선으로 확장(완주 브랜치를 맨 앞에 끼운다):
+
+```dart
+          if (_activePlan != null && _planFinished) ...[
+            KeyedSubtree(
+              key: const Key('grammar-plan-finished'),
+              child: Column(
+                children: [
+                  Text(
+                    t.grammarPlanFinishedTitle,
+                    style: SoriTextTheme.of(context).label,
+                  ),
+                  const SizedBox(height: Spacing.xs),
+                  SoriButton.outlined(
+                    label: t.grammarPlanFinishedRestartCta,
+                    // 같은 레벨을 새 itemsPerDay 로 재시작 — _showPlanOnboardingSheet
+                    // 는 언제나 servedIdsByDate: const {} 인 새 플랜을 쓰므로
+                    // 재호출만으로 리셋이 된다(별도 reset 함수 불필요).
+                    onTap: _showPlanOnboardingSheet,
+                  ),
+                ],
+              ),
+            ),
+          ] else if (_activePlan != null) ...[
+            KeyedSubtree(
+              key: const Key('grammar-plan-day-header'),
+              // ... Step 6 의 헤더+일 점 Column 그대로
+            ),
+          ] else
+            KeyedSubtree(
+              key: _filterRowKey,
+              child: Row(
+                key: const Key('grammar-filter-row'),
+                // ... 기존 필터 Row 내용 그대로
+              ),
+            ),
+```
+
+(완주 상태에서는 `_filtered`가 비므로 카드 덱 영역은 기존 "빈 팩" empty-state 경로가 그대로 처리한다 — 이 스텝은 헤더 영역의 문구/CTA만 바꾼다. `grammarPlanFinishedTitle`/`grammarPlanFinishedRestartCta`는 Step 3 arb 블록에 이미 추가돼 있다.)
 - [ ] **Step 7: 완료 시트.** 마지막 카드 처리 지점(`_next()`/카드 판정 콜백에서 `_idx >= _filtered.length - 1`인 경우, :363 부근 기존 "덱 끝" 처리와 동일한 지점)에서, 플랜 모드면 `GrammarPlanService.recordServedDay`로 오늘 슬라이스 id를 커밋하고 완료 시트를 띄운다:
 
 ```dart
@@ -1956,7 +2063,8 @@ void main() {
 
 **Files:**
 - Modify: `lib/screens/grammar_choice_quiz_screen.dart` (전체 531줄 — progress 캡션 :333, feedback 카드 :397-454)
-- Modify: `lib/main.dart` (그 라우트 인자 전달 지점 — 존재 여부 확인 후 타입 정리)
+- Modify: `lib/main.dart` (`/grammar_choice_quiz` 라우트 — Task 12→**17**로 이 파일을 순차로 만지는 마지막 지점, Task 16 이 pushNamed 하는 라우트를 여기서 실제로 등록)
+- Modify: `lib/l10n/app_de.arb` + `lib/l10n/app_en.arb` (`grammarChoiceExplanationLabel` 옆 — `grammarChoiceNoteLabel` 신규 키, Step 7)
 - Test: `grep -rln "GrammarChoiceQuizScreen(" test/`로 기존 테스트 확인 후 케이스 추가.
 
 **Interfaces:**
