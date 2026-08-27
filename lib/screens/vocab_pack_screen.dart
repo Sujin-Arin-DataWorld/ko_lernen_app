@@ -204,7 +204,6 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
 
   // §P2-5 플립 게이트 힌트 칩 트리거 — 저항 드래그/판정 버튼 탭당 1펄스.
   final ValueNotifier<int> _flipHintTrigger = ValueNotifier<int>(0);
-  late bool _featureCoachComplete;
   late final QuestAbandonTracker _abandonTracker;
 
   @override
@@ -217,7 +216,6 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   @override
   void initState() {
     super.initState();
-    _featureCoachComplete = Storage.tutVocabPackSeen;
     _abandonTracker = QuestAbandonTracker(
       questType: 'vocab_pack',
       questId: widget.packId,
@@ -232,9 +230,6 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       if (!Storage.tutVocabPackSeen) {
         await showFeatureCoachSheet(context, FeatureCoach.vocabPack);
         await Storage.setTutVocabPackSeen();
-        if (mounted) {
-          setState(() => _featureCoachComplete = true);
-        }
       }
     });
   }
@@ -857,9 +852,6 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     final lang = Localizations.localeOf(context).languageCode;
     final title = VocabPackService.displayLabel(pack.id, lang: lang);
     // 현재 보고 있는 단어(학습/퀴즈/보스)를 바로 내 단어장에 담기.
-    final Vocab? addable = _stage == _Stage.learn
-        ? _currentLearn
-        : _currentQuiz;
 
     return SoriStudyFrame(
       title: title,
@@ -867,23 +859,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
         icon: const Icon(Icons.close),
         onPressed: () => Navigator.of(context).maybePop(),
       ),
-      actions: [
-        if (addable != null)
-          AddToWordbookButton(
-            korean: addable.korean,
-            translationDe: addable.german,
-            translationEn: addable.english,
-            romanization: addable.romanization,
-            posDe: addable.posDe,
-            exampleKorean: addable.exampleKorean,
-            exampleDe: addable.exampleGerman,
-            compact: true,
-            // The pack's modal three-step coach owns first admission. Queue
-            // the global wordbook spotlight until that sheet has closed.
-            coachEnabled: _featureCoachComplete,
-          ),
-        const TtsSpeedAction(),
-      ],
+      actions: const [TtsSpeedAction()],
       padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
       child: Column(
         children: [

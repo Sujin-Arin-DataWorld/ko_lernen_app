@@ -485,8 +485,8 @@ class _Stamp extends StatelessWidget {
           haptic: SoriHaptic.selection,
           child: Container(
             key: deckActionKey(name),
-            width: 44,
-            height: 44,
+            width: 48,
+            height: 48,
             alignment: Alignment.center,
             child: Icon(icon, size: 22, color: color),
           ),

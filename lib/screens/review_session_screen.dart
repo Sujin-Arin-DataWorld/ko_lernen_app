@@ -167,8 +167,6 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     super.dispose();
   }
 
-  /// ↑ 저장 (§P2-2) — AppBar 의 [AddToWordbookButton] 이 접근성 정본이고
-  /// ↑ 는 같은 동작의 가속 경로. SRS/오답 접근 금지, 전진 없음.
   void _saveCurrent() {
     if (_loading || _done || _deck.isEmpty) {
       return;
@@ -287,21 +285,7 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
     return SoriStudyFrame(
       title: widget.title ?? t.reviewTitle,
-      actions: [
-        // 오늘의 복습 카드를 바로 내 단어장에 담기 (item 11).
-        if (!_loading && _deck.isNotEmpty && !_done)
-          AddToWordbookButton(
-            korean: _card.korean,
-            translationDe: _card.german,
-            translationEn: _card.english,
-            romanization: _card.romanization,
-            posDe: _card.posDe,
-            exampleKorean: _card.exampleKorean,
-            exampleDe: _card.exampleGerman,
-            compact: true,
-          ),
-        const TtsSpeedAction(),
-      ],
+      actions: const [TtsSpeedAction()],
       padding: EdgeInsets.zero,
       // ⚠️ 완료 화면에서는 한지 결을 끈다. `_HanjiPainter` 는 반지름 48~163px
       // 짜리 따뜻한 구름 얼룩(#D4C496 @0.075)을 최대 40개 뿌려 배경을
