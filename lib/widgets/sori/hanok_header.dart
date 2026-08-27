@@ -6,7 +6,7 @@ import 'package:video_player/video_player.dart';
 import '../../services/audio_policy.dart';
 import 'hanok_tokens.dart';
 import 'tiger_video.dart' show TigerStageVideo;
-import 'tokens.dart' show SoriMotion;
+import 'tokens.dart' show SoriLayout, SoriMotion;
 import 'video_lease.dart';
 
 /// **HanokHeader** — 모듈 상단 wide 한옥 일러스트 배너.
@@ -115,40 +115,27 @@ class HanokHeader extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        // 이 배너는 **장식**이다. 10:3 이라 높이가 폭을 따라가는데, 세로가 짧은
-        // 뷰포트(가로 폰·분할 화면·넓고 낮은 창)에서는 그 높이가 화면의 30~40%
-        // 를 먹고 학습 카드·정답 버튼을 밀어내 오버플로를 만든다.
+        // §15: heroMaxShare(22%)와 heroMaxHeight(200dp) 절대 상한을 전
+        // 뷰포트에 상시 적용한다. 예전엔 `_askBelowHeight`(700dp) 미만에서만
+        // 비율을 쟀는데, 그 게이트가 없으면 360×640(세로 폰)에서도 배너가
+        // 화면의 51%까지 먹었다(chosung_quiz_screen 실측 — hero_placement_guard
+        // 대상 §19 이행 전까지는 이 화면 자체가 여전히 위반이지만, 클램프
+        // 값은 지금부터 정확해야 W5 이행이 이 위에서 선다).
         //
-        // 접을지 말지는 **자기 높이가 화면에서 차지하는 비율**로 정한다.
-        // `높이 < 640` 같은 순수 절대 규칙은 360×640 짜리 흔한 세로 폰에서도
-        // 배너를 지워 실기기 디자인을 바꾼다.
-        //
-        //   360×640 세로 폰    108/640  = 17%  → 유지
-        //   360×400 분할 화면  108/400  = 27%  → 접음
-        //   800×600 낮은 창    193/600  = 32%  → 접음
-        //   800×1280 태블릿    193/1280 = 15%  → 유지
-        //
-        // 다만 비율만으로는 **가로 태블릿(1280×800)** 까지 걸린다: 배너 182/800
-        // = 22.8% 로 임계값을 6px 차이로 넘겨 멀쩡한 화면의 배너가 사라졌다
-        // (골든 3장이 잡았다 — learn_hub·settings·vocab_packs @ expanded).
-        // 그래서 비율 판정은 **애초에 세로가 짧을 때만** 묻는다. 800dp 넘게
-        // 높은 창은 배너가 몇 %든 콘텐츠가 들어갈 자리가 남는다.
-        //
-        // [_askBelowHeight] 는 "짧다"의 정의가 아니라 **질문을 할 구간**이다.
-        // 실제 판정은 여전히 비율이 한다 — 그래서 360×640 세로 폰은 이 구간에
-        // 들어오고도(640 < 700) 17% 라서 배너를 지킨다.
-        //
-        // 정보가 없는 요소부터 버리는 게 순서다 — 콘텐츠는 건드리지 않는다.
+        // 높이만 줄이면 비율이 깨진다(크롭/찌그러짐) — 그래서 예산을 넘으면
+        // `SoriLayout.heroFit`이 폭도 같은 비율로 줄여 중앙 정렬한다. 이전엔
+        // 예산 초과 시 통째로 0dp였다(scenarios_list_screen 16:9 히어로가
+        // 360×780에서 사라지는 회귀 — 컨트롤러 룰링 2026-08-27,
+        // visual_layout_regression_test.dart로 고정).
         final viewportHeight = MediaQuery.sizeOf(context).height;
         final width = constraints.maxWidth;
-        if (width.isFinite &&
-            viewportHeight > 0 &&
-            viewportHeight < _askBelowHeight) {
-          final bannerHeight = width / aspectRatio;
-          if (bannerHeight > viewportHeight * _maxViewportShare) {
-            return const SizedBox.shrink();
-          }
-        }
+        final renderWidth = width.isFinite && viewportHeight > 0
+            ? SoriLayout.heroFit(
+                availableWidth: width,
+                viewportHeight: viewportHeight,
+                aspectRatio: aspectRatio,
+              ).width
+            : width;
 
         // 포스터는 표시 폭에 맞춰 디코드(cacheWidth)해 1200px+ PNG 를 배너
         // 실제 폭으로만 디코드한다 — 시각 동일, 디코드 메모리·시간 절감.
@@ -156,15 +143,15 @@ class HanokHeader extends StatelessWidget {
         final poster = Image.asset(
           asset,
           fit: fit,
-          cacheWidth: width.isFinite && width > 0
-              ? (width * dpr).round()
+          cacheWidth: renderWidth.isFinite && renderWidth > 0
+              ? (renderWidth * dpr).round()
               : null,
           filterQuality: FilterQuality.medium,
           errorBuilder: (_, __, ___) =>
               _Fallback(icon: fallbackIcon, tint: tint),
         );
 
-        return ClipRRect(
+        final header = ClipRRect(
           borderRadius: BorderRadius.circular(radius),
           child: AspectRatio(
             aspectRatio: aspectRatio,
@@ -173,17 +160,16 @@ class HanokHeader extends StatelessWidget {
                 : poster,
           ),
         );
+
+        // heroFit이 폭을 줄였을 때만 감싼다 — 안 줄었으면 기존 렌더 트리
+        // 그대로(회귀 위험 0).
+        if (!width.isFinite || renderWidth >= width) {
+          return header;
+        }
+        return Center(child: SizedBox(width: renderWidth, child: header));
       },
     );
   }
-
-  /// 장식 배너가 차지해도 되는 화면 높이의 최대 비율.
-  static const double _maxViewportShare = 0.22;
-
-  /// 이 높이 **미만**일 때만 비율 판정을 한다. 가로로 든 폰(≈360–430)과 분할
-  /// 화면은 전부 아래, 세로 폰(640~)·세로 태블릿(1024~)·가로 태블릿(720~800)
-  /// 은 위다 — 즉 실기기 세로 화면의 배너는 이 게이트에서 이미 안전하다.
-  static const double _askBelowHeight = 700;
 }
 
 /// **SoriPosterLoop** — png 포스터 → (영상 준비되면) 영상 크로스페이드.

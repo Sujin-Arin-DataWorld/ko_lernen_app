@@ -86,6 +86,65 @@ class SoriBreakpoints {
   static const double wideTablet = 1024;
 }
 
+// ─────────────────────────────────────────────────────────────────────────
+// LAYOUT — §15 기기 적응 레이아웃 계약 (히어로 배너·크롬 행 높이 예산)
+// ─────────────────────────────────────────────────────────────────────────
+/// **SoriLayout** — 히어로 배너와 크롬 행의 높이 예산 단일 소스.
+///
+/// [heroMaxShare]/[heroMaxHeight]는 **전 뷰포트에 상시** 적용된다. 이전
+/// `HanokHeader`는 `_askBelowHeight`(700dp) 미만에서만 비율을 쟀다 — 그
+/// 게이트가 없으면 360×640(세로 폰)에서 배너가 화면의 51%까지 먹었다(§15
+/// 실측: chosung_quiz_screen). [heroMaxHeight]는 태블릿처럼 22%가 200dp를
+/// 넘는 큰 화면에서 절대 상한으로 한 번 더 막는다.
+class SoriLayout {
+  SoriLayout._();
+
+  /// 히어로 배너가 차지해도 되는 화면 높이의 최대 비율. 전 뷰포트 상시.
+  static const double heroMaxShare = 0.22;
+
+  /// 히어로 배너 절대 높이 상한(dp).
+  static const double heroMaxHeight = 200;
+
+  /// [SoriStudyFrame.hero] 슬롯의 고정 높이(dp) — 플레이 화면은 전체 히어로
+  /// 예산 대신 이 축소판만 받는다. 기본은 히어로 없음(0dp) — 슬롯에 아무것도
+  /// 안 넘기면 그대로 0.
+  static const double heroCollapsedHeight = 96;
+
+  /// 크롬 행(필터·진행 메타) 시각 높이.
+  static const double chromeRowHeight = 44;
+
+  /// 크롬 행 내 개별 컨트롤의 최소 터치 타깃 (WCAG 2.5.5/2.5.8).
+  static const double chromeRowTouchHeight = 48;
+
+  /// 히어로 배치 계산 — 높이 예산(budget)과 비율(aspectRatio)을 **둘 다** 지킨다.
+  ///
+  /// 비율은 콘텐츠 계약이다(포스터·루프 원본과 같은 프레이밍을 지켜 크롭을
+  /// 피한다), 높이 예산은 레이아웃 계약이다(§15). 자연 높이가 예산을 넘으면
+  /// **높이만 줄이지 않는다** — 그러면 비율이 깨져 크롭/찌그러짐이 생기거나,
+  /// [heroMaxHeight] 이전 구현처럼 통째로 0dp가 된다. 대신 높이를 budget까지
+  /// 줄이고 **폭도 같은 비율로 줄여**(중앙 정렬은 호출측 책임) 비율을 지킨 채
+  /// 작아진다.
+  ///
+  /// [aspectRatio]가 없는(비율 고정이 아닌) 히어로는 자를 게 없으니 폭은
+  /// 그대로 두고 높이만 budget으로 클램프한다.
+  static Size heroFit({
+    required double availableWidth,
+    required double viewportHeight,
+    double? aspectRatio,
+  }) {
+    final shareBudget = viewportHeight * heroMaxShare;
+    final budget = shareBudget < heroMaxHeight ? shareBudget : heroMaxHeight;
+    if (aspectRatio == null) {
+      return Size(availableWidth, budget);
+    }
+    final naturalHeight = availableWidth / aspectRatio;
+    if (naturalHeight > budget) {
+      return Size(budget * aspectRatio, budget);
+    }
+    return Size(availableWidth, naturalHeight);
+  }
+}
+
 /// Returns the small, device-width-driven visual enlargement used above the
 /// large-phone breakpoint. This deliberately does not read [TextScaler] —
 /// [SoriTypeScale] is the single place that multiplies it into the ambient

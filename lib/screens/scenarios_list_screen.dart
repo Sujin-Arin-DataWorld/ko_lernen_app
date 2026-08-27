@@ -162,6 +162,10 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
       children: [
         // 모듈 헤더 — 16:9 원본 영상과 같은 비율을 유지한다.
         // 마당 포스터 위로 종가 앰비언트 루프(굴뚝 연기·감 흔들림) 페이드인.
+        // §15: 좁은 화면에서 heroMaxShare/heroMaxHeight 예산을 넘으면
+        // `SoriLayout.heroFit`(HanokHeader 내부)이 16:9를 깨지 않고 폭을
+        // 줄여 중앙 정렬한다 — 크롭하거나 0dp로 사라지지 않는다(컨트롤러
+        // 룰링 2026-08-27). aspectRatio는 아래 그대로 전달만 하면 된다.
         const HanokHeader(
           asset: 'assets/illustrations/hanok/madang(light).png',
           fallbackIcon: Icons.travel_explore_outlined,

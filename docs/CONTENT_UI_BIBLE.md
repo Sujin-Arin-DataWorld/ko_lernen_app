@@ -529,3 +529,34 @@ ui-ux-pro-max `favorites bookmark` 검색은 칩 리플로우만 나와 매칭 �
 5. 공유 이미지가 앱 스크린샷이 아니다.
 
 이 다섯이 아니면 리디자인이 아니라 스킨이다.
+
+---
+
+## §15. 기기 적응 레이아웃 계약 (UIUX 바이블 2.0)
+
+`SoriLayout`(`tokens.dart`)이 정본.
+
+- **heroMaxShare 0.22** — 히어로 배너 높이 상한, 화면 높이의 22%. **전
+  뷰포트에 상시** 적용한다(구 `_askBelowHeight` 700dp 게이트 삭제 — 360×640
+  세로 폰도 배너가 화면의 51%를 먹던 실측 버그의 원인이었다).
+- **heroMaxHeight 200dp** — 절대 상한. 태블릿 등 22%가 200dp를 넘는 화면에서
+  한 번 더 막는다.
+- **heroCollapsedHeight 96dp** — `SoriStudyFrame(hero:)` 슬롯 전용 고정 높이.
+- **플레이 화면(SoriStudyFrame) 히어로 0dp** — `hero` 슬롯에 아무것도 안
+  넘기면 자리 자체가 없다. 히어로는 "고르는" 화면(허브·카탈로그) 전용이다.
+- **크롬 행 44/48dp** — `chromeRowHeight`(시각) / `chromeRowTouchHeight`
+  (터치 타깃, WCAG 2.5.5). `SoriChromeRow`(§17)·`SoriLevelFilterBar`(검수#5)가
+  이 두 값을 공유한다.
+- **비율 고정 히어로는 폭으로 맞춘다 — 자르지 않는다.** 비율(aspectRatio)은
+  콘텐츠 계약(포스터·루프 원본 프레이밍 보존), 높이 예산은 레이아웃 계약 —
+  둘은 동시에 성립해야 한다. 자연 높이가 예산을 넘을 때 높이만 줄이면 비율이
+  깨져 크롭·찌그러짐이 생기거나(구현 방식에 따라) 통째로 0dp가 된다
+  (`scenarios_list_screen`의 16:9 종가 히어로가 360×780에서 사라지던 회귀 —
+  컨트롤러 룰링 2026-08-27). `SoriLayout.heroFit()`이 그 대신 높이를 예산까지
+  줄이고 **폭도 같은 비율로** 줄여(중앙 정렬) 비율을 지킨 채 작아진다.
+  `HanokHeader`가 내부적으로 쓴다 — 호출부는 `aspectRatio`만 넘기면 된다.
+
+강제: `hero_placement_guard_test.dart` — HanokHeader는 고르는 화면 7곳만
+허용, 학습 화면 4곳은 §19 이행 대기 그랜드파더(늘리기 금지).
+`sori_layout_hero_fit_test.dart` — `heroFit`이 좁은 화면에서 비율을 지키며
+폭을 줄이는지, 이미 예산 안에 들어오는 화면은 그대로 두는지 고정한다.
