@@ -115,4 +115,41 @@ void main() {
       }
     },
   );
+
+  testWidgets(
+    'onTap 없이 onLongPress 만 있어도 Enter/Space 가 활성화한다 (finding 8)',
+    (tester) async {
+      var longPressCount = 0;
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SoriPressable(
+              haptic: null,
+              onLongPress: () => longPressCount += 1,
+              child: const SizedBox(
+                width: 120,
+                height: 48,
+                child: Center(child: Text('Hold')),
+              ),
+            ),
+          ),
+        ),
+      );
+
+      await tester.sendKeyEvent(LogicalKeyboardKey.tab);
+      await tester.pump();
+      await tester.sendKeyEvent(LogicalKeyboardKey.enter);
+      await tester.sendKeyEvent(LogicalKeyboardKey.space);
+
+      expect(
+        longPressCount,
+        2,
+        reason:
+            '지금은 onKeyEvent 가 widget.onTap == null 이면 무조건 무시한다 '
+            '— onLongPress 만 있는 위젯은 canRequestFocus: enabled 때문에 '
+            'Tab 으로 포커스는 잡히지만 Enter/Space 를 눌러도 아무 일도 '
+            '안 일어나는 포커스 트랩이 된다',
+      );
+    },
+  );
 }

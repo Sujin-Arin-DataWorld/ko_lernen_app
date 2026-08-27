@@ -2017,6 +2017,18 @@ abstract class AppL10n {
   /// **'Nächster Gesprächsschritt'**
   String get smalltalkNextTurn;
 
+  /// No description provided for @smalltalkNextPhrase.
+  ///
+  /// In de, this message translates to:
+  /// **'Nächster Ausdruck'**
+  String get smalltalkNextPhrase;
+
+  /// No description provided for @smalltalkPreviousPhrase.
+  ///
+  /// In de, this message translates to:
+  /// **'Vorheriger Ausdruck'**
+  String get smalltalkPreviousPhrase;
+
   /// No description provided for @wordleSyllableCount.
   ///
   /// In de, this message translates to:

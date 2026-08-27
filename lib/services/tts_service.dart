@@ -268,12 +268,21 @@ class TtsPlaybackEngine {
     required this.platform,
     this.completionTimeout = const Duration(seconds: 30),
     this.errorReporter,
+    this.onResolutionFailed,
   });
 
   final TtsAudioResolver resolveAudio;
   final TtsPlaybackPlatform platform;
   final Duration completionTimeout;
   final TtsErrorReporter? errorReporter;
+  // post-review (2026-08-27): errorReporter 는 speak() 전 과정(정지·해석·
+  // 재생 시작·완료)의 모든 실패에서 불린다 — 진단용 lastError 로그로는
+  // 맞지만, "재생할 오디오 자체가 없다"(해석 실패)와 "오디오는 있는데
+  // 재생 기전이 실패했다"(플랫폼 stop/start/completion 실패)는 서로 다른
+  // 결함 계열이다. onResolutionFailed 는 오직 _resolveAudio 실패에서만
+  // 불려, TtsService 가 unavailable(오프라인 추정) 배너를 그 계열에만
+  // 한정할 수 있게 한다.
+  final TtsErrorReporter? onResolutionFailed;
   Future<void> _platformTail = Future<void>.value();
   Completer<void>? _cancellation;
   int _generation = 0;
@@ -318,9 +327,17 @@ class TtsPlaybackEngine {
         ).then<_TtsResolution>(
           (audio) => _TtsResolution(audio: audio),
           onError: (Object error, _) {
-            if (error is TtsSynthesisBlocked) {
-              errorReporter?.call(error.message);
-            }
+            // TtsSynthesisBlocked 는 사유 문자열이 이미 사람이 읽을 말이다.
+            // 그 외 예외(finding 1b — 예전엔 여기서 조용히 버려졌다)도
+            // errorReporter 로 보내야 lastError 가 갱신된다.
+            final message = error is TtsSynthesisBlocked
+                ? error.message
+                : 'TTS resolution failed: $error';
+            errorReporter?.call(message);
+            // post-review: unavailable 배너는 이 "해석 실패" 분기에서만
+            // 켠다 — stop/시작/완료 같은 재생-기전 실패(아래 catch 들)는
+            // errorReporter 만 타고 onResolutionFailed 는 타지 않는다.
+            onResolutionFailed?.call(message);
             return const _TtsResolution(audio: null);
           },
         );
@@ -502,7 +519,24 @@ class TtsService {
     resolveAudio: _resolveAudio,
     platform: const _ServicePlaybackPlatform(),
     completionTimeout: _playTimeout,
+    // 모든 실패(정지·해석·재생 시작·완료) 공통 — 진단용 lastError 만
+    // 갱신한다. unavailable(오프라인 추정) 배너는 여기서 켜지 않는다:
+    // 재생 기전 실패(예: Android 오디오 라우팅 사고 — 이게 바로
+    // tts_unavailable_banner.dart 가 애초에 존재하는 이유다)까지
+    // "오프라인이세요?" 로 오표시했었다(post-review, finding 1b 후속수정).
     errorReporter: (message) => lastError = message,
+    // post-review: unavailable 배너는 오직 "해석 실패"(아예 재생할 오디오가
+    // 없음) 계열에서만 켠다 — TtsPlaybackEngine.speak() 의 resolution
+    // onError 분기에서만 이 콜백을 부른다.
+    onResolutionFailed: (_) {
+      // _resolveAudio 의 각 티어가 이미 구체적 사유(quota/offline/...)로
+      // unavailable 을 채웠다면 여기서 일반 사유로 덮어쓰지 않는다 —
+      // 아직 비어 있을 때만(finding 1b 가 다루는, 어떤 티어도 사유를
+      // 남기지 않은 새 예외 종류) 최소한 배너가 뜨도록 채운다.
+      if (unavailable.value == null) {
+        _reportUnavailable(TtsUnavailableReason.offline);
+      }
+    },
   );
 
   /// 웹 전용 메모리 캐시 — 파일시스템이 없어 1단을 여기에 둔다.
@@ -757,6 +791,10 @@ class TtsService {
         }
       } on TimeoutException {
         // 디스크가 막혔다 — Storage 로 넘어간다.
+      } catch (_) {
+        // FileSystemException 등 그 외 I/O 실패(권한·손상 매체 등) —
+        // 여기서 던지면 _resolveAudio 전체가 throw 해 Storage/CF 폴백을
+        // 건너뛴다(finding 1a). Storage 로 넘어간다.
       }
     } else {
       final cached = _memoryCache[key.localFileName];

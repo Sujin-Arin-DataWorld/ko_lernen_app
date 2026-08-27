@@ -78,13 +78,19 @@ class SoriSpeech {
 
   // ⚠️ speakImpl(...)/prefetchImpl(...) 뒤의 .then/.whenComplete 는 반드시
   // (1) 중간 변수로 한 번 끊고 (2) 콜백을 블록 바디로 쓸 것.
-  // 관찰(2026-08-27, 검수#13): 함수-타입 필드 호출 뒤에 `.then((_) => false)`/
-  // `.whenComplete(() => _inFlight.remove(key))` 처럼 콜백을 한 문으로 이어 붙이면,
-  // `speak()`↔`prefetch()` 교차 합류 경로에서 그 Future 가 완료되지 않고 영원히
-  // pending 으로 남는 현상이 보고됐다(공유 in-flight 맵을 거쳐 다른 함수의 `.then`이
-  // 그 결과를 기다릴 때만 재현, 단독 호출로는 재현 안 됨). 원인은 특정되지 않았으나,
-  // 아래 형태(중간 변수 + 블록 바디)로 바꾸면 항상 해소되므로, 인라인 체인 방식으로
-  // 리팩터링할 때는 재검증이 필요하다.
+  // 진짜 원인(정정, 2026-08-27 사후 재분석): `_inFlight` 의 값 타입이
+  // `Future<bool>` 이라, 화살표 바디 `.whenComplete(() =>
+  // _inFlight.remove(key))` 는 `_inFlight.remove(key)` 의 반환값 — 바로
+  // 그 키에 막 저장된, **지금 만들고 있는 이 future 자신** — 을 콜백의
+  // 반환값으로 암묵 반환한다. `whenComplete` 콜백이 Future 를 반환하면
+  // 바깥 future 는 그 반환된 Future 가 끝날 때까지 완료를 미루는데,
+  // 여기선 그 반환된 Future 가 바깥 future 자기 자신이라 완료가 영원히
+  // 미뤄진다(self-await). 예전 주석은 "원인 미상 + speak()↔prefetch()
+  // 교차 합류에서만 재현"이라 적었지만 이건 착시였다 — 자기대기는 호출
+  // 방식과 무관하게 항상 걸리고, 단독 호출 테스트는 그 Future 의 완료를
+  // 끝까지 기다리지 않아 증상이 안 보였을 뿐이다. 블록 바디(`() {
+  // _inFlight.remove(key); }`)는 반환값이 없어(void) 이 문제가 원천적으로
+  // 없다 — 인라인 체인 방식으로 되돌릴 땐 이 메커니즘을 반드시 재확인할 것.
   static Future<bool> _startSpeak(String key, String text, String voice) {
     final resolved = speakImpl(text, voice);
     final future = resolved.whenComplete(() {

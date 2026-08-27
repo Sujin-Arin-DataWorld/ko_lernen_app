@@ -1113,6 +1113,12 @@ class AppL10nDe extends AppL10n {
   String get smalltalkNextTurn => 'Nächster Gesprächsschritt';
 
   @override
+  String get smalltalkNextPhrase => 'Nächster Ausdruck';
+
+  @override
+  String get smalltalkPreviousPhrase => 'Vorheriger Ausdruck';
+
+  @override
   String wordleSyllableCount(int n) {
     return '$n-Silben-Wort · 6 Versuche';
   }
