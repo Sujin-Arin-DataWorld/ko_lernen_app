@@ -138,6 +138,24 @@ void main() {
                 );
               });
               await tester.pump();
+              final context = tester.element(find.byType(VocabPacksScreen));
+              final imageProviders = tester
+                  .widgetList<Image>(
+                    find.descendant(
+                      of: find.byType(VocabPacksScreen),
+                      matching: find.byType(Image),
+                    ),
+                  )
+                  .map((image) => image.image)
+                  .toList(growable: false);
+              expect(imageProviders, isNotEmpty);
+              await tester.runAsync(
+                () => Future.wait([
+                  for (final provider in imageProviders)
+                    precacheImage(provider, context),
+                ]),
+              );
+              await tester.pump();
             }
             if (screen.key == 'sori_today') {
               await tester.runAsync(() async {
