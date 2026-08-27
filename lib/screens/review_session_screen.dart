@@ -93,15 +93,9 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
 
   @override
   void deactivate() {
-    // 다음 프레임으로 미룬다 — deactivate() 는 화면 트리 전체가 교체될 때처럼
-    // build 진행 중에도 불릴 수 있는데, ContentSpeechController.deactivate()
-    // 가 부르는 TtsService.stop() 은 전역 ValueNotifier(speaking) 을 동기적으로
-    // 뒤집어 그걸 구독 중인 SoriSpeechIndicator 의 ValueListenableBuilder 가
-    // build 중 setState 를 시도하게 만든다 (setState() or markNeedsBuild()
-    // called during build). addPostFrameCallback 으로 이번 build 가 끝난
-    // 뒤로만 미루면 사용자 체감(화면 전환 시 즉시 정지)은 그대로이면서 이
-    // 크래시가 없다.
-    WidgetsBinding.instance.addPostFrameCallback((_) => _speech.deactivate());
+    // 프레임 지연은 ContentSpeechController.deactivate() 안으로 옮겼다
+    // (검수#13 보강 fix 2) — 이 화면은 그냥 부르기만 하면 된다.
+    _speech.deactivate();
     super.deactivate();
   }
 
