@@ -596,3 +596,24 @@ ui-ux-pro-max `favorites bookmark` 검색은 칩 리플로우만 나와 매칭 �
   기존 구현이 이미 이 스펙과 일치, §17이 문서로 고정). `SoriButton(loading:)`
   신설 — 비동기 액션 중 탭 차단+회전 인디케이터, 색은 평소 활성 스타일 유지.
   `InkWell` 리플 신규 금지(`chrome_stack_guard_test.dart` 래칫).
+
+---
+
+## §18. 강제 장치
+
+문서가 아니라 컴포넌트·가드가 지킨다.
+
+- `SoriStudyFrame(hero:)` — 유일한 히어로 경로. §15 클램프(96dp)가 내장돼
+  있어 콜러가 얼마나 큰 위젯을 넘기든 화면 예산을 못 넘는다.
+- `SoriChromeRow` — 유일한 필터/진행 크롬 컨테이너.
+- **가드 4종**(전부 `test/`, typography_guard와 같은 "실측 기준선 → 하향만"
+  문법):
+  1. `hero_placement_guard_test.dart` — HanokHeader는 고르는 화면 7곳 또는
+     §19 이행 대기 4곳(chosung/hangul/legacy_vocab/kkeunmari)에서만.
+  2. `chrome_stack_guard_test.dart` — 화면당 Wrap+칩 블록 ≤1(chosung_quiz·
+     hangul·legacy_vocab·scenario_player 4곳만 §19 이행 전 그랜드파더) +
+     InkWell 리플 신규 0.
+  3. `spacing_literal_guard_test.dart` — 그리드 밖 간격 리터럴 신규 0(하향
+     래칫).
+  4. `typography_guard_test.dart` — 기존 9개 래칫 + 신규 "원시 TextStyle(
+     안 fontSize 리터럴" 래칫.
