@@ -17,11 +17,18 @@
              android:windowSplashScreenAnimatedIcon here unless android12splash.png
              has first been regenerated as a proper icon-safe-zone asset (content
              confined well inside the enforced circular/square mask) AND verified
-             uncropped on a real Android 12+ device. -->
+             uncropped on a real Android 12+ device.
+             2026-08-26(W2 Task 10): 세이프존 패딩된 HanLogo_android12_safe.png
+             (tool/pad_android12_splash_icon.py, content fraction ≈0.55)로
+             flutter_native_splash:create 재실행 — 위 두 속성을 다시 켰다.
+             실기기 검증 전까지 이 커밋은 잠정이다: 아래 "Jin 게이트" 완료
+             전에는 릴리즈 빌드에 포함하지 않는다. -->
         <item name="android:forceDarkAllowed">false</item>
         <item name="android:windowFullscreen">false</item>
         <item name="android:windowDrawsSystemBarBackgrounds">false</item>
         <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+        <item name="android:windowSplashScreenBackground">#FAF6EC</item>
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/android12splash</item>
     </style>
     <!-- Theme applied to the Android Window as soon as the process has started.
          This theme determines the color of the Android Window while your
