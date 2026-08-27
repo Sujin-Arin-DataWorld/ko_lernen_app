@@ -79,10 +79,10 @@ release_sha=$(git rev-parse --short HEAD)
 flutter build appbundle --release --obfuscate \
   --split-debug-info=build/app/outputs/symbols \
   --dart-define=ENABLE_TESTER_FEEDBACK=true \
-  --dart-define=BETA_UNLOCK_ALL=true \
   --dart-define=GIT_COMMIT="$release_sha"
 ```
 
-BETA_UNLOCK_ALL=true는 beta의 premium 접근만 연다. 팩 진행도, 70% clear, 다음 팩
-잠금 해제를 우회하지 않는다. 전체 후보 절차와 14일 종료 기준은
+Closed Testing 후보에는 내부 테스터 전용 premium entitlement override인
+BETA_UNLOCK_ALL을 주입하지 않는다. 저장된 팩 진행도, 70% clear, 다음 팩 잠금 해제도
+우회하지 않는다. 전체 후보 절차와 14일 종료 기준은
 docs/store/closed-testing-checklist-v2.md를 따른다.

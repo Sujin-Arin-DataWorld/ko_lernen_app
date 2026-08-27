@@ -10,6 +10,12 @@
 - Production
 - iOS / TestFlight
 
+여기서 "자동화하지 않는다"는 `main` push가 해당 트랙을 임의로 갱신하지 않는다는
+뜻이다. Jin이 비공개 테스트 릴리스를 명시적으로 요청한 경우에만 별도 수동 워크플로
+`.github/workflows/play_closed.yml`을 `main`의 **전체 40자 exact SHA**와 함께 실행한다.
+이 워크플로는 그 SHA의 push CI 성공을 다시 확인하고, 테스터 피드백만 켠 별도 AAB를
+만들어 `alpha`에 올린다. 공개 테스트와 Production은 이 경로에서도 절대 건드리지 않는다.
+
 비공개테스트 테스터·트랙·승격은 CI가 읽지도 쓰지도 않는다. Closed Testing으로
 올리려면 Play Console에서 Jin이 수동으로 한다.
 
@@ -69,6 +75,10 @@ Console에서 수동으로 만들어야 한다. 현재 package는
 `ENABLE_TESTER_FEEDBACK=true`, `BETA_UNLOCK_ALL=true`, exact `GIT_COMMIT`을
 주입한다. 이 플래그는 AAB 내용이지 Play 트랙이 아니다. Production·Closed
 Testing 빌드에는 쓰지 않는다.
+
+Closed Testing 수동 빌드는 `ENABLE_TESTER_FEEDBACK=true`와 exact `GIT_COMMIT`만
+주입한다. `BETA_UNLOCK_ALL`은 주입하지 않아 내부 테스터 전용 entitlement override가
+비공개 트랙으로 넘어가지 않는다.
 
 자동 실행 실패를 수정한 뒤 다시 올릴 때는 GitHub Actions의 `CI` workflow를 열고
 `Run workflow`에서 `release-internal`을 선택한다. 이 수동 재실행도 먼저 Flutter
