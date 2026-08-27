@@ -467,6 +467,11 @@ class AppL10nEn extends AppL10n {
   }
 
   @override
+  String bookshelfPackLearnedMeta(int learned, int total) {
+    return '$learned of $total learned';
+  }
+
+  @override
   String get bookshelfPageTitle => 'Page';
 
   @override

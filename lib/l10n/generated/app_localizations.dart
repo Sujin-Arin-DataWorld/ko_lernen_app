@@ -901,6 +901,12 @@ abstract class AppL10n {
   /// **'{n, plural, one{1 Wort} other{{n} Wörter}}'**
   String bookshelfPackMeta(int n);
 
+  /// Custom pack tile progress — words learned of total
+  ///
+  /// In de, this message translates to:
+  /// **'{learned} von {total} gelernt'**
+  String bookshelfPackLearnedMeta(int learned, int total);
+
   /// No description provided for @bookshelfPageTitle.
   ///
   /// In de, this message translates to:

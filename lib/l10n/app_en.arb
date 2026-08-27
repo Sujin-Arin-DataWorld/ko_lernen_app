@@ -188,6 +188,11 @@
       }
     }
   },
+  "bookshelfPackLearnedMeta": "{learned} of {total} learned",
+  "@bookshelfPackLearnedMeta": {
+    "description": "Custom pack tile progress — words learned of total",
+    "placeholders": {"learned": {"type": "int"}, "total": {"type": "int"}}
+  },
   "bookshelfPageTitle": "Page",
   "bookshelfPageNotFoundTitle": "Page not found",
   "bookshelfPageNotFoundBody": "It may have been deleted.",

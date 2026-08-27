@@ -222,7 +222,8 @@ void main() {
         await _scrollTo(tester, find.text(pack.displayName()));
         _expectStaticSemantics(
           tester,
-          '${pack.displayName()}. ${t.bookshelfPackMeta(pack.totalWords)}',
+          '${pack.displayName()}. ${t.bookshelfPackMeta(pack.totalWords)} · '
+          '${t.bookshelfPackLearnedMeta(0, pack.totalWords)}',
         );
         for (final action in <String>[
           t.btnPlay,
@@ -422,6 +423,9 @@ void main() {
         name: '/custom_pack/edit',
         arguments: _packId,
       );
+      // The custom-pack tile now carries a second "learned" line (Task 5),
+      // so the page card below it can sit outside the initial cache extent.
+      await _scrollTo(tester, find.textContaining('사랑은 오래 참아요'));
       await _tapAndExpectRoute(
         tester,
         find.textContaining('사랑은 오래 참아요'),
