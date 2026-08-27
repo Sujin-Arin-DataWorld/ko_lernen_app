@@ -4016,5 +4016,11 @@
     }
   },
   "mediaPhrasePrevious": "Previous",
-  "mediaPhraseNext": "Next"
+  "mediaPhraseNext": "Next",
+
+  "homeActionLabel": "Go to home",
+  "homeActionConfirmTitle": "Leave this round?",
+  "homeActionConfirmBody": "Your progress in this round will be lost if you go to the home screen now.",
+  "homeActionConfirmLeave": "Go home",
+  "homeActionConfirmStay": "Keep playing"
 }

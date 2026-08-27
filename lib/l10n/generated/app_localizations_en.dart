@@ -8633,4 +8633,20 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get mediaPhraseNext => 'Next';
+
+  @override
+  String get homeActionLabel => 'Go to home';
+
+  @override
+  String get homeActionConfirmTitle => 'Leave this round?';
+
+  @override
+  String get homeActionConfirmBody =>
+      'Your progress in this round will be lost if you go to the home screen now.';
+
+  @override
+  String get homeActionConfirmLeave => 'Go home';
+
+  @override
+  String get homeActionConfirmStay => 'Keep playing';
 }

@@ -4120,5 +4120,11 @@
     }
   },
   "mediaPhrasePrevious": "Zurück",
-  "mediaPhraseNext": "Weiter"
+  "mediaPhraseNext": "Weiter",
+
+  "homeActionLabel": "Zur Startseite",
+  "homeActionConfirmTitle": "Runde verlassen?",
+  "homeActionConfirmBody": "Dein Fortschritt in dieser Runde geht verloren, wenn du jetzt zur Startseite gehst.",
+  "homeActionConfirmLeave": "Zur Startseite",
+  "homeActionConfirmStay": "Weiterspielen"
 }

@@ -14705,6 +14705,36 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Weiter'**
   String get mediaPhraseNext;
+
+  /// No description provided for @homeActionLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Startseite'**
+  String get homeActionLabel;
+
+  /// No description provided for @homeActionConfirmTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Runde verlassen?'**
+  String get homeActionConfirmTitle;
+
+  /// No description provided for @homeActionConfirmBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt in dieser Runde geht verloren, wenn du jetzt zur Startseite gehst.'**
+  String get homeActionConfirmBody;
+
+  /// No description provided for @homeActionConfirmLeave.
+  ///
+  /// In de, this message translates to:
+  /// **'Zur Startseite'**
+  String get homeActionConfirmLeave;
+
+  /// No description provided for @homeActionConfirmStay.
+  ///
+  /// In de, this message translates to:
+  /// **'Weiterspielen'**
+  String get homeActionConfirmStay;
 }
 
 class _AppL10nDelegate extends LocalizationsDelegate<AppL10n> {

@@ -8673,4 +8673,20 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get mediaPhraseNext => 'Weiter';
+
+  @override
+  String get homeActionLabel => 'Zur Startseite';
+
+  @override
+  String get homeActionConfirmTitle => 'Runde verlassen?';
+
+  @override
+  String get homeActionConfirmBody =>
+      'Dein Fortschritt in dieser Runde geht verloren, wenn du jetzt zur Startseite gehst.';
+
+  @override
+  String get homeActionConfirmLeave => 'Zur Startseite';
+
+  @override
+  String get homeActionConfirmStay => 'Weiterspielen';
 }
