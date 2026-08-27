@@ -131,6 +131,12 @@ Future<void> launchKoLernenApp({
   Future<void> Function()? startProduction,
 }) async {
   WidgetsFlutterBinding.ensureInitialized();
+  // finding 7: Firebase 초기화 성공 여부·스플래시 진행과 완전히 독립적으로
+  // 가장 먼저 설치한다. PrivacyConsentController.handleFlutterError/
+  // handlePlatformError 는 이미 crashClient 호출 실패를 자체 try/catch 로
+  // 감싸므로(Firebase 가 아직 없어도) 여기서 거는 게 안전하다 — 최악의
+  // 경우 리포팅만 스킵되고 조용히 삼켜지진 않는다(debugPrint 남음).
+  PrivacyConsentService.installErrorHandlers();
   final runner = runApplication ?? runApp;
   if (featureGate.isEnabled) {
     runner(const UxPreviewApp());
@@ -444,7 +450,9 @@ Future<bool> _initFirebase() async {
     // Manifest/Info.plist deaktiviert; hier wird die gespeicherte
     // Einwilligung (Default: aus) auf die SDKs angewendet.
     await PrivacyConsentService.applyStored();
-    PrivacyConsentService.installErrorHandlers();
+    // installErrorHandlers() 는 이제 launchKoLernenApp() 맨 앞에서 조기·
+    // 무조건 설치된다(finding 7) — 여기 있던 호출은 Firebase 성공에
+    // 종속된 중복이라 제거.
     // Non-PII Segmentierungs-Properties setzen (no-op ohne Einwilligung).
     unawaited(Analytics.syncUserProperties());
     return true;
