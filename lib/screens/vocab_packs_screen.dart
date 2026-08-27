@@ -98,16 +98,34 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
     });
     try {
       final packs = await PackProgressService.loadLevelView(_level);
-      // 지시서 검수#21 표준팩 소급 복구: vokSeenIds 는 이미 정직하게 쌓였는데
-      // PackProgress.wordsLearned 만 어긋난(과거 "3/9 멈춤") 팩을 여기서
-      // 재동기화한다. wordsLearnedIn 은 순수 유도값이라 매번 다시 불러도
-      // 안전하고, 값이 같으면 recordWordLearned 자체가 사실상 no-op merge.
-      for (final entry in packs) {
-        final derived = PackProgressService.wordsLearnedIn(entry.pack);
-        if (derived != entry.progress.wordsLearned) {
-          // ignore: discarded_futures
-          PackProgressService.recordWordLearned(entry.pack);
-        }
+      // 지시서 검수#21 표준팩 소급 복구(검수 라운드1 반영): vokSeenIds 는 이미
+      // 정직하게 쌓였는데 PackProgress.wordsLearned 만 어긋난(과거 "3/9 멈춤")
+      // 팩을 여기서 재동기화한다. wordsLearnedIn 은 순수 유도값이라 매번 다시
+      // 불러도 안전하다.
+      // 단조 증가 클램프 — 유도값이 저장값보다 "낮을" 때는 절대 덮어쓰지 않는다
+      // (`>`, 이전엔 `!=`): vokSeenIds 초기화나 팩 큐레이션(단어 축소)으로 유도값이
+      // 내려가는 경로가 생기면 `!=` 는 이미 더 높이 쌓인 저장값을 깎아버릴 수
+      // 있었다. `PackProgressService.mergeForReconciliation` 이 같은 부류의
+      // 재조정에 쓰는 `max(...)` 클램프와 동일한 취지.
+      // recordWordLearned 는 내부에서 Firestore savePack 을 fire-and-forget
+      // 하므로(서비스단 — 여기서는 건드리지 않는다), 소급 대상이 많은 계정이 한
+      // 번에 목록을 열면 트랜잭션이 몰릴 수 있다. 호출 자체를 5개씩 청크로 나눠
+      // await 해 착수 폭을 제한한다 — 개별 실패는 _backfillPackProgress 안에서
+      // 삼켜, 백필 실패가 목록 로딩 자체(및 기존 _loadError 경로)를 막지 않는
+      // 안전성을 그대로 유지한다.
+      final staleDelta = [
+        for (final entry in packs)
+          if (PackProgressService.wordsLearnedIn(entry.pack) >
+              entry.progress.wordsLearned)
+            entry.pack,
+      ];
+      for (var i = 0; i < staleDelta.length; i += _backfillChunkSize) {
+        await Future.wait(
+          staleDelta
+              .skip(i)
+              .take(_backfillChunkSize)
+              .map(_backfillPackProgress),
+        );
       }
       final courseUnitId = _courseUnitId;
       final catalog = courseUnitId == null
@@ -433,6 +451,22 @@ class _VocabPacksScreenState extends State<VocabPacksScreen> {
         ),
       ),
     );
+  }
+}
+
+/// `_load()` 소급 백필의 청크 크기 — 한 번에 착수되는 `recordWordLearned`
+/// (및 그 안에서 fire-and-forget 되는 Firestore `savePack`) 호출 수를 제한한다.
+const int _backfillChunkSize = 5;
+
+/// `_load()` 소급 백필 한 건 — 실패(로컬 저장·Firestore 무관)를 여기서 삼킨다.
+/// 재동기화는 부가 효과일 뿐이므로 실패해도 팩 목록 로딩 자체나 기존
+/// `_loadError` 경로에 영향을 주면 안 된다. 다음 목록 열람 시 유도값 비교로
+/// 다시 시도되므로 멱등 — 조용히 넘어가도 안전하다.
+Future<void> _backfillPackProgress(VocabPack pack) async {
+  try {
+    await PackProgressService.recordWordLearned(pack);
+  } catch (_) {
+    // ignore — 다음 방문에서 wordsLearnedIn 비교로 재시도된다.
   }
 }
 
