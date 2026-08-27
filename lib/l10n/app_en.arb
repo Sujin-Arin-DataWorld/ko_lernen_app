@@ -511,6 +511,8 @@
   "smalltalkSaferAlternativeAndNext": "Safer alternative and next turn",
   "smalltalkSaferAlternative": "Safer alternative",
   "smalltalkNextTurn": "Next turn",
+  "smalltalkNextPhrase": "Next phrase",
+  "smalltalkPreviousPhrase": "Previous phrase",
   "wordleSyllableCount": "{n}-syllable word · 6 tries",
   "@wordleSyllableCount": {
     "placeholders": {

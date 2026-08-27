@@ -1105,6 +1105,12 @@ class AppL10nEn extends AppL10n {
   String get smalltalkNextTurn => 'Next turn';
 
   @override
+  String get smalltalkNextPhrase => 'Next phrase';
+
+  @override
+  String get smalltalkPreviousPhrase => 'Previous phrase';
+
+  @override
   String wordleSyllableCount(int n) {
     return '$n-syllable word · 6 tries';
   }

@@ -100,6 +100,44 @@ void main() {
     },
   );
 
+  testWidgets(
+    '표현 넘기기 스와이프 대체수단이 스크린리더에 노출된다 (finding 9)',
+    (tester) async {
+      await _pumpSmalltalk(
+        tester,
+        child: const SmalltalkScreen(),
+        size: const Size(390, 844),
+        textScale: 1.3,
+      );
+      await _pumpUntilVisible(tester, find.byType(SoriContentFeed));
+
+      final t = await AppL10n.delegate.load(const Locale('de'));
+      final wrappers = tester
+          .widgetList<Semantics>(
+            find.ancestor(
+              of: find.byType(SoriContentFeed),
+              matching: find.byType(Semantics),
+            ),
+          )
+          .where((w) => w.properties.customSemanticsActions != null)
+          .toList();
+
+      expect(
+        wrappers,
+        isNotEmpty,
+        reason:
+            '지금은 SoriContentFeed(onNext/onPrevious) 를 감싸는 '
+            'customSemanticsActions 래퍼가 전혀 없다 — 표현 넘기기가 '
+            '100% 제스처 전용이라 스와이프를 못 쓰는 스크린리더 사용자는 '
+            '다음/이전 표현으로 갈 방법이 없다 (WCAG 2.5.1)',
+      );
+      final labels = wrappers.first.properties.customSemanticsActions!.keys
+          .map((a) => a.label)
+          .toList();
+      expect(labels, contains(t.smalltalkNextPhrase));
+    },
+  );
+
   testWidgets('category choices and inline audio use the shared UI contract', (
     tester,
   ) async {

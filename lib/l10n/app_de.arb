@@ -511,6 +511,8 @@
   "smalltalkSaferAlternativeAndNext": "Sichere Alternative und nächster Schritt",
   "smalltalkSaferAlternative": "Sichere Alternative",
   "smalltalkNextTurn": "Nächster Gesprächsschritt",
+  "smalltalkNextPhrase": "Nächster Ausdruck",
+  "smalltalkPreviousPhrase": "Vorheriger Ausdruck",
   "wordleSyllableCount": "{n}-Silben-Wort · 6 Versuche",
   "@wordleSyllableCount": {
     "placeholders": {
