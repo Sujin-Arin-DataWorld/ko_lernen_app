@@ -193,17 +193,19 @@ Future<void> _startProductionApplication(
   // 이걸 빼면 홈·게임·레슨완료가 전부 호랑이로 고정된다(2026-07-31 배선 수정).
   MascotPreference.load();
 
-  // The resolver must finish before the first frame. Otherwise a dedicated
-  // per-scenario illustration can be silently replaced by its category
-  // fallback for the lifetime of the already-built screen.
-  // (계약: test/scene_asset_resolver_test.dart 가 이 순서를 고정한다.)
-  await SceneAssetResolver.load();
-
-  // 정답 축하 스프라이트(복주머니·엽전)를 첫 프레임 전에 디코딩한다.
-  // 새 설치 직후 첫 정답도 Satz 전용 6배 시트를 쓰도록 완료를 기다린다.
-  // 에셋 실패는 preload 내부에서 기록하고 절차적 burst로 안전하게 폴백한다.
-  // (계약: test/dancheong_burst_preload_contract_test.dart 가 이 순서를 고정한다.)
-  await DancheongBurst.preload();
+  // 두 준비 작업 모두 첫 프레임 전에 끝나야 하지만 서로 의존하지 않는다
+  // (하나는 에셋 매니페스트 조회, 하나는 스프라이트 시트 디코딩) — 순차
+  // await 대신 병렬로 실행해 콜드스타트를 단축한다.
+  // 리졸버가 안 끝나면 전용 시나리오 일러스트가 카테고리 폴백으로 조용히
+  // 대체된 채 이미 빌드된 화면 생애주기 내내 유지될 수 있고, 프리로드가
+  // 안 끝나면 첫 축하가 절차적 폴백으로 떨어진다 — 그래서 runner() 전에
+  // **둘 다** await 된다.
+  // (계약: test/scene_asset_resolver_test.dart · test/dancheong_burst_preload_contract_test.dart
+  // 가 "runner 이전 await 존재"로 이 순서를 고정한다 — Task 8 참조.)
+  await Future.wait<void>([
+    SceneAssetResolver.load(),
+    DancheongBurst.preload(),
+  ]);
 
   // 2026-08-19(원 결정) + 2026-08-26(W2 갱신): 에셋 매니페스트(§SceneAssetResolver)
   // + 축하 스프라이트 디코딩(§DancheongBurst)만 첫 프레임 전에 끝내면 된다.
