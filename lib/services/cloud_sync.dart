@@ -598,11 +598,21 @@ class CloudSync {
               break;
             }
           }
-          for (final id in remoteIds) {
-            await _guardedWrite(beforeWrite, () async {
-              await Storage.appendStudyLogEntryForRestore(dateIso, id);
-            });
+          if (remoteIds.isEmpty) {
+            continue;
           }
+          await _guardedWrite(beforeWrite, () async {
+            switch (await Storage.restoreStudyLogDateForRestore(
+              dateIso,
+              remoteIds,
+              assertCurrentWrite: beforeWrite,
+            )) {
+              case StudyLogDateRestoreResult.written:
+              case StudyLogDateRestoreResult.skippedExisting:
+              case StudyLogDateRestoreResult.skippedRecoveryValue:
+                break;
+            }
+          });
         }
       }
     }
@@ -610,7 +620,10 @@ class CloudSync {
     if (grammarPlanJson != null && Storage.grammarPlanRawJson.isEmpty) {
       await _guardedWrite(
         beforeWrite,
-        () => Storage.setGrammarPlanRawJson(grammarPlanJson),
+        () => Storage.setGrammarPlanRawJsonForRestore(
+          grammarPlanJson,
+          assertCurrentWrite: beforeWrite,
+        ),
       );
     }
 

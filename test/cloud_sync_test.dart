@@ -971,7 +971,7 @@ void main() {
           },
           beforeWrite: () {
             writeChecks++;
-            if (writeChecks >= 2) {
+            if (writeChecks >= 3) {
               throw StateError('stale restore session');
             }
           },
@@ -979,8 +979,97 @@ void main() {
         throwsStateError,
       );
 
-      expect(Storage.studyLogIdsFor(date), ['first']);
+      expect(Storage.studyLogIdsFor(date), ['first', 'second']);
       expect(Storage.grammarPlanRawJson, isEmpty);
+    },
+  );
+
+  test(
+    'a failed ledger date restore leaves no truncation and a retry restores the full date',
+    () async {
+      const date = '2026-08-17';
+      final rejectingStore = _OldPerIdFailureListStore();
+      Storage.setStudyLogStoreForTesting(rejectingStore);
+      final payload = <String, dynamic>{
+        'study_log_json': jsonEncode({
+          date: ['first', 'second'],
+        }),
+      };
+
+      await expectLater(
+        CloudSync.applyRestorePayload(payload),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+      expect(rejectingStore.value, isNull);
+
+      Storage.setStudyLogStoreForTesting(null);
+      await CloudSync.applyRestorePayload(payload);
+      expect(Storage.studyLogIdsFor(date), ['first', 'second']);
+    },
+  );
+
+  test(
+    'a ledger guard invalidated during preparation blocks the setter',
+    () async {
+      var stale = false;
+      final store = _MicrotaskStalingStringListStore(() => stale = true);
+      Storage.setStudyLogStoreForTesting(store);
+
+      await expectLater(
+        Storage.restoreStudyLogDateForRestore(
+          '2026-08-17',
+          ['remote-id'],
+          assertCurrentWrite: () {
+            if (stale) {
+              throw StateError('stale after preparation');
+            }
+          },
+        ),
+        throwsStateError,
+      );
+
+      expect(store.setCalls, 0);
+      expect(store.value, isNull);
+    },
+  );
+
+  test(
+    'a rejected grammar-plan setter makes restore fail without a write',
+    () async {
+      final store = _RejectingStringStore();
+      Storage.setGrammarPlanStoreForTesting(store);
+
+      await expectLater(
+        CloudSync.applyRestorePayload({'gram_plan_json': '{"a1":{}}'}),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+
+      expect(store.setCalls, 1);
+      expect(Storage.grammarPlanRawJson, isEmpty);
+    },
+  );
+
+  test(
+    'a grammar-plan guard invalidated during preparation blocks the setter',
+    () async {
+      var stale = false;
+      final store = _MicrotaskStalingStringStore(() => stale = true);
+      Storage.setGrammarPlanStoreForTesting(store);
+
+      await expectLater(
+        CloudSync.applyRestorePayload(
+          {'gram_plan_json': '{"a1":{}}'},
+          beforeWrite: () {
+            if (stale) {
+              throw StateError('stale after preparation');
+            }
+          },
+        ),
+        throwsStateError,
+      );
+
+      expect(store.setCalls, 0);
+      expect(store.value, isNull);
     },
   );
 
@@ -1630,6 +1719,134 @@ class _UnusedCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
     required String expectedUid,
   }) async {
     throw UnsupportedError('not used by a restore admission');
+  }
+}
+
+class _OldPerIdFailureListStore implements PreferenceStringListStore {
+  List<String>? value;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  List<String>? getStringList(String key) => value;
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setStringList(String key, List<String> nextValue) async {
+    if (nextValue.length == 1 && nextValue.single == 'first') {
+      value = List<String>.from(nextValue);
+      return true;
+    }
+    return false;
+  }
+}
+
+class _MicrotaskStalingStringListStore implements PreferenceStringListStore {
+  _MicrotaskStalingStringListStore(this.onPrepared);
+
+  final void Function() onPrepared;
+  List<String>? value;
+  var setCalls = 0;
+  var _scheduled = false;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  List<String>? getStringList(String key) {
+    if (!_scheduled) {
+      _scheduled = true;
+      scheduleMicrotask(onPrepared);
+    }
+    return value;
+  }
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setStringList(String key, List<String> nextValue) async {
+    setCalls++;
+    value = List<String>.from(nextValue);
+    return true;
+  }
+}
+
+class _RejectingStringStore implements PreferenceStringStore {
+  String? value;
+  var setCalls = 0;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  String? getString(String key) => value;
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String nextValue) async {
+    setCalls++;
+    return false;
+  }
+}
+
+class _MicrotaskStalingStringStore implements PreferenceStringStore {
+  _MicrotaskStalingStringStore(this.onPrepared);
+
+  final void Function() onPrepared;
+  String? value;
+  var setCalls = 0;
+  var _scheduled = false;
+
+  @override
+  bool containsKey(String key) {
+    if (!_scheduled) {
+      _scheduled = true;
+      scheduleMicrotask(onPrepared);
+    }
+    return value != null;
+  }
+
+  @override
+  String? getString(String key) => value;
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String nextValue) async {
+    setCalls++;
+    value = nextValue;
+    return true;
   }
 }
 

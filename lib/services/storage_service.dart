@@ -137,6 +137,13 @@ abstract interface class PreferenceStringListStore {
   Future<bool> remove(String key);
 }
 
+/// Outcome of one atomic historical study-log date restore.
+enum StudyLogDateRestoreResult {
+  written,
+  skippedExisting,
+  skippedRecoveryValue,
+}
+
 /// Injectable boolean preference boundary used by strict onboarding commits.
 ///
 /// SharedPreferences updates its in-memory cache before the platform write is
@@ -568,6 +575,7 @@ class Storage {
   static int _tutorialResetRevision = 0;
   static PreferenceStringStore? _srsPersistenceStoreForTesting;
   static PreferenceStringListStore? _studyLogStoreForTesting;
+  static PreferenceStringStore? _grammarPlanStoreForTesting;
 
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
@@ -608,6 +616,7 @@ class Storage {
     _unknownStrictKeys.clear();
     _srsPersistenceStoreForTesting = null;
     _studyLogStoreForTesting = null;
+    _grammarPlanStoreForTesting = null;
     _courseMasteryCache = null;
     _wrongCountCache = null;
     _learningWritesLockReason = null;
@@ -766,6 +775,7 @@ class Storage {
     PreferenceStringStore? preferences,
     void Function()? assertCurrentWrite,
     _StringPreferenceState? beforeState,
+    bool yieldBeforeAssert = false,
   }) async {
     final store =
         preferences ??
@@ -774,6 +784,9 @@ class Storage {
       throw PreferenceWriteException(key);
     }
     final before = beforeState ?? await _prepareStringMutation(store, key);
+    if (yieldBeforeAssert) {
+      await Future<void>.delayed(Duration.zero);
+    }
     assertCurrentWrite?.call();
     Object? failure;
     var wrote = false;
@@ -805,6 +818,8 @@ class Storage {
     List<String> value, {
     PreferenceStringListStore? preferences,
     void Function()? assertCurrentWrite,
+    _StringListPreferenceState? beforeState,
+    bool yieldBeforeAssert = false,
   }) async {
     final store =
         preferences ??
@@ -812,7 +827,10 @@ class Storage {
     if (store == null) {
       throw PreferenceWriteException(key);
     }
-    final before = await _prepareStringListMutation(store, key);
+    final before = beforeState ?? await _prepareStringListMutation(store, key);
+    if (yieldBeforeAssert) {
+      await Future<void>.delayed(Duration.zero);
+    }
     assertCurrentWrite?.call();
     Object? failure;
     var wrote = false;
@@ -1329,6 +1347,19 @@ class Storage {
   static String get grammarPlanRawJson => _s('kl_gram_plan_v1');
   static Future<void> setGrammarPlanRawJson(String json) =>
       _ss('kl_gram_plan_v1', json);
+
+  /// Strict cloud-restore-only writer. The caller's session guard is checked
+  /// after preference preparation and immediately before the platform setter.
+  static Future<void> setGrammarPlanRawJsonForRestore(
+    String json, {
+    void Function()? assertCurrentWrite,
+  }) => _ssStrict(
+    'kl_gram_plan_v1',
+    json,
+    preferences: _grammarPlanStoreForTesting,
+    assertCurrentWrite: assertCurrentWrite,
+    yieldBeforeAssert: true,
+  );
 
   static Future<void> setGrammarLastIdx(int v) => _si('kl_gram_last_idx', v);
   static Future<void> addGrammarSeen(String pattern) async {
@@ -2573,6 +2604,69 @@ class Storage {
     return true;
   }
 
+  /// Restores a validated remote date in one strict preference write.
+  ///
+  /// This prevents a rejected mid-date write from creating a partial local
+  /// date that would later win against the complete cloud source.
+  static Future<StudyLogDateRestoreResult> restoreStudyLogDateForRestore(
+    String dateIso,
+    List<String> remoteIds, {
+    void Function()? assertCurrentWrite,
+  }) async {
+    if (!_isCanonicalStudyLogDate(dateIso)) {
+      throw ArgumentError.value(dateIso, 'dateIso', 'must be canonical');
+    }
+    final ids = <String>[];
+    final seen = <String>{};
+    for (final id in remoteIds) {
+      if (id.trim().isEmpty || !seen.add(id)) {
+        continue;
+      }
+      ids.add(id);
+      if (ids.length == _studyLogMaxIdsPerDay) {
+        break;
+      }
+    }
+    if (ids.isEmpty) {
+      throw ArgumentError.value(remoteIds, 'remoteIds', 'must contain an ID');
+    }
+
+    final key = _studyLogKey(dateIso);
+    final store =
+        _studyLogStoreForTesting ??
+        (_prefs == null ? null : _SharedPreferenceStringListStore(_prefs!));
+    if (store == null) {
+      throw PreferenceWriteException(key);
+    }
+    late final _StringListPreferenceState before;
+    try {
+      // Probe first so a wrong-typed recovery value remains distinguishable
+      // from a strict-store failure reported by the preparation path.
+      store.getStringList(key);
+      before = await _prepareStringListMutation(store, key);
+    } on PreferenceWriteException {
+      rethrow;
+    } on PreferenceOutcomeUnknownException {
+      rethrow;
+    } on Object catch (error) {
+      // Wrong-typed local values are recovery data, never an empty ledger.
+      debugPrint('Storage: malformed study-log entry for $dateIso: $error');
+      return StudyLogDateRestoreResult.skippedRecoveryValue;
+    }
+    if (before.isPresent && before.value!.isNotEmpty) {
+      return StudyLogDateRestoreResult.skippedExisting;
+    }
+    await _slStrict(
+      key,
+      ids,
+      preferences: store,
+      beforeState: before,
+      assertCurrentWrite: assertCurrentWrite,
+      yieldBeforeAssert: true,
+    );
+    return StudyLogDateRestoreResult.written;
+  }
+
   /// The reset drain barrier prevents a new preference boundary from opening
   /// while this conditional rollback settles.
   static Future<void> _restoreStaleStudyLogWrite({
@@ -2612,6 +2706,11 @@ class Storage {
   @visibleForTesting
   static void setStudyLogStoreForTesting(PreferenceStringListStore? store) {
     _studyLogStoreForTesting = store;
+  }
+
+  @visibleForTesting
+  static void setGrammarPlanStoreForTesting(PreferenceStringStore? store) {
+    _grammarPlanStoreForTesting = store;
   }
 
   /// [keepDays]보다 오래된 일별 원장 키를 지운다.
