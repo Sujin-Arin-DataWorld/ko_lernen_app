@@ -226,4 +226,11 @@ Future<void> _settle(WidgetTester tester) async {
   // 에셋 로드엔 충분하다.
   await tester.pump();
   await tester.pump(const Duration(milliseconds: 300));
+  if (find
+      .byKey(const Key('grammar-plan-onboarding-sheet'))
+      .evaluate()
+      .isNotEmpty) {
+    await tester.tapAt(const Offset(8, 8));
+    await tester.pump(const Duration(milliseconds: 300));
+  }
 }

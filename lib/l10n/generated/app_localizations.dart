@@ -8778,6 +8778,66 @@ abstract class AppL10n {
   /// **'Mit Beispielen üben'**
   String get grammarChoiceCta;
 
+  /// No description provided for @grammarPlanOnboardingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie viele Muster pro Tag?'**
+  String get grammarPlanOnboardingTitle;
+
+  /// No description provided for @grammarPlanItemsPerDayOption.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} pro Tag'**
+  String grammarPlanItemsPerDayOption(int n);
+
+  /// No description provided for @grammarPlanStartCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Los geht\'s'**
+  String get grammarPlanStartCta;
+
+  /// No description provided for @grammarPlanDayHeader.
+  ///
+  /// In de, this message translates to:
+  /// **'Tag {day} von {total}'**
+  String grammarPlanDayHeader(int day, int total);
+
+  /// No description provided for @grammarPlanCompletionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Tag geschafft!'**
+  String get grammarPlanCompletionTitle;
+
+  /// No description provided for @grammarPlanCompletionBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Beispielen üben?'**
+  String get grammarPlanCompletionBody;
+
+  /// No description provided for @grammarPlanCompletionCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get grammarPlanCompletionCta;
+
+  /// No description provided for @grammarPlanCompletionSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Später'**
+  String get grammarPlanCompletionSkip;
+
+  /// No description provided for @grammarPlanFinishedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Muster dieser Stufe geschafft!'**
+  String get grammarPlanFinishedTitle;
+
+  /// No description provided for @grammarPlanFinishedRestartCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Neu starten'**
+  String get grammarPlanFinishedRestartCta;
+
   /// No description provided for @grammarChoiceTitle.
   ///
   /// In de, this message translates to:

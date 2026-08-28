@@ -5040,6 +5040,41 @@ class AppL10nEn extends AppL10n {
   String get grammarChoiceCta => 'Practice with examples';
 
   @override
+  String get grammarPlanOnboardingTitle => 'How many patterns per day?';
+
+  @override
+  String grammarPlanItemsPerDayOption(int n) {
+    return '$n per day';
+  }
+
+  @override
+  String get grammarPlanStartCta => 'Let\'s go';
+
+  @override
+  String grammarPlanDayHeader(int day, int total) {
+    return 'Day $day of $total';
+  }
+
+  @override
+  String get grammarPlanCompletionTitle => 'Day done!';
+
+  @override
+  String get grammarPlanCompletionBody => 'Practice with examples?';
+
+  @override
+  String get grammarPlanCompletionCta => 'Practice';
+
+  @override
+  String get grammarPlanCompletionSkip => 'Later';
+
+  @override
+  String get grammarPlanFinishedTitle =>
+      'You\'ve finished every pattern in this level!';
+
+  @override
+  String get grammarPlanFinishedRestartCta => 'Start over';
+
+  @override
   String get grammarChoiceTitle => 'Grammar practice';
 
   @override

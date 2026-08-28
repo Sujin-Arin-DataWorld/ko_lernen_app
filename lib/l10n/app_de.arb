@@ -2521,6 +2521,33 @@
   "grammarHard": "Schwierig",
   "grammarPreviousCard": "Vorherige Karte",
   "grammarChoiceCta": "Mit Beispielen üben",
+  "grammarPlanOnboardingTitle": "Wie viele Muster pro Tag?",
+  "grammarPlanItemsPerDayOption": "{n} pro Tag",
+  "@grammarPlanItemsPerDayOption": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanStartCta": "Los geht's",
+  "grammarPlanDayHeader": "Tag {day} von {total}",
+  "@grammarPlanDayHeader": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanCompletionTitle": "Tag geschafft!",
+  "grammarPlanCompletionBody": "Mit Beispielen üben?",
+  "grammarPlanCompletionCta": "Üben",
+  "grammarPlanCompletionSkip": "Später",
+  "grammarPlanFinishedTitle": "Alle Muster dieser Stufe geschafft!",
+  "grammarPlanFinishedRestartCta": "Neu starten",
   "grammarChoiceTitle": "Grammatik üben",
   "grammarChoiceEyebrow": "Satz erkennen",
   "grammarChoiceInstruction": "Welche koreanische Grammatik passt zum hervorgehobenen Teil?",

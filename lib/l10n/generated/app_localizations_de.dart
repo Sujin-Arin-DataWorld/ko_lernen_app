@@ -5060,6 +5060,40 @@ class AppL10nDe extends AppL10n {
   String get grammarChoiceCta => 'Mit Beispielen üben';
 
   @override
+  String get grammarPlanOnboardingTitle => 'Wie viele Muster pro Tag?';
+
+  @override
+  String grammarPlanItemsPerDayOption(int n) {
+    return '$n pro Tag';
+  }
+
+  @override
+  String get grammarPlanStartCta => 'Los geht\'s';
+
+  @override
+  String grammarPlanDayHeader(int day, int total) {
+    return 'Tag $day von $total';
+  }
+
+  @override
+  String get grammarPlanCompletionTitle => 'Tag geschafft!';
+
+  @override
+  String get grammarPlanCompletionBody => 'Mit Beispielen üben?';
+
+  @override
+  String get grammarPlanCompletionCta => 'Üben';
+
+  @override
+  String get grammarPlanCompletionSkip => 'Später';
+
+  @override
+  String get grammarPlanFinishedTitle => 'Alle Muster dieser Stufe geschafft!';
+
+  @override
+  String get grammarPlanFinishedRestartCta => 'Neu starten';
+
+  @override
   String get grammarChoiceTitle => 'Grammatik üben';
 
   @override

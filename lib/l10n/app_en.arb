@@ -2452,6 +2452,33 @@
   "grammarHard": "Difficult",
   "grammarPreviousCard": "Previous card",
   "grammarChoiceCta": "Practice with examples",
+  "grammarPlanOnboardingTitle": "How many patterns per day?",
+  "grammarPlanItemsPerDayOption": "{n} per day",
+  "@grammarPlanItemsPerDayOption": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanStartCta": "Let's go",
+  "grammarPlanDayHeader": "Day {day} of {total}",
+  "@grammarPlanDayHeader": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanCompletionTitle": "Day done!",
+  "grammarPlanCompletionBody": "Practice with examples?",
+  "grammarPlanCompletionCta": "Practice",
+  "grammarPlanCompletionSkip": "Later",
+  "grammarPlanFinishedTitle": "You've finished every pattern in this level!",
+  "grammarPlanFinishedRestartCta": "Start over",
   "grammarChoiceTitle": "Grammar practice",
   "grammarChoiceEyebrow": "Recognize the sentence",
   "grammarChoiceInstruction": "Which Korean grammar pattern matches the highlighted part?",
