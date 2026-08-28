@@ -124,7 +124,8 @@ class _GrammarScreenState extends State<GrammarScreen>
   String get coachId => 'grammar';
 
   @override
-  bool get coachReady => !_loading && _current != null;
+  bool get coachReady =>
+      !_loading && _current != null && !_planOnboardingInFlight;
 
   @override
   List<SpotlightStep> buildCoachSteps(BuildContext context) {
@@ -574,7 +575,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                                 GrammarPlanService.encodePlans(next),
                               );
                             } catch (_) {
-                              if (mounted) {
+                              if (mounted && sheetContext.mounted) {
                                 setSheetState(() => isStarting = false);
                               }
                               return;

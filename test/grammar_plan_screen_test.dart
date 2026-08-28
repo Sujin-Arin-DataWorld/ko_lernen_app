@@ -17,6 +17,7 @@ import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
+import 'package:ko_lernen_app/widgets/sori/spotlight_coach.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -54,6 +55,33 @@ void main() {
       reason: 'five items is the default selected pace',
     );
   });
+
+  testWidgets(
+    'an unseen grammar coach never covers the automatic plan onboarding sheet',
+    (tester) async {
+      await tester.runAsync(() async {
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('kl_tut_grammar', false);
+      });
+
+      await _pumpGrammar(
+        tester,
+        const MediaQuery(
+          data: MediaQueryData(disableAnimations: true),
+          child: GrammarScreen(),
+        ),
+      );
+      for (var attempt = 0; attempt < 20; attempt++) {
+        await tester.pump(const Duration(milliseconds: 50));
+      }
+
+      expect(
+        find.byKey(const Key('grammar-plan-onboarding-sheet')),
+        findsOneWidget,
+      );
+      expect(find.byKey(kSpotlightTooltipKey), findsNothing);
+    },
+  );
 
   testWidgets(
     'starting a plan persists the current-level first curated slice',
