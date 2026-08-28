@@ -270,6 +270,59 @@ void main() {
   );
 
   test(
+    'restore helper accepts only canonical dates and nonblank ids without normalizing bytes',
+    () async {
+      await Storage.init();
+      const restoredDate = '2026-08-17';
+
+      expect(
+        await Storage.appendStudyLogEntryForRestore('2026-02-30', 'bad-date'),
+        isFalse,
+      );
+      expect(
+        await Storage.appendStudyLogEntryForRestore(restoredDate, '   '),
+        isFalse,
+      );
+      expect(
+        await Storage.appendStudyLogEntryForRestore(restoredDate, ' id '),
+        isTrue,
+      );
+      expect(
+        await Storage.appendStudyLogEntryForRestore(restoredDate, ' id '),
+        isTrue,
+      );
+
+      expect(Storage.studyLogIdsFor(restoredDate), [' id ']);
+    },
+  );
+
+  test(
+    'restore helper preserves wrong-typed recovery values and exposes strict write failures',
+    () async {
+      const restoredDate = '2026-08-17';
+      final key = 'kl_study_log_v1_$restoredDate';
+      SharedPreferences.setMockInitialValues({key: 'wrong-type'});
+      await Storage.init();
+      final preferences = await SharedPreferences.getInstance();
+
+      expect(
+        await Storage.appendStudyLogEntryForRestore(restoredDate, 'remote-id'),
+        isFalse,
+      );
+      expect(preferences.getString(key), 'wrong-type');
+
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({});
+      await Storage.init();
+      Storage.setStudyLogStoreForTesting(_RejectingStringListStore());
+      await expectLater(
+        Storage.appendStudyLogEntryForRestore(restoredDate, 'persist-fails'),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+    },
+  );
+
+  test(
     'the first same-id review after an indeterminate ledger recovery succeeds',
     () async {
       await Storage.init();

@@ -2530,6 +2530,49 @@ class Storage {
     }
   }
 
+  /// Restores one historical ledger entry without changing the SRS deck.
+  ///
+  /// Cloud restore owns the session-lifetime guard. This helper intentionally
+  /// does not consult [_learningWritesLockReason], because a restore is not a
+  /// learner-initiated SRS judgment. It nevertheless keeps the ledger's
+  /// canonical-date, insertion-order, deduplication, cap, and strict-write
+  /// contracts intact.
+  static Future<bool> appendStudyLogEntryForRestore(
+    String dateIso,
+    String id,
+  ) async {
+    if (!_isCanonicalStudyLogDate(dateIso) || id.trim().isEmpty) {
+      return false;
+    }
+    final key = _studyLogKey(dateIso);
+    final store =
+        _studyLogStoreForTesting ??
+        (_prefs == null ? null : _SharedPreferenceStringListStore(_prefs!));
+    if (store == null) {
+      return false;
+    }
+
+    late final List<String> ids;
+    try {
+      ids = _l(key);
+    } on Object catch (error) {
+      // A wrong-typed preference is recovery data. Never replace it with an
+      // empty-looking list during a restore.
+      debugPrint('Storage: malformed study-log entry for $dateIso: $error');
+      return false;
+    }
+    if (ids.contains(id)) {
+      return true;
+    }
+    if (ids.length >= _studyLogMaxIdsPerDay) {
+      return false;
+    }
+
+    final next = List<String>.from(ids)..add(id);
+    await _slStrict(key, next, preferences: store);
+    return true;
+  }
+
   /// The reset drain barrier prevents a new preference boundary from opening
   /// while this conditional rollback settles.
   static Future<void> _restoreStaleStudyLogWrite({

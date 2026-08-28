@@ -93,6 +93,11 @@ abstract final class LearningDataExportService {
         'activeUnitId': Storage.courseUnitId,
         'mastery': _readCourseMastery(),
       },
+      'studyLog': {
+        for (final dateIso in Storage.studyLogDates())
+          dateIso: Storage.studyLogIdsFor(dateIso),
+      },
+      'grammarPlan': _readGrammarPlan(),
       'review': {
         'cards': _readReviewCards(),
         'wrongCounts': _readWrongCounts(),
@@ -124,6 +129,19 @@ abstract final class LearningDataExportService {
       if (decoded is! Map) return null;
       final map = decoded.map((key, value) => MapEntry(key.toString(), value));
       return CourseMasterySnapshot.decodeAndMigrate(map).toJson();
+    } catch (_) {
+      return null;
+    }
+  }
+
+  static Map<String, dynamic>? _readGrammarPlan() {
+    final raw = Storage.grammarPlanRawJson.trim();
+    if (raw.isEmpty) return null;
+    try {
+      final decoded = jsonDecode(raw);
+      return decoded is Map
+          ? decoded.map((key, value) => MapEntry(key.toString(), value))
+          : null;
     } catch (_) {
       return null;
     }
