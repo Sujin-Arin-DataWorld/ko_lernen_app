@@ -128,6 +128,15 @@ abstract interface class PreferenceStringStore {
   Future<bool> remove(String key);
 }
 
+/// Injectable string-list preference boundary for strict ledger commits.
+abstract interface class PreferenceStringListStore {
+  bool containsKey(String key);
+  List<String>? getStringList(String key);
+  Future<void> reload();
+  Future<bool> setStringList(String key, List<String> value);
+  Future<bool> remove(String key);
+}
+
 /// Injectable boolean preference boundary used by strict onboarding commits.
 ///
 /// SharedPreferences updates its in-memory cache before the platform write is
@@ -184,6 +193,41 @@ class _StringPreferenceState {
       other is _StringPreferenceState &&
       other.isPresent == isPresent &&
       other.value == value;
+
+  @override
+  int get hashCode => Object.hash(isPresent, value);
+}
+
+class _StringListPreferenceState {
+  const _StringListPreferenceState._({required this.isPresent, this.value});
+
+  const _StringListPreferenceState.absent() : isPresent = false, value = null;
+
+  final bool isPresent;
+  final List<String>? value;
+
+  static _StringListPreferenceState read(
+    PreferenceStringListStore store,
+    String key,
+  ) {
+    if (!store.containsKey(key)) {
+      return const _StringListPreferenceState.absent();
+    }
+    final value = store.getStringList(key);
+    if (value == null) {
+      throw StateError('Preference $key is not a string list.');
+    }
+    return _StringListPreferenceState._(
+      isPresent: true,
+      value: List<String>.unmodifiable(value),
+    );
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      other is _StringListPreferenceState &&
+      other.isPresent == isPresent &&
+      _preferenceValueEquals(other.value, value);
 
   @override
   int get hashCode => Object.hash(isPresent, value);
@@ -337,6 +381,28 @@ class _SharedPreferenceStringStore implements PreferenceStringStore {
   @override
   Future<bool> setString(String key, String value) =>
       preferences.setString(key, value);
+}
+
+class _SharedPreferenceStringListStore implements PreferenceStringListStore {
+  const _SharedPreferenceStringListStore(this.preferences);
+
+  final SharedPreferences preferences;
+
+  @override
+  bool containsKey(String key) => preferences.containsKey(key);
+
+  @override
+  List<String>? getStringList(String key) => preferences.getStringList(key);
+
+  @override
+  Future<void> reload() => preferences.reload();
+
+  @override
+  Future<bool> remove(String key) => preferences.remove(key);
+
+  @override
+  Future<bool> setStringList(String key, List<String> value) =>
+      preferences.setStringList(key, value);
 }
 
 class _SharedPreferenceBoolStore implements PreferenceBoolStore {
@@ -493,11 +559,12 @@ class Storage {
   static final Set<String> _unknownStrictKeys = <String>{};
   static String? _courseMasteryCache;
   static int _tutorialResetRevision = 0;
+  static PreferenceStringStore? _srsPersistenceStoreForTesting;
+  static PreferenceStringListStore? _studyLogStoreForTesting;
 
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
     _prefs ??= await SharedPreferences.getInstance();
-    await pruneStudyLog();
   }
 
   /// Test-only: leert den `_prefs`-Cache, damit ein neuer
@@ -520,6 +587,8 @@ class Storage {
     _pendingListeningRewardClaims.clear();
     MediaMutationLock.resetForTesting();
     _unknownStrictKeys.clear();
+    _srsPersistenceStoreForTesting = null;
+    _studyLogStoreForTesting = null;
     _courseMasteryCache = null;
     _wrongCountCache = null;
     _learningWritesLockReason = null;
@@ -664,6 +733,43 @@ class Storage {
     throw PreferenceOutcomeUnknownException(key, cause: failure);
   }
 
+  static Future<void> _slStrict(
+    String key,
+    List<String> value, {
+    PreferenceStringListStore? preferences,
+  }) async {
+    final store =
+        preferences ??
+        (_prefs == null ? null : _SharedPreferenceStringListStore(_prefs!));
+    if (store == null) {
+      throw PreferenceWriteException(key);
+    }
+    final before = await _prepareStringListMutation(store, key);
+    Object? failure;
+    var wrote = false;
+    try {
+      wrote = await store.setStringList(key, value);
+    } on Object catch (error) {
+      failure = error;
+    }
+    if (wrote) {
+      return;
+    }
+    final after = await _reloadStringListState(
+      store,
+      key,
+      operationFailure: failure,
+    );
+    if (after.isPresent && _preferenceValueEquals(after.value, value)) {
+      return;
+    }
+    if (after == before) {
+      throw PreferenceWriteException(key, cause: failure);
+    }
+    _unknownStrictKeys.add(key);
+    throw PreferenceOutcomeUnknownException(key, cause: failure);
+  }
+
   static Future<void> _sbStrict(
     String key,
     bool value, {
@@ -774,6 +880,22 @@ class Storage {
     }
   }
 
+  static Future<_StringListPreferenceState> _prepareStringListMutation(
+    PreferenceStringListStore store,
+    String key,
+  ) async {
+    if (_unknownStrictKeys.contains(key)) {
+      await _refreshUnknownStringListKeys(store, [key]);
+      throw PreferenceWriteException(key);
+    }
+    try {
+      return _StringListPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+  }
+
   static Future<void> _refreshUnknownStringKeys(
     PreferenceStringStore store,
     Iterable<String> keys,
@@ -789,6 +911,29 @@ class Storage {
       await store.reload();
       for (final key in unknown) {
         _StringPreferenceState.read(store, key);
+      }
+      _unknownStrictKeys.removeAll(unknown);
+    } on Object catch (error) {
+      _unknownStrictKeys.addAll(unknown);
+      throw PreferenceOutcomeUnknownException(unknown.first, cause: error);
+    }
+  }
+
+  static Future<void> _refreshUnknownStringListKeys(
+    PreferenceStringListStore store,
+    Iterable<String> keys,
+  ) async {
+    final unknown = keys
+        .where(_unknownStrictKeys.contains)
+        .toSet()
+        .toList(growable: false);
+    if (unknown.isEmpty) {
+      return;
+    }
+    try {
+      await store.reload();
+      for (final key in unknown) {
+        _StringListPreferenceState.read(store, key);
       }
       _unknownStrictKeys.removeAll(unknown);
     } on Object catch (error) {
@@ -827,6 +972,23 @@ class Storage {
     try {
       await store.reload();
       return _StringPreferenceState.read(store, key);
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(
+        key,
+        cause: operationFailure ?? error,
+      );
+    }
+  }
+
+  static Future<_StringListPreferenceState> _reloadStringListState(
+    PreferenceStringListStore store,
+    String key, {
+    Object? operationFailure,
+  }) async {
+    try {
+      await store.reload();
+      return _StringListPreferenceState.read(store, key);
     } on Object catch (error) {
       _unknownStrictKeys.add(key);
       throw PreferenceOutcomeUnknownException(
@@ -2107,22 +2269,30 @@ class Storage {
     await _ss('kl_srs_v1', jsonEncode(const <String, dynamic>{}));
   }
 
-  static Future<void> _persistSrs() async {
+  static Future<bool> _persistSrs() async {
     if (_learningWritesLockReason != null) {
       debugPrint(
         'Storage: 학습 쓰기 잠금($_learningWritesLockReason) — kl_srs_v1 쓰기를 건너뛴다',
       );
-      return;
+      return false;
     }
     if (_srsQuarantined) {
       // 손상된 원본 위에 빈/부분 덱을 쓰면 복구 가능성이 사라진다.
       debugPrint('Storage: SRS 격리 상태 — kl_srs_v1 쓰기를 건너뛴다');
-      return;
+      return false;
+    }
+    if (_prefs == null) {
+      return false;
     }
     final json =
         _srsCache?.map((k, v) => MapEntry(k, v.toJson())) ??
         const <String, dynamic>{};
-    await _ss('kl_srs_v1', jsonEncode(json));
+    await _ssStrict(
+      'kl_srs_v1',
+      jsonEncode(json),
+      preferences: _srsPersistenceStoreForTesting,
+    );
+    return true;
   }
 
   /// Roh-JSON des SRS-Decks (für CloudSync-Backup). Leer = kein Deck.
@@ -2146,6 +2316,7 @@ class Storage {
   static const int _studyLogMaxIdsPerDay = 500;
   static const int _studyLogRetentionDays = 60;
   static const String _studyLogPrefix = 'kl_study_log_v1_';
+  static final RegExp _studyLogDatePattern = RegExp(r'^\d{4}-\d{2}-\d{2}$');
 
   static String _studyLogKey(String dateIso) => '$_studyLogPrefix$dateIso';
 
@@ -2163,22 +2334,47 @@ class Storage {
         .getKeys()
         .where((key) => key.startsWith(_studyLogPrefix))
         .map((key) => key.substring(_studyLogPrefix.length))
+        .where(_isCanonicalStudyLogDate)
         .where((dateIso) => studyLogIdsFor(dateIso).isNotEmpty)
         .toList()
       ..sort();
   }
 
-  static Future<void> _appendStudyLogEntry(String id) async {
+  static bool _isCanonicalStudyLogDate(String dateIso) {
+    if (!_studyLogDatePattern.hasMatch(dateIso)) {
+      return false;
+    }
+    final parsed = DateTime.tryParse(dateIso);
+    return parsed != null && _today(parsed) == dateIso;
+  }
+
+  static Future<void> _appendStudyLogEntry(
+    String id, {
+    required String dateIso,
+  }) async {
     if (_learningWritesLockReason != null) {
       return;
     }
-    final dateIso = _today();
     final ids = studyLogIdsFor(dateIso);
     if (ids.contains(id) || ids.length >= _studyLogMaxIdsPerDay) {
       return;
     }
     ids.add(id);
-    await _sl(_studyLogKey(dateIso), ids);
+    await _slStrict(
+      _studyLogKey(dateIso),
+      ids,
+      preferences: _studyLogStoreForTesting,
+    );
+  }
+
+  @visibleForTesting
+  static void setSrsPersistenceStoreForTesting(PreferenceStringStore? store) {
+    _srsPersistenceStoreForTesting = store;
+  }
+
+  @visibleForTesting
+  static void setStudyLogStoreForTesting(PreferenceStringListStore? store) {
+    _studyLogStoreForTesting = store;
   }
 
   /// [keepDays]보다 오래된 일별 원장 키를 지운다.
@@ -2236,6 +2432,7 @@ class Storage {
           reviewCount: 0,
         );
     final now = DateTime.now();
+    final judgmentDate = _today(now);
 
     final SrsCard updated;
     if (gotIt) {
@@ -2259,9 +2456,9 @@ class Storage {
       );
     }
     map[id] = updated;
-    await _persistSrs();
-    if (recordToStudyLog) {
-      await _appendStudyLogEntry(id);
+    final persisted = await _persistSrs();
+    if (persisted && recordToStudyLog) {
+      await _appendStudyLogEntry(id, dateIso: judgmentDate);
     }
   }
 

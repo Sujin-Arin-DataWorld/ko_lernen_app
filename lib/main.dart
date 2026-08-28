@@ -244,6 +244,14 @@ Future<void> _finishStartupInBackground() async {
     debugPrint('Data migration skipped: $error');
   }
 
+  if (migration?.writesAllowed == true) {
+    try {
+      await Storage.pruneStudyLog();
+    } catch (error) {
+      debugPrint('Study-log pruning skipped: $error');
+    }
+  }
+
   final streakBefore = Storage.streakDays;
   await Storage.touchStreak();
   final streakAfter = Storage.streakDays;
