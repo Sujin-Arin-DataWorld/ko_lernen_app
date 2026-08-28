@@ -1326,6 +1326,9 @@ class Storage {
   static int get grammarLastIdx => _i('kl_gram_last_idx');
   static List<String> get grammarSeen => _l('kl_gram_seen');
   static List<String> get grammarHard => _l('kl_gram_hard');
+  static String get grammarPlanRawJson => _s('kl_gram_plan_v1');
+  static Future<void> setGrammarPlanRawJson(String json) =>
+      _ss('kl_gram_plan_v1', json);
 
   static Future<void> setGrammarLastIdx(int v) => _si('kl_gram_last_idx', v);
   static Future<void> addGrammarSeen(String pattern) async {
