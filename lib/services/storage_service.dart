@@ -230,7 +230,7 @@ class _StringListPreferenceState {
       _preferenceValueEquals(other.value, value);
 
   @override
-  int get hashCode => Object.hash(isPresent, value);
+  int get hashCode => Object.hash(isPresent, Object.hashAll(value ?? const []));
 }
 
 class _BoolPreferenceState {
@@ -2411,18 +2411,28 @@ class Storage {
 
   /// Nach einer Wiederholung aufrufen. `gotIt` = richtig beantwortet?
   ///
+  /// Liefert nur dann `true`, wenn die SRS-Änderung dauerhaft geschrieben und
+  /// der optionale Tages-Eintrag verarbeitet wurde. SRS und Tages-Log liegen
+  /// in getrennten Preference-Keys und können daher nicht atomar committed
+  /// werden: Ist SRS erfolgreich, der Hilfs-Log aber nicht, bleibt SRS bewusst
+  /// erhalten und die Methode meldet `false`. Ein späteres gleiches Urteil
+  /// repariert den fehlenden deduplizierten Tages-Eintrag. Bestehende
+  /// fire-and-forget-Aufrufer erhalten dabei keine neue async Exception.
+  ///
   /// Vereinfachter SM-2:
   /// - Erstes Mal richtig → Intervall 1 Tag
   /// - Zweites Mal richtig → Intervall 3 Tage
   /// - Danach richtig → Intervall × Ease (gerundet, max 365)
   /// - Falsch → Intervall zurück auf 1 Tag, Ease − 0.2
   /// - Richtig → Ease + 0.05 (1.3 ≤ Ease ≤ 3.5)
-  static Future<void> srsReview(
+  static Future<bool> srsReview(
     String id, {
     required bool gotIt,
     bool recordToStudyLog = true,
   }) async {
     final map = _loadSrs();
+    final hadPreviousCard = map.containsKey(id);
+    final previousCard = map[id];
     final old =
         map[id] ??
         const SrsCard(
@@ -2456,9 +2466,56 @@ class Storage {
       );
     }
     map[id] = updated;
-    final persisted = await _persistSrs();
-    if (persisted && recordToStudyLog) {
+    bool persisted;
+    try {
+      persisted = await _persistSrs();
+    } on Object catch (error) {
+      _restoreSrsCacheEntry(
+        map,
+        id,
+        hadPreviousCard: hadPreviousCard,
+        previousCard: previousCard,
+      );
+      debugPrint('Storage: SRS persistence incomplete for $id: $error');
+      return false;
+    }
+    if (!persisted) {
+      _restoreSrsCacheEntry(
+        map,
+        id,
+        hadPreviousCard: hadPreviousCard,
+        previousCard: previousCard,
+      );
+      return false;
+    }
+    if (!recordToStudyLog) {
+      return true;
+    }
+    try {
       await _appendStudyLogEntry(id, dateIso: judgmentDate);
+    } on Object catch (error) {
+      // Der SRS-Write ist die primäre Autorität. Da das tägliche Log in einem
+      // separaten Key liegt, ist hier kein atomarer Rollback möglich; wir
+      // melden den unvollständigen Hilfs-Write ohne fire-and-forget-Aufrufer
+      // mit einer neuen Exception zu belasten.
+      debugPrint('Storage: study-log persistence incomplete for $id: $error');
+      return false;
+    }
+    return true;
+  }
+
+  /// Stellt die vor dem versuchten Urteil unveränderliche Kartenreferenz
+  /// wieder her. [SrsCard] ist immutable; daher genügt der Snapshot ohne Kopie.
+  static void _restoreSrsCacheEntry(
+    Map<String, SrsCard> map,
+    String id, {
+    required bool hadPreviousCard,
+    required SrsCard? previousCard,
+  }) {
+    if (hadPreviousCard) {
+      map[id] = previousCard!;
+    } else {
+      map.remove(id);
     }
   }
 

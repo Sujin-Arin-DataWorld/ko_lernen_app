@@ -244,13 +244,7 @@ Future<void> _finishStartupInBackground() async {
     debugPrint('Data migration skipped: $error');
   }
 
-  if (migration?.writesAllowed == true) {
-    try {
-      await Storage.pruneStudyLog();
-    } catch (error) {
-      debugPrint('Study-log pruning skipped: $error');
-    }
-  }
+  await runPostMigrationStudyLogMaintenance(migration);
 
   final streakBefore = Storage.streakDays;
   await Storage.touchStreak();
@@ -303,6 +297,27 @@ Future<void> _finishStartupInBackground() async {
   // 크래시 재현용 문맥. 동의가 꺼져 있으면 전부 no-op 이다.
   // ignore: discarded_futures, unawaited_futures
   _recordStartupDiagnostics(migration);
+}
+
+/// Führt nichtkritische Pflege erst nach einer erfolgreichen Migration aus.
+///
+/// Der Tages-Log ist getrennt vom SRS-Schema und seine Bereinigung darf weder
+/// vor dem Migrations-Write-Gate noch als Startfehler wirken.
+@visibleForTesting
+Future<void> runPostMigrationStudyLogMaintenance(
+  DataMigrationResult? migration, {
+  Future<void> Function()? pruneStudyLog,
+  void Function(Object error)? onPruneFailure,
+}) async {
+  if (migration?.writesAllowed != true) {
+    return;
+  }
+  try {
+    await (pruneStudyLog ?? Storage.pruneStudyLog)();
+  } on Object catch (error) {
+    (onPruneFailure ??
+        (error) => debugPrint('Study-log pruning skipped: $error'))(error);
+  }
 }
 
 /// 시작 시점에 확정되는 진단 키를 기록한다.

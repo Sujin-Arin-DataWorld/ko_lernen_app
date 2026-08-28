@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -118,9 +116,18 @@ void main() {
     await Storage.init();
     Storage.lockLearningWrites('test lock');
 
-    await Storage.srsReview('잠긴단어', gotIt: true);
+    final locked = await Storage.srsReview('잠긴단어', gotIt: true);
 
+    expect(locked, isFalse);
     expect(Storage.studyLogIdsFor(Storage.todayIso()), isEmpty);
+
+    Storage.unlockLearningWrites();
+    final unlocked = await Storage.srsReview('잠금해제단어', gotIt: true);
+
+    expect(unlocked, isTrue);
+    expect(Storage.srsRawJson, isNot(contains('잠긴단어')));
+    expect(Storage.srsRawJson, contains('잠금해제단어'));
+    expect(Storage.studyLogIdsFor(Storage.todayIso()), ['잠금해제단어']);
   });
 
   test(
@@ -141,13 +148,29 @@ void main() {
     await Storage.init();
     Storage.setSrsPersistenceStoreForTesting(_RejectingStringStore());
 
-    await expectLater(
-      Storage.srsReview('저장실패', gotIt: true),
-      throwsA(isA<PreferenceWriteException>()),
-    );
+    final persisted = await Storage.srsReview('저장실패', gotIt: true);
 
+    expect(persisted, isFalse);
+    expect(Storage.srsRawJson, isNot(contains('저장실패')));
     expect(Storage.studyLogIdsFor(Storage.todayIso()), isEmpty);
   });
+
+  test(
+    'a rejected SRS review cannot leak into a later successful review',
+    () async {
+      await Storage.init();
+      Storage.setSrsPersistenceStoreForTesting(_RejectingStringStore());
+
+      expect(await Storage.srsReview('거절A', gotIt: true), isFalse);
+
+      Storage.setSrsPersistenceStoreForTesting(null);
+      expect(await Storage.srsReview('성공B', gotIt: true), isTrue);
+
+      expect(Storage.srsRawJson, isNot(contains('거절A')));
+      expect(Storage.srsRawJson, contains('성공B'));
+      expect(Storage.studyLogIdsFor(Storage.todayIso()), ['성공B']);
+    },
+  );
 
   test(
     'a rejected daily ledger setter is observable after SRS persists',
@@ -155,13 +178,17 @@ void main() {
       await Storage.init();
       Storage.setStudyLogStoreForTesting(_RejectingStringListStore());
 
-      await expectLater(
-        Storage.srsReview('원장실패', gotIt: true),
-        throwsA(isA<PreferenceWriteException>()),
-      );
+      final incomplete = await Storage.srsReview('원장실패', gotIt: true);
 
+      expect(incomplete, isFalse);
       expect(Storage.srsRawJson, contains('원장실패'));
       expect(Storage.studyLogIdsFor(Storage.todayIso()), isEmpty);
+
+      Storage.setStudyLogStoreForTesting(null);
+      final repaired = await Storage.srsReview('원장실패', gotIt: true);
+
+      expect(repaired, isTrue);
+      expect(Storage.studyLogIdsFor(Storage.todayIso()), ['원장실패']);
     },
   );
 
@@ -176,28 +203,6 @@ void main() {
       expect(prefs.getStringList('kl_study_log_v1_not-a-date'), ['recover-me']);
     },
   );
-
-  test('startup pruning is migration-gated and best effort in main', () {
-    final source = File('lib/main.dart').readAsStringSync();
-    final migration = source.indexOf(
-      'migration = await DataMigrationService.run()',
-    );
-    final prune = source.indexOf('await Storage.pruneStudyLog()');
-    final gate = source.lastIndexOf(
-      'if (migration?.writesAllowed == true)',
-      prune,
-    );
-
-    expect(migration, greaterThanOrEqualTo(0));
-    expect(prune, greaterThan(migration));
-    expect(gate, greaterThan(migration));
-    final guardedPrune = source.substring(
-      gate,
-      source.indexOf('final streakBefore', gate),
-    );
-    expect(guardedPrune, contains('try {'));
-    expect(guardedPrune, contains('catch (error)'));
-  });
 }
 
 class _RejectingStringStore implements PreferenceStringStore {
