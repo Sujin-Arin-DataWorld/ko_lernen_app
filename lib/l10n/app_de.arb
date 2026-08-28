@@ -2573,6 +2573,7 @@
   },
   "grammarChoiceKoreanExampleLabel": "Beispiel auf Koreanisch",
   "grammarChoiceExplanationLabel": "Warum das passt",
+  "grammarChoiceNoteLabel": "Anwendung",
   "grammarChoiceFinish": "Ergebnis ansehen",
   "grammarChoiceDoneTitle": "Runde beendet",
   "grammarChoiceScore": "{correct} von {total} richtig",

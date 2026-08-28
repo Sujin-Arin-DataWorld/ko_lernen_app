@@ -2504,6 +2504,7 @@
   },
   "grammarChoiceKoreanExampleLabel": "Example in Korean",
   "grammarChoiceExplanationLabel": "Why this fits",
+  "grammarChoiceNoteLabel": "Usage",
   "grammarChoiceFinish": "See result",
   "grammarChoiceDoneTitle": "Round complete",
   "grammarChoiceScore": "{correct} of {total} correct",

@@ -8886,6 +8886,12 @@ abstract class AppL10n {
   /// **'Warum das passt'**
   String get grammarChoiceExplanationLabel;
 
+  /// No description provided for @grammarChoiceNoteLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Anwendung'**
+  String get grammarChoiceNoteLabel;
+
   /// No description provided for @grammarChoiceFinish.
   ///
   /// In de, this message translates to:

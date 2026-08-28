@@ -86,6 +86,7 @@ import 'screens/vocab_pack_recall_screen.dart';
 import 'screens/vocab_pack_screen.dart';
 import 'screens/vocab_packs_screen.dart';
 import 'screens/grammar_screen.dart';
+import 'screens/grammar_choice_quiz_screen.dart';
 import 'screens/kkeunmari_screen.dart';
 import 'screens/listening_screen.dart';
 import 'screens/chosung_quiz_screen.dart';
@@ -765,6 +766,38 @@ class _KoLernenAppState extends State<KoLernenApp> {
                   );
               return SoriTransitions.fadeScale(
                 (_) => GrammarScreen(courseContext: grammarCourseContext),
+                settings: settings,
+              );
+            case '/grammar_choice_quiz':
+              final args = settings.arguments;
+              String? planLevel;
+              String? planDayLabel;
+              Set<String>? allowedTargetIds;
+              if (args is Map) {
+                final rawLevel = args['level'];
+                if (rawLevel is String) {
+                  planLevel = rawLevel;
+                }
+                final rawPlanDayLabel = args['planDayLabel'];
+                if (rawPlanDayLabel is String) {
+                  planDayLabel = rawPlanDayLabel;
+                }
+                if (args.containsKey('allowedTargetIds')) {
+                  final rawTargetIds = args['allowedTargetIds'];
+                  if (rawTargetIds is Iterable) {
+                    allowedTargetIds = <String>{
+                      for (final id in rawTargetIds)
+                        if (id is String) id,
+                    };
+                  }
+                }
+              }
+              return SoriTransitions.fadeScale(
+                (_) => GrammarChoiceQuizScreen(
+                  initialLevel: planLevel,
+                  allowedTargetIds: allowedTargetIds,
+                  planDayLabel: planDayLabel,
+                ),
                 settings: settings,
               );
             case '/listening':

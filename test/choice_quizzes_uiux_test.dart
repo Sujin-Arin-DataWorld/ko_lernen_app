@@ -110,6 +110,8 @@ void main() {
                 '${grammarTarget.exampleKorean}',
             '${t.grammarChoiceExplanationLabel}: '
                 '${grammarTarget.explanationFor(locale.languageCode)}',
+            '${t.grammarChoiceNoteLabel}: '
+                '${grammarTarget.noteFor(locale.languageCode)}',
           ].join('. ');
           await _expectLiveRegion(
             tester,

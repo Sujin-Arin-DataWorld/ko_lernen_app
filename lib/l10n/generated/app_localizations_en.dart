@@ -5104,6 +5104,9 @@ class AppL10nEn extends AppL10n {
   String get grammarChoiceExplanationLabel => 'Why this fits';
 
   @override
+  String get grammarChoiceNoteLabel => 'Usage';
+
+  @override
   String get grammarChoiceFinish => 'See result';
 
   @override
