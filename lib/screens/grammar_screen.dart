@@ -550,7 +550,12 @@ class _GrammarScreenState extends State<GrammarScreen>
                           minInteractiveHeight: SoriLayout.chromeRowTouchHeight,
                           onTap: isStarting
                               ? null
-                              : () => setSheetState(() => itemsPerDay = n),
+                              : () {
+                                  if (itemsPerDay == n) {
+                                    return;
+                                  }
+                                  setSheetState(() => itemsPerDay = n);
+                                },
                         ),
                     ],
                   ),

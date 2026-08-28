@@ -85,6 +85,11 @@ void main() {
       await tester.tap(selected);
       await tester.pump();
       expect(tester.widget<SoriChip>(selected).selected, isTrue);
+      expect(
+        tester.widget<SoriChip>(selected),
+        same(chip),
+        reason: 'reselecting the active pace must not rebuild the chip group',
+      );
       semantics.dispose();
     },
   );
