@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(72));
+    expect(registered, hasLength(74));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(72));
+    expect(documented, hasLength(74));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -96,8 +96,8 @@ void main() {
       }
     }
 
-    expect(seen, hasLength(108));
-    expect(documented, hasLength(108));
+    expect(seen, hasLength(109));
+    expect(documented, hasLength(109));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });

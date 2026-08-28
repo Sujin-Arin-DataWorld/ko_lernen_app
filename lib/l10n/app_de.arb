@@ -68,7 +68,7 @@
   "reviewBonusLabel": "Satz des Tages",
   "reviewHubTitle": "Wiederholen",
   "reviewHubTodayHeadline": "Heute gelernt",
-  "reviewHubEmptyToday": "Noch nichts gelernt heute — starte eine Lektion.",
+  "reviewHubEmptyToday": "Heute noch nichts gelernt? Starte eine Lektion.",
   "reviewHubStartSelected": "{n, plural, one{1 Wort üben} other{{n} Wörter üben}}",
   "@reviewHubStartSelected": {
     "placeholders": {

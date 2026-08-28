@@ -199,7 +199,7 @@ class AppL10nEn extends AppL10n {
 
   @override
   String get reviewHubEmptyToday =>
-      'Nothing learned yet today — start a lesson.';
+      'Nothing learned yet today. Start a lesson.';
 
   @override
   String reviewHubStartSelected(int n) {

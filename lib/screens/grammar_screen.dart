@@ -536,28 +536,38 @@ class _GrammarScreenState extends State<GrammarScreen>
                     style: SoriTextTheme.of(sheetContext).h3,
                   ),
                   const SizedBox(height: Spacing.md),
-                  Wrap(
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.sm,
-                    children: [
-                      for (final n in GrammarPlanService.itemsPerDayOptions)
-                        SoriChip(
-                          key: Key('grammar-plan-items-$n'),
-                          label: t.grammarPlanItemsPerDayOption(n),
-                          accent: SoriColors.info,
-                          selected: itemsPerDay == n,
-                          variant: SoriChipVariant.soft,
-                          minInteractiveHeight: SoriLayout.chromeRowTouchHeight,
-                          onTap: isStarting
-                              ? null
-                              : () {
-                                  if (itemsPerDay == n) {
-                                    return;
-                                  }
-                                  setSheetState(() => itemsPerDay = n);
-                                },
-                        ),
-                    ],
+                  SizedBox(
+                    height: SoriLayout.chromeRowTouchHeight,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          for (final n
+                              in GrammarPlanService.itemsPerDayOptions) ...[
+                            if (n !=
+                                GrammarPlanService.itemsPerDayOptions.first)
+                              const SizedBox(width: Spacing.sm),
+                            SoriChip(
+                              key: Key('grammar-plan-items-$n'),
+                              label: t.grammarPlanItemsPerDayOption(n),
+                              accent: SoriColors.info,
+                              selected: itemsPerDay == n,
+                              variant: SoriChipVariant.soft,
+                              minInteractiveHeight:
+                                  SoriLayout.chromeRowTouchHeight,
+                              onTap: isStarting
+                                  ? null
+                                  : () {
+                                      if (itemsPerDay == n) {
+                                        return;
+                                      }
+                                      setSheetState(() => itemsPerDay = n);
+                                    },
+                            ),
+                          ],
+                        ],
+                      ),
+                    ),
                   ),
                   const SizedBox(height: Spacing.lg),
                   SoriButton.filled(

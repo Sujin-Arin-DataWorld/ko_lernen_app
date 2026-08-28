@@ -424,7 +424,7 @@ abstract class AppL10n {
   /// No description provided for @reviewHubEmptyToday.
   ///
   /// In de, this message translates to:
-  /// **'Noch nichts gelernt heute — starte eine Lektion.'**
+  /// **'Heute noch nichts gelernt? Starte eine Lektion.'**
   String get reviewHubEmptyToday;
 
   /// No description provided for @reviewHubStartSelected.

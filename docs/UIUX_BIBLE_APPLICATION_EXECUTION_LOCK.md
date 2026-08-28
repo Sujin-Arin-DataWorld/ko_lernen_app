@@ -195,7 +195,7 @@ current ratchet:
 
 | Measure | Current state | Locked interpretation |
 |---|---:|---|
-| Registered route cases | 69 | Every case is inventoried below |
+| Registered route cases | 74 | Every case is inventoried below |
 | `lib/screens` Dart files | 97 | Includes route, embedded, preview, and quest surfaces |
 | `lib/widgets/sori` Dart files | 128 | Existing system; no parallel system permitted |
 | Test files | 470 | Includes the permanent full-closeout inventory guard |
@@ -248,6 +248,7 @@ listed dependency.
 | `/vocab/recall` | `VocabPackRecallScreen` / Custom | Move outer chrome/states to study conventions, not card logic | recall session and ordering | D recall | H / 3A |
 | `/vocab/legacy` | `LegacyVocabScreen` / mixed | Preserve rollback route; remove only residual visual divergence | legacy SRS and flip gate | R/S/D legacy deck | H / 3A |
 | `/grammar` | `GrammarScreen` / Study | Replace residual raw type/radius with existing study tokens | grammar loaders/course context | R/S/D grammar | H / 3B |
+| `/grammar_choice_quiz` | `GrammarChoiceQuizScreen` / Study | Preserve the shared choice/result shell and plan context | grammar plan day label, scoring, SRS/evidence | R/D choice quizzes | H / 5B |
 | `/listening` | `ListeningScreen` / Std | Standard browsing hierarchy/states | scenario shelf and TTS availability | R/S/D listening | M / 3B |
 | `/listening/play` | `ListeningPlayScreen` / Study | Keep player controls and transcript reachability | audio/TTS and scenario dialog | R/D study activity | H / 3B |
 | `/kkeunmari` | `KkeunmariScreen` / Study | Tokenize dense play surface without geometry/rule change | dictionary engine and timers | R/S/D game engine | H / 5A |
@@ -269,6 +270,7 @@ listed dependency.
 | `/profile` | `ProfileScreen` / Std | Standardize identity/action hierarchy | auth, sync, account linking | R/D profile | H / 4A |
 | `/paywall` | `PaywallScreen` / Custom | Keep branded offer; normalize action/error/accessibility states | RevenueCat and entitlement | R/D purchase contracts | H / 4A |
 | `/review` | `ReviewSessionScreen` / Study | Preserve approved Deck and SRS evidence | SRS order/ledger/flip gate | R/D deck battery | H / 3A |
+| `/review/hub` | `ReviewHubScreen` / Std | Keep the review launch, due count, and Today summary coherent | SRS selection, `/review` session handoff, reward evidence | R/S/D review hub | H / 3A |
 | `/smalltalk` | `SmalltalkScreen` / Study | Shared prompt/feedback hierarchy | course evidence and speech/content | R/D smalltalk | H / 3C |
 | `/scenarios` | `ScenariosListScreen` / Std | Preserve shelf art; reduce residual local type/card styles | scenario availability/catalog | R/S/D scenario shelf | M / 3C |
 | `/quests` | `QuestsScreen` / Std | Shared reward/empty/progress language | quest tracker, reward evidence | R/D quest battery | H / 3D |
@@ -326,6 +328,7 @@ not disappear from phase review.
 | `OnboardingStoryScreen` / `OnboardingSetupScreen` / `OnboardingCompanionScreen` / `OnboardingCompanionConfirmationScreen` / `OnboardingV2PageShell` | Onboarding V2 embedded owners | Preserve mandatory page progress, draft-only choices, non-blocking companion confirmation, and fixed reachable actions | R/S/D onboarding V2 | 5C |
 | `GuideHubScreen` | guide module owner embedded by `GuideHubRouteScreen` | Preserve truthful live/preview/coming-soon states and typed destinations | R/S/D guide hub | 5C |
 | `GuideTopicDetailRouteScreen` / `GuideTopicDetailScreen` | guide topic route and presentation owners | Preserve topic-specific truth, progress, and typed actions without route-string content | R/S/D guide topic | 5C |
+| `ReviewHubScreen` | standard review landing owner | Preserve the Today summary, due selection, and exact `/review` handoff | R/S/D review hub | 3A |
 | `CourseMissionPathOverview` | embedded | Preserve graph/evidence; token polish | dedicated overview | 3C |
 | `GrammarChoiceQuizScreen` / `HardChoiceQuizScreen` | Study | Shared result/choice language; preserve scoring | R/D choice quizzes | 5B |
 | `WordWebStudyScreen` / `WordWebQuizScreen` | custom + Study | Standard outer state; preserve relation logic | D word web | 3D/5B |

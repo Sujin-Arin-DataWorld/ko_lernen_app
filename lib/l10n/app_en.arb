@@ -68,7 +68,7 @@
   "reviewBonusLabel": "Phrase of the day",
   "reviewHubTitle": "Review",
   "reviewHubTodayHeadline": "Learned today",
-  "reviewHubEmptyToday": "Nothing learned yet today — start a lesson.",
+  "reviewHubEmptyToday": "Nothing learned yet today. Start a lesson.",
   "reviewHubStartSelected": "{n, plural, one{Practice 1 word} other{Practice {n} words}}",
   "@reviewHubStartSelected": {
     "placeholders": {
