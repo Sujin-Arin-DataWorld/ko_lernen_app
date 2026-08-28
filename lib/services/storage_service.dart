@@ -572,6 +572,7 @@ class Storage {
   // preference boundary must not open while an old SRS transaction can still
   // complete a platform write or its rollback.
   static Future<void> _srsResetDrainBarrier = Future<void>.value();
+  static bool _srsResetDrainPending = false;
   static final Set<String> _pendingListeningRewardClaims = <String>{};
   static final Set<String> _unknownStrictKeys = <String>{};
   static String? _courseMasteryCache;
@@ -582,7 +583,11 @@ class Storage {
 
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
-    await _srsResetDrainBarrier;
+    final resetDrain = _srsResetDrainBarrier;
+    await resetDrain;
+    if (identical(resetDrain, _srsResetDrainBarrier)) {
+      _srsResetDrainPending = false;
+    }
     _prefs ??= await SharedPreferences.getInstance();
   }
 
@@ -591,14 +596,27 @@ class Storage {
   /// frische Werte liefert. Im Produktionscode niemals aufrufen.
   @visibleForTesting
   static void resetForTesting() {
-    final oldSrsDrain = _srsReviewMutation.then<void>(
-      (_) {},
-      onError: (Object _, StackTrace __) {},
-    );
-    _srsResetDrainBarrier = Future.wait<void>([
-      _srsResetDrainBarrier,
-      oldSrsDrain,
-    ]);
+    final drains = <Future<void>>[];
+    if (_srsResetDrainPending) {
+      drains.add(_srsResetDrainBarrier);
+    }
+    if (_srsReviewMutationCount > 0) {
+      drains.add(
+        _srsReviewMutation.then<void>(
+          (_) {},
+          onError: (Object _, StackTrace __) {},
+        ),
+      );
+    }
+    if (drains.isEmpty) {
+      // A completed Future created in a previous widget-test fake-async zone
+      // must not be re-chained into the next zone. There is no work to drain,
+      // and init already consumed the preceding reset barrier.
+      _srsResetDrainBarrier = Future<void>.value();
+    } else {
+      _srsResetDrainBarrier = Future.wait<void>(drains);
+      _srsResetDrainPending = true;
+    }
     _prefs = null;
     _invalidateSrsCache();
     // 팩 캐시도 함께 버린다. 안 그러면 앞 테스트가 채운 `_packCache` 가
