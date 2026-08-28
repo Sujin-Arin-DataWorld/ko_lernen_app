@@ -70,6 +70,17 @@ void main() {
     );
     expect(sectionEnd, greaterThan(sectionStart));
     final inventory = lock.substring(sectionStart, sectionEnd);
+    final indirectSectionStart = lock.indexOf(
+      '## 7. Embedded and indirect screen audit',
+      sectionStart,
+    );
+    expect(indirectSectionStart, greaterThan(sectionStart));
+    final indirectInventory = lock.substring(indirectSectionStart, sectionEnd);
+    final indirectOwners = RegExp(
+      r'`([^`]+)`',
+    ).allMatches(indirectInventory).map((match) => match.group(1)!).toSet();
+    expect(indirectOwners, isNot(contains('GrammarChoiceQuizScreen')));
+    expect(indirectOwners, isNot(contains('ReviewHubScreen')));
     final surfaceNamePattern = RegExp(
       r'^[A-Z][A-Za-z0-9_]*(?:Screen|Layout|App|Shell|Overview|Quest|Sheet)$',
     );
