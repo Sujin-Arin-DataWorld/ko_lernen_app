@@ -497,6 +497,7 @@ class Storage {
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
     _prefs ??= await SharedPreferences.getInstance();
+    await pruneStudyLog();
   }
 
   /// Test-only: leert den `_prefs`-Cache, damit ein neuer
@@ -1362,6 +1363,9 @@ class Storage {
     return '${d.year}-$m-$day';
   }
 
+  /// 오늘 ISO 날짜(YYYY-MM-DD). 학습 원장 조회의 공용 기준일이다.
+  static String todayIso() => _today();
+
   // ───────── Einstellungen ─────────
   static String get localeCode => _s('kl_locale'); // 'de', 'en', '' = system
   static Future<void> setLocaleCode(String v) => _ss('kl_locale', v);
@@ -2139,6 +2143,70 @@ class Storage {
     _invalidateSrsCache();
   }
 
+  static const int _studyLogMaxIdsPerDay = 500;
+  static const int _studyLogRetentionDays = 60;
+  static const String _studyLogPrefix = 'kl_study_log_v1_';
+
+  static String _studyLogKey(String dateIso) => '$_studyLogPrefix$dateIso';
+
+  /// 명시적으로 판정한 해당 날짜의 SRS id 목록이다.
+  static List<String> studyLogIdsFor(String dateIso) =>
+      _l(_studyLogKey(dateIso));
+
+  /// 기록이 있는 원장 날짜 목록이다. 달력의 selectable-day predicate에 쓴다.
+  static List<String> studyLogDates() {
+    final prefs = _prefs;
+    if (prefs == null) {
+      return const [];
+    }
+    return prefs
+        .getKeys()
+        .where((key) => key.startsWith(_studyLogPrefix))
+        .map((key) => key.substring(_studyLogPrefix.length))
+        .where((dateIso) => studyLogIdsFor(dateIso).isNotEmpty)
+        .toList()
+      ..sort();
+  }
+
+  static Future<void> _appendStudyLogEntry(String id) async {
+    if (_learningWritesLockReason != null) {
+      return;
+    }
+    final dateIso = _today();
+    final ids = studyLogIdsFor(dateIso);
+    if (ids.contains(id) || ids.length >= _studyLogMaxIdsPerDay) {
+      return;
+    }
+    ids.add(id);
+    await _sl(_studyLogKey(dateIso), ids);
+  }
+
+  /// [keepDays]보다 오래된 일별 원장 키를 지운다.
+  ///
+  /// 시간대가 아니라 달력 날짜로만 비교하므로 정확히 [keepDays]일 전 기록은
+  /// 보존된다. 앱 시작과 원장 달력 진입 시 호출한다.
+  static Future<void> pruneStudyLog({
+    int keepDays = _studyLogRetentionDays,
+  }) async {
+    final prefs = _prefs;
+    if (prefs == null) {
+      return;
+    }
+    final now = DateTime.now();
+    final today = DateTime(now.year, now.month, now.day);
+    final cutoff = today.subtract(Duration(days: keepDays < 0 ? 0 : keepDays));
+    for (final dateIso in studyLogDates()) {
+      final parsed = DateTime.tryParse(dateIso);
+      if (parsed == null) {
+        continue;
+      }
+      final date = DateTime(parsed.year, parsed.month, parsed.day);
+      if (date.isBefore(cutoff)) {
+        await prefs.remove(_studyLogKey(dateIso));
+      }
+    }
+  }
+
   static String _isoOf(DateTime d) {
     final m = d.month.toString().padLeft(2, '0');
     final day = d.day.toString().padLeft(2, '0');
@@ -2153,7 +2221,11 @@ class Storage {
   /// - Danach richtig → Intervall × Ease (gerundet, max 365)
   /// - Falsch → Intervall zurück auf 1 Tag, Ease − 0.2
   /// - Richtig → Ease + 0.05 (1.3 ≤ Ease ≤ 3.5)
-  static Future<void> srsReview(String id, {required bool gotIt}) async {
+  static Future<void> srsReview(
+    String id, {
+    required bool gotIt,
+    bool recordToStudyLog = true,
+  }) async {
     final map = _loadSrs();
     final old =
         map[id] ??
@@ -2188,6 +2260,9 @@ class Storage {
     }
     map[id] = updated;
     await _persistSrs();
+    if (recordToStudyLog) {
+      await _appendStudyLogEntry(id);
+    }
   }
 
   /// IDs die heute (oder früher) fällig sind. Noch nie gesehen → fällig.

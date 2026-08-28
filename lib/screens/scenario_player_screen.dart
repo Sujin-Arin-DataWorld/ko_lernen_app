@@ -118,7 +118,7 @@ Future<void> recordScenarioFailedQuestSrs({
     }
   }
   for (final missed in missedKeys) {
-    await Storage.srsReview(missed, gotIt: false);
+    await Storage.srsReview(missed, gotIt: false, recordToStudyLog: false);
   }
 }
 

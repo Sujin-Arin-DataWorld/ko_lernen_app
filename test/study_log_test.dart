@@ -1,0 +1,123 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:ko_lernen_app/services/storage_service.dart';
+
+String _dateIso(DateTime value) {
+  final month = value.month.toString().padLeft(2, '0');
+  final day = value.day.toString().padLeft(2, '0');
+  return '${value.year}-$month-$day';
+}
+
+void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() {
+    Storage.resetForTesting();
+    SharedPreferences.setMockInitialValues({});
+  });
+
+  tearDown(Storage.unlockLearningWrites);
+
+  test(
+    'srsReview writes a judged id to today\'s dedicated ledger key',
+    () async {
+      await Storage.init();
+
+      await Storage.srsReview('단어1', gotIt: true);
+
+      final today = Storage.todayIso();
+      final prefs = await SharedPreferences.getInstance();
+      expect(Storage.studyLogIdsFor(today), ['단어1']);
+      expect(prefs.getStringList('kl_study_log_v1_$today'), ['단어1']);
+    },
+  );
+
+  test('repeated judgments leave one id in today\'s ledger', () async {
+    await Storage.init();
+
+    await Storage.srsReview('단어1', gotIt: true);
+    await Storage.srsReview('단어1', gotIt: false);
+
+    expect(Storage.studyLogIdsFor(Storage.todayIso()), ['단어1']);
+  });
+
+  test(
+    'recordToStudyLog false leaves an automatic failure out of the ledger',
+    () async {
+      await Storage.init();
+
+      await Storage.srsReview('자동오답단어', gotIt: false, recordToStudyLog: false);
+
+      expect(Storage.studyLogIdsFor(Storage.todayIso()), isEmpty);
+    },
+  );
+
+  test('studyLogDates returns only dates with ledger entries', () async {
+    await Storage.init();
+    expect(Storage.studyLogDates(), isEmpty);
+
+    await Storage.srsReview('단어1', gotIt: true);
+
+    expect(Storage.studyLogDates(), [Storage.todayIso()]);
+  });
+
+  test(
+    'init prunes old entries while retaining the 60-day calendar boundary',
+    () async {
+      final now = DateTime.now();
+      final old = _dateIso(now.subtract(const Duration(days: 61)));
+      final boundary = _dateIso(now.subtract(const Duration(days: 60)));
+      final recent = _dateIso(now.subtract(const Duration(days: 1)));
+      SharedPreferences.setMockInitialValues({
+        'kl_study_log_v1_$old': ['old'],
+        'kl_study_log_v1_$boundary': ['boundary'],
+        'kl_study_log_v1_$recent': ['recent'],
+      });
+
+      await Storage.init();
+
+      expect(Storage.studyLogDates(), [boundary, recent]);
+      final prefs = await SharedPreferences.getInstance();
+      expect(prefs.getStringList('kl_study_log_v1_$old'), isNull);
+    },
+  );
+
+  test('pruneStudyLog honors keepDays using calendar dates', () async {
+    await Storage.init();
+    final now = DateTime.now();
+    final old = _dateIso(now.subtract(const Duration(days: 3)));
+    final boundary = _dateIso(now.subtract(const Duration(days: 2)));
+    final recent = _dateIso(now.subtract(const Duration(days: 1)));
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('kl_study_log_v1_$old', ['old']);
+    await prefs.setStringList('kl_study_log_v1_$boundary', ['boundary']);
+    await prefs.setStringList('kl_study_log_v1_$recent', ['recent']);
+
+    await Storage.pruneStudyLog(keepDays: 2);
+
+    expect(Storage.studyLogDates(), [boundary, recent]);
+  });
+
+  test('today\'s ledger caps distinct judged ids at 500', () async {
+    await Storage.init();
+
+    for (var index = 0; index < 501; index++) {
+      await Storage.srsReview('단어$index', gotIt: true);
+    }
+
+    final ids = Storage.studyLogIdsFor(Storage.todayIso());
+    expect(ids, hasLength(500));
+    expect(ids, contains('단어0'));
+    expect(ids, isNot(contains('단어500')));
+  });
+
+  test('a global learning-write lock also prevents ledger writes', () async {
+    await Storage.init();
+    Storage.lockLearningWrites('test lock');
+
+    await Storage.srsReview('잠긴단어', gotIt: true);
+
+    expect(Storage.studyLogIdsFor(Storage.todayIso()), isEmpty);
+  });
+}

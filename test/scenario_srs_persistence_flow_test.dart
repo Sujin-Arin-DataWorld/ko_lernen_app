@@ -80,8 +80,10 @@ void main() {
       // Both words begin at the one-day first-success state. A former
       // scenario-wide positive write would promote the passive word to three
       // days, while the failed target must stay due soon with one extra review.
-      await Storage.srsReview(_failedTarget, gotIt: true);
-      await Storage.srsReview(_passivelyShownWord, gotIt: true);
+      await Storage.setSrsRawJson(
+        '{"실패 단어":{"e":2.55,"i":1,"n":"2099-01-01","r":1},'
+        '"소개만 단어":{"e":2.55,"i":1,"n":"2099-01-01","r":1}}',
+      );
 
       // 이 테스트 자신의 Zone 안에서 CourseProgressService.shared 를 새로
       // 시작한다 — 다른 courseContext-없는 testWidgets 가 먼저 실행되면
@@ -149,6 +151,12 @@ void main() {
             'passively shown scenario vocab must not receive success credit',
       );
       expect(passive.reviewCount, 1);
+      expect(
+        Storage.studyLogIdsFor(Storage.todayIso()),
+        isEmpty,
+        reason:
+            'scenario auto-fail SRS evidence is not a user-reviewed ledger item',
+      );
     },
   );
 }
