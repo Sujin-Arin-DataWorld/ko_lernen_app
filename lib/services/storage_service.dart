@@ -552,9 +552,11 @@ class Storage {
   static Future<void> _recoveredWordMutation = Future<void>.value();
   static Future<void> _pronunciationProgressMutation = Future<void>.value();
   static Future<void> _xpRewardMutation = Future<void>.value();
+  static Future<void> _srsReviewMutation = Future<void>.value();
   static Future<void> _consentedFirstLearningActionClaimMutation =
       Future<void>.value();
   static int _xpRewardMutationCount = 0;
+  static int _srsReviewMutationCount = 0;
   static final Set<String> _pendingListeningRewardClaims = <String>{};
   static final Set<String> _unknownStrictKeys = <String>{};
   static String? _courseMasteryCache;
@@ -582,8 +584,10 @@ class Storage {
     _recoveredWordMutation = Future<void>.value();
     _pronunciationProgressMutation = Future<void>.value();
     _xpRewardMutation = Future<void>.value();
+    _srsReviewMutation = Future<void>.value();
     _consentedFirstLearningActionClaimMutation = Future<void>.value();
     _xpRewardMutationCount = 0;
+    _srsReviewMutationCount = 0;
     _pendingListeningRewardClaims.clear();
     MediaMutationLock.resetForTesting();
     _unknownStrictKeys.clear();
@@ -644,6 +648,35 @@ class Storage {
     result.then<void>(
       (_) => _xpRewardMutationCount--,
       onError: (Object _, StackTrace __) => _xpRewardMutationCount--,
+    );
+    return result;
+  }
+
+  static Future<T> _enqueueSrsReviewMutation<T>(Future<T> Function() mutation) {
+    // SRS callers intentionally fire-and-forget in several game screens. As
+    // with XP, start the idle queue immediately so their in-memory card is
+    // visible at once, while every overlapping review waits for the complete
+    // prior decision, rollback, and optional ledger outcome.
+    final startsImmediately = _srsReviewMutationCount == 0;
+    _srsReviewMutationCount++;
+
+    late final Future<T> result;
+    if (startsImmediately) {
+      try {
+        result = mutation();
+      } on Object catch (error, stackTrace) {
+        result = Future<T>.error(error, stackTrace);
+      }
+    } else {
+      result = _srsReviewMutation.then<T>((_) => mutation());
+    }
+    _srsReviewMutation = result.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    result.then<void>(
+      (_) => _srsReviewMutationCount--,
+      onError: (Object _, StackTrace __) => _srsReviewMutationCount--,
     );
     return result;
   }
@@ -2348,23 +2381,32 @@ class Storage {
     return parsed != null && _today(parsed) == dateIso;
   }
 
-  static Future<void> _appendStudyLogEntry(
+  static Future<bool> _appendStudyLogEntry(
     String id, {
     required String dateIso,
   }) async {
     if (_learningWritesLockReason != null) {
-      return;
+      return false;
     }
     final ids = studyLogIdsFor(dateIso);
-    if (ids.contains(id) || ids.length >= _studyLogMaxIdsPerDay) {
-      return;
+    if (ids.contains(id)) {
+      return true;
+    }
+    if (ids.length >= _studyLogMaxIdsPerDay) {
+      return false;
     }
     ids.add(id);
-    await _slStrict(
-      _studyLogKey(dateIso),
-      ids,
-      preferences: _studyLogStoreForTesting,
-    );
+    try {
+      await _slStrict(
+        _studyLogKey(dateIso),
+        ids,
+        preferences: _studyLogStoreForTesting,
+      );
+      return true;
+    } on Object catch (error) {
+      debugPrint('Storage: study-log persistence incomplete for $id: $error');
+      return false;
+    }
   }
 
   @visibleForTesting
@@ -2429,6 +2471,18 @@ class Storage {
     String id, {
     required bool gotIt,
     bool recordToStudyLog = true,
+  }) => _enqueueSrsReviewMutation(
+    () => _srsReviewTransaction(
+      id,
+      gotIt: gotIt,
+      recordToStudyLog: recordToStudyLog,
+    ),
+  );
+
+  static Future<bool> _srsReviewTransaction(
+    String id, {
+    required bool gotIt,
+    required bool recordToStudyLog,
   }) async {
     final map = _loadSrs();
     final hadPreviousCard = map.containsKey(id);
@@ -2491,14 +2545,16 @@ class Storage {
     if (!recordToStudyLog) {
       return true;
     }
-    try {
-      await _appendStudyLogEntry(id, dateIso: judgmentDate);
-    } on Object catch (error) {
+    final ledgerRecorded = await _appendStudyLogEntry(
+      id,
+      dateIso: judgmentDate,
+    );
+    if (!ledgerRecorded) {
       // Der SRS-Write ist die primäre Autorität. Da das tägliche Log in einem
       // separaten Key liegt, ist hier kein atomarer Rollback möglich; wir
       // melden den unvollständigen Hilfs-Write ohne fire-and-forget-Aufrufer
       // mit einer neuen Exception zu belasten.
-      debugPrint('Storage: study-log persistence incomplete for $id: $error');
+      debugPrint('Storage: study-log result incomplete for $id');
       return false;
     }
     return true;

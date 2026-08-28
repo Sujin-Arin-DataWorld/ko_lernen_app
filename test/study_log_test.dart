@@ -1,3 +1,6 @@
+import 'dart:async';
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -102,14 +105,17 @@ void main() {
   test('today\'s ledger caps distinct judged ids at 500', () async {
     await Storage.init();
 
+    var lastResult = true;
     for (var index = 0; index < 501; index++) {
-      await Storage.srsReview('단어$index', gotIt: true);
+      lastResult = await Storage.srsReview('단어$index', gotIt: true);
     }
 
+    expect(lastResult, isFalse);
     final ids = Storage.studyLogIdsFor(Storage.todayIso());
     expect(ids, hasLength(500));
     expect(ids, contains('단어0'));
     expect(ids, isNot(contains('단어500')));
+    expect(Storage.srsRawJson, contains('단어500'));
   });
 
   test('a global learning-write lock also prevents ledger writes', () async {
@@ -173,6 +179,44 @@ void main() {
   );
 
   test(
+    'an overlapping rejected review settles before the next same-id judgment',
+    () async {
+      await Storage.init();
+      final store = _DelayedRejectThenPersistStringStore();
+      Storage.setSrsPersistenceStoreForTesting(store);
+
+      final first = Storage.srsReview('동시단어', gotIt: true);
+      await store.firstSetStarted.future;
+      final second = Storage.srsReview('동시단어', gotIt: true);
+      await Future<void>.delayed(Duration.zero);
+
+      expect(store.setCalls, 1);
+      store.releaseFirstSet.complete();
+
+      expect(await first, isFalse);
+      expect(await second, isTrue);
+      final durable = jsonDecode(store.value!) as Map<String, dynamic>;
+      expect((durable['동시단어'] as Map<String, dynamic>)['r'], 1);
+      expect(Storage.srsCard('동시단어')?.reviewCount, 1);
+      expect(Storage.studyLogIdsFor(Storage.todayIso()), ['동시단어']);
+    },
+  );
+
+  test(
+    'a lock acquired after SRS persistence returns an incomplete ledger result',
+    () async {
+      await Storage.init();
+      Storage.setSrsPersistenceStoreForTesting(_LockingStringStore());
+
+      final result = await Storage.srsReview('중간잠금', gotIt: true);
+
+      expect(result, isFalse);
+      expect(Storage.srsCard('중간잠금')?.reviewCount, 1);
+      expect(Storage.studyLogIdsFor(Storage.todayIso()), isEmpty);
+    },
+  );
+
+  test(
     'a rejected daily ledger setter is observable after SRS persists',
     () async {
       await Storage.init();
@@ -220,6 +264,66 @@ class _RejectingStringStore implements PreferenceStringStore {
 
   @override
   Future<bool> setString(String key, String value) async => false;
+}
+
+class _DelayedRejectThenPersistStringStore implements PreferenceStringStore {
+  final Completer<void> firstSetStarted = Completer<void>();
+  final Completer<void> releaseFirstSet = Completer<void>();
+  String? value;
+  var setCalls = 0;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  String? getString(String key) => value;
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String nextValue) async {
+    setCalls++;
+    if (setCalls == 1) {
+      firstSetStarted.complete();
+      await releaseFirstSet.future;
+      return false;
+    }
+    value = nextValue;
+    return true;
+  }
+}
+
+class _LockingStringStore implements PreferenceStringStore {
+  String? value;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  String? getString(String key) => value;
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String nextValue) async {
+    value = nextValue;
+    Storage.lockLearningWrites('test between SRS and ledger');
+    return true;
+  }
 }
 
 class _RejectingStringListStore implements PreferenceStringListStore {
