@@ -1,7 +1,7 @@
 name: ko_lernen_app
 description: "Hangul Sori (한글소리) — Koreanisch lernen: Hangul, Vokabeln, Grammatik & Spiele"
 publish_to: 'none'
-version: 2.0.7+26
+version: 2.0.8+27
 
 environment:
   sdk: ^3.12.0
@@ -154,6 +154,10 @@ flutter:
     # landscape/ file above and is not duplicated here).
     - assets/illustrations/personal_hanok_v2/map/stages/
     - assets/illustrations/personal_hanok_v2/interiors/
+    # Ildu Gotaek V3 mobile world. Placements come from
+    # assets/data/ildu_world_manifest_v1.json and are fixed independently from
+    # learner-owned courtyard decorations.
+    - assets/illustrations/personal_hanok_v3/world/
     # A1 16 construction states, promoted 2026-08-17 as one approved set.
     # tool/promote_hanok_a1_states.py refuses a partial set, so this stays all-or-nothing.
     - assets/illustrations/personal_hanok_v2/a1/states/

@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "worldId": "ildu_gotaek_v3",
+  "title": {
+    "ko": "나의 일두고택",
+    "de": "Mein Ildu Gotaek",
+    "en": "My Ildu Gotaek"
+  },
+  "canvas": {
+    "width": 2412,
+    "height": 2622,
+    "asset": "ildu-wall-masterplan-v1.png",
+    "sha256": "6C9438312ED828E8D2AFAC9BEE9AF728AD22933DE0639DABF30DEF82BB165B7E",
+    "camera": {
+      "projection": "oblique_crescent",
+      "horizontalPan": true,
+      "mobileContentWidth": 620,
+      "initialFocusX": 0.5,
+      "initialFocusY": 0.58
+    }
+  },
+  "eraOrder": ["a1", "a2", "b1", "b2", "c1", "c2"],
+  "eras": [
+    { "id": "a1", "ko": "사랑채 짓기", "de": "Das Sarangchae errichten", "focus": "construction" },
+    { "id": "a2", "ko": "사랑방의 생활", "de": "Im Sarangbang leben", "focus": "furnishing" },
+    { "id": "b1", "ko": "안채와 살림마당", "de": "Anchae und Wirtschaftshof", "focus": "estate_growth" },
+    { "id": "b2", "ko": "제례와 별당", "de": "Ritual, Garten und Byeoldang", "focus": "culture" },
+    { "id": "c1", "ko": "계절과 돌봄", "de": "Jahreszeiten und Pflege", "focus": "stewardship" },
+    { "id": "c2", "ko": "서고와 전승", "de": "Bibliothek und Weitergabe", "focus": "transmission" }
+  ],
+  "hubs": [
+    { "id": "sarang", "ko": "사랑채 권역", "de": "Sarangchae", "buildingIds": ["sarangchae", "rear-wing"], "primaryRoute": "/course/mission", "secondaryRoutes": ["/scenarios", "/quests"] },
+    { "id": "anchae", "ko": "안채 권역", "de": "Anchae", "buildingIds": ["anchae", "anchae-store", "araechae"], "primaryRoute": "/course/mission", "secondaryRoutes": ["/scenarios", "/book"] },
+    { "id": "service", "ko": "살림마당", "de": "Wirtschaftshof", "buildingIds": ["changgo", "gokgan", "toilet-north", "toilet-south"], "primaryRoute": "/vocab", "secondaryRoutes": ["/quests", "/scenarios"] },
+    { "id": "sadang", "ko": "사당 권역", "de": "Ahnenschrein", "buildingIds": ["sadang"], "primaryRoute": "/scenarios", "secondaryRoutes": ["/course/mission", "/book"] },
+    { "id": "byeoldang-seogo", "ko": "별당·서고", "de": "Byeoldang und Bibliothek", "buildingIds": ["ansarang"], "primaryRoute": "/book", "secondaryRoutes": ["/scenarios", "/course/mission"] }
+  ],
+  "yards": [
+    { "id": "sarang-yard", "ko": "사랑마당", "bounds": { "left": 28, "top": 52, "width": 36, "height": 24 } },
+    { "id": "an-yard", "ko": "안마당", "bounds": { "left": 37, "top": 20, "width": 27, "height": 31 } },
+    { "id": "service-yard", "ko": "살림마당", "bounds": { "left": 8, "top": 18, "width": 28, "height": 50 } },
+    { "id": "sadang-yard", "ko": "사당마당", "bounds": { "left": 65, "top": 15, "width": 20, "height": 23 } },
+    { "id": "byeoldang-yard", "ko": "별당마당", "bounds": { "left": 63, "top": 57, "width": 23, "height": 28 } }
+  ],
+  "gates": [
+    { "id": "main-gate", "ko": "솟을대문", "asset": "main-gate.png", "x": 29.5, "y": 70.2, "width": 26, "rotation": 3, "unlockEra": "b1" },
+    { "id": "hyeopmun-west", "ko": "서협문", "asset": "hyeopmun.png", "x": 34.5, "y": 51.2, "width": 6.4, "rotation": 0, "unlockEra": "b1" },
+    { "id": "sadang-gate", "ko": "사당문", "asset": "sadang-gate.png", "x": 66.8, "y": 36.3, "width": 6.2, "rotation": 0, "unlockEra": "b2" },
+    { "id": "hyeopmun-east", "ko": "동협문", "asset": "hyeopmun.png", "x": 61.8, "y": 59.1, "width": 6.2, "rotation": 0, "unlockEra": "b2" },
+    { "id": "outside-gate", "ko": "안사랑채 바깥문", "asset": "outside-gate.png", "x": 72.7, "y": 82.2, "width": 10.5, "rotation": 5, "unlockEra": "b2" }
+  ],
+  "buildings": [
+    { "id": "sarangchae", "hubId": "sarang", "ko": "사랑채", "de": "Sarangchae", "asset": "sarangchae.png", "x": 48.2, "y": 55.8, "width": 29, "rotation": 0, "unlockEra": "a1", "lessonIntent": "존댓말과 손님맞이" },
+    { "id": "rear-wing", "hubId": "sarang", "ko": "사랑채 뒤채", "de": "Hinterer Sarang-Flügel", "asset": "rear-wing.png", "x": 40.3, "y": 43.6, "width": 18, "rotation": 90, "unlockEra": "a1", "lessonIntent": "공간의 앞뒤 관계" },
+    { "id": "toilet-north", "hubId": "service", "ko": "윗화장실", "de": "Nördliches Nebengebäude", "asset": "toilet.png", "x": 24.7, "y": 19.7, "width": 10.2, "rotation": 0, "unlockEra": "b1", "lessonIntent": "장소와 위치" },
+    { "id": "toilet-south", "hubId": "service", "ko": "아랫화장실", "de": "Südliches Nebengebäude", "asset": "toilet.png", "x": 13.1, "y": 62.1, "width": 9, "rotation": 4, "unlockEra": "b1", "lessonIntent": "방향과 이동" },
+    { "id": "changgo", "hubId": "service", "ko": "창고", "de": "Lagerhaus", "asset": "changgo.png", "x": 28.1, "y": 48.5, "width": 19, "rotation": 90, "unlockEra": "b1", "lessonIntent": "물건과 수량" },
+    { "id": "anchae-store", "hubId": "anchae", "ko": "안채곳간채", "de": "Inneres Speicherhaus", "asset": "anchae-store.png", "x": 35.5, "y": 31.7, "width": 18, "rotation": 90, "unlockEra": "b1", "lessonIntent": "집안일과 일상" },
+    { "id": "araechae", "hubId": "anchae", "ko": "아랫채", "de": "Araechae", "asset": "araechae.png", "x": 47.5, "y": 20.3, "width": 22, "rotation": 0, "unlockEra": "b1", "lessonIntent": "가족과 공간" },
+    { "id": "anchae", "hubId": "anchae", "ko": "안채", "de": "Inneres Haupthaus", "asset": "anchae.png", "x": 55.3, "y": 31.5, "width": 20, "rotation": 90, "unlockEra": "b1", "lessonIntent": "경험과 습관" },
+    { "id": "sadang", "hubId": "sadang", "ko": "사당", "de": "Ahnenschrein", "asset": "sadang.png", "x": 75.8, "y": 28.2, "width": 17, "rotation": 90, "unlockEra": "b2", "lessonIntent": "전통과 예절" },
+    { "id": "gokgan", "hubId": "service", "ko": "곳간채", "de": "Großes Speicherhaus", "asset": "gokganchae.png", "x": 72.1, "y": 49.6, "width": 20, "rotation": 90, "unlockEra": "b2", "lessonIntent": "계획과 준비" },
+    { "id": "ansarang", "hubId": "byeoldang-seogo", "ko": "안사랑채·별당", "de": "Inneres Sarangchae", "asset": "ansarangchae.png", "x": 70.6, "y": 68.5, "width": 21, "rotation": 90, "unlockEra": "b2", "lessonIntent": "문화적 뉘앙스" }
+  ],
+  "decorations": [
+    { "id": "jangdokdae", "ko": "장독대", "asset": "decoration_jangdokdae.png", "width": 9.5, "rotation": 0, "unlockEra": "a2", "allowedYards": ["an-yard", "service-yard"] },
+    { "id": "maehwa", "ko": "매화", "asset": "decoration_maehwa.png", "width": 8, "rotation": 0, "unlockEra": "b2", "allowedYards": ["sarang-yard", "an-yard", "sadang-yard", "byeoldang-yard"] },
+    { "id": "sonamu", "ko": "소나무", "asset": "decoration_sonamu.png", "width": 9, "rotation": 0, "unlockEra": "c1", "allowedYards": ["sarang-yard", "sadang-yard", "byeoldang-yard"] },
+    { "id": "pond", "ko": "연못", "asset": "decoration_pond.png", "width": 13, "rotation": 0, "unlockEra": "b2", "allowedYards": ["sarang-yard", "byeoldang-yard"] },
+    { "id": "seokdeung", "ko": "석등", "asset": "decoration_seokdeung.png", "width": 5.5, "rotation": 0, "unlockEra": "c1", "allowedYards": ["sarang-yard", "an-yard", "sadang-yard", "byeoldang-yard"] }
+  ]
+}

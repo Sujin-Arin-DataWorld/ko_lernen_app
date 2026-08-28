@@ -3405,6 +3405,38 @@
     "description": "Personal Hanok world — map and place navigation."
   },
   "hanokWorldTitle": "My Hanok world",
+  "ilduWorldTitle": "My Ildu Gotaek",
+  "ilduWorldPanHint": "Swipe sideways to see the next courtyard.",
+  "ilduWorldEvidenceNote": "Only verified learning makes buildings appear.",
+  "ilduWorldBuiltCount": "{built} of {total} buildings",
+  "@ilduWorldBuiltCount": {
+    "placeholders": {
+      "built": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "ilduWorldOpenState": "Open",
+  "ilduWorldPlannedState": "Planned site",
+  "ilduWorldRecommended": "Recommended next",
+  "ilduWorldStartRecommended": "Start recommended mission",
+  "ilduWorldExplore": "Explore place",
+  "ilduWorldDecorate": "Decorate courtyard",
+  "ilduWorldCulture": "Cultural context",
+  "ilduWorldLockedEyebrow": "Choosing a level alone unlocks nothing",
+  "ilduWorldLockedTitle": "Complete verified learning steps at {level}.",
+  "@ilduWorldLockedTitle": {
+    "placeholders": { "level": {} }
+  },
+  "ilduWorldLockedBody": "Verified learning evidence turns this planned site into a complete building. Placement and free browsing do not count.",
+  "ilduWorldLockedCta": "See the matching mission",
+  "ilduWorldDecorBody": "Scale and direction stay fixed. Drag each item freely within its allowed courtyards.",
+  "ilduWorldDecorDone": "Done",
+  "ilduWorldDecorPlace": "Place",
+  "ilduWorldDecorRequires": "From {level}",
+  "@ilduWorldDecorRequires": {
+    "placeholders": { "level": {} }
+  },
+  "ilduWorldSaveError": "Your courtyard layout could not be saved locally.",
   "hanokWorldEarlyEyebrow": "Your courtyard · A1",
   "hanokWorldEarlyTitle": "Your first scene is the start of your Hanok.",
   "hanokWorldEarlyBody": "Every everyday sentence you can use confidently strengthens your foundation.",

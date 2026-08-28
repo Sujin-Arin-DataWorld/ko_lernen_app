@@ -12564,6 +12564,126 @@ abstract class AppL10n {
   /// **'Meine Hanok-Welt'**
   String get hanokWorldTitle;
 
+  /// No description provided for @ilduWorldTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Mein Ildu Gotaek'**
+  String get ilduWorldTitle;
+
+  /// No description provided for @ilduWorldPanHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wische seitwärts, um den nächsten Hof zu sehen.'**
+  String get ilduWorldPanHint;
+
+  /// No description provided for @ilduWorldEvidenceNote.
+  ///
+  /// In de, this message translates to:
+  /// **'Nur bestätigtes Lernen lässt Gebäude erscheinen.'**
+  String get ilduWorldEvidenceNote;
+
+  /// No description provided for @ilduWorldBuiltCount.
+  ///
+  /// In de, this message translates to:
+  /// **'{built} von {total} Gebäuden'**
+  String ilduWorldBuiltCount(int built, int total);
+
+  /// No description provided for @ilduWorldOpenState.
+  ///
+  /// In de, this message translates to:
+  /// **'Geöffnet'**
+  String get ilduWorldOpenState;
+
+  /// No description provided for @ilduWorldPlannedState.
+  ///
+  /// In de, this message translates to:
+  /// **'Bauplatz'**
+  String get ilduWorldPlannedState;
+
+  /// No description provided for @ilduWorldRecommended.
+  ///
+  /// In de, this message translates to:
+  /// **'Als Nächstes empfohlen'**
+  String get ilduWorldRecommended;
+
+  /// No description provided for @ilduWorldStartRecommended.
+  ///
+  /// In de, this message translates to:
+  /// **'Empfohlene Mission starten'**
+  String get ilduWorldStartRecommended;
+
+  /// No description provided for @ilduWorldExplore.
+  ///
+  /// In de, this message translates to:
+  /// **'Ort erkunden'**
+  String get ilduWorldExplore;
+
+  /// No description provided for @ilduWorldDecorate.
+  ///
+  /// In de, this message translates to:
+  /// **'Hof gestalten'**
+  String get ilduWorldDecorate;
+
+  /// No description provided for @ilduWorldCulture.
+  ///
+  /// In de, this message translates to:
+  /// **'Kultureller Kontext'**
+  String get ilduWorldCulture;
+
+  /// No description provided for @ilduWorldLockedEyebrow.
+  ///
+  /// In de, this message translates to:
+  /// **'Eine Levelwahl allein öffnet nichts'**
+  String get ilduWorldLockedEyebrow;
+
+  /// No description provided for @ilduWorldLockedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Schließe bestätigte Lernschritte auf {level} ab.'**
+  String ilduWorldLockedTitle(Object level);
+
+  /// No description provided for @ilduWorldLockedBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Bestätigte Lernnachweise machen aus diesem Bauplatz ein vollständiges Gebäude. Einstufung und freies Ansehen zählen nicht.'**
+  String get ilduWorldLockedBody;
+
+  /// No description provided for @ilduWorldLockedCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Passende Mission ansehen'**
+  String get ilduWorldLockedCta;
+
+  /// No description provided for @ilduWorldDecorBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Größe und Ausrichtung bleiben fest. Ziehe ein Stück frei innerhalb der erlaubten Höfe.'**
+  String get ilduWorldDecorBody;
+
+  /// No description provided for @ilduWorldDecorDone.
+  ///
+  /// In de, this message translates to:
+  /// **'Fertig'**
+  String get ilduWorldDecorDone;
+
+  /// No description provided for @ilduWorldDecorPlace.
+  ///
+  /// In de, this message translates to:
+  /// **'Platzieren'**
+  String get ilduWorldDecorPlace;
+
+  /// No description provided for @ilduWorldDecorRequires.
+  ///
+  /// In de, this message translates to:
+  /// **'Ab {level}'**
+  String ilduWorldDecorRequires(Object level);
+
+  /// No description provided for @ilduWorldSaveError.
+  ///
+  /// In de, this message translates to:
+  /// **'Die Hofgestaltung konnte nicht lokal gespeichert werden.'**
+  String get ilduWorldSaveError;
+
   /// No description provided for @hanokWorldEarlyEyebrow.
   ///
   /// In de, this message translates to:

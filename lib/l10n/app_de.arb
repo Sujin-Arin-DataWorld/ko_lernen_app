@@ -3491,6 +3491,38 @@
     "description": "Persönliche Hanok-Welt — Karte und Ortsnavigation."
   },
   "hanokWorldTitle": "Meine Hanok-Welt",
+  "ilduWorldTitle": "Mein Ildu Gotaek",
+  "ilduWorldPanHint": "Wische seitwärts, um den nächsten Hof zu sehen.",
+  "ilduWorldEvidenceNote": "Nur bestätigtes Lernen lässt Gebäude erscheinen.",
+  "ilduWorldBuiltCount": "{built} von {total} Gebäuden",
+  "@ilduWorldBuiltCount": {
+    "placeholders": {
+      "built": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "ilduWorldOpenState": "Geöffnet",
+  "ilduWorldPlannedState": "Bauplatz",
+  "ilduWorldRecommended": "Als Nächstes empfohlen",
+  "ilduWorldStartRecommended": "Empfohlene Mission starten",
+  "ilduWorldExplore": "Ort erkunden",
+  "ilduWorldDecorate": "Hof gestalten",
+  "ilduWorldCulture": "Kultureller Kontext",
+  "ilduWorldLockedEyebrow": "Eine Levelwahl allein öffnet nichts",
+  "ilduWorldLockedTitle": "Schließe bestätigte Lernschritte auf {level} ab.",
+  "@ilduWorldLockedTitle": {
+    "placeholders": { "level": {} }
+  },
+  "ilduWorldLockedBody": "Bestätigte Lernnachweise machen aus diesem Bauplatz ein vollständiges Gebäude. Einstufung und freies Ansehen zählen nicht.",
+  "ilduWorldLockedCta": "Passende Mission ansehen",
+  "ilduWorldDecorBody": "Größe und Ausrichtung bleiben fest. Ziehe ein Stück frei innerhalb der erlaubten Höfe.",
+  "ilduWorldDecorDone": "Fertig",
+  "ilduWorldDecorPlace": "Platzieren",
+  "ilduWorldDecorRequires": "Ab {level}",
+  "@ilduWorldDecorRequires": {
+    "placeholders": { "level": {} }
+  },
+  "ilduWorldSaveError": "Die Hofgestaltung konnte nicht lokal gespeichert werden.",
   "hanokWorldEarlyEyebrow": "Dein Hof · A1",
   "hanokWorldEarlyTitle": "Deine erste Szene ist der Anfang deines Hanok.",
   "hanokWorldEarlyBody": "Jeder Satz aus deinem Alltag, den du sicher kannst, stärkt dein Fundament.",

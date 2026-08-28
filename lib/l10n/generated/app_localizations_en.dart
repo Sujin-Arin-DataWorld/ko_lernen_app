@@ -7212,6 +7212,76 @@ class AppL10nEn extends AppL10n {
   String get hanokWorldTitle => 'My Hanok world';
 
   @override
+  String get ilduWorldTitle => 'My Ildu Gotaek';
+
+  @override
+  String get ilduWorldPanHint => 'Swipe sideways to see the next courtyard.';
+
+  @override
+  String get ilduWorldEvidenceNote =>
+      'Only verified learning makes buildings appear.';
+
+  @override
+  String ilduWorldBuiltCount(int built, int total) {
+    return '$built of $total buildings';
+  }
+
+  @override
+  String get ilduWorldOpenState => 'Open';
+
+  @override
+  String get ilduWorldPlannedState => 'Planned site';
+
+  @override
+  String get ilduWorldRecommended => 'Recommended next';
+
+  @override
+  String get ilduWorldStartRecommended => 'Start recommended mission';
+
+  @override
+  String get ilduWorldExplore => 'Explore place';
+
+  @override
+  String get ilduWorldDecorate => 'Decorate courtyard';
+
+  @override
+  String get ilduWorldCulture => 'Cultural context';
+
+  @override
+  String get ilduWorldLockedEyebrow => 'Choosing a level alone unlocks nothing';
+
+  @override
+  String ilduWorldLockedTitle(Object level) {
+    return 'Complete verified learning steps at $level.';
+  }
+
+  @override
+  String get ilduWorldLockedBody =>
+      'Verified learning evidence turns this planned site into a complete building. Placement and free browsing do not count.';
+
+  @override
+  String get ilduWorldLockedCta => 'See the matching mission';
+
+  @override
+  String get ilduWorldDecorBody =>
+      'Scale and direction stay fixed. Drag each item freely within its allowed courtyards.';
+
+  @override
+  String get ilduWorldDecorDone => 'Done';
+
+  @override
+  String get ilduWorldDecorPlace => 'Place';
+
+  @override
+  String ilduWorldDecorRequires(Object level) {
+    return 'From $level';
+  }
+
+  @override
+  String get ilduWorldSaveError =>
+      'Your courtyard layout could not be saved locally.';
+
+  @override
   String get hanokWorldEarlyEyebrow => 'Your courtyard · A1';
 
   @override

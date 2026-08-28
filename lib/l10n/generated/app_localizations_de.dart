@@ -7251,6 +7251,77 @@ class AppL10nDe extends AppL10n {
   String get hanokWorldTitle => 'Meine Hanok-Welt';
 
   @override
+  String get ilduWorldTitle => 'Mein Ildu Gotaek';
+
+  @override
+  String get ilduWorldPanHint =>
+      'Wische seitwärts, um den nächsten Hof zu sehen.';
+
+  @override
+  String get ilduWorldEvidenceNote =>
+      'Nur bestätigtes Lernen lässt Gebäude erscheinen.';
+
+  @override
+  String ilduWorldBuiltCount(int built, int total) {
+    return '$built von $total Gebäuden';
+  }
+
+  @override
+  String get ilduWorldOpenState => 'Geöffnet';
+
+  @override
+  String get ilduWorldPlannedState => 'Bauplatz';
+
+  @override
+  String get ilduWorldRecommended => 'Als Nächstes empfohlen';
+
+  @override
+  String get ilduWorldStartRecommended => 'Empfohlene Mission starten';
+
+  @override
+  String get ilduWorldExplore => 'Ort erkunden';
+
+  @override
+  String get ilduWorldDecorate => 'Hof gestalten';
+
+  @override
+  String get ilduWorldCulture => 'Kultureller Kontext';
+
+  @override
+  String get ilduWorldLockedEyebrow => 'Eine Levelwahl allein öffnet nichts';
+
+  @override
+  String ilduWorldLockedTitle(Object level) {
+    return 'Schließe bestätigte Lernschritte auf $level ab.';
+  }
+
+  @override
+  String get ilduWorldLockedBody =>
+      'Bestätigte Lernnachweise machen aus diesem Bauplatz ein vollständiges Gebäude. Einstufung und freies Ansehen zählen nicht.';
+
+  @override
+  String get ilduWorldLockedCta => 'Passende Mission ansehen';
+
+  @override
+  String get ilduWorldDecorBody =>
+      'Größe und Ausrichtung bleiben fest. Ziehe ein Stück frei innerhalb der erlaubten Höfe.';
+
+  @override
+  String get ilduWorldDecorDone => 'Fertig';
+
+  @override
+  String get ilduWorldDecorPlace => 'Platzieren';
+
+  @override
+  String ilduWorldDecorRequires(Object level) {
+    return 'Ab $level';
+  }
+
+  @override
+  String get ilduWorldSaveError =>
+      'Die Hofgestaltung konnte nicht lokal gespeichert werden.';
+
+  @override
   String get hanokWorldEarlyEyebrow => 'Dein Hof · A1';
 
   @override

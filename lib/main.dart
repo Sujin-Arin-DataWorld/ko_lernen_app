@@ -93,7 +93,7 @@ import 'screens/daily_challenge_screen.dart';
 import 'screens/satz_arcade_screen.dart';
 import 'screens/speed_match_screen.dart';
 import 'screens/silben_kreuz_screen.dart';
-import 'screens/hanok_world_screen.dart';
+import 'screens/ildu_world_screen.dart';
 import 'screens/personal_room_furnish_screen.dart';
 import 'screens/practice_hub_screen.dart';
 import 'screens/pronunciation_studio_screen.dart';
@@ -1040,7 +1040,7 @@ class _KoLernenAppState extends State<KoLernenApp> {
               );
             case '/hanok':
               return SoriTransitions.fadeScale(
-                (_) => const HanokWorldScreen(),
+                (_) => const IlDuWorldScreen(),
                 settings: settings,
               );
             case '/hanok/anbang':
