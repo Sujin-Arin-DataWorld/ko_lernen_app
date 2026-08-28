@@ -17,7 +17,6 @@ import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/today_learning_snapshot.dart';
 import 'package:ko_lernen_app/theme.dart';
-import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 import 'package:ko_lernen_app/widgets/sori/window_class.dart';
 
@@ -140,15 +139,33 @@ void main() {
               });
               await tester.pump();
               final context = tester.element(find.byType(VocabPacksScreen));
-              final heroImage = tester.widget<Image>(
-                find.descendant(
-                  of: find.byType(HanokHeader),
-                  matching: find.byType(Image),
-                ),
-              );
-              await tester.runAsync(
-                () => precacheImage(heroImage.image, context),
-              );
+              // The hero preload above runs outside fake async. Pack artwork
+              // can otherwise win or lose that same decode race, so compact
+              // and medium capture a different subset of visible images.
+              // Await every mounted Image provider before taking the golden.
+              final imageProviders = tester
+                  .widgetList<Image>(
+                    find.descendant(
+                      of: find.byType(VocabPacksScreen),
+                      matching: find.byType(Image),
+                    ),
+                  )
+                  .map((image) => image.image)
+                  .toList(growable: false);
+              expect(imageProviders, isNotEmpty);
+              await tester.runAsync(() async {
+                await Future.wait([
+                  for (final provider in imageProviders)
+                    precacheImage(
+                      provider,
+                      context,
+                      // Pack artwork is optional by SoriIllustratedCard's
+                      // contract. Let its errorBuilder settle on the fallback
+                      // while still awaiting every bundled image decode.
+                      onError: (_, _) {},
+                    ),
+                ]);
+              });
               await tester.pump();
             }
             if (screen.key == 'sori_today') {
