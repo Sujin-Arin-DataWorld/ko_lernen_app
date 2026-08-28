@@ -409,6 +409,42 @@ abstract class AppL10n {
   /// **'Satz des Tages'**
   String get reviewBonusLabel;
 
+  /// No description provided for @reviewHubTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederholen'**
+  String get reviewHubTitle;
+
+  /// No description provided for @reviewHubTodayHeadline.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute gelernt'**
+  String get reviewHubTodayHeadline;
+
+  /// No description provided for @reviewHubEmptyToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Noch nichts gelernt heute — starte eine Lektion.'**
+  String get reviewHubEmptyToday;
+
+  /// No description provided for @reviewHubStartSelected.
+  ///
+  /// In de, this message translates to:
+  /// **'{n, plural, one{1 Wort üben} other{{n} Wörter üben}}'**
+  String reviewHubStartSelected(int n);
+
+  /// No description provided for @reviewHubCalendarTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Kalender'**
+  String get reviewHubCalendarTooltip;
+
+  /// No description provided for @reviewHubDeckLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'{words, plural, one{1 Wort} other{{words} Wörter}}'**
+  String reviewHubDeckLabel(int words);
+
   /// No description provided for @homeReviewTitle.
   ///
   /// In de, this message translates to:

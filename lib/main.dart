@@ -51,6 +51,7 @@ import 'screens/splash_screen.dart';
 import 'screens/daily_char_sheet.dart';
 import 'screens/paywall_screen.dart';
 import 'screens/review_session_screen.dart';
+import 'screens/review_hub_screen.dart';
 import 'screens/smalltalk_screen.dart';
 import 'screens/media_phrase_screen.dart';
 import 'screens/book_capture_screen.dart';
@@ -906,6 +907,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 (_) => const ReviewSessionScreen(
                   feedbackContentId: 'today_review',
                 ),
+                settings: settings,
+              );
+            case '/review/hub':
+              return SoriTransitions.fadeScale(
+                (_) => const ReviewHubScreen(),
                 settings: settings,
               );
             case '/smalltalk':

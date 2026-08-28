@@ -66,6 +66,22 @@
   "reviewDoneTitle": "Stark!",
   "reviewDoneBody": "Du hast deine fälligen Karten wiederholt.",
   "reviewBonusLabel": "Satz des Tages",
+  "reviewHubTitle": "Wiederholen",
+  "reviewHubTodayHeadline": "Heute gelernt",
+  "reviewHubEmptyToday": "Noch nichts gelernt heute — starte eine Lektion.",
+  "reviewHubStartSelected": "{n, plural, one{1 Wort üben} other{{n} Wörter üben}}",
+  "@reviewHubStartSelected": {
+    "placeholders": {
+      "n": {"type": "int"}
+    }
+  },
+  "reviewHubCalendarTooltip": "Kalender",
+  "reviewHubDeckLabel": "{words, plural, one{1 Wort} other{{words} Wörter}}",
+  "@reviewHubDeckLabel": {
+    "placeholders": {
+      "words": {"type": "int"}
+    }
+  },
   "homeReviewTitle": "Heute wiederholen",
   "homeReviewDue": "{n, plural, one{1 Wort fällig} other{{n} Wörter fällig}}",
   "@homeReviewDue": {

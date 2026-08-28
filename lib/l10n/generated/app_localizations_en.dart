@@ -192,6 +192,41 @@ class AppL10nEn extends AppL10n {
   String get reviewBonusLabel => 'Phrase of the day';
 
   @override
+  String get reviewHubTitle => 'Review';
+
+  @override
+  String get reviewHubTodayHeadline => 'Learned today';
+
+  @override
+  String get reviewHubEmptyToday =>
+      'Nothing learned yet today — start a lesson.';
+
+  @override
+  String reviewHubStartSelected(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: 'Practice $n words',
+      one: 'Practice 1 word',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get reviewHubCalendarTooltip => 'Calendar';
+
+  @override
+  String reviewHubDeckLabel(int words) {
+    String _temp0 = intl.Intl.pluralLogic(
+      words,
+      locale: localeName,
+      other: '$words words',
+      one: '1 word',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get homeReviewTitle => 'Today\'s review';
 
   @override

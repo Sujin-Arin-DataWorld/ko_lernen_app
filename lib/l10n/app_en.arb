@@ -66,6 +66,22 @@
   "reviewDoneTitle": "Nice work!",
   "reviewDoneBody": "You've reviewed your due cards.",
   "reviewBonusLabel": "Phrase of the day",
+  "reviewHubTitle": "Review",
+  "reviewHubTodayHeadline": "Learned today",
+  "reviewHubEmptyToday": "Nothing learned yet today — start a lesson.",
+  "reviewHubStartSelected": "{n, plural, one{Practice 1 word} other{Practice {n} words}}",
+  "@reviewHubStartSelected": {
+    "placeholders": {
+      "n": {"type": "int"}
+    }
+  },
+  "reviewHubCalendarTooltip": "Calendar",
+  "reviewHubDeckLabel": "{words, plural, one{1 word} other{{words} words}}",
+  "@reviewHubDeckLabel": {
+    "placeholders": {
+      "words": {"type": "int"}
+    }
+  },
   "homeReviewTitle": "Today's review",
   "homeReviewDue": "{n, plural, one{1 word due} other{{n} words due}}",
   "@homeReviewDue": {

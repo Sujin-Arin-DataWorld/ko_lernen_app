@@ -1598,6 +1598,9 @@ class Storage {
   /// 오늘 ISO 날짜(YYYY-MM-DD). 학습 원장 조회의 공용 기준일이다.
   static String todayIso() => _today();
 
+  /// 특정 달력 날짜의 ISO 키. 학습 원장 날짜 선택의 공용 기준이다.
+  static String todayIsoFor(DateTime d) => _isoOf(d);
+
   // ───────── Einstellungen ─────────
   static String get localeCode => _s('kl_locale'); // 'de', 'en', '' = system
   static Future<void> setLocaleCode(String v) => _ss('kl_locale', v);

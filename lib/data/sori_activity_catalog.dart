@@ -186,7 +186,7 @@ final List<ActivityCatalogEntry> soriActivityCatalog = List.unmodifiable([
     en: 'Review',
     descriptionDe: 'Wörter genau im richtigen Moment auffrischen.',
     descriptionEn: 'Refresh words at just the right moment.',
-    route: '/review',
+    route: '/review/hub',
     minutes: 5,
     color: SoriActivityColorRole.review,
     icon: 'repeat',
