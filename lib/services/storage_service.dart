@@ -144,6 +144,9 @@ enum StudyLogDateRestoreResult {
   skippedRecoveryValue,
 }
 
+/// Outcome of one grammar-plan cloud restore attempt.
+enum GrammarPlanRestoreResult { written, skippedExisting, skippedRecoveryValue }
+
 /// Injectable boolean preference boundary used by strict onboarding commits.
 ///
 /// SharedPreferences updates its in-memory cache before the platform write is
@@ -775,7 +778,6 @@ class Storage {
     PreferenceStringStore? preferences,
     void Function()? assertCurrentWrite,
     _StringPreferenceState? beforeState,
-    bool yieldBeforeAssert = false,
   }) async {
     final store =
         preferences ??
@@ -784,9 +786,6 @@ class Storage {
       throw PreferenceWriteException(key);
     }
     final before = beforeState ?? await _prepareStringMutation(store, key);
-    if (yieldBeforeAssert) {
-      await Future<void>.delayed(Duration.zero);
-    }
     assertCurrentWrite?.call();
     Object? failure;
     var wrote = false;
@@ -819,7 +818,6 @@ class Storage {
     PreferenceStringListStore? preferences,
     void Function()? assertCurrentWrite,
     _StringListPreferenceState? beforeState,
-    bool yieldBeforeAssert = false,
   }) async {
     final store =
         preferences ??
@@ -828,9 +826,6 @@ class Storage {
       throw PreferenceWriteException(key);
     }
     final before = beforeState ?? await _prepareStringListMutation(store, key);
-    if (yieldBeforeAssert) {
-      await Future<void>.delayed(Duration.zero);
-    }
     assertCurrentWrite?.call();
     Object? failure;
     var wrote = false;
@@ -1348,18 +1343,62 @@ class Storage {
   static Future<void> setGrammarPlanRawJson(String json) =>
       _ss('kl_gram_plan_v1', json);
 
-  /// Strict cloud-restore-only writer. The caller's session guard is checked
-  /// after preference preparation and immediately before the platform setter.
-  static Future<void> setGrammarPlanRawJsonForRestore(
+  /// Strict cloud-restore-only writer. A fresh local value wins after the
+  /// reload boundary; the caller's session guard is then checked immediately
+  /// before the platform setter.
+  static Future<GrammarPlanRestoreResult> setGrammarPlanRawJsonForRestore(
     String json, {
     void Function()? assertCurrentWrite,
-  }) => _ssStrict(
-    'kl_gram_plan_v1',
-    json,
-    preferences: _grammarPlanStoreForTesting,
-    assertCurrentWrite: assertCurrentWrite,
-    yieldBeforeAssert: true,
-  );
+  }) async {
+    const key = 'kl_gram_plan_v1';
+    final store =
+        _grammarPlanStoreForTesting ??
+        (_prefs == null ? null : _SharedPreferenceStringStore(_prefs!));
+    if (store == null) {
+      throw const PreferenceWriteException(key);
+    }
+
+    try {
+      final initial = _StringPreferenceState.read(store, key);
+      if (initial.isPresent && initial.value!.isNotEmpty) {
+        return GrammarPlanRestoreResult.skippedExisting;
+      }
+    } on Object catch (error) {
+      debugPrint('Storage: malformed grammar plan during restore: $error');
+      return GrammarPlanRestoreResult.skippedRecoveryValue;
+    }
+
+    try {
+      if (_unknownStrictKeys.contains(key)) {
+        await _refreshUnknownStringKeys(store, [key]);
+      }
+      await store.reload();
+    } on PreferenceOutcomeUnknownException {
+      rethrow;
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+
+    late final _StringPreferenceState before;
+    try {
+      before = _StringPreferenceState.read(store, key);
+    } on Object catch (error) {
+      debugPrint('Storage: malformed grammar plan during restore: $error');
+      return GrammarPlanRestoreResult.skippedRecoveryValue;
+    }
+    if (before.isPresent && before.value!.isNotEmpty) {
+      return GrammarPlanRestoreResult.skippedExisting;
+    }
+    await _ssStrict(
+      key,
+      json,
+      preferences: store,
+      beforeState: before,
+      assertCurrentWrite: assertCurrentWrite,
+    );
+    return GrammarPlanRestoreResult.written;
+  }
 
   static Future<void> setGrammarLastIdx(int v) => _si('kl_gram_last_idx', v);
   static Future<void> addGrammarSeen(String pattern) async {
@@ -2638,16 +2677,36 @@ class Storage {
     if (store == null) {
       throw PreferenceWriteException(key);
     }
-    late final _StringListPreferenceState before;
     try {
-      // Probe first so a wrong-typed recovery value remains distinguishable
-      // from a strict-store failure reported by the preparation path.
-      store.getStringList(key);
-      before = await _prepareStringListMutation(store, key);
-    } on PreferenceWriteException {
-      rethrow;
+      final initial = _StringListPreferenceState.read(store, key);
+      if (initial.isPresent && initial.value!.isNotEmpty) {
+        return StudyLogDateRestoreResult.skippedExisting;
+      }
+    } on Object catch (error) {
+      // A wrong-typed preference is recovery data. Never replace it with an
+      // empty-looking list during a restore.
+      debugPrint('Storage: malformed study-log entry for $dateIso: $error');
+      return StudyLogDateRestoreResult.skippedRecoveryValue;
+    }
+
+    try {
+      if (_unknownStrictKeys.contains(key)) {
+        await _refreshUnknownStringListKeys(store, [key]);
+      }
+      await store.reload();
     } on PreferenceOutcomeUnknownException {
       rethrow;
+    } on Object catch (error) {
+      _unknownStrictKeys.add(key);
+      throw PreferenceOutcomeUnknownException(key, cause: error);
+    }
+
+    late final _StringListPreferenceState before;
+    try {
+      // This synchronous reread follows every awaited preparation boundary.
+      // Its state is supplied to _slStrict, so the session guard and setter
+      // follow without another await.
+      before = _StringListPreferenceState.read(store, key);
     } on Object catch (error) {
       // Wrong-typed local values are recovery data, never an empty ledger.
       debugPrint('Storage: malformed study-log entry for $dateIso: $error');
@@ -2662,7 +2721,6 @@ class Storage {
       preferences: store,
       beforeState: before,
       assertCurrentWrite: assertCurrentWrite,
-      yieldBeforeAssert: true,
     );
     return StudyLogDateRestoreResult.written;
   }

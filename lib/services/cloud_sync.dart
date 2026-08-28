@@ -618,13 +618,17 @@ class CloudSync {
     }
     final grammarPlanJson = _rawJsonObject(data['gram_plan_json']);
     if (grammarPlanJson != null && Storage.grammarPlanRawJson.isEmpty) {
-      await _guardedWrite(
-        beforeWrite,
-        () => Storage.setGrammarPlanRawJsonForRestore(
+      await _guardedWrite(beforeWrite, () async {
+        switch (await Storage.setGrammarPlanRawJsonForRestore(
           grammarPlanJson,
           assertCurrentWrite: beforeWrite,
-        ),
-      );
+        )) {
+          case GrammarPlanRestoreResult.written:
+          case GrammarPlanRestoreResult.skippedExisting:
+          case GrammarPlanRestoreResult.skippedRecoveryValue:
+            break;
+        }
+      });
     }
 
     if (data.containsKey('course_mastery_json')) {

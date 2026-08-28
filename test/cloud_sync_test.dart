@@ -1074,6 +1074,37 @@ void main() {
   );
 
   test(
+    'a local ledger date written during reload wins before the remote setter',
+    () async {
+      final store = _LocalLedgerDuringReloadStore(<String>['local-id']);
+      Storage.setStudyLogStoreForTesting(store);
+
+      final result = await Storage.restoreStudyLogDateForRestore('2026-08-17', [
+        'remote-id',
+      ]);
+
+      expect(result, StudyLogDateRestoreResult.skippedExisting);
+      expect(store.value, ['local-id']);
+      expect(store.setCalls, 0);
+    },
+  );
+
+  test(
+    'a local grammar value written during reload wins before the remote setter',
+    () async {
+      const localRaw = '{local-recovery-value}';
+      final store = _LocalGrammarDuringReloadStore(localRaw);
+      Storage.setGrammarPlanStoreForTesting(store);
+
+      final result = await Storage.setGrammarPlanRawJsonForRestore('{"a1":{}}');
+
+      expect(result, GrammarPlanRestoreResult.skippedExisting);
+      expect(store.value, localRaw);
+      expect(store.setCalls, 0);
+    },
+  );
+
+  test(
     'course restore additively preserves local and remote evidence',
     () async {
       await Storage.setCourseMasterySnapshotRawJson(
@@ -1762,16 +1793,16 @@ class _MicrotaskStalingStringListStore implements PreferenceStringListStore {
   bool containsKey(String key) => value != null;
 
   @override
-  List<String>? getStringList(String key) {
-    if (!_scheduled) {
-      _scheduled = true;
-      scheduleMicrotask(onPrepared);
-    }
-    return value;
-  }
+  List<String>? getStringList(String key) => value;
 
   @override
-  Future<void> reload() async {}
+  Future<void> reload() {
+    if (_scheduled) {
+      return Future<void>.value();
+    }
+    _scheduled = true;
+    return Future<void>.microtask(onPrepared);
+  }
 
   @override
   Future<bool> remove(String key) async {
@@ -1822,19 +1853,83 @@ class _MicrotaskStalingStringStore implements PreferenceStringStore {
   var _scheduled = false;
 
   @override
-  bool containsKey(String key) {
-    if (!_scheduled) {
-      _scheduled = true;
-      scheduleMicrotask(onPrepared);
-    }
-    return value != null;
-  }
+  bool containsKey(String key) => value != null;
 
   @override
   String? getString(String key) => value;
 
   @override
-  Future<void> reload() async {}
+  Future<void> reload() {
+    if (_scheduled) {
+      return Future<void>.value();
+    }
+    _scheduled = true;
+    return Future<void>.microtask(onPrepared);
+  }
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String nextValue) async {
+    setCalls++;
+    value = nextValue;
+    return true;
+  }
+}
+
+class _LocalLedgerDuringReloadStore implements PreferenceStringListStore {
+  _LocalLedgerDuringReloadStore(this.localValue);
+
+  final List<String> localValue;
+  List<String>? value;
+  var setCalls = 0;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  List<String>? getStringList(String key) => value;
+
+  @override
+  Future<void> reload() => Future<void>.microtask(() {
+    value = List<String>.from(localValue);
+  });
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setStringList(String key, List<String> nextValue) async {
+    setCalls++;
+    value = List<String>.from(nextValue);
+    return true;
+  }
+}
+
+class _LocalGrammarDuringReloadStore implements PreferenceStringStore {
+  _LocalGrammarDuringReloadStore(this.localValue);
+
+  final String localValue;
+  String? value;
+  var setCalls = 0;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  String? getString(String key) => value;
+
+  @override
+  Future<void> reload() => Future<void>.microtask(() {
+    value = localValue;
+  });
 
   @override
   Future<bool> remove(String key) async {
