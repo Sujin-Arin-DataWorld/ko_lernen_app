@@ -11,7 +11,9 @@ import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/screens/scenarios_list_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/badge.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
+import 'package:ko_lernen_app/widgets/sori/pressable.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
 import 'support/scenario_fixtures.dart';
@@ -86,6 +88,88 @@ void main() {
     expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
     semantics.dispose();
   });
+
+  // Mutation caught: removing OpenContainer.onClosed leaves the grid card at
+  // 0 stars and the lesson path at A1: 0/1 after the player route closes.
+  testWidgets('grid card refreshes progress after the player route closes', (
+    tester,
+  ) async {
+    await _pumpScenarios(
+      tester,
+      size: const Size(390, 844),
+      textScale: 1.0,
+      scenarios: const [scenarioAirportArrivalFixture],
+    );
+
+    const cardLabel = 'Einreise am Flughafen. 5 bis 7 Minuten · +120 XP';
+    _expectScenarioProgress(
+      tester,
+      cardLabel: cardLabel,
+      stars: 0,
+      pathProgress: 'A1: 0/1 ★',
+    );
+
+    final card = find.bySemanticsLabel(cardLabel);
+    await _scrollTo(tester, card);
+    await tester.tap(card);
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 500));
+    expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
+
+    await Storage.setScenarioStars(scenarioAirportArrivalFixture.id, 1);
+    Navigator.of(tester.element(find.byType(ScenarioPlayerScreen))).pop();
+    await tester.pumpAndSettle();
+
+    _expectScenarioProgress(
+      tester,
+      cardLabel: cardLabel,
+      stars: 1,
+      pathProgress: 'A1: 1/1 ★',
+    );
+  });
+
+  // Mutation caught: removing the Navigator.push completion callback leaves
+  // the next recommendation path at 0/1 after its player route closes.
+  testWidgets(
+    'next recommended refreshes progress after the player route closes',
+    (tester) async {
+      await _pumpScenarios(
+        tester,
+        size: const Size(390, 844),
+        textScale: 1.0,
+        scenarios: const [scenarioAirportArrivalFixture],
+      );
+
+      const cardLabel = 'Einreise am Flughafen. 5 bis 7 Minuten · +120 XP';
+      _expectScenarioProgress(
+        tester,
+        cardLabel: cardLabel,
+        stars: 0,
+        pathProgress: 'A1: 0/1 ★',
+      );
+
+      final nextRecommended = find.ancestor(
+        of: find.text('Als Nächstes'),
+        matching: find.byType(SoriPressable),
+      );
+      await _scrollTo(tester, nextRecommended);
+      await tester.tap(nextRecommended);
+      await tester.pump();
+      await tester.pump(const Duration(milliseconds: 500));
+      expect(find.byType(ScenarioPlayerScreen), findsOneWidget);
+
+      await Storage.setScenarioStars(scenarioAirportArrivalFixture.id, 1);
+      Navigator.of(tester.element(find.byType(ScenarioPlayerScreen))).pop();
+      await tester.pumpAndSettle();
+
+      _expectScenarioProgress(
+        tester,
+        cardLabel: cardLabel,
+        stars: 1,
+        pathProgress: 'A1: 1/1 ★',
+      );
+    },
+  );
 
   testWidgets('locked scenario is labeled and cannot open the player', (
     tester,
@@ -301,6 +385,19 @@ Future<void> _scrollTo(WidgetTester tester, Finder finder) async {
     await tester.ensureVisible(finder.first);
   }
   await tester.pump();
+}
+
+void _expectScenarioProgress(
+  WidgetTester tester, {
+  required String cardLabel,
+  required int stars,
+  required String pathProgress,
+}) {
+  final card = find.bySemanticsLabel(cardLabel);
+  final cardStars = find.descendant(of: card, matching: find.byType(SoriStars));
+  expect(cardStars, findsOneWidget);
+  expect(tester.widget<SoriStars>(cardStars).filled, stars);
+  expect(find.text(pathProgress), findsOneWidget);
 }
 
 const _b1Scenario = Scenario(

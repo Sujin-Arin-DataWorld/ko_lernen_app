@@ -154,6 +154,13 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
     }
   }
 
+  void _refreshScenarioProgress() {
+    if (!mounted) {
+      return;
+    }
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -235,6 +242,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
               stars: stars,
               lang: lang,
               levelColor: _levelColor,
+              onScenarioClosed: _refreshScenarioProgress,
             ),
           ),
           const SizedBox(height: Spacing.lg),
@@ -251,6 +259,7 @@ class _ScenariosListScreenState extends State<ScenariosListScreen>
             scenarios: _all.where((sc) => sc.level == level).toList(),
             lang: lang,
             stars: stars,
+            onScenarioClosed: _refreshScenarioProgress,
             onLockedTap: (sc) {
               HapticFeedback.selectionClick();
               soriNotice(
@@ -276,6 +285,7 @@ class _LevelSection extends StatelessWidget {
   final List<Scenario> scenarios;
   final String lang;
   final Map<String, int> stars;
+  final VoidCallback onScenarioClosed;
   final void Function(Scenario) onLockedTap;
 
   const _LevelSection({
@@ -285,6 +295,7 @@ class _LevelSection extends StatelessWidget {
     required this.scenarios,
     required this.lang,
     required this.stars,
+    required this.onScenarioClosed,
     required this.onLockedTap,
   });
 
@@ -360,6 +371,7 @@ class _LevelSection extends StatelessWidget {
                       accent: accent,
                       stars: stars[sc.id] ?? 0,
                       lang: lang,
+                      onScenarioClosed: onScenarioClosed,
                     ),
             ),
           ),
@@ -375,12 +387,14 @@ class _OpenScenarioCard extends StatelessWidget {
   final Color accent;
   final int stars;
   final String lang;
+  final VoidCallback onScenarioClosed;
 
   const _OpenScenarioCard({
     required this.scenario,
     required this.accent,
     required this.stars,
     required this.lang,
+    required this.onScenarioClosed,
   });
 
   @override
@@ -407,6 +421,7 @@ class _OpenScenarioCard extends StatelessWidget {
         scenarioId: scenario.id,
         levelHint: scenario.level,
       ),
+      onClosed: (_) => onScenarioClosed(),
     );
   }
 }
@@ -548,6 +563,7 @@ class _LessonPathHeader extends StatelessWidget {
   final Map<String, int> stars;
   final String lang;
   final Color Function(LearnerLevel) levelColor;
+  final VoidCallback onScenarioClosed;
 
   const _LessonPathHeader({
     required this.all,
@@ -555,6 +571,7 @@ class _LessonPathHeader extends StatelessWidget {
     required this.stars,
     required this.lang,
     required this.levelColor,
+    required this.onScenarioClosed,
   });
 
   Scenario? _pickNext() {
@@ -658,6 +675,7 @@ class _LessonPathHeader extends StatelessWidget {
               scenario: next,
               lang: lang,
               accent: levelColor(next.level),
+              onScenarioClosed: onScenarioClosed,
             ),
           ] else ...[
             const SizedBox(height: Spacing.md),
@@ -745,10 +763,12 @@ class _NextRecommended extends StatelessWidget {
   final Scenario scenario;
   final String lang;
   final Color accent;
+  final VoidCallback onScenarioClosed;
   const _NextRecommended({
     required this.scenario,
     required this.lang,
     required this.accent,
+    required this.onScenarioClosed,
   });
 
   @override
@@ -757,14 +777,16 @@ class _NextRecommended extends StatelessWidget {
     final s = SoriSurfaces.of(context);
     final title = scenario.title.pick(lang);
     void openScenario() {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (_) => ScenarioPlayerScreen(
-            scenarioId: scenario.id,
-            levelHint: scenario.level,
-          ),
-        ),
-      );
+      Navigator.of(context)
+          .push(
+            MaterialPageRoute(
+              builder: (_) => ScenarioPlayerScreen(
+                scenarioId: scenario.id,
+                levelHint: scenario.level,
+              ),
+            ),
+          )
+          .then((_) => onScenarioClosed());
     }
 
     final details = Row(
