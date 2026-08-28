@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/data/sori_activity_catalog.dart';
@@ -14,8 +16,12 @@ void main() {
 
   setUp(() async {
     Storage.resetForTesting();
+    final futureIso = Storage.todayIsoFor(
+      DateTime.now().add(const Duration(days: 1)),
+    );
     SharedPreferences.setMockInitialValues({
       'kl_study_log_v1_${Storage.todayIso()}': <String>['안녕', '학교'],
+      'kl_study_log_v1_$futureIso': <String>['학교'],
     });
     await Storage.init();
   });
@@ -76,6 +82,50 @@ void main() {
     expect(calendar.selectableDayPredicate!(yesterday), isFalse);
   });
 
+  testWidgets('calendar ignores canonical future ledger keys', (tester) async {
+    final today = DateTime.now();
+    final todayIso = Storage.todayIsoFor(today);
+    final future = today.add(const Duration(days: 1));
+    await _pumpHub(tester);
+
+    final action = find.byKey(const Key('review-hub-calendar'));
+    expect(tester.widget<IconButton>(action).onPressed, isNotNull);
+    await tester.tap(action);
+    await tester.pump();
+    expect(tester.takeException(), isNull);
+
+    final calendar = tester.widget<CalendarDatePicker>(
+      find.byType(CalendarDatePicker),
+    );
+    expect(calendar.selectableDayPredicate!(today), isTrue);
+    expect(calendar.selectableDayPredicate!(future), isFalse);
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('kl_study_log_v1_$todayIso');
+    await _pumpHub(tester);
+    expect(tester.widget<IconButton>(action).onPressed, isNull);
+  });
+
+  testWidgets('calendar action waits for the reviewable vocabulary loader', (
+    tester,
+  ) async {
+    final completer = Completer<List<Vocab>>();
+    await _pumpHub(
+      tester,
+      reviewableLoader: () => completer.future,
+      settle: false,
+    );
+
+    final action = find.byKey(const Key('review-hub-calendar'));
+    expect(tester.widget<IconButton>(action).onPressed, isNull);
+
+    completer.complete(_reviewableWords);
+    await tester.pumpAndSettle();
+    expect(tester.widget<IconButton>(action).onPressed, isNotNull);
+  });
+
   testWidgets('320dp large-text layout has no overflow or clipping exception', (
     tester,
   ) async {
@@ -126,7 +176,12 @@ const _reviewableWords = <Vocab>[
   ),
 ];
 
-Future<void> _pumpHub(WidgetTester tester, {double textScale = 1}) async {
+Future<void> _pumpHub(
+  WidgetTester tester, {
+  double textScale = 1,
+  Future<List<Vocab>> Function()? reviewableLoader,
+  bool settle = true,
+}) async {
   await tester.pumpWidget(
     MaterialApp(
       theme: AppTheme.light,
@@ -134,9 +189,15 @@ Future<void> _pumpHub(WidgetTester tester, {double textScale = 1}) async {
       supportedLocales: AppL10n.supportedLocales,
       home: MediaQuery(
         data: MediaQueryData(textScaler: TextScaler.linear(textScale)),
-        child: ReviewHubScreen(reviewableLoader: () async => _reviewableWords),
+        child: ReviewHubScreen(
+          reviewableLoader: reviewableLoader ?? () async => _reviewableWords,
+        ),
       ),
     ),
   );
-  await tester.pumpAndSettle();
+  if (settle) {
+    await tester.pumpAndSettle();
+  } else {
+    await tester.pump();
+  }
 }

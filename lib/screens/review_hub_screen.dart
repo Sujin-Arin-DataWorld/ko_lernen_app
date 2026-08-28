@@ -104,7 +104,7 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
   }
 
   Future<void> _openCalendar() async {
-    final dates = Storage.studyLogDates();
+    final dates = _calendarDates;
     if (dates.isEmpty) {
       return;
     }
@@ -133,11 +133,22 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
     await _openDeck(deck, t.reviewHubDeckLabel(deck.length));
   }
 
+  /// Calendar browsing is limited to ledger dates that can be selected on the
+  /// device today. Future canonical keys can exist after a clock rollback or
+  /// restore, but must neither open nor become selectable in this picker.
+  List<String> get _calendarDates {
+    final today = Storage.todayIso();
+    return Storage.studyLogDates()
+        .where((dateIso) => dateIso.compareTo(today) <= 0)
+        .toList(growable: false);
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
     final deck = _todayDeck;
     final selectedCount = _selected.isEmpty ? deck.length : _selected.length;
+    final canOpenCalendar = !_loading && _calendarDates.isNotEmpty;
     return SoriStandardPage(
       appBarTitle: t.reviewHubTitle,
       headline: t.reviewHubTitle,
@@ -146,7 +157,7 @@ class _ReviewHubScreenState extends State<ReviewHubScreen> {
           key: const Key('review-hub-calendar'),
           icon: const Icon(Icons.calendar_month_rounded),
           tooltip: t.reviewHubCalendarTooltip,
-          onPressed: _openCalendar,
+          onPressed: canOpenCalendar ? _openCalendar : null,
         ),
       ],
       children: [
