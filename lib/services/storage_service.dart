@@ -557,6 +557,7 @@ class Storage {
       Future<void>.value();
   static int _xpRewardMutationCount = 0;
   static int _srsReviewMutationCount = 0;
+  static int _srsReviewMutationGeneration = 0;
   static final Set<String> _pendingListeningRewardClaims = <String>{};
   static final Set<String> _unknownStrictKeys = <String>{};
   static String? _courseMasteryCache;
@@ -588,6 +589,7 @@ class Storage {
     _consentedFirstLearningActionClaimMutation = Future<void>.value();
     _xpRewardMutationCount = 0;
     _srsReviewMutationCount = 0;
+    _srsReviewMutationGeneration++;
     _pendingListeningRewardClaims.clear();
     MediaMutationLock.resetForTesting();
     _unknownStrictKeys.clear();
@@ -652,31 +654,49 @@ class Storage {
     return result;
   }
 
-  static Future<T> _enqueueSrsReviewMutation<T>(Future<T> Function() mutation) {
+  static Future<bool> _enqueueSrsReviewMutation(
+    Future<bool> Function(int generation) mutation,
+  ) {
     // SRS callers intentionally fire-and-forget in several game screens. As
     // with XP, start the idle queue immediately so their in-memory card is
     // visible at once, while every overlapping review waits for the complete
     // prior decision, rollback, and optional ledger outcome.
+    final generation = _srsReviewMutationGeneration;
     final startsImmediately = _srsReviewMutationCount == 0;
     _srsReviewMutationCount++;
 
-    late final Future<T> result;
-    if (startsImmediately) {
-      try {
-        result = mutation();
-      } on Object catch (error, stackTrace) {
-        result = Future<T>.error(error, stackTrace);
+    Future<bool> runCurrentMutation() {
+      if (generation != _srsReviewMutationGeneration) {
+        return Future<bool>.value(false);
       }
+      try {
+        return mutation(generation);
+      } on Object catch (error, stackTrace) {
+        return Future<bool>.error(error, stackTrace);
+      }
+    }
+
+    late final Future<bool> result;
+    if (startsImmediately) {
+      result = runCurrentMutation();
     } else {
-      result = _srsReviewMutation.then<T>((_) => mutation());
+      result = _srsReviewMutation.then<bool>((_) => runCurrentMutation());
     }
     _srsReviewMutation = result.then<void>(
       (_) {},
       onError: (Object _, StackTrace __) {},
     );
     result.then<void>(
-      (_) => _srsReviewMutationCount--,
-      onError: (Object _, StackTrace __) => _srsReviewMutationCount--,
+      (_) {
+        if (generation == _srsReviewMutationGeneration) {
+          _srsReviewMutationCount--;
+        }
+      },
+      onError: (Object _, StackTrace __) {
+        if (generation == _srsReviewMutationGeneration) {
+          _srsReviewMutationCount--;
+        }
+      },
     );
     return result;
   }
@@ -919,7 +939,6 @@ class Storage {
   ) async {
     if (_unknownStrictKeys.contains(key)) {
       await _refreshUnknownStringListKeys(store, [key]);
-      throw PreferenceWriteException(key);
     }
     try {
       return _StringListPreferenceState.read(store, key);
@@ -2354,8 +2373,14 @@ class Storage {
   static String _studyLogKey(String dateIso) => '$_studyLogPrefix$dateIso';
 
   /// 명시적으로 판정한 해당 날짜의 SRS id 목록이다.
-  static List<String> studyLogIdsFor(String dateIso) =>
-      _l(_studyLogKey(dateIso));
+  static List<String> studyLogIdsFor(String dateIso) {
+    try {
+      return _l(_studyLogKey(dateIso));
+    } on Object catch (error) {
+      debugPrint('Storage: malformed study-log entry for $dateIso: $error');
+      return const [];
+    }
+  }
 
   /// 기록이 있는 원장 날짜 목록이다. 달력의 selectable-day predicate에 쓴다.
   static List<String> studyLogDates() {
@@ -2388,7 +2413,13 @@ class Storage {
     if (_learningWritesLockReason != null) {
       return false;
     }
-    final ids = studyLogIdsFor(dateIso);
+    late final List<String> ids;
+    try {
+      ids = _l(_studyLogKey(dateIso));
+    } on Object catch (error) {
+      debugPrint('Storage: malformed study-log entry for $dateIso: $error');
+      return false;
+    }
     if (ids.contains(id)) {
       return true;
     }
@@ -2472,10 +2503,11 @@ class Storage {
     required bool gotIt,
     bool recordToStudyLog = true,
   }) => _enqueueSrsReviewMutation(
-    () => _srsReviewTransaction(
+    (generation) => _srsReviewTransaction(
       id,
       gotIt: gotIt,
       recordToStudyLog: recordToStudyLog,
+      generation: generation,
     ),
   );
 
@@ -2483,7 +2515,11 @@ class Storage {
     String id, {
     required bool gotIt,
     required bool recordToStudyLog,
+    required int generation,
   }) async {
+    if (generation != _srsReviewMutationGeneration) {
+      return false;
+    }
     final map = _loadSrs();
     final hadPreviousCard = map.containsKey(id);
     final previousCard = map[id];
@@ -2533,6 +2569,9 @@ class Storage {
       debugPrint('Storage: SRS persistence incomplete for $id: $error');
       return false;
     }
+    if (generation != _srsReviewMutationGeneration) {
+      return false;
+    }
     if (!persisted) {
       _restoreSrsCacheEntry(
         map,
@@ -2549,6 +2588,9 @@ class Storage {
       id,
       dateIso: judgmentDate,
     );
+    if (generation != _srsReviewMutationGeneration) {
+      return false;
+    }
     if (!ledgerRecorded) {
       // Der SRS-Write ist die primäre Autorität. Da das tägliche Log in einem
       // separaten Key liegt, ist hier kein atomarer Rollback möglich; wir

@@ -247,6 +247,73 @@ void main() {
       expect(prefs.getStringList('kl_study_log_v1_not-a-date'), ['recover-me']);
     },
   );
+
+  test(
+    'a canonical ledger key with a wrong value type stays recoverable and fail-soft',
+    () async {
+      final today = Storage.todayIso();
+      final key = 'kl_study_log_v1_$today';
+      SharedPreferences.setMockInitialValues({key: 'wrong-type'});
+      await Storage.init();
+
+      expect(Storage.studyLogIdsFor(today), isEmpty);
+      expect(Storage.studyLogDates(), isEmpty);
+      await Storage.pruneStudyLog();
+
+      final result = await Storage.srsReview('손상원장단어', gotIt: true);
+      final prefs = await SharedPreferences.getInstance();
+      expect(result, isFalse);
+      expect(Storage.srsRawJson, contains('손상원장단어'));
+      expect(prefs.getString(key), 'wrong-type');
+      expect(Storage.studyLogDates(), isEmpty);
+    },
+  );
+
+  test(
+    'the first same-id review after an indeterminate ledger recovery succeeds',
+    () async {
+      await Storage.init();
+      final store = _IndeterminateThenRecoveringStringListStore();
+      Storage.setStudyLogStoreForTesting(store);
+
+      expect(await Storage.srsReview('복구원장단어', gotIt: true), isFalse);
+      store.value = null;
+
+      expect(await Storage.srsReview('복구원장단어', gotIt: true), isTrue);
+      expect(store.value, ['복구원장단어']);
+    },
+  );
+
+  test(
+    'resetForTesting isolates a stale SRS completion from the new queue generation',
+    () async {
+      await Storage.init();
+      final oldStore = _DelayedRejectThenPersistStringStore();
+      Storage.setSrsPersistenceStoreForTesting(oldStore);
+      final oldReview = Storage.srsReview('이전세대', gotIt: true);
+      await oldStore.firstSetStarted.future;
+
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({});
+      await Storage.init();
+      final newStore = _DelayedPersistStringStore();
+      Storage.setSrsPersistenceStoreForTesting(newStore);
+      final firstNewReview = Storage.srsReview('새세대B', gotIt: true);
+      await newStore.firstSetStarted.future;
+
+      oldStore.releaseFirstSet.complete();
+      expect(await oldReview, isFalse);
+
+      final secondNewReview = Storage.srsReview('새세대C', gotIt: true);
+      await Future<void>.delayed(Duration.zero);
+      expect(newStore.setCalls, 1);
+
+      newStore.releaseFirstSet.complete();
+      expect(await firstNewReview, isTrue);
+      expect(await secondNewReview, isTrue);
+      expect(Storage.srsReviewedIds, {'새세대B', '새세대C'});
+    },
+  );
 }
 
 class _RejectingStringStore implements PreferenceStringStore {
@@ -322,6 +389,71 @@ class _LockingStringStore implements PreferenceStringStore {
   Future<bool> setString(String key, String nextValue) async {
     value = nextValue;
     Storage.lockLearningWrites('test between SRS and ledger');
+    return true;
+  }
+}
+
+class _IndeterminateThenRecoveringStringListStore
+    implements PreferenceStringListStore {
+  List<String>? value;
+  var setCalls = 0;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  List<String>? getStringList(String key) => value;
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setStringList(String key, List<String> nextValue) async {
+    setCalls++;
+    if (setCalls == 1) {
+      value = ['indeterminate'];
+      return false;
+    }
+    value = List<String>.from(nextValue);
+    return true;
+  }
+}
+
+class _DelayedPersistStringStore implements PreferenceStringStore {
+  final Completer<void> firstSetStarted = Completer<void>();
+  final Completer<void> releaseFirstSet = Completer<void>();
+  String? value;
+  var setCalls = 0;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  String? getString(String key) => value;
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String nextValue) async {
+    setCalls++;
+    if (setCalls == 1) {
+      firstSetStarted.complete();
+      await releaseFirstSet.future;
+    }
+    value = nextValue;
     return true;
   }
 }
