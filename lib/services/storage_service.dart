@@ -558,6 +558,10 @@ class Storage {
   static int _xpRewardMutationCount = 0;
   static int _srsReviewMutationCount = 0;
   static int _srsReviewMutationGeneration = 0;
+  // `resetForTesting()` remains synchronous for its many callers, but a new
+  // preference boundary must not open while an old SRS transaction can still
+  // complete a platform write or its rollback.
+  static Future<void> _srsResetDrainBarrier = Future<void>.value();
   static final Set<String> _pendingListeningRewardClaims = <String>{};
   static final Set<String> _unknownStrictKeys = <String>{};
   static String? _courseMasteryCache;
@@ -567,6 +571,7 @@ class Storage {
 
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
+    await _srsResetDrainBarrier;
     _prefs ??= await SharedPreferences.getInstance();
   }
 
@@ -575,6 +580,14 @@ class Storage {
   /// frische Werte liefert. Im Produktionscode niemals aufrufen.
   @visibleForTesting
   static void resetForTesting() {
+    final oldSrsDrain = _srsReviewMutation.then<void>(
+      (_) {},
+      onError: (Object _, StackTrace __) {},
+    );
+    _srsResetDrainBarrier = Future.wait<void>([
+      _srsResetDrainBarrier,
+      oldSrsDrain,
+    ]);
     _prefs = null;
     _invalidateSrsCache();
     // 팩 캐시도 함께 버린다. 안 그러면 앞 테스트가 채운 `_packCache` 가
@@ -752,6 +765,7 @@ class Storage {
     String value, {
     PreferenceStringStore? preferences,
     void Function()? assertCurrentWrite,
+    _StringPreferenceState? beforeState,
   }) async {
     final store =
         preferences ??
@@ -759,7 +773,7 @@ class Storage {
     if (store == null) {
       throw PreferenceWriteException(key);
     }
-    final before = await _prepareStringMutation(store, key);
+    final before = beforeState ?? await _prepareStringMutation(store, key);
     assertCurrentWrite?.call();
     Object? failure;
     var wrote = false;
@@ -790,6 +804,7 @@ class Storage {
     String key,
     List<String> value, {
     PreferenceStringListStore? preferences,
+    void Function()? assertCurrentWrite,
   }) async {
     final store =
         preferences ??
@@ -798,6 +813,7 @@ class Storage {
       throw PreferenceWriteException(key);
     }
     final before = await _prepareStringListMutation(store, key);
+    assertCurrentWrite?.call();
     Object? failure;
     var wrote = false;
     try {
@@ -1054,6 +1070,7 @@ class Storage {
     String key, {
     PreferenceStringStore? preferences,
     bool Function(String value)? matches,
+    void Function()? assertCurrentWrite,
   }) async {
     final store =
         preferences ??
@@ -1069,6 +1086,7 @@ class Storage {
     if (matches != null && !matches(value)) {
       return null;
     }
+    assertCurrentWrite?.call();
     Object? failure;
     var removed = false;
     try {
@@ -2321,7 +2339,7 @@ class Storage {
     await _ss('kl_srs_v1', jsonEncode(const <String, dynamic>{}));
   }
 
-  static Future<bool> _persistSrs() async {
+  static Future<bool> _persistSrs({required int generation}) async {
     if (_learningWritesLockReason != null) {
       debugPrint(
         'Storage: 학습 쓰기 잠금($_learningWritesLockReason) — kl_srs_v1 쓰기를 건너뛴다',
@@ -2336,15 +2354,57 @@ class Storage {
     if (_prefs == null) {
       return false;
     }
+    final store =
+        _srsPersistenceStoreForTesting ?? _SharedPreferenceStringStore(_prefs!);
     final json =
         _srsCache?.map((k, v) => MapEntry(k, v.toJson())) ??
         const <String, dynamic>{};
+    final encoded = jsonEncode(json);
+    final before = await _prepareStringMutation(store, 'kl_srs_v1');
     await _ssStrict(
       'kl_srs_v1',
-      jsonEncode(json),
-      preferences: _srsPersistenceStoreForTesting,
+      encoded,
+      preferences: store,
+      beforeState: before,
+      // Check at the last synchronous point before issuing the platform
+      // setter. A reset that happens earlier therefore has no write to undo.
+      assertCurrentWrite: () {
+        if (generation != _srsReviewMutationGeneration) {
+          throw StateError('stale SRS generation before primary write');
+        }
+      },
     );
+    if (generation != _srsReviewMutationGeneration) {
+      await _restoreStaleSrsPrimaryWrite(
+        store: store,
+        before: before,
+        attemptedJson: encoded,
+      );
+      return false;
+    }
     return true;
+  }
+
+  /// This runs before the reset drain barrier releases a new [_prefs]. The
+  /// captured store is therefore still the old generation's boundary, and no
+  /// new legal write can race this conditional rollback.
+  static Future<void> _restoreStaleSrsPrimaryWrite({
+    required PreferenceStringStore store,
+    required _StringPreferenceState before,
+    required String attemptedJson,
+  }) async {
+    try {
+      await store.reload();
+      final after = _StringPreferenceState.read(store, 'kl_srs_v1');
+      if (!after.isPresent || after.value != attemptedJson) {
+        return;
+      }
+      await _writeStringStateStrict(store, 'kl_srs_v1', before);
+    } on Object catch (error) {
+      // This is test-reset containment only. Do not turn a stale, ignored
+      // fire-and-forget completion into an unhandled async error.
+      debugPrint('Storage: stale SRS primary repair skipped: $error');
+    }
   }
 
   /// Roh-JSON des SRS-Decks (für CloudSync-Backup). Leer = kein Deck.
@@ -2409,6 +2469,7 @@ class Storage {
   static Future<bool> _appendStudyLogEntry(
     String id, {
     required String dateIso,
+    required int generation,
   }) async {
     if (_learningWritesLockReason != null) {
       return false;
@@ -2427,16 +2488,70 @@ class Storage {
       return false;
     }
     ids.add(id);
+    final key = _studyLogKey(dateIso);
+    final store =
+        _studyLogStoreForTesting ??
+        (_prefs == null ? null : _SharedPreferenceStringListStore(_prefs!));
+    if (store == null) {
+      return false;
+    }
+    late final _StringListPreferenceState before;
     try {
+      before = _StringListPreferenceState.read(store, key);
       await _slStrict(
-        _studyLogKey(dateIso),
+        key,
         ids,
-        preferences: _studyLogStoreForTesting,
+        preferences: store,
+        assertCurrentWrite: () {
+          if (generation != _srsReviewMutationGeneration) {
+            throw StateError('stale SRS generation before study-log write');
+          }
+        },
       );
+      if (generation != _srsReviewMutationGeneration) {
+        await _restoreStaleStudyLogWrite(
+          store: store,
+          key: key,
+          before: before,
+          attemptedIds: ids,
+        );
+        return false;
+      }
       return true;
     } on Object catch (error) {
       debugPrint('Storage: study-log persistence incomplete for $id: $error');
       return false;
+    }
+  }
+
+  /// The reset drain barrier prevents a new preference boundary from opening
+  /// while this conditional rollback settles.
+  static Future<void> _restoreStaleStudyLogWrite({
+    required PreferenceStringListStore store,
+    required String key,
+    required _StringListPreferenceState before,
+    required List<String> attemptedIds,
+  }) async {
+    try {
+      await store.reload();
+      final after = _StringListPreferenceState.read(store, key);
+      if (!after.isPresent ||
+          !_preferenceValueEquals(after.value, attemptedIds)) {
+        return;
+      }
+      if (before.isPresent) {
+        await _slStrict(key, before.value!, preferences: store);
+      } else {
+        final removed = await store.remove(key);
+        if (!removed) {
+          await store.reload();
+          if (_StringListPreferenceState.read(store, key).isPresent) {
+            throw PreferenceWriteException(key);
+          }
+        }
+      }
+    } on Object catch (error) {
+      debugPrint('Storage: stale study-log repair skipped: $error');
     }
   }
 
@@ -2558,7 +2673,7 @@ class Storage {
     map[id] = updated;
     bool persisted;
     try {
-      persisted = await _persistSrs();
+      persisted = await _persistSrs(generation: generation);
     } on Object catch (error) {
       _restoreSrsCacheEntry(
         map,
@@ -2587,6 +2702,7 @@ class Storage {
     final ledgerRecorded = await _appendStudyLogEntry(
       id,
       dateIso: judgmentDate,
+      generation: generation,
     );
     if (generation != _srsReviewMutationGeneration) {
       return false;

@@ -295,14 +295,18 @@ void main() {
 
       Storage.resetForTesting();
       SharedPreferences.setMockInitialValues({});
-      await Storage.init();
+      final newInit = Storage.init();
+      var newInitCompleted = false;
+      newInit.then((_) => newInitCompleted = true);
+      await Future<void>.delayed(Duration.zero);
+      expect(newInitCompleted, isFalse);
+      oldStore.releaseFirstSet.complete();
+      expect(await oldReview, isFalse);
+      await newInit;
       final newStore = _DelayedPersistStringStore();
       Storage.setSrsPersistenceStoreForTesting(newStore);
       final firstNewReview = Storage.srsReview('새세대B', gotIt: true);
       await newStore.firstSetStarted.future;
-
-      oldStore.releaseFirstSet.complete();
-      expect(await oldReview, isFalse);
 
       final secondNewReview = Storage.srsReview('새세대C', gotIt: true);
       await Future<void>.delayed(Duration.zero);
@@ -312,6 +316,32 @@ void main() {
       expect(await firstNewReview, isTrue);
       expect(await secondNewReview, isTrue);
       expect(Storage.srsReviewedIds, {'새세대B', '새세대C'});
+    },
+  );
+
+  test(
+    'resetForTesting removes a successful stale primary write without overwriting a new review',
+    () async {
+      await Storage.init();
+      final oldStore = _DelayedSuccessIntoCurrentPreferencesStore();
+      Storage.setSrsPersistenceStoreForTesting(oldStore);
+      final oldReview = Storage.srsReview('이전성공A', gotIt: true);
+      await oldStore.firstSetStarted.future;
+
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({});
+      final newInit = Storage.init();
+      await Future<void>.delayed(Duration.zero);
+      oldStore.releaseFirstSet.complete();
+      expect(await oldReview, isFalse);
+      await newInit;
+
+      final newReview = await Storage.srsReview('새성공B', gotIt: true);
+      expect(newReview, isTrue);
+
+      expect(Storage.srsRawJson, isNot(contains('이전성공A')));
+      expect(Storage.srsRawJson, contains('새성공B'));
+      expect(Storage.studyLogIdsFor(Storage.todayIso()), ['새성공B']);
     },
   );
 }
@@ -364,6 +394,39 @@ class _DelayedRejectThenPersistStringStore implements PreferenceStringStore {
     }
     value = nextValue;
     return true;
+  }
+}
+
+class _DelayedSuccessIntoCurrentPreferencesStore
+    implements PreferenceStringStore {
+  final Completer<void> firstSetStarted = Completer<void>();
+  final Completer<void> releaseFirstSet = Completer<void>();
+  SharedPreferences? _currentPreferences;
+
+  @override
+  bool containsKey(String key) =>
+      _currentPreferences?.containsKey(key) ?? false;
+
+  @override
+  String? getString(String key) => _currentPreferences?.getString(key);
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    final prefs = _currentPreferences ?? await SharedPreferences.getInstance();
+    _currentPreferences = prefs;
+    return prefs.remove(key);
+  }
+
+  @override
+  Future<bool> setString(String key, String value) async {
+    firstSetStarted.complete();
+    await releaseFirstSet.future;
+    final prefs = await SharedPreferences.getInstance();
+    _currentPreferences = prefs;
+    return prefs.setString(key, value);
   }
 }
 
