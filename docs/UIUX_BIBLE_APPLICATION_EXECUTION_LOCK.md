@@ -291,7 +291,7 @@ listed dependency.
 | `/hard_words` | `HardWordsScreen` / Std | Standard list/empty/action hierarchy | wrong-count data | R/D hard words | M / 4C |
 | `/word_web` | `WordWebScreen` / Custom | Standard outer state; preserve study/quiz transition | word relation data | D word web | H / 3D |
 | `/dojangcheop` | `DojangcheopScreen` / Std | Preserve reward room; standard empty/CTA | achievement data | R/D room CTA | M / 4C |
-| `/hanok` | `HanokWorldScreen` / Custom | Preserve world/map ownership and approved assets | grant/evidence projection | R/S/G/D Hanok battery | H / 2D |
+| `/hanok` | `IlDuWorldScreen` / Custom | Preserve the spacious Ildu estate map, fail-closed learning evidence, and approved assets | grant/evidence projection | R/S/G/D Hanok battery | H / 2D |
 | `/hanok/anbang` | `PersonalRoomFurnishScreen` / Custom | Preserve room canvas; normalize overlays/actions | personal room inventory | R/S/D furnish | H / 4C |
 | `/hanok/daecheong` | `PersonalRoomFurnishScreen` / Custom | Same contract with surface argument preserved | personal room inventory | R/S/D furnish | H / 4C |
 | `/sarangbang` | `SarangbangStudyScreen` / Custom | Preserve room composition; standard states/actions | recommendations/course evidence | R/S/D Sarangbang | H / 3D |
@@ -320,6 +320,7 @@ not disappear from phase review.
 | `SoriStageHanokScreen` | safe viewport + shortcut tiles | Preserve approved shortcuts/assets/evidence | R/D Hanok shortcuts | 2D |
 | `SoriStageRewardReceiptSheet` | Sori sheet + semantics | Keep evidence/result hierarchy | dedicated receipt | 2D |
 | `DiscoverScreen` | Std supporting catalog | Keep dormant/supporting surface aligned; do not add a route | R/D discover | 2B |
+| `HanokWorldScreen` | superseded compatibility owner | Keep available for focused legacy projection tests; do not reconnect it to `/hanok` | R/S/G/D Hanok compatibility | 2D |
 | `OnboardingPreviewScreen` / `PlacementDiagnosticScreen` | custom + Std | Align step hierarchy; preserve placement decisions | R/D onboarding/placement | 5C |
 | `ConsentScreen` / `FirstVoiceSuccessScreen` | custom | Shared action/state patterns; preserve consent/evidence | R/D consent/voice | 5C |
 | `QuickOnboardingScreen` / `CharacterSelectionScreen` / `OnboardingLevelScreen` / `OnboardingStartScreen` | dormant legacy and compatibility owners | Keep unreachable as independent steps from the V2 first-run route; compatibility entries must resolve into the resumable V2 coordinator and must not reconnect the forced scenario chain | D onboarding compatibility | 5C |

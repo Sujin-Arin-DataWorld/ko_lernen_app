@@ -12,6 +12,7 @@ import '../services/ildu_world_projection_adapter.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/tokens.dart';
+import '../widgets/sori/toast.dart';
 
 typedef IlDuManifestLoader = Future<IlDuWorldManifest> Function();
 typedef IlDuLegacyProjectionLoader = Future<PersonalHanokProjection> Function();
@@ -94,9 +95,7 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
         return;
       }
       final t = AppL10n.of(context);
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(t.ilduWorldSaveError)));
+      soriToast(context, t.ilduWorldSaveError);
     }
   }
 
@@ -291,7 +290,7 @@ class _WorldBody extends StatelessWidget {
                         constrained: false,
                         minScale: 1,
                         maxScale: 2.2,
-                        boundaryMargin: const EdgeInsets.all(80),
+                        boundaryMargin: const EdgeInsets.all(Spacing.xxxl * 2),
                         child: SizedBox.fromSize(
                           size: mapSize,
                           child: _EstateMap(
@@ -328,11 +327,9 @@ class _WorldBody extends StatelessWidget {
                         ),
                         child: Text(
                           t.ilduWorldPanHint,
-                          style: const TextStyle(
-                            color: Color(0xFFFFF8E8),
-                            fontSize: 11,
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: SoriTextTheme.of(
+                            context,
+                          ).label.copyWith(color: const Color(0xFFFFF8E8)),
                         ),
                       ),
                     ),
@@ -400,19 +397,15 @@ class _ProgressHeader extends StatelessWidget {
               const SizedBox(width: Spacing.sm),
               Text(
                 t.ilduWorldBuiltCount(built, total),
-                style: const TextStyle(
-                  fontSize: 11,
-                  fontWeight: FontWeight.w800,
-                ),
+                style: SoriTextTheme.of(context).label,
               ),
             ],
           ),
           const SizedBox(height: Spacing.xs),
           Text(
             '${era.code.toUpperCase()} · ${t.ilduWorldEvidenceNote}',
-            style: TextStyle(
+            style: SoriTextTheme.of(context).caption.copyWith(
               color: Theme.of(context).colorScheme.onSurfaceVariant,
-              fontSize: 10,
             ),
           ),
         ],
@@ -538,9 +531,9 @@ class _MapAnchor extends StatelessWidget {
               ),
             ),
           ),
-        Padding(padding: const EdgeInsets.all(5), child: visual),
+        Padding(padding: const EdgeInsets.all(Spacing.xs), child: visual),
         if (!available && onTap != null)
-          const DecoratedBox(
+          DecoratedBox(
             decoration: BoxDecoration(
               color: SoriColors.darkBg,
               shape: BoxShape.circle,
@@ -551,12 +544,9 @@ class _MapAnchor extends StatelessWidget {
               child: Center(
                 child: Text(
                   '?',
-                  style: TextStyle(
-                    color: Color(0xFFFFE3A7),
-                    fontFamily: 'MaruBuri',
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: SoriTextTheme.of(
+                    context,
+                  ).cultureTitle.copyWith(color: const Color(0xFFFFE3A7)),
                 ),
               ),
             ),
@@ -680,7 +670,7 @@ class _PlaceSheet extends StatelessWidget {
       child: SafeArea(
         top: false,
         child: SizedBox(
-          height: decorating ? 262 : 246,
+          height: Spacing.xxxl * 6,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(
               Spacing.lg,
@@ -720,19 +710,12 @@ class _PlaceSheet extends StatelessWidget {
                               children: [
                                 Text(
                                   '${hub.ko} · ${building.unlockEra.code.toUpperCase()}',
-                                  style: const TextStyle(
-                                    color: SoriColors.primaryDark,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w800,
-                                  ),
+                                  style: SoriTextTheme.of(context).eyebrow
+                                      .copyWith(color: SoriColors.primaryDark),
                                 ),
                                 Text(
                                   building.ko,
-                                  style: const TextStyle(
-                                    fontFamily: 'MaruBuri',
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                  style: SoriTextTheme.of(context).cultureTitle,
                                 ),
                               ],
                             ),
@@ -753,23 +736,16 @@ class _PlaceSheet extends StatelessWidget {
                             children: [
                               Text(
                                 t.ilduWorldRecommended,
-                                style: const TextStyle(
-                                  color: SoriColors.accent,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w800,
-                                ),
+                                style: SoriTextTheme.of(context).eyebrow,
                               ),
                               Text(
                                 building.lessonIntent,
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                                style: SoriTextTheme.of(context).cardTitle,
                               ),
                               const Spacer(),
                               SizedBox(
                                 width: double.infinity,
-                                height: 42,
+                                height: Spacing.xxxl,
                                 child: FilledButton(
                                   onPressed: () =>
                                       onOpenRoute(hub.primaryRoute),
@@ -812,36 +788,27 @@ class _PlaceSheet extends StatelessWidget {
                             children: [
                               Text(
                                 t.ilduWorldLockedEyebrow,
-                                style: const TextStyle(
-                                  color: SoriColors.accent,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w800,
-                                ),
+                                style: SoriTextTheme.of(context).eyebrow,
                               ),
                               Text(
                                 t.ilduWorldLockedTitle(
                                   building.unlockEra.code.toUpperCase(),
                                 ),
-                                style: const TextStyle(
-                                  fontSize: 15,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                                style: SoriTextTheme.of(context).cardTitle,
                               ),
                               Text(
                                 t.ilduWorldLockedBody,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                  color: Theme.of(
-                                    context,
-                                  ).colorScheme.onSurfaceVariant,
-                                  fontSize: 11,
-                                ),
+                                style: SoriTextTheme.of(context).caption
+                                    .copyWith(
+                                      color: Theme.of(
+                                        context,
+                                      ).colorScheme.onSurfaceVariant,
+                                    ),
                               ),
                               const Spacer(),
                               SizedBox(
                                 width: double.infinity,
-                                height: 42,
+                                height: Spacing.xxxl,
                                 child: OutlinedButton(
                                   onPressed: () =>
                                       onOpenRoute('/course/mission'),
@@ -875,14 +842,13 @@ class _StateLabel extends StatelessWidget {
         border: Border(left: BorderSide(color: color, width: 2)),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 7),
+        padding: const EdgeInsets.symmetric(
+          horizontal: Spacing.md,
+          vertical: Spacing.xs,
+        ),
         child: Text(
           label,
-          style: TextStyle(
-            color: color,
-            fontSize: 10,
-            fontWeight: FontWeight.w800,
-          ),
+          style: SoriTextTheme.of(context).label.copyWith(color: color),
         ),
       ),
     );
@@ -916,19 +882,12 @@ class _DecorationPalette extends StatelessWidget {
                 children: [
                   Text(
                     t.ilduWorldDecorate,
-                    style: const TextStyle(
-                      fontFamily: 'MaruBuri',
-                      fontSize: 22,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: SoriTextTheme.of(context).cultureTitle,
                   ),
                   Text(
                     t.ilduWorldDecorBody,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
+                    style: SoriTextTheme.of(context).caption.copyWith(
                       color: Theme.of(context).colorScheme.onSurfaceVariant,
-                      fontSize: 10,
                     ),
                   ),
                 ],
@@ -965,9 +924,9 @@ class _DecorationPalette extends StatelessWidget {
                       ),
                       Text(
                         definition.ko,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(fontSize: 11),
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        style: SoriTextTheme.of(context).label,
                       ),
                       Text(
                         available
@@ -975,9 +934,9 @@ class _DecorationPalette extends StatelessWidget {
                             : t.ilduWorldDecorRequires(
                                 definition.unlockEra.code.toUpperCase(),
                               ),
-                        style: const TextStyle(
+                        textAlign: TextAlign.center,
+                        style: SoriTextTheme.of(context).caption.copyWith(
                           color: SoriColors.primaryDark,
-                          fontSize: 9,
                           fontWeight: FontWeight.w700,
                         ),
                       ),

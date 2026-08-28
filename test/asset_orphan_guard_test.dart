@@ -32,6 +32,10 @@ void main() {
     // 걸리지만, C1/C2 처럼 아직 그림이 없는 키와 남는 파일이 섞이는 폴더라
     // 폴더째 조립으로 면제한다 — 2026-08-23 선반 재작성으로 번들 진입).
     'assets/illustrations/listening/': 'illustrations/listening/',
+    // 일두 월드는 정본 manifest의 assetRoot와 파일명을 결합해 건물·문·장식을
+    // 배치한다. 화면은 manifest 외부의 임의 경로를 허용하지 않는다.
+    'assets/illustrations/personal_hanok_v3/world/':
+        'assets/illustrations/personal_hanok_v3/world/',
   };
 
   /// 파일명이 런타임에 조립되는 **개별 파일**. 폴더째 면제할 수 없는 자리다 —
