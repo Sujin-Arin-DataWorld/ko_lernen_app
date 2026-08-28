@@ -108,4 +108,38 @@ void main() {
       }
     },
   );
+
+  group('ReviewDeckService.deckForIds', () {
+    test('maps in requested order and skips unknown IDs', () {
+      final all = [_v('하나', 'A1'), _v('둘', 'A1'), _v('셋', 'A1')];
+
+      final result = ReviewDeckService.deckForIds(
+        all,
+        ['셋', '없는 단어', '하나', '셋'],
+      );
+
+      expect(result.map((word) => word.korean), ['셋', '하나', '셋']);
+    });
+
+    test('uses the first Vocab when source IDs are duplicated', () {
+      final first = _v('하나', 'A1');
+      final duplicate = Vocab(
+        korean: '하나',
+        romanization: '다른 발음',
+        german: 'zweite Bedeutung',
+        level: 'B1',
+        posDe: 'Nomen',
+        exampleKorean: '',
+        exampleGerman: '',
+        topic: 'different',
+      );
+
+      final result = ReviewDeckService.deckForIds(
+        [first, duplicate],
+        ['하나'],
+      );
+
+      expect(result, [first]);
+    });
+  });
 }
