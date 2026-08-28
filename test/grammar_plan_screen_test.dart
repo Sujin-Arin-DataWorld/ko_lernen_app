@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,6 +20,7 @@ import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feedback_card.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/spotlight_coach.dart';
+import 'package:ko_lernen_app/widgets/sori/tokens.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -55,6 +58,36 @@ void main() {
       reason: 'five items is the default selected pace',
     );
   });
+
+  testWidgets(
+    'daily-count chips keep the selected pace actionable at a 48dp target',
+    (tester) async {
+      final semantics = tester.ensureSemantics();
+      await _pumpGrammar(tester);
+
+      final selected = find.byKey(const Key('grammar-plan-items-5'));
+      final chip = tester.widget<SoriChip>(selected);
+      final data = tester.getSemantics(selected).getSemanticsData();
+
+      expect(
+        chip.minInteractiveHeight,
+        greaterThanOrEqualTo(SoriLayout.chromeRowTouchHeight),
+      );
+      expect(
+        tester.getSize(selected).height,
+        greaterThanOrEqualTo(SoriLayout.chromeRowTouchHeight),
+      );
+      expect(data.label, '5 per day');
+      expect(data.flagsCollection.isButton, isTrue);
+      expect(data.flagsCollection.isSelected, ui.Tristate.isTrue);
+      expect(data.hasAction(ui.SemanticsAction.tap), isTrue);
+
+      await tester.tap(selected);
+      await tester.pump();
+      expect(tester.widget<SoriChip>(selected).selected, isTrue);
+      semantics.dispose();
+    },
+  );
 
   testWidgets(
     'an unseen grammar coach never covers the automatic plan onboarding sheet',
@@ -198,6 +231,48 @@ void main() {
   );
 
   testWidgets(
+    'plan completion practice passes the localized day label in route args',
+    (tester) async {
+      final curated = GrammarPlanService.curatedRowsForLevel(
+        await DataLoader.loadGrammar(),
+        'A1',
+      );
+      final totalDays = GrammarPlanService.totalDays(curated, 1);
+      await _storePlans({
+        'a1': const GrammarStudyPlan(
+          level: 'a1',
+          itemsPerDay: 1,
+          servedIdsByDate: {},
+        ),
+      });
+      RouteSettings? pushedSettings;
+      await _pumpGrammar(tester, const GrammarScreen(), (settings) {
+        pushedSettings = settings;
+        return MaterialPageRoute<void>(
+          settings: settings,
+          builder: (_) => const SizedBox.shrink(),
+        );
+      });
+
+      await tester.tap(find.byType(FlipCard));
+      await tester.pump();
+      final feed = tester.widget<SoriContentFeed>(find.byType(SoriContentFeed));
+      feed.onNext!();
+      feed.onNext!();
+      await tester.pump(const Duration(milliseconds: 500));
+      _tapSheetButton(tester, 'Practice');
+      await tester.pump(const Duration(milliseconds: 500));
+
+      expect(pushedSettings?.name, '/grammar_choice_quiz');
+      final arguments = pushedSettings?.arguments as Map<String, dynamic>;
+      expect(arguments['level'], 'a1');
+      expect(arguments['allowedTargetIds'], <String>{curated.first.id});
+      expect(arguments['planDayLabel'], 'Day 1 of $totalDays');
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets(
     'an exhausted plan renders restart before the empty-card return',
     (tester) async {
       final grammar = await DataLoader.loadGrammar();
@@ -325,6 +400,7 @@ void _tapSheetButton(WidgetTester tester, String label) =>
 Future<void> _pumpGrammar(
   WidgetTester tester, [
   Widget child = const GrammarScreen(),
+  RouteFactory? onGenerateRoute,
 ]) async {
   tester.view.physicalSize = const Size(400, 800);
   tester.view.devicePixelRatio = 1;
@@ -337,6 +413,7 @@ Future<void> _pumpGrammar(
       locale: const Locale('en'),
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
+      onGenerateRoute: onGenerateRoute,
       home: child,
     ),
   );

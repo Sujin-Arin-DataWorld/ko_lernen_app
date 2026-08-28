@@ -547,7 +547,8 @@ class _GrammarScreenState extends State<GrammarScreen>
                           accent: SoriColors.info,
                           selected: itemsPerDay == n,
                           variant: SoriChipVariant.soft,
-                          onTap: itemsPerDay == n || isStarting
+                          minInteractiveHeight: SoriLayout.chromeRowTouchHeight,
+                          onTap: isStarting
                               ? null
                               : () => setSheetState(() => itemsPerDay = n),
                         ),
@@ -857,6 +858,13 @@ class _GrammarScreenState extends State<GrammarScreen>
                     arguments: <String, dynamic>{
                       'level': plan.level,
                       'allowedTargetIds': servedIds.toSet(),
+                      'planDayLabel': t.grammarPlanDayHeader(
+                        plan.completedDays + 1,
+                        GrammarPlanService.totalDays(
+                          _curatedRowsForPlan(plan),
+                          plan.itemsPerDay,
+                        ),
+                      ),
                     },
                   );
                 },
