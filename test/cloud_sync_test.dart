@@ -931,6 +931,26 @@ void main() {
   );
 
   test(
+    'wrong-typed local grammar plans remain recovery data during restore',
+    () async {
+      const key = 'kl_gram_plan_v1';
+      const recoveryValue = 17;
+      await _initializeStorage({key: recoveryValue});
+      final preferences = await SharedPreferences.getInstance();
+
+      await expectLater(
+        CloudSync.applyRestorePayload({
+          'gram_plan_json': '{"a1":{"remote":true}}',
+        }),
+        completes,
+      );
+
+      expect(preferences.get(key), recoveryValue);
+      expect(preferences.getInt(key), recoveryValue);
+    },
+  );
+
+  test(
     'malformed remote study-log and grammar-plan fields make no writes',
     () async {
       await _initializeStorage();

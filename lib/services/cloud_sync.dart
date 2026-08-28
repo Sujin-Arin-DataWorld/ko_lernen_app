@@ -617,7 +617,7 @@ class CloudSync {
       }
     }
     final grammarPlanJson = _rawJsonObject(data['gram_plan_json']);
-    if (grammarPlanJson != null && Storage.grammarPlanRawJson.isEmpty) {
+    if (grammarPlanJson != null) {
       await _guardedWrite(beforeWrite, () async {
         switch (await Storage.setGrammarPlanRawJsonForRestore(
           grammarPlanJson,
