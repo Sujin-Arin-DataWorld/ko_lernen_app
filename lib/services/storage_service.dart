@@ -571,7 +571,7 @@ class Storage {
   // `resetForTesting()` remains synchronous for its many callers, but a new
   // preference boundary must not open while an old SRS transaction can still
   // complete a platform write or its rollback.
-  static Future<void> _srsResetDrainBarrier = Future<void>.value();
+  static Future<void>? _srsResetDrainBarrier;
   static bool _srsResetDrainPending = false;
   static final Set<String> _pendingListeningRewardClaims = <String>{};
   static final Set<String> _unknownStrictKeys = <String>{};
@@ -584,9 +584,12 @@ class Storage {
   /// In `main()` vor `runApp` aufrufen.
   static Future<void> init() async {
     final resetDrain = _srsResetDrainBarrier;
-    await resetDrain;
-    if (identical(resetDrain, _srsResetDrainBarrier)) {
-      _srsResetDrainPending = false;
+    if (resetDrain != null) {
+      await resetDrain;
+      if (identical(resetDrain, _srsResetDrainBarrier)) {
+        _srsResetDrainBarrier = null;
+        _srsResetDrainPending = false;
+      }
     }
     _prefs ??= await SharedPreferences.getInstance();
   }
@@ -597,8 +600,9 @@ class Storage {
   @visibleForTesting
   static void resetForTesting() {
     final drains = <Future<void>>[];
-    if (_srsResetDrainPending) {
-      drains.add(_srsResetDrainBarrier);
+    final previousResetDrain = _srsResetDrainBarrier;
+    if (_srsResetDrainPending && previousResetDrain != null) {
+      drains.add(previousResetDrain);
     }
     if (_srsReviewMutationCount > 0) {
       drains.add(
@@ -609,13 +613,26 @@ class Storage {
       );
     }
     if (drains.isEmpty) {
-      // A completed Future created in a previous widget-test fake-async zone
-      // must not be re-chained into the next zone. There is no work to drain,
-      // and init already consumed the preceding reset barrier.
-      _srsResetDrainBarrier = Future<void>.value();
+      // Do not carry even a completed Future into the next widget-test
+      // fake-async zone. With no old SRS work, init must enter the new
+      // SharedPreferences boundary directly in its caller's zone.
+      _srsResetDrainBarrier = null;
+      _srsResetDrainPending = false;
     } else {
-      _srsResetDrainBarrier = Future.wait<void>(drains);
+      final resetDrain = Future.wait<void>(drains);
+      _srsResetDrainBarrier = resetDrain;
       _srsResetDrainPending = true;
+      void clearCompletedDrain() {
+        if (identical(resetDrain, _srsResetDrainBarrier)) {
+          _srsResetDrainBarrier = null;
+          _srsResetDrainPending = false;
+        }
+      }
+
+      resetDrain.then<void>(
+        (_) => clearCompletedDrain(),
+        onError: (Object _, StackTrace __) => clearCompletedDrain(),
+      );
     }
     _prefs = null;
     _invalidateSrsCache();
