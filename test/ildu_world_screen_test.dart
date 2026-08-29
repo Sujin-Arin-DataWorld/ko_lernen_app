@@ -211,6 +211,128 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('B2 shrine anchors use their authored turntable frames', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedB2Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-sadang-2')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-sadang-gate-0')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-hyeopmun-west-0')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-hyeopmun-east-0')),
+      findsOneWidget,
+    );
+
+    final sadangAnchor = find.byKey(
+      const ValueKey('ildu-map-turntable-sadang-2'),
+    );
+    final sadangTapTarget = find.descendant(
+      of: sadangAnchor,
+      matching: find.byType(GestureDetector),
+    );
+    tester.widget<GestureDetector>(sadangTapTarget).onTap!();
+    await tester.pumpAndSettle();
+
+    expect(find.byKey(const ValueKey('ildu-turntable-sadang')), findsOneWidget);
+
+    await tester.drag(
+      find.byKey(const ValueKey('hanok-turntable-drag-area')),
+      const Offset(-40, 0),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-sadang-3')),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('selecting and turning Changgo updates its map frame', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedB1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final changoAnchor = find.byKey(
+      const ValueKey('ildu-map-turntable-changgo-2'),
+    );
+    final changoTapTarget = find.descendant(
+      of: changoAnchor,
+      matching: find.byWidgetPredicate(
+        (widget) => widget is GestureDetector && widget.onTap != null,
+      ),
+    );
+    tester.widget<GestureDetector>(changoTapTarget).onTap!();
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-turntable-changgo')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-changgo-2')),
+      findsOneWidget,
+    );
+
+    await tester.drag(
+      find.byKey(const ValueKey('hanok-turntable-drag-area')),
+      const Offset(-40, 0),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-changgo-3')),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('dragging Sarangchae saves its map placement', (tester) async {
     tester.view.physicalSize = const Size(1179, 2556);
     tester.view.devicePixelRatio = 3;
@@ -281,6 +403,25 @@ PersonalHanokProjection _verifiedB1Projection() {
       CourseUnit(id: 'a1-1', level: 'a1', order: 1, title: text, canDo: text),
       CourseUnit(id: 'a2-1', level: 'a2', order: 1, title: text, canDo: text),
       CourseUnit(id: 'b1-1', level: 'b1', order: 1, title: text, canDo: text),
+    ],
+  );
+  return PersonalHanokProjection.from(
+    const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
+    competence: competence,
+  );
+}
+
+PersonalHanokProjection _verifiedB2Projection() {
+  const text = CurriculumText(ko: '사당', de: 'Schrein', en: 'Shrine');
+  final competence = HanokCompetenceProjection.fromSnapshot(
+    snapshot: const CourseMasterySnapshot(
+      completedUnitIds: <String>['a1-1', 'a2-1', 'b1-1', 'b2-1'],
+    ),
+    courseUnits: const <CourseUnit>[
+      CourseUnit(id: 'a1-1', level: 'a1', order: 1, title: text, canDo: text),
+      CourseUnit(id: 'a2-1', level: 'a2', order: 1, title: text, canDo: text),
+      CourseUnit(id: 'b1-1', level: 'b1', order: 1, title: text, canDo: text),
+      CourseUnit(id: 'b2-1', level: 'b2', order: 1, title: text, canDo: text),
     ],
   );
   return PersonalHanokProjection.from(

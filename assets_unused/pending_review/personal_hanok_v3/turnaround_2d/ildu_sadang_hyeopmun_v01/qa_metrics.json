@@ -1,0 +1,255 @@
+{
+  "subject": "ildu_sadang_hyeopmun",
+  "status": "pending_review_only",
+  "camera_elevation_degrees": 28,
+  "azimuth_interval_degrees": 45,
+  "raw_sources": [
+    {
+      "file": "generated_source/ildu_sadang_hyeopmun_turnaround_raw.png",
+      "sha256": "22A318E13695AB2C96B4DE11596C8E5CC86E0202B6BB3D72F2D1EF3F0101F38B",
+      "size": [
+        1536,
+        1024
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "raw_source_note": "Image generator returned an RGB audit source with a baked preview background; it is not a runtime-ready deliverable.",
+  "sheet": "ildu_sadang_hyeopmun_turnaround_sheet.png",
+  "sheet_size": [
+    1536,
+    1024
+  ],
+  "sheet_mode": "RGBA",
+  "sheet_sha256": "F7A6D1A62EC6D3C3D912386521349B59AEF21FCBBE17A2995F0FCA006FBF0454",
+  "normalization_mode": "single_uniform_scale_from_contact_sheet",
+  "safe_content_size": [
+    352,
+    448
+  ],
+  "baseline_y": 488,
+  "references": [
+    {
+      "file": "references/blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_협문_정면도,배면도,좌,우측면도.jpg",
+      "sha256": "BFF0A052F424523355CD94AEBFCC236C1DA3DE58E009E81CE365CB4D8F0DD0D4",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "references/blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_협문_종,횡단면도.jpg",
+      "sha256": "61571A8682D58077BC1BB2C44172DA6E52D304168DB31521A9FC26DA62BAA8ED",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "references/blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_협문_평면도,앙시도,지붕평면도.jpg",
+      "sha256": "A419AC59F0F87EBF18F0C844A707349AF4B3641446E8E88D514B22E5B4986229",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "references/source_hyeopmun_try03_blueprint_colored.png",
+      "sha256": "119C09BE21745203122D1B0270FCE249FAD0A59CB48FB6C69A2EA023E0C0BC56",
+      "role": "imagegen_reference",
+      "used_as_model_input": true,
+      "canonical_file": "hyeopmun_try03_blueprint_colored.png",
+      "canonical_sha256": "119C09BE21745203122D1B0270FCE249FAD0A59CB48FB6C69A2EA023E0C0BC56",
+      "exact_copy": true
+    },
+    {
+      "file": "references/source_hyeopmun_try03_cut.png",
+      "sha256": "3A6E3141F0F9C763067D40A867CF94082DF04F119BA275C037B6E67645153884",
+      "role": "imagegen_reference",
+      "used_as_model_input": true,
+      "canonical_file": "qa/hyeopmun_try03_cut.png",
+      "canonical_sha256": "3A6E3141F0F9C763067D40A867CF94082DF04F119BA275C037B6E67645153884",
+      "exact_copy": true
+    }
+  ],
+  "tiles": [
+    {
+      "degrees": 0,
+      "direction": "front",
+      "file": "transparent_views/ildu_sadang_hyeopmun_000_front.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 95550,
+      "content_bbox": [
+        37,
+        57,
+        347,
+        488
+      ],
+      "sha256": "543E56560973537FB4D7A00C2015B31ACC8A6A4B7006DF9BFA88397C1708E2E6",
+      "source_scale": 0.9105691056910569
+    },
+    {
+      "degrees": 45,
+      "direction": "front_right",
+      "file": "transparent_views/ildu_sadang_hyeopmun_045_front_right.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 93403,
+      "content_bbox": [
+        33,
+        40,
+        350,
+        488
+      ],
+      "sha256": "18D578C01EAAD4673308840E51624EC6E08A4A5CAA59843093C5C2ABE6615DE4",
+      "source_scale": 0.9105691056910569
+    },
+    {
+      "degrees": 90,
+      "direction": "right",
+      "file": "transparent_views/ildu_sadang_hyeopmun_090_right.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 42277,
+      "content_bbox": [
+        92,
+        59,
+        291,
+        488
+      ],
+      "sha256": "E01F5FD88E52C0050CF5ED32BB62E8690D3916B555DCE9AFC9560A00F1800198",
+      "source_scale": 0.9105691056910569
+    },
+    {
+      "degrees": 135,
+      "direction": "rear_right",
+      "file": "transparent_views/ildu_sadang_hyeopmun_135_rear_right.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 88321,
+      "content_bbox": [
+        38,
+        61,
+        345,
+        488
+      ],
+      "sha256": "C294776037C8BE6F3316E41845CD5CEB717D76D88DEC5405C022ECDD60C60810",
+      "source_scale": 0.9105691056910569
+    },
+    {
+      "degrees": 180,
+      "direction": "rear",
+      "file": "transparent_views/ildu_sadang_hyeopmun_180_rear.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 87571,
+      "content_bbox": [
+        40,
+        90,
+        343,
+        488
+      ],
+      "sha256": "1D59E413683D9EBC795E2CFFD158E08F9A67BE75ECCAD77E1D7F4CC67B0C229D",
+      "source_scale": 0.9105691056910569
+    },
+    {
+      "degrees": 225,
+      "direction": "rear_left",
+      "file": "transparent_views/ildu_sadang_hyeopmun_225_rear_left.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 83987,
+      "content_bbox": [
+        43,
+        65,
+        341,
+        488
+      ],
+      "sha256": "41D4F19B54778A8A58344746EDF6F324395148548999AE4D7A507DCD481D9870",
+      "source_scale": 0.9105691056910569
+    },
+    {
+      "degrees": 270,
+      "direction": "left",
+      "file": "transparent_views/ildu_sadang_hyeopmun_270_left.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 40251,
+      "content_bbox": [
+        96,
+        65,
+        287,
+        488
+      ],
+      "sha256": "2E72D5E3DC89CCA5D2FA30512C48EFE6B5688AAA9E0B4F34970D1F2A2006ABBE",
+      "source_scale": 0.9105691056910569
+    },
+    {
+      "degrees": 315,
+      "direction": "front_left",
+      "file": "transparent_views/ildu_sadang_hyeopmun_315_front_left.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 94138,
+      "content_bbox": [
+        34,
+        50,
+        349,
+        488
+      ],
+      "sha256": "17B580192C280FE1E1EDFC705324BFED1078DBF9484C004449D8656444191E35",
+      "source_scale": 0.9105691056910569
+    }
+  ]
+}
