@@ -67,9 +67,9 @@ def _candidate() -> dict:
                 },
                 {
                     "speaker": "user",
-                    "ko": "아, 죄송합니다. 몰랐어요.",
-                    "de": "Oh, Entschuldigung. Das wusste ich nicht.",
-                    "en": "Oh, sorry. I didn't realize.",
+                    "ko": "아, 죄송합니다. 줄 서 계신지 몰랐어요.",
+                    "de": "Oh, Entschuldigung. Ich habe nicht gesehen, dass Sie anstehen.",
+                    "en": "Oh, sorry. I didn't realize you were in line.",
                 },
                 {
                     "speaker": "sujin",
@@ -334,6 +334,91 @@ class ScenarioCorpusPipelineTest(unittest.TestCase):
                     reviewer="model",
                     root=ROOT,
                 )
+        candidate_directory = (
+            ROOT / "tools/content_factory/review/canonical_120_v1/candidates"
+        )
+        level_candidates = pipeline.load_level_candidates(
+            candidate_directory,
+            "a1",
+            root=ROOT,
+        )
+        all_candidates = pipeline.load_corpus_candidates(
+            candidate_directory,
+            root=ROOT,
+        )
+        level_hash = pipeline.candidate_set_hash(level_candidates)
+        corpus_hash = pipeline.candidate_set_hash(all_candidates)
+        with tempfile.TemporaryDirectory() as temp:
+            editorial_path = Path(temp) / "editorial.json"
+            model_path = Path(temp) / "model.json"
+            editorial_path.write_text(
+                pipeline.json_text(
+                    {
+                        "kind": pipeline.EDITORIAL_AUDIT_KIND,
+                        "generationId": pipeline.GENERATION_ID,
+                        "candidateSetSha256": corpus_hash,
+                        "summary": {
+                            "ok": True,
+                            "scenarioCount": 120,
+                            "errorCount": 0,
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            model_path.write_text(
+                pipeline.json_text(
+                    {
+                        "kind": pipeline.MODEL_AUDIT_KIND,
+                        "generationId": pipeline.GENERATION_ID,
+                        "candidateSetSha256": corpus_hash,
+                        "summary": {
+                            "scenarioCount": 120,
+                            "verdictCounts": {"pass": 120},
+                            "severityCounts": {},
+                        },
+                    }
+                ),
+                encoding="utf-8",
+            )
+            with self.assertRaisesRegex(pipeline.CorpusError, "SHA Jin reviewed"):
+                pipeline.record_level_approval(
+                    level="a1",
+                    candidate_directory=candidate_directory,
+                    reviewer="Jin",
+                    editorial_audit_path=editorial_path,
+                    model_audit_path=model_path,
+                    root=ROOT,
+                )
+            with self.assertRaisesRegex(pipeline.CorpusError, "does not match"):
+                pipeline.record_level_approval(
+                    level="a1",
+                    candidate_directory=candidate_directory,
+                    reviewer="Jin",
+                    reviewed_candidate_set_sha256="wrong",
+                    editorial_audit_path=editorial_path,
+                    model_audit_path=model_path,
+                    root=ROOT,
+                )
+            approval = pipeline.record_level_approval(
+                level="a1",
+                candidate_directory=candidate_directory,
+                reviewer="Jin",
+                reviewed_candidate_set_sha256=level_hash,
+                editorial_audit_path=editorial_path,
+                model_audit_path=model_path,
+                root=ROOT,
+            )
+            self.assertEqual(
+                approval["levels"]["a1"]["candidateSetSha256"],
+                level_hash,
+            )
+            self.assertEqual(
+                approval["levels"]["a1"]["modelAuditReceipt"][
+                    "candidateSetSha256"
+                ],
+                corpus_hash,
+            )
         with self.assertRaises(pipeline.CorpusError):
             pipeline.assert_level_approved(
                 level="a1",
@@ -393,6 +478,26 @@ class ScenarioCorpusPipelineTest(unittest.TestCase):
         self.assertNotEqual(
             pipeline.candidate_set_hash([original]),
             pipeline.candidate_set_hash([changed]),
+        )
+
+    def test_materializer_never_fabricates_a_passed_semantic_audit(self) -> None:
+        audit = materializer._audit()
+        self.assertEqual(
+            {
+                audit[axis]["verdict"]
+                for axis in (
+                    "accuracy",
+                    "naturalness",
+                    "pragmatics",
+                    "relationship",
+                    "cefr",
+                )
+            },
+            {"pending"},
+        )
+        self.assertEqual(
+            audit["provenance"],
+            "materialization_pending_external_audit",
         )
 
     def test_materialized_release_corpus_is_exact_and_editorially_clean(self) -> None:

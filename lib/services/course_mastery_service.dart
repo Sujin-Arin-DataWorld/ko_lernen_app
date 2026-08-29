@@ -294,10 +294,12 @@ class CourseMasteryService {
       throw const LocalReconciliationGenerationConflict();
     }
     final level = _normalizeLevel(levelCode);
-    final previous =
-        preserveHistory &&
-            (Storage.courseMasterySnapshotRawJson.trim().isNotEmpty ||
-                Storage.legacyCourseMasteryRawJson.trim().isNotEmpty)
+    final hasDurableSnapshot =
+        Storage.courseMasterySnapshotRawJson.trim().isNotEmpty ||
+        Storage.legacyCourseMasteryRawJson.trim().isNotEmpty;
+    // Placement may reset active course history, but archived productive proof
+    // is durable reward authority and must survive independently of that flag.
+    final previous = hasDurableSnapshot
         ? readForDisplay() ?? const CourseMasterySnapshot.empty()
         : const CourseMasterySnapshot.empty();
     final targetRank = _levelRank(level);
@@ -346,6 +348,9 @@ class CourseMasteryService {
       productiveProjectStepEvidence: preserveHistory
           ? previous.productiveProjectStepEvidence
           : const [],
+      archivedProductiveEvidence: previous.archivedProductiveEvidence,
+      archivedProductiveProjectStepEvidence:
+          previous.archivedProductiveProjectStepEvidence,
     );
     await _persistSnapshot(
       nextSnapshot,
@@ -1668,7 +1673,9 @@ class CourseMasteryService {
     CourseMasterySnapshot snapshot,
   ) {
     final target = catalog.scenarioCorpusGeneration;
-    if (snapshot.curriculumGeneration == target) return snapshot;
+    if (snapshot.curriculumGeneration == target) {
+      return snapshot;
+    }
     if (snapshot.curriculumGeneration != ScenarioCorpusGeneration.legacy) {
       throw FormatException(
         'Unsupported course mastery generation transition '

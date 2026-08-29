@@ -396,17 +396,18 @@ def _quests(scenario_id: str, dialog: Sequence[Mapping[str, str]]) -> list[dict[
 
 
 def _audit() -> dict[str, Any]:
-    def passed(note: str) -> dict[str, Any]:
-        return {"verdict": "pass", "notes": [note]}
+    def pending(note: str) -> dict[str, Any]:
+        return {"verdict": "pending", "notes": [note]}
 
     return {
         "criticalErrors": [],
-        "accuracy": passed("KO is the locked semantic source; DE and EN were authored per turn."),
-        "naturalness": passed("Editorial candidate pass completed; Jin review remains mandatory."),
-        "pragmatics": passed("Speech act, choice, and force were checked against the brief."),
-        "relationship": passed("Register and participant relationship match the locked brief."),
-        "cefr": passed("Content scope and linguistic load were checked against the level profile."),
+        "accuracy": pending("Awaiting the hash-bound model and Jin review receipts."),
+        "naturalness": pending("Awaiting the hash-bound model and Jin review receipts."),
+        "pragmatics": pending("Awaiting the hash-bound model and Jin review receipts."),
+        "relationship": pending("Awaiting the hash-bound model and Jin review receipts."),
+        "cefr": pending("Awaiting the hash-bound model and Jin review receipts."),
         "warnings": [],
+        "provenance": "materialization_pending_external_audit",
     }
 
 

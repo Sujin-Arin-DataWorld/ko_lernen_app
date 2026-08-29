@@ -82,6 +82,15 @@ def parser() -> argparse.ArgumentParser:
     approval.add_argument("level", choices=pipeline.LEVELS)
     approval.add_argument("--candidates", type=Path, default=DEFAULT_CANDIDATES)
     approval.add_argument("--reviewer", required=True)
+    approval.add_argument("--candidate-set-sha256", required=True)
+    approval.add_argument(
+        "--editorial-audit",
+        type=Path,
+        default=Path(
+            "tools/content_factory/review/canonical_120_v1/editorial_audit.json"
+        ),
+    )
+    approval.add_argument("--model-audit", type=Path, required=True)
     approval.add_argument(
         "--output",
         type=Path,
@@ -192,6 +201,9 @@ def main(argv: list[str] | None = None) -> int:
                 level=args.level,
                 candidate_directory=args.candidates,
                 reviewer=args.reviewer,
+                reviewed_candidate_set_sha256=args.candidate_set_sha256,
+                editorial_audit_path=args.editorial_audit,
+                model_audit_path=args.model_audit,
                 root=ROOT,
             )
             print(_write(args.output, approval))

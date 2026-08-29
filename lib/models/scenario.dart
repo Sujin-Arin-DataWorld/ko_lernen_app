@@ -393,7 +393,9 @@ class Scenario {
   String voiceForSpeaker(String speaker) {
     final resolved = resolvedCharacterIdForSpeaker(speaker);
     final profile = ScenarioCharacterCatalog.profileFor(resolved);
-    if (profile != null) return profile.voice;
+    if (profile != null) {
+      return profile.voice;
+    }
     return speaker.trim().toLowerCase() == 'user' ? 'female' : 'male';
   }
 
@@ -402,6 +404,7 @@ class Scenario {
     required String languageCode,
     required String fallbackYou,
     required String fallbackNarrator,
+    required String playerSelfSuffix,
   }) {
     final normalized = speaker.trim().toLowerCase();
     if (normalized == 'narrator' || normalized.isEmpty) {
@@ -414,9 +417,11 @@ class Scenario {
       // chrome is German or English. This also prevents honorifics such as
       // `수진 씨` from becoming a fixed UI identity.
       final name = profile.nameKo;
-      return normalized == 'user' ? '$name (나)' : name;
+      return normalized == 'user' ? '$name $playerSelfSuffix' : name;
     }
-    if (normalized == 'user') return fallbackYou;
+    if (normalized == 'user') {
+      return fallbackYou;
+    }
     return '${resolved[0].toUpperCase()}${resolved.substring(1)}';
   }
 }

@@ -1637,6 +1637,7 @@
   "listeningHideTranslation": "Übersetzung ausblenden",
   "listeningNarrator": "Erzählstimme",
   "listeningSpeakerYou": "Du",
+  "scenarioPlayerSelfSuffix": "(나)",
   "listeningReviewTitle": "Zeile für Zeile wiederholen",
   "listeningReviewBody": "Hör einzelne Zeilen erneut und öffne die Übersetzung nur bei Bedarf.",
   "listeningReviewCta": "Zeile für Zeile wiederholen",

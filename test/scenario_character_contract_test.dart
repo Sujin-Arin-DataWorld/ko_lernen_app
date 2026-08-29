@@ -90,6 +90,7 @@ void main() {
         languageCode: 'de',
         fallbackYou: 'Du',
         fallbackNarrator: 'Erzähler',
+        playerSelfSuffix: '(나)',
       ),
       '크리스티안 (나)',
     );

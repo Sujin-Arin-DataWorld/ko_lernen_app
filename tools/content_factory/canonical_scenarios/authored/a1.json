@@ -225,7 +225,7 @@
       "dialog": [
         {"speaker": "christian", "ko": "이 빵 계산해 주세요.", "de": "Ich möchte dieses Brot bezahlen.", "en": "I'd like to pay for this bread."},
         {"speaker": "sujin", "ko": "저기요, 여기 줄 서 있는데요.", "de": "Entschuldigung, wir stehen hier an.", "en": "Excuse me, there's a line here."},
-        {"speaker": "christian", "ko": "아, 죄송합니다. 몰랐어요.", "de": "Oh, Entschuldigung. Das wusste ich nicht.", "en": "Oh, sorry. I didn't realize."},
+        {"speaker": "christian", "ko": "아, 죄송합니다. 줄 서 계신지 몰랐어요.", "de": "Oh, Entschuldigung. Ich habe nicht gesehen, dass Sie anstehen.", "en": "Oh, sorry. I didn't realize you were in line."},
         {"speaker": "sujin", "ko": "괜찮아요. 줄은 저 뒤예요.", "de": "Kein Problem. Das Ende ist dort hinten.", "en": "No problem. The end is back there."},
         {"speaker": "christian", "ko": "네, 뒤에 설게요.", "de": "Okay, ich stelle mich hinten an.", "en": "Okay, I'll join at the back."},
         {"speaker": "sujin", "ko": "네, 괜찮아요.", "de": "Alles gut.", "en": "It's okay."}

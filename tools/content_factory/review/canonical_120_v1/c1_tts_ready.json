@@ -3,13 +3,14 @@
   "kind": "scenario_tts_storage_verification",
   "generationId": "canonical_120_v1",
   "scope": "c1",
-  "candidateSetSha256": "cbe3df01dfc7b9ad2c03e5c824530da8adacc51d385dc01a8cfb1d07bc816a66",
-  "ttsManifestSha256": "17f76c9471f41b1b477bd060f1d021e1c5ae55e9ede901302391b13ee9f3239d",
+  "candidateSetSha256": "5c4f36fad55c2112c747d76947119be90e54746a6c75dcbbdf24b2e35449b084",
+  "ttsManifestSha256": "2d48c9fcd7ea80b3ae771ca2392b4b223dd2c9e0dfc73a72a5d9ae656ba5a616",
   "expectedCount": 140,
   "verifiedCachePathCount": 140,
   "missingCount": 0,
   "cacheRevision": "v3",
-  "verificationMode": "firebase_storage_listing",
+  "verificationMode": "firebase_storage_nonempty_mp3_listing",
+  "minimumObjectBytes": 256,
   "bucket": "ko-lernen-app.firebasestorage.app",
-  "verifiedAt": "2026-08-27T09:28:41.154113+00:00"
+  "verifiedAt": "2026-08-29T19:04:42.503880+00:00"
 }

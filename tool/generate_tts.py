@@ -65,6 +65,7 @@ BUCKET = "ko-lernen-app.firebasestorage.app"
 PROJECT = "ko-lernen-app"
 TTS_CACHE_REVISION = "v3"
 AUTO_VOICE_SALT = "hangul-sori-auto-voice-v1"
+MIN_REMOTE_MP3_BYTES = 256
 
 # 클라(tts_service.dart)·CF(functions/tts)와 반드시 동일한 voice 매핑.
 # 남성은 Chirp3-HD-Enceladus 채택본. `--demo` 는 후보 재청취용.
@@ -203,11 +204,16 @@ def load_scenario_pending_manifest(path):
     return pairs, manifest
 
 
-def build_storage_verification_receipt(manifest, remote_paths):
-    """Create a promotion receipt from a read-only Firebase Storage listing."""
+def build_storage_verification_receipt(manifest, remote_objects):
+    """Create a receipt from non-empty objects in a read-only Storage listing."""
 
     expected = {item["cachePath"] for item in manifest["items"]}
-    missing = sorted(expected - set(remote_paths))
+    verified = {
+        path
+        for path, size in remote_objects.items()
+        if isinstance(size, int) and size >= MIN_REMOTE_MP3_BYTES
+    }
+    missing = sorted(expected - verified)
     return {
         "schemaVersion": 1,
         "kind": "scenario_tts_storage_verification",
@@ -219,7 +225,8 @@ def build_storage_verification_receipt(manifest, remote_paths):
         "verifiedCachePathCount": len(expected) - len(missing),
         "missingCount": len(missing),
         "cacheRevision": TTS_CACHE_REVISION,
-        "verificationMode": "firebase_storage_listing",
+        "verificationMode": "firebase_storage_nonempty_mp3_listing",
+        "minimumObjectBytes": MIN_REMOTE_MP3_BYTES,
         "bucket": BUCKET,
         "verifiedAt": datetime.now(timezone.utc).isoformat(),
     }, missing
@@ -243,25 +250,39 @@ def _auth():
     return None if API_KEY else token()
 
 
-def remote_cache_paths():
-    """Return immutable v3 object paths already present in Firebase Storage."""
+def remote_cache_objects():
+    """Return immutable v3 object paths and sizes from Firebase Storage."""
     prefix = f"gs://{BUCKET}/"
     result = subprocess.run(
         gcloud_argv(
             "storage",
             "ls",
+            "--long",
             "--recursive",
             f"gs://{BUCKET}/tts/{TTS_CACHE_REVISION}/",
+            "--project",
+            PROJECT,
         ),
         check=True,
         capture_output=True,
         text=True,
         encoding="utf-8",
     )
+    objects = {}
+    for line in result.stdout.splitlines():
+        match = re.match(r"^\s*(\d+)\s+\S+\s+(gs://\S+\.mp3)\s*$", line)
+        if match is None:
+            continue
+        objects[match.group(2).removeprefix(prefix)] = int(match.group(1))
+    return objects
+
+
+def remote_cache_paths():
+    """Return non-empty immutable v3 paths already present in Storage."""
     return {
-        line.removeprefix(prefix)
-        for line in result.stdout.splitlines()
-        if line.startswith(prefix) and line.endswith(".mp3")
+        path
+        for path, size in remote_cache_objects().items()
+        if size >= MIN_REMOTE_MP3_BYTES
     }
 
 
@@ -875,13 +896,18 @@ def main(argv=None):
 
     if args.verify_storage:
         expected = {cache_relative_path(voice, text) for voice, text in pairs}
-        remote_paths = remote_cache_paths()
+        remote_objects = remote_cache_objects()
+        remote_paths = {
+            path
+            for path, size in remote_objects.items()
+            if size >= MIN_REMOTE_MP3_BYTES
+        }
         missing = sorted(expected - remote_paths)
         unexpected = sorted(remote_paths - expected)
         if scenario_manifest is not None and args.verification_output:
             receipt, receipt_missing = build_storage_verification_receipt(
                 scenario_manifest,
-                remote_paths,
+                remote_objects,
             )
             if receipt_missing != missing:
                 raise SystemExit(
@@ -913,60 +939,77 @@ def main(argv=None):
         print(f"원격 캐시 {len(remote_paths)}개")
     tok = _auth()
     pending = []
+    upload_items = []
     local_skipped = 0
     remote_skipped = 0
     for voice, text in pairs:
         relative_path = cache_relative_path(voice, text)
         path = os.path.join(OUT, *relative_path.split("/"))
-        if os.path.exists(path) and os.path.getsize(path) > 0:
-            local_skipped += 1
-            continue
         if relative_path in remote_paths:
             remote_skipped += 1
             continue
+        if os.path.exists(path) and os.path.getsize(path) > 0:
+            with open(path, "rb") as handle:
+                cached_data = handle.read()
+            if len(cached_data) < MIN_REMOTE_MP3_BYTES or mp3_duration(cached_data) <= 0:
+                raise SystemExit(
+                    f"TTS 실행 중단: 로컬 캐시가 유효한 MP3가 아닙니다: {path}"
+                )
+            local_skipped += 1
+            upload_items.append((path, relative_path))
+            continue
         os.makedirs(os.path.dirname(path), exist_ok=True)
-        pending.append((voice, text, path))
+        pending.append((voice, text, path, relative_path))
 
     def synthesize_one(item):
-        voice, text, path = item
+        voice, text, path, relative_path = item
         data = synth(tok, voice, text)
+        if len(data) < MIN_REMOTE_MP3_BYTES or mp3_duration(data) <= 0:
+            raise RuntimeError("Google TTS returned an invalid or empty MP3")
         with open(path, "wb") as fh:
             fh.write(data)
-        return text
+        return path, relative_path
 
     made = 0
     print(f"병렬 합성 시작: {len(pending)}개, workers={args.workers}")
+    failures = []
     with ThreadPoolExecutor(max_workers=args.workers) as pool:
         futures = {pool.submit(synthesize_one, item): item for item in pending}
         for future in as_completed(futures):
-            voice, text, _ = futures[future]
+            voice, text, _, _ = futures[future]
             try:
-                future.result()
+                upload_items.append(future.result())
                 made += 1
                 if made % 50 == 0:
                     print(f"  합성 {made}…")
             except Exception as e:  # noqa: BLE001
+                failures.append((text, e))
                 print("FAIL", repr(text[:24]), str(e)[:100])
+
+    if failures:
+        raise SystemExit(
+            f"TTS 실행 중단: {len(failures)}개 합성 실패. Firebase 업로드는 하지 않았습니다."
+        )
 
     print(
         f"합성 {made}개 / 로컬 건너뜀 {local_skipped}개 / "
         f"원격 건너뜀 {remote_skipped}개 → 업로드 시작"
     )
 
-    # Upload only this immutable revision.  Prior revision files stay untouched.
-    revision_root = os.path.join(OUT, "tts", TTS_CACHE_REVISION)
-    subprocess.run(
-        gcloud_argv(
-            "storage",
-            "rsync",
-            "-r",
-            revision_root,
-            f"gs://{BUCKET}/tts/{TTS_CACHE_REVISION}",
-            "--project",
-            PROJECT,
-        ),
-        check=True,
-    )
+    # Upload only the exact selected object list. Prior and unrelated local
+    # cache files remain untouched and cannot leak into this operation.
+    for path, relative_path in upload_items:
+        subprocess.run(
+            gcloud_argv(
+                "storage",
+                "cp",
+                path,
+                f"gs://{BUCKET}/{relative_path}",
+                "--project",
+                PROJECT,
+            ),
+            check=True,
+        )
     print("✅ 완료")
     return 0
 

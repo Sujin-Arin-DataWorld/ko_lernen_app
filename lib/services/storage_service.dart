@@ -1240,25 +1240,6 @@ class Storage {
   static Future<void> _sl(String k, List<String> v) async =>
       _prefs?.setStringList(k, v);
 
-  static Future<void> _slStrict(String key, List<String> value) async {
-    final preferences = _prefs;
-    if (preferences == null) throw PreferenceWriteException(key);
-    Object? failure;
-    var wrote = false;
-    try {
-      wrote = await preferences.setStringList(key, value);
-    } on Object catch (error) {
-      failure = error;
-    }
-    if (wrote) return;
-    await preferences.reload();
-    if (preferences.getStringList(key)?.join('\u0000') ==
-        value.join('\u0000')) {
-      return;
-    }
-    throw PreferenceWriteException(key, cause: failure);
-  }
-
   static bool _b(String k, [bool dflt = false]) => _prefs?.getBool(k) ?? dflt;
   static Future<void> _sb(String k, bool v) async => _prefs?.setBool(k, v);
 
@@ -3853,7 +3834,9 @@ class Storage {
       );
     }
     final current = scenarioCorpusGeneration;
-    if (current == target) return false;
+    if (current == target) {
+      return false;
+    }
     // A rollback build may still read a newer durable marker. Never turn that
     // into a destructive downgrade or re-enable legacy XP-claim mirroring.
     if (current != ScenarioCorpusGeneration.legacy &&
@@ -3861,7 +3844,9 @@ class Storage {
       return false;
     }
     await _slStrict('kl_completed_scenarios', const []);
+    _completedScenariosCache = null;
     await _ssStrict('kl_scenario_stars', jsonEncode(<String, int>{}));
+    _scenarioStarsCache = null;
     await _ssStrict(scenarioCorpusGenerationPreferenceKey, target);
     return true;
   }

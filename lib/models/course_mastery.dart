@@ -97,7 +97,7 @@ class ScenarioCheckpointEvidence {
 /// Durable local snapshot for the sequential course only. Vocabulary SRS,
 /// pack progress, and browse filters intentionally live in their own stores.
 class CourseMasterySnapshot {
-  static const int currentVersion = 3;
+  static const int currentVersion = 4;
 
   final int version;
   final String curriculumGeneration;
@@ -145,7 +145,7 @@ class CourseMasterySnapshot {
   factory CourseMasterySnapshot.fromJson(Map<String, dynamic> json) =>
       CourseMasterySnapshot.decodeAndMigrate(json);
 
-  /// Accepts retained v1/v2 local shapes and returns canonical v3. Productive
+  /// Accepts retained v1-v3 local shapes and returns canonical v4. Productive
   /// proof is never inferred from historical unit completion during migration.
   /// Future schemas are deliberately rejected so a newer installation's state
   /// can never be silently overwritten by this version of the app.
@@ -153,8 +153,10 @@ class CourseMasterySnapshot {
     final sourceVersion = CourseMasterySnapshot.sourceVersionFor(json);
     if (sourceVersion == 2) {
       _validateCanonicalV2Shape(json);
-    } else if (sourceVersion == currentVersion) {
+    } else if (sourceVersion == 3) {
       _validateCanonicalV3Shape(json);
+    } else if (sourceVersion == currentVersion) {
+      _validateCanonicalV4Shape(json);
     }
     final rawEvidence = json['evidence'];
     final rawCheckpoints = json['scenarioCheckpoints'];
@@ -317,8 +319,7 @@ class CourseMasterySnapshot {
 
   Map<String, dynamic> toJson() => {
     'version': currentVersion,
-    if (curriculumGeneration != ScenarioCorpusGeneration.legacy)
-      'curriculumGeneration': curriculumGeneration,
+    'curriculumGeneration': curriculumGeneration,
     if (placementLevel != null) 'placementLevel': placementLevel,
     if (currentCourseUnitId != null) 'currentCourseUnitId': currentCourseUnitId,
     'completedUnitIds': completedUnitIds,
@@ -333,15 +334,13 @@ class CourseMasterySnapshot {
     'productiveProjectStepEvidence': productiveProjectStepEvidence
         .map((item) => item.toJson())
         .toList(),
-    if (archivedProductiveEvidence.isNotEmpty)
-      'archivedProductiveEvidence': archivedProductiveEvidence
-          .map((item) => item.toJson())
-          .toList(),
-    if (archivedProductiveProjectStepEvidence.isNotEmpty)
-      'archivedProductiveProjectStepEvidence':
-          archivedProductiveProjectStepEvidence
-              .map((item) => item.toJson())
-              .toList(),
+    'archivedProductiveEvidence': archivedProductiveEvidence
+        .map((item) => item.toJson())
+        .toList(),
+    'archivedProductiveProjectStepEvidence':
+        archivedProductiveProjectStepEvidence
+            .map((item) => item.toJson())
+            .toList(),
   };
 
   /// Archived proof remains eligible to justify already-earned Hanok grants,
@@ -531,6 +530,17 @@ void _validateCanonicalV3Shape(Map<String, dynamic> json) {
     ],
     optionalStringFields: const [],
   );
+}
+
+void _validateCanonicalV4Shape(Map<String, dynamic> json) {
+  _validateCanonicalV3Shape(json);
+  _requireNonemptyString(json, 'curriculumGeneration');
+  if (json['archivedProductiveEvidence'] is! List ||
+      json['archivedProductiveProjectStepEvidence'] is! List) {
+    throw const FormatException(
+      'Canonical v4 course mastery requires archived productive evidence lists.',
+    );
+  }
 }
 
 void _validateCanonicalEntries(

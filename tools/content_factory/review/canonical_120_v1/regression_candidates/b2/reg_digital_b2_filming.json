@@ -217,36 +217,37 @@
   "audit": {
     "criticalErrors": [],
     "accuracy": {
-      "verdict": "pass",
+      "verdict": "pending",
       "notes": [
-        "KO is the locked semantic source; DE and EN were authored per turn."
+        "Awaiting the hash-bound model and Jin review receipts."
       ]
     },
     "naturalness": {
-      "verdict": "pass",
+      "verdict": "pending",
       "notes": [
-        "Editorial candidate pass completed; Jin review remains mandatory."
+        "Awaiting the hash-bound model and Jin review receipts."
       ]
     },
     "pragmatics": {
-      "verdict": "pass",
+      "verdict": "pending",
       "notes": [
-        "Speech act, choice, and force were checked against the brief."
+        "Awaiting the hash-bound model and Jin review receipts."
       ]
     },
     "relationship": {
-      "verdict": "pass",
+      "verdict": "pending",
       "notes": [
-        "Register and participant relationship match the locked brief."
+        "Awaiting the hash-bound model and Jin review receipts."
       ]
     },
     "cefr": {
-      "verdict": "pass",
+      "verdict": "pending",
       "notes": [
-        "Content scope and linguistic load were checked against the level profile."
+        "Awaiting the hash-bound model and Jin review receipts."
       ]
     },
-    "warnings": []
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
   },
   "editorialSource": "canonical_scenarios/authored"
 }

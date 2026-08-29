@@ -74,6 +74,9 @@ LOW_LEVEL_COMPLEX_PATTERNS = {
         re.compile(r"전제로|환원(?:하|할|해서)"),
     ),
 }
+LOW_LEVEL_LOCKED_FORMULAS = frozenset(
+    ("아, 죄송합니다. 줄 서 계신지 몰랐어요.",)
+)
 REJECTED_KO = (
     "대리 수치가 느껴",
     "전화번호",
@@ -119,7 +122,10 @@ KO_PRESUPPOSITION = {
 }
 
 LOCKED_ANCHOR_BEATS = {
-    "bakery_queue": ("여기 줄 서 있는데요", "아, 죄송합니다. 몰랐어요"),
+    "bakery_queue": (
+        "여기 줄 서 있는데요",
+        "아, 죄송합니다. 줄 서 계신지 몰랐어요",
+    ),
     "email_attachment_twice": ("첨부파일을 또 안 붙였어요",),
     "company_instagram_wrong_account": ("회사 인스타그램 계정",),
     "filming_permission": ("촬영", "괜찮"),
@@ -288,7 +294,7 @@ def audit_corpus(
                     if marker in ko:
                         findings.append(_finding("error", "low_level_abstract_scope", scenario_id, f"/scenario/dialog/{index}/ko", f"{level.upper()} contains an abstract-scope marker.", marker))
                 for expression in LOW_LEVEL_COMPLEX_PATTERNS[level]:
-                    if expression.search(ko):
+                    if expression.search(ko) and ko not in LOW_LEVEL_LOCKED_FORMULAS:
                         findings.append(_finding("warning", "low_level_complex_form", scenario_id, f"/scenario/dialog/{index}/ko", f"Review whether this structure is necessary at {level.upper()}; natural formulaic input may be retained, but learner production should stay within the level profile.", ko))
                 warning_limit = int(sources.level_profiles[level].allowed_language["maxKoCharsWarning"])
                 if len(ko) > warning_limit:

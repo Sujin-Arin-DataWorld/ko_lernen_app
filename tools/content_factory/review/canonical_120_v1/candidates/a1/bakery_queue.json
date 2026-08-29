@@ -45,11 +45,11 @@
         }
       },
       {
-        "korean": "아, 죄송합니다. 몰랐어요.",
+        "korean": "아, 죄송합니다. 줄 서 계신지 몰랐어요.",
         "note": {
           "ko": "장면 핵심 표현",
-          "de": "Oh, Entschuldigung. Das wusste ich nicht.",
-          "en": "Oh, sorry. I didn't realize."
+          "de": "Oh, Entschuldigung. Ich habe nicht gesehen, dass Sie anstehen.",
+          "en": "Oh, sorry. I didn't realize you were in line."
         }
       },
       {
@@ -111,9 +111,9 @@
       },
       {
         "speaker": "user",
-        "ko": "아, 죄송합니다. 몰랐어요.",
-        "de": "Oh, Entschuldigung. Das wusste ich nicht.",
-        "en": "Oh, sorry. I didn't realize."
+        "ko": "아, 죄송합니다. 줄 서 계신지 몰랐어요.",
+        "de": "Oh, Entschuldigung. Ich habe nicht gesehen, dass Sie anstehen.",
+        "en": "Oh, sorry. I didn't realize you were in line."
       },
       {
         "speaker": "sujin",
@@ -150,8 +150,8 @@
               "en": "I'd like to pay for this bread."
             },
             {
-              "de": "Oh, Entschuldigung. Das wusste ich nicht.",
-              "en": "Oh, sorry. I didn't realize."
+              "de": "Oh, Entschuldigung. Ich habe nicht gesehen, dass Sie anstehen.",
+              "en": "Oh, sorry. I didn't realize you were in line."
             },
             {
               "de": "Kein Problem. Das Ende ist dort hinten.",
@@ -175,7 +175,7 @@
               "ko": "저기요, 여기 줄 서 있는데요."
             },
             {
-              "ko": "아, 죄송합니다. 몰랐어요."
+              "ko": "아, 죄송합니다. 줄 서 계신지 몰랐어요."
             },
             {
               "ko": "괜찮아요. 줄은 저 뒤예요."
@@ -195,7 +195,7 @@
           "distractors": [
             "이 빵 계산해 주세요.",
             "저기요, 여기 줄 서 있는데요.",
-            "아, 죄송합니다. 몰랐어요."
+            "아, 죄송합니다. 줄 서 계신지 몰랐어요."
           ]
         }
       }
@@ -217,36 +217,37 @@
   "audit": {
     "criticalErrors": [],
     "accuracy": {
-      "verdict": "pass",
+      "verdict": "pending",
       "notes": [
-        "KO is the locked semantic source; DE and EN were authored per turn."
+        "Awaiting the hash-bound model and Jin review receipts."
       ]
     },
     "naturalness": {
-      "verdict": "pass",
+      "verdict": "pending",
       "notes": [
-        "Editorial candidate pass completed; Jin review remains mandatory."
+        "Awaiting the hash-bound model and Jin review receipts."
       ]
     },
     "pragmatics": {
-      "verdict": "pass",
+      "verdict": "pending",
       "notes": [
-        "Speech act, choice, and force were checked against the brief."
+        "Awaiting the hash-bound model and Jin review receipts."
       ]
     },
     "relationship": {
-      "verdict": "pass",
+      "verdict": "pending",
       "notes": [
-        "Register and participant relationship match the locked brief."
+        "Awaiting the hash-bound model and Jin review receipts."
       ]
     },
     "cefr": {
-      "verdict": "pass",
+      "verdict": "pending",
       "notes": [
-        "Content scope and linguistic load were checked against the level profile."
+        "Awaiting the hash-bound model and Jin review receipts."
       ]
     },
-    "warnings": []
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
   },
   "editorialSource": "canonical_scenarios/authored"
 }

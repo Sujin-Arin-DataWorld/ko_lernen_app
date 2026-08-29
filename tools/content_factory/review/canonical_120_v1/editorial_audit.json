@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "canonical_scenario_editorial_audit",
   "generationId": "canonical_120_v1",
-  "candidateSetSha256": "b9ad5b453226cb8717d769f591117e75fc035cc3bad6a65872b3c4a138bc1b5f",
+  "candidateSetSha256": "8f9e37b4951fdc969b965ac8214d74baee874b579dab7c56918e6260a0e2614b",
   "humanApprovalRequired": true,
   "humanApprovalRecorded": false,
   "automatedAuditIsApproval": false,
@@ -32,9 +32,9 @@
   "lengthMetrics": {
     "a1": {
       "turnCount": 123,
-      "meanKoChars": 11.5,
+      "meanKoChars": 11.56,
       "p95KoChars": 18,
-      "maxKoChars": 21
+      "maxKoChars": 23
     },
     "a2": {
       "turnCount": 122,
@@ -105,9 +105,13 @@
         "relationship": "처음 보는 크리스티안과 수진",
         "koreanRegister": "polite",
         "observedModes": [
-          "neutral"
+          "Sie"
         ],
-        "bySpeaker": {},
+        "bySpeaker": {
+          "christian": [
+            "Sie"
+          ]
+        },
         "status": "review_required"
       },
       "break_glass_apology": {

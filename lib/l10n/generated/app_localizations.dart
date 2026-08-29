@@ -5767,6 +5767,12 @@ abstract class AppL10n {
   /// **'Du'**
   String get listeningSpeakerYou;
 
+  /// No description provided for @scenarioPlayerSelfSuffix.
+  ///
+  /// In de, this message translates to:
+  /// **'(나)'**
+  String get scenarioPlayerSelfSuffix;
+
   /// No description provided for @listeningReviewTitle.
   ///
   /// In de, this message translates to:

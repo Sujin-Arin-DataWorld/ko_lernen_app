@@ -3,7 +3,7 @@
   "kind": "scenario_tts_pending_manifest",
   "generationId": "canonical_120_v1",
   "scope": "corpus",
-  "candidateSetSha256": "b9ad5b453226cb8717d769f591117e75fc035cc3bad6a65872b3c4a138bc1b5f",
+  "candidateSetSha256": "8f9e37b4951fdc969b965ac8214d74baee874b579dab7c56918e6260a0e2614b",
   "cacheRevision": "v3",
   "synthesisRequested": false,
   "uploadRequested": false,
@@ -193,8 +193,8 @@
       "speaker": "user",
       "resolvedCharacterId": "christian",
       "voice": "male",
-      "text": "아, 죄송합니다. 몰랐어요.",
-      "cachePath": "tts/v3/male/4373f95b80a73fc2b45fc15240bbd59796c7499c.mp3",
+      "text": "아, 죄송합니다. 줄 서 계신지 몰랐어요.",
+      "cachePath": "tts/v3/male/38b61cfe152d5b9baa99c6443f2fd893e4f371c0.mp3",
       "status": "pending"
     },
     {

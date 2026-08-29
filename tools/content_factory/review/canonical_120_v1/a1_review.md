@@ -99,9 +99,9 @@ DE: Entschuldigung, wir stehen hier an.
 EN: Excuse me, there's a line here.
 
 **크리스티안 (나)**  
-KO: 아, 죄송합니다. 몰랐어요.  
-DE: Oh, Entschuldigung. Das wusste ich nicht.  
-EN: Oh, sorry. I didn't realize.
+KO: 아, 죄송합니다. 줄 서 계신지 몰랐어요.
+DE: Oh, Entschuldigung. Ich habe nicht gesehen, dass Sie anstehen.
+EN: Oh, sorry. I didn't realize you were in line.
 
 **수진**  
 KO: 괜찮아요. 줄은 저 뒤예요.  

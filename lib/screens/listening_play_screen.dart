@@ -510,6 +510,7 @@ class _ListeningPlayScreenState extends State<ListeningPlayScreen>
         languageCode: languageCode,
         fallbackYou: t.listeningSpeakerYou,
         fallbackNarrator: t.listeningNarrator,
+        playerSelfSuffix: t.scenarioPlayerSelfSuffix,
       );
 }
 

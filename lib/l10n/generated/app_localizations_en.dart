@@ -3301,6 +3301,9 @@ class AppL10nEn extends AppL10n {
   String get listeningSpeakerYou => 'You';
 
   @override
+  String get scenarioPlayerSelfSuffix => '(나)';
+
+  @override
   String get listeningReviewTitle => 'Review line by line';
 
   @override

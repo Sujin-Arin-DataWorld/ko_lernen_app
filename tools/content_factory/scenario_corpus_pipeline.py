@@ -32,6 +32,8 @@ LEVELS = ("a1", "a2", "b1", "b2", "c1", "c2")
 GENERATION_ID = "canonical_120_v1"
 LEGACY_GENERATION_ID = "legacy_413_v1"
 APPROVAL_REVIEWER = "Jin"
+EDITORIAL_AUDIT_KIND = "canonical_scenario_editorial_audit"
+MODEL_AUDIT_KIND = "gemini_canonical_scenario_corpus_audit"
 ALLOWED_VOICES = frozenset(("female", "male"))
 TTS_CACHE_REVISION = "v3"
 TTS_READINESS_KIND = "scenario_tts_storage_verification"
@@ -493,7 +495,7 @@ def validate_portfolio(root: Path = ROOT) -> ValidationReport:
 
     by_id = {brief.scenario_id: brief for brief in sources.briefs}
     required_anchor_text = {
-        "bakery_queue": ("아, 죄송합니다. 몰랐어요",),
+        "bakery_queue": ("아, 죄송합니다. 줄 서 계신지 몰랐어요",),
         "email_attachment_twice": ("첨부파일", "또 안 붙였"),
         "company_instagram_wrong_account": ("회사 인스타그램",),
         "filming_permission": ("촬영", "괜찮으세요"),
@@ -811,8 +813,13 @@ def validate_candidate(
         for axis in ("accuracy", "naturalness", "pragmatics", "relationship", "cefr"):
             if axis not in audit:
                 report.errors.append(f"candidate.audit must include {axis}")
-            elif not isinstance(audit[axis], dict) or audit[axis].get("verdict") != "pass":
-                report.errors.append(f"candidate.audit.{axis}.verdict must be pass")
+            elif not isinstance(audit[axis], dict) or audit[axis].get("verdict") not in (
+                "pass",
+                "pending",
+            ):
+                report.errors.append(
+                    f"candidate.audit.{axis}.verdict must be pass or pending"
+                )
     return report
 
 
@@ -1349,11 +1356,59 @@ def render_level_review(
     return "\n".join(lines).rstrip() + "\n"
 
 
+def _verified_audit_receipt(
+    *,
+    path: Path,
+    expected_kind: str,
+    candidates: Sequence[Mapping[str, Any]],
+    sources: CorpusSources,
+    root: Path,
+) -> dict[str, Any]:
+    resolved = path if path.is_absolute() else root / path
+    if not resolved.exists():
+        raise CorpusError(f"required audit receipt is missing: {resolved}")
+    receipt = _map(read_json(resolved), f"audit receipt {resolved}")
+    if receipt.get("kind") != expected_kind:
+        raise CorpusError(f"unexpected audit receipt kind: {receipt.get('kind')}")
+    if receipt.get("generationId") != sources.manifest.generation_id:
+        raise CorpusError("audit receipt generation does not match the corpus")
+    expected_hash = candidate_set_hash(candidates)
+    if receipt.get("candidateSetSha256") != expected_hash:
+        raise CorpusError("audit receipt does not match the current candidate set")
+    summary = _map(receipt.get("summary"), "audit receipt summary")
+    if int(summary.get("scenarioCount") or 0) != sources.manifest.expected_total:
+        raise CorpusError("audit receipt does not cover all canonical scenarios")
+    if expected_kind == EDITORIAL_AUDIT_KIND:
+        if not bool(summary.get("ok")) or int(summary.get("errorCount") or 0) != 0:
+            raise CorpusError("deterministic editorial audit still has errors")
+    else:
+        verdicts = _map(summary.get("verdictCounts"), "model audit verdictCounts")
+        severities = _map(summary.get("severityCounts"), "model audit severityCounts")
+        if int(verdicts.get("pass") or 0) != sources.manifest.expected_total:
+            raise CorpusError("model audit has review or rejected scenarios")
+        if any(int(severities.get(level) or 0) for level in ("critical", "major", "minor")):
+            raise CorpusError("model audit still has unresolved findings")
+    try:
+        receipt_path = str(resolved.relative_to(root))
+    except ValueError:
+        receipt_path = str(resolved)
+    return {
+        "path": receipt_path,
+        "sha256": hashlib.sha256(resolved.read_bytes()).hexdigest(),
+        "candidateSetSha256": expected_hash,
+    }
+
+
 def record_level_approval(
     *,
     level: str,
     candidate_directory: Path,
     reviewer: str,
+    reviewed_candidate_set_sha256: str | None = None,
+    editorial_audit_path: Path = Path(
+        "tools/content_factory/review/canonical_120_v1/editorial_audit.json"
+    ),
+    model_audit_path: Path | None = None,
     root: Path = ROOT,
 ) -> dict[str, Any]:
     normalized = level.lower()
@@ -1361,12 +1416,36 @@ def record_level_approval(
         raise CorpusError("only Jin can approve a canonical level")
     sources = load_sources(root)
     candidates = load_level_candidates(candidate_directory, normalized, root=root)
+    current_level_hash = candidate_set_hash(candidates)
+    if not reviewed_candidate_set_sha256:
+        raise CorpusError("approval requires the candidate-set SHA Jin reviewed")
+    if reviewed_candidate_set_sha256 != current_level_hash:
+        raise CorpusError("reviewed candidate-set SHA does not match the current level")
+    all_candidates = load_corpus_candidates(candidate_directory, root=root)
+    editorial_receipt = _verified_audit_receipt(
+        path=editorial_audit_path,
+        expected_kind=EDITORIAL_AUDIT_KIND,
+        candidates=all_candidates,
+        sources=sources,
+        root=root,
+    )
+    if model_audit_path is None:
+        raise CorpusError("approval requires a hash-bound model audit receipt")
+    model_receipt = _verified_audit_receipt(
+        path=model_audit_path,
+        expected_kind=MODEL_AUDIT_KIND,
+        candidates=all_candidates,
+        sources=sources,
+        root=root,
+    )
     approvals = json.loads(json.dumps(sources.approvals, ensure_ascii=False))
     approvals["levels"][normalized] = {
         "decision": "approved",
         "reviewer": reviewer,
         "reviewedScenarioCount": 20,
-        "candidateSetSha256": candidate_set_hash(candidates),
+        "candidateSetSha256": current_level_hash,
+        "editorialAuditReceipt": editorial_receipt,
+        "modelAuditReceipt": model_receipt,
         "approvedAt": datetime.now(timezone.utc).isoformat(),
         "promotedAt": None,
     }

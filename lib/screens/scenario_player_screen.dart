@@ -1214,6 +1214,8 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                                     languageCode: lang,
                                     fallbackYou: t.listeningSpeakerYou,
                                     fallbackNarrator: t.listeningNarrator,
+                                    playerSelfSuffix:
+                                        t.scenarioPlayerSelfSuffix,
                                   ),
                                   style: SoriTextTheme.of(context).meta
                                       .copyWith(

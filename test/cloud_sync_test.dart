@@ -515,7 +515,7 @@ void main() {
       });
       expect(
         jsonDecode(payload['course_mastery_json'] as String)['version'],
-        3,
+        4,
       );
       expect(payload, isNot(contains('browse_level')));
     },
@@ -565,7 +565,7 @@ void main() {
   });
 
   test(
-    'backup migrates retained v1 course state before emitting canonical v3',
+    'backup migrates retained v1 course state before emitting canonical v4',
     () async {
       final legacy = jsonEncode({
         ...jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>,
@@ -579,14 +579,14 @@ void main() {
 
       final payload = await CloudSync.buildBackupPayload();
 
-      expect(Storage.courseMasterySnapshotRawJson, contains('"version":3'));
+      expect(Storage.courseMasterySnapshotRawJson, contains('"version":4'));
       expect(Storage.legacyCourseMasteryRawJson, legacy);
       expect(Storage.browseLevelCode, 'b2');
       expect(Storage.userLevelCode, 'a2');
       expect(payload['course_mastery_json'], isA<String>());
       expect(
         jsonDecode(payload['course_mastery_json'] as String)['version'],
-        3,
+        4,
       );
     },
   );
@@ -609,7 +609,7 @@ void main() {
           jsonDecode(payload['course_mastery_json'] as String)
               as Map<String, dynamic>;
 
-      expect(durable['version'], 3);
+      expect(durable['version'], 4);
       expect(durable['productiveEvidence'], isEmpty);
       expect(captured, durable);
     },
@@ -630,7 +630,7 @@ void main() {
       final canonical =
           jsonDecode(Storage.courseMasterySnapshotRawJson)
               as Map<String, dynamic>;
-      expect(canonical['version'], 3);
+      expect(canonical['version'], 4);
       expect(canonical['placementLevel'], 'a1');
       expect(canonical['currentCourseUnitId'], 'a1_01_greetings_hangul');
       expect(Storage.browseLevelCode, 'b2');
@@ -1154,7 +1154,7 @@ void main() {
       final local = _courseSnapshotJson(evidenceId: 'local-evidence');
       final future = jsonEncode({
         ...jsonDecode(_courseSnapshotJson()) as Map<String, dynamic>,
-        'version': 4,
+        'version': 5,
       });
       final unknownUnit = _courseSnapshotJson(
         currentCourseUnitId: 'unknown-course-unit',

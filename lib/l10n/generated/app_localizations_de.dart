@@ -3316,6 +3316,9 @@ class AppL10nDe extends AppL10n {
   String get listeningSpeakerYou => 'Du';
 
   @override
+  String get scenarioPlayerSelfSuffix => '(나)';
+
+  @override
   String get listeningReviewTitle => 'Zeile für Zeile wiederholen';
 
   @override
