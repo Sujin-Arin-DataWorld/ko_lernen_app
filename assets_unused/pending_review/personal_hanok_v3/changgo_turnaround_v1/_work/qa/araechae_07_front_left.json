@@ -1,0 +1,50 @@
+{
+  "raw": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\araechae-8view-20260829\\assets_unused\\pending_review\\personal_hanok_v3\\changgo_turnaround_v1\\_work\\raw\\araechae_07_front_left_raw.png",
+  "guide": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\araechae-8view-20260829\\assets_unused\\pending_review\\personal_hanok_v3\\changgo_turnaround_v1\\_work\\guides\\guide_07_front_left_315.png",
+  "output": "C:\\dev\\hangulsori\\ko_lernen_app_worktrees\\araechae-8view-20260829\\assets_unused\\pending_review\\personal_hanok_v3\\changgo_turnaround_v1\\araechae_07_front_left.png",
+  "canvas": [
+    2560,
+    1440
+  ],
+  "source_bbox": [
+    241,
+    167,
+    1435,
+    820
+  ],
+  "guide_bbox": [
+    449,
+    55,
+    2112,
+    1191
+  ],
+  "final_bbox": [
+    448,
+    350,
+    2111,
+    1259
+  ],
+  "ground_y": 1258,
+  "registration": "isotropic_fit",
+  "scale": 1.3927973199329984,
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "transparent_pixels": 2586555,
+  "semi_transparent_pixels": 31879,
+  "green_rim_pixels": 123,
+  "neon_green_rim_pixels": 0,
+  "extraction": {
+    "method": "neutral_checker_flood_largest_component_nearest_color_feather",
+    "source_components": 8,
+    "main_component_pixels": 562376,
+    "kept_pixels": 562376,
+    "eroded_core_pixels": 559059,
+    "transparent_pixels": 1007677,
+    "semi_transparent_pixels": 13183,
+    "neon_green_despilled_pixels": 0
+  }
+}

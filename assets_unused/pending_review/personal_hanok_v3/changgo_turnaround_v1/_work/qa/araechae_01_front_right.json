@@ -1,0 +1,49 @@
+{
+  "raw": "assets_unused\\pending_review\\personal_hanok_v3\\changgo_turnaround_v1\\_work\\raw\\araechae_01_front_right_raw.png",
+  "guide": "assets_unused\\pending_review\\personal_hanok_v3\\changgo_turnaround_v1\\_work\\guides\\guide_01_front_right_045.png",
+  "output": "assets_unused\\pending_review\\personal_hanok_v3\\changgo_turnaround_v1\\araechae_01_front_right.png",
+  "canvas": [
+    2560,
+    1440
+  ],
+  "source_bbox": [
+    84,
+    40,
+    1582,
+    921
+  ],
+  "guide_bbox": [
+    449,
+    55,
+    2111,
+    1191
+  ],
+  "final_bbox": [
+    449,
+    282,
+    2111,
+    1259
+  ],
+  "ground_y": 1258,
+  "scale": 1.109479305740988,
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "transparent_pixels": 2562595,
+  "semi_transparent_pixels": 26433,
+  "green_rim_pixels": 113,
+  "neon_green_rim_pixels": 0,
+  "extraction": {
+    "method": "neutral_checker_flood_largest_component_nearest_color_feather",
+    "source_components": 21,
+    "main_component_pixels": 906963,
+    "kept_pixels": 906963,
+    "eroded_core_pixels": 902686,
+    "transparent_pixels": 662142,
+    "semi_transparent_pixels": 17004,
+    "neon_green_despilled_pixels": 0
+  }
+}

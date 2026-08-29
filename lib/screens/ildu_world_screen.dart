@@ -992,6 +992,9 @@ class _GateSheet extends StatelessWidget {
                                 onDirectionChanged: onDirectionChanged,
                                 semanticsLabel:
                                     '${gate.ko}. ${t.ilduWorldRotateBuildingHint}',
+                                zoomInLabel: t.ilduWorldZoomInBuilding,
+                                zoomOutLabel: t.ilduWorldZoomOutBuilding,
+                                resetZoomLabel: t.ilduWorldResetBuildingZoom,
                               ),
                             ),
                           ),
@@ -1175,6 +1178,10 @@ class _PlaceSheet extends StatelessWidget {
                                       onDirectionChanged: onDirectionChanged,
                                       semanticsLabel:
                                           '${building.ko}. ${t.ilduWorldRotateBuildingHint}',
+                                      zoomInLabel: t.ilduWorldZoomInBuilding,
+                                      zoomOutLabel: t.ilduWorldZoomOutBuilding,
+                                      resetZoomLabel:
+                                          t.ilduWorldResetBuildingZoom,
                                     ),
                                   ),
                                 ),

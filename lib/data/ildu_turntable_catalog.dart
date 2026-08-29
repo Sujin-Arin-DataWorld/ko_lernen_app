@@ -5,19 +5,27 @@ const String kIlDuTurntableAssetRoot =
 
 /// One authored view in a clockwise eight-direction Hanok turnaround.
 ///
-/// [contentBounds] removes transparent generation padding at paint time. The
-/// source PNG stays byte-for-byte unchanged while every direction shares a
-/// stable visual baseline in the map and inspection card.
+/// [contentBounds] records the nontransparent pixels without changing the
+/// source PNG. [viewportBounds] can retain a shared authored crop so every
+/// direction keeps one scale and ground line in the map and inspection card.
 class IlDuTurntableFrame {
   final String assetPath;
   final Size sourceSize;
   final Rect contentBounds;
+  final Rect? viewportBounds;
 
   const IlDuTurntableFrame({
     required this.assetPath,
     required this.sourceSize,
     required this.contentBounds,
+    this.viewportBounds,
   });
+
+  /// The authored crop used for display.
+  ///
+  /// Most legacy turntables tightly crop each direction. New sets can provide
+  /// one shared viewport so a turn keeps its exact scale and ground line.
+  Rect get displayBounds => viewportBounds ?? contentBounds;
 }
 
 class IlDuTurntableSpec {
@@ -46,11 +54,13 @@ IlDuTurntableFrame _frame(
   double left,
   double top,
   double right,
-  double bottom,
-) => IlDuTurntableFrame(
+  double bottom, {
+  Rect? viewportBounds,
+}) => IlDuTurntableFrame(
   assetPath: '$kIlDuTurntableAssetRoot$file',
   sourceSize: Size(sourceWidth, sourceHeight),
   contentBounds: Rect.fromLTRB(left, top, right, bottom),
+  viewportBounds: viewportBounds,
 );
 
 final IlDuTurntableSpec kIlDuSarangchaeTurntable = IlDuTurntableSpec(
@@ -128,6 +138,147 @@ final IlDuTurntableSpec kIlDuSotdaeulmunTurntable = IlDuTurntableSpec(
   ],
 );
 
+const Rect _kIlDuAraechaeViewport = Rect.fromLTRB(448, 274, 2111, 1259);
+
+final IlDuTurntableSpec kIlDuAraechaeTurntable = IlDuTurntableSpec(
+  anchorId: 'araechae',
+  mapAspectRatio: 1.6883248731,
+  frames: <IlDuTurntableFrame>[
+    _frame(
+      'ildu_araechae_00_front.png',
+      2560,
+      1440,
+      618,
+      435,
+      1943,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_01_front_right.png',
+      2560,
+      1440,
+      449,
+      282,
+      2111,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_02_right.png',
+      2560,
+      1440,
+      808,
+      274,
+      1751,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_03_rear_right.png',
+      2560,
+      1440,
+      448,
+      342,
+      2111,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_04_rear.png',
+      2560,
+      1440,
+      574,
+      453,
+      1987,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_05_rear_left.png',
+      2560,
+      1440,
+      449,
+      391,
+      2111,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_06_left.png',
+      2560,
+      1440,
+      808,
+      341,
+      1751,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_07_front_left.png',
+      2560,
+      1440,
+      448,
+      350,
+      2111,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+  ],
+);
+
+/// Jin-approved V05 Jungmunganchae turnaround.
+///
+/// The source frames are the approved 28-degree elevated RGBA exports. Their
+/// differing source canvases are cropped only by transparent alpha bounds at
+/// paint time; the authored pixels themselves remain unchanged.
+final IlDuTurntableSpec kIlDuJungmunganchaeTurntable = IlDuTurntableSpec(
+  anchorId: 'jungmunganchae',
+  mapAspectRatio: 2.3,
+  frames: <IlDuTurntableFrame>[
+    _frame('ildu_jungmunganchae_00_front.png', 1792, 878, 157, 98, 1621, 786),
+    _frame(
+      'ildu_jungmunganchae_01_front_right.png',
+      1454,
+      1082,
+      39,
+      58,
+      1434,
+      1050,
+    ),
+    _frame('ildu_jungmunganchae_02_right.png', 1400, 1123, 251, 63, 1149, 1068),
+    _frame(
+      'ildu_jungmunganchae_03_rear_right.png',
+      1453,
+      1082,
+      21,
+      54,
+      1433,
+      1054,
+    ),
+    _frame('ildu_jungmunganchae_04_rear.png', 1791, 878, 93, 100, 1698, 800),
+    _frame(
+      'ildu_jungmunganchae_05_rear_left.png',
+      1571,
+      1001,
+      61,
+      36,
+      1512,
+      964,
+    ),
+    _frame('ildu_jungmunganchae_06_left.png', 1525, 1031, 389, 50, 1120, 982),
+    _frame(
+      'ildu_jungmunganchae_07_front_left.png',
+      1493,
+      1054,
+      48,
+      60,
+      1404,
+      989,
+    ),
+  ],
+);
+
 final IlDuTurntableSpec kIlDuSadangTurntable = IlDuTurntableSpec(
   anchorId: 'sadang',
   mapAspectRatio: 1.15,
@@ -188,6 +339,8 @@ final Map<String, IlDuTurntableSpec> kIlDuTurntables =
       kIlDuChanggoTurntable.anchorId: kIlDuChanggoTurntable,
       kIlDuAnchaeTurntable.anchorId: kIlDuAnchaeTurntable,
       kIlDuSotdaeulmunTurntable.anchorId: kIlDuSotdaeulmunTurntable,
+      kIlDuAraechaeTurntable.anchorId: kIlDuAraechaeTurntable,
+      kIlDuJungmunganchaeTurntable.anchorId: kIlDuJungmunganchaeTurntable,
       kIlDuSadangTurntable.anchorId: kIlDuSadangTurntable,
       kIlDuSadangmunTurntable.anchorId: kIlDuSadangmunTurntable,
       kIlDuHyeopmunWestTurntable.anchorId: kIlDuHyeopmunWestTurntable,

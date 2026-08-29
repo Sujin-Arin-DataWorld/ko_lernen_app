@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../data/ildu_turntable_catalog.dart';
-import '../../l10n/generated/app_localizations.dart';
 import 'tokens.dart';
 
 /// Controlled, eight-direction 2.5D viewer for an authored Hanok turnaround.
@@ -13,11 +12,10 @@ class HanokTurntable2D extends StatefulWidget {
   final int direction;
   final ValueChanged<int> onDirectionChanged;
   final String semanticsLabel;
+  final String zoomInLabel;
+  final String zoomOutLabel;
+  final String resetZoomLabel;
   final double dragPixelsPerStep;
-  final int cacheWidth;
-  final double minZoom;
-  final double maxZoom;
-  final double zoomStep;
 
   const HanokTurntable2D({
     super.key,
@@ -25,27 +23,37 @@ class HanokTurntable2D extends StatefulWidget {
     required this.direction,
     required this.onDirectionChanged,
     required this.semanticsLabel,
+    required this.zoomInLabel,
+    required this.zoomOutLabel,
+    required this.resetZoomLabel,
     this.dragPixelsPerStep = 28,
-    this.cacheWidth = 512,
-    this.minZoom = .75,
-    this.maxZoom = 2.5,
-    this.zoomStep = .25,
   }) : assert(frames.length == 8),
        assert(direction >= 0 && direction < 8),
-       assert(dragPixelsPerStep > 0),
-       assert(minZoom > 0),
-       assert(maxZoom >= 1),
-       assert(minZoom < maxZoom),
-       assert(zoomStep > 0);
+       assert(dragPixelsPerStep > 0);
 
   @override
   State<HanokTurntable2D> createState() => _HanokTurntable2DState();
 }
 
 class _HanokTurntable2DState extends State<HanokTurntable2D> {
+  static const double _minScale = .75;
+  static const double _maxScale = 2.5;
+  static const double _zoomStep = .25;
+
   double _dragAccumulator = 0;
-  double _zoom = 1;
-  double _gestureStartZoom = 1;
+  double _scale = 1;
+  double _gestureStartScale = 1;
+  bool _gestureHasScaled = false;
+
+  @override
+  void didUpdateWidget(HanokTurntable2D oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (!identical(oldWidget.frames, widget.frames)) {
+      _scale = 1;
+      return;
+    }
+    _scale = _scale.clamp(_minScale, _maxScale).toDouble();
+  }
 
   int _wrap(int value) {
     final remainder = value % widget.frames.length;
@@ -59,33 +67,8 @@ class _HanokTurntable2DState extends State<HanokTurntable2D> {
     }
   }
 
-  double _clampZoom(double value) =>
-      value.clamp(widget.minZoom, widget.maxZoom).toDouble();
-
-  void _setZoom(double value) {
-    final next = _clampZoom(value);
-    if (next == _zoom) {
-      return;
-    }
-    setState(() {
-      _zoom = next;
-    });
-  }
-
-  void _handleScaleStart(ScaleStartDetails details) {
-    _dragAccumulator = 0;
-    _gestureStartZoom = _zoom;
-  }
-
-  void _handleScaleUpdate(ScaleUpdateDetails details) {
-    final isZoomGesture =
-        details.pointerCount > 1 || (details.scale - 1).abs() > .001;
-    if (isZoomGesture) {
-      _dragAccumulator = 0;
-      _setZoom(_gestureStartZoom * details.scale);
-      return;
-    }
-    _dragAccumulator += details.focalPointDelta.dx;
+  void _handleHorizontalDelta(double delta) {
+    _dragAccumulator += delta;
     final steps = (_dragAccumulator / widget.dragPixelsPerStep).truncate();
     if (steps == 0) {
       return;
@@ -95,151 +78,146 @@ class _HanokTurntable2DState extends State<HanokTurntable2D> {
     _turnBy(-steps);
   }
 
-  void _handleScaleEnd(ScaleEndDetails details) {
+  void _setScale(double value) {
+    final next = value.clamp(_minScale, _maxScale).toDouble();
+    if ((next - _scale).abs() < .001) {
+      return;
+    }
+    setState(() => _scale = next);
+  }
+
+  void _zoomBy(double delta) => _setScale(_scale + delta);
+
+  void _handleScaleStart(ScaleStartDetails details) {
     _dragAccumulator = 0;
-    _gestureStartZoom = _zoom;
+    _gestureStartScale = _scale;
+    _gestureHasScaled = false;
+  }
+
+  void _handleScaleUpdate(ScaleUpdateDetails details) {
+    final scaleChanged = (details.scale - 1).abs() > .015;
+    if (details.pointerCount > 1 || _gestureHasScaled || scaleChanged) {
+      _gestureHasScaled = true;
+      _setScale(_gestureStartScale * details.scale);
+      return;
+    }
+
+    _handleHorizontalDelta(details.focalPointDelta.dx);
+  }
+
+  void _handleScaleEnd(ScaleEndDetails _) {
+    _dragAccumulator = 0;
+    _gestureHasScaled = false;
   }
 
   @override
   Widget build(BuildContext context) {
     final frame = widget.frames[widget.direction];
-    final t = AppL10n.of(context);
-    final zoomPercent = (_zoom * 100).round();
-    final duration = SoriMotion.respect(
-      context,
-      const Duration(milliseconds: 110),
-    );
     return Semantics(
       key: const ValueKey('hanok-turntable-semantics'),
       container: true,
+      explicitChildNodes: true,
       image: true,
       label: widget.semanticsLabel,
-      value: '${widget.direction + 1} / ${widget.frames.length}, $zoomPercent%',
+      value:
+          '${widget.direction + 1} / ${widget.frames.length}, '
+          '${(_scale * 100).round()}%',
       increasedValue:
           '${_wrap(widget.direction + 1) + 1} / ${widget.frames.length}',
       decreasedValue:
           '${_wrap(widget.direction - 1) + 1} / ${widget.frames.length}',
       onIncrease: () => _turnBy(1),
       onDecrease: () => _turnBy(-1),
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          Positioned.fill(
-            child: MouseRegion(
-              cursor: SystemMouseCursors.grab,
-              child: GestureDetector(
-                key: const ValueKey('hanok-turntable-drag-area'),
-                behavior: HitTestBehavior.opaque,
-                onScaleStart: _handleScaleStart,
-                onScaleUpdate: _handleScaleUpdate,
-                onScaleEnd: _handleScaleEnd,
-                child: Transform.scale(
-                  key: const ValueKey('hanok-turntable-image-transform'),
-                  scale: _zoom,
-                  alignment: Alignment.center,
-                  child: AnimatedSwitcher(
-                    duration: duration,
-                    switchInCurve: SoriMotion.gentle,
-                    switchOutCurve: SoriMotion.gentle,
-                    child: HanokTurntableFrameImage(
-                      key: ValueKey(
-                        'hanok-turntable-frame-${widget.direction}',
+      child: MouseRegion(
+        cursor: SystemMouseCursors.grab,
+        child: GestureDetector(
+          key: const ValueKey('hanok-turntable-drag-area'),
+          behavior: HitTestBehavior.opaque,
+          onScaleStart: _handleScaleStart,
+          onScaleUpdate: _handleScaleUpdate,
+          onScaleEnd: _handleScaleEnd,
+          child: Stack(
+            fit: StackFit.expand,
+            clipBehavior: Clip.hardEdge,
+            children: [
+              Transform.scale(
+                key: const ValueKey('hanok-turntable-zoom-layer'),
+                scale: _scale,
+                alignment: Alignment.bottomCenter,
+                child: HanokTurntableFrameImage(
+                  key: ValueKey('hanok-turntable-frame-${widget.direction}'),
+                  frame: frame,
+                  cacheWidth: frame.sourceSize.width.round(),
+                ),
+              ),
+              Positioned(
+                top: Spacing.xs,
+                right: Spacing.xs,
+                child: Material(
+                  color: SoriColors.darkBg.withValues(alpha: .76),
+                  borderRadius: SoriRadius.brSm,
+                  clipBehavior: Clip.antiAlias,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      _ZoomButton(
+                        key: const ValueKey('hanok-turntable-zoom-out'),
+                        icon: Icons.remove_rounded,
+                        label: widget.zoomOutLabel,
+                        onPressed: _scale > _minScale + .001
+                            ? () => _zoomBy(-_zoomStep)
+                            : null,
                       ),
-                      frame: frame,
-                      cacheWidth: widget.cacheWidth,
-                    ),
+                      _ZoomButton(
+                        key: const ValueKey('hanok-turntable-zoom-reset'),
+                        icon: Icons.center_focus_strong_rounded,
+                        label: widget.resetZoomLabel,
+                        onPressed: (_scale - 1).abs() > .001
+                            ? () => _setScale(1)
+                            : null,
+                      ),
+                      _ZoomButton(
+                        key: const ValueKey('hanok-turntable-zoom-in'),
+                        icon: Icons.add_rounded,
+                        label: widget.zoomInLabel,
+                        onPressed: _scale < _maxScale - .001
+                            ? () => _zoomBy(_zoomStep)
+                            : null,
+                      ),
+                    ],
                   ),
                 ),
               ),
-            ),
-          ),
-          Positioned(
-            left: Spacing.xs,
-            top: Spacing.xs,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: SoriColors.darkBg.withValues(alpha: .78),
-                borderRadius: SoriRadius.brPill,
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  IconButton(
-                    key: const ValueKey('hanok-turntable-zoom-out'),
-                    tooltip: t.personalRoomMakeSmaller,
-                    onPressed: _zoom <= widget.minZoom
-                        ? null
-                        : () => _setZoom(_zoom - widget.zoomStep),
-                    icon: const Icon(Icons.remove_rounded),
-                    color: const Color(0xFFFFF8E8),
-                    disabledColor: const Color(0x66FFF8E8),
-                    iconSize: 18,
-                    style: IconButton.styleFrom(
-                      minimumSize: const Size.square(44),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                  ),
-                  TextButton(
-                    key: const ValueKey('hanok-turntable-zoom-reset'),
-                    onPressed: _zoom == 1 ? null : () => _setZoom(1),
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size(48, 44),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: Spacing.xs,
+              Positioned(
+                right: Spacing.xs,
+                bottom: Spacing.xs,
+                child: ExcludeSemantics(
+                  child: IgnorePointer(
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: SoriColors.darkBg.withValues(alpha: .72),
+                        borderRadius: SoriRadius.brPill,
                       ),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      foregroundColor: const Color(0xFFFFF8E8),
-                      disabledForegroundColor: const Color(0xFFFFF8E8),
-                    ),
-                    child: Text('$zoomPercent%'),
-                  ),
-                  IconButton(
-                    key: const ValueKey('hanok-turntable-zoom-in'),
-                    tooltip: t.personalRoomMakeLarger,
-                    onPressed: _zoom >= widget.maxZoom
-                        ? null
-                        : () => _setZoom(_zoom + widget.zoomStep),
-                    icon: const Icon(Icons.add_rounded),
-                    color: const Color(0xFFFFF8E8),
-                    disabledColor: const Color(0x66FFF8E8),
-                    iconSize: 18,
-                    style: IconButton.styleFrom(
-                      minimumSize: const Size.square(44),
-                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            right: Spacing.xs,
-            bottom: Spacing.xs,
-            child: ExcludeSemantics(
-              child: IgnorePointer(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: SoriColors.darkBg.withValues(alpha: .72),
-                    borderRadius: SoriRadius.brPill,
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: Spacing.sm,
-                      vertical: 2,
-                    ),
-                    child: Text(
-                      '${widget.direction + 1}/8',
-                      style: SoriTextTheme.of(context).caption.copyWith(
-                        color: const Color(0xFFFFF8E8),
-                        fontWeight: FontWeight.w700,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: Spacing.sm,
+                          vertical: 2,
+                        ),
+                        child: Text(
+                          '${widget.direction + 1}/8',
+                          style: SoriTextTheme.of(context).caption.copyWith(
+                            color: const Color(0xFFFFF8E8),
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
@@ -257,7 +235,7 @@ class HanokTurntableFrameImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bounds = frame.contentBounds;
+    final bounds = frame.displayBounds;
     return RepaintBoundary(
       child: FittedBox(
         fit: BoxFit.contain,
@@ -292,6 +270,34 @@ class HanokTurntableFrameImage extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _ZoomButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final VoidCallback? onPressed;
+
+  const _ZoomButton({
+    super.key,
+    required this.icon,
+    required this.label,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      tooltip: label,
+      onPressed: onPressed,
+      icon: Icon(icon),
+      iconSize: 18,
+      padding: EdgeInsets.zero,
+      constraints: const BoxConstraints.tightFor(width: 32, height: 32),
+      color: const Color(0xFFFFF8E8),
+      disabledColor: const Color(0x66FFF8E8),
+      visualDensity: VisualDensity.compact,
     );
   }
 }

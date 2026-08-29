@@ -104,6 +104,58 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('selecting and turning Jungmunganchae updates its map frame', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedA1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final mapAnchor = find.byKey(
+      const ValueKey('ildu-map-turntable-jungmunganchae-2'),
+    );
+    final tapTarget = find.descendant(
+      of: mapAnchor,
+      matching: find.byType(GestureDetector),
+    );
+    tester.widget<GestureDetector>(tapTarget).onTap!();
+    await tester.pumpAndSettle();
+
+    expect(find.text('중문채'), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('ildu-turntable-jungmunganchae')),
+      findsOneWidget,
+    );
+
+    await tester.drag(
+      find.byKey(const ValueKey('hanok-turntable-drag-area')),
+      const Offset(-40, 0),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-jungmunganchae-3')),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('selecting and turning Sotdaeulmun updates its map frame', (
     tester,
   ) async {
@@ -273,7 +325,6 @@ void main() {
       const Offset(-40, 0),
     );
     await tester.pumpAndSettle();
-
     expect(
       find.byKey(const ValueKey('ildu-map-turntable-changgo-3')),
       findsOneWidget,
@@ -325,6 +376,70 @@ void main() {
       find.byKey(const ValueKey('ildu-map-turntable-anchae-3')),
       findsOneWidget,
     );
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('selecting Araechae exposes rotation and zoom in the map sheet', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedB1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final araechaeAnchor = find.byKey(
+      const ValueKey('ildu-map-turntable-araechae-0'),
+    );
+    expect(araechaeAnchor, findsOneWidget);
+    final tapTarget = find.descendant(
+      of: araechaeAnchor,
+      matching: find.byWidgetPredicate(
+        (widget) => widget is GestureDetector && widget.onTap != null,
+      ),
+    );
+    tester.widget<GestureDetector>(tapTarget).onTap!();
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-turntable-araechae')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('hanok-turntable-zoom-in')),
+      findsOneWidget,
+    );
+
+    await tester.drag(
+      find.byKey(const ValueKey('hanok-turntable-drag-area')),
+      const Offset(-40, 0),
+    );
+    await tester.pumpAndSettle();
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-araechae-1')),
+      findsOneWidget,
+    );
+
+    await tester.tap(find.byKey(const ValueKey('hanok-turntable-zoom-in')));
+    await tester.pump();
+    final zoomLayer = tester.widget<Transform>(
+      find.byKey(const ValueKey('hanok-turntable-zoom-layer')),
+    );
+    expect(zoomLayer.transform.storage[0], 1.25);
     expect(tester.takeException(), isNull);
   });
 
