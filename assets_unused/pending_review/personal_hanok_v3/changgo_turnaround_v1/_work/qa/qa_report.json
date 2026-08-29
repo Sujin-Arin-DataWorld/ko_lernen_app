@@ -1,0 +1,297 @@
+{
+  "status": "pass",
+  "expected_order": [
+    "정면",
+    "정면우측",
+    "우측",
+    "배면우측",
+    "배면",
+    "배면좌측",
+    "좌측",
+    "정면좌측"
+  ],
+  "camera": {
+    "azimuth_step_degrees": 45,
+    "elevation_degrees": 23,
+    "projection": "orthographic"
+  },
+  "canvas": [
+    2560,
+    1440
+  ],
+  "ground_y": 1258,
+  "views": [
+    {
+      "index": 0,
+      "direction": "정면",
+      "azimuth_degrees": 0,
+      "file": "araechae_00_front.png",
+      "mode": "RGBA",
+      "canvas": [
+        2560,
+        1440
+      ],
+      "alpha_bbox": [
+        618,
+        435,
+        1943,
+        1259
+      ],
+      "ground_y": 1258,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "material_alpha_components": 1,
+      "semi_transparent_pixels": 23646,
+      "neon_green_rim_pixels": 0,
+      "palette": {
+        "median_rgb_distance": 6.708,
+        "p95_rgb_distance": 19.339,
+        "within_45_fraction": 0.99878,
+        "within_65_fraction": 0.99998
+      },
+      "pass": true
+    },
+    {
+      "index": 1,
+      "direction": "정면우측",
+      "azimuth_degrees": 45,
+      "file": "araechae_01_front_right.png",
+      "mode": "RGBA",
+      "canvas": [
+        2560,
+        1440
+      ],
+      "alpha_bbox": [
+        449,
+        282,
+        2111,
+        1259
+      ],
+      "ground_y": 1258,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "material_alpha_components": 1,
+      "semi_transparent_pixels": 26433,
+      "neon_green_rim_pixels": 0,
+      "palette": {
+        "median_rgb_distance": 6.403,
+        "p95_rgb_distance": 15.297,
+        "within_45_fraction": 0.99985,
+        "within_65_fraction": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 2,
+      "direction": "우측",
+      "azimuth_degrees": 90,
+      "file": "araechae_02_right.png",
+      "mode": "RGBA",
+      "canvas": [
+        2560,
+        1440
+      ],
+      "alpha_bbox": [
+        808,
+        274,
+        1751,
+        1259
+      ],
+      "ground_y": 1258,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "material_alpha_components": 1,
+      "semi_transparent_pixels": 23909,
+      "neon_green_rim_pixels": 0,
+      "palette": {
+        "median_rgb_distance": 8.185,
+        "p95_rgb_distance": 18.547,
+        "within_45_fraction": 0.99988,
+        "within_65_fraction": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 3,
+      "direction": "배면우측",
+      "azimuth_degrees": 135,
+      "file": "araechae_03_rear_right.png",
+      "mode": "RGBA",
+      "canvas": [
+        2560,
+        1440
+      ],
+      "alpha_bbox": [
+        448,
+        342,
+        2111,
+        1259
+      ],
+      "ground_y": 1258,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "material_alpha_components": 1,
+      "semi_transparent_pixels": 24367,
+      "neon_green_rim_pixels": 0,
+      "palette": {
+        "median_rgb_distance": 6.782,
+        "p95_rgb_distance": 16.31,
+        "within_45_fraction": 0.99998,
+        "within_65_fraction": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 4,
+      "direction": "배면",
+      "azimuth_degrees": 180,
+      "file": "araechae_04_rear.png",
+      "mode": "RGBA",
+      "canvas": [
+        2560,
+        1440
+      ],
+      "alpha_bbox": [
+        574,
+        453,
+        1987,
+        1259
+      ],
+      "ground_y": 1258,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "material_alpha_components": 1,
+      "semi_transparent_pixels": 24844,
+      "neon_green_rim_pixels": 0,
+      "palette": {
+        "median_rgb_distance": 7.874,
+        "p95_rgb_distance": 24.29,
+        "within_45_fraction": 0.99997,
+        "within_65_fraction": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 5,
+      "direction": "배면좌측",
+      "azimuth_degrees": 225,
+      "file": "araechae_05_rear_left.png",
+      "mode": "RGBA",
+      "canvas": [
+        2560,
+        1440
+      ],
+      "alpha_bbox": [
+        449,
+        391,
+        2111,
+        1259
+      ],
+      "ground_y": 1258,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "material_alpha_components": 1,
+      "semi_transparent_pixels": 26534,
+      "neon_green_rim_pixels": 0,
+      "palette": {
+        "median_rgb_distance": 6.708,
+        "p95_rgb_distance": 15.232,
+        "within_45_fraction": 0.99997,
+        "within_65_fraction": 0.99998
+      },
+      "pass": true
+    },
+    {
+      "index": 6,
+      "direction": "좌측",
+      "azimuth_degrees": 270,
+      "file": "araechae_06_left.png",
+      "mode": "RGBA",
+      "canvas": [
+        2560,
+        1440
+      ],
+      "alpha_bbox": [
+        808,
+        341,
+        1751,
+        1259
+      ],
+      "ground_y": 1258,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "material_alpha_components": 1,
+      "semi_transparent_pixels": 26081,
+      "neon_green_rim_pixels": 0,
+      "palette": {
+        "median_rgb_distance": 7.483,
+        "p95_rgb_distance": 17.378,
+        "within_45_fraction": 0.99977,
+        "within_65_fraction": 1.0
+      },
+      "pass": true
+    },
+    {
+      "index": 7,
+      "direction": "정면좌측",
+      "azimuth_degrees": 315,
+      "file": "araechae_07_front_left.png",
+      "mode": "RGBA",
+      "canvas": [
+        2560,
+        1440
+      ],
+      "alpha_bbox": [
+        448,
+        350,
+        2111,
+        1259
+      ],
+      "ground_y": 1258,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "material_alpha_components": 2,
+      "semi_transparent_pixels": 31879,
+      "neon_green_rim_pixels": 0,
+      "palette": {
+        "median_rgb_distance": 6.782,
+        "p95_rgb_distance": 18.974,
+        "within_45_fraction": 0.99925,
+        "within_65_fraction": 0.99995
+      },
+      "pass": true
+    }
+  ]
+}
