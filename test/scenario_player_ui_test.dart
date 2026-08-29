@@ -16,6 +16,7 @@ import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
+import 'package:ko_lernen_app/widgets/sori/speakable.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
@@ -209,6 +210,73 @@ void main() {
     expect(semanticsData.hasAction(ui.SemanticsAction.tap), isTrue);
     semantics.dispose();
   });
+
+  testWidgets(
+    'canonical player profile renders its name and supplies its voice',
+    (tester) async {
+      const spokenText = '네, 여기 있어요.';
+      const scenario = Scenario(
+        id: 'canonical-player-voice',
+        level: LearnerLevel.a1,
+        emoji: '🎭',
+        register: Register.polite,
+        title: LocalizedText(
+          ko: '음성 계약',
+          de: 'Stimmenvertrag',
+          en: 'Voice contract',
+        ),
+        intro: LocalizedText(ko: '', de: '', en: ''),
+        vocab: [],
+        grammarIds: [],
+        playerCharacterId: 'christian',
+        participantIds: ['christian'],
+        dialog: [
+          DialogLine(
+            speaker: 'user',
+            ko: spokenText,
+            de: 'Ja, hier bitte.',
+            en: 'Yes, here you go.',
+          ),
+        ],
+        quests: [],
+      );
+      final profileVoice = scenario.voiceForSpeaker('user');
+      expect(
+        profileVoice,
+        'male',
+        reason: 'Christian must override the legacy user=female fallback',
+      );
+      final speakCalls = <({String text, String voice})>[];
+      SoriSpeech.resetForTesting();
+      addTearDown(SoriSpeech.resetForTesting);
+      SoriSpeech.speakImpl = (text, voice) async {
+        speakCalls.add((text: text, voice: voice));
+        return true;
+      };
+
+      await _pumpPlayer(
+        tester,
+        child: ScenarioPlayerScreen.preview(
+          fixture: const ScenarioPlayerPreviewFixture.action(
+            scenario: scenario,
+            stage: ScenarioStage.dialog,
+          ),
+        ),
+        size: const Size(390, 844),
+        textScale: 1.3,
+      );
+
+      expect(find.text('크리스티안 (나)'), findsOneWidget);
+
+      await tester.tap(
+        find.bySemanticsLabel(RegExp(r'^Aussprache: 네, 여기 있어요\.')),
+      );
+      await tester.pump();
+
+      expect(speakCalls, [(text: spokenText, voice: profileVoice)]);
+      expect(tester.takeException(), isNull);
+    },
+  );
 
   testWidgets('DE and EN states remain reachable across the viewport matrix', (
     tester,
