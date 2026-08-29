@@ -35,6 +35,36 @@ void main() {
     return spans;
   }
 
+  bool hasPrivateChipRail(String clean) {
+    final horizontalChipRail = RegExp(
+      r'SingleChildScrollView\([\s\S]{0,300}scrollDirection:\s*Axis\.horizontal[\s\S]{0,300}SoriChip\(',
+    ).hasMatch(clean);
+    if (horizontalChipRail) {
+      return true;
+    }
+
+    for (final row in _constructorSpans(clean, 'Row')) {
+      final body = clean.substring(row.start, row.end);
+      if (RegExp(r'SoriChip\([\s\S]{0,500}?onTap\s*:').hasMatch(body)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  test('§19 rejects an interactive raw Row plus SoriChip bypass', () {
+    const bypass = '''
+      Row(
+        children: [
+          SoriChip(label: 'first', onTap: selectFirst),
+          SoriChip(label: 'second', onTap: selectSecond),
+        ],
+      )
+    ''';
+
+    expect(hasPrivateChipRail(_blankStringsAndComments(bypass)), isTrue);
+  });
+
   test('화면당 Wrap(...Chip...) 블록은 1개를 넘지 않는다(그랜드파더 제외)', () {
     final offenders = <String>[];
     for (final f
@@ -73,12 +103,10 @@ void main() {
       final chromeRows = RegExp(
         r'(^|[^A-Za-z0-9_$])SoriChromeRow\(',
       ).allMatches(clean).length;
-      final privateHorizontalChipRail = RegExp(
-        r'SingleChildScrollView\([\s\S]{0,300}scrollDirection:\s*Axis\.horizontal[\s\S]{0,300}SoriChip\(',
-      ).hasMatch(clean);
-      if (chromeRows != 1 || privateHorizontalChipRail) {
+      final privateChipRail = hasPrivateChipRail(clean);
+      if (chromeRows != 1 || privateChipRail) {
         offenders.add(
-          '$path: chromeRows=$chromeRows, privateHorizontalChipRail=$privateHorizontalChipRail',
+          '$path: chromeRows=$chromeRows, privateChipRail=$privateChipRail',
         );
       }
     }
@@ -119,6 +147,29 @@ class _Span {
   const _Span(this.start, this.end);
   final int start;
   final int end;
+}
+
+List<_Span> _constructorSpans(String clean, String constructor) {
+  final spans = <_Span>[];
+  final matches = RegExp(
+    r'(^|[^A-Za-z0-9_$])' + RegExp.escape(constructor) + r'\(',
+  ).allMatches(clean);
+  for (final match in matches) {
+    final start = match.end - constructor.length - 1;
+    var depth = 0;
+    for (var index = start; index < clean.length; index++) {
+      if (clean[index] == '(') {
+        depth++;
+      } else if (clean[index] == ')') {
+        depth--;
+        if (depth == 0) {
+          spans.add(_Span(start, index + 1));
+          break;
+        }
+      }
+    }
+  }
+  return spans;
 }
 
 String _blankStringsAndComments(String src) {
