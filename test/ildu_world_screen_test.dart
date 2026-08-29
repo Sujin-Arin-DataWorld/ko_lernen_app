@@ -224,6 +224,63 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('selecting and turning Changgo updates its map frame', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedB1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final changoAnchor = find.byKey(
+      const ValueKey('ildu-map-turntable-changgo-2'),
+    );
+    final changoTapTarget = find.descendant(
+      of: changoAnchor,
+      matching: find.byWidgetPredicate(
+        (widget) => widget is GestureDetector && widget.onTap != null,
+      ),
+    );
+    tester.widget<GestureDetector>(changoTapTarget).onTap!();
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-turntable-changgo')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-changgo-2')),
+      findsOneWidget,
+    );
+
+    await tester.drag(
+      find.byKey(const ValueKey('hanok-turntable-drag-area')),
+      const Offset(-40, 0),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-changgo-3')),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('dragging Sarangchae saves its map placement', (tester) async {
     tester.view.physicalSize = const Size(1179, 2556);
     tester.view.devicePixelRatio = 3;

@@ -14,6 +14,7 @@ void main() {
         containsAll(<String>[
           'sarangchae',
           'ansarang',
+          'changgo',
           'main-gate',
           'sadang',
           'sadang-gate',
@@ -74,6 +75,7 @@ void main() {
     }
     expect(spec.directionForDegrees(360), 0);
     expect(spec.directionForDegrees(-45), 7);
+    expect(kIlDuChanggoTurntable.directionForDegrees(90), 2);
     expect(kIlDuSotdaeulmunTurntable.directionForDegrees(3), 0);
     expect(kIlDuSadangTurntable.directionForDegrees(90), 2);
     expect(kIlDuSadangmunTurntable.directionForDegrees(315), 7);

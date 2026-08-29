@@ -83,6 +83,21 @@ final IlDuTurntableSpec kIlDuAnsarangchaeTurntable = IlDuTurntableSpec(
   ],
 );
 
+final IlDuTurntableSpec kIlDuChanggoTurntable = IlDuTurntableSpec(
+  anchorId: 'changgo',
+  mapAspectRatio: 1.78,
+  frames: <IlDuTurntableFrame>[
+    _frame('ildu_changgo_00_front.png', 384, 512, 21, 345, 363, 472),
+    _frame('ildu_changgo_01_front_right.png', 384, 512, 15, 284, 368, 472),
+    _frame('ildu_changgo_02_right.png', 384, 512, 111, 203, 272, 472),
+    _frame('ildu_changgo_03_rear_right.png', 384, 512, 12, 296, 371, 472),
+    _frame('ildu_changgo_04_rear.png', 384, 512, 19, 358, 365, 472),
+    _frame('ildu_changgo_05_rear_left.png', 384, 512, 8, 316, 376, 472),
+    _frame('ildu_changgo_06_left.png', 384, 512, 110, 205, 274, 472),
+    _frame('ildu_changgo_07_front_left.png', 384, 512, 13, 292, 370, 472),
+  ],
+);
+
 final IlDuTurntableSpec kIlDuSotdaeulmunTurntable = IlDuTurntableSpec(
   anchorId: 'main-gate',
   mapAspectRatio: 1.35,
@@ -155,6 +170,7 @@ final Map<String, IlDuTurntableSpec> kIlDuTurntables =
     <String, IlDuTurntableSpec>{
       kIlDuSarangchaeTurntable.anchorId: kIlDuSarangchaeTurntable,
       kIlDuAnsarangchaeTurntable.anchorId: kIlDuAnsarangchaeTurntable,
+      kIlDuChanggoTurntable.anchorId: kIlDuChanggoTurntable,
       kIlDuSotdaeulmunTurntable.anchorId: kIlDuSotdaeulmunTurntable,
       kIlDuSadangTurntable.anchorId: kIlDuSadangTurntable,
       kIlDuSadangmunTurntable.anchorId: kIlDuSadangmunTurntable,
