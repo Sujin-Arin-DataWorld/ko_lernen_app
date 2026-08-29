@@ -7,8 +7,10 @@ import '../l10n/generated/app_localizations.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/standard_page.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/tokens.dart';
 import '../widgets/sori/window_class.dart';
 
@@ -189,13 +191,15 @@ class _StudyLibraryScreenState extends State<StudyLibraryScreen> {
         ),
       ],
       children: [
-        _MeaningCard(t: t),
-        const SizedBox(height: Spacing.lg),
         _ViewSelector(
           selected: _view,
           snapshot: snapshot,
           onSelected: _selectView,
+          selectedType: _typeFilter,
+          onTypeSelected: _selectType,
         ),
+        const SizedBox(height: Spacing.lg),
+        _MeaningCard(t: t),
         const SizedBox(height: Spacing.md),
         if (snapshot != null)
           Semantics(
@@ -212,16 +216,6 @@ class _StudyLibraryScreenState extends State<StudyLibraryScreen> {
               style: SoriTextTheme.of(context).bodySmall,
             ),
           ),
-        if (snapshot != null &&
-            _view == StudyLibraryView.saved &&
-            snapshot.saved.isNotEmpty) ...[
-          const SizedBox(height: Spacing.sm),
-          _TypeSelector(
-            selected: _typeFilter,
-            entries: snapshot.saved,
-            onSelected: _selectType,
-          ),
-        ],
         if (_mutationStatus case final status?) ...[
           const SizedBox(height: Spacing.sm),
           Semantics(
@@ -383,11 +377,15 @@ class _ViewSelector extends StatelessWidget {
     required this.selected,
     required this.snapshot,
     required this.onSelected,
+    required this.selectedType,
+    required this.onTypeSelected,
   });
 
   final StudyLibraryView selected;
   final StudyLibrarySnapshot? snapshot;
   final ValueChanged<StudyLibraryView> onSelected;
+  final StudyLibraryItemType? selectedType;
+  final ValueChanged<StudyLibraryItemType?> onTypeSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -398,35 +396,101 @@ class _ViewSelector extends StatelessWidget {
       StudyLibraryView.due => snapshot?.due.length ?? 0,
     };
 
-    return Semantics(
-      container: true,
-      label: t.studyLibraryViewSelectorLabel,
-      child: Row(
+    final savedEntries = snapshot?.saved ?? const <StudyLibraryEntry>[];
+    final typeCounts = <StudyLibraryItemType, int>{};
+    for (final entry in savedEntries) {
+      typeCounts.update(
+        entry.key.type,
+        (count) => count + 1,
+        ifAbsent: () => 1,
+      );
+    }
+    final types = typeCounts.keys.toList()
+      ..sort((first, second) => first.index.compareTo(second.index));
+    Future<void> showViews() => showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           for (final view in StudyLibraryView.values) ...[
-            Expanded(
-              child: SoriChip(
-                key: ValueKey('study-library-view-${view.name}'),
-                label: '${_viewLabel(t, view)} · ${countFor(view)}',
-                semanticLabel: t.studyLibraryViewChoice(
-                  _viewLabel(t, view),
-                  countFor(view),
-                ),
-                icon: _viewIcon(view),
-                selected: selected == view,
-                variant: SoriChipVariant.outlined,
-                idleBorderColor:
-                    SoriSurfaces.of(context).brightness == Brightness.light
-                    ? SoriColors.lightBorderStrong
-                    : SoriColors.darkBorderStrong,
-                minInteractiveHeight: 48,
-                maxLines: null,
-                onTap: () => onSelected(view),
+            SoriChip(
+              key: ValueKey('study-library-view-${view.name}'),
+              label: '${_viewLabel(t, view)} · ${countFor(view)}',
+              semanticLabel: t.studyLibraryViewChoice(
+                _viewLabel(t, view),
+                countFor(view),
               ),
+              icon: _viewIcon(view),
+              selected: selected == view,
+              variant: SoriChipVariant.outlined,
+              idleBorderColor:
+                  SoriSurfaces.of(context).brightness == Brightness.light
+                  ? SoriColors.lightBorderStrong
+                  : SoriColors.darkBorderStrong,
+              minInteractiveHeight: 48,
+              maxLines: null,
+              onTap: () {
+                onSelected(view);
+                Navigator.pop(sheetContext);
+              },
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+        ],
+      ),
+    );
+    Future<void> showTypes() => showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SoriChip(
+            key: const ValueKey('study-library-type-all'),
+            label: '${t.studyLibrarySavedTab} · ${savedEntries.length}',
+            selected: selectedType == null,
+            variant: SoriChipVariant.outlined,
+            minInteractiveHeight: 48,
+            onTap: () {
+              onTypeSelected(null);
+              Navigator.pop(sheetContext);
+            },
+          ),
+          for (final type in types) ...[
+            const SizedBox(height: Spacing.sm),
+            SoriChip(
+              key: ValueKey('study-library-type-${type.name}'),
+              label: '${_typeLabel(t, type)} · ${typeCounts[type]}',
+              icon: _typeIcon(type),
+              selected: selectedType == type,
+              variant: SoriChipVariant.outlined,
+              minInteractiveHeight: 48,
+              onTap: () {
+                onTypeSelected(type);
+                Navigator.pop(sheetContext);
+              },
             ),
           ],
         ],
       ),
+    );
+    return SoriChromeRow(
+      key: const ValueKey('study-library-view-selector'),
+      onFilterTap: showViews,
+      filterSemanticLabel: t.studyLibraryViewSelectorLabel,
+      meta: Text(
+        '${_viewLabel(t, selected)} · ${countFor(selected)}',
+        style: SoriTextTheme.of(context).meta,
+      ),
+      trailing: selected == StudyLibraryView.saved && savedEntries.isNotEmpty
+          ? IconButton(
+              key: const ValueKey('study-library-type-selector'),
+              tooltip: t.studyLibrarySavedDescription,
+              onPressed: showTypes,
+              icon: const Icon(Icons.tune_rounded),
+            )
+          : null,
     );
   }
 }
@@ -474,63 +538,6 @@ class _BookmarkHealthCard extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _TypeSelector extends StatelessWidget {
-  const _TypeSelector({
-    required this.selected,
-    required this.entries,
-    required this.onSelected,
-  });
-
-  final StudyLibraryItemType? selected;
-  final List<StudyLibraryEntry> entries;
-  final ValueChanged<StudyLibraryItemType?> onSelected;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppL10n.of(context);
-    final counts = <StudyLibraryItemType, int>{};
-    for (final entry in entries) {
-      counts.update(entry.key.type, (count) => count + 1, ifAbsent: () => 1);
-    }
-    final availableTypes = counts.keys.toList()
-      ..sort((first, second) => first.index.compareTo(second.index));
-
-    return Semantics(
-      container: true,
-      label: t.studyLibrarySavedDescription,
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: SoriChip(
-              key: const ValueKey('study-library-type-all'),
-              label: '${t.studyLibrarySavedTab} · ${entries.length}',
-              selected: selected == null,
-              variant: SoriChipVariant.outlined,
-              minInteractiveHeight: 48,
-              maxLines: null,
-              onTap: () => onSelected(null),
-            ),
-          ),
-          for (final type in availableTypes) ...[
-            Expanded(
-              child: SoriChip(
-                key: ValueKey('study-library-type-${type.name}'),
-                label: '${_typeLabel(t, type)} · ${counts[type]}',
-                icon: _typeIcon(type),
-                selected: selected == type,
-                variant: SoriChipVariant.outlined,
-                minInteractiveHeight: 48,
-                maxLines: null,
-                onTap: () => onSelected(type),
-              ),
-            ),
-          ],
-        ],
       ),
     );
   }

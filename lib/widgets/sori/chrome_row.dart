@@ -20,6 +20,7 @@ class SoriChromeRow extends StatelessWidget {
   const SoriChromeRow({
     super.key,
     this.onFilterTap,
+    this.filterKey,
     this.filterSemanticLabel,
     this.meta,
     this.trailing,
@@ -28,6 +29,7 @@ class SoriChromeRow extends StatelessWidget {
   /// 탭하면 필터 시트를 여는 콜백(예: `showSoriFilterSheet`). null이면
   /// leading 아이콘 자체를 숨긴다.
   final VoidCallback? onFilterTap;
+  final Key? filterKey;
   final String? filterSemanticLabel;
 
   /// 가운데 진행 메타 — 보통 `Text('3 / 12', style: tt.meta)`.
@@ -45,6 +47,7 @@ class SoriChromeRow extends StatelessWidget {
           if (onFilterTap != null)
             _ChromeSlot(
               icon: Icons.tune_rounded,
+              pressableKey: filterKey,
               semanticLabel: filterSemanticLabel ?? '',
               onTap: onFilterTap!,
             )
@@ -64,11 +67,13 @@ class SoriChromeRow extends StatelessWidget {
 class _ChromeSlot extends StatelessWidget {
   const _ChromeSlot({
     required this.icon,
+    this.pressableKey,
     required this.semanticLabel,
     required this.onTap,
   });
 
   final IconData icon;
+  final Key? pressableKey;
   final String semanticLabel;
   final VoidCallback onTap;
 
@@ -87,6 +92,7 @@ class _ChromeSlot extends StatelessWidget {
       onTap: onTap,
       child: ExcludeSemantics(
         child: SoriPressable(
+          key: pressableKey,
           onTap: onTap,
           child: SizedBox(
             width: SoriLayout.chromeRowTouchHeight,

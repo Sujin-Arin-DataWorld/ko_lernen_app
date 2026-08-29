@@ -23,7 +23,6 @@ import 'package:ko_lernen_app/widgets/app_error.dart';
 import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
-import 'package:ko_lernen_app/widgets/sori/chip.dart';
 import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
 import 'package:ko_lernen_app/widgets/sori/home_action.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
@@ -700,12 +699,16 @@ void main() {
     );
     await _pumpUntil(tester, find.byType(SoriTextField));
     final en = lookupAppL10n(const Locale('en'));
-    expect(find.bySemanticsLabel(en.chosungCorrectCount(0)), findsOneWidget);
-    expect(find.bySemanticsLabel(en.chosungWrongCount(0)), findsOneWidget);
-    expect(find.bySemanticsLabel(en.gameRoundProgress(1, 10)), findsWidgets);
+    final roundStatus = tester
+        .getSemantics(find.byKey(const ValueKey('chosung-round-status')))
+        .getSemanticsData()
+        .label;
+    expect(roundStatus, contains(en.chosungCorrectCount(0)));
+    expect(roundStatus, contains(en.chosungWrongCount(0)));
+    expect(roundStatus, contains(en.gameRoundProgress(1, 10)));
     _expectButton(tester, find.bySemanticsLabel(en.chosungBackspace));
     _expectButton(tester, find.bySemanticsLabel(en.filterLevel), minHeight: 48);
-    final chosungLevelButton = find.byIcon(Icons.tune_rounded);
+    final chosungLevelButton = find.byKey(const Key('chosung-level-selector'));
     await tester.ensureVisible(chosungLevelButton);
     await tester.tap(chosungLevelButton);
     await _pumpUntil(tester, find.byKey(const ValueKey('sori-level-sheet-A1')));
@@ -716,10 +719,9 @@ void main() {
     );
     await tester.binding.handlePopRoute();
     await tester.pump(const Duration(milliseconds: 300));
-    final selectedMode = find.byWidgetPredicate(
-      (widget) =>
-          widget is SoriChip && widget.label == en.chosungModeWithVowels,
-    );
+    await tester.tap(find.byKey(const Key('chosung-mode-selector')));
+    await _pumpUntil(tester, find.byKey(const Key('chosung-mode-with-vowels')));
+    final selectedMode = find.byKey(const Key('chosung-mode-with-vowels'));
     _expectButton(
       tester,
       selectedMode,

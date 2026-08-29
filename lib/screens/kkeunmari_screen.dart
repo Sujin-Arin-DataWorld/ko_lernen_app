@@ -614,16 +614,19 @@ class _KkeunmariScreenState extends State<KkeunmariScreen>
                 )
               else ...[
                 // ── 현재 차례 + 타이머 ──
-                Wrap(
-                  key: _timerRowKey,
-                  alignment: WrapAlignment.spaceBetween,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: Spacing.sm,
-                  runSpacing: Spacing.xs,
-                  children: [
-                    _TurnIndicator(turn: _turn, t: t),
-                    _Timer(remaining: _remaining, total: _turnSeconds),
-                  ],
+                KeyedSubtree(
+                  key: const ValueKey('kkeunmari-gameplay'),
+                  child: Wrap(
+                    key: _timerRowKey,
+                    alignment: WrapAlignment.spaceBetween,
+                    crossAxisAlignment: WrapCrossAlignment.center,
+                    spacing: Spacing.sm,
+                    runSpacing: Spacing.xs,
+                    children: [
+                      _TurnIndicator(turn: _turn, t: t),
+                      _Timer(remaining: _remaining, total: _turnSeconds),
+                    ],
+                  ),
                 ),
                 const SizedBox(height: Spacing.md),
 

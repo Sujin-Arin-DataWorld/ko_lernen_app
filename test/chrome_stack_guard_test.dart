@@ -60,6 +60,36 @@ void main() {
     );
   });
 
+  test('§19 migrated surfaces own one public chrome row, not a private rail', () {
+    const migrated = <String>{
+      'lib/screens/chosung_quiz_screen.dart',
+      'lib/screens/hangul_screen.dart',
+      'lib/screens/legacy_vocab_screen.dart',
+      'lib/screens/study_library_screen.dart',
+    };
+    final offenders = <String>[];
+    for (final path in migrated) {
+      final clean = _blankStringsAndComments(File(path).readAsStringSync());
+      final chromeRows = RegExp(
+        r'(^|[^A-Za-z0-9_$])SoriChromeRow\(',
+      ).allMatches(clean).length;
+      final privateHorizontalChipRail = RegExp(
+        r'SingleChildScrollView\([\s\S]{0,300}scrollDirection:\s*Axis\.horizontal[\s\S]{0,300}SoriChip\(',
+      ).hasMatch(clean);
+      if (chromeRows != 1 || privateHorizontalChipRail) {
+        offenders.add(
+          '$path: chromeRows=$chromeRows, privateHorizontalChipRail=$privateHorizontalChipRail',
+        );
+      }
+    }
+    expect(
+      offenders,
+      isEmpty,
+      reason:
+          '§19 surfaces must expose one SoriChromeRow and put choices in a sheet, not add a private chip rail.\n${offenders.join('\n')}',
+    );
+  });
+
   test('raw InkWell( 은 더 늘지 않는다 (SoriPressable 사용)', () {
     var total = 0;
     final perFile = <String, int>{};

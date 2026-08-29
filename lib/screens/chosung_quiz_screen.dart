@@ -25,6 +25,7 @@ import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/progress.dart';
+import '../widgets/sori/sheet.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
@@ -288,6 +289,45 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     if (!mounted || next == null) return;
     setState(() => _level = next);
     await _load();
+  }
+
+  Future<void> _showModeSheet(AppL10n t) async {
+    await showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SoriChip(
+            key: const Key('chosung-mode-with-vowels'),
+            label: t.chosungModeWithVowels,
+            icon: Icons.lightbulb_outline,
+            accent: SoriColors.warning,
+            selected: _mode == HintMode.chosungVowel,
+            variant: SoriChipVariant.soft,
+            minInteractiveHeight: 48,
+            onTap: () {
+              setState(() => _mode = HintMode.chosungVowel);
+              Navigator.pop(sheetContext);
+            },
+          ),
+          const SizedBox(height: Spacing.sm),
+          SoriChip(
+            key: const Key('chosung-mode-initials-only'),
+            label: t.chosungModeInitialsOnly,
+            icon: Icons.flash_on_rounded,
+            accent: SoriColors.danger,
+            selected: _mode == HintMode.chosung,
+            variant: SoriChipVariant.soft,
+            minInteractiveHeight: 48,
+            onTap: () {
+              setState(() => _mode = HintMode.chosung);
+              Navigator.pop(sheetContext);
+            },
+          ),
+        ],
+      ),
+    );
   }
 
   Future<void> _retryLoad() async {
@@ -575,84 +615,24 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                   SoriChromeRow(
                     key: _levelRowKey,
                     onFilterTap: () => _showLevelFilter(t),
+                    filterKey: const Key('chosung-level-selector'),
                     filterSemanticLabel: t.filterLevel,
-                    meta: Text(
-                      '$_level · ${_levelCounts[_level] ?? 0}',
-                      style: SoriTextTheme.of(context).meta,
+                    meta: Semantics(
+                      key: const ValueKey('chosung-round-status'),
+                      label:
+                          '${t.chosungCorrectCount(_correct)}. ${t.chosungWrongCount(_wrong)}. ${t.gameRoundProgress(roundPos, _roundSize)}',
+                      child: Text(
+                        '$_level · ${_levelCounts[_level] ?? 0}',
+                        style: SoriTextTheme.of(context).meta,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 8),
-
-                  // ── 난이도 토글 (초성 only / 초성+모음) ────────────────
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        SoriChip(
-                          label: AppL10n.of(context).chosungModeWithVowels,
-                          icon: Icons.lightbulb_outline,
-                          accent: SoriColors.warning,
-                          selected: _mode == HintMode.chosungVowel,
-                          variant: SoriChipVariant.soft,
-                          fontSize: 12,
-                          minInteractiveHeight: 48,
-                          onTap: () {
-                            if (_mode == HintMode.chosungVowel) {
-                              return;
-                            }
-                            setState(() => _mode = HintMode.chosungVowel);
-                          },
-                        ),
-                        const SizedBox(width: Spacing.sm),
-                        SoriChip(
-                          label: AppL10n.of(context).chosungModeInitialsOnly,
-                          icon: Icons.flash_on_rounded,
-                          accent: SoriColors.danger,
-                          selected: _mode == HintMode.chosung,
-                          variant: SoriChipVariant.soft,
-                          fontSize: 12,
-                          minInteractiveHeight: 48,
-                          onTap: () {
-                            if (_mode == HintMode.chosung) {
-                              return;
-                            }
-                            setState(() => _mode = HintMode.chosung);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-
-                  // ── 통계 칩 ────────────────────────────────────────────
-                  // 큰 글자에서도 모든 상태를 가로 스크롤로 읽을 수 있다.
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: [
-                        SoriChip(
-                          label: '$_correct',
-                          semanticLabel: t.chosungCorrectCount(_correct),
-                          icon: Icons.check_rounded,
-                          accent: SoriColors.success,
-                        ),
-                        const SizedBox(width: Spacing.sm),
-                        SoriChip(
-                          label: '$_wrong',
-                          semanticLabel: t.chosungWrongCount(_wrong),
-                          icon: Icons.close_rounded,
-                          accent: SoriColors.danger,
-                        ),
-                        const SizedBox(width: Spacing.sm),
-                        SoriChip(
-                          label: '$roundPos / $_roundSize',
-                          semanticLabel: t.gameRoundProgress(
-                            roundPos,
-                            _roundSize,
-                          ),
-                        ),
-                      ],
+                    trailing: IconButton(
+                      key: const Key('chosung-mode-selector'),
+                      tooltip: _mode == HintMode.chosungVowel
+                          ? t.chosungModeWithVowels
+                          : t.chosungModeInitialsOnly,
+                      onPressed: () => _showModeSheet(t),
+                      icon: const Icon(Icons.tune_rounded),
                     ),
                   ),
                   const SizedBox(height: 14),

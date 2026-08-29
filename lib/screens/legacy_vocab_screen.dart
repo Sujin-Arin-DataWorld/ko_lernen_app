@@ -79,7 +79,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
   ///   - jetzt:  'due' = max 10 neue + max 15 Wiederholung → Tagesziel
   String _mode = 'due';
   Set<String> _dueIds = {};
-  // Stat für die Header-Anzeige — wie viele neue / wie viele Wdh. heute.
+  // Tagesfortschritt in der gemeinsamen Chrome-Zeile.
   int _todayNewCount = 0;
   int _todayReviewCount = 0;
   Set<String> _favorites = {};
@@ -437,7 +437,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       onFilterTap: _showLevelFilter,
       filterSemanticLabel: t.filterLevel,
       meta: Text(
-        '${_level == 'Alle' ? t.filterAll : _level} · ${_levelCount(_level)}',
+        '${_modeLabel(t)} · ${_level == 'Alle' ? t.filterAll : _level} · '
+        '${_levelCount(_level)} · '
+        '${t.vocabTodayBadge(_todayNewCount, _todayReviewCount)}',
         style: SoriTextTheme.of(context).meta,
       ),
       trailing: IconButton(
@@ -453,6 +455,12 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     final s = _all.map((v) => v.topic).toSet().toList()..sort();
     return ['Alle', ...s];
   }
+
+  String _modeLabel(AppL10n t) => switch (_mode) {
+    'due' => t.vocabModeDue,
+    'favorites' => t.vocabModeFavorites,
+    _ => t.vocabModeAll,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -536,67 +544,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
           children: [
             _levelChrome(t),
             const SizedBox(height: Spacing.sm),
-
-            // Mode chips (Tagesziel / Favorites / Alle)
-            //
-            // Phase 1 SRS-UX-Patch (stately-rising-jongga):
-            //   Früher: "🔥 522 fällig" (Schock-UX bei Erstanwendung).
-            //   Jetzt:  "🔥 Heute (N+M)" — N neue + M Wdh., gecapped.
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SoriChip(
-                    label: t.vocabTodayBadge(_todayNewCount, _todayReviewCount),
-                    accent: SoriColors.info,
-                    selected: _mode == 'due',
-                    variant: SoriChipVariant.filled,
-                    onTap: () => _setMode('due'),
-                    minInteractiveHeight: 44,
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(
-                    label: t.vocabFavoritesBadge(_favorites.length),
-                    // 즐겨찾기는 하트·책갈피와 같은 석간주로 읽혀야 한다.
-                    accent: SoriColors.like,
-                    selected: _mode == 'favorites',
-                    variant: SoriChipVariant.filled,
-                    onTap: () => _setMode('favorites'),
-                    minInteractiveHeight: 44,
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(
-                    label: t.vocabModeAll,
-                    accent: SoriColors.info,
-                    selected: _mode == 'all',
-                    variant: SoriChipVariant.filled,
-                    onTap: () => _setMode('all'),
-                    minInteractiveHeight: 44,
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: Spacing.sm),
-
-            // 통계는 접근성 배율에서 다음 줄로 흐르며 내용을 숨기지 않는다.
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SoriChip(
-                    label: '${_idx + 1}/${_filtered.length}',
-                    accent: SoriColors.info,
-                  ),
-                  const SizedBox(width: Spacing.xs + 2),
-                  SoriChip(label: '✅ $_correct', accent: SoriColors.success),
-                  const SizedBox(width: Spacing.xs + 2),
-                  SoriChip(label: '❌ $_wrong', accent: SoriColors.danger),
-                  const SizedBox(width: Spacing.xs + 2),
-                  SoriChip(label: '⏭ $_skipped', accent: SoriColors.info),
-                ],
-              ),
-            ),
-            const SizedBox(height: 10),
 
             // Card with swipe judgment + favorite star overlay
             // 2026-08-14 §P2: 4방향 덱 — 우=Gewusst, 좌=Nicht gewusst,
@@ -845,6 +792,23 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 style: SoriTextTheme.of(ctx).h3,
               ),
               const SizedBox(height: Spacing.md),
+              for (final mode in <(String, String)>[
+                ('due', AppL10n.of(ctx).vocabModeDue),
+                ('all', AppL10n.of(ctx).vocabModeAll),
+                ('favorites', AppL10n.of(ctx).vocabModeFavorites),
+              ]) ...[
+                SoriChip(
+                  key: ValueKey('legacy-vocab-mode-${mode.$1}'),
+                  label: mode.$2,
+                  selected: _mode == mode.$1,
+                  minInteractiveHeight: 48,
+                  onTap: () {
+                    _setMode(mode.$1);
+                    setLocal(() {});
+                  },
+                ),
+                const SizedBox(height: Spacing.sm),
+              ],
               _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) {
                 setLocal(() => _topic = v!);
                 _topic = v!;

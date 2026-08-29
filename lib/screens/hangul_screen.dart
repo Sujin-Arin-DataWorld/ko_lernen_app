@@ -11,6 +11,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/app_bar.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
@@ -822,6 +823,50 @@ class _CardsTabState extends State<_CardsTab> {
     _prefetchAround();
   }
 
+  Future<void> _showCardModeSheet() async {
+    final t = AppL10n.of(context);
+    await showSoriSheet<void>(
+      context: context,
+      builder: (sheetContext) => Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          for (final option in [
+            (0, t.hangulChipConsonants),
+            (1, t.hangulChipVowels),
+            (2, t.hangulChipSyllables),
+          ]) ...[
+            SoriChip(
+              key: ValueKey('hangul-cards-mode-${option.$1}'),
+              label: option.$2,
+              accent: SoriColors.primary,
+              selected: _mode == option.$1,
+              minInteractiveHeight: 48,
+              maxLines: null,
+              onTap: () {
+                _setMode(option.$1);
+                Navigator.pop(sheetContext);
+              },
+            ),
+            const SizedBox(height: Spacing.sm),
+          ],
+          if (Storage.hangulHard.isNotEmpty)
+            SoriChip(
+              key: const Key('hangul-cards-hard-only'),
+              label: t.hangulHardOnly,
+              accent: SoriColors.danger,
+              selected: _hardOnly,
+              minInteractiveHeight: 48,
+              onTap: () {
+                _toggleHardOnly();
+                Navigator.pop(sheetContext);
+              },
+            ),
+        ],
+      ),
+    );
+  }
+
   Future<void> _finish() async {
     if (_sessionInteractions == 0) return;
     await widget.onFinish(_sessionInteractions);
@@ -970,52 +1015,20 @@ class _CardsTabState extends State<_CardsTab> {
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            // Mode chips
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SoriChip(
-                    label: AppL10n.of(context).hangulChipConsonants,
-                    accent: SoriColors.primary,
-                    selected: _mode == 0,
-                    onTap: () => _setMode(0),
-                    maxLines: null,
-                    minInteractiveHeight: 48,
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(
-                    label: AppL10n.of(context).hangulChipVowels,
-                    accent: SoriColors.primary,
-                    selected: _mode == 1,
-                    onTap: () => _setMode(1),
-                    maxLines: null,
-                    minInteractiveHeight: 48,
-                  ),
-                  // 좌(모름)로 모은 글자만 다시 돌아본다 — `Storage.hangulHard`
-                  // 를 읽는 유일한 경로다. 모은 게 없으면 띄우지 않는다(빈 필터).
-                  if (Storage.hangulHard.isNotEmpty) ...[
-                    const SizedBox(width: Spacing.sm),
-                    SoriChip(
-                      key: const Key('hangul-cards-hard-only'),
-                      label: AppL10n.of(context).hangulHardOnly,
-                      accent: SoriColors.danger,
-                      selected: _hardOnly,
-                      onTap: _toggleHardOnly,
-                      maxLines: null,
-                      minInteractiveHeight: 48,
-                    ),
-                  ],
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(
-                    label: AppL10n.of(context).hangulChipSyllables,
-                    accent: SoriColors.primary,
-                    selected: _mode == 2,
-                    onTap: () => _setMode(2),
-                    maxLines: null,
-                    minInteractiveHeight: 48,
-                  ),
-                ],
+            SoriChromeRow(
+              meta: Text(
+                [
+                  AppL10n.of(context).hangulChipConsonants,
+                  AppL10n.of(context).hangulChipVowels,
+                  AppL10n.of(context).hangulChipSyllables,
+                ][_mode],
+                style: SoriTextTheme.of(context).meta,
+              ),
+              trailing: IconButton(
+                key: const Key('hangul-cards-mode-selector'),
+                tooltip: AppL10n.of(context).hangulTabCards,
+                onPressed: _showCardModeSheet,
+                icon: const Icon(Icons.tune_rounded),
               ),
             ),
             const SizedBox(height: 12),
@@ -1295,54 +1308,51 @@ class _WriteTabState extends State<_WriteTab> {
         return Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SoriChip(
-                    label: t.hangulChipConsonants,
-                    accent: SoriColors.contentCta,
-                    selected: _mode == 0,
-                    onTap: () {
-                      _setMode(0);
-                      Navigator.pop(sheetContext);
-                    },
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(
-                    label: t.hangulChipVowels,
-                    accent: SoriColors.contentCta,
-                    selected: _mode == 1,
-                    onTap: () {
-                      _setMode(1);
-                      Navigator.pop(sheetContext);
-                    },
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(
-                    key: const Key('hangul-check-strict'),
-                    label: t.hangulCheckModeExam,
-                    accent: SoriColors.contentCta,
-                    selected: _strict,
-                    onTap: () {
-                      _setStrict(true);
-                      Navigator.pop(sheetContext);
-                    },
-                  ),
-                  const SizedBox(width: Spacing.sm),
-                  SoriChip(
-                    key: const Key('hangul-check-practice'),
-                    label: t.hangulCheckModePractice,
-                    accent: SoriColors.contentCta,
-                    selected: !_strict,
-                    onTap: () {
-                      _setStrict(false);
-                      Navigator.pop(sheetContext);
-                    },
-                  ),
-                ],
-              ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SoriChip(
+                  label: t.hangulChipConsonants,
+                  accent: SoriColors.contentCta,
+                  selected: _mode == 0,
+                  onTap: () {
+                    _setMode(0);
+                    Navigator.pop(sheetContext);
+                  },
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriChip(
+                  label: t.hangulChipVowels,
+                  accent: SoriColors.contentCta,
+                  selected: _mode == 1,
+                  onTap: () {
+                    _setMode(1);
+                    Navigator.pop(sheetContext);
+                  },
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriChip(
+                  key: const Key('hangul-check-strict'),
+                  label: t.hangulCheckModeExam,
+                  accent: SoriColors.contentCta,
+                  selected: _strict,
+                  onTap: () {
+                    _setStrict(true);
+                    Navigator.pop(sheetContext);
+                  },
+                ),
+                const SizedBox(height: Spacing.sm),
+                SoriChip(
+                  key: const Key('hangul-check-practice'),
+                  label: t.hangulCheckModePractice,
+                  accent: SoriColors.contentCta,
+                  selected: !_strict,
+                  onTap: () {
+                    _setStrict(false);
+                    Navigator.pop(sheetContext);
+                  },
+                ),
+              ],
             ),
           ],
         );

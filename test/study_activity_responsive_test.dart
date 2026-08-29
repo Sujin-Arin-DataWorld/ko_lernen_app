@@ -443,6 +443,10 @@ void main() {
       final t = AppL10n.of(tester.element(find.byType(HangulScreen)));
       await tester.tap(find.text(t.hangulTabCards));
       await tester.pumpAndSettle();
+      final modeSelector = find.byKey(const Key('hangul-cards-mode-selector'));
+      expect(tester.getSize(modeSelector).height, greaterThanOrEqualTo(48));
+      await tester.tap(modeSelector);
+      await tester.pumpAndSettle();
 
       for (final label in [
         t.hangulChipConsonants,
@@ -627,7 +631,7 @@ void main() {
 Finder? _readyFinderFor(String activity) {
   return switch (activity) {
     'initial consonant quiz' => find.byType(SoriChromeRow),
-    'word chain' => find.byType(SoriStudyFrame),
+    'word chain' => find.byKey(const ValueKey('kkeunmari-gameplay')),
     'syllable crossword' => find.byType(SoriChromeRow),
     'listening player' => find.byKey(
       const ValueKey('listening-dialogue-start'),
