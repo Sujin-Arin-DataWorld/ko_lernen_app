@@ -144,6 +144,7 @@ class _CustomPackTypingScreenState extends State<CustomPackTypingScreen>
     }
     final word = _pool[_order[_idx]];
     final ok = _norm(_input.text) == _norm(word.korean);
+    Storage.addVokSeen(word.korean);
     Storage.srsReview(word.korean, gotIt: ok); // A1 연동
     if (!ok) {
       // ignore: discarded_futures

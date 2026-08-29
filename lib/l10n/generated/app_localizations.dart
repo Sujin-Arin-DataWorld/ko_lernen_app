@@ -409,6 +409,42 @@ abstract class AppL10n {
   /// **'Satz des Tages'**
   String get reviewBonusLabel;
 
+  /// No description provided for @reviewHubTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wiederholen'**
+  String get reviewHubTitle;
+
+  /// No description provided for @reviewHubTodayHeadline.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute gelernt'**
+  String get reviewHubTodayHeadline;
+
+  /// No description provided for @reviewHubEmptyToday.
+  ///
+  /// In de, this message translates to:
+  /// **'Heute noch nichts gelernt? Starte eine Lektion.'**
+  String get reviewHubEmptyToday;
+
+  /// No description provided for @reviewHubStartSelected.
+  ///
+  /// In de, this message translates to:
+  /// **'{n, plural, one{1 Wort üben} other{{n} Wörter üben}}'**
+  String reviewHubStartSelected(int n);
+
+  /// No description provided for @reviewHubCalendarTooltip.
+  ///
+  /// In de, this message translates to:
+  /// **'Kalender'**
+  String get reviewHubCalendarTooltip;
+
+  /// No description provided for @reviewHubDeckLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'{words, plural, one{1 Wort} other{{words} Wörter}}'**
+  String reviewHubDeckLabel(int words);
+
   /// No description provided for @homeReviewTitle.
   ///
   /// In de, this message translates to:
@@ -900,6 +936,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'{n, plural, one{1 Wort} other{{n} Wörter}}'**
   String bookshelfPackMeta(int n);
+
+  /// Custom pack tile progress — words learned of total
+  ///
+  /// In de, this message translates to:
+  /// **'{learned} von {total} gelernt'**
+  String bookshelfPackLearnedMeta(int learned, int total);
 
   /// No description provided for @bookshelfPageTitle.
   ///
@@ -3570,6 +3612,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Tippen zum Umdrehen'**
   String get vocabPackLearnHint;
+
+  /// Learn stage counter suffix for re-served (missed) cards
+  ///
+  /// In de, this message translates to:
+  /// **' · +{n, plural, one{1 Wdh.} other{{n} Wdh.}}'**
+  String vocabPackLearnRepeatSuffix(int n);
 
   /// No description provided for @vocabPackDontKnow.
   ///
@@ -8730,6 +8778,66 @@ abstract class AppL10n {
   /// **'Mit Beispielen üben'**
   String get grammarChoiceCta;
 
+  /// No description provided for @grammarPlanOnboardingTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Wie viele Muster pro Tag?'**
+  String get grammarPlanOnboardingTitle;
+
+  /// No description provided for @grammarPlanItemsPerDayOption.
+  ///
+  /// In de, this message translates to:
+  /// **'{n} pro Tag'**
+  String grammarPlanItemsPerDayOption(int n);
+
+  /// No description provided for @grammarPlanStartCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Los geht\'s'**
+  String get grammarPlanStartCta;
+
+  /// No description provided for @grammarPlanDayHeader.
+  ///
+  /// In de, this message translates to:
+  /// **'Tag {day} von {total}'**
+  String grammarPlanDayHeader(int day, int total);
+
+  /// No description provided for @grammarPlanCompletionTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Tag geschafft!'**
+  String get grammarPlanCompletionTitle;
+
+  /// No description provided for @grammarPlanCompletionBody.
+  ///
+  /// In de, this message translates to:
+  /// **'Mit Beispielen üben?'**
+  String get grammarPlanCompletionBody;
+
+  /// No description provided for @grammarPlanCompletionCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Üben'**
+  String get grammarPlanCompletionCta;
+
+  /// No description provided for @grammarPlanCompletionSkip.
+  ///
+  /// In de, this message translates to:
+  /// **'Später'**
+  String get grammarPlanCompletionSkip;
+
+  /// No description provided for @grammarPlanFinishedTitle.
+  ///
+  /// In de, this message translates to:
+  /// **'Alle Muster dieser Stufe geschafft!'**
+  String get grammarPlanFinishedTitle;
+
+  /// No description provided for @grammarPlanFinishedRestartCta.
+  ///
+  /// In de, this message translates to:
+  /// **'Neu starten'**
+  String get grammarPlanFinishedRestartCta;
+
   /// No description provided for @grammarChoiceTitle.
   ///
   /// In de, this message translates to:
@@ -8777,6 +8885,12 @@ abstract class AppL10n {
   /// In de, this message translates to:
   /// **'Warum das passt'**
   String get grammarChoiceExplanationLabel;
+
+  /// No description provided for @grammarChoiceNoteLabel.
+  ///
+  /// In de, this message translates to:
+  /// **'Anwendung'**
+  String get grammarChoiceNoteLabel;
 
   /// No description provided for @grammarChoiceFinish.
   ///

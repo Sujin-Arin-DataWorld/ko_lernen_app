@@ -66,6 +66,22 @@
   "reviewDoneTitle": "Stark!",
   "reviewDoneBody": "Du hast deine fälligen Karten wiederholt.",
   "reviewBonusLabel": "Satz des Tages",
+  "reviewHubTitle": "Wiederholen",
+  "reviewHubTodayHeadline": "Heute gelernt",
+  "reviewHubEmptyToday": "Heute noch nichts gelernt? Starte eine Lektion.",
+  "reviewHubStartSelected": "{n, plural, one{1 Wort üben} other{{n} Wörter üben}}",
+  "@reviewHubStartSelected": {
+    "placeholders": {
+      "n": {"type": "int"}
+    }
+  },
+  "reviewHubCalendarTooltip": "Kalender",
+  "reviewHubDeckLabel": "{words, plural, one{1 Wort} other{{words} Wörter}}",
+  "@reviewHubDeckLabel": {
+    "placeholders": {
+      "words": {"type": "int"}
+    }
+  },
   "homeReviewTitle": "Heute wiederholen",
   "homeReviewDue": "{n, plural, one{1 Wort fällig} other{{n} Wörter fällig}}",
   "@homeReviewDue": {
@@ -187,6 +203,11 @@
         "type": "int"
       }
     }
+  },
+  "bookshelfPackLearnedMeta": "{learned} von {total} gelernt",
+  "@bookshelfPackLearnedMeta": {
+    "description": "Custom pack tile progress — words learned of total",
+    "placeholders": {"learned": {"type": "int"}, "total": {"type": "int"}}
   },
   "bookshelfPageTitle": "Seite",
   "bookshelfPageNotFoundTitle": "Seite nicht gefunden",
@@ -1027,6 +1048,11 @@
   "hanokStageJongga": "Jongga vollendet",
   "vocabPackPlayTitle": "Paket-Übung",
   "vocabPackLearnHint": "Tippen zum Umdrehen",
+  "vocabPackLearnRepeatSuffix": " · +{n, plural, one{1 Wdh.} other{{n} Wdh.}}",
+  "@vocabPackLearnRepeatSuffix": {
+    "description": "Learn stage counter suffix for re-served (missed) cards",
+    "placeholders": {"n": {"type": "int"}}
+  },
   "vocabPackDontKnow": "Weiß ich nicht",
   "vocabPackGotIt": "Gewusst",
   "deckActionSave": "Merken",
@@ -2495,6 +2521,33 @@
   "grammarHard": "Schwierig",
   "grammarPreviousCard": "Vorherige Karte",
   "grammarChoiceCta": "Mit Beispielen üben",
+  "grammarPlanOnboardingTitle": "Wie viele Muster pro Tag?",
+  "grammarPlanItemsPerDayOption": "{n} pro Tag",
+  "@grammarPlanItemsPerDayOption": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanStartCta": "Los geht's",
+  "grammarPlanDayHeader": "Tag {day} von {total}",
+  "@grammarPlanDayHeader": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanCompletionTitle": "Tag geschafft!",
+  "grammarPlanCompletionBody": "Mit Beispielen üben?",
+  "grammarPlanCompletionCta": "Üben",
+  "grammarPlanCompletionSkip": "Später",
+  "grammarPlanFinishedTitle": "Alle Muster dieser Stufe geschafft!",
+  "grammarPlanFinishedRestartCta": "Neu starten",
   "grammarChoiceTitle": "Grammatik üben",
   "grammarChoiceEyebrow": "Satz erkennen",
   "grammarChoiceInstruction": "Welche koreanische Grammatik passt zum hervorgehobenen Teil?",
@@ -2520,6 +2573,7 @@
   },
   "grammarChoiceKoreanExampleLabel": "Beispiel auf Koreanisch",
   "grammarChoiceExplanationLabel": "Warum das passt",
+  "grammarChoiceNoteLabel": "Anwendung",
   "grammarChoiceFinish": "Ergebnis ansehen",
   "grammarChoiceDoneTitle": "Runde beendet",
   "grammarChoiceScore": "{correct} von {total} richtig",

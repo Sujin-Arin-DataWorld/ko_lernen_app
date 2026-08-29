@@ -150,7 +150,8 @@ class _CustomPackQuizScreenState extends State<CustomPackQuizScreen>
     final correct = word.translationFor(_languageCode).trim();
     final isRight = option == correct;
     setState(() => _picked = option);
-    // A1: 퀴즈 결과를 메인 SRS 에 반영.
+    // A1: 노출 기록(책장 타일 "n von m gelernt" 소스) + 퀴즈 결과를 SRS 에 반영.
+    Storage.addVokSeen(word.korean);
     Storage.srsReview(word.korean, gotIt: isRight);
     if (isRight) {
       _score++;

@@ -43,7 +43,14 @@ void main() {
           '"attempts":1,"clearedAt":"2026-08-14T00:00:00.000Z"}}',
       Storage.courseMasterySnapshotPreferenceKey: '{"version":2,"evidence":{}}',
     });
-    await Storage.init();
+    // Regression: a completed SRS tail from the previous widget fake-async
+    // zone must not strand this reset on a cross-zone Future callback.
+    await Storage.init().timeout(
+      const Duration(seconds: 5),
+      onTimeout: () => throw StateError(
+        'Storage.init did not consume the completed SRS reset boundary',
+      ),
+    );
   });
 
   for (final locale in const <Locale>[Locale('de'), Locale('en')]) {
@@ -110,6 +117,8 @@ void main() {
                 '${grammarTarget.exampleKorean}',
             '${t.grammarChoiceExplanationLabel}: '
                 '${grammarTarget.explanationFor(locale.languageCode)}',
+            '${t.grammarChoiceNoteLabel}: '
+                '${grammarTarget.noteFor(locale.languageCode)}',
           ].join('. ');
           await _expectLiveRegion(
             tester,

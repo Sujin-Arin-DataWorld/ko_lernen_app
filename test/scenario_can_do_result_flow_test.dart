@@ -8,6 +8,8 @@ import 'package:ko_lernen_app/models/hanok_stage.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/scenario_can_do_result.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/can_do_result_card.dart';
@@ -108,6 +110,22 @@ void main() {
     tester,
   ) async {
     var exitCalls = 0;
+    // _load()가 이제 항상 activeScenarioCheckpointContext(→
+    // CourseProgressService.shared)를 거친다(T8, 지시서 4.15). 그 서비스의
+    // 직렬화 큐는 testWidgets 마다 새로 생기는 Zone 을 넘나들면 응답하지
+    // 않으므로, courseContext 없이 ScenarioPlayerScreen 을 여는 각
+    // testWidgets 는 실행 순서와 무관하게 이 호출로 매번 새로 시작한다.
+    CourseProgressService.shared.resetForTesting();
+    // activeScenarioCheckpointContext 는 CurriculumCatalog.load()도 무조건
+    // 거친다. 여기서 미리 데워두지 않으면 이 테스트의 콜드 compute() 호출이
+    // FakeAsync 존 안에서 절대 응답하지 않는 채로 고아가 되어 이 테스트
+    // 자신은 (그 결과를 기다리지 않으므로) 통과하지만, 같은 파일의 다음
+    // testWidgets 가 CurriculumCatalog.load()를 다시 호출할 때 그 미해결
+    // 콜드 로드와 경합해 함께 멈춘다 — "saves once..." 테스트에서 실제로
+    // 관찰됨(T8 후속 조사). runAsync로 감싸 미리 완전히 해결해 둔다.
+    await tester.runAsync(() async {
+      await CurriculumCatalog.load();
+    });
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
@@ -141,6 +159,19 @@ void main() {
     var saveCalls = 0;
     var completionCalls = 0;
     ScenarioFirstSuccess? firstSuccess;
+    // 이 테스트 자신의 Zone 안에서 CourseProgressService.shared 를 새로
+    // 시작한다 — 상세 사유는 "system back..." 테스트의 주석 참고.
+    CourseProgressService.shared.resetForTesting();
+    // _load()가 이제 항상 activeScenarioCheckpointContext(→
+    // CurriculumCatalog.load())를 시도한다(T8, 지시서 4.15). 그 안의
+    // ScenarioLoader.load()는 compute() 격리를 쓰므로 위젯 내부에서 콜드로
+    // 처음 호출되면 FakeAsync 존에서 영원히 응답하지 않는다 — runAsync로
+    // 감싸 미리 예열한다(scenario_mission_context_test.dart와 동일 패턴).
+    // resultPersister가 실제 체크포인트 기록 자체는 대신하므로 유도 결과는
+    // 이 테스트의 단언과 무관하다.
+    await tester.runAsync(() async {
+      await CurriculumCatalog.load();
+    });
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,

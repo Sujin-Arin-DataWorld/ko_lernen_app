@@ -70,9 +70,23 @@ class LearnSessionQueue<T> {
 
   int missesOf(String id) => _misses[id] ?? 0;
 
+  /// 지금까지 최소 1회 이상 서빙된(사용자에게 제시된) 단어 id 집합.
+  /// [currentIsRepeat] 판정 전용 — [servedPosition]/[uniqueTotal] 계약과는
+  /// 무관하다(그 계약은 테스트로 동결: learn_session_queue_test.dart:62-68,
+  /// 119-129).
+  final Set<String> _servedIds = {};
+
+  /// 지금 [current] 로 서빙 중인 카드가 이전에 이미 나왔던 재출제 카드인지.
+  /// 진행 분자/분모에는 영향 없음 — 세션 UI 의 "Wiederholung" 표시 전용.
+  bool get currentIsRepeat {
+    final cur = current;
+    return cur != null && _servedIds.contains(idOf(cur));
+  }
+
   /// 알아요 — 현재 단어를 큐에서 제거.
   LearnAnswerOutcome markKnown() {
     _requireCurrent();
+    _servedIds.add(idOf(_queue.first));
     _queue.removeAt(0);
     return LearnAnswerOutcome.advanced;
   }
@@ -81,6 +95,7 @@ class LearnSessionQueue<T> {
   /// 실패면 재삽입 없이 졸업(제거).
   LearnAnswerOutcome markUnknown() {
     _requireCurrent();
+    _servedIds.add(idOf(_queue.first));
     final item = _queue.removeAt(0);
     final id = idOf(item);
     final misses = (_misses[id] ?? 0) + 1;
@@ -99,6 +114,7 @@ class LearnSessionQueue<T> {
   /// 재서빙 (유효 — 무한 defer 는 사용자 선택).
   LearnAnswerOutcome defer() {
     _requireCurrent();
+    _servedIds.add(idOf(_queue.first));
     final item = _queue.removeAt(0);
     _queue.insert(math.min(reinsertGap, _queue.length), item);
     return LearnAnswerOutcome.deferred;

@@ -346,8 +346,10 @@ class _CustomPackTile extends StatelessWidget {
             final stackActions =
                 MediaQuery.textScalerOf(context).scale(1) >= 1.6 ||
                 constraints.maxWidth < SoriAdaptiveWidth.labelValueRow;
+            final learnedCount = CustomPackService.learnedWordCount(pack);
             final identityLabel =
-                '${pack.displayName()}. ${t.bookshelfPackMeta(pack.totalWords)}';
+                '${pack.displayName()}. ${t.bookshelfPackMeta(pack.totalWords)} · '
+                '${t.bookshelfPackLearnedMeta(learnedCount, pack.totalWords)}';
             final playLabel = '${t.btnPlay}: ${pack.displayName()}';
             final editLabel = '${t.wbEditTooltip}: ${pack.displayName()}';
             final shareLabel = '${t.shareTooltip}: ${pack.displayName()}';
@@ -369,7 +371,8 @@ class _CustomPackTile extends StatelessWidget {
                           style: SoriTextTheme.of(context).cardTitle,
                         ),
                         Text(
-                          t.bookshelfPackMeta(pack.totalWords),
+                          '${t.bookshelfPackMeta(pack.totalWords)} · '
+                          '${t.bookshelfPackLearnedMeta(learnedCount, pack.totalWords)}',
                           style: SoriTextTheme.of(context).cardSubtitle,
                         ),
                       ],

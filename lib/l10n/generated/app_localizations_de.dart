@@ -193,6 +193,41 @@ class AppL10nDe extends AppL10n {
   String get reviewBonusLabel => 'Satz des Tages';
 
   @override
+  String get reviewHubTitle => 'Wiederholen';
+
+  @override
+  String get reviewHubTodayHeadline => 'Heute gelernt';
+
+  @override
+  String get reviewHubEmptyToday =>
+      'Heute noch nichts gelernt? Starte eine Lektion.';
+
+  @override
+  String reviewHubStartSelected(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Wörter üben',
+      one: '1 Wort üben',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get reviewHubCalendarTooltip => 'Kalender';
+
+  @override
+  String reviewHubDeckLabel(int words) {
+    String _temp0 = intl.Intl.pluralLogic(
+      words,
+      locale: localeName,
+      other: '$words Wörter',
+      one: '1 Wort',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get homeReviewTitle => 'Heute wiederholen';
 
   @override
@@ -464,6 +499,11 @@ class AppL10nDe extends AppL10n {
       one: '1 Wort',
     );
     return '$_temp0';
+  }
+
+  @override
+  String bookshelfPackLearnedMeta(int learned, int total) {
+    return '$learned von $total gelernt';
   }
 
   @override
@@ -2035,6 +2075,17 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get vocabPackLearnHint => 'Tippen zum Umdrehen';
+
+  @override
+  String vocabPackLearnRepeatSuffix(int n) {
+    String _temp0 = intl.Intl.pluralLogic(
+      n,
+      locale: localeName,
+      other: '$n Wdh.',
+      one: '1 Wdh.',
+    );
+    return ' · +$_temp0';
+  }
 
   @override
   String get vocabPackDontKnow => 'Weiß ich nicht';
@@ -5009,6 +5060,40 @@ class AppL10nDe extends AppL10n {
   String get grammarChoiceCta => 'Mit Beispielen üben';
 
   @override
+  String get grammarPlanOnboardingTitle => 'Wie viele Muster pro Tag?';
+
+  @override
+  String grammarPlanItemsPerDayOption(int n) {
+    return '$n pro Tag';
+  }
+
+  @override
+  String get grammarPlanStartCta => 'Los geht\'s';
+
+  @override
+  String grammarPlanDayHeader(int day, int total) {
+    return 'Tag $day von $total';
+  }
+
+  @override
+  String get grammarPlanCompletionTitle => 'Tag geschafft!';
+
+  @override
+  String get grammarPlanCompletionBody => 'Mit Beispielen üben?';
+
+  @override
+  String get grammarPlanCompletionCta => 'Üben';
+
+  @override
+  String get grammarPlanCompletionSkip => 'Später';
+
+  @override
+  String get grammarPlanFinishedTitle => 'Alle Muster dieser Stufe geschafft!';
+
+  @override
+  String get grammarPlanFinishedRestartCta => 'Neu starten';
+
+  @override
   String get grammarChoiceTitle => 'Grammatik üben';
 
   @override
@@ -5036,6 +5121,9 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get grammarChoiceExplanationLabel => 'Warum das passt';
+
+  @override
+  String get grammarChoiceNoteLabel => 'Anwendung';
 
   @override
   String get grammarChoiceFinish => 'Ergebnis ansehen';

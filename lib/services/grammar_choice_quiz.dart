@@ -113,6 +113,7 @@ List<GrammarChoiceQuestion> buildGrammarChoiceRound({
   required String languageCode,
   required Random random,
   int maxQuestions = 10,
+  Set<String>? allowedTargetIds,
 }) {
   if (maxQuestions <= 0) {
     return const <GrammarChoiceQuestion>[];
@@ -125,7 +126,14 @@ List<GrammarChoiceQuestion> buildGrammarChoiceRound({
       )
       .toList(growable: false);
   final targets =
-      all.where((grammar) => grammar.level == level).toList(growable: false)
+      all
+          .where(
+            (grammar) =>
+                grammar.level == level &&
+                (allowedTargetIds == null ||
+                    allowedTargetIds.contains(grammar.id)),
+          )
+          .toList(growable: false)
         ..sort((a, b) => a.id.compareTo(b.id))
         ..shuffle(random);
   final round = <GrammarChoiceQuestion>[];

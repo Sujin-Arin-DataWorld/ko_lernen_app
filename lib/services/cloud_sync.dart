@@ -46,6 +46,8 @@ class CloudSync {
     'bookshelf_json',
     'course_mastery_json',
     'hanok_state_json',
+    'study_log_json',
+    'gram_plan_json',
   };
   static Future<CloudWriteResult> Function()? _backupWithResultForTesting;
   static Future<CloudRestoreResult> Function()? _restoreWithResultForTesting;
@@ -113,6 +115,17 @@ class CloudSync {
     // 오답 카운터 — SRS 만 복원되고 이게 빠지면 재설치 후 Extra-Lernset 이
     // 조용히 쪼그라든다. SRS 와 짝으로 백업.
     payload['wrong_count_json'] = Storage.wrongCountRawJson;
+    final studyLog = <String, List<String>>{
+      for (final dateIso in Storage.studyLogDates())
+        dateIso: Storage.studyLogIdsFor(dateIso),
+    };
+    if (studyLog.isNotEmpty) {
+      payload['study_log_json'] = jsonEncode(studyLog);
+    }
+    final grammarPlanJson = _rawJsonObject(Storage.grammarPlanRawJson);
+    if (grammarPlanJson != null) {
+      payload['gram_plan_json'] = grammarPlanJson;
+    }
     final customPacks = _portableStructuredJson(
       Storage.customPacksRawJson,
       stripBookshelfThumbnail: false,
@@ -554,6 +567,70 @@ class CloudSync {
       await onValidatedLegacyBookshelfRestored(bookshelfJson);
     }
 
+    final studyLogJson = _structuredJson(
+      data['study_log_json'],
+      hasExpectedShape: (decoded) => decoded is Map,
+    );
+    if (studyLogJson != null) {
+      final decoded = jsonDecode(studyLogJson);
+      if (decoded is Map) {
+        for (final entry in decoded.entries) {
+          final dateIso = entry.key;
+          if (dateIso is! String || !_isCanonicalStudyLogDate(dateIso)) {
+            continue;
+          }
+          // Local wins by date. A wrong-typed local preference intentionally
+          // reads as empty here; the strict Storage helper will preserve it.
+          if (Storage.studyLogIdsFor(dateIso).isNotEmpty ||
+              entry.value is! List) {
+            continue;
+          }
+          final remoteIds = <String>[];
+          final seenIds = <String>{};
+          for (final value in entry.value as List) {
+            if (value is! String ||
+                value.trim().isEmpty ||
+                !seenIds.add(value)) {
+              continue;
+            }
+            remoteIds.add(value);
+            if (remoteIds.length == 500) {
+              break;
+            }
+          }
+          if (remoteIds.isEmpty) {
+            continue;
+          }
+          await _guardedWrite(beforeWrite, () async {
+            switch (await Storage.restoreStudyLogDateForRestore(
+              dateIso,
+              remoteIds,
+              assertCurrentWrite: beforeWrite,
+            )) {
+              case StudyLogDateRestoreResult.written:
+              case StudyLogDateRestoreResult.skippedExisting:
+              case StudyLogDateRestoreResult.skippedRecoveryValue:
+                break;
+            }
+          });
+        }
+      }
+    }
+    final grammarPlanJson = _rawJsonObject(data['gram_plan_json']);
+    if (grammarPlanJson != null) {
+      await _guardedWrite(beforeWrite, () async {
+        switch (await Storage.setGrammarPlanRawJsonForRestore(
+          grammarPlanJson,
+          assertCurrentWrite: beforeWrite,
+        )) {
+          case GrammarPlanRestoreResult.written:
+          case GrammarPlanRestoreResult.skippedExisting:
+          case GrammarPlanRestoreResult.skippedRecoveryValue:
+            break;
+        }
+      });
+    }
+
     if (data.containsKey('course_mastery_json')) {
       final rawCourseMastery = data['course_mastery_json'];
       if (rawCourseMastery is! String || rawCourseMastery.trim().isEmpty) {
@@ -663,6 +740,28 @@ class CloudSync {
     } on FormatException {
       return null;
     }
+  }
+
+  /// Validates a JSON object while retaining its original source bytes.
+  static String? _rawJsonObject(Object? value) {
+    if (value is! String || value.trim().isEmpty) {
+      return null;
+    }
+    try {
+      return jsonDecode(value) is Map ? value : null;
+    } on FormatException {
+      return null;
+    }
+  }
+
+  static bool _isCanonicalStudyLogDate(String dateIso) {
+    if (!RegExp(r'^\d{4}-\d{2}-\d{2}$').hasMatch(dateIso)) {
+      return false;
+    }
+    final parsed = DateTime.tryParse(dateIso);
+    return parsed != null &&
+        '${parsed.year.toString().padLeft(4, '0')}-${parsed.month.toString().padLeft(2, '0')}-${parsed.day.toString().padLeft(2, '0')}' ==
+            dateIso;
   }
 
   static Future<CourseMasteryLocalCapture?>

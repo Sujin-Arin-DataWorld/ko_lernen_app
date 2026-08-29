@@ -469,6 +469,9 @@ void main() {
         'kl_owned_decor': <String>['decoration_soban'],
         'kl_srs_v1': '{"srs":1}',
         'kl_wrong_count_v1': '{"하다":2}',
+        'kl_study_log_v1_2026-08-01': <String>['word-a', 'word-b'],
+        'kl_study_log_v1_2026-08-02': <String>['word-c'],
+        'kl_gram_plan_v1': '{ "a2": {"day": 3} }',
         'kl_custom_packs_v1': '{"pack1":{"name":"Pack 1"}}',
         'kl_bookshelf_v1': '{"page1":{"note":"Page 1"}}',
         Storage.courseMasterySnapshotPreferenceKey: _courseSnapshotJson(),
@@ -504,6 +507,9 @@ void main() {
         },
         'srs_json': '{"srs":1}',
         'wrong_count_json': '{"하다":2}',
+        'study_log_json':
+            '{"2026-08-01":["word-a","word-b"],"2026-08-02":["word-c"]}',
+        'gram_plan_json': '{ "a2": {"day": 3} }',
         'custom_packs_json': '{"pack1":{"name":"Pack 1"}}',
         'course_mastery_json': _courseSnapshotJson(),
       });
@@ -512,6 +518,19 @@ void main() {
         3,
       );
       expect(payload, isNot(contains('browse_level')));
+    },
+  );
+
+  test(
+    'backup omits empty, malformed, and wrong-shaped grammar plans',
+    () async {
+      for (final raw in <String>['', 'not-json', '[]']) {
+        await _initializeStorage({'kl_gram_plan_v1': raw});
+
+        final payload = await CloudSync.buildBackupPayload();
+
+        expect(payload, isNot(contains('gram_plan_json')));
+      }
     },
   );
 
@@ -782,6 +801,9 @@ void main() {
       'kl_stamps_earned': <String>['stamp1'],
       'kl_quests_completed_v1': '{"quest1":"2026-07-01T00:00:00.000Z"}',
       'kl_srs_v1': '{"srs":1}',
+      'kl_study_log_v1_2026-08-01': <String>['word-a', 'word-b'],
+      'kl_study_log_v1_2026-08-02': <String>['word-c'],
+      'kl_gram_plan_v1': '{ "a2": {"day": 3} }',
       'kl_custom_packs_v1': '{"pack1":{"name":"Pack 1"}}',
       'kl_bookshelf_v1': '{"page1":{"note":"Page 1"}}',
       Storage.courseMasterySnapshotPreferenceKey: _courseSnapshotJson(),
@@ -812,6 +834,9 @@ void main() {
     expect(Storage.earnedStamps, ['stamp1']);
     expect(Storage.questCompletions, {'quest1': '2026-07-01T00:00:00.000Z'});
     expect(Storage.srsRawJson, '{"srs":1}');
+    expect(Storage.studyLogIdsFor('2026-08-01'), ['word-a', 'word-b']);
+    expect(Storage.studyLogIdsFor('2026-08-02'), ['word-c']);
+    expect(Storage.grammarPlanRawJson, '{ "a2": {"day": 3} }');
     expect(Storage.customPacksRawJson, '{"pack1":{"name":"Pack 1"}}');
     expect(Storage.bookshelfRawJson, isEmpty);
     Storage.resetCourseMasteryForTesting();
@@ -822,6 +847,282 @@ void main() {
     expect(restored.currentCourseUnitId, 'a1_01_greetings_hangul');
     expect(restored.evidence.single.id, 'cloud-evidence');
   });
+
+  test(
+    'study-log restore validates remote entries, caps them, and leaves SRS bytes untouched',
+    () async {
+      final remoteIds = <Object>[
+        'first',
+        'first',
+        '',
+        '   ',
+        7,
+        ...List<String>.generate(501, (index) => 'id-$index'),
+      ];
+      const srsRaw = '{ "local-card": {"e":2.5,"i":3,"n":"2026-08-20","r":1} }';
+      const planRaw = '{ "a1": {"days": [1]} }';
+      await _initializeStorage({'kl_srs_v1': srsRaw});
+
+      await CloudSync.applyRestorePayload({
+        'study_log_json': jsonEncode({
+          'not-a-date': ['ignored'],
+          '2026-02-30': ['ignored'],
+          '2026-08-17': remoteIds,
+          '2026-08-18': 'not-a-list',
+        }),
+        'gram_plan_json': planRaw,
+      });
+
+      final restored = Storage.studyLogIdsFor('2026-08-17');
+      expect(restored, hasLength(500));
+      expect(restored.first, 'first');
+      expect(restored, contains('id-498'));
+      expect(restored, isNot(contains('id-499')));
+      expect(Storage.studyLogIdsFor('2026-08-18'), isEmpty);
+      expect(Storage.srsRawJson, srsRaw);
+      expect(Storage.grammarPlanRawJson, planRaw);
+    },
+  );
+
+  test(
+    'local study dates and every nonempty grammar raw value win restore',
+    () async {
+      const localDate = '2026-08-17';
+      const remoteDate = '2026-08-18';
+      const localPlan = '{broken-local-plan';
+      await _initializeStorage({
+        'kl_study_log_v1_$localDate': <String>['local-id'],
+        'kl_gram_plan_v1': localPlan,
+      });
+
+      await CloudSync.applyRestorePayload({
+        'study_log_json': jsonEncode({
+          localDate: ['remote-id'],
+          remoteDate: ['remote-id'],
+        }),
+        'gram_plan_json': '{"a1":{"remote":true}}',
+      });
+
+      expect(Storage.studyLogIdsFor(localDate), ['local-id']);
+      expect(Storage.studyLogIdsFor(remoteDate), ['remote-id']);
+      expect(Storage.grammarPlanRawJson, localPlan);
+    },
+  );
+
+  test(
+    'wrong-typed local ledger values remain recovery data during restore',
+    () async {
+      const date = '2026-08-17';
+      const key = 'kl_study_log_v1_$date';
+      await _initializeStorage({key: 'wrong-type'});
+      final preferences = await SharedPreferences.getInstance();
+
+      await expectLater(
+        CloudSync.applyRestorePayload({
+          'study_log_json': jsonEncode({
+            date: ['remote-id'],
+          }),
+        }),
+        completes,
+      );
+
+      expect(preferences.getString(key), 'wrong-type');
+    },
+  );
+
+  test(
+    'wrong-typed local grammar plans remain recovery data during restore',
+    () async {
+      const key = 'kl_gram_plan_v1';
+      const recoveryValue = 17;
+      await _initializeStorage({key: recoveryValue});
+      final preferences = await SharedPreferences.getInstance();
+
+      await expectLater(
+        CloudSync.applyRestorePayload({
+          'gram_plan_json': '{"a1":{"remote":true}}',
+        }),
+        completes,
+      );
+
+      expect(preferences.get(key), recoveryValue);
+      expect(preferences.getInt(key), recoveryValue);
+    },
+  );
+
+  test(
+    'malformed remote study-log and grammar-plan fields make no writes',
+    () async {
+      await _initializeStorage();
+      final preferences = await SharedPreferences.getInstance();
+      final before = <String, Object?>{
+        for (final key in preferences.getKeys()) key: preferences.get(key),
+      };
+
+      await expectLater(
+        CloudSync.applyRestorePayload({
+          'study_log_json': '[]',
+          'gram_plan_json': '{not-json',
+        }),
+        completes,
+      );
+
+      await preferences.reload();
+      expect(<String, Object?>{
+        for (final key in preferences.getKeys()) key: preferences.get(key),
+      }, before);
+    },
+  );
+
+  test(
+    'a stale beforeWrite prevents later ledger and plan mutations',
+    () async {
+      const date = '2026-08-17';
+      var writeChecks = 0;
+      await _initializeStorage();
+
+      await expectLater(
+        CloudSync.applyRestorePayload(
+          {
+            'study_log_json': jsonEncode({
+              date: ['first', 'second'],
+            }),
+            'gram_plan_json': '{"a1":{}}',
+          },
+          beforeWrite: () {
+            writeChecks++;
+            if (writeChecks >= 3) {
+              throw StateError('stale restore session');
+            }
+          },
+        ),
+        throwsStateError,
+      );
+
+      expect(Storage.studyLogIdsFor(date), ['first', 'second']);
+      expect(Storage.grammarPlanRawJson, isEmpty);
+    },
+  );
+
+  test(
+    'a failed ledger date restore leaves no truncation and a retry restores the full date',
+    () async {
+      const date = '2026-08-17';
+      final rejectingStore = _OldPerIdFailureListStore();
+      Storage.setStudyLogStoreForTesting(rejectingStore);
+      final payload = <String, dynamic>{
+        'study_log_json': jsonEncode({
+          date: ['first', 'second'],
+        }),
+      };
+
+      await expectLater(
+        CloudSync.applyRestorePayload(payload),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+      expect(rejectingStore.value, isNull);
+
+      Storage.setStudyLogStoreForTesting(null);
+      await CloudSync.applyRestorePayload(payload);
+      expect(Storage.studyLogIdsFor(date), ['first', 'second']);
+    },
+  );
+
+  test(
+    'a ledger guard invalidated during preparation blocks the setter',
+    () async {
+      var stale = false;
+      final store = _MicrotaskStalingStringListStore(() => stale = true);
+      Storage.setStudyLogStoreForTesting(store);
+
+      await expectLater(
+        Storage.restoreStudyLogDateForRestore(
+          '2026-08-17',
+          ['remote-id'],
+          assertCurrentWrite: () {
+            if (stale) {
+              throw StateError('stale after preparation');
+            }
+          },
+        ),
+        throwsStateError,
+      );
+
+      expect(store.setCalls, 0);
+      expect(store.value, isNull);
+    },
+  );
+
+  test(
+    'a rejected grammar-plan setter makes restore fail without a write',
+    () async {
+      final store = _RejectingStringStore();
+      Storage.setGrammarPlanStoreForTesting(store);
+
+      await expectLater(
+        CloudSync.applyRestorePayload({'gram_plan_json': '{"a1":{}}'}),
+        throwsA(isA<PreferenceWriteException>()),
+      );
+
+      expect(store.setCalls, 1);
+      expect(Storage.grammarPlanRawJson, isEmpty);
+    },
+  );
+
+  test(
+    'a grammar-plan guard invalidated during preparation blocks the setter',
+    () async {
+      var stale = false;
+      final store = _MicrotaskStalingStringStore(() => stale = true);
+      Storage.setGrammarPlanStoreForTesting(store);
+
+      await expectLater(
+        CloudSync.applyRestorePayload(
+          {'gram_plan_json': '{"a1":{}}'},
+          beforeWrite: () {
+            if (stale) {
+              throw StateError('stale after preparation');
+            }
+          },
+        ),
+        throwsStateError,
+      );
+
+      expect(store.setCalls, 0);
+      expect(store.value, isNull);
+    },
+  );
+
+  test(
+    'a local ledger date written during reload wins before the remote setter',
+    () async {
+      final store = _LocalLedgerDuringReloadStore(<String>['local-id']);
+      Storage.setStudyLogStoreForTesting(store);
+
+      final result = await Storage.restoreStudyLogDateForRestore('2026-08-17', [
+        'remote-id',
+      ]);
+
+      expect(result, StudyLogDateRestoreResult.skippedExisting);
+      expect(store.value, ['local-id']);
+      expect(store.setCalls, 0);
+    },
+  );
+
+  test(
+    'a local grammar value written during reload wins before the remote setter',
+    () async {
+      const localRaw = '{local-recovery-value}';
+      final store = _LocalGrammarDuringReloadStore(localRaw);
+      Storage.setGrammarPlanStoreForTesting(store);
+
+      final result = await Storage.setGrammarPlanRawJsonForRestore('{"a1":{}}');
+
+      expect(result, GrammarPlanRestoreResult.skippedExisting);
+      expect(store.value, localRaw);
+      expect(store.setCalls, 0);
+    },
+  );
 
   test(
     'course restore additively preserves local and remote evidence',
@@ -1469,6 +1770,198 @@ class _UnusedCloudBackupDeletionGateway implements CloudBackupDeletionGateway {
     required String expectedUid,
   }) async {
     throw UnsupportedError('not used by a restore admission');
+  }
+}
+
+class _OldPerIdFailureListStore implements PreferenceStringListStore {
+  List<String>? value;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  List<String>? getStringList(String key) => value;
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setStringList(String key, List<String> nextValue) async {
+    if (nextValue.length == 1 && nextValue.single == 'first') {
+      value = List<String>.from(nextValue);
+      return true;
+    }
+    return false;
+  }
+}
+
+class _MicrotaskStalingStringListStore implements PreferenceStringListStore {
+  _MicrotaskStalingStringListStore(this.onPrepared);
+
+  final void Function() onPrepared;
+  List<String>? value;
+  var setCalls = 0;
+  var _scheduled = false;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  List<String>? getStringList(String key) => value;
+
+  @override
+  Future<void> reload() {
+    if (_scheduled) {
+      return Future<void>.value();
+    }
+    _scheduled = true;
+    return Future<void>.microtask(onPrepared);
+  }
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setStringList(String key, List<String> nextValue) async {
+    setCalls++;
+    value = List<String>.from(nextValue);
+    return true;
+  }
+}
+
+class _RejectingStringStore implements PreferenceStringStore {
+  String? value;
+  var setCalls = 0;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  String? getString(String key) => value;
+
+  @override
+  Future<void> reload() async {}
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String nextValue) async {
+    setCalls++;
+    return false;
+  }
+}
+
+class _MicrotaskStalingStringStore implements PreferenceStringStore {
+  _MicrotaskStalingStringStore(this.onPrepared);
+
+  final void Function() onPrepared;
+  String? value;
+  var setCalls = 0;
+  var _scheduled = false;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  String? getString(String key) => value;
+
+  @override
+  Future<void> reload() {
+    if (_scheduled) {
+      return Future<void>.value();
+    }
+    _scheduled = true;
+    return Future<void>.microtask(onPrepared);
+  }
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String nextValue) async {
+    setCalls++;
+    value = nextValue;
+    return true;
+  }
+}
+
+class _LocalLedgerDuringReloadStore implements PreferenceStringListStore {
+  _LocalLedgerDuringReloadStore(this.localValue);
+
+  final List<String> localValue;
+  List<String>? value;
+  var setCalls = 0;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  List<String>? getStringList(String key) => value;
+
+  @override
+  Future<void> reload() => Future<void>.microtask(() {
+    value = List<String>.from(localValue);
+  });
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setStringList(String key, List<String> nextValue) async {
+    setCalls++;
+    value = List<String>.from(nextValue);
+    return true;
+  }
+}
+
+class _LocalGrammarDuringReloadStore implements PreferenceStringStore {
+  _LocalGrammarDuringReloadStore(this.localValue);
+
+  final String localValue;
+  String? value;
+  var setCalls = 0;
+
+  @override
+  bool containsKey(String key) => value != null;
+
+  @override
+  String? getString(String key) => value;
+
+  @override
+  Future<void> reload() => Future<void>.microtask(() {
+    value = localValue;
+  });
+
+  @override
+  Future<bool> remove(String key) async {
+    value = null;
+    return true;
+  }
+
+  @override
+  Future<bool> setString(String key, String nextValue) async {
+    setCalls++;
+    value = nextValue;
+    return true;
   }
 }
 

@@ -71,4 +71,20 @@ void main() {
       expect(Storage.completedScenarios, contains('scn_e'));
     },
   );
+
+  test('setScenarioStars 는 0성도 최초 1회는 기록한다', () async {
+    Storage.resetForTesting();
+    expect(Storage.scenarioStars.containsKey('s1'), isFalse);
+    await Storage.setScenarioStars('s1', 0);
+    expect(Storage.scenarioStars['s1'], 0);
+  });
+
+  test('setScenarioStars 는 여전히 단조 증가만 허용한다', () async {
+    Storage.resetForTesting();
+    await Storage.setScenarioStars('s1', 2);
+    await Storage.setScenarioStars('s1', 1); // 낮은 재도전 — 무시
+    expect(Storage.scenarioStars['s1'], 2);
+    await Storage.setScenarioStars('s1', 3); // 더 높은 재도전 — 반영
+    expect(Storage.scenarioStars['s1'], 3);
+  });
 }

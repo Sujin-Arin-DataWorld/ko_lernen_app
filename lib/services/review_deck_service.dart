@@ -145,4 +145,16 @@ class ReviewDeckService {
     });
     return [for (final e in indexed) e.value];
   }
+
+  /// Resolves `Storage.studyLogIdsFor` IDs to Vocab entries in requested order.
+  static List<Vocab> deckForIds(List<Vocab> all, Iterable<String> ids) {
+    final byId = <String, Vocab>{};
+    for (final word in all) {
+      byId.putIfAbsent(word.korean, () => word);
+    }
+    return [
+      for (final id in ids)
+        if (byId[id] case final word?) word,
+    ];
+  }
 }

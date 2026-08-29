@@ -51,6 +51,7 @@ import 'screens/splash_screen.dart';
 import 'screens/daily_char_sheet.dart';
 import 'screens/paywall_screen.dart';
 import 'screens/review_session_screen.dart';
+import 'screens/review_hub_screen.dart';
 import 'screens/smalltalk_screen.dart';
 import 'screens/media_phrase_screen.dart';
 import 'screens/book_capture_screen.dart';
@@ -85,6 +86,7 @@ import 'screens/vocab_pack_recall_screen.dart';
 import 'screens/vocab_pack_screen.dart';
 import 'screens/vocab_packs_screen.dart';
 import 'screens/grammar_screen.dart';
+import 'screens/grammar_choice_quiz_screen.dart';
 import 'screens/kkeunmari_screen.dart';
 import 'screens/listening_screen.dart';
 import 'screens/chosung_quiz_screen.dart';
@@ -244,6 +246,8 @@ Future<void> _finishStartupInBackground() async {
     debugPrint('Data migration skipped: $error');
   }
 
+  await runPostMigrationStudyLogMaintenance(migration);
+
   final streakBefore = Storage.streakDays;
   await Storage.touchStreak();
   final streakAfter = Storage.streakDays;
@@ -295,6 +299,27 @@ Future<void> _finishStartupInBackground() async {
   // 크래시 재현용 문맥. 동의가 꺼져 있으면 전부 no-op 이다.
   // ignore: discarded_futures, unawaited_futures
   _recordStartupDiagnostics(migration);
+}
+
+/// Führt nichtkritische Pflege erst nach einer erfolgreichen Migration aus.
+///
+/// Der Tages-Log ist getrennt vom SRS-Schema und seine Bereinigung darf weder
+/// vor dem Migrations-Write-Gate noch als Startfehler wirken.
+@visibleForTesting
+Future<void> runPostMigrationStudyLogMaintenance(
+  DataMigrationResult? migration, {
+  Future<void> Function()? pruneStudyLog,
+  void Function(Object error)? onPruneFailure,
+}) async {
+  if (migration?.writesAllowed != true) {
+    return;
+  }
+  try {
+    await (pruneStudyLog ?? Storage.pruneStudyLog)();
+  } on Object catch (error) {
+    (onPruneFailure ??
+        (error) => debugPrint('Study-log pruning skipped: $error'))(error);
+  }
 }
 
 /// 시작 시점에 확정되는 진단 키를 기록한다.
@@ -743,6 +768,38 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 (_) => GrammarScreen(courseContext: grammarCourseContext),
                 settings: settings,
               );
+            case '/grammar_choice_quiz':
+              final args = settings.arguments;
+              String? planLevel;
+              String? planDayLabel;
+              Set<String>? allowedTargetIds;
+              if (args is Map) {
+                final rawLevel = args['level'];
+                if (rawLevel is String) {
+                  planLevel = rawLevel;
+                }
+                final rawPlanDayLabel = args['planDayLabel'];
+                if (rawPlanDayLabel is String) {
+                  planDayLabel = rawPlanDayLabel;
+                }
+                if (args.containsKey('allowedTargetIds')) {
+                  final rawTargetIds = args['allowedTargetIds'];
+                  if (rawTargetIds is Iterable) {
+                    allowedTargetIds = <String>{
+                      for (final id in rawTargetIds)
+                        if (id is String) id,
+                    };
+                  }
+                }
+              }
+              return SoriTransitions.fadeScale(
+                (_) => GrammarChoiceQuizScreen(
+                  initialLevel: planLevel,
+                  allowedTargetIds: allowedTargetIds,
+                  planDayLabel: planDayLabel,
+                ),
+                settings: settings,
+              );
             case '/listening':
               return SoriTransitions.fadeScale(
                 (_) => const ListeningScreen(),
@@ -883,6 +940,11 @@ class _KoLernenAppState extends State<KoLernenApp> {
                 (_) => const ReviewSessionScreen(
                   feedbackContentId: 'today_review',
                 ),
+                settings: settings,
+              );
+            case '/review/hub':
+              return SoriTransitions.fadeScale(
+                (_) => const ReviewHubScreen(),
                 settings: settings,
               );
             case '/smalltalk':
