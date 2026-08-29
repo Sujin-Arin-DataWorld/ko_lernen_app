@@ -605,7 +605,12 @@ class _LevelProgressHeader extends StatelessWidget {
                 children: [
                   Expanded(child: progress),
                   const SizedBox(width: Spacing.sm),
-                  _StageLabel(level: level, pct: pct),
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: constraints.maxWidth / 2,
+                    ),
+                    child: _StageLabel(level: level, pct: pct),
+                  ),
                 ],
               );
             },
