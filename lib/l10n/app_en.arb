@@ -1040,6 +1040,7 @@
   "hanokStageSideBuilding": "Side wing added",
   "hanokStageJongga": "Jongga complete",
   "vocabPackPlayTitle": "Pack practice",
+  "vocabPackFinishSaveError": "Your progress could not be saved. Please try again.",
   "vocabPackLearnHint": "Tap to flip",
   "vocabPackLearnRepeatSuffix": " · +{n, plural, one{1 repeat} other{{n} repeats}}",
   "@vocabPackLearnRepeatSuffix": {

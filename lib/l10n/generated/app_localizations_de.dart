@@ -2074,6 +2074,10 @@ class AppL10nDe extends AppL10n {
   String get vocabPackPlayTitle => 'Paket-Übung';
 
   @override
+  String get vocabPackFinishSaveError =>
+      'Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.';
+
+  @override
   String get vocabPackLearnHint => 'Tippen zum Umdrehen';
 
   @override

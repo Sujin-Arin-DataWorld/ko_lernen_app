@@ -2066,6 +2066,10 @@ class AppL10nEn extends AppL10n {
   String get vocabPackPlayTitle => 'Pack practice';
 
   @override
+  String get vocabPackFinishSaveError =>
+      'Your progress could not be saved. Please try again.';
+
+  @override
   String get vocabPackLearnHint => 'Tap to flip';
 
   @override
