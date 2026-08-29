@@ -560,6 +560,59 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('pinching over a building zooms the map without moving it', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 4000);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final anchorStore = _MemoryAnchorStore();
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedA1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: anchorStore,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final anchor = find.byKey(
+      const ValueKey('ildu-map-turntable-sarangchae-0'),
+    );
+    final anchorCenter = tester.getCenter(anchor);
+    final mapController = tester
+        .widget<InteractiveViewer>(find.byType(InteractiveViewer))
+        .transformationController!;
+    final firstFinger = await tester.startGesture(
+      anchorCenter - const Offset(8, 0),
+      pointer: 1,
+    );
+    final secondFinger = await tester.startGesture(
+      anchorCenter + const Offset(8, 0),
+      pointer: 2,
+    );
+    await tester.pump();
+    await firstFinger.moveTo(anchorCenter - const Offset(64, 0));
+    await secondFinger.moveTo(anchorCenter + const Offset(64, 0));
+    await tester.pump();
+    await firstFinger.up();
+    await secondFinger.up();
+    await tester.pumpAndSettle();
+
+    expect(mapController.value.getMaxScaleOnAxis(), greaterThan(1));
+    expect(anchorStore.saveCount, 0);
+    expect(anchorStore.placements, isEmpty);
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('dedicated controls resize and restore all shrine asset types', (
     tester,
   ) async {
@@ -746,6 +799,55 @@ void main() {
     expect(anchorStore.placements.single.scale, closeTo(1.35, .001));
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('a successful latest transform clears an earlier save failure', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final anchorStore = _ControlledAnchorStore();
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedA1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: anchorStore,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final screenContext = tester.element(find.byType(IlDuWorldScreen));
+    final saveError = AppL10n.of(screenContext).ilduWorldSaveError;
+
+    await tester.drag(
+      find.byKey(const ValueKey('hanok-turntable-drag-area')),
+      const Offset(-40, 0),
+    );
+    await tester.pump();
+    final slider = tester.widget<Slider>(
+      find.byKey(const ValueKey('ildu-scale-slider-sarangchae')),
+    );
+    slider.onChanged!(1.35);
+    slider.onChangeEnd!(1.35);
+    await tester.pump();
+
+    anchorStore.completeNextSave(fail: true);
+    await tester.pump();
+    anchorStore.completeNextSave();
+    await tester.pump();
+
+    expect(anchorStore.placements.single.direction, 1);
+    expect(anchorStore.placements.single.scale, closeTo(1.35, .001));
+    expect(find.text(saveError), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
 }
 
 PersonalHanokProjection _verifiedA1Projection() {
@@ -815,6 +917,7 @@ class _MemoryDecorationStore implements IlDuDecorationPlacementStore {
 
 class _MemoryAnchorStore implements IlDuAnchorPlacementStore {
   List<IlDuAnchorPlacement> placements = const [];
+  int saveCount = 0;
 
   @override
   Future<List<IlDuAnchorPlacement>> load(IlDuWorldManifest manifest) async =>
@@ -822,6 +925,7 @@ class _MemoryAnchorStore implements IlDuAnchorPlacementStore {
 
   @override
   Future<void> save(List<IlDuAnchorPlacement> placements) async {
+    saveCount++;
     this.placements = List.unmodifiable(placements);
   }
 }
@@ -852,7 +956,12 @@ class _ControlledAnchorStore implements IlDuAnchorPlacementStore {
     _activeSaves--;
   }
 
-  void completeNextSave() {
-    _pendingSaves.removeAt(0).complete();
+  void completeNextSave({bool fail = false}) {
+    final completion = _pendingSaves.removeAt(0);
+    if (fail) {
+      completion.completeError(StateError('controlled save failure'));
+      return;
+    }
+    completion.complete();
   }
 }

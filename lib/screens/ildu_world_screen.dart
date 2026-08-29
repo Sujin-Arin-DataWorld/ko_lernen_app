@@ -161,7 +161,7 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
   }
 
   Future<void> _drainAnchorPlacementSaves() async {
-    var saveFailed = false;
+    var latestSaveFailed = false;
     while (_anchorSaveRequested) {
       _anchorSaveRequested = false;
       final snapshot = List<IlDuAnchorPlacement>.unmodifiable(
@@ -169,12 +169,13 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
       );
       try {
         await widget.anchorPlacementStore.save(snapshot);
+        latestSaveFailed = false;
       } catch (_) {
-        saveFailed = true;
+        latestSaveFailed = true;
       }
     }
     _anchorSaveInProgress = false;
-    if (!saveFailed || !mounted) {
+    if (!latestSaveFailed || !mounted) {
       return;
     }
     final t = AppL10n.of(context);
