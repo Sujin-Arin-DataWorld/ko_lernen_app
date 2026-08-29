@@ -243,6 +243,15 @@ class CustomPackService {
     return pack.words.any((word) => word.korean.trim() == needle);
   }
 
+  /// PackProgressService.wordsLearnedIn 과 동일 패턴 — 별도 카운터를 두지
+  /// 않고 vokSeenIds 교집합으로 유도한다(지시서 1.21 — 세션 진행 무영속
+  /// "0/2" 버그의 근본 해결: addVokSeen 이 이미 남긴 노출 기록을 그대로
+  /// 읽으므로 신규 쓰기 경로가 필요 없다).
+  static int learnedWordCount(CustomPack pack) {
+    final seen = Storage.vokSeenIds.toSet();
+    return pack.words.where((w) => seen.contains(w.korean)).length;
+  }
+
   /// 책장 페이지에서 새 팩 생성 + 저장. 새 팩의 id 반환.
   static Future<CustomPack> createFromPage({
     required BookPage page,

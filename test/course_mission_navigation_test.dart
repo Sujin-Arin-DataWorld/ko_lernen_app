@@ -1,11 +1,18 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import 'package:ko_lernen_app/models/course_mastery.dart';
 import 'package:ko_lernen_app/models/course_practice_context.dart';
 import 'package:ko_lernen_app/models/curriculum.dart';
+import 'package:ko_lernen_app/models/grammar.dart';
+import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/models/vocab.dart';
 import 'package:ko_lernen_app/models/vocab_pack.dart';
+import 'package:ko_lernen_app/services/course_mastery_service.dart';
 import 'package:ko_lernen_app/services/course_mission_navigation.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
 import 'package:ko_lernen_app/services/curriculum_catalog.dart';
+import 'package:ko_lernen_app/services/storage_service.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -180,6 +187,108 @@ void main() {
       expect(destination, isNull);
     },
   );
+
+  group('activeScenarioCheckpointContext', () {
+    test('활성 유닛의 체크포인트 시나리오면 컨텍스트를 유도한다', () async {
+      final catalog = _miniCheckpointCatalog();
+      final snapshot = const CourseMasterySnapshot(
+        currentCourseUnitId: 'a1_01_greetings_hangul',
+      );
+      final context = await activeScenarioCheckpointContext(
+        'airport_arrival',
+        catalog: catalog,
+        snapshot: snapshot,
+      );
+      expect(context, isNotNull);
+      expect(context!.courseUnitId, 'a1_01_greetings_hangul');
+      expect(context.contentKind, CurriculumContentKind.scenario);
+      expect(context.initialContentId, 'airport_arrival');
+    });
+
+    test('활성 유닛이 없으면 null', () async {
+      final catalog = _miniCheckpointCatalog();
+      final context = await activeScenarioCheckpointContext(
+        'airport_arrival',
+        catalog: catalog,
+        snapshot: const CourseMasterySnapshot.empty(),
+      );
+      expect(context, isNull);
+    });
+
+    test('시나리오가 활성 유닛의 체크포인트가 아니면 null (브라우즈 유지)', () async {
+      final catalog = _miniCheckpointCatalog();
+      final snapshot = const CourseMasterySnapshot(
+        currentCourseUnitId: 'a1_01_greetings_hangul',
+      );
+      final context = await activeScenarioCheckpointContext(
+        'unrelated_scenario',
+        catalog: catalog,
+        snapshot: snapshot,
+      );
+      expect(context, isNull);
+    });
+
+    // T6 리뷰 요구사항: 이 함수는 course_mastery_service.recordScenarioCheckpoint
+    // 내부 판정을 그대로 미러링한다는 문서 주석 하나로만 서비스와 연결돼 있었다.
+    // 미러와 실제 서비스가 갈라져도 겉보기 단위 테스트는 계속 통과할 수 있으므로,
+    // 유도된 컨텍스트를 실제 서비스에 흘려 넣어 courseEligible이 참이 되는지 직접
+    // 왕복 검증한다 — 둘 사이에 드리프트가 생기면 이 테스트가 시끄럽게 실패한다.
+    test(
+      '유도된 컨텍스트를 실제 서비스에 넣으면 courseEligible이 참이 된다 (T6 미러-서비스 계약 회귀 가드)',
+      () async {
+        Storage.resetForTesting();
+        SharedPreferences.setMockInitialValues({});
+        await Storage.init();
+        addTearDown(Storage.resetForTesting);
+
+        final catalog = _miniCheckpointCatalog();
+        final service = CourseMasteryService(catalog);
+        await service.initializeForPlacement('a1');
+        expect(service.currentUnit?.id, 'a1_01_greetings_hangul');
+
+        final context = await activeScenarioCheckpointContext(
+          'airport_arrival',
+          catalog: catalog,
+          snapshot: service.snapshot,
+        );
+        expect(context, isNotNull);
+
+        final update = await service.recordScenarioCheckpoint(
+          'airport_arrival',
+          1.0,
+          courseContext: context,
+        );
+
+        expect(
+          update.snapshot.scenarioCheckpoints.last.courseEligible,
+          isTrue,
+        );
+      },
+    );
+
+    // Flutter 전문 리뷰 요구사항(T8 후속): 이 유도는 배경 강화일 뿐이다 —
+    // 손상된/레거시 로컬 스냅샷(FormatException)처럼 안에서 무엇이 던져지든
+    // 시나리오 재생 자체를 막아선 안 된다. 실패하면 그냥 null(= 이전 동작)로
+    // 내려간다.
+    test('내부에서 예외가 나도 던지지 않고 null로 안전하게 내려간다', () async {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      Storage.resetForTesting();
+      SharedPreferences.setMockInitialValues({
+        'kl_course_mastery_v2': 'not valid json {{{',
+      });
+      await Storage.init();
+      CourseProgressService.shared.resetForTesting();
+      addTearDown(Storage.resetForTesting);
+      addTearDown(CourseProgressService.shared.resetForTesting);
+
+      final context = await activeScenarioCheckpointContext(
+        'airport_arrival',
+        catalog: _miniCheckpointCatalog(),
+      );
+
+      expect(context, isNull);
+    });
+  });
 }
 
 VocabPack _pack(String packId, String wordId) => VocabPack(
@@ -201,3 +310,96 @@ VocabPack _pack(String packId, String wordId) => VocabPack(
     ),
   ],
 );
+
+/// Mirrors the shape of `test/course_mastery_test.dart`'s private `_catalog()`
+/// fixture (that helper cannot be reused across libraries), trimmed to the
+/// single active unit + single checkpoint scenario this suite needs: unit
+/// `a1_01_greetings_hangul` declares `checkpointContentIds:
+/// ['scenario:airport_arrival']`, so the manifest's checkpoint-declaration
+/// pass mints one exact `assess` edge for that scenario automatically.
+CurriculumCatalog _miniCheckpointCatalog() {
+  const unitId = 'a1_01_greetings_hangul';
+  const conceptId = 'concept_greeting_politeness';
+  const grammarId = 'grammar_greetings';
+  final manifest = <String, dynamic>{
+    'version': 1,
+    'courseUnits': [
+      {
+        'id': unitId,
+        'level': 'a1',
+        'order': 1,
+        'title': {'ko': '인사', 'de': 'Gruß', 'en': 'Greeting'},
+        'canDo': {
+          'ko': '인사할 수 있어요.',
+          'de': 'Ich kann grüßen.',
+          'en': 'I can greet.',
+        },
+        'requiredConceptIds': [conceptId],
+        'checkpointContentIds': ['scenario:airport_arrival'],
+        'isPilot': true,
+      },
+    ],
+    'concepts': [
+      {
+        'id': conceptId,
+        'level': 'a1',
+        'kind': 'speechStyle',
+        'title': {'ko': conceptId, 'de': conceptId, 'en': conceptId},
+        'explanation': {'ko': conceptId, 'de': conceptId, 'en': conceptId},
+      },
+    ],
+    'surfaceForms': const [],
+    'formFamilies': const [],
+    'contentLinks': const [],
+    'vocabPackUnitMap': const {},
+    'smalltalkCategoryUnitMap': const {},
+    'smalltalkCheckpointPhraseMap': const {},
+    'clozeTopicUnitMap': const {},
+    'grammarRuleMap': {
+      grammarId: {
+        'courseUnitId': unitId,
+        'conceptIds': [conceptId],
+      },
+    },
+  };
+  final grammar = <Grammar>[
+    Grammar(
+      id: grammarId,
+      pattern: 'pattern_0',
+      level: 'a1',
+      typeDe: 'Test',
+      explanationDe: '',
+      exampleKorean: '',
+      exampleGerman: '',
+      note: '',
+    ),
+  ];
+  final scenarios = <Scenario>[
+    Scenario(
+      id: 'airport_arrival',
+      level: LearnerLevel.fromCode('a1')!,
+      emoji: '💬',
+      register: Register.polite,
+      title: const LocalizedText(ko: '연습', de: 'Übung', en: 'Practice'),
+      intro: const LocalizedText(ko: '연습', de: 'Übung', en: 'Practice'),
+      vocab: const [],
+      grammarIds: const [grammarId],
+      dialog: const [],
+      quests: const [],
+      courseUnitId: unitId,
+      speechStyle: SpeechStyle.polite,
+      relationshipContext: 'service',
+      intent: 'practice',
+      conceptIds: const [conceptId],
+    ),
+  ];
+  return CurriculumCatalog.fromDataForTesting(
+    manifestJson: manifest,
+    vocab: const [],
+    grammar: grammar,
+    smalltalk: const [],
+    cloze: const [],
+    satz: const [],
+    scenarios: scenarios,
+  );
+}

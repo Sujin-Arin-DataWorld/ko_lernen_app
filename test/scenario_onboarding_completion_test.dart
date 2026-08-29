@@ -8,6 +8,8 @@ import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/scenario_player_screen.dart';
 import 'package:ko_lernen_app/services/course_activity_reporter.dart';
+import 'package:ko_lernen_app/services/course_progress_service.dart';
+import 'package:ko_lernen_app/services/curriculum_catalog.dart';
 import 'package:ko_lernen_app/services/scenario_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
@@ -50,6 +52,20 @@ void main() {
   ) async {
     var saveCalls = 0;
     var exitCalls = 0;
+    // _load()가 이제 항상 activeScenarioCheckpointContext(→
+    // CourseProgressService.shared, CurriculumCatalog.load())를 거친다(T8,
+    // 지시서 4.15). 그 서비스의 직렬화 큐(_tail)/캐시된 서비스는
+    // testWidgets 마다 새로 생기는 Zone 을 넘나들면 응답하지 않으므로
+    // (courseContext 없이 여는 테스트가 이 파일에 여럿 있다) 이 테스트
+    // 자신의 Zone 안에서 매번 새로 시작한다 — setUp()에 두면 그 자체가
+    // 다른 Zone 이라 소용없다(직접 확인됨).
+    CourseProgressService.shared.resetForTesting();
+    // ScenarioLoader.load()는 compute() 격리를 쓰므로 위젯 내부에서
+    // 콜드로 처음 호출되면 FakeAsync 존에서 영원히 응답하지 않는다 —
+    // runAsync로 감싸 미리 예열한다.
+    await tester.runAsync(() async {
+      await CurriculumCatalog.load();
+    });
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
@@ -85,6 +101,17 @@ void main() {
     var completionCalls = 0;
     ScenarioCompletionSummary? summary;
 
+    // 이 테스트 자신의 Zone 안에서 CourseProgressService.shared 를 새로
+    // 시작한다 — 위 "leaving mid-onboarding" 테스트가 이미 그 큐를
+    // 사용했다(다른 Zone). 상세 사유는 그 테스트의 주석 참고.
+    CourseProgressService.shared.resetForTesting();
+    // _load()가 이제 항상 activeScenarioCheckpointContext(→
+    // CurriculumCatalog.load())를 시도한다(T8, 지시서 4.15). runAsync 없이
+    // 위젯 내부에서 콜드로 처음 호출되면 compute() 격리 때문에 FakeAsync
+    // 존에서 영원히 응답하지 않는다 — 미리 예열한다.
+    await tester.runAsync(() async {
+      await CurriculumCatalog.load();
+    });
     await tester.pumpWidget(
       MaterialApp(
         theme: AppTheme.light,
@@ -160,9 +187,8 @@ void main() {
     );
   }
 
-  testWidgets('airport dont-know completion writes no mastery, stars, or XP', (
-    tester,
-  ) async {
+  testWidgets('airport dont-know completion writes no mastery or XP, '
+      'but records first-attempt 0 stars (T7: 0성 최초 기록 허용)', (tester) async {
     Storage.resetForTesting();
     SharedPreferences.setMockInitialValues({
       'kl_tut_scenario': true,
@@ -206,7 +232,9 @@ void main() {
     expect(checkpoints.single.score, 0);
     expect(checkpoints.single.hasCourseContext, isFalse);
     expect(Storage.xp, 0);
-    expect(Storage.scenarioStars['airport_arrival'], isNull);
+    // T7(지시서 4.15): 0성 완료도 최초 1회는 기록된다 — 완료 여부(키 존재)가
+    // 코스 체크포인트 "0/2→1/2" 판정의 입력이라 더 이상 null 로 빠지면 안 된다.
+    expect(Storage.scenarioStars['airport_arrival'], 0);
     expect(Storage.completedScenarios, contains('airport_arrival'));
   });
 }
@@ -217,11 +245,21 @@ Future<Scenario> _loadAirport(WidgetTester tester) async {
   addTearDown(tester.view.resetPhysicalSize);
   addTearDown(tester.view.resetDevicePixelRatio);
 
+  // 이 테스트 자신의 Zone 안에서 CourseProgressService.shared 를 새로
+  // 시작한다 — 이 파일의 다른(앞선) testWidgets 가 이미 그 큐를 사용했을
+  // 수 있다(다른 Zone). 상세 사유는 첫 번째 테스트의 주석 참고.
+  CourseProgressService.shared.resetForTesting();
   ScenarioLoader.reset();
   late Scenario airport;
   await tester.runAsync(() async {
     await ScenarioLoader.load();
     airport = ScenarioLoader.byId('airport_arrival')!;
+    // _load()가 이제 항상 activeScenarioCheckpointContext(→
+    // CurriculumCatalog.load())를 시도한다(T8, 지시서 4.15). 그 카탈로그를
+    // 위젯 내부에서 콜드로 처음 로드하면(= compute() 격리를 쓰는
+    // ScenarioLoader.load() 하위 호출 때문에) FakeAsync 존에서 영원히
+    // 응답하지 않는다 — 여기서 함께 예열해 둔다.
+    await CurriculumCatalog.load();
   });
   return airport;
 }

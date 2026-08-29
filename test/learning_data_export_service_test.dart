@@ -44,6 +44,9 @@ void main() {
       'kl_srs_v1': jsonEncode({
         'word_1': {'e': 2.6, 'i': 3, 'n': '2026-08-15', 'r': 2},
       }),
+      'kl_study_log_v1_2026-08-10': <String>['word_1', 'word_2'],
+      'kl_study_log_v1_2026-08-11': <String>['word_3'],
+      'kl_gram_plan_v1': '{ "a2": {"day": 3} }',
       'kl_pack_progress_v1': jsonEncode({
         'travel_a2': {
           'level': 'A2',
@@ -117,6 +120,13 @@ void main() {
       'a1_01_greetings',
     ]);
     expect(decoded['review']['cards']['word_1']['reviewCount'], 2);
+    expect(decoded['studyLog'], {
+      '2026-08-10': ['word_1', 'word_2'],
+      '2026-08-11': ['word_3'],
+    });
+    expect(decoded['grammarPlan'], {
+      'a2': {'day': 3},
+    });
     expect(decoded['packs']['travel_a2']['wordsLearned'], 8);
     expect(decoded['progress']['pronunciation'], {
       'passedAssessments': 2,
@@ -179,6 +189,7 @@ void main() {
       await preferences.setString('kl_srs_v1', '{not-json');
       await preferences.setString('kl_pack_progress_v1', '[]');
       await preferences.setString('kl_course_mastery_v2', '{broken');
+      await preferences.setString('kl_gram_plan_v1', '[]');
       Storage.resetForTesting();
       await Storage.init();
       final before = _snapshot(preferences);
@@ -190,6 +201,7 @@ void main() {
       expect(decoded['review']['cards'], isEmpty);
       expect(decoded['packs'], isEmpty);
       expect(decoded['course']['mastery'], isNull);
+      expect(decoded['grammarPlan'], isNull);
       await preferences.reload();
       expect(_snapshot(preferences), before);
       expect(

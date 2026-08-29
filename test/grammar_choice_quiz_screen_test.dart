@@ -335,6 +335,169 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
+
+  testWidgets(
+    'restricts plan-day targets without slicing authored distractors and keeps them after restart',
+    (tester) async {
+      await _pumpPractice(
+        tester,
+        allowedTargetIds: const <String>{'grammar_a1_one'},
+      );
+
+      expect(find.text('1 / 1 · A1'), findsOneWidget);
+      final choices = tester.widgetList<QuizChoice>(find.byType(QuizChoice));
+      expect(choices, hasLength(4));
+      expect(choices.singleWhere((choice) => choice.isCorrect).text, '-one');
+      expect(
+        choices
+            .where((choice) => !choice.isCorrect)
+            .map((choice) => choice.text),
+        containsAll(const <String>['-two', '-three', '-four']),
+      );
+
+      choices.singleWhere((choice) => choice.isCorrect).onSelected!();
+      await tester.pump();
+      await tester.tap(find.text('See result'));
+      await tester.pump();
+      await tester.tap(find.text('New round'));
+      await tester.pump();
+
+      final restartedChoices = tester.widgetList<QuizChoice>(
+        find.byType(QuizChoice),
+      );
+      expect(find.text('1 / 1 · A1'), findsOneWidget);
+      expect(
+        restartedChoices.singleWhere((choice) => choice.isCorrect).text,
+        '-one',
+      );
+      expect(restartedChoices, hasLength(4));
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets('null target IDs preserves the omitted seeded choice signature', (
+    tester,
+  ) async {
+    await _pumpPractice(tester);
+    final omitted = tester
+        .widgetList<QuizChoice>(find.byType(QuizChoice))
+        .map((choice) => '${choice.text}:${choice.isCorrect}')
+        .toList();
+
+    await _pumpPractice(tester, allowedTargetIds: null);
+    final explicitNull = tester
+        .widgetList<QuizChoice>(find.byType(QuizChoice))
+        .map((choice) => '${choice.text}:${choice.isCorrect}')
+        .toList();
+
+    expect(explicitNull, omitted);
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('plan-day label only replaces the progress caption', (
+    tester,
+  ) async {
+    await _pumpPractice(tester, planDayLabel: 'Day 4');
+
+    expect(find.text('Day 4 · 1 / 1'), findsOneWidget);
+    expect(find.text('1 / 1 · A1'), findsNothing);
+    expect(tester.takeException(), isNull);
+  });
+
+  for (final locale in const <Locale>[Locale('de'), Locale('en')]) {
+    testWidgets(
+      '${locale.languageCode} feedback shows localized usage once and omits it for an empty note',
+      (tester) async {
+        final t = await AppL10n.delegate.load(locale);
+        final withNoteFixture = List<Grammar>.from(_fixture())
+          ..[0] = _grammar(
+            'one',
+            exampleEn: 'I am ready.',
+            focusEn: 'am',
+            exampleGerman: 'Ich bin bereit.',
+            focusGerman: 'bin',
+            note: 'Anwendungsnotiz',
+            noteEn: 'Usage note',
+            distractorIds: const <String>[
+              'grammar_a1_two',
+              'grammar_a1_three',
+              'grammar_a1_four',
+            ],
+          );
+        await _pumpPractice(
+          tester,
+          locale: locale,
+          grammarLoader: () async => withNoteFixture,
+          allowedTargetIds: const <String>{'grammar_a1_one'},
+        );
+        final correct = tester
+            .widgetList<QuizChoice>(find.byType(QuizChoice))
+            .singleWhere((choice) => choice.isCorrect);
+        correct.onSelected!();
+        await tester.pump();
+
+        expect(
+          find.text(t.grammarChoiceExplanationLabel, skipOffstage: false),
+          findsOneWidget,
+        );
+        expect(
+          find.text(t.grammarChoiceNoteLabel, skipOffstage: false),
+          findsOneWidget,
+        );
+        expect(
+          find.text(
+            locale.languageCode == 'en' ? 'Usage note' : 'Anwendungsnotiz',
+            skipOffstage: false,
+          ),
+          findsOneWidget,
+        );
+
+        final noNoteFixture = List<Grammar>.from(_fixture())
+          ..[0] = _grammar(
+            'one',
+            exampleEn: 'I am ready.',
+            focusEn: 'am',
+            exampleGerman: 'Ich bin bereit.',
+            focusGerman: 'bin',
+            note: '',
+            noteEn: '',
+            distractorIds: const <String>[
+              'grammar_a1_two',
+              'grammar_a1_three',
+              'grammar_a1_four',
+            ],
+          );
+        await _pumpPractice(
+          tester,
+          locale: locale,
+          grammarLoader: () async => noNoteFixture,
+          allowedTargetIds: const <String>{'grammar_a1_one'},
+        );
+        tester
+            .widgetList<QuizChoice>(find.byType(QuizChoice))
+            .singleWhere(
+              (choice) => choice.isCorrect && choice.onSelected != null,
+            )
+            .onSelected!();
+        await tester.pump();
+
+        expect(
+          find.text(t.grammarChoiceNoteLabel, skipOffstage: false),
+          findsNothing,
+        );
+        expect(
+          find.byWidgetPredicate(
+            (widget) =>
+                widget is Semantics &&
+                (widget.properties.label?.contains(t.grammarChoiceNoteLabel) ??
+                    false),
+          ),
+          findsNothing,
+        );
+        expect(tester.takeException(), isNull);
+      },
+    );
+  }
 }
 
 Future<void> _pumpPractice(
@@ -343,6 +506,8 @@ Future<void> _pumpPractice(
   Future<List<Grammar>> Function()? grammarLoader,
   String? Function()? dataLoaderErrorReader,
   Future<void> Function(String pattern)? markGrammarHard,
+  Set<String>? allowedTargetIds,
+  String? planDayLabel,
 }) async {
   await tester.pumpWidget(
     MaterialApp(
@@ -352,12 +517,15 @@ Future<void> _pumpPractice(
       supportedLocales: AppL10n.supportedLocales,
       localizationsDelegates: AppL10n.localizationsDelegates,
       home: GrammarChoiceQuizScreen(
+        key: UniqueKey(),
         initialLevel: 'A1',
         randomSeed: 5,
         maxQuestions: 1,
         grammarLoader: grammarLoader ?? () async => _fixture(),
         dataLoaderErrorReader: dataLoaderErrorReader,
         markGrammarHard: markGrammarHard,
+        allowedTargetIds: allowedTargetIds,
+        planDayLabel: planDayLabel,
       ),
     ),
   );
@@ -434,6 +602,8 @@ Grammar _grammar(
   required String focusEn,
   required String exampleGerman,
   required String focusGerman,
+  String note = 'Test',
+  String noteEn = 'Test',
   required List<String> distractorIds,
 }) => Grammar(
   id: 'grammar_a1_$id',
@@ -443,11 +613,11 @@ Grammar _grammar(
   explanationDe: 'Test',
   exampleKorean: '한국어 예문 $id',
   exampleGerman: exampleGerman,
-  note: 'Test',
+  note: note,
   typeEn: 'Test type',
   explanationEn: 'Test',
   exampleEn: exampleEn,
-  noteEn: 'Test',
+  noteEn: noteEn,
   exampleGermanFocus: focusGerman,
   exampleEnFocus: focusEn,
   quizEnabled: true,

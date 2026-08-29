@@ -294,6 +294,7 @@ void main() {
     await _setLargeView(tester);
     await tester.pumpWidget(_wrap(const GrammarScreen()));
     await _pumpUntil(tester, find.byType(FlipCard));
+    await _dismissGrammarPlanOnboarding(tester);
 
     // Seed a session before switching levels — this must not survive the
     // filter change below.
@@ -353,6 +354,7 @@ void main() {
       await _setLargeView(tester);
       await tester.pumpWidget(_wrap(const GrammarScreen()));
       await _pumpUntil(tester, find.byType(FlipCard));
+      await _dismissGrammarPlanOnboarding(tester);
 
       await tester.tap(find.byType(FlipCard));
       await tester.pump();
@@ -383,9 +385,7 @@ void main() {
       // (as "Apply" does), only this final judgment would be counted and
       // the payload below would read 'seen:1' instead of 'seen:2'.
       for (var i = 0; i < a1Count - 1; i++) {
-        tester
-            .widget<SoriContentFeed>(find.byType(SoriContentFeed))
-            .onSkip!();
+        tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onSkip!();
         await tester.pump();
       }
       tester.widget<SoriContentFeed>(find.byType(SoriContentFeed)).onNext!();
@@ -615,6 +615,17 @@ Future<void> _pumpUntil(
     if (finder.evaluate().isNotEmpty) return;
   }
   expect(finder, findsWidgets);
+}
+
+Future<void> _dismissGrammarPlanOnboarding(WidgetTester tester) async {
+  if (find
+      .byKey(const Key('grammar-plan-onboarding-sheet'))
+      .evaluate()
+      .isEmpty) {
+    return;
+  }
+  await tester.tapAt(const Offset(8, 8));
+  await tester.pump(const Duration(milliseconds: 300));
 }
 
 Future<void> _setLargeView(WidgetTester tester) async {

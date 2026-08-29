@@ -3,6 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/course_practice_context.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_result_screen.dart';
 import 'package:ko_lernen_app/screens/vocab_pack_screen.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
@@ -240,4 +242,154 @@ void main() {
     );
     semantics.dispose();
   });
+
+  testWidgets('automaticallyImplyLeading 가 없어 기본 뒤로가기가 보인다', (
+    tester,
+  ) async {
+    // 기존 하네스로 VocabPackResultScreen 을 courseContext 없이 pump —
+    // 결과 화면 아래에 실제 경로가 하나 있어야(canPop) 기본 뒤로가기가
+    // 나타나는지 의미 있게 검증된다(단일 route 스택에선 항상 숨는다).
+    await tester.pumpWidget(
+      MaterialApp(
+        theme: AppTheme.light,
+        locale: const Locale('de'),
+        supportedLocales: AppL10n.supportedLocales,
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        home: const Scaffold(body: Text('home-route')),
+      ),
+    );
+    tester.state<NavigatorState>(find.byType(Navigator)).push(
+      MaterialPageRoute(
+        builder: (_) => const VocabPackResultScreen(
+          packId: 'a1_test_1',
+          bossAccuracy: 0.5,
+          bossCorrect: 1,
+          bossTotal: 2,
+          quizCorrect: 2,
+          quizTotal: 3,
+          justCleared: false,
+          nextUnlockedPackId: null,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.byType(BackButton), findsOneWidget);
+  });
+
+  testWidgets(
+    '"Zurück zum Grid" 는 코스 미션 진입에서도 pop 1회만 한다 (courseContext 유무 무관)',
+    (tester) async {
+      // Navigator 스택을 [Home, CourseMission, VocabPackResult] 로 세팅한 뒤
+      // (courseContext 포함) "Zurück zum Grid" 탭 → CourseMission 라우트로
+      // 정확히 1회 pop 했는지 검증. onTap 이 무조건 pop() 하나로 단순화된
+      // 뒤에도(리뷰 라운드 1에서 courseContext 분기 제거) 이 시나리오가
+      // 여전히 맞는지 지키는 회귀 가드다 — 스택 어디에도 '/vocab' 이름의
+      // route 가 없으므로, 예전 popUntil('/vocab' || isFirst) 로직이면
+      // isFirst(Home) 까지 밀려나 이 검증이 실패한다.
+      const courseContext = CoursePracticeContext(
+        courseUnitId: 'a1_greetings',
+        contentKind: CurriculumContentKind.vocab,
+        initialContentId: 'a1_greetings_1',
+        contentLinkId: 'vocab-mission-link',
+      );
+      final t = await AppL10n.delegate.load(const Locale('de'));
+
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: const Scaffold(body: Text('home-route')),
+        ),
+      );
+      final navigator = tester.state<NavigatorState>(find.byType(Navigator));
+      navigator.push(
+        MaterialPageRoute(
+          builder: (_) => const Scaffold(body: Text('course-mission-route')),
+        ),
+      );
+      await tester.pumpAndSettle();
+      navigator.push(
+        MaterialPageRoute(
+          builder: (_) => const VocabPackResultScreen(
+            packId: 'a1_greetings_1',
+            bossAccuracy: 0.5,
+            bossCorrect: 1,
+            bossTotal: 2,
+            quizCorrect: 2,
+            quizTotal: 3,
+            justCleared: false,
+            nextUnlockedPackId: null,
+            courseContext: courseContext,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final backToGrid = find.text(t.vocabPackResultBackToGrid);
+      expect(backToGrid, findsOneWidget);
+      await tester.ensureVisible(backToGrid);
+      await tester.tap(backToGrid);
+      await tester.pumpAndSettle();
+
+      expect(find.text('course-mission-route'), findsOneWidget);
+      expect(find.text('home-route'), findsNothing);
+    },
+  );
+
+  testWidgets(
+    '"Zurück zum Grid" 는 /path(학습 경로) 진입에서도 pop 1회만 한다',
+    (tester) async {
+      // 실사용 회귀(리뷰 라운드 1 지적): LearningPathScreen 은
+      // (learning_path_screen.dart:364) courseContext 없이 '/vocab/pack' 을
+      // pushNamed 하므로, 결과 화면 도달 시 courseContext 는 null 이고 스택
+      // 어디에도 '/vocab' 이름의 route 가 없다 — 옛 popUntil('/vocab' ||
+      // isFirst) 로직은 isFirst(Home) 까지 밀려나 학습 경로 화면을 건너뛰고
+      // 만다. 무조건 pop() 은 정확히 1단계만 되돌아가 '/path' 로 돌아온다.
+      await tester.pumpWidget(
+        MaterialApp(
+          theme: AppTheme.light,
+          locale: const Locale('de'),
+          supportedLocales: AppL10n.supportedLocales,
+          localizationsDelegates: AppL10n.localizationsDelegates,
+          home: const Scaffold(body: Text('home-route')),
+        ),
+      );
+      final navigator = tester.state<NavigatorState>(find.byType(Navigator));
+      navigator.push(
+        MaterialPageRoute(
+          settings: const RouteSettings(name: '/path'),
+          builder: (_) => const Scaffold(body: Text('learning-path-route')),
+        ),
+      );
+      await tester.pumpAndSettle();
+      navigator.push(
+        MaterialPageRoute(
+          builder: (_) => const VocabPackResultScreen(
+            packId: 'a1_test_1',
+            bossAccuracy: 0.5,
+            bossCorrect: 1,
+            bossTotal: 2,
+            quizCorrect: 2,
+            quizTotal: 3,
+            justCleared: false,
+            nextUnlockedPackId: null,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final t = await AppL10n.delegate.load(const Locale('de'));
+      final backToGrid = find.text(t.vocabPackResultBackToGrid);
+      expect(backToGrid, findsOneWidget);
+      await tester.ensureVisible(backToGrid);
+      await tester.tap(backToGrid);
+      await tester.pumpAndSettle();
+
+      expect(find.text('learning-path-route'), findsOneWidget);
+      expect(find.text('home-route'), findsNothing);
+    },
+  );
 }

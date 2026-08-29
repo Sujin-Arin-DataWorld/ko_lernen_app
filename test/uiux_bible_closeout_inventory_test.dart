@@ -36,7 +36,7 @@ void main() {
     }
     expect(unresolved, isEmpty);
     expect(ambiguous, isEmpty);
-    expect(registered, hasLength(72));
+    expect(registered, hasLength(74));
     expect(registered.toSet(), hasLength(registered.length));
 
     final lock = File(_lockPath).readAsStringSync();
@@ -52,7 +52,7 @@ void main() {
       r'^\| `(/[^`]*)` \|',
       multiLine: true,
     ).allMatches(routeInventory).map((match) => match.group(1)!).toList();
-    expect(documented, hasLength(72));
+    expect(documented, hasLength(74));
     expect(documented.toSet(), hasLength(documented.length));
 
     registered.sort();
@@ -70,6 +70,17 @@ void main() {
     );
     expect(sectionEnd, greaterThan(sectionStart));
     final inventory = lock.substring(sectionStart, sectionEnd);
+    final indirectSectionStart = lock.indexOf(
+      '## 7. Embedded and indirect screen audit',
+      sectionStart,
+    );
+    expect(indirectSectionStart, greaterThan(sectionStart));
+    final indirectInventory = lock.substring(indirectSectionStart, sectionEnd);
+    final indirectOwners = RegExp(
+      r'`([^`]+)`',
+    ).allMatches(indirectInventory).map((match) => match.group(1)!).toSet();
+    expect(indirectOwners, isNot(contains('GrammarChoiceQuizScreen')));
+    expect(indirectOwners, isNot(contains('ReviewHubScreen')));
     final surfaceNamePattern = RegExp(
       r'^[A-Z][A-Za-z0-9_]*(?:Screen|Layout|App|Shell|Overview|Quest|Sheet)$',
     );
@@ -96,8 +107,8 @@ void main() {
       }
     }
 
-    expect(seen, hasLength(109));
-    expect(documented, hasLength(109));
+    expect(seen, hasLength(110));
+    expect(documented, hasLength(110));
     expect(seen.difference(documented), isEmpty);
     expect(documented.difference(seen), isEmpty);
   });

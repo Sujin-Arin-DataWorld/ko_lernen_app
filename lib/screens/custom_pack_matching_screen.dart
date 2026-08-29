@@ -174,6 +174,8 @@ class _CustomPackMatchingScreenState extends State<CustomPackMatchingScreen>
         .firstWhere((word) => word.korean == ko)
         .translationFor(_languageCode)
         .trim();
+    // 정답/오답 무관 — 이 라운드에서 노출됐다는 사실 자체를 기록한다.
+    Storage.addVokSeen(ko);
     if (meaning == expected) {
       HapticFeedback.lightImpact();
       SoundService.correct();

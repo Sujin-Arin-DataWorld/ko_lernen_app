@@ -203,6 +203,7 @@ void main() {
 
     await tester.pumpWidget(_wrap(const GrammarScreen()));
     await _settleCourseScreen(tester);
+    await _dismissGrammarPlanOnboarding(tester);
 
     await tester.tap(find.byIcon(Icons.tune));
     await tester.pumpAndSettle();
@@ -255,6 +256,7 @@ void main() {
           ),
         );
         await _settleCourseScreen(tester);
+        await _dismissGrammarPlanOnboarding(tester);
 
         final screenContext = tester.element(find.byType(GrammarScreen));
         final t = AppL10n.of(screenContext);
@@ -307,6 +309,7 @@ void main() {
     expect((await tester.runAsync(DataLoader.loadGrammar))!, isNotEmpty);
     await tester.pumpWidget(_wrap(const GrammarScreen()));
     await _settleCourseScreen(tester);
+    await _dismissGrammarPlanOnboarding(tester);
 
     final cta = find.byKey(
       const Key('grammar-choice-cta'),
@@ -423,4 +426,15 @@ Future<void> _disposeCourseScreen(WidgetTester tester) async {
   // their delayed callbacks from leaking into the next widget test.
   await tester.pumpWidget(const SizedBox.shrink());
   await tester.pump();
+}
+
+Future<void> _dismissGrammarPlanOnboarding(WidgetTester tester) async {
+  if (find
+      .byKey(const Key('grammar-plan-onboarding-sheet'))
+      .evaluate()
+      .isEmpty) {
+    return;
+  }
+  await tester.tapAt(const Offset(8, 8));
+  await tester.pump(const Duration(milliseconds: 300));
 }

@@ -36,6 +36,8 @@ class GrammarChoiceQuizScreen extends StatefulWidget {
     this.markGrammarHard,
     this.randomSeed,
     this.maxQuestions = 10,
+    this.allowedTargetIds,
+    this.planDayLabel,
   });
 
   /// A level from the library filter. Invalid or absent values fall back to
@@ -61,6 +63,14 @@ class GrammarChoiceQuizScreen extends StatefulWidget {
   /// Production keeps a compact ten-question round. Tests may shrink it to
   /// isolate one answer without weakening the production content contract.
   final int maxQuestions;
+
+  /// When a grammar plan opens this exercise, restricts only the authored
+  /// targets for that day. The option pool remains level-wide by contract.
+  final Set<String>? allowedTargetIds;
+
+  /// Optional plan context for the progress caption. Free practice keeps the
+  /// existing level-based caption when this is null.
+  final String? planDayLabel;
 
   @override
   State<GrammarChoiceQuizScreen> createState() =>
@@ -127,6 +137,7 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
           languageCode: Localizations.localeOf(context).languageCode,
           random: _random,
           maxQuestions: widget.maxQuestions,
+          allowedTargetIds: widget.allowedTargetIds,
         );
         _loading = false;
       });
@@ -237,6 +248,7 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
         languageCode: languageCode,
         random: _random,
         maxQuestions: widget.maxQuestions,
+        allowedTargetIds: widget.allowedTargetIds,
       );
       _index = 0;
       _score = 0;
@@ -315,12 +327,15 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
     final feedbackTitle = isCorrect
         ? t.grammarChoiceCorrect
         : t.grammarChoiceIncorrect(question.target.pattern);
+    final usage = question.target.noteFor(languageCode);
+    final hasUsage = usage.trim().isNotEmpty;
     final feedbackSemantics = [
       feedbackTitle,
       '${t.grammarChoiceKoreanExampleLabel}: '
           '${question.target.exampleKorean}',
       '${t.grammarChoiceExplanationLabel}: '
           '${question.target.explanationFor(languageCode)}',
+      if (hasUsage) '${t.grammarChoiceNoteLabel}: $usage',
     ].join('. ');
     final segments = splitGrammarPrompt(
       example: question.target.exampleFor(languageCode),
@@ -330,7 +345,12 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Text('${_index + 1} / ${_round.length} · $_level', style: tt.caption),
+        Text(
+          widget.planDayLabel != null
+              ? '${widget.planDayLabel} · ${_index + 1} / ${_round.length}'
+              : '${_index + 1} / ${_round.length} · $_level',
+          style: tt.caption,
+        ),
         const SizedBox(height: Spacing.md),
         Expanded(
           child: ListView(
@@ -435,6 +455,12 @@ class _GrammarChoiceQuizScreenState extends State<GrammarChoiceQuizScreen> {
                             question.target.explanationFor(languageCode),
                             style: tt.body,
                           ),
+                          if (hasUsage) ...[
+                            const SizedBox(height: Spacing.md),
+                            Text(t.grammarChoiceNoteLabel, style: tt.caption),
+                            const SizedBox(height: Spacing.xs),
+                            Text(usage, style: tt.body),
+                          ],
                         ],
                       ),
                     ),

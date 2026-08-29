@@ -221,6 +221,80 @@ void main() {
     },
   );
 
+  test(
+    'allowedTargetIds limits targets without slicing the distractor pool',
+    () {
+      final source = _fixture();
+      final allowedTargetIds = <String>{source.first.id};
+      final sourceIdsBefore = source.map((grammar) => grammar.id).toList();
+      final allowedIdsBefore = {...allowedTargetIds};
+
+      final round = buildGrammarChoiceRound(
+        source: source,
+        level: 'A1',
+        languageCode: 'de',
+        random: Random(1),
+        allowedTargetIds: allowedTargetIds,
+      );
+
+      expect(round, hasLength(1));
+      expect(round.single.target.id, source.first.id);
+      expect(
+        round.single.options.map((option) => option.id),
+        containsAll(source.first.quizDistractorIds),
+      );
+      expect(source.map((grammar) => grammar.id), sourceIdsBefore);
+      expect(allowedTargetIds, allowedIdsBefore);
+    },
+  );
+
+  test(
+    'allowedTargetIds null preserves the complete seeded round signature',
+    () {
+      final source = _fixture();
+      final withoutFilter = buildGrammarChoiceRound(
+        source: source,
+        level: 'A1',
+        languageCode: 'de',
+        random: Random(1),
+      );
+      final withNullFilter = buildGrammarChoiceRound(
+        source: source,
+        level: 'A1',
+        languageCode: 'de',
+        random: Random(1),
+        allowedTargetIds: null,
+      );
+
+      expect(_roundSignature(withNullFilter), _roundSignature(withoutFilter));
+    },
+  );
+
+  test('an empty allowedTargetIds set returns an empty round', () {
+    final round = buildGrammarChoiceRound(
+      source: _fixture(),
+      level: 'A1',
+      languageCode: 'de',
+      random: Random(1),
+      allowedTargetIds: <String>{},
+    );
+
+    expect(round, isEmpty);
+  });
+
+  test('maxQuestions still limits a non-empty allowed target slice', () {
+    final round = buildGrammarChoiceRound(
+      source: _fixture(),
+      level: 'A1',
+      languageCode: 'de',
+      random: Random(1),
+      maxQuestions: 1,
+      allowedTargetIds: {'a1_1', 'a1_2'},
+    );
+
+    expect(round, hasLength(1));
+  });
+
   test('a missing, disabled, or cross-level authored option fails closed', () {
     final target = _grammar(
       'a1_target',

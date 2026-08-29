@@ -66,6 +66,22 @@
   "reviewDoneTitle": "Nice work!",
   "reviewDoneBody": "You've reviewed your due cards.",
   "reviewBonusLabel": "Phrase of the day",
+  "reviewHubTitle": "Review",
+  "reviewHubTodayHeadline": "Learned today",
+  "reviewHubEmptyToday": "Nothing learned yet today. Start a lesson.",
+  "reviewHubStartSelected": "{n, plural, one{Practice 1 word} other{Practice {n} words}}",
+  "@reviewHubStartSelected": {
+    "placeholders": {
+      "n": {"type": "int"}
+    }
+  },
+  "reviewHubCalendarTooltip": "Calendar",
+  "reviewHubDeckLabel": "{words, plural, one{1 word} other{{words} words}}",
+  "@reviewHubDeckLabel": {
+    "placeholders": {
+      "words": {"type": "int"}
+    }
+  },
   "homeReviewTitle": "Today's review",
   "homeReviewDue": "{n, plural, one{1 word due} other{{n} words due}}",
   "@homeReviewDue": {
@@ -187,6 +203,11 @@
         "type": "int"
       }
     }
+  },
+  "bookshelfPackLearnedMeta": "{learned} of {total} learned",
+  "@bookshelfPackLearnedMeta": {
+    "description": "Custom pack tile progress — words learned of total",
+    "placeholders": {"learned": {"type": "int"}, "total": {"type": "int"}}
   },
   "bookshelfPageTitle": "Page",
   "bookshelfPageNotFoundTitle": "Page not found",
@@ -1020,6 +1041,11 @@
   "hanokStageJongga": "Jongga complete",
   "vocabPackPlayTitle": "Pack practice",
   "vocabPackLearnHint": "Tap to flip",
+  "vocabPackLearnRepeatSuffix": " · +{n, plural, one{1 repeat} other{{n} repeats}}",
+  "@vocabPackLearnRepeatSuffix": {
+    "description": "Learn stage counter suffix for re-served (missed) cards",
+    "placeholders": {"n": {"type": "int"}}
+  },
   "vocabPackDontKnow": "Don't know",
   "vocabPackGotIt": "Got it",
   "deckActionSave": "Save",
@@ -2426,6 +2452,33 @@
   "grammarHard": "Difficult",
   "grammarPreviousCard": "Previous card",
   "grammarChoiceCta": "Practice with examples",
+  "grammarPlanOnboardingTitle": "How many patterns per day?",
+  "grammarPlanItemsPerDayOption": "{n} per day",
+  "@grammarPlanItemsPerDayOption": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanStartCta": "Let's go",
+  "grammarPlanDayHeader": "Day {day} of {total}",
+  "@grammarPlanDayHeader": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "grammarPlanCompletionTitle": "Day done!",
+  "grammarPlanCompletionBody": "Practice with examples?",
+  "grammarPlanCompletionCta": "Practice",
+  "grammarPlanCompletionSkip": "Later",
+  "grammarPlanFinishedTitle": "You've finished every pattern in this level!",
+  "grammarPlanFinishedRestartCta": "Start over",
   "grammarChoiceTitle": "Grammar practice",
   "grammarChoiceEyebrow": "Recognize the sentence",
   "grammarChoiceInstruction": "Which Korean grammar pattern matches the highlighted part?",
@@ -2451,6 +2504,7 @@
   },
   "grammarChoiceKoreanExampleLabel": "Example in Korean",
   "grammarChoiceExplanationLabel": "Why this fits",
+  "grammarChoiceNoteLabel": "Usage",
   "grammarChoiceFinish": "See result",
   "grammarChoiceDoneTitle": "Round complete",
   "grammarChoiceScore": "{correct} of {total} correct",
