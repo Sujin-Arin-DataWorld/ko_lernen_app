@@ -8,6 +8,8 @@ import 'package:ko_lernen_app/services/data_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/services/vocab_pack_service.dart';
 import 'package:ko_lernen_app/theme.dart';
+import 'package:ko_lernen_app/widgets/sori/chip.dart';
+import 'package:ko_lernen_app/widgets/sori/level_filter_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/pack_card.dart';
 import 'package:ko_lernen_app/widgets/sori/type_scale.dart';
 
@@ -54,6 +56,17 @@ void main() {
           }
 
           expect(find.byType(PackCard), findsWidgets);
+          final selectedLevelChips = find.descendant(
+            of: find.byType(SoriLevelFilterBar),
+            matching: find.byWidgetPredicate(
+              (widget) => widget is SoriChip && widget.selected,
+            ),
+          );
+          expect(selectedLevelChips, findsOneWidget);
+          expect(
+            tester.widget<SoriChip>(selectedLevelChips).label,
+            level.toUpperCase(),
+          );
           expect(tester.takeException(), isNull);
         },
       );
