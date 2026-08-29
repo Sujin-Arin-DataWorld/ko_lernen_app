@@ -12705,8 +12705,14 @@ abstract class AppL10n {
   /// No description provided for @ilduWorldRotateBuildingHint.
   ///
   /// In de, this message translates to:
-  /// **'Wische über das Gebäude, um es zu drehen.'**
+  /// **'Ziehe es auf der Karte an seinen Platz; wische über die Vorschau, um es zu drehen.'**
   String get ilduWorldRotateBuildingHint;
+
+  /// No description provided for @ilduWorldGateHeritageDetail.
+  ///
+  /// In de, this message translates to:
+  /// **'Außen bleiben die Spruchtafeln 忠孝傳家 erhalten; innen hängen fünf Jeongnyeo-Gedenktafeln über dem Tor.'**
+  String get ilduWorldGateHeritageDetail;
 
   /// No description provided for @ilduWorldEvidenceNote.
   ///

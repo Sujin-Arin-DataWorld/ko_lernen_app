@@ -11,6 +11,7 @@ import 'package:ko_lernen_app/models/ildu_world_manifest.dart';
 import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/screens/ildu_world_screen.dart';
 import 'package:ko_lernen_app/services/hanok_stage_service.dart';
+import 'package:ko_lernen_app/services/ildu_anchor_placement_service.dart';
 import 'package:ko_lernen_app/services/ildu_decoration_placement_service.dart';
 
 void main() {
@@ -41,6 +42,7 @@ void main() {
             const LevelRatios(a1: 1, a2: 1, b1: 1, b2: 1),
           ),
           decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
         ),
       ),
     );
@@ -74,6 +76,7 @@ void main() {
           loadManifest: () async => manifest,
           loadProjection: () async => _verifiedA1Projection(),
           decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
         ),
       ),
     );
@@ -100,6 +103,106 @@ void main() {
     );
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('selecting and turning Sotdaeulmun updates its map frame', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedB1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final gateAnchor = find.byKey(
+      const ValueKey('ildu-map-turntable-main-gate-0'),
+    );
+    final gateTapTarget = find.descendant(
+      of: gateAnchor,
+      matching: find.byType(GestureDetector),
+    );
+    tester.widget<GestureDetector>(gateTapTarget).onTap!();
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-turntable-main-gate')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-main-gate-0')),
+      findsOneWidget,
+    );
+
+    await tester.drag(
+      find.byKey(const ValueKey('hanok-turntable-drag-area')),
+      const Offset(-40, 0),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-main-gate-1')),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
+  testWidgets('dragging Sarangchae saves its map placement', (tester) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    final anchorStore = _MemoryAnchorStore();
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedA1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: anchorStore,
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final anchor = find.byKey(
+      const ValueKey('ildu-map-turntable-sarangchae-0'),
+    );
+    final dragTarget = find.descendant(
+      of: anchor,
+      matching: find.byWidgetPredicate(
+        (widget) => widget is GestureDetector && widget.onPanUpdate != null,
+      ),
+    );
+    final gesture = tester.widget<GestureDetector>(dragTarget);
+    gesture.onPanUpdate!(
+      DragUpdateDetails(globalPosition: Offset.zero, delta: Offset(48, 24)),
+    );
+    gesture.onPanEnd!(DragEndDetails());
+    await tester.pumpAndSettle();
+
+    expect(anchorStore.placements, hasLength(1));
+    expect(anchorStore.placements.single.anchorId, 'sarangchae');
+    expect(anchorStore.placements.single.x, greaterThan(48.2));
+    expect(anchorStore.placements.single.y, greaterThan(55.8));
+    expect(tester.takeException(), isNull);
+  });
 }
 
 PersonalHanokProjection _verifiedA1Projection() {
@@ -108,6 +211,24 @@ PersonalHanokProjection _verifiedA1Projection() {
     snapshot: const CourseMasterySnapshot(completedUnitIds: <String>['a1-1']),
     courseUnits: const <CourseUnit>[
       CourseUnit(id: 'a1-1', level: 'a1', order: 1, title: text, canDo: text),
+    ],
+  );
+  return PersonalHanokProjection.from(
+    const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
+    competence: competence,
+  );
+}
+
+PersonalHanokProjection _verifiedB1Projection() {
+  const text = CurriculumText(ko: '솟을대문', de: 'Tor', en: 'Gate');
+  final competence = HanokCompetenceProjection.fromSnapshot(
+    snapshot: const CourseMasterySnapshot(
+      completedUnitIds: <String>['a1-1', 'a2-1', 'b1-1'],
+    ),
+    courseUnits: const <CourseUnit>[
+      CourseUnit(id: 'a1-1', level: 'a1', order: 1, title: text, canDo: text),
+      CourseUnit(id: 'a2-1', level: 'a2', order: 1, title: text, canDo: text),
+      CourseUnit(id: 'b1-1', level: 'b1', order: 1, title: text, canDo: text),
     ],
   );
   return PersonalHanokProjection.from(
@@ -126,6 +247,19 @@ class _MemoryDecorationStore implements IlDuDecorationPlacementStore {
 
   @override
   Future<void> save(List<IlDuDecorationPlacement> placements) async {
+    this.placements = List.unmodifiable(placements);
+  }
+}
+
+class _MemoryAnchorStore implements IlDuAnchorPlacementStore {
+  List<IlDuAnchorPlacement> placements = const [];
+
+  @override
+  Future<List<IlDuAnchorPlacement>> load(IlDuWorldManifest manifest) async =>
+      placements;
+
+  @override
+  Future<void> save(List<IlDuAnchorPlacement> placements) async {
     this.placements = List.unmodifiable(placements);
   }
 }

@@ -21,14 +21,14 @@ class IlDuTurntableFrame {
 }
 
 class IlDuTurntableSpec {
-  final String buildingId;
+  final String anchorId;
   final List<IlDuTurntableFrame> frames;
 
   /// Width divided by height for the stable footprint used on the estate map.
   final double mapAspectRatio;
 
   const IlDuTurntableSpec({
-    required this.buildingId,
+    required this.anchorId,
     required this.frames,
     required this.mapAspectRatio,
   });
@@ -54,40 +54,56 @@ IlDuTurntableFrame _frame(
 );
 
 final IlDuTurntableSpec kIlDuSarangchaeTurntable = IlDuTurntableSpec(
-  buildingId: 'sarangchae',
+  anchorId: 'sarangchae',
   mapAspectRatio: 1.25,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_sarangchae_00_front.png', 450, 436, 42, 129, 450, 385),
-    _frame('ildu_sarangchae_01_front_right.png', 450, 436, 0, 122, 450, 414),
-    _frame('ildu_sarangchae_02_right.png', 450, 436, 0, 156, 441, 398),
-    _frame('ildu_sarangchae_03_rear_right.png', 451, 436, 24, 129, 417, 409),
-    _frame('ildu_sarangchae_04_rear.png', 450, 437, 22, 78, 450, 300),
-    _frame('ildu_sarangchae_05_rear_left.png', 450, 437, 0, 64, 446, 346),
-    _frame('ildu_sarangchae_06_left.png', 450, 437, 22, 59, 432, 329),
-    _frame('ildu_sarangchae_07_front_left.png', 451, 437, 19, 62, 441, 339),
+    _frame('ildu_sarangchae_00_front.png', 384, 512, 8, 259, 376, 472),
+    _frame('ildu_sarangchae_01_front_right.png', 384, 512, 23, 230, 360, 472),
+    _frame('ildu_sarangchae_02_right.png', 384, 512, 19, 264, 364, 472),
+    _frame('ildu_sarangchae_03_rear_right.png', 384, 512, 34, 235, 349, 472),
+    _frame('ildu_sarangchae_04_rear.png', 384, 512, 10, 282, 374, 472),
+    _frame('ildu_sarangchae_05_rear_left.png', 384, 512, 21, 230, 362, 472),
+    _frame('ildu_sarangchae_06_left.png', 384, 512, 20, 243, 363, 472),
+    _frame('ildu_sarangchae_07_front_left.png', 384, 512, 30, 247, 353, 472),
   ],
 );
 
 final IlDuTurntableSpec kIlDuAnsarangchaeTurntable = IlDuTurntableSpec(
-  buildingId: 'ansarang',
+  anchorId: 'ansarang',
   mapAspectRatio: 1.1,
   frames: <IlDuTurntableFrame>[
-    _frame('ildu_ansarangchae_00_front.png', 384, 512, 14, 128, 384, 415),
-    _frame('ildu_ansarangchae_01_front_right.png', 384, 512, 0, 100, 384, 455),
-    _frame('ildu_ansarangchae_02_right.png', 384, 512, 0, 103, 384, 440),
-    _frame('ildu_ansarangchae_03_rear_right.png', 384, 512, 0, 129, 369, 431),
-    _frame('ildu_ansarangchae_04_rear.png', 384, 512, 10, 44, 384, 325),
-    _frame('ildu_ansarangchae_05_rear_left.png', 384, 512, 0, 28, 384, 390),
-    _frame('ildu_ansarangchae_06_left.png', 384, 512, 0, 14, 384, 367),
-    _frame('ildu_ansarangchae_07_front_left.png', 384, 512, 0, 16, 357, 376),
+    _frame('ildu_ansarangchae_00_front.png', 384, 512, 14, 225, 370, 470),
+    _frame('ildu_ansarangchae_01_front_right.png', 384, 512, 17, 158, 366, 470),
+    _frame('ildu_ansarangchae_02_right.png', 384, 512, 82, 159, 302, 470),
+    _frame('ildu_ansarangchae_03_rear_right.png', 384, 512, 28, 195, 356, 470),
+    _frame('ildu_ansarangchae_04_rear.png', 384, 512, 17, 225, 367, 470),
+    _frame('ildu_ansarangchae_05_rear_left.png', 384, 512, 18, 145, 366, 470),
+    _frame('ildu_ansarangchae_06_left.png', 384, 512, 76, 143, 307, 470),
+    _frame('ildu_ansarangchae_07_front_left.png', 384, 512, 10, 143, 373, 470),
+  ],
+);
+
+final IlDuTurntableSpec kIlDuSotdaeulmunTurntable = IlDuTurntableSpec(
+  anchorId: 'main-gate',
+  mapAspectRatio: 1.35,
+  frames: <IlDuTurntableFrame>[
+    _frame('ildu_sotdaeulmun_00_front.png', 384, 512, 8, 187, 375, 413),
+    _frame('ildu_sotdaeulmun_01_front_right.png', 384, 512, 13, 166, 371, 439),
+    _frame('ildu_sotdaeulmun_02_right.png', 384, 512, 46, 167, 337, 429),
+    _frame('ildu_sotdaeulmun_03_rear_right.png', 384, 512, 16, 164, 368, 429),
+    _frame('ildu_sotdaeulmun_04_rear.png', 384, 512, 7, 66, 376, 283),
+    _frame('ildu_sotdaeulmun_05_rear_left.png', 384, 512, 20, 60, 363, 311),
+    _frame('ildu_sotdaeulmun_06_left.png', 384, 512, 45, 61, 338, 323),
+    _frame('ildu_sotdaeulmun_07_front_left.png', 384, 512, 11, 65, 373, 312),
   ],
 );
 
 final Map<String, IlDuTurntableSpec> kIlDuTurntables =
     <String, IlDuTurntableSpec>{
-      kIlDuSarangchaeTurntable.buildingId: kIlDuSarangchaeTurntable,
-      kIlDuAnsarangchaeTurntable.buildingId: kIlDuAnsarangchaeTurntable,
+      kIlDuSarangchaeTurntable.anchorId: kIlDuSarangchaeTurntable,
+      kIlDuAnsarangchaeTurntable.anchorId: kIlDuAnsarangchaeTurntable,
+      kIlDuSotdaeulmunTurntable.anchorId: kIlDuSotdaeulmunTurntable,
     };
 
-IlDuTurntableSpec? ilduTurntableForBuilding(String buildingId) =>
-    kIlDuTurntables[buildingId];
+IlDuTurntableSpec? ilduTurntableForAnchor(String anchorId) =>
+    kIlDuTurntables[anchorId];

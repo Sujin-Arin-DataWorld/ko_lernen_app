@@ -3463,7 +3463,8 @@
   "hanokWorldTitle": "My Hanok world",
   "ilduWorldTitle": "My Ildu Gotaek",
   "ilduWorldPanHint": "Swipe sideways to see the next courtyard.",
-  "ilduWorldRotateBuildingHint": "Swipe the building to rotate it.",
+  "ilduWorldRotateBuildingHint": "Drag it on the map to place it; swipe the preview to rotate it.",
+  "ilduWorldGateHeritageDetail": "The exterior keeps the 忠孝傳家 couplets; the inner beam carries five jeongnyeo memorial plaques.",
   "ilduWorldEvidenceNote": "Only verified learning makes buildings appear.",
   "ilduWorldBuiltCount": "{built} of {total} buildings",
   "@ilduWorldBuiltCount": {
