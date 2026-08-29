@@ -106,7 +106,7 @@ class _HanokTurntable2DState extends State<HanokTurntable2D> {
                     child: DecoratedBox(
                       decoration: BoxDecoration(
                         color: SoriColors.darkBg.withValues(alpha: .72),
-                        borderRadius: BorderRadius.circular(999),
+                        borderRadius: SoriRadius.brPill,
                       ),
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
