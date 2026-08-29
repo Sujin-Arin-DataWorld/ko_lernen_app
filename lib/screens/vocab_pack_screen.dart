@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
@@ -15,7 +16,6 @@ import '../services/quest_abandon_tracker.dart';
 import '../services/course_activity_reporter.dart';
 import '../services/course_mission_navigation.dart';
 import '../services/curriculum_catalog.dart';
-import '../services/decoration_reward_service.dart';
 import '../services/learn_session_queue.dart';
 import '../services/pack_progress_service.dart';
 import '../services/pack_session_srs_ledger.dart';
@@ -23,6 +23,7 @@ import '../services/quiz_distractor_service.dart';
 import '../services/sound_service.dart';
 import '../services/storage_service.dart';
 import '../services/tts_service.dart';
+import '../services/vocab_pack_finish_coordinator.dart';
 import '../services/vocab_pack_service.dart';
 import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
@@ -57,11 +58,16 @@ import '../widgets/sori/wordbook_add.dart';
 /// 모든 단계 끝나면 결과 화면(`/vocab/result`)으로 push & replace.
 ///
 /// **Args (routes)**: `packId: String` (Navigator.pushNamed argument).
+typedef VocabPackAdvanceTimerFactory =
+    Timer Function(Duration duration, void Function() callback);
+
 class VocabPackScreen extends StatefulWidget {
   final String packId;
   final CoursePracticeContext? courseContext;
   final Future<VocabPack?> Function(String packId)? packLoader;
   final Future<List<VocabPack>> Function(String level)? siblingPacksLoader;
+  final VocabPackFinishOperations? finishOperations;
+  final VocabPackAdvanceTimerFactory? advanceTimerFactory;
 
   const VocabPackScreen({
     super.key,
@@ -69,6 +75,8 @@ class VocabPackScreen extends StatefulWidget {
     this.courseContext,
     this.packLoader,
     this.siblingPacksLoader,
+    this.finishOperations,
+    this.advanceTimerFactory,
   });
 
   @override
@@ -212,9 +220,15 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   // 3단계 모달 코치가 먼저 끝나야 전역 단어장 코치가 뒤이어 뜬다.
   late bool _featureCoachComplete;
   late final QuestAbandonTracker _abandonTracker;
+  late final VocabPackFinishCoordinator _finishCoordinator;
+  VocabPackFinishRequest? _finishRequest;
+  bool _finishing = false;
+  String? _finishError;
+  Timer? _advanceTimer;
 
   @override
   void dispose() {
+    _cancelAdvanceTimer();
     _persistLearnProgress();
     _abandonTracker.dispose();
     _flipHintTrigger.dispose();
@@ -229,6 +243,9 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       questType: 'vocab_pack',
       questId: widget.packId,
       lastStepReached: () => '${_stage.name}_$_qIdx',
+    );
+    _finishCoordinator = VocabPackFinishCoordinator(
+      widget.finishOperations ?? const DefaultVocabPackFinishOperations(),
     );
     _load();
     // 첫 진입 시 3단계 코치마크 1회 표시.
@@ -545,10 +562,11 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   void _enterQuiz() {
+    _cancelAdvanceTimer();
     _prepareAssessmentOrders();
     if (_quizQuestions.isEmpty) {
       // 일반 단어 없으면 바로 boss
-      _enterBoss();
+      unawaited(_enterBoss());
       return;
     }
     setState(() {
@@ -581,11 +599,12 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     }
   }
 
-  void _enterBoss() {
+  Future<void> _enterBoss() async {
+    _cancelAdvanceTimer();
     _prepareAssessmentOrders();
     if (_bossQuestions.isEmpty) {
       // 보스 없으면 perfect로 간주 (edge case — 작은 팩)
-      _finish(bossAccuracy: 1.0, bossCorrect: 0, bossTotal: 0);
+      await _finish(bossAccuracy: 1.0, bossCorrect: 0, bossTotal: 0);
       return;
     }
     setState(() {
@@ -672,7 +691,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   void _selectChoice(int i) {
-    if (_choiceLocked) return;
+    if (_choiceLocked || _finishing) return;
     final cur = _currentQuiz;
     final choices = _choices;
     if (cur == null || choices == null) return;
@@ -729,18 +748,37 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
       Storage.incrementWrongCount(cur.korean);
     }
     // 짧은 피드백 후 다음 질문
-    Future.delayed(const Duration(milliseconds: 850), _advanceQuiz);
+    _scheduleAdvance();
   }
 
-  void _advanceQuiz() {
-    if (!mounted) return;
+  void _scheduleAdvance() {
+    _cancelAdvanceTimer();
+    final createTimer = widget.advanceTimerFactory ?? Timer.new;
+    _advanceTimer = createTimer(const Duration(milliseconds: 850), () {
+      if (!mounted || _finishing) {
+        return;
+      }
+      unawaited(_advanceQuiz());
+    });
+  }
+
+  void _cancelAdvanceTimer() {
+    _advanceTimer?.cancel();
+    _advanceTimer = null;
+  }
+
+  Future<void> _advanceQuiz() async {
+    _cancelAdvanceTimer();
+    if (!mounted) {
+      return;
+    }
     final isQuiz = _stage == _Stage.quiz;
     final total = isQuiz ? _quizQuestions.length : _bossQuestions.length;
     if (_qIdx + 1 >= total) {
       if (isQuiz) {
-        _enterBoss();
+        await _enterBoss();
       } else {
-        _finish(
+        await _finish(
           bossAccuracy: _bossQuestions.isEmpty
               ? 1.0
               : _bossCorrect / _bossQuestions.length,
@@ -768,96 +806,130 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
     required int bossCorrect,
     required int bossTotal,
   }) async {
+    _cancelAdvanceTimer();
+    if (_finishing) {
+      return;
+    }
     final pack = _pack;
-    if (pack == null) return;
+    if (pack == null) {
+      return;
+    }
     final lang = Localizations.localeOf(context).languageCode;
-    final feedbackCompletion = FeedbackCompletion.vocabPack(
-      packId: pack.id,
-      contentLabel: VocabPackService.displayLabel(pack.id, lang: lang),
-      level: pack.level,
+    final request = _finishRequest ??= VocabPackFinishRequest(
+      pack: pack,
+      siblingPacks: List<VocabPack>.unmodifiable(_siblingPacks),
+      bossAccuracy: bossAccuracy,
       bossCorrect: bossCorrect,
       bossTotal: bossTotal,
       quizCorrect: _quizCorrect,
       quizTotal: _quizQuestions.length,
+      courseContext: _missionStep == null ? null : widget.courseContext,
+      completionStampMotif: motifForPackId(pack.id).name,
     );
-    // SiblingPacks 같은 level (이미 _siblingPacks). 정렬된 pack list.
-    final result = await PackProgressService.recordBossAttempt(
-      pack,
-      _siblingPacks,
-      bossAccuracy: bossAccuracy,
-    );
-    final bossPct = bossTotal == 0
-        ? 0
-        : (bossCorrect * 100 / bossTotal).round();
-    await Analytics.packCompleted(
+    final feedbackCompletion = FeedbackCompletion.vocabPack(
       packId: pack.id,
-      accuracyPct: bossPct,
-      firstClear: result.justCleared,
-    );
-    final bossPassed = bossAccuracy >= PackProgressService.bossClearThreshold;
-    await Analytics.quizCompleted(
-      quizType: 'vocab_boss',
-      accuracyPct: bossPct,
+      contentLabel: VocabPackService.displayLabel(pack.id, lang: lang),
       level: pack.level,
-      pass: bossPassed,
+      bossCorrect: request.bossCorrect,
+      bossTotal: request.bossTotal,
+      quizCorrect: request.quizCorrect,
+      quizTotal: request.quizTotal,
     );
-    _abandonTracker.markCompleted();
-    if (!bossPassed) {
-      Analytics.questFailed(
-        questType: 'vocab_boss',
-        failReason: 'accuracy_below_threshold',
-      );
-    }
-    final missionContext = _missionStep == null ? null : widget.courseContext;
-    if (missionContext != null) {
-      final totalAnswers = _quizQuestions.length + bossTotal;
-      final correctAnswers = _quizCorrect + bossCorrect;
-      final courseScore = totalAnswers == 0
-          ? 0.0
-          : correctAnswers / totalAnswers;
-      await CourseActivityReporter.recordContentAttempt(
-        CurriculumContentKind.vocab,
-        missionContext.initialContentId,
-        courseScore >= .70,
-        courseContext: missionContext,
-        // Legacy enum spelling only; this score is from four-choice
-        // recognition assessment, not an independent-recall gate.
-        errorReason: courseScore >= .70
-            ? null
-            : MasteryErrorReason.vocabularyRecall,
-        score: courseScore,
-      );
-    }
-    // XP 보상 (Plan §4.4) — wordsTotal*5 + bossCorrect*10
-    await Storage.addXp(pack.total * 5 + bossCorrect * 10);
-    // 도장 획득 — 첫 클리어 시 토픽군 motif 도장을 도장첩에 추가.
-    if (result.justCleared) {
-      await Storage.addEarnedStamp(motifForPackId(pack.id).name);
-      // 첫 클리어 = 보자기 하나. 팩 출처(`pack:<id>`)로 큐에 넣으면 홈·사랑방
-      // 발견 배너가 바로 집어 든다(퀘스트 화면 불필요). justCleared + 큐 dedup
-      // 으로 팩당 정확히 1개.
-      await DecorationRewardService.ensurePendingBox(
-        '${DecorationRewardService.kPackSourcePrefix}${pack.id}',
-      );
+    setState(() {
+      _finishing = true;
+      _finishError = null;
+    });
+
+    late final VocabPackFinishOutcome outcome;
+    try {
+      outcome = await _finishCoordinator.finish(request);
+    } catch (_) {
+      if (mounted) {
+        setState(() {
+          _finishing = false;
+          _finishError = AppL10n.of(context).vocabPackFinishSaveError;
+        });
+      }
+      return;
     }
 
-    if (!mounted) return;
+    _abandonTracker.markCompleted();
+    unawaited(_recordFinishAnalytics(request, outcome));
+    if (!mounted) {
+      return;
+    }
     Navigator.of(context).pushReplacementNamed(
       '/vocab/result',
       arguments: vocabPackResultArguments(
         packId: pack.id,
         packLevel: pack.level,
-        bossAccuracy: bossAccuracy,
-        bossCorrect: bossCorrect,
-        bossTotal: bossTotal,
-        quizCorrect: _quizCorrect,
-        quizTotal: _quizQuestions.length,
-        justCleared: result.justCleared,
-        nextUnlockedPackId: result.nextUnlocked?.id,
+        bossAccuracy: request.bossAccuracy,
+        bossCorrect: request.bossCorrect,
+        bossTotal: request.bossTotal,
+        quizCorrect: request.quizCorrect,
+        quizTotal: request.quizTotal,
+        justCleared: outcome.justCleared,
+        nextUnlockedPackId: outcome.nextUnlockedPackId,
         feedbackCompletion: feedbackCompletion,
-        courseContext: _missionStep == null ? null : widget.courseContext,
+        courseContext: request.courseContext,
         showHardWordsCta: shouldOfferHardWordPractice(_sessionMissedWordIds),
         recallSession: _recallSession,
+      ),
+    );
+  }
+
+  Future<void> _recordFinishAnalytics(
+    VocabPackFinishRequest request,
+    VocabPackFinishOutcome outcome,
+  ) async {
+    final bossPct = request.bossTotal == 0
+        ? 0
+        : (request.bossCorrect * 100 / request.bossTotal).round();
+    final bossPassed =
+        request.bossAccuracy >= PackProgressService.bossClearThreshold;
+    await _ignoreAnalyticsFailure(
+      () => Analytics.packCompleted(
+        packId: request.pack.id,
+        accuracyPct: bossPct,
+        firstClear: outcome.justCleared,
+      ),
+    );
+    await _ignoreAnalyticsFailure(
+      () => Analytics.quizCompleted(
+        quizType: 'vocab_boss',
+        accuracyPct: bossPct,
+        level: request.pack.level,
+        pass: bossPassed,
+      ),
+    );
+    if (!bossPassed) {
+      await _ignoreAnalyticsFailure(
+        () => Analytics.questFailed(
+          questType: 'vocab_boss',
+          failReason: 'accuracy_below_threshold',
+        ),
+      );
+    }
+  }
+
+  Future<void> _ignoreAnalyticsFailure(Future<void> Function() send) async {
+    try {
+      await send();
+    } catch (_) {
+      // Analytics is optional and must never downgrade authoritative success.
+    }
+  }
+
+  void _retryFinish() {
+    final request = _finishRequest;
+    if (request == null) {
+      return;
+    }
+    unawaited(
+      _finish(
+        bossAccuracy: request.bossAccuracy,
+        bossCorrect: request.bossCorrect,
+        bossTotal: request.bossTotal,
       ),
     );
   }
@@ -935,6 +1007,16 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
   }
 
   Widget _buildStageBody(AppL10n t) {
+    if (_finishing) {
+      return const AppLoading();
+    }
+    if (_finishError != null) {
+      return AppError(
+        message: _finishError!,
+        onRetry: _retryFinish,
+        messageLiveRegion: true,
+      );
+    }
     switch (_stage) {
       case _Stage.learn:
         return _buildLearn(t);
@@ -1183,7 +1265,7 @@ class _VocabPackScreenState extends State<VocabPackScreen> {
                               revealed: _choiceLocked,
                               // 넉넉한 화면을 채우도록 보기 박스를 더 크게.
                               minHeight: 60,
-                              onSelected: _choiceLocked
+                              onSelected: _choiceLocked || _finishing
                                   ? null
                                   : () => _selectChoice(i),
                             ),

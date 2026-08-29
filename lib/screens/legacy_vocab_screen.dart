@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,8 +39,13 @@ import '../l10n/generated/app_localizations.dart';
 
 class LegacyVocabScreen extends StatefulWidget {
   final Future<List<Vocab>> Function()? vocabLoader;
+  final CultureNotesLoader? cultureNotesLoader;
 
-  const LegacyVocabScreen({super.key, this.vocabLoader});
+  const LegacyVocabScreen({
+    super.key,
+    this.vocabLoader,
+    this.cultureNotesLoader,
+  });
 
   @override
   State<LegacyVocabScreen> createState() => _LegacyVocabScreenState();
@@ -114,11 +120,18 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     _load();
     scheduleCoach();
     // K-Culture 노트 로드 후 카드 반영.
-    CultureNotesService.load().then((_) {
-      if (mounted) {
-        setState(() {});
-      }
-    });
+    unawaited(_loadCultureNotes());
+  }
+
+  Future<void> _loadCultureNotes() async {
+    try {
+      await (widget.cultureNotesLoader ?? CultureNotesService.load)();
+    } catch (_) {
+      return;
+    }
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   void _load() {

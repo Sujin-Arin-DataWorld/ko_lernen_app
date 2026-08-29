@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -22,6 +24,7 @@ import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
+import '../widgets/app_error.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
@@ -41,6 +44,10 @@ String? unambiguousReviewLevel(Iterable<String> deckLevels) {
   return levels.single;
 }
 
+typedef ReviewableLoader = Future<List<Vocab>> Function();
+
+enum ReviewLoadState { loading, ready, empty, error }
+
 /// **Review Session (M2)** — "Heute lernen / 오늘의 학습".
 ///
 /// Zieht die heute fälligen + neuen SRS-Karten (`Storage.todayGoalIds`) und
@@ -54,6 +61,8 @@ class ReviewSessionScreen extends StatefulWidget {
   final String? title;
   final String feedbackContentId;
   final String? feedbackContentLabel;
+  final ReviewableLoader? reviewableLoader;
+  final CultureNotesLoader? cultureNotesLoader;
 
   /// M5: optionaler Small-talk-Satz, der am Kursende als "한마디" gezeigt wird.
   final SmalltalkPhrase? bonusPhrase;
@@ -64,6 +73,8 @@ class ReviewSessionScreen extends StatefulWidget {
     this.bonusPhrase,
     this.feedbackContentId = 'today_review',
     this.feedbackContentLabel,
+    this.reviewableLoader,
+    this.cultureNotesLoader,
   });
 
   @override
@@ -72,7 +83,7 @@ class ReviewSessionScreen extends StatefulWidget {
 
 class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     with ScreenCoachMixin<ReviewSessionScreen> {
-  bool _loading = true;
+  ReviewLoadState _loadState = ReviewLoadState.loading;
   List<Vocab> _deck = [];
   int _idx = 0;
   bool _flipped = false;
@@ -83,6 +94,8 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
   bool _done = false;
   final FeedbackCompletionSlot _feedbackCompletion = FeedbackCompletionSlot();
   final _speech = ContentSpeechController();
+
+  bool get _loading => _loadState == ReviewLoadState.loading;
 
   @override
   void didChangeDependencies() {
@@ -138,42 +151,71 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
     });
     scheduleCoach();
     // K-Culture 노트 로드 후 카드 반영.
-    CultureNotesService.load().then((_) {
-      if (mounted) {
-        setState(() {});
-      }
-    });
+    unawaited(_loadCultureNotes());
+  }
+
+  Future<void> _loadCultureNotes() async {
+    try {
+      await (widget.cultureNotesLoader ?? CultureNotesService.load)();
+    } catch (_) {
+      return;
+    }
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   Future<void> _load() async {
+    if (mounted) {
+      setState(() {
+        _loadState = ReviewLoadState.loading;
+      });
+    }
     // M5: vorgegebener personalisierter Deck hat Vorrang.
     if (widget.deck != null) {
+      final deck = List<Vocab>.of(widget.deck!);
       setState(() {
         // §P2: ↓ 스킵이 덱 순서를 바꾸므로 호출부 리스트를 변형하지 않게 복사.
-        _deck = List.of(widget.deck!);
+        _deck = deck;
         _flipped = false;
         _cardRevealed = false;
-        _loading = false;
+        _loadState = deck.isEmpty
+            ? ReviewLoadState.empty
+            : ReviewLoadState.ready;
       });
       return;
     }
-    List<Vocab> deck = [];
+    late final List<Vocab> deck;
     try {
-      // A1: CSV + 나만의 단어장 + 책 한 컷 단어를 모두 포함 (한국어 기준 dedup).
-      final vocab = await ReviewDeckService.allReviewable();
-      deck = ReviewDeckService.todaySelectionForLevel(
-        vocab,
-        levelCode: Storage.userLevelCode,
-      ).words;
+      final providedLoader = widget.reviewableLoader;
+      if (providedLoader != null) {
+        deck = await providedLoader();
+      } else {
+        // A1: CSV + 나만의 단어장 + 책 한 컷 단어를 모두 포함 (한국어 기준 dedup).
+        final vocab = await ReviewDeckService.allReviewable();
+        deck = ReviewDeckService.todaySelectionForLevel(
+          vocab,
+          levelCode: Storage.userLevelCode,
+        ).words;
+      }
     } catch (_) {
-      // Laden fehlgeschlagen → Empty-State (kein Crash).
+      if (mounted) {
+        setState(() {
+          _deck = <Vocab>[];
+          _loadState = ReviewLoadState.error;
+        });
+      }
+      return;
     }
-    if (!mounted) return;
+    if (!mounted) {
+      return;
+    }
     setState(() {
-      _deck = deck;
+      _deck = List<Vocab>.of(deck);
+      _idx = 0;
       _flipped = false;
       _cardRevealed = false;
-      _loading = false;
+      _loadState = deck.isEmpty ? ReviewLoadState.empty : ReviewLoadState.ready;
     });
   }
 
@@ -326,13 +368,16 @@ class _ReviewSessionScreenState extends State<ReviewSessionScreen>
       // 지적한 "호랑이 흰 배경"의 실제 정체가 이 평면 대 얼룩 대비다.
       // 배경을 평면으로 두면 사각형이 배경과 **완전히 같은 값**이 된다.
       noiseAlpha: _done ? 0 : 0.11,
-      child: _loading
-          ? const AppLoading()
-          : _deck.isEmpty
-          ? _buildEmpty(t)
-          : _done
-          ? _buildDone(t, s)
-          : _buildCard(t, s),
+      child: switch (_loadState) {
+        ReviewLoadState.loading => const AppLoading(),
+        ReviewLoadState.error => AppError(
+          message: t.loadErrorTryAgain,
+          onRetry: _load,
+          messageLiveRegion: true,
+        ),
+        ReviewLoadState.empty => _buildEmpty(t),
+        ReviewLoadState.ready => _done ? _buildDone(t, s) : _buildCard(t, s),
+      },
     );
   }
 

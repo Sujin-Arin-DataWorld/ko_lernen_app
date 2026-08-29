@@ -1047,6 +1047,7 @@
   "hanokStageSideBuilding": "Nebengebäude angebaut",
   "hanokStageJongga": "Jongga vollendet",
   "vocabPackPlayTitle": "Paket-Übung",
+  "vocabPackFinishSaveError": "Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.",
   "vocabPackLearnHint": "Tippen zum Umdrehen",
   "vocabPackLearnRepeatSuffix": " · +{n, plural, one{1 Wdh.} other{{n} Wdh.}}",
   "@vocabPackLearnRepeatSuffix": {

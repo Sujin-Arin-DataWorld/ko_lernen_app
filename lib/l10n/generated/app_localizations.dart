@@ -3607,6 +3607,12 @@ abstract class AppL10n {
   /// **'Paket-Übung'**
   String get vocabPackPlayTitle;
 
+  /// No description provided for @vocabPackFinishSaveError.
+  ///
+  /// In de, this message translates to:
+  /// **'Dein Fortschritt konnte nicht gespeichert werden. Bitte versuche es erneut.'**
+  String get vocabPackFinishSaveError;
+
   /// No description provided for @vocabPackLearnHint.
   ///
   /// In de, this message translates to:
