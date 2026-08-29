@@ -5,19 +5,10 @@ import 'package:flutter_test/flutter_test.dart';
 /// §15/§18 — HanokHeader는 "고르는" 화면 전용이다. `SoriStudyFrame`(플레이
 /// 화면) 위에 얹힌 HanokHeader는 §15 "플레이 화면 히어로 0dp"를 어긴다.
 ///
-/// 2026-08-27 실측(lib/screens/ 전수): HanokHeader( 호출 11곳 — 7곳은
-/// 정당한 "고르는" 화면([chooserScreens]), 4곳은 §19 이행 대기 위반
-/// ([knownViolators], chosung_quiz_screen·hangul_screen·kkeunmari_screen·
-/// legacy_vocab_screen — 전부 SoriStudyFrame 학습 화면 위에 히어로가 얹혀
-/// 있다). 이 파일은 그 4곳을 "더는 늘지 않는" 그랜드파더로 고정한다 — W5
-/// §19 이행에서 하나씩 제거한다.
+/// §19 W5 이행으로 플레이 화면의 유예 목록은 비었다. 새 예외는 허용하지
+/// 않는다.
 void main() {
-  const knownViolators = {
-    'lib/screens/chosung_quiz_screen.dart',
-    'lib/screens/hangul_screen.dart',
-    'lib/screens/kkeunmari_screen.dart',
-    'lib/screens/legacy_vocab_screen.dart',
-  };
+  const knownViolators = <String>{};
 
   const chooserScreens = {
     'lib/screens/bookshelf_screen.dart',
@@ -31,16 +22,16 @@ void main() {
 
   test('HanokHeader( 는 고르는 화면이거나 §19 이행 대기 목록 안에서만 쓰인다', () {
     final offenders = <String>[];
-    for (final f in Directory('lib/screens')
-        .listSync(recursive: true)
-        .whereType<File>()
-        .where((f) => f.path.endsWith('.dart'))) {
+    for (final f
+        in Directory('lib/screens')
+            .listSync(recursive: true)
+            .whereType<File>()
+            .where((f) => f.path.endsWith('.dart'))) {
       final content = f.readAsStringSync();
       if (!content.contains('HanokHeader(')) continue;
       final rel = f.path.replaceAll('\\', '/');
       final short = 'lib/screens/${rel.split('lib/screens/').last}';
-      if (!chooserScreens.contains(short) &&
-          !knownViolators.contains(short)) {
+      if (!chooserScreens.contains(short) && !knownViolators.contains(short)) {
         offenders.add(short);
       }
     }
@@ -55,7 +46,7 @@ void main() {
     );
   });
 
-  test('§19 이행 대기 목록(4곳)은 늘지 않는다', () {
-    expect(knownViolators.length, lessThanOrEqualTo(4));
+  test('§19 이행 대기 목록은 비어 있다', () {
+    expect(knownViolators, isEmpty);
   });
 }

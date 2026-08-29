@@ -24,7 +24,6 @@ import '../widgets/sori/deck_coach.dart';
 import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/empty_state.dart';
-import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
@@ -535,13 +534,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
         minHeight: 680,
         child: Column(
           children: [
-            // 모듈 헤더 통일 (Phase 4) — HanokHeader 10:3 banner.
-            const HanokHeader(
-              asset: 'assets/illustrations/hanok/study_classroom.png',
-              fallbackIcon: Icons.menu_book_outlined,
-            ),
-            const SizedBox(height: Spacing.md),
-
             _levelChrome(t),
             const SizedBox(height: Spacing.sm),
 
@@ -550,52 +542,59 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
             // Phase 1 SRS-UX-Patch (stately-rising-jongga):
             //   Früher: "🔥 522 fällig" (Schock-UX bei Erstanwendung).
             //   Jetzt:  "🔥 Heute (N+M)" — N neue + M Wdh., gecapped.
-            Wrap(
-              spacing: Spacing.sm,
-              runSpacing: Spacing.sm,
-              children: [
-                SoriChip(
-                  label: t.vocabTodayBadge(_todayNewCount, _todayReviewCount),
-                  accent: SoriColors.info,
-                  selected: _mode == 'due',
-                  variant: SoriChipVariant.filled,
-                  onTap: () => _setMode('due'),
-                  minInteractiveHeight: 44,
-                ),
-                SoriChip(
-                  label: t.vocabFavoritesBadge(_favorites.length),
-                  // 즐겨찾기는 하트·책갈피와 같은 석간주로 읽혀야 한다.
-                  accent: SoriColors.like,
-                  selected: _mode == 'favorites',
-                  variant: SoriChipVariant.filled,
-                  onTap: () => _setMode('favorites'),
-                  minInteractiveHeight: 44,
-                ),
-                SoriChip(
-                  label: t.vocabModeAll,
-                  accent: SoriColors.info,
-                  selected: _mode == 'all',
-                  variant: SoriChipVariant.filled,
-                  onTap: () => _setMode('all'),
-                  minInteractiveHeight: 44,
-                ),
-              ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SoriChip(
+                    label: t.vocabTodayBadge(_todayNewCount, _todayReviewCount),
+                    accent: SoriColors.info,
+                    selected: _mode == 'due',
+                    variant: SoriChipVariant.filled,
+                    onTap: () => _setMode('due'),
+                    minInteractiveHeight: 44,
+                  ),
+                  const SizedBox(width: Spacing.sm),
+                  SoriChip(
+                    label: t.vocabFavoritesBadge(_favorites.length),
+                    // 즐겨찾기는 하트·책갈피와 같은 석간주로 읽혀야 한다.
+                    accent: SoriColors.like,
+                    selected: _mode == 'favorites',
+                    variant: SoriChipVariant.filled,
+                    onTap: () => _setMode('favorites'),
+                    minInteractiveHeight: 44,
+                  ),
+                  const SizedBox(width: Spacing.sm),
+                  SoriChip(
+                    label: t.vocabModeAll,
+                    accent: SoriColors.info,
+                    selected: _mode == 'all',
+                    variant: SoriChipVariant.filled,
+                    onTap: () => _setMode('all'),
+                    minInteractiveHeight: 44,
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: Spacing.sm),
 
             // 통계는 접근성 배율에서 다음 줄로 흐르며 내용을 숨기지 않는다.
-            Wrap(
-              spacing: Spacing.xs + 2,
-              runSpacing: Spacing.xs,
-              children: [
-                SoriChip(
-                  label: '${_idx + 1}/${_filtered.length}',
-                  accent: SoriColors.info,
-                ),
-                SoriChip(label: '✅ $_correct', accent: SoriColors.success),
-                SoriChip(label: '❌ $_wrong', accent: SoriColors.danger),
-                SoriChip(label: '⏭ $_skipped', accent: SoriColors.info),
-              ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  SoriChip(
+                    label: '${_idx + 1}/${_filtered.length}',
+                    accent: SoriColors.info,
+                  ),
+                  const SizedBox(width: Spacing.xs + 2),
+                  SoriChip(label: '✅ $_correct', accent: SoriColors.success),
+                  const SizedBox(width: Spacing.xs + 2),
+                  SoriChip(label: '❌ $_wrong', accent: SoriColors.danger),
+                  const SizedBox(width: Spacing.xs + 2),
+                  SoriChip(label: '⏭ $_skipped', accent: SoriColors.info),
+                ],
+              ),
             ),
             const SizedBox(height: 10),
 

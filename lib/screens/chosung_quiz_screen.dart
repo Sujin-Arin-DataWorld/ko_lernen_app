@@ -22,10 +22,8 @@ import '../widgets/sori/chosung_hint.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/score_pop.dart';
-import '../widgets/sori/hanok_header.dart';
 import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
-import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
 import '../widgets/sori/wordbook_add.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -573,16 +571,6 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  // 모듈 헤더 — calligraphy 한지 화선지 톤(붓글씨)이 chosung 자음
-                  // 학습과 가장 잘 어울림 (이전 porch.png는 generic 처마 풍경이었음).
-                  const SoriEntrance(
-                    child: HanokHeader(
-                      asset: 'assets/illustrations/hanok/calligraphy.png',
-                      fallbackIcon: Icons.abc_rounded,
-                    ),
-                  ),
-                  const SizedBox(height: Spacing.md),
-
                   // ── 레벨 선택 ──────────────────────────────────────────
                   SoriChromeRow(
                     key: _levelRowKey,
@@ -596,72 +584,76 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                   const SizedBox(height: 8),
 
                   // ── 난이도 토글 (초성 only / 초성+모음) ────────────────
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.xs,
-                    children: [
-                      SoriChip(
-                        label: AppL10n.of(context).chosungModeWithVowels,
-                        icon: Icons.lightbulb_outline,
-                        accent: SoriColors.warning,
-                        selected: _mode == HintMode.chosungVowel,
-                        variant: SoriChipVariant.soft,
-                        fontSize: 12,
-                        minInteractiveHeight: 48,
-                        onTap: () {
-                          if (_mode == HintMode.chosungVowel) {
-                            return;
-                          }
-                          setState(() => _mode = HintMode.chosungVowel);
-                        },
-                      ),
-                      SoriChip(
-                        label: AppL10n.of(context).chosungModeInitialsOnly,
-                        icon: Icons.flash_on_rounded,
-                        accent: SoriColors.danger,
-                        selected: _mode == HintMode.chosung,
-                        variant: SoriChipVariant.soft,
-                        fontSize: 12,
-                        minInteractiveHeight: 48,
-                        onTap: () {
-                          if (_mode == HintMode.chosung) {
-                            return;
-                          }
-                          setState(() => _mode = HintMode.chosung);
-                        },
-                      ),
-                    ],
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SoriChip(
+                          label: AppL10n.of(context).chosungModeWithVowels,
+                          icon: Icons.lightbulb_outline,
+                          accent: SoriColors.warning,
+                          selected: _mode == HintMode.chosungVowel,
+                          variant: SoriChipVariant.soft,
+                          fontSize: 12,
+                          minInteractiveHeight: 48,
+                          onTap: () {
+                            if (_mode == HintMode.chosungVowel) {
+                              return;
+                            }
+                            setState(() => _mode = HintMode.chosungVowel);
+                          },
+                        ),
+                        const SizedBox(width: Spacing.sm),
+                        SoriChip(
+                          label: AppL10n.of(context).chosungModeInitialsOnly,
+                          icon: Icons.flash_on_rounded,
+                          accent: SoriColors.danger,
+                          selected: _mode == HintMode.chosung,
+                          variant: SoriChipVariant.soft,
+                          fontSize: 12,
+                          minInteractiveHeight: 48,
+                          onTap: () {
+                            if (_mode == HintMode.chosung) {
+                              return;
+                            }
+                            setState(() => _mode = HintMode.chosung);
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 10),
 
                   // ── 통계 칩 ────────────────────────────────────────────
-                  // Wrap = textScale 1.3 × 308px에서 가로 오버플로 없이
-                  // 다음 줄로 흐름. 이모지 → 시맨틱 아이콘(성공/실패 색).
-                  Wrap(
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.xs,
-                    children: [
-                      SoriChip(
-                        label: '$_correct',
-                        semanticLabel: t.chosungCorrectCount(_correct),
-                        icon: Icons.check_rounded,
-                        accent: SoriColors.success,
-                      ),
-                      SoriChip(
-                        label: '$_wrong',
-                        semanticLabel: t.chosungWrongCount(_wrong),
-                        icon: Icons.close_rounded,
-                        accent: SoriColors.danger,
-                      ),
-                      SoriChip(
-                        label: '$roundPos / $_roundSize',
-                        semanticLabel: t.gameRoundProgress(
-                          roundPos,
-                          _roundSize,
+                  // 큰 글자에서도 모든 상태를 가로 스크롤로 읽을 수 있다.
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        SoriChip(
+                          label: '$_correct',
+                          semanticLabel: t.chosungCorrectCount(_correct),
+                          icon: Icons.check_rounded,
+                          accent: SoriColors.success,
                         ),
-                      ),
-                    ],
+                        const SizedBox(width: Spacing.sm),
+                        SoriChip(
+                          label: '$_wrong',
+                          semanticLabel: t.chosungWrongCount(_wrong),
+                          icon: Icons.close_rounded,
+                          accent: SoriColors.danger,
+                        ),
+                        const SizedBox(width: Spacing.sm),
+                        SoriChip(
+                          label: '$roundPos / $_roundSize',
+                          semanticLabel: t.gameRoundProgress(
+                            roundPos,
+                            _roundSize,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 14),
 
@@ -889,15 +881,18 @@ class _RoundSummaryCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: Spacing.md),
-            Wrap(
-              alignment: WrapAlignment.center,
-              spacing: Spacing.sm,
-              runSpacing: Spacing.sm,
-              children: [
-                _Stat(label: t.chosungRoundAccuracy(accuracy), color: accent),
-                _Stat(label: t.chosungRoundAvgTime(avgSec), color: s.text),
-                _Stat(label: '+$earnedXp XP', color: SoriColors.gold),
-              ],
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _Stat(label: t.chosungRoundAccuracy(accuracy), color: accent),
+                  const SizedBox(width: Spacing.sm),
+                  _Stat(label: t.chosungRoundAvgTime(avgSec), color: s.text),
+                  const SizedBox(width: Spacing.sm),
+                  _Stat(label: '+$earnedXp XP', color: SoriColors.gold),
+                ],
+              ),
             ),
             if (isNewBest) ...[
               const SizedBox(height: Spacing.sm),

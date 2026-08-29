@@ -401,29 +401,30 @@ class _ViewSelector extends StatelessWidget {
     return Semantics(
       container: true,
       label: t.studyLibraryViewSelectorLabel,
-      child: Wrap(
-        spacing: Spacing.sm,
-        runSpacing: Spacing.sm,
+      child: Row(
         children: [
-          for (final view in StudyLibraryView.values)
-            SoriChip(
-              key: ValueKey('study-library-view-${view.name}'),
-              label: '${_viewLabel(t, view)} · ${countFor(view)}',
-              semanticLabel: t.studyLibraryViewChoice(
-                _viewLabel(t, view),
-                countFor(view),
+          for (final view in StudyLibraryView.values) ...[
+            Expanded(
+              child: SoriChip(
+                key: ValueKey('study-library-view-${view.name}'),
+                label: '${_viewLabel(t, view)} · ${countFor(view)}',
+                semanticLabel: t.studyLibraryViewChoice(
+                  _viewLabel(t, view),
+                  countFor(view),
+                ),
+                icon: _viewIcon(view),
+                selected: selected == view,
+                variant: SoriChipVariant.outlined,
+                idleBorderColor:
+                    SoriSurfaces.of(context).brightness == Brightness.light
+                    ? SoriColors.lightBorderStrong
+                    : SoriColors.darkBorderStrong,
+                minInteractiveHeight: 48,
+                maxLines: null,
+                onTap: () => onSelected(view),
               ),
-              icon: _viewIcon(view),
-              selected: selected == view,
-              variant: SoriChipVariant.outlined,
-              idleBorderColor:
-                  SoriSurfaces.of(context).brightness == Brightness.light
-                  ? SoriColors.lightBorderStrong
-                  : SoriColors.darkBorderStrong,
-              minInteractiveHeight: 48,
-              maxLines: null,
-              onTap: () => onSelected(view),
             ),
+          ],
         ],
       ),
     );
@@ -502,30 +503,33 @@ class _TypeSelector extends StatelessWidget {
     return Semantics(
       container: true,
       label: t.studyLibrarySavedDescription,
-      child: Wrap(
-        spacing: Spacing.sm,
-        runSpacing: Spacing.sm,
+      child: Row(
         children: <Widget>[
-          SoriChip(
-            key: const ValueKey('study-library-type-all'),
-            label: '${t.studyLibrarySavedTab} · ${entries.length}',
-            selected: selected == null,
-            variant: SoriChipVariant.outlined,
-            minInteractiveHeight: 48,
-            maxLines: null,
-            onTap: () => onSelected(null),
-          ),
-          for (final type in availableTypes)
-            SoriChip(
-              key: ValueKey('study-library-type-${type.name}'),
-              label: '${_typeLabel(t, type)} · ${counts[type]}',
-              icon: _typeIcon(type),
-              selected: selected == type,
+          Expanded(
+            child: SoriChip(
+              key: const ValueKey('study-library-type-all'),
+              label: '${t.studyLibrarySavedTab} · ${entries.length}',
+              selected: selected == null,
               variant: SoriChipVariant.outlined,
               minInteractiveHeight: 48,
               maxLines: null,
-              onTap: () => onSelected(type),
+              onTap: () => onSelected(null),
             ),
+          ),
+          for (final type in availableTypes) ...[
+            Expanded(
+              child: SoriChip(
+                key: ValueKey('study-library-type-${type.name}'),
+                label: '${_typeLabel(t, type)} · ${counts[type]}',
+                icon: _typeIcon(type),
+                selected: selected == type,
+                variant: SoriChipVariant.outlined,
+                minInteractiveHeight: 48,
+                maxLines: null,
+                onTap: () => onSelected(type),
+              ),
+            ),
+          ],
         ],
       ),
     );

@@ -9,26 +9,8 @@ import 'package:flutter_test/flutter_test.dart';
 /// 밀어낸다. 새 화면은 `SoriChromeRow`/`SoriLevelFilterBar` 단일 행으로
 /// 대체한다.
 void main() {
-  // 2026-08-27 실측: chosung_quiz_screen.dart 는 Wrap+칩 블록이 이미
-  // 여럿(레벨/모드/통계 등 4개) — §19 이행 전까지 그랜드파더. 같은 실측에서
-  // hangul_screen(디테일 칩 2)·legacy_vocab_screen(SRS 배지+통계 2)·
-  // scenario_player_screen(단어 유의어/변형 칩 2)도 기존부터 2블록씩이라
-  // 함께 고정한다. **새 다중 위반 화면을 이 목록에 추가하지 않는다** — 이
-  // 넷은 이 가드가 생기기 전부터 있던 부채이지 새로 늘린 게 아니다.
-  //
-  // 2026-08-27 W3↔main 병합 그랜드파더: study_library_screen.dart(실측
-  // 3개 — 뷰 선택 Wrap, 저장 유형 필터 Wrap, 항목별 상태 배지 Wrap)는
-  // main의 온보딩-미디어 웨이브가 이 가드가 생기기 전에(이 가드는 W3에서만
-  // 존재) 작성한 화면이라, 그 브랜치 관점에서는 위 넷과 동일하게 규칙이
-  // 없던 시점의 부채다. 컨트롤러 재정(§19 W5 이행 목록 항목 6 참고):
-  // 병합 중 리팩터하지 않고 W5 §19 이행 목록에 편입(백로그 4→5).
-  const chipWrapAllowlist = <String, int>{
-    'lib/screens/chosung_quiz_screen.dart': 4,
-    'lib/screens/hangul_screen.dart': 2,
-    'lib/screens/legacy_vocab_screen.dart': 2,
-    'lib/screens/scenario_player_screen.dart': 2,
-    'lib/screens/study_library_screen.dart': 3,
-  };
+  // §19 W5 이행으로 모든 기존 다중 칩 행의 유예가 종료됐다.
+  const chipWrapAllowlist = <String, int>{};
 
   List<_Span> chipWrapSpans(String clean) {
     final spans = <_Span>[];

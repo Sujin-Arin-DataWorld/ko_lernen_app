@@ -1092,30 +1092,21 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                         ),
                       ],
                     ),
-                    if (v.aliases.isNotEmpty) ...[
+                    if (v.aliases.isNotEmpty || v.variants.isNotEmpty) ...[
                       const SizedBox(height: Spacing.xs),
                       Wrap(
                         spacing: Spacing.xs,
                         runSpacing: Spacing.xs,
-                        children: v.aliases
-                            .map(
-                              (a) => _MiniChip(
-                                a,
-                                vocabAccent,
-                                foregroundColor: ss.textMuted,
-                              ),
-                            )
-                            .toList(),
-                      ),
-                    ],
-                    if (v.variants.isNotEmpty) ...[
-                      const SizedBox(height: Spacing.xs),
-                      Wrap(
-                        spacing: Spacing.xs,
-                        runSpacing: Spacing.xs,
-                        children: v.variants
-                            .map((vt) => _MiniChip(vt, ss.textMuted))
-                            .toList(),
+                        children: [
+                          for (final alias in v.aliases)
+                            _MiniChip(
+                              alias,
+                              vocabAccent,
+                              foregroundColor: ss.textMuted,
+                            ),
+                          for (final variant in v.variants)
+                            _MiniChip(variant, ss.textMuted),
+                        ],
                       ),
                     ],
                     if (v.note != null) ...[
