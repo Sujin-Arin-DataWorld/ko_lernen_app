@@ -40,6 +40,7 @@ import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/app_bar.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
+import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
 import 'package:ko_lernen_app/widgets/sori/hanok_header.dart';
 import 'package:ko_lernen_app/widgets/sori/content_feed.dart';
 import 'package:ko_lernen_app/widgets/sori/section_header.dart';
@@ -627,7 +628,7 @@ void main() {
 Finder? _readyFinderFor(String activity) {
   return switch (activity) {
     'initial consonant quiz' || 'word chain' => find.byType(HanokHeader),
-    'syllable crossword' => find.byKey(const ValueKey('silben-level-A1')),
+    'syllable crossword' => find.byType(SoriChromeRow),
     'listening player' => find.byKey(
       const ValueKey('listening-dialogue-start'),
     ),

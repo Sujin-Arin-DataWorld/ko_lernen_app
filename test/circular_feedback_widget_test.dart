@@ -308,20 +308,10 @@ void main() {
     final a2Count = allGrammar.where((g) => g.level == 'A2').length;
     expect(a2Count, greaterThan(1));
 
-    final a2Filter = find.byKey(const Key('grammar-level-A2'));
-    expect(a2Filter, findsOneWidget);
-    // 개수 라벨(`A2 · 46`) + 앞쪽 CTA 때문에 A2 칩이 가로 ListView 오른쪽
-    // 클립 끝에 붙는다(#89/#91의 원인과 동일) — scrollUntilVisible 로 먼저
-    // 정착시킨 뒤 탭한다.
-    await tester.scrollUntilVisible(
-      a2Filter,
-      120,
-      scrollable: find.descendant(
-        of: find.byKey(const Key('grammar-filter-row')),
-        matching: find.byType(Scrollable),
-      ),
-    );
+    await tester.tap(find.byIcon(Icons.tune_rounded));
     await tester.pumpAndSettle();
+    final a2Filter = find.byKey(const Key('sori-level-sheet-A2'));
+    expect(a2Filter, findsOneWidget);
     await tester.tap(a2Filter);
     await tester.pumpAndSettle();
 
@@ -349,7 +339,7 @@ void main() {
   });
 
   testWidgets(
-    'dismissing staged grammar filters preserves the active session and level chip',
+    'dismissing staged grammar filters preserves the active session and level selection',
     (tester) async {
       await _setLargeView(tester);
       await tester.pumpWidget(_wrap(const GrammarScreen()));
@@ -358,23 +348,25 @@ void main() {
 
       await tester.tap(find.byType(FlipCard));
       await tester.pump();
-      await tester.tap(find.byIcon(Icons.tune));
+      await tester.tap(find.byIcon(Icons.filter_list_rounded));
       await tester.pumpAndSettle();
 
-      // Stage a level change to A2 inside the sheet, then dismiss via system
-      // back instead of "Apply" — the staged value must never reach
-      // `_level`/`_applyFilters`.
-      await tester.tap(find.byType(DropdownButton<String>).first);
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('A2').last);
+      // Stage a secondary-filter change, then dismiss via system back instead
+      // of "Apply" — the staged value must never reach `_applyFilters`.
+      final t = AppL10n.of(tester.element(find.byType(GrammarScreen)));
+      await tester.tap(find.widgetWithText(SoriChip, t.grammarEasy));
       await tester.pumpAndSettle();
       await tester.binding.handlePopRoute();
       await tester.pumpAndSettle();
 
+      await tester.tap(find.byIcon(Icons.tune_rounded));
+      await tester.pumpAndSettle();
       final a1Filter = tester.widget<SoriChip>(
-        find.byKey(const Key('grammar-level-A1')),
+        find.byKey(const Key('sori-level-sheet-A1')),
       );
       expect(a1Filter.selected, isTrue);
+      await tester.binding.handlePopRoute();
+      await tester.pumpAndSettle();
 
       final allGrammar = await DataLoader.loadGrammar();
       final a1Count = allGrammar.where((g) => g.level == 'A1').length;

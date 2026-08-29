@@ -17,11 +17,13 @@ import '../widgets/sori/button.dart';
 import '../widgets/sori/celebration.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/chosung_hint.dart';
 import '../widgets/sori/game_reward.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/score_pop.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/progress.dart';
@@ -134,6 +136,7 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
   }
 
   List<Vocab> _deck = [];
+  Map<String, int> _levelCounts = const {};
   bool _loading = true;
   bool _loadFailed = false;
   int _idx = 0;
@@ -233,22 +236,32 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
       });
       return;
     }
+    // C1/C2 vocabulary is intentionally phrase-based. Spaces are rendered as
+    // literal hint separators and remain typeable with the system keyboard
+    // used above A2.
+    final compatible = source
+        .where(
+          (v) => v.korean.runes.every(
+            (c) => (c >= 0xAC00 && c <= 0xD7A3) || c == 0x20,
+          ),
+        )
+        .toList();
     final filtered =
-        source
+        compatible
             .where(
-              (v) =>
-                  (widget.deck != null || v.level == _level) &&
-                  // C1/C2 vocabulary is intentionally phrase-based. Spaces
-                  // are rendered as literal hint separators and remain
-                  // typeable with the system keyboard used above A2.
-                  v.korean.runes.every(
-                    (c) => (c >= 0xAC00 && c <= 0xD7A3) || c == 0x20,
-                  ),
+              (v) => widget.deck != null || v.level.toUpperCase() == _level,
             )
             .toList()
           ..shuffle(Random());
+    final levelCounts = {
+      for (final level in LearnerLevel.values)
+        level.display: compatible
+            .where((v) => v.level.toUpperCase() == level.display)
+            .length,
+    };
     setState(() {
       _deck = filtered;
+      _levelCounts = levelCounts;
       _loading = false;
       _loadFailed = false;
       _idx = 0;
@@ -262,6 +275,21 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
     });
     _ctrl.clear();
     _questionStart = DateTime.now();
+  }
+
+  Future<void> _showLevelFilter(AppL10n t) async {
+    final next = await showSoriLevelFilterSheet(
+      context: context,
+      selected: _level,
+      levels: LearnerLevel.values
+          .map((level) => level.display)
+          .toList(growable: false),
+      allLabel: t.filterAll,
+      countFor: (level) => _levelCounts[level] ?? 0,
+    );
+    if (!mounted || next == null) return;
+    setState(() => _level = next);
+    await _load();
   }
 
   Future<void> _retryLoad() async {
@@ -552,31 +580,14 @@ class _ChosungQuizScreenState extends State<ChosungQuizScreen>
                   const SizedBox(height: Spacing.md),
 
                   // ── 레벨 선택 ──────────────────────────────────────────
-                  Wrap(
+                  SoriChromeRow(
                     key: _levelRowKey,
-                    alignment: WrapAlignment.center,
-                    spacing: Spacing.sm,
-                    runSpacing: Spacing.xs,
-                    children: LearnerLevel.values.map((level) {
-                      final lvl = level.display;
-                      final selected = _level == lvl;
-                      return SoriChip(
-                        key: ValueKey('chosung-level-$lvl'),
-                        label: lvl,
-                        accent: SoriColors.primary,
-                        selected: selected,
-                        variant: SoriChipVariant.soft,
-                        fontSize: 13,
-                        minInteractiveHeight: 48,
-                        onTap: () {
-                          if (selected) {
-                            return;
-                          }
-                          setState(() => _level = lvl);
-                          _load();
-                        },
-                      );
-                    }).toList(),
+                    onFilterTap: () => _showLevelFilter(t),
+                    filterSemanticLabel: t.filterLevel,
+                    meta: Text(
+                      '$_level · ${_levelCounts[_level] ?? 0}',
+                      style: SoriTextTheme.of(context).meta,
+                    ),
                   ),
                   const SizedBox(height: 8),
 

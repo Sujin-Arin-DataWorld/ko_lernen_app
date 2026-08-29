@@ -18,6 +18,7 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/content_feedback_card.dart';
 import '../widgets/sori/content_feed.dart';
 import '../widgets/sori/deck_coach.dart';
@@ -25,6 +26,7 @@ import '../widgets/sori/content_share_recovery.dart';
 import '../services/liked_content_service.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/hanok_header.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/pressable.dart';
 import '../widgets/sori/responsive.dart';
 import '../widgets/sori/screen_coach.dart';
@@ -413,6 +415,41 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
     return ['Alle', ...s];
   }
 
+  int _levelCount(String level) => level == 'Alle'
+      ? _all.length
+      : _all.where((vocab) => vocab.level == level).length;
+
+  Future<void> _showLevelFilter() async {
+    final t = AppL10n.of(context);
+    final next = await showSoriLevelFilterSheet(
+      context: context,
+      selected: _level,
+      levels: _levels,
+      allLabel: t.filterAll,
+      countFor: _levelCount,
+    );
+    if (!mounted || next == null) return;
+    _level = next;
+    _applyFilters();
+  }
+
+  Widget _levelChrome(AppL10n t) {
+    return SoriChromeRow(
+      onFilterTap: _showLevelFilter,
+      filterSemanticLabel: t.filterLevel,
+      meta: Text(
+        '${_level == 'Alle' ? t.filterAll : _level} · ${_levelCount(_level)}',
+        style: SoriTextTheme.of(context).meta,
+      ),
+      trailing: IconButton(
+        icon: const Icon(Icons.filter_list_rounded),
+        tooltip: t.filterTitle,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
+        onPressed: _showFilterSheet,
+      ),
+    );
+  }
+
   List<String> get _topics {
     final s = _all.map((v) => v.topic).toSet().toList()..sort();
     return ['Alle', ...s];
@@ -462,12 +499,19 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
       return SoriStandardFrame(
         appBarTitle: t.screenVocabTitle,
         maxWidth: SoriMaxWidth.focus,
-        builder: (context, padding) => SoriEmptyState(
-          asset: 'assets/illustrations/mascot/magpie_wave.png',
-          icon: Icons.tune_rounded,
-          title: t.emptyVocab,
-          ctaLabel: t.filterOpenBtn,
-          onCta: _showFilterSheet,
+        builder: (context, padding) => Column(
+          children: [
+            _levelChrome(t),
+            Expanded(
+              child: SoriEmptyState(
+                asset: 'assets/illustrations/mascot/magpie_wave.png',
+                icon: Icons.tune_rounded,
+                title: t.emptyVocab,
+                ctaLabel: t.filterOpenBtn,
+                onCta: _showFilterSheet,
+              ),
+            ),
+          ],
         ),
       );
     }
@@ -485,10 +529,7 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
 
     return SoriStudyFrame(
       title: t.screenVocabTitle,
-      actions: [
-        IconButton(icon: const Icon(Icons.tune), onPressed: _showFilterSheet),
-        const TtsSpeedAction(),
-      ],
+      actions: const [TtsSpeedAction()],
       padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
       child: SoriAdaptiveStudyBody(
         minHeight: 680,
@@ -500,6 +541,9 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
               fallbackIcon: Icons.menu_book_outlined,
             ),
             const SizedBox(height: Spacing.md),
+
+            _levelChrome(t),
+            const SizedBox(height: Spacing.sm),
 
             // Mode chips (Tagesziel / Favorites / Alle)
             //
@@ -801,11 +845,6 @@ class _LegacyVocabScreenState extends State<LegacyVocabScreen>
                 AppL10n.of(ctx).filterTitle,
                 style: SoriTextTheme.of(ctx).h3,
               ),
-              const SizedBox(height: Spacing.md),
-              _dropdown(AppL10n.of(ctx).filterLevel, _level, _levels, (v) {
-                setLocal(() => _level = v!);
-                _level = v!;
-              }),
               const SizedBox(height: Spacing.md),
               _dropdown(AppL10n.of(ctx).filterTheme, _topic, _topics, (v) {
                 setLocal(() => _topic = v!);

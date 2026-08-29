@@ -18,7 +18,9 @@ import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/celebration.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/empty_state.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/screen_coach.dart';
 import '../widgets/sori/spotlight_coach.dart';
 import '../widgets/sori/study_frame.dart';
@@ -187,6 +189,30 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
     _openPuzzle();
   }
 
+  Future<void> _showLevelFilter(AppL10n t) async {
+    final next = await showSoriLevelFilterSheet(
+      context: context,
+      selected: _level,
+      levels: _levels,
+      allLabel: t.filterAll,
+      countFor: (level) => (_byLevel[level] ?? const []).length,
+    );
+    if (!mounted || next == null) return;
+    _openLevel(next);
+  }
+
+  Widget _levelChrome(AppL10n t) {
+    final total = (_byLevel[_level] ?? const []).length;
+    return SoriChromeRow(
+      onFilterTap: () => _showLevelFilter(t),
+      filterSemanticLabel: t.filterLevel,
+      meta: Text(
+        '$_level · ${_solvedCount(_level)}/$total',
+        style: SoriTextTheme.of(context).meta,
+      ),
+    );
+  }
+
   void _openPuzzle() {
     final p = _puzzles[_index];
     setState(() {
@@ -299,7 +325,9 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
           _spoken.add(w.answer);
           SoundService.correct();
           TtsService.speak(
-            w.exampleKo.isEmpty ? w.answer : '${w.answer}. ${w.exampleKoSpoken}',
+            w.exampleKo.isEmpty
+                ? w.answer
+                : '${w.answer}. ${w.exampleKoSpoken}',
           );
         }
       }
@@ -411,7 +439,7 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  _levelPicker(s),
+                  _levelChrome(t),
                   const SizedBox(height: Spacing.md),
                   // 섹션 간격 md→lg: 격자·타일풀·힌트가 "다닥다닥" 붙어
                   // 무엇을 하는 화면인지 안 읽혔다(2026-08-12 Jin 실기기).
@@ -425,60 +453,6 @@ class _SilbenKreuzScreenState extends State<SilbenKreuzScreen>
                 ],
               ),
             ),
-    );
-  }
-
-  Widget _levelPicker(SoriSurfaces s) {
-    return Row(
-      children: [
-        for (final l in _levels)
-          if ((_byLevel[l] ?? const []).isNotEmpty)
-            Expanded(
-              child: Semantics(
-                button: true,
-                selected: l == _level,
-                label: l,
-                value: '${_solvedCount(l)}/${(_byLevel[l] ?? const []).length}',
-                onTap: () => _openLevel(l),
-                excludeSemantics: true,
-                child: GestureDetector(
-                  behavior: HitTestBehavior.opaque,
-                  onTap: () => _openLevel(l),
-                  child: Container(
-                    key: ValueKey('silben-level-$l'),
-                    margin: const EdgeInsets.symmetric(horizontal: 3),
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    constraints: const BoxConstraints(minHeight: 48),
-                    decoration: BoxDecoration(
-                      color: l == _level
-                          ? SoriColors.accent.withValues(alpha: 0.16)
-                          : s.surfaceAlt,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: l == _level ? SoriColors.accent : s.border,
-                        width: l == _level ? 1.5 : 1,
-                      ),
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          l,
-                          style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            color: l == _level ? SoriColors.accent : s.text,
-                          ),
-                        ),
-                        Text(
-                          '${_solvedCount(l)}/${(_byLevel[l] ?? const []).length}',
-                          style: TextStyle(fontSize: 11, color: s.textMuted),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-      ],
     );
   }
 

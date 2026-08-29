@@ -15,8 +15,10 @@ import '../widgets/app_error.dart';
 import '../widgets/app_loading.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/empty_state.dart';
 import '../widgets/sori/game_reward.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/mascot.dart';
 import '../widgets/sori/sori_icon.dart';
 import '../widgets/sori/responsive.dart';
@@ -47,6 +49,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
   static const _seconds = 60;
   static const _regularSlots = 5;
   static const _levels = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+  static const _allLevels = '';
 
   final Random _rng = Random();
   List<Vocab> _all = const [];
@@ -246,6 +249,38 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
     _startRound();
   }
 
+  int _levelCount(String level) => level == _allLevels
+      ? _all.length
+      : _all.where((item) => item.level.toLowerCase() == level).length;
+
+  Future<void> _showLevelFilter(AppL10n t) async {
+    final next = await showSoriLevelFilterSheet(
+      context: context,
+      selected: _level ?? _allLevels,
+      levels: const [_allLevels, ..._levels],
+      allLabel: t.clozeLevelAll,
+      countFor: _levelCount,
+    );
+    if (!mounted || next == null) return;
+    _setLevel(next == _allLevels ? null : next);
+  }
+
+  Widget _levelChrome(AppL10n t) {
+    final selected = _level ?? _allLevels;
+    final label = _level == null ? t.clozeLevelAll : _level!.toUpperCase();
+    return Padding(
+      padding: const EdgeInsets.only(bottom: Spacing.sm),
+      child: SoriChromeRow(
+        onFilterTap: () => _showLevelFilter(t),
+        filterSemanticLabel: t.clozeLevelLabel,
+        meta: Text(
+          '$label · ${_levelCount(selected)}',
+          style: SoriTextTheme.of(context).meta,
+        ),
+      ),
+    );
+  }
+
   void _tapLeft(String ko) {
     if (!_running) return;
     HapticFeedback.selectionClick();
@@ -388,7 +423,7 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (widget.items == null) _levelBar(t),
+            if (widget.items == null) _levelChrome(t),
             Wrap(
               alignment: WrapAlignment.spaceBetween,
               crossAxisAlignment: WrapCrossAlignment.center,
@@ -562,33 +597,6 @@ class _SpeedMatchScreenState extends State<SpeedMatchScreen>
       }
     }
     return false;
-  }
-
-  Widget _levelBar(AppL10n t) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.only(bottom: Spacing.sm),
-      child: Row(
-        children: [
-          _levelChip(t.clozeLevelAll, _level == null, () => _setLevel(null)),
-          for (final lv in _levels) ...[
-            const SizedBox(width: Spacing.sm),
-            _levelChip(lv.toUpperCase(), _level == lv, () => _setLevel(lv)),
-          ],
-        ],
-      ),
-    );
-  }
-
-  Widget _levelChip(String label, bool selected, VoidCallback onTap) {
-    return SoriChip(
-      label: label,
-      accent: SoriColors.primary,
-      selected: selected,
-      variant: selected ? SoriChipVariant.filled : SoriChipVariant.soft,
-      onTap: onTap,
-      minInteractiveHeight: 48,
-    );
   }
 
   Widget _buildDone(AppL10n t) {

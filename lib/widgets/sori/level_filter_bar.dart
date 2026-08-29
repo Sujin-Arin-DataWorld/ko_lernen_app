@@ -4,7 +4,65 @@ import '../../models/learner_level.dart';
 import '../../services/storage_service.dart';
 import 'chip.dart';
 import 'hanok_tokens.dart';
+import 'sheet.dart';
 import 'tokens.dart';
+
+/// Opens the compact level picker used by play surfaces.
+///
+/// [levels] contains the caller's exact state values. CEFR values are rendered
+/// in canonical upper-case form; a non-CEFR sentinel such as `Alle` or an empty
+/// string is rendered with [allLabel]. This keeps existing nullable/legacy
+/// state models out of the shared widget while giving every screen one visual
+/// and semantic contract.
+///
+/// The current value and zero-count values are intentionally non-interactive,
+/// so a non-null result always represents a real selection change.
+Future<String?> showSoriLevelFilterSheet({
+  required BuildContext context,
+  required String selected,
+  required List<String> levels,
+  required String allLabel,
+  required int Function(String level) countFor,
+}) {
+  assert(levels.contains(selected), 'selected must be present in levels');
+  assert(levels.toSet().length == levels.length, 'levels must be unique');
+
+  return showSoriSheet<String>(
+    context: context,
+    builder: (sheetContext) => Align(
+      alignment: Alignment.centerLeft,
+      child: Wrap(
+        spacing: Spacing.sm,
+        runSpacing: Spacing.sm,
+        children: [
+          for (final level in levels)
+            Builder(
+              builder: (context) {
+                final parsed = LearnerLevel.fromCode(level);
+                final label = parsed?.display ?? allLabel;
+                final count = countFor(level);
+                final isSelected = level == selected;
+                return SoriChip(
+                  key: ValueKey('sori-level-sheet-$level'),
+                  label: '$label · $count',
+                  accent: parsed == null
+                      ? SoriColors.info
+                      : HanokLevelPalette.of(parsed.code),
+                  selected: isSelected,
+                  variant: SoriChipVariant.soft,
+                  minInteractiveHeight: SoriLayout.chromeRowTouchHeight,
+                  maxLines: null,
+                  onTap: isSelected || count == 0
+                      ? null
+                      : () => Navigator.of(sheetContext).pop(level),
+                );
+              },
+            ),
+        ],
+      ),
+    ),
+  );
+}
 
 /// **SoriLevelFilterBar** — §17/검수#5 레벨 필터의 단일 문법.
 ///

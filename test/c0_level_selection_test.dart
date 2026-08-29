@@ -13,6 +13,7 @@ import 'package:ko_lernen_app/services/silben_puzzle_loader.dart';
 import 'package:ko_lernen_app/services/storage_service.dart';
 import 'package:ko_lernen_app/theme.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
+import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
 
 Scenario _scenario(String id, LearnerLevel level, {bool playable = true}) {
   return Scenario(
@@ -233,17 +234,22 @@ void main() {
       await tester.runAsync(DataLoader.loadVocab);
 
       await tester.pumpWidget(_screenApp(const ChosungQuizScreen()));
-      await _pumpUntil(tester, find.byKey(const ValueKey('chosung-level-B1')));
+      await _pumpUntil(tester, find.byType(SoriChromeRow));
+      await tester.tap(find.byIcon(Icons.tune_rounded));
+      await _pumpUntil(
+        tester,
+        find.byKey(const ValueKey('sori-level-sheet-B1')),
+      );
 
       expect(
         tester
-            .widget<SoriChip>(find.byKey(const ValueKey('chosung-level-B1')))
+            .widget<SoriChip>(find.byKey(const ValueKey('sori-level-sheet-B1')))
             .selected,
         isTrue,
       );
       expect(
         tester
-            .widget<SoriChip>(find.byKey(const ValueKey('chosung-level-A1')))
+            .widget<SoriChip>(find.byKey(const ValueKey('sori-level-sheet-A1')))
             .selected,
         isFalse,
       );
@@ -269,12 +275,17 @@ void main() {
           ),
         ),
       );
-      await _pumpUntil(tester, find.byKey(const ValueKey('chosung-level-C2')));
+      await _pumpUntil(tester, find.byType(SoriChromeRow));
+      await tester.tap(find.byIcon(Icons.tune_rounded));
+      await _pumpUntil(
+        tester,
+        find.byKey(const ValueKey('sori-level-sheet-C2')),
+      );
 
       expect(tester.takeException(), isNull);
       final chipTops = <double>{
         for (final level in const ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'])
-          tester.getTopLeft(find.byKey(ValueKey('chosung-level-$level'))).dy,
+          tester.getTopLeft(find.byKey(ValueKey('sori-level-sheet-$level'))).dy,
       };
       expect(chipTops.length, greaterThan(1));
     });
@@ -286,13 +297,19 @@ void main() {
       await tester.runAsync(SilbenPuzzleLoader.load);
 
       await tester.pumpWidget(_screenApp(const SilbenKreuzScreen()));
-      final finder = find.byKey(const ValueKey('silben-level-B2'));
-      await _pumpUntil(tester, finder);
+      await _pumpUntil(tester, find.byType(SoriChromeRow));
+      await tester.tap(find.byIcon(Icons.tune_rounded));
+      await _pumpUntil(
+        tester,
+        find.byKey(const ValueKey('sori-level-sheet-B2')),
+      );
 
-      final decoration =
-          tester.widget<Container>(finder).decoration! as BoxDecoration;
-      final border = decoration.border! as Border;
-      expect(border.top.width, 1.5);
+      expect(
+        tester
+            .widget<SoriChip>(find.byKey(const ValueKey('sori-level-sheet-B2')))
+            .selected,
+        isTrue,
+      );
     });
 
     testWidgets(
@@ -321,9 +338,9 @@ void main() {
             ),
           ),
         );
-        await _pumpUntil(tester, find.byKey(const ValueKey('silben-level-A1')));
+        await _pumpUntil(tester, find.byType(SoriChromeRow));
 
-        expect(find.bySemanticsLabel('A1'), findsOneWidget);
+        expect(find.textContaining('A1 ·'), findsOneWidget);
         final cellLabel = '${cell.$1 + 1}, ${cell.$2 + 1}';
         await tester.ensureVisible(find.bySemanticsLabel(cellLabel));
         await tester.tap(find.bySemanticsLabel(cellLabel));
@@ -335,7 +352,7 @@ void main() {
         await tester.tap(find.bySemanticsLabel(wrongTile).first);
         await tester.pump();
 
-        final grid = find.byKey(const ValueKey('silben-level-A1'));
+        final levelChrome = find.byType(SoriChromeRow);
         expect(find.byIcon(Icons.close_rounded), findsOneWidget);
         expect(
           find.byType(TweenAnimationBuilder<double>),
@@ -343,7 +360,7 @@ void main() {
           reason: '오답은 아이콘으로 남고 흔들림은 모션 감소에서 없어야 한다.',
         );
         expect(tester.takeException(), isNull);
-        expect(grid, findsOneWidget);
+        expect(levelChrome, findsOneWidget);
 
         await tester.pump(const Duration(milliseconds: 700));
         semantics.dispose();

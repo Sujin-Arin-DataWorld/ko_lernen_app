@@ -106,6 +106,7 @@ void main() {
 
     testWidgets('cloze level filter has a visible name and 48dp controls in '
         '${locale.languageCode} at 200% text', (tester) async {
+      final semantics = tester.ensureSemantics();
       _configureView(tester, const Size(320, 640));
 
       await tester.pumpWidget(
@@ -114,26 +115,31 @@ void main() {
 
       final t = AppL10n.of(tester.element(find.byType(ClozeGameScreen)));
       final levelName = t.clozeLevelLabel;
-      await _pumpUntilVisible(tester, find.text(levelName));
-      expect(find.text(levelName), findsOneWidget);
+      await _pumpUntilVisible(tester, find.byIcon(Icons.tune_rounded));
+      expect(find.bySemanticsLabel(levelName), findsOneWidget);
+      await tester.tap(find.byIcon(Icons.tune_rounded));
+      await tester.pumpAndSettle();
 
-      for (final label in [
-        t.clozeLevelAll,
-        'A1',
-        'A2',
-        'B1',
-        'B2',
-        'C1',
-        'C2',
+      for (final entry in [
+        ('', t.clozeLevelAll),
+        ('a1', 'A1'),
+        ('a2', 'A2'),
+        ('b1', 'B1'),
+        ('b2', 'B2'),
+        ('c1', 'C1'),
+        ('c2', 'C2'),
       ]) {
-        final chip = find.widgetWithText(SoriChip, label);
+        final chip = find.byKey(ValueKey('sori-level-sheet-${entry.$1}'));
+        final label = tester.widget<SoriChip>(chip).label;
         final text = find.descendant(of: chip, matching: find.text(label));
         expect(chip, findsOneWidget);
+        expect(label, startsWith('${entry.$2} · '));
         expect(tester.getSize(chip).height, greaterThanOrEqualTo(48));
         expect(tester.widget<Text>(text).maxLines, isNull);
         expect(tester.widget<Text>(text).overflow, isNull);
       }
       expect(tester.takeException(), isNull);
+      semantics.dispose();
     });
   }
 

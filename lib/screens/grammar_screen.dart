@@ -33,7 +33,9 @@ import '../widgets/sori/tokens.dart';
 import '../widgets/sori/button.dart';
 import '../widgets/sori/card.dart';
 import '../widgets/sori/chip.dart';
+import '../widgets/sori/chrome_row.dart';
 import '../widgets/sori/content_feedback_card.dart';
+import '../widgets/sori/level_filter_bar.dart';
 import '../widgets/sori/motion.dart';
 import '../widgets/sori/mission_context_bar.dart';
 import '../widgets/sori/progress.dart';
@@ -1006,6 +1008,40 @@ class _GrammarScreenState extends State<GrammarScreen>
     return ['Alle', ...usable];
   }
 
+  Future<void> _showLevelFilter(AppL10n t) async {
+    final next = await showSoriLevelFilterSheet(
+      context: context,
+      selected: _level,
+      levels: _levels,
+      allLabel: t.filterAll,
+      countFor: _levelCount,
+    );
+    if (!mounted || next == null) return;
+    _level = next;
+    if (!_typesForLevel(next).contains(_type)) {
+      _type = 'Alle';
+    }
+    _applyFilters();
+  }
+
+  Widget _legacyFilterChrome(AppL10n t) {
+    return SoriChromeRow(
+      key: const Key('grammar-filter-row'),
+      onFilterTap: () => _showLevelFilter(t),
+      filterSemanticLabel: t.filterLevel,
+      meta: Text(
+        '${_level == 'Alle' ? t.filterAll : _level} · ${_levelCount(_level)}',
+        style: SoriTextTheme.of(context).meta,
+      ),
+      trailing: IconButton(
+        icon: const Icon(Icons.filter_list_rounded),
+        tooltip: t.filterTitle,
+        constraints: const BoxConstraints.tightFor(width: 48, height: 48),
+        onPressed: _showFilterSheet,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
@@ -1125,8 +1161,12 @@ class _GrammarScreenState extends State<GrammarScreen>
     return SoriStudyFrame(
       title: t.screenGrammarTitle,
       actions: [
-        if (_activePlan == null)
-          IconButton(icon: const Icon(Icons.tune), onPressed: _openLevelChrome),
+        if (_isCoursePractice)
+          IconButton(
+            icon: const Icon(Icons.filter_list_rounded),
+            tooltip: t.filterTitle,
+            onPressed: _showFilterSheet,
+          ),
         const TtsSpeedAction(),
       ],
       padding: EdgeInsets.zero,
@@ -1185,15 +1225,15 @@ class _GrammarScreenState extends State<GrammarScreen>
                 ),
                 const SizedBox(height: Spacing.sm),
               ] else if (!_isCoursePractice) ...[
-                SizedBox(
+                KeyedSubtree(
                   key: _filterRowKey,
-                  height: 44,
-                  child: ListView(
-                    key: const Key('grammar-filter-row'),
-                    scrollDirection: Axis.horizontal,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 8),
+                      _legacyFilterChrome(t),
+                      const SizedBox(height: Spacing.xs),
+                      Align(
+                        alignment: Alignment.centerLeft,
                         child: SoriButton.filled(
                           key: const Key('grammar-choice-cta'),
                           label: t.grammarChoiceCta,
@@ -1202,25 +1242,6 @@ class _GrammarScreenState extends State<GrammarScreen>
                           onTap: _openChoicePractice,
                         ),
                       ),
-                      for (final lvl in _levels)
-                        Padding(
-                          padding: const EdgeInsets.only(right: 6),
-                          child: SoriChip(
-                            key: Key('grammar-level-$lvl'),
-                            label:
-                                '${lvl == 'Alle' ? t.filterAll : lvl}'
-                                ' · ${_levelCount(lvl)}',
-                            accent: SoriColors.info,
-                            selected: _level == lvl,
-                            variant: SoriChipVariant.soft,
-                            onTap: _level == lvl
-                                ? null
-                                : () {
-                                    setState(() => _level = lvl);
-                                    _applyFilters();
-                                  },
-                          ),
-                        ),
                     ],
                   ),
                 ),
@@ -1433,7 +1454,6 @@ class _GrammarScreenState extends State<GrammarScreen>
 
   void _showFilterSheet() {
     final t = AppL10n.of(context);
-    var stagedLevel = _level;
     var stagedType = _type;
     var stagedDifficulty = _difficulty;
     showSoriSheet<void>(
@@ -1445,25 +1465,14 @@ class _GrammarScreenState extends State<GrammarScreen>
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(t.filterTitle, style: SoriTextTheme.of(ctx).h3),
-              const SizedBox(height: Spacing.md),
-              _dropdown(ctx, t.filterLevel, stagedLevel, _levels, (v) {
-                setLocal(() {
-                  stagedLevel = v!;
-                  // 레벨이 바뀌면 그 레벨에 없는 유형은 후보에서 사라진다.
-                  // 남겨 두면 DropdownButton 의 value 가 항목 밖이 된다.
-                  if (!_typesForLevel(stagedLevel).contains(stagedType)) {
-                    stagedType = 'Alle';
-                  }
-                });
-              }),
               // 고를 수 있는 유형이 'Alle' 뿐이면 감춘다 (죽은 컨트롤 금지).
-              if (_typesForLevel(stagedLevel).length > 1) ...[
+              if (_typesForLevel(_level).length > 1) ...[
                 const SizedBox(height: Spacing.md),
                 _dropdown(
                   ctx,
                   t.filterType,
                   stagedType,
-                  _typesForLevel(stagedLevel),
+                  _typesForLevel(_level),
                   (v) {
                     setLocal(() => stagedType = v!);
                   },
@@ -1500,7 +1509,7 @@ class _GrammarScreenState extends State<GrammarScreen>
                 fullWidth: true,
                 onTap: () {
                   final next = _computeFiltered(
-                    level: stagedLevel,
+                    level: _level,
                     type: stagedType,
                     difficulty: stagedDifficulty,
                   );
@@ -1512,7 +1521,6 @@ class _GrammarScreenState extends State<GrammarScreen>
                     );
                     return;
                   }
-                  _level = stagedLevel;
                   _type = stagedType;
                   _difficulty = stagedDifficulty;
                   _applyFilters();

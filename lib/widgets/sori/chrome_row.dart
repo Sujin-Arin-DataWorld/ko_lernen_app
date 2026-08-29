@@ -82,16 +82,16 @@ class _ChromeSlot extends StatelessWidget {
     // 44dp 라고 착각하게 만드는 코드 냄새다.
     return Semantics(
       button: true,
+      enabled: true,
       label: semanticLabel,
+      onTap: onTap,
       child: ExcludeSemantics(
         child: SoriPressable(
           onTap: onTap,
           child: SizedBox(
             width: SoriLayout.chromeRowTouchHeight,
             height: SoriLayout.chromeRowTouchHeight,
-            child: Center(
-              child: Icon(icon, size: 22, color: s.text),
-            ),
+            child: Center(child: Icon(icon, size: 22, color: s.text)),
           ),
         ),
       ),

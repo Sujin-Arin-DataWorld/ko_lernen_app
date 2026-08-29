@@ -332,7 +332,7 @@ void main() {
     await _settleCourseScreen(tester);
     await _dismissGrammarPlanOnboarding(tester);
 
-    await tester.tap(find.byIcon(Icons.tune));
+    await tester.tap(find.byIcon(Icons.filter_list_rounded));
     await tester.pumpAndSettle();
     final hardChip = find.widgetWithText(SoriChip, 'Difficult');
     await tester.ensureVisible(hardChip);
@@ -395,10 +395,16 @@ void main() {
           text.meta.copyWith(fontWeight: FontWeight.w700),
         );
 
-        await tester.tap(find.byIcon(Icons.tune));
+        expect(find.byIcon(Icons.tune_rounded), findsOneWidget);
+        await tester.tap(find.byIcon(Icons.tune_rounded));
         await tester.pumpAndSettle();
 
-        expect(find.text(t.filterLevel), findsOneWidget);
+        expect(find.byKey(const Key('sori-level-sheet-Alle')), findsOneWidget);
+        await tester.binding.handlePopRoute();
+        await tester.pumpAndSettle();
+
+        await tester.tap(find.byIcon(Icons.filter_list_rounded));
+        await tester.pumpAndSettle();
         final dropdowns = find.byType(DropdownButtonFormField<String>);
         expect(dropdowns, findsWidgets);
         expect(

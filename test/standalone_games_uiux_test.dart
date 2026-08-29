@@ -24,6 +24,7 @@ import 'package:ko_lernen_app/widgets/app_loading.dart';
 import 'package:ko_lernen_app/widgets/sori/button.dart';
 import 'package:ko_lernen_app/widgets/sori/empty_state.dart';
 import 'package:ko_lernen_app/widgets/sori/chip.dart';
+import 'package:ko_lernen_app/widgets/sori/chrome_row.dart';
 import 'package:ko_lernen_app/widgets/sori/study_frame.dart';
 import 'package:ko_lernen_app/widgets/sori/text_field.dart';
 import 'package:ko_lernen_app/widgets/sori/tokens.dart';
@@ -207,7 +208,7 @@ void main() {
                 'A1': [_puzzle],
               },
             ),
-            ready: find.byKey(const ValueKey('silben-level-A1')),
+            ready: find.byType(SoriChromeRow),
           ),
           (
             name: 'speed',
@@ -377,7 +378,7 @@ void main() {
     second.complete(const {
       'A1': [_puzzle],
     });
-    await _pumpUntil(tester, find.byKey(const ValueKey('silben-level-A1')));
+    await _pumpUntil(tester, find.byType(SoriChromeRow));
     expect(calls, 2);
 
     await _pumpPhone(
@@ -625,7 +626,7 @@ void main() {
     expect(puzzleReads, 1);
 
     await _tapVisible(tester, find.bySemanticsLabel(t.btnRetry));
-    await _pumpUntil(tester, find.byKey(const ValueKey('silben-level-A1')));
+    await _pumpUntil(tester, find.byType(SoriChromeRow));
     expect(puzzleReads, 2);
     expect(find.byType(AppError), findsNothing);
     await tester.pumpWidget(const SizedBox.shrink());
@@ -662,12 +663,18 @@ void main() {
     expect(find.bySemanticsLabel(en.chosungWrongCount(0)), findsOneWidget);
     expect(find.bySemanticsLabel(en.gameRoundProgress(1, 10)), findsWidgets);
     _expectButton(tester, find.bySemanticsLabel(en.chosungBackspace));
-    _expectButton(
+    _expectButton(tester, find.bySemanticsLabel(en.filterLevel), minHeight: 48);
+    final chosungLevelButton = find.byIcon(Icons.tune_rounded);
+    await tester.ensureVisible(chosungLevelButton);
+    await tester.tap(chosungLevelButton);
+    await _pumpUntil(tester, find.byKey(const ValueKey('sori-level-sheet-A1')));
+    _expectSelectedDisabledChoice(
       tester,
-      find.byKey(const ValueKey('chosung-level-A1')),
+      find.byKey(const ValueKey('sori-level-sheet-A1')),
       minHeight: 48,
-      selected: ui.Tristate.isTrue,
     );
+    await tester.binding.handlePopRoute();
+    await tester.pump(const Duration(milliseconds: 300));
     final selectedMode = find.byWidgetPredicate(
       (widget) =>
           widget is SoriChip && widget.label == en.chosungModeWithVowels,
@@ -692,12 +699,18 @@ void main() {
     final clue = find.bySemanticsLabel('Ghana. Ich fahre nach Ghana. ◯◯에 가요.');
     await _pumpUntil(tester, clue);
     _expectButton(tester, clue);
-    _expectButton(
+    _expectButton(tester, find.bySemanticsLabel(de.filterLevel), minHeight: 48);
+    final silbenLevelButton = find.byIcon(Icons.tune_rounded);
+    await tester.ensureVisible(silbenLevelButton);
+    await tester.tap(silbenLevelButton);
+    await _pumpUntil(tester, find.byKey(const ValueKey('sori-level-sheet-A1')));
+    _expectSelectedDisabledChoice(
       tester,
-      find.byKey(const ValueKey('silben-level-A1')),
+      find.byKey(const ValueKey('sori-level-sheet-A1')),
       minHeight: 48,
-      selected: ui.Tristate.isTrue,
     );
+    await tester.binding.handlePopRoute();
+    await tester.pump(const Duration(milliseconds: 300));
     _expectButton(tester, find.bySemanticsLabel('1, 1'));
     final syllableTile = find.bySemanticsLabel('가');
     _expectButton(tester, syllableTile);
@@ -713,18 +726,15 @@ void main() {
     await _pumpUntil(tester, tile);
     _expectButton(tester, tile, minHeight: 44);
     expect(find.bySemanticsLabel(en.speedMatchInstruction), findsOneWidget);
-    final allLevels = find.byWidgetPredicate(
-      (widget) => widget is SoriChip && widget.label == en.clozeLevelAll,
-    );
-    await tester.ensureVisible(allLevels);
-    await tester.pump();
-    await _tapWithFatalHitTest(tester, allLevels);
-    _expectButton(
-      tester,
-      allLevels,
-      minHeight: 48,
-      selected: ui.Tristate.isTrue,
-    );
+    _expectButton(tester, find.bySemanticsLabel(en.filterLevel), minHeight: 48);
+    final speedLevelButton = find.byIcon(Icons.tune_rounded);
+    await tester.ensureVisible(speedLevelButton);
+    await tester.tap(speedLevelButton);
+    final allLevels = find.byKey(const ValueKey('sori-level-sheet-'));
+    await _pumpUntil(tester, allLevels);
+    _expectSelectedDisabledChoice(tester, allLevels, minHeight: 48);
+    await tester.binding.handlePopRoute();
+    await tester.pump(const Duration(milliseconds: 300));
     expect(tester.takeException(), isNull);
     await tester.pump(const Duration(milliseconds: 250));
     semantics.dispose();
@@ -1001,4 +1011,16 @@ void _expectButton(
   if (minHeight != null) {
     expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
   }
+}
+
+void _expectSelectedDisabledChoice(
+  WidgetTester tester,
+  Finder finder, {
+  required double minHeight,
+}) {
+  expect(finder, findsOneWidget);
+  final data = tester.getSemantics(finder).getSemanticsData();
+  expect(data.flagsCollection.isSelected, ui.Tristate.isTrue);
+  expect(data.hasAction(ui.SemanticsAction.tap), isFalse);
+  expect(tester.getSize(finder).height, greaterThanOrEqualTo(minHeight));
 }
