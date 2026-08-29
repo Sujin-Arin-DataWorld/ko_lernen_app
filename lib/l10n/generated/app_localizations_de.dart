@@ -7354,7 +7354,11 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get ilduWorldRotateBuildingHint =>
-      'Wische über das Gebäude, um es zu drehen.';
+      'Ziehe es auf der Karte an seinen Platz; wische über die Vorschau, um es zu drehen.';
+
+  @override
+  String get ilduWorldGateHeritageDetail =>
+      'Außen bleiben die Spruchtafeln 忠孝傳家 erhalten; innen hängen fünf Jeongnyeo-Gedenktafeln über dem Tor.';
 
   @override
   String get ilduWorldEvidenceNote =>

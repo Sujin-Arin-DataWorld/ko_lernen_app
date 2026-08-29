@@ -1,0 +1,364 @@
+{
+  "schemaVersion": 2,
+  "kind": "gemini_canonical_scenario_level_audit",
+  "createdAt": "2026-08-29T20:42:58.704923+00:00",
+  "model": "gemini-3.5-flash",
+  "modelVersion": "gemini-3.5-flash",
+  "responseId": "RUSTao-8EbyinsEPzZ6hsAQ",
+  "thinkingLevel": "low",
+  "pricingTier": "free",
+  "level": "a2",
+  "candidateSetSha256": "c0fa2c357fdbecd43d938e62765dc31bd9faca10042e5d77c3db7d83bb8d3ddb",
+  "automatedAuditIsApproval": false,
+  "humanApprovalRequired": true,
+  "usageMetadata": {
+    "promptTokenCount": 39577,
+    "candidatesTokenCount": 3211,
+    "totalTokenCount": 42788,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 39577
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "estimatedActualUsd": 0.0,
+  "verdictCounts": {
+    "pass": 18,
+    "review": 2
+  },
+  "severityCounts": {
+    "major": 2
+  },
+  "audit": {
+    "level": "a2",
+    "scenarios": [
+      {
+        "scenarioId": "clothing_refund_size",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "A2 레벨 교환 대화의 필수 조건인 '바꾸고 싶어요' 표현을 명확하게 사용했습니다."
+        ]
+      },
+      {
+        "scenarioId": "convenience_parcel_pickup",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "불필요한 개인정보(전화번호 등) 입력 없이 실제적인 편의점 택배 수령 절차를 현실성 있게 구현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "delivery_dinner_spicy",
+        "verdict": "review",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 4,
+          "germanLocalization": 3,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 4
+        },
+        "findings": [
+          {
+            "severity": "major",
+            "code": "REL",
+            "scope": "de",
+            "path": "/scenarios/2/dialog/1/de",
+            "evidence": "Geht es? Möchtest du Wasser?",
+            "analysisKo": "한국어 대본은 수진과 크리스티안 사이의 'polite' 종결어미(-요)를 쓰고 있으나, 독일어 번역에서는 반말(du)을 사용하고 있어 화자 간의 사회적 거리와 존칭 관계가 정합하지 않습니다.",
+            "recommendationKo": "독일어 대화의 호칭과 어미를 존칭인 'Sie' 형태로 수정하여 'Geht es Ihnen gut? Möchten Sie Wasser?' 등으로 일관성을 유지해 주세요."
+          }
+        ],
+        "strengthsKo": [
+          "매운 음식을 먹고 대처하는 한국 일상의 현실적인 스몰토크가 아주 잘 묘사되었습니다."
+        ]
+      },
+      {
+        "scenarioId": "email_attachment_twice",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "신입 사원의 반복된 이메일 첨부 실수라는 흥미롭고 유용한 비즈니스 상황을 다루었습니다."
+        ]
+      },
+      {
+        "scenarioId": "favorite_drama_chat",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "좋아하는 드라마 이유를 자연스럽게 '-어서/아서' 문법을 사용하여 깔끔하게 표현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "forgot_house_key",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "친한 사이에서 쓰는 반말(casual) 표현을 활용하여 기숙사에서 발생할 수 있는 일상 문제를 설득력 있게 다루었습니다."
+        ]
+      },
+      {
+        "scenarioId": "forgot_presentation_cable",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "수업 직전 대학생들의 다급한 문제 해결 상황이 자연스러운 구어로 표현되었습니다."
+        ]
+      },
+      {
+        "scenarioId": "friend_cancelled_plan",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "서운함의 감정과 사과를 한국어 정서에 맞게 선을 넘지 않으면서도 솔직하게 잘 전달했습니다."
+        ]
+      },
+      {
+        "scenarioId": "group_chat_photo_permission",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "초상권 및 SNS 공유 허락이라는 현대적인 의사소통 주제를 학습자의 인지 과제 수준에 맞추어 유익하게 녹여냈습니다."
+        ]
+      },
+      {
+        "scenarioId": "gym_class_cancel",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "발목 통증이라는 아픈 상태와 이에 따른 예약 일정 변경 요청이 원활하게 진행되었습니다."
+        ]
+      },
+      {
+        "scenarioId": "jeju_bus_missed",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "여행지에서 발생 가능한 교통수단 결손 상황과 대처 흐름이 합리적으로 이어집니다."
+        ]
+      },
+      {
+        "scenarioId": "library_card_problem",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "모바일 바코드 대체 대출이라는 일상생활의 현대적 경험을 효과적으로 구성했습니다."
+        ]
+      },
+      {
+        "scenarioId": "package_wrong_door",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "오배송 문제를 타인에게 정중하게 물어보고 확인하는 과정이 예의 바르고 자연스럽습니다."
+        ]
+      },
+      {
+        "scenarioId": "pharmacy_cold_medicine",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "약사와의 복약 조절 상담 과정에서 '졸릴 수 있음'에 따른 대처 제안이 실생활에 아주 밀접합니다."
+        ]
+      },
+      {
+        "scenarioId": "plans_with_friend",
+        "verdict": "review",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 4,
+          "germanLocalization": 3,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 4
+        },
+        "findings": [
+          {
+            "severity": "major",
+            "code": "REL",
+            "scope": "de",
+            "path": "/scenarios/14/dialog/0/de",
+            "evidence": "Möchtest du am Samstag diese Ausstellung sehen?",
+            "analysisKo": "한국어 발화는 존칭(-요)을 사용하여 수진과 일정한 거리를 유지하고 있으나, 독일어 번역에서는 일관되게 반말 격인 'du'로 번역되었습니다. 두 사람은 아직 연인으로 완전히 발전하기 전이므로 존칭 'Sie'가 더 타당합니다.",
+            "recommendationKo": "독일어 번역을 존칭형인 'Möchten Sie...' 및 'Wie wäre es dann mit Sonntag? Passt es Ihnen am Sonntagnachmittag?' 등으로 수정해 주세요."
+          }
+        ],
+        "strengthsKo": [
+          "일정을 제안하고 거절당했을 때 대안을 제시하는 자연스러운 흐름이 잘 구축되어 있습니다."
+        ]
+      },
+      {
+        "scenarioId": "running_late",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "지하철 지연 상황에서 메신저를 활용하여 실시간으로 늦는 사실을 알리고 조율하는 방식이 매우 현실적입니다."
+        ]
+      },
+      {
+        "scenarioId": "samgyeopsal_first_time",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "한국의 독특한 고기구이 문화(마늘 굽기 등)를 과장된 일반화 없이 식사 테이블 위의 소소한 개인 취향 영역으로 세련되게 풀었습니다."
+        ]
+      },
+      {
+        "scenarioId": "shared_document_old_version",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "공동 작업 중 흔히 발생하는 버전 혼동 문제를 대학생 조원 사이의 대화로 실감 나게 구현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "taxi_slow_down",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "위험하거나 불안할 때 공손하게 거절 또는 감속을 요청하는 유용한 생존 표현을 적절하게 학습할 수 있도록 유도했습니다."
+        ]
+      },
+      {
+        "scenarioId": "train_seat_swap",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "기차 내 좌석 알파벳 표기를 착각한 구체적인 실수를 바탕으로 오해를 해소하고 자리를 양보하는 성인 비즈니스/여행 맥락을 잘 담았습니다."
+        ]
+      }
+    ],
+    "summaryKo": "전체적으로 A2 수준에 부합하는 뛰어난 생활형 시나리오들입니다. 다만 'delivery_dinner_spicy'와 'plans_with_friend' 시나리오에서 한국어 원문이 존칭어미(-요)를 사용하는 것과 달리 독일어 번역문이 반말형(du) 호칭 및 동사변화를 사용하고 있으므로, 출시 전 반드시 존칭형(Sie)으로 독일어 현지화 텍스트를 통일하는 것을 권장합니다."
+  },
+  "generationId": "canonical_120_v1",
+  "auditRequestSha256": "fbb4365c323c93e5ccf1ddb354cf6c538660ee4e460f7b1e4d4fe76aaec78f02",
+  "freeTierProjectId": "gen-lang-client-0858328849",
+  "freeTierApiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842"
+}

@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 2,
+  "kind": "gemini_canonical_scenario_corpus_audit",
+  "createdAt": "2026-08-29T21:17:55.007668+00:00",
+  "model": "gemini-3.5-flash",
+  "thinkingLevel": "low",
+  "pricingTier": "free",
+  "freeTierProvenance": {
+    "projectId": "gen-lang-client-0858328849",
+    "billingEnabled": false,
+    "apiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842",
+    "verifiedAt": "2026-08-29T21:17:46.459506+00:00",
+    "verificationMethod": "gcloud billing projects describe + api-keys key match"
+  },
+  "generationId": "canonical_120_v1",
+  "candidateSetSha256": "8f9e37b4951fdc969b965ac8214d74baee874b579dab7c56918e6260a0e2614b",
+  "automatedAuditIsApproval": false,
+  "humanApprovalRequired": true,
+  "costEstimateBeforeRun": {
+    "levels": {
+      "a1": {
+        "inputTokens": 37166,
+        "inputUsdPerMillion": 0.0,
+        "outputUsdPerMillion": 0.0,
+        "maxOutputTokens": 12288,
+        "estimatedUpperUsd": 0.0
+      },
+      "a2": {
+        "inputTokens": 39577,
+        "inputUsdPerMillion": 0.0,
+        "outputUsdPerMillion": 0.0,
+        "maxOutputTokens": 12288,
+        "estimatedUpperUsd": 0.0
+      },
+      "b1": {
+        "inputTokens": 44621,
+        "inputUsdPerMillion": 0.0,
+        "outputUsdPerMillion": 0.0,
+        "maxOutputTokens": 12288,
+        "estimatedUpperUsd": 0.0
+      },
+      "b2": {
+        "inputTokens": 47938,
+        "inputUsdPerMillion": 0.0,
+        "outputUsdPerMillion": 0.0,
+        "maxOutputTokens": 12288,
+        "estimatedUpperUsd": 0.0
+      },
+      "c1": {
+        "inputTokens": 51062,
+        "inputUsdPerMillion": 0.0,
+        "outputUsdPerMillion": 0.0,
+        "maxOutputTokens": 12288,
+        "estimatedUpperUsd": 0.0
+      },
+      "c2": {
+        "inputTokens": 54418,
+        "inputUsdPerMillion": 0.0,
+        "outputUsdPerMillion": 0.0,
+        "maxOutputTokens": 12288,
+        "estimatedUpperUsd": 0.0
+      }
+    },
+    "totalInputTokens": 274782,
+    "estimatedUpperUsd": 0.0,
+    "basis": "Gemini Developer API free tier; the API key must belong to a billing-disabled project."
+  },
+  "summary": {
+    "scenarioCount": 120,
+    "requestCount": 6,
+    "promptTokenCount": 274782,
+    "candidatesTokenCount": 18915,
+    "thoughtsTokenCount": 4884,
+    "totalTokenCount": 298581,
+    "estimatedActualUsd": 0.0,
+    "verdictCounts": {
+      "pass": 116,
+      "review": 4
+    },
+    "severityCounts": {
+      "major": 2,
+      "minor": 2
+    }
+  },
+  "levels": {
+    "a1": {
+      "candidateSetSha256": "e73b694986f25e19531d24167b42f5e8a10d3cc83072c88edb8b1bd94d06a173",
+      "auditRequestSha256": "87922f38f4b32914a25efacf6031b6cc86bc402c3c9129d7f7aeb057d874a4b5",
+      "modelVersion": "gemini-3.5-flash",
+      "responseId": "LUSTaonCIPSekdUPwJHUuAI",
+      "usageMetadata": {
+        "promptTokenCount": 37166,
+        "candidatesTokenCount": 3314,
+        "totalTokenCount": 42275,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 37166
+          }
+        ],
+        "thoughtsTokenCount": 1795,
+        "serviceTier": "standard"
+      },
+      "estimatedActualUsd": 0.0,
+      "verdictCounts": {
+        "pass": 20
+      },
+      "severityCounts": {}
+    },
+    "a2": {
+      "candidateSetSha256": "c0fa2c357fdbecd43d938e62765dc31bd9faca10042e5d77c3db7d83bb8d3ddb",
+      "auditRequestSha256": "fbb4365c323c93e5ccf1ddb354cf6c538660ee4e460f7b1e4d4fe76aaec78f02",
+      "modelVersion": "gemini-3.5-flash",
+      "responseId": "RUSTao-8EbyinsEPzZ6hsAQ",
+      "usageMetadata": {
+        "promptTokenCount": 39577,
+        "candidatesTokenCount": 3211,
+        "totalTokenCount": 42788,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 39577
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "estimatedActualUsd": 0.0,
+      "verdictCounts": {
+        "pass": 18,
+        "review": 2
+      },
+      "severityCounts": {
+        "major": 2
+      }
+    },
+    "b1": {
+      "candidateSetSha256": "ca7bd231d9018cfa292ab0505f1faed6325d5f5b617e7ecc4c6b118455aec83a",
+      "auditRequestSha256": "bb1c6c05525d076d6a9eea3b6a4578f43ec91bbfa17acff60d23f03e9d9a79cf",
+      "modelVersion": "gemini-3.5-flash",
+      "responseId": "U0STasS7G-OG28oPqszRgQw",
+      "usageMetadata": {
+        "promptTokenCount": 44621,
+        "candidatesTokenCount": 3191,
+        "totalTokenCount": 47812,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 44621
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "estimatedActualUsd": 0.0,
+      "verdictCounts": {
+        "pass": 19,
+        "review": 1
+      },
+      "severityCounts": {
+        "minor": 1
+      }
+    },
+    "b2": {
+      "candidateSetSha256": "fb9c2218306da513893f32676f26c12bffcce6017812c3528a885a54c41c3376",
+      "auditRequestSha256": "3474baa31f87a0708d0794bf10059a3e3ab920c5bf00cfd15062b3c14cc7d371",
+      "modelVersion": "gemini-3.5-flash",
+      "responseId": "YUSTapjtCdezxN8Prsu4yAU",
+      "usageMetadata": {
+        "promptTokenCount": 47938,
+        "candidatesTokenCount": 3024,
+        "totalTokenCount": 52880,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 47938
+          }
+        ],
+        "thoughtsTokenCount": 1918,
+        "serviceTier": "standard"
+      },
+      "estimatedActualUsd": 0.0,
+      "verdictCounts": {
+        "pass": 20
+      },
+      "severityCounts": {}
+    },
+    "c1": {
+      "candidateSetSha256": "5c4f36fad55c2112c747d76947119be90e54746a6c75dcbbdf24b2e35449b084",
+      "auditRequestSha256": "e81eef1ca942afde9bc4dd9dc48a1a0adb3514c8f0203418e1f8f66b94864060",
+      "modelVersion": "gemini-3.5-flash",
+      "responseId": "90STau68Ivnl7M8P3L298Q4",
+      "usageMetadata": {
+        "promptTokenCount": 51062,
+        "candidatesTokenCount": 3151,
+        "totalTokenCount": 54213,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 51062
+          }
+        ],
+        "serviceTier": "standard"
+      },
+      "estimatedActualUsd": 0.0,
+      "verdictCounts": {
+        "pass": 20
+      },
+      "severityCounts": {}
+    },
+    "c2": {
+      "candidateSetSha256": "0f0e8578ccd206a1fb77cf97f1cc032edcee576297489ac1b601631aea7fb50a",
+      "auditRequestSha256": "059bdc321f34193a0c9bf6cc44d274b93ec9bcdcb9b560b5fd01a6a3f26b0e5a",
+      "modelVersion": "gemini-3.5-flash",
+      "responseId": "BUWTaqPuMM-kvdIPnumN2Qw",
+      "usageMetadata": {
+        "promptTokenCount": 54418,
+        "candidatesTokenCount": 3024,
+        "totalTokenCount": 58613,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 54418
+          }
+        ],
+        "thoughtsTokenCount": 1171,
+        "serviceTier": "standard"
+      },
+      "estimatedActualUsd": 0.0,
+      "verdictCounts": {
+        "pass": 19,
+        "review": 1
+      },
+      "severityCounts": {
+        "minor": 1
+      }
+    }
+  }
+}

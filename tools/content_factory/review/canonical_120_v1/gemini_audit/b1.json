@@ -1,0 +1,356 @@
+{
+  "schemaVersion": 2,
+  "kind": "gemini_canonical_scenario_level_audit",
+  "createdAt": "2026-08-29T20:43:12.645137+00:00",
+  "model": "gemini-3.5-flash",
+  "modelVersion": "gemini-3.5-flash",
+  "responseId": "U0STasS7G-OG28oPqszRgQw",
+  "thinkingLevel": "low",
+  "pricingTier": "free",
+  "level": "b1",
+  "candidateSetSha256": "ca7bd231d9018cfa292ab0505f1faed6325d5f5b617e7ecc4c6b118455aec83a",
+  "automatedAuditIsApproval": false,
+  "humanApprovalRequired": true,
+  "usageMetadata": {
+    "promptTokenCount": 44621,
+    "candidatesTokenCount": 3191,
+    "totalTokenCount": 47812,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 44621
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "estimatedActualUsd": 0.0,
+  "verdictCounts": {
+    "pass": 19,
+    "review": 1
+  },
+  "severityCounts": {
+    "minor": 1
+  },
+  "audit": {
+    "level": "b1",
+    "scenarios": [
+      {
+        "scenarioId": "ai_summary_wrong_fact",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "디지털 도구의 실제 사용 시나리오를 자연스럽고 현실적인 대화로 잘 구성했습니다.",
+          "학습 목표 문법인 '-기 전에'가 맥락상 자연스럽게 녹아들어 있습니다."
+        ]
+      },
+      {
+        "scenarioId": "apartment_recycling_mixup",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "이웃 간의 일상적인 실수를 부드럽게 해결하는 과정을 담아 공동체 생활 화용에 적합합니다.",
+          "독일어 번역에서 아파트의 '관리실'을 'Hausmeisterbüro'로 적절히 현지화했습니다."
+        ]
+      },
+      {
+        "scenarioId": "birthday_expectation_gap",
+        "verdict": "review",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 4,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 4
+        },
+        "findings": [
+          {
+            "severity": "minor",
+            "code": "REL",
+            "scope": "de",
+            "path": "/scenes/2/candidate/scenario/vocab/3/note/de",
+            "evidence": "Ich dachte, du fändest gerade meinen Plan unangenehm.",
+            "analysisKo": "한국어 대사 '저는 제 계획이 싫다는 뜻인 줄 알았어요'는 수진이 크리스티안의 의도를 오해했음을 나타냅니다. 독일어 번역의 'unangenehm'은 다소 무례하거나 불쾌하다는 뉘앙스가 강해 오해의 깊이가 과장되어 보입니다.",
+            "recommendationKo": "독일어 번역을 'Ich dachte, mein Plan gefällt dir nicht.' 정도로 수정하여 오해의 뉘앙스를 자연스럽게 낮출 것을 권장합니다."
+          }
+        ],
+        "strengthsKo": [
+          "문화적 차이로 생길 수 있는 서운함을 일반화하지 않고 개인의 선호 관점에서 현명하게 풀어냈습니다."
+        ]
+      },
+      {
+        "scenarioId": "cancelled_trip_hurt_feelings",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "친한 사이에서 발생할 수 있는 소통 부족의 문제를 자연스러운 반말(casual) 말투로 잘 구현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "community_festival_shift",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "공적인 자원봉사 담당자와의 통화 상황에 맞게 격식 있는 예의(polite register)가 잘 유지되었습니다."
+        ]
+      },
+      {
+        "scenarioId": "company_instagram_wrong_account",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "직장 내 인스타그램 실수라는 트렌디하고 실용적인 업무 에피소드를 다루어 현실감이 뛰어납니다."
+        ]
+      },
+      {
+        "scenarioId": "date_or_friendly_coffee",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "호감이 있는 미묘한 관계에서의 대화를 부담스럽지 않고 섬세한 한국어 어조로 표현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "food_delivery_wrong_order",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "소비자 불만 상황에서 과격한 표현 대신 차분하고 논리적인 문제 해결 과정을 시뮬레이션하도록 잘 설계되었습니다."
+        ]
+      },
+      {
+        "scenarioId": "jeju_rain_plan_change",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "제주도 여행 중 강풍으로 인한 일정 변경이라는 한국적인 관광 맥락을 아주 생생하게 다루었습니다."
+        ]
+      },
+      {
+        "scenarioId": "ktx_sold_out_alternative",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "교통수단 예매 매진 시의 대안 비교를 B1 수준에 맞게 원인과 결과, 개인 선호의 표현으로 자연스럽게 표현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "noisy_neighbor_evening",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "공동주택 층간소음 갈등을 과격하지 않고 정중한 조율 형식으로 풀어내어 모범적인 화용을 보여줍니다."
+        ]
+      },
+      {
+        "scenarioId": "park_pet_manners",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "공공장소에서 발생할 수 있는 안전 문제를 서로 배려하며 긍정적으로 해결하는 태도가 대화에 잘 녹아 있습니다."
+        ]
+      },
+      {
+        "scenarioId": "reel_caption_misunderstanding",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "현대 소셜 미디어 제작 과정에서의 뉘앙스 오해 문제를 실감 나고 실무적으로 풀어냈습니다."
+        ]
+      },
+      {
+        "scenarioId": "running_injury_training_plan",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "대회를 앞두고 무리하는 러닝 파트너에게 줄 수 있는 따뜻하고 이성적인 조언의 과정을 잘 표현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "secondhand_hidden_defect",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "중고 거래 중 발생할 수 있는 미설명 하자 발견 시 정중한 거래 거절 방법을 자연스럽게 학습시킵니다."
+        ]
+      },
+      {
+        "scenarioId": "shared_cup_recycling",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "직장 내 현실적인 친환경 실천 방안의 제안과 단계적 도입 과정을 실용적으로 잘 기술했습니다."
+        ]
+      },
+      {
+        "scenarioId": "speech_level_after_friendship",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "한국어 학습자들에게 매우 중요한 화두인 '반말 제안' 단계를 명시적 문화 노트와 함께 훌륭히 다루었습니다."
+        ]
+      },
+      {
+        "scenarioId": "subscription_cancel_charge",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "온라인 서비스 중복 청구에 관한 디지털 고객 문의 절차를 감정적 소모 없이 명확하게 설명하고 있습니다."
+        ]
+      },
+      {
+        "scenarioId": "team_update_indirect_speech",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "비확정적 정보의 신중한 간접 전달 방식을 B1 타깃 문법인 간접화법을 통해 유기적으로 잘 구성했습니다."
+        ]
+      },
+      {
+        "scenarioId": "work_message_too_direct",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "한국인 신입사원과 외국인 학습자 모두가 겪기 쉬운 '딱딱한 문자 메시지 부드럽게 완화하기'를 매우 구체적으로 코칭하는 구조가 탁월합니다."
+        ]
+      }
+    ],
+    "summaryKo": "검토 대상이 된 20개의 B1 시나리오들은 전반적으로 실용적인 현대 한국 생활(디지털 커뮤니케이션, 공동체 예절, 비즈니스 및 소비자 문제 해결) 맥락을 매우 충실히 반영하고 있습니다. 특히 학습 목표에 부합하는 화용론적 미묘함(존대/비존대 전환의 합의, 부드러운 의사 결정 조정 등)이 대화에 자연스럽게 녹아 있어 교육적 완성도가 높습니다. 생일 선물과 관련된 사소한 독일어 뉘앙스 차이(unangenehm 표현의 어색함)에 대해 마이너 피드백을 남겼으며, 전반적인 수준은 즉시 교재로 활용하기에 아주 우수합니다."
+  },
+  "generationId": "canonical_120_v1",
+  "auditRequestSha256": "bb1c6c05525d076d6a9eea3b6a4578f43ec91bbfa17acff60d23f03e9d9a79cf",
+  "freeTierProjectId": "gen-lang-client-0858328849",
+  "freeTierApiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842"
+}

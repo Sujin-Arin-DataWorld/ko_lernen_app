@@ -1,15 +1,17 @@
 import 'dart:io';
+import 'dart:ui';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:image/image.dart' as img;
 import 'package:ko_lernen_app/data/ildu_turntable_catalog.dart';
 
 void main() {
   test(
-    'turntable catalog keeps eight authored and bounded frames per building',
+    'turntable catalog keeps eight authored and bounded frames per anchor',
     () {
       expect(
         kIlDuTurntables.keys,
-        containsAll(<String>['sarangchae', 'ansarang']),
+        containsAll(<String>['sarangchae', 'ansarang', 'main-gate']),
       );
 
       for (final spec in kIlDuTurntables.values) {
@@ -36,6 +38,20 @@ void main() {
           );
           expect(frame.contentBounds.width, greaterThan(0));
           expect(frame.contentBounds.height, greaterThan(0));
+
+          final image = img.decodePng(File(frame.assetPath).readAsBytesSync());
+          expect(image, isNotNull, reason: frame.assetPath);
+          expect(image!.width, frame.sourceSize.width);
+          expect(image.height, frame.sourceSize.height);
+          expect(
+            _alphaBounds(image),
+            frame.contentBounds,
+            reason: '${frame.assetPath} alpha bounds drifted',
+          );
+          expect(frame.contentBounds.left, greaterThan(0));
+          expect(frame.contentBounds.top, greaterThan(0));
+          expect(frame.contentBounds.right, lessThan(frame.sourceSize.width));
+          expect(frame.contentBounds.bottom, lessThan(frame.sourceSize.height));
         }
       }
     },
@@ -48,5 +64,33 @@ void main() {
     }
     expect(spec.directionForDegrees(360), 0);
     expect(spec.directionForDegrees(-45), 7);
+    expect(kIlDuSotdaeulmunTurntable.directionForDegrees(3), 0);
   });
+}
+
+Rect _alphaBounds(img.Image image) {
+  var left = image.width;
+  var top = image.height;
+  var right = -1;
+  var bottom = -1;
+  for (var y = 0; y < image.height; y++) {
+    for (var x = 0; x < image.width; x++) {
+      if (image.getPixel(x, y).a == 0) {
+        continue;
+      }
+      if (x < left) left = x;
+      if (y < top) top = y;
+      if (x > right) right = x;
+      if (y > bottom) bottom = y;
+    }
+  }
+  if (right < left || bottom < top) {
+    return Rect.zero;
+  }
+  return Rect.fromLTRB(
+    left.toDouble(),
+    top.toDouble(),
+    (right + 1).toDouble(),
+    (bottom + 1).toDouble(),
+  );
 }

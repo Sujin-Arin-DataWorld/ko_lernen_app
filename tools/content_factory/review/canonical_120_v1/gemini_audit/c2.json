@@ -1,0 +1,355 @@
+{
+  "schemaVersion": 2,
+  "kind": "gemini_canonical_scenario_level_audit",
+  "createdAt": "2026-08-29T20:46:15.334394+00:00",
+  "model": "gemini-3.5-flash",
+  "modelVersion": "gemini-3.5-flash",
+  "responseId": "BUWTaqPuMM-kvdIPnumN2Qw",
+  "thinkingLevel": "low",
+  "pricingTier": "free",
+  "level": "c2",
+  "candidateSetSha256": "0f0e8578ccd206a1fb77cf97f1cc032edcee576297489ac1b601631aea7fb50a",
+  "automatedAuditIsApproval": false,
+  "humanApprovalRequired": true,
+  "usageMetadata": {
+    "promptTokenCount": 54418,
+    "candidatesTokenCount": 3024,
+    "totalTokenCount": 58613,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 54418
+      }
+    ],
+    "thoughtsTokenCount": 1171,
+    "serviceTier": "standard"
+  },
+  "estimatedActualUsd": 0.0,
+  "verdictCounts": {
+    "pass": 19,
+    "review": 1
+  },
+  "severityCounts": {
+    "minor": 1
+  },
+  "audit": {
+    "level": "c2",
+    "scenarios": [
+      {
+        "scenarioId": "ai_hiring_appeal",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "자동화 의사결정의 투명성과 재심 구제 기준이라는 고도의 사회기술적 쟁점을 정교한 한국어 비즈니스 문체로 구현함."
+        ]
+      },
+      {
+        "scenarioId": "automated_benefit_denial",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "복지 신청 자동 거절이라는 행정 윤리적 주제를 설득력 있는 논증 구조로 전개함."
+        ]
+      },
+      {
+        "scenarioId": "autonomous_delivery_liability",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "복합 자동화 사고에서 대외적 구제 책임을 단일화하면서 원인 규명 책임을 분리하는 논리적 층위를 예리하게 다룸."
+        ]
+      },
+      {
+        "scenarioId": "causal_claim_headline",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "학술 연구 보도에서 빈번하게 발생하는 인과관계와 상관관계의 혼동을 비판적으로 다룸."
+        ]
+      },
+      {
+        "scenarioId": "central_local_disaster_responsibility",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "다층 행정 체계 내에서 정보 전달 실패와 실행 지연의 인과 관계를 세부적으로 추론함."
+        ]
+      },
+      {
+        "scenarioId": "climate_model_local_decision",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "과학적 불확실성과 정책 결정 간의 시나리오 기반 비교를 훌륭하게 설계함."
+        ]
+      },
+      {
+        "scenarioId": "diaspora_name_identity",
+        "verdict": "review",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 4,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 4
+        },
+        "findings": [
+          {
+            "severity": "minor",
+            "code": "REL",
+            "scope": "de",
+            "path": "/dialog/1/de",
+            "evidence": "Möchtest du im Alltag auch so genannt werden?",
+            "analysisKo": "비즈니스 대화 맥락이며 주최측과 참가자 대표 간의 대화임에도 독일어 번역에서 du 호칭을 사용하여 격식이 맞지 않는 느낌을 줄 수 있습니다.",
+            "recommendationKo": "비즈니스 격식에 맞게 Sie를 사용하는 표현(Möchten Sie...)으로 수정하는 것을 권장합니다."
+          }
+        ],
+        "strengthsKo": [
+          "다언어 소속감과 이름 표기에 대한 자기 결정권을 섬세하게 논의함."
+        ]
+      },
+      {
+        "scenarioId": "emergency_price_controls",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "긴급 상황에서 직접적 통제 조치의 역효과와 보완 대책을 정밀하게 교차 설계함."
+        ]
+      },
+      {
+        "scenarioId": "fact_check_label_power",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "단순 사실 검증을 넘어 정책적 가치 판단이 포함된 영역에서의 플랫폼 규제 권한 문제를 학술적으로 다룸."
+        ]
+      },
+      {
+        "scenarioId": "family_memory_conflict",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "가족 내 상이한 사적 서사가 지니는 권력 구조와 주체성의 문제를 심도 있게 조율함."
+        ]
+      },
+      {
+        "scenarioId": "hidden_gem_local_impact",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "미디어 프레이밍이 로컬 공간과 실제 주민들의 정체성에 미치는 사회적 피드백 효과를 균형 있게 다룸."
+        ]
+      },
+      {
+        "scenarioId": "housing_tax_intergenerational",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "복잡한 주택 세금 문제를 세대 대립이라는 미디어 프레임으로 가두는 현상을 날카롭게 해체함."
+        ]
+      },
+      {
+        "scenarioId": "medical_uncertainty_consent",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "의료 임상 연구에서 절대적 정보와 상대적 위험의 프레이밍 차이를 윤리적으로 상세히 검토함."
+        ]
+      },
+      {
+        "scenarioId": "passive_voice_accountability",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "수동태와 행위자 지우기라는 미디어 언어 문법 요소를 실제 보도자료의 책임 주체 문제와 밀접하게 연계함."
+        ]
+      },
+      {
+        "scenarioId": "poll_question_framing",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "여론조사 질문에 담긴 평가적 전제를 어떻게 중립화하고 분리할 수 있는지를 실증적으로 보여줌."
+        ]
+      },
+      {
+        "scenarioId": "protest_order_and_rights",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "공공 질서와 헌법상 자유의 가치가 상충하는 상황을 비례성 원칙에 근거하여 입체적으로 토론함."
+        ]
+      },
+      {
+        "scenarioId": "relationship_story_reframing",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "낭만적 서사와 실제 관계 축적 간의 상치되는 관점을 내밀하고 세밀하게 조정함."
+        ]
+      },
+      {
+        "scenarioId": "replication_failure_response",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "재현 실패라는 과학 사회학적 논점을 극단적 양자택일 없이 누적된 증거와 변수 관점으로 다룸."
+        ]
+      },
+      {
+        "scenarioId": "we_translation_identity",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "한국어의 모호한 '우리'의 경계가 번역 과정에서 인위적으로 고정되는 오류를 실전적으로 극복함."
+        ]
+      },
+      {
+        "scenarioId": "welfare_fraud_presumption",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "복지 신청 시 처벌 중심 경고와 신청자 존중 및 구제 경로 간의 제도적 긴장을 수준 높게 설계함."
+        ]
+      }
+    ],
+    "summaryKo": "제시된 C2 시나리오 20개는 자동화 시스템의 윤리성, 지식 권력 및 미디어 프레이밍, 관계 서사와 번역의 다원성 등 최고급 화용론적 주제들을 한국어 원문에 맞추어 타당하게 재구성하고 있습니다. 비즈니스 및 격식 맥락에서의 소통 구조가 명료하며 독일어와 영어 번역 역시 한국어 고유의 전제를 충실히 보존하고 있습니다. 호칭 및 격식 어조에서 발견된 일부 세밀한 불일치 요소를 제외하면 전체적인 설계 품질이 매우 높습니다."
+  },
+  "generationId": "canonical_120_v1",
+  "auditRequestSha256": "059bdc321f34193a0c9bf6cc44d274b93ec9bcdcb9b560b5fd01a6a3f26b0e5a",
+  "freeTierProjectId": "gen-lang-client-0858328849",
+  "freeTierApiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842"
+}
