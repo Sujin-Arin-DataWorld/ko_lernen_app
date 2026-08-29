@@ -11,7 +11,7 @@ void main() {
     () {
       expect(
         kIlDuTurntables.keys,
-        containsAll(<String>['sarangchae', 'ansarang', 'main-gate']),
+        containsAll(<String>['sarangchae', 'ansarang', 'anchae', 'main-gate']),
       );
 
       for (final spec in kIlDuTurntables.values) {
@@ -65,6 +65,7 @@ void main() {
     expect(spec.directionForDegrees(360), 0);
     expect(spec.directionForDegrees(-45), 7);
     expect(kIlDuSotdaeulmunTurntable.directionForDegrees(3), 0);
+    expect(kIlDuAnchaeTurntable.directionForDegrees(90), 2);
   });
 }
 

@@ -1,0 +1,405 @@
+{
+  "status": "runtime_approved",
+  "generator": "approved_v03_eight_direction_source_set",
+  "postprocess": "boundary_connected_neutral_extraction_and_premultiplied_rgba_normalization",
+  "camera_elevation_degrees": 28,
+  "azimuth_interval_degrees": 45,
+  "source_size": [
+    1672,
+    941
+  ],
+  "runtime_size": [
+    384,
+    512
+  ],
+  "runtime_baseline_y": 472,
+  "sheet": {
+    "file": "ildu_anchae_8view_transparent_sheet.png",
+    "sha256": "DA81D148F80694A0C62533B1B5568C5F9059A55A0EBD1909986EC0540C772C09",
+    "size": [
+      1672,
+      470
+    ],
+    "mode": "RGBA"
+  },
+  "frames": [
+    {
+      "source_file": "00_front_000_28deg.png",
+      "source_sha256": "2012200B9826F0EC85145F4BF4C9CCD0170C80B9DB48057D9B4EECF55980FD71",
+      "source_mode": "RGB",
+      "source_size": [
+        1672,
+        941
+      ],
+      "content_bbox": [
+        114,
+        153,
+        1537,
+        754
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 832288,
+      "partial_alpha_pixels": 4558,
+      "opaque_pixels": 736506,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fringe_rgb_changed_pixels": 4558,
+      "max_fringe_core_rgb_delta": 0,
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 0,
+      "direction": "front",
+      "transparent_file": "transparent_28deg/00_front_000_28deg.png",
+      "transparent_sha256": "8D5D7011DCDC191E79005FCA05AD31FAD805B5E33562B1F5A90E3C197C6471AB"
+    },
+    {
+      "source_file": "01_front_right_045_28deg.png",
+      "source_sha256": "B1D02114E2FD49F9A7BD3BE5745F53EB64F06A79890F2543A074DE5437F4EC63",
+      "source_mode": "RGB",
+      "source_size": [
+        1672,
+        941
+      ],
+      "content_bbox": [
+        138,
+        88,
+        1521,
+        881
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 822862,
+      "partial_alpha_pixels": 4795,
+      "opaque_pixels": 745695,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fringe_rgb_changed_pixels": 4795,
+      "max_fringe_core_rgb_delta": 0,
+      "component_count": 2,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 45,
+      "direction": "front_right",
+      "transparent_file": "transparent_28deg/01_front_right_045_28deg.png",
+      "transparent_sha256": "5D0D4318F9B93712662FA6CE6BCD710F5B82975CC9433C010021887E941CEEC4"
+    },
+    {
+      "source_file": "02_right_090_28deg.png",
+      "source_sha256": "59AA90FE1980859112676499791E6E57533FFD20CFBBDA291C8E8FC709EE9897",
+      "source_mode": "RGB",
+      "source_size": [
+        1672,
+        941
+      ],
+      "content_bbox": [
+        490,
+        25,
+        1182,
+        901
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 1118899,
+      "partial_alpha_pixels": 3669,
+      "opaque_pixels": 450784,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fringe_rgb_changed_pixels": 3669,
+      "max_fringe_core_rgb_delta": 0,
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 90,
+      "direction": "right",
+      "transparent_file": "transparent_28deg/02_right_090_28deg.png",
+      "transparent_sha256": "9C375EDDE4B5365D3E76F598EDC44B2121F6561CFC8B055DB649CEE15D58E273"
+    },
+    {
+      "source_file": "03_rear_right_135_28deg.png",
+      "source_sha256": "AA36BD59D4AE97884D0A9EE265C9BDBF9AE33498E874AEC5CE5AF24DB5A32F71",
+      "source_mode": "RGB",
+      "source_size": [
+        1672,
+        941
+      ],
+      "content_bbox": [
+        111,
+        70,
+        1522,
+        870
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 859119,
+      "partial_alpha_pixels": 4811,
+      "opaque_pixels": 709422,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fringe_rgb_changed_pixels": 4811,
+      "max_fringe_core_rgb_delta": 0,
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 135,
+      "direction": "rear_right",
+      "transparent_file": "transparent_28deg/03_rear_right_135_28deg.png",
+      "transparent_sha256": "A42B8832C79147BB60475D61ED6D1EE3F6F06B8CC41D16157FC6843FAAE6A56E"
+    },
+    {
+      "source_file": "04_rear_180_28deg.png",
+      "source_sha256": "C5400818EB69A8926E1A6C8F327F85940208AE18A9DE5844A453CB67E556344C",
+      "source_mode": "RGB",
+      "source_size": [
+        1672,
+        941
+      ],
+      "content_bbox": [
+        54,
+        160,
+        1629,
+        742
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 829247,
+      "partial_alpha_pixels": 5022,
+      "opaque_pixels": 739083,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fringe_rgb_changed_pixels": 5022,
+      "max_fringe_core_rgb_delta": 0,
+      "component_count": 48,
+      "substantial_component_count": 10,
+      "dominant_ratio": 0.9996977147233083,
+      "degrees": 180,
+      "direction": "rear",
+      "transparent_file": "transparent_28deg/04_rear_180_28deg.png",
+      "transparent_sha256": "224C97613D68364C65F19A77594E55C67329E87BF15AE6DC7889B46FA1110342"
+    },
+    {
+      "source_file": "05_rear_left_225_28deg.png",
+      "source_sha256": "D9892F9E05955F60EA8D565476D7629030F277942853BC2DD279F0A2F83F3E90",
+      "source_mode": "RGB",
+      "source_size": [
+        1672,
+        941
+      ],
+      "content_bbox": [
+        91,
+        93,
+        1577,
+        861
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 847606,
+      "partial_alpha_pixels": 4976,
+      "opaque_pixels": 720770,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fringe_rgb_changed_pixels": 4976,
+      "max_fringe_core_rgb_delta": 0,
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 225,
+      "direction": "rear_left",
+      "transparent_file": "transparent_28deg/05_rear_left_225_28deg.png",
+      "transparent_sha256": "F0B1A99C0FC25DA235FCEBE086C834B4ECAD9944FEDBF6DBBFEE563CBC72FE9C"
+    },
+    {
+      "source_file": "06_left_270_28deg.png",
+      "source_sha256": "BE5FF2E3F9654FF9C8AFFB9B3A521BEB712CC878276C72DF1A0AE8BE84F46865",
+      "source_mode": "RGB",
+      "source_size": [
+        1672,
+        941
+      ],
+      "content_bbox": [
+        436,
+        37,
+        1232,
+        879
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 1086242,
+      "partial_alpha_pixels": 3909,
+      "opaque_pixels": 483201,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fringe_rgb_changed_pixels": 3909,
+      "max_fringe_core_rgb_delta": 0,
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 270,
+      "direction": "left",
+      "transparent_file": "transparent_28deg/06_left_270_28deg.png",
+      "transparent_sha256": "86DDC4D137876F42FC9668CEA93D894137323869808BAEC7F354271BB1368F94"
+    },
+    {
+      "source_file": "07_front_left_315_28deg.png",
+      "source_sha256": "3BC520DAB79DF21F37766EED3C0753B7469119B47A11AD018913B8E5E0976DFC",
+      "source_mode": "RGB",
+      "source_size": [
+        1672,
+        941
+      ],
+      "content_bbox": [
+        84,
+        90,
+        1566,
+        889
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 824157,
+      "partial_alpha_pixels": 5105,
+      "opaque_pixels": 744090,
+      "corner_alpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "fringe_rgb_changed_pixels": 5105,
+      "max_fringe_core_rgb_delta": 0,
+      "component_count": 1,
+      "substantial_component_count": 1,
+      "dominant_ratio": 1.0,
+      "degrees": 315,
+      "direction": "front_left",
+      "transparent_file": "transparent_28deg/07_front_left_315_28deg.png",
+      "transparent_sha256": "81DC68B61904EF674105F96F7FCFA7BB6BECF52015E84450F518512BC5061D9E"
+    }
+  ],
+  "runtime_frames": [
+    {
+      "file": "ildu_anchae_00_front.png",
+      "sha256": "FD84F655758236FDE46F4C1716115675F9B403E08F5E4B977A6BAFEE9474C376",
+      "content_bbox": [
+        26,
+        332,
+        358,
+        472
+      ]
+    },
+    {
+      "file": "ildu_anchae_01_front_right.png",
+      "sha256": "5C9732088E7B238A47CCF8727E71BC31248C4447E757FF5328E2EC1A3DA2F3D9",
+      "content_bbox": [
+        30,
+        287,
+        353,
+        472
+      ]
+    },
+    {
+      "file": "ildu_anchae_02_right.png",
+      "sha256": "929D5936199F983465042E5286B982E0B84255C5CF4DA54B8A6A5257546DB0FE",
+      "content_bbox": [
+        111,
+        267,
+        273,
+        472
+      ]
+    },
+    {
+      "file": "ildu_anchae_03_rear_right.png",
+      "sha256": "2BAD5D3C560BA37F429B61B74538DBAC6174125DBBEA7F7B6C62D95B950DD1DE",
+      "content_bbox": [
+        27,
+        285,
+        357,
+        472
+      ]
+    },
+    {
+      "file": "ildu_anchae_04_rear.png",
+      "sha256": "E58FD4604DDE33C580A8F29E3D4F739765AB39A8210440F2EF7974F8BAE85349",
+      "content_bbox": [
+        8,
+        336,
+        376,
+        472
+      ]
+    },
+    {
+      "file": "ildu_anchae_05_rear_left.png",
+      "sha256": "C7BA3FE595A774FC67F8CCD17E2F98457E66617C33DD93C8AB11DB0403E97AC5",
+      "content_bbox": [
+        18,
+        293,
+        365,
+        472
+      ]
+    },
+    {
+      "file": "ildu_anchae_06_left.png",
+      "sha256": "C549A6259A090B4E4DE141FC46638202D25501B800D640A2E360BE3EB6C77154",
+      "content_bbox": [
+        99,
+        275,
+        285,
+        472
+      ]
+    },
+    {
+      "file": "ildu_anchae_07_front_left.png",
+      "sha256": "53A54BF0B4459A9411E4E3DFAE8367B489A3402EC09B55B3AD6EA92470C7A390",
+      "content_bbox": [
+        19,
+        285,
+        365,
+        472
+      ]
+    }
+  ]
+}
