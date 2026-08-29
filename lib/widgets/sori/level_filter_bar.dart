@@ -137,8 +137,18 @@ class _SoriLevelFilterBarState extends State<SoriLevelFilterBar> {
 
   void _ensureVisible() {
     final ctx = _keys[widget.selected]?.currentContext;
-    if (ctx == null || !mounted) return;
-    Scrollable.ensureVisible(ctx, duration: SoriMotion.fast, alignment: 0.5);
+    if (ctx == null || !mounted || !_controller.hasClients) {
+      return;
+    }
+    final target = ctx.findRenderObject();
+    if (target == null) {
+      return;
+    }
+    _controller.position.ensureVisible(
+      target,
+      duration: SoriMotion.fast,
+      alignment: 0.5,
+    );
   }
 
   @override

@@ -80,6 +80,56 @@ void main() {
   );
 
   testWidgets(
+    'reveals the selected level without moving an outer vertical scroll view',
+    (tester) async {
+      tester.view.physicalSize = const Size(240, 480);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+
+      final outerController = ScrollController();
+      addTearDown(outerController.dispose);
+
+      await tester.pumpWidget(
+        _host(
+          CustomScrollView(
+            controller: outerController,
+            slivers: [
+              const SliverToBoxAdapter(child: SizedBox(height: 360)),
+              SliverToBoxAdapter(
+                child: SoriLevelFilterBar(
+                  selected: 'c2',
+                  allLabel: 'Alle',
+                  onChanged: (_) {},
+                ),
+              ),
+              const SliverToBoxAdapter(child: SizedBox(height: 600)),
+            ],
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      final bar = find.byType(SoriLevelFilterBar);
+      final horizontalScrollable = find.descendant(
+        of: bar,
+        matching: find.byType(Scrollable),
+      );
+      final horizontalPosition = tester
+          .state<ScrollableState>(horizontalScrollable)
+          .position;
+      final selectedChip = find.widgetWithText(SoriChip, 'C2');
+      final barRect = tester.getRect(bar);
+      final chipRect = tester.getRect(selectedChip);
+
+      expect(horizontalPosition.pixels, greaterThan(0));
+      expect(chipRect.left, greaterThanOrEqualTo(barRect.left));
+      expect(chipRect.right, lessThanOrEqualTo(barRect.right));
+      expect(outerController.offset, 0);
+    },
+  );
+
+  testWidgets(
     'level sheet returns only a changed selection and disables zero-count rows',
     (tester) async {
       String? result;
