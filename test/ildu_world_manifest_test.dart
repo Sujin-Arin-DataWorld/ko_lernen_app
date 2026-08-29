@@ -61,4 +61,21 @@ void main() {
       for (final building in manifest.buildings) building.id,
     });
   });
+
+  test('maps the former rear-wing anchor to the measured Jungmunganchae', () {
+    final jungmunganchae = manifest.buildings.firstWhere(
+      (building) => building.id == 'jungmunganchae',
+    );
+
+    expect(jungmunganchae.ko, '중문채');
+    expect(jungmunganchae.asset, 'rear-wing.png');
+    expect(jungmunganchae.x, 40.3);
+    expect(jungmunganchae.y, 43.6);
+    expect(jungmunganchae.width, 18);
+    expect(jungmunganchae.rotation, 90);
+    expect(
+      manifest.buildings.where((building) => building.id == 'rear-wing'),
+      isEmpty,
+    );
+  });
 }

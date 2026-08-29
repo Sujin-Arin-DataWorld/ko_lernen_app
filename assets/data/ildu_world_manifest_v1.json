@@ -29,7 +29,7 @@
     { "id": "c2", "ko": "서고와 전승", "de": "Bibliothek und Weitergabe", "focus": "transmission" }
   ],
   "hubs": [
-    { "id": "sarang", "ko": "사랑채 권역", "de": "Sarangchae", "buildingIds": ["sarangchae", "rear-wing"], "primaryRoute": "/course/mission", "secondaryRoutes": ["/scenarios", "/quests"] },
+    { "id": "sarang", "ko": "사랑채 권역", "de": "Sarangchae", "buildingIds": ["sarangchae", "jungmunganchae"], "primaryRoute": "/course/mission", "secondaryRoutes": ["/scenarios", "/quests"] },
     { "id": "anchae", "ko": "안채 권역", "de": "Anchae", "buildingIds": ["anchae", "anchae-store", "araechae"], "primaryRoute": "/course/mission", "secondaryRoutes": ["/scenarios", "/book"] },
     { "id": "service", "ko": "살림마당", "de": "Wirtschaftshof", "buildingIds": ["changgo", "gokgan", "toilet-north", "toilet-south"], "primaryRoute": "/vocab", "secondaryRoutes": ["/quests", "/scenarios"] },
     { "id": "sadang", "ko": "사당 권역", "de": "Ahnenschrein", "buildingIds": ["sadang"], "primaryRoute": "/scenarios", "secondaryRoutes": ["/course/mission", "/book"] },
@@ -51,7 +51,7 @@
   ],
   "buildings": [
     { "id": "sarangchae", "hubId": "sarang", "ko": "사랑채", "de": "Sarangchae", "asset": "sarangchae.png", "x": 48.2, "y": 55.8, "width": 29, "rotation": 0, "unlockEra": "a1", "lessonIntent": "존댓말과 손님맞이" },
-    { "id": "rear-wing", "hubId": "sarang", "ko": "사랑채 뒤채", "de": "Hinterer Sarang-Flügel", "asset": "rear-wing.png", "x": 40.3, "y": 43.6, "width": 18, "rotation": 90, "unlockEra": "a1", "lessonIntent": "공간의 앞뒤 관계" },
+    { "id": "jungmunganchae", "hubId": "sarang", "ko": "중문채", "de": "Jungmunganchae — inneres Torhaus", "asset": "rear-wing.png", "x": 40.3, "y": 43.6, "width": 18, "rotation": 90, "unlockEra": "a1", "lessonIntent": "안팎의 경계와 이동" },
     { "id": "toilet-north", "hubId": "service", "ko": "윗화장실", "de": "Nördliches Nebengebäude", "asset": "toilet.png", "x": 24.7, "y": 19.7, "width": 10.2, "rotation": 0, "unlockEra": "b1", "lessonIntent": "장소와 위치" },
     { "id": "toilet-south", "hubId": "service", "ko": "아랫화장실", "de": "Südliches Nebengebäude", "asset": "toilet.png", "x": 13.1, "y": 62.1, "width": 9, "rotation": 4, "unlockEra": "b1", "lessonIntent": "방향과 이동" },
     { "id": "changgo", "hubId": "service", "ko": "창고", "de": "Lagerhaus", "asset": "changgo.png", "x": 28.1, "y": 48.5, "width": 19, "rotation": 90, "unlockEra": "b1", "lessonIntent": "물건과 수량" },
