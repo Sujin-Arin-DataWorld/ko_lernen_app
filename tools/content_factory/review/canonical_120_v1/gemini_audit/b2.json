@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 2,
+  "kind": "gemini_canonical_scenario_level_audit",
+  "createdAt": "2026-08-29T20:43:34.483334+00:00",
+  "model": "gemini-3.5-flash",
+  "modelVersion": "gemini-3.5-flash",
+  "responseId": "YUSTapjtCdezxN8Prsu4yAU",
+  "thinkingLevel": "low",
+  "pricingTier": "free",
+  "level": "b2",
+  "candidateSetSha256": "fb9c2218306da513893f32676f26c12bffcce6017812c3528a885a54c41c3376",
+  "automatedAuditIsApproval": false,
+  "humanApprovalRequired": true,
+  "usageMetadata": {
+    "promptTokenCount": 47938,
+    "candidatesTokenCount": 3024,
+    "totalTokenCount": 52880,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 47938
+      }
+    ],
+    "thoughtsTokenCount": 1918,
+    "serviceTier": "standard"
+  },
+  "estimatedActualUsd": 0.0,
+  "verdictCounts": {
+    "pass": 20
+  },
+  "severityCounts": {},
+  "audit": {
+    "level": "b2",
+    "scenarios": [
+      {
+        "scenarioId": "accessible_festival_route",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "경사로와 휠체어 접근성이라는 실제적인 공동체 문제를 자연스러운 비즈니스 한국어 조율 대사로 구현했습니다.",
+          "독일어와 영어 번역이 한국어의 '유지하되 비워야 해요'와 같은 대조적 조율 조건을 잘 보존하고 있습니다."
+        ]
+      },
+      {
+        "scenarioId": "ai_image_disclosure",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "AI 이미지 사용 공개 범위라는 트렌디하고 실용적인 비즈니스 윤리 주제를 갈등 없이 매끄럽게 다루었습니다.",
+          "'-는 대신' 문법 요소를 타협안 제안 맥락에 맞게 유기적으로 통합했습니다."
+        ]
+      },
+      {
+        "scenarioId": "brand_private_account_boundary",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "개인 계정과 회사 공식 채널 간의 경계를 조율하는 마케터들의 현실적인 고민을 실감 나게 표현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "community_event_compromise",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "골목 상권 상인과 소음 피해 주민의 입장을 모두 배려하는 공동체 조율 과정을 성숙하게 그려냈습니다."
+        ]
+      },
+      {
+        "scenarioId": "delivery_refund_evidence",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "전액 환불이 아닌 실제 먹지 않은 부분에 대한 부분 환불을 요구하는 소비자의 주장을 합리적으로 제시했습니다."
+        ]
+      },
+      {
+        "scenarioId": "direct_feedback_misread",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "피드백의 톤앤매너로 오해가 생겼을 때, 국적 템플릿에 의존하지 않고 소통 방식 자체에 집중하여 문제를 해결합니다."
+        ]
+      },
+      {
+        "scenarioId": "feedback_specific_example",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "추상적인 지시를 구체적인 행동 요구 사항으로 정중하게 좁히는 화용 기술이 돋보입니다."
+        ]
+      },
+      {
+        "scenarioId": "filming_permission",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "현지 매장 촬영 시 사전 동의 및 촬영 세부 조건의 조율 과정을 명확하고 친절하게 구성했습니다."
+        ]
+      },
+      {
+        "scenarioId": "freelance_scope_change",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "계약 외 범위의 수정 요청에 직면한 프리랜서가 추가 비용과 대안을 전문적으로 제시하는 흐름을 완벽히 구축했습니다."
+        ]
+      },
+      {
+        "scenarioId": "fremdschaemen_live",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "독일어 'fremdschämen' 개념을 '내가 다 민망하더라', '보는 내가 다 부끄러웠어' 같은 생생한 구어체 한국어로 변환했습니다."
+        ]
+      },
+      {
+        "scenarioId": "library_quiet_zone_conflict",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "안내 표지 식별 문제로 생긴 공공장소 내 사소한 오해와 즉시 수긍하는 태도를 사실적으로 표현했습니다."
+        ]
+      },
+      {
+        "scenarioId": "meeting_disagreement_evidence",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "데이터 지표 해석에 있어 단순 조회 수와 실제 전환율의 차이를 조율하는 격식 있는 토론 방식을 훌륭하게 모사했습니다."
+        ]
+      },
+      {
+        "scenarioId": "meeting_opening_context",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "처음 참석하는 회의에서 당일 합의해야 하는 의사결정 한계를 정확하게 짚고 넘어가는 실무 팁을 자연스럽게 제공합니다."
+        ]
+      },
+      {
+        "scenarioId": "neighborhood_filming_notice",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "주택가에서 삼각대 조작 등 주민들이 가질 법한 실제적이고 세부적인 사생활 및 통행 불만을 조율해 나가는 과정을 꼼꼼히 살폈습니다."
+        ]
+      },
+      {
+        "scenarioId": "partner_family_titles",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "한국 가족 관계 호칭을 억지로 적용하기보다 우선 주어와 호칭을 생략한 정중한 말투로 시작하라는 유용한 사회화 팁을 제공합니다."
+        ]
+      },
+      {
+        "scenarioId": "portfolio_interview_gap",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "면접 과정에서 경력을 지나치게 과장하지 않으면서도 공백기 동안의 성장을 솔직하고 조리 있게 설득하는 인물의 태도를 보여줍니다."
+        ]
+      },
+      {
+        "scenarioId": "recycling_policy_pilot",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "아파트 배출 시스템 변경 시 기술 격차와 냄새 문제를 절충하기 위해 병행 시범 운영안을 제시하는 전개가 현실성 높습니다."
+        ]
+      },
+      {
+        "scenarioId": "rental_repair_deposit",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "입주 당시 증빙 사진을 근거로 퇴거 시 발생한 마모 책임을 임차인과 임대인이 합리적으로 나누어 확인하는 분쟁 조율법을 잘 묘사했습니다."
+        ]
+      },
+      {
+        "scenarioId": "train_delay_connection",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "별도 발권된 기차 지연 사고 시 승객이 즉각적으로 처리를 요청하고 직원이 대응 한계 및 대안을 명료하게 답하는 장면을 정확히 구성했습니다."
+        ]
+      },
+      {
+        "scenarioId": "wedding_invitation_expectation",
+        "verdict": "pass",
+        "scores": {
+          "koreanNaturalness": 5,
+          "levelFit": 5,
+          "germanLocalization": 5,
+          "englishLocalization": 5,
+          "pragmaticAlignment": 5
+        },
+        "findings": [],
+        "strengthsKo": [
+          "청첩장을 무조건적 의무로 받아들이는 문화적 오해를 개인 간의 실제 친밀도와 초대의 맥락에 따라 유연하게 전환하는 과정을 그렸습니다."
+        ]
+      }
+    ],
+    "summaryKo": "제시된 20개 B2 후보 시나리오는 모두 한국어 자연성, 화용론적 일관성, 그리고 양어(DE/EN) 현지화 완성도가 극히 뛰어납니다. 한국어 원문이 학습자의 의사소통 목표와 절묘하게 맞물려 있으며, 타깃 언어의 호칭과 어휘 수준이 비즈니스 및 정중한 일상 영역에서 철저히 보존되어 전면 승인을 권장합니다."
+  },
+  "generationId": "canonical_120_v1",
+  "auditRequestSha256": "3474baa31f87a0708d0794bf10059a3e3ab920c5bf00cfd15062b3c14cc7d371",
+  "freeTierProjectId": "gen-lang-client-0858328849",
+  "freeTierApiKeyUid": "6455b51d-bd1f-43a4-9cfb-4abfcca72842"
+}
