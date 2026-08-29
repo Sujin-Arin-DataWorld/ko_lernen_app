@@ -48,6 +48,7 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
   List<IlDuAnchorPlacement> _anchorPlacements = const <IlDuAnchorPlacement>[];
   Map<String, Offset> _anchorPositions = const <String, Offset>{};
   Map<String, int> _anchorDirections = const <String, int>{};
+  Map<String, double> _anchorScales = const <String, double>{};
   String? _selectedBuildingId;
   String? _selectedGateId;
   bool _decorating = false;
@@ -115,6 +116,14 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
                 savedAnchors[anchor.id]?.x ?? anchor.x,
                 savedAnchors[anchor.id]?.y ?? anchor.y,
               ),
+        };
+        _anchorScales = <String, double>{
+          for (final anchor in <IlDuWorldAnchor>[
+            ...manifest.buildings,
+            ...manifest.gates,
+          ])
+            if (ilduTurntableForAnchor(anchor.id) != null)
+              anchor.id: savedAnchors[anchor.id]?.scale ?? 1,
         };
         _selectedBuildingId = manifest.buildings.first.id;
         _selectedGateId = null;
@@ -193,6 +202,7 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
       ...manifest.gates,
     ].firstWhere((candidate) => candidate.id == anchorId);
     final position = _anchorPositions[anchorId] ?? Offset(anchor.x, anchor.y);
+    final scale = _anchorScales[anchorId] ?? 1;
     setState(() {
       _anchorDirections = <String, int>{
         ..._anchorDirections,
@@ -204,6 +214,7 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
           x: position.dx,
           y: position.dy,
           direction: direction,
+          scale: scale,
         ),
       );
     });
@@ -220,7 +231,8 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
     final direction =
         _anchorDirections[anchor.id] ??
         turntable.directionForDegrees(anchor.rotation);
-    final heightPercent =
+    final scale = _anchorScales[anchor.id] ?? 1;
+    final baseHeightPercent =
         (mapSize.width * anchor.width / 100 / turntable.mapAspectRatio) /
         mapSize.height *
         100;
@@ -230,11 +242,12 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
         x: currentPosition.dx,
         y: currentPosition.dy,
         direction: direction,
+        scale: scale,
       ),
       proposedX: currentPosition.dx + delta.dx / mapSize.width * 100,
       proposedY: currentPosition.dy + delta.dy / mapSize.height * 100,
-      widthPercent: anchor.width,
-      heightPercent: heightPercent,
+      widthPercent: anchor.width * scale,
+      heightPercent: baseHeightPercent * scale,
     );
     setState(() {
       _anchorPositions = <String, Offset>{
@@ -242,6 +255,50 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
         anchor.id: Offset(moved.x, moved.y),
       };
       _upsertAnchorPlacement(moved);
+    });
+  }
+
+  void _resizeAnchor(
+    IlDuWorldAnchor anchor,
+    double proposedScale,
+    Size mapSize,
+  ) {
+    final turntable = ilduTurntableForAnchor(anchor.id);
+    if (turntable == null) {
+      return;
+    }
+    final currentPosition =
+        _anchorPositions[anchor.id] ?? Offset(anchor.x, anchor.y);
+    final direction =
+        _anchorDirections[anchor.id] ??
+        turntable.directionForDegrees(anchor.rotation);
+    final currentScale = _anchorScales[anchor.id] ?? 1;
+    final baseHeightPercent =
+        (mapSize.width * anchor.width / 100 / turntable.mapAspectRatio) /
+        mapSize.height *
+        100;
+    final resized = resizeIlDuAnchor(
+      placement: IlDuAnchorPlacement(
+        anchorId: anchor.id,
+        x: currentPosition.dx,
+        y: currentPosition.dy,
+        direction: direction,
+        scale: currentScale,
+      ),
+      proposedScale: proposedScale,
+      baseWidthPercent: anchor.width,
+      baseHeightPercent: baseHeightPercent,
+    );
+    setState(() {
+      _anchorPositions = <String, Offset>{
+        ..._anchorPositions,
+        anchor.id: Offset(resized.x, resized.y),
+      };
+      _anchorScales = <String, double>{
+        ..._anchorScales,
+        anchor.id: resized.scale,
+      };
+      _upsertAnchorPlacement(resized);
     });
   }
 
@@ -334,12 +391,14 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
               placements: _placements,
               anchorPositions: _anchorPositions,
               anchorDirections: _anchorDirections,
+              anchorScales: _anchorScales,
               mapController: _mapController,
               onPositionMap: _positionMapOnce,
               onSelectBuilding: _selectBuilding,
               onSelectGate: _selectGate,
               onTurnAnchor: _turnAnchor,
               onMoveAnchor: _moveAnchor,
+              onResizeAnchor: _resizeAnchor,
               onFinishMoveAnchor: () => unawaited(_persistAnchorPlacements()),
               onStartDecorating: () => setState(() => _decorating = true),
               onFinishDecorating: () => setState(() => _decorating = false),
@@ -361,6 +420,7 @@ class _WorldBody extends StatelessWidget {
   final List<IlDuDecorationPlacement> placements;
   final Map<String, Offset> anchorPositions;
   final Map<String, int> anchorDirections;
+  final Map<String, double> anchorScales;
   final TransformationController mapController;
   final void Function(Size viewport, Size mapSize) onPositionMap;
   final ValueChanged<IlDuWorldBuilding> onSelectBuilding;
@@ -368,6 +428,8 @@ class _WorldBody extends StatelessWidget {
   final void Function(String anchorId, int direction) onTurnAnchor;
   final void Function(IlDuWorldAnchor anchor, Offset delta, Size mapSize)
   onMoveAnchor;
+  final void Function(IlDuWorldAnchor anchor, double scale, Size mapSize)
+  onResizeAnchor;
   final VoidCallback onFinishMoveAnchor;
   final VoidCallback onStartDecorating;
   final VoidCallback onFinishDecorating;
@@ -390,12 +452,14 @@ class _WorldBody extends StatelessWidget {
     required this.placements,
     required this.anchorPositions,
     required this.anchorDirections,
+    required this.anchorScales,
     required this.mapController,
     required this.onPositionMap,
     required this.onSelectBuilding,
     required this.onSelectGate,
     required this.onTurnAnchor,
     required this.onMoveAnchor,
+    required this.onResizeAnchor,
     required this.onFinishMoveAnchor,
     required this.onStartDecorating,
     required this.onFinishDecorating,
@@ -408,6 +472,17 @@ class _WorldBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppL10n.of(context);
+    Size mapSizeForWidth(double viewportWidth) {
+      final mapWidth = math.max(
+        manifest.canvas.mobileContentWidth.toDouble(),
+        viewportWidth,
+      );
+      return Size(
+        mapWidth,
+        mapWidth * manifest.canvas.height / manifest.canvas.width,
+      );
+    }
+
     final builtCount = manifest.buildings
         .where((building) => projection.isAvailable(building.unlockEra))
         .length;
@@ -435,14 +510,7 @@ class _WorldBody extends StatelessWidget {
                       constraints.maxWidth,
                       constraints.maxHeight,
                     );
-                    final mapWidth = math.max(
-                      manifest.canvas.mobileContentWidth.toDouble(),
-                      constraints.maxWidth,
-                    );
-                    final mapSize = Size(
-                      mapWidth,
-                      mapWidth * manifest.canvas.height / manifest.canvas.width,
-                    );
+                    final mapSize = mapSizeForWidth(constraints.maxWidth);
                     onPositionMap(viewport, mapSize);
                     return ColoredBox(
                       color: const Color(0xFFE9D9BC),
@@ -461,6 +529,7 @@ class _WorldBody extends StatelessWidget {
                             placements: placements,
                             anchorPositions: anchorPositions,
                             anchorDirections: anchorDirections,
+                            anchorScales: anchorScales,
                             mapSize: mapSize,
                             onSelectBuilding: onSelectBuilding,
                             onSelectGate: onSelectGate,
@@ -514,16 +583,30 @@ class _WorldBody extends StatelessWidget {
                         onFinishDecorating: onFinishDecorating,
                         onAddDecoration: onAddDecoration,
                         direction: anchorDirections[selectedBuilding.id],
+                        scale: anchorScales[selectedBuilding.id] ?? 1,
                         onDirectionChanged: (direction) =>
                             onTurnAnchor(selectedBuilding.id, direction),
+                        onScaleChanged: (scale) => onResizeAnchor(
+                          selectedBuilding,
+                          scale,
+                          mapSizeForWidth(MediaQuery.sizeOf(context).width),
+                        ),
+                        onScaleChangeEnd: onFinishMoveAnchor,
                         onOpenRoute: onOpenRoute,
                       )
                     : _GateSheet(
                         projection: projection,
                         gate: selectedGate,
                         direction: anchorDirections[selectedGate.id],
+                        scale: anchorScales[selectedGate.id] ?? 1,
                         onDirectionChanged: (direction) =>
                             onTurnAnchor(selectedGate.id, direction),
+                        onScaleChanged: (scale) => onResizeAnchor(
+                          selectedGate,
+                          scale,
+                          mapSizeForWidth(MediaQuery.sizeOf(context).width),
+                        ),
+                        onScaleChangeEnd: onFinishMoveAnchor,
                       ),
               ),
             ],
@@ -598,6 +681,7 @@ class _EstateMap extends StatelessWidget {
   final List<IlDuDecorationPlacement> placements;
   final Map<String, Offset> anchorPositions;
   final Map<String, int> anchorDirections;
+  final Map<String, double> anchorScales;
   final Size mapSize;
   final ValueChanged<IlDuWorldBuilding> onSelectBuilding;
   final ValueChanged<IlDuWorldGate> onSelectGate;
@@ -614,6 +698,7 @@ class _EstateMap extends StatelessWidget {
     required this.placements,
     required this.anchorPositions,
     required this.anchorDirections,
+    required this.anchorScales,
     required this.mapSize,
     required this.onSelectBuilding,
     required this.onSelectGate,
@@ -665,15 +750,15 @@ class _EstateMap extends StatelessWidget {
       available: projection.isAvailable(building.unlockEra),
       selected: selectedAnchorId == building.id,
       position: anchorPositions[building.id],
+      scale: anchorScales[building.id] ?? 1,
       assetPath: manifest.worldAsset(building.asset),
       turntableFrame: turntable == null || direction == null
           ? null
           : turntable.frames[direction],
       turntableAspectRatio: turntable?.mapAspectRatio,
       onTap: () => onSelectBuilding(building),
-      onPanUpdate: (details) => onMoveAnchor(building, details.delta, mapSize),
-      onPanEnd: (_) => onFinishMoveAnchor(),
-      onPanCancel: onFinishMoveAnchor,
+      onMove: (delta) => onMoveAnchor(building, delta, mapSize),
+      onTransformEnd: onFinishMoveAnchor,
     );
   }
 
@@ -689,15 +774,15 @@ class _EstateMap extends StatelessWidget {
       available: projection.isAvailable(gate.unlockEra),
       selected: selectedAnchorId == gate.id,
       position: anchorPositions[gate.id],
+      scale: anchorScales[gate.id] ?? 1,
       assetPath: manifest.worldAsset(gate.asset),
       turntableFrame: turntable == null || direction == null
           ? null
           : turntable.frames[direction],
       turntableAspectRatio: turntable?.mapAspectRatio,
       onTap: () => onSelectGate(gate),
-      onPanUpdate: (details) => onMoveAnchor(gate, details.delta, mapSize),
-      onPanEnd: (_) => onFinishMoveAnchor(),
-      onPanCancel: onFinishMoveAnchor,
+      onMove: (delta) => onMoveAnchor(gate, delta, mapSize),
+      onTransformEnd: onFinishMoveAnchor,
     );
   }
 }
@@ -709,12 +794,12 @@ class _MapAnchor extends StatelessWidget {
   final bool selected;
   final String assetPath;
   final Offset? position;
+  final double scale;
   final IlDuTurntableFrame? turntableFrame;
   final double? turntableAspectRatio;
   final VoidCallback? onTap;
-  final GestureDragUpdateCallback? onPanUpdate;
-  final GestureDragEndCallback? onPanEnd;
-  final GestureDragCancelCallback? onPanCancel;
+  final ValueChanged<Offset>? onMove;
+  final VoidCallback? onTransformEnd;
 
   const _MapAnchor({
     super.key,
@@ -723,18 +808,18 @@ class _MapAnchor extends StatelessWidget {
     required this.available,
     required this.assetPath,
     this.position,
+    this.scale = 1,
     this.turntableFrame,
     this.turntableAspectRatio,
     this.selected = false,
     this.onTap,
-    this.onPanUpdate,
-    this.onPanEnd,
-    this.onPanCancel,
+    this.onMove,
+    this.onTransformEnd,
   });
 
   @override
   Widget build(BuildContext context) {
-    final width = mapSize.width * anchor.width / 100;
+    final width = mapSize.width * anchor.width / 100 * scale;
     final center = position ?? Offset(anchor.x, anchor.y);
     final frame = turntableFrame;
     final image = frame == null
@@ -808,12 +893,15 @@ class _MapAnchor extends StatelessWidget {
               : Semantics(
                   button: true,
                   label: anchor.ko,
+                  value: '${(scale * 100).round()}%',
                   child: GestureDetector(
                     behavior: HitTestBehavior.opaque,
                     onTap: onTap,
-                    onPanUpdate: available ? onPanUpdate : null,
-                    onPanEnd: available ? onPanEnd : null,
-                    onPanCancel: available ? onPanCancel : null,
+                    onPanUpdate: available
+                        ? (details) => onMove?.call(details.delta)
+                        : null,
+                    onPanEnd: available ? (_) => onTransformEnd?.call() : null,
+                    onPanCancel: available ? onTransformEnd : null,
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(
                         minWidth: 48,
@@ -886,13 +974,19 @@ class _GateSheet extends StatelessWidget {
   final IlDuWorldProjection projection;
   final IlDuWorldGate gate;
   final int? direction;
+  final double scale;
   final ValueChanged<int> onDirectionChanged;
+  final ValueChanged<double> onScaleChanged;
+  final VoidCallback onScaleChangeEnd;
 
   const _GateSheet({
     required this.projection,
     required this.gate,
     required this.direction,
+    required this.scale,
     required this.onDirectionChanged,
+    required this.onScaleChanged,
+    required this.onScaleChangeEnd,
   });
 
   @override
@@ -913,7 +1007,7 @@ class _GateSheet extends StatelessWidget {
         top: false,
         child: SizedBox(
           height: showsTurntable
-              ? Spacing.xxxl * 5 + Spacing.xl
+              ? Spacing.xxxl * 6 + Spacing.xl
               : Spacing.xxxl * 4,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(
@@ -1015,6 +1109,13 @@ class _GateSheet extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: Spacing.sm),
+                  _AnchorScaleControl(
+                    anchorId: gate.id,
+                    scale: scale,
+                    onChanged: onScaleChanged,
+                    onChangeEnd: onScaleChangeEnd,
+                  ),
+                  const SizedBox(height: Spacing.sm),
                   Expanded(
                     child: SingleChildScrollView(
                       child: Text(
@@ -1056,7 +1157,10 @@ class _PlaceSheet extends StatelessWidget {
   final VoidCallback onFinishDecorating;
   final ValueChanged<IlDuWorldDecoration> onAddDecoration;
   final int? direction;
+  final double scale;
   final ValueChanged<int> onDirectionChanged;
+  final ValueChanged<double> onScaleChanged;
+  final VoidCallback onScaleChangeEnd;
   final ValueChanged<String> onOpenRoute;
 
   const _PlaceSheet({
@@ -1068,7 +1172,10 @@ class _PlaceSheet extends StatelessWidget {
     required this.onFinishDecorating,
     required this.onAddDecoration,
     required this.direction,
+    required this.scale,
     required this.onDirectionChanged,
+    required this.onScaleChanged,
+    required this.onScaleChangeEnd,
     required this.onOpenRoute,
   });
 
@@ -1091,7 +1198,7 @@ class _PlaceSheet extends StatelessWidget {
         top: false,
         child: SizedBox(
           height: showsTurntable
-              ? Spacing.xxxl * 8 + Spacing.sm
+              ? Spacing.xxxl * 9 + Spacing.sm
               : Spacing.xxxl * 6,
           child: Padding(
             padding: const EdgeInsets.fromLTRB(
@@ -1202,6 +1309,13 @@ class _PlaceSheet extends StatelessWidget {
                             ],
                           ),
                         ),
+                        const SizedBox(height: Spacing.xs),
+                        _AnchorScaleControl(
+                          anchorId: building.id,
+                          scale: scale,
+                          onChanged: onScaleChanged,
+                          onChangeEnd: onScaleChangeEnd,
+                        ),
                       ],
                       const SizedBox(height: Spacing.sm),
                       if (available)
@@ -1296,6 +1410,86 @@ class _PlaceSheet extends StatelessWidget {
                     ],
                   ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _AnchorScaleControl extends StatelessWidget {
+  final String anchorId;
+  final double scale;
+  final ValueChanged<double> onChanged;
+  final VoidCallback onChangeEnd;
+
+  const _AnchorScaleControl({
+    required this.anchorId,
+    required this.scale,
+    required this.onChanged,
+    required this.onChangeEnd,
+  });
+
+  double _bounded(double value) => value
+      .clamp(IlDuAnchorPlacement.minimumScale, IlDuAnchorPlacement.maximumScale)
+      .toDouble();
+
+  void _changeBy(double delta) {
+    onChanged(_bounded(scale + delta));
+    onChangeEnd();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final boundedScale = _bounded(scale);
+    final percent = (boundedScale * 100).round();
+    return Semantics(
+      container: true,
+      label: t.ilduWorldBuildingScale,
+      value: '$percent%',
+      child: SizedBox(
+        height: 44,
+        child: Row(
+          children: [
+            IconButton(
+              key: ValueKey('ildu-scale-decrease-$anchorId'),
+              tooltip: t.ilduWorldShrinkBuilding,
+              onPressed: boundedScale > IlDuAnchorPlacement.minimumScale
+                  ? () => _changeBy(-.05)
+                  : null,
+              icon: const Icon(Icons.remove),
+            ),
+            Expanded(
+              child: Slider(
+                key: ValueKey('ildu-scale-slider-$anchorId'),
+                value: boundedScale,
+                min: IlDuAnchorPlacement.minimumScale,
+                max: IlDuAnchorPlacement.maximumScale,
+                divisions: 19,
+                label: '$percent%',
+                semanticFormatterCallback: (value) =>
+                    '${(value * 100).round()}%',
+                onChanged: onChanged,
+                onChangeEnd: (_) => onChangeEnd(),
+              ),
+            ),
+            IconButton(
+              key: ValueKey('ildu-scale-increase-$anchorId'),
+              tooltip: t.ilduWorldEnlargeBuilding,
+              onPressed: boundedScale < IlDuAnchorPlacement.maximumScale
+                  ? () => _changeBy(.05)
+                  : null,
+              icon: const Icon(Icons.add),
+            ),
+            SizedBox(
+              width: 44,
+              child: Text(
+                '$percent%',
+                textAlign: TextAlign.end,
+                style: SoriTextTheme.of(context).label,
+              ),
+            ),
+          ],
         ),
       ),
     );
