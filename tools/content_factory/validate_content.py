@@ -17,6 +17,7 @@ import csv
 import json
 import re
 import sys
+import unicodedata
 from collections import Counter, defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -1664,6 +1665,13 @@ class ContentValidator:
                     or any(not self._is_nonempty_string(value) for value in distractors)
                 ):
                     self.issue(name, f"{ident} needs at least two nonempty string distractors")
+                self._validate_accepted_variants(
+                    name,
+                    ident,
+                    item,
+                    canonical=item.get("answer"),
+                    distractors=distractors,
+                )
                 sentence = item.get("sentenceKo")
                 full = item.get("fullKo")
                 answer = item.get("answer")
@@ -1714,6 +1722,14 @@ class ContentValidator:
             self._require_fields(source, label, data, ("targetKo", "promptDe", "promptEn"))
             if kind == "satzBauen" and not isinstance(data.get("distractors"), list):
                 self.issue(source, f"{label} satzBauen needs distractors")
+            if kind == "diktat":
+                self._validate_accepted_variants(
+                    source,
+                    label,
+                    data,
+                    canonical=data.get("targetKo"),
+                    surface_only=True,
+                )
         elif kind == "schreiben" and not data:
             self.issue(source, f"{label} schreiben needs data")
 
@@ -1772,9 +1788,71 @@ class ContentValidator:
             if not self._is_nonempty_string(data.get(field)):
                 self.issue(source, f"{label} {field} must be a nonempty string")
 
+    def _validate_accepted_variants(
+        self,
+        source: str,
+        label: str,
+        data: dict[str, Any],
+        *,
+        canonical: Any,
+        distractors: Any = (),
+        surface_only: bool = False,
+    ) -> None:
+        if "acceptedVariants" not in data:
+            return
+        raw = data.get("acceptedVariants")
+        if not isinstance(raw, list) or not raw:
+            self.issue(source, f"{label} acceptedVariants must be a nonempty array")
+            return
+        valid_strings = [value for value in raw if isinstance(value, str)]
+        if any(
+            not isinstance(value, str)
+            or not value.strip()
+            or value != value.strip()
+            for value in raw
+        ):
+            self.issue(
+                source,
+                f"{label} acceptedVariants must contain trimmed nonempty strings",
+            )
+        if len(valid_strings) != len(set(valid_strings)):
+            self.issue(source, f"{label} acceptedVariants must contain unique strings")
+        if isinstance(canonical, str) and canonical in valid_strings:
+            self.issue(
+                source,
+                f"{label} acceptedVariants must not repeat the canonical answer",
+            )
+        if isinstance(distractors, list):
+            overlap = set(valid_strings).intersection(
+                value for value in distractors if isinstance(value, str)
+            )
+            if overlap:
+                self.issue(
+                    source,
+                    f"{label} acceptedVariants must not overlap distractors",
+                )
+        if surface_only and isinstance(canonical, str):
+            canonical_key = self._dictation_surface_key(canonical)
+            if any(
+                self._dictation_surface_key(value) != canonical_key
+                for value in valid_strings
+            ):
+                self.issue(
+                    source,
+                    f"{label} acceptedVariants must preserve the canonical lexical sequence",
+                )
+
     @staticmethod
     def _is_nonempty_string(value: Any) -> bool:
         return isinstance(value, str) and bool(value.strip())
+
+    @staticmethod
+    def _dictation_surface_key(value: str) -> str:
+        return "".join(
+            char
+            for char in value
+            if not char.isspace() and not unicodedata.category(char).startswith("P")
+        )
 
     @staticmethod
     def _split_ids(value: str) -> list[str]:

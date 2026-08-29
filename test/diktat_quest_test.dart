@@ -1,4 +1,3 @@
-
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/models/scenario.dart';
 import 'package:ko_lernen_app/screens/quest_engines/diktat_quest.dart';
@@ -89,6 +88,40 @@ void main() {
 
     test('klar daneben → wrong', () {
       expect(DiktatQuest.diagnose('안녕하세요', target), DiktatError.wrong);
+    });
+  });
+
+  group('DiktatQuest accepted targets', () {
+    const canonical = '지금 바로 답드리기보다는, 내용을 조금 정리해서 다시 말씀드릴게요.';
+    const spacingAndPunctuationVariant = '지금 바로 답드리기 보다는 내용을 조금 정리해서 다시 말씀드릴게요';
+    const semanticParaphrase = '조금 생각해 보고 나중에 연락드릴게요.';
+    const targets = [canonical, spacingAndPunctuationVariant];
+
+    test('accepts the canonical and explicitly declared surface variants', () {
+      expect(DiktatQuest.isAccepted(canonical, targets), isTrue);
+      expect(
+        DiktatQuest.isAccepted(spacingAndPunctuationVariant, targets),
+        isTrue,
+      );
+    });
+
+    test('does not accept an undeclared semantic paraphrase', () {
+      expect(DiktatQuest.isAccepted(semanticParaphrase, targets), isFalse);
+    });
+
+    test('diagnoses against the closest accepted target', () {
+      expect(
+        DiktatQuest.diagnoseAgainstAccepted(
+          '지금 바로 답드리기 보다는 내용을 조금 정리해서 다시 말씀드릴께요',
+          targets,
+        ),
+        DiktatError.spelling,
+      );
+    });
+
+    test('legacy single-target helpers keep their behavior', () {
+      expect(DiktatQuest.isExact('안녕하세요!', '안녕하세요.'), isTrue);
+      expect(DiktatQuest.diagnose('안녕 하세요', '안녕하세요'), DiktatError.spacing);
     });
   });
 
