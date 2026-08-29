@@ -11868,9 +11868,9 @@
     "semantic_hash": ""
   },
   "test/ildu_world_screen_test.dart": {
-    "mtime": 1788043680.86943,
-    "seen": 1788044011.5947907,
-    "ast_hash": "154be2939c55667554babc117a4a3641",
+    "mtime": 1788044184.5974169,
+    "seen": 1788044621.3612814,
+    "ast_hash": "7593a0dd13b76f1c08a1dbc39638aa8d",
     "semantic_hash": ""
   },
   "lib/models/grammar_study_plan.dart": {
@@ -12078,9 +12078,9 @@
     "semantic_hash": ""
   },
   "lib/data/ildu_turntable_catalog.dart": {
-    "mtime": 1788043602.4106228,
-    "seen": 1788044011.5938044,
-    "ast_hash": "89161a9f0fd19f3c2f2f305829f21285",
+    "mtime": 1788044184.593419,
+    "seen": 1788044621.1083784,
+    "ast_hash": "4ccc5528684b5a4172427da281b3fa11",
     "semantic_hash": ""
   },
   "lib/widgets/sori/hanok_turntable_2d.dart": {
@@ -12096,9 +12096,9 @@
     "semantic_hash": ""
   },
   "test/ildu_turntable_catalog_test.dart": {
-    "mtime": 1788043602.4330175,
-    "seen": 1788044011.5947866,
-    "ast_hash": "5b5a2b5d9c37b5fd56195833d1729d35",
+    "mtime": 1788044184.595415,
+    "seen": 1788044621.3607244,
+    "ast_hash": "85a26f80c4aadd860dbb6a3f798fce97",
     "semantic_hash": ""
   },
   "lib/services/ildu_anchor_placement_service.dart": {
@@ -13371,6 +13371,318 @@
     "mtime": 1788041889.6795883,
     "seen": 1788044011.595333,
     "ast_hash": "c6c3b676eec1258bae79d8126def7ffd",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/support.js": {
+    "mtime": 1788044134.9302614,
+    "seen": 1788044621.2802274,
+    "ast_hash": "79a00a888581bb1e5ca5d64252898d88",
+    "semantic_hash": ""
+  },
+  "tool/promote_ildu_anchae_turntable.py": {
+    "mtime": 1788044184.60262,
+    "seen": 1788044621.496376,
+    "ast_hash": "e96cf03896ca1c6010d5c5f0c19e46e3",
+    "semantic_hash": ""
+  },
+  "tool/test_promote_ildu_anchae_turntable.py": {
+    "mtime": 1788044184.6046233,
+    "seen": 1788044621.5048459,
+    "ast_hash": "8a17336928a883fd67b22ad6ffeb84d7",
+    "semantic_hash": ""
+  },
+  ".superpowers/brainstorm/codex-1787873846/content/app-integration-layouts.html": {
+    "mtime": 1788044125.7857668,
+    "seen": 1788044621.6857011,
+    "ast_hash": "1651e32a6252c8f78ba6a77753f6a3ed",
+    "semantic_hash": ""
+  },
+  "docs/Hangul Sori \uc571 \uc810\uac80 \ud6c4 \uac1c\uc120 \uc0ac\ud56d \uc9c0\uc2dc\uc11c.md": {
+    "mtime": 1788044132.6489134,
+    "seen": 1788044621.715964,
+    "ast_hash": "b83b1713edb85a0643881ada5e608805",
+    "semantic_hash": ""
+  },
+  "docs/data/partner_rewrite_diff2.md": {
+    "mtime": 1788044132.651202,
+    "seen": 1788044621.7337813,
+    "ast_hash": "224e6822e7390df2204bf75cdaec14f2",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/Hangeul Sori Intro v2.dc.html": {
+    "mtime": 1788044133.6055832,
+    "seen": 1788044621.7621562,
+    "ast_hash": "fbed1b669061b8cc44b19d18defe4894",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/Hangeul Sori Intro.dc.html": {
+    "mtime": 1788044133.6117392,
+    "seen": 1788044621.76216,
+    "ast_hash": "5912f5218239f8c787753e3309a6c734",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/Onboarding Intro Redesign.dc.html": {
+    "mtime": 1788044133.6137428,
+    "seen": 1788044621.762162,
+    "ast_hash": "c5d8e18793b71098f3faeab074e9a060",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/github.md": {
+    "mtime": 1788044134.9182596,
+    "seen": 1788044621.7621653,
+    "ast_hash": "633004dd1a1b482c178214e1bd11f493",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823701873-ajqr.txt": {
+    "mtime": 1788044134.9494755,
+    "seen": 1788044621.7621694,
+    "ast_hash": "3e882bc8674fd49f5c88c3d6247e77b1",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823701908-0onj.txt": {
+    "mtime": 1788044135.9489439,
+    "seen": 1788044621.7621722,
+    "ast_hash": "b6adf2f197e766ed1c4d29a4daa84c3d",
+    "semantic_hash": ""
+  },
+  ".superpowers/brainstorm/codex-1787873846/content/current-map.png": {
+    "mtime": 1788044125.7949939,
+    "seen": 1788044621.772687,
+    "ast_hash": "41d52405c1a4da1f74b8e97e8ba7ea6f",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/act_hangul.webp": {
+    "mtime": 1788044133.6177397,
+    "seen": 1788044621.806737,
+    "ast_hash": "3d231d47ad2aa703cddfacaf9d66d87a",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/act_srs.webp": {
+    "mtime": 1788044133.6212168,
+    "seen": 1788044621.8067412,
+    "ast_hash": "058b54434adef09f5a2fff9e3c95c051",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/bojagi.png": {
+    "mtime": 1788044133.6319356,
+    "seen": 1788044621.8067458,
+    "ast_hash": "39d245275ff45fb7913cb59b92daba86",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/cafe.png": {
+    "mtime": 1788044133.63608,
+    "seen": 1788044621.806749,
+    "ast_hash": "a223eb34dd3d25d417053378119f94c4",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/duo.png": {
+    "mtime": 1788044133.6406012,
+    "seen": 1788044621.806753,
+    "ast_hash": "baef55b6eb6f59e2c2138ae7434f3e65",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/gate.png": {
+    "mtime": 1788044133.6482754,
+    "seen": 1788044621.806756,
+    "ast_hash": "b341e784d2873cc43d657937949e3ae8",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/hanok_anchae.png": {
+    "mtime": 1788044133.6559415,
+    "seen": 1788044621.8067589,
+    "ast_hash": "a9b84ca6e02e14116b31ebca888e6fd8",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/hanok_map.png": {
+    "mtime": 1788044133.6707647,
+    "seen": 1788044621.806762,
+    "ast_hash": "36fb1c7cc525947396901819fb37af70",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/hanok_sarangchae.png": {
+    "mtime": 1788044133.6861007,
+    "seen": 1788044621.8067658,
+    "ast_hash": "2e5dc405ba90a2668ac0f88016514ef2",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/logo.png": {
+    "mtime": 1788044133.6910157,
+    "seen": 1788044621.806769,
+    "ast_hash": "22a6b81e211428187afa065bd3487f1b",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/madang.png": {
+    "mtime": 1788044133.6960158,
+    "seen": 1788044621.8067715,
+    "ast_hash": "ae44ff96b3f87901ec42e7639f7e2579",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/magpie.png": {
+    "mtime": 1788044133.6993525,
+    "seen": 1788044621.8067746,
+    "ast_hash": "c3cab3f622602896997c1ca024466632",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/magpie_celebrate.png": {
+    "mtime": 1788044133.703347,
+    "seen": 1788044621.8067777,
+    "ast_hash": "449bc9e5e4d9fd392966f778f9a1c707",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/magpie_up.png": {
+    "mtime": 1788044133.7253506,
+    "seen": 1788044621.8067803,
+    "ast_hash": "378b23160626f48e53f15ead960f308f",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/sotdaeulmun.png": {
+    "mtime": 1788044133.7462988,
+    "seen": 1788044621.8067842,
+    "ast_hash": "9c7d004addb1c9c0a19557acd88ee38e",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/stamp_gwigap.png": {
+    "mtime": 1788044134.8163538,
+    "seen": 1788044621.8067884,
+    "ast_hash": "7609eebfb4a4ff63ec167f37347367c6",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/stamp_mugunghwa.png": {
+    "mtime": 1788044134.8204765,
+    "seen": 1788044621.8067908,
+    "ast_hash": "34b1797c0aa7760fb49f3e0ce296c474",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/stamp_taegeuk.png": {
+    "mtime": 1788044134.8234758,
+    "seen": 1788044621.8067944,
+    "ast_hash": "8d9f570d67430d3f7b35c9e9e87a1934",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/taegeuk.webp": {
+    "mtime": 1788044134.8254743,
+    "seen": 1788044621.8067973,
+    "ast_hash": "25cf8e8e74cd47b95600229719c5ac6e",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/tiger.png": {
+    "mtime": 1788044134.8314784,
+    "seen": 1788044621.8068008,
+    "ast_hash": "1b3d3d2745ca271f7dbcf91cd3bede38",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/screenshots/overview.png": {
+    "mtime": 1788044134.9212573,
+    "seen": 1788044621.8068047,
+    "ast_hash": "bca4a9cc19692f08465830b1ff2806e9",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/screenshots/v2-p1.png": {
+    "mtime": 1788044134.9232564,
+    "seen": 1788044621.8068082,
+    "ast_hash": "eeda938985d7cc2e98e0a7728c5c4852",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/screenshots/v2.png": {
+    "mtime": 1788044134.925256,
+    "seen": 1788044621.8068116,
+    "ast_hash": "5156e497591dbae6450cc497a452299e",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823676246-us38.png": {
+    "mtime": 1788044134.9354722,
+    "seen": 1788044621.806815,
+    "ast_hash": "22a6b81e211428187afa065bd3487f1b",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823676255-ajhm.png": {
+    "mtime": 1788044134.938477,
+    "seen": 1788044621.8068185,
+    "ast_hash": "a562dec0bfc00bd87551aa106ae3d3ee",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823756619-6utc.png": {
+    "mtime": 1788044135.9509442,
+    "seen": 1788044621.8068218,
+    "ast_hash": "c3cab3f622602896997c1ca024466632",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823756656-01qe.png": {
+    "mtime": 1788044135.9560964,
+    "seen": 1788044621.8068254,
+    "ast_hash": "1b3d3d2745ca271f7dbcf91cd3bede38",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823812668-gall.png": {
+    "mtime": 1788044135.9944973,
+    "seen": 1788044621.8068285,
+    "ast_hash": "ec6d137eecf02558c9f3c7dea40cb0e6",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823834907-bahz.webp": {
+    "mtime": 1788044135.9984958,
+    "seen": 1788044621.8068323,
+    "ast_hash": "25cf8e8e74cd47b95600229719c5ac6e",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823866557-w0uj.png": {
+    "mtime": 1788044136.0004997,
+    "seen": 1788044621.8068357,
+    "ast_hash": "7609eebfb4a4ff63ec167f37347367c6",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823866567-qug7.png": {
+    "mtime": 1788044136.0024996,
+    "seen": 1788044621.8068392,
+    "ast_hash": "34b1797c0aa7760fb49f3e0ce296c474",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823866600-d541.png": {
+    "mtime": 1788044136.0074983,
+    "seen": 1788044621.8068423,
+    "ast_hash": "c1f6c8db0424dcc8249ad06c0dca0477",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823947321-3yy1.png": {
+    "mtime": 1788044136.0105,
+    "seen": 1788044621.8068454,
+    "ast_hash": "a223eb34dd3d25d417053378119f94c4",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823954470-zz5z.png": {
+    "mtime": 1788044136.0176675,
+    "seen": 1788044621.8068483,
+    "ast_hash": "39d245275ff45fb7913cb59b92daba86",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823978447-p6ym.webp": {
+    "mtime": 1788044136.0187304,
+    "seen": 1788044621.8068511,
+    "ast_hash": "eaac47226b3075dbf112f4414273575f",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/magpie_choose.mp4": {
+    "mtime": 1788044133.7208452,
+    "seen": 1788044621.821635,
+    "ast_hash": "c5b61eaaeeb121d871b1f6090c6ae9d5",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/art/tiger_choose.mp4": {
+    "mtime": 1788044134.8472805,
+    "seen": 1788044621.821639,
+    "ast_hash": "07ce7190bf1091bbf5e7fa450996d84a",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823807711-3u3n.mp4": {
+    "mtime": 1788044135.9672456,
+    "seen": 1788044621.8216422,
+    "ast_hash": "07ce7190bf1091bbf5e7fa450996d84a",
+    "semantic_hash": ""
+  },
+  "new_\uc778\ubcf4\ub529/uploads/assets-1787823807880-nadn.mp4": {
+    "mtime": 1788044135.9816134,
+    "seen": 1788044621.821644,
+    "ast_hash": "c5b61eaaeeb121d871b1f6090c6ae9d5",
     "semantic_hash": ""
   }
 }
