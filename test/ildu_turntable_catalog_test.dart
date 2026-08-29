@@ -15,12 +15,19 @@ void main() {
         containsAll(<String>[
           'sarangchae',
           'ansarang',
+          'changgo',
           'main-gate',
           'araechae',
+          'sadang',
+          'sadang-gate',
+          'hyeopmun-west',
+          'hyeopmun-east',
         ]),
       );
 
-      for (final spec in kIlDuTurntables.values) {
+      for (final entry in kIlDuTurntables.entries) {
+        final spec = entry.value;
+        expect(spec.anchorId, entry.key);
         expect(spec.frames, hasLength(8));
         expect(
           spec.frames.map((frame) => frame.assetPath).toSet(),
@@ -96,8 +103,11 @@ void main() {
     }
     expect(spec.directionForDegrees(360), 0);
     expect(spec.directionForDegrees(-45), 7);
+    expect(kIlDuChanggoTurntable.directionForDegrees(90), 2);
     expect(kIlDuSotdaeulmunTurntable.directionForDegrees(3), 0);
     expect(kIlDuAraechaeTurntable.directionForDegrees(315), 7);
+    expect(kIlDuSadangTurntable.directionForDegrees(90), 2);
+    expect(kIlDuSadangmunTurntable.directionForDegrees(315), 7);
   });
 
   test('Araechae preserves one authored canvas, viewport, and ground line', () {
@@ -136,6 +146,15 @@ void main() {
         reason: '${runtime.path} must remain byte-identical to ${review.path}',
       );
     }
+  });
+
+  test('the two manifest hyeopmun anchors reuse the approved shared kit', () {
+    expect(
+      kIlDuHyeopmunWestTurntable.frames.map((frame) => frame.assetPath),
+      orderedEquals(
+        kIlDuHyeopmunEastTurntable.frames.map((frame) => frame.assetPath),
+      ),
+    );
   });
 }
 

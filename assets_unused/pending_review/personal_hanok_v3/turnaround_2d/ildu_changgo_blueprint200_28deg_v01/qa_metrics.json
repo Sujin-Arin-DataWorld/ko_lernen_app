@@ -1,5 +1,16 @@
 {
-  "status": "pending_review_only",
+  "status": "runtime_promoted_2026-08-29",
+  "runtime_promotion": {
+    "source": "transparent_28deg/",
+    "target": "assets/illustrations/personal_hanok_v3/turnarounds/ildu_changgo_*.png",
+    "frame_size": [
+      384,
+      512
+    ],
+    "baseline_y": 472,
+    "map_aspect_ratio": 1.78,
+    "transform": "common_scale_premultiplied_alpha_lanczos_no_recolor"
+  },
   "generator": "built_in_imagegen_one_call_per_direction",
   "postprocess": "boundary_connected_checker_extraction_and_premultiplied_normalization",
   "camera_elevation_degrees": 28,
