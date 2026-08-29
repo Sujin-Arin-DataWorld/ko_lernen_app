@@ -5,31 +5,42 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/ildu_world_manifest.dart';
 
 class IlDuAnchorPlacement {
+  static const double minimumScale = .65;
+  static const double maximumScale = 1.6;
+
   final String anchorId;
   final double x;
   final double y;
   final int direction;
+  final double scale;
 
   const IlDuAnchorPlacement({
     required this.anchorId,
     required this.x,
     required this.y,
     required this.direction,
+    this.scale = 1,
   });
 
-  IlDuAnchorPlacement copyWith({double? x, double? y, int? direction}) =>
-      IlDuAnchorPlacement(
-        anchorId: anchorId,
-        x: x ?? this.x,
-        y: y ?? this.y,
-        direction: direction ?? this.direction,
-      );
+  IlDuAnchorPlacement copyWith({
+    double? x,
+    double? y,
+    int? direction,
+    double? scale,
+  }) => IlDuAnchorPlacement(
+    anchorId: anchorId,
+    x: x ?? this.x,
+    y: y ?? this.y,
+    direction: direction ?? this.direction,
+    scale: scale ?? this.scale,
+  );
 
   Map<String, dynamic> toJson() => <String, dynamic>{
     'anchorId': anchorId,
     'x': x,
     'y': y,
     'direction': direction,
+    'scale': scale,
   };
 
   static IlDuAnchorPlacement? tryFromJson(
@@ -43,12 +54,14 @@ class IlDuAnchorPlacement {
     final x = value['x'];
     final y = value['y'];
     final direction = value['direction'];
+    final rawScale = value['scale'];
     if (anchorId is! String ||
         x is! num ||
         y is! num ||
         direction is! int ||
         direction < 0 ||
-        direction > 7) {
+        direction > 7 ||
+        (rawScale != null && rawScale is! num)) {
       return null;
     }
     final knownAnchor = <IlDuWorldAnchor>[
@@ -57,13 +70,19 @@ class IlDuAnchorPlacement {
     ].any((anchor) => anchor.id == anchorId);
     final normalizedX = x.toDouble();
     final normalizedY = y.toDouble();
+    final normalizedScale = rawScale == null
+        ? 1.0
+        : (rawScale as num).toDouble();
     if (!knownAnchor ||
         !normalizedX.isFinite ||
         !normalizedY.isFinite ||
+        !normalizedScale.isFinite ||
         normalizedX < 0 ||
         normalizedX > 100 ||
         normalizedY < 0 ||
-        normalizedY > 100) {
+        normalizedY > 100 ||
+        normalizedScale < minimumScale ||
+        normalizedScale > maximumScale) {
       return null;
     }
     return IlDuAnchorPlacement(
@@ -71,6 +90,7 @@ class IlDuAnchorPlacement {
       x: normalizedX,
       y: normalizedY,
       direction: direction,
+      scale: normalizedScale,
     );
   }
 }
@@ -135,5 +155,23 @@ IlDuAnchorPlacement moveIlDuAnchor({
   return placement.copyWith(
     x: proposedX.clamp(halfWidth, 100 - halfWidth).toDouble(),
     y: proposedY.clamp(halfHeight, 100 - halfHeight).toDouble(),
+  );
+}
+
+IlDuAnchorPlacement resizeIlDuAnchor({
+  required IlDuAnchorPlacement placement,
+  required double proposedScale,
+  required double baseWidthPercent,
+  required double baseHeightPercent,
+}) {
+  final scale = proposedScale
+      .clamp(IlDuAnchorPlacement.minimumScale, IlDuAnchorPlacement.maximumScale)
+      .toDouble();
+  return moveIlDuAnchor(
+    placement: placement.copyWith(scale: scale),
+    proposedX: placement.x,
+    proposedY: placement.y,
+    widthPercent: baseWidthPercent * scale,
+    heightPercent: baseHeightPercent * scale,
   );
 }

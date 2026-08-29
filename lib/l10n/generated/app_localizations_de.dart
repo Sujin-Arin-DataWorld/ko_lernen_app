@@ -7354,7 +7354,25 @@ class AppL10nDe extends AppL10n {
 
   @override
   String get ilduWorldRotateBuildingHint =>
-      'Ziehe es auf der Karte an seinen Platz; wische über die Vorschau, um es zu drehen.';
+      'Verschiebe es auf der Karte. Wische zum Drehen; zoome mit zwei Fingern oder den Tasten.';
+
+  @override
+  String get ilduWorldZoomInBuilding => 'Gebäude vergrößern';
+
+  @override
+  String get ilduWorldZoomOutBuilding => 'Gebäude verkleinern';
+
+  @override
+  String get ilduWorldResetBuildingZoom => 'Zoom zurücksetzen';
+
+  @override
+  String get ilduWorldBuildingScale => 'Gebäudegröße';
+
+  @override
+  String get ilduWorldShrinkBuilding => 'Gebäude verkleinern';
+
+  @override
+  String get ilduWorldEnlargeBuilding => 'Gebäude vergrößern';
 
   @override
   String get ilduWorldGateHeritageDetail =>
