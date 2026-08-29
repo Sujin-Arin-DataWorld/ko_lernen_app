@@ -88,8 +88,12 @@ void main() {
   test('pending prefetch 승격은 더 최신인 다른 발화를 되돌려 덮지 않는다', () async {
     final prefetchCompleter = Completer<void>();
     final spoken = <String>[];
+    var prefetchCalls = 0;
     var stopCalls = 0;
-    SoriSpeech.prefetchImpl = (text, voice) => prefetchCompleter.future;
+    SoriSpeech.prefetchImpl = (text, voice) {
+      prefetchCalls++;
+      return prefetchCompleter.future;
+    };
     SoriSpeech.speakImpl = (text, voice) async {
       spoken.add(text);
       return true;
@@ -101,11 +105,19 @@ void main() {
     final prefetch = SoriSpeech.prefetch('학교');
     final staleSpeak = SoriSpeech.speak('학교');
     final latestSpeak = SoriSpeech.speak('교실');
+    final joinedPrefetch = SoriSpeech.prefetch('학교');
+
+    expect(
+      prefetchCalls,
+      1,
+      reason: '다른 최신 발화가 취소해도 학교 prefetch identity는 보존되어야 한다',
+    );
     prefetchCompleter.complete();
 
     expect(await latestSpeak, isTrue);
     expect(await staleSpeak, isFalse);
     await prefetch;
+    await joinedPrefetch;
     expect(spoken, ['교실']);
     expect(stopCalls, 1);
   });

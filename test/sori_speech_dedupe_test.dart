@@ -99,6 +99,74 @@ void main() {
     await prefetchFuture;
   });
 
+  test('pending 승격을 stop한 뒤 같은 키를 다시 speak해도 원래 prefetch에 합류한다', () async {
+    final prefetchCompleter = Completer<void>();
+    final speakCompleter = Completer<bool>();
+    var prefetchCalls = 0;
+    var speakCalls = 0;
+    SoriSpeech.prefetchImpl = (text, voice) {
+      prefetchCalls++;
+      return prefetchCompleter.future;
+    };
+    SoriSpeech.speakImpl = (text, voice) {
+      speakCalls++;
+      return speakCompleter.future;
+    };
+    SoriSpeech.stopImpl = () async {};
+
+    final prefetchFuture = SoriSpeech.prefetch('안녕');
+    final cancelledSpeak = SoriSpeech.speak('안녕');
+    await SoriSpeech.stop();
+    final replacementSpeak = SoriSpeech.speak('안녕');
+
+    expect(prefetchCalls, 1, reason: '취소 뒤에도 아직 진행 중인 prefetch를 재사용해야 한다');
+    expect(speakCalls, 0, reason: '교체 speak는 원래 prefetch가 끝나기 전에 재생하면 안 된다');
+
+    prefetchCompleter.complete();
+    expect(await cancelledSpeak, isFalse);
+    await Future<void>.delayed(Duration.zero);
+    expect(speakCalls, 1, reason: '원래 prefetch 완료 뒤 교체 발화만 한 번 재생해야 한다');
+
+    speakCompleter.complete(true);
+    expect(await replacementSpeak, isTrue);
+    await prefetchFuture;
+    expect(prefetchCalls, 1);
+  });
+
+  test('완료된 prefetch는 취소 복원 뒤 in-flight 맵에 남지 않는다', () async {
+    final prefetchCompleter = Completer<void>();
+    final speakCompleters = <Completer<bool>>[
+      Completer<bool>(),
+      Completer<bool>(),
+    ];
+    var speakCalls = 0;
+    SoriSpeech.prefetchImpl = (text, voice) => prefetchCompleter.future;
+    SoriSpeech.speakImpl = (text, voice) {
+      return speakCompleters[speakCalls++].future;
+    };
+    SoriSpeech.stopImpl = () async {};
+
+    final prefetchFuture = SoriSpeech.prefetch('안녕');
+    final firstSpeak = SoriSpeech.speak('안녕');
+    prefetchCompleter.complete();
+    await Future<void>.delayed(Duration.zero);
+    expect(speakCalls, 1);
+
+    await SoriSpeech.stop();
+    final replacementSpeak = SoriSpeech.speak('안녕');
+    expect(
+      speakCalls,
+      2,
+      reason: '완료된 prefetch를 복원해 다음 speak를 불필요하게 지연하면 안 된다',
+    );
+
+    speakCompleters.first.complete(false);
+    speakCompleters.last.complete(true);
+    expect(await firstSpeak, isFalse);
+    expect(await replacementSpeak, isTrue);
+    await prefetchFuture;
+  });
+
   test('speak 진행 중 같은 텍스트를 prefetch() 하면 별도 해석 없이 그 완료만 기다린다', () async {
     var resolveCalls = 0;
     final speakCompleter = Completer<bool>();

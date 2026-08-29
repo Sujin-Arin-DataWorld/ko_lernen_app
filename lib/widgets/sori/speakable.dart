@@ -38,6 +38,13 @@ class SoriSpeech {
   /// speak는 그 승격에 합류하고 별도 재생 콜백을 만들지 않는다.
   static final Set<Future<bool>> _playbackFlights = {};
 
+  /// 승격 future가 [_inFlight]를 덮고 있는 동안에도 그 아래의 아직 진행
+  /// 중인 prefetch identity를 잃지 않기 위한 보조 레지스트리. 새 요청의
+  /// 조회/합류 진입점은 계속 [_inFlight] 하나뿐이며, 이 맵들은 취소 시
+  /// 정확한 backing future를 복원하는 데만 쓴다.
+  static final Map<String, Future<bool>> _pendingPrefetches = {};
+  static final Map<Future<bool>, Future<bool>> _promotionPrefetches = {};
+
   /// 화면이 구독하는 발화 상태. 저수준 서비스의 전역 notifier를 화면에
   /// 직접 노출하지 않아 테스트 주입·실패·취소 경로도 같은 상태 계약을 탄다.
   static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
@@ -73,6 +80,8 @@ class SoriSpeech {
   static void resetForTesting() {
     _inFlight.clear();
     _playbackFlights.clear();
+    _pendingPrefetches.clear();
+    _promotionPrefetches.clear();
     ++_speechGeneration;
     _activeSpeechKey = null;
     speaking.value = false;
@@ -146,10 +155,9 @@ class SoriSpeech {
   }) {
     final previousKey = _activeSpeechKey;
     if (previousKey != null && previousKey != key) {
-      // 취소된 요청의 완료가 나중에 와도 같은 키의 새 요청에 합류하지 않게
-      // 맵에서 먼저 떼어낸다. 완료 콜백도 identity를 확인하므로 새 값을
-      // 지우지 않는다.
-      _inFlight.remove(previousKey);
+      // 승격이 덮고 있던 prefetch가 아직 진행 중이면 공용 맵에 복원한다.
+      // 취소된 발화 완료 콜백은 identity가 달라 새 값을 지우지 못한다.
+      _cancelFlightAndRestorePrefetch(previousKey);
     }
     final generation = ++_speechGeneration;
     _activeSpeechKey = key;
@@ -186,6 +194,7 @@ class SoriSpeech {
     late final Future<bool> future;
     future = resolved.whenComplete(() {
       _playbackFlights.remove(future);
+      _promotionPrefetches.remove(future);
       if (identical(_inFlight[key], future)) {
         _inFlight.remove(key);
       }
@@ -195,8 +204,26 @@ class SoriSpeech {
       }
     });
     _playbackFlights.add(future);
+    if (pending != null) {
+      _promotionPrefetches[future] = pending;
+    }
     _inFlight[key] = future;
     return future;
+  }
+
+  /// 현재 발화 future만 취소하고, 그것이 아직 pending인 prefetch를 덮은
+  /// 승격이었다면 그 정확한 backing future를 공용 맵에 되돌린다.
+  static void _cancelFlightAndRestorePrefetch(String key) {
+    final cancelled = _inFlight[key];
+    if (cancelled == null) return;
+    final backing = _promotionPrefetches.remove(cancelled);
+    if (backing != null && identical(_pendingPrefetches[key], backing)) {
+      _inFlight[key] = backing;
+      return;
+    }
+    if (identical(_inFlight[key], cancelled)) {
+      _inFlight.remove(key);
+    }
   }
 
   static Future<void> prefetch(String text, {String? voice}) {
@@ -225,10 +252,14 @@ class SoriSpeech {
     });
     late final Future<bool> future;
     future = notPlayed.whenComplete(() {
+      if (identical(_pendingPrefetches[key], future)) {
+        _pendingPrefetches.remove(key);
+      }
       if (identical(_inFlight[key], future)) {
         _inFlight.remove(key);
       }
     });
+    _pendingPrefetches[key] = future;
     _inFlight[key] = future;
     return future;
   }
@@ -264,7 +295,7 @@ class SoriSpeech {
     ++_speechGeneration;
     _activeSpeechKey = null;
     if (activeKey != null) {
-      _inFlight.remove(activeKey);
+      _cancelFlightAndRestorePrefetch(activeKey);
     }
     speaking.value = false;
     try {
