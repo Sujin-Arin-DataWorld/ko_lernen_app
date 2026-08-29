@@ -5,19 +5,27 @@ const String kIlDuTurntableAssetRoot =
 
 /// One authored view in a clockwise eight-direction Hanok turnaround.
 ///
-/// [contentBounds] removes transparent generation padding at paint time. The
-/// source PNG stays byte-for-byte unchanged while every direction shares a
-/// stable visual baseline in the map and inspection card.
+/// [contentBounds] records the nontransparent pixels without changing the
+/// source PNG. [viewportBounds] can retain a shared authored crop so every
+/// direction keeps one scale and ground line in the map and inspection card.
 class IlDuTurntableFrame {
   final String assetPath;
   final Size sourceSize;
   final Rect contentBounds;
+  final Rect? viewportBounds;
 
   const IlDuTurntableFrame({
     required this.assetPath,
     required this.sourceSize,
     required this.contentBounds,
+    this.viewportBounds,
   });
+
+  /// The authored crop used for display.
+  ///
+  /// Most legacy turntables tightly crop each direction. New sets can provide
+  /// one shared viewport so a turn keeps its exact scale and ground line.
+  Rect get displayBounds => viewportBounds ?? contentBounds;
 }
 
 class IlDuTurntableSpec {
@@ -46,11 +54,13 @@ IlDuTurntableFrame _frame(
   double left,
   double top,
   double right,
-  double bottom,
-) => IlDuTurntableFrame(
+  double bottom, {
+  Rect? viewportBounds,
+}) => IlDuTurntableFrame(
   assetPath: '$kIlDuTurntableAssetRoot$file',
   sourceSize: Size(sourceWidth, sourceHeight),
   contentBounds: Rect.fromLTRB(left, top, right, bottom),
+  viewportBounds: viewportBounds,
 );
 
 final IlDuTurntableSpec kIlDuSarangchaeTurntable = IlDuTurntableSpec(
@@ -113,6 +123,95 @@ final IlDuTurntableSpec kIlDuSotdaeulmunTurntable = IlDuTurntableSpec(
   ],
 );
 
+const Rect _kIlDuAraechaeViewport = Rect.fromLTRB(448, 274, 2111, 1259);
+
+final IlDuTurntableSpec kIlDuAraechaeTurntable = IlDuTurntableSpec(
+  anchorId: 'araechae',
+  mapAspectRatio: 1.6883248731,
+  frames: <IlDuTurntableFrame>[
+    _frame(
+      'ildu_araechae_00_front.png',
+      2560,
+      1440,
+      618,
+      435,
+      1943,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_01_front_right.png',
+      2560,
+      1440,
+      449,
+      282,
+      2111,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_02_right.png',
+      2560,
+      1440,
+      808,
+      274,
+      1751,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_03_rear_right.png',
+      2560,
+      1440,
+      448,
+      342,
+      2111,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_04_rear.png',
+      2560,
+      1440,
+      574,
+      453,
+      1987,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_05_rear_left.png',
+      2560,
+      1440,
+      449,
+      391,
+      2111,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_06_left.png',
+      2560,
+      1440,
+      808,
+      341,
+      1751,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+    _frame(
+      'ildu_araechae_07_front_left.png',
+      2560,
+      1440,
+      448,
+      350,
+      2111,
+      1259,
+      viewportBounds: _kIlDuAraechaeViewport,
+    ),
+  ],
+);
+
 final IlDuTurntableSpec kIlDuSadangTurntable = IlDuTurntableSpec(
   anchorId: 'sadang',
   mapAspectRatio: 1.15,
@@ -172,6 +271,7 @@ final Map<String, IlDuTurntableSpec> kIlDuTurntables =
       kIlDuAnsarangchaeTurntable.anchorId: kIlDuAnsarangchaeTurntable,
       kIlDuChanggoTurntable.anchorId: kIlDuChanggoTurntable,
       kIlDuSotdaeulmunTurntable.anchorId: kIlDuSotdaeulmunTurntable,
+      kIlDuAraechaeTurntable.anchorId: kIlDuAraechaeTurntable,
       kIlDuSadangTurntable.anchorId: kIlDuSadangTurntable,
       kIlDuSadangmunTurntable.anchorId: kIlDuSadangmunTurntable,
       kIlDuHyeopmunWestTurntable.anchorId: kIlDuHyeopmunWestTurntable,

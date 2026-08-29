@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:image/image.dart' as img;
 import 'package:ko_lernen_app/data/ildu_turntable_catalog.dart';
@@ -16,6 +17,7 @@ void main() {
           'ansarang',
           'changgo',
           'main-gate',
+          'araechae',
           'sadang',
           'sadang-gate',
           'hyeopmun-west',
@@ -49,6 +51,32 @@ void main() {
           );
           expect(frame.contentBounds.width, greaterThan(0));
           expect(frame.contentBounds.height, greaterThan(0));
+          expect(frame.displayBounds.left, greaterThanOrEqualTo(0));
+          expect(frame.displayBounds.top, greaterThanOrEqualTo(0));
+          expect(
+            frame.displayBounds.right,
+            lessThanOrEqualTo(frame.sourceSize.width),
+          );
+          expect(
+            frame.displayBounds.bottom,
+            lessThanOrEqualTo(frame.sourceSize.height),
+          );
+          expect(
+            frame.displayBounds.left,
+            lessThanOrEqualTo(frame.contentBounds.left),
+          );
+          expect(
+            frame.displayBounds.top,
+            lessThanOrEqualTo(frame.contentBounds.top),
+          );
+          expect(
+            frame.displayBounds.right,
+            greaterThanOrEqualTo(frame.contentBounds.right),
+          );
+          expect(
+            frame.displayBounds.bottom,
+            greaterThanOrEqualTo(frame.contentBounds.bottom),
+          );
 
           final image = img.decodePng(File(frame.assetPath).readAsBytesSync());
           expect(image, isNotNull, reason: frame.assetPath);
@@ -77,8 +105,47 @@ void main() {
     expect(spec.directionForDegrees(-45), 7);
     expect(kIlDuChanggoTurntable.directionForDegrees(90), 2);
     expect(kIlDuSotdaeulmunTurntable.directionForDegrees(3), 0);
+    expect(kIlDuAraechaeTurntable.directionForDegrees(315), 7);
     expect(kIlDuSadangTurntable.directionForDegrees(90), 2);
     expect(kIlDuSadangmunTurntable.directionForDegrees(315), 7);
+  });
+
+  test('Araechae preserves one authored canvas, viewport, and ground line', () {
+    const expectedViewport = Rect.fromLTRB(448, 274, 2111, 1259);
+    expect(
+      kIlDuAraechaeTurntable.frames.map((frame) => frame.sourceSize).toSet(),
+      <Size>{const Size(2560, 1440)},
+    );
+    expect(
+      kIlDuAraechaeTurntable.frames.map((frame) => frame.displayBounds).toSet(),
+      <Rect>{expectedViewport},
+    );
+    expect(
+      kIlDuAraechaeTurntable.frames
+          .map((frame) => frame.contentBounds.bottom)
+          .toSet(),
+      <double>{1259},
+    );
+  });
+
+  test('Araechae runtime frames are exact copies of the review masters', () {
+    const reviewRoot =
+        'assets_unused/pending_review/personal_hanok_v3/'
+        'changgo_turnaround_v1/';
+    for (final frame in kIlDuAraechaeTurntable.frames) {
+      final runtime = File(frame.assetPath);
+      final reviewName = runtime.uri.pathSegments.last.replaceFirst(
+        'ildu_',
+        '',
+      );
+      final review = File('$reviewRoot$reviewName');
+      expect(review.existsSync(), isTrue, reason: review.path);
+      expect(
+        sha256.convert(runtime.readAsBytesSync()),
+        sha256.convert(review.readAsBytesSync()),
+        reason: '${runtime.path} must remain byte-identical to ${review.path}',
+      );
+    }
   });
 
   test('the two manifest hyeopmun anchors reuse the approved shared kit', () {
@@ -101,10 +168,18 @@ Rect _alphaBounds(img.Image image) {
       if (image.getPixel(x, y).a == 0) {
         continue;
       }
-      if (x < left) left = x;
-      if (y < top) top = y;
-      if (x > right) right = x;
-      if (y > bottom) bottom = y;
+      if (x < left) {
+        left = x;
+      }
+      if (y < top) {
+        top = y;
+      }
+      if (x > right) {
+        right = x;
+      }
+      if (y > bottom) {
+        bottom = y;
+      }
     }
   }
   if (right < left || bottom < top) {
