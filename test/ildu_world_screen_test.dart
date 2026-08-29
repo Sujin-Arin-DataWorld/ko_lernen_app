@@ -104,6 +104,58 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('selecting and turning Jungmunganchae updates its map frame', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedA1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+          anchorPlacementStore: _MemoryAnchorStore(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    final mapAnchor = find.byKey(
+      const ValueKey('ildu-map-turntable-jungmunganchae-2'),
+    );
+    final tapTarget = find.descendant(
+      of: mapAnchor,
+      matching: find.byType(GestureDetector),
+    );
+    tester.widget<GestureDetector>(tapTarget).onTap!();
+    await tester.pumpAndSettle();
+
+    expect(find.text('중문채'), findsOneWidget);
+    expect(
+      find.byKey(const ValueKey('ildu-turntable-jungmunganchae')),
+      findsOneWidget,
+    );
+
+    await tester.drag(
+      find.byKey(const ValueKey('hanok-turntable-drag-area')),
+      const Offset(-40, 0),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-jungmunganchae-3')),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+  });
+
   testWidgets('selecting and turning Sotdaeulmun updates its map frame', (
     tester,
   ) async {
