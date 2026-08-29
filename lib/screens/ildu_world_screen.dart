@@ -8,6 +8,7 @@ import '../l10n/generated/app_localizations.dart';
 import '../models/ildu_world_manifest.dart';
 import '../models/personal_hanok.dart';
 import '../services/hanok_structure_projection_service.dart';
+import '../services/ildu_anchor_placement_service.dart';
 import '../services/ildu_decoration_placement_service.dart';
 import '../services/ildu_world_projection_adapter.dart';
 import '../widgets/app_loading.dart';
@@ -23,6 +24,7 @@ class IlDuWorldScreen extends StatefulWidget {
   final IlDuManifestLoader? loadManifest;
   final IlDuLegacyProjectionLoader? loadProjection;
   final IlDuDecorationPlacementStore decorationStore;
+  final IlDuAnchorPlacementStore anchorPlacementStore;
 
   const IlDuWorldScreen({
     super.key,
@@ -30,6 +32,8 @@ class IlDuWorldScreen extends StatefulWidget {
     this.loadProjection,
     this.decorationStore =
         const SharedPreferencesIlDuDecorationPlacementStore(),
+    this.anchorPlacementStore =
+        const SharedPreferencesIlDuAnchorPlacementStore(),
   });
 
   @override
@@ -41,8 +45,11 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
   IlDuWorldManifest? _manifest;
   IlDuWorldProjection? _projection;
   List<IlDuDecorationPlacement> _placements = const <IlDuDecorationPlacement>[];
-  Map<String, int> _buildingDirections = const <String, int>{};
+  List<IlDuAnchorPlacement> _anchorPlacements = const <IlDuAnchorPlacement>[];
+  Map<String, Offset> _anchorPositions = const <String, Offset>{};
+  Map<String, int> _anchorDirections = const <String, int>{};
   String? _selectedBuildingId;
+  String? _selectedGateId;
   bool _decorating = false;
   bool _mapPositioned = false;
   Object? _loadError;
@@ -69,7 +76,15 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
       ]);
       final manifest = results[0] as IlDuWorldManifest;
       final legacyProjection = results[1] as PersonalHanokProjection;
-      final placements = await widget.decorationStore.load(manifest);
+      final savedPlacements = await Future.wait<Object>([
+        widget.decorationStore.load(manifest),
+        widget.anchorPlacementStore.load(manifest),
+      ]);
+      final placements = savedPlacements[0] as List<IlDuDecorationPlacement>;
+      final anchorPlacements = savedPlacements[1] as List<IlDuAnchorPlacement>;
+      final savedAnchors = <String, IlDuAnchorPlacement>{
+        for (final placement in anchorPlacements) placement.anchorId: placement,
+      };
       if (!mounted) {
         return;
       }
@@ -79,12 +94,30 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
           legacyProjection,
         );
         _placements = placements;
-        _buildingDirections = <String, int>{
-          for (final building in manifest.buildings)
-            if (ilduTurntableForBuilding(building.id) case final turntable?)
-              building.id: turntable.directionForDegrees(building.rotation),
+        _anchorPlacements = anchorPlacements;
+        _anchorDirections = <String, int>{
+          for (final anchor in <IlDuWorldAnchor>[
+            ...manifest.buildings,
+            ...manifest.gates,
+          ])
+            if (ilduTurntableForAnchor(anchor.id) case final turntable?)
+              anchor.id:
+                  savedAnchors[anchor.id]?.direction ??
+                  turntable.directionForDegrees(anchor.rotation),
+        };
+        _anchorPositions = <String, Offset>{
+          for (final anchor in <IlDuWorldAnchor>[
+            ...manifest.buildings,
+            ...manifest.gates,
+          ])
+            if (ilduTurntableForAnchor(anchor.id) != null)
+              anchor.id: Offset(
+                savedAnchors[anchor.id]?.x ?? anchor.x,
+                savedAnchors[anchor.id]?.y ?? anchor.y,
+              ),
         };
         _selectedBuildingId = manifest.buildings.first.id;
+        _selectedGateId = null;
         _mapPositioned = false;
       });
     } catch (error) {
@@ -107,6 +140,26 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
     }
   }
 
+  Future<void> _persistAnchorPlacements() async {
+    try {
+      await widget.anchorPlacementStore.save(_anchorPlacements);
+    } catch (_) {
+      if (!mounted) {
+        return;
+      }
+      final t = AppL10n.of(context);
+      soriToast(context, t.ilduWorldSaveError);
+    }
+  }
+
+  void _upsertAnchorPlacement(IlDuAnchorPlacement placement) {
+    _anchorPlacements = <IlDuAnchorPlacement>[
+      for (final current in _anchorPlacements)
+        if (current.anchorId != placement.anchorId) current,
+      placement,
+    ];
+  }
+
   void _openRoute(String route) {
     Navigator.of(context).pushNamed(route);
   }
@@ -114,22 +167,81 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
   void _selectBuilding(IlDuWorldBuilding building) {
     setState(() {
       _selectedBuildingId = building.id;
+      _selectedGateId = null;
       _decorating = false;
     });
   }
 
-  void _turnBuilding(String buildingId, int direction) {
-    final turntable = ilduTurntableForBuilding(buildingId);
+  void _selectGate(IlDuWorldGate gate) {
+    setState(() {
+      _selectedGateId = gate.id;
+      _decorating = false;
+    });
+  }
+
+  void _turnAnchor(String anchorId, int direction) {
+    final turntable = ilduTurntableForAnchor(anchorId);
+    final manifest = _manifest;
     if (turntable == null ||
+        manifest == null ||
         direction < 0 ||
         direction >= turntable.frames.length) {
       return;
     }
+    final anchor = <IlDuWorldAnchor>[
+      ...manifest.buildings,
+      ...manifest.gates,
+    ].firstWhere((candidate) => candidate.id == anchorId);
+    final position = _anchorPositions[anchorId] ?? Offset(anchor.x, anchor.y);
     setState(() {
-      _buildingDirections = <String, int>{
-        ..._buildingDirections,
-        buildingId: direction,
+      _anchorDirections = <String, int>{
+        ..._anchorDirections,
+        anchorId: direction,
       };
+      _upsertAnchorPlacement(
+        IlDuAnchorPlacement(
+          anchorId: anchorId,
+          x: position.dx,
+          y: position.dy,
+          direction: direction,
+        ),
+      );
+    });
+    unawaited(_persistAnchorPlacements());
+  }
+
+  void _moveAnchor(IlDuWorldAnchor anchor, Offset delta, Size mapSize) {
+    final turntable = ilduTurntableForAnchor(anchor.id);
+    if (turntable == null) {
+      return;
+    }
+    final currentPosition =
+        _anchorPositions[anchor.id] ?? Offset(anchor.x, anchor.y);
+    final direction =
+        _anchorDirections[anchor.id] ??
+        turntable.directionForDegrees(anchor.rotation);
+    final heightPercent =
+        (mapSize.width * anchor.width / 100 / turntable.mapAspectRatio) /
+        mapSize.height *
+        100;
+    final moved = moveIlDuAnchor(
+      placement: IlDuAnchorPlacement(
+        anchorId: anchor.id,
+        x: currentPosition.dx,
+        y: currentPosition.dy,
+        direction: direction,
+      ),
+      proposedX: currentPosition.dx + delta.dx / mapSize.width * 100,
+      proposedY: currentPosition.dy + delta.dy / mapSize.height * 100,
+      widthPercent: anchor.width,
+      heightPercent: heightPercent,
+    );
+    setState(() {
+      _anchorPositions = <String, Offset>{
+        ..._anchorPositions,
+        anchor.id: Offset(moved.x, moved.y),
+      };
+      _upsertAnchorPlacement(moved);
     });
   }
 
@@ -217,13 +329,18 @@ class _IlDuWorldScreenState extends State<IlDuWorldScreen> {
               manifest: manifest,
               projection: projection,
               selectedBuildingId: _selectedBuildingId!,
+              selectedGateId: _selectedGateId,
               decorating: _decorating,
               placements: _placements,
-              buildingDirections: _buildingDirections,
+              anchorPositions: _anchorPositions,
+              anchorDirections: _anchorDirections,
               mapController: _mapController,
               onPositionMap: _positionMapOnce,
               onSelectBuilding: _selectBuilding,
-              onTurnBuilding: _turnBuilding,
+              onSelectGate: _selectGate,
+              onTurnAnchor: _turnAnchor,
+              onMoveAnchor: _moveAnchor,
+              onFinishMoveAnchor: () => unawaited(_persistAnchorPlacements()),
               onStartDecorating: () => setState(() => _decorating = true),
               onFinishDecorating: () => setState(() => _decorating = false),
               onAddDecoration: _addDecoration,
@@ -239,13 +356,19 @@ class _WorldBody extends StatelessWidget {
   final IlDuWorldManifest manifest;
   final IlDuWorldProjection projection;
   final String selectedBuildingId;
+  final String? selectedGateId;
   final bool decorating;
   final List<IlDuDecorationPlacement> placements;
-  final Map<String, int> buildingDirections;
+  final Map<String, Offset> anchorPositions;
+  final Map<String, int> anchorDirections;
   final TransformationController mapController;
   final void Function(Size viewport, Size mapSize) onPositionMap;
   final ValueChanged<IlDuWorldBuilding> onSelectBuilding;
-  final void Function(String buildingId, int direction) onTurnBuilding;
+  final ValueChanged<IlDuWorldGate> onSelectGate;
+  final void Function(String anchorId, int direction) onTurnAnchor;
+  final void Function(IlDuWorldAnchor anchor, Offset delta, Size mapSize)
+  onMoveAnchor;
+  final VoidCallback onFinishMoveAnchor;
   final VoidCallback onStartDecorating;
   final VoidCallback onFinishDecorating;
   final ValueChanged<IlDuWorldDecoration> onAddDecoration;
@@ -262,13 +385,18 @@ class _WorldBody extends StatelessWidget {
     required this.manifest,
     required this.projection,
     required this.selectedBuildingId,
+    required this.selectedGateId,
     required this.decorating,
     required this.placements,
-    required this.buildingDirections,
+    required this.anchorPositions,
+    required this.anchorDirections,
     required this.mapController,
     required this.onPositionMap,
     required this.onSelectBuilding,
-    required this.onTurnBuilding,
+    required this.onSelectGate,
+    required this.onTurnAnchor,
+    required this.onMoveAnchor,
+    required this.onFinishMoveAnchor,
     required this.onStartDecorating,
     required this.onFinishDecorating,
     required this.onAddDecoration,
@@ -283,9 +411,13 @@ class _WorldBody extends StatelessWidget {
     final builtCount = manifest.buildings
         .where((building) => projection.isAvailable(building.unlockEra))
         .length;
-    final selected = manifest.buildings.firstWhere(
+    final selectedBuilding = manifest.buildings.firstWhere(
       (building) => building.id == selectedBuildingId,
     );
+    final selectedGate = selectedGateId == null
+        ? null
+        : manifest.gates.firstWhere((gate) => gate.id == selectedGateId);
+    final selectedAnchorId = selectedGate?.id ?? selectedBuilding.id;
     return Column(
       children: [
         _ProgressHeader(
@@ -325,11 +457,15 @@ class _WorldBody extends StatelessWidget {
                           child: _EstateMap(
                             manifest: manifest,
                             projection: projection,
-                            selectedBuildingId: selectedBuildingId,
+                            selectedAnchorId: selectedAnchorId,
                             placements: placements,
-                            buildingDirections: buildingDirections,
+                            anchorPositions: anchorPositions,
+                            anchorDirections: anchorDirections,
                             mapSize: mapSize,
                             onSelectBuilding: onSelectBuilding,
+                            onSelectGate: onSelectGate,
+                            onMoveAnchor: onMoveAnchor,
+                            onFinishMoveAnchor: onFinishMoveAnchor,
                             onMoveDecoration: onMoveDecoration,
                             onFinishMove: onFinishMove,
                           ),
@@ -368,19 +504,27 @@ class _WorldBody extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: _PlaceSheet(
-                  manifest: manifest,
-                  projection: projection,
-                  building: selected,
-                  decorating: decorating,
-                  onStartDecorating: onStartDecorating,
-                  onFinishDecorating: onFinishDecorating,
-                  onAddDecoration: onAddDecoration,
-                  direction: buildingDirections[selected.id],
-                  onDirectionChanged: (direction) =>
-                      onTurnBuilding(selected.id, direction),
-                  onOpenRoute: onOpenRoute,
-                ),
+                child: selectedGate == null
+                    ? _PlaceSheet(
+                        manifest: manifest,
+                        projection: projection,
+                        building: selectedBuilding,
+                        decorating: decorating,
+                        onStartDecorating: onStartDecorating,
+                        onFinishDecorating: onFinishDecorating,
+                        onAddDecoration: onAddDecoration,
+                        direction: anchorDirections[selectedBuilding.id],
+                        onDirectionChanged: (direction) =>
+                            onTurnAnchor(selectedBuilding.id, direction),
+                        onOpenRoute: onOpenRoute,
+                      )
+                    : _GateSheet(
+                        projection: projection,
+                        gate: selectedGate,
+                        direction: anchorDirections[selectedGate.id],
+                        onDirectionChanged: (direction) =>
+                            onTurnAnchor(selectedGate.id, direction),
+                      ),
               ),
             ],
           ),
@@ -450,22 +594,31 @@ class _ProgressHeader extends StatelessWidget {
 class _EstateMap extends StatelessWidget {
   final IlDuWorldManifest manifest;
   final IlDuWorldProjection projection;
-  final String selectedBuildingId;
+  final String selectedAnchorId;
   final List<IlDuDecorationPlacement> placements;
-  final Map<String, int> buildingDirections;
+  final Map<String, Offset> anchorPositions;
+  final Map<String, int> anchorDirections;
   final Size mapSize;
   final ValueChanged<IlDuWorldBuilding> onSelectBuilding;
+  final ValueChanged<IlDuWorldGate> onSelectGate;
+  final void Function(IlDuWorldAnchor anchor, Offset delta, Size mapSize)
+  onMoveAnchor;
+  final VoidCallback onFinishMoveAnchor;
   final void Function(IlDuDecorationPlacement, Offset, Size) onMoveDecoration;
   final VoidCallback onFinishMove;
 
   const _EstateMap({
     required this.manifest,
     required this.projection,
-    required this.selectedBuildingId,
+    required this.selectedAnchorId,
     required this.placements,
-    required this.buildingDirections,
+    required this.anchorPositions,
+    required this.anchorDirections,
     required this.mapSize,
     required this.onSelectBuilding,
+    required this.onSelectGate,
+    required this.onMoveAnchor,
+    required this.onFinishMoveAnchor,
     required this.onMoveDecoration,
     required this.onFinishMove,
   });
@@ -483,13 +636,7 @@ class _EstateMap extends StatelessWidget {
             filterQuality: FilterQuality.medium,
           ),
         ),
-        for (final gate in manifest.gates)
-          _MapAnchor(
-            anchor: gate,
-            mapSize: mapSize,
-            available: projection.isAvailable(gate.unlockEra),
-            assetPath: manifest.worldAsset(gate.asset),
-          ),
+        for (final gate in manifest.gates) _gateAnchor(gate),
         for (final building in manifest.buildings) _buildingAnchor(building),
         for (final placement in placements)
           _DecorationAnchor(
@@ -507,22 +654,50 @@ class _EstateMap extends StatelessWidget {
   }
 
   Widget _buildingAnchor(IlDuWorldBuilding building) {
-    final turntable = ilduTurntableForBuilding(building.id);
+    final turntable = ilduTurntableForAnchor(building.id);
     final direction =
-        buildingDirections[building.id] ??
+        anchorDirections[building.id] ??
         turntable?.directionForDegrees(building.rotation);
     return _MapAnchor(
       key: ValueKey('ildu-map-turntable-${building.id}-$direction'),
       anchor: building,
       mapSize: mapSize,
       available: projection.isAvailable(building.unlockEra),
-      selected: selectedBuildingId == building.id,
+      selected: selectedAnchorId == building.id,
+      position: anchorPositions[building.id],
       assetPath: manifest.worldAsset(building.asset),
       turntableFrame: turntable == null || direction == null
           ? null
           : turntable.frames[direction],
       turntableAspectRatio: turntable?.mapAspectRatio,
       onTap: () => onSelectBuilding(building),
+      onPanUpdate: (details) => onMoveAnchor(building, details.delta, mapSize),
+      onPanEnd: (_) => onFinishMoveAnchor(),
+      onPanCancel: onFinishMoveAnchor,
+    );
+  }
+
+  Widget _gateAnchor(IlDuWorldGate gate) {
+    final turntable = ilduTurntableForAnchor(gate.id);
+    final direction =
+        anchorDirections[gate.id] ??
+        turntable?.directionForDegrees(gate.rotation);
+    return _MapAnchor(
+      key: ValueKey('ildu-map-turntable-${gate.id}-$direction'),
+      anchor: gate,
+      mapSize: mapSize,
+      available: projection.isAvailable(gate.unlockEra),
+      selected: selectedAnchorId == gate.id,
+      position: anchorPositions[gate.id],
+      assetPath: manifest.worldAsset(gate.asset),
+      turntableFrame: turntable == null || direction == null
+          ? null
+          : turntable.frames[direction],
+      turntableAspectRatio: turntable?.mapAspectRatio,
+      onTap: () => onSelectGate(gate),
+      onPanUpdate: (details) => onMoveAnchor(gate, details.delta, mapSize),
+      onPanEnd: (_) => onFinishMoveAnchor(),
+      onPanCancel: onFinishMoveAnchor,
     );
   }
 }
@@ -533,9 +708,13 @@ class _MapAnchor extends StatelessWidget {
   final bool available;
   final bool selected;
   final String assetPath;
+  final Offset? position;
   final IlDuTurntableFrame? turntableFrame;
   final double? turntableAspectRatio;
   final VoidCallback? onTap;
+  final GestureDragUpdateCallback? onPanUpdate;
+  final GestureDragEndCallback? onPanEnd;
+  final GestureDragCancelCallback? onPanCancel;
 
   const _MapAnchor({
     super.key,
@@ -543,15 +722,20 @@ class _MapAnchor extends StatelessWidget {
     required this.mapSize,
     required this.available,
     required this.assetPath,
+    this.position,
     this.turntableFrame,
     this.turntableAspectRatio,
     this.selected = false,
     this.onTap,
+    this.onPanUpdate,
+    this.onPanEnd,
+    this.onPanCancel,
   });
 
   @override
   Widget build(BuildContext context) {
     final width = mapSize.width * anchor.width / 100;
+    final center = position ?? Offset(anchor.x, anchor.y);
     final frame = turntableFrame;
     final image = frame == null
         ? Image.asset(
@@ -613,8 +797,8 @@ class _MapAnchor extends StatelessWidget {
       ],
     );
     return Positioned(
-      left: mapSize.width * anchor.x / 100,
-      top: mapSize.height * anchor.y / 100,
+      left: mapSize.width * center.dx / 100,
+      top: mapSize.height * center.dy / 100,
       child: FractionalTranslation(
         translation: const Offset(-.5, -.5),
         child: Transform.rotate(
@@ -627,6 +811,9 @@ class _MapAnchor extends StatelessWidget {
                   child: GestureDetector(
                     behavior: HitTestBehavior.opaque,
                     onTap: onTap,
+                    onPanUpdate: available ? onPanUpdate : null,
+                    onPanEnd: available ? onPanEnd : null,
+                    onPanCancel: available ? onPanCancel : null,
                     child: ConstrainedBox(
                       constraints: const BoxConstraints(
                         minWidth: 48,
@@ -695,6 +882,168 @@ class _DecorationAnchor extends StatelessWidget {
   }
 }
 
+class _GateSheet extends StatelessWidget {
+  final IlDuWorldProjection projection;
+  final IlDuWorldGate gate;
+  final int? direction;
+  final ValueChanged<int> onDirectionChanged;
+
+  const _GateSheet({
+    required this.projection,
+    required this.gate,
+    required this.direction,
+    required this.onDirectionChanged,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppL10n.of(context);
+    final available = projection.isAvailable(gate.unlockEra);
+    final turntable = ilduTurntableForAnchor(gate.id);
+    final turntableDirection =
+        direction ?? turntable?.directionForDegrees(gate.rotation);
+    final showsTurntable =
+        available && turntable != null && turntableDirection != null;
+    return Material(
+      elevation: 18,
+      color: Theme.of(context).colorScheme.surface,
+      borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+      clipBehavior: Clip.antiAlias,
+      child: SafeArea(
+        top: false,
+        child: SizedBox(
+          height: showsTurntable
+              ? Spacing.xxxl * 5 + Spacing.xl
+              : Spacing.xxxl * 4,
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(
+              Spacing.lg,
+              Spacing.sm,
+              Spacing.lg,
+              Spacing.md,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Container(
+                    width: 38,
+                    height: 4,
+                    decoration: BoxDecoration(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.onSurface.withValues(alpha: .18),
+                      borderRadius: SoriRadius.brPill,
+                    ),
+                  ),
+                ),
+                const SizedBox(height: Spacing.sm),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            gate.unlockEra.code.toUpperCase(),
+                            style: SoriTextTheme.of(
+                              context,
+                            ).eyebrow.copyWith(color: SoriColors.primaryDark),
+                          ),
+                          Text(
+                            gate.ko,
+                            style: SoriTextTheme.of(context).cultureTitle,
+                          ),
+                        ],
+                      ),
+                    ),
+                    _StateLabel(
+                      label: available
+                          ? t.ilduWorldOpenState
+                          : t.ilduWorldPlannedState,
+                      available: available,
+                    ),
+                  ],
+                ),
+                if (showsTurntable) ...[
+                  const SizedBox(height: Spacing.sm),
+                  SizedBox(
+                    height: 118,
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: SoriSurfaces.of(context).surfaceAlt,
+                              borderRadius: SoriRadius.brMd,
+                              border: Border.all(
+                                color: SoriColors.primary.withValues(
+                                  alpha: .18,
+                                ),
+                              ),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(Spacing.xs),
+                              child: HanokTurntable2D(
+                                key: ValueKey('ildu-turntable-${gate.id}'),
+                                frames: turntable.frames,
+                                direction: turntableDirection,
+                                onDirectionChanged: onDirectionChanged,
+                                semanticsLabel:
+                                    '${gate.ko}. ${t.ilduWorldRotateBuildingHint}',
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: Spacing.sm),
+                        SizedBox(
+                          width: 104,
+                          child: Text(
+                            t.ilduWorldRotateBuildingHint,
+                            style: SoriTextTheme.of(context).caption.copyWith(
+                              color: Theme.of(
+                                context,
+                              ).colorScheme.onSurfaceVariant,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: Spacing.sm),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Text(
+                        t.ilduWorldGateHeritageDetail,
+                        style: SoriTextTheme.of(context).caption.copyWith(
+                          color: Theme.of(context).colorScheme.onSurfaceVariant,
+                        ),
+                      ),
+                    ),
+                  ),
+                ] else ...[
+                  const SizedBox(height: Spacing.md),
+                  Text(
+                    t.ilduWorldLockedTitle(gate.unlockEra.code.toUpperCase()),
+                    style: SoriTextTheme.of(context).cardTitle,
+                  ),
+                  Text(
+                    t.ilduWorldLockedBody,
+                    style: SoriTextTheme.of(context).caption.copyWith(
+                      color: Theme.of(context).colorScheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _PlaceSheet extends StatelessWidget {
   final IlDuWorldManifest manifest;
   final IlDuWorldProjection projection;
@@ -725,7 +1074,7 @@ class _PlaceSheet extends StatelessWidget {
     final t = AppL10n.of(context);
     final hub = manifest.hubFor(building.hubId);
     final available = projection.isAvailable(building.unlockEra);
-    final turntable = ilduTurntableForBuilding(building.id);
+    final turntable = ilduTurntableForAnchor(building.id);
     final turntableDirection =
         direction ?? turntable?.directionForDegrees(building.rotation);
     final showsTurntable =

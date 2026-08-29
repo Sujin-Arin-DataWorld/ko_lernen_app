@@ -3549,7 +3549,8 @@
   "hanokWorldTitle": "Meine Hanok-Welt",
   "ilduWorldTitle": "Mein Ildu Gotaek",
   "ilduWorldPanHint": "Wische seitwärts, um den nächsten Hof zu sehen.",
-  "ilduWorldRotateBuildingHint": "Wische über das Gebäude, um es zu drehen.",
+  "ilduWorldRotateBuildingHint": "Ziehe es auf der Karte an seinen Platz; wische über die Vorschau, um es zu drehen.",
+  "ilduWorldGateHeritageDetail": "Außen bleiben die Spruchtafeln 忠孝傳家 erhalten; innen hängen fünf Jeongnyeo-Gedenktafeln über dem Tor.",
   "ilduWorldEvidenceNote": "Nur bestätigtes Lernen lässt Gebäude erscheinen.",
   "ilduWorldBuiltCount": "{built} von {total} Gebäuden",
   "@ilduWorldBuiltCount": {
