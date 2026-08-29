@@ -1,0 +1,354 @@
+{
+  "subject": "ildu_sadang",
+  "status": "pending_review_only",
+  "camera_elevation_degrees": 28,
+  "azimuth_interval_degrees": 45,
+  "raw_sources": [
+    {
+      "file": "generated_source/individual/ildu_sadang_000_front_raw.png",
+      "sha256": "61B7BF34BB5974C7FD9BB442315805499CAF2CB60ABE4B658CD80D7A038A5D2D",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadang_045_front_right_raw.png",
+      "sha256": "ACFD03B8B01A8E3FDB22F276C0B8B7285ABB50EA6FC3E931E1D462558DE09850",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadang_090_right_raw.png",
+      "sha256": "5ABAAB352F0097F99D4E9272DD5A01C01D1FBF92FFA27A65A05FB7922204BA1D",
+      "size": [
+        1054,
+        1492
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadang_135_rear_right_raw.png",
+      "sha256": "148A4B79F47003C690055DA99D28C310E314C0F53C561B14F9844C055CD02DF8",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadang_180_rear_raw.png",
+      "sha256": "377F8A8DBB2ECB2733C0E3058D086123B832AA8D995A94DB91B09D9F97E87E6A",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadang_225_rear_left_raw.png",
+      "sha256": "6E8234D06750BE6D81D9EDB4DD7CDCD882A1FD662446A34740DA88E4AFACBAA3",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadang_270_left_raw.png",
+      "sha256": "F9FBF3824B8AA36DE00582DF99C2361AB0381DBB453DED87B82CACBE9BE2F9C5",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    },
+    {
+      "file": "generated_source/individual/ildu_sadang_315_front_left_raw.png",
+      "sha256": "AD35FF1091C982788AB24EE51E8A0E7A6815EFB28A3CC8D2C91A177BADBDEB8D",
+      "size": [
+        1086,
+        1448
+      ],
+      "mode": "RGB"
+    }
+  ],
+  "raw_source_note": "Image generator returned an RGB audit source with a baked preview background; it is not a runtime-ready deliverable.",
+  "sheet": "ildu_sadang_turnaround_sheet.png",
+  "sheet_size": [
+    1536,
+    1024
+  ],
+  "sheet_mode": "RGBA",
+  "sheet_sha256": "2380164215B37A296307501767E9B4016E50F9EAA57B8E8D3B0AD760B5FF8785",
+  "normalization_mode": "equal_content_height_from_individual_high_resolution_sources",
+  "safe_content_size": [
+    352,
+    448
+  ],
+  "baseline_y": 488,
+  "references": [
+    {
+      "file": "references/blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_배면도.jpg",
+      "sha256": "F5311820FA49FD9B517C62E67ECC8605B94D338C1FA6915D4938ECB14D6BD4FE",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "references/blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_우측면도.jpg",
+      "sha256": "04D730B44A4199EC8FD8FA2E477D108CC1FB0C7C9D8F934DF8928001A83C4A9C",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "references/blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_정면도.jpg",
+      "sha256": "6CBDB96DE2C3F7C0BE03BD7991C2842571BF75E1FE76D56583E9A401BB707540",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "references/blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_좌측면도.jpg",
+      "sha256": "4EEC75E333763F7AD6CAD119C01A989ECB5B2A6F4C8160707CDF717698DD941D",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "references/blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_지붕평면도.jpg",
+      "sha256": "FCDE8A8EFBD7048477EB78756DE42C394C951CF37C9ABC7F62E861A779F60A26",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "references/blueprint_evidence_도면_국가민속문화재_함양_일두_고택_기록화사업_사당_평면도.jpg",
+      "sha256": "633D5E22E7633B3EBF9F7D19DD3FD18FE57C20A38D6811C381315C95F3C541C2",
+      "role": "blueprint_evidence_only",
+      "used_as_model_input": false
+    },
+    {
+      "file": "references/imagegen_reference_user_sadang_closeup_photo.png",
+      "sha256": "7415222D0712B09539989007CB27EC3A1304DF60227BAD64EDBF2D3CA095BC4D",
+      "role": "imagegen_reference",
+      "used_as_model_input": true
+    },
+    {
+      "file": "references/imagegen_reference_user_sadang_oblique_photo.png",
+      "sha256": "E83C5696535367851C43272B9D4AC7A5682B2B1331167895E99B0B2AB03798DF",
+      "role": "imagegen_reference",
+      "used_as_model_input": true
+    },
+    {
+      "file": "references/imagegen_reference_v02_turnaround.png",
+      "sha256": "D47F2D72E23F0F747FF2B4640F274858A9D029261914456D16731C5628BAE321",
+      "role": "imagegen_reference",
+      "used_as_model_input": true
+    },
+    {
+      "file": "references/source_sadang_try02_oneroof.png",
+      "sha256": "DA4E8DD3ABE6F362E6AACF2EBA90B6C41C88E3D9890DF6038487C11C817C197C",
+      "role": "imagegen_reference",
+      "used_as_model_input": true,
+      "canonical_file": "sadang_try02_oneroof.png",
+      "canonical_sha256": "DA4E8DD3ABE6F362E6AACF2EBA90B6C41C88E3D9890DF6038487C11C817C197C",
+      "exact_copy": true
+    },
+    {
+      "file": "references/source_sadang_try03_oblique.png",
+      "sha256": "7F7A90F2486ACA7A6BA60B43B0C1B127B5F989FCC8E7FC1386BBFD4640E20A6E",
+      "role": "imagegen_reference",
+      "used_as_model_input": true,
+      "canonical_file": "sadang_try03_oblique.png",
+      "canonical_sha256": "7F7A90F2486ACA7A6BA60B43B0C1B127B5F989FCC8E7FC1386BBFD4640E20A6E",
+      "exact_copy": true
+    }
+  ],
+  "tiles": [
+    {
+      "degrees": 0,
+      "direction": "front",
+      "file": "transparent_views/ildu_sadang_000_front.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 87326,
+      "content_bbox": [
+        16,
+        188,
+        368,
+        488
+      ],
+      "sha256": "6B62EA15D6458652914225391B7FC5DF2DE4C2A6DFFE38ADE73D83C9C3976A94",
+      "source_scale": 0.32683379758588677
+    },
+    {
+      "degrees": 45,
+      "direction": "front_right",
+      "file": "transparent_views/ildu_sadang_045_front_right.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 74790,
+      "content_bbox": [
+        22,
+        188,
+        362,
+        488
+      ],
+      "sha256": "851D2B956379D83094303DF28516874F1E84D8C06FF0E6DAFDDD7CBA71B8C912",
+      "source_scale": 0.3164909558901308
+    },
+    {
+      "degrees": 90,
+      "direction": "right",
+      "file": "transparent_views/ildu_sadang_090_right.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 53737,
+      "content_bbox": [
+        59,
+        188,
+        324,
+        488
+      ],
+      "sha256": "ED5C204A603EE84CDFBD2801D3BE7015AEA4B992A312A24816D7A9DE85115934",
+      "source_scale": 0.2788414741485539
+    },
+    {
+      "degrees": 135,
+      "direction": "rear_right",
+      "file": "transparent_views/ildu_sadang_135_rear_right.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 68717,
+      "content_bbox": [
+        30,
+        188,
+        353,
+        488
+      ],
+      "sha256": "2AD19621A754DCFA4909A3F366225B22EB7E7C64EDF144D1F8F836567A7E984C",
+      "source_scale": 0.30184449314270023
+    },
+    {
+      "degrees": 180,
+      "direction": "rear",
+      "file": "transparent_views/ildu_sadang_180_rear.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 86096,
+      "content_bbox": [
+        16,
+        188,
+        368,
+        488
+      ],
+      "sha256": "F2C11EB7142D09ADF76E4ADEC498EBFCC931134D0521BE6DBAD01555C92464A1",
+      "source_scale": 0.3240101794641944
+    },
+    {
+      "degrees": 225,
+      "direction": "rear_left",
+      "file": "transparent_views/ildu_sadang_225_rear_left.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 66558,
+      "content_bbox": [
+        35,
+        188,
+        349,
+        488
+      ],
+      "sha256": "6D97172E47C075F46E0BB72D7FF19E14370EC9A33824E00D3266777B3F84301C",
+      "source_scale": 0.29913601812945567
+    },
+    {
+      "degrees": 270,
+      "direction": "left",
+      "file": "transparent_views/ildu_sadang_270_left.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 59624,
+      "content_bbox": [
+        48,
+        188,
+        336,
+        488
+      ],
+      "sha256": "3EE5BED121B209605353CC601E76E1461A4188AB13D586D7D90B082F975E170F",
+      "source_scale": 0.2896075542315097
+    },
+    {
+      "degrees": 315,
+      "direction": "front_left",
+      "file": "transparent_views/ildu_sadang_315_front_left.png",
+      "size": [
+        384,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nontransparent_pixels": 73111,
+      "content_bbox": [
+        32,
+        188,
+        352,
+        488
+      ],
+      "sha256": "4265699751D65C2BA150B6165019AD9B2434ECC2E64C3AAA22E069A990CC3E91",
+      "source_scale": 0.2950181181748712
+    }
+  ]
+}
