@@ -179,6 +179,58 @@ void main() {
     semantics.dispose();
   });
 
+  testWidgets('V2 final commit never exposes the generic guide loading state', (
+    tester,
+  ) async {
+    final state = OnboardingJourneyState.initial(DateTime.utc(2026, 8, 26, 12))
+        .copyWith(
+          phase: OnboardingPhase.confirmation,
+          storyPage: StoryPageId.heritageJourney,
+          purposeDraft: OnboardingPurpose.dailyTravel,
+          levelDraft: LearnerLevel.a1,
+          companionDraft: OnboardingCompanion.taego,
+        );
+    final repository = _MemoryJourneyRepository(state);
+    final coordinator = _coordinator(repository: repository);
+
+    await _pumpEntry(
+      tester,
+      OnboardingV2JourneyScreen(
+        firstRunCoordinator: coordinator,
+        initialResolution: FirstRunResolution(
+          entry: FirstRunEntry.confirmation,
+          state: state,
+          migratedLegacyState: false,
+        ),
+      ),
+      locale: const Locale('de'),
+      viewport: const (size: Size(390, 844), textScale: 1),
+      disableAnimations: false,
+    );
+    await _pumpUntilFound(
+      tester,
+      find.byKey(const ValueKey('onboarding-v2-confirmation-start')),
+    );
+
+    await tester.tap(
+      find.byKey(const ValueKey('onboarding-v2-confirmation-start')),
+    );
+    var reachedGate = false;
+    for (var frame = 0; frame < 80; frame++) {
+      await tester.pump(const Duration(milliseconds: 16));
+      expect(
+        find.text('Deine Anleitung wird vorbereitet …'),
+        findsNothing,
+        reason: 'The durable gate state must not reuse initial-load UI.',
+      );
+      if (find.byType(IntroGateScreen).evaluate().isNotEmpty) {
+        reachedGate = true;
+        break;
+      }
+    }
+    expect(reachedGate, isTrue);
+  });
+
   testWidgets(
     'V2 load failure announces the error and retry recovers into the story',
     (tester) async {
@@ -1034,6 +1086,11 @@ class _LegacyReader implements LegacyOnboardingStateReader {
 }
 
 class _CommitGateway implements OnboardingCommitGateway {
+  OnboardingPurpose? purpose;
+  LearnerLevel? placement;
+  LearnerLevel? browse;
+  OnboardingCompanion? companion;
+
   @override
   Future<bool> hasConsent() async => true;
 
@@ -1041,7 +1098,9 @@ class _CommitGateway implements OnboardingCommitGateway {
   Future<void> initializePlacement(
     LearnerLevel level, {
     String? expectedGeneration,
-  }) async {}
+  }) async {
+    placement = level;
+  }
 
   @override
   Future<bool> isLegacyOnboardingComplete() async => true;
@@ -1050,27 +1109,33 @@ class _CommitGateway implements OnboardingCommitGateway {
   Future<void> markLegacyOnboardingComplete() async {}
 
   @override
-  Future<OnboardingCompanion?> readCompanion() async => null;
+  Future<OnboardingCompanion?> readCompanion() async => companion;
 
   @override
   Future<OnboardingPlacementSnapshot> readPlacement() async {
-    return const OnboardingPlacementSnapshot(
-      placementLevel: null,
-      browseLevel: null,
+    return OnboardingPlacementSnapshot(
+      placementLevel: placement,
+      browseLevel: browse,
     );
   }
 
   @override
-  Future<OnboardingPurpose?> readPurpose() async => null;
+  Future<OnboardingPurpose?> readPurpose() async => purpose;
 
   @override
-  Future<void> saveCompanion(OnboardingCompanion companion) async {}
+  Future<void> saveCompanion(OnboardingCompanion companion) async {
+    this.companion = companion;
+  }
 
   @override
-  Future<void> savePurpose(OnboardingPurpose purpose) async {}
+  Future<void> savePurpose(OnboardingPurpose purpose) async {
+    this.purpose = purpose;
+  }
 
   @override
-  Future<void> synchronizeBrowseLevel(LearnerLevel level) async {}
+  Future<void> synchronizeBrowseLevel(LearnerLevel level) async {
+    browse = level;
+  }
 }
 
 Future<void> _centerInScrollable(WidgetTester tester, Finder finder) async {

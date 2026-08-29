@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import unicodedata
 from pathlib import Path
 from typing import Any
 
@@ -972,6 +973,40 @@ def project_key(project_id: str) -> str:
     return project_id.removeprefix("project_").removesuffix("_v1")
 
 
+def _dictation_surface_key(value: str) -> str:
+    return "".join(
+        char
+        for char in value
+        if not char.isspace() and not unicodedata.category(char).startswith("P")
+    )
+
+
+def reviewed_dictation_variants(
+    canonical: str,
+    additional: Any,
+) -> list[str]:
+    """Return the canonical plus reviewed spacing/punctuation-only variants."""
+    if additional is None:
+        return [canonical]
+    if (
+        not isinstance(additional, list)
+        or not additional
+        or any(
+            not isinstance(value, str)
+            or not value.strip()
+            or value != value.strip()
+            for value in additional
+        )
+    ):
+        raise ValueError("dictation acceptedVariants must be trimmed nonempty strings")
+    if canonical in additional or len(additional) != len(set(additional)):
+        raise ValueError("dictation acceptedVariants must be additional unique values")
+    canonical_key = _dictation_surface_key(canonical)
+    if any(_dictation_surface_key(value) != canonical_key for value in additional):
+        raise ValueError("dictation acceptedVariants must preserve the lexical sequence")
+    return [canonical, *additional]
+
+
 def basic_definition(segment: dict[str, Any]) -> dict[str, Any]:
     requirement = segment["assessmentRequirements"][0]
     mode = requirement["evidenceMode"]
@@ -991,7 +1026,10 @@ def basic_definition(segment: dict[str, Any]) -> dict[str, Any]:
         criteria = [{
             "id": "dictated_utterance",
             "kind": "exactAnswer",
-            "acceptedVariants": [example],
+            "acceptedVariants": reviewed_dictation_variants(
+                example,
+                spec.get("acceptedVariants"),
+            ),
             "weight": 1,
             "requiredForPass": True,
         }]

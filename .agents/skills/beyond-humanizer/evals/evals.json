@@ -2,6 +2,7 @@
   {
     "id": "l1-honorific-lenses",
     "directions": ["ko-en", "ko-de"],
+    "modes": ["translate"],
     "phenomena": ["honorification", "addressee-politeness", "l1-transfer"],
     "query": "Explain 선생님이 지금 오세요 versus 저는 지금 가요 separately for English-L1 and German-L1 A2 learners.",
     "expected_behavior": [
@@ -20,6 +21,7 @@
   {
     "id": "culture-jeong",
     "directions": ["ko-en", "ko-de"],
+    "modes": ["translate"],
     "phenomena": ["culture", "lexical-gap", "aspect"],
     "query": "Translate and explain 처음에는 어색했지만 자주 만나면서 정이 들었어요 for English-L1 and German-L1 learners.",
     "expected_behavior": [
@@ -38,15 +40,18 @@
   {
     "id": "authority-and-cloze-quality",
     "directions": ["ko-en", "ko-de"],
+    "modes": ["translate"],
     "phenomena": ["institutional-authority", "metaphor", "pedagogy"],
     "query": "Translate 금액이 제 권한을 넘어서 위로 올려야 해요 without inventing roles, then repair a 맞장구 cloze with distractors 농담, 박수, 안부.",
     "expected_behavior": [
       "Selects an authority or approval frame instead of a spatial calque",
-      "Detects 박수 as an alternative valid collocation and repairs the item"
+      "Detects 박수 as an alternative valid collocation and repairs the item",
+      "Uses a compact natural scene rather than enumerating or negating distractor meanings in the stem"
     ],
     "forbidden_implications": [
       "Does not invent a manager, supervisor, signer, or undocumented workflow",
-      "Does not create uniqueness through obviously ungrammatical distractors"
+      "Does not create uniqueness through obviously ungrammatical distractors",
+      "Does not turn the stem into an answer-elimination explanation"
     ],
     "accepted_variants": ["EN requires approval at a higher authority level", "DE muss an eine höhere Entscheidungsebene weitergegeben werden"],
     "unresolved_fields": ["Approver identity", "Organization procedure"],
@@ -56,6 +61,7 @@
   {
     "id": "ko-zero-anaphora-reference",
     "directions": ["ko-en", "ko-de"],
+    "modes": ["translate"],
     "phenomena": ["zero-anaphora", "reported-speech", "reference"],
     "query": "Translate 현우가 민지에게 자료를 보냈어요. 검토하고 연락하겠대요 into one learner-facing English and German version without preceding context.",
     "expected_behavior": [
@@ -75,6 +81,7 @@
   {
     "id": "en-de-to-ko-pronoun-honorific",
     "directions": ["en-ko", "de-ko"],
+    "modes": ["translate"],
     "phenomena": ["pronoun", "honorification", "speech-level"],
     "query": "Independently translate EN Could you give this to her when you see her? I already told her. and DE Könntest du ihr das geben, wenn du sie siehst? Ich habe es ihr schon gesagt. Context: her is 팀장님; speaker and coworker use 해요체.",
     "expected_behavior": [
@@ -94,6 +101,7 @@
   {
     "id": "come-go-continuing-state-and-relationship",
     "directions": ["en-ko", "de-ko"],
+    "modes": ["translate"],
     "phenomena": ["deixis", "continuing-state", "relationship"],
     "query": "Translate EN I’ll come to your office tomorrow. I’ve lived in Seoul for three years. and DE Ich komme morgen in dein Büro. Ich lebe seit drei Jahren in Seoul. Scene: speaker is elsewhere, listener works at the office, and the Seoul residence continues; Korean relationship is unspecified.",
     "expected_behavior": [
@@ -113,6 +121,7 @@
   {
     "id": "simultaneous-late-predicate-negation",
     "directions": ["ko-en", "ko-de"],
+    "modes": ["interpret"],
     "phenomena": ["simultaneous-interpreting", "late-predicate", "negation"],
     "query": "Interpret streamed Korean 1 이번 결정은 / 2 검토 결과를 바탕으로 / 3 철회하는 것이 아니라 / 4 다음 달까지 시행을 보류하겠습니다 into booth-ready EN and DE without retracting spoken words.",
     "expected_behavior": [
@@ -132,6 +141,7 @@
   {
     "id": "de-modal-particle-context",
     "directions": ["de-ko"],
+    "modes": ["translate"],
     "phenomena": ["modal-particle", "common-ground", "invitation"],
     "query": "Translate A friendly invitation Komm doch mal vorbei and B shared-ground reminder Du weißt doch, dass der Termin morgen ist into Korean, explaining the different functions.",
     "expected_behavior": [
@@ -151,6 +161,7 @@
   {
     "id": "ko-en-layered-report-source",
     "directions": ["ko-en"],
+    "modes": ["translate"],
     "phenomena": ["evidentiality", "report-chain", "attachment"],
     "query": "Translate 팀에서 일정이 바뀔 수도 있다고 하던데, 아직 확정된 건 아니래요.",
     "expected_behavior": [
@@ -170,6 +181,7 @@
   {
     "id": "ko-en-indirect-refusal-commitment",
     "directions": ["ko-en"],
+    "modes": ["translate"],
     "phenomena": ["indirect-refusal", "commitment", "facework"],
     "query": "Translate 오늘은 좀 어려울 것 같고요. 제가 다시 연락드릴게요.",
     "expected_behavior": [
@@ -189,6 +201,7 @@
   {
     "id": "ko-en-inferential-self-regret",
     "directions": ["ko-en"],
+    "modes": ["translate"],
     "phenomena": ["inferential", "self-directed", "regret"],
     "query": "Translate 괜히 말했나 봐요.",
     "expected_behavior": [
@@ -208,6 +221,7 @@
   {
     "id": "en-ko-still-plan-status",
     "directions": ["en-ko"],
+    "modes": ["translate"],
     "phenomena": ["presupposition", "still", "plan-status"],
     "query": "Translate If you happen to see Alex, could you ask them whether they're still coming? Relationship and Alex's gender are unspecified.",
     "expected_behavior": [
@@ -227,6 +241,7 @@
   {
     "id": "en-ko-could-polite-request",
     "directions": ["en-ko"],
+    "modes": ["translate"],
     "phenomena": ["modal-force", "polite-request", "ability"],
     "query": "Translate Could you send me the revised file when you have a moment? Relationship is unspecified.",
     "expected_behavior": [
@@ -246,6 +261,7 @@
   {
     "id": "en-ko-reported-delay-distance",
     "directions": ["en-ko"],
+    "modes": ["translate"],
     "phenomena": ["evidentiality", "reported-information", "distance"],
     "query": "Translate Apparently the launch has been delayed, but nothing has been officially announced.",
     "expected_behavior": [
@@ -265,6 +281,7 @@
   {
     "id": "ko-de-layered-report-source",
     "directions": ["ko-de"],
+    "modes": ["translate"],
     "phenomena": ["evidentiality", "report-chain", "attachment"],
     "query": "Translate 팀에서 일정이 바뀔 수도 있다고 하던데, 아직 확정된 건 아니래요.",
     "expected_behavior": [
@@ -284,6 +301,7 @@
   {
     "id": "ko-de-initiative-meonjeo",
     "directions": ["ko-de"],
+    "modes": ["translate"],
     "phenomena": ["initiative", "relationship", "speech-level"],
     "query": "Translate 제가 먼저 연락드릴게요. The relationship is unspecified.",
     "expected_behavior": [
@@ -303,6 +321,7 @@
   {
     "id": "ko-de-culture-meal-check",
     "directions": ["ko-de"],
+    "modes": ["translate"],
     "phenomena": ["culture", "phatic-care", "speech-act"],
     "query": "Translate and explain 밥 먹었어요? in a scene where a familiar person checks on someone's wellbeing rather than requesting a meal report.",
     "expected_behavior": [
@@ -322,6 +341,7 @@
   {
     "id": "de-ko-kannst-ja-option",
     "directions": ["de-ko"],
+    "modes": ["translate"],
     "phenomena": ["modal-particle", "optional-suggestion", "permission"],
     "query": "Translate Du kannst ja morgen noch mal nachfragen, wenn du willst. Relationship is unspecified.",
     "expected_behavior": [
@@ -341,6 +361,7 @@
   {
     "id": "de-ko-konjunktiv-reporting",
     "directions": ["de-ko"],
+    "modes": ["translate"],
     "phenomena": ["konjunktiv-i", "reported-speech", "source"],
     "query": "Translate Laut dem Bericht sei die Lage stabil, weitere Daten fehlten aber noch. No reporter or responsible actor is named.",
     "expected_behavior": [
@@ -360,6 +381,7 @@
   {
     "id": "de-ko-erst-scalar-threshold",
     "directions": ["de-ko"],
+    "modes": ["translate"],
     "phenomena": ["presupposition", "scalar-particle", "temporal-threshold"],
     "query": "Translate Die Entscheidung fällt erst nächste Woche. Relationship is unspecified.",
     "expected_behavior": [
@@ -375,5 +397,481 @@
     "severity_if_failed": "major",
     "baseline_observation": "Forward v3 evaluation targeting scalar presupposition.",
     "green_observation": "Passed the v3 matrix audit with the not-before-next-week threshold preserved."
+  },
+  {
+    "id": "author-workplace-baekse-cheongpung",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["author-ko", "localize-triad", "audit-triad", "item-variants"],
+    "phenomena": ["modern-korean", "workplace", "heritage-reflection", "semantic-variants"],
+    "query": "AUTHOR+AUDIT a B1 response to an equal coworker who suggests letting a questionable issue pass; connect the learning reflection to 백세청풍 without forcing the plaque name into dialogue.",
+    "expected_behavior": [
+      "Authors a natural haeyo-style response grounded in the coworker's prior turn",
+      "Keeps 백세청풍 in a bounded reflection on the learner's choice",
+      "Localizes English and de-DE independently from the same PIVOT"
+    ],
+    "forbidden_implications": [
+      "Does not invent a manager, mandatory reporting workflow, or deliberate concealment",
+      "Does not place 백세청풍 in ordinary workplace dialogue"
+    ],
+    "accepted_variants": ["Natural semantic variants that prefer truthful disclosure while preserving coworker-level force"],
+    "unresolved_fields": ["Recipient of any later disclosure", "Organization procedure"],
+    "severity_if_failed": "critical",
+    "scene_contract": {
+      "channel": "face-to-face dialogue",
+      "relationship": "equal coworkers",
+      "power": "equal",
+      "familiarity": "familiar but not intimate",
+      "speech_style": "haeyo",
+      "cefr": "B1",
+      "task_type": "open production"
+    },
+    "variant_policy": "semantic",
+    "evidence_expectation": "human_required",
+    "triad_invariants": ["truthful disclosure preference", "non-command force", "equal-coworker distance"],
+    "baseline_observation": "Current-v3 blind run authored a strong triad but used generic PASS rather than MODEL_QA_PASS and did not expose the semantic variant policy as a contract."
+  },
+  {
+    "id": "author-friend-takcheongjae-delay",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["author-ko", "localize-triad", "audit-triad", "item-variants"],
+    "phenomena": ["banmal", "private-chat", "emotion-regulation", "heritage-reflection"],
+    "query": "AUTHOR+AUDIT a close friend's text reply that delays answering because the speaker may respond too emotionally or speak without enough restraint; connect 탁청재 only through later reflection.",
+    "expected_behavior": [
+      "Uses natural banmal supported by the close-friend Scene Lock",
+      "Keeps the emotional state unresolved while explaining a self-imposed pause",
+      "Treats 감정적으로 말하다, 말을 막 하다, and 말이 세게 나가다 as possible delivery-risk variants rather than claims of actual anger",
+      "Provides semantic variants and independent English/de-DE localizations"
+    ],
+    "forbidden_implications": [
+      "Does not claim the speaker is or is not angry",
+      "Does not speak the heritage label as part of the friend's reply"
+    ],
+    "accepted_variants": [
+      "Banmal variants preserving delayed reply and avoidance of emotionally uncontrolled or overly blunt wording",
+      "지금 답하면 내가 말을 너무 막 할 것 같아서. 조금만 생각하고 연락할게."
+    ],
+    "unresolved_fields": ["Whether the speaker is angry", "Exact delay length"],
+    "severity_if_failed": "major",
+    "scene_contract": {
+      "channel": "private chat",
+      "relationship": "close friends",
+      "power": "equal",
+      "familiarity": "close",
+      "speech_style": "banmal",
+      "cefr": "A2-B1",
+      "task_type": "open production"
+    },
+    "variant_policy": "semantic",
+    "evidence_expectation": "human_required",
+    "triad_invariants": ["self-imposed pause", "possible emotionally uncontrolled or overly blunt wording", "close-friend distance"],
+    "baseline_observation": "Current-v3 blind run produced natural variants but had no explicit AUTHOR mode, task-tier label, or model-only status vocabulary."
+  },
+  {
+    "id": "author-service-unexpected-charge",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["author-ko", "localize-triad", "audit-triad"],
+    "phenomena": ["service-encounter", "haeyo", "polite-request", "du-sie"],
+    "query": "AUTHOR+AUDIT a short A2 request from a customer meeting a service employee for the first time to check an unexpected charge.",
+    "expected_behavior": [
+      "Uses a natural Korean polite request without overformalizing",
+      "Uses German Sie based on the service relationship rather than mechanically on -요",
+      "Keeps the request open and concrete at A2"
+    ],
+    "forbidden_implications": [
+      "Does not invent an invoice, merchant, cause, refund, or responsible employee",
+      "Does not turn the check request into a demand"
+    ],
+    "accepted_variants": ["예상하지 못한 금액이 청구됐는데, 확인해 주실 수 있을까요?"],
+    "unresolved_fields": ["Billing channel", "Cause of charge"],
+    "severity_if_failed": "major",
+    "scene_contract": {
+      "channel": "face-to-face service encounter",
+      "relationship": "customer and service employee, first meeting",
+      "power": "service-role asymmetric but no authority claim",
+      "familiarity": "distant",
+      "speech_style": "haeyo",
+      "cefr": "A2",
+      "task_type": "open production"
+    },
+    "evidence_expectation": "human_required",
+    "triad_invariants": ["unexpected charge", "polite check request", "first-meeting distance"],
+    "baseline_observation": "Current-v3 blind run passed linguistically, but v3 did not encode Scene Lock or model-only review status."
+  },
+  {
+    "id": "audit-public-briefing-register",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["audit-triad"],
+    "phenomena": ["public-register", "force", "du-sie", "terminology"],
+    "query": "AUDIT public-briefing KO 자료를 확인해 주세요 against DE Schau dir die Unterlagen mal an and EN Take a quick look at the stuff. Repair the public form, then show how the Korean request and target noun would change for a boss, coworker, or external contact when the referent is an attached file, report, reference material, or data.",
+    "expected_behavior": [
+      "Rejects unsupported German du and casual modal-particle framing",
+      "Rejects English quick and stuff as force and terminology drift",
+      "Repairs to public-context natural targets",
+      "Separates relationship and request force from the 자료 referent, and chooses file/report/reference material/data terminology only when context supplies it",
+      "Distinguishes 확인 from substantive 검토 and treats 부탁드립니다 versus 부탁드리겠습니다 as scene-conditioned choices"
+    ],
+    "forbidden_implications": [
+      "Does not invent a manager, deadline, or specific document type",
+      "Does not translate 자료 as organizational hierarchy or treat materials/Unterlagen as mandatory after the referent is known",
+      "Does not call a fluent but register-shifted triad equivalent"
+    ],
+    "accepted_variants": [
+      "DE Bitte sehen Sie die Unterlagen durch",
+      "EN Please review the materials",
+      "배포해 드린 자료 확인 부탁드리겠습니다 when a distributed handout is scene-specified",
+      "보내 드린 보고서 검토 부탁드립니다 when a sent report and substantive review are scene-specified",
+      "아까 공유한 파일 한번 확인해 주세요 for a familiar coworker"
+    ],
+    "unresolved_fields": ["Whether 자료 denotes documents, slides, or data"],
+    "severity_if_failed": "critical",
+    "scene_contract": {
+      "channel": "public staff briefing",
+      "relationship": "speaker to staff audience",
+      "power": "unresolved",
+      "familiarity": "public professional",
+      "speech_style": "public polite",
+      "cefr": "B1",
+      "task_type": "triad audit"
+    },
+    "evidence_expectation": "human_required",
+    "triad_invariants": ["polite review request", "professional public register", "communicative-artifact referent remains general until specified"],
+    "baseline_observation": "Current-v3 blind run found all supplied register shifts, but v3 labeled its repaired set PASS rather than MODEL_QA_PASS."
+  },
+  {
+    "id": "author-family-relationship-unresolved",
+    "directions": ["en-ko", "de-ko"],
+    "modes": ["author-ko"],
+    "phenomena": ["family", "underspecification", "speech-style"],
+    "query": "AUTHOR a Korean reminder to a family member when generation, age, and usual speech style are not supplied.",
+    "expected_behavior": [
+      "Keeps the missing relationship dimensions explicit",
+      "Offers bounded alternatives or FLAG instead of silently choosing banmal or honorifics",
+      "Distinguishes a plain request, 알지? shared-rule presupposition, and 알겠지? compliance pressure",
+      "Uses standard 잠가 in canonical-quality output"
+    ],
+    "forbidden_implications": [
+      "Does not infer age, generation, gender, or household hierarchy",
+      "Does not claim one family speech style is universally natural",
+      "Does not label 알지? or 알겠지? as universally softer than 잊지 마"
+    ],
+    "accepted_variants": [
+      "Conditional banmal and haeyo alternatives with their relationship conditions",
+      "나갈 때 문 꼭 잠가 줘 for a close equal request",
+      "나갈 때 문 잠그는 거 잊으면 안 되는 거 알지? only when a shared rule is established",
+      "나갈 때 문 꼭 잠그고 나가 줘. 알겠지? only when firmer compliance checking is licensed"
+    ],
+    "unresolved_fields": ["Generation", "Age relation", "Customary speech style"],
+    "severity_if_failed": "critical",
+    "scene_contract": {
+      "channel": "private family conversation",
+      "relationship": "family relation unspecified",
+      "power": "unresolved",
+      "familiarity": "familiar",
+      "speech_style": "unresolved",
+      "cefr": "A2",
+      "task_type": "open production"
+    },
+    "evidence_expectation": "human_required",
+    "baseline_observation": "v3 warned against inventing relationships but had no author-specific Scene Lock requirement for family speech style."
+  },
+  {
+    "id": "author-online-private-vs-public",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["author-ko", "audit-triad"],
+    "phenomena": ["online-register", "audience", "channel", "relationship"],
+    "query": "AUTHOR and contrast a reply to the same disagreement in a close friend's private chat and a public community comment.",
+    "expected_behavior": [
+      "Changes distance and information packaging according to audience and publicity",
+      "Keeps the underlying disagreement and non-hostile force constant"
+    ],
+    "forbidden_implications": [
+      "Does not copy private banmal into an unknown public audience",
+      "Does not add trendy abbreviations merely to signal online language"
+    ],
+    "accepted_variants": ["A private banmal reply and a separately authored public polite reply"],
+    "unresolved_fields": ["Platform-specific moderation norms"],
+    "severity_if_failed": "major",
+    "scene_contract": {
+      "channel": "private chat versus public comment",
+      "relationship": "close friend versus unknown public audience",
+      "power": "equal or unknown",
+      "familiarity": "close versus distant",
+      "speech_style": "banmal versus public polite",
+      "cefr": "B1",
+      "task_type": "contrastive authoring"
+    },
+    "evidence_expectation": "risk_based_required",
+    "triad_invariants": ["same disagreement", "non-hostile force", "channel-specific distance"],
+    "baseline_observation": "v3 covered channel and relationship generally but did not require channel-paired authoring or risk-based online evidence."
+  },
+  {
+    "id": "audit-functional-fillers",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["author-ko", "audit-triad"],
+    "phenomena": ["fillers", "hedging", "discourse-function", "naturalness"],
+    "query": "AUTHOR two Korean workplace responses and audit every use of 그냥, 일단, 좀, 괜히, -것 같아요, and -지 않을까요 for an actual interactional function.",
+    "expected_behavior": [
+      "Retains expressions that perform minimization, sequencing, mitigation, evaluation, uncertainty, or joint deliberation",
+      "Removes decorative fillers without flattening necessary politeness"
+    ],
+    "forbidden_implications": [
+      "Does not ban the expressions globally",
+      "Does not stack them to make generated Korean seem contemporary"
+    ],
+    "accepted_variants": ["Different surface wording with an explicit function ledger for each retained mitigator"],
+    "unresolved_fields": [],
+    "severity_if_failed": "major",
+    "scene_contract": {
+      "channel": "workplace dialogue",
+      "relationship": "coworkers",
+      "power": "equal",
+      "familiarity": "familiar professional",
+      "speech_style": "haeyo",
+      "cefr": "B1-B2",
+      "task_type": "author and audit"
+    },
+    "evidence_expectation": "human_required",
+    "triad_invariants": ["interactional function", "coworker distance", "no added certainty or urgency"],
+    "baseline_observation": "v3 audited modal force but did not define a modern-Korean filler-function gate."
+  },
+  {
+    "id": "author-repair-textbook-standard",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["author-ko", "localize-triad", "audit-triad", "item-variants"],
+    "phenomena": ["textbook-smell", "scene-repair", "open-production", "semantic-variants"],
+    "query": "Turn 내가 오래 지키고 싶은 기준은… into a relationship-based workplace scene where colleagues suggest letting a questionable issue pass.",
+    "expected_behavior": [
+      "Adds a real prior turn and a learner response with a concrete communicative choice",
+      "Provides multiple natural semantic answers rather than one fill-in sentence",
+      "Localizes EN and DE independently"
+    ],
+    "forbidden_implications": [
+      "Does not keep the abstract title as spoken dialogue",
+      "Does not invent a legal duty, manager, or reporting channel"
+    ],
+    "accepted_variants": ["Semantic variants expressing an enduring preference for honest disclosure despite discomfort"],
+    "unresolved_fields": ["Exact reporting recipient"],
+    "severity_if_failed": "major",
+    "scene_contract": {
+      "channel": "workplace dialogue",
+      "relationship": "coworkers",
+      "power": "equal",
+      "familiarity": "familiar professional",
+      "speech_style": "haeyo",
+      "cefr": "B1",
+      "task_type": "open production"
+    },
+    "variant_policy": "semantic",
+    "evidence_expectation": "human_required",
+    "triad_invariants": ["honest disclosure", "possible discomfort", "continued principle"],
+    "baseline_observation": "Current-v3 blind run repaired the scene well but did not expose its variant tier or distinguish model QA from human approval."
+  },
+  {
+    "id": "localize-independent-workplace-triad",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["localize-triad", "audit-triad"],
+    "phenomena": ["independent-localization", "translationese", "du-sie", "force"],
+    "query": "Localize a Korean equal-coworker suggestion independently into international English and de-DE, then show that German was not derived from English wording.",
+    "expected_behavior": [
+      "Uses language-native information flow in both targets",
+      "Selects German address behavior from the scene rather than Korean endings or English pronouns",
+      "Preserves the same optional suggestion force"
+    ],
+    "forbidden_implications": [
+      "Does not copy English clause structure into German",
+      "Does not strengthen a suggestion into an order or permission"
+    ],
+    "accepted_variants": ["Independently natural EN and DE expressions sharing the same PIVOT"],
+    "unresolved_fields": ["Whether direct address is needed in either target"],
+    "severity_if_failed": "critical",
+    "scene_contract": {
+      "channel": "workplace dialogue",
+      "relationship": "equal coworkers",
+      "power": "equal",
+      "familiarity": "familiar professional",
+      "speech_style": "haeyo source",
+      "cefr": "B1",
+      "task_type": "triad localization"
+    },
+    "evidence_expectation": "human_required",
+    "triad_invariants": ["optional suggestion", "equal-coworker distance", "no invented actor"],
+    "baseline_observation": "v3 required a shared PIVOT but did not provide an AUTHOR-facing adaptive triad output contract."
+  },
+  {
+    "id": "audit-register-drift-triad",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["audit-triad"],
+    "phenomena": ["register-drift", "bluntness", "du-sie", "triangular-audit"],
+    "query": "Audit a triad where Korean is polite haeyo, English is a bare imperative, and German uses unsupported du; identify pairwise relationship drift.",
+    "expected_behavior": [
+      "Runs KO-EN, KO-DE, and EN-DE comparisons rather than only source-target checks",
+      "Separates grammatical naturalness from relationship equivalence",
+      "Keeps the material referent and the speaker-addressee relationship as separate audit dimensions",
+      "Offers boss, coworker, and external-contact repairs only as conditioned alternatives when exact hierarchy is unresolved"
+    ],
+    "forbidden_implications": [
+      "Does not pass all fluent strings as one scene",
+      "Does not equate -요 mechanically with Sie",
+      "Does not force 자료 to materials/Unterlagen when file, report, reference material, or data is supplied"
+    ],
+    "accepted_variants": [
+      "A repaired triad whose request burden, referent, and professional distance align",
+      "Conditioned relationship-specific repair sets rather than one universal professional sentence"
+    ],
+    "unresolved_fields": ["Exact institutional hierarchy"],
+    "severity_if_failed": "critical",
+    "scene_contract": {
+      "channel": "professional spoken exchange",
+      "relationship": "not intimate",
+      "power": "unresolved",
+      "familiarity": "professional",
+      "speech_style": "haeyo",
+      "cefr": "B1",
+      "task_type": "triad audit"
+    },
+    "evidence_expectation": "human_required",
+    "triad_invariants": ["polite request", "professional distance", "open response choice"],
+    "baseline_observation": "v3 supported triangular audit, but v4 must route this behavior explicitly through AUDIT mode and model-only statuses."
+  },
+  {
+    "id": "audit-triad-evid-force-presup",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["localize-triad", "audit-triad"],
+    "phenomena": ["evidentiality", "modal-force", "presupposition", "v3-regression"],
+    "query": "Create and audit a triad containing a reported possible schedule change, a polite request, and a prior-plan status question.",
+    "expected_behavior": [
+      "Preserves every report layer and speaker commitment",
+      "Preserves request burden and optionality",
+      "Preserves prior-plan status without adding motion or timetable"
+    ],
+    "forbidden_implications": [
+      "Does not flatten reportative content into direct fact",
+      "Does not add permission, obligation, 예정대로, or motion in progress"
+    ],
+    "accepted_variants": ["Triads with zero EVID, FORCE, or PRESUP critical shifts"],
+    "unresolved_fields": ["Reporter identity", "Relationship when not supplied"],
+    "severity_if_failed": "critical",
+    "scene_contract": {
+      "channel": "workplace dialogue",
+      "relationship": "partially unspecified",
+      "power": "unresolved",
+      "familiarity": "professional",
+      "speech_style": "conditional or flagged",
+      "cefr": "B2",
+      "task_type": "triad localization and audit"
+    },
+    "evidence_expectation": "human_required",
+    "triad_invariants": ["report chain", "request optionality", "prior-plan presupposition"],
+    "baseline_observation": "The v3 matrix passed these axes separately; v4 must preserve them inside AUTHOR and triad workflows."
+  },
+  {
+    "id": "variants-open-semantic",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["item-variants"],
+    "phenomena": ["open-production", "semantic-equivalence", "relationship", "variant-boundary"],
+    "query": "Classify several open-production answers that all delay a reply, including one that invents anger and one that changes the action to ending the friendship.",
+    "expected_behavior": [
+      "Accepts natural variants with the same required meaning slots and relationship effect",
+      "Accepts 감정적으로 말하다 and 말을 막 하다 when they describe possible delivery risk without asserting actual anger",
+      "Rejects variants that add emotion or change the social action"
+    ],
+    "forbidden_implications": [
+      "Does not treat topical similarity as semantic equivalence",
+      "Does not require one exact surface sentence for open production"
+    ],
+    "accepted_variants": [
+      "Multiple lexical and syntactic variants preserving delayed reply and emotionally uncontrolled or overly blunt speech avoidance",
+      "지금 답하면 내가 말을 너무 막 할 것 같아서. 조금만 생각하고 연락할게."
+    ],
+    "unresolved_fields": ["Speaker's actual anger"],
+    "severity_if_failed": "critical",
+    "variant_policy": "semantic",
+    "evidence_expectation": "human_required",
+    "baseline_observation": "v3 described accepted variants generally but did not lock task-tier semantics across all item types."
+  },
+  {
+    "id": "variants-cloze-construct",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["item-variants"],
+    "phenomena": ["cloze", "construct-preservation", "distractor-safety", "runtime-contract"],
+    "query": "Audit a Cloze answer with an additional construct-preserving variant and three distractors; ensure the variant is grading metadata only.",
+    "expected_behavior": [
+      "Keeps one canonical answer in the four-choice UI",
+      "Rejects any distractor that overlaps a canonical or accepted answer",
+      "Substitutes every distractor into the full context and rejects any option that remains true or pragmatically coherent, even when its force label differs",
+      "Keeps SRS, TTS, and content identity canonical"
+    ],
+    "forbidden_implications": [
+      "Does not display a second correct choice",
+      "Does not accept a semantic paraphrase that removes the target construct"
+    ],
+    "accepted_variants": ["Additional-only acceptedVariants metadata preserving the cloze target"],
+    "unresolved_fields": [],
+    "severity_if_failed": "critical",
+    "variant_policy": "construct_preserving",
+    "evidence_expectation": "human_required",
+    "baseline_observation": "v3 required exactly one answer but had no backward-compatible hidden variant contract or distractor-overlap invariant."
+  },
+  {
+    "id": "variants-dictation-surface",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["item-variants"],
+    "phenomena": ["dictation", "surface-equivalence", "spacing", "punctuation"],
+    "query": "Audit canonical 지금 바로 답드리기보다는, 내용을 조금 정리해서 다시 말씀드릴게요. with a reviewed spacing/punctuation variant and a semantic paraphrase.",
+    "expected_behavior": [
+      "Allows only an explicitly reviewed spacing or punctuation surface variant",
+      "Rejects 조금 생각해 보고 나중에 연락드릴게요 as a dictation answer",
+      "Keeps canonical TTS, reveal, and word bank"
+    ],
+    "forbidden_implications": [
+      "Does not accept same-situation paraphrases in dictation",
+      "Does not replace the canonical display form with a nonstandard spacing variant"
+    ],
+    "accepted_variants": ["지금 바로 답드리기 보다는 내용을 조금 정리해서 다시 말씀드릴게요 when explicitly reviewed in product data"],
+    "unresolved_fields": [],
+    "severity_if_failed": "critical",
+    "variant_policy": "surface",
+    "evidence_expectation": "human_required",
+    "baseline_observation": "Current-v3 blind run rejected the declared spacing variant on standard-orthography grounds because no product-specific surface-variant contract existed."
+  },
+  {
+    "id": "evidence-current-slang-required",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["evidence-gate"],
+    "phenomena": ["slang", "online-register", "currentness", "corpus-evidence"],
+    "query": "Decide whether a claimed 2026 Korean online slang expression is natural for a public community reply without access to current corpus evidence.",
+    "expected_behavior": [
+      "Records the evidence question, genre, relationship, distribution, counterexamples, and access state",
+      "Returns EVIDENCE_REQUIRED when current evidence cannot be checked"
+    ],
+    "forbidden_implications": [
+      "Does not rely on a single remembered example or invented frequency",
+      "Does not mark the expression MODEL_QA_PASS without current evidence"
+    ],
+    "accepted_variants": ["EVIDENCE_REQUIRED plus a bounded corpus-check plan"],
+    "unresolved_fields": ["Current distribution", "Age and community range", "Platform norms"],
+    "severity_if_failed": "critical",
+    "evidence_expectation": "risk_based_required",
+    "baseline_observation": "v3 had a general corpus ladder but no explicit risk-triggered currentness status."
+  },
+  {
+    "id": "evidence-stable-everyday-not-required",
+    "directions": ["ko-en", "ko-de"],
+    "modes": ["evidence-gate"],
+    "phenomena": ["stable-everyday-language", "risk-triage", "human-gate"],
+    "query": "Decide whether a stable everyday close-friend reply such as 조금만 생각하고 연락할게 requires live corpus lookup before human review.",
+    "expected_behavior": [
+      "Allows internal Scene Lock and target-only audit to proceed without mandatory live corpus lookup",
+      "Keeps Korean, English, German, and educator human review gates open"
+    ],
+    "forbidden_implications": [
+      "Does not turn corpus-not-required into HUMAN_APPROVED",
+      "Does not claim universal naturalness across every relationship and channel"
+    ],
+    "accepted_variants": ["MODEL_QA_PASS with human gates still pending when all linguistic audits pass"],
+    "unresolved_fields": ["Human reviewer findings"],
+    "severity_if_failed": "major",
+    "evidence_expectation": "not_required",
+    "baseline_observation": "v3 separated corpus and human evidence but did not encode risk-based required versus not-required outcomes."
   }
 ]

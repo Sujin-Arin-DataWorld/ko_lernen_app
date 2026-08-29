@@ -187,14 +187,14 @@ class ClozePromptCard extends StatelessWidget {
 /// (kein leerer unterer Bereich), aber bei großer Schrift scrollen.
 class ClozeOptionsList extends StatelessWidget {
   final List<String> options;
-  final String answer;
+  final Set<String> acceptedAnswers;
   final String? picked;
   final bool revealed;
   final void Function(String) onPick;
   const ClozeOptionsList({
     super.key,
     required this.options,
-    required this.answer,
+    required this.acceptedAnswers,
     required this.picked,
     required this.revealed,
     required this.onPick,
@@ -215,7 +215,7 @@ class ClozeOptionsList extends StatelessWidget {
         );
         // 오답을 고른 순간에는 정답을 드러내지 않는다 — 재시도가 허용된
         // 게임이라 정답이 보이면 다시 고를 이유가 사라진다.
-        final wrongPick = picked != null && picked != answer;
+        final wrongPick = picked != null && !acceptedAnswers.contains(picked);
         return SingleChildScrollView(
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: constraints.maxHeight),
@@ -230,7 +230,7 @@ class ClozeOptionsList extends StatelessWidget {
                         text: opt,
                         minHeight: tileHeight,
                         revealCorrect: !wrongPick,
-                        isCorrect: opt == answer,
+                        isCorrect: acceptedAnswers.contains(opt),
                         isSelected: picked == opt,
                         revealed: revealed,
                         onSelected: revealed ? null : () => onPick(opt),

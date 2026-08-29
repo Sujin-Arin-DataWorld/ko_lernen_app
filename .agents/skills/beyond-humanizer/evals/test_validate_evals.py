@@ -13,10 +13,15 @@ VALIDATOR = SKILL_ROOT / "scripts" / "validate-evals.py"
 EVALS = SKILL_ROOT / "evals" / "evals.json"
 
 
-def case(case_id: str, direction: str) -> dict[str, object]:
+def case(
+    case_id: str,
+    direction: str,
+    modes: list[str] | None = None,
+) -> dict[str, object]:
     return {
         "id": case_id,
         "directions": [direction],
+        "modes": modes or ["translate"],
         "phenomena": ["reference"],
         "query": "Translate the supplied sentence.",
         "expected_behavior": ["Preserves the supplied meaning"],
@@ -43,12 +48,32 @@ class ValidateEvalsTest(unittest.TestCase):
 
     @staticmethod
     def complete_matrix() -> list[dict[str, object]]:
-        return [
-            case("ko-en-case", "ko-en"),
-            case("en-ko-case", "en-ko"),
-            case("ko-de-case", "ko-de"),
-            case("de-ko-case", "de-ko"),
+        scene = {
+            "channel": "face-to-face",
+            "relationship": "coworkers",
+            "power": "equal",
+            "familiarity": "familiar",
+            "speech_style": "haeyo",
+            "cefr": "B1",
+            "task_type": "open-production",
+        }
+        payload = [
+            case(
+                "ko-en-case",
+                "ko-en",
+                ["translate", "author-ko", "localize-triad"],
+            ),
+            case("en-ko-case", "en-ko", ["audit-triad"]),
+            case("ko-de-case", "ko-de", ["item-variants"]),
+            case("de-ko-case", "de-ko", ["interpret", "evidence-gate"]),
         ]
+        payload[0]["scene_contract"] = scene
+        payload[0]["triad_invariants"] = ["same speech act"]
+        payload[1]["scene_contract"] = scene
+        payload[1]["triad_invariants"] = ["same relationship"]
+        payload[2]["variant_policy"] = "semantic"
+        payload[3]["evidence_expectation"] = "risk_based_required"
+        return payload
 
     def test_repository_evaluation_matrix_is_valid(self) -> None:
         result = subprocess.run(
@@ -91,6 +116,22 @@ class ValidateEvalsTest(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("entries must be non-empty strings", result.stdout)
         self.assertNotIn("Traceback", result.stderr)
+
+    def test_rejects_an_incomplete_mode_matrix(self) -> None:
+        payload = self.complete_matrix()
+        payload[3]["modes"] = ["interpret"]
+        result = self.run_validator(payload)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("missing modes: evidence-gate", result.stdout)
+
+    def test_rejects_missing_conditional_mode_contracts(self) -> None:
+        payload = self.complete_matrix()
+        payload[0].pop("scene_contract")
+        payload[2].pop("variant_policy")
+        result = self.run_validator(payload)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn("scene_contract", result.stdout)
+        self.assertIn("variant_policy", result.stdout)
 
 
 if __name__ == "__main__":

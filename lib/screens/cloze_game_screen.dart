@@ -204,7 +204,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
 
   void _pick(ClozeItem item, String option) {
     if (_picked != null) return;
-    final ok = option == item.answer;
+    final ok = item.accepts(option);
     // 첫 시도 여부를 **기록 전에** 잡는다 — 재시도로 맞혀도 점수·SRS·코스
     // 숙달도는 첫 시도 결과를 따른다. 안 그러면 재시도 허용이 곧 전원 만점이
     // 되어 `n / 10 richtig` 카운터가 의미를 잃는다.
@@ -356,7 +356,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
                     lang: lang,
                     gloss: _vocabByKo[item.answer]?.translationFor(lang),
                     picked: _picked,
-                    pickedWrong: _picked != null && _picked != item.answer,
+                    pickedWrong: _picked != null && !item.accepts(_picked!),
                   ),
                 ),
               ),
@@ -366,7 +366,7 @@ class _ClozeGameScreenState extends State<ClozeGameScreen> {
               flex: 4,
               child: ClozeOptionsList(
                 options: options,
-                answer: item.answer,
+                acceptedAnswers: item.acceptedAnswers,
                 picked: _picked,
                 revealed: revealed,
                 onPick: (opt) => _pick(item, opt),

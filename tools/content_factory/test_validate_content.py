@@ -99,6 +99,51 @@ class ContentValidatorTest(unittest.TestCase):
         self.assertTrue(any("meta.total must equal" in message for message in messages))
         self.assertTrue(any("meta.perLevel must contain exact" in message for message in messages))
 
+    def test_cloze_accepted_variants_are_additional_and_never_distractors(self) -> None:
+        cloze = copy.deepcopy(self._asset_json("cloze.json"))
+        item = cloze["items"][0]
+        item["acceptedVariants"] = [item["answer"], item["distractors"][0], "  "]
+
+        validator = self._with_json_override(**{"cloze.json": cloze})
+        validator.validate_cloze()
+
+        messages = self._messages(validator)
+        self.assertTrue(any("must not repeat the canonical answer" in m for m in messages))
+        self.assertTrue(any("must not overlap distractors" in m for m in messages))
+        self.assertTrue(any("must contain trimmed nonempty strings" in m for m in messages))
+
+    def test_dictation_variants_allow_surface_changes_but_reject_paraphrases(self) -> None:
+        valid = {
+            "targetKo": "안내: ‘지금 바로 답드리기보다는, 다시 말씀드릴게요.’",
+            "promptDe": "Ich melde mich noch einmal.",
+            "promptEn": "I'll get back to you.",
+            "acceptedVariants": ["안내 지금 바로 답드리기 보다는 다시 말씀드릴게요"],
+        }
+        validator = ContentValidator()
+        validator._validate_quest(
+            "fixture.json",
+            "fixture",
+            0,
+            {"type": "diktat", "data": valid},
+        )
+        self.assertEqual(self._messages(validator), [])
+
+        invalid = copy.deepcopy(valid)
+        invalid["acceptedVariants"] = ["조금 생각해 보고 나중에 연락드릴게요."]
+        validator = ContentValidator()
+        validator._validate_quest(
+            "fixture.json",
+            "fixture",
+            0,
+            {"type": "diktat", "data": invalid},
+        )
+        self.assertTrue(
+            any(
+                "must preserve the canonical lexical sequence" in message
+                for message in self._messages(validator)
+            ),
+        )
+
     def test_audit_graph_counts_must_match_curriculum(self) -> None:
         audit = copy.deepcopy(self._asset_json("content_audit_manifest.json"))
         audit["graph"]["courseUnits"] -= 1
