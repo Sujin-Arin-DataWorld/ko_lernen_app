@@ -38,6 +38,8 @@ void main() {
         final answer = it['answer'] as String;
         final de = it['de'] as String;
         final distractors = (it['distractors'] as List).cast<String>();
+        final acceptedVariants =
+            (it['acceptedVariants'] as List?)?.cast<String>() ?? const [];
 
         expect(_levels.contains(level), isTrue, reason: 'bad level: $level');
         expect(
@@ -57,6 +59,31 @@ void main() {
           distractors.toSet().length,
           3,
           reason: 'duplicate distractors: $answer',
+        );
+        expect(
+          acceptedVariants.every((variant) => variant == variant.trim()),
+          isTrue,
+          reason: 'accepted variant must be trimmed: $answer',
+        );
+        expect(
+          acceptedVariants.every((variant) => variant.isNotEmpty),
+          isTrue,
+          reason: 'accepted variant must not be empty: $answer',
+        );
+        expect(
+          acceptedVariants.toSet().length,
+          acceptedVariants.length,
+          reason: 'duplicate accepted variants: $answer',
+        );
+        expect(
+          acceptedVariants.contains(answer),
+          isFalse,
+          reason: 'canonical answer duplicated as accepted variant: $answer',
+        );
+        expect(
+          acceptedVariants.toSet().intersection(distractors.toSet()),
+          isEmpty,
+          reason: 'accepted variant leaked into distractors: $answer',
         );
         // No 1-syllable answers (numbers/counters) — unfair gap (review #1).
         final syll = answer.runes
@@ -80,12 +107,18 @@ void main() {
       'de': 'Ich bin Student.',
       'en': 'I am a student.',
       'distractors': ['가족', '거기', '계란'],
+      'acceptedVariants': ['학생이요'],
     });
 
     test('fromJson lowercases level and parses fields', () {
       expect(item.level, 'a1');
       expect(item.answer, '학생');
       expect(item.distractors, hasLength(3));
+      expect(item.acceptedVariants, ['학생이요']);
+      expect(item.acceptedAnswers, {'학생', '학생이요'});
+      expect(item.accepts('학생'), isTrue);
+      expect(item.accepts('학생이요'), isTrue);
+      expect(item.accepts('가족'), isFalse);
     });
 
     test('options() returns answer + 3 distractors, all unique', () {
@@ -93,6 +126,7 @@ void main() {
       expect(opts, hasLength(4));
       expect(opts.toSet(), hasLength(4));
       expect(opts.contains('학생'), isTrue);
+      expect(opts.contains('학생이요'), isFalse);
     });
 
     test('options() shuffle is deterministic for a given seed', () {
@@ -102,6 +136,23 @@ void main() {
     test('meaning() falls back to German, uses English when lang=en', () {
       expect(item.meaning('de'), 'Ich bin Student.');
       expect(item.meaning('en'), 'I am a student.');
+    });
+
+    test('legacy items keep a canonical-only acceptance set', () {
+      final legacy = ClozeItem.fromJson(const {
+        'level': 'A1',
+        'sentenceKo': '저는 ＿＿＿이에요.',
+        'answer': '학생',
+        'fullKo': '저는 학생이에요.',
+        'de': 'Ich bin Student.',
+        'en': 'I am a student.',
+        'distractors': ['가족', '거기', '계란'],
+      });
+
+      expect(legacy.acceptedVariants, isEmpty);
+      expect(legacy.acceptedAnswers, {'학생'});
+      expect(legacy.options(7), hasLength(4));
+      expect(legacy.id, item.id, reason: 'accepted variants must not change ID');
     });
   });
 }

@@ -12702,6 +12702,12 @@ abstract class AppL10n {
   /// **'Wische seitwärts, um den nächsten Hof zu sehen.'**
   String get ilduWorldPanHint;
 
+  /// No description provided for @ilduWorldRotateBuildingHint.
+  ///
+  /// In de, this message translates to:
+  /// **'Wische über das Gebäude, um es zu drehen.'**
+  String get ilduWorldRotateBuildingHint;
+
   /// No description provided for @ilduWorldEvidenceNote.
   ///
   /// In de, this message translates to:

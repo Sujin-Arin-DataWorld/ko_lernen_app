@@ -8,6 +8,7 @@
     "required": [
       "id",
       "directions",
+      "modes",
       "phenomena",
       "query",
       "expected_behavior",
@@ -24,6 +25,22 @@
         "minItems": 1,
         "uniqueItems": true,
         "items": {"enum": ["ko-en", "en-ko", "ko-de", "de-ko"]}
+      },
+      "modes": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {
+          "enum": [
+            "translate",
+            "interpret",
+            "author-ko",
+            "localize-triad",
+            "audit-triad",
+            "item-variants",
+            "evidence-gate"
+          ]
+        }
       },
       "phenomena": {
         "type": "array",
@@ -52,6 +69,28 @@
         "items": {"type": "string", "minLength": 1}
       },
       "severity_if_failed": {"enum": ["critical", "major", "minor"]},
+      "scene_contract": {
+        "type": "object",
+        "required": ["channel", "relationship", "power", "familiarity", "speech_style", "cefr", "task_type"],
+        "properties": {
+          "channel": {"type": "string", "minLength": 1},
+          "relationship": {"type": "string", "minLength": 1},
+          "power": {"type": "string", "minLength": 1},
+          "familiarity": {"type": "string", "minLength": 1},
+          "speech_style": {"type": "string", "minLength": 1},
+          "cefr": {"type": "string", "minLength": 1},
+          "task_type": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": true
+      },
+      "variant_policy": {"enum": ["semantic", "construct_preserving", "surface"]},
+      "evidence_expectation": {"enum": ["not_required", "risk_based_required", "human_required"]},
+      "triad_invariants": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": {"type": "string", "minLength": 1}
+      },
       "baseline_observation": {"type": "string", "minLength": 1},
       "green_observation": {"type": "string", "minLength": 1}
     },

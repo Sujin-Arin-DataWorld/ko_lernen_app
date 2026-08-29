@@ -4,6 +4,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ko_lernen_app/l10n/generated/app_localizations.dart';
+import 'package:ko_lernen_app/models/course_mastery.dart';
+import 'package:ko_lernen_app/models/curriculum.dart';
+import 'package:ko_lernen_app/models/hanok_competence.dart';
 import 'package:ko_lernen_app/models/ildu_world_manifest.dart';
 import 'package:ko_lernen_app/models/personal_hanok.dart';
 import 'package:ko_lernen_app/screens/ildu_world_screen.dart';
@@ -53,6 +56,64 @@ void main() {
     expect(find.byType(InteractiveViewer), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets('turning the selected Sarangchae updates its map frame', (
+    tester,
+  ) async {
+    tester.view.physicalSize = const Size(1179, 2556);
+    tester.view.devicePixelRatio = 3;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: const Locale('de'),
+        localizationsDelegates: AppL10n.localizationsDelegates,
+        supportedLocales: AppL10n.supportedLocales,
+        home: IlDuWorldScreen(
+          loadManifest: () async => manifest,
+          loadProjection: () async => _verifiedA1Projection(),
+          decorationStore: _MemoryDecorationStore(),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-turntable-sarangchae')),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-sarangchae-0')),
+      findsOneWidget,
+    );
+
+    await tester.drag(
+      find.byKey(const ValueKey('hanok-turntable-drag-area')),
+      const Offset(-40, 0),
+    );
+    await tester.pumpAndSettle();
+
+    expect(
+      find.byKey(const ValueKey('ildu-map-turntable-sarangchae-1')),
+      findsOneWidget,
+    );
+    expect(tester.takeException(), isNull);
+  });
+}
+
+PersonalHanokProjection _verifiedA1Projection() {
+  const text = CurriculumText(ko: '사랑채', de: 'Sarangchae', en: 'Sarangchae');
+  final competence = HanokCompetenceProjection.fromSnapshot(
+    snapshot: const CourseMasterySnapshot(completedUnitIds: <String>['a1-1']),
+    courseUnits: const <CourseUnit>[
+      CourseUnit(id: 'a1-1', level: 'a1', order: 1, title: text, canDo: text),
+    ],
+  );
+  return PersonalHanokProjection.from(
+    const LevelRatios(a1: 0, a2: 0, b1: 0, b2: 0),
+    competence: competence,
+  );
 }
 
 class _MemoryDecorationStore implements IlDuDecorationPlacementStore {

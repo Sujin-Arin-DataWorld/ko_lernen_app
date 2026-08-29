@@ -18,6 +18,7 @@ class ClozeItem {
   final String de;
   final String en;
   final List<String> distractors;
+  final List<String> acceptedVariants;
   final String topic;
 
   const ClozeItem({
@@ -29,6 +30,7 @@ class ClozeItem {
     required this.de,
     required this.en,
     required this.distractors,
+    this.acceptedVariants = const [],
     this.topic = '',
   }) : _sourceId = id;
 
@@ -57,8 +59,17 @@ class ClozeItem {
     distractors:
         (j['distractors'] as List?)?.map((e) => e.toString()).toList() ??
         const [],
+    acceptedVariants:
+        (j['acceptedVariants'] as List?)?.map((e) => e.toString()).toList() ??
+        const [],
     topic: j['topic'] as String? ?? '',
   );
+
+  /// Canonical answer plus reviewed alternatives. Alternatives are grading
+  /// metadata only; [options] intentionally keeps the four-choice UI stable.
+  Set<String> get acceptedAnswers => {answer, ...acceptedVariants};
+
+  bool accepts(String value) => acceptedAnswers.contains(value);
 
   /// Bedeutung in der UI-Sprache (Fallback Deutsch).
   String meaning(String lang) => lang == 'en' && en.isNotEmpty ? en : de;

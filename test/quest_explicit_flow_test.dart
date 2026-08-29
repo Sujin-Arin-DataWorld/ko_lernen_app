@@ -247,6 +247,39 @@ void main() {
     });
   }
 
+  testWidgets('dictation accepts a declared surface variant from quest data', (
+    tester,
+  ) async {
+    final results = <QuestResult>[];
+    await tester.pumpWidget(
+      _host(
+        DiktatQuest(
+          data: const {
+            'targetKo': '다시 말씀드릴게요.',
+            'audioKo': '다시 말씀드릴게요.',
+            'promptDe': 'Ich melde mich noch einmal.',
+            'promptEn': "I'll get back to you.",
+            'acceptedVariants': ['다시 말씀 드릴게요'],
+          },
+          onComplete: results.add,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    await tester.enterText(
+      find.byKey(const ValueKey('diktat-answer-field')),
+      '다시 말씀 드릴게요',
+    );
+    await tester.pump();
+    await tester.tap(find.byKey(const ValueKey('quest-submit')));
+    await tester.pump();
+
+    expect(results, hasLength(1));
+    expect(results.single.passed, isTrue);
+    expect(results.single.firstTry, isTrue);
+  });
+
   testWidgets('listening keeps the animated submit path when motion is on', (
     tester,
   ) async {

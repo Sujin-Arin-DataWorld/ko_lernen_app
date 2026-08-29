@@ -3463,6 +3463,7 @@
   "hanokWorldTitle": "My Hanok world",
   "ilduWorldTitle": "My Ildu Gotaek",
   "ilduWorldPanHint": "Swipe sideways to see the next courtyard.",
+  "ilduWorldRotateBuildingHint": "Swipe the building to rotate it.",
   "ilduWorldEvidenceNote": "Only verified learning makes buildings appear.",
   "ilduWorldBuiltCount": "{built} of {total} buildings",
   "@ilduWorldBuiltCount": {
