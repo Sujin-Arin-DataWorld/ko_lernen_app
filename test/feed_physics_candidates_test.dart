@@ -30,7 +30,7 @@ void main() {
       expect(candidate.route, isNotEmpty);
       expect(candidate.axesExercised, isNotEmpty);
       expect(candidate.activeControls, isNotEmpty);
-      expect(candidate.nestedScrollRisk, isNotNull);
+      expect(candidate.nestedScrollRisk.trim(), isNotEmpty);
       expect(candidate.approvedForSnap, isFalse);
     }
   });

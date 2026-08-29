@@ -33,6 +33,11 @@ class SoriSpeech {
   /// prefetch 전용 요청은 재생하지 않으므로 완료 시 false 로 채운다.
   static final Map<String, Future<bool>> _inFlight = {};
 
+  /// [_inFlight] 중 실제 재생을 보장하는 요청. pending prefetch를 처음
+  /// 승격한 speak future도 여기에 즉시 등록하므로 뒤따르는 같은 키의
+  /// speak는 그 승격에 합류하고 별도 재생 콜백을 만들지 않는다.
+  static final Set<Future<bool>> _playbackFlights = {};
+
   /// 화면이 구독하는 발화 상태. 저수준 서비스의 전역 notifier를 화면에
   /// 직접 노출하지 않아 테스트 주입·실패·취소 경로도 같은 상태 계약을 탄다.
   static final ValueNotifier<bool> speaking = ValueNotifier<bool>(false);
@@ -67,6 +72,7 @@ class SoriSpeech {
   @visibleForTesting
   static void resetForTesting() {
     _inFlight.clear();
+    _playbackFlights.clear();
     ++_speechGeneration;
     _activeSpeechKey = null;
     speaking.value = false;
@@ -81,14 +87,17 @@ class SoriSpeech {
     final key = '$resolvedVoice|$text';
     final existing = _inFlight[key];
     if (existing != null) {
-      // 이미 이 키로 뭔가 진행 중이다(재생이든 prefetch 든) — 새 해석을
-      // 내지 않고 그게 끝나길 기다린다. 그게 재생이었다면(played=true) 그
-      // 재생에 합류하는 것으로 끝. prefetch 였다면(played=false) 캐시만
-      // 찼을 뿐 아무 소리도 안 났으므로 이어서 실제로 재생한다.
-      return existing.then((played) {
-        if (played) return true;
-        return _startSpeak(key, text, resolvedVoice, speakImpl);
-      });
+      if (_playbackFlights.contains(existing)) return existing;
+      // 이미 이 키로 pending prefetch가 진행 중이다 — 새 해석을 내지 않고
+      // 재생 요청으로 승격한다. 승격 future는
+      // 동기적으로 맵에 게시되므로 뒤따르는 같은 키의 speak도 이에 합류한다.
+      return _publishSpeak(
+        key,
+        text,
+        resolvedVoice,
+        speakImpl,
+        pending: existing,
+      );
     }
     return _startSpeak(key, text, resolvedVoice, speakImpl);
   }
@@ -122,6 +131,19 @@ class SoriSpeech {
     String voice,
     Future<bool> Function(String text, String voice) resolver,
   ) {
+    return _publishSpeak(key, text, voice, resolver);
+  }
+
+  /// 발화 의도를 요청 시점에 캡처하고 하나의 재생 future를 게시한다.
+  /// [pending]이 있으면 prefetch 완료 뒤 재생하되, 그 사이 stop/새 발화가
+  /// 세대를 바꾸면 오래된 재생은 시작하지 않는다.
+  static Future<bool> _publishSpeak(
+    String key,
+    String text,
+    String voice,
+    Future<bool> Function(String text, String voice) resolver, {
+    Future<bool>? pending,
+  }) {
     final previousKey = _activeSpeechKey;
     if (previousKey != null && previousKey != key) {
       // 취소된 요청의 완료가 나중에 와도 같은 키의 새 요청에 합류하지 않게
@@ -131,7 +153,9 @@ class SoriSpeech {
     }
     final generation = ++_speechGeneration;
     _activeSpeechKey = key;
-    speaking.value = true;
+    // pending prefetch 뒤의 승격은 의도만 지금 캡처하고, 실제 resolver가
+    // 시작될 때 speaking을 올린다. 캐시 대기 중을 재생 중으로 알리지 않는다.
+    speaking.value = pending == null;
 
     Future<bool> resolve() async {
       if (previousKey != null && previousKey != key) {
@@ -143,6 +167,12 @@ class SoriSpeech {
       }
       if (generation != _speechGeneration) return false;
       try {
+        if (pending != null) {
+          final alreadyPlayed = await pending;
+          if (generation != _speechGeneration) return false;
+          if (alreadyPlayed) return true;
+          speaking.value = true;
+        }
         return await resolver(text, voice);
       } catch (_) {
         // TtsService의 캐시→Storage→CF fallback은 그대로 두고, 최종 실패만
@@ -155,6 +185,7 @@ class SoriSpeech {
     final resolved = resolve();
     late final Future<bool> future;
     future = resolved.whenComplete(() {
+      _playbackFlights.remove(future);
       if (identical(_inFlight[key], future)) {
         _inFlight.remove(key);
       }
@@ -163,6 +194,7 @@ class SoriSpeech {
         speaking.value = false;
       }
     });
+    _playbackFlights.add(future);
     _inFlight[key] = future;
     return future;
   }

@@ -235,7 +235,7 @@ void main() {
 
       await tester.pumpWidget(_screenApp(const ChosungQuizScreen()));
       await _pumpUntil(tester, find.byType(SoriChromeRow));
-      await tester.tap(find.byIcon(Icons.tune_rounded));
+      await tester.tap(find.byKey(const Key('chosung-level-selector')));
       await _pumpUntil(
         tester,
         find.byKey(const ValueKey('sori-level-sheet-B1')),
@@ -276,7 +276,7 @@ void main() {
         ),
       );
       await _pumpUntil(tester, find.byType(SoriChromeRow));
-      await tester.tap(find.byIcon(Icons.tune_rounded));
+      await tester.tap(find.byKey(const Key('chosung-level-selector')));
       await _pumpUntil(
         tester,
         find.byKey(const ValueKey('sori-level-sheet-C2')),

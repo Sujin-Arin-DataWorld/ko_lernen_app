@@ -46,6 +46,11 @@ void main() {
       reason: 'speak() 가 진행 중인 prefetch 와 별도로 해석을 냈다 — in-flight 맵이 공유되지 않음',
     );
     expect(speakStarted, isFalse, reason: 'prefetch 완료 전에는 아직 재생이 시작되면 안 된다');
+    expect(
+      SoriSpeech.speaking.value,
+      isFalse,
+      reason: 'prefetch 대기만으로 인디케이터가 재생 중이 되면 안 된다',
+    );
 
     prefetchCompleter.complete();
     final played = await speakFuture;
@@ -62,6 +67,36 @@ void main() {
           'prefetch 해석(1) + 실제 재생 시작(1) = 2 — 중복 해석이 아니라 '
           '"캐시 채움 다음 재생"의 정상 순서',
     );
+  });
+
+  test('prefetch 뒤의 동시 speak 두 번은 하나의 승격 재생 future를 공유한다', () async {
+    final prefetchCompleter = Completer<void>();
+    final speakCompleter = Completer<bool>();
+    var speakCalls = 0;
+    SoriSpeech.prefetchImpl = (text, voice) => prefetchCompleter.future;
+    SoriSpeech.speakImpl = (text, voice) {
+      speakCalls++;
+      return speakCompleter.future;
+    };
+
+    final prefetchFuture = SoriSpeech.prefetch('안녕');
+    final firstSpeak = SoriSpeech.speak('안녕');
+    final secondSpeak = SoriSpeech.speak('안녕');
+
+    expect(
+      identical(firstSpeak, secondSpeak),
+      isTrue,
+      reason: '첫 speak가 게시한 승격 future에 두 번째 speak가 합류해야 한다',
+    );
+
+    prefetchCompleter.complete();
+    await Future<void>.delayed(Duration.zero);
+    expect(speakCalls, 1, reason: 'pending prefetch 완료 뒤 재생은 한 번만 시작해야 한다');
+
+    speakCompleter.complete(true);
+    expect(await firstSpeak, isTrue);
+    expect(await secondSpeak, isTrue);
+    await prefetchFuture;
   });
 
   test('speak 진행 중 같은 텍스트를 prefetch() 하면 별도 해석 없이 그 완료만 기다린다', () async {

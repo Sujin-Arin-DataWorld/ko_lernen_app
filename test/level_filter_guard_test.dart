@@ -16,7 +16,7 @@ void main() {
 
   const forbidden = <String, List<String>>{
     'lib/screens/vocab_packs_screen.dart': ['PopupMenuButton<String>'],
-    'lib/screens/chosung_quiz_screen.dart': ["Key('chosung-level-"],
+    'lib/screens/chosung_quiz_screen.dart': ["ValueKey('chosung-level-\$lvl')"],
     'lib/screens/cloze_game_screen.dart': [
       'Widget _levelBar(',
       'Widget _levelChip(',

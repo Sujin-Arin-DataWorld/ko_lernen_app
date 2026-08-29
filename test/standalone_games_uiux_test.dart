@@ -709,8 +709,7 @@ void main() {
     _expectButton(tester, find.bySemanticsLabel(en.chosungBackspace));
     _expectButton(tester, find.bySemanticsLabel(en.filterLevel), minHeight: 48);
     final chosungLevelButton = find.byKey(const Key('chosung-level-selector'));
-    await tester.ensureVisible(chosungLevelButton);
-    await tester.tap(chosungLevelButton);
+    await _tapVisibleFatal(tester, chosungLevelButton);
     await _pumpUntil(tester, find.byKey(const ValueKey('sori-level-sheet-A1')));
     _expectSelectedDisabledChoice(
       tester,
@@ -967,6 +966,7 @@ Future<void> _pumpUntil(
     }
     await tester.pump(const Duration(milliseconds: 50));
   }
+  fail('Finder did not appear after $attempts pumps: $finder');
 }
 
 Future<void> _tapVisible(WidgetTester tester, Finder finder) async {

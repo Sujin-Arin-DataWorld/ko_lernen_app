@@ -61,6 +61,55 @@ void main() {
     expect(await second, isTrue);
   });
 
+  test('pending prefetch 승격은 stop 뒤 오래된 재생을 시작하지 않는다', () async {
+    final prefetchCompleter = Completer<void>();
+    var speakCalls = 0;
+    var stopCalls = 0;
+    SoriSpeech.prefetchImpl = (text, voice) => prefetchCompleter.future;
+    SoriSpeech.speakImpl = (text, voice) async {
+      speakCalls++;
+      return true;
+    };
+    SoriSpeech.stopImpl = () async {
+      stopCalls++;
+    };
+
+    final prefetch = SoriSpeech.prefetch('학교');
+    final promotedSpeak = SoriSpeech.speak('학교');
+    await SoriSpeech.stop();
+    prefetchCompleter.complete();
+
+    expect(await promotedSpeak, isFalse);
+    await prefetch;
+    expect(speakCalls, 0);
+    expect(stopCalls, 1);
+  });
+
+  test('pending prefetch 승격은 더 최신인 다른 발화를 되돌려 덮지 않는다', () async {
+    final prefetchCompleter = Completer<void>();
+    final spoken = <String>[];
+    var stopCalls = 0;
+    SoriSpeech.prefetchImpl = (text, voice) => prefetchCompleter.future;
+    SoriSpeech.speakImpl = (text, voice) async {
+      spoken.add(text);
+      return true;
+    };
+    SoriSpeech.stopImpl = () async {
+      stopCalls++;
+    };
+
+    final prefetch = SoriSpeech.prefetch('학교');
+    final staleSpeak = SoriSpeech.speak('학교');
+    final latestSpeak = SoriSpeech.speak('교실');
+    prefetchCompleter.complete();
+
+    expect(await latestSpeak, isTrue);
+    expect(await staleSpeak, isFalse);
+    await prefetch;
+    expect(spoken, ['교실']);
+    expect(stopCalls, 1);
+  });
+
   testWidgets('화면 dispose 뒤 발화 완료는 UI 예외를 만들지 않는다', (tester) async {
     final completion = Completer<bool>();
     SoriSpeech.speakImpl = (text, voice) => completion.future;
