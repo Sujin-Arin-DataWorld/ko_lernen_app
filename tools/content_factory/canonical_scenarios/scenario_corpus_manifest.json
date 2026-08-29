@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "generationId": "canonical_120_v1",
+  "status": "review_only",
+  "sourceLanguage": "ko",
+  "supportLanguages": ["de-DE", "en"],
+  "expectedScenarioCount": 120,
+  "expectedPerLevel": {"a1": 20, "a2": 20, "b1": 20, "b2": 20, "c1": 20, "c2": 20},
+  "promotionOrder": ["a1", "a2", "b1", "b2", "c1", "c2"],
+  "anchorScenarioIds": {
+    "a1BakeryQueue": "bakery_queue",
+    "a2AttachmentTwice": "email_attachment_twice",
+    "b1CompanyInstagram": "company_instagram_wrong_account",
+    "b2FilmingPermission": "filming_permission",
+    "b2Fremdschaemen": "fremdschaemen_live",
+    "c1AfterHoursMessages": "after_hours_messages",
+    "c2HiddenGemImpact": "hidden_gem_local_impact",
+    "a2TaxiSlowDown": "taxi_slow_down"
+  },
+  "regressionThemes": [
+    "mistake_embarrassment_repair",
+    "digital_contact_permission_responsibility"
+  ],
+  "files": {
+    "levelProfiles": "level_profiles.json",
+    "characterProfiles": "character_profiles.json",
+    "scenarioBriefs": "scenario_briefs.json",
+    "regressionBriefs": "regression_briefs.json",
+    "courseUnitBlueprint": "course_unit_blueprint.json",
+    "approvals": "approvals.json"
+  },
+  "gates": {
+    "externalApiAllowed": false,
+    "modelMayApprove": false,
+    "jinApprovalRequiredPerLevel": true,
+    "runtimePromotionBeforeApproval": false,
+    "ttsGenerationIncluded": false,
+    "ttsReleaseGateRequired": true,
+    "firebaseWriteIncluded": false,
+    "deploymentIncluded": false
+  }
+}

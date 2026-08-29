@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "cancelled_trip_hurt_feelings",
+  "scenario": {
+    "id": "cancelled_trip_hurt_feelings",
+    "level": "b1",
+    "emoji": "🚇",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "여행 약속을 혼자 바꿔 서운할 때",
+      "de": "Eine Reisezeit allein ändern",
+      "en": "Changing a trip time without asking"
+    },
+    "intro": {
+      "ko": "다니엘이 출발 시간을 바꾸고 나중에 알려 레나가 서운해요.",
+      "de": "Daniel hat die Abfahrtszeit geändert und Lena erst danach informiert.",
+      "en": "Daniel changed the departure time and only told Lena afterward."
+    },
+    "courseUnitId": "b1_04_relationships",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "lena"
+    ],
+    "relationshipContext": "친한 레나와 다니엘",
+    "intent": "일정이 바뀐 이유를 설명하고 결정 과정을 사과한다",
+    "shelf": "b1_feel",
+    "backdrop": "station",
+    "vocab": [
+      {
+        "korean": "작업이 늦어져서 오후 표로 바꿨어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Arbeit dauert länger, deshalb habe ich auf den Nachmittagszug umgebucht.",
+          "en": "Work ran late, so I changed us to the afternoon train."
+        }
+      },
+      {
+        "korean": "시간보다 나한테 먼저 말하지 않은 게 서운했어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nicht die Uhrzeit stört mich, sondern dass du mich vorher nicht gefragt hast.",
+          "en": "I'm not upset about the time. I'm upset that you didn't tell me first."
+        }
+      },
+      {
+        "korean": "빨리 해결하려고 혼자 바꿨는데, 미안해.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich wollte das schnell lösen und habe allein entschieden. Tut mir leid.",
+          "en": "I was trying to fix it quickly and changed it myself. I'm sorry."
+        }
+      },
+      {
+        "korean": "나는 오후에 다른 약속이 있어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Am Nachmittag habe ich schon etwas anderes vor.",
+          "en": "I already have other plans in the afternoon."
+        }
+      },
+      {
+        "korean": "원래 표를 취소하기 전에 가능한 시간을 다시 보자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Bevor ich die ursprünglichen Tickets storniere, schauen wir noch einmal nach einer Zeit, die für uns beide passt.",
+          "en": "Before I cancel the original tickets, let's check what time works for both of us."
+        }
+      },
+      {
+        "korean": "응. 이번에는 같이 정하자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Diesmal entscheiden wir zusammen.",
+          "en": "Okay. Let's decide together this time."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_relationships"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_before"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-기 전에",
+        "de": "Zeitabfolge (bevor)",
+        "en": "Time sequence (before)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Bevor etwas getan wird",
+        "en": "Before something is done"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "작업이 늦어져서 오후 표로 바꿨어.",
+        "de": "Die Arbeit dauert länger, deshalb habe ich auf den Nachmittagszug umgebucht.",
+        "en": "Work ran late, so I changed us to the afternoon train."
+      },
+      {
+        "speaker": "lena",
+        "ko": "시간보다 나한테 먼저 말하지 않은 게 서운했어.",
+        "de": "Nicht die Uhrzeit stört mich, sondern dass du mich vorher nicht gefragt hast.",
+        "en": "I'm not upset about the time. I'm upset that you didn't tell me first."
+      },
+      {
+        "speaker": "user",
+        "ko": "빨리 해결하려고 혼자 바꿨는데, 미안해.",
+        "de": "Ich wollte das schnell lösen und habe allein entschieden. Tut mir leid.",
+        "en": "I was trying to fix it quickly and changed it myself. I'm sorry."
+      },
+      {
+        "speaker": "lena",
+        "ko": "나는 오후에 다른 약속이 있어.",
+        "de": "Am Nachmittag habe ich schon etwas anderes vor.",
+        "en": "I already have other plans in the afternoon."
+      },
+      {
+        "speaker": "user",
+        "ko": "원래 표를 취소하기 전에 가능한 시간을 다시 보자.",
+        "de": "Bevor ich die ursprünglichen Tickets storniere, schauen wir noch einmal nach einer Zeit, die für uns beide passt.",
+        "en": "Before I cancel the original tickets, let's check what time works for both of us."
+      },
+      {
+        "speaker": "lena",
+        "ko": "응. 이번에는 같이 정하자.",
+        "de": "Ja. Diesmal entscheiden wir zusammen.",
+        "en": "Okay. Let's decide together this time."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_cancelled_trip_hurt_feelings_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "시간보다 나한테 먼저 말하지 않은 게 서운했어.",
+          "options": [
+            {
+              "de": "Nicht die Uhrzeit stört mich, sondern dass du mich vorher nicht gefragt hast.",
+              "en": "I'm not upset about the time. I'm upset that you didn't tell me first."
+            },
+            {
+              "de": "Die Arbeit dauert länger, deshalb habe ich auf den Nachmittagszug umgebucht.",
+              "en": "Work ran late, so I changed us to the afternoon train."
+            },
+            {
+              "de": "Ich wollte das schnell lösen und habe allein entschieden. Tut mir leid.",
+              "en": "I was trying to fix it quickly and changed it myself. I'm sorry."
+            },
+            {
+              "de": "Am Nachmittag habe ich schon etwas anderes vor.",
+              "en": "I already have other plans in the afternoon."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_cancelled_trip_hurt_feelings_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Die Arbeit dauert länger, deshalb habe ich auf den Nachmittagszug umgebucht.",
+          "promptEn": "Work ran late, so I changed us to the afternoon train.",
+          "options": [
+            {
+              "ko": "작업이 늦어져서 오후 표로 바꿨어."
+            },
+            {
+              "ko": "시간보다 나한테 먼저 말하지 않은 게 서운했어."
+            },
+            {
+              "ko": "빨리 해결하려고 혼자 바꿨는데, 미안해."
+            },
+            {
+              "ko": "나는 오후에 다른 약속이 있어."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_cancelled_trip_hurt_feelings_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "원래 표를 취소하기 전에 가능한 시간을 다시 보자.",
+          "audioKo": "원래 표를 취소하기 전에 가능한 시간을 다시 보자.",
+          "promptDe": "Bevor ich die ursprünglichen Tickets storniere, schauen wir noch einmal nach einer Zeit, die für uns beide passt.",
+          "promptEn": "Before I cancel the original tickets, let's check what time works for both of us.",
+          "distractors": [
+            "작업이 늦어져서 오후 표로 바꿨어.",
+            "시간보다 나한테 먼저 말하지 않은 게 서운했어.",
+            "빨리 해결하려고 혼자 바꿨는데, 미안해."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

@@ -1,0 +1,277 @@
+{
+  "schemaVersion": 1,
+  "generationId": "canonical_120_v1",
+  "level": "c2",
+  "scenarios": [
+    {
+      "id": "protest_order_and_rights",
+      "title": {"de": "Versammlungsfreiheit und Verkehrsordnung verhältnismäßig abwägen", "en": "Balancing protest rights and public order proportionately"},
+      "intro": {"ko": "도심 집회가 교통을 방해했다는 이유로 광범위한 사전 제한을 두자는 제안이 나왔어요.", "de": "Nach Verkehrsbehinderungen durch eine Demonstration werden weitreichende Vorab-Beschränkungen vorgeschlagen.", "en": "After a downtown protest disrupted traffic, broad advance restrictions are proposed."},
+      "dialog": [
+        {"speaker": "official", "ko": "지난 집회 때 도로가 오래 막혔으니 앞으로는 도심 집회를 더 엄격하게 제한해야 합니다.", "de": "Nach der langen Verkehrsblockade bei der letzten Demonstration brauchen wir strengere Beschränkungen für Kundgebungen in der Innenstadt.", "en": "After the last protest blocked roads for hours, we need tighter restrictions on downtown demonstrations."},
+        {"speaker": "resident", "ko": "출근길뿐 아니라 응급 차량 통행도 늦어질까 걱정됩니다.", "de": "Ich sorge mich nicht nur um den Berufsverkehr, sondern auch um Rettungswege.", "en": "I'm concerned not only about commuters but also emergency access."},
+        {"speaker": "hyuna", "ko": "불편이 발생했다는 사실만으로 표현의 자유를 광범위하게 제한할 근거가 곧바로 생기는 것은 아닙니다.", "de": "Dass Beeinträchtigungen entstanden sind, rechtfertigt nicht automatisch weitreichende Einschränkungen der Meinungs- und Versammlungsfreiheit.", "en": "The fact that disruption occurred does not automatically justify broad restrictions on freedom of expression."},
+        {"speaker": "official", "ko": "그렇다면 같은 문제가 반복되지 않도록 어떤 조정이 가능합니까?", "de": "Welche Anpassung verhindert dann eine Wiederholung?", "en": "What adjustment could prevent the same problem from recurring?"},
+        {"speaker": "hyuna", "ko": "집회 허용 여부와 구체적인 시간·동선·응급 통로를 어떻게 조정할지는 분리해서 봐야 합니다.", "de": "Wir müssen die grundsätzliche Zulässigkeit der Versammlung von konkreten Auflagen zu Zeit, Route und Rettungswegen trennen.", "en": "We should separate whether the protest may occur from how its timing, route, and emergency access are managed."},
+        {"speaker": "resident", "ko": "그럼 응급 통로를 보장하면서 제한 범위는 실제 위험이 있는 구간에만 두자는 건가요?", "de": "Also sichern wir Rettungswege und begrenzen Auflagen auf Abschnitte mit einem konkreten Risiko?", "en": "So we'd preserve emergency access and limit restrictions to areas with a concrete risk?"},
+        {"speaker": "hyuna", "ko": "네. 목적에 필요한 만큼만 제한하고, 집회 뒤 실제 효과와 침해를 함께 검토해야 합니다.", "de": "Ja. Eingriffe sollten auf das Erforderliche begrenzt und anschließend hinsichtlich Wirkung und Grundrechtseingriff überprüft werden.", "en": "Yes. Restrictions should go only as far as needed, followed by a review of both effectiveness and rights impact."}
+      ]
+    },
+    {
+      "id": "automated_benefit_denial",
+      "title": {"de": "Verantwortung bei einer automatisierten Ablehnung von Sozialleistungen", "en": "Accountability for automated benefit denial"},
+      "intro": {"ko": "소득 자료가 잠시 맞지 않아 신청이 자동 거절됐지만 통지에는 구체적 이유가 없어요.", "de": "Ein vorübergehender Datenwiderspruch führt zur automatischen Ablehnung; der Bescheid nennt keinen konkreten Grund.", "en": "A temporary income-data mismatch triggers an automatic denial, but the notice gives no specific reason."},
+      "dialog": [
+        {"speaker": "resident", "ko": "통지에는 ‘기준 미충족’이라고만 쓰여 있어서 어떤 자료가 문제인지 알 수 없었습니다.", "de": "Im Bescheid stand nur „Voraussetzungen nicht erfüllt“. Ich konnte nicht erkennen, welche Angabe problematisch war.", "en": "The notice only said 'criteria not met,' so I couldn't tell which data was the problem."},
+        {"speaker": "official", "ko": "자동 선별 덕분에 처리 기간이 크게 줄어든 것은 사실입니다.", "de": "Die automatisierte Vorprüfung hat die Bearbeitungszeit deutlich verkürzt.", "en": "Automated screening has significantly reduced processing time."},
+        {"speaker": "sujin", "ko": "처리 속도가 빨라졌다는 성과가 잘못 거절된 사람의 구제 책임을 없애지는 않습니다.", "de": "Kürzere Bearbeitungszeiten beseitigen nicht die Verantwortung, fehlerhaft abgelehnte Personen wirksam zu schützen.", "en": "Faster processing does not remove responsibility for remedying wrongful denials."},
+        {"speaker": "official", "ko": "모든 자동 결과를 사람이 다시 보면 효율이 사라질 수 있습니다.", "de": "Wenn jede automatische Entscheidung erneut von Menschen geprüft wird, geht der Effizienzgewinn verloren.", "en": "If a person rechecks every automated result, the efficiency gain may disappear."},
+        {"speaker": "sujin", "ko": "모든 건을 반복 심사하자는 게 아니라 불이익을 확정하기 전에 오류 신호가 있는 건을 검토하자는 겁니다.", "de": "Nicht jeder Fall soll doppelt geprüft werden. Bei erkennbaren Widersprüchen sollte jedoch vor einer belastenden Entscheidung ein Mensch prüfen.", "en": "I'm not proposing duplicate review of every case. Cases with error signals should get human review before an adverse decision is finalized."},
+        {"speaker": "resident", "ko": "어떤 자료가 달랐는지 알 수 있다면 저도 바로 고칠 수 있었어요.", "de": "Wenn ich gewusst hätte, welche Daten abweichen, hätte ich sie sofort berichtigen können.", "en": "If I'd known which data differed, I could have corrected it immediately."},
+        {"speaker": "sujin", "ko": "그렇기 때문에 이해 가능한 사유 통지와 이의 제기 통로를 효율 평가에 포함해야 합니다.", "de": "Darum gehören eine verständliche Begründung und ein zugänglicher Widerspruchsweg in die Effizienzbewertung.", "en": "That's why understandable reasons and an appeal path must be part of how efficiency is evaluated."}
+      ]
+    },
+    {
+      "id": "ai_hiring_appeal",
+      "title": {"de": "Ein begrenztes Recht auf Überprüfung bei KI-Auswahl", "en": "Designing a targeted appeal for AI hiring decisions"},
+      "intro": {"ko": "자동 평가에서 탈락한 지원자는 결정적 항목을 모르고 사람의 검토도 요청할 수 없어요.", "de": "Nach einer automatisierten Ablehnung erfahren Bewerber weder den entscheidenden Faktor noch können sie eine menschliche Prüfung verlangen.", "en": "Applicants rejected by automated screening cannot learn what mattered or request human review."},
+      "dialog": [
+        {"speaker": "resident", "ko": "영상 업로드 오류가 있었는데 결과에는 점수만 나오고 설명은 없었습니다.", "de": "Beim Video-Upload trat ein Fehler auf, aber im Ergebnis stand nur eine Punktzahl ohne Erklärung.", "en": "There was a video upload error, but the result only showed a score with no explanation."},
+        {"speaker": "andrea", "ko": "모든 탈락 사례를 다시 심사하면 채용 일정과 비용을 감당하기 어렵습니다.", "de": "Eine erneute Prüfung jeder Absage wäre zeitlich und finanziell kaum tragbar.", "en": "Rechecking every rejection would be difficult to sustain in cost and time."},
+        {"speaker": "sujin", "ko": "그렇다고 오류 가능성을 다툴 통로가 전혀 없어도 된다는 결론은 나오지 않습니다.", "de": "Daraus folgt jedoch nicht, dass es überhaupt keinen Weg geben darf, einen möglichen Fehler anzufechten.", "en": "That doesn't mean there should be no way to challenge a possible error."},
+        {"speaker": "andrea", "ko": "어떤 경우를 우선 재검토 대상으로 삼을 수 있을까요?", "de": "Welche Fälle sollten vorrangig überprüft werden?", "en": "Which cases should receive priority review?"},
+        {"speaker": "sujin", "ko": "데이터 오류, 접근성 문제, 기준점 근처 사례부터 열면 범위와 비용을 함께 관리할 수 있습니다.", "de": "Wir könnten mit Datenfehlern, Barriereproblemen und Grenzfällen beginnen und so Umfang und Kosten begrenzen.", "en": "Starting with data errors, accessibility issues, and borderline cases would control both scope and cost."},
+        {"speaker": "andrea", "ko": "그렇다면 모든 결정을 다시 하지 않으면서도 다툴 수 있는 기준이 필요하겠군요.", "de": "Dann brauchen wir Kriterien für eine Anfechtung, ohne jede Entscheidung neu aufzurollen.", "en": "Then we need criteria for an appeal without reopening every decision."},
+        {"speaker": "resident", "ko": "최소한 제 오류가 평가에 반영됐는지는 확인할 수 있겠네요.", "de": "Dann könnte ich zumindest klären lassen, ob der technische Fehler meine Bewertung beeinflusst hat.", "en": "Then I could at least find out whether the error affected my evaluation."}
+      ]
+    },
+    {
+      "id": "autonomous_delivery_liability",
+      "title": {"de": "Entschädigung und Ursachenhaftung bei einem Lieferroboter", "en": "Separating compensation from causal responsibility in a delivery-robot accident"},
+      "intro": {"ko": "배송 로봇이 사람을 피하다 상점 물품을 망가뜨렸고 여러 결정이 사고에 얽혀 있어요.", "de": "Ein Lieferroboter weicht einem Fußgänger aus und beschädigt Waren; Software, Wartung und Einsatzplanung spielen zusammen.", "en": "A delivery robot avoids a pedestrian and damages store goods, with software, maintenance, and deployment decisions all involved."},
+      "dialog": [
+        {"speaker": "resident", "ko": "가게 입장에서는 로봇 회사든 운영 업체든 한 곳에서 빨리 보상받고 싶습니다.", "de": "Als Geschäftsinhaber möchte ich schnell entschädigt werden, unabhängig davon, welches Unternehmen intern verantwortlich ist.", "en": "As the shop owner, I want prompt compensation from one place, regardless of who is responsible internally."},
+        {"speaker": "official", "ko": "현장 배치 담당자의 판단 실수로 정리하면 책임자가 명확해집니다.", "de": "Wenn wir den Fall als Fehlentscheidung beim Einsatz einordnen, hätten wir einen klaren Verantwortlichen.", "en": "If we classify this as a deployment error, we'd have a clear responsible party."},
+        {"speaker": "hyuna", "ko": "피해 구제 창구를 하나로 두는 것과 원인 책임을 한 주체에게 몰아주는 것은 다른 문제입니다.", "de": "Eine zentrale Entschädigungsstelle ist etwas anderes als die gesamte Ursachenverantwortung einer Stelle zuzuschreiben.", "en": "Having one compensation channel is different from assigning all causal responsibility to one actor."},
+        {"speaker": "official", "ko": "원인을 여러 층으로 나누면 오히려 아무도 책임지지 않는 결과가 되지 않을까요?", "de": "Führt eine mehrschichtige Ursachenanalyse nicht dazu, dass am Ende niemand verantwortlich ist?", "en": "Wouldn't a multi-layered cause analysis leave no one responsible?"},
+        {"speaker": "hyuna", "ko": "대외 보상 책임은 단일화하되 센서 관리, 소프트웨어 판단, 배치 기준은 각각 추적할 수 있습니다.", "de": "Die Entschädigung nach außen kann gebündelt werden, während Sensorwartung, Softwareentscheidung und Einsatzkriterien getrennt untersucht werden.", "en": "External compensation can be centralized while sensor maintenance, software decisions, and deployment criteria are traced separately."},
+        {"speaker": "resident", "ko": "보상 절차 때문에 원인 조사가 늦어지지도 않았으면 합니다.", "de": "Die Ursachenklärung sollte aber auch nicht die Entschädigung verzögern.", "en": "I also don't want the investigation to delay compensation."},
+        {"speaker": "hyuna", "ko": "그래서 구제와 재발 방지를 병렬로 진행하고 서로의 완료 조건으로 묶지 않는 설계가 필요합니다.", "de": "Darum sollten Entschädigung und Prävention parallel laufen, ohne einander zur Vorbedingung zu machen.", "en": "That's why remedy and prevention should proceed in parallel rather than making one a precondition for the other."}
+      ]
+    },
+    {
+      "id": "family_memory_conflict",
+      "title": {"de": "Widersprüchliche Erinnerungen in einer Familie bewahren", "en": "Preserving conflicting memories within a family"},
+      "intro": {"ko": "같은 이사를 수진의 가족은 새 출발로, 한 사람은 강요된 상실로 기억해요.", "de": "Dieselbe Übersiedlung gilt in Sujins Familie teils als Neuanfang, teils als erzwungener Verlust.", "en": "Sujin's family remembers the same move as either a fresh start or a forced loss."},
+      "dialog": [
+        {"speaker": "sujin", "ko": "가족 사진 밑에 ‘모두가 기다리던 새 출발’이라고 쓰려고 했어요.", "de": "Unter das Familienfoto wollte ich schreiben: „Der Neuanfang, auf den wir alle gewartet hatten.“", "en": "I was going to caption the family photo, 'The fresh start we'd all been waiting for.'"},
+        {"speaker": "christian", "ko": "그런데 이모는 그때 친구와 집을 한꺼번에 잃었다고 했죠?", "de": "Deine Tante sagte aber, sie habe damals gleichzeitig ihr Zuhause und ihre Freunde verloren, oder?", "en": "But your aunt said she lost her home and her friends at the same time, right?"},
+        {"speaker": "sujin", "ko": "네. 우리에게 좋은 일이었다고 쓰면 이모의 기억을 틀렸다고 만드는 것 같아요.", "de": "Ja. Wenn ich es als gute Zeit für uns alle bezeichne, klingt ihre Erinnerung falsch.", "en": "Yes. If I call it good for all of us, it makes her memory sound wrong."},
+        {"speaker": "christian", "ko": "같은 일을 기억해도 누구에게 선택권이 있었는지에 따라 이야기가 달라질 수 있겠네요.", "de": "Auch dieselbe Erfahrung kann anders erzählt werden, je nachdem, wer eine Wahl hatte.", "en": "Even the same event can become a different story depending on who had a choice."},
+        {"speaker": "sujin", "ko": "그럼 하나로 합치지 말고 ‘부모님에게는 새 출발, 이모에게는 떠나야 했던 날’이라고 쓸까요?", "de": "Wie wäre es dann mit: „Für meine Eltern ein Neuanfang, für meine Tante der Tag, an dem sie gehen musste“?", "en": "Then instead of merging them, how about: 'A fresh start for my parents; the day my aunt had to leave'?"},
+        {"speaker": "christian", "ko": "좋아요. 같은 사진에 서로 다른 기억이 있다는 게 더 솔직해 보여요.", "de": "Das ist ehrlicher: ein Foto, aber verschiedene Erinnerungen.", "en": "That feels more honest: one photo, but different memories."}
+      ]
+    },
+    {
+      "id": "hidden_gem_local_impact",
+      "title": {"de": "Die Folgen eines Videos über einen „Geheimtipp“", "en": "The local impact of a 'hidden gem' video"},
+      "intro": {"ko": "다니엘의 ‘숨은 명소’ 영상 뒤 매출은 늘었지만 사유지 침입과 소음, 임대료 걱정도 커졌어요.", "de": "Nach Daniels Video über einen „Geheimtipp“ steigen Umsätze, aber auch unerlaubtes Betreten, Lärm und Mietsorgen.", "en": "After Daniel's 'hidden gem' video, sales rise along with trespassing, noise, and rent concerns."},
+      "dialog": [
+        {"speaker": "daniel", "ko": "영상 덕분에 가게 매출이 늘었다는 연락을 받아서 처음에는 좋은 일이라고만 생각했습니다.", "de": "Als die Geschäfte von höheren Umsätzen berichteten, hielt ich die Wirkung zunächst nur für positiv.", "en": "When shops told me sales had risen, I initially saw the impact as entirely positive."},
+        {"speaker": "resident", "ko": "하지만 영상에 나온 돌계단은 사유지인데 사람들이 사진을 찍으러 계속 들어옵니다.", "de": "Die Steintreppe im Video ist jedoch Privatgrund; ständig kommen Menschen für Fotos hinein.", "en": "But the stone steps in the video are private property, and people keep entering to take photos."},
+        {"speaker": "hyuna", "ko": "숨은 명소라는 표현이 장소를 발견해야 할 대상으로 만들면서 실제 생활 공간이라는 점을 가렸어요.", "de": "Der Ausdruck „Geheimtipp“ rahmt den Ort als zu entdeckendes Ziel und verdeckt, dass Menschen dort leben.", "en": "The phrase 'hidden gem' frames the place as something to discover and obscures that it is a living space."},
+        {"speaker": "daniel", "ko": "좋은 의도로 만든 영상이라는 설명만으로 이후의 영향을 지울 수는 없습니다.", "de": "Die gute Absicht hinter dem Video macht seine späteren Folgen nicht ungeschehen.", "en": "Saying the video was well-intentioned cannot erase what happened afterward."},
+        {"speaker": "resident", "ko": "지역을 통째로 숨겨 달라는 게 아니라 집 앞까지 찾아오는 동선은 막아 달라는 겁니다.", "de": "Wir verlangen nicht, den ganzen Ort zu verbergen, sondern den Weg direkt zu unseren Häusern nicht weiterzuverbreiten.", "en": "We're not asking you to hide the whole area, only to stop directing people to our doorsteps."},
+        {"speaker": "daniel", "ko": "정확한 위치는 지우고 방문 예절과 혼잡 시간을 넣겠습니다. 수익 환원 방식도 지역과 다시 논의하겠습니다.", "de": "Ich entferne den genauen Standort, ergänze Besuchshinweise und Stoßzeiten und bespreche mit der Nachbarschaft erneut eine Beteiligung an den Einnahmen.", "en": "I'll remove the exact location, add visitor guidance and busy times, and discuss revenue sharing with the community again."},
+        {"speaker": "hyuna", "ko": "영상을 고치는 데 그치지 않고, 수정 뒤 유입과 민원이 어떻게 달라지는지도 함께 확인해야 합니다.", "de": "Wir sollten uns nicht auf die Änderung des Videos beschränken, sondern auch verfolgen, wie sich Besucherzahlen und Beschwerden danach entwickeln.", "en": "We shouldn't stop at editing the video; we also need to track how visitor flow and complaints change afterward."}
+      ]
+    },
+    {
+      "id": "housing_tax_intergenerational",
+      "title": {"de": "Den Generationenrahmen in einer Grundsteuerdebatte prüfen", "en": "Examining the generational frame in a property-tax debate"},
+      "intro": {"ko": "보유세 논쟁이 청년 대 노년으로만 편집돼 자산·소득·거주 목적의 차이가 사라져요.", "de": "Eine Grundsteuerdebatte wird als Konflikt Jung gegen Alt erzählt; Vermögen, Einkommen und Wohnzweck verschwinden.", "en": "A property-tax debate is framed as young versus old, erasing differences in wealth, income, and housing purpose."},
+      "dialog": [
+        {"speaker": "moderator", "ko": "오늘 토론은 집 없는 청년과 집 가진 노년의 갈등을 중심으로 보겠습니다.", "de": "Heute betrachten wir den Konflikt zwischen jungen Menschen ohne Wohneigentum und älteren Eigentümern.", "en": "Today's debate will focus on young people without homes versus older homeowners."},
+        {"speaker": "hyuna", "ko": "세대라는 구분이 설명력을 갖는 부분은 있지만 자산과 소득의 차이까지 대신 설명하지는 못합니다.", "de": "Die Generationenkategorie erklärt einen Teil des Konflikts, ersetzt aber nicht die Unterschiede bei Vermögen und Einkommen.", "en": "Generational categories explain part of the conflict, but cannot stand in for differences in wealth and income."},
+        {"speaker": "moderator", "ko": "그래도 시청자가 이해하기에는 세대 구도가 가장 분명하지 않나요?", "de": "Ist der Generationenrahmen für das Publikum nicht am verständlichsten?", "en": "Isn't the generational frame clearest for viewers?"},
+        {"speaker": "hyuna", "ko": "도입에는 쓸 수 있지만 사례까지 그 틀에 맞추면 저소득 고령자와 다주택 청년 같은 집단이 지워집니다.", "de": "Als Einstieg mag er funktionieren, doch bei den Fällen verschwinden dann etwa einkommensarme Ältere und junge Mehrfacheigentümer.", "en": "It may work as an opening, but applying it to every case erases groups like low-income seniors and young multiple-property owners."},
+        {"speaker": "moderator", "ko": "그럼 어떤 기준을 교차해서 보여 주면 좋을까요?", "de": "Welche Merkmale sollten wir zusätzlich kreuzen?", "en": "What dimensions should we show alongside generation?"},
+        {"speaker": "hyuna", "ko": "연령은 유지하되 자산 규모, 현재 소득, 실거주 여부를 함께 보여 주면 프레임의 한계도 드러납니다.", "de": "Wir können das Alter beibehalten, aber Vermögenshöhe, laufendes Einkommen und Eigennutzung mitzeigen.", "en": "Keep age, but also show asset size, current income, and whether the home is owner-occupied."}
+      ]
+    },
+    {
+      "id": "welfare_fraud_presumption",
+      "title": {"de": "Betrugsprävention formulieren, ohne alle Antragsteller zu verdächtigen", "en": "Writing fraud warnings without presuming every applicant is guilty"},
+      "intro": {"ko": "강한 부정 수급 경고가 모든 신청자를 잠재적 위반자로 대한다는 지적이 나와요.", "de": "Eine scharfe Betrugswarnung behandelt alle Antragsteller wie potenzielle Täter.", "en": "A harsh benefits-fraud warning treats every applicant as a potential offender."},
+      "dialog": [
+        {"speaker": "official", "ko": "허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다.", "de": "Um falsche Angaben zu verhindern, sollten mögliche Sanktionen gleich auf der ersten Seite deutlich hervorgehoben werden.", "en": "To deter false claims, possible penalties should be strongly emphasized on the first screen."},
+        {"speaker": "sujin", "ko": "위반 가능성을 알리는 것과 신청자 전체를 의심하는 문체는 구분해야 합니다.", "de": "Über mögliche Verstöße zu informieren ist etwas anderes, als alle Antragsteller sprachlich unter Verdacht zu stellen.", "en": "Informing people about violations is different from writing as if every applicant is suspect."},
+        {"speaker": "official", "ko": "경고를 부드럽게 만들면 책임을 가볍게 받아들이지 않을까요?", "de": "Wird die Pflicht nicht verharmlost, wenn wir den Hinweis abschwächen?", "en": "Would softer wording make people take their responsibility less seriously?"},
+        {"speaker": "sujin", "ko": "의무와 처벌은 정확히 쓰되 실수 수정과 도움 요청도 같은 화면에서 안내할 수 있습니다.", "de": "Pflichten und Sanktionen können präzise bleiben, während Korrektur- und Hilfswege auf derselben Seite stehen.", "en": "Duties and penalties can remain precise while correction and help options appear on the same screen."},
+        {"speaker": "official", "ko": "그렇게 하면 고의와 단순 오류를 처음부터 구분할 수 있겠군요.", "de": "So könnten wir vorsätzliche Täuschung und einfache Fehler von Anfang an unterscheiden.", "en": "That would distinguish intentional fraud from simple mistakes from the outset."},
+        {"speaker": "sujin", "ko": "네. 존중하는 문체를 쓴다고 해서 통제를 포기하는 것은 아니니까요.", "de": "Genau. Respektvolle Sprache bedeutet nicht, dass Kontrolle aufgegeben wird.", "en": "Exactly. Using respectful language doesn't mean giving up enforcement."}
+      ]
+    },
+    {
+      "id": "central_local_disaster_responsibility",
+      "title": {"de": "Zentrale und lokale Verantwortung bei einer Katastrophe auseinanderhalten", "en": "Separating central and local responsibility in a disaster response"},
+      "intro": {"ko": "중앙 경보와 현장 대피가 모두 늦어 서로 책임을 떠넘겨요.", "de": "Sowohl die zentrale Warnung als auch die Evakuierung vor Ort kamen zu spät; nun schieben sich Stellen gegenseitig die Verantwortung zu.", "en": "Both the central warning and local evacuation were delayed, and agencies are blaming each other."},
+      "dialog": [
+        {"speaker": "official", "ko": "중앙 경보가 늦게 내려와 현장에서는 판단할 정보가 부족했습니다.", "de": "Die zentrale Warnung kam spät; vor Ort fehlte die Grundlage für eine Entscheidung.", "en": "The central alert came late, leaving the local team without enough information."},
+        {"speaker": "resident", "ko": "그런데 경보가 온 뒤에도 대피 안내는 한참 나오지 않았습니다.", "de": "Aber auch nach Eingang der Warnung dauerte es lange bis zur Evakuierungsanweisung.", "en": "But even after the alert arrived, the evacuation notice was delayed."},
+        {"speaker": "hyuna", "ko": "경보가 늦은 문제와 경보 이후 대피 결정이 지연된 문제를 한 책임으로 뭉뚱그릴 수는 없습니다.", "de": "Die verspätete Warnung und die verzögerte Entscheidung danach dürfen nicht zu einer einzigen Verantwortungsfrage vermischt werden.", "en": "We cannot collapse the late alert and the delayed evacuation decision after it into one responsibility."},
+        {"speaker": "official", "ko": "책임을 나누다 보면 서로 상대 결정만 기다리는 문제가 반복될 수 있습니다.", "de": "Wenn Zuständigkeiten getrennt werden, könnten Stellen erneut nur aufeinander warten.", "en": "Dividing responsibility could lead agencies to wait for one another again."},
+        {"speaker": "hyuna", "ko": "그래서 책임 배분과 별개로 어떤 정보가 오면 누가 언제 행동하는지 공통 기준을 정해야 합니다.", "de": "Darum brauchen wir unabhängig von der späteren Verantwortungszuordnung gemeinsame Auslöser: welche Information führt wann zu welcher Handlung durch wen?", "en": "That's why, separate from assigning blame, we need common triggers for who acts when specific information arrives."},
+        {"speaker": "resident", "ko": "다음에는 경보가 완벽하지 않아도 현장이 움직일 수 있는 조건을 공개해 주세요.", "de": "Bitte machen Sie öffentlich, unter welchen Bedingungen vor Ort auch bei unvollständiger Warnlage gehandelt wird.", "en": "Please publish the conditions under which local teams can act even when an alert is incomplete."}
+      ]
+    },
+    {
+      "id": "emergency_price_controls",
+      "title": {"de": "Preisobergrenzen im Notfall mit Versorgungssicherheit verbinden", "en": "Pairing emergency price caps with supply safeguards"},
+      "intro": {"ko": "폭우 뒤 생수 가격 상한제가 제안됐지만 공급 감소와 사재기 우려도 있어요.", "de": "Nach Starkregen wird eine Preisobergrenze für Wasser vorgeschlagen, zugleich drohen Lieferengpässe und Hamsterkäufe.", "en": "After severe flooding, a bottled-water price cap is proposed, with concerns about reduced supply and hoarding."},
+      "dialog": [
+        {"speaker": "official", "ko": "재난 중 생수 가격이 급등하지 않도록 즉시 상한을 두어야 합니다.", "de": "Wir brauchen sofort eine Preisobergrenze, damit Wasser in der Katastrophe nicht unbezahlbar wird.", "en": "We need an immediate cap to prevent water prices from soaring during the emergency."},
+        {"speaker": "andrea", "ko": "가격만 묶어 두면 필요한 곳에 물건이 도착하지 않는 역효과가 생길 수 있습니다.", "de": "Wenn wir nur den Preis deckeln, könnte weniger Ware dort ankommen, wo sie gebraucht wird.", "en": "If we cap only the price, less supply may reach the places that need it."},
+        {"speaker": "official", "ko": "그렇다고 급등을 그대로 두면 구매력이 낮은 사람이 먼저 배제됩니다.", "de": "Ohne Eingriff werden jedoch Menschen mit geringer Kaufkraft zuerst ausgeschlossen.", "en": "But without intervention, people with less purchasing power will be excluded first."},
+        {"speaker": "andrea", "ko": "상한 자체보다 그것만으로 충분하다는 전제가 문제입니다.", "de": "Nicht die Obergrenze an sich ist das Problem, sondern die Annahme, sie reiche allein aus.", "en": "The problem isn't the cap itself, but the premise that it is sufficient on its own."},
+        {"speaker": "official", "ko": "그럼 상한과 함께 어떤 대책을 묶어야 할까요?", "de": "Welche Maßnahmen sollten wir dann mit der Obergrenze verbinden?", "en": "What measures should we pair with the cap, then?"},
+        {"speaker": "andrea", "ko": "단기 상한에 구매 수량 제한과 추가 운송비 지원을 묶고 종료 조건도 정해야 합니다.", "de": "Wir sollten eine befristete Obergrenze mit Mengenbegrenzung und Unterstützung zusätzlicher Transportkosten verbinden und ein Ende definieren.", "en": "We should pair a temporary cap with purchase limits and transport-cost support, and define when it ends."}
+      ]
+    },
+    {
+      "id": "causal_claim_headline",
+      "title": {"de": "Korrelation in einer Überschrift nicht zur Ursache machen", "en": "Keeping correlation from becoming causation in a headline"},
+      "intro": {"ko": "운동 앱 사용자와 건강 지표의 상관관계를 앱의 효과로 단정하는 제목을 쓰려 해요.", "de": "Eine Korrelation zwischen App-Nutzung und Gesundheitswerten soll als Wirkung der App überschrieben werden.", "en": "A correlation between app use and health indicators is being turned into a causal headline."},
+      "dialog": [
+        {"speaker": "editor", "ko": "‘이 앱이 건강을 개선한다’고 써야 독자가 연구 의미를 바로 이해합니다.", "de": "Mit „Diese App verbessert die Gesundheit“ verstehen Leser die Bedeutung der Studie sofort.", "en": "Readers will immediately understand the study if we say, 'This app improves health.'"},
+        {"speaker": "sujin", "ko": "함께 나타났다는 결과를 앱이 개선했다는 원인 주장으로 바꾸면 연구 범위를 넘어섭니다.", "de": "Eine beobachtete Gemeinsamkeit zur Ursache durch die App umzudeuten, überschreitet die Studie.", "en": "Turning co-occurrence into a claim that the app caused improvement goes beyond the study."},
+        {"speaker": "editor", "ko": "제목에 모든 방법론을 넣을 수는 없잖아요.", "de": "Wir können nicht die gesamte Methodik in die Überschrift packen.", "en": "We can't put the entire methodology in the headline."},
+        {"speaker": "sujin", "ko": "방법론 전체가 아니라 인과를 확인하지 않았다는 경계만 지키면 됩니다.", "de": "Wir müssen nicht alles erklären, sondern nur die Grenze wahren, dass keine Kausalität nachgewiesen wurde.", "en": "We don't need every method detail. We only need to preserve the boundary that causation wasn't established."},
+        {"speaker": "editor", "ko": "그럼 ‘운동 앱 사용자에게서 더 좋은 건강 지표 관찰’은 어떨까요?", "de": "Wie wäre es mit „Bessere Gesundheitswerte bei Nutzern einer Fitness-App beobachtet“?", "en": "How about, 'Better health indicators observed among fitness-app users'?"},
+        {"speaker": "sujin", "ko": "좋습니다. 본문에서는 자기선택과 다른 생활 습관이 영향을 줬을 가능성도 설명하죠.", "de": "Gut. Im Text erklären wir zusätzlich mögliche Selbstselektion und andere Lebensgewohnheiten.", "en": "Good. In the article, let's explain possible self-selection and other lifestyle differences."}
+      ]
+    },
+    {
+      "id": "replication_failure_response",
+      "title": {"de": "Eine fehlgeschlagene Replikation ohne vorschnelles Urteil einordnen", "en": "Interpreting a failed replication without overclaiming"},
+      "intro": {"ko": "유명 연구를 같은 방식으로 반복했지만 효과가 나오지 않았어요.", "de": "Eine Wiederholung einer bekannten Studie findet den ursprünglichen Effekt nicht.", "en": "A repetition of a well-known study fails to find the original effect."},
+      "dialog": [
+        {"speaker": "researcher", "ko": "같은 절차를 썼는데 효과가 없었으니 원 연구는 틀렸다고 발표해야 합니다.", "de": "Wir haben dasselbe Verfahren genutzt und keinen Effekt gefunden. Also sollten wir die ursprüngliche Studie als falsch bezeichnen.", "en": "We used the same procedure and found no effect, so we should say the original study was wrong."},
+        {"speaker": "professor", "ko": "반대로 이번 표본에만 특수한 문제가 있었다고 넘기는 것도 설득력이 없습니다.", "de": "Umgekehrt wäre es ebenso wenig überzeugend, das Ergebnis nur unserer Stichprobe zuzuschreiben.", "en": "Conversely, dismissing it as a quirk of our sample isn't persuasive either."},
+        {"speaker": "hyuna", "ko": "재현되지 않았다는 결과는 중요하지만 그것만으로 원 연구의 모든 주장이 거짓이라고 결론 내릴 수는 없습니다.", "de": "Die fehlende Replikation ist wichtig, erlaubt aber nicht, sämtliche Aussagen der ursprünglichen Studie für falsch zu erklären.", "en": "The failed replication matters, but it doesn't let us conclude that every claim in the original study was false."},
+        {"speaker": "researcher", "ko": "그럼 이번 결과의 의미를 어떻게 분명하게 말하죠?", "de": "Wie formulieren wir dann klar, was unser Ergebnis bedeutet?", "en": "Then how do we clearly state what our result means?"},
+        {"speaker": "hyuna", "ko": "이 조건과 표본에서는 같은 효과가 확인되지 않았다고 쓰고, 결과가 달라질 수 있는 조건을 비교해야 합니다.", "de": "Wir schreiben, dass sich der Effekt unter diesen Bedingungen und in dieser Stichprobe nicht zeigte, und vergleichen mögliche Moderatoren.", "en": "State that the effect wasn't found in this sample under these conditions, then compare what conditions may account for the difference."},
+        {"speaker": "professor", "ko": "측정 방식과 표본 구성 차이를 후속 연구의 가설로 명시합시다.", "de": "Dann benennen wir Messverfahren und Stichprobenzusammensetzung als Hypothesen für die Folgestudie.", "en": "Let's name measurement and sample composition as hypotheses for follow-up research."}
+      ]
+    },
+    {
+      "id": "medical_uncertainty_consent",
+      "title": {"de": "Unsichere Behandlungseffekte in einer Einwilligung erklären", "en": "Explaining uncertain treatment effects during consent"},
+      "intro": {"ko": "초기 연구에서 가능성은 보였지만 이익과 부작용의 크기는 아직 불확실해요.", "de": "Frühe Studien zeigen Potenzial, doch Größe von Nutzen und Nebenwirkungen bleibt ungewiss.", "en": "Early studies show promise, but the size of benefits and side effects remains uncertain."},
+      "dialog": [
+        {"speaker": "researcher", "ko": "초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다.", "de": "Wenn wir sagen, das Risiko habe sich in der ersten Studie halbiert, ist der Nutzen leicht verständlich.", "en": "Saying the early study cut risk in half would communicate the benefit clearly."},
+        {"speaker": "sujin", "ko": "효과가 있을 가능성과 아직 모르는 범위를 같은 무게로 설명해야 합니다.", "de": "Die mögliche Wirkung und das Ausmaß unseres Nichtwissens müssen gleichgewichtig erklärt werden.", "en": "The possibility of benefit and the extent of what remains unknown need equal weight."},
+        {"speaker": "researcher", "ko": "불확실성을 너무 강조하면 참여를 막는 방향으로 기울지 않을까요?", "de": "Könnte eine starke Betonung der Unsicherheit Menschen nicht unnötig von der Teilnahme abhalten?", "en": "Could emphasizing uncertainty too much push people away from participating?"},
+        {"speaker": "sujin", "ko": "참여를 늘리거나 줄이는 게 목적이 아니라 스스로 판단할 수 있게 하는 게 목적입니다.", "de": "Ziel ist weder mehr noch weniger Teilnahme, sondern eine selbstbestimmte Entscheidung.", "en": "The goal isn't to increase or decrease participation. It's to enable an informed choice."},
+        {"speaker": "researcher", "ko": "그렇다면 어떤 정보를 나눠서 보여 줘야 할까요?", "de": "Welche Informationen sollten wir dann getrennt darstellen?", "en": "Which information should we separate, then?"},
+        {"speaker": "sujin", "ko": "상대위험, 예상되는 실제 범위, 알려진 부작용, 아직 모르는 점과 중단할 선택권을 나눠서 보여 주죠.", "de": "Wir zeigen relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und das Recht auf Abbruch getrennt.", "en": "Let's separate relative risk, expected absolute ranges, known side effects, what remains unknown, and the option to withdraw."}
+      ]
+    },
+    {
+      "id": "climate_model_local_decision",
+      "title": {"de": "Mit unterschiedlichen Klimamodellen lokal entscheiden", "en": "Making local decisions across uncertain climate models"},
+      "intro": {"ko": "침수 범위 예측은 모델마다 다르지만 제방 투자 결정은 지금 내려야 해요.", "de": "Modelle zeigen unterschiedliche Überflutungsflächen, doch über Deichinvestitionen muss jetzt entschieden werden.", "en": "Flood models disagree on the affected area, but a levee investment decision is needed now."},
+      "dialog": [
+        {"speaker": "official", "ko": "모델마다 침수 지도가 달라서 어느 결과를 기준으로 삼아야 할지 모르겠습니다.", "de": "Die Überflutungskarten unterscheiden sich je nach Modell. Uns fehlt eine eindeutige Grundlage.", "en": "The flood maps differ by model, so we don't know which result to use."},
+        {"speaker": "hyuna", "ko": "예측 범위가 다르다는 사실이 아무 결정도 하지 말아야 한다는 뜻은 아닙니다.", "de": "Unterschiedliche Prognosespannen bedeuten nicht, dass wir gar nicht entscheiden können.", "en": "Different prediction ranges do not mean we should make no decision."},
+        {"speaker": "official", "ko": "가장 큰 침수 범위를 기준으로 하면 과잉 투자가 될 가능성도 있습니다.", "de": "Wenn wir die größte Fläche zugrunde legen, riskieren wir Überinvestitionen.", "en": "Using the largest flood range could lead to overinvestment."},
+        {"speaker": "hyuna", "ko": "반대로 평균만 택하면 되돌리기 어려운 피해를 과소평가할 수 있습니다.", "de": "Ein bloßer Mittelwert könnte hingegen schwer umkehrbare Schäden unterschätzen.", "en": "Using only the average could underestimate harm that is hard to reverse."},
+        {"speaker": "official", "ko": "그럼 불확실한 상태에서 우선순위를 어떻게 정해야 할까요?", "de": "Wie setzen wir unter dieser Unsicherheit Prioritäten?", "en": "How should we set priorities under that uncertainty?"},
+        {"speaker": "hyuna", "ko": "여러 모델이 공통으로 위험하다고 보는 구간은 먼저 보강하고, 나머지는 되돌릴 수 있는 조치부터 시작해 새 자료에 맞춰 조정하죠.", "de": "Wir verstärken zuerst Abschnitte, die alle Modelle als gefährdet zeigen. In den übrigen Bereichen beginnen wir mit umkehrbaren Maßnahmen und passen sie an neue Daten an.", "en": "Let's reinforce the zones all models identify as high risk first. Elsewhere, we can start with reversible measures and adjust them as new evidence comes in."}
+      ]
+    },
+    {
+      "id": "passive_voice_accountability",
+      "title": {"de": "Verantwortung in einer passiven Pressemitteilung sichtbar machen", "en": "Restoring accountability in a passive press release"},
+      "intro": {"ko": "보도자료에는 ‘자료 유출이 발생했다’고만 쓰여 기관의 행동이 계속 빠져 있어요.", "de": "In einer Pressemitteilung heißt es nur, ein Datenleck sei „aufgetreten“; Handlungen der Institution bleiben unsichtbar.", "en": "A press release says only that a data leak 'occurred,' repeatedly omitting the institution's actions."},
+      "dialog": [
+        {"speaker": "official", "ko": "아직 개인 책임자를 확정하지 못했으니 ‘자료 유출이 발생했다’고 쓰는 게 안전합니다.", "de": "Da noch keine Einzelperson verantwortlich gemacht werden kann, ist „Es kam zu einem Datenleck“ die sicherste Formulierung.", "en": "Since no individual has been identified, 'a data leak occurred' is the safest wording."},
+        {"speaker": "editor", "ko": "하지만 무엇을 했고 무엇을 하지 않았는지도 전부 빠져 있습니다.", "de": "Damit verschwinden jedoch auch sämtliche Handlungen und Unterlassungen.", "en": "But that also removes everything the institution did or failed to do."},
+        {"speaker": "sujin", "ko": "행위자를 확정할 수 없다는 것과 기관이 아무 행동 주체도 아닌 것처럼 쓰는 것은 다릅니다.", "de": "Eine einzelne handelnde Person nicht benennen zu können, ist etwas anderes, als die Institution sprachlich ganz ohne Handlungsmacht darzustellen.", "en": "Not being able to identify an individual actor is different from writing as if the institution were not an actor at all."},
+        {"speaker": "official", "ko": "확인되지 않은 책임을 암시하지 않으면서 어떻게 바꿀 수 있습니까?", "de": "Wie formulieren wir das, ohne unbestätigte Verantwortung anzudeuten?", "en": "How can we revise it without implying unconfirmed responsibility?"},
+        {"speaker": "sujin", "ko": "‘기관은 유출을 확인했고 접근을 차단했다’처럼 확인된 조치는 능동태로 쓰면 됩니다.", "de": "Bestätigte Handlungen können aktiv stehen: „Die Institution bestätigte den Vorfall und sperrte den Zugang.“", "en": "State confirmed actions actively: 'The institution confirmed the leak and blocked access.'"},
+        {"speaker": "editor", "ko": "원인과 개인 책임은 조사 중이라고 별도로 표시하겠습니다.", "de": "Ursache und individuelle Verantwortung kennzeichnen wir getrennt als Gegenstand der laufenden Untersuchung.", "en": "We'll separately state that the cause and individual responsibility remain under investigation."}
+      ]
+    },
+    {
+      "id": "fact_check_label_power",
+      "title": {"de": "Die Reichweite eines Faktencheck-Labels begrenzen", "en": "Limiting the reach of a fact-check label"},
+      "intro": {"ko": "복잡한 정책 주장에 ‘거짓’ 표시가 붙어 사실 오류와 가치 판단이 한데 섞여요.", "de": "Ein komplexes politisches Argument erhält das Label „falsch“, wodurch Faktenfehler und Werturteile vermischt werden.", "en": "A complex policy claim receives a 'false' label that blends factual error with value judgment."},
+      "dialog": [
+        {"speaker": "official", "ko": "숫자 하나가 틀렸으니 전체 주장에 ‘거짓’ 라벨을 붙이는 편이 명확합니다.", "de": "Da eine Zahl falsch ist, wäre ein „Falsch“-Label für die gesamte Aussage am eindeutigsten.", "en": "Because one number is wrong, labeling the entire claim 'false' is clearest."},
+        {"speaker": "hyuna", "ko": "검증 가능한 사실과 정책에 대한 가치 판단을 같은 거짓 라벨로 묶어서는 안 됩니다.", "de": "Überprüfbare Tatsachen und normative Politikurteile dürfen nicht unter demselben „Falsch“-Label verschwinden.", "en": "Verifiable facts and value judgments about policy should not be bundled under one false label."},
+        {"speaker": "official", "ko": "라벨을 세분화하면 이용자가 결론을 이해하기 어려워질 수 있습니다.", "de": "Eine differenziertere Kennzeichnung könnte für Nutzer schwerer verständlich sein.", "en": "A more detailed label may be harder for users to understand."},
+        {"speaker": "hyuna", "ko": "단순함을 위해 판정 범위를 넓히면 플랫폼이 논쟁 가능한 부분까지 끝내는 권력을 갖게 됩니다.", "de": "Wenn wir für Einfachheit den Prüfbereich ausweiten, erhält die Plattform die Macht, auch legitime Streitfragen zu beenden.", "en": "Expanding the judgment for simplicity gives the platform power to close off legitimately debatable parts."},
+        {"speaker": "official", "ko": "그러면 오류가 있는 문장과 확인되지 않은 부분을 따로 표시하자는 건가요?", "de": "Sollen wir also den fehlerhaften Satz und die ungesicherten Teile getrennt markieren?", "en": "So should we separately mark the erroneous sentence and the uncertain parts?"},
+        {"speaker": "hyuna", "ko": "네. 무엇을 검증했고 무엇은 가치 판단으로 남는지 보여 줘야 라벨의 권한도 드러납니다.", "de": "Ja. Sichtbar sein muss, was geprüft wurde und was als Werturteil offenbleibt; so wird auch die Reichweite des Labels transparent.", "en": "Yes. Show what was checked and what remains a value judgment, making the label's authority visible too."}
+      ]
+    },
+    {
+      "id": "poll_question_framing",
+      "title": {"de": "Eine suggestive Umfragefrage entrahmen", "en": "Removing loaded framing from a poll question"},
+      "intro": {"ko": "‘세금 낭비를 막기 위한 규제’라는 문항이 정책에 부정적인 전제를 넣고 있어요.", "de": "Die Formulierung „Regulierung zur Verhinderung von Steuerverschwendung“ enthält bereits eine negative Bewertung.", "en": "A survey question calling a policy 'regulation to prevent tax waste' embeds a negative premise."},
+      "dialog": [
+        {"speaker": "editor", "ko": "‘세금 낭비를 막기 위한 규제에 찬성하십니까?’면 목적과 쟁점이 한눈에 들어옵니다.", "de": "„Befürworten Sie Regulierung gegen Steuerverschwendung?“ macht Zweck und Streitpunkt sofort klar.", "en": "'Do you support regulation to prevent tax waste?' makes the purpose and issue obvious."},
+        {"speaker": "sujin", "ko": "질문 안에 이미 낭비라는 평가를 넣으면 응답은 정책보다 그 전제에 반응할 수 있습니다.", "de": "Wenn die Frage bereits von „Verschwendung“ spricht, reagieren Befragte möglicherweise auf diese Wertung statt auf die Maßnahme.", "en": "If the question already says 'waste,' respondents may react to that premise rather than the policy."},
+        {"speaker": "editor", "ko": "그 단어를 빼면 왜 규제가 제안됐는지 맥락이 사라집니다.", "de": "Ohne das Wort fehlt der Kontext, warum die Maßnahme vorgeschlagen wurde.", "en": "Without that word, we lose why the regulation was proposed."},
+        {"speaker": "sujin", "ko": "목적 설명과 비용 평가를 한 문장에 묶지 말고 각각 물으면 됩니다.", "de": "Dann fragen wir Ziel und Kostenbewertung getrennt, statt beides in einen Satz zu laden.", "en": "Ask about the objective and the cost judgment separately instead of loading both into one sentence."},
+        {"speaker": "editor", "ko": "첫 문항은 규제 찬반, 다음 문항은 현재 지출을 낭비라고 보는지 묻는 방식이군요.", "de": "Also zunächst Zustimmung zur Maßnahme und danach die Einschätzung, ob die aktuellen Ausgaben Verschwendung sind.", "en": "So first ask support for the policy, then whether respondents view current spending as waste."},
+        {"speaker": "sujin", "ko": "맞아요. 문항 순서 효과도 확인할 수 있도록 순서를 바꾼 표본을 두는 게 좋습니다.", "de": "Genau. Zusätzlich sollten wir die Reihenfolge in Teilstichproben variieren, um Reihenfolgeeffekte zu prüfen.", "en": "Right. We should also vary the order across samples to detect order effects."}
+      ]
+    },
+    {
+      "id": "we_translation_identity",
+      "title": {"de": "Das wechselnde koreanische 우리 übersetzen", "en": "Translating the shifting boundaries of Korean 우리"},
+      "intro": {"ko": "인터뷰의 ‘우리’가 주민 전체와 오래 산 사람, 제작진을 오가는데 자막은 한 집단으로 고정해요.", "de": "Das koreanische 우리 wechselt zwischen allen Bewohnern, Alteingesessenen und dem Filmteam, doch die Untertitel machen daraus eine feste Gruppe.", "en": "The Korean 우리 shifts among all residents, long-time locals, and the film crew, while subtitles flatten it into one group."},
+      "dialog": [
+        {"speaker": "daniel", "ko": "영어 자막에서는 우리를 계속 ‘we residents’로 통일했어. 더 자연스럽지 않아?", "de": "Im englischen Untertitel habe ich 우리 durchgehend als „we residents“ wiedergegeben. Klingt das nicht natürlicher?", "en": "I translated 우리 as 'we residents' throughout. Isn't that more natural?"},
+        {"speaker": "hyuna", "ko": "여기서 우리는 앞 문장의 주민 전체와 같은 범위가 아니야.", "de": "An dieser Stelle umfasst 우리 nicht dieselbe Gruppe wie die Bewohner im vorherigen Satz.", "en": "Here, 우리 does not refer to the same group as all residents in the previous sentence."},
+        {"speaker": "daniel", "ko": "이 문장에서는 누구를 가리키는 거야?", "de": "Wer ist hier dann gemeint?", "en": "Who does it mean in this sentence?"},
+        {"speaker": "hyuna", "ko": "‘우리가 이 골목을 기록했다’의 우리는 인터뷰이와 제작진이고, 다음 문장에서는 오래 산 주민들이야.", "de": "In „Wir haben diese Gasse dokumentiert“ meint es die interviewte Person und das Filmteam; im nächsten Satz die langjährigen Bewohner.", "en": "In 'we documented this alley,' it means the interviewee and crew; in the next sentence, long-time residents."},
+        {"speaker": "daniel", "ko": "대명사를 그대로 두면 영어와 독일어에서는 그 전환이 더 안 보이겠네.", "de": "Wenn die Pronomen unverändert bleiben, wird der Wechsel auf Deutsch und Englisch noch unsichtbarer.", "en": "If we keep the pronoun unchanged, the shift will be even less visible in English and German."},
+        {"speaker": "hyuna", "ko": "전환 지점에서 집단을 한 번만 명시하고 그 뒤에는 자연스러운 대명사로 이어 가자.", "de": "Benennen wir die Gruppe jeweils beim Wechsel einmal ausdrücklich und verwenden danach wieder natürliche Pronomen.", "en": "Let's name the group once at each shift, then return to natural pronouns."}
+      ],
+      "culturalNote": {
+        "title": {"ko": "우리는 문맥마다 경계가 달라져요", "de": "Die Grenzen von 우리 wechseln mit dem Kontext", "en": "The boundaries of 우리 shift with context"},
+        "body": {"ko": "한국어 우리는 항상 같은 사람들을 포함하지 않아요. 번역할 때 화자가 누구를 묶고 누구와 거리를 두는지 앞뒤 발화에서 확인해야 해요.", "de": "Das koreanische 우리 bezeichnet nicht immer dieselbe Gruppe. Beim Übersetzen muss aus dem Kontext erschlossen werden, wen die sprechende Person einschließt und von wem sie sich abgrenzt.", "en": "Korean 우리 does not always include the same people. Translation requires checking whom the speaker groups together and whom they distinguish from context."}
+      }
+    },
+    {
+      "id": "relationship_story_reframing",
+      "title": {"de": "Den Anfang einer Beziehung unterschiedlich erinnern", "en": "Remembering the start of a relationship differently"},
+      "intro": {"ko": "크리스티안이 친구들 앞에서 첫눈에 시작됐다고 농담하자 수진은 쌓인 시간이 지워진 것처럼 느껴요.", "de": "Christian scherzt vor Freunden, alles habe mit Liebe auf den ersten Blick begonnen; Sujin fühlt sich um die langsam gewachsene Nähe gebracht.", "en": "Christian jokes that it was love at first sight, while Sujin feels that erases the trust that grew over time."},
+      "dialog": [
+        {"speaker": "sujin", "ko": "아까 친구들 앞에서 첫눈에 반했다고 말한 거, 저는 조금 불편했어요.", "de": "Dein Spruch vorhin, du hättest dich auf den ersten Blick verliebt, war mir etwas unangenehm.", "en": "I felt a little uncomfortable when you told our friends it was love at first sight."},
+        {"speaker": "christian", "ko": "그냥 이야기를 짧고 재미있게 하려고 한 말이었어요.", "de": "Ich wollte die Geschichte nur kurz und lustig erzählen.", "en": "I was just trying to make the story short and funny."},
+        {"speaker": "sujin", "ko": "저한테는 처음보다 그 뒤에 천천히 믿게 된 시간이 더 중요해요.", "de": "Für mich ist die Zeit danach wichtiger, in der Vertrauen langsam gewachsen ist.", "en": "To me, the time afterward, when trust grew slowly, matters more than the first moment."},
+        {"speaker": "christian", "ko": "첫눈에 시작됐다는 말이 우리 사이에 쌓인 시간을 지우는 것처럼 들렸구나.", "de": "„Liebe auf den ersten Blick“ klang also, als würde es die Zeit auslöschen, die wir miteinander aufgebaut haben.", "en": "Saying it began at first sight sounded like it erased all the time we built together."},
+        {"speaker": "sujin", "ko": "네. 그 기억이 틀렸다는 게 아니라 그게 전부인 것처럼 말하지 않았으면 해요.", "de": "Ja. Deine Erinnerung ist nicht falsch; ich möchte nur nicht, dass sie als die ganze Geschichte gilt.", "en": "Yes. Your memory isn't wrong. I just don't want it told as the whole story."},
+        {"speaker": "christian", "ko": "다음에는 저는 처음의 설렘을, 수진은 그 뒤의 신뢰를 중요하게 기억한다고 말할게요.", "de": "Dann sage ich künftig: Für mich war die erste Aufregung wichtig, für dich das Vertrauen, das danach entstand.", "en": "Next time I'll say I remember the early spark, while you value the trust that came afterward."},
+        {"speaker": "sujin", "ko": "그렇게 서로 다른 시작을 같이 말하면 우리 이야기 같아요.", "de": "Wenn beide Anfänge Platz haben, klingt es wirklich nach unserer Geschichte.", "en": "When both beginnings have a place, it feels like our story."}
+      ]
+    },
+    {
+      "id": "diaspora_name_identity",
+      "title": {"de": "Namensaussprache und Zugehörigkeit selbst bestimmen", "en": "Letting people choose how their names represent them"},
+      "intro": {"ko": "운영 편의를 위해 한국 이름을 영어식 표기로 통일하려 하지만 참가자마다 선호 표기와 발음이 달라요.", "de": "Für eine einheitliche Verwaltung sollen koreanische Namen anglisiert werden, doch Teilnehmende bevorzugen unterschiedliche Schreibweisen und Aussprachen.", "en": "For administrative consistency, Korean names are to be anglicized, but participants use different spellings and pronunciations."},
+      "dialog": [
+        {"speaker": "resident", "ko": "등록 시스템에서는 제 이름을 ‘June’으로 바꾸면 검색이 쉽다고 합니다.", "de": "Das Registrierungssystem schlägt „June“ vor, weil mein Name dann leichter zu suchen sei.", "en": "The registration system suggests changing my name to 'June' because it's easier to search."},
+        {"speaker": "maya", "ko": "평소에도 그 이름으로 불리길 원하세요?", "de": "Möchtest du im Alltag auch so genannt werden?", "en": "Do you want people to call you that in everyday life too?"},
+        {"speaker": "resident", "ko": "아니요. 본문에는 ‘준희’를 쓰고, 발음이 어려우면 도움말만 붙이고 싶어요.", "de": "Nein. Im Haupttext soll „Junhee“ stehen; bei Bedarf möchte ich nur eine Aussprachehilfe ergänzen.", "en": "No. I want 'Junhee' in the main text, with a pronunciation guide if needed."},
+        {"speaker": "maya", "ko": "검색을 쉽게 만드는 표기와 당사자가 불리고 싶은 이름을 같은 칸에 억지로 맞출 필요는 없습니다.", "de": "Die suchfreundliche Schreibweise und der Name, mit dem jemand angesprochen werden möchte, müssen nicht in dasselbe Feld gezwungen werden.", "en": "We don't need to force a search-friendly spelling and the name someone wants to be called into the same field."},
+        {"speaker": "resident", "ko": "검색용 표기가 화면에서 제 이름보다 더 크게 보이지만 않았으면 합니다.", "de": "Die Suchform sollte auf dem Bildschirm nur nicht prominenter erscheinen als mein Name.", "en": "I just don't want the search spelling displayed more prominently than my name."},
+        {"speaker": "maya", "ko": "선호 이름을 본문에 두고 발음 도움말과 검색용 표기는 별도 정보로 설계하겠습니다.", "de": "Dann steht der bevorzugte Name im Vordergrund; Aussprachehilfe und Suchform werden separate Metadaten.", "en": "We'll keep the preferred name primary and treat pronunciation help and search spelling as separate metadata."}
+      ]
+    }
+  ]
+}

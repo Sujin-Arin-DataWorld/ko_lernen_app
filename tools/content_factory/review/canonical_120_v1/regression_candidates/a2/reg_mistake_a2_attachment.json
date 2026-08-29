@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "reg_mistake_a2_attachment",
+  "scenario": {
+    "id": "reg_mistake_a2_attachment",
+    "level": "a2",
+    "emoji": "💬",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "첨부파일을 또 빠뜨리기",
+      "de": "Den Anhang zweimal vergessen",
+      "en": "Forgetting the attachment twice"
+    },
+    "intro": {
+      "ko": "첨부했다고 쓴 메일을 두 번 보냈어요.",
+      "de": "Du hast zweimal geschrieben, die Datei sei angehängt.",
+      "en": "Twice, you sent an email saying the file was attached."
+    },
+    "courseUnitId": "a2_06_study_work",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "coworker"
+    ],
+    "relationshipContext": "신입과 동료",
+    "intent": "짧게 인정하고 확인 후 다시 보낸다",
+    "shelf": "a2_work",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "마야, 메일에 첨부파일이 없어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Maya, in der Mail ist kein Anhang.",
+          "en": "Maya, there's no attachment in the email."
+        }
+      },
+      {
+        "korean": "어? 다시 보냈는데요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Was? Ich habe sie doch noch einmal geschickt.",
+          "en": "What? I sent it again."
+        }
+      },
+      {
+        "korean": "두 번째 메일에도 없어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Auch in der zweiten Mail fehlt er.",
+          "en": "It's missing from the second email too."
+        }
+      },
+      {
+        "korean": "아… 첨부파일을 또 안 붙였어요. 죄송해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Oh nein … Ich habe den Anhang schon wieder vergessen. Tut mir leid.",
+          "en": "Oh no… I forgot the attachment again. Sorry."
+        }
+      },
+      {
+        "korean": "이번에는 보내기 전에 첨부파일부터 확인해 봐요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Prüf diesmal vor dem Senden zuerst den Anhang.",
+          "en": "This time, check the attachment before you send it."
+        }
+      },
+      {
+        "korean": "네, 이번에는 붙였어요. 확인하고 다시 보낼게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, diesmal ist die Datei angehängt. Ich prüfe es noch einmal und schicke die Mail neu.",
+          "en": "Yes, it's attached this time. I'll check once more and resend the email."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_work_study"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "coworker",
+        "ko": "마야, 메일에 첨부파일이 없어요.",
+        "de": "Maya, in der Mail ist kein Anhang.",
+        "en": "Maya, there's no attachment in the email."
+      },
+      {
+        "speaker": "user",
+        "ko": "어? 다시 보냈는데요.",
+        "de": "Was? Ich habe sie doch noch einmal geschickt.",
+        "en": "What? I sent it again."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "두 번째 메일에도 없어요.",
+        "de": "Auch in der zweiten Mail fehlt er.",
+        "en": "It's missing from the second email too."
+      },
+      {
+        "speaker": "user",
+        "ko": "아… 첨부파일을 또 안 붙였어요. 죄송해요.",
+        "de": "Oh nein … Ich habe den Anhang schon wieder vergessen. Tut mir leid.",
+        "en": "Oh no… I forgot the attachment again. Sorry."
+      },
+      {
+        "speaker": "coworker",
+        "ko": "이번에는 보내기 전에 첨부파일부터 확인해 봐요.",
+        "de": "Prüf diesmal vor dem Senden zuerst den Anhang.",
+        "en": "This time, check the attachment before you send it."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 이번에는 붙였어요. 확인하고 다시 보낼게요.",
+        "de": "Ja, diesmal ist die Datei angehängt. Ich prüfe es noch einmal und schicke die Mail neu.",
+        "en": "Yes, it's attached this time. I'll check once more and resend the email."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_reg_mistake_a2_attachment_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "마야, 메일에 첨부파일이 없어요.",
+          "options": [
+            {
+              "de": "Maya, in der Mail ist kein Anhang.",
+              "en": "Maya, there's no attachment in the email."
+            },
+            {
+              "de": "Was? Ich habe sie doch noch einmal geschickt.",
+              "en": "What? I sent it again."
+            },
+            {
+              "de": "Auch in der zweiten Mail fehlt er.",
+              "en": "It's missing from the second email too."
+            },
+            {
+              "de": "Oh nein … Ich habe den Anhang schon wieder vergessen. Tut mir leid.",
+              "en": "Oh no… I forgot the attachment again. Sorry."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_mistake_a2_attachment_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Was? Ich habe sie doch noch einmal geschickt.",
+          "promptEn": "What? I sent it again.",
+          "options": [
+            {
+              "ko": "어? 다시 보냈는데요."
+            },
+            {
+              "ko": "마야, 메일에 첨부파일이 없어요."
+            },
+            {
+              "ko": "두 번째 메일에도 없어요."
+            },
+            {
+              "ko": "아… 첨부파일을 또 안 붙였어요. 죄송해요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_reg_mistake_a2_attachment_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 이번에는 붙였어요. 확인하고 다시 보낼게요.",
+          "audioKo": "네, 이번에는 붙였어요. 확인하고 다시 보낼게요.",
+          "promptDe": "Ja, diesmal ist die Datei angehängt. Ich prüfe es noch einmal und schicke die Mail neu.",
+          "promptEn": "Yes, it's attached this time. I'll check once more and resend the email.",
+          "distractors": [
+            "마야, 메일에 첨부파일이 없어요.",
+            "어? 다시 보냈는데요.",
+            "두 번째 메일에도 없어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

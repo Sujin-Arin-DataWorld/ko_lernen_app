@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hangulsori.app/schema/character-profile-v1.json",
+  "title": "CharacterProfile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "displayNames", "voice", "background", "personality", "writerHints", "mbtiHint", "interests", "relationships"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+    "displayNames": {
+      "type": "object",
+      "required": ["ko", "de", "en"],
+      "properties": {"ko": {"type": "string"}, "de": {"type": "string"}, "en": {"type": "string"}}
+    },
+    "voice": {"enum": ["female", "male"]},
+    "background": {"type": "object"},
+    "personality": {"type": "array", "items": {"type": "string"}},
+    "writerHints": {"type": "array", "items": {"type": "string"}},
+    "mbtiHint": {"type": "object", "required": ["value", "weight"]},
+    "interests": {"type": "array", "items": {"type": "string"}},
+    "relationships": {"type": "object"}
+  }
+}

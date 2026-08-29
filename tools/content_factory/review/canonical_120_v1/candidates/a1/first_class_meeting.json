@@ -1,0 +1,254 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "first_class_meeting",
+  "scenario": {
+    "id": "first_class_meeting",
+    "level": "a1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "첫 수업에서 옆자리 학생 만나기",
+      "de": "Die Person neben dir im ersten Kurs",
+      "en": "Meeting the person next to you in your first class"
+    },
+    "intro": {
+      "ko": "첫 수업에서 옆자리에 앉아요.",
+      "de": "Im ersten Kurs setzt du dich neben Lena.",
+      "en": "In your first class, you sit next to Lena."
+    },
+    "courseUnitId": "a1_15_first_class_work",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "lena"
+    ],
+    "relationshipContext": "처음 만난 크리스티안과 레나",
+    "intent": "자기소개하고 수업 책을 확인한다",
+    "shelf": "a1_friends",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "안녕하세요. 오늘 첫 수업이에요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hallo. Ist das heute dein erster Kurs?",
+          "en": "Hi. Is this your first class today?"
+        }
+      },
+      {
+        "korean": "네, 첫 수업이에요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, mein erster.",
+          "en": "Yes, it's my first one."
+        }
+      },
+      {
+        "korean": "어디에서 왔어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Woher kommst du?",
+          "en": "Where are you from?"
+        }
+      },
+      {
+        "korean": "독일에서 왔어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich komme aus Deutschland.",
+          "en": "I'm from Germany."
+        }
+      },
+      {
+        "korean": "저도 독일에서 왔어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich auch.",
+          "en": "So am I."
+        }
+      },
+      {
+        "korean": "정말요? 반가워요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Echt? Freut mich.",
+          "en": "Really? Nice to meet you."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_first_meeting"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "lena",
+        "ko": "안녕하세요. 오늘 첫 수업이에요?",
+        "de": "Hallo. Ist das heute dein erster Kurs?",
+        "en": "Hi. Is this your first class today?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 첫 수업이에요.",
+        "de": "Ja, mein erster.",
+        "en": "Yes, it's my first one."
+      },
+      {
+        "speaker": "lena",
+        "ko": "어디에서 왔어요?",
+        "de": "Woher kommst du?",
+        "en": "Where are you from?"
+      },
+      {
+        "speaker": "user",
+        "ko": "독일에서 왔어요.",
+        "de": "Ich komme aus Deutschland.",
+        "en": "I'm from Germany."
+      },
+      {
+        "speaker": "lena",
+        "ko": "저도 독일에서 왔어요.",
+        "de": "Ich auch.",
+        "en": "So am I."
+      },
+      {
+        "speaker": "user",
+        "ko": "정말요? 반가워요.",
+        "de": "Echt? Freut mich.",
+        "en": "Really? Nice to meet you."
+      },
+      {
+        "speaker": "lena",
+        "ko": "이 책 맞아요?",
+        "de": "Ist das das richtige Buch?",
+        "en": "Is this the right book?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 맞아요.",
+        "de": "Ja, genau.",
+        "en": "Yes, it is."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_first_class_meeting_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "안녕하세요. 오늘 첫 수업이에요?",
+          "options": [
+            {
+              "de": "Hallo. Ist das heute dein erster Kurs?",
+              "en": "Hi. Is this your first class today?"
+            },
+            {
+              "de": "Ja, mein erster.",
+              "en": "Yes, it's my first one."
+            },
+            {
+              "de": "Woher kommst du?",
+              "en": "Where are you from?"
+            },
+            {
+              "de": "Ich komme aus Deutschland.",
+              "en": "I'm from Germany."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_first_class_meeting_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ja, mein erster.",
+          "promptEn": "Yes, it's my first one.",
+          "options": [
+            {
+              "ko": "네, 첫 수업이에요."
+            },
+            {
+              "ko": "안녕하세요. 오늘 첫 수업이에요?"
+            },
+            {
+              "ko": "어디에서 왔어요?"
+            },
+            {
+              "ko": "독일에서 왔어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_first_class_meeting_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 맞아요.",
+          "audioKo": "네, 맞아요.",
+          "promptDe": "Ja, genau.",
+          "promptEn": "Yes, it is.",
+          "distractors": [
+            "안녕하세요. 오늘 첫 수업이에요?",
+            "네, 첫 수업이에요.",
+            "어디에서 왔어요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

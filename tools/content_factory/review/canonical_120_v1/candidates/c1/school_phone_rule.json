@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "school_phone_rule",
+  "scenario": {
+    "id": "school_phone_rule",
+    "level": "c1",
+    "emoji": "🏠",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "학교 스마트폰 규제를 설계할 때",
+      "de": "Eine differenzierte Smartphone-Regel für die Schule",
+      "en": "Designing a nuanced school phone policy"
+    },
+    "intro": {
+      "ko": "수업 집중을 위해 휴대폰을 모두 걷자는 제안에 긴급 연락과 접근성 문제가 나와요.",
+      "de": "Eine pauschale Handyabgabe soll die Konzentration fördern, wirft aber Fragen zu Notfällen und Barrierefreiheit auf.",
+      "en": "A blanket phone collection policy aims to improve focus but raises emergency and accessibility concerns."
+    },
+    "courseUnitId": "c1_04_play_time_policy",
+    "playerCharacterId": "hyuna",
+    "participantIds": [
+      "hyuna",
+      "student",
+      "official"
+    ],
+    "relationshipContext": "교사, 학생 대표, 학부모와 관찰자 현아",
+    "intent": "전면 허용과 전면 금지 사이에서 목적별 규칙을 제안한다",
+    "shelf": "c1_policy",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "수업 시작 전에 휴대폰을 모두 걷으면 집중 문제가 줄어들 겁니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn alle Handys vor dem Unterricht abgegeben werden, dürfte die Ablenkung sinken.",
+          "en": "Collecting all phones before class should reduce distractions."
+        }
+      },
+      {
+        "korean": "저는 혈당을 확인하는 앱을 써서 휴대폰이 필요해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich brauche mein Handy für eine App zur Blutzuckerkontrolle.",
+          "en": "I need my phone for an app that monitors my blood sugar."
+        }
+      },
+      {
+        "korean": "집중을 높이겠다는 목적은 타당하지만 일괄 수거가 유일한 방법인지는 따져 봐야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das Ziel ist nachvollziehbar, aber eine pauschale Abgabe ist nicht zwingend die einzige Lösung.",
+          "en": "The goal of improving focus is valid, but we need to ask whether blanket collection is the only way."
+        }
+      },
+      {
+        "korean": "예외를 넓게 두면 규칙이 작동하지 않을까 걱정됩니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir zu viele Ausnahmen zulassen, könnte die Regel ihre Wirkung verlieren.",
+          "en": "I'm concerned the rule won't work if exceptions are too broad."
+        }
+      },
+      {
+        "korean": "수업 중 보관을 원칙으로 하되 의료·접근성 필요와 긴급 연락 방식을 명시할 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir können die Aufbewahrung als Regel festlegen und medizinische, barrierebezogene sowie dringende Kontaktfälle klar benennen.",
+          "en": "We can make storage the default while specifying medical, accessibility, and emergency-contact needs."
+        }
+      },
+      {
+        "korean": "예외를 숨기지 않고 처음부터 안내하면 학생도 이유를 이해할 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn Ausnahmen von Anfang an transparent sind, verstehen die Schüler auch den Grund.",
+          "en": "If exceptions are transparent from the start, students can understand the reason for them."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_play_time_policy"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "수업 시작 전에 휴대폰을 모두 걷으면 집중 문제가 줄어들 겁니다.",
+        "de": "Wenn alle Handys vor dem Unterricht abgegeben werden, dürfte die Ablenkung sinken.",
+        "en": "Collecting all phones before class should reduce distractions."
+      },
+      {
+        "speaker": "student",
+        "ko": "저는 혈당을 확인하는 앱을 써서 휴대폰이 필요해요.",
+        "de": "Ich brauche mein Handy für eine App zur Blutzuckerkontrolle.",
+        "en": "I need my phone for an app that monitors my blood sugar."
+      },
+      {
+        "speaker": "user",
+        "ko": "집중을 높이겠다는 목적은 타당하지만 일괄 수거가 유일한 방법인지는 따져 봐야 합니다.",
+        "de": "Das Ziel ist nachvollziehbar, aber eine pauschale Abgabe ist nicht zwingend die einzige Lösung.",
+        "en": "The goal of improving focus is valid, but we need to ask whether blanket collection is the only way."
+      },
+      {
+        "speaker": "official",
+        "ko": "예외를 넓게 두면 규칙이 작동하지 않을까 걱정됩니다.",
+        "de": "Wenn wir zu viele Ausnahmen zulassen, könnte die Regel ihre Wirkung verlieren.",
+        "en": "I'm concerned the rule won't work if exceptions are too broad."
+      },
+      {
+        "speaker": "user",
+        "ko": "수업 중 보관을 원칙으로 하되 의료·접근성 필요와 긴급 연락 방식을 명시할 수 있습니다.",
+        "de": "Wir können die Aufbewahrung als Regel festlegen und medizinische, barrierebezogene sowie dringende Kontaktfälle klar benennen.",
+        "en": "We can make storage the default while specifying medical, accessibility, and emergency-contact needs."
+      },
+      {
+        "speaker": "student",
+        "ko": "예외를 숨기지 않고 처음부터 안내하면 학생도 이유를 이해할 수 있어요.",
+        "de": "Wenn Ausnahmen von Anfang an transparent sind, verstehen die Schüler auch den Grund.",
+        "en": "If exceptions are transparent from the start, students can understand the reason for them."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_school_phone_rule_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "수업 시작 전에 휴대폰을 모두 걷으면 집중 문제가 줄어들 겁니다.",
+          "options": [
+            {
+              "de": "Wenn alle Handys vor dem Unterricht abgegeben werden, dürfte die Ablenkung sinken.",
+              "en": "Collecting all phones before class should reduce distractions."
+            },
+            {
+              "de": "Ich brauche mein Handy für eine App zur Blutzuckerkontrolle.",
+              "en": "I need my phone for an app that monitors my blood sugar."
+            },
+            {
+              "de": "Das Ziel ist nachvollziehbar, aber eine pauschale Abgabe ist nicht zwingend die einzige Lösung.",
+              "en": "The goal of improving focus is valid, but we need to ask whether blanket collection is the only way."
+            },
+            {
+              "de": "Wenn wir zu viele Ausnahmen zulassen, könnte die Regel ihre Wirkung verlieren.",
+              "en": "I'm concerned the rule won't work if exceptions are too broad."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_school_phone_rule_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Das Ziel ist nachvollziehbar, aber eine pauschale Abgabe ist nicht zwingend die einzige Lösung.",
+          "promptEn": "The goal of improving focus is valid, but we need to ask whether blanket collection is the only way.",
+          "options": [
+            {
+              "ko": "집중을 높이겠다는 목적은 타당하지만 일괄 수거가 유일한 방법인지는 따져 봐야 합니다."
+            },
+            {
+              "ko": "수업 시작 전에 휴대폰을 모두 걷으면 집중 문제가 줄어들 겁니다."
+            },
+            {
+              "ko": "저는 혈당을 확인하는 앱을 써서 휴대폰이 필요해요."
+            },
+            {
+              "ko": "예외를 넓게 두면 규칙이 작동하지 않을까 걱정됩니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_school_phone_rule_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "수업 중 보관을 원칙으로 하되 의료·접근성 필요와 긴급 연락 방식을 명시할 수 있습니다.",
+          "audioKo": "수업 중 보관을 원칙으로 하되 의료·접근성 필요와 긴급 연락 방식을 명시할 수 있습니다.",
+          "promptDe": "Wir können die Aufbewahrung als Regel festlegen und medizinische, barrierebezogene sowie dringende Kontaktfälle klar benennen.",
+          "promptEn": "We can make storage the default while specifying medical, accessibility, and emergency-contact needs.",
+          "distractors": [
+            "수업 시작 전에 휴대폰을 모두 걷으면 집중 문제가 줄어들 겁니다.",
+            "저는 혈당을 확인하는 앱을 써서 휴대폰이 필요해요.",
+            "집중을 높이겠다는 목적은 타당하지만 일괄 수거가 유일한 방법인지는 따져 봐야 합니다."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

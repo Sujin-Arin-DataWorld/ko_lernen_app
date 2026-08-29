@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "welfare_fraud_presumption",
+  "scenario": {
+    "id": "welfare_fraud_presumption",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "부정 수급 방지 담론이 신청자를 의심하게 만들 때",
+      "de": "Betrugsprävention formulieren, ohne alle Antragsteller zu verdächtigen",
+      "en": "Writing fraud warnings without presuming every applicant is guilty"
+    },
+    "intro": {
+      "ko": "강한 부정 수급 경고가 모든 신청자를 잠재적 위반자로 대한다는 지적이 나와요.",
+      "de": "Eine scharfe Betrugswarnung behandelt alle Antragsteller wie potenzielle Täter.",
+      "en": "A harsh benefits-fraud warning treats every applicant as a potential offender."
+    },
+    "courseUnitId": "c2_01_interpretation_institutions",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "official"
+    ],
+    "relationshipContext": "기관 담당자와 시민 대표 수진",
+    "intent": "감시 필요를 부정하지 않으면서 문구의 전제와 접근 장벽을 분석한다",
+    "shelf": "c2_discourse",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Um falsche Angaben zu verhindern, sollten mögliche Sanktionen gleich auf der ersten Seite deutlich hervorgehoben werden.",
+          "en": "To deter false claims, possible penalties should be strongly emphasized on the first screen."
+        }
+      },
+      {
+        "korean": "위반 가능성을 알리는 것과 신청자 전체를 의심하는 문체는 구분해야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Über mögliche Verstöße zu informieren ist etwas anderes, als alle Antragsteller sprachlich unter Verdacht zu stellen.",
+          "en": "Informing people about violations is different from writing as if every applicant is suspect."
+        }
+      },
+      {
+        "korean": "경고를 부드럽게 만들면 책임을 가볍게 받아들이지 않을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wird die Pflicht nicht verharmlost, wenn wir den Hinweis abschwächen?",
+          "en": "Would softer wording make people take their responsibility less seriously?"
+        }
+      },
+      {
+        "korean": "의무와 처벌은 정확히 쓰되 실수 수정과 도움 요청도 같은 화면에서 안내할 수 있습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Pflichten und Sanktionen können präzise bleiben, während Korrektur- und Hilfswege auf derselben Seite stehen.",
+          "en": "Duties and penalties can remain precise while correction and help options appear on the same screen."
+        }
+      },
+      {
+        "korean": "그렇게 하면 고의와 단순 오류를 처음부터 구분할 수 있겠군요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "So könnten wir vorsätzliche Täuschung und einfache Fehler von Anfang an unterscheiden.",
+          "en": "That would distinguish intentional fraud from simple mistakes from the outset."
+        }
+      },
+      {
+        "korean": "네. 존중하는 문체를 쓴다고 해서 통제를 포기하는 것은 아니니까요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Genau. Respektvolle Sprache bedeutet nicht, dass Kontrolle aufgegeben wird.",
+          "en": "Exactly. Using respectful language doesn't mean giving up enforcement."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_discourse_institutions"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b2_not_automatic_conclusion"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "A/V-다고 해서 A/V-는 것은 아니다",
+        "de": "Keine automatische Schlussfolgerung",
+        "en": "Rejecting an automatic conclusion"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Weist zurück, dass aus einer Tatsache automatisch eine bestimmte Bewertung oder Folge entsteht. Die erste Aussage wird anerkannt, die voreilige Schlussfolgerung aber begrenzt.",
+        "en": "Rejects the idea that one fact automatically leads to a particular judgment or result. The first fact is acknowledged while the rushed conclusion is limited."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "official",
+        "ko": "허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다.",
+        "de": "Um falsche Angaben zu verhindern, sollten mögliche Sanktionen gleich auf der ersten Seite deutlich hervorgehoben werden.",
+        "en": "To deter false claims, possible penalties should be strongly emphasized on the first screen."
+      },
+      {
+        "speaker": "user",
+        "ko": "위반 가능성을 알리는 것과 신청자 전체를 의심하는 문체는 구분해야 합니다.",
+        "de": "Über mögliche Verstöße zu informieren ist etwas anderes, als alle Antragsteller sprachlich unter Verdacht zu stellen.",
+        "en": "Informing people about violations is different from writing as if every applicant is suspect."
+      },
+      {
+        "speaker": "official",
+        "ko": "경고를 부드럽게 만들면 책임을 가볍게 받아들이지 않을까요?",
+        "de": "Wird die Pflicht nicht verharmlost, wenn wir den Hinweis abschwächen?",
+        "en": "Would softer wording make people take their responsibility less seriously?"
+      },
+      {
+        "speaker": "user",
+        "ko": "의무와 처벌은 정확히 쓰되 실수 수정과 도움 요청도 같은 화면에서 안내할 수 있습니다.",
+        "de": "Pflichten und Sanktionen können präzise bleiben, während Korrektur- und Hilfswege auf derselben Seite stehen.",
+        "en": "Duties and penalties can remain precise while correction and help options appear on the same screen."
+      },
+      {
+        "speaker": "official",
+        "ko": "그렇게 하면 고의와 단순 오류를 처음부터 구분할 수 있겠군요.",
+        "de": "So könnten wir vorsätzliche Täuschung und einfache Fehler von Anfang an unterscheiden.",
+        "en": "That would distinguish intentional fraud from simple mistakes from the outset."
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 존중하는 문체를 쓴다고 해서 통제를 포기하는 것은 아니니까요.",
+        "de": "Genau. Respektvolle Sprache bedeutet nicht, dass Kontrolle aufgegeben wird.",
+        "en": "Exactly. Using respectful language doesn't mean giving up enforcement."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_welfare_fraud_presumption_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다.",
+          "options": [
+            {
+              "de": "Um falsche Angaben zu verhindern, sollten mögliche Sanktionen gleich auf der ersten Seite deutlich hervorgehoben werden.",
+              "en": "To deter false claims, possible penalties should be strongly emphasized on the first screen."
+            },
+            {
+              "de": "Über mögliche Verstöße zu informieren ist etwas anderes, als alle Antragsteller sprachlich unter Verdacht zu stellen.",
+              "en": "Informing people about violations is different from writing as if every applicant is suspect."
+            },
+            {
+              "de": "Wird die Pflicht nicht verharmlost, wenn wir den Hinweis abschwächen?",
+              "en": "Would softer wording make people take their responsibility less seriously?"
+            },
+            {
+              "de": "Pflichten und Sanktionen können präzise bleiben, während Korrektur- und Hilfswege auf derselben Seite stehen.",
+              "en": "Duties and penalties can remain precise while correction and help options appear on the same screen."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_welfare_fraud_presumption_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Über mögliche Verstöße zu informieren ist etwas anderes, als alle Antragsteller sprachlich unter Verdacht zu stellen.",
+          "promptEn": "Informing people about violations is different from writing as if every applicant is suspect.",
+          "options": [
+            {
+              "ko": "위반 가능성을 알리는 것과 신청자 전체를 의심하는 문체는 구분해야 합니다."
+            },
+            {
+              "ko": "허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다."
+            },
+            {
+              "ko": "경고를 부드럽게 만들면 책임을 가볍게 받아들이지 않을까요?"
+            },
+            {
+              "ko": "의무와 처벌은 정확히 쓰되 실수 수정과 도움 요청도 같은 화면에서 안내할 수 있습니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_welfare_fraud_presumption_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 존중하는 문체를 쓴다고 해서 통제를 포기하는 것은 아니니까요.",
+          "audioKo": "네. 존중하는 문체를 쓴다고 해서 통제를 포기하는 것은 아니니까요.",
+          "promptDe": "Genau. Respektvolle Sprache bedeutet nicht, dass Kontrolle aufgegeben wird.",
+          "promptEn": "Exactly. Using respectful language doesn't mean giving up enforcement.",
+          "distractors": [
+            "허위 신청을 줄이려면 첫 화면부터 처벌 가능성을 강하게 알려야 합니다.",
+            "위반 가능성을 알리는 것과 신청자 전체를 의심하는 문체는 구분해야 합니다.",
+            "경고를 부드럽게 만들면 책임을 가볍게 받아들이지 않을까요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

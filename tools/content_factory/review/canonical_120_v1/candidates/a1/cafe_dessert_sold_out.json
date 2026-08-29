@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "cafe_dessert_sold_out",
+  "scenario": {
+    "id": "cafe_dessert_sold_out",
+    "level": "a1",
+    "emoji": "☕",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "카페 디저트가 없을 때",
+      "de": "Wenn der Kuchen ausverkauft ist",
+      "en": "When the cake is sold out"
+    },
+    "intro": {
+      "ko": "사진으로 본 케이크를 주문하고 싶어요.",
+      "de": "Du möchtest den Kuchen bestellen, den du auf einem Foto gesehen hast.",
+      "en": "You want to order the cake you saw in a photo."
+    },
+    "courseUnitId": "a1_12_daily_negation",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "clerk"
+    ],
+    "relationshipContext": "손님과 카페 직원",
+    "intent": "없는 메뉴를 확인하고 다른 것을 고른다",
+    "shelf": "a1_counter",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "딸기 케이크 있어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gibt es Erdbeerkuchen?",
+          "en": "Do you have strawberry cake?"
+        }
+      },
+      {
+        "korean": "죄송해요. 오늘은 없어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Tut mir leid. Heute ist er ausverkauft.",
+          "en": "Sorry, we're out today."
+        }
+      },
+      {
+        "korean": "그럼 푸딩은 있어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gibt es dann Pudding?",
+          "en": "Do you have pudding instead?"
+        }
+      },
+      {
+        "korean": "네, 푸딩은 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, Pudding haben wir.",
+          "en": "Yes, we have pudding."
+        }
+      },
+      {
+        "korean": "푸딩 하나 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann einmal Pudding, bitte.",
+          "en": "One pudding, please."
+        }
+      },
+      {
+        "korean": "네, 준비해 드릴게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gern, ich mache ihn fertig.",
+          "en": "Sure, I'll get that ready."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_negation"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_service_request"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N을/를 V-아/어 주세요",
+        "de": "konkrete höfliche Bitte",
+        "en": "concrete polite request"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Bittet höflich um eine klar benannte Handlung.",
+        "en": "Politely asks someone to perform a clearly named action."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "딸기 케이크 있어요?",
+        "de": "Gibt es Erdbeerkuchen?",
+        "en": "Do you have strawberry cake?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "죄송해요. 오늘은 없어요.",
+        "de": "Tut mir leid. Heute ist er ausverkauft.",
+        "en": "Sorry, we're out today."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 푸딩은 있어요?",
+        "de": "Gibt es dann Pudding?",
+        "en": "Do you have pudding instead?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "네, 푸딩은 있어요.",
+        "de": "Ja, Pudding haben wir.",
+        "en": "Yes, we have pudding."
+      },
+      {
+        "speaker": "user",
+        "ko": "푸딩 하나 주세요.",
+        "de": "Dann einmal Pudding, bitte.",
+        "en": "One pudding, please."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "네, 준비해 드릴게요.",
+        "de": "Gern, ich mache ihn fertig.",
+        "en": "Sure, I'll get that ready."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_cafe_dessert_sold_out_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "죄송해요. 오늘은 없어요.",
+          "options": [
+            {
+              "de": "Tut mir leid. Heute ist er ausverkauft.",
+              "en": "Sorry, we're out today."
+            },
+            {
+              "de": "Gibt es Erdbeerkuchen?",
+              "en": "Do you have strawberry cake?"
+            },
+            {
+              "de": "Gibt es dann Pudding?",
+              "en": "Do you have pudding instead?"
+            },
+            {
+              "de": "Ja, Pudding haben wir.",
+              "en": "Yes, we have pudding."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_cafe_dessert_sold_out_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Gibt es Erdbeerkuchen?",
+          "promptEn": "Do you have strawberry cake?",
+          "options": [
+            {
+              "ko": "딸기 케이크 있어요?"
+            },
+            {
+              "ko": "죄송해요. 오늘은 없어요."
+            },
+            {
+              "ko": "그럼 푸딩은 있어요?"
+            },
+            {
+              "ko": "네, 푸딩은 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_cafe_dessert_sold_out_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "푸딩 하나 주세요.",
+          "audioKo": "푸딩 하나 주세요.",
+          "promptDe": "Dann einmal Pudding, bitte.",
+          "promptEn": "One pudding, please.",
+          "distractors": [
+            "딸기 케이크 있어요?",
+            "죄송해요. 오늘은 없어요.",
+            "그럼 푸딩은 있어요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

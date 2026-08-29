@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "medical_uncertainty_consent",
+  "scenario": {
+    "id": "medical_uncertainty_consent",
+    "level": "c2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "불확실한 치료 효과를 동의 과정에서 설명하기",
+      "de": "Unsichere Behandlungseffekte in einer Einwilligung erklären",
+      "en": "Explaining uncertain treatment effects during consent"
+    },
+    "intro": {
+      "ko": "초기 연구에서 가능성은 보였지만 이익과 부작용의 크기는 아직 불확실해요.",
+      "de": "Frühe Studien zeigen Potenzial, doch Größe von Nutzen und Nebenwirkungen bleibt ungewiss.",
+      "en": "Early studies show promise, but the size of benefits and side effects remains uncertain."
+    },
+    "courseUnitId": "c2_02_technology_public_ethics",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "researcher"
+    ],
+    "relationshipContext": "연구자와 참여자 대표 수진",
+    "intent": "희망을 꺾거나 효과를 과장하지 않고 절대 위험과 대안을 설명한다",
+    "shelf": "c2_ethics",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir sagen, das Risiko habe sich in der ersten Studie halbiert, ist der Nutzen leicht verständlich.",
+          "en": "Saying the early study cut risk in half would communicate the benefit clearly."
+        }
+      },
+      {
+        "korean": "효과가 있을 가능성과 아직 모르는 범위를 같은 무게로 설명해야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die mögliche Wirkung und das Ausmaß unseres Nichtwissens müssen gleichgewichtig erklärt werden.",
+          "en": "The possibility of benefit and the extent of what remains unknown need equal weight."
+        }
+      },
+      {
+        "korean": "불확실성을 너무 강조하면 참여를 막는 방향으로 기울지 않을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Könnte eine starke Betonung der Unsicherheit Menschen nicht unnötig von der Teilnahme abhalten?",
+          "en": "Could emphasizing uncertainty too much push people away from participating?"
+        }
+      },
+      {
+        "korean": "참여를 늘리거나 줄이는 게 목적이 아니라 스스로 판단할 수 있게 하는 게 목적입니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ziel ist weder mehr noch weniger Teilnahme, sondern eine selbstbestimmte Entscheidung.",
+          "en": "The goal isn't to increase or decrease participation. It's to enable an informed choice."
+        }
+      },
+      {
+        "korean": "그렇다면 어떤 정보를 나눠서 보여 줘야 할까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Welche Informationen sollten wir dann getrennt darstellen?",
+          "en": "Which information should we separate, then?"
+        }
+      },
+      {
+        "korean": "상대위험, 예상되는 실제 범위, 알려진 부작용, 아직 모르는 점과 중단할 선택권을 나눠서 보여 주죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir zeigen relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und das Recht auf Abbruch getrennt.",
+          "en": "Let's separate relative risk, expected absolute ranges, known side effects, what remains unknown, and the option to withdraw."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c2_accountable_systems"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_indirect_speech"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(ㄴ/는)다고 하다",
+        "de": "Indirekte Rede",
+        "en": "Indirect speech"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Sagt dass / hat gesagt dass: indirekte Wiedergabe",
+        "en": "Says that / said that: reporting speech indirectly"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "researcher",
+        "ko": "초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다.",
+        "de": "Wenn wir sagen, das Risiko habe sich in der ersten Studie halbiert, ist der Nutzen leicht verständlich.",
+        "en": "Saying the early study cut risk in half would communicate the benefit clearly."
+      },
+      {
+        "speaker": "user",
+        "ko": "효과가 있을 가능성과 아직 모르는 범위를 같은 무게로 설명해야 합니다.",
+        "de": "Die mögliche Wirkung und das Ausmaß unseres Nichtwissens müssen gleichgewichtig erklärt werden.",
+        "en": "The possibility of benefit and the extent of what remains unknown need equal weight."
+      },
+      {
+        "speaker": "researcher",
+        "ko": "불확실성을 너무 강조하면 참여를 막는 방향으로 기울지 않을까요?",
+        "de": "Könnte eine starke Betonung der Unsicherheit Menschen nicht unnötig von der Teilnahme abhalten?",
+        "en": "Could emphasizing uncertainty too much push people away from participating?"
+      },
+      {
+        "speaker": "user",
+        "ko": "참여를 늘리거나 줄이는 게 목적이 아니라 스스로 판단할 수 있게 하는 게 목적입니다.",
+        "de": "Ziel ist weder mehr noch weniger Teilnahme, sondern eine selbstbestimmte Entscheidung.",
+        "en": "The goal isn't to increase or decrease participation. It's to enable an informed choice."
+      },
+      {
+        "speaker": "researcher",
+        "ko": "그렇다면 어떤 정보를 나눠서 보여 줘야 할까요?",
+        "de": "Welche Informationen sollten wir dann getrennt darstellen?",
+        "en": "Which information should we separate, then?"
+      },
+      {
+        "speaker": "user",
+        "ko": "상대위험, 예상되는 실제 범위, 알려진 부작용, 아직 모르는 점과 중단할 선택권을 나눠서 보여 주죠.",
+        "de": "Wir zeigen relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und das Recht auf Abbruch getrennt.",
+        "en": "Let's separate relative risk, expected absolute ranges, known side effects, what remains unknown, and the option to withdraw."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_medical_uncertainty_consent_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다.",
+          "options": [
+            {
+              "de": "Wenn wir sagen, das Risiko habe sich in der ersten Studie halbiert, ist der Nutzen leicht verständlich.",
+              "en": "Saying the early study cut risk in half would communicate the benefit clearly."
+            },
+            {
+              "de": "Die mögliche Wirkung und das Ausmaß unseres Nichtwissens müssen gleichgewichtig erklärt werden.",
+              "en": "The possibility of benefit and the extent of what remains unknown need equal weight."
+            },
+            {
+              "de": "Könnte eine starke Betonung der Unsicherheit Menschen nicht unnötig von der Teilnahme abhalten?",
+              "en": "Could emphasizing uncertainty too much push people away from participating?"
+            },
+            {
+              "de": "Ziel ist weder mehr noch weniger Teilnahme, sondern eine selbstbestimmte Entscheidung.",
+              "en": "The goal isn't to increase or decrease participation. It's to enable an informed choice."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_medical_uncertainty_consent_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Die mögliche Wirkung und das Ausmaß unseres Nichtwissens müssen gleichgewichtig erklärt werden.",
+          "promptEn": "The possibility of benefit and the extent of what remains unknown need equal weight.",
+          "options": [
+            {
+              "ko": "효과가 있을 가능성과 아직 모르는 범위를 같은 무게로 설명해야 합니다."
+            },
+            {
+              "ko": "초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다."
+            },
+            {
+              "ko": "불확실성을 너무 강조하면 참여를 막는 방향으로 기울지 않을까요?"
+            },
+            {
+              "ko": "참여를 늘리거나 줄이는 게 목적이 아니라 스스로 판단할 수 있게 하는 게 목적입니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_medical_uncertainty_consent_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "상대위험, 예상되는 실제 범위, 알려진 부작용, 아직 모르는 점과 중단할 선택권을 나눠서 보여 주죠.",
+          "audioKo": "상대위험, 예상되는 실제 범위, 알려진 부작용, 아직 모르는 점과 중단할 선택권을 나눠서 보여 주죠.",
+          "promptDe": "Wir zeigen relatives Risiko, erwartete absolute Größen, bekannte Nebenwirkungen, offene Fragen und das Recht auf Abbruch getrennt.",
+          "promptEn": "Let's separate relative risk, expected absolute ranges, known side effects, what remains unknown, and the option to withdraw.",
+          "distractors": [
+            "초기 연구에서 위험이 절반으로 줄었다고 설명하면 핵심이 잘 전달될 겁니다.",
+            "효과가 있을 가능성과 아직 모르는 범위를 같은 무게로 설명해야 합니다.",
+            "불확실성을 너무 강조하면 참여를 막는 방향으로 기울지 않을까요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 150
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

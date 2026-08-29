@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "apartment_recycling_mixup",
+  "scenario": {
+    "id": "apartment_recycling_mixup",
+    "level": "b1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "분리배출을 잘못해서 이웃이 말했을 때",
+      "de": "Beschichtetes Papier falsch entsorgen",
+      "en": "Sorting coated paper incorrectly"
+    },
+    "intro": {
+      "ko": "코팅된 종이를 종이류에 넣었다가 이웃이 말을 걸어요.",
+      "de": "Du wirfst beschichtetes Papier zum Altpapier, und ein Nachbar spricht dich darauf an.",
+      "en": "You put coated paper in the paper recycling, and a neighbor stops you."
+    },
+    "courseUnitId": "b1_06_life_capstone",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "neighbor"
+    ],
+    "relationshipContext": "한국 생활이 익숙해지는 크리스티안과 이웃",
+    "intent": "몰랐던 점을 인정하고 기준을 묻는다",
+    "shelf": "b1_neighbor",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "죄송한데, 그건 종이류가 아닌 것 같아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entschuldigung, ich glaube, das gehört nicht zum Altpapier.",
+          "en": "Excuse me, I don't think that goes with the paper."
+        }
+      },
+      {
+        "korean": "종이인 줄 알고 여기 넣었어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich dachte, es sei Papier, deshalb habe ich es hier eingeworfen.",
+          "en": "I thought it was paper, so I put it here."
+        }
+      },
+      {
+        "korean": "안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Innenseite ist beschichtet, deshalb gehört es hier in den Restmüll.",
+          "en": "The inside is coated, so it goes in general waste here."
+        }
+      },
+      {
+        "korean": "표시가 작아서 못 봤네요. 다시 꺼낼게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das Zeichen war so klein, dass ich es übersehen habe. Ich nehme es wieder heraus.",
+          "en": "The symbol was tiny, so I missed it. I'll take it back out."
+        }
+      },
+      {
+        "korean": "관리실 안내 사진을 보면 더 쉬워요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Auf dem Foto vom Hausmeisterbüro sieht man es besser.",
+          "en": "The guide from the management office makes it clearer."
+        }
+      },
+      {
+        "korean": "같이 확인해 주셔서 감사합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Danke, dass Sie mit mir nachsehen.",
+          "en": "Thanks for checking it with me."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_life"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "neighbor",
+        "ko": "죄송한데, 그건 종이류가 아닌 것 같아요.",
+        "de": "Entschuldigung, ich glaube, das gehört nicht zum Altpapier.",
+        "en": "Excuse me, I don't think that goes with the paper."
+      },
+      {
+        "speaker": "user",
+        "ko": "종이인 줄 알고 여기 넣었어요.",
+        "de": "Ich dachte, es sei Papier, deshalb habe ich es hier eingeworfen.",
+        "en": "I thought it was paper, so I put it here."
+      },
+      {
+        "speaker": "neighbor",
+        "ko": "안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요.",
+        "de": "Die Innenseite ist beschichtet, deshalb gehört es hier in den Restmüll.",
+        "en": "The inside is coated, so it goes in general waste here."
+      },
+      {
+        "speaker": "user",
+        "ko": "표시가 작아서 못 봤네요. 다시 꺼낼게요.",
+        "de": "Das Zeichen war so klein, dass ich es übersehen habe. Ich nehme es wieder heraus.",
+        "en": "The symbol was tiny, so I missed it. I'll take it back out."
+      },
+      {
+        "speaker": "neighbor",
+        "ko": "관리실 안내 사진을 보면 더 쉬워요.",
+        "de": "Auf dem Foto vom Hausmeisterbüro sieht man es besser.",
+        "en": "The guide from the management office makes it clearer."
+      },
+      {
+        "speaker": "user",
+        "ko": "같이 확인해 주셔서 감사합니다.",
+        "de": "Danke, dass Sie mit mir nachsehen.",
+        "en": "Thanks for checking it with me."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_apartment_recycling_mixup_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "죄송한데, 그건 종이류가 아닌 것 같아요.",
+          "options": [
+            {
+              "de": "Entschuldigung, ich glaube, das gehört nicht zum Altpapier.",
+              "en": "Excuse me, I don't think that goes with the paper."
+            },
+            {
+              "de": "Ich dachte, es sei Papier, deshalb habe ich es hier eingeworfen.",
+              "en": "I thought it was paper, so I put it here."
+            },
+            {
+              "de": "Die Innenseite ist beschichtet, deshalb gehört es hier in den Restmüll.",
+              "en": "The inside is coated, so it goes in general waste here."
+            },
+            {
+              "de": "Das Zeichen war so klein, dass ich es übersehen habe. Ich nehme es wieder heraus.",
+              "en": "The symbol was tiny, so I missed it. I'll take it back out."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_apartment_recycling_mixup_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ich dachte, es sei Papier, deshalb habe ich es hier eingeworfen.",
+          "promptEn": "I thought it was paper, so I put it here.",
+          "options": [
+            {
+              "ko": "종이인 줄 알고 여기 넣었어요."
+            },
+            {
+              "ko": "죄송한데, 그건 종이류가 아닌 것 같아요."
+            },
+            {
+              "ko": "안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요."
+            },
+            {
+              "ko": "표시가 작아서 못 봤네요. 다시 꺼낼게요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_apartment_recycling_mixup_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "같이 확인해 주셔서 감사합니다.",
+          "audioKo": "같이 확인해 주셔서 감사합니다.",
+          "promptDe": "Danke, dass Sie mit mir nachsehen.",
+          "promptEn": "Thanks for checking it with me.",
+          "distractors": [
+            "죄송한데, 그건 종이류가 아닌 것 같아요.",
+            "종이인 줄 알고 여기 넣었어요.",
+            "안쪽이 코팅돼 있어서 여기서는 일반 쓰레기로 버려요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

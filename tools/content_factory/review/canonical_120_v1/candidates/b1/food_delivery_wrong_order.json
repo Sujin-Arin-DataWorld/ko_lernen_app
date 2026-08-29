@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "food_delivery_wrong_order",
+  "scenario": {
+    "id": "food_delivery_wrong_order",
+    "level": "b1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "배달 음식이 다른 메뉴로 왔을 때",
+      "de": "Das falsche Lieferessen erhalten",
+      "en": "Receiving the wrong delivery order"
+    },
+    "intro": {
+      "ko": "비빔밥을 주문했는데 다른 집의 국수가 왔어요.",
+      "de": "Statt deines Bibimbap wurde eine Nudelbestellung aus einem anderen Restaurant geliefert.",
+      "en": "Instead of your bibimbap, you received noodles from another restaurant."
+    },
+    "courseUnitId": "b1_05_complaint_resolution",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "clerk"
+    ],
+    "relationshipContext": "고객과 상담 직원",
+    "intent": "사진과 주문 내역을 근거로 문제를 설명하고 원하는 해결을 말한다",
+    "shelf": "b1_refund",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "고객센터입니다. 어떤 문제가 있으세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hier ist der Kundenservice. Worum geht es?",
+          "en": "Customer support. What seems to be the problem?"
+        }
+      },
+      {
+        "korean": "제가 주문한 메뉴가 아니라 다른 음식이 왔어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es wurde nicht mein Gericht geliefert, sondern eine andere Bestellung.",
+          "en": "I received someone else's food instead of what I ordered."
+        }
+      },
+      {
+        "korean": "주문 내역에는 비빔밥으로 나오네요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "In Ihrer Bestellung steht Bibimbap.",
+          "en": "Your order shows bibimbap."
+        }
+      },
+      {
+        "korean": "네, 그런데 봉투 안에는 국수가 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, aber in der Tüte sind Nudeln.",
+          "en": "Yes, but there are noodles in the bag."
+        }
+      },
+      {
+        "korean": "재배달과 환불 중에 어떤 쪽이 나으세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wäre eine neue Lieferung oder eine Erstattung besser für Sie?",
+          "en": "Would you prefer redelivery or a refund?"
+        }
+      },
+      {
+        "korean": "지금 다시 받으면 너무 늦어서 환불받을게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Für eine neue Lieferung ist es zu spät. Ich nehme die Erstattung.",
+          "en": "It would be too late to redeliver, so I'll take the refund."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_complaint_resolution"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "clerk",
+        "ko": "고객센터입니다. 어떤 문제가 있으세요?",
+        "de": "Hier ist der Kundenservice. Worum geht es?",
+        "en": "Customer support. What seems to be the problem?"
+      },
+      {
+        "speaker": "user",
+        "ko": "제가 주문한 메뉴가 아니라 다른 음식이 왔어요.",
+        "de": "Es wurde nicht mein Gericht geliefert, sondern eine andere Bestellung.",
+        "en": "I received someone else's food instead of what I ordered."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "주문 내역에는 비빔밥으로 나오네요.",
+        "de": "In Ihrer Bestellung steht Bibimbap.",
+        "en": "Your order shows bibimbap."
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 그런데 봉투 안에는 국수가 있어요.",
+        "de": "Ja, aber in der Tüte sind Nudeln.",
+        "en": "Yes, but there are noodles in the bag."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "재배달과 환불 중에 어떤 쪽이 나으세요?",
+        "de": "Wäre eine neue Lieferung oder eine Erstattung besser für Sie?",
+        "en": "Would you prefer redelivery or a refund?"
+      },
+      {
+        "speaker": "user",
+        "ko": "지금 다시 받으면 너무 늦어서 환불받을게요.",
+        "de": "Für eine neue Lieferung ist es zu spät. Ich nehme die Erstattung.",
+        "en": "It would be too late to redeliver, so I'll take the refund."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_food_delivery_wrong_order_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "고객센터입니다. 어떤 문제가 있으세요?",
+          "options": [
+            {
+              "de": "Hier ist der Kundenservice. Worum geht es?",
+              "en": "Customer support. What seems to be the problem?"
+            },
+            {
+              "de": "Es wurde nicht mein Gericht geliefert, sondern eine andere Bestellung.",
+              "en": "I received someone else's food instead of what I ordered."
+            },
+            {
+              "de": "In Ihrer Bestellung steht Bibimbap.",
+              "en": "Your order shows bibimbap."
+            },
+            {
+              "de": "Ja, aber in der Tüte sind Nudeln.",
+              "en": "Yes, but there are noodles in the bag."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_food_delivery_wrong_order_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Es wurde nicht mein Gericht geliefert, sondern eine andere Bestellung.",
+          "promptEn": "I received someone else's food instead of what I ordered.",
+          "options": [
+            {
+              "ko": "제가 주문한 메뉴가 아니라 다른 음식이 왔어요."
+            },
+            {
+              "ko": "고객센터입니다. 어떤 문제가 있으세요?"
+            },
+            {
+              "ko": "주문 내역에는 비빔밥으로 나오네요."
+            },
+            {
+              "ko": "네, 그런데 봉투 안에는 국수가 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_food_delivery_wrong_order_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "지금 다시 받으면 너무 늦어서 환불받을게요.",
+          "audioKo": "지금 다시 받으면 너무 늦어서 환불받을게요.",
+          "promptDe": "Für eine neue Lieferung ist es zu spät. Ich nehme die Erstattung.",
+          "promptEn": "It would be too late to redeliver, so I'll take the refund.",
+          "distractors": [
+            "고객센터입니다. 어떤 문제가 있으세요?",
+            "제가 주문한 메뉴가 아니라 다른 음식이 왔어요.",
+            "주문 내역에는 비빔밥으로 나오네요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

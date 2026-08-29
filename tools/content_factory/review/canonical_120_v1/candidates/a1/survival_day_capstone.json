@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "survival_day_capstone",
+  "scenario": {
+    "id": "survival_day_capstone",
+    "level": "a1",
+    "emoji": "🏠",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "한국에서 보낸 첫 주말 아침",
+      "de": "Der erste Wochenendmorgen",
+      "en": "Your first weekend morning"
+    },
+    "intro": {
+      "ko": "장을 보러 나가기 전에 준비해요.",
+      "de": "Bevor ihr einkaufen geht, sprecht ihr kurz ab, was ihr braucht.",
+      "en": "Before grocery shopping, you quickly check what you need."
+    },
+    "courseUnitId": "a1_16_survival_capstone",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "lena"
+    ],
+    "relationshipContext": "친한 교환학생 친구 크리스티안과 레나",
+    "intent": "오늘 할 일과 필요한 물건 하나를 말한다",
+    "shelf": "a1_home",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "몇 시에 나가?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wann gehen wir los?",
+          "en": "What time are we leaving?"
+        }
+      },
+      {
+        "korean": "열 시에 나가자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Lass uns um zehn gehen.",
+          "en": "Let's leave at ten."
+        }
+      },
+      {
+        "korean": "물하고 우유 사자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Kaufen wir Wasser und Milch.",
+          "en": "Let's buy water and milk."
+        }
+      },
+      {
+        "korean": "좋아. 우산 있어?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Hast du einen Regenschirm?",
+          "en": "Sounds good. Do you have an umbrella?"
+        }
+      },
+      {
+        "korean": "아니, 없어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nein.",
+          "en": "No, I don't."
+        }
+      },
+      {
+        "korean": "밖에 비 와. 같이 쓰자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es regnet. Wir nehmen meinen zusammen.",
+          "en": "It's raining. We can share mine."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_survival"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "몇 시에 나가?",
+        "de": "Wann gehen wir los?",
+        "en": "What time are we leaving?"
+      },
+      {
+        "speaker": "lena",
+        "ko": "열 시에 나가자.",
+        "de": "Lass uns um zehn gehen.",
+        "en": "Let's leave at ten."
+      },
+      {
+        "speaker": "user",
+        "ko": "물하고 우유 사자.",
+        "de": "Kaufen wir Wasser und Milch.",
+        "en": "Let's buy water and milk."
+      },
+      {
+        "speaker": "lena",
+        "ko": "좋아. 우산 있어?",
+        "de": "Gut. Hast du einen Regenschirm?",
+        "en": "Sounds good. Do you have an umbrella?"
+      },
+      {
+        "speaker": "user",
+        "ko": "아니, 없어.",
+        "de": "Nein.",
+        "en": "No, I don't."
+      },
+      {
+        "speaker": "lena",
+        "ko": "밖에 비 와. 같이 쓰자.",
+        "de": "Es regnet. Wir nehmen meinen zusammen.",
+        "en": "It's raining. We can share mine."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_survival_day_capstone_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "열 시에 나가자.",
+          "options": [
+            {
+              "de": "Lass uns um zehn gehen.",
+              "en": "Let's leave at ten."
+            },
+            {
+              "de": "Wann gehen wir los?",
+              "en": "What time are we leaving?"
+            },
+            {
+              "de": "Kaufen wir Wasser und Milch.",
+              "en": "Let's buy water and milk."
+            },
+            {
+              "de": "Gut. Hast du einen Regenschirm?",
+              "en": "Sounds good. Do you have an umbrella?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_survival_day_capstone_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wann gehen wir los?",
+          "promptEn": "What time are we leaving?",
+          "options": [
+            {
+              "ko": "몇 시에 나가?"
+            },
+            {
+              "ko": "열 시에 나가자."
+            },
+            {
+              "ko": "물하고 우유 사자."
+            },
+            {
+              "ko": "좋아. 우산 있어?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_survival_day_capstone_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "아니, 없어.",
+          "audioKo": "아니, 없어.",
+          "promptDe": "Nein.",
+          "promptEn": "No, I don't.",
+          "distractors": [
+            "몇 시에 나가?",
+            "열 시에 나가자.",
+            "물하고 우유 사자."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

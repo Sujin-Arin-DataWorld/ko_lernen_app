@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "generationId": "canonical_120_v1",
+  "level": "a1",
+  "regressionOnly": true,
+  "scenarios": [
+    {"id": "reg_mistake_a1_foot", "copyFrom": "subway_step_apology"},
+    {"id": "reg_digital_a1_kakao", "copyFrom": "kakao_contact_after_class"}
+  ]
+}

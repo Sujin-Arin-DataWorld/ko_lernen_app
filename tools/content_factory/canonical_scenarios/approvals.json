@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "generationId": "canonical_120_v1",
+  "levels": {
+    "a1": {"decision": "pending", "reviewer": null, "reviewedScenarioCount": 0, "candidateSetSha256": null, "approvedAt": null, "promotedAt": null},
+    "a2": {"decision": "pending", "reviewer": null, "reviewedScenarioCount": 0, "candidateSetSha256": null, "approvedAt": null, "promotedAt": null},
+    "b1": {"decision": "pending", "reviewer": null, "reviewedScenarioCount": 0, "candidateSetSha256": null, "approvedAt": null, "promotedAt": null},
+    "b2": {"decision": "pending", "reviewer": null, "reviewedScenarioCount": 0, "candidateSetSha256": null, "approvedAt": null, "promotedAt": null},
+    "c1": {"decision": "pending", "reviewer": null, "reviewedScenarioCount": 0, "candidateSetSha256": null, "approvedAt": null, "promotedAt": null},
+    "c2": {"decision": "pending", "reviewer": null, "reviewedScenarioCount": 0, "candidateSetSha256": null, "approvedAt": null, "promotedAt": null}
+  }
+}

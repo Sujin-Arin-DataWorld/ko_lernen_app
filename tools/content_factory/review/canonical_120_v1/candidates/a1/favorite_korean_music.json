@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "favorite_korean_music",
+  "scenario": {
+    "id": "favorite_korean_music",
+    "level": "a1",
+    "emoji": "☕",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "좋아하는 한국 음악 묻기",
+      "de": "Über koreanische Musik sprechen",
+      "en": "Talking about Korean music"
+    },
+    "intro": {
+      "ko": "축제 줄에서 공연 노래가 들려요.",
+      "de": "Während ihr beim Festival wartet, hört ihr Musik von der Bühne.",
+      "en": "While you're waiting at a festival, you hear music from the stage."
+    },
+    "courseUnitId": "a1_11_titles_relationships",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "maya"
+    ],
+    "relationshipContext": "막 친해지기 시작한 레나와 마야",
+    "intent": "한국 음악을 좋아한다고 말하고 가수를 묻는다",
+    "shelf": "a1_greet",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "한국 음악도 좋아해요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Magst du auch koreanische Musik?",
+          "en": "Do you like Korean music too?"
+        }
+      },
+      {
+        "korean": "네, 아주 좋아해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, sehr sogar.",
+          "en": "Yes, very much."
+        }
+      },
+      {
+        "korean": "어떤 가수 좋아해요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Welche Sängerin oder welchen Sänger magst du?",
+          "en": "Which singer do you like?"
+        }
+      },
+      {
+        "korean": "저는 유나를 좋아해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich mag Yuna.",
+          "en": "I like Yuna."
+        }
+      },
+      {
+        "korean": "저도 좋아해요. 새 노래도 좋아해요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich mag sie auch. Magst du ihr neues Lied auch?",
+          "en": "I like her too. Do you like her new song too?"
+        }
+      },
+      {
+        "korean": "네, 요즘 그 노래만 들어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, im Moment höre ich fast nur dieses Lied.",
+          "en": "Yes, that's almost all I listen to these days."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_titles_relationships"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_only_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N만",
+        "de": "Partikel (nur)",
+        "en": "Particle (only)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Nur/ausschließlich: ersetzt 이/가 und 을/를 direkt am Nomen",
+        "en": "Only/just: replaces 이/가 and 을/를 right after the noun"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "maya",
+        "ko": "한국 음악도 좋아해요?",
+        "de": "Magst du auch koreanische Musik?",
+        "en": "Do you like Korean music too?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 아주 좋아해요.",
+        "de": "Ja, sehr sogar.",
+        "en": "Yes, very much."
+      },
+      {
+        "speaker": "maya",
+        "ko": "어떤 가수 좋아해요?",
+        "de": "Welche Sängerin oder welchen Sänger magst du?",
+        "en": "Which singer do you like?"
+      },
+      {
+        "speaker": "user",
+        "ko": "저는 유나를 좋아해요.",
+        "de": "Ich mag Yuna.",
+        "en": "I like Yuna."
+      },
+      {
+        "speaker": "maya",
+        "ko": "저도 좋아해요. 새 노래도 좋아해요?",
+        "de": "Ich mag sie auch. Magst du ihr neues Lied auch?",
+        "en": "I like her too. Do you like her new song too?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네, 요즘 그 노래만 들어요.",
+        "de": "Ja, im Moment höre ich fast nur dieses Lied.",
+        "en": "Yes, that's almost all I listen to these days."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_favorite_korean_music_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "한국 음악도 좋아해요?",
+          "options": [
+            {
+              "de": "Magst du auch koreanische Musik?",
+              "en": "Do you like Korean music too?"
+            },
+            {
+              "de": "Ja, sehr sogar.",
+              "en": "Yes, very much."
+            },
+            {
+              "de": "Welche Sängerin oder welchen Sänger magst du?",
+              "en": "Which singer do you like?"
+            },
+            {
+              "de": "Ich mag Yuna.",
+              "en": "I like Yuna."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_favorite_korean_music_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ja, sehr sogar.",
+          "promptEn": "Yes, very much.",
+          "options": [
+            {
+              "ko": "네, 아주 좋아해요."
+            },
+            {
+              "ko": "한국 음악도 좋아해요?"
+            },
+            {
+              "ko": "어떤 가수 좋아해요?"
+            },
+            {
+              "ko": "저는 유나를 좋아해요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_favorite_korean_music_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네, 요즘 그 노래만 들어요.",
+          "audioKo": "네, 요즘 그 노래만 들어요.",
+          "promptDe": "Ja, im Moment höre ich fast nur dieses Lied.",
+          "promptEn": "Yes, that's almost all I listen to these days.",
+          "distractors": [
+            "한국 음악도 좋아해요?",
+            "네, 아주 좋아해요.",
+            "어떤 가수 좋아해요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

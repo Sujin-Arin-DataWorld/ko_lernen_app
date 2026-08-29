@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "deepfake_verification",
+  "scenario": {
+    "id": "deepfake_verification",
+    "level": "c1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "딥페이크 의심 영상을 보도하기 전",
+      "de": "Ein mutmaßliches Deepfake vor der Berichterstattung prüfen",
+      "en": "Verifying a suspected deepfake before reporting"
+    },
+    "intro": {
+      "ko": "공인의 발언처럼 보이는 영상이 퍼지지만 원본과 촬영 시점은 확인되지 않았어요.",
+      "de": "Ein Video mit einer vermeintlichen Aussage einer öffentlichen Person verbreitet sich, doch Quelle und Aufnahmezeit sind unklar.",
+      "en": "A video appearing to show a public figure speaking is spreading, but its source and date are unverified."
+    },
+    "courseUnitId": "c1_03_media_evidence_literacy",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "editor"
+    ],
+    "relationshipContext": "편집자와 데이터 분석가 수진",
+    "intent": "보도 가치와 오보 위험을 분리해 검증 순서를 제시한다",
+    "shelf": "c1_critique",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "영상이 이미 크게 퍼졌으니 발언 내용을 중심으로 기사를 내죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das Video ist bereits weit verbreitet. Wir sollten über die Aussage berichten.",
+          "en": "The video is already widespread. Let's report on the statement."
+        }
+      },
+      {
+        "korean": "영상이 퍼지고 있다는 사실과 영상 내용이 사실이라는 판단은 분리해야 합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir müssen zwischen der Verbreitung des Videos und der Wahrheit seines Inhalts unterscheiden.",
+          "en": "We need to separate the fact that the video is spreading from a judgment that its content is true."
+        }
+      },
+      {
+        "korean": "그렇다고 아무 기사도 내지 않으면 오히려 소문만 커질 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir gar nichts veröffentlichen, könnte das Gerücht noch größer werden.",
+          "en": "If we publish nothing, the rumor may grow even more."
+        }
+      },
+      {
+        "korean": "확산 현상은 보도하되 발언이 확인됐다고 단정하기는 어렵다고 밝혀야 해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wir können über die Verbreitung berichten, müssen aber deutlich machen, dass die Aussage nicht verifiziert ist.",
+          "en": "We can report on the spread while clearly saying the statement has not been verified."
+        }
+      },
+      {
+        "korean": "지금 확인된 정보는 무엇인가요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Was ist bislang gesichert?",
+          "en": "What has been confirmed so far?"
+        }
+      },
+      {
+        "korean": "최초 게시 계정과 원본 파일, 촬영 시점을 확인 중이라는 상태까지입니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gesichert ist nur, dass wir Erstveröffentlichung, Originaldatei und Aufnahmezeit prüfen.",
+          "en": "Only that we're checking the first posting account, original file, and recording date."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_media_evidence"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_c1_but_not"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-되, N은 V-지 않는다",
+        "de": "Zugeständnis mit Grenze",
+        "en": "Concession with a limit"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Räumt einen Teil ein und zieht im selben Satz die Grenze, bis zu der er gilt.",
+        "en": "Grants one part and draws, in the same sentence, the line where it stops."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "editor",
+        "ko": "영상이 이미 크게 퍼졌으니 발언 내용을 중심으로 기사를 내죠.",
+        "de": "Das Video ist bereits weit verbreitet. Wir sollten über die Aussage berichten.",
+        "en": "The video is already widespread. Let's report on the statement."
+      },
+      {
+        "speaker": "user",
+        "ko": "영상이 퍼지고 있다는 사실과 영상 내용이 사실이라는 판단은 분리해야 합니다.",
+        "de": "Wir müssen zwischen der Verbreitung des Videos und der Wahrheit seines Inhalts unterscheiden.",
+        "en": "We need to separate the fact that the video is spreading from a judgment that its content is true."
+      },
+      {
+        "speaker": "editor",
+        "ko": "그렇다고 아무 기사도 내지 않으면 오히려 소문만 커질 수 있어요.",
+        "de": "Wenn wir gar nichts veröffentlichen, könnte das Gerücht noch größer werden.",
+        "en": "If we publish nothing, the rumor may grow even more."
+      },
+      {
+        "speaker": "user",
+        "ko": "확산 현상은 보도하되 발언이 확인됐다고 단정하기는 어렵다고 밝혀야 해요.",
+        "de": "Wir können über die Verbreitung berichten, müssen aber deutlich machen, dass die Aussage nicht verifiziert ist.",
+        "en": "We can report on the spread while clearly saying the statement has not been verified."
+      },
+      {
+        "speaker": "editor",
+        "ko": "지금 확인된 정보는 무엇인가요?",
+        "de": "Was ist bislang gesichert?",
+        "en": "What has been confirmed so far?"
+      },
+      {
+        "speaker": "user",
+        "ko": "최초 게시 계정과 원본 파일, 촬영 시점을 확인 중이라는 상태까지입니다.",
+        "de": "Gesichert ist nur, dass wir Erstveröffentlichung, Originaldatei und Aufnahmezeit prüfen.",
+        "en": "Only that we're checking the first posting account, original file, and recording date."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_deepfake_verification_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "영상이 이미 크게 퍼졌으니 발언 내용을 중심으로 기사를 내죠.",
+          "options": [
+            {
+              "de": "Das Video ist bereits weit verbreitet. Wir sollten über die Aussage berichten.",
+              "en": "The video is already widespread. Let's report on the statement."
+            },
+            {
+              "de": "Wir müssen zwischen der Verbreitung des Videos und der Wahrheit seines Inhalts unterscheiden.",
+              "en": "We need to separate the fact that the video is spreading from a judgment that its content is true."
+            },
+            {
+              "de": "Wenn wir gar nichts veröffentlichen, könnte das Gerücht noch größer werden.",
+              "en": "If we publish nothing, the rumor may grow even more."
+            },
+            {
+              "de": "Wir können über die Verbreitung berichten, müssen aber deutlich machen, dass die Aussage nicht verifiziert ist.",
+              "en": "We can report on the spread while clearly saying the statement has not been verified."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_deepfake_verification_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wir müssen zwischen der Verbreitung des Videos und der Wahrheit seines Inhalts unterscheiden.",
+          "promptEn": "We need to separate the fact that the video is spreading from a judgment that its content is true.",
+          "options": [
+            {
+              "ko": "영상이 퍼지고 있다는 사실과 영상 내용이 사실이라는 판단은 분리해야 합니다."
+            },
+            {
+              "ko": "영상이 이미 크게 퍼졌으니 발언 내용을 중심으로 기사를 내죠."
+            },
+            {
+              "ko": "그렇다고 아무 기사도 내지 않으면 오히려 소문만 커질 수 있어요."
+            },
+            {
+              "ko": "확산 현상은 보도하되 발언이 확인됐다고 단정하기는 어렵다고 밝혀야 해요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_deepfake_verification_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "최초 게시 계정과 원본 파일, 촬영 시점을 확인 중이라는 상태까지입니다.",
+          "audioKo": "최초 게시 계정과 원본 파일, 촬영 시점을 확인 중이라는 상태까지입니다.",
+          "promptDe": "Gesichert ist nur, dass wir Erstveröffentlichung, Originaldatei und Aufnahmezeit prüfen.",
+          "promptEn": "Only that we're checking the first posting account, original file, and recording date.",
+          "distractors": [
+            "영상이 이미 크게 퍼졌으니 발언 내용을 중심으로 기사를 내죠.",
+            "영상이 퍼지고 있다는 사실과 영상 내용이 사실이라는 판단은 분리해야 합니다.",
+            "그렇다고 아무 기사도 내지 않으면 오히려 소문만 커질 수 있어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

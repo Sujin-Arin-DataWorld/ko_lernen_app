@@ -1,0 +1,243 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "bunshik_tteokbokki",
+  "scenario": {
+    "id": "bunshik_tteokbokki",
+    "level": "a1",
+    "emoji": "🍽️",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "분식집에서 떡볶이 주문하기",
+      "de": "Tteokbokki bestellen",
+      "en": "Ordering tteokbokki"
+    },
+    "intro": {
+      "ko": "학교 앞 분식집에서 주문해요.",
+      "de": "Du bestellst in einem kleinen Imbiss vor der Schule.",
+      "en": "You're ordering at a snack bar near school."
+    },
+    "courseUnitId": "a1_04_order_request_object",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "server"
+    ],
+    "relationshipContext": "손님과 식당 직원",
+    "intent": "원하는 음식과 맛을 말한다",
+    "shelf": "a1_counter",
+    "backdrop": "restaurant",
+    "vocab": [
+      {
+        "korean": "주문하시겠어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Möchten Sie bestellen?",
+          "en": "Are you ready to order?"
+        }
+      },
+      {
+        "korean": "떡볶이 하나 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Einmal Tteokbokki, bitte.",
+          "en": "One tteokbokki, please."
+        }
+      },
+      {
+        "korean": "많이 매워요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ist es sehr scharf?",
+          "en": "Is it very spicy?"
+        }
+      },
+      {
+        "korean": "조금 매워요. 순한 맛도 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ein bisschen. Es gibt auch eine milde Variante.",
+          "en": "A little. We also have a mild version."
+        }
+      },
+      {
+        "korean": "그럼 순한 맛으로 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann bitte die milde Variante.",
+          "en": "Then I'll have the mild version, please."
+        }
+      },
+      {
+        "korean": "네, 순한 맛으로 드릴게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gern, dann die milde Variante.",
+          "en": "Sure, I'll make it mild."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_object_particle",
+      "concept_request_polite"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_service_request"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N을/를 V-아/어 주세요",
+        "de": "konkrete höfliche Bitte",
+        "en": "concrete polite request"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Bittet höflich um eine klar benannte Handlung.",
+        "en": "Politely asks someone to perform a clearly named action."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "server",
+        "ko": "주문하시겠어요?",
+        "de": "Möchten Sie bestellen?",
+        "en": "Are you ready to order?"
+      },
+      {
+        "speaker": "user",
+        "ko": "떡볶이 하나 주세요.",
+        "de": "Einmal Tteokbokki, bitte.",
+        "en": "One tteokbokki, please."
+      },
+      {
+        "speaker": "user",
+        "ko": "많이 매워요?",
+        "de": "Ist es sehr scharf?",
+        "en": "Is it very spicy?"
+      },
+      {
+        "speaker": "server",
+        "ko": "조금 매워요. 순한 맛도 있어요.",
+        "de": "Ein bisschen. Es gibt auch eine milde Variante.",
+        "en": "A little. We also have a mild version."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 순한 맛으로 주세요.",
+        "de": "Dann bitte die milde Variante.",
+        "en": "Then I'll have the mild version, please."
+      },
+      {
+        "speaker": "server",
+        "ko": "네, 순한 맛으로 드릴게요.",
+        "de": "Gern, dann die milde Variante.",
+        "en": "Sure, I'll make it mild."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_bunshik_tteokbokki_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "주문하시겠어요?",
+          "options": [
+            {
+              "de": "Möchten Sie bestellen?",
+              "en": "Are you ready to order?"
+            },
+            {
+              "de": "Einmal Tteokbokki, bitte.",
+              "en": "One tteokbokki, please."
+            },
+            {
+              "de": "Ist es sehr scharf?",
+              "en": "Is it very spicy?"
+            },
+            {
+              "de": "Ein bisschen. Es gibt auch eine milde Variante.",
+              "en": "A little. We also have a mild version."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_bunshik_tteokbokki_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Einmal Tteokbokki, bitte.",
+          "promptEn": "One tteokbokki, please.",
+          "options": [
+            {
+              "ko": "떡볶이 하나 주세요."
+            },
+            {
+              "ko": "주문하시겠어요?"
+            },
+            {
+              "ko": "많이 매워요?"
+            },
+            {
+              "ko": "조금 매워요. 순한 맛도 있어요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_bunshik_tteokbokki_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "그럼 순한 맛으로 주세요.",
+          "audioKo": "그럼 순한 맛으로 주세요.",
+          "promptDe": "Dann bitte die milde Variante.",
+          "promptEn": "Then I'll have the mild version, please.",
+          "distractors": [
+            "주문하시겠어요?",
+            "떡볶이 하나 주세요.",
+            "많이 매워요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

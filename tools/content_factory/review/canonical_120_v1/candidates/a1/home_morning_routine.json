@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "home_morning_routine",
+  "scenario": {
+    "id": "home_morning_routine",
+    "level": "a1",
+    "emoji": "🏠",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "아침 준비하며 물건 찾기",
+      "de": "Die Fahrkarte am Morgen suchen",
+      "en": "Looking for a transit card in the morning"
+    },
+    "intro": {
+      "ko": "나갈 시간인데 교통카드가 안 보여요.",
+      "de": "Ihr müsst los, aber deine Fahrkarte ist verschwunden.",
+      "en": "It's time to leave, but you can't find your transit card."
+    },
+    "courseUnitId": "a1_09_home_daily_life",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "lena"
+    ],
+    "relationshipContext": "친한 교환학생 친구 크리스티안과 레나",
+    "intent": "물건이 어디 있는지 묻는다",
+    "shelf": "a1_home",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "교통카드 어디 있어?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wo ist meine Fahrkarte?",
+          "en": "Where's my transit card?"
+        }
+      },
+      {
+        "korean": "책 아래에 있어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Sie liegt unter dem Buch.",
+          "en": "It's under the book."
+        }
+      },
+      {
+        "korean": "여기 없어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Hier ist sie nicht.",
+          "en": "It's not here."
+        }
+      },
+      {
+        "korean": "그 책 말고 큰 책.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nicht das Buch. Das große.",
+          "en": "Not that book. The big one."
+        }
+      },
+      {
+        "korean": "아, 여기 있다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ah, hier ist sie.",
+          "en": "Oh, here it is."
+        }
+      },
+      {
+        "korean": "찾았어? 빨리 가자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gefunden? Dann los.",
+          "en": "Found it? Let's go."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_home_daily"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "교통카드 어디 있어?",
+        "de": "Wo ist meine Fahrkarte?",
+        "en": "Where's my transit card?"
+      },
+      {
+        "speaker": "lena",
+        "ko": "책 아래에 있어.",
+        "de": "Sie liegt unter dem Buch.",
+        "en": "It's under the book."
+      },
+      {
+        "speaker": "user",
+        "ko": "여기 없어.",
+        "de": "Hier ist sie nicht.",
+        "en": "It's not here."
+      },
+      {
+        "speaker": "lena",
+        "ko": "그 책 말고 큰 책.",
+        "de": "Nicht das Buch. Das große.",
+        "en": "Not that book. The big one."
+      },
+      {
+        "speaker": "user",
+        "ko": "아, 여기 있다.",
+        "de": "Ah, hier ist sie.",
+        "en": "Oh, here it is."
+      },
+      {
+        "speaker": "lena",
+        "ko": "찾았어? 빨리 가자.",
+        "de": "Gefunden? Dann los.",
+        "en": "Found it? Let's go."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_home_morning_routine_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "책 아래에 있어.",
+          "options": [
+            {
+              "de": "Sie liegt unter dem Buch.",
+              "en": "It's under the book."
+            },
+            {
+              "de": "Wo ist meine Fahrkarte?",
+              "en": "Where's my transit card?"
+            },
+            {
+              "de": "Hier ist sie nicht.",
+              "en": "It's not here."
+            },
+            {
+              "de": "Nicht das Buch. Das große.",
+              "en": "Not that book. The big one."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_home_morning_routine_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wo ist meine Fahrkarte?",
+          "promptEn": "Where's my transit card?",
+          "options": [
+            {
+              "ko": "교통카드 어디 있어?"
+            },
+            {
+              "ko": "책 아래에 있어."
+            },
+            {
+              "ko": "여기 없어."
+            },
+            {
+              "ko": "그 책 말고 큰 책."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_home_morning_routine_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "아, 여기 있다.",
+          "audioKo": "아, 여기 있다.",
+          "promptDe": "Ah, hier ist sie.",
+          "promptEn": "Oh, here it is.",
+          "distractors": [
+            "교통카드 어디 있어?",
+            "책 아래에 있어.",
+            "여기 없어."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

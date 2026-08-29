@@ -1,0 +1,280 @@
+{
+  "schemaVersion": 1,
+  "generationId": "canonical_120_v1",
+  "level": "b2",
+  "scenarios": [
+    {
+      "id": "meeting_opening_context",
+      "title": {"de": "Zu Beginn eines Meetings das Ziel klären", "en": "Clarifying the goal at the start of a meeting"},
+      "intro": {"ko": "초대 메일이 짧아서 오늘 무엇을 결정할지 알기 어려워요.", "de": "Die Einladung war knapp, deshalb ist unklar, was heute entschieden werden soll.", "en": "The invitation was brief, so it's unclear what needs to be decided today."},
+      "dialog": [
+        {"speaker": "maya", "ko": "저는 이 회의가 처음이라 먼저 확인하고 싶어요.", "de": "Ich bin heute zum ersten Mal dabei und würde gern kurz etwas klären.", "en": "This is my first time in this meeting, so I'd like to clarify something first."},
+        {"speaker": "maya", "ko": "오늘 회의에서 어디까지 결정하면 될까요?", "de": "Was genau sollen wir heute entscheiden?", "en": "How far do we need to get in today's meeting?"},
+        {"speaker": "andrea", "ko": "오늘은 캠페인 방향과 대상만 정하면 돼요.", "de": "Heute legen wir nur die Richtung und die Zielgruppe der Kampagne fest.", "en": "Today, we only need to decide the campaign direction and audience."},
+        {"speaker": "maya", "ko": "예산도 오늘 확정하는 줄 알았어요.", "de": "Ich dachte, wir würden heute auch das Budget festlegen.", "en": "I thought we were finalizing the budget today too."},
+        {"speaker": "andrea", "ko": "예산은 필요한 자료를 더 모아서 다음 회의에서 정하죠.", "de": "Für das Budget sammeln wir noch die nötigen Zahlen und entscheiden beim nächsten Termin.", "en": "Let's gather the information we need for the budget and decide at the next meeting."},
+        {"speaker": "maya", "ko": "알겠습니다. 오늘 결정할 범위부터 메모할게요.", "de": "Verstanden. Dann halte ich zuerst den heutigen Entscheidungsrahmen fest.", "en": "Understood. I'll note the scope of today's decision first."}
+      ]
+    },
+    {
+      "id": "meeting_disagreement_evidence",
+      "title": {"de": "Reichweite und Käufe gemeinsam bewerten", "en": "Evaluating views and purchases together"},
+      "intro": {"ko": "조회 수가 높은 영상을 성공으로 볼지 의견이 갈려요.", "de": "Ihr seid euch uneinig, ob ein Video mit vielen Aufrufen bereits als Erfolg gilt.", "en": "You disagree on whether a video with many views should count as a success."},
+      "dialog": [
+        {"speaker": "andrea", "ko": "이 영상은 조회 수가 가장 높으니 성과가 좋았다고 볼 수 있겠어요.", "de": "Dieses Video hat die meisten Aufrufe, also könnten wir es als erfolgreich bewerten.", "en": "This video had the most views, so we could call it a strong result."},
+        {"speaker": "maya", "ko": "조회 수가 중요하기는 하지만 구매로 이어졌는지도 봐야 해요.", "de": "Die Aufrufe sind wichtig, aber wir sollten auch prüfen, ob daraus Käufe entstanden sind.", "en": "Views matter, but we also need to see whether they led to purchases."},
+        {"speaker": "andrea", "ko": "구매 전환 자료는 아직 일주일치밖에 없어요.", "de": "Wir haben bisher allerdings nur Daten für eine Woche.", "en": "We only have one week of conversion data so far."},
+        {"speaker": "maya", "ko": "그래도 조회 수만으로 판단하기는 어려워요.", "de": "Trotzdem lässt sich die Wirkung nicht allein nach den Aufrufen beurteilen.", "en": "Even so, it's hard to judge performance from views alone."},
+        {"speaker": "andrea", "ko": "이번 보고에는 두 지표를 모두 넣고 결론은 제한해서 쓰죠.", "de": "Dann nehmen wir beide Kennzahlen in den Bericht auf und formulieren die Schlussfolgerung vorsichtig.", "en": "Let's include both metrics in this report and keep the conclusion limited."},
+        {"speaker": "maya", "ko": "좋아요. 다음 달에는 전환 자료를 더 모아서 다시 비교해요.", "de": "Gut. Nächsten Monat vergleichen wir erneut mit mehr Konversionsdaten.", "en": "Good. Next month, let's compare again with more conversion data."}
+      ]
+    },
+    {
+      "id": "freelance_scope_change",
+      "title": {"de": "Eine zusätzliche Drehanfrage verhandeln", "en": "Negotiating an extra filming request"},
+      "intro": {"ko": "최종본 직전에 처음부터 다시 촬영해 달라는 요청이 왔어요.", "de": "Kurz vor der finalen Abgabe bittet der Auftraggeber um einen kompletten Neudreh.", "en": "Just before final delivery, the client asks you to reshoot everything."},
+      "dialog": [
+        {"speaker": "official", "ko": "분위기가 생각과 달라서 촬영부터 다시 하면 좋겠습니다.", "de": "Die Stimmung passt nicht ganz zu unserer Vorstellung. Wir würden gern neu drehen.", "en": "The mood isn't quite what we imagined. We'd like to reshoot."},
+        {"speaker": "daniel", "ko": "기존 수정 범위에는 새 촬영이 포함되어 있지 않습니다.", "de": "Ein neuer Dreh ist im vereinbarten Korrekturumfang nicht enthalten.", "en": "A new shoot isn't included in the agreed revision scope."},
+        {"speaker": "official", "ko": "그럼 현재 일정 안에서 가능한 방법이 있을까요?", "de": "Welche Lösung wäre dann innerhalb des aktuellen Zeitplans möglich?", "en": "What could we do within the current schedule?"},
+        {"speaker": "daniel", "ko": "전체를 다시 찍는 대신 핵심 장면 하나를 추가할 수 있습니다.", "de": "Statt alles neu zu drehen, kann ich eine zentrale Szene ergänzen.", "en": "Instead of reshooting everything, I can add one key scene."},
+        {"speaker": "official", "ko": "그 장면으로 도입부 분위기도 바꿀 수 있나요?", "de": "Lässt sich damit auch die Stimmung des Einstiegs verändern?", "en": "Could that scene also shift the mood of the opening?"},
+        {"speaker": "daniel", "ko": "네. 추가 비용과 일정을 먼저 정리해서 보내 드리겠습니다.", "de": "Ja. Ich schicke Ihnen vorher eine Übersicht zu Kosten und Zeitplan.", "en": "Yes. I'll send you the added cost and schedule first."}
+      ]
+    },
+    {
+      "id": "rental_repair_deposit",
+      "title": {"de": "Über einen Fleck und die Kaution sprechen", "en": "Discussing a stain and the security deposit"},
+      "intro": {"ko": "퇴거 점검 중 벽 얼룩 수리비를 누가 부담할지 의견이 달라요.", "de": "Bei der Wohnungsabnahme seid ihr euch uneinig, wer für einen Fleck an der Wand aufkommt.", "en": "During move-out inspection, you disagree over who should pay for a stain on the wall."},
+      "dialog": [
+        {"speaker": "landlord", "ko": "이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요.", "de": "Dieser Fleck sieht neu aus. Ich muss die Reparaturkosten prüfen.", "en": "This stain looks new, so I'll need to check the repair cost."},
+        {"speaker": "christian", "ko": "입주할 때 찍은 사진에도 비슷한 자국이 있어요.", "de": "Auf meinen Einzugsfotos ist bereits eine ähnliche Stelle zu sehen.", "en": "There's a similar mark in the photos I took when I moved in."},
+        {"speaker": "landlord", "ko": "지금 사진만 보면 더 진해진 것 같기도 해요.", "de": "Auf dem aktuellen Foto wirkt sie allerdings etwas dunkler.", "en": "It does look a little darker in the current photo."},
+        {"speaker": "christian", "ko": "자국이 보인다고 해서 전부 제가 만든 것은 아니잖아요.", "de": "Nur weil der Fleck jetzt sichtbar ist, heißt das nicht, dass ich ihn vollständig verursacht habe.", "en": "Just because the mark is visible now doesn't mean I caused all of it."},
+        {"speaker": "landlord", "ko": "그럼 여기서 바로 정하지 말고 계약 내용도 같이 확인하죠.", "de": "Dann entscheiden wir nicht sofort, sondern prüfen auch den Vertrag.", "en": "Then let's not decide on the spot. We'll review the contract too."},
+        {"speaker": "christian", "ko": "좋습니다. 두 사진의 날짜도 함께 보내 드릴게요.", "de": "Gut. Ich schicke Ihnen auch beide Fotos mit Datum.", "en": "Good. I'll send both photos with their dates."}
+      ]
+    },
+    {
+      "id": "portfolio_interview_gap",
+      "title": {"de": "Eine Lücke im Portfolio ehrlich erklären", "en": "Explaining a portfolio gap honestly"},
+      "intro": {"ko": "면접관이 포트폴리오의 6개월 공백을 물어요.", "de": "Im Gespräch wirst du nach einer sechsmonatigen Lücke im Portfolio gefragt.", "en": "The interviewer asks about a six-month gap in your portfolio."},
+      "dialog": [
+        {"speaker": "interviewer", "ko": "이 기간에는 등록된 프로젝트가 없는데, 어떤 일을 하셨나요?", "de": "Für diesen Zeitraum ist kein Projekt aufgeführt. Woran haben Sie damals gearbeitet?", "en": "There are no listed projects for this period. What were you working on then?"},
+        {"speaker": "maya", "ko": "정규직으로 일한 기간은 아니지만 프리랜서 협업을 했습니다.", "de": "Ich war in dieser Zeit nicht fest angestellt, habe aber an freien Kooperationen gearbeitet.", "en": "I wasn't employed full-time during that period, but I did freelance collaborations."},
+        {"speaker": "interviewer", "ko": "구체적으로 어떤 역할을 맡으셨나요?", "de": "Welche Aufgaben haben Sie dabei konkret übernommen?", "en": "What did you specifically handle?"},
+        {"speaker": "maya", "ko": "캠페인 문구와 일정 조율을 맡았습니다. 전체 프로젝트를 이끈 건 아닙니다.", "de": "Ich war für die Kampagnentexte und die Terminabstimmung zuständig, nicht für die Leitung des gesamten Projekts.", "en": "I handled the campaign copy and scheduling. I didn't lead the entire project."},
+        {"speaker": "interviewer", "ko": "결과물을 보여 주실 수 있나요?", "de": "Können Sie Arbeitsproben davon zeigen?", "en": "Can you show us any of the work?"},
+        {"speaker": "maya", "ko": "네. 공개 가능한 두 프로젝트와 제 담당 범위를 표시해 두었습니다.", "de": "Ja. Ich habe zwei freigegebene Projekte und meinen jeweiligen Anteil gekennzeichnet.", "en": "Yes. I've included two projects I can share and marked my contribution."}
+      ]
+    },
+    {
+      "id": "community_event_compromise",
+      "title": {"de": "Lärm und Nutzen eines Abendkinos abwägen", "en": "Balancing noise and benefits of an evening film event"},
+      "intro": {"ko": "야간 영화제가 상권에는 도움이 되지만 주민은 늦은 소음을 걱정해요.", "de": "Ein abendliches Filmfest hilft den Geschäften, aber Anwohner sorgen sich um den Lärm.", "en": "An evening film festival helps local businesses, but residents are worried about late-night noise."},
+      "dialog": [
+        {"speaker": "official", "ko": "영화제가 골목 상권에는 도움이 된다는 의견이 많습니다.", "de": "Viele sehen einen Nutzen für die Geschäfte in der Straße.", "en": "Many people say the festival helps businesses in the neighborhood."},
+        {"speaker": "resident", "ko": "취지는 좋지만 영화가 끝난 뒤까지 소음이 이어질까 걱정돼요.", "de": "Die Idee ist gut, aber ich fürchte, dass der Lärm nach dem Film weitergeht.", "en": "I like the idea, but I'm worried the noise will continue after the film."},
+        {"speaker": "hyuna", "ko": "행사 취지는 살리되 야외 음향은 아홉 시에 끝내는 게 어떨까요?", "de": "Wie wäre es, die Veranstaltung beizubehalten, aber den Außenton um neun zu beenden?", "en": "How about keeping the event but ending outdoor sound at nine?"},
+        {"speaker": "official", "ko": "처음부터 여러 차례 열기보다 주말 하루만 시험해 볼 수 있습니다.", "de": "Statt gleich mehrere Termine anzusetzen, könnten wir zunächst einen Samstag testen.", "en": "Rather than schedule several events right away, we could test it on one weekend day."},
+        {"speaker": "resident", "ko": "문제가 생겼을 때 바로 알릴 연락 창구도 필요해요.", "de": "Wir brauchen auch eine Kontaktstelle, die während der Veranstaltung erreichbar ist.", "en": "We also need a contact point for problems during the event."},
+        {"speaker": "hyuna", "ko": "좋아요. 시험 운영 뒤 주민과 상인의 의견을 같이 확인하죠.", "de": "Gut. Nach dem Test hören wir sowohl Anwohner als auch Geschäftsleute an.", "en": "Good. After the trial, let's review feedback from residents and businesses."}
+      ]
+    },
+    {
+      "id": "feedback_specific_example",
+      "title": {"de": "Vages Feedback in eine konkrete Aufgabe übersetzen", "en": "Turning vague feedback into a concrete action"},
+      "intro": {"ko": "‘더 주도적으로 하라’는 피드백이 무엇을 뜻하는지 분명하지 않아요.", "de": "Die Rückmeldung, du solltest „proaktiver sein“, ist nicht konkret genug.", "en": "The feedback to 'be more proactive' isn't specific enough."},
+      "dialog": [
+        {"speaker": "andrea", "ko": "다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.", "de": "Beim nächsten Projekt wünsche ich mir etwas mehr Eigeninitiative von dir.", "en": "I'd like you to take more initiative on the next project."},
+        {"speaker": "maya", "ko": "주도적으로 하라는 말이 어떤 행동을 뜻하는지 예를 들어 주실 수 있을까요?", "de": "Könntest du an einem Beispiel erklären, welches Verhalten du damit meinst?", "en": "Could you give me an example of what behavior you mean by that?"},
+        {"speaker": "andrea", "ko": "회의 전에 필요한 자료를 먼저 모으고 안건을 제안하는 거예요.", "de": "Zum Beispiel vor dem Meeting die nötigen Unterlagen sammeln und einen Tagesordnungspunkt vorschlagen.", "en": "For example, gathering the needed materials before a meeting and proposing an agenda item."},
+        {"speaker": "maya", "ko": "모든 일을 혼자 결정하라는 뜻은 아니군요.", "de": "Es bedeutet also nicht, dass ich alles allein entscheiden soll.", "en": "So it doesn't mean I should decide everything alone."},
+        {"speaker": "andrea", "ko": "맞아요. 다음 회의에서는 첫 안건의 자료 정리를 맡아 볼래요?", "de": "Genau. Möchtest du für den ersten Punkt im nächsten Meeting die Unterlagen vorbereiten?", "en": "Right. Would you prepare the materials for the first item at the next meeting?"},
+        {"speaker": "maya", "ko": "네. 그 역할을 기준으로 준비해 보겠습니다.", "de": "Ja. Daran orientiere ich meine Vorbereitung.", "en": "Yes. I'll use that role as my concrete target."}
+      ]
+    },
+    {
+      "id": "filming_permission",
+      "title": {"de": "Vor dem Filmen im Laden um Erlaubnis fragen", "en": "Asking permission before filming in a shop"},
+      "intro": {"ko": "릴스 영상을 찍으면 손님 얼굴과 계산대가 화면에 들어갈 수 있어요.", "de": "Bei einem Reel könnten Gesichter von Gästen und der Kassenbereich mit aufgenommen werden.", "en": "A reel might capture customers' faces and the checkout area."},
+      "dialog": [
+        {"speaker": "daniel", "ko": "가게 안을 잠깐 촬영해도 괜찮으세요?", "de": "Wäre es in Ordnung, wenn ich kurz im Laden filme?", "en": "Would it be okay if I filmed briefly inside the shop?"},
+        {"speaker": "clerk", "ko": "어디에 올릴 영상이에요? 가게 어디까지 찍으실 거예요?", "de": "Wo möchten Sie das Video veröffentlichen, und was genau wollen Sie im Laden filmen?", "en": "Where will you post the video, and what exactly would you film in the shop?"},
+        {"speaker": "daniel", "ko": "인스타그램에 올릴 짧은 릴스예요. 손님 얼굴은 안 나오게 찍을게요.", "de": "Es ist ein kurzes Reel für Instagram. Ich filme so, dass keine Gesichter zu sehen sind.", "en": "It's a short reel for Instagram. I'll make sure no customers' faces appear."},
+        {"speaker": "clerk", "ko": "지금은 손님이 많아서 계산대 쪽은 촬영이 어려워요.", "de": "Im Moment ist es voll, deshalb können Sie im Kassenbereich nicht filmen.", "en": "It's busy right now, so you can't film around the counter."},
+        {"speaker": "daniel", "ko": "그럼 계산대를 찍는 대신 창가 쪽을 5분만 찍을게요.", "de": "Dann filme ich statt der Kasse nur fünf Minuten am Fenster.", "en": "Then instead of filming the counter, I'll film by the window for just five minutes."},
+        {"speaker": "clerk", "ko": "네, 그 정도면 괜찮아요.", "de": "Ja, so ist es in Ordnung.", "en": "Yes, that would be fine."}
+      ],
+      "culturalNote": {
+        "title": {"ko": "촬영 허락에는 범위가 포함돼요", "de": "Eine Dreherlaubnis gilt für einen bestimmten Rahmen", "en": "Filming permission includes a defined scope"},
+        "body": {"ko": "촬영해도 되는지는 장소만의 문제가 아니에요. 사람 얼굴, 소리, 시간, 공개할 곳을 함께 말해야 상대가 실제로 선택할 수 있어요.", "de": "Eine Dreherlaubnis betrifft nicht nur den Ort. Gesichter, Ton, Dauer und Veröffentlichungsort gehören dazu, damit die andere Seite wirklich entscheiden kann.", "en": "Filming permission is not only about the location. Faces, sound, duration, and where the video will appear all matter to meaningful consent."}
+      }
+    },
+    {
+      "id": "fremdschaemen_live",
+      "title": {"de": "Sich bei einem übertriebenen Livestream fremdschämen", "en": "Feeling embarrassed by a friend's over-the-top livestream"},
+      "intro": {"ko": "마야가 라이브 방송에서 직원에게 갑자기 춤을 부탁했어요.", "de": "Maya hat in einem Livestream einen Mitarbeiter spontan zum Tanzen aufgefordert.", "en": "During a livestream, Maya suddenly asked an employee to dance."},
+      "dialog": [
+        {"speaker": "maya", "ko": "오늘 라이브 어땠어? 분위기 좋았지?", "de": "Wie fandest du den Livestream? Die Stimmung war doch gut, oder?", "en": "How was the livestream? The energy was good, right?"},
+        {"speaker": "lena", "ko": "솔직히 직원한테 춤춰 달라고 할 때는 내가 다 민망하더라.", "de": "Ehrlich gesagt habe ich mich richtig fremdgeschämt, als du den Mitarbeiter zum Tanzen aufgefordert hast.", "en": "Honestly, I felt embarrassed for everyone when you asked the employee to dance."},
+        {"speaker": "maya", "ko": "그 정도였어? 방송을 살리려고 한 건데.", "de": "So schlimm? Ich wollte den Stream nur lebendiger machen.", "en": "Was it that bad? I was trying to liven up the stream."},
+        {"speaker": "lena", "ko": "직원이 거절도 못 하고 웃는 것 같아서, 보는 내가 다 부끄러웠어.", "de": "Der Mitarbeiter wirkte, als könne er nicht Nein sagen und lächle nur deshalb. Mir war das Zuschauen richtig unangenehm.", "en": "The employee looked like he couldn't say no and was just smiling through it. I felt embarrassed just watching."},
+        {"speaker": "maya", "ko": "맞아. 웃었지만 동의한 건 아니었을 수도 있겠다.", "de": "Stimmt. Nur weil er gelacht hat, heißt das nicht, dass er einverstanden war.", "en": "You're right. He smiled, but that may not have meant he agreed."},
+        {"speaker": "lena", "ko": "다음에는 카메라를 켜기 전에 먼저 물어봐.", "de": "Frag beim nächsten Mal, bevor die Kamera läuft.", "en": "Next time, ask before the camera is rolling."},
+        {"speaker": "maya", "ko": "응. 다음부터는 재미보다 괜찮은지 먼저 물어볼게.", "de": "Ja. Nächstes Mal frage ich zuerst, ob es für die Person in Ordnung ist, bevor ich an die Unterhaltung denke.", "en": "I will. Next time, I'll ask if the person is okay with it before trying to make it entertaining."}
+      ],
+      "culturalNote": {
+        "title": {"ko": "fremdschämen을 자연스럽게 말하면", "de": "Wie fremdschämen hier auf Koreanisch klingt", "en": "Natural Korean for fremdschämen"},
+        "body": {"ko": "이 장면에서는 감정 이름을 설명하기보다 ‘내가 다 민망하다’, ‘보는 내가 다 부끄럽다’처럼 말하는 편이 일상적이에요.", "de": "In dieser Szene klingen 내가 다 민망하다 oder 보는 내가 다 부끄럽다 im Alltag natürlicher als eine abstrakte Bezeichnung für das Gefühl.", "en": "In this scene, 내가 다 민망하다 or 보는 내가 다 부끄럽다 sounds more everyday and natural than an abstract label for the feeling."}
+      }
+    },
+    {
+      "id": "ai_image_disclosure",
+      "title": {"de": "Ein KI-Bild in einem Werbeentwurf kennzeichnen", "en": "Disclosing an AI image in an ad draft"},
+      "intro": {"ko": "광고 시안의 배경이 AI 생성물인데 클라이언트에게 아직 말하지 않았어요.", "de": "Der Hintergrund eines Werbeentwurfs wurde mit KI erstellt, aber der Auftraggeber weiß es noch nicht.", "en": "The background in an ad draft was AI-generated, but the client hasn't been told yet."},
+      "dialog": [
+        {"speaker": "coworker", "ko": "이 배경은 시안용이니까 굳이 설명하지 않아도 되지 않을까요?", "de": "Der Hintergrund ist nur für den Entwurf. Müssen wir das wirklich erwähnen?", "en": "The background is only for the draft. Do we really need to mention it?"},
+        {"speaker": "maya", "ko": "AI로 만든 이미지라는 점은 먼저 알려야 하지 않을까요?", "de": "Sollten wir nicht zuerst darauf hinweisen, dass das Bild mit KI erstellt wurde?", "en": "Shouldn't we disclose that the image was made with AI first?"},
+        {"speaker": "sujin", "ko": "임시 시안과 최종 사용은 구분할 필요가 있어요.", "de": "Wir sollten zwischen einem vorläufigen Entwurf und der endgültigen Nutzung unterscheiden.", "en": "We need to distinguish between a temporary draft and final use."},
+        {"speaker": "coworker", "ko": "시안에는 표시하고 최종본은 조건을 확인하자는 뜻인가요?", "de": "Also kennzeichnen wir den Entwurf und prüfen vor der finalen Nutzung die Bedingungen?", "en": "So we label the draft and check the terms before final use?"},
+        {"speaker": "maya", "ko": "네. 나중에 알리는 대신 지금 선택할 수 있게 해야 해요.", "de": "Ja. Statt es später mitzuteilen, sollten wir jetzt eine echte Entscheidung ermöglichen.", "en": "Yes. Instead of disclosing it later, we should let them decide now."},
+        {"speaker": "sujin", "ko": "좋아요. 표시 문구와 확인할 항목을 나눠서 적죠.", "de": "Gut. Dann trennen wir den Hinweis von den Punkten, die noch geklärt werden müssen.", "en": "Good. Let's separate the disclosure from the terms that still need review."}
+      ]
+    },
+    {
+      "id": "brand_private_account_boundary",
+      "title": {"de": "Persönliche Meinung auf einem Firmenaccount", "en": "Personal opinions on a company account"},
+      "intro": {"ko": "개인적인 현장 후기를 회사 계정에 올리자는 제안이 나왔어요.", "de": "Eine persönliche Einschätzung vom Veranstaltungsort soll auf dem Firmenaccount erscheinen.", "en": "Someone suggests posting a personal take from an event on the company account."},
+      "dialog": [
+        {"speaker": "andrea", "ko": "마야가 개인 계정에 올리는 후기처럼 현장감 있게 쓰면 어떨까요?", "de": "Wie wäre es mit einem lebendigen Ton, ähnlich wie in Mayas Beiträgen auf ihrem privaten Account?", "en": "What if we make it feel immediate, like the posts Maya shares on her personal account?"},
+        {"speaker": "maya", "ko": "개인 의견처럼 보여도 회사 계정에 올라가면 공식 입장으로 읽힐 수 있어요.", "de": "Auch wenn es persönlich klingt, kann es auf dem Firmenaccount als offizielle Position verstanden werden.", "en": "Even if it sounds personal, people may read it as an official position when it's on the company account."},
+        {"speaker": "andrea", "ko": "그렇다고 후기를 전부 딱딱하게 만들 필요는 없어요.", "de": "Wir müssen den Beitrag deshalb aber nicht völlig unpersönlich machen.", "en": "That doesn't mean we have to make the post completely stiff."},
+        {"speaker": "maya", "ko": "후기 형식은 유지하되 단정적인 평가는 한 번 확인받는 게 좋겠어요.", "de": "Wir behalten den persönlichen Stil bei, prüfen aber pauschale Bewertungen vorher.", "en": "Let's keep the personal format but review any broad judgments first."},
+        {"speaker": "andrea", "ko": "어떤 문장이 회사 입장처럼 들리는지 표시해 주세요.", "de": "Markiere bitte die Sätze, die wie eine Unternehmensposition klingen.", "en": "Please flag the lines that sound like a company position."},
+        {"speaker": "maya", "ko": "네. 개인 경험과 공식 정보도 구분해서 쓰겠습니다.", "de": "Ja. Ich trenne außerdem persönliche Erfahrung und offizielle Information.", "en": "I will. I'll also separate personal experience from official information."}
+      ]
+    },
+    {
+      "id": "delivery_refund_evidence",
+      "title": {"de": "Eine teilweise Erstattung für verspätetes Essen", "en": "Negotiating a partial refund for delayed food"},
+      "intro": {"ko": "배달이 한 시간 늦었고 음식도 식었지만 일부는 이미 먹었어요.", "de": "Die Lieferung kam eine Stunde zu spät und kalt an, aber ein Teil wurde bereits gegessen.", "en": "The delivery arrived an hour late and cold, but some of it has already been eaten."},
+      "dialog": [
+        {"speaker": "clerk", "ko": "불편을 드려 죄송합니다. 음식은 모두 그대로 있나요?", "de": "Entschuldigen Sie die Umstände. Ist das gesamte Essen noch unberührt?", "en": "We're sorry for the inconvenience. Is all of the food untouched?"},
+        {"speaker": "sujin", "ko": "일부는 먹었기 때문에 전액 환불을 요구하는 건 아니에요.", "de": "Da wir einen Teil gegessen haben, verlange ich keine vollständige Erstattung.", "en": "We ate some of it, so I'm not asking for a full refund."},
+        {"speaker": "clerk", "ko": "어떤 메뉴가 남아 있는지 알려 주시겠어요?", "de": "Welche Gerichte sind noch unberührt?", "en": "Could you tell me which items are untouched?"},
+        {"speaker": "sujin", "ko": "국수는 먹었고 만두와 샐러드는 그대로 있어요.", "de": "Die Nudeln haben wir gegessen; Teigtaschen und Salat sind unberührt.", "en": "We ate the noodles, but the dumplings and salad are untouched."},
+        {"speaker": "clerk", "ko": "그 두 메뉴와 배달비를 기준으로 확인해 보겠습니다.", "de": "Dann prüfe ich eine Erstattung für diese beiden Gerichte und die Liefergebühr.", "en": "I'll check the refund based on those two items and the delivery fee."},
+        {"speaker": "sujin", "ko": "네, 실제로 먹지 않은 부분만 반영해 주세요.", "de": "Ja, bitte berücksichtigen Sie nur den Teil, den wir nicht gegessen haben.", "en": "Yes, please reflect only the portion we didn't eat."}
+      ]
+    },
+    {
+      "id": "train_delay_connection",
+      "title": {"de": "Bei Zugverspätung einen Anschluss klären", "en": "Handling a connection during a train delay"},
+      "intro": {"ko": "첫 기차가 늦어서 따로 예약한 다음 열차를 놓칠 것 같아요.", "de": "Der erste Zug verspätet sich, und dein separat gebuchter Anschluss ist gefährdet.", "en": "Your first train is delayed, putting a separately booked connection at risk."},
+      "dialog": [
+        {"speaker": "daniel", "ko": "이 지연 때문에 다음 열차를 놓칠 가능성이 큰데 변경할 수 있을까요?", "de": "Wegen dieser Verspätung verpasse ich wahrscheinlich meinen Anschluss. Kann ich die Buchung ändern?", "en": "This delay will probably make me miss my next train. Can I change the booking?"},
+        {"speaker": "clerk", "ko": "다음 표는 따로 예약하신 건가요?", "de": "Wurde der Anschluss separat gebucht?", "en": "Was the next ticket booked separately?"},
+        {"speaker": "daniel", "ko": "네. 같은 앱에서 샀지만 예약 번호는 달라요.", "de": "Ja. Ich habe beide in derselben App gekauft, aber die Buchungsnummern sind verschieden.", "en": "Yes. I bought both in the same app, but the booking numbers are different."},
+        {"speaker": "clerk", "ko": "그 경우 보상은 바로 말씀드리기 어렵지만 좌석 변경은 확인할 수 있어요.", "de": "In diesem Fall kann ich keine Erstattung zusagen, aber ich kann eine Umbuchung des Sitzplatzes prüfen.", "en": "In that case, I can't promise compensation, but I can check whether the seat can be changed."},
+        {"speaker": "daniel", "ko": "먼저 탈 수 있는 다음 열차가 있는지 확인해 주세요.", "de": "Bitte prüfen Sie zuerst, welchen späteren Zug ich nehmen könnte.", "en": "Please first check which later train I could take."},
+        {"speaker": "clerk", "ko": "네. 예약 번호 두 개를 같이 보겠습니다.", "de": "Ja. Ich prüfe beide Buchungsnummern zusammen.", "en": "Certainly. I'll look at both booking numbers."}
+      ]
+    },
+    {
+      "id": "partner_family_titles",
+      "title": {"de": "Vor dem ersten Treffen mit der Familie die Anrede klären", "en": "Choosing how to address a partner's parents"},
+      "intro": {"ko": "수진의 부모님을 처음 만나기 전에 호칭을 어떻게 할지 물어요.", "de": "Vor dem ersten Treffen mit Sujins Eltern möchtest du wissen, wie du sie ansprechen sollst.", "en": "Before meeting Sujin's parents for the first time, you ask how to address them."},
+      "dialog": [
+        {"speaker": "christian", "ko": "부모님을 어떻게 부르는 게 편할까요?", "de": "Wie soll ich deine Eltern am besten ansprechen?", "en": "What would be the most comfortable way to address your parents?"},
+        {"speaker": "sujin", "ko": "처음부터 호칭을 정하려고 하면 더 어색할 수 있어요.", "de": "Wenn wir gleich eine feste Anrede suchen, wird es vielleicht eher unangenehm.", "en": "Trying to settle on a title right away might make it more awkward."},
+        {"speaker": "christian", "ko": "그럼 어머님, 아버님이라고 안 불러도 돼요?", "de": "Ich muss also nicht sofort 어머님 und 아버님 sagen?", "en": "So I don't have to call them 어머님 and 아버님 right away?"},
+        {"speaker": "sujin", "ko": "네. 일단 인사할 때는 이름 없이 존댓말로 말하면 돼요.", "de": "Genau. Am Anfang kannst du höflich sprechen, ohne eine direkte Anrede zu verwenden.", "en": "Right. At first, you can speak politely without using a title."},
+        {"speaker": "christian", "ko": "부모님이 먼저 편한 호칭을 말씀하시면 그때 따를게요.", "de": "Wenn deine Eltern selbst eine Anrede vorschlagen, übernehme ich sie dann.", "en": "If your parents suggest a title, I'll use it then."},
+        {"speaker": "sujin", "ko": "그게 가장 자연스러울 것 같아요.", "de": "Das dürfte am natürlichsten sein.", "en": "That will probably feel most natural."}
+      ],
+      "culturalNote": {
+        "title": {"ko": "호칭을 모를 때는 생략할 수 있어요", "de": "Eine direkte Anrede kann zunächst entfallen", "en": "You can initially avoid a direct title"},
+        "body": {"ko": "연인의 부모를 부르는 말은 관계 단계와 가족의 선호에 따라 달라질 수 있어요. 처음에는 호칭을 억지로 넣지 않고 존댓말로 인사한 뒤 편한 방식을 물을 수 있어요.", "de": "Die Anrede für die Eltern eines Partners hängt von der Beziehung und den Vorlieben der Familie ab. Zunächst kann man höflich grüßen, ohne eine Anrede zu erzwingen, und später nachfragen.", "en": "How you address a partner's parents can depend on the relationship stage and family preference. You can begin with polite speech without forcing a title, then ask what feels comfortable."}
+      }
+    },
+    {
+      "id": "wedding_invitation_expectation",
+      "title": {"de": "Was eine Hochzeitseinladung bedeutet", "en": "What a wedding invitation means"},
+      "intro": {"ko": "청첩장을 받고 반드시 가야 한다고 생각해 다른 일정을 취소하려 해요.", "de": "Nach einer Hochzeitseinladung willst du andere Pläne absagen, weil du die Teilnahme für verpflichtend hältst.", "en": "After receiving a wedding invitation, you plan to cancel other plans because you think attendance is required."},
+      "dialog": [
+        {"speaker": "maya", "ko": "동료한테 청첩장을 받았어요. 그날 약속을 취소해야겠죠?", "de": "Eine Kollegin hat mich zu ihrer Hochzeit eingeladen. Ich muss wohl meine anderen Pläne absagen, oder?", "en": "A coworker invited me to her wedding. I guess I need to cancel my other plans, right?"},
+        {"speaker": "andrea", "ko": "두 사람이 평소에 얼마나 가까워요?", "de": "Wie eng arbeitet ihr normalerweise zusammen?", "en": "How close are the two of you normally?"},
+        {"speaker": "maya", "ko": "같은 층이지만 같이 일한 적은 많지 않아요.", "de": "Wir arbeiten auf derselben Etage, aber kaum direkt miteinander.", "en": "We're on the same floor, but we haven't worked together much."},
+        {"speaker": "maya", "ko": "초대받았다고 꼭 가야 하는 건 아니죠?", "de": "Nur weil ich eingeladen bin, muss ich nicht unbedingt hingehen, oder?", "en": "Being invited doesn't mean I absolutely have to go, right?"},
+        {"speaker": "andrea", "ko": "맞아요. 초대 방식과 관계를 보고 직접 축하할지 따로 인사할지 정하면 돼요.", "de": "Genau. Entscheide nach eurer Beziehung, ob du hingehst oder auf andere Weise gratulierst.", "en": "Right. Based on your relationship, you can attend or congratulate her another way."},
+        {"speaker": "maya", "ko": "그럼 원래 약속은 지키고 따로 축하 메시지를 보낼게요.", "de": "Dann halte ich meine ursprüngliche Verabredung ein und gratuliere ihr persönlich per Nachricht.", "en": "Then I'll keep my original plans and send her a personal congratulations message."}
+      ]
+    },
+    {
+      "id": "direct_feedback_misread",
+      "title": {"de": "Zu knappes Feedback wieder einordnen", "en": "Repairing feedback that sounded too blunt"},
+      "intro": {"ko": "다니엘의 짧은 피드백이 마야의 작업 전체를 무시하는 말처럼 들렸어요.", "de": "Daniels knappe Rückmeldung klang, als würde er Mayas gesamte Arbeit abwerten.", "en": "Daniel's brief feedback sounded like he was dismissing all of Maya's work."},
+      "dialog": [
+        {"speaker": "maya", "ko": "아까 ‘이건 다시 해야 해’라고만 해서 제 작업이 전부 별로라는 줄 알았어요.", "de": "Als du nur „Das müssen wir neu machen“ gesagt hast, dachte ich, du fändest meine ganze Arbeit schlecht.", "en": "When you only said, 'We need to redo this,' I thought you disliked all of my work."},
+        {"speaker": "daniel", "ko": "수정이 필요하다는 뜻이었는데 작업 전체가 별로라는 말처럼 들렸구나.", "de": "Ich meinte nur, dass eine Überarbeitung nötig ist. Es klang aber, als würde ich alles abwerten.", "en": "I meant it needed revision, but it sounded like I thought the whole thing was bad."},
+        {"speaker": "maya", "ko": "어느 부분인지 없으니까 더 그렇게 느꼈어요.", "de": "Weil du keine Stelle genannt hast, wirkte es noch pauschaler.", "en": "Without naming a specific part, it felt even more sweeping."},
+        {"speaker": "daniel", "ko": "마감 때문에 짧게 말했지만, 도입부 속도만 조정하면 되고 나머지 구성은 좋아.", "de": "Wegen der knappen Deadline war ich zu kurz angebunden. Nur das Tempo im Einstieg muss angepasst werden; der Rest ist gut aufgebaut.", "en": "I was too brief because of the deadline. Only the pacing in the opening needs work; the rest is well structured."},
+        {"speaker": "maya", "ko": "그렇게 범위를 말해 주니까 이해됐어요.", "de": "Mit dieser Eingrenzung verstehe ich die Rückmeldung.", "en": "That makes sense now that you've narrowed it down."},
+        {"speaker": "daniel", "ko": "다음부터는 수정할 부분과 괜찮은 부분을 나눠서 말할게.", "de": "Nächstes Mal trenne ich klarer zwischen dem, was geändert werden muss, und dem, was schon gut funktioniert.", "en": "Next time, I'll separate what needs changing from what is already working well."}
+      ]
+    },
+    {
+      "id": "library_quiet_zone_conflict",
+      "title": {"de": "Ein Missverständnis in der Telefonzone der Bibliothek", "en": "A misunderstanding in the library call zone"},
+      "intro": {"ko": "통화 가능 구역 표시를 못 보고 온라인 회의를 하다 항의를 받아요.", "de": "Du führst ein Online-Meeting, weil du die kleine Kennzeichnung der Telefonzone übersehen hast.", "en": "You're in an online meeting after missing the small sign for the call zone."},
+      "dialog": [
+        {"speaker": "student", "ko": "죄송한데 여기서는 계속 통화하시면 안 돼요.", "de": "Entschuldigung, hier können Sie nicht weiter telefonieren.", "en": "Excuse me, you can't continue your call here."},
+        {"speaker": "lena", "ko": "통화 가능한 구역인 줄 알았는데 표시를 제가 못 봤어요.", "de": "Ich dachte, das wäre der Telefonbereich. Ich habe die Kennzeichnung übersehen.", "en": "I thought this was the call zone, but I missed the sign."},
+        {"speaker": "student", "ko": "통화 구역은 저 책장 뒤쪽이에요.", "de": "Der Telefonbereich liegt hinter dem Regal dort.", "en": "The call zone is behind that bookshelf."},
+        {"speaker": "lena", "ko": "알려 주셔서 감사합니다. 바로 옮길게요.", "de": "Danke für den Hinweis. Ich wechsle sofort den Platz.", "en": "Thanks for letting me know. I'll move right away."},
+        {"speaker": "lena", "ko": "그런데 표지가 입구에서도 보이면 더 찾기 쉬울 것 같아요.", "de": "Das Schild wäre leichter zu finden, wenn es auch vom Eingang aus sichtbar wäre.", "en": "The sign would be easier to find if it were visible from the entrance."},
+        {"speaker": "student", "ko": "맞아요. 저도 직원에게 이야기해 볼게요.", "de": "Stimmt. Ich spreche das ebenfalls beim Personal an.", "en": "I agree. I'll mention it to the staff too."}
+      ]
+    },
+    {
+      "id": "neighborhood_filming_notice",
+      "title": {"de": "Eine Dreharbeit in einer engen Gasse ankündigen", "en": "Giving notice before filming in a narrow alley"},
+      "intro": {"ko": "삼각대가 골목 통행을 좁히고 집 현관도 화면에 들어갈 수 있어요.", "de": "Das Stativ verengt den Durchgang, und ein Hauseingang könnte im Bild erscheinen.", "en": "The tripod narrows the alley, and a home's entrance may appear on camera."},
+      "dialog": [
+        {"speaker": "resident", "ko": "여기에 삼각대를 두면 사람들이 지나가기 어렵지 않을까요?", "de": "Wird es für Fußgänger nicht schwierig, wenn das Stativ hier steht?", "en": "Won't it be hard for people to pass if the tripod is here?"},
+        {"speaker": "daniel", "ko": "맞습니다. 통행을 막지 않도록 벽 쪽으로 옮기겠습니다.", "de": "Sie haben recht. Ich stelle es an die Wand, damit der Durchgang frei bleibt.", "en": "You're right. I'll move it against the wall so it doesn't block the way."},
+        {"speaker": "resident", "ko": "저희 집 현관도 화면에 들어가는 것 같아요.", "de": "Unser Hauseingang scheint ebenfalls im Bild zu sein.", "en": "It looks like our front door is in the shot too."},
+        {"speaker": "daniel", "ko": "현관이 화면에 들어가지 않도록 각도를 바꾸겠습니다.", "de": "Ich ändere den Winkel so, dass der Eingang nicht zu sehen ist.", "en": "I'll change the angle so the entrance isn't in frame."},
+        {"speaker": "resident", "ko": "촬영은 얼마나 하실 예정이에요?", "de": "Wie lange möchten Sie filmen?", "en": "How long are you planning to film?"},
+        {"speaker": "daniel", "ko": "필요한 장면만 찍고 20분 안에 끝내겠습니다.", "de": "Ich nehme nur die nötigen Szenen auf und bin in zwanzig Minuten fertig.", "en": "I'll capture only what I need and finish within twenty minutes."}
+      ]
+    },
+    {
+      "id": "recycling_policy_pilot",
+      "title": {"de": "Ein neues Biomüllsystem zunächst testen", "en": "Piloting a new food-waste system"},
+      "intro": {"ko": "새 배출 기기는 냄새를 줄이지만 사용이 어렵다는 주민도 있어요.", "de": "Das neue Biomüllgerät reduziert Gerüche, ist aber für manche Bewohner schwer zu bedienen.", "en": "The new food-waste machine reduces odors, but some residents find it difficult to use."},
+      "dialog": [
+        {"speaker": "sujin", "ko": "새 기기를 쓰면 냄새는 줄지만 화면이 복잡하다는 의견도 있어요.", "de": "Das neue Gerät reduziert Gerüche, aber einige finden den Bildschirm zu kompliziert.", "en": "The new machine reduces odors, but some people find the screen too complicated."},
+        {"speaker": "resident", "ko": "저는 카드 찍는 순서를 몰라서 뒤에 사람이 오면 더 급해져요.", "de": "Ich kenne die Reihenfolge beim Scannen nicht und werde nervös, wenn jemand hinter mir wartet.", "en": "I don't know the scanning steps, and I get flustered when someone is waiting behind me."},
+        {"speaker": "neighbor", "ko": "그렇다고 예전 방식만 유지하면 냄새 문제는 그대로예요.", "de": "Wenn wir nur beim alten System bleiben, ändert sich am Geruch nichts.", "en": "But if we keep only the old system, the odor problem remains."},
+        {"speaker": "sujin", "ko": "한 달 동안 두 방식을 같이 운영해 본 뒤 결정하면 어떨까요?", "de": "Wie wäre es, beide Systeme einen Monat parallel zu testen und danach zu entscheiden?", "en": "How about running both systems for a month and deciding afterward?"},
+        {"speaker": "resident", "ko": "사용법을 바로 물어볼 사람이 있으면 해 볼 수 있어요.", "de": "Wenn jemand vor Ort Fragen beantwortet, kann ich es ausprobieren.", "en": "I can try it if someone is there to answer questions."},
+        {"speaker": "neighbor", "ko": "좋아요. 전면 도입하는 대신 한 동에서 먼저 시험하죠.", "de": "Gut. Statt es sofort überall einzuführen, testen wir es zunächst in einem Gebäude.", "en": "Good. Instead of rolling it out everywhere, let's test it in one building first."}
+      ]
+    },
+    {
+      "id": "accessible_festival_route",
+      "title": {"de": "Eine Festivalroute für Rollstühle freihalten", "en": "Keeping a festival route accessible for wheelchairs"},
+      "intro": {"ko": "인기 포토존이 경사로 앞을 막아 휠체어가 지나가기 어려워요.", "de": "Ein beliebter Fotopunkt blockiert die Rampe und erschwert Rollstuhlfahrenden den Weg.", "en": "A popular photo spot blocks the ramp and makes it difficult for wheelchair users to pass."},
+      "dialog": [
+        {"speaker": "resident", "ko": "포토존 줄이 경사로 앞까지 이어져서 지나갈 수가 없어요.", "de": "Die Schlange für den Fotopunkt reicht bis vor die Rampe. Ich komme nicht durch.", "en": "The line for the photo spot reaches the ramp, and I can't get through."},
+        {"speaker": "maya", "ko": "사진 찍는 사람들만 생각하고 이동 공간을 놓쳤네요.", "de": "Wir haben nur an die Menschen beim Fotografieren gedacht und den Bewegungsraum übersehen.", "en": "We focused only on the people taking photos and overlooked the space others need to move."},
+        {"speaker": "resident", "ko": "포토존을 없애 달라는 건 아니에요. 입구만 비워 주세요.", "de": "Ich verlange nicht, den Fotopunkt abzubauen. Der Zugang muss nur frei bleiben.", "en": "I'm not asking you to remove the photo spot. Just keep the entrance clear."},
+        {"speaker": "maya", "ko": "포토존을 유지하되 경사로 앞은 비워야 해요.", "de": "Wir behalten den Fotopunkt, müssen aber den Bereich vor der Rampe freihalten.", "en": "We can keep the photo spot, but the area in front of the ramp must stay clear."},
+        {"speaker": "maya", "ko": "옆 벽으로 옮기고 대기 줄 표지도 새로 두겠습니다.", "de": "Wir versetzen ihn an die Seitenwand und stellen ein neues Schild für die Warteschlange auf.", "en": "We'll move it to the side wall and add a new sign for the queue."},
+        {"speaker": "resident", "ko": "좋아요. 옮긴 뒤 실제로 지나갈 수 있는지도 확인해 주세요.", "de": "Gut. Prüfen Sie danach bitte auch praktisch, ob der Weg breit genug ist.", "en": "Good. After moving it, please check that the route actually works in practice."}
+      ]
+    }
+  ]
+}

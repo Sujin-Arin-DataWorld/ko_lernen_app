@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart' show debugPrint, visibleForTesting;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../models/scenario_corpus_generation.dart';
+
 import 'account/account_transition_journal.dart';
 import '../models/learner_level.dart';
 import '../models/personal_room.dart';
@@ -556,6 +558,8 @@ class Storage {
   static const String consentedFirstLearningActionClaimPreferenceKey =
       'kl_consented_first_learning_action_claim_v1';
   static const String _consentedFirstLearningActionClaimValue = 'claimed';
+  static const String scenarioCorpusGenerationPreferenceKey =
+      'kl_scenario_corpus_generation_v1';
 
   static SharedPreferences? _prefs;
   static Future<void> _recoveredBookMutation = Future<void>.value();
@@ -3781,6 +3785,11 @@ class Storage {
       return cached;
     }
     final completed = _l('kl_completed_scenarios');
+    // XP claims are permanent financial/reward history. After a scenario
+    // corpus migration they must not resurrect old completion progress.
+    if (scenarioCorpusGeneration != ScenarioCorpusGeneration.legacy) {
+      return completed;
+    }
     final claims = _readXpRewardLedger(strict: false)?.claims.keys;
     if (claims != null) {
       for (final id in claims) {
@@ -3801,6 +3810,45 @@ class Storage {
       await _sl('kl_completed_scenarios', list);
       _completedScenariosCache = null;
     }
+  }
+
+  static String get scenarioCorpusGeneration {
+    final value = _s(scenarioCorpusGenerationPreferenceKey).trim();
+    return value.isEmpty ? ScenarioCorpusGeneration.legacy : value;
+  }
+
+  /// Clears only scenario completion and stars when a new approved corpus
+  /// generation becomes active. The immutable XP ledger, SRS, notes,
+  /// purchases, account data, and Hanok placement are deliberately untouched.
+  /// The generation marker is written last, making an interrupted migration
+  /// safely repeatable.
+  static Future<bool> migrateScenarioProgressGeneration(
+    String targetGeneration,
+  ) async {
+    final target = targetGeneration.trim();
+    if (target.isEmpty) {
+      throw ArgumentError.value(
+        targetGeneration,
+        'targetGeneration',
+        'Generation must not be empty.',
+      );
+    }
+    final current = scenarioCorpusGeneration;
+    if (current == target) {
+      return false;
+    }
+    // A rollback build may still read a newer durable marker. Never turn that
+    // into a destructive downgrade or re-enable legacy XP-claim mirroring.
+    if (current != ScenarioCorpusGeneration.legacy &&
+        target == ScenarioCorpusGeneration.legacy) {
+      return false;
+    }
+    await _slStrict('kl_completed_scenarios', const []);
+    _completedScenariosCache = null;
+    await _ssStrict('kl_scenario_stars', jsonEncode(<String, int>{}));
+    _scenarioStarsCache = null;
+    await _ssStrict(scenarioCorpusGenerationPreferenceKey, target);
+    return true;
   }
 
   static List<String> get earnedBadges => _l('kl_earned_badges');

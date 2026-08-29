@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "ktx_sold_out_alternative",
+  "scenario": {
+    "id": "ktx_sold_out_alternative",
+    "level": "b1",
+    "emoji": "🚇",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "KTX가 매진됐을 때 다른 방법 찾기",
+      "de": "Eine Alternative zum ausverkauften KTX wählen",
+      "en": "Choosing an alternative when the KTX is sold out"
+    },
+    "intro": {
+      "ko": "원하는 시간의 KTX가 매진돼 다른 이동 방법을 비교해요.",
+      "de": "Der gewünschte KTX ist ausverkauft, also vergleicht ihr andere Verbindungen.",
+      "en": "The KTX you wanted is sold out, so you compare other options."
+    },
+    "courseUnitId": "b1_01_experience_reasons",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "hyuna"
+    ],
+    "relationshipContext": "함께 여행하는 다니엘과 현아",
+    "intent": "각 선택의 시간과 불편을 비교해 의견을 말한다",
+    "shelf": "b1_delay",
+    "backdrop": "station",
+    "vocab": [
+      {
+        "korean": "세 시 KTX는 다 매진이야.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der KTX um drei ist komplett ausverkauft.",
+          "en": "The three o'clock KTX is completely sold out."
+        }
+      },
+      {
+        "korean": "네 시 버스는 자리가 있어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Im Bus um vier gibt es noch Plätze.",
+          "en": "There are seats on the four o'clock bus."
+        }
+      },
+      {
+        "korean": "버스는 바로 탈 수 있지만 도착하면 더 피곤할 것 같아.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Den Bus könnten wir sofort nehmen, aber danach wären wir wahrscheinlich müder.",
+          "en": "We could take the bus right away, but I think we'd be more tired when we arrive."
+        }
+      },
+      {
+        "korean": "여섯 시 KTX는 늦지만 아직 자리가 있어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Der KTX um sechs fährt später, aber es gibt noch Plätze.",
+          "en": "The six o'clock KTX is later, but it still has seats."
+        }
+      },
+      {
+        "korean": "내일 아침 일정도 있으니 조금 늦더라도 기차로 갈까?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Da wir morgen früh etwas vorhaben, nehmen wir trotz der späteren Abfahrt lieber den Zug?",
+          "en": "Since we have plans tomorrow morning, should we take the train even if it leaves later?"
+        }
+      },
+      {
+        "korean": "응. 조금 늦어도 덜 피곤한 쪽이 좋겠어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Lieber etwas später ankommen und dafür weniger erschöpft sein.",
+          "en": "Yes. I'd rather arrive a little later and be less tired."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_reasons_experience"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "세 시 KTX는 다 매진이야.",
+        "de": "Der KTX um drei ist komplett ausverkauft.",
+        "en": "The three o'clock KTX is completely sold out."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "네 시 버스는 자리가 있어.",
+        "de": "Im Bus um vier gibt es noch Plätze.",
+        "en": "There are seats on the four o'clock bus."
+      },
+      {
+        "speaker": "user",
+        "ko": "버스는 바로 탈 수 있지만 도착하면 더 피곤할 것 같아.",
+        "de": "Den Bus könnten wir sofort nehmen, aber danach wären wir wahrscheinlich müder.",
+        "en": "We could take the bus right away, but I think we'd be more tired when we arrive."
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "여섯 시 KTX는 늦지만 아직 자리가 있어.",
+        "de": "Der KTX um sechs fährt später, aber es gibt noch Plätze.",
+        "en": "The six o'clock KTX is later, but it still has seats."
+      },
+      {
+        "speaker": "user",
+        "ko": "내일 아침 일정도 있으니 조금 늦더라도 기차로 갈까?",
+        "de": "Da wir morgen früh etwas vorhaben, nehmen wir trotz der späteren Abfahrt lieber den Zug?",
+        "en": "Since we have plans tomorrow morning, should we take the train even if it leaves later?"
+      },
+      {
+        "speaker": "hyuna",
+        "ko": "응. 조금 늦어도 덜 피곤한 쪽이 좋겠어.",
+        "de": "Ja. Lieber etwas später ankommen und dafür weniger erschöpft sein.",
+        "en": "Yes. I'd rather arrive a little later and be less tired."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_ktx_sold_out_alternative_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "네 시 버스는 자리가 있어.",
+          "options": [
+            {
+              "de": "Im Bus um vier gibt es noch Plätze.",
+              "en": "There are seats on the four o'clock bus."
+            },
+            {
+              "de": "Der KTX um drei ist komplett ausverkauft.",
+              "en": "The three o'clock KTX is completely sold out."
+            },
+            {
+              "de": "Den Bus könnten wir sofort nehmen, aber danach wären wir wahrscheinlich müder.",
+              "en": "We could take the bus right away, but I think we'd be more tired when we arrive."
+            },
+            {
+              "de": "Der KTX um sechs fährt später, aber es gibt noch Plätze.",
+              "en": "The six o'clock KTX is later, but it still has seats."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_ktx_sold_out_alternative_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Der KTX um drei ist komplett ausverkauft.",
+          "promptEn": "The three o'clock KTX is completely sold out.",
+          "options": [
+            {
+              "ko": "세 시 KTX는 다 매진이야."
+            },
+            {
+              "ko": "네 시 버스는 자리가 있어."
+            },
+            {
+              "ko": "버스는 바로 탈 수 있지만 도착하면 더 피곤할 것 같아."
+            },
+            {
+              "ko": "여섯 시 KTX는 늦지만 아직 자리가 있어."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_ktx_sold_out_alternative_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "내일 아침 일정도 있으니 조금 늦더라도 기차로 갈까?",
+          "audioKo": "내일 아침 일정도 있으니 조금 늦더라도 기차로 갈까?",
+          "promptDe": "Da wir morgen früh etwas vorhaben, nehmen wir trotz der späteren Abfahrt lieber den Zug?",
+          "promptEn": "Since we have plans tomorrow morning, should we take the train even if it leaves later?",
+          "distractors": [
+            "세 시 KTX는 다 매진이야.",
+            "네 시 버스는 자리가 있어.",
+            "버스는 바로 탈 수 있지만 도착하면 더 피곤할 것 같아."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

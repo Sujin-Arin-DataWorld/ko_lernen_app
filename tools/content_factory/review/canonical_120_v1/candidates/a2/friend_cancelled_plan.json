@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "friend_cancelled_plan",
+  "scenario": {
+    "id": "friend_cancelled_plan",
+    "level": "a2",
+    "emoji": "🏠",
+    "register": "casual",
+    "speechStyle": "casual",
+    "title": {
+      "ko": "갑자기 약속을 취소했을 때",
+      "de": "Wenn eine Freundin kurzfristig absagt",
+      "en": "When a friend cancels at the last minute"
+    },
+    "intro": {
+      "ko": "마야가 오늘 약속을 갑자기 취소해요.",
+      "de": "Maya sagt eure Verabredung für heute kurzfristig ab.",
+      "en": "Maya cancels your plans for today at the last minute."
+    },
+    "courseUnitId": "a2_03_chat_relationships",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "lena"
+    ],
+    "relationshipContext": "친한 마야와 레나",
+    "intent": "취소 이유를 짧게 말하고 미안함을 표현한다",
+    "shelf": "a2_plan",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "갑자기 취소해서 미안해.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Tut mir leid, dass ich so kurzfristig absage.",
+          "en": "I'm sorry for canceling so suddenly."
+        }
+      },
+      {
+        "korean": "집에 일이 생겨서 오늘은 못 갈 것 같아.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Zu Hause ist etwas passiert. Ich glaube, ich schaffe es heute nicht.",
+          "en": "Something came up at home. I don't think I can make it today."
+        }
+      },
+      {
+        "korean": "알겠어. 그런데 조금 서운했어.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Okay. Aber ich war schon ein bisschen enttäuscht.",
+          "en": "Okay. But I did feel a little hurt."
+        }
+      },
+      {
+        "korean": "기다리게 해서 더 미안해.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es tut mir umso mehr leid, dass du gewartet hast.",
+          "en": "I'm even more sorry that I kept you waiting."
+        }
+      },
+      {
+        "korean": "오늘은 쉬고 내일 다시 이야기하자.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ruh dich heute aus. Wir reden morgen noch einmal.",
+          "en": "Rest today. Let's talk again tomorrow."
+        }
+      },
+      {
+        "korean": "응, 내일 내가 먼저 연락할게.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Ich melde mich morgen zuerst.",
+          "en": "Okay. I'll message you tomorrow."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_relationships"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_cause_sequence"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-아/어서",
+        "de": "Grund / Reihenfolge",
+        "en": "Reason / sequence"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Weil (Grund) oder und dann (zeitliche Abfolge)",
+        "en": "Because (reason) or and then (time sequence)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "갑자기 취소해서 미안해.",
+        "de": "Tut mir leid, dass ich so kurzfristig absage.",
+        "en": "I'm sorry for canceling so suddenly."
+      },
+      {
+        "speaker": "user",
+        "ko": "집에 일이 생겨서 오늘은 못 갈 것 같아.",
+        "de": "Zu Hause ist etwas passiert. Ich glaube, ich schaffe es heute nicht.",
+        "en": "Something came up at home. I don't think I can make it today."
+      },
+      {
+        "speaker": "lena",
+        "ko": "알겠어. 그런데 조금 서운했어.",
+        "de": "Okay. Aber ich war schon ein bisschen enttäuscht.",
+        "en": "Okay. But I did feel a little hurt."
+      },
+      {
+        "speaker": "user",
+        "ko": "기다리게 해서 더 미안해.",
+        "de": "Es tut mir umso mehr leid, dass du gewartet hast.",
+        "en": "I'm even more sorry that I kept you waiting."
+      },
+      {
+        "speaker": "lena",
+        "ko": "오늘은 쉬고 내일 다시 이야기하자.",
+        "de": "Ruh dich heute aus. Wir reden morgen noch einmal.",
+        "en": "Rest today. Let's talk again tomorrow."
+      },
+      {
+        "speaker": "user",
+        "ko": "응, 내일 내가 먼저 연락할게.",
+        "de": "Ja. Ich melde mich morgen zuerst.",
+        "en": "Okay. I'll message you tomorrow."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_friend_cancelled_plan_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "알겠어. 그런데 조금 서운했어.",
+          "options": [
+            {
+              "de": "Okay. Aber ich war schon ein bisschen enttäuscht.",
+              "en": "Okay. But I did feel a little hurt."
+            },
+            {
+              "de": "Tut mir leid, dass ich so kurzfristig absage.",
+              "en": "I'm sorry for canceling so suddenly."
+            },
+            {
+              "de": "Zu Hause ist etwas passiert. Ich glaube, ich schaffe es heute nicht.",
+              "en": "Something came up at home. I don't think I can make it today."
+            },
+            {
+              "de": "Es tut mir umso mehr leid, dass du gewartet hast.",
+              "en": "I'm even more sorry that I kept you waiting."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_friend_cancelled_plan_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Tut mir leid, dass ich so kurzfristig absage.",
+          "promptEn": "I'm sorry for canceling so suddenly.",
+          "options": [
+            {
+              "ko": "갑자기 취소해서 미안해."
+            },
+            {
+              "ko": "집에 일이 생겨서 오늘은 못 갈 것 같아."
+            },
+            {
+              "ko": "알겠어. 그런데 조금 서운했어."
+            },
+            {
+              "ko": "기다리게 해서 더 미안해."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_friend_cancelled_plan_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "응, 내일 내가 먼저 연락할게.",
+          "audioKo": "응, 내일 내가 먼저 연락할게.",
+          "promptDe": "Ja. Ich melde mich morgen zuerst.",
+          "promptEn": "Okay. I'll message you tomorrow.",
+          "distractors": [
+            "갑자기 취소해서 미안해.",
+            "집에 일이 생겨서 오늘은 못 갈 것 같아.",
+            "알겠어. 그런데 조금 서운했어."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

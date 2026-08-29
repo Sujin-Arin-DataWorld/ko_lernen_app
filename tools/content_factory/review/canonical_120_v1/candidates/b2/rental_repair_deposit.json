@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "rental_repair_deposit",
+  "scenario": {
+    "id": "rental_repair_deposit",
+    "level": "b2",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "퇴거 전 수리비 책임을 협의하기",
+      "de": "Über einen Fleck und die Kaution sprechen",
+      "en": "Discussing a stain and the security deposit"
+    },
+    "intro": {
+      "ko": "퇴거 점검 중 벽 얼룩 수리비를 누가 부담할지 의견이 달라요.",
+      "de": "Bei der Wohnungsabnahme seid ihr euch uneinig, wer für einen Fleck an der Wand aufkommt.",
+      "en": "During move-out inspection, you disagree over who should pay for a stain on the wall."
+    },
+    "courseUnitId": "b2_04_complaint_resolution",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "landlord"
+    ],
+    "relationshipContext": "세입자 크리스티안과 집주인",
+    "intent": "입주 당시 사진과 현재 상태를 비교해 전액 부담에 이의를 제기한다",
+    "shelf": "b2_contract",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dieser Fleck sieht neu aus. Ich muss die Reparaturkosten prüfen.",
+          "en": "This stain looks new, so I'll need to check the repair cost."
+        }
+      },
+      {
+        "korean": "입주할 때 찍은 사진에도 비슷한 자국이 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Auf meinen Einzugsfotos ist bereits eine ähnliche Stelle zu sehen.",
+          "en": "There's a similar mark in the photos I took when I moved in."
+        }
+      },
+      {
+        "korean": "지금 사진만 보면 더 진해진 것 같기도 해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Auf dem aktuellen Foto wirkt sie allerdings etwas dunkler.",
+          "en": "It does look a little darker in the current photo."
+        }
+      },
+      {
+        "korean": "자국이 보인다고 해서 전부 제가 만든 것은 아니잖아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Nur weil der Fleck jetzt sichtbar ist, heißt das nicht, dass ich ihn vollständig verursacht habe.",
+          "en": "Just because the mark is visible now doesn't mean I caused all of it."
+        }
+      },
+      {
+        "korean": "그럼 여기서 바로 정하지 말고 계약 내용도 같이 확인하죠.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann entscheiden wir nicht sofort, sondern prüfen auch den Vertrag.",
+          "en": "Then let's not decide on the spot. We'll review the contract too."
+        }
+      },
+      {
+        "korean": "좋습니다. 두 사진의 날짜도 함께 보내 드릴게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Gut. Ich schicke Ihnen auch beide Fotos mit Datum.",
+          "en": "Good. I'll send both photos with their dates."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_complaint"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b2_not_automatic_conclusion"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "A/V-다고 해서 A/V-는 것은 아니다",
+        "de": "Keine automatische Schlussfolgerung",
+        "en": "Rejecting an automatic conclusion"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Weist zurück, dass aus einer Tatsache automatisch eine bestimmte Bewertung oder Folge entsteht. Die erste Aussage wird anerkannt, die voreilige Schlussfolgerung aber begrenzt.",
+        "en": "Rejects the idea that one fact automatically leads to a particular judgment or result. The first fact is acknowledged while the rushed conclusion is limited."
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "landlord",
+        "ko": "이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요.",
+        "de": "Dieser Fleck sieht neu aus. Ich muss die Reparaturkosten prüfen.",
+        "en": "This stain looks new, so I'll need to check the repair cost."
+      },
+      {
+        "speaker": "user",
+        "ko": "입주할 때 찍은 사진에도 비슷한 자국이 있어요.",
+        "de": "Auf meinen Einzugsfotos ist bereits eine ähnliche Stelle zu sehen.",
+        "en": "There's a similar mark in the photos I took when I moved in."
+      },
+      {
+        "speaker": "landlord",
+        "ko": "지금 사진만 보면 더 진해진 것 같기도 해요.",
+        "de": "Auf dem aktuellen Foto wirkt sie allerdings etwas dunkler.",
+        "en": "It does look a little darker in the current photo."
+      },
+      {
+        "speaker": "user",
+        "ko": "자국이 보인다고 해서 전부 제가 만든 것은 아니잖아요.",
+        "de": "Nur weil der Fleck jetzt sichtbar ist, heißt das nicht, dass ich ihn vollständig verursacht habe.",
+        "en": "Just because the mark is visible now doesn't mean I caused all of it."
+      },
+      {
+        "speaker": "landlord",
+        "ko": "그럼 여기서 바로 정하지 말고 계약 내용도 같이 확인하죠.",
+        "de": "Dann entscheiden wir nicht sofort, sondern prüfen auch den Vertrag.",
+        "en": "Then let's not decide on the spot. We'll review the contract too."
+      },
+      {
+        "speaker": "user",
+        "ko": "좋습니다. 두 사진의 날짜도 함께 보내 드릴게요.",
+        "de": "Gut. Ich schicke Ihnen auch beide Fotos mit Datum.",
+        "en": "Good. I'll send both photos with their dates."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_rental_repair_deposit_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요.",
+          "options": [
+            {
+              "de": "Dieser Fleck sieht neu aus. Ich muss die Reparaturkosten prüfen.",
+              "en": "This stain looks new, so I'll need to check the repair cost."
+            },
+            {
+              "de": "Auf meinen Einzugsfotos ist bereits eine ähnliche Stelle zu sehen.",
+              "en": "There's a similar mark in the photos I took when I moved in."
+            },
+            {
+              "de": "Auf dem aktuellen Foto wirkt sie allerdings etwas dunkler.",
+              "en": "It does look a little darker in the current photo."
+            },
+            {
+              "de": "Nur weil der Fleck jetzt sichtbar ist, heißt das nicht, dass ich ihn vollständig verursacht habe.",
+              "en": "Just because the mark is visible now doesn't mean I caused all of it."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_rental_repair_deposit_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Auf meinen Einzugsfotos ist bereits eine ähnliche Stelle zu sehen.",
+          "promptEn": "There's a similar mark in the photos I took when I moved in.",
+          "options": [
+            {
+              "ko": "입주할 때 찍은 사진에도 비슷한 자국이 있어요."
+            },
+            {
+              "ko": "이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요."
+            },
+            {
+              "ko": "지금 사진만 보면 더 진해진 것 같기도 해요."
+            },
+            {
+              "ko": "자국이 보인다고 해서 전부 제가 만든 것은 아니잖아요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_rental_repair_deposit_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "좋습니다. 두 사진의 날짜도 함께 보내 드릴게요.",
+          "audioKo": "좋습니다. 두 사진의 날짜도 함께 보내 드릴게요.",
+          "promptDe": "Gut. Ich schicke Ihnen auch beide Fotos mit Datum.",
+          "promptEn": "Good. I'll send both photos with their dates.",
+          "distractors": [
+            "이 얼룩은 새로 생긴 것 같아서 수리비를 확인해야겠어요.",
+            "입주할 때 찍은 사진에도 비슷한 자국이 있어요.",
+            "지금 사진만 보면 더 진해진 것 같기도 해요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

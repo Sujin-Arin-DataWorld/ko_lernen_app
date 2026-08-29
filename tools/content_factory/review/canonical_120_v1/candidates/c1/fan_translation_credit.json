@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "fan_translation_credit",
+  "scenario": {
+    "id": "fan_translation_credit",
+    "level": "c1",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "팬 번역의 노동과 공로를 어떻게 표시할지",
+      "de": "Fanübersetzungen sichtbar würdigen",
+      "en": "Crediting fan translation work"
+    },
+    "intro": {
+      "ko": "공식 채널이 팬 번역을 쓰려 하지만 이름 표기와 최종 수정 권한이 정해지지 않았어요.",
+      "de": "Ein offizieller Kanal möchte Fanübersetzungen nutzen, doch Namensnennung und letzte Änderungen sind ungeklärt.",
+      "en": "An official channel wants to use fan translations, but credit and final-edit rights are unclear."
+    },
+    "courseUnitId": "c1_05_fan_labor_sustainability",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "editor"
+    ],
+    "relationshipContext": "마야와 자막 번역 참여자들",
+    "intent": "팬 활동의 자발성과 노동 가치를 함께 인정하는 조건을 제안한다",
+    "shelf": "c1_attribution",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "팬들이 자발적으로 올린 번역이니 공식 자막에 일부 활용해도 되지 않을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Die Fans haben die Übersetzungen freiwillig veröffentlicht. Könnten wir Teile davon für die offiziellen Untertitel nutzen?",
+          "en": "Fans posted the translations voluntarily. Couldn't we use parts in the official subtitles?"
+        }
+      },
+      {
+        "korean": "자발적으로 참여했다는 이유로 번역 노동이 보이지 않아도 되는 것은 아닙니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Freiwillige Beteiligung bedeutet nicht, dass die Übersetzungsarbeit unsichtbar bleiben darf.",
+          "en": "Voluntary participation doesn't mean the translation work can remain invisible."
+        }
+      },
+      {
+        "korean": "실명을 공개하고 싶지 않은 사람도 있을 텐데요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Einige möchten ihren echten Namen vermutlich nicht veröffentlichen.",
+          "en": "Some contributors may not want their real names published."
+        }
+      },
+      {
+        "korean": "실명, 활동명, 익명 중에서 고르게 하고, 아예 표기하지 않는 선택도 두면 됩니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann lassen wir zwischen echtem Namen, Nutzername und Anonymität wählen, einschließlich keiner Nennung.",
+          "en": "Then let them choose a real name, handle, anonymity, or no credit."
+        }
+      },
+      {
+        "korean": "공식 문체로 고친 부분은 누가 확인하죠?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wer prüft Änderungen, die wir für den offiziellen Stil vornehmen?",
+          "en": "Who reviews changes made for the official style?"
+        }
+      },
+      {
+        "korean": "의미가 달라지는 수정은 게시 전에 번역자에게 확인받는 절차가 필요합니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Änderungen mit Bedeutungsverschiebung sollten vor Veröffentlichung von der übersetzenden Person geprüft werden.",
+          "en": "Meaning-changing edits should be checked with the translator before publication."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_c1_fan_labor"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a2_conditional"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)면",
+        "de": "Konditionalsatz",
+        "en": "Conditional"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Wenn/Falls-Bedingung",
+        "en": "If / in case (a condition)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "editor",
+        "ko": "팬들이 자발적으로 올린 번역이니 공식 자막에 일부 활용해도 되지 않을까요?",
+        "de": "Die Fans haben die Übersetzungen freiwillig veröffentlicht. Könnten wir Teile davon für die offiziellen Untertitel nutzen?",
+        "en": "Fans posted the translations voluntarily. Couldn't we use parts in the official subtitles?"
+      },
+      {
+        "speaker": "user",
+        "ko": "자발적으로 참여했다는 이유로 번역 노동이 보이지 않아도 되는 것은 아닙니다.",
+        "de": "Freiwillige Beteiligung bedeutet nicht, dass die Übersetzungsarbeit unsichtbar bleiben darf.",
+        "en": "Voluntary participation doesn't mean the translation work can remain invisible."
+      },
+      {
+        "speaker": "editor",
+        "ko": "실명을 공개하고 싶지 않은 사람도 있을 텐데요.",
+        "de": "Einige möchten ihren echten Namen vermutlich nicht veröffentlichen.",
+        "en": "Some contributors may not want their real names published."
+      },
+      {
+        "speaker": "user",
+        "ko": "실명, 활동명, 익명 중에서 고르게 하고, 아예 표기하지 않는 선택도 두면 됩니다.",
+        "de": "Dann lassen wir zwischen echtem Namen, Nutzername und Anonymität wählen, einschließlich keiner Nennung.",
+        "en": "Then let them choose a real name, handle, anonymity, or no credit."
+      },
+      {
+        "speaker": "editor",
+        "ko": "공식 문체로 고친 부분은 누가 확인하죠?",
+        "de": "Wer prüft Änderungen, die wir für den offiziellen Stil vornehmen?",
+        "en": "Who reviews changes made for the official style?"
+      },
+      {
+        "speaker": "user",
+        "ko": "의미가 달라지는 수정은 게시 전에 번역자에게 확인받는 절차가 필요합니다.",
+        "de": "Änderungen mit Bedeutungsverschiebung sollten vor Veröffentlichung von der übersetzenden Person geprüft werden.",
+        "en": "Meaning-changing edits should be checked with the translator before publication."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_fan_translation_credit_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "팬들이 자발적으로 올린 번역이니 공식 자막에 일부 활용해도 되지 않을까요?",
+          "options": [
+            {
+              "de": "Die Fans haben die Übersetzungen freiwillig veröffentlicht. Könnten wir Teile davon für die offiziellen Untertitel nutzen?",
+              "en": "Fans posted the translations voluntarily. Couldn't we use parts in the official subtitles?"
+            },
+            {
+              "de": "Freiwillige Beteiligung bedeutet nicht, dass die Übersetzungsarbeit unsichtbar bleiben darf.",
+              "en": "Voluntary participation doesn't mean the translation work can remain invisible."
+            },
+            {
+              "de": "Einige möchten ihren echten Namen vermutlich nicht veröffentlichen.",
+              "en": "Some contributors may not want their real names published."
+            },
+            {
+              "de": "Dann lassen wir zwischen echtem Namen, Nutzername und Anonymität wählen, einschließlich keiner Nennung.",
+              "en": "Then let them choose a real name, handle, anonymity, or no credit."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_fan_translation_credit_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Freiwillige Beteiligung bedeutet nicht, dass die Übersetzungsarbeit unsichtbar bleiben darf.",
+          "promptEn": "Voluntary participation doesn't mean the translation work can remain invisible.",
+          "options": [
+            {
+              "ko": "자발적으로 참여했다는 이유로 번역 노동이 보이지 않아도 되는 것은 아닙니다."
+            },
+            {
+              "ko": "팬들이 자발적으로 올린 번역이니 공식 자막에 일부 활용해도 되지 않을까요?"
+            },
+            {
+              "ko": "실명을 공개하고 싶지 않은 사람도 있을 텐데요."
+            },
+            {
+              "ko": "실명, 활동명, 익명 중에서 고르게 하고, 아예 표기하지 않는 선택도 두면 됩니다."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_fan_translation_credit_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "의미가 달라지는 수정은 게시 전에 번역자에게 확인받는 절차가 필요합니다.",
+          "audioKo": "의미가 달라지는 수정은 게시 전에 번역자에게 확인받는 절차가 필요합니다.",
+          "promptDe": "Änderungen mit Bedeutungsverschiebung sollten vor Veröffentlichung von der übersetzenden Person geprüft werden.",
+          "promptEn": "Meaning-changing edits should be checked with the translator before publication.",
+          "distractors": [
+            "팬들이 자발적으로 올린 번역이니 공식 자막에 일부 활용해도 되지 않을까요?",
+            "자발적으로 참여했다는 이유로 번역 노동이 보이지 않아도 되는 것은 아닙니다.",
+            "실명을 공개하고 싶지 않은 사람도 있을 텐데요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 140
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

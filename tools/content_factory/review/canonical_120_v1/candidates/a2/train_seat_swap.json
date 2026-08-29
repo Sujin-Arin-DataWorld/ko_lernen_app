@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "train_seat_swap",
+  "scenario": {
+    "id": "train_seat_swap",
+    "level": "a2",
+    "emoji": "🚇",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "기차 좌석을 잘못 앉았을 때",
+      "de": "Auf dem falschen Sitzplatz im Zug",
+      "en": "Sitting in the wrong train seat"
+    },
+    "intro": {
+      "ko": "기차에서 좌석 번호를 한 칸 잘못 봤어요.",
+      "de": "Im Zug hast du dich beim Sitzplatz um eine Nummer vertan.",
+      "en": "On the train, you misread your seat number by one."
+    },
+    "courseUnitId": "a2_07_travel_repair",
+    "playerCharacterId": "daniel",
+    "participantIds": [
+      "daniel",
+      "customer"
+    ],
+    "relationshipContext": "서로 모르는 승객과 다니엘",
+    "intent": "표를 다시 보고 사과한 뒤 자기 자리로 옮긴다",
+    "shelf": "a2_move",
+    "backdrop": "station",
+    "vocab": [
+      {
+        "korean": "죄송한데, 여기 제 자리예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entschuldigung, das ist mein Platz.",
+          "en": "Excuse me, this is my seat."
+        }
+      },
+      {
+        "korean": "아, 제가 좌석 번호를 잘못 봤어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Oh, ich habe die Sitznummer falsch gelesen.",
+          "en": "Oh, I misread the seat number."
+        }
+      },
+      {
+        "korean": "표에 몇 번이라고 되어 있어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Welche Nummer steht auf Ihrer Fahrkarte?",
+          "en": "What number does your ticket show?"
+        }
+      },
+      {
+        "korean": "12A예요. 여기는 12B네요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "12A. Das hier ist 12B.",
+          "en": "12A. This is 12B."
+        }
+      },
+      {
+        "korean": "A는 창가 쪽이에요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "A ist am Fenster.",
+          "en": "A is the window seat."
+        }
+      },
+      {
+        "korean": "알려 주셔서 감사합니다. 바로 옮길게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Danke für den Hinweis. Ich setze mich sofort um.",
+          "en": "Thanks for letting me know. I'll move right away."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_travel_repair"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "customer",
+        "ko": "죄송한데, 여기 제 자리예요.",
+        "de": "Entschuldigung, das ist mein Platz.",
+        "en": "Excuse me, this is my seat."
+      },
+      {
+        "speaker": "user",
+        "ko": "아, 제가 좌석 번호를 잘못 봤어요.",
+        "de": "Oh, ich habe die Sitznummer falsch gelesen.",
+        "en": "Oh, I misread the seat number."
+      },
+      {
+        "speaker": "customer",
+        "ko": "표에 몇 번이라고 되어 있어요?",
+        "de": "Welche Nummer steht auf Ihrer Fahrkarte?",
+        "en": "What number does your ticket show?"
+      },
+      {
+        "speaker": "user",
+        "ko": "12A예요. 여기는 12B네요.",
+        "de": "12A. Das hier ist 12B.",
+        "en": "12A. This is 12B."
+      },
+      {
+        "speaker": "customer",
+        "ko": "A는 창가 쪽이에요.",
+        "de": "A ist am Fenster.",
+        "en": "A is the window seat."
+      },
+      {
+        "speaker": "user",
+        "ko": "알려 주셔서 감사합니다. 바로 옮길게요.",
+        "de": "Danke für den Hinweis. Ich setze mich sofort um.",
+        "en": "Thanks for letting me know. I'll move right away."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_train_seat_swap_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "죄송한데, 여기 제 자리예요.",
+          "options": [
+            {
+              "de": "Entschuldigung, das ist mein Platz.",
+              "en": "Excuse me, this is my seat."
+            },
+            {
+              "de": "Oh, ich habe die Sitznummer falsch gelesen.",
+              "en": "Oh, I misread the seat number."
+            },
+            {
+              "de": "Welche Nummer steht auf Ihrer Fahrkarte?",
+              "en": "What number does your ticket show?"
+            },
+            {
+              "de": "12A. Das hier ist 12B.",
+              "en": "12A. This is 12B."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_train_seat_swap_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Oh, ich habe die Sitznummer falsch gelesen.",
+          "promptEn": "Oh, I misread the seat number.",
+          "options": [
+            {
+              "ko": "아, 제가 좌석 번호를 잘못 봤어요."
+            },
+            {
+              "ko": "죄송한데, 여기 제 자리예요."
+            },
+            {
+              "ko": "표에 몇 번이라고 되어 있어요?"
+            },
+            {
+              "ko": "12A예요. 여기는 12B네요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_train_seat_swap_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "알려 주셔서 감사합니다. 바로 옮길게요.",
+          "audioKo": "알려 주셔서 감사합니다. 바로 옮길게요.",
+          "promptDe": "Danke für den Hinweis. Ich setze mich sofort um.",
+          "promptEn": "Thanks for letting me know. I'll move right away.",
+          "distractors": [
+            "죄송한데, 여기 제 자리예요.",
+            "아, 제가 좌석 번호를 잘못 봤어요.",
+            "표에 몇 번이라고 되어 있어요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

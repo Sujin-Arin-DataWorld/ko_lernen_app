@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "noisy_neighbor_evening",
+  "scenario": {
+    "id": "noisy_neighbor_evening",
+    "level": "b1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "늦은 밤 이웃집 음악이 클 때",
+      "de": "Laute Musik aus der Nachbarwohnung",
+      "en": "Loud music from a neighbor's apartment"
+    },
+    "intro": {
+      "ko": "밤늦게 음악 소리가 계속 들려 이웃집 문을 두드려요.",
+      "de": "Spät am Abend ist weiterhin laute Musik zu hören, also klingelst du nebenan.",
+      "en": "Music is still loud late at night, so you knock on your neighbor's door."
+    },
+    "courseUnitId": "b1_05_complaint_resolution",
+    "playerCharacterId": "sujin",
+    "participantIds": [
+      "sujin",
+      "neighbor"
+    ],
+    "relationshipContext": "처음 대화하는 수진과 이웃",
+    "intent": "비난하지 않고 지금 들리는 문제와 필요한 변화를 말한다",
+    "shelf": "b1_refund",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "네, 무슨 일이세요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, was ist los?",
+          "en": "Hi, what's wrong?"
+        }
+      },
+      {
+        "korean": "늦은 시간에 죄송해요. 음악 소리가 방까지 들려서요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Entschuldigen Sie die späte Störung. Die Musik ist bis in meine Wohnung zu hören.",
+          "en": "Sorry to bother you so late. I can hear the music in my apartment."
+        }
+      },
+      {
+        "korean": "아, 그렇게 큰 줄 몰랐어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Oh, ich wusste nicht, dass sie so laut ist.",
+          "en": "Oh, I didn't realize it was that loud."
+        }
+      },
+      {
+        "korean": "지난 토요일에도 비슷해서 잠을 잘 못 잤거든요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Letzten Samstag war es ähnlich, und ich konnte schlecht schlafen.",
+          "en": "It was similar last Saturday, and I couldn't sleep well."
+        }
+      },
+      {
+        "korean": "죄송해요. 지금 바로 줄일게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Tut mir leid. Ich drehe sie sofort leiser.",
+          "en": "I'm sorry. I'll turn it down now."
+        }
+      },
+      {
+        "korean": "감사합니다. 늦은 시간만 조심해 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Danke. Bitte achten Sie besonders spätabends darauf.",
+          "en": "Thank you. Please just be mindful late at night."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b1_complaint_resolution"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_explanatory_reason"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-거든요",
+        "de": "Begründung (umgangssprachlich)",
+        "en": "Reason (colloquial)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Weißt du / nämlich: Begründung dem Gegenüber gegenüber",
+        "en": "You see / you know: giving a reason to the listener"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "neighbor",
+        "ko": "네, 무슨 일이세요?",
+        "de": "Ja, was ist los?",
+        "en": "Hi, what's wrong?"
+      },
+      {
+        "speaker": "user",
+        "ko": "늦은 시간에 죄송해요. 음악 소리가 방까지 들려서요.",
+        "de": "Entschuldigen Sie die späte Störung. Die Musik ist bis in meine Wohnung zu hören.",
+        "en": "Sorry to bother you so late. I can hear the music in my apartment."
+      },
+      {
+        "speaker": "neighbor",
+        "ko": "아, 그렇게 큰 줄 몰랐어요.",
+        "de": "Oh, ich wusste nicht, dass sie so laut ist.",
+        "en": "Oh, I didn't realize it was that loud."
+      },
+      {
+        "speaker": "user",
+        "ko": "지난 토요일에도 비슷해서 잠을 잘 못 잤거든요.",
+        "de": "Letzten Samstag war es ähnlich, und ich konnte schlecht schlafen.",
+        "en": "It was similar last Saturday, and I couldn't sleep well."
+      },
+      {
+        "speaker": "neighbor",
+        "ko": "죄송해요. 지금 바로 줄일게요.",
+        "de": "Tut mir leid. Ich drehe sie sofort leiser.",
+        "en": "I'm sorry. I'll turn it down now."
+      },
+      {
+        "speaker": "user",
+        "ko": "감사합니다. 늦은 시간만 조심해 주세요.",
+        "de": "Danke. Bitte achten Sie besonders spätabends darauf.",
+        "en": "Thank you. Please just be mindful late at night."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_noisy_neighbor_evening_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "네, 무슨 일이세요?",
+          "options": [
+            {
+              "de": "Ja, was ist los?",
+              "en": "Hi, what's wrong?"
+            },
+            {
+              "de": "Entschuldigen Sie die späte Störung. Die Musik ist bis in meine Wohnung zu hören.",
+              "en": "Sorry to bother you so late. I can hear the music in my apartment."
+            },
+            {
+              "de": "Oh, ich wusste nicht, dass sie so laut ist.",
+              "en": "Oh, I didn't realize it was that loud."
+            },
+            {
+              "de": "Letzten Samstag war es ähnlich, und ich konnte schlecht schlafen.",
+              "en": "It was similar last Saturday, and I couldn't sleep well."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_noisy_neighbor_evening_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Entschuldigen Sie die späte Störung. Die Musik ist bis in meine Wohnung zu hören.",
+          "promptEn": "Sorry to bother you so late. I can hear the music in my apartment.",
+          "options": [
+            {
+              "ko": "늦은 시간에 죄송해요. 음악 소리가 방까지 들려서요."
+            },
+            {
+              "ko": "네, 무슨 일이세요?"
+            },
+            {
+              "ko": "아, 그렇게 큰 줄 몰랐어요."
+            },
+            {
+              "ko": "지난 토요일에도 비슷해서 잠을 잘 못 잤거든요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_noisy_neighbor_evening_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "감사합니다. 늦은 시간만 조심해 주세요.",
+          "audioKo": "감사합니다. 늦은 시간만 조심해 주세요.",
+          "promptDe": "Danke. Bitte achten Sie besonders spätabends darauf.",
+          "promptEn": "Thank you. Please just be mindful late at night.",
+          "distractors": [
+            "네, 무슨 일이세요?",
+            "늦은 시간에 죄송해요. 음악 소리가 방까지 들려서요.",
+            "아, 그렇게 큰 줄 몰랐어요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 120
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

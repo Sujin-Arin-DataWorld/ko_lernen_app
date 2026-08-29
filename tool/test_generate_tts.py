@@ -1,5 +1,7 @@
+import json
 import os
 import sys
+import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -19,6 +21,54 @@ class TtsGeneratorContractTest(unittest.TestCase):
             generate_tts.cache_relative_path("female", "안녕하세요"),
             "tts/v3/female/d84734f7d89bbd707dc52168c47309aed72b7f80.mp3",
         )
+
+    def test_scenario_pending_manifest_is_an_exact_validated_scope(self):
+        voice = "female"
+        text = "기사님, 천천히 좀 가 주실 수 있을까요?"
+        manifest = {
+            "schemaVersion": 1,
+            "kind": "scenario_tts_pending_manifest",
+            "generationId": "canonical_120_v1",
+            "scope": "a2",
+            "candidateSetSha256": "a" * 64,
+            "cacheRevision": "v3",
+            "count": 1,
+            "items": [
+                {
+                    "voice": voice,
+                    "text": text,
+                    "cachePath": generate_tts.cache_relative_path(voice, text),
+                }
+            ],
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            path = os.path.join(temp, "pending.json")
+            with open(path, "w", encoding="utf-8") as handle:
+                json.dump(manifest, handle, ensure_ascii=False)
+
+            pairs, loaded = generate_tts.load_scenario_pending_manifest(path)
+
+        self.assertEqual(pairs, [(voice, text)])
+        self.assertEqual(loaded, manifest)
+
+        receipt, missing = generate_tts.build_storage_verification_receipt(
+            manifest,
+            {manifest["items"][0]["cachePath"]: 1024},
+        )
+        self.assertEqual(missing, [])
+        self.assertEqual(receipt["missingCount"], 0)
+        self.assertEqual(receipt["verifiedCachePathCount"], 1)
+        self.assertEqual(
+            receipt["ttsManifestSha256"],
+            generate_tts._canonical_json_sha256(manifest),
+        )
+
+        receipt, missing = generate_tts.build_storage_verification_receipt(
+            manifest,
+            {manifest["items"][0]["cachePath"]: 0},
+        )
+        self.assertEqual(missing, [manifest["items"][0]["cachePath"]])
+        self.assertEqual(receipt["missingCount"], 1)
 
     def test_collect_covers_every_fixed_tts_source(self):
         """고정 콘텐츠가 수집에 빠지면 런타임에 OS 폴백(옛 음성)으로 샌다.
@@ -109,7 +159,8 @@ class TtsGeneratorContractTest(unittest.TestCase):
         self.assertTrue(silben_targets)
         self.assertEqual([text for text in silben_targets if text not in auto], [])
 
-        # 듣기(Hören)=시나리오 대화: user=여성, NPC=남성 화자 매핑 표본 확인.
+        # 구형 런타임 장면은 아직 캐릭터 ID가 없어 user=여성, NPC=남성 폴백을
+        # 사용한다. 정본 후보의 캐릭터 기반 매핑은 별도 corpus 계약 테스트가 맡는다.
         data_dir = _os.path.join(root, "assets", "data")
         scenarios = []
         for name in sorted(_os.listdir(data_dir)):
@@ -161,6 +212,109 @@ class TtsGeneratorContractTest(unittest.TestCase):
         auth.assert_not_called()
         synth.assert_not_called()
         run.assert_not_called()
+
+    def test_pending_manifest_dry_run_does_not_collect_runtime_or_use_network(self):
+        voice = "male"
+        text = "첨부파일을 또 안 붙였어요."
+        manifest = {
+            "schemaVersion": 1,
+            "kind": "scenario_tts_pending_manifest",
+            "generationId": "canonical_120_v1",
+            "scope": "a2",
+            "candidateSetSha256": "b" * 64,
+            "cacheRevision": "v3",
+            "count": 1,
+            "items": [
+                {
+                    "voice": voice,
+                    "text": text,
+                    "cachePath": generate_tts.cache_relative_path(voice, text),
+                }
+            ],
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            path = os.path.join(temp, "pending.json")
+            with open(path, "w", encoding="utf-8") as handle:
+                json.dump(manifest, handle, ensure_ascii=False)
+            with (
+                patch.object(generate_tts, "collect") as collect,
+                patch.object(generate_tts, "_auth") as auth,
+                patch.object(generate_tts, "synth") as synth,
+                patch.object(generate_tts, "remote_cache_paths") as remote,
+                patch("builtins.print"),
+            ):
+                result = generate_tts.main(
+                    ["--dry-run", "--scenario-pending-manifest", path]
+                )
+
+        self.assertEqual(result, 0)
+        collect.assert_not_called()
+        auth.assert_not_called()
+        synth.assert_not_called()
+        remote.assert_not_called()
+
+    def test_synthesis_failure_aborts_before_any_upload(self):
+        pairs = [("female", "안녕하세요")]
+        with tempfile.TemporaryDirectory() as temp:
+            with (
+                patch.object(generate_tts, "OUT", temp),
+                patch.object(generate_tts, "collect", return_value=pairs),
+                patch.object(generate_tts, "_auth", return_value="token"),
+                patch.object(
+                    generate_tts,
+                    "synth",
+                    side_effect=RuntimeError("failed"),
+                ),
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts.subprocess, "run") as run,
+                patch("builtins.print"),
+            ):
+                with self.assertRaisesRegex(
+                    SystemExit,
+                    "Firebase 업로드는 하지 않았습니다",
+                ):
+                    generate_tts.main(["--workers", "1"])
+
+        run.assert_not_called()
+
+    def test_manifest_upload_uses_only_the_exact_selected_object(self):
+        voice = "female"
+        text = "안녕하세요"
+        relative_path = generate_tts.cache_relative_path(voice, text)
+        manifest = {
+            "schemaVersion": 1,
+            "kind": "scenario_tts_pending_manifest",
+            "generationId": "canonical_120_v1",
+            "scope": "a1",
+            "candidateSetSha256": "c" * 64,
+            "cacheRevision": "v3",
+            "count": 1,
+            "items": [{"voice": voice, "text": text, "cachePath": relative_path}],
+        }
+        with tempfile.TemporaryDirectory() as temp:
+            manifest_path = os.path.join(temp, "pending.json")
+            with open(manifest_path, "w", encoding="utf-8") as handle:
+                json.dump(manifest, handle, ensure_ascii=False)
+            valid_mp3 = b"I" * 512
+            with (
+                patch.object(generate_tts, "OUT", temp),
+                patch.object(generate_tts, "_auth", return_value="token"),
+                patch.object(generate_tts, "synth", return_value=valid_mp3),
+                patch.object(generate_tts, "mp3_duration", return_value=1.0),
+                patch.object(generate_tts.shutil, "which", return_value="gcloud"),
+                patch.object(generate_tts.subprocess, "run") as run,
+                patch("builtins.print"),
+            ):
+                result = generate_tts.main(
+                    ["--scenario-pending-manifest", manifest_path, "--workers", "1"]
+                )
+
+        self.assertEqual(result, 0)
+        run.assert_called_once()
+        argv = run.call_args.args[0]
+        self.assertEqual(argv[1:3], ["storage", "cp"])
+        self.assertEqual(argv[4], f"gs://{generate_tts.BUCKET}/{relative_path}")
+        self.assertNotIn("rsync", argv)
 
 
 if __name__ == "__main__":

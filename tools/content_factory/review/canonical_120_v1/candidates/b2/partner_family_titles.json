@@ -1,0 +1,253 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "partner_family_titles",
+  "scenario": {
+    "id": "partner_family_titles",
+    "level": "b2",
+    "emoji": "☕",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "연인의 가족을 처음 만날 때 호칭 정하기",
+      "de": "Vor dem ersten Treffen mit der Familie die Anrede klären",
+      "en": "Choosing how to address a partner's parents"
+    },
+    "intro": {
+      "ko": "수진의 부모님을 처음 만나기 전에 호칭을 어떻게 할지 물어요.",
+      "de": "Vor dem ersten Treffen mit Sujins Eltern möchtest du wissen, wie du sie ansprechen sollst.",
+      "en": "Before meeting Sujin's parents for the first time, you ask how to address them."
+    },
+    "courseUnitId": "b2_06_advanced_capstone",
+    "playerCharacterId": "christian",
+    "participantIds": [
+      "christian",
+      "sujin"
+    ],
+    "relationshipContext": "연애를 시작한 크리스티안과 수진",
+    "intent": "관계를 존중하면서 실제로 쓸 호칭과 말투를 확인한다",
+    "shelf": "b2_friends",
+    "backdrop": "cafe",
+    "vocab": [
+      {
+        "korean": "부모님을 어떻게 부르는 게 편할까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wie soll ich deine Eltern am besten ansprechen?",
+          "en": "What would be the most comfortable way to address your parents?"
+        }
+      },
+      {
+        "korean": "처음부터 호칭을 정하려고 하면 더 어색할 수 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn wir gleich eine feste Anrede suchen, wird es vielleicht eher unangenehm.",
+          "en": "Trying to settle on a title right away might make it more awkward."
+        }
+      },
+      {
+        "korean": "그럼 어머님, 아버님이라고 안 불러도 돼요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ich muss also nicht sofort 어머님 und 아버님 sagen?",
+          "en": "So I don't have to call them 어머님 and 아버님 right away?"
+        }
+      },
+      {
+        "korean": "네. 일단 인사할 때는 이름 없이 존댓말로 말하면 돼요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Genau. Am Anfang kannst du höflich sprechen, ohne eine direkte Anrede zu verwenden.",
+          "en": "Right. At first, you can speak politely without using a title."
+        }
+      },
+      {
+        "korean": "부모님이 먼저 편한 호칭을 말씀하시면 그때 따를게요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Wenn deine Eltern selbst eine Anrede vorschlagen, übernehme ich sie dann.",
+          "en": "If your parents suggest a title, I'll use it then."
+        }
+      },
+      {
+        "korean": "그게 가장 자연스러울 것 같아요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Das dürfte am natürlichsten sein.",
+          "en": "That will probably feel most natural."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_advanced"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_intention"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)려고",
+        "de": "Absicht / Ziel",
+        "en": "Intention / goal"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Um zu (Ziel einer Handlung)",
+        "en": "In order to (the goal of an action)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "user",
+        "ko": "부모님을 어떻게 부르는 게 편할까요?",
+        "de": "Wie soll ich deine Eltern am besten ansprechen?",
+        "en": "What would be the most comfortable way to address your parents?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "처음부터 호칭을 정하려고 하면 더 어색할 수 있어요.",
+        "de": "Wenn wir gleich eine feste Anrede suchen, wird es vielleicht eher unangenehm.",
+        "en": "Trying to settle on a title right away might make it more awkward."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 어머님, 아버님이라고 안 불러도 돼요?",
+        "de": "Ich muss also nicht sofort 어머님 und 아버님 sagen?",
+        "en": "So I don't have to call them 어머님 and 아버님 right away?"
+      },
+      {
+        "speaker": "sujin",
+        "ko": "네. 일단 인사할 때는 이름 없이 존댓말로 말하면 돼요.",
+        "de": "Genau. Am Anfang kannst du höflich sprechen, ohne eine direkte Anrede zu verwenden.",
+        "en": "Right. At first, you can speak politely without using a title."
+      },
+      {
+        "speaker": "user",
+        "ko": "부모님이 먼저 편한 호칭을 말씀하시면 그때 따를게요.",
+        "de": "Wenn deine Eltern selbst eine Anrede vorschlagen, übernehme ich sie dann.",
+        "en": "If your parents suggest a title, I'll use it then."
+      },
+      {
+        "speaker": "sujin",
+        "ko": "그게 가장 자연스러울 것 같아요.",
+        "de": "Das dürfte am natürlichsten sein.",
+        "en": "That will probably feel most natural."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_partner_family_titles_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "처음부터 호칭을 정하려고 하면 더 어색할 수 있어요.",
+          "options": [
+            {
+              "de": "Wenn wir gleich eine feste Anrede suchen, wird es vielleicht eher unangenehm.",
+              "en": "Trying to settle on a title right away might make it more awkward."
+            },
+            {
+              "de": "Wie soll ich deine Eltern am besten ansprechen?",
+              "en": "What would be the most comfortable way to address your parents?"
+            },
+            {
+              "de": "Ich muss also nicht sofort 어머님 und 아버님 sagen?",
+              "en": "So I don't have to call them 어머님 and 아버님 right away?"
+            },
+            {
+              "de": "Genau. Am Anfang kannst du höflich sprechen, ohne eine direkte Anrede zu verwenden.",
+              "en": "Right. At first, you can speak politely without using a title."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_partner_family_titles_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Wie soll ich deine Eltern am besten ansprechen?",
+          "promptEn": "What would be the most comfortable way to address your parents?",
+          "options": [
+            {
+              "ko": "부모님을 어떻게 부르는 게 편할까요?"
+            },
+            {
+              "ko": "처음부터 호칭을 정하려고 하면 더 어색할 수 있어요."
+            },
+            {
+              "ko": "그럼 어머님, 아버님이라고 안 불러도 돼요?"
+            },
+            {
+              "ko": "네. 일단 인사할 때는 이름 없이 존댓말로 말하면 돼요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_partner_family_titles_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "부모님이 먼저 편한 호칭을 말씀하시면 그때 따를게요.",
+          "audioKo": "부모님이 먼저 편한 호칭을 말씀하시면 그때 따를게요.",
+          "promptDe": "Wenn deine Eltern selbst eine Anrede vorschlagen, übernehme ich sie dann.",
+          "promptEn": "If your parents suggest a title, I'll use it then.",
+          "distractors": [
+            "부모님을 어떻게 부르는 게 편할까요?",
+            "처음부터 호칭을 정하려고 하면 더 어색할 수 있어요.",
+            "그럼 어머님, 아버님이라고 안 불러도 돼요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "호칭을 모를 때는 생략할 수 있어요",
+        "de": "Eine direkte Anrede kann zunächst entfallen",
+        "en": "You can initially avoid a direct title"
+      },
+      "body": {
+        "ko": "연인의 부모를 부르는 말은 관계 단계와 가족의 선호에 따라 달라질 수 있어요. 처음에는 호칭을 억지로 넣지 않고 존댓말로 인사한 뒤 편한 방식을 물을 수 있어요.",
+        "de": "Die Anrede für die Eltern eines Partners hängt von der Beziehung und den Vorlieben der Familie ab. Zunächst kann man höflich grüßen, ohne eine Anrede zu erzwingen, und später nachfragen.",
+        "en": "How you address a partner's parents can depend on the relationship stage and family preference. You can begin with polite speech without forcing a title, then ask what feels comfortable."
+      }
+    },
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

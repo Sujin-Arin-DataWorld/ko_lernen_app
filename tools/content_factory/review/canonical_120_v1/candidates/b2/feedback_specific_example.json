@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "feedback_specific_example",
+  "scenario": {
+    "id": "feedback_specific_example",
+    "level": "b2",
+    "emoji": "💬",
+    "register": "business",
+    "speechStyle": "business",
+    "title": {
+      "ko": "모호한 업무 피드백을 구체화하기",
+      "de": "Vages Feedback in eine konkrete Aufgabe übersetzen",
+      "en": "Turning vague feedback into a concrete action"
+    },
+    "intro": {
+      "ko": "‘더 주도적으로 하라’는 피드백이 무엇을 뜻하는지 분명하지 않아요.",
+      "de": "Die Rückmeldung, du solltest „proaktiver sein“, ist nicht konkret genug.",
+      "en": "The feedback to 'be more proactive' isn't specific enough."
+    },
+    "courseUnitId": "b2_03_precise_requests",
+    "playerCharacterId": "maya",
+    "participantIds": [
+      "maya",
+      "andrea"
+    ],
+    "relationshipContext": "신입 마야와 선배 안드레아",
+    "intent": "방어적으로 들리지 않게 기대 행동과 우선순위를 확인한다",
+    "shelf": "b2_meeting",
+    "backdrop": "office",
+    "vocab": [
+      {
+        "korean": "다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Beim nächsten Projekt wünsche ich mir etwas mehr Eigeninitiative von dir.",
+          "en": "I'd like you to take more initiative on the next project."
+        }
+      },
+      {
+        "korean": "주도적으로 하라는 말이 어떤 행동을 뜻하는지 예를 들어 주실 수 있을까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Könntest du an einem Beispiel erklären, welches Verhalten du damit meinst?",
+          "en": "Could you give me an example of what behavior you mean by that?"
+        }
+      },
+      {
+        "korean": "회의 전에 필요한 자료를 먼저 모으고 안건을 제안하는 거예요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Zum Beispiel vor dem Meeting die nötigen Unterlagen sammeln und einen Tagesordnungspunkt vorschlagen.",
+          "en": "For example, gathering the needed materials before a meeting and proposing an agenda item."
+        }
+      },
+      {
+        "korean": "모든 일을 혼자 결정하라는 뜻은 아니군요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Es bedeutet also nicht, dass ich alles allein entscheiden soll.",
+          "en": "So it doesn't mean I should decide everything alone."
+        }
+      },
+      {
+        "korean": "맞아요. 다음 회의에서는 첫 안건의 자료 정리를 맡아 볼래요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Genau. Möchtest du für den ersten Punkt im nächsten Meeting die Unterlagen vorbereiten?",
+          "en": "Right. Would you prepare the materials for the first item at the next meeting?"
+        }
+      },
+      {
+        "korean": "네. 그 역할을 기준으로 준비해 보겠습니다.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Daran orientiere ich meine Vorbereitung.",
+          "en": "Yes. I'll use that role as my concrete target."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_b2_precise_requests"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_b1_whether"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "V-(으)ㄴ/는지",
+        "de": "Indirekte Frage (ob/was/wer)",
+        "en": "Indirect question (whether)"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Ob/W-Frage als Nebensatz vor 알다/모르다/궁금하다",
+        "en": "Whether/wh-question as clause before 알다/모르다/궁금하다"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "andrea",
+        "ko": "다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.",
+        "de": "Beim nächsten Projekt wünsche ich mir etwas mehr Eigeninitiative von dir.",
+        "en": "I'd like you to take more initiative on the next project."
+      },
+      {
+        "speaker": "user",
+        "ko": "주도적으로 하라는 말이 어떤 행동을 뜻하는지 예를 들어 주실 수 있을까요?",
+        "de": "Könntest du an einem Beispiel erklären, welches Verhalten du damit meinst?",
+        "en": "Could you give me an example of what behavior you mean by that?"
+      },
+      {
+        "speaker": "andrea",
+        "ko": "회의 전에 필요한 자료를 먼저 모으고 안건을 제안하는 거예요.",
+        "de": "Zum Beispiel vor dem Meeting die nötigen Unterlagen sammeln und einen Tagesordnungspunkt vorschlagen.",
+        "en": "For example, gathering the needed materials before a meeting and proposing an agenda item."
+      },
+      {
+        "speaker": "user",
+        "ko": "모든 일을 혼자 결정하라는 뜻은 아니군요.",
+        "de": "Es bedeutet also nicht, dass ich alles allein entscheiden soll.",
+        "en": "So it doesn't mean I should decide everything alone."
+      },
+      {
+        "speaker": "andrea",
+        "ko": "맞아요. 다음 회의에서는 첫 안건의 자료 정리를 맡아 볼래요?",
+        "de": "Genau. Möchtest du für den ersten Punkt im nächsten Meeting die Unterlagen vorbereiten?",
+        "en": "Right. Would you prepare the materials for the first item at the next meeting?"
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 그 역할을 기준으로 준비해 보겠습니다.",
+        "de": "Ja. Daran orientiere ich meine Vorbereitung.",
+        "en": "Yes. I'll use that role as my concrete target."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_feedback_specific_example_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.",
+          "options": [
+            {
+              "de": "Beim nächsten Projekt wünsche ich mir etwas mehr Eigeninitiative von dir.",
+              "en": "I'd like you to take more initiative on the next project."
+            },
+            {
+              "de": "Könntest du an einem Beispiel erklären, welches Verhalten du damit meinst?",
+              "en": "Could you give me an example of what behavior you mean by that?"
+            },
+            {
+              "de": "Zum Beispiel vor dem Meeting die nötigen Unterlagen sammeln und einen Tagesordnungspunkt vorschlagen.",
+              "en": "For example, gathering the needed materials before a meeting and proposing an agenda item."
+            },
+            {
+              "de": "Es bedeutet also nicht, dass ich alles allein entscheiden soll.",
+              "en": "So it doesn't mean I should decide everything alone."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_feedback_specific_example_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Könntest du an einem Beispiel erklären, welches Verhalten du damit meinst?",
+          "promptEn": "Could you give me an example of what behavior you mean by that?",
+          "options": [
+            {
+              "ko": "주도적으로 하라는 말이 어떤 행동을 뜻하는지 예를 들어 주실 수 있을까요?"
+            },
+            {
+              "ko": "다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요."
+            },
+            {
+              "ko": "회의 전에 필요한 자료를 먼저 모으고 안건을 제안하는 거예요."
+            },
+            {
+              "ko": "모든 일을 혼자 결정하라는 뜻은 아니군요."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_feedback_specific_example_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "네. 그 역할을 기준으로 준비해 보겠습니다.",
+          "audioKo": "네. 그 역할을 기준으로 준비해 보겠습니다.",
+          "promptDe": "Ja. Daran orientiere ich meine Vorbereitung.",
+          "promptEn": "Yes. I'll use that role as my concrete target.",
+          "distractors": [
+            "다음 프로젝트에서는 조금 더 주도적으로 움직였으면 해요.",
+            "주도적으로 하라는 말이 어떤 행동을 뜻하는지 예를 들어 주실 수 있을까요?",
+            "회의 전에 필요한 자료를 먼저 모으고 안건을 제안하는 거예요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 130
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

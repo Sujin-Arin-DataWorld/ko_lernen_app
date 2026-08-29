@@ -1,0 +1,242 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "gym_class_cancel",
+  "scenario": {
+    "id": "gym_class_cancel",
+    "level": "a2",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "운동 수업을 취소하기",
+      "de": "Einen Sportkurs wegen Schmerzen absagen",
+      "en": "Canceling a workout class because of pain"
+    },
+    "intro": {
+      "ko": "발목이 아파서 저녁 수업에 갈 수 없어요.",
+      "de": "Dein Knöchel tut weh, deshalb kannst du nicht zum Abendkurs kommen.",
+      "en": "Your ankle hurts, so you can't attend the evening class."
+    },
+    "courseUnitId": "a2_04_feelings_health",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "clerk"
+    ],
+    "relationshipContext": "회원과 직원",
+    "intent": "간단한 이유를 말하고 다음 주로 바꿀 수 있는지 묻는다",
+    "shelf": "a2_body",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "안녕하세요. 무엇을 도와드릴까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Guten Tag. Wie kann ich Ihnen helfen?",
+          "en": "Hello. How can I help you?"
+        }
+      },
+      {
+        "korean": "발목이 아파서 오늘 수업을 못 가요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Mein Knöchel tut weh, deshalb kann ich heute nicht zum Kurs kommen.",
+          "en": "My ankle hurts, so I can't make it to class today."
+        }
+      },
+      {
+        "korean": "오늘 수업을 취소할까요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Soll ich den heutigen Kurs stornieren?",
+          "en": "Would you like me to cancel today's class?"
+        }
+      },
+      {
+        "korean": "다른 날로 바꿀 수 있어요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Kann ich auf einen anderen Tag umbuchen?",
+          "en": "Can I move it to another day?"
+        }
+      },
+      {
+        "korean": "네, 금요일 저녁에 자리가 있어요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, am Freitagabend ist noch ein Platz frei.",
+          "en": "Yes, there's a spot on Friday evening."
+        }
+      },
+      {
+        "korean": "그럼 금요일 저녁으로 바꿔 주세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Dann bitte auf Freitagabend.",
+          "en": "Then please move it to Friday evening."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a2_feelings"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "clerk",
+        "ko": "안녕하세요. 무엇을 도와드릴까요?",
+        "de": "Guten Tag. Wie kann ich Ihnen helfen?",
+        "en": "Hello. How can I help you?"
+      },
+      {
+        "speaker": "user",
+        "ko": "발목이 아파서 오늘 수업을 못 가요.",
+        "de": "Mein Knöchel tut weh, deshalb kann ich heute nicht zum Kurs kommen.",
+        "en": "My ankle hurts, so I can't make it to class today."
+      },
+      {
+        "speaker": "clerk",
+        "ko": "오늘 수업을 취소할까요?",
+        "de": "Soll ich den heutigen Kurs stornieren?",
+        "en": "Would you like me to cancel today's class?"
+      },
+      {
+        "speaker": "user",
+        "ko": "다른 날로 바꿀 수 있어요?",
+        "de": "Kann ich auf einen anderen Tag umbuchen?",
+        "en": "Can I move it to another day?"
+      },
+      {
+        "speaker": "clerk",
+        "ko": "네, 금요일 저녁에 자리가 있어요.",
+        "de": "Ja, am Freitagabend ist noch ein Platz frei.",
+        "en": "Yes, there's a spot on Friday evening."
+      },
+      {
+        "speaker": "user",
+        "ko": "그럼 금요일 저녁으로 바꿔 주세요.",
+        "de": "Dann bitte auf Freitagabend.",
+        "en": "Then please move it to Friday evening."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_gym_class_cancel_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "안녕하세요. 무엇을 도와드릴까요?",
+          "options": [
+            {
+              "de": "Guten Tag. Wie kann ich Ihnen helfen?",
+              "en": "Hello. How can I help you?"
+            },
+            {
+              "de": "Mein Knöchel tut weh, deshalb kann ich heute nicht zum Kurs kommen.",
+              "en": "My ankle hurts, so I can't make it to class today."
+            },
+            {
+              "de": "Soll ich den heutigen Kurs stornieren?",
+              "en": "Would you like me to cancel today's class?"
+            },
+            {
+              "de": "Kann ich auf einen anderen Tag umbuchen?",
+              "en": "Can I move it to another day?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_gym_class_cancel_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Mein Knöchel tut weh, deshalb kann ich heute nicht zum Kurs kommen.",
+          "promptEn": "My ankle hurts, so I can't make it to class today.",
+          "options": [
+            {
+              "ko": "발목이 아파서 오늘 수업을 못 가요."
+            },
+            {
+              "ko": "안녕하세요. 무엇을 도와드릴까요?"
+            },
+            {
+              "ko": "오늘 수업을 취소할까요?"
+            },
+            {
+              "ko": "다른 날로 바꿀 수 있어요?"
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_gym_class_cancel_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "그럼 금요일 저녁으로 바꿔 주세요.",
+          "audioKo": "그럼 금요일 저녁으로 바꿔 주세요.",
+          "promptDe": "Dann bitte auf Freitagabend.",
+          "promptEn": "Then please move it to Friday evening.",
+          "distractors": [
+            "안녕하세요. 무엇을 도와드릴까요?",
+            "발목이 아파서 오늘 수업을 못 가요.",
+            "오늘 수업을 취소할까요?"
+          ]
+        }
+      }
+    ],
+    "culturalNote": null,
+    "xpReward": 110
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

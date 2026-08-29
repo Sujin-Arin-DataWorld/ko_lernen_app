@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "generationId": "canonical_120_v1",
+  "level": "a2",
+  "regressionOnly": true,
+  "scenarios": [
+    {"id": "reg_mistake_a2_attachment", "copyFrom": "email_attachment_twice"},
+    {"id": "reg_digital_a2_photo", "copyFrom": "group_chat_photo_permission"}
+  ]
+}

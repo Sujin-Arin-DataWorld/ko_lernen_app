@@ -1,0 +1,257 @@
+{
+  "kind": "scenario_candidate",
+  "scenarioId": "dance_class_register",
+  "scenario": {
+    "id": "dance_class_register",
+    "level": "a1",
+    "emoji": "🏠",
+    "register": "polite",
+    "speechStyle": "polite",
+    "title": {
+      "ko": "댄스 수업에서 말투 알아듣기",
+      "de": "Zwei Arten, den Platz zu zeigen",
+      "en": "Two ways to show someone where to stand"
+    },
+    "intro": {
+      "ko": "댄스 수업에서 같은 말을 다르게 들어요.",
+      "de": "Im Tanzkurs hörst du denselben Hinweis in zwei verschiedenen Sprechstilen.",
+      "en": "In dance class, you hear the same instruction in two speech styles."
+    },
+    "courseUnitId": "a1_13_register_switching",
+    "playerCharacterId": "lena",
+    "participantIds": [
+      "lena",
+      "maya",
+      "instructor"
+    ],
+    "relationshipContext": "강사와 처음 온 레나, 친한 마야",
+    "intent": "두 말투를 알아듣고 자기 자리를 확인한다",
+    "shelf": "a1_friends",
+    "backdrop": "home",
+    "vocab": [
+      {
+        "korean": "레나, 여기 서세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Lena, stell dich bitte hierhin.",
+          "en": "Lena, please stand here."
+        }
+      },
+      {
+        "korean": "네. 여기요?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. Hier?",
+          "en": "Okay. Here?"
+        }
+      },
+      {
+        "korean": "네, 마야 옆에 서세요.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja, neben Maya.",
+          "en": "Yes, next to Maya."
+        }
+      },
+      {
+        "korean": "레나, 여기 서.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Lena, stell dich hierhin.",
+          "en": "Lena, stand here."
+        }
+      },
+      {
+        "korean": "‘여기 서’도 맞아?",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ist „여기 서“ auch richtig?",
+          "en": "Is '여기 서' right too?"
+        }
+      },
+      {
+        "korean": "응. 친구한테는 이렇게 말해.",
+        "note": {
+          "ko": "장면 핵심 표현",
+          "de": "Ja. So sage ich es zu Freunden.",
+          "en": "Yes. That's how I say it to friends."
+        }
+      }
+    ],
+    "conceptIds": [
+      "concept_a1_register_switch",
+      "concept_action_formal",
+      "concept_action_polite",
+      "concept_action_casual"
+    ],
+    "surfaceFormIds": [],
+    "grammarIds": [
+      "grammar_a1_direction_time_particle"
+    ],
+    "grammarBlock": {
+      "title": {
+        "ko": "N에",
+        "de": "Richtungs-/Ortspartikel",
+        "en": "Direction/time particle"
+      },
+      "explanation": {
+        "ko": "이 장면의 실제 대사에서 쓰인 표현이에요.",
+        "de": "Richtung (wohin?) oder Zeitpunkt (wann?)",
+        "en": "Direction (to where?) or point in time (when?)"
+      }
+    },
+    "dialog": [
+      {
+        "speaker": "instructor",
+        "ko": "레나, 여기 서세요.",
+        "de": "Lena, stell dich bitte hierhin.",
+        "en": "Lena, please stand here."
+      },
+      {
+        "speaker": "user",
+        "ko": "네. 여기요?",
+        "de": "Ja. Hier?",
+        "en": "Okay. Here?"
+      },
+      {
+        "speaker": "instructor",
+        "ko": "네, 마야 옆에 서세요.",
+        "de": "Ja, neben Maya.",
+        "en": "Yes, next to Maya."
+      },
+      {
+        "speaker": "maya",
+        "ko": "레나, 여기 서.",
+        "de": "Lena, stell dich hierhin.",
+        "en": "Lena, stand here."
+      },
+      {
+        "speaker": "user",
+        "ko": "‘여기 서’도 맞아?",
+        "de": "Ist „여기 서“ auch richtig?",
+        "en": "Is '여기 서' right too?"
+      },
+      {
+        "speaker": "maya",
+        "ko": "응. 친구한테는 이렇게 말해.",
+        "de": "Ja. So sage ich es zu Freunden.",
+        "en": "Yes. That's how I say it to friends."
+      }
+    ],
+    "quests": [
+      {
+        "id": "quest_dance_class_register_01",
+        "type": "hoerverstehen",
+        "data": {
+          "audioKo": "레나, 여기 서세요.",
+          "options": [
+            {
+              "de": "Lena, stell dich bitte hierhin.",
+              "en": "Lena, please stand here."
+            },
+            {
+              "de": "Ja. Hier?",
+              "en": "Okay. Here?"
+            },
+            {
+              "de": "Ja, neben Maya.",
+              "en": "Yes, next to Maya."
+            },
+            {
+              "de": "Lena, stell dich hierhin.",
+              "en": "Lena, stand here."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_dance_class_register_02",
+        "type": "uebersetzen",
+        "data": {
+          "promptDe": "Ja. Hier?",
+          "promptEn": "Okay. Here?",
+          "options": [
+            {
+              "ko": "네. 여기요?"
+            },
+            {
+              "ko": "레나, 여기 서세요."
+            },
+            {
+              "ko": "네, 마야 옆에 서세요."
+            },
+            {
+              "ko": "레나, 여기 서."
+            }
+          ],
+          "correctIndex": 0
+        }
+      },
+      {
+        "id": "quest_dance_class_register_03",
+        "type": "satzBauen",
+        "data": {
+          "targetKo": "‘여기 서’도 맞아?",
+          "audioKo": "‘여기 서’도 맞아?",
+          "promptDe": "Ist „여기 서“ auch richtig?",
+          "promptEn": "Is '여기 서' right too?",
+          "distractors": [
+            "레나, 여기 서세요.",
+            "네. 여기요?",
+            "네, 마야 옆에 서세요."
+          ]
+        }
+      }
+    ],
+    "culturalNote": {
+      "title": {
+        "ko": "상대에 따라 달라지는 말끝",
+        "de": "Andere Endungen je nach Beziehung",
+        "en": "Different endings for different relationships"
+      },
+      "body": {
+        "ko": "서세요와 서는 뜻은 같지만 관계와 상황이 달라요. 처음 만난 사람에게는 서세요가 안전해요.",
+        "de": "서세요 und 서 bedeuten hier dasselbe, zeigen aber eine andere Beziehung. Bei einer neuen Bekanntschaft ist 서세요 die sichere Form.",
+        "en": "서세요 and 서 mean the same thing here, but signal a different relationship. With someone new, 서세요 is the safer choice."
+      }
+    },
+    "xpReward": 100
+  },
+  "audit": {
+    "criticalErrors": [],
+    "accuracy": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "naturalness": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "pragmatics": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "relationship": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "cefr": {
+      "verdict": "pending",
+      "notes": [
+        "Awaiting the hash-bound model and Jin review receipts."
+      ]
+    },
+    "warnings": [],
+    "provenance": "materialization_pending_external_audit"
+  },
+  "editorialSource": "canonical_scenarios/authored"
+}

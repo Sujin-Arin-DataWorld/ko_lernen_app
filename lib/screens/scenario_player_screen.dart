@@ -1197,14 +1197,28 @@ class _ScenarioPlayerScreenState extends State<ScenarioPlayerScreen>
                               HapticFeedback.selectionClick();
                               SoriSpeech.speak(
                                 line.ko,
-                                voice: line.speaker == 'user'
-                                    ? 'female'
-                                    : 'male',
+                                voice: sc.voiceForSpeaker(line.speaker),
                               );
                             },
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                Text(
+                                  sc.speakerDisplayName(
+                                    line.speaker,
+                                    languageCode: lang,
+                                    fallbackYou: t.listeningSpeakerYou,
+                                    fallbackNarrator: t.listeningNarrator,
+                                    playerSelfSuffix:
+                                        t.scenarioPlayerSelfSuffix,
+                                  ),
+                                  style: SoriTextTheme.of(context).meta
+                                      .copyWith(
+                                        color: bubbleAccent,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                ),
+                                const SizedBox(height: Spacing.xs),
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,

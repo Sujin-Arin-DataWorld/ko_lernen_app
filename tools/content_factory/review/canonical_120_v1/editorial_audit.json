@@ -1,0 +1,1461 @@
+{
+  "schemaVersion": 1,
+  "kind": "canonical_scenario_editorial_audit",
+  "generationId": "canonical_120_v1",
+  "candidateSetSha256": "8f9e37b4951fdc969b965ac8214d74baee874b579dab7c56918e6260a0e2614b",
+  "humanApprovalRequired": true,
+  "humanApprovalRecorded": false,
+  "automatedAuditIsApproval": false,
+  "summary": {
+    "ok": true,
+    "scenarioCount": 120,
+    "levelScenarioCounts": {
+      "a1": 20,
+      "a2": 20,
+      "b1": 20,
+      "b2": 20,
+      "c1": 20,
+      "c2": 20
+    },
+    "dialogTurnCounts": {
+      "a1": 123,
+      "a2": 122,
+      "b1": 121,
+      "b2": 121,
+      "c1": 120,
+      "c2": 126
+    },
+    "cultureNoteCount": 12,
+    "errorCount": 0,
+    "warningCount": 0
+  },
+  "lengthMetrics": {
+    "a1": {
+      "turnCount": 123,
+      "meanKoChars": 11.56,
+      "p95KoChars": 18,
+      "maxKoChars": 23
+    },
+    "a2": {
+      "turnCount": 122,
+      "meanKoChars": 15.22,
+      "p95KoChars": 24,
+      "maxKoChars": 32
+    },
+    "b1": {
+      "turnCount": 121,
+      "meanKoChars": 22.67,
+      "p95KoChars": 33,
+      "maxKoChars": 41
+    },
+    "b2": {
+      "turnCount": 121,
+      "meanKoChars": 28.75,
+      "p95KoChars": 40,
+      "maxKoChars": 43
+    },
+    "c1": {
+      "turnCount": 120,
+      "meanKoChars": 36.73,
+      "p95KoChars": 50,
+      "maxKoChars": 56
+    },
+    "c2": {
+      "turnCount": 126,
+      "meanKoChars": 41.75,
+      "p95KoChars": 56,
+      "maxKoChars": 71
+    }
+  },
+  "repeatedOpeners": [],
+  "germanAddressPolicy": {
+    "scope": "scene_relationship_not_global_brand_voice",
+    "mixedSpeakerCount": 0,
+    "scenes": {
+      "airport_arrival": {
+        "relationship": "처음 만난 입국 담당자와 여행자",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "Sie"
+          ],
+          "official": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "bakery_payment_bag": {
+        "relationship": "손님과 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "clerk": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "bakery_queue": {
+        "relationship": "처음 보는 크리스티안과 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "break_glass_apology": {
+        "relationship": "아직 조심스러운 친구 크리스티안과 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "bunshik_tteokbokki": {
+        "relationship": "손님과 식당 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "server": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "cafe_dessert_sold_out": {
+        "relationship": "손님과 카페 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "clarify_repeat": {
+        "relationship": "여행자와 역 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "dance_class_register": {
+        "relationship": "강사와 처음 온 레나, 친한 마야",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "instructor": [
+            "du"
+          ],
+          "maya": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "favorite_korean_music": {
+        "relationship": "막 친해지기 시작한 레나와 마야",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "maya": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "first_class_meeting": {
+        "relationship": "처음 만난 크리스티안과 레나",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "home_morning_routine": {
+        "relationship": "친한 교환학생 친구 크리스티안과 레나",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "introduce_yourself": {
+        "relationship": "처음 만난 크리스티안과 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "du"
+          ],
+          "sujin": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "kakao_contact_after_class": {
+        "relationship": "처음 친해진 레나와 마야",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "korea_stay_smalltalk": {
+        "relationship": "막 알게 된 레나와 마야",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "maya": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "mart_grocery": {
+        "relationship": "손님과 마트 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "meeting_time": {
+        "relationship": "아직 존댓말을 쓰는 크리스티안과 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "subway_step_apology": {
+        "relationship": "서로 모르는 승객 두 사람",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "survival_day_capstone": {
+        "relationship": "친한 교환학생 친구 크리스티안과 레나",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "taxi_kakao": {
+        "relationship": "승객과 택시 기사",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "umbrella_weather": {
+        "relationship": "친해지는 중인 크리스티안과 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "clothing_refund_size": {
+        "relationship": "손님과 매장 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "clerk": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "convenience_parcel_pickup": {
+        "relationship": "손님과 편의점 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "clerk": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "delivery_dinner_spicy": {
+        "relationship": "친구 수진과 크리스티안",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "sujin": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "email_attachment_twice": {
+        "relationship": "신입 마야와 친절하지만 바쁜 동료",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "favorite_drama_chat": {
+        "relationship": "친해지는 중인 마야와 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "sujin": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "forgot_house_key": {
+        "relationship": "친한 크리스티안과 레나",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "du"
+          ],
+          "lena": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "forgot_presentation_cable": {
+        "relationship": "조별 과제 동료 크리스티안과 레나",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "friend_cancelled_plan": {
+        "relationship": "친한 마야와 레나",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "du"
+          ],
+          "maya": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "group_chat_photo_permission": {
+        "relationship": "친구 마야와 레나",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "gym_class_cancel": {
+        "relationship": "회원과 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "clerk": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "jeju_bus_missed": {
+        "relationship": "여행 중인 레나와 다니엘",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "library_card_problem": {
+        "relationship": "이용자와 도서관 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "clerk": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "package_wrong_door": {
+        "relationship": "처음 대화하는 이웃과 크리스티안",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "pharmacy_cold_medicine": {
+        "relationship": "손님과 약사",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "pharmacist": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "plans_with_friend": {
+        "relationship": "친구가 된 크리스티안과 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "running_late": {
+        "relationship": "친한 레나와 마야",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "samgyeopsal_first_time": {
+        "relationship": "친구 크리스티안과 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "sujin": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "shared_document_old_version": {
+        "relationship": "조별 과제 동료 크리스티안과 레나",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "taxi_slow_down": {
+        "relationship": "승객과 택시 기사",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "train_seat_swap": {
+        "relationship": "서로 모르는 승객과 다니엘",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "customer": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "ai_summary_wrong_fact": {
+        "relationship": "조별 과제 동료 크리스티안과 현아",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "apartment_recycling_mixup": {
+        "relationship": "한국 생활이 익숙해지는 크리스티안과 이웃",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "birthday_expectation_gap": {
+        "relationship": "친한 크리스티안과 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "du"
+          ],
+          "sujin": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "cancelled_trip_hurt_feelings": {
+        "relationship": "친한 레나와 다니엘",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "community_festival_shift": {
+        "relationship": "봉사자 레나와 담당자",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "official": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "company_instagram_wrong_account": {
+        "relationship": "신입 마야와 팀 동료",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "coworker": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "date_or_friendly_coffee": {
+        "relationship": "친구가 되었지만 서로 호감이 있는 크리스티안과 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "food_delivery_wrong_order": {
+        "relationship": "고객과 상담 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "clerk": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "jeju_rain_plan_change": {
+        "relationship": "함께 여행하는 레나와 다니엘",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "ktx_sold_out_alternative": {
+        "relationship": "함께 여행하는 다니엘과 현아",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "noisy_neighbor_evening": {
+        "relationship": "처음 대화하는 수진과 이웃",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "sujin": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "park_pet_manners": {
+        "relationship": "러너 다니엘과 반려견을 데리고 나온 이웃",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "daniel": [
+            "Sie"
+          ],
+          "neighbor": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "reel_caption_misunderstanding": {
+        "relationship": "프로젝트 동료 마야와 다니엘",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "running_injury_training_plan": {
+        "relationship": "러닝 친구 다니엘과 현아",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "hyuna": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "secondhand_hidden_defect": {
+        "relationship": "처음 만난 판매자와 다니엘",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "shared_cup_recycling": {
+        "relationship": "동료 마야와 안드레아",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "speech_level_after_friendship": {
+        "relationship": "몇 달째 친구로 지낸 레나와 마야",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "maya": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "subscription_cancel_charge": {
+        "relationship": "이용자와 상담 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "clerk": [
+            "Sie"
+          ],
+          "lena": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "team_update_indirect_speech": {
+        "relationship": "신입 마야와 같은 팀 동료",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "work_message_too_direct": {
+        "relationship": "신입 마야와 선배 안드레아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "andrea": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "accessible_festival_route": {
+        "relationship": "기획자 마야와 주민 참여자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "resident": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "ai_image_disclosure": {
+        "relationship": "마야와 수진, 프로젝트 동료",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "brand_private_account_boundary": {
+        "relationship": "마야와 안드레아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "community_event_compromise": {
+        "relationship": "행사 기획자와 인근 주민, 참여자 현아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "delivery_refund_evidence": {
+        "relationship": "이용자 수진과 상담 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "clerk": [
+            "Sie"
+          ],
+          "sujin": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "direct_feedback_misread": {
+        "relationship": "프로젝트 동료 다니엘과 마야",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "maya": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "feedback_specific_example": {
+        "relationship": "신입 마야와 선배 안드레아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "andrea": [
+            "du"
+          ],
+          "maya": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "filming_permission": {
+        "relationship": "영상 제작자 다니엘과 카페 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "clerk": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "freelance_scope_change": {
+        "relationship": "프리랜서 다니엘과 고객사 담당자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "daniel": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "fremdschaemen_live": {
+        "relationship": "친한 마야와 레나",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "lena": [
+            "du"
+          ],
+          "maya": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "library_quiet_zone_conflict": {
+        "relationship": "학생 레나와 다른 이용자",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "student": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "meeting_disagreement_evidence": {
+        "relationship": "마야와 안드레아를 포함한 동료",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "meeting_opening_context": {
+        "relationship": "처음 함께 일하는 마야와 안드레아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "neighborhood_filming_notice": {
+        "relationship": "영상 제작자 다니엘과 주민",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "daniel": [
+            "Sie"
+          ],
+          "resident": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "partner_family_titles": {
+        "relationship": "연애를 시작한 크리스티안과 수진",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "du"
+          ],
+          "sujin": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "portfolio_interview_gap": {
+        "relationship": "지원자 마야와 면접관",
+        "koreanRegister": "business",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "interviewer": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "recycling_policy_pilot": {
+        "relationship": "주민 수진과 이웃들",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "rental_repair_deposit": {
+        "relationship": "세입자 크리스티안과 집주인",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "train_delay_connection": {
+        "relationship": "여행자 다니엘과 직원",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "daniel": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "wedding_invitation_expectation": {
+        "relationship": "동료 마야와 안드레아",
+        "koreanRegister": "polite",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "andrea": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "after_hours_messages": {
+        "relationship": "팀 리더 안드레아와 팀원 마야",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "ai_interview_screening_transparency": {
+        "relationship": "리더 안드레아와 데이터 분석가 수진",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "ai_translation_voice_loss": {
+        "relationship": "영상 제작자 다니엘과 연구자 현아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "anonymous_survey_trust": {
+        "relationship": "재무 리더 안드레아와 데이터 분석가 수진",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "deepfake_verification": {
+        "relationship": "편집자와 데이터 분석가 수진",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "delivery_rider_safety_tradeoff": {
+        "relationship": "플랫폼 담당자, 라이더, 이용자 대표 현아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "fan_translation_credit": {
+        "relationship": "마야와 자막 번역 참여자들",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "gentrification_storefront": {
+        "relationship": "연구자 현아와 가게 운영자, 주민",
+        "koreanRegister": "business",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "resident": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "heatwave_shelter_access": {
+        "relationship": "현아와 주민, 담당자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "kiosk_generation_access": {
+        "relationship": "데이터 분석가 수진과 매장 담당자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "museum_label_multiple_views": {
+        "relationship": "현아와 큐레이터 역할의 담당자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "nightlife_noise_balance": {
+        "relationship": "현아, 상인, 주민, 담당자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "platform_moderation_appeal": {
+        "relationship": "운영자 수진과 주민 이용자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "public_consultation_access": {
+        "relationship": "연구자 현아와 공무원, 주민",
+        "koreanRegister": "business",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "resident": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "research_limits_presentation": {
+        "relationship": "현아와 지도 교수",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "school_phone_rule": {
+        "relationship": "교사, 학생 대표, 학부모와 관찰자 현아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "tradition_reinterpreted_stage": {
+        "relationship": "기획자 마야와 연구자 현아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "training_data_copyright": {
+        "relationship": "마야, 다니엘, 법무가 아닌 프로젝트 담당자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "workload_allocation_hidden_labor": {
+        "relationship": "팀 리더 안드레아와 마야, 동료",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "youth_housing_plain_language": {
+        "relationship": "데이터 분석가 수진과 공공기관 담당자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "ai_hiring_appeal": {
+        "relationship": "재무 리더 안드레아와 데이터 분석가 수진, 지원자 대표",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "automated_benefit_denial": {
+        "relationship": "분석가 수진과 기관 담당자, 당사자 대표",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "autonomous_delivery_liability": {
+        "relationship": "플랫폼 담당자, 운영사, 시민 대표 현아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "causal_claim_headline": {
+        "relationship": "데이터 분석가 수진과 편집자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "central_local_disaster_responsibility": {
+        "relationship": "중앙·지방 담당자와 시민 대표 현아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "Sie"
+        ],
+        "bySpeaker": {
+          "resident": [
+            "Sie"
+          ]
+        },
+        "status": "review_required"
+      },
+      "climate_model_local_decision": {
+        "relationship": "연구자 현아와 도시 담당자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "diaspora_name_identity": {
+        "relationship": "기획자 마야와 참가자 대표",
+        "koreanRegister": "business",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "maya": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "emergency_price_controls": {
+        "relationship": "재무 전문가 안드레아와 공공 담당자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "fact_check_label_power": {
+        "relationship": "연구자 현아와 플랫폼 담당자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "family_memory_conflict": {
+        "relationship": "연인 크리스티안과 수진",
+        "koreanRegister": "intimate",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "hidden_gem_local_impact": {
+        "relationship": "영상 제작자 다니엘, 연구자 현아, 주민",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "housing_tax_intergenerational": {
+        "relationship": "진행자와 연구자 현아",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "medical_uncertainty_consent": {
+        "relationship": "연구자와 참여자 대표 수진",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "passive_voice_accountability": {
+        "relationship": "편집자와 담당자, 분석가 수진",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "poll_question_framing": {
+        "relationship": "분석가 수진과 편집자",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "protest_order_and_rights": {
+        "relationship": "연구자 현아와 정책 담당자, 시민",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "relationship_story_reframing": {
+        "relationship": "연인 크리스티안과 수진",
+        "koreanRegister": "intimate",
+        "observedModes": [
+          "du"
+        ],
+        "bySpeaker": {
+          "christian": [
+            "du"
+          ],
+          "sujin": [
+            "du"
+          ]
+        },
+        "status": "review_required"
+      },
+      "replication_failure_response": {
+        "relationship": "연구자 현아와 교수, 동료",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "we_translation_identity": {
+        "relationship": "서로 편하게 말하는 현아와 다니엘",
+        "koreanRegister": "casual",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      },
+      "welfare_fraud_presumption": {
+        "relationship": "기관 담당자와 시민 대표 수진",
+        "koreanRegister": "business",
+        "observedModes": [
+          "neutral"
+        ],
+        "bySpeaker": {},
+        "status": "review_required"
+      }
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

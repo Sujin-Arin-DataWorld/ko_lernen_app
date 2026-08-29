@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hangulsori.app/schema/scenario-brief-v1.json",
+  "title": "ScenarioBrief",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "level", "portfolioBucket", "titleKo", "writerRole", "setting", "relationship", "event", "playerGoal", "counterpartGoal", "turningPoint", "canDoKo", "courseUnitId", "checkpointForUnit", "playerCharacterId", "participantIds", "register", "backdrop", "mustIncludeKo", "mustAvoidKo"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "level": {"enum": ["a1", "a2", "b1", "b2", "c1", "c2"]},
+    "portfolioBucket": {"type": "string", "minLength": 1},
+    "titleKo": {"type": "string", "minLength": 1},
+    "writerRole": {"type": "string", "minLength": 1},
+    "setting": {"type": "string", "minLength": 1},
+    "relationship": {"type": "string", "minLength": 1},
+    "event": {"type": "string", "minLength": 1},
+    "playerGoal": {"type": "string", "minLength": 1},
+    "counterpartGoal": {"type": "string", "minLength": 1},
+    "turningPoint": {"type": "string", "minLength": 1},
+    "canDoKo": {"type": "string", "minLength": 1},
+    "courseUnitId": {"type": "string", "minLength": 1},
+    "checkpointForUnit": {"type": "boolean"},
+    "playerCharacterId": {"type": "string", "minLength": 1},
+    "participantIds": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "register": {"enum": ["polite", "casual", "business", "intimate"]},
+    "backdrop": {"type": "string", "minLength": 1},
+    "mustIncludeKo": {"type": "array", "items": {"type": "string"}},
+    "mustAvoidKo": {"type": "array", "items": {"type": "string"}},
+    "anchorKey": {"type": "string"},
+    "regressionTheme": {"type": "string"},
+    "runtimeEligible": {"type": "boolean"}
+  }
+}
