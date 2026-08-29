@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "pending_visual_and_in_world_approval",
+  "status": "pending_building_placement_approval",
   "estateId": "ildu-gotaek-v3",
   "buildingId": "sarangchae",
   "planVersion": "sarangchae-v1",
@@ -389,24 +389,562 @@
       ]
     }
   ],
-  "worldReview": {
-    "worldAsset": "assets/illustrations/personal_hanok_v3/world/ildu-wall-masterplan-v1.png",
-    "worldAssetSha256": "6c9438312ed828e8d2afac9bee9af728ad22933de0639dabf30def82bb165b7e",
-    "anchor": {
-      "x": 48.2,
-      "y": 55.8,
-      "width": 29,
-      "rotation": 0
-    },
-    "renderedSpriteSize": [
-      699,
-      467
+  "buildingPlacementV3": {
+    "status": "pending_building_placement_approval",
+    "canvas": [
+      2412,
+      2622
     ],
-    "renderedSpriteOffset": [
-      814,
-      1230
+    "sequence": [
+      "buildings",
+      "internal-walls",
+      "outer-wall"
+    ],
+    "wallLayers": [],
+    "source": {
+      "file": "raw/ildu_bare_ground_source_v1.png",
+      "sha256": "1aea866f345eef9f8ed097bc9fa5017f669781d641a0be02c48dc537a0305c49",
+      "kind": "user-provided-bare-ground"
+    },
+    "requiredRelations": [
+      "changgo-side-midpoint-to-shared-wall",
+      "shared-wall-to-hyeopmun",
+      "hyeopmun-immediately-left-of-sarangchae",
+      "jungmunganchae-immediately-behind-sarangchae"
+    ],
+    "buildingIds": [
+      "sarangchae",
+      "jungmunganchae",
+      "toilet-north",
+      "toilet-south",
+      "changgo",
+      "anchae-store",
+      "araechae",
+      "anchae",
+      "sadang",
+      "gokgan",
+      "ansarang"
+    ],
+    "connectionBuildingIds": [
+      "hyeopmun-west"
+    ],
+    "anchors": {
+      "toilet-north": {
+        "hubId": "service",
+        "ko": "윗화장실",
+        "de": "Nördliches Nebengebäude",
+        "asset": "toilet.png",
+        "x": 24.7,
+        "y": 19.7,
+        "width": 10.2,
+        "rotation": 0,
+        "unlockEra": "b1",
+        "lessonIntent": "장소와 위치",
+        "sourceManifestId": "toilet-north",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/toilet.png",
+            "sha256": "c0ff7210a6bd1b2d04f281fe698c7a01b9e701555542b099b6f157875b35dcda",
+            "size": [
+              1100,
+              825
+            ],
+            "alphaBbox": [
+              147,
+              76,
+              900,
+              733
+            ]
+          }
+        ],
+        "renderedSize": [
+          246,
+          184
+        ],
+        "renderedOffset": [
+          473,
+          425
+        ]
+      },
+      "araechae": {
+        "hubId": "anchae",
+        "ko": "아랫채",
+        "de": "Araechae",
+        "asset": "araechae.png",
+        "x": 47.5,
+        "y": 20.3,
+        "width": 22,
+        "rotation": 0,
+        "unlockEra": "b1",
+        "lessonIntent": "가족과 공간",
+        "sourceManifestId": "araechae",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/araechae.png",
+            "sha256": "18bd87df76f1628d71d14e7e8c6ac695cc1b0b4263d2dded0a5e4f52bee81880",
+            "size": [
+              1100,
+              619
+            ],
+            "alphaBbox": [
+              10,
+              68,
+              1090,
+              541
+            ]
+          }
+        ],
+        "renderedSize": [
+          531,
+          299
+        ],
+        "renderedOffset": [
+          881,
+          383
+        ]
+      },
+      "sadang": {
+        "hubId": "sadang",
+        "ko": "사당",
+        "de": "Ahnenschrein",
+        "asset": "sadang.png",
+        "x": 75.8,
+        "y": 28.2,
+        "width": 17,
+        "rotation": 90,
+        "unlockEra": "b2",
+        "lessonIntent": "전통과 예절",
+        "sourceManifestId": "sadang",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/sadang.png",
+            "sha256": "61cd04bf335bfe0ded1b8ee0e15f9574ff792cfb85ed5f5ab229eaf2855df0fe",
+            "size": [
+              1100,
+              733
+            ],
+            "alphaBbox": [
+              25,
+              95,
+              1071,
+              644
+            ]
+          }
+        ],
+        "renderedSize": [
+          273,
+          410
+        ],
+        "renderedOffset": [
+          1692,
+          534
+        ]
+      },
+      "anchae": {
+        "hubId": "anchae",
+        "ko": "안채",
+        "de": "Inneres Haupthaus",
+        "asset": "anchae.png",
+        "x": 55.3,
+        "y": 31.5,
+        "width": 20,
+        "rotation": 90,
+        "unlockEra": "b1",
+        "lessonIntent": "경험과 습관",
+        "sourceManifestId": "anchae",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/anchae.png",
+            "sha256": "892d09feb94fff76a985aebe02985e06ec92cad7e1a8c5a46186d07127ab2a29",
+            "size": [
+              1100,
+              619
+            ],
+            "alphaBbox": [
+              77,
+              103,
+              1076,
+              464
+            ]
+          }
+        ],
+        "renderedSize": [
+          271,
+          482
+        ],
+        "renderedOffset": [
+          1199,
+          585
+        ]
+      },
+      "anchae-store": {
+        "hubId": "anchae",
+        "ko": "안채곳간채",
+        "de": "Inneres Speicherhaus",
+        "asset": "anchae-store.png",
+        "x": 35.5,
+        "y": 31.7,
+        "width": 18,
+        "rotation": 90,
+        "unlockEra": "b1",
+        "lessonIntent": "집안일과 일상",
+        "sourceManifestId": "anchae-store",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/anchae-store.png",
+            "sha256": "3173e939f11070bb14ea9054fce1d5629cb3f95fa0287a99f74ec58b138861d1",
+            "size": [
+              1100,
+              619
+            ],
+            "alphaBbox": [
+              3,
+              141,
+              1096,
+              515
+            ]
+          }
+        ],
+        "renderedSize": [
+          244,
+          434
+        ],
+        "renderedOffset": [
+          734,
+          614
+        ]
+      },
+      "jungmunganchae": {
+        "hubId": "sarang",
+        "ko": "사랑채 뒤채",
+        "de": "Hinterer Sarang-Flügel",
+        "asset": "rear-wing.png",
+        "x": 40.3,
+        "y": 43.6,
+        "width": 18,
+        "rotation": 90,
+        "unlockEra": "a1",
+        "lessonIntent": "공간의 앞뒤 관계",
+        "sourceManifestId": "rear-wing",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/rear-wing.png",
+            "sha256": "f6e7a344a6db7a54f2e4e985fc6f425a536271f29b085ed43f2caa46dee5f383",
+            "size": [
+              1100,
+              537
+            ],
+            "alphaBbox": [
+              20,
+              39,
+              1079,
+              504
+            ]
+          }
+        ],
+        "renderedSize": [
+          212,
+          434
+        ],
+        "renderedOffset": [
+          866,
+          926
+        ]
+      },
+      "changgo": {
+        "hubId": "service",
+        "ko": "창고",
+        "de": "Lagerhaus",
+        "asset": "changgo.png",
+        "x": 28.1,
+        "y": 48.5,
+        "width": 19,
+        "rotation": 90,
+        "unlockEra": "b1",
+        "lessonIntent": "물건과 수량",
+        "sourceManifestId": "changgo",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/changgo.png",
+            "sha256": "2bfcfbe008351da55e5d9264f126f6c7ccbfaaf5cb12038b3d79f8a16c0e2b05",
+            "size": [
+              1100,
+              618
+            ],
+            "alphaBbox": [
+              6,
+              152,
+              1100,
+              510
+            ]
+          }
+        ],
+        "renderedSize": [
+          257,
+          458
+        ],
+        "renderedOffset": [
+          550,
+          1043
+        ]
+      },
+      "gokgan": {
+        "hubId": "service",
+        "ko": "곳간채",
+        "de": "Großes Speicherhaus",
+        "asset": "gokganchae.png",
+        "x": 72.1,
+        "y": 49.6,
+        "width": 20,
+        "rotation": 90,
+        "unlockEra": "b2",
+        "lessonIntent": "계획과 준비",
+        "sourceManifestId": "gokgan",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/gokganchae.png",
+            "sha256": "b0d4adf8d87bcc1c5fdea84560c527fb647cd5a70af8a8753eae72cf4d2fa7f3",
+            "size": [
+              1100,
+              618
+            ],
+            "alphaBbox": [
+              10,
+              105,
+              1089,
+              542
+            ]
+          }
+        ],
+        "renderedSize": [
+          271,
+          482
+        ],
+        "renderedOffset": [
+          1604,
+          1060
+        ]
+      },
+      "hyeopmun-west": {
+        "ko": "서협문",
+        "asset": "hyeopmun.png",
+        "x": 34.5,
+        "y": 51.2,
+        "width": 6.4,
+        "rotation": 0,
+        "unlockEra": "b1",
+        "sourceManifestId": "hyeopmun-west",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/hyeopmun.png",
+            "sha256": "2655d4bafc0a7388e3727206a9a1bbf6536c65a5f38da8998e35579edac3daa1",
+            "size": [
+              736,
+              1100
+            ],
+            "alphaBbox": [
+              24,
+              99,
+              713,
+              986
+            ]
+          }
+        ],
+        "renderedSize": [
+          154,
+          230
+        ],
+        "renderedOffset": [
+          755,
+          1227
+        ]
+      },
+      "sarangchae": {
+        "hubId": "sarang",
+        "ko": "사랑채",
+        "de": "Sarangchae",
+        "asset": "sarangchae.png",
+        "x": 48.2,
+        "y": 55.8,
+        "width": 29,
+        "rotation": 0,
+        "unlockEra": "a1",
+        "lessonIntent": "존댓말과 손님맞이",
+        "sourceManifestId": "sarangchae",
+        "sourceComponents": [
+          {
+            "file": "stage_12_complete_v3_base.png",
+            "sha256": "f2c01142f465b9353e0b9546a00f167891753039d9c910620d83cd924a077212",
+            "size": [
+              2512,
+              1680
+            ],
+            "alphaBbox": [
+              42,
+              247,
+              2458,
+              1421
+            ]
+          },
+          {
+            "file": "stage_12_hyeonpan_installed.png",
+            "sha256": "759f062ca1cf43ede7ac14eb0a99e51153d2f043af799bf279cd122db52735ce",
+            "size": [
+              2512,
+              1680
+            ],
+            "alphaBbox": [
+              1038,
+              668,
+              1708,
+              765
+            ]
+          }
+        ],
+        "renderedSize": [
+          699,
+          467
+        ],
+        "renderedOffset": [
+          814,
+          1230
+        ]
+      },
+      "toilet-south": {
+        "hubId": "service",
+        "ko": "아랫화장실",
+        "de": "Südliches Nebengebäude",
+        "asset": "toilet.png",
+        "x": 13.1,
+        "y": 62.1,
+        "width": 9,
+        "rotation": 4,
+        "unlockEra": "b1",
+        "lessonIntent": "방향과 이동",
+        "sourceManifestId": "toilet-south",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/toilet.png",
+            "sha256": "c0ff7210a6bd1b2d04f281fe698c7a01b9e701555542b099b6f157875b35dcda",
+            "size": [
+              1100,
+              825
+            ],
+            "alphaBbox": [
+              147,
+              76,
+              900,
+              733
+            ]
+          }
+        ],
+        "renderedSize": [
+          229,
+          179
+        ],
+        "renderedOffset": [
+          202,
+          1539
+        ]
+      },
+      "ansarang": {
+        "hubId": "byeoldang-seogo",
+        "ko": "안사랑채·별당",
+        "de": "Inneres Sarangchae",
+        "asset": "ansarangchae.png",
+        "x": 70.6,
+        "y": 68.5,
+        "width": 21,
+        "rotation": 90,
+        "unlockEra": "b2",
+        "lessonIntent": "문화적 뉘앙스",
+        "sourceManifestId": "ansarang",
+        "sourceComponents": [
+          {
+            "file": "assets/illustrations/personal_hanok_v3/world/ansarangchae.png",
+            "sha256": "62e63b857fc3676f6bf37ef41d26a4c78c32c030ab05bcfbe94cec7c7556745c",
+            "size": [
+              1100,
+              618
+            ],
+            "alphaBbox": [
+              10,
+              41,
+              1093,
+              563
+            ]
+          }
+        ],
+        "renderedSize": [
+          285,
+          507
+        ],
+        "renderedOffset": [
+          1561,
+          1543
+        ]
+      }
+    },
+    "futureInternalWall": {
+      "changgoSideConnectionFraction": 0.5,
+      "connectAfterPlacementApproval": true
+    },
+    "openSarangYard": {
+      "left": 20,
+      "top": 59,
+      "width": 44,
+      "height": 27,
+      "purpose": "player-decoration-space"
+    },
+    "reviewArtifacts": [
+      {
+        "file": "qa/ildu_building_first_ground_v3.png",
+        "sha256": "3b3e4a40601bf24cf6b06d47868776b06f21f14c3fcc37ef6e52a62086aace96",
+        "size": [
+          2412,
+          2622
+        ],
+        "alphaBbox": [
+          0,
+          0,
+          2412,
+          2622
+        ]
+      },
+      {
+        "file": "qa/ildu_building_first_layout_v3.png",
+        "sha256": "a3a74bff4f9ff2050a90c8908de3bbae92b20ed3acca1c88fc1084acf5d59bb9",
+        "size": [
+          2412,
+          2622
+        ],
+        "alphaBbox": [
+          0,
+          0,
+          2412,
+          2622
+        ]
+      },
+      {
+        "file": "qa/ildu_building_first_relationship_detail_v3.png",
+        "sha256": "78ec9205b0dfaa32c58e49fe01bc094c99a59dde35edce00ec5ee9cca806503d",
+        "size": [
+          1900,
+          1400
+        ],
+        "alphaBbox": [
+          0,
+          0,
+          1900,
+          1400
+        ]
+      }
     ]
   },
+  "supersededReviewArtifacts": [
+    "qa/sarangchae_in_world_hyeonpan_review.png",
+    "qa/sarangchae_in_world_hyeonpan_detail.png"
+  ],
   "reviewArtifacts": [
     {
       "file": "qa/sarangchae_12_stage_review.png",
@@ -423,8 +961,8 @@
       ]
     },
     {
-      "file": "qa/sarangchae_in_world_hyeonpan_review.png",
-      "sha256": "0f9f42a9e3d2e818edeab0f1a505da2cd472dacef16d6045babef52890e54692",
+      "file": "qa/ildu_building_first_ground_v3.png",
+      "sha256": "3b3e4a40601bf24cf6b06d47868776b06f21f14c3fcc37ef6e52a62086aace96",
       "size": [
         2412,
         2622
@@ -437,8 +975,22 @@
       ]
     },
     {
-      "file": "qa/sarangchae_in_world_hyeonpan_detail.png",
-      "sha256": "80bfa8427b3bd5b740eb8b8368b993b5ed38e6247fe223b9e6bb2ad0e9406c44",
+      "file": "qa/ildu_building_first_layout_v3.png",
+      "sha256": "a3a74bff4f9ff2050a90c8908de3bbae92b20ed3acca1c88fc1084acf5d59bb9",
+      "size": [
+        2412,
+        2622
+      ],
+      "alphaBbox": [
+        0,
+        0,
+        2412,
+        2622
+      ]
+    },
+    {
+      "file": "qa/ildu_building_first_relationship_detail_v3.png",
+      "sha256": "78ec9205b0dfaa32c58e49fe01bc094c99a59dde35edce00ec5ee9cca806503d",
       "size": [
         1900,
         1400

@@ -136,7 +136,7 @@ class AssembleSarangchaeVariablePilotTest(unittest.TestCase):
         manifest_path = OUTPUT_DIR / "MANIFEST.json"
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
 
-        self.assertEqual(manifest["status"], "pending_visual_and_in_world_approval")
+        self.assertEqual(manifest["status"], "pending_building_placement_approval")
         self.assertEqual(
             [row["sequence"] for row in manifest["stages"]],
             list(range(1, 13)),
@@ -151,17 +151,65 @@ class AssembleSarangchaeVariablePilotTest(unittest.TestCase):
                 path = OUTPUT_DIR / asset["file"]
                 self.assertEqual(sha256(path), asset["sha256"])
 
-    def test_review_outputs_include_full_world_and_detail_previews(self):
+    def test_review_outputs_include_building_first_previews(self):
         expected = {
             "sarangchae_12_stage_review.png": (3240, 920),
-            "sarangchae_in_world_hyeonpan_review.png": (2412, 2622),
-            "sarangchae_in_world_hyeonpan_detail.png": (1900, 1400),
+            "ildu_building_first_ground_v3.png": (2412, 2622),
+            "ildu_building_first_layout_v3.png": (2412, 2622),
+            "ildu_building_first_relationship_detail_v3.png": (1900, 1400),
         }
         for filename, size in expected.items():
             path = OUTPUT_DIR / "qa" / filename
             with Image.open(path) as image:
                 self.assertEqual(image.size, size, filename)
 
+    def test_building_first_revision_locks_connections_before_walls(self):
+        manifest_path = OUTPUT_DIR / "MANIFEST.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        revision = manifest["buildingPlacementV3"]
+        anchors = revision["anchors"]
+
+        self.assertEqual(revision["status"], "pending_building_placement_approval")
+        self.assertEqual(revision["sequence"], ["buildings", "internal-walls", "outer-wall"])
+        self.assertEqual(revision["wallLayers"], [])
+        self.assertEqual(revision["canvas"], [2412, 2622])
+        self.assertEqual(
+            revision["requiredRelations"],
+            [
+                "changgo-side-midpoint-to-shared-wall",
+                "shared-wall-to-hyeopmun",
+                "hyeopmun-immediately-left-of-sarangchae",
+                "jungmunganchae-immediately-behind-sarangchae",
+            ],
+        )
+        self.assertLess(anchors["changgo"]["x"], anchors["hyeopmun-west"]["x"])
+        self.assertLess(
+            anchors["hyeopmun-west"]["x"],
+            anchors["sarangchae"]["x"],
+        )
+        self.assertLessEqual(
+            abs(anchors["sarangchae"]["y"] - anchors["hyeopmun-west"]["y"]),
+            8,
+        )
+        self.assertLess(
+            anchors["jungmunganchae"]["y"],
+            anchors["sarangchae"]["y"],
+        )
+        self.assertLessEqual(
+            anchors["sarangchae"]["y"] - anchors["jungmunganchae"]["y"],
+            13,
+        )
+        self.assertEqual(len(revision["buildingIds"]), 11)
+        self.assertIn("hyeopmun-west", revision["connectionBuildingIds"])
+        self.assertGreaterEqual(revision["openSarangYard"]["width"], 44)
+        self.assertGreaterEqual(revision["openSarangYard"]["height"], 27)
+        self.assertEqual(
+            [component["file"] for component in anchors["sarangchae"]["sourceComponents"]],
+            [
+                "stage_12_complete_v3_base.png",
+                "stage_12_hyeonpan_installed.png",
+            ],
+        )
 
 if __name__ == "__main__":
     unittest.main()
